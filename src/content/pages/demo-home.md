@@ -2,7 +2,7 @@
 title: 'Home'
 date: 2015-07-15
 slug: 'demo-home'
-description: 'Joe KarlssonHello, you can call me Joe.Data Engineer & Developer Advocate  Joe Karlsson (He/They) is a Data Engineer turned Developer Advocate (and massive nerd) . Joe empowers developers to think...'
+description: 'Joe KarlssonHello, you can call me Joe.Data Engineer & Developer Advocate  Joe Karlsson (He/They) is a Data Engineer turned Developer Advocate . Joe empowers developers to think...'
 heroImage: '/images/blog/demo-home/4.jpg'
 ---
 
@@ -20,7 +20,7 @@ heroImage: '/images/blog/demo-home/4.jpg'
 
 ## [\*\*](https://twitter.com/JoeKarlsson1)[\*\*](https://www.linkedin.com/in/joekarlsson/)[\*\*](https://vm.tiktok.com/qBRfom/)
 
-#### Joe Karlsson (He/They) is a Data Engineer turned Developer Advocate (and massive nerd) .
+#### Joe Karlsson (He/They) is a Data Engineer turned Developer Advocate.
 
 #### Joe empowers developers to think creatively when building applications, through [demos](/work), [blogs](/blog), [videos](/featured-work), or whatever else developers need.
 

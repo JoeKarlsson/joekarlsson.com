@@ -1,6 +1,6 @@
 export const SITE_TITLE = 'Joe Karlsson';
 export const SITE_DESCRIPTION =
-	'Software Engineer, Developer Advocate, and massive nerd. Writing about databases, smart homes, developer tools, and the things I build.';
+	'Software Engineer and Developer Advocate. Writing about databases, smart homes, developer tools, and the things I build.';
 export const SITE_URL = 'https://www.joekarlsson.com';
 
 export const SOCIAL_LINKS = {

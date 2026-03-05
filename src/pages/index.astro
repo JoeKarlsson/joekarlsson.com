@@ -33,18 +33,10 @@ const featuredPosts = featuredSlugs
 
 const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice(0, 6);
 
-const taglines = [
-	'Built an IoT cat toilet. Gave a conference talk about it.',
-	'Mass-assigning GPU transcoding jobs at 2am on a Tuesday.',
-	'Running 40+ containers because "it\'ll be quick to set up."',
-	'TEDx speaker. Homelab hoarder. Film snob.',
-	"Teaching computers to do things they probably shouldn't.",
-	'TEDx Speaker - talked about the art of computer science.',
-];
 ---
 
 <BaseLayout
-	title="Joe Karlsson | Developer Advocate & Massive Nerd"
+	title="Joe Karlsson | Software Engineer & Developer Advocate"
 	description={SITE_DESCRIPTION}
 	schemaType="WebSite"
 >
@@ -88,14 +80,6 @@ const taglines = [
 						autocapitalize="off"
 						spellcheck="false"
 					/>
-				</div>
-				<div class="bg-surface-1 border-t border-surface-3 px-5 md:px-8 py-2">
-					<p
-						class="font-mono text-xs text-gray-300 md:text-gray-400 transition-opacity duration-300"
-						id="rotating-tagline"
-					>
-						{taglines[0]}
-					</p>
 				</div>
 			</div>
 
@@ -817,7 +801,7 @@ const taglines = [
 	}
 
 	function cmdWhoami(): string[] {
-		return ['<span class="text-teal">joe-karlsson</span> - software engineer & massive nerd', ''];
+		return ['<span class="text-teal">joe-karlsson</span> - software engineer & developer advocate', ''];
 	}
 
 	function cmdCatAbout(): string[] {
@@ -826,7 +810,7 @@ const taglines = [
 			'  <span class="text-yellow">## about.md</span>',
 			'',
 			'  Hey, I\'m <span class="text-coral">Joe Karlsson</span>.',
-			'  Software engineer turned dev advocate. Massive nerd.',
+			'  Software engineer turned dev advocate.',
 			'',
 			'  I help developers build cool stuff - through demos,',
 			'  blog posts, talks, videos, whatever works. Currently',
@@ -963,7 +947,7 @@ const taglines = [
 			'<span class="text-yellow">JOE(1)                    User Commands                    JOE(1)</span>',
 			'',
 			'<span class="text-white">NAME</span>',
-			'       joe - software engineer, developer advocate, massive nerd',
+			'       joe - software engineer, developer advocate',
 			'',
 			'<span class="text-white">SYNOPSIS</span>',
 			'       joe [--verbose] [--homelab] [--cats]',
@@ -1345,29 +1329,6 @@ const taglines = [
 	}
 
 	boot();
-
-	// --- Rotating tagline ---
-	const taglineEl = document.getElementById('rotating-tagline');
-	const taglines = [
-		'Built an IoT cat toilet. Gave a conference talk about it.',
-		'Mass-assigning GPU transcoding jobs at 2am on a Tuesday.',
-		'Running 40+ containers because "it\'ll be quick to set up."',
-		'TEDx speaker. Homelab hoarder. Film snob.',
-		"Teaching computers to do things they probably shouldn't.",
-		'TEDx Speaker - talked about the art of computer science.',
-	];
-	if (taglineEl) {
-		let ti = 0;
-		taglineEl.style.transition = 'opacity 0.3s ease';
-		setInterval(() => {
-			ti = (ti + 1) % taglines.length;
-			taglineEl.style.opacity = '0';
-			setTimeout(() => {
-				taglineEl.textContent = taglines[ti];
-				taglineEl.style.opacity = '1';
-			}, 300);
-		}, 4000);
-	}
 
 	// Scroll reveal
 	const observer = new IntersectionObserver(
