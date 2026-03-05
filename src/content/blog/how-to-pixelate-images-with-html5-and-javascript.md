@@ -17,7 +17,7 @@ This blog post will break down step by step how I wrote my code for Pixelate.js.
 
 From a high level, the Pixelate.js function works because we turn off browser image smoothing, which typically helps upscaled images look less terrible, then shrink an image, and blow up the shrunken image to its the original size.
 
-Feel free to also check out/fork my source code from my [GitHub](https://github.com/JoeKarlsson1/Pixelate) repository.
+Feel free to also check out/fork my source code from my [GitHub](https://github.com/JoeKarlsson1/Pixelate) repository. Pixelate is one of several side projects I've built over the years - you can see the rest on my [work page](/work/).
 
 Okay, now let’s break how I built Pixelate.js.
 

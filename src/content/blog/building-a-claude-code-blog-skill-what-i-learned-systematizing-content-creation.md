@@ -90,7 +90,7 @@ I’m not afraid of AI replacing developer advocacy work. I’m more worried abo
 
 The industry is still figuring out what AI-assisted DevRel looks like. We’re in the crystallization phase - experimenting, sharing what works, discarding what doesn’t. I’m already thinking about the next iteration: using skills to personalize developer onboarding, create custom documentation paths, generate context-aware code examples.
 
-The terminal has always been where I do my best work.
+The terminal has always been where I do my best work. Claude Code is one of several dev tools I use daily - I keep a full list on my [uses page](/uses/).
 
 Now it’s where I build tools that let the whole team do theirs.
 

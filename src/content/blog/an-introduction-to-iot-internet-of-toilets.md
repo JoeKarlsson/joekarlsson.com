@@ -295,6 +295,6 @@ Alright, let’s wrap this party up. In this post, we talked about why you shoul
 
 ![Final IoT Kitty Litter Box Assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process-1.gif)_Final IoT Kitty Litter Box Assembly process_
 
-What’s next? Well, if I have inspired you to get started on your own IoT project, I say, “Go for it!” Pick out a project, even if it’s “crappy,” and build it. Google as you go, and make mistakes. I think it’s the best way to learn. I hereby give you permission to make stupid stuff just for you, something to help you learn and grow as a human being and a software engineer.
+What’s next? Well, if I have inspired you to get started on your own IoT project, I say, “Go for it!” Pick out a project, even if it’s “crappy,” and build it. Google as you go, and make mistakes. I think it’s the best way to learn. I hereby give you permission to make stupid stuff just for you, something to help you learn and grow as a human being and a software engineer. If you want to see what else I’ve been building, check out my other [projects](/work/).
 
 > When you’re ready to build your own IoT device, check out [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.

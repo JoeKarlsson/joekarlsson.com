@@ -33,7 +33,7 @@ This collaborative digital humanities project is the product of a shared passion
 
 The importance of this tool lies in its ability to analyze films on the macro-level. While anyone can sit through a film with a notebook and pencil in order to determine if it passes the Bechdel Test, this is a slow and cumbersome process. With the tool we’ve created, the process is automated, which allows massive amounts of data to be generated with ease. Thus, data can be produced for large bodies of film, i.e. a certain director’s filmography, a certain actress’ body of work, or for the films released in a specific year.
 
-We view this tool as a form of feminist activism. As such, the software is open-source and available for use by anyone and everyone.
+We view this tool as a form of feminist activism. As such, the software is open-source and available for use by anyone and everyone. You can find Bechdel.io and my other [projects on my work page](/work/).
 
 Outline:
 

@@ -17,7 +17,7 @@ Amazon’s recent privacy policy changes around voice data collection finally pu
 
 ![Hand holding a smart home voice assistant device with black cat watching](/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/IMG_2349-1024x576.webp)
 
-The $59 device features professional-grade hardware with dual microphones, XMOS audio processing, and an ESP32-S3 chip that can handle local wake word detection. [[The Pi Hut](https://thepihut.com/products/home-assistant-voice-preview-edition)] More importantly, it includes a physical mute switch that actually cuts power to the microphones.
+The $59 device features professional-grade hardware with dual microphones, XMOS audio processing, and an ESP32-S3 chip that can handle local wake word detection. I keep a full list of my smart home devices on my [uses page](/uses/) if you want to see everything I'm running. [[The Pi Hut](https://thepihut.com/products/home-assistant-voice-preview-edition)] More importantly, it includes a physical mute switch that actually cuts power to the microphones.
 
 ## Hardware setup: Surprisingly smooth initial experience
 
