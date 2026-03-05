@@ -90,4 +90,4 @@ Once we got comfortable with the basics, we started to explore more advanced int
 
 ## Conclusion
 
-Getting started with Home Assistant can seem overwhelming, but with a little bit of patience and some creativity, you can turn your home into a smart home that is efficient, secure, and fun to live in. Start with the basics and gradually progress to more advanced integrations. If you’re curious about my full smart home stack, I keep an updated list on my [uses page](/uses/). Remember to have fun and don’t be afraid to experiment with different automation ideas!
+Getting started with Home Assistant can seem overwhelming, but with a little bit of patience and some creativity, you can turn your home into a smart home that is efficient, secure, and fun to live in. Start with the basics and gradually progress to more advanced integrations. Remember to have fun and don’t be afraid to experiment with different automation ideas!

@@ -179,13 +179,13 @@ In the pursuit of optimizing my Homelab, integrating Network Attached Storage (N
 
 - Update the Package List and Install NFS Support
 
-```bash
+```
 sudo apt update && sudo apt install nfs-common -y
 ```
 
 - Create Mount Point Directory
 
-```bash
+```
 mkdir /nas
 ```
 
@@ -193,31 +193,31 @@ mkdir /nas
 
 Open the `/etc/fstab` file in a text editor. Here, we use `nano`.
 
-```bash
+```
 nano /etc/fstab
 ```
 
 Add the following line to mount the NAS.
 
-```text
+```
 [IP_ADDRESS_OF_YOUR_NAS]:[DIRECTORY_YOUR_SHARE] /nas nfs defaults 0 0
 ```
 
 An example would be:
 
-```text
+```
 192.168.0.555:/volume1/data /nas nfs defaults 0 0
 ```
 
 - Reload System Daemons
 
-```bash
+```
 systemctl daemon-reload
 ```
 
 - Mount the NAS
 
-```bash
+```
 mount [IP_ADDRESS_OF_YOUR_NAS]:[DIRECTORY_YOUR_SHARE]
 ```
 
@@ -265,7 +265,7 @@ Shockingly, I decided not to install HomeAssistant (which is a project I am a ma
 
 ## Wrap Up
 
-The most important takeaway is this: don’t wait for the ‘perfect’ time or the ‘perfect’ gear to start your Homelab. You can see my full gear list on my [uses page](/uses/) if you’re curious about what I’m running these days. With platforms like Proxmox and a vibrant community supporting tons of containerized services, you can start small and scale at your own pace. A Homelab is a canvas for your technical endeavors, a playground for your curiosity. It’s a project that grows with you, and it’s never too late to get started. Whether you’re using second-hand hardware, an old PC, or even a Raspberry Pi, your journey into the world of home labs will be a fulfilling one. Reach out to share your own experiences, ask questions, or offer insights. Trust me, once you dive in, you’ll wonder why you didn’t start sooner.
+The most important takeaway is this: don’t wait for the ‘perfect’ time or the ‘perfect’ gear to start your Homelab. With platforms like Proxmox and a vibrant community supporting tons of containerized services, you can start small and scale at your own pace. A Homelab is a canvas for your technical endeavors, a playground for your curiosity. It’s a project that grows with you, and it’s never too late to get started. Whether you’re using second-hand hardware, an old PC, or even a Raspberry Pi, your journey into the world of home labs will be a fulfilling one. Reach out to share your own experiences, ask questions, or offer insights. Trust me, once you dive in, you’ll wonder why you didn’t start sooner.
 
 ---
 

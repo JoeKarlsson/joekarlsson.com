@@ -45,7 +45,7 @@ The SQL examples assume _two_ tables, _album_ and _songs_, that join by the _son
 
 I used a site called SQL Fiddle, and used PostgreSQL 9.6 for all of my examples. However, feel free to run these sample SQL snippets wherever you feel most comfortable. Here's the code I used to set up and seed my tables with our sample data:
 
-```sql
+```
 -- Creating the main albums table
 CREATE TABLE IF NOT EXISTS albums (
     id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
@@ -85,23 +85,23 @@ VALUES
 
 The MongoDB examples assume _one_ collection `albums` that contains documents with the following schema:
 
-```json
+```
 {
-	"name": "lo-fi chill hop songs to study to",
-	"band_name": "Silicon Infinite",
-	"price": 7.99,
-	"status": "A",
-	"songs": [
-		{ "title": "Snow beats", "plays": 133 },
-		{ "title": "Rolling By", "plays": 242 },
-		{ "title": "Sway", "plays": 3191 }
-	]
+    name : 'lo-fi chill hop songs to study to',
+    band_name: 'Silicon Infinite',
+    price: 7.99,
+    status: 'A',
+    songs: [
+        { title: 'Snow beats', 'plays': 133 },
+        { title: 'Rolling By', 'plays': 242 },
+        { title: 'Sway', 'plays': 3191 }
+    ]
 }
 ```
 
 For this post, I did all of my prototyping in a MongoDB Visual Studio Code plugin playground. For more information on how to use a MongoDB Playground in Visual Studio Code, be sure to check out this post: How To Use The MongoDB Visual Studio Code Plugin. Once you have your playground all set up, you can use this snippet to set up and seed your collection. You can also follow along with this demo by using the [MongoDB Web Shell](https://docs.mongodb.com/manual/tutorial/getting-started).
 
-```javascript
+```
 // Select the database to use.
 use('mongodbVSCodePlaygroundDB');
 
@@ -111,38 +111,29 @@ db.albums.drop();
 
 // Insert a few documents into the albums collection.
 db.albums.insertMany([
-	{
-		name: 'lo-fi chill hop songs to study to',
-		band_name: 'Silicon Infinite',
-		price: 7.99,
-		status: 'A',
-		songs: [
-			{ title: 'Snow beats', plays: 133 },
-			{ title: 'Rolling By', plays: 242 },
-			{ title: 'Clouds', plays: 3191 },
-		],
-	},
-	{
-		name: 'Moon Rocks',
-		band_name: 'Silicon Infinite',
-		price: 1.99,
-		status: 'B',
-		songs: [
-			{ title: 'Milk Toast', plays: 118 },
-			{ title: 'Purple Mic', plays: 719 },
-			{ title: 'One Note Dinner Party', plays: 1242 },
-		],
-	},
-	{
-		name: 'Flavour',
-		band_name: 'Organical',
-		price: 4.99,
-		status: 'A',
-		songs: [
-			{ title: 'But First Coffee', plays: 562 },
-			{ title: 'Autumn', plays: 901 },
-		],
-	},
+    {
+        'name' : 'lo-fi chill hop songs to study to', band_name: 'Silicon Infinite', price: 7.99, status: 'A',
+        songs: [
+            { title: 'Snow beats', 'plays': 133 },
+            { title: 'Rolling By', 'plays': 242 },
+            { title: 'Clouds', 'plays': 3191 }
+        ]
+    },
+    {
+        'name' : 'Moon Rocks', band_name: 'Silicon Infinite', price: 1.99, status: 'B',
+        songs: [
+            { title: 'Milk Toast', 'plays': 118 },
+            { title: 'Purple Mic', 'plays': 719 },
+            { title: 'One Note Dinner Party', 'plays': 1242 }
+        ]
+    },
+    {
+        'name' : 'Flavour', band_name: 'Organical', price: 4.99, status: 'A',
+        songs: [
+            { title: 'But First Coffee', 'plays': 562 },
+            { title: 'Autumn', 'plays': 901 }
+        ]
+    },
 ]);
 ```
 
@@ -152,51 +143,51 @@ db.albums.insertMany([
 
 #### SQL
 
-```sql
+```
 SELECT COUNT(*) AS count
 FROM albums
 ```
 
 #### MongoDB
 
-```javascript
-db.albums.aggregate([
-	{
-		$group: {
-			_id: null, //  An _id value of null on the $group operator accumulates values for all the input documents as a whole.
-			count: { $sum: 1 },
-		},
-	},
-]);
+```
+db.albums.aggregate( [
+    {
+        $group: {
+            _id: null,  //  An _id value of null on the $group operator accumulates values for all the input documents as a whole.
+            count: { $sum: 1 }
+        }
+    }
+] );
 ```
 
 ### Sum the price field from albums
 
 #### SQL
 
-```sql
+```
 SELECT SUM(price) AS total
 FROM albums
 ```
 
 #### MongoDB
 
-```javascript
-db.albums.aggregate([
-	{
-		$group: {
-			_id: null,
-			total: { $sum: '$price' },
-		},
-	},
-]);
+```
+db.albums.aggregate( [
+    {
+        $group: {
+            _id: null,
+            total: { $sum: "$price" }
+        }
+    }
+] );
 ```
 
 ### For each unique band_name, sum the price field
 
 #### SQL
 
-```sql
+```
 SELECT band_name,
 SUM(price) AS total
 FROM albums
@@ -205,22 +196,22 @@ GROUP BY band_name
 
 MongoDB
 
-```javascript
-db.albums.aggregate([
-	{
-		$group: {
-			_id: '$band_name',
-			total: { $sum: '$price' },
-		},
-	},
-]);
+```
+db.albums.aggregate( [
+    {
+        $group: {
+            _id: "$band_name",
+            total: { $sum: "$price" }
+        }
+    }
+] );
 ```
 
 ### For each unique band_name, sum the price field, results sorted by sum
 
 #### SQL
 
-```sql
+```
 SELECT band_name,
     SUM(price) AS total
 FROM albums
@@ -230,7 +221,7 @@ ORDER BY total
 
 MongoDB
 
-```javascript
+```
 db.albums.aggregate( [
     {
         $group: {
@@ -246,7 +237,7 @@ db.albums.aggregate( [
 
 #### SQL
 
-```sql
+```
 SELECT band_name,
     count(*)
 FROM albums
@@ -256,7 +247,7 @@ HAVING count(*) > 1;
 
 MongoDB
 
-```javascript
+```
 db.albums.aggregate( [
     {
       $group: {
@@ -272,7 +263,7 @@ db.albums.aggregate( [
 
 #### SQL
 
-```sql
+```
 SELECT band_name,
     SUM(price) as total
 FROM albums
@@ -282,7 +273,7 @@ GROUP BY band_name
 
 MongoDB
 
-```javascript
+```
 db.albums.aggregate( [
     { $match: { status: 'A' } },
     {
@@ -298,7 +289,7 @@ db.albums.aggregate( [
 
 #### SQL
 
-```sql
+```
 SELECT band_name,
     SUM(price) as total
 FROM albums
@@ -309,7 +300,7 @@ HAVING SUM(price) > 5.00;
 
 MongoDB
 
-```javascript
+```
 db.albums.aggregate( [
     { $match: { status: 'A' } },
     {
@@ -326,7 +317,7 @@ db.albums.aggregate( [
 
 #### SQL
 
-```sql
+```
 SELECT band_name,
     SUM(songs.plays) as total_plays
 FROM albums,
@@ -337,7 +328,7 @@ GROUP BY band_name;
 
 MongoDB
 
-```javascript
+```
 db.albums.aggregate( [
     { $unwind: "$songs" },
     {
@@ -353,7 +344,7 @@ db.albums.aggregate( [
 
 #### SQL
 
-```sql
+```
 SELECT name, title, plays
     FROM songs s1 INNER JOIN albums ON (album_id = albums.id)
 WHERE plays=(SELECT MAX(s2.plays)
@@ -364,7 +355,7 @@ ORDER BY name;
 
 MongoDB
 
-```javascript
+```
 db.albums.aggregate( [
     { $project:
         {
@@ -393,8 +384,8 @@ If you want to get better at using the MongoDB Aggregation Framework, be sure to
 
 ## Want to check out more of my technical posts?
 
-- [Building a Claude Code Blog Skill: What I Learned Systematizing Content Creation](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/)
-- [Self-Hosted Music Still Sucks in 2025](/blog/self-hosted-music-still-sucks-in-2025/)
-- [I Replaced Alexa with a Dumber Voice Assistant (But at Least It’s Private)](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/)
-- [Why Clickhouse Should Be Your Next Database](/blog/why-clickhouse-should-be-your-next-database/)
-- [Data Warehouses Are Terrible Application Backends](/blog/data-warehouses-are-terrible-application-backends/)
+- [Building a Claude Code Blog Skill: What I Learned Systematizing Content Creation](https://www.joekarlsson.com/2025/10/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/)
+- [Self-Hosted Music Still Sucks in 2025](https://www.joekarlsson.com/2025/06/self-hosted-music-still-sucks-in-2025/)
+- [I Replaced Alexa with a Dumber Voice Assistant (But at Least It’s Private)](https://www.joekarlsson.com/2025/06/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/)
+- [Why Clickhouse Should Be Your Next Database](https://www.joekarlsson.com/2024/04/why-clickhouse-should-be-your-next-database/)
+- [Data Warehouses Are Terrible Application Backends](https://www.joekarlsson.com/2024/04/data-warehouses-are-terrible-application-backends/)

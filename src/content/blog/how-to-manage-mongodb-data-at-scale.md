@@ -49,7 +49,7 @@ Optionally, you can enter up to two most commonly queried fields from the collec
 
 Before enabling the Online Archive, it’s a good idea to run a test to ensure that you are archiving the data that you intended to archive. Atlas provides a query for you to test on the confirmation screen. I am going to connect to my cluster using [MongoDB Compass](https://docs.mongodb.com/compass/master/connect/) to test this query out, but feel free to connect and run the query using any method you are most comfortable with. The query we are testing here is this.
 
-```javascript
+```
 db.comments.find({
    date: { $lte: new Date(ISODate().getTime() - 1000 \* 3600 \* 24 \* 3650)}
 })
@@ -94,12 +94,12 @@ There you have it! In this post, we explored how to manage your MongoDB data at 
 
 ## Want to check out more of my technical posts?
 
-- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
+- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](https://www.joekarlsson.com/2021/05/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
 
-- [MongoDB Aggregation Pipeline Queries vs SQL Queries](/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
+- [MongoDB Aggregation Pipeline Queries vs SQL Queries](https://www.joekarlsson.com/2021/05/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
 
-- [An Introduction to IoT (Internet of Toilets)](/blog/an-introduction-to-iot-internet-of-toilets/)
+- [An Introduction to IoT (Internet of Toilets)](https://www.joekarlsson.com/2020/11/an-introduction-to-iot-internet-of-toilets/)
 
-- [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/)
+- [How To Use The MongoDB Visual Studio Code Plugin](https://www.joekarlsson.com/2020/11/how-to-use-the-mongodb-visual-studio-code-plugin/)
 
-- [Linked Lists and MongoDB: A Gentle Introduction](/blog/linked-lists-and-mongodb-a-gentle-introduction/)
+- [Linked Lists and MongoDB: A Gentle Introduction](https://www.joekarlsson.com/2020/11/linked-lists-and-mongodb-a-gentle-introduction/)

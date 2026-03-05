@@ -1,14 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
 # Brand / project names
 # Compound / informal words
 # Custom dictionary for joekarlsson.com

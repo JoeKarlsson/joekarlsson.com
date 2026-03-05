@@ -7,8 +7,6 @@ categories: ['Databases']
 heroImage: '/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/og-green-pattern.webp'
 ---
 
-> **Note:** This tutorial was written in 2021 using MongoDB Node.js driver v3.6. The current driver (v6+) has API changes - `useNewUrlParser` and `useUnifiedTopology` options are no longer needed, and MongoDB now recommends the `crypt_shared` library instead of `mongocryptd`. The CSFLE concepts are still valid, but check the [current MongoDB CSFLE docs](https://www.mongodb.com/docs/manual/core/csfle/) for up-to-date code samples.
-
 Have you ever had to develop an application that stored sensitive data, like credit card numbers or social security numbers? This is a super common use case for databases, and it can be a pain to save this data securely. In this post, you will learn how to encrypt document fields client-side in Node.js with MongoDB client-side field-level encryption (CSFLE).
 
 In addition to CSFLE, there are some incredible security features that come packaged with MongoDB. For example, you should know that with MongoDB, you can take advantage of:
@@ -53,7 +51,7 @@ Because of the **libmongocrypt** and **mongocryptd** requirements, it’s worth 
 
 **libmongocrypt** is required for [automatic field level encryption](https://docs.mongodb.com/manual/core/security-automatic-client-side-encryption/#field-level-encryption-automatic), as it is the component that is responsible for performing the encryption or decryption of the data on the client with the MongoDB 4.2-compatible Node drivers. Now, there are currently a few solutions for installing the **libmongocrypt** library on macOS. However, the easiest is with [Homebrew](https://brew.sh/). If you’ve got Homebrew installed, you can install **libmongocrypt** with the following command:
 
-```bash
+```
 brew install mongodb/brew/libmongocrypt
 ```
 
@@ -61,7 +59,7 @@ brew install mongodb/brew/libmongocrypt
 
 ![Terminal showing npm install errors for libmongocrypt static linking](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/d2c1030de0b2c0ceb58e2c4e5c000d1575cf3902.webp)
 
-```bash
+```
 export BUILD_TYPE=dynamic
 ```
 
@@ -79,19 +77,19 @@ By this point, all the appropriate components for client-side field level encryp
 
 Let’s start by setting up all the files and dependencies we will need. In a new directory, create the following files, running the following command:
 
-```bash
+```
 touch clients.js helpers.js make-data-key.js
 ```
 
 Be sure to initialize a new NPM project, since we will be using several NPM dependencies.
 
-```bash
+```
 npm init --yes
 ```
 
 And let’s just go ahead and install all the packages that we will be using now.
 
-```bash
+```
 npm install -S mongodb mongodb-client-encryption node-gyp
 ```
 
@@ -111,7 +109,7 @@ MongoDB Client-Side Field Level Encryption (CSFLE) uses an encryption strategy c
 
 > To learn how to use a KMS in your CSFLE implementation, read the [Client-Side Field Level Encryption: Use a KMS to Store the Master Key](https://docs.mongodb.com/drivers/security/client-side-field-level-encryption-local-key-to-kms/) guide.
 
-```javascript
+```
 // clients.js
 
 const fs = require("fs")
@@ -186,7 +184,7 @@ CsfleHelper: class {
 
 The following script generates a 96-byte, locally-managed master key and saves it to a file called master-key.txt in the directory from which the script is executed, as well as saving it to our impromptu key management system in Atlas.
 
-```javascript
+```
 // make-data-key.js
 
 const { readMasterKey, CsfleHelper } = require("./helpers");
@@ -217,7 +215,7 @@ main().catch(console.dir)
 
 After saving this code, run the following to generate and save our keys.
 
-```bash
+```
 node make-data-key.js
 ```
 
@@ -231,7 +229,7 @@ It’s also a good idea to check in to make sure that this data has been saved c
 
 Your key should be shaped like this:
 
-```json
+```
 {
    "_id": "UUID('27a51d69-809f-4cb9-ae15-d63f7eab1585')",
    "keyAltNames": ["demo-data-key"],
@@ -255,7 +253,7 @@ The following table illustrates the data model of the Medical Care Management Sy
 
 Let’s add a function to our **csfleHelper** method in helper.js file so our application knows which fields need to be encrypted and decrypted.
 
-```javascript
+```
 if (dataKey === null) {
    throw new Error(
       "dataKey is a required argument. Ensure you've defined it in clients.js"
@@ -326,7 +324,7 @@ Alright, so now we have the JSON Schema and encryption keys necessary to create 
 
 To create the CSFLE-enabled client, we need to instantiate a standard MongoDB client object with the additional automatic encryption settings with the following **code snippet**:
 
-```javascript
+```
 async getCsfleEnabledClient(schemaMap = null) {
    if (schemaMap === null) {
       throw new Error(
@@ -368,7 +366,7 @@ We need to write a function in our clients.js to create a new patient record wit
 
 Note: Clients that do not have CSFLE configured will insert unencrypted data. We recommend using [server-side schema validation](https://docs.mongodb.com/manual/core/schema-validation/) to enforce encrypted writes for fields that should be encrypted.
 
-```javascript
+```
 const { readMasterKey, CsfleHelper } = require("./helpers");
 const { connectionString, dataKey } = require("./config");
 
@@ -453,7 +451,7 @@ The following diagram shows the steps taken by the client application and driver
 
 We can run queries on documents with encrypted fields using standard MongoDB driver methods. When a doctor performs a query in the Medical Care Management System to search for a patient by their SSN, the driver decrypts the patient’s data before returning it:
 
-```json
+```
 {
    "_id": "5d6ecdce70401f03b27448fc",
    "name": "Jon Doe",
@@ -484,31 +482,31 @@ And you should see your data written to your MongoDB Atlas database:
 
 If you run into any issues running your code locally, I have developed a Docker image that you can use to help you get set up MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js quickly or to troubleshoot local configuration issues. [You can download the code here](https://github.com/JoeKarlsson/client-side-field-level-encryption-csfle-mongodb-node-demo/tree/main/docker). Make sure you have docker configured locally before you run the code. You can download Docker [here](https://www.docker.com/products/docker-desktop).
 
-1. Change directories to the Docker directory.
+- Change directories to the Docker directory.
 
-```bash
+```
 cd docker
 ```
 
-2. Build Docker image with a tag name. Within this directory, execute:
+- Build Docker image with a tag name. Within this directory, execute:
 
-```bash
+```
 docker build . -t mdb-csfle-example
 ```
 
 This will build a Docker image with a tag name _mdb-csfle-example_.
 
-3. Run the Docker image by executing:
+- Run the Docker image by executing:
 
-```bash
+```
 docker run -tih csfle mdb-csfle-examp
 ```
 
-The command above will run a Docker image with tag _mdb-csfle-example_ and provide it with _csfle_ as its hostname.
+4. The command above will run a Docker image with tag _mdb-csfle-example_ and provide it with _csfle_ as its hostname.
 
 Once you’re inside the Docker container, you can follow the below steps to run the NodeJS code example.
 
-```bash
+```
 $ export MONGODB_URL="mongodb+srv://USER:PWD@EXAMPLE.mongodb.net/dbname?retryWrites=true&w=majority"
 
 $ node ./example.js
@@ -554,11 +552,11 @@ For more information on MongoDB Client-Side Field Level Encryption (CSFLE) with 
 
 - For additional information on the MongoDB CSFLE API, see the [official Node.js driver documentation](https://www.npmjs.com/package/mongodb-client-encryption)
 
-- [Questions? Comments? We’d love to connect with you. Join the conversation on the MongoDB Community Forums.](https://www.mongodb.com/community/forums/)
+- [Questions? Comments? We’d love to connect with you. Join the conversation on the MongoDB Community Forums.](https://www.npmjs.com/package/mongodb-client-encryption)
 
 ## Want to check out more of my technical posts?
 
-- [Building a Claude Code Blog Skill: What I Learned Systematizing Content Creation](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/)
-- [Self-Hosted Music Still Sucks in 2025](/blog/self-hosted-music-still-sucks-in-2025/)
-- [I Replaced Alexa with a Dumber Voice Assistant (But at Least It’s Private)](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/)
-- [Why Clickhouse Should Be Your Next Database](/blog/why-clickhouse-should-be-your-next-database/)
+- [Building a Claude Code Blog Skill: What I Learned Systematizing Content Creation](https://www.joekarlsson.com/2025/10/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/)
+- [Self-Hosted Music Still Sucks in 2025](https://www.joekarlsson.com/2025/06/self-hosted-music-still-sucks-in-2025/)
+- [I Replaced Alexa with a Dumber Voice Assistant (But at Least It’s Private)](https://www.joekarlsson.com/2025/06/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/)
+- [Why Clickhouse Should Be Your Next Database](https://www.joekarlsson.com/2024/04/why-clickhouse-should-be-your-next-database/)

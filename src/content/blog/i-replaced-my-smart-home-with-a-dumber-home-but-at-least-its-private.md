@@ -17,7 +17,7 @@ Amazon’s recent privacy policy changes around voice data collection finally pu
 
 ![Hand holding a smart home voice assistant device with black cat watching](/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/IMG_2349-1024x576.webp)
 
-The $59 device features professional-grade hardware with dual microphones, XMOS audio processing, and an ESP32-S3 chip that can handle local wake word detection. I keep a full list of my smart home devices on my [uses page](/uses/) if you want to see everything I'm running. [[The Pi Hut](https://thepihut.com/products/home-assistant-voice-preview-edition)] More importantly, it includes a physical mute switch that actually cuts power to the microphones.
+The $59 device features professional-grade hardware with dual microphones, XMOS audio processing, and an ESP32-S3 chip that can handle local wake word detection. [[The Pi Hut](https://thepihut.com/products/home-assistant-voice-preview-edition)] More importantly, it includes a physical mute switch that actually cuts power to the microphones.
 
 ## Hardware setup: Surprisingly smooth initial experience
 
@@ -45,7 +45,7 @@ This is where my expectations collided with reality. I naively assumed that migr
 
 Here’s an example of what I had to build for basic light control. This automation handles dozens of different voice commands for a single room:
 
-```yaml
+```
 alias: Assist - Lights - Comprehensive Room Aware Control
 description: >
   Controls lights in the room with voice commands for turning on/off, dimming,
@@ -66,7 +66,7 @@ triggers:
     trigger: conversation
 actions:
   - variables:
-      device_area: '{{ area_id(trigger.device_id) }}'
+      device_area: "{{ area_id(trigger.device_id) }}"
       lights_in_area: |
         {{ expand(area_entities(device_area))
            | selectattr('domain','equalto','light')
@@ -138,7 +138,7 @@ Once past the initial setup challenges, the advanced automation capabilities beg
 
 For example, my calendar integration automation dynamically handles queries about “today,” “tomorrow,” or specific days of the week:
 
-```yaml
+```
 - variables:
     delta: >-
       {{ 1 if next_day and part_day else daily_mapping | selectattr('phrases',

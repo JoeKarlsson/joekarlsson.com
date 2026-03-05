@@ -69,7 +69,7 @@ Once, your app has been initialized, you will need to turn on Anonymous Authent
 
 Click **Add Collection**.
 
-Enter `todos` for the **Database Name**. Enter `item` for the **Collection Name**and Select **No Template.** Then click **Add Collection**.
+Enter `todos` for the **Database Name**. Enter `item` for the **Collection Name** and Select **No Template.** Then click **Add Collection**.
 
 ![Add Collection dialog with todos database and item collection](/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/vgZ-OI69Q7IqPRLS4yB5Gg.webp)
 
@@ -77,7 +77,8 @@ You should now see the **Permissions** tab of the rules for the *`item`collec
 
 To enable reading and writing to the `comments` collection:
 
-- Click the **Read** and **Write** check boxes for the **default** role.- Click **Save**.
+- Click the **Read** and **Write** check boxes for the **default** role.
+- Click **Save**.
 
 ![Enabling Read and Write permissions for the default role](/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/HvsC4xkKircXYDgQHUmrOQ.webp)
 
@@ -88,7 +89,7 @@ Okay! Now that we are done with setting up Atlas, and now we can get to the real
 ```bash
 $ npx create-react-app mongodb-stitch-tutorial
 $ cd mongodb-stitch-tutorial
-$ npm install mongodb-stitch-browser-sd
+$ npm install mongodb-stitch-browser-sdk
 $ npm start
 ```
 

@@ -87,7 +87,7 @@ For this query, I wanted to construct a unique aggregation that could only be us
 
 I want to make it clear that these data sources are still being stored in different MongoDB databases in completely different datacenters, but by leveraging MongoDB Atlas Data Lake, we can query all of our databases at once as if all of our data is in a single collection! The following query is only possible using federated search! How cool is that?
 
-```javascript
+```
 // MongoDB Playground
 
 // Select the database to use. Database0 is the default name for a MongoDB Atlas Data Lake database. If you renamed your database, be sure to put in your data lake database name here.
@@ -95,104 +95,107 @@ use('Database0');
 
 // We are connecting to `Collection0` since this is the default collection that MongoDB Atlas Data Lake calls your collection. If you renamed it, be sure to put in your data lake collection name here.
 db.Collection0.aggregate([
-	// In the first stage of our aggregation pipeline, we extract and normalize the dataset to only extract zip code data from our dataset.
-	{
-		$project: {
-			restaurant_zipcode: '$address.zipcode',
-			theater_zipcode: '$location.address.zipcode',
-			zipcode: {
-				$ifNull: ['$address.zipcode', '$location.address.zipcode'],
-			},
-		},
-	},
 
-	// In the second stage of our aggregation, we group the data based on the zip code it resides in. We also push each unique restaurant and theater into an array, so we can get a count of the number of each in the next stage.
-	// We are calculating the `total` number of theaters and restaurants by using the aggregator function on $group. This sums all the documents that share a common zip code.
-	{
-		$group: {
-			_id: '$zipcode',
-			total: {
-				$sum: 1,
-			},
-			theaters: {
-				$push: '$theater_zipcode',
-			},
-			restaurants: {
-				$push: '$restaurant_zipcode',
-			},
-		},
-	},
+  // In the first stage of our aggregation pipeline, we extract and normalize the dataset to only extract zip code data from our dataset.
+  {
+    '$project': {
+      'restaurant_zipcode': '$address.zipcode',
+      'theater_zipcode': '$location.address.zipcode',
+      'zipcode': {
+        '$ifNull': [
+          '$address.zipcode', '$location.address.zipcode'
+        ]
+      }
+    }
+  },
 
-	// In the third stage, we get the size or length of the `theaters` and `restaurants` array from the previous stage. This gives us our totals for each category.
-	{
-		$project: {
-			zipcode: '$_id',
-			total: '$total',
-			total_theaters: {
-				$size: '$theaters',
-			},
-			total_restaurants: {
-				$size: '$restaurants',
-			},
-		},
-	},
+  // In the second stage of our aggregation, we group the data based on the zip code it resides in. We also push each unique restaurant and theater into an array, so we can get a count of the number of each in the next stage.
+  // We are calculating the `total` number of theaters and restaurants by using the aggregator function on $group. This sums all the documents that share a common zip code.
+  {
+    '$group': {
+      '_id': '$zipcode',
+      'total': {
+        '$sum': 1
+      },
+      'theaters': {
+        '$push': '$theater_zipcode'
+      },
+      'restaurants': {
+        '$push': '$restaurant_zipcode'
+      }
+    }
+  },
 
-	// In our final stage, we sort our data in descending order so that the zip codes with the most number of restaurants and theaters are listed at the top.
-	{
-		$sort: {
-			total: -1,
-		},
-	},
-]);
+  // In the third stage, we get the size or length of the `theaters` and `restaurants` array from the previous stage. This gives us our totals for each category.
+  {
+    '$project': {
+      'zipcode': '$_id',
+      'total': '$total',
+      'total_theaters': {
+        '$size': '$theaters'
+      },
+      'total_restaurants': {
+        '$size': '$restaurants'
+      }
+    }
+  },
+
+  // In our final stage, we sort our data in descending order so that the zip codes with the most number of restaurants and theaters are listed at the top.
+  {
+    '$sort': {
+      'total': -1
+    }
+  }
+])
 ```
 
 This outputs the zip codes with the most theaters and restaurants.
 
-```json
+```
 [
-	{
-		"_id": "10003",
-		"zipcode": "10003",
-		"total": 688,
-		"total_theaters": 2,
-		"total_restaurants": 686
-	},
-	{
-		"_id": "10019",
-		"zipcode": "10019",
-		"total": 676,
-		"total_theaters": 1,
-		"total_restaurants": 675
-	},
-	{
-		"_id": "10036",
-		"zipcode": "10036",
-		"total": 611,
-		"total_theaters": 0,
-		"total_restaurants": 611
-	},
-	{
-		"_id": "10012",
-		"zipcode": "10012",
-		"total": 408,
-		"total_theaters": 1,
-		"total_restaurants": 407
-	},
-	{
-		"_id": "11354",
-		"zipcode": "11354",
-		"total": 379,
-		"total_theaters": 1,
-		"total_restaurants": 378
-	},
-	{
-		"_id": "10017",
-		"zipcode": "10017",
-		"total": 378,
-		"total_theaters": 1,
-		"total_restaurants": 377
-	}
-]
+  {
+    "_id": "10003",
+    "zipcode": "10003",
+    "total": 688,
+    "total_theaters": 2,
+    "total_restaurants": 686
+  },
+  {
+    "_id": "10019",
+    "zipcode": "10019",
+    "total": 676,
+    "total_theaters": 1,
+    "total_restaurants": 675
+  },
+  {
+    "_id": "10036",
+    "zipcode": "10036",
+    "total": 611,
+    "total_theaters": 0,
+    "total_restaurants": 611
+  },
+  {
+    "_id": "10012",
+    "zipcode": "10012",
+    "total": 408,
+    "total_theaters": 1,
+    "total_restaurants": 407
+  },
+  {
+    "_id": "11354",
+    "zipcode": "11354",
+    "total": 379,
+    "total_theaters": 1,
+    "total_restaurants": 378
+  },
+  {
+    "_id": "10017",
+    "zipcode": "10017",
+    "total": 378,
+    "total_theaters": 1,
+    "total_restaurants": 377
+  }
+ ]
 ```
 
 ## Wrap-Up
@@ -213,12 +216,12 @@ Congratulations! You just set up an Atlas Data Lake that contains databases bein
 
 ## Want to check out more of my technical posts?
 
-- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
+- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](https://www.joekarlsson.com/2021/05/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
 
-- [MongoDB Aggregation Pipeline Queries vs SQL Queries](/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
+- [MongoDB Aggregation Pipeline Queries vs SQL Queries](https://www.joekarlsson.com/2021/05/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
 
-- [An Introduction to IoT (Internet of Toilets)](/blog/an-introduction-to-iot-internet-of-toilets/)
+- [An Introduction to IoT (Internet of Toilets)](https://www.joekarlsson.com/2020/11/an-introduction-to-iot-internet-of-toilets/)
 
-- [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/)
+- [How To Use The MongoDB Visual Studio Code Plugin](https://www.joekarlsson.com/2020/11/how-to-use-the-mongodb-visual-studio-code-plugin/)
 
-- [Linked Lists and MongoDB: A Gentle Introduction](/blog/linked-lists-and-mongodb-a-gentle-introduction/)
+- [Linked Lists and MongoDB: A Gentle Introduction](https://www.joekarlsson.com/2020/11/linked-lists-and-mongodb-a-gentle-introduction/)
