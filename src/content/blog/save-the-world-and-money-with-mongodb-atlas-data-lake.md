@@ -1,10 +1,10 @@
 ---
-title: "Save The World And Money With MongoDB Atlas Data Lake"
+title: 'Save The World And Money With MongoDB Atlas Data Lake'
 date: 2020-10-16
-slug: "save-the-world-and-money-with-mongodb-atlas-data-lake"
-description: "Thanks for coming to my talk, Save The World And Money With MongoDB Atlas Data Lake. About Data centers are expensive. It turns out that this is not very great for the environment. By 2040, storing..."
-categories: ["Tech Talk"]
-heroImage: "/images/blog/save-the-world-and-money-with-mongodb-atlas-data-lake/Save-The-World-And-Money-With-MongoDB-Data-Lake.png"
+slug: 'save-the-world-and-money-with-mongodb-atlas-data-lake'
+description: 'Thanks for coming to my talk, Save The World And Money With MongoDB Atlas Data Lake. About Data centers are expensive. It turns out that this is not very great for the environment. By 2040, storing...'
+categories: ['Databases']
+heroImage: '/images/blog/save-the-world-and-money-with-mongodb-atlas-data-lake/Save-The-World-And-Money-With-MongoDB-Data-Lake.webp'
 ---
 
 Thanks for coming to my talk, Save The World And Money With MongoDB Atlas Data Lake.
@@ -20,11 +20,11 @@ You walk away from this session with a clear understanding of data lakes, their 
 ## Source Code
 
 [GitHub] Save The World And Money With MongoDB Data Lake
-[[Github] MongoDB IoT Sample Data Generator](https://github.com/joekarlsson/IoT-generator-mongodb)</p>
+[[Github] MongoDB IoT Sample Data Generator](https://github.com/joekarlsson/IoT-generator-mongodb)
 
 ## Talk Slides
 
-[//speakerdeck.com/player/15c13811a1f44a95904c9c3c33dadf14](//speakerdeck.com/player/15c13811a1f44a95904c9c3c33dadf14)
+[Talk Slides on Speaker Deck](https://speakerdeck.com/joekarlsson/save-the-world-and-money-with-mongodb-atlas-data-lake)
 
 ## Video
 
@@ -33,11 +33,3 @@ You walk away from this session with a clear understanding of data lakes, their 
 ## Related Links
 
 - [Docs] MongoDB Atlas Data Lake Documentation- [[Docs] Archiving a MongoDB Cluster](https://web.archive.org/web/20220116194200/https://docs.atlas.mongodb.com/online-archive/manage-online-archive/)- [DevHub Post] MongoDB Data Lake Setup- [MongoDB Atlas Data Lake Landing Page](https://www.mongodb.com/atlas/data-lake)- Want to learn more about MongoDB? Check out [MongoDB University](https://joekarlsson.dev/MongoDBUniversity).- Want to read blog posts and tutorials, be sure to check out the MongoDB Developer Hub.- Have a question or issue with MongoDB? Be sure to join our [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity), and ask a question.- [GitHub] Save The World And Money With MongoDB Data Lake- [[GitHub] MongoDB IoT Sample Data Generator](https://github.com/joekarlsson/IoT-generator-mongodb)
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://twitter.com/JoeKarlsson1](https://x.com/JoeKarlsson1)- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)

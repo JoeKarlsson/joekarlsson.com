@@ -1,13 +1,13 @@
 ---
-title: "Why Clickhouse Should Be Your Next Database"
+title: 'Why Clickhouse Should Be Your Next Database'
 date: 2024-04-05
-slug: "why-clickhouse-should-be-your-next-database"
-description: "Today, we’re venturing into the riveting realm of databases. Now, I can hear you sigh: “Another database to learn? Seriously?” But before you sprint for the hills, allow me to introduce you to..."
-categories: ["Blog"]
-heroImage: "/images/blog/why-clickhouse-should-be-your-next-database/94ea1cd4-house2-1024x658-1.jpg"
+slug: 'why-clickhouse-should-be-your-next-database'
+description: “Today, we’re jumping into databases. Another database to learn? But before you sprint for the hills, allow me to introduce you to ClickHouse.”
+categories: ['Databases']
+heroImage: '/images/blog/why-clickhouse-should-be-your-next-database/94ea1cd4-house2-1024x658-1.webp'
 ---
 
-Today, we’re venturing into the riveting realm of databases. Now, I can hear you sigh: “Another database to learn? Seriously?” But before you sprint for the hills, allow me to introduce you to [ClickHouse](https://thenewstack.io/clickhouse-rapidly-rivals-other-open-source-databases-in-active-contributors/), the Sonic the Hedgehog of the database multiverse.
+Today, we’re jumping into databases. Now, I can hear you sigh: “Another database to learn? Seriously?” But before you sprint for the hills, allow me to introduce you to [ClickHouse](https://thenewstack.io/clickhouse-rapidly-rivals-other-open-source-databases-in-active-contributors/), the Sonic the Hedgehog of the database multiverse.
 
 ## Lightning Quick: Decoding ClickHouse Architecture
 
@@ -17,7 +17,7 @@ ClickHouse is an open source, column-oriented database management system (DBMS) 
 
 To uncover this mystery, let’s peer into its architecture.
 
-![A schematic diagram of ClickHouse’s architecture, a column-oriented system.](https://cdn.thenewstack.io/media/2023/07/2410c465-image1.png)*A schematic diagram of ClickHouse’s architecture, a column-oriented system.*
+![A schematic diagram of ClickHouse’s architecture, a column-oriented system.](/images/blog/why-clickhouse-should-be-your-next-database/2410c465-image1.webp)_A schematic diagram of ClickHouse’s architecture, a column-oriented system._
 
 ClickHouse is like a powerful system used by university administrators. As a student, you may want to quickly check your grade on a single assignment or test, which is a simple, straightforward transaction. However, the administrators need to perform more complex operations. They’re calculating class averages, evaluating grade distributions for the entire semester, analyzing patterns in student performance across all subjects and more. To accomplish these tasks, they’re not just looking at one student’s grades, but rather, they’re analyzing vast volumes of data from all students.
 
@@ -25,7 +25,7 @@ ClickHouse is like a powerful system used by university administrators. As a stu
 
 Did I mention ClickHouse loves big data? This [database system scales](https://roadmap.sh/guides/scaling-databases) beautifully across clusters, so your data can grow bigger than a reality TV star’s ego, and ClickHouse would still handle it without breaking a sweat. Need to add more nodes to your cluster? No problem. Want to keep your data replicated for higher availability? ClickHouse says, “Sure, why not?”
 
-![Diagram depicting ClickHouse’s scalability across clusters.](https://cdn.thenewstack.io/media/2023/07/aacdf144-image2.png)*Diagram depicting ClickHouse’s scalability across clusters.*
+![Diagram depicting ClickHouse’s scalability across clusters.](/images/blog/why-clickhouse-should-be-your-next-database/aacdf144-image2.webp)_Diagram depicting ClickHouse’s scalability across clusters._
 
 ## What Makes ClickHouse Unique?
 
@@ -47,9 +47,9 @@ Additional features that amplify ClickHouse’s uniqueness include:
 
 - **Real-time data updates and fast indexing**: ClickHouse’s continuous data addition and quick indexing cater to real-time needs.
 
-- **Suitability for online queries**: With low latency, ClickHouse ensures immediate query processing, a crucial requirement for online operations.
+- **Suitability for online queries**: With low latency, ClickHouse ensures immediate query processing, a key requirement for online operations.
 
-In essence, the culmination of these features makes ClickHouse a potent, flexible and efficient system, uniquely positioned to handle large-scale, real-time data processing needs.
+In essence, the culmination of these features makes ClickHouse a potent, flexible and efficient system, uniquely positioned to handle large-scale, real-time data processing needs. One feature I find particularly interesting is how ClickHouse handles text search - I dug into that in my post on [using Bloom filter indexes for real-time text search in ClickHouse](/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/).
 
 ## The ClickHouse Advantage: Real-World Use Cases
 
@@ -57,7 +57,7 @@ Just to prove I’m not pulling your leg here, let’s look at some real-world u
 
 ### Cloudflare
 
-Yes, the folks who practically hold up half the internet [use ClickHouse for real-time query analytics on terabytes of data every single day](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)! Cloudflare uses ClickHouse to manage real-time DNS query analytics for up to 6 million requests per second, which involves processing terabytes of data. From an architectural perspective, ClickHouse’s column-oriented database design plays a pivotal role.
+Yes, the folks who practically hold up half the internet [use ClickHouse for real-time query analytics on terabytes of data every single day](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)! Cloudflare uses ClickHouse to manage real-time DNS query analytics for up to 6 million requests per second, which involves processing terabytes of data. From an architectural perspective, ClickHouse’s column-oriented database design plays a key role.
 
 The new architecture includes:
 
@@ -67,7 +67,7 @@ The new architecture includes:
 
 - **Zone Analytics API** – Rewritten and optimized version of the API in Go, with many meaningful metrics, health checks and failover scenarios.
 
-![Server diagram for Cloudflare’s central data center based on Clickhouse. Source: https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](https://cdn.thenewstack.io/media/2023/07/2c587eb1-image3.png)*Server diagram for Cloudflare’s central data center based on Clickhouse. Source: [https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)*
+![Server diagram for Cloudflare’s central data center based on Clickhouse. Source: https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](/images/blog/why-clickhouse-should-be-your-next-database/2c587eb1-image3.webp)_Server diagram for Cloudflare’s central data center based on Clickhouse. Source: [https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)_
 
 As you can see, the architecture of the new data pipeline is simpler and fault tolerant. It provides analytics for all of Cloudflare’s more than 7 million customers’ domains totaling more than 2.5 billion monthly unique visitors and over 1.5 trillion monthly page views.
 
@@ -97,13 +97,13 @@ The benchmark data has been obtained from the [ClickHouse Benchmark](https://ben
 
 This parameter refers to the time taken to load the dataset into the database.
 
-[![The benchmark shows that ClickHouse loads the data significantly faster than PostgreSQL. Specifically, ClickHouse is approximately 23 times faster in loading data compared to PostgreSQL.](https://cdn.thenewstack.io/media/2023/07/b506de28-screenshot-2023-07-06-at-9.06.14-am.png)](https://cdn.thenewstack.io/media/2023/07/b506de28-screenshot-2023-07-06-at-9.06.14-am.png)*The benchmark shows that ClickHouse loads the data significantly faster than PostgreSQL. Specifically, ClickHouse is approximately 23 times faster in loading data compared to PostgreSQL.*
+![The benchmark shows that ClickHouse loads the data significantly faster than PostgreSQL. Specifically, ClickHouse is approximately 23 times faster in loading data compared to PostgreSQL.](/images/blog/why-clickhouse-should-be-your-next-database/b506de28-screenshot-2023-07-06-at-9.06.14-am.webp)_The benchmark shows that ClickHouse loads the data significantly faster than PostgreSQL. Specifically, ClickHouse is approximately 23 times faster in loading data compared to PostgreSQL._
 
 ### Storage Size
 
 This parameter refers to the space occupied by the data in the database.
 
-[![ClickHouse also proves to be more storage-efficient. The benchmark indicates that ClickHouse uses about 8.5 times less storage compared to PostgreSQL for the same dataset.](https://cdn.thenewstack.io/media/2023/07/7cf462ab-screenshot-2023-07-06-at-9.06.25-am.png)](https://cdn.thenewstack.io/media/2023/07/7cf462ab-screenshot-2023-07-06-at-9.06.25-am.png)
+![ClickHouse also proves to be more storage-efficient. The benchmark indicates that ClickHouse uses about 8.5 times less storage compared to PostgreSQL for the same dataset.](/images/blog/why-clickhouse-should-be-your-next-database/7cf462ab-screenshot-2023-07-06-at-9.06.25-am.webp)
 
 ClickHouse also proves to be more storage-efficient. The benchmark indicates that ClickHouse uses about 8.5 times less storage compared to PostgreSQL for the same dataset.
 
@@ -117,7 +117,7 @@ You can also check out how Clickhouse compares to other databases in the [benchm
 
 Think you might be ready to try ClickHouse? There are a few ways to start, most fundamentally with the open source [version](https://github.com/ClickHouse/ClickHouse).
 
-Prefer to avoid hosting and scaling yourself? [Tinybird](https://www.tinybird.co?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), a tool that developers affectionately dub “ClickHouse++” takes ClickHouse’s already robust capabilities, offers [serverless hosting](https://www.tinybird.co/clickhouse?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database) and adds even more developer-focused goodness to the mix, including
+Prefer to avoid hosting and scaling yourself? [Tinybird](https://www.tinybird.co?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), a tool that developers affectionately dub “ClickHouse++” takes ClickHouse’s already powerful capabilities, offers [serverless hosting](https://www.tinybird.co/clickhouse?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database) and adds even more developer-focused goodness to the mix, including
 
 - **Native integration with multiple data sources **(like [Kafka](https://www.tinybird.co/integrations/kafka-data?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [S3](https://www.tinybird.co/integrations/amazon-s3?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [GCS](https://www.tinybird.co/integrations/google-cloud-storage?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [BigQuery](https://www.tinybird.co/integrations/google-bigquery?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [Snowflake](https://www.tinybird.co/integrations/snowflake?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), and more. It even offers a [streaming HTTP endpoint](https://www.tinybird.co/docs/guides/ingest-from-the-events-api.html?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database) to capture events directly from your application or service.
 

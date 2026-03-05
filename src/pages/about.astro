@@ -1,75 +1,246 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RightNow from '../components/RightNow.astro';
 import { SOCIAL_LINKS } from '../consts';
 ---
 
-<BaseLayout title="About | Joe Karlsson" description="Software Engineer & Developer Advocate. TEDx Speaker, film buff, homelab enthusiast, and massive nerd.">
+<BaseLayout
+	title="About | Joe Karlsson"
+	description="Software Engineer & Developer Advocate. TEDx Speaker, film buff, homelab enthusiast, and massive nerd."
+	schemaType="AboutPage"
+>
 	<div class="mx-auto max-w-3xl px-4 py-8">
-		<div class="mb-8 flex flex-col sm:flex-row sm:items-center sm:gap-8">
+		<!-- Hero -->
+		<div class="mb-10 flex flex-col sm:flex-row sm:items-center sm:gap-8">
 			<img
-				src="/images/joe-profile.jpg"
-				alt="Joe Karlsson"
+				src="/images/joe-profile.webp"
+				alt="Joe Karlsson speaking at a conference"
 				class="mb-4 sm:mb-0 w-32 h-32 sm:w-40 sm:h-40 rounded-lg border-4 border-coral object-cover"
 				width="160"
 				height="160"
 				loading="eager"
 			/>
 			<div>
-				<h1 class="mb-2 text-4xl font-bold md:text-5xl">
-					<span class="text-coral">About Joe Karlsson</span>
-				</h1>
-				<p class="text-xl text-teal">He/They</p>
+				<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ whoami</p>
+				<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Joe Karlsson</h1>
+				<p class="text-xl text-teal">
+					Software Engineer & Developer Advocate <span class="text-gray-400 text-base"
+						>(He/They)</span
+					>
+				</p>
 			</div>
 		</div>
 
-		<div class="prose">
+		<div class="prose mb-10">
 			<p class="text-lg">
-				I'm a Software Engineer turned Developer Advocate (and massive nerd).
-				I empower developers to think creatively when building applications,
-				through <a href="/work">demos</a>, <a href="/blog">blogs</a>,
-				<a href="/talk-archive">videos</a>, or whatever else developers need.
+				I'm a Software Engineer turned Developer Advocate who's spent the last decade working on
+				databases, real-time data, IoT, and developer tools. I've spoken at over 100 conferences,
+				given a
+				<a
+					href="https://www.ted.com/talks/joe_karlsson_the_art_of_computer_science"
+					target="_blank"
+					rel="noopener noreferrer">TEDx talk</a
+				>, and built an IoT-connected cat litter box that I'm probably too proud of.
 			</p>
 
 			<p>
-				My career has taken me from teaching at one of the most highly-rated software
-				development boot camps on Earth, to architecting and building one of the largest
-				eCommerce websites in North America at Best Buy, to building out developer
-				communities for MongoDB, SingleStore, and CloudQuery.
-				I'm also a <a href="https://www.ted.com/talks/joe_karlsson_the_art_of_computer_science" target="_blank" rel="noopener">TEDx Speaker</a>,
-				film buff, and avid homelab enthusiast.
+				My career has taken me from teaching at one of the most highly-rated software development
+				boot camps on Earth, to architecting and building one of the largest eCommerce websites in
+				North America at Best Buy, to building out developer communities for MongoDB, SingleStore,
+				Tinybird, and CloudQuery. I'm also a film buff and avid homelab enthusiast running way too
+				many containers.
 			</p>
 		</div>
 
-		<!-- What I'm Into -->
-		<div class="my-10 grid gap-4 sm:grid-cols-2">
-			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-				<span class="mb-2 block text-2xl">&#128187;</span>
-				<h3 class="mb-1 font-semibold text-white">Homelabber</h3>
-				<p class="text-sm text-gray-400">Running a Proxmox cluster, self-hosted services, and automating everything with Home Assistant.</p>
+		<!-- What I'm Into - visual cards with links -->
+		<h2 class="mb-4 text-lg font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat interests.md
+		</h2>
+		<div class="mb-10 grid gap-4 sm:grid-cols-2">
+			<a
+				href="/blog/how-to-get-started-building-a-homelab-server-in-2024"
+				class="group block overflow-hidden rounded-lg border border-surface-3 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+			>
+				<img
+					src="/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp"
+					alt="Vaporwave style homelab server illustration"
+					class="w-full h-28 object-cover transition-transform group-hover:scale-[1.02]"
+					loading="lazy"
+				/>
+				<div class="bg-surface-1 p-4">
+					<h3 class="mb-1 font-semibold text-white group-hover:text-coral">Homelabber</h3>
+					<p class="text-sm text-gray-400">
+						Running a Proxmox cluster with 40+ containers, self-hosted services, and Home Assistant
+						automating the whole house.
+					</p>
+				</div>
+			</a>
+			<a
+				href="/talk-archive"
+				class="group block overflow-hidden rounded-lg border border-surface-3 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+			>
+				<img
+					src="/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp"
+					alt="Joe Karlsson on the TEDx stage"
+					class="w-full h-28 object-cover transition-transform group-hover:scale-[1.02]"
+					loading="lazy"
+				/>
+				<div class="bg-surface-1 p-4">
+					<h3 class="mb-1 font-semibold text-white group-hover:text-coral">Speaker</h3>
+					<p class="text-sm text-gray-400">
+						100+ conferences worldwide. TEDx speaker. I talk about databases, IoT, and the weird
+						stuff I build at home.
+					</p>
+				</div>
+			</a>
+			<a
+				href={SOCIAL_LINKS.letterboxd}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group block overflow-hidden rounded-lg border border-surface-3 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+			>
+				<div class="bg-surface-1 p-4 h-full flex flex-col justify-center">
+					<span class="mb-2 block text-3xl">&#127916;</span>
+					<h3 class="mb-1 font-semibold text-white group-hover:text-coral">Film Buff</h3>
+					<p class="text-sm text-gray-400">
+						I watch a lot of movies and track everything on Letterboxd. Always happy to trade
+						recommendations.
+					</p>
+				</div>
+			</a>
+			<a
+				href="/blog/an-introduction-to-iot-internet-of-toilets"
+				class="group block overflow-hidden rounded-lg border border-surface-3 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+			>
+				<img
+					src="/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp"
+					alt="IoT litter box project with Raspberry Pi and sensors"
+					class="w-full h-28 object-cover transition-transform group-hover:scale-[1.02]"
+					loading="lazy"
+				/>
+				<div class="bg-surface-1 p-4">
+					<h3 class="mb-1 font-semibold text-white group-hover:text-coral">
+						Cat Person / IoT Tinkerer
+					</h3>
+					<p class="text-sm text-gray-400">
+						Built an IoT litter box with a Raspberry Pi to monitor my cat's health. Gave a
+						conference talk about it. Yes, really.
+					</p>
+				</div>
+			</a>
+		</div>
+
+		<!-- Right Now -->
+		<h2 class="mb-4 text-lg font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat now.md
+		</h2>
+		<div class="mb-10">
+			<RightNow columns={2} />
+		</div>
+
+		<!-- Featured Content -->
+		<h2 class="mb-4 text-lg font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls featured/
+		</h2>
+		<div class="mb-10 space-y-4">
+			<!-- TEDx Talk - full width hero -->
+			<a
+				href="https://www.ted.com/talks/joe_karlsson_the_art_of_computer_science"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group block overflow-hidden rounded-lg border border-coral/20 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+			>
+				<img
+					src="/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp"
+					alt="Joe Karlsson giving a TEDx talk on The Art of Computer Science"
+					class="w-full h-48 object-cover transition-transform group-hover:scale-[1.02]"
+					loading="lazy"
+				/>
+				<div class="bg-surface-1 p-4">
+					<span class="text-xs font-mono text-coral">TEDx Talk</span>
+					<h3 class="font-semibold text-white group-hover:text-coral">
+						The Art of Computer Science
+					</h3>
+				</div>
+			</a>
+			<!-- Blog posts + YouTube -->
+			<div class="grid gap-4 sm:grid-cols-3">
+				<a
+					href="/blog/an-introduction-to-iot-internet-of-toilets"
+					class="group block overflow-hidden rounded-lg border border-surface-3 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+				>
+					<img
+						src="/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp"
+						alt="IoT Internet of Toilets project with Raspberry Pi and sensors"
+						class="w-full h-32 object-cover transition-transform group-hover:scale-[1.02]"
+						loading="lazy"
+					/>
+					<div class="bg-surface-1 p-3">
+						<span class="text-xs font-mono text-teal">Blog</span>
+						<h3 class="text-sm font-semibold text-white group-hover:text-coral">
+							IoT (Internet of Toilets)
+						</h3>
+					</div>
+				</a>
+				<a
+					href="/blog/how-to-get-started-building-a-homelab-server-in-2024"
+					class="group block overflow-hidden rounded-lg border border-surface-3 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+				>
+					<img
+						src="/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp"
+						alt="Vaporwave style homelab server illustration"
+						class="w-full h-32 object-cover transition-transform group-hover:scale-[1.02]"
+						loading="lazy"
+					/>
+					<div class="bg-surface-1 p-3">
+						<span class="text-xs font-mono text-teal">Blog</span>
+						<h3 class="text-sm font-semibold text-white group-hover:text-coral">
+							Building a Homelab Server
+						</h3>
+					</div>
+				</a>
+				<a
+					href={SOCIAL_LINKS.youtube}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group flex flex-col items-center justify-center rounded-lg border border-surface-3 bg-surface-1 p-5 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+				>
+					<span class="mb-2 text-4xl">&#9654;&#65039;</span>
+					<span class="text-xs font-mono text-teal">YouTube</span>
+					<h3 class="mt-1 text-sm font-semibold text-center text-white group-hover:text-coral">
+						100+ Conference Talks
+					</h3>
+				</a>
 			</div>
-			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-				<span class="mb-2 block text-2xl">&#127908;</span>
-				<h3 class="mb-1 font-semibold text-white">Speaker</h3>
-				<p class="text-sm text-gray-400">Spoken at hundreds of conferences worldwide. TEDx speaker. I make complex topics approachable.</p>
-			</div>
-			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-				<span class="mb-2 block text-2xl">&#127916;</span>
-				<h3 class="mb-1 font-semibold text-white">Film Buff</h3>
-				<p class="text-sm text-gray-400">Tracking everything on <a href={SOCIAL_LINKS.letterboxd} target="_blank" rel="noopener">Letterboxd</a>. Always down to talk movies.</p>
-			</div>
-			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-				<span class="mb-2 block text-2xl">&#128049;</span>
-				<h3 class="mb-1 font-semibold text-white">Cat Person</h3>
-				<p class="text-sm text-gray-400">Built an IoT litter box and gave a conference talk about it. Yes, really.</p>
-			</div>
+		</div>
+
+		<!-- Newsletter CTA -->
+		<div class="my-10 rounded-lg border border-lavender/20 bg-lavender/5 p-6">
+			<h2 class="mb-2 text-xl font-bold text-white">
+				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat newsletter.md
+			</h2>
+			<p class="mb-4 text-gray-400">
+				I send out posts about databases, self-hosting, homelabs, IoT, and whatever else I'm
+				building. No spam, no fluff - just the stuff I'm actually working on.
+			</p>
+			<a
+				href={SOCIAL_LINKS.substack}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-block rounded-md bg-lavender px-4 py-2 font-medium text-surface-0 no-underline hover:bg-coral"
+			>
+				Subscribe on Substack &rarr;
+			</a>
 		</div>
 
 		<!-- Featured Projects Link -->
 		<div class="my-10 rounded-lg border border-coral/20 bg-coral/5 p-6">
-			<h2 class="mb-2 text-xl font-bold text-coral">Check out my work</h2>
+			<h2 class="mb-2 text-xl font-bold text-white">
+				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls work/
+			</h2>
 			<p class="mb-4 text-gray-400">
-				I've built IoT projects, open source tools, demos, and more.
-				My projects are more interesting than my resume.
+				I've built IoT projects, open source tools, demos, and more. My projects are more
+				interesting than my resume.
 			</p>
 			<a
 				href="/work"
@@ -81,7 +252,9 @@ import { SOCIAL_LINKS } from '../consts';
 
 		<!-- Uses -->
 		<div class="my-10 rounded-lg border border-teal/20 bg-teal/5 p-6">
-			<h2 class="mb-2 text-xl font-bold text-teal">My setup</h2>
+			<h2 class="mb-2 text-xl font-bold text-white">
+				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat uses.md
+			</h2>
 			<p class="mb-4 text-gray-400">
 				Curious what gear, software, and tools I use daily? I keep a running list.
 			</p>
@@ -93,47 +266,156 @@ import { SOCIAL_LINKS } from '../consts';
 			</a>
 		</div>
 
-		<!-- Connect -->
-		<h2 class="mb-4 text-xl font-bold text-white">Connect</h2>
-		<div class="mb-10 flex flex-wrap gap-3">
-			<a href={SOCIAL_LINKS.bluesky} target="_blank" rel="noopener" class="rounded-md border border-surface-4 px-3 py-1.5 text-sm text-gray-400 no-underline hover:border-coral hover:text-white">Bluesky</a>
-			<a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener" class="rounded-md border border-surface-4 px-3 py-1.5 text-sm text-gray-400 no-underline hover:border-coral hover:text-white">LinkedIn</a>
-			<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener" class="rounded-md border border-surface-4 px-3 py-1.5 text-sm text-gray-400 no-underline hover:border-coral hover:text-white">GitHub</a>
-			<a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener" class="rounded-md border border-surface-4 px-3 py-1.5 text-sm text-gray-400 no-underline hover:border-coral hover:text-white">YouTube</a>
-			<a href={SOCIAL_LINKS.threads} target="_blank" rel="noopener" class="rounded-md border border-surface-4 px-3 py-1.5 text-sm text-gray-400 no-underline hover:border-coral hover:text-white">Threads</a>
-			<a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener" class="rounded-md border border-surface-4 px-3 py-1.5 text-sm text-gray-400 no-underline hover:border-coral hover:text-white">Instagram</a>
-			<a href={SOCIAL_LINKS.letterboxd} target="_blank" rel="noopener" class="rounded-md border border-surface-4 px-3 py-1.5 text-sm text-gray-400 no-underline hover:border-coral hover:text-white">Letterboxd</a>
+		<!-- Work History - expanded -->
+		<h2 class="mb-4 text-xl font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat resume.md
+		</h2>
+		<div class="mb-10 space-y-4">
+			<div class="rounded-lg border border-teal/20 bg-teal/5 p-5">
+				<div class="border-l-2 border-teal pl-4">
+					<h3 class="font-semibold text-white">Developer Advocate - CloudQuery</h3>
+					<span class="text-sm text-gray-400">2025 – Present</span>
+					<p class="mt-2 text-sm text-gray-400">
+						Developer relations and content for the open-source ELT framework. Creating demos,
+						tutorials, and developer resources for data pipelines.
+					</p>
+				</div>
+			</div>
+			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+				<div class="border-l-2 border-coral pl-4">
+					<h3 class="font-semibold text-white">Developer Advocate - Tinybird</h3>
+					<span class="text-sm text-gray-400">2023 – 2025</span>
+					<p class="mt-2 text-sm text-gray-400">
+						Helped developers building real-time analytics applications. Created documentation,
+						demos, blog posts, webinars, and workshops.
+					</p>
+				</div>
+			</div>
+			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+				<div class="border-l-2 border-lavender pl-4">
+					<h3 class="font-semibold text-white">Senior Developer Advocate - SingleStore</h3>
+					<span class="text-sm text-gray-400">2021 – 2023</span>
+					<p class="mt-2 text-sm text-gray-400">
+						Led community conversations around scaling SQL workloads. Built demos and content for
+						the distributed SQL database.
+					</p>
+				</div>
+			</div>
+			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+				<div class="border-l-2 border-terminal-green pl-4">
+					<h3 class="font-semibold text-white">Senior Developer Advocate - MongoDB</h3>
+					<span class="text-sm text-gray-400">2019 – 2021</span>
+					<p class="mt-2 text-sm text-gray-400">
+						Built developer community, created tutorials, demos, and educational content. Subject
+						matter expert for developer experience.
+					</p>
+				</div>
+			</div>
+			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+				<div class="border-l-2 border-sky pl-4">
+					<h3 class="font-semibold text-white">Front-end Technical Lead - Best Buy</h3>
+					<span class="text-sm text-gray-400">2017 – 2019</span>
+					<p class="mt-2 text-sm text-gray-400">
+						Engineered high-performance solutions for one of the top 10 eCommerce sites in North
+						America. Scaled production apps handling thousands of requests per second.
+					</p>
+				</div>
+			</div>
+			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+				<div class="border-l-2 border-pink pl-4">
+					<h3 class="font-semibold text-white">Full-Stack JavaScript Instructor - DevLeague</h3>
+					<span class="text-sm text-gray-400">2015 – 2017</span>
+					<p class="mt-2 text-sm text-gray-400">
+						Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created
+						curriculum and prepared students for software engineering careers in Honolulu.
+					</p>
+				</div>
+			</div>
 		</div>
 
-		<!-- Work History (collapsed at bottom) -->
-		<details class="rounded-lg border border-surface-3">
-			<summary class="cursor-pointer px-6 py-4 text-gray-400 hover:text-white">
-				<span class="font-medium">Work History</span>
+		<!-- Connect -->
+		<div class="my-10 rounded-lg border border-surface-3 bg-surface-1 p-6 text-center">
+			<p class="mb-4 text-gray-400">Want to work together, book me for a talk, or just say hi?</p>
+			<a
+				href="/contact"
+				class="inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
+			>
+				Get in touch &rarr;
+			</a>
+		</div>
+
+		<!-- For Event Organizers -->
+		<details class="my-10 rounded-lg border border-surface-3">
+			<summary class="cursor-pointer px-6 py-4 text-white hover:text-coral">
+				<span class="font-bold text-lg">For Event Organizers</span>
 			</summary>
-			<div class="space-y-4 px-6 pb-6">
-				<div class="border-l-2 border-teal pl-4">
-					<h3 class="font-semibold text-white">Developer Advocate — CloudQuery</h3>
-					<span class="text-sm text-gray-500">2022 – Present</span>
+			<div class="space-y-6 px-6 pb-6">
+				<div>
+					<h3 class="mb-2 font-semibold text-teal">Short Bio</h3>
+					<p class="rounded bg-surface-1 p-3 text-sm text-gray-300">
+						Joe Karlsson is a Developer Advocate at CloudQuery and a TEDx speaker. He's spoken at
+						over 100 conferences on databases, IoT, homelabs, and developer tools. He's also built
+						an IoT-connected cat litter box, which he's probably too proud of.
+					</p>
 				</div>
-				<div class="border-l-2 border-coral pl-4">
-					<h3 class="font-semibold text-white">Developer Advocate — Tinybird</h3>
-					<span class="text-sm text-gray-500">2023 – 2025</span>
+				<div>
+					<h3 class="mb-2 font-semibold text-teal">Long Bio</h3>
+					<p class="rounded bg-surface-1 p-3 text-sm text-gray-300">
+						Joe Karlsson is a Software Engineer turned Developer Advocate at CloudQuery. He's spent
+						the last decade working on databases, real-time data systems, IoT, and developer tools.
+						Joe has spoken at over 100 conferences worldwide, delivered a TEDx talk on the
+						intersection of art and computer science, and previously built developer communities at
+						MongoDB, SingleStore, and Tinybird. Before DevRel, he was a Front-end Technical Lead at
+						Best Buy and a Full-Stack JavaScript instructor. Outside of work, he runs a 40+
+						container homelab, automates his home with Home Assistant, and once built an
+						IoT-connected cat litter box that he gave a conference talk about.
+					</p>
 				</div>
-				<div class="border-l-2 border-lavender pl-4">
-					<h3 class="font-semibold text-white">Senior Developer Advocate — SingleStore</h3>
-					<span class="text-sm text-gray-500">2021 – 2023</span>
+				<div class="flex items-center gap-4">
+					<img
+						src="/images/joe-profile.webp"
+						alt="Joe Karlsson headshot"
+						class="w-20 h-20 rounded-lg object-cover"
+						width="80"
+						height="80"
+						loading="lazy"
+					/>
+					<div>
+						<h3 class="mb-1 font-semibold text-teal">Headshot</h3>
+						<a href="/images/joe-profile.webp" download class="text-sm text-coral hover:text-teal"
+							>Download headshot</a
+						>
+					</div>
 				</div>
-				<div class="border-l-2 border-terminal-green pl-4">
-					<h3 class="font-semibold text-white">Senior Developer Advocate — MongoDB</h3>
-					<span class="text-sm text-gray-500">2019 – 2021</span>
+				<div>
+					<h3 class="mb-2 font-semibold text-teal">Topics I Speak About</h3>
+					<div class="flex flex-wrap gap-2">
+						<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400"
+							>Databases</span
+						>
+						<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400"
+							>IoT</span
+						>
+						<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400"
+							>Developer Advocacy</span
+						>
+						<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400"
+							>Homelabs & Self-Hosting</span
+						>
+						<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400"
+							>Smart Homes</span
+						>
+						<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400"
+							>Data Pipelines</span
+						>
+					</div>
 				</div>
-				<div class="border-l-2 border-sky pl-4">
-					<h3 class="font-semibold text-white">Front-end Technical Lead — Best Buy</h3>
-					<span class="text-sm text-gray-500">2017 – 2019</span>
-				</div>
-				<div class="border-l-2 border-pink pl-4">
-					<h3 class="font-semibold text-white">Full-Stack JavaScript Instructor — DevLeague</h3>
-					<span class="text-sm text-gray-500">2015 – 2017</span>
+				<div class="flex flex-wrap gap-3">
+					<a
+						href="/talk-archive"
+						class="rounded-md border border-teal/20 bg-teal/5 px-4 py-2 text-sm text-teal no-underline hover:bg-teal hover:text-surface-0"
+						>Talk Archive</a
+					>
 				</div>
 			</div>
 		</details>

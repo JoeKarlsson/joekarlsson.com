@@ -3,29 +3,308 @@ import { getCollection } from 'astro:content';
 import BlogCard from '../../components/BlogCard.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const posts = (await getCollection('blog')).sort(
+function getReadingTime(body: string): number {
+	const words = body.trim().split(/\s+/).length;
+	return Math.max(1, Math.ceil(words / 250));
+}
+
+const allPosts = (await getCollection('blog')).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+
+const featuredSlug = 'how-to-get-started-building-a-homelab-server-in-2024';
+const featuredPost = allPosts.find((p) => p.data.slug === featuredSlug);
+const posts = allPosts.filter((p) => p.data.slug !== featuredSlug);
+
+// Collect all unique categories with counts
+const categoryCounts = new Map<string, number>();
+for (const post of allPosts) {
+	for (const cat of post.data.categories) {
+		categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
+	}
+}
+const categories = [...categoryCounts.entries()].sort((a, b) => b[1] - a[1]);
+
+const POSTS_PER_PAGE = 12;
+
+// Serialize post data for client-side search/sort/pagination
+const postsData = posts.map((p) => ({
+	title: p.data.title,
+	description: p.data.description,
+	slug: p.data.slug,
+	date: p.data.date.toISOString(),
+	heroImage: p.data.heroImage || '',
+	heroAlt: p.data.heroAlt || '',
+	categories: p.data.categories || [],
+	readingTime: getReadingTime(p.body || ''),
+}));
+
+const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '') : 0;
 ---
 
-<BaseLayout title="Blog | Joe Karlsson" description="Posts about databases, developer tools, smart homes, and the things I build.">
+<BaseLayout
+	title="Blog | Joe Karlsson"
+	description="Posts about databases, developer tools, smart homes, and the things I build."
+	schemaType="CollectionPage"
+>
 	<div class="mx-auto max-w-5xl px-4 py-8">
 		<div class="mb-8">
-			<p class="mb-2 font-mono text-sm text-coral">$ ls ~/blog</p>
+			<p class="mb-2 font-mono text-sm text-coral">~$ ls blog/</p>
 			<h1 class="text-3xl font-bold text-white md:text-4xl">Blog</h1>
-			<p class="mt-2 text-gray-400">{posts.length} posts</p>
+			<p class="mt-2 text-gray-400">{allPosts.length} posts</p>
 		</div>
 
-		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{posts.map((post) => (
-				<BlogCard
-					title={post.data.title}
-					description={post.data.description}
-					date={post.data.date}
-					slug={post.data.slug}
-					heroImage={post.data.heroImage}
+		<div class="mb-6 flex flex-wrap gap-2">
+			<a
+				href="/blog/"
+				class="rounded-full bg-coral/20 px-3 py-1 font-mono text-xs text-coral border border-coral/30 transition-colors hover:bg-coral/30"
+			>
+				All
+			</a>
+			{
+				categories.map(([cat, count]) => (
+					<a
+						href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`}
+						class="rounded-full bg-surface-3 px-3 py-1 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral"
+					>
+						{cat} <span class="text-gray-400">({count})</span>
+					</a>
+				))
+			}
+		</div>
+
+		{
+			featuredPost && (
+				<a
+					href={`/blog/${featuredPost.data.slug}/`}
+					class="group mb-8 block rounded-lg border border-coral/30 bg-surface-1 overflow-hidden no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+				>
+					<div class="md:flex">
+						{featuredPost.data.heroImage && (
+							<img
+								src={featuredPost.data.heroImage}
+								alt={featuredPost.data.heroAlt || `Hero image for ${featuredPost.data.title}`}
+								class="h-48 w-full object-cover md:h-auto md:w-1/2"
+							/>
+						)}
+						<div class="p-6 flex flex-col justify-center">
+							<p class="mb-2 font-mono text-xs text-coral">Featured Post</p>
+							<h2 class="mb-2 text-2xl font-bold text-white group-hover:text-coral transition-colors">
+								{featuredPost.data.title}
+							</h2>
+							<div class="mb-3 flex items-center gap-2 font-mono text-xs text-gray-400">
+								<span>
+									{featuredPost.data.date.toLocaleDateString('en-us', {
+										year: 'numeric',
+										month: 'short',
+										day: 'numeric',
+									})}
+								</span>
+								{featuredReadingTime > 0 && (
+									<>
+										<span>·</span>
+										<span>{featuredReadingTime} min read</span>
+									</>
+								)}
+							</div>
+							{featuredPost.data.categories && (
+								<div class="mb-3 flex flex-wrap gap-1">
+									{featuredPost.data.categories.map((cat) => (
+										<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
+											{cat}
+										</span>
+									))}
+								</div>
+							)}
+							{featuredPost.data.description && (
+								<p class="line-clamp-3 text-sm text-gray-400">{featuredPost.data.description}</p>
+							)}
+						</div>
+					</div>
+				</a>
+			)
+		}
+
+		<!-- Search and sort controls -->
+		<div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+			<div class="relative flex-1 max-w-md">
+				<input
+					type="text"
+					id="blog-search"
+					placeholder="Search posts..."
+					class="w-full rounded-lg border border-surface-3 bg-surface-1 px-4 py-2 pl-10 font-mono text-sm text-white placeholder-gray-500 outline-none transition-colors focus:border-coral/50 focus:ring-1 focus:ring-coral/30"
 				/>
-			))}
+				<svg
+					class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+				</svg>
+			</div>
+			<div class="flex items-center gap-2">
+				<span class="font-mono text-xs text-gray-500">Sort:</span>
+				<button
+					id="sort-newest"
+					class="sort-btn rounded-md bg-coral/20 px-3 py-1.5 font-mono text-xs text-coral border border-coral/30 transition-colors"
+					data-sort="newest"
+				>
+					Newest
+				</button>
+				<button
+					id="sort-oldest"
+					class="sort-btn rounded-md bg-surface-3 px-3 py-1.5 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral"
+					data-sort="oldest"
+				>
+					Oldest
+				</button>
+			</div>
+		</div>
+
+		<!-- Post count display (updates with search) -->
+		<p id="results-count" class="mb-4 font-mono text-xs text-gray-500"></p>
+
+		<!-- No results message -->
+		<div id="no-results" class="hidden py-12 text-center">
+			<p class="font-mono text-sm text-gray-400">No posts found matching your search.</p>
+		</div>
+
+		<div id="posts-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				posts.map((post) => (
+					<BlogCard
+						title={post.data.title}
+						description={post.data.description}
+						date={post.data.date}
+						slug={post.data.slug}
+						heroImage={post.data.heroImage}
+						heroAlt={post.data.heroAlt}
+						categories={post.data.categories}
+						readingTime={getReadingTime(post.body || '')}
+					/>
+				))
+			}
+		</div>
+
+		<!-- Load more button -->
+		<div id="load-more-wrap" class="mt-8 flex justify-center">
+			<button
+				id="load-more"
+				class="rounded-lg border border-surface-3 bg-surface-1 px-6 py-2.5 font-mono text-sm text-gray-400 transition-colors hover:border-coral/30 hover:text-coral"
+			>
+				Load more posts
+			</button>
 		</div>
 	</div>
+
+	<script is:inline define:vars={{ postsData, POSTS_PER_PAGE }}>
+		(function () {
+			const grid = document.getElementById('posts-grid');
+			const cards = Array.from(grid.children);
+			const searchInput = document.getElementById('blog-search');
+			const loadMoreBtn = document.getElementById('load-more');
+			const loadMoreWrap = document.getElementById('load-more-wrap');
+			const noResults = document.getElementById('no-results');
+			const resultsCount = document.getElementById('results-count');
+			const sortBtns = document.querySelectorAll('.sort-btn');
+
+			let currentSort = 'newest';
+			let searchQuery = '';
+			let visibleCount = POSTS_PER_PAGE;
+
+			// Map cards to their data
+			const cardData = cards.map((card, i) => ({
+				el: card,
+				data: postsData[i],
+			}));
+
+			function getFiltered() {
+				const q = searchQuery.toLowerCase();
+				let filtered = cardData;
+				if (q) {
+					filtered = cardData.filter(
+						({ data }) =>
+							data.title.toLowerCase().includes(q) ||
+							data.description.toLowerCase().includes(q) ||
+							data.categories.some((c) => c.toLowerCase().includes(q)),
+					);
+				}
+				// Sort
+				filtered.sort((a, b) => {
+					const da = new Date(a.data.date).getTime();
+					const db = new Date(b.data.date).getTime();
+					return currentSort === 'newest' ? db - da : da - db;
+				});
+				return filtered;
+			}
+
+			function render() {
+				const filtered = getFiltered();
+				const total = filtered.length;
+				const showing = Math.min(visibleCount, total);
+
+				// Hide all cards first
+				cardData.forEach(({ el }) => {
+					el.style.display = 'none';
+					el.style.order = '';
+				});
+
+				// Show filtered cards up to visibleCount
+				filtered.forEach(({ el }, i) => {
+					el.style.display = i < showing ? '' : 'none';
+					el.style.order = String(i);
+				});
+
+				// Results count
+				if (searchQuery) {
+					resultsCount.textContent = `${total} post${total !== 1 ? 's' : ''} found`;
+					resultsCount.classList.remove('hidden');
+				} else {
+					resultsCount.classList.add('hidden');
+				}
+
+				// No results
+				noResults.classList.toggle('hidden', total > 0);
+				grid.classList.toggle('hidden', total === 0);
+
+				// Load more button
+				loadMoreWrap.classList.toggle('hidden', showing >= total || searchQuery !== '');
+			}
+
+			// Search
+			searchInput.addEventListener('input', (e) => {
+				searchQuery = e.target.value;
+				visibleCount = POSTS_PER_PAGE;
+				render();
+			});
+
+			// Sort
+			sortBtns.forEach((btn) => {
+				btn.addEventListener('click', () => {
+					currentSort = btn.dataset.sort;
+					sortBtns.forEach((b) => {
+						const isActive = b === btn;
+						b.className = isActive
+							? 'sort-btn rounded-md bg-coral/20 px-3 py-1.5 font-mono text-xs text-coral border border-coral/30 transition-colors'
+							: 'sort-btn rounded-md bg-surface-3 px-3 py-1.5 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral';
+					});
+					render();
+				});
+			});
+
+			// Load more
+			loadMoreBtn.addEventListener('click', () => {
+				visibleCount += POSTS_PER_PAGE;
+				render();
+			});
+
+			// Initial render - hide posts beyond first page
+			render();
+		})();
+	</script>
 </BaseLayout>

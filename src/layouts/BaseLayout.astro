@@ -10,15 +10,24 @@ interface Props {
 	type?: string;
 	publishedDate?: Date;
 	modifiedDate?: Date;
+	schemaType?: string;
 }
 
-const { title, description, image, type, publishedDate, modifiedDate } = Astro.props;
+const { title, description, image, type, publishedDate, modifiedDate, schemaType } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
 	<head>
-		<BaseHead title={title} description={description} image={image} type={type} publishedDate={publishedDate} modifiedDate={modifiedDate} />
+		<BaseHead
+			title={title}
+			description={description}
+			image={image}
+			type={type}
+			publishedDate={publishedDate}
+			modifiedDate={modifiedDate}
+			schemaType={schemaType}
+		/>
 	</head>
 	<body class="flex min-h-screen flex-col">
 		<Header />

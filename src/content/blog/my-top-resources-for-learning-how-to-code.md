@@ -1,10 +1,10 @@
 ---
-title: "So, You Want To Learn How To Code? Here’s What You Need To Know."
+title: 'So, You Want To Learn How To Code? Here’s What You Need To Know.'
 date: 2018-01-26
-slug: "my-top-resources-for-learning-how-to-code"
-description: "So, you want to learn how to code? Here’s What You Need To Know to get started. This is basically a list of my favorite programming books, talks, podcasts, newsletters, websites, and general tips for..."
-categories: ["Blog"]
-heroImage: "/images/blog/my-top-resources-for-learning-how-to-code/So-You-Want-To-Learn-How-To-Code_-.png"
+slug: 'my-top-resources-for-learning-how-to-code'
+description: 'So, you want to learn how to code? Here’s What You Need To Know to get started. This is basically a list of my favorite programming books, talks, podcasts, newsletters, websites, and general tips for...'
+categories: ['Career']
+heroImage: '/images/blog/my-top-resources-for-learning-how-to-code/So-You-Want-To-Learn-How-To-Code_-.webp'
 ---
 
 So, you want to learn how to code? Here’s What You Need To Know to get started. This is basically a list of my favorite programming books, talks, podcasts, newsletters, websites, and general tips for learning more about programming. HMU if you have any additions you want to make to my list!
@@ -15,7 +15,7 @@ I love keeping my questions/answers public so others can learn and share from ea
 
 The field of programming is absolutely massive and there are so many different programming languages and things to do with it. Ask yourself, do I want to learn how to make websites? Am I interested in creating robots? Can constructing a neural network for machine learning be my thing? Do I just need to make my boss happy and learn how to make a SharePoint site? Each answer would lead to a different recommendation for learning and could affect which programming language(s) you should start learning.
 
-If you are learning to code because you are looking to make a career change, then I might recommend that you start looking into one of those Coding Bootcamps. I was personally a technical instructor at a Bootcamp for several years in Honolulu, Hawaii and I know that they can be a great, albeit expensive, way to get into programming as a profession. However, if you don’t need something as intense because you are looking to make a website for your friend’s new band then a Bootcamp might be overdoing it. 
+If you are learning to code because you are looking to make a career change, then you might also want to check out my guide on [how to pass a coding interview](/blog/how-to-pass-coding-interview/) once you feel ready. I might also recommend that you start looking into one of those Coding Bootcamps. I was personally a technical instructor at a Bootcamp for several years in Honolulu, Hawaii and I know that they can be a great, albeit expensive, way to get into programming as a profession. However, if you don’t need something as intense because you are looking to make a website for your friend’s new band then a Bootcamp might be overdoing it.
 
 ## Picking the perfect programming language for you
 
@@ -31,7 +31,7 @@ Here’s my take on this. The top three most used programming languages in the w
 
 ## Try a couple of free online courses
 
-First, let’s start with some of my personal FREE websites for learning to code. I would definitely start here if you are just starting to learn. You might find out that programming is not for you, and you haven’t dropped any serious coin. 
+First, let’s start with some of my personal FREE websites for learning to code. I would definitely start here if you are just starting to learn. You might find out that programming is not for you, and you haven’t dropped any serious coin.
 
 [Codecademy](https://www.codecademy.com) is the perfect place for aspiring coders to start learning. Interactive projects and quizzes let you get the hands-on experience you need to really grasp the concepts you’re being taught. There are separate courses for each topic: you might start out with Make a Website or Learn HTML & CSS, and progress to JavaScript, SQL, and more. Codecademy also provides forums for discussion, programming language glossaries, and blog posts and articles to help you as you learn.
 
@@ -51,22 +51,19 @@ Other great options:
 
 ## Just start building something
 
-My personal favorite way to learn something is just to jump in and try to build something. Start with something like a new personal blog or a Twitter clone and just start Googling until you figure it out. This has been my way of learning to code, but it’s not for everyone. I just struggle to stay awake while reading books or watching YouTube videos and I find that I haven’t fully grokked a subject till I’ve actually done something for myself. 
+My personal favorite way to learn something is just to jump in and try to build something. Start with something like a new personal blog or a Twitter clone and just start Googling until you figure it out. This has been my way of learning to code, but it’s not for everyone. I just struggle to stay awake while reading books or watching YouTube videos and I find that I haven’t fully grokked a subject till I’ve actually done something for myself.
 
 ## Other ideas
 
 - Try one of those kids toys that help kids learn to code – they look awesome! Something like:
 
-<li>https://www.playpiper.com/products
-
-</li>
+- https://www.playpiper.com/products
 
 - Build a Slack or Alexa bot
 
 Feel free to check out my projects and blog, if you need some inspiration:
 
 > [Work](https://www.joekarlsson.com/work/)
-[https://www.joekarlsson.com/work/embed/#?secret=diiv0UPA7z#?secret=hDakRK2bWZ](https://www.joekarlsson.com/work/embed/#?secret=diiv0UPA7z#?secret=hDakRK2bWZ)
 
 ## Communities
 
@@ -82,7 +79,7 @@ Feel free to check out my projects and blog, if you need some inspiration:
 
 Listed below are some of my favorite ways to stay up to date. I hope that you can use them as you start your journey into the world of programming. Best of luck!
 
-- [Mozilla Developer Network](https://developer.mozilla.org/en-US/)  for frontend (Html, CSS, Js, etc.) code reference and learning 🤓. This  will be your code holy book 📚 and you should follow it religiously!
+- [Mozilla Developer Network](https://developer.mozilla.org/en-US/) for frontend (Html, CSS, Js, etc.) code reference and learning 🤓. This will be your code holy book 📚 and you should follow it religiously!
 
 - [web.dev](https://web.dev) to learn about web 🕷 fundamentals from Google Developers 👨‍💻.
 
@@ -116,7 +113,7 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 
 - [github.com](https://github.com) to host and review 🧐 code, manage projects and build software 🤖 alongside millions of developers.
 
-- [stackoverflow.com](https://stackoverflow.com/) to get  answers to your toughest coding questions 😁, share knowledge with your  coworkers in private, and find your next dream job.
+- [stackoverflow.com](https://stackoverflow.com/) to get answers to your toughest coding questions 😁, share knowledge with your coworkers in private, and find your next dream job.
 
 ## Newsletters
 
@@ -238,6 +235,8 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 
 ## Books
 
+If you want to hear more about my thoughts on CS fundamentals and finding your place in tech, check out my talk [The Art of Computer Science](/blog/the-art-of-computer-science/).
+
 - [Introduction to Algorithms](http://mitpress.mit.edu/books/introduction-algorithms) by Cormen, Leiserson, Rivest & Stein
 
 - [Design Patterns](http://c2.com/cgi/wiki?DesignPatternsBook) by the Gang of Four
@@ -269,7 +268,6 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 You can check out my Top Tech Talks of all time here:
 
 > [The Tech Talks That Have Had The Biggest Impact On My Career](https://www.joekarlsson.com/2019/01/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/)
-[https://www.joekarlsson.com/2019/01/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/embed/#?secret=PHCu2LqBOa#?secret=nuOLj2QKgM](https://www.joekarlsson.com/2019/01/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/embed/#?secret=PHCu2LqBOa#?secret=nuOLj2QKgM)
 
 - [Node.js in 20 Minutes](https://www.youtube.com/watch?v=mq6uCM4ynpc) [00:23:08] by **Edmond Meinfelder**
 
@@ -345,7 +343,7 @@ You can check out my Top Tech Talks of all time here:
 
 - [Upgrading the Web](https://www.youtube.com/watch?v=6UTWAEJlhww) [00:41:19] by **Douglas Crockford**
 
-- 
+-
 
 ## Follow me on social
 
@@ -366,5 +364,3 @@ You can check out my Top Tech Talks of all time here:
 - [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)
 
 - [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)
-
-##

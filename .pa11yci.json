@@ -1,25 +1,22 @@
 {
-  "defaults": {
-    "standard": "WCAG2AA",
-    "runners": ["axe"],
-    "timeout": 30000,
-    "wait": 1000,
-    "chromeLaunchConfig": {
-      "args": ["--no-sandbox", "--disable-setuid-sandbox"]
-    },
-    "ignore": [
-      "color-contrast",
-      "label"
-    ]
-  },
-  "urls": [
-    "http://localhost:4321/",
-    "http://localhost:4321/blog/",
-    "http://localhost:4321/about/",
-    "http://localhost:4321/work/",
-    "http://localhost:4321/uses/",
-    "http://localhost:4321/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/",
-    "http://localhost:4321/blog/self-hosted-music-still-sucks-in-2025/",
-    "http://localhost:4321/blog/how-to-get-started-building-a-homelab-server-in-2024/"
-  ]
+	"defaults": {
+		"standard": "WCAG2AA",
+		"runners": ["axe"],
+		"timeout": 30000,
+		"wait": 1000,
+		"chromeLaunchConfig": {
+			"args": ["--no-sandbox", "--disable-setuid-sandbox"]
+		},
+		"ignore": ["color-contrast", "label"]
+	},
+	"urls": [
+		"http://localhost:4321/",
+		"http://localhost:4321/blog/",
+		"http://localhost:4321/about/",
+		"http://localhost:4321/work/",
+		"http://localhost:4321/uses/",
+		"http://localhost:4321/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/",
+		"http://localhost:4321/blog/self-hosted-music-still-sucks-in-2025/",
+		"http://localhost:4321/blog/how-to-get-started-building-a-homelab-server-in-2024/"
+	]
 }

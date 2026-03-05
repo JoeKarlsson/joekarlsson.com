@@ -1,10 +1,10 @@
 ---
-title: "How To Use The MongoDB Visual Studio Code Plugin"
+title: 'How To Use The MongoDB Visual Studio Code Plugin'
 date: 2020-11-03
-slug: "how-to-use-the-mongodb-visual-studio-code-plugin"
-description: "To make developers more productive when working with MongoDB, we built MongoDB for Visual Studio Code, an extension that allows you to quickly connect to MongoDB and MongoDB Atlas and work with your..."
-categories: ["Blog"]
-heroImage: "/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/og-vs-code-plugin.png"
+slug: 'how-to-use-the-mongodb-visual-studio-code-plugin'
+description: 'To make developers more productive when working with MongoDB, we built MongoDB for Visual Studio Code, an extension that allows you to quickly connect to MongoDB and MongoDB Atlas and work with your...'
+categories: ['Databases', 'Dev Tools']
+heroImage: '/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/og-vs-code-plugin.webp'
 ---
 
 To make developers more productive when working with MongoDB, we built [MongoDB for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode), an extension that allows you to quickly connect to MongoDB and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and work with your data to build applications right inside your code editor. With the MongoDB Visual Studio Code Plugin, you can:
@@ -27,11 +27,11 @@ First things first, we will need to set up a [MongoDB Atlas](https://www.mongodb
 
 Once you log in, Atlas prompts you to build your first cluster. You need to click “Build a Cluster.” You will then select the Starter Cluster. Starter clusters include the M0, M2, and M5 cluster tiers. These low-cost clusters are suitable for users who are learning MongoDB or developing small proof-of-concept applications.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/14_atlas_tiers_4f3f126eb9-1024x727.png)
+![MongoDB Atlas cluster tier selection showing free, shared, and dedicated options](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/14_atlas_tiers_4f3f126eb9-1024x727.webp)
 
 Atlas supports M0 Free Tier clusters on [Amazon Web Services (AWS)](https://docs.atlas.mongodb.com/reference/amazon-aws/#amazon-aws), [Google Cloud Platform (GCP)](https://docs.atlas.mongodb.com/reference/google-gcp/#google-gcp), and [Microsoft Azure](https://docs.atlas.mongodb.com/reference/microsoft-azure/#microsoft-azure). Atlas displays only the regions that support M0 Free Tier and M2/M5 Shared tier clusters.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/18_mongodb_free_teir_a05d7b15e8-1024x616.png)
+![MongoDB Atlas cloud provider and region selection for free tier cluster](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/18_mongodb_free_teir_a05d7b15e8-1024x616.webp)
 
 Once you deploy your cluster, it can take up to 10 minutes for your cluster to provision and become ready to use.
 
@@ -47,12 +47,11 @@ Click Add Your Current IP Address.
 
 For security purposes, you must [create a database user to access your cluster](https://docs.atlas.mongodb.com/tutorial/create-mongodb-user-for-cluster/). Enter the new username and password. You’ll then have the option of selecting user privileges, including admin, read/write access, or read-only access. From your Clusters view, click the Connect button for your cluster.
 
-![Screenshot highlighting cluster connect button.](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/11_mongodb_atlas_connect_button_cdaa462ac7-1024x582.png)
+![Screenshot highlighting cluster connect button.](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/11_mongodb_atlas_connect_button_cdaa462ac7-1024x582.webp)
 
 In the **Create a MongoDB User** step of the dialog, enter a Username and a Password for your database user. You’ll use this username and password combination to access data on your cluster.
 
-> 
-For information on configuring additional database users on your cluster, see [Configure Database Users](https://docs.atlas.mongodb.com/security-add-mongodb-users/).
+> For information on configuring additional database users on your cluster, see [Configure Database Users](https://docs.atlas.mongodb.com/security-add-mongodb-users/).
 
 ## Install MongoDB for Visual Studio Code
 
@@ -64,7 +63,7 @@ MongoDB for Visual Studio Code can connect to MongoDB standalone instances or cl
 
 For each collection, you will see a list of sample documents and a quick overview of the schema. This is very useful as a reference while writing queries and aggregations.
 
-![Connect to MongoDB](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/2_vscode_connect_to_mongodb_7f84fa244b.png)*Connect to MongoDB*
+![Connect to MongoDB](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/2_vscode_connect_to_mongodb_7f84fa244b.webp)_Connect to MongoDB_
 
 Once installed there will be a new MongoDB tab that we can use to add our connections by clicking “Add Connection”. If you’ve used [MongoDB Compass](https://www.mongodb.com/products/compass) before, then the form should be familiar. You can enter your connection details in the form, or use a connection string. I went with the latter as my database is hosted on MongoDB Atlas.
 
@@ -74,11 +73,11 @@ Choose the “Connect using MongoDB Compass” option and copy the connection st
 
 Then paste this string into Visual Studio Code.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/15_vscode_enter_connection_string_b785102dae.png)
+![VS Code input field prompting for MongoDB connection string](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/15_vscode_enter_connection_string_b785102dae.webp)
 
 Once you’ve connected successfully, you should see an alert. At this point, you can explore the data in your cluster, as well as your schemas.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/13_connect_successful_20d877da49.png)
+![Connect successful 20d877da49](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/13_connect_successful_20d877da49.webp)
 
 ## Navigate Your Data
 
@@ -90,9 +89,7 @@ Once you connect to your deployment using MongoDB for Visual Studio Code, use th
 
 - Drop databases and collections.
 
-- 
-
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/6_vscode_connections_72837b6be9.png)
+![VS Code MongoDB sidebar showing connected cluster with databases listed](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/6_vscode_connections_72837b6be9.webp)
 
 ## Databases and Collections
 
@@ -104,11 +101,11 @@ When you expand a collection, MongoDB for Visual Studio Code displays that colle
 
 When you expand a collection’s documents, MongoDB for Visual Studio Code lists the `_id` of each document in the collection. Click an `_id` value to open that document in Visual Studio Code and view its contents.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/21_mongodb_vscode_list_documents_93b4799ade.png)
+![VS Code MongoDB sidebar showing document IDs in a collection](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/21_mongodb_vscode_list_documents_93b4799ade.webp)
 
 Alternatively, right-click a collection and click View Documents to view all the collection’s documents in an array.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/12_vscode_view_documents_869c85ac8e-1024x717.jpg)
+![VS Code showing MongoDB linked list documents as JSON with context menu](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/12_vscode_view_documents_869c85ac8e-1024x717.webp)
 
 Opening collection documents provides a **read-only** view of your data. To modify your data using MongoDB for Visual Studio Code, use a [JavaScript Playground](https://docs.mongodb.com/mongodb-vscode/crud-ops#vsce-crud) or launch a shell by right-clicking your active deployment in the MongoDB view in the Activity Bar.
 
@@ -118,7 +115,7 @@ Your collection’s schema defines the fields and data types within the collecti
 
 When you expand a collection’s schema, MongoDB for Visual Studio Code lists the fields which appear in that collection’s documents. If a field exists in all documents and its type is consistent throughout the collection, MongoDB for Visual Studio Code displays an icon indicating that field’s data type.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/20_mongodb_vscode_list_schema_a9e524af5c.png)
+![VS Code MongoDB sidebar displaying collection schema fields](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/20_mongodb_vscode_list_schema_a9e524af5c.webp)
 
 ### Create a New Database
 
@@ -136,7 +133,7 @@ When you create a new database, then you must populate it with an initial collec
 
 - Press the enter key.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/1_vscode_command_pallete_ee5840feb9-1024x281.png)
+![VS Code View menu highlighting Command Palette option](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/1_vscode_command_pallete_ee5840feb9-1024x281.webp)
 
 ### Create a New Collection
 
@@ -150,7 +147,7 @@ To create a new collection:
 
 - Press the enter key to confirm your new collection.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/17_vscode_add_monogdb_collection_e7a65bf4de-1024x258.png)
+![VS Code prompt to enter new MongoDB collection name](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/17_vscode_add_monogdb_collection_e7a65bf4de-1024x258.webp)
 
 ## Explore Your Data with Playgrounds
 
@@ -174,7 +171,7 @@ To open a playground and begin interacting with your data, open Visual Studio Co
 
 The Command Palette provides quick access to commands and keyboard shortcuts.
 
-![](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/23_vscode_command_palette_9c085765fe-1024x400.jpg)
+![VS Code prompt to enter new MongoDB database name](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/23_vscode_command_palette_9c085765fe-1024x400.webp)
 
 ### Find and run the “Create MongoDB Playground” command.
 
@@ -198,17 +195,13 @@ Let’s run through the default MongoDB Playground template that’s created whe
 
 - Inserts eight documents into the mongodbVSCodePlaygroundDB.sales collection.
 
-<li>Since the collection was dropped, the insert operations will create the collection and insert the data.
+- Since the collection was dropped, the insert operations will create the collection and insert the data.
 
 - For a detailed description of this method’s parameters, see [insertOne()](https://docs.mongodb.com/manual/reference/method/db.collection.insertOne) in the MongoDB Manual.
 
-</li>
-
 - Runs a query to read all documents sold on April 4th, 2014.
 
-<li>For a detailed description of this method’s parameters, see [find()](https://docs.mongodb.com/manual/reference/method/db.collection.find) in the MongoDB Manual.
-
-</li>
+- For a detailed description of this method’s parameters, see [find()](https://docs.mongodb.com/manual/reference/method/db.collection.find) in the MongoDB Manual.
 
 ```
 // MongoDB Playground
@@ -262,7 +255,7 @@ When you press the Play Button, this operation outputs the following document to
 }
 ```
 
-You can learn more about the basics of MQL and CRUD operations in the post, Getting Started with Atlas and the MongoDB Query Language (MQL).
+You can learn more about the basics of MQL and CRUD operations in the post, Getting Started with Atlas and the MongoDB Query Language (MQL). And if you need test data to play around with in your playground, check out my post on [how to seed a MongoDB database with fake data](/blog/how-to-seed-a-mongodb-database-with-fake-data/).
 
 ### Run Aggregation Pipelines
 
@@ -344,11 +337,9 @@ If you are a Visual Studio Code user, getting started with MongoDB for Visual St
 
 You can find more information about MongoDB for Visual Studio Code and all its features in [the documentation](http://dochub.mongodb.org/core/vsce-landing).
 
-> 
-If you have any questions on MongoDB for Visual Studio Code, you can join in the discussion at the [MongoDB Community Forums](https://developer.mongodb.com/community/forums/), and you can share feature requests using the MongoDB Feedback Engine.
+> If you have any questions on MongoDB for Visual Studio Code, you can join in the discussion at the [MongoDB Community Forums](https://developer.mongodb.com/community/forums/), and you can share feature requests using the MongoDB Feedback Engine.
 
-> 
-When you’re ready to try out the MongoDB Visual Studio Code plugin for yourself, check out [MongoDB Atlas](http://bit.ly/MDB_Atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
+> When you’re ready to try out the MongoDB Visual Studio Code plugin for yourself, check out [MongoDB Atlas](http://bit.ly/MDB_Atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
 
 ## Related Links
 
@@ -369,31 +360,3 @@ Check out the following resources for more information:
 - [How to Pass A Coding Interview](https://www.joekarlsson.com/2020/05/how-to-pass-coding-interview/)
 
 - [So, You Want To Learn How To Code? Here’s What You Need To Know.](https://www.joekarlsson.com/2018/01/my-top-resources-for-learning-how-to-code/)
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://twitter.com/JoeKarlsson1](https://x.com/JoeKarlsson1)
-
-- TikTok – [https://www.tiktok.com/@joekarlsson](https://www.tiktok.com/@joekarlsson)
-
-- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)
-
-- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)
-
-- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)
-
-- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)
-
-- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)
-
-- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)
-
-- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)
-
-- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)
-
-##

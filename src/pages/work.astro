@@ -1,289 +1,180 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects, CATEGORY_META } from '../data/projects';
 import { SOCIAL_LINKS } from '../consts';
+
+const featuredProject = projects.find((p) => p.featured);
+const nonFeatured = projects.filter((p) => !p.featured);
+
+const categories = ['iot', 'web', 'games', 'dev-tools', 'homelab'] as const;
 ---
 
-<BaseLayout title="Work & Projects | Joe Karlsson" description="Joe Karlsson's projects, demos, open source work, and portfolio.">
-	<div class="mx-auto max-w-4xl px-4 py-8">
+<BaseLayout
+	title="Work & Projects | Joe Karlsson"
+	description="Joe Karlsson's projects, demos, open source work, and portfolio."
+	schemaType="CollectionPage"
+>
+	<div class="mx-auto max-w-5xl px-4 py-8">
+		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ ls work/</p>
 		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Work & Projects</h1>
 		<p class="mb-10 text-gray-400">
-			I build things — software, hardware, IoT contraptions, and the occasional questionable idea.
+			I build things - software, hardware, IoT contraptions, and the occasional questionable idea.
 			Here's a collection of projects I've shipped over the years.
 		</p>
 
-		<!-- IoT & Hardware -->
-		<h2 class="mb-4 text-xl font-bold text-teal">IoT & Hardware</h2>
-		<div class="mb-10 grid gap-4 sm:grid-cols-2">
-			<a href="https://github.com/JoeKarlsson/iot-kitty-litter-box" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-teal/30 hover:shadow-lg hover:shadow-teal/10">
-				<img src="/images/projects/iot-litter-box.png" alt="IoT Kitty Litter Box" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-teal">IoT Kitty Litter Box</h3>
-						<span class="text-xs text-gray-500">25 stars</span>
+		{/* Featured Project */}
+		{
+			featuredProject && (
+				<a
+					href={featuredProject.sourceUrl || featuredProject.blogUrl || '#'}
+					target={featuredProject.sourceUrl ? '_blank' : undefined}
+					rel={featuredProject.sourceUrl ? 'noopener noreferrer' : undefined}
+					class="group mb-12 block overflow-hidden rounded-lg border border-coral/30 bg-surface-1 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+				>
+					<div class="md:flex">
+						<img
+							src={featuredProject.image}
+							alt={featuredProject.imageAlt}
+							class="h-48 w-full object-cover md:h-auto md:w-1/2"
+						/>
+						<div class="flex flex-col justify-center p-6">
+							<p class="mb-2 font-mono text-xs text-coral">Featured Project</p>
+							<h2 class="mb-2 text-2xl font-bold text-white transition-colors group-hover:text-coral">
+								{featuredProject.title}
+							</h2>
+							<div class="mb-3 flex flex-wrap gap-1">
+								{featuredProject.tech.map((t) => (
+									<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
+										{t}
+									</span>
+								))}
+							</div>
+							{featuredProject.stars && (
+								<p class="mb-2 font-mono text-xs text-gray-400">
+									{featuredProject.stars} stars on GitHub
+								</p>
+							)}
+							<p class="line-clamp-3 text-sm text-gray-400">{featuredProject.description}</p>
+							<div class="mt-4 flex items-center gap-4">
+								{featuredProject.sourceUrl && (
+									<span class="flex items-center gap-1 font-mono text-xs text-coral">
+										<svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
+											<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+										</svg>
+										Source
+									</span>
+								)}
+								{featuredProject.blogUrl && (
+									<span class="flex items-center gap-1 font-mono text-xs text-coral">
+										<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												stroke-width="2"
+												d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+											/>
+										</svg>
+										Blog Post
+									</span>
+								)}
+							</div>
+						</div>
 					</div>
-					<p class="text-sm text-gray-400">Welcome to the Internet of Toilets. An IoT-connected cat litter box built with a Raspberry Pi, weight sensors, and Node.js. Monitors usage patterns and sends notifications. Became one of my most popular conference talks — presented at 20+ events worldwide.</p>
-				</div>
-			</a>
+				</a>
+			)
+		}
 
-			<a href="https://github.com/JoeKarlsson" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-teal/30 hover:shadow-lg hover:shadow-teal/10">
-				<img src="/images/projects/magic-mirror.jpeg" alt="MagicMirror Smart Mirror" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-teal">MagicMirror² — Smart IoT Mirror</h3>
-					</div>
-					<p class="text-sm text-gray-400">A smart mirror built with a Raspberry Pi running MagicMirror² software behind a two-way mirror. Displays weather, calendar, news, and Home Assistant integrations. Still running in my house today.</p>
-				</div>
-			</a>
+		{/* Project Categories */}
+		{
+			categories.map((catKey) => {
+				const meta = CATEGORY_META[catKey];
+				const catProjects = nonFeatured.filter((p) => p.category === catKey);
+				if (catProjects.length === 0) return null;
+				return (
+					<>
+						<h2 class="mb-4 text-xl font-bold text-white">
+							<span class="text-coral font-mono text-sm" aria-hidden="true">
+								~$
+							</span>{' '}
+							{meta.command}
+						</h2>
+						<div class="mb-10 grid gap-4 sm:grid-cols-2">
+							{catProjects.map((project) => (
+								<ProjectCard project={project} />
+							))}
+						</div>
+					</>
+				);
+			})
+		}
 
-			<a href="https://github.com/JoeKarlsson" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-teal/30 hover:shadow-lg hover:shadow-teal/10">
-				<img src="/images/projects/moodlite.png" alt="Moodlite Smart Light Panels" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-teal">Moodlite — Smart IoT Light Panels</h3>
-					</div>
-					<p class="text-sm text-gray-400">DIY smart light panels inspired by Nanoleaf, built with 3D-printed housings, WS2812B LED strips, and an ESP8266. Controllable via MQTT and Home Assistant. A fun weekend project that turned into a deep dive into embedded systems.</p>
-				</div>
-			</a>
-
-			<a href="/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-teal/30 hover:shadow-lg hover:shadow-teal/10">
-				<img src="/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/Postcard-Rack-Planter.jpg" alt="3D Printed Planter" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-teal">3D-Printed Postcard Rack Planter</h3>
-					</div>
-					<p class="text-sm text-gray-400">Custom 3D-printed planter insert designed in Fusion 360 for a recycled postcard rack. Printed on my Prusa MK3. A fun exercise in turning digital design into a real-world object.</p>
-				</div>
-			</a>
-		</div>
-
-		<!-- Web & Software -->
-		<h2 class="mb-4 text-xl font-bold text-lavender">Web & Software</h2>
-		<div class="mb-10 grid gap-4 sm:grid-cols-2">
-			<a href="https://github.com/JoeKarlsson/react-spotify-player" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-lavender/30 hover:shadow-lg hover:shadow-lavender/10">
-				<img src="/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/1_KGOTMV8KD120TApnijDauQ.png" alt="React Spotify Player" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-lavender">React Spotify Player</h3>
-						<span class="text-xs text-gray-500">131 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">A real-time Spotify player built with React. My most starred open source project. Integrates with the Spotify Web API for custom playback. Accompanied a popular tutorial.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/bechdel-test" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-lavender/30 hover:shadow-lg hover:shadow-lavender/10">
-				<img src="/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/Bechdel.io-Blog-Banner.png" alt="Bechdel.io" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-lavender">Bechdel.io</h3>
-						<span class="text-xs text-gray-500">30 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">Does your favorite film pass the Bechdel Test? Uses NLP to parse movie scripts and analyze gender representation in dialogue. Featured in multiple publications and conference talks.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/Pixelate" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-lavender/30 hover:shadow-lg hover:shadow-lavender/10">
-				<img src="/images/blog/how-to-pixelate-images-with-html5-and-javascript/pixelate-demo.jpg" alt="Pixelate" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-lavender">Pixelate</h3>
-						<span class="text-xs text-gray-500">15 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">HTML5 webapp that pixelates any image using the Canvas API. One of my early web projects that taught me a ton about image manipulation in the browser.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/night-out" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-lavender/30 hover:shadow-lg hover:shadow-lavender/10">
-				<img src="/images/projects/launch-target.jpg" alt="Launch Target" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-lavender">Launch Target — Lunch Coordination</h3>
-					</div>
-					<p class="text-sm text-gray-400">A real-time coordination app to help you and your friends find a place to eat. Because deciding where to go for lunch is the hardest problem in computer science.</p>
-				</div>
-			</a>
-		</div>
-
-		<!-- Games & Fun -->
-		<h2 class="mb-4 text-xl font-bold text-pink">Games & Fun Stuff</h2>
-		<div class="mb-10 grid gap-4 sm:grid-cols-2">
-			<a href="https://github.com/JoeKarlsson/wave-jump" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-pink/30 hover:shadow-lg hover:shadow-pink/10">
-				<img src="/images/projects/wave-jump.png" alt="Wave Jump" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-pink">Wave Jump</h3>
-						<span class="text-xs text-gray-500">5 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">An 80's arcade-inspired multiplayer browser game built with Phaser.js. Dodge waves and outlast your opponents.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/rose-hobart" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-pink/30 hover:shadow-lg hover:shadow-pink/10">
-				<img src="/images/projects/rose-hobart.jpg" alt="Rose Hobart" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-pink">Rose Hobart</h3>
-						<span class="text-xs text-gray-500">2 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">A digital humanities project exploring performativity in cinema. Inspired by Joseph Cornell's 1936 found footage film. Analyzes and visualizes narrative structure in film scripts.</p>
-				</div>
-			</a>
-		</div>
-
-		<!-- Developer Tools & Education -->
-		<h2 class="mb-4 text-xl font-bold text-terminal-yellow">Developer Tools & Education</h2>
-		<div class="mb-10 grid gap-4 sm:grid-cols-2">
-			<a href="https://github.com/JoeKarlsson/data-structures" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-yellow/30 hover:shadow-lg hover:shadow-terminal-yellow/10">
-				<img src="/images/projects/data-structures.png" alt="Data Structures" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-terminal-yellow">Data Structures & Algorithms in JS</h3>
-						<span class="text-xs text-gray-500">185 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">Common data structures and algorithms implemented in JavaScript. Created as teaching material when I was an instructor at DevLeague. Covers linked lists, trees, graphs, sorting, and more.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/complete-guide-to-client-server-communication" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-yellow/30 hover:shadow-lg hover:shadow-terminal-yellow/10">
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-terminal-yellow">Guide to Client-Server Communication</h3>
-						<span class="text-xs text-gray-500">43 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">Every way a client and server communicate — HTTP, WebSockets, SSE, GraphQL, gRPC, and more. A comprehensive reference guide with examples.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/python-sudoku-generator-solver" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-yellow/30 hover:shadow-lg hover:shadow-terminal-yellow/10">
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-terminal-yellow">Python Sudoku Generator & Solver</h3>
-						<span class="text-xs text-gray-500">90 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">Generates unique Sudoku boards across 4 difficulty levels with a built-in solver using backtracking.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/movie-script-scraper" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-yellow/30 hover:shadow-lg hover:shadow-terminal-yellow/10">
-				<img src="/images/projects/movie-script-scraper.png" alt="Movie Script Scraper" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-terminal-yellow">Movie Script Scraper</h3>
-						<span class="text-xs text-gray-500">11 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">Scraper to retrieve movie scripts by genre or title from IMSDB. Built as a data pipeline for the Bechdel Test project.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/mongodb-graphql-demo" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-yellow/30 hover:shadow-lg hover:shadow-terminal-yellow/10">
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-terminal-yellow">MongoDB GraphQL Demo</h3>
-						<span class="text-xs text-gray-500">20 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">Using the MongoDB GraphQL Endpoint with Apollo Client in React.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/watson-speech-to-text-telegram-chatbot" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-yellow/30 hover:shadow-lg hover:shadow-terminal-yellow/10">
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-terminal-yellow">Watson Speech-to-Text Telegram Bot</h3>
-						<span class="text-xs text-gray-500">6 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">IBM Watson powered chatbot that transcribes voice messages in Telegram.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/best-buy-product-locator-chrome-extension" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-yellow/30 hover:shadow-lg hover:shadow-terminal-yellow/10">
-				<img src="/images/projects/best-buy-chrome.png" alt="Best Buy Chrome Extension" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-terminal-yellow">Best Buy Product Locator Extension</h3>
-						<span class="text-xs text-gray-500">3 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">Chrome extension that tells you if a product is available for same-day pickup at your local Best Buy. Built during my time on the Best Buy engineering team.</p>
-				</div>
-			</a>
-
-			<a href="https://github.com/JoeKarlsson/client-side-field-level-encryption-csfle-mongodb-node-demo" target="_blank" rel="noopener" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-yellow/30 hover:shadow-lg hover:shadow-terminal-yellow/10">
-				<div class="p-4">
-					<div class="mb-1 flex items-center justify-between">
-						<h3 class="font-semibold text-white group-hover:text-terminal-yellow">MongoDB CSFLE Demo</h3>
-						<span class="text-xs text-gray-500">5 stars</span>
-					</div>
-					<p class="text-sm text-gray-400">Reference implementation of Client-Side Field Level Encryption in MongoDB with Node.js.</p>
-				</div>
-			</a>
-		</div>
-
-		<!-- Homelab -->
-		<h2 class="mb-4 text-xl font-bold text-terminal-green">Homelab</h2>
-		<div class="mb-10 grid gap-4 sm:grid-cols-2">
-			<a href="/blog/how-to-get-started-building-a-homelab-server-in-2024/" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-green/30 hover:shadow-lg hover:shadow-terminal-green/10">
-				<img src="/images/blog/how-to-get-started-building-a-homelab-server-in-2024/Homelab-Archiecture-1024x473.png" alt="Homelab" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<h3 class="mb-1 font-semibold text-white group-hover:text-terminal-green">Proxmox Homelab Cluster</h3>
-					<p class="text-sm text-gray-400">A 2-node Proxmox cluster running 30+ LXC containers and VMs. Self-hosted services include Plex, Home Assistant, Frigate NVR, Grafana, and more. 20Gbps LACP backbone. I wrote the guide.</p>
-				</div>
-			</a>
-
-			<a href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/" class="group block overflow-hidden rounded-lg border border-surface-3 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-terminal-green/30 hover:shadow-lg hover:shadow-terminal-green/10">
-				<img src="/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/I-Replaced-My-Smart-Home-with-a-Dumber-Home-But-at-Least-Its-Private.png" alt="Smart Home" class="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-				<div class="p-4">
-					<h3 class="mb-1 font-semibold text-white group-hover:text-terminal-green">Private Smart Home</h3>
-					<p class="text-sm text-gray-400">Replaced Alexa with Home Assistant Voice. Local speech processing via Wyoming Whisper on GPU. Zigbee devices, Frigate camera AI, and zero cloud dependencies.</p>
-				</div>
-			</a>
-		</div>
-
-		<!-- All repos link -->
+		{/* All repos link */}
 		<div class="mb-10 rounded-lg border border-surface-3 bg-surface-1 p-6 text-center">
 			<p class="mb-3 text-gray-400">Want to see everything?</p>
 			<a
 				href={SOCIAL_LINKS.github}
 				target="_blank"
-				rel="noopener"
+				rel="noopener noreferrer"
 				class="inline-block rounded-md bg-coral px-5 py-2.5 font-medium text-surface-0 no-underline hover:bg-teal"
 			>
 				View all repos on GitHub &rarr;
 			</a>
 		</div>
 
-		<!-- Work History -->
+		{/* Work History */}
 		<details class="rounded-lg border border-surface-3" open>
 			<summary class="cursor-pointer px-6 py-4 text-gray-400 hover:text-white">
 				<span class="font-medium">Work History</span>
 			</summary>
 			<div class="space-y-4 px-6 pb-6">
 				<div class="border-l-2 border-teal pl-4">
-					<h3 class="font-semibold text-white">Developer Advocate — CloudQuery</h3>
-					<span class="text-sm text-gray-500">2025 – Present</span>
-					<p class="mt-1 text-sm text-gray-400">Developer relations and content for the open-source ELT framework. Creating demos, tutorials, and developer resources.</p>
+					<h3 class="font-semibold text-white">Developer Advocate - CloudQuery</h3>
+					<span class="text-sm text-gray-400">2025 – Present</span>
+					<p class="mt-1 text-sm text-gray-400">
+						Developer relations and content for the open-source ELT framework. Creating demos,
+						tutorials, and developer resources.
+					</p>
 				</div>
 				<div class="border-l-2 border-coral pl-4">
-					<h3 class="font-semibold text-white">Developer Advocate — Tinybird</h3>
-					<span class="text-sm text-gray-500">2023 – 2025</span>
-					<p class="mt-1 text-sm text-gray-400">Empowered developers building real-time analytics applications. Created documentation, demos, blog posts, webinars, and workshops.</p>
+					<h3 class="font-semibold text-white">Developer Advocate - Tinybird</h3>
+					<span class="text-sm text-gray-400">2023 – 2025</span>
+					<p class="mt-1 text-sm text-gray-400">
+						Empowered developers building real-time analytics applications. Created documentation,
+						demos, blog posts, webinars, and workshops.
+					</p>
 				</div>
 				<div class="border-l-2 border-lavender pl-4">
-					<h3 class="font-semibold text-white">Senior Developer Advocate — SingleStore</h3>
-					<span class="text-sm text-gray-500">2021 – 2023</span>
-					<p class="mt-1 text-sm text-gray-400">Led community conversations around scaling SQL workloads. Built demos and content for the distributed SQL database.</p>
+					<h3 class="font-semibold text-white">Senior Developer Advocate - SingleStore</h3>
+					<span class="text-sm text-gray-400">2021 – 2023</span>
+					<p class="mt-1 text-sm text-gray-400">
+						Led community conversations around scaling SQL workloads. Built demos and content for
+						the distributed SQL database.
+					</p>
 				</div>
 				<div class="border-l-2 border-terminal-green pl-4">
-					<h3 class="font-semibold text-white">Senior Developer Advocate — MongoDB</h3>
-					<span class="text-sm text-gray-500">2019 – 2021</span>
-					<p class="mt-1 text-sm text-gray-400">Built developer community, created tutorials, demos, and educational content. Subject matter expert for developer experience.</p>
+					<h3 class="font-semibold text-white">Senior Developer Advocate - MongoDB</h3>
+					<span class="text-sm text-gray-400">2019 – 2021</span>
+					<p class="mt-1 text-sm text-gray-400">
+						Built developer community, created tutorials, demos, and educational content. Subject
+						matter expert for developer experience.
+					</p>
 				</div>
 				<div class="border-l-2 border-sky pl-4">
-					<h3 class="font-semibold text-white">Front-end Technical Lead — Best Buy</h3>
-					<span class="text-sm text-gray-500">2017 – 2019</span>
-					<p class="mt-1 text-sm text-gray-400">Engineered high-performance solutions for one of the top 10 eCommerce sites in North America. Scaled production apps handling thousands of requests per second.</p>
+					<h3 class="font-semibold text-white">Front-end Technical Lead - Best Buy</h3>
+					<span class="text-sm text-gray-400">2017 – 2019</span>
+					<p class="mt-1 text-sm text-gray-400">
+						Engineered high-performance solutions for one of the top 10 eCommerce sites in North
+						America. Scaled production apps handling thousands of requests per second.
+					</p>
 				</div>
 				<div class="border-l-2 border-pink pl-4">
-					<h3 class="font-semibold text-white">Full-Stack JavaScript Instructor — DevLeague</h3>
-					<span class="text-sm text-gray-500">2015 – 2017</span>
-					<p class="mt-1 text-sm text-gray-400">Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created curriculum and prepared students for software engineering careers in Honolulu.</p>
+					<h3 class="font-semibold text-white">Full-Stack JavaScript Instructor - DevLeague</h3>
+					<span class="text-sm text-gray-400">2015 – 2017</span>
+					<p class="mt-1 text-sm text-gray-400">
+						Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created
+						curriculum and prepared students for software engineering careers in Honolulu.
+					</p>
 				</div>
 			</div>
 		</details>

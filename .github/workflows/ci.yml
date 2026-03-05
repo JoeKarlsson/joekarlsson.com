@@ -49,6 +49,19 @@ jobs:
       - run: npm ci
       - run: npx cspell "src/content/blog/**/*.md" --no-progress
 
+  lint:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run lint
+
   images:
     name: Image Validation
     runs-on: ubuntu-latest

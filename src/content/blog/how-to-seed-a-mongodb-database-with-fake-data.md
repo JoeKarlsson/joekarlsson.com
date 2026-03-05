@@ -1,10 +1,10 @@
 ---
-title: "How to Seed a MongoDB Database with Fake Data"
+title: 'How to Seed a MongoDB Database with Fake Data'
 date: 2021-06-30
-slug: "how-to-seed-a-mongodb-database-with-fake-data"
-description: "Have you ever worked on a MongoDB project and needed to seed your database with fake data in order to provide initial values for lookups, demo purposes, proof of concepts, etc.? I’m biased, but I’ve..."
-categories: ["Blog"]
-heroImage: "/images/blog/how-to-seed-a-mongodb-database-with-fake-data/twitter-mongoimport.png"
+slug: 'how-to-seed-a-mongodb-database-with-fake-data'
+description: 'Have you ever worked on a MongoDB project and needed to seed your database with fake data in order to provide initial values for lookups, demo purposes, proof of concepts, etc.? I’m biased, but I’ve...'
+categories: ['Databases']
+heroImage: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/twitter-mongoimport.webp'
 ---
 
 Have you ever worked on a MongoDB project and needed to seed your database with fake data in order to provide initial values for lookups, demo purposes, proof of concepts, etc.? I’m biased, but I’ve had to seed a MongoDB database countless times.
@@ -91,9 +91,9 @@ seedDB();
 
 After running the script above, be sure to check out your database to ensure that your data has been properly seeded. This is what my database looks like after running the script above.
 
-![Screenshot showing the seeded data in a MongoDB Atlas cluster.](/images/blog/how-to-seed-a-mongodb-database-with-fake-data/seed-database-1024x705.webp)*Screenshot showing the seeded data in a MongoDB Atlas cluster.*
+![Screenshot showing the seeded data in a MongoDB Atlas cluster.](/images/blog/how-to-seed-a-mongodb-database-with-fake-data/seed-database-1024x705.webp)_Screenshot showing the seeded data in a MongoDB Atlas cluster._
 
-Once your fake seed data is in the MongoDB database, you’re done! Congratulations!
+Once your fake seed data is in the MongoDB database, you’re done! Congratulations! If you want a nice way to browse and verify your seeded data, I’d recommend the [MongoDB Visual Studio Code plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/) for exploring your collections right from your editor.
 
 ## Want to check out more of my technical posts?
 
@@ -106,29 +106,3 @@ Once your fake seed data is in the MongoDB database, you’re done! Congratulati
 - [How To Use The MongoDB Visual Studio Code Plugin](https://www.joekarlsson.com/2020/11/how-to-use-the-mongodb-visual-studio-code-plugin/)
 
 - [Linked Lists and MongoDB: A Gentle Introduction](https://www.joekarlsson.com/2020/11/linked-lists-and-mongodb-a-gentle-introduction/)
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://twitter.com/JoeKarlsson1](https://x.com/JoeKarlsson1)
-
-- TikTok – [https://www.tiktok.com/@joekarlsson](https://www.tiktok.com/@joekarlsson)
-
-- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)
-
-- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)
-
-- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)
-
-- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)
-
-- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)
-
-- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)
-
-- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)
-
-- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)

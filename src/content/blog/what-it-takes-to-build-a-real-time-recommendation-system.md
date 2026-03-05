@@ -1,10 +1,10 @@
 ---
-title: "What it takes to build a real-time recommendation system"
+title: 'What it takes to build a real-time recommendation system'
 date: 2024-03-30
-slug: "what-it-takes-to-build-a-real-time-recommendation-system"
-description: "Real-time, personalized recommendations have become a foundational part of our online experiences. From streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering..."
-categories: ["Blog"]
-heroImage: "/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/64be9b1121ab250bbca26d13_Confluent-ConnectorWhat-it-takes-to.png"
+slug: 'what-it-takes-to-build-a-real-time-recommendation-system'
+description: 'Real-time, personalized recommendations have become a foundational part of our online experiences. From streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering...'
+categories: ['Databases']
+heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/64be9b1121ab250bbca26d13_Confluent-ConnectorWhat-it-takes-to.webp'
 ---
 
 Real-time, personalized recommendations have become a foundational part of our online experiences. From streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering tailored product recommendations, real-time recommendation systems have revolutionized how we discover and engage with content and products.
@@ -21,18 +21,17 @@ A real-time recommendation system is a class of [real-time data analytics](https
 
 Unlike traditional batch recommendation systems, which use long-running extract, transform, and load (ETL) workflows over static datasets, real-time recommendation systems dynamically adapt to user interactions as they happen, providing low-latency recommendations within a user session.
 
-![](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-11-1.jpg)
+![Image 11 1](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-11-1.webp)
 
 Unlike batch recommendation systems, real-time recommendation systems use streaming data platforms and real-time databases to make recommendations to users as they are browsing and based on the most up-to-date data.
 
 ### Using machine learning in real-time recommendation systems
 
-Real-time recommendation systems often leverage machine learning models or advanced data processing techniques to predict user preferences and offer personalized suggestions. The most advanced real-time rec sys will use an [online feature store](https://www.tinybird.co/blog-posts/using-tinybird-as-a-serverless-online-feature-store) or real-time model inference system paired with a long-term model training system to both provide the best recommendations in real-time and continuously retrain and optimize the model based on user feedback.
+Real-time recommendation systems often use machine learning models or advanced data processing techniques to predict user preferences and offer personalized suggestions. The most advanced real-time rec sys will use an [online feature store](https://www.tinybird.co/blog-posts/using-tinybird-as-a-serverless-online-feature-store) or real-time model inference system paired with a long-term model training system to both provide the best recommendations in real-time and continuously retrain and optimize the model based on user feedback.
 
 A common advantage of real-time recommendation systems is their ability to handle dynamic and unpredictable user behavior. Traditional recommendation systems often struggle to adapt to sudden changes in user preferences or trends, as they rely on pre-processed data. In contrast, real-time recommendation systems that utilize machine learning can quickly adjust their recommendations based on new user interactions, ensuring the suggestions remain timely and effective.
 
-> 
-Real-time recommendation systems often use online machine learning models, however machine learning is not a prerequisite, and many real-time recommenders can use heuristic analysis developed in simple languages like SQL.
+> Real-time recommendation systems often use online machine learning models, however machine learning is not a prerequisite, and many real-time recommenders can use heuristic analysis developed in simple languages like SQL.
 
 By integrating real-time recommendation systems powered by machine learning models into various online platforms, engineers can build differentiated features that enhance user engagement, increase average order value, boost conversion rates and average order values, and ultimately drive revenue growth.
 
@@ -44,7 +43,7 @@ One of the key features of real-time recommendation systems is their ability to 
 
 For example, when a user visits an e-commerce website, the real-time recommendation system can analyze their browsing behavior, purchase history, cohort analysis, and other relevant data to suggest products that they are most likely to buy at that moment.
 
-![](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-15.png)
+![Diagram comparing content-based and collaborative filtering approaches](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-15.webp)
 
 Real-time recommenders make recommendations based on streaming user activity events and historic data that is often stored in a data warehouse.
 
@@ -64,7 +63,7 @@ By lumping a user into a cohort of similar users, collaborative filtering helps 
 
 Of course, many successful real-time recommendation systems pair both content-based and collaborative filtering.
 
-![](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-11-1024x642.png)
+![Content-based versus collaborative filtering recommendation system flowchart](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-11-1024x642.webp)
 
 Content-based filtering makes recommendations for content that matches content a user has already consumed, while collaborative filtering recommends content that similar users have consumed and enjoyed.
 
@@ -72,8 +71,7 @@ Content-based filtering makes recommendations for content that matches content a
 
 Real-time recommendation systems have found applications in various industries, including e-commerce, streaming services, social media platforms, and online advertising. But these few stand out as exceptional examples of real-time recommendation systems done right.
 
-> 
-Netflix, TikTok, Twitter, Spotify, and Amazon are well-known for their powerful real-time recommendation systems.
+> Netflix, TikTok, Twitter, Spotify, and Amazon are well-known for their powerful real-time recommendation systems.
 
 ### Netflix
 
@@ -115,11 +113,11 @@ For more information on Amazon’s real-time recommendation engine, read [this](
 
 ## The Key Components of a Real-Time Recommendation System
 
-Before diving into the development process, it’s essential to understand the crucial components of a real-time recommendation system. These components can vary depending on the specific use cases but generally include the following:
+Before diving into the development process, it’s essential to understand the key components of a real-time recommendation system. These components can vary depending on the specific use cases but generally include the following:
 
 ### Data Collection
 
-Data to power a real-time recsys must be acquired from various sources, such as user interactions, preferences, and content metadata. User-generated events are often ingested through streaming data platforms such as the open source Apache Kafka or [Confluent Cloud](https://www.tinybird.co/blog-posts/real-time-streaming-analytics-confluent-connector-tinybird), whereas content metadata may be stored in data lakes such as Databricks or Amazon S3, data warehouses like Snowflake or BigQuery, or databases such as Postgres, MySQL, or MongoDB.
+Data to power a real-time recsys must be acquired from various sources, such as user interactions, preferences, and content metadata. User-generated events are often ingested through streaming data platforms such as the open source Apache Kafka or [Confluent Cloud](https://www.tinybird.co/blog-posts/real-time-streaming-analytics-confluent-connector-tinybird), whereas content metadata may be stored in data lakes such as Databricks or Amazon S3, data warehouses like Snowflake or BigQuery, or databases such as Postgres, MySQL, or MongoDB. The same stream processing infrastructure also powers other real-time use cases like [fraud detection](/blog/how-to-build-a-real-time-fraud-detection-system/), where you're analyzing transaction streams instead of user behavior.
 
 ### Data Storage
 
@@ -131,8 +129,7 @@ Data often must be cleaned, transformed, or otherwise prepared for analysis. Thi
 
 One benefit of using a [real-time data platform](https://www.tinybird.co/blog-posts/real-time-data-platforms) like Tinybird is that it offers an ergonomic query engine to perform data preprocessing using SQL. Engineers can use Tinybird’s [materialized views](https://www.tinybird.co/blog-posts/what-are-materialized-views-and-why-do-they-matter-for-realtime) to incrementally calculate features during [real-time data ingestion](https://www.tinybird.co/blog-posts/real-time-data-ingestion) so that subsequent requests to the recommendation engine are much faster.
 
-> 
-[Real-time data platforms](https://www.tinybird.co/blog-posts/real-time-data-platforms) provide an online query engine to transform real-time data on the fly and incrementally compute features that can be used to determine the right recommendation very quickly.
+> [Real-time data platforms](https://www.tinybird.co/blog-posts/real-time-data-platforms) provide an online query engine to transform real-time data on the fly and incrementally compute features that can be used to determine the right recommendation very quickly.
 
 One common approach to real-time data processing for a real-time recommendation engine is to use [vector embeddings](https://www.pinecone.io/learn/vector-embeddings/). Vector embeddings are effectively data features calculated over incoming real-time datasets. Stored in a dedicated vector database or using vector extensions for real-time databases (like ClickHouse), embeddings are used by machine learning algorithms to make decisions about user interaction data and offer a recommendation.
 
@@ -148,20 +145,19 @@ Building a real-time recommendation system with SQL can be a smart approach if y
 
 Real-time recommendation systems must inject their analysis into a user-facing application within a session timeframe. They generally include APIs that these applications utilize to get recommendations and post feedback results.
 
-> 
-Real-time recommendation systems include an API layer by which the user-facing application can both post user activity and request real-time recommendations.
+> Real-time recommendation systems include an API layer by which the user-facing application can both post user activity and request real-time recommendations.
 
 Tinybird, for example, allows engineers to publish SQL queries and materializations performed in the pre-processing step as [high-concurrency, low-latency APIs](https://www.tinybird.co/docs/concepts/apis.html). These APIs can be utilized by frontend applications to return recommendations immediately when a user visits a page or performs an action within a product.
 
-![](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-12-1.jpg)
+![Image 12 1](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-12-1.webp)
 
 Real-time recommendation systems utilize event streaming platforms, a real-time database, online machine learning or heuristic real-time analytics, and an API layer to both measure user data and make recommendations in real-time.
 
-Each of these components plays a crucial role in the overall effectiveness and performance of a real-time recommendation engine. Careful consideration and integration of these elements are vital to ensure accurate recommendations and a seamless user experience.
+Each of these components plays a key role in the overall effectiveness and performance of a real-time recommendation engine. Careful consideration and integration of these elements are vital to ensure accurate recommendations and a smooth user experience.
 
 ## Developing a Real-Time Recommendation System from Scratch
 
-Building a real-time recommendation system from scratch requires a comprehensive understanding of real-time data processing, machine learning algorithms, and software engineering principles. It’s a complex and iterative process that demands collaboration between data science, data engineering, software engineering, and domain experts.
+Building a real-time recommendation system from scratch requires a solid understanding of real-time data processing, machine learning algorithms, and software engineering principles. It’s a complex and iterative process that demands collaboration between data science, data engineering, software engineering, and domain experts.
 
 While the approaches to building and scaling a real-time recommendation engine will differ by use case and resource availability, the development process typically involves the following steps:
 
@@ -175,10 +171,9 @@ As with any technical project, the business goal comes first.
 
 Data collection and storage is a tooling and infrastructure question. What data streaming platform will you use? If you’re self-hosting you’ll likely go with Apache Kafka. If you’re on AWS maybe you’ll use Kinesis.
 
-Similarly, you’ll need to think about storage. Real-time recommendation engines step squarely into the realm of “big data”. Are you going to use a real-time data warehouse or a data warehouse with a key-value cache like Redis, opt for a managed, [serverless real-time data platform](https://www.tinybird.co/product) like [Tinybird](https://www.tinybird.co), or host an open source [real-time database](https://www.tinybird.co/blog-posts/real-time-databases-what-developers-need-to-know) like ClickHouse, Pinot, or Druid? Or is your use case complex and significant enough to warrant a dedicated vector database?
+Similarly, you’ll need to think about storage. Real-time recommendation engines fall squarely into “big data” territory. Are you going to use a real-time data warehouse or a data warehouse with a key-value cache like Redis, opt for a managed, [serverless real-time data platform](https://www.tinybird.co/product) like [Tinybird](https://www.tinybird.co), or host an open source [real-time database](https://www.tinybird.co/blog-posts/real-time-databases-what-developers-need-to-know) like ClickHouse, Pinot, or Druid? Or is your use case complex and significant enough to warrant a dedicated vector database?
 
-> 
-Real-time recommendation systems need efficient databases to store real-time and historical data.
+> Real-time recommendation systems need efficient databases to store real-time and historical data.
 
 Beyond tooling, you need to think about the metal. Will you self-host, use a cloud, or buy a managed service? As you turn the knobs of cost, time, and resources, you’ll have to make some decisions about infrastructure.
 
@@ -241,8 +236,7 @@ Of course, as you collect real-world real-time data, your algorithm should be op
 
 Building a real-time recommendation system requires a combination of technical expertise, careful planning, and a deep understanding of user preferences. By successfully implementing and optimizing these systems, businesses can not only enhance user experiences but also gain a competitive edge in the digital landscape.
 
-> 
-Real-time recommendation systems can be very complex or very simple. How you build it depends on the use case and its unique requirements.
+> Real-time recommendation systems can be very complex or very simple. How you build it depends on the use case and its unique requirements.
 
 As the world continues to generate vast amounts of data, the importance of real-time recommendation systems will only grow. As a part of an intentional [real-time data strategy](https://www.tinybird.co/blog-posts/16-questions-real-time-data-strategy), these systems revolutionize the way we discover and engage with digital content, making our online experiences more relevant and rewarding than ever before.
 

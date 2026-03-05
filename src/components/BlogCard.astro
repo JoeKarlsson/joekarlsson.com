@@ -5,9 +5,12 @@ interface Props {
 	date: Date;
 	slug: string;
 	heroImage?: string;
+	heroAlt?: string;
+	categories?: string[];
+	readingTime?: number;
 }
 
-const { title, description, date, slug, heroImage } = Astro.props;
+const { title, description, date, slug, heroImage, heroAlt, categories, readingTime } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-us', {
 	year: 'numeric',
 	month: 'short',
@@ -15,20 +18,46 @@ const formattedDate = date.toLocaleDateString('en-us', {
 });
 ---
 
-<a href={`/blog/${slug}/`} class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/30 hover:bg-surface-2">
-	{heroImage && (
-		<img
-			src={heroImage}
-			alt=""
-			class="mb-3 h-40 w-full rounded-md object-cover"
-			loading="lazy"
-		/>
-	)}
-	<p class="mb-1 font-mono text-xs text-gray-500">{formattedDate}</p>
+<a
+	href={`/blog/${slug}/`}
+	class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+>
+	{
+		heroImage && (
+			<img
+				src={heroImage}
+				alt={heroAlt || `Hero image for ${title}`}
+				class="mb-3 h-40 w-full rounded-md object-cover"
+				width="600"
+				height="160"
+				loading="lazy"
+			/>
+		)
+	}
+	<div class="mb-1 flex items-center gap-2 font-mono text-xs text-gray-400">
+		<span>{formattedDate}</span>
+		{
+			readingTime && (
+				<>
+					<span>·</span>
+					<span>{readingTime} min read</span>
+				</>
+			)
+		}
+	</div>
 	<h3 class="mb-2 text-lg font-semibold text-white group-hover:text-coral transition-colors">
 		{title}
 	</h3>
-	{description && (
-		<p class="line-clamp-2 text-sm text-gray-400">{description}</p>
-	)}
+	{
+		categories && categories.length > 0 && (
+			<div class="mb-2 flex flex-wrap gap-1">
+				{categories.map((cat) => (
+					<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
+						{cat}
+					</span>
+				))}
+			</div>
+		)
+	}
+	{description && <p class="line-clamp-2 text-sm text-gray-400">{description}</p>}
 </a>

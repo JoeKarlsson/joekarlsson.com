@@ -1,10 +1,10 @@
 ---
-title: "Data Warehouses Are Terrible Application Backends"
+title: 'Data Warehouses Are Terrible Application Backends'
 date: 2024-04-05
-slug: "data-warehouses-are-terrible-application-backends"
-description: "The ever-increasing tide of data has become a paradox of plenty for today’s developers. According to a report from Seagate, by 2025 worldwide data will grow to a staggering 163 zettabytes, over 10..."
-categories: ["Blog"]
-heroImage: "/images/blog/data-warehouses-are-terrible-application-backends/add14bab-data-warehouse-1-1024x505-1.jpg"
+slug: 'data-warehouses-are-terrible-application-backends'
+description: 'The ever-increasing tide of data has become a paradox of plenty for today’s developers. According to a report from Seagate, by 2025 worldwide data will grow to a staggering 163 zettabytes, over 10...'
+categories: ['Databases']
+heroImage: '/images/blog/data-warehouses-are-terrible-application-backends/add14bab-data-warehouse-1-1024x505-1.webp'
 ---
 
 The ever-increasing tide of data has become a paradox of plenty for today’s developers. According to [a report from Seagate](https://www.seagate.com/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf), by 2025 worldwide data will grow to a staggering 163 zettabytes, over 10 times the volume in 2016. More data should mean deeper insights and better user experiences, but it also leads to problems.
@@ -25,7 +25,7 @@ Specifically, data warehouses do three things that have made analytics accessibl
 
 - They separate storage and compute, reducing costs to scale.
 
-- They leverage distributed compute and cloud networking to maximize query throughput.
+- They use distributed compute and cloud networking to maximize query throughput.
 
 - They democratize analytics with the well-known SQL.
 
@@ -45,7 +45,7 @@ Even the best [query-optimization strategies](https://www.tinybird.co/blog-posts
 
 Running a query on a data warehouse is like playing a game of “latency roulette.” You can spin the wheel the same way every time, but the final outcome (in this case, the latency of the query response) lands unpredictably.
 
-Now, if you’re a backend developer building APIs over a storage layer, you’d never take a chance on nondeterministic latency like this. Users expect snappy APIs that respond within milliseconds. In fact, the database query should be one of the fastest things in the request path, even compared to network latency. If you’re building on top of a data warehouse, this won’t be the case, and your users will feel the pain.
+Now, if you’re a backend developer building APIs over a storage layer, you’d never take a chance on nondeterministic latency like this. Users expect snappy APIs that respond within milliseconds. The database query should be one of the fastest things in the request path, even compared to network latency. If you’re building on top of a data warehouse, this won’t be the case, and your users will feel the pain.
 
 ## The Illusion of Scalability
 
@@ -55,13 +55,13 @@ When you dive deeper into the functionality of data warehouses, you’ll realize
 
 And spinning up new warehouses isn’t cheap. Just ask your buddies [over in data engineering](https://www.tinybird.co/blog-posts/5-snowflake-struggles-that-every-data-engineer-deals-with?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention). For the Snowflake example, you’d be [paying more than $30,000 a month](https://www.tinybird.co/blog-posts/real-time-solutions-with-snowflake#a-realistic-example?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention).
 
-Concurrency constraints in data warehouses like Snowflake present one of the most significant challenges when it comes to developing real-time applications. With a large volume of queries knocking at your warehouse’s door, and a limited number of resources to serve them, you’re bound to experience some serious latency issues unless you scale up and out. And scaling up and out is often prohibitively expensive.
+Concurrency constraints in data warehouses like Snowflake present one of the most significant challenges for developing real-time applications. With a large volume of queries knocking at your warehouse’s door, and a limited number of resources to serve them, you’re bound to experience some serious latency issues unless you scale up and out. And scaling up and out is often prohibitively expensive.
 
 ## Building Cache Layers: A Recent Trend and Its Drawbacks
 
 OK, so nobody really builds an application directly on top of a data warehouse, right? Obviously, you’d use a caching layer like [Redis](https://redis.com/?utm_content=inline+mention) or some other [real-time database](https://thenewstack.io/real-time-databases-who-is-using-them-and-why/) to make sure your API requests are fast and balanced even with many concurrent users.
 
-[![This is a common approach when the data you need to support your application resides in a data warehouse. In theory, the approach seems workable. In reality, it carries some serious drawbacks, the most significant of which is data freshness.](https://cdn.thenewstack.io/media/2023/07/d9f44aba-image3-e1689172194931.png)](https://cdn.thenewstack.io/media/2023/07/d9f44aba-image3-e1689172194931.png)*This is a common approach when the data you need to support your application resides in a data warehouse. In theory, the approach seems workable. In reality, it carries some serious drawbacks, the most significant of which is data freshness.*
+![This is a common approach when the data you need to support your application resides in a data warehouse. In theory, the approach seems workable. In reality, it carries some serious drawbacks, the most significant of which is data freshness.](/images/blog/data-warehouses-are-terrible-application-backends/d9f44aba-image3-e1689172194931.webp)_This is a common approach when the data you need to support your application resides in a data warehouse. In theory, the approach seems workable. In reality, it carries some serious drawbacks, the most significant of which is data freshness._
 
 Simply put, using a cache layer works great for shrinking query latency, but it still won’t work for applications built over streaming data that must always serve the most recent events.
 
@@ -93,13 +93,13 @@ When building on top of real-time data platforms, consider two incremental archi
 
 In the first approach, the data warehouse can still be the primary underpinning storage layer, where the real-time data platform effectively serves as a publication layer. In this architecture, data is synced between the data warehouse and the real-time data platform either on a schedule or on ingestion, and the real-time data platform handles additional transformations as well as providing a low-latency, high concurrency API.
 
-![Real-time data platforms like Tinybird can function like a cache layer over a data warehouse using native connectors. In this way, they eliminate the need for custom object–relational mapping (ORM) code but still may suffer some data freshness constraints.](https://cdn.thenewstack.io/media/2023/07/7ba0b530-image1-e1689172257371.png)*Real-time data platforms like Tinybird can function like a cache layer over a data warehouse using native connectors. In this way, they eliminate the need for custom object–relational mapping (ORM) code but still may suffer some data freshness constraints.*
+![Real-time data platforms like Tinybird can function like a cache layer over a data warehouse using native connectors. In this way, they eliminate the need for custom object–relational mapping (ORM) code but still may suffer some data freshness constraints.](/images/blog/data-warehouses-are-terrible-application-backends/7ba0b530-image1-e1689172257371.webp)_Real-time data platforms like Tinybird can function like a cache layer over a data warehouse using native connectors. In this way, they eliminate the need for custom object–relational mapping (ORM) code but still may suffer some data freshness constraints._
 
 In practice, this is similar to using a real-time data platform as a caching layer, with the added benefit of avoiding the need to write custom API code to connect the cache with your application and having the ability to perform additional enrichment or transformations with the power of full online analytical processing (OLAP).
 
 The second approach bypasses the data warehouse entirely or operates in parallel. Assuming event data is placed on some kind of message queue or streaming platform, the real-time data platform subscribes to streaming topics and ingests data as it’s created, performing the necessary transformations and offering an API layer for the application to use.
 
-![](https://cdn.thenewstack.io/media/2023/07/df9e6486-image2-e1689172310954.png)*Real-time data platforms like Tinybird can function like a cache layer over a data warehouse using native connectors. In this way, they eliminate the need for custom object–relational mapping (ORM) code but still may suffer some data freshness constraints.*
+![Real-time data platforms like Tinybird can function like a cache layer over a data warehouse using native connectors. In this way, they eliminate the need for custom object–relational mapping (ORM) code but still may suffer some data freshness constraints.](/images/blog/data-warehouses-are-terrible-application-backends/df9e6486-image2-e1689172310954.webp)_Real-time data platforms like Tinybird can function like a cache layer over a data warehouse using native connectors. In this way, they eliminate the need for custom object–relational mapping (ORM) code but still may suffer some data freshness constraints._
 
 This can be the preferred approach since it eliminates the data freshness issues that still exist when a caching layer is used over a data warehouse and, with the right real-time data platform, streaming ingestion can be quite trivial.
 
@@ -115,7 +115,7 @@ This can be the preferred approach since it eliminates the data freshness issues
 
 - **Zero glue code:** Even with a cache layer over data warehouses, you’d still have to write glue code: ETLs to get data from the warehouse to your cache, and ORM code to publish APIs from your cache. A real-time data platform, in contrast, handles the entire data flow, from ingestion to publication, with zero glue code. Data gets synced using native connectors, transformations get defined with SQL, and queries are instantly [published as scalable APIs](https://www.tinybird.co/docs/concepts/apis.html?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention) with built-in documentation, authentication token management and dynamic query parameters.
 
-![](https://cdn.thenewstack.io/media/2023/07/07329be8-image4-e1689172386107.png)*Like a data warehouse, Tinybird offers OLAP storage with SQL-based transformations. Unlike data warehouses, it preserves data freshness and offers a low-latency, high-concurrency API layer to support application development.*
+![Like a data warehouse, Tinybird offers OLAP storage with SQL-based transformations. Unlike data warehouses, it preserves data freshness and offers a low-latency, high-concurrency API layer to support application development.](/images/blog/data-warehouses-are-terrible-application-backends/07329be8-image4-e1689172386107.webp)_Like a data warehouse, Tinybird offers OLAP storage with SQL-based transformations. Unlike data warehouses, it preserves data freshness and offers a low-latency, high-concurrency API layer to support application development._
 
 Where data warehouses fail as application backends, real-time data platforms like Tinybird shine. Like data warehouses, these platforms support heavy data loads and complex analytics, but they do so in a way that preserves data freshness, minimizes query latency and scales to support high concurrency.
 

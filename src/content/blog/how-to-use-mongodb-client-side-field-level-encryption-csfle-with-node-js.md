@@ -1,15 +1,15 @@
 ---
-title: "How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js"
+title: 'How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js'
 date: 2021-05-28
-slug: "how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js"
-description: "Have you ever had to develop an application that stored sensitive data, like credit card numbers or social security numbers? This is a super common use case for databases, and it can be a pain to..."
-categories: ["Blog"]
-heroImage: "/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/og-green-pattern.jpg"
+slug: 'how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js'
+description: 'Have you ever had to develop an application that stored sensitive data, like credit card numbers or social security numbers? This is a super common use case for databases, and it can be a pain to...'
+categories: ['Databases']
+heroImage: '/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/og-green-pattern.webp'
 ---
 
-Have you ever had to develop an application that stored sensitive data, like credit card numbers or social security numbers? This is a super common use case for databases, and it can be a pain to save this data securely.  In this post, you will learn how to encrypt document fields client-side in Node.js with MongoDB client-side field-level encryption (CSFLE).
+Have you ever had to develop an application that stored sensitive data, like credit card numbers or social security numbers? This is a super common use case for databases, and it can be a pain to save this data securely. In this post, you will learn how to encrypt document fields client-side in Node.js with MongoDB client-side field-level encryption (CSFLE).
 
-In addition to CSFLE,  there are some incredible security features that come packaged with MongoDB. For example, you should know that with MongoDB, you can take advantage of:
+In addition to CSFLE, there are some incredible security features that come packaged with MongoDB. For example, you should know that with MongoDB, you can take advantage of:
 
 - [Network and user-based rules](https://docs.mongodb.com/manual/core/authorization/), which allows administrators to grant and restrict collection-level permissions for users.
 
@@ -21,7 +21,7 @@ In addition to CSFLE,  there are some incredible security features that come pac
 
 This is a list of MongoDB security features offered and the potential security vulnerabilities that they address:
 
-![Diagram that describes MongoDB security features and the potential vulnerabilities that they address](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/6c4bc139ff54d83316e608db99294d294b35ac57-2-1024x588.png)*Diagram that describes MongoDB security features and the potential vulnerabilities that they address*
+![Diagram that describes MongoDB security features and the potential vulnerabilities that they address](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/6c4bc139ff54d83316e608db99294d294b35ac57-2-1024x588.webp)_Diagram that describes MongoDB security features and the potential vulnerabilities that they address_
 
 Client-side Field Level Encryption allows the engineers to specify the fields of a document that should be kept encrypted. Sensitive data is transparently encrypted/decrypted by the client and only communicated to and from the server in encrypted form. This mechanism keeps the specified data fields secure in encrypted form on both the server and the network. While all clients have access to the non-sensitive data fields, only appropriately-configured CSFLE clients are able to read and write the sensitive data fields.
 
@@ -39,8 +39,7 @@ There are a few requirements that must be met prior to attempting to use Client-
 
 - The [mongocryptd](https://docs.mongodb.com/manual/reference/security-client-side-encryption-appendix/) binary installed (macOS installation instructions below)
 
-> 
-This tutorial will focus on automatic encryption. While this tutorial will use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), you’re going to need to be using version 4.2 or newer for MongoDB Atlas or MongoDB Enterprise Edition. You will not be able to use automatic field level encryption with MongoDB Community Edition.
+> This tutorial will focus on automatic encryption. While this tutorial will use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), you’re going to need to be using version 4.2 or newer for MongoDB Atlas or MongoDB Enterprise Edition. You will not be able to use automatic field level encryption with MongoDB Community Edition.
 
 The assumption is that you’re familiar with developing Node.js applications that use MongoDB. If you want a refresher, take a look at the [quick start series](https://docs.mongodb.com/drivers/node/current/) that we published on the topic.
 
@@ -56,10 +55,9 @@ Because of the **libmongocrypt** and **mongocryptd** requirements, it’s worth 
 brew install mongodb/brew/libmongocrypt
 ```
 
-> 
-I ran into an issue with libmongocrypt when I tried to run my code, because libmongocrypt was trying to statically link against libmongocrypt instead of dynamically linking. I have submitted an issue to the team to fix this issue, but to fix it, I had to run:
+> I ran into an issue with libmongocrypt when I tried to run my code, because libmongocrypt was trying to statically link against libmongocrypt instead of dynamically linking. I have submitted an issue to the team to fix this issue, but to fix it, I had to run:
 
-![](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/d2c1030de0b2c0ceb58e2c4e5c000d1575cf3902.jpg)
+![Terminal showing npm install errors for libmongocrypt static linking](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/d2c1030de0b2c0ceb58e2c4e5c000d1575cf3902.webp)
 
 ```
 export BUILD_TYPE=dynamic
@@ -67,7 +65,7 @@ export BUILD_TYPE=dynamic
 
 ### mongocryptd
 
-**mongocryptd** is required for [automatic field level encryption](https://docs.mongodb.com/manual/core/security-automatic-client-side-encryption/#field-level-encryption-automatic) and is included as a component in the [MongoDB Enterprise Server](https://docs.mongodb.com/manual/administration/install-enterprise/) package. **mongocryptd** is only responsible for supporting automatic client-side field level encryption and does *not* perform encryption or decryption.
+**mongocryptd** is required for [automatic field level encryption](https://docs.mongodb.com/manual/core/security-automatic-client-side-encryption/#field-level-encryption-automatic) and is included as a component in the [MongoDB Enterprise Server](https://docs.mongodb.com/manual/administration/install-enterprise/) package. **mongocryptd** is only responsible for supporting automatic client-side field level encryption and does _not_ perform encryption or decryption.
 
 You’ll want to consult the [documentation](https://docs.mongodb.com/manual/reference/security-client-side-encryption-appendix/#mongocryptd-installation) on how to obtain the **mongocryptd** binary as each operating system has different steps.
 
@@ -95,35 +93,21 @@ And let’s just go ahead and install all the packages that we will be using now
 npm install -S mongodb mongodb-client-encryption node-gyp
 ```
 
-> 
-Note: The complete codebase for this project can be found here: [https://github.com/JoeKarlsson/client-side-field-level-encryption-csfle-mongodb-node-demo](https://github.com/JoeKarlsson/client-side-field-level-encryption-csfle-mongodb-node-demo)
+> Note: The complete codebase for this project can be found here: [https://github.com/JoeKarlsson/client-side-field-level-encryption-csfle-mongodb-node-demo](https://github.com/JoeKarlsson/client-side-field-level-encryption-csfle-mongodb-node-demo)
 
 ## Create a Data Key in MongoDB for Encrypting and Decrypting Document Fields
 
 MongoDB Client-Side Field Level Encryption (CSFLE) uses an encryption strategy called envelope encryption in which keys used to encrypt/decrypt data (called data encryption keys) are encrypted with another key (called the master key). The following diagram shows how the **master key** is created and stored:
 
-![](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/a0c69a9e26ac00f04dbe40931477d1c9f80b7a8f-1.png)*Diagram that describes creating the master key when using a local provider*
+![Diagram that describes creating the master key when using a local provider](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/a0c69a9e26ac00f04dbe40931477d1c9f80b7a8f-1.webp)_Diagram that describes creating the master key when using a local provider_
 
-> 
-Warning
+> Warning
 
-> 
-> 
-> 
-> 
-The Local Key Provider is not suitable for production.
+> The Local Key Provider is not suitable for production.
 
-> 
-> 
-> 
-> 
-The Local Key Provider is an insecure method of storage and is therefore **not recommended** if you plan to use CSFLE in production. Instead, you should configure a master key in a [Key Management System](https://en.wikipedia.org/wiki/Key_management#Key_management_system) (KMS) which stores and decrypts your data encryption keys remotely.
+> The Local Key Provider is an insecure method of storage and is therefore **not recommended** if you plan to use CSFLE in production. Instead, you should configure a master key in a [Key Management System](https://en.wikipedia.org/wiki/Key_management#Key_management_system) (KMS) which stores and decrypts your data encryption keys remotely.
 
-> 
-> 
-> 
-> 
-To learn how to use a KMS in your CSFLE implementation, read the [Client-Side Field Level Encryption: Use a KMS to Store the Master Key](https://docs.mongodb.com/drivers/security/client-side-field-level-encryption-local-key-to-kms/) guide.
+> To learn how to use a KMS in your CSFLE implementation, read the [Client-Side Field Level Encryption: Use a KMS to Store the Master Key](https://docs.mongodb.com/drivers/security/client-side-field-level-encryption-local-key-to-kms/) guide.
 
 ```
 // clients.js
@@ -237,11 +221,11 @@ node make-data-key.js
 
 And you should get this output in the terminal. Be sure to save this key, as we will be using it in our next step.
 
-![](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/a407c324761ad6b1478a24058f586024519c4eeb-1-1024x144.png)*Screenshot from the terminal showing the output of running node make-data-key.js, it outputs “Base64 data key. Copy and paste this into clients.js W2Blh9teTxyORC8QT1jnzw==”*
+![Screenshot from the terminal showing the output of running node make-data-key.js, it outputs “Base64 data key. Copy and paste this into clients.js W2Blh9teTxyORC8QT1jnzw==”](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/a407c324761ad6b1478a24058f586024519c4eeb-1-1024x144.webp)_Screenshot from the terminal showing the output of running node make-data-key.js, it outputs “Base64 data key. Copy and paste this into clients.js W2Blh9teTxyORC8QT1jnzw==”_
 
-It’s also a good idea to check in to make sure that this data has been saved correctly. Go to your clusters in Atlas, and navigate to your collections. You should see a new key saved in the **encryption.__keyVault** collection.
+It’s also a good idea to check in to make sure that this data has been saved correctly. Go to your clusters in Atlas, and navigate to your collections. You should see a new key saved in the **encryption.\_\_keyVault** collection.
 
-![](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/82ef708912590e63229cddbb71408d1eb1f58041-1024x552.png)*Screenshot of MongoDB Atlas showing that a new key has been added to our new collection.*
+![Screenshot of MongoDB Atlas showing that a new key has been added to our new collection.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/82ef708912590e63229cddbb71408d1eb1f58041-1024x552.webp)_Screenshot of MongoDB Atlas showing that a new key has been added to our new collection._
 
 Your key should be shaped like this:
 
@@ -376,7 +360,7 @@ We now have a CSFLE-enabled client and we can test that the client can perform q
 
 The following diagram shows the steps taken by the client application and driver to perform a write of field-level encrypted data:
 
-![Diagram that shows the data flow for a write of field-level encrypted data](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/04338bc6b3425fb70d9419040bec6e4602b0d447-1-1024x593.png)*Diagram that shows the data flow for a write of field-level encrypted data*
+![Diagram that shows the data flow for a write of field-level encrypted data](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/04338bc6b3425fb70d9419040bec6e4602b0d447-1-1024x593.webp)_Diagram that shows the data flow for a write of field-level encrypted data_
 
 We need to write a function in our clients.js to create a new patient record with the following **code snippet**:
 
@@ -463,7 +447,7 @@ main().catch(console.dir)
 
 The following diagram shows the steps taken by the client application and driver to query and decrypt field-level encrypted data:
 
-![Diagram showing how MongoDB queries encrypted fields.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/a5e5b95b1b5d085159e5b8451e119959da845696-1-1024x871.png)*Diagram showing how MongoDB queries encrypted fields.*
+![Diagram showing how MongoDB queries encrypted fields.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/a5e5b95b1b5d085159e5b8451e119959da845696-1-1024x871.webp)_Diagram showing how MongoDB queries encrypted fields._
 
 We can run queries on documents with encrypted fields using standard MongoDB driver methods. When a doctor performs a query in the Medical Care Management System to search for a patient by their SSN, the driver decrypts the patient’s data before returning it:
 
@@ -488,11 +472,11 @@ We can run queries on documents with encrypted fields using standard MongoDB dri
 
 If you attempt to query your data with a MongoDB that isn’t configured with the correct key, this is what you will see:
 
-![](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/7e32fb3903a62b130f86c7d26bae1b2d3fe90743-1-1-1024x585.jpg)*screenshot of the terminal that shows that encrypted fields cannot be read from a regular client.*
+![screenshot of the terminal that shows that encrypted fields cannot be read from a regular client.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/7e32fb3903a62b130f86c7d26bae1b2d3fe90743-1-1-1024x585.webp)_screenshot of the terminal that shows that encrypted fields cannot be read from a regular client._
 
 And you should see your data written to your MongoDB Atlas database:
 
-![](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/d8ca64213d69693da1a2f40a869cb50ade51c530-1-1024x516.png)
+![MongoDB Atlas showing encrypted patient record with SSN, bloodType, and medicalRecords fields masked](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/d8ca64213d69693da1a2f40a869cb50ade51c530-1-1024x516.webp)
 
 ## Running in Docker
 
@@ -510,7 +494,7 @@ cd docker
 docker build . -t mdb-csfle-example
 ```
 
-This will build a Docker image with a tag name *mdb-csfle-example*.
+This will build a Docker image with a tag name _mdb-csfle-example_.
 
 - Run the Docker image by executing:
 
@@ -518,7 +502,7 @@ This will build a Docker image with a tag name *mdb-csfle-example*.
 docker run -tih csfle mdb-csfle-examp
 ```
 
-4. The command above will run a Docker image with tag *mdb-csfle-example* and provide it with *csfle* as its hostname.
+4. The command above will run a Docker image with tag _mdb-csfle-example_ and provide it with _csfle_ as its hostname.
 
 Once you’re inside the Docker container, you can follow the below steps to run the NodeJS code example.
 
@@ -576,29 +560,3 @@ For more information on MongoDB Client-Side Field Level Encryption (CSFLE) with 
 - [Self-Hosted Music Still Sucks in 2025](https://www.joekarlsson.com/2025/06/self-hosted-music-still-sucks-in-2025/)
 - [I Replaced Alexa with a Dumber Voice Assistant (But at Least It’s Private)](https://www.joekarlsson.com/2025/06/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/)
 - [Why Clickhouse Should Be Your Next Database](https://www.joekarlsson.com/2024/04/why-clickhouse-should-be-your-next-database/)
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://twitter.com/JoeKarlsson1](https://x.com/JoeKarlsson1)
-
-- TikTok – [https://www.tiktok.com/@joekarlsson](https://www.tiktok.com/@joekarlsson)
-
-- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)
-
-- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)
-
-- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)
-
-- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)
-
-- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)
-
-- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)
-
-- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)
-
-- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)

@@ -17,7 +17,6 @@ export async function GET() {
 - [Uses](https://www.joekarlsson.com/uses): Hardware, software, homelab, and smart home setup
 - [Contact](https://www.joekarlsson.com/contact): Social links and ways to connect
 - [Talk Archive](https://www.joekarlsson.com/talk-archive): Conference talks and presentations
-- [Speaker Rider](https://www.joekarlsson.com/speaker-rider): Speaking engagement requirements
 - [Privacy Policy](https://www.joekarlsson.com/privacy-policy): Privacy and data policy
 
 ## Featured Projects
@@ -32,7 +31,7 @@ export async function GET() {
 
 ## What Makes Joe Interesting
 
-- Runs AI vision on doorbell cameras using local LLMs — no cloud APIs
+- Runs AI vision on doorbell cameras using local LLMs - no cloud APIs
 - Built an IoT cat litter box and gave a TEDx-adjacent conference talk about it
 - Self-hosts everything: photos (Immich), documents (Paperless-ngx), passwords (Vaultwarden), analytics (Plausible), calendar (Nextcloud CalDAV)
 - Uses Claude Code (CLI) to manage his entire homelab infrastructure

@@ -1,13 +1,13 @@
 ---
-title: "A step-by-step guide to build a real-time dashboard"
+title: 'A step-by-step guide to build a real-time dashboard'
 date: 2024-03-30
-slug: "a-step-by-step-guide-to-build-a-real-time-dashboard"
-description: "Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even minutes to load? No way, right? Your users would get..."
-categories: ["Blog"]
-heroImage: "/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/64f23ec5d8fe4c29723ee435_Build-a-real-time-dashboard-step-.png"
+slug: 'a-step-by-step-guide-to-build-a-real-time-dashboard'
+description: 'Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even minutes to load? No way, right? Your users would get...'
+categories: ['Databases']
+heroImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/64f23ec5d8fe4c29723ee435_Build-a-real-time-dashboard-step-.webp'
 ---
 
-Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even *minutes* to load? No way, right? Your users would get frustrated by the opportunities missed, efficiencies destroyed, and decisions delayed based on outdated information and a horrible user experience.
+Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even _minutes_ to load? No way, right? Your users would get frustrated by the opportunities missed, efficiencies destroyed, and decisions delayed based on outdated information and a horrible user experience.
 
 Sadly, this is the status quo for many who build dashboards into their products. If you don’t know how to build real-time data architectures, you’ll be stuck with inefficient, legacy business intelligence platforms that can’t keep pace with user-facing features.
 
@@ -15,7 +15,7 @@ Learn how to build a real-time dashboard from end-to-end in our online free trai
 
 The contrast of this scenario with today’s [real-time analytics landscape](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) couldn’t be more stark, underlining just how vital it is to give your users immediate access to data analytics.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-16.jpg)
+![Hide the Pain Harold meme about looking at a real-time dashboard instead of a spreadsheet](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-16.webp)
 
 Release the pain, Harold.
 
@@ -23,8 +23,7 @@ In this post, we’re going to build real-time dashboards from scratch within a 
 
 This post will walk through all of the steps to building a real-time dashboard using just these 3 tools. You can follow along here without any prior knowledge or resources, or if you’d like to work with and augment an existing project, you can clone this [GitHub repo](https://github.com/tinybirdco/signatures-dashboard) (which is the culmination of this guide, and then some).
 
-> 
-In this post you’ll learn to create a real-time dashboard from scratch (for free) using Tinybird, Tremor, and Next.js.
+> In this post you’ll learn to create a real-time dashboard from scratch (for free) using Tinybird, Tremor, and Next.js.
 
 And by the way, you can do all of this for free. 🤑
 
@@ -34,7 +33,7 @@ Before we jump in, let’s talk about what we mean by a “real-time dashboard�
 
 A real-time dashboard is an interactive [real-time data visualization](https://www.tinybird.co/blog-posts/real-time-data-visualization) that displays continually updated metrics. It incorporates data that is just seconds old, refreshes almost instantaneously, and can support many concurrent viewers at once. Unlike traditional business intelligence dashboards that update on a periodic or batch basis, real-time dashboards pull in data as it is created, processed, or changed, providing an up-to-the-second snapshot of a system or process.
 
-![](https://tinybird-blog.ghost.io/content/images/2023/09/64f2397e26737f58a3a8e5b2_RJqiXc4ZybopbNjI9ySkEeBL37h3SMQ7QE5yqkmAjfHKNho7ZJj08kuF7cu0OQL8WQ1izPa6wV4GCjiImJdYM7bRlAAPVRqkEypjP-u2caVYBF3wXHp8y2CHMCm55uNR3POgx8hW5brl67iCM0HGpJM-7.gif)
+![Animated real-time dashboard serving fresh data to concurrent users](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/64f2397e26737f58a3a8e5b2_RJqiXc4ZybopbNjI9ySkEeBL3.gif)
 
 A real-time dashboard should serve fresh data quickly to many concurrent users.
 
@@ -52,7 +51,7 @@ The primary components of a real-time dashboard include:
 
 Let’s be honest, most dashboards aren’t of the “real-time” variety. But why?
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-14.jpg)
+![Terminal output showing npm run seed sending account and signature data to Tinybird](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-14.webp)
 
 The problem is the underlying architecture and the manner in which the data is handled. Here are the main reasons that dashboards are slow:
 
@@ -66,17 +65,15 @@ The problem is the underlying architecture and the manner in which the data is h
 
 - **Lack of Scalability**: Real-time dashboards need to be able to scale with big data and with many concurrent users. A modern real-time dashboard must be built with scalability in mind to ensure that performance does not degrade as demand grows.
 
-> 
-Most dashboards are slow because the underlying data pipelines are slow.
+> Most dashboards are slow because the underlying data pipelines are slow.
 
-To build real-time dashboards, you need a real-time streaming data architecture. For more information on building such an architecture, [read this post](https://www.tinybird.co/blog-posts/real-time-streaming-data-architectures-that-scale).
+To build real-time dashboards, you need a real-time streaming data architecture. For more information on building such an architecture, [read this post](https://www.tinybird.co/blog-posts/real-time-streaming-data-architectures-that-scale). And if you're still figuring out which database to use under the hood, I put together a breakdown of [real-time databases and what developers need to know](/blog/real-time-databases-what-developers-need-to-know/) about each option.
 
 ## Tutorial: Building a real-time data analytics dashboard
 
 Okay, so what are we building? Imagine you’re a DocuSign competitor. You’re building a SaaS to disrupt the document signature space, and as a part of that, you want to give your users a real-time data analytics dashboard so they can monitor how, when, where, and what is happening with their documents in real time.
 
-> 
-We’re building a real-time dashboard for a hypothetical DocuSign competitor.
+> We’re building a real-time dashboard for a hypothetical DocuSign competitor.
 
 Let’s build that dashboard.
 
@@ -88,7 +85,7 @@ To do so, we’ll be using:
 
 - [Next.js](https://nextjs.org/) as a fully-featured React framework. It ensures everything looks slick and runs smoothly.
 
-What will *you* build?
+What will _you_ build?
 
 This is just an example project. The specific use case is irrelevant. You can take the structure we’re about to explore and apply it to pretty much any use case you can dream of. So follow along, and learn how to build *any *real-time dashboard.
 
@@ -96,7 +93,7 @@ This is just an example project. The specific use case is irrelevant. You can ta
 
 Here’s the flow of what we’re building today:
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-1-1.jpg)
+![Architecture diagram showing Events to Tinybird to Next.js to Tremor to Visualization](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-1-1.webp)
 
 In this tutorial, we’ll use Tinybird to capture event streams, process them with SQL, and expose the transformations as real-time APIs. Then we’ll use Tremor components in a Next.js app to build a beautiful, responsive, real-time dashboard.
 
@@ -153,7 +150,7 @@ Next, create some folders in your Next.js project. We’ll use these for the Tin
 
 Tinybird is the [real-time data platform](https://www.tinybird.co/blog-posts/real-time-data-platforms) that underpins our real-time dashboard. If you’re new to Tinybird, [create a free account here](https://www.tinybird.co/signup?referrer=https%3A%2F%2Fwww.tinybird.co%2Fblog-posts%2Freal-time-dashboard-step-by-step). After you’ve created an account, you’ll be prompted to create a Workspace. Go ahead and do that. You can choose the region in which you’d like to host your Workspace, and I recommend you choose the one that’s geographically closest to you and your users. I’ve created mine in the `EU` region and named it `signatures_dashboard`.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-11.jpg)
+![Tinybird create workspace dialog with signature_dashboard workspace name](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-11.webp)
 
 #### Install the Tinybird CLI
 
@@ -170,7 +167,7 @@ tb auth –interactive
 
 Choose the region in which you created your Workspace. You’ll then be prompted for your Admin token. Go to[ https://ui.tinybird.co/tokens](https://ui.tinybird.co/tokens) (or [https://ui.us-east.tinybird.co/tokens](https://ui.tinybird.co/tokens) for US-East regions) and copy the token with admin rights. Paste it into the CLI and press enter.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-5.png)
+![Tinybird auth tokens management page showing workspace and user tokens](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-5.webp)
 
 You’ll be authenticated to your workspace, and your auth details will be saved in a `.tinyb` file in the current working directory.
 
@@ -339,9 +336,9 @@ To begin sending this mock data to Tinybird**, **run the following command from 
 
 You should start seeing your mock data being sent to Tinybird.
 
-![](https://tinybird-blog.ghost.io/content/images/2023/09/64f2398091cf83b3815b7b50_ZRt0Lu1RnKqHxkqJOBdNYJu1uuSj9E8MGpHtCWPgM8MzEen-LaVw9rvJuvZQ616mmFodnS2RL9eQcgz6AtgmM602mnLdaiE06dOx5yreIcda30HzQ9clCGXatPuOsbRNr3aIxOH0-Aq1e6CbTOOaBK4-7.png)
+![Terminal output showing mock data being sent to Tinybird](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/64f2398091cf83b3815b7b50_ZRt0Lu1RnKqHxkqJOBdNYJu1u.webp)
 
-![](https://www.joekarlsson.com/wp-content/uploads/2024/03/image-14.png)
+![Data seeding script sending mock data to Tinybird](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-14.webp)
 
 Sending mock data to Tinybird with our data seeding script.
 
@@ -349,7 +346,7 @@ Let this mock data generator run in the background so you can have some data to 
 
 To verify that the data is flowing properly into Tinybird, inspect the Tinybird Data Sources. In the Tinybird UI, navigate to the `signatures` and `accounts` Data Sources to confirm that the data has been received. The latest records should be visible.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-10.jpg)
+![Tinybird signatures data source showing 2k rows with ingestion graph and data preview](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-10.webp)
 
 ```
 tb sql “select count() from signatures”
@@ -359,8 +356,7 @@ Likewise, you can use the Tinybird CLI to monitor rows being created in the data
 
 This will return the current number of rows in the `signatures` Data Source. If you’re mock data creation is working (and still running in the background), you’ll see that number tick up.
 
-> 
-Reminder: This project is using mock data streams to simulate data generated by a hypothetical document signatures app. If you have your own app that’s generating data, you don’t need to do this! You can just add the helper functions to your codebase and call them to send data directly from your app to Tinybird.
+> Reminder: This project is using mock data streams to simulate data generated by a hypothetical document signatures app. If you have your own app that’s generating data, you don’t need to do this! You can just add the helper functions to your codebase and call them to send data directly from your app to Tinybird.
 
 ### Step 2: Build dashboard metrics with SQL in Tinybird
 
@@ -384,7 +380,7 @@ To create a new Pipe in the Tinybird UI, start from your Workspace dashboard ([h
 
 Now for the fun part. Define your real-time dashboard metrics using chained nodes of SQL. Below, for example, is a node that filters and groups signature data by `account_id` for a specified date range, then orders the results by the total count.
 
-![](https://tinybird-blog.ghost.io/content/images/2023/09/64f2397ff675358d751697ce_eMd481MY7ykvzW9gjULlu31kUGuKfKxTFElfoWlkshBd-DwNYcKEWUaeR3PB5YBxHmuo9l8kbxVIIjbHVDKDpfuUR6AKVTiOvUXeT0tcPT1TiE5y3czitN0WoHW76rZ7IF87Xe0LC00JcdCTQyogcdA-7.png)
+![Tinybird Pipe SQL node filtering signatures by account and date range](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/64f2397ff675358d751697ce_eMd481MY7ykvzW9gjULlu31kU.webp)
 
 ```
 SELECT
@@ -413,7 +409,7 @@ Take a look at the updated SQL below using the Tinybird templating language. I�
 - Added `date_from` and `date_to` query parameters (`Date` type), which will dynamically change the filter based on the date values passed.
 
 ```
-SELECT 
+SELECT
   account_id,
   {% if defined(completed) %}
     countIf(status = 'completed') total
@@ -437,7 +433,7 @@ Date(
    '2024-01-01',
    description="End date",
     required=True
-) 
+)
      }}
 GROUP BY account_id
 HAVING total > 0
@@ -446,7 +442,7 @@ ORDER BY total DESC
 
 Now, name this node `retrieve_signatures`.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-9.png)
+![Tinybird retrieve_signatures pipe node with SQL query using dynamic date parameters](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-9.webp)
 
 ```
 SELECT
@@ -463,21 +459,21 @@ Below this node, create a new Node with the following SQL:
 
 Name this node `endpoint`.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-7.jpg)
+![Tinybird endpoint pipe node with SQL joining signatures and accounts to rank organizations](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-7.webp)
 
 You now have a 2-node Pipe that gets the top <`limit`> organizations by signatures within a date range, either completed or total depending on whether you pass a `completed` query parameter.
 
 At the top of the UI, name this Pipe `ranking_of_top_organizations_creating_signatures`.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-15.jpg)
+![Tinybird pipe overview showing ranking_of_top_organizations with four dynamic parameters](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-15.webp)
 
 ### Step 3: Publish metrics as APIs using Tinybird
 
-You’ll want to build an API (Application Programming Interface) for your dashboard to ensure seamless integration, accessibility, and interaction with other applications or services.
+You’ll want to build an API (Application Programming Interface) for your dashboard to ensure smooth integration, accessibility, and interaction with other applications or services.
 
 Here’s why real-time APIs are so important for fast dashboards with many users:
 
-- **Integration & Interoperability:** APIs allow your dashboard to be accessed programmatically by other applications. This enables a more comprehensive integration with different platforms, tools, or third-party services.
+- **Integration & Interoperability:** APIs allow your dashboard to be accessed programmatically by other applications. This enables a deeper integration with different platforms, tools, or third-party services.
 
 - **Scalability:** Through APIs, the dashboard can be quickly and easily scaled to serve multiple clients, including web, mobile, or IoT devices. This ensures that as your needs grow, your architecture can adapt without major redesigns.
 
@@ -485,13 +481,13 @@ Here’s why real-time APIs are so important for fast dashboards with many users
 
 With Tinybird, it’s trivial to create low-latency, high-concurrency REST APIs from your Pipes. Simply open the Pipe that you want to publish and click the “Create API Endpoint” button in the top right corner of the screen. Then select the Node that you want to publish, in this case `endpoint`.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-12.jpg)
+![Tinybird Create API Endpoint dropdown selecting the endpoint node](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-12.webp)
 
 With that, your API has been created! You’ll be greeted with an API page that contains a usage monitoring chart, parameter documentation, and sample usage. In addition, the API has been secured through an automatically generated read-only Auth Token.
 
 Now let’s test your new API! Copy the HTTP endpoint from the sample usage and paste it directly into your browser to see the response.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-13.png)
+![Tinybird API sample usage showing HTTP endpoint URL and JSON response with organization rankings](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-13.webp)
 
 Within the endpoint URL, you will notice the `date_from` and `date_to` parameters. These control the date range for the query, and they can be modified to filter the results accordingly. You’ll also see the `limit` parameter, which controls how many rows are returned.
 
@@ -575,8 +571,7 @@ import React, { useState, useEffect } from 'react';
 
 To build your dashboard component, you will need to import various UI elements and functionalities from the libraries provided. Make sure you have the following libraries and components imported at the beginning of your file:
 
-> 
-Note we’re using the `use client;` directive to render the components on the client side. For more details on this, check out the [Next.js docs](https://nextjs.org/docs/app/building-your-application/rendering#network-boundary).
+> Note we’re using the `use client;` directive to render the components on the client side. For more details on this, check out the [Next.js docs](https://nextjs.org/docs/app/building-your-application/rendering#network-boundary).
 
 #### Define constants and states
 
@@ -592,8 +587,8 @@ export default function Dashboard() {
     	"organization": "",
     	"org_total": 0,
     }]);
-   
-    // Initializes latency with an integer 0  
+
+    // Initializes latency with an integer 0
     const [latency, setLatency] = useState(0);
 ```
 
@@ -671,7 +666,7 @@ https://snippets.tinybird.co/XQAAAAJbAAAAAAAAAABBKUqGk9nLKvRhdt7jwU0BO7-jo5YmrmX
 
 Navigate to `​​`[`http://localhost:3000/`](http://localhost:3000/) in your browser. You should see something like this:
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-8.png)
+![Bar chart of top organizations creating signatures with tooltip showing Wuckert Group at 1136](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-8.webp)
 
 And that’s it! You’ve created a real-time dashboard component using Tinybird, Tremor, and Next.js. You’ll notice the dashboard is rendering very quickly by taking a peek at the latency number below the component. In my case, Tinybird returned the data for my dashboard in a little over 40 milliseconds aggregating over about a million rows. Not too bad for a relatively unoptimized query!
 
@@ -681,7 +676,7 @@ This tutorial showed you how to build a single real-time dashboard component, bu
 
 If you need ideas, check out the [GitHub repository for this project](https://github.com/tinybirdco/signatures-dashboard). It has some additional components including new visualizations (and Tinybird Pipes to support them) plus an interactive data range picker.
 
-![](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-6.png)
+![Complete real-time dashboard with bar chart, line chart, activities table, and verified users donut chart](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-6.webp)
 
 You can also spend some time optimizing your data project for faster responses and minimal data processing using fine-tuned indexes, Materialized Views, and more. For tips on [optimizing SQL queries](https://www.tinybird.co/docs/guides/best-practices-for-faster-sql.html) or [building Materialized Views](https://www.tinybird.co/docs/guides/materialized-views.html), check out the [Tinybird docs](https://www.tinybird.co/docs).
 
@@ -703,7 +698,7 @@ The combination of Tinybird, Next.js, and Tremor provides a powerful solution fo
 
 - **Compatibility with Next.js and Tremor**: Tinybird’s architecture and API are designed to work seamlessly with modern frontend frameworks like Next.js and visualization tools like Tremor. This integration creates a smooth user experience from data ingestion to visualization.
 
-- **Easy to Use**: Even with all its robust capabilities, Tinybird remains accessible to developers. Its simplified SQL-based query language and well-documented APIs mean that building and maintaining a real-time dashboard does not require specialized skills or extensive training.
+- **Easy to Use**: Even with all its powerful capabilities, Tinybird remains accessible to developers. Its simplified SQL-based query language and well-documented APIs mean that building and maintaining a real-time dashboard does not require specialized skills or extensive training.
 
 If you’re dabbling in real-time data processing or looking to shift to event-driven architectures for your dashboards, [Tinybird](https://www.tinybird.co/) could be for you. It’s free to start and designed to help you build real-time data pipelines fast. You can [sign up here](https://www.tinybird.co/signup?referrer=https%3A%2F%2Fwww.tinybird.co%2Fblog-posts%2Freal-time-dashboard-step-by-step) (no credit card required!)
 
