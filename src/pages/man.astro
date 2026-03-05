@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="man joe | Joe Karlsson"
+	description="The manual page for Joe Karlsson. Because every good engineer needs documentation."
+>
+	<div class="man-wrapper">
+		<div class="man-terminal">
+			<!-- Terminal header bar -->
+			<div class="man-titlebar">
+				<div class="man-dots">
+					<span class="man-dot man-dot-red"></span>
+					<span class="man-dot man-dot-yellow"></span>
+					<span class="man-dot man-dot-green"></span>
+				</div>
+				<span class="man-titlebar-text">man joe</span>
+				<div class="man-dots" style="visibility: hidden;">
+					<span class="man-dot"></span>
+					<span class="man-dot"></span>
+					<span class="man-dot"></span>
+				</div>
+			</div>
+
+			<!-- Man page content -->
+			<div class="man-content">
+				<pre
+					class="man-pre"><span class="man-header">JOE(1)                          User Commands                          JOE(1)</span>
+
+<span class="man-section">NAME</span>
+       joe - software engineer, developer advocate, massive nerd
+
+<span class="man-section">SYNOPSIS</span>
+       <span class="man-bold">joe</span> [<span class="man-underline">OPTIONS</span>...] [<span class="man-underline">PROJECT</span>]
+
+<span class="man-section">DESCRIPTION</span>
+       Joe Karlsson is a software engineer turned developer advocate who has
+       spent the last decade working on databases, real-time data, IoT, and
+       developer tools. He has spoken at over 100 conferences, given a TEDx
+       talk, and built an IoT-connected cat litter box that he is probably
+       too proud of.
+
+       Currently doing developer relations at CloudQuery. Previously at
+       Tinybird, SingleStore, and MongoDB. Before DevRel, was a front-end
+       technical lead at Best Buy and a full-stack JavaScript instructor.
+
+<span class="man-section">OPTIONS</span>
+       <span class="man-bold">--verbose</span>
+              Enable long-form storytelling about homelabs and databases.
+              Warning: may not shut up about Proxmox.
+
+       <span class="man-bold">--homelab</span>
+              Activate homelab mode. Deploys 40+ containers, sets up
+              Proxmox cluster, configures Home Assistant, and wonders
+              why the electricity bill is so high.
+
+       <span class="man-bold">--cats</span>
+              Enable IoT cat monitoring. Connects litter box to Raspberry
+              Pi. Generates conference talk material.
+
+       <span class="man-bold">--film</span>
+              Activate Letterboxd integration. Will have opinions about
+              every movie you mention.
+
+       <span class="man-bold">--debug</span>
+              Increases coffee intake. Decreases sleep. Standard
+              engineering tradeoff.
+
+<span class="man-section">ENVIRONMENT</span>
+       <span class="man-bold">EDITOR</span>=neovim
+       <span class="man-bold">SHELL</span>=/bin/zsh
+       <span class="man-bold">CONTAINER_RUNTIME</span>=docker
+       <span class="man-bold">HOMELAB_STATUS</span>=always-tinkering
+       <span class="man-bold">CATS</span>=1
+       <span class="man-bold">COFFEE_LEVEL</span>=critical
+
+<span class="man-section">FILES</span>
+       <span class="man-underline">~/.config/homelab/docker-compose.yml</span>
+              The file that started it all. Now 847 lines long.
+
+       <span class="man-underline">/var/log/3am-decisions.log</span>
+              A growing record of questionable infrastructure choices
+              made after midnight.
+
+       <span class="man-underline">/etc/cron.d/gpu-transcode</span>
+              Automated GPU transcoding jobs. Yes, at 2am. On purpose.
+
+<span class="man-section">BUGS</span>
+       Buys too many hard drives. Cannot stop adding containers.
+       Occasionally mass-assigns GPU transcoding jobs at 2am.
+       Has mass-reassigned a variable name in production and called
+       it "refactoring." Will talk about homelabs unprompted.
+
+<span class="man-section">HISTORY</span>
+       2015-2017    Full-Stack JavaScript Instructor, DevLeague
+       2017-2019    Front-end Technical Lead, Best Buy
+       2019-2021    Senior Developer Advocate, MongoDB
+       2021-2023    Senior Developer Advocate, SingleStore
+       2023-2025    Developer Advocate, Tinybird
+       2025-present Developer Advocate, CloudQuery
+
+<span class="man-section">SEE ALSO</span>
+       <span class="man-underline">joekarlsson.com/about</span>, <span class="man-underline">joekarlsson.com/work</span>, <span class="man-underline">joekarlsson.com/blog</span>
+       GitHub: <span class="man-underline">github.com/JoeKarlsson</span>
+       Bluesky: <span class="man-underline">@joekarlsson.com</span>
+
+<span class="man-section">AUTHOR</span>
+       Written by Joe Karlsson, with mass-assistance from mass-caffeine.
+
+<span class="man-header">JOE(1)                          March 2026                          JOE(1)</span></pre>
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.man-wrapper {
+		display: flex;
+		justify-content: center;
+		padding: 2rem 1rem;
+	}
+
+	.man-terminal {
+		width: 100%;
+		max-width: 52rem;
+		border: 1px solid #2a2d34;
+		border-radius: 0.5rem;
+		overflow: hidden;
+		background-color: #0a0a0f;
+		box-shadow:
+			0 25px 50px -12px rgba(0, 0, 0, 0.5),
+			0 0 0 1px rgba(42, 45, 52, 0.3);
+	}
+
+	.man-titlebar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.5rem 1rem;
+		background-color: #111318;
+		border-bottom: 1px solid #2a2d34;
+	}
+
+	.man-dots {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.man-dot {
+		width: 0.75rem;
+		height: 0.75rem;
+		border-radius: 50%;
+	}
+
+	.man-dot-red {
+		background-color: rgba(239, 68, 68, 0.8);
+	}
+
+	.man-dot-yellow {
+		background-color: rgba(234, 179, 8, 0.8);
+	}
+
+	.man-dot-green {
+		background-color: rgba(34, 197, 94, 0.8);
+	}
+
+	.man-titlebar-text {
+		font-family: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, monospace;
+		font-size: 0.75rem;
+		color: #8bcbc8;
+	}
+
+	.man-content {
+		padding: 1.5rem;
+		overflow-x: auto;
+	}
+
+	.man-pre {
+		font-family: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, monospace;
+		font-size: 0.875rem;
+		line-height: 1.6;
+		color: #d1d5db;
+		white-space: pre;
+		margin: 0;
+		tab-size: 8;
+	}
+
+	.man-header {
+		color: #fdae84;
+		font-weight: bold;
+	}
+
+	.man-section {
+		color: #ffffff;
+		font-weight: bold;
+	}
+
+	.man-bold {
+		color: #ffffff;
+		font-weight: bold;
+	}
+
+	.man-underline {
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	@media (max-width: 640px) {
+		.man-wrapper {
+			padding: 1rem 0.5rem;
+		}
+
+		.man-content {
+			padding: 1rem;
+		}
+
+		.man-pre {
+			font-size: 0.7rem;
+			line-height: 1.5;
+		}
+	}
+</style>

@@ -266,70 +266,178 @@ import { SOCIAL_LINKS } from '../consts';
 			</a>
 		</div>
 
-		<!-- Work History - expanded -->
+		<!-- Work History - git log styled timeline -->
 		<h2 class="mb-4 text-xl font-bold text-white">
-			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat resume.md
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> git log --oneline --graph
+			career/
 		</h2>
-		<div class="mb-10 space-y-4">
-			<div class="rounded-lg border border-teal/20 bg-teal/5 p-5">
-				<div class="border-l-2 border-teal pl-4">
-					<h3 class="font-semibold text-white">Developer Advocate - CloudQuery</h3>
-					<span class="text-sm text-gray-400">2025 – Present</span>
-					<p class="mt-2 text-sm text-gray-400">
-						Developer relations and content for the open-source ELT framework. Creating demos,
-						tutorials, and developer resources for data pipelines.
-					</p>
+		<div class="mb-10 font-mono text-sm leading-relaxed">
+			<!-- CloudQuery - current -->
+			<details class="group">
+				<summary
+					class="cursor-pointer list-none hover:bg-surface-1 rounded px-2 py-1 transition-colors"
+				>
+					<span class="text-coral font-bold">*</span>
+					<span class="text-amber-400">90e3919</span>
+					<span class="text-teal">(HEAD -&gt; main)</span>
+					<span class="font-bold text-white">Developer Advocate - CloudQuery</span>
+					<span class="text-gray-400">(2025-present)</span>
+				</summary>
+				<div class="ml-4 border-l border-gray-600 pl-4 pb-2">
+					<pre
+						class="text-gray-400 whitespace-pre-wrap text-xs mt-1 bg-surface-1 rounded p-3"><span class="text-amber-400">commit 90e3919</span>
+<span class="text-white">Author:</span> Joe Karlsson &lt;joe@karlsson.com&gt;
+<span class="text-white">Date:</span>   2025
+
+    <span class="text-white font-bold">Developer Advocate - CloudQuery</span>
+
+    Developer relations and content for the open-source ELT framework.
+    Creating demos, tutorials, and developer resources for data pipelines.</pre>
 				</div>
+			</details>
+			<div class="text-gray-600 pl-2">
+				|&nbsp;&nbsp; <span class="text-gray-400"
+					>Developer relations and content for the open-source ELT framework.</span>
 			</div>
-			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-				<div class="border-l-2 border-coral pl-4">
-					<h3 class="font-semibold text-white">Developer Advocate - Tinybird</h3>
-					<span class="text-sm text-gray-400">2023 – 2025</span>
-					<p class="mt-2 text-sm text-gray-400">
-						Helped developers building real-time analytics applications. Created documentation,
-						demos, blog posts, webinars, and workshops.
-					</p>
+			<div class="text-gray-600 pl-2">|</div>
+
+			<!-- Tinybird -->
+			<details class="group">
+				<summary
+					class="cursor-pointer list-none hover:bg-surface-1 rounded px-2 py-1 transition-colors"
+				>
+					<span class="text-coral font-bold">*</span>
+					<span class="text-amber-400">a5c7813</span>
+					<span class="font-bold text-white">Developer Advocate - Tinybird</span>
+					<span class="text-gray-400">(2023-2025)</span>
+				</summary>
+				<div class="ml-4 border-l border-gray-600 pl-4 pb-2">
+					<pre
+						class="text-gray-400 whitespace-pre-wrap text-xs mt-1 bg-surface-1 rounded p-3"><span class="text-amber-400">commit a5c7813</span>
+<span class="text-white">Author:</span> Joe Karlsson &lt;joe@karlsson.com&gt;
+<span class="text-white">Date:</span>   2023
+
+    <span class="text-white font-bold">Developer Advocate - Tinybird</span>
+
+    Helped developers building real-time analytics applications.
+    Created documentation, demos, blog posts, webinars, and workshops.</pre>
 				</div>
+			</details>
+			<div class="text-gray-600 pl-2">
+				|&nbsp;&nbsp; <span class="text-gray-400"
+					>Helped developers building real-time analytics applications.</span>
 			</div>
-			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-				<div class="border-l-2 border-lavender pl-4">
-					<h3 class="font-semibold text-white">Senior Developer Advocate - SingleStore</h3>
-					<span class="text-sm text-gray-400">2021 – 2023</span>
-					<p class="mt-2 text-sm text-gray-400">
-						Led community conversations around scaling SQL workloads. Built demos and content for
-						the distributed SQL database.
-					</p>
+			<div class="text-gray-600 pl-2">|</div>
+
+			<!-- SingleStore -->
+			<details class="group">
+				<summary
+					class="cursor-pointer list-none hover:bg-surface-1 rounded px-2 py-1 transition-colors"
+				>
+					<span class="text-coral font-bold">*</span>
+					<span class="text-amber-400">6c649ed</span>
+					<span class="font-bold text-white">Senior Developer Advocate - SingleStore</span>
+					<span class="text-gray-400">(2021-2023)</span>
+				</summary>
+				<div class="ml-4 border-l border-gray-600 pl-4 pb-2">
+					<pre
+						class="text-gray-400 whitespace-pre-wrap text-xs mt-1 bg-surface-1 rounded p-3"><span class="text-amber-400">commit 6c649ed</span>
+<span class="text-white">Author:</span> Joe Karlsson &lt;joe@karlsson.com&gt;
+<span class="text-white">Date:</span>   2021
+
+    <span class="text-white font-bold">Senior Developer Advocate - SingleStore</span>
+
+    Led community conversations around scaling SQL workloads.
+    Built demos and content for the distributed SQL database.</pre>
 				</div>
+			</details>
+			<div class="text-gray-600 pl-2">
+				|&nbsp;&nbsp; <span class="text-gray-400"
+					>Led community conversations around scaling SQL workloads.</span>
 			</div>
-			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-				<div class="border-l-2 border-terminal-green pl-4">
-					<h3 class="font-semibold text-white">Senior Developer Advocate - MongoDB</h3>
-					<span class="text-sm text-gray-400">2019 – 2021</span>
-					<p class="mt-2 text-sm text-gray-400">
-						Built developer community, created tutorials, demos, and educational content. Subject
-						matter expert for developer experience.
-					</p>
+			<div class="text-gray-600 pl-2">|</div>
+
+			<!-- MongoDB -->
+			<details class="group">
+				<summary
+					class="cursor-pointer list-none hover:bg-surface-1 rounded px-2 py-1 transition-colors"
+				>
+					<span class="text-coral font-bold">*</span>
+					<span class="text-amber-400">ee030f8</span>
+					<span class="font-bold text-white">Senior Developer Advocate - MongoDB</span>
+					<span class="text-gray-400">(2019-2021)</span>
+				</summary>
+				<div class="ml-4 border-l border-gray-600 pl-4 pb-2">
+					<pre
+						class="text-gray-400 whitespace-pre-wrap text-xs mt-1 bg-surface-1 rounded p-3"><span class="text-amber-400">commit ee030f8</span>
+<span class="text-white">Author:</span> Joe Karlsson &lt;joe@karlsson.com&gt;
+<span class="text-white">Date:</span>   2019
+
+    <span class="text-white font-bold">Senior Developer Advocate - MongoDB</span>
+
+    Built developer community, created tutorials, demos, and educational content.
+    Subject matter expert for developer experience.</pre>
 				</div>
+			</details>
+			<div class="text-gray-600 pl-2">
+				|&nbsp;&nbsp; <span class="text-gray-400"
+					>Built developer community, created tutorials and demos.</span>
 			</div>
-			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-				<div class="border-l-2 border-sky pl-4">
-					<h3 class="font-semibold text-white">Front-end Technical Lead - Best Buy</h3>
-					<span class="text-sm text-gray-400">2017 – 2019</span>
-					<p class="mt-2 text-sm text-gray-400">
-						Engineered high-performance solutions for one of the top 10 eCommerce sites in North
-						America. Scaled production apps handling thousands of requests per second.
-					</p>
+			<div class="text-gray-600 pl-2">|</div>
+
+			<!-- Best Buy -->
+			<details class="group">
+				<summary
+					class="cursor-pointer list-none hover:bg-surface-1 rounded px-2 py-1 transition-colors"
+				>
+					<span class="text-coral font-bold">*</span>
+					<span class="text-amber-400">61eff00</span>
+					<span class="font-bold text-white">Front-end Technical Lead - Best Buy</span>
+					<span class="text-gray-400">(2017-2019)</span>
+				</summary>
+				<div class="ml-4 border-l border-gray-600 pl-4 pb-2">
+					<pre
+						class="text-gray-400 whitespace-pre-wrap text-xs mt-1 bg-surface-1 rounded p-3"><span class="text-amber-400">commit 61eff00</span>
+<span class="text-white">Author:</span> Joe Karlsson &lt;joe@karlsson.com&gt;
+<span class="text-white">Date:</span>   2017
+
+    <span class="text-white font-bold">Front-end Technical Lead - Best Buy</span>
+
+    Engineered high-performance solutions for one of the top 10 eCommerce sites
+    in North America. Scaled production apps handling thousands of requests per second.</pre>
 				</div>
+			</details>
+			<div class="text-gray-600 pl-2">
+				|&nbsp;&nbsp; <span class="text-gray-400"
+					>Engineered solutions for top 10 eCommerce site in North America.</span>
 			</div>
-			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-				<div class="border-l-2 border-pink pl-4">
-					<h3 class="font-semibold text-white">Full-Stack JavaScript Instructor - DevLeague</h3>
-					<span class="text-sm text-gray-400">2015 – 2017</span>
-					<p class="mt-2 text-sm text-gray-400">
-						Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created
-						curriculum and prepared students for software engineering careers in Honolulu.
-					</p>
+			<div class="text-gray-600 pl-2">|</div>
+
+			<!-- DevLeague -->
+			<details class="group">
+				<summary
+					class="cursor-pointer list-none hover:bg-surface-1 rounded px-2 py-1 transition-colors"
+				>
+					<span class="text-coral font-bold">*</span>
+					<span class="text-amber-400">3f2a1b0</span>
+					<span class="font-bold text-white">Full-Stack JavaScript Instructor - DevLeague</span>
+					<span class="text-gray-400">(2015-2017)</span>
+				</summary>
+				<div class="ml-4 border-l border-gray-600 pl-4 pb-2">
+					<pre
+						class="text-gray-400 whitespace-pre-wrap text-xs mt-1 bg-surface-1 rounded p-3"><span class="text-amber-400">commit 3f2a1b0</span>
+<span class="text-white">Author:</span> Joe Karlsson &lt;joe@karlsson.com&gt;
+<span class="text-white">Date:</span>   2015
+
+    <span class="text-white font-bold">Full-Stack JavaScript Instructor - DevLeague</span>
+
+    Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide.
+    Created curriculum and prepared students for software engineering careers in Honolulu.</pre>
 				</div>
+			</details>
+			<div class="text-gray-600 pl-2">
+				&nbsp;&nbsp;&nbsp; <span class="text-gray-400"
+					>Taught full-stack JS at top 10 coding bootcamp worldwide.</span>
 			</div>
 		</div>
 

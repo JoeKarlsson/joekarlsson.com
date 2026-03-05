@@ -567,6 +567,14 @@ const taglines = [
 		'hack',
 		'cat readme',
 		'uptime',
+		'fortune',
+		'cowsay',
+		'man joe',
+		'cat music',
+		'cat fails',
+		'cat blog/iot',
+		'cat blog/homelab',
+		'sudo rm -rf /',
 	];
 	let suggestionIndex = -1;
 
@@ -578,6 +586,7 @@ const taglines = [
 		contact: '/contact',
 		uses: '/uses',
 		'talk-archive': '/talk-archive',
+		man: '/man',
 	};
 
 	function scrollToBottom() {
@@ -742,8 +751,14 @@ const taglines = [
 			'  <span class="text-coral">cat about.md</span> about me',
 			'  <span class="text-coral">cat work.md</span>  things I\'ve built',
 			'  <span class="text-coral">cat readme</span>   about this site',
+			'  <span class="text-coral">cat music</span>    current favorite albums',
+			'  <span class="text-coral">cat fails</span>    project failures hall of fame',
+			'  <span class="text-coral">cat blog/</span>    preview a blog post',
 			'  <span class="text-coral">neofetch</span>     system info',
 			'  <span class="text-coral">uptime</span>       system uptime',
+			'  <span class="text-coral">fortune</span>      random dev hot take',
+			'  <span class="text-coral">cowsay</span>       moo',
+			'  <span class="text-coral">man joe</span>      read the manual',
 			'  <span class="text-coral">hack</span>         ???',
 			'  <span class="text-coral">clear</span>        clear terminal',
 			'',
@@ -874,6 +889,168 @@ const taglines = [
 		return [];
 	}
 
+	const fortunes = [
+		'Hot take: YAML is just spicy JSON.',
+		"The best database is the one you don't have to manage at 3am.",
+		'Docker compose is my love language.',
+		'There are two types of homelabbers: those who have lost data, and those who are about to.',
+		"Every time I say 'one more container' my wife sighs.",
+		'The IoT in IoT stands for Internet of Toilets.',
+		'My homelab has more uptime than most startups.',
+		'Self-hosting is just paying the electricity company instead of AWS.',
+		'Kubernetes is just Docker with anxiety.',
+		'I mass-assigned GPU transcoding jobs at 2am on a Tuesday. On purpose.',
+	];
+
+	function cmdFortune(): string[] {
+		const f = fortunes[Math.floor(Math.random() * fortunes.length)];
+		return ['', `  <span class="text-yellow">${f}</span>`, ''];
+	}
+
+	const cowQuotes = [
+		'I built an IoT cat toilet. No regrets.',
+		'My homelab has more containers than sense.',
+		'Have you tried turning it off and on again?',
+		'Self-hosting: because I trust myself more than AWS.',
+		'40+ containers and counting.',
+	];
+
+	function cmdCowsay(): string[] {
+		const quote = cowQuotes[Math.floor(Math.random() * cowQuotes.length)];
+		const padded = quote.length < 36 ? quote + ' '.repeat(36 - quote.length) : quote;
+		const border = '_'.repeat(padded.length + 2);
+		return [
+			` ${border}`,
+			`/ ${padded} \\`,
+			`\\ ${' '.repeat(padded.length)} /`,
+			` ${'-'.repeat(padded.length + 2)}`,
+			'        \\   ^__^',
+			'         \\  (oo)\\_______',
+			'            (__)\\       )\\/\\',
+			'                ||----w |',
+			'                ||     ||',
+			'',
+		];
+	}
+
+	function cmdManJoe(): string[] {
+		return [
+			'<span class="text-yellow">JOE(1)                    User Commands                    JOE(1)</span>',
+			'',
+			'<span class="text-white">NAME</span>',
+			'       joe - software engineer, developer advocate, massive nerd',
+			'',
+			'<span class="text-white">SYNOPSIS</span>',
+			'       joe [--verbose] [--homelab] [--cats]',
+			'',
+			'<span class="text-white">DESCRIPTION</span>',
+			'       Full man page available at <span class="text-teal">/man</span>',
+			'',
+			'<span class="text-white">SEE ALSO</span>',
+			'       joekarlsson.com/about, joekarlsson.com/work',
+			'',
+		];
+	}
+
+	function cmdCatMusic(): string[] {
+		return [
+			'',
+			'  <span class="text-yellow">## /etc/music - current favorites</span>',
+			'',
+			'  <span class="text-coral">1.</span> Radiohead - OK Computer',
+			'  <span class="text-coral">2.</span> LCD Soundsystem - Sound of Silver',
+			'  <span class="text-coral">3.</span> Talking Heads - Remain in Light',
+			'  <span class="text-coral">4.</span> Bon Iver - For Emma, Forever Ago',
+			'  <span class="text-coral">5.</span> Japanese Breakfast - Jubilee',
+			'',
+			'  <span class="text-dim">$ spotify --shuffle --repeat</span>',
+			'',
+		];
+	}
+
+	function cmdCatFails(): string[] {
+		return [
+			'',
+			'  <span class="text-yellow">## /var/log/fails - project failures hall of fame</span>',
+			'',
+			'  <span class="text-coral">[ERROR]</span> Forgot to set up RAID. Lost 2TB of Linux ISOs.',
+			'  <span class="text-coral">[ERROR]</span> Ran docker system prune -a on prod. On purpose. By accident.',
+			'  <span class="text-coral">[ERROR]</span> IoT toilet sensor fell in the toilet. Twice.',
+			'  <span class="text-coral">[ERROR]</span> Accidentally exposed Portainer to the internet for 3 months.',
+			'  <span class="text-coral">[ERROR]</span> Bought a second server to "save money on cloud bills."',
+			'  <span class="text-coral">[ERROR]</span> Tried to mass-transcode 4K movies on a Raspberry Pi.',
+			'',
+			'  <span class="text-dim">errors: 6 | lessons learned: debatable</span>',
+			'',
+		];
+	}
+
+	function cmdCatBlogIot(): string[] {
+		return [
+			'',
+			'  <span class="text-yellow">## How I Built an IoT Smart Litter Box</span>',
+			'',
+			'  It started as a joke. "What if my cat\'s toilet was',
+			'  connected to the internet?" Turns out, it\'s not as',
+			'  ridiculous as it sounds. I used a Raspberry Pi, some',
+			'  sensors, and way too much free time to build a litter',
+			'  box that tweets when my cat uses it...',
+			'',
+			'  <span class="text-dim">-- truncated. visit <span class="text-teal">/blog/how-i-built-an-iot-kitty-litter-box</span> for full post --</span>',
+			'',
+		];
+	}
+
+	function cmdCatBlogHomelab(): string[] {
+		return [
+			'',
+			'  <span class="text-yellow">## My Homelab Setup</span>',
+			'',
+			'  I run a Proxmox cluster with two nodes, dual GPUs,',
+			'  40+ Docker containers, and enough storage to make',
+			'  my electricity bill a recurring source of regret.',
+			'  Home Assistant, Plex, Arr stack, monitoring, the',
+			'  whole nine yards...',
+			'',
+			'  <span class="text-dim">-- truncated. visit <span class="text-teal">/blog/homelab</span> for full post --</span>',
+			'',
+		];
+	}
+
+	async function runFakeDeletion() {
+		ready = false;
+		inputLine.style.display = 'none';
+		navMenu.style.display = 'none';
+
+		const files = [
+			'/home/joe/photos',
+			'/var/lib/docker',
+			'/etc/hostname',
+			'/usr/bin/vim',
+			'/boot/vmlinuz',
+		];
+
+		for (const f of files) {
+			appendLine(
+				`<span class="text-coral">rm:</span> deleting ${f}... <span class="text-green">done</span>`,
+			);
+			await sleep(400);
+		}
+
+		appendLine('<span class="text-coral">rm:</span> deleting / ...');
+		await sleep(1200);
+		appendLine('');
+		appendLine(
+			'<span class="text-yellow">Just kidding. But you should see your face right now.</span>',
+		);
+		appendLine('');
+
+		inputLine.style.display = 'flex';
+		ready = true;
+		showMenu();
+		focusInput();
+	}
+
 	function executeCommand(raw: string) {
 		const trimmed = raw.trim();
 		if (!trimmed) return;
@@ -911,6 +1088,14 @@ const taglines = [
 					result = cmdCatWork();
 				} else if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
 					result = cmdCatReadme();
+				} else if (args.toLowerCase() === '/etc/music' || args.toLowerCase() === 'music') {
+					result = cmdCatMusic();
+				} else if (args.toLowerCase() === '/var/log/fails' || args.toLowerCase() === 'fails') {
+					result = cmdCatFails();
+				} else if (args.toLowerCase() === 'blog/iot') {
+					result = cmdCatBlogIot();
+				} else if (args.toLowerCase() === 'blog/homelab') {
+					result = cmdCatBlogHomelab();
 				} else if (args.toLowerCase() === 'cat' || args.toLowerCase() === 'cat.md') {
 					result = [
 						'',
@@ -938,6 +1123,10 @@ const taglines = [
 				result = cmdClear();
 				break;
 			case 'sudo':
+				if (trimmed.startsWith('sudo rm -rf')) {
+					runFakeDeletion();
+					return;
+				}
 				result = ['<span class="text-coral">nice try.</span>', ''];
 				break;
 			case 'exit':
@@ -945,6 +1134,22 @@ const taglines = [
 				break;
 			case 'rm':
 				result = ['<span class="text-coral">absolutely not.</span>', ''];
+				break;
+			case 'fortune':
+				result = cmdFortune();
+				break;
+			case 'cowsay':
+				result = cmdCowsay();
+				break;
+			case 'man':
+				if (args.toLowerCase() === 'joe') {
+					result = cmdManJoe();
+				} else {
+					result = [
+						`<span class="text-dim">man: no manual entry for ${escapeHtml(args) || '???'}. try 'man joe'</span>`,
+						'',
+					];
+				}
 				break;
 			case 'matrix':
 			case 'hack':
@@ -1112,6 +1317,25 @@ const taglines = [
 		showMenu();
 		ready = true;
 		focusInput();
+
+		// First-visit guided tour
+		if (!localStorage.getItem('jk-visited')) {
+			localStorage.setItem('jk-visited', '1');
+			ready = false;
+			hideMenu();
+			inputLine.style.display = 'none';
+			await sleep(400);
+			await typeCommand('whoami');
+			appendLines(cmdWhoami());
+			await sleep(600);
+			await typeCommand('help');
+			appendLines(cmdHelp());
+			await sleep(300);
+			inputLine.style.display = 'flex';
+			ready = true;
+			showMenu();
+			focusInput();
+		}
 	}
 
 	boot();

@@ -84,6 +84,27 @@ const relatedPosts = publishedPosts
 	publishedDate={date}
 	modifiedDate={updatedDate}
 >
+	<div
+		id="reading-progress"
+		class="fixed top-0 left-0 z-50 hidden w-full font-mono"
+		aria-hidden="true"
+	>
+		<!-- Terminal-style progress (default) -->
+		<div
+			id="progress-terminal"
+			class="flex items-center gap-2 bg-surface-0/90 px-3 py-1 text-[11px] text-gray-400 backdrop-blur-sm"
+		>
+			<span id="progress-bar-text">[....................] 0%</span>
+			<span class="text-gray-500">|</span>
+			<span id="progress-status">reading...</span>
+		</div>
+		<!-- Reduced-motion fallback: simple thin line -->
+		<div id="progress-simple" class="hidden h-[2px] bg-surface-0/90">
+			<div id="progress-simple-fill" class="h-full bg-coral transition-none" style="width: 0%">
+			</div>
+		</div>
+	</div>
+
 	<article class="mx-auto max-w-3xl px-4 py-8">
 		{/* Breadcrumbs */}
 		<nav class="mb-4 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
@@ -178,6 +199,92 @@ const relatedPosts = publishedPosts
 				});
 				pre.appendChild(button);
 			});
+		</script>
+
+		<script>
+			(() => {
+				const progressEl = document.getElementById('reading-progress');
+				const barText = document.getElementById('progress-bar-text');
+				const statusText = document.getElementById('progress-status');
+				const terminalEl = document.getElementById('progress-terminal');
+				const simpleEl = document.getElementById('progress-simple');
+				const simpleFill = document.getElementById('progress-simple-fill');
+				const article = document.querySelector('article');
+
+				if (
+					!progressEl ||
+					!barText ||
+					!statusText ||
+					!article ||
+					!terminalEl ||
+					!simpleEl ||
+					!simpleFill
+				)
+					return;
+
+				const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+				if (prefersReducedMotion) {
+					terminalEl.classList.add('hidden');
+					simpleEl.classList.remove('hidden');
+				}
+
+				function buildBar(pct: number): string {
+					const filled = Math.round(pct / 5);
+					const empty = 20 - filled;
+					return '[' + '#'.repeat(filled) + '.'.repeat(empty) + '] ' + pct + '%';
+				}
+
+				function update() {
+					const rect = article!.getBoundingClientRect();
+					const articleTop = rect.top + window.scrollY;
+					const articleHeight = rect.height;
+					const viewportHeight = window.innerHeight;
+					const scrollY = window.scrollY;
+
+					const scrolled = scrollY - articleTop;
+					const total = articleHeight - viewportHeight;
+					let pct = total > 0 ? Math.round((scrolled / total) * 100) : 0;
+					pct = Math.max(0, Math.min(100, pct));
+
+					if (pct <= 0) {
+						progressEl!.classList.add('hidden');
+						return;
+					}
+
+					progressEl!.classList.remove('hidden');
+
+					if (prefersReducedMotion) {
+						simpleFill!.style.width = pct + '%';
+					} else {
+						barText!.textContent = buildBar(pct);
+						if (pct >= 100) {
+							statusText!.textContent = 'done. cat next-post.md?';
+							statusText!.classList.add('text-coral');
+						} else {
+							statusText!.textContent = 'reading...';
+							statusText!.classList.remove('text-coral');
+						}
+					}
+				}
+
+				let ticking = false;
+				window.addEventListener(
+					'scroll',
+					() => {
+						if (!ticking) {
+							requestAnimationFrame(() => {
+								update();
+								ticking = false;
+							});
+							ticking = true;
+						}
+					},
+					{ passive: true },
+				);
+
+				update();
+			})();
 		</script>
 
 		{/* Prev/Next within category */}

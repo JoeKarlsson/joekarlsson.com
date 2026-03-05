@@ -9,6 +9,73 @@ import { SOCIAL_LINKS } from '../consts';
 	schemaType="ContactPage"
 >
 	<div class="mx-auto max-w-3xl px-4 py-8">
+		<!-- Chat bubble typing animation -->
+		<div id="chat-section" class="mb-8" aria-live="polite">
+			<div id="typing-indicator" class="flex items-center gap-1 font-mono text-sm text-gray-400">
+				<span>Joe is typing</span>
+				<span class="typing-dots flex gap-0.5">
+					<span class="typing-dot inline-block h-1.5 w-1.5 rounded-full bg-gray-400"></span>
+					<span class="typing-dot inline-block h-1.5 w-1.5 rounded-full bg-gray-400"></span>
+					<span class="typing-dot inline-block h-1.5 w-1.5 rounded-full bg-gray-400"></span>
+				</span>
+			</div>
+			<div id="chat-bubble" class="hidden">
+				<p class="mb-1 font-mono text-xs text-coral" aria-hidden="true">joe@karlsson ~$</p>
+				<div
+					class="rounded-lg border border-surface-3 bg-surface-2 px-4 py-3 font-mono text-sm text-gray-300"
+				>
+					<span id="chat-message"></span><span
+						id="chat-cursor"
+						class="inline-block w-1.5 h-4 bg-coral align-middle ml-0.5 opacity-0"></span>
+				</div>
+			</div>
+		</div>
+
+		<style>
+			@keyframes bounce-dot {
+				0%,
+				80%,
+				100% {
+					transform: translateY(0);
+				}
+				40% {
+					transform: translateY(-4px);
+				}
+			}
+			.typing-dot:nth-child(1) {
+				animation: bounce-dot 1.2s infinite 0s;
+			}
+			.typing-dot:nth-child(2) {
+				animation: bounce-dot 1.2s infinite 0.2s;
+			}
+			.typing-dot:nth-child(3) {
+				animation: bounce-dot 1.2s infinite 0.4s;
+			}
+
+			@keyframes blink-cursor {
+				0%,
+				100% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
+			}
+			#chat-cursor.blinking {
+				animation: blink-cursor 0.8s step-end infinite;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.typing-dot {
+					animation: none !important;
+				}
+				#chat-cursor {
+					animation: none !important;
+					opacity: 0 !important;
+				}
+			}
+		</style>
+
 		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ cat contact.md</p>
 		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Ready to be friends?</h1>
 		<p class="mb-8 text-gray-400">
@@ -225,4 +292,46 @@ import { SOCIAL_LINKS } from '../consts';
 			</a>
 		</div>
 	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const typingIndicator = document.getElementById('typing-indicator');
+			const chatBubble = document.getElementById('chat-bubble');
+			const chatMessage = document.getElementById('chat-message');
+			const chatCursor = document.getElementById('chat-cursor');
+			const message =
+				'Hey - I actually read these. Drop me a line about homelabs, databases, or weird IoT projects.';
+
+			if (!typingIndicator || !chatBubble || !chatMessage || !chatCursor) return;
+
+			if (prefersReducedMotion) {
+				typingIndicator.classList.add('hidden');
+				chatBubble.classList.remove('hidden');
+				chatMessage.textContent = message;
+				return;
+			}
+
+			// Show typing indicator for 2 seconds, then type out the message
+			setTimeout(() => {
+				typingIndicator.classList.add('hidden');
+				chatBubble.classList.remove('hidden');
+				chatCursor.classList.add('blinking');
+
+				let i = 0;
+				const typeInterval = setInterval(() => {
+					if (i < message.length) {
+						chatMessage.textContent += message[i];
+						i++;
+					} else {
+						clearInterval(typeInterval);
+						// Keep cursor blinking for a moment, then hide it
+						setTimeout(() => {
+							chatCursor.classList.remove('blinking');
+							chatCursor.style.opacity = '0';
+						}, 2000);
+					}
+				}, 35);
+			}, 2000);
+		});
+	</script>
 </BaseLayout>
