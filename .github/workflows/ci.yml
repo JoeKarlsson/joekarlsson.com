@@ -118,13 +118,14 @@ jobs:
         with:
           name: dist
           path: dist/
-      - run: npx lhci autorun
+      - run: mkdir -p .lighthouseci && npx lhci autorun
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: lighthouse-reports
           path: .lighthouseci/
           retention-days: 14
+          if-no-files-found: warn
 
   caddyfile:
     name: Security Headers Check
