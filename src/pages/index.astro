@@ -32,7 +32,6 @@ const featuredPosts = featuredSlugs
 	.filter((post): post is (typeof allPosts)[number] => Boolean(post));
 
 const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice(0, 6);
-
 ---
 
 <BaseLayout
@@ -801,7 +800,10 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 	}
 
 	function cmdWhoami(): string[] {
-		return ['<span class="text-teal">joe-karlsson</span> - software engineer & developer advocate', ''];
+		return [
+			'<span class="text-teal">joe-karlsson</span> - software engineer & developer advocate',
+			'',
+		];
 	}
 
 	function cmdCatAbout(): string[] {
@@ -1060,6 +1062,12 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		focusInput();
 	}
 
+	function trackTerminalCommand(cmd: string) {
+		if (typeof (window as any).plausible === 'function') {
+			(window as any).plausible('Terminal Command', { props: { command: cmd } });
+		}
+	}
+
 	function executeCommand(raw: string) {
 		const trimmed = raw.trim();
 		if (!trimmed) return;
@@ -1067,6 +1075,8 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		appendLine(
 			`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`,
 		);
+
+		trackTerminalCommand(trimmed);
 
 		if (trimmed) commandHistory.unshift(trimmed);
 		historyIndex = -1;

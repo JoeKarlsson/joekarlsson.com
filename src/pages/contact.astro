@@ -97,7 +97,7 @@ import { SOCIAL_LINKS } from '../consts';
 				href={SOCIAL_LINKS.substack}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="inline-block rounded-md bg-teal px-4 py-2 font-medium text-surface-0 no-underline hover:bg-coral"
+				class="plausible-event-name=Newsletter+CTA+Click inline-block rounded-md bg-teal px-4 py-2 font-medium text-surface-0 no-underline hover:bg-coral"
 			>
 				Subscribe on Substack &rarr;
 			</a>
@@ -268,6 +268,19 @@ import { SOCIAL_LINKS } from '../consts';
 			</a>
 		</div>
 	</div>
+	<script>
+		// Track contact page social link clicks
+		document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+			const platformEl = link.querySelector('p.font-medium');
+			if (!platformEl) return;
+			const platform = platformEl.textContent?.trim() || 'Unknown';
+			link.addEventListener('click', () => {
+				if (typeof (window as any).plausible === 'function') {
+					(window as any).plausible('Contact Social Click', { props: { platform } });
+				}
+			});
+		});
+	</script>
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
 			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -3,6 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="404 | Joe Karlsson" description="Page not found">
+	<script>
+		if (typeof (window as any).plausible === 'function') {
+			(window as any).plausible('404', { props: { path: window.location.pathname } });
+		}
+	</script>
 	<div class="mx-auto max-w-3xl px-4 py-16 text-center">
 		<div class="glitch-wrapper mb-6">
 			<h1 class="glitch text-8xl font-bold text-coral" data-text="404">404</h1>

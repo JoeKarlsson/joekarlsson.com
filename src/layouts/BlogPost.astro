@@ -328,6 +328,8 @@ const relatedPosts = publishedPosts
 					let pct = total > 0 ? Math.round((scrolled / total) * 100) : 0;
 					pct = Math.max(0, Math.min(100, pct));
 
+					trackScrollDepth(pct);
+
 					if (pct <= 0) {
 						progressEl!.classList.add('hidden');
 						return;
@@ -359,6 +361,23 @@ const relatedPosts = publishedPosts
 							statusText!.classList.remove('text-coral');
 						}
 					}
+				}
+
+				// Scroll depth tracking milestones
+				const depthMilestones = new Set<number>();
+
+				function trackScrollDepth(pct: number) {
+					const plausible = (window as any).plausible;
+					if (typeof plausible !== 'function') return;
+					[25, 50, 75, 100].forEach((milestone) => {
+						if (pct >= milestone && !depthMilestones.has(milestone)) {
+							depthMilestones.add(milestone);
+							plausible('Scroll Depth', { props: { depth: `${milestone}%` } });
+							if (milestone === 100) {
+								plausible('Reading Complete');
+							}
+						}
+					});
 				}
 
 				let ticking = false;
@@ -434,7 +453,7 @@ const relatedPosts = publishedPosts
 						{relatedPosts.map((post) => (
 							<a
 								href={`/blog/${post.data.slug}/`}
-								class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+								class="plausible-event-name=Related+Post+Click group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
 							>
 								{post.data.heroImage && (
 									<img
