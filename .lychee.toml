@@ -13,7 +13,9 @@ exclude = [
   "127\\.0\\.0\\.1",
   "192\\.168\\.",
   "speakerdeck\\.com",
-  "giphy\\.com"
+  "giphy\\.com",
+  "hero-illustration\\.webp",
+  "http:/https:"
 ]
 
 # Exclude paths that don't map to files or are known broken
