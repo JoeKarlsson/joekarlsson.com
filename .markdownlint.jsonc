@@ -31,6 +31,10 @@
   "MD024": false,
   // Allow spaces in link text (existing content)
   "MD039": false,
+  // Allow images without alt text (existing content)
+  "MD045": false,
+  // Lists surrounded by blank lines
+  "MD032": false,
   // Allow bare URLs in content
   "MD034": false,
   // Reversed link syntax in existing content

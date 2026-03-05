@@ -1,4 +1,9 @@
 # Custom dictionary for joekarlsson.com
+
+# Fragments that appear when smart quotes split words
+gramm
+ationalized
+
 # Tech terms
 Alexa
 Audiobookshelf

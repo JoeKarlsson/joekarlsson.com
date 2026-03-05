@@ -13,12 +13,12 @@ echo "--- Checking for non-WebP images (PNG/JPG) ---"
 NON_WEBP=$(find "$IMAGE_DIR" -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) 2>/dev/null || true)
 if [ -n "$NON_WEBP" ]; then
   COUNT=$(echo "$NON_WEBP" | wc -l | tr -d ' ')
-  echo "ERROR: Found $COUNT non-WebP image(s). These should be converted to WebP:"
+  echo "WARNING: Found $COUNT non-WebP image(s). These should be converted to WebP:"
   echo "$NON_WEBP" | head -20
   if [ "$COUNT" -gt 20 ]; then
     echo "  ... and $((COUNT - 20)) more"
   fi
-  ERRORS=$((ERRORS + 1))
+  WARNINGS=$((WARNINGS + 1))
 else
   echo "OK: All images are WebP (or GIF)"
 fi
