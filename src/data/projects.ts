@@ -175,6 +175,18 @@ export const projects: Project[] = [
 		stars: 2,
 	},
 
+	{
+		title: 'Digital Graffiti Wall',
+		description:
+			'An interactive art installation where audience members draw on a shared digital canvas that displays their creations in real-time on a physical RGB LED grid. Uses MongoDB Realm for instant cross-client data sync.',
+		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
+		imageAlt: 'Digital Graffiti Wall',
+		category: 'games',
+		tech: ['JavaScript', 'MongoDB Realm', 'RGB LEDs', 'Real-Time Sync'],
+		blogUrl: '/blog/building-a-real-time-digital-graffiti-wall/',
+		sourceUrl: 'https://github.com/JoeKarlsson/digital-graffiti-wall',
+	},
+
 	// Developer Tools & Education
 	{
 		title: 'Data Structures & Algorithms in JS',
@@ -270,6 +282,26 @@ export const projects: Project[] = [
 	},
 
 	// Homelab
+	{
+		title: 'GPU-Accelerated Subtitle Generator',
+		description:
+			'A production subtitle generation pipeline using GPU-accelerated Whisper (faster-whisper) with NVIDIA CUDA. Features parallel workers, automatic language detection and translation, VRAM-aware scheduling, and time-of-day worker scaling to share GPU resources across services.',
+		image: '/images/blog/building-a-gpu-accelerated-subtitle-generator/hero.webp',
+		imageAlt: 'GPU Subtitle Generator Architecture',
+		category: 'homelab',
+		tech: ['Python', 'Whisper AI', 'CUDA', 'NVIDIA GPU', 'Bash'],
+		blogUrl: '/blog/building-a-gpu-accelerated-subtitle-generator/',
+	},
+	{
+		title: 'MikroTik Native API Client',
+		description:
+			'A from-scratch Python implementation of MikroTik\'s proprietary binary API protocol. Handles variable-length encoding, authentication, and sentence-based messaging for programmatic control of network infrastructure - bonding, DHCP, firewall rules, and more.',
+		image: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp',
+		imageAlt: 'MikroTik API Client',
+		category: 'homelab',
+		tech: ['Python', 'Binary Protocol', 'MikroTik', 'Networking'],
+		blogUrl: '/blog/implementing-mikrotik-binary-api-protocol-in-python/',
+	},
 	{
 		title: 'Proxmox Homelab Cluster',
 		description:
