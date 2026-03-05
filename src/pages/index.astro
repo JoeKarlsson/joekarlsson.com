@@ -3,16 +3,35 @@ import { getCollection } from 'astro:content';
 import BlogCard from '../components/BlogCard.astro';
 import RightNow from '../components/RightNow.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
+import { SITE_DESCRIPTION } from '../consts';
 import { projects } from '../data/projects';
 
-const homepageProjects = projects.filter((p) =>
-	['IoT Kitty Litter Box', 'Bechdel.io', 'React Spotify Player', 'Wave Jump'].includes(p.title),
+const homepageProjects = projects
+	.filter((p) =>
+		[
+			'Data Structures & Algorithms in JS',
+			'React Spotify Player',
+			'Bechdel.io',
+			'IoT Kitty Litter Box',
+		].includes(p.title),
+	)
+	.sort((a, b) => (b.stars || 0) - (a.stars || 0));
+
+const featuredSlugs = [
+	'how-to-get-started-building-a-homelab-server-in-2024',
+	'an-introduction-to-iot-internet-of-toilets',
+	'how-to-get-started-with-home-assistant-in-2023',
+];
+
+const allPosts = (await getCollection('blog')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-	.slice(0, 6);
+const featuredPosts = featuredSlugs
+	.map((slug) => allPosts.find((p) => p.data.slug === slug))
+	.filter(Boolean);
+
+const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice(0, 6);
 
 const taglines = [
 	'Built an IoT cat toilet. Gave a conference talk about it.',
@@ -24,7 +43,11 @@ const taglines = [
 ];
 ---
 
-<BaseLayout title="Joe Karlsson - Developer Advocate & Massive Nerd" description={SITE_DESCRIPTION}>
+<BaseLayout
+	title="Joe Karlsson | Developer Advocate & Massive Nerd"
+	description={SITE_DESCRIPTION}
+	schemaType="WebSite"
+>
 	<h1 class="sr-only">Joe Karlsson - Software Engineer & Developer Advocate</h1>
 	<!-- Hero: Two terminal windows side by side -->
 	<section id="hero-section" class="border-b-4 border-coral relative overflow-hidden">
@@ -39,7 +62,7 @@ const taglines = [
 				</div>
 				<div
 					id="terminal"
-					class="terminal-body bg-surface-0 px-4 md:px-8 py-4 md:py-6 font-mono text-sm leading-relaxed h-[18rem] md:h-[22rem] lg:h-[28rem] overflow-y-auto cursor-text relative"
+					class="terminal-body bg-surface-0 px-4 md:px-8 py-4 md:py-6 font-mono text-sm leading-relaxed h-[24rem] md:h-[22rem] lg:h-[28rem] overflow-y-auto cursor-text relative"
 					tabindex="0"
 					role="application"
 					aria-label="Interactive terminal. Type help for available commands."
@@ -97,7 +120,7 @@ const taglines = [
 						videos, whatever works.
 					</p>
 					<p class="text-gray-300 mb-2">
-						Currently at <span class="text-white">CloudQuery</span>. Outside of work I run a
+						Leading DevRel at <span class="text-white">CloudQuery</span>. Outside of work I run a
 						<span class="text-teal">40+ container homelab</span>, watch way too many movies, and
 						build things that probably shouldn't be connected to the internet.
 					</p>
@@ -113,7 +136,7 @@ const taglines = [
 	<!-- Right Now -->
 	<section class="border-b-4 border-teal">
 		<div class="mx-auto max-w-5xl px-6 py-14">
-			<h2 class="mb-6 text-lg font-bold text-white">
+			<h2 class="mb-4 text-lg font-bold text-white">
 				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat now.md
 			</h2>
 			<RightNow />
@@ -123,11 +146,11 @@ const taglines = [
 	<!-- Featured Projects -->
 	<section class="border-b border-surface-3">
 		<div class="mx-auto max-w-5xl px-6 py-14">
-			<div class="mb-6 flex items-center justify-between">
+			<div class="mb-4 flex items-center justify-between">
 				<h2 class="text-lg font-bold text-white">
-					<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls projects/
+					<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls projects/ --sort=stars
 				</h2>
-				<a href="/work" class="group text-sm text-coral hover:text-teal transition-colors">
+				<a href="/work/" class="group text-sm text-coral hover:text-teal transition-colors">
 					See all <span class="inline-block transition-transform group-hover:translate-x-1"
 						>&rarr;</span
 					>
@@ -143,7 +166,7 @@ const taglines = [
 								href={url}
 								target={isExternal ? '_blank' : undefined}
 								rel={isExternal ? 'noopener noreferrer' : undefined}
-								class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+								class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
 							>
 								<img
 									src={project.image}
@@ -156,12 +179,28 @@ const taglines = [
 								<p class="font-semibold text-sm text-white group-hover:text-coral">
 									{project.title}
 								</p>
-								<div class="mt-1 flex flex-wrap gap-1">
-									{project.tech.slice(0, 3).map((t) => (
-										<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
-											{t}
+								<div class="mt-1 flex items-center gap-2">
+									{project.stars && (
+										<span class="flex items-center gap-1 font-mono text-[10px] text-yellow">
+											<svg
+												viewBox="0 0 16 16"
+												width="10"
+												height="10"
+												fill="currentColor"
+												aria-hidden="true"
+											>
+												<path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z" />
+											</svg>
+											{project.stars}
 										</span>
-									))}
+									)}
+									<div class="flex flex-wrap gap-1">
+										{project.tech.slice(0, 2).map((t) => (
+											<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
+												{t}
+											</span>
+										))}
+									</div>
 								</div>
 							</a>
 						);
@@ -171,13 +210,35 @@ const taglines = [
 		</div>
 	</section>
 
+	<!-- Featured Posts -->
+	<section class="border-b border-surface-3">
+		<div class="mx-auto max-w-5xl px-6 py-14">
+			<h2 class="mb-4 text-lg font-bold text-white">
+				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls posts/ --featured
+			</h2>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					featuredPosts.map((post) => (
+						<BlogCard
+							title={post.data.title}
+							description={post.data.description}
+							date={post.data.date}
+							slug={post.data.slug}
+							heroImage={post.data.heroImage}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
 	<!-- Recent Posts -->
 	<section class="mx-auto max-w-5xl px-6 py-16">
-		<div class="mb-8 flex items-center justify-between">
+		<div class="mb-4 flex items-center justify-between">
 			<h2 class="text-lg font-bold text-white">
 				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls posts/ --recent
 			</h2>
-			<a href="/blog" class="group text-sm text-coral hover:text-teal transition-colors">
+			<a href="/blog/" class="group text-sm text-coral hover:text-teal transition-colors">
 				View all <span class="inline-block transition-transform group-hover:translate-x-1"
 					>&rarr;</span
 				>
@@ -477,6 +538,9 @@ const taglines = [
 		}
 
 		hideMenu();
+		// Remember where this command's output starts
+		const cmdMarker = document.createElement('div');
+		output.appendChild(cmdMarker);
 		appendLine(`<span class="text-coral">~$</span> <span class="text-white">${opt.label}</span>`);
 
 		switch (opt.action) {
@@ -500,6 +564,8 @@ const taglines = [
 				runMatrixRain();
 				break;
 		}
+		// Scroll terminal internally to show the command output at the top
+		terminal.scrollTop = cmdMarker.offsetTop - terminal.offsetTop;
 		focusInput();
 	}
 
@@ -829,14 +895,14 @@ const taglines = [
 			'',
 			'  <span class="text-teal">joe</span>@<span class="text-teal">joekarlsson.com</span>',
 			'  ─────────────────────',
-			'  <span class="text-coral">OS</span>:         Astro on Cloudflare',
+			'  <span class="text-coral">OS</span>:         Astro, self-hosted on Proxmox',
 			'  <span class="text-coral">Host</span>:       M3 Pro MacBook Pro',
 			'  <span class="text-coral">Homelab</span>:    Proxmox Cluster x2',
 			'  <span class="text-coral">GPU</span>:        RTX A4000 + Quadro RTX 4000',
 			'  <span class="text-coral">Containers</span>: 40+',
 			'  <span class="text-coral">Shell</span>:      bash + vibes',
 			'  <span class="text-coral">Work</span>:       CloudQuery',
-			'  <span class="text-coral">Cats</span>:       1 (IoT-enabled)',
+			'  <span class="text-coral">Cats</span>:       2 (1 IoT-enabled)',
 			'',
 			'  <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
 			'',

@@ -28,6 +28,11 @@
 		@apply underline underline-offset-2 decoration-coral/40 hover:decoration-teal;
 	}
 
+	/* Focus-visible styles for keyboard accessibility (WCAG 2.4.7) */
+	:focus-visible {
+		@apply outline-2 outline-offset-2 outline-coral rounded-sm;
+	}
+
 	::selection {
 		@apply bg-coral/20 text-coral;
 	}
@@ -109,13 +114,16 @@
 .prose pre .copy-button {
 	@apply absolute top-1 right-2 z-10 bg-transparent border-none text-gray-400 hover:text-white cursor-pointer font-mono text-xs px-2 py-1 rounded transition-colors;
 }
-.prose pre .copy-button:hover {
+.prose pre .copy-button:hover,
+.prose pre .copy-button:focus-visible {
 	@apply bg-surface-4;
 }
 .prose img {
 	@apply rounded-lg my-6 mx-auto;
 	max-width: 100%;
+	max-height: 500px;
 	height: auto;
+	object-fit: contain;
 }
 
 .prose video {

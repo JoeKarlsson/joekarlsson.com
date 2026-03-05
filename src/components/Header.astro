@@ -3,6 +3,12 @@ import { NAV_LINKS, SOCIAL_LINKS } from '../consts';
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.replace(/\/$/, '') || '/';
+
+function isActive(href: string): boolean {
+	const normalizedHref = href.replace(/\/$/, '') || '/';
+	if (normalizedHref === '/') return currentPath === '/';
+	return currentPath === normalizedHref || currentPath.startsWith(normalizedHref);
+}
 ---
 
 <header class="sticky top-0 z-50 border-b border-surface-3 bg-surface-0/80 backdrop-blur-md">
@@ -17,10 +23,8 @@ const currentPath = pathname.replace(/\/$/, '') || '/';
 					<a
 						href={href}
 						class:list={[
-							'rounded-md px-3 py-1.5 text-sm font-medium no-underline transition-colors',
-							currentPath === href || (href !== '/' && currentPath.startsWith(href))
-								? 'bg-surface-3 text-coral'
-								: 'text-gray-400 hover:bg-surface-2 hover:text-white',
+							'rounded-md px-3 py-1.5 text-sm font-medium no-underline',
+							isActive(href) ? 'bg-surface-3 text-coral' : 'text-gray-400',
 						]}
 					>
 						{label}
@@ -115,9 +119,7 @@ const currentPath = pathname.replace(/\/$/, '') || '/';
 					href={href}
 					class:list={[
 						'block rounded-md px-3 py-2 text-sm no-underline',
-						currentPath === href || (href !== '/' && currentPath.startsWith(href))
-							? 'text-coral'
-							: 'text-gray-400 hover:text-white',
+						isActive(href) ? 'text-coral' : 'text-gray-400 hover:text-white',
 					]}
 				>
 					{label}

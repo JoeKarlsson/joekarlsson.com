@@ -97,14 +97,14 @@ import { SOCIAL_LINKS } from '../consts';
 				href={SOCIAL_LINKS.substack}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="inline-block rounded-md bg-teal px-4 py-2 text-sm font-medium text-surface-0 no-underline hover:bg-coral"
+				class="inline-block rounded-md bg-teal px-4 py-2 font-medium text-surface-0 no-underline hover:bg-coral"
 			>
 				Subscribe on Substack &rarr;
 			</a>
 		</div>
 
 		<!-- Primary -->
-		<h2 class="mb-4 text-lg font-semibold text-white">
+		<h2 class="mb-4 text-lg font-bold text-white">
 			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls socials/
 		</h2>
 		<div class="mb-8 grid gap-3 sm:grid-cols-2">
@@ -159,7 +159,7 @@ import { SOCIAL_LINKS } from '../consts';
 		</div>
 
 		<!-- Video & Audio -->
-		<h2 class="mb-4 text-lg font-semibold text-white">
+		<h2 class="mb-4 text-lg font-bold text-white">
 			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls media/
 		</h2>
 		<div class="mb-8 grid gap-3 sm:grid-cols-2">
@@ -214,7 +214,7 @@ import { SOCIAL_LINKS } from '../consts';
 		</div>
 
 		<!-- Other -->
-		<h2 class="mb-4 text-lg font-semibold text-white">
+		<h2 class="mb-4 text-lg font-bold text-white">
 			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls other/
 		</h2>
 		<div class="mb-8 grid gap-3 sm:grid-cols-2">
@@ -266,30 +266,6 @@ import { SOCIAL_LINKS } from '../consts';
 					<p class="text-xs text-gray-400">Lurking & commenting</p>
 				</div>
 			</a>
-			<a
-				href={SOCIAL_LINKS.medium}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2"
-			>
-				<span class="text-xl text-white" aria-hidden="true">M</span>
-				<div>
-					<p class="font-medium text-white">Medium</p>
-					<p class="text-xs text-gray-400">Cross-posted articles</p>
-				</div>
-			</a>
-			<a
-				href={SOCIAL_LINKS.npm}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2"
-			>
-				<span class="text-xl text-terminal-red" aria-hidden="true">&#9744;</span>
-				<div>
-					<p class="font-medium text-white">npm</p>
-					<p class="text-xs text-gray-400">Published packages</p>
-				</div>
-			</a>
 		</div>
 	</div>
 	<script>
@@ -300,7 +276,7 @@ import { SOCIAL_LINKS } from '../consts';
 			const chatMessage = document.getElementById('chat-message');
 			const chatCursor = document.getElementById('chat-cursor');
 			const message =
-				'Hey - I actually read these. Drop me a line about homelabs, databases, or weird IoT projects.';
+				"Want to chat about homelabs, databases, or weird IoT projects? I'm always down. Pick a platform and say hi.";
 
 			if (!typingIndicator || !chatBubble || !chatMessage || !chatCursor) return;
 

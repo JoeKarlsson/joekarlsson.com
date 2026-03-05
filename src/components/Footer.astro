@@ -1,26 +1,18 @@
 ---
-import { SOCIAL_LINKS } from '../consts';
+import { FOOTER_LINKS, SOCIAL_LINKS } from '../consts';
 const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-surface-3 bg-surface-1">
 	<div class="mx-auto max-w-5xl px-4 py-8">
 		<nav class="mb-6 flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-sm">
-			<a href="/blog/" class="text-gray-400 no-underline transition-colors hover:text-coral">Blog</a
-			>
-			<a href="/about/" class="text-gray-400 no-underline transition-colors hover:text-coral"
-				>About</a
-			>
-			<a href="/work/" class="text-gray-400 no-underline transition-colors hover:text-coral">Work</a
-			>
-			<a href="/uses/" class="text-gray-400 no-underline transition-colors hover:text-coral">Uses</a
-			>
-			<a href="/talk-archive/" class="text-gray-400 no-underline transition-colors hover:text-coral"
-				>Talk Archive</a
-			>
-			<a href="/contact/" class="text-gray-400 no-underline transition-colors hover:text-coral"
-				>Contact</a
-			>
+			{
+				FOOTER_LINKS.map(({ href, label }) => (
+					<a href={href} class="text-gray-400 no-underline transition-colors hover:text-coral">
+						{label}
+					</a>
+				))
+			}
 		</nav>
 		<div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
 			<p class="text-sm text-gray-400">

@@ -49,8 +49,8 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 >
 	<div class="mx-auto max-w-5xl px-4 py-8">
 		<div class="mb-8">
-			<p class="mb-2 font-mono text-sm text-coral">~$ ls blog/</p>
-			<h1 class="text-3xl font-bold text-white md:text-4xl">Blog</h1>
+			<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ ls blog/</p>
+			<h1 class="text-3xl font-bold text-coral md:text-4xl">Blog</h1>
 			<p class="mt-2 text-gray-400">{allPosts.length} posts</p>
 		</div>
 
@@ -77,7 +77,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 			featuredPost && (
 				<a
 					href={`/blog/${featuredPost.data.slug}/`}
-					class="group mb-8 block rounded-lg border border-coral/30 bg-surface-1 overflow-hidden no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+					class="group mb-8 block rounded-lg border border-coral/30 bg-surface-1 overflow-hidden no-underline transition-all duration-300 hover:border-coral/50 hover:bg-surface-2"
 				>
 					<div class="md:flex">
 						{featuredPost.data.heroImage && (
@@ -85,6 +85,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 								src={featuredPost.data.heroImage}
 								alt={featuredPost.data.heroAlt || `Hero image for ${featuredPost.data.title}`}
 								class="h-48 w-full object-cover md:h-auto md:w-1/2"
+								loading="eager"
 							/>
 						)}
 						<div class="p-6 flex flex-col justify-center">
@@ -191,15 +192,8 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 			}
 		</div>
 
-		<!-- Load more button -->
-		<div id="load-more-wrap" class="mt-8 flex justify-center">
-			<button
-				id="load-more"
-				class="rounded-lg border border-surface-3 bg-surface-1 px-6 py-2.5 font-mono text-sm text-gray-400 transition-colors hover:border-coral/30 hover:text-coral"
-			>
-				Load more posts
-			</button>
-		</div>
+		<!-- Infinite scroll sentinel -->
+		<div id="load-more-sentinel" class="mt-8 h-4"></div>
 	</div>
 
 	<script is:inline define:vars={{ postsData, POSTS_PER_PAGE }}>
@@ -207,8 +201,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 			const grid = document.getElementById('posts-grid');
 			const cards = Array.from(grid.children);
 			const searchInput = document.getElementById('blog-search');
-			const loadMoreBtn = document.getElementById('load-more');
-			const loadMoreWrap = document.getElementById('load-more-wrap');
+			const sentinel = document.getElementById('load-more-sentinel');
 			const noResults = document.getElementById('no-results');
 			const resultsCount = document.getElementById('results-count');
 			const sortBtns = document.querySelectorAll('.sort-btn');
@@ -272,8 +265,8 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 				noResults.classList.toggle('hidden', total > 0);
 				grid.classList.toggle('hidden', total === 0);
 
-				// Load more button
-				loadMoreWrap.classList.toggle('hidden', showing >= total || searchQuery !== '');
+				// Hide sentinel when all posts visible or searching
+				sentinel.classList.toggle('hidden', showing >= total || searchQuery !== '');
 			}
 
 			// Search
@@ -297,11 +290,17 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 				});
 			});
 
-			// Load more
-			loadMoreBtn.addEventListener('click', () => {
-				visibleCount += POSTS_PER_PAGE;
-				render();
-			});
+			// Infinite scroll
+			const observer = new IntersectionObserver(
+				(entries) => {
+					if (entries[0].isIntersecting) {
+						visibleCount += POSTS_PER_PAGE;
+						render();
+					}
+				},
+				{ rootMargin: '200px' },
+			);
+			observer.observe(sentinel);
 
 			// Initial render - hide posts beyond first page
 			render();

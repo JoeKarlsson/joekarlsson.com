@@ -48,8 +48,8 @@ const currentSlug = category.toLowerCase().replace(/\s+/g, '-');
 >
 	<div class="mx-auto max-w-5xl px-4 py-8">
 		<div class="mb-8">
-			<p class="mb-2 font-mono text-sm text-coral">~$ ls blog/{currentSlug}/</p>
-			<h1 class="text-3xl font-bold text-white md:text-4xl">{category}</h1>
+			<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ ls blog/{currentSlug}/</p>
+			<h1 class="text-3xl font-bold text-coral md:text-4xl">{category}</h1>
 			<p class="mt-2 text-gray-400">{posts.length} posts</p>
 		</div>
 

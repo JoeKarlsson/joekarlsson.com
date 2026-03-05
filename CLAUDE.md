@@ -63,5 +63,5 @@ npm run build      # Build static site
 - `/` - Homepage with interactive terminal
 - `/blog` - Blog index, `/blog/[slug]` - Individual posts
 - `/about`, `/work`, `/uses`, `/contact` - Static pages
-- `/talk-archive`, `/speaker-rider`, `/privacy-policy` - Content pages
+- `/talk-archive`, `/privacy-policy` - Content pages
 - `/rss.xml`, `/llms.txt`, `/llms-full.txt` - Machine-readable feeds

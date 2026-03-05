@@ -5,10 +5,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout
 	title="Privacy Policy | Joe Karlsson"
 	description="Privacy policy for joekarlsson.com covering analytics, cookies, and how your data is handled on this site."
+	schemaType="WebPage"
 >
 	<div class="mx-auto max-w-3xl px-4 py-8">
 		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ cat privacy.md</p>
-		<h1 class="mb-8 text-3xl font-bold text-coral">Privacy Policy</h1>
+		<h1 class="mb-8 text-3xl font-bold text-coral md:text-4xl">Privacy Policy</h1>
 		<div class="prose">
 			<p>This website is a static site that collects minimal data.</p>
 
@@ -25,14 +26,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			<p>This website does not use cookies.</p>
 
 			<h2>Third-Party Services</h2>
-			<p>
-				This site is served through Cloudflare, which may log IP addresses for security purposes.
-				Google Fonts are loaded for typography.
-			</p>
+			<p>This site is self-hosted on my own hardware. Google Fonts are loaded for typography.</p>
 
 			<h2>Contact</h2>
 			<p>
-				If you have questions about this privacy policy, please <a href="/contact">contact me</a>.
+				If you have questions about this privacy policy, please <a href="/contact/">contact me</a>.
 			</p>
 		</div>
 	</div>

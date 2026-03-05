@@ -30,13 +30,14 @@ const categories = ['iot', 'web', 'games', 'dev-tools', 'homelab'] as const;
 					href={featuredProject.sourceUrl || featuredProject.blogUrl || '#'}
 					target={featuredProject.sourceUrl ? '_blank' : undefined}
 					rel={featuredProject.sourceUrl ? 'noopener noreferrer' : undefined}
-					class="group mb-12 block overflow-hidden rounded-lg border border-coral/30 bg-surface-1 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+					class="group mb-12 block overflow-hidden rounded-lg border border-coral/30 bg-surface-1 no-underline transition-all duration-300 hover:border-coral/50 hover:bg-surface-2"
 				>
 					<div class="md:flex">
 						<img
 							src={featuredProject.image}
 							alt={featuredProject.imageAlt}
 							class="h-48 w-full object-cover md:h-auto md:w-1/2"
+							loading="eager"
 						/>
 						<div class="flex flex-col justify-center p-6">
 							<p class="mb-2 font-mono text-xs text-coral">Featured Project</p>
@@ -93,7 +94,7 @@ const categories = ['iot', 'web', 'games', 'dev-tools', 'homelab'] as const;
 				if (catProjects.length === 0) return null;
 				return (
 					<>
-						<h2 class="mb-4 text-xl font-bold text-white">
+						<h2 class="mb-4 text-lg font-bold text-white">
 							<span class="text-coral font-mono text-sm" aria-hidden="true">
 								~$
 							</span>{' '}
@@ -116,67 +117,10 @@ const categories = ['iot', 'web', 'games', 'dev-tools', 'homelab'] as const;
 				href={SOCIAL_LINKS.github}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="inline-block rounded-md bg-coral px-5 py-2.5 font-medium text-surface-0 no-underline hover:bg-teal"
+				class="inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
 			>
 				View all repos on GitHub &rarr;
 			</a>
 		</div>
-
-		{/* Work History */}
-		<details class="rounded-lg border border-surface-3" open>
-			<summary class="cursor-pointer px-6 py-4 text-gray-400 hover:text-white">
-				<span class="font-medium">Work History</span>
-			</summary>
-			<div class="space-y-4 px-6 pb-6">
-				<div class="border-l-2 border-teal pl-4">
-					<h3 class="font-semibold text-white">Developer Advocate - CloudQuery</h3>
-					<span class="text-sm text-gray-400">2025 – Present</span>
-					<p class="mt-1 text-sm text-gray-400">
-						Developer relations and content for the open-source ELT framework. Creating demos,
-						tutorials, and developer resources.
-					</p>
-				</div>
-				<div class="border-l-2 border-coral pl-4">
-					<h3 class="font-semibold text-white">Developer Advocate - Tinybird</h3>
-					<span class="text-sm text-gray-400">2023 – 2025</span>
-					<p class="mt-1 text-sm text-gray-400">
-						Empowered developers building real-time analytics applications. Created documentation,
-						demos, blog posts, webinars, and workshops.
-					</p>
-				</div>
-				<div class="border-l-2 border-lavender pl-4">
-					<h3 class="font-semibold text-white">Senior Developer Advocate - SingleStore</h3>
-					<span class="text-sm text-gray-400">2021 – 2023</span>
-					<p class="mt-1 text-sm text-gray-400">
-						Led community conversations around scaling SQL workloads. Built demos and content for
-						the distributed SQL database.
-					</p>
-				</div>
-				<div class="border-l-2 border-terminal-green pl-4">
-					<h3 class="font-semibold text-white">Senior Developer Advocate - MongoDB</h3>
-					<span class="text-sm text-gray-400">2019 – 2021</span>
-					<p class="mt-1 text-sm text-gray-400">
-						Built developer community, created tutorials, demos, and educational content. Subject
-						matter expert for developer experience.
-					</p>
-				</div>
-				<div class="border-l-2 border-sky pl-4">
-					<h3 class="font-semibold text-white">Front-end Technical Lead - Best Buy</h3>
-					<span class="text-sm text-gray-400">2017 – 2019</span>
-					<p class="mt-1 text-sm text-gray-400">
-						Engineered high-performance solutions for one of the top 10 eCommerce sites in North
-						America. Scaled production apps handling thousands of requests per second.
-					</p>
-				</div>
-				<div class="border-l-2 border-pink pl-4">
-					<h3 class="font-semibold text-white">Full-Stack JavaScript Instructor - DevLeague</h3>
-					<span class="text-sm text-gray-400">2015 – 2017</span>
-					<p class="mt-1 text-sm text-gray-400">
-						Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created
-						curriculum and prepared students for software engineering careers in Honolulu.
-					</p>
-				</div>
-			</div>
-		</details>
 	</div>
 </BaseLayout>

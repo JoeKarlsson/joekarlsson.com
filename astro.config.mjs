@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
+import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +14,7 @@ export default defineConfig({
 		shikiConfig: {
 			theme: 'github-dark',
 		},
+		rehypePlugins: [rehypeYouTubeEmbed],
 	},
 	redirects: {
 		// WordPress date-based blog URLs → new /blog/slug pattern

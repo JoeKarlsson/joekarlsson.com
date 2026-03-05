@@ -25,9 +25,18 @@ export const SOCIAL_LINKS = {
 
 export const NAV_LINKS = [
 	{ href: '/', label: 'Home' },
-	{ href: '/blog', label: 'Blog' },
-	{ href: '/about', label: 'About' },
-	{ href: '/work', label: 'Work' },
-	{ href: '/uses', label: 'Uses' },
-	{ href: '/contact', label: 'Contact' },
+	{ href: '/blog/', label: 'Blog' },
+	{ href: '/about/', label: 'About' },
+	{ href: '/work/', label: 'Work' },
+	{ href: '/uses/', label: 'Uses' },
+	{ href: '/contact/', label: 'Contact' },
+];
+
+export const FOOTER_LINKS = [
+	{ href: '/blog/', label: 'Blog' },
+	{ href: '/about/', label: 'About' },
+	{ href: '/work/', label: 'Work' },
+	{ href: '/uses/', label: 'Uses' },
+	{ href: '/talk-archive/', label: 'Talk Archive' },
+	{ href: '/contact/', label: 'Contact' },
 ];

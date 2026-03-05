@@ -13,6 +13,8 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+const words = (post.body || '').trim().split(/\s+/).length;
+const readingTime = Math.max(1, Math.ceil(words / 250));
 ---
 
 <BlogPost
@@ -24,6 +26,9 @@ const { Content } = await render(post);
 	tags={post.data.tags}
 	categories={post.data.categories}
 	slug={post.data.slug}
+	contentNotice={post.data.contentNotice}
+	tldr={post.data.tldr}
+	readingTime={readingTime}
 >
 	<Content />
 </BlogPost>
