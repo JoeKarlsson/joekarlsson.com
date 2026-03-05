@@ -63,7 +63,7 @@ You can find all the [code](https://github.com/singlestore-labs/singlestore-and-
 
 Before we can start writing code, we need to make sure that your environment is set up and ready to go. Make sure you clone this git repository to your machine
 
-```
+```bash
 git clone https://github.com/singlestore-labs/singlestore-and-github-actions-demo.git
 ```
 
@@ -73,7 +73,7 @@ Note: You can totally set up automated deployments using SingleStoreDB Cloud if 
 
 Next, create an encrypted secret for your SINGLESTORE_LICENSE on your GitHub repository. In your [GitHub repository’s GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets), be sure to add your license:
 
-```
+```bash
 SINGLESTORE_LICENSE="paste your singlestore license here"
 ```
 

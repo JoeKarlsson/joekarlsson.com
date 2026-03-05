@@ -267,7 +267,7 @@ If you want to hear more about my thoughts on CS fundamentals and finding your p
 
 You can check out my Top Tech Talks of all time here:
 
-> [The Tech Talks That Have Had The Biggest Impact On My Career](https://www.joekarlsson.com/2019/01/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/)
+> [The Tech Talks That Have Had The Biggest Impact On My Career](/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/)
 
 - [Node.js in 20 Minutes](https://www.youtube.com/watch?v=mq6uCM4ynpc) [00:23:08] by **Edmond Meinfelder**
 

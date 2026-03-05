@@ -5,7 +5,10 @@ slug: 'linked-lists-and-mongodb-a-gentle-introduction'
 description: 'Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist....'
 categories: ['Databases']
 heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/ATF_Linked-Lists.webp'
+heroAlt: 'Diagram of a linked list data structure'
 ---
+
+> **Note:** This tutorial was written in 2020 using MongoDB Node.js driver v3.x. The current driver (v6+) no longer requires `useNewUrlParser` or `useUnifiedTopology` options, and `result.ops[0]` has been replaced with `result.insertedId`. The linked list concepts are still accurate.
 
 Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist. This post will cover the fundamentals of the linked list data structure. It will also answer questions like, “How do linked lists differ from arrays?” and “What are the pros and cons of using a linked list?”
 
@@ -19,25 +22,25 @@ A linked list is a data structure that contains a list of nodes that are connect
 
 A node that does NOT link to another node
 
-```
+```json
 {
-   "data": "Cat",
-   "next": null
+	"data": "Cat",
+	"next": null
 }
 ```
 
 A node that DOES link to another node
 
-```
+```json
 {
-   "data": "Cat",
-   "next": {
-      "data": "Dog",
-      "next": {
-         "data": "Bird",
-         "next": null
-      }
-   } // these are really a reference to an object in memory
+	"data": "Cat",
+	"next": {
+		"data": "Dog",
+		"next": {
+			"data": "Bird",
+			"next": null
+		}
+	} // these are really a reference to an object in memory
 }
 ```
 
@@ -155,57 +158,54 @@ The general strategy for building our linked lists with MongoDB will be as follo
 
 So, in order to accomplish this, the first thing that we are going to do is set up our linked list class.
 
-```
-const MongoClient = require("mongodb").MongoClient;
+```javascript
+const MongoClient = require('mongodb').MongoClient;
 
 // Define a new Linked List class
 class LinkedList {
+	constructor() {}
 
-   constructor() {}
+	// Since the constructor cannot be an asynchronous function,
+	// we are going to create an async `init` function that connects to our MongoDB
+	// database.
+	// Note: You will need to replace the URI here with the one
+	// you get from your MongoDB Cluster. This is the same URI
+	// that you used to connect the MongoDB VS Code plugin to our cluster.
+	async init() {
+		const uri = 'PASTE YOUR ATLAS CLUSTER URL HERE';
+		this.client = new MongoClient(uri, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
 
-   // Since the constructor cannot be an asynchronous function,
-   // we are going to create an async `init` function that connects to our MongoDB
-   // database.
-   // Note: You will need to replace the URI here with the one
-   // you get from your MongoDB Cluster. This is the same URI
-   // that you used to connect the MongoDB VS Code plugin to our cluster.
-   async init() {
-      const uri = "PASTE YOUR ATLAS CLUSTER URL HERE";
-      this.client = new MongoClient(uri, {
-         useNewUrlParser: true,
-         useUnifiedTopology: true,
-      });
-
-      try {
-         await this.client.connect();
-         console.log("Connected correctly to server");
-         this.col = this.client
-            .db("YOUR DATABASE NAME HERE")
-            .collection("YOUR COLLECTION NAME HERE");
-      } catch (err) {
-         console.log(err.stack);
-      }
-   }
+		try {
+			await this.client.connect();
+			console.log('Connected correctly to server');
+			this.col = this.client.db('YOUR DATABASE NAME HERE').collection('YOUR COLLECTION NAME HERE');
+		} catch (err) {
+			console.log(err.stack);
+		}
+	}
 }
 
 // We are going to create an immediately invoked function expression (IFEE)
 // in order for us to immediately test and run the linked list class defined above.
 (async function () {
-   try {
-      const linkedList = new LinkedList();
-      await linkedList.init();
-      linkedList.resetMeta();
-      linkedList.resetData();
-   } catch (err) {
-      // Good programmers always handle their errors
-      console.log(err.stack);
-   }
+	try {
+		const linkedList = new LinkedList();
+		await linkedList.init();
+		linkedList.resetMeta();
+		linkedList.resetData();
+	} catch (err) {
+		// Good programmers always handle their errors
+		console.log(err.stack);
+	}
 })();
 ```
 
 Next, let’s create some helper functions to reset our DB every time we run the code so our data doesn’t become cluttered with old data.
 
-```
+```javascript
 // This function will be responsible for cleaning up our metadata
 // function everytime we reinitialize our app.
 async resetMeta() {
@@ -224,7 +224,7 @@ async resetData() {
 
 Now, let’s write some helper functions to help us query and update our meta-document.
 
-```
+```javascript
 // This function will query our collection for our single
 // meta data document. This document will be responsible
 // for tracking the location of the head and tail documents
@@ -283,8 +283,8 @@ The steps to add a new node to a linked list are:
 
 - Update your linked list to point tail to the new node.
 
-```
-// Takes a new node and adds it to our linked lis
+```javascript
+// Takes a new node and adds it to our linked list
 async add(value) {
    const result = await this.newNode(value);
    const insertedId = result.insertedId;
@@ -316,7 +316,7 @@ In order to traverse a linked list, we must start at the beginning of the linked
 
 - Repeat until next is null (tail/end of list).
 
-```
+```javascript
 // Reads through our list and returns the node we are looking for
 async get(index) {
    // If index is less than 0, return false
@@ -324,11 +324,11 @@ async get(index) {
       return false;
    }
    let headID = await this.getHeadID();
-   let postion = 0;
+   let position = 0;
    let currNode = await this.col.find({ _id: headID }).next();
 
    // Loop through the nodes starting from the head
-   while (postion < index) {
+   while (position < index) {
       // Check if we hit the end of the linked list
       if (currNode.next === null) {
          return false;
@@ -336,7 +336,7 @@ async get(index) {
 
       // If another node exists go to next node
       currNode = await this.col.find({ _id: currNode.next }).next();
-      postion++;
+      position++;
    }
    return currNode;
 }
@@ -354,7 +354,7 @@ Now, let’s say we want to remove a node from our linked list. In order to do t
 
 ![A diagram that demonstrates how linked lists remove a node from a linked list by moving pointer references](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/remove-node-1024x497.webp)_A diagram that demonstrates how linked lists remove a node from a linked list by moving pointer references_
 
-```
+```javascript
 // reads through our list and removes desired node in the linked list
 async remove(index) {
    const currNode = await this.get(index);
@@ -406,8 +406,8 @@ The following code inserts a node after an existing node in a singly linked list
 
 ![Diagram that demonstrates how a linked list inserts a new node by moving pointer references](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/insert-a-new-node-1024x1024.webp)_Diagram that demonstrates how a linked list inserts a new node by moving pointer references_
 
-```
-// Inserts a new node at the deisred index in the linked list
+```javascript
+// Inserts a new node at the desired index in the linked list
 async insert(value, index) {
    const currNode = await this.get(index);
    const prevNode = await this.get(index - 1);
@@ -452,8 +452,8 @@ async insert(value, index) {
 
 ## Summary
 
-Many developers want to learn the fundamental Computer Science data structures and algorithms or get a refresher on them. In this author’s humble opinion, the best way to learn data structures is by implementing them on your own. This exercise is a great way to learn data structures as well as learn the fundamentals of MongoDB CRUD operations. If you want to learn more about how to structure your data in MongoDB beyond linked lists, check out my talk on [MongoDB schema design best practices](/blog/mongodb-schema-design-best-practices/).
+Many developers want to learn the fundamental Computer Science data structures and algorithms or get a refresher on them. In my opinion, the best way to learn data structures is by implementing them on your own. This exercise is a great way to learn data structures as well as learn the fundamentals of MongoDB CRUD operations. If you want to learn more about how to structure your data in MongoDB beyond linked lists, check out my talk on [MongoDB schema design best practices](/blog/mongodb-schema-design-best-practices/).
 
-> When you’re ready to implement your own linked list in MongoDB, check out [MongoDB Atlas](http://bit.ly/MDB_Atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
+> When you’re ready to implement your own linked list in MongoDB, check out [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
 
 If you want to learn more about linked lists and MongoDB, be sure to check out these resources.

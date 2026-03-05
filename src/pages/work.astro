@@ -30,14 +30,13 @@ const categories = ['iot', 'web', 'games', 'dev-tools', 'homelab'] as const;
 					href={featuredProject.sourceUrl || featuredProject.blogUrl || '#'}
 					target={featuredProject.sourceUrl ? '_blank' : undefined}
 					rel={featuredProject.sourceUrl ? 'noopener noreferrer' : undefined}
-					class="group mb-12 block overflow-hidden rounded-lg border border-coral/30 bg-surface-1 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/50 hover:bg-surface-2"
+					class="group mb-12 block overflow-hidden rounded-lg border border-coral/30 bg-surface-1 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
 				>
 					<div class="md:flex">
 						<img
 							src={featuredProject.image}
 							alt={featuredProject.imageAlt}
 							class="h-48 w-full object-cover md:h-auto md:w-1/2"
-							loading="lazy"
 						/>
 						<div class="flex flex-col justify-center p-6">
 							<p class="mb-2 font-mono text-xs text-coral">Featured Project</p>

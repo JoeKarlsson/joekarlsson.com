@@ -21,19 +21,19 @@ Ensure your system has Node.js version 14 or later and a compatible version of N
 
 After installing and setting up Node and NPM, it’s time for you to create a brand-new project for our code to live in. First, you will need to create a directory in your terminal for the project:
 
-```
+```bash
 mkdir singlestore_node_quickstart
 ```
 
 Then, you will navigate to your new directory, so we can start using our project files.
 
-```
+```bash
 cd singlestore_node_quickstart
 ```
 
 Finally, you will need to initialize this project as an NPM project, so we can start saving and using NPM dependencies in our project. This command will set up everything you need to get started.
 
-```
+```bash
 npm init -y
 ```
 
@@ -41,7 +41,7 @@ npm init -y
 
 SingleStore is wire-compatible with MySQL, so you can connect using most other MySQL compatible tools/languages. For this project, we will be using [node-mysql2](https://github.com/sidorares/node-mysql2). MySQL2 project is a continuation of [MySQL-Native](https://github.com/sidorares/nodejs-mysql-native). We’re using it because it makes working with MySQL compatible databases and queries easy.In order to install mysql2, run the following in your terminal:
 
-```
+```bash
 npm install --save mysql2
 ```
 
@@ -69,7 +69,7 @@ It’ll take a couple of minutes for your cluster to be set up and deployed. So 
 
 Once your cluster has been deployed, you will be able to use the SQL Editor on the left navigation bar of the Portal to set up a new database and table on your new cluster. Once inside the SQL Editor. Copy and paste this command into the editor and press “Run.”
 
-```
+```sql
 CREATE DATABASE IF NOT EXISTS acme;
 
 USE acme;
@@ -93,7 +93,7 @@ Now, go back to your local application files. In your index.js file, you will wa
 
 > **Note**: If you want to connect using SSL, check out [this page](https://docs.singlestore.com/managed-service/en/developer-resources/connect-with-application-development-tools/connect-with-javascript/connect-with-node-js-using-ssl.html).
 
-```
+```javascript
 import mysql from 'mysql2/promise';
 
 // TODO: adjust these connection details to match your SingleStore deployment:
@@ -132,7 +132,7 @@ Test to see that you have successfully connected to your SingleStore database by
 
 > **Note**: If you encounter any issues or have any questions about developing applications with SingleStore, you can refer to the [SingleStore Docs](https://docs.singlestore.com/db/v7.3/en/introduction/singlestore-documentation.html) or [Community Forums](https://www.singlestore.com/forum/) for more information on setup or general help.
 
-```
+```bash
 node index.js
 ```
 
@@ -146,21 +146,18 @@ Alright, so now that we have our Node.js code connected to our SingleStore datab
 
 Let’s start by writing a function that will be able to create a new entry in our database using the [INSERT](https://dev.mysql.com/doc/refman/5.7/en/insert.html) method.
 
-```
-async function create({conn, content}) {
-    const [results] = await conn.execute(
-        'INSERT INTO messages (content) VALUES (?)',
-        [content]
-    );
-    return results.insertId;
-};
+```javascript
+async function create({ conn, content }) {
+	const [results] = await conn.execute('INSERT INTO messages (content) VALUES (?)', [content]);
+	return results.insertId;
+}
 ```
 
 Then, within your main() method, let’s call our new create() method.
 
-```
+```javascript
 // CREATE
-const id = await create({conn, content: 'Inserted row'});
+const id = await create({ conn, content: 'Inserted row' });
 console.log(`Inserted row id ${id}`);
 ```
 
@@ -170,19 +167,19 @@ Feel free to run it and check your database to check that this new row was creat
 
 Reading from our table is possible, with the use of the [SELECT](https://dev.mysql.com/doc/refman/5.7/en/select.html) method.
 
-```
-async function readOne({conn, id}) {
-    const [rows, fields] = await conn.execute(
-        'SELECT id, content, createdate FROM messages WHERE id = ?',
-        [id]
-    );
-    return rows[0];
-};
+```javascript
+async function readOne({ conn, id }) {
+	const [rows, fields] = await conn.execute(
+		'SELECT id, content, createdate FROM messages WHERE id = ?',
+		[id],
+	);
+	return rows[0];
+}
 ```
 
 Drop this method in your code after the create() method from the previous step in main().
 
-```
+```javascript
 // READ
 const msg = await readOne({conn, id});
     console.log('Read one row:');
@@ -198,26 +195,23 @@ const msg = await readOne({conn, id});
 
 Okay, now let’s update the first entry we added to our database using the [UPDATE](https://dev.mysql.com/doc/refman/5.7/en/update.html) method.
 
-```
-async function update({conn, id, content}) {
-    await conn.execute(
-        'UPDATE messages SET content = ? WHERE id = ?',
-        [content, id]
-    );
+```javascript
+async function update({ conn, id, content }) {
+	await conn.execute('UPDATE messages SET content = ? WHERE id = ?', [content, id]);
 }
 ```
 
 Drop this in your main() method under the read() method from the previous step.
 
-```
+```javascript
 // UPDATE
-await update({conn, id, content: 'Updated row'});
+await update({ conn, id, content: 'Updated row' });
 console.log(`Updated row id ${id}`);
 
-const messages = await readAll({conn});
+const messages = await readAll({ conn });
 console.log('Read all rows:');
-messages.forEach(m => {
-     console.log(`${m.id}, ${m.content}, ${m.createdate}`);
+messages.forEach((m) => {
+	console.log(`${m.id}, ${m.content}, ${m.createdate}`);
 });
 ```
 
@@ -225,20 +219,17 @@ messages.forEach(m => {
 
 Alright, we’re cruising now. Just one left, [DELETE](https://dev.mysql.com/doc/refman/5.7/en/delete.html). We can clean up our little test run by deleting the entry we created in the first step.
 
-```
-async function delete_({conn, id}) {
-    await conn.execute(
-        'DELETE FROM messages WHERE id = ?',
-        [id]
-    );
+```javascript
+async function delete_({ conn, id }) {
+	await conn.execute('DELETE FROM messages WHERE id = ?', [id]);
 }
 ```
 
 And of course, we will need to invoke this method in main().
 
-```
+```javascript
 // DELETE
-await delete_({conn, id});
+await delete_({ conn, id });
 ```
 
 ## Summary

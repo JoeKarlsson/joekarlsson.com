@@ -59,7 +59,7 @@ The in-memory rowstore is better suited for the key-value store since it offers 
 
 The schema for a key-value store is pretty simple since we only need to store a key, and an associated value for that key. We will also use a [hash index](https://docs.singlestore.com/managed-service/en/create-a-database/physical-database-schema-design/concepts-of-physical-database-schema-design/other-schema-concepts.html#hash-table-indexes) on the primary key. Hash indexes provide fast, exact-match access to unique values, which is exactly what we want! Let’s look at how we can [initialize our key-value store table](https://github.com/singlestore-labs/key-value-store-demo/blob/main/init.sql):
 
-```
+```sql
 DROP DATABASE IF EXISTS app;
 CREATE DATABASE app;
 USE app;
@@ -81,13 +81,13 @@ For this project, we will be using [node-mysql2](https://github.com/sidorares/no
 
 To install mysql2, run the following in your terminal:
 
-```
+```bash
 npm install --save mysql2
 ```
 
 Now, let’s edit our [main file](https://github.com/singlestore-labs/key-value-store-demo/blob/main/index.js).
 
-```
+```javascript
 //app.js
 import mysql from "mysql2/promise";
 
@@ -128,35 +128,30 @@ async function singleStoreKeyValueStore(numberOfRequests) {
 
 The following [code snippets](https://github.com/singlestore-labs/key-value-store-demo/blob/main/index.js) allow us to run a simple performance test on your SingleStore key-value store. It shows you how to insert any number of keys into your database:
 
-```
+```javascript
 async function create({ conn, data }) {
- try {
-   const [results] = await conn.query("INSERT INTO data VALUES ( ?, ? )", [
-     data.id,
-     data.value,
-   ]);
-   return results.insertId;
- } catch (err) {}
+	try {
+		const [results] = await conn.query('INSERT INTO data VALUES ( ?, ? )', [data.id, data.value]);
+		return results.insertId;
+	} catch (err) {}
 }
 
 async function singleStoreInsertData({ conn, numberOfRequests }) {
- try {
-   const start = Date.now();
-   for (let i = 0; i < numberOfRequests; i++) {
-     const key = intToString(i);
-     await create({
-       conn,
-       data: { id: key, value: `Value: ${key}` },
-     });
-   }
-   const end = Date.now();
-   console.log(
-     `SingleStore took ${end - start}ms to insert ${numberOfRequests} rows.`
-   );
-   return end - start;
- } catch (err) {
-   console.err(err);
- }
+	try {
+		const start = Date.now();
+		for (let i = 0; i < numberOfRequests; i++) {
+			const key = intToString(i);
+			await create({
+				conn,
+				data: { id: key, value: `Value: ${key}` },
+			});
+		}
+		const end = Date.now();
+		console.log(`SingleStore took ${end - start}ms to insert ${numberOfRequests} rows.`);
+		return end - start;
+	} catch (err) {
+		console.err(err);
+	}
 }
 ```
 
@@ -164,29 +159,27 @@ async function singleStoreInsertData({ conn, numberOfRequests }) {
 
 Now that we’ve inserted data into our key-value store, let’s go and read the data out of our database. This snippet can also be used for testing how long it takes to read any number of random data from our key-value store. This read strategy is a common access pattern for apps that typically use a key-value store, so it’s useful for running a performance test on your data.
 
-```
+```javascript
 function randomNumberBetween(min, max) {
- return Math.floor(Math.random() * (max - min + 1)) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 async function singleStoreReadData({ conn, numberOfRequests }) {
- try {
-   const start = Date.now();
-   for (let i = 0; i < numberOfRequests; i++) {
-     const randKey = intToString(randomNumberBetween(0, numberOfRequests));
-     const result = await readOne({
-       conn,
-       id: randKey,
-     });
-   }
-   const end = Date.now();
-   console.log(
-     `SingleStore took ${end - start}ms to read ${numberOfRequests} rows.`
-   );
-   return end - start;
- } catch (err) {
-    console.err(err);
- }
+	try {
+		const start = Date.now();
+		for (let i = 0; i < numberOfRequests; i++) {
+			const randKey = intToString(randomNumberBetween(0, numberOfRequests));
+			const result = await readOne({
+				conn,
+				id: randKey,
+			});
+		}
+		const end = Date.now();
+		console.log(`SingleStore took ${end - start}ms to read ${numberOfRequests} rows.`);
+		return end - start;
+	} catch (err) {
+		console.err(err);
+	}
 }
 ```
 

@@ -49,7 +49,7 @@ The skill is a single slash command: /blog “topic”. That’s it.
 
 Here’s how we enforce brand voice - this is from the actual skill file:
 
-```
+```text
 Banned Words:
 opt, dive, unlock, unleash, intricate, utilization, transformative,  alignment, proactive, scalable, delve, landscape, evolving, nuanced,  paradigm, comprehensive, holistic, synergy, pivotal, robust, empower,  enables, transforms, solution, optimized
 

@@ -133,7 +133,7 @@ The technical architecture would mirror existing \*arr services:
 
 **Database Schema Design**: The key innovation would be **track-first data modeling**:
 
-```
+```sql
 CREATE TABLE tracks (
     id UUID PRIMARY KEY,
     title VARCHAR NOT NULL,

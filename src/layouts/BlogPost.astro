@@ -181,11 +181,22 @@ const relatedPosts = publishedPosts
 			}
 
 			document.querySelectorAll('.prose pre').forEach((pre) => {
+				const code = pre.querySelector('code');
+
+				// Add language label
+				const lang = pre.getAttribute('data-language');
+				if (lang) {
+					const label = document.createElement('span');
+					label.className = 'code-lang-label';
+					label.textContent = lang;
+					pre.appendChild(label);
+				}
+
+				// Add copy button
 				const button = document.createElement('button');
 				button.className = 'copy-button';
 				button.textContent = 'Copy';
 				button.addEventListener('click', async () => {
-					const code = pre.querySelector('code');
 					if (!code) return;
 					try {
 						await copyToClipboard(code.textContent || '');

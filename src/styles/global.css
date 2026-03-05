@@ -103,6 +103,9 @@
 	font-size: 0.875rem;
 	line-height: 1.7;
 }
+.prose pre .code-lang-label {
+	@apply absolute top-1.5 left-16 text-gray-500 font-mono text-xs select-none;
+}
 .prose pre .copy-button {
 	@apply absolute top-1 right-2 z-10 bg-transparent border-none text-gray-400 hover:text-white cursor-pointer font-mono text-xs px-2 py-1 rounded transition-colors;
 }
@@ -110,7 +113,23 @@
 	@apply bg-surface-4;
 }
 .prose img {
-	@apply rounded-lg my-6 w-full;
+	@apply rounded-lg my-6 mx-auto;
+	max-width: 100%;
+	height: auto;
+}
+
+.prose video {
+	@apply rounded-lg;
+	max-width: 100%;
+	height: auto;
+}
+
+.prose figure {
+	@apply my-6;
+}
+
+.prose figcaption {
+	@apply text-center text-sm text-gray-500 mt-2 italic;
 }
 .prose hr {
 	@apply border-surface-4 my-8;

@@ -77,7 +77,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 			featuredPost && (
 				<a
 					href={`/blog/${featuredPost.data.slug}/`}
-					class="group mb-8 block rounded-lg border border-coral/30 bg-surface-1 overflow-hidden no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/50 hover:bg-surface-2"
+					class="group mb-8 block rounded-lg border border-coral/30 bg-surface-1 overflow-hidden no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
 				>
 					<div class="md:flex">
 						{featuredPost.data.heroImage && (
@@ -85,7 +85,6 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 								src={featuredPost.data.heroImage}
 								alt={featuredPost.data.heroAlt || `Hero image for ${featuredPost.data.title}`}
 								class="h-48 w-full object-cover md:h-auto md:w-1/2"
-								loading="eager"
 							/>
 						)}
 						<div class="p-6 flex flex-col justify-center">

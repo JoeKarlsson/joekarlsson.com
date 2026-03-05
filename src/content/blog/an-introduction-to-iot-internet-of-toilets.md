@@ -119,40 +119,40 @@ I want to start with the most simple component on the box, the magnetic switch t
 
 ### Magnetic Switch
 
-```
+```javascript
 const { RaspiIO } = require('raspi-io');
 const five = require('johnny-five');
 
 // Initialize a new Raspberry Pi Board
 const board = new five.Board({
-   io: new RaspiIO(),
+	io: new RaspiIO(),
 });
 
 // Wait for the board to initialize then start reading in input from sensors
 board.on('ready', () => {
-   // Initialize a new switch on the 16th GPIO Input pin
-   const spdt = new five.Switch('GPIO16');
+	// Initialize a new switch on the 16th GPIO Input pin
+	const spdt = new five.Switch('GPIO16');
 
-   // Wait for the open event to get triggered by the sensor
-   spdt.on('open', () => {
-      enterMaintenceMode();
-   });
+	// Wait for the open event to get triggered by the sensor
+	spdt.on('open', () => {
+		enterMaintenceMode();
+	});
 
-   // Recalibrate the box once the sensor has closed
-   // Once the box has been cleaned, the box prepares for a new event
-   spdt.on('close', () => {
-      console.log('close');
-      // When the box has been closed again
-      // wait 1 min for the box to settle
-      // and recalibrate a new base weight
-      setTimeout(() => {
-            scale.calibrate();
-      }, 60000);
-   });
+	// Recalibrate the box once the sensor has closed
+	// Once the box has been cleaned, the box prepares for a new event
+	spdt.on('close', () => {
+		console.log('close');
+		// When the box has been closed again
+		// wait 1 min for the box to settle
+		// and recalibrate a new base weight
+		setTimeout(() => {
+			scale.calibrate();
+		}, 60000);
+	});
 });
 
-board.on('fail', error => {
-   handleError(error);
+board.on('fail', (error) => {
+	handleError(error);
 });
 ```
 
@@ -166,7 +166,7 @@ Okay, now let’s talk about my favorite component, the load cells. The load cel
 
 In regards to the code for reading data from the load cells, things were kind of tricky. This is because the load cells are not directly compatible with [Johnny-Five](http://johnny-five.io/). I was, however, able to find a [Python library that can interact with the HX711 load cells](https://github.com/tatobari/hx711py).
 
-```
+```python
 #! /usr/bin/python2
 
 import time
@@ -189,7 +189,7 @@ while True:
 
 In order to use this code, I had to make use of Node’s Spawn Child Process API. The child process API is responsible for spinning up the Python process on a separate thread. Here’s what that looks like.
 
-```
+```javascript
 const spawn = require('child_process').spawn;
 
 class Scale {
@@ -238,14 +238,14 @@ This was the first time I have played around with the Spawn Child Process API fr
 
 Okay, so as a software engineer at MongoDB, I would be remiss if I didn’t talk about what to do with all of the data from this IoT device. For my IoT Litter Box, I am saving all of the data in a fully managed database service on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Here’s how I connected the litter box to the MongoDB Atlas database.
 
-```
+```javascript
 const MongoClient = require('mongodb').MongoClient;
-const uri = 'YOUR MONGODB URI HERE'
+const uri = 'YOUR MONGODB URI HERE';
 const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-   const collection = client.db('IoT').collection('toilets');
-   // perform actions on the collection object
-   client.close();
+client.connect((err) => {
+	const collection = client.db('IoT').collection('toilets');
+	// perform actions on the collection object
+	client.close();
 });
 ```
 
@@ -265,27 +265,27 @@ You should also consider a database that is able to handle a flexible schema. Th
 
 Lastly, you will want to select a database that natively handles time-series data. Consider how your data will be used. For most IoT projects, the data will be collected, analyzed, and visualized on a graph or chart over time. For my IoT Litter Box, my database schema looks like the following.
 
-```
+```json
 {
-   "_id": { "$oid": "dskfjlk2j92121293901233" },
-   "timestamp_day": { "$date": { "$numberLong": "1573854434214" } },
-   "type": "cat_in_box",
-   "cat": { "name": "BMO", "weight": "200" },
-   "owner": "Joe Karlsson",
-   "events": [
-         {
-            "timestamp_event": { "$date": { "$numberLong": "1573854435016" } },
-            "weight": { "$numberDouble": "15.593333333" }
-      },
-      {
-            "timestamp_event": { "$date": { "$numberLong": "1573854435824" } },
-            "weight": { "$numberDouble": "15.132222222" }
-      },
-      {
-            "timestamp_event": { "$date": { "$numberLong": "1573854436632"} },
-            "type": "maintenance"
-      }
-   ]
+	"_id": { "$oid": "dskfjlk2j92121293901233" },
+	"timestamp_day": { "$date": { "$numberLong": "1573854434214" } },
+	"type": "cat_in_box",
+	"cat": { "name": "BMO", "weight": "200" },
+	"owner": "Joe Karlsson",
+	"events": [
+		{
+			"timestamp_event": { "$date": { "$numberLong": "1573854435016" } },
+			"weight": { "$numberDouble": "15.593333333" }
+		},
+		{
+			"timestamp_event": { "$date": { "$numberLong": "1573854435824" } },
+			"weight": { "$numberDouble": "15.132222222" }
+		},
+		{
+			"timestamp_event": { "$date": { "$numberLong": "1573854436632" } },
+			"type": "maintenance"
+		}
+	]
 }
 ```
 

@@ -59,7 +59,7 @@ You can download one of the spreadsheets we are importing from our S3 bucket her
 
 From this spreadsheet, we have enough information to initialize our database and table in SingleStore. From the SQL Editor page, paste this code in, and click the “Run” button.
 
-```
+```sql
 -- create a database
 create database cosmeticshop;
 
@@ -85,7 +85,7 @@ Now that we have a home for our data set up in SingleStore we will need to set u
 
 In order to create the pipeline to the CSV data stored in the AWS S3 Bucket, and you will need to copy and run this command in the SingleStore Portal SQL Editor.
 
-```
+```sql
 -- create a pipeline to ingest the data in AWS S3
 CREATE or REPLACE PIPELINE cosmeticshoppipe
 AS LOAD DATA S3 's3://studiotutorials/eCommerce/*'
@@ -99,7 +99,7 @@ START PIPELINE cosmeticshoppipe;
 
 Running this command will import all 20 million rows of data into your SingleStore Cluster. It might take a couple of seconds for all the data to be imported into our SingleStore database. You can check that it’s been imported by running this SQL command. You should see the number of imported events and you should be able to explore the first 100 rows of imported data in your database.
 
-```
+```sql
 -- see how many events have been ingested
 select count(*) from cosmeticshopfunnel;
 
@@ -113,7 +113,7 @@ Perfect! All that data has been loaded into SingleStore, let’s actually run so
 
 First, let’s find out what brands have been purchased the most from our Cosmetics shop. Try running this in the SQL Editor:
 
-```
+```sql
 -- find out which brands have been purchased the most
 select brand, count(brand) as c from cosmeticshopfunnel
 where event_type = "purchase"
@@ -123,7 +123,7 @@ order by c desc;
 
 What about the flip side? What are the product categories that have been removed from users’ carts the most?
 
-```
+```sql
 -- find out which product_id has been the most removed from cart
 select product_id, count(product_id) as c from cosmeticshopfunnel
 where event_type = "remove_from_cart" group by product_id order by c desc;
@@ -131,7 +131,7 @@ where event_type = "remove_from_cart" group by product_id order by c desc;
 
 There are so many more things to explore, let’s try running one of these in your SQL Editor!
 
-```
+```sql
 -- create a holiday reference table to store all holiday dates
 -- create a holiday reference table to store all holiday dates
 CREATE REFERENCE TABLE holidays
@@ -189,7 +189,7 @@ where event_type = "remove_from_cart" group by product_id order by c desc;
 
 When you are all done with exploring this demo dataset, and now you can run this command to clean up all your databases and pipelines:
 
-```
+```sql
 DELETE FROM cosmeticshopfunnel;
 ALTER PIPELINE cosmeticshoppipe SET OFFSETS EARLIEST;
 START PIPELINE cosmeticshoppipe;

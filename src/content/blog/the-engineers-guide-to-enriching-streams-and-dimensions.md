@@ -39,7 +39,7 @@ For example, let’s assume you have historical transaction data stored in Snowf
 
 Now, let’s say a new transaction event comes in via your Kafka stream. You could use a SQL query like the one below to flag potentially fraudulent transactions based on comparing the incoming transaction amount with the customer’s historical average transaction amount:
 
-```
+```sql
 SELECT
  kafka_stream.transaction_id,
  kafka_stream.customer_id,
@@ -72,7 +72,7 @@ A real-time data platform makes this possible. It can connect to your Kafka stre
 
 Here’s an example SQL query that combines transaction data from Kafka and hydrates the stream data with product data from Snowflake to get a complete list of the 100 most recent orders on the system. The beauty of real-time data is that it gives you an instant snapshot of your business, enabling data-driven decision-making on the fly.
 
-```
+```sql
 SELECT
  kafka_stream.transaction_order_id,
  kafka_stream.transaction_orderDate,
@@ -99,7 +99,7 @@ For example, suppose each log event has a `log_type` (such as “ERROR,” “WA
 
 Here’s a SQL query you might use for this purpose:
 
-```
+```sql
 SELECT
  kafka_stream.log_type,
  COUNT(kafka_stream.log_type) OVER (PARTITION BY kafka_stream.log_type) AS current_hour_count,
