@@ -29,7 +29,7 @@ const allPosts = (await getCollection('blog')).sort(
 
 const featuredPosts = featuredSlugs
 	.map((slug) => allPosts.find((p) => p.data.slug === slug))
-	.filter(Boolean);
+	.filter((post): post is (typeof allPosts)[number] => Boolean(post));
 
 const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice(0, 6);
 

@@ -18,6 +18,7 @@ The idea came from wanting to make audience interaction with speakers at tech ev
 The setup is straightforward: attendees open a URL on their phones or laptops, pick a color, and start drawing on a 32x32 pixel grid. Every stroke syncs to every other connected client and to a physical RGB LED matrix mounted on stage. It's collaborative pixel art, but tangible.
 
 The constraints shaped the design:
+
 - **32x32 pixels** — matches common addressable LED matrix sizes
 - **8 colors** — simple enough for quick interaction, limited enough for visual coherence
 - **No accounts** — anonymous access means zero friction at an event
@@ -79,6 +80,7 @@ clickGrid(event) {
 ```
 
 When you click or tap a cell, two things happen simultaneously:
+
 1. The cell changes color instantly (optimistic update)
 2. The database write fires asynchronously
 
@@ -176,6 +178,6 @@ The best moments are when the audience self-organizes — someone starts drawing
 
 **Optimistic updates are essential for interactive UIs.** Nobody wants to click a pixel and wait 200ms for it to change color. Update locally first, sync to the database in the background.
 
-**Physical computing amplifies digital experiences.** The web canvas alone is fun. Seeing your pixels appear on a physical LED grid is *exciting*. The bridge between digital and physical is where the magic happens.
+**Physical computing amplifies digital experiences.** The web canvas alone is fun. Seeing your pixels appear on a physical LED grid is _exciting_. The bridge between digital and physical is where the magic happens.
 
 The [source code is on GitHub](https://github.com/JoeKarlsson/digital-graffiti-wall) if you want to run your own at an event. All you need is a MongoDB Atlas account and a dream.

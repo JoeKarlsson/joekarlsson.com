@@ -1,12 +1,12 @@
 ---
-title: 'Implementing MikroTik''s Binary API Protocol in Python from Scratch'
+title: "Implementing MikroTik's Binary API Protocol in Python from Scratch"
 date: 2026-03-05
 slug: 'implementing-mikrotik-binary-api-protocol-in-python'
-description: 'A deep dive into implementing MikroTik''s proprietary RouterOS binary API protocol in Python — variable-length encoding, sentence-based messaging, and programmatic network infrastructure control. Zero dependencies, 137 lines.'
+description: "A deep dive into implementing MikroTik's proprietary RouterOS binary API protocol in Python — variable-length encoding, sentence-based messaging, and programmatic network infrastructure control. Zero dependencies, 137 lines."
 categories: ['Homelab', 'Networking']
 heroImage: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp'
 heroAlt: 'MikroTik binary API protocol implementation'
-tldr: 'I implemented MikroTik''s proprietary binary API protocol from scratch in Python to programmatically manage my network infrastructure. The protocol uses variable-length encoding (similar to UTF-8), sentence-based messaging over raw TCP, and plain-text authentication. In ~137 lines of Python, you get full control over bonding, DHCP, firewall rules, and anything else exposed by the RouterOS API.'
+tldr: "I implemented MikroTik's proprietary binary API protocol from scratch in Python to programmatically manage my network infrastructure. The protocol uses variable-length encoding (similar to UTF-8), sentence-based messaging over raw TCP, and plain-text authentication. In ~137 lines of Python, you get full control over bonding, DHCP, firewall rules, and anything else exposed by the RouterOS API."
 ---
 
 My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) runs a MikroTik CRS317 as the 10G backbone switch, handling LACP bonds to two Proxmox hosts and a failover bond to a UniFi switch. When I started managing bonding configurations, DHCP settings, and firewall rules, I wanted to do it programmatically — not by SSHing in and typing commands interactively.
@@ -42,13 +42,13 @@ The server responds with its own sentences. A successful login returns a sentenc
 
 The clever bit is how word lengths are encoded. Rather than using a fixed 4-byte length prefix (wasteful for short words) or a delimiter (ambiguous with binary data), MikroTik uses a **variable-length encoding** where the high bits of the first byte tell you how many additional bytes follow.
 
-| Length Range | Bytes Used | First Byte Pattern |
-|---|---|---|
-| 0–127 | 1 | `0xxxxxxx` |
-| 128–16,383 | 2 | `10xxxxxx xxxxxxxx` |
-| 16,384–2,097,151 | 3 | `110xxxxx xxxxxxxx xxxxxxxx` |
-| 2,097,152–268,435,455 | 4 | `1110xxxx xxxxxxxx xxxxxxxx xxxxxxxx` |
-| 268,435,456+ | 5 | `11110000 xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx` |
+| Length Range          | Bytes Used | First Byte Pattern                             |
+| --------------------- | ---------- | ---------------------------------------------- |
+| 0–127                 | 1          | `0xxxxxxx`                                     |
+| 128–16,383            | 2          | `10xxxxxx xxxxxxxx`                            |
+| 16,384–2,097,151      | 3          | `110xxxxx xxxxxxxx xxxxxxxx`                   |
+| 2,097,152–268,435,455 | 4          | `1110xxxx xxxxxxxx xxxxxxxx xxxxxxxx`          |
+| 268,435,456+          | 5          | `11110000 xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx` |
 
 If you squint, this looks a lot like UTF-8's encoding scheme — the leading bits are a "type marker" that signals the total length of the field. It's elegant: short API commands (which are the vast majority) use just one byte for the length, while the protocol can still handle arbitrarily large payloads.
 
@@ -161,6 +161,7 @@ python mikrotik-api.py /ip/dhcp-server/lease/print
 The CLI is generic — any RouterOS API command works without code changes. The output formatter pretty-prints `=key=value` pairs from response sentences, making it easy to pipe into shell scripts.
 
 I use this from automation scripts to:
+
 - Monitor LACP bond status across the 20Gbps links to my Proxmox hosts
 - Query DHCP lease state
 - Manage firewall rules programmatically

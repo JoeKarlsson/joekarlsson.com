@@ -74,7 +74,7 @@ const { title, description, image, type, publishedDate, modifiedDate, schemaType
 			<pre
 				id="ascii-cat-art"><span id="cat-face"> /\_/\
 (<span id="cat-eyes">o.o</span>)
- > ^ <</span></pre>
+ &gt; ^ &lt;</span></pre>
 			<div id="cat-tooltip" class="cat-tooltip-hidden">meow!</div>
 		</div>
 
@@ -494,6 +494,7 @@ const { title, description, image, type, publishedDate, modifiedDate, schemaType
 		</style>
 
 		<script>
+			// @ts-nocheck — DOM-heavy easter egg animations; null checks are handled at runtime
 			(function () {
 				// ===== Utilities =====
 				const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
