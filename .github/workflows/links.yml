@@ -1,0 +1,31 @@
+name: External Link Check
+
+on:
+  schedule:
+    - cron: '0 4 * * 0' # Sunday at 4am UTC
+  workflow_dispatch:
+
+jobs:
+  links:
+    name: Check External Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: lycheeverse/lychee-action@v2
+        id: lychee
+        with:
+          args: --no-progress --root-dir dist/ --config .lychee.toml dist/
+          fail: false
+      - uses: peter-evans/create-issue-from-file@v5
+        if: steps.lychee.outputs.exit_code != 0
+        with:
+          title: 'Broken external links detected'
+          content-filepath: ./lychee/out.md
+          labels: maintenance
+          update-existing: true

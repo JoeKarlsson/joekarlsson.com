@@ -2,17 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Privacy Policy | Joe Karlsson" description="Privacy policy for joekarlsson.com">
+<BaseLayout
+	title="Privacy Policy | Joe Karlsson"
+	description="Privacy policy for joekarlsson.com covering analytics, cookies, and how your data is handled on this site."
+>
 	<div class="mx-auto max-w-3xl px-4 py-8">
-		<h1 class="mb-8 text-3xl font-bold text-white">Privacy Policy</h1>
+		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ cat privacy.md</p>
+		<h1 class="mb-8 text-3xl font-bold text-coral">Privacy Policy</h1>
 		<div class="prose">
 			<p>This website is a static site that collects minimal data.</p>
 
 			<h2>Analytics</h2>
 			<p>
-				This site uses <a href="https://plausible.io" target="_blank" rel="noopener">Plausible Analytics</a>,
-				a privacy-friendly, self-hosted analytics tool. Plausible does not use cookies and does not
-				collect any personal data. All data is aggregated and no individual visitors can be identified.
+				This site uses <a href="https://plausible.io" target="_blank" rel="noopener noreferrer"
+					>Plausible Analytics</a
+				>, a privacy-friendly, self-hosted analytics tool. Plausible does not use cookies and does
+				not collect any personal data. All data is aggregated and no individual visitors can be
+				identified.
 			</p>
 
 			<h2>Cookies</h2>

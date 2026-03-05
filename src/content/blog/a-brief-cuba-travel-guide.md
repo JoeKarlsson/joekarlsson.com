@@ -1,16 +1,16 @@
 ---
-title: "A Brief Cuba Travel Guide"
+title: 'A Brief Cuba Travel Guide'
 date: 2019-03-03
-slug: "a-brief-cuba-travel-guide"
-description: "Have always wanted to see what communism looks like firsthand or try an authentic Cuban cigar? Well, travel to Cuba is still possible from the United States in 2018 (despite President Trump’s travel..."
-categories: ["Blog"]
-tags: ["cuba"]
-heroImage: "/images/blog/a-brief-cuba-travel-guide/A-Brief-Cuba-Travel-Guide.png"
+slug: 'a-brief-cuba-travel-guide'
+description: 'Have always wanted to see what communism looks like firsthand or try an authentic Cuban cigar? Well, travel to Cuba is still possible from the United States in 2018 (despite President Trump’s travel...'
+categories: ['Travel']
+tags: ['cuba']
+heroImage: '/images/blog/a-brief-cuba-travel-guide/A-Brief-Cuba-Travel-Guide.webp'
 ---
 
 Have always wanted to see what communism looks like firsthand or try an authentic Cuban cigar? Well, travel to Cuba is still possible from the United States in 2018 (despite President Trump’s travel restrictions). This is a brief Cuba travel guide for travelers from the United States.
 
-I personally visited Cuba in early 2019 and I thought that I would share a couple of tips for Travelers from the United States since it is still a very new travel destination for many of us. This isn’t an exhaustive list or <g class="gr_ gr_5 gr-alert gr_gramm gr_inline_cards gr_run_anim Grammar multiReplace" id="5" data-gr-id="5">an </g><g class="gr_ gr_4 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace" id="4" data-gr-id="4"><g class="gr_ gr_5 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Grammar multiReplace" id="5" data-gr-id="5">in-depth</g></g> analysis of the US and Cuba political situation, it’s just an attempt to share what I learned.
+I personally visited Cuba in early 2019 and I thought that I would share a couple of tips for Travelers from the United States since it is still a very new travel destination for many of us. This isn’t an exhaustive list or an in-depth analysis of the US and Cuba political situation, it’s just an attempt to share what I learned.
 
 **Update 6/12/19:** The USA has officially banned travel from the US to Cuba again. What a shame :'(
 
@@ -18,8 +18,8 @@ I personally visited Cuba in early 2019 and I thought that I would share a coupl
 
 You still cannot get a tourist visa when you visit Cuba from the US, but there are 12 types of American travel that are still allowed, independent people-to-people educational travel is no longer a valid reason for visiting Cuba in 2018.
 
-We traveled under the “Support the Cuban People” visa and we had no issues from customs in Cuba or the US. In fact, we were able to purchase our Visa in the airport minutes before we boarded our flight for $50 USD.
-However, you can order a visa ahead of time[ through a <g class="gr_ gr_6 gr-alert gr_gramm gr_inline_cards gr_run_anim Punctuation only-del replaceWithoutSep" id="6" data-gr-id="6">website</g>](https://cubavisaservices.com/)<g class="gr_ gr_6 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Punctuation only-del replaceWithoutSep" id="6" data-gr-id="6">,</g> or book it directly through the airline.  
+We traveled under the “Support the Cuban People” visa and we had no issues from customs in Cuba or the US. We were even able to purchase our Visa in the airport minutes before we boarded our flight for $50 USD.
+However, you can order a visa ahead of time[ through a website](https://cubavisaservices.com/), or book it directly through the airline.
 
 Additional information about obtaining a visa can be found here:
 
@@ -37,23 +37,23 @@ Currently, there is no limit on the amount of rum or cigars you can bring back t
 
 ## Food
 
-Okay, the food in Cuba isn’t great. Due to <g class="gr_ gr_7 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace" id="7" data-gr-id="7">communism</g>, there aren’t many private restaurants in Cuba. The n<g class="gr_ gr_34 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace" id="34" data-gr-id="34">ationalized</g> restaurants are cheap, but the food is very bland. You will be eating lots of rice and beans. That being said, you should try Ropa Viejo.
+Okay, the food in Cuba isn’t great. Due to communism, there aren’t many private restaurants in Cuba. The nationalized restaurants are cheap, but the food is very bland. You will be eating lots of rice and beans. That being said, you should try Ropa Viejo.
 
-![](/images/blog/a-brief-cuba-travel-guide/proxy.duckduckgo-1024x715.jpg)*Ropa Viejo con arroz y tostones.*
+![Ropa Viejo con arroz y tostones.](/images/blog/a-brief-cuba-travel-guide/proxy.duckduckgo-1024x715.webp)_Ropa Viejo con arroz y tostones._
 
 and the Picadillo El Habanero was delightful.
 
-![](/images/blog/a-brief-cuba-travel-guide/picadillo-habanero-00-1024x682.jpg)
+![Plate of Cuban picadillo with rice and olives](/images/blog/a-brief-cuba-travel-guide/picadillo-habanero-00-1024x682.webp)
 
 Late-night jamon pizzas. They kinda taste like an off-brand Totino’s pizza, but when you have been drinking rum all night, they’re delicious (and hella cheap).
 
-![](/images/blog/a-brief-cuba-travel-guide/comer-barato-en-cuba-pizza-en-trinidad.jpg)
+![Cuban ham and cheese pizza on a plate](/images/blog/a-brief-cuba-travel-guide/comer-barato-en-cuba-pizza-en-trinidad.webp)
 
 One night we ordered a “hamburger” and it was a chunk of literal Ham.
 
-![](/images/blog/a-brief-cuba-travel-guide/IMG_1698-768x1024.jpg)
+![Cuban hamburger sandwich with ham patty and lettuce on a plate](/images/blog/a-brief-cuba-travel-guide/IMG_1698-768x1024.webp)
 
-<g class="gr_ gr_116 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace" id="116" data-gr-id="116">Havana</g> Club Rum
+Havana Club Rum
 
 Cuba is known for two things, cigars, and rum. You should be sure to drink lots of rum when you are there. Literally, every drink I had in Cuba had some sort of rum in it.
 
@@ -65,7 +65,7 @@ My favorite rum drinks were:
 
 - 5 cl white rum
 
-- 1 cl Fresh lime juice 
+- 1 cl Fresh lime juice
 
 ### Canchanchara:
 
@@ -79,43 +79,43 @@ My favorite rum drinks were:
 
 The best Canchanchara I had was made inside of a grapefruit – it was incredible.
 
-> 
-Pro-tip: it’s legal to drink on the street in Cuba, so be sure to buy a small bottle of rum and some cola for cheap drinks on the go.
+> Pro-tip: it’s legal to drink on the street in Cuba, so be sure to buy a small bottle of rum and some cola for cheap drinks on the go.
 
 ## Cigars
 
 I’m not a big “cigar guy,” but shit, Cuban cigars are really fucking good. Even if you don’t smoke, do yourself a favor and split one with a friend. Pro-tip – put honey on the end.
 
-> 
-Pro-tip – Hold the cigar like Che for extra points.
+> Pro-tip – Hold the cigar like Che for extra points.
 
-![](/images/blog/a-brief-cuba-travel-guide/che.jpg)*DOSSIER MATHIL
+![DOSSIER MATHIL
 COMMANDANTE CHE GUEVARA
-RAOUL CORRALES*
+RAOUL CORRALES](/images/blog/a-brief-cuba-travel-guide/che.webp)_DOSSIER MATHIL
+COMMANDANTE CHE GUEVARA
+RAOUL CORRALES_
 
 ## WiFi
 
-There is <g class="gr_ gr_79 gr-alert gr_gramm gr_inline_cards gr_run_anim Grammar only-ins replaceWithoutSep" id="79" data-gr-id="79">very</g> limited internet in Cuba. But, I found that not having WiFi was a  really great way <g class="gr_ gr_257 gr-alert gr_gramm gr_inline_cards gr_run_anim Grammar replaceWithoutSep" id="257" data-gr-id="257">for</g> me to forcibly disconnect. When we did reconnect, we learned that we didn’t miss anything. We had fantasies of missing major news, but it turns out nothing important happened.  This was an important reminder of that. 
+There is very limited internet in Cuba. But, I found that not having WiFi was a really great way for me to forcibly disconnect. When we did reconnect, we learned that we didn’t miss anything. We had fantasies of missing major news, but it turns out nothing important happened. This was an important reminder of that.
 
 ## Havana
 
 Walking everywhere. It’s a very dense city with lots to do and see everywhere.
 
-People and car watching. I never got sick of wrong <g class="gr_ gr_4 gr-alert gr_gramm gr_inline_cards gr_run_anim Grammar only-del replaceWithoutSep" id="4" data-gr-id="4">the old</g> cars and people dancing and playing in the streets.  
+People and car watching. I never got sick of wrong the old cars and people dancing and playing in the streets.
 
-Not living in a late-stage capitalist nightmare. 
+Not living in a late-stage capitalist nightmare.
 
 ## Vinales
 
-Real <g class="gr_ gr_7 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace" id="7" data-gr-id="7">lil</g> town. Pretty touristy to be honest, but it’s quiet and gorgeous. Every sunset was incredible. We stayed at a really interesting Airbnb. 
+Real lil town. Pretty touristy to be honest, but it’s quiet and gorgeous. Every sunset was incredible. We stayed at a really interesting Airbnb.
 
 ## Misc Tips
 
-Don’t wear Panama hats – only tourists wear them 
+Don’t wear Panama hats – only tourists wear them
 
 Get there fast. With tourism opening up and Fidel dead, things are going to start changing quickly.
 
-Traveling is a great way to build empathy for our commonly misunderstood neighbors. Cuba has had a rough history of being exploited and bullied. The US is responsible for much of this. I’m not qualified to speak deeply about this subject, but all I know is that visiting Cuba is a great idea and I would highly recommend it to everyone who can. 
+Traveling is a great way to build empathy for our commonly misunderstood neighbors. Cuba has had a rough history of being exploited and bullied. The US is responsible for much of this. I’m not qualified to speak deeply about this subject, but all I know is that visiting Cuba is a great idea and I would highly recommend it to everyone who can.
 
 ## Follow me on social
 
@@ -136,5 +136,3 @@ Traveling is a great way to build empathy for our commonly misunderstood neighbo
 - [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)
 
 - [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)
-
-##

@@ -1,13 +1,13 @@
 ---
-title: "Adding Custom Domain Names on Your Internal Network Using Nginx Proxy Manager and Pi-Hole"
+title: 'Adding Custom Domain Names on Your Internal Network Using Nginx Proxy Manager and Pi-Hole'
 date: 2024-01-17
-slug: "adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole"
-description: "Creating custom domain names within your internal network can streamline access to locally hosted services without the need for public domain registration. This guide explains how to set up custom..."
-categories: ["Blog"]
-heroImage: "/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/d4994649-ee18-4d47-aaa7-567b58bb9f39.webp"
+slug: 'adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole'
+description: 'Creating custom domain names within your internal network can simplify access to locally hosted services without the need for public domain registration. This guide explains how to set up custom...'
+categories: ['Homelab']
+heroImage: '/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/d4994649-ee18-4d47-aaa7-567b58bb9f39.webp'
 ---
 
-Creating custom domain names within your internal network can streamline access to locally hosted services without the need for public domain registration. This guide explains how to set up custom domain names using [Pi-Hole](https://pi-hole.net/) for DNS management and [Nginx Proxy Manager](https://nginxproxymanager.com/) for web traffic control and SSL encryption.
+Creating custom domain names within your internal network can simplify access to locally hosted services without the need for public domain registration. If you don't have a homelab yet, check out my guide on [how to get started building a homelab server](/blog/how-to-get-started-building-a-homelab-server-in-2024/) first. This guide explains how to set up custom domain names using [Pi-Hole](https://pi-hole.net/) for DNS management and [Nginx Proxy Manager](https://nginxproxymanager.com/) for web traffic control and SSL encryption.
 
 ## Step 1: Configuring Pi Hole for Custom Domain
 

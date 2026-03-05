@@ -1,15 +1,15 @@
 ---
-title: "How to query Google Sheets with SQL in real time"
+title: 'How to query Google Sheets with SQL in real time'
 date: 2024-03-29
-slug: "how-to-query-google-sheets-with-sql-in-real-time"
-description: "Sick of manually wrestling with Google Sheets like it’s an Excel spreadsheet from 2005? Feel like force-quitting Chrome every time you attempt to sift through just 10,000 rows of data?  We’ve all..."
-categories: ["Blog"]
-heroImage: "/images/blog/how-to-query-google-sheets-with-sql-in-real-time/How-to-analyze-Google-Sheets-data-in-real-time-BlogPost-He-1-scaled.jpg"
+slug: 'how-to-query-google-sheets-with-sql-in-real-time'
+description: 'Sick of manually wrestling with Google Sheets like it’s an Excel spreadsheet from 2005? Feel like force-quitting Chrome every time you attempt to sift through just 10,000 rows of data?  We’ve all...'
+categories: ['Databases']
+heroImage: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/How-to-analyze-Google-Sheets-data-in-real-time-BlogPost-He-1-scaled.webp'
 ---
 
 Sick of manually wrestling with Google Sheets like it’s an Excel spreadsheet from 2005? Feel like force-quitting Chrome every time you attempt to sift through just 10,000 rows of data? 
 
-![](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/D-WZo_Nh7oEuIoOwgCG_itm9UH7-5nJkQtmd2J1K8JkuDTXGCbPq58XQlutZ.jpg)
+![Mac Force Quit dialog meme about Google Sheets loading too many rows](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/D-WZo_Nh7oEuIoOwgCG_itm9UH7-5nJkQtmd2J1K8JkuDTXGCbPq58XQlutZ.webp)
 
 We’ve all been there.
 
@@ -37,7 +37,7 @@ After you sign up and confirm your email, you can create a [<u>Workspace</u>](ht
 
 All Tinybird resources are protected by [<u>Auth Tokens</u>](https://www.tinybird.co/docs/concepts/auth-tokens.html). Navigate to [<u>your Tinybird dashboard</u>](https://ui.tinybird.co) in your Workspace, click “Auth Tokens” from the left navigation bar, and copy the “create datasource” token.
 
-![](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/token-1024x612.jpeg)
+![Tinybird Auth Tokens page showing the create datasource token to copy](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/token-1024x612.webp)
 
 Copy the “create datasource” token from your Tinybird Workspace.
 
@@ -51,7 +51,7 @@ If you need to import this data set into Google Sheets, first download it to you
 
 Next, you need to add a script to your Google Sheet to tell it to send data to Tinybird. To do so, navigate to “Extensions > Apps Script” on the Google Sheet menu bar.
 
-![](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/create_apps_script-1024x614.jpeg)
+![Google Sheets Extensions menu showing Apps Script option with shopping data](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/create_apps_script-1024x614.webp)
 
 Create an Apps Script in Google Sheets to send data to Tinybird.
 
@@ -149,7 +149,7 @@ Click “Run” in the Apps Script toolbar to execute the script. If it’s your
 
 If there are errors, they’ll be in the “Execution log” tab. Use `Logger.log()` for custom log messages in your App Script.
 
-![](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/appscript-1024x612.jpeg)
+![Google Apps Script editor with Tinybird data sync code and execution log](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/appscript-1024x612.webp)
 
 The console will show you how much data has been sent to Tinybird, and if any rows were sent to [quarantine](https://www.tinybird.co/docs/guides/quarantine.html).
 
@@ -157,7 +157,7 @@ The console will show you how much data has been sent to Tinybird, and if any ro
 
 Navigate to your Tinybird Workspace. You should see a new Data Source with the name you added to the Apps Script in Step 5. If you used the default name, it will be the same name as your Google Sheet. You’ll notice that Tinybird’s [Analyze API](https://www.tinybird.co/docs/api-reference/analyze-api.html) has automatically inferred the appropriate data types for the table based on the data you sent.
 
-![](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/image.jpeg)
+![Tinybird workspace showing customer shopping trends data source table](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/image.webp)
 
 Check that data is arriving in your Tinybird Data Source.
 
@@ -254,7 +254,7 @@ function onOpen() {
 The second node, `total_purchases` will get the total number of purchases.
 
 ```
-SELECT COUNT(*) as Total_Count 
+SELECT COUNT(*) as Total_Count
 FROM customer_shopping_trends_dataset
 ```
 
@@ -274,7 +274,7 @@ In the repository, you’ll find [<u>several more `.pipe` files</u>](https://git
 
 If you want to publish these metrics as an API Endpoint for use in [<u>real-time dashboards</u>](https://www.tinybird.co/blog-posts/real-time-dashboard-step-by-step), user-facing analytics, or any other [<u>real-time data analytics</u>](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) use case, you can do that by selecting, “Create API Endpoint” and selecting the node you want to be published. In my case, that’s the node called `endpoint`.
 
-![](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/api_thumb-1-1024x666.jpg)
+![Tinybird SQL pipe querying customer shopping trends with API endpoint](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/api_thumb-1-1024x666.webp)
 
 Turn your SQL Pipe into REST API in a click.
 
@@ -282,7 +282,7 @@ From here, try pasting the sample HTTP sample into your browser, and you will be
 
 ## Wrap up
 
-You’ve achieved far more than a simple integration of Google Sheets with Tinybird; you’ve essentially unlocked a new realm of [<u>real-time data analytics</u>](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) capabilities. This combo is far from a one-trick pony. Let’s unpack the expanded universe of what you can now accomplish.
+You’ve achieved far more than a simple integration of Google Sheets with Tinybird; you’ve unlocked serious [<u>real-time data analytics</u>](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) capabilities. This combo is far from a one-trick pony. Let’s unpack the expanded universe of what you can now accomplish.
 
 - **Enriching Data in Real-Time:** Imagine your Google Sheet is tracking sales metrics. With Tinybird, you can automatically enrich that data with real-time inventory levels or customer data from your CRM, other APIs, or even another Google Sheet. This means you can create complex queries that pull from multiple data sources to generate on-the-fly insights, making your Google Sheet a centralized, real-time data hub.
 
@@ -290,9 +290,9 @@ You’ve achieved far more than a simple integration of Google Sheets with Tinyb
 
 - **Automated, Flexible Workflows:** The API integrations don’t stop at data enrichment. You can build out workflows that push data from Tinybird back into Google Sheets or into other applications, offering a two-way data highway. This could include triggering specific actions, like sending alerts or updating other databases when certain conditions in your Google Sheets data are met.
 
-- **Multi-Source Query Execution: **Leverage SQL queries that can call upon multiple sources of data, not just Google Sheets. Your analytics can be as broad or as specialized as your projects require, whether it’s marketing analytics or financial models
+- **Multi-Source Query Execution:** Use SQL queries that can call upon multiple sources of data, not just Google Sheets. Your analytics can be as broad or as specialized as your projects require, whether it’s marketing analytics or financial models
 
-- **Security and Scalability:** Tinybird offers robust security protocols to keep your data safe, and its architecture is built for scalability. This means as your needs grow, your Google Sheets-Tinybird integration can easily scale along with them, all without compromising speed or data integrity.
+- **Security and Scalability:** Tinybird offers strong security protocols to keep your data safe, and its architecture is built for scalability. This means as your needs grow, your Google Sheets-Tinybird integration can easily scale along with them, all without compromising speed or data integrity.
 
 To check out the complete codebase used for this tutorial, [<u>check out the GitHub repository</u>](https://github.com/tinybirdco/google-sheets-tinybird-demo/tree/main).
 
@@ -304,7 +304,7 @@ If you have questions about how Tinybird works, or how to build real-time data p
 
 ### How secure is the Tinybird-Google Sheets integration?
 
-The integration leverages Tinybird’s robust security protocols. Data is transferred via secure methods, using Auth Tokens, which only authorized personnel can access. Security is built into both the data transmission and storage layers.
+The integration uses Tinybird’s strong security protocols. Data is transferred via secure methods, using Auth Tokens, which only authorized personnel can access. Security is built into both the data transmission and storage layers.
 
 ### Is there a limit to the amount of data I can transfer from Google Sheets to Tinybird?
 
@@ -316,7 +316,7 @@ Yes, the API Endpoints created in Tinybird can be used to feed data into other v
 
 ### Is real-time data enrichment limited to specific types of data sources?
 
-No. Tinybird can integrate with a variety of data sources, including CRMs, inventory management systems, streaming data platforms, data warehouses, and other third-party APIs. You can enrich your Google Sheets data with real-time information from multiple sources, making your analysis comprehensive.
+No. Tinybird can integrate with a variety of data sources, including CRMs, inventory management systems, streaming data platforms, data warehouses, and other third-party APIs. You can enrich your Google Sheets data with real-time information from multiple sources, making your analysis thorough.
 
 ### Can I execute complex SQL queries using Tinybird and Google Sheets?
 

@@ -1,40 +1,61 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogCard from '../components/BlogCard.astro';
+import RightNow from '../components/RightNow.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
+import { projects } from '../data/projects';
+
+const homepageProjects = projects.filter((p) =>
+	['IoT Kitty Litter Box', 'Bechdel.io', 'React Spotify Player', 'Wave Jump'].includes(p.title),
+);
 
 const posts = (await getCollection('blog'))
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 	.slice(0, 6);
+
+const taglines = [
+	'Built an IoT cat toilet. Gave a conference talk about it.',
+	'Mass-assigning GPU transcoding jobs at 2am on a Tuesday.',
+	'Running 40+ containers because "it\'ll be quick to set up."',
+	'TEDx speaker. Homelab hoarder. Film snob.',
+	"Teaching computers to do things they probably shouldn't.",
+	'TEDx Speaker - talked about the art of computer science.',
+];
 ---
 
-<BaseLayout title="Joe Karlsson — Developer Advocate & Massive Nerd" description={SITE_DESCRIPTION}>
-	<!-- Hero Terminal -->
-	<section class="border-b-4 border-coral overflow-hidden">
-		<div class="mx-auto max-w-5xl px-4 md:px-6 py-12 md:py-20">
-			<!-- Terminal -->
-			<div class="terminal mx-auto text-left rounded-lg overflow-hidden border border-surface-3 shadow-2xl">
-				<!-- Title bar -->
-				<div class="terminal-titlebar flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3">
+<BaseLayout title="Joe Karlsson - Developer Advocate & Massive Nerd" description={SITE_DESCRIPTION}>
+	<h1 class="sr-only">Joe Karlsson - Software Engineer & Developer Advocate</h1>
+	<!-- Hero: Two terminal windows side by side -->
+	<section id="hero-section" class="border-b-4 border-coral relative overflow-hidden">
+		<div id="hero-content" class="flex flex-col lg:flex-row">
+			<!-- Left terminal: interactive -->
+			<div class="flex-1 lg:border-r border-surface-3 flex flex-col">
+				<div class="flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3">
 					<span class="w-3 h-3 rounded-full bg-red-500/80"></span>
 					<span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
 					<span class="w-3 h-3 rounded-full bg-green-500/80"></span>
-					<span class="ml-2 text-xs text-surface-4 font-mono">joe@joekarlsson.com — bash</span>
+					<span class="ml-2 text-xs text-gray-400 font-mono">joe@karlsson - bash</span>
 				</div>
-				<!-- Terminal body -->
 				<div
 					id="terminal"
-					class="terminal-body bg-surface-0 p-4 font-mono text-sm leading-relaxed h-72 md:h-96 overflow-y-auto cursor-text"
+					class="terminal-body bg-surface-0 px-4 md:px-8 py-4 md:py-6 font-mono text-sm leading-relaxed h-[18rem] md:h-[22rem] lg:h-[28rem] overflow-y-auto cursor-text relative"
 					tabindex="0"
 					role="application"
 					aria-label="Interactive terminal. Type help for available commands."
 				>
 					<div id="output"></div>
 					<div id="input-line" class="flex items-center" style="display:none;">
-						<span class="prompt text-coral mr-2">joe@karlsson ~$</span>
-						<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor">&#9608;</span>
+						<span class="prompt text-coral mr-2">~$</span>
+						<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
+							>&#9608;</span
+						>
 					</div>
+					<!-- Arrow-navigable menu -->
+					<nav id="nav-menu" class="mt-3" style="display:none;" aria-label="Site navigation">
+						<div id="nav-items"></div>
+					</nav>
+					<label for="hidden-input" class="sr-only">Terminal command input</label>
 					<input
 						id="hidden-input"
 						type="text"
@@ -45,96 +66,107 @@ const posts = (await getCollection('blog'))
 						spellcheck="false"
 					/>
 				</div>
+				<div class="bg-surface-1 border-t border-surface-3 px-5 md:px-8 py-2">
+					<p
+						class="font-mono text-xs text-gray-300 md:text-gray-400 transition-opacity duration-300"
+						id="rotating-tagline"
+					>
+						{taglines[0]}
+					</p>
+				</div>
 			</div>
 
-			<!-- CTA buttons below terminal -->
-			<div class="flex flex-wrap gap-3 mt-6 justify-center">
-				<a
-					href="/blog"
-					class="btn-primary rounded-md bg-coral px-5 py-2.5 font-medium text-surface-0 no-underline hover:bg-teal"
+			<!-- Right terminal: about me (hidden on mobile) -->
+			<div class="hidden lg:flex lg:w-[26rem] xl:w-[30rem] flex-col border-surface-3">
+				<div class="flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3">
+					<span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+					<span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+					<span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+					<span class="ml-2 text-xs text-gray-400 font-mono">cat about.md</span>
+				</div>
+				<div
+					class="bg-surface-0 px-5 md:px-8 py-4 font-mono text-sm leading-relaxed h-[22rem] lg:h-[28rem] overflow-hidden"
 				>
-					Read the Blog
-				</a>
-				<a
-					href="/about"
-					class="btn-secondary rounded-md border border-surface-4 px-5 py-2.5 font-medium text-gray-300 no-underline hover:border-coral hover:text-white"
-				>
-					About Me
-				</a>
-				<a
-					href="/work"
-					class="btn-secondary rounded-md border border-surface-4 px-5 py-2.5 font-medium text-gray-300 no-underline hover:border-coral hover:text-white"
-				>
-					My Work
-				</a>
+					<p class="text-yellow mb-3">## about.md</p>
+
+					<p class="text-coral text-lg font-bold mb-1">Joe Karlsson</p>
+					<p class="text-teal text-xs mb-3">he/they · software engineer · dev advocate</p>
+
+					<p class="text-gray-300 mb-2">
+						Hey, I'm Joe. I help developers build cool stuff - through demos, blog posts, talks,
+						videos, whatever works.
+					</p>
+					<p class="text-gray-300 mb-2">
+						Currently at <span class="text-white">CloudQuery</span>. Outside of work I run a
+						<span class="text-teal">40+ container homelab</span>, watch way too many movies, and
+						build things that probably shouldn't be connected to the internet.
+					</p>
+					<p class="text-gray-300">
+						I once built an IoT cat toilet and gave a conference talk about it. Also a
+						<span class="text-white">TEDx speaker</span>. I contain multitudes.
+					</p>
+				</div>
 			</div>
-		</div>
-	</section>
-
-	<!-- Hero illustration banner -->
-	<section class="border-b border-surface-3 bg-surface-1">
-		<div class="mx-auto max-w-5xl">
-			<img
-				src="/images/hero-illustration.webp"
-				alt="Illustrated portrait of Joe Karlsson at a computer with a cat"
-				class="w-full h-48 sm:h-64 md:h-80 object-cover object-center"
-				width="2560"
-				height="1707"
-				loading="eager"
-			/>
-		</div>
-	</section>
-
-	<!-- What I Do — brutalist grid with thick borders -->
-	<section class="border-b-4 border-teal">
-		<div class="mx-auto grid max-w-5xl grid-cols-1 sm:grid-cols-3">
-			<a href="/blog" class="card-hover group flex items-center gap-4 border-b sm:border-b-0 sm:border-r border-surface-3 px-8 py-8 no-underline transition-all duration-300 hover:bg-coral/5">
-				<span class="text-3xl text-coral transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12">&#9998;</span>
-				<div>
-					<p class="font-medium text-white">Blog</p>
-					<p class="text-sm text-gray-500">Databases, smart homes, dev tools</p>
-				</div>
-			</a>
-			<a href="/work" class="card-hover group flex items-center gap-4 border-b sm:border-b-0 sm:border-r border-surface-3 px-8 py-8 no-underline transition-all duration-300 hover:bg-teal/5">
-				<span class="text-3xl text-teal transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12">&#9881;</span>
-				<div>
-					<p class="font-medium text-white">Projects</p>
-					<p class="text-sm text-gray-500">Things I've built & shipped</p>
-				</div>
-			</a>
-			<a href="/talk-archive" class="card-hover group flex items-center gap-4 px-8 py-8 no-underline transition-all duration-300 hover:bg-lavender/5">
-				<span class="text-3xl text-lavender transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12">&#9654;</span>
-				<div>
-					<p class="font-medium text-white">Talks</p>
-					<p class="text-sm text-gray-500">Conferences & meetups</p>
-				</div>
-			</a>
 		</div>
 	</section>
 
 	<!-- Right Now -->
+	<section class="border-b-4 border-teal">
+		<div class="mx-auto max-w-5xl px-6 py-14">
+			<h2 class="mb-6 text-lg font-bold text-white">
+				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat now.md
+			</h2>
+			<RightNow />
+		</div>
+	</section>
+
+	<!-- Featured Projects -->
 	<section class="border-b border-surface-3">
 		<div class="mx-auto max-w-5xl px-6 py-14">
-			<h2 class="mb-4 text-lg font-bold text-white">
-				<span class="text-teal font-mono text-sm">&gt;</span> Right now
-			</h2>
+			<div class="mb-6 flex items-center justify-between">
+				<h2 class="text-lg font-bold text-white">
+					<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls projects/
+				</h2>
+				<a href="/work" class="group text-sm text-coral hover:text-teal transition-colors">
+					See all <span class="inline-block transition-transform group-hover:translate-x-1"
+						>&rarr;</span
+					>
+				</a>
+			</div>
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
-					<p class="text-xs text-gray-600 font-mono mb-1">working on</p>
-					<p class="text-sm text-gray-300">Building data pipelines & developer tools at <strong class="text-white">CloudQuery</strong></p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
-					<p class="text-xs text-gray-600 font-mono mb-1">tinkering with</p>
-					<p class="text-sm text-gray-300">A <strong class="text-white">40+ container homelab</strong> running Proxmox, Home Assistant, and way too many arr apps</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
-					<p class="text-xs text-gray-600 font-mono mb-1">writing about</p>
-					<p class="text-sm text-gray-300">Self-hosting, databases, and <a href="/blog">things that probably shouldn't be connected to the internet</a></p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
-					<p class="text-xs text-gray-600 font-mono mb-1">using</p>
-					<p class="text-sm text-gray-300">M3 Pro MacBook Pro, VS Code, too many monitors. <a href="/uses">See my full setup &rarr;</a></p>
-				</div>
+				{
+					homepageProjects.map((project) => {
+						const url = project.sourceUrl || project.blogUrl || '#';
+						const isExternal = url.startsWith('http');
+						return (
+							<a
+								href={url}
+								target={isExternal ? '_blank' : undefined}
+								rel={isExternal ? 'noopener noreferrer' : undefined}
+								class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+							>
+								<img
+									src={project.image}
+									alt={project.imageAlt}
+									class="mb-3 h-28 w-full rounded-md object-cover transition-transform duration-300 group-hover:scale-105"
+									width="600"
+									height="112"
+									loading="lazy"
+								/>
+								<p class="font-semibold text-sm text-white group-hover:text-coral">
+									{project.title}
+								</p>
+								<div class="mt-1 flex flex-wrap gap-1">
+									{project.tech.slice(0, 3).map((t) => (
+										<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
+											{t}
+										</span>
+									))}
+								</div>
+							</a>
+						);
+					})
+				}
 			</div>
 		</div>
 	</section>
@@ -142,38 +174,48 @@ const posts = (await getCollection('blog'))
 	<!-- Recent Posts -->
 	<section class="mx-auto max-w-5xl px-6 py-16">
 		<div class="mb-8 flex items-center justify-between">
-			<h2 class="text-2xl font-bold text-white">Recent Posts</h2>
+			<h2 class="text-lg font-bold text-white">
+				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls posts/ --recent
+			</h2>
 			<a href="/blog" class="group text-sm text-coral hover:text-teal transition-colors">
-				View all <span class="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+				View all <span class="inline-block transition-transform group-hover:translate-x-1"
+					>&rarr;</span
+				>
 			</a>
 		</div>
 		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{posts.map((post, i) => (
-				<div class={`scroll-reveal scroll-reveal-delay-${i % 3}`}>
-					<BlogCard
-						title={post.data.title}
-						description={post.data.description}
-						date={post.data.date}
-						slug={post.data.slug}
-						heroImage={post.data.heroImage}
-					/>
-				</div>
-			))}
+			{
+				posts.map((post, i) => (
+					<div class={`scroll-reveal scroll-reveal-delay-${i % 3}`}>
+						<BlogCard
+							title={post.data.title}
+							description={post.data.description}
+							date={post.data.date}
+							slug={post.data.slug}
+							heroImage={post.data.heroImage}
+						/>
+					</div>
+				))
+			}
 		</div>
 	</section>
 
-	<!-- Fun footer banner — brutalist marquee -->
+	<!-- Fun footer banner - brutalist marquee -->
 	<section class="border-t-4 border-lavender overflow-hidden bg-surface-1 py-3">
-		<div class="marquee whitespace-nowrap font-mono text-sm text-gray-600">
-			<span class="marquee-content">
-				DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS &bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull; DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS &bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull;&nbsp;
+		<div class="marquee whitespace-nowrap font-mono text-sm text-gray-400">
+			<span class="marquee-content" aria-hidden="false">
+				DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS
+				&bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull;&nbsp;
+			</span>
+			<span class="marquee-content" aria-hidden="true">
+				DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS
+				&bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull;&nbsp;
 			</span>
 		</div>
 	</section>
 </BaseLayout>
 
 <style>
-	/* Terminal styles */
 	.terminal-body {
 		scrollbar-width: thin;
 		scrollbar-color: #fdae84 transparent;
@@ -185,84 +227,130 @@ const posts = (await getCollection('blog'))
 	}
 
 	@keyframes blink {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0; }
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
 	}
 
 	.terminal-body :global(.text-coral) {
 		color: #fdae84;
 	}
-
 	.terminal-body :global(.text-teal) {
 		color: #8bcbc8;
 	}
-
 	.terminal-body :global(.text-lavender) {
 		color: #c4b5fd;
 	}
-
 	.terminal-body :global(.text-dim) {
-		color: #6b7280;
+		color: #b0b8c4;
 	}
-
 	.terminal-body :global(.text-white) {
 		color: #e5e7eb;
 	}
-
 	.terminal-body :global(.text-green) {
 		color: #86efac;
 	}
-
 	.terminal-body :global(.text-yellow) {
 		color: #fde68a;
 	}
 
-	/* Scroll reveal */
+	/* CLI selector style — :global because items are JS-generated */
+	.terminal-body :global(.nav-item) {
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+		font-size: 0.8125rem;
+		padding: 6px 8px;
+		cursor: pointer;
+		white-space: nowrap;
+		border-radius: 4px;
+		border: 1px solid rgba(253, 174, 132, 0.2);
+		background: rgba(253, 174, 132, 0.05);
+		margin-bottom: 4px;
+	}
+	.terminal-body :global(.nav-item:active) {
+		background: rgba(253, 174, 132, 0.18);
+		border-color: rgba(253, 174, 132, 0.4);
+	}
+	@media (min-width: 768px) {
+		.terminal-body :global(.nav-item) {
+			font-size: 0.875rem;
+			padding: 2px 0;
+			border-radius: 0;
+			border: none;
+			background: none;
+			margin-bottom: 0;
+		}
+		.terminal-body :global(.nav-item:hover) {
+			background: rgba(253, 174, 132, 0.08);
+		}
+		.terminal-body :global(.nav-item:active) {
+			background: rgba(253, 174, 132, 0.08);
+			border-color: transparent;
+		}
+	}
+	.terminal-body :global(.nav-item-selected) {
+		color: #fdae84;
+		border-color: rgba(253, 174, 132, 0.35);
+		background: rgba(253, 174, 132, 0.1);
+	}
+	@media (min-width: 768px) {
+		.terminal-body :global(.nav-item-selected) {
+			border-color: transparent;
+			background: none;
+		}
+	}
+	.terminal-body :global(.nav-item-unselected) {
+		color: #c9cdd3;
+	}
+	.terminal-body :global(.nav-item-unselected .nav-label) {
+		color: #c9cdd3;
+	}
+	.terminal-body :global(.nav-item-selected .nav-label) {
+		color: #e5e7eb;
+	}
+
 	.scroll-reveal {
 		opacity: 0;
 		transform: translateY(20px);
-		transition: opacity 0.5s ease, transform 0.5s ease;
+		transition:
+			opacity 0.5s ease,
+			transform 0.5s ease;
 	}
 	.scroll-reveal.visible {
 		opacity: 1;
 		transform: translateY(0);
 	}
-	.scroll-reveal-delay-0 { transition-delay: 0s; }
-	.scroll-reveal-delay-1 { transition-delay: 0.1s; }
-	.scroll-reveal-delay-2 { transition-delay: 0.2s; }
+	.scroll-reveal-delay-0 {
+		transition-delay: 0s;
+	}
+	.scroll-reveal-delay-1 {
+		transition-delay: 0.1s;
+	}
+	.scroll-reveal-delay-2 {
+		transition-delay: 0.2s;
+	}
 
-	/* Marquee */
 	.marquee {
 		display: flex;
-	}
-	.marquee-content {
-		display: inline-block;
-		animation: marquee 20s linear infinite;
-	}
-
-	@keyframes marquee {
-		from { transform: translateX(0); }
-		to { transform: translateX(-50%); }
-	}
-
-	/* Button hover effects */
-	.btn-primary {
-		transition: all 0.3s ease;
-		position: relative;
 		overflow: hidden;
 	}
-	.btn-primary:hover {
-		transform: translateY(-1px);
-		box-shadow: 0 4px 20px rgba(253, 174, 132, 0.3);
+	.marquee-content {
+		flex-shrink: 0;
+		display: inline-block;
+		animation: marquee 25s linear infinite;
 	}
-	.btn-secondary {
-		transition: all 0.3s ease;
-	}
-	.btn-secondary:hover {
-		transform: translateY(-1px);
+	@keyframes marquee {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-100%);
+		}
 	}
 
-	/* Reduce motion for accessibility */
 	@media (prefers-reduced-motion: reduce) {
 		.cursor {
 			animation: none !important;
@@ -275,9 +363,6 @@ const posts = (await getCollection('blog'))
 		}
 		.marquee-content {
 			animation: none;
-		}
-		.btn-primary:hover, .btn-secondary:hover {
-			transform: none;
 		}
 	}
 </style>
@@ -293,6 +378,156 @@ const posts = (await getCollection('blog'))
 	let commandHistory: string[] = [];
 	let historyIndex = -1;
 	let ready = false;
+
+	// CLI selector menu
+	const navMenu = document.getElementById('nav-menu')!;
+	const navItems = document.getElementById('nav-items')!;
+	let menuActive = false;
+	let menuIndex = 0;
+	let currentMenuLevel: 'main' | 'pages' = 'main';
+
+	type MenuOption = {
+		label: string;
+		desc: string;
+		action: string;
+		href?: string;
+	};
+
+	const mainMenu: MenuOption[] = [
+		{ label: 'cat about.md', desc: 'who am I', action: 'cat-about' },
+		{ label: 'cat work.md', desc: "things I've built", action: 'cat-work' },
+		{ label: 'neofetch', desc: 'system info', action: 'neofetch' },
+		{ label: 'cd', desc: 'browse pages', action: 'browse-pages' },
+		{ label: 'whoami', desc: '', action: 'whoami' },
+		{ label: 'hack', desc: '???', action: 'easter-egg' },
+	];
+
+	const pagesMenu: MenuOption[] = [
+		{ label: 'blog/', desc: 'databases, homelabs, dev tools', action: 'nav', href: '/blog' },
+		{ label: 'about/', desc: 'the longer version', action: 'nav', href: '/about' },
+		{ label: 'work/', desc: "things I've built", action: 'nav', href: '/work' },
+		{ label: 'uses/', desc: 'gear & homelab', action: 'nav', href: '/uses' },
+		{ label: 'contact/', desc: 'say hi', action: 'nav', href: '/contact' },
+		{ label: '../', desc: 'back', action: 'back' },
+	];
+
+	function activeMenu(): MenuOption[] {
+		return currentMenuLevel === 'pages' ? pagesMenu : mainMenu;
+	}
+
+	function renderMenu() {
+		const menu = activeMenu();
+		const header =
+			currentMenuLevel === 'pages'
+				? '<div class="text-dim mb-1">  <span class="text-teal">~/pages</span> - where do you want to go?</div>'
+				: '';
+		navItems.innerHTML =
+			header +
+			menu
+				.map((opt, i) => {
+					const sel = i === menuIndex;
+					const arrow = sel ? '<span class="text-coral">❯</span>' : ' ';
+					const desc = opt.desc ? ` <span class="text-dim">${opt.desc}</span>` : '';
+					const labelClass = currentMenuLevel === 'pages' ? 'text-teal' : '';
+					return `<div class="nav-item ${sel ? 'nav-item-selected' : 'nav-item-unselected'}" data-index="${i}">  ${arrow} <span class="nav-label ${sel ? labelClass : ''}">${opt.label}</span>${desc}</div>`;
+				})
+				.join('');
+
+		navItems.querySelectorAll('.nav-item').forEach((el) => {
+			el.addEventListener('click', () => {
+				menuIndex = parseInt((el as HTMLElement).dataset.index || '0');
+				renderMenu();
+				selectMenuItem();
+			});
+		});
+	}
+
+	function selectMenuItem() {
+		const menu = activeMenu();
+		const opt = menu[menuIndex];
+
+		if (opt.action === 'back') {
+			currentMenuLevel = 'main';
+			menuIndex = 0;
+			renderMenu();
+			scrollToBottom();
+			return;
+		}
+
+		if (opt.action === 'nav' && opt.href) {
+			appendLine(
+				`<span class="text-coral">~$</span> <span class="text-white">cd ${opt.label.replace('/', '')}</span>`,
+			);
+			appendLine(`Navigating to ${opt.href}...`);
+			setTimeout(() => {
+				window.location.href = opt.href!;
+			}, 400);
+			return;
+		}
+
+		if (opt.action === 'browse-pages') {
+			appendLine(`<span class="text-coral">~$</span> <span class="text-white">cd</span>`);
+			appendLines(cmdLs());
+			currentMenuLevel = 'pages';
+			menuIndex = 0;
+			renderMenu();
+			scrollToBottom();
+			focusInput();
+			return;
+		}
+
+		hideMenu();
+		appendLine(`<span class="text-coral">~$</span> <span class="text-white">${opt.label}</span>`);
+
+		switch (opt.action) {
+			case 'cat-about':
+				appendLines(cmdCatAbout());
+				showMenu();
+				break;
+			case 'cat-work':
+				appendLines(cmdCatWork());
+				showMenu();
+				break;
+			case 'neofetch':
+				appendLines(cmdNeofetch());
+				showMenu();
+				break;
+			case 'whoami':
+				appendLines(cmdWhoami());
+				showMenu();
+				break;
+			case 'easter-egg':
+				runMatrixRain();
+				break;
+		}
+		focusInput();
+	}
+
+	function showMenu() {
+		navMenu.style.display = 'block';
+		menuActive = true;
+		currentMenuLevel = 'main';
+		menuIndex = 0;
+		renderMenu();
+		scrollToBottom();
+	}
+
+	function hideMenu() {
+		navMenu.style.display = 'none';
+		menuActive = false;
+	}
+
+	const suggestions = [
+		'help',
+		'neofetch',
+		'cat about.md',
+		'ls',
+		'whoami',
+		'hack',
+		'cat readme',
+		'uptime',
+	];
+	let suggestionIndex = -1;
 
 	const pages: Record<string, string> = {
 		home: '/',
@@ -316,7 +551,7 @@ const posts = (await getCollection('blog'))
 	}
 
 	function appendLines(lines: string[]) {
-		lines.forEach(line => appendLine(line));
+		lines.forEach((line) => appendLine(line));
 	}
 
 	async function typeLines(lines: string[], delay = 40) {
@@ -327,17 +562,15 @@ const posts = (await getCollection('blog'))
 	}
 
 	function sleep(ms: number): Promise<void> {
-		return new Promise(r => setTimeout(r, ms));
+		return new Promise((r) => setTimeout(r, ms));
 	}
 
-	// Simulate typing a command character by character
 	async function typeCommand(cmd: string, charDelay = 50) {
-		// Show prompt with empty command
 		const cmdLine = document.createElement('div');
 		cmdLine.className = 'flex items-center';
 		const promptSpan = document.createElement('span');
 		promptSpan.className = 'text-coral mr-2';
-		promptSpan.textContent = 'joe@karlsson ~$';
+		promptSpan.textContent = '~$';
 		const textSpan = document.createElement('span');
 		textSpan.className = 'text-white';
 		const cursorSpan = document.createElement('span');
@@ -349,7 +582,6 @@ const posts = (await getCollection('blog'))
 		output.appendChild(cmdLine);
 		scrollToBottom();
 
-		// Type each character
 		for (let i = 0; i < cmd.length; i++) {
 			textSpan.textContent = cmd.slice(0, i + 1);
 			scrollToBottom();
@@ -357,10 +589,103 @@ const posts = (await getCollection('blog'))
 		}
 
 		await sleep(200);
-
-		// Remove the typing line and replace with static echoed command
 		cmdLine.remove();
-		appendLine(`<span class="text-coral">joe@karlsson ~$</span> <span class="text-white">${escapeHtml(cmd)}</span>`);
+		appendLine(
+			`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(cmd)}</span>`,
+		);
+	}
+
+	// --- Matrix rain easter egg (full hero overlay) ---
+	async function runMatrixRain() {
+		ready = false;
+		inputLine.style.display = 'none';
+		navMenu.style.display = 'none';
+
+		const heroSection = document.getElementById('hero-section')!;
+		const heroContent = document.getElementById('hero-content')!;
+
+		// Create overlay that covers the entire hero
+		const overlay = document.createElement('div');
+		overlay.style.cssText =
+			'position:absolute;top:0;left:0;right:0;bottom:0;z-index:50;background:#0a0a0f;display:flex;align-items:center;justify-content:center;';
+		heroSection.appendChild(overlay);
+
+		const rainCanvas = document.createElement('div');
+		rainCanvas.style.cssText =
+			'position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;font-family:monospace;padding:8px;';
+		overlay.appendChild(rainCanvas);
+
+		const msgDiv = document.createElement('div');
+		msgDiv.style.cssText =
+			'position:relative;z-index:10;text-align:center;opacity:0;transition:opacity 0.5s;';
+		overlay.appendChild(msgDiv);
+
+		const chars = 'ジョーカールソン01アイオーティー猫ホームラブ';
+		const charW = 10;
+		const lineH = 14;
+		const cols = Math.floor(heroSection.clientWidth / charW);
+		const rows = Math.floor(heroSection.clientHeight / lineH);
+		const grid: string[][] = Array.from({ length: rows }, () => Array(cols).fill(' '));
+		const drops: number[] = Array(cols)
+			.fill(0)
+			.map(() => Math.floor(Math.random() * -rows));
+
+		const rainPre = document.createElement('pre');
+		rainPre.style.cssText = `font-size:${charW + 2}px;line-height:${lineH}px;margin:0;white-space:pre;`;
+		rainCanvas.appendChild(rainPre);
+
+		for (let frame = 0; frame < 80; frame++) {
+			for (let c = 0; c < cols; c++) {
+				drops[c]++;
+				if (drops[c] >= 0 && drops[c] < rows) {
+					grid[drops[c]][c] = chars[Math.floor(Math.random() * chars.length)];
+				}
+				if (drops[c] > rows + Math.floor(Math.random() * rows)) {
+					drops[c] = Math.floor(Math.random() * -6);
+				}
+				if (drops[c] >= 3 && drops[c] - 3 < rows) {
+					grid[drops[c] - 3][c] =
+						Math.random() > 0.6 ? chars[Math.floor(Math.random() * chars.length)] : ' ';
+				}
+			}
+
+			let html = '';
+			for (let r = 0; r < rows; r++) {
+				for (let c = 0; c < cols; c++) {
+					const ch = grid[r][c];
+					if (ch !== ' ') {
+						const isHead = drops[c] === r;
+						const color = isHead ? '#fff' : Math.random() > 0.5 ? '#86efac' : '#22c55e';
+						html += `<span style="color:${color}">${ch}</span>`;
+					} else {
+						html += ' ';
+					}
+				}
+				html += '\n';
+			}
+			rainPre.innerHTML = html;
+			await sleep(50);
+		}
+
+		// Show HACK THE PLANET! centered over the rain
+		msgDiv.innerHTML =
+			'<span style="color:#86efac;font-size:2.5em;font-weight:bold;font-family:monospace;text-shadow:0 0 20px #22c55e,0 0 40px #22c55e;">HACK THE PLANET!</span>';
+		msgDiv.style.opacity = '1';
+		rainPre.style.opacity = '0.3';
+
+		await sleep(2500);
+
+		// Fade out overlay
+		overlay.style.transition = 'opacity 0.4s';
+		overlay.style.opacity = '0';
+		await sleep(400);
+		overlay.remove();
+
+		// Restore terminal
+		inputLine.style.display = 'flex';
+		ready = true;
+		showMenu();
+		focusInput();
 	}
 
 	// --- Commands ---
@@ -372,19 +697,20 @@ const posts = (await getCollection('blog'))
 			'  <span class="text-coral">help</span>         show this message',
 			'  <span class="text-coral">ls</span>           list site pages',
 			'  <span class="text-coral">cd</span> &lt;page&gt;    navigate to a page',
-			'  <span class="text-coral">goto</span> &lt;page&gt;  navigate to a page',
 			'  <span class="text-coral">whoami</span>       who is this',
 			'  <span class="text-coral">cat about.md</span> about me',
-			'  <span class="text-coral">cat readme</span>   read about this site',
-			'  <span class="text-coral">uptime</span>       system uptime',
+			'  <span class="text-coral">cat work.md</span>  things I\'ve built',
+			'  <span class="text-coral">cat readme</span>   about this site',
 			'  <span class="text-coral">neofetch</span>     system info',
+			'  <span class="text-coral">uptime</span>       system uptime',
+			'  <span class="text-coral">hack</span>         ???',
 			'  <span class="text-coral">clear</span>        clear terminal',
 			'',
 		];
 	}
 
 	function cmdLs(): string[] {
-		const entries = Object.keys(pages).map(p => `  <span class="text-teal">${p}/</span>`);
+		const entries = Object.keys(pages).map((p) => `  <span class="text-teal">${p}/</span>`);
 		return ['<span class="text-dim">drwxr-xr-x  joe  staff</span>', ...entries, ''];
 	}
 
@@ -397,31 +723,64 @@ const posts = (await getCollection('blog'))
 		}
 		const url = pages[target];
 		if (url) {
-			setTimeout(() => { window.location.href = url; }, 400);
+			setTimeout(() => {
+				window.location.href = url;
+			}, 400);
 			return [`Navigating to /${target}...`];
 		}
-		return [`<span class="text-coral">cd: no such page: ${target}</span>`, `<span class="text-dim">try 'ls' to see available pages</span>`, ''];
-	}
-
-	function cmdWhoami(): string[] {
 		return [
-			'<span class="text-teal">joe-karlsson</span> — software engineer & massive nerd',
+			`<span class="text-coral">cd: no such page: ${target}</span>`,
+			`<span class="text-dim">try 'ls' to see available pages</span>`,
 			'',
 		];
 	}
 
+	function cmdWhoami(): string[] {
+		return ['<span class="text-teal">joe-karlsson</span> - software engineer & massive nerd', ''];
+	}
+
 	function cmdCatAbout(): string[] {
 		return [
-			'<span class="text-yellow">about.md</span>',
 			'',
-			'  I\'m a massive nerd who empowers developers to think',
-			'  creatively when building applications. Through demos,',
-			'  blogs, videos, or whatever else developers need.',
+			'  <span class="text-yellow">## about.md</span>',
 			'',
-			'  Currently building data pipelines at <span class="text-white">CloudQuery</span>.',
-			'  Previously at <span class="text-white">MongoDB</span> and <span class="text-white">GitHub</span>.',
+			'  Hey, I\'m <span class="text-coral">Joe Karlsson</span>.',
+			'  Software engineer turned dev advocate. Massive nerd.',
 			'',
-			'  <span class="text-dim">TEDx speaker. Homelab hoarder. Film snob.</span>',
+			'  I help developers build cool stuff - through demos,',
+			'  blog posts, talks, videos, whatever works. Currently',
+			'  doing that at <span class="text-white">CloudQuery</span>.',
+			'',
+			'  Outside of work I run a <span class="text-teal">40+ container homelab</span>,',
+			'  watch way too many movies, and build things that',
+			"  probably shouldn't be connected to the internet.",
+			'',
+			'  I once built an IoT cat toilet and gave a conference',
+			'  talk about it. Also a <span class="text-white">TEDx speaker</span>. I contain',
+			'  multitudes.',
+			'',
+		];
+	}
+
+	function cmdCatWork(): string[] {
+		return [
+			'',
+			'  <span class="text-yellow">## work.md</span>',
+			'',
+			'  <span class="text-coral">IoT Smart Litter Box</span>',
+			'  Built an internet-connected cat toilet. Gave a',
+			'  <span class="text-white">TEDx talk</span> about it. Yes, really.',
+			'',
+			'  <span class="text-coral">40+ Container Homelab</span>',
+			'  Proxmox cluster, dual GPUs, Home Assistant,',
+			'  media automation, monitoring - the works.',
+			'',
+			'  <span class="text-coral">Developer Advocacy</span>',
+			'  Spoken at hundreds of conferences. Built demos,',
+			'  docs, and tools at CloudQuery, Tinybird,',
+			'  SingleStore, and MongoDB.',
+			'',
+			'  <span class="text-dim">See everything → <span class="text-teal">cd work</span></span>',
 			'',
 		];
 	}
@@ -431,13 +790,11 @@ const posts = (await getCollection('blog'))
 			'<span class="text-yellow">README.md</span>',
 			'',
 			'  Welcome to joekarlsson.com!',
-			'',
 			'  This site is where I write about software engineering,',
 			'  developer advocacy, homelabs, IoT cat litter boxes,',
-			'  and whatever else I\'m nerding out about.',
+			"  and whatever else I'm nerding out about.",
 			'',
 			'  Built with Astro. Powered by coffee and stubbornness.',
-			'',
 			'  <span class="text-dim">Type \'ls\' to see where you can go.</span>',
 			'',
 		];
@@ -445,7 +802,7 @@ const posts = (await getCollection('blog'))
 
 	function cmdUptime(): string[] {
 		return [
-			'  up <span class="text-green">42 days, 3 hours, 17 minutes</span> (since last mass container migration)',
+			'  up <span class="text-green">42 days, 3 hours, 17 minutes</span>',
 			'  load average: 0.42, 0.69, 1.21',
 			'  <span class="text-dim">vibes: immaculate</span>',
 			'',
@@ -455,20 +812,18 @@ const posts = (await getCollection('blog'))
 	function cmdNeofetch(): string[] {
 		return [
 			'',
-			'  <span class="text-coral"> ██╗ ██████╗ ███████╗</span>    <span class="text-teal">joe</span>@<span class="text-teal">joekarlsson.com</span>',
-			'  <span class="text-coral"> ██║██╔═══██╗██╔════╝</span>    ─────────────────────',
-			'  <span class="text-coral"> ██║██║   ██║█████╗  </span>    <span class="text-coral">OS</span>: Astro on Cloudflare',
-			'  <span class="text-coral">██  ██║   ██║██╔══╝  </span>    <span class="text-coral">Host</span>: M3 Pro MacBook Pro',
-			'  <span class="text-coral">╚█████╔╝██████╔╝███████╗</span>    <span class="text-coral">Kernel</span>: caffeine-6.1.0',
-			'  <span class="text-coral"> ╚════╝ ╚═════╝ ╚══════╝</span>    <span class="text-coral">Homelab</span>: Proxmox Cluster x2',
-			'                          <span class="text-coral">Shell</span>: bash + vibes',
-			'                          <span class="text-coral">GPU</span>: RTX A4000 + Quadro RTX 4000',
-			'                          <span class="text-coral">Containers</span>: 40+',
-			'                          <span class="text-coral">Work</span>: CloudQuery',
-			'                          <span class="text-coral">Cats</span>: 1 (IoT-enabled)',
-			'                          <span class="text-coral">Coffee</span>: ████████████░░ 86%',
+			'  <span class="text-teal">joe</span>@<span class="text-teal">joekarlsson.com</span>',
+			'  ─────────────────────',
+			'  <span class="text-coral">OS</span>:         Astro on Cloudflare',
+			'  <span class="text-coral">Host</span>:       M3 Pro MacBook Pro',
+			'  <span class="text-coral">Homelab</span>:    Proxmox Cluster x2',
+			'  <span class="text-coral">GPU</span>:        RTX A4000 + Quadro RTX 4000',
+			'  <span class="text-coral">Containers</span>: 40+',
+			'  <span class="text-coral">Shell</span>:      bash + vibes',
+			'  <span class="text-coral">Work</span>:       CloudQuery',
+			'  <span class="text-coral">Cats</span>:       1 (IoT-enabled)',
 			'',
-			'                          <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
+			'  <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
 			'',
 		];
 	}
@@ -482,8 +837,9 @@ const posts = (await getCollection('blog'))
 		const trimmed = raw.trim();
 		if (!trimmed) return;
 
-		// Echo the command
-		appendLine(`<span class="text-coral">joe@karlsson ~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`);
+		appendLine(
+			`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`,
+		);
 
 		if (trimmed) commandHistory.unshift(trimmed);
 		historyIndex = -1;
@@ -510,10 +866,25 @@ const posts = (await getCollection('blog'))
 			case 'cat':
 				if (args.toLowerCase() === 'about.md' || args.toLowerCase() === 'about') {
 					result = cmdCatAbout();
+				} else if (args.toLowerCase() === 'work.md' || args.toLowerCase() === 'work') {
+					result = cmdCatWork();
 				} else if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
 					result = cmdCatReadme();
+				} else if (args.toLowerCase() === 'cat' || args.toLowerCase() === 'cat.md') {
+					result = [
+						'',
+						'    <span class="text-coral">/\\_/\\</span>',
+						'   <span class="text-coral">( o.o )</span>',
+						'    <span class="text-coral">> ^ <</span>',
+						'',
+						'  <span class="text-dim">meow. (IoT-enabled)</span>',
+						'',
+					];
 				} else {
-					result = [`<span class="text-coral">cat: ${escapeHtml(args) || '???'}: No such file</span>`, ''];
+					result = [
+						`<span class="text-coral">cat: ${escapeHtml(args) || '???'}: No such file</span>`,
+						'',
+					];
 				}
 				break;
 			case 'uptime':
@@ -534,8 +905,15 @@ const posts = (await getCollection('blog'))
 			case 'rm':
 				result = ['<span class="text-coral">absolutely not.</span>', ''];
 				break;
+			case 'matrix':
+			case 'hack':
+				runMatrixRain();
+				return;
 			default:
-				result = [`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`, ''];
+				result = [
+					`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`,
+					'',
+				];
 		}
 
 		appendLines(result);
@@ -552,13 +930,41 @@ const posts = (await getCollection('blog'))
 		scrollToBottom();
 	}
 
-	// --- Keyboard handler ---
 	function focusInput() {
 		hiddenInput.focus();
 	}
 
 	hiddenInput.addEventListener('keydown', (e: KeyboardEvent) => {
 		if (!ready) return;
+
+		if (menuActive) {
+			if (e.key === 'ArrowUp') {
+				e.preventDefault();
+				menuIndex = (menuIndex - 1 + activeMenu().length) % activeMenu().length;
+				renderMenu();
+				scrollToBottom();
+				return;
+			} else if (e.key === 'ArrowDown') {
+				e.preventDefault();
+				menuIndex = (menuIndex + 1) % activeMenu().length;
+				renderMenu();
+				scrollToBottom();
+				return;
+			} else if (e.key === 'Escape' && currentMenuLevel === 'pages') {
+				e.preventDefault();
+				currentMenuLevel = 'main';
+				menuIndex = 0;
+				renderMenu();
+				scrollToBottom();
+				return;
+			} else if (e.key === 'Enter') {
+				e.preventDefault();
+				selectMenuItem();
+				return;
+			} else {
+				hideMenu();
+			}
+		}
 
 		if (e.key === 'Enter') {
 			e.preventDefault();
@@ -567,25 +973,46 @@ const posts = (await getCollection('blog'))
 			hiddenInput.value = '';
 			updateInputDisplay();
 			inputLine.style.display = 'none';
+			hideMenu();
 			executeCommand(cmd);
 			inputLine.style.display = 'flex';
+			showMenu();
 			updateInputDisplay();
 		} else if (e.key === 'ArrowUp') {
 			e.preventDefault();
-			if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
-				historyIndex++;
-				currentInput = commandHistory[historyIndex];
-				hiddenInput.value = currentInput;
-				updateInputDisplay();
+			if (commandHistory.length > 0) {
+				if (historyIndex < commandHistory.length - 1) {
+					historyIndex++;
+					currentInput = commandHistory[historyIndex];
+					hiddenInput.value = currentInput;
+					updateInputDisplay();
+				}
+			} else {
+				if (suggestionIndex < suggestions.length - 1) {
+					suggestionIndex++;
+					currentInput = suggestions[suggestionIndex];
+					hiddenInput.value = currentInput;
+					updateInputDisplay();
+				}
 			}
 		} else if (e.key === 'ArrowDown') {
 			e.preventDefault();
-			if (historyIndex > 0) {
-				historyIndex--;
-				currentInput = commandHistory[historyIndex];
+			if (commandHistory.length > 0) {
+				if (historyIndex > 0) {
+					historyIndex--;
+					currentInput = commandHistory[historyIndex];
+				} else {
+					historyIndex = -1;
+					currentInput = '';
+				}
 			} else {
-				historyIndex = -1;
-				currentInput = '';
+				if (suggestionIndex > 0) {
+					suggestionIndex--;
+					currentInput = suggestions[suggestionIndex];
+				} else {
+					suggestionIndex = -1;
+					currentInput = '';
+				}
 			}
 			hiddenInput.value = currentInput;
 			updateInputDisplay();
@@ -593,7 +1020,7 @@ const posts = (await getCollection('blog'))
 			e.preventDefault();
 			const partial = currentInput.replace(/^(cd|goto)\s+/, '');
 			const prefix = currentInput.replace(partial, '');
-			const matches = Object.keys(pages).filter(p => p.startsWith(partial));
+			const matches = Object.keys(pages).filter((p) => p.startsWith(partial));
 			if (matches.length === 1) {
 				currentInput = prefix + matches[0];
 				hiddenInput.value = currentInput;
@@ -617,64 +1044,61 @@ const posts = (await getCollection('blog'))
 
 	// --- Boot sequence ---
 	async function boot() {
-		// Check for reduced motion preference
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const isMobile = window.innerWidth < 768;
 
-		if (prefersReducedMotion) {
-			// Skip animations — show final state immediately
-			appendLines(cmdNeofetch());
-			appendLine(`<span class="text-coral">joe@karlsson ~$</span> <span class="text-white">cat about.md</span>`);
-			appendLines(cmdCatAbout());
-			appendLine(`<span class="text-coral">joe@karlsson ~$</span> <span class="text-white">ls</span>`);
-			appendLines(cmdLs());
-			appendLines([
-				'<span class="text-dim">  Type \'help\' for commands, or \'cd &lt;page&gt;\' to navigate.</span>',
-				'',
-			]);
+		if (prefersReducedMotion || isMobile) {
+			appendLine('<span class="text-dim">Welcome to joekarlsson.com</span>');
+			appendLine('');
 			inputLine.style.display = 'flex';
+			showMenu();
 			ready = true;
-			focusInput();
+			if (!isMobile) focusInput();
 			return;
 		}
 
-		// Boot lines
-		const bootLines = [
-			'<span class="text-dim">[    0.000000] joekarlsson.com kernel loading...</span>',
-			'<span class="text-dim">[    0.042069] Initializing vibes subsystem</span>',
-			'<span class="text-dim">[    0.133700] Mounting /dev/pages ... <span class="text-green">OK</span></span>',
-		];
-
-		await typeLines(bootLines, 100);
-		await sleep(300);
-
-		// neofetch
-		await typeCommand('neofetch', 60);
-		appendLines(cmdNeofetch());
-		await sleep(600);
-
-		// cat about.md
-		await typeCommand('cat about.md', 50);
-		appendLines(cmdCatAbout());
-		await sleep(600);
-
-		// ls
-		await typeCommand('ls', 80);
-		appendLines(cmdLs());
-		await sleep(300);
-
-		appendLines([
-			'<span class="text-dim">  Type \'help\' for commands, or \'cd &lt;page&gt;\' to navigate.</span>',
-			'',
-		]);
+		appendLine('<span class="text-dim">[  0.000] joekarlsson.com kernel loading...</span>');
+		await sleep(80);
+		appendLine(
+			'<span class="text-dim">[  0.042] Mounting /dev/pages ... <span class="text-green">OK</span></span>',
+		);
+		await sleep(150);
+		appendLine('<span class="text-dim">[  0.069] Welcome.</span>');
+		await sleep(200);
+		appendLine('');
 
 		inputLine.style.display = 'flex';
+		showMenu();
 		ready = true;
 		focusInput();
 	}
 
 	boot();
 
-	// Scroll reveal with Intersection Observer
+	// --- Rotating tagline ---
+	const taglineEl = document.getElementById('rotating-tagline');
+	const taglines = [
+		'Built an IoT cat toilet. Gave a conference talk about it.',
+		'Mass-assigning GPU transcoding jobs at 2am on a Tuesday.',
+		'Running 40+ containers because "it\'ll be quick to set up."',
+		'TEDx speaker. Homelab hoarder. Film snob.',
+		"Teaching computers to do things they probably shouldn't.",
+		'TEDx Speaker - talked about the art of computer science.',
+	];
+	if (taglineEl) {
+		let ti = 0;
+		taglineEl.style.transition = 'opacity 0.3s ease';
+		setInterval(() => {
+			ti = (ti + 1) % taglines.length;
+			taglineEl.style.opacity = '0';
+			setTimeout(() => {
+				taglineEl.textContent = taglines[ti];
+				taglineEl.style.opacity = '1';
+			}, 300);
+		}, 4000);
+	}
+
+	// Scroll reveal
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
@@ -684,10 +1108,7 @@ const posts = (await getCollection('blog'))
 				}
 			});
 		},
-		{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+		{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
 	);
-
-	document.querySelectorAll('.scroll-reveal').forEach((el) => {
-		observer.observe(el);
-	});
+	document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
 </script>

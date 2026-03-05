@@ -1,10 +1,10 @@
 ---
-title: "How to Use SingleStore and Node.js"
+title: 'How to Use SingleStore and Node.js'
 date: 2021-11-04
-slug: "how-to-use-singlestore-and-node-js"
-description: "Do you need to get a basic SingleStore application setup quickly using Node.js?"
-categories: ["Blog"]
-heroImage: "/images/blog/how-to-use-singlestore-and-node-js/img_blog_post_featured_how-to-use-singlestore-and-node-js.png"
+slug: 'how-to-use-singlestore-and-node-js'
+description: 'Do you need to get a basic SingleStore application setup quickly using Node.js?'
+categories: ['Databases']
+heroImage: '/images/blog/how-to-use-singlestore-and-node-js/img_blog_post_featured_how-to-use-singlestore-and-node-js.webp'
 ---
 
 Do you need to get a basic SingleStore application setup quickly using Node.js? Well, this guide’s got you covered. We will be covering how to use SingleStore and Node.js by setting up a database, connecting to that database using Node.js, and then performing CRUD (create, read, update, delete) operations on that database using Node.js.
@@ -51,7 +51,7 @@ npm install --save mysql2
 
 Sign up to [create a free database](https://www.singlestore.com/managed-service-trial/). This is the easy way to try SingleStore. Get a fully-managed database online in minutes. Once you’ve signed in, you’ll need to start a new cluster. First, click “Create Managed Cluster” from the SingleStore Portal.
 
-![](/images/blog/how-to-use-singlestore-and-node-js/create-managed-cluster-buttons.png)
+![SingleStore portal with Create Cluster and Create Managed Cluster buttons highlighted](/images/blog/how-to-use-singlestore-and-node-js/create-managed-cluster-buttons.webp)
 
 Next, you will be taken to the “Create a Database Cluster” page. You can leave all the default settings and click “next.”
 
@@ -63,7 +63,7 @@ Once you have set your password and configured your cluster’s IP access restri
 
 It’ll take a couple of minutes for your cluster to be set up and deployed. So feel free to browse Twitter (or whatever) until it’s ready to go.
 
-![](/images/blog/how-to-use-singlestore-and-node-js/moira-schitts-creek-im-busy.gif)
+![Waiting impatiently GIF while cluster deploys](/images/blog/how-to-use-singlestore-and-node-js/moira-schitts-creek-im-busy.gif)
 
 ### Create a Database and Table
 
@@ -91,8 +91,7 @@ INSERT INTO messages (
 
 Now, go back to your local application files. In your index.js file, you will want to set up the connection to our new SingleStore database using the MySQL2 NPM package. Be sure that you replace the configuration parameters at the top of the code snippet with the correct connection details from your SingleStore deployment.
 
-> 
-**Note**: If you want to connect using SSL, check out [this page](https://docs.singlestore.com/managed-service/en/developer-resources/connect-with-application-development-tools/connect-with-javascript/connect-with-node-js-using-ssl.html). 
+> **Note**: If you want to connect using SSL, check out [this page](https://docs.singlestore.com/managed-service/en/developer-resources/connect-with-application-development-tools/connect-with-javascript/connect-with-node-js-using-ssl.html).
 
 ```
 import mysql from 'mysql2/promise';
@@ -131,8 +130,7 @@ main();
 
 Test to see that you have successfully connected to your SingleStore database by saving the file, and running the following command in the terminal.
 
-> 
-**Note**: If you encounter any issues or have any questions about developing applications with SingleStore, you can refer to the [SingleStore Docs](https://docs.singlestore.com/db/v7.3/en/introduction/singlestore-documentation.html) or [Community Forums](https://www.singlestore.com/forum/) for more information on setup or general help.
+> **Note**: If you encounter any issues or have any questions about developing applications with SingleStore, you can refer to the [SingleStore Docs](https://docs.singlestore.com/db/v7.3/en/introduction/singlestore-documentation.html) or [Community Forums](https://www.singlestore.com/forum/) for more information on setup or general help.
 
 ```
 node index.js
@@ -267,36 +265,10 @@ If you run into any issues or get stuck, make sure to connect with the [SingleSt
 
 [https://www.youtube.com/embed/NvgVx9wmb3k?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/NvgVx9wmb3k?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
 
-- [Video] If you want to connect to SingleStore using an ORM (Sequelize) check out this video: 
+- [Video] If you want to connect to SingleStore using an ORM (Sequelize) check out this video:
 
 [https://www.youtube.com/embed/koILFN2h7b8?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/koILFN2h7b8?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
 
 - [Video] If you need to use Stored Procedures With JavaScript and Node.js, check out this video:
 
 [https://www.youtube.com/embed/VLsGoPZeYxA?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/VLsGoPZeYxA?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://twitter.com/JoeKarlsson1](https://x.com/JoeKarlsson1)
-
-- TikTok – [https://www.tiktok.com/@joekarlsson](https://www.tiktok.com/@joekarlsson)
-
-- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)
-
-- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)
-
-- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)
-
-- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)
-
-- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)
-
-- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)
-
-- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)
-
-- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)

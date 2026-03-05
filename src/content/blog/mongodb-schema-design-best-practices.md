@@ -1,17 +1,17 @@
 ---
-title: "MongoDB Schema Design Best Practices"
+title: 'MongoDB Schema Design Best Practices'
 date: 2020-04-02
-slug: "mongodb-schema-design-best-practices"
-description: "Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you will find all the resources discussed during the talk. About Have you ever wondered, “How do I model my schema for my..."
-categories: ["Tech Talk"]
-heroImage: "/images/blog/mongodb-schema-design-best-practices/2.png"
+slug: 'mongodb-schema-design-best-practices'
+description: 'Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you will find all the resources discussed during the talk. About Have you ever wondered, “How do I model my schema for my...'
+categories: ['Databases']
+heroImage: '/images/blog/mongodb-schema-design-best-practices/2.webp'
 ---
 
 Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you will find all the resources discussed during the talk.
 
 ## About
 
-Have you ever wondered, “How do I model my schema for my application?” It’s one of the most common questions devs have pertaining to MongoDB. And the answer is, it depends. This is because document databases have a rich vocabulary that is capable of expressing data relationships in more nuanced ways than SQL. There are many things to consider when picking a schema. is your app read or write-heavy? What data is frequently accessed together? What are your performance considerations? How will your data set grow and scale?
+Have you ever wondered, “How do I model my schema for my application?” It’s one of the most common questions devs have pertaining to MongoDB. And the answer is, it depends. This is because document databases have a rich vocabulary that is capable of expressing data relationships in more nuanced ways than SQL. There are many things to consider when picking a schema. is your app read or write-heavy? What data is frequently accessed together? What are your performance considerations? How will your data set grow and scale? If you're coming from a SQL background, I wrote a separate post on [moving from SQL to NoSQL](/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/) that covers how to shift your thinking about data modeling.
 
 In this talk, we will discuss the basics of data modeling using real-world examples. You will learn common methodologies and vocabulary you can use when designing your database schema on your application.
 
@@ -19,7 +19,7 @@ In this talk, we will discuss the basics of data modeling using real-world examp
 
 [https://www.youtube.com/embed/leNCfU5SYR8?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/leNCfU5SYR8?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
 
-If you are having trouble with the embedded link, you can check out the video here: [https://www.youtube.com/watch?v=leNCfU5SYR](https://www.youtube.com/watch?v=leNCfU5SYR8)8
+If you are having trouble with the embedded link, you can check out the video here: [https://www.youtube.com/watch?v=leNCfU5SYR8](https://www.youtube.com/watch?v=leNCfU5SYR8)
 
 ## Slides
 
@@ -28,11 +28,3 @@ If you are having trouble with the embedded link, you can check out the video he
 ## Related Links
 
 - [MongoDB University](https://joekarlsson.dev/MongoDBUniversity)- MongoDB Developer Hub- [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity)- Want to work for MongoDB? [We’re always hiring!](https://joekarlsson.dev/MongoDBCareers) - Modeling: [https://university.mongodb.com/courses/M320/about](https://university.mongodb.com/courses/M320/about)- 6 Rules of Thumb for MongoDB Schema Design: Part 1: [https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)- Data Model Design: [https://www.mongodb.com/docs/current/data-modeling/](https://www.mongodb.com/docs/current/data-modeling/)- Data Model Examples and Patterns: - Building with Patterns: A Summary: [https://www.mongodb.com/blog/post/building-with-patterns-a-summary](https://www.mongodb.com/blog/post/building-with-patterns-a-summary)
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://twitter.com/JoeKarlsson1](https://x.com/JoeKarlsson1)- TikTok – [https://www.tiktok.com/@joekarlsson](https://www.tiktok.com/@joekarlsson)- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)

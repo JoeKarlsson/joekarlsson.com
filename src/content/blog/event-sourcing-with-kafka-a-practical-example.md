@@ -1,22 +1,21 @@
 ---
-title: "Event sourcing with Kafka: A practical example"
+title: 'Event sourcing with Kafka: A practical example'
 date: 2024-03-29
-slug: "event-sourcing-with-kafka-a-practical-example"
-description: "Imagine you’re building banking software, and you’ve been asked to figure out one of the most fundamental tasks in fintech: determining the current balance of every customer in your system...."
-categories: ["Blog"]
-heroImage: "/images/blog/event-sourcing-with-kafka-a-practical-example/651452893449276c78cd22de_Event-sourcing-with-Kafka-Blog.png"
+slug: 'event-sourcing-with-kafka-a-practical-example'
+description: 'Imagine you’re building banking software, and you’ve been asked to figure out one of the most fundamental tasks in fintech: determining the current balance of every customer in your system....'
+categories: ['Databases']
+heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/651452893449276c78cd22de_Event-sourcing-with-Kafka-Blog.webp'
 ---
 
 Imagine you’re building banking software, and you’ve been asked to figure out one of the most fundamental tasks in fintech: determining the current balance of every customer in your system. Traditionally, you might store the balance in a transactional database, a single source of truth, such that the current balance for each user is just an SQL query away. But what happens if that value gets accidentally (or nefariously) changed, and there’s no transaction history to back it up?
 
 There is another way, one that adds flexibility, traceability, repeatability, and scalability for large, distributed systems. This approach is called **event sourcing**, and it’s a powerful and reliable way to get an eventually consistent view of the current state of a system by analyzing and aggregating past events.
 
-> 
-Event sourcing is a powerful and flexible way to arrive at an eventually consistent view of state while retaining event histories.
+> Event sourcing is a powerful and flexible way to arrive at an eventually consistent view of state while retaining event histories.
 
 In this blog post, you’ll learn how to implement event sourcing with Kafka and Tinybird, using Kafka’s event logs to track and replay events and Tinybird to calculate and store state snapshots to arrive at an eventually consistent state for your system.
 
-![](/images/blog/event-sourcing-with-kafka-a-practical-example/image.png)
+![Data flow diagram showing deposit, withdrawal, and transfer events flowing through Kafka topics to a consumer](/images/blog/event-sourcing-with-kafka-a-practical-example/image.webp)
 
 A basic example of the data flow for an event sourcing pattern with Kafka.
 
@@ -28,14 +27,13 @@ Event sourcing is a data design pattern in which the state of an application is 
 
 ### Event sourcing changes the way you think about data
 
-In a transactional world, you may think about entries in a database in terms of state. Columns like `CurrentBalance` and `PendingTransactionAmount` feel natural. In the world of event sourcing, that changes a bit.
+In a transactional world, you may think about entries in a database in terms of state. Columns like `CurrentBalance` and `PendingTransactionAmount` feel natural. In event sourcing, that changes a bit.
 
-Instead of data representing states, data represents *state-changing* events. These events are like dinosaur footprints forever fossilized in the sands of time; they’re the unalterable objective facts that tell the story of our application or system, and how we got to the current state.
+Instead of data representing states, data represents _state-changing_ events. These events are like dinosaur footprints forever fossilized in the sands of time; they’re the unalterable objective facts that tell the story of our application or system, and how we got to the current state.
 
-> 
-With event sourcing, we focus not on data that represents state, but data that represents state-changing events. We construct state from these events.
+> With event sourcing, we focus not on data that represents state, but data that represents state-changing events. We construct state from these events.
 
-For instance, in our banking app, events like `DepositAdded` or `WithdrawalMade` don’t just hold raw state – they capture *actionable intent*. This is immensely valuable for things like auditing, debugging, or understanding user behavior over time.
+For instance, in our banking app, events like `DepositAdded` or `WithdrawalMade` don’t just hold raw state – they capture _actionable intent_. This is immensely valuable for things like auditing, debugging, or understanding user behavior over time.
 
 In event sourcing patterns, backtracking or adjusting state doesn’t involve erasing events. Instead, you simply add a new event to counteract the last. This is what we call a “compensation event”; it’s a way to make amends without rewriting history, keeping the chronology intact.
 
@@ -53,10 +51,9 @@ Specifically, event sourcing is beneficial for the following reasons
 
 - **Replayability and debugging**: The ability to replay events allows for debugging and reproducing issues, as well as testing new features or updates without affecting the live system.
 
-- **Event-driven architecture**: Event sourcing naturally complements [event-driven architectures](https://www.tinybird.co/blog-posts/event-driven-architecture-best-practices-for-databases-and-files), enabling applications to react to changes in real time and promoting loose coupling between components.
+- **Event-driven architecture**: Event sourcing naturally complements [event-driven architectures](https://www.tinybird.co/blog-posts/event-driven-architecture-best-practices-for-databases-and-files), enabling applications to react to changes in real time and promoting loose coupling between components. If you're interested in a related pattern, I also wrote about [modern data management with real-time Change Data Capture](/blog/modern-data-management-with-real-time-change-data-capture/), which takes a different approach to tracking changes in your systems.
 
-> 
-Event sourcing is valuable for its durability. If state gets corrupted, you can replay the event log to reconstruct it.
+> Event sourcing is valuable for its durability. If state gets corrupted, you can replay the event log to reconstruct it.
 
 ### How does event sourcing scale?
 
@@ -64,12 +61,11 @@ You might be wondering how event sourcing scales when you want to calculate and 
 
 To scale with event sourcing, you use periodic snapshots that store state. Depending on the system and use case, these could be calculated every month or every minute. The important thing is that they reduce the amount of computation required when you want to fetch the up-to-the-millisecond current state.
 
-> 
-Snapshots are critical for scaling event sourcing systems.
+> Snapshots are critical for scaling event sourcing systems.
 
 With snapshots, retrieving the current state becomes much simpler: You start with the snapshot and process all events since it was calculated, perfectly reconstructing state in a much more efficient manner.
 
-![](/images/blog/event-sourcing-with-kafka-a-practical-example/image-1.jpg)
+![Timeline showing event sourcing with snapshots, replaying four balance events from $100 to $75](/images/blog/event-sourcing-with-kafka-a-practical-example/image-1.webp)
 
 To make event sourcing scale, you take occasional snapshots of the current state, then perform a final aggregation when state is requested by an application. This reduces computational load while still providing up-to-the-second state.
 
@@ -81,22 +77,21 @@ Kafka is a perfect technology for event sourcing. Here’s why:
 
 - **Real-time event streaming**: Kafka excels at handling real-time data, making it an ideal choice for [event-driven architectures](https://www.tinybird.co/blog-posts/event-driven-architecture-best-practices-for-databases-and-files). Producers can write events to Kafka as they occur, while consumers can react to these events in real time, facilitating seamless communication between components. Event sourcing relies on speedy and reliable event streaming to be able to produce a consistent state as quickly as possible.
 
-- **Data retention and durability**: Kafka provides configurable data retention policies, allowing you to define how long events should be kept in an event store. This ensures that the event log remains accessible for historical analysis and debugging purposes. Additionally, Kafka’s replication mechanisms ensure data durability and high availability.
+- **Data retention and durability**: Kafka provides configurable data retention policies, allowing you to define how long events should be kept in an event store. This ensures that the event log remains accessible for historical analysis and debugging purposes. Kafka’s replication mechanisms also ensure data durability and high availability.
 
-- **Strong consistency guarantees**: Kafka guarantees that events are written in order and ensures that consumers read events in the order they were produced. This is crucial for maintaining the correct state with event sourcing, as the order of events determines the current state.
+- **Strong consistency guarantees**: Kafka guarantees that events are written in order and ensures that consumers read events in the order they were produced. This is important for maintaining the correct state with event sourcing, as the order of events determines the current state.
 
 - **Wide integration support**: Kafka’s popularity has created a large, vibrant ecosystem of integrations. Data platforms such as [Tinybird](https://www.tinybird.co) have [native support ](https://www.tinybird.co/docs/ingest/kafka.html)for consuming Kafka data, allowing you to perform complex event processing, aggregation, and transformation tasks, making it easier to derive insights and react to events in real time.
 
-> 
-Kafka is perfect for event sourcing thanks to its durable event log and strong consistency guarantees.
+> Kafka is perfect for event sourcing thanks to its durable event log and strong consistency guarantees.
 
 ### Best practices for implementing event sourcing with Kafka
 
-Before diving into a practical example of implementing event sourcing with Kafka, it’s crucial to set some ground rules. Best practices not only mitigate the complexities but also future-proof your architecture, ensuring seamless scalability and robustness. Whether you’re a seasoned developer or just starting with [event-driven architectures](https://www.tinybird.co/blog-posts/event-driven-architecture-best-practices-for-databases-and-files), the following guidelines offer valuable insights that could make the difference between a project’s success and failure.
+Before diving into a practical example of implementing event sourcing with Kafka, it’s important to set some ground rules. Best practices not only mitigate the complexities but also future-proof your architecture, ensuring seamless scalability and robustness. Whether you’re a seasoned developer or just starting with [event-driven architectures](https://www.tinybird.co/blog-posts/event-driven-architecture-best-practices-for-databases-and-files), the following guidelines offer valuable insights that could make the difference between a project’s success and failure.
 
 - **Schema Evolution**: Always design your events with schema evolution in mind. Utilize [schema registries](https://docs.confluent.io/platform/current/schema-registry/index.html) and versioning to manage changes to your event schemas. This makes it possible to add or modify fields without breaking existing systems.
 
-- **Versioning: **[Implement event versioning](https://www.tinybird.co/blog-posts/git-for-real-time-data-projects) from the start to ensure backward and forward compatibility as your application evolves. Utilize a schema registry or embed version numbers in event schemas to manage changes effectively. Always try to make backward-compatible changes. If not, use a different topic for non-backward compatible changes.
+- **Versioning:** [Implement event versioning](https://www.tinybird.co/blog-posts/git-for-real-time-data-projects) from the start to ensure backward and forward compatibility as your application evolves. Utilize a schema registry or embed version numbers in event schemas to manage changes effectively. Always try to make backward-compatible changes. If not, use a different topic for non-backward compatible changes.
 
 - **Idempotence**: Ensure that your system can handle the same or duplicated event multiple times without causing unwanted side effects. Kafka provides native support for idempotent producers, but you should also implement idempotence in your business logic.
 
@@ -110,7 +105,7 @@ Before diving into a practical example of implementing event sourcing with Kafka
 
 - **Test, Test, Test**: Before deploying, simulate different failure scenarios and verify that your system can recover and maintain data consistency. Automated tests, chaos engineering, and load testing are your friends here.
 
-- **Real-Time Analytics**: Integrate your Kafka streams with [real-time data platforms](https://www.tinybird.co/blog-posts/real-time-data-platforms) like [Tinybird](https://www.tinybird.co/product) to gain immediate insights and act upon them. This is crucial for reactive, event-driven systems.
+- **Real-Time Analytics**: Integrate your Kafka streams with [real-time data platforms](https://www.tinybird.co/blog-posts/real-time-data-platforms) like [Tinybird](https://www.tinybird.co/product) to gain immediate insights and act upon them. This is important for reactive, event-driven systems.
 
 ### Challenges when using Kafka for event sourcing and real-time analytics
 
@@ -118,13 +113,13 @@ As with most things involving large-scale distributed systems, implementing even
 
 First, the sheer velocity and volume of event data can overwhelm systems not designed for [real-time data processing](https://www.tinybird.co/blog-posts/real-time-data-processing). Arriving at eventual consistency when you’re streaming millions of events per second can be quite difficult.
 
-Additionally, systems like [ksqlDB](https://ksqldb.io/) (SQL) or [Kafka Streams](https://kafka.apache.org/documentation/streams/) (Java/Python) that provide a layer of abstraction over the Kafka APIs offer stateful real-time transformation abilities, [but they can struggle when state grows or when dealing with high-cardinality columns](https://www.tinybird.co/blog-posts/ksqldb-alternative).
+Systems like [ksqlDB](https://ksqldb.io/) (SQL) or [Kafka Streams](https://kafka.apache.org/documentation/streams/) (Java/Python) that provide a layer of abstraction over the Kafka APIs offer stateful real-time transformation abilities, [but they can struggle when state grows or when dealing with high-cardinality columns](https://www.tinybird.co/blog-posts/ksqldb-alternative).
 
 For example, if you wanted to run [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) over event streams, calculate state using a simple SQL interface, or run queries across multiple data sources, you’ll probably need to look beyond the native Kafka ecosystem. [Apache Flink](https://flink.apache.org/), an open source stream processing engine, can handle massive scale for stream processing but can also come with a steep learning curve.
 
 Finally, we’re often talking about massive, distributed systems that need to support high-concurrency access at scale. [Building these is always hard](https://www.tinybird.co/blog-posts/the-hard-parts-of-building-massive-data-systems-with-high-concurrency). Ensuring scalability and fault tolerance requires a careful orchestration of distributed systems, complicating the architecture further.
 
-[Tinybird](https://www.tinybird.co/) is a [real-time data platform](https://www.tinybird.co/product) that can simplify event sourcing with Kafka by providing a serverless, scalable infrastructure that keeps up with Kafka streaming. Tinybird leverages an online analytical processing (OLAP) [real-time database](https://www.tinybird.co/blog-posts/real-time-databases-what-developers-need-to-know), offering an intuitive, scalable SQL engine for both calculating state and running [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide). Tinybird can [consume events from Kafka in real-time](https://www.tinybird.co/docs/ingest/kafka.html), calculate and persist state into [real-time materialized views](https://www.tinybird.co/blog-posts/what-are-materialized-views-and-why-do-they-matter-for-realtime), and serve real-time analytics as comfortable, interoperable APIs. In this way, in this way, it cuts back on the learning curve and reduces barriers to entry for implementing event sourcing with Kafka.
+[Tinybird](https://www.tinybird.co/) is a [real-time data platform](https://www.tinybird.co/product) that can simplify event sourcing with Kafka by providing a serverless, scalable infrastructure that keeps up with Kafka streaming. Tinybird uses an online analytical processing (OLAP) [real-time database](https://www.tinybird.co/blog-posts/real-time-databases-what-developers-need-to-know), offering an intuitive, scalable SQL engine for both calculating state and running [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide). Tinybird can [consume events from Kafka in real-time](https://www.tinybird.co/docs/ingest/kafka.html), calculate and persist state into [real-time materialized views](https://www.tinybird.co/blog-posts/what-are-materialized-views-and-why-do-they-matter-for-realtime), and serve real-time analytics as comfortable, interoperable APIs. In this way, it cuts back on the learning curve and reduces barriers to entry for implementing event sourcing with Kafka.
 
 ## A practical example of event sourcing with Kafka and Tinybird
 
@@ -177,7 +172,7 @@ This query:
 
 After you run the query, confirm that you are happy with the data, and click the carot by the “Create API Endpoint” button, select the “Create Copy Job”, and choose the node we just created, `init_latest_snapshot`, to generate your first snapshot. For this demo, you can just select “On Demand”, but for future reference, you can also set up CRON jobs in Tinybird to manage copy jobs on a schedule.
 
-![](/images/blog/event-sourcing-with-kafka-a-practical-example/image-4.png)
+![Tinybird UI showing the transaction snapshots copy pipe with SQL query](/images/blog/event-sourcing-with-kafka-a-practical-example/image-4.webp)
 
 Create a Copy Job from the first node in your Pipe.
 
@@ -240,9 +235,9 @@ Now that you have all of your users’ current balance state built up using even
 
 In Tinybird, here’s how to do that:
 
-1.** Duplicate your Copy Pipe:** The logic you implemented in your Copy Pipe for building up the current balance of your users’ accounts is sound, but in order to isolate services, you will need to duplicate it into a new Pipe. You can do this by clicking the ellipsis next to your Copy Pipe, selecting “Duplicate” and “Pipe”.
+1. **Duplicate your Copy Pipe:** The logic you implemented in your Copy Pipe for building up the current balance of your users’ accounts is sound, but in order to isolate services, you will need to duplicate it into a new Pipe. You can do this by clicking the ellipsis next to your Copy Pipe, selecting “Duplicate” and “Pipe”.
 
-![](/images/blog/event-sourcing-with-kafka-a-practical-example/image-3.png)
+![Tinybird context menu showing Duplicate Pipe option for the transaction snapshots copy pipe](/images/blog/event-sourcing-with-kafka-a-practical-example/image-3.webp)
 
 Duplicate your Pipe
 
@@ -250,19 +245,19 @@ Note
 
 You might need to temporarily stop the Copy Pipe process in order to duplicate your Pipe.
 
-2. **Rename**: Rename the duplicated pipe to `current_account_balance`.**‍**
+2. **Rename**: Rename the duplicated pipe to `current_account_balance`.
 
-3. **Create an API Endpoint: **Click “Create API Endpoint,” and then select the node you want to publish. In this case, it’s `build_current_balance_state`.
+3. **Create an API Endpoint:** Click “Create API Endpoint,” and then select the node you want to publish. In this case, it’s `build_current_balance_state`.
 
-![](/images/blog/event-sourcing-with-kafka-a-practical-example/image-2.png)
+![Tinybird UI showing the current account balance pipe with Create API Endpoint dropdown](/images/blog/event-sourcing-with-kafka-a-practical-example/image-2.webp)
 
 Create an API Endpoint from the final node of your Pipe
 
-4.** Test**: Once your API Endpoint is published, you will be able to access your data with an HTTP GET request. Try pasting the sample API Endpoint (HTTP) into your browser, and you should be able to see all of your users’ account balances as JSON. To learn more about building APIs in Tinybird, [consult the docs](https://www.tinybird.co/docs/concepts/apis.html).
+4. **Test:** Once your API Endpoint is published, you will be able to access your data with an HTTP GET request. Try pasting the sample API Endpoint (HTTP) into your browser, and you should be able to see all of your users’ account balances as JSON. To learn more about building APIs in Tinybird, [consult the docs](https://www.tinybird.co/docs/concepts/apis.html).
 
 ## Wrap up
 
-Event sourcing with Kafka offers a robust and scalable solution for building real-time, event-driven architectures. Leveraging snapshotting and advanced analytics tools like Tinybird, you can handle large event logs efficiently while keeping system complexity in check. From enabling dynamic attribution models to ensuring data durability and eventual consistency, the techniques and best practices discussed in this post are key to mastering event sourcing in your applications.
+Event sourcing with Kafka offers a solid and scalable solution for building real-time, event-driven architectures. Using snapshotting and advanced analytics tools like Tinybird, you can handle large event logs efficiently while keeping system complexity in check. From enabling dynamic attribution models to ensuring data durability and eventual consistency, the techniques and best practices discussed in this post are key to mastering event sourcing in your applications.
 
 If you’re new to Tinybird, [give it a try](https://www.tinybird.co/signup?referrer=https%3A%2F%2Fwww.tinybird.co%2Fblog-posts%2Fevent-sourcing-with-kafka). You can start for free on the Build Plan – which is more than enough for small projects and has no time limit – and use the [Kafka Connector](https://www.tinybird.co/docs/ingest/kafka.html?highlight=kafka) to quickly ingest data from your Kafka topics.
 
@@ -272,7 +267,7 @@ For more information about Tinybird and its integration with Kafka, use these re
 
 - [Tinybird Kafka Connector](https://www.tinybird.co/docs/ingest/kafka.html)
 
-- [Create REST APIs from Kafka streams in minutes](https://youtu.be/eFnqE8c-WH4)[‍](https://www.tinybird.co/blog-posts/enriching-kafka-streams-in-real-time)
+- [Create REST APIs from Kafka streams in minutes](https://youtu.be/eFnqE8c-WH4)
 
 - [Enriching Kafka streams for real-time analytics](https://www.tinybird.co/blog-posts/enriching-kafka-streams-in-real-time)
 
@@ -316,4 +311,4 @@ Tinybird enables you to apply retroactive changes to your attribution model, tha
 
 ### **Is data durability guaranteed with Kafka in an event sourcing system?**
 
-Yes, Kafka’s built-in replication ensures high data durability and availability, crucial for long-term event storage.
+Yes, Kafka’s built-in replication ensures high data durability and availability, important for long-term event storage.

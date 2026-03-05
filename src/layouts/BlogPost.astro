@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 
@@ -9,42 +10,255 @@ interface Props {
 	updatedDate?: Date;
 	heroImage?: string;
 	tags?: string[];
+	categories?: string[];
+	slug: string;
 }
 
-const { title, description, date, updatedDate, heroImage, tags } = Astro.props;
+const { title, description, date, updatedDate, heroImage, tags, categories, slug } = Astro.props;
+
+const allPosts = await getCollection('blog');
+const publishedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Primary category for breadcrumbs and prev/next
+const primaryCategory = categories?.[0];
+const categorySlug = primaryCategory?.toLowerCase().replace(/\s+/g, '-');
+
+// Prev/next within primary category
+let prevPost: (typeof publishedPosts)[number] | undefined;
+let nextPost: (typeof publishedPosts)[number] | undefined;
+
+if (primaryCategory) {
+	const categoryPosts = publishedPosts
+		.filter((p) => p.data.categories?.includes(primaryCategory))
+		.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+	const currentIndex = categoryPosts.findIndex((p) => p.data.slug === slug);
+	if (currentIndex > 0) {
+		prevPost = categoryPosts[currentIndex - 1];
+	}
+	if (currentIndex >= 0 && currentIndex < categoryPosts.length - 1) {
+		nextPost = categoryPosts[currentIndex + 1];
+	}
+}
+
+// Improved related posts: score by shared categories + title keyword overlap
+const currentCategories = new Set(categories || []);
+const currentTitleWords = new Set(
+	title
+		.toLowerCase()
+		.replace(/[^a-z0-9\s]/g, '')
+		.split(/\s+/)
+		.filter((w) => w.length > 3),
+);
+
+const relatedPosts = publishedPosts
+	.filter((p) => p.data.slug !== slug)
+	.map((p) => {
+		const postCategories = p.data.categories || [];
+		const categoryScore = postCategories.filter((cat) => currentCategories.has(cat)).length;
+		if (categoryScore === 0) return null;
+
+		const postTitleWords = p.data.title
+			.toLowerCase()
+			.replace(/[^a-z0-9\s]/g, '')
+			.split(/\s+/)
+			.filter((w: string) => w.length > 3);
+		const titleOverlap = postTitleWords.filter((w: string) => currentTitleWords.has(w)).length;
+
+		return { post: p, categoryScore, titleOverlap };
+	})
+	.filter(Boolean)
+	.sort((a, b) => {
+		if (b!.categoryScore !== a!.categoryScore) return b!.categoryScore - a!.categoryScore;
+		if (b!.titleOverlap !== a!.titleOverlap) return b!.titleOverlap - a!.titleOverlap;
+		return b!.post.data.date.valueOf() - a!.post.data.date.valueOf();
+	})
+	.slice(0, 3)
+	.map((r) => r!.post);
 ---
 
-<BaseLayout title={`${title} | Joe Karlsson`} description={description || title} image={heroImage} type="article" publishedDate={date} modifiedDate={updatedDate}>
+<BaseLayout
+	title={`${title} | Joe Karlsson`}
+	description={description || title}
+	image={heroImage}
+	type="article"
+	publishedDate={date}
+	modifiedDate={updatedDate}
+>
 	<article class="mx-auto max-w-3xl px-4 py-8">
-		{heroImage && (
-			<img
-				src={heroImage}
-				alt=""
-				class="mb-8 w-full rounded-lg"
-			/>
-		)}
+		{/* Breadcrumbs */}
+		<nav class="mb-4 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+			<a href="/" class="no-underline transition-colors hover:text-coral">Home</a>
+			<span class="mx-1">&gt;</span>
+			<a href="/blog/" class="no-underline transition-colors hover:text-coral">Blog</a>
+			{
+				primaryCategory && (
+					<>
+						<span class="mx-1">&gt;</span>
+						<a
+							href={`/blog/category/${categorySlug}/`}
+							class="no-underline transition-colors hover:text-coral"
+						>
+							{primaryCategory}
+						</a>
+					</>
+				)
+			}
+			<span class="mx-1">&gt;</span>
+			<span class="text-gray-500">{title}</span>
+		</nav>
+
+		{
+			heroImage && (
+				<img src={heroImage} alt={title} class="mb-8 w-full rounded-lg" loading="eager" />
+			)
+		}
 		<div class="mb-8">
-			<p class="mb-2 font-mono text-sm text-gray-500">
+			<p class="mb-2 font-mono text-sm text-gray-400">
 				<FormattedDate date={date} />
-				{updatedDate && (
-					<span class="ml-2 italic">
-						(Updated <FormattedDate date={updatedDate} />)
-					</span>
-				)}
+				{
+					updatedDate && (
+						<span class="ml-2 italic">
+							(Updated <FormattedDate date={updatedDate} />)
+						</span>
+					)
+				}
 			</p>
 			<h1 class="mb-4 text-3xl font-bold text-white md:text-4xl">{title}</h1>
-			{tags && tags.length > 0 && (
-				<div class="flex flex-wrap gap-2">
-					{tags.map((tag) => (
-						<span class="rounded-full bg-surface-3 px-2.5 py-0.5 font-mono text-xs text-gray-400">
-							{tag}
-						</span>
-					))}
-				</div>
-			)}
+			{
+				categories && categories.length > 0 && (
+					<div class="flex flex-wrap gap-2">
+						{categories.map((cat) => (
+							<a
+								href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`}
+								class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400 no-underline transition-colors hover:bg-coral/20 hover:text-coral"
+							>
+								{cat}
+							</a>
+						))}
+					</div>
+				)
+			}
 		</div>
 		<div class="prose">
 			<slot />
 		</div>
+
+		<script>
+			function copyToClipboard(text: string): Promise<void> {
+				if (navigator.clipboard?.writeText) {
+					return navigator.clipboard.writeText(text);
+				}
+				const textarea = document.createElement('textarea');
+				textarea.value = text;
+				textarea.style.position = 'fixed';
+				textarea.style.opacity = '0';
+				document.body.appendChild(textarea);
+				textarea.select();
+				document.execCommand('copy');
+				document.body.removeChild(textarea);
+				return Promise.resolve();
+			}
+
+			document.querySelectorAll('.prose pre').forEach((pre) => {
+				const button = document.createElement('button');
+				button.className = 'copy-button';
+				button.textContent = 'Copy';
+				button.addEventListener('click', async () => {
+					const code = pre.querySelector('code');
+					if (!code) return;
+					try {
+						await copyToClipboard(code.textContent || '');
+						button.textContent = 'Copied!';
+					} catch {
+						button.textContent = 'Failed';
+					}
+					setTimeout(() => {
+						button.textContent = 'Copy';
+					}, 2000);
+				});
+				pre.appendChild(button);
+			});
+		</script>
+
+		{/* Prev/Next within category */}
+		{
+			(prevPost || nextPost) && (
+				<nav
+					class="mt-12 flex items-stretch gap-4 border-t border-surface-3 pt-8"
+					aria-label="Category navigation"
+				>
+					{prevPost ? (
+						<a
+							href={`/blog/${prevPost.data.slug}/`}
+							class="group flex flex-1 flex-col rounded-lg border border-surface-3 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+						>
+							<span class="mb-1 font-mono text-xs text-gray-400">
+								&larr; Previous in {primaryCategory}
+							</span>
+							<span class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
+								{prevPost.data.title}
+							</span>
+						</a>
+					) : (
+						<div class="flex-1" />
+					)}
+					{nextPost ? (
+						<a
+							href={`/blog/${nextPost.data.slug}/`}
+							class="group flex flex-1 flex-col items-end rounded-lg border border-surface-3 p-4 no-underline text-right transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+						>
+							<span class="mb-1 font-mono text-xs text-gray-400">
+								Next in {primaryCategory} &rarr;
+							</span>
+							<span class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
+								{nextPost.data.title}
+							</span>
+						</a>
+					) : (
+						<div class="flex-1" />
+					)}
+				</nav>
+			)
+		}
+
+		{
+			relatedPosts.length > 0 && (
+				<aside class="mt-12 border-t border-surface-3 pt-8">
+					<h2 class="mb-6 text-lg font-bold text-white">
+						<span class="text-coral font-mono text-sm" aria-hidden="true">
+							~$
+						</span>{' '}
+						Related Posts
+					</h2>
+					<div class="grid gap-4 sm:grid-cols-3">
+						{relatedPosts.map((post) => (
+							<a
+								href={`/blog/${post.data.slug}/`}
+								class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+							>
+								{post.data.heroImage && (
+									<img
+										src={post.data.heroImage}
+										alt={post.data.title}
+										class="mb-3 h-32 w-full rounded-md object-cover"
+										loading="lazy"
+									/>
+								)}
+								<p class="mb-1 font-mono text-xs text-gray-400">
+									{post.data.date.toLocaleDateString('en-us', {
+										year: 'numeric',
+										month: 'short',
+										day: 'numeric',
+									})}
+								</p>
+								<h3 class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
+									{post.data.title}
+								</h3>
+							</a>
+						))}
+					</div>
+				</aside>
+			)
+		}
 	</article>
 </BaseLayout>

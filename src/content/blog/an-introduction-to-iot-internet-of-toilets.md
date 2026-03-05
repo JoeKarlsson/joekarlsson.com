@@ -1,23 +1,23 @@
 ---
-title: "An Introduction to IoT (Internet of Toilets)"
+title: 'An Introduction to IoT (Internet of Toilets)'
 date: 2020-11-03
-slug: "an-introduction-to-iot-internet-of-toilets"
-description: "My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet..."
-categories: ["Blog"]
-heroImage: "/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.png"
+slug: 'an-introduction-to-iot-internet-of-toilets'
+description: 'My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet...'
+categories: ['IoT']
+heroImage: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp'
 ---
 
-My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet of Toilets or AKA, IoT) device for my feline friend at home. If you’re reading this, you have probably heard about how hot internet-connected devices are, and you are probably interested in learning how to get into IoT development as a JavaScript developer. In this post, we will explore why you should consider JavaScript for your next IoT project, talk about IoT data best practices, and we will explore my latest creation, the IoT Kitty Litter Box.
+My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet of Toilets or AKA, IoT) device for my feline friend at home. If you’re reading this, you have probably heard about how hot internet-connected devices are, and you are probably interested in learning how to get into IoT development as a JavaScript developer. I also gave a talk on this topic, and you can find the slides and video in my post on [IoT and JS: a gentle introduction to the Internet of Things](/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things/). In this post, we will explore why you should consider JavaScript for your next IoT project, talk about IoT data best practices, and we will explore my latest creation, the IoT Kitty Litter Box.
 
-![](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process.gif)
+![Final assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process.gif)
 
 ## IoT And JS(?!?!)
 
-Okay, so why on earth should you use JavaScript on an IoT project? You might have thought JavaScript was just for web pages. Well, it turns out that JavaScript is famously eating the world and it is now, in fact, running on lots of new and exciting devices, including most internet-enabled IoT chips! Did you know that 58% of developers [identified as IoT developers use Node.js?](https://nodejs.org/en/blog/announcements/nodejs-foundation-survey/)
+Okay, so why on earth should you use JavaScript on an IoT project? You might have thought JavaScript was just for web pages. Well, it turns out that JavaScript is famously eating the world and it is now running on lots of new and exciting devices, including most internet-enabled IoT chips! Did you know that 58% of developers [identified as IoT developers use Node.js?](https://nodejs.org/en/blog/announcements/nodejs-foundation-survey/)
 
-### The Internet *Already* Speaks JavaScript
+### The Internet _Already_ Speaks JavaScript
 
-That’s a lot of IoT developers already using Node.js. Many of these developers use Node because the internet *already* speaks JavaScript. It’s natural to continue building internet-connected devices using the de facto standard of the internet. Why reinvent the wheel?
+That’s a lot of IoT developers already using Node.js. Many of these developers use Node because the internet _already_ speaks JavaScript. It’s natural to continue building internet-connected devices using the de facto standard of the internet. Why reinvent the wheel?
 
 ### Easy to Update
 
@@ -27,17 +27,15 @@ Another reason IoT developers use Node is its ease of updating your codebase. Wi
 
 One of the major innovations of Node is the event loop. The event loop enables servers running Node to handle events from the outside world (i.e. requests from clients) very quickly. Node is able to handle these events extremely efficiently and at scale.
 
-Now, consider how an IoT device in the wild is built to run. In this thought experiment, let’s imagine that we are designing an IoT device for a farm that will be collecting moisture sensor data from a cornfield. Our device will be equipped with a moisture sensor that will send a signal once the moisture level in the soil has dropped below a certain level. This means that our IoT device will be responding to a moisture *event* (sounds a lot like an *event loop* ;P). Nearly all IoT use cases are built around events like this. The fact that Node’s event-based architecture nearly identically matches the event-based nature of IoT devices is a perfect fit. Having an event-based IoT architecture means that your device can save precious power when it does not need to respond to an event from the outside world.
+Now, consider how an IoT device in the wild is built to run. In this thought experiment, let’s imagine that we are designing an IoT device for a farm that will be collecting moisture sensor data from a cornfield. Our device will be equipped with a moisture sensor that will send a signal once the moisture level in the soil has dropped below a certain level. This means that our IoT device will be responding to a moisture _event_ (sounds a lot like an _event loop_ ;P). Nearly all IoT use cases are built around events like this. The fact that Node’s event-based architecture nearly identically matches the event-based nature of IoT devices is a perfect fit. Having an event-based IoT architecture means that your device can save precious power when it does not need to respond to an event from the outside world.
 
 ### Mature IoT Community
 
 Lastly, it’s important to note that there is a mature community of IoT developers actively working on IoT libraries for Node.js. My favorites are [Johnny-Five](http://johnny-five.io/) and [CylonJS](https://cylonjs.com/). Let’s take a look at the “Hello World” on IoT devices: making an LED bulb blink. Here’s what it looks like when I first got my IoT “Hello World” code working.
 
-![](blob:https://www.joekarlsson.com/907b719d-ff5a-4449-9fd1-f20b4916def2)
-
 Just be careful that your cat doesn’t try to eat your project while you are getting your Hello World app up and running.
 
-![](/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project.gif)*My cat eating the IoT Hello World project*
+![My cat eating the IoT Hello World project](/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project.gif)_My cat eating the IoT Hello World project_
 
 ## IoT (AKA: Internet of Toilets) Kitty Litter Box
 
@@ -51,7 +49,7 @@ This leads me to my personal IoT project, the IoT Kitty Litter Box. For this pro
 
 Also, personally, I like the thought of building something that teeters right on the border of being completely ridiculous and kinda genius. Frankly, I’m shocked that no one has really made a consumer product like this! Here it is in all of its completed glory.
 
-![](/images/blog/an-introduction-to-iot-internet-of-toilets/stop_motion_intro-1024x683.gif)*Stop Motion gif of the completed IoT Kitty Litter Box*
+![Stop Motion gif of the completed IoT Kitty Litter Box](/images/blog/an-introduction-to-iot-internet-of-toilets/stop_motion_intro-1024x683.gif)_Stop Motion gif of the completed IoT Kitty Litter Box_
 
 ### Materials and Tools
 
@@ -63,41 +61,21 @@ Also, personally, I like the thought of building something that teeters right on
 
 - 1 x 3D printer [Optional] – The 3D printer was used for printing the case where the electronics are enclosed.
 
-- 1 x PLA filament [Optional]
-
-<li>Any color will work.
-
-</li>
+- 1 x PLA filament [Optional] - Any color will work.
 
 - 1 x Solder iron and solder wire
 
 - 8 x M2x6 mm bolts
 
-- 1 x HX711 module
+- 1 x HX711 module - This module is required as a load cell amplifier and it converts the analog load cell signal to a digital signal so the Raspberry Pi can read the incoming data.
 
-<li>This module is required as a load cell amplifier and it converts the analog load cell signal to a digital signal so the Raspberry Pi can read the incoming data.
+- 4 x 50 kg load cell (x4) - They are used to measure the weight. In this project, four load cells are used and can measure a maximum weight of 200 kg.
 
-</li>
-
-- 4 x 50 kg load cell (x4)
-
-<li>They are used to measure the weight. In this project, four load cells are used and can measure a maximum weight of 200 kg.
-
-</li>
-
-- 1 x Magnetic door sensor
-
-<li>Used to detect that the litter box is opened.
-
-</li>
+- 1 x Magnetic door sensor - Used to detect that the litter box is opened.
 
 - 1 x Micro USB cable
 
-- 1 x Cat litter box
-
-<li>I used a fancy box, but any box with a lid will work just fine.
-
-</li>
+- 1 x Cat litter box - I used a fancy box, but any box with a lid will work just fine.
 
 ### How Does the IoT Kitty Litter Box Work?
 
@@ -113,7 +91,7 @@ So how does this IoT Kitty Litter Box work? Let’s take a look at the events th
 
 You can also check out this handy animation that walks through the various events that we must handle.
 
-![](/images/blog/an-introduction-to-iot-internet-of-toilets/how_the_box_works-1024x576.gif)*Animation of how the box works*
+![Animation of how the box works](/images/blog/an-introduction-to-iot-internet-of-toilets/how_the_box_works-1024x576.gif)_Animation of how the box works_
 
 ### How to Write Code That Interacts With the Outside World
 
@@ -125,13 +103,13 @@ For this project, I opted to work with a Raspberry Pi 3 Model B+ since it runs a
 
 - Send data from the Raspberry Pi to the outside world (i.e. turning a light on and off).
 
-![](/images/blog/an-introduction-to-iot-internet-of-toilets/gpio_setup-1024x588.jpg)*Animation of how the box works*
+![Animation of how the box works](/images/blog/an-introduction-to-iot-internet-of-toilets/gpio_setup-1024x588.webp)_Animation of how the box works_
 
 I wired up the IoT Kitty Litter Box using the schema below. I want to note that I am not an electrical engineer and creating this involved lots of Googling, failing, and at least two blown circuit boards. It’s okay to make mistakes, especially when you are first starting out.
 
 ### Schematics
 
-![](/images/blog/an-introduction-to-iot-internet-of-toilets/schema_design-1024x801.png)*IoT Kitty Litter Box Schema Design*
+![IoT Kitty Litter Box Schema Design](/images/blog/an-introduction-to-iot-internet-of-toilets/schema_design-1024x801.webp)_IoT Kitty Litter Box Schema Design_
 
 We will be using these GPIO pins in order to communicate with our sensors out in the “real world.”
 
@@ -180,7 +158,7 @@ board.on('fail', error => {
 
 You can see the event and asynchronous nature of IoT plays really nicely with Node’s callback structure. Here’s a demo of the magnetic switch component in action.
 
-![](/images/blog/an-introduction-to-iot-internet-of-toilets/switch_demo.gif)*Switch Demo*
+![Switch Demo](/images/blog/an-introduction-to-iot-internet-of-toilets/switch_demo.gif)_Switch Demo_
 
 ### Load Cells
 
@@ -254,7 +232,7 @@ module.exports = Scale;
 
 This was the first time I have played around with the Spawn Child Process API from Node. Personally, I was really impressed by how easy it was to use and troubleshoot. It’s not the most elegant solution, but it totally works for my project and it uses some cool features of Node. Let’s take a look at what the load cells look like in action. In the video below, you can see how pressure placed on the load cells is registered as a weight measurement from the Raspberry Pi.
 
-![](/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo.gif)*Load Cell Demo*
+![Load Cell Demo](/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo.gif)_Load Cell Demo_
 
 ## How to Handle Internet of Toilets Data
 
@@ -315,55 +293,8 @@ Lastly, you will want to select a database that natively handles time-series dat
 
 Alright, let’s wrap this party up. In this post, we talked about why you should consider using Node for your next IoT (Internet of Toilets) project: It’s easy to update over a network, the internet already speaks JavaScript, there are tons of existing libraries/plugins/APIs (including [CylonJS](https://cylonjs.com/) and [Johnny-Five](http://johnny-five.io/)), and JavaScript is great at handling event-driven apps. We looked at a real-life Node-based IoT project, my IoT Kitty Litter Box. Then, we dug into the code base for the IoT Kitty Litter Box. We also discussed what to look for when selecting a database for IoT projects: It should be able to concurrently write data quickly, have a flexible schema, and be able to handle time-series data.
 
-![](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process-1.gif)*Final IoT Kitty Litter Box Assembly process*
+![Final IoT Kitty Litter Box Assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process-1.gif)_Final IoT Kitty Litter Box Assembly process_
 
 What’s next? Well, if I have inspired you to get started on your own IoT project, I say, “Go for it!” Pick out a project, even if it’s “crappy,” and build it. Google as you go, and make mistakes. I think it’s the best way to learn. I hereby give you permission to make stupid stuff just for you, something to help you learn and grow as a human being and a software engineer.
 
-> 
-When you’re ready to build your own IoT device, check out [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://twitter.com/JoeKarlsson1](https://x.com/JoeKarlsson1)
-
-- TikTok – [https://www.tiktok.com/@joekarlsson](https://www.tiktok.com/@joekarlsson)
-
-- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)
-
-- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)
-
-- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)
-
-- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)
-
-- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)
-
-- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)
-
-- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)
-
-- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)
-
-## Related Links
-
-Check out the following resources for more information:
-
-- [Bringing JavaScript to the IoT Edge – Joe Karlsson | Node + JS Interactive 2019](https://www.youtube.com/watch?v=711Sb55fzdg/).
-
-- [IoT Kitty Litter Box Source Code](https://github.com/JoeKarlsson/iot-kitty-litter-box/).
-
-- [Want to learn more about MongoDB? Be sure to take a class on the MongoDB University](https://university.mongodb.com/).
-
-- [Have a question, feedback on this post, or stuck on something be sure to check out and/or open a new post on the MongoDB Community Forums](https://developer.mongodb.com/community/forums/).
-
-- Quick Start: Node.js.
-
-- Want to check out more cool articles about MongoDB? Be sure to check out more posts like this on the MongoDB Developer Hub.
-
-- [How to Pass A Coding Interview](https://www.joekarlsson.com/2020/05/how-to-pass-coding-interview/)
-
-- [So, You Want To Learn How To Code? Here’s What You Need To Know.](https://www.joekarlsson.com/2018/01/my-top-resources-for-learning-how-to-code/)
+> When you’re ready to build your own IoT device, check out [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.

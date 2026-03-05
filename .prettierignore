@@ -1,0 +1,6 @@
+dist/
+node_modules/
+.astro/
+.lighthouseci/
+public/
+package-lock.json

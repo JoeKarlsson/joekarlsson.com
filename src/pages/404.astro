@@ -2,20 +2,24 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="404 — Not Found" description="Page not found">
+<BaseLayout title="404 - Not Found" description="Page not found">
 	<div class="mx-auto max-w-3xl px-4 py-16 text-center">
 		<div class="glitch-wrapper mb-6">
 			<h1 class="glitch text-8xl font-bold text-coral" data-text="404">404</h1>
 		</div>
 
 		<!-- Terminal -->
-		<div class="terminal mx-auto max-w-2xl text-left rounded-lg overflow-hidden border border-surface-3 shadow-2xl mb-8">
+		<div
+			class="terminal mx-auto max-w-2xl text-left rounded-lg overflow-hidden border border-surface-3 shadow-2xl mb-8"
+		>
 			<!-- Title bar -->
-			<div class="terminal-titlebar flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3">
+			<div
+				class="terminal-titlebar flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3"
+			>
 				<span class="w-3 h-3 rounded-full bg-red-500/80"></span>
 				<span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
 				<span class="w-3 h-3 rounded-full bg-green-500/80"></span>
-				<span class="ml-2 text-xs text-surface-4 font-mono">joe@joekarlsson.com — bash</span>
+				<span class="ml-2 text-xs text-gray-400 font-mono">joe@joekarlsson.com - bash</span>
 			</div>
 			<!-- Terminal body -->
 			<div
@@ -28,7 +32,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<div id="output"></div>
 				<div id="input-line" class="flex items-center" style="display:none;">
 					<span class="prompt text-coral mr-2">joe@404 ~$</span>
-					<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor">&#9608;</span>
+					<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
+						>&#9608;</span
+					>
 				</div>
 				<input
 					id="hidden-input"
@@ -84,19 +90,43 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	@keyframes glitch-1 {
-		0%, 90%, 100% { transform: translate(0); }
-		92% { transform: translate(-3px, 1px); }
-		94% { transform: translate(3px, -1px); }
-		96% { transform: translate(-2px, 0); }
-		98% { transform: translate(2px, 1px); }
+		0%,
+		90%,
+		100% {
+			transform: translate(0);
+		}
+		92% {
+			transform: translate(-3px, 1px);
+		}
+		94% {
+			transform: translate(3px, -1px);
+		}
+		96% {
+			transform: translate(-2px, 0);
+		}
+		98% {
+			transform: translate(2px, 1px);
+		}
 	}
 
 	@keyframes glitch-2 {
-		0%, 90%, 100% { transform: translate(0); }
-		91% { transform: translate(3px, 0); }
-		93% { transform: translate(-3px, 1px); }
-		95% { transform: translate(2px, -1px); }
-		97% { transform: translate(-2px, 1px); }
+		0%,
+		90%,
+		100% {
+			transform: translate(0);
+		}
+		91% {
+			transform: translate(3px, 0);
+		}
+		93% {
+			transform: translate(-3px, 1px);
+		}
+		95% {
+			transform: translate(2px, -1px);
+		}
+		97% {
+			transform: translate(-2px, 1px);
+		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -122,8 +152,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	@keyframes blink {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0; }
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
 	}
 
 	.terminal-body :global(.text-coral) {
@@ -139,7 +174,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	.terminal-body :global(.text-dim) {
-		color: #6b7280;
+		color: #9ca3af;
 	}
 
 	.terminal-body :global(.text-white) {
@@ -189,7 +224,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	function appendLines(lines: string[]) {
-		lines.forEach(line => appendLine(line));
+		lines.forEach((line) => appendLine(line));
 	}
 
 	async function typeLines(lines: string[], delay = 40) {
@@ -200,7 +235,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	function sleep(ms: number): Promise<void> {
-		return new Promise(r => setTimeout(r, ms));
+		return new Promise((r) => setTimeout(r, ms));
 	}
 
 	// --- Commands ---
@@ -223,7 +258,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	function cmdLs(): string[] {
-		const entries = Object.keys(pages).map(p => `  <span class="text-teal">${p}/</span>`);
+		const entries = Object.keys(pages).map((p) => `  <span class="text-teal">${p}/</span>`);
 		return ['<span class="text-dim">drwxr-xr-x  joe  staff</span>', ...entries, ''];
 	}
 
@@ -236,17 +271,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		}
 		const url = pages[target];
 		if (url) {
-			setTimeout(() => { window.location.href = url; }, 400);
+			setTimeout(() => {
+				window.location.href = url;
+			}, 400);
 			return [`Navigating to /${target}...`];
 		}
-		return [`<span class="text-coral">cd: no such page: ${target}</span>`, `<span class="text-dim">try 'ls' to see available pages</span>`, ''];
+		return [
+			`<span class="text-coral">cd: no such page: ${target}</span>`,
+			`<span class="text-dim">try 'ls' to see available pages</span>`,
+			'',
+		];
 	}
 
 	function cmdWhoami(): string[] {
-		return [
-			'<span class="text-teal">joe-karlsson</span> — software engineer & massive nerd',
-			'',
-		];
+		return ['<span class="text-teal">joe-karlsson</span> - software engineer & massive nerd', ''];
 	}
 
 	function cmdCatReadme(): string[] {
@@ -257,11 +295,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			'',
 			'  This site is where I write about software engineering,',
 			'  developer advocacy, homelabs, IoT cat litter boxes,',
-			'  and whatever else I\'m nerding out about.',
+			"  and whatever else I'm nerding out about.",
 			'',
 			'  Built with Astro. Powered by coffee and stubbornness.',
 			'',
-			'  You found the 404 page, which means you\'re either',
+			"  You found the 404 page, which means you're either",
 			'  lost or curious. Either way, I respect it.',
 			'',
 			'  <span class="text-dim">Type \'ls\' to see where you can go.</span>',
@@ -308,7 +346,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		if (!trimmed) return;
 
 		// Echo the command
-		appendLine(`<span class="text-coral">joe@404 ~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`);
+		appendLine(
+			`<span class="text-coral">joe@404 ~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`,
+		);
 
 		if (trimmed) commandHistory.unshift(trimmed);
 		historyIndex = -1;
@@ -336,7 +376,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
 					result = cmdCatReadme();
 				} else {
-					result = [`<span class="text-coral">cat: ${escapeHtml(args) || '???'}: No such file</span>`, ''];
+					result = [
+						`<span class="text-coral">cat: ${escapeHtml(args) || '???'}: No such file</span>`,
+						'',
+					];
 				}
 				break;
 			case 'uptime':
@@ -352,14 +395,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				result = ['<span class="text-coral">nice try.</span>', ''];
 				break;
 			case 'exit':
-				setTimeout(() => { window.location.href = '/'; }, 400);
+				setTimeout(() => {
+					window.location.href = '/';
+				}, 400);
 				result = ['Goodbye! Navigating home...'];
 				break;
 			case 'rm':
 				result = ['<span class="text-coral">absolutely not.</span>', ''];
 				break;
 			default:
-				result = [`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`, ''];
+				result = [
+					`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`,
+					'',
+				];
 		}
 
 		appendLines(result);
@@ -417,7 +465,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			e.preventDefault();
 			const partial = currentInput.replace(/^(cd|goto)\s+/, '');
 			const prefix = currentInput.replace(partial, '');
-			const matches = Object.keys(pages).filter(p => p.startsWith(partial));
+			const matches = Object.keys(pages).filter((p) => p.startsWith(partial));
 			if (matches.length === 1) {
 				currentInput = prefix + matches[0];
 				hiddenInput.value = currentInput;
@@ -453,9 +501,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		await typeLines(bootLines, 120);
 		await sleep(300);
 
-		appendLine('<span class="text-coral">[    0.404000] ERROR: requested path not found in route table</span>');
+		appendLine(
+			'<span class="text-coral">[    0.404000] ERROR: requested path not found in route table</span>',
+		);
 		await sleep(200);
-		appendLine('<span class="text-coral">[    0.404001] PANIC: page does not exist (error 404)</span>');
+		appendLine(
+			'<span class="text-coral">[    0.404001] PANIC: page does not exist (error 404)</span>',
+		);
 		await sleep(400);
 
 		appendLines([
@@ -463,7 +515,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			'<span class="text-yellow">  The page you requested was not found.</span>',
 			'<span class="text-yellow">  But you found something better: a terminal.</span>',
 			'',
-			'<span class="text-dim">  Type \'help\' for available commands, or \'ls\' to see site pages.</span>',
+			"<span class=\"text-dim\">  Type 'help' for available commands, or 'ls' to see site pages.</span>",
 			'',
 		]);
 

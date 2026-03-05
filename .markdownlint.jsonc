@@ -1,0 +1,52 @@
+{
+	// Heading hierarchy - disabled, some old posts skip levels
+	"MD001": false,
+	// Heading style - atx
+	"MD003": { "style": "atx" },
+	// List indent
+	"MD007": { "indent": 2 },
+	// Trailing spaces - disabled, too many existing violations
+	"MD009": false,
+	// Hard tabs - disabled, some code blocks use tabs
+	"MD010": false,
+	// Line length - disabled, blog posts have long paragraphs
+	"MD013": false,
+	// No multiple blanks
+	"MD012": false,
+	// No trailing punctuation in headings - allow colons (common in blog posts)
+	"MD026": false,
+	// Allow emphasis as heading (used in some posts)
+	"MD036": false,
+	// Ordered list prefix
+	"MD029": false,
+	// Spaces in emphasis markers - disabled for existing content
+	"MD037": false,
+	// Fenced code blocks - disabled, some old posts lack language specs
+	"MD040": false,
+	// Disable rules that conflict with Astro frontmatter
+	"MD041": false,
+	// Allow inline HTML (common in blog posts)
+	"MD033": false,
+	// Allow duplicate headings (different sections)
+	"MD024": false,
+	// Allow spaces in link text (existing content)
+	"MD039": false,
+	// Allow images without alt text (existing content)
+	"MD045": false,
+	// Lists surrounded by blank lines
+	"MD032": false,
+	// Allow bare URLs in content
+	"MD034": false,
+	// Reversed link syntax in existing content
+	"MD011": false,
+	// Dollar signs before commands
+	"MD014": false,
+	// Multiple h1 headings
+	"MD025": false,
+	// List marker spacing
+	"MD030": false,
+	// Blank line inside blockquote - legacy content
+	"MD028": false,
+	// Emphasis style - allow both asterisk and underscore
+	"MD049": false,
+}

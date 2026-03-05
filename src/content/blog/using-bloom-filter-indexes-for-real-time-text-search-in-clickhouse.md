@@ -1,20 +1,19 @@
 ---
-title: "Using Bloom filter indexes for real-time text search in ClickHouse"
+title: 'Using Bloom filter indexes for real-time text search in ClickHouse'
 date: 2024-03-30
-slug: "using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse"
-description: "In the vast universe of data storage and manipulation, the quest for efficient text search methods constantly challenges even the most experienced data engineers. Text-based data presents a very..."
-categories: ["Blog"]
-heroImage: "/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/6491f38b8b96dc45ff73fee5_Bloom-filters-Blog-5.jpg"
+slug: 'using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse'
+description: 'In the vast universe of data storage and manipulation, the quest for efficient text search methods constantly challenges even the most experienced data engineers. Text-based data presents a very...'
+categories: ['Databases']
+heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/6491f38b8b96dc45ff73fee5_Bloom-filters-Blog-5.webp'
 ---
 
 In the vast universe of data storage and manipulation, the quest for efficient text search methods constantly challenges even the most experienced data engineers. Text-based data presents a very unique set of problems, especially when you need to check if the text is contained within some text (and you need to do this in real-time!). The contents of this blog post describe an exploration our team did that was born out of a challenging use case presented by one of our customers. They had billions of rows of log-based text data and wanted to know how they might scour through this data without having to do a full scan every time.
 
 [Tinybird](https://www.tinybird.co) is built on ClickHouse and helps data teams build scalable real-time data products by enabling them to unify all their data, develop real-time transformations with SQL, and surface data products to their entire organization through auto-generated high-concurrency, low-latency APIs. We have a number of in-house experts in ClickHouse and are often [frequent contributors to open-source ClickHouse](https://www.tinybird.co/blog-posts/adding-join-support-for-parallel-replicas-on-clickhouse) as well. As such, we often help customers like this improve performance and lower their costs through ClickHouse query performance.
 
-> 
-Note: As of now, Bloom filter indexes are not generally available in Tinybird. If you’re a Tinybird customer and you think Bloom filters would be useful in your Workspace, [please let us know](https://www.tinybird.co/community).
+> Note: As of now, Bloom filter indexes are not generally available in Tinybird. If you’re a Tinybird customer and you think Bloom filters would be useful in your Workspace, [please let us know](https://www.tinybird.co/community).
 
-Read on for more information about how Bloom filter text indexes can be used to optimize real-time text search in ClickHouse. And if you’re interested in joining our team, please check our [careers](https://www.tinybird.co/careers) page and apply.
+Read on for more information about how Bloom filter text indexes can be used to optimize real-time text search in ClickHouse. If you’re new to ClickHouse and want to understand why it’s worth your time in the first place, I’d start with my post on [why ClickHouse should be your next database](/blog/why-clickhouse-should-be-your-next-database/). And if you’re interested in joining our team, please check our [careers](https://www.tinybird.co/careers) page and apply.
 
 If you’d like to try out Tinybird, we have an [always free plan](https://www.tinybird.co/pricing) that will get you started. You can build your first real-time data API in minutes.
 
@@ -22,35 +21,35 @@ If you’d like to try out Tinybird, we have an [always free plan](https://www.t
 
 Conventional wisdom posits that text search without any unique provisions will invariably entail a full scan, an approach akin to looking for a needle in a haystack.
 
-![](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-8.gif)
+![Animated needle in a haystack illustration](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-8.gif)
 
 If only it were this easy.
 
 Undoubtedly, full scans are anything but efficient, causing undue strain on your system’s resources, stalling productivity, and increasing your compute costs.
 
-Moreover, the standard indexing techniques provided by ClickHouse, such as [Primary or Sorting Keys](https://clickhouse.com/docs/en/optimize/sparse-primary-indexes), aren’t particularly suitable for or flexible enough to handle text-based searches. The performance boosts they do offer are effectively relegated to specific text search use cases like exact matches or matching the beginning of the text—cases where you can leverage alphabetical sorting of the text you’re searching.
+The standard indexing techniques provided by ClickHouse, such as [Primary or Sorting Keys](https://clickhouse.com/docs/en/optimize/sparse-primary-indexes), aren’t particularly suitable for or flexible enough to handle text-based searches. The performance boosts they do offer are effectively relegated to specific text search use cases like exact matches or matching the beginning of the text-cases where you can use alphabetical sorting of the text you’re searching.
 
-![](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-18.jpg)
+![Bar chart showing scan size reduction across Bloom filter configurations](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-18.webp)
 
 If you need to achieve more complex use cases like substring matching, these indexing techniques won’t help. You need to use something different to avoid full scans.
 
 ### The solution
 
-This is where [ClickHouse’s “Data Skipping Indexes”](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-data_skipping-indexes) come into play. These specialized indexes can be used to massively improve the performance of text searches on ClickHouse. The magic of Data Skipping Indexes lies in their structure—they contain relevant information about what’s contained within a certain granule (or multiple granules) of the table. The granularity size, dictated by the engine settings, allows for more efficient data processing, effectively making it possible to bypass the arduous full scan approach.
+This is where [ClickHouse’s “Data Skipping Indexes”](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-data_skipping-indexes) come into play. These specialized indexes can be used to massively improve the performance of text searches on ClickHouse. The magic of Data Skipping Indexes lies in their structure-they contain relevant information about what’s contained within a certain granule (or multiple granules) of the table. The granularity size, dictated by the engine settings, allows for more efficient data processing, effectively making it possible to bypass the arduous full scan approach.
 
-In this post, I will delve into the intricacies of using Data Skipping Indexes. In particular, I’ll explain the implementation of Bloom filter indexes with ClickHouse, and how they can be the game-changer for text search. I will also walk you through the results of a performance test we ran using real data.
+In this post, I’ll dig into the details of using Data Skipping Indexes. In particular, I’ll explain the implementation of Bloom filter indexes with ClickHouse, and how they can be a serious upgrade for text search. I will also walk you through the results of a performance test we ran using real data.
 
 ## What is a Bloom filter? 🚀
 
 Among all the Data Skipping Indexes available in ClickHouse, there is one that we’re looking at specifically in this post: the [Bloom filter “family”](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#bloom-filter). These indexes are based on [Bloom filters](https://en.wikipedia.org/wiki/Bloom_filter), which are a probabilistic data structure used to determine if an item is in a set of elements.
 
-The *probabilistic* part means that if an element is in the set, the response is “Maybe the element is in the set”, but if it is not, the response is “It’s definitely not in the set”. This means that there can be false positives (i.e., “Maybe the element is in the set”, but when you actually check it, it turns out that it isn’t present).
+The _probabilistic_ part means that if an element is in the set, the response is “Maybe the element is in the set”, but if it is not, the response is “It’s definitely not in the set”. This means that there can be false positives (i.e., “Maybe the element is in the set”, but when you actually check it, it turns out that it isn’t present).
 
 Bloom filters work by utilizing a fixed-size bit array and multiple hash functions. When an element is inserted into the filter, the hash functions generate a set of positions in the array, and those positions are set to 1. To check if an element is in the filter, the hash functions are applied to the element, and if any of the corresponding positions in the array are not set to 1, then the element is definitely not in the filter. However, if all positions are set to 1, it is possible that the element is in the filter (although there is a chance of a false positive).
 
 Let’s explore how this works with a concrete example. Imagine we created a Bloom filter of 3 bits and 2 hash functions and inserted the strings “Hello” and “Bloom” into the filter. If the hash functions match an incoming value with an index in the bit array, the Bloom filter will make sure the bit at that position in the array is 1. Take a look at this gif:
 
-![](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-7.gif)
+![Animated diagram of Bloom filter hashing Hello into a bit array](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-7.gif)
 
 A Bloom filter uses a fixed-size byte array to test for an element in a set.
 
@@ -74,7 +73,7 @@ Today, Bloom filters are widely used across many technologies including database
 
 ### Bloom filters in ClickHouse
 
-Alright, so you can probably see where this is going by now. In this case, you want to use a Bloom filter in ClickHouse to check if the text you are looking for *might* be in the table.
+Alright, so you can probably see where this is going by now. In this case, you want to use a Bloom filter in ClickHouse to check if the text you are looking for _might_ be in the table.
 
 Done! Well, not quite. The “element in set” operation doesn’t seem very useful on its own, since usually the text search isn’t “search for an exact match of this text”, it’s usually more “search for strings that contain this substring within them”.
 
@@ -96,7 +95,7 @@ Tokenization can be useful in some cases, but it’s too limited for more comple
 
 ### n-grams
 
-The second (and more interesting) option is **n-grams**, which basically means that the text is split into groups of *n* consecutive characters. Imagine a string of text flowing from left to right, with an ‘n-gram window’ of size 4 moving across the text, one character at a time. Here’s how that might look for your example text “Hello_world!”:
+The second (and more interesting) option is **n-grams**, which basically means that the text is split into groups of _n_ consecutive characters. Imagine a string of text flowing from left to right, with an ‘n-gram window’ of size 4 moving across the text, one character at a time. Here’s how that might look for your example text “Hello_world!”:
 
 ```
 [Hell]o_world!
@@ -161,10 +160,9 @@ In this case, we did some of the work for you and ran a performance test to dete
 
 ## Performance gains 💪
 
-And now what you’ve been waiting for since the first sentence of this post: ***a ClickHouse performance comparison between the default text search and Bloom filters for searching for text values in logs.***
+And now what you’ve been waiting for since the first sentence of this post: **_a ClickHouse performance comparison between the default text search and Bloom filters for searching for text values in logs._**
 
-> 
-**Note on Performance Testing: **It’s important to recognize that the performance of databases, including features like Bloom filters, is highly dependent on the specific use case. The results we’ve shared here reflect our findings in the context of a log search use case with ClickHouse. However, performance can vary greatly based on a multitude of factors, including the nature of your data, how you tune your system, and your specific schema, among others. Therefore, we strongly encourage you to conduct your own performance tests, tailored to your specific circumstances and requirements. We’re always eager to learn from diverse use cases, so please feel free to share your findings with us. Remember, the goal is to optimize for your unique needs and workloads.
+> **Note on Performance Testing: **It’s important to recognize that the performance of databases, including features like Bloom filters, is highly dependent on the specific use case. The results we’ve shared here reflect our findings in the context of a log search use case with ClickHouse. However, performance can vary greatly based on a multitude of factors, including the nature of your data, how you tune your system, and your specific schema, among others. Therefore, we strongly encourage you to conduct your own performance tests, tailored to your specific circumstances and requirements. We’re always eager to learn from diverse use cases, so please feel free to share your findings with us. Remember, the goal is to optimize for your unique needs and workloads.
 
 ### Test conditions:
 
@@ -172,14 +170,13 @@ And now what you’ve been waiting for since the first sentence of this post: **
 
 - We then performed a search over all this log data for the term “lambda”. This was a somewhat uncommon term, with only around 230 occurrences in the dataset.
 
-- Finally, we recorded the query time, query scan, *and size of the index vs the size of the column.*
+- Finally, we recorded the query time, query scan, _and size of the index vs the size of the column._
 
-> 
-Note: Unfortunately, we can’t disclose the actual test data set we used for this performance test, since it is private customer data.
+> Note: Unfortunately, we can’t disclose the actual test data set we used for this performance test, since it is private customer data.
 
 ### Settings used in testing:
 
-![](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-2.jpeg)
+![Table of ngrambf_v1 Bloom filter test configurations and parameters](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-2.webp)
 
 ### The results:
 
@@ -187,9 +184,9 @@ Note: Unfortunately, we can’t disclose the actual test data set we used for th
 
 Here you can see the amount of time the query took to run for each Bloom filter configuration, compared to a non-indexed query time.
 
-![](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-4.jpeg)
+![Table comparing query time and speedup for Bloom filter configurations](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-4.webp)
 
-![](https://www.joekarlsson.com/wp-content/uploads/2024/03/image-18.png)
+![Bloom filter query time and scan size benchmark results](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-18.webp)
 
 Various Bloom filter index configurations in ClickHouse can reduce text search query times by a factor of ~25-90x.
 
@@ -197,9 +194,9 @@ Various Bloom filter index configurations in ClickHouse can reduce text search q
 
 Here you can see the amount of data scanned for each Bloom filter configuration, compared to a non-indexed scan.
 
-![](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-5.jpeg)
+![Table comparing data scanned and scan size reduction per configuration](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-5.webp)
 
-![](https://www.joekarlsson.com/wp-content/uploads/2024/03/image-18.png)
+![Bloom filter query time and scan size benchmark results](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-18.webp)
 
 Various Bloom filter index configurations in ClickHouse can reduce text search scane size by a factor of ~250-750x.
 
@@ -207,28 +204,27 @@ Various Bloom filter index configurations in ClickHouse can reduce text search s
 
 Here you can see the tradeoffs between query time and scan size for the different configurations.
 
-![](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-3.jpeg)
+![Table of combined speedup and scan reduction results per configuration](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-3.webp)
 
 #### Storage used: Bloom filter index vs. actual data
 
 To understand the tradeoff of storing the Bloom filter, this chart shows how much compressed data storage the Bloom filter index occupied versus the compressed storage of the actual data.
 
-> 
-**Note**: Compressed size of the actual log data was ~4GB
+> **Note**: Compressed size of the actual log data was ~4GB
 
-![](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-1.jpeg)
+![Table of compressed Bloom filter index sizes versus column data size](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-1.webp)
 
 ### Our conclusions from this performance test
 
-*tl;dr: Bloom filters significantly boost ClickHouse’s search efficiency for uncommon terms, as shown in our tests of log data. While a Bloom filter notably speeds up query times and reduces the amount of data scanned, it also increases storage needs. We found that optimal configuration depends on balancing performance enhancement and storage cost for each use case.*
+_tl;dr: Bloom filters significantly boost ClickHouse’s search efficiency for uncommon terms, as shown in our tests of log data. While a Bloom filter notably speeds up query times and reduces the amount of data scanned, it also increases storage needs. We found that optimal configuration depends on balancing performance enhancement and storage cost for each use case._
 
-From our tests of ~130GB of log data, we found that Bloom filters can significantly enhance ClickHouse’s search capabilities, particularly when searching for uncommon terms. Applying a Bloom filter to the search for the term “lambda” led to drastic reductions in query time and scan size across various configurations. Notably, for our dataset, the `ngrambf_v1(4, 1024, 1, 0)` configuration delivered an impressive speedup, with *a query time approximately 88 times faster than a non-indexed search, while reducing the scanned data by a factor of 324.*
+From our tests of ~130GB of log data, we found that Bloom filters can significantly enhance ClickHouse’s search capabilities, particularly when searching for uncommon terms. Applying a Bloom filter to the search for the term “lambda” led to drastic reductions in query time and scan size across various configurations. Notably, for our dataset, the `ngrambf_v1(4, 1024, 1, 0)` configuration delivered an impressive speedup, with _a query time approximately 88 times faster than a non-indexed search, while reducing the scanned data by a factor of 324._
 
-However, these improvements come with the cost of increased storage. For instance, the `ngrambf_v1(4, 8192, 1, 0)` configuration increased storage by around 32% of the column size. Moreover, while the `ngrambf_v1(4, 8192, 1, 0)` configuration provided less of a speedup factor (around 25 times faster), it achieved the greatest reduction in scanned data.
+However, these improvements come with the cost of increased storage. For instance, the `ngrambf_v1(4, 8192, 1, 0)` configuration increased storage by around 32% of the column size. While the `ngrambf_v1(4, 8192, 1, 0)` configuration provided less of a speedup factor (around 25 times faster), it achieved the greatest reduction in scanned data.
 
 Since our customer favored speed over reducing scan size, and storage increase was not a critical issue, they ultimately chose the `ngrambf_v1(4, 1024, 1, 0)`.
 
-These results underscore the importance of identifying the right balance based on your specific needs. They also highlight the potential of Bloom filters to substantially improve the efficiency of searches within ClickHouse but with consideration of the trade-off in storage and specific use-case requirements. And finally, (and most importantly), there is no one-size-fits-all configuration for Bloom filters. We encourage you to conduct performance tests on your own data to determine the optimal settings for your specific needs.
+These results highlight the importance of identifying the right balance based on your specific needs. They also highlight the potential of Bloom filters to substantially improve the efficiency of searches within ClickHouse but with consideration of the trade-off in storage and specific use-case requirements. And finally, (and most importantly), there is no one-size-fits-all configuration for Bloom filters. We encourage you to conduct performance tests on your own data to determine the optimal settings for your specific needs.
 
 ## How to create a Bloom filter index in ClickHouse
 
@@ -268,25 +264,25 @@ DROP INDEX your_index_name
 
 While Bloom filters provide significant advantages in terms of memory efficiency and speed, they also come with certain limitations.
 
-- First, *they don’t support the deletion of elements*. The overlapping of bits by multiple elements makes it impossible to clear the bits corresponding to a particular item without risking false negatives.
+- First, _they don’t support the deletion of elements_. The overlapping of bits by multiple elements makes it impossible to clear the bits corresponding to a particular item without risking false negatives.
 
-- Another limitation is the *unavoidable rate of false positives*. Though it can be mitigated to some degree by increasing filter size or the number of hash functions, complete elimination of false positives is not achievable.
+- Another limitation is the _unavoidable rate of false positives_. Though it can be mitigated to some degree by increasing filter size or the number of hash functions, complete elimination of false positives is not achievable.
 
-- Bloom filters on disk pose an *operational inefficiency due to the necessity for random access*. The hash functions yield random indices, leading to high latency during disk operations.
+- Bloom filters on disk pose an _operational inefficiency due to the necessity for random access_. The hash functions yield random indices, leading to high latency during disk operations.
 
-- The *search functionality of Bloom filters is case-sensitive*, requiring additional steps to deal with varying case inputs. However, you can easily workaround this by storing all elements in lowercase, but this can affect data integrity in some cases.
+- The _search functionality of Bloom filters is case-sensitive_, requiring additional steps to deal with varying case inputs. However, you can easily workaround this by storing all elements in lowercase, but this can affect data integrity in some cases.
 
-- *Bloom filters can also be storage-intensive*, ranging from an additional 5% to 30% of the column size based on your settings. This could have implications for systems with storage constraints.
+- _Bloom filters can also be storage-intensive_, ranging from an additional 5% to 30% of the column size based on your settings. This could have implications for systems with storage constraints.
 
-- Additionally, the *efficacy of Bloom filters declines with short queries*. They require a minimum of a 4-character long string for search, making them less suitable for shorter terms.
+- The _effectiveness of Bloom filters also declines with short queries_. They require a minimum of a 4-character long string for search, making them less suitable for shorter terms.
 
 ## Final thoughts
 
 Searching through large volumes of text-based data can be a complex and resource-intensive process. The standard full-scan approach, akin to finding a needle in a haystack, is impractical for real-time operations. While traditional indexing methods offer some relief, they often fall short when dealing with text data. This is where ClickHouse’s Data Skipping Indexes, particularly Bloom filters, offer an efficient alternative. Bloom filters are probabilistic structures that check if an item exists in a set, thereby reducing expensive operations and enhancing performance.
 
-The key to this efficient search process is text processing via tokenization and n-grams. Tokenization allows text to be broken down into manageable chunks, while n-grams create overlapping character clusters for more comprehensive search patterns. N-grams, despite being heavier, provide a more versatile approach, making them a critical part of the process.
+The key to this efficient search process is text processing via tokenization and n-grams. Tokenization allows text to be broken down into manageable chunks, while n-grams create overlapping character clusters for more thorough search patterns. N-grams, despite being heavier, provide a more versatile approach, making them a critical part of the process.
 
-Our tests on a sizable log data set revealed that Bloom filters significantly boost ClickHouse’s text search efficiency. They reduce query time and scan size drastically, although they do require additional storage. The optimal configuration for Bloom filters depends on the specific use case and requires a balance between improved performance and increased storage costs. In essence, while Bloom filters provide a robust solution for text searches in ClickHouse, thorough understanding and testing are key to unlocking their full potential.
+Our tests on a sizable log data set revealed that Bloom filters significantly boost ClickHouse’s text search efficiency. They reduce query time and scan size drastically, although they do require additional storage. The optimal configuration for Bloom filters depends on the specific use case and requires a balance between improved performance and increased storage costs. In essence, while Bloom filters provide a strong solution for text searches in ClickHouse, thorough understanding and testing are key to unlocking their full potential.
 
 ## Related blog posts and resources:
 
@@ -332,7 +328,7 @@ Bloom filters can significantly speed up text searches and reduce the amount of 
 
 ### Why is performance testing important when configuring Bloom filters in ClickHouse?
 
-Performance testing is crucial when configuring Bloom filters because it helps determine the optimal settings for your specific needs. It enables you to find the right balance between query speed, scan size reduction, and storage usage.
+Performance testing is important when configuring Bloom filters because it helps determine the optimal settings for your specific needs. It enables you to find the right balance between query speed, scan size reduction, and storage usage.
 
 ### What is Tinybird?
 
@@ -340,4 +336,4 @@ Tinybird is a real-time analytics API platform that makes it easier to work with
 
 ### How does Tinybird use ClickHouse?
 
-Tinybird leverages the power of ClickHouse, an open-source column-oriented database management system, as the underlying technology for data storage and management. ClickHouse’s capability for high-speed data insertion and querying combined with Tinybird’s analytical tools and intuitive API interface provide an efficient way to handle large volumes of data.
+Tinybird uses the power of ClickHouse, an open-source column-oriented database management system, as the underlying technology for data storage and management. ClickHouse’s capability for high-speed data insertion and querying combined with Tinybird’s analytical tools and intuitive API interface provide an efficient way to handle large volumes of data.

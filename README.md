@@ -1,5 +1,8 @@
 # joekarlsson.com
 
+[![CI](https://github.com/JoeKarlsson/joekarlsson.com/actions/workflows/ci.yml/badge.svg)](https://github.com/JoeKarlsson/joekarlsson.com/actions/workflows/ci.yml)
+[![External Links](https://github.com/JoeKarlsson/joekarlsson.com/actions/workflows/links.yml/badge.svg)](https://github.com/JoeKarlsson/joekarlsson.com/actions/workflows/links.yml)
+
 Personal website and blog for Joe Karlsson — software engineer, developer advocate, and homelab enthusiast.
 
 Built with [Astro](https://astro.build), Tailwind CSS, and MDX.

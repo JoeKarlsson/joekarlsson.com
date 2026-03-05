@@ -1,15 +1,15 @@
 ---
-title: "Building a Claude Code Blog Skill: What I Learned Systematizing Content Creation"
+title: 'Building a Claude Code Blog Skill: What I Learned Systematizing Content Creation'
 date: 2025-10-24
-slug: "building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation"
-description: "I live in the terminal. Like, really live there. As a developer advocate, it’s where I spend most of my time — running commands, testing code, writing docs. Over the past few months, Claude Code..."
-categories: ["Blog"]
-heroImage: "/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/Building-a-Claude-Code-Blog-Skill.png"
+slug: 'building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation'
+description: 'I live in the terminal. Like, really live there. As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code...'
+categories: ['Dev Tools']
+heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/Building-a-Claude-Code-Blog-Skill.webp'
 ---
 
 I live in the terminal. Like, really live there.
 
-As a developer advocate, it’s where I spend most of my time — running commands, testing code, writing docs. Over the past few months, Claude Code became my primary interface for getting work done. Not just coding. Content creation, documentation, the constant stream of blog posts that come with DevRel.
+As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code became my primary interface for getting work done. Not just coding. Content creation, documentation, the constant stream of blog posts that come with DevRel.
 
 That created a weird problem.
 
@@ -21,7 +21,7 @@ So I built a Claude Code skill to systematize it.
 
 The blog skill started as a way to encode my own process. I’d open Claude Code, start a conversation about a blog topic, go back and forth on structure, check for banned words, run Vale linting, generate images, submit a PR. Efficient for me, completely opaque to anyone else.
 
-Here’s what changed: I realized I could encode all those standards — brand voice, banned words, style requirements, SEO checklists — into a reusable workflow. Not documentation about how to write. An executable skill that enforces those standards automatically.
+Here’s what changed: I realized I could encode all those standards - brand voice, banned words, style requirements, SEO checklists - into a reusable workflow. Not documentation about how to write. An executable skill that enforces those standards automatically.
 
 [https://www.youtube.com/embed/1OuDyDdTDFw?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/1OuDyDdTDFw?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
 
@@ -47,7 +47,7 @@ The skill is a single slash command: /blog “topic”. That’s it.
 
 ## /blog “topic”**Making Standards Executable**
 
-Here’s how we enforce brand voice — this is from the actual skill file:
+Here’s how we enforce brand voice - this is from the actual skill file:
 
 ```
 Banned Words:
@@ -72,7 +72,7 @@ They adopted it fast. Really fast.
 
 Giving this tool to the team essentially replaced one of my primary functions: being the bottleneck for content quality and technical accuracy. And that’s freeing me up to do what I actually want to do: developer outreach, building relationships, experimenting with new approaches to advocacy.
 
-We’re covering more keywords, faster. Blog posts ship with consistent voice and style. SEO optimization, FAQ sections, internal links, quotable statistics — is baked into the workflow instead of being an afterthought. The team can focus on research and strategy rather than fighting with formatting and style checks.
+We’re covering more keywords, faster. Blog posts ship with consistent voice and style. SEO optimization, FAQ sections, internal links, quotable statistics - is baked into the workflow instead of being an afterthought. The team can focus on research and strategy rather than fighting with formatting and style checks.
 
 We don’t have metrics yet (it’s been three weeks), but we’re already producing more content than we were before.
 
@@ -88,10 +88,10 @@ This doesn’t replace judgment. It can’t replace deep technical knowledge, un
 
 I’m not afraid of AI replacing developer advocacy work. I’m more worried about being too slow to adapt.
 
-The industry is still figuring out what AI-assisted DevRel looks like. We’re in the crystallization phase — experimenting, sharing what works, discarding what doesn’t. I’m already thinking about the next iteration: using skills to personalize developer onboarding, create custom documentation paths, generate context-aware code examples.
+The industry is still figuring out what AI-assisted DevRel looks like. We’re in the crystallization phase - experimenting, sharing what works, discarding what doesn’t. I’m already thinking about the next iteration: using skills to personalize developer onboarding, create custom documentation paths, generate context-aware code examples.
 
 The terminal has always been where I do my best work.
 
 Now it’s where I build tools that let the whole team do theirs.
 
-If you’re in DevRel or developer marketing: start small, build workflows, share what you learn. We’re all defining what this looks like together.
+If you’re in DevRel or developer marketing: start small, build workflows, share what you learn. I wrote previously about [treating content development for your open source project like your open source project](/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/), and this skill is really the next evolution of that idea. We’re all defining what this looks like together.

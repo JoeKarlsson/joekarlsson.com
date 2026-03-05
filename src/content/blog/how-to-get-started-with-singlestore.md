@@ -1,10 +1,10 @@
 ---
-title: "How to Get Started with SingleStore"
+title: 'How to Get Started with SingleStore'
 date: 2021-11-04
-slug: "how-to-get-started-with-singlestore"
-description: "Are you looking for the fastest possible way to get a new SingleStore Cluster up and running while testing out sample datasets to experiment with and use?"
-categories: ["Blog"]
-heroImage: "/images/blog/how-to-get-started-with-singlestore/img_blog_post_featured_how-to-get-started-with-singlestore.png"
+slug: 'how-to-get-started-with-singlestore'
+description: 'Are you looking for the fastest possible way to get a new SingleStore Cluster up and running while testing out sample datasets to experiment with and use?'
+categories: ['Databases']
+heroImage: '/images/blog/how-to-get-started-with-singlestore/img_blog_post_featured_how-to-get-started-with-singlestore.webp'
 ---
 
 Are you looking for the fastest possible way to get a new SingleStore Cluster up and running while testing out sample datasets to experiment with and use?
@@ -35,8 +35,6 @@ Sign up to [create a free SingleStore database](https://www.singlestore.com/mana
 
 Next, after you’ve signed in to the SingleStore Portal, you’ll need to start a new cluster. First, click “Create Managed Cluster” from the SingleStore Portal.
 
-![Screenshot from the SingleStore Portal showing the Create Managed Cluster buttons highlighted in red.](https://www.singlestore.com/images/cms/blog-posts/blog_get-started-w-s2_create-managed-cluster-button_img1.png)
-
 Next, you will be taken to the “Create a Database Cluster” page. You can leave all the default settings and click “next.”
 
 On the “Secure this Database Cluster” page, you will need to set the password and IP Allow list for your application.
@@ -55,11 +53,11 @@ You can download one of the spreadsheets we are importing from our S3 bucket her
 
 [http://studiotutorials.s3.amazonaws.com/eCommerce/2019-Dec.csv](http://studiotutorials.s3.amazonaws.com/eCommerce/2019-Dec.csv)
 
-**Note**: If you run into any issues or get stuck, make sure to connect with the [SingleStore community](https://www.singlestore.com/forum/) and get all of your questions answered, or check out more cool developer content on our [SingleStore Developer](https://developers.singlestore.com/) page. The community forums are the best place to get your SingleStore questions answered</pre>
+**Note**: If you run into any issues or get stuck, make sure to connect with the [SingleStore community](https://www.singlestore.com/forum/) and get all of your questions answered, or check out more cool developer content on our [SingleStore Developer](https://developers.singlestore.com/) page. The community forums are the best place to get your SingleStore questions answered
 
 ## How To Create a New SingleStore Database and Table
 
-<p>From this spreadsheet, we have enough information to initialize our database and table in SingleStore. From the SQL Editor page, paste this code in, and click the “Run” button.
+From this spreadsheet, we have enough information to initialize our database and table in SingleStore. From the SQL Editor page, paste this code in, and click the “Run” button.
 
 ```
 -- create a database
@@ -217,14 +215,6 @@ If you run into any issues or get stuck, make sure to connect with the [SingleSt
 
 ## Resources:
 
-- Code: Getting Started with SingleStore [ Ahttps://github.com/singlestore-labs/getting-started-with-singlestore](https://github.com/singlestore-labs/getting-started-with-singlestore)- Cool Developer content on the SingleStore Developer Website: [https://developers.singlestore.com](https://developers.singlestore.com)- Self paced training on the SingleStore Training: [https://www.singlestore.com/training](https://www.singlestore.com/training)- SingleStore Twitter: [https://x.com/SingleStoreDevs](https://x.com/SingleStoreDevs)- SingleStore GitHub: [https://github.com/singlestore-labs](https://github.com/singlestore-labs)- Get your questions answered on the SingleStore Community Forums: [https://www.singlestore.com/forum](https://www.singlestore.com/forum)
+- Code: Getting Started with SingleStore [https://github.com/singlestore-labs/getting-started-with-singlestore](https://github.com/singlestore-labs/getting-started-with-singlestore)- Cool Developer content on the SingleStore Developer Website: [https://developers.singlestore.com](https://developers.singlestore.com)- Self paced training on the SingleStore Training: [https://www.singlestore.com/training](https://www.singlestore.com/training)- SingleStore Twitter: [https://x.com/SingleStoreDevs](https://x.com/SingleStoreDevs)- SingleStore GitHub: [https://github.com/singlestore-labs](https://github.com/singlestore-labs)- Get your questions answered on the SingleStore Community Forums: [https://www.singlestore.com/forum](https://www.singlestore.com/forum)
 
 [https://www.youtube.com/embed/bIFrJJkUftA?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/bIFrJJkUftA?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://twitter.com/JoeKarlsson1](https://x.com/JoeKarlsson1)- TikTok – [https://www.tiktok.com/@joekarlsson](https://www.tiktok.com/@joekarlsson)- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)

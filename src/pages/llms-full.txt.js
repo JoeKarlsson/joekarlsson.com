@@ -4,16 +4,14 @@ export async function GET() {
 	const posts = await getCollection('blog');
 	const postCount = posts.length;
 
-	const sortedPosts = posts.sort(
-		(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-	);
+	const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 	const recentPosts = sortedPosts.slice(0, 10).map((post) => {
 		const date = post.data.date.toISOString().split('T')[0];
 		return `- [${post.data.title}](https://www.joekarlsson.com/blog/${post.data.slug}/): ${post.data.description || ''} (${date})`;
 	});
 
-	const body = `# Joe Karlsson — Full Site Guide
+	const body = `# Joe Karlsson - Full Site Guide
 
 > Software Engineer and Developer Advocate at CloudQuery. TEDx speaker, film buff, homelab enthusiast, and massive nerd. Runs a 40+ container Proxmox homelab with AI-powered smart home automations, local LLM inference, and zero cloud dependencies. This comprehensive guide covers Joe's writing, projects, speaking engagements, and professional background.
 
@@ -21,7 +19,7 @@ export async function GET() {
 
 Joe Karlsson is a Software Engineer and Developer Advocate who empowers developers to think creatively when building applications. A TEDx speaker and self-described "massive nerd," Joe combines technical depth with DevRel expertise, having worked at CloudQuery, Tinybird, SingleStore, MongoDB, Best Buy, and DevLeague.
 
-He's an avid homelab enthusiast running a Proxmox cluster with 40+ containers across two Dell PowerEdge R730 servers with dual NVIDIA GPUs. His smart home runs 90+ Home Assistant automations with local AI vision — his doorbell captures camera snapshots and describes visitors using a local LLM, entirely without cloud APIs.
+He's an avid homelab enthusiast running a Proxmox cluster with 40+ containers across two Dell PowerEdge R730 servers with dual NVIDIA GPUs. His smart home runs 90+ Home Assistant automations with local AI vision - his doorbell captures camera snapshots and describes visitors using a local LLM, entirely without cloud APIs.
 
 He's a film buff who tracks everything on Letterboxd, a mechanical keyboard builder, built an IoT-connected cat litter box and gave a conference talk about it, and uses Claude Code to manage his entire homelab infrastructure.
 
@@ -34,7 +32,6 @@ He's a film buff who tracks everything on Letterboxd, a mechanical keyboard buil
 - [Uses](https://www.joekarlsson.com/uses): Hardware, software, homelab infrastructure, and smart home setup
 - [Contact](https://www.joekarlsson.com/contact): Social links organized by platform type
 - [Talk Archive](https://www.joekarlsson.com/talk-archive): Conference talks, webinars, and presentations
-- [Speaker Rider](https://www.joekarlsson.com/speaker-rider): Speaking engagement requirements and logistics
 - [Privacy Policy](https://www.joekarlsson.com/privacy-policy): Privacy statement and data handling practices
 
 ## Featured Projects
@@ -66,7 +63,7 @@ He's a film buff who tracks everything on Letterboxd, a mechanical keyboard buil
 
 Joe writes regularly about:
 
-- **Databases**: ClickHouse, MongoDB, SingleStore — query optimization, schema design, sharding vs partitioning, CDC, real-time systems
+- **Databases**: ClickHouse, MongoDB, SingleStore - query optimization, schema design, sharding vs partitioning, CDC, real-time systems
 - **Smart Homes & IoT**: Home Assistant, self-hosted infrastructure, privacy-focused automation, IoT device building
 - **Development Tools**: React, Node.js, serverless, GraphQL, coding interviews
 - **Infrastructure**: Proxmox, containers, Nginx Proxy Manager, AdGuard, self-hosting
@@ -79,24 +76,24 @@ ${recentPosts.join('\n')}
 
 ### Notable Posts
 
-- "Self-Hosted Music Still Sucks in 2025" — self-hosting audio streaming
-- "I Replaced My Smart Home With a Dumber Home — But At Least It's Private" — privacy-focused home automation
-- "An Introduction to IoT (Internet of Toilets)" — the IoT litter box story
-- "The Art of Computer Science" — TEDx talk companion piece
-- "MongoDB Schema Design Best Practices" — database architecture guide
-- "How to Get Started Building a Homelab Server in 2024" — beginner homelab guide
+- "Self-Hosted Music Still Sucks in 2025" - self-hosting audio streaming
+- "I Replaced My Smart Home With a Dumber Home - But At Least It's Private" - privacy-focused home automation
+- "An Introduction to IoT (Internet of Toilets)" - the IoT litter box story
+- "The Art of Computer Science" - TEDx talk companion piece
+- "MongoDB Schema Design Best Practices" - database architecture guide
+- "How to Get Started Building a Homelab Server in 2024" - beginner homelab guide
 
 ## Homelab & Self-Hosting Philosophy
 
 Joe replaces SaaS dependencies with self-hosted alternatives that integrate with each other:
 
-- **Photos**: Immich replaces Google Photos — GPU-accelerated face recognition, all data on NAS
+- **Photos**: Immich replaces Google Photos - GPU-accelerated face recognition, all data on NAS
 - **Documents**: Paperless-ngx with AI auto-tagging via Paperless-AI
-- **Calendar & Tasks**: Nextcloud CalDAV replaces iCloud — same Apple apps, own hardware
+- **Calendar & Tasks**: Nextcloud CalDAV replaces iCloud - same Apple apps, own hardware
 - **Media**: Sonarr/Radarr/Prowlarr → Tdarr (GPU H.265 transcoding) → Plex
 - **Security**: Frigate GPU object detection → Home Assistant automations → local notifications
 - **Monitoring**: Grafana + Prometheus + Loki across 40+ containers, ntfy push notifications
-- **Analytics**: Plausible replaces Google Analytics — self-hosted, no cookies, GDPR compliant
+- **Analytics**: Plausible replaces Google Analytics - self-hosted, no cookies, GDPR compliant
 - **Passwords**: 1Password primary + self-hosted Vaultwarden backup
 - **DNS**: AdGuard Home (primary container + secondary Raspberry Pi)
 
@@ -115,16 +112,15 @@ Joe replaces SaaS dependencies with self-hosted alternatives that integrate with
 - **TEDx Speaker**: "The Art of Computer Science"
 - **Conference Speaker**: Hundreds of conferences worldwide on databases, IoT, DevRel, and web development
 - **Talk Archive**: Full list of past presentations available at /talk-archive
-- **Speaker Rider**: Detailed requirements for event organizers at /speaker-rider
 
 ## Professional Experience
 
-- **CloudQuery** (2025–Present): Developer Advocate — data infrastructure and community engagement
-- **Tinybird** (2023–2025): Developer Advocate — real-time data analytics
-- **SingleStore** (2021–2023): Senior Developer Advocate — distributed SQL database
-- **MongoDB** (2019–2021): Senior Developer Advocate — NoSQL databases
-- **Best Buy** (2017–2019): Front-end Technical Lead — one of the largest eCommerce sites in North America
-- **DevLeague** (2015–2017): Full-Stack JavaScript Instructor — one of the most highly-rated coding bootcamps
+- **CloudQuery** (2025–Present): Developer Advocate - data infrastructure and community engagement
+- **Tinybird** (2023–2025): Developer Advocate - real-time data analytics
+- **SingleStore** (2021–2023): Senior Developer Advocate - distributed SQL database
+- **MongoDB** (2019–2021): Senior Developer Advocate - NoSQL databases
+- **Best Buy** (2017–2019): Front-end Technical Lead - one of the largest eCommerce sites in North America
+- **DevLeague** (2015–2017): Full-Stack JavaScript Instructor - one of the most highly-rated coding bootcamps
 
 ## Social Media
 

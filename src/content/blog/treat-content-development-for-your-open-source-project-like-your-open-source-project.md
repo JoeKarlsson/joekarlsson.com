@@ -1,10 +1,10 @@
 ---
-title: "Treat Content Development for Your Open Source Project Like Your Open Source Project"
+title: 'Treat Content Development for Your Open Source Project Like Your Open Source Project'
 date: 2023-02-28
-slug: "treat-content-development-for-your-open-source-project-like-your-open-source-project"
-description: "Hello nerds! Let’s about how you should treat content development for your open source project like your open-source project. I know, it sounds meta, but bear with me. As a developer advocate, I’ve..."
-categories: ["Blog"]
-heroImage: "/images/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/Treat-Content-Development-for-Your-Open-Source-Project-Like-Your-Open-Source-Project.jpg"
+slug: 'treat-content-development-for-your-open-source-project-like-your-open-source-project'
+description: 'Hello nerds! Let’s about how you should treat content development for your open source project like your open-source project. I know, it sounds meta, but bear with me. As a developer advocate, I’ve...'
+categories: ['DevRel']
+heroImage: '/images/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/Treat-Content-Development-for-Your-Open-Source-Project-Like-Your-Open-Source-Project.webp'
 ---
 
 Hello nerds! Let’s about how you should treat content development for your open source project like your open-source project. I know, it sounds meta, but bear with me.
@@ -33,6 +33,6 @@ Not only does this help alleviate some of the workload from you, but it also cre
 
 And don’t worry, just like with Pull Requests, you can review and provide feedback on any community contributions before publishing them.
 
-Treating content development for your open source project like your open source project can help create a stronger and more engaged community. By involving your community in the process, being open about your timeline, and supporting community contributions, you can create content that resonates with your audience and helps your project thrive.
+Treating content development for your open source project like your open source project can help create a stronger and more engaged community. By involving your community in the process, being open about your timeline, and supporting community contributions, you can create content that resonates with your audience and helps your project thrive. If you're thinking about developer advocacy strategy more broadly, I shared some thoughts on [how developer advocacy is adapting in 2023](/blog/developer-advocacy-in-2023/).
 
 Now, go forth and create some awesome content! Oh, and here’s a picture of a happy developer surrounded by content. Enjoy!

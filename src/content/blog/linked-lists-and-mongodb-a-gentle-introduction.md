@@ -1,10 +1,10 @@
 ---
-title: "Linked Lists and MongoDB: A Gentle Introduction"
+title: 'Linked Lists and MongoDB: A Gentle Introduction'
 date: 2020-11-03
-slug: "linked-lists-and-mongodb-a-gentle-introduction"
-description: "Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist...."
-categories: ["Blog"]
-heroImage: "/images/blog/linked-lists-and-mongodb-a-gentle-introduction/ATF_Linked-Lists.png"
+slug: 'linked-lists-and-mongodb-a-gentle-introduction'
+description: 'Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist....'
+categories: ['Databases']
+heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/ATF_Linked-Lists.webp'
 ---
 
 Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist. This post will cover the fundamentals of the linked list data structure. It will also answer questions like, “How do linked lists differ from arrays?” and “What are the pros and cons of using a linked list?”
@@ -13,7 +13,7 @@ Are you new to data structures and algorithms? In this post, you will learn abou
 
 Did you know that linked lists are one of the foundational data structures in Computer Science? If you are like many devs that are self-taught or you graduated from a developer boot camp, then you might need a little lesson in how this data structure works. Or, if you’re like me, you might need a refresher if it’s been a couple of years since your last Computer Science lecture on data structures and algorithms. In this post, I will be walking through how to implement a linked list from scratch using Node.js and MongoDB. This is also a great place to start for getting a handle on the basics of MongoDB CRUD operations and this legendary data structure. Let’s get started with the basics.
 
-![](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-diagram-1024x316.jpg)*Diagram of a singly linked list*
+![Diagram of a singly linked list](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-diagram-1024x316.webp)_Diagram of a singly linked list_
 
 A linked list is a data structure that contains a list of nodes that are connected using references or pointers. A node is an object in memory. It usually contains at most two pieces of information, a data value, and a pointer to next node in the linked list. Linked lists also have separate pointer references to the head and the tail of the linked list. The head is the first node in the list, while the tail is the last object in the list.
 
@@ -47,7 +47,7 @@ There are a lot of reasons why linked lists are used, as opposed to other data s
 
 Linked lists are just objects in memory. One object holds a reference to another object, or one node holds a pointer to the next node. In memory, a linked list looks like this:
 
-![](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-memory-space-1-1024x679.jpg)*Diagram that demonstrates how linked lists allocate use pointers to link data in memory*
+![Diagram that demonstrates how linked lists allocate use pointers to link data in memory](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-memory-space-1-1024x679.webp)_Diagram that demonstrates how linked lists allocate use pointers to link data in memory_
 
 ### Advantages of Linked Lists
 
@@ -83,9 +83,9 @@ Now, you might be thinking that linked lists feel an awful lot like arrays, and 
 
 - Arrays have a fixed size. If the preallocated memory block is filled to capacity, the code compiler will allocate an even larger memory block, and it will need to copy the old array over to the new array memory block before new array operations can be performed. This can be expensive with both time and space.
 
-![](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/array-memory-space-1-1024x534.jpg)*A diagram that demonstrates how arrays allocate contiguous blocks of memory space*
+![A diagram that demonstrates how arrays allocate contiguous blocks of memory space](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/array-memory-space-1-1024x534.webp)_A diagram that demonstrates how arrays allocate contiguous blocks of memory space_
 
-![](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-memory-space-2-1024x535.jpg)*A diagram that demonstrates how linked lists allocate memory for new linked list nodes*
+![A diagram that demonstrates how linked lists allocate memory for new linked list nodes](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-memory-space-2-1024x535.webp)_A diagram that demonstrates how linked lists allocate memory for new linked list nodes_
 
 - To insert an element at a given position, operation is complex. We may need to shift the existing elements to create vacancy to insert the new element at desired position.
 
@@ -95,13 +95,13 @@ Now, you might be thinking that linked lists feel an awful lot like arrays, and 
 
 A doubly linked list is the same as a singly linked list with the exception that each node also points to the previous node as well as the next node.
 
-![](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/doubley-linked-list-diagram-1024x182.png)*Diagram of a doubly-linked list*
+![Diagram of a doubly-linked list](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/doubley-linked-list-diagram-1024x182.webp)_Diagram of a doubly-linked list_
 
 ### Circular Linked List
 
 A circular linked list is the same as a singly linked list with the exception that there is no concept of a head or tail. All nodes point to the next node circularly. There is no true start to the circular linked list.
 
-![](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/circular-linked-list-diagram-1024x247.png)*Diagram of a circular linked list*
+![Diagram of a circular linked list](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/circular-linked-list-diagram-1024x247.webp)_Diagram of a circular linked list_
 
 ## Let’s Code A Linked List with MongoDB!
 
@@ -147,11 +147,11 @@ Alright, now that we have been able to connect to our MongoDB Atlas database, le
 
 The general strategy for building our linked lists with MongoDB will be as follows:
 
-- Use a MongoDB document to keep track of meta information, like the head and tail location. 
+- Use a MongoDB document to keep track of meta information, like the head and tail location.
 
 - Each node in the Linked List will also use a unique MongoDB document for each node in our linked list.
 
-- We will be using the unique IDs that are automatically generated by MongoDB to simulate a pointer. So the *next* value of each linked list node will store the ID of the next node in the linked list. That way, we will be able to iterate through our Linked List.
+- We will be using the unique IDs that are automatically generated by MongoDB to simulate a pointer. So the _next_ value of each linked list node will store the ID of the next node in the linked list. That way, we will be able to iterate through our Linked List.
 
 So, in order to accomplish this, the first thing that we are going to do is set up our linked list class.
 
@@ -306,7 +306,7 @@ async add(value) {
 
 ### Find A Node
 
-In order to traverse a linked list, we must start at the beginning of the linked list, also known as the head. Then, we follow each *next* pointer reference until we come to the end of the linked list, or the node we are looking for. It can be implemented by using the following steps:
+In order to traverse a linked list, we must start at the beginning of the linked list, also known as the head. Then, we follow each _next_ pointer reference until we come to the end of the linked list, or the node we are looking for. It can be implemented by using the following steps:
 
 - Start at the head node of your linked list.
 
@@ -344,7 +344,7 @@ async get(index) {
 
 ### Delete A Node
 
-Now, let’s say we want to remove a node from our linked list. In order to do this, we must again keep track of the previous node so that we can update the previous node’s *next* pointer reference to the node that is being deleted *next* value is pointing to. Or to put it another way:
+Now, let’s say we want to remove a node from our linked list. In order to do this, we must again keep track of the previous node so that we can update the previous node’s _next_ pointer reference to the node that is being deleted _next_ value is pointing to. Or to put it another way:
 
 - Find the node you are searching for and keep track of the previous node.
 
@@ -352,7 +352,7 @@ Now, let’s say we want to remove a node from our linked list. In order to do t
 
 - Delete the found node from memory.
 
-![](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/remove-node-1024x497.png)*A diagram that demonstrates how linked lists remove a node from a linked list by moving pointer references*
+![A diagram that demonstrates how linked lists remove a node from a linked list by moving pointer references](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/remove-node-1024x497.webp)_A diagram that demonstrates how linked lists remove a node from a linked list by moving pointer references_
 
 ```
 // reads through our list and removes desired node in the linked list
@@ -404,7 +404,7 @@ The following code inserts a node after an existing node in a singly linked list
 
 - Update the next property of the node you want to insert after to point to the new node.
 
-![](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/insert-a-new-node-1024x1024.jpg)*Diagram that demonstrates how a linked list inserts a new node by moving pointer references*
+![Diagram that demonstrates how a linked list inserts a new node by moving pointer references](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/insert-a-new-node-1024x1024.webp)_Diagram that demonstrates how a linked list inserts a new node by moving pointer references_
 
 ```
 // Inserts a new node at the deisred index in the linked list
@@ -452,57 +452,8 @@ async insert(value, index) {
 
 ## Summary
 
-Many developers want to learn the fundamental Computer Science data structures and algorithms or get a refresher on them. In this author’s humble opinion, the best way to learn data structures is by implementing them on your own. This exercise is a great way to learn data structures as well as learn the fundamentals of MongoDB CRUD operations.
+Many developers want to learn the fundamental Computer Science data structures and algorithms or get a refresher on them. In this author’s humble opinion, the best way to learn data structures is by implementing them on your own. This exercise is a great way to learn data structures as well as learn the fundamentals of MongoDB CRUD operations. If you want to learn more about how to structure your data in MongoDB beyond linked lists, check out my talk on [MongoDB schema design best practices](/blog/mongodb-schema-design-best-practices/).
 
-> 
-When you’re ready to implement your own linked list in MongoDB, check out [MongoDB Atlas](http://bit.ly/MDB_Atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
+> When you’re ready to implement your own linked list in MongoDB, check out [MongoDB Atlas](http://bit.ly/MDB_Atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
 
 If you want to learn more about linked lists and MongoDB, be sure to check out these resources.
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://twitter.com/JoeKarlsson1](https://x.com/JoeKarlsson1)
-
-- TikTok – [https://www.tiktok.com/@joekarlsson](https://www.tiktok.com/@joekarlsson)
-
-- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)
-
-- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)
-
-- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)
-
-- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)
-
-- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)
-
-- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)
-
-- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)
-
-- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)
-
-## Related Links
-
-Check out the following resources for more information:
-
-- [Want to see me implement a Linked List using MongoDB? You check out this recording of the MongoDB Twitch Stream](https://youtu.be/JCMx5SkhNVE)
-
-- Source Code:
-
-- [Want to learn more about MongoDB? Be sure to take a class on the MongoDB University](https://university.mongodb.com/)
-
-- [Have a question, feedback on this post, or stuck on something be sure to check out and/or open a new post on the MongoDB Community Forums:](https://developer.mongodb.com/community/forums/)
-
-- Quick Start: Node.js:
-
-- Want to check out more cool articles about MongoDB? Be sure to check out more posts like this on the MongoDB Developer Hub
-
-- [For additional information on Linked Lists, be sure to check out the Wikipedia article](https://en.wikipedia.org/wiki/Linked_list)
-
-- [How to Pass A Coding Interview](https://www.joekarlsson.com/2020/05/how-to-pass-coding-interview/)
-
-- [So, You Want To Learn How To Code? Here’s What You Need To Know.](https://www.joekarlsson.com/2018/01/my-top-resources-for-learning-how-to-code/)

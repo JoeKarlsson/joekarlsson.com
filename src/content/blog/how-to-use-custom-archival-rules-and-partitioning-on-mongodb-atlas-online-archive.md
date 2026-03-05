@@ -1,10 +1,10 @@
 ---
-title: "How to Use Custom Archival Rules and Partitioning on MongoDB Atlas Online Archive"
+title: 'How to Use Custom Archival Rules and Partitioning on MongoDB Atlas Online Archive'
 date: 2021-06-30
-slug: "how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive"
-description: "Okay, so you’ve set up a simple MongoDB Atlas Online Archive, and now you might be wondering, “What’s next?” In this post, we will cover some more advanced Online Archive use cases, including setting..."
-categories: ["Blog"]
-heroImage: "/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/og-sql-to-mdb.png"
+slug: 'how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive'
+description: 'Okay, so you’ve set up a simple MongoDB Atlas Online Archive, and now you might be wondering, “What’s next?” In this post, we will cover some more advanced Online Archive use cases, including setting...'
+categories: ['Databases']
+heroImage: '/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/og-sql-to-mdb.webp'
 ---
 
 Okay, so you’ve set up a simple MongoDB Atlas Online Archive, and now you might be wondering, “What’s next?” In this post, we will cover some more advanced Online Archive use cases, including setting up custom archival rules for MongoDB and how to improve query performance through partitioning.
@@ -41,22 +41,20 @@ To retrieve the documents staged for archival, we will use the following find co
 
 ```
 { $or: [
-    { active: false }, 
+    { active: false },
     { active: null }
 ] }
 ```
 
 You will need to continue setting up your archive, and then you should be done!
 
-> 
-**Note**: It’s always a good idea to run your custom queries in the [mongo shell](https://docs.mongodb.com/mongodb-shell/install/) first to ensure that you are archiving the correct documents.
+> **Note**: It’s always a good idea to run your custom queries in the [mongo shell](https://docs.mongodb.com/mongodb-shell/install/) first to ensure that you are archiving the correct documents.
 
-> 
-**Note**: MongoDB documents, once they are initiated for an archive and is queued for archiving, are no longer edittable.
+> **Note**: MongoDB documents, once they are initiated for an archive and is queued for archiving, are no longer edittable.
 
 ## Why Partitioning?
 
-One of the reasons we archive data is to access and query it in the future if for some reason we still need to use it. In fact, you might be accessing this data quite frequently! That’s why it’s useful to be able to partition your archived data and speed up query times. With Atlas Online Archive, you can specify the two most frequently queried fields in your collection to create partitions in your online archive.
+One of the reasons we archive data is to access and query it in the future if for some reason we still need to use it. You might even be accessing this data quite frequently! That’s why it’s useful to be able to partition your archived data and speed up query times. With Atlas Online Archive, you can specify the two most frequently queried fields in your collection to create partitions in your online archive.
 
 ## Partioning Best Practices
 
@@ -66,10 +64,9 @@ For example, fields with low cardinality won’t partition the data well and the
 
 Fields with mid to high cardinality will partition the data better leading to better general query performance, but maybe slightly slower archival performance.
 
-Fields with extremely high cardinality like `_id` will lead to poor query performance for everything but “point queries” that query on _id, and will lead to terrible archival performance due to writing many partitions.
+Fields with extremely high cardinality like `_id` will lead to poor query performance for everything but “point queries” that query on \_id, and will lead to terrible archival performance due to writing many partitions.
 
-> 
-Note: Online Archive is powered by MongoDB Atlas Data Lake. To learn more about how partitions improve your query performance in Data Lake, see [Data Structure in S3](https://docs.mongodb.com/datalake/admin/optimize-query-performance#data-structure-in-s3).
+> Note: Online Archive is powered by MongoDB Atlas Data Lake. To learn more about how partitions improve your query performance in Data Lake, see [Data Structure in S3](https://docs.mongodb.com/datalake/admin/optimize-query-performance#data-structure-in-s3).
 
 The specified fields are used to partition your archived data for optimal query performance. Partitions are similar to folders. You can move whichever field to the first position of the partition if you frequently query by that field.
 
@@ -89,10 +86,9 @@ Atlas creates partitions first for the `username` field, followed by the `email`
 
 - the `username` field and the `email` field
 
-> 
-**Note**: The value of a partition field can be up to a maximum of 700 characters. Documents with values exceeding 700 characters are not archived.
+> **Note**: The value of a partition field can be up to a maximum of 700 characters. Documents with values exceeding 700 characters are not archived.
 
-![Figure showing how Atlas Online Archive partitions data and how it uses it to query documents quickly.](https://mongodb-devhub-cms.s3.us-west-1.amazonaws.com/Online_Archive_Partition_3466b335d6.png)
+![Figure showing how Atlas Online Archive partitions data and how it uses it to query documents quickly.](/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/Online_Archive_Partition_3466b335d6.webp)
 
 For more information on how to partition data in your Online Archive, please [refer to the documentation](https://docs.atlas.mongodb.com/online-archive/configure-online-archive/).
 
@@ -113,31 +109,3 @@ If you have questions about custom archival rules for MongoDB, please head to ou
 - [How To Use The MongoDB Visual Studio Code Plugin](https://www.joekarlsson.com/2020/11/how-to-use-the-mongodb-visual-studio-code-plugin/)
 
 - [Linked Lists and MongoDB: A Gentle Introduction](https://www.joekarlsson.com/2020/11/linked-lists-and-mongodb-a-gentle-introduction/)
-
-## Follow Joe Karlsson on Social
-
-- Twitter – [https://x.com/JoeKarlsson1](https://x.com/JoeKarlsson1)
-
-- TikTok – [https://www.tiktok.com/@joekarlsson](https://www.tiktok.com/@joekarlsson)
-
-- GitHub – [https://github.com/JoeKarlsson](https://github.com/JoeKarlsson)
-
-- YouTube – [https://www.youtube.com/c/JoeKarlsson](https://www.youtube.com/c/JoeKarlsson)
-
-- Twitch – [https://www.twitch.tv/joe_karlsson](https://www.twitch.tv/joe_karlsson)
-
-- Medium – [https://medium.com/@joekarlsson](https://medium.com/@joekarlsson)
-
-- LinkedIn – [https://www.linkedin.com/in/joekarlsson/](https://www.linkedin.com/in/joekarlsson/)
-
-- Reddit – [www.reddit.com/user/joekarlsson](http://www.reddit.com/user/joekarlsson)
-
-- Instagram – [https://www.instagram.com/joekarlsson/](https://www.instagram.com/joekarlsson/)
-
-## Want to Learn More About Joe Karlsson?
-
-- [https://www.joekarlsson.com/about/](https://www.joekarlsson.com/about/)
-
-- [https://www.joekarlsson.com/speaking/](https://www.joekarlsson.com/speaking/)
-
-##
