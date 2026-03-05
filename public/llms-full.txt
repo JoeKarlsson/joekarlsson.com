@@ -1,0 +1,119 @@
+# Joe Karlsson — Full Site Guide
+
+> Software Engineer and Developer Advocate at CloudQuery. TEDx speaker, film buff, homelab enthusiast, and massive nerd. This comprehensive guide covers Joe's writing, projects, speaking engagements, and professional background.
+
+## About Joe Karlsson
+
+Joe Karlsson is a Software Engineer and Developer Advocate who empowers developers to think creatively when building applications. A TEDx speaker and self-described "massive nerd," Joe combines technical depth with DevRel expertise, having worked at CloudQuery, Tinybird, SingleStore, MongoDB, Best Buy, and DevLeague.
+
+He's an avid homelab enthusiast running a Proxmox cluster with 30+ containers and services, a film buff who tracks everything on Letterboxd, and built an IoT-connected cat litter box and gave a conference talk about it.
+
+## Main Pages
+
+- [Home](https://www.joekarlsson.com/): Latest blog posts, featured projects, and current updates
+- [Blog](https://www.joekarlsson.com/blog): 68 published posts organized by topic
+- [About](https://www.joekarlsson.com/about): Biography, interests, and work history
+- [Work](https://www.joekarlsson.com/work): Portfolio showcasing projects organized by category
+- [Contact](https://www.joekarlsson.com/contact): Social links organized by platform type
+- [Talk Archive](https://www.joekarlsson.com/talk-archive): Conference talks, webinars, and presentations
+- [Speaker Rider](https://www.joekarlsson.com/speaker-rider): Speaking engagement requirements and logistics
+- [Privacy Policy](https://www.joekarlsson.com/privacy-policy): Privacy statement and data handling practices
+
+## Featured Projects
+
+### IoT & Smart Home
+
+- **IoT Kitty Litter Box**: Arduino-based smart pet monitoring system with weight sensors, Home Assistant integration, and automated health tracking. Conference talk topic.
+- **MagicMirror²**: Modular smart mirror display running on Raspberry Pi, showing weather, calendar, news, and custom modules.
+- **Moodlite**: DIY Nanoleaf-style lighting system using programmable LED strips and custom firmware for ambient lighting control.
+- **3D-Printed Planter**: Designed and printed custom postcard planter racks using CAD and FDM printing.
+- **Proxmox Homelab Cluster**: Multi-node virtualization infrastructure running 30+ LXC containers and VMs for media management, monitoring, databases, and smart home automation.
+- **Private Smart Home**: Home Assistant-based automation with local-only processing, Zigbee devices, and custom integrations.
+
+### Web & Applications
+
+- **React Spotify Player**: Web-based Spotify player built with React, demonstrating Spotify API integration.
+- **Bechdel.io**: Movie script analysis tool that tests films against the Bechdel Test criteria.
+- **Pixelate**: HTML5 Canvas image pixelation tool built with vanilla JavaScript.
+- **Launch Target**: Web-based spaceship game.
+
+### Games & Fun
+
+- **Wave Jump**: Browser-based game.
+- **Rose Hobart**: Experimental film project.
+
+### Education & Open Source
+
+- **[Data Structures](https://github.com/JoeKarlsson/data-structures)**: JavaScript implementation of common data structures. 185+ GitHub stars.
+- **Client-Server Communication Guide**: Complete guide to Node.js client-server patterns.
+- **Sudoku Solver**: Algorithmic puzzle solver.
+- **Movie Script Scraper**: Web scraper for film scripts and analysis.
+- **MongoDB GraphQL Demo**: Example integration of MongoDB with GraphQL.
+- **Watson Bot**: IBM Watson-powered chatbot.
+- **MongoDB CSFLE Demo**: Client-side field level encryption demonstration.
+
+## Blog Topics
+
+Joe writes regularly about:
+
+- **Databases**: ClickHouse, MongoDB, SingleStore — query optimization, schema design, sharding vs partitioning, CDC, real-time systems
+- **Smart Homes & IoT**: Home Assistant, self-hosted infrastructure, privacy-focused automation, IoT device building
+- **Development Tools**: React, Node.js, serverless, GraphQL, coding interviews
+- **Infrastructure**: Proxmox, containers, Nginx Proxy Manager, AdGuard, self-hosting
+- **Developer Relations**: Community building, content strategy, DevRel career advice
+- **Personal**: Travel guides (Cuba, Oahu), music (Top 50 records), film
+
+### Notable Posts
+
+- "Self-Hosted Music Still Sucks in 2025" — self-hosting audio streaming
+- "I Replaced My Smart Home With a Dumber Home — But At Least It's Private" — privacy-focused home automation
+- "An Introduction to IoT (Internet of Toilets)" — the IoT litter box story
+- "The Art of Computer Science" — TEDx talk companion piece
+- "MongoDB Schema Design Best Practices" — database architecture guide
+- "How to Get Started Building a Homelab Server in 2024" — beginner homelab guide
+
+## Speaking & Presentations
+
+- **TEDx Speaker**: "The Art of Computer Science"
+- **Conference Speaker**: Hundreds of conferences worldwide on databases, IoT, DevRel, and web development
+- **Talk Archive**: Full list of past presentations available at /talk-archive
+- **Speaker Rider**: Detailed requirements for event organizers at /speaker-rider
+
+## Professional Experience
+
+- **CloudQuery** (2025–Present): Developer Advocate — data infrastructure and community engagement
+- **Tinybird** (2023–2025): Developer Advocate — real-time data analytics
+- **SingleStore** (2021–2023): Senior Developer Advocate — distributed SQL database
+- **MongoDB** (2019–2021): Senior Developer Advocate — NoSQL databases
+- **Best Buy** (2017–2019): Front-end Technical Lead — one of the largest eCommerce sites in North America
+- **DevLeague** (2015–2017): Full-Stack JavaScript Instructor — one of the most highly-rated coding bootcamps
+
+## Social Media
+
+### Primary
+- [GitHub](https://github.com/JoeKarlsson): Open-source repositories and project code
+- [LinkedIn](https://www.linkedin.com/in/joekarlsson/): Professional network
+- [Bluesky](https://bsky.app/profile/joekarlsson.com): Primary social platform
+
+### Video & Audio
+- [YouTube](https://www.youtube.com/joekarlsson): Talks, tutorials, and demos
+- [Twitch](https://www.twitch.tv/joe_karlsson): Live coding and hangouts
+- [Spotify](https://open.spotify.com/user/125084446): Playlists and listening
+
+### Other
+- [Threads](https://www.threads.net/@joekarlsson)
+- [Instagram](https://www.instagram.com/joekarlsson/)
+- [Letterboxd](https://letterboxd.com/joekarlsson/): Film reviews and ratings
+- [Reddit](https://www.reddit.com/user/joekarlsson)
+- [Medium](https://medium.com/@joekarlsson)
+- [npm](https://www.npmjs.com/~joekarlsson)
+
+## Key Interests & Expertise
+
+- Smart Home Automation (Home Assistant, ESPHome, Zigbee)
+- Database Architecture (SQL, NoSQL, distributed systems, real-time analytics)
+- DevOps & Infrastructure (Proxmox, containers, networking, monitoring)
+- Open Source (community engagement, educational projects)
+- Developer Advocacy (content creation, community building, conference speaking)
+- Film & Entertainment (Letterboxd, Bechdel Test advocacy)
+- IoT & Hardware (Arduino, Raspberry Pi, sensor integration)

@@ -1,0 +1,347 @@
+---
+import { getCollection } from 'astro:content';
+import BlogCard from '../components/BlogCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 6);
+
+// Random fun facts for the rotating tagline
+const taglines = [
+	'Built an IoT cat toilet. Gave a conference talk about it.',
+	'Mass-assigning GPU transcoding jobs at 2am on a Tuesday.',
+	'Running 30+ containers because "it\'ll be quick to set up."',
+	'TEDx speaker. Homelab hoarder. Film snob.',
+	'Teaching computers to do things they probably shouldn\'t.',
+];
+
+// Randomized hero greetings
+const greetings = [
+	'Hello, you can call me Joe.',
+	'Hey, I\'m Joe.',
+	'Oh hey, didn\'t see you there.',
+	'> whoami',
+	'Welcome to my corner of the internet.',
+	'Howdy. I\'m Joe.',
+];
+const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+---
+
+<BaseLayout title="Joe Karlsson — Developer Advocate & Massive Nerd" description={SITE_DESCRIPTION}>
+	<!-- Hero -->
+	<section class="border-b-4 border-coral overflow-hidden">
+		<div class="mx-auto max-w-5xl px-6 py-20 md:py-32 relative">
+			<div class="hero-orb absolute -top-20 -left-20 h-72 w-72 rounded-full bg-coral/10 blur-3xl"></div>
+			<div class="hero-orb-2 absolute -bottom-10 -right-10 h-56 w-56 rounded-full bg-teal/10 blur-3xl"></div>
+
+			<div class="relative">
+				<div class="max-w-3xl">
+					<!-- Terminal prompt — subtle brutalist touch -->
+					<p class="mb-4 font-mono text-sm text-gray-500 hidden md:block fade-in" aria-hidden="true">
+						<span class="text-teal">joe@karlsson</span><span class="text-gray-600">:</span><span class="text-coral">~</span><span class="text-gray-600">$</span>
+					</p>
+
+					<h1 class="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+						<span class="hero-text text-coral">{greeting}</span>
+					</h1>
+					<h2 class="mb-4 text-2xl font-medium text-teal md:text-3xl fade-in fade-in-delay-1">
+						Software Engineer & Developer Advocate
+					</h2>
+					<p class="mb-6 font-mono text-sm text-gray-600 fade-in fade-in-delay-1" id="rotating-tagline">
+						{taglines[0]}
+					</p>
+					<p class="mb-10 text-lg text-gray-400 md:text-xl fade-in fade-in-delay-2">
+						I'm a massive nerd who empowers developers to think creatively when building applications.
+						Through <a href="/work">demos</a>, <a href="/blog">blogs</a>, videos, or whatever else developers need.
+						Currently at <strong class="text-white">CloudQuery</strong>.
+					</p>
+					<div class="flex flex-wrap gap-3 fade-in fade-in-delay-3">
+					<a
+						href="/blog"
+						class="btn-primary rounded-md bg-coral px-5 py-2.5 font-medium text-surface-0 no-underline hover:bg-teal"
+					>
+						Read the Blog
+					</a>
+					<a
+						href="/about"
+						class="btn-secondary rounded-md border border-surface-4 px-5 py-2.5 font-medium text-gray-300 no-underline hover:border-coral hover:text-white"
+					>
+						About Me
+					</a>
+					<a
+						href="/work"
+						class="btn-secondary rounded-md border border-surface-4 px-5 py-2.5 font-medium text-gray-300 no-underline hover:border-coral hover:text-white"
+					>
+						My Work
+					</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- What I Do — brutalist grid with thick borders -->
+	<section class="border-b-4 border-teal">
+		<div class="mx-auto grid max-w-5xl grid-cols-1 sm:grid-cols-3">
+			<a href="/blog" class="card-hover group flex items-center gap-4 border-b sm:border-b-0 sm:border-r border-surface-3 px-8 py-8 no-underline transition-all duration-300 hover:bg-coral/5">
+				<span class="text-3xl text-coral transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12">&#9998;</span>
+				<div>
+					<p class="font-medium text-white">Blog</p>
+					<p class="text-sm text-gray-500">Databases, smart homes, dev tools</p>
+				</div>
+			</a>
+			<a href="/work" class="card-hover group flex items-center gap-4 border-b sm:border-b-0 sm:border-r border-surface-3 px-8 py-8 no-underline transition-all duration-300 hover:bg-teal/5">
+				<span class="text-3xl text-teal transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12">&#9881;</span>
+				<div>
+					<p class="font-medium text-white">Projects</p>
+					<p class="text-sm text-gray-500">Things I've built & shipped</p>
+				</div>
+			</a>
+			<a href="/talk-archive" class="card-hover group flex items-center gap-4 px-8 py-8 no-underline transition-all duration-300 hover:bg-lavender/5">
+				<span class="text-3xl text-lavender transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12">&#9654;</span>
+				<div>
+					<p class="font-medium text-white">Talks</p>
+					<p class="text-sm text-gray-500">Conferences & meetups</p>
+				</div>
+			</a>
+		</div>
+	</section>
+
+	<!-- Right Now -->
+	<section class="border-b border-surface-3">
+		<div class="mx-auto max-w-5xl px-6 py-14">
+			<h2 class="mb-4 text-lg font-bold text-white">
+				<span class="text-teal font-mono text-sm">&gt;</span> Right now
+			</h2>
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+					<p class="text-xs text-gray-600 font-mono mb-1">working on</p>
+					<p class="text-sm text-gray-300">Building data pipelines & developer tools at <strong class="text-white">CloudQuery</strong></p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+					<p class="text-xs text-gray-600 font-mono mb-1">tinkering with</p>
+					<p class="text-sm text-gray-300">A <strong class="text-white">30+ container homelab</strong> running Proxmox, Home Assistant, and way too many arr apps</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+					<p class="text-xs text-gray-600 font-mono mb-1">writing about</p>
+					<p class="text-sm text-gray-300">Self-hosting, databases, and <a href="/blog">things that probably shouldn't be connected to the internet</a></p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+					<p class="text-xs text-gray-600 font-mono mb-1">using</p>
+					<p class="text-sm text-gray-300">M1 MacBook Air, VS Code, too many monitors. <a href="/uses">See my full setup &rarr;</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Recent Posts -->
+	<section class="mx-auto max-w-5xl px-6 py-16">
+		<div class="mb-8 flex items-center justify-between">
+			<h2 class="text-2xl font-bold text-white">Recent Posts</h2>
+			<a href="/blog" class="group text-sm text-coral hover:text-teal transition-colors">
+				View all <span class="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+			</a>
+		</div>
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{posts.map((post, i) => (
+				<div class={`scroll-reveal scroll-reveal-delay-${i % 3}`}>
+					<BlogCard
+						title={post.data.title}
+						description={post.data.description}
+						date={post.data.date}
+						slug={post.data.slug}
+						heroImage={post.data.heroImage}
+					/>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- Fun footer banner — brutalist marquee -->
+	<section class="border-t-4 border-lavender overflow-hidden bg-surface-1 py-3">
+		<div class="marquee whitespace-nowrap font-mono text-sm text-gray-600">
+			<span class="marquee-content">
+				DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS &bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull; DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS &bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull;&nbsp;
+			</span>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	/* Hero typewriter effect — runs once, width set by JS */
+	.hero-text {
+		display: inline-block;
+		overflow: hidden;
+		border-right: 3px solid var(--color-coral, #fdae84);
+		white-space: nowrap;
+		width: 0;
+	}
+
+	@keyframes typing {
+		from { width: 0; }
+		to { width: var(--text-width); }
+	}
+
+	@keyframes blink-caret {
+		from, to { border-color: transparent; }
+		50% { border-color: var(--color-coral, #fdae84); }
+	}
+
+	@keyframes hide-caret {
+		to { border-color: transparent; }
+	}
+
+	/* Fade in animations */
+	.fade-in {
+		opacity: 0;
+		transform: translateY(12px);
+		animation: fadeInUp 0.6s ease-out forwards;
+	}
+	.fade-in-delay-1 { animation-delay: 0.8s; }
+	.fade-in-delay-2 { animation-delay: 1.1s; }
+	.fade-in-delay-3 { animation-delay: 1.4s; }
+
+	@keyframes fadeInUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Floating orbs */
+	.hero-orb {
+		animation: float 8s ease-in-out infinite;
+	}
+	.hero-orb-2 {
+		animation: float 10s ease-in-out infinite reverse;
+	}
+
+	@keyframes float {
+		0%, 100% { transform: translate(0, 0); }
+		33% { transform: translate(15px, -20px); }
+		66% { transform: translate(-10px, 10px); }
+	}
+
+	/* Scroll reveal */
+	.scroll-reveal {
+		opacity: 0;
+		transform: translateY(20px);
+		transition: opacity 0.5s ease, transform 0.5s ease;
+	}
+	.scroll-reveal.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	.scroll-reveal-delay-0 { transition-delay: 0s; }
+	.scroll-reveal-delay-1 { transition-delay: 0.1s; }
+	.scroll-reveal-delay-2 { transition-delay: 0.2s; }
+
+	/* Marquee */
+	.marquee {
+		display: flex;
+	}
+	.marquee-content {
+		display: inline-block;
+		animation: marquee 20s linear infinite;
+	}
+
+	@keyframes marquee {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+
+	/* Button hover effects */
+	.btn-primary {
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+	}
+	.btn-primary:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 4px 20px rgba(253, 174, 132, 0.3);
+	}
+	.btn-secondary {
+		transition: all 0.3s ease;
+	}
+	.btn-secondary:hover {
+		transform: translateY(-1px);
+	}
+
+	/* Reduce motion for accessibility */
+	@media (prefers-reduced-motion: reduce) {
+		.hero-text {
+			width: auto !important;
+			border-right: none;
+			animation: none !important;
+		}
+		.fade-in {
+			opacity: 1;
+			transform: none;
+			animation: none;
+		}
+		.hero-orb, .hero-orb-2 {
+			animation: none;
+		}
+		.scroll-reveal {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
+		.marquee-content {
+			animation: none;
+		}
+		.btn-primary:hover, .btn-secondary:hover {
+			transform: none;
+		}
+	}
+</style>
+
+<script define:vars={{ taglines }}>
+	// Typewriter: measure actual text width and animate to it
+	const heroText = document.querySelector('.hero-text');
+	if (heroText) {
+		// Temporarily show text to measure
+		heroText.style.width = 'auto';
+		const textWidth = heroText.scrollWidth + 'px';
+		heroText.style.width = '0';
+		heroText.style.setProperty('--text-width', textWidth);
+		// Calculate steps from character count
+		const steps = heroText.textContent.trim().length;
+		heroText.style.animation = `typing 1.2s steps(${steps}, end) forwards, blink-caret 0.6s step-end 4 1.2s, hide-caret 0s forwards 3.6s`;
+	}
+
+	// Rotate taglines
+	const el = document.getElementById('rotating-tagline');
+	if (el) {
+		let i = 0;
+		setInterval(() => {
+			i = (i + 1) % taglines.length;
+			el.style.opacity = '0';
+			setTimeout(() => {
+				el.textContent = taglines[i];
+				el.style.opacity = '1';
+			}, 300);
+		}, 4000);
+		el.style.transition = 'opacity 0.3s ease';
+	}
+
+	// Scroll reveal with Intersection Observer
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+	);
+
+	document.querySelectorAll('.scroll-reveal').forEach((el) => {
+		observer.observe(el);
+	});
+</script>

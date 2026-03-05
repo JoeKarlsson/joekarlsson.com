@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block search results and API-like paths
+Disallow: /search/
+Disallow: /?s=
+Disallow: /page/*/?s=
+
+Sitemap: https://www.joekarlsson.com/sitemap-index.xml

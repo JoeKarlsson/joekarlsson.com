@@ -1,0 +1,42 @@
+# Joe Karlsson
+
+> Software Engineer and Developer Advocate at CloudQuery. TEDx speaker, film buff, homelab enthusiast, and massive nerd. Writing about databases, smart homes, developer tools, and the things I build.
+
+## Pages
+
+- [Home](https://www.joekarlsson.com/): Latest content and featured projects
+- [Blog](https://www.joekarlsson.com/blog): 68 posts covering databases, smart homes, dev tools, IoT, and DevRel
+- [About](https://www.joekarlsson.com/about): Biography and background
+- [Work](https://www.joekarlsson.com/work): Portfolio of projects and technical work
+- [Contact](https://www.joekarlsson.com/contact): Social links and ways to connect
+- [Talk Archive](https://www.joekarlsson.com/talk-archive): Conference talks and presentations
+- [Speaker Rider](https://www.joekarlsson.com/speaker-rider): Speaking engagement requirements
+- [Privacy Policy](https://www.joekarlsson.com/privacy-policy): Privacy and data policy
+
+## Featured Projects
+
+- IoT Kitty Litter Box: Smart pet monitoring system with Home Assistant integration
+- MagicMirror²: Raspberry Pi smart mirror display system
+- Moodlite: DIY Nanoleaf lighting system clone
+- Bechdel.io: Movie script analysis tool for the Bechdel Test
+- [Data Structures](https://github.com/JoeKarlsson/data-structures): Educational repo with 185+ GitHub stars
+- React Spotify Player: Web-based Spotify player built with React
+- Proxmox Homelab Cluster: Multi-node virtualization infrastructure
+
+## Social & Contact
+
+- [GitHub](https://github.com/JoeKarlsson)
+- [LinkedIn](https://www.linkedin.com/in/joekarlsson/)
+- [Bluesky](https://bsky.app/profile/joekarlsson.com)
+- [YouTube](https://www.youtube.com/joekarlsson)
+- [Threads](https://www.threads.net/@joekarlsson)
+- [Letterboxd](https://letterboxd.com/joekarlsson/)
+
+## Experience
+
+- **CloudQuery** (2025–Present): Developer Advocate
+- **Tinybird** (2023–2025): Developer Advocate
+- **SingleStore** (2021–2023): Senior Developer Advocate
+- **MongoDB** (2019–2021): Senior Developer Advocate
+- **Best Buy** (2017–2019): Front-end Technical Lead
+- **DevLeague** (2015–2017): Full-Stack JavaScript Instructor

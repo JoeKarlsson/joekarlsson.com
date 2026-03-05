@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SOCIAL_LINKS } from '../consts';
+---
+
+<BaseLayout title="Contact | Joe Karlsson" description="Get in touch with Joe Karlsson.">
+	<div class="mx-auto max-w-3xl px-4 py-8">
+		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Ready to be friends?</h1>
+		<p class="mb-8 text-gray-400">Here's everywhere you can find me on the internet.</p>
+
+		<!-- Newsletter -->
+		<div class="mb-8 rounded-lg border border-coral/20 bg-coral/5 p-5">
+			<h2 class="mb-2 text-lg font-semibold text-coral">Newsletter</h2>
+			<p class="mb-3 text-sm text-gray-400">Each week, a curated collection of articles about tech with my personal summary and opinions.</p>
+			<a href={SOCIAL_LINKS.substack} target="_blank" rel="noopener" class="inline-block rounded-md bg-coral px-4 py-2 text-sm font-medium text-surface-0 no-underline hover:bg-teal">
+				Subscribe on Substack &rarr;
+			</a>
+		</div>
+
+		<h2 class="mb-4 text-lg font-semibold text-white">Primary</h2>
+		<div class="mb-8 grid gap-3 sm:grid-cols-2">
+			<a href={SOCIAL_LINKS.bluesky} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<span class="text-xl text-sky">&#9729;</span>
+				<div>
+					<p class="font-medium text-white">Bluesky</p>
+					<p class="text-xs text-gray-500">@joekarlsson.com</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<span class="text-xl text-sky">in</span>
+				<div>
+					<p class="font-medium text-white">LinkedIn</p>
+					<p class="text-xs text-gray-500">Professional inquiries & speaking</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.threads} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<span class="text-xl text-white">@</span>
+				<div>
+					<p class="font-medium text-white">Threads</p>
+					<p class="text-xs text-gray-500">@joekarlsson</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<span class="text-xl text-white">GH</span>
+				<div>
+					<p class="font-medium text-white">GitHub</p>
+					<p class="text-xs text-gray-500">Open source & projects</p>
+				</div>
+			</a>
+		</div>
+
+		<h2 class="mb-4 text-lg font-semibold text-white">Video & Audio</h2>
+		<div class="mb-8 grid gap-3 sm:grid-cols-2">
+			<a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<span class="text-xl text-terminal-red">&#9654;</span>
+				<div>
+					<p class="font-medium text-white">YouTube</p>
+					<p class="text-xs text-gray-500">Talks & tutorials</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.twitch} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<span class="text-xl text-lavender">&#9654;</span>
+				<div>
+					<p class="font-medium text-white">Twitch</p>
+					<p class="text-xs text-gray-500">Live coding & hangouts</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.spotify} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<span class="text-xl text-terminal-green">&#9835;</span>
+				<div>
+					<p class="font-medium text-white">Spotify</p>
+					<p class="text-xs text-gray-500">Playlists & listening</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<span class="text-xl text-pink">&#9835;</span>
+				<div>
+					<p class="font-medium text-white">TikTok</p>
+					<p class="text-xs text-gray-500">@joekarlsson</p>
+				</div>
+			</a>
+		</div>
+
+		<h2 class="mb-4 text-lg font-semibold text-white">Other</h2>
+		<div class="mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+			<a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<div>
+					<p class="font-medium text-white">Instagram</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.letterboxd} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<div>
+					<p class="font-medium text-white">Letterboxd</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<div>
+					<p class="font-medium text-white">Twitter/X</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.reddit} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<div>
+					<p class="font-medium text-white">Reddit</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.medium} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<div>
+					<p class="font-medium text-white">Medium</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.npm} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<div>
+					<p class="font-medium text-white">npm</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.keybase} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<div>
+					<p class="font-medium text-white">Keybase</p>
+				</div>
+			</a>
+			<a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-colors hover:border-coral/30 hover:bg-surface-2">
+				<div>
+					<p class="font-medium text-white">Facebook</p>
+				</div>
+			</a>
+		</div>
+	</div>
+</BaseLayout>

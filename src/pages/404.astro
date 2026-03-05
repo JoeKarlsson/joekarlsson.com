@@ -1,0 +1,460 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — Not Found" description="Page not found">
+	<div class="mx-auto max-w-3xl px-4 py-16 text-center">
+		<div class="glitch-wrapper mb-6">
+			<h1 class="glitch text-8xl font-bold text-coral" data-text="404">404</h1>
+		</div>
+
+		<!-- Terminal -->
+		<div class="terminal mx-auto max-w-2xl text-left rounded-lg overflow-hidden border border-surface-3 shadow-2xl mb-8">
+			<!-- Title bar -->
+			<div class="terminal-titlebar flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3">
+				<span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+				<span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+				<span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+				<span class="ml-2 text-xs text-surface-4 font-mono">joe@joekarlsson.com — bash</span>
+			</div>
+			<!-- Terminal body -->
+			<div
+				id="terminal"
+				class="terminal-body bg-surface-0 p-4 font-mono text-sm leading-relaxed h-96 overflow-y-auto cursor-text"
+				tabindex="0"
+				role="application"
+				aria-label="Interactive terminal. Type help for available commands."
+			>
+				<div id="output"></div>
+				<div id="input-line" class="flex items-center" style="display:none;">
+					<span class="prompt text-coral mr-2">joe@404 ~$</span>
+					<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor">&#9608;</span>
+				</div>
+			</div>
+		</div>
+
+		<a
+			href="/"
+			class="rounded-md bg-coral px-5 py-2.5 font-medium text-surface-0 no-underline hover:bg-teal transition-all duration-300 hover:-translate-y-0.5"
+		>
+			Go Home
+		</a>
+	</div>
+</BaseLayout>
+
+<style>
+	.glitch-wrapper {
+		position: relative;
+		display: inline-block;
+	}
+
+	.glitch {
+		position: relative;
+	}
+
+	.glitch::before,
+	.glitch::after {
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.glitch::before {
+		color: var(--color-teal, #8bcbc8);
+		animation: glitch-1 2s infinite linear alternate-reverse;
+		clip-path: inset(0 0 65% 0);
+	}
+
+	.glitch::after {
+		color: var(--color-lavender, #c4b5fd);
+		animation: glitch-2 2s infinite linear alternate-reverse;
+		clip-path: inset(65% 0 0 0);
+	}
+
+	@keyframes glitch-1 {
+		0%, 90%, 100% { transform: translate(0); }
+		92% { transform: translate(-3px, 1px); }
+		94% { transform: translate(3px, -1px); }
+		96% { transform: translate(-2px, 0); }
+		98% { transform: translate(2px, 1px); }
+	}
+
+	@keyframes glitch-2 {
+		0%, 90%, 100% { transform: translate(0); }
+		91% { transform: translate(3px, 0); }
+		93% { transform: translate(-3px, 1px); }
+		95% { transform: translate(2px, -1px); }
+		97% { transform: translate(-2px, 1px); }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.glitch::before,
+		.glitch::after {
+			animation: none;
+		}
+
+		.cursor {
+			animation: none !important;
+			opacity: 1;
+		}
+	}
+
+	.terminal-body {
+		scrollbar-width: thin;
+		scrollbar-color: #fdae84 transparent;
+	}
+
+	.cursor {
+		animation: blink 1s step-end infinite;
+		color: #fdae84;
+	}
+
+	@keyframes blink {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0; }
+	}
+
+	.terminal-body :global(.text-coral) {
+		color: #fdae84;
+	}
+
+	.terminal-body :global(.text-teal) {
+		color: #8bcbc8;
+	}
+
+	.terminal-body :global(.text-lavender) {
+		color: #c4b5fd;
+	}
+
+	.terminal-body :global(.text-dim) {
+		color: #6b7280;
+	}
+
+	.terminal-body :global(.text-white) {
+		color: #e5e7eb;
+	}
+
+	.terminal-body :global(.text-green) {
+		color: #86efac;
+	}
+
+	.terminal-body :global(.text-yellow) {
+		color: #fde68a;
+	}
+</style>
+
+<script>
+	const output = document.getElementById('output')!;
+	const inputLine = document.getElementById('input-line')!;
+	const inputText = document.getElementById('input-text')!;
+	const terminal = document.getElementById('terminal')!;
+
+	let currentInput = '';
+	let commandHistory: string[] = [];
+	let historyIndex = -1;
+	let ready = false;
+
+	const pages: Record<string, string> = {
+		home: '/',
+		blog: '/blog',
+		about: '/about',
+		work: '/work',
+		contact: '/contact',
+		uses: '/uses',
+		'talk-archive': '/talk-archive',
+	};
+
+	function scrollToBottom() {
+		terminal.scrollTop = terminal.scrollHeight;
+	}
+
+	function appendLine(html: string) {
+		const div = document.createElement('div');
+		div.innerHTML = html;
+		output.appendChild(div);
+		scrollToBottom();
+	}
+
+	function appendLines(lines: string[]) {
+		lines.forEach(line => appendLine(line));
+	}
+
+	async function typeLines(lines: string[], delay = 40) {
+		for (const line of lines) {
+			appendLine(line);
+			await sleep(delay);
+		}
+	}
+
+	function sleep(ms: number): Promise<void> {
+		return new Promise(r => setTimeout(r, ms));
+	}
+
+	// --- Commands ---
+
+	function cmdHelp(): string[] {
+		return [
+			'<span class="text-yellow">Available commands:</span>',
+			'',
+			'  <span class="text-coral">help</span>         show this message',
+			'  <span class="text-coral">ls</span>           list site pages',
+			'  <span class="text-coral">cd</span> &lt;page&gt;    navigate to a page',
+			'  <span class="text-coral">goto</span> &lt;page&gt;  navigate to a page',
+			'  <span class="text-coral">whoami</span>       who is this',
+			'  <span class="text-coral">cat readme</span>   read about this site',
+			'  <span class="text-coral">uptime</span>       system uptime',
+			'  <span class="text-coral">neofetch</span>     system info',
+			'  <span class="text-coral">clear</span>        clear terminal',
+			'',
+		];
+	}
+
+	function cmdLs(): string[] {
+		const entries = Object.keys(pages).map(p => `  <span class="text-teal">${p}/</span>`);
+		return ['<span class="text-dim">drwxr-xr-x  joe  staff</span>', ...entries, ''];
+	}
+
+	function cmdCd(args: string): string[] {
+		const target = args.trim().replace(/^\//, '').replace(/\/$/, '');
+		if (!target) return ['<span class="text-dim">usage: cd &lt;page&gt;</span>', ''];
+		if (target === '~' || target === '/') {
+			window.location.href = '/';
+			return ['Navigating to home...'];
+		}
+		const url = pages[target];
+		if (url) {
+			setTimeout(() => { window.location.href = url; }, 400);
+			return [`Navigating to /${target}...`];
+		}
+		return [`<span class="text-coral">cd: no such page: ${target}</span>`, `<span class="text-dim">try 'ls' to see available pages</span>`, ''];
+	}
+
+	function cmdWhoami(): string[] {
+		return [
+			'<span class="text-teal">joe-karlsson</span> — software engineer & massive nerd',
+			'',
+		];
+	}
+
+	function cmdCatReadme(): string[] {
+		return [
+			'<span class="text-yellow">README.md</span>',
+			'',
+			'  Welcome to joekarlsson.com!',
+			'',
+			'  This site is where I write about software engineering,',
+			'  developer advocacy, homelabs, IoT cat litter boxes,',
+			'  and whatever else I\'m nerding out about.',
+			'',
+			'  Built with Astro. Powered by coffee and stubbornness.',
+			'',
+			'  You found the 404 page, which means you\'re either',
+			'  lost or curious. Either way, I respect it.',
+			'',
+			'  <span class="text-dim">Type \'ls\' to see where you can go.</span>',
+			'',
+		];
+	}
+
+	function cmdUptime(): string[] {
+		return [
+			'  up <span class="text-green">42 days, 3 hours, 17 minutes</span> (since last mass container migration)',
+			'  load average: 0.42, 0.69, 1.21',
+			'  <span class="text-dim">vibes: immaculate</span>',
+			'',
+		];
+	}
+
+	function cmdNeofetch(): string[] {
+		return [
+			'',
+			'  <span class="text-coral"> ██╗ ██████╗ ███████╗</span>    <span class="text-teal">joe</span>@<span class="text-teal">joekarlsson.com</span>',
+			'  <span class="text-coral"> ██║██╔═══██╗██╔════╝</span>    ─────────────────────',
+			'  <span class="text-coral"> ██║██║   ██║█████╗  </span>    <span class="text-coral">OS</span>: Astro on Cloudflare',
+			'  <span class="text-coral">██  ██║   ██║██╔══╝  </span>    <span class="text-coral">Host</span>: Proxmox Cluster x2',
+			'  <span class="text-coral">╚█████╔╝██████╔╝███████╗</span>    <span class="text-coral">Kernel</span>: caffeine-6.1.0',
+			'  <span class="text-coral"> ╚════╝ ╚═════╝ ╚══════╝</span>    <span class="text-coral">Uptime</span>: 42 days',
+			'                          <span class="text-coral">Shell</span>: bash + vibes',
+			'                          <span class="text-coral">GPU</span>: RTX A4000 + Quadro RTX 4000',
+			'                          <span class="text-coral">Containers</span>: 30+',
+			'                          <span class="text-coral">Cats</span>: 1 (IoT-enabled)',
+			'                          <span class="text-coral">Coffee</span>: ████████████░░ 86%',
+			'',
+			'                          <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
+			'',
+		];
+	}
+
+	function cmdClear(): string[] {
+		output.innerHTML = '';
+		return [];
+	}
+
+	function executeCommand(raw: string) {
+		const trimmed = raw.trim();
+		if (!trimmed) return;
+
+		// Echo the command
+		appendLine(`<span class="text-coral">joe@404 ~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`);
+
+		if (trimmed) commandHistory.unshift(trimmed);
+		historyIndex = -1;
+
+		const [cmd, ...rest] = trimmed.split(/\s+/);
+		const args = rest.join(' ');
+
+		let result: string[];
+
+		switch (cmd.toLowerCase()) {
+			case 'help':
+				result = cmdHelp();
+				break;
+			case 'ls':
+				result = cmdLs();
+				break;
+			case 'cd':
+			case 'goto':
+				result = cmdCd(args);
+				break;
+			case 'whoami':
+				result = cmdWhoami();
+				break;
+			case 'cat':
+				if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
+					result = cmdCatReadme();
+				} else {
+					result = [`<span class="text-coral">cat: ${escapeHtml(args) || '???'}: No such file</span>`, ''];
+				}
+				break;
+			case 'uptime':
+				result = cmdUptime();
+				break;
+			case 'neofetch':
+				result = cmdNeofetch();
+				break;
+			case 'clear':
+				result = cmdClear();
+				break;
+			case 'sudo':
+				result = ['<span class="text-coral">nice try.</span>', ''];
+				break;
+			case 'exit':
+				setTimeout(() => { window.location.href = '/'; }, 400);
+				result = ['Goodbye! Navigating home...'];
+				break;
+			case 'rm':
+				result = ['<span class="text-coral">absolutely not.</span>', ''];
+				break;
+			default:
+				result = [`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`, ''];
+		}
+
+		appendLines(result);
+	}
+
+	function escapeHtml(str: string): string {
+		const div = document.createElement('div');
+		div.textContent = str;
+		return div.innerHTML;
+	}
+
+	function updateInputDisplay() {
+		inputText.textContent = currentInput;
+		scrollToBottom();
+	}
+
+	// --- Keyboard handler ---
+	terminal.addEventListener('keydown', (e: KeyboardEvent) => {
+		if (!ready) return;
+
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			const cmd = currentInput;
+			currentInput = '';
+			updateInputDisplay();
+			inputLine.style.display = 'none';
+			executeCommand(cmd);
+			inputLine.style.display = 'flex';
+			updateInputDisplay();
+		} else if (e.key === 'Backspace') {
+			e.preventDefault();
+			currentInput = currentInput.slice(0, -1);
+			updateInputDisplay();
+		} else if (e.key === 'ArrowUp') {
+			e.preventDefault();
+			if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
+				historyIndex++;
+				currentInput = commandHistory[historyIndex];
+				updateInputDisplay();
+			}
+		} else if (e.key === 'ArrowDown') {
+			e.preventDefault();
+			if (historyIndex > 0) {
+				historyIndex--;
+				currentInput = commandHistory[historyIndex];
+			} else {
+				historyIndex = -1;
+				currentInput = '';
+			}
+			updateInputDisplay();
+		} else if (e.key === 'Tab') {
+			e.preventDefault();
+			// Simple tab completion for page names
+			const partial = currentInput.replace(/^(cd|goto)\s+/, '');
+			const prefix = currentInput.replace(partial, '');
+			const matches = Object.keys(pages).filter(p => p.startsWith(partial));
+			if (matches.length === 1) {
+				currentInput = prefix + matches[0];
+				updateInputDisplay();
+			}
+		} else if (e.key === 'l' && e.ctrlKey) {
+			e.preventDefault();
+			cmdClear();
+		} else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+			e.preventDefault();
+			currentInput += e.key;
+			updateInputDisplay();
+		}
+	});
+
+	// Focus terminal on click
+	terminal.addEventListener('click', () => {
+		terminal.focus();
+	});
+
+	// --- Boot sequence ---
+	async function boot() {
+		const bootLines = [
+			'<span class="text-dim">[    0.000000] joekarlsson.com kernel loading...</span>',
+			'<span class="text-dim">[    0.042069] Initializing vibes subsystem</span>',
+			'<span class="text-dim">[    0.133700] Mounting /dev/pages</span>',
+			'<span class="text-dim">[    0.200000] Scanning route table...</span>',
+		];
+
+		await typeLines(bootLines, 120);
+		await sleep(300);
+
+		appendLine('<span class="text-coral">[    0.404000] ERROR: requested path not found in route table</span>');
+		await sleep(200);
+		appendLine('<span class="text-coral">[    0.404001] PANIC: page does not exist (error 404)</span>');
+		await sleep(400);
+
+		appendLines([
+			'',
+			'<span class="text-yellow">  The page you requested was not found.</span>',
+			'<span class="text-yellow">  But you found something better: a terminal.</span>',
+			'',
+			'<span class="text-dim">  Type \'help\' for available commands, or \'ls\' to see site pages.</span>',
+			'',
+		]);
+
+		inputLine.style.display = 'flex';
+		ready = true;
+		terminal.focus();
+	}
+
+	boot();
+</script>

@@ -1,0 +1,125 @@
+---
+import '../styles/global.css';
+import { SITE_TITLE, SITE_URL } from '../consts';
+
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+	type?: string;
+	publishedDate?: Date;
+	modifiedDate?: Date;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const {
+	title,
+	description,
+	image = '/images/og-default.jpg',
+	type = 'website',
+	publishedDate,
+	modifiedDate,
+} = Astro.props;
+
+const ogImageURL = new URL(image, Astro.site);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#0a0a0a" />
+
+<!-- Sitemap & RSS -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title={SITE_TITLE}
+	href={new URL('rss.xml', Astro.site)}
+/>
+
+<!-- SEO -->
+<link rel="canonical" href={canonicalURL} />
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Search engine verification (preserved from WordPress) -->
+<meta name="google-site-verification" content="QRPrUDjca6IhevyDBOqQCygKZqp45Xyrr2HZooS1LSE" />
+<meta name="msvalidate.01" content="BA95135B22E369C003B007BEE5ECC2F2" />
+<meta name="p:domain_verify" content="9557bed697f311b040f7e3c0f2c7c503" />
+<meta name="yandex-verification" content="993d1db38acd907f" />
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content={SITE_TITLE} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+{publishedDate && (
+	<meta property="article:published_time" content={publishedDate.toISOString()} />
+)}
+{modifiedDate && (
+	<meta property="article:modified_time" content={modifiedDate.toISOString()} />
+)}
+<meta property="article:publisher" content="https://www.facebook.com/joe.karlsson13" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageURL} />
+<meta name="twitter:site" content="@joekarlsson1" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": `${SITE_URL}/#website`,
+			"url": SITE_URL,
+			"name": SITE_TITLE,
+			"description": "Software Engineer, Developer Advocate, and massive nerd.",
+			"publisher": { "@id": `${SITE_URL}/#/schema/person` },
+			"inLanguage": "en-US"
+		},
+		{
+			"@type": "Person",
+			"@id": `${SITE_URL}/#/schema/person`,
+			"name": "Joe Karlsson",
+			"url": SITE_URL,
+			"description": "Joe Karlsson is a Software Engineer and Developer Advocate. TEDx Speaker, film buff, homelab enthusiast, and massive nerd.",
+			"image": {
+				"@type": "ImageObject",
+				"url": `${SITE_URL}/images/og-default.jpg`,
+				"contentUrl": `${SITE_URL}/images/og-default.jpg`
+			},
+			"sameAs": [
+				"https://www.joekarlsson.com",
+				"https://www.facebook.com/joe.karlsson13",
+				"https://www.instagram.com/joekarlsson/",
+				"https://www.linkedin.com/in/joekarlsson/",
+				"https://bsky.app/profile/joekarlsson.com",
+				"https://www.youtube.com/joekarlsson",
+				"https://github.com/JoeKarlsson"
+			]
+		}
+	]
+})} />
+
+<!-- Plausible Analytics (self-hosted) -->
+<script defer data-domain="joekarlsson.com" src="https://plausible.joekarlsson.com/js/script.js"></script>

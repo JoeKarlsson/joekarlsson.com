@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-surface-0 text-gray-300 font-sans antialiased;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		@apply text-white font-semibold;
+	}
+
+	a {
+		@apply text-coral hover:text-teal transition-colors;
+	}
+
+	::selection {
+		@apply bg-coral/20 text-coral;
+	}
+
+	::-webkit-scrollbar {
+		@apply w-2;
+	}
+	::-webkit-scrollbar-track {
+		@apply bg-surface-0;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply bg-surface-4 rounded-full;
+	}
+}
+
+/* Prose styles for blog content */
+.prose {
+	@apply text-gray-300 leading-relaxed;
+}
+.prose h1 {
+	@apply text-3xl md:text-4xl font-bold text-white mt-10 mb-4;
+}
+.prose h2 {
+	@apply text-2xl md:text-3xl font-bold text-white mt-10 mb-4;
+}
+.prose h3 {
+	@apply text-xl md:text-2xl font-semibold text-white mt-8 mb-3;
+}
+.prose h4 {
+	@apply text-lg font-semibold text-white mt-6 mb-2;
+}
+.prose p {
+	@apply mb-6 text-base md:text-lg;
+}
+.prose a {
+	@apply text-coral hover:text-teal underline underline-offset-2;
+}
+.prose strong {
+	@apply text-white font-semibold;
+}
+.prose ul, .prose ol {
+	@apply mb-6 pl-6;
+}
+.prose ul {
+	@apply list-disc;
+}
+.prose ol {
+	@apply list-decimal;
+}
+.prose li {
+	@apply mb-2;
+}
+.prose blockquote {
+	@apply border-l-4 border-coral/50 pl-4 py-1 my-6 text-gray-400 italic;
+}
+.prose code {
+	@apply font-mono text-teal bg-surface-3 px-1.5 py-0.5 rounded text-sm;
+}
+.prose pre {
+	@apply bg-surface-2 border border-surface-4 rounded-lg pt-10 pb-4 px-4 my-6 overflow-x-auto relative;
+}
+.prose pre::before {
+	content: '';
+	@apply absolute top-0 left-0 right-0 h-8 bg-surface-3 rounded-t-lg;
+	background-image:
+		radial-gradient(circle at 16px 50%, #f87171 5px, transparent 5px),
+		radial-gradient(circle at 34px 50%, #fbbf24 5px, transparent 5px),
+		radial-gradient(circle at 52px 50%, #4ade80 5px, transparent 5px);
+}
+.prose pre code {
+	@apply bg-transparent p-0 text-gray-300 text-sm;
+	font-size: 0.875rem;
+	line-height: 1.7;
+}
+.prose img {
+	@apply rounded-lg my-6 w-full;
+}
+.prose hr {
+	@apply border-surface-4 my-8;
+}
+.prose table {
+	@apply w-full my-6 text-sm;
+}
+.prose th {
+	@apply text-left text-white font-semibold p-2 border-b border-surface-4;
+}
+.prose td {
+	@apply p-2 border-b border-surface-3;
+}

@@ -1,0 +1,47 @@
+www.joekarlsson.com {
+	# Serve static files from Astro build output
+	root * /var/www/joekarlsson.com
+
+	# 301 redirects: WordPress date-based blog URLs → /blog/slug
+	# Matches /YYYY/MM/slug/ or /YYYY/MM/slug
+	@wp-blog path_regexp wp ^/(\d{4})/(\d{2})/([a-z0-9-]+)/?$
+	redir @wp-blog /blog/{re.wp.3} 301
+
+	# 301 redirects: WordPress page URLs
+	@speaking path /speaking /speaking/ /speaking/joe-karlssons-talk-archive /speaking/joe-karlssons-talk-archive/
+	redir @speaking /talk-archive 301
+
+	@all-work path /all-work /all-work/
+	redir @all-work /work 301
+
+	# WordPress feed → RSS
+	@feed path /feed /feed/
+	redir @feed /rss.xml 301
+
+	# WordPress remnants — return 410 Gone
+	@wp-remnants path /xmlrpc.php /wp-admin* /wp-login.php /wp-content* /wp-includes* /wp-json*
+	respond @wp-remnants 410
+
+	# Serve files, fall back to 404
+	file_server
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+
+	# Security headers
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+	}
+
+	# Cache static assets
+	@static path *.css *.js *.svg *.png *.jpg *.jpeg *.webp *.woff2 *.woff
+	header @static Cache-Control "public, max-age=31536000, immutable"
+
+	# Cache HTML for shorter period
+	@html path *.html /
+	header @html Cache-Control "public, max-age=3600"
+}
