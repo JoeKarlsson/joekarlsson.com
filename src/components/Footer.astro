@@ -4,13 +4,6 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-surface-3 bg-surface-1">
-	<div
-		id="footer-stats"
-		class="border-b border-surface-3 py-1 text-center font-mono text-xs text-gray-500"
-	>
-		containers: 42 · uptime: <span id="uptime-days">0</span>d · last commit: recently · mass of cat:
-		1
-	</div>
 	<div class="mx-auto max-w-5xl px-4 py-8">
 		<nav class="mb-6 flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-sm">
 			<a href="/blog/" class="text-gray-400 no-underline transition-colors hover:text-coral">Blog</a
@@ -109,11 +102,4 @@ const year = new Date().getFullYear();
 			</div>
 		</div>
 	</div>
-	<script>
-		const startDate = new Date('2025-01-01T00:00:00Z');
-		const now = new Date();
-		const days = Math.floor((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-		const el = document.getElementById('uptime-days');
-		if (el) el.textContent = String(days);
-	</script>
 </footer>

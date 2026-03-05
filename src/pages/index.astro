@@ -1276,25 +1276,6 @@ const taglines = [
 		showMenu();
 		ready = true;
 		focusInput();
-
-		// First-visit guided tour
-		if (!localStorage.getItem('jk-visited')) {
-			localStorage.setItem('jk-visited', '1');
-			ready = false;
-			hideMenu();
-			inputLine.style.display = 'none';
-			await sleep(400);
-			await typeCommand('whoami');
-			appendLines(cmdWhoami());
-			await sleep(600);
-			await typeCommand('help');
-			appendLines(cmdHelp());
-			await sleep(300);
-			inputLine.style.display = 'flex';
-			ready = true;
-			showMenu();
-			focusInput();
-		}
 	}
 
 	boot();

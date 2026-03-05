@@ -22,6 +22,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			<p class="mt-2 text-xs text-gray-400">Last updated: March 2026</p>
 		</div>
 
+		<!-- View Toggle -->
+		<div class="mb-8 flex gap-0 font-mono text-sm" role="tablist" aria-label="View mode">
+			<button id="tab-normal" role="tab" aria-selected="true" aria-controls="normal-view"
+				class="rounded-l-md border border-surface-3 bg-coral px-4 py-2 text-black transition-colors"
+				onclick="switchView('normal')">
+				view: normal
+			</button>
+			<button id="tab-apt" role="tab" aria-selected="false" aria-controls="apt-view"
+				class="rounded-r-md border border-l-0 border-surface-3 bg-surface-1 px-4 py-2 text-gray-400 transition-colors"
+				onclick="switchView('apt')">
+				view: apt list --installed
+			</button>
+		</div>
+
+		<div id="normal-view">
 		<img
 			src="/images/blog/how-i-work/IMG_2685.webp"
 			alt="Joe Karlsson's desk setup"
@@ -1756,5 +1771,195 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				class="text-coral hover:text-teal">uses.tech</a
 			> &mdash; a list of developer /uses pages.
 		</div>
+		</div><!-- end #normal-view -->
+
+		<div id="apt-view" class="hidden">
+			<p class="mb-6 font-mono text-sm text-gray-400">$ apt list --installed</p>
+
+			<div class="mb-6">
+				<p class="font-mono text-sm text-coral mb-2">joe-hardware/stable</p>
+				<div class="font-mono text-xs leading-relaxed pl-2">
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">macbook-pro-m3-pro</span><span class="text-gray-500">/stable 2024.1 arm64</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">thinkvision-p27h-10</span><span class="text-gray-500">/stable 27" QHD</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">dell-u3417w</span><span class="text-gray-500">/stable 34" 4K</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">ergotron-lx-dual-arm</span><span class="text-gray-500">/stable 2.0 amd64</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">dell-dock-d6000</span><span class="text-gray-500">/stable USB-C universal</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">razer-deathadder-chroma</span><span class="text-gray-500">/stable gaming-mouse</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">apple-magic-trackpad-2</span><span class="text-gray-500">/stable multi-touch</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">razer-goliathus-extended-chroma</span><span class="text-gray-500">/stable RGB mousepad</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">vortexgear-race-3</span><span class="text-gray-500">/stable cherry-mx-clear</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">vortex-pok3r-custom</span><span class="text-gray-500">/stable cherry-mx-blue</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">standing-desk-ikea-custom</span><span class="text-gray-500">/stable industrial-legs</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">sony-mdr7506</span><span class="text-gray-500">/stable velvet-pads</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">└──</span> <span class="text-teal">philips-hue-play-bars</span><span class="text-gray-500">/stable 2-pack RGB</span> <span class="text-green-400">[installed]</span></p>
+				</div>
+			</div>
+
+			<div class="mb-6">
+				<p class="font-mono text-sm text-coral mb-2">joe-recording/stable</p>
+				<div class="font-mono text-xs leading-relaxed pl-2">
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">obsbot-tiny-2</span><span class="text-gray-500">/stable 4K AI-webcam</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">elgato-wave3</span><span class="text-gray-500">/stable USB-condenser</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">elgato-stream-deck</span><span class="text-gray-500">/stable productivity</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">obs-studio</span><span class="text-gray-500">/stable livestream</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">camtasia</span><span class="text-gray-500">/stable video-editing</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">screen-studio</span><span class="text-gray-500">/stable screen-recording</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">xnip</span><span class="text-gray-500">/stable screenshots</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">elgato-key-lights</span><span class="text-gray-500">/stable x2 studio-LED</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">└──</span> <span class="text-teal">fancierstudio-green-screen</span><span class="text-gray-500">/stable collapsible</span> <span class="text-green-400">[installed]</span></p>
+				</div>
+			</div>
+
+			<div class="mb-6">
+				<p class="font-mono text-sm text-coral mb-2">joe-software/stable</p>
+				<div class="font-mono text-xs leading-relaxed pl-2">
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">visual-studio-code</span><span class="text-gray-500">/stable monokai-theme</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">cursor</span><span class="text-gray-500">/stable AI-editor</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">claude-code-cli</span><span class="text-gray-500">/stable coding-companion</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">claude-desktop</span><span class="text-gray-500">/stable writing-research</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">github-copilot</span><span class="text-gray-500">/stable inline-completion</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">superwhisper</span><span class="text-gray-500">/stable speech-to-text</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">wakatime</span><span class="text-gray-500">/stable time-tracking</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">iterm2</span><span class="text-gray-500">/stable oh-my-zsh+powerlevel10k</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">raycast</span><span class="text-gray-500">/stable launcher</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">magnet</span><span class="text-gray-500">/stable window-manager</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">notion</span><span class="text-gray-500">/stable knowledge-base</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">linear</span><span class="text-gray-500">/stable issue-tracking</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">grammarly</span><span class="text-gray-500">/stable grammar-check</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">rambox</span><span class="text-gray-500">/stable messaging-hub</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">1password</span><span class="text-gray-500">/stable password-manager</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">tailscale</span><span class="text-gray-500">/stable mesh-VPN</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">private-internet-access</span><span class="text-gray-500">/stable commercial-VPN</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">docker-desktop</span><span class="text-gray-500">/stable containers</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">soundsource</span><span class="text-gray-500">/stable per-app-audio</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">└──</span> <span class="text-teal">hidden-bar</span><span class="text-gray-500">/stable menu-bar-cleanup</span> <span class="text-green-400">[installed]</span></p>
+				</div>
+			</div>
+
+			<div class="mb-6">
+				<p class="font-mono text-sm text-coral mb-2">joe-homelab/stable</p>
+				<div class="font-mono text-xs leading-relaxed pl-2">
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">dell-poweredge-r730-prxbox1</span><span class="text-gray-500">/stable 80-cores 128GB-ECC</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">dell-poweredge-r730-prxbox2</span><span class="text-gray-500">/stable GPU-node</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">nvidia-quadro-rtx-4000</span><span class="text-gray-500">/stable 8GB-VRAM</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">nvidia-rtx-a4000</span><span class="text-gray-500">/stable 16GB-VRAM</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">synology-ds918plus</span><span class="text-gray-500">/stable 4-bay NAS</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">proxmox-backup-server</span><span class="text-gray-500">/stable nightly-snapshots</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">mikrotik-crs317</span><span class="text-gray-500">/stable 10G-backbone LACP</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">unifi-cloud-gateway-ultra</span><span class="text-gray-500">/stable router 4-VLANs</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">unifi-u7-pro</span><span class="text-gray-500">/stable x2 WiFi-6E</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">unifi-us-24</span><span class="text-gray-500">/stable 24-port PoE</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">intel-x710-sfp-plus</span><span class="text-gray-500">/stable x4 10Gb dual-port</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">└──</span> <span class="text-teal">proxmox-ve</span><span class="text-gray-500">/stable hypervisor cluster</span> <span class="text-green-400">[installed]</span></p>
+				</div>
+			</div>
+
+			<div class="mb-6">
+				<p class="font-mono text-sm text-coral mb-2">joe-homelab-services/stable</p>
+				<div class="font-mono text-xs leading-relaxed pl-2">
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">plex</span><span class="text-gray-500">/stable media-server</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">tautulli</span><span class="text-gray-500">/stable plex-monitoring</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">tdarr</span><span class="text-gray-500">/stable GPU-transcoding H.265</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">sonarr</span><span class="text-gray-500">/stable TV-management</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">radarr</span><span class="text-gray-500">/stable movie-management</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">lidarr</span><span class="text-gray-500">/stable music-management</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">readarr</span><span class="text-gray-500">/stable book-management</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">bazarr</span><span class="text-gray-500">/stable subtitle-downloads</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">prowlarr</span><span class="text-gray-500">/stable indexer-manager</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">sabnzbd</span><span class="text-gray-500">/stable usenet-client</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">qbittorrent</span><span class="text-gray-500">/stable torrent-client</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">kometa</span><span class="text-gray-500">/stable plex-collections</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">audiobookshelf</span><span class="text-gray-500">/stable audiobook-server</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">lyrion-music-server</span><span class="text-gray-500">/stable multi-room-audio</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">slskd</span><span class="text-gray-500">/stable soulseek-client</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">immich</span><span class="text-gray-500">/stable GPU-photo-management</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">nextcloud</span><span class="text-gray-500">/stable CalDAV-CardDAV-sync</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">paperless-ngx</span><span class="text-gray-500">/stable document-OCR</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">paperless-ai</span><span class="text-gray-500">/stable auto-tagging</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">vaultwarden</span><span class="text-gray-500">/stable password-vault</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">linkstack</span><span class="text-gray-500">/stable link-in-bio</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">postiz</span><span class="text-gray-500">/stable social-scheduling</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">grafana</span><span class="text-gray-500">/stable dashboards</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">prometheus</span><span class="text-gray-500">/stable metrics</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">loki</span><span class="text-gray-500">/stable centralized-logging</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">alertmanager</span><span class="text-gray-500">/stable alert-routing</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">uptime-kuma</span><span class="text-gray-500">/stable service-monitoring</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">nginx-proxy-manager</span><span class="text-gray-500">/stable reverse-proxy SSL</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">authentik</span><span class="text-gray-500">/stable SSO-identity</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">cloudflare-ddns</span><span class="text-gray-500">/stable dynamic-DNS</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">adguard-home</span><span class="text-gray-500">/stable DNS-ad-blocking</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">plausible-analytics</span><span class="text-gray-500">/stable privacy-analytics</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">healthchecks</span><span class="text-gray-500">/stable cron-monitoring</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">ntfy</span><span class="text-gray-500">/stable push-notifications</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">frigate-nvr</span><span class="text-gray-500">/stable GPU-object-detection</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">└──</span> <span class="text-teal">mariadb</span><span class="text-gray-500">/stable HA-database</span> <span class="text-green-400">[installed]</span></p>
+				</div>
+			</div>
+
+			<div class="mb-6">
+				<p class="font-mono text-sm text-coral mb-2">joe-smart-home/stable</p>
+				<div class="font-mono text-xs leading-relaxed pl-2">
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">home-assistant-os</span><span class="text-gray-500">/stable VM proxmox</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">hacs</span><span class="text-gray-500">/stable community-store</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">zigbee2mqtt</span><span class="text-gray-500">/stable bridge</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">sonoff-zigbee-dongle</span><span class="text-gray-500">/stable coordinator</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">apple-homekit-bridge</span><span class="text-gray-500">/stable siri-control</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">philips-hue-lights</span><span class="text-gray-500">/stable whole-home</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">philips-hue-motion-sensors</span><span class="text-gray-500">/stable 9-rooms</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">adaptive-lighting</span><span class="text-gray-500">/stable circadian</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">motorized-curtains</span><span class="text-gray-500">/stable weather-aware</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">smart-thermostats</span><span class="text-gray-500">/stable climate</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">eufy-doorbell</span><span class="text-gray-500">/stable video</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">eufy-floodlight-cam</span><span class="text-gray-500">/stable outdoor</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">tapo-c200</span><span class="text-gray-500">/stable indoor-cameras</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">alarmo</span><span class="text-gray-500">/stable security-system</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">wiim-amp</span><span class="text-gray-500">/stable multi-room-audio</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">wiim-pro</span><span class="text-gray-500">/stable multi-room-audio</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">wiim-mini</span><span class="text-gray-500">/stable multi-room-audio</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">audio-pro-a10</span><span class="text-gray-500">/stable speakers</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">roomba-vacuums</span><span class="text-gray-500">/stable x2</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">meross-smart-plugs</span><span class="text-gray-500">/stable energy-monitoring</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">prusa-mk3</span><span class="text-gray-500">/stable 3d-printer</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">hue-play-hdmi-sync-box</span><span class="text-gray-500">/stable ambient-TV</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">├──</span> <span class="text-teal">powercalc</span><span class="text-gray-500">/stable energy-tracking</span> <span class="text-green-400">[installed]</span></p>
+					<p><span class="text-gray-600">└──</span> <span class="text-teal">wyoming-whisper</span><span class="text-gray-500">/stable local-voice-AI</span> <span class="text-green-400">[installed]</span></p>
+				</div>
+			</div>
+
+			<p class="mt-8 font-mono text-xs text-gray-500">96 packages listed.</p>
+		</div>
+
+		<script is:inline>
+		function switchView(view) {
+			const normalView = document.getElementById('normal-view');
+			const aptView = document.getElementById('apt-view');
+			const tabNormal = document.getElementById('tab-normal');
+			const tabApt = document.getElementById('tab-apt');
+			if (view === 'apt') {
+				normalView.classList.add('hidden');
+				aptView.classList.remove('hidden');
+				tabNormal.classList.remove('bg-coral', 'text-black');
+				tabNormal.classList.add('bg-surface-1', 'text-gray-400');
+				tabApt.classList.remove('bg-surface-1', 'text-gray-400');
+				tabApt.classList.add('bg-coral', 'text-black');
+				tabNormal.setAttribute('aria-selected', 'false');
+				tabApt.setAttribute('aria-selected', 'true');
+				localStorage.setItem('uses-view-preference', 'apt');
+			} else {
+				normalView.classList.remove('hidden');
+				aptView.classList.add('hidden');
+				tabApt.classList.remove('bg-coral', 'text-black');
+				tabApt.classList.add('bg-surface-1', 'text-gray-400');
+				tabNormal.classList.remove('bg-surface-1', 'text-gray-400');
+				tabNormal.classList.add('bg-coral', 'text-black');
+				tabApt.setAttribute('aria-selected', 'false');
+				tabNormal.setAttribute('aria-selected', 'true');
+				localStorage.setItem('uses-view-preference', 'normal');
+			}
+		}
+		if (localStorage.getItem('uses-view-preference') === 'apt') {
+			switchView('apt');
+		}
+		</script>
 	</div>
 </BaseLayout>
