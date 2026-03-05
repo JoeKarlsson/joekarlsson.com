@@ -30,6 +30,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<span class="prompt text-coral mr-2">joe@404 ~$</span>
 					<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor">&#9608;</span>
 				</div>
+				<input
+					id="hidden-input"
+					type="text"
+					class="absolute opacity-0 w-0 h-0 pointer-events-none"
+					autocomplete="off"
+					autocorrect="off"
+					autocapitalize="off"
+					spellcheck="false"
+				/>
 			</div>
 		</div>
 
@@ -151,6 +160,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	const inputLine = document.getElementById('input-line')!;
 	const inputText = document.getElementById('input-text')!;
 	const terminal = document.getElementById('terminal')!;
+	const hiddenInput = document.getElementById('hidden-input') as HTMLInputElement;
 
 	let currentInput = '';
 	let commandHistory: string[] = [];
@@ -279,7 +289,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			'  <span class="text-coral"> ╚════╝ ╚═════╝ ╚══════╝</span>    <span class="text-coral">Uptime</span>: 42 days',
 			'                          <span class="text-coral">Shell</span>: bash + vibes',
 			'                          <span class="text-coral">GPU</span>: RTX A4000 + Quadro RTX 4000',
-			'                          <span class="text-coral">Containers</span>: 30+',
+			'                          <span class="text-coral">Containers</span>: 40+',
 			'                          <span class="text-coral">Cats</span>: 1 (IoT-enabled)',
 			'                          <span class="text-coral">Coffee</span>: ████████████░░ 86%',
 			'',
@@ -366,28 +376,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		scrollToBottom();
 	}
 
-	// --- Keyboard handler ---
-	terminal.addEventListener('keydown', (e: KeyboardEvent) => {
+	// --- Keyboard handler (uses hidden input for reliable keystroke capture) ---
+	function focusInput() {
+		hiddenInput.focus();
+	}
+
+	hiddenInput.addEventListener('keydown', (e: KeyboardEvent) => {
 		if (!ready) return;
 
 		if (e.key === 'Enter') {
 			e.preventDefault();
 			const cmd = currentInput;
 			currentInput = '';
+			hiddenInput.value = '';
 			updateInputDisplay();
 			inputLine.style.display = 'none';
 			executeCommand(cmd);
 			inputLine.style.display = 'flex';
-			updateInputDisplay();
-		} else if (e.key === 'Backspace') {
-			e.preventDefault();
-			currentInput = currentInput.slice(0, -1);
 			updateInputDisplay();
 		} else if (e.key === 'ArrowUp') {
 			e.preventDefault();
 			if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
 				historyIndex++;
 				currentInput = commandHistory[historyIndex];
+				hiddenInput.value = currentInput;
 				updateInputDisplay();
 			}
 		} else if (e.key === 'ArrowDown') {
@@ -399,30 +411,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				historyIndex = -1;
 				currentInput = '';
 			}
+			hiddenInput.value = currentInput;
 			updateInputDisplay();
 		} else if (e.key === 'Tab') {
 			e.preventDefault();
-			// Simple tab completion for page names
 			const partial = currentInput.replace(/^(cd|goto)\s+/, '');
 			const prefix = currentInput.replace(partial, '');
 			const matches = Object.keys(pages).filter(p => p.startsWith(partial));
 			if (matches.length === 1) {
 				currentInput = prefix + matches[0];
+				hiddenInput.value = currentInput;
 				updateInputDisplay();
 			}
 		} else if (e.key === 'l' && e.ctrlKey) {
 			e.preventDefault();
 			cmdClear();
-		} else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
-			e.preventDefault();
-			currentInput += e.key;
-			updateInputDisplay();
 		}
 	});
 
-	// Focus terminal on click
+	// Sync hidden input value to our display on every keystroke
+	hiddenInput.addEventListener('input', () => {
+		if (!ready) return;
+		currentInput = hiddenInput.value;
+		updateInputDisplay();
+	});
+
+	// Focus hidden input on click anywhere in terminal
 	terminal.addEventListener('click', () => {
-		terminal.focus();
+		focusInput();
 	});
 
 	// --- Boot sequence ---
@@ -453,7 +469,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		inputLine.style.display = 'flex';
 		ready = true;
-		terminal.focus();
+		focusInput();
 	}
 
 	boot();

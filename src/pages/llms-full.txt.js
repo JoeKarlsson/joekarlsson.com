@@ -1,19 +1,37 @@
-# Joe Karlsson — Full Site Guide
+import { getCollection } from 'astro:content';
 
-> Software Engineer and Developer Advocate at CloudQuery. TEDx speaker, film buff, homelab enthusiast, and massive nerd. This comprehensive guide covers Joe's writing, projects, speaking engagements, and professional background.
+export async function GET() {
+	const posts = await getCollection('blog');
+	const postCount = posts.length;
+
+	const sortedPosts = posts.sort(
+		(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+	);
+
+	const recentPosts = sortedPosts.slice(0, 10).map((post) => {
+		const date = post.data.date.toISOString().split('T')[0];
+		return `- [${post.data.title}](https://www.joekarlsson.com/blog/${post.data.slug}/): ${post.data.description || ''} (${date})`;
+	});
+
+	const body = `# Joe Karlsson — Full Site Guide
+
+> Software Engineer and Developer Advocate at CloudQuery. TEDx speaker, film buff, homelab enthusiast, and massive nerd. Runs a 40+ container Proxmox homelab with AI-powered smart home automations, local LLM inference, and zero cloud dependencies. This comprehensive guide covers Joe's writing, projects, speaking engagements, and professional background.
 
 ## About Joe Karlsson
 
 Joe Karlsson is a Software Engineer and Developer Advocate who empowers developers to think creatively when building applications. A TEDx speaker and self-described "massive nerd," Joe combines technical depth with DevRel expertise, having worked at CloudQuery, Tinybird, SingleStore, MongoDB, Best Buy, and DevLeague.
 
-He's an avid homelab enthusiast running a Proxmox cluster with 30+ containers and services, a film buff who tracks everything on Letterboxd, and built an IoT-connected cat litter box and gave a conference talk about it.
+He's an avid homelab enthusiast running a Proxmox cluster with 40+ containers across two Dell PowerEdge R730 servers with dual NVIDIA GPUs. His smart home runs 90+ Home Assistant automations with local AI vision — his doorbell captures camera snapshots and describes visitors using a local LLM, entirely without cloud APIs.
+
+He's a film buff who tracks everything on Letterboxd, a mechanical keyboard builder, built an IoT-connected cat litter box and gave a conference talk about it, and uses Claude Code to manage his entire homelab infrastructure.
 
 ## Main Pages
 
 - [Home](https://www.joekarlsson.com/): Latest blog posts, featured projects, and current updates
-- [Blog](https://www.joekarlsson.com/blog): 68 published posts organized by topic
+- [Blog](https://www.joekarlsson.com/blog): ${postCount} published posts organized by topic
 - [About](https://www.joekarlsson.com/about): Biography, interests, and work history
 - [Work](https://www.joekarlsson.com/work): Portfolio showcasing projects organized by category
+- [Uses](https://www.joekarlsson.com/uses): Hardware, software, homelab infrastructure, and smart home setup
 - [Contact](https://www.joekarlsson.com/contact): Social links organized by platform type
 - [Talk Archive](https://www.joekarlsson.com/talk-archive): Conference talks, webinars, and presentations
 - [Speaker Rider](https://www.joekarlsson.com/speaker-rider): Speaking engagement requirements and logistics
@@ -27,8 +45,8 @@ He's an avid homelab enthusiast running a Proxmox cluster with 30+ containers an
 - **MagicMirror²**: Modular smart mirror display running on Raspberry Pi, showing weather, calendar, news, and custom modules.
 - **Moodlite**: DIY Nanoleaf-style lighting system using programmable LED strips and custom firmware for ambient lighting control.
 - **3D-Printed Planter**: Designed and printed custom postcard planter racks using CAD and FDM printing.
-- **Proxmox Homelab Cluster**: Multi-node virtualization infrastructure running 30+ LXC containers and VMs for media management, monitoring, databases, and smart home automation.
-- **Private Smart Home**: Home Assistant-based automation with local-only processing, Zigbee devices, and custom integrations.
+- **Proxmox Homelab Cluster**: Two Dell PowerEdge R730 servers with NVIDIA GPUs (RTX A4000 16GB + Quadro RTX 4000 8GB), 40+ LXC containers for media management, monitoring, databases, and smart home automation. 10G networking via MikroTik backbone with LACP bonds.
+- **AI-Powered Smart Home**: Home Assistant with 90+ automations including local LLM doorbell vision, voice camera queries, infrastructure alert translation, laundry detection, weather-aware routines, and presence simulation. Zero cloud dependencies.
 
 ### Web & Applications
 
@@ -37,19 +55,11 @@ He's an avid homelab enthusiast running a Proxmox cluster with 30+ containers an
 - **Pixelate**: HTML5 Canvas image pixelation tool built with vanilla JavaScript.
 - **Launch Target**: Web-based spaceship game.
 
-### Games & Fun
-
-- **Wave Jump**: Browser-based game.
-- **Rose Hobart**: Experimental film project.
-
 ### Education & Open Source
 
 - **[Data Structures](https://github.com/JoeKarlsson/data-structures)**: JavaScript implementation of common data structures. 185+ GitHub stars.
 - **Client-Server Communication Guide**: Complete guide to Node.js client-server patterns.
-- **Sudoku Solver**: Algorithmic puzzle solver.
-- **Movie Script Scraper**: Web scraper for film scripts and analysis.
 - **MongoDB GraphQL Demo**: Example integration of MongoDB with GraphQL.
-- **Watson Bot**: IBM Watson-powered chatbot.
 - **MongoDB CSFLE Demo**: Client-side field level encryption demonstration.
 
 ## Blog Topics
@@ -63,6 +73,10 @@ Joe writes regularly about:
 - **Developer Relations**: Community building, content strategy, DevRel career advice
 - **Personal**: Travel guides (Cuba, Oahu), music (Top 50 records), film
 
+### Recent Posts
+
+${recentPosts.join('\n')}
+
 ### Notable Posts
 
 - "Self-Hosted Music Still Sucks in 2025" — self-hosting audio streaming
@@ -71,6 +85,30 @@ Joe writes regularly about:
 - "The Art of Computer Science" — TEDx talk companion piece
 - "MongoDB Schema Design Best Practices" — database architecture guide
 - "How to Get Started Building a Homelab Server in 2024" — beginner homelab guide
+
+## Homelab & Self-Hosting Philosophy
+
+Joe replaces SaaS dependencies with self-hosted alternatives that integrate with each other:
+
+- **Photos**: Immich replaces Google Photos — GPU-accelerated face recognition, all data on NAS
+- **Documents**: Paperless-ngx with AI auto-tagging via Paperless-AI
+- **Calendar & Tasks**: Nextcloud CalDAV replaces iCloud — same Apple apps, own hardware
+- **Media**: Sonarr/Radarr/Prowlarr → Tdarr (GPU H.265 transcoding) → Plex
+- **Security**: Frigate GPU object detection → Home Assistant automations → local notifications
+- **Monitoring**: Grafana + Prometheus + Loki across 40+ containers, ntfy push notifications
+- **Analytics**: Plausible replaces Google Analytics — self-hosted, no cookies, GDPR compliant
+- **Passwords**: 1Password primary + self-hosted Vaultwarden backup
+- **DNS**: AdGuard Home (primary container + secondary Raspberry Pi)
+
+## Smart Home Highlights
+
+- **Doorbell AI Vision**: Frigate camera snapshot → local LLM on GPU → TTS announcement describing who's at the door
+- **Voice Camera Queries**: "What's at the front door?" triggers real-time AI vision analysis via Home Assistant Assist
+- **Infrastructure Alert Translation**: Prometheus alerts → local LLM → friendly natural-language notifications
+- **Laundry Detection**: Vibration + contact sensors detect washer/dryer completion, combined notifications across 3 speakers
+- **Power Night Mode**: HA SSHs into Proxmox at 11 PM, stops non-essential containers saving ~175W, restarts at 7 AM with health checks
+- **Weather-Aware Mornings**: Checks forecast to decide curtain position, light scenes, and climate presets
+- **Vacation Presence Simulation**: Mimics realistic light patterns, arms alarm, adjusts climate when away
 
 ## Speaking & Presentations
 
@@ -110,10 +148,17 @@ Joe writes regularly about:
 
 ## Key Interests & Expertise
 
-- Smart Home Automation (Home Assistant, ESPHome, Zigbee)
+- Smart Home Automation (Home Assistant, local AI vision, Zigbee, presence detection)
 - Database Architecture (SQL, NoSQL, distributed systems, real-time analytics)
-- DevOps & Infrastructure (Proxmox, containers, networking, monitoring)
+- DevOps & Infrastructure (Proxmox, LXC containers, 10G networking, GPU passthrough)
+- AI Tools (Claude Code for infrastructure management, local LLMs for home automation)
 - Open Source (community engagement, educational projects)
 - Developer Advocacy (content creation, community building, conference speaking)
 - Film & Entertainment (Letterboxd, Bechdel Test advocacy)
-- IoT & Hardware (Arduino, Raspberry Pi, sensor integration)
+- IoT & Hardware (Arduino, Raspberry Pi, mechanical keyboards, 3D printing)
+`;
+
+	return new Response(body, {
+		headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+	});
+}
