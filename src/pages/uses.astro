@@ -19,362 +19,223 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			loading="eager"
 		/>
 
-		<!-- Desk Setup -->
-		<section class="mb-10">
-			<h2 class="mb-4 text-2xl font-bold text-teal">Desk Setup</h2>
-			<div class="space-y-3 text-gray-300">
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Computer</h3>
-					<p class="text-sm text-gray-400">MacBook Pro with Apple M3 Pro chip and 36 GB of RAM. A massive upgrade from the M1 Air &mdash; the extra cores and memory make a real difference for Docker, multiple IDEs, and running local AI models.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Monitors</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://www.amazon.com/Lenovo-ThinkVision-P27h-10-LED-Monitor/dp/B071DK1TW8" target="_blank" rel="noopener" class="text-coral hover:text-teal">ThinkVision P27h-10</a> 27-inch Wide QHD IPS Type-C Monitor (right side)</li>
-						<li><a href="https://www.amazon.com/Dell-U2723QE-UltraSharp-USB-C-Monitor/dp/B09TQZP9CL" target="_blank" rel="noopener" class="text-coral hover:text-teal">Dell U3417W</a> 34-inch 4K Monitor (left side)</li>
-						<li>If I were picking up a monitor today, I'd probably go ultrawide.</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Monitor Arm</h3>
-					<p class="text-sm text-gray-400">Ergotron LX Dual Monitor Arm. I like being able to move my monitors around based on what I'm working on and to free up space for hardware projects.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Dock</h3>
-					<p class="text-sm text-gray-400"><a href="https://www.amazon.com/Dell-452-BCYT-D6000-Universal-Black/dp/B071YTQBXM" target="_blank" rel="noopener" class="text-coral hover:text-teal">Dell Universal Dock D6000</a> &mdash; bought used on eBay for under $100. Single USB-C cable for power, monitors, and all USB accessories.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Input Devices</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li>Razer DeathAdder Chroma gaming mouse</li>
-						<li>Apple Magic Trackpad 2 for swipe and pinch controls</li>
-						<li>Razer Goliathus Extended Chroma mousepad</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Desk & Seating</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li>Custom-built standing desktop: IKEA desktop on industrial black steel legs</li>
-						<li>Luna Standing Desk Stool for staying active while working</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Audio</h3>
-					<p class="text-sm text-gray-400"><a href="https://www.amazon.com/Sony-MDR7506-Professional-Diaphragm-Headphone/dp/B000AJIF4E" target="_blank" rel="noopener" class="text-coral hover:text-teal">Sony MDR7506</a> Professional Large Diaphragm Headphones with upgraded velvet pads. Affordable, comfortable, and sound great.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Lighting</h3>
-					<p class="text-sm text-gray-400"><a href="https://www.bestbuy.com/site/philips-hue-play-white-color-ambiance-smart-led-bar-light-2-pack-multicolor/6298635.p" target="_blank" rel="noopener" class="text-coral hover:text-teal">Philips Hue Play</a> White & Color Ambiance LED Bar Lights (2-Pack) for desk backlighting.</p>
-				</div>
-			</div>
-			<div class="mt-4 grid grid-cols-2 gap-4">
-				<img src="/images/blog/how-i-work/IMG_2687-1024x576.jpg" alt="Desk setup angle 1" class="rounded-lg border border-surface-3" loading="lazy" />
-				<img src="/images/blog/how-i-work/IMG_2688-1024x576.jpg" alt="Desk setup angle 2" class="rounded-lg border border-surface-3" loading="lazy" />
-			</div>
-		</section>
+		<!-- ═══════════════════════════════════════════ -->
+		<!-- 1. Desk & Hardware                         -->
+		<!-- ═══════════════════════════════════════════ -->
+		<section class="mb-12">
+			<h2 class="mb-6 text-2xl font-bold text-teal">Desk & Hardware</h2>
 
-		<!-- Recording -->
-		<section class="mb-10">
-			<h2 class="mb-4 text-2xl font-bold text-teal">Recording & Streaming</h2>
-			<div class="space-y-3">
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Webcam</h3>
-					<p class="text-sm text-gray-400"><a href="https://www.obsbot.com/obsbot-tiny-2" target="_blank" rel="noopener" class="text-coral hover:text-teal">OBSBOT Tiny 2</a> &mdash; 4K AI-powered webcam with gesture control and auto-tracking. Replaced my Sony A6600 &mdash; much simpler setup for Zoom calls and recordings.</p>
+			<p class="text-xs font-mono text-teal mb-3">computer & monitors</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">MacBook Pro M3 Pro</strong> &mdash; 36 GB RAM. A massive upgrade from the M1 Air &mdash; the extra cores and memory make a real difference for Docker, multiple IDEs, and running local AI models.</p>
 				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Streaming</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://www.elgato.com/en/gaming/stream-deck" target="_blank" rel="noopener" class="text-coral hover:text-teal">Elgato Stream Deck</a> for controlling streams and shortcuts</li>
-						<li><a href="https://obsproject.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">OBS (Open Broadcaster Software)</a> for streaming</li>
-						<li><a href="https://www.techsmith.com/camtasia.html" target="_blank" rel="noopener" class="text-coral hover:text-teal">Camtasia</a> &mdash; video editing for tutorials and demos</li>
-						<li><a href="https://www.screen.studio/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Screen Studio</a> &mdash; polished screen recordings with auto-zoom</li>
-						<li><a href="https://xnipapp.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Xnip</a> &mdash; screenshot tool with annotations and scrolling capture</li>
-					</ul>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Monitors</strong> &mdash; <a href="https://www.amazon.com/Lenovo-ThinkVision-P27h-10-LED-Monitor/dp/B071DK1TW8" target="_blank" rel="noopener" class="text-coral hover:text-teal">ThinkVision P27h-10</a> 27" QHD (right) + <a href="https://www.amazon.com/Dell-U2723QE-UltraSharp-USB-C-Monitor/dp/B09TQZP9CL" target="_blank" rel="noopener" class="text-coral hover:text-teal">Dell U3417W</a> 34" 4K (left). If I were buying today, I'd go ultrawide.</p>
 				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Microphone</h3>
-					<p class="text-sm text-gray-400"><a href="https://www.elgato.com/us/en/p/wave-3-black" target="_blank" rel="noopener" class="text-coral hover:text-teal">Elgato Wave:3</a> USB condenser microphone, managed through <a href="https://www.elgato.com/us/en/s/wave-link" target="_blank" rel="noopener" class="text-coral hover:text-teal">Wave Link</a> for mixing. Replaced the Blue Yeti &mdash; much better sound quality and integrates with the rest of the Elgato ecosystem.</p>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Ergotron LX Dual Monitor Arm</strong> &mdash; lets me reposition monitors based on what I'm working on and frees up desk space for hardware projects.</p>
 				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Lighting & Green Screen</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li>Two <a href="https://www.amazon.com/gp/product/B07L755X9G" target="_blank" rel="noopener" class="text-coral hover:text-teal">Elgato Key Lights</a> plus professional studio LED panels</li>
-						<li><a href="https://www.amazon.com/gp/product/B00JSAOGWG" target="_blank" rel="noopener" class="text-coral hover:text-teal">Fancierstudio Collapsible Green/Blue Screen</a> on a <a href="https://www.amazon.com/gp/product/B00PLEX7Q4" target="_blank" rel="noopener" class="text-coral hover:text-teal">Fovitec 7'6" Clip Stand</a></li>
-					</ul>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.amazon.com/Dell-452-BCYT-D6000-Universal-Black/dp/B071YTQBXM" target="_blank" rel="noopener" class="text-coral hover:text-teal">Dell Universal Dock D6000</a></strong> &mdash; bought used on eBay for under $100. Single USB-C cable for power, monitors, and all USB accessories.</p>
 				</div>
 			</div>
-		</section>
 
-		<!-- Keyboard -->
-		<section class="mb-10">
-			<h2 class="mb-4 text-2xl font-bold text-teal">Keyboards</h2>
+			<p class="text-xs font-mono text-teal mb-3 mt-6">input & peripherals</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Razer DeathAdder Chroma</strong> &mdash; gaming mouse.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Apple Magic Trackpad 2</strong> &mdash; for swipe and pinch controls.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Razer Goliathus Extended Chroma</strong> &mdash; mousepad with RGB backlighting.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">keyboards</p>
 			<img
 				src="/images/blog/how-i-work/5422ABA8-496F-41FD-83A0-E04FD7807046-1024x823.jpg"
 				alt="Joe's mechanical keyboards"
 				class="mb-4 w-full rounded-lg border border-surface-3"
 				loading="lazy"
 			/>
-			<div class="space-y-3">
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Vortexgear Race 3</h3>
-					<p class="text-sm text-gray-400"><a href="https://www.amazon.com/gp/product/B072LZ2YRM" target="_blank" rel="noopener" class="text-coral hover:text-teal">Vortexgear Race 3</a> with Cherry MX Clear switches.</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.amazon.com/gp/product/B072LZ2YRM" target="_blank" rel="noopener" class="text-coral hover:text-teal">Vortexgear Race 3</a></strong> &mdash; with Cherry MX Clear switches.</p>
 				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Custom Vortex POK3R</h3>
-					<p class="text-sm text-gray-400">Custom-built with a wood case, Cherry MX Blue switches, and a custom keycap set from WASD Keyboards. I like clicky switches &mdash; Blues are the loudest and clickiest. I'd recommend Clears as a good starter switch.</p>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Custom Vortex POK3R</strong> &mdash; wood case, Cherry MX Blue switches, custom keycap set from WASD Keyboards. I like clicky switches &mdash; Blues are the loudest and clickiest. I'd recommend Clears as a good starter switch.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">desk & audio</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Standing Desk</strong> &mdash; custom-built IKEA desktop on industrial black steel legs, with a Luna Standing Desk Stool.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.amazon.com/Sony-MDR7506-Professional-Diaphragm-Headphone/dp/B000AJIF4E" target="_blank" rel="noopener" class="text-coral hover:text-teal">Sony MDR7506</a></strong> &mdash; professional headphones with upgraded velvet pads. Affordable, comfortable, and sound great.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.bestbuy.com/site/philips-hue-play-white-color-ambiance-smart-led-bar-light-2-pack-multicolor/6298635.p" target="_blank" rel="noopener" class="text-coral hover:text-teal">Philips Hue Play</a></strong> &mdash; White & Color Ambiance LED Bar Lights (2-Pack) for desk backlighting.</p>
+				</div>
+			</div>
+
+			<div class="mt-6 grid grid-cols-2 gap-4">
+				<img src="/images/blog/how-i-work/IMG_2687-1024x576.jpg" alt="Desk setup angle 1" class="rounded-lg border border-surface-3" loading="lazy" />
+				<img src="/images/blog/how-i-work/IMG_2688-1024x576.jpg" alt="Desk setup angle 2" class="rounded-lg border border-surface-3" loading="lazy" />
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════════════════════ -->
+		<!-- 2. Recording & Content                     -->
+		<!-- ═══════════════════════════════════════════ -->
+		<section class="mb-12">
+			<h2 class="mb-6 text-2xl font-bold text-teal">Recording & Content</h2>
+
+			<p class="text-xs font-mono text-teal mb-3">camera & audio</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.obsbot.com/obsbot-tiny-2" target="_blank" rel="noopener" class="text-coral hover:text-teal">OBSBOT Tiny 2</a></strong> &mdash; 4K AI-powered webcam with gesture control and auto-tracking. Replaced my Sony A6600 &mdash; much simpler setup for Zoom calls and recordings.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.elgato.com/us/en/p/wave-3-black" target="_blank" rel="noopener" class="text-coral hover:text-teal">Elgato Wave:3</a></strong> &mdash; USB condenser mic, managed through <a href="https://www.elgato.com/us/en/s/wave-link" target="_blank" rel="noopener" class="text-coral hover:text-teal">Wave Link</a> for mixing. Replaced the Blue Yeti &mdash; much better sound and integrates with the Elgato ecosystem.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">streaming & recording</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.elgato.com/en/gaming/stream-deck" target="_blank" rel="noopener" class="text-coral hover:text-teal">Elgato Stream Deck</a></strong> &mdash; controlling streams and shortcuts.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://obsproject.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">OBS</a></strong> &mdash; Open Broadcaster Software for streaming.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.techsmith.com/camtasia.html" target="_blank" rel="noopener" class="text-coral hover:text-teal">Camtasia</a></strong> &mdash; video editing for tutorials and demos.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.screen.studio/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Screen Studio</a></strong> &mdash; polished screen recordings with auto-zoom.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://xnipapp.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Xnip</a></strong> &mdash; screenshot tool with annotations and scrolling capture.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">lighting & green screen</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.amazon.com/gp/product/B07L755X9G" target="_blank" rel="noopener" class="text-coral hover:text-teal">Elgato Key Lights</a> (x2)</strong> &mdash; plus professional studio LED panels.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.amazon.com/gp/product/B00JSAOGWG" target="_blank" rel="noopener" class="text-coral hover:text-teal">Fancierstudio Collapsible Green/Blue Screen</a></strong> &mdash; on a <a href="https://www.amazon.com/gp/product/B00PLEX7Q4" target="_blank" rel="noopener" class="text-coral hover:text-teal">Fovitec 7'6" Clip Stand</a>.</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- Editor & Terminal -->
-		<section class="mb-10">
-			<h2 class="mb-4 text-2xl font-bold text-teal">Editor & Terminal</h2>
-			<div class="space-y-3">
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Code Editors</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Visual Studio Code</a> &mdash; still my primary editor</li>
-						<li><a href="https://www.cursor.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Cursor</a> &mdash; AI-powered fork of VS Code, increasingly my go-to for new projects</li>
-						<li>Monokai color theme + <a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank" rel="noopener" class="text-coral hover:text-teal">vscode-icons</a> icon theme</li>
-						<li><a href="https://wakatime.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">WakaTime</a> &mdash; like a Fitbit for programmers, automated time tracking and metrics</li>
-					</ul>
+		<!-- ═══════════════════════════════════════════ -->
+		<!-- 3. Dev Tools & Software                    -->
+		<!-- ═══════════════════════════════════════════ -->
+		<section class="mb-12">
+			<h2 class="mb-6 text-2xl font-bold text-teal">Dev Tools & Software</h2>
+
+			<p class="text-xs font-mono text-teal mb-3">editors</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Visual Studio Code</a></strong> &mdash; still my primary editor. Monokai theme + <a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank" rel="noopener" class="text-coral hover:text-teal">vscode-icons</a>.</p>
 				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Key VS Code Extensions</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens" target="_blank" rel="noopener" class="text-coral hover:text-teal">GitLens</a> &mdash; supercharged git blame and history</li>
-						<li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank" rel="noopener" class="text-coral hover:text-teal">Prettier</a> + <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank" rel="noopener" class="text-coral hover:text-teal">ESLint</a> &mdash; formatting and linting</li>
-						<li><a href="https://marketplace.visualstudio.com/items?itemName=github.copilot-chat" target="_blank" rel="noopener" class="text-coral hover:text-teal">GitHub Copilot</a> &mdash; AI pair programming</li>
-						<li>Docker, Remote SSH, Remote Containers &mdash; for working inside LXC containers</li>
-						<li>Go, Python, Svelte language support</li>
-					</ul>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.cursor.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Cursor</a></strong> &mdash; AI-powered fork of VS Code, increasingly my go-to for new projects.</p>
 				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">AI Tools</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://claude.ai/download" target="_blank" rel="noopener" class="text-coral hover:text-teal">Claude</a> desktop app &mdash; writing, research, and brainstorming</li>
-						<li><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener" class="text-coral hover:text-teal">Claude Code</a> (CLI) &mdash; my primary coding companion. I use it in the terminal for everything from infrastructure automation to building this website. It manages my homelab, writes deployment scripts, and helps debug across 40+ containers.</li>
-						<li><a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="text-coral hover:text-teal">GitHub Copilot</a> &mdash; inline code completion in VS Code and Cursor</li>
-						<li><a href="https://superwhisper.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">superwhisper</a> &mdash; local speech-to-text, great for dictating docs and messages</li>
-					</ul>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Key extensions</strong> &mdash; <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens" target="_blank" rel="noopener" class="text-coral hover:text-teal">GitLens</a>, <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank" rel="noopener" class="text-coral hover:text-teal">Prettier</a> + <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank" rel="noopener" class="text-coral hover:text-teal">ESLint</a>, <a href="https://marketplace.visualstudio.com/items?itemName=github.copilot-chat" target="_blank" rel="noopener" class="text-coral hover:text-teal">GitHub Copilot</a>, Docker, Remote SSH, Go/Python/Svelte support.</p>
 				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Terminal</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://iterm2.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">iTerm2</a></li>
-						<li><a href="https://ohmyz.sh/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Oh My Zsh</a> with <a href="https://github.com/romkatv/powerlevel10k" target="_blank" rel="noopener" class="text-coral hover:text-teal">Powerlevel10k</a> theme</li>
-						<li>Plugins: git, z (directory jumping), zsh-autosuggestions, zsh-syntax-highlighting</li>
-					</ul>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">ai tools</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener" class="text-coral hover:text-teal">Claude Code</a> (CLI)</strong> &mdash; my primary coding companion. I use it in the terminal for everything from infrastructure automation to building this website. It manages my homelab, writes deployment scripts, and helps debug across 40+ containers.</p>
 				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Dotfiles</h3>
-					<p class="text-sm text-gray-400">You can find most of my config files over at my <a href="https://github.com/JoeKarlsson/dotfiles" target="_blank" rel="noopener" class="text-coral hover:text-teal">dotfiles repo</a> on GitHub.</p>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://claude.ai/download" target="_blank" rel="noopener" class="text-coral hover:text-teal">Claude</a> desktop app</strong> &mdash; writing, research, and brainstorming.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="text-coral hover:text-teal">GitHub Copilot</a></strong> &mdash; inline code completion in VS Code and Cursor.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://superwhisper.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">superwhisper</a></strong> &mdash; local speech-to-text, great for dictating docs and messages.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://wakatime.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">WakaTime</a></strong> &mdash; like a Fitbit for programmers, automated time tracking and metrics.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">terminal</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://iterm2.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">iTerm2</a></strong> &mdash; with <a href="https://ohmyz.sh/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Oh My Zsh</a> and <a href="https://github.com/romkatv/powerlevel10k" target="_blank" rel="noopener" class="text-coral hover:text-teal">Powerlevel10k</a> theme. Plugins: git, z, zsh-autosuggestions, zsh-syntax-highlighting.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Dotfiles</strong> &mdash; config files at my <a href="https://github.com/JoeKarlsson/dotfiles" target="_blank" rel="noopener" class="text-coral hover:text-teal">dotfiles repo</a> on GitHub.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">productivity</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.raycast.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Raycast</a></strong> &mdash; launcher, snippets, clipboard history.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://apps.apple.com/us/app/magnet/id441258766?mt=12" target="_blank" rel="noopener" class="text-coral hover:text-teal">Magnet</a></strong> &mdash; window management.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.notion.so/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Notion</a></strong> &mdash; notes and docs.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://linear.app/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Linear</a></strong> &mdash; issue tracking.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://grammarly.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Grammarly</a></strong> &mdash; writing assistant.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">communication & media</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://rambox.pro/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Rambox</a></strong> &mdash; all messaging clients in one app.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://github.com/gitroomhq/postiz-app" target="_blank" rel="noopener" class="text-coral hover:text-teal">Postiz</a></strong> &mdash; self-hosted social media scheduling (replaced Buffer).</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.plex.tv/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Plex</a></strong> &mdash; self-hosted media streaming. <strong class="text-white"><a href="https://www.videolan.org/vlc/" target="_blank" rel="noopener" class="text-coral hover:text-teal">VLC</a></strong> for everything else.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">security & utilities</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://1password.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">1Password</a></strong> &mdash; password manager (+ self-hosted <a href="https://github.com/dani-garcia/vaultwarden" target="_blank" rel="noopener" class="text-coral hover:text-teal">Vaultwarden</a> as backup).</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://tailscale.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Tailscale</a></strong> &mdash; mesh VPN for accessing homelab remotely.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.privateinternetaccess.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Private Internet Access</a></strong> &mdash; commercial VPN for privacy on public networks.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Docker Desktop</a></strong> &mdash; <strong class="text-white"><a href="https://github.com/dwarvesf/hidden" target="_blank" rel="noopener" class="text-coral hover:text-teal">Hidden Bar</a></strong> &mdash; <strong class="text-white"><a href="https://rogueamoeba.com/soundsource/" target="_blank" rel="noopener" class="text-coral hover:text-teal">SoundSource</a></strong> (per-app audio control).</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- Apps -->
-		<section class="mb-10">
-			<h2 class="mb-4 text-2xl font-bold text-teal">Apps</h2>
-			<div class="grid gap-3 sm:grid-cols-2">
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Productivity</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://www.raycast.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Raycast</a> &mdash; launcher, snippets, clipboard history</li>
-						<li><a href="https://apps.apple.com/us/app/magnet/id441258766?mt=12" target="_blank" rel="noopener" class="text-coral hover:text-teal">Magnet</a> &mdash; window management</li>
-						<li>Apple Reminders + self-hosted CalDAV via <a href="https://nextcloud.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Nextcloud</a> &mdash; tasks and calendar sync without iCloud</li>
-						<li><a href="https://www.notion.so/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Notion</a> &mdash; notes and docs</li>
-						<li><a href="https://linear.app/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Linear</a> &mdash; issue tracking</li>
-						<li><a href="https://grammarly.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Grammarly</a> &mdash; writing assistant</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Communication & Social</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://rambox.pro/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Rambox</a> &mdash; all messaging clients in one app</li>
-						<li><a href="https://discord.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Discord</a></li>
-						<li><a href="https://zoom.us/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Zoom</a></li>
-						<li><a href="https://github.com/gitroomhq/postiz-app" target="_blank" rel="noopener" class="text-coral hover:text-teal">Postiz</a> &mdash; self-hosted social media scheduling (replaced Buffer)</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Media</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://www.plex.tv/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Plex</a> &mdash; media streaming (self-hosted)</li>
-						<li>Apple Music</li>
-						<li><a href="https://www.videolan.org/vlc/" target="_blank" rel="noopener" class="text-coral hover:text-teal">VLC</a> &mdash; plays anything</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Security & Privacy</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://1password.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">1Password</a> &mdash; password manager (+ self-hosted <a href="https://github.com/dani-garcia/vaultwarden" target="_blank" rel="noopener" class="text-coral hover:text-teal">Vaultwarden</a> as backup)</li>
-						<li><a href="https://tailscale.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Tailscale</a> &mdash; mesh VPN for accessing homelab remotely from anywhere</li>
-						<li><a href="https://www.privateinternetaccess.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Private Internet Access</a> &mdash; commercial VPN for privacy on public networks</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Utilities</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://github.com/dwarvesf/hidden" target="_blank" rel="noopener" class="text-coral hover:text-teal">Hidden Bar</a> &mdash; hide menu bar icons</li>
-						<li><a href="https://rogueamoeba.com/soundsource/" target="_blank" rel="noopener" class="text-coral hover:text-teal">SoundSource</a> &mdash; per-app audio control</li>
-						<li><a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Docker Desktop</a></li>
-						<li><a href="https://nextcloud.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Nextcloud</a> &mdash; self-hosted file sync</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-
-		<!-- Self-Hosted Integrations -->
-		<section class="mb-10">
-			<h2 class="mb-4 text-2xl font-bold text-teal">Self-Hosted Integrations</h2>
-			<p class="mb-4 text-sm text-gray-400">
-				One of the best parts of running a homelab is replacing SaaS dependencies with self-hosted alternatives that integrate with each other. Here's how my stack connects:
-			</p>
-			<div class="space-y-3">
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Photos & Backup</h3>
-					<p class="text-sm text-gray-400"><a href="https://github.com/immich-app/immich" target="_blank" rel="noopener" class="text-coral hover:text-teal">Immich</a> replaces Google Photos &mdash; auto-uploads from my phone, GPU-accelerated face recognition, and all photos stored on the NAS. No cloud subscription, no storage limits.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Documents & AI</h3>
-					<p class="text-sm text-gray-400"><a href="https://github.com/paperless-ngx/paperless-ngx" target="_blank" rel="noopener" class="text-coral hover:text-teal">Paperless-ngx</a> ingests all scanned documents with OCR, and <a href="https://github.com/clusterzx/paperless-ai" target="_blank" rel="noopener" class="text-coral hover:text-teal">Paperless-AI</a> auto-tags and categorizes them. Mail comes in, gets scanned, and is searchable within minutes.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Calendar & Tasks</h3>
-					<p class="text-sm text-gray-400">Apple Reminders and Calendar sync to a self-hosted <a href="https://nextcloud.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Nextcloud</a> CalDAV server instead of iCloud. Same native Apple apps, but the data lives on my hardware.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Media Pipeline</h3>
-					<p class="text-sm text-gray-400">The Arr stack (<a href="https://github.com/Sonarr/Sonarr" target="_blank" rel="noopener" class="text-coral hover:text-teal">Sonarr</a>, <a href="https://github.com/Radarr/Radarr" target="_blank" rel="noopener" class="text-coral hover:text-teal">Radarr</a>, <a href="https://github.com/Prowlarr/Prowlarr" target="_blank" rel="noopener" class="text-coral hover:text-teal">Prowlarr</a>) manages media acquisition. <a href="https://github.com/HaveAGitGat/Tdarr" target="_blank" rel="noopener" class="text-coral hover:text-teal">Tdarr</a> transcodes everything to H.265 using the GPUs, saving terabytes of storage. <a href="https://www.plex.tv/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Plex</a> serves it all to every screen in the house.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Home Security</h3>
-					<p class="text-sm text-gray-400"><a href="https://github.com/blakeblackshear/frigate" target="_blank" rel="noopener" class="text-coral hover:text-teal">Frigate</a> runs real-time object detection on security camera feeds using the GPU. Detections trigger automations in <a href="https://www.home-assistant.io/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Home Assistant</a> &mdash; lights, notifications, and recording clips. All processed locally, nothing sent to the cloud.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Monitoring & Alerts</h3>
-					<p class="text-sm text-gray-400"><a href="https://grafana.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Grafana</a> dashboards pull from <a href="https://prometheus.io/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Prometheus</a> metrics and <a href="https://grafana.com/oss/loki/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Loki</a> logs across all 40+ containers. <a href="https://github.com/binwiederhier/ntfy" target="_blank" rel="noopener" class="text-coral hover:text-teal">ntfy</a> sends push notifications to my phone when something needs attention.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Analytics</h3>
-					<p class="text-sm text-gray-400"><a href="https://github.com/plausible/analytics" target="_blank" rel="noopener" class="text-coral hover:text-teal">Plausible Analytics</a> for privacy-friendly site analytics &mdash; self-hosted, no cookies, fully GDPR compliant. Replaces Google Analytics.</p>
-				</div>
-			</div>
-		</section>
-
-		<!-- Smart Home -->
-		<section class="mb-10">
-			<h2 class="mb-4 text-2xl font-bold text-teal">Smart Home</h2>
-			<p class="mb-4 text-sm text-gray-400">
-				My smart home runs on <a href="https://www.home-assistant.io/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Home Assistant</a> with 90+ automations, voice control, and zero cloud dependencies. Everything processes locally on my homelab.
-			</p>
-			<div class="space-y-3">
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Core Platform</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://www.home-assistant.io/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Home Assistant OS</a> &mdash; running as a VM on Proxmox with dedicated MariaDB</li>
-						<li><a href="https://hacs.xyz/" target="_blank" rel="noopener" class="text-coral hover:text-teal">HACS</a> &mdash; community store for custom integrations and dashboard cards</li>
-						<li><a href="https://github.com/Koenkk/zigbee2mqtt" target="_blank" rel="noopener" class="text-coral hover:text-teal">Zigbee2MQTT</a> &mdash; all Zigbee devices go through this instead of proprietary hubs</li>
-						<li>Apple HomeKit bridge &mdash; exposes key entities to Siri for quick voice commands</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Dashboards</h3>
-					<p class="text-sm text-gray-400 mb-2">Custom Lovelace dashboards for different form factors &mdash; desktop overview, phone, and tablet views. Built with community cards:</p>
-					<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-sm text-gray-400">
-						<a href="https://github.com/piitaya/lovelace-mushroom" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Mushroom Cards</a>
-						<a href="https://github.com/Clooney82/lovelace-bubble-card" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Bubble Card</a>
-						<a href="https://github.com/RomRider/apexcharts-card" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">ApexCharts Card</a>
-						<a href="https://github.com/kalkih/mini-media-player" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Mini Media Player</a>
-						<a href="https://github.com/kalkih/mini-graph-card" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Mini Graph Card</a>
-						<a href="https://github.com/custom-cards/button-card" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Button Card</a>
-					</div>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Key Integrations</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><a href="https://github.com/blakeblackshear/frigate" target="_blank" rel="noopener" class="text-coral hover:text-teal">Frigate</a> &mdash; GPU-accelerated object detection on all cameras, triggers automations for person/package/vehicle detection</li>
-						<li><a href="https://github.com/basnijholt/adaptive-lighting" target="_blank" rel="noopener" class="text-coral hover:text-teal">Adaptive Lighting</a> &mdash; automatically adjusts light temperature and brightness throughout the day</li>
-						<li><a href="https://github.com/nielsfaber/alarmo" target="_blank" rel="noopener" class="text-coral hover:text-teal">Alarmo</a> &mdash; home security alarm system with presence-based arming</li>
-						<li><a href="https://github.com/bramstroker/homeassistant-powercalc" target="_blank" rel="noopener" class="text-coral hover:text-teal">Powercalc</a> &mdash; energy consumption tracking for every smart device</li>
-						<li><a href="https://github.com/BottlecapDave/HomeAssistant-OctopusEnergy" target="_blank" rel="noopener" class="text-coral hover:text-teal">Presence Simulation</a> &mdash; mimics normal activity patterns when away on vacation</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Automations & Scenes</h3>
-					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><strong class="text-gray-300">Motion lighting</strong> &mdash; 9 rooms with motion-activated lights that adapt to time of day</li>
-						<li><strong class="text-gray-300">Voice modes</strong> &mdash; "Work Mode", "Meeting Mode", "Movie Mode", and "Nap Time" each reconfigure lights, audio, and notifications</li>
-						<li><strong class="text-gray-300">Morning/Night routines</strong> &mdash; "Good Morning" gradually brings up lights and starts coffee; "Good Night" locks up, arms security, and shuts everything down</li>
-						<li><strong class="text-gray-300">Presence-based</strong> &mdash; garage opens when approaching home, lights adjust on arrival/departure, security arms when everyone leaves</li>
-						<li><strong class="text-gray-300">Doorbell AI</strong> &mdash; camera snapshots analyzed with AI vision and announced through speakers</li>
-					</ul>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Devices</h3>
-					<div class="grid gap-3 sm:grid-cols-2">
-						<div>
-							<p class="text-xs font-mono text-teal mb-1">lighting & climate</p>
-							<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
-								<li>Philips Hue lights + motion sensors</li>
-								<li>Zigbee contact & temperature sensors</li>
-								<li>Smart thermostats</li>
-								<li>Motorized curtains (weather-aware)</li>
-							</ul>
-						</div>
-						<div>
-							<p class="text-xs font-mono text-teal mb-1">security & cameras</p>
-							<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
-								<li>Eufy doorbell + floodlight cam</li>
-								<li>Tapo indoor cameras</li>
-								<li>Smoke/CO2 sensors</li>
-								<li>Moisture leak sensors</li>
-							</ul>
-						</div>
-						<div>
-							<p class="text-xs font-mono text-teal mb-1">audio</p>
-							<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
-								<li>WiiM devices (Amp, Pro, Mini)</li>
-								<li>Audio Pro A10 speakers</li>
-								<li>8+ audio zones via <a href="https://github.com/LMS-Community/slimserver" target="_blank" rel="noopener" class="text-coral hover:text-teal">Lyrion Music Server</a></li>
-							</ul>
-						</div>
-						<div>
-							<p class="text-xs font-mono text-teal mb-1">other</p>
-							<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
-								<li>2x Roomba vacuums</li>
-								<li>Meross smart plugs (energy monitoring)</li>
-								<li>3D printer (Prusa MK3) power tracking</li>
-								<li>Hue Play HDMI Sync Box</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Other Gear -->
-		<section class="mb-10">
-			<h2 class="mb-4 text-2xl font-bold text-teal">Other Gear</h2>
-			<div class="space-y-3">
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Everyday Backpack</h3>
-					<p class="text-sm text-gray-400"><a href="https://www.amazon.com/dp/B00KSYM4SE" target="_blank" rel="noopener" class="text-coral hover:text-teal">Incase Icon Pack</a> (black) &mdash; holds everything and looks great.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Travel Backpack</h3>
-					<p class="text-sm text-gray-400"><a href="https://www.peakdesign.com/products/travel-backpack" target="_blank" rel="noopener" class="text-coral hover:text-teal">Peak Design 45L Travel Backpack</a> with two small cubes, one medium cube, and the Tech Sling. Everything is part of a system and it fits carry-on perfectly.</p>
-				</div>
-				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">NAS</h3>
-					<p class="text-sm text-gray-400">Synology DS918+ 4-bay NAS DiskStation for backing up all my data.</p>
-				</div>
-			</div>
-		</section>
-
-		<!-- Homelab -->
-		<section class="mb-10">
+		<!-- ═══════════════════════════════════════════ -->
+		<!-- 4. Homelab                                 -->
+		<!-- ═══════════════════════════════════════════ -->
+		<section class="mb-12">
 			<h2 class="mb-4 text-2xl font-bold text-teal">Homelab</h2>
 			<p class="mb-4 text-sm text-gray-400">
 				I run a self-hosted <a href="https://www.proxmox.com/en/proxmox-virtual-environment" target="_blank" rel="noopener" class="text-coral hover:text-teal">Proxmox VE</a> cluster with 40+ LXC containers and VMs across two rack-mounted servers. Everything from media automation to home security to document management runs locally on my own hardware.
@@ -498,6 +359,177 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 								<a href="https://www.proxmox.com/en/proxmox-backup-server" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Proxmox Backup Server</a>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-8">how it all connects</p>
+			<p class="mb-4 text-sm text-gray-400">
+				One of the best parts of running a homelab is replacing SaaS dependencies with self-hosted alternatives that integrate with each other.
+			</p>
+			<div class="space-y-3">
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Photos & Backup</h3>
+					<p class="text-sm text-gray-400"><a href="https://github.com/immich-app/immich" target="_blank" rel="noopener" class="text-coral hover:text-teal">Immich</a> replaces Google Photos &mdash; auto-uploads from my phone, GPU-accelerated face recognition, and all photos stored on the NAS. No cloud subscription, no storage limits.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Documents & AI</h3>
+					<p class="text-sm text-gray-400"><a href="https://github.com/paperless-ngx/paperless-ngx" target="_blank" rel="noopener" class="text-coral hover:text-teal">Paperless-ngx</a> ingests all scanned documents with OCR, and <a href="https://github.com/clusterzx/paperless-ai" target="_blank" rel="noopener" class="text-coral hover:text-teal">Paperless-AI</a> auto-tags and categorizes them. Mail comes in, gets scanned, and is searchable within minutes.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Calendar & Tasks</h3>
+					<p class="text-sm text-gray-400">Apple Reminders and Calendar sync to a self-hosted <a href="https://nextcloud.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Nextcloud</a> CalDAV server instead of iCloud. Same native Apple apps, but the data lives on my hardware.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Media Pipeline</h3>
+					<p class="text-sm text-gray-400">The Arr stack (<a href="https://github.com/Sonarr/Sonarr" target="_blank" rel="noopener" class="text-coral hover:text-teal">Sonarr</a>, <a href="https://github.com/Radarr/Radarr" target="_blank" rel="noopener" class="text-coral hover:text-teal">Radarr</a>, <a href="https://github.com/Prowlarr/Prowlarr" target="_blank" rel="noopener" class="text-coral hover:text-teal">Prowlarr</a>) manages media acquisition. <a href="https://github.com/HaveAGitGat/Tdarr" target="_blank" rel="noopener" class="text-coral hover:text-teal">Tdarr</a> transcodes everything to H.265 using the GPUs, saving terabytes of storage. <a href="https://www.plex.tv/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Plex</a> serves it all to every screen in the house.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Home Security</h3>
+					<p class="text-sm text-gray-400"><a href="https://github.com/blakeblackshear/frigate" target="_blank" rel="noopener" class="text-coral hover:text-teal">Frigate</a> runs real-time object detection on security camera feeds using the GPU. Detections trigger automations in <a href="https://www.home-assistant.io/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Home Assistant</a> &mdash; lights, notifications, and recording clips. All processed locally, nothing sent to the cloud.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Monitoring & Alerts</h3>
+					<p class="text-sm text-gray-400"><a href="https://grafana.com/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Grafana</a> dashboards pull from <a href="https://prometheus.io/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Prometheus</a> metrics and <a href="https://grafana.com/oss/loki/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Loki</a> logs across all 40+ containers. <a href="https://github.com/binwiederhier/ntfy" target="_blank" rel="noopener" class="text-coral hover:text-teal">ntfy</a> sends push notifications to my phone when something needs attention.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Analytics</h3>
+					<p class="text-sm text-gray-400"><a href="https://github.com/plausible/analytics" target="_blank" rel="noopener" class="text-coral hover:text-teal">Plausible Analytics</a> for privacy-friendly site analytics &mdash; self-hosted, no cookies, fully GDPR compliant. Replaces Google Analytics.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════════════════════ -->
+		<!-- 5. Smart Home                              -->
+		<!-- ═══════════════════════════════════════════ -->
+		<section class="mb-12">
+			<h2 class="mb-4 text-2xl font-bold text-teal">Smart Home</h2>
+			<p class="mb-6 text-sm text-gray-400">
+				My smart home runs on <a href="https://www.home-assistant.io/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Home Assistant</a> with 90+ automations, voice control, and zero cloud dependencies. Everything processes locally on my homelab.
+			</p>
+
+			<p class="text-xs font-mono text-teal mb-3">core platform</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://www.home-assistant.io/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Home Assistant OS</a></strong> &mdash; running as a VM on Proxmox with dedicated MariaDB.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://hacs.xyz/" target="_blank" rel="noopener" class="text-coral hover:text-teal">HACS</a></strong> &mdash; community store for custom integrations and dashboard cards.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white"><a href="https://github.com/Koenkk/zigbee2mqtt" target="_blank" rel="noopener" class="text-coral hover:text-teal">Zigbee2MQTT</a></strong> &mdash; all Zigbee devices go through this instead of proprietary hubs.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Apple HomeKit bridge</strong> &mdash; exposes key entities to Siri for quick voice commands.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">dashboards</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300 mb-2">Custom Lovelace dashboards for different form factors &mdash; desktop overview, phone, and tablet views. Built with community cards:</p>
+					<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-sm text-gray-400">
+						<a href="https://github.com/piitaya/lovelace-mushroom" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Mushroom Cards</a>
+						<a href="https://github.com/Clooney82/lovelace-bubble-card" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Bubble Card</a>
+						<a href="https://github.com/RomRider/apexcharts-card" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">ApexCharts Card</a>
+						<a href="https://github.com/kalkih/mini-media-player" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Mini Media Player</a>
+						<a href="https://github.com/kalkih/mini-graph-card" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Mini Graph Card</a>
+						<a href="https://github.com/custom-cards/button-card" target="_blank" rel="noopener" class="text-gray-400 hover:text-coral">Button Card</a>
+					</div>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">ai-powered automations</p>
+			<div class="space-y-3">
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Doorbell AI Vision</h3>
+					<p class="text-sm text-gray-400"><a href="https://github.com/blakeblackshear/frigate" target="_blank" rel="noopener" class="text-coral hover:text-teal">Frigate</a> captures a snapshot when someone's at the door, sends it to a local LLM running on the GPU via <a href="https://github.com/rhasspy/wyoming" target="_blank" rel="noopener" class="text-coral hover:text-teal">Wyoming Whisper</a>, and announces a natural-language description through the house speakers &mdash; "There's a delivery driver with a package at the front door." No cloud APIs involved.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Voice Camera Queries</h3>
+					<p class="text-sm text-gray-400">"Hey, what's at the front door?" or "Describe the garage" triggers on-demand AI vision analysis through Home Assistant's <a href="https://www.home-assistant.io/voice_control/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Assist</a> voice pipeline. Camera snapshot → GPU inference → spoken response, all local.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Infrastructure Alert Translation</h3>
+					<p class="text-sm text-gray-400">Raw <a href="https://prometheus.io/" target="_blank" rel="noopener" class="text-coral hover:text-teal">Prometheus</a> alerts get fed through a local LLM that translates technical jargon into friendly notifications &mdash; "One of your archive drives is running low on space" instead of a wall of metrics.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">multi-service automations</p>
+			<div class="space-y-3">
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Laundry Detection System</h3>
+					<p class="text-sm text-gray-400">Vibration sensor on the dryer detects 9 minutes of no movement to confirm it's done. Contact sensor on the washer starts a 70-minute timer after the door closes. If both finish within 15 minutes, a single combined notification goes out &mdash; chimes on 3 speakers, TTS announcements, and a mobile notification with snooze. Includes cooldown to prevent spam.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Doorbell Music Pause</h3>
+					<p class="text-sm text-gray-400">When <a href="https://github.com/blakeblackshear/frigate" target="_blank" rel="noopener" class="text-coral hover:text-teal">Frigate</a> detects a person at the door during the day, all <a href="https://github.com/LMS-Community/slimserver" target="_blank" rel="noopener" class="text-coral hover:text-teal">Lyrion Music Server</a> / WiiM players auto-pause so you can hear the doorbell and have a conversation. Resumes after.</p>
+				</div>
+				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+					<h3 class="mb-1 font-semibold text-white">Power Night Mode</h3>
+					<p class="text-sm text-gray-400">At 11 PM, Home Assistant SSHs into <a href="https://www.proxmox.com/en/proxmox-virtual-environment" target="_blank" rel="noopener" class="text-coral hover:text-teal">Proxmox</a> and shuts down non-essential containers, saving ~175W overnight. At 7 AM, everything restarts and health checks confirm services are back before reporting success. Manual override available for late nights.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">context-aware routines</p>
+			<div class="divide-y divide-surface-3/50">
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Weather-aware mornings</strong> &mdash; "Good Morning" checks the forecast: opens curtains if mild, closes blackout curtains if >85&deg;F and high UV. Chooses between natural light and warm scene based on whether the sun is up yet.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Vacation presence simulation</strong> &mdash; activates realistic light patterns that mimic normal activity, arms alarm in vacation mode, returns vacuums to base, closes all blinds, adjusts climate to away preset. Reverses everything on return.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Welcome home status</strong> &mdash; announces what happened while you were away by comparing state changes since departure.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Voice modes</strong> &mdash; "Work Mode", "Meeting Mode", "Movie Mode", and "Nap Time" each reconfigure lights, audio, and notifications across every room.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Motion lighting</strong> &mdash; 9 rooms with motion-activated lights that adapt brightness and temperature to time of day via <a href="https://github.com/basnijholt/adaptive-lighting" target="_blank" rel="noopener" class="text-coral hover:text-teal">Adaptive Lighting</a>.</p>
+				</div>
+				<div class="py-3">
+					<p class="text-sm text-gray-300"><strong class="text-white">Presence-based security</strong> &mdash; garage opens when approaching home, lights adjust on arrival/departure, <a href="https://github.com/nielsfaber/alarmo" target="_blank" rel="noopener" class="text-coral hover:text-teal">Alarmo</a> arms when everyone leaves. <a href="https://github.com/bramstroker/homeassistant-powercalc" target="_blank" rel="noopener" class="text-coral hover:text-teal">Powercalc</a> tracks energy across every device.</p>
+				</div>
+			</div>
+
+			<p class="text-xs font-mono text-teal mb-3 mt-6">devices</p>
+			<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+				<div class="grid gap-3 sm:grid-cols-2">
+					<div>
+						<p class="text-xs font-mono text-teal mb-1">lighting & climate</p>
+						<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
+							<li>Philips Hue lights + motion sensors</li>
+							<li>Zigbee contact & temperature sensors</li>
+							<li>Smart thermostats</li>
+							<li>Motorized curtains (weather-aware)</li>
+						</ul>
+					</div>
+					<div>
+						<p class="text-xs font-mono text-teal mb-1">security & cameras</p>
+						<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
+							<li>Eufy doorbell + floodlight cam</li>
+							<li>Tapo indoor cameras</li>
+							<li>Smoke/CO2 sensors</li>
+							<li>Moisture leak sensors</li>
+						</ul>
+					</div>
+					<div>
+						<p class="text-xs font-mono text-teal mb-1">audio</p>
+						<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
+							<li>WiiM devices (Amp, Pro, Mini)</li>
+							<li>Audio Pro A10 speakers</li>
+							<li>8+ audio zones via <a href="https://github.com/LMS-Community/slimserver" target="_blank" rel="noopener" class="text-coral hover:text-teal">Lyrion Music Server</a></li>
+						</ul>
+					</div>
+					<div>
+						<p class="text-xs font-mono text-teal mb-1">other</p>
+						<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
+							<li>2x Roomba vacuums</li>
+							<li>Meross smart plugs (energy monitoring)</li>
+							<li>3D printer (Prusa MK3) power tracking</li>
+							<li>Hue Play HDMI Sync Box</li>
+						</ul>
 					</div>
 				</div>
 			</div>
