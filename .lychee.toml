@@ -16,8 +16,8 @@ exclude = [
   "giphy\\.com"
 ]
 
-# Exclude paths that don't map to files
-exclude_path = ["404", "hero-illustration"]
+# Exclude paths that don't map to files or are known broken
+exclude_path = ["404", "hero-illustration", "http:/https:"]
 
 # Accept these status codes as valid
 accept = [200, 204, 301, 302, 403, 429]

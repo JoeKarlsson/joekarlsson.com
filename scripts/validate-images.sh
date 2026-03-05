@@ -52,6 +52,10 @@ MISSING_HEROES=0
 while IFS= read -r md_file; do
   HERO=$(grep -m1 "^heroImage:" "$md_file" 2>/dev/null | sed 's/heroImage:[[:space:]]*//' | tr -d '"' | tr -d "'" || true)
   if [ -n "$HERO" ]; then
+    # Skip external URLs (https://, http://)
+    case "$HERO" in
+      http://*|https://*) continue ;;
+    esac
     # heroImage paths are relative to public/
     HERO_PATH="public${HERO}"
     if [ ! -f "$HERO_PATH" ]; then
