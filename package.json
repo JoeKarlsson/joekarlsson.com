@@ -6,15 +6,36 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check",
+    "test:images": "bash scripts/validate-images.sh",
+    "test:spelling": "cspell \"src/content/blog/**/*.md\" --no-progress",
+    "test:markdown": "markdownlint-cli2 \"src/content/blog/**/*.md\"",
+    "test:feeds": "bash scripts/validate-feeds.sh",
+    "test:caddyfile": "bash scripts/validate-caddyfile.sh",
+    "test:a11y": "pa11y-ci --config .pa11yci.json",
+    "test:lighthouse": "lhci autorun",
+    "test:links": "lychee --offline --no-progress --root-dir dist/ --config .lychee.toml dist/",
+    "test": "npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^6.0.2",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
     "astro": "^5.17.1",
     "sharp": "^0.34.3",
     "tailwindcss": "^3.4.19"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@lhci/cli": "^0.14.0",
+    "cspell": "^8.17.0",
+    "markdownlint-cli2": "^0.17.0",
+    "pa11y-ci": "^3.1.0",
+    "serve": "^14.2.4",
+    "typescript": "^5.9.3"
   }
 }

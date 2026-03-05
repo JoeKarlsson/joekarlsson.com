@@ -1,0 +1,35 @@
+# Lychee link checker configuration
+# Shared by CI (internal only) and weekly external check
+
+# Exclude known-flaky domains and embed URLs that lack https://
+exclude = [
+  "twitter\\.com",
+  "x\\.com",
+  "linkedin\\.com",
+  "facebook\\.com",
+  "instagram\\.com",
+  "t\\.co",
+  "localhost",
+  "127\\.0\\.0\\.1",
+  "192\\.168\\.",
+  "speakerdeck\\.com",
+  "giphy\\.com"
+]
+
+# Exclude paths that don't map to files
+exclude_path = ["404"]
+
+# Accept these status codes as valid
+accept = [200, 204, 301, 302, 403, 429]
+
+# Timeout per request (seconds)
+timeout = 30
+
+# Max concurrent requests
+max_concurrency = 5
+
+# Don't check email addresses
+include_mail = false
+
+# For offline mode, resolve /foo to /foo/index.html
+fallback_extensions = ["html"]

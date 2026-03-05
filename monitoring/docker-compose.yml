@@ -1,0 +1,25 @@
+---
+# Uptime Kuma - self-hosted monitoring
+# Run on Proxmox host alongside the site
+#
+# Setup:
+#   cd monitoring && docker compose up -d
+#   Access dashboard at http://192.168.0.165:3001
+#
+# Monitors to configure in the UI:
+#   1. HTTP check: https://www.joekarlsson.com (every 60s)
+#   2. SSL cert expiry: alert 14 days before
+#   3. Response time: alert if >2s average
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - uptime-kuma-data:/app/data
+
+volumes:
+  uptime-kuma-data:
