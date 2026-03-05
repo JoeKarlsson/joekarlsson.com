@@ -11,6 +11,7 @@
 # Spanish / food words
 # Tech terms
 Acitivity
+Adolphus
 Alarmo
 Alertmanager
 Alexa
@@ -96,12 +97,15 @@ Grocy
 Habanero
 HACS
 Hammon
+Hanselminutes
 Hanauma
 Hanselman
 Hanselmann
 hashtable
 Healthchecks
 hella
+Homelabber
+homelabs
 Homekit
 Hoyt
 HTTPHTTP
@@ -173,6 +177,7 @@ NVENC
 OBSBOT
 Occhino
 Octoprint
+oneline
 Organical
 Overseerr
 Pausch
@@ -225,6 +230,8 @@ Sonos
 Soulseek
 Spacegirl
 Stoneage
+substack
+Substack
 streambinary
 streaminglimitedyesyes
 streamingnonoyes

@@ -139,6 +139,41 @@ Joe replaces SaaS dependencies with self-hosted alternatives that integrate with
 - **Talk Archive**: Full list of past presentations available at [/talk-archive](https://www.joekarlsson.com/talk-archive/)
 - **YouTube**: Recorded talks and tutorials at [youtube.com/joekarlsson](https://www.youtube.com/joekarlsson)
 
+### Notable Talk Titles
+
+- "[Keynote] The Art of Computer Science" - TEDx talk and conference keynote about the intersection of coding and artistic expression
+- "An Introduction to IoT (Internet of Toilets)" - Building an IoT cat litter box with Raspberry Pi and JavaScript
+- "DevOps and Databases" - Live demo incorporating databases into DevOps pipelines with GitHub Actions
+- "How to Build a Data Stack Your Company Actually Uses" - Aligning data infrastructure with organizational needs
+- "Building High Performance React Applications" - Front-end performance optimization
+- "How to Secure Your Cloud by Building a CSPM System in 15 Minutes" - Hands-on cloud security with open-source tools
+
+## Podcast Appearances
+
+- **[Hanselminutes with Scott Hanselman](https://hanselminutes.com/752/document-databases-and-mongo-with-engineer-joe-karlsson)**: Document Databases and MongoDB - how document DBs differ from relational databases
+- **[Screaming in the Cloud with Corey Quinn](https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/when-data-is-your-brand-and-your-job-with-joe-karlsson/)** (Last Week in AWS): "When Data is Your Brand and Your Job" - data engineering, AI, and building a personal brand
+- **[JavaScript Jabber](https://topenddevs.com/podcasts/javascript-jabber/episodes/jsj-436-mongodb-basics-with-joe-karlsson)**: Two episodes - MongoDB Basics and Internet of Things (IoT)
+- **[CodeNewbie](https://dev.to/codenewbie/s19-e6-how-to-make-learning-databases-fun-and-approachable-joe-karlsson)**: S19:E6 - "How to make learning databases fun and approachable"
+- **Reach or Miss Podcast**: Episode 182 - career journey from bootcamp instructor to Developer Advocate
+
+## Press & Recognition
+
+- **Ranked #1 on ["10 Must-Follow Developers on TikTok"](https://unclebigbay.com/10-must-follow-developers-on-tik-tok)** list
+- **Featured on Hawaii Public Radio** (Bytemarks Cafe) - discussed the Stupid Shit Hackathon in Honolulu
+- **Published author on MongoDB Developer Hub** - multiple tutorials and articles on MongoDB best practices
+- **Published author on Tinybird blog** - articles on real-time data analytics
+- **Sessionize verified speaker** with active speaking profile
+
+## Availability
+
+Joe is available for:
+- **Conference talks & keynotes**: Data engineering, databases, developer tools, IoT, smart homes, self-hosting
+- **Podcast guest spots**: Data, DevRel, career, tech culture, homelab/self-hosting
+- **Webinars & workshops**: Hands-on database tutorials, data pipeline demos, cloud security
+- **Technical collaborations**: Open source, content partnerships, developer community projects
+
+Contact via [joekarlsson.com/contact](https://www.joekarlsson.com/contact/) or connect on [LinkedIn](https://www.linkedin.com/in/joekarlsson/).
+
 ## Education
 
 - **B.A. Computer Science** - Gustavus Adolphus College, St. Peter, Minnesota (Class of 2012)

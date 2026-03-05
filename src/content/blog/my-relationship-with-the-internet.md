@@ -7,7 +7,7 @@ categories: ['Personal']
 heroImage: '/images/blog/my-relationship-with-the-internet/IMG_1947-e1437203870387.webp'
 heroAlt: 'Thoughts on my relationship with the internet'
 contentNotice: false
-tldr: 'I think the internet has brought me closer to the people I care about, even if the relationships look different than they used to. Virtual connections aren''t a replacement for real ones - they''re just a new kind.'
+tldr: "I think the internet has brought me closer to the people I care about, even if the relationships look different than they used to. Virtual connections aren't a replacement for real ones - they're just a new kind."
 ---
 
 There have been a lot of articles recently published about how the internet, social media, and smartphones are killing ‘real human connections.’ I however believe that this is a reactionary knee jerk to a changing social landscape.

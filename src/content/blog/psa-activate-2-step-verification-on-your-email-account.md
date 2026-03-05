@@ -7,7 +7,7 @@ categories: ['Personal']
 heroImage: '/images/blog/placeholder/placeholder-personal.webp'
 heroAlt: 'Lock icon representing two-step verification security'
 contentNotice: 'This post recommends SMS-based 2FA. Modern best practice is to use authenticator apps or hardware security keys instead, and passkeys where available.'
-tldr: 'Turn on 2-step verification on your accounts right now. It takes five minutes and it''s the single best thing you can do to protect yourself online.'
+tldr: "Turn on 2-step verification on your accounts right now. It takes five minutes and it's the single best thing you can do to protect yourself online."
 ---
 
 > **Note:** This post was written in 2015. The advice to enable 2FA is still good, but modern best practice recommends authenticator apps (like Google Authenticator or 1Password) or hardware security keys over SMS-based verification. Also look into passkeys if your accounts support them.

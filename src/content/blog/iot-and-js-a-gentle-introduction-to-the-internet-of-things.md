@@ -6,7 +6,7 @@ description: 'Thanks for coming to my talk, An Introduction To IoT (Internet of 
 categories: ['IoT']
 heroImage: '/images/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things/socialimg.webp'
 heroAlt: 'IoT and JavaScript - a gentle introduction to the Internet of Things'
-tldr: 'Talk resources and outline for my IoT Kitty Litter Box project, where I used a Raspberry Pi and JavaScript to track my cat''s weight and bathroom habits.'
+tldr: "Talk resources and outline for my IoT Kitty Litter Box project, where I used a Raspberry Pi and JavaScript to track my cat's weight and bathroom habits."
 ---
 
 Thanks for coming to my talk, An Introduction To IoT (Internet of Toilets 🚽); Or How I Built an IoT Kitty Litter Box Using JavaScript, and here you will find all the resources discussed during the talk.

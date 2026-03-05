@@ -7,7 +7,7 @@ categories: ['IoT']
 heroImage: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp'
 heroAlt: 'IoT Kitty Litter Box project overview diagram'
 contentNotice: false
-tldr: 'I built an internet-connected cat litter box with a Raspberry Pi, load cells, and Node.js to track my cat''s weight and bathroom habits. This post walks through the hardware, the code, and IoT data best practices.'
+tldr: "I built an internet-connected cat litter box with a Raspberry Pi, load cells, and Node.js to track my cat's weight and bathroom habits. This post walks through the hardware, the code, and IoT data best practices."
 ---
 
 My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet of Toilets or AKA, IoT) device for my feline friend at home. If you’re reading this, you have probably heard about how hot internet-connected devices are, and you are probably interested in learning how to get into IoT development as a JavaScript developer. I also gave a talk on this topic, and you can find the slides and video in my post on [IoT and JS: a gentle introduction to the Internet of Things](/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things/). I'm going to walk through why you should consider JavaScript for your next IoT project, talk about IoT data best practices, and show off my latest creation, the IoT Kitty Litter Box.

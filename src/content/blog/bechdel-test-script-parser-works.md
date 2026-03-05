@@ -7,7 +7,7 @@ categories: ['Film']
 heroImage: '/images/blog/bechdel-test-script-parser-works/bechdel-test-rectangle.webp'
 heroAlt: 'Bechdel Test Script Parser project banner'
 contentNotice: false
-tldr: 'My sister and I built a tool that parses movie screenplays and tests them against the Bechdel Test using JavaScript and Node.js. Here''s how the script parsing actually works under the hood.'
+tldr: "My sister and I built a tool that parses movie screenplays and tests them against the Bechdel Test using JavaScript and Node.js. Here's how the script parsing actually works under the hood."
 ---
 
 [The Bechdel Test Script Parser](https://web.archive.org/web/20211222040320/http://www.bechdel.io/) was a collaborative digital humanities project between myself and my sister, Laurel Karlsson. It is the product of a shared passion for film, feminism, and the creative potential of technology. By combining the talents and interests of myself, a software engineer, and my sister, an English Scholar, we’ve been able to create an innovative data mining tool for a film analysis that we hope to continue to work on and improve. You can check out the project on our website, and the open-source code can be viewed [here](https://github.com/JoeKarlsson1/bechdel-test). I also gave a [talk about how we used JavaScript to help make film more inclusive](/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/) with this project.

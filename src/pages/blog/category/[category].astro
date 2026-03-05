@@ -3,6 +3,11 @@ import { getCollection } from 'astro:content';
 import BlogCard from '../../../components/BlogCard.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
+function getReadingTime(body: string): number {
+	const words = body.trim().split(/\s+/).length;
+	return Math.max(1, Math.ceil(words / 250));
+}
+
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 
@@ -90,6 +95,7 @@ const currentSlug = category.toLowerCase().replace(/\s+/g, '-');
 						slug={post.data.slug}
 						heroImage={post.data.heroImage}
 						categories={post.data.categories}
+						readingTime={getReadingTime(post.body || '')}
 					/>
 				))
 			}

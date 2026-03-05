@@ -2,7 +2,14 @@
 	"ci": {
 		"collect": {
 			"staticDistDir": "./dist",
-			"url": ["http://localhost/", "http://localhost/blog/", "http://localhost/about/"],
+			"url": [
+				"http://localhost/",
+				"http://localhost/blog/",
+				"http://localhost/about/",
+				"http://localhost/work/",
+				"http://localhost/uses/",
+				"http://localhost/blog/how-to-get-started-building-a-homelab-server-in-2024/"
+			],
 			"numberOfRuns": 3
 		},
 		"assert": {

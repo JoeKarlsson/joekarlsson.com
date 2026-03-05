@@ -29,7 +29,7 @@ Let’s go through and see how these tips boost the performance of our crummy �
 
 As we update items on this list, we can see through the performance audit that every time I add a new item to the list through the form, _every single item_ in the list has to be re-rendered to the DOM. This process takes approximately _34 ms_ for every single re-render.
 
-Now that we know how to measure performance on a React application and we have a performance baseline, let’s get to the thing that you came to this blog post to learn about. How exactly do you make a high-performance React app? *Well, the short answer is only render to the DOM when you need to.* The long answer is a little more involved… 😉
+Now that we know how to measure performance on a React application and we have a performance baseline, let’s get to the thing that you came to this blog post to learn about. How exactly do you make a high-performance React app? _Well, the short answer is only render to the DOM when you need to._ The long answer is a little more involved… 😉
 
 Using our example app, and our initial analysis, we see that there is a LOT of re-rendering happening when new items are added. We want to tell React to only re-render the parts of the app that we care about. Let’s dig into specific ways to accomplish this.
 
@@ -63,16 +63,16 @@ In this example, we are passing in the _nextProps_ and _nextState_ and we are re
 
 ```jsx
 class Item extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.title !== nextProps.title) {
-      return true;
-    }
-    return false;
-  }
-  render() {
-    return <h3>{ this.props.title }</h3>
-  }
-};
+	shouldComponentUpdate(nextProps, nextState) {
+		if (this.props.title !== nextProps.title) {
+			return true;
+		}
+		return false;
+	}
+	render() {
+		return <h3>{this.props.title}</h3>;
+	}
+}
 ```
 
 When we take control and tell React about the state changes that we care about, how does that affect our re-render time?
@@ -99,10 +99,10 @@ So, what does a PureComponent look like in code? For those who want a real code 
 
 ```jsx
 class Item extends PureComponent {
-render() {
-    return <h3>{ this.props.title }</h3>
-  }
-};
+	render() {
+		return <h3>{this.props.title}</h3>;
+	}
+}
 ```
 
 For those who want to see the dramatic reduction and increased clarity PureComponents brings overusing `shouldComponentUpdate()`, check out this incredible gif I made!

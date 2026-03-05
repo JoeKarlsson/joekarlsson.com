@@ -7,7 +7,7 @@ categories: ['Personal']
 heroImage: '/images/blog/placeholder/placeholder-personal.webp'
 heroAlt: 'Overwhelmed by the web - thoughts on media consumption'
 contentNotice: false
-tldr: 'There are too many masterworks out there for any one person to consume, and that''s okay. Be intentional about what you invest your time in.'
+tldr: "There are too many masterworks out there for any one person to consume, and that's okay. Be intentional about what you invest your time in."
 ---
 
 Why are we surprised when someone has not seen, listened, or read something? Have you ever heard someone say, “You’ve never watched X!?!” or “Haven’t you read Y about the Z conflict? Don’t you care?” It’s no longer a matter of being culturally aware or not. Instead, it is a matter of being bombarded by media at a relentless pace and not having enough time to digest everything.

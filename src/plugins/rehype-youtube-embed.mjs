@@ -9,11 +9,7 @@ function extractVideoId(url) {
 }
 
 function isStandaloneLink(node, parent) {
-	return (
-		parent.type === 'element' &&
-		parent.tagName === 'p' &&
-		parent.children.length === 1
-	);
+	return parent.type === 'element' && parent.tagName === 'p' && parent.children.length === 1;
 }
 
 export default function rehypeYouTubeEmbed() {
@@ -29,7 +25,8 @@ export default function rehypeYouTubeEmbed() {
 				type: 'element',
 				tagName: 'div',
 				properties: {
-					style: 'position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin:1.5rem 0;',
+					style:
+						'position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin:1.5rem 0;',
 				},
 				children: [
 					{
@@ -39,7 +36,8 @@ export default function rehypeYouTubeEmbed() {
 							src: `https://www.youtube-nocookie.com/embed/${videoId}`,
 							title: 'YouTube video player',
 							frameBorder: '0',
-							allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+							allow:
+								'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
 							allowFullScreen: true,
 							loading: 'lazy',
 							style: 'position:absolute;top:0;left:0;width:100%;height:100%;',

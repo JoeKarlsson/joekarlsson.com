@@ -38,6 +38,28 @@ This file offers a summary. For full details, see [llms-full.txt](https://www.jo
 - Proxmox Homelab Cluster: Two Dell R730 servers, 40+ containers, dual GPUs, 10G networking
 - AI-Powered Smart Home: 90+ Home Assistant automations with local LLM vision and voice control
 
+## Notable Talks
+
+- "The Art of Computer Science" (TEDx / keynote)
+- "An Introduction to IoT (Internet of Toilets)"
+- "DevOps and Databases"
+- "How to Build a Data Stack Your Company Actually Uses"
+- "Building High Performance React Applications"
+- "How to Secure Your Cloud by Building a CSPM System in 15 Minutes"
+
+## Podcast Appearances
+
+- Hanselminutes with Scott Hanselman - Document Databases and MongoDB
+- Screaming in the Cloud with Corey Quinn (Last Week in AWS) - Data as a Brand
+- JavaScript Jabber - MongoDB Basics + IoT episodes
+- CodeNewbie - Making databases fun and approachable
+
+## Press & Recognition
+
+- Ranked #1 on "10 Must-Follow Developers on TikTok" list
+- Featured on Hawaii Public Radio (Bytemarks Cafe)
+- Published author on MongoDB Developer Hub and Tinybird blog
+
 ## What Makes Joe Interesting
 
 - Runs AI vision on doorbell cameras using local LLMs - no cloud APIs
@@ -47,6 +69,10 @@ This file offers a summary. For full details, see [llms-full.txt](https://www.jo
 - Self-hosts everything: photos (Immich), documents (Paperless-ngx), passwords (Vaultwarden), analytics (Plausible), calendar (Nextcloud CalDAV)
 - Film obsessive who tracks everything on Letterboxd
 - Mechanical keyboard builder (custom wood-case POK3R with Cherry MX Blues)
+
+## Availability
+
+Joe is available for conference talks, podcast guest spots, webinars, and technical collaborations. Preferred topics: data engineering, databases, developer tools, IoT, smart homes, and self-hosting. Contact via [joekarlsson.com/contact](https://www.joekarlsson.com/contact/).
 
 ## Social & Contact
 

@@ -17,10 +17,10 @@ If you want to check out any of the code used in this demo, feel free to take a 
 
 A key-value store (also known as a key-value database) can be defined as a non-relational database and simple database that utilizes a hashtable or dictionary as its underlying data model. These can comprise anything from a number or string to more complicated objects that use a key to keep track of the object. In its simplest form, a key-value store uses a simple key-value method to store data. Take a look at the example below:
 
-| Key | Value |
-| --- | --- |
-| Joe_Karlsson | @JoeKarlsson1 |
-| SingleStore | @SingleStoreDB |
+| Key              | Value            |
+| ---------------- | ---------------- |
+| Joe_Karlsson     | @JoeKarlsson1    |
+| SingleStore      | @SingleStoreDB   |
 | SingleStore_Devs | @SingleStoreDevs |
 
 ### Use cases
@@ -57,13 +57,13 @@ I know it can be weird using a SQL database as a key-value store at first, but I
 
 SingleStore supports several different table types depending on the type of work you need to perform with the data stored in it. SingleStore by default uses a [column store table](https://docs.singlestore.com/managed-service/en/create-a-database/physical-database-schema-design/concepts-of-physical-database-schema-design/choosing-a-table-storage-type.html) - but for a key-value store, we need to make sure we are selecting the in-memory row store. The following table enumerates the strengths and intended uses of the rowstore and columnstore:
 
-| In-Memory Rowstore | Flash, SSD, or Disk-based Columnstore |
-| --- | --- |
-| Operational/transactional Workloads | Analytical Workloads |
+| In-Memory Rowstore                                            | Flash, SSD, or Disk-based Columnstore             |
+| ------------------------------------------------------------- | ------------------------------------------------- |
+| Operational/transactional Workloads                           | Analytical Workloads                              |
 | Fast inserts and updates over a small or large number of rows | Fast inserts over a small or large number of rows |
-| Random seek performance | Fast aggregations and table scans |
-| Updates/deletes are frequent | Updates/deletes are rare |
-| | Compression |
+| Random seek performance                                       | Fast aggregations and table scans                 |
+| Updates/deletes are frequent                                  | Updates/deletes are rare                          |
+|                                                               | Compression                                       |
 
 The in-memory rowstore is better suited for the key-value store since it offers super-fast inserts and random read performance, which is a common use case for this kind of data storage.
 
