@@ -1,0 +1,39 @@
+---
+interface Props {
+	columns?: 2 | 4;
+}
+
+const { columns = 4 } = Astro.props;
+const gridClass =
+	columns === 2 ? 'grid gap-4 sm:grid-cols-2' : 'grid gap-4 sm:grid-cols-2 lg:grid-cols-4';
+---
+
+<div class={gridClass}>
+	<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+		<p class="text-xs text-gray-400 font-mono mb-1">working on</p>
+		<p class="text-sm text-gray-400">
+			Building data pipelines & developer tools at <strong class="text-white">CloudQuery</strong>
+		</p>
+	</div>
+	<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+		<p class="text-xs text-gray-400 font-mono mb-1">tinkering with</p>
+		<p class="text-sm text-gray-400">
+			A <strong class="text-white">40+ container homelab</strong> running Proxmox, Home Assistant, and
+			way too many arr apps
+		</p>
+	</div>
+	<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+		<p class="text-xs text-gray-400 font-mono mb-1">writing about</p>
+		<p class="text-sm text-gray-400">
+			Self-hosting, databases, and <a href="/blog"
+				>things that probably shouldn't be connected to the internet</a
+			>
+		</p>
+	</div>
+	<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+		<p class="text-xs text-gray-400 font-mono mb-1">using</p>
+		<p class="text-sm text-gray-400">
+			M3 Pro MacBook Pro, VS Code, too many monitors. <a href="/uses">See my full setup &rarr;</a>
+		</p>
+	</div>
+</div>

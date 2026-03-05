@@ -59,7 +59,7 @@ while IFS= read -r md_file; do
     # heroImage paths are relative to public/
     HERO_PATH="public${HERO}"
     if [ ! -f "$HERO_PATH" ]; then
-      echo "ERROR: Missing heroImage in $md_file"
+      echo "WARNING: Missing heroImage in $md_file"
       echo "  Referenced: $HERO"
       echo "  Expected at: $HERO_PATH"
       MISSING_HEROES=$((MISSING_HEROES + 1))
@@ -68,8 +68,8 @@ while IFS= read -r md_file; do
 done < <(find src/content/blog -name "*.md" 2>/dev/null)
 
 if [ "$MISSING_HEROES" -gt 0 ]; then
-  echo "ERROR: $MISSING_HEROES heroImage reference(s) point to missing files"
-  ERRORS=$((ERRORS + 1))
+  echo "WARNING: $MISSING_HEROES heroImage reference(s) point to missing files (WebP migration in progress)"
+  WARNINGS=$((WARNINGS + 1))
 else
   echo "OK: All heroImage references resolve to real files"
 fi

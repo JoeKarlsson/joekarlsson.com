@@ -45,4 +45,8 @@
 	"MD025": false,
 	// List marker spacing
 	"MD030": false,
+	// Blank line inside blockquote - legacy content
+	"MD028": false,
+	// Emphasis style - allow both asterisk and underscore
+	"MD049": false,
 }
