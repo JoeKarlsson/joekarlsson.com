@@ -10,7 +10,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		<p class="mb-2 text-lg text-gray-400">
 			Hardware, software, and gear I use daily for development, content creation, and running my homelab.
 		</p>
-		<p class="mb-8 text-sm text-gray-500">Last updated: March 2025</p>
+		<p class="mb-8 text-sm text-gray-500">Last updated: March 2026</p>
 
 		<img
 			src="/images/blog/how-i-work/IMG_2685.jpg"
@@ -214,48 +214,127 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		<section class="mb-10">
 			<h2 class="mb-4 text-2xl font-bold text-teal">Homelab</h2>
 			<p class="mb-4 text-sm text-gray-400">
-				I run a self-hosted Proxmox cluster with 30+ containers and VMs powering everything from media automation to home security.
+				I run a self-hosted Proxmox VE cluster with 40+ LXC containers and VMs across two rack-mounted servers. Everything from media automation to home security to document management runs locally on my own hardware.
 			</p>
 			<div class="space-y-3">
+				<!-- Server Hardware -->
 				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Servers</h3>
-					<p class="text-sm text-gray-400">2x Dell PowerEdge servers running Proxmox VE in a cluster. One hosts compute-heavy workloads (Frigate NVR, Tdarr transcoding node, Wyoming Whisper for voice), the other handles media and storage services (Plex, Immich, Tdarr server).</p>
+					<h3 class="mb-2 font-semibold text-white">Server Hardware</h3>
+					<div class="space-y-4">
+						<div>
+							<p class="text-sm font-medium text-gray-300">prxbox1 &mdash; Dell PowerEdge R730</p>
+							<ul class="mt-1 list-disc space-y-1 pl-5 text-sm text-gray-400">
+								<li>2x Intel Xeon E5-2698 v4 @ 2.20 GHz (80 cores total)</li>
+								<li>128 GB DDR4 ECC RAM</li>
+								<li>NVIDIA Quadro RTX 4000 (8 GB VRAM)</li>
+								<li>446 GB SSD (system) + 4.9 TB HDD + NAS mounts</li>
+								<li>Dual Intel X710 10 Gb SFP+ in LACP bond (20 Gbps)</li>
+								<li>Runs 26 containers/VMs &mdash; media automation, infrastructure, monitoring, home automation</li>
+							</ul>
+						</div>
+						<div>
+							<p class="text-sm font-medium text-gray-300">prxbox2 &mdash; Dell PowerEdge R730</p>
+							<ul class="mt-1 list-disc space-y-1 pl-5 text-sm text-gray-400">
+								<li>NVIDIA RTX A4000 (16 GB VRAM)</li>
+								<li>Dual Intel X710 10 Gb SFP+ in LACP bond (20 Gbps)</li>
+								<li>Runs 15 containers &mdash; GPU-accelerated media playback, photo management, transcoding</li>
+							</ul>
+						</div>
+					</div>
 				</div>
+
+				<!-- GPUs -->
 				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">GPUs</h3>
+					<h3 class="mb-1 font-semibold text-white">GPU Workloads</h3>
 					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li><strong class="text-gray-300">NVIDIA RTX A4000</strong> (16 GB VRAM) &mdash; Plex hardware transcoding, Immich ML, Tdarr, Stash</li>
-						<li><strong class="text-gray-300">NVIDIA Quadro RTX 4000</strong> (8 GB VRAM) &mdash; Frigate object detection, Tdarr node, Wyoming Whisper GPU</li>
+						<li><strong class="text-gray-300">RTX A4000</strong> (16 GB) &mdash; Plex hardware transcoding (NVENC/NVDEC), Immich ML face/object detection, Tdarr media transcoding</li>
+						<li><strong class="text-gray-300">Quadro RTX 4000</strong> (8 GB) &mdash; Frigate real-time object detection for security cameras, Tdarr transcoding node</li>
 					</ul>
 				</div>
+
+				<!-- Storage -->
 				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
 					<h3 class="mb-1 font-semibold text-white">Storage</h3>
-					<p class="text-sm text-gray-400">Synology DS918+ NAS with NFS mounts to all containers for media, photos, and backups. Proxmox Backup Server handles VM and container snapshots.</p>
+					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
+						<li><strong class="text-gray-300">Synology DS918+</strong> 4-bay NAS &mdash; NFS mounts to all containers for media, photos, documents, and backups</li>
+						<li><strong class="text-gray-300">Proxmox Backup Server</strong> &mdash; automated nightly snapshots of all containers and VMs with retention policies</li>
+					</ul>
 				</div>
+
+				<!-- Networking -->
 				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
 					<h3 class="mb-1 font-semibold text-white">Networking</h3>
 					<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-400">
-						<li>MikroTik CRS317 10G backbone switch with LACP bonds (20 Gbps per server)</li>
-						<li>UniFi Cloud Gateway Ultra router + 2x U7 Pro WiFi 6E APs</li>
-						<li>UniFi US-24 access switch</li>
-						<li>4 VLANs: Default, Guest, IoT, Cameras</li>
+						<li><strong class="text-gray-300">MikroTik CRS317</strong> 10G backbone switch with LACP bonds (20 Gbps per server)</li>
+						<li><strong class="text-gray-300">UniFi Cloud Gateway Ultra</strong> router with firewall rules across 4 VLANs (Default, Guest, IoT, Cameras)</li>
+						<li><strong class="text-gray-300">2x UniFi U7 Pro</strong> WiFi 6E access points</li>
+						<li><strong class="text-gray-300">UniFi US-24</strong> 24-port access switch</li>
+						<li><strong class="text-gray-300">AdGuard Home</strong> DNS-level ad blocking (primary + secondary Pi)</li>
 					</ul>
 				</div>
+
+				<!-- Services by category -->
 				<div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
-					<h3 class="mb-1 font-semibold text-white">Key Services</h3>
-					<div class="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-gray-400">
-						<span>Plex</span>
-						<span>Home Assistant</span>
-						<span>Immich</span>
-						<span>Frigate NVR</span>
-						<span>Sonarr / Radarr</span>
-						<span>Grafana / Prometheus</span>
-						<span>AdGuard Home</span>
-						<span>Nextcloud</span>
-						<span>Paperless-ngx</span>
-						<span>Vaultwarden</span>
-						<span>Tdarr</span>
-						<span>Authentik</span>
+					<h3 class="mb-3 font-semibold text-white">Services (40+ containers)</h3>
+					<div class="space-y-3">
+						<div>
+							<p class="text-xs font-mono text-teal mb-1">media & entertainment</p>
+							<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-sm text-gray-400">
+								<span>Plex</span>
+								<span>Tautulli</span>
+								<span>Tdarr</span>
+								<span>Sonarr</span>
+								<span>Radarr</span>
+								<span>Lidarr</span>
+								<span>Readarr</span>
+								<span>Bazarr</span>
+								<span>Prowlarr</span>
+								<span>SABnzbd</span>
+								<span>qBittorrent</span>
+								<span>Kometa</span>
+								<span>Audiobookshelf</span>
+								<span>Lyrion Music Server</span>
+								<span>Slskd</span>
+							</div>
+						</div>
+						<div>
+							<p class="text-xs font-mono text-teal mb-1">smart home & security</p>
+							<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-sm text-gray-400">
+								<span>Home Assistant</span>
+								<span>Frigate NVR</span>
+								<span>Zigbee2MQTT</span>
+								<span>MariaDB</span>
+							</div>
+						</div>
+						<div>
+							<p class="text-xs font-mono text-teal mb-1">productivity & storage</p>
+							<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-sm text-gray-400">
+								<span>Immich</span>
+								<span>Nextcloud</span>
+								<span>Paperless-ngx</span>
+								<span>Paperless-AI</span>
+								<span>Vaultwarden</span>
+								<span>LinkStack</span>
+							</div>
+						</div>
+						<div>
+							<p class="text-xs font-mono text-teal mb-1">infrastructure & monitoring</p>
+							<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-sm text-gray-400">
+								<span>Grafana</span>
+								<span>Prometheus</span>
+								<span>Loki</span>
+								<span>Alertmanager</span>
+								<span>Uptime Kuma</span>
+								<span>Nginx Proxy Manager</span>
+								<span>Authentik</span>
+								<span>Cloudflare DDNS</span>
+								<span>Tailscale</span>
+								<span>Plausible Analytics</span>
+								<span>Healthchecks</span>
+								<span>ntfy</span>
+								<span>Proxmox Backup Server</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
