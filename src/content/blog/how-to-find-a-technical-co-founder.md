@@ -23,7 +23,7 @@ Now, do not get me wrong, I love hearing people’s ideas for businesses. I want
 
 First things first, how the heck to find these nerds? I would suggest networking. Most of my successful partnerships have grown from meeting people IRL. And there are some great places that you can go to start rubbing elbows with potential technical co-founders.
 
-One of the best events I have been to for meeting co-founders is at Startup Weekend. They run in most major cities at least once a year and it attracts some really intelligent entrepreneurs, including technical co-founders. If you want to know more about Startup Weekend, check out my blog post [here](https://www.joekarlsson.com/2015/07/10-things-i-learned-at-startup-weekend/).
+One of the best events I have been to for meeting co-founders is at Startup Weekend. They run in most major cities at least once a year and it attracts some really intelligent entrepreneurs, including technical co-founders. If you want to know more about Startup Weekend, check out my blog post [here](/blog/10-things-i-learned-at-startup-weekend/).
 
 I would also recommend checking out local [Meetups](http://www.meetup.com/). Look for a Meetup around you about Entrepreneurialism or learning how to code. These are a gold mine for finding like mind people.
 

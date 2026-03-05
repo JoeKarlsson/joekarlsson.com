@@ -5,7 +5,10 @@ slug: 'linked-lists-and-mongodb-a-gentle-introduction'
 description: 'Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist....'
 categories: ['Databases']
 heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/ATF_Linked-Lists.webp'
+heroAlt: 'Diagram of a linked list data structure'
 ---
+
+> **Note:** This tutorial was written in 2020 using MongoDB Node.js driver v3.x. The current driver (v6+) no longer requires `useNewUrlParser` or `useUnifiedTopology` options, and `result.ops[0]` has been replaced with `result.insertedId`. The linked list concepts are still accurate.
 
 Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist. This post will cover the fundamentals of the linked list data structure. It will also answer questions like, “How do linked lists differ from arrays?” and “What are the pros and cons of using a linked list?”
 
@@ -281,7 +284,7 @@ The steps to add a new node to a linked list are:
 - Update your linked list to point tail to the new node.
 
 ```javascript
-// Takes a new node and adds it to our linked lis
+// Takes a new node and adds it to our linked list
 async add(value) {
    const result = await this.newNode(value);
    const insertedId = result.insertedId;
@@ -321,11 +324,11 @@ async get(index) {
       return false;
    }
    let headID = await this.getHeadID();
-   let postion = 0;
+   let position = 0;
    let currNode = await this.col.find({ _id: headID }).next();
 
    // Loop through the nodes starting from the head
-   while (postion < index) {
+   while (position < index) {
       // Check if we hit the end of the linked list
       if (currNode.next === null) {
          return false;
@@ -333,7 +336,7 @@ async get(index) {
 
       // If another node exists go to next node
       currNode = await this.col.find({ _id: currNode.next }).next();
-      postion++;
+      position++;
    }
    return currNode;
 }
@@ -404,7 +407,7 @@ The following code inserts a node after an existing node in a singly linked list
 ![Diagram that demonstrates how a linked list inserts a new node by moving pointer references](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/insert-a-new-node-1024x1024.webp)_Diagram that demonstrates how a linked list inserts a new node by moving pointer references_
 
 ```javascript
-// Inserts a new node at the deisred index in the linked list
+// Inserts a new node at the desired index in the linked list
 async insert(value, index) {
    const currNode = await this.get(index);
    const prevNode = await this.get(index - 1);
@@ -449,8 +452,8 @@ async insert(value, index) {
 
 ## Summary
 
-Many developers want to learn the fundamental Computer Science data structures and algorithms or get a refresher on them. In this author’s humble opinion, the best way to learn data structures is by implementing them on your own. This exercise is a great way to learn data structures as well as learn the fundamentals of MongoDB CRUD operations. If you want to learn more about how to structure your data in MongoDB beyond linked lists, check out my talk on [MongoDB schema design best practices](/blog/mongodb-schema-design-best-practices/).
+Many developers want to learn the fundamental Computer Science data structures and algorithms or get a refresher on them. In my opinion, the best way to learn data structures is by implementing them on your own. This exercise is a great way to learn data structures as well as learn the fundamentals of MongoDB CRUD operations. If you want to learn more about how to structure your data in MongoDB beyond linked lists, check out my talk on [MongoDB schema design best practices](/blog/mongodb-schema-design-best-practices/).
 
-> When you’re ready to implement your own linked list in MongoDB, check out [MongoDB Atlas](http://bit.ly/MDB_Atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
+> When you’re ready to implement your own linked list in MongoDB, check out [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
 
 If you want to learn more about linked lists and MongoDB, be sure to check out these resources.

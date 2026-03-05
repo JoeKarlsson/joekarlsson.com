@@ -5,7 +5,10 @@ slug: 'how-to-explain-to-your-dad-why-snapchat-is-so-awesome'
 description: 'A recent article written by Jeremy Liew, titled “If you don’t “get” why Snapchat is growing so fast, read this,” and a conversation with my anti-Snapchat Dad has had me thinking about why Snapchat...'
 categories: ['Personal']
 heroImage: '/images/blog/how-to-explain-to-your-dad-why-snapchat-is-so-awesome/snapchat21.webp'
+heroAlt: 'Snapchat logo on a yellow background'
 ---
+
+> **Note:** This post was written in May 2015. Snapchat and the social media landscape have changed a lot since then. I'm keeping it here as a time capsule of what the platform felt like early on.
 
 A [recent article](https://web.archive.org/web/20171024023758/http://lsvp.com/2013/02/06/if-you-dont-get-why-snapchat-is-growing-so-fast-read-this/) written by Jeremy Liew, titled “If you don’t “get” why Snapchat is growing so fast, read this,” and a conversation with my anti-Snapchat Dad has had me thinking about why Snapchat has been taking off. I tried to explain to my Dad what I liked about it, but it ended with me telling him that “he just doesn’t get it,” and shuffling off in defeat. However, I think I can better defend Snapchat today.
 
