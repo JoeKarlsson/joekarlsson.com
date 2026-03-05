@@ -91,7 +91,7 @@ The first step in building an application over streaming data is to capture the 
 
 Using the Tinybird CLI, you can connect to a Kafka topic with a simple command:
 
-```
+```bash
 bash tb connection create kafka –bootstrap_servers $SERVER_URL –key $ACCESS_KEY –secret $ACCESS_SECRET
 ```
 
@@ -105,7 +105,7 @@ In Tinybird, we use [Pipes](https://www.tinybird.co/docs/concepts/pipes.html?utm
 
 This query retrieves the 10 most recent transactions sorted by the timestamp in descending order.
 
-```
+```sql
 SELECT orderID, fullName, orderDate, products, quantity
 FROM transactions
 ORDER BY __timestamp
@@ -116,7 +116,7 @@ DESC LIMIT 10
 
 This query finds the top five best-selling products. It counts the number of occurrences of each product and sorts them in descending order.
 
-```
+```sql
 SELECT products, COUNT(*) as count
 FROM transactions
 GROUP BY products

@@ -59,7 +59,7 @@ In the script editor, write or paste the code from the [<u>`Code.gs`</u>](https:
 
 Here’s what the `Code.gs` file looks like for me (though I’m obviously not sharing my user token 😉).
 
-```
+```javascript
 function sendDataToTinybird() {
   // Get the active sheet in your Google Spreadsheet
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -71,7 +71,7 @@ function sendDataToTinybird() {
   var sheetName = SpreadsheetApp.getActiveSpreadsheet()
     .getName()
     .toLowerCase()
-    .replace(/ /g, "_");
+    .replace(/ /g, “_”);
 
   // Get column names. Remove empty ones.
   var lastColumn = sheet.getLastColumn();
@@ -84,7 +84,7 @@ function sendDataToTinybird() {
 
   // Set up the header for our web request
   var headers = {
-    Authorization: "Bearer " + tinybirdToken,
+    Authorization: “Bearer “ + tinybirdToken,
   };
 
   // Get all the data from the sheet
@@ -110,12 +110,12 @@ function sendDataToTinybird() {
         }
         return JSON.stringify(obj);
       })
-      .join("\n");
+      .join(“\n”);
 
     // Set up the web request
     var options = {
-      method: "post",
-      contentType: "application/json",
+      method: “post”,
+      contentType: “application/json”,
       headers: headers,
       payload: payload,
       muteHttpExceptions: true, // To get full response even if there's an error
@@ -123,7 +123,7 @@ function sendDataToTinybird() {
 
     // Send the data
     var response = UrlFetchApp.fetch(
-      "https://api.us-east.tinybird.co/v0/events?name=" + sheetName,
+      “https://api.us-east.tinybird.co/v0/events?name=” + sheetName,
       options
     );
 
@@ -135,8 +135,8 @@ function sendDataToTinybird() {
 // Creates a new menu in Google Sheets when you open the spreadsheet
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
-  ui.createMenu("Tinybird")
-    .addItem("Send Data to Tinybird", "sendDataToTinybird")
+  ui.createMenu(“Tinybird”)
+    .addItem(“Send Data to Tinybird”, “sendDataToTinybird”)
     .addToUi();
 }
 ```
@@ -169,7 +169,7 @@ For example, here is a three node Pipe that calculates the usage rate of promo c
 
 The first node, `promo_usage`, will determine the number of promo codes used.
 
-```
+```javascript
 function sendDataToTinybird() {
   // Get the active sheet in your Google Spreadsheet
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -181,7 +181,7 @@ function sendDataToTinybird() {
   var sheetName = SpreadsheetApp.getActiveSpreadsheet()
     .getName()
     .toLowerCase()
-    .replace(/ /g, "_");
+    .replace(/ /g, “_”);
 
   // Get column names. Remove empty ones.
   var lastColumn = sheet.getLastColumn();
@@ -194,7 +194,7 @@ function sendDataToTinybird() {
 
   // Set up the header for our web request
   var headers = {
-    Authorization: "Bearer " + tinybirdToken,
+    Authorization: “Bearer “ + tinybirdToken,
   };
 
   // Get all the data from the sheet
@@ -220,12 +220,12 @@ function sendDataToTinybird() {
         }
         return JSON.stringify(obj);
       })
-      .join("\n");
+      .join(“\n”);
 
     // Set up the web request
     var options = {
-      method: "post",
-      contentType: "application/json",
+      method: “post”,
+      contentType: “application/json”,
       headers: headers,
       payload: payload,
       muteHttpExceptions: true, // To get full response even if there's an error
@@ -233,7 +233,7 @@ function sendDataToTinybird() {
 
     // Send the data
     var response = UrlFetchApp.fetch(
-      "https://api.us-east.tinybird.co/v0/events?name=" + sheetName,
+      “https://api.us-east.tinybird.co/v0/events?name=” + sheetName,
       options
     );
 
@@ -245,22 +245,22 @@ function sendDataToTinybird() {
 // Creates a new menu in Google Sheets when you open the spreadsheet
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
-  ui.createMenu("Tinybird")
-    .addItem("Send Data to Tinybird", "sendDataToTinybird")
+  ui.createMenu(“Tinybird”)
+    .addItem(“Send Data to Tinybird”, “sendDataToTinybird”)
     .addToUi();
 }
 ```
 
 The second node, `total_purchases` will get the total number of purchases.
 
-```
+```sql
 SELECT COUNT(*) as Total_Count
 FROM customer_shopping_trends_dataset
 ```
 
 A final node called `endpoint` brings these two queries together, retrieving the promo codes used and the number of times each code was used (`Used_Count`), and calculating the usage rate as a percentage of the total purchases.
 
-```
+```sql
 SELECT
   Used_Count,
   Total_Count

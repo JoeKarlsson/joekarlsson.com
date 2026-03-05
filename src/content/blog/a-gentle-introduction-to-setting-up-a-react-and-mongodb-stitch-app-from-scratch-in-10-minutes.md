@@ -85,7 +85,7 @@ To enable reading and writing to the `comments` collection:
 
 Okay! Now that we are done with setting up Atlas, and now we can get to the really fun part… building our app! In your terminal run:
 
-```
+```bash
 $ npx create-react-app mongodb-stitch-tutorial
 $ cd mongodb-stitch-tutorial
 $ npm install mongodb-stitch-browser-sd
@@ -94,7 +94,7 @@ $ npm start
 
 In `src/App.js` replace the App component with this code snippet and save. Be sure to replace the YOUR_APP_ID with your client app id.
 
-```
+```jsx
 import React, { Component } from "react";
 import {
   Stitch,

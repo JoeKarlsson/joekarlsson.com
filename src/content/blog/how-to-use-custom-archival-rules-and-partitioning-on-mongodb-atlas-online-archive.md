@@ -39,7 +39,7 @@ You will also need to specify your custom criteria for archiving documents. You 
 
 To retrieve the documents staged for archival, we will use the following find command. This will retrieve all documents that have the `active` field set to `false` or do not have an `active` key at all.
 
-```
+```javascript
 { $or: [
     { active: false },
     { active: null }
@@ -76,7 +76,7 @@ The order of fields listed in the path is important in the same way as it is in 
 
 You can specify the two most frequently queried fields in your collection and order them from the most frequently queried in the first position to the least queried field in the second position. For example, suppose you are configuring the online archive for your `customers` collection in the `sample_analytics` database. If your archived field is set to the custom archival rule in our example above, your first queried field is `username`, and your second queried field is `email`, your partition will look like the following:
 
-```
+```text
 /username/email
 ```
 
@@ -100,12 +100,12 @@ If you have questions about custom archival rules for MongoDB, please head to ou
 
 ## Want to check out more of my technical posts?
 
-- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](https://www.joekarlsson.com/2021/05/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
+- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
 
-- [MongoDB Aggregation Pipeline Queries vs SQL Queries](https://www.joekarlsson.com/2021/05/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
+- [MongoDB Aggregation Pipeline Queries vs SQL Queries](/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
 
-- [An Introduction to IoT (Internet of Toilets)](https://www.joekarlsson.com/2020/11/an-introduction-to-iot-internet-of-toilets/)
+- [An Introduction to IoT (Internet of Toilets)](/blog/an-introduction-to-iot-internet-of-toilets/)
 
-- [How To Use The MongoDB Visual Studio Code Plugin](https://www.joekarlsson.com/2020/11/how-to-use-the-mongodb-visual-studio-code-plugin/)
+- [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/)
 
-- [Linked Lists and MongoDB: A Gentle Introduction](https://www.joekarlsson.com/2020/11/linked-lists-and-mongodb-a-gentle-introduction/)
+- [Linked Lists and MongoDB: A Gentle Introduction](/blog/linked-lists-and-mongodb-a-gentle-introduction/)

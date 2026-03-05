@@ -203,7 +203,7 @@ Let’s run through the default MongoDB Playground template that’s created whe
 
 - For a detailed description of this method’s parameters, see [find()](https://docs.mongodb.com/manual/reference/method/db.collection.find) in the MongoDB Manual.
 
-```
+```javascript
 // MongoDB Playground
 // To disable this template go to Settings \| MongoDB \| Use Default Template For Playground.
 // Make sure you are connected to enable completions and to be able to run a playground.
@@ -218,40 +218,40 @@ db.sales.drop();
 
 // Insert a few documents into the sales collection.
 db.sales.insertMany([
-   { '_id' : 1, 'item' : 'abc', 'price' : 10, 'quantity' : 2, 'date' : new Date('2014-03-01T08:00:00Z') },
-   { '_id' : 2, 'item' : 'jkl', 'price' : 20, 'quantity' : 1, 'date' : new Date('2014-03-01T09:00:00Z') },
-   { '_id' : 3, 'item' : 'xyz', 'price' : 5, 'quantity' : 10, 'date' : new Date('2014-03-15T09:00:00Z') },
-   { '_id' : 4, 'item' : 'xyz', 'price' : 5, 'quantity' : 20, 'date' : new Date('2014-04-04T11:21:39.736Z') },
-   { '_id' : 5, 'item' : 'abc', 'price' : 10, 'quantity' : 10, 'date' : new Date('2014-04-04T21:23:13.331Z') },
-   { '_id' : 6, 'item' : 'def', 'price' : 7.5, 'quantity': 5, 'date' : new Date('2015-06-04T05:08:13Z') },
-   { '_id' : 7, 'item' : 'def', 'price' : 7.5, 'quantity': 10, 'date' : new Date('2015-09-10T08:43:00Z') },
-   { '_id' : 8, 'item' : 'abc', 'price' : 10, 'quantity' : 5, 'date' : new Date('2016-02-06T20:20:13Z') },
+	{ _id: 1, item: 'abc', price: 10, quantity: 2, date: new Date('2014-03-01T08:00:00Z') },
+	{ _id: 2, item: 'jkl', price: 20, quantity: 1, date: new Date('2014-03-01T09:00:00Z') },
+	{ _id: 3, item: 'xyz', price: 5, quantity: 10, date: new Date('2014-03-15T09:00:00Z') },
+	{ _id: 4, item: 'xyz', price: 5, quantity: 20, date: new Date('2014-04-04T11:21:39.736Z') },
+	{ _id: 5, item: 'abc', price: 10, quantity: 10, date: new Date('2014-04-04T21:23:13.331Z') },
+	{ _id: 6, item: 'def', price: 7.5, quantity: 5, date: new Date('2015-06-04T05:08:13Z') },
+	{ _id: 7, item: 'def', price: 7.5, quantity: 10, date: new Date('2015-09-10T08:43:00Z') },
+	{ _id: 8, item: 'abc', price: 10, quantity: 5, date: new Date('2016-02-06T20:20:13Z') },
 ]);
 
 // Run a find command to view items sold on April 4th, 2014.
 db.sales.find({
-   date: {
-      $gte: new Date('2014-04-04'),
-      $lt: new Date('2014-04-05')
-   }
+	date: {
+		$gte: new Date('2014-04-04'),
+		$lt: new Date('2014-04-05'),
+	},
 });
 ```
 
 When you press the Play Button, this operation outputs the following document to the Output view in Visual Studio Code:
 
-```
+```json
 {
-   acknowleged: 1,
-   insertedIds: {
-      '0': 2,
-      '1': 3,
-      '2': 4,
-      '3': 5,
-      '4': 6,
-      '5': 7,
-      '6': 8,
-      '7': 9
-   }
+	"acknowleged": 1,
+	"insertedIds": {
+		"0": 2,
+		"1": 3,
+		"2": 4,
+		"3": 5,
+		"4": 6,
+		"5": 7,
+		"6": 8,
+		"7": 9
+	}
 }
 ```
 
@@ -279,20 +279,25 @@ This pipeline performs an aggregation in two stages:
 
 - The [$group](https://docs.mongodb.com/manual/reference/operator/aggregation/group/#pipe._S_group) stage groups the data by item. The stage adds a new field to the output called totalSaleAmount, which is the culmination of the item’s price and quantity.
 
-```
+```javascript
 // Run an aggregation to view total sales for each product in 2014.
 const aggregation = [
-   { $match: {
-      date: {
-         $gte: new Date('2014-01-01'),
-         $lt: new Date('2015-01-01')
-      }
-   } },
-   { $group: {
-      _id : '$item', totalSaleAmount: {
-         $sum: { $multiply: [ '$price', '$quantity' ] }
-      }
-   } },
+	{
+		$match: {
+			date: {
+				$gte: new Date('2014-01-01'),
+				$lt: new Date('2015-01-01'),
+			},
+		},
+	},
+	{
+		$group: {
+			_id: '$item',
+			totalSaleAmount: {
+				$sum: { $multiply: ['$price', '$quantity'] },
+			},
+		},
+	},
 ];
 
 db.sales.aggregate(aggregation);
@@ -300,20 +305,20 @@ db.sales.aggregate(aggregation);
 
 When you press the Play Button, this operation outputs the following documents to the Output view in Visual Studio Code:
 
-```
+```json
 [
-   {
-      _id: 'abc',
-      totalSaleAmount: 120
-   },
-   {
-      _id: 'jkl',
-      totalSaleAmount: 20
-   },
-   {
-      _id: 'xyz',
-      totalSaleAmount: 150
-   }
+	{
+		"_id": "abc",
+		"totalSaleAmount": 120
+	},
+	{
+		"_id": "jkl",
+		"totalSaleAmount": 20
+	},
+	{
+		"_id": "xyz",
+		"totalSaleAmount": 150
+	}
 ]
 ```
 
@@ -357,6 +362,6 @@ Check out the following resources for more information:
 
 - Want to check out more cool articles about MongoDB? Be sure to check out more posts like this on the MongoDB Developer Hub
 
-- [How to Pass A Coding Interview](https://www.joekarlsson.com/2020/05/how-to-pass-coding-interview/)
+- [How to Pass A Coding Interview](/blog/how-to-pass-coding-interview/)
 
-- [So, You Want To Learn How To Code? Here’s What You Need To Know.](https://www.joekarlsson.com/2018/01/my-top-resources-for-learning-how-to-code/)
+- [So, You Want To Learn How To Code? Here’s What You Need To Know.](/blog/my-top-resources-for-learning-how-to-code/)

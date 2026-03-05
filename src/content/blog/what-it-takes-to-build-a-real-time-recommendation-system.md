@@ -189,7 +189,7 @@ You’ll have to choose an algorithm to make your recommendations. While deep le
 
 For example, suppose you had a table of product purchases containing two rows: `user_id` and `product_id`, where each row represents a purchase by that user of that product. Using a collaborative-filtering approach, you could recommend the top 10 products bought by users who also bought that product using this SQL query:
 
-```
+```sql
 -- gets all the products bought by the target user.
 WITH user_purchases AS (
     SELECT product_id

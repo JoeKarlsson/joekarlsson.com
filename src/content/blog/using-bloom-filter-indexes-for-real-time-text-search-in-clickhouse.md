@@ -97,7 +97,7 @@ Tokenization can be useful in some cases, but it’s too limited for more comple
 
 The second (and more interesting) option is **n-grams**, which basically means that the text is split into groups of _n_ consecutive characters. Imagine a string of text flowing from left to right, with an ‘n-gram window’ of size 4 moving across the text, one character at a time. Here’s how that might look for your example text “Hello_world!”:
 
-```
+```text
 [Hell]o_world!
 ^
 H[ello]_world!
@@ -114,7 +114,7 @@ Hello_wo[rld!]
 
 This means that for the text “Hello_world!”, the resulting 4-grams (n=4) would be:
 
-```
+```text
 Hell
 ello
 llo_
@@ -134,7 +134,7 @@ The only limitation is that a search for a substring has to include at least n c
 
 ClickHouse’s n-gram Bloom filter looks like this:
 
-```
+```text
 ngrambf_v1(4, 1024, 1, 0) GRANULARITY 1
 ```
 
@@ -234,7 +234,7 @@ If you’re this far, and you’re ready to speed up your text searches, we will
 
 This command creates a new Bloom filter index on a specified column in your database. The `TYPE ngrambf_v1(4, 1024, 1, 0)` indicates the type of index (n-gram Bloom filter) and its parameters (n-gram size, Bloom filter size, number of hash functions, seed value). The `GRANULARITY 1` specifies the index granularity level, meaning an index entry will be created for each row of data.
 
-```
+```sql
 ALTER TABLE your_database.your_table
 ON CLUSTER your_cluster
 ADD INDEX your_index_name [any_transformations](column_to_index) TYPE ngrambf_v1(4, 1024, 1, 0) GRANULARITY 1
@@ -244,7 +244,7 @@ ADD INDEX your_index_name [any_transformations](column_to_index) TYPE ngrambf_v1
 
 This command forces ClickHouse to build the index for the existing data in the table. By default, an index in ClickHouse only starts working for the data inserted after the index creation. So, `MATERIALIZE INDEX` is necessary to apply the index to the pre-existing data. (This is similar to populating a [Materialized View in Tinybird](https://www.tinybird.co/docs/concepts/materialized-views.html)).
 
-```
+```sql
 ALTER TABLE your_database.your_table
 ON CLUSTER your_cluster
 MATERIALIZE INDEX your_index_name
@@ -254,7 +254,7 @@ MATERIALIZE INDEX your_index_name
 
 This command removes the previously created index (`your_index_name`) from the table `your_table` in the database `your_database`. This might be useful if the index is no longer needed or if it’s taking up too much space.
 
-```
+```sql
 ALTER TABLE your_database.your_table
 ON CLUSTER your_cluster
 DROP INDEX your_index_name

@@ -131,7 +131,7 @@ First, set up a Kafka topic using a Kafka service. If you don’t want to self-h
 
 For this example, we’re using a Kafka topic whose schema, which defines customer banking transactions, looks like this:
 
-```
+```sql
 transaction_id VARCHAR(255) PRIMARY KEY,
 user_id VARCHAR(255),
 transaction_type VARCHAR(255),
@@ -151,7 +151,7 @@ After setting up your Kafka topic, [sign up for Tinybird](https://www.tinybird.c
 
 Here you will use [Copy Pipes](https://www.tinybird.co/docs/publish/copy-pipes.html) to capture the result of an SQL transformation at a moment in time and write the result into a target[ Data Source](https://www.tinybird.co/docs/concepts/data-sources.html). To create a Copy Pipe, you will first need to make a new Pipe in Tinybird called `init_latest_snapshot` and paste this SQL query.
 
-```
+```sql
 SELECT
     now() AS snapshot_timestamp,
     user_id,
@@ -182,7 +182,7 @@ Now that you have the `account_snapshot` seeded with account balance data, you w
 
 First, create a new node, `get_latest_snapshot_from_account_snapshot` that gets the latest snapshot from the `account_snapshot` Data Source:
 
-```
+```sql
 SELECT
   user_id,
   max(snapshot_timestamp) AS last_snapshot_timestamp,
@@ -193,7 +193,7 @@ GROUP BY user_id
 
 Next, you can create another node, `transactions_after_the_last_snapshot` that finds all the transactions that occurred after the last snapshot was taken.
 
-```
+```sql
 SELECT ls.last_snapshot_timestamp, timestamp, user_id, amount, transaction_type
 FROM transactions
 LEFT JOIN
@@ -211,7 +211,7 @@ ORDER BY transactions.user_id ASC
 
 Next, you will write a final node that calculates the current balance for each user by starting with their last snapshot balance (or zero if not available) and adding deposits, subtracting withdrawals, and adding transfers from transactions that occurred after the last snapshot; it then groups and sorts the results by the timestamp and user ID, showing their latest balance. This new node is titled `build_current_balance_state`.
 
-```
+```sql
 SELECT
   now() AS snapshot_timestamp,
   ts.user_id,

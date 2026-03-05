@@ -49,7 +49,7 @@ When you have a user account, go to the [Dashboard](https://developer.spotify.co
 
 ### Register Your Application
 
-Any application can request data from Spotify Web API endpoints and many endpoints are open and will return data *without* requiring registration. However, if your application seeks access to a user's personal data (profile, playlists, etc.) it must be registered.
+Any application can request data from Spotify Web API endpoints and many endpoints are open and will return data _without_ requiring registration. However, if your application seeks access to a user's personal data (profile, playlists, etc.) it must be registered.
 
 You can [register your application](https://developer.spotify.com/documentation/web-api/quick-start/), even before you have created it.
 
@@ -260,46 +260,46 @@ Here's the CSS for `Player.css`.
 ```css
 /** Now Playing **/
 .now-playing__name {
-  font-size: 1.5em;
-  margin-bottom: 0.2em;
+	font-size: 1.5em;
+	margin-bottom: 0.2em;
 }
 
 .now-playing__artist {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 .now-playing__status {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 .now-playing__img {
-  float: left;
-  margin-right: 10px;
-  text-align: right;
-  width: 45%;
+	float: left;
+	margin-right: 10px;
+	text-align: right;
+	width: 45%;
 }
 
 .now-playing__img img {
-  max-width: 80vmin;
-  width: 100%;
+	max-width: 80vmin;
+	width: 100%;
 }
 
 .now-playing__side {
-  margin-left: 5%;
-  width: 45%;
+	margin-left: 5%;
+	width: 45%;
 }
 
 /** Progress **/
 .progress {
-  border: 1px solid #eee;
-  height: 6px;
-  border-radius: 3px;
-  overflow: hidden;
+	border: 1px solid #eee;
+	height: 6px;
+	border-radius: 3px;
+	overflow: hidden;
 }
 
 .progress__bar {
-  background-color: #eee;
-  height: 4px;
+	background-color: #eee;
+	height: 4px;
 }
 ```
 

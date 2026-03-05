@@ -49,7 +49,7 @@ This dataset includes information including age, sex, BMI, children, smoker, reg
 
 Head over to the [SQL Editor](https://docs.singlestore.com/cloud/getting-started-with-singlestoredb-cloud/) on the SingleStore portal. We will now create a new database and table where we are going to save our insurance data. Run this SQL script by copying this code into the editor and press ‘Run.” Check the logs to ensure that no errors occurred.
 
-```
+```sql
 CREATE DATABASE IF NOT EXISTS;
  USE health_insurance;
 
@@ -76,7 +76,7 @@ Once you have downloaded and installed Sequel Pro locally, you will be prompted 
 
 Once you input the information in SequelPro, click Connect. Once you are connected, we can import the data. To do this, go to File → Import, and select your dataset. Once you have done this, you should be able to see your data in Sequel Pro. It’s a good idea to confirm that the data was loaded correctly. If you would like to check to ensure your data is imported properly, you can go back to your SQL Editor in SingleStore and type  and run this command:
 
-```
+```sql
 SELECT * FROM insurance_train;
 ```
 

@@ -31,28 +31,28 @@ WebSockets is a technology, based on the _ws_ protocol, that makes it possible t
 
 This is a demo showing a demo of a client connecting to a WebSocket server and sharing data. Here is the server.js of a WebSocket.
 
-```
+```javascript
 'use strict';
 
-const WebSocketServer = require('ws').Server
+const WebSocketServer = require('ws').Server;
 const wss = new WebSocketServer({ port: 8081 });
 
-wss.on('connection', ((ws) => {
-  ws.on('message', (message) => {
-    console.log(`received: ${message}`);
-  });
+wss.on('connection', (ws) => {
+	ws.on('message', (message) => {
+		console.log(`received: ${message}`);
+	});
 
-  ws.on('end', () => {
-    console.log('Connection ended...');
-  });
+	ws.on('end', () => {
+		console.log('Connection ended...');
+	});
 
-  ws.send('Hello Client');
-}));
+	ws.send('Hello Client');
+});
 ```
 
 Here is the client.js of a WebSocket.
 
-```
+```javascript
 console.log('open: ');
 var ws = new WebSocket("ws://127.0.0.1:8081");
 
@@ -88,68 +88,70 @@ Why would you choose Server-Sent Events over WebSockets? Good question. One reas
 
 Here is the server.js of our Server-Sent Event, we will be sending out data to the client every 5 seconds with an updated timestamp via SSE.
 
-```
+```javascript
 'use strict';
 
 const http = require('http');
 const util = require('util');
 const fs = require('fs');
 
-http.createServer((req, res) => {
-  debugHeaders(req);
+http
+	.createServer((req, res) => {
+		debugHeaders(req);
 
-  if (req.headers.accept && req.headers.accept == 'text/event-stream') {
-    if (req.url == '/events') {
-      sendSSE(req, res);
-    } else {
-      res.writeHead(404);
-      res.end();
-    }
-  } else {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(fs.readFileSync(__dirname + '/index.html'));
-    res.end();
-  }
-}).listen(8000);
+		if (req.headers.accept && req.headers.accept == 'text/event-stream') {
+			if (req.url == '/events') {
+				sendSSE(req, res);
+			} else {
+				res.writeHead(404);
+				res.end();
+			}
+		} else {
+			res.writeHead(200, { 'Content-Type': 'text/html' });
+			res.write(fs.readFileSync(__dirname + '/index.html'));
+			res.end();
+		}
+	})
+	.listen(8000);
 
 const sendSSE = (req, res) => {
-  res.writeHead(200, {
-    'Content-Type': 'text/event-stream',
-    'Cache-Control': 'no-cache',
-    'Connection': 'keep-alive'
-  });
+	res.writeHead(200, {
+		'Content-Type': 'text/event-stream',
+		'Cache-Control': 'no-cache',
+		Connection: 'keep-alive',
+	});
 
-  const id = (new Date()).toLocaleTimeString();
+	const id = new Date().toLocaleTimeString();
 
-  setInterval(() => {
-    constructSSE(res, id, (new Date()).toLocaleTimeString());
-  }, 5000);
+	setInterval(() => {
+		constructSSE(res, id, new Date().toLocaleTimeString());
+	}, 5000);
 
-  constructSSE(res, id, (new Date()).toLocaleTimeString());
-  //res.end();
-}
+	constructSSE(res, id, new Date().toLocaleTimeString());
+	//res.end();
+};
 
 const constructSSE = (res, id, data) => {
-  res.write('id: ' + id + '\n');
-  res.write("data: " + data + '\n\n');
-}
+	res.write('id: ' + id + '\n');
+	res.write('data: ' + data + '\n\n');
+};
 
 const debugHeaders = (req) => {
-  util.puts('URL: ' + req.url);
-  for (let key in req.headers) {
-    util.puts(key + ': ' + req.headers[key]);
-  }
-  util.puts('\n\n');
-}
+	util.puts('URL: ' + req.url);
+	for (let key in req.headers) {
+		util.puts(key + ': ' + req.headers[key]);
+	}
+	util.puts('\n\n');
+};
 ```
 
 And here is the client.js which is referenced by the index.html on the client-side. Notice how the client never sends out a formal request for data with SSE’s. Once the initial connection has been made with the server then the plain text data can be sent to the client as needed!
 
-```
+```javascript
 var source = new EventSource('/events');
 
-source.onmessage = function(e) {
-    document.body.innerHTML += e.data + '';
+source.onmessage = function (e) {
+	document.body.innerHTML += e.data + '';
 };
 ```
 
@@ -165,7 +167,7 @@ XMLHttpRequest (XHR) is a browser-level API that enables the client to script da
 
 Here I am running a simple Express server with a simple route to send requested data to the Client.
 
-```
+```javascript
 'use strict';
 
 var express = require('express');
@@ -173,8 +175,8 @@ var app = express();
 
 app.use(express.static(`${__dirname}/public`));
 
-app.get('/api', function(req, res){
-  res.send((new Date()).toLocaleTimeString());
+app.get('/api', function (req, res) {
+	res.send(new Date().toLocaleTimeString());
 });
 
 app.listen(3000);
@@ -182,7 +184,7 @@ app.listen(3000);
 
 Here is the javascript file linked to my index.html on the client-side. I am using the baked-in XHR methods as opposed to jQuery since I love to use vanilla JavaScript whenever possible.
 
-```
+```javascript
 'use strict'
 
 function reqListener (data) {

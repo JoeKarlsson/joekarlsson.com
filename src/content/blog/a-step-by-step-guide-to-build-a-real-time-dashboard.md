@@ -133,13 +133,13 @@ For information on installing those, check out their docs: [Node.js](https://nod
 
 Once you have those installed, create a new Next.js app. In this demo, I’ll be using plain JavaScript files (no TypeScript) and Tailwind CSS.
 
-```
+```bash
 npx create-next-app signatures-dashboard --js --tailwind --eslint --src-dir
 ```
 
 When prompted, select “Yes” for App Router and “No” for customizing the default import alias.
 
-```
+```bash
 cd signatures-dashboard
 mkdir data-project data-project/utils
 ```
@@ -158,7 +158,7 @@ The Tinybird CLI is a command-line tool that allows you to interact with Tinybir
 
 To install the Tinybird CLI, run the following commands:
 
-```
+```bash
 python3 -mvenv .e
 . .e/bin/activate
 pip install tinybird-cli
@@ -173,7 +173,7 @@ You’ll be authenticated to your workspace, and your auth details will be saved
 
 WarningYour Admin token has full read/write privileges for your Workspace. Don’t share it or publish it in your application. You can find more detailed info about Tinybird Auth Tokens in the [docs](https://www.tinybird.co/docs/api-reference/token-api.html).
 
-```
+```bash
 echo ".tinyb" >> .gitignore
 ```
 
@@ -191,7 +191,7 @@ But before we do, let’s peek into this code to get a feel for what it’s doin
 
 The `mockDataGenerator.js` script generates mock user accounts, with fields like `account_id`, `organization`, `phone_number`, and various certification statuses related to the account’s means of identification:
 
-```
+```javascript
 const generateAccountPayload = () => {
     const status = ["active", "inactive", "pending"];
     const id = faker.number.int({ min: 10000, max: 99999 });
@@ -214,7 +214,7 @@ const generateAccountPayload = () => {
 }
 ```
 
-```
+```javascript
 const generateSignaturePayload = (account_id, status, signatureType, signature_id, since, until, created_on) => {
     return {
         signature_id,
@@ -232,7 +232,7 @@ const generateSignaturePayload = (account_id, status, signatureType, signature_i
 
 In addition, the code generates mock data events about the document signature process, with variable `status` values such as `in_queue`, `signing`, `expired`, and `error`, amongst others:
 
-```
+```javascript
 const finalStatus = faker.helpers.weightedArrayElement([
         { weight: 7.5, value: 'completed' },
         { weight: 1, value: 'expired' },
@@ -244,7 +244,7 @@ const finalStatus = faker.helpers.weightedArrayElement([
 
 Finally, the generator will create and send a final status for the signature using some weighted values:
 
-```
+```bash
 cd data-project
 ls
 # mockDataGenerator.js      utils
@@ -254,7 +254,7 @@ Now download the [`mockDataGenerator.js`](https://github.com/tinybirdco/demo-use
 
 You may have noticed that this script utilizes a couple of helper functions to access your Tinybird token and send the data to Tinybird with an HTTP request using the [Tinybird Events API](https://www.tinybird.co/docs/ingest/events-api.html). These helper functions are located in the [`tinybird.js`](https://github.com/tinybirdco/demo-user-facing-saas-dashboard-signatures) file in the repo. Download that and add it to the `data-project/utils` directory.
 
-```
+```javascript
 export async function send_data_to_tinybird(name, token, payload) {
     const events_url = "https://api.tinybird.co/v0/events?name=";
 
@@ -278,13 +278,13 @@ The Tinybird Events API is useful for two reasons:
 
 - It allows you to stream events directly from your application instead of relying on batch ETLs or change data capture which requires the events to first be logged in a transactional database, which can add lag to the data pipeline.
 
-```
+```bash
 npm install @faker-js/faker
 ```
 
 You’ll also need to install the Faker library:
 
-```
+```json
 “seed”: “node data-project/mockDataGenerator.js”
 ```
 
@@ -292,7 +292,7 @@ To run this file and start sending mock data to Tinybird, you’re going to crea
 
 Note that since our code is using ES modules, we’ll need to add `”type”: “module”` to the `package.json` file to be able to run the script and access the modules. For more information on why, you can read [this helpful post](https://www.codeconcisely.com/posts/nextjs-esm/).
 
-```
+```json
 {
   "name": "signatures-dashboard",
   "version": "0.1.0",
@@ -321,14 +321,14 @@ Note that since our code is using ES modules, we’ll need to add `”type”: �
 
 Once you’re done, your `package.json` should look something like this:
 
-```
+```bash
 mv next.config.js next.config.cjs
 mv postcss.config.js postcss.config.cjs
 ```
 
 Also, since we’re setting the type as `module`, we’ll need to treat our Next.js and PostCSS config scripts as CommonJS scripts:
 
-```
+```bash
 npm run seed
 ```
 
@@ -348,7 +348,7 @@ To verify that the data is flowing properly into Tinybird, inspect the Tinybird 
 
 ![Tinybird signatures data source showing 2k rows with ingestion graph and data preview](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-10.webp)
 
-```
+```bash
 tb sql “select count() from signatures”
 ```
 
@@ -382,7 +382,7 @@ Now for the fun part. Define your real-time dashboard metrics using chained node
 
 ![Tinybird Pipe SQL node filtering signatures by account and date range](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/64f2397ff675358d751697ce_eMd481MY7ykvzW9gjULlu31kU.webp)
 
-```
+```sql
 SELECT
   account_id,
   count() AS total
@@ -408,7 +408,7 @@ Take a look at the updated SQL below using the Tinybird templating language. I�
 
 - Added `date_from` and `date_to` query parameters (`Date` type), which will dynamically change the filter based on the date values passed.
 
-```
+```sql
 SELECT
   account_id,
   {% if defined(completed) %}
@@ -444,7 +444,7 @@ Now, name this node `retrieve_signatures`.
 
 ![Tinybird retrieve_signatures pipe node with SQL query using dynamic date parameters](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-9.webp)
 
-```
+```sql
 SELECT
   organization,
   sum(total) AS org_total
@@ -493,7 +493,7 @@ Within the endpoint URL, you will notice the `date_from` and `date_to` parameter
 
 Try altering the values for these parameters in the browser’s address bar. As you change the dates or limit and refresh the page, you should see different data returned in response to your query. This behavior verifies that the dynamic filtering is working correctly, allowing the query to adapt to different user inputs or requirements.
 
-```
+```json
 "statistics": {
     "elapsed": 0.001110996,
     "rows_read": 4738,
@@ -509,7 +509,7 @@ In the above example, the API response took barely 1 millisecond, which is a rec
 
 If you want to pull the Tinybird resources into your local directory so that you can manage this project with git, you can do so as follows.
 
-```
+```bash
 tb pull –auto
 mv datasources pipes data-project/
 ```
@@ -532,7 +532,7 @@ Here’s how you can get started:
 
 We’re going to use Tremor to create a simple bar chart that displays the signature count for each organization. Tremor gives you beautiful React chart components that you can deploy easily and customize as needed.
 
-```
+```bash
 npx @tremor/cli@latest init
 ```
 
@@ -542,7 +542,7 @@ Select `Next` as your framework and allow Tremor to overwrite your existing `tai
 
 #### Set up environment variables
 
-```
+```bash
 NEXT_PUBLIC_TINYBIRD_HOST=your_tinybird_host # (e.g. api.tinybird.co)
 NEXT_PUBLIC_TINYBIRD_TOKEN=your_tinybird_token
 ```
@@ -551,7 +551,7 @@ Next, you need to add your Tinybird host and admin token as environment variable
 
 #### Set up your index.js
 
-```
+```bash
 cd src/pages
 code index.js
 ```
@@ -562,7 +562,7 @@ Next.js may have made a default `index.js`, in which case start by clearing its 
 
 #### Import UI libraries
 
-```
+```jsx
 "use client";
 
 import { Card, Text, Subtitle, Title, BarChart } from '@tremor/react';
@@ -575,7 +575,7 @@ To build your dashboard component, you will need to import various UI elements a
 
 #### Define constants and states
 
-```
+```javascript
 // Get your Tinybird host and token from the .env file
 const TINYBIRD_HOST = process.env.NEXT_PUBLIC_TINYBIRD_HOST; // The host URL for the Tinybird API
 const TINYBIRD_TOKEN = process.env.NEXT_PUBLIC_TINYBIRD_TOKEN; // The access token for authentication with the Tinybird API
@@ -598,7 +598,7 @@ Inside your main component, define the constants and states required for this sp
 
 You’ll need to write a function to fetch data from Tinybird. Note that for the sake of brevity, we are hardcoding the dates and using the default limit in the Tinybird API. You could set up a [Tremor datepicker](https://www.tremor.so/docs/ui/date-range-picker) and/or [number input](https://www.tremor.so/docs/components/number-input) if you wanted to dynamically update the dashboard components from within the UI.
 
-```
+```javascript
 // Define hardcoded date range for the query
 const dateFrom = new Date(2023, 0, 1); // Start date for the query (January 1st, 2023; JavaScript months are 0-indexed)
 const dateTo = new Date(2023, 11, 31); // End date for the query (December 31st, 2023)
@@ -625,7 +625,7 @@ const fetchTinybirdUrl = async (fetchUrl, setData, setLatency) => {
 
 You need to define the specific URL for the Tinybird API call and make the fetch request using the `fetchTinybirdUrl` function inside the `useEffect` hook:
 
-```
+```javascript
 // useEffect hook to handle side-effects (in this case, fetching data) in a functional component
 useEffect(() => {
   // Calling the fetchTinybirdUrl function with the URL and state setter function
@@ -638,7 +638,7 @@ useEffect(() => {
 
 Finally, include the rendering code to display the “Ranking of the top organizations creating signatures” in the component’s return statement:
 
-```
+```jsx
 return (
     <Card>
             <Title>Top Organizations Creating Signatures</Title>

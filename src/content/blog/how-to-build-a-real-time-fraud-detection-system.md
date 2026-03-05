@@ -143,7 +143,7 @@ To add a Pipe, click the Plus (+) icon in the left-side navigation bar next to t
 
 Here’s a sample SQL query for detecting suspicious transactions with an amount greater than $900 and a location outside of the USA. Paste this query into the first node of your Pipe, and click “Run.” You should see a list of suspicious transactions populating the table below in real-time.
 
-```
+```sql
 SELECT
   user_id,
   transaction_id,
@@ -187,7 +187,7 @@ But that’s not all! The nature of your real-time fraud-detection system will d
 
 This query selects the user ID and counts the number of transactions made outside of the user’s usual location. It filters only those with two or more transactions made from unusual locations. By running this query, we can identify whether a user’s transaction history contains suspicious activities related to location. Simply replace `'USER_ID'` with the actual user ID (or use Tinybird’s [templating language](https://www.tinybird.co/docs/query/query-parameters) to add query parameters to your published APIs) to detect fraud for a specific user.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as num_transactions
@@ -201,7 +201,7 @@ HAVING COUNT(*) > 2
 
 This query selects the user ID and counts the number of transactions that occurred within the last hour. It groups the results by user ID and filters only those with 10 or more transactions in the last hour.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as num_transactions
@@ -216,7 +216,7 @@ ORDER BY num_transactions DESC
 
 This query selects the transaction ID, user ID, and amount of transactions that are greater than $999.
 
-```
+```sql
 SELECT transaction_id, user_id, amount
 FROM transactions
 WHERE CAST(amount AS Float64) > 999
@@ -227,7 +227,7 @@ ORDER BY amount DESC
 
 This query selects the user ID and counts the number of transactions made between 1:00 AM and 5:00 AM. It groups the results by user ID and filters only those with five or more transactions made during this time.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as transaction_count
@@ -243,7 +243,7 @@ HAVING transaction_count >= 5
 
 This query selects the user ID and counts the number of declined transactions for each user. It groups the results by user ID and filters only those with three or more declined transactions.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as num_transactions
@@ -257,7 +257,7 @@ ORDER BY num_transactions DESC
 
 This query selects the user ID and counts the number of transactions made from IP addresses with a high-risk prefix (e.g., 123456, 234567, 345678). It groups the results by user ID and filters only those with two or more transactions from high-risk IP addresses.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as num_transactions
@@ -273,7 +273,7 @@ user_idnum_transactionsTanya611Bill609Mary597
 
 Finally, we can detect fraudulent activity by analyzing unusual spending patterns. This code selects the user_id, the average, and standard deviation of the transaction amount for each user, and filters only those whose maximum transaction amount is more than two standard deviations away from the average. This could indicate potential fraudulent activity.
 
-```
+```sql
 SELECT
   user_id,
   AVG(CAST(amount AS Float64)) as avg_amount,
@@ -338,62 +338,89 @@ Using Tinybird for fraud detection is like having a trusty sidekick in your batt
 
 Here you go!
 
-```
+```json
 {
- "timestamp": {
-   "type": "mockingbird.timestampNow"
- },
- "transaction_id": {
-   "type": "finance.routingNumber"
- },
- "user_id": {
-   "type": "mockingbird.pick",
-   "params": [
-     {
-       "values": ["Mike", "John", "Jane", "Mary", "Bob", "Alice", "Joe", "Sue", "Ryan", "Jill", "Bill","Jen", "Jack", "Jill", "Tom", "Tim", "Tina", "Terry", "Troy", "Tara", "Tanya", "Trevor", "Tucker","Trent", "Trenton", "Mario"]
-     }
-   ]
- },
- "amount": {
-   "type": "finance.amount"
- },
- "ip_address": {
-   "type": "internet.ip"
- },
- "browser": {
-   "type": "mockingbird.pickWeighted",
-   "params": [
-     {
-       "values": ["Chrome", "Brave", "Firefox", "Safari"],
-       "weights": [65, 3, 8, 20]
-     }
-   ]
- },
- "location": {
-   "type": "mockingbird.pickWeighted",
-   "params": [
-     {
-       "values": [ "USA", "Spain", "UK", "Australia", "Mexico", "China", "Japan", "Canada"],
-       "weights": [65, 20, 8, 1, 3, 1, 1, 1]
-     }
-   ]
- },
- "is_declined": {
-   "type": "mockingbird.pickWeighted",
-   "params": [
-     {
-       "values": [true, false],
-       "weights": [3, 98]
-     }
-   ]
- },
- "fraud_flag": {
-   "type": "mockingbird.pick",
-   "params": [
-     {
-       "values": [false]
-     }
-   ]
- }
+	"timestamp": {
+		"type": "mockingbird.timestampNow"
+	},
+	"transaction_id": {
+		"type": "finance.routingNumber"
+	},
+	"user_id": {
+		"type": "mockingbird.pick",
+		"params": [
+			{
+				"values": [
+					"Mike",
+					"John",
+					"Jane",
+					"Mary",
+					"Bob",
+					"Alice",
+					"Joe",
+					"Sue",
+					"Ryan",
+					"Jill",
+					"Bill",
+					"Jen",
+					"Jack",
+					"Jill",
+					"Tom",
+					"Tim",
+					"Tina",
+					"Terry",
+					"Troy",
+					"Tara",
+					"Tanya",
+					"Trevor",
+					"Tucker",
+					"Trent",
+					"Trenton",
+					"Mario"
+				]
+			}
+		]
+	},
+	"amount": {
+		"type": "finance.amount"
+	},
+	"ip_address": {
+		"type": "internet.ip"
+	},
+	"browser": {
+		"type": "mockingbird.pickWeighted",
+		"params": [
+			{
+				"values": ["Chrome", "Brave", "Firefox", "Safari"],
+				"weights": [65, 3, 8, 20]
+			}
+		]
+	},
+	"location": {
+		"type": "mockingbird.pickWeighted",
+		"params": [
+			{
+				"values": ["USA", "Spain", "UK", "Australia", "Mexico", "China", "Japan", "Canada"],
+				"weights": [65, 20, 8, 1, 3, 1, 1, 1]
+			}
+		]
+	},
+	"is_declined": {
+		"type": "mockingbird.pickWeighted",
+		"params": [
+			{
+				"values": [true, false],
+				"weights": [3, 98]
+			}
+		]
+	},
+	"fraud_flag": {
+		"type": "mockingbird.pick",
+		"params": [
+			{
+				"values": [false]
+			}
+		]
+	}
 }
 ```

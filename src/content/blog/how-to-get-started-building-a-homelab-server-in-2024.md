@@ -179,13 +179,13 @@ In the pursuit of optimizing my Homelab, integrating Network Attached Storage (N
 
 - Update the Package List and Install NFS Support
 
-```
+```bash
 sudo apt update && sudo apt install nfs-common -y
 ```
 
 - Create Mount Point Directory
 
-```
+```bash
 mkdir /nas
 ```
 
@@ -193,31 +193,31 @@ mkdir /nas
 
 Open the `/etc/fstab` file in a text editor. Here, we use `nano`.
 
-```
+```bash
 nano /etc/fstab
 ```
 
 Add the following line to mount the NAS.
 
-```
+```text
 [IP_ADDRESS_OF_YOUR_NAS]:[DIRECTORY_YOUR_SHARE] /nas nfs defaults 0 0
 ```
 
 An example would be:
 
-```
+```text
 192.168.0.555:/volume1/data /nas nfs defaults 0 0
 ```
 
 - Reload System Daemons
 
-```
+```bash
 systemctl daemon-reload
 ```
 
 - Mount the NAS
 
-```
+```bash
 mount [IP_ADDRESS_OF_YOUR_NAS]:[DIRECTORY_YOUR_SHARE]
 ```
 
