@@ -5,6 +5,9 @@ slug: 'how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online
 description: 'Okay, so you’ve set up a simple MongoDB Atlas Online Archive, and now you might be wondering, “What’s next?” In this post, we will cover some more advanced Online Archive use cases, including setting...'
 categories: ['Databases']
 heroImage: '/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/og-sql-to-mdb.webp'
+heroAlt: 'MongoDB Atlas Online Archive custom archival rules and partitioning'
+contentNotice: false
+tldr: 'Goes beyond basic date-based archiving to show how to set up custom query-based archival rules in MongoDB Atlas Online Archive (like archiving inactive users) and how to partition your archived data for faster queries.'
 ---
 
 Okay, so you’ve set up a simple MongoDB Atlas Online Archive, and now you might be wondering, “What’s next?” In this post, we will cover some more advanced Online Archive use cases, including setting up custom archival rules for MongoDB and how to improve query performance through partitioning.
@@ -17,7 +20,7 @@ Okay, so you’ve set up a simple MongoDB Atlas Online Archive, and now you migh
 
 ## Why Create an Online Archive?
 
-Creat an Online Archive rule based on the date makes sense for a lot of archiving situations, such as automatically archiving documents that are over X years old, or that were last updated Y months ago. But what if you want to have more control over what gets archived? Some examples of data that might be eligible to be archived are:
+Creating an Online Archive rule based on the date makes sense for a lot of archiving situations, such as automatically archiving documents that are over X years old, or that were last updated Y months ago. But what if you want to have more control over what gets archived? Some examples of data that might be eligible to be archived are:
 
 - Data that has been flagged for archival by an administrator.
 
@@ -39,24 +42,21 @@ You will also need to specify your custom criteria for archiving documents. You 
 
 To retrieve the documents staged for archival, we will use the following find command. This will retrieve all documents that have the `active` field set to `false` or do not have an `active` key at all.
 
-```
-{ $or: [
-    { active: false },
-    { active: null }
-] }
+```json
+{ "$or": [{ "active": false }, { "active": null }] }
 ```
 
 You will need to continue setting up your archive, and then you should be done!
 
 > **Note**: It’s always a good idea to run your custom queries in the [mongo shell](https://docs.mongodb.com/mongodb-shell/install/) first to ensure that you are archiving the correct documents.
 
-> **Note**: MongoDB documents, once they are initiated for an archive and is queued for archiving, are no longer edittable.
+> **Note**: MongoDB documents, once they are initiated for an archive and is queued for archiving, are no longer editable.
 
 ## Why Partitioning?
 
-One of the reasons we archive data is to access and query it in the future if for some reason we still need to use it. You might even be accessing this data quite frequently! That’s why it’s useful to be able to partition your archived data and speed up query times. With Atlas Online Archive, you can specify the two most frequently queried fields in your collection to create partitions in your online archive.
+One of the reasons we archive data is to access and query it in the future if for some reason we still need to use it. You might even be accessing this data frequently! That’s why it’s useful to be able to partition your archived data and speed up query times. With Atlas Online Archive, you can specify the two most frequently queried fields in your collection to create partitions in your online archive.
 
-## Partioning Best Practices
+## Partitioning Best Practices
 
 Fields with a moderate to high cardinality (or the number of elements in a set or grouping) are good choices to be used as a partition. Queries that don’t contain these fields will require a full collection scan of all archived documents, which will take longer and increase your costs. However, it’s a bit of a balancing act.
 
@@ -76,7 +76,7 @@ The order of fields listed in the path is important in the same way as it is in 
 
 You can specify the two most frequently queried fields in your collection and order them from the most frequently queried in the first position to the least queried field in the second position. For example, suppose you are configuring the online archive for your `customers` collection in the `sample_analytics` database. If your archived field is set to the custom archival rule in our example above, your first queried field is `username`, and your second queried field is `email`, your partition will look like the following:
 
-```
+```text
 /username/email
 ```
 
@@ -98,14 +98,10 @@ In this post, we covered some advanced use cases for Online Archive. This should
 
 If you have questions about custom archival rules for MongoDB, please head to our [developer community website](https://community.mongodb.com/). That is where the MongoDB engineers and the MongoDB community will help you build your next big idea with MongoDB.
 
-## Want to check out more of my technical posts?
+## More Technical Posts
 
-- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](https://www.joekarlsson.com/2021/05/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
-
-- [MongoDB Aggregation Pipeline Queries vs SQL Queries](https://www.joekarlsson.com/2021/05/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
-
-- [An Introduction to IoT (Internet of Toilets)](https://www.joekarlsson.com/2020/11/an-introduction-to-iot-internet-of-toilets/)
-
-- [How To Use The MongoDB Visual Studio Code Plugin](https://www.joekarlsson.com/2020/11/how-to-use-the-mongodb-visual-studio-code-plugin/)
-
-- [Linked Lists and MongoDB: A Gentle Introduction](https://www.joekarlsson.com/2020/11/linked-lists-and-mongodb-a-gentle-introduction/)
+- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
+- [MongoDB Aggregation Pipeline Queries vs SQL Queries](/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
+- [An Introduction to IoT (Internet of Toilets)](/blog/an-introduction-to-iot-internet-of-toilets/)
+- [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/)
+- [Linked Lists and MongoDB: A Gentle Introduction](/blog/linked-lists-and-mongodb-a-gentle-introduction/)

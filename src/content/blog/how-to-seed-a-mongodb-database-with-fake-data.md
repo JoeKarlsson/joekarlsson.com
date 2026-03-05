@@ -5,6 +5,8 @@ slug: 'how-to-seed-a-mongodb-database-with-fake-data'
 description: 'Have you ever worked on a MongoDB project and needed to seed your database with fake data in order to provide initial values for lookups, demo purposes, proof of concepts, etc.? I’m biased, but I’ve...'
 categories: ['Databases']
 heroImage: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/twitter-mongoimport.webp'
+heroAlt: 'How to seed a MongoDB database with fake data using mongoimport'
+tldr: 'A quick Node.js script using faker.js to generate thousands of fake documents and insert them into a MongoDB Atlas database. Copy it, tweak the document shape, and you have seed data in seconds.'
 ---
 
 Have you ever worked on a MongoDB project and needed to seed your database with fake data in order to provide initial values for lookups, demo purposes, proof of concepts, etc.? I’m biased, but I’ve had to seed a MongoDB database countless times.
@@ -21,69 +23,70 @@ I am saving my data into a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) 
 
 Alright, now that we have got the setup out of the way, let’s jump into the code!
 
-```
+```javascript
 /* mySeedScript.js */
 
 // require the necessary libraries
-const faker = require("faker");
-const MongoClient = require("mongodb").MongoClient;
+const faker = require('faker');
+const MongoClient = require('mongodb').MongoClient;
 
-function randomIntFromInterval(min, max) { // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min);
+function randomIntFromInterval(min, max) {
+	// min and max included
+	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 async function seedDB() {
-    // Connection URL
-    const uri = "YOUR MONGODB ATLAS URI";
+	// Connection URL
+	const uri = 'YOUR MONGODB ATLAS URI';
 
-    const client = new MongoClient(uri, {
-        useNewUrlParser: true,
-        // useUnifiedTopology: true,
-    });
+	const client = new MongoClient(uri, {
+		useNewUrlParser: true,
+		// useUnifiedTopology: true,
+	});
 
-    try {
-        await client.connect();
-        console.log("Connected correctly to server");
+	try {
+		await client.connect();
+		console.log('Connected correctly to server');
 
-        const collection = client.db("iot").collection("kitty-litter-time-series");
+		const collection = client.db('iot').collection('kitty-litter-time-series');
 
-        // The drop() command destroys all data from a collection.
-        // Make sure you run it against proper database and collection.
-        collection.drop();
+		// The drop() command destroys all data from a collection.
+		// Make sure you run it against proper database and collection.
+		collection.drop();
 
-        // make a bunch of time series data
-        let timeSeriesData = [];
+		// make a bunch of time series data
+		let timeSeriesData = [];
 
-        for (let i = 0; i < 5000; i++) {
-            const firstName = faker.name.firstName();
-            const lastName = faker.name.lastName();
-            let newDay = {
-                timestamp_day: faker.date.past(),
-                cat: faker.random.word(),
-                owner: {
-                    email: faker.internet.email(firstName, lastName),
-                    firstName,
-                    lastName,
-                },
-                events: [],
-            };
+		for (let i = 0; i < 5000; i++) {
+			const firstName = faker.name.firstName();
+			const lastName = faker.name.lastName();
+			let newDay = {
+				timestamp_day: faker.date.past(),
+				cat: faker.random.word(),
+				owner: {
+					email: faker.internet.email(firstName, lastName),
+					firstName,
+					lastName,
+				},
+				events: [],
+			};
 
-            for (let j = 0; j < randomIntFromInterval(1, 6); j++) {
-                let newEvent = {
-                    timestamp_event: faker.date.past(),
-                    weight: randomIntFromInterval(14,16),
-                }
-                newDay.events.push(newEvent);
-            }
-            timeSeriesData.push(newDay);
-        }
-        collection.insertMany(timeSeriesData);
+			for (let j = 0; j < randomIntFromInterval(1, 6); j++) {
+				let newEvent = {
+					timestamp_event: faker.date.past(),
+					weight: randomIntFromInterval(14, 16),
+				};
+				newDay.events.push(newEvent);
+			}
+			timeSeriesData.push(newDay);
+		}
+		collection.insertMany(timeSeriesData);
 
-        console.log("Database seeded! :)");
-        client.close();
-    } catch (err) {
-        console.log(err.stack);
-    }
+		console.log('Database seeded! :)');
+		client.close();
+	} catch (err) {
+		console.log(err.stack);
+	}
 }
 
 seedDB();
@@ -95,14 +98,10 @@ After running the script above, be sure to check out your database to ensure tha
 
 Once your fake seed data is in the MongoDB database, you’re done! Congratulations! If you want a nice way to browse and verify your seeded data, I’d recommend the [MongoDB Visual Studio Code plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/) for exploring your collections right from your editor.
 
-## Want to check out more of my technical posts?
+## More Technical Posts
 
-- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](https://www.joekarlsson.com/2021/05/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
-
-- [MongoDB Aggregation Pipeline Queries vs SQL Queries](https://www.joekarlsson.com/2021/05/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
-
-- [An Introduction to IoT (Internet of Toilets)](https://www.joekarlsson.com/2020/11/an-introduction-to-iot-internet-of-toilets/)
-
-- [How To Use The MongoDB Visual Studio Code Plugin](https://www.joekarlsson.com/2020/11/how-to-use-the-mongodb-visual-studio-code-plugin/)
-
-- [Linked Lists and MongoDB: A Gentle Introduction](https://www.joekarlsson.com/2020/11/linked-lists-and-mongodb-a-gentle-introduction/)
+- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
+- [MongoDB Aggregation Pipeline Queries vs SQL Queries](/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
+- [An Introduction to IoT (Internet of Toilets)](/blog/an-introduction-to-iot-internet-of-toilets/)
+- [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/)
+- [Linked Lists and MongoDB: A Gentle Introduction](/blog/linked-lists-and-mongodb-a-gentle-introduction/)

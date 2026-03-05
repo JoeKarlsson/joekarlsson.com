@@ -6,6 +6,8 @@ description: 'You all should activate 2-Step Verification on all of your most i
 categories: ['Personal']
 heroImage: '/images/blog/placeholder/placeholder-personal.webp'
 heroAlt: 'Lock icon representing two-step verification security'
+contentNotice: 'This post recommends SMS-based 2FA. Modern best practice is to use authenticator apps or hardware security keys instead, and passkeys where available.'
+tldr: 'Turn on 2-step verification on your accounts right now. It takes five minutes and it''s the single best thing you can do to protect yourself online.'
 ---
 
 > **Note:** This post was written in 2015. The advice to enable 2FA is still good, but modern best practice recommends authenticator apps (like Google Authenticator or 1Password) or hardware security keys over SMS-based verification. Also look into passkeys if your accounts support them.
@@ -16,7 +18,7 @@ You all should activate 2-Step Verification on all of your most important accou
 - Downloading software from the Internet
 - Clicking on links in email messages
 
-2-Step Verification can help keep bad guys out, even if they have your password. It takes five minutes at most to active the 2-Step Verification on an account.
+2-Step Verification can help keep bad guys out, even if they have your password. It takes five minutes at most to activate 2-Step Verification on an account.
 
 Imagine losing access to your account and everything in it. Losing access to these can mean that you lose access to so much personal data and other valuable resources. When a bad guy steals your password, they could lock you out of your account, and then do some of the following:
 

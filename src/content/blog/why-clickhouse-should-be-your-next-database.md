@@ -1,10 +1,12 @@
 ---
-title: 'Why Clickhouse Should Be Your Next Database'
+title: 'Why ClickHouse Should Be Your Next Database'
 date: 2024-04-05
 slug: 'why-clickhouse-should-be-your-next-database'
 description: “Today, we’re jumping into databases. Another database to learn? But before you sprint for the hills, allow me to introduce you to ClickHouse.”
 categories: ['Databases']
 heroImage: '/images/blog/why-clickhouse-should-be-your-next-database/94ea1cd4-house2-1024x658-1.webp'
+heroAlt: 'Why ClickHouse should be your next database'
+tldr: 'ClickHouse is a column-oriented database built for real-time analytics on huge datasets. It loads data 23x faster than PostgreSQL, uses 8.5x less storage, and powers real-time analytics at companies like Cloudflare and Yandex.'
 ---
 
 Today, we’re jumping into databases. Now, I can hear you sigh: “Another database to learn? Seriously?” But before you sprint for the hills, allow me to introduce you to [ClickHouse](https://thenewstack.io/clickhouse-rapidly-rivals-other-open-source-databases-in-active-contributors/), the Sonic the Hedgehog of the database multiverse.
@@ -31,7 +33,7 @@ Did I mention ClickHouse loves big data? This [database system scales](https://r
 
 At the heart of ClickHouse’s distinctiveness is its true column-oriented DBMS design. This unique architecture ensures compact storage with no extra data accompanying the values, a trait that notably enhances processing speed. Supporting constant-length values, ClickHouse guarantees efficient space utilization, reinforcing its speedy performance. Notably, ClickHouse’s capacity to handle hundreds of millions of rows per second surpasses systems like HBase and Cassandra, setting a new industry standard.
 
-The uniqueness of ClickHouse also shines in its flexible functionality as a database management system. Rather than being confined to a single database, ClickHouse enables the real-time creation of tables and databases, data loading and query execution. This adaptability ensures seamless database operations without the need for server reconfiguration or restarts.
+The uniqueness of ClickHouse also shines in its flexible functionality as a database management system. Rather than being confined to a single database, ClickHouse enables the real-time creation of tables and databases, data loading and query execution. This adaptability ensures smooth database operations without the need for server reconfiguration or restarts.
 
 Additional features that amplify ClickHouse’s uniqueness include:
 
@@ -67,13 +69,13 @@ The new architecture includes:
 
 - **Zone Analytics API** – Rewritten and optimized version of the API in Go, with many meaningful metrics, health checks and failover scenarios.
 
-![Server diagram for Cloudflare’s central data center based on Clickhouse. Source: https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](/images/blog/why-clickhouse-should-be-your-next-database/2c587eb1-image3.webp)_Server diagram for Cloudflare’s central data center based on Clickhouse. Source: [https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)_
+![Server diagram for Cloudflare’s central data center based on ClickHouse. Source: https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](/images/blog/why-clickhouse-should-be-your-next-database/2c587eb1-image3.webp)_Server diagram for Cloudflare’s central data center based on ClickHouse. Source: [https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)_
 
 As you can see, the architecture of the new data pipeline is simpler and fault tolerant. It provides analytics for all of Cloudflare’s more than 7 million customers’ domains totaling more than 2.5 billion monthly unique visitors and over 1.5 trillion monthly page views.
 
 ### Yandex.Metrica
 
-The world’s second-largest web analytics platform, [Yandex.Metrica uses ClickHouse to handle over a trillion rows of data. A trillion!](http://www.devdoc.net/database/ClickhouseDocs_19.4.1.3-docs/introduction/ya_metrika_task/) Yandex uses Clickhouse for:
+The world’s second-largest web analytics platform, [Yandex.Metrica uses ClickHouse to handle over a trillion rows of data. A trillion!](http://www.devdoc.net/database/ClickhouseDocs_19.4.1.3-docs/introduction/ya_metrika_task/) Yandex uses ClickHouse for:
 
 - Storing data for session replay.
 
@@ -111,7 +113,7 @@ ClickHouse also proves to be more storage-efficient. The benchmark indicates tha
 
 Based on the ClickHouse benchmark, ClickHouse significantly outperforms PostgreSQL in data load time and storage size efficiency when optimized and deployed under the same conditions. It is important to note that these results pertain to a specific analytical scenario and real-world results might vary based on the specific use case and tuning of the systems.
 
-You can also check out how Clickhouse compares to other databases in the [benchmark report](https://benchmark.clickhouse.com).
+You can also check out how ClickHouse compares to other databases in the [benchmark report](https://benchmark.clickhouse.com).
 
 ## What’s the Best Way to Start Using ClickHouse?
 
@@ -119,7 +121,7 @@ Think you might be ready to try ClickHouse? There are a few ways to start, most 
 
 Prefer to avoid hosting and scaling yourself? [Tinybird](https://www.tinybird.co?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), a tool that developers affectionately dub “ClickHouse++” takes ClickHouse’s already powerful capabilities, offers [serverless hosting](https://www.tinybird.co/clickhouse?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database) and adds even more developer-focused goodness to the mix, including
 
-- **Native integration with multiple data sources **(like [Kafka](https://www.tinybird.co/integrations/kafka-data?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [S3](https://www.tinybird.co/integrations/amazon-s3?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [GCS](https://www.tinybird.co/integrations/google-cloud-storage?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [BigQuery](https://www.tinybird.co/integrations/google-bigquery?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [Snowflake](https://www.tinybird.co/integrations/snowflake?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), and more. It even offers a [streaming HTTP endpoint](https://www.tinybird.co/docs/guides/ingest-from-the-events-api.html?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database) to capture events directly from your application or service.
+- **Native integration with multiple data sources** (like [Kafka](https://www.tinybird.co/integrations/kafka-data?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [S3](https://www.tinybird.co/integrations/amazon-s3?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [GCS](https://www.tinybird.co/integrations/google-cloud-storage?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [BigQuery](https://www.tinybird.co/integrations/google-bigquery?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), [Snowflake](https://www.tinybird.co/integrations/snowflake?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), and more. It even offers a [streaming HTTP endpoint](https://www.tinybird.co/docs/guides/ingest-from-the-events-api.html?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database) to capture events directly from your application or service.
 
 - **UI, CLI and API:** Tinybird abstracts the complexities of a powerful database into [a workflow](https://www.tinybird.co/product?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), that offers interactions through UI, a CLI and a RESTful API.
 
@@ -131,7 +133,7 @@ If you’re a data engineer or a software developer constantly juggling large vo
 
 ## Learn More
 
-- For a deep dive into ClickHouse, visit its [official documentation](https://clickhouse.tech/docs/en/).
+- For a detailed look at ClickHouse, visit its [official documentation](https://clickhouse.tech/docs/en/).
 
 - To understand how Tinybird can supercharge your ClickHouse experience, check out the [Tinybird documentation](https://www.tinybird.co/docs?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database).
 

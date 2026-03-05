@@ -2,14 +2,16 @@
 title: 'Treat Content Development for Your Open Source Project Like Your Open Source Project'
 date: 2023-02-28
 slug: 'treat-content-development-for-your-open-source-project-like-your-open-source-project'
-description: 'Hello nerds! Let’s about how you should treat content development for your open source project like your open-source project. I know, it sounds meta, but bear with me. As a developer advocate, I’ve...'
+description: ‘Hello nerds! Let’s talk about how you should treat content development for your open source project like your open-source project. I know, it sounds meta, but bear with me. As a developer advocate, I’ve...’
 categories: ['DevRel']
 heroImage: '/images/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/Treat-Content-Development-for-Your-Open-Source-Project-Like-Your-Open-Source-Project.webp'
+heroAlt: 'Treat content development for your open source project like your open source project'
+tldr: 'Your open source project deserves the same open, community-driven approach for its content as it does for its code. Triage content requests, be transparent about timelines, and accept contributions like pull requests.'
 ---
 
-Hello nerds! Let’s about how you should treat content development for your open source project like your open-source project. I know, it sounds meta, but bear with me.
+Hello nerds! Let’s talk about how you should treat content development for your open source project like your open-source project. I know, it sounds meta, but bear with me.
 
-As a developer advocate, I’ve seen firsthand the impact that great content can have on a project’s success. Not only does it help attract new users and contributors, but it also helps retain existing ones. So, let’s dive into some tips on how to approach content development for your open-source project.
+As a developer advocate, I’ve seen firsthand the impact that great content can have on a project’s success. Not only does it help attract new users and contributors, but it also helps retain existing ones. So, let’s get into some tips on how to approach content development for your open-source project.
 
 ## Involve your community in creating content
 

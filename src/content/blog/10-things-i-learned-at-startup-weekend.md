@@ -5,33 +5,38 @@ slug: '10-things-i-learned-at-startup-weekend'
 description: 'What Is Startup Weekend? Are you interested in starting your own business someday?  Do you have an idea for a business? Want to meet some really smart people? Startup Weekend is for you! Startup...'
 categories: ['Career']
 heroImage: '/images/blog/10-things-i-learned-at-startup-weekend/tumblr_nqx8chHbKD1tubinno1_1280-min.webp'
+heroAlt: 'Bubble tea from Startup Weekend event'
+contentNotice: 'Startup Weekend was absorbed into Techstars in 2017. Some references and links may no longer be current.'
+tldr: 'I went to my first Startup Weekend in Honolulu and came back with ten lessons, from "pitch your stupid idea" to "get some sleep" to "trust your team and get shit done."'
 ---
+
+> **Note:** This post was written in 2015 about Startup Weekend, which has since been absorbed into Techstars. Some links and organizations mentioned may no longer exist.
 
 ## **What Is Startup Weekend?**
 
-Are you interested in starting your own business someday?  Do you have an idea for a business? Want to meet some really smart people? Startup Weekend is for you! [Startup Weekend](http://startupweekend.org/)s are weekend-long (duh!), hands-on experiences where entrepreneurs and aspiring entrepreneurs can find out if startup ideas are viable.
+Are you interested in starting your own business someday?  Do you have an idea for a business? Want to meet some really smart people? Startup Weekend is for you! [Startup Weekend](https://www.techstars.com/communities/startup-weekend)s are weekend-long (duh!), hands-on experiences where entrepreneurs and aspiring entrepreneurs can find out if startup ideas are viable.
 
 ## **What Should I Expect?**
 
 Beginning with open mic pitches on Friday, attendees bring their best ideas and inspire others to join their team. Over Saturday and Sunday teams focus on customer development, validating their ideas, practicing [LEAN Startup Methodologies](http://theleanstartup.com/principles), and building a minimal viable product. On Sunday evening teams demo their prototypes and receive valuable feedback from a panel of experts.
 
-[Startup Weekend Honolulu](http://www.up.co/communities/usa/honolulu/startup-weekend/) was my first Startup Weekend ever, I had an awesome time. The event was super well run, and there were so many inspired and intelligent people in attendance. Here is a list of the top ten things I learned from my first Startup Weekend.
+[Startup Weekend Honolulu](https://www.techstars.com/communities/startup-weekend) was my first Startup Weekend ever, I had an awesome time. The event was super well run, and there were so many inspired and intelligent people in attendance. Here is a list of the top ten things I learned from my first Startup Weekend.
 
 ## **1) Startup Weekend Is Not That Scary**
 
 Seriously, it’s not too bad. I had some anxiety about whether I was technical enough or if I would fail and build a crappy business. I was also nervous about spending my whole weekend programming and missing out on fun weekend activities. However, when I got there, I quickly saw how supportive everyone was, and I found a team that complemented my strengths. I even felt like I made a difference and impact with my team! Besides, pretty much everyone there is in the same place you are, an entrepreneurial novice who is hungry to learn and grow.
 
-## **2) Even If You Think Your Idea Is Stupid – Pitch It!**
+## **2) Even If You Think Your Idea Is Stupid - Pitch It!**
 
 ![Broba Tea - 10 Things I learned at Startup Weekend](/images/blog/10-things-i-learned-at-startup-weekend/Bubble_Tea-160x300.webp)
 
 One of my biggest regrets from this year’s Startup Weekend was not pitching an idea. I have had a couple of half ideas floating around in my noodle for a couple of years now, and after attending Startup Weekend, I see that the only way to vet out an idea is to share it with as many people as you know in order to get feedback and buy-in. Besides, even if your idea is stupid you can see if someone is interested in pivoting your idea and making it amazing. You never know what will happen if you don’t explore it!
 
-There were even some really hilarious ideas people pitched this year – my personal favorite was **Broba Tea** – which is Boba Tea with protein powder mixed in. The perfect drink for cool bros. It’s simple, beautiful, and totally ridiculous!
+There were even some really hilarious ideas people pitched this year - my personal favorite was **Broba Tea** - which is Boba Tea with protein powder mixed in. The perfect drink for cool bros. It’s simple, beautiful, and totally ridiculous!
 
 ## **3) K.I.S.S.**
 
-Keep it simple, stupid. You and your team only have 54 hours to build and prove a business model – so don’t get too carried away with all of your great ideas. Pick the smallest product that you can create and flesh out that idea. The judges would rather see a tiny well-made product, than a sloppy gigantic mess. If you are interested in digging deeper into how to build a minimum viable product – be sure to read up about [LEAN startup methodology](http://theleanstartup.com/principles).
+Keep it simple, stupid. You and your team only have 54 hours to build and prove a business model - so don’t get too carried away with all of your great ideas. Pick the smallest product that you can create and flesh out that idea. The judges would rather see a tiny well-made product, than a sloppy gigantic mess. If you are interested in digging deeper into how to build a minimum viable product - be sure to read up about [LEAN startup methodology](http://theleanstartup.com/principles).
 
 ## **4) Trust Your Team**
 
@@ -41,7 +46,7 @@ You should find a team that complements your strengths and your weaknesses. If y
 
 ## **5) You Do Not Have To Be Technical**
 
-On average, half of Startup Weekend’s attendees have technical or design backgrounds, the other half have business backgrounds. And we even noticed that graphic designers were the most valuable players this weekend since there were more teams than there were designers. **If you are a graphic designer – you are in demand! **Today, to succeed as a Startup it is essential that you look professional and polished. I even believe this is true not just for tech startups, but for all businesses.
+On average, half of Startup Weekend’s attendees have technical or design backgrounds, the other half have business backgrounds. And we even noticed that graphic designers were the most valuable players this weekend since there were more teams than there were designers. **If you are a graphic designer - you are in demand!** Today, to succeed as a Startup it is essential that you look professional and polished. I even believe this is true not just for tech startups, but for all businesses.
 
 ## **6) Startup Weekend Is A Ton Of Work**
 
@@ -49,9 +54,9 @@ Okay, Startup Weekend isn’t scary, but it is a ton of work. We worked the whol
 
 You know, even though we didn’t win this year, I learned so much from my team, the mentors, the judges, and the other team, I feel like a much stronger and more confident web developer. I am so thankful I had the opportunity to participate this weekend.
 
-## **7) Fuck Process – Get Shit Done**
+## **7) Fuck Process - Get Shit Done**
 
-We had some issues at the beginning of the weekend with defining our product, our roles, and assigning tasks. It caused some tensions in the group, but by the first morning, we were all busy building and the team pulled together in such a great way. Having standup meetings every couple of hours to discuss our current standing, roadblock, to-do items as a team worked really well for us. We also used a [Trello](https://trello.com/) board to track tasks, and share media. But really, at the end of the day – you just need to get shit done.
+We had some issues at the beginning of the weekend with defining our product, our roles, and assigning tasks. It caused some tensions in the group, but by the first morning, we were all busy building and the team pulled together in such a great way. Having standup meetings every couple of hours to discuss our current standing, roadblock, to-do items as a team worked really well for us. We also used a [Trello](https://trello.com/) board to track tasks, and share media. But really, at the end of the day - you just need to get shit done.
 
 ## **8) Get Some Sleep**
 
@@ -65,4 +70,4 @@ This one is actually pretty important. You are going to hear a lot of pitches wh
 
 You are rubbing elbows with the future leaders of the world, be sure you get to know them now. You never know how it might help you out in the future.
 
-So that’s what I learned this year. _Do you have anything else you would like to add to my list? Leave your lessons in the comments below._
+So that’s what I learned this year. _I'd love to hear about your Startup Weekend experiences._

@@ -5,6 +5,9 @@ slug: 'the-art-of-computer-science'
 description: 'First, thank you so much for coming to my keynote, The Art of Computer Science. Here you will find all the resources discussed during the talk. About Do you feel like you have struggled to find your...'
 categories: ['Career']
 heroImage: '/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp'
+heroAlt: 'The Art of Computer Science talk'
+contentNotice: false
+tldr: 'I switched my major three times, hated my first dev job, and moved to Hawaii to quit coding. Then I found my way back through art and stupid side projects. This talk is about finding your own joy in tech.'
 ---
 
 First, thank you so much for coming to my keynote, The Art of Computer Science. Here you will find all the resources discussed during the talk.
@@ -15,11 +18,11 @@ Do you feel like you have struggled to find your place in the tech industry? Do 
 
 ## Video
 
-[https://www.youtube.com/embed/GiNa2jen-lg?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/GiNa2jen-lg?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+[Watch the talk on YouTube](https://www.youtube.com/watch?v=GiNa2jen-lg)
 
 ## Slides
 
-[//speakerdeck.com/player/3ce3207d6ecd44d9bc2d629ca762401b](//speakerdeck.com/player/3ce3207d6ecd44d9bc2d629ca762401b)
+[View slides on SpeakerDeck](https://speakerdeck.com/joekarlsson/the-art-of-computer-science)
 
 ## Talk Outline
 
@@ -43,7 +46,7 @@ Do you feel like you have struggled to find your place in the tech industry? Do 
   - Started school in 2008 at the start of one of our MANY depressions.
   - I was scared of making money when I graduated from college, so I switched my major to Computer Science.
     - Switch majors three times – Art History, Physics, then Computer Science
-    - Definitely wasn't my passion
+    - It wasn't my passion
   - Fear – was my motivator, not passion (and that's okay!)
   - I graduated, but wasn't special
 - Early Career

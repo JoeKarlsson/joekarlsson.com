@@ -2,12 +2,14 @@
 title: 'Using Bloom filter indexes for real-time text search in ClickHouse'
 date: 2024-03-30
 slug: 'using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse'
-description: 'In the vast universe of data storage and manipulation, the quest for efficient text search methods constantly challenges even the most experienced data engineers. Text-based data presents a very...'
+description: 'Efficient text search is one of the hardest problems in data engineering. Text-based data presents a unique set of challenges, especially when you need results in real time...'
 categories: ['Databases']
 heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/6491f38b8b96dc45ff73fee5_Bloom-filters-Blog-5.webp'
+heroAlt: 'Using bloom filter indexes for real-time text search in ClickHouse'
+tldr: 'Bloom filter indexes in ClickHouse can speed up text search by 25-90x and reduce scan size by 250-750x on large log datasets. I walk through how they work, how to configure n-gram Bloom filters, and share real benchmark results from a customer use case.'
 ---
 
-In the vast universe of data storage and manipulation, the quest for efficient text search methods constantly challenges even the most experienced data engineers. Text-based data presents a very unique set of problems, especially when you need to check if the text is contained within some text (and you need to do this in real-time!). The contents of this blog post describe an exploration our team did that was born out of a challenging use case presented by one of our customers. They had billions of rows of log-based text data and wanted to know how they might scour through this data without having to do a full scan every time.
+Efficient text search is one of the hardest problems in data engineering. Text-based data presents a unique set of problems, especially when you need to check if the text is contained within some text (and you need to do this in real-time!). The contents of this blog post describe an exploration our team did that was born out of a challenging use case presented by one of our customers. They had billions of rows of log-based text data and wanted to know how they might scour through this data without having to do a full scan every time.
 
 [Tinybird](https://www.tinybird.co) is built on ClickHouse and helps data teams build scalable real-time data products by enabling them to unify all their data, develop real-time transformations with SQL, and surface data products to their entire organization through auto-generated high-concurrency, low-latency APIs. We have a number of in-house experts in ClickHouse and are often [frequent contributors to open-source ClickHouse](https://www.tinybird.co/blog-posts/adding-join-support-for-parallel-replicas-on-clickhouse) as well. As such, we often help customers like this improve performance and lower their costs through ClickHouse query performance.
 
@@ -47,7 +49,7 @@ The _probabilistic_ part means that if an element is in the set, the response is
 
 Bloom filters work by utilizing a fixed-size bit array and multiple hash functions. When an element is inserted into the filter, the hash functions generate a set of positions in the array, and those positions are set to 1. To check if an element is in the filter, the hash functions are applied to the element, and if any of the corresponding positions in the array are not set to 1, then the element is definitely not in the filter. However, if all positions are set to 1, it is possible that the element is in the filter (although there is a chance of a false positive).
 
-Let’s explore how this works with a concrete example. Imagine we created a Bloom filter of 3 bits and 2 hash functions and inserted the strings “Hello” and “Bloom” into the filter. If the hash functions match an incoming value with an index in the bit array, the Bloom filter will make sure the bit at that position in the array is 1. Take a look at this gif:
+Here’s how this works with a concrete example. Imagine we created a Bloom filter of 3 bits and 2 hash functions and inserted the strings “Hello” and “Bloom” into the filter. If the hash functions match an incoming value with an index in the bit array, the Bloom filter will make sure the bit at that position in the array is 1. Take a look at this gif:
 
 ![Animated diagram of Bloom filter hashing Hello into a bit array](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-7.gif)
 
@@ -162,7 +164,7 @@ In this case, we did some of the work for you and ran a performance test to dete
 
 And now what you’ve been waiting for since the first sentence of this post: **_a ClickHouse performance comparison between the default text search and Bloom filters for searching for text values in logs._**
 
-> **Note on Performance Testing: **It’s important to recognize that the performance of databases, including features like Bloom filters, is highly dependent on the specific use case. The results we’ve shared here reflect our findings in the context of a log search use case with ClickHouse. However, performance can vary greatly based on a multitude of factors, including the nature of your data, how you tune your system, and your specific schema, among others. Therefore, we strongly encourage you to conduct your own performance tests, tailored to your specific circumstances and requirements. We’re always eager to learn from diverse use cases, so please feel free to share your findings with us. Remember, the goal is to optimize for your unique needs and workloads.
+> **Note on Performance Testing:**It’s important to recognize that the performance of databases, including features like Bloom filters, is highly dependent on the specific use case. The results we’ve shared here reflect our findings in the context of a log search use case with ClickHouse. However, performance can vary greatly based on a multitude of factors, including the nature of your data, how you tune your system, and your specific schema, among others. Therefore, we strongly encourage you to conduct your own performance tests, tailored to your specific circumstances and requirements. We’re always eager to learn from diverse use cases, so please feel free to share your findings with us. Remember, the goal is to optimize for your unique needs and workloads.
 
 ### Test conditions:
 
@@ -198,7 +200,7 @@ Here you can see the amount of data scanned for each Bloom filter configuration,
 
 ![Bloom filter query time and scan size benchmark results](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-18.webp)
 
-Various Bloom filter index configurations in ClickHouse can reduce text search scane size by a factor of ~250-750x.
+Various Bloom filter index configurations in ClickHouse can reduce text search scan size by a factor of ~250-750x.
 
 #### Combined results: Query time and scan size
 
@@ -286,21 +288,21 @@ Our tests on a sizable log data set revealed that Bloom filters significantly bo
 
 ## Related blog posts and resources:
 
-- [https://systemdesign.one/bloom-filters-explained/](https://systemdesign.one/bloom-filters-explained/)
+- [Bloom Filters Explained (System Design One)](https://systemdesign.one/bloom-filters-explained/)
 
-- [https://altinity.com/blog/skipping-indices-part-2-bloom-filters](https://altinity.com/blog/skipping-indices-part-2-bloom-filters)
+- [Skipping Indices Part 2: Bloom Filters (Altinity)](https://altinity.com/blog/skipping-indices-part-2-bloom-filters)
 
-- [https://clickhouse.com/docs/en/optimize/skipping-indexes](https://clickhouse.com/docs/en/optimize/skipping-indexes)
+- [ClickHouse Docs: Data Skipping Indexes](https://clickhouse.com/docs/en/optimize/skipping-indexes)
 
-- [https://chistadata.com/bloom-filters-with-clickhouse-use-cases/](https://chistadata.com/bloom-filters-with-clickhouse-use-cases/)
+- [Bloom Filters with ClickHouse Use Cases (ChistaDATA)](https://chistadata.com/bloom-filters-with-clickhouse-use-cases/)
 
-- [https://www.instana.com/blog/improve-query-performance-with-clickhouse-data-skipping-index/](https://www.instana.com/blog/improve-query-performance-with-clickhouse-data-skipping-index/)
+- [Improve Query Performance with ClickHouse Data Skipping Index (Instana)](https://www.instana.com/blog/improve-query-performance-with-clickhouse-data-skipping-index/)
 
 ## FAQ about Bloom filters in ClickHouse
 
 ### What are ClickHouse’s Data Skipping Indexes, and how do they improve text search?
 
-ClickHouse’s Data Skipping Indexes allow for a more efficient text search process. They contain information about what’s within a specific granule of the table, allowing the system to skip unnecessary data and directly locate the relevant information.x
+ClickHouse’s Data Skipping Indexes allow for a more efficient text search process. They contain information about what’s within a specific granule of the table, allowing the system to skip unnecessary data and directly locate the relevant information.
 
 ### How does a Bloom filter enhance the efficiency of text searches in ClickHouse?
 

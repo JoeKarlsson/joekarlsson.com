@@ -6,11 +6,14 @@ description: 'Are you looking to turn your home into a smart home? With the help
 categories: ['Smart Home']
 tags: ['Home Assistant', 'Smart Home']
 heroImage: '/images/blog/how-to-get-started-with-home-assistant-in-2023/How-to-get-started-with-Home-Assistant.webp'
+heroAlt: 'Getting started with Home Assistant for smart home automation'
+contentNotice: false
+tldr: 'I started with Alexa and Google Home but eventually landed on Home Assistant for the customization and local control. Here is how I got started and a bunch of automation ideas to try, from simple motion-triggered lights to full security setups.'
 ---
 
 Are you looking to turn your home into a smart home? With the help of [Home Assistant](https://www.home-assistant.io/), you can easily automate tasks and make your home more efficient. In this blog post, I’ll share my experience of how to get started with Home Assistant in 2023.
 
-Home Assistant is a popular choice for home automation because of its versatility and flexibility. Here are a few reasons why we think Home Assistant stands out from other alternatives:
+Home Assistant is a popular choice for home automation because of its versatility and flexibility. Here are a few reasons why I think Home Assistant stands out from other alternatives:
 
 - **Open-source:** Home Assistant is open-source software, which means that anyone can contribute to its development and improvement. This results in a constantly evolving platform that benefits from the collective knowledge and experience of the community.
 
@@ -18,7 +21,7 @@ Home Assistant is a popular choice for home automation because of its versatilit
 
 - **Local control:** Unlike many other home automation platforms, Home Assistant allows for local control of your devices. This means that you can control your devices even if you don’t have an internet connection or if the cloud-based servers are down. If privacy is a big deal to you (it is for me), I eventually [replaced my Alexa setup entirely with Home Assistant voice control](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
 
-As for getting into the smart home community, I’ve had a blast! There is a huge and passionate community of smart home enthusiasts out there, and it’s been great to connect with like-minded individuals who share our love of technology and automation. I’ve learned a lot from other members of the community, and we’ve also been able to contribute our own ideas and experiences. Overall, we’ve found the smart home community to be incredibly welcoming, helpful, and fun to be a part of.
+As for getting into the smart home community, I’ve had a blast! There is a huge and passionate community of smart home enthusiasts out there, and it’s been great to connect with like-minded individuals who share our love of technology and automation. I’ve learned a lot from other members of the community, and we’ve also been able to contribute our own ideas and experiences. Overall, I’ve found the smart home community to be welcoming, helpful, and fun to be a part of.
 
 ## What is Home Assistant?
 
@@ -26,7 +29,7 @@ Home Assistant is an open-source home automation platform that allows you to con
 
 ## How I got started
 
-When I first started exploring the world of home automation, I decided to jump in with Amazon Alexa. It was a great starting point because it was easy to set up and use, and there were a ton of compatible devices available. I was able to control my lights, thermostat, and even my TV with just my voice, which was really cool.
+When I first started exploring the world of home automation, I decided to jump in with Amazon Alexa. It was a great starting point because it was easy to set up and use, and there were a ton of compatible devices available. I was able to control my lights, thermostat, and even my TV with just my voice, which was cool.
 
 However, I quickly ran into limitations on how deeply I could customize my home automations. I found that I was limited to the pre-built routines and commands provided by Amazon, which didn’t always fit my needs. When approaching my house, I wanted more control and flexibility over my home automation system, which is why I started looking into other options.
 
@@ -34,11 +37,11 @@ I tried out Homekit and Google Home, both of which worked great for controlling 
 
 With Home Assistant, I was able to create custom automations that fit my specific needs and preferences. I could integrate with a wide range of devices, and I could even develop my own add-ons and plugins. The flexibility and versatility of Home Assistant allowed me to push my home automation much further.
 
-So if you’re just getting started with home automation, I would definitely recommend starting with a platform like Amazon Alexa, Homekit, or Google Home. They are all great options that are approachable and easy to use. But if you’re ready to go further with your home automation, I highly recommend checking out Home Assistant. It may take a bit more effort to set up, but the payoff in terms of customization and control is well worth it.
+So if you’re just getting started with home automation, I'd recommend starting with a platform like Amazon Alexa, Homekit, or Google Home. They are all great options that are approachable and easy to use. But if you’re ready to go further with your home automation, I highly recommend checking out Home Assistant. It may take a bit more effort to set up, but the payoff in terms of customization and control is well worth it.
 
 ## Getting Started with Simple Automations
 
-When I first started with Home Assistant, we focused on automating simple tasks like turning on/off lights and adjusting the thermostat. Here are a few specific automation ideas that we found useful:
+When I first started with Home Assistant, I focused on automating simple tasks like turning on/off lights and adjusting the thermostat. Here are a few specific automation ideas that we found useful:
 
 - Turn on the lights when you enter a room: You can set up a motion sensor to trigger the lights when you enter a room. This is a great way to save energy, and it’s especially useful if you have kids who forget to turn off the lights.
 
@@ -48,7 +51,7 @@ When I first started with Home Assistant, we focused on automating simple tasks 
 
 ## Progressing to More Advanced Integrations
 
-Once we got comfortable with the basics, we started to explore more advanced integrations. Here are a few ideas to help you get started:
+Once I got comfortable with the basics, we started to explore more advanced integrations. Here are a few ideas to help you get started:
 
 - Control your TV with voice commands: You can set up your Home Assistant to control your TV with voice commands using Google Assistant or Amazon Alexa. This allows you to turn on/off the TV, change channels, and even adjust the volume without having to use a remote control.
 

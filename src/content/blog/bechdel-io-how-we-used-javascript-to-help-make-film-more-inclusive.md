@@ -1,13 +1,15 @@
 ---
-title: 'Bechdel.io – How We Used JavaScript To  Help Make Film More Inclusive'
+title: 'Bechdel.io - How We Used JavaScript To Help Make Film More Inclusive'
 date: 2020-05-16
 slug: 'bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive'
-description: 'Thanks for coming to my talk, Bechdel.io – How We Used JavaScript To Help Make Film More Inclusive. Here you will find all the resources discussed during the talk. About What do The Social Network,...'
+description: 'Thanks for coming to my talk, Bechdel.io - How We Used JavaScript To Help Make Film More Inclusive. Here you will find all the resources discussed during the talk. About What do The Social Network,...'
 categories: ['Film']
 heroImage: '/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/Bechdel.io-Blog-Banner.webp'
+heroAlt: 'Bechdel.io blog banner showing the project logo'
+tldr: 'My sister and I built bechdel.io, a JavaScript tool that automatically parses film scripts to check if they pass the Bechdel Test. I cover how it works and what we learned from the data.'
 ---
 
-Thanks for coming to my talk, Bechdel.io – How We Used JavaScript To Help Make Film More Inclusive. Here you will find all the resources discussed during the talk.
+Thanks for coming to my talk, Bechdel.io - How We Used JavaScript To Help Make Film More Inclusive. Here you will find all the resources discussed during the talk.
 
 ## About
 
@@ -21,11 +23,11 @@ In this talk, we will discuss how a brother and sister team created, bechdel.io,
 
 ## Source Code
 
-[https://github.com/JoeKarlsson/bechdel-test](https://github.com/JoeKarlsson/bechdel-test)
+[JoeKarlsson/bechdel-test on GitHub](https://github.com/JoeKarlsson/bechdel-test)
 
 ## Slides
 
-[//speakerdeck.com/player/a59180d2f08a476b9df082c02ac243e9](//speakerdeck.com/player/a59180d2f08a476b9df082c02ac243e9)
+[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson/bechdel-dot-io-how-we-used-javascript-to-help-make-film-more-inclusive)
 
 ## Notes
 
@@ -37,13 +39,13 @@ We view this tool as a form of feminist activism. As such, the software is open-
 
 Outline:
 
-- Introduction – What is the Bechdel test?
+- Introduction - What is the Bechdel test?
   - The film must pass these three Rules:
     - The film must have two or more named female characters
     - Who have a conversation with each other
     - About something that is NOT a man or men
   - Origin of the Bechdel Test
-- An origin story – how did this project get started and created?
+- An origin story - how did this project get started and created?
   - Combining the talents and interests of an American Studies scholar and an independent software engineer
 - How the heck does it work?
   - Step through how the algorithm works (w/o any code)
@@ -53,13 +55,13 @@ Outline:
   - Our app does not [currently] work with transgender characters
   - Lots of cool opportunities in the DIGITAL HUMANITIES for engineers
 - Additional applications:
-  - Bechdel test for software engineering – A function written by a female dev must call a function written by another female dev.
+  - Bechdel test for software engineering - A function written by a female dev must call a function written by another female dev.
 - Questions/Recap
 - End!
 
 ## Video
 
-[https://www.youtube.com/embed/4W5fJTyfj1Q?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/4W5fJTyfj1Q?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+[Watch the talk on YouTube](https://www.youtube.com/watch?v=4W5fJTyfj1Q)
 
 ![Comic strip explaining the Bechdel Test rule: a movie must have two women who talk to each other about something other than a man](/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/download-1-765x1024.webp)
 
@@ -67,10 +69,12 @@ Outline:
 
 ## Related Links
 
+Note: The bechdel.io site is no longer live. The links below point to archived versions.
+
 - Bechdel.io: [http://www.bechdel.io](https://web.archive.org/web/20211222040320/http://www.bechdel.io/)
 - Case Study: [http://www.bechdel.io/case-study](https://web.archive.org/web/20211222040320/http://www.bechdel.io/)
 - Source Code: [https://github.com/JoeKarlsson/bechdel-test](https://github.com/JoeKarlsson/bechdel-test)
 - Bechdel Test Movie List: [https://bechdeltest.com](https://web.archive.org/web/20240527030511/https://bechdeltest.com/)
-- Original Bechdel Test Comic: [http://dykestowatchoutfor.com/the-rule](http://dykestowatchoutfor.com/the-rule)
-- If you Like Return of the Jedi, but Hate Ewoks, then you Understand Feminist Criticism [https://www.avclub.com/if-you-like-return-of-the-jedi-but-hate-the-ewoks-you-1798284198](https://www.avclub.com/if-you-like-return-of-the-jedi-but-hate-the-ewoks-you-1798284198)
-- [MongoDB University](http://university.mongodb.com)
+- Original Bechdel Test Comic: [https://dykestowatchoutfor.com/the-rule](https://dykestowatchoutfor.com/the-rule)
+- [If you Like Return of the Jedi, but Hate Ewoks, then you Understand Feminist Criticism (AV Club)](https://www.avclub.com/if-you-like-return-of-the-jedi-but-hate-the-ewoks-you-1798284198)
+- [MongoDB University](https://learn.mongodb.com)

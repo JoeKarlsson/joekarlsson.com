@@ -5,6 +5,9 @@ slug: 'how-to-build-a-spotify-player-with-react-in-15-minutes'
 description: 'Have you ever wanted to build a Spotify player for your app or website? Adding personalized music to any application is super easy with the Spotify Developer API. Personally, I have been playing...'
 categories: ['Dev Tools']
 heroImage: '/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/1_KGOTMV8KD120TApnijDauQ.webp'
+heroAlt: 'How to build a Spotify player with React in 15 minutes'
+contentNotice: 'The Implicit Grant Flow used in this tutorial was deprecated by Spotify in November 2025. Use Authorization Code Flow with PKCE instead.'
+tldr: 'Step-by-step tutorial for building a "now playing" Spotify web player in React using the Spotify API and implicit auth flow.'
 ---
 
 Have you ever wanted to build a Spotify player for your app or website? Adding personalized music to any application is super easy with the Spotify Developer API. Personally, I have been playing around with the Spotify API with an IoT project I have been building in my free time.
@@ -15,16 +18,17 @@ The Spotify API is easy to use and can be added to any application.
 
 In this post, I am going to walk through how to access the Spotify Developer API in the browser using React. The goal is to be a starting point for front-end devs who want to get set up with Spotify API as quickly as possible. Together, we will be creating a Spotify Web player that displays information about your currently played music from Spotify. We will also demonstrate how to:
 
-- Register an application with Spotify- Authenticate a user and get authorization to access user data- Retrieve the data from a Web API endpoint
+- Register an application with Spotify
+- Authenticate a user and get authorization to access user data
+- Retrieve the data from a Web API endpoint
 
 You can find all of the source code here:
 
-[**JoeKarlsson/react-spotify-player**
-*Realtime Spotify Player built with React. Contribute to JoeKarlsson/react-spotify-player development by creating an…*github.com](https://github.com/JoeKarlsson/react-spotify-player)
+[JoeKarlsson/react-spotify-player on GitHub](https://github.com/JoeKarlsson/react-spotify-player)
 
 ![Our Spotify Web Player in Action](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/spotify-web-player-demo.gif)_Our Spotify Web Player in Action_
 
-Note: This article will not be a deep dive into React, and it will require knowledge of the basics of JavaScript and React. If you want to learn more about making your React apps faster once you have them working, check out my post on [building high performance React applications](/blog/building-high-performance-react-applications/).
+Note: This article won't go deep into React, and it will require knowledge of the basics of JavaScript and React. If you want to learn more about making your React apps faster once you have them working, check out my post on [building high performance React applications](/blog/building-high-performance-react-applications/).
 
 ![Okay, now let’s jump in!](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/lets-jump-in.gif)_Okay, now let’s jump in!_
 
@@ -64,7 +68,7 @@ Click “Save” and be sure to write down the Client ID from your application. 
 
 We are going to get started quickly by running [Create React App](https://github.com/facebook/create-react-app). You can do this by running the following commands in your terminal.
 
-```
+```bash
 npx create-react-app react-spotify-player
 cd react-spotify-player
 npm start
@@ -84,13 +88,14 @@ We need to write some code that performs a couple of actions:
 
 2. The user is asked to authorize access within the scopes. The Spotify Accounts service presents details of the [scopes](https://developer.spotify.com/documentation/general/guides/authorization-guide/#list-of-scopes) for which access is being sought.
 
-- If the user is not logged in, they are prompted to do so using their Spotify username and password.- When the user is logged in, they are asked to authorize access to the data sets defined in the scopes.
+- If the user is not logged in, they are prompted to do so using their Spotify username and password.
+- When the user is logged in, they are asked to authorize access to the data sets defined in the scopes.
 
 3. The user is redirected back to your specified URI. After the user grants (or denies) access, the Spotify Accounts service redirects the user to the `redirect_uri`. In this example, the redirect address is: `[https://example.com/callback](https://example.com/callback)`
 
 In App.js add the following code:
 
-```
+```jsx
 import React, { Component } from "react";
 import hash from "./hash";
 import logo from "./logo.svg";
@@ -161,7 +166,7 @@ This code snippet creates a “Login With Spotify” button that redirects the u
 
 Now, let’s add a function that will call the Spotify API and return the data. You will need to add the additional info.
 
-```
+```jsx
 import * as $ from "jquery";
 import Player from "./Player";
 
@@ -210,7 +215,7 @@ class App extends Component {
 
 Then, of course, we need to make the actual player. We will first need to create a new Player component called `Player.js` .
 
-```
+```jsx
 import React from "react";
 import "./Player.css";
 
@@ -252,55 +257,55 @@ export default Player;
 
 Here’s the CSS for `Player.css` .
 
-```
+```css
 /** Now Playing **/
 .now-playing__name {
-  font-size: 1.5em;
-  margin-bottom: 0.2em;
+	font-size: 1.5em;
+	margin-bottom: 0.2em;
 }
 
 .now-playing__artist {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 .now-playing__status {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 .now-playing__img {
-  float: left;
-  margin-right: 10px;
-  text-align: right;
-  width: 45%;
+	float: left;
+	margin-right: 10px;
+	text-align: right;
+	width: 45%;
 }
 
 .now-playing__img img {
-  max-width: 80vmin;
-  width: 100%;
+	max-width: 80vmin;
+	width: 100%;
 }
 
 .now-playing__side {
-  margin-left: 5%;
-  width: 45%;
+	margin-left: 5%;
+	width: 45%;
 }
 
 /** Progress **/
 .progress {
-  border: 1px solid #eee;
-  height: 6px;
-  border-radius: 3px;
-  overflow: hidden;
+	border: 1px solid #eee;
+	height: 6px;
+	border-radius: 3px;
+	overflow: hidden;
 }
 
 .progress__bar {
-  background-color: #eee;
-  height: 4px;
+	background-color: #eee;
+	height: 4px;
 }
 ```
 
 Then in your `App.js` you will need to pass in the data from Spotify to your Player component.
 
-```
+```jsx
 class App extends Component {
 
   ...
@@ -334,4 +339,4 @@ And that’s it!
 
 If you have any questions or comments, feel free to reach out or [open an issue in the repo](https://github.com/JoeKarlsson/react-spotify-player/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
 
-> You can find the source code for this tutorial here: [https://github.com/JoeKarlsson/react-spotify-player](https://github.com/JoeKarlsson/react-spotify-player)
+> You can find the source code for this tutorial here: [JoeKarlsson/react-spotify-player on GitHub](https://github.com/JoeKarlsson/react-spotify-player)

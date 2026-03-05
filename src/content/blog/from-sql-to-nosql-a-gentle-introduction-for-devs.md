@@ -5,6 +5,9 @@ slug: 'from-sql-to-nosql-a-gentle-introduction-for-devs'
 description: 'Thanks for coming to my talk, From SQL to NoSQL: A Gentle Introduction For Devs. Here you will find all the resources discussed during the talk. About “I have heard about NoSQL databases, but don’t...'
 categories: ['Databases']
 heroImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/From-SQL-to-NoSQL-Blog-Cover.webp'
+heroAlt: 'From SQL to NoSQL - a gentle introduction for developers'
+contentNotice: false
+tldr: 'I map SQL concepts to MongoDB equivalents, cover four big advantages of document databases, and explain the three mindset shifts you need to make when moving from SQL to NoSQL.'
 ---
 
 Thanks for coming to my talk, From SQL to NoSQL: A Gentle Introduction For Devs. Here you will find all the resources discussed during the talk.
@@ -15,11 +18,11 @@ Thanks for coming to my talk, From SQL to NoSQL: A Gentle Introduction For Devs.
 
 ## Slides
 
-[//speakerdeck.com/player/f401044ec0ac47cf91df5155965ba892](//speakerdeck.com/player/f401044ec0ac47cf91df5155965ba892)
+[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson1/)
 
 ## Video
 
-[https://www.youtube.com/embed/24JYU-l5uQc?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/24JYU-l5uQc?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+[Watch the talk on YouTube](https://www.youtube.com/watch?v=24JYU-l5uQc)
 
 ## Talk Outline:
 
@@ -48,16 +51,16 @@ Thanks for coming to my talk, From SQL to NoSQL: A Gentle Introduction For Devs.
   - Stop using transactions regularly
 - Recap/Overview/Questions
 
-You can view a complete list of my past and upcoming talks with video on my website [joekarlsson.com/speaking](https://www.joekarlsson.com/speaking/)
+You can view a complete list of my past and upcoming talks with video on my website [joekarlsson.com/talk-archive](/talk-archive/)
 
 ## Related Links
 
 - [MongoDB University](https://joekarlsson.dev/MongoDBUniversity)
-- MongoDB Developer Hub
+- MongoDB Developer Hub (now discontinued)
 - [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity)
 - [Advanced Schema Design Patterns (webinar)](https://www.mongodb.com/presentations/advanced-schema-design-patterns)
 - [Building with Patterns: A Summary (blog series)](https://www.mongodb.com/blog/post/building-with-patterns-a-summary)
 - [The MongoDB Docs](https://docs.mongodb.com/)
 - [JSON Schema Validation – Locking down your model the smart way](https://www.mongodb.com/blog/post/json-schema-validation--locking-down-your-model-the-smart-way)
 - [JSON Schema Validation – Checking Your Arrays](https://www.mongodb.com/blog/post/json-schema-validation--checking-your-arrays)
-- [M121: The MongoDB Aggregation Framework](https://university.mongodb.com/courses/M121/about)
+- [M121: The MongoDB Aggregation Framework](https://learn.mongodb.com)

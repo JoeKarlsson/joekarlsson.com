@@ -5,6 +5,9 @@ slug: 'self-hosted-music-still-sucks-in-2025'
 description: 'TL;DR: The *arr ecosystem perfected video automation but music remains stuck with album-centric workflows that don’t match how we actually consume music. Current tools like Lidarr force complete...'
 categories: ['Smart Home', 'Homelab']
 heroImage: '/images/blog/self-hosted-music-still-sucks-in-2025/image-1.webp'
+heroAlt: 'Self-hosted music still sucks in 2025'
+contentNotice: false
+tldr: 'The *arr ecosystem nailed video automation, but self-hosted music is still stuck in album-centric workflows that ignore how we actually listen to music. I lay out why the problem is so hard and what a track-first tool like "Songarr" would need to look like.'
 ---
 
 > TL;DR: The \*arr ecosystem perfected video automation but music remains stuck with album-centric workflows that don’t match how we actually consume music. Current tools like Lidarr force complete album downloads when users want individual tracks, creating a fundamental UX mismatch. We need ‘Songarr’ a track-first automation system that bridges streaming discovery with self-hosted ownership.
@@ -51,7 +54,7 @@ Compare this to the current reality: I hear a song, I have to remember it, go ho
 
 It’s 2025. This workflow is absolutely barbaric for track-level music discovery and curation.
 
-**The missing piece is seamless request flow**. Overseerr nailed this for video content, beautiful search interface, one-click requests, automatic processing, notifications when ready. Music needs exactly the same pattern, but every current solution treats requesting music like you’re filing paperwork with the Department of Motor Vehicles.
+**The missing piece is a smooth request flow**. Overseerr nailed this for video content, beautiful search interface, one-click requests, automatic processing, notifications when ready. Music needs exactly the same pattern, but every current solution treats requesting music like you’re filing paperwork with the Department of Motor Vehicles.
 
 I don’t care if my server downloads entire albums behind the scenes. Storage is cheap, bandwidth is plentiful, and disk space optimization is a solved problem. What I care about is **user experience that matches how humans actually discover and consume music in 2025**.
 
@@ -119,7 +122,7 @@ Building the dream scenario faces legitimate technical barriers that go beyond s
 
 Despite the challenges, several architectural approaches could theoretically solve this puzzle using established tools and patterns.
 
-\*_Microservice Extension of arr Architecture_: The most promising path involves extending the proven \*arr pattern with a new service focused on track-level operations. Let’s call it “Songarr” for discussion purposes.
+**Microservice Extension of arr Architecture**: The most promising path involves extending the proven \*arr pattern with a new service focused on track-level operations. Let’s call it “Songarr” for discussion purposes.
 
 The technical architecture would mirror existing \*arr services:
 

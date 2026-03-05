@@ -5,13 +5,15 @@ slug: 'how-to-build-applications-over-streaming-data-the-right-way'
 description: 'In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination,...'
 categories: ['Databases']
 heroImage: '/images/blog/how-to-build-applications-over-streaming-data-the-right-way/462e6fa8-traffic1-1024x683-1.webp'
+heroAlt: 'Building applications over streaming data architecture diagram'
+tldr: 'Building apps on streaming data the traditional way (Kafka + Flink + ClickHouse + custom backend) is painful to set up and maintain. A real-time data platform can collapse that stack into something way simpler, and I walk through a tutorial using Kafka and Tinybird.'
 ---
 
-In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination. Some are on a leisurely ride to a data lake for historical analysis, while others are zipping toward [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data) engines, where they will be used to power automation, user-facing features and real-time operational intelligence. This blog post is your roadmap to learn how to how to build applications over Streaming Data the right way.
+In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination. Some are on a leisurely ride to a data lake for historical analysis, while others are zipping toward [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data) engines, where they will be used to power automation, user-facing features and real-time operational intelligence. This blog post is your roadmap to learn how to build applications over streaming data the right way.
 
 ## What Is Streaming Data?
 
-Streaming data opens up a whole new world of possibilities for application development. Consider a traffic management system. With batch processing, it might be able to tell you there was a traffic jam two hours ago. In contrast, a streaming data approach could alert drivers about congestion ahead in real time, allowing them to make informed decisions and take alternative routes immediately. The value of real-time insights like these cannot be overstated in today’s fast-paced, data-driven world.
+Streaming data opens up a whole new world of possibilities for application development. Consider a traffic management system. With batch processing, it might be able to tell you there was a traffic jam two hours ago. In contrast, a streaming data approach could alert drivers about congestion ahead in real time, allowing them to make informed decisions and take alternative routes immediately. Real-time insights like these are what make streaming data so valuable for application development.
 
 [Apache Kafka](https://kafka.apache.org/) is one popular tool used to handle massive amounts of streaming data, making it a key player in [streaming data architecture](https://www.tinybird.co/blog-posts/real-time-streaming-data-architectures-that-scale?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data). It acts like a highway for data, enabling it to move smoothly and efficiently from one application to another.
 
@@ -19,7 +21,7 @@ The power of streaming data lies in its immediacy. In a world where real-time in
 
 ## Key Use Cases for Streaming Data Applications
 
-The practical uses for streaming data are numerous and span many industries. Let’s take a closer look at a few along with some practical codebases that demonstrate how these work in the real world.
+The practical uses for streaming data are numerous and span many industries. Here are a few examples, along with practical codebases that demonstrate how these work in the real world.
 
 - [**Web analytics**](https://www.tinybird.co/starter-kits/web-analytics?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data)**:** Understanding user behavior in real time can be a huge advantage for businesses. For example, real-time analytics can help identify trending products, understand customer navigation paths and even detect problematic user experiences, enabling businesses to react and adapt swiftly.
 
@@ -55,15 +57,15 @@ While this architecture serves its purpose, it presents several challenges:
 
 - **Complex setup and management:** Deploying this architecture involves setting up numerous components, each requiring unique expertise. This necessitates substantial effort and a broad knowledge base. Post-deployment, the complexity persists in the form of management tasks like updates, patches, performance monitoring and user access control. As such, this architecture demands continuous operational effort and a high level of expertise.
 
-- **Scalability issues:** [Scaling](https://roadmap.sh/guides/scaling-databases) the system to accommodate increasing data volumes and throughput needs can be challenging. As the system expands, so does its complexity, potentially leading to performance bottlenecks or resource contention. The need for data consistency across an increasingly large system can further complicate the scaling process. Therefore, growth in data volume and throughput introduces additional complexities.
+- **Scalability issues:** [Scaling](https://roadmap.sh/guides/scaling-databases) the system to accommodate increasing data volumes and throughput needs can be challenging. As the system expands, so does its complexity, potentially leading to performance bottlenecks or resource contention. The need for data consistency across an increasingly large system can further complicate the scaling process. So growth in data volume and throughput introduces additional complexities.
 
-- **Integrating new data streams:** Adding new data sources into the system can present difficulties. Integration of these data streams requires careful schema planning, transformation and possible re-architecture. Each new data source may bring unique requirements or formats, further complicating the integration process. This architecture, therefore, poses challenges to the smooth and efficient integration of new data streams.
+- **Integrating new data streams:** Adding new data sources into the system can present difficulties. Integration of these data streams requires careful schema planning, transformation and possible re-architecture. Each new data source may bring unique requirements or formats, further complicating the integration process. This architecture makes smooth and efficient integration of new data streams harder than it should be.
 
-- **Fault tolerance:** The architecture must be designed to recover quickly from failures while maintaining data integrity. This includes designing redundancies, backups and automatic recovery mechanisms. However, ensuring that these measures work effectively without disrupting regular operations or compromising data integrity can be difficult. Hence, the requirement of fault tolerance in this architecture necessitates careful and often complex design.
+- **Fault tolerance:** The architecture must be designed to recover quickly from failures while maintaining data integrity. This includes designing redundancies, backups and automatic recovery mechanisms. However, ensuring that these measures work effectively without disrupting regular operations or compromising data integrity can be difficult. Building fault tolerance into this architecture requires careful and often complex design.
 
 ## Building Real-Time Applications with a Real-Time Data Platform
 
-Real-time data platforms like Tinybird aim to simplify building applications over streaming data by addressing many of the aforementioned challenges. The result is a simplified streaming data architecture that consolidates many components into a single system:
+Real-time data platforms like Tinybird aim to simplify building applications over streaming data by addressing many of these challenges. The result is a simplified streaming data architecture that consolidates many components into a single system:
 
 ![Simplified streaming architecture using a real-time data platform](/images/blog/how-to-build-applications-over-streaming-data-the-right-way/5a39a252-image2.webp)
 
@@ -92,7 +94,7 @@ The first step in building an application over streaming data is to capture the 
 Using the Tinybird CLI, you can connect to a Kafka topic with a simple command:
 
 ```bash
-bash tb connection create kafka –bootstrap_servers $SERVER_URL –key $ACCESS_KEY –secret $ACCESS_SECRET
+bash tb connection create kafka --bootstrap_servers $SERVER_URL –key $ACCESS_KEY –secret $ACCESS_SECRET
 ```
 
 From there, you can create a [Tinybird Data Source](https://www.tinybird.co/docs/concepts/data-sources.html) with a schema that matches the topic. Once you’ve done this, you’ll have streaming data being written into an optimized columnar data store that’s ready for building metrics.

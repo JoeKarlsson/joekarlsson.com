@@ -5,6 +5,8 @@ slug: 'how-to-query-from-multiple-mongodb-databases'
 description: 'Have you ever needed to make queries across databases, clusters, data centers, or even mix it with data stored in an AWS S3 blob? You probably haven’t had to do all of these at once, but I’m guessing...'
 categories: ['Databases']
 heroImage: '/images/blog/how-to-query-from-multiple-mongodb-databases/twitter-datalake.webp'
+heroAlt: 'MongoDB Atlas Data Lake graphic for querying from multiple databases'
+tldr: 'I walk through setting up MongoDB Atlas Data Lake to run a single aggregation query across two separate databases hosted on different cloud providers. Federated queries make it feel like all your data lives in one place.'
 ---
 
 Have you ever needed to make queries across databases, clusters, data centers, or even mix it with data stored in an AWS S3 blob? You probably haven’t had to do all of these at once, but I’m guessing you’ve needed to do at least one of these at some point in your career. I’ll also bet that you didn’t know that this is possible (and easy) to do with MongoDB federated queries on a MongoDB Atlas Data Lake! These allow you to configure multiple remote MongoDB deployments, and enable federated queries across all the configured deployments.
@@ -67,7 +69,7 @@ Click Add Your Current IP Address. Enter your IP address and an optional descrip
 
 ## Query from Multiple MongoDB Databases
 
-You can run your queries any way you feel comfortable. You can use MongoDB Compass, the MongoDB Shell, connect to an application or anything you see fit. For this demo, I’m going to be running my queries using [MongoDB Visual Studio Code plugin](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) and leveraging its [Playgrounds](https://docs.mongodb.com/mongodb-vscode/playgrounds/) feature. For more information on using this plugin, check out this post on our Developer Hub.
+You can run your queries any way you feel comfortable. You can use MongoDB Compass, the MongoDB Shell, connect to an application or anything you see fit. For this demo, I’m going to be running my queries using [MongoDB Visual Studio Code plugin](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) and using its [Playgrounds](https://docs.mongodb.com/mongodb-vscode/playgrounds/) feature. For more information on using this plugin, check out my post on [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/).
 
 Make sure you are using the connection string for your data lake and not for your individual MongoDB databases. To get the connection string for your new data lake, click the connect button on the MongoDB Atlas Data Lake overview page. Then click on Connect using **MongoDB Compass**. Copy this connection string to your clipboard.
 
@@ -77,7 +79,7 @@ Note: You will need to add the password of the user that you authorized to acces
 
 You’re going to paste this connection string into the MongoDB Visual Studio Code plugin when you add a new connection.
 
-Note: If you need assistance with getting started with the MongoDB Visual Studio Code Plugin, be sure to check out my post, How To Use The MongoDB Visual Studio Code Plugin, and the [official documentation](https://docs.mongodb.com/mongodb-vscode/).
+Note: If you need assistance with getting started with the MongoDB Visual Studio Code Plugin, be sure to check out my post, [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/), and the [official documentation](https://docs.mongodb.com/mongodb-vscode/).
 
 You can run operations using the MongoDB Query Language (MQL) which includes most, but not all, standard server commands. To learn which MQL operations are supported, see the [MQL Support](https://docs.mongodb.com/datalake/supported-unsupported/mql-support/#std-label-data-lake-mql-support) documentation.
 
@@ -85,9 +87,9 @@ The following queries use the paths that you added to your Data Lake during [dep
 
 For this query, I wanted to construct a unique aggregation that could only be used if both sample datasets were combined using federated query and MongoDB Atlas Data Lake. For this example, I am running a query to determine the number of theaters and restaurants in each zip code, by analyzing the `sample_restaurants.restaurants` and the `sample_mflix.theaters` datasets. If you haven’t added these data sources to your data lake, be sure to do that before moving forward with this query.
 
-I want to make it clear that these data sources are still being stored in different MongoDB databases in completely different datacenters, but by leveraging MongoDB Atlas Data Lake, we can query all of our databases at once as if all of our data is in a single collection! The following query is only possible using federated search! How cool is that?
+I want to make it clear that these data sources are still being stored in different MongoDB databases in completely different datacenters, but by using MongoDB Atlas Data Lake, we can query all of our databases at once as if all of our data is in a single collection! The following query is only possible using federated search! How cool is that?
 
-```
+```javascript
 // MongoDB Playground
 
 // Select the database to use. Database0 is the default name for a MongoDB Atlas Data Lake database. If you renamed your database, be sure to put in your data lake database name here.
@@ -95,112 +97,109 @@ use('Database0');
 
 // We are connecting to `Collection0` since this is the default collection that MongoDB Atlas Data Lake calls your collection. If you renamed it, be sure to put in your data lake collection name here.
 db.Collection0.aggregate([
+	// In the first stage of our aggregation pipeline, we extract and normalize the dataset to only extract zip code data from our dataset.
+	{
+		$project: {
+			restaurant_zipcode: '$address.zipcode',
+			theater_zipcode: '$location.address.zipcode',
+			zipcode: {
+				$ifNull: ['$address.zipcode', '$location.address.zipcode'],
+			},
+		},
+	},
 
-  // In the first stage of our aggregation pipeline, we extract and normalize the dataset to only extract zip code data from our dataset.
-  {
-    '$project': {
-      'restaurant_zipcode': '$address.zipcode',
-      'theater_zipcode': '$location.address.zipcode',
-      'zipcode': {
-        '$ifNull': [
-          '$address.zipcode', '$location.address.zipcode'
-        ]
-      }
-    }
-  },
+	// In the second stage of our aggregation, we group the data based on the zip code it resides in. We also push each unique restaurant and theater into an array, so we can get a count of the number of each in the next stage.
+	// We are calculating the `total` number of theaters and restaurants by using the aggregator function on $group. This sums all the documents that share a common zip code.
+	{
+		$group: {
+			_id: '$zipcode',
+			total: {
+				$sum: 1,
+			},
+			theaters: {
+				$push: '$theater_zipcode',
+			},
+			restaurants: {
+				$push: '$restaurant_zipcode',
+			},
+		},
+	},
 
-  // In the second stage of our aggregation, we group the data based on the zip code it resides in. We also push each unique restaurant and theater into an array, so we can get a count of the number of each in the next stage.
-  // We are calculating the `total` number of theaters and restaurants by using the aggregator function on $group. This sums all the documents that share a common zip code.
-  {
-    '$group': {
-      '_id': '$zipcode',
-      'total': {
-        '$sum': 1
-      },
-      'theaters': {
-        '$push': '$theater_zipcode'
-      },
-      'restaurants': {
-        '$push': '$restaurant_zipcode'
-      }
-    }
-  },
+	// In the third stage, we get the size or length of the `theaters` and `restaurants` array from the previous stage. This gives us our totals for each category.
+	{
+		$project: {
+			zipcode: '$_id',
+			total: '$total',
+			total_theaters: {
+				$size: '$theaters',
+			},
+			total_restaurants: {
+				$size: '$restaurants',
+			},
+		},
+	},
 
-  // In the third stage, we get the size or length of the `theaters` and `restaurants` array from the previous stage. This gives us our totals for each category.
-  {
-    '$project': {
-      'zipcode': '$_id',
-      'total': '$total',
-      'total_theaters': {
-        '$size': '$theaters'
-      },
-      'total_restaurants': {
-        '$size': '$restaurants'
-      }
-    }
-  },
-
-  // In our final stage, we sort our data in descending order so that the zip codes with the most number of restaurants and theaters are listed at the top.
-  {
-    '$sort': {
-      'total': -1
-    }
-  }
-])
+	// In our final stage, we sort our data in descending order so that the zip codes with the most number of restaurants and theaters are listed at the top.
+	{
+		$sort: {
+			total: -1,
+		},
+	},
+]);
 ```
 
 This outputs the zip codes with the most theaters and restaurants.
 
-```
+```json
 [
-  {
-    "_id": "10003",
-    "zipcode": "10003",
-    "total": 688,
-    "total_theaters": 2,
-    "total_restaurants": 686
-  },
-  {
-    "_id": "10019",
-    "zipcode": "10019",
-    "total": 676,
-    "total_theaters": 1,
-    "total_restaurants": 675
-  },
-  {
-    "_id": "10036",
-    "zipcode": "10036",
-    "total": 611,
-    "total_theaters": 0,
-    "total_restaurants": 611
-  },
-  {
-    "_id": "10012",
-    "zipcode": "10012",
-    "total": 408,
-    "total_theaters": 1,
-    "total_restaurants": 407
-  },
-  {
-    "_id": "11354",
-    "zipcode": "11354",
-    "total": 379,
-    "total_theaters": 1,
-    "total_restaurants": 378
-  },
-  {
-    "_id": "10017",
-    "zipcode": "10017",
-    "total": 378,
-    "total_theaters": 1,
-    "total_restaurants": 377
-  }
- ]
+	{
+		"_id": "10003",
+		"zipcode": "10003",
+		"total": 688,
+		"total_theaters": 2,
+		"total_restaurants": 686
+	},
+	{
+		"_id": "10019",
+		"zipcode": "10019",
+		"total": 676,
+		"total_theaters": 1,
+		"total_restaurants": 675
+	},
+	{
+		"_id": "10036",
+		"zipcode": "10036",
+		"total": 611,
+		"total_theaters": 0,
+		"total_restaurants": 611
+	},
+	{
+		"_id": "10012",
+		"zipcode": "10012",
+		"total": 408,
+		"total_theaters": 1,
+		"total_restaurants": 407
+	},
+	{
+		"_id": "11354",
+		"zipcode": "11354",
+		"total": 379,
+		"total_theaters": 1,
+		"total_restaurants": 378
+	},
+	{
+		"_id": "10017",
+		"zipcode": "10017",
+		"total": 378,
+		"total_theaters": 1,
+		"total_restaurants": 377
+	}
+]
 ```
 
 ## Wrap-Up
 
-Congratulations! You just set up an Atlas Data Lake that contains databases being run by different cloud providers. Then, you queried both databases using the MongoDB Aggregation pipeline by leveraging Atlas Data Lake and federated queries. This allows us to more easily run queries on data that is stored in multiple MongoDB database deployments across clusters, data centers, and even in different formats, including S3 blob storage.
+Congratulations! You just set up an Atlas Data Lake that contains databases being run by different cloud providers. Then, you queried both databases using the MongoDB Aggregation pipeline by using Atlas Data Lake and federated queries. This allows us to more easily run queries on data that is stored in multiple MongoDB database deployments across clusters, data centers, and even in different formats, including S3 blob storage.
 
 ![Screenshot from the MongoDB Atlas Data Federation overview page showing the information for our new virtual database.](/images/blog/how-to-query-from-multiple-mongodb-databases/Screen_Shot_2022_10_08_at_1_17_18_PM_0d104d8cc5-1-1024x284.webp)
 
@@ -212,16 +211,10 @@ Congratulations! You just set up an Atlas Data Lake that contains databases bein
 
 - [AWS re:Invent 2020 Auto-archiving and federated queries](https://www.youtube.com/watch?v=1VWh55uRfnY)
 
-- Tutorial: Federated Queries and $out to AWS S3
+## More Technical Posts
 
-## Want to check out more of my technical posts?
-
-- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](https://www.joekarlsson.com/2021/05/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
-
-- [MongoDB Aggregation Pipeline Queries vs SQL Queries](https://www.joekarlsson.com/2021/05/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
-
-- [An Introduction to IoT (Internet of Toilets)](https://www.joekarlsson.com/2020/11/an-introduction-to-iot-internet-of-toilets/)
-
-- [How To Use The MongoDB Visual Studio Code Plugin](https://www.joekarlsson.com/2020/11/how-to-use-the-mongodb-visual-studio-code-plugin/)
-
-- [Linked Lists and MongoDB: A Gentle Introduction](https://www.joekarlsson.com/2020/11/linked-lists-and-mongodb-a-gentle-introduction/)
+- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
+- [MongoDB Aggregation Pipeline Queries vs SQL Queries](/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
+- [An Introduction to IoT (Internet of Toilets)](/blog/an-introduction-to-iot-internet-of-toilets/)
+- [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/)
+- [Linked Lists and MongoDB: A Gentle Introduction](/blog/linked-lists-and-mongodb-a-gentle-introduction/)

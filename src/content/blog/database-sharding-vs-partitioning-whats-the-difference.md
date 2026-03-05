@@ -2,12 +2,15 @@
 title: 'Database Sharding vs. Partitioning: What’s the Difference?'
 date: 2021-11-04
 slug: 'database-sharding-vs-partitioning-whats-the-difference'
-description: 'In this post, we explain the differences between database sharding vs. partitioning and explore when to use each – or even to combine them for data-intensive applications.'
+description: 'In this post, I explain the differences between database sharding vs. partitioning and explore when to use each - or even to combine them for data-intensive applications.'
 categories: ['Databases']
 heroImage: '/images/blog/database-sharding-vs-partitioning-whats-the-difference/img_blog_post_featured_database-sharding-vs-partitioning-whats-the-difference.webp'
+heroAlt: 'Diagram comparing database sharding and partitioning approaches'
+contentNotice: false
+tldr: 'Partitioning splits a big table into smaller pieces on the same machine. Sharding spreads those pieces across multiple machines. I break down when to use each, when to combine them, and when sharding is more trouble than it is worth.'
 ---
 
-In this post, SingleStore Developer Advocate, Joe Karlsson, explains the differences between database sharding vs. partitioning. Both are methods of breaking a large dataset into smaller subsets – but there are differences. This article explores when to use each – or even to combine them for data-intensive applications.
+In this post, I'm going to break down the differences between database sharding vs. partitioning. Both are methods of breaking a large dataset into smaller subsets - but there are differences. This article explores when to use each - or even to combine them for data-intensive applications.
 
 # Database Sharding vs. Partitioning: What’s the Difference?
 
@@ -25,11 +28,9 @@ Vertical table partitioning is mostly used to increase SQL Server performance es
 
 ![Vertical partitioning splitting Employee table into Employee and EmployeePicture tables](/images/blog/database-sharding-vs-partitioning-whats-the-difference/diagram_employee-partition-1024x573.webp)
 
-On SingleStore, by default, When you run [CREATE DATABASE](https://docs.singlestore.com/managed-service/en/reference/sql-reference/data-definition-language-ddl/create-database.html), SingleStore splits the database into partitions, which are distributed evenly among available nodes. This allows SingleStore to be [highly available by default](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/high-availability.html). With CREATE DATABASE, you can specify the number of partitions with the PARTITIONS=X option. 
+On SingleStore, by default, When you run [`CREATE DATABASE`](https://docs.singlestore.com/managed-service/en/reference/sql-reference/data-definition-language-ddl/create-database.html), SingleStore splits the database into partitions, which are distributed evenly among available nodes. This allows SingleStore to be [highly available by default](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/high-availability.html). With `CREATE DATABASE`, you can specify the number of partitions with the `PARTITIONS=X` option. 
 
 ![Load-balanced partition placement across nodes in two availability groups](/images/blog/database-sharding-vs-partitioning-whats-the-difference/diagram_load-balanced-partition-placement.webp)
-
-![The master partitions are distributed evenly on nodes across the cluster. The master partitions on every node in an availability group have their replicas spread evenly among a set of nodes in the opposite availability group. The even distribution of replicas ensures that a failover distributes the additional load from the node failure uniformly across the cluster.](/images/blog/database-sharding-vs-partitioning-whats-the-difference/diagram_load-balanced-partition-placement.webp)
 
 ### When to partition a table?
 
@@ -45,9 +46,9 @@ Here are some suggestions for when to partition a table:
 
 Sharding is actually a type of database partitioning, more specifically, Horizontal Partitioning. Sharding is replicating [copying] the schema, and then dividing the data based on a shard key onto a separate [database server](https://en.wikipedia.org/wiki/Database_server) instance, to spread the load.
 
-Every distributed table has exactly one shard key. A shard key can contain any number of columns. On SingleStore, when you run CREATE TABLE to create a table, you can specify a shard key for the table.
+Every distributed table has exactly one shard key. A shard key can contain any number of columns. On SingleStore, when you run `CREATE TABLE` to create a table, you can specify a shard key for the table.
 
-A table’s shard key determines in which partition a given row in the table is stored. When you run an INSERT query, the node computes a hash function of the values in the column or columns that make up the shard key, which produces the partition number where the row should be stored. The node then directs the INSERT operation to the appropriate node machine and partition.
+A table’s shard key determines in which partition a given row in the table is stored. When you run an `INSERT` query, the node computes a hash function of the values in the column or columns that make up the shard key, which produces the partition number where the row should be stored. The node then directs the `INSERT` operation to the appropriate node machine and partition.
 
 For example, the table below has the shard key that contains only the first column. All people with the same first name will be stored on the same partition.
 
@@ -91,7 +92,7 @@ On a final note, you can combine both partitioning and sharding techniques on yo
 
 So, now that we’ve discussed the difference between sharding and partitioning, what’s next? If you want to play around with sharding and partitioning techniques in the cloud, the best way is to spin up a database cluster on SingleStore and try it out for yourself! You can sign up for FREE here:
 
-[https://www.singlestore.com/managed-service-trial/](https://www.singlestore.com/managed-service-trial/)
+[Sign up for a free SingleStore trial](https://www.singlestore.com/managed-service-trial/)
 
 Personally, I would also recommend that you check out the SingleStore Developers site. There are tons of great developer projects and demos for many languages, frameworks, and integrations.
 
@@ -99,14 +100,14 @@ The SingleStore Training page includes more self-paced courses like Schema Desig
 
 If you run into any issues or get stuck, make sure to connect with the [SingleStore community](https://www.singlestore.com/forum/) and get all of your questions answered, or check out more cool developer content on our [SingleStore Developer](https://developers.singlestore.com/) page. The community forums are the best place to get your SingleStore questions answered.
 
-Follow us on [X](http://x.com/singlestoredevs) to keep up on more cool dev stuff.
+Follow us on [X](https://x.com/singlestoredevs) to keep up on more cool dev stuff.
 
 ## Additional Resources:
 
-- [SingleStore Documentation] High Availability and Load-Balanced Partition Placement: [https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/high-availability.html](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/high-availability.html)
+- [SingleStore: High Availability and Load-Balanced Partition Placement](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/high-availability.html)
 
-- [Docs] Sharding: [https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/sharding.html](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/sharding.html)
+- [SingleStore: Sharding](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/sharding.html)
 
-- [Wikipedia] Shard (database architecture): [https://en.wikipedia.org/wiki/Shard\_(database_architecture)](<https://en.wikipedia.org/wiki/Shard_(database_architecture)>)
+- [Wikipedia: Shard (database architecture)](<https://en.wikipedia.org/wiki/Shard_(database_architecture)>)
 
-- [Wikipedia] Partition (database): [https://en.wikipedia.org/wiki/Partition\_(database)](<https://en.wikipedia.org/wiki/Partition_(database)>)
+- [Wikipedia: Partition (database)](<https://en.wikipedia.org/wiki/Partition_(database)>)

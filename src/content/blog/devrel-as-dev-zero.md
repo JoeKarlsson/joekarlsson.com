@@ -5,6 +5,8 @@ slug: 'devrel-as-dev-zero'
 description: 'As a developer advocate, I often ponder DevRel’s role in catching bugs and tricky issues before they escalate. I’m sharing my thoughts in this blog post. DevRel as Dev Zero DevRel can serve as the...'
 categories: ['DevRel']
 heroImage: '/images/blog/devrel-as-dev-zero/DevRel-as-Dev-Zero.webp'
+heroAlt: 'DevRel as Dev Zero concept illustration'
+tldr: 'DevRel should be the first user of your product before it ships. I call this "Dev Zero" - we catch bugs, missing buttons, and confusing flows that developers miss, and then turn those findings into targeted docs and content.'
 ---
 
 As a developer advocate, I often ponder DevRel’s role in catching bugs and tricky issues before they escalate. I’m sharing my thoughts in this blog post.
@@ -13,7 +15,7 @@ As a developer advocate, I often ponder DevRel’s role in catching bugs and tri
 
 DevRel can serve as the “Dev Zero” stage in product development. Like testing code before release, DevRel tests from a user’s perspective, catching overlooked issues. This proactive approach ensures smoother product releases and reduces the need for last-minute fixes.
 
-In essence, DevRel is a superhero, catching bugs before they wreak havoc!
+DevRel is a superhero, catching bugs before they wreak havoc!
 
 ## Addressing Tricky Issues
 
@@ -21,7 +23,7 @@ Once, while testing a product, I found the “Create Account” button missing o
 
 ### Benefits for Tech Companies
 
-DevRel as Dev Zero has numerous benefits, especially for startups:
+DevRel as Dev Zero has clear benefits, especially for startups:
 
 - **Catching bugs early:** Saves time and money otherwise spent on fixes.
 
@@ -39,7 +41,7 @@ DevRel can determine content needs for docs and blogs based on user issues. Iden
 
 This targeted content helps users overcome hurdles, leading to better product usage and higher retention rates.
 
-## Conclusion
+## Why This Matters
 
 DevRel as Dev Zero is important in product development. It helps make products user-friendly and saves startups time and money. Using testing insights, DevRel creates targeted content addressing user issues. I wrote more about how the role is evolving in my post on [developer advocacy in 2023](/blog/developer-advocacy-in-2023/).
 

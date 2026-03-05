@@ -5,6 +5,8 @@ slug: 'building-a-claude-code-blog-skill-what-i-learned-systematizing-content-cr
 description: 'I live in the terminal. Like, really live there. As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code...'
 categories: ['Dev Tools']
 heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/Building-a-Claude-Code-Blog-Skill.webp'
+heroAlt: 'Building a Claude Code blog skill for systematizing content creation'
+tldr: 'I built a Claude Code slash command that turns blog post creation into a repeatable, enforceable workflow with brand voice checks, Vale linting, image generation, and automatic PR submission. It unblocked our marketing team from depending on me as the content quality bottleneck.'
 ---
 
 I live in the terminal. Like, really live there.
@@ -23,7 +25,7 @@ The blog skill started as a way to encode my own process. I’d open Claude Code
 
 Here’s what changed: I realized I could encode all those standards - brand voice, banned words, style requirements, SEO checklists - into a reusable workflow. Not documentation about how to write. An executable skill that enforces those standards automatically.
 
-[https://www.youtube.com/embed/1OuDyDdTDFw?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/1OuDyDdTDFw?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+[Watch on YouTube](https://www.youtube.com/watch?v=1OuDyDdTDFw)
 
 What the skill does:
 
@@ -45,7 +47,7 @@ What the skill does:
 
 The skill is a single slash command: /blog “topic”. That’s it.
 
-## /blog “topic”**Making Standards Executable**
+## Making Standards Executable
 
 Here’s how we enforce brand voice - this is from the actual skill file:
 
@@ -66,13 +68,13 @@ What used to require me reviewing every piece of content now happens automatical
 
 ## **The Part I Didn’t Expect**
 
-We rolled this out to the marketing team a a week ago.
+We rolled this out to the marketing team a week ago.
 
 They adopted it fast. Really fast.
 
 Giving this tool to the team essentially replaced one of my primary functions: being the bottleneck for content quality and technical accuracy. And that’s freeing me up to do what I actually want to do: developer outreach, building relationships, experimenting with new approaches to advocacy.
 
-We’re covering more keywords, faster. Blog posts ship with consistent voice and style. SEO optimization, FAQ sections, internal links, quotable statistics - is baked into the workflow instead of being an afterthought. The team can focus on research and strategy rather than fighting with formatting and style checks.
+We’re covering more keywords, faster. Blog posts ship with consistent voice and style. SEO optimization, FAQ sections, internal links, quotable statistics - are baked into the workflow instead of being an afterthought. The team can focus on research and strategy rather than fighting with formatting and style checks.
 
 We don’t have metrics yet (it’s been three weeks), but we’re already producing more content than we were before.
 

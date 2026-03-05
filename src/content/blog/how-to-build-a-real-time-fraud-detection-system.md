@@ -5,6 +5,8 @@ slug: 'how-to-build-a-real-time-fraud-detection-system'
 description: 'Financial fraud is a growing concern in our increasingly digital world. According to a report by PwC, almost half of the surveyed organizations experienced fraud in the past 2 years. For...'
 categories: ['Databases']
 heroImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/645935d81911cd8d715406a1_Fraud-prevention-Blog-4.webp'
+heroAlt: 'Building a real-time fraud detection system architecture diagram'
+tldr: 'I break down how to build a real-time fraud detection system that ingests transaction streams, analyzes them with SQL for suspicious patterns, and exposes the results as APIs. Includes example queries for catching things like unusual locations, high-velocity transactions, and weird spending patterns.'
 ---
 
 Financial fraud is a growing concern in our increasingly digital world. According to a [report by PwC](https://www.pwc.com/fraudsurvey), almost half of the surveyed organizations experienced fraud in the past 2 years. For online payments, the situation is no different. As eCommerce continues to surge, so do attempts by cybercriminals to exploit vulnerabilities and commit fraud.
@@ -19,7 +21,7 @@ Luckily, companies have a powerful weapon in their arsenal to fight back effecti
 
 - **A way to analyze these transactions for potential fraud:** Once you have the data, the next step is to analyze it for patterns and anomalies that might indicate fraudulent activity. This involves developing algorithms or machine learning models that can identify suspicious transactions based on pre-defined rules or by learning from historical data. These rules or models should be flexible and easy to update, as fraudsters are constantly adapting their tactics to bypass existing security measures.
 
-- **A system to monitor and act on your analysis in real-time:** Detecting potential fraud is only half the battle; you also need a way to act on that information as quickly as possible. This means having a system in place to monitor the results of your analysis, raise alerts when suspicious transactions are detected, and trigger appropriate actions, such as blocking the transaction, flagging it for manual review, or notifying the user. Additionally, a user-friendly, [real-time dashboard](https://www.tinybird.co/blog-posts/real-time-dashboard-step-by-step) is essential for visualizing the fraud detection data, allowing your team to monitor trends, track performance, and make informed decisions about your fraud prevention strategy.
+- **A system to monitor and act on your analysis in real-time:** Detecting potential fraud is only half the battle; you also need a way to act on that information as quickly as possible. This means having a system in place to monitor the results of your analysis, raise alerts when suspicious transactions are detected, and trigger appropriate actions, such as blocking the transaction, flagging it for manual review, or notifying the user. A user-friendly, [real-time dashboard](https://www.tinybird.co/blog-posts/real-time-dashboard-step-by-step) is also essential for visualizing the fraud detection data, allowing your team to monitor trends, track performance, and make informed decisions about your fraud prevention strategy.
 
 > Real-time fraud detections systems can identify and halt fraudulent transactions by ingesting real-time transaction data streams, analyzing them for fraud, and exposing fraud risks, all within milliseconds after a transaction is initiated.
 
@@ -29,11 +31,11 @@ Together, these components form the backbone of a real-time fraud detection syst
 
 Imagine a world where every time you swipe your credit card or make an online purchase, you have to wait 15 minutes for the transaction to clear. Not only would this be incredibly frustrating, but it would also significantly disrupt the flow of commerce, as businesses would face delays in processing orders and receiving payments.
 
-But, credit card fraud (and other types of online fraud) are a massive thorn in the side of eCommerce stores and the financial institutions where they bank. They need ways to detect fraudulent behavior and stop those real-time transactions – and allow all others – before the purchaser notices a delay. This is why fraud detection must happen in real-time.
+But, credit card fraud (and other types of online fraud) are a massive thorn in the side of eCommerce stores and the financial institutions where they bank. They need ways to detect fraudulent behavior and stop those real-time transactions - and allow all others - before the purchaser notices a delay. This is why fraud detection must happen in real-time.
 
-Consumers expect quick, seamless transactions. They want to make a purchase and have it approved instantly, without any delays or inconvenience. Real-time analytics is an essential part of fraud detection and prevent to meet these expectations while maintaining a high level of security and preventing fraudulent transactions from going through.
+Consumers expect quick, smooth transactions. They want to make a purchase and have it approved instantly, without any delays or inconvenience. Real-time analytics is an essential part of fraud detection and prevention to meet these expectations while maintaining a high level of security and preventing fraudulent transactions from going through.
 
-> Fraud detection and prevention systems should operate in real-time so that financial institutions can prevent fraud while ensuring a seamless customer experience.
+> Fraud detection and prevention systems should operate in real-time so that financial institutions can prevent fraud while ensuring a smooth customer experience.
 
 Real-time fraud detection offers several key benefits in many different use cases:
 
@@ -77,7 +79,7 @@ Companies may use stream processing or [real-time analytics](https://www.tinybir
 
 ### Exposing analysis to people and software processes
 
-The data analysis that has been performed must be used to be valuable. This is a two-pronged fork: People need to monitor fraud detection systems (usually through visualization tools – see below), and software processes need to take the analysis data to halt fraudulent transactions. The ideal way to achieve both ends is through an API layer. Companies can publish their analysis as APIs to be consumed by both visualization tools and software processes that halt transactions.
+The data analysis that has been performed must be used to be valuable. This is a two-pronged fork: People need to monitor fraud detection systems (usually through visualization tools - see below), and software processes need to take the analysis data to halt fraudulent transactions. The ideal way to achieve both ends is through an API layer. Companies can publish their analysis as APIs to be consumed by both visualization tools and software processes that halt transactions.
 
 > A popular way to expose fraud detection analysis is through APIs that can be consumed by both visualization tools and automated software processes that prevent fraudulent transactions from being processed.
 
@@ -123,7 +125,7 @@ To send data to Tinybird, Mockingbird uses the Tinybird [Events API](https://www
 
 Generating mock data streams in Mockingbird and ingesting them into Tinybird.
 
-Once you click “Generate,” your browser will begin streaming real-time transaction data to your Tinybird Workspace. Navigate to your Tinybird dashboard, click on the newly created `transactions` Data Source, and find your data being streamed into Tinybird in real-time.
+Once you click “Generate,” your browser will begin streaming real-time transaction data to your Tinybird Workspace. Go to your Tinybird dashboard, click on the newly created `transactions` Data Source, and find your data being streamed into Tinybird in real-time.
 
 > Tinybird can store billions of rows of transaction data for both long-term analysis and to inform real-time fraud detection processes.
 
@@ -143,7 +145,7 @@ To add a Pipe, click the Plus (+) icon in the left-side navigation bar next to t
 
 Here’s a sample SQL query for detecting suspicious transactions with an amount greater than $900 and a location outside of the USA. Paste this query into the first node of your Pipe, and click “Run.” You should see a list of suspicious transactions populating the table below in real-time.
 
-```
+```sql
 SELECT
   user_id,
   transaction_id,
@@ -187,7 +189,7 @@ But that’s not all! The nature of your real-time fraud-detection system will d
 
 This query selects the user ID and counts the number of transactions made outside of the user’s usual location. It filters only those with two or more transactions made from unusual locations. By running this query, we can identify whether a user’s transaction history contains suspicious activities related to location. Simply replace `'USER_ID'` with the actual user ID (or use Tinybird’s [templating language](https://www.tinybird.co/docs/query/query-parameters) to add query parameters to your published APIs) to detect fraud for a specific user.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as num_transactions
@@ -201,7 +203,7 @@ HAVING COUNT(*) > 2
 
 This query selects the user ID and counts the number of transactions that occurred within the last hour. It groups the results by user ID and filters only those with 10 or more transactions in the last hour.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as num_transactions
@@ -216,7 +218,7 @@ ORDER BY num_transactions DESC
 
 This query selects the transaction ID, user ID, and amount of transactions that are greater than $999.
 
-```
+```sql
 SELECT transaction_id, user_id, amount
 FROM transactions
 WHERE CAST(amount AS Float64) > 999
@@ -227,7 +229,7 @@ ORDER BY amount DESC
 
 This query selects the user ID and counts the number of transactions made between 1:00 AM and 5:00 AM. It groups the results by user ID and filters only those with five or more transactions made during this time.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as transaction_count
@@ -243,7 +245,7 @@ HAVING transaction_count >= 5
 
 This query selects the user ID and counts the number of declined transactions for each user. It groups the results by user ID and filters only those with three or more declined transactions.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as num_transactions
@@ -257,7 +259,7 @@ ORDER BY num_transactions DESC
 
 This query selects the user ID and counts the number of transactions made from IP addresses with a high-risk prefix (e.g., 123456, 234567, 345678). It groups the results by user ID and filters only those with two or more transactions from high-risk IP addresses.
 
-```
+```sql
 SELECT
   user_id,
   COUNT(*) as num_transactions
@@ -267,13 +269,17 @@ GROUP BY user_id
 HAVING COUNT(*) > 1
 ```
 
-user_idnum_transactionsTanya611Bill609Mary597
+| user_id | num_transactions |
+| ------- | ---------------- |
+| Tanya   | 611              |
+| Bill    | 609              |
+| Mary    | 597              |
 
 ### Detecting unusual spending patterns
 
 Finally, we can detect fraudulent activity by analyzing unusual spending patterns. This code selects the user_id, the average, and standard deviation of the transaction amount for each user, and filters only those whose maximum transaction amount is more than two standard deviations away from the average. This could indicate potential fraudulent activity.
 
-```
+```sql
 SELECT
   user_id,
   AVG(CAST(amount AS Float64)) as avg_amount,
@@ -294,7 +300,7 @@ Congratulations, fraud-fighter! You’ve built a real-time fraud detection syste
 
 In the next part of this fraud-fighting adventure, I’ll explore how to build a dashboard using Retool components to visualize the fraud detection data in real-time. Stay tuned!
 
-Ready to experience the industry-leading real-time analytics platform? [Try Tinybird today](https://ui.tinybird.co/signup), for free. Get started with the Build Plan – which is more than enough for most simple projects and has no time limit – and upgrade as you scale.
+Ready to experience the industry-leading real-time analytics platform? [Try Tinybird today](https://ui.tinybird.co/signup), for free. Get started with the Build Plan - which is more than enough for most simple projects and has no time limit - and upgrade as you scale.
 
 ## FAQs
 
@@ -308,7 +314,7 @@ Absolutely! The Mockingbird demo data is just an example. Feel free to use any d
 
 ### How can I enhance my fraud detection pipeline?
 
-The example SQL provided was elementary. Improve your pipeline by adding more conditions and filters, such as checking for suspicious IP addresses or browser usage patterns. You can also being to include more personalized metrics by evaluating user histories and detecting transactions that don’t jive with that history. These advanced analytics will help improve the accuracy of your fraud detection system.
+The example SQL provided was elementary. Improve your pipeline by adding more conditions and filters, such as checking for suspicious IP addresses or browser usage patterns. You can also begin to include more personalized metrics by evaluating user histories and detecting transactions that don’t jive with that history. These advanced analytics will help improve the accuracy of your fraud detection system.
 
 ### Can I integrate Tinybird with other tools besides Retool?
 
@@ -338,62 +344,89 @@ Using Tinybird for fraud detection is like having a trusty sidekick in your batt
 
 Here you go!
 
-```
+```json
 {
- "timestamp": {
-   "type": "mockingbird.timestampNow"
- },
- "transaction_id": {
-   "type": "finance.routingNumber"
- },
- "user_id": {
-   "type": "mockingbird.pick",
-   "params": [
-     {
-       "values": ["Mike", "John", "Jane", "Mary", "Bob", "Alice", "Joe", "Sue", "Ryan", "Jill", "Bill","Jen", "Jack", "Jill", "Tom", "Tim", "Tina", "Terry", "Troy", "Tara", "Tanya", "Trevor", "Tucker","Trent", "Trenton", "Mario"]
-     }
-   ]
- },
- "amount": {
-   "type": "finance.amount"
- },
- "ip_address": {
-   "type": "internet.ip"
- },
- "browser": {
-   "type": "mockingbird.pickWeighted",
-   "params": [
-     {
-       "values": ["Chrome", "Brave", "Firefox", "Safari"],
-       "weights": [65, 3, 8, 20]
-     }
-   ]
- },
- "location": {
-   "type": "mockingbird.pickWeighted",
-   "params": [
-     {
-       "values": [ "USA", "Spain", "UK", "Australia", "Mexico", "China", "Japan", "Canada"],
-       "weights": [65, 20, 8, 1, 3, 1, 1, 1]
-     }
-   ]
- },
- "is_declined": {
-   "type": "mockingbird.pickWeighted",
-   "params": [
-     {
-       "values": [true, false],
-       "weights": [3, 98]
-     }
-   ]
- },
- "fraud_flag": {
-   "type": "mockingbird.pick",
-   "params": [
-     {
-       "values": [false]
-     }
-   ]
- }
+	"timestamp": {
+		"type": "mockingbird.timestampNow"
+	},
+	"transaction_id": {
+		"type": "finance.routingNumber"
+	},
+	"user_id": {
+		"type": "mockingbird.pick",
+		"params": [
+			{
+				"values": [
+					"Mike",
+					"John",
+					"Jane",
+					"Mary",
+					"Bob",
+					"Alice",
+					"Joe",
+					"Sue",
+					"Ryan",
+					"Jill",
+					"Bill",
+					"Jen",
+					"Jack",
+					"Jill",
+					"Tom",
+					"Tim",
+					"Tina",
+					"Terry",
+					"Troy",
+					"Tara",
+					"Tanya",
+					"Trevor",
+					"Tucker",
+					"Trent",
+					"Trenton",
+					"Mario"
+				]
+			}
+		]
+	},
+	"amount": {
+		"type": "finance.amount"
+	},
+	"ip_address": {
+		"type": "internet.ip"
+	},
+	"browser": {
+		"type": "mockingbird.pickWeighted",
+		"params": [
+			{
+				"values": ["Chrome", "Brave", "Firefox", "Safari"],
+				"weights": [65, 3, 8, 20]
+			}
+		]
+	},
+	"location": {
+		"type": "mockingbird.pickWeighted",
+		"params": [
+			{
+				"values": ["USA", "Spain", "UK", "Australia", "Mexico", "China", "Japan", "Canada"],
+				"weights": [65, 20, 8, 1, 3, 1, 1, 1]
+			}
+		]
+	},
+	"is_declined": {
+		"type": "mockingbird.pickWeighted",
+		"params": [
+			{
+				"values": [true, false],
+				"weights": [3, 98]
+			}
+		]
+	},
+	"fraud_flag": {
+		"type": "mockingbird.pick",
+		"params": [
+			{
+				"values": [false]
+			}
+		]
+	}
 }
 ```

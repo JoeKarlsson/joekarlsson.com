@@ -5,104 +5,107 @@ slug: 'my-top-50-records'
 description: 'Every couple of years, I like to compile a list of my 50 all-time favorite records. These tend to be the records that I listen to the most or that have had the greatest impact on me. The order...'
 categories: ['Personal']
 heroImage: '/images/blog/my-top-50-records/Joe-Karlssons-top-50-Records-of-all-Time.webp'
+heroAlt: 'Joe Karlsson top 50 records of all time'
+contentNotice: false
+tldr: 'My top 50 records of all time, with a Spotify playlist.'
 ---
 
-Every couple of years, I like to compile a list of my 50 all-time favorite records. These tend to be the records that I listen to the most or that have had the greatest impact on me. The order doesn’t really matter, as it’s hard to determine which ones are my favorite, favorite (if you know what I mean ;P)
+Every couple of years, I like to compile a list of my 50 all-time favorite records. These tend to be the records that I listen to the most or that have had the greatest impact on me. The order doesn’t matter, as it’s hard to determine which ones are my favorite, favorite (if you know what I mean ;P)
 
 Here is a link to the Spotify Playlist:
 
-[https://open.spotify.com/embed/playlist/0Q9Mmp89BTJYxyA84tD0vX](https://open.spotify.com/embed/playlist/0Q9Mmp89BTJYxyA84tD0vX)
+[Listen on Spotify](https://open.spotify.com/playlist/0Q9Mmp89BTJYxyA84tD0vX)
 
 ## My Top 50 All-Time Favorite Records
 
-My Bloody Valentine – Loveless
+My Bloody Valentine - Loveless
 
-good kid m.a.a.d city – Kendrick Lamar
+good kid m.a.a.d city - Kendrick Lamar
 
-Pixies – Dolittle
+Pixies - Dolittle
 
-My Beautiful Dark Twisted Fantasy – Kanye West
+My Beautiful Dark Twisted Fantasy - Kanye West
 
-Graceland – Paul Simon
+Graceland - Paul Simon
 
-Pet Sounds – The Beach Boys
+Pet Sounds - The Beach Boys
 
-Kind of Blue – Miles Davis
+Kind of Blue - Miles Davis
 
-Golden Hour – Kacey Musgraves
+Golden Hour - Kacey Musgraves
 
-Rumours – Fleetwood Mac
+Rumours - Fleetwood Mac
 
-Yuck – Yuck
+Yuck - Yuck
 
-Sound of Silver – LCD Sound System
+Sound of Silver - LCD Sound System
 
-Remain in the Light – Talking Heads
+Remain in the Light - Talking Heads
 
-Metamodern Sounds in Country Music – Sturgill Simpson
+Metamodern Sounds in Country Music - Sturgill Simpson
 
-Daft Punk – Homework
+Daft Punk - Homework
 
-The Social Network OST – Trent Reznor
+The Social Network OST - Trent Reznor
 
-The Queen Is Dead – The Smiths
+The Queen Is Dead - The Smiths
 
-69 Love Songs – The Magnetic Fields
+69 Love Songs - The Magnetic Fields
 
-Attack on Memory – Cloud Nothings
+Attack on Memory - Cloud Nothings
 
-Let it Be – The Replacements
+Let it Be - The Replacements
 
-Daft Punk – Random Access Memories
+Daft Punk - Random Access Memories
 
-2 – Mac DeMarco
+2 - Mac DeMarco
 
-Emeralds – Does It Look I’m Here
+Emeralds - Does It Look I’m Here
 
-Bob Iver – Bon Iver
+Bob Iver - Bon Iver
 
-In Rainbows – Radiohead
+In Rainbows - Radiohead
 
-D’Angelo – Black Messiah
+D’Angelo - Black Messiah
 
-Highway 61 Revisited – Bob Dylan
+Highway 61 Revisited - Bob Dylan
 
-Grace – Jeff Buckley
+Grace - Jeff Buckley
 
-Merriweather Post Pavillion – Animal Collective
+Merriweather Post Pavillion - Animal Collective
 
-To Pimp A Butterfly – Kendrick Lamar
+To Pimp A Butterfly - Kendrick Lamar
 
-Songs for the Deaf – Queens if the Stoneage
+Songs for the Deaf - Queens of the Stone Age
 
-Silence Yourself – Savages
+Silence Yourself - Savages
 
 Hamilton OST
 
-The Strokes – Is This It
+The Strokes - Is This It
 
-Chance the Rapper – Coloring Book
+Chance the Rapper - Coloring Book
 
-M83 – Saturdays = Youth
+M83 - Saturdays = Youth
 
-Lush – Snail Mail
+Lush - Snail Mail
 
-Run The Jewels 2 – Run The Jewels
+Run The Jewels 2 - Run The Jewels
 
-Spacegirl and Other Favorites – Brian Jonestown Massacre
+Spacegirl and Other Favorites - Brian Jonestown Massacre
 
-Apollo – Brian Eno
+Apollo - Brian Eno
 
-Buena Vista Social Club – Buena Vista Social Club
+Buena Vista Social Club - Buena Vista Social Club
 
-Say Anything – Say Anything
+Say Anything - Say Anything
 
-Emotion – Carly Rae Jepsen
+Emotion - Carly Rae Jepsen
 
-A Loud Bash of Teenage Feelings – Beach Slang
+A Loud Bash of Teenage Feelings - Beach Slang
 
-Deadman OST – Niel Young
+Deadman OST - Neil Young
 
-Turn on the Bright Lights – Interpol
+Turn on the Bright Lights - Interpol
 
-XX – Rage Against The Machine
+XX - Rage Against The Machine

@@ -6,6 +6,8 @@ description: 'After reading High-Performance Browser Networking by Ilya Grigor
 categories: ['Dev Tools']
 heroImage: '/images/blog/complete-guide-node-client-server-communication/Mom.webp'
 heroAlt: 'Diagram of client-server communication architecture'
+contentNotice: 'This post uses outdated Node.js patterns (CommonJS, deprecated util.puts()). Core concepts like WebSockets and SSE remain relevant, but use ES modules and the Fetch API in modern applications.'
+tldr: 'I implemented every major client-server communication method in Node.js - XHR, Server-Sent Events, WebSockets, and HTTP/2 - with working code examples and a breakdown of when to use each one.'
 ---
 
 > **Note:** This post was written in 2016. The core concepts of client-server communication (WebSockets, SSE, XHR) are still relevant, but the code examples use outdated patterns (CommonJS `require()`, `var`, deprecated `util.puts()`). For modern Node.js, use ES modules and the Fetch API.
@@ -28,15 +30,15 @@ Before we begin, I should note that there is no one best protocol or API for cli
 - **SSE** enables efficient, low-latency server-to-client streaming of text-based data: the client initiates the SSE connection, and the server uses the event source protocol to stream updates to the client. The client can't send any data to the server after the initial handshake.
 - **WebSocket** is the only transport that allows bidirectional communication over the same TCP connection (Figure 17-2): the client and server can exchange messages at will. As a result, WebSocket provides low latency delivery of text and binary application data in both directions.
 
-| Feature | XMLHttpRequest | Server-Sent Events | WebSocket |
-| --- | --- | --- | --- |
-| Request streaming | no | no | yes |
-| Response streaming | limited | yes | yes |
-| Framing mechanism | HTTP | event stream | binary Framing |
-| Binary data transfers | yes | no (Base64) | limited |
-| Compression | yes | yes | limited |
-| Application transport protocol | HTTP | HTTP | WebSocket |
-| Network transport protocol | TCP | TCP | TCP |
+| Feature                        | XMLHttpRequest | Server-Sent Events | WebSocket      |
+| ------------------------------ | -------------- | ------------------ | -------------- |
+| Request streaming              | no             | no                 | yes            |
+| Response streaming             | limited        | yes                | yes            |
+| Framing mechanism              | HTTP           | event stream       | binary Framing |
+| Binary data transfers          | yes            | no (Base64)        | limited        |
+| Compression                    | yes            | yes                | limited        |
+| Application transport protocol | HTTP           | HTTP               | WebSocket      |
+| Network transport protocol     | TCP            | TCP                | TCP            |
 
 ---
 

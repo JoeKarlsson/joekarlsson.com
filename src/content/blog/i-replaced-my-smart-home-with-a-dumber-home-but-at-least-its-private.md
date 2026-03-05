@@ -5,6 +5,9 @@ slug: 'i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private'
 description: 'After five years of building automations in Home Assistant, I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home...'
 categories: ['Smart Home']
 heroImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/I-Replaced-My-Smart-Home-with-a-Dumber-Home-But-at-Least-Its-Private.webp'
+heroAlt: 'I replaced my smart home with a dumber home but at least it is private'
+contentNotice: false
+tldr: 'I replaced all my Alexa devices with Home Assistant Voice Preview Edition for privacy. It works great for smart home control once you invest weeks rebuilding every automation, but voice recognition is way worse than Alexa and family adoption has been rough.'
 ---
 
 After five years of building automations in [Home Assistant](https://www.home-assistant.io/) (I wrote about [how I first got started with Home Assistant](/blog/how-to-get-started-with-home-assistant-in-2023/) a while back), I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home Assistant’s Voice Preview Edition. Recent privacy changes from Amazon were the final straw, but what I discovered during this migration was both more challenging and more technically satisfying than I anticipated.
@@ -23,7 +26,7 @@ The $59 device features professional-grade hardware with dual microphones, XMOS 
 
 The physical setup proved surprisingly straightforward. The Voice Preview Edition connected to my existing Home Assistant instance within minutes, and the initial device registration worked flawlessly. The build quality impressed me, the audio processing hardware rivals devices costing significantly more, and the LED feedback ring provides clear visual status indicators. [[Home Assistant](https://www.home-assistant.io/voice_control/)]
 
-However, I quickly discovered that “working” and “working well” are very different things when it comes to voice assistants. The default wake word detection had maybe a 50% success rate from across the room, and voice recognition accuracy felt inconsistent at best. Alexa was really good at picking up my voice when the TV was on, or if I was listening to a Podcast. Home Assistant Voice struggles in this department.
+However, I quickly discovered that “working” and “working well” are very different things when it comes to voice assistants. The default wake word detection had maybe a 50% success rate from across the room, and voice recognition accuracy felt inconsistent at best. Alexa was good at picking up my voice when the TV was on, or if I was listening to a Podcast. Home Assistant Voice struggles in this department.
 
 ## “Okay Nabu” proves problematic
 
@@ -45,7 +48,7 @@ This is where my expectations collided with reality. I naively assumed that migr
 
 Here’s an example of what I had to build for basic light control. This automation handles dozens of different voice commands for a single room:
 
-```
+```yaml
 alias: Assist - Lights - Comprehensive Room Aware Control
 description: >
   Controls lights in the room with voice commands for turning on/off, dimming,
@@ -66,7 +69,7 @@ triggers:
     trigger: conversation
 actions:
   - variables:
-      device_area: "{{ area_id(trigger.device_id) }}"
+      device_area: '{{ area_id(trigger.device_id) }}'
       lights_in_area: |
         {{ expand(area_entities(device_area))
            | selectattr('domain','equalto','light')
@@ -138,7 +141,7 @@ Once past the initial setup challenges, the advanced automation capabilities beg
 
 For example, my calendar integration automation dynamically handles queries about “today,” “tomorrow,” or specific days of the week:
 
-```
+```yaml
 - variables:
     delta: >-
       {{ 1 if next_day and part_day else daily_mapping | selectattr('phrases',

@@ -5,11 +5,15 @@ slug: 'building-high-performance-react-applications'
 description: 'Okay, we all know that React was built with performance in mind, but when is React slow? I want to break down for you, dear reader, common bottlenecks in React and when you might be making your...'
 categories: ['Dev Tools']
 heroImage: '/images/blog/building-high-performance-react-applications/1_4Lrdmxs5FVMlqK3b8cwcTA.webp'
+heroAlt: 'React performance profiling in Chrome DevTools'
+tldr: 'I walk through practical ways to speed up React apps, from using keys correctly to PureComponent to production builds, with before-and-after benchmarks for each trick.'
 ---
+
+> **Note:** This post was written in 2018 for React 16 class components. Modern React uses function components with hooks (`React.memo`, `useMemo`, `useCallback`) for performance optimization. The concepts here are still useful background, but check the [current React docs](https://react.dev/reference/react/memo) for up-to-date guidance.
 
 Okay, we all know that React was built with performance in mind, but when is React slow? I want to break down for you, dear reader, common bottlenecks in React and when you might be making your program work harder than it should. In this post, I will show you how you can start building high performance React Applications.
 
-First of all, we need to set a baseline. How the heck do we measure performance in a React Application? Well, I am glad you asked! As of React 16, [React has a performance monitoring tool baked into the vanilla development mode of React](https://reactjs.org/docs/optimizing-performance.html#profiling-components-with-the-chrome-performance-tab)!
+First of all, we need to set a baseline. How the heck do we measure performance in a React Application? Well, I am glad you asked! As of React 16, [React has a performance monitoring tool baked into the vanilla development mode of React](https://react.dev/reference/react/memo#profiling-components-with-the-chrome-performance-tab)!
 
 Okay, let’s check it out. When you are in a **development** build, you can now perform a performance audit and see how your React components are spending their time. This feature can be used to fine-tune your app and find expensive components and methods. This is also the tool we will be using to measure the performance of our app.
 
@@ -23,9 +27,9 @@ Let’s go through and see how these tips boost the performance of our crummy �
 
 ![The initial performance audit of our slow React app](/images/blog/building-high-performance-react-applications/PX6E9HQ3uJorvXAzv0rEvg.gif)_The initial performance audit of our slow React app_
 
-As we update items on this list, we can see through the performance audit that every time I add a new item to the list through the form, _every single item_ in the list has to be re-rendered to the DOM. This process takes approximately* 34 ms* for every single re-render.
+As we update items on this list, we can see through the performance audit that every time I add a new item to the list through the form, _every single item_ in the list has to be re-rendered to the DOM. This process takes approximately _34 ms_ for every single re-render.
 
-Now that we know how to measure performance on a React application and we have a performance baseline, let’s get to the thing that you came to this blog post to learn about. How exactly do you make a high-performance React app? *Well, the short answer is only rendered to the DOM when you really need to. *The long answer is a little more involved… 😉
+Now that we know how to measure performance on a React application and we have a performance baseline, let’s get to the thing that you came to this blog post to learn about. How exactly do you make a high-performance React app? *Well, the short answer is only render to the DOM when you need to.* The long answer is a little more involved… 😉
 
 Using our example app, and our initial analysis, we see that there is a LOT of re-rendering happening when new items are added. We want to tell React to only re-render the parts of the app that we care about. Let’s dig into specific ways to accomplish this.
 
@@ -41,23 +45,23 @@ I don’t know about you, but the first thing I did was put in `Math.Random()` i
 
 ![Sonic says “Do not abuse the key!”](/images/blog/building-high-performance-react-applications/Kj5C5bwv7XC0DLpllhX9zg.gif)_Sonic says “Do not abuse the key!”_
 
-The key attribute is actually used by React to keep track of and identify unique nodes. This element allows React to easily keep track of how your application changes and helps it decide if it needs to re-render to the DOM or not. And by using `Math.Random()` or the index in an array to track the unique key, every single time the list re-renders or the data changes, React loses track of your element and has to start over from scratch. You can learn more about how the key is used [here](https://reactjs.org/docs/lists-and-keys.html). **Do not forget to supply an appropriate key!**
+The key attribute is actually used by React to keep track of and identify unique nodes. This element allows React to easily keep track of how your application changes and helps it decide if it needs to re-render to the DOM or not. And by using `Math.Random()` or the index in an array to track the unique key, every single time the list re-renders or the data changes, React loses track of your element and has to start over from scratch. You can learn more about how the key is used [here](https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key). **Do not forget to supply an appropriate key!**
 
 So how does using the _key_ attribute correctly affect our performance? Let’s check it out!
 
 ![Performance comparison showing render time drop from 34ms to 16ms with keys](/images/blog/building-high-performance-react-applications/KU08TdKUInB7duKPVnM4ow.gif)
 
-We went from* 34 ms to 16 ms*. We just cut the render time in **half** by using keys correctly!
+We went from _34 ms to 16 ms_. We just cut the render time in **half** by using keys correctly!
 
 ---
 
 ### Manage `shouldComponentUpdate()`
 
-`[shouldComponentUpdate](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)()`is a React life cycle method used to improve the performance of React applications by defining exactly when you want your component to re-render. By default, React will re-render your component each and every time the state or props change. However, there might be instances when you do not want your component even if your state has changed.
+`[shouldComponentUpdate](https://react.dev/reference/react/Component#shouldcomponentupdate)()`is a React life cycle method used to improve the performance of React applications by defining exactly when you want your component to re-render. By default, React will re-render your component each and every time the state or props change. However, there might be instances when you do not want your component even if your state has changed.
 
 In this example, we are passing in the _nextProps_ and _nextState_ and we are returning a boolean that reports the state/prop changes that we actually care about and that we actually want to re-render on. React is able to ignore all other changes. Here’s the code of how the use `shouldComponentUpdate()`.
 
-```
+```jsx
 class Item extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.title !== nextProps.title) {
@@ -93,8 +97,8 @@ A shallow comparison is an efficient way to detect changes. It should be noted t
 
 So, what does a PureComponent look like in code? For those who want a real code snippet, here it is:
 
-```
-class Item extends **PureComponent** {
+```jsx
+class Item extends PureComponent {
 render() {
     return <h3>{ this.props.title }</h3>
   }
@@ -125,13 +129,13 @@ Immutable is one of those fancy programming words you’ve probably heard tossed
 
 For more information on how immutable data helps improve the performance of your React application, check out this info straight from the source.
 
-[https://reactjs.org/docs/optimizing-performance.html#using-immutable-data-structures](https://reactjs.org/docs/optimizing-performance.html#using-immutable-data-structures)
+[React docs on immutable data structures](https://react.dev/reference/react/memo#using-immutable-data-structures)
 
 ---
 
 ### Use Stateless Components
 
-Okay, to be honest, I’m not exactly sure why using stateless components is faster than using React components with state, but Dan Abramov reports that in version 16+ of React, stateless components give a small performance boost. I haven’t actually seen any information or explanation about why is this, but if Dan says it’s true, so I believe it. If anyone has any info on why this is, please let me know in the comments below.
+Okay, to be honest, I’m not exactly sure why using stateless components is faster than using React components with state, but Dan Abramov reports that in version 16+ of React, stateless components give a small performance boost. I haven’t actually seen any information or explanation about why this is, but if Dan says it’s true, I believe it.
 
 ![Tweet from Dan explaining that Stateless Components are faster in React 16+](/images/blog/building-high-performance-react-applications/NmmaaQ3rskKL-RqdA3sOnA.webp)_Tweet from Dan explaining that Stateless Components are faster in React 16+_
 
@@ -147,7 +151,7 @@ Universal rendering works by performing the initial render of your React compone
 
 Universal React works great if you have a humongous app that takes a long time to do the initial render. You can find out more information about isomorphic React here:
 
-[https://www.smashingmagazine.com/2015/04/react-to-the-future-with-isomorphic-apps/](https://www.smashingmagazine.com/2015/04/react-to-the-future-with-isomorphic-apps/)
+[React to the Future with Isomorphic Apps - Smashing Magazine](https://www.smashingmagazine.com/2015/04/react-to-the-future-with-isomorphic-apps/)
 
 ---
 
@@ -161,13 +165,13 @@ When running the **production** build, the performance auditing tool has been re
 
 More information about building your React app in production mode can be found here.
 
-[https://reactjs.org/docs/optimizing-performance.html#use-the-production-build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
+[React docs on production builds](https://react.dev/reference/react/memo#use-the-production-build)
 
 ---
 
 ### Analyze Your Webpack Bundle 🔬
 
-This tip isn’t exactly React specific, but most of us use Webpack as their bundler with React, and I have found that this is actually one of the *most beneficial *things we have implemented to make our React apps faster.
+This tip isn’t exactly React specific, but most of us use Webpack as their bundler with React, and I have found that this is actually one of the _most beneficial_ things we have implemented to make our React apps faster.
 
 We have started to add a Webpack analysis into our development workflow. Using Webpack Bundle Analyzer, we check to make sure that nothing unexpected has made its way into our final bundle. We also use this step to ensure that there are no unexpectedly large packages have slipped in.
 
@@ -175,7 +179,7 @@ Analyzing your bundle and reducing bundle size is important to improve applicati
 
 Our team has included Webpack Bundle Analyzer in our build process to help keep the package size under control. It’s easy for us to pull in a new npm package in order to provide a quick fix for our app, but oftentimes, it’s not clear how that actually impacts our final bundle size.
 
-[https://github.com/webpack-contrib/webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
+[Webpack Bundle Analyzer on GitHub](https://github.com/webpack-contrib/webpack-bundle-analyzer)
 
 ---
 
@@ -189,8 +193,16 @@ Oftentimes, I see engineers too focused on making a “perfect” app that they 
 
 Alright, let’s recap everything learned. If you want to make your React applications fast you should do the following:
 
-- Use 🔑key🔑 correctly- Manage `shouldComponentUpdate()`- Extend ✨ PureComponent ✨- Use 🔒immutable🔒 data- Use stateless components- Go universal- ⚡️ Build React for production ⚡️- Analyze your Webpack bundle 🔬- Make it work, then make it fast 🏃💨
+- Use 🔑key🔑 correctly
+- Manage `shouldComponentUpdate()`
+- Extend ✨ PureComponent ✨
+- Use 🔒immutable🔒 data
+- Use stateless components
+- Go universal
+- ⚡️ Build React for production ⚡️
+- Analyze your Webpack bundle 🔬
+- Make it work, then make it fast 🏃💨
 
-There you have it, I hope these are some practical and easy-to-implement things you can do to start making your React apps faster. If you want to see these ideas in action, check out my tutorial on [how to build a Spotify player with React in 15 minutes](/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/). If I missed anything, please feel free to let me know in the comments below.
+There you have it, I hope these are some practical and easy-to-implement things you can do to start making your React apps faster. If you want to see these ideas in action, check out my tutorial on [how to build a Spotify player with React in 15 minutes](/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/). If I missed anything, feel free to reach out.
 
 ![Thanks for reading!](/images/blog/building-high-performance-react-applications/H1l9k2ruGjHDxqmoHgaD1Q.gif)_Thanks for reading!_

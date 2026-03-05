@@ -6,6 +6,8 @@ description: 'A recent article written by Jeremy Liew, titled “If you don’t 
 categories: ['Personal']
 heroImage: '/images/blog/how-to-explain-to-your-dad-why-snapchat-is-so-awesome/snapchat21.webp'
 heroAlt: 'Snapchat logo on a yellow background'
+contentNotice: false
+tldr: 'Snapchat works because it brings back the facial and verbal cues we lose in texting. Simplicity and visual communication are what make it stick.'
 ---
 
 > **Note:** This post was written in May 2015. Snapchat and the social media landscape have changed a lot since then. I'm keeping it here as a time capsule of what the platform felt like early on.

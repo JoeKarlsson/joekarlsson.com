@@ -5,6 +5,9 @@ slug: 'how-to-manage-mongodb-data-at-scale'
 description: 'Let’s face it: Your data can get stale and old quickly. But just because the data isn’t being used as often as it once was doesn’t mean that it’s not still valuable or that it won’t be valuable again...'
 categories: ['Databases']
 heroImage: '/images/blog/how-to-manage-mongodb-data-at-scale/og-pink-pattern.webp'
+heroAlt: 'Managing MongoDB data at scale with Atlas Online Archive'
+contentNotice: false
+tldr: 'I show how to use MongoDB Atlas Online Archive to automatically move old, infrequently accessed data to cheap cloud storage while still querying everything through a single endpoint. Saves money without losing access to your data.'
 ---
 
 Let’s face it: Your data can get stale and old quickly. But just because the data isn’t being used as often as it once was doesn’t mean that it’s not still valuable or that it won’t be valuable again in the future. I think this is especially true for data sets like internet of things (IoT) data or user-generated content like comments or posts. (When was the last time you looked at your tweets from 10 years ago?). In this post, we will cover how to manage your data at scale with MongoDB Atlas Online Archive.
@@ -15,7 +18,7 @@ This is a real-time view of my IoT time-series data aging.
 
 When managing systems that have massive amounts of data, or systems that are growing, you may find that paying to save this data becomes increasingly more costly every single day. (If you're curious about other scaling strategies like sharding and partitioning, I covered the [differences between database sharding and partitioning](/blog/database-sharding-vs-partitioning-whats-the-difference/) in a separate post.) Wouldn’t it be nice if there was a way to manage this data in a way that still allows it to be useable by being easy to query, as well as saving you money and time? Well, today is your lucky day because, with [MongoDB Atlas Online Archive](https://web.archive.org/web/20220116194200/https://docs.atlas.mongodb.com/online-archive/manage-online-archive/), you can do all this and more!
 
-With the Online Archive feature in [MongoDB Atlas](https://docs.atlas.mongodb.com/), you can create a rule to automatically move infrequently accessed data from your live Atlas cluster to MongoDB-managed, read-only cloud object storage. Once your data is archived, you will have a unified view of your Atlas cluster and your Online Archive using a single endpoint..
+With the Online Archive feature in [MongoDB Atlas](https://docs.atlas.mongodb.com/), you can create a rule to automatically move infrequently accessed data from your live Atlas cluster to MongoDB-managed, read-only cloud object storage. Once your data is archived, you will have a unified view of your Atlas cluster and your Online Archive using a single endpoint.
 
 > Note: You can’t write to the Online Archive as it is read-only.
 
@@ -27,7 +30,7 @@ For this demonstration, we will be setting up an Online Archive to automatically
 
 - Ensure that each database has been seeded by [loading sample data into our Atlas cluster](https://docs.atlas.mongodb.com/sample-data/). I will be using the `sample_mflix.comments` dataset for this demo.
 
-> If you haven’t yet set up your free cluster on [MongoDB Atlas](http://bit.ly/mongodbatlas), now is a great time to do so. You have all the instructions in this blog post.
+> If you haven’t yet set up your free cluster on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), now is a great time to do so. You have all the instructions in this blog post.
 
 ## Configure Online Archive
 
@@ -37,7 +40,7 @@ Atlas archives data based on the criteria you specify in an archiving rule. The 
 
 - **A custom query.** Atlas runs the query specified in the archiving rule to select the documents to archive.
 
-In order to configure our Online Archive, first navigate to the Cluster page for your project, click on the name of the cluster you want to configure Online Archive for, and click on the **Online Archive** tab.
+In order to configure our Online Archive, first go to the Cluster page for your project, click on the name of the cluster you want to configure Online Archive for, and click on the **Online Archive** tab.
 
 ![Screenshot from Atlas with a red rectangle highlighting the Online Archive tab.](/images/blog/how-to-manage-mongodb-data-at-scale/f7202d15c30f78dd6bdc7a989c2b80fba4ee46e8-1024x352.webp)
 
@@ -49,11 +52,12 @@ Optionally, you can enter up to two most commonly queried fields from the collec
 
 Before enabling the Online Archive, it’s a good idea to run a test to ensure that you are archiving the data that you intended to archive. Atlas provides a query for you to test on the confirmation screen. I am going to connect to my cluster using [MongoDB Compass](https://docs.mongodb.com/compass/master/connect/) to test this query out, but feel free to connect and run the query using any method you are most comfortable with. The query we are testing here is this.
 
-```
-db.comments.find({
-   date: { $lte: new Date(ISODate().getTime() - 1000 \* 3600 \* 24 \* 3650)}
-})
-.sort({ date: 1 })
+```javascript
+db.comments
+	.find({
+		date: { $lte: new Date(ISODate().getTime() - 1000 * 3600 * 24 * 3650) },
+	})
+	.sort({ date: 1 });
 ```
 
 When we run this query against the `sample_mflix.comments` collection, we find that there is a total of 50.3k documents in this collection, and after running our query to find all of the comments that are older than 10 years old, we find that 43,451 documents would be archived using this rule. It’s a good idea to scan through the documents to check that these comments are in fact older than 10 years old.
@@ -74,7 +78,7 @@ Lastly, verify and confirm your archiving rule, and then your collection should 
 
 Okay, now that your data has been archived, we still want to be able to use this data, right? So, let’s connect to our Online Archive and test that our data is still there and that we are still able to query our archived data, as well as our active data.
 
-First, navigate to the _Clusters_ page for your project on Atlas, and click the **Connect** button for the cluster you have Online Archive configured for. Choose your connection method. I will be using [Compass](https://www.mongodb.com/try/download/compass) for this example. Select **Connect to Cluster and Online Archive** to get the connection string that allows you to federate queries across your cluster and Online Archive.
+First, go to the _Clusters_ page for your project on Atlas, and click the **Connect** button for the cluster you have Online Archive configured for. Choose your connection method. I will be using [Compass](https://www.mongodb.com/try/download/compass) for this example. Select **Connect to Cluster and Online Archive** to get the connection string that allows you to federate queries across your cluster and Online Archive.
 
 ![MongoDB Atlas connection dialog showing Cluster and Online Archive option](/images/blog/how-to-manage-mongodb-data-at-scale/6a1c97dc94090ecb676e65a669c83075c90006b2-1024x965.webp)
 
@@ -90,16 +94,16 @@ There you have it! In this post, we explored how to manage your MongoDB data at 
 
 ## Additional resources:
 
-- Archive Cluster Data
+- [Archive Cluster Data](https://web.archive.org/web/20220116194200/https://docs.atlas.mongodb.com/online-archive/manage-online-archive/)
 
 ## Want to check out more of my technical posts?
 
-- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](https://www.joekarlsson.com/2021/05/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
+- [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
 
-- [MongoDB Aggregation Pipeline Queries vs SQL Queries](https://www.joekarlsson.com/2021/05/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
+- [MongoDB Aggregation Pipeline Queries vs SQL Queries](/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
 
-- [An Introduction to IoT (Internet of Toilets)](https://www.joekarlsson.com/2020/11/an-introduction-to-iot-internet-of-toilets/)
+- [An Introduction to IoT (Internet of Toilets)](/blog/an-introduction-to-iot-internet-of-toilets/)
 
-- [How To Use The MongoDB Visual Studio Code Plugin](https://www.joekarlsson.com/2020/11/how-to-use-the-mongodb-visual-studio-code-plugin/)
+- [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/)
 
-- [Linked Lists and MongoDB: A Gentle Introduction](https://www.joekarlsson.com/2020/11/linked-lists-and-mongodb-a-gentle-introduction/)
+- [Linked Lists and MongoDB: A Gentle Introduction](/blog/linked-lists-and-mongodb-a-gentle-introduction/)

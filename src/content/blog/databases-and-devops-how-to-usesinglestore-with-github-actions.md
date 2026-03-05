@@ -5,6 +5,8 @@ slug: 'databases-and-devops-how-to-usesinglestore-with-github-actions'
 description: 'Databases are frequently not included when transforming an application and engineering culture toward a DevOps, or continuous deployment engineering organization. And, you could be forgiven for this...'
 categories: ['Databases', 'Dev Tools']
 heroImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/img_blog_post_featured_use-singlestore-with-github-actions.webp'
+heroAlt: 'Using SingleStore with GitHub Actions for database CI/CD'
+tldr: 'Most teams skip the database in their CI/CD pipeline, and that is a mistake. I walk through best practices for database DevOps and show you how to set up SingleStore with GitHub Actions so your database deployments are automated on every push.'
 ---
 
 Databases are frequently not included when transforming an application and engineering culture toward a DevOps, or continuous deployment engineering organization. And, you could be forgiven for this because setting up repeatable, fast, and up-to-date database environments for an application is really hard!
@@ -17,13 +19,13 @@ By not including the database in the pipeline, most of the work related to datab
 
 - Promotes fear of changes in the organization
 
-This post is for developers who want to learn best practices for integrating databases into your DevOps organization. We will also walk through how to set up an example [SingleStore](https://www.singlestore.com/) database in your DevOps pipeline using [GitHub Actions](https://github.com/features/actions).
+This post is for developers who want to learn best practices for integrating databases into your DevOps organization. I'll also walk through how to set up an example [SingleStore](https://www.singlestore.com/) database in your DevOps pipeline using [GitHub Actions](https://github.com/features/actions).
 
 You can also check out a [live stream](https://www.youtube.com/watch?v=dSeMOp5lXos) I did recently with [Rizel Scarlett](https://x.com/blackgirlbytes) from GitHub.
 
 ## What Are Technical Best Practices for Databases and DevOps?
 
-First of all, let’s cover best practices for databases and DevOps. I think it’s important to cover since, to begin with, databases were never part of the original DevOps vision. That means as a practice, there is a general lack of culture and well-established processes around building databases into your pipeline. Alright, let’s jump in.
+First of all, let’s cover best practices for databases and DevOps. I think it’s important to cover since, to begin with, databases were never part of the original DevOps vision. That means as a practice, there is a general lack of culture and well-established processes around building databases into your pipeline. Here’s how it works.
 
 ### Test!
 
@@ -53,11 +55,11 @@ The only way other microservices interact with the data is by using the exposed 
 
 ## Let’s get into the code
 
-Now that we’ve discussed why you should be automating your database deployments, let’s dig into a practical example. In this guide, I’ll be showing you a workflow example that automates deployment of SingleStore using GitHub Actions every time you push up to GitHub. The workflow runs a script that connects to the SingleStore service, creates a table, and populates it with data. To test that the workflow creates and populates the SingleStore table, the script prints the data from the table to the console. This example only shows you how to get it set up, but I would encourage you to add tests based on this configuration that fit the unique needs of your team, requirements, and of course, your application.
+Now that we’ve discussed why you should be automating your database deployments, here’s a closer look at a practical example. In this guide, I’ll be showing you a workflow example that automates deployment of SingleStore using GitHub Actions every time you push up to GitHub. The workflow runs a script that connects to the SingleStore service, creates a table, and populates it with data. To test that the workflow creates and populates the SingleStore table, the script prints the data from the table to the console. This example only shows you how to get it set up, but I would encourage you to add tests based on this configuration that fit the unique needs of your team, requirements, and of course, your application.
 
 Make sure you have git and a code editor that you are comfortable using. Personally, I would recommend that you check out [Visual Studio Code](https://code.visualstudio.com/) if you need one.
 
-You can find all the [code](https://github.com/singlestore-labs/singlestore-and-github-actions-demo) needed for this demo, as well as [examples of how this works](https://github.com/singlestore-labs/singlestore-and-github-actions-demo/actions) on our GitHub repository.
+You can find all the [code](https://github.com/singlestore-labs/singlestore-and-github-actions-demo) needed for this demo, as well as [examples of how this works](https://github.com/singlestore-labs/singlestore-and-github-actions-demo/actions) on the GitHub repository.
 
 ### [SingleStore on GitHub Actions demo](https://github.com/singlestore-labs/singlestore-and-github-actions-demo/actions)
 
@@ -85,10 +87,10 @@ The [script](https://github.com/singlestore-labs/singlestoredb-dev-image#how-to-
 
 And that is it! Now you can relax and commit your code and migrations as the deployment process is carried out automatically, every time you push your code to your repository.
 
-## Resources:
+## Resources
 
-- Code for SingleStore and GitHub Actions Demo – Databases and DevOps [https://github.com/singlestore-labs/singlestore-and-github-actions-demo](https://github.com/singlestore-labs/singlestore-and-github-actions-demo)
+- [Code for SingleStore and GitHub Actions Demo](https://github.com/singlestore-labs/singlestore-and-github-actions-demo)
 
-- Quickstart for GitHub Actions [https://docs.github.com/en/actions/quickstart](https://docs.github.com/en/actions/quickstart)
+- [Quickstart for GitHub Actions](https://docs.github.com/en/actions/quickstart)
 
-- [Livestream] Databases and DevOps w/ Rizel Scarlett (GitHub): [https://www.youtube.com/watch?v=dSeMOp5lXos](https://www.youtube.com/watch?v=dSeMOp5lXos)
+- [Livestream: Databases and DevOps w/ Rizel Scarlett (GitHub)](https://www.youtube.com/watch?v=dSeMOp5lXos)

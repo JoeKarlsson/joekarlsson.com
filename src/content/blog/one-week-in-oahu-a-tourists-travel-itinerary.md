@@ -7,13 +7,15 @@ categories: ['Travel']
 tags: ['Hawaii', 'Itinerary', 'Travel']
 heroImage: '/images/blog/placeholder/placeholder-travel.webp'
 heroAlt: 'Sunset over a Hawaiian beach'
+contentNotice: 'Aloha Stadium closed in 2023 and the swap meet relocated. Some restaurants and attractions mentioned may have changed - verify before visiting.'
+tldr: 'My day-by-day Oahu itinerary for when friends visit, hitting Lanikai Beach, Hanauma Bay, Koko Head, the North Shore, and the local spots tourists usually miss.'
 ---
 
 > **Note:** This itinerary was written in 2015. Some places mentioned may have changed or closed - notably, Aloha Stadium was demolished in 2023 and the swap meet has relocated. Double-check restaurants and attractions before visiting.
 
 I've lived on the island of Oahu, Hawaii for a couple of months now, and I have noticed that there are a couple of things when you move to a place as beautiful, naturally rich, and exciting as Hawaii. One of these things is that you get asked to be a tour guide for your friends, and for your friends of friends, who are visiting the island for their first or their fifth time. Now, let me just say that there is nothing wrong with taking advantage of friends who live on the island. I love seeing old friends and meeting new ones from all over the world. It's just part of the deal when you move to a place like this.
 
-Anyway, after being a tour guide a couple of times, I decided to sit down and put my one-week travel itinerary down on paper (or blog) to share with others and to get some new ideas from people that have lived here longer than I have. This itinerary contains the list of spots I would bring friends and family to on a typical one-week vacation. I tried to avoid the really crazy tourist spots and hit some of the cool local areas and restaurants.
+Anyway, after being a tour guide a couple of times, I decided to sit down and put my one-week travel itinerary down on paper (or blog) to share with others and to get some new ideas from people that have lived here longer than I have. This itinerary contains the list of spots I would bring friends and family to on a typical one-week vacation. I tried to avoid the wild tourist spots and hit some of the cool local areas and restaurants.
 
 ## Day One
 
@@ -21,7 +23,7 @@ Start out day one with a foolproof plan with guaranteed sun, and get Waikiki out
 
 Get some fresh fish for dinner, either a Poke Bowl or head over to [Doraku for Happy Hour](https://www.dorakusushi.com/store_locator/waikiki/).
 
-Then after dinner, chill out. Traveling can really wear you out, plus jet lag is a bitch.
+Then after dinner, chill out. Traveling can wear you out, plus jet lag is a bitch.
 
 ## Day Two
 
@@ -37,7 +39,7 @@ Head over to Hanauma Bay, for the best snorkeling in the world. Tip: Get there e
 
 Fun Fact: Blue Hawaii was filmed at Hanauma Bay!
 
-[https://www.youtube.com/embed/gYoK-VSuvL0?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/gYoK-VSuvL0?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+[Watch on YouTube](https://www.youtube.com/watch?v=gYoK-VSuvL0)
 
 Or you could hike, or just chill at a beach or w/e.
 
@@ -105,4 +107,4 @@ If you have time, you may want to go to the beach one last time before you leave
 
 ![Two people doing yoga on paddleboards at Ala Moana Beach](/images/blog/one-week-in-oahu-a-tourists-travel-itinerary/download-3-2.webp)
 
-What do you think? Do you have any tips or ideas for things to do with a guest in Hawaii? Let me know in the comments below.
+What do you think? Do you have any tips or ideas for things to do with a guest in Hawaii?

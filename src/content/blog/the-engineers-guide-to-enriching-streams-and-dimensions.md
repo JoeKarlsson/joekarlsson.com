@@ -5,6 +5,8 @@ slug: 'the-engineers-guide-to-enriching-streams-and-dimensions'
 description: 'Data - it’s the new oil, the new gold, the new …  you get the idea. There’s a whole lot of it, and it’s valuable. But unless you’re into data hoarding, the point isn’t just to collect it; you want …...'
 categories: ['Databases']
 heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/ac050f67-data-stream1-1024x488-1.webp'
+heroAlt: 'Guide to enriching streams and dimensions for real-time data'
+tldr: 'Joining real-time event streams from Kafka with dimension tables in a data warehouse unlocks powerful use cases like fraud detection, e-commerce personalization, and log analytics. I walk through three concrete examples with SQL showing how to enrich streaming data with historical context.'
 ---
 
 Data - it’s the new oil, the new gold, the new …  you get the idea. There’s a whole lot of it, and it’s valuable. But unless you’re into data hoarding, the point isn’t just to collect it; you want to use it. You want to massage it, query it, build with it, and glean insights from it in real-time, right? Well, brace yourself, because you’re in for a treat.
@@ -21,7 +23,7 @@ Real-time data platforms (like [Tinybird](https://www.tinybird.co?utm_source=the
 
 ## **Use Cases Combining a Data Warehouse with Data Streams**
 
-Sure, all this talk about streams and warehouses is cool, but what does it look like in the wild? Time to dive into some specific examples of real-time data processing.
+Sure, all this talk about streams and warehouses is cool, but what does it look like in the wild? Time to look at some specific examples of real-time data processing.
 
 ### **Use Case 1: Fraud Detection in Real Time Using Historical Data**
 
@@ -58,9 +60,9 @@ ON
  kafka_stream.customer_id = snowflake_warehouse.customer_id
 ```
 
-_To learn more about building a real-time fraud detection system, _[_check this out_](https://www.tinybird.co/blog-posts/how-to-build-a-real-time-fraud-detection-system?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses)_. _
+_To learn more about building a real-time fraud detection system, [check this out](https://www.tinybird.co/blog-posts/how-to-build-a-real-time-fraud-detection-system?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses)._
 
-### **Use Case 2: Real-Time E-Commerce Personalization with Product Data **
+### **Use Case 2: Real-Time E-Commerce Personalization with Product Data**
 
 In the fast-paced e-commerce industry, real-time insights are critical. You’re running an online store with transaction data flowing in via a Kafka stream and detailed product info stored in a Snowflake warehouse. The challenge? How to put the right offer before a shopper using data from these disparate sources.
 
@@ -85,7 +87,7 @@ ORDER BY orderDate DESC
 LIMIT 100
 ```
 
-_Check out a full example use case of an _[_e-commerce dashboard_](https://github.com/tinybirdco/demo-user-facing-saas-dashboard-signatures)_ using Kafka and Snowflake._
+_Check out a full example use case of an [e-commerce dashboard](https://github.com/tinybirdco/demo-user-facing-saas-dashboard-signatures) using Kafka and Snowflake._
 
 ### **Use Case 3: Real-Time Log Analytics Informed by Historical Data**
 
@@ -124,7 +126,7 @@ WHERE
  kafka_stream.timestamp >= NOW() - INTERVAL '1 HOUR'
 ```
 
-_Want to deep dive into log analytics? _[_Check out this starter kit_](https://www.tinybird.co/starter-kits/log-analytics?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses)_. _
+_Want a detailed look at log analytics? [Check out this starter kit](https://www.tinybird.co/starter-kits/log-analytics?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses)._
 
 ## **Wrapping Up**
 

@@ -5,9 +5,12 @@ slug: 'an-introduction-to-iot-internet-of-toilets'
 description: 'My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet...'
 categories: ['IoT']
 heroImage: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp'
+heroAlt: 'IoT Kitty Litter Box project overview diagram'
+contentNotice: false
+tldr: 'I built an internet-connected cat litter box with a Raspberry Pi, load cells, and Node.js to track my cat''s weight and bathroom habits. This post walks through the hardware, the code, and IoT data best practices.'
 ---
 
-My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet of Toilets or AKA, IoT) device for my feline friend at home. If you’re reading this, you have probably heard about how hot internet-connected devices are, and you are probably interested in learning how to get into IoT development as a JavaScript developer. I also gave a talk on this topic, and you can find the slides and video in my post on [IoT and JS: a gentle introduction to the Internet of Things](/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things/). In this post, we will explore why you should consider JavaScript for your next IoT project, talk about IoT data best practices, and we will explore my latest creation, the IoT Kitty Litter Box.
+My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet of Toilets or AKA, IoT) device for my feline friend at home. If you’re reading this, you have probably heard about how hot internet-connected devices are, and you are probably interested in learning how to get into IoT development as a JavaScript developer. I also gave a talk on this topic, and you can find the slides and video in my post on [IoT and JS: a gentle introduction to the Internet of Things](/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things/). I'm going to walk through why you should consider JavaScript for your next IoT project, talk about IoT data best practices, and show off my latest creation, the IoT Kitty Litter Box.
 
 ![Final assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process.gif)
 
@@ -79,7 +82,7 @@ Also, personally, I like the thought of building something that teeters right on
 
 ### How Does the IoT Kitty Litter Box Work?
 
-So how does this IoT Kitty Litter Box work? Let’s take a look at the events that I needed to handle:
+So how does this IoT Kitty Litter Box work? Here are the events that I needed to handle:
 
 - When the lid of the box is removed, the box enters “maintenance mode.” When in maintenance mode, I can remove waste or refresh the litter.
 
@@ -89,7 +92,7 @@ So how does this IoT Kitty Litter Box work? Let’s take a look at the events th
 
 - When the cat leaves the box, we reset the base weight of the box, and the box waits for another bathroom or maintenance event to occur.
 
-You can also check out this handy animation that walks through the various events that we must handle.
+You can also check out this handy animation that walks through the various events that I needed to handle.
 
 ![Animation of how the box works](/images/blog/an-introduction-to-iot-internet-of-toilets/how_the_box_works-1024x576.gif)_Animation of how the box works_
 
@@ -103,7 +106,7 @@ For this project, I opted to work with a Raspberry Pi 3 Model B+ since it runs a
 
 - Send data from the Raspberry Pi to the outside world (i.e. turning a light on and off).
 
-![Animation of how the box works](/images/blog/an-introduction-to-iot-internet-of-toilets/gpio_setup-1024x588.webp)_Animation of how the box works_
+![Raspberry Pi GPIO pin wiring diagram for IoT Kitty Litter Box](/images/blog/an-introduction-to-iot-internet-of-toilets/gpio_setup-1024x588.webp)_Raspberry Pi GPIO pin wiring diagram for IoT Kitty Litter Box_
 
 I wired up the IoT Kitty Litter Box using the schema below. I want to note that I am not an electrical engineer and creating this involved lots of Googling, failing, and at least two blown circuit boards. It’s okay to make mistakes, especially when you are first starting out.
 
@@ -111,7 +114,7 @@ I wired up the IoT Kitty Litter Box using the schema below. I want to note that 
 
 ![IoT Kitty Litter Box Schema Design](/images/blog/an-introduction-to-iot-internet-of-toilets/schema_design-1024x801.webp)_IoT Kitty Litter Box Schema Design_
 
-We will be using these GPIO pins in order to communicate with our sensors out in the “real world.”
+I used these GPIO pins to communicate with the sensors out in the “real world.”
 
 ## Let’s Dig Into the Code
 
@@ -158,7 +161,7 @@ board.on('fail', (error) => {
 
 You can see the event and asynchronous nature of IoT plays really nicely with Node’s callback structure. Here’s a demo of the magnetic switch component in action.
 
-![Switch Demo](/images/blog/an-introduction-to-iot-internet-of-toilets/switch_demo.gif)_Switch Demo_
+![Demo of the magnetic reed switch detecting litter box lid](/images/blog/an-introduction-to-iot-internet-of-toilets/switch_demo.gif)_Demo of the magnetic reed switch detecting litter box lid_
 
 ### Load Cells
 
@@ -209,7 +212,7 @@ class Scale {
             this.currWeight = parseFloat(data);
 
             // If a cat is present - do something
-            if (this.isCatPresent() {
+            if (this.isCatPresent()) {
                this.handleCatInBoxEvent();
             }
       });
@@ -232,7 +235,7 @@ module.exports = Scale;
 
 This was the first time I have played around with the Spawn Child Process API from Node. Personally, I was really impressed by how easy it was to use and troubleshoot. It’s not the most elegant solution, but it totally works for my project and it uses some cool features of Node. Let’s take a look at what the load cells look like in action. In the video below, you can see how pressure placed on the load cells is registered as a weight measurement from the Raspberry Pi.
 
-![Load Cell Demo](/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo.gif)_Load Cell Demo_
+![Demo of the load cell measuring weight changes](/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo.gif)_Demo of the load cell measuring weight changes_
 
 ## How to Handle Internet of Toilets Data
 
@@ -261,7 +264,7 @@ The first thing when selecting a database for your IoT project, you need to ensu
 
 You should also consider a database that is able to handle a flexible schema. This is because it is common to either add or upgrade sensors on an IoT device. For example, on my litter box, I was able to easily update my schema to add the switch data when I decided to start tracking how often the box gets cleaned.
 
-#### Your Database Should Easily Time Series Data
+#### Your Database Should Easily Handle Time Series Data
 
 Lastly, you will want to select a database that natively handles time-series data. Consider how your data will be used. For most IoT projects, the data will be collected, analyzed, and visualized on a graph or chart over time. For my IoT Litter Box, my database schema looks like the following.
 
@@ -291,7 +294,7 @@ Lastly, you will want to select a database that natively handles time-series dat
 
 ## Summary
 
-Alright, let’s wrap this party up. In this post, we talked about why you should consider using Node for your next IoT (Internet of Toilets) project: It’s easy to update over a network, the internet already speaks JavaScript, there are tons of existing libraries/plugins/APIs (including [CylonJS](https://cylonjs.com/) and [Johnny-Five](http://johnny-five.io/)), and JavaScript is great at handling event-driven apps. We looked at a real-life Node-based IoT project, my IoT Kitty Litter Box. Then, we dug into the code base for the IoT Kitty Litter Box. We also discussed what to look for when selecting a database for IoT projects: It should be able to concurrently write data quickly, have a flexible schema, and be able to handle time-series data.
+Alright, let’s wrap this party up. In this post, I covered why you should consider using Node for your next IoT (Internet of Toilets) project: It’s easy to update over a network, the internet already speaks JavaScript, there are tons of existing libraries/plugins/APIs (including [CylonJS](https://cylonjs.com/) and [Johnny-Five](http://johnny-five.io/)), and JavaScript is great at handling event-driven apps. I walked through a real-life Node-based IoT project, my IoT Kitty Litter Box, and dug into the code base. I also discussed what to look for when selecting a database for IoT projects: It should be able to concurrently write data quickly, have a flexible schema, and be able to handle time-series data.
 
 ![Final IoT Kitty Litter Box Assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process-1.gif)_Final IoT Kitty Litter Box Assembly process_
 

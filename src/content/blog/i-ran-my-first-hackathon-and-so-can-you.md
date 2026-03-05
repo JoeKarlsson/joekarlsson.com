@@ -5,19 +5,21 @@ slug: 'i-ran-my-first-hackathon-and-so-can-you'
 description: 'I Ran My First Hackathon, and So Can You! Here are the lessons I learned from planning, organizing, and executing my first hackathon. The hackathon I ran was the Stupid Shit and Terrible Ideas...'
 categories: ['DevRel']
 heroImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/11.16.2019.webp'
+heroAlt: 'I ran my first hackathon and so can you'
+contentNotice: false
+tldr: 'Everything I learned organizing my first hackathon from scratch - venue, food, sponsors, marketing, code of conduct, and all the mistakes I made along the way.'
 ---
 
 I Ran My First Hackathon, and So Can You! Here are the lessons I learned from planning, organizing, and executing my first hackathon. The hackathon I ran was the [Stupid Shit and Terrible Ideas Hackathon](https://stupidshitnooneinhawaiineedshackathon.github.io/) in Honolulu, Hawaii.
 
 Okay, so first of all, what exactly is a hackathon? I find that when I tell people about hackathons, they assume I am hacking into some mainframe with my hack friends, like some scene out of Hackers.
 
-[//giphy.com/embed/14kdiJUblbWBXy?html5=true](//giphy.com/embed/14kdiJUblbWBXy?html5=true)
-
 ### I define “**hackathon**” very broadly:
 
-- Hacking is creative problem-solving. (It does not have to be about technology.)- A hackathon is any event of any duration where people come together to solve problems or build something.
+- Hacking is creative problem-solving. (It does not have to be about technology.)
+- A hackathon is any event of any duration where people come together to solve problems or build something.
 
-The idea for the Stupid Shit Hackathon was born out of the idea that tech – specifically corporate tech – can solve any problem with a weekend of hacking. Climate Change – give me four hackers and 48 hours and I can solve that for you. Homelessness – No problem, we’ll start a hackathon and solve that in a jiffy. The Stupid Hackathon was intended to be a meta-hackathon. Self-aware of corporate tech, male-dominated self-seriousness I found at most hackathons.
+The idea for the Stupid Shit Hackathon was born out of the idea that tech - specifically corporate tech - can solve any problem with a weekend of hacking. Climate Change - give me four hackers and 48 hours and I can solve that for you. Homelessness - No problem, we’ll start a hackathon and solve that in a jiffy. The Stupid Hackathon was intended to be a meta-hackathon. Self-aware of corporate tech, male-dominated self-seriousness I found at most hackathons.
 
 ### The bottom line
 
@@ -27,11 +29,20 @@ Over the years as my career as a Software Engineer, I had attended dozens of hac
 
 ### **Here's what I'll cover:**
 
-- How to get prepared for your hackathon- How to marketing your hackathon- Getting sponsors- Running the kickoff ceremonies- What to do during the hackathon- How to run the final presentations and award ceremony- What to do after your hackathon
+- How to get prepared for your hackathon
+- How to market your hackathon
+- Getting sponsors
+- Running the kickoff ceremonies
+- What to do during the hackathon
+- How to run the final presentations and award ceremony
+- What to do after your hackathon
 
 ### A couple of notes before we dig in:
 
-- The event I organized had about 60 people in attendance, if you are planning an event with 100 people or more, you are probably on a whole other level and you will need to do a lot more prep work. I would recommend checking out the [Hackathon Guide](https://hackathon.guide/) for details on how to run an event with lots of people in attendance.- This was a Stupid Shit and Terrible Ideas hackathon, which by its very nature is a very nonstandard hackathon. We wanted to create more of a collaborative and warm vibe so that all of our entrants have fun, but hopefully you can bring the positive and welcoming vibes to your hackathon.- This was the first hackathon I ever ran – I definitely still have lots to learn in regards to running a smooth, diverse and inclusive event, but I am trying my hardest.- I am a software engineer, not a lawyer. **Do not take anything I say here as legal advice.**
+- The event I organized had about 60 people in attendance, if you are planning an event with 100 people or more, you are probably on a whole other level and you will need to do a lot more prep work. I would recommend checking out the [Hackathon Guide](https://hackathon.guide/) for details on how to run an event with lots of people in attendance.
+- This was a Stupid Shit and Terrible Ideas hackathon, which by its very nature is a very nonstandard hackathon. We wanted to create more of a collaborative and warm vibe so that all of our entrants have fun, but hopefully you can bring the positive and welcoming vibes to your hackathon.
+- This was the first hackathon I ever ran - I definitely still have lots to learn in regards to running a smooth, diverse and inclusive event, but I am trying my hardest.
+- I am a software engineer, not a lawyer. **Do not take anything I say here as legal advice.**
 
 ---
 
@@ -47,11 +58,9 @@ You might not even want to run a hackathon, I would suggest reading, [So You Th
 
 Assemble a diverse team just like the Avengers.
 
-[//giphy.com/embed/7t3vlQAJCZCU0?html5=true](//giphy.com/embed/7t3vlQAJCZCU0?html5=true)
-
 _Except you probably want to have a couple more women and minorities on your team._
 
-If you want to attract a diverse audience, you will want your organizing team to reflect the audience that you hope to attract. For my hackathon, I don’t think that I did a great job at doing of getting together a diverse team, and for my next event, this is something that I really want to focus on improving.
+If you want to attract a diverse audience, you will want your organizing team to reflect the audience that you hope to attract. For my hackathon, I don’t think that I did a great job at doing of getting together a diverse team, and for my next event, this is something that I want to focus on improving.
 
 ### **Setup Communication For Your Organizing Team**
 
@@ -61,15 +70,25 @@ For our hackathon, we created a [Slack](https://slack.com/) channel for the org
 
 This is the only thing you need to do significantly in advance of the event. The earlier you can reserve space the better. When looking for a space to host your hackathon, be sure to find a venue that can provide:
 
-- Proper seating- One power strip per table- Wifi (is it fast and reliable? can it connect all of your participants? does it block any ports?)- Projector- A microphone, at least in large rooms- Accessible entrances and wheelchair-friendly seating space (and if there is a stage, check if it is accessible, if applicable)- Gender-neutral, single-occupancy, accessible bathrooms- Is food allowed in your venue- Is not in the middle of nowhere
+- Proper seating
+- One power strip per table
+- Wifi (is it fast and reliable? can it connect all of your participants? does it block any ports?)
+- Projector
+- A microphone, at least in large rooms
+- Accessible entrances and wheelchair-friendly seating space (and if there is a stage, check if it is accessible, if applicable)
+- Gender-neutral, single-occupancy, accessible bathrooms
+- Is food allowed in your venue
+- Is not in the middle of nowhere
 
 Venues are typically very expensive. If you are reserving a professional space like a banquet or conference center, it can run you anywhere from $10 to $40 a head. For our hackathon, we were lucky enough to be sponsored by a local government agency that supports tech growth in Hawaii, [HTDC](http://htdc.org/). It might be worthwhile to try and find a place that is willing to sponsor your space, this will especially be easier if your hackathon is for a good cause. If you are running a corporate hackathon, you might be out of luck.
 
 ### **Picking a Date For Your Hackathon**
 
-Picking a date for your event is actually really hard. There are many things that you will want to keep in mind. First of all, look at a calendar of other similar events. You do not want to pick a date when all of your developers are at a big local conference if you are trying to attract a large number of developers. You will also want to avoid:
+Picking a date for your event is hard. There are many things that you will want to keep in mind. First of all, look at a calendar of other similar events. You do not want to pick a date when all of your developers are at a big local conference if you are trying to attract a large number of developers. You will also want to avoid:
 
-- Holidays- Summer (especially late summer) – This is especially hard for parents- Major events in your area (especially other tech events or conferences)
+- Holidays
+- Summer (especially late summer) – This is especially hard for parents
+- Major events in your area (especially other tech events or conferences)
 
 Have it on a weekend – trust us – just do it. Nobody can jam during the week.
 
@@ -81,11 +100,15 @@ Okay, here are some guidelines for selecting food for your hackathon:
 
 - The first rule of picking food for a hackathon is “No Pizza”. Pizza is just about the most unhealthy thing you can eat, and tech people eat it at 90% of the events they go to.
 
-[//giphy.com/embed/3oriNWxJAEYUt59Ego?html5=true](//giphy.com/embed/3oriNWxJAEYUt59Ego?html5=true)
-
 I have a confession to make, I had pizza at my hackathon. I know, I know, I hate pizza at hackathons, but money was short, and pizza is the cheapest thing you can order for a large group of people.
 
-- You usually halfway healthy food, right? Order food that you would actually eat if you weren’t at a hackathon.- Provide options for people with dietary restrictions. Something I did not do well at my hackathon was providing options for vegetarians, people with allergies, or people with other dietary restrictions. Be sure to have food for everyone.- Provide coffee and light pastries and/or fruit for breakfast.- Make sure you have lots of water throughout the whole day.- Sugar and caffeine are okay. Soda and energy drinks are usually appreciated.- Budget about $20 to $40 per head per day for food.- When ordering food, be sure to order it at least a couple of days before the event.
+- You usually want halfway healthy food, right? Order food that you would actually eat if you weren’t at a hackathon.
+- Provide options for people with dietary restrictions. Something I did not do well at my hackathon was providing options for vegetarians, people with allergies, or people with other dietary restrictions. Be sure to have food for everyone.
+- Provide coffee and light pastries and/or fruit for breakfast.
+- Make sure you have lots of water throughout the whole day.
+- Sugar and caffeine are okay. Soda and energy drinks are usually appreciated.
+- Budget about $20 to $40 per head per day for food.
+- When ordering food, be sure to order it at least a couple of days before the event.
 
 Alright, one final thought, for a small event or a non-profit event, food can be optional. Food was the most expensive part aspect of our hackathon, and I would have rather allocated money for swag for everybody, or more inclusive prizes for the winners. For my next hackathon, I would question whether we need to provide full meals for the participants or not.
 
@@ -93,7 +116,15 @@ Alright, one final thought, for a small event or a non-profit event, food can be
 
 When your participants are signing up for your event is a great time to collect preliminary information about the audience of your hackathon. For our event, we set up an [Eventbrite](https://www.eventbrite.com/) registration form, you can easily collect as much info as you want with it. This worked great for our free event. [Hackathon.guide](https://hackathon.guide/) has some great suggestions for types of information that you should be looking to collect on the registration form.
 
-- Name (and possibly other information as required by venue security)- Email address- Job title- Are they new to hackathons?- What kind of hacker are they? Examples: Developer. Designer. Data Scientist. Domain Expert. Government Staff. Communicator. Project Manager. Advocate.- What are they interested in hacking on? (free form question)- Are they interested in any of the workshops?- How they heard about the event- Special needs/requests
+- Name (and possibly other information as required by venue security)
+- Email address
+- Job title
+- Are they new to hackathons?
+- What kind of hacker are they? Examples: Developer. Designer. Data Scientist. Domain Expert. Government Staff. Communicator. Project Manager. Advocate.
+- What are they interested in hacking on? (free form question)
+- Are they interested in any of the workshops?
+- How they heard about the event
+- Special needs/requests
 
 This information you can collect ahead of time, the better you can plan and prepare.
 
@@ -103,8 +134,6 @@ One final note, according to the [Hackathon Guide](http://hackathon.guide/), “
 
 Be sure your organization is adequately insured for the event, venue, and any other liability (lost or stolen goods at the event, injuries, etc.). While people aren’t likely to be skateboarding or sword-fighting at hackathons, it’s always better to be prepared for the worst.
 
-[//giphy.com/embed/isMS5AtzBOxMY?html5=true](//giphy.com/embed/isMS5AtzBOxMY?html5=true)
-
 ---
 
 ## How To Market A Hackathon
@@ -113,7 +142,10 @@ Okay, so you have been doing all this planning for your big event, but now you a
 
 One note, your marketing plan should be put together in order to fit your objectives for the hackathon. Ask yourself:
 
-- Do you want to reach a particular audience?- How many submissions are you aiming for?- Do you want to attract the top talent in the industry?- Do you want to simply promote your brand
+- Do you want to reach a particular audience?
+- How many submissions are you aiming for?
+- Do you want to attract the top talent in the industry?
+- Do you want to simply promote your brand
 
 Be sure to keep your objectives in mind as you are developing your marketing plan.
 
@@ -121,7 +153,8 @@ Be sure to keep your objectives in mind as you are developing your marketing pla
 
 You’re running a hackathon, you have got to make a website for your event. This is important for so many reasons. One, make it easy for people to get information about your event. Two, you are going to need it to get sponsors (see below). Your website should cover the following:
 
-- Make it look professional – this is the site your sponsors will be looking at when deciding if they want to give you money.- The who, what, when, where, and why’s of your event (duh).
+- Make it look professional – this is the site your sponsors will be looking at when deciding if they want to give you money.
+- The who, what, when, where, and why’s of your event (duh).
 
 - Start and end dates
 - Location
@@ -129,7 +162,12 @@ You’re running a hackathon, you have got to make a website for your event. Thi
 - Reminder about materials needed for the event (laptop, charger, camera, etc)
 - Schedule of events during the day
 - Food that will be provided (if applicable)
-- Times of workshops or training sessions before the event- The Code of Conduct- Information about the previous years event (if applicable)- Information about your sponsors.- Contact information for the organizers- Link to Eventbrite registration form
+- Times of workshops or training sessions before the event
+- The Code of Conduct
+- Information about the previous years event (if applicable)
+- Information about your sponsors.
+- Contact information for the organizers
+- Link to Eventbrite registration form
 
 ### **Social Media**
 
@@ -137,7 +175,9 @@ Alright, this is a tech event, you basically gotta have an online presence for y
 
 **Twitter**
 
-- Create a twitter account for your event- Choose a hashtag for your event- Encourage people during the event to follow your events Twitter if they want to be updated about future events.
+- Create a twitter account for your event
+- Choose a hashtag for your event
+- Encourage people during the event to follow your events Twitter if they want to be updated about future events.
 
 **Facebook Group/Event**
 
@@ -151,13 +191,11 @@ Offer a variety of workshops to the public, with a variety of languages and topi
 
 ### **Prizes**
 
-I find that prizes can be a great way to market your event, but you need to be careful about the prizes you offer, as they can severely affect the mood of your event. For example, large cash prizes can make the event more competitive, which might turn off lots of inexperienced programmers, future programmers, and future technology leaders. The folks over at Major League Hacking wrote up a [much bett](http://news.mlh.io/are-hackathon-prizes-the-worst-thing-since-moldy-sliced-bread-04-18-2014)er article than I could ever hope to write about how to select “good” prizes for your event. I encourage you to check out their take on what makes a great or terrible hackathon prize.
+I find that prizes can be a great way to market your event, but you need to be careful about the prizes you offer, as they can severely affect the mood of your event. For example, large cash prizes can make the event more competitive, which might turn off lots of inexperienced programmers, future programmers, and future technology leaders. The folks over at Major League Hacking wrote up a [much better](http://news.mlh.io/are-hackathon-prizes-the-worst-thing-since-moldy-sliced-bread-04-18-2014) article than I could ever hope to write about how to select “good” prizes for your event. I encourage you to check out their take on what makes a great or terrible hackathon prize.
 
 ### **Swag**
 
 Swag is a great way to do some guerrilla marketing for your event.
-
-[//giphy.com/embed/a6h71JgwZKz6w?html5=true](//giphy.com/embed/a6h71JgwZKz6w?html5=true)
 
 Here is some great examples of good swag for your event:
 
@@ -179,11 +217,10 @@ This last one is huge, but be sure to get the word out about your hackathon with
 
 Organizing hackathons costs money, there is no way around it. Even if you are running a barebones hackathon, you are going to need to find some money for food, prizes, and space to hack. You basically have two options:
 
-- Pay for it out of pocket or- Find corporate sponsors to help you fund your hackathon.
+- Pay for it out of pocket or
+- Find corporate sponsors to help you fund your hackathon.
 
 This section is going to cover the later section. I am going to tell give you some tips I picked when you are trying to get people to give you money to help you run your event.
-
-[//giphy.com/embed/3osxYamKD88c6pXdfO?html5=true&hideSocial=true](//giphy.com/embed/3osxYamKD88c6pXdfO?html5=true&hideSocial=true)
 
 ### **Make A Website**
 
@@ -216,8 +253,6 @@ At the kickoff for your hackathon is the time when you set the rules, and expect
 
 You may have heard that the technology industry has a pretty terrible track record of running events that make women and minorities feel comfortable. By making a more positive and inclusive experience, you are more likely to attract women and minorities to your event. As a technology event organizer, you have a tremendous opportunity to make a small difference and to make everyone feel comfortable and welcome.
 
-[//giphy.com/embed/l41YckuRnJ8HQk09i?html5=true](//giphy.com/embed/l41YckuRnJ8HQk09i?html5=true)
-
 My personal favorite hackathons are the hackathons that are positive, supportive, collaborative, and welcoming to newcomers to the community and to the old pros. I have been to so many hackathons that feel competitive (in a bad way), support unhealthy eating and sleeping schedules, or encourage secrecy. All of these things create an ugly dark event that leaves your attendees with a bad taste in their mouths.
 
 ### **Explain The History and Purpose Of The Event**
@@ -231,8 +266,6 @@ Tell everyone who you are, and why you are putting it on the event. This is also
 ### **Encourage New Hackers**
 
 A great way to start out the event is to thank the newcomers to the event for taking a big risk and being brave. Try reminding everybody how hard it is to do what they are doing and to remind the group to be patient and encourage new hackathon participants. I like to have everyone give a round of applause to the newcomers at the kickoff. As an organizer, keep a list of projects and more senior mentors that you can pair your newcomers with. You want to make sure that everyone at the hackathon feels like they have an important job to perform or else you will lose the newcomers and likely, you will never see them ever again. It is in your power to make sure that they have a great time at their first hackathon.
-
-[//giphy.com/embed/26uf2jP7j8WVZVGwM?html5=true](//giphy.com/embed/26uf2jP7j8WVZVGwM?html5=true)
 
 ### **Be Clear About The Rules**
 
@@ -250,13 +283,21 @@ Your Code of Conduct is more than a set of rules it is your way of setting the c
 
 The [Hackbright Academy’s](https://web.archive.org/web/20140705033710/http://www.hackbrightacademy.com:80/code_of_conduct_for_hackathons) code chimes in with four simple main guidelines:
 
-- Be respectful.- Be thoughtful.- Be open.- Be awesome.
+- Be respectful.
+- Be thoughtful.
+- Be open.
+- Be awesome.
 
 Simple.
 
 When writing your own Code of Conduct, I would check out these awesome examples and take the parts that work best for you and your event. Here are some great examples:
 
-- [2014 Lean Startup Conference](https://web.archive.org/web/20221004202251/https://leanstartup.co/code/)- [Hackbright Academy’s](https://web.archive.org/web/20140705033710/http://www.hackbrightacademy.com:80/code_of_conduct_for_hackathons)- [Allied Media Conference](http://alliedmedia.org/#!/amp-network-principles)- [Code For DC](http://codefordc.org/resources/codeofconduct.html)- [Tech Lady Hackathon](https://web.archive.org/web/20211204230258/https://techladyhackathon.org/codeofconduct)- [Hopper Conference Diversity Guide](http://conference.hopper.org.nz/#coc)
+- [2014 Lean Startup Conference](https://web.archive.org/web/20221004202251/https://leanstartup.co/code/)
+- [Hackbright Academy’s](https://web.archive.org/web/20140705033710/http://www.hackbrightacademy.com:80/code_of_conduct_for_hackathons)
+- [Allied Media Conference](http://alliedmedia.org/#!/amp-network-principles)
+- [Code For DC](http://codefordc.org/resources/codeofconduct.html)
+- [Tech Lady Hackathon](https://web.archive.org/web/20211204230258/https://techladyhackathon.org/codeofconduct)
+- [Hopper Conference Diversity Guide](http://conference.hopper.org.nz/#coc)
 
 If you’re interested in more, the [Ada Initiative](http://adainitiative.org/what-we-do/conference-policies/) has a thorough list of conferences with anti-harassment policies.
 
@@ -264,7 +305,7 @@ If you’re interested in more, the [Ada Initiative](http://adainitiative.org/w
 
 Go over the schedule of workshops, lunch, end time, etc.  You can also use this time to encourage people to take and share session notes and to record progress on projects.
 
-### **Ice Breaker/Team Building Acitivity**
+### **Ice Breaker/Team Building Activity**
 
 In my experience, people groan and grumble when they hear that there is going to be an ice breaker activity, but having one has consistently made the vibes at events with them more positive and inclusive. I would highly recommend having one at your hackathon. [This site](http://www.icebreakers.ws/extra-large-group) has some great ideas for ice breakers for large groups.
 
@@ -328,10 +369,12 @@ Don’t know how to write up a wrap-up report? [Check out this great guide to wr
 
 ### **Add Your Submissions To Your Website**
 
-Something that was important for me at my hackathon, was to put all of the submissions on our website. All to often, I find that hackathon submissions disappear and die the Monday morning following a hackathon. No one ever looks at that project or the code ever again. Something I appreciated about the Stupid Hackathon in New York is that they posted all of the projects with photos, videos, descriptions, links, and authors for all of their projects. It helps promote the event and helps share the work that people worked so hard on at your event. I know that I have personally loved looking at the amazing projects created at the original Stupid Hack, and is something I wanted to bring to my hackathon. This is also something that I would like to continue doing at all of my future hackathons.
+Something that was important for me at my hackathon, was to put all of the submissions on our website. All too often, I find that hackathon submissions disappear and die the Monday morning following a hackathon. No one ever looks at that project or the code ever again. Something I appreciated about the Stupid Hackathon in New York is that they posted all of the projects with photos, videos, descriptions, links, and authors for all of their projects. It helps promote the event and helps share the work that people worked so hard on at your event. I know that I have personally loved looking at the amazing projects created at the original Stupid Hack, and is something I wanted to bring to my hackathon. This is also something that I would like to continue doing at all of my future hackathons.
 
 Do you have more ideas for how to run a hackathon – let me know. This was only my first event, and I know I have lots to learn. Or do you want to brainstorm strategies for how to run your next hackathon? Shoot me a message at joe@callmejoe.net
 
 ### **Additional Resources:**
 
-- [http://alexeymk.com/hosting-hackathons/](http://alexeymk.com/hosting-hackathons/)- [https://hackathon.guide/](https://hackathon.guide/)- [http://news.mlh.io/are-hackathon-prizes-the-worst-thing-since-moldy-sliced-bread-04-18-2014](http://news.mlh.io/are-hackathon-prizes-the-worst-thing-since-moldy-sliced-bread-04-18-2014)
+- [http://alexeymk.com/hosting-hackathons/](http://alexeymk.com/hosting-hackathons/)
+- [https://hackathon.guide/](https://hackathon.guide/)
+- [http://news.mlh.io/are-hackathon-prizes-the-worst-thing-since-moldy-sliced-bread-04-18-2014](http://news.mlh.io/are-hackathon-prizes-the-worst-thing-since-moldy-sliced-bread-04-18-2014)

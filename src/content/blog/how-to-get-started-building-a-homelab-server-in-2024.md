@@ -2,12 +2,14 @@
 title: 'How to get started building a Homelab server in 2026'
 date: 2023-09-27
 slug: 'how-to-get-started-building-a-homelab-server-in-2024'
-description: 'Welcome to your definitive guide on building your first Homelab server, aimed at both seasoned tech aficionados and nascent enthusiasts. In this blog post, I hope to provide an in-depth walkthrough...'
+description: 'Welcome to your guide on building your first Homelab server, aimed at both seasoned tech aficionados and nascent enthusiasts. In this blog post, I hope to provide an in-depth walkthrough...'
 categories: ['Homelab']
 heroImage: '/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp'
+heroAlt: 'Homelab server setup guide with architecture diagram'
+tldr: 'I built my first Homelab server for under $200 using a used Lenovo ThinkServer from Facebook Marketplace and Proxmox. Here is everything I learned about picking hardware, choosing an OS, setting up containers, and mounting NAS storage.'
 ---
 
-Welcome to your definitive guide on building your first Homelab server, aimed at both seasoned tech aficionados and nascent enthusiasts. In this blog post, I hope to provide an in-depth walkthrough of the components you need and configuration best practices I’ve picked up since completing my first Homelab build.
+Welcome to your guide on building your first Homelab server, aimed at both seasoned tech aficionados and nascent enthusiasts. In this blog post, I hope to provide an in-depth walkthrough of the components you need and configuration best practices I’ve picked up since completing my first Homelab build.
 
 ## Why did I get started with making a Homelab? 
 
@@ -99,11 +101,11 @@ Proxmox offers a slew of features tailored for a Homelab setup. Its focus on con
 
 ## Containers I wanted to run on my Homelab
 
-I found this amazing site that has a ton of scripts for simplifying your Proxmox Homelab setup [https://tteck.github.io/Proxmox/](https://tteck.github.io/Proxmox/)
+I found this amazing site that has a ton of scripts for simplifying your Proxmox Homelab setup: [Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/)
 
 **Media Management:**
 
-I use the TRaSH-Guide to configure and set up all of my Arr apps and media downloaders: [https://trash-guides.info/](https://trash-guides.info/)
+I use the TRaSH-Guide to configure and set up all of my Arr apps and media downloaders: [TRaSH Guides](https://trash-guides.info/)
 
 - **Plex**: While Plex has been reliable, my confidence in the project’s direction has diminished, prompting me to explore alternatives.[ [2]](https://www.geekbitzone.com/posts/2022/proxmox/plex-lxc/install-plex-in-proxmox-lxc/#introducing-linux-containers-lxc)
 
@@ -137,7 +139,7 @@ I use the TRaSH-Guide to configure and set up all of my Arr apps and media downl
 
 - **Octoprint**: To control my Prusa MK3S 3D printer.[ [10]](https://octoprint.org/)
 
-- **MagicMirror**: Moved my smart mirror setup to Proxmox for centralized IoT management.[ [11]](https://www.joekarlsson.com/portfolio/magicmirror%C2%B2-smart-iot-mirror/)[ [12]](https://magicmirror.builders/)
+- **MagicMirror**: Moved my smart mirror setup to Proxmox for centralized IoT management.[ [11]](/work/)[ [12]](https://magicmirror.builders/)
 
 - **Grocy**: Manages groceries and household items, meal plans, and more.[ [13]](https://grocy.info/)
 
@@ -167,7 +169,7 @@ For example, if I’m running a MySQL database and a separate NGINX web server, 
 
 By maintaining each service in an isolated container, I’ve essentially modularized my Homelab, making it a more manageable, efficient, and reliable system.
 
-### **Leveraging NAS for Media Management in Containers**
+### **Using NAS for Media Management in Containers**
 
 In my Homelab architecture, the Synology NAS isn’t just a separate entity; it’s an integral part of the ecosystem, especially for my media management tasks. I’ve configured it as a mounted data store accessible to several of my containers running on the Proxmox host. This approach serves a dual purpose. First, it offers an optimized, centralized repository for all media files, eliminating data redundancy and ensuring quick access across services. Second, it makes resource allocation more efficient. Containers dedicated to tasks like media streaming, transcoding, or library management can access the same high-capacity storage without wasting local Proxmox server resources. So, whether it’s a Plex server or a torrent client, multiple containers can read and write to the same NAS-based datastore, offering a unified, efficient media management solution.
 
@@ -179,13 +181,13 @@ In the pursuit of optimizing my Homelab, integrating Network Attached Storage (N
 
 - Update the Package List and Install NFS Support
 
-```
+```bash
 sudo apt update && sudo apt install nfs-common -y
 ```
 
 - Create Mount Point Directory
 
-```
+```bash
 mkdir /nas
 ```
 
@@ -193,31 +195,31 @@ mkdir /nas
 
 Open the `/etc/fstab` file in a text editor. Here, we use `nano`.
 
-```
+```bash
 nano /etc/fstab
 ```
 
 Add the following line to mount the NAS.
 
-```
+```bash
 [IP_ADDRESS_OF_YOUR_NAS]:[DIRECTORY_YOUR_SHARE] /nas nfs defaults 0 0
 ```
 
 An example would be:
 
-```
+```bash
 192.168.0.555:/volume1/data /nas nfs defaults 0 0
 ```
 
 - Reload System Daemons
 
-```
+```bash
 systemctl daemon-reload
 ```
 
 - Mount the NAS
 
-```
+```bash
 mount [IP_ADDRESS_OF_YOUR_NAS]:[DIRECTORY_YOUR_SHARE]
 ```
 
@@ -266,33 +268,3 @@ Shockingly, I decided not to install HomeAssistant (which is a project I am a ma
 ## Wrap Up
 
 The most important takeaway is this: don’t wait for the ‘perfect’ time or the ‘perfect’ gear to start your Homelab. With platforms like Proxmox and a vibrant community supporting tons of containerized services, you can start small and scale at your own pace. A Homelab is a canvas for your technical endeavors, a playground for your curiosity. It’s a project that grows with you, and it’s never too late to get started. Whether you’re using second-hand hardware, an old PC, or even a Raspberry Pi, your journey into the world of home labs will be a fulfilling one. Reach out to share your own experiences, ask questions, or offer insights. Trust me, once you dive in, you’ll wonder why you didn’t start sooner.
-
----
-
-## URLs:
-
-- [https://raspberrytips.com/install-minecraft-server-debian/](https://raspberrytips.com/install-minecraft-server-debian/)
-
-- [https://www.geekbitzone.com/posts/2022/proxmox/plex-lxc/install-plex-in-proxmox-lxc/#introducing-linux-containers-lxc](https://www.geekbitzone.com/posts/2022/proxmox/plex-lxc/install-plex-in-proxmox-lxc/#introducing-linux-containers-lxc)
-
-- [https://jellyfin.org/](https://jellyfin.org/)
-
-- [https://tautulli.com/](https://tautulli.com/)
-
-- [https://overseerr.dev/](https://overseerr.dev/)
-
-- [https://radarr.video/](https://radarr.video/)
-
-- [https://sonarr.tv/](https://sonarr.tv/)
-
-- [https://www.bazarr.media/](https://www.bazarr.media/)
-
-- [https://pi-hole.net/](https://pi-hole.net/)
-
-- [https://octoprint.org/](https://octoprint.org/)
-
-- [https://www.joekarlsson.com/portfolio/magicmirror%C2%B2-smart-iot-mirror/](https://www.joekarlsson.com/portfolio/magicmirror%C2%B2-smart-iot-mirror/)
-
-- [https://magicmirror.builders/](https://magicmirror.builders/)
-
-- [https://grocy.info/](https://grocy.info/)

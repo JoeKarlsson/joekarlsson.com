@@ -6,6 +6,8 @@ description: 'Are you new to data structures and algorithms? In this post, you w
 categories: ['Databases']
 heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/ATF_Linked-Lists.webp'
 heroAlt: 'Diagram of a linked list data structure'
+contentNotice: 'This tutorial uses MongoDB Node.js driver v3.x. The current driver (v6+) has different connection and CRUD APIs.'
+tldr: 'I implement a linked list from scratch using Node.js and MongoDB, covering add, find, insert, and delete operations. It is a good way to learn both data structures and MongoDB CRUD basics at the same time.'
 ---
 
 > **Note:** This tutorial was written in 2020 using MongoDB Node.js driver v3.x. The current driver (v6+) no longer requires `useNewUrlParser` or `useUnifiedTopology` options, and `result.ops[0]` has been replaced with `result.insertedId`. The linked list concepts are still accurate.

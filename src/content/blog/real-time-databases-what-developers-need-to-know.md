@@ -5,13 +5,15 @@ slug: 'real-time-databases-what-developers-need-to-know'
 description: 'Selecting the right application database can be a challenge for developers, especially so when you need a database for building real-time applications. Real-time data has become an essential...'
 categories: ['Databases']
 heroImage: '/images/blog/real-time-databases-what-developers-need-to-know/6446a968293c7e47d3d64c13_Real-time-databases_-What-developer-1.webp'
+heroAlt: 'Real-time databases - what developers need to know'
+tldr: 'I compare MongoDB, PostgreSQL, Tinybird, ClickHouse, Pinot, Druid, and Snowflake for real-time analytics workloads. Spoiler: your favorite OLTP database probably is not the right pick for real-time.'
 ---
 
 Selecting the right application database can be a challenge for developers, especially so when you need a [database for building real-time applications](https://www.tinybird.co/blog-posts/best-database-for-real-time-analytics). Real-time data has become an essential component in building user-facing experiences or creating automated decision systems, and developers need a database to match their needs.
 
 To be effective for real-time applications, databases must possess exceptionally high performance, scalability, and versatility in handling complex analytical queries.
 
-In this blog post, I’ll discuss the use cases for real-time databases, and the pros and cons of using several databases – including MongoDB, PostgreSQL, Tinybird, ClickHouse, Snowflake, Pinot, and Druid – for real-time workloads.
+In this blog post, I’ll discuss the use cases for real-time databases, and the pros and cons of using several databases - including MongoDB, PostgreSQL, Tinybird, ClickHouse, Snowflake, Pinot, and Druid - for real-time workloads.
 
 ## What is a real-time database?
 
@@ -25,13 +27,13 @@ Real-time databases are the go-to choice for applications that require rapid dat
 
 - **Real-time analytics**: Real-time databases underpin [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide), allowing businesses to track key performance indicators, identify trends, and make data-driven decisions faster. If you want to see this in action, I wrote a [step-by-step guide to building a real-time dashboard](/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/) that shows how to wire up a real-time database to a live visualization layer.
 
-- **Web analytics**:Real-time databases are perfect for [analyzing web traffic and clickstreams](https://www.tinybird.co/blog-posts/google-analytics-alternative-in-3-minutes) in real-time.
+- **Web analytics**: Real-time databases are perfect for [analyzing web traffic and clickstreams](https://www.tinybird.co/blog-posts/google-analytics-alternative-in-3-minutes) in real-time.
 
 - **Personalization and recommendation engines**: Real-time databases can process user interactions and behavior in real time, enabling systems to offer [personalized content during active sessions](https://www.tinybird.co/use-cases/realtime-personalization) or [real-time recommendations](https://www.tinybird.co/blog-posts/real-time-recommendation-system).
 
 - **Gaming**: Real-time databases can manage player data, game state, and interactions in online multiplayer games, ensuring a responsive and engaging gaming experience.
 
-- **Sports betting**:Real-time databases can process real-time sporting events and bettor behavior to offer the [safest and most compelling betting experiences](https://www.tinybird.co/use-cases/sports-betting-gaming).
+- **Sports betting**: Real-time databases can process real-time sporting events and bettor behavior to offer the [safest and most compelling betting experiences](https://www.tinybird.co/use-cases/sports-betting-gaming).
 
 - **Location-based services**: Real-time databases can handle real-time location data from GPS devices, enabling applications to provide real-time navigation, tracking, or location-based recommendations.
 
@@ -75,13 +77,13 @@ MongoDB is a popular NoSQL database that has some usefulness for real-time appli
 
 As a NoSQL database, [MongoDB](https://www.mongodb.com/) offers several features that make it suitable for real-time analytics applications:
 
-- **Scalability: **MongoDB supports horizontal scaling through sharding, which allows it to handle growing data volumes and query loads. This feature enables MongoDB to distribute data across multiple nodes, ensuring it can maintain performance even as data sizes increase.
+- **Scalability:** MongoDB supports horizontal scaling through sharding, which allows it to handle growing data volumes and query loads. This feature enables MongoDB to distribute data across multiple nodes, ensuring it can maintain performance even as data sizes increase.
 
 - **Strong support for **[**change data capture**](https://www.tinybird.co/blog-posts/real-time-change-data-capture): MongoDB provides change streams for real-time notifications of data changes, enabling the detection and processing of events as they occur. However, it may not be as efficient as databases specifically designed for [real-time data ingestion](https://www.tinybird.co/blog-posts/real-time-data-ingestion), especially when dealing with high-throughput streaming data.
 
 - **Powerful aggregations for complex analytic queries**: MongoDB offers a powerful aggregation framework for complex data processing and transformation tasks.
 
-- **It’s easy to get started: **MongoDB is known for being easy to set up and maintain, which makes it a popular choice among developers. Its flexible schema and document-based data model allow developers to quickly design and implement data structures without the need for complex schema changes.
+- **It’s easy to get started:** MongoDB is known for being easy to set up and maintain, which makes it a popular choice among developers. Its flexible schema and document-based data model allow developers to quickly design and implement data structures without the need for complex schema changes.
 
 > MongoDB can be useful for real-time applications, but it may struggle with complex use cases or those that require sub-second query latency.
 
@@ -89,11 +91,11 @@ As a NoSQL database, [MongoDB](https://www.mongodb.com/) offers several features
 
 While MongoDB has its advantages for real-time data processing, certain characteristics make it non-ideal for real-time use cases. In this section, we’ll dig deeper into these limitations to provide a better understanding of when MongoDB might not be the ideal choice.
 
-- **Complex queries may take too long to respond: **MongoDB is designed for fast read and write operations but may struggle with complex analytical queries that involve large data scans, multiple joins, or aggregations. In these cases, dedicated analytical databases optimized for such workloads might offer better query performance.
+- **Complex queries may take too long to respond:** MongoDB is designed for fast read and write operations but may struggle with complex analytical queries that involve large data scans, multiple joins, or aggregations. In these cases, dedicated analytical databases optimized for such workloads might offer better query performance.
 
 - **It lacks support for certain complex analytics queries:** MongoDB’s query language and aggregation framework lack the full range of features and expressiveness provided by SQL. If your real-time analytics application requires complex SQL queries, window functions, or advanced analytics, you may find MongoDB’s query capabilities limiting.
 
-- **The native query language limits collaboration: **MongoDB’s native query language and data model may present limitations when it comes to sharing insights through APIs. MongoDB’s query capabilities may not be as strong as those in SQL-based databases, which can limit the complexity and flexibility of the insights shared through APIs.
+- **The native query language limits collaboration:** MongoDB’s native query language and data model may present limitations when it comes to sharing insights through APIs. MongoDB’s query capabilities may not be as strong as those in SQL-based databases, which can limit the complexity and flexibility of the insights shared through APIs.
 
 - **It’s not built for OLAP**: MongoDB is not primarily designed for OLAP workloads, which involve complex analytical processing, aggregation, and reporting on large volumes of data. As a result, it may not provide the same performance and functionality as dedicated analytical databases. For such use cases, specialized analytical databases like ClickHouse, Pinot, or Druid might be more appropriate.
 
@@ -105,11 +107,11 @@ While MongoDB has its advantages for real-time data processing, certain characte
 
 ![PostgreSQL official website homepage in a browser window](/images/blog/real-time-databases-what-developers-need-to-know/image-17.webp)
 
-PostgreSQL is a very popular RDBMS that can be great for starters but is not suited for the scale of most real-time applications
+PostgreSQL is a popular RDBMS that can be great for starters but is not suited for the scale of most real-time applications
 
 While generally not optimized for real-time data, [PostgreSQL](https://www.postgresql.org/) is often used as a [database for real-time analytics](https://www.tinybird.co/blog-posts/best-database-for-real-time-analytics) as it offers some benefits:
 
-- **Familiarity: **Most developers have used PostgreSQL at some point in their careers, and it has an extensive ecosystem of integrations.
+- **Familiarity:** Most developers have used PostgreSQL at some point in their careers, and it has an extensive ecosystem of integrations.
 
 - **Variety of providers**: As well as being free and open-source, PostgreSQL is offered as a service by many vendors, including all of the major cloud providers and various smaller boutique vendors.
 
@@ -123,15 +125,15 @@ While generally not optimized for real-time data, [PostgreSQL](https://www.postg
 
 ### Limitations of PostgreSQL for Real-time Analytics
 
-Despite its advantages, PostgreSQL is quite limited as a real-time database:
+Despite its advantages, PostgreSQL is limited as a real-time database:
 
-- **It’s OLTP, not OLAP: **PostgreSQL may not be the best fit for Data Warehousing and OLAP workloads, since it is primarily designed as an OLTP (Online Transaction Processing) relational database system. PostgreSQL is optimized to handle high numbers of transactions and concurrent users. Its row-based storage, query optimizer, and parallel processing capabilities may not deliver optimal performance or efficiency for large-scale analytical queries over many rows of data.
+- **It’s OLTP, not OLAP:** PostgreSQL may not be the best fit for Data Warehousing and OLAP workloads, since it is primarily designed as an OLTP (Online Transaction Processing) relational database system. PostgreSQL is optimized to handle high numbers of transactions and concurrent users. Its row-based storage, query optimizer, and parallel processing capabilities may not deliver optimal performance or efficiency for large-scale analytical queries over many rows of data.
 
 - **It is not optimized for high-frequency ingestion**: While PostgreSQL can handle event-driven data ingestion through extensions like TimescaleDB or streaming data tools like Apache Kafka, it may not be as efficient as specialized event-driven databases.
 
-- **Lack of API support: **While PostgreSQL is a powerful and flexible RDBMS, it does not come with built-in support for creating APIs and sharing data insights in real-time. To achieve this functionality, developers need to rely on third-party tools, libraries, and frameworks, which can add complexity and overhead to the development process.
+- **Lack of API support:** While PostgreSQL is a powerful and flexible RDBMS, it does not come with built-in support for creating APIs and sharing data insights in real-time. To achieve this functionality, developers need to rely on third-party tools, libraries, and frameworks, which can add complexity and overhead to the development process.
 
-- **Not scalable for modern real-time use cases**: An inability to scale is perhaps the most common reason for users to migrate away from Postgres. While PostgreSQL can be a perfect starter database, scaling it can become quite complex. PostgreSQL was not originally designed for horizontal scalability, as this was not a common strategy in 1996 when it was first built. Horizontally scaling to handle higher data and query volumes can require a deep understanding of how PostgreSQL replication works, which can take too much time and energy when building real-time analytics.
+- **Not scalable for modern real-time use cases**: An inability to scale is perhaps the most common reason for users to migrate away from Postgres. While PostgreSQL can be a perfect starter database, scaling it can become complex. PostgreSQL was not originally designed for horizontal scalability, as this was not a common strategy in 1996 when it was first built. Horizontally scaling to handle higher data and query volumes can require a deep understanding of how PostgreSQL replication works, which can take too much time and energy when building real-time analytics.
 
 ## Can Tinybird be used for Real-Time Analytics?
 
@@ -141,7 +143,7 @@ Tinybird is a popular real-time data platform built on top of open source techno
 
 [Tinybird](https://www.tinybird.co/product), a [real-time data platform](https://www.tinybird.co/product) built on top of ClickHouse, offers a full-featured solution for developers building real-time analytics applications. Tinybird can be a perfect real-time database with added features that support real-time software development.
 
-> Tinybird combines high-performance open source real-time database technology with a developer-focused features that enable rapid real-time application development.
+> Tinybird combines high-performance open source real-time database technology with developer-focused features that enable rapid real-time application development.
 
 - **Support for OLAP workloads**: Tinybird is designed to support OLAP workloads, providing fast and efficient analytical processing, aggregation, and reporting on large volumes of data. By using the [columnar storage](https://www.tinybird.co/blog-posts/what-is-a-columnar-database) and query processing capabilities of ClickHouse, Tinybird excels in extracting real-time insights from data as it is generated, making it an ideal choice for the OLAP workloads in real-time analytics applications.
 
@@ -155,7 +157,7 @@ Tinybird is a popular real-time data platform built on top of open source techno
 
 - **Supports SQL**: Tinybird fully supports SQL, a widely-used and standardized query language that facilitates collaboration among developers, data analysts, and other stakeholders.
 
-- **Zero infrastructure maintenance**: Developers can use Tinybird without setting up or maintaining any infrastructure, streamlining the development and deployment process. It reduces the time and resources required to get an application up and running, allowing developers to focus on improving application features and functionality rather than addressing database-related issues. As a managed service, Tinybird takes away all of the pain and complexity associated with running a real-time database.
+- **Zero infrastructure maintenance**: Developers can use Tinybird without setting up or maintaining any infrastructure, simplifying the development and deployment process. It reduces the time and resources required to get an application up and running, allowing developers to focus on improving application features and functionality rather than addressing database-related issues. As a managed service, Tinybird takes away all of the pain and complexity associated with running a real-time database.
 
 ## Alternative Databases for Real-Time Analytics
 
@@ -163,11 +165,11 @@ MongoDB, PostgreSQL, and Tinybird are popular choices for real-time databases. Y
 
 - **ClickHouse**: [ClickHouse](https://github.com/ClickHouse/ClickHouse) is an open-source, OLAP database designed for real-time analytics. As a [columnar database](https://www.tinybird.co/blog-posts/what-is-a-columnar-database), it offers high write and query performance, making it suitable for large-scale data processing. ClickHouse supports parallel and distributed processing, which helps in handling massive datasets and improving query speed. It also provides extensive SQL support, including support for complex joins and subqueries, which can be beneficial in real-time analytics scenarios that require more advanced querying capabilities. Originally designed to handle web clickstream data, ClickHouse adds many new features to its SQL dialect, making it especially useful for working with time-series and web event data streams.
 
-- **Apache Pinot**: [Pinot](https://github.com/apache/pinot) is an open-source, distributed, and [columnar database](https://www.tinybird.co/blog-posts/what-is-a-columnar-database) written in Java and designed specifically for real-time analytics. Developed by LinkedIn, it is designed to handle large-scale, low-latency OLAP queries. Pinot has support for a few streaming data sources, such as Kafka, and offers features like real-time indexing, horizontal scaling, and support for complex data types. Pinot has very limited support for JOINs. It uses the MySQL dialect for queries, which means it benefits from good support of external query-building tools, but lacks modern language features that help when working with real-time data.
+- **Apache Pinot**: [Pinot](https://github.com/apache/pinot) is an open-source, distributed, and [columnar database](https://www.tinybird.co/blog-posts/what-is-a-columnar-database) written in Java and designed specifically for real-time analytics. Developed by LinkedIn, it is designed to handle large-scale, low-latency OLAP queries. Pinot has support for a few streaming data sources, such as Kafka, and offers features like real-time indexing, horizontal scaling, and support for complex data types. Pinot has limited support for JOINs. It uses the MySQL dialect for queries, which means it benefits from good support of external query-building tools, but lacks modern language features that help when working with real-time data.
 
 - **Apache Druid**: [Druid](https://github.com/apache/druid) is another open-source, distributed, and [column-oriented data store](https://www.tinybird.co/blog-posts/what-is-a-columnar-database) designed for real-time analytics. Druid excels in handling time-series data and provides low-latency querying capabilities. It features a flexible ingestion model, support for approximate queries, and horizontal scalability. Druid’s native query language is JSON-based, but it provides a custom SQL dialect on top, known as ‘Druid SQL’.
 
-- **Snowflake**: [Snowflake](https://www.snowflake.com/en/) is a cloud-based data warehouse that provides a scalable, flexible, and cost-effective solution for storing and processing large volumes of structured and semi-structured data. It excels at supporting internal reporting and business intelligence use cases with support for complex analytical queries, and seamless integration with various data processing and visualization tools. However, it is can struggle with [real-time data ingestion](https://www.tinybird.co/blog-posts/real-time-data-ingestion), and scaling to handle the concurrency demands of user-facing applications [can be prohibitively expensive](https://www.tinybird.co/blog-posts/real-time-solutions-with-snowflake).
+- **Snowflake**: [Snowflake](https://www.snowflake.com/en/) is a cloud-based data warehouse that provides a scalable, flexible, and cost-effective solution for storing and processing large volumes of structured and semi-structured data. It excels at supporting internal reporting and business intelligence use cases with support for complex analytical queries, and smooth integration with various data processing and visualization tools. However, it can struggle with [real-time data ingestion](https://www.tinybird.co/blog-posts/real-time-data-ingestion), and scaling to handle the concurrency demands of user-facing applications [can be prohibitively expensive](https://www.tinybird.co/blog-posts/real-time-solutions-with-snowflake).
 
 > ClickHouse, Pinot, Druid, and Snowflake can also be useful real-time databases depending on your use-case.
 
@@ -205,8 +207,6 @@ You can refer to the table below for a high-level comparison of various database
 
 > Note: This table is meant as a high-level reference to compare these databases. Actual feature coverage will depend on specific use case and implementation.
 
-‍
-
 ![Comparison table of various real-time databases](/images/blog/real-time-databases-what-developers-need-to-know/image-17.webp)
 
 Comparing various real-time databases
@@ -215,22 +215,22 @@ Comparing various real-time databases
 
 Software and data engineers working with real-time data must [select the right database for real-time applications](https://www.tinybird.co/blog-posts/best-database-for-real-time-analytics), as the chosen database directly impacts the performance, scalability, and versatility of the entire system. MongoDB and PostgreSQL are popular application databases with features that may make them suitable for certain use cases, but they’re generally not the best choice for every real-time analytics scenario.
 
-[Tinybird](https://www.tinybird.co), on the other hand, stands out as a strong contender for software developers building real-time analytics applications. By building on the power of an alternative, open-source real-time database in ClickHouse, Tinybird offers high-frequency data ingestion, powerful SQL support, and real-time querying capabilities that are essential for real-time development. In addition to its real-time bonafides, Tinybird is easy to start with, requires zero infrastructure setup or maintenance, and makes data sharing and collaboration simple through it’s one-click API publication workflow.
+[Tinybird](https://www.tinybird.co), on the other hand, stands out as a strong contender for software developers building real-time analytics applications. By building on the power of an alternative, open-source real-time database in ClickHouse, Tinybird offers high-frequency data ingestion, powerful SQL support, and real-time querying capabilities that are essential for real-time development. In addition to its real-time bonafides, Tinybird is easy to start with, requires zero infrastructure setup or maintenance, and makes data sharing and collaboration simple through its one-click API publication workflow.
 
 By meeting the outlined criteria for real-time analytics databases, such as data warehousing and OLAP workloads support, scalability, event-driven data ingestion and processing, support for complex analytics queries, and SQL support, Tinybird proves to be a compelling choice for developers. Its ability to simplify setup and maintenance while enabling efficient sharing of insights further underscores its suitability for real-time analytics applications.
 
 To learn more about how to build real-time analytics APIs with Tinybird, check out these resources:
 
-- [Docs – Tinybird Documentation](https://www.tinybird.co/docs)
+- [Docs - Tinybird Documentation](https://www.tinybird.co/docs)
 
-- [Blog – Real-time analytics, a definitive guide](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide)
+- [Blog - Real-time analytics, a definitive guide](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide)
 
-- [Screencast – The Tinybird Basics in 3 minutes](https://youtu.be/cvay_LW685w)
+- [Screencast - The Tinybird Basics in 3 minutes](https://youtu.be/cvay_LW685w)
 
-- [Guide – Best practices for faster SQL queries](https://www.tinybird.co/docs/guides/best-practices-for-faster-sql.html)
+- [Guide - Best practices for faster SQL queries](https://www.tinybird.co/docs/guides/best-practices-for-faster-sql.html)
 
-- [Blog – Publish SQL-based API endpoints on NGINX log analytics](https://www.tinybird.co/blog-posts/nginx-log-analysis)
+- [Blog - Publish SQL-based API endpoints on NGINX log analytics](https://www.tinybird.co/blog-posts/nginx-log-analysis)
 
-- [Talk – Building fast APIs, faster, over streaming data at scale](https://www.tinybird.co/blog-posts/ddnyc-talk-fast-apis-faster-at-scale)
+- [Talk - Building fast APIs, faster, over streaming data at scale](https://www.tinybird.co/blog-posts/ddnyc-talk-fast-apis-faster-at-scale)
 
-Ready to experience the industry-leading real-time analytics platform? [Try Tinybird today](https://www.tinybird.co/signup?referrer=https%3A%2F%2Fwww.tinybird.co%2Freal-time-databases-what-developers-need-to-know), for free. Get started with the Build Plan – which is more than enough for most simple projects and has no time limit – and upgrade as you scale.
+Ready to experience the industry-leading real-time analytics platform? [Try Tinybird today](https://www.tinybird.co/signup?referrer=https%3A%2F%2Fwww.tinybird.co%2Freal-time-databases-what-developers-need-to-know), for free. Get started with the Build Plan - which is more than enough for most simple projects and has no time limit - and upgrade as you scale.

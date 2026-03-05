@@ -5,6 +5,9 @@ slug: 'an-engineers-guide-to-knowing-if-you-are-done-with-a-project'
 description: 'Have you ever started a project and thought to yourself, “When can I call this done?” Then this listicle is for you! This guide is intended to be a general list of things your personal or...'
 categories: ['Career']
 heroImage: '/images/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/1_FShMf6oFa8kkaj6q_e9vWQ.webp'
+heroAlt: 'Checklist for determining when an engineering project is complete'
+contentNotice: false
+tldr: 'A checklist I give my engineering team covering everything from test coverage to accessibility audits to help answer the question "when is this project actually done?"'
 ---
 
 Have you ever started a project and thought to yourself, “When can I call this done?” Then this listicle is for you! This guide is intended to be a general list of things your personal or professional project should include in order for you to be “finished.” It’s something I distribute to my team of professional engineers to help them know when they are done. You or your team might have different standards of what it means to be complete, and that’s totally fine with me. One of the new engineers on my team actually asked me for this list and I started looking around online for something like this, and I found nothing, so here is my attempt to rectify that.
@@ -12,7 +15,7 @@ Have you ever started a project and thought to yourself, “When can I call this
 It might be helpful to describe the structure of the team we work with. If you do not have a dedicated person on your team, just substitute yourself in the do the work.
 
 I intend for all of these items to be negotiated and communicated to the Product Owners at the onset of every project. When the business requests a new feature, I consider it my job to ensure that it works, is stable, and will provide a positive experience for its users. In order to accomplish this, all of these tasks need to be completed.
-It should also be noted that these items are not on a firm list. the order in which they are finished and if they need to finish at all is up to the discretion of the tech lead. With that being said, let’s get into it!
+It should also be noted that these items are not on a firm list. The order in which they are finished and if they need to finish at all is up to the discretion of the tech lead. With that being said, here’s the full list.
 
 - **Does the code work?** Duh - this is the most important thing. I would recommend trying to figure out what your minimum viable product (MVP) for your app looks like early. If it’s not clear to you try asking “How do I know I’m done?” this will usually help you clarify requirements early. If you can figure out what the smallest possible product is, you can deliver quickly and iterate. It’s easy to go crazy adding features and never actually go to production with your app, in our world, we must edit ourselves and the application to become something manageable. Once the product has been released, you can use user research and analytics to determine what your next features will be.
 
@@ -20,7 +23,7 @@ It should also be noted that these items are not on a firm list. the order in wh
 
 - **Does your application include End to End tests?** In addition, to have unit and integration tests, all repositories must have end-to-end tests set up to run locally, and in production. This allows us to easily setup automated tests and make sure that the feature is being integrated into the site correctly.
 
-- **Have you written a README.md for your repository?** A common problem is large organizations is having crummy documentation around running code. Each repo should include steps to get it running locally, who to contact if something breaks, and steps for deploying your application. A complete list of items can be found here.
+- **Have you written a README.md for your repository?** A common problem is large organizations is having crummy documentation around running code. Each repo should include steps to get it running locally, who to contact if something breaks, and steps for deploying your application. A complete list of items can be found in your team's project checklist.
 
 - **Have you integrated analytics tags/events?** Since we are a data-driven organization, all features we develop should have analytics events tied to it. This allows us to more easily track the adoption and use of our features.
 
@@ -38,4 +41,4 @@ It should also be noted that these items are not on a firm list. the order in wh
 
 - **Is your feature accessible in STAGE or PROD yet?** Lastly, is your feature in production yet? If not, you are not done. Make sure that all of the previous steps are complete before getting here. But if you have run your feature through the wringer and it’s been battle tested, then you should be ready for production and you should be done. Congrats on finishing your brand new feature!
 
-This list is most likely overkill for all personal projects and probably for most software projects, but we are working on a highly trafficked customer-facing site, and we want our users to have a great experience every time they come to use our platform. Did I miss anything? Want to share how your team works? Let me know in the comments below!
+This list is most likely overkill for all personal projects and probably for most software projects, but we are working on a highly trafficked customer-facing site, and we want our users to have a great experience every time they come to use our platform. Did I miss anything? I'd love to hear how your team handles this.

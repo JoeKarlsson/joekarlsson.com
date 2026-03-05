@@ -5,6 +5,9 @@ slug: 'four-questions-you-need-to-ask-when-choosing-a-database'
 description: 'Are you overwhelmed by the sheer amount of databases on the market today, and not sure where to start? Let’s say that you are a Software Developer, and you need to select a database for a brand new...'
 categories: ['Databases']
 heroImage: '/images/blog/four-questions-you-need-to-ask-when-choosing-a-database/img_blog_post_featured_bp-jk-top-4-questions-to-ask-when-choosing-a-database.webp'
+heroAlt: 'Top 4 questions to ask when choosing a database'
+contentNotice: false
+tldr: 'Before picking a database, ask yourself four things: does it solve my actual problem, does it fit my tech stack, can my team learn it, and what will it really cost as we scale? I give you the specific sub-questions for each.'
 ---
 
 Are you overwhelmed by the sheer amount of databases on the market today, and not sure where to start? Let’s say that you are a Software Developer, and you need to select a database for a brand new application or maybe you need to figure out a database to replace and upgrade your legacy database. There are so many databases out there on the market today and they often promise to do it all or they perform niche functions. When picking your next database, it’s important to understand what problems you are attempting to solve, so you can pick one that will fit your needs today, as well as in the future. So, what should you be considering when you are choosing your next database? Well, I’m glad you asked, because I’m here to help you. There is no silver bullet for picking a database for your application. That’s why it’s important to dig into your current and future needs by asking yourself these four questions. Be sure that you are asking yourself, your team, and the business these questions when you are evaluating databases.
@@ -13,7 +16,7 @@ Are you overwhelmed by the sheer amount of databases on the market today, and no
 
 ## Does this database actually solve my problem?
 
-The first question you need to ask yourself is, “Does this database actually solve the problem we are trying to solve?” Now, I know this is a broad question, and it helps to drill into outlining what the problem actually is, as well as how the database will be used by the business and by the engineering team. Not only that, but at this stage, it’s important to start forecasting how you might be using the database in the future. This is because migrating between databases is risky, and expensive, and you should try to future proof your data for as long as you can. It’s impossible to actually predict the future, but it can sure help to try to at this stage.Some additional questions you can ask yourself to determine if a database is solving your problems are:
+The first question you need to ask yourself is, “Does this database actually solve the problem we are trying to solve?” Now, I know this is a broad question, and it helps to drill into outlining what the problem actually is, as well as how the database will be used by the business and by the engineering team. Not only that, but at this stage, it’s important to start forecasting how you might be using the database in the future. This is because migrating between databases is risky, and expensive, and you should try to prepare your data for as long as you can. It’s impossible to actually predict the future, but it can sure help to try to at this stage. Some additional questions you can ask yourself to determine if a database is solving your problems are:
 
 - How much data do you expect to store when the application is mature?
 
@@ -71,7 +74,7 @@ Note: SingleStore is MySQL wire compatible so, chances are you already know how 
 
 ## Is this database easy to learn?
 
-To me, this is often the most overlooked question when evaluating new databases. Your engineers will be working directly with the most important asset, your data. It’s important that the team understands how this database works and how to tune it for optimal performance. That’s why you should look into how healthy the developer community around the database is since these are the folks you will be turning to if you need assistance.Note: It’s important to understand how the engineers on your team learn, and what’s important to them. The point is not to prescribe HOW your team learns how to use the new database, but instead ensure that they have resources available in a way that works for them and time to dig in and learn. 
+To me, this is often the most overlooked question when evaluating new databases. Your engineers will be working directly with the most important asset, your data. It’s important that the team understands how this database works and how to tune it for optimal performance. That’s why you should look into how healthy the developer community around the database is since these are the folks you will be turning to if you need assistance. Note: It’s important to understand how the engineers on your team learn, and what’s important to them. The point is not to prescribe HOW your team learns how to use the new database, but instead ensure that they have resources available in a way that works for them and time to dig in and learn. 
 
 - Does the database use a common language like SQL or does it use a custom language (Many NoSQL use non-standard languages)?
 
@@ -97,7 +100,7 @@ Note: The [SingleStore Training](https://www.singlestore.com/training/) page inc
 
 ## How much does this database cost?
 
-I find that not many application developers don’t care much for how much running a database costs. But if you’ve ever looked at a cloud bill for running a database, you know that isn’t a trivial matter. Databases are sticky, which means that once you are saving your data in one, it’s hard to leave (i.e. Oracle). Oftentimes, databases start out quite affordable, but as you scale up your data usage the costs can start to exponentially increase. It’s important to Not only understand the initial costs of the database, but the cost of migrating, and how the costs will change with the projected growth of your application over time. 
+I find that many application developers don’t care much for how much running a database costs. But if you’ve ever looked at a cloud bill for running a database, you know that isn’t a trivial matter. Databases are sticky, which means that once you are saving your data in one, it’s hard to leave (i.e. Oracle). Oftentimes, databases start out quite affordable, but as you scale up your data usage the costs can start to exponentially increase. It’s important to not only understand the initial costs of the database, but the cost of migrating, and how the costs will change with the projected growth of your application over time. 
 
 - What’s the initial cost of the database?
 
@@ -117,7 +120,7 @@ I find that not many application developers don’t care much for how much runni
 
 ## Choosing a database
 
-There is no single answer When trying to find the perfect database for you. But these are the four questions you need to ask when choosing a database:
+There is no single answer when trying to find the perfect database for you. But these are the four questions you need to ask when choosing a database:
 
 - Does this database actually solve my problem?
 
@@ -125,4 +128,6 @@ There is no single answer When trying to find the perfect database for you. But 
 
 - Is this database easy to learn?
 
-The most important thing is understanding all the tradeoffs and evaluating and prioritizing your needs to find a database that will work best for you, your team, and your application. That being said, I would totally recommend checking out [SingleStore](http://singlestore.com/). It’s massively scalable, is wire compatible with MySQL so you can use it anywhere, and handles a ton of different data types (like Key-Value, Document, Relational, Geo-Spatial, Text Search and more!). [So be sure to try SingleStore for free today.](https://www.singlestore.com/managed-service-trial/)Follow us on [X](http://x.com/singlestoredevs) to keep up on more cool dev stuff.
+- How much does this database cost?
+
+The most important thing is understanding all the tradeoffs and evaluating and prioritizing your needs to find a database that will work best for you, your team, and your application. That being said, I would totally recommend checking out [SingleStore](https://singlestore.com/). It’s massively scalable, is wire compatible with MySQL so you can use it anywhere, and handles a ton of different data types (like Key-Value, Document, Relational, Geo-Spatial, Text Search and more!). [So be sure to try SingleStore for free today.](https://www.singlestore.com/managed-service-trial/) Follow us on [X](https://x.com/singlestoredevs) to keep up on more cool dev stuff.

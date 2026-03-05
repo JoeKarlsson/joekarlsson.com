@@ -5,6 +5,9 @@ slug: 'mongodb-schema-design-best-practices'
 description: 'Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you will find all the resources discussed during the talk. About Have you ever wondered, “How do I model my schema for my...'
 categories: ['Databases']
 heroImage: '/images/blog/mongodb-schema-design-best-practices/2.webp'
+heroAlt: 'MongoDB schema design best practices'
+contentNotice: false
+tldr: 'How you model your MongoDB schema depends on your app. I walk through the basics of data modeling with real-world examples so you can stop guessing and start making informed schema decisions.'
 ---
 
 Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you will find all the resources discussed during the talk.
@@ -17,14 +20,19 @@ In this talk, we will discuss the basics of data modeling using real-world examp
 
 ## Video
 
-[https://www.youtube.com/embed/leNCfU5SYR8?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/leNCfU5SYR8?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+[Watch the talk on YouTube](https://www.youtube.com/watch?v=leNCfU5SYR8)
 
 If you are having trouble with the embedded link, you can check out the video here: [https://www.youtube.com/watch?v=leNCfU5SYR8](https://www.youtube.com/watch?v=leNCfU5SYR8)
 
 ## Slides
 
-[//speakerdeck.com/player/2b66714c97454b1e8855185d98e4c235](//speakerdeck.com/player/2b66714c97454b1e8855185d98e4c235)
+[View slides on SpeakerDeck](https://speakerdeck.com/joekarlsson/mongodb-schema-design-best-practices)
 
 ## Related Links
 
-- [MongoDB University](https://joekarlsson.dev/MongoDBUniversity)- MongoDB Developer Hub- [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity)- Want to work for MongoDB? [We’re always hiring!](https://joekarlsson.dev/MongoDBCareers) - Modeling: [https://university.mongodb.com/courses/M320/about](https://university.mongodb.com/courses/M320/about)- 6 Rules of Thumb for MongoDB Schema Design: Part 1: [https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)- Data Model Design: [https://www.mongodb.com/docs/current/data-modeling/](https://www.mongodb.com/docs/current/data-modeling/)- Data Model Examples and Patterns: - Building with Patterns: A Summary: [https://www.mongodb.com/blog/post/building-with-patterns-a-summary](https://www.mongodb.com/blog/post/building-with-patterns-a-summary)
+- [MongoDB University](https://joekarlsson.dev/MongoDBUniversity)
+- [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity)
+- [MongoDB University: Data Modeling (M320)](https://university.mongodb.com/courses/M320/about)
+- [6 Rules of Thumb for MongoDB Schema Design: Part 1](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)
+- [Data Model Design](https://www.mongodb.com/docs/current/data-modeling/)
+- [Building with Patterns: A Summary](https://www.mongodb.com/blog/post/building-with-patterns-a-summary)

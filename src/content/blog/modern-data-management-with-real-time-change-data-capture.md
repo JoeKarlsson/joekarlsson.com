@@ -5,6 +5,8 @@ slug: 'modern-data-management-with-real-time-change-data-capture'
 description: 'Data engineers are grappling with surging data volumes while stakeholders increasingly demand real-time decision-making and user-facing features powered by data. This raises a fundamental question:...'
 categories: ['Databases']
 heroImage: '/images/blog/modern-data-management-with-real-time-change-data-capture/64d25c705289244c4387c2e9_Real-time-change-data-capture-Blo-1.webp'
+heroAlt: 'Modern data management with real-time change data capture'
+tldr: 'Change Data Capture (CDC) watches your database transaction log and streams every insert, update, and delete to downstream systems in real time. I cover how it works, when to use it over batch ETL, and what to watch out for.'
 ---
 
 Data engineers are grappling with surging data volumes while stakeholders increasingly demand real-time decision-making and user-facing features powered by data. This raises a fundamental question: How do you efficiently and quickly track and manage changes in your databases during periods of intense growth? One answer can be found in Change Data Capture (CDC), a technique that captures and routes changes made to a database in real time and sends them to a downstream system.
@@ -15,7 +17,7 @@ CDC has emerged as a powerful strategy that ensures all changes to data within a
 
 At [Tinybird](https://www.tinybird.co), we believe that data should be processed as soon as it happens. Period. And we believe that data and engineering teams should use tools uniquely suited to handling and processing that data without adding undue strain to other systems and resources. Change data capture upholds these beliefs, serving an important role within a larger [event-driven architecture](https://www.tinybird.co/blog-posts/event-driven-architecture-best-practices-for-databases-and-files).
 
-This post explores the concept of real-time change data capture, delving into its definition, architecture, and various techniques. You’ll learn why CDC is important in database and data warehousing environments, the advantages and potential drawbacks of CDC when compared with other real-time data handling methods, and its role in real-time data integration and [real-time data analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide).
+This post explores the concept of real-time change data capture, covering its definition, architecture, and various techniques. You’ll learn why CDC is important in database and data warehousing environments, the advantages and potential drawbacks of CDC when compared with other real-time data handling methods, and its role in real-time data integration and [real-time data analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide).
 
 ## What is Change Data Capture (CDC)?
 
@@ -25,7 +27,7 @@ With CDC, you subscribe to the changes in your source system, tracking operation
 
 > Change Data Capture tools subscribe to real-time updates from a source system (often a database) and write those changes to downstream systems (often a message queue or data warehouse).
 
-The heart of CDC lies in the transaction log that most application databases produce. In databases like PostgreSQL, this log (known as the Write Ahead Log or WAL) is intrinsic to the database’s architecture. For others, like MySQL, the equivalent ‘bin log’ is an optional feature that can be activated. Regardless, the premise remains the same – the transaction log is a chronologically arranged, append-only file recording database changes and associated data.
+The heart of CDC lies in the transaction log that most application databases produce. In databases like PostgreSQL, this log (known as the Write Ahead Log or WAL) is intrinsic to the database’s architecture. For others, like MySQL, the equivalent ‘bin log’ is an optional feature that can be activated. Regardless, the premise remains the same - the transaction log is a chronologically arranged, append-only file recording database changes and associated data.
 
 CDC tools monitor this database transaction log file for new entries. Every operation is captured as an event and sent elsewhere. Often, these events are directed towards an append-only event streaming system such as Apache Kafka. The modification operations can then be dispatched into the preferred downstream system like a [real-time database](https://www.tinybird.co/blog-posts/real-time-databases-what-developers-need-to-know) or data warehouse.
 
@@ -53,7 +55,7 @@ Change Data Capture (CDC) often has an important role to play within [streaming 
 
 Let’s begin with the strengths:
 
-- **Real-time Data Updates**: The crux of CDC lies in its ability to offer real-time or near-real-time data updates. This ability allows businesses to stay nimble, adapting to situations as they unfold. Immediate access to changes in source systems – and [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) run on those changes – enables businesses to make more informed decisions promptly, thereby giving them a competitive edge in rapidly evolving market environments.
+- **Real-time Data Updates**: The crux of CDC lies in its ability to offer real-time or near-real-time data updates. This ability allows businesses to stay nimble, adapting to situations as they unfold. Immediate access to changes in source systems - and [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) run on those changes - enables businesses to make more informed decisions promptly, thereby giving them a competitive edge in rapidly evolving market environments.
 
 - **Efficiency**: CDC significantly reduces the load on source data systems by dealing solely with changed data. Batch ETL workflows initiated by downstream systems, such as data warehouses or orchestrators, place an undue load on the source system in the form of queries that often scan the full table, which can be both time-consuming and resource-intensive. Instead, by focusing only on new or updated data since the last checkpoint, CDC efficiently captures the required change data without touching the source database. This leads to improved overall performance and less strain on the system’s resources.
 

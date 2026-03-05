@@ -5,6 +5,8 @@ slug: 'how-to-use-singlestore-and-node-js'
 description: 'Do you need to get a basic SingleStore application setup quickly using Node.js?'
 categories: ['Databases']
 heroImage: '/images/blog/how-to-use-singlestore-and-node-js/img_blog_post_featured_how-to-use-singlestore-and-node-js.webp'
+heroAlt: 'How to use SingleStore and Node.js tutorial'
+tldr: 'A step-by-step guide to connecting a Node.js app to SingleStore using the mysql2 package (since SingleStore is MySQL wire-compatible) and running basic CRUD operations.'
 ---
 
 Do you need to get a basic SingleStore application setup quickly using Node.js? Well, this guide’s got you covered. We will be covering how to use SingleStore and Node.js by setting up a database, connecting to that database using Node.js, and then performing CRUD (create, read, update, delete) operations on that database using Node.js.
@@ -39,7 +41,7 @@ npm init -y
 
 ### Add MySQL2 as a Dependency
 
-SingleStore is wire-compatible with MySQL, so you can connect using most other MySQL compatible tools/languages. For this project, we will be using [node-mysql2](https://github.com/sidorares/node-mysql2). MySQL2 project is a continuation of [MySQL-Native](https://github.com/sidorares/nodejs-mysql-native). We’re using it because it makes working with MySQL compatible databases and queries easy.In order to install mysql2, run the following in your terminal:
+SingleStore is wire-compatible with MySQL, so you can connect using most other MySQL compatible tools/languages. For this project, we will be using [node-mysql2](https://github.com/sidorares/node-mysql2). MySQL2 project is a continuation of [MySQL-Native](https://github.com/sidorares/nodejs-mysql-native). We’re using it because it makes working with MySQL compatible databases and queries easy. In order to install mysql2, run the following in your terminal:
 
 ```bash
 npm install --save mysql2
@@ -104,25 +106,25 @@ const DATABASE = 'acme';
 
 // main is run at the end
 async function main() {
- let singleStoreConnection;
- try {
-   singleStoreConnection = await mysql.createConnection({
-     host: HOST,
-     user: USER,
-     password: PASSWORD,
-     database: DATABASE
-   });
+	let singleStoreConnection;
+	try {
+		singleStoreConnection = await mysql.createConnection({
+			host: HOST,
+			user: USER,
+			password: PASSWORD,
+			database: DATABASE,
+		});
 
-   console.log("You have successfully connected to SingleStore.";
- } catch (err) {
-   // Good programmers always handle their errors :)
-   console.error('ERROR', err);
-   process.exit(1);
- } finally {
-   if (singleStoreConnection) {
-     await singleStoreConnection.end();
-   }
- }
+		console.log('You have successfully connected to SingleStore.');
+	} catch (err) {
+		// Good programmers always handle their errors :)
+		console.error('ERROR', err);
+		process.exit(1);
+	} finally {
+		if (singleStoreConnection) {
+			await singleStoreConnection.end();
+		}
+	}
 }
 
 main();
@@ -136,7 +138,7 @@ Test to see that you have successfully connected to your SingleStore database by
 node index.js
 ```
 
-If you see “You have successfully connected to SingleStore,” in your terminal, then congrats! You have successfully connected to your SingleStore data Comment end base.
+If you see “You have successfully connected to SingleStore,” in your terminal, then congrats! You have successfully connected to your SingleStore database.
 
 ## CRUD Operations
 
@@ -236,30 +238,22 @@ await delete_({ conn, id });
 
 And that’s it! You’ve successfully connected your Node.js application to SingleStore and built a CRUD application. Now you can make a blog, an eCommerce store, or a massively fast, real-time analytics platform.
 
-If you want to check out the complete code base, you can do so here.
+If you want to check out the complete code base, you can find it on [GitHub](https://github.com/singlestore-labs/start-with-singlestore-node).
 
 If you run into any issues or get stuck, make sure to connect with the [SingleStore community](https://www.singlestore.com/forum/) and get all of your questions answered, or check out more cool developer content on our [SingleStore Developer](https://developers.singlestore.com/) page.
 
 ## Resources
 
-- [Code] Getting started with SingleStore and Node.js: [https://github.com/singlestore-labs/start-with-singlestore-node](https://github.com/singlestore-labs/start-with-singlestore-node)
+- [Getting started with SingleStore and Node.js (GitHub)](https://github.com/singlestore-labs/start-with-singlestore-node)
 
-- [Docs] Node MySQL2: [https://github.com/sidorares/node-mysql2](https://github.com/sidorares/node-mysql2)
+- [Node MySQL2 (GitHub)](https://github.com/sidorares/node-mysql2)
 
-- [SingleStore Docs] – Connect with Node.js: [https://docs.singlestore.com/managed-service/en/developer-resources/connect-with-application-development-tools/connect-with-javascript/connect-with-node-js.html](https://docs.singlestore.com/managed-service/en/developer-resources/connect-with-application-development-tools/connect-with-javascript/connect-with-node-js.html)
+- [SingleStore Docs: Connect with Node.js](https://docs.singlestore.com/managed-service/en/developer-resources/connect-with-application-development-tools/connect-with-javascript/connect-with-node-js.html)
 
-- [Video] Getting Started with SingleStore
+- [Video] [Getting Started with SingleStore](https://www.youtube.com/watch?v=bIFrJJkUftA)
 
-[https://www.youtube.com/embed/bIFrJJkUftA?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/bIFrJJkUftA?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+- [Video] [Get started with SingleStore in JavaScript and Node](https://www.youtube.com/watch?v=NvgVx9wmb3k)
 
-- [Video] Get started with SingleStore in JavaScript and Node:
+- [Video] [Connect to SingleStore using Sequelize ORM](https://www.youtube.com/watch?v=koILFN2h7b8)
 
-[https://www.youtube.com/embed/NvgVx9wmb3k?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/NvgVx9wmb3k?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
-
-- [Video] If you want to connect to SingleStore using an ORM (Sequelize) check out this video:
-
-[https://www.youtube.com/embed/koILFN2h7b8?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/koILFN2h7b8?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
-
-- [Video] If you need to use Stored Procedures With JavaScript and Node.js, check out this video:
-
-[https://www.youtube.com/embed/VLsGoPZeYxA?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/VLsGoPZeYxA?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+- [Video] [Stored Procedures With JavaScript and Node.js](https://www.youtube.com/watch?v=VLsGoPZeYxA)

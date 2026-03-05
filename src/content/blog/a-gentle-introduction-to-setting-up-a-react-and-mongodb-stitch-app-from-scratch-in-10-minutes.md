@@ -6,6 +6,9 @@ description: 'Are you interested in learning how to build a React and MongoDB Ap
 categories: ['Dev Tools', 'Databases']
 tags: ['javascript', 'mongodb', 'react', 'reactJS', 'Stitch', 'tutorial']
 heroImage: '/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/A-Gentle-Introduction-To-Setting-Up-A-React-and-MongoDB-Stitch-App-From-Scratch-In-10-Minutes.webp'
+heroAlt: 'How to build a React and MongoDB Stitch app from scratch in 10 minutes'
+contentNotice: 'MongoDB Stitch was replaced by Atlas App Services in 2020, and the Stitch SDK was deprecated. This tutorial will not work with current MongoDB services.'
+tldr: 'A quick tutorial for building a React to-do app backed by MongoDB Stitch, from Atlas setup to a working app in about 10 minutes.'
 ---
 
 Are you interested in learning how to build a React and MongoDB App? Like many of you, I have been interested in learning more about MongoDB’s cloud offerings and also not spending a dime. This guide is for the developer who only has 10 minutes to spare and who wants to learn a brand new tool from MongoDB.
@@ -22,9 +25,9 @@ Are you interested in learning how to build a React and MongoDB App? Like many o
 
 Now that we have got that out of the way, let’s see if we can set up a new app in record time. For this tutorial, we will be setting up a to-do app.
 
-> *Not*e: This tutorial does not touch all of the features of Stitch, it is intended to be a quickest possible way to explore the platform.
+> Note: This tutorial does not touch all of the features of Stitch. It is intended to be the quickest possible way to explore the platform.
 
-> You can find the source code for this tutorial here: https://github.com/JoeKarlsson/mongodb-stitch-todo-tutorial
+> You can find the source code for this tutorial here: [JoeKarlsson/mongodb-stitch-todo-tutorial on GitHub](https://github.com/JoeKarlsson/mongodb-stitch-todo-tutorial)
 
 - First things first, you will need to set up a [MongoDB Atlas account](https://www.mongodb.com/cloud/atlas?jmp=docs).
 
@@ -84,7 +87,7 @@ To enable reading and writing to the `comments` collection:
 
 ## Code
 
-Okay! Now that we are done with setting up Atlas, and now we can get to the really fun part… building our app! In your terminal run:
+Okay! Now that we are done with setting up Atlas, and now we can get to the fun part - building our app! In your terminal run:
 
 ```bash
 $ npx create-react-app mongodb-stitch-tutorial
@@ -218,4 +221,4 @@ By the end, your app should look and work like this.
 
 If you have any questions or comments, feel free to reach out or open an issue in the repo.
 
-> You can find the source code for this tutorial here: https://github.com/JoeKarlsson/mongodb-stitch-todo-tutorial
+> You can find the source code for this tutorial here: [JoeKarlsson/mongodb-stitch-todo-tutorial on GitHub](https://github.com/JoeKarlsson/mongodb-stitch-todo-tutorial)

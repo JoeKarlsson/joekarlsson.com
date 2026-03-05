@@ -5,7 +5,12 @@ slug: 'getting-started-with-graphql-and-atlas'
 description: 'Thanks for coming to my talk, Building Your First GraphQL Client in JS. Here you will find all the resources discussed during the talk. About RESTful APIs have been around for a while now, but they...'
 categories: ['Databases', 'Dev Tools']
 heroImage: '/images/blog/getting-started-with-graphql-and-atlas/From-SQL-to-NoSQL-Blog-Cover1.webp'
+heroAlt: 'Getting Started with GraphQL and MongoDB Atlas presentation title slide'
+contentNotice: 'MongoDB Atlas GraphQL API (formerly Stitch GraphQL) has been deprecated and shut down. This tutorial will not work with current MongoDB services.'
+tldr: 'A talk about building your first GraphQL client in JavaScript using MongoDB Atlas. The platform has since been deprecated, so this is mostly a historical reference now.'
 ---
+
+> **Note:** This talk covered MongoDB's GraphQL API support through Stitch/Realm, which has since been deprecated and shut down. The content is preserved here as a historical reference.
 
 Thanks for coming to my talk, Building Your First GraphQL Client in JS. Here you will find all the resources discussed during the talk.
 
@@ -19,19 +24,19 @@ We will then get a GraphQL server up and running while focusing on exploring rea
 
 ## Source Code
 
-[https://github.com/JoeKarlsson/mongodb-graphql-demo](https://github.com/JoeKarlsson/mongodb-graphql-demo)
+[JoeKarlsson/mongodb-graphql-demo on GitHub](https://github.com/JoeKarlsson/mongodb-graphql-demo)
 
 ## Slides
 
-[//speakerdeck.com/player/813c55aaa6b4496984f926ef34e769ca](//speakerdeck.com/player/813c55aaa6b4496984f926ef34e769ca)
+[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson1/)
 
 ## Video
 
-[https://www.youtube.com/embed/7HczsHW7JA0?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/7HczsHW7JA0?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+[Watch Part 1 on YouTube](https://www.youtube.com/watch?v=7HczsHW7JA0)
 
-[https://www.youtube.com/embed/XsD2ZKqMbgo?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent](https://www.youtube.com/embed/XsD2ZKqMbgo?version=3&rel=1&showsearch=0&showinfo=1&iv_load_policy=1&fs=1&hl=en-US&autohide=2&wmode=transparent)
+[Watch Part 2 on YouTube](https://www.youtube.com/watch?v=XsD2ZKqMbgo)
 
-## Talk Outline:
+## Talk Outline
 
 - Comparison of REST to GraphQL
 - Intro to GraphQL
@@ -58,10 +63,10 @@ We will then get a GraphQL server up and running while focusing on exploring rea
 ## Related Links
 
 - [MongoDB University](https://joekarlsson.dev/MongoDBUniversity)
-- MongoDB Developer Hub
+- MongoDB Developer Hub (now discontinued)
 - [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity)
 - [Introducing GraphQL Support in MongoDB Atlas with Stitch](https://web.archive.org/web/20200314142921/https://www.mongodb.com/blog/post/introducing-graphql-support-in-mongodb-atlas-with-stitch)
-- MongoDB GraphQL API Documentation (Beta) - GraphQL Types & Resolvers
+- MongoDB GraphQL API Documentation (Beta) - GraphQL Types & Resolvers (now discontinued)
 - [Authenticate GraphQL Requests](https://web.archive.org/web/20211209013629/https://docs.mongodb.com/realm/graphql/)
 - [GraphQL Official Docs](https://graphql.org/)
 - [GraphQL Hub](https://datahubproject.io/docs/api/graphql/overview/)
