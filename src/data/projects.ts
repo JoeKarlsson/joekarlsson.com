@@ -295,7 +295,7 @@ export const projects: Project[] = [
 	{
 		title: 'MikroTik Native API Client',
 		description:
-			'A from-scratch Python implementation of MikroTik\'s proprietary binary API protocol. Handles variable-length encoding, authentication, and sentence-based messaging for programmatic control of network infrastructure - bonding, DHCP, firewall rules, and more.',
+			"A from-scratch Python implementation of MikroTik's proprietary binary API protocol. Handles variable-length encoding, authentication, and sentence-based messaging for programmatic control of network infrastructure - bonding, DHCP, firewall rules, and more.",
 		image: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp',
 		imageAlt: 'MikroTik API Client',
 		category: 'homelab',

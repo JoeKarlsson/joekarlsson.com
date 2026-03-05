@@ -16,6 +16,7 @@ What started as a simple "just run Whisper on some files" script turned into a f
 ## Prerequisites
 
 If you want to build something similar, you'll need:
+
 - **Python 3.8+** with [faster-whisper](https://github.com/SYSTRAN/faster-whisper) (`pip install faster-whisper`)
 - **NVIDIA GPU** with at least 5GB VRAM and [CUDA toolkit](https://developer.nvidia.com/cuda-toolkit) installed
 - **ffmpeg** for audio extraction
@@ -26,6 +27,7 @@ If you want to build something similar, you'll need:
 The core challenge isn't just transcription — it's doing it **at scale** without destroying everything else running on the same hardware. My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) GPUs (an RTX A4000 and a Quadro RTX 4000) are shared across Plex transcoding, Tdarr video health checks, and [Wyoming Whisper for Home Assistant voice control](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/). I needed a system that could chew through thousands of videos without stepping on other services.
 
 The requirements:
+
 - **Automatic language detection** and translation to English
 - **Parallel processing** — one worker is too slow for thousands of files
 - **GPU-aware** — wait gracefully when VRAM is scarce instead of crashing
@@ -108,6 +110,7 @@ Anyone who's used Whisper at scale knows about hallucinations. Feed it a silent 
 I built a multi-layer hallucination filter:
 
 **1. Pattern matching** — Over 200 hardcoded patterns catch common Whisper artifacts:
+
 - YouTube-isms: "thank you for watching", "please subscribe"
 - Audio descriptions: "[music]", "[applause]"
 - Foreign subtitle artifacts: "sous-titres", "untertitel"
