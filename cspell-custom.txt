@@ -279,3 +279,13 @@ Xnip
 Zakas
 zettabytes
 plausible
+iDRAC
+homelabsales
+Ollama
+CUDA
+powersave
+barebones
+refurbishers
+Backblaze
+Navidrome
+WireGuard

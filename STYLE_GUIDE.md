@@ -31,6 +31,24 @@ Joe writes like he's explaining something to a friend who's also an engineer. Th
 > "This comprehensive guide will walk you through..."
 > "Organizations face unprecedented challenges..."
 
+## Energy and Fun (CRITICAL)
+
+The writing MUST be enjoyable to read. Technical accuracy with zero personality is a failure. Every section should have energy - humor, frustration, surprise, specific storytelling details that make you feel like you're in the room.
+
+### Techniques that create energy:
+- **Scene-setting:** "Picture this: it's 11 PM on a Tuesday and I'm measuring server racks with a tape measure..."
+- **Real dialogue:** Quote yourself, your partner, error messages, forum posts. Dialogue creates intimacy.
+- **The setup/punchline:** Build something up, then puncture it. Long technical description followed by "But music? Music is where technical elegance goes to die."
+- **Emotional specificity:** Not "it was frustrating" but "I spent two days SSHing into the MikroTik at midnight trying to figure out why half my containers lost network connectivity."
+- **The admission:** "I didn't know 19 inches was a standard. I was measuring with a tape measure." Being wrong is endearing.
+- **Sensory details:** What did the server sound like? What did your partner say? What time was it? These details separate real stories from spec sheets.
+
+### The energy test:
+Read each section aloud. Would you keep reading if this showed up in your RSS feed? If not, it needs more personality, more story, or a complete rewrite.
+
+### Memes
+When possible, include relevant memes in blog posts to break up technical content with humor. Use real meme templates (ImgFlip style) with text that references the actual post content. Place them at natural section breaks, 2-4 per long post. Don't force them.
+
 ## Formatting Rules
 
 ### Typography

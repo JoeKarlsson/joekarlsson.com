@@ -178,3 +178,5 @@ After several months of daily use, the migration succeeded for my specific use c
 **Who should wait**: Families expecting plug-and-play Alexa replacement, users without existing Home Assistant experience, or anyone requiring reliable voice assistant functionality for daily tasks.
 
 The Home Assistant Voice Preview Edition delivers on its promise as an open-source, privacy-focused voice assistant foundation. However, the “Preview” designation accurately reflects its current state-promising technology that needs substantial development before reaching consumer readiness. For the right user with appropriate expectations, it provides compelling benefits unavailable elsewhere in the voice assistant market.
+
+**Related:** Home Assistant is now the most important piece of my entire homelab. Read about how the full setup evolved in [My Homelab Two Years Later: From Desktop Tower to Server Rack](/blog/homelab-two-years-later/).
