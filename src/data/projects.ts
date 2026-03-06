@@ -181,8 +181,8 @@ export const projects: Project[] = [
 		title: 'Python Sudoku Generator & Solver',
 		description:
 			'Generates unique Sudoku boards across 4 difficulty levels with a built-in solver using backtracking.',
-		image: '/images/projects/data-structures.webp',
-		imageAlt: 'Python Sudoku Generator and Solver',
+		image: '/images/projects/sudoku-generator.webp',
+		imageAlt: 'Sudoku puzzle grid with numbers on a dark background',
 		category: 'dev-tools',
 		tech: ['Python', 'Algorithms', 'Backtracking'],
 		sourceUrl: 'https://github.com/JoeKarlsson/python-sudoku-generator-solver',
