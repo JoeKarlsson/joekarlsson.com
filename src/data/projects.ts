@@ -76,7 +76,6 @@ export const projects: Project[] = [
 		imageAlt: 'MagicMirror Smart Mirror',
 		category: 'iot',
 		tech: ['Raspberry Pi', 'MagicMirror\u00B2', 'Home Assistant'],
-		sourceUrl: 'https://github.com/JoeKarlsson',
 	},
 	{
 		title: 'Moodlite - Smart IoT Light Panels',
@@ -86,7 +85,6 @@ export const projects: Project[] = [
 		imageAlt: 'Moodlite Smart Light Panels',
 		category: 'iot',
 		tech: ['ESP8266', 'MQTT', 'Home Assistant', '3D Printing'],
-		sourceUrl: 'https://github.com/JoeKarlsson',
 	},
 	{
 		title: '3D-Printed Postcard Rack Planter',
@@ -118,7 +116,7 @@ export const projects: Project[] = [
 	{
 		title: 'Bechdel.io',
 		description:
-			'Does your favorite film pass the Bechdel Test? Uses NLP to parse movie scripts and analyze gender representation in dialogue. Featured in multiple publications and conference talks.',
+			'Does your favorite film pass the Bechdel Test? Uses NLP to parse movie scripts and analyze gender representation in dialogue. Includes a custom scraper to pull scripts from IMSDB by genre or title. Featured in multiple publications and conference talks.',
 		image:
 			'/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/Bechdel.io-Blog-Banner.webp',
 		imageAlt: 'Bechdel.io',
@@ -128,41 +126,8 @@ export const projects: Project[] = [
 		blogUrl: '/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
 		stars: 30,
 	},
-	{
-		title: 'Pixelate',
-		description:
-			'HTML5 webapp that pixelates any image using the Canvas API. One of my early web projects that taught me a ton about image manipulation in the browser.',
-		image: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/pixelate-demo.webp',
-		imageAlt: 'Pixelate',
-		category: 'web',
-		tech: ['HTML5 Canvas', 'JavaScript'],
-		sourceUrl: 'https://github.com/JoeKarlsson/Pixelate',
-		blogUrl: '/blog/how-to-pixelate-images-with-html5-and-javascript/',
-		stars: 15,
-	},
-	{
-		title: 'Launch Target - Lunch Coordination',
-		description:
-			'A real-time coordination app to help you and your friends find a place to eat. Because deciding where to go for lunch is the hardest problem in computer science.',
-		image: '/images/projects/launch-target.webp',
-		imageAlt: 'Launch Target',
-		category: 'web',
-		tech: ['React', 'Node.js', 'WebSockets'],
-		sourceUrl: 'https://github.com/JoeKarlsson/night-out',
-	},
 
 	// Games & Fun
-	{
-		title: 'Wave Jump',
-		description:
-			"An 80's arcade-inspired multiplayer browser game built with Phaser.js. Dodge waves and outlast your opponents.",
-		image: '/images/projects/wave-jump.webp',
-		imageAlt: 'Wave Jump',
-		category: 'games',
-		tech: ['Phaser.js', 'JavaScript', 'WebSockets'],
-		sourceUrl: 'https://github.com/JoeKarlsson/wave-jump',
-		stars: 5,
-	},
 	{
 		title: 'Rose Hobart',
 		description:
@@ -222,63 +187,6 @@ export const projects: Project[] = [
 		tech: ['Python', 'Algorithms', 'Backtracking'],
 		sourceUrl: 'https://github.com/JoeKarlsson/python-sudoku-generator-solver',
 		stars: 90,
-	},
-	{
-		title: 'Movie Script Scraper',
-		description:
-			'Scraper to retrieve movie scripts by genre or title from IMSDB. Built as a data pipeline for the Bechdel Test project.',
-		image: '/images/projects/movie-script-scraper.webp',
-		imageAlt: 'Movie Script Scraper',
-		category: 'dev-tools',
-		tech: ['Python', 'Web Scraping', 'BeautifulSoup'],
-		sourceUrl: 'https://github.com/JoeKarlsson/movie-script-scraper',
-		stars: 11,
-	},
-	{
-		title: 'MongoDB GraphQL Demo',
-		description: 'Using the MongoDB GraphQL Endpoint with Apollo Client in React.',
-		image: '/images/blog/getting-started-with-graphql-and-atlas/From-SQL-to-NoSQL-Blog-Cover1.webp',
-		imageAlt: 'MongoDB GraphQL Demo',
-		category: 'dev-tools',
-		tech: ['React', 'GraphQL', 'Apollo', 'MongoDB'],
-		sourceUrl: 'https://github.com/JoeKarlsson/mongodb-graphql-demo',
-		blogUrl: '/blog/getting-started-with-graphql-and-atlas/',
-		stars: 20,
-	},
-	{
-		title: 'Watson Speech-to-Text Telegram Bot',
-		description: 'IBM Watson powered chatbot that transcribes voice messages in Telegram.',
-		image: '/images/blog/complete-guide-node-client-server-communication/Mom.webp',
-		imageAlt: 'Watson Speech-to-Text Telegram Bot',
-		category: 'dev-tools',
-		tech: ['Node.js', 'IBM Watson', 'Telegram API'],
-		sourceUrl: 'https://github.com/JoeKarlsson/watson-speech-to-text-telegram-chatbot',
-		stars: 6,
-	},
-	{
-		title: 'Best Buy Product Locator Extension',
-		description:
-			'Chrome extension that tells you if a product is available for same-day pickup at your local Best Buy. Built during my time on the Best Buy engineering team.',
-		image: '/images/projects/best-buy-chrome.webp',
-		imageAlt: 'Best Buy Chrome Extension',
-		category: 'dev-tools',
-		tech: ['Chrome Extension', 'JavaScript', 'Best Buy API'],
-		sourceUrl: 'https://github.com/JoeKarlsson/best-buy-product-locator-chrome-extension',
-		stars: 3,
-	},
-	{
-		title: 'MongoDB CSFLE Demo',
-		description:
-			'Reference implementation of Client-Side Field Level Encryption in MongoDB with Node.js.',
-		image:
-			'/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/d2c1030de0b2c0ceb58e2c4e5c000d1575cf3902.webp',
-		imageAlt: 'MongoDB CSFLE Demo',
-		category: 'dev-tools',
-		tech: ['Node.js', 'MongoDB', 'Encryption'],
-		sourceUrl:
-			'https://github.com/JoeKarlsson/client-side-field-level-encryption-csfle-mongodb-node-demo',
-		blogUrl: '/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/',
-		stars: 5,
 	},
 
 	// Homelab
