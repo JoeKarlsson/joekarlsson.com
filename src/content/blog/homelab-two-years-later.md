@@ -31,7 +31,7 @@ Then I got ambitious. You know how it goes.
 
 First it was Plex transcoding. Two people streaming at once and the quad-core Xeon started choking. GPU-accelerated transcoding would fix that, but the ThinkServer didn't have a PCIe slot that could fit anything useful. Then I saw [Frigate](https://frigate.video/) - real-time AI object detection on security camera feeds. Sounds incredible, right? Four CPU cores cannot do real-time neural network inference while simultaneously running 15 other services. Not happening.
 
-And then there was [Home Assistant](https://www.home-assistant.io/). I'd been reading about it for months, watching YouTube videos, browsing the subreddit during lunch breaks. But I deliberately left it out of the original post because I didn't want to mix home automation with public-facing services on a machine with zero network segmentation. No VLANs, no firewall rules, just everything on one flat network. That felt wrong.
+And then there was [Home Assistant](https://www.home-assistant.io/). I'd been running it for about 10 years at that point - but always on its own dedicated hardware, completely separate from the homelab. I deliberately left it out of the original post because it wasn't part of that setup. But I kept looking at it and thinking: what if I migrated it into a Proxmox VM? The problem was the ThinkServer had zero network segmentation. No VLANs, no firewall rules, just everything on one flat network. Mixing home automation with public-facing services on that? That felt wrong.
 
 The ThinkServer didn't fail spectacularly. It just ran out of room. And once you start seeing what's possible with more compute, more GPU VRAM, more network bandwidth - well. The itch starts.
 
@@ -233,15 +233,15 @@ Not exhaustive - check my [uses page](/uses) for the full inventory. But here's 
 
 **Productivity:** [Paperless-NGX](https://docs.paperless-ngx.com/) (scans every receipt and document, OCRs them, uses AI to categorize and tag automatically - it's magic), [Nextcloud](https://nextcloud.com/)
 
-### The Home Assistant 180
+### Migrating Home Assistant into the Homelab
 
-This one deserves a callout because it's my biggest reversal from the original post.
+This one deserves a callout because it's one of the biggest changes from the original post.
 
-Two years ago I deliberately avoided Home Assistant. I didn't trust mixing home automation with other services on a single machine with no network isolation. That was a reasonable concern! And it was completely addressed by VLANs and a dedicated VM.
+I've been running Home Assistant for about 10 years - long before this homelab existed. But it always lived on its own dedicated hardware, completely isolated from everything else. Two years ago I deliberately kept it separate from the ThinkServer because I didn't trust mixing home automation with other services on a single machine with no network isolation. That was a reasonable concern! And it was completely addressed by VLANs and a dedicated VM.
 
-Now Home Assistant is the single most important piece of the entire homelab. It doesn't just control lights - it manages server power states, monitors container health, runs the night mode system that saves me real money, and orchestrates automations I couldn't have imagined two years ago. I wrote about that journey in my post about [replacing Alexa with a private, local-first setup](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
+Once I had proper network segmentation, migrating Home Assistant into a Proxmox VM on the R730 was a no-brainer. Now it's the single most important piece of the entire homelab. It doesn't just control lights - it manages server power states, monitors container health, runs the night mode system that saves me real money, and orchestrates automations I couldn't have imagined two years ago. I wrote about that journey in my post about [replacing Alexa with a private, local-first setup](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
 
-Sometimes you avoid something for valid reasons, learn enough to address those reasons, and then wonder how you ever lived without it.
+Moving it from dedicated hardware into the rack unlocked a whole new level of integration. Having Home Assistant on the same network backbone as the servers means automations can talk directly to Proxmox, containers, and monitoring - no hacks or workarounds needed.
 
 ## The "Operations" Mindset
 
