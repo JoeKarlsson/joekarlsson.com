@@ -1,6 +1,6 @@
 ---
 title: 'Building a GPU-Accelerated Subtitle Generator for My Video Library'
-date: 2026-03-05
+date: 2026-02-05
 slug: 'building-a-gpu-accelerated-subtitle-generator'
 description: 'How I built a self-hosted subtitle generation pipeline using GPU-accelerated Whisper AI on my homelab — with parallel workers, VRAM-aware scheduling, automatic language detection, and a multi-layer hallucination filter. A practical faster-whisper guide for video libraries at scale.'
 categories: ['Homelab', 'AI']

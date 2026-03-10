@@ -1,6 +1,6 @@
 ---
 title: 'Building a Real-Time Digital Graffiti Wall with MongoDB Realm and RGB LEDs'
-date: 2026-03-05
+date: 2026-02-05
 slug: 'building-a-real-time-digital-graffiti-wall'
 description: 'How I built an interactive art installation and collaborative drawing app where multiple users draw on a shared digital canvas that displays their creations live on a physical RGB LED grid, using MongoDB Realm for real-time sync.'
 categories: ['IoT', 'JavaScript']

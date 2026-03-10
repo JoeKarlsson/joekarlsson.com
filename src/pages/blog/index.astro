@@ -12,7 +12,7 @@ const allPosts = (await getCollection('blog')).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
-const featuredSlug = 'how-to-get-started-building-a-homelab-server-in-2024';
+const featuredSlug = 'homelab-two-years-later';
 const featuredPost = allPosts.find((p) => p.data.slug === featuredSlug);
 const posts = allPosts.filter((p) => p.data.slug !== featuredSlug);
 
