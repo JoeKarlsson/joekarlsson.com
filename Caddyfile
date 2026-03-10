@@ -39,11 +39,16 @@
 		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.joekarlsson.io https://www.tiktok.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.tiktok.com; connect-src 'self' https://plausible.joekarlsson.io https://cloudflareinsights.com"
 	}
 
-	# Cache static assets
-	@static path *.css *.js *.svg *.png *.jpg *.jpeg *.webp *.woff2 *.woff
+	# Cache static assets with hashed filenames - immutable and long-lived
+	# Astro generates unique hashes for CSS/JS, so they can be cached forever
+	@static path *.css *.js *.svg *.png *.jpg *.jpeg *.webp *.woff2 *.woff *.ttf *.gif
 	header @static Cache-Control "public, max-age=31536000, immutable"
 
-	# Cache HTML for shorter period
+	# HTML pages: always revalidate with origin to prevent stale cache
+	# This ensures users always get fresh HTML that references current CSS/JS hashes
+	# - no-cache: must revalidate before using cached copy
+	# - s-maxage=0: CDNs must not cache (prevents the HTML/CSS mismatch bug)
+	# - must-revalidate: treat stale responses as errors
 	@html path *.html /
-	header @html Cache-Control "public, max-age=3600"
+	header @html Cache-Control "no-cache, s-maxage=0, must-revalidate"
 }
