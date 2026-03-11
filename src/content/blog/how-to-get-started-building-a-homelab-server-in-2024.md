@@ -2,271 +2,213 @@
 title: 'How to get started building a Homelab server in 2026'
 date: 2023-09-27
 slug: 'how-to-get-started-building-a-homelab-server-in-2024'
-description: 'Welcome to your guide on building your first Homelab server, aimed at both seasoned tech aficionados and nascent enthusiasts. In this blog post, I hope to provide an in-depth walkthrough...'
+description: 'I built my first Homelab server for under $200 using a used Lenovo ThinkServer from Facebook Marketplace and Proxmox. Here is everything I learned about picking hardware, choosing an OS, setting up containers, and mounting NAS storage.'
 categories: ['Homelab']
 heroImage: '/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp'
 heroAlt: 'Homelab server setup guide with architecture diagram'
 tldr: 'I built my first Homelab server for under $200 using a used Lenovo ThinkServer from Facebook Marketplace and Proxmox. Here is everything I learned about picking hardware, choosing an OS, setting up containers, and mounting NAS storage.'
 ---
 
-Welcome to your guide on building your first Homelab server, aimed at both seasoned tech aficionados and nascent enthusiasts. In this blog post, I hope to provide an in-depth walkthrough of the components you need and configuration best practices I’ve picked up since completing my first Homelab build.
+Look, if you've been lurking on r/homelab or watching YouTube videos of people with full server racks in their basements, I get it. It looks intimidating. Expensive. Like you need an IT degree and a dedicated room in your house just to get started.
 
-## Why did I get started with making a Homelab? 
+You don't. I built my first homelab server for under $200 with a used PC from Facebook Marketplace, and it ran everything I threw at it. This post is the guide I wish I had when I started - no $2,000 server rack required, no enterprise networking degree, just a cheap used PC and some curiosity.
 
-Alright, but why did I start building a Homelab server now? Well, it all began when my Synology NAS could no longer handle the increasing weight of additional Docker services. It wasn’t long before the CPU and RAM were gasping for air. The realization hit: I needed to transition to being an active maintainer of my own Homelab to truly expand and experiment. Let’s dig into how you can make that leap too.
+## Why did I start building a Homelab?
 
-## Goals of my Homelab server
+It started with my Synology NAS choking. I kept adding Docker containers to it - a media server here, a download manager there - and eventually the little NAS was gasping for air. The CPU was pegged at 100% and the 2GB of RAM was a joke. Every time I wanted to try a new service, something else would crash.
 
-As we pivot from the “why” to the “how,” aligning our actions with clearly defined goals is important. A Homelab can serve lots of purposes, from hosting media files to serving as a solid testing environment for DevOps pipelines. My specific objectives for constructing a Homelab server are as follows:
+I realized I had two options: buy an expensive new NAS with better specs, or get a proper server and let the NAS do what it's good at - storing files. The server won.
 
-- **Affordable**: Keep the budget under $200 USD.
+## What I actually wanted out of this thing
 
-- **Run All Desired Containers and Services**: The server must be capable of handling every microservice and application I want to deploy.
+Before I started browsing hardware, I wrote down what mattered to me:
 
-- **Performance-to-Cost Ratio**: Opt for hardware that offers the best blend of performance and affordability, without exceeding the $200 limit.
+- **Cheap.** Under $200. I didn't know if I'd stick with this hobby, so I wasn't about to drop serious money on it.
+- **Run all my containers.** I had about 15 services I wanted to run, and the server needed to handle them without breaking a sweat.
+- **Upgradeable.** I wanted to be able to add RAM or swap drives later without buying a whole new machine.
+- **Docker and container friendly.** This was non-negotiable.
+- **Low power draw.** I didn't want my electricity bill to double.
+- **RAID support.** Some level of redundancy for my data.
 
-- **Containerization**: Must be compatible with Docker and Kubernetes for hassle-free orchestration of microservices.
+## Start small. Seriously.
 
-- **Modular Design**: Hardware should be upgradeable-whether it’s RAM, CPU, or storage-without necessitating a complete system revamp.
+Here's the best advice I can give you: **don't overthink your first homelab.** You don't need a rack-mounted Dell R730 (I eventually got two of those, but that came later). You don't need 10G networking. You don't need ECC RAM.
 
-- **Power Efficiency**: The server should have a minimal electrical draw to ensure that operational costs remain low.
+You need a used PC with a decent CPU and enough RAM to run some containers. That's it.
 
-- **RAID Support**: Include redundant storage options for added fault tolerance.
+![Is this a server? - me looking at any used PC on Facebook Marketplace](/images/blog/how-to-get-started-building-a-homelab-server-in-2024/is-this-a-server.webp)
 
-These guidelines will act as the North Star for the decisions and recommendations that follow, steering us toward a balanced, cost-effective, and high-performance Homelab server.
+The best places to find used hardware in 2026:
 
-Before zeroing in on the ideal server, I embarked on an expansive journey through the labyrinthine world of hardware options. High-end server racks, Raspberry Pi-powered configurations, and specialized, bespoke solutions-I considered them all. Each had its unique merits but also accompanying drawbacks, often violating one or more of the pre-set guidelines.
+- **Facebook Marketplace** - Local businesses dump old office PCs here constantly. I've seen perfectly good machines for $50-150.
+- **eBay** - Great for specific models. Search for "Dell Optiplex" or "Lenovo ThinkCentre" and sort by price.
+- **Craigslist** - Hit or miss, but you can find deals.
+- **r/homelabsales** - The subreddit where homelab people sell their old gear when they upgrade.
+- **Local e-waste recyclers** - Some will sell you old business PCs for next to nothing.
 
-## Buying my Homelab Server
+What to look for in used hardware:
 
-Then serendipity struck. I stumbled upon a “good enough” solution on Facebook Marketplace-a used Lenovo ThinkServer PC that once powered a local small business. At first glance, the specs seemed to align well with my goals:
+- **CPU**: Any Intel i5/i7 from the last 8-10 years, or a Xeon E3/E5. These are more than enough for a starter homelab.
+- **RAM**: 16GB minimum, 32GB is the sweet spot. RAM is usually the first bottleneck.
+- **Storage**: Doesn't matter as much if you have a NAS. A single SSD for the OS works fine.
 
-- **CPU**: 4 x Intel(R) Xeon(R) CPU E3-1226 v3 @ 3.30GHz
+## Buying my first server
 
-- **Storage**: 2 TBs
+I found a used Lenovo ThinkServer on Facebook Marketplace that some local business was getting rid of. $150.
 
-- **RAM**: 32 GBs
+![Drake meme - rejecting buying a brand new server for $800, approving finding a used ThinkServer on Facebook Marketplace for $150](/images/blog/how-to-get-started-building-a-homelab-server-in-2024/drake-used-server.webp)
 
-This system not only met but exceeded expectations in certain areas. Here’s how it measured up against the goals:
+The specs:
 
-- **Affordability**: Purchased second-hand, the cost was significantly below the $200 budget.
+- **CPU**: Intel Xeon E3-1226 v3 @ 3.30GHz (4 cores)
+- **Storage**: 2TB HDD
+- **RAM**: 32GB
 
-- **Run All Desired Containers and Services**: The quad-core Intel Xeon CPUs and 32 GBs of RAM more than suffice for any container or service I plan to run.
+For $150, this was a steal. The Xeon CPU handles virtualization like a champ, 32GB of RAM is plenty for running 15-20 containers, and the 2TB drive gave me room for local storage while my NAS handled the bulk media files.
 
-- **Performance-to-Cost Ratio**: The combination of a high-performance Xeon CPU and abundant RAM, at a discounted price, hit the sweet spot.
+The thing about buying used enterprise hardware is that it was built to run 24/7 in a server closet. These machines are tanks. My ThinkServer had been running for years in some office before I got it, and it didn't skip a beat.
 
-- **Containerization**: Compatibility with Docker and Kubernetes is a given, thanks to the beefy CPU.
+## Picking an operating system
 
-- **Modular Design**: The ThinkServer design allows for future hardware upgrades.
+I almost went with Ubuntu since it's what I knew. Throw Docker on top, maybe Portainer for a web UI, and call it a day. But I kept reading about [Proxmox](https://www.proxmox.com/en/) and decided to give it a shot.
 
-- **Power Efficiency**: Though not the most efficient, the server’s power draw is reasonable, and the performance payoff justifies it.
+I'm glad I did. Here's what sold me:
 
-- **Minimal Footprint**: Its form factor is manageable and could be rack-mounted.
+**Proxmox is built for exactly this.** It's a free, open-source virtualization platform that supports both full VMs (via KVM) and lightweight containers (via LXC). Ubuntu can do containerization, sure, but Proxmox was _designed_ for it.
 
-- **RAID Support**: 2 TBs of storage provides ample room for RAID configurations.
+**The web UI is great.** You get a full management interface out of the box. Create containers, manage storage, monitor resources, take snapshots - all from your browser. No SSHing into the machine for every little thing.
 
-In the grand scheme of things, this used ThinkServer was a golden compromise-a solution that ticked nearly all boxes without breaking the bank. Up next, let’s discuss setting this beast up and breathing new life into it.
+**Snapshots and backups are built in.** Before I make any changes to a container, I take a snapshot. If I break something (and I break things constantly), I roll back in 30 seconds. This alone makes Proxmox worth it for a homelab.
 
-### **Note on Starting Small and Scaling Up**
+**ZFS support.** If you want RAID or data integrity checking, Proxmox has tight ZFS integration. I ended up not using ZFS on my first build (it needs extra RAM to manage), but it's there when you need it.
 
-For those just dipping their toes into the world of Homelab servers, I highly recommend starting with used PCs available on platforms like eBay or Craigslist. These platforms offer tons of cost-effective options that can serve as excellent starting points for a beginner. Moreover, the used market provides an affordable way to meet most of your initial requirements, as my experience with the ThinkServer illustrates. Once you’re comfortable with your setup and find yourself craving more power or features, that’s the time to consider investing in a high-end, specialized server rack. It’s a modular approach; start small, get the hang of it, and then scale up as your needs and skills grow.
+**It grows with you.** When I eventually added a second server, Proxmox clustering made it easy to manage both from one interface. Try doing that with bare Ubuntu and Docker.
 
-## My Decision Matrix for Selecting an Operating System
+If you're brand new to all of this, Proxmox has a solid community and good documentation. The [Proxmox forum](https://forum.proxmox.com/threads/proxmox-beginner-tutorial-how-to-set-up-your-first-virtual-machine-on-a-secondary-hard-disk.59559/) has a good beginner tutorial for getting your first VM set up.
 
-The operating system (OS) is the foundation of your Homelab server-choosing wisely can dictate your future experience. While my initial inclination was to use Ubuntu due to familiarity and its well-documented ecosystem, I eventually settled on Proxmox as my OS of choice. Here’s why:
+## The containers I run
 
-#### **Why Not Just Ubuntu?**
+Once Proxmox was installed, the fun part started - spinning up containers. The [Community Scripts project](https://github.com/community-scripts/ProxmoxVE) (formerly the tteck Proxmox Helper Scripts) has one-liner install scripts for most popular homelab services. It makes setup almost embarrassingly easy.
 
-Ubuntu’s mainstream popularity and extensive community support make it an attractive option. Layering Docker or Portainer atop Ubuntu would have enabled containerization. However, the Linux distro is more general-purpose and less tailored for virtualization and container orchestration in comparison to [Proxmox](https://www.proxmox.com/en/).
+![One does not simply stop at one container](/images/blog/how-to-get-started-building-a-homelab-server-in-2024/one-does-not-simply-containers.webp)
 
-#### **The Case for Proxmox**
+### Media Management
 
-- **Native Virtualization and Container Support**: Proxmox VE (Virtual Environment) is built with virtualization and containerization in mind. It supports both KVM for virtual machines and LXC for containers, offering a flexible, integrated environment for all your services.
+I use the [TRaSH Guides](https://trash-guides.info/) to configure all of my Arr apps and media downloaders. If you're setting up a media stack, start there.
 
-- **Web-Based Management Interface**: Proxmox comes with a full-featured and intuitive web GUI. This allows for easy management of virtual machines, containers, storage, and even cluster configurations without the need for an SSH window for every task.
+- **[Plex](https://www.geekbitzone.com/posts/2022/proxmox/plex-lxc/install-plex-in-proxmox-lxc/#introducing-linux-containers-lxc)** - My original media server. Still works, but I've lost some confidence in where the project is headed.
+- **[Jellyfin](https://jellyfin.org/)** - The open-source alternative I've been testing. Running both side by side in separate containers is one of the nice things about Proxmox.
+- **[Tautulli](https://tautulli.com/)** - Monitors Plex usage. Tells me exactly who's streaming what and when.
+- **[Seerr](https://seerr.dev/)** - Request management and media discovery. Friends and family can request movies and shows through a nice web UI.
+- **[Radarr](https://radarr.video/) / [Sonarr](https://sonarr.tv/)** - Automated movie and TV show management, integrated with Usenet and BitTorrent.
+- **Prowlarr** - Indexer manager for all the Arr apps.
+- **Readarr** - Manages ebooks and audiobooks.
+- **Audiobookshelf** - A dedicated server for audiobooks and podcasts.
+- **[Bazarr](https://www.bazarr.media/)** - Automated subtitle downloads.
+- **Tdarr** - Transcoding and health checking for media files.
+- **qBittorrent** - Torrenting (legal content, obviously).
+- **SABnzbd** - Usenet downloads.
 
-- **Backup and Restore Features**: Proxmox has solid backup mechanisms, allowing for quick snapshots and restores of your VMs and containers. This functionality is vital for experimentation and recovery scenarios in a Homelab setting.
+### Everything Else
 
-- **Resource Monitoring and Reporting**: Proxmox provides real-time reporting and monitoring of resources, making it easier to optimize the usage of your hardware based on specific needs.
+- **[Pi-Hole](https://pi-hole.net/)** - Network-wide ad blocking. I moved this off a Raspberry Pi and onto Proxmox. Way more reliable.
+- **[Octoprint](https://octoprint.org/)** - Remote control for my 3D printer.
+- **[MagicMirror](https://magicmirror.builders/)** - Moved my [smart mirror project](/work/) to Proxmox for centralized management.
+- **[Grocy](https://grocy.info/)** - Grocery and household management. My partner actually uses this one, which is the ultimate test of any self-hosted app.
+- **[Minecraft server](https://raspberrytips.com/install-minecraft-server-debian/)** - Because of course I run a Minecraft server.
 
-- **ZFS Support**: While Ubuntu supports ZFS, Proxmox’s tighter integration enables more efficient storage utilization, especially beneficial if you’re considering RAID configurations.
+## How I architect containers
 
-- **Community and Commercial Support**: Proxmox has a thriving community, much like Ubuntu. However, it also offers a commercial subscription for enterprise-grade support, an option worth considering as your Homelab server grows in complexity.
+My approach is simple: **one service per container.** Every app gets its own isolated LXC container in Proxmox. This sounds like overkill until the first time you update one service and it breaks another one's dependencies. With isolated containers, that never happens.
 
-- **Clustering Capabilities**: Proxmox allows for easy clustering, which can be beneficial if you decide to scale your operations horizontally by adding more nodes to your setup.
+The benefits are practical:
 
-- **Security Measures**: From built-in firewalls to various authentication methods, Proxmox offers a variety of security options, important for an environment that might eventually face exposure to the internet.
+You can update Sonarr without worrying about breaking Radarr. You can snapshot a container before making changes and roll back if something goes wrong. If one service goes haywire and eats all its allocated RAM, everything else keeps running. And when you want to try a new service, you spin up a fresh container in about 30 seconds.
 
-Proxmox offers a slew of features tailored for a Homelab setup. Its focus on containerization, virtualization, and ease of management makes it a more fitting choice for those specifically interested in a solid, scalable Homelab server environment. Therefore, despite my comfort level with Ubuntu, the feature set of Proxmox tipped the scales.
+I use lightweight Debian images for all my containers. I was already comfortable with Ubuntu, and Debian is Ubuntu's parent distro, so the learning curve was minimal.
 
-## Containers I wanted to run on my Homelab
+### Using the NAS as shared storage
 
-I found this amazing site that has a ton of scripts for simplifying your Proxmox Homelab setup: [Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/)
-
-**Media Management:**
-
-I use the TRaSH-Guide to configure and set up all of my Arr apps and media downloaders: [TRaSH Guides](https://trash-guides.info/)
-
-- **Plex**: While Plex has been reliable, my confidence in the project’s direction has diminished, prompting me to explore alternatives.[ [2]](https://www.geekbitzone.com/posts/2022/proxmox/plex-lxc/install-plex-in-proxmox-lxc/#introducing-linux-containers-lxc)
-
-- **Jellyfin**: An open-source alternative to Plex; spinning up a Proxmox container provided the perfect testing ground.[ [3]](https://jellyfin.org/)
-
-- **Tautulli**: For monitoring Plex libraries.[ [4]](https://tautulli.com/)
-
-- **Overseerr**: For request management and media discovery within the Plex ecosystem.[ [5]](https://overseerr.dev/)
-
-- **Radarr/Sonarr/Lidarr**: These ‘Arr’ apps are for managing movies, TV shows, and music respectively, integrated with Usenet and BitTorrent.[ [6]](https://radarr.video/)[ [7]](https://sonarr.tv/)
-
-- **Prowlarr**: Serves as an indexer manager and proxy for the ‘Arr’ apps.
-
-- **Readarr**: Manages eBooks and audiobooks.
-
-- **Audiobookshelf**: A server for audiobooks and podcasts.
-
-- **Bazarr**: Manages and downloads subtitles.[ [8]](https://www.bazarr.media/)
-
-- **Tdarr**: Transcoding and remuxing media; also checks for corrupted files.
-
-- **qBittorrent**: For torrenting legal content.
-
-- **SABnzbd**: For Usenet downloads.
-
-#### **Miscellaneous**
-
-- **Pi-Hole**: Network-level ad-blocking; moved from a Raspberry Pi to Proxmox.[ [9]](https://pi-hole.net/)
-
-- **MotionEye**: Manages IP cameras flashed with RSTP firmware.
-
-- **Octoprint**: To control my Prusa MK3S 3D printer.[ [10]](https://octoprint.org/)
-
-- **MagicMirror**: Moved my smart mirror setup to Proxmox for centralized IoT management.[ [11]](/work/)[ [12]](https://magicmirror.builders/)
-
-- **Grocy**: Manages groceries and household items, meal plans, and more.[ [13]](https://grocy.info/)
-
-- **Minecraft**: Rekindled my love for Minecraft and decided to run my own server for a more personalized experience. Followed a Debian-based installation guide to set it up.[ [1]](https://raspberrytips.com/install-minecraft-server-debian/)
-
-## Container Architecture
-
-For efficient system design, the architecture of my Homelab leans heavily on containerization. The core philosophy here is isolation for service-level granularity. What this means in plain English: each service or application in my Homelab exists in its own distinct container. This brings about a handful of key advantages:
-
-#### **Benefits of Isolated Containers**
-
-- **Simplified Management**: The Proxmox interface becomes a one-stop shop for managing individual services. Stop, start, or clone services without affecting the others.
-
-- **Easy Updates**: Updating a single service doesn’t require an entire system halt; you can update one container without touching the others.
-
-- **Resource Efficiency**: Containers share the host system’s OS kernel, unlike VMs, which require their own operating system, thereby using fewer system resources.
-
-- **Rapid Deployment**: With the use of container templates, spinning up new services becomes a matter of a few clicks.
-
-- **Fault Isolation**: If one service goes haywire, it won’t bring down the whole system, thanks to the isolated environment.
-
-### How it Works
-
-Using Proxmox as the orchestration layer, services such as databases, web servers, or media servers each exist in individual containers. These containers are essentially lightweight, standalone, executable software packages that contain everything needed to run the service: code, libraries, and runtime.
-
-For example, if I’m running a MySQL database and a separate NGINX web server, each would live in its own container. Should I need to upgrade MySQL, I can do so without affecting the NGINX container. This is a high degree of control and flexibility you’d be hard-pressed to achieve with traditional virtual machines.
-
-By maintaining each service in an isolated container, I’ve essentially modularized my Homelab, making it a more manageable, efficient, and reliable system.
-
-### **Using NAS for Media Management in Containers**
-
-In my Homelab architecture, the Synology NAS isn’t just a separate entity; it’s an integral part of the ecosystem, especially for my media management tasks. I’ve configured it as a mounted data store accessible to several of my containers running on the Proxmox host. This approach serves a dual purpose. First, it offers an optimized, centralized repository for all media files, eliminating data redundancy and ensuring quick access across services. Second, it makes resource allocation more efficient. Containers dedicated to tasks like media streaming, transcoding, or library management can access the same high-capacity storage without wasting local Proxmox server resources. So, whether it’s a Plex server or a torrent client, multiple containers can read and write to the same NAS-based datastore, offering a unified, efficient media management solution.
+The Synology NAS is the backbone of my media setup. Instead of storing media files on the Proxmox server itself, I mount the NAS as a network drive inside each container that needs access to media. This means Plex, Sonarr, Radarr, and qBittorrent all read and write to the same NAS storage. No data duplication, no wasted local disk space.
 
 ![Homelab architecture diagram showing NAS with NFS mount to Proxmox server running Plex, Minecraft, qBittorrent, Jellyfin, Sonarr, and Radarr behind Nginx reverse proxy serving desktop and mobile clients](/images/blog/how-to-get-started-building-a-homelab-server-in-2024/Homelab-Archiecture-1024x473.webp)
 
-## How to mount NAS inside of your Proxmox containers
+## How to mount a NAS inside Proxmox containers
 
-In the pursuit of optimizing my Homelab, integrating Network Attached Storage (NAS) into my Proxmox containers was essential. This provides centralized storage, making data access more consistent and efficient across all my services (especially with my media manager containers). If you’ve been using a Synology NAS like I have, these steps simplify the process of mounting it within your Proxmox containers. Here’s how to do it:
+If you're using a Synology NAS (or any NFS-capable NAS), mounting it in your Proxmox containers is straightforward. Here's how:
 
-- Update the Package List and Install NFS Support
+First, update packages and install NFS support:
 
 ```bash
 sudo apt update && sudo apt install nfs-common -y
 ```
 
-- Create Mount Point Directory
+Create a mount point:
 
 ```bash
 mkdir /nas
 ```
 
-- Edit Filesystem Table
-
-Open the `/etc/fstab` file in a text editor. Here, we use `nano`.
+Edit your filesystem table to add the NAS mount:
 
 ```bash
 nano /etc/fstab
 ```
 
-Add the following line to mount the NAS.
+Add this line (replace with your NAS IP and share path):
 
 ```bash
-[IP_ADDRESS_OF_YOUR_NAS]:[DIRECTORY_YOUR_SHARE] /nas nfs defaults 0 0
+192.168.0.100:/volume1/data /nas nfs defaults 0 0
 ```
 
-An example would be:
-
-```bash
-192.168.0.555:/volume1/data /nas nfs defaults 0 0
-```
-
-- Reload System Daemons
+Reload system daemons and mount:
 
 ```bash
 systemctl daemon-reload
+mount /nas
 ```
 
-- Mount the NAS
+That's it. Your NAS storage is now available at `/nas` inside the container, and it'll automatically mount on reboot.
 
-```bash
-mount [IP_ADDRESS_OF_YOUR_NAS]:[DIRECTORY_YOUR_SHARE]
-```
+## Best practices I learned the hard way
 
-## Best Practices for setting up home lab architecture:
+After running this setup for a while (and eventually scaling to a full rack with two Dell R730s), here are the things I wish I'd known from the start:
 
-Once you’ve opted for Proxmox as your operating system of choice, and got it all [installed and setup](https://forum.proxmox.com/threads/proxmox-beginner-tutorial-how-to-set-up-your-first-virtual-machine-on-a-secondary-hard-disk.59559/). Adhering to best practices during setup can save you from future headaches. Here’s a roadmap for deploying a solid, scalable, and secure Proxmox-based Homelab:
+### Don't overcommit RAM
 
-#### **Hardware Resource Allocation**
+It's tempting to give every container 4GB of RAM "just in case." Don't. Most services need way less than you think. Start with 512MB or 1GB per container and bump it up only if you see actual memory pressure. Use `htop` inside your containers to monitor real usage.
 
-- **CPU Pinning**: Assign specific CPU cores to particular virtual machines (VMs) or containers to ensure optimal performance.
+### Take snapshots before you change anything
 
-- **RAM Allocation**: Don’t overcommit. Use a tool like htop to monitor usage and leave some headroom for the host OS.
+Proxmox snapshots are free and fast. Before updating a container, changing a config, or trying something new - take a snapshot. I can't count the number of times this has saved me from a full reinstall.
 
-#### **Storage Strategy**
+### Use VLANs if you're exposing anything to the internet
 
-- **ZFS Pool Setup**: I opted to not use a ZFS pool since it requires extra RAM to manage, but I had a massive TrueNAS cluster, I would probably opt to use this feature.
+If you're planning to make any services publicly accessible (and you probably will eventually), segment your network. Put your public-facing services on a separate VLAN from your home network. Proxmox's built-in firewall makes this manageable.
 
-- **SSD Caching**: If available, use an SSD as a cache drive to speed up data access for frequently used files.
+### Containers over VMs (usually)
 
-#### **Networking**
+LXC containers share the host kernel and use way fewer resources than full VMs. For most homelab services, containers are the right choice. I only use full VMs for things that need a separate kernel (like a Windows gaming VM or a firewall appliance).
 
-- **VLANs**: Segregate your network using VLANs for increased security and better traffic management.
+### Automate your backups
 
-- **Firewall Rules**: Use Proxmox’s built-in firewall to restrict both inbound and outbound traffic as per your needs.
+Set up automated backups to a separate disk or your NAS. Proxmox has built-in scheduled backup support. Don't be the person who loses their entire setup because a drive died.
 
-#### **Virtual Machines & Containers**
+## Where to go from here
 
-- **Template Creation**: Create templates for common OS setups to speed up future deployments.
+The beauty of a homelab is that it grows with you. My setup started as a single $150 ThinkServer running 15 containers. Two years later, it's two Dell R730s with dual NVIDIA GPUs, 10G networking, VLANs, 60+ containers, and a full Home Assistant smart home setup. You can read about that evolution in [My Homelab Two Years Later: From Desktop Tower to Server Rack](/blog/homelab-two-years-later/).
 
-- **Container Images**: I opted to use a lightweight Debian image for all of my containers. I was comfortable with Ubuntu, and Debian is the parent distro of Ubuntu, so it was natural to get used to,
+But none of that would have happened if I'd waited until I could afford the "right" hardware. I started with what I could get cheap, learned as I went, and upgraded when I hit actual limitations - not imagined ones.
 
-- **Resource Limits**: Set CPU and RAM limits to prevent any single VM or container from consuming excessive resources.
+Some natural next steps once you're comfortable:
 
-#### **Backup and Snapshots**
+- **Set up a reverse proxy** (Nginx Proxy Manager or Caddy) to give your services clean URLs. I wrote about [how to set up custom domain names on your internal network using Nginx Proxy Manager and Pi-Hole](/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/).
+- **Add a VPN** ([WireGuard](https://www.wireguard.com/) or [Tailscale](https://tailscale.com/)) for secure remote access to your homelab.
+- **Try Home Assistant** if you have any smart home devices. I initially kept it off my server for security reasons, but it eventually became the most important thing in my entire setup.
+- **Add GPU passthrough** if you want hardware-accelerated transcoding in Plex/Jellyfin or want to run a gaming VM.
 
-- **Automated Backups**: Schedule automated backups and store them on a separate disk or network storage.
+## Wrap up
 
-- **Snapshot Scheduling**: Use Proxmox’s snapshot feature to take periodic snapshots of your VMs and containers.
+Don't wait for the perfect hardware or the perfect time. Grab a used PC for $100-200, install Proxmox, and start spinning up containers. You'll break things, you'll learn a ton, and you'll wonder why you didn't start sooner. The homelab community is one of the most helpful communities in tech - hit up r/homelab, the Proxmox forums, or the [Self-Hosted podcast](https://selfhosted.show/) when you get stuck.
 
-## Next steps
-
-Next on the agenda, I’ve got a few exciting projects. First, I’m eyeing a GPU installation to get a Windows VM up and running. The main push? Gaming. I’ve been itching to play Baldur’s Gate 3 and this setup will make that possible. Alongside this, I’m working on setting up [OpenVPN](https://openvpn.net/). This will give me secure remote access to my Homelab, allowing me to manage it from anywhere. Lastly, I’m planning on installing Nginx Proxy Manager. The aim is to make some of my services available for public use. Specifically, I want my friends to be able to access my Minecraft server and Overseer, a platform for managing media requests. I ended up writing a follow-up on [how to set up custom domain names on your internal network using Nginx Proxy Manager and Pi-Hole](/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/).
-
-Shockingly, I decided not to install HomeAssistant (which is a project I am a massive fan of). When setting up my Homelab, including Home Assistant on the same Proxmox server and other services might seem intuitive. However, I deliberately chose not to. The reason is rooted in the concept of operational isolation and security. Home Assistant is a powerful tool for home automation, interacting directly with various IoT devices in my home-from smart lights to HVAC systems. Mixing this level of access with a web server that hosts public-facing services introduces a significant security risk. Should the web server be compromised, it could potentially give an attacker access to control or manipulate my home automation system.
-
-**Update (March 2026):** Two years after writing this post, the homelab has grown considerably. Two Dell R730s, dual NVIDIA GPUs, 10G networking, VLANs, 60+ containers, and yes - I eventually installed Home Assistant (it’s now the most important piece of the whole setup). Read the full story in [My Homelab Two Years Later: From Desktop Tower to Server Rack](/blog/homelab-two-years-later/).
-
-## Wrap Up
-
-The most important takeaway is this: don’t wait for the ‘perfect’ time or the ‘perfect’ gear to start your Homelab. With platforms like Proxmox and a vibrant community supporting tons of containerized services, you can start small and scale at your own pace. A Homelab is a canvas for your technical endeavors, a playground for your curiosity. It’s a project that grows with you, and it’s never too late to get started. Whether you’re using second-hand hardware, an old PC, or even a Raspberry Pi, your journey into the world of home labs will be a fulfilling one. Reach out to share your own experiences, ask questions, or offer insights. Trust me, once you dive in, you’ll wonder why you didn’t start sooner.
+Your first homelab doesn't need to be impressive. It just needs to exist.
