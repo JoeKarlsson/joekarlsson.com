@@ -5,8 +5,8 @@ updatedDate: 2026-03-11
 slug: 'how-to-get-started-building-a-homelab-server-in-2024'
 description: 'I built my first Homelab server for under $200 using a used Lenovo ThinkServer from Facebook Marketplace and Proxmox. Here is everything I learned about picking hardware, choosing an OS, setting up containers, and mounting NAS storage.'
 categories: ['Homelab']
-heroImage: '/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp'
-heroAlt: 'Homelab server setup guide with architecture diagram'
+heroImage: '/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-og.webp'
+heroAlt: 'Drake meme - spending $2,000 on a new server vs grabbing a $150 used PC and running 15 containers'
 tldr: 'I built my first Homelab server for under $200 using a used Lenovo ThinkServer from Facebook Marketplace and Proxmox. Here is everything I learned about picking hardware, choosing an OS, setting up containers, and mounting NAS storage.'
 ---
 
@@ -71,7 +71,18 @@ Not everyone needs the same thing, and your living situation matters more than y
 
 This is the thing nobody tells you before your first server arrives. Rack servers sound like a jet engine when they boot up. Tower servers and mini PCs are fine, but anything designed for a data center rack is going to be loud.
 
-Power is the other thing. My ThinkServer idled at around 80W, which worked out to roughly $7-8/month in electricity. That's not bad. But when I later upgraded to two Dell R730s, the power bill jumped significantly. Rule of thumb: multiply your idle wattage by 0.73 to get your rough monthly cost at average US electricity rates. A mini PC at 15W idle costs about $1.50/month. A dual Xeon server at 150W idle costs about $13/month.
+Power is the other thing. Here's what different setups actually cost to run 24/7 (at average US electricity rates of ~$0.12/kWh):
+
+| Hardware                                  | Idle Wattage | Monthly Cost | Annual Cost |
+| ----------------------------------------- | ------------ | ------------ | ----------- |
+| Raspberry Pi 5                            | 3-5W         | ~$0.50       | ~$5         |
+| Mini PC (NUC/Beelink)                     | 10-25W       | $1-3         | $10-25      |
+| Used office PC (OptiPlex/ThinkCentre)     | 40-80W       | $4-8         | $40-85      |
+| My ThinkServer (Xeon E3)                  | ~80W         | ~$7          | ~$85        |
+| Enterprise rack server (R730, etc.)       | 100-200W     | $10-20+      | $100-200+   |
+| Two enterprise servers (my current setup) | 250-400W     | $22-35       | $260-420    |
+
+My ThinkServer idled at around 80W, which worked out to roughly $7-8/month. That's not bad. But when I later upgraded to two Dell R730s, the power bill jumped to over $25/month. Rule of thumb: multiply your idle wattage by 0.73 to get your rough monthly cost at average US rates.
 
 ### Where to buy used hardware
 
@@ -156,7 +167,7 @@ The [Community Scripts project](https://github.com/community-scripts/ProxmoxVE) 
 I use the [TRaSH Guides](https://trash-guides.info/) to configure all of my Arr apps and media downloaders. If you're setting up a media stack, start there.
 
 - **[Plex](https://www.geekbitzone.com/posts/2022/proxmox/plex-lxc/install-plex-in-proxmox-lxc/#introducing-linux-containers-lxc)** - My original media server. Still works, but I've lost some confidence in where the project is headed.
-- **[Jellyfin](https://jellyfin.org/)** - The open-source alternative I've been testing. Running both side by side in separate containers is one of the nice things about Proxmox.
+- **[Jellyfin](https://jellyfin.org/)** - The open-source alternative I've been testing. Running both side by side in separate containers is one of the nice things about Proxmox. (If you're into music specifically, I wrote about [why self-hosted music still sucks](/blog/self-hosted-music-still-sucks-in-2025/) - the video side is way more mature.)
 - **[Tautulli](https://tautulli.com/)** - Monitors Plex usage. Tells me exactly who's streaming what and when.
 - **[Seerr](https://seerr.dev/)** - Request management and media discovery. Friends and family can request movies and shows through a nice web UI.
 - **[Radarr](https://radarr.video/) / [Sonarr](https://sonarr.tv/)** - Automated movie and TV show management, integrated with Usenet and BitTorrent.
@@ -192,7 +203,45 @@ I use lightweight Debian images for all my containers. I was already comfortable
 
 The Synology NAS is the backbone of my media setup. Instead of storing media files on the Proxmox server itself, I mount the NAS as a network drive inside each container that needs access to media. This means Plex, Sonarr, Radarr, and qBittorrent all read and write to the same NAS storage. No data duplication, no wasted local disk space.
 
-![Homelab architecture diagram showing NAS with NFS mount to Proxmox server running Plex, Minecraft, qBittorrent, Jellyfin, Sonarr, and Radarr behind Nginx reverse proxy serving desktop and mobile clients](/images/blog/how-to-get-started-building-a-homelab-server-in-2024/Homelab-Archiecture-1024x473.webp)
+```
+                    +-----------+
+                    |  Clients  |
+                    | (Desktop, |
+                    |  Mobile)  |
+                    +-----+-----+
+                          |
+                    +-----+-----+
+                    |   Nginx   |
+                    |  Reverse  |
+                    |   Proxy   |
+                    +-----+-----+
+                          |
+         +----------------+----------------+
+         |                                 |
++--------+--------+             +---------+---------+
+|  Proxmox Server  |             |   Synology NAS    |
+|                  |    NFS     |                   |
+|  +------------+  |<---------->|  /volume1/data    |
+|  |    Plex    |  |   mount    |  (Movies, TV,     |
+|  +------------+  |            |   Music, Books)   |
+|  |  Jellyfin  |  |            +-------------------+
+|  +------------+  |
+|  |   Sonarr   |  |
+|  +------------+  |
+|  |   Radarr   |  |
+|  +------------+  |
+|  |   Seerr    |  |
+|  +------------+  |
+|  | qBittorrent|  |
+|  +------------+  |
+|  |  Pi-hole   |  |
+|  +------------+  |
+|  | Minecraft  |  |
+|  +------------+  |
+|  |   + more   |  |
+|  +------------+  |
++------------------+
+```
 
 ## How to mount a NAS inside Proxmox containers
 
@@ -277,8 +326,8 @@ Some natural next steps once you're comfortable:
 
 - **Set up a reverse proxy** (Nginx Proxy Manager or Caddy) to give your services clean URLs. I wrote about [how to set up custom domain names on your internal network using Nginx Proxy Manager and Pi-Hole](/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/).
 - **Add a VPN** ([WireGuard](https://www.wireguard.com/) or [Tailscale](https://tailscale.com/)) for secure remote access to your homelab.
-- **Try Home Assistant** if you have any smart home devices. I initially kept it off my server for security reasons, but it eventually became the most important thing in my entire setup.
-- **Add GPU passthrough** if you want hardware-accelerated transcoding in Plex/Jellyfin or want to run a gaming VM.
+- **Try Home Assistant** if you have any smart home devices. I initially kept it off my server for security reasons, but it eventually became the most important thing in my entire setup. I wrote a [getting started guide for Home Assistant](/blog/how-to-get-started-with-home-assistant-in-2023/) and later documented [replacing Alexa with a privacy-focused setup](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
+- **Add GPU passthrough** if you want hardware-accelerated transcoding in Plex/Jellyfin or want to run a gaming VM. I used GPU passthrough to build a [subtitle generator with Whisper](/blog/building-a-gpu-accelerated-subtitle-generator/) - that's the kind of project a GPU-enabled homelab unlocks.
 
 ## Resources for homelab beginners
 
