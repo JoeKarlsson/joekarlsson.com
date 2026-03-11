@@ -1,6 +1,7 @@
 ---
 title: 'How to get started building a Homelab server in 2026'
 date: 2023-09-27
+updatedDate: 2026-03-11
 slug: 'how-to-get-started-building-a-homelab-server-in-2024'
 description: 'I built my first Homelab server for under $200 using a used Lenovo ThinkServer from Facebook Marketplace and Proxmox. Here is everything I learned about picking hardware, choosing an OS, setting up containers, and mounting NAS storage.'
 categories: ['Homelab']
@@ -38,15 +39,49 @@ You need a used PC with a decent CPU and enough RAM to run some containers. That
 
 ![Is this a server? - me looking at any used PC on Facebook Marketplace](/images/blog/how-to-get-started-building-a-homelab-server-in-2024/is-this-a-server.webp)
 
-The best places to find used hardware in 2026:
+## Picking hardware for a homelab on a budget
+
+Not everyone needs the same thing, and your living situation matters more than you'd think. A rack server in an apartment is going to make your partner hate you (ask me how I know). Here's how I'd think about hardware tiers for beginners:
+
+### Tier 1: Just learn the basics ($0-75)
+
+**An old laptop or a Raspberry Pi.** If you've got an old laptop collecting dust, install Ubuntu Server or Debian on it, throw Docker on top, and start playing. A Raspberry Pi 5 (about $60-80) works too. You won't run 20 containers on these, but you can run Pi-hole, a small media server, and a few other things. The point is to learn Linux, Docker, and networking basics without spending real money.
+
+**Best for:** People who aren't sure they'll stick with it, apartment dwellers with zero space, students.
+
+### Tier 2: Mini PCs ($100-250)
+
+**Beelink, Intel NUC, or Minisforum mini PCs.** This is the quiet homelab sweet spot. These things idle at 10-25W (your electricity bill won't even notice), they're dead silent, and they fit on a bookshelf. A used Intel NUC or a Beelink Mini S with 16GB RAM and a small SSD will run 10-15 containers comfortably.
+
+**Best for:** Apartments, shared living spaces, anyone who values quiet over raw power.
+
+### Tier 3: Used office PCs ($50-200)
+
+**Dell OptiPlex, HP EliteDesk, Lenovo ThinkCentre.** This is what I'd recommend for most people starting out. Businesses cycle these out every 3-5 years by the thousands, and they end up on eBay and Facebook Marketplace for almost nothing. An OptiPlex 7040 or ThinkCentre M920 with an i5, 16-32GB RAM, and an SSD will handle pretty much anything a beginner throws at it.
+
+**Best for:** The best balance of price, performance, and upgradeability. My recommendation for most beginners.
+
+### Tier 4: Used enterprise servers ($200-500+)
+
+**Dell PowerEdge, HP Proliant, Lenovo ThinkServer.** This is what I started with, and it's overkill for most beginners. These have Xeon CPUs, tons of RAM slots, and hardware RAID controllers. But they're also loud (small high-RPM fans), power-hungry (100-200W idle for older models), and heavy. Don't start here unless you have a basement, garage, or attic to put it in.
+
+**Best for:** People with dedicated space who know they want to go deep into virtualization and containers.
+
+### A note about noise and power
+
+This is the thing nobody tells you before your first server arrives. Rack servers sound like a jet engine when they boot up. Tower servers and mini PCs are fine, but anything designed for a data center rack is going to be loud.
+
+Power is the other thing. My ThinkServer idled at around 80W, which worked out to roughly $7-8/month in electricity. That's not bad. But when I later upgraded to two Dell R730s, the power bill jumped significantly. Rule of thumb: multiply your idle wattage by 0.73 to get your rough monthly cost at average US electricity rates. A mini PC at 15W idle costs about $1.50/month. A dual Xeon server at 150W idle costs about $13/month.
+
+### Where to buy used hardware
 
 - **Facebook Marketplace** - Local businesses dump old office PCs here constantly. I've seen perfectly good machines for $50-150.
-- **eBay** - Great for specific models. Search for "Dell Optiplex" or "Lenovo ThinkCentre" and sort by price.
+- **eBay** - Great for specific models. Search for "Dell OptiPlex" or "Lenovo ThinkCentre" and sort by price.
 - **Craigslist** - Hit or miss, but you can find deals.
-- **r/homelabsales** - The subreddit where homelab people sell their old gear when they upgrade.
+- **[r/homelabsales](https://www.reddit.com/r/homelabsales/)** - The subreddit where homelab people sell their old gear when they upgrade.
 - **Local e-waste recyclers** - Some will sell you old business PCs for next to nothing.
 
-What to look for in used hardware:
+What to look for in any used hardware:
 
 - **CPU**: Any Intel i5/i7 from the last 8-10 years, or a Xeon E3/E5. These are more than enough for a starter homelab.
 - **RAM**: 16GB minimum, 32GB is the sweet spot. RAM is usually the first bottleneck.
@@ -84,11 +119,35 @@ I'm glad I did. Here's what sold me:
 
 **It grows with you.** When I eventually added a second server, Proxmox clustering made it easy to manage both from one interface. Try doing that with bare Ubuntu and Docker.
 
-If you're brand new to all of this, Proxmox has a solid community and good documentation. The [Proxmox forum](https://forum.proxmox.com/threads/proxmox-beginner-tutorial-how-to-set-up-your-first-virtual-machine-on-a-secondary-hard-disk.59559/) has a good beginner tutorial for getting your first VM set up.
+### Other OS options worth knowing about
+
+Proxmox is my pick, but it's not the only option:
+
+- **[Unraid](https://unraid.net/)** - Paid ($59+), but has a really polished UI and a built-in app store. Great if you want something that "just works" and don't mind paying for it. Particularly good for NAS + containers on the same box.
+- **[TrueNAS Scale](https://www.truenas.com/truenas-scale/)** - Free, Linux-based, strong on storage and ZFS. Better if your primary use case is NAS with some containers on the side.
+- **[CasaOS](https://casaos.zimaspace.com/)** - Free, runs on top of any Debian/Ubuntu install. The simplest option - basically an app store for self-hosted services. No virtualization support, but for pure Docker containers it's hard to beat for ease of use.
+- **Ubuntu/Debian + Docker** - The DIY option. No web UI out of the box (add [Portainer](https://www.portainer.io/) for that), but maximum flexibility and the most online tutorials.
+
+If you're brand new and just want to run Docker containers, CasaOS or Unraid are the lowest friction options. If you want to learn virtualization and have more control, Proxmox is the way to go.
+
+The [Proxmox forum](https://forum.proxmox.com/threads/proxmox-beginner-tutorial-how-to-set-up-your-first-virtual-machine-on-a-secondary-hard-disk.59559/) has a good beginner tutorial for getting your first VM set up.
+
+## What to run first on your homelab
+
+When you've got your server running, it's tempting to install everything. Resist the urge. Start with services that give you immediate, tangible value so you actually _use_ the thing instead of just admiring your container list.
+
+**My recommended day-one stack:**
+
+1. **[Pi-hole](https://pi-hole.net/)** - Network-wide ad blocking. Set this as your DNS server and every device on your network stops seeing ads. Your family will notice this one immediately.
+2. **[Jellyfin](https://jellyfin.org/)** or **Plex** - A media server. Throw your movies and music on it and you've got your own private streaming service.
+3. **[Homepage](https://gethomepage.dev/)** or **[Homarr](https://homarr.dev/)** - A dashboard that shows all your services in one place. Makes your homelab feel real.
+4. **[Uptime Kuma](https://uptime.kuma.pet/)** - Monitors whether your services are up. You'll be surprised how addictive this dashboard becomes.
+
+That's a solid afternoon project. Once those are running and you're comfortable, branch out to the full list below.
 
 ## The containers I run
 
-Once Proxmox was installed, the fun part started - spinning up containers. The [Community Scripts project](https://github.com/community-scripts/ProxmoxVE) (formerly the tteck Proxmox Helper Scripts) has one-liner install scripts for most popular homelab services. It makes setup almost embarrassingly easy.
+The [Community Scripts project](https://github.com/community-scripts/ProxmoxVE) (formerly the tteck Proxmox Helper Scripts) has one-liner install scripts for most popular homelab services. It makes setup almost embarrassingly easy.
 
 ![One does not simply stop at one container](/images/blog/how-to-get-started-building-a-homelab-server-in-2024/one-does-not-simply-containers.webp)
 
@@ -116,6 +175,8 @@ I use the [TRaSH Guides](https://trash-guides.info/) to configure all of my Arr 
 - **[MagicMirror](https://magicmirror.builders/)** - Moved my [smart mirror project](/work/) to Proxmox for centralized management.
 - **[Grocy](https://grocy.info/)** - Grocery and household management. My partner actually uses this one, which is the ultimate test of any self-hosted app.
 - **[Minecraft server](https://raspberrytips.com/install-minecraft-server-debian/)** - Because of course I run a Minecraft server.
+
+For a much bigger list of self-hosted apps, check out [Awesome Self-Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted) on GitHub. It's the definitive catalog.
 
 ## How I architect containers
 
@@ -170,13 +231,21 @@ mount /nas
 
 That's it. Your NAS storage is now available at `/nas` inside the container, and it'll automatically mount on reboot.
 
-## Best practices I learned the hard way
+## Mistakes I made so you don't have to
 
-After running this setup for a while (and eventually scaling to a full rack with two Dell R730s), here are the things I wish I'd known from the start:
+After running this setup for a while (and eventually scaling to a full rack with two Dell R730s), here are the things I wish someone had told me:
 
 ### Don't overcommit RAM
 
 It's tempting to give every container 4GB of RAM "just in case." Don't. Most services need way less than you think. Start with 512MB or 1GB per container and bump it up only if you see actual memory pressure. Use `htop` inside your containers to monitor real usage.
+
+### Don't install everything at once
+
+I know the [awesome-selfhosted list](https://github.com/awesome-selfhosted/awesome-selfhosted) is exciting. But deploying 30 containers you'll never actually use is a waste of resources and a maintenance headache. Install what you'll actually use this week, not what sounds cool.
+
+### Set up static IPs early
+
+I didn't do this at first and it was a nightmare. Every time my router reassigned an IP, half my services would break because they referenced each other by IP address. Assign static IPs to your server and containers from day one, or use your router's DHCP reservation feature.
 
 ### Take snapshots before you change anything
 
@@ -192,7 +261,11 @@ LXC containers share the host kernel and use way fewer resources than full VMs. 
 
 ### Automate your backups
 
-Set up automated backups to a separate disk or your NAS. Proxmox has built-in scheduled backup support. Don't be the person who loses their entire setup because a drive died.
+Set up automated backups to a separate disk or your NAS. Proxmox has built-in scheduled backup support. Don't be the person who loses their entire setup because a drive died. The [3-2-1 backup rule](https://www.backblaze.com/blog/the-3-2-1-backup-strategy/) is worth reading about: 3 copies of your data, on 2 different types of media, with 1 offsite.
+
+### Document what you do
+
+Future you will not remember why you changed that config file at 11 PM on a Tuesday. Keep notes. A simple markdown file in a git repo works great. When something breaks six months later, you'll thank yourself.
 
 ## Where to go from here
 
@@ -206,6 +279,41 @@ Some natural next steps once you're comfortable:
 - **Add a VPN** ([WireGuard](https://www.wireguard.com/) or [Tailscale](https://tailscale.com/)) for secure remote access to your homelab.
 - **Try Home Assistant** if you have any smart home devices. I initially kept it off my server for security reasons, but it eventually became the most important thing in my entire setup.
 - **Add GPU passthrough** if you want hardware-accelerated transcoding in Plex/Jellyfin or want to run a gaming VM.
+
+## Resources for homelab beginners
+
+When I was starting out, these communities and resources were invaluable:
+
+- **[r/homelab](https://www.reddit.com/r/homelab/)** - The main subreddit. Great for inspiration and troubleshooting. Read the [wiki](https://www.reddit.com/r/homelab/wiki/index/) before posting.
+- **[r/selfhosted](https://www.reddit.com/r/selfhosted/)** - Focused specifically on self-hosted apps and services.
+- **[Self-Hosted podcast](https://selfhosted.show/)** - Chris and Alex cover new self-hosted apps, hardware, and homelab news every two weeks.
+- **[Awesome Self-Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted)** - A curated list of self-hosted software. This is where you go to discover what's possible.
+- **[ServeTheHome](https://www.servethehome.com/)** - Hardware reviews focused on servers and homelab gear. Their mini PC reviews are particularly useful.
+- **[Proxmox community forums](https://forum.proxmox.com/)** - For Proxmox-specific troubleshooting.
+- **[TRaSH Guides](https://trash-guides.info/)** - If you're setting up a media stack, these guides are the gold standard.
+- **[Community Scripts for Proxmox](https://github.com/community-scripts/ProxmoxVE)** - One-liner install scripts that make Proxmox setup painless.
+
+## Frequently asked questions
+
+**How much does a homelab cost to run?**
+
+Hardware cost is a one-time thing ($50-500 depending on what you buy). Ongoing electricity is the real cost. A mini PC idles at 10-25W and costs about $1-3/month. A used office tower idles at 40-80W and costs about $4-8/month. A full rack server idles at 100-200W and costs $10-20+/month. My single ThinkServer added about $7/month to my electricity bill.
+
+**Can I run a homelab in an apartment?**
+
+Yes. A mini PC (Beelink, Intel NUC, Minisforum) is completely silent, smaller than a book, and uses less power than a light bulb. You can run Pi-hole, Jellyfin, Home Assistant, and a dozen other services on one. Just don't buy a rack server for an apartment - your neighbors will hear it.
+
+**Is a homelab worth it in 2026?**
+
+If you want to learn Linux, Docker, and networking - yes. If you want to self-host your own services instead of paying for cloud subscriptions - yes. If you just want a Plex server and nothing else - maybe just use a Raspberry Pi. The real value of a homelab is that it teaches you things you can't learn any other way, and it compounds over time.
+
+**What if I break something?**
+
+You will break something. That's the whole point. Proxmox snapshots make it easy to roll back, and the worst case scenario is you reinstall a container (which takes about 2 minutes). Nothing you do on a homelab is going to damage your hardware or your home network permanently. Give yourself permission to experiment.
+
+**Do I need to know Linux?**
+
+Not to start. Proxmox and Unraid both have web UIs that handle most things. But you'll naturally pick up Linux commands as you go, and that's one of the most valuable skills a homelab gives you.
 
 ## Wrap up
 
