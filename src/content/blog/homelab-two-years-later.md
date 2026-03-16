@@ -385,15 +385,17 @@ Every one of these services is something I used to pay for monthly and no longer
 | 1Password | Vaultwarden | $4 |
 | ChatGPT Plus | Ollama + Open WebUI | $20 |
 | Ring Protect Plus | Frigate | $13 |
+| Security monitoring plan | Frigate + Home Assistant | ~$80 |
 | Audible | Audiobookshelf | $15 |
 | Backblaze backup | Proxmox Backup Server | $7 |
-| **Total subscriptions killed** | | **~$152/mo ($1,824/yr)** |
+| Bluehost hosting (WordPress + dedicated IP) | Astro + Caddy on homelab | ~$21 |
+| **Total subscriptions killed** | | **~$253/mo ($3,036/yr)** |
 
-Subtract my $53/month electricity cost and I'm netting about **$99/month in real savings**.
+Subtract my $53/month electricity cost and I'm netting about **$200/month in real savings**.
 
-**Break-even: ~6.3 years** ($7,440 hardware / $99 monthly net savings).
+**Break-even: ~3.1 years** ($7,440 hardware / $200 monthly net savings).
 
-That's not a fast payback. I'm not going to pretend this is a financial no-brainer. But subscription prices only go up - Netflix has raised prices three times since I started this project. And once the hardware is paid off, it's $1,200+ per year in pure savings with no monthly bills going to seven different companies. Plus I own my data, I control my infrastructure, and nobody can cancel my favorite show or change my password manager's pricing tier.
+That's not instant, but it's way better than I expected when I started adding up the numbers. Subscription prices only go up - Netflix has raised prices three times since I started this project. And once the hardware is paid off, it's $2,400+ per year in pure savings with no monthly bills going to nine different companies. Plus I own my data, I control my infrastructure, and nobody can cancel my favorite show or change my password manager's pricing tier.
 
 But honestly? It's a hobby. Hobbies cost money. Nobody asks a golfer to justify their club membership with a break-even analysis.
 
