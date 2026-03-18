@@ -98,12 +98,14 @@ ${recentPosts.join('\n')}
 
 ### Notable Posts
 
-- "Self-Hosted Music Still Sucks in 2025" - self-hosting audio streaming
-- "I Replaced My Smart Home With a Dumber Home - But At Least It's Private" - privacy-focused home automation
+- "My Homelab Two Years Later: From Desktop Tower to Server Rack" - evolution from $200 ThinkServer to dual R730 rack with 60+ containers, 10G networking, and GPU-accelerated AI
+- "How to Get Started Building a Homelab Server in 2026" - beginner homelab guide: picking hardware, choosing an OS, setting up containers, and mounting NAS storage
+- "Self-Hosted Music Still Sucks in 2025" - why the *arr ecosystem nailed video but music self-hosting remains broken
+- "I Replaced Alexa with a Dumber Voice Assistant (But at Least It's Private)" - migrating from Alexa to Home Assistant Voice for privacy-focused home automation
+- "Building a GPU-Accelerated Subtitle Generator" - self-hosted Whisper AI pipeline with parallel workers and hallucination filtering
 - "An Introduction to IoT (Internet of Toilets)" - the IoT litter box story
 - "The Art of Computer Science" - TEDx talk companion piece
 - "MongoDB Schema Design Best Practices" - database architecture guide
-- "How to Get Started Building a Homelab Server in 2024" - beginner homelab guide
 - "Why ClickHouse Should Be Your Next Database" - real-time analytics
 - "How to Build a Real-Time Fraud Detection System" - streaming data patterns
 - "Event Sourcing with Kafka: A Practical Example" - event-driven architecture

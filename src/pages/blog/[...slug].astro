@@ -29,6 +29,8 @@ const readingTime = Math.max(1, Math.ceil(words / 250));
 	contentNotice={post.data.contentNotice}
 	tldr={post.data.tldr}
 	readingTime={readingTime}
+	wordCount={words}
+	faq={post.data.faq}
 >
 	<Content />
 </BlogPost>

@@ -2,6 +2,9 @@
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
+import NewsletterCTA from '../components/NewsletterCTA.astro';
+import AuthorBio from '../components/AuthorBio.astro';
+import { SOCIAL_LINKS } from '../consts';
 
 interface Props {
 	title: string;
@@ -15,6 +18,8 @@ interface Props {
 	contentNotice?: string | boolean;
 	tldr?: string;
 	readingTime?: number;
+	wordCount?: number;
+	faq?: { question: string; answer: string }[];
 }
 
 const {
@@ -29,6 +34,8 @@ const {
 	contentNotice,
 	tldr,
 	readingTime,
+	wordCount,
+	faq,
 } = Astro.props;
 
 // Content age notice logic
@@ -111,11 +118,14 @@ const relatedPosts = publishedPosts
 
 <BaseLayout
 	title={`${title} | Joe Karlsson`}
-	description={description || title}
+	description={description || tldr || title}
 	image={heroImage}
 	type="article"
 	publishedDate={date}
 	modifiedDate={updatedDate}
+	keywords={categories}
+	wordCount={wordCount}
+	faq={faq}
 >
 	<div
 		id="reading-progress"
@@ -399,6 +409,62 @@ const relatedPosts = publishedPosts
 			})();
 		</script>
 
+		{/* Author bio */}
+		<AuthorBio />
+
+		{/* Newsletter CTA — inline after post content */}
+		<div class="mt-6">
+			<NewsletterCTA />
+		</div>
+
+		{/* Related Posts — moved above prev/next for better visibility */}
+		{
+			relatedPosts.length > 0 && (
+				<aside class="mt-12 border-t border-surface-3 pt-8">
+					<h2 class="mb-6 text-lg font-bold text-white">
+						<span class="text-coral font-mono text-sm" aria-hidden="true">
+							~$
+						</span>{' '}
+						Related Posts
+					</h2>
+					<div class="grid gap-4 sm:grid-cols-3">
+						{relatedPosts.map((post) => (
+							<a
+								href={`/blog/${post.data.slug}/`}
+								class="plausible-event-name=Related+Post+Click group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+							>
+								{post.data.heroImage && (
+									<img
+										src={post.data.heroImage}
+										alt={post.data.title}
+										class="mb-3 h-32 w-full rounded-md object-cover"
+										width="300"
+										height="128"
+										loading="lazy"
+									/>
+								)}
+								<p class="mb-1 font-mono text-xs text-gray-400">
+									{post.data.date.toLocaleDateString('en-us', {
+										year: 'numeric',
+										month: 'short',
+										day: 'numeric',
+									})}
+								</p>
+								<h3 class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
+									{post.data.title}
+								</h3>
+								{post.data.description && (
+									<p class="mt-1 text-xs text-gray-400 line-clamp-2">
+										{post.data.description}
+									</p>
+								)}
+							</a>
+						))}
+					</div>
+				</aside>
+			)
+		}
+
 		{/* Prev/Next within category */}
 		{
 			(prevPost || nextPost) && (
@@ -437,48 +503,6 @@ const relatedPosts = publishedPosts
 						<div class="flex-1" />
 					)}
 				</nav>
-			)
-		}
-
-		{
-			relatedPosts.length > 0 && (
-				<aside class="mt-12 border-t border-surface-3 pt-8">
-					<h2 class="mb-6 text-lg font-bold text-white">
-						<span class="text-coral font-mono text-sm" aria-hidden="true">
-							~$
-						</span>{' '}
-						Related Posts
-					</h2>
-					<div class="grid gap-4 sm:grid-cols-3">
-						{relatedPosts.map((post) => (
-							<a
-								href={`/blog/${post.data.slug}/`}
-								class="plausible-event-name=Related+Post+Click group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
-							>
-								{post.data.heroImage && (
-									<img
-										src={post.data.heroImage}
-										alt={post.data.title}
-										class="mb-3 h-32 w-full rounded-md object-cover"
-										width="300"
-										height="128"
-										loading="lazy"
-									/>
-								)}
-								<p class="mb-1 font-mono text-xs text-gray-400">
-									{post.data.date.toLocaleDateString('en-us', {
-										year: 'numeric',
-										month: 'short',
-										day: 'numeric',
-									})}
-								</p>
-								<h3 class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
-									{post.data.title}
-								</h3>
-							</a>
-						))}
-					</div>
-				</aside>
 			)
 		}
 	</article>

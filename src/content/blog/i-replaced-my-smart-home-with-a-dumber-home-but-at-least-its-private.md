@@ -3,7 +3,7 @@ title: 'I Replaced Alexa with a Dumber Voice Assistant (But at Least It’s Priv
 date: 2025-06-18
 slug: 'i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private'
 description: 'After five years of building automations in Home Assistant, I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home...'
-categories: ['Smart Home']
+categories: ['Smart Home', 'Homelab']
 heroImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/I-Replaced-My-Smart-Home-with-a-Dumber-Home-But-at-Least-Its-Private.webp'
 heroAlt: 'I replaced my smart home with a dumber home but at least it is private'
 contentNotice: false
@@ -179,4 +179,4 @@ After several months of daily use, the migration succeeded for my specific use c
 
 The Home Assistant Voice Preview Edition delivers on its promise as an open-source, privacy-focused voice assistant foundation. However, the “Preview” designation accurately reflects its current state-promising technology that needs substantial development before reaching consumer readiness. For the right user with appropriate expectations, it provides compelling benefits unavailable elsewhere in the voice assistant market.
 
-**Related:** Home Assistant is now the most important piece of my entire homelab. Read about how the full setup evolved in [My Homelab Two Years Later: From Desktop Tower to Server Rack](/blog/homelab-two-years-later/).
+**Related:** Home Assistant is now the most important piece of my entire homelab. Read about how the full setup evolved in [My Homelab Two Years Later: From Desktop Tower to Server Rack](/blog/homelab-two-years-later/). And if you think voice assistants are painful, wait until you try [self-hosting your music library](/blog/self-hosted-music-still-sucks-in-2025/).

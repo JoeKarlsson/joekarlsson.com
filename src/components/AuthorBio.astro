@@ -1,0 +1,41 @@
+---
+import { SOCIAL_LINKS } from '../consts';
+---
+
+<div class="mt-10 flex items-start gap-4 rounded-lg border border-surface-3 bg-surface-1 p-5">
+	<img
+		src="/images/joe-profile.webp"
+		alt="Joe Karlsson"
+		width="64"
+		height="64"
+		class="mt-1 rounded-full"
+		loading="lazy"
+	/>
+	<div>
+		<p class="mb-1 font-bold text-white">Joe Karlsson</p>
+		<p class="mb-2 text-sm text-gray-400">
+			Software Engineer and Developer Advocate at CloudQuery. Writing about databases, self-hosting,
+			and the things I build. Runs a 60+ container Proxmox homelab with AI-powered automations.
+		</p>
+		<div class="flex gap-3 text-sm">
+			<a
+				href={SOCIAL_LINKS.bluesky}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-teal no-underline hover:text-coral">Bluesky</a
+			>
+			<a
+				href={SOCIAL_LINKS.linkedin}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-teal no-underline hover:text-coral">LinkedIn</a
+			>
+			<a
+				href={SOCIAL_LINKS.github}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-teal no-underline hover:text-coral">GitHub</a
+			>
+		</div>
+	</div>
+</div>

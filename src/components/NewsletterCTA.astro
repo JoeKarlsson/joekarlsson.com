@@ -1,0 +1,20 @@
+---
+import { SOCIAL_LINKS } from '../consts';
+---
+
+<div class="rounded-lg border border-teal/20 bg-teal/5 p-6 text-center">
+	<h2 class="mb-2 text-lg font-bold text-white">
+		<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat newsletter.md
+	</h2>
+	<p class="mb-4 text-sm text-gray-400">
+		I write a weekly newsletter about databases, self-hosting, and whatever I'm building.
+	</p>
+	<a
+		href={SOCIAL_LINKS.substack}
+		target="_blank"
+		rel="noopener noreferrer"
+		class="plausible-event-name=Newsletter+CTA+Click inline-block rounded-md bg-teal px-5 py-2.5 font-medium text-surface-0 no-underline hover:bg-coral"
+	>
+		Subscribe on Substack &rarr;
+	</a>
+</div>

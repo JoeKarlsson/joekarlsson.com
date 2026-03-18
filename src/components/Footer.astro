@@ -1,10 +1,14 @@
 ---
 import { FOOTER_LINKS, SOCIAL_LINKS } from '../consts';
+import NewsletterCTA from './NewsletterCTA.astro';
 const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-surface-3 bg-surface-1">
 	<div class="mx-auto max-w-5xl px-4 py-8">
+		<div class="mb-8">
+			<NewsletterCTA />
+		</div>
 		<nav class="mb-6 flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-sm">
 			{
 				FOOTER_LINKS.map(({ href, label }) => (

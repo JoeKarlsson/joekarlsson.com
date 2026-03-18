@@ -7,9 +7,41 @@
 	@wp-blog path_regexp wp ^/(\d{4})/(\d{2})/([a-z0-9-]+)/?$
 	redir @wp-blog /blog/{re.wp.3} 301
 
+	# 301 redirects: Astro legacy year-based blog URLs → /blog/slug
+	# Matches /YYYY/slug/ or /YYYY/slug (no month component)
+	@year-blog path_regexp yb ^/(\d{4})/([a-z0-9-]+[a-z0-9-]*)/?$
+	redir @year-blog /blog/{re.yb.2} 301
+
+	# 301 redirects: WordPress tag pages → blog index
+	@tags path_regexp ^/tag/.*
+	redir @tags /blog/ 301
+
+	# 301 redirects: WordPress category pages → blog index
+	@categories path_regexp ^/category/.*
+	redir @categories /blog/ 301
+
+	# 301 redirects: Blog pagination → blog index (no pagination in Astro site)
+	@blog-pages path_regexp ^/blog/page/.*
+	redir @blog-pages /blog/ 301
+
+	# 301 redirects: WordPress portfolio items → work page
+	@portfolio-items path_regexp ^/portfolio/.+
+	redir @portfolio-items /work/ 301
+
+	# 301 redirects: WordPress portfolio tags → work page
+	@portfolio-tags path_regexp ^/portfolio-tag/.*
+	redir @portfolio-tags /work/ 301
+
+	# 301 redirects: WordPress portfolio categories → work page
+	@portfolio-cats path_regexp ^/portfolio-category/.*
+	redir @portfolio-cats /work/ 301
+
 	# 301 redirects: WordPress page URLs
 	@speaking path /speaking /speaking/ /speaking/joe-karlssons-talk-archive /speaking/joe-karlssons-talk-archive/
 	redir @speaking /talk-archive 301
+
+	@speaker-rider path /speaker-rider /speaker-rider/
+	redir @speaker-rider /about/ 301
 
 	@all-work path /all-work /all-work/
 	redir @all-work /work 301
