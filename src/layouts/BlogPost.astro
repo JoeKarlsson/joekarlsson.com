@@ -20,6 +20,7 @@ interface Props {
 	readingTime?: number;
 	wordCount?: number;
 	faq?: { question: string; answer: string }[];
+	howToSteps?: { name: string; text: string }[];
 }
 
 const {
@@ -36,6 +37,7 @@ const {
 	readingTime,
 	wordCount,
 	faq,
+	howToSteps,
 } = Astro.props;
 
 // Content age notice logic
@@ -126,6 +128,7 @@ const relatedPosts = publishedPosts
 	keywords={categories}
 	wordCount={wordCount}
 	faq={faq}
+	howToSteps={howToSteps}
 >
 	<div
 		id="reading-progress"

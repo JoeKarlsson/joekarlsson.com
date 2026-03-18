@@ -7,6 +7,23 @@ categories: ['Homelab', 'AI']
 heroImage: '/images/blog/building-a-gpu-accelerated-subtitle-generator/hero.webp'
 heroAlt: 'GPU-accelerated subtitle generation pipeline architecture'
 tldr: 'I built a multi-worker subtitle generation system using faster-whisper on NVIDIA GPUs. It features parallel folder-level processing with atomic locking, VRAM-aware scheduling that gracefully yields to other GPU workloads, automatic language detection with English translation, and a multi-layer hallucination filter. The whole thing runs on my Proxmox homelab alongside Plex and other GPU-hungry services.'
+howToSteps:
+  - name: 'Install Prerequisites'
+    text: 'Install Python 3.8+, faster-whisper via pip, NVIDIA CUDA toolkit, and ffmpeg for audio extraction.'
+  - name: 'Configure Whisper Engine'
+    text: 'Set up faster-whisper with CUDA backend, float16 compute type, and configure GPU memory checks for minimum 5GB VRAM.'
+  - name: 'Implement GPU Availability Check'
+    text: 'Create a check_gpu() function that queries nvidia-smi to detect available VRAM and exit gracefully if insufficient.'
+  - name: 'Build the Hallucination Filter'
+    text: 'Deploy a multi-layer filter using pattern matching (200+ hardcoded patterns), repetition detection, duration checks, and no-speech markers.'
+  - name: 'Set Up Atomic Locking'
+    text: 'Implement folder-level claiming using mkdir atomic locks and per-worker flock to prevent race conditions between parallel workers.'
+  - name: 'Add GPU-Aware Wait Loop'
+    text: 'Build an exponential backoff retry mechanism that waits up to 1 hour for sufficient GPU VRAM instead of crashing on CUDA OOM.'
+  - name: 'Create Parallel Worker Script'
+    text: 'Write a worker script that claims folders, processes videos sequentially, and tracks progress in a file for resumable runs.'
+  - name: 'Configure Time-of-Day Scheduling'
+    text: 'Set up a scheduler that dynamically scales worker count (2 overnight, 1 daytime) via cron for balanced resource sharing.'
 ---
 
 I have a large video library. Thousands of files across dozens of languages, and most of them don't have subtitles. Buying subtitle files isn't really an option at this scale, and the cloud transcription services that exist are either expensive or painfully slow. So I did what any reasonable person with two NVIDIA GPUs in their homelab would do: I built my own.

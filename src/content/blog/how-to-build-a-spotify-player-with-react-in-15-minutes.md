@@ -8,6 +8,21 @@ heroImage: '/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/
 heroAlt: 'How to build a Spotify player with React in 15 minutes'
 contentNotice: 'The Implicit Grant Flow used in this tutorial was deprecated by Spotify in November 2025. Use Authorization Code Flow with PKCE instead.'
 tldr: 'Step-by-step tutorial for building a "now playing" Spotify web player in React using the Spotify API and implicit auth flow.'
+howToSteps:
+  - name: 'Create a Spotify Developer Account'
+    text: 'Sign up at spotify.com and log in to the Spotify Developer Dashboard to accept the Developer Terms of Service.'
+  - name: 'Register Your Application'
+    text: 'Create a new app in the Developer Dashboard, fill out the app form, and set the redirect URI to http://localhost:3000.'
+  - name: 'Save Your Client ID'
+    text: 'Note your Client ID from the app details — you will need this to authenticate users via the Spotify API.'
+  - name: 'Initialize a React App'
+    text: 'Run create-react-app and start the dev server with npx create-react-app react-spotify-player && npm start.'
+  - name: 'Implement Spotify Authentication'
+    text: 'Add code to App.js that redirects users to the Spotify authorize endpoint and captures the access token from the URL hash.'
+  - name: 'Create the API Function'
+    text: 'Build a getCurrentlyPlaying() function that calls the Spotify /me/player endpoint with your access token to fetch track data.'
+  - name: 'Build the Player Component'
+    text: 'Create a Player.js component that displays album art, track name, artist, playback status, and a progress bar.'
 ---
 
 Have you ever wanted to build a Spotify player for your app or website? Adding personalized music to any application is super easy with the Spotify Developer API. Personally, I have been playing around with the Spotify API with an IoT project I have been building in my free time.

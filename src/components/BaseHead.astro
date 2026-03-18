@@ -13,6 +13,7 @@ interface Props {
 	keywords?: string[];
 	wordCount?: number;
 	faq?: { question: string; answer: string }[];
+	howToSteps?: { name: string; text: string }[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -27,6 +28,7 @@ const {
 	keywords,
 	wordCount,
 	faq,
+	howToSteps,
 } = Astro.props;
 
 const ogImageURL = new URL(image, Astro.site);
@@ -240,6 +242,21 @@ const ogImageURL = new URL(image, Astro.site);
 									'@type': 'Answer',
 									text: item.answer,
 								},
+							})),
+						},
+					]
+				: []),
+			...(howToSteps && howToSteps.length > 0
+				? [
+						{
+							'@type': 'HowTo',
+							name: title,
+							description: description,
+							step: howToSteps.map((s, i) => ({
+								'@type': 'HowToStep',
+								position: i + 1,
+								name: s.name,
+								text: s.text,
 							})),
 						},
 					]
