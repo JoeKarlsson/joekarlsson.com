@@ -1,0 +1,110 @@
+name: Dependency Health
+
+on:
+  schedule:
+    - cron: '0 5 * * 1' # Monday at 5am UTC
+  workflow_dispatch:
+
+jobs:
+  outdated:
+    name: Check Outdated Dependencies
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check for outdated packages
+        id: outdated
+        run: |
+          set +e
+          npm outdated --long > /tmp/outdated-raw.txt 2>&1
+          EXIT_CODE=$?
+          cat /tmp/outdated-raw.txt
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "has_outdated=true" >> "$GITHUB_OUTPUT"
+            cat > /tmp/outdated.md <<'HEADER'
+          ## Outdated Dependencies
+
+          The following npm packages have newer versions available:
+
+          ```
+          HEADER
+            cat /tmp/outdated-raw.txt >> /tmp/outdated.md
+            cat >> /tmp/outdated.md <<'FOOTER'
+          ```
+
+          ### How to update
+
+          **Patch/minor updates (safe):**
+          ```bash
+          npm update
+          ```
+
+          **Major updates (review changelogs first):**
+          ```bash
+          npm outdated  # review what changed
+          npm install <package>@latest  # update one at a time
+          ```
+
+          Run `npm test` after updating to verify nothing broke.
+          FOOTER
+          else
+            echo "has_outdated=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: peter-evans/create-issue-from-file@v5
+        if: steps.outdated.outputs.has_outdated == 'true'
+        with:
+          title: 'Outdated npm dependencies detected'
+          content-filepath: /tmp/outdated.md
+          labels: dependencies,maintenance
+          update-existing: true
+
+  audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check for vulnerabilities
+        id: audit
+        run: |
+          set +e
+          npm audit --omit=dev > /tmp/audit-raw.txt 2>&1
+          EXIT_CODE=$?
+          cat /tmp/audit-raw.txt
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "has_vulns=true" >> "$GITHUB_OUTPUT"
+            cat > /tmp/audit.md <<'HEADER'
+          ## Security Vulnerabilities
+
+          Production dependencies have known vulnerabilities:
+
+          ```
+          HEADER
+            cat /tmp/audit-raw.txt >> /tmp/audit.md
+            cat >> /tmp/audit.md <<'FOOTER'
+          ```
+
+          Run `npm audit` locally for details and `npm audit fix` to auto-fix where possible.
+          FOOTER
+          else
+            echo "has_vulns=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: peter-evans/create-issue-from-file@v5
+        if: steps.audit.outputs.has_vulns == 'true'
+        with:
+          title: 'npm security vulnerabilities detected'
+          content-filepath: /tmp/audit.md
+          labels: security,maintenance
+          update-existing: true

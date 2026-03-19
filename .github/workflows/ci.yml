@@ -148,3 +148,58 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: chmod +x scripts/validate-caddyfile.sh && bash scripts/validate-caddyfile.sh
+
+  build-output:
+    name: Build Output Tests
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - run: npx vitest run tests/build-output.test.ts
+
+  content:
+    name: Content Schema Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx vitest run tests/content-schema.test.ts
+
+  unused:
+    name: Unused Dependencies & Exports
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx knip
+
+  audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    # Advisory-only: upstream deps may have unfixed vulnerabilities
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm audit --omit=dev
