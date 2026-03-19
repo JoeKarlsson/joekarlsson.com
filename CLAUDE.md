@@ -2,7 +2,7 @@
 
 ## Site Overview
 
-Astro v5 static site replacing WordPress. Deployed via rsync to Caddy server at 192.168.0.165.
+Astro v6 static site replacing WordPress. Deployed via rsync to Caddy server at 192.168.0.165.
 
 ## Writing Content
 
@@ -33,23 +33,27 @@ npm run build      # Build static site
 
 - **Prettier** formats all code (`npm run format`). Config: `.prettierrc`
 - **ESLint** lints TS/Astro files (`npm run lint`). Config: `eslint.config.mjs`
+- **Vitest** tests build output and content schema (`tests/`). Config: `vitest.config.ts`
+- **Knip** detects unused dependencies and exports (`npm run test:unused`). Config: `knip.config.ts`
 - Run `npm run format:check && npm run lint` before committing
-- Both run in CI and will fail the build if issues are found
+- All checks run in CI and will fail the build if issues are found
 
 ## CI/CD
 
 - GitHub Actions CI runs on PRs + push to main (`.github/workflows/ci.yml`)
-- 10 jobs: build, type check, lint/format, markdown lint, spell check, image validation, internal links (lychee), RSS/sitemap, accessibility (Pa11y), Lighthouse
+- 15 jobs: build, type check, lint/format, markdown lint, spell check, image validation, internal links (lychee), RSS/sitemap, accessibility (Pa11y), Lighthouse, build output tests (vitest), content schema validation (vitest), unused deps (knip), security audit, failure notification (ntfy)
 - Weekly external link check (`.github/workflows/links.yml`)
-- Config files: `.markdownlint.jsonc`, `cspell.json`, `cspell-custom.txt`, `.pa11yci.json`, `.lighthouserc.json`, `.lychee.toml`
+- Weekly dependency health check (`.github/workflows/deps.yml`) - opens GitHub issues for outdated packages and security vulnerabilities
+- Config files: `.markdownlint.jsonc`, `cspell.json`, `cspell-custom.txt`, `.pa11yci.json`, `.lighthouserc.json`, `.lychee.toml`, `vitest.config.ts`, `knip.config.ts`
 - Validation scripts: `scripts/validate-images.sh`, `scripts/validate-feeds.sh`, `scripts/validate-caddyfile.sh`
-- Run `npm test` locally to check: astro check, build, images, spelling, markdown lint
+- Run `npm test` locally to run full suite: format, lint, type check, build, images, spelling, markdown, build output, content schema
 - Add new tech terms to `cspell-custom.txt` when spell check flags them
 
 ## Key Files
 
 - `src/consts.ts` - Site title, URL, social links, nav links
 - `src/content.config.ts` - Content collection schemas
+- `src/env.d.ts` - TypeScript declarations (Window.plausible type)
 - `src/components/BaseHead.astro` - SEO, fonts, analytics
 - `src/layouts/BaseLayout.astro` - Page wrapper
 - `src/layouts/BlogPost.astro` - Blog post layout
@@ -57,6 +61,8 @@ npm run build      # Build static site
 - `tailwind.config.mjs` - Theme colors, fonts
 - `Caddyfile` - Server config, redirects, security headers
 - `STYLE_GUIDE.md` - Writing voice and style reference
+- `tests/build-output.test.ts` - Vitest tests for robots.txt, sitemap, RSS, llms.txt, SEO meta, webmanifest
+- `tests/content-schema.test.ts` - Vitest tests for blog post frontmatter validation
 
 ## Pages
 
