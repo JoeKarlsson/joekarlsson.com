@@ -549,6 +549,7 @@ import { SOCIAL_LINKS } from '../consts';
 			document.querySelectorAll('.tiktok-facade').forEach((btn) => {
 				btn.addEventListener('click', () => {
 					const videoId = btn.getAttribute('data-video-id');
+					if (!videoId) return;
 					const container = btn.parentElement;
 					if (!container) return;
 					const blockquote = document.createElement('blockquote');
