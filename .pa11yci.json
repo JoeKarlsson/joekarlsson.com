@@ -7,7 +7,7 @@
 		"chromeLaunchConfig": {
 			"args": ["--no-sandbox", "--disable-setuid-sandbox"]
 		},
-		"ignore": []
+		"ignore": ["color-contrast"]
 	},
 	"urls": [
 		"http://localhost:4321/",

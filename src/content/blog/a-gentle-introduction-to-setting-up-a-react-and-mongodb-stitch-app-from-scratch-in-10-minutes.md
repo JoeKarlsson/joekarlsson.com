@@ -13,13 +13,17 @@ tldr: 'A quick tutorial for building a React to-do app backed by MongoDB Stitch,
 
 Are you interested in learning how to build a React and MongoDB App? Like many of you, I have been interested in learning more about MongoDB’s cloud offerings and also not spending a dime. This guide is for the developer who only has 10 minutes to spare and who wants to learn a brand new tool from MongoDB.
 
-![If this is your reaction, then this is the tutorial for you!](/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/zIzh9CW5C3QCpRetsbKgxg.gif)_If this is your reaction, then this is the tutorial for you!_
+<video autoplay loop muted playsinline aria-label="If this is your reaction, then this is the tutorial for you\!"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/zIzh9CW5C3QCpRetsbKgxg.webm" type="video/webm"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/zIzh9CW5C3QCpRetsbKgxg.mp4" type="video/mp4"></video>
+
+_If this is your reaction, then this is the tutorial for you\!_
 
 ## Okay, first of all, what is MongoDB Stitch? Well…
 
 > [_MongoDB Stitch_](https://docs.mongodb.com/stitch/)_ is a cross-platform application on top of MongoDB. Stitch removes the need for tedious boilerplate when setting up a new app and automatically manages your app’s backend so you can focus on building what matters._
 
-![Stitch sounds awesome, right?](/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/ttg9ZoWbDPCV74ESDvmOHw.gif)_Stitch sounds awesome, right?_
+<video autoplay loop muted playsinline aria-label="Stitch sounds awesome, right?"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/ttg9ZoWbDPCV74ESDvmOHw.webm" type="video/webm"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/ttg9ZoWbDPCV74ESDvmOHw.mp4" type="video/mp4"></video>
+
+_Stitch sounds awesome, right?_
 
 ## Setup MongoDB Atlas
 
@@ -58,7 +62,9 @@ Once, your app has been initialized, you will need to turn on Anonymous Authent
 
 > Note: MongoDB and Atlas come secure by default, this is why we need to do this step.
 
-![MFW I authenticate to our todo app.](/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/ydE3aIhH9ZRJdtJ7UGtgTw.gif)_MFW I authenticate to our todo app._
+<video autoplay loop muted playsinline aria-label="MFW I authenticate to our todo app."><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/ydE3aIhH9ZRJdtJ7UGtgTw.webm" type="video/webm"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/ydE3aIhH9ZRJdtJ7UGtgTw.mp4" type="video/mp4"></video>
+
+_MFW I authenticate to our todo app._
 
 - From the **Getting Started** page of the Stitch UI, enable **Anonymous Authentication** under the **Turn On Authentication** heading.
 
@@ -213,11 +219,13 @@ export default App;
 
 ## And that’s it!
 
-![Completed React and MongoDB Stitch todo app demo](/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/CKCcQ7cu4nfiv3tzrY2MQg.gif)
+<video autoplay loop muted playsinline aria-label="Completed React and MongoDB Stitch todo app demo"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/CKCcQ7cu4nfiv3tzrY2MQg.webm" type="video/webm"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/CKCcQ7cu4nfiv3tzrY2MQg.mp4" type="video/mp4"></video>
 
 By the end, your app should look and work like this.
 
-![By the end, your todo app should look like this](/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/qHriJwRfw2mQXfpAPZ2VMQ.gif)_By the end, your todo app should look like this_
+<video autoplay loop muted playsinline aria-label="By the end, your todo app should look like this"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/qHriJwRfw2mQXfpAPZ2VMQ.webm" type="video/webm"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/qHriJwRfw2mQXfpAPZ2VMQ.mp4" type="video/mp4"></video>
+
+_By the end, your todo app should look like this_
 
 If you have any questions or comments, feel free to reach out or open an issue in the repo.
 

@@ -73,8 +73,6 @@ jobs:
     name: Internal Link Check
     needs: build
     runs-on: ubuntu-latest
-    # TODO: Remove continue-on-error once WebP image migration is committed
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -222,7 +220,6 @@ jobs:
       - build-output
       - content
       - unused
-      - audit
     steps:
       - name: Send ntfy push notification
         if: vars.NTFY_TOPIC != ''
