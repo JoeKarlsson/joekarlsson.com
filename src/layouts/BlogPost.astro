@@ -152,16 +152,24 @@ const relatedPosts = publishedPosts
 	<article class="mx-auto max-w-3xl px-4 py-8">
 		{/* Breadcrumbs */}
 		<nav class="mb-4 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
-			<a href="/" class="no-underline transition-colors hover:text-coral">Home</a>
+			<a
+				href="/"
+				class="underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
+				>Home</a
+			>
 			<span class="mx-1">&gt;</span>
-			<a href="/blog/" class="no-underline transition-colors hover:text-coral">Blog</a>
+			<a
+				href="/blog/"
+				class="underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
+				>Blog</a
+			>
 			{
 				primaryCategory && (
 					<>
 						<span class="mx-1">&gt;</span>
 						<a
 							href={`/blog/category/${categorySlug}/`}
-							class="no-underline transition-colors hover:text-coral"
+							class="underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
 						>
 							{primaryCategory}
 						</a>
@@ -169,7 +177,7 @@ const relatedPosts = publishedPosts
 				)
 			}
 			<span class="mx-1">&gt;</span>
-			<span class="text-gray-500">{title}</span>
+			<span class="text-gray-400">{title}</span>
 		</nav>
 
 		{
