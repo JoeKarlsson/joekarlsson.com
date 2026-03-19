@@ -15,7 +15,10 @@ exclude = [
   "speakerdeck\\.com",
   "giphy\\.com",
   "hero-illustration\\.webp",
-  "http:/https:"
+  "http:/https:",
+  "bestbuy\\.com",
+  "confoo\\.ca",
+  "smarthomejunkie\\.net"
 ]
 
 # Exclude paths that don't map to files or are known broken

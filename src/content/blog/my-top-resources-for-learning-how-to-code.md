@@ -127,7 +127,7 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 
 - [SeeCFP](https://seecfp.com/) - [Weekly]
 
-- [TechDotMN](https://tech.mn/) - [Weekly]
+- [TechDotMN](https://web.archive.org/web/20250926093251/https://tech.mn/) - [Weekly]
 
 - [JavaScript Weekly](https://javascriptweekly.com/) - [Weekly]
 
@@ -287,7 +287,7 @@ You can check out my Top Tech Talks of all time here:
 
 - [Large Scale JavaScript Application Architecture](https://www.youtube.com/watch?v=kNrnRG1YgAQ) [00:50:40] by **Dan Lynch**
 
-- [Dissecting WebGL](http://new.livestream.com/hugeinc/events/2192947) [01:11:04] by **Justin Windle** (you might want to take a look at [the slides](https://github.com/hugeinc/doctype-meetup/tree/master/dissecting-webgl), you cannot really see them well)
+- Dissecting WebGL [01:11:04] by **Justin Windle** (you might want to take a look at [the slides](https://github.com/hugeinc/doctype-meetup/tree/master/dissecting-webgl), you cannot really see them well)
 
 - [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ) [00:26:53] by **Philip Roberts**
 

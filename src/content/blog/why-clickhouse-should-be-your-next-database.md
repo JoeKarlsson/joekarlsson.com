@@ -133,7 +133,7 @@ If you’re a data engineer or a software developer constantly juggling large vo
 
 ## Learn More
 
-- For a detailed look at ClickHouse, visit its [official documentation](https://clickhouse.tech/docs/en/).
+- For a detailed look at ClickHouse, visit its [official documentation](https://clickhouse.com/docs).
 
 - To understand how Tinybird can supercharge your ClickHouse experience, check out the [Tinybird documentation](https://www.tinybird.co/docs?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database).
 

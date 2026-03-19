@@ -69,7 +69,7 @@ charges DECIMAL (10,5)
 
 > **Note**: If you receive an error, read the description to understand why you are seeing the error. Check to make sure you have selected the correct database and that you have inputted the correct code into the SQL Editor.
 
-Once we have the database and tables set up on SingleStore, we will be ready to import our test data. To import our insurance dataset, we are going to be using [Sequel Pro](https://docs.singlestore.com/cloud/connect-to-singlestore/connect-with-sequel-pro/). If you do not already have Sequel Pro downloaded on your computer, you can download it [here](https://www.sequelpro.com/).
+Once we have the database and tables set up on SingleStore, we will be ready to import our test data. To import our insurance dataset, we are going to be using [Sequel Pro](https://docs.singlestore.com/cloud/connect-to-singlestore/connect-with-sequel-pro/). If you do not already have Sequel Pro downloaded on your computer, you can download it [here](https://web.archive.org/web/20250611105433/https://www.sequelpro.com/).
 
 > **Note**: To find more information on the other methods of importing data into SingleStore, check out [SingleStore Docs](https://docs.singlestore.com/db/v7.3/en/load-data.html).
 

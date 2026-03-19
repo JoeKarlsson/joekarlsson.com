@@ -205,7 +205,7 @@ Here is some great examples of good swag for your event:
 
 **T-shirts**
 
-- Don’t get those crappy one size fits all t-shirts though, nobody like that shit. Check out [Hopper Conference Diversity Guide’s section on t-shirts](http://conference.hopper.org.nz/#tshirts).
+- Don’t get those crappy one size fits all t-shirts though, nobody like that shit. Check out the Hopper Conference Diversity Guide’s section on t-shirts (site no longer available).
 
 ### **Word of Mouth**
 
@@ -297,7 +297,7 @@ When writing your own Code of Conduct, I would check out these awesome examples 
 - [Allied Media Conference](http://alliedmedia.org/#!/amp-network-principles)
 - [Code For DC](http://codefordc.org/resources/codeofconduct.html)
 - [Tech Lady Hackathon](https://web.archive.org/web/20211204230258/https://techladyhackathon.org/codeofconduct)
-- [Hopper Conference Diversity Guide](http://conference.hopper.org.nz/#coc)
+- Hopper Conference Diversity Guide (site no longer available)
 
 If you’re interested in more, the [Ada Initiative](http://adainitiative.org/what-we-do/conference-policies/) has a thorough list of conferences with anti-harassment policies.
 

@@ -89,7 +89,7 @@ You can read more about Netflix’s world-class, real-time recsys [here](https:/
 
 The newcomers to the social media zeitgeist have built a powerful recommendation system that analyzes user behavior and interactions with short-form videos. The real-time recsys, termed “Monolith”, is what drives TikTok’s virality, driving users to continuously engage with new, relevant content.
 
-You can read more about TikTok’s real-time recommendation engine [here](https://gantry.io/blog/papers-to-know-20230110/).
+You can read more about TikTok’s real-time recommendation engine in the paper ["Monolith: Real Time Recommendation System With Collisionless Embedding Table"](https://arxiv.org/abs/2209.07663).
 
 ### Twitter
 
