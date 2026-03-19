@@ -2,14 +2,17 @@
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.joekarlsson.com',
-	integrations: [mdx(), sitemap(), tailwind()],
+	integrations: [mdx(), sitemap()],
+	vite: {
+		plugins: [/** @type {any} */ (tailwindcss())],
+	},
 	markdown: {
 		shikiConfig: {
 			theme: 'github-dark',

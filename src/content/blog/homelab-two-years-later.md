@@ -23,7 +23,7 @@ This post is the full story of that evolution: what drove each upgrade, what it 
 
 ## The ThinkServer Hits a Wall
 
-The original setup was genuinely great. A Xeon E3-1226 v3 with 4 cores, 32GB of RAM, 2TB of storage. [Proxmox](https://www.proxmox.com/en/products/proxmox-virtual-environment/overview) running LXC containers. [Plex](https://www.plex.tv/), the *arr stack, Pi-Hole, download clients. For six months it handled everything without complaint.
+The original setup was genuinely great. A Xeon E3-1226 v3 with 4 cores, 32GB of RAM, 2TB of storage. [Proxmox](https://www.proxmox.com/en/products/proxmox-virtual-environment/overview) running LXC containers. [Plex](https://www.plex.tv/), the \*arr stack, Pi-Hole, download clients. For six months it handled everything without complaint.
 
 Then I got ambitious. You know how it goes.
 
@@ -221,7 +221,7 @@ They fill it.
 
 Not exhaustive - check my [uses page](/uses) for the full inventory. But here's the landscape:
 
-**Media:** Plex, Immich (self-hosted Google Photos - genuinely excellent), full *arr stack ([Sonarr](https://sonarr.tv/), [Radarr](https://radarr.video/), [Prowlarr](https://prowlarr.com/), [Lidarr](https://lidarr.audio/), [Readarr](https://readarr.com/), and a few more), Tdarr for automated video health checking and transcoding, a [GPU-accelerated subtitle generator](/blog/building-a-gpu-accelerated-subtitle-generator/) I built with Whisper AI, [Audiobookshelf](https://www.audiobookshelf.org/)
+**Media:** Plex, Immich (self-hosted Google Photos - genuinely excellent), full \*arr stack ([Sonarr](https://sonarr.tv/), [Radarr](https://radarr.video/), [Prowlarr](https://prowlarr.com/), [Lidarr](https://lidarr.audio/), [Readarr](https://readarr.com/), and a few more), Tdarr for automated video health checking and transcoding, a [GPU-accelerated subtitle generator](/blog/building-a-gpu-accelerated-subtitle-generator/) I built with Whisper AI, [Audiobookshelf](https://www.audiobookshelf.org/)
 
 **Security:** Frigate NVR, [Vaultwarden](https://github.com/dani-garcia/vaultwarden) (self-hosted Bitwarden), [Authentik](https://goauthentik.io/) (SSO for every service), [CrowdSec](https://www.crowdsec.net/) (community threat intelligence)
 
@@ -275,14 +275,14 @@ OK. Let's talk about the electricity.
 
 Here's the real data from my Home Assistant energy monitoring plug (entity `sensor.office_server_rack_energy`), tracking the entire server rack through a smart power outlet:
 
-| Metric | Value |
-| ------ | ----- |
+| Metric             | Value                                               |
+| ------------------ | --------------------------------------------------- |
 | prxbox1 power draw | 196W (Quadro RTX 4000 at 37-40W under Frigate load) |
-| prxbox2 power draw | 182W (RTX A4000 at 7W when GPU is idle) |
-| Total rack | ~380W continuous |
-| Daily consumption | 10.45 kWh/day (9-day average) |
-| Monthly cost | ~$53 at $0.17/kWh |
-| Annual projection | ~$636 |
+| prxbox2 power draw | 182W (RTX A4000 at 7W when GPU is idle)             |
+| Total rack         | ~380W continuous                                    |
+| Daily consumption  | 10.45 kWh/day (9-day average)                       |
+| Monthly cost       | ~$53 at $0.17/kWh                                   |
+| Annual projection  | ~$636                                               |
 
 That's metered. Not estimated.
 
@@ -352,23 +352,23 @@ That escalated.
 
 People always ask this, so here's the honest breakdown:
 
-| Item | Cost |
-| ---- | ---- |
-| R730 #1 (Server Design Lab, configured) | $1,857 |
-| R730 #2 (Server Design Lab, configured) | $1,839 |
-| ThinkServer (original post, now powered off) | $200 |
-| Quadro RTX 4000 8GB (eBay) | $230 |
-| RTX A4000 16GB (eBay) | $895 |
-| UniFi Cloud Gateway Ultra | $129 |
-| UniFi U7 Pro APs (x2) | $378 |
-| UniFi US-24 (renewed) | $225 |
-| StarTech rack + shelves | $375 |
-| MikroTik CRS317 | $433 |
-| CyberPower UPS (x2) | $778 |
-| Cables, adapters, misc | ~$100 |
-| **Total hardware** | **~$7,440** |
-| Annual electricity (~$636/yr x 2 years) | ~$1,272 |
-| **Total cost of ownership (2 years)** | **~$8,712** |
+| Item                                         | Cost        |
+| -------------------------------------------- | ----------- |
+| R730 #1 (Server Design Lab, configured)      | $1,857      |
+| R730 #2 (Server Design Lab, configured)      | $1,839      |
+| ThinkServer (original post, now powered off) | $200        |
+| Quadro RTX 4000 8GB (eBay)                   | $230        |
+| RTX A4000 16GB (eBay)                        | $895        |
+| UniFi Cloud Gateway Ultra                    | $129        |
+| UniFi U7 Pro APs (x2)                        | $378        |
+| UniFi US-24 (renewed)                        | $225        |
+| StarTech rack + shelves                      | $375        |
+| MikroTik CRS317                              | $433        |
+| CyberPower UPS (x2)                          | $778        |
+| Cables, adapters, misc                       | ~$100       |
+| **Total hardware**                           | **~$7,440** |
+| Annual electricity (~$636/yr x 2 years)      | ~$1,272     |
+| **Total cost of ownership (2 years)**        | **~$8,712** |
 
 Is that a lot? Yes. But here's the other side of the math.
 
@@ -376,20 +376,20 @@ Is that a lot? Yes. But here's the other side of the math.
 
 Every one of these services is something I used to pay for monthly and no longer do:
 
-| Subscription replaced | Self-hosted with | Monthly cost saved |
-| --------------------- | ---------------- | ------------------ |
-| Netflix + Hulu + Disney+ | Plex + *arr stack | ~$47 |
-| Spotify Premium | Navidrome + Lidarr | $12 |
-| iCloud 2TB + Dropbox Plus | Nextcloud + PBS | ~$22 |
-| NordVPN | Tailscale + WireGuard | ~$12 |
-| 1Password | Vaultwarden | $4 |
-| ChatGPT Plus | Ollama + Open WebUI | $20 |
-| Ring Protect Plus | Frigate | $13 |
-| Security monitoring plan | Frigate + Home Assistant | ~$80 |
-| Audible | Audiobookshelf | $15 |
-| Backblaze backup | Proxmox Backup Server | $7 |
-| Bluehost hosting (WordPress + dedicated IP) | Astro + Caddy on homelab | ~$21 |
-| **Total subscriptions killed** | | **~$253/mo ($3,036/yr)** |
+| Subscription replaced                       | Self-hosted with         | Monthly cost saved       |
+| ------------------------------------------- | ------------------------ | ------------------------ |
+| Netflix + Hulu + Disney+                    | Plex + \*arr stack       | ~$47                     |
+| Spotify Premium                             | Navidrome + Lidarr       | $12                      |
+| iCloud 2TB + Dropbox Plus                   | Nextcloud + PBS          | ~$22                     |
+| NordVPN                                     | Tailscale + WireGuard    | ~$12                     |
+| 1Password                                   | Vaultwarden              | $4                       |
+| ChatGPT Plus                                | Ollama + Open WebUI      | $20                      |
+| Ring Protect Plus                           | Frigate                  | $13                      |
+| Security monitoring plan                    | Frigate + Home Assistant | ~$80                     |
+| Audible                                     | Audiobookshelf           | $15                      |
+| Backblaze backup                            | Proxmox Backup Server    | $7                       |
+| Bluehost hosting (WordPress + dedicated IP) | Astro + Caddy on homelab | ~$21                     |
+| **Total subscriptions killed**              |                          | **~$253/mo ($3,036/yr)** |
 
 Subtract my $53/month electricity cost and I'm netting about **$200/month in real savings**.
 

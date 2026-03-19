@@ -14,11 +14,11 @@ faq:
   - question: 'Can I run a homelab in an apartment?'
     answer: 'Yes. A mini PC (Beelink, Intel NUC, Minisforum) is completely silent, smaller than a book, and uses less power than a light bulb. You can run Pi-hole, Jellyfin, Home Assistant, and a dozen other services on one.'
   - question: 'Is a homelab worth it in 2026?'
-    answer: 'If you want to learn Linux, Docker, and networking - yes. If you want to self-host your own services instead of paying for cloud subscriptions - yes. The real value of a homelab is that it teaches you things you can''t learn any other way, and it compounds over time.'
+    answer: "If you want to learn Linux, Docker, and networking - yes. If you want to self-host your own services instead of paying for cloud subscriptions - yes. The real value of a homelab is that it teaches you things you can't learn any other way, and it compounds over time."
   - question: 'What if I break something?'
-    answer: 'You will break something. That''s the whole point. Proxmox snapshots make it easy to roll back, and the worst case scenario is you reinstall a container (which takes about 2 minutes). Nothing you do on a homelab is going to damage your hardware permanently.'
+    answer: "You will break something. That's the whole point. Proxmox snapshots make it easy to roll back, and the worst case scenario is you reinstall a container (which takes about 2 minutes). Nothing you do on a homelab is going to damage your hardware permanently."
   - question: 'Do I need to know Linux?'
-    answer: 'Not to start. Proxmox and Unraid both have web UIs that handle most things. But you''ll naturally pick up Linux commands as you go, and that''s one of the most valuable skills a homelab gives you.'
+    answer: "Not to start. Proxmox and Unraid both have web UIs that handle most things. But you'll naturally pick up Linux commands as you go, and that's one of the most valuable skills a homelab gives you."
 ---
 
 Look, if you've been lurking on r/homelab or watching YouTube videos of people with full server racks in their basements, I get it. It looks intimidating. Expensive. Like you need an IT degree and a dedicated room in your house just to get started.

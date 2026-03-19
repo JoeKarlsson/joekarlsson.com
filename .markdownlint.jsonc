@@ -49,4 +49,6 @@
 	"MD028": false,
 	// Emphasis style - allow both asterisk and underscore
 	"MD049": false,
+	// Descriptive link text - disabled, existing content uses "here" links
+	"MD059": false,
 }

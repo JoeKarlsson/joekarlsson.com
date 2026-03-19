@@ -1,6 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../tailwind.config.mjs';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentcolor);
+	}
+}
 
 @layer base {
 	body {
@@ -30,7 +48,7 @@
 
 	/* Focus-visible styles for keyboard accessibility (WCAG 2.4.7) */
 	:focus-visible {
-		@apply outline-2 outline-offset-2 outline-coral rounded-sm;
+		@apply outline-2 outline-offset-2 outline-coral rounded-xs;
 	}
 
 	::selection {
@@ -90,7 +108,7 @@
 	@apply border-l-4 border-coral/50 pl-4 py-1 my-6 text-gray-400 italic;
 }
 .prose code {
-	@apply font-mono text-teal bg-surface-3 px-1.5 py-0.5 rounded text-sm;
+	@apply font-mono text-teal bg-surface-3 px-1.5 py-0.5 rounded-sm text-sm;
 }
 .prose pre {
 	@apply bg-surface-2 border border-surface-4 rounded-lg pt-10 pb-4 px-4 my-6 overflow-x-auto relative;
@@ -112,7 +130,7 @@
 	@apply absolute top-1.5 left-16 text-gray-500 font-mono text-xs select-none;
 }
 .prose pre .copy-button {
-	@apply absolute top-1 right-2 z-10 bg-transparent border-none text-gray-400 hover:text-white cursor-pointer font-mono text-xs px-2 py-1 rounded transition-colors;
+	@apply absolute top-1 right-2 z-10 bg-transparent border-none text-gray-400 hover:text-white cursor-pointer font-mono text-xs px-2 py-1 rounded-sm transition-colors;
 }
 .prose pre .copy-button:hover,
 .prose pre .copy-button:focus-visible {

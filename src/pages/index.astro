@@ -72,11 +72,31 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					</p>
 
 					<div class="flex flex-wrap gap-2">
-						<a href="/blog" class="inline-block rounded border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors">blog/</a>
-						<a href="/about" class="inline-block rounded border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors">about/</a>
-						<a href="/work" class="inline-block rounded border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors">work/</a>
-						<a href="/uses" class="inline-block rounded border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors">uses/</a>
-						<a href="/contact" class="inline-block rounded border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors">contact/</a>
+						<a
+							href="/blog"
+							class="inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
+							>blog/</a
+						>
+						<a
+							href="/about"
+							class="inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
+							>about/</a
+						>
+						<a
+							href="/work"
+							class="inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
+							>work/</a
+						>
+						<a
+							href="/uses"
+							class="inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
+							>uses/</a
+						>
+						<a
+							href="/contact"
+							class="inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
+							>contact/</a
+						>
 					</div>
 				</div>
 			</div>
@@ -91,7 +111,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				</div>
 				<div
 					id="terminal"
-					class="terminal-body bg-surface-0 px-4 md:px-8 py-4 md:py-6 font-mono text-sm leading-relaxed h-[28rem] overflow-y-auto cursor-text relative"
+					class="terminal-body bg-surface-0 px-4 md:px-8 py-4 md:py-6 font-mono text-sm leading-relaxed h-112 overflow-y-auto cursor-text relative"
 					tabindex="0"
 					role="application"
 					aria-label="Interactive terminal. Type help for available commands."
@@ -121,7 +141,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			</div>
 
 			<!-- Right terminal: about me (desktop only) -->
-			<div class="hidden lg:flex lg:w-[26rem] xl:w-[30rem] flex-col border-surface-3">
+			<div class="hidden lg:flex lg:w-104 xl:w-120 flex-col border-surface-3">
 				<div class="flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3">
 					<span class="w-3 h-3 rounded-full bg-red-500/80"></span>
 					<span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
@@ -129,7 +149,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					<span class="ml-2 text-xs text-gray-400 font-mono">cat about.md</span>
 				</div>
 				<div
-					class="bg-surface-0 px-5 md:px-8 py-4 font-mono text-sm leading-relaxed h-[28rem] overflow-hidden"
+					class="bg-surface-0 px-5 md:px-8 py-4 font-mono text-sm leading-relaxed h-112 overflow-hidden"
 				>
 					<p class="text-yellow mb-3">## about.md</p>
 
@@ -442,940 +462,939 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		);
 		document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
 	} else {
+		let currentInput = '';
+		let commandHistory: string[] = [];
+		let historyIndex = -1;
+		let ready = false;
 
-	let currentInput = '';
-	let commandHistory: string[] = [];
-	let historyIndex = -1;
-	let ready = false;
+		// CLI selector menu
+		const navMenu = document.getElementById('nav-menu')!;
+		const navItems = document.getElementById('nav-items')!;
+		let menuActive = false;
+		let menuIndex = 0;
+		let currentMenuLevel: 'main' | 'pages' = 'main';
 
-	// CLI selector menu
-	const navMenu = document.getElementById('nav-menu')!;
-	const navItems = document.getElementById('nav-items')!;
-	let menuActive = false;
-	let menuIndex = 0;
-	let currentMenuLevel: 'main' | 'pages' = 'main';
+		type MenuOption = {
+			label: string;
+			desc: string;
+			action: string;
+			href?: string;
+		};
 
-	type MenuOption = {
-		label: string;
-		desc: string;
-		action: string;
-		href?: string;
-	};
+		const mainMenu: MenuOption[] = [
+			{ label: 'cat about.md', desc: 'who am I', action: 'cat-about' },
+			{ label: 'cat work.md', desc: "things I've built", action: 'cat-work' },
+			{ label: 'neofetch', desc: 'system info', action: 'neofetch' },
+			{ label: 'cd', desc: 'browse pages', action: 'browse-pages' },
+			{ label: 'whoami', desc: '', action: 'whoami' },
+			{ label: 'hack', desc: '???', action: 'easter-egg' },
+		];
 
-	const mainMenu: MenuOption[] = [
-		{ label: 'cat about.md', desc: 'who am I', action: 'cat-about' },
-		{ label: 'cat work.md', desc: "things I've built", action: 'cat-work' },
-		{ label: 'neofetch', desc: 'system info', action: 'neofetch' },
-		{ label: 'cd', desc: 'browse pages', action: 'browse-pages' },
-		{ label: 'whoami', desc: '', action: 'whoami' },
-		{ label: 'hack', desc: '???', action: 'easter-egg' },
-	];
+		const pagesMenu: MenuOption[] = [
+			{ label: 'blog/', desc: 'databases, homelabs, dev tools', action: 'nav', href: '/blog' },
+			{ label: 'about/', desc: 'the longer version', action: 'nav', href: '/about' },
+			{ label: 'work/', desc: "things I've built", action: 'nav', href: '/work' },
+			{ label: 'uses/', desc: 'gear & homelab', action: 'nav', href: '/uses' },
+			{ label: 'contact/', desc: 'say hi', action: 'nav', href: '/contact' },
+			{ label: '../', desc: 'back', action: 'back' },
+		];
 
-	const pagesMenu: MenuOption[] = [
-		{ label: 'blog/', desc: 'databases, homelabs, dev tools', action: 'nav', href: '/blog' },
-		{ label: 'about/', desc: 'the longer version', action: 'nav', href: '/about' },
-		{ label: 'work/', desc: "things I've built", action: 'nav', href: '/work' },
-		{ label: 'uses/', desc: 'gear & homelab', action: 'nav', href: '/uses' },
-		{ label: 'contact/', desc: 'say hi', action: 'nav', href: '/contact' },
-		{ label: '../', desc: 'back', action: 'back' },
-	];
+		function activeMenu(): MenuOption[] {
+			return currentMenuLevel === 'pages' ? pagesMenu : mainMenu;
+		}
 
-	function activeMenu(): MenuOption[] {
-		return currentMenuLevel === 'pages' ? pagesMenu : mainMenu;
-	}
+		function renderMenu() {
+			const menu = activeMenu();
+			const header =
+				currentMenuLevel === 'pages'
+					? '<div class="text-dim mb-1">  <span class="text-teal">~/pages</span> - where do you want to go?</div>'
+					: '';
+			navItems.innerHTML =
+				header +
+				menu
+					.map((opt, i) => {
+						const sel = i === menuIndex;
+						const arrow = sel ? '<span class="text-coral">❯</span>' : ' ';
+						const desc = opt.desc ? ` <span class="text-dim">${opt.desc}</span>` : '';
+						const labelClass = currentMenuLevel === 'pages' ? 'text-teal' : '';
+						return `<div class="nav-item ${sel ? 'nav-item-selected' : 'nav-item-unselected'}" data-index="${i}">  ${arrow} <span class="nav-label ${sel ? labelClass : ''}">${opt.label}</span>${desc}</div>`;
+					})
+					.join('');
 
-	function renderMenu() {
-		const menu = activeMenu();
-		const header =
-			currentMenuLevel === 'pages'
-				? '<div class="text-dim mb-1">  <span class="text-teal">~/pages</span> - where do you want to go?</div>'
-				: '';
-		navItems.innerHTML =
-			header +
-			menu
-				.map((opt, i) => {
-					const sel = i === menuIndex;
-					const arrow = sel ? '<span class="text-coral">❯</span>' : ' ';
-					const desc = opt.desc ? ` <span class="text-dim">${opt.desc}</span>` : '';
-					const labelClass = currentMenuLevel === 'pages' ? 'text-teal' : '';
-					return `<div class="nav-item ${sel ? 'nav-item-selected' : 'nav-item-unselected'}" data-index="${i}">  ${arrow} <span class="nav-label ${sel ? labelClass : ''}">${opt.label}</span>${desc}</div>`;
-				})
-				.join('');
-
-		navItems.querySelectorAll('.nav-item').forEach((el) => {
-			el.addEventListener('click', () => {
-				menuIndex = parseInt((el as HTMLElement).dataset.index || '0');
-				renderMenu();
-				selectMenuItem();
+			navItems.querySelectorAll('.nav-item').forEach((el) => {
+				el.addEventListener('click', () => {
+					menuIndex = parseInt((el as HTMLElement).dataset.index || '0');
+					renderMenu();
+					selectMenuItem();
+				});
 			});
-		});
-	}
-
-	function selectMenuItem() {
-		const menu = activeMenu();
-		const opt = menu[menuIndex];
-
-		if (opt.action === 'back') {
-			currentMenuLevel = 'main';
-			menuIndex = 0;
-			renderMenu();
-			scrollToBottom();
-			return;
 		}
 
-		if (opt.action === 'nav' && opt.href) {
-			appendLine(
-				`<span class="text-coral">~$</span> <span class="text-white">cd ${opt.label.replace('/', '')}</span>`,
-			);
-			appendLine(`Navigating to ${opt.href}...`);
-			setTimeout(() => {
-				window.location.href = opt.href!;
-			}, 400);
-			return;
-		}
-
-		if (opt.action === 'browse-pages') {
-			appendLine(`<span class="text-coral">~$</span> <span class="text-white">cd</span>`);
-			appendLines(cmdLs());
-			currentMenuLevel = 'pages';
-			menuIndex = 0;
-			renderMenu();
-			scrollToBottom();
-			focusInput();
-			return;
-		}
-
-		hideMenu();
-		// Remember where this command's output starts
-		const cmdMarker = document.createElement('div');
-		output.appendChild(cmdMarker);
-		appendLine(`<span class="text-coral">~$</span> <span class="text-white">${opt.label}</span>`);
-
-		switch (opt.action) {
-			case 'cat-about':
-				appendLines(cmdCatAbout());
-				showMenu();
-				break;
-			case 'cat-work':
-				appendLines(cmdCatWork());
-				showMenu();
-				break;
-			case 'neofetch':
-				appendLines(cmdNeofetch());
-				showMenu();
-				break;
-			case 'whoami':
-				appendLines(cmdWhoami());
-				showMenu();
-				break;
-			case 'easter-egg':
-				runMatrixRain();
-				break;
-		}
-		// Scroll terminal internally to show the command output at the top
-		terminal.scrollTop = cmdMarker.offsetTop - terminal.offsetTop;
-		focusInput();
-	}
-
-	function showMenu() {
-		navMenu.style.display = 'block';
-		menuActive = true;
-		currentMenuLevel = 'main';
-		menuIndex = 0;
-		renderMenu();
-		scrollToBottom();
-	}
-
-	function hideMenu() {
-		navMenu.style.display = 'none';
-		menuActive = false;
-	}
-
-	const suggestions = [
-		'help',
-		'neofetch',
-		'cat about.md',
-		'ls',
-		'whoami',
-		'hack',
-		'cat readme',
-		'uptime',
-		'fortune',
-		'cowsay',
-		'man joe',
-		'cat music',
-		'cat fails',
-		'cat blog/iot',
-		'cat blog/homelab',
-		'sudo rm -rf /',
-	];
-	let suggestionIndex = -1;
-
-	const pages: Record<string, string> = {
-		home: '/',
-		blog: '/blog',
-		about: '/about',
-		work: '/work',
-		contact: '/contact',
-		uses: '/uses',
-		'talk-archive': '/talk-archive',
-		man: '/man',
-	};
-
-	function scrollToBottom() {
-		terminal.scrollTop = terminal.scrollHeight;
-	}
-
-	function appendLine(html: string) {
-		const div = document.createElement('div');
-		div.innerHTML = html;
-		output.appendChild(div);
-		scrollToBottom();
-	}
-
-	function appendLines(lines: string[]) {
-		lines.forEach((line) => appendLine(line));
-	}
-
-	async function typeLines(lines: string[], delay = 40) {
-		for (const line of lines) {
-			appendLine(line);
-			await sleep(delay);
-		}
-	}
-
-	function sleep(ms: number): Promise<void> {
-		return new Promise((r) => setTimeout(r, ms));
-	}
-
-	async function typeCommand(cmd: string, charDelay = 50) {
-		const cmdLine = document.createElement('div');
-		cmdLine.className = 'flex items-center';
-		const promptSpan = document.createElement('span');
-		promptSpan.className = 'text-coral mr-2';
-		promptSpan.textContent = '~$';
-		const textSpan = document.createElement('span');
-		textSpan.className = 'text-white';
-		const cursorSpan = document.createElement('span');
-		cursorSpan.className = 'cursor';
-		cursorSpan.innerHTML = '&#9608;';
-		cmdLine.appendChild(promptSpan);
-		cmdLine.appendChild(textSpan);
-		cmdLine.appendChild(cursorSpan);
-		output.appendChild(cmdLine);
-		scrollToBottom();
-
-		for (let i = 0; i < cmd.length; i++) {
-			textSpan.textContent = cmd.slice(0, i + 1);
-			scrollToBottom();
-			await sleep(charDelay);
-		}
-
-		await sleep(200);
-		cmdLine.remove();
-		appendLine(
-			`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(cmd)}</span>`,
-		);
-	}
-
-	// --- Matrix rain easter egg (full hero overlay) ---
-	async function runMatrixRain() {
-		ready = false;
-		inputLine.style.display = 'none';
-		navMenu.style.display = 'none';
-
-		const heroSection = document.getElementById('hero-section')!;
-		const heroContent = document.getElementById('hero-content')!;
-
-		// Create overlay that covers the entire hero
-		const overlay = document.createElement('div');
-		overlay.style.cssText =
-			'position:absolute;top:0;left:0;right:0;bottom:0;z-index:50;background:#0a0a0f;display:flex;align-items:center;justify-content:center;';
-		heroSection.appendChild(overlay);
-
-		const rainCanvas = document.createElement('div');
-		rainCanvas.style.cssText =
-			'position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;font-family:monospace;padding:8px;';
-		overlay.appendChild(rainCanvas);
-
-		const msgDiv = document.createElement('div');
-		msgDiv.style.cssText =
-			'position:relative;z-index:10;text-align:center;opacity:0;transition:opacity 0.5s;';
-		overlay.appendChild(msgDiv);
-
-		const chars = 'ジョーカールソン01アイオーティー猫ホームラブ';
-		const charW = 10;
-		const lineH = 14;
-		const cols = Math.floor(heroSection.clientWidth / charW);
-		const rows = Math.floor(heroSection.clientHeight / lineH);
-		const grid: string[][] = Array.from({ length: rows }, () => Array(cols).fill(' '));
-		const drops: number[] = Array(cols)
-			.fill(0)
-			.map(() => Math.floor(Math.random() * -rows));
-
-		const rainPre = document.createElement('pre');
-		rainPre.style.cssText = `font-size:${charW + 2}px;line-height:${lineH}px;margin:0;white-space:pre;`;
-		rainCanvas.appendChild(rainPre);
-
-		for (let frame = 0; frame < 80; frame++) {
-			for (let c = 0; c < cols; c++) {
-				drops[c]++;
-				if (drops[c] >= 0 && drops[c] < rows) {
-					grid[drops[c]][c] = chars[Math.floor(Math.random() * chars.length)];
-				}
-				if (drops[c] > rows + Math.floor(Math.random() * rows)) {
-					drops[c] = Math.floor(Math.random() * -6);
-				}
-				if (drops[c] >= 3 && drops[c] - 3 < rows) {
-					grid[drops[c] - 3][c] =
-						Math.random() > 0.6 ? chars[Math.floor(Math.random() * chars.length)] : ' ';
-				}
-			}
-
-			let html = '';
-			for (let r = 0; r < rows; r++) {
-				for (let c = 0; c < cols; c++) {
-					const ch = grid[r][c];
-					if (ch !== ' ') {
-						const isHead = drops[c] === r;
-						const color = isHead ? '#fff' : Math.random() > 0.5 ? '#86efac' : '#22c55e';
-						html += `<span style="color:${color}">${ch}</span>`;
-					} else {
-						html += ' ';
-					}
-				}
-				html += '\n';
-			}
-			rainPre.innerHTML = html;
-			await sleep(50);
-		}
-
-		// Show HACK THE PLANET! centered over the rain
-		msgDiv.innerHTML =
-			'<span style="color:#86efac;font-size:2.5em;font-weight:bold;font-family:monospace;text-shadow:0 0 20px #22c55e,0 0 40px #22c55e;">HACK THE PLANET!</span>';
-		msgDiv.style.opacity = '1';
-		rainPre.style.opacity = '0.3';
-
-		await sleep(2500);
-
-		// Fade out overlay
-		overlay.style.transition = 'opacity 0.4s';
-		overlay.style.opacity = '0';
-		await sleep(400);
-		overlay.remove();
-
-		// Restore terminal
-		inputLine.style.display = 'flex';
-		ready = true;
-		showMenu();
-		focusInput();
-	}
-
-	// --- Commands ---
-
-	function cmdHelp(): string[] {
-		return [
-			'<span class="text-yellow">Available commands:</span>',
-			'',
-			'  <span class="text-coral">help</span>         show this message',
-			'  <span class="text-coral">ls</span>           list site pages',
-			'  <span class="text-coral">cd</span> &lt;page&gt;    navigate to a page',
-			'  <span class="text-coral">whoami</span>       who is this',
-			'  <span class="text-coral">cat about.md</span> about me',
-			'  <span class="text-coral">cat work.md</span>  things I\'ve built',
-			'  <span class="text-coral">cat readme</span>   about this site',
-			'  <span class="text-coral">cat music</span>    current favorite albums',
-			'  <span class="text-coral">cat fails</span>    project failures hall of fame',
-			'  <span class="text-coral">cat blog/</span>    preview a blog post',
-			'  <span class="text-coral">neofetch</span>     system info',
-			'  <span class="text-coral">uptime</span>       system uptime',
-			'  <span class="text-coral">fortune</span>      random dev hot take',
-			'  <span class="text-coral">cowsay</span>       moo',
-			'  <span class="text-coral">man joe</span>      read the manual',
-			'  <span class="text-coral">hack</span>         ???',
-			'  <span class="text-coral">clear</span>        clear terminal',
-			'',
-		];
-	}
-
-	function cmdLs(): string[] {
-		const entries = Object.keys(pages).map((p) => `  <span class="text-teal">${p}/</span>`);
-		return ['<span class="text-dim">drwxr-xr-x  joe  staff</span>', ...entries, ''];
-	}
-
-	function cmdCd(args: string): string[] {
-		const target = args.trim().replace(/^\//, '').replace(/\/$/, '');
-		if (!target) return ['<span class="text-dim">usage: cd &lt;page&gt;</span>', ''];
-		if (target === '~' || target === '/') {
-			window.location.href = '/';
-			return ['Navigating to home...'];
-		}
-		const url = pages[target];
-		if (url) {
-			setTimeout(() => {
-				window.location.href = url;
-			}, 400);
-			return [`Navigating to /${target}...`];
-		}
-		return [
-			`<span class="text-coral">cd: no such page: ${target}</span>`,
-			`<span class="text-dim">try 'ls' to see available pages</span>`,
-			'',
-		];
-	}
-
-	function cmdWhoami(): string[] {
-		return [
-			'<span class="text-teal">joe-karlsson</span> - software engineer & developer advocate',
-			'',
-		];
-	}
-
-	function cmdCatAbout(): string[] {
-		return [
-			'',
-			'  <span class="text-yellow">## about.md</span>',
-			'',
-			'  Hey, I\'m <span class="text-coral">Joe Karlsson</span>.',
-			'  Software engineer turned dev advocate.',
-			'',
-			'  I help developers build cool stuff - through demos,',
-			'  blog posts, talks, videos, whatever works. Currently',
-			'  doing that at <span class="text-white">CloudQuery</span>.',
-			'',
-			'  Outside of work I run a <span class="text-teal">40+ container homelab</span>,',
-			'  watch way too many movies, and build things that',
-			"  probably shouldn't be connected to the internet.",
-			'',
-			'  I once built an IoT cat toilet and gave a conference',
-			'  talk about it. Also a <span class="text-white">TEDx speaker</span>. I contain',
-			'  multitudes.',
-			'',
-		];
-	}
-
-	function cmdCatWork(): string[] {
-		return [
-			'',
-			'  <span class="text-yellow">## work.md</span>',
-			'',
-			'  <span class="text-coral">IoT Smart Litter Box</span>',
-			'  Built an internet-connected cat toilet. Gave a',
-			'  <span class="text-white">TEDx talk</span> about it. Yes, really.',
-			'',
-			'  <span class="text-coral">40+ Container Homelab</span>',
-			'  Proxmox cluster, dual GPUs, Home Assistant,',
-			'  media automation, monitoring - the works.',
-			'',
-			'  <span class="text-coral">Developer Advocacy</span>',
-			'  Spoken at hundreds of conferences. Built demos,',
-			'  docs, and tools at CloudQuery, Tinybird,',
-			'  SingleStore, and MongoDB.',
-			'',
-			'  <span class="text-dim">See everything → <span class="text-teal">cd work</span></span>',
-			'',
-		];
-	}
-
-	function cmdCatReadme(): string[] {
-		return [
-			'<span class="text-yellow">README.md</span>',
-			'',
-			'  Welcome to joekarlsson.com!',
-			'  This site is where I write about software engineering,',
-			'  developer advocacy, homelabs, IoT cat litter boxes,',
-			"  and whatever else I'm nerding out about.",
-			'',
-			'  Built with Astro. Powered by coffee and stubbornness.',
-			'  <span class="text-dim">Type \'ls\' to see where you can go.</span>',
-			'',
-		];
-	}
-
-	function cmdUptime(): string[] {
-		return [
-			'  up <span class="text-green">42 days, 3 hours, 17 minutes</span>',
-			'  load average: 0.42, 0.69, 1.21',
-			'  <span class="text-dim">vibes: immaculate</span>',
-			'',
-		];
-	}
-
-	function cmdNeofetch(): string[] {
-		return [
-			'',
-			'  <span class="text-teal">joe</span>@<span class="text-teal">joekarlsson.com</span>',
-			'  ─────────────────────',
-			'  <span class="text-coral">OS</span>:         Astro, self-hosted on Proxmox',
-			'  <span class="text-coral">Host</span>:       M3 Pro MacBook Pro',
-			'  <span class="text-coral">Homelab</span>:    Proxmox Cluster x2',
-			'  <span class="text-coral">GPU</span>:        RTX A4000 + Quadro RTX 4000',
-			'  <span class="text-coral">Containers</span>: 40+',
-			'  <span class="text-coral">Shell</span>:      bash + vibes',
-			'  <span class="text-coral">Work</span>:       CloudQuery',
-			'  <span class="text-coral">Cats</span>:       2 (1 IoT-enabled)',
-			'',
-			'  <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
-			'',
-		];
-	}
-
-	function cmdClear(): string[] {
-		output.innerHTML = '';
-		return [];
-	}
-
-	const fortunes = [
-		'Hot take: YAML is just spicy JSON.',
-		"The best database is the one you don't have to manage at 3am.",
-		'Docker compose is my love language.',
-		'There are two types of homelabbers: those who have lost data, and those who are about to.',
-		"Every time I say 'one more container' my wife sighs.",
-		'The IoT in IoT stands for Internet of Toilets.',
-		'My homelab has more uptime than most startups.',
-		'Self-hosting is just paying the electricity company instead of AWS.',
-		'Kubernetes is just Docker with anxiety.',
-		'I mass-assigned GPU transcoding jobs at 2am on a Tuesday. On purpose.',
-	];
-
-	function cmdFortune(): string[] {
-		const f = fortunes[Math.floor(Math.random() * fortunes.length)];
-		return ['', `  <span class="text-yellow">${f}</span>`, ''];
-	}
-
-	const cowQuotes = [
-		'I built an IoT cat toilet. No regrets.',
-		'My homelab has more containers than sense.',
-		'Have you tried turning it off and on again?',
-		'Self-hosting: because I trust myself more than AWS.',
-		'40+ containers and counting.',
-	];
-
-	function cmdCowsay(): string[] {
-		const quote = cowQuotes[Math.floor(Math.random() * cowQuotes.length)];
-		const padded = quote.length < 36 ? quote + ' '.repeat(36 - quote.length) : quote;
-		const border = '_'.repeat(padded.length + 2);
-		return [
-			` ${border}`,
-			`/ ${padded} \\`,
-			`\\ ${' '.repeat(padded.length)} /`,
-			` ${'-'.repeat(padded.length + 2)}`,
-			'        \\   ^__^',
-			'         \\  (oo)\\_______',
-			'            (__)\\       )\\/\\',
-			'                ||----w |',
-			'                ||     ||',
-			'',
-		];
-	}
-
-	function cmdManJoe(): string[] {
-		return [
-			'<span class="text-yellow">JOE(1)                    User Commands                    JOE(1)</span>',
-			'',
-			'<span class="text-white">NAME</span>',
-			'       joe - software engineer, developer advocate',
-			'',
-			'<span class="text-white">SYNOPSIS</span>',
-			'       joe [--verbose] [--homelab] [--cats]',
-			'',
-			'<span class="text-white">DESCRIPTION</span>',
-			'       Full man page available at <span class="text-teal">/man</span>',
-			'',
-			'<span class="text-white">SEE ALSO</span>',
-			'       joekarlsson.com/about, joekarlsson.com/work',
-			'',
-		];
-	}
-
-	function cmdCatMusic(): string[] {
-		return [
-			'',
-			'  <span class="text-yellow">## /etc/music - current favorites</span>',
-			'',
-			'  <span class="text-coral">1.</span> Radiohead - OK Computer',
-			'  <span class="text-coral">2.</span> LCD Soundsystem - Sound of Silver',
-			'  <span class="text-coral">3.</span> Talking Heads - Remain in Light',
-			'  <span class="text-coral">4.</span> Bon Iver - For Emma, Forever Ago',
-			'  <span class="text-coral">5.</span> Japanese Breakfast - Jubilee',
-			'',
-			'  <span class="text-dim">$ spotify --shuffle --repeat</span>',
-			'',
-		];
-	}
-
-	function cmdCatFails(): string[] {
-		return [
-			'',
-			'  <span class="text-yellow">## /var/log/fails - project failures hall of fame</span>',
-			'',
-			'  <span class="text-coral">[ERROR]</span> Forgot to set up RAID. Lost 2TB of Linux ISOs.',
-			'  <span class="text-coral">[ERROR]</span> Ran docker system prune -a on prod. On purpose. By accident.',
-			'  <span class="text-coral">[ERROR]</span> IoT toilet sensor fell in the toilet. Twice.',
-			'  <span class="text-coral">[ERROR]</span> Accidentally exposed Portainer to the internet for 3 months.',
-			'  <span class="text-coral">[ERROR]</span> Bought a second server to "save money on cloud bills."',
-			'  <span class="text-coral">[ERROR]</span> Tried to mass-transcode 4K movies on a Raspberry Pi.',
-			'',
-			'  <span class="text-dim">errors: 6 | lessons learned: debatable</span>',
-			'',
-		];
-	}
-
-	function cmdCatBlogIot(): string[] {
-		return [
-			'',
-			'  <span class="text-yellow">## How I Built an IoT Smart Litter Box</span>',
-			'',
-			'  It started as a joke. "What if my cat\'s toilet was',
-			'  connected to the internet?" Turns out, it\'s not as',
-			'  ridiculous as it sounds. I used a Raspberry Pi, some',
-			'  sensors, and way too much free time to build a litter',
-			'  box that tweets when my cat uses it...',
-			'',
-			'  <span class="text-dim">-- truncated. visit <span class="text-teal">/blog/how-i-built-an-iot-kitty-litter-box</span> for full post --</span>',
-			'',
-		];
-	}
-
-	function cmdCatBlogHomelab(): string[] {
-		return [
-			'',
-			'  <span class="text-yellow">## My Homelab Setup</span>',
-			'',
-			'  I run a Proxmox cluster with two nodes, dual GPUs,',
-			'  40+ Docker containers, and enough storage to make',
-			'  my electricity bill a recurring source of regret.',
-			'  Home Assistant, Plex, Arr stack, monitoring, the',
-			'  whole nine yards...',
-			'',
-			'  <span class="text-dim">-- truncated. visit <span class="text-teal">/blog/homelab</span> for full post --</span>',
-			'',
-		];
-	}
-
-	async function runFakeDeletion() {
-		ready = false;
-		inputLine.style.display = 'none';
-		navMenu.style.display = 'none';
-
-		const files = [
-			'/home/joe/photos',
-			'/var/lib/docker',
-			'/etc/hostname',
-			'/usr/bin/vim',
-			'/boot/vmlinuz',
-		];
-
-		for (const f of files) {
-			appendLine(
-				`<span class="text-coral">rm:</span> deleting ${f}... <span class="text-green">done</span>`,
-			);
-			await sleep(400);
-		}
-
-		appendLine('<span class="text-coral">rm:</span> deleting / ...');
-		await sleep(1200);
-		appendLine('');
-		appendLine(
-			'<span class="text-yellow">Just kidding. But you should see your face right now.</span>',
-		);
-		appendLine('');
-
-		inputLine.style.display = 'flex';
-		ready = true;
-		showMenu();
-		focusInput();
-	}
-
-	function trackTerminalCommand(cmd: string) {
-		if (typeof (window as any).plausible === 'function') {
-			(window as any).plausible('Terminal Command', { props: { command: cmd } });
-		}
-	}
-
-	function executeCommand(raw: string) {
-		const trimmed = raw.trim();
-		if (!trimmed) return;
-
-		appendLine(
-			`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`,
-		);
-
-		trackTerminalCommand(trimmed);
-
-		if (trimmed) commandHistory.unshift(trimmed);
-		historyIndex = -1;
-
-		const [cmd, ...rest] = trimmed.split(/\s+/);
-		const args = rest.join(' ');
-
-		let result: string[];
-
-		switch (cmd.toLowerCase()) {
-			case 'help':
-				result = cmdHelp();
-				break;
-			case 'ls':
-				result = cmdLs();
-				break;
-			case 'cd':
-			case 'goto':
-				result = cmdCd(args);
-				break;
-			case 'whoami':
-				result = cmdWhoami();
-				break;
-			case 'cat':
-				if (args.toLowerCase() === 'about.md' || args.toLowerCase() === 'about') {
-					result = cmdCatAbout();
-				} else if (args.toLowerCase() === 'work.md' || args.toLowerCase() === 'work') {
-					result = cmdCatWork();
-				} else if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
-					result = cmdCatReadme();
-				} else if (args.toLowerCase() === '/etc/music' || args.toLowerCase() === 'music') {
-					result = cmdCatMusic();
-				} else if (args.toLowerCase() === '/var/log/fails' || args.toLowerCase() === 'fails') {
-					result = cmdCatFails();
-				} else if (args.toLowerCase() === 'blog/iot') {
-					result = cmdCatBlogIot();
-				} else if (args.toLowerCase() === 'blog/homelab') {
-					result = cmdCatBlogHomelab();
-				} else if (args.toLowerCase() === 'cat' || args.toLowerCase() === 'cat.md') {
-					result = [
-						'',
-						'    <span class="text-coral">/\\_/\\</span>',
-						'   <span class="text-coral">( o.o )</span>',
-						'    <span class="text-coral">> ^ <</span>',
-						'',
-						'  <span class="text-dim">meow. (IoT-enabled)</span>',
-						'',
-					];
-				} else {
-					result = [
-						`<span class="text-coral">cat: ${escapeHtml(args) || '???'}: No such file</span>`,
-						'',
-					];
-				}
-				break;
-			case 'uptime':
-				result = cmdUptime();
-				break;
-			case 'neofetch':
-				result = cmdNeofetch();
-				break;
-			case 'clear':
-				result = cmdClear();
-				break;
-			case 'sudo':
-				if (trimmed.startsWith('sudo rm -rf')) {
-					runFakeDeletion();
-					return;
-				}
-				result = ['<span class="text-coral">nice try.</span>', ''];
-				break;
-			case 'exit':
-				result = ['<span class="text-dim">You\'re already home.</span>', ''];
-				break;
-			case 'rm':
-				result = ['<span class="text-coral">absolutely not.</span>', ''];
-				break;
-			case 'fortune':
-				result = cmdFortune();
-				break;
-			case 'cowsay':
-				result = cmdCowsay();
-				break;
-			case 'man':
-				if (args.toLowerCase() === 'joe') {
-					result = cmdManJoe();
-				} else {
-					result = [
-						`<span class="text-dim">man: no manual entry for ${escapeHtml(args) || '???'}. try 'man joe'</span>`,
-						'',
-					];
-				}
-				break;
-			case 'matrix':
-			case 'hack':
-				runMatrixRain();
-				return;
-			default:
-				result = [
-					`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`,
-					'',
-				];
-		}
-
-		appendLines(result);
-	}
-
-	function escapeHtml(str: string): string {
-		const div = document.createElement('div');
-		div.textContent = str;
-		return div.innerHTML;
-	}
-
-	function updateInputDisplay() {
-		inputText.textContent = currentInput;
-		scrollToBottom();
-	}
-
-	function focusInput() {
-		hiddenInput.focus();
-	}
-
-	hiddenInput.addEventListener('keydown', (e: KeyboardEvent) => {
-		if (!ready) return;
-
-		if (menuActive) {
-			if (e.key === 'ArrowUp') {
-				e.preventDefault();
-				menuIndex = (menuIndex - 1 + activeMenu().length) % activeMenu().length;
-				renderMenu();
-				scrollToBottom();
-				return;
-			} else if (e.key === 'ArrowDown') {
-				e.preventDefault();
-				menuIndex = (menuIndex + 1) % activeMenu().length;
-				renderMenu();
-				scrollToBottom();
-				return;
-			} else if (e.key === 'Escape' && currentMenuLevel === 'pages') {
-				e.preventDefault();
+		function selectMenuItem() {
+			const menu = activeMenu();
+			const opt = menu[menuIndex];
+
+			if (opt.action === 'back') {
 				currentMenuLevel = 'main';
 				menuIndex = 0;
 				renderMenu();
 				scrollToBottom();
 				return;
-			} else if (e.key === 'Enter') {
-				e.preventDefault();
-				selectMenuItem();
+			}
+
+			if (opt.action === 'nav' && opt.href) {
+				appendLine(
+					`<span class="text-coral">~$</span> <span class="text-white">cd ${opt.label.replace('/', '')}</span>`,
+				);
+				appendLine(`Navigating to ${opt.href}...`);
+				setTimeout(() => {
+					window.location.href = opt.href!;
+				}, 400);
 				return;
-			} else {
-				hideMenu();
+			}
+
+			if (opt.action === 'browse-pages') {
+				appendLine(`<span class="text-coral">~$</span> <span class="text-white">cd</span>`);
+				appendLines(cmdLs());
+				currentMenuLevel = 'pages';
+				menuIndex = 0;
+				renderMenu();
+				scrollToBottom();
+				focusInput();
+				return;
+			}
+
+			hideMenu();
+			// Remember where this command's output starts
+			const cmdMarker = document.createElement('div');
+			output.appendChild(cmdMarker);
+			appendLine(`<span class="text-coral">~$</span> <span class="text-white">${opt.label}</span>`);
+
+			switch (opt.action) {
+				case 'cat-about':
+					appendLines(cmdCatAbout());
+					showMenu();
+					break;
+				case 'cat-work':
+					appendLines(cmdCatWork());
+					showMenu();
+					break;
+				case 'neofetch':
+					appendLines(cmdNeofetch());
+					showMenu();
+					break;
+				case 'whoami':
+					appendLines(cmdWhoami());
+					showMenu();
+					break;
+				case 'easter-egg':
+					runMatrixRain();
+					break;
+			}
+			// Scroll terminal internally to show the command output at the top
+			terminal.scrollTop = cmdMarker.offsetTop - terminal.offsetTop;
+			focusInput();
+		}
+
+		function showMenu() {
+			navMenu.style.display = 'block';
+			menuActive = true;
+			currentMenuLevel = 'main';
+			menuIndex = 0;
+			renderMenu();
+			scrollToBottom();
+		}
+
+		function hideMenu() {
+			navMenu.style.display = 'none';
+			menuActive = false;
+		}
+
+		const suggestions = [
+			'help',
+			'neofetch',
+			'cat about.md',
+			'ls',
+			'whoami',
+			'hack',
+			'cat readme',
+			'uptime',
+			'fortune',
+			'cowsay',
+			'man joe',
+			'cat music',
+			'cat fails',
+			'cat blog/iot',
+			'cat blog/homelab',
+			'sudo rm -rf /',
+		];
+		let suggestionIndex = -1;
+
+		const pages: Record<string, string> = {
+			home: '/',
+			blog: '/blog',
+			about: '/about',
+			work: '/work',
+			contact: '/contact',
+			uses: '/uses',
+			'talk-archive': '/talk-archive',
+			man: '/man',
+		};
+
+		function scrollToBottom() {
+			terminal.scrollTop = terminal.scrollHeight;
+		}
+
+		function appendLine(html: string) {
+			const div = document.createElement('div');
+			div.innerHTML = html;
+			output.appendChild(div);
+			scrollToBottom();
+		}
+
+		function appendLines(lines: string[]) {
+			lines.forEach((line) => appendLine(line));
+		}
+
+		async function typeLines(lines: string[], delay = 40) {
+			for (const line of lines) {
+				appendLine(line);
+				await sleep(delay);
 			}
 		}
 
-		if (e.key === 'Enter') {
-			e.preventDefault();
-			const cmd = currentInput;
-			currentInput = '';
-			hiddenInput.value = '';
-			updateInputDisplay();
+		function sleep(ms: number): Promise<void> {
+			return new Promise((r) => setTimeout(r, ms));
+		}
+
+		async function typeCommand(cmd: string, charDelay = 50) {
+			const cmdLine = document.createElement('div');
+			cmdLine.className = 'flex items-center';
+			const promptSpan = document.createElement('span');
+			promptSpan.className = 'text-coral mr-2';
+			promptSpan.textContent = '~$';
+			const textSpan = document.createElement('span');
+			textSpan.className = 'text-white';
+			const cursorSpan = document.createElement('span');
+			cursorSpan.className = 'cursor';
+			cursorSpan.innerHTML = '&#9608;';
+			cmdLine.appendChild(promptSpan);
+			cmdLine.appendChild(textSpan);
+			cmdLine.appendChild(cursorSpan);
+			output.appendChild(cmdLine);
+			scrollToBottom();
+
+			for (let i = 0; i < cmd.length; i++) {
+				textSpan.textContent = cmd.slice(0, i + 1);
+				scrollToBottom();
+				await sleep(charDelay);
+			}
+
+			await sleep(200);
+			cmdLine.remove();
+			appendLine(
+				`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(cmd)}</span>`,
+			);
+		}
+
+		// --- Matrix rain easter egg (full hero overlay) ---
+		async function runMatrixRain() {
+			ready = false;
 			inputLine.style.display = 'none';
-			hideMenu();
-			executeCommand(cmd);
+			navMenu.style.display = 'none';
+
+			const heroSection = document.getElementById('hero-section')!;
+			const heroContent = document.getElementById('hero-content')!;
+
+			// Create overlay that covers the entire hero
+			const overlay = document.createElement('div');
+			overlay.style.cssText =
+				'position:absolute;top:0;left:0;right:0;bottom:0;z-index:50;background:#0a0a0f;display:flex;align-items:center;justify-content:center;';
+			heroSection.appendChild(overlay);
+
+			const rainCanvas = document.createElement('div');
+			rainCanvas.style.cssText =
+				'position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;font-family:monospace;padding:8px;';
+			overlay.appendChild(rainCanvas);
+
+			const msgDiv = document.createElement('div');
+			msgDiv.style.cssText =
+				'position:relative;z-index:10;text-align:center;opacity:0;transition:opacity 0.5s;';
+			overlay.appendChild(msgDiv);
+
+			const chars = 'ジョーカールソン01アイオーティー猫ホームラブ';
+			const charW = 10;
+			const lineH = 14;
+			const cols = Math.floor(heroSection.clientWidth / charW);
+			const rows = Math.floor(heroSection.clientHeight / lineH);
+			const grid: string[][] = Array.from({ length: rows }, () => Array(cols).fill(' '));
+			const drops: number[] = Array(cols)
+				.fill(0)
+				.map(() => Math.floor(Math.random() * -rows));
+
+			const rainPre = document.createElement('pre');
+			rainPre.style.cssText = `font-size:${charW + 2}px;line-height:${lineH}px;margin:0;white-space:pre;`;
+			rainCanvas.appendChild(rainPre);
+
+			for (let frame = 0; frame < 80; frame++) {
+				for (let c = 0; c < cols; c++) {
+					drops[c]++;
+					if (drops[c] >= 0 && drops[c] < rows) {
+						grid[drops[c]][c] = chars[Math.floor(Math.random() * chars.length)];
+					}
+					if (drops[c] > rows + Math.floor(Math.random() * rows)) {
+						drops[c] = Math.floor(Math.random() * -6);
+					}
+					if (drops[c] >= 3 && drops[c] - 3 < rows) {
+						grid[drops[c] - 3][c] =
+							Math.random() > 0.6 ? chars[Math.floor(Math.random() * chars.length)] : ' ';
+					}
+				}
+
+				let html = '';
+				for (let r = 0; r < rows; r++) {
+					for (let c = 0; c < cols; c++) {
+						const ch = grid[r][c];
+						if (ch !== ' ') {
+							const isHead = drops[c] === r;
+							const color = isHead ? '#fff' : Math.random() > 0.5 ? '#86efac' : '#22c55e';
+							html += `<span style="color:${color}">${ch}</span>`;
+						} else {
+							html += ' ';
+						}
+					}
+					html += '\n';
+				}
+				rainPre.innerHTML = html;
+				await sleep(50);
+			}
+
+			// Show HACK THE PLANET! centered over the rain
+			msgDiv.innerHTML =
+				'<span style="color:#86efac;font-size:2.5em;font-weight:bold;font-family:monospace;text-shadow:0 0 20px #22c55e,0 0 40px #22c55e;">HACK THE PLANET!</span>';
+			msgDiv.style.opacity = '1';
+			rainPre.style.opacity = '0.3';
+
+			await sleep(2500);
+
+			// Fade out overlay
+			overlay.style.transition = 'opacity 0.4s';
+			overlay.style.opacity = '0';
+			await sleep(400);
+			overlay.remove();
+
+			// Restore terminal
 			inputLine.style.display = 'flex';
+			ready = true;
 			showMenu();
-			updateInputDisplay();
-		} else if (e.key === 'ArrowUp') {
-			e.preventDefault();
-			if (commandHistory.length > 0) {
-				if (historyIndex < commandHistory.length - 1) {
-					historyIndex++;
-					currentInput = commandHistory[historyIndex];
-					hiddenInput.value = currentInput;
-					updateInputDisplay();
-				}
-			} else {
-				if (suggestionIndex < suggestions.length - 1) {
-					suggestionIndex++;
-					currentInput = suggestions[suggestionIndex];
-					hiddenInput.value = currentInput;
-					updateInputDisplay();
+			focusInput();
+		}
+
+		// --- Commands ---
+
+		function cmdHelp(): string[] {
+			return [
+				'<span class="text-yellow">Available commands:</span>',
+				'',
+				'  <span class="text-coral">help</span>         show this message',
+				'  <span class="text-coral">ls</span>           list site pages',
+				'  <span class="text-coral">cd</span> &lt;page&gt;    navigate to a page',
+				'  <span class="text-coral">whoami</span>       who is this',
+				'  <span class="text-coral">cat about.md</span> about me',
+				'  <span class="text-coral">cat work.md</span>  things I\'ve built',
+				'  <span class="text-coral">cat readme</span>   about this site',
+				'  <span class="text-coral">cat music</span>    current favorite albums',
+				'  <span class="text-coral">cat fails</span>    project failures hall of fame',
+				'  <span class="text-coral">cat blog/</span>    preview a blog post',
+				'  <span class="text-coral">neofetch</span>     system info',
+				'  <span class="text-coral">uptime</span>       system uptime',
+				'  <span class="text-coral">fortune</span>      random dev hot take',
+				'  <span class="text-coral">cowsay</span>       moo',
+				'  <span class="text-coral">man joe</span>      read the manual',
+				'  <span class="text-coral">hack</span>         ???',
+				'  <span class="text-coral">clear</span>        clear terminal',
+				'',
+			];
+		}
+
+		function cmdLs(): string[] {
+			const entries = Object.keys(pages).map((p) => `  <span class="text-teal">${p}/</span>`);
+			return ['<span class="text-dim">drwxr-xr-x  joe  staff</span>', ...entries, ''];
+		}
+
+		function cmdCd(args: string): string[] {
+			const target = args.trim().replace(/^\//, '').replace(/\/$/, '');
+			if (!target) return ['<span class="text-dim">usage: cd &lt;page&gt;</span>', ''];
+			if (target === '~' || target === '/') {
+				window.location.href = '/';
+				return ['Navigating to home...'];
+			}
+			const url = pages[target];
+			if (url) {
+				setTimeout(() => {
+					window.location.href = url;
+				}, 400);
+				return [`Navigating to /${target}...`];
+			}
+			return [
+				`<span class="text-coral">cd: no such page: ${target}</span>`,
+				`<span class="text-dim">try 'ls' to see available pages</span>`,
+				'',
+			];
+		}
+
+		function cmdWhoami(): string[] {
+			return [
+				'<span class="text-teal">joe-karlsson</span> - software engineer & developer advocate',
+				'',
+			];
+		}
+
+		function cmdCatAbout(): string[] {
+			return [
+				'',
+				'  <span class="text-yellow">## about.md</span>',
+				'',
+				'  Hey, I\'m <span class="text-coral">Joe Karlsson</span>.',
+				'  Software engineer turned dev advocate.',
+				'',
+				'  I help developers build cool stuff - through demos,',
+				'  blog posts, talks, videos, whatever works. Currently',
+				'  doing that at <span class="text-white">CloudQuery</span>.',
+				'',
+				'  Outside of work I run a <span class="text-teal">40+ container homelab</span>,',
+				'  watch way too many movies, and build things that',
+				"  probably shouldn't be connected to the internet.",
+				'',
+				'  I once built an IoT cat toilet and gave a conference',
+				'  talk about it. Also a <span class="text-white">TEDx speaker</span>. I contain',
+				'  multitudes.',
+				'',
+			];
+		}
+
+		function cmdCatWork(): string[] {
+			return [
+				'',
+				'  <span class="text-yellow">## work.md</span>',
+				'',
+				'  <span class="text-coral">IoT Smart Litter Box</span>',
+				'  Built an internet-connected cat toilet. Gave a',
+				'  <span class="text-white">TEDx talk</span> about it. Yes, really.',
+				'',
+				'  <span class="text-coral">40+ Container Homelab</span>',
+				'  Proxmox cluster, dual GPUs, Home Assistant,',
+				'  media automation, monitoring - the works.',
+				'',
+				'  <span class="text-coral">Developer Advocacy</span>',
+				'  Spoken at hundreds of conferences. Built demos,',
+				'  docs, and tools at CloudQuery, Tinybird,',
+				'  SingleStore, and MongoDB.',
+				'',
+				'  <span class="text-dim">See everything → <span class="text-teal">cd work</span></span>',
+				'',
+			];
+		}
+
+		function cmdCatReadme(): string[] {
+			return [
+				'<span class="text-yellow">README.md</span>',
+				'',
+				'  Welcome to joekarlsson.com!',
+				'  This site is where I write about software engineering,',
+				'  developer advocacy, homelabs, IoT cat litter boxes,',
+				"  and whatever else I'm nerding out about.",
+				'',
+				'  Built with Astro. Powered by coffee and stubbornness.',
+				'  <span class="text-dim">Type \'ls\' to see where you can go.</span>',
+				'',
+			];
+		}
+
+		function cmdUptime(): string[] {
+			return [
+				'  up <span class="text-green">42 days, 3 hours, 17 minutes</span>',
+				'  load average: 0.42, 0.69, 1.21',
+				'  <span class="text-dim">vibes: immaculate</span>',
+				'',
+			];
+		}
+
+		function cmdNeofetch(): string[] {
+			return [
+				'',
+				'  <span class="text-teal">joe</span>@<span class="text-teal">joekarlsson.com</span>',
+				'  ─────────────────────',
+				'  <span class="text-coral">OS</span>:         Astro, self-hosted on Proxmox',
+				'  <span class="text-coral">Host</span>:       M3 Pro MacBook Pro',
+				'  <span class="text-coral">Homelab</span>:    Proxmox Cluster x2',
+				'  <span class="text-coral">GPU</span>:        RTX A4000 + Quadro RTX 4000',
+				'  <span class="text-coral">Containers</span>: 40+',
+				'  <span class="text-coral">Shell</span>:      bash + vibes',
+				'  <span class="text-coral">Work</span>:       CloudQuery',
+				'  <span class="text-coral">Cats</span>:       2 (1 IoT-enabled)',
+				'',
+				'  <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
+				'',
+			];
+		}
+
+		function cmdClear(): string[] {
+			output.innerHTML = '';
+			return [];
+		}
+
+		const fortunes = [
+			'Hot take: YAML is just spicy JSON.',
+			"The best database is the one you don't have to manage at 3am.",
+			'Docker compose is my love language.',
+			'There are two types of homelabbers: those who have lost data, and those who are about to.',
+			"Every time I say 'one more container' my wife sighs.",
+			'The IoT in IoT stands for Internet of Toilets.',
+			'My homelab has more uptime than most startups.',
+			'Self-hosting is just paying the electricity company instead of AWS.',
+			'Kubernetes is just Docker with anxiety.',
+			'I mass-assigned GPU transcoding jobs at 2am on a Tuesday. On purpose.',
+		];
+
+		function cmdFortune(): string[] {
+			const f = fortunes[Math.floor(Math.random() * fortunes.length)];
+			return ['', `  <span class="text-yellow">${f}</span>`, ''];
+		}
+
+		const cowQuotes = [
+			'I built an IoT cat toilet. No regrets.',
+			'My homelab has more containers than sense.',
+			'Have you tried turning it off and on again?',
+			'Self-hosting: because I trust myself more than AWS.',
+			'40+ containers and counting.',
+		];
+
+		function cmdCowsay(): string[] {
+			const quote = cowQuotes[Math.floor(Math.random() * cowQuotes.length)];
+			const padded = quote.length < 36 ? quote + ' '.repeat(36 - quote.length) : quote;
+			const border = '_'.repeat(padded.length + 2);
+			return [
+				` ${border}`,
+				`/ ${padded} \\`,
+				`\\ ${' '.repeat(padded.length)} /`,
+				` ${'-'.repeat(padded.length + 2)}`,
+				'        \\   ^__^',
+				'         \\  (oo)\\_______',
+				'            (__)\\       )\\/\\',
+				'                ||----w |',
+				'                ||     ||',
+				'',
+			];
+		}
+
+		function cmdManJoe(): string[] {
+			return [
+				'<span class="text-yellow">JOE(1)                    User Commands                    JOE(1)</span>',
+				'',
+				'<span class="text-white">NAME</span>',
+				'       joe - software engineer, developer advocate',
+				'',
+				'<span class="text-white">SYNOPSIS</span>',
+				'       joe [--verbose] [--homelab] [--cats]',
+				'',
+				'<span class="text-white">DESCRIPTION</span>',
+				'       Full man page available at <span class="text-teal">/man</span>',
+				'',
+				'<span class="text-white">SEE ALSO</span>',
+				'       joekarlsson.com/about, joekarlsson.com/work',
+				'',
+			];
+		}
+
+		function cmdCatMusic(): string[] {
+			return [
+				'',
+				'  <span class="text-yellow">## /etc/music - current favorites</span>',
+				'',
+				'  <span class="text-coral">1.</span> Radiohead - OK Computer',
+				'  <span class="text-coral">2.</span> LCD Soundsystem - Sound of Silver',
+				'  <span class="text-coral">3.</span> Talking Heads - Remain in Light',
+				'  <span class="text-coral">4.</span> Bon Iver - For Emma, Forever Ago',
+				'  <span class="text-coral">5.</span> Japanese Breakfast - Jubilee',
+				'',
+				'  <span class="text-dim">$ spotify --shuffle --repeat</span>',
+				'',
+			];
+		}
+
+		function cmdCatFails(): string[] {
+			return [
+				'',
+				'  <span class="text-yellow">## /var/log/fails - project failures hall of fame</span>',
+				'',
+				'  <span class="text-coral">[ERROR]</span> Forgot to set up RAID. Lost 2TB of Linux ISOs.',
+				'  <span class="text-coral">[ERROR]</span> Ran docker system prune -a on prod. On purpose. By accident.',
+				'  <span class="text-coral">[ERROR]</span> IoT toilet sensor fell in the toilet. Twice.',
+				'  <span class="text-coral">[ERROR]</span> Accidentally exposed Portainer to the internet for 3 months.',
+				'  <span class="text-coral">[ERROR]</span> Bought a second server to "save money on cloud bills."',
+				'  <span class="text-coral">[ERROR]</span> Tried to mass-transcode 4K movies on a Raspberry Pi.',
+				'',
+				'  <span class="text-dim">errors: 6 | lessons learned: debatable</span>',
+				'',
+			];
+		}
+
+		function cmdCatBlogIot(): string[] {
+			return [
+				'',
+				'  <span class="text-yellow">## How I Built an IoT Smart Litter Box</span>',
+				'',
+				'  It started as a joke. "What if my cat\'s toilet was',
+				'  connected to the internet?" Turns out, it\'s not as',
+				'  ridiculous as it sounds. I used a Raspberry Pi, some',
+				'  sensors, and way too much free time to build a litter',
+				'  box that tweets when my cat uses it...',
+				'',
+				'  <span class="text-dim">-- truncated. visit <span class="text-teal">/blog/how-i-built-an-iot-kitty-litter-box</span> for full post --</span>',
+				'',
+			];
+		}
+
+		function cmdCatBlogHomelab(): string[] {
+			return [
+				'',
+				'  <span class="text-yellow">## My Homelab Setup</span>',
+				'',
+				'  I run a Proxmox cluster with two nodes, dual GPUs,',
+				'  40+ Docker containers, and enough storage to make',
+				'  my electricity bill a recurring source of regret.',
+				'  Home Assistant, Plex, Arr stack, monitoring, the',
+				'  whole nine yards...',
+				'',
+				'  <span class="text-dim">-- truncated. visit <span class="text-teal">/blog/homelab</span> for full post --</span>',
+				'',
+			];
+		}
+
+		async function runFakeDeletion() {
+			ready = false;
+			inputLine.style.display = 'none';
+			navMenu.style.display = 'none';
+
+			const files = [
+				'/home/joe/photos',
+				'/var/lib/docker',
+				'/etc/hostname',
+				'/usr/bin/vim',
+				'/boot/vmlinuz',
+			];
+
+			for (const f of files) {
+				appendLine(
+					`<span class="text-coral">rm:</span> deleting ${f}... <span class="text-green">done</span>`,
+				);
+				await sleep(400);
+			}
+
+			appendLine('<span class="text-coral">rm:</span> deleting / ...');
+			await sleep(1200);
+			appendLine('');
+			appendLine(
+				'<span class="text-yellow">Just kidding. But you should see your face right now.</span>',
+			);
+			appendLine('');
+
+			inputLine.style.display = 'flex';
+			ready = true;
+			showMenu();
+			focusInput();
+		}
+
+		function trackTerminalCommand(cmd: string) {
+			if (typeof (window as any).plausible === 'function') {
+				(window as any).plausible('Terminal Command', { props: { command: cmd } });
+			}
+		}
+
+		function executeCommand(raw: string) {
+			const trimmed = raw.trim();
+			if (!trimmed) return;
+
+			appendLine(
+				`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`,
+			);
+
+			trackTerminalCommand(trimmed);
+
+			if (trimmed) commandHistory.unshift(trimmed);
+			historyIndex = -1;
+
+			const [cmd, ...rest] = trimmed.split(/\s+/);
+			const args = rest.join(' ');
+
+			let result: string[];
+
+			switch (cmd.toLowerCase()) {
+				case 'help':
+					result = cmdHelp();
+					break;
+				case 'ls':
+					result = cmdLs();
+					break;
+				case 'cd':
+				case 'goto':
+					result = cmdCd(args);
+					break;
+				case 'whoami':
+					result = cmdWhoami();
+					break;
+				case 'cat':
+					if (args.toLowerCase() === 'about.md' || args.toLowerCase() === 'about') {
+						result = cmdCatAbout();
+					} else if (args.toLowerCase() === 'work.md' || args.toLowerCase() === 'work') {
+						result = cmdCatWork();
+					} else if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
+						result = cmdCatReadme();
+					} else if (args.toLowerCase() === '/etc/music' || args.toLowerCase() === 'music') {
+						result = cmdCatMusic();
+					} else if (args.toLowerCase() === '/var/log/fails' || args.toLowerCase() === 'fails') {
+						result = cmdCatFails();
+					} else if (args.toLowerCase() === 'blog/iot') {
+						result = cmdCatBlogIot();
+					} else if (args.toLowerCase() === 'blog/homelab') {
+						result = cmdCatBlogHomelab();
+					} else if (args.toLowerCase() === 'cat' || args.toLowerCase() === 'cat.md') {
+						result = [
+							'',
+							'    <span class="text-coral">/\\_/\\</span>',
+							'   <span class="text-coral">( o.o )</span>',
+							'    <span class="text-coral">> ^ <</span>',
+							'',
+							'  <span class="text-dim">meow. (IoT-enabled)</span>',
+							'',
+						];
+					} else {
+						result = [
+							`<span class="text-coral">cat: ${escapeHtml(args) || '???'}: No such file</span>`,
+							'',
+						];
+					}
+					break;
+				case 'uptime':
+					result = cmdUptime();
+					break;
+				case 'neofetch':
+					result = cmdNeofetch();
+					break;
+				case 'clear':
+					result = cmdClear();
+					break;
+				case 'sudo':
+					if (trimmed.startsWith('sudo rm -rf')) {
+						runFakeDeletion();
+						return;
+					}
+					result = ['<span class="text-coral">nice try.</span>', ''];
+					break;
+				case 'exit':
+					result = ['<span class="text-dim">You\'re already home.</span>', ''];
+					break;
+				case 'rm':
+					result = ['<span class="text-coral">absolutely not.</span>', ''];
+					break;
+				case 'fortune':
+					result = cmdFortune();
+					break;
+				case 'cowsay':
+					result = cmdCowsay();
+					break;
+				case 'man':
+					if (args.toLowerCase() === 'joe') {
+						result = cmdManJoe();
+					} else {
+						result = [
+							`<span class="text-dim">man: no manual entry for ${escapeHtml(args) || '???'}. try 'man joe'</span>`,
+							'',
+						];
+					}
+					break;
+				case 'matrix':
+				case 'hack':
+					runMatrixRain();
+					return;
+				default:
+					result = [
+						`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`,
+						'',
+					];
+			}
+
+			appendLines(result);
+		}
+
+		function escapeHtml(str: string): string {
+			const div = document.createElement('div');
+			div.textContent = str;
+			return div.innerHTML;
+		}
+
+		function updateInputDisplay() {
+			inputText.textContent = currentInput;
+			scrollToBottom();
+		}
+
+		function focusInput() {
+			hiddenInput.focus();
+		}
+
+		hiddenInput.addEventListener('keydown', (e: KeyboardEvent) => {
+			if (!ready) return;
+
+			if (menuActive) {
+				if (e.key === 'ArrowUp') {
+					e.preventDefault();
+					menuIndex = (menuIndex - 1 + activeMenu().length) % activeMenu().length;
+					renderMenu();
+					scrollToBottom();
+					return;
+				} else if (e.key === 'ArrowDown') {
+					e.preventDefault();
+					menuIndex = (menuIndex + 1) % activeMenu().length;
+					renderMenu();
+					scrollToBottom();
+					return;
+				} else if (e.key === 'Escape' && currentMenuLevel === 'pages') {
+					e.preventDefault();
+					currentMenuLevel = 'main';
+					menuIndex = 0;
+					renderMenu();
+					scrollToBottom();
+					return;
+				} else if (e.key === 'Enter') {
+					e.preventDefault();
+					selectMenuItem();
+					return;
+				} else {
+					hideMenu();
 				}
 			}
-		} else if (e.key === 'ArrowDown') {
-			e.preventDefault();
-			if (commandHistory.length > 0) {
-				if (historyIndex > 0) {
-					historyIndex--;
-					currentInput = commandHistory[historyIndex];
+
+			if (e.key === 'Enter') {
+				e.preventDefault();
+				const cmd = currentInput;
+				currentInput = '';
+				hiddenInput.value = '';
+				updateInputDisplay();
+				inputLine.style.display = 'none';
+				hideMenu();
+				executeCommand(cmd);
+				inputLine.style.display = 'flex';
+				showMenu();
+				updateInputDisplay();
+			} else if (e.key === 'ArrowUp') {
+				e.preventDefault();
+				if (commandHistory.length > 0) {
+					if (historyIndex < commandHistory.length - 1) {
+						historyIndex++;
+						currentInput = commandHistory[historyIndex];
+						hiddenInput.value = currentInput;
+						updateInputDisplay();
+					}
 				} else {
-					historyIndex = -1;
-					currentInput = '';
+					if (suggestionIndex < suggestions.length - 1) {
+						suggestionIndex++;
+						currentInput = suggestions[suggestionIndex];
+						hiddenInput.value = currentInput;
+						updateInputDisplay();
+					}
 				}
-			} else {
-				if (suggestionIndex > 0) {
-					suggestionIndex--;
-					currentInput = suggestions[suggestionIndex];
+			} else if (e.key === 'ArrowDown') {
+				e.preventDefault();
+				if (commandHistory.length > 0) {
+					if (historyIndex > 0) {
+						historyIndex--;
+						currentInput = commandHistory[historyIndex];
+					} else {
+						historyIndex = -1;
+						currentInput = '';
+					}
 				} else {
-					suggestionIndex = -1;
-					currentInput = '';
+					if (suggestionIndex > 0) {
+						suggestionIndex--;
+						currentInput = suggestions[suggestionIndex];
+					} else {
+						suggestionIndex = -1;
+						currentInput = '';
+					}
 				}
-			}
-			hiddenInput.value = currentInput;
-			updateInputDisplay();
-		} else if (e.key === 'Tab') {
-			e.preventDefault();
-			const partial = currentInput.replace(/^(cd|goto)\s+/, '');
-			const prefix = currentInput.replace(partial, '');
-			const matches = Object.keys(pages).filter((p) => p.startsWith(partial));
-			if (matches.length === 1) {
-				currentInput = prefix + matches[0];
 				hiddenInput.value = currentInput;
 				updateInputDisplay();
+			} else if (e.key === 'Tab') {
+				e.preventDefault();
+				const partial = currentInput.replace(/^(cd|goto)\s+/, '');
+				const prefix = currentInput.replace(partial, '');
+				const matches = Object.keys(pages).filter((p) => p.startsWith(partial));
+				if (matches.length === 1) {
+					currentInput = prefix + matches[0];
+					hiddenInput.value = currentInput;
+					updateInputDisplay();
+				}
+			} else if (e.key === 'l' && e.ctrlKey) {
+				e.preventDefault();
+				cmdClear();
 			}
-		} else if (e.key === 'l' && e.ctrlKey) {
-			e.preventDefault();
-			cmdClear();
-		}
-	});
+		});
 
-	hiddenInput.addEventListener('input', () => {
-		if (!ready) return;
-		currentInput = hiddenInput.value;
-		updateInputDisplay();
-	});
+		hiddenInput.addEventListener('input', () => {
+			if (!ready) return;
+			currentInput = hiddenInput.value;
+			updateInputDisplay();
+		});
 
-	terminal.addEventListener('click', () => {
-		focusInput();
-	});
+		terminal.addEventListener('click', () => {
+			focusInput();
+		});
 
-	// --- Boot sequence ---
-	async function boot() {
-		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		// --- Boot sequence ---
+		async function boot() {
+			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-		if (prefersReducedMotion) {
-			appendLine('<span class="text-dim">Welcome to joekarlsson.com</span>');
+			if (prefersReducedMotion) {
+				appendLine('<span class="text-dim">Welcome to joekarlsson.com</span>');
+				appendLine('');
+				inputLine.style.display = 'flex';
+				showMenu();
+				ready = true;
+				focusInput();
+				return;
+			}
+
+			appendLine('<span class="text-dim">[  0.000] joekarlsson.com kernel loading...</span>');
+			await sleep(80);
+			appendLine(
+				'<span class="text-dim">[  0.042] Mounting /dev/pages ... <span class="text-green">OK</span></span>',
+			);
+			await sleep(150);
+			appendLine('<span class="text-dim">[  0.069] Welcome.</span>');
+			await sleep(200);
 			appendLine('');
+
 			inputLine.style.display = 'flex';
 			showMenu();
 			ready = true;
 			focusInput();
-			return;
 		}
 
-		appendLine('<span class="text-dim">[  0.000] joekarlsson.com kernel loading...</span>');
-		await sleep(80);
-		appendLine(
-			'<span class="text-dim">[  0.042] Mounting /dev/pages ... <span class="text-green">OK</span></span>',
+		boot();
+
+		// Scroll reveal
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
 		);
-		await sleep(150);
-		appendLine('<span class="text-dim">[  0.069] Welcome.</span>');
-		await sleep(200);
-		appendLine('');
-
-		inputLine.style.display = 'flex';
-		showMenu();
-		ready = true;
-		focusInput();
-	}
-
-	boot();
-
-	// Scroll reveal
-	const observer = new IntersectionObserver(
-		(entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('visible');
-					observer.unobserve(entry.target);
-				}
-			});
-		},
-		{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
-	);
-	document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+		document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
 	}
 </script>
