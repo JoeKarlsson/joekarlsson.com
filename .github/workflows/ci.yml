@@ -203,3 +203,34 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm audit --omit=dev
+
+  notify:
+    name: Failure Notification
+    runs-on: ubuntu-latest
+    if: failure()
+    needs:
+      - build
+      - markdown
+      - spelling
+      - lint
+      - images
+      - links
+      - feeds
+      - accessibility
+      - lighthouse
+      - caddyfile
+      - build-output
+      - content
+      - unused
+      - audit
+    steps:
+      - name: Send ntfy push notification
+        if: vars.NTFY_TOPIC != ''
+        run: |
+          curl -s \
+            -H "Title: CI Failed: joekarlsson.com" \
+            -H "Priority: high" \
+            -H "Tags: x,ci" \
+            -H "Click: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            -d "CI pipeline failed on ${GITHUB_REF_NAME} (${GITHUB_SHA::7}). Click to view details." \
+            "${{ vars.NTFY_URL }}/${{ vars.NTFY_TOPIC }}"
