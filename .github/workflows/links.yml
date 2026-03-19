@@ -9,6 +9,8 @@ jobs:
   links:
     name: Check External Links
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
