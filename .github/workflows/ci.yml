@@ -191,8 +191,6 @@ jobs:
   audit:
     name: Security Audit
     runs-on: ubuntu-latest
-    # Advisory-only: upstream deps may have unfixed vulnerabilities
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -220,6 +218,7 @@ jobs:
       - build-output
       - content
       - unused
+      - audit
     steps:
       - name: Send ntfy push notification
         if: vars.NTFY_TOPIC != ''
