@@ -394,7 +394,7 @@ import { SOCIAL_LINKS } from '../consts';
 					<iframe
 						width="100%"
 						height="100%"
-						src="https://www.youtube.com/embed/GiNa2jen-lg"
+						src="https://www.youtube-nocookie.com/embed/GiNa2jen-lg"
 						title="The Art of Computer Science - TEDx Talk by Joe Karlsson"
 						frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -412,7 +412,7 @@ import { SOCIAL_LINKS } from '../consts';
 						<iframe
 							width="100%"
 							height="100%"
-							src="https://www.youtube.com/embed/QAqK-R9HUhc"
+							src="https://www.youtube-nocookie.com/embed/QAqK-R9HUhc"
 							title="MongoDB Schema Design Best Practices"
 							frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -426,7 +426,7 @@ import { SOCIAL_LINKS } from '../consts';
 						<iframe
 							width="100%"
 							height="100%"
-							src="https://www.youtube.com/embed/711Sb55fzdg"
+							src="https://www.youtube-nocookie.com/embed/711Sb55fzdg"
 							title="Bringing JavaScript to the IoT Edge"
 							frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -508,63 +508,71 @@ import { SOCIAL_LINKS } from '../consts';
 		<h2 class="mb-4 text-lg font-bold text-white">
 			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls tiktok/
 		</h2>
-		<div class="mb-10 grid gap-4 sm:grid-cols-3">
-			<div class="overflow-hidden rounded-lg border border-surface-3">
-				<blockquote
-					class="tiktok-embed"
-					cite="https://www.tiktok.com/@joekarlsson/video/6794216912239742213"
-					data-video-id="6794216912239742213"
-					style="max-width: 100%; min-width: 200px;"
-				>
-					<section>
-						<a
-							target="_blank"
-							rel="noopener noreferrer"
-							title="@joekarlsson"
-							href="https://www.tiktok.com/@joekarlsson">@joekarlsson</a
-						>
-						<p>Working remotely is so cool</p>
-					</section>
-				</blockquote>
-			</div>
-			<div class="overflow-hidden rounded-lg border border-surface-3">
-				<blockquote
-					class="tiktok-embed"
-					cite="https://www.tiktok.com/@joekarlsson/video/6903939878464081157"
-					data-video-id="6903939878464081157"
-					style="max-width: 100%; min-width: 200px;"
-				>
-					<section>
-						<a
-							target="_blank"
-							rel="noopener noreferrer"
-							title="@joekarlsson"
-							href="https://www.tiktok.com/@joekarlsson">@joekarlsson</a
-						>
-						<p>The joys of WFH</p>
-					</section>
-				</blockquote>
-			</div>
-			<div class="overflow-hidden rounded-lg border border-surface-3">
-				<blockquote
-					class="tiktok-embed"
-					cite="https://www.tiktok.com/@joekarlsson/video/6980072982978891013"
-					data-video-id="6980072982978891013"
-					style="max-width: 100%; min-width: 200px;"
-				>
-					<section>
-						<a
-							target="_blank"
-							rel="noopener noreferrer"
-							title="@joekarlsson"
-							href="https://www.tiktok.com/@joekarlsson">@joekarlsson</a
-						>
-						<p>It never gets old</p>
-					</section>
-				</blockquote>
-			</div>
+		<div class="mb-10 grid gap-4 sm:grid-cols-3" id="tiktok-grid">
+			<button
+				class="tiktok-facade group flex aspect-[9/16] items-center justify-center overflow-hidden rounded-lg border border-surface-3 bg-surface-2 transition-colors hover:border-coral/40"
+				data-video-id="6794216912239742213"
+				aria-label="Load TikTok: Working remotely is so cool"
+			>
+				<div class="text-center">
+					<span class="mb-2 block text-3xl">▶</span>
+					<span class="text-sm text-gray-400 group-hover:text-coral"
+						>Working remotely is so cool</span
+					>
+					<span class="mt-1 block text-xs text-gray-500">@joekarlsson on TikTok</span>
+				</div>
+			</button>
+			<button
+				class="tiktok-facade group flex aspect-[9/16] items-center justify-center overflow-hidden rounded-lg border border-surface-3 bg-surface-2 transition-colors hover:border-coral/40"
+				data-video-id="6903939878464081157"
+				aria-label="Load TikTok: The joys of WFH"
+			>
+				<div class="text-center">
+					<span class="mb-2 block text-3xl">▶</span>
+					<span class="text-sm text-gray-400 group-hover:text-coral">The joys of WFH</span>
+					<span class="mt-1 block text-xs text-gray-500">@joekarlsson on TikTok</span>
+				</div>
+			</button>
+			<button
+				class="tiktok-facade group flex aspect-[9/16] items-center justify-center overflow-hidden rounded-lg border border-surface-3 bg-surface-2 transition-colors hover:border-coral/40"
+				data-video-id="6980072982978891013"
+				aria-label="Load TikTok: It never gets old"
+			>
+				<div class="text-center">
+					<span class="mb-2 block text-3xl">▶</span>
+					<span class="text-sm text-gray-400 group-hover:text-coral">It never gets old</span>
+					<span class="mt-1 block text-xs text-gray-500">@joekarlsson on TikTok</span>
+				</div>
+			</button>
 		</div>
-		<script async src="https://www.tiktok.com/embed.js"></script>
+		<script>
+			document.querySelectorAll('.tiktok-facade').forEach((btn) => {
+				btn.addEventListener('click', () => {
+					const videoId = btn.getAttribute('data-video-id');
+					const container = btn.parentElement;
+					if (!container) return;
+					const blockquote = document.createElement('blockquote');
+					blockquote.className = 'tiktok-embed';
+					blockquote.setAttribute('cite', `https://www.tiktok.com/@joekarlsson/video/${videoId}`);
+					blockquote.setAttribute('data-video-id', videoId);
+					blockquote.style.maxWidth = '100%';
+					blockquote.style.minWidth = '200px';
+					blockquote.innerHTML = `<section><a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@joekarlsson">@joekarlsson</a></section>`;
+					const wrapper = document.createElement('div');
+					wrapper.className = 'overflow-hidden rounded-lg border border-surface-3';
+					wrapper.appendChild(blockquote);
+					container.replaceChild(wrapper, btn);
+					if (!document.querySelector('script[src*="tiktok.com/embed"]')) {
+						const script = document.createElement('script');
+						script.src = 'https://www.tiktok.com/embed.js';
+						script.async = true;
+						document.body.appendChild(script);
+					} else if (window.tiktokEmbed) {
+						window.tiktokEmbed.lib.render();
+					}
+				});
+			});
+		</script>
 
 		<!-- What I'm Into -->
 		<h2 class="mb-4 text-lg font-bold text-white">
