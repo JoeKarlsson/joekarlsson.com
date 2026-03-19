@@ -7,13 +7,17 @@ export default [
 	...tseslint.configs.recommended,
 	...eslintPluginAstro.configs.recommended,
 	{
-		ignores: ['dist/', '.astro/', 'node_modules/', '.lighthouseci/'],
+		ignores: ['dist/', '.astro/', 'node_modules/', '.lighthouseci/', 'scripts/'],
 	},
 	{
 		rules: {
 			// Relaxed for existing code
 			'@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
 			'@typescript-eslint/no-explicit-any': 'warn',
+			'@typescript-eslint/ban-ts-comment': [
+				'warn',
+				{ 'ts-nocheck': 'allow-with-description', minimumDescriptionLength: 10 },
+			],
 			'no-console': 'warn',
 			// Response is a global in Astro endpoints
 			'no-undef': 'off',

@@ -117,7 +117,7 @@ async function main() {
 	const mdFiles = files.filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
 
 	let updated = 0;
-	let unmapped = [];
+	const unmapped = [];
 
 	for (const file of mdFiles.sort()) {
 		const filePath = join(BLOG_DIR, file);

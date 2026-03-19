@@ -262,8 +262,8 @@ import { SOCIAL_LINKS } from '../consts';
 			if (!platformEl) return;
 			const platform = platformEl.textContent?.trim() || 'Unknown';
 			link.addEventListener('click', () => {
-				if (typeof (window as any).plausible === 'function') {
-					(window as any).plausible('Contact Social Click', { props: { platform } });
+				if (typeof window.plausible === 'function') {
+					window.plausible('Contact Social Click', { props: { platform } });
 				}
 			});
 		});

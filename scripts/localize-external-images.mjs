@@ -40,7 +40,7 @@ function urlToFilename(url, index) {
 
 async function downloadFile(url, destPath) {
 	// Clean URL (remove trailing stuff after extensions for malformed URLs)
-	let cleanUrl = url;
+	const cleanUrl = url;
 
 	const response = await fetch(cleanUrl, {
 		headers: {

@@ -179,7 +179,6 @@ function isActive(href: string): boolean {
 		let mouseX = -100;
 		let mouseY = -100;
 		let isAnimating = false;
-		let animationId: number | null = null;
 		let settleFrames = 0;
 
 		canvas.addEventListener('mousemove', (e) => {
@@ -265,7 +264,7 @@ function isActive(href: string): boolean {
 				settleFrames = 0;
 			}
 
-			animationId = requestAnimationFrame(animate);
+			requestAnimationFrame(animate);
 		}
 
 		drawStatic();

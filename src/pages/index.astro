@@ -440,14 +440,14 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 </style>
 
 <script>
-	const output = document.getElementById('output');
-	const inputLine = document.getElementById('input-line');
-	const inputText = document.getElementById('input-text');
-	const terminal = document.getElementById('terminal');
-	const hiddenInput = document.getElementById('hidden-input') as HTMLInputElement | null;
+	const _output = document.getElementById('output');
+	const _inputLine = document.getElementById('input-line');
+	const _inputText = document.getElementById('input-text');
+	const _terminal = document.getElementById('terminal');
+	const _hiddenInput = document.getElementById('hidden-input') as HTMLInputElement | null;
 
 	// On mobile, terminal elements are hidden - skip all terminal JS
-	if (!output || !inputLine || !inputText || !terminal || !hiddenInput) {
+	if (!_output || !_inputLine || !_inputText || !_terminal || !_hiddenInput) {
 		// Still set up scroll reveal for the rest of the page
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -462,8 +462,15 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		);
 		document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
 	} else {
+		// Non-null reassignment for TypeScript closure narrowing
+		const output = _output;
+		const inputLine = _inputLine;
+		const inputText = _inputText;
+		const terminal = _terminal;
+		const hiddenInput = _hiddenInput;
+
 		let currentInput = '';
-		let commandHistory: string[] = [];
+		const commandHistory: string[] = [];
 		let historyIndex = -1;
 		let ready = false;
 
@@ -656,45 +663,8 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			lines.forEach((line) => appendLine(line));
 		}
 
-		async function typeLines(lines: string[], delay = 40) {
-			for (const line of lines) {
-				appendLine(line);
-				await sleep(delay);
-			}
-		}
-
 		function sleep(ms: number): Promise<void> {
 			return new Promise((r) => setTimeout(r, ms));
-		}
-
-		async function typeCommand(cmd: string, charDelay = 50) {
-			const cmdLine = document.createElement('div');
-			cmdLine.className = 'flex items-center';
-			const promptSpan = document.createElement('span');
-			promptSpan.className = 'text-coral mr-2';
-			promptSpan.textContent = '~$';
-			const textSpan = document.createElement('span');
-			textSpan.className = 'text-white';
-			const cursorSpan = document.createElement('span');
-			cursorSpan.className = 'cursor';
-			cursorSpan.innerHTML = '&#9608;';
-			cmdLine.appendChild(promptSpan);
-			cmdLine.appendChild(textSpan);
-			cmdLine.appendChild(cursorSpan);
-			output.appendChild(cmdLine);
-			scrollToBottom();
-
-			for (let i = 0; i < cmd.length; i++) {
-				textSpan.textContent = cmd.slice(0, i + 1);
-				scrollToBottom();
-				await sleep(charDelay);
-			}
-
-			await sleep(200);
-			cmdLine.remove();
-			appendLine(
-				`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(cmd)}</span>`,
-			);
 		}
 
 		// --- Matrix rain easter egg (full hero overlay) ---
@@ -704,7 +674,6 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			navMenu.style.display = 'none';
 
 			const heroSection = document.getElementById('hero-section')!;
-			const heroContent = document.getElementById('hero-content')!;
 
 			// Create overlay that covers the entire hero
 			const overlay = document.createElement('div');
@@ -1107,8 +1076,8 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		}
 
 		function trackTerminalCommand(cmd: string) {
-			if (typeof (window as any).plausible === 'function') {
-				(window as any).plausible('Terminal Command', { props: { command: cmd } });
+			if (typeof window.plausible === 'function') {
+				window.plausible('Terminal Command', { props: { command: cmd } });
 			}
 		}
 

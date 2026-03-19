@@ -525,15 +525,6 @@ const {
 				const catTooltip = document.getElementById('cat-tooltip');
 
 				if (catEl && catEyes) {
-					const eyeStates = [
-						{ left: '-', right: '-', label: 'far left' },
-						{ left: 'o', right: 'o', label: 'center' },
-						{ left: '-', right: 'o', label: 'left' },
-						{ left: 'o', right: '-', label: 'right' },
-						{ left: '^', right: '^', label: 'up' },
-						{ left: 'v', right: 'v', label: 'down' },
-					];
-
 					function updateEyes(clientX, clientY) {
 						if (prefersReducedMotion.matches) return;
 						const rect = catEl.getBoundingClientRect();
@@ -702,7 +693,7 @@ const {
 				}
 
 				function renderCommands(query) {
-					var q = query.toLowerCase().trim();
+					const q = query.toLowerCase().trim();
 					filteredCommands = q
 						? commands.filter(function (c) {
 								return c.name.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q);
@@ -711,7 +702,7 @@ const {
 
 					list.innerHTML = '';
 					filteredCommands.forEach(function (cmd, i) {
-						var li = document.createElement('li');
+						const li = document.createElement('li');
 						li.setAttribute('role', 'option');
 						li.id = 'cmd-item-' + i;
 						li.setAttribute('aria-selected', i === selectedIndex ? 'true' : 'false');
@@ -743,11 +734,11 @@ const {
 				}
 
 				function updateSelection() {
-					var items = list.querySelectorAll('li');
+					const items = list.querySelectorAll('li');
 					items.forEach(function (li, i) {
 						li.setAttribute('aria-selected', i === selectedIndex ? 'true' : 'false');
 					});
-					var active = items[selectedIndex];
+					const active = items[selectedIndex];
 					if (active) {
 						input.setAttribute('aria-activedescendant', active.id);
 						active.scrollIntoView({ block: 'nearest' });
@@ -812,7 +803,7 @@ const {
 				}
 
 				// ===== Konami Code =====
-				var konamiSequence = [
+				const konamiSequence = [
 					'ArrowUp',
 					'ArrowUp',
 					'ArrowDown',
@@ -824,11 +815,11 @@ const {
 					'b',
 					'a',
 				];
-				var konamiIndex = 0;
+				let konamiIndex = 0;
 
 				document.addEventListener('keydown', function (e) {
 					if (paletteOpen) return; // Don't capture when palette is open
-					var expected = konamiSequence[konamiIndex];
+					const expected = konamiSequence[konamiIndex];
 					if (e.key === expected || e.key.toLowerCase() === expected) {
 						konamiIndex++;
 						if (konamiIndex === konamiSequence.length) {
@@ -840,17 +831,17 @@ const {
 					}
 				});
 
-				var konamiOverlay = document.getElementById('konami-overlay');
-				var konamiGauges = document.getElementById('konami-gauges');
-				var konamiContainers = document.getElementById('konami-containers');
-				var konamiCrash = document.getElementById('konami-crash');
-				var konamiCrashText = document.getElementById('konami-crash-text');
+				const konamiOverlay = document.getElementById('konami-overlay');
+				const konamiGauges = document.getElementById('konami-gauges');
+				const konamiContainers = document.getElementById('konami-containers');
+				const konamiCrash = document.getElementById('konami-crash');
+				const konamiCrashText = document.getElementById('konami-crash-text');
 				if (konamiCrashText) {
 					konamiCrashText.textContent =
 						"  ___  ___  __  __   _  ___ _ _        _\n / _ \\/ _ \\|  \\/  | | |/ (_) | |___ __| |\n| (_) | (_) | |\\/| | | ' <| | | / -_) _` |\n \\___/ \\___/|_|  |_| |_|\\_\\_|_|_\\___\\__,_|\n\nFATAL: out of memory\nkernel: Out of memory: Killed process 31337 (grafana)\nkernel: Killed process 31338 (prometheus)\nkernel: Killed process 31339 (node-exporter)\n\nTotal memory: 4096MB\nUsed: 4095MB\nAvailable: 1MB\n\n...system halted.";
 				}
-				var konamiCloseBtn = document.getElementById('konami-close');
-				var konamiTimers = [];
+				const konamiCloseBtn = document.getElementById('konami-close');
+				let konamiTimers = [];
 
 				function clearKonamiTimers() {
 					konamiTimers.forEach(function (t) {
@@ -880,15 +871,15 @@ const {
 					konamiCrash.style.display = 'none';
 
 					// Build gauges
-					var gaugeData = [
+					const gaugeData = [
 						{ label: 'CPU', value: 23 },
 						{ label: 'Memory', value: 41 },
 						{ label: 'Disk', value: 67 },
 					];
 					konamiGauges.innerHTML = '';
-					var gaugeFills = [];
+					const gaugeFills = [];
 					gaugeData.forEach(function (g) {
-						var div = document.createElement('div');
+						const div = document.createElement('div');
 						div.className = 'konami-gauge';
 						div.innerHTML =
 							'<div class="konami-gauge-label">' +
@@ -909,7 +900,7 @@ const {
 					});
 
 					// Build containers
-					var containers = [
+					const containers = [
 						'plex',
 						'jellyfin',
 						'home-assistant',
@@ -922,7 +913,7 @@ const {
 					];
 					konamiContainers.innerHTML = '';
 					containers.forEach(function (name) {
-						var row = document.createElement('div');
+						const row = document.createElement('div');
 						row.className = 'konami-container-row';
 						row.innerHTML =
 							'<span class="konami-status-dot"></span>' +
@@ -934,7 +925,7 @@ const {
 					});
 
 					// Animate gauges climbing
-					var interval = setInterval(
+					const interval = setInterval(
 						function () {
 							gaugeFills.forEach(function (g) {
 								g.value = Math.min(99, g.value + Math.floor(Math.random() * 8 + 2));
@@ -950,12 +941,12 @@ const {
 					konamiTimers.push(interval);
 
 					// OOM crash after delay
-					var crashDelay = prefersReducedMotion.matches ? 2500 : 3500;
-					var crashTimer = setTimeout(function () {
+					const crashDelay = prefersReducedMotion.matches ? 2500 : 3500;
+					const crashTimer = setTimeout(function () {
 						clearInterval(interval);
 						// Turn all containers red
-						var dots = konamiContainers.querySelectorAll('.konami-status-dot');
-						var statuses = konamiContainers.querySelectorAll('.konami-container-status');
+						const dots = konamiContainers.querySelectorAll('.konami-status-dot');
+						const statuses = konamiContainers.querySelectorAll('.konami-container-status');
 						dots.forEach(function (d) {
 							d.style.background = '#ef4444';
 						});
@@ -970,7 +961,7 @@ const {
 					konamiTimers.push(crashTimer);
 
 					// Auto close after crash
-					var autoClose = setTimeout(function () {
+					const autoClose = setTimeout(function () {
 						closeKonami();
 					}, crashDelay + 5000);
 					konamiTimers.push(autoClose);
@@ -997,21 +988,21 @@ const {
 
 				// ===== Matrix Rain Easter Egg =====
 				function triggerMatrixRain() {
-					var canvas = document.createElement('canvas');
+					const canvas = document.createElement('canvas');
 					canvas.id = 'matrix-rain-canvas';
 					canvas.style.cssText =
 						'position:fixed;inset:0;z-index:9997;pointer-events:none;opacity:0.7;';
 					document.body.appendChild(canvas);
-					var ctx = canvas.getContext('2d');
+					const ctx = canvas.getContext('2d');
 					canvas.width = window.innerWidth;
 					canvas.height = window.innerHeight;
 
-					var columns = Math.floor(canvas.width / 14);
-					var drops = [];
-					for (var i = 0; i < columns; i++) {
+					const columns = Math.floor(canvas.width / 14);
+					const drops = [];
+					for (let i = 0; i < columns; i++) {
 						drops[i] = Math.floor((Math.random() * -canvas.height) / 14);
 					}
-					var chars =
+					const chars =
 						'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789';
 
 					function draw() {
@@ -1019,8 +1010,8 @@ const {
 						ctx.fillRect(0, 0, canvas.width, canvas.height);
 						ctx.fillStyle = '#8bcbc8';
 						ctx.font = '12px monospace';
-						for (var i = 0; i < drops.length; i++) {
-							var char = chars[Math.floor(Math.random() * chars.length)];
+						for (let i = 0; i < drops.length; i++) {
+							const char = chars[Math.floor(Math.random() * chars.length)];
 							ctx.fillText(char, i * 14, drops[i] * 14);
 							if (drops[i] * 14 > canvas.height && Math.random() > 0.975) {
 								drops[i] = 0;
@@ -1029,7 +1020,7 @@ const {
 						}
 					}
 
-					var matrixInterval = setInterval(draw, prefersReducedMotion.matches ? 100 : 33);
+					const matrixInterval = setInterval(draw, prefersReducedMotion.matches ? 100 : 33);
 					setTimeout(function () {
 						clearInterval(matrixInterval);
 						canvas.remove();

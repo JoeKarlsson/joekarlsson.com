@@ -4,8 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="404 | Joe Karlsson" description="Page not found">
 	<script>
-		if (typeof (window as any).plausible === 'function') {
-			(window as any).plausible('404', { props: { path: window.location.pathname } });
+		if (typeof window.plausible === 'function') {
+			window.plausible('404', { props: { path: window.location.pathname } });
 		}
 	</script>
 	<div class="mx-auto max-w-3xl px-4 py-16 text-center">
@@ -203,7 +203,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	const hiddenInput = document.getElementById('hidden-input') as HTMLInputElement;
 
 	let currentInput = '';
-	let commandHistory: string[] = [];
+	const commandHistory: string[] = [];
 	let historyIndex = -1;
 	let ready = false;
 

@@ -4,8 +4,6 @@ import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 import NewsletterCTA from '../components/NewsletterCTA.astro';
 import AuthorBio from '../components/AuthorBio.astro';
-import { SOCIAL_LINKS } from '../consts';
-
 interface Props {
 	title: string;
 	description?: string;
@@ -29,7 +27,6 @@ const {
 	date,
 	updatedDate,
 	heroImage,
-	tags,
 	categories,
 	slug,
 	contentNotice,
@@ -380,7 +377,7 @@ const relatedPosts = publishedPosts
 				const depthMilestones = new Set<number>();
 
 				function trackScrollDepth(pct: number) {
-					const plausible = (window as any).plausible;
+					const plausible = window.plausible;
 					if (typeof plausible !== 'function') return;
 					[25, 50, 75, 100].forEach((milestone) => {
 						if (pct >= milestone && !depthMilestones.has(milestone)) {
