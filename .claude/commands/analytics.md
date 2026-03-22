@@ -69,6 +69,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
 ```
 
 Present:
+
 - **Visitors**: 7d vs 30d average (trending up/down?)
 - **Bounce rate**: Is it healthy (<60%) or concerning (>70%)?
 - **Avg visit duration**: Good engagement (>1min) or quick exits (<30s)?
@@ -127,6 +128,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
 ```
 
 Identify:
+
 - **High-traffic pages with high bounce**: These need better CTAs or internal links
 - **Top entry pages**: Are they optimized for first impressions?
 - **Common exit pages**: Where are we losing people? Can we add related content?
@@ -184,6 +186,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
 ```
 
 Analyze:
+
 - **Direct vs Search vs Social**: Is organic search working?
 - **High-bounce sources**: Some referrers may send low-quality traffic
 - **Best-converting sources**: Which sources have lowest bounce and longest duration?
@@ -212,6 +215,7 @@ Also check server logs if accessible, or look for pages with unusually high boun
 ### 4b. High-bounce pages (>80% bounce rate with decent traffic)
 
 From the top pages data, filter for:
+
 - Bounce rate > 80%
 - At least 50 visitors in 30 days
 
@@ -220,6 +224,7 @@ These are **priority fixes** - people are finding these pages but immediately le
 ### 4c. Short-duration pages (avg < 15 seconds)
 
 Pages where visit duration is under 15 seconds suggest:
+
 - Content doesn't match search intent
 - Poor above-the-fold content
 - Slow loading or broken layout
@@ -392,6 +397,7 @@ IMPOSSIBLE TO FIX (external factors):
 ### Implementation Details
 
 For each actionable recommendation, provide:
+
 1. **What to fix**: Specific page or issue
 2. **Why it matters**: Impact on traffic/engagement
 3. **How to fix it**: Exact steps, file paths, code changes if applicable
@@ -407,6 +413,7 @@ ls src/content/blog/*slug*.md
 ```
 
 Then provide specific content suggestions:
+
 - Better opening hook
 - Missing internal links
 - CTAs to add
@@ -418,6 +425,7 @@ Then provide specific content suggestions:
 ## Usage
 
 Run this skill anytime to get a current snapshot:
+
 - `/analytics` - Full report
 - Review monthly to track trends
 - Run after publishing new content to see initial performance

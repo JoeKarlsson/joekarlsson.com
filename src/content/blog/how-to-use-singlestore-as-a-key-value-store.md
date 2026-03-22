@@ -45,7 +45,7 @@ So the big question remains, why not just use a database that was designed to be
 
 - Use existing skills: Since SingleStore is MySQL wire-compatible, you don’t need to learn a new language to query your database.
 
--  Simplify your architecture: Eliminates the need for multiple purpose-built data engines.
+- Simplify your architecture: Eliminates the need for multiple purpose-built data engines.
 
 - Increase your speed: Take advantage of ultra-fast data ingestion and sub-second latencies.
 
