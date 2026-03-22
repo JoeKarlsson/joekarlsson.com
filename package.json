@@ -24,7 +24,8 @@
 		"lint:fix": "eslint . --fix",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"test": "npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:build-output && npm run test:content"
+		"test": "npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:build-output && npm run test:content",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^5.0.2",
@@ -49,7 +50,9 @@
 		"cspell": "^9.7.0",
 		"eslint": "^10.0.3",
 		"eslint-plugin-astro": "^1.6.0",
+		"husky": "^9.1.7",
 		"knip": "^5.88.1",
+		"lint-staged": "^16.4.0",
 		"markdownlint-cli2": "^0.21.0",
 		"pa11y-ci": "^4.1.0",
 		"prettier": "^3.8.1",
@@ -58,5 +61,14 @@
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.57.1",
 		"vitest": "^4.1.0"
+	},
+	"lint-staged": {
+		"*.{js,mjs,ts,astro}": [
+			"prettier --write",
+			"eslint --fix"
+		],
+		"*.{md,mdx,json,css,yml,yaml}": [
+			"prettier --write"
+		]
 	}
 }

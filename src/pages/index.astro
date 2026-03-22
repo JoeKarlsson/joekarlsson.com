@@ -119,9 +119,20 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					<div id="output"></div>
 					<div id="input-line" class="flex items-center" style="display:none;">
 						<span class="prompt text-coral mr-2">~$</span>
+						<span id="placeholder" class="text-gray-500 absolute pointer-events-none"
+							>type a command...</span
+						>
 						<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
 							>&#9608;</span
 						>
+					</div>
+					<div
+						id="hint-text"
+						class="text-xs text-gray-500 mt-2 transition-opacity duration-500"
+						style="display:none;"
+					>
+						Type <span class="text-coral">help</span> or use <span class="text-teal">↑↓</span> to navigate
+						• <span class="text-teal">Tab</span> to autocomplete
 					</div>
 					<!-- Arrow-navigable menu -->
 					<nav id="nav-menu" class="mt-3" style="display:none;" aria-label="Site navigation">
@@ -468,11 +479,64 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		const inputText = _inputText;
 		const terminal = _terminal;
 		const hiddenInput = _hiddenInput;
+		const placeholder = document.getElementById('placeholder');
+		const hintText = document.getElementById('hint-text');
 
 		let currentInput = '';
 		const commandHistory: string[] = [];
 		let historyIndex = -1;
 		let ready = false;
+		let hasInteracted = false;
+
+		// All available commands for tab completion
+		const allCommands = [
+			'help',
+			'ls',
+			'cd',
+			'goto',
+			'whoami',
+			'cat',
+			'uptime',
+			'neofetch',
+			'clear',
+			'fortune',
+			'cowsay',
+			'man',
+			'hack',
+			'matrix',
+			'pwd',
+			'hi',
+			'hello',
+			'coffee',
+			'beer',
+			'ping',
+			'ssh',
+			'docker',
+			'git',
+			'npm',
+			'top',
+			'htop',
+			'ps',
+			'nvidia-smi',
+			'xkcd',
+			'rickroll',
+			'42',
+		];
+
+		// Cat subcommands for tab completion
+		const catFiles = [
+			'about.md',
+			'about',
+			'work.md',
+			'work',
+			'readme',
+			'music',
+			'fails',
+			'blog/iot',
+			'blog/homelab',
+			'blog',
+			'cat',
+		];
 
 		// CLI selector menu
 		const navMenu = document.getElementById('nav-menu')!;
@@ -1096,6 +1160,9 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			const trimmed = raw.trim();
 			if (!trimmed) return;
 
+			// Hide hint after first command
+			hideHint();
+
 			appendLine(
 				`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`,
 			);
@@ -1533,7 +1600,21 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 
 		function updateInputDisplay() {
 			inputText.textContent = currentInput;
+			// Show/hide placeholder based on input
+			if (placeholder) {
+				placeholder.style.display = currentInput.length > 0 ? 'none' : 'inline';
+			}
 			scrollToBottom();
+		}
+
+		function hideHint() {
+			if (hintText && !hasInteracted) {
+				hasInteracted = true;
+				hintText.style.opacity = '0';
+				setTimeout(() => {
+					hintText.style.display = 'none';
+				}, 500);
+			}
 		}
 
 		function focusInput() {
