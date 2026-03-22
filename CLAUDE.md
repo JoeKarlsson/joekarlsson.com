@@ -35,7 +35,7 @@ npm run build      # Build static site
 - **ESLint** lints TS/Astro files (`npm run lint`). Config: `eslint.config.mjs`
 - **Vitest** tests build output and content schema (`tests/`). Config: `vitest.config.ts`
 - **Knip** detects unused dependencies and exports (`npm run test:unused`). Config: `knip.config.ts`
-- Run `npm run format:check && npm run lint` before committing
+- **Pre-commit hook** (husky + lint-staged) auto-formats and lints staged files on commit
 - All checks run in CI and will fail the build if issues are found
 
 ## CI/CD
