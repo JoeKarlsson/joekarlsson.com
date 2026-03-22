@@ -13,6 +13,11 @@ const config: KnipConfig = {
 		// lychee is installed via GitHub Action, not npm
 		'lychee',
 	],
+	ignoreExportsUsedInFile: true,
+	ignore: [
+		// Terminal commands are dynamically invoked via command registry
+		'src/lib/terminal-core.ts',
+	],
 };
 
 export default config;
