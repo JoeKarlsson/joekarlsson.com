@@ -10,7 +10,7 @@ contentNotice: false
 tldr: 'I replaced all my Alexa devices with Home Assistant Voice Preview Edition for privacy. It works great for smart home control once you invest weeks rebuilding every automation, but voice recognition is way worse than Alexa and family adoption has been rough.'
 ---
 
-After five years of building automations in [Home Assistant](https://www.home-assistant.io/) (I wrote about [how I first got started with Home Assistant](/blog/how-to-get-started-with-home-assistant-in-2023/) a while back), I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home Assistant’s Voice Preview Edition. Recent privacy changes from Amazon were the final straw, but what I discovered during this migration was both more challenging and more technically satisfying than I anticipated.
+After five years of building automations in [Home Assistant](https://www.home-assistant.io/) (I wrote about [how I first got started with Home Assistant](/blog/how-to-get-started-with-home-assistant-in-2026/) a while back), I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home Assistant’s Voice Preview Edition. Recent privacy changes from Amazon were the final straw, but what I discovered during this migration was both more challenging and more technically satisfying than I anticipated.
 
 **Bottom line up front**: Home Assistant Voice Preview Edition delivers on its privacy promises and offers unprecedented customization, but the migration requires significant technical investment and realistic expectations about current limitations.
 
