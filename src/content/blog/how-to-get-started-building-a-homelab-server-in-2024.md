@@ -178,7 +178,7 @@ The [Community Scripts project](https://github.com/community-scripts/ProxmoxVE) 
 I use the [TRaSH Guides](https://trash-guides.info/) to configure all of my Arr apps and media downloaders. If you're setting up a media stack, start there.
 
 - **[Plex](https://www.geekbitzone.com/posts/2022/proxmox/plex-lxc/install-plex-in-proxmox-lxc/#introducing-linux-containers-lxc)** - My original media server. Still works, but I've lost some confidence in where the project is headed.
-- **[Jellyfin](https://jellyfin.org/)** - The open-source alternative I've been testing. Running both side by side in separate containers is one of the nice things about Proxmox. (If you're into music specifically, I wrote about [why self-hosted music still sucks](/blog/self-hosted-music-still-sucks-in-2025/) - the video side is way more mature.)
+- **[Jellyfin](https://jellyfin.org/)** - The open-source alternative I've been testing. Running both side by side in separate containers is one of the nice things about Proxmox. (If you're into music specifically, I wrote about [why self-hosted music still sucks](/blog/self-hosted-music-still-sucks-in-2026/) - the video side is way more mature.)
 - **[Tautulli](https://tautulli.com/)** - Monitors Plex usage. Tells me exactly who's streaming what and when.
 - **[Seerr](https://seerr.dev/)** - Request management and media discovery. Friends and family can request movies and shows through a nice web UI.
 - **[Radarr](https://radarr.video/) / [Sonarr](https://sonarr.tv/)** - Automated movie and TV show management, integrated with Usenet and BitTorrent.
@@ -337,7 +337,7 @@ Some natural next steps once you're comfortable:
 
 - **Set up a reverse proxy** (Nginx Proxy Manager or Caddy) to give your services clean URLs. I wrote about [how to set up custom domain names on your internal network using Nginx Proxy Manager and Pi-Hole](/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/).
 - **Add a VPN** ([WireGuard](https://www.wireguard.com/) or [Tailscale](https://tailscale.com/)) for secure remote access to your homelab.
-- **Try Home Assistant** if you have any smart home devices. I initially kept it off my server for security reasons, but it eventually became the most important thing in my entire setup. I wrote a [getting started guide for Home Assistant](/blog/how-to-get-started-with-home-assistant-in-2023/) and later documented [replacing Alexa with a privacy-focused setup](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
+- **Try Home Assistant** if you have any smart home devices. I initially kept it off my server for security reasons, but it eventually became the most important thing in my entire setup. I wrote a [getting started guide for Home Assistant](/blog/how-to-get-started-with-home-assistant-in-2026/) and later documented [replacing Alexa with a privacy-focused setup](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
 - **Add GPU passthrough** if you want hardware-accelerated transcoding in Plex/Jellyfin or want to run a gaming VM. I used GPU passthrough to build a [subtitle generator with Whisper](/blog/building-a-gpu-accelerated-subtitle-generator/) - that's the kind of project a GPU-enabled homelab unlocks.
 
 ## Resources for homelab beginners

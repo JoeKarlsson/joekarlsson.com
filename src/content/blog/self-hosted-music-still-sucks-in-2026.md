@@ -1,13 +1,14 @@
 ---
-title: 'Self-Hosted Music Still Sucks in 2025'
-date: 2025-06-18
-slug: 'self-hosted-music-still-sucks-in-2025'
-description: 'TL;DR: The *arr ecosystem perfected video automation but music remains stuck with album-centric workflows that don’t match how we actually consume music. Current tools like Lidarr force complete...'
+title: 'Self-Hosted Music Still Sucks in 2026'
+date: 2026-03-22
+updatedDate: 2026-03-22
+slug: 'self-hosted-music-still-sucks-in-2026'
+description: 'The *arr ecosystem perfected video automation but music remains stuck with album-centric workflows. Current tools like Lidarr force complete album downloads when users want individual tracks.'
 categories: ['Smart Home', 'Homelab']
 heroImage: '/images/blog/self-hosted-music-still-sucks-in-2025/image-1.webp'
-heroAlt: 'Self-hosted music still sucks in 2025'
+heroAlt: 'Self-hosted music still sucks in 2026'
 contentNotice: false
-tldr: 'The *arr ecosystem nailed video automation, but self-hosted music is still stuck in album-centric workflows that ignore how we actually listen to music. I lay out why the problem is so hard and what a track-first tool like "Songarr" would need to look like.'
+tldr: 'The *arr ecosystem nailed video automation, but self-hosted music is still stuck in album-centric workflows that ignore how we actually listen to music. I lay out why the problem is so hard and what a track-first tool like Songarr would need to look like. Navidrome 0.60 added some nice features like Instant Mix and a plugin system, but the core problem remains unsolved.'
 ---
 
 > TL;DR: The \*arr ecosystem perfected video automation but music remains stuck with album-centric workflows that don’t match how we actually consume music. Current tools like Lidarr force complete album downloads when users want individual tracks, creating a fundamental UX mismatch. We need ‘Songarr’ a track-first automation system that bridges streaming discovery with self-hosted ownership.
@@ -52,15 +53,17 @@ The next time I’m home and fire up my music app, “Midnight City” is just t
 
 Compare this to the current reality: I hear a song, I have to remember it, go home, fire up Lidarr’s web interface, search for the artist (hope I remembered the name correctly), browse through their discography to find the right album, add the entire album to monitoring, wait for it to download, manually import it, then separately fire up Navidrome or whatever music server I’m using, find the specific track I wanted from the 12 tracks that got downloaded, and manually add it to a playlist.
 
-It’s 2025. This workflow is absolutely barbaric for track-level music discovery and curation.
+It's 2026. This workflow is absolutely barbaric for track-level music discovery and curation.
 
 **The missing piece is a smooth request flow**. Overseerr nailed this for video content, beautiful search interface, one-click requests, automatic processing, notifications when ready. Music needs exactly the same pattern, but every current solution treats requesting music like you’re filing paperwork with the Department of Motor Vehicles.
 
-I don’t care if my server downloads entire albums behind the scenes. Storage is cheap, bandwidth is plentiful, and disk space optimization is a solved problem. What I care about is **user experience that matches how humans actually discover and consume music in 2025**.
+I don’t care if my server downloads entire albums behind the scenes. Storage is cheap, bandwidth is plentiful, and disk space optimization is a solved problem. What I care about is **user experience that matches how humans actually discover and consume music in 2026**.
 
-## Lidarr’s album-first architecture
+## Lidarr's album-first architecture
 
-Lidarr, despite being part of the \*arr family, approaches music with an album-first data model that’s fundamentally misaligned with how humans actually consume music in 2025. The entire system is built around MusicBrainz releases, complete albums that exist as indivisible units in the database schema.
+Lidarr, despite being part of the \*arr family, approaches music with an album-first data model that's fundamentally misaligned with how humans actually consume music in 2026. The entire system is built around MusicBrainz releases, complete albums that exist as indivisible units in the database schema.
+
+**Update for 2026**: Lidarr has had a rough year. The metadata server has been unreliable, breaking core functions like adding artists and library imports. The team is working on it, but it's made an already frustrating tool even more painful to use. And no, track-level support still hasn't materialized - the fundamental architecture remains album-centric.
 
 **The technical problems are architectural**:
 
@@ -74,9 +77,13 @@ Lidarr, despite being part of the \*arr family, approaches music with an album-f
 
 ## Current solutions
 
-I’ve been deep in the weeds investigating every possible solution, and the technical landscape reveals why we’re stuck.
+I've been deep in the weeds investigating every possible solution, and the technical landscape reveals why we're stuck.
 
-**Navidrome represents excellent server architecture** but zero automation capability. It’s a Go-based application that implements the Subsonic API specification, provides a clean React frontend, and handles audio transcoding through FFmpeg integration. The technical execution is solid-Docker deployment, SQLite/PostgreSQL backend options, LDAP authentication support [[Navidrome](https://www.navidrome.org/docs/overview/)]. But it’s architecturally positioned as a pure media server, not an automation system. It’s basically saying “bring your own music collection and I’ll serve it with sub-millisecond response times,” which completely sidesteps the workflow integration problem.
+**Navidrome has gotten better** - I'll give credit where it's due. Version 0.60 (February 2026) introduced a WebAssembly-based plugin system that lets developers extend functionality using Go, Rust, Python, or JavaScript. The plugins run in a sandbox, so you can add custom metadata sources and integrations without worrying about breaking your server. There's also a new "Instant Mix" feature that generates playlists of similar songs based on a selected track, pulling recommendations from Last.fm or Deezer.
+
+Earlier versions added multi-artist album support, composer/conductor metadata, and smart playlists that can use custom tags. The 0.59 release brought selective folder scanning and scrobble history. Multi-library support is coming in the next version.
+
+But here's the thing: **Navidrome is still architecturally a media server, not an automation system**. It's a Go-based application that implements the Subsonic API specification, provides a clean React frontend, and handles audio transcoding through FFmpeg integration. The technical execution is excellent - Docker deployment, SQLite/PostgreSQL backend options, LDAP authentication support [[Navidrome](https://www.navidrome.org/docs/overview/)]. But it's basically saying "bring your own music collection and I'll serve it beautifully," which completely sidesteps the workflow integration problem. Instant Mix is nice for discovery within your existing library, but it doesn't help you get music into that library in the first place.
 
 **Music Assistant takes a different architectural approach**, designed as a Home Assistant add-on with focus on multi-room audio and streaming service integration. The technical innovation is in the provider system-it can connect simultaneously to Spotify, YouTube Music, local libraries, and physical audio equipment through a unified API abstraction layer [[Music Assistant](https://github.com/music-assistant)]. But again, it’s not solving the core problem of building local libraries-it’s assuming you’re either streaming everything or already have local files.
 
@@ -187,6 +194,8 @@ The \*arr ecosystem proves that excellent automation is possible when you have c
 
 From a systems design perspective, the solution isn’t technically complex, it’s mostly about building the right abstraction layers and integration points between existing, proven components. **We need track-first data modeling with album-aware acquisition logic**, not more fundamental architecture.
 
-The dream of adding individual songs to a self-hosted collection shouldn’t require a computer science PhD in 2025. We just need someone to build the missing integration layer that bridges discovery, acquisition, and library management using the solid technical foundation we already have.
+The dream of adding individual songs to a self-hosted collection shouldn't require a computer science PhD in 2026. We just need someone to build the missing integration layer that bridges discovery, acquisition, and library management using the solid technical foundation we already have.
 
-Until someone tackles this integration challenge, I’ll keep running my hybrid workflow-discovering on Apple Music, manually managing my self-hosted collection through Navidrome, and muttering about database schema design decisions made by people who clearly never used streaming services. If you’re curious about self-hosting in general, I wrote about [how to get started building a homelab server](/blog/how-to-get-started-building-a-homelab-server-in-2024/) where I run all of these services, and how the whole setup evolved in [My Homelab Two Years Later](/blog/homelab-two-years-later/). I also wrote about [replacing Alexa with a private voice assistant](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/) — another area where self-hosting means trading convenience for control.
+**2026 Update**: I originally wrote this post last year hoping it might spark some discussion. The good news: Navidrome has improved significantly - the plugin system and Instant Mix feature are genuinely useful additions. The bad news: the core problem remains unsolved. Lidarr's metadata server issues have actually made things worse if you're trying to automate music acquisition. The dream of "Songarr" is still just a dream.
+
+Until someone tackles this integration challenge, I'll keep running my hybrid workflow - discovering on Apple Music, manually managing my self-hosted collection through Navidrome, and muttering about database schema design decisions made by people who clearly never used streaming services. If you’re curious about self-hosting in general, I wrote about [how to get started building a homelab server](/blog/how-to-get-started-building-a-homelab-server-in-2024/) where I run all of these services, and how the whole setup evolved in [My Homelab Two Years Later](/blog/homelab-two-years-later/). I also wrote about [replacing Alexa with a private voice assistant](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/) — another area where self-hosting means trading convenience for control.

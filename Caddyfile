@@ -52,6 +52,13 @@
 	@all-work path /all-work /all-work/
 	redir @all-work /work 301
 
+	# Blog post renames - year updates
+	@ha-2023 path /blog/how-to-get-started-with-home-assistant-in-2023 /blog/how-to-get-started-with-home-assistant-in-2023/
+	redir @ha-2023 /blog/how-to-get-started-with-home-assistant-in-2026 301
+
+	@music-2025 path /blog/self-hosted-music-still-sucks-in-2025 /blog/self-hosted-music-still-sucks-in-2025/
+	redir @music-2025 /blog/self-hosted-music-still-sucks-in-2026 301
+
 	# WordPress feed → RSS
 	@feed path /feed /feed/
 	redir @feed /rss.xml 301

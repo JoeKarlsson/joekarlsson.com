@@ -1,17 +1,18 @@
 ---
-title: 'How to get started with Home Assistant in 2023'
-date: 2023-02-28
-slug: 'how-to-get-started-with-home-assistant-in-2023'
-description: 'Are you looking to turn your home into a smart home? With the help of Home Assistant, you can easily automate tasks and make your home more efficient. In this blog post, I’ll share my experience of...'
+title: 'How to get started with Home Assistant in 2026'
+date: 2026-03-22
+updatedDate: 2026-03-22
+slug: 'how-to-get-started-with-home-assistant-in-2026'
+description: 'Are you looking to turn your home into a smart home? With the help of Home Assistant, you can easily automate tasks and make your home more efficient.'
 categories: ['Smart Home']
 tags: ['Home Assistant', 'Smart Home']
 heroImage: '/images/blog/how-to-get-started-with-home-assistant-in-2023/How-to-get-started-with-Home-Assistant.webp'
-heroAlt: 'Getting started with Home Assistant for smart home automation'
+heroAlt: 'Getting started with Home Assistant for smart home automation in 2026'
 contentNotice: false
-tldr: 'I started with Alexa and Google Home but eventually landed on Home Assistant for the customization and local control. Here is how I got started and a bunch of automation ideas to try, from simple motion-triggered lights to full security setups.'
+tldr: 'I started with Alexa and Google Home but eventually landed on Home Assistant for the customization and local control. Here is how I got started and a bunch of automation ideas to try, from simple motion-triggered lights to full security setups. Updated for 2026 with the latest features like human-friendly triggers, vacuum area cleaning, and Android wake word detection.'
 ---
 
-Are you looking to turn your home into a smart home? With the help of [Home Assistant](https://www.home-assistant.io/), you can easily automate tasks and make your home more efficient. In this blog post, I’ll share my experience of how to get started with Home Assistant in 2023.
+Are you looking to turn your home into a smart home? With the help of [Home Assistant](https://www.home-assistant.io/), you can easily automate tasks and make your home more efficient. In this blog post, I'll share my experience of how to get started with Home Assistant in 2026.
 
 Home Assistant is a popular choice for home automation because of its versatility and flexibility. Here are a few reasons why I think Home Assistant stands out from other alternatives:
 
@@ -22,6 +23,22 @@ Home Assistant is a popular choice for home automation because of its versatilit
 - **Local control:** Unlike many other home automation platforms, Home Assistant allows for local control of your devices. This means that you can control your devices even if you don’t have an internet connection or if the cloud-based servers are down. If privacy is a big deal to you (it is for me), I eventually [replaced my Alexa setup entirely with Home Assistant voice control](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
 
 As for getting into the smart home community, I’ve had a blast! There is a huge and passionate community of smart home enthusiasts out there, and it’s been great to connect with like-minded individuals who share our love of technology and automation. I’ve learned a lot from other members of the community, and we’ve also been able to contribute our own ideas and experiences. Overall, I’ve found the smart home community to be welcoming, helpful, and fun to be a part of.
+
+## What's New in Home Assistant for 2026
+
+Home Assistant has come a long way, and 2026 has brought some features that make it more accessible than ever. Here are the highlights that matter most for beginners:
+
+- **Human-friendly triggers**: You can now build automations using plain language instead of cryptic state changes. Instead of configuring `state: 'on'` triggers, you can use triggers that say things like "when the front door opens" or "when someone arrives home." This is available through Home Assistant Labs and makes automation way less intimidating.
+
+- **Better device discovery**: The new "For You" section shows discovered devices right on your dashboard. When Home Assistant finds a new smart device on your network, you can add it with one click instead of hunting through settings menus.
+
+- **Vacuum area cleaning**: If you have a robot vacuum, Home Assistant can now tell it to clean specific rooms using your existing area definitions. No more messing with vendor-specific room IDs.
+
+- **Android wake words**: The Companion app now supports wake word detection on your phone. Say "Okay Nabu" or "Hey Jarvis" and start talking. This is huge for voice control without dedicated hardware.
+
+- **Visual automation editor improvements**: The "Continue on error" option is finally in the visual editor. This used to require hand-editing YAML - now anyone can build automations that gracefully handle failures.
+
+The performance is noticeably better too. Home Assistant now runs on Python 3.14, which means faster startup times and lower memory usage. If you tried Home Assistant a few years ago and found it sluggish, it's worth another look.
 
 ## What is Home Assistant?
 
