@@ -38,12 +38,16 @@ import '../styles/terminal.css';
 				<div id="output"></div>
 				<div id="input-line" class="flex items-center" style="display:none;">
 					<span class="prompt text-coral mr-2">joe@404 ~$</span>
-					<span id="placeholder" class="text-gray-500 absolute pointer-events-none"
-						>type a command...</span
-					>
-					<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
-						>&#9608;</span
-					>
+					<span class="relative">
+						<span
+							id="placeholder"
+							class="text-gray-500 absolute left-0 pointer-events-none"
+							style="white-space: nowrap;">type a command...</span
+						>
+						<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
+							>&#9608;</span
+						>
+					</span>
 				</div>
 				<div
 					id="hint-text"

@@ -120,12 +120,16 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					<div id="output"></div>
 					<div id="input-line" class="flex items-center" style="display:none;">
 						<span class="prompt text-coral mr-2">~$</span>
-						<span id="placeholder" class="text-gray-500 absolute pointer-events-none"
-							>type a command...</span
-						>
-						<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
-							>&#9608;</span
-						>
+						<span class="relative">
+							<span
+								id="placeholder"
+								class="text-gray-500 absolute left-0 pointer-events-none"
+								style="white-space: nowrap;">type a command...</span
+							>
+							<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
+								>&#9608;</span
+							>
+						</span>
 					</div>
 					<div
 						id="hint-text"
@@ -1626,7 +1630,12 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			if (!ready) return;
 
 			if (menuActive) {
-				if (e.key === 'ArrowUp') {
+				// If user has command history, prioritize history over menu navigation
+				if (e.key === 'ArrowUp' && commandHistory.length > 0) {
+					// Fall through to history handling below
+				} else if (e.key === 'ArrowDown' && commandHistory.length > 0) {
+					// Fall through to history handling below
+				} else if (e.key === 'ArrowUp') {
 					e.preventDefault();
 					menuIndex = (menuIndex - 1 + activeMenu().length) % activeMenu().length;
 					renderMenu();
@@ -1734,8 +1743,8 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				}
 				// Tab completion for base commands
 				else if (!input.includes(' ')) {
-					const matches = allCommands.filter((c) => c.startsWith(input));
-					if (matches.length === 1) {
+					const matches = allCommands.filter((c) => c.startsWith(input)).sort();
+					if (matches.length >= 1) {
 						currentInput = matches[0];
 						hiddenInput.value = currentInput;
 						updateInputDisplay();
