@@ -626,7 +626,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 
 			if (opt.action === 'browse-pages') {
 				appendLine(`<span class="text-coral">~$</span> <span class="text-white">cd</span>`);
-				appendLines(cmdLs());
+				appendLines(cmdLs(''));
 				currentMenuLevel = 'pages';
 				menuIndex = 0;
 				renderMenu();
@@ -1705,13 +1705,40 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				updateInputDisplay();
 			} else if (e.key === 'Tab') {
 				e.preventDefault();
-				const partial = currentInput.replace(/^(cd|goto)\s+/, '');
-				const prefix = currentInput.replace(partial, '');
-				const matches = Object.keys(pages).filter((p) => p.startsWith(partial));
-				if (matches.length === 1) {
-					currentInput = prefix + matches[0];
-					hiddenInput.value = currentInput;
-					updateInputDisplay();
+				const input = currentInput.toLowerCase();
+
+				// Tab completion for cd/goto <page>
+				if (input.startsWith('cd ') || input.startsWith('goto ')) {
+					const partial = currentInput.replace(/^(cd|goto)\s+/i, '');
+					const prefix = currentInput.slice(0, currentInput.length - partial.length);
+					const matches = Object.keys(pages).filter((p) =>
+						p.toLowerCase().startsWith(partial.toLowerCase()),
+					);
+					if (matches.length === 1) {
+						currentInput = prefix + matches[0];
+						hiddenInput.value = currentInput;
+						updateInputDisplay();
+					}
+				}
+				// Tab completion for cat <file>
+				else if (input.startsWith('cat ')) {
+					const partial = currentInput.replace(/^cat\s+/i, '');
+					const prefix = 'cat ';
+					const matches = catFiles.filter((f) => f.toLowerCase().startsWith(partial.toLowerCase()));
+					if (matches.length === 1) {
+						currentInput = prefix + matches[0];
+						hiddenInput.value = currentInput;
+						updateInputDisplay();
+					}
+				}
+				// Tab completion for base commands
+				else if (!input.includes(' ')) {
+					const matches = allCommands.filter((c) => c.startsWith(input));
+					if (matches.length === 1) {
+						currentInput = matches[0];
+						hiddenInput.value = currentInput;
+						updateInputDisplay();
+					}
 				}
 			} else if (e.key === 'l' && e.ctrlKey) {
 				e.preventDefault();
@@ -1737,6 +1764,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				appendLine('<span class="text-dim">Welcome to joekarlsson.com</span>');
 				appendLine('');
 				inputLine.style.display = 'flex';
+				if (hintText) hintText.style.display = 'block';
 				showMenu();
 				ready = true;
 				focusInput();
@@ -1749,11 +1777,12 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				'<span class="text-dim">[  0.042] Mounting /dev/pages ... <span class="text-green">OK</span></span>',
 			);
 			await sleep(150);
-			appendLine('<span class="text-dim">[  0.069] Welcome.</span>');
+			appendLine('<span class="text-dim">[  0.069] Welcome! Try typing a command below.</span>');
 			await sleep(200);
 			appendLine('');
 
 			inputLine.style.display = 'flex';
+			if (hintText) hintText.style.display = 'block';
 			showMenu();
 			ready = true;
 			focusInput();
