@@ -21,7 +21,7 @@ const homepageProjects = projects
 const featuredSlugs = [
 	'how-to-get-started-building-a-homelab-server-in-2024',
 	'an-introduction-to-iot-internet-of-toilets',
-	'how-to-get-started-with-home-assistant-in-2023',
+	'how-to-get-started-with-home-assistant-in-2026',
 ];
 
 const allPosts = (await getCollection('blog')).sort(
@@ -118,14 +118,16 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					aria-label="Interactive terminal. Type help for available commands."
 				>
 					<div id="output"></div>
-					<div id="input-line" class="flex items-center" style="display:none;">
+					<div id="input-line" class="flex items-center relative" style="display:none;">
 						<span class="prompt text-coral mr-2">~$</span>
-						<span id="placeholder" class="text-gray-500 absolute pointer-events-none"
-							>type a command...</span
-						>
-						<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
-							>&#9608;</span
-						>
+						<span class="relative">
+							<span id="input-text" class="text-gray-200"></span><span
+								id="autocomplete-ghost"
+								class="text-gray-600"></span><span id="cursor" class="cursor">&#9608;</span>
+							<span id="placeholder" class="text-gray-500 absolute left-0 top-0 pointer-events-none"
+								>type a command...</span
+							>
+						</span>
 					</div>
 					<div
 						id="hint-text"
@@ -482,6 +484,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		const hiddenInput = _hiddenInput;
 		const placeholder = document.getElementById('placeholder');
 		const hintText = document.getElementById('hint-text');
+		const autocompleteGhost = document.getElementById('autocomplete-ghost');
 
 		let currentInput = '';
 		const commandHistory: string[] = [];
@@ -1604,6 +1607,16 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			// Show/hide placeholder based on input
 			if (placeholder) {
 				placeholder.style.display = currentInput.length > 0 ? 'none' : 'inline';
+			}
+			// Show inline autocomplete ghost text
+			if (autocompleteGhost) {
+				if (currentInput.length > 0 && !currentInput.includes(' ')) {
+					const input = currentInput.toLowerCase();
+					const match = allCommands.find((c) => c.startsWith(input) && c !== input);
+					autocompleteGhost.textContent = match ? match.slice(currentInput.length) : '';
+				} else {
+					autocompleteGhost.textContent = '';
+				}
 			}
 			scrollToBottom();
 		}
