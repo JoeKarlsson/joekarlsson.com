@@ -69,6 +69,7 @@ test.describe('Contact Page', () => {
 });
 
 test.describe('Contact Page - Reduced Motion', () => {
+	// @ts-expect-error - reducedMotion is valid Playwright option but astro check doesn't recognize it
 	test.use({ reducedMotion: 'reduce' });
 
 	test('typing animation respects reduced motion preference', async ({ page }) => {

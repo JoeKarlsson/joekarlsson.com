@@ -147,6 +147,7 @@ test.describe('Focus Visibility', () => {
 });
 
 test.describe('Reduced Motion', () => {
+	// @ts-expect-error - reducedMotion is valid Playwright option but astro check doesn't recognize it
 	test.use({ reducedMotion: 'reduce' });
 
 	test('page loads correctly with reduced motion preference', async ({ page }) => {
