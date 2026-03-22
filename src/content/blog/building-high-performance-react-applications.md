@@ -35,7 +35,7 @@ Using our example app, and our initial analysis, we see that there is a LOT of r
 
 ---
 
-### Use 🔑Key🔑 Correctly
+### Use Key Correctly
 
 So, who has had this happen to them before? You are writing a react app and you start looping over a list of data and you are dynamically creating React nodes. All is fine and your app is rendering to the DOM just fine, but you see this little warning pop up for you in the console.
 
@@ -85,7 +85,7 @@ We’ve cut the re-render time from approximately _16 ms to 9 ms_. We’ve nearl
 
 ---
 
-### Extend ✨ PureComponent ✨
+### Extend PureComponent
 
 `shouldComponentUpdate()` is wonderful and it does great things for helping improve the performance of our React applications, but you should consider using the built-in PureComponent instead of writing `shouldComponentUpdate()` by hand. A PureComponent performs a shallow comparison of props and state and reduces the chance that you’ll skip a necessary update.
 
@@ -121,7 +121,7 @@ We can see that we see exactly the same performance gains as when we use `should
 
 ---
 
-### Use 🔒Immutable🔒 Data
+### Use Immutable Data
 
 Immutable is one of those fancy programming words you’ve probably heard tossed around, but you might not know what it means. _Immutable_ is a fancy word that means instead of changing data you are instead _making new copies of objects/arrays_. Using immutable data in your React app allows the React diffing algorithm to make tracking the changes to your app cheap. Below is an example of how differences are tracked with Mutable and Immutable data. In the first mutable example, JavaScript needs to check each key in the object to check for differences, but in the Immutable example, JavaScript is able to check if the object pointer is in a different memory location. This is SO MUCH FASTER!
 
@@ -155,7 +155,7 @@ Universal React works great if you have a humongous app that takes a long time t
 
 ---
 
-### ⚡️ Build React for Production ⚡️
+### Build React for Production
 
 When you are building your React component on your development machine, it is expected that you build it using **development** mode. This is because this mode includes a bunch of helpful tools to help you debug your application. Development mode includes the performance audit tool that has been used to benchmark our app. However, when you run your app in **production** mode, React automatically strips out all of the development tools and builds a minified version that runs faster in the browser. The **production** build can even make your app run _two to eight times_ faster! Let’s check it out.
 
@@ -193,15 +193,15 @@ Oftentimes, I see engineers too focused on making a “perfect” app that they 
 
 Alright, let’s recap everything learned. If you want to make your React applications fast you should do the following:
 
-- Use 🔑key🔑 correctly
+- Use key correctly
 - Manage `shouldComponentUpdate()`
-- Extend ✨ PureComponent ✨
-- Use 🔒immutable🔒 data
+- Extend PureComponent
+- Use immutable data
 - Use stateless components
 - Go universal
-- ⚡️ Build React for production ⚡️
-- Analyze your Webpack bundle 🔬
-- Make it work, then make it fast 🏃💨
+- Build React for production
+- Analyze your Webpack bundle
+- Make it work, then make it fast
 
 There you have it, I hope these are some practical and easy-to-implement things you can do to start making your React apps faster. If you want to see these ideas in action, check out my tutorial on [how to build a Spotify player with React in 15 minutes](/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/). If I missed anything, feel free to reach out.
 

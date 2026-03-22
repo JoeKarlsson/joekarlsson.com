@@ -232,7 +232,7 @@ Companies are going to be giving you money, but they will expect something in re
 
 ### **Reach Out To Big Tech Companies**
 
-Reach out to big companies that have money allocated to sponsor hackathons, like Microsoft, Google, or GitHub. They are usually easily sold on sponsoring your event since they already have money allocated for events like yours. Plus, once you have these big sponsors, it is usually easier to get smaller companies because you can share how big well-known companies have already sponsored your event. 😉
+Reach out to big companies that have money allocated to sponsor hackathons, like Microsoft, Google, or GitHub. They are usually easily sold on sponsoring your event since they already have money allocated for events like yours. Plus, once you have these big sponsors, it is usually easier to get smaller companies because you can share how big well-known companies have already sponsored your event.
 
 Okay, so you want to make a cold call to a potential sponsor, what do you even say? Well, buddy, I’ve got you covered with this handy-dandy hackathon sponsor email template.
 

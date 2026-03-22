@@ -122,5 +122,38 @@ const categories = ['iot', 'web', 'games', 'dev-tools', 'homelab'] as const;
 				View all repos on GitHub &rarr;
 			</a>
 		</div>
+
+		{/* Keep exploring section */}
+		<div class="mb-10">
+			<h2 class="mb-4 text-lg font-bold text-white">
+				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cd ../
+			</h2>
+			<div class="grid gap-4 sm:grid-cols-3">
+				<a
+					href="/blog/"
+					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+				>
+					<p class="font-mono text-xs text-coral">Read</p>
+					<p class="font-bold text-white group-hover:text-coral">Blog Posts</p>
+					<p class="text-sm text-gray-400">Homelab, databases, and developer tools</p>
+				</a>
+				<a
+					href="/about/"
+					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+				>
+					<p class="font-mono text-xs text-coral">Learn</p>
+					<p class="font-bold text-white group-hover:text-coral">About Me</p>
+					<p class="text-sm text-gray-400">Background and what I'm working on</p>
+				</a>
+				<a
+					href="/talk-archive/"
+					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+				>
+					<p class="font-mono text-xs text-coral">Watch</p>
+					<p class="font-bold text-white group-hover:text-coral">Talk Archive</p>
+					<p class="text-sm text-gray-400">Conference talks and presentations</p>
+				</a>
+			</div>
+		</div>
 	</div>
 </BaseLayout>

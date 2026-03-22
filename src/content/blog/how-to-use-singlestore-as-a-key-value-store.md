@@ -41,13 +41,13 @@ There are so many databases out there, and it’s often hard to know when it’s
 
 So the big question remains, why not just use a database that was designed to be a key-value store, instead of using a SQL database? Here are a couple of reasons why you should consider using SingleStore as a key-value store on your application:
 
-- 💰Save money: SingleStore is one-third the cost of legacy databases and offers better cost predictability. Consolidating databases allows you to only pay for one database, instead of two.
+- Save money: SingleStore is one-third the cost of legacy databases and offers better cost predictability. Consolidating databases allows you to only pay for one database, instead of two.
 
-- 🧑‍🎓Use existing skills: Since SingleStore is MySQL wire-compatible, you don’t need to learn a new language to query your database.
+- Use existing skills: Since SingleStore is MySQL wire-compatible, you don’t need to learn a new language to query your database.
 
-- 😌 Simplify your architecture: Eliminates the need for multiple purpose-built data engines.
+-  Simplify your architecture: Eliminates the need for multiple purpose-built data engines.
 
-- 🔥Increase your speed: Take advantage of ultra-fast data ingestion and sub-second latencies.
+- Increase your speed: Take advantage of ultra-fast data ingestion and sub-second latencies.
 
 ### How to use SingleStore as a key-value store
 

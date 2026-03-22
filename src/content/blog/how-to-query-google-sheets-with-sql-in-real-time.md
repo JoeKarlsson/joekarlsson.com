@@ -59,7 +59,7 @@ Create an Apps Script in Google Sheets to send data to Tinybird.
 
 In the script editor, write or paste the code from the [`Code.gs`](https://github.com/tinybirdco/google-sheets-tinybird-demo/blob/main/Code.gs) file in the [GitHub repo](https://github.com/tinybirdco/google-sheets-tinybird-demo). To customize this code to your Tinybird Workspace, replace `YOUR_TOKEN_HERE` on line 6 with your actual Tinybird user token. In addition, you may need to update the API URL on line 64 with the correct API URL depending on your cluster. For example, a Workspace in a `us-east` cluster should use the URL `https://api.us-east.tinybird.co/v0/events?name=`.
 
-Here’s what the `Code.gs` file looks like for me (though I’m obviously not sharing my user token 😉).
+Here’s what the `Code.gs` file looks like for me (though I’m obviously not sharing my user token).
 
 ```javascript
 function sendDataToTinybird() {

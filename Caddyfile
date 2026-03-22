@@ -2,6 +2,12 @@
 	# Serve static files from Astro build output
 	root * /var/www/joekarlsson.com
 
+	# Block requests with empty User-Agent (common bot signature)
+	@empty_ua {
+		header User-Agent ""
+	}
+	respond @empty_ua 403
+
 	# 301 redirects: WordPress date-based blog URLs → /blog/slug
 	# Matches /YYYY/MM/slug/ or /YYYY/MM/slug
 	@wp-blog path_regexp wp ^/(\d{4})/(\d{2})/([a-z0-9-]+)/?$

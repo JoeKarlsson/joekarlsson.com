@@ -11,7 +11,7 @@ tldr: 'My big list of favorite books, podcasts, courses, YouTube channels, and c
 
 So, you want to learn how to code? Here’s What You Need To Know to get started. This is a list of my favorite programming books, talks, podcasts, newsletters, websites, and general tips for learning more about programming. HMU if you have any additions you want to make to my list!
 
-I love keeping my questions/answers public so others can learn and share from each other, feel free to drop a question on my [GitHub AMA](https://github.com/JoeKarlsson/ama) if you feel comfortable 😉
+I love keeping my questions/answers public so others can learn and share from each other, feel free to drop a question on my [GitHub AMA](https://github.com/JoeKarlsson/ama) if you feel comfortable
 
 ## First, ask yourself “Why do I want to code?”
 
@@ -43,13 +43,13 @@ If you don’t mind practicing solo, check out [The Odin Project](https://www.th
 
 Other great options:
 
-- [udemy.com](https://www.udemy.com/), [pluralsight.com](https://www.pluralsight.com/), [lynda.com](https://www.lynda.com/) to do free and paid 💴 online code courses.
+- [udemy.com](https://www.udemy.com/), [pluralsight.com](https://www.pluralsight.com/), [lynda.com](https://www.lynda.com/) to do free and paid online code courses.
 
-- [egghead.io](https://egghead.io/) to learn the best JavaScript tools and frameworks from industry pros 😎.
+- [egghead.io](https://egghead.io/) to learn the best JavaScript tools and frameworks from industry pros.
 
-- [alligator.io](https://alligator.io/) to quickly understand seemingly-difficult frontend code concepts 😮.
+- [alligator.io](https://alligator.io/) to quickly understand seemingly-difficult frontend code concepts.
 
-- [leanpub.com](https://leanpub.com) to easily write, publish and sell in-progress and completed eBooks 📚 and online courses.
+- [leanpub.com](https://leanpub.com) to easily write, publish and sell in-progress and completed eBooks and online courses.
 
 ## Just start building something
 
@@ -81,41 +81,41 @@ Feel free to check out my projects and blog, if you need some inspiration:
 
 Listed below are some of my favorite ways to stay up to date. I hope that you can use them as you start your journey into the world of programming. Best of luck!
 
-- [Mozilla Developer Network](https://developer.mozilla.org/en-US/) for frontend (Html, CSS, Js, etc.) code reference and learning 🤓. This will be your code holy book 📚 and you should follow it religiously!
+- [Mozilla Developer Network](https://developer.mozilla.org/en-US/) for frontend (Html, CSS, Js, etc.) code reference and learning. This will be your code holy book and you should follow it religiously!
 
-- [web.dev](https://web.dev) to learn about web 🕷 fundamentals from Google Developers 👨‍💻.
+- [web.dev](https://web.dev) to learn about web fundamentals from Google Developers.
 
-- [v8.dev](https://v8.dev) to learn about Google’s open-source high-performance Javascript and WebAssembly engine 🦸‍♂️ that empowers Chrome and NodeJS.
+- [v8.dev](https://v8.dev) to learn about Google’s open-source high-performance Javascript and WebAssembly engine that empowers Chrome and NodeJS.
 
-- [css-tricks](https://css-tricks.com) to learn everything about CSS 😻. Period.
+- [css-tricks](https://css-tricks.com) to learn everything about CSS. Period.
 
-- [javascript.com](https://www.javascript.com) to start learning about Javascript 😼.
+- [javascript.com](https://www.javascript.com) to start learning about Javascript.
 
-- [freecodecamp.org](https://www.freecodecamp.org) to build frontend projects and collaborate with the community 👨‍🏫.
+- [freecodecamp.org](https://www.freecodecamp.org) to build frontend projects and collaborate with the community.
 
-- [codecademy.com](https://www.codecademy.com), [udemy.com](https://www.udemy.com/), [pluralsight.com](https://www.pluralsight.com/), [lynda.com](https://www.lynda.com/) to do free and paid 💴 online code courses.
+- [codecademy.com](https://www.codecademy.com), [udemy.com](https://www.udemy.com/), [pluralsight.com](https://www.pluralsight.com/), [lynda.com](https://www.lynda.com/) to do free and paid online code courses.
 
-- [egghead.io](https://egghead.io/) to learn the best JavaScript tools and frameworks from industry pros 😎.
+- [egghead.io](https://egghead.io/) to learn the best JavaScript tools and frameworks from industry pros.
 
-- [alligator.io](https://alligator.io/) to quickly understand seemingly-difficult frontend code concepts 😮.
+- [alligator.io](https://alligator.io/) to quickly understand seemingly-difficult frontend code concepts.
 
-- [leanpub.com](https://leanpub.com) to easily write, publish and sell in-progress and completed ebooks 📚 and online courses.
+- [leanpub.com](https://leanpub.com) to easily write, publish and sell in-progress and completed ebooks and online courses.
 
-- [frontendfront.com](https://frontendfront.com) to stay updated with the latest web news, trends and conferences 📣 happening all over the world 🌍.
+- [frontendfront.com](https://frontendfront.com) to stay updated with the latest web news, trends and conferences happening all over the world.
 
-- [medium.com](https://medium.com) to discover, read 📖 and write 🖊 related articles.
+- [medium.com](https://medium.com) to discover, read and write related articles.
 
-- [twitter.com](https://twitter.com), [instagram.com](https://www.instagram.com) to follow people you like, discover what they do 🔍 and share your work.
+- [twitter.com](https://twitter.com), [instagram.com](https://www.instagram.com) to follow people you like, discover what they do and share your work.
 
-- [producthunt.com](https://www.producthunt.com) to discover and submit 💯 new products.
+- [producthunt.com](https://www.producthunt.com) to discover and submit new products.
 
-- [codepen.io](https://codepen.io/) to build, test 🧐 and discover frontend code.
+- [codepen.io](https://codepen.io/) to build, test and discover frontend code.
 
-- [codesandbox.io](https://codesandbox.io) to build ✍️ and share web applications using modern technologies.
+- [codesandbox.io](https://codesandbox.io) to build and share web applications using modern technologies.
 
-- [github.com](https://github.com) to host and review 🧐 code, manage projects and build software 🤖 alongside millions of developers.
+- [github.com](https://github.com) to host and review code, manage projects and build software alongside millions of developers.
 
-- [stackoverflow.com](https://stackoverflow.com/) to get answers to your toughest coding questions 😁, share knowledge with your coworkers in private, and find your next dream job.
+- [stackoverflow.com](https://stackoverflow.com/) to get answers to your toughest coding questions, share knowledge with your coworkers in private, and find your next dream job.
 
 ## Newsletters
 

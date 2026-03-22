@@ -56,7 +56,6 @@ You can view a complete list of my past and upcoming talks with video on my webs
 ## Related Links
 
 - [MongoDB University](https://joekarlsson.dev/MongoDBUniversity)
-- MongoDB Developer Hub (now discontinued)
 - [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity)
 - [Advanced Schema Design Patterns (webinar)](https://www.mongodb.com/presentations/advanced-schema-design-patterns)
 - [Building with Patterns: A Summary (blog series)](https://www.mongodb.com/blog/post/building-with-patterns-a-summary)
