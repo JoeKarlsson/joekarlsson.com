@@ -1,0 +1,61 @@
+/**
+ * Shared terminal styles
+ * Used by both the homepage and 404 page terminals
+ */
+
+.terminal-body {
+	scrollbar-width: thin;
+	scrollbar-color: #fdae84 transparent;
+}
+
+.terminal-body .cursor {
+	animation: blink 1s step-end infinite;
+	color: #fdae84;
+}
+
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+/* Terminal text colors */
+.terminal-body :global(.text-coral) {
+	color: #fdae84;
+}
+
+.terminal-body :global(.text-teal) {
+	color: #8bcbc8;
+}
+
+.terminal-body :global(.text-lavender) {
+	color: #c4b5fd;
+}
+
+.terminal-body :global(.text-dim) {
+	color: #9ca3af;
+}
+
+.terminal-body :global(.text-white) {
+	color: #e5e7eb;
+}
+
+.terminal-body :global(.text-green) {
+	color: #86efac;
+}
+
+.terminal-body :global(.text-yellow) {
+	color: #fde68a;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+	.terminal-body .cursor {
+		animation: none !important;
+		opacity: 1;
+	}
+}

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/terminal.css';
 ---
 
 <BaseLayout title="404 | Joe Karlsson" description="Page not found">
@@ -37,9 +38,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<div id="output"></div>
 				<div id="input-line" class="flex items-center" style="display:none;">
 					<span class="prompt text-coral mr-2">joe@404 ~$</span>
+					<span id="placeholder" class="text-gray-500 absolute pointer-events-none"
+						>type a command...</span
+					>
 					<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
 						>&#9608;</span
 					>
+				</div>
+				<div
+					id="hint-text"
+					class="text-xs text-gray-500 mt-2 transition-opacity duration-500"
+					style="display:none;"
+				>
+					Type <span class="text-coral">help</span> or use <span class="text-teal">↑↓</span> for history
+					• <span class="text-teal">Tab</span> to autocomplete
 				</div>
 				<input
 					id="hidden-input"
@@ -139,83 +151,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		.glitch::after {
 			animation: none;
 		}
-
-		.cursor {
-			animation: none !important;
-			opacity: 1;
-		}
-	}
-
-	.terminal-body {
-		scrollbar-width: thin;
-		scrollbar-color: #fdae84 transparent;
-	}
-
-	.cursor {
-		animation: blink 1s step-end infinite;
-		color: #fdae84;
-	}
-
-	@keyframes blink {
-		0%,
-		100% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0;
-		}
-	}
-
-	.terminal-body :global(.text-coral) {
-		color: #fdae84;
-	}
-
-	.terminal-body :global(.text-teal) {
-		color: #8bcbc8;
-	}
-
-	.terminal-body :global(.text-lavender) {
-		color: #c4b5fd;
-	}
-
-	.terminal-body :global(.text-dim) {
-		color: #9ca3af;
-	}
-
-	.terminal-body :global(.text-white) {
-		color: #e5e7eb;
-	}
-
-	.terminal-body :global(.text-green) {
-		color: #86efac;
-	}
-
-	.terminal-body :global(.text-yellow) {
-		color: #fde68a;
 	}
 </style>
 
 <script>
+	import * as T from '../lib/terminal-core';
+
+	const variant = '404' as const;
+	const pages = T.defaultPages;
+
 	const output = document.getElementById('output')!;
 	const inputLine = document.getElementById('input-line')!;
 	const inputText = document.getElementById('input-text')!;
 	const terminal = document.getElementById('terminal')!;
 	const hiddenInput = document.getElementById('hidden-input') as HTMLInputElement;
+	const placeholder = document.getElementById('placeholder');
+	const hintText = document.getElementById('hint-text');
 
 	let currentInput = '';
 	const commandHistory: string[] = [];
 	let historyIndex = -1;
 	let ready = false;
+	let hasInteracted = false;
 
-	const pages: Record<string, string> = {
-		home: '/',
-		blog: '/blog',
-		about: '/about',
-		work: '/work',
-		contact: '/contact',
-		uses: '/uses',
-		'talk-archive': '/talk-archive',
-	};
+	// Tab completion lists
+	const allCommands = T.allCommands.filter((c) => !['fortune', 'cowsay', 'man'].includes(c));
+	const catFiles = T.catFiles.filter(
+		(f) => !['music', 'fails', 'blog/iot', 'blog/homelab', 'cat'].includes(f),
+	);
 
 	function scrollToBottom() {
 		terminal.scrollTop = terminal.scrollHeight;
@@ -235,170 +198,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	async function typeLines(lines: string[], delay = 40) {
 		for (const line of lines) {
 			appendLine(line);
-			await sleep(delay);
+			await T.sleep(delay);
 		}
-	}
-
-	function sleep(ms: number): Promise<void> {
-		return new Promise((r) => setTimeout(r, ms));
-	}
-
-	// --- Commands ---
-
-	function cmdHelp(): string[] {
-		return [
-			'<span class="text-yellow">Available commands:</span>',
-			'',
-			'  <span class="text-coral">help</span>         show this message',
-			'  <span class="text-coral">ls</span>           list site pages',
-			'  <span class="text-coral">cd</span> &lt;page&gt;    navigate to a page',
-			'  <span class="text-coral">whoami</span>       who is this',
-			'  <span class="text-coral">cat</span>          list available files',
-			'  <span class="text-coral">cat about.md</span> about me',
-			'  <span class="text-coral">cat work.md</span>  things I\'ve built',
-			'  <span class="text-coral">cat readme</span>   read about this site',
-			'  <span class="text-coral">neofetch</span>     system info',
-			'  <span class="text-coral">uptime</span>       system uptime',
-			'  <span class="text-coral">hack</span>         ???',
-			'  <span class="text-coral">clear</span>        clear terminal',
-			'',
-		];
-	}
-
-	function cmdLs(args: string): string[] {
-		const entries = Object.keys(pages).map((p) => `  <span class="text-teal">${p}/</span>`);
-		if (args.includes('-a') || args.includes('-la') || args.includes('-al')) {
-			return [
-				'<span class="text-dim">drwxr-xr-x  joe  staff</span>',
-				'  <span class="text-dim">.secrets/</span>     <span class="text-coral">[REDACTED]</span>',
-				'  <span class="text-dim">.env</span>          <span class="text-coral">[NICE TRY]</span>',
-				'  <span class="text-dim">.ssh/</span>         <span class="text-coral">[NOPE]</span>',
-				...entries,
-				'',
-			];
-		}
-		return ['<span class="text-dim">drwxr-xr-x  joe  staff</span>', ...entries, ''];
-	}
-
-	function cmdCd(args: string): string[] {
-		const target = args.trim().replace(/^\//, '').replace(/\/$/, '');
-		if (!target) return ['<span class="text-dim">usage: cd &lt;page&gt;</span>', ''];
-		if (target === '~' || target === '/') {
-			window.location.href = '/';
-			return ['Navigating to home...'];
-		}
-		const url = pages[target];
-		if (url) {
-			setTimeout(() => {
-				window.location.href = url;
-			}, 400);
-			return [`Navigating to /${target}...`];
-		}
-		return [
-			`<span class="text-coral">cd: no such page: ${target}</span>`,
-			`<span class="text-dim">try 'ls' to see available pages</span>`,
-			'',
-		];
-	}
-
-	function cmdWhoami(): string[] {
-		return [
-			'<span class="text-teal">joe-karlsson</span> - software engineer & developer advocate',
-			'',
-		];
-	}
-
-	function cmdCatReadme(): string[] {
-		return [
-			'<span class="text-yellow">README.md</span>',
-			'',
-			'  Welcome to joekarlsson.com!',
-			'',
-			'  This site is where I write about software engineering,',
-			'  developer advocacy, homelabs, IoT cat litter boxes,',
-			"  and whatever else I'm nerding out about.",
-			'',
-			'  Built with Astro. Powered by coffee and stubbornness.',
-			'',
-			"  You found the 404 page, which means you're either",
-			'  lost or curious. Either way, I respect it.',
-			'',
-			'  <span class="text-dim">Type \'ls\' to see where you can go.</span>',
-			'',
-		];
-	}
-
-	function cmdCatAbout(): string[] {
-		return [
-			'',
-			'  <span class="text-yellow">## about.md</span>',
-			'',
-			'  Hey, I\'m <span class="text-coral">Joe Karlsson</span>.',
-			'  Software engineer turned dev advocate.',
-			'',
-			'  I help developers build cool stuff - through demos,',
-			'  blog posts, talks, videos, whatever works. Currently',
-			'  doing that at <span class="text-white">CloudQuery</span>.',
-			'',
-			'  Outside of work I run a <span class="text-teal">40+ container homelab</span>,',
-			'  watch way too many movies, and build things that',
-			"  probably shouldn't be connected to the internet.",
-			'',
-			'  <span class="text-dim">See more → <span class="text-teal">cd about</span></span>',
-			'',
-		];
-	}
-
-	function cmdCatWork(): string[] {
-		return [
-			'',
-			'  <span class="text-yellow">## work.md</span>',
-			'',
-			'  <span class="text-coral">IoT Smart Litter Box</span>',
-			'  Built an internet-connected cat toilet. Gave a',
-			'  <span class="text-white">TEDx talk</span> about it. Yes, really.',
-			'',
-			'  <span class="text-coral">40+ Container Homelab</span>',
-			'  Proxmox cluster, dual GPUs, Home Assistant,',
-			'  media automation, monitoring - the works.',
-			'',
-			'  <span class="text-coral">Developer Advocacy</span>',
-			'  Spoken at hundreds of conferences. Built demos,',
-			'  docs, and tools at CloudQuery, Tinybird,',
-			'  SingleStore, and MongoDB.',
-			'',
-			'  <span class="text-dim">See everything → <span class="text-teal">cd work</span></span>',
-			'',
-		];
-	}
-
-	function cmdUptime(): string[] {
-		return [
-			'  up <span class="text-green">42 days, 3 hours, 17 minutes</span> (since last mass container migration)',
-			'  load average: 0.42, 0.69, 1.21',
-			'  <span class="text-dim">vibes: immaculate</span>',
-			'',
-		];
-	}
-
-	function cmdNeofetch(): string[] {
-		return [
-			'',
-			'  <span class="text-coral"> ██╗ ██████╗ ███████╗</span>    <span class="text-teal">joe</span>@<span class="text-teal">joekarlsson.com</span>',
-			'  <span class="text-coral"> ██║██╔═══██╗██╔════╝</span>    ─────────────────────',
-			'  <span class="text-coral"> ██║██║   ██║█████╗  </span>    <span class="text-coral">OS</span>: Astro, self-hosted on Proxmox',
-			'  <span class="text-coral">██  ██║   ██║██╔══╝  </span>    <span class="text-coral">Host</span>: Proxmox Cluster x2',
-			'  <span class="text-coral">╚█████╔╝██████╔╝███████╗</span>    <span class="text-coral">Kernel</span>: caffeine-6.1.0',
-			'  <span class="text-coral"> ╚════╝ ╚═════╝ ╚══════╝</span>    <span class="text-coral">Uptime</span>: 42 days',
-			'                          <span class="text-coral">Shell</span>: bash + vibes',
-			'                          <span class="text-coral">GPU</span>: RTX A4000 + Quadro RTX 4000',
-			'                          <span class="text-coral">Containers</span>: 40+',
-			'                          <span class="text-coral">Cats</span>: 2 (1 IoT-enabled)',
-			'                          <span class="text-coral">Coffee</span>: ████████████░░ 86%',
-			'',
-			'                          <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
-			'',
-		];
 	}
 
 	function cmdClear(): string[] {
@@ -410,9 +211,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		const trimmed = raw.trim();
 		if (!trimmed) return;
 
-		// Echo the command
+		hideHint();
+
 		appendLine(
-			`<span class="text-coral">joe@404 ~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`,
+			`<span class="text-coral">joe@404 ~$</span> <span class="text-white">${T.escapeHtml(trimmed)}</span>`,
 		);
 
 		if (trimmed) commandHistory.unshift(trimmed);
@@ -425,268 +227,160 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		switch (cmd.toLowerCase()) {
 			case 'help':
-				result = cmdHelp();
+				result = T.cmdHelp(variant);
 				break;
 			case 'ls':
-				result = cmdLs(args);
+				result = T.cmdLs(args, pages);
 				break;
 			case 'cd':
-			case 'goto':
-				result = cmdCd(args);
+			case 'goto': {
+				const r = T.cmdCd(args, pages);
+				result = r.lines;
+				if (r.navigateTo) {
+					setTimeout(() => {
+						window.location.href = r.navigateTo!;
+					}, 400);
+				}
 				break;
+			}
 			case 'whoami':
-				result = cmdWhoami();
+				result = T.cmdWhoami();
 				break;
 			case 'cat':
 				if (args.toLowerCase() === 'about.md' || args.toLowerCase() === 'about') {
-					result = cmdCatAbout();
+					result = T.cmdCatAbout();
 				} else if (args.toLowerCase() === 'work.md' || args.toLowerCase() === 'work') {
-					result = cmdCatWork();
+					result = T.cmdCatWork();
 				} else if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
-					result = cmdCatReadme();
+					result = T.cmdCatReadme(variant);
 				} else if (!args) {
-					result = [
-						'<span class="text-yellow">Available files:</span>',
-						'',
-						'  <span class="text-teal">about.md</span>  about me',
-						'  <span class="text-teal">work.md</span>   things I\'ve built',
-						'  <span class="text-teal">readme</span>    about this site',
-						'',
-						'<span class="text-dim">usage: cat &lt;filename&gt;</span>',
-						'',
-					];
+					result = T.cmdCatEmpty(variant);
 				} else {
 					result = [
-						`<span class="text-coral">cat: ${escapeHtml(args)}: No such file</span>`,
+						`<span class="text-coral">cat: ${T.escapeHtml(args)}: No such file</span>`,
 						'<span class="text-dim">type \'cat\' to see available files</span>',
 						'',
 					];
 				}
 				break;
 			case 'uptime':
-				result = cmdUptime();
+				result = T.cmdUptime(variant);
 				break;
 			case 'neofetch':
-				result = cmdNeofetch();
+				result = T.cmdNeofetch(variant);
 				break;
 			case 'clear':
 				result = cmdClear();
 				break;
 			case 'sudo':
-				result = ['<span class="text-coral">nice try.</span>', ''];
+				result = T.cmdSudo();
 				break;
-			case 'exit':
-				setTimeout(() => {
-					window.location.href = '/';
-				}, 400);
-				result = ['Goodbye! Navigating home...'];
+			case 'exit': {
+				const r = T.cmdExit(variant);
+				result = r.lines;
+				if (r.navigateTo) {
+					setTimeout(() => {
+						window.location.href = r.navigateTo!;
+					}, 400);
+				}
 				break;
+			}
 			case 'rm':
-				result = ['<span class="text-coral">absolutely not.</span>', ''];
+				result = T.cmdRm();
 				break;
 			case 'matrix':
 			case 'hack':
-				result = [
-					'',
-					'  <span class="text-green">Initiating hack sequence...</span>',
-					'  <span class="text-green">████████████████████░░░░░░ 76%</span>',
-					'  <span class="text-coral">ACCESS DENIED</span>',
-					'',
-					'  <span class="text-dim">Nice try. The mainframe remains secure.</span>',
-					'  <span class="text-dim">(visit the homepage for the full experience)</span>',
-					'',
-				];
+				result = T.cmdHack(variant).lines;
 				break;
 			case 'pwd':
-				result = ['<span class="text-teal">/home/joe/404</span>', ''];
+				result = T.cmdPwd(variant);
 				break;
 			case 'hi':
 			case 'hello':
 			case 'hey':
-				result = [
-					'',
-					'  <span class="text-coral">Hey!</span> You found the 404 page.',
-					'  <span class="text-dim">Type \'ls\' to find your way back.</span>',
-					'',
-				];
+				result = T.cmdHi(variant);
 				break;
 			case 'curl':
 			case 'wget':
-				result = [
-					"<span class=\"text-dim\">You're already here. Try 'cat readme' instead.</span>",
-					'',
-				];
+				result = T.cmdCurlWget();
 				break;
 			case 'chmod':
-				result = ['<span class="text-coral">chmod: nice try, script kiddie.</span>', ''];
+				result = T.cmdChmod();
 				break;
 			case 'chown':
-				result = ['<span class="text-coral">chown: you don\'t own me.</span>', ''];
+				result = T.cmdChown();
 				break;
 			case 'kill':
 			case 'pkill':
 			case 'killall':
-				result = ['<span class="text-coral">kill: process "404" refuses to die.</span>', ''];
+				result = T.cmdKill(variant);
 				break;
 			case 'shutdown':
 			case 'reboot':
 			case 'poweroff':
-				result = [
-					'<span class="text-coral">Error: This website runs on pure stubbornness.</span>',
-					'<span class="text-dim">It cannot be stopped.</span>',
-					'',
-				];
+				result = T.cmdShutdown();
 				break;
 			case 'dd':
-				result = [
-					'<span class="text-coral">dd: permission denied</span>',
-					'<span class="text-dim">Nice try. My disks are safe.</span>',
-					'',
-				];
+				result = T.cmdDd();
 				break;
 			case 'mkfs':
 			case 'fdisk':
-				result = [
-					'<span class="text-coral">Whoa there. This is a website, not your homelab.</span>',
-					'',
-				];
+				result = T.cmdMkfs();
 				break;
 			case 'fork':
-				result = [
-					'<span class="text-coral">:(){ :|:& };: detected</span>',
-					'<span class="text-dim">Fork bombs don\'t work here. I\'ve seen things.</span>',
-					'',
-				];
+				result = T.cmdFork();
 				break;
 			case 'deltree':
 			case 'format':
-				result = [
-					'<span class="text-coral">This isn\'t Windows 95.</span>',
-					'<span class="text-dim">But I appreciate the nostalgia.</span>',
-					'',
-				];
+				result = T.cmdDeltree();
 				break;
 			case 'drop':
-				result = [
-					'<span class="text-coral">DROP TABLE users; --</span>',
-					'<span class="text-dim">Nice try, Bobby Tables. This is a static site.</span>',
-					'',
-				];
+				result = T.cmdDrop();
 				break;
 			case 'vim':
-				result = [
-					'<span class="text-dim">You\'re now trapped in vim.</span>',
-					'<span class="text-dim">Just kidding. Type :q to... wait, that won\'t work here either.</span>',
-					'',
-				];
+				result = T.cmdVim();
 				break;
 			case 'emacs':
-				result = ['<span class="text-dim">Emacs? In this economy?</span>', ''];
+				result = T.cmdEmacs();
 				break;
 			case 'nano':
-				result = ['<span class="text-green">Finally, someone with taste.</span>', ''];
+				result = T.cmdNano();
 				break;
 			case 'git':
-				result = [
-					'<span class="text-coral">git: this site is already committed.</span>',
-					'<span class="text-dim">No takebacks.</span>',
-					'',
-				];
+				result = T.cmdGit(variant);
 				break;
 			case 'echo':
-				result = [
-					`<span class="text-teal">${escapeHtml(args) || '...'}</span>`,
-					'<span class="text-dim">(...echo... ...echo...)</span>',
-					'',
-				];
+				result = T.cmdEcho(args);
 				break;
 			case 'sl':
-				result = [
-					'',
-					'<span class="text-dim">      ====        ________                ___________</span>',
-					'<span class="text-dim">  _D _|  |_______/        \\__I_I_____===__|_________|</span>',
-					'<span class="text-dim">   |(_)---  |   H\\________/ |   |        =|___ ___|</span>',
-					'<span class="text-dim">   /     |  |   H  |  |     |   |         ||_| |_||</span>',
-					'<span class="text-dim">  |      |  |   H  |__--------------------| [___] |</span>',
-					'<span class="text-dim">  | ________|___H__/__|_____/[][]~\\_______|       |</span>',
-					'<span class="text-dim">  |/ |   |-----------I_____I [][] []  D   |=======|__</span>',
-					'',
-					"<span class=\"text-coral\">You meant 'ls', didn't you?</span>",
-					'',
-				];
+				result = T.cmdSl();
 				break;
 			case 'please':
 			case 'thanks':
 			case 'thank':
-				result = [
-					'<span class="text-green">You\'re welcome! Such nice manners.</span>',
-					'<span class="text-dim">Type \'help\' if you need anything.</span>',
-					'',
-				];
+				result = T.cmdPlease();
 				break;
 			case 'coffee':
-				result = [
-					'',
-					'    <span class="text-coral">   )</span>',
-					'    <span class="text-coral">  (</span>',
-					'    <span class="text-coral">c[_]</span>',
-					'',
-					'<span class="text-dim">Coffee level: ████████░░ 80%</span>',
-					'<span class="text-dim">Homelab uptime directly correlated.</span>',
-					'',
-				];
+				result = T.cmdCoffee();
 				break;
 			case 'beer':
-				result = [
-					'',
-					'    <span class="text-yellow">  .~~~~.</span>',
-					'    <span class="text-yellow">  i====i_</span>',
-					'    <span class="text-yellow">  |cccc|_)</span>',
-					'    <span class="text-yellow">  |cccc|</span>',
-					'    <span class="text-yellow">  `-==-\'</span>',
-					'',
-					'<span class="text-dim">It\'s mass container migration o\'clock somewhere.</span>',
-					'',
-				];
+				result = T.cmdBeer();
 				break;
 			case '42':
-				result = [
-					'<span class="text-green">The Answer to the Ultimate Question of Life,</span>',
-					'<span class="text-green">the Universe, and Everything.</span>',
-					'',
-					'<span class="text-dim">...but what was the question?</span>',
-					'',
-				];
+				result = T.cmd42();
 				break;
 			case 'xkcd':
-				result = [
-					'<span class="text-dim">I see you\'re a person of culture.</span>',
-					'<span class="text-teal">sudo make me a sandwich</span>',
-					'',
-				];
+				result = T.cmdXkcd();
 				break;
 			case 'rickroll':
 			case 'rick':
-				result = [
-					'<span class="text-coral">Never gonna give you up</span>',
-					'<span class="text-coral">Never gonna let you down</span>',
-					'<span class="text-coral">Never gonna run around and desert you</span>',
-					'',
-				];
+				result = T.cmdRickroll(variant);
 				break;
 			case 'ping':
-				result = [
-					'<span class="text-green">PONG!</span>',
-					'<span class="text-dim">64 bytes from 404.joekarlsson.com: icmp_seq=1 ttl=64 time=0.404ms</span>',
-					'',
-				];
+				result = T.cmdPing(variant);
 				break;
 			case 'ssh':
-				result = [
-					'<span class="text-coral">ssh: Connection refused</span>',
-					'<span class="text-dim">Nice try. My homelab is behind a VPN.</span>',
-					'',
-				];
+				result = T.cmdSsh();
 				break;
 			case 'docker':
 			case 'npm':
@@ -694,66 +388,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			case 'pnpm':
 			case 'python':
 			case 'node':
-				result = [
-					'<span class="text-dim">This is a 404 page, not a dev environment.</span>',
-					'<span class="text-dim">Type \'ls\' to find your way home.</span>',
-					'',
-				];
+				result = T.cmdDocker(variant);
 				break;
 			case 'touch':
 			case 'mkdir':
 			case 'mv':
 			case 'cp':
-				result = [
-					'<span class="text-coral">Permission denied.</span>',
-					'<span class="text-dim">This is a read-only filesystem.</span>',
-					'',
-				];
+				result = T.cmdTouch();
 				break;
 			case 'nmap':
 			case 'telnet':
 			case 'traceroute':
-				result = [
-					'<span class="text-coral">Scanning...</span>',
-					'<span class="text-dim">PORT     STATE    SERVICE</span>',
-					'<span class="text-dim">404/tcp  open     not-found</span>',
-					'',
-				];
+				result = T.cmdNmap(variant);
 				break;
 			case 'fuck':
 			case 'shit':
 			case 'damn':
-				result = [
-					'<span class="text-dim">I understand. 404s are frustrating.</span>',
-					"<span class=\"text-dim\">Type 'ls' to find what you're looking for.</span>",
-					'',
-				];
+				result = T.cmdFrustration(variant);
 				break;
 			case 'why':
-				result = ['<span class="text-dim">Because the page doesn\'t exist. Sorry!</span>', ''];
+				result = T.cmdWhy(variant);
 				break;
 			default:
-				result = [
-					`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`,
-					'',
-				];
+				result = T.cmdNotFound(cmd);
 		}
 
 		appendLines(result);
 	}
 
-	function escapeHtml(str: string): string {
-		const div = document.createElement('div');
-		div.textContent = str;
-		return div.innerHTML;
-	}
-
 	function updateInputDisplay() {
 		inputText.textContent = currentInput;
+		if (placeholder) {
+			placeholder.style.display = currentInput.length > 0 ? 'none' : 'inline';
+		}
 		scrollToBottom();
 	}
 
-	// --- Keyboard handler (uses hidden input for reliable keystroke capture) ---
+	function hideHint() {
+		if (hintText && !hasInteracted) {
+			hasInteracted = true;
+			hintText.style.opacity = '0';
+			setTimeout(() => {
+				hintText.style.display = 'none';
+			}, 500);
+		}
+	}
+
 	function focusInput() {
 		hiddenInput.focus();
 	}
@@ -792,13 +472,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			updateInputDisplay();
 		} else if (e.key === 'Tab') {
 			e.preventDefault();
-			const partial = currentInput.replace(/^(cd|goto)\s+/, '');
-			const prefix = currentInput.replace(partial, '');
-			const matches = Object.keys(pages).filter((p) => p.startsWith(partial));
-			if (matches.length === 1) {
-				currentInput = prefix + matches[0];
-				hiddenInput.value = currentInput;
-				updateInputDisplay();
+			const input = currentInput.toLowerCase();
+
+			if (input.startsWith('cd ') || input.startsWith('goto ')) {
+				const partial = currentInput.replace(/^(cd|goto)\s+/i, '');
+				const prefix = currentInput.slice(0, currentInput.length - partial.length);
+				const matches = Object.keys(pages).filter((p) =>
+					p.toLowerCase().startsWith(partial.toLowerCase()),
+				);
+				if (matches.length === 1) {
+					currentInput = prefix + matches[0];
+					hiddenInput.value = currentInput;
+					updateInputDisplay();
+				}
+			} else if (input.startsWith('cat ')) {
+				const partial = currentInput.replace(/^cat\s+/i, '');
+				const prefix = 'cat ';
+				const matches = catFiles.filter((f) => f.toLowerCase().startsWith(partial.toLowerCase()));
+				if (matches.length === 1) {
+					currentInput = prefix + matches[0];
+					hiddenInput.value = currentInput;
+					updateInputDisplay();
+				}
+			} else if (!input.includes(' ')) {
+				const matches = allCommands.filter((c) => c.startsWith(input));
+				if (matches.length === 1) {
+					currentInput = matches[0];
+					hiddenInput.value = currentInput;
+					updateInputDisplay();
+				}
 			}
 		} else if (e.key === 'l' && e.ctrlKey) {
 			e.preventDefault();
@@ -806,19 +508,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		}
 	});
 
-	// Sync hidden input value to our display on every keystroke
 	hiddenInput.addEventListener('input', () => {
 		if (!ready) return;
 		currentInput = hiddenInput.value;
 		updateInputDisplay();
 	});
 
-	// Focus hidden input on click anywhere in terminal
 	terminal.addEventListener('click', () => {
 		focusInput();
 	});
 
-	// --- Boot sequence ---
 	async function boot() {
 		const bootLines = [
 			'<span class="text-dim">[    0.000000] joekarlsson.com kernel loading...</span>',
@@ -828,27 +527,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		];
 
 		await typeLines(bootLines, 120);
-		await sleep(300);
+		await T.sleep(300);
 
 		appendLine(
 			'<span class="text-coral">[    0.404000] ERROR: requested path not found in route table</span>',
 		);
-		await sleep(200);
+		await T.sleep(200);
 		appendLine(
 			'<span class="text-coral">[    0.404001] PANIC: page does not exist (error 404)</span>',
 		);
-		await sleep(400);
+		await T.sleep(400);
 
 		appendLines([
 			'',
 			'<span class="text-yellow">  The page you requested was not found.</span>',
 			'<span class="text-yellow">  But you found something better: a terminal.</span>',
 			'',
-			"<span class=\"text-dim\">  Type 'help' for available commands, or 'ls' to see site pages.</span>",
-			'',
 		]);
 
 		inputLine.style.display = 'flex';
+		if (hintText) hintText.style.display = 'block';
 		ready = true;
 		focusInput();
 	}
