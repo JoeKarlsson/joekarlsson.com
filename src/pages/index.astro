@@ -769,6 +769,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				'  <span class="text-coral">ls</span>           list site pages',
 				'  <span class="text-coral">cd</span> &lt;page&gt;    navigate to a page',
 				'  <span class="text-coral">whoami</span>       who is this',
+				'  <span class="text-coral">cat</span>          list available files',
 				'  <span class="text-coral">cat about.md</span> about me',
 				'  <span class="text-coral">cat work.md</span>  things I\'ve built',
 				'  <span class="text-coral">cat readme</span>   about this site',
@@ -786,8 +787,18 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			];
 		}
 
-		function cmdLs(): string[] {
+		function cmdLs(args: string): string[] {
 			const entries = Object.keys(pages).map((p) => `  <span class="text-teal">${p}/</span>`);
+			if (args.includes('-a') || args.includes('-la') || args.includes('-al')) {
+				return [
+					'<span class="text-dim">drwxr-xr-x  joe  staff</span>',
+					'  <span class="text-dim">.secrets/</span>     <span class="text-coral">[REDACTED]</span>',
+					'  <span class="text-dim">.env</span>          <span class="text-coral">[NICE TRY]</span>',
+					'  <span class="text-dim">.ssh/</span>         <span class="text-coral">[NOPE]</span>',
+					...entries,
+					'',
+				];
+			}
 			return ['<span class="text-dim">drwxr-xr-x  joe  staff</span>', ...entries, ''];
 		}
 
@@ -1104,7 +1115,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					result = cmdHelp();
 					break;
 				case 'ls':
-					result = cmdLs();
+					result = cmdLs(args);
 					break;
 				case 'cd':
 				case 'goto':
@@ -1128,6 +1139,16 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 						result = cmdCatBlogIot();
 					} else if (args.toLowerCase() === 'blog/homelab') {
 						result = cmdCatBlogHomelab();
+					} else if (args.toLowerCase() === 'blog' || args.toLowerCase() === 'blog/') {
+						result = [
+							'<span class="text-yellow">Available blog previews:</span>',
+							'',
+							'  <span class="text-teal">cat blog/iot</span>      IoT litter box project',
+							'  <span class="text-teal">cat blog/homelab</span>  homelab setup',
+							'',
+							'<span class="text-dim">Or visit the full blog → <span class="text-coral">cd blog</span></span>',
+							'',
+						];
 					} else if (args.toLowerCase() === 'cat' || args.toLowerCase() === 'cat.md') {
 						result = [
 							'',
@@ -1138,9 +1159,26 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 							'  <span class="text-dim">meow. (IoT-enabled)</span>',
 							'',
 						];
+					} else if (!args) {
+						result = [
+							'<span class="text-yellow">Available files:</span>',
+							'',
+							'  <span class="text-teal">about.md</span>     about me',
+							'  <span class="text-teal">work.md</span>      things I\'ve built',
+							'  <span class="text-teal">readme</span>       about this site',
+							'  <span class="text-teal">music</span>        current favorite albums',
+							'  <span class="text-teal">fails</span>        project failures hall of fame',
+							'  <span class="text-teal">blog/iot</span>     IoT blog preview',
+							'  <span class="text-teal">blog/homelab</span> homelab blog preview',
+							'  <span class="text-teal">cat</span>          ???',
+							'',
+							'<span class="text-dim">usage: cat &lt;filename&gt;</span>',
+							'',
+						];
 					} else {
 						result = [
-							`<span class="text-coral">cat: ${escapeHtml(args) || '???'}: No such file</span>`,
+							`<span class="text-coral">cat: ${escapeHtml(args)}: No such file</span>`,
+							'<span class="text-dim">type \'cat\' to see available files</span>',
 							'',
 						];
 					}
@@ -1187,6 +1225,296 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				case 'hack':
 					runMatrixRain();
 					return;
+				case 'pwd':
+					result = ['<span class="text-teal">/home/joe/joekarlsson.com</span>', ''];
+					break;
+				case 'hi':
+				case 'hello':
+				case 'hey':
+					result = [
+						'',
+						'  <span class="text-coral">Hey!</span> Welcome to my corner of the internet.',
+						'  <span class="text-dim">Type \'help\' to see what you can do here.</span>',
+						'',
+					];
+					break;
+				case 'curl':
+				case 'wget':
+					result = [
+						"<span class=\"text-dim\">You're already here. Try 'cat readme' instead.</span>",
+						'',
+					];
+					break;
+				case 'chmod':
+					result = ['<span class="text-coral">chmod: nice try, script kiddie.</span>', ''];
+					break;
+				case 'chown':
+					result = ['<span class="text-coral">chown: you don\'t own me.</span>', ''];
+					break;
+				case 'kill':
+				case 'pkill':
+				case 'killall':
+					result = ['<span class="text-coral">kill: process "website" is immortal.</span>', ''];
+					break;
+				case 'shutdown':
+				case 'reboot':
+				case 'poweroff':
+					result = [
+						'<span class="text-coral">Error: This website runs on pure stubbornness.</span>',
+						'<span class="text-dim">It cannot be stopped.</span>',
+						'',
+					];
+					break;
+				case 'dd':
+					result = [
+						'<span class="text-coral">dd: permission denied</span>',
+						'<span class="text-dim">Nice try. My disks are safe.</span>',
+						'',
+					];
+					break;
+				case 'mkfs':
+				case 'fdisk':
+					result = [
+						'<span class="text-coral">Whoa there. This is a website, not your homelab.</span>',
+						'',
+					];
+					break;
+				case 'fork':
+					result = [
+						'<span class="text-coral">:(){ :|:& };: detected</span>',
+						'<span class="text-dim">Fork bombs don\'t work here. I\'ve seen things.</span>',
+						'',
+					];
+					break;
+				case 'deltree':
+				case 'format':
+					result = [
+						'<span class="text-coral">This isn\'t Windows 95.</span>',
+						'<span class="text-dim">But I appreciate the nostalgia.</span>',
+						'',
+					];
+					break;
+				case 'drop':
+					result = [
+						'<span class="text-coral">DROP TABLE users; --</span>',
+						'<span class="text-dim">Nice try, Bobby Tables. This is a static site.</span>',
+						'',
+					];
+					break;
+				case 'vim':
+					result = [
+						'<span class="text-dim">You\'re now trapped in vim.</span>',
+						'<span class="text-dim">Just kidding. Type :q to... wait, that won\'t work here either.</span>',
+						'',
+					];
+					break;
+				case 'emacs':
+					result = ['<span class="text-dim">Emacs? In this economy?</span>', ''];
+					break;
+				case 'nano':
+					result = ['<span class="text-green">Finally, someone with taste.</span>', ''];
+					break;
+				case 'git':
+					result = [
+						'<span class="text-coral">git: this site is already committed.</span>',
+						'<span class="text-dim">125+ commits and mass refactors. No takebacks.</span>',
+						'',
+					];
+					break;
+				case 'echo':
+					result = [
+						`<span class="text-teal">${escapeHtml(args) || '...'}</span>`,
+						'<span class="text-dim">(...echo... ...echo...)</span>',
+						'',
+					];
+					break;
+				case 'sl':
+					result = [
+						'',
+						'<span class="text-dim">      ====        ________                ___________</span>',
+						'<span class="text-dim">  _D _|  |_______/        \\__I_I_____===__|_________|</span>',
+						'<span class="text-dim">   |(_)---  |   H\\________/ |   |        =|___ ___|</span>',
+						'<span class="text-dim">   /     |  |   H  |  |     |   |         ||_| |_||</span>',
+						'<span class="text-dim">  |      |  |   H  |__--------------------| [___] |</span>',
+						'<span class="text-dim">  | ________|___H__/__|_____/[][]~\\_______|       |</span>',
+						'<span class="text-dim">  |/ |   |-----------I_____I [][] []  D   |=======|__</span>',
+						'',
+						"<span class=\"text-coral\">You meant 'ls', didn't you?</span>",
+						'',
+					];
+					break;
+				case 'please':
+				case 'thanks':
+				case 'thank':
+					result = [
+						'<span class="text-green">You\'re welcome! Such nice manners.</span>',
+						'<span class="text-dim">Type \'help\' if you need anything.</span>',
+						'',
+					];
+					break;
+				case 'coffee':
+					result = [
+						'',
+						'    <span class="text-coral">   )</span>',
+						'    <span class="text-coral">  (</span>',
+						'    <span class="text-coral">c[_]</span>',
+						'',
+						'<span class="text-dim">Coffee level: ████████░░ 80%</span>',
+						'<span class="text-dim">Homelab uptime directly correlated.</span>',
+						'',
+					];
+					break;
+				case 'beer':
+					result = [
+						'',
+						'    <span class="text-yellow">  .~~~~.</span>',
+						'    <span class="text-yellow">  i====i_</span>',
+						'    <span class="text-yellow">  |cccc|_)</span>',
+						'    <span class="text-yellow">  |cccc|</span>',
+						'    <span class="text-yellow">  `-==-\'</span>',
+						'',
+						'<span class="text-dim">It\'s mass container migration o\'clock somewhere.</span>',
+						'',
+					];
+					break;
+				case '42':
+					result = [
+						'<span class="text-green">The Answer to the Ultimate Question of Life,</span>',
+						'<span class="text-green">the Universe, and Everything.</span>',
+						'',
+						'<span class="text-dim">...but what was the question?</span>',
+						'',
+					];
+					break;
+				case 'xkcd':
+					result = [
+						'<span class="text-dim">I see you\'re a person of culture.</span>',
+						'<span class="text-teal">sudo make me a sandwich</span>',
+						'',
+					];
+					break;
+				case 'rickroll':
+				case 'rick':
+					result = [
+						'<span class="text-coral">Never gonna give you up</span>',
+						'<span class="text-coral">Never gonna let you down</span>',
+						'<span class="text-coral">Never gonna run around and mass migrate containers</span>',
+						'',
+					];
+					break;
+				case 'ping':
+					result = [
+						'<span class="text-green">PONG!</span>',
+						'<span class="text-dim">64 bytes from joekarlsson.com: icmp_seq=1 ttl=64 time=0.042ms</span>',
+						'<span class="text-dim">vibes: excellent</span>',
+						'',
+					];
+					break;
+				case 'ssh':
+					result = [
+						'<span class="text-coral">ssh: Connection refused</span>',
+						'<span class="text-dim">Nice try. My homelab is behind a VPN.</span>',
+						'',
+					];
+					break;
+				case 'docker':
+					result = [
+						'<span class="text-teal">CONTAINER ID   IMAGE              STATUS</span>',
+						'<span class="text-dim">a1b2c3d4e5f6   joekarlsson.com    Up 42 days</span>',
+						'<span class="text-dim">...and 39 other containers</span>',
+						'',
+					];
+					break;
+				case 'npm':
+				case 'yarn':
+				case 'pnpm':
+					result = [
+						'<span class="text-dim">node_modules: 2.3GB</span>',
+						'<span class="text-dim">actual code: 47KB</span>',
+						'<span class="text-coral">This is fine.</span>',
+						'',
+					];
+					break;
+				case 'python':
+				case 'node':
+				case 'ruby':
+					result = [
+						`<span class="text-dim">${cmd} 3.x.x</span>`,
+						'<span class="text-dim">>>> print("hello from the terminal")</span>',
+						'<span class="text-teal">hello from the terminal</span>',
+						'<span class="text-dim">>>> # this isn\'t a real REPL though</span>',
+						'',
+					];
+					break;
+				case 'make':
+					result = [
+						'<span class="text-dim">make: *** No targets specified.</span>',
+						"<span class=\"text-dim\">Try 'make coffee' or 'make sense'</span>",
+						'',
+					];
+					break;
+				case 'top':
+				case 'htop':
+					result = [
+						'<span class="text-teal">  PID  USER     CPU%  MEM%  COMMAND</span>',
+						'<span class="text-dim">    1  joe      4.2%  69%   mass-containers</span>',
+						'<span class="text-dim">    2  joe      0.1%  1%    good-vibes</span>',
+						'<span class="text-dim">    3  joe      99%   42%   overthinking</span>',
+						'',
+					];
+					break;
+				case 'ps':
+					result = [
+						'<span class="text-dim">  PID TTY          TIME CMD</span>',
+						'<span class="text-dim">    1 pts/0    00:00:00 being-awesome</span>',
+						'<span class="text-dim">    2 pts/0    00:42:00 mass-migration</span>',
+						'',
+					];
+					break;
+				case 'touch':
+				case 'mkdir':
+				case 'mv':
+				case 'cp':
+					result = [
+						'<span class="text-coral">Permission denied.</span>',
+						'<span class="text-dim">This is a read-only filesystem. Very static. Much HTML.</span>',
+						'',
+					];
+					break;
+				case 'nvidia-smi':
+					result = [
+						'<span class="text-teal">+-----------------------------------------------------------------------------+</span>',
+						'<span class="text-teal">| NVIDIA-SMI 535.xx    Driver: 535.xx    CUDA: 12.x                          |</span>',
+						'<span class="text-teal">|-------------------------------+----------------------+----------------------|</span>',
+						'<span class="text-dim">| RTX A4000              | 42°C    | 8% |   2GB / 16GB  | jellyfin-transcode |</span>',
+						'<span class="text-dim">| Quadro RTX 4000        | 38°C    | 0% |   1GB /  8GB  | frigate-detection  |</span>',
+						'<span class="text-teal">+-----------------------------------------------------------------------------+</span>',
+						'',
+					];
+					break;
+				case 'nmap':
+				case 'telnet':
+				case 'traceroute':
+					result = [
+						'<span class="text-coral">Scanning...</span>',
+						'<span class="text-dim">PORT     STATE    SERVICE</span>',
+						'<span class="text-dim">443/tcp  open     https</span>',
+						'<span class="text-dim">22/tcp   filtered ssh (nice try)</span>',
+						'',
+					];
+					break;
+				case 'fuck':
+				case 'shit':
+				case 'damn':
+					result = [
+						'<span class="text-dim">I understand. Debugging is hard.</span>',
+						'<span class="text-dim">Have you tried mass migrating your containers?</span>',
+						'',
+					];
+					break;
+				case 'why':
+					result = ['<span class="text-dim">Why not?</span>', ''];
+					break;
 				default:
 					result = [
 						`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`,

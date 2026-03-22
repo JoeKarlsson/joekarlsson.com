@@ -252,18 +252,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			'  <span class="text-coral">help</span>         show this message',
 			'  <span class="text-coral">ls</span>           list site pages',
 			'  <span class="text-coral">cd</span> &lt;page&gt;    navigate to a page',
-			'  <span class="text-coral">goto</span> &lt;page&gt;  navigate to a page',
 			'  <span class="text-coral">whoami</span>       who is this',
+			'  <span class="text-coral">cat</span>          list available files',
+			'  <span class="text-coral">cat about.md</span> about me',
+			'  <span class="text-coral">cat work.md</span>  things I\'ve built',
 			'  <span class="text-coral">cat readme</span>   read about this site',
-			'  <span class="text-coral">uptime</span>       system uptime',
 			'  <span class="text-coral">neofetch</span>     system info',
+			'  <span class="text-coral">uptime</span>       system uptime',
+			'  <span class="text-coral">hack</span>         ???',
 			'  <span class="text-coral">clear</span>        clear terminal',
 			'',
 		];
 	}
 
-	function cmdLs(): string[] {
+	function cmdLs(args: string): string[] {
 		const entries = Object.keys(pages).map((p) => `  <span class="text-teal">${p}/</span>`);
+		if (args.includes('-a') || args.includes('-la') || args.includes('-al')) {
+			return [
+				'<span class="text-dim">drwxr-xr-x  joe  staff</span>',
+				'  <span class="text-dim">.secrets/</span>     <span class="text-coral">[REDACTED]</span>',
+				'  <span class="text-dim">.env</span>          <span class="text-coral">[NICE TRY]</span>',
+				'  <span class="text-dim">.ssh/</span>         <span class="text-coral">[NOPE]</span>',
+				...entries,
+				'',
+			];
+		}
 		return ['<span class="text-dim">drwxr-xr-x  joe  staff</span>', ...entries, ''];
 	}
 
@@ -311,6 +324,50 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			'  lost or curious. Either way, I respect it.',
 			'',
 			'  <span class="text-dim">Type \'ls\' to see where you can go.</span>',
+			'',
+		];
+	}
+
+	function cmdCatAbout(): string[] {
+		return [
+			'',
+			'  <span class="text-yellow">## about.md</span>',
+			'',
+			'  Hey, I\'m <span class="text-coral">Joe Karlsson</span>.',
+			'  Software engineer turned dev advocate.',
+			'',
+			'  I help developers build cool stuff - through demos,',
+			'  blog posts, talks, videos, whatever works. Currently',
+			'  doing that at <span class="text-white">CloudQuery</span>.',
+			'',
+			'  Outside of work I run a <span class="text-teal">40+ container homelab</span>,',
+			'  watch way too many movies, and build things that',
+			"  probably shouldn't be connected to the internet.",
+			'',
+			'  <span class="text-dim">See more → <span class="text-teal">cd about</span></span>',
+			'',
+		];
+	}
+
+	function cmdCatWork(): string[] {
+		return [
+			'',
+			'  <span class="text-yellow">## work.md</span>',
+			'',
+			'  <span class="text-coral">IoT Smart Litter Box</span>',
+			'  Built an internet-connected cat toilet. Gave a',
+			'  <span class="text-white">TEDx talk</span> about it. Yes, really.',
+			'',
+			'  <span class="text-coral">40+ Container Homelab</span>',
+			'  Proxmox cluster, dual GPUs, Home Assistant,',
+			'  media automation, monitoring - the works.',
+			'',
+			'  <span class="text-coral">Developer Advocacy</span>',
+			'  Spoken at hundreds of conferences. Built demos,',
+			'  docs, and tools at CloudQuery, Tinybird,',
+			'  SingleStore, and MongoDB.',
+			'',
+			'  <span class="text-dim">See everything → <span class="text-teal">cd work</span></span>',
 			'',
 		];
 	}
@@ -371,7 +428,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				result = cmdHelp();
 				break;
 			case 'ls':
-				result = cmdLs();
+				result = cmdLs(args);
 				break;
 			case 'cd':
 			case 'goto':
@@ -381,11 +438,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				result = cmdWhoami();
 				break;
 			case 'cat':
-				if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
+				if (args.toLowerCase() === 'about.md' || args.toLowerCase() === 'about') {
+					result = cmdCatAbout();
+				} else if (args.toLowerCase() === 'work.md' || args.toLowerCase() === 'work') {
+					result = cmdCatWork();
+				} else if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
 					result = cmdCatReadme();
+				} else if (!args) {
+					result = [
+						'<span class="text-yellow">Available files:</span>',
+						'',
+						'  <span class="text-teal">about.md</span>  about me',
+						'  <span class="text-teal">work.md</span>   things I\'ve built',
+						'  <span class="text-teal">readme</span>    about this site',
+						'',
+						'<span class="text-dim">usage: cat &lt;filename&gt;</span>',
+						'',
+					];
 				} else {
 					result = [
-						`<span class="text-coral">cat: ${escapeHtml(args) || '???'}: No such file</span>`,
+						`<span class="text-coral">cat: ${escapeHtml(args)}: No such file</span>`,
+						'<span class="text-dim">type \'cat\' to see available files</span>',
 						'',
 					];
 				}
@@ -410,6 +483,254 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				break;
 			case 'rm':
 				result = ['<span class="text-coral">absolutely not.</span>', ''];
+				break;
+			case 'matrix':
+			case 'hack':
+				result = [
+					'',
+					'  <span class="text-green">Initiating hack sequence...</span>',
+					'  <span class="text-green">████████████████████░░░░░░ 76%</span>',
+					'  <span class="text-coral">ACCESS DENIED</span>',
+					'',
+					'  <span class="text-dim">Nice try. The mainframe remains secure.</span>',
+					'  <span class="text-dim">(visit the homepage for the full experience)</span>',
+					'',
+				];
+				break;
+			case 'pwd':
+				result = ['<span class="text-teal">/home/joe/404</span>', ''];
+				break;
+			case 'hi':
+			case 'hello':
+			case 'hey':
+				result = [
+					'',
+					'  <span class="text-coral">Hey!</span> You found the 404 page.',
+					'  <span class="text-dim">Type \'ls\' to find your way back.</span>',
+					'',
+				];
+				break;
+			case 'curl':
+			case 'wget':
+				result = [
+					"<span class=\"text-dim\">You're already here. Try 'cat readme' instead.</span>",
+					'',
+				];
+				break;
+			case 'chmod':
+				result = ['<span class="text-coral">chmod: nice try, script kiddie.</span>', ''];
+				break;
+			case 'chown':
+				result = ['<span class="text-coral">chown: you don\'t own me.</span>', ''];
+				break;
+			case 'kill':
+			case 'pkill':
+			case 'killall':
+				result = ['<span class="text-coral">kill: process "404" refuses to die.</span>', ''];
+				break;
+			case 'shutdown':
+			case 'reboot':
+			case 'poweroff':
+				result = [
+					'<span class="text-coral">Error: This website runs on pure stubbornness.</span>',
+					'<span class="text-dim">It cannot be stopped.</span>',
+					'',
+				];
+				break;
+			case 'dd':
+				result = [
+					'<span class="text-coral">dd: permission denied</span>',
+					'<span class="text-dim">Nice try. My disks are safe.</span>',
+					'',
+				];
+				break;
+			case 'mkfs':
+			case 'fdisk':
+				result = [
+					'<span class="text-coral">Whoa there. This is a website, not your homelab.</span>',
+					'',
+				];
+				break;
+			case 'fork':
+				result = [
+					'<span class="text-coral">:(){ :|:& };: detected</span>',
+					'<span class="text-dim">Fork bombs don\'t work here. I\'ve seen things.</span>',
+					'',
+				];
+				break;
+			case 'deltree':
+			case 'format':
+				result = [
+					'<span class="text-coral">This isn\'t Windows 95.</span>',
+					'<span class="text-dim">But I appreciate the nostalgia.</span>',
+					'',
+				];
+				break;
+			case 'drop':
+				result = [
+					'<span class="text-coral">DROP TABLE users; --</span>',
+					'<span class="text-dim">Nice try, Bobby Tables. This is a static site.</span>',
+					'',
+				];
+				break;
+			case 'vim':
+				result = [
+					'<span class="text-dim">You\'re now trapped in vim.</span>',
+					'<span class="text-dim">Just kidding. Type :q to... wait, that won\'t work here either.</span>',
+					'',
+				];
+				break;
+			case 'emacs':
+				result = ['<span class="text-dim">Emacs? In this economy?</span>', ''];
+				break;
+			case 'nano':
+				result = ['<span class="text-green">Finally, someone with taste.</span>', ''];
+				break;
+			case 'git':
+				result = [
+					'<span class="text-coral">git: this site is already committed.</span>',
+					'<span class="text-dim">No takebacks.</span>',
+					'',
+				];
+				break;
+			case 'echo':
+				result = [
+					`<span class="text-teal">${escapeHtml(args) || '...'}</span>`,
+					'<span class="text-dim">(...echo... ...echo...)</span>',
+					'',
+				];
+				break;
+			case 'sl':
+				result = [
+					'',
+					'<span class="text-dim">      ====        ________                ___________</span>',
+					'<span class="text-dim">  _D _|  |_______/        \\__I_I_____===__|_________|</span>',
+					'<span class="text-dim">   |(_)---  |   H\\________/ |   |        =|___ ___|</span>',
+					'<span class="text-dim">   /     |  |   H  |  |     |   |         ||_| |_||</span>',
+					'<span class="text-dim">  |      |  |   H  |__--------------------| [___] |</span>',
+					'<span class="text-dim">  | ________|___H__/__|_____/[][]~\\_______|       |</span>',
+					'<span class="text-dim">  |/ |   |-----------I_____I [][] []  D   |=======|__</span>',
+					'',
+					"<span class=\"text-coral\">You meant 'ls', didn't you?</span>",
+					'',
+				];
+				break;
+			case 'please':
+			case 'thanks':
+			case 'thank':
+				result = [
+					'<span class="text-green">You\'re welcome! Such nice manners.</span>',
+					'<span class="text-dim">Type \'help\' if you need anything.</span>',
+					'',
+				];
+				break;
+			case 'coffee':
+				result = [
+					'',
+					'    <span class="text-coral">   )</span>',
+					'    <span class="text-coral">  (</span>',
+					'    <span class="text-coral">c[_]</span>',
+					'',
+					'<span class="text-dim">Coffee level: ████████░░ 80%</span>',
+					'<span class="text-dim">Homelab uptime directly correlated.</span>',
+					'',
+				];
+				break;
+			case 'beer':
+				result = [
+					'',
+					'    <span class="text-yellow">  .~~~~.</span>',
+					'    <span class="text-yellow">  i====i_</span>',
+					'    <span class="text-yellow">  |cccc|_)</span>',
+					'    <span class="text-yellow">  |cccc|</span>',
+					'    <span class="text-yellow">  `-==-\'</span>',
+					'',
+					'<span class="text-dim">It\'s mass container migration o\'clock somewhere.</span>',
+					'',
+				];
+				break;
+			case '42':
+				result = [
+					'<span class="text-green">The Answer to the Ultimate Question of Life,</span>',
+					'<span class="text-green">the Universe, and Everything.</span>',
+					'',
+					'<span class="text-dim">...but what was the question?</span>',
+					'',
+				];
+				break;
+			case 'xkcd':
+				result = [
+					'<span class="text-dim">I see you\'re a person of culture.</span>',
+					'<span class="text-teal">sudo make me a sandwich</span>',
+					'',
+				];
+				break;
+			case 'rickroll':
+			case 'rick':
+				result = [
+					'<span class="text-coral">Never gonna give you up</span>',
+					'<span class="text-coral">Never gonna let you down</span>',
+					'<span class="text-coral">Never gonna run around and desert you</span>',
+					'',
+				];
+				break;
+			case 'ping':
+				result = [
+					'<span class="text-green">PONG!</span>',
+					'<span class="text-dim">64 bytes from 404.joekarlsson.com: icmp_seq=1 ttl=64 time=0.404ms</span>',
+					'',
+				];
+				break;
+			case 'ssh':
+				result = [
+					'<span class="text-coral">ssh: Connection refused</span>',
+					'<span class="text-dim">Nice try. My homelab is behind a VPN.</span>',
+					'',
+				];
+				break;
+			case 'docker':
+			case 'npm':
+			case 'yarn':
+			case 'pnpm':
+			case 'python':
+			case 'node':
+				result = [
+					'<span class="text-dim">This is a 404 page, not a dev environment.</span>',
+					'<span class="text-dim">Type \'ls\' to find your way home.</span>',
+					'',
+				];
+				break;
+			case 'touch':
+			case 'mkdir':
+			case 'mv':
+			case 'cp':
+				result = [
+					'<span class="text-coral">Permission denied.</span>',
+					'<span class="text-dim">This is a read-only filesystem.</span>',
+					'',
+				];
+				break;
+			case 'nmap':
+			case 'telnet':
+			case 'traceroute':
+				result = [
+					'<span class="text-coral">Scanning...</span>',
+					'<span class="text-dim">PORT     STATE    SERVICE</span>',
+					'<span class="text-dim">404/tcp  open     not-found</span>',
+					'',
+				];
+				break;
+			case 'fuck':
+			case 'shit':
+			case 'damn':
+				result = [
+					'<span class="text-dim">I understand. 404s are frustrating.</span>',
+					"<span class=\"text-dim\">Type 'ls' to find what you're looking for.</span>",
+					'',
+				];
+				break;
+			case 'why':
+				result = ['<span class="text-dim">Because the page doesn\'t exist. Sorry!</span>', ''];
 				break;
 			default:
 				result = [
