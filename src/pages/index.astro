@@ -452,10 +452,6 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 </style>
 
 <script>
-	import * as T from '../lib/terminal-core';
-
-	const variant = 'homepage' as const;
-
 	const _output = document.getElementById('output');
 	const _inputLine = document.getElementById('input-line');
 	const _inputText = document.getElementById('input-text');
