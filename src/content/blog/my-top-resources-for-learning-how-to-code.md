@@ -333,8 +333,6 @@ You can check out my Top Tech Talks of all time here:
 
 - [Hacker Way: Rethinking Web App Development at Facebook](https://www.youtube.com/watch?v=nYkdrAPrdcw) [00:44:36] by **Tom Occhino, Jing Chen & Pete Hunt** (it starts pretty slow and marketingy, but gets much better over time)
 
-- [Reactive Programming Overview](https://www.youtube.com/watch?v=dwP1TNXE6fc) [00:09:18] by **Jafar Husain** (very concise and dense)
-
 - [Immutability: Putting The Dream Machine To Work](https://www.youtube.com/watch?v=SiFwRtCnxv4) [00:22:06] by **David Nolen**
 
 - [How I learned to Code by Making 180 websites in 180 days](https://www.youtube.com/watch?v=QaSbL4sRff8) [00:22:03] by **Jennifer De Walt**

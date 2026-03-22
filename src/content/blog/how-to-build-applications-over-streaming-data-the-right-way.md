@@ -73,7 +73,7 @@ With real-time data platforms, you need only focus on your data source (such as 
 
 - [**Materialized views**](https://www.tinybird.co/blog-posts/what-are-materialized-views-and-why-do-they-matter-for-realtime?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data)**:** Raw data can be pre-processed and stored in a format optimized for low-latency, analytical queries.
 
-- [**OLAP**](https://www.tinybird.co/docs/faq/architecture.html?highlight=olap&utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data#what-is-clickhouse)**:** Online analytical processing capabilities for multidimensional analytical queries.
+- [**OLAP**](https://www.tinybird.co/clickhouse)**:** Online analytical processing capabilities for multidimensional analytical queries.
 
 - [**SQL transformations**](https://www.tinybird.co/docs/guides/best-practices-for-faster-sql.html)**:** Transformations and processing are done using SQL, a familiar language for most developers.
 

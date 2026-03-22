@@ -609,7 +609,7 @@ Inside your main component, define the constants and states required for this sp
 
 #### Connect your dashboard to your Tinybird API
 
-You’ll need to write a function to fetch data from Tinybird. Note that for the sake of brevity, we are hardcoding the dates and using the default limit in the Tinybird API. You could set up a [Tremor datepicker](https://www.tremor.so/docs/ui/date-range-picker) and/or [number input](https://www.tremor.so/docs/components/number-input) if you wanted to dynamically update the dashboard components from within the UI.
+You’ll need to write a function to fetch data from Tinybird. Note that for the sake of brevity, we are hardcoding the dates and using the default limit in the Tinybird API. You could set up a [Tremor datepicker](https://www.tremor.so/docs/ui/date-range-picker) and/or [number input](https://www.tremor.so/docs/ui/number-input) if you wanted to dynamically update the dashboard components from within the UI.
 
 ```js
 // Define hardcoded date range for the query

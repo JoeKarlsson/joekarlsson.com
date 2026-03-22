@@ -31,7 +31,7 @@ Now that we have got that out of the way, let’s see if we can set up a new app
 
 > Note: This tutorial does not touch all of the features of Stitch. It is intended to be the quickest possible way to explore the platform.
 
-> You can find the source code for this tutorial here: [JoeKarlsson/mongodb-stitch-todo-tutorial on GitHub](https://github.com/JoeKarlsson/mongodb-stitch-todo-tutorial)
+> Note: MongoDB Stitch was deprecated in favor of MongoDB Realm, and the original source code is no longer available.
 
 - First things first, you will need to set up a [MongoDB Atlas account](https://www.mongodb.com/cloud/atlas?jmp=docs).
 
@@ -226,7 +226,3 @@ By the end, your app should look and work like this.
 <video autoplay loop muted playsinline aria-label="By the end, your todo app should look like this"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/qHriJwRfw2mQXfpAPZ2VMQ.webm" type="video/webm"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/qHriJwRfw2mQXfpAPZ2VMQ.mp4" type="video/mp4"></video>
 
 _By the end, your todo app should look like this_
-
-If you have any questions or comments, feel free to reach out or open an issue in the repo.
-
-> You can find the source code for this tutorial here: [JoeKarlsson/mongodb-stitch-todo-tutorial on GitHub](https://github.com/JoeKarlsson/mongodb-stitch-todo-tutorial)

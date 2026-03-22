@@ -154,7 +154,7 @@ Joe replaces SaaS dependencies with self-hosted alternatives that integrate with
 
 - **[Hanselminutes with Scott Hanselman](https://hanselminutes.com/752/document-databases-and-mongo-with-engineer-joe-karlsson)**: Document Databases and MongoDB - how document DBs differ from relational databases
 - **[Screaming in the Cloud with Corey Quinn](https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/when-data-is-your-brand-and-your-job-with-joe-karlsson/)** (Last Week in AWS): "When Data is Your Brand and Your Job" - data engineering, AI, and building a personal brand
-- **[JavaScript Jabber](https://topenddevs.com/podcasts/javascript-jabber/episodes/jsj-436-mongodb-basics-with-joe-karlsson)**: Two episodes - MongoDB Basics and Internet of Things (IoT)
+- **JavaScript Jabber**: Two episodes - MongoDB Basics and Internet of Things (IoT)
 - **[CodeNewbie](https://dev.to/codenewbie/s19-e6-how-to-make-learning-databases-fun-and-approachable-joe-karlsson)**: S19:E6 - "How to make learning databases fun and approachable"
 - **Reach or Miss Podcast**: Episode 182 - career journey from bootcamp instructor to Developer Advocate
 

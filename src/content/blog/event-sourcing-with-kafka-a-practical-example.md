@@ -151,7 +151,7 @@ After setting up your Kafka topic, [sign up for Tinybird](https://www.tinybird.c
 
 ### Step 3: Create a Copy Pipe to capture your first snapshot
 
-Here you will use [Copy Pipes](https://www.tinybird.co/docs/publish/copy-pipes.html) to capture the result of an SQL transformation at a moment in time and write the result into a target[ Data Source](https://www.tinybird.co/docs/concepts/data-sources.html). To create a Copy Pipe, you will first need to make a new Pipe in Tinybird called `init_latest_snapshot` and paste this SQL query.
+Here you will use [Copy Pipes](https://www.tinybird.co/docs/forward/work-with-data/optimize/copy-pipes) to capture the result of an SQL transformation at a moment in time and write the result into a target[ Data Source](https://www.tinybird.co/docs/concepts/data-sources.html). To create a Copy Pipe, you will first need to make a new Pipe in Tinybird called `init_latest_snapshot` and paste this SQL query.
 
 ```sql
 SELECT

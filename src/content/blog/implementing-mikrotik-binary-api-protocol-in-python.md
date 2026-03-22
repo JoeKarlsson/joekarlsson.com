@@ -11,7 +11,7 @@ tldr: "I implemented MikroTik's proprietary binary API protocol from scratch in 
 
 My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) runs a MikroTik CRS317 as the 10G backbone switch, handling LACP bonds to two Proxmox hosts and a failover bond to a UniFi switch. When I started managing bonding configurations, DHCP settings, and firewall rules, I wanted to do it programmatically — not by SSHing in and typing commands interactively.
 
-[MikroTik routers expose an API](https://help.mikrotik.com/docs/spaces/ROS/pages/47579149/API) on port 8728, but it's not REST. It's not even HTTP. It's a proprietary binary protocol with its own encoding scheme. Most people use existing libraries or just stick with SSH. I decided to implement the protocol from scratch.
+[MikroTik routers expose an API](https://help.mikrotik.com/docs/spaces/ROS/pages/47579160/API) on port 8728, but it's not REST. It's not even HTTP. It's a proprietary binary protocol with its own encoding scheme. Most people use existing libraries or just stick with SSH. I decided to implement the protocol from scratch.
 
 ## Why Not Use an Existing Library?
 

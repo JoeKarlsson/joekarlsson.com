@@ -21,7 +21,7 @@ By not including the database in the pipeline, most of the work related to datab
 
 This post is for developers who want to learn best practices for integrating databases into your DevOps organization. I'll also walk through how to set up an example [SingleStore](https://www.singlestore.com/) database in your DevOps pipeline using [GitHub Actions](https://github.com/features/actions).
 
-You can also check out a [live stream](https://www.youtube.com/watch?v=dSeMOp5lXos) I did recently with [Rizel Scarlett](https://x.com/blackgirlbytes) from GitHub.
+I did a live stream on this topic with [Rizel Scarlett](https://x.com/blackgirlbytes) from GitHub.
 
 ## What Are Technical Best Practices for Databases and DevOps?
 
@@ -92,5 +92,3 @@ And that is it! Now you can relax and commit your code and migrations as the dep
 - [Code for SingleStore and GitHub Actions Demo](https://github.com/singlestore-labs/singlestore-and-github-actions-demo)
 
 - [Quickstart for GitHub Actions](https://docs.github.com/en/actions/quickstart)
-
-- [Livestream: Databases and DevOps w/ Rizel Scarlett (GitHub)](https://www.youtube.com/watch?v=dSeMOp5lXos)

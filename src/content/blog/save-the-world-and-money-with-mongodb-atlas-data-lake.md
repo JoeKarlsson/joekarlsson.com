@@ -22,7 +22,6 @@ You walk away from this session with a clear understanding of data lakes, their 
 
 ## Source Code
 
-[GitHub - Save The World And Money With MongoDB Data Lake](https://github.com/joekarlsson/mongodb-atlas-data-lake)
 [GitHub - MongoDB IoT Sample Data Generator](https://github.com/joekarlsson/IoT-generator-mongodb)
 
 ## Talk Slides
@@ -39,5 +38,4 @@ You walk away from this session with a clear understanding of data lakes, their 
 - [MongoDB Atlas Data Lake Landing Page](https://www.mongodb.com/atlas/data-lake)
 - Want to learn more about MongoDB? Check out [MongoDB University](https://joekarlsson.dev/MongoDBUniversity).
 - Have a question or issue with MongoDB? Join the [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity) and ask a question.
-- [GitHub - Save The World And Money With MongoDB Data Lake](https://github.com/joekarlsson/mongodb-atlas-data-lake)
 - [GitHub - MongoDB IoT Sample Data Generator](https://github.com/joekarlsson/IoT-generator-mongodb)
