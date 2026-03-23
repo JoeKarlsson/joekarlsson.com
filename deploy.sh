@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+# Load nvm so npm is available
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 # Load environment variables from .env if present
 if [[ -f .env ]]; then
     set -a
