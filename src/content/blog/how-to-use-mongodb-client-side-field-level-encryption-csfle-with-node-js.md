@@ -502,7 +502,7 @@ docker run -tih csfle mdb-csfle-examp
 Once you’re inside the Docker container, you can follow the below steps to run the NodeJS code example.
 
 ```bash
-$ export MONGODB_URL="mongodb+srv://USER:PWD@EXAMPLE.mongodb.net/dbname?retryWrites=true&w=majority"
+$ export MONGODB_URL="mongodb+srv://<username>:<password>@<your-cluster>.mongodb.net/<dbname>?retryWrites=true&w=majority"
 
 $ node ./example.js
 ```
