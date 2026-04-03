@@ -21,6 +21,10 @@ export default defineConfig({
 	},
 	redirects: {
 		// WordPress date-based blog URLs → new /blog/slug pattern
+		// Specific redirects for known old URLs (strips month from path)
+		'/2023/09/how-to-get-started-building-a-homelab-server-in-2024':
+			'/blog/how-to-get-started-building-a-homelab-server-in-2024',
+
 		// Covers all /YYYY/MM/slug patterns from the old WordPress site
 		'/2015/[...slug]': '/blog/[...slug]',
 		'/2016/[...slug]': '/blog/[...slug]',
