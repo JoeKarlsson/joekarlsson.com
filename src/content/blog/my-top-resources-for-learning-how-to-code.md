@@ -247,7 +247,7 @@ If you want to hear more about my thoughts on CS fundamentals and finding your p
 
 - [Gödel, Escher, Bach](http://www.amazon.com/G%C3%B6del-Escher-Bach-Eternal-Golden/dp/0465026567) by Douglas Hofstadter
 
-- [Hackers: Heroes of the Computer Revolution](http://www.gutenberg.org/ebooks/729) by Steven Levy (free ebook)
+- [Hackers: Heroes of the Computer Revolution](https://www.gutenberg.org/ebooks/729) by Steven Levy (free ebook)
 
 - [JavaScript - The Good Parts](http://javascript.crockford.com/) by Douglas Crockford
 
