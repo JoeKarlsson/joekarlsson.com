@@ -48,6 +48,8 @@ I'm not totally sure how it happened. Our front-end team is excellent - genuinel
 
 I knew what was wrong. I just couldn't do anything about it at a pace that mattered.
 
+Worth mentioning: we weren't doing nothing. We'd hired an SEO agency at around $10,000 a month. They were good - genuinely helpful tips, solid strategy advice. But even with external help, the execution pace was slow. Recommendations would sit in a doc waiting on the engineering queue. Changes took weeks to get from "identified" to "shipped." The gap between knowing and doing was still massive. That's the actual problem, and no amount of strategy advice closes it if you can't execute faster.
+
 Then I got Claude Code, and something changed. I want to tell that story, because I think it's more useful than another "SEO best practices for 2026" post, but it also contains SEO best practices for 2026, because I've actually been running this experiment and have numbers.
 
 ---
@@ -245,6 +247,8 @@ A [2023 academic paper from Princeton, Georgia Tech, and Allen AI](https://arxiv
 
 The content that gets cited in AI answers tends to be content that directly and clearly answers the query. That's also content that ranks well in traditional organic search. Good writing and good SEO are converging. Write for people, format for robots.
 
+![Meme: Always Has Been astronaut - wait, good SEO is just writing thorough content that actually answers questions? Always has been.](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-always-has-been.webp)
+
 ---
 
 ## The LLM Discovery Channel Is Already Here
@@ -302,6 +306,8 @@ After the technical cleanup, the next thing I do every week is build the high-im
 On content strategy: **resource hub articles massively outperform blog posts.** 8 of our 9 top traffic-gaining pages are Learning Center articles - in-depth, definitional guides on topics our audience actually searches, updated regularly, with original research and data where we can get it. Not blog posts. I'm not saying stop blogging - I'm saying if you're putting all your resources into the blog and haven't built a proper resource hub, the ROI is probably inverted. Build the hub, link to it from everything, and keep it current.
 
 For GEO specifically, the highest-signal thing you can add is FAQ schema - especially on how-to and comparison pages. It's a traditional rich result signal and the most consistently cited optimization in the [original GEO research](https://arxiv.org/abs/2311.09735).
+
+![Meme: Expanding brain - from knowing SEO problems exist, to weekly audits, to Claude Code automation, to being cited in AI Overviews while a cron job collects data](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-expanding-brain.webp)
 
 One thing I still haven't solved: Core Web Vitals. Our Total Blocking Time is poor across most pages. It's a JavaScript bundle problem that needs real engineering involvement. A page with great content and terrible CWV will underperform against a page with great content and good CWV. It's a ceiling. I've filed the issue. I haven't cracked it.
 
@@ -368,6 +374,21 @@ Same logic applies to the PR tracker. The feedback loop only closes if you can l
 The last thing is about patience, and I mean this genuinely: a change merged today might not show up in ranking data for 2-4 weeks. I've seen people abandon this process at week three, right before results were about to land. If you need fast feedback loops to stay motivated, this work is going to drive you up a wall. But if you can hold the timeline, the results compound in a way that almost nothing else does. Every clean redirect, every internal link, every better title stays fixed. None of it decays.
 
 That's the whole thing. The loops are slow. The execution is almost free. **The diagnosis is everything.**
+
+One more thing on the business case: the closer you can tie this work to revenue, the more latitude you'll get to keep doing it. For us that meant connecting organic search to MQL creation in HubSpot - being able to say "this blog post was the first touch for X leads this month" is a completely different conversation than "our impressions went up." If you can show a deal in the pipeline with a first-touch attribution to an organic Google click, that's the thing that gets you unlimited runway. Track it from day one.
+
+---
+
+**Quick-start checklist if you want to try this:**
+
+- [ ] Connect Google Search Console and set up a weekly export
+- [ ] Add at least one analytics source for actual visitor counts (Plausible or GA4)
+- [ ] Run your first site crawl in Ahrefs or Screaming Frog and sort 404s by URL Rating
+- [ ] Pull a GSC export, sort by impressions, flag everything in positions 4-16 with CTR below 5%
+- [ ] Identify your orphan pages (zero internal links) - these are your fastest wins
+- [ ] Take a baseline snapshot before you change anything
+- [ ] Ship one small fix, tag the PR, set a calendar reminder to check results in 3 weeks
+- [ ] Repeat
 
 ---
 
