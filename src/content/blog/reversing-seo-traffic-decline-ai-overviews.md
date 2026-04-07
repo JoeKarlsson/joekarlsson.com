@@ -106,6 +106,10 @@ Getting time to work on this wasn't hard to justify. My manager was on board imm
 
 Claude Code changed that equation completely, but not in the way I expected.
 
+I should say something here that I don't see in other "AI productivity" posts: I have ADHD. And the kind of work I'm describing - pulling data from six different tools, synthesizing it, identifying what to fix, writing the fix, tracking whether it worked - that's exactly the kind of sprawling, multi-step, context-heavy task that my brain finds genuinely hard to get traction on. The activation energy to start is high. The number of places to lose the thread is high. Before, I'd sit down to do a proper SEO audit and find myself with twelve tabs open and no forward momentum.
+
+Something about working with Claude Code broke that pattern for me. I don't fully understand the psychology of it - maybe it's that I can just think out loud and the work starts happening, rather than having to hold the whole structure in my head before I can begin. Maybe it's that each step stays small enough to feel tractable. Whatever it is, the barrier that used to make this kind of work genuinely difficult for my ADHD brain just... isn't there in the same way anymore. I'm not just faster. I'm actually doing work I would have avoided before.
+
 I thought the bottleneck was implementation speed. Write the fix faster, ship more. That's part of it. But the real shift was realizing this is fundamentally a **data problem**. You can't fix what you can't see. And I couldn't see very much, because every tool I had was showing me a different slice of the picture and none of them talked to each other.
 
 GSC shows you clicks and impressions but not actual visitors. Ahrefs shows you estimated traffic but not funnel conversions. Plausible shows you real visitor counts but not keyword positions. HubSpot shows you which leads came from organic but not what pages they landed on first. The data was all there, just siloed, and synthesizing it by hand was slow enough that I'd only do it occasionally, which meant I was always making decisions on stale or partial information.
@@ -364,6 +368,20 @@ Same logic applies to the PR tracker. The feedback loop only closes if you can l
 The last thing is about patience, and I mean this genuinely: a change merged today might not show up in ranking data for 2-4 weeks. I've seen people abandon this process at week three, right before results were about to land. If you need fast feedback loops to stay motivated, this work is going to drive you up a wall. But if you can hold the timeline, the results compound in a way that almost nothing else does. Every clean redirect, every internal link, every better title stays fixed. None of it decays.
 
 That's the whole thing. The loops are slow. The execution is almost free. **The diagnosis is everything.**
+
+---
+
+## What I'm Still Trying to Figure Out
+
+The system I've described is working, but it has real gaps I haven't solved yet.
+
+The biggest one is the Ahrefs API. I'm on the Lite tier, which doesn't include API access - you have to jump to a significantly more expensive plan to get it. Right now I'm manually exporting CSVs, which works but breaks the automation story. The dream is a cron job that collects all the data automatically every week without me having to trigger it. I'm not there yet.
+
+The data blind spot I'm most frustrated about: **I have no reliable way to measure how often we show up in AI assistants, in what context, or what search terms trigger us.** When someone asks Claude or ChatGPT about building a cloud asset inventory and our product gets mentioned, I have no visibility into that. I don't know how frequently it's happening, what questions surface us, or how we're being characterized. That's a significant chunk of the discovery funnel I'm essentially flying blind on. If you know of good data sources for LLM appearance tracking, I genuinely want to hear about them.
+
+The same gap exists for AI Overviews specifically - I can see that we have placements via Ahrefs, but understanding the _context_ of those placements at scale is still manual work.
+
+The other thing I want to build is a proper internal dashboard - something the whole team can see, not just a weekly report I write up and share in Slack. Right now I'm the only one with the full picture, which means I'm the bottleneck for anyone else making sense of our search presence. A shared portal that surfaces position trends, content performance, and funnel attribution in real time would change that. It's on the list.
 
 ---
 
