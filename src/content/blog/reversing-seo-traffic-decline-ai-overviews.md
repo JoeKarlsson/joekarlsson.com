@@ -44,7 +44,7 @@ My job title is Developer Advocate. I write docs, I build demos, I talk to devel
 
 Somehow I also now own our entire web presence.
 
-I'm not totally sure how it happened. Our front-end team is excellent - genuinely great engineers doing genuinely important product work. But the marketing site was a second-tier priority for them, and we didn't have a dedicated SEO person, and I had all these ideas I'd been sitting on for literally years about things I wanted to fix. Bad titles on pages that ranked but didn't convert. Blog posts that had no internal links going anywhere. A resource hub that was basically invisible because nothing pointed to it. Redirect chains from a subdomain migration that happened years ago and nobody cleaned up.
+I'm not totally sure how it happened. Our front-end team is excellent - genuinely great engineers doing genuinely important product work. But the marketing site was a second-tier priority for them, and we didn't have a dedicated SEO person, and I had all these ideas I'd been sitting on for literally years about things I wanted to fix. Bad titles on pages that ranked but didn't convert. Blog posts that had no internal links going anywhere. A resource hub - we call ours the Learning Center, a dedicated section of in-depth, evergreen guides on topics in our space, with original research where possible - that was basically invisible because nothing pointed to it. Redirect chains from a subdomain migration that happened years ago and nobody cleaned up.
 
 I knew what was wrong. I just couldn't do anything about it at a pace that mattered.
 
@@ -295,7 +295,7 @@ Redirect chains fall into the same category. Every hop loses signal. If you've d
 
 After the technical cleanup, the next thing I do every week is build the high-impressions/low-CTR hit list. I export GSC data, sort by impressions, and find everything sitting in positions 4-16 with CTR below 5%. These pages are showing up on Google - they just aren't getting clicked. Nine times out of ten it's a title that doesn't match what someone actually searched. Batch the rewrites, ship in one PR, check back in three weeks. This was one of our fastest-moving wins.
 
-On content strategy: **resource hub articles massively outperform blog posts.** 8 of our 9 top traffic-gaining pages are in-depth, definitional guides, not blog posts. I'm not saying stop blogging - I'm saying if you're putting all your resources into the blog and haven't built a proper resource hub, the ROI is probably inverted. Build the hub, link to it from everything, and keep it current.
+On content strategy: **resource hub articles massively outperform blog posts.** 8 of our 9 top traffic-gaining pages are Learning Center articles - in-depth, definitional guides on topics our audience actually searches, updated regularly, with original research and data where we can get it. Not blog posts. I'm not saying stop blogging - I'm saying if you're putting all your resources into the blog and haven't built a proper resource hub, the ROI is probably inverted. Build the hub, link to it from everything, and keep it current.
 
 For GEO specifically, the highest-signal thing you can add is FAQ schema - especially on how-to and comparison pages. It's a traditional rich result signal and the most consistently cited optimization in the [original GEO research](https://arxiv.org/abs/2311.09735).
 
