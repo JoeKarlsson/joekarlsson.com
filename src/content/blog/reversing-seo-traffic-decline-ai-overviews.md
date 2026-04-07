@@ -25,16 +25,16 @@ _A personal story about obsessive SEO audits, Claude Code, AI Overviews stealing
 
 **Table of Contents**
 
-- [The Industry Problem: AI Overviews Are Eating Your Clicks](#the-industry-problem)
-- [The Two Failure Modes Nobody Talks About](#the-two-failure-modes)
+- [The Industry Problem: AI Overviews Are Eating Your Clicks](#first-a-thing-thats-breaking-everyones-traffic-right-now)
+- [The Two Failure Modes Nobody Talks About](#the-thing-i-figured-out-that-changed-how-i-approached-this)
 - [How I Ended Up Owning This](#how-i-ended-up-owning-this)
 - [The Weekly Ritual](#the-weekly-ritual)
-- [The Numbers After Four Weeks](#the-numbers)
-- [Being Cited in an AI Overview Is Actually Good (With an Asterisk)](#ai-overview-citation)
-- [The LLM Discovery Channel Is Already Here](#llm-discovery)
-- [How Much Time This Actually Takes](#time-investment)
-- [Things That Are Actually Working in 2026](#best-practices)
-- [The Stack and What It Costs](#the-stack)
+- [The Numbers After Four Weeks](#the-numbers-because-i-know-you-want-them)
+- [Being Cited in an AI Overview Is Actually Good (With an Asterisk)](#being-cited-in-an-ai-overview-is-actually-good-with-an-asterisk)
+- [The LLM Discovery Channel Is Already Here](#the-llm-discovery-channel-is-already-here)
+- [How Much Time This Actually Takes](#how-much-time-this-actually-takes)
+- [Things That Are Actually Working in 2026](#things-that-are-actually-working-in-2026-in-order-of-roi)
+- [The Stack and What It Costs](#the-stack-and-what-it-costs)
 - [What Changed](#what-changed)
 - [If You Want to Do This](#if-you-want-to-do-this)
 
@@ -52,7 +52,7 @@ Then I got Claude Code, and something changed. I want to tell that story, becaus
 
 ---
 
-## First, A Thing That's Breaking Everyone's Traffic Right Now {#the-industry-problem}
+## First, A Thing That's Breaking Everyone's Traffic Right Now
 
 Before I get into what we did, some context. If you manage a website for a SaaS or tech company, you've probably noticed something weird: your impressions are going up. Your rankings are improving. Google Search Console shows you appearing on more queries than ever. And your clicks are... flat. Maybe down.
 
@@ -76,7 +76,7 @@ Welcome to 2026.
 
 ---
 
-## The Thing I Figured Out That Changed How I Approached This {#the-two-failure-modes}
+## The Thing I Figured Out That Changed How I Approached This
 
 I spent the first couple weeks of this project confused. Our GSC position data was trending up, impressions were going up, but clicks weren't responding the way I expected. I kept trying to diagnose a content quality problem that wasn't there.
 
@@ -94,7 +94,7 @@ One thing worth being honest about: [the same Seer Interactive study](https://ww
 
 ---
 
-## How I Ended Up Owning This {#how-i-ended-up-owning-this}
+## How I Ended Up Owning This
 
 I've been at my company for a while now in a DevRel role. I care deeply about the developer experience, the docs, the content we put out. But I also have strong opinions about the marketing site. I'd been accumulating a mental backlog of "things I want to fix" for years, and not acting on any of it, because acting on it meant writing up a request and getting in the engineering team's queue, which was legitimately full of more important work.
 
@@ -124,7 +124,7 @@ My manager was supportive from day one. Once the results started showing up, it'
 
 ---
 
-## The Weekly Ritual {#the-weekly-ritual}
+## The Weekly Ritual
 
 Here's the actual workflow. Not magic. Just consistent.
 
@@ -173,7 +173,7 @@ One consistent finding: **in-depth, definitional, long-form guide pages massivel
 
 ---
 
-## The Numbers, Because I Know You Want Them {#the-numbers}
+## The Numbers, Because I Know You Want Them
 
 The first week after I got the `/seo-analysis` skill running and started shipping fixes, I opened Ahrefs on a Monday morning and the impressions chart had gone hockey stick. Not a little uptick - an actual steep climb that made me do a double-take and refresh the page. That was the moment I knew this was real.
 
@@ -217,7 +217,7 @@ That's the AI Overview effect in real data. We tripled our search visibility. Th
 
 ---
 
-## Being Cited in an AI Overview is Actually Good (With an Asterisk) {#ai-overview-citation}
+## Being Cited in an AI Overview is Actually Good (With an Asterisk)
 
 Being featured in an AI Overview is a weird flex. Google is saying your content is authoritative enough to summarize in a generated answer. The asterisk is that the user might never come to your site. You're rewarded for quality with reduced traffic.
 
@@ -239,7 +239,7 @@ The content that gets cited in AI answers tends to be content that directly and 
 
 ---
 
-## The LLM Discovery Channel Is Already Here {#llm-discovery}
+## The LLM Discovery Channel Is Already Here
 
 If AI Overviews are eating Google clicks, and more people are starting their research in Claude or Perplexity rather than Google, the strategic question shifts. It's not just "how do we rank on Google" anymore. It's "how do we become part of the stack that LLMs draw from when someone asks about our space?"
 
@@ -257,7 +257,7 @@ The goal is presence on every discovery surface - Google, Claude, ChatGPT, Perpl
 
 ---
 
-## How Much Time This Actually Takes {#time-investment}
+## How Much Time This Actually Takes
 
 I want to be honest about this because a lot of "I built an SEO system" posts make it sound like a 20-minute weekly process. It's not.
 
@@ -279,7 +279,7 @@ But the cumulative effect is real. Every redirect you clean up is a permanent im
 
 ---
 
-## Things That Are Actually Working in 2026 (In Order of ROI) {#best-practices}
+## Things That Are Actually Working in 2026 (In Order of ROI)
 
 I've been accumulating evidence for a few months. Here's what's actually moving the needle, roughly in order of ROI.
 
@@ -301,7 +301,7 @@ And before any of the above: **build the measurement layer first.** Weekly snaps
 
 ---
 
-## The Stack and What It Costs {#the-stack}
+## The Stack and What It Costs
 
 Since I keep saying "run multiple data sources," I should be upfront about what that actually means in dollars.
 
@@ -325,7 +325,7 @@ Even better than a REST API: an MCP server. Several tools I use now ship MCP ser
 
 ---
 
-## What Changed {#what-changed}
+## What Changed
 
 I had a list of things I wanted to fix on our marketing site for years. I knew what was wrong. I just couldn't ship fast enough for it to matter.
 
@@ -345,7 +345,7 @@ Doing frequent, multi-source data analysis and making good decisions on it - tha
 
 ---
 
-## If You Want to Do This {#if-you-want-to-do-this}
+## If You Want to Do This
 
 A few things I'd tell myself at the start.
 
