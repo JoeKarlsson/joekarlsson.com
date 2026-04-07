@@ -48,7 +48,7 @@ It's not perfect. The CLI is a real barrier for non-technical users. There's no 
 
 When Claude Code dropped slash commands - custom `/commands` you define in markdown files - I immediately got it. Write a skill once, give it the context it needs, invoke it any time with a slash command. No more re-explaining our brand voice. No more pasting the same "you are a marketing writer for a B2B data platform" preamble into every session.
 
-So I built a few things for myself. `/social` to turn blog posts into LinkedIn copy. `/seo-analysis` to pull traffic data from Plausible and GSC without manually querying three different tools. Stuff I was doing every week that I hated doing every week.
+So I built a few things for myself. `/social` to turn blog posts into LinkedIn copy. `/seo-analysis` to pull traffic data from Plausible and GSC without manually querying three different tools - if you want to see what that skill actually produced, I wrote about [four weeks of results here](/blog/reversing-seo-traffic-decline-ai-overviews). Stuff I was doing every week that I hated doing every week.
 
 The thing that makes skills shareable - and this is the part that unlocked everything - is that they're just markdown files. A skill is a prompt with some frontmatter. It lives in `.claude/commands/` (or `.claude/skills/<name>/SKILL.md` in the newer structure - both work identically). You can read it, version control it, share it with `git clone`. It's basically a documented runbook that Claude executes.
 
@@ -197,11 +197,11 @@ model: sonnet
 
 **Pick the right model for the job.** Skills have a `model` field in their frontmatter. Matching the model to the task costs nothing and makes a real difference in response quality and speed:
 
-| Model    | Use for                                        | Example skills                       |
-| -------- | ---------------------------------------------- | ------------------------------------ |
-| `haiku`  | Fast lookups, status checks, simple formatting | `/status`, `/help-marketing`         |
-| `sonnet` | Content writing, most skill work               | `/social`, `/email-copy`, `/rewrite` |
-| `opus`   | Heavy analysis, large data, complex reasoning  | `/seo-analysis`, `/impact`           |
+| Model    | Use for                                        | Example skills                                                                 |
+| -------- | ---------------------------------------------- | ------------------------------------------------------------------------------ |
+| `haiku`  | Fast lookups, status checks, simple formatting | `/status`, `/help-marketing`                                                   |
+| `sonnet` | Content writing, most skill work               | `/social`, `/email-copy`, `/rewrite`                                           |
+| `opus`   | Heavy analysis, large data, complex reasoning  | [`/seo-analysis`](/blog/reversing-seo-traffic-decline-ai-overviews), `/impact` |
 
 **Namespace your skills when you have multiple products.** We run skills for two brands - CloudQuery and env0. A skill file at `.claude/commands/env0/blog.md` gets invoked as `/env0:blog`. Claude Code uses the directory separator as a colon in the UI. This keeps everything organized and makes it obvious at a glance which brand a skill belongs to. If you're building skills for more than one product, project, or client, use namespacing before the list gets unwieldy.
 

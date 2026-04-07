@@ -37,6 +37,7 @@ _A personal story about obsessive SEO audits, Claude Code, AI Overviews stealing
 - [The Stack and What It Costs](#the-stack-and-what-it-costs)
 - [What Changed](#what-changed)
 - [If You Want to Do This](#if-you-want-to-do-this)
+- [What I'm Still Trying to Figure Out](#what-im-still-trying-to-figure-out)
 
 ---
 
