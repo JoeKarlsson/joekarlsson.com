@@ -337,21 +337,6 @@ Everything distilled into one place. Bookmark this part.
 
 ---
 
-## The Checklist I Wish I'd Had
-
-The cheat sheet above is a reference card - bookmark it and come back when you're building. This is a gate: specific things that should be true before you hand the repo to your team.
-
-- [ ] `CLAUDE.md` exists and covers team conventions, key rules, and where things live
-- [ ] Every skill has a corresponding doc in `docs/` - not just a README, an actual guide
-- [ ] `.env.example` has all required keys with a comment explaining what each one is for
-- [ ] A `/setup` skill or init script exists, runs clean, and produces human-readable output
-- [ ] Skills use `allowed-tools` frontmatter to limit what they can access
-- [ ] There's a `/update` command so non-technical users can pull changes without knowing git
-- [ ] Someone is named as the owner - even if that's just you for now
-- [ ] You've run at least one training session focused on a specific workflow, not the tool itself
-
----
-
 ## If I Were Starting Over
 
 Build it for yourself first. The first skills should solve your actual problems, not problems you imagine your team will have. You'll learn the constraints faster.
