@@ -24,7 +24,17 @@ Then my coworkers started asking questions.
 
 Before getting into how, I want to address the obvious question: why not just use ChatGPT, or Cursor, or a shared Notion page full of prompts?
 
-The honest answer is that none of those are actually shareable in the way this is. A Notion prompt library requires people to find the page, copy the prompt, paste it somewhere, and remember to update it when things change. ChatGPT has no concept of project context - every session starts fresh, every person has their own conversation history, nothing is shared. Cursor is great but it's built for code, not for a team that's mostly writing blog posts and pulling SEO reports.
+The honest answer is that none of those are actually shareable in the way this is:
+
+|                             | Notion prompts | ChatGPT | Claude Code skills |
+| --------------------------- | -------------- | ------- | ------------------ |
+| Shared via git              | No             | No      | Yes                |
+| Project context auto-loaded | No             | No      | Yes (`CLAUDE.md`)  |
+| Version controlled          | No             | No      | Yes                |
+| Can run scripts / call APIs | No             | Limited | Yes                |
+| Non-technical friendly      | Somewhat       | Yes     | With setup work    |
+
+A Notion prompt library requires people to find the page, copy the prompt, paste it somewhere, and remember to update it when things change. ChatGPT has no concept of project context - every session starts fresh, every person has their own conversation history, nothing is shared. Cursor is great but it's built for code, not for a team that's mostly writing blog posts and pulling SEO reports.
 
 What Claude Code has that nothing else has in quite the same way: skills are files. They live in a git repo. They version-control exactly like code. The `CLAUDE.md` gives Claude project context that travels automatically with every session. And the permission system means I can give a non-technical teammate access to a skill that calls external APIs and runs Python scripts without worrying that they'll accidentally do something destructive.
 
@@ -92,7 +102,11 @@ Every skill in the repo has a corresponding doc in a `docs/` folder. Not a READM
     social.md
     seo-analysis.md
     setup.md
-    ...
+    env0/
+      blog.md        # Invoked as /env0:blog
+  rules/             # Path-specific context, injected automatically
+    python-patterns.md
+    social.md
 docs/                # Guides for humans
   social.md
   seo-analysis.md
@@ -101,6 +115,7 @@ scripts/             # Python scripts the skills call out to
 CLAUDE.md            # Auto-loaded project context
 BRAND_VOICE.md       # Referenced by every content skill
 .env.example         # Key template - never commit .env
+.mcp.json            # MCP server config (Linear, Google Slides, etc.)
 ```
 
 The separation between `.claude/commands/` and `docs/` is intentional. Skills are dense - they're instructions written for Claude, not for people. The docs are for the human who runs the skill and has no idea what's happening underneath.
@@ -167,9 +182,26 @@ Every single one of those came from someone saying "this is confusing" instead o
 
 Some things I didn't understand until I'd built a dozen skills and broken half of them.
 
+Here's what the frontmatter of a real skill file looks like - these fields do a lot of work:
+
+```yaml
+---
+description: Generate LinkedIn, Twitter, and Bluesky copy from a blog post
+argument-hint: <blog-slug>
+allowed-tools: Read, Grep, Glob, Bash(python3:*), Bash(ls:*)
+model: sonnet
+---
+```
+
 **`allowed-tools` is more granular than the docs suggest.** You can lock down individual bash commands, not just bash as a whole. `Bash(python3:*)` lets a skill run Python. `Bash(ls:*)` lets it list files. But `Bash(rm:*)` you don't want in most skills. A typical line in our repo looks like `allowed-tools: Read, Grep, Glob, Bash(ls:*), Bash(python3:*)`. Start minimal and add as needed. A skill that only reads files shouldn't be able to run shell commands - and if you don't specify otherwise, it won't be able to.
 
-**Pick the right model for the job.** Skills have a `model` field in their frontmatter. I default to `sonnet` for most content work, but `/status` and `/help-marketing` use `haiku` - they're lookups, they don't need to reason hard, and they're noticeably faster. `/seo-analysis` uses `opus` because it's doing real analysis across a lot of data. Matching the model to the task costs nothing and makes a real difference in response quality and speed.
+**Pick the right model for the job.** Skills have a `model` field in their frontmatter. Matching the model to the task costs nothing and makes a real difference in response quality and speed:
+
+| Model    | Use for                                        | Example skills                       |
+| -------- | ---------------------------------------------- | ------------------------------------ |
+| `haiku`  | Fast lookups, status checks, simple formatting | `/status`, `/help-marketing`         |
+| `sonnet` | Content writing, most skill work               | `/social`, `/email-copy`, `/rewrite` |
+| `opus`   | Heavy analysis, large data, complex reasoning  | `/seo-analysis`, `/impact`           |
 
 **Namespace your skills when you have multiple products.** We run skills for two brands - CloudQuery and env0. A skill file at `.claude/commands/env0/blog.md` gets invoked as `/env0:blog`. Claude Code uses the directory separator as a colon in the UI. This keeps everything organized and makes it obvious at a glance which brand a skill belongs to. If you're building skills for more than one product, project, or client, use namespacing before the list gets unwieldy.
 
@@ -179,7 +211,17 @@ Some things I didn't understand until I'd built a dozen skills and broken half o
 
 **Validate prerequisites first, before doing anything.** If a skill depends on an API key, it should check for that key in step one - not step five when the API call fails and dumps an error at someone. If a skill needs a specific file or directory, confirm it exists before starting. Failing fast with a clear explanation is far better than failing halfway through after writing ten files to disk.
 
-**Build a dedicated preflight module, not just a check.** Generic advice says validate upfront. What actually works in practice: a central `preflight.py` with a dependency map that lists each skill's exact requirements - which API keys, which files, which packages. The important part is the required vs optional distinction. Missing your primary analytics key? Hard block - that's a required dependency. Missing the PageSpeed key? Warning, skip that section, continue. When optional dependencies fail gracefully and say exactly what was skipped, people don't think the tool is broken. They know what they're missing and can decide if they care.
+**Build a dedicated preflight module, not just a check.** Generic advice says validate upfront. What actually works in practice: a central `preflight.py` with a dependency map that lists each skill's exact requirements. The important part is the required vs optional distinction:
+
+| Dependency             | Type                           | Failure behavior                             |
+| ---------------------- | ------------------------------ | -------------------------------------------- |
+| `PLAUSIBLE_API_KEY`    | Required (for `/seo-analysis`) | Hard block - can't run without traffic data  |
+| `PAGESPEED_API_KEY`    | Optional                       | Warn, skip Core Web Vitals section, continue |
+| `HUBSPOT_API_KEY`      | Optional                       | Warn, skip MQL data, continue                |
+| `DISCOURSE_API_KEY`    | Optional                       | Warn, skip community metrics, continue       |
+| `website-content/` dir | Required (for `/social`)       | Hard block - nothing to write from           |
+
+When optional dependencies fail gracefully and say exactly what was skipped, people don't think the tool is broken. They know what they're missing and can decide if they care.
 
 **Rules files inject context without cluttering skill files.** Claude Code supports a `.claude/rules/` directory - markdown files with a `paths:` frontmatter field that tells Claude Code which file patterns they apply to. Rules in `rules/python-patterns.md` fire automatically when Claude is working in `scripts/`. Rules in `rules/social.md` fire when working on Postiz scripts or the social skill. This is how you keep skill files focused on workflow logic while still giving Claude the domain-specific constants and import patterns it needs. It's not a widely-documented feature, which is why almost nobody uses it.
 
@@ -192,6 +234,14 @@ Some things I didn't understand until I'd built a dozen skills and broken half o
 ## Making It Work for People Who Aren't You
 
 The technical patterns section is about building skills correctly. This is the other part - making the whole repo work for someone who isn't you, doesn't know what you know, and has a completely different machine setup.
+
+We have three distinct skill types that serve different audiences - and you should design all three before sharing the repo with anyone:
+
+| Skill         | Audience                      | Requires | Purpose                                         |
+| ------------- | ----------------------------- | -------- | ----------------------------------------------- |
+| `/quickstart` | Never used a terminal         | Nothing  | First-run guide, hand-holding                   |
+| `/setup`      | Setting up for the first time | Nothing  | Checks deps, explains failures in plain English |
+| `/update`     | Already using the tools       | Git repo | Pulls latest without knowing git                |
 
 **Design for zero-config on first run.** Some skills should require nothing to work. In our repo, `/discovery-questions`, `/email-copy`, and `/help-marketing` run the second someone clones the repo - no API keys, no configuration, no anything. This is intentional. People need a "this actually works" moment before they'll invest time in getting the rest set up. If everything requires full configuration, nobody gets to that moment and you've already lost them.
 
