@@ -191,6 +191,24 @@ Some things I didn't understand until I'd built a dozen skills and broken half o
 
 ---
 
+## Making It Work for People Who Aren't You
+
+The technical patterns section is about building skills correctly. This is the other part - making the whole repo work for someone who isn't you, doesn't know what you know, and has a completely different machine setup.
+
+**Design for zero-config on first run.** Some skills should require nothing to work. In our repo, `/discovery-questions`, `/email-copy`, and `/help-marketing` run the second someone clones the repo - no API keys, no configuration, no anything. This is intentional. People need an "this actually works" moment before they'll invest time in getting the rest set up. If everything requires full configuration, nobody gets to that moment and you've already lost them.
+
+**Fallback chains for paths, not hard requirements.** Don't assume where someone's files live. Our path resolution tries the value from `.env` first, then checks `../frontend` relative to the repo root, then tries a common home directory location. If none of those work, it returns `None` and the skill degrades gracefully with a clear message. Someone who cloned everything into a different directory than you expected shouldn't get a cryptic Python error - they should get "I couldn't find this, here's what that means, here's what still works."
+
+**Interactive detection - one script, two audiences.** A single line at the top of your init script - `[ -t 0 ] && INTERACTIVE=true` - detects whether it's running in a terminal. In a terminal it asks questions and offers to fix things interactively. Piped or running in CI it just prints `[OK]`/`[WARN]`/`[FAIL]` lines and exits with the right code. You don't need separate scripts for humans and automation. The same script works for a new teammate at their laptop and for your CI pipeline.
+
+**Auto-generate config files, don't ask people to edit them.** Our init script generates `settings.local.json` from the example template and fills in the actual `$HOME` path automatically. Nobody has to open a JSON file and type their home directory path. That sounds like a small thing until you watch someone who's never used a terminal try to figure out what their home path looks like and whether they need quotes around it.
+
+**Tell people exactly what works right now after setup.** The init script ends with a summary that's specific to what got configured. Everything passes - here are three commands to try right now. Warnings only - here's what still works with your current setup. Failures - here's exactly what to do next. People shouldn't leave a setup script wondering if they're ready to use the thing. Tell them.
+
+**Don't override shell environment variables.** The config loader checks whether a key already exists in the environment before setting it from `.env`. This means CI can inject variables via the shell and they'll take precedence over `.env` without any conflict. Sounds like an implementation detail. It's actually the difference between a repo that works correctly in CI and one that silently uses the wrong credentials.
+
+---
+
 ## Getting People to Contribute
 
 Getting people to use the repo is one problem. Getting people to actually add to it is a different one.
@@ -249,6 +267,10 @@ Everything distilled into one place. Bookmark this part.
 
 **Onboarding:**
 
+- Some skills should work with zero config - give people a win before setup friction hits
+- Fallback chains for paths - try common locations before erroring, degrade gracefully with a clear message
+- Auto-generate config files from templates, don't ask people to hand-edit JSON
+- After setup, tell people exactly which skills work right now with their current configuration
 - `/setup` wizard with plain-English error explanations, not raw stack traces
 - `/quickstart` for people who have never opened a terminal
 - `/update` so non-technical users don't need to know what `git pull` is
