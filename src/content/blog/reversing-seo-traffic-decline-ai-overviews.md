@@ -66,7 +66,7 @@ And these things are _everywhere_ now. AI Overviews went from appearing on about
 
 If you're thinking "okay but that's mostly a publisher and e-commerce problem" - no. [TripleDart's 2026 B2B SaaS benchmark](https://www.tripledart.com/guides/b2b-saas-inbound-marketing-report) found AI Overviews appearing on **54% of tracked B2B SaaS keywords**. [Semrush found the Computers & Electronics category](https://www.semrush.com/blog/semrush-ai-overviews-study/) now sees AI Overviews on nearly 18% of keywords. This is squarely our space.
 
-The cruel part: if AI Overviews are appearing on your queries, it's because Google considers your content good enough to summarize. You're being rewarded with invisibility.
+The cruel part: if AI Overviews are appearing on your queries, it's because Google considers your content good enough to summarize. You're being rewarded with _invisibility._
 
 At my company, this showed up in real numbers. Our average search position improved **5.2 positions in four weeks** - a real ranking improvement, moving from the middle of page 2 toward the top. Our raw click count barely moved. We estimated AI Overviews were absorbing around 107 clicks per week on our best queries. Ranking better than ever. Fewer clicks.
 
@@ -98,7 +98,7 @@ One thing worth being honest about: [the same Seer Interactive study](https://ww
 
 I've been at my company for a while now in a DevRel role. I care deeply about the developer experience, the docs, the content we put out. But I also have strong opinions about the marketing site. I'd been accumulating a mental backlog of "things I want to fix" for years, and not acting on any of it, because acting on it meant writing up a request and getting in the engineering team's queue, which was legitimately full of more important work.
 
-I don't say this as a criticism. It's just the reality of a startup where the front-end team is building the actual product. SEO debt accumulates silently. Nothing breaks. Traffic doesn't crash. It just... slowly, quietly underperforms what it could be.
+I don't say this as a criticism. It's just the reality of a startup where the front-end team is building the actual product. SEO debt accumulates _silently._ Nothing breaks. Traffic doesn't crash. It just... _slowly, quietly_ underperforms what it could be.
 
 ![Meme: This is fine dog - me, a developer advocate, also somehow owning the entire company web presence](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-this-is-fine.webp)
 
@@ -114,9 +114,9 @@ Once I had Claude Code, the constraint became data access, not implementation. S
 
 I want to be specific about what I mean, because "AI makes me faster" is one of the laziest sentences in tech right now.
 
-The gap between "spotted" and "shipped" collapsed from weeks to hours. I find a batch of 404s with link equity. I describe the redirect logic to Claude Code. It writes the code, tests it, opens the PR. I review it. Done that afternoon. Before, that finding would sit in a doc for a month.
+The gap between "spotted" and "shipped" **collapsed from weeks to hours.** I find a batch of 404s with link equity. I describe the redirect logic to Claude Code. It writes the code, tests it, opens the PR. I review it. Done that afternoon. Before, that finding would sit in a doc for a month.
 
-I can combine data sources that don't talk to each other. This is actually huge. SEO data is fragmented: Google Search Console shows impressions and clicks. Ahrefs shows estimated traffic and keyword position. Plausible shows actual visitor counts. HubSpot shows what happened in the funnel. None of these agree with each other, and no single one tells the full story. I built a Claude Code skill - I've been calling it `/seo-analysis` - that pulls all of them, correlates the signals, compares against last week's snapshot, and surfaces what moved. Writing and iterating on that infrastructure would have taken me months to do alone. It took days.
+I can combine data sources that don't talk to each other. This is actually huge. SEO data is fragmented: Google Search Console shows impressions and clicks. Ahrefs shows estimated traffic and keyword position. Plausible shows actual visitor counts. HubSpot shows what happened in the funnel. None of these agree with each other, and no single one tells the full story. I built a [Claude Code skill](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling) - I've been calling it `/seo-analysis` - that pulls all of them, correlates the signals, compares against last week's snapshot, and surfaces what moved. Writing and iterating on that infrastructure would have taken me months to do alone. It took days.
 
 And honestly, the thing I underestimated: I can just think out loud. "I wonder if these resource hub pages are invisible because nothing links to them." That thought used to die in a Slack message. Now it becomes an Ahrefs crawl export, an analysis, and a PR before lunch.
 
@@ -130,14 +130,14 @@ Here's the actual workflow. Not magic. Just consistent.
 
 **Step 1: Pull a multi-source snapshot.**
 
-Every week I run `/seo-analysis`, which pulls:
+Every week I run `/seo-analysis` - a [Claude Code skill I built](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling) that queries all my data sources, compares against last week's snapshot, and surfaces what moved. If you're not familiar with Claude Code skills, think of them as reusable slash commands you build yourself. This one pulls from:
 
-- Google Search Console: impressions, clicks, position changes (free, authoritative on your own data)
-- Plausible: actual visitor counts (I trust this more than GA for accuracy)
-- Ahrefs: keyword positions, traffic value estimates, site audit findings, competitor gaps
-- GA4: session and conversion data
-- HubSpot: organic MQL counts to see if traffic is becoming leads
-- PageSpeed: Core Web Vitals
+- [Google Search Console](https://search.google.com/search-console/about/): impressions, clicks, position changes (free, authoritative on your own data)
+- [Plausible](https://plausible.io): actual visitor counts (I trust this more than GA for accuracy)
+- [Ahrefs](https://ahrefs.com): keyword positions, traffic value estimates, site audit findings, competitor gaps
+- [GA4](https://analytics.google.com): session and conversion data
+- [HubSpot](https://www.hubspot.com): organic MQL counts to see if traffic is becoming leads
+- [PageSpeed](https://pagespeed.web.dev): Core Web Vitals
 
 The key insight about running multiple sources: they disagree with each other, and that disagreement is signal. If Ahrefs says traffic is up 40% but Plausible shows flat visitors, that's telling you something about traffic quality. If GSC impressions are exploding but clicks aren't following, that's the AI Overview signature. The gaps between tools are where the story lives.
 
@@ -197,21 +197,19 @@ Here's where we started and where we are after about four weeks of this:
 | Weekly visitors (Plausible) | ~1,354    | ~2,386           | **+76%**           |
 | Docs visitors/week          | ~48       | ~261             | **+440%**          |
 
-The impressions number is the one that surprised me most. Our previous all-time high was around 10,150 impressions - in May 2024. By mid-March we'd already blown past it. We hit **49,220 impressions** in a single week. That's 4.9x the prior all-time high. The record fell three weeks in.
-
-_(The Ahrefs performance chart above shows this - the "Previous All Time High" annotation and the spike past it are already labeled on the image.)_
+The impressions number is the one that surprised me most. Our previous all-time high was around 10,150 impressions - in May 2024. By mid-March we'd already blown past it. We hit **49,220 impressions** in a single week. _That's 4.9x the prior all-time high. The record fell three weeks in._
 
 ![Ahrefs 90-day performance chart showing the "Start" line at Feb 27. After that date, impressions (pink) climb steeply, organic traffic (orange) rises, and referring domains (blue) hold steady - showing the growth is search-driven, not backlink-driven.](/images/blog/reversing-seo-traffic-decline-ai-overviews/chart-90day-performance.webp)
 _The 90-day view. That vertical red line is Feb 27 - when the weekly audit workflow started. Everything to the right of it is the result._
 
-We hit position #1 for a couple of target keywords. Moved a high-volume query from position 49 to 15 - a query that had been completely off our radar.
+We hit position #1 for a couple of target keywords. Moved a high-volume query from position 49 to 15 - a query that had been _completely off our radar._
 
 ![Ahrefs organic positions stacked area chart showing position brackets (1-3, 4-10, 11-20, 21-50, 51+). After the "Start" line at Feb 27, the total number of tracked keyword positions rises across every bracket - the whole stack grows.](/images/blog/reversing-seo-traffic-decline-ai-overviews/chart-organic-positions.webp)
 _Organic positions across all ranking brackets, Jan-Apr 2026. Every band grew after the start date. This is what "improving average position" actually looks like in the underlying data._
 
 And then: look at the clicks. Basically flat.
 
-That's the AI Overview effect in real data. We tripled our search visibility. The clicks got absorbed. This is the game now.
+That's the AI Overview effect in real data. We tripled our search visibility. _The clicks got absorbed._ This is the game now.
 
 ![Meme: Distracted Boyfriend - my organic traffic watching AI Overviews absorb all the clicks](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-distracted-boyfriend.webp)
 
@@ -227,9 +225,15 @@ Here's where it gets interesting though. The Seer Interactive study found someth
 
 There's a win condition. You're not trying to avoid AI Overviews - you can't, and optimizing to avoid them would mean worse content. You're trying to be the source that gets cited.
 
-A [2023 academic paper from Princeton, Georgia Tech, and Allen AI](https://arxiv.org/abs/2311.09735) coined the term GEO (Generative Engine Optimization) and found that specific content optimizations could boost visibility in AI-generated responses by up to 40%. The tactics that worked in the research:
+Here's what I didn't expect though: our conversion rate has been _going up_ as our raw traffic has been going down. People are arriving at our site more fully understanding what we do. They've already had the AI do the research for them, they've already seen our product mentioned in the answer, and they're coming to us to convert - not to browse. Trial signups and sales inquiries from people who need less convincing. The funnel is shorter. The win rate is higher.
+
+I don't know if this is permanent or a blip. The sphere in which marketing actually happens is in flux right now - some of it is playing out on Google, some of it in AI Overviews, some of it in conversations people are having with Claude and ChatGPT before they ever search for anything. We're in the middle of it and nobody knows where it lands. But the signal I'm seeing today is that the visitors who do click through are higher quality than they used to be. Fewer browsers. More buyers.
+
+A [2023 academic paper from Princeton, Georgia Tech, and Allen AI](https://arxiv.org/abs/2311.09735) coined the term GEO (Generative Engine Optimization) and found that specific content optimizations could boost visibility in AI-generated responses by up to 40%. The tactics that worked in the research - and that we've validated ourselves:
 
 - **FAQ schema** on content pages so AI can extract structured Q&A
+- **TL;DR summaries** at the top of long posts - AI systems pull these as concise answers
+- **Comparison tables** that directly answer "X vs Y" queries in a structured format
 - **Quotable definitions** in your lead paragraphs: sentences that can be lifted verbatim as a cited answer
 - **Structured data**: HowTo, Article, BreadcrumbList
 - **First-person authoritative voice**: "we provide X" lands differently than "some tools include X"
@@ -333,7 +337,7 @@ The thing Claude Code changed wasn't my intelligence about the problem. It chang
 
 The other thing that changed is I can now prove it. The PR tracker correlating changes to position and traffic data means I can point to specific PRs and say "this one moved that page from position 19 to 7.7." I can show docs traffic grew 440% after a specific set of work. I can show exactly how organic search turned into funnel entries. It's not vibes. It's a repeatable experiment with a measurement layer.
 
-We went from an impressions all-time high of ~10K to nearly 50K in three weeks. Organic traffic doubled. Docs traffic grew 4x. Confirmed deal pipeline came in from pure organic search in month one - clear first-touch attribution to a Google organic click. The death spiral was neglect. Neglect is fixable.
+We went from an impressions all-time high of ~10K to nearly 50K in three weeks. Organic traffic doubled. Docs traffic grew 4x. Confirmed deal pipeline came in from pure organic search in month one - clear first-touch attribution to a Google organic click. The death spiral was neglect. _Neglect is fixable._
 
 I'm going to keep doing this every week. The loops are slow. The results are not.
 
