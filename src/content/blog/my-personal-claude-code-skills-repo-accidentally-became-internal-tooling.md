@@ -16,6 +16,8 @@ I didn't set out to build internal tooling. I built a few Claude Code skills for
 
 Then my coworkers started asking questions.
 
+![Is this a pigeon meme: 'me, building a personal productivity tool' / 'Is this internal tooling?'](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-is-this-internal-tooling.webp)
+
 ---
 
 ## Why Claude Code Specifically
@@ -153,15 +155,9 @@ None of this is catastrophic. It's just maintenance, same as any other piece of 
 
 I didn't start small on purpose - that was just the reality. A handful of skills, a few people using them, enough surface area to figure out what was broken.
 
-The things I learned from actual usage that I never would have figured out in advance: people needed a way to update the repo without knowing git, so `/update` exists. Raw Python error messages meant nothing to non-technical users, so the setup wizard learned to translate every failure into a plain sentence plus a next action. API keys are confusing - which key does what, where do you get it, who do you ask - so the setup flow answers all of it before people have to ask. People wanted to know if something was configured and working before they tried to use it, so `/status` exists.
+Every improvement that mattered came from someone running into something and telling me. People needed `/update` so they could pull changes without knowing git. The setup wizard learned to translate Python errors into plain English after I watched someone stare at a stack trace for five minutes. `/status` exists because people wanted to know if the thing was configured and working before they tried to use it.
 
-Every single one of those improvements came from someone running into something and telling me. The only reason the feedback loop worked is that the team felt comfortable saying "this is confusing" instead of quietly giving up and going back to the old way. That's harder to engineer than any of the actual tooling.
-
----
-
-## Yes, I Thought About Security
-
-Three quick things since developers will ask: API keys live in `.env`, which is gitignored - there's a `.env.example` with the template, every machine keeps its own copy. Skills can declare which tools they're allowed to use via `allowed-tools` frontmatter, so a skill that only needs to read files can't accidentally run shell commands. And Claude Code will ask before doing anything destructive - don't route around those prompts, they exist for a reason and they're especially important when non-technical users are running things they don't fully understand.
+Every single one of those came from someone saying "this is confusing" instead of quietly giving up. The only reason the feedback loop worked is that the team felt comfortable doing that. That's harder to engineer than any of the actual tooling.
 
 ---
 
@@ -209,14 +205,6 @@ The technical patterns section is about building skills correctly. This is the o
 
 ---
 
-## Getting People to Contribute
-
-Getting people to use the repo is one problem. Getting people to actually add to it is a different one.
-
-Making it easy helps - a skill is a markdown file, not a coding project, and I built `/new-skill` to scaffold the structure so you don't have to remember the frontmatter format. But what's helped more than anything is being specific. "Hey, could you write a skill for the discovery questions you use on sales calls?" lands completely differently than "feel free to contribute if you want to." Specific ask, clear outcome, obvious value. That's the thing that gets PRs opened.
-
----
-
 ## This Is a Living Thing, Not a Project
 
 I want to be clear about something that doesn't come through in most "here's how I built X" posts: this repo is not done. There is no done.
@@ -225,11 +213,13 @@ Almost every day I'm making some adjustment. A skill that needed tweaking based 
 
 That's not a flaw in the approach - it's the nature of it. This is infrastructure, not a project you ship and walk away from. If you go into it expecting to build it once and be done, you'll be disappointed. If you go in expecting to tend it the way you'd tend anything that needs to stay useful over time - small adjustments often, paying attention, fixing things when they break - it compounds in ways that are hard to fully appreciate until you're six months in and your team is doing in ten minutes what used to take most of a morning.
 
----
+Getting people to contribute is a separate problem from getting people to use the thing. Making it easy helps - `/new-skill` scaffolds the structure so nobody has to remember the frontmatter format. But what's worked more than anything is being specific.
 
-## This Isn't Just a Marketing Thing
+![Two buttons meme: sweating over 'feel free to contribute if you want to' vs 'hey, could you write a skill for the discovery questions you use on sales calls?'](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-two-buttons-contribute.webp)
 
-I built this for a marketing team because that's where I work, but I want to say clearly: the pattern generalizes. Any team with repeated workflows, shared context, and people with varying technical comfort levels can do this. Sales. DevRel. Support. Engineering onboarding. If your team does the same thing more than once a week and it involves writing, researching, or pulling data from somewhere - there's probably a skill for that.
+Specific ask, clear outcome, obvious value. That's what gets PRs opened.
+
+I built this for a marketing team, but the pattern generalizes. Any team with repeated workflows, shared context, and people with varying technical comfort can do this - sales, DevRel, support, engineering onboarding. If your team does the same thing more than once a week and it involves writing, researching, or pulling data from somewhere, there's probably a skill for that.
 
 ---
 
@@ -295,7 +285,7 @@ Everything distilled into one place. Bookmark this part.
 
 ## The Checklist I Wish I'd Had
 
-Before you hand the repo to your team:
+The cheat sheet above is a reference card - bookmark it and come back when you're building. This is a gate: specific things that should be true before you hand the repo to your team.
 
 - [ ] `CLAUDE.md` exists and covers team conventions, key rules, and where things live
 - [ ] Every skill has a corresponding doc in `docs/` - not just a README, an actual guide
