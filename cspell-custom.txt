@@ -11,6 +11,9 @@
 # Spanish / food words
 # Tech terms
 Acitivity
+CloudQuery
+frontmatter
+gitignored
 Adolphus
 Alarmo
 Alertmanager
