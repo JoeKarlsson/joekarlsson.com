@@ -4,6 +4,8 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 
 // https://astro.build/config
@@ -17,7 +19,26 @@ export default defineConfig({
 		shikiConfig: {
 			theme: 'github-dark',
 		},
-		rehypePlugins: [rehypeYouTubeEmbed],
+		rehypePlugins: [
+			rehypeYouTubeEmbed,
+			rehypeSlug,
+			[
+				rehypeAutolinkHeadings,
+				{
+					behavior: 'append',
+					properties: {
+						className: ['heading-anchor'],
+						ariaLabel: 'Link to section',
+					},
+					content: {
+						type: 'element',
+						tagName: 'span',
+						properties: { ariaHidden: 'true' },
+						children: [{ type: 'text', value: '#' }],
+					},
+				},
+			],
+		],
 	},
 	redirects: {
 		// WordPress date-based blog URLs → new /blog/slug pattern

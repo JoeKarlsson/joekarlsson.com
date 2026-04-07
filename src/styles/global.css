@@ -70,6 +70,25 @@
 .prose {
 	@apply text-gray-300 leading-relaxed;
 }
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+	@apply relative;
+}
+.prose h1 .heading-anchor,
+.prose h2 .heading-anchor,
+.prose h3 .heading-anchor,
+.prose h4 .heading-anchor {
+	@apply ml-2 opacity-0 text-gray-500 no-underline font-normal transition-opacity;
+	font-size: 0.85em;
+}
+.prose h1:hover .heading-anchor,
+.prose h2:hover .heading-anchor,
+.prose h3:hover .heading-anchor,
+.prose h4:hover .heading-anchor {
+	@apply opacity-100 text-coral;
+}
 .prose h1 {
 	@apply text-3xl md:text-4xl font-bold text-white mt-10 mb-4;
 }
