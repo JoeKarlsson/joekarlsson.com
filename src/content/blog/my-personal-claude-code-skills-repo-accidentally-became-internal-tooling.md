@@ -42,6 +42,8 @@ The thing that makes skills shareable - and this is the part that unlocked every
 
 So when a coworker said "hey, can you show me how you do that LinkedIn thing?" - the answer wasn't a Notion doc or a prompt to paste somewhere. It was "clone this repo."
 
+![Drake meme: rejecting 'Shared Notion prompt library nobody updates', approving 'Skills repo where updating brand voice is a git PR'](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-notion-vs-skills-repo.webp)
+
 ---
 
 ## CLAUDE.md: The Thing Most Posts Don't Explain
@@ -69,6 +71,8 @@ I also built a `/setup` wizard - a skill whose entire job is onboarding. It runs
 There's also an init script that outputs `[OK]`, `[WARN]`, and `[FAIL]` lines so anyone can immediately see their status without having to understand what any of it means. Small thing. Huge difference in how people felt about whether the thing was "working."
 
 The reframe that helped me most: the product isn't the skills. It's the experience of getting someone from zero to their first successful run. That's what determines whether they come back.
+
+![Boromir meme: 'One does not simply hand a marketing team a terminal and say clone the repo'](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-one-does-not-simply.webp)
 
 ---
 
@@ -161,6 +165,32 @@ Three quick things since developers will ask: API keys live in `.env`, which is 
 
 ---
 
+## Technical Patterns That Actually Held Up
+
+Some things I didn't understand until I'd built a dozen skills and broken half of them.
+
+**`allowed-tools` is more granular than the docs suggest.** You can lock down individual bash commands, not just bash as a whole. `Bash(python3:*)` lets a skill run Python. `Bash(ls:*)` lets it list files. But `Bash(rm:*)` you don't want in most skills. A typical line in our repo looks like `allowed-tools: Read, Grep, Glob, Bash(ls:*), Bash(python3:*)`. Start minimal and add as needed. A skill that only reads files shouldn't be able to run shell commands - and if you don't specify otherwise, it won't be able to.
+
+**Pick the right model for the job.** Skills have a `model` field in their frontmatter. I default to `sonnet` for most content work, but `/status` and `/help-marketing` use `haiku` - they're lookups, they don't need to reason hard, and they're noticeably faster. `/seo-analysis` uses `opus` because it's doing real analysis across a lot of data. Matching the model to the task costs nothing and makes a real difference in response quality and speed.
+
+**Namespace your skills when you have multiple products.** We run skills for two brands - CloudQuery and env0. A skill file at `.claude/commands/env0/blog.md` gets invoked as `/env0:blog`. Claude Code uses the directory separator as a colon in the UI. This keeps everything organized and makes it obvious at a glance which brand a skill belongs to. If you're building skills for more than one product, project, or client, use namespacing before the list gets unwieldy.
+
+**Brand voice enforcement should be code, not a doc.** `BRAND_VOICE.md` tells Claude how to write. But we also have `scripts/validate_content.py` that actually checks generated content for banned words before anything gets scheduled. Hard to miss "seamless" when the validation script refuses to continue until it's removed. When brand consistency matters, automate the check - don't rely on Claude remembering the rules from session to session.
+
+**Always build a dry-run flag.** Any skill that takes an action - scheduling a post, sending something, updating a file - should have a `--dry-run` mode that does all the work and shows you the output without executing. This made a bigger difference than I expected in how comfortable non-technical people felt using the tools. "I can see what it would do before it does it" is something I heard a lot in early training sessions.
+
+**Validate prerequisites first, before doing anything.** If a skill depends on an API key, it should check for that key in step one - not step five when the API call fails and dumps an error at someone. If a skill needs a specific file or directory, confirm it exists before starting. Failing fast with a clear explanation is far better than failing halfway through after writing ten files to disk.
+
+**Build a dedicated preflight module, not just a check.** Generic advice says validate upfront. What actually works in practice: a central `preflight.py` with a dependency map that lists each skill's exact requirements - which API keys, which files, which packages. The important part is the required vs optional distinction. Missing your primary analytics key? Hard block - that's a required dependency. Missing the PageSpeed key? Warning, skip that section, continue. When optional dependencies fail gracefully and say exactly what was skipped, people don't think the tool is broken. They know what they're missing and can decide if they care.
+
+**Rules files inject context without cluttering skill files.** Claude Code supports a `.claude/rules/` directory - markdown files with a `paths:` frontmatter field that tells Claude Code which file patterns they apply to. Rules in `rules/python-patterns.md` fire automatically when Claude is working in `scripts/`. Rules in `rules/social.md` fire when working on Postiz scripts or the social skill. This is how you keep skill files focused on workflow logic while still giving Claude the domain-specific constants and import patterns it needs. It's not a widely-documented feature, which is why almost nobody uses it.
+
+**Split tests into two tiers from day one.** Unit tests that need no API keys - fast, always run in CI, always pass. Integration tests that hit live APIs - decorated with a conditional skip so they auto-pass when keys aren't configured. In pytest: `@pytest.mark.skipif(not _has_plausible_key(), reason="PLAUSIBLE_API_KEY not set")`. This matters because your CI environment won't have production keys. If you don't split the tiers from the start, you'll eventually end up with either useless CI tests or production credentials in GitHub secrets. Neither is a good place to end up.
+
+![Distracted boyfriend meme: boyfriend labeled 'a quiet model update' looking away from girlfriend labeled 'the skill that worked fine last month'](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-distracted-model-update.webp)
+
+---
+
 ## Getting People to Contribute
 
 Getting people to use the repo is one problem. Getting people to actually add to it is a different one.
@@ -182,6 +212,62 @@ That's not a flaw in the approach - it's the nature of it. This is infrastructur
 ## This Isn't Just a Marketing Thing
 
 I built this for a marketing team because that's where I work, but I want to say clearly: the pattern generalizes. Any team with repeated workflows, shared context, and people with varying technical comfort levels can do this. Sales. DevRel. Support. Engineering onboarding. If your team does the same thing more than once a week and it involves writing, researching, or pulling data from somewhere - there's probably a skill for that.
+
+---
+
+## The Cheat Sheet
+
+Everything distilled into one place. Bookmark this part.
+
+**Repo structure:**
+
+- `.claude/commands/` - skill files (instructions Claude executes)
+- `.claude/rules/` - path-specific context injected automatically by file pattern
+- `docs/` - human-readable guides, one per skill
+- `scripts/` - Python automation your skills call out to
+- `CLAUDE.md` - team conventions auto-loaded every session
+- `BRAND_VOICE.md` - referenced by every content-generating skill
+- `.env` - API keys, gitignored, per-machine; `.env.example` committed with comments
+
+**Skill design:**
+
+- One skill per task - Swiss Army knife skills are hard to debug and harder to trust
+- Preflight check first - check every dependency before doing any work, not mid-execution
+- Distinguish required vs optional failures - hard block on required, warn-and-continue on optional
+- Get approval before anything hard to undo - scheduling, posting, deleting
+- Build `--dry-run` into any skill that takes an action
+- Scope `allowed-tools` to exactly what the skill needs - `Bash(python3:*)` not `Bash(*)`
+- Match model to task - `haiku` for lookups, `sonnet` for content, `opus` for heavy reasoning
+
+**Context layer:**
+
+- Write `CLAUDE.md` before your third skill
+- Use `.claude/rules/` to inject path-specific context without bloating skill files
+- Put brand voice in a markdown file, then enforce it in code with a validation script
+- Updating shared context is a PR - one merge, every skill picks it up on next `git pull`
+- Namespace skills by product or team using subdirectories - `/env0:blog` not `/env0-blog`
+
+**Onboarding:**
+
+- `/setup` wizard with plain-English error explanations, not raw stack traces
+- `/quickstart` for people who have never opened a terminal
+- `/update` so non-technical users don't need to know what `git pull` is
+- Train on specific workflows, not the tool itself
+- Make it easy to say "this is confusing" - that's the whole feedback loop
+
+**Security:**
+
+- `.env` gitignored, `.env.example` committed with a comment on every key
+- `allowed-tools` minimal by default - add only what each skill actually uses
+- Don't route around approval prompts for destructive actions - they're especially important when non-technical users are running things
+
+**Maintenance:**
+
+- Docs go in the same PR as skill changes - make it a rule before you have to learn it
+- Name an owner before you share the repo with anyone
+- Watch for model update regressions - they're subtle and nobody will tell you for a week
+- Two-tier tests: unit (no keys, always run) and integration (keys needed, auto-skip in CI)
+- `/status` as a single health-check dashboard - one command to see if everything is working
 
 ---
 
