@@ -10,7 +10,7 @@ heroAlt: 'Three monitors showing code in a dark office overlooking the New York 
 tldr: 'Skills are just markdown files you can share via git. CLAUDE.md is the part nobody explains properly and it matters more than the skills themselves. Onboarding non-technical people is harder than building the thing. Start for yourself, share when a coworker asks.'
 ---
 
-I'm a developer on the marketing team at CloudQuery, where I also lead DevRel. That's a slightly unusual combination - technical enough to be dangerous, embedded in a non-technical team that has real content needs every week. Which is probably why I ended up here.
+I'm a developer on the marketing team at CloudQuery - a cloud asset management platform - where I also lead DevRel. That's a slightly unusual combination - technical enough to be dangerous, embedded in a non-technical team that has real content needs every week. Which is probably why I ended up here.
 
 I didn't set out to build internal tooling. I built a few Claude Code skills for myself because I was tired of copy-pasting the same prompts over and over, and repeating myself endlessly is the particular kind of pain that eventually makes you do something about it.
 
@@ -28,7 +28,7 @@ The honest answer is that none of those are actually shareable in the way this i
 
 What Claude Code has that nothing else has in quite the same way: skills are files. They live in a git repo. They version-control exactly like code. The `CLAUDE.md` gives Claude project context that travels automatically with every session. And the permission system means I can give a non-technical teammate access to a skill that calls external APIs and runs Python scripts without worrying that they'll accidentally do something destructive.
 
-The other thing is that skills can actually do things - they're not just prompts, they're workflows. A skill can read files, call APIs, run scripts, check a schedule, write output somewhere. That's a different category of tool than a saved ChatGPT prompt. It's closer to automation than to chat.
+The other thing is that skills can actually do things - they're not just prompts, they're workflows. A skill can read files, call APIs, run scripts, check a schedule, write output somewhere. For connecting to external services - Linear, Google Workspace, Slack, HubSpot - skills wire into MCP servers that handle authentication and API integration without you building it from scratch. That's a different category of tool than a saved ChatGPT prompt. It's closer to automation than to chat.
 
 It's not perfect. The CLI is a real barrier for non-technical users. There's no GUI. But the tradeoffs make sense for a team that's going to be running the same workflows every week and needs the output to be consistent.
 
@@ -40,7 +40,7 @@ When Claude Code dropped slash commands - custom `/commands` you define in markd
 
 So I built a few things for myself. `/social` to turn blog posts into LinkedIn copy. `/seo-analysis` to pull traffic data from Plausible and GSC without manually querying three different tools. Stuff I was doing every week that I hated doing every week.
 
-The thing that makes skills shareable - and this is the part that unlocked everything - is that they're just markdown files. A skill is a prompt with some frontmatter. It lives in `.claude/commands/`. You can read it, version control it, share it with `git clone`. It's basically a documented runbook that Claude executes.
+The thing that makes skills shareable - and this is the part that unlocked everything - is that they're just markdown files. A skill is a prompt with some frontmatter. It lives in `.claude/commands/` (or `.claude/skills/<name>/SKILL.md` in the newer structure - both work identically). You can read it, version control it, share it with `git clone`. It's basically a documented runbook that Claude executes.
 
 So when a coworker said "hey, can you show me how you do that LinkedIn thing?" - the answer wasn't a Notion doc or a prompt to paste somewhere. It was "clone this repo."
 
@@ -57,6 +57,8 @@ It's a file at the root of your repo that Claude reads automatically at the star
 When a new teammate opens the project and runs a skill for the first time, Claude already knows all of it. They don't have to learn it. They don't have to ask me. It's just there.
 
 If you only take one thing from this post: write a solid `CLAUDE.md` before you write your third skill. The skills are the features. The `CLAUDE.md` is the foundation.
+
+(The `BRAND_VOICE.md` covered in a later section is a different layer - `CLAUDE.md` is what Claude knows about how your team operates. `BRAND_VOICE.md` is what it knows about how your team writes. Both matter, but they're not the same file.)
 
 ---
 
@@ -191,7 +193,7 @@ Some things I didn't understand until I'd built a dozen skills and broken half o
 
 The technical patterns section is about building skills correctly. This is the other part - making the whole repo work for someone who isn't you, doesn't know what you know, and has a completely different machine setup.
 
-**Design for zero-config on first run.** Some skills should require nothing to work. In our repo, `/discovery-questions`, `/email-copy`, and `/help-marketing` run the second someone clones the repo - no API keys, no configuration, no anything. This is intentional. People need an "this actually works" moment before they'll invest time in getting the rest set up. If everything requires full configuration, nobody gets to that moment and you've already lost them.
+**Design for zero-config on first run.** Some skills should require nothing to work. In our repo, `/discovery-questions`, `/email-copy`, and `/help-marketing` run the second someone clones the repo - no API keys, no configuration, no anything. This is intentional. People need a "this actually works" moment before they'll invest time in getting the rest set up. If everything requires full configuration, nobody gets to that moment and you've already lost them.
 
 **Fallback chains for paths, not hard requirements.** Don't assume where someone's files live. Our path resolution tries the value from `.env` first, then checks `../frontend` relative to the repo root, then tries a common home directory location. If none of those work, it returns `None` and the skill degrades gracefully with a clear message. Someone who cloned everything into a different directory than you expected shouldn't get a cryptic Python error - they should get "I couldn't find this, here's what that means, here's what still works."
 
@@ -202,6 +204,8 @@ The technical patterns section is about building skills correctly. This is the o
 **Tell people exactly what works right now after setup.** The init script ends with a summary that's specific to what got configured. Everything passes - here are three commands to try right now. Warnings only - here's what still works with your current setup. Failures - here's exactly what to do next. People shouldn't leave a setup script wondering if they're ready to use the thing. Tell them.
 
 **Don't override shell environment variables.** The config loader checks whether a key already exists in the environment before setting it from `.env`. This means CI can inject variables via the shell and they'll take precedence over `.env` without any conflict. Sounds like an implementation detail. It's actually the difference between a repo that works correctly in CI and one that silently uses the wrong credentials.
+
+None of these are glamorous. But they're the difference between a repo that works for the person who built it and one that works for everyone else.
 
 ---
 
@@ -217,7 +221,7 @@ Getting people to contribute is a separate problem from getting people to use th
 
 ![Two buttons meme: sweating over 'feel free to contribute if you want to' vs 'hey, could you write a skill for the discovery questions you use on sales calls?'](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-two-buttons-contribute.webp)
 
-Specific ask, clear outcome, obvious value. That's what gets PRs opened.
+Specific ask, clear outcome, obvious value. That's what gets PRs opened. And the more people who feel ownership over it, the less it depends on you.
 
 I built this for a marketing team, but the pattern generalizes. Any team with repeated workflows, shared context, and people with varying technical comfort can do this - sales, DevRel, support, engineering onboarding. If your team does the same thing more than once a week and it involves writing, researching, or pulling data from somewhere, there's probably a skill for that.
 
@@ -308,9 +312,7 @@ Invest in onboarding before you invest in more features. A skill nobody can set 
 
 Train on workflows, not the tool. Nobody needs to understand how Claude Code works. They need to know how to do the thing they were already trying to do, but faster.
 
-Name an owner. Someone needs to watch for regressions and field questions. "Anyone can contribute" means nobody is responsible, and eventually something breaks and stays broken.
-
-And make it easy to say "this is confusing." That's the whole feedback loop right there.
+Name an owner before you share it with anyone. "Anyone can contribute" means nobody is responsible, and eventually something breaks and stays broken.
 
 ---
 
