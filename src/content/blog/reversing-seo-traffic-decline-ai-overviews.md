@@ -100,6 +100,8 @@ I've been at my company for a while now in a DevRel role. I care deeply about th
 
 I don't say this as a criticism. It's just the reality of a startup where the front-end team is building the actual product. SEO debt accumulates silently. Nothing breaks. Traffic doesn't crash. It just... slowly, quietly underperforms what it could be.
 
+![Meme: This is fine dog - me, a developer advocate, also somehow owning the entire company web presence](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-this-is-fine.webp)
+
 Getting time to work on this wasn't hard to justify. My manager was on board immediately. But even with the time approved, the problem was execution speed. I could identify issues faster than I could fix them. I'd run a site crawl, find 102 pages returning 404 with significant link equity attached, and then... put it in a doc and wait.
 
 Claude Code changed that equation completely, but not in the way I expected.
@@ -119,8 +121,6 @@ I can combine data sources that don't talk to each other. This is actually huge.
 And honestly, the thing I underestimated: I can just think out loud. "I wonder if these resource hub pages are invisible because nothing links to them." That thought used to die in a Slack message. Now it becomes an Ahrefs crawl export, an analysis, and a PR before lunch.
 
 My manager was supportive from day one. Once the results started showing up, it's been effortless to keep time on this. Nothing convinces people like a chart going in the right direction.
-
-![Meme: This is fine dog - me, a developer advocate, also somehow owning the entire company web presence](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-this-is-fine.webp)
 
 ---
 
