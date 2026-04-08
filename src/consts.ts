@@ -35,6 +35,7 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = [
 	{ href: '/blog/', label: 'Blog' },
 	{ href: '/about/', label: 'About' },
+	{ href: '/resume/', label: 'Resume' },
 	{ href: '/work/', label: 'Work' },
 	{ href: '/uses/', label: 'Uses' },
 	{ href: '/talk-archive/', label: 'Talk Archive' },

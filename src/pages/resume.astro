@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SOCIAL_LINKS } from '../consts';
+import { roles, education, skills, highlights, openSource } from '../data/resume';
+
+function formatYearRange(start: number, end: number | null): string {
+	return end ? `${start} - ${end}` : `${start} - Present`;
+}
+---
+
+<BaseLayout
+	title="Resume | Joe Karlsson"
+	description="Joe Karlsson's resume. Senior Developer Advocate and software engineer with 15+ years at data companies including CloudQuery, Tinybird, SingleStore, MongoDB, and Best Buy."
+	schemaType="ProfilePage"
+>
+	<div class="mx-auto max-w-3xl px-4 py-8">
+		<!-- Header -->
+		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ cat resume.md</p>
+		<div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+			<div>
+				<h1 class="mb-1 text-3xl font-bold text-white md:text-4xl">Joe Karlsson</h1>
+				<p class="text-lg text-teal">Developer Advocate & Engineering Lead</p>
+				<div class="mt-2 flex flex-wrap gap-3 font-mono text-xs text-gray-400">
+					<a
+						href={SOCIAL_LINKS.linkedin}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="hover:text-coral no-underline">linkedin/in/joekarlsson</a
+					>
+					<a
+						href={SOCIAL_LINKS.github}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="hover:text-coral no-underline">github/JoeKarlsson</a
+					>
+					<a href="https://www.joekarlsson.com" class="hover:text-coral no-underline"
+						>joekarlsson.com</a
+					>
+				</div>
+			</div>
+			<div class="flex flex-col gap-2 sm:items-end">
+				<a
+					href="/joe-karlsson-resume.pdf"
+					download
+					class="inline-flex items-center gap-2 rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal text-sm"
+				>
+					<svg
+						width="14"
+						height="14"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						aria-hidden="true"
+					>
+						<path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path>
+					</svg>
+					Download PDF
+				</a>
+				<a
+					href="/about/"
+					class="font-mono text-xs text-gray-400 hover:text-coral no-underline sm:text-right"
+				>
+					Full bio &rarr;
+				</a>
+			</div>
+		</div>
+
+		<!-- Summary -->
+		<p class="mb-8 text-gray-400 leading-relaxed max-w-2xl">
+			I've spent 15 years making complex data systems click for developers - through talks, docs,
+			demos, content, and building things that probably shouldn't exist. I run full DevRel functions
+			at data companies, with a track record in organic growth, developer activation, and pipeline
+			influence.
+		</p>
+
+		<!-- Quick stats -->
+		<div class="mb-10 grid grid-cols-3 gap-3">
+			<div class="rounded-lg border border-surface-3 bg-surface-1 p-3 text-center">
+				<p class="text-xl font-bold text-coral">15+</p>
+				<p class="text-xs text-gray-400">Years in Tech</p>
+			</div>
+			<div class="rounded-lg border border-surface-3 bg-surface-1 p-3 text-center">
+				<p class="text-xl font-bold text-coral">100+</p>
+				<p class="text-xs text-gray-400">Conference Talks</p>
+			</div>
+			<div class="rounded-lg border border-surface-3 bg-surface-1 p-3 text-center">
+				<p class="text-xl font-bold text-coral">5</p>
+				<p class="text-xs text-gray-400">Data Companies</p>
+			</div>
+		</div>
+
+		<!-- Experience -->
+		<h2 class="mb-6 text-lg font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat experience.md
+		</h2>
+
+		<div class="mb-10 space-y-0">
+			{
+				roles.map((role, i) => (
+					<div class="relative flex gap-4">
+						<div class="flex flex-col items-center">
+							<div class="mt-1.5 h-3 w-3 shrink-0 rounded-full border-2 border-coral bg-surface-0" />
+							{i < roles.length - 1 && <div class="w-px grow bg-surface-3 mt-1" />}
+						</div>
+						<div class="pb-8 min-w-0 flex-1">
+							<div class="mb-3 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+								<div class="flex items-center gap-3">
+									{role.logo ? (
+										<img
+											src={role.logo}
+											alt=""
+											aria-hidden="true"
+											class="h-8 w-8 rounded-sm object-contain"
+											width="32"
+											height="32"
+											loading="lazy"
+										/>
+									) : (
+										<div class="h-8 w-8 rounded-sm bg-surface-2 flex items-center justify-center">
+											<span class="font-mono text-[10px] text-gray-400">
+												{role.company.slice(0, 2).toUpperCase()}
+											</span>
+										</div>
+									)}
+									<div>
+										<h3 class="font-bold text-white leading-tight">{role.title}</h3>
+										<p class="text-sm text-coral">{role.company}</p>
+									</div>
+								</div>
+								<div class="ml-11 sm:ml-0 sm:text-right shrink-0">
+									<p class="font-mono text-xs text-gray-400">
+										{formatYearRange(role.startYear, role.endYear)}
+									</p>
+									<p class="font-mono text-xs text-gray-400">{role.location}</p>
+								</div>
+							</div>
+
+							<div class="mb-3 ml-11 flex flex-wrap gap-1">
+								{role.tech.map((t) => (
+									<span class="rounded-full bg-surface-2 px-2 py-0.5 font-mono text-[10px] text-gray-400">
+										{t}
+									</span>
+								))}
+							</div>
+							<ul class="ml-11 space-y-1.5">
+								{role.bullets.map((b) => (
+									<li class="flex gap-2 text-sm text-gray-400">
+										<span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-coral" />
+										<span>{b}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				))
+			}
+		</div>
+
+		<!-- Skills -->
+		<h2 class="mb-4 text-lg font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat skills.md
+		</h2>
+		<div class="mb-10 grid gap-3 sm:grid-cols-2">
+			{
+				skills.map((group) => (
+					<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+						<h3 class="mb-2 font-mono text-xs text-coral">{group.category}</h3>
+						<p class="text-sm text-gray-400">{group.items.join(', ')}</p>
+					</div>
+				))
+			}
+		</div>
+
+		<!-- Highlights -->
+		<h2 class="mb-4 text-lg font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat highlights.md
+		</h2>
+		<ul class="mb-10 space-y-2">
+			{
+				highlights.map((h) => (
+					<li class="flex gap-2 text-sm text-gray-400">
+						<span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-coral" />
+						<span>{h}</span>
+					</li>
+				))
+			}
+		</ul>
+
+		<!-- Open Source & Side Projects -->
+		<h2 class="mb-4 text-lg font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls projects/
+		</h2>
+		<div class="mb-10 grid gap-3 sm:grid-cols-3">
+			{
+				openSource.map((project) => (
+					<a
+						href={project.url}
+						target={project.url.startsWith('http') ? '_blank' : undefined}
+						rel={project.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+						class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+					>
+						<h3 class="mb-1 font-semibold text-white group-hover:text-coral text-sm">
+							{project.name}
+						</h3>
+						<p class="mb-2 text-xs text-gray-400 leading-relaxed">{project.description}</p>
+						<div class="flex flex-wrap gap-1">
+							{project.tech.map((t) => (
+								<span class="rounded-full bg-surface-3 px-1.5 py-0.5 font-mono text-[9px] text-gray-400">
+									{t}
+								</span>
+							))}
+						</div>
+					</a>
+				))
+			}
+		</div>
+
+		<!-- Education -->
+		<h2 class="mb-4 text-lg font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat education.md
+		</h2>
+		<div class="mb-10 rounded-lg border border-surface-3 bg-surface-1 p-4">
+			<div class="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+				<div>
+					<h3 class="font-bold text-white">{education.degree}</h3>
+					<p class="text-sm text-coral">{education.school}</p>
+					{
+						education.minors && (
+							<p class="text-sm text-gray-400">Minors: {education.minors.join(', ')}</p>
+						)
+					}
+				</div>
+				<div class="sm:text-right">
+					<p class="font-mono text-xs text-gray-400">{education.years}</p>
+					{education.gpa && <p class="font-mono text-xs text-gray-400">GPA: {education.gpa}</p>}
+				</div>
+			</div>
+		</div>
+
+		<!-- Keep exploring -->
+		<div class="mb-10">
+			<h2 class="mb-4 text-lg font-bold text-white">
+				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cd ../
+			</h2>
+			<div class="grid gap-4 sm:grid-cols-3">
+				<a
+					href="/about/"
+					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+				>
+					<p class="font-mono text-xs text-coral">Read</p>
+					<p class="font-bold text-white group-hover:text-coral">About Me</p>
+					<p class="text-sm text-gray-400">Full story, talks, and more</p>
+				</a>
+				<a
+					href="/work/"
+					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+				>
+					<p class="font-mono text-xs text-coral">View</p>
+					<p class="font-bold text-white group-hover:text-coral">Projects</p>
+					<p class="text-sm text-gray-400">Things I've built</p>
+				</a>
+				<a
+					href="/blog/"
+					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+				>
+					<p class="font-mono text-xs text-coral">Read</p>
+					<p class="font-bold text-white group-hover:text-coral">Blog</p>
+					<p class="text-sm text-gray-400">Databases, homelab, and tools</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</BaseLayout>

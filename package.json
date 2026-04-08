@@ -21,6 +21,8 @@
 		"test:unused": "knip",
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
+		"generate:resume": "node scripts/generate-resume-pdf.mjs",
+		"generate:resume:webflow": "node scripts/generate-resume-pdf.mjs --page resume-webflow-pdf --out joe-karlsson-resume-webflow.pdf",
 		"test:outdated": "npm outdated || true",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",

@@ -1,0 +1,255 @@
+---
+import { roles, education, skills } from '../data/resume';
+
+function formatYearRange(start: number, end: number | null): string {
+	return end ? `${start} - ${end}` : `${start} - Present`;
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Joe Karlsson - Resume</title>
+		<meta name="robots" content="noindex" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				font-size: 9.5pt;
+				line-height: 1.5;
+				color: #1a1a1a;
+				background: #fff;
+			}
+
+			/* ─── Header ─────────────────────────────────────── */
+			.header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				padding-bottom: 10pt;
+				margin-bottom: 12pt;
+				border-bottom: 2pt solid #e8461e;
+			}
+
+			h1 {
+				font-size: 24pt;
+				font-weight: 700;
+				color: #1a1a1a;
+				letter-spacing: -0.5pt;
+				line-height: 1.1;
+			}
+
+			.subtitle {
+				font-size: 11pt;
+				color: #e8461e;
+				font-weight: 500;
+				margin-top: 2pt;
+			}
+
+			.contact {
+				text-align: right;
+				font-size: 8pt;
+				color: #555;
+				line-height: 1.8;
+			}
+
+			/* ─── Section headers ────────────────────────────── */
+			h2 {
+				font-size: 8pt;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 1.5pt;
+				color: #e8461e;
+				border-bottom: 0.5pt solid #ddd;
+				padding-bottom: 2pt;
+				margin-top: 14pt;
+				margin-bottom: 8pt;
+			}
+
+			/* ─── Experience ─────────────────────────────────── */
+			.role {
+				margin-bottom: 11pt;
+			}
+
+			.role-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+			}
+
+			.role-title {
+				font-size: 10pt;
+				font-weight: 700;
+				color: #1a1a1a;
+			}
+
+			.role-dates {
+				font-size: 8pt;
+				color: #888;
+				font-family: 'Courier New', monospace;
+				white-space: nowrap;
+			}
+
+			.role-meta {
+				font-size: 8.5pt;
+				color: #e8461e;
+				font-weight: 600;
+				margin-top: 0.5pt;
+				margin-bottom: 2pt;
+			}
+
+			.role-location {
+				color: #aaa;
+				font-weight: 400;
+			}
+
+			.role-tech {
+				font-size: 7pt;
+				color: #999;
+				font-family: 'Courier New', monospace;
+				margin-bottom: 4pt;
+			}
+
+			.role ul {
+				padding-left: 10pt;
+			}
+
+			.role li {
+				font-size: 8.5pt;
+				color: #333;
+				margin-bottom: 1.5pt;
+				line-height: 1.4;
+			}
+
+			/* ─── Skills ─────────────────────────────────────── */
+			.skills-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 6pt 16pt;
+			}
+
+			.skill-label {
+				font-size: 7.5pt;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.5pt;
+				color: #777;
+				margin-bottom: 1.5pt;
+			}
+
+			.skill-items {
+				font-size: 8pt;
+				color: #444;
+				line-height: 1.5;
+			}
+
+			/* ─── Education ──────────────────────────────────── */
+			.edu-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+			}
+
+			.edu-degree {
+				font-size: 10pt;
+				font-weight: 700;
+			}
+
+			.edu-years {
+				font-size: 8pt;
+				color: #888;
+				font-family: 'Courier New', monospace;
+			}
+
+			.edu-school {
+				font-size: 8.5pt;
+				color: #e8461e;
+				font-weight: 600;
+				margin-top: 1pt;
+			}
+
+			.edu-detail {
+				font-size: 8pt;
+				color: #888;
+				margin-top: 1pt;
+			}
+
+			/* ─── Print / page setup ─────────────────────────── */
+			@page {
+				size: letter;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div>
+				<h1>Joe Karlsson</h1>
+				<p class="subtitle">Developer Advocate &amp; Engineering Lead</p>
+			</div>
+			<div class="contact">
+				<div>joekarlsson.com</div>
+				<div>joekarlsson1@gmail.com</div>
+				<div>linkedin.com/in/joekarlsson</div>
+				<div>github.com/JoeKarlsson</div>
+				<div>bsky: @joekarlsson.com</div>
+			</div>
+		</div>
+
+		<p style="font-size: 9pt; color: #444; line-height: 1.5; margin-bottom: 14pt;">
+			I've spent 15 years making complex data systems click for developers - through talks, docs,
+			demos, content, and building things that probably shouldn't exist. I run full DevRel functions
+			at data companies, with a track record in organic growth, developer activation, and pipeline
+			influence.
+		</p>
+
+		<h2>Experience</h2>
+		{
+			roles.map((role) => (
+				<div class="role">
+					<div class="role-header">
+						<span class="role-title">{role.title}</span>
+						<span class="role-dates">{formatYearRange(role.startYear, role.endYear)}</span>
+					</div>
+					<div class="role-meta">
+						{role.company} <span class="role-location">&middot; {role.location}</span>
+					</div>
+					<div class="role-tech">{role.tech.join(' · ')}</div>
+					<ul>
+						{role.bullets.map((b) => (
+							<li>{b}</li>
+						))}
+					</ul>
+				</div>
+			))
+		}
+
+		<h2>Skills</h2>
+		<div class="skills-grid">
+			{
+				skills.map((group) => (
+					<div>
+						<div class="skill-label">{group.category}</div>
+						<div class="skill-items">{group.items.join(', ')}</div>
+					</div>
+				))
+			}
+		</div>
+
+		<h2>Education</h2>
+		<div class="edu-row">
+			<span class="edu-degree">{education.degree}</span>
+			<span class="edu-years">{education.years}</span>
+		</div>
+		<div class="edu-school">{education.school}</div>
+		<div class="edu-detail">
+			GPA: {education.gpa} &middot; Minors: {education.minors?.join(', ')}
+		</div>
+	</body>
+</html>
