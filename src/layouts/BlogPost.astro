@@ -335,6 +335,9 @@ const relatedPosts = publishedPosts
 							try {
 								await copyToClipboard(code.textContent || '');
 								button.textContent = 'Copied!';
+								if (typeof window.plausible === 'function') {
+									window.plausible('Code Copy', { props: { language: lang || 'unknown' } });
+								}
 							} catch {
 								button.textContent = 'Failed';
 							}
@@ -529,7 +532,7 @@ const relatedPosts = publishedPosts
 							{prevPost ? (
 								<a
 									href={`/blog/${prevPost.data.slug}/`}
-									class="group flex flex-1 flex-col rounded-lg border border-surface-3 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+									class="plausible-event-name=Blog+Navigation plausible-event-direction=prev group flex flex-1 flex-col rounded-lg border border-surface-3 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
 								>
 									<span class="mb-1 font-mono text-xs text-gray-400">
 										&larr; Previous in {primaryCategory}
@@ -544,7 +547,7 @@ const relatedPosts = publishedPosts
 							{nextPost ? (
 								<a
 									href={`/blog/${nextPost.data.slug}/`}
-									class="group flex flex-1 flex-col items-end rounded-lg border border-surface-3 p-4 no-underline text-right transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+									class="plausible-event-name=Blog+Navigation plausible-event-direction=next group flex flex-1 flex-col items-end rounded-lg border border-surface-3 p-4 no-underline text-right transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
 								>
 									<span class="mb-1 font-mono text-xs text-gray-400">
 										Next in {primaryCategory} &rarr;
@@ -567,6 +570,17 @@ const relatedPosts = publishedPosts
 		(() => {
 			const links = document.querySelectorAll('.toc-link') as NodeListOf<HTMLAnchorElement>;
 			if (!links.length) return;
+
+			// Track TOC clicks
+			links.forEach((link) => {
+				link.addEventListener('click', () => {
+					if (typeof window.plausible === 'function') {
+						window.plausible('TOC Click', {
+							props: { section: link.textContent?.trim() || 'unknown' },
+						});
+					}
+				});
+			});
 
 			const headingEls = Array.from(links).map((l) => {
 				const slug = l.dataset.tocSlug;

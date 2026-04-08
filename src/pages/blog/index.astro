@@ -271,16 +271,29 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 			}
 
 			// Search
+			let searchTimeout;
 			searchInput.addEventListener('input', (e) => {
 				searchQuery = e.target.value;
 				visibleCount = POSTS_PER_PAGE;
 				render();
+				// Debounced tracking - only track after user stops typing
+				clearTimeout(searchTimeout);
+				if (searchQuery.trim()) {
+					searchTimeout = setTimeout(() => {
+						if (typeof window.plausible === 'function') {
+							window.plausible('Blog Search', { props: { query: searchQuery.trim() } });
+						}
+					}, 1000);
+				}
 			});
 
 			// Sort
 			sortBtns.forEach((btn) => {
 				btn.addEventListener('click', () => {
 					currentSort = btn.dataset.sort;
+					if (typeof window.plausible === 'function') {
+						window.plausible('Blog Sort', { props: { sort: currentSort } });
+					}
 					sortBtns.forEach((b) => {
 						const isActive = b === btn;
 						b.className = isActive

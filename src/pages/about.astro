@@ -31,14 +31,14 @@ import { SOCIAL_LINKS } from '../consts';
 				<div class="mt-3 flex gap-3">
 					<a
 						href="/resume/"
-						class="inline-block rounded-md bg-coral px-3 py-1.5 text-sm font-medium text-surface-0 no-underline hover:bg-teal"
+						class="plausible-event-name=About+CTA+Click plausible-event-destination=resume inline-block rounded-md bg-coral px-3 py-1.5 text-sm font-medium text-surface-0 no-underline hover:bg-teal"
 					>
 						View Resume
 					</a>
 					<a
 						href="/joe-karlsson-resume.pdf"
 						download
-						class="inline-block rounded-md border border-coral px-3 py-1.5 text-sm font-medium text-coral no-underline hover:bg-surface-2"
+						class="plausible-event-name=About+CTA+Click plausible-event-destination=pdf-download inline-block rounded-md border border-coral px-3 py-1.5 text-sm font-medium text-coral no-underline hover:bg-surface-2"
 					>
 						Download PDF
 					</a>
@@ -277,7 +277,7 @@ import { SOCIAL_LINKS } from '../consts';
 		</div>
 		<a
 			href="/resume/"
-			class="mb-10 flex items-center justify-between rounded-lg bg-coral px-5 py-4 no-underline transition-all hover:bg-teal group"
+			class="plausible-event-name=About+CTA+Click plausible-event-destination=resume-banner-top mb-10 flex items-center justify-between rounded-lg bg-coral px-5 py-4 no-underline transition-all hover:bg-teal group"
 		>
 			<div>
 				<p class="font-semibold text-white">View my full resume</p>
@@ -658,6 +658,9 @@ import { SOCIAL_LINKS } from '../consts';
 				btn.addEventListener('click', () => {
 					const videoId = btn.getAttribute('data-video-id');
 					if (!videoId) return;
+					if (typeof window.plausible === 'function') {
+						window.plausible('TikTok Embed Load', { props: { video_id: videoId } });
+					}
 					const container = btn.parentElement;
 					if (!container) return;
 					const blockquote = document.createElement('blockquote');
@@ -1054,7 +1057,7 @@ import { SOCIAL_LINKS } from '../consts';
 
 		<a
 			href="/resume/"
-			class="mb-10 flex items-center justify-between rounded-lg bg-coral px-5 py-4 no-underline transition-all hover:bg-teal group"
+			class="plausible-event-name=About+CTA+Click plausible-event-destination=resume-banner-bottom mb-10 flex items-center justify-between rounded-lg bg-coral px-5 py-4 no-underline transition-all hover:bg-teal group"
 		>
 			<div>
 				<p class="font-semibold text-white">View my full resume</p>
@@ -1104,7 +1107,7 @@ import { SOCIAL_LINKS } from '../consts';
 			<p class="mb-4 text-gray-400">Want to work together, book me for a talk, or just say hi?</p>
 			<a
 				href="/contact/"
-				class="inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
+				class="plausible-event-name=About+CTA+Click plausible-event-destination=contact inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
 			>
 				Get in touch &rarr;
 			</a>

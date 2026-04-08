@@ -2792,6 +2792,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				const aptView = document.getElementById('apt-view');
 				const tabNormal = document.getElementById('tab-normal');
 				const tabApt = document.getElementById('tab-apt');
+				if (typeof window.plausible === 'function') {
+					window.plausible('Uses View Toggle', { props: { view: view } });
+				}
 				if (view === 'apt') {
 					normalView.classList.add('hidden');
 					aptView.classList.remove('hidden');
