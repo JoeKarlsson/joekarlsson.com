@@ -43,7 +43,7 @@
 	redir @portfolio-cats /work/ 301
 
 	# 301 redirects: WordPress page URLs
-	@speaking path /speaking /speaking/ /speaking/joe-karlssons-talk-archive /speaking/joe-karlssons-talk-archive/
+	@speaking path_regexp ^/speaking(/.*)?$
 	redir @speaking /talk-archive 301
 
 	@speaker-rider path /speaker-rider /speaker-rider/
