@@ -193,7 +193,7 @@ const relatedPosts = publishedPosts
 			}
 			{!showToc && <div class="hidden xl:block" />}
 
-			<article class="min-w-0">
+			<article class="min-w-0" data-post-title={title}>
 				{/* Breadcrumbs */}
 				<nav class="mb-4 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
 					<a
@@ -435,15 +435,17 @@ const relatedPosts = publishedPosts
 						// Scroll depth tracking milestones
 						const depthMilestones = new Set<number>();
 
+						const postTitle = article.dataset.postTitle || 'Unknown';
+
 						function trackScrollDepth(pct: number) {
 							const plausible = window.plausible;
 							if (typeof plausible !== 'function') return;
 							[25, 50, 75, 100].forEach((milestone) => {
 								if (pct >= milestone && !depthMilestones.has(milestone)) {
 									depthMilestones.add(milestone);
-									plausible('Scroll Depth', { props: { depth: `${milestone}%` } });
+									plausible('Scroll Depth', { props: { depth: `${milestone}%`, post: postTitle } });
 									if (milestone === 100) {
-										plausible('Reading Complete');
+										plausible('Reading Complete', { props: { post: postTitle } });
 									}
 								}
 							});
