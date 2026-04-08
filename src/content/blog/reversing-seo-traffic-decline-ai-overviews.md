@@ -2,12 +2,12 @@
 title: "How I Reversed a Traffic Death Spiral (And the Weekly Ritual That's Doing It)"
 date: 2026-04-07
 slug: 'reversing-seo-traffic-decline-ai-overviews'
-description: "A Developer Advocate accidentally inherited an entire web presence and used Claude Code to reverse a traffic decline caused by AI Overviews. Real numbers, the weekly audit workflow, and what's actually working in 2026."
+description: "Our traffic was declining. Impressions down, clicks down. I'm a Developer Advocate who somehow also owns our web presence - and diagnosing it revealed two completely different problems that needed two different fixes. Real numbers, the weekly audit workflow, and what's actually working in 2026."
 categories: ['DevRel', 'Career']
 tags: ['SEO', 'Claude Code', 'AI Overviews', 'GEO', 'developer advocacy', 'content strategy']
 heroImage: '/images/blog/reversing-seo-traffic-decline-ai-overviews/hero.webp'
 heroAlt: 'Pink magnifying glass over a search bar, representing SEO and search visibility'
-tldr: 'AI Overviews now appear on ~58% of Google queries and can drop organic CTR by up to 61%. Your rankings can improve while clicks stay completely flat. There are two distinct failure modes that need different fixes, and most SEO recovery advice conflates them. A weekly multi-source audit combining GSC, Ahrefs, Plausible, and HubSpot gives you the signal to prioritize high-impact fixes. Four weeks in: +57% organic traffic, +316% impressions, +440% docs traffic, average position up 5.2 places. When you see results early, screenshot them and send them to your manager immediately.'
+tldr: 'Our traffic was declining - impressions down, clicks down. Diagnosing it revealed two completely different failure modes happening at the same time across different pages, and most SEO recovery advice only addresses one of them. AI Overviews now appear on ~58% of Google queries and can drop organic CTR by up to 61%. A weekly multi-source audit combining GSC, Ahrefs, Plausible, and HubSpot gives you the signal to tell them apart and prioritize fixes. Four weeks in: +57% organic traffic, +316% impressions, +440% docs traffic, average position up 5.2 places. When you see results early, screenshot them and send them to your manager immediately.'
 faq:
   - question: 'Why are my impressions going up but clicks staying flat?'
     answer: "AI Overviews are likely appearing on your queries and absorbing clicks before users reach your site. Seer Interactive's research across 25 million impressions found a 61% drop in organic CTR when an AI Overview appears. Your content is good enough to summarize - you're just not getting credit for it in clicks."
@@ -19,7 +19,7 @@ faq:
     answer: 'At minimum: Google Search Console (free) for impressions and clicks, and either Plausible or GA4 for actual visitor counts. Adding Ahrefs ($129/mo) unlocks keyword position tracking, redirect audits, and competitor gap analysis. The combination of multiple sources is what makes the signal reliable.'
 ---
 
-_A personal story about obsessive SEO audits, Claude Code, AI Overviews stealing your clicks, and why content is still king - especially for the robots._
+_A personal story about a traffic death spiral, obsessive SEO audits, Claude Code, and why diagnosing the right problem matters more than having the right fix._
 
 ---
 
@@ -36,28 +36,23 @@ _A personal story about obsessive SEO audits, Claude Code, AI Overviews stealing
 - [Things That Are Actually Working in 2026](#things-that-are-actually-working-in-2026-in-order-of-roi)
 - [The Stack and What It Costs](#the-stack-and-what-it-costs)
 - [What Changed](#what-changed)
+- [What Marketing Looks Like From Here](#what-marketing-looks-like-from-here)
 - [If You Want to Do This](#if-you-want-to-do-this)
 - [What I'm Still Trying to Figure Out](#what-im-still-trying-to-figure-out)
 
 ---
 
-My job title is Developer Advocate. I write docs, I build demos, I talk to developers at conferences, I maintain open source tooling, I show up to community calls. That's the job.
+Our traffic was declining. Not a crash - a slow, consistent slide. Impressions down. Clicks down. The kind of thing that's easy to rationalize week by week and hard to ignore when you zoom out to six months.
 
-Somehow I also now own our entire web presence.
+When I finally sat down to actually diagnose it, I found two completely different problems - affecting different pages, needing different fixes - that I'd been conflating into one. Applying the wrong fix to the wrong problem is why a lot of SEO recovery efforts don't work. I'll get into that framework in a minute.
 
-I'm not totally sure how it happened. Our front-end team is excellent - genuinely great engineers doing genuinely important product work. But the marketing site was a second-tier priority for them, and we didn't have a dedicated SEO person, and I had all these ideas I'd been sitting on for literally years about things I wanted to fix. Bad titles on pages that ranked but didn't convert. Blog posts that had no internal links going anywhere. A resource hub - we call ours the Learning Center, a dedicated section of in-depth, evergreen guides on topics in our space, with original research where possible - that was basically invisible because nothing pointed to it. Redirect chains from a subdomain migration that happened years ago and nobody cleaned up.
-
-I knew what was wrong. I just couldn't do anything about it at a pace that mattered.
-
-Worth mentioning: we weren't doing nothing. We'd hired an SEO agency at around $10,000 a month. They were good - genuinely helpful tips, solid strategy advice. But even with external help, the execution pace was slow. Recommendations would sit in a doc waiting on the engineering queue. Changes took weeks to get from "identified" to "shipped." The gap between knowing and doing was still massive. That's the actual problem, and no amount of strategy advice closes it if you can't execute faster.
-
-Then I got Claude Code, and something changed. I want to tell that story, because I think it's more useful than another "SEO best practices for 2026" post, but it also contains SEO best practices for 2026, because I've actually been running this experiment and have numbers.
+I'm a Developer Advocate. Docs, demos, conference talks, community. Somehow I also now own our entire web presence - and that's a story I'll tell too, because I think it matters for why this worked. But first, some context on what's breaking everyone's traffic right now, because our situation wasn't unique.
 
 ---
 
 ## First, A Thing That's Breaking Everyone's Traffic Right Now
 
-Before I get into what we did, some context. If you manage a website for a SaaS or tech company, you've probably noticed something weird: your impressions are going up. Your rankings are improving. Google Search Console shows you appearing on more queries than ever. And your clicks are... flat. Maybe down.
+If you manage a website for a SaaS or tech company right now, something is probably going wrong with your traffic - and it might not be obvious what. Some people are seeing impressions climb while clicks stay completely flat. Others, like us, are watching both decline together. These look similar from the outside but they're different problems. One of them is being caused by something that didn't exist three years ago.
 
 This isn't you. It's not your content. It's AI Overviews.
 
@@ -71,9 +66,9 @@ If you're thinking "okay but that's mostly a publisher and e-commerce problem" -
 
 The cruel part: if AI Overviews are appearing on your queries, it's because Google considers your content good enough to summarize. You're being rewarded with _invisibility._
 
-At my company, this showed up in real numbers. Our average search position improved **5.2 positions in four weeks** - a real ranking improvement, moving from the middle of page 2 toward the top. Our raw click count barely moved. We estimated AI Overviews were absorbing around 107 clicks per week on our best queries. Ranking better than ever. Fewer clicks.
-
 Welcome to 2026.
+
+This was part of what was happening to us - some of our pages were ranking and getting summarized, with clicks going nowhere. But it wasn't the whole picture. We also had pages that were just declining across the board. Telling those two situations apart is what the next section is about.
 
 ![Meme: Drake approving AI Overview absorbing clicks while rejecting organic clicks from improved rankings](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-drake-ai-overview.webp)
 
@@ -81,7 +76,7 @@ Welcome to 2026.
 
 ## The Thing I Figured Out That Changed How I Approached This
 
-I spent the first couple weeks of this project confused. Our GSC position data was trending up, impressions were going up, but clicks weren't responding the way I expected. I kept trying to diagnose a content quality problem that wasn't there.
+I spent the first couple weeks of this project confused. Our overall numbers were declining, but when I looked at individual pages the picture was inconsistent. Some pages had positions improving but clicks flat. Others had everything going south together. I kept trying to apply one diagnosis to both and getting nowhere.
 
 Eventually I landed on what I now think of as the two-failure-modes framework, and it completely changed how I prioritized work.
 
@@ -89,21 +84,23 @@ Eventually I landed on what I now think of as the two-failure-modes framework, a
 
 **Failure mode 2: ranking down, clicks down.** Both going south together. This is a quality or authority problem: algorithmic, structural, or competitive. The fix is content quality, internal linking, redirect cleanup, backlink work.
 
-These need completely different responses. I kept seeing posts about "reversing SEO decline" that were all about content E-E-A-T and authority building, which is failure mode 2 advice. If you have failure mode 1, that advice doesn't help and might actually distract you.
+These need completely different responses. We had both at once, which is why the framework mattered - applying failure mode 2 fixes to failure mode 1 pages would have done nothing. I kept seeing posts about "reversing SEO decline" that were all about content E-E-A-T and authority building, which is failure mode 2 advice. If you have failure mode 1, that advice doesn't help and might actually distract you.
 
 One thing worth being honest about: [the same Seer Interactive study](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update) found that AI Overviews tend to preferentially appear on queries that were already generating fewer clicks, so the causation arrow is murkier than the "AI killed my CTR" narrative suggests. Sometimes AI Overviews correlate with low CTR rather than causing it. Multi-source data - not just GSC - helps you tell these apart. Which brings me to the actual workflow.
 
-![Meme: Gru's plan - impressions up 316%, ship more content, clicks still flat, realize it was AI Overviews the whole time](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-grus-plan.webp)
+![Meme: Gru's plan - traffic declining, diagnose the problem, realize there are two different problems, fix both differently](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-grus-plan.webp)
 
 ---
 
 ## How I Ended Up Owning This
 
-I've been at my company for a while now in a DevRel role. I care deeply about the developer experience, the docs, the content we put out. But I also have strong opinions about the marketing site. I'd been accumulating a mental backlog of "things I want to fix" for years, and not acting on any of it, because acting on it meant writing up a request and getting in the engineering team's queue, which was legitimately full of more important work.
+I'd been accumulating a mental backlog of things I wanted to fix for years - bad titles on pages that ranked but didn't convert, blog posts with no internal links going anywhere, a resource hub (we call ours the Learning Center: in-depth evergreen guides with original research where possible) that was basically invisible because nothing pointed to it, redirect chains from a subdomain migration that nobody ever cleaned up. I knew what was wrong. I just couldn't do anything about it at a pace that mattered, because acting on it meant writing up a request and getting in the engineering team's queue, which was legitimately full of more important work.
 
-I don't say this as a criticism. It's just the reality of a startup where the front-end team is building the actual product. SEO debt accumulates _silently._ Nothing breaks. Traffic doesn't crash. It just... _slowly, quietly_ underperforms what it could be.
+I don't say this as a criticism. It's just the reality of a startup where the front-end team is building the actual product. SEO debt accumulates _silently._ Nothing obviously breaks. The decline is gradual enough to explain away week by week - until you zoom out and see the trend.
 
 ![Meme: This is fine dog - me, a developer advocate, also somehow owning the entire company web presence](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-this-is-fine.webp)
+
+Worth mentioning: we weren't doing nothing. We'd hired an SEO agency at around $10,000 a month. They were good - genuinely helpful tips, solid strategy advice. But even with external help, the execution pace was slow. Recommendations would sit in a doc waiting on the engineering queue. Changes took weeks to get from "identified" to "shipped." The gap between knowing and doing was still massive. That's the actual problem, and no amount of strategy advice closes it if you can't execute faster.
 
 Getting time to work on this wasn't hard to justify. My manager was on board immediately. But even with the time approved, the problem was execution speed. I could identify issues faster than I could fix them. I'd run a site crawl, find 102 pages returning 404 with significant link equity attached, and then... put it in a doc and wait.
 
@@ -147,8 +144,6 @@ Every week I run `/seo-analysis` - a [Claude Code skill I built](/blog/my-person
 - [PageSpeed](https://pagespeed.web.dev): Core Web Vitals
 
 The key insight about running multiple sources: they disagree with each other, and that disagreement is signal. If Ahrefs says traffic is up 40% but Plausible shows flat visitors, that's telling you something about traffic quality. If GSC impressions are exploding but clicks aren't following, that's the AI Overview signature. The gaps between tools are where the story lives.
-
-The workflow compares against last week's snapshot and surfaces what moved.
 
 **Step 2: Diagnose before touching anything.**
 
@@ -357,6 +352,26 @@ Here's the thing I keep coming back to though, and I think it matters for anyone
 AI right now is genuinely terrible at this. It can write the redirect logic once you've identified which 404s have link equity. It can rewrite 40 meta descriptions once you've figured out which pages have the wrong ones. It cannot look at your GSC data and tell you whether your traffic problem is failure mode 1 or failure mode 2. That call is yours.
 
 Doing frequent, multi-source data analysis and making good decisions on it - that's the actual job now. The execution is almost free. The diagnosis is everything.
+
+---
+
+## What Marketing Looks Like From Here
+
+I've been thinking about what this all means for marketing as a function, because I don't think the implications stop at "optimize your titles."
+
+The top of the funnel has moved. Increasingly, people aren't starting their research on Google. They're asking Claude or ChatGPT to explain a category, compare tools, or recommend a starting point - and then they show up at your site already with a shortlist formed. The data I've seen backs this up: our conversion rate has been climbing while raw traffic was declining. Visitors arrive more ready to buy. They've already done the research. They just need to confirm.
+
+That's not a bad thing, but it changes the job. You're no longer trying to capture someone at the start of their search and walk them down a funnel. You're trying to be the answer they get before they ever visit you. The top of funnel is now a conversation happening inside an AI - and you're either cited in that conversation or you don't exist for that user.
+
+Which brings me to something I think is underappreciated: nothing fundamental has changed about what makes content good. You still need to be accurate, specific, useful, and trustworthy. You need to answer the actual question people are asking. You need real data, first-person experience, and claims you can back up. The sites that are thriving right now - cited in AI Overviews, pulled into LLM answers, converting better despite lower traffic - are the ones that were always doing this. AI hasn't changed the rules. It's just making the gap between good and mediocre content more consequential.
+
+The difference is the audience. You're now writing for humans _and_ the AI systems that summarize content for humans. That second audience has no patience for vague claims, no interest in sales language, and a strong preference for structured, factual, citable information. Less pitch. More proof.
+
+Here's where I think my role specifically has an advantage - and I'll be direct about this because I think it matters for how marketing teams get structured going forward. Technical DevRels are unusually well-positioned for this moment. Not because we're better at marketing, but because the content we naturally produce - tutorials, technical opinions, first-person accounts of actually building things, docs written from real usage - is exactly the kind of content AI systems cite. We write for developer trust, not for conversion rates, and it turns out writing for developer trust is what gets you into the AI answers.
+
+We also understand the technical angles well enough to make good judgment calls on the stuff that's hard to get right - what a developer audience actually wants to know, what claims are specific enough to be useful versus vague enough to be worthless, what questions are worth writing about versus what's already been covered to death. That judgment is harder to replicate than it looks, and it's not something AI handles well.
+
+I think the teams that figure this out first are going to have a real advantage. You need people who can diagnose what's actually wrong from a pile of conflicting data, who understand the audience deeply enough to know what "useful" actually means to them, and who can produce content that's authoritative enough to get cited rather than just summarized away. That's a different profile than the one that optimized for keyword density in 2015. But the underlying principle - make something genuinely useful and people will find it - hasn't changed at all.
 
 ---
 
