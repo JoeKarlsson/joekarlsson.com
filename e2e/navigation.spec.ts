@@ -9,7 +9,7 @@ test.describe('Header Navigation', () => {
 		await expect(nav.getByRole('link', { name: 'Home' })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'Blog' })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'About' })).toBeVisible();
-		await expect(nav.getByRole('link', { name: 'Work' })).toBeVisible();
+		await expect(nav.getByRole('link', { name: 'Projects' })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'Uses' })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'Contact' })).toBeVisible();
 
@@ -101,7 +101,7 @@ test.describe('Page Navigation', () => {
 			{ path: '/', title: /joe karlsson/i },
 			{ path: '/blog', title: /blog/i },
 			{ path: '/about', title: /about/i },
-			{ path: '/work', title: /work/i },
+			{ path: '/work', title: /projects/i },
 			{ path: '/uses', title: /uses/i },
 			{ path: '/contact', title: /contact/i },
 		];
