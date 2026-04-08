@@ -27,7 +27,8 @@ export const NAV_LINKS = [
 	{ href: '/', label: 'Home' },
 	{ href: '/blog/', label: 'Blog' },
 	{ href: '/about/', label: 'About' },
-	{ href: '/work/', label: 'Work' },
+	{ href: '/work/', label: 'Projects' },
+	{ href: '/resume/', label: 'Resume' },
 	{ href: '/uses/', label: 'Uses' },
 	{ href: '/contact/', label: 'Contact' },
 ];
@@ -36,7 +37,7 @@ export const FOOTER_LINKS = [
 	{ href: '/blog/', label: 'Blog' },
 	{ href: '/about/', label: 'About' },
 	{ href: '/resume/', label: 'Resume' },
-	{ href: '/work/', label: 'Work' },
+	{ href: '/work/', label: 'Projects' },
 	{ href: '/uses/', label: 'Uses' },
 	{ href: '/talk-archive/', label: 'Talk Archive' },
 	{ href: '/contact/', label: 'Contact' },

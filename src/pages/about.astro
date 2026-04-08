@@ -275,11 +275,18 @@ import { SOCIAL_LINKS } from '../consts';
 				))
 			}
 		</div>
-		<div class="mb-10 text-right">
-			<a href="/resume/" class="font-mono text-xs text-coral hover:text-teal no-underline">
-				View full resume with impact metrics &rarr;
-			</a>
-		</div>
+		<a
+			href="/resume/"
+			class="mb-10 flex items-center justify-between rounded-lg border border-coral/30 bg-coral/5 px-5 py-4 no-underline transition-all hover:border-coral/60 hover:bg-coral/10 group"
+		>
+			<div>
+				<p class="font-semibold text-white group-hover:text-coral">View my full resume</p>
+				<p class="text-sm text-gray-400">Impact metrics, tech stack, and PDF download</p>
+			</div>
+			<span class="font-mono text-sm text-coral group-hover:translate-x-1 transition-transform"
+				>&rarr;</span
+			>
+		</a>
 
 		<!-- Recognition -->
 		<h2 class="mb-4 text-lg font-bold text-white">
