@@ -69,8 +69,6 @@ const mouseAsciiLeft = '<:3)~~';
 		let mouseX = 0.6; // 0-1 position within container
 		let catX = 0.2;
 		let targetX = 0.6;
-		let lastMouseX = mouseX;
-		let lastCatX = catX;
 		let mouseDir: 'left' | 'right' = 'right';
 		let catDir: 'left' | 'right' = 'right';
 
@@ -218,9 +216,6 @@ const mouseAsciiLeft = '<:3)~~';
 				catDir = newDir;
 				updateDirection(catEl!, catDir);
 			}
-
-			lastMouseX = mouseX;
-			lastCatX = catX;
 
 			positionElements();
 			requestAnimationFrame(animate);
