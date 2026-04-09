@@ -1,5 +1,5 @@
 ---
-// CatChase.astro - Cursor-following cat chase animation
+// CatChase.astro - Static structure for cursor-following cat chase animation
 
 const catAscii = ' /\\_/\\  ~\n( o.o ) /\n (> <)_/';
 const mouseAscii = '<:3)~~';
@@ -31,10 +31,7 @@ const mouseAscii = '<:3)~~';
 </section>
 
 <style>
-	.cat-chase-container {
-		min-height: 80px;
-	}
-
+	/* Initial positions: cat on left, mouse on right - will be animated via JS */
 	.cat-char,
 	.mouse-char {
 		top: 50%;
