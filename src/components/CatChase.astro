@@ -25,17 +25,17 @@ const mouseAsciiLeft = '<:3)~~';
 			id="cat-ascii"
 			class="cat-char absolute font-mono text-coral text-xs leading-none select-none whitespace-pre"
 			data-right={catAsciiRight}
-			data-left={catAsciiLeft}>
-			{catAsciiRight}
-		</pre>
+			data-left={catAsciiLeft}
+			set:html={catAsciiRight}
+		/>
 
 		<pre
 			id="mouse-ascii"
 			class="mouse-char absolute font-mono text-teal text-xs leading-none select-none whitespace-pre"
 			data-right={mouseAsciiRight}
-			data-left={mouseAsciiLeft}>
-			{mouseAsciiRight}
-		</pre>
+			data-left={mouseAsciiLeft}
+			set:html={mouseAsciiRight}
+		/>
 	</div>
 </section>
 
