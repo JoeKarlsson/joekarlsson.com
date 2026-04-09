@@ -1,13 +1,13 @@
 ---
 // CatChase.astro - Static structure for cursor-following cat chase animation
 
-// Right-facing variants
-const catAsciiRight = ' /\\_/\\  ~\n( o.o ) /\n (> <)_/';
-const mouseAsciiRight = '<:3)~~';
+// Right-facing variants (tail trails LEFT, moving RIGHT)
+const catAsciiRight = '~  /\\_/\\\n \\ ( o.o )\n  \\_(> <)';
+const mouseAsciiRight = '~~(:3>';
 
-// Left-facing variants
-const catAsciiLeft = '~  /\\_/\\\n \\ ( o.o )\n  \\_(> <)';
-const mouseAsciiLeft = '~~(:3>';
+// Left-facing variants (tail trails RIGHT, moving LEFT)
+const catAsciiLeft = ' /\\_/\\  ~\n( o.o ) /\n (> <)_/';
+const mouseAsciiLeft = '<:3)~~';
 ---
 
 <section
@@ -77,7 +77,7 @@ const mouseAsciiLeft = '~~(:3>';
 		// Easing factors
 		const MOUSE_SPEED = 0.1;
 		const CAT_SPEED = 0.05;
-		const MIN_GAP = 0.08; // Minimum distance cat keeps from mouse
+		const MIN_GAP = 0.18; // Minimum distance cat keeps from mouse
 
 		// Check for reduced motion preference
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
