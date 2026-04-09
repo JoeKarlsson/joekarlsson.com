@@ -8,12 +8,6 @@
 	}
 	respond @empty_ua 403
 
-	# Block known bad bots and scrapers
-	@bad_bots {
-		header_regexp User-Agent "(?i)(curl|wget|python-requests|scrapy|Go-http-client|Java/|libwww|lwp-trivial|MJ12bot|mj12bot|AhrefsBot|SemrushBot|DotBot|BLEXBot|MegaIndex|Sogou|YandexBot|PetalBot|Bytespider)"
-	}
-	respond @bad_bots 403
-
 	# 301 redirects: WordPress date-based blog URLs → /blog/slug
 	# Matches /YYYY/MM/slug/ or /YYYY/MM/slug
 	@wp-blog path_regexp wp ^/(\d{4})/(\d{2})/([a-z0-9-]+)/?$
