@@ -1,0 +1,52 @@
+---
+// CatChase.astro - Cursor-following cat chase animation
+
+const catAscii = ' /\\_/\\  ~\n( o.o ) /\n (> <)_/';
+const mouseAscii = '<:3)~~';
+---
+
+<section
+	id="cat-chase"
+	class="relative overflow-hidden bg-surface-0 border-y border-surface-3"
+	aria-hidden="true"
+	role="presentation"
+>
+	<div class="cat-chase-container mx-auto max-w-5xl px-6 py-4 h-20 relative">
+		<span class="cat-chase-comment absolute top-2 left-6 text-xs text-gray-600 font-mono">
+			// cat.exe running...
+		</span>
+
+		<pre
+			id="cat-ascii"
+			class="cat-char absolute font-mono text-coral text-xs leading-none select-none whitespace-pre">
+			{catAscii}
+		</pre>
+
+		<pre
+			id="mouse-ascii"
+			class="mouse-char absolute font-mono text-teal text-xs leading-none select-none whitespace-pre">
+			{mouseAscii}
+		</pre>
+	</div>
+</section>
+
+<style>
+	.cat-chase-container {
+		min-height: 80px;
+	}
+
+	.cat-char,
+	.mouse-char {
+		top: 50%;
+		transform: translateY(-50%);
+		transition: none;
+	}
+
+	.cat-char {
+		left: 20%;
+	}
+
+	.mouse-char {
+		left: 60%;
+	}
+</style>
