@@ -85,6 +85,32 @@ const mouseAsciiLeft = '~~(:3>';
 		// Check for touch device (no hover)
 		const isTouchDevice = window.matchMedia('(hover: none)').matches;
 
+		// Autonomous movement for mobile
+		let autonomousTarget = 0.7;
+		let autonomousDirection = 1; // 1 = right, -1 = left
+		let lastAutonomousChange = Date.now();
+
+		function updateAutonomousTarget() {
+			const now = Date.now();
+			// Change direction every 2-4 seconds
+			if (now - lastAutonomousChange > 2000 + Math.random() * 2000) {
+				autonomousDirection *= -1;
+				lastAutonomousChange = now;
+			}
+
+			// Wander in current direction
+			autonomousTarget += autonomousDirection * 0.002;
+
+			// Bounce off edges
+			if (autonomousTarget > 0.85) {
+				autonomousTarget = 0.85;
+				autonomousDirection = -1;
+			} else if (autonomousTarget < 0.15) {
+				autonomousTarget = 0.15;
+				autonomousDirection = 1;
+			}
+		}
+
 		function lerp(start: number, end: number, factor: number): number {
 			return start + (end - start) * factor;
 		}
@@ -118,6 +144,12 @@ const mouseAsciiLeft = '~~(:3>';
 			if (prefersReducedMotion) {
 				positionElements();
 				return;
+			}
+
+			// On touch devices, use autonomous movement
+			if (isTouchDevice) {
+				updateAutonomousTarget();
+				targetX = autonomousTarget;
 			}
 
 			// Mouse follows target
