@@ -4,6 +4,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 import NewsletterCTA from '../components/NewsletterCTA.astro';
 import AuthorBio from '../components/AuthorBio.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 interface Props {
 	title: string;
 	description?: string;
@@ -157,41 +158,9 @@ const relatedPosts = publishedPosts
 	</div>
 
 	<div class="mx-auto max-w-3xl px-4 py-8 xl:max-w-5xl">
-		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10 xl:items-start">
+		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
 			{/* TOC sidebar */}
-			{
-				showToc && (
-					<aside class="hidden xl:block" aria-label="Table of contents">
-						<nav class="sticky top-20 font-mono text-xs" id="toc-nav">
-							<p class="mb-3 text-gray-500">
-								<span class="text-coral" aria-hidden="true">
-									~$
-								</span>{' '}
-								cat contents.md
-							</p>
-							<ul class="space-y-1.5 border-l border-surface-3 pl-3">
-								{tocHeadings.map((h) => (
-									<li>
-										<a
-											href={`#${h.slug}`}
-											data-toc-slug={h.slug}
-											class={[
-												'toc-link block leading-snug transition-colors duration-150',
-												h.depth === 3
-													? 'pl-4 text-[10px] text-gray-500 hover:text-gray-300'
-													: 'text-[11px] font-bold text-gray-200 hover:text-white',
-											].join(' ')}
-										>
-											{h.text}
-										</a>
-									</li>
-								))}
-							</ul>
-						</nav>
-					</aside>
-				)
-			}
-			{!showToc && <div class="hidden xl:block" />}
+			{showToc ? <TableOfContents headings={tocHeadings} /> : <div class="hidden xl:block" />}
 
 			<article class="min-w-0" data-post-title={title}>
 				{/* Breadcrumbs */}
@@ -567,57 +536,4 @@ const relatedPosts = publishedPosts
 			</article>
 		</div>
 	</div>
-
-	<script>
-		(() => {
-			const links = document.querySelectorAll('.toc-link') as NodeListOf<HTMLAnchorElement>;
-			if (!links.length) return;
-
-			// Track TOC clicks
-			links.forEach((link) => {
-				link.addEventListener('click', () => {
-					if (typeof window.plausible === 'function') {
-						window.plausible('TOC Click', {
-							props: { section: link.textContent?.trim() || 'unknown' },
-						});
-					}
-				});
-			});
-
-			const headingEls = Array.from(links).map((l) => {
-				const slug = l.dataset.tocSlug;
-				return slug ? document.getElementById(slug) : null;
-			});
-
-			function setActive(el: HTMLAnchorElement | null) {
-				links.forEach((l) => {
-					l.classList.remove('text-coral');
-					l.classList.add('text-gray-500');
-				});
-				if (el) {
-					el.classList.remove('text-gray-500');
-					el.classList.add('text-coral');
-				}
-			}
-
-			const observer = new IntersectionObserver(
-				(entries) => {
-					const visible = entries
-						.filter((e) => e.isIntersecting)
-						.map((e) => headingEls.indexOf(e.target as HTMLElement))
-						.filter((i) => i !== -1)
-						.sort((a, b) => a - b);
-
-					if (visible.length > 0) {
-						setActive(links[visible[0]]);
-					}
-				},
-				{ rootMargin: '0px 0px -70% 0px', threshold: 0 },
-			);
-
-			headingEls.forEach((el) => {
-				if (el) observer.observe(el);
-			});
-		})();
-	</script>
 </BaseLayout>

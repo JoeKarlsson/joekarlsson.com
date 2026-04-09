@@ -75,6 +75,7 @@
 .prose h3,
 .prose h4 {
 	@apply relative;
+	scroll-margin-top: 6rem;
 }
 .prose h1 .heading-anchor,
 .prose h2 .heading-anchor,

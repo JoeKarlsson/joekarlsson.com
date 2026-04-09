@@ -1,0 +1,115 @@
+---
+interface Props {
+	headings: { slug: string; text: string; depth?: number }[];
+}
+const { headings } = Astro.props;
+---
+
+<aside class="hidden xl:block" aria-label="Table of contents">
+	<nav class="sticky top-20 font-mono text-xs" id="toc-nav">
+		<p class="mb-3 text-gray-500">
+			<span class="text-coral" aria-hidden="true">~$</span>{' '}
+			cat contents.md
+		</p>
+		<ul class="space-y-1.5 border-l border-surface-3 pl-3">
+			{
+				headings.map((h) => (
+					<li class="-ml-[1px] border-l-2 border-transparent pl-3 transition-colors duration-150">
+						<a
+							href={`#${h.slug}`}
+							data-toc-slug={h.slug}
+							class={[
+								'toc-link block leading-snug transition-colors duration-150',
+								h.depth === 3
+									? 'pl-4 text-[10px] text-gray-500 hover:text-gray-300'
+									: 'text-[11px] font-bold text-gray-200 hover:text-white',
+							].join(' ')}
+						>
+							{h.text}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</aside>
+
+<script>
+	(() => {
+		const links = document.querySelectorAll('.toc-link') as NodeListOf<HTMLAnchorElement>;
+		if (!links.length) return;
+
+		// Track TOC clicks
+		links.forEach((link) => {
+			link.addEventListener('click', () => {
+				if (typeof window.plausible === 'function') {
+					window.plausible('TOC Click', {
+						props: { section: link.textContent?.trim() || 'unknown' },
+					});
+				}
+			});
+		});
+
+		const headingEls = Array.from(links).map((l) => {
+			const slug = l.dataset.tocSlug;
+			return slug ? document.getElementById(slug) : null;
+		});
+
+		const inactiveColors: string[] = Array.from(links).map((l) =>
+			l.classList.contains('text-gray-500') ? 'text-gray-500' : 'text-gray-200',
+		);
+
+		let currentActive = -1;
+
+		function setActive(index: number) {
+			if (index === currentActive) return;
+
+			if (currentActive >= 0) {
+				links[currentActive].classList.remove('text-coral');
+				links[currentActive].classList.add(inactiveColors[currentActive]);
+				links[currentActive].parentElement?.classList.remove('border-coral');
+				links[currentActive].parentElement?.classList.add('border-transparent');
+			}
+
+			if (index >= 0 && index < links.length) {
+				links[index].classList.remove(inactiveColors[index]);
+				links[index].classList.add('text-coral');
+				links[index].parentElement?.classList.remove('border-transparent');
+				links[index].parentElement?.classList.add('border-coral');
+			}
+
+			currentActive = index;
+		}
+
+		function getActiveIndex(): number {
+			const offset = 120;
+			let active = 0;
+
+			for (let i = 0; i < headingEls.length; i++) {
+				const el = headingEls[i];
+				if (!el) continue;
+				if (el.getBoundingClientRect().top <= offset) {
+					active = i;
+				}
+			}
+			return active;
+		}
+
+		let ticking = false;
+		window.addEventListener(
+			'scroll',
+			() => {
+				if (!ticking) {
+					requestAnimationFrame(() => {
+						setActive(getActiveIndex());
+						ticking = false;
+					});
+					ticking = true;
+				}
+			},
+			{ passive: true },
+		);
+
+		setActive(getActiveIndex());
+	})();
+</script>

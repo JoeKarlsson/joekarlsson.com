@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import { projects, CATEGORY_META } from '../data/projects';
 import { SOCIAL_LINKS } from '../consts';
 
@@ -8,6 +9,10 @@ const featuredProject = projects.find((p) => p.featured);
 const nonFeatured = projects.filter((p) => !p.featured);
 
 const categories = ['iot', 'web', 'games', 'dev-tools', 'homelab'] as const;
+
+const workHeadings = categories
+	.filter((catKey) => nonFeatured.some((p) => p.category === catKey))
+	.map((catKey) => ({ slug: catKey, text: CATEGORY_META[catKey].label }));
 ---
 
 <BaseLayout
@@ -86,82 +91,88 @@ const categories = ['iot', 'web', 'games', 'dev-tools', 'homelab'] as const;
 			)
 		}
 
-		{/* Project Categories */}
-		{
-			categories.map((catKey) => {
-				const meta = CATEGORY_META[catKey];
-				const catProjects = nonFeatured.filter((p) => p.category === catKey);
-				if (catProjects.length === 0) return null;
-				return (
-					<>
-						<h2 class="mb-4 text-lg font-bold text-white">
-							<span class="text-coral font-mono text-sm" aria-hidden="true">
-								~$
-							</span>{' '}
-							{meta.command}
-						</h2>
-						<div class="mb-10 grid gap-4 sm:grid-cols-2">
-							{catProjects.map((project) => (
-								<ProjectCard project={project} />
-							))}
-						</div>
-					</>
-				);
-			})
-		}
+		{/* Grid: TOC sidebar + category sections */}
+		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
+			<TableOfContents headings={workHeadings} />
+			<div>
+				{/* Project Categories */}
+				{
+					categories.map((catKey) => {
+						const meta = CATEGORY_META[catKey];
+						const catProjects = nonFeatured.filter((p) => p.category === catKey);
+						if (catProjects.length === 0) return null;
+						return (
+							<>
+								<h2 id={catKey} class="mb-4 text-lg font-bold text-white">
+									<span class="text-coral font-mono text-sm" aria-hidden="true">
+										~$
+									</span>{' '}
+									{meta.command}
+								</h2>
+								<div class="mb-10 grid gap-4 sm:grid-cols-2">
+									{catProjects.map((project) => (
+										<ProjectCard project={project} />
+									))}
+								</div>
+							</>
+						);
+					})
+				}
 
-		{/* All repos link */}
-		<div class="mb-10 rounded-lg border border-surface-3 bg-surface-1 p-6 text-center">
-			<p class="mb-3 text-gray-400">Want to see everything?</p>
-			<a
-				href={SOCIAL_LINKS.github}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
-			>
-				View all repos on GitHub &rarr;
-			</a>
-		</div>
+				{/* All repos link */}
+				<div class="mb-10 rounded-lg border border-surface-3 bg-surface-1 p-6 text-center">
+					<p class="mb-3 text-gray-400">Want to see everything?</p>
+					<a
+						href={SOCIAL_LINKS.github}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
+					>
+						View all repos on GitHub &rarr;
+					</a>
+				</div>
 
-		{/* Keep exploring section */}
-		<div class="mb-10">
-			<h2 class="mb-4 text-lg font-bold text-white">
-				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cd ../
-			</h2>
-			<div class="grid gap-4 sm:grid-cols-3">
-				<a
-					href="/blog/"
-					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
-				>
-					<p class="font-mono text-xs text-coral">Read</p>
-					<p class="font-bold text-white group-hover:text-coral">Blog Posts</p>
-					<p class="text-sm text-gray-400">Homelab, databases, and developer tools</p>
-				</a>
-				<a
-					href="/about/"
-					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
-				>
-					<p class="font-mono text-xs text-coral">Learn</p>
-					<p class="font-bold text-white group-hover:text-coral">About Me</p>
-					<p class="text-sm text-gray-400">Background and what I'm working on</p>
-				</a>
-				<a
-					href="/resume/"
-					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
-				>
-					<p class="font-mono text-xs text-coral">View</p>
-					<p class="font-bold text-white group-hover:text-coral">Resume</p>
-					<p class="text-sm text-gray-400">Career history and impact metrics</p>
-				</a>
-				<a
-					href="/talk-archive/"
-					class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
-				>
-					<p class="font-mono text-xs text-coral">Watch</p>
-					<p class="font-bold text-white group-hover:text-coral">Talk Archive</p>
-					<p class="text-sm text-gray-400">Conference talks and presentations</p>
-				</a>
-			</div>
-		</div>
+				{/* Keep exploring section */}
+				<div class="mb-10">
+					<h2 class="mb-4 text-lg font-bold text-white">
+						<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cd ../
+					</h2>
+					<div class="grid gap-4 sm:grid-cols-3">
+						<a
+							href="/blog/"
+							class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+						>
+							<p class="font-mono text-xs text-coral">Read</p>
+							<p class="font-bold text-white group-hover:text-coral">Blog Posts</p>
+							<p class="text-sm text-gray-400">Homelab, databases, and developer tools</p>
+						</a>
+						<a
+							href="/about/"
+							class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+						>
+							<p class="font-mono text-xs text-coral">Learn</p>
+							<p class="font-bold text-white group-hover:text-coral">About Me</p>
+							<p class="text-sm text-gray-400">Background and what I'm working on</p>
+						</a>
+						<a
+							href="/resume/"
+							class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+						>
+							<p class="font-mono text-xs text-coral">View</p>
+							<p class="font-bold text-white group-hover:text-coral">Resume</p>
+							<p class="text-sm text-gray-400">Career history and impact metrics</p>
+						</a>
+						<a
+							href="/talk-archive/"
+							class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
+						>
+							<p class="font-mono text-xs text-coral">Watch</p>
+							<p class="font-bold text-white group-hover:text-coral">Talk Archive</p>
+							<p class="text-sm text-gray-400">Conference talks and presentations</p>
+						</a>
+					</div>
+				</div>
+			</div>{/* end grid content column */}
+		</div>{/* end grid */}
 	</div>
 </BaseLayout>
