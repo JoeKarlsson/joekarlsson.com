@@ -205,24 +205,18 @@ const mouseAsciiLeft = '<:3)~~';
 			mouseX = clamp(mouseX, 0.05, 0.95);
 			catX = clamp(catX, 0.02, 0.92);
 
-			// Update directions based on velocity
-			const mouseVel = mouseX - lastMouseX;
-			const catVel = catX - lastCatX;
+			// Update directions based on relative positions (chase relationship)
+			// Mouse faces AWAY from cat (fleeing), cat faces TOWARD mouse (chasing)
+			const newDir: 'left' | 'right' = mouseX > catX ? 'right' : 'left';
 
-			if (Math.abs(mouseVel) > 0.001) {
-				const newMouseDir = mouseVel > 0 ? 'right' : 'left';
-				if (newMouseDir !== mouseDir) {
-					mouseDir = newMouseDir;
-					updateDirection(mouseEl!, mouseDir);
-				}
+			if (newDir !== mouseDir) {
+				mouseDir = newDir;
+				updateDirection(mouseEl!, mouseDir);
 			}
 
-			if (Math.abs(catVel) > 0.001) {
-				const newCatDir = catVel > 0 ? 'right' : 'left';
-				if (newCatDir !== catDir) {
-					catDir = newCatDir;
-					updateDirection(catEl!, catDir);
-				}
+			if (newDir !== catDir) {
+				catDir = newDir;
+				updateDirection(catEl!, catDir);
 			}
 
 			lastMouseX = mouseX;
