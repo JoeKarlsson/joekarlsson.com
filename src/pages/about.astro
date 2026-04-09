@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RightNow from '../components/RightNow.astro';
+import CatChase from '../components/CatChase.astro';
 import { SOCIAL_LINKS } from '../consts';
 ---
 
@@ -685,7 +686,12 @@ import { SOCIAL_LINKS } from '../consts';
 				});
 			});
 		</script>
+	</div>
 
+	<!-- Cat chases mouse animation - breaks out of container for full-width -->
+	<CatChase />
+
+	<div class="mx-auto max-w-3xl px-4">
 		<!-- What I'm Into -->
 		<h2 class="mb-4 text-lg font-bold text-white">
 			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat interests.md
