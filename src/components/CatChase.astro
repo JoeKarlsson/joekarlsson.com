@@ -90,6 +90,13 @@ const mouseAsciiLeft = '~~(:3>';
 		let autonomousDirection = 1; // 1 = right, -1 = left
 		let lastAutonomousChange = Date.now();
 
+		// Idle cursor tracking
+		let lastTargetX = targetX;
+		let idleStartTime = 0;
+		let isIdle = false;
+		const IDLE_THRESHOLD = 2000; // ms before cat starts creeping
+		const CREEP_SPEED = 0.0005; // How fast cat creeps when idle
+
 		function updateAutonomousTarget() {
 			const now = Date.now();
 			// Change direction every 2-4 seconds
@@ -133,11 +140,11 @@ const mouseAsciiLeft = '~~(:3>';
 
 			// Position mouse
 			const mousePx = padding + mouseX * usableWidth;
-			mouseEl.style.left = `${mousePx}px`;
+			mouseEl!.style.left = `${mousePx}px`;
 
 			// Position cat
 			const catPx = padding + catX * usableWidth;
-			catEl.style.left = `${catPx}px`;
+			catEl!.style.left = `${catPx}px`;
 		}
 
 		function animate() {
@@ -150,6 +157,28 @@ const mouseAsciiLeft = '~~(:3>';
 			if (isTouchDevice) {
 				updateAutonomousTarget();
 				targetX = autonomousTarget;
+			}
+
+			// Detect idle cursor (desktop only)
+			if (!isTouchDevice) {
+				if (Math.abs(targetX - lastTargetX) < 0.001) {
+					if (!isIdle) {
+						idleStartTime = Date.now();
+						isIdle = true;
+					}
+				} else {
+					isIdle = false;
+				}
+				lastTargetX = targetX;
+
+				// Cat creeps closer when cursor is idle
+				if (isIdle && Date.now() - idleStartTime > IDLE_THRESHOLD) {
+					const gap = mouseX - catX;
+					if (Math.abs(gap) > MIN_GAP) {
+						// Creep toward mouse
+						catX += Math.sign(gap) * CREEP_SPEED;
+					}
+				}
 			}
 
 			// Mouse follows target
@@ -176,7 +205,7 @@ const mouseAsciiLeft = '~~(:3>';
 				const newMouseDir = mouseVel > 0 ? 'right' : 'left';
 				if (newMouseDir !== mouseDir) {
 					mouseDir = newMouseDir;
-					updateDirection(mouseEl, mouseDir);
+					updateDirection(mouseEl!, mouseDir);
 				}
 			}
 
@@ -184,7 +213,7 @@ const mouseAsciiLeft = '~~(:3>';
 				const newCatDir = catVel > 0 ? 'right' : 'left';
 				if (newCatDir !== catDir) {
 					catDir = newCatDir;
-					updateDirection(catEl, catDir);
+					updateDirection(catEl!, catDir);
 				}
 			}
 
