@@ -1,8 +1,13 @@
 ---
 // CatChase.astro - Static structure for cursor-following cat chase animation
 
-const catAscii = ' /\\_/\\  ~\n( o.o ) /\n (> <)_/';
-const mouseAscii = '<:3)~~';
+// Right-facing variants
+const catAsciiRight = ' /\\_/\\  ~\n( o.o ) /\n (> <)_/';
+const mouseAsciiRight = '<:3)~~';
+
+// Left-facing variants
+const catAsciiLeft = '~  /\\_/\\\n \\ ( o.o )\n  \\_(> <)';
+const mouseAsciiLeft = '~~(:3>';
 ---
 
 <section
@@ -18,14 +23,18 @@ const mouseAscii = '<:3)~~';
 
 		<pre
 			id="cat-ascii"
-			class="cat-char absolute font-mono text-coral text-xs leading-none select-none whitespace-pre">
-			{catAscii}
+			class="cat-char absolute font-mono text-coral text-xs leading-none select-none whitespace-pre"
+			data-right={catAsciiRight}
+			data-left={catAsciiLeft}>
+			{catAsciiRight}
 		</pre>
 
 		<pre
 			id="mouse-ascii"
-			class="mouse-char absolute font-mono text-teal text-xs leading-none select-none whitespace-pre">
-			{mouseAscii}
+			class="mouse-char absolute font-mono text-teal text-xs leading-none select-none whitespace-pre"
+			data-right={mouseAsciiRight}
+			data-left={mouseAsciiLeft}>
+			{mouseAsciiRight}
 		</pre>
 	</div>
 </section>
