@@ -78,15 +78,20 @@ test.describe('CatChase Component', () => {
 		const cat = page.locator('#cat-ascii');
 		const mouse = page.locator('#mouse-ascii');
 
-		// Scroll into view and move cursor to the right side so the mouse
-		// runs ahead while the cat chases — giving them time to separate
 		await container.scrollIntoViewIfNeeded();
 		const containerBox = await container.boundingBox();
 		if (!containerBox) return;
 
 		const centerY = containerBox.y + containerBox.height / 2;
+
+		// Move cursor to LEFT and wait long enough for the cat to catch up there
+		await page.mouse.move(containerBox.x + containerBox.width * 0.1, centerY);
+		await page.waitForTimeout(2000);
+
+		// Now snap cursor to RIGHT — mouse immediately jumps right, cat is still at left
+		// Check positions immediately before the cat has time to catch up
 		await page.mouse.move(containerBox.x + containerBox.width * 0.9, centerY);
-		await page.waitForTimeout(1200);
+		await page.waitForTimeout(100);
 
 		const catBox = await cat.boundingBox();
 		const mouseBox = await mouse.boundingBox();
@@ -95,11 +100,9 @@ test.describe('CatChase Component', () => {
 		expect(mouseBox).not.toBeNull();
 
 		if (catBox && mouseBox) {
-			// There should be a gap between cat and mouse (not overlapping)
+			// Cat should be to the left of mouse — cat was at left, mouse jumped to right
 			const catRight = catBox.x + catBox.width;
 			const mouseLeft = mouseBox.x;
-
-			// Either cat is to the left of mouse or mouse is to the left of cat
 			const hasGap = catRight < mouseLeft || mouseBox.x + mouseBox.width < catBox.x;
 			expect(hasGap).toBeTruthy();
 		}

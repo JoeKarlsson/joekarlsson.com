@@ -29,8 +29,11 @@ test.describe('Homepage', () => {
 	});
 
 	test('project section is displayed', async ({ page }) => {
-		// Look for projects or work section
-		const projectsSection = page.locator('[class*="project"], [class*="work"]');
+		// Filter to visible only — avoids matching hidden plausible CTA links
+		// whose class contains plausible-event-destination=work
+		const projectsSection = page
+			.locator('[class*="project"], [class*="work"]')
+			.filter({ visible: true });
 
 		if ((await projectsSection.count()) > 0) {
 			await expect(projectsSection.first()).toBeVisible();
