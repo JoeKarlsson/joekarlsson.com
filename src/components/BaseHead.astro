@@ -265,9 +265,23 @@ const ogImageURL = new URL(image, Astro.site);
 	})}
 />
 
-<!-- Plausible Analytics (self-hosted) -->
-<script
-	defer
-	data-domain="joekarlsson.com"
-	src="https://plausible.joekarlsson.io/js/script.tagged-events.outbound-links.file-downloads.js"
-></script>
+<!-- Plausible Analytics (self-hosted) - with bot filtering -->
+<script is:inline>
+	(function () {
+		// Skip analytics for bots and headless browsers
+		if (
+			navigator.webdriver || // Headless Chrome, Puppeteer, Playwright
+			/bot|crawl|spider|scrape|headless/i.test(navigator.userAgent) ||
+			!navigator.languages ||
+			navigator.languages.length === 0
+		) {
+			return;
+		}
+		const s = document.createElement('script');
+		s.defer = true;
+		s.dataset.domain = 'joekarlsson.com';
+		s.src =
+			'https://plausible.joekarlsson.io/js/script.tagged-events.outbound-links.file-downloads.js';
+		document.head.appendChild(s);
+	})();
+</script>
