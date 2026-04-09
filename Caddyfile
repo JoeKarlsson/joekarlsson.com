@@ -59,6 +59,14 @@
 	@music-2025 path /blog/self-hosted-music-still-sucks-in-2025 /blog/self-hosted-music-still-sucks-in-2025/
 	redir @music-2025 /blog/self-hosted-music-still-sucks-in-2026 301
 
+	# Homelab server post - people searching for 2026 version
+	@homelab-2026 path_regexp ^/blog/how-to-get-started-building-a-homelab-server-in-2026.*
+	redir @homelab-2026 /blog/how-to-get-started-building-a-homelab-server-in-2024 301
+
+	# Outdated MongoDB post - redirect to blog
+	@mongodb-credits path /blog/how-to-activate-your-mongodb-atlas-credits /blog/how-to-activate-your-mongodb-atlas-credits/
+	redir @mongodb-credits /blog/ 301
+
 	# WordPress feed → RSS
 	@feed path /feed /feed/
 	redir @feed /rss.xml 301
