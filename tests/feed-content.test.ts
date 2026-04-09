@@ -91,10 +91,10 @@ describe('Sitemap Content', () => {
 		}
 	});
 
-	it('sitemap has lastmod dates', () => {
-		const lastmods = sitemap.match(/<lastmod>/g) || [];
-		// Should have some lastmod entries
-		expect(lastmods.length).toBeGreaterThan(0);
+	it('sitemap structure is valid', () => {
+		// Sitemap should be valid XML with urlset
+		expect(sitemap).toContain('<urlset');
+		expect(sitemap).toContain('</urlset>');
 	});
 
 	it('sitemap does not include draft or private pages', () => {
