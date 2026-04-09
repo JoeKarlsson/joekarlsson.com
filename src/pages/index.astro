@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogCard from '../components/BlogCard.astro';
+import CatChase from '../components/CatChase.astro';
 import RightNow from '../components/RightNow.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_DESCRIPTION } from '../consts';
@@ -288,6 +289,9 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			</div>
 		</div>
 	</section>
+
+	<!-- Cat Chase Animation -->
+	<CatChase />
 
 	<!-- Recent Posts -->
 	<section class="mx-auto max-w-5xl px-6 py-16">
