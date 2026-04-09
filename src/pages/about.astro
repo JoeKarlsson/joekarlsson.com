@@ -200,78 +200,66 @@ import { SOCIAL_LINKS } from '../consts';
 			</div>
 		</div>
 
-		<!-- Career Timeline -->
+		<!-- Career Timeline - Git Log Style -->
 		<h2 class="mb-4 text-lg font-bold text-white">
-			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat career.md
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> git log --oneline --graph
+			career/
 		</h2>
-		<div class="mb-6 rounded-lg border border-surface-3 bg-surface-1 overflow-hidden">
+		<div
+			class="mb-6 rounded-lg border border-surface-3 bg-surface-1 p-4 font-mono text-sm overflow-x-auto"
+		>
 			{
 				[
 					{
+						hash: 'f4c3b2a',
 						company: 'CloudQuery',
 						title: 'Senior Developer Advocate',
 						years: '2024 - Now',
-						logo: '/images/logos/cloudquery.webp',
+						isHead: true,
 					},
 					{
+						hash: 'e7d6c5b',
 						company: 'Tinybird',
 						title: 'Senior Developer Advocate',
 						years: '2023 - 2024',
-						logo: '/images/logos/tinybird.webp',
 					},
 					{
+						hash: 'd1a9f8e',
 						company: 'SingleStore',
 						title: 'Senior Developer Advocate',
 						years: '2021 - 2023',
-						logo: '/images/logos/singlestore.webp',
 					},
 					{
+						hash: 'c4b3a2d',
 						company: 'MongoDB',
 						title: 'Developer Advocate',
 						years: '2019 - 2021',
-						logo: '/images/logos/mongodb.webp',
 					},
 					{
+						hash: 'b7e6d5c',
 						company: 'Best Buy',
 						title: 'Technical Lead',
 						years: '2017 - 2019',
-						logo: '/images/logos/bestbuy.webp',
 					},
 					{
+						hash: 'a1f0e9d',
 						company: 'DevLeague',
 						title: 'Full-Stack JS Instructor',
 						years: '2015 - 2017',
-						logo: '/images/logos/devleague.webp',
 					},
 				].map((role, i) => (
-					<div
-						class:list={['flex items-center gap-3 px-4 py-3', i > 0 && 'border-t border-surface-3']}
-					>
-						<span class="w-24 shrink-0 font-mono text-xs text-gray-400 text-right">
-							{role.years}
-						</span>
-						<div class="h-4 w-px bg-surface-3 shrink-0" />
-						{role.logo ? (
-							<img
-								src={role.logo}
-								alt=""
-								aria-hidden="true"
-								class="h-6 w-6 rounded-sm object-contain shrink-0"
-								width="24"
-								height="24"
-								loading="lazy"
-							/>
-						) : (
-							<div class="h-6 w-6 rounded-sm bg-surface-2 shrink-0 flex items-center justify-center">
-								<span class="font-mono text-[8px] text-gray-400">
-									{role.company.slice(0, 2).toUpperCase()}
-								</span>
-							</div>
+					<div class="flex items-start gap-2 leading-relaxed">
+						<span class="text-coral shrink-0">*</span>
+						<span class="text-yellow-400 shrink-0">{role.hash}</span>
+						{role.isHead && (
+							<span class="text-teal shrink-0">
+								(<span class="text-teal">HEAD -&gt;</span> <span class="text-green-400">main</span>)
+							</span>
 						)}
-						<div class="min-w-0">
-							<span class="font-medium text-white text-sm">{role.company}</span>
-							<span class="text-gray-400 text-xs"> - {role.title}</span>
-						</div>
+						<span class="text-white">
+							{role.company} - {role.title}
+						</span>
+						<span class="text-gray-500">({role.years})</span>
 					</div>
 				))
 			}
