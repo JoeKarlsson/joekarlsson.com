@@ -74,8 +74,19 @@ test.describe('CatChase Component', () => {
 	});
 
 	test('cat and mouse maintain gap between them', async ({ page }) => {
+		const container = page.locator('#cat-chase');
 		const cat = page.locator('#cat-ascii');
 		const mouse = page.locator('#mouse-ascii');
+
+		// Scroll into view and move cursor to the right side so the mouse
+		// runs ahead while the cat chases — giving them time to separate
+		await container.scrollIntoViewIfNeeded();
+		const containerBox = await container.boundingBox();
+		if (!containerBox) return;
+
+		const centerY = containerBox.y + containerBox.height / 2;
+		await page.mouse.move(containerBox.x + containerBox.width * 0.9, centerY);
+		await page.waitForTimeout(1200);
 
 		const catBox = await cat.boundingBox();
 		const mouseBox = await mouse.boundingBox();

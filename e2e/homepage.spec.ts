@@ -17,8 +17,11 @@ test.describe('Homepage', () => {
 	});
 
 	test('featured blog posts are displayed', async ({ page }) => {
-		// Look for blog post cards or featured section
-		const blogSection = page.locator('[class*="blog"], [class*="post"], article');
+		// Look for blog post cards or featured section — filter to visible only
+		// to avoid matching hidden nav links with plausible event classes containing "blog"
+		const blogSection = page
+			.locator('[class*="blog"], [class*="post"], article')
+			.filter({ visible: true });
 
 		if ((await blogSection.count()) > 0) {
 			await expect(blogSection.first()).toBeVisible();
