@@ -5,7 +5,7 @@ interface Props {
 const { headings } = Astro.props;
 ---
 
-<aside class="hidden xl:block" aria-label="Table of contents">
+<div class="hidden xl:block">
 	<nav class="sticky top-20 font-mono text-xs" id="toc-nav">
 		<p class="mb-3 text-gray-500">
 			<span class="text-coral" aria-hidden="true">~$</span>{' '}
@@ -32,7 +32,7 @@ const { headings } = Astro.props;
 			}
 		</ul>
 	</nav>
-</aside>
+</div>
 
 <script>
 	(() => {
