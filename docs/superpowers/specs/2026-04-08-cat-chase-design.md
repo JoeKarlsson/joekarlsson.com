@@ -17,19 +17,44 @@ Between the Featured Posts and Recent Posts sections on the homepage (`src/pages
 
 ### ASCII Art
 
-**Mouse** (follows cursor):
+Both characters have **left-facing and right-facing variants** that swap based on movement direction. This makes the chase feel alive.
+
+**Mouse - facing right** (fleeing right):
 
 ```
-<:3 )~~
+<:3)~~
 ```
 
-**Cat** (chases mouse):
+**Mouse - facing left** (fleeing left):
 
 ```
-=^._.^=
+~~(:3>
 ```
 
-Both rendered in monospace font, using the site's existing terminal text colors (coral for cat, teal or gray for mouse).
+**Cat - facing right** (chasing right):
+
+```
+ /\_/\  ~
+( o.o ) /
+ (> <)_/
+```
+
+**Cat - facing left** (chasing left):
+
+```
+~  /\_/\
+ \ ( o.o )
+  \_(> <)
+```
+
+**Direction logic:**
+
+- Track velocity (difference between current and previous X position)
+- If moving right (positive velocity), show right-facing variant
+- If moving left (negative velocity), show left-facing variant
+- If stationary, keep the last direction
+
+Both rendered in monospace font (multi-line, ~3 lines tall). Using the site's existing terminal text colors - coral for cat, teal or gray for mouse.
 
 ### Layout
 
