@@ -56,3 +56,131 @@ const mouseAsciiLeft = '~~(:3>';
 		left: 60%;
 	}
 </style>
+
+<script>
+	const container = document.getElementById('cat-chase');
+	const catEl = document.getElementById('cat-ascii');
+	const mouseEl = document.getElementById('mouse-ascii');
+
+	if (container && catEl && mouseEl) {
+		const containerRect = () => container.getBoundingClientRect();
+
+		// State
+		let mouseX = 0.6; // 0-1 position within container
+		let catX = 0.2;
+		let targetX = 0.6;
+		let lastMouseX = mouseX;
+		let lastCatX = catX;
+		let mouseDir: 'left' | 'right' = 'right';
+		let catDir: 'left' | 'right' = 'right';
+
+		// Easing factors
+		const MOUSE_SPEED = 0.1;
+		const CAT_SPEED = 0.05;
+		const MIN_GAP = 0.08; // Minimum distance cat keeps from mouse
+
+		// Check for reduced motion preference
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		// Check for touch device (no hover)
+		const isTouchDevice = window.matchMedia('(hover: none)').matches;
+
+		function lerp(start: number, end: number, factor: number): number {
+			return start + (end - start) * factor;
+		}
+
+		function clamp(value: number, min: number, max: number): number {
+			return Math.max(min, Math.min(max, value));
+		}
+
+		function updateDirection(el: HTMLElement, dir: 'left' | 'right') {
+			const content = el.getAttribute(`data-${dir}`);
+			if (content) {
+				el.textContent = content;
+			}
+		}
+
+		function positionElements() {
+			const rect = containerRect();
+			const padding = 60; // px from edges
+			const usableWidth = rect.width - padding * 2;
+
+			// Position mouse
+			const mousePx = padding + mouseX * usableWidth;
+			mouseEl.style.left = `${mousePx}px`;
+
+			// Position cat
+			const catPx = padding + catX * usableWidth;
+			catEl.style.left = `${catPx}px`;
+		}
+
+		function animate() {
+			if (prefersReducedMotion) {
+				positionElements();
+				return;
+			}
+
+			// Mouse follows target
+			mouseX = lerp(mouseX, targetX, MOUSE_SPEED);
+
+			// Cat chases mouse but keeps minimum gap
+			let catTarget = mouseX;
+			const gap = Math.abs(mouseX - catX);
+			if (gap < MIN_GAP) {
+				// Cat is too close, back off slightly
+				catTarget = mouseX > catX ? mouseX - MIN_GAP : mouseX + MIN_GAP;
+			}
+			catX = lerp(catX, catTarget, CAT_SPEED);
+
+			// Clamp positions
+			mouseX = clamp(mouseX, 0.05, 0.95);
+			catX = clamp(catX, 0.02, 0.92);
+
+			// Update directions based on velocity
+			const mouseVel = mouseX - lastMouseX;
+			const catVel = catX - lastCatX;
+
+			if (Math.abs(mouseVel) > 0.001) {
+				const newMouseDir = mouseVel > 0 ? 'right' : 'left';
+				if (newMouseDir !== mouseDir) {
+					mouseDir = newMouseDir;
+					updateDirection(mouseEl, mouseDir);
+				}
+			}
+
+			if (Math.abs(catVel) > 0.001) {
+				const newCatDir = catVel > 0 ? 'right' : 'left';
+				if (newCatDir !== catDir) {
+					catDir = newCatDir;
+					updateDirection(catEl, catDir);
+				}
+			}
+
+			lastMouseX = mouseX;
+			lastCatX = catX;
+
+			positionElements();
+			requestAnimationFrame(animate);
+		}
+
+		// Track cursor position
+		document.addEventListener('mousemove', (e) => {
+			const rect = containerRect();
+			const padding = 60;
+
+			// Only track if cursor is reasonably close to the section
+			if (e.clientY > rect.top - 200 && e.clientY < rect.bottom + 200) {
+				const relativeX = (e.clientX - rect.left - padding) / (rect.width - padding * 2);
+				targetX = clamp(relativeX, 0.05, 0.95);
+			}
+		});
+
+		// Initialize positions
+		positionElements();
+
+		// Start animation
+		if (!prefersReducedMotion) {
+			requestAnimationFrame(animate);
+		}
+	}
+</script>
