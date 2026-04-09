@@ -97,6 +97,9 @@ const mouseAsciiLeft = '~~(:3>';
 		const IDLE_THRESHOLD = 2000; // ms before cat starts creeping
 		const CREEP_SPEED = 0.0005; // How fast cat creeps when idle
 
+		// Visibility tracking
+		let isVisible = true;
+
 		function updateAutonomousTarget() {
 			const now = Date.now();
 			// Change direction every 2-4 seconds
@@ -148,6 +151,11 @@ const mouseAsciiLeft = '~~(:3>';
 		}
 
 		function animate() {
+			if (!isVisible) {
+				requestAnimationFrame(animate);
+				return;
+			}
+
 			if (prefersReducedMotion) {
 				positionElements();
 				return;
@@ -235,6 +243,15 @@ const mouseAsciiLeft = '~~(:3>';
 				targetX = clamp(relativeX, 0.05, 0.95);
 			}
 		});
+
+		// Pause animation when off-screen
+		const observer = new IntersectionObserver(
+			(entries) => {
+				isVisible = entries[0].isIntersecting;
+			},
+			{ threshold: 0 },
+		);
+		observer.observe(container);
 
 		// Initialize positions
 		positionElements();
