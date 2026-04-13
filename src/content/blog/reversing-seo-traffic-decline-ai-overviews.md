@@ -136,7 +136,7 @@ Here's the actual workflow. Not magic. Just consistent.
 
 Every week I run `/seo-analysis` - a [Claude Code skill I built](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling) that queries all my data sources, compares against last week's snapshot, and surfaces what moved. If you're not familiar with Claude Code skills, think of them as reusable slash commands you build yourself. This one pulls from:
 
-- [Google Search Console](https://search.google.com/search-console): impressions, clicks, position changes (free, authoritative on your own data)
+- [Google Search Console](https://search.google.com/search-console/welcome): impressions, clicks, position changes (free, authoritative on your own data)
 - [Plausible](https://plausible.io): actual visitor counts (I trust this more than GA for accuracy)
 - [Ahrefs](https://ahrefs.com): keyword positions, traffic value estimates, site audit findings, competitor gaps
 - [GA4](https://analytics.google.com): session and conversion data
