@@ -171,6 +171,8 @@ services:
 
 No `runtime: nvidia`. No CDI. Direct device mounts, direct library path. Works reliably.
 
+![Surprised Pikachu meme - top text: 'sets default-runtime: nvidia in daemon.json inside an LXC container', bottom text: 'all docker containers lose GPU access'](/images/blog/proxmox-gpu-passthrough-multi-service/surprised-pikachu-cdi.webp)
+
 ## The Workload Map
 
 The passthrough config above is the same on both nodes - the interesting decisions are which services run where and why.
