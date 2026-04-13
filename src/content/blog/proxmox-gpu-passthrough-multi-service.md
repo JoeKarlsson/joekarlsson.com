@@ -4,6 +4,7 @@ date: 2026-04-13
 slug: 'proxmox-gpu-passthrough-multi-service'
 description: 'How I distribute GPU workloads across two Proxmox nodes using LXC device binding - VRAM strategy, LXC passthrough config, and Tdarr distributed encoding.'
 categories: ['Homelab']
+tags: ['proxmox', 'nvidia', 'gpu', 'lxc', 'frigate', 'homelab', 'ollama']
 heroImage: '/images/blog/proxmox-gpu-passthrough-multi-service/hero.webp'
 heroAlt: 'Two Dell R730 servers in a rack with NVIDIA GPU cards visible, showing GPU workload distribution across a Proxmox cluster'
 tldr: 'I run eight GPU-accelerated services across two Proxmox nodes using LXC device binding. The 8GB Quadro RTX 4000 on prxbox1 handles Frigate NVR, Wyoming Whisper STT, and a Tdarr encoding node. The 16GB RTX A4000 on prxbox2 handles Plex, Ollama, Immich ML, and Tdarr server. The config is straightforward once you understand what LXC passthrough actually is and why workload placement matters more than the passthrough setup itself.'
@@ -13,7 +14,7 @@ faq:
   - question: 'Can I use a gaming GPU (GeForce) for Proxmox LXC passthrough?'
     answer: 'In a desktop Proxmox build, yes - GeForce cards work fine with LXC device binding. In a 2U rack server like a Dell R730, physical size constraints require workstation-class cards (Quadro, RTX professional series) that fit the 3.44-inch chassis height and front-to-back airflow design.'
   - question: 'Does nvidia-smi work on the Proxmox host with LXC device binding?'
-    answer: 'No. When the NVIDIA driver is loaded on the Proxmox host for LXC sharing, nvidia-smi does report devices on the host - but the driver context lives there, not in the containers. To see per-container VRAM usage, run nvidia-smi from inside the container: pct exec <ct-id> -- nvidia-smi'
+    answer: 'Yes - with LXC device binding, the NVIDIA driver loads on the Proxmox host and nvidia-smi reports the GPU there. What it cannot show is per-container VRAM breakdown. To see which container is consuming VRAM, run nvidia-smi from inside the container: pct exec <ct-id> -- nvidia-smi. (This is the opposite of full VM vfio-pci passthrough, where the GPU is removed from the host device tree entirely and nvidia-smi on the host returns nothing.)'
   - question: 'What Proxmox version do I need for LXC GPU passthrough?'
     answer: 'LXC device binding works on PVE 7+ with cgroup v2 enabled. My setup runs PVE 9.1.1 (Debian 13 Trixie) with kernel 6.17.2-1-pve and NVIDIA driver 580.95.05. The cgroup2 device allowlist syntax (lxc.cgroup2.devices.allow) replaced the older cgroup v1 syntax in PVE 7.'
 ---
@@ -28,7 +29,7 @@ That's the problem with Proxmox LXC GPU passthrough once you stack enough servic
 
 Frigate dropping frames on a security camera because Plex decided to transcode a movie is exactly the kind of failure mode that seems obvious in retrospect. Of course they compete. They're both CUDA processes on the same card. But when you're building a homelab incrementally - adding one service at a time, each one working fine in isolation - it doesn't feel obvious until something breaks.
 
-That's the story that led me to a two-node GPU strategy. Not "I planned this out carefully from the start." More like "I added enough things to one GPU that they started stepping on each other, and I had to actually think about it."
+A GPU memory collision is what led me to a two-node strategy. Not "I planned this out carefully from the start." More like "I added enough things to one GPU that they started stepping on each other, and I had to actually think about it."
 
 ![Drake meme - rejecting 'planning GPU workload distribution before buying the second server', approving 'filling two servers with 8 services and figuring it out when Frigate drops frames'](/images/blog/proxmox-gpu-passthrough-multi-service/drake-gpu-planning.webp)
 
@@ -123,6 +124,8 @@ cp /usr/lib/x86_64-linux-gnu/libnvidia* /opt/nvidia-libs/
 cp /usr/lib/x86_64-linux-gnu/libcuda* /opt/nvidia-libs/
 cp /usr/lib/x86_64-linux-gnu/libnvcuvid* /opt/nvidia-libs/
 ```
+
+Important: whenever you update the NVIDIA driver on the Proxmox host, you need to re-run those `cp` commands to refresh `/opt/nvidia-libs/`, then restart every GPU-bound container. The libraries in the directory need to match the running driver version - stale copies will cause containers to fail with `libcuda.so version mismatch` errors.
 
 Every container that needs GPU access gets the same LXC block above. They all share the same `/dev/nvidia0` device. The GPU handles multiple concurrent CUDA contexts just fine.
 
@@ -242,7 +245,7 @@ This distributed model works well for batch encoding because each job is complet
 
 ## Monitoring VRAM Across the Cluster
 
-There's a catch with the LXC passthrough approach: `nvidia-smi` doesn't work on the Proxmox host. When a GPU is bound for passthrough, the NVIDIA kernel module reports no devices at the host level. To see GPU stats, you have to go inside a container.
+One quirk of the LXC passthrough approach: `nvidia-smi` on the Proxmox host shows the GPU and its total VRAM, but it cannot show per-container breakdown. To see which specific processes are consuming VRAM, you have to query from inside a container.
 
 ```bash
 # Check VRAM usage on prxbox1 from inside the Frigate container
@@ -253,7 +256,7 @@ ssh root@<host-ip> "pct exec <ct-id> -- nvidia-smi"
 ssh root@<host-ip> "pct exec <ct-id> -- nvidia-smi --query-compute-apps=name,used_memory --format=csv"
 ```
 
-For ongoing monitoring, I have node_exporter running inside each GPU container, exporting metrics to the Prometheus instance on prxbox3. The NVIDIA-specific metrics - temperature, utilization, memory - come from nvidia-smi output scraped periodically. It's not as clean as a dedicated GPU exporter, but it works for understanding patterns over time.
+For ongoing monitoring, I have node_exporter running inside each GPU container, exporting metrics to the Prometheus instance on prxbox3. The NVIDIA-specific metrics - temperature, utilization, memory - come from nvidia-smi output scraped periodically. For a cleaner setup, [nvidia_gpu_exporter](https://github.com/utkuozdemir/nvidia_gpu_exporter) runs inside a container and exposes proper Prometheus metrics without any scripting.
 
 The practical reality: I check GPU stats reactively when something feels slow, not on a dashboard I watch constantly. The Uptime Kuma monitor tells me if Whisper or Frigate goes down. The Home Assistant CPU/memory graphs show me if the system is under pressure. GPU VRAM isn't the thing I watch most often - it's more useful for investigating a specific incident.
 
@@ -275,4 +278,4 @@ The passthrough config is the easy part. It takes an afternoon, and there are de
 
 ---
 
-_Running a similar setup? The [homelab two-year retrospective](/blog/homelab-two-years-later/) covers the full hardware stack, and the [local voice AI post](/blog/local-voice-ai-home-assistant-gpu/) goes deep on the Whisper pipeline specifically._
+If any of this is useful, I'm happy to dig into specifics in the comments - particularly around the Frigate TensorRT setup or the Tdarr distributed config, which both have their own rabbit holes. The [homelab two-year retrospective](/blog/homelab-two-years-later/) has the full hardware context, and the [local voice AI post](/blog/local-voice-ai-home-assistant-gpu/) covers the Whisper pipeline end-to-end if you're building the Home Assistant voice setup.

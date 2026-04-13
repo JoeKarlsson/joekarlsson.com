@@ -329,3 +329,5 @@ RDK
 DevLeague
 devleague
 DevRels
+libcuda
+libnvcuvid
