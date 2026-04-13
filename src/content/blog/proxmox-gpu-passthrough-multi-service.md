@@ -31,7 +31,7 @@ Frigate dropping frames on a security camera because Plex decided to transcode a
 
 A GPU memory collision is what led me to a two-node strategy. Not "I planned this out carefully from the start." More like "I added enough things to one GPU that they started stepping on each other, and I had to actually think about it."
 
-![Expanding brain meme - four panels with increasing glow: 'GPU passthrough tutorial: copy-paste the LXC config block', 'Assign services to nodes based on VRAM budget', 'Separate latency-sensitive from bursty workloads', 'Two GPUs, one distributed compute cluster'](/images/blog/proxmox-gpu-passthrough-multi-service/expanding-brain-gpu.webp)
+![Distracted Boyfriend meme - guy labeled 'me adding Ollama to the already-maxed 8GB GPU node' looking at girl labeled 'the 16GB node sitting right there'](/images/blog/proxmox-gpu-passthrough-multi-service/distracted-boyfriend-gpu.webp)
 
 This post is the thinking-out-loud version of that process: how I distribute GPU workloads across two Proxmox nodes, why certain services live where they do, and the actual LXC passthrough config that makes it work. If you're running a single GPU server and starting to feel that pressure, this is one path forward.
 
@@ -219,7 +219,7 @@ Here's how all of that adds up across both nodes:
 
 The VRAM numbers for prxbox1 are from `nvidia-smi` inside the containers. The prxbox2 numbers are harder to nail down because services there compete more dynamically - what matters is that the 16GB ceiling gives Ollama room to load an 8B model without evicting everything else.
 
-![Change My Mind meme - person sitting at table with sign reading 'If your GPU services don't compete for VRAM, you don't have enough GPU services.'](/images/blog/proxmox-gpu-passthrough-multi-service/change-my-mind-vram.webp)
+![Two Buttons meme - sweating person choosing between 'add one more GPU service to the 8GB node' and 'check if there is actually VRAM headroom first'](/images/blog/proxmox-gpu-passthrough-multi-service/two-buttons-vram.webp)
 
 ## Tdarr as a Distributed Encoding Cluster
 
