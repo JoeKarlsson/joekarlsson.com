@@ -13,7 +13,7 @@ export const SOCIAL_LINKS = {
 	tiktok: 'https://www.tiktok.com/@joekarlsson',
 	twitter: 'https://twitter.com/JoeKarlsson1',
 	twitch: 'https://www.twitch.tv/joe_karlsson',
-	spotify: 'https://open.spotify.com/user/125084446',
+	lastfm: 'https://www.last.fm/user/Hells_Satans',
 	letterboxd: 'https://letterboxd.com/joekarlsson/',
 	reddit: 'https://www.reddit.com/user/joekarlsson',
 	medium: 'https://medium.com/@joekarlsson',

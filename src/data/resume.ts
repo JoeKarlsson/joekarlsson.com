@@ -19,14 +19,13 @@ export const roles: Role[] = [
 		logo: '/images/logos/cloudquery.webp',
 		tech: ['GCP', 'AWS', 'Azure', 'ClickHouse', 'Python', 'SQL'],
 		bullets: [
-			'Own the entire web presence — sole owner of all CloudQuery web properties including the marketing site, docs, and developer hub; responsible for the full developer experience from first Google result to trial activation',
-			'Solo DevRel function — own content strategy, community, social channels, event strategy, webinar series, and video production',
+			'Own the entire web presence: sole owner of all CloudQuery web properties including the marketing site, docs, and developer hub; responsible for the full developer experience from first Google result to trial activation',
+			'Solo DevRel function: own content strategy, community, social channels, event strategy, webinar series, and video production',
 			'Speak at conferences and staff booth during event season; produce webinars and demo videos that feed directly into the sales pipeline',
 			'Authored 80+ blog posts and learning center articles; 373 PRs merged across website, docs, SEO, and analytics with before/after measurement on each',
-			'In the first 4 weeks: organic MQLs +216% MoM (6 → 19), demo submissions 7x MoM, non-branded organic traffic up 44% over 3 months',
-			'In the first 4 weeks: search impressions 4.9x to a new all-time high (9,980 → 49,220/week); average position improved from 21.0 to 10.3',
-			'In the first 4 weeks: docs traffic +302% (48 → 191 weekly visitors); Quickstart completions 0 → 23/week after full docs rewrite',
-			'Confirmed $10K SQO with direct organic first-touch attribution — prospect found CloudQuery via Google, no paid assist',
+			'Organic MQLs +216% MoM; demo submissions 7x MoM; non-branded organic traffic up 44% over 3 months',
+			'Search impressions 4.9x to a new all-time high; average position improved from 21 to 10',
+			'Docs traffic +302%; Quickstart completions from zero to meaningful weekly volume after full docs rewrite',
 		],
 	},
 	{
@@ -48,7 +47,7 @@ export const roles: Role[] = [
 			'AWS',
 		],
 		bullets: [
-			'Built real-time fraud detection system on GCP/BigQuery/Kafka — achieved 33% reduction in fraudulent transactions',
+			'Built real-time fraud detection system on GCP/BigQuery/Kafka, achieving a 33% reduction in fraudulent transactions',
 			'Optimized BigQuery for IoT trucking firm: materialized views reduced compute costs 40% and sped up data retrieval 30%',
 			'Built community through workshops, webinars, and online forums; represented Tinybird at industry conferences',
 		],
@@ -77,7 +76,7 @@ export const roles: Role[] = [
 		tech: ['JavaScript', 'Node.js', 'Python', 'React', 'MongoDB', 'AWS'],
 		bullets: [
 			'Keynoted at MongoDB World and spoke at hundreds of developer conferences globally on databases, JavaScript, and NoSQL architecture',
-			'Developed MongoDB best practices content — schema design, aggregation, and Atlas — that became some of the most widely referenced tutorials in the ecosystem',
+			'Developed MongoDB best practices content on schema design, aggregation, and Atlas that became some of the most widely referenced tutorials in the ecosystem',
 			'Owned MongoDB\'s live stream and video production, growing the channel and building a 25K+ TikTok following; ranked #1 on "Must-Follow Developers on TikTok"',
 			'Published extensively across MongoDB Developer Hub, The New Stack, and Medium',
 		],
@@ -91,10 +90,10 @@ export const roles: Role[] = [
 		logo: '/images/logos/bestbuy.webp',
 		tech: ['JavaScript', 'Node.js', 'React', 'Redux', 'Express', 'AWS'],
 		bullets: [
-			'Led front end engineering on one of the top 3 largest eCommerce sites in North America — a platform handling millions of users and thousands of requests per second',
+			'Led front end engineering on one of the top 3 largest eCommerce sites in North America, a platform handling millions of users and thousands of requests per second',
 			'Owned Account Home for bestbuy.com: led a team of engineers through a full redesign and implementation, partnering closely with UX, product, and backend teams',
 			'Helped architect and scale one of the largest and most performant eCommerce front ends on the web, with a focus on reliability and user experience at scale',
-			'Engineered AI-driven chatbot using NLP and ML — reduced customer support call volume by 25%',
+			'Engineered AI-driven chatbot using NLP and ML that reduced customer support call volume by 25%',
 		],
 	},
 	{
@@ -113,10 +112,10 @@ export const roles: Role[] = [
 ];
 
 export const highlights = [
-	'TEDx Speaker — "The Art of Computer Science" (delivered as TEDx talk and keynote at multiple conferences)',
-	'Ranked #1 on "10 Must-Follow Developers on TikTok" — 25K+ followers, 844K+ likes',
-	'Hackathon organizer — co-organized "Stupid Shit No One In Hawaii Needs" (2016), sponsored by GitHub & Frontend Masters',
-	"Arctic Code Vault Contributor — code preserved in GitHub's Arctic Code Vault",
+	'TEDx Speaker: "The Art of Computer Science" (delivered as TEDx talk and keynote at multiple conferences)',
+	'Ranked #1 on "10 Must-Follow Developers on TikTok"; 25K+ followers, 844K+ likes',
+	'Hackathon organizer: co-organized "Stupid Shit No One In Hawaii Needs" (2016), sponsored by GitHub & Frontend Masters',
+	"Arctic Code Vault Contributor; code preserved in GitHub's Arctic Code Vault",
 	'Published in The New Stack, MongoDB Developer Hub, Tinybird blog, Medium, DEV Community',
 ];
 
@@ -124,14 +123,14 @@ export const openSource = [
 	{
 		name: 'bechdel.io',
 		description:
-			'Bechdel Test script analyzer — collaborative digital humanities project with my sister. Parses film scripts to test for gender representation.',
+			'Bechdel Test script analyzer; a collaborative digital humanities project with my sister. Parses film scripts to test for gender representation.',
 		tech: ['React', 'Redux', 'MongoDB', 'D3', 'Express'],
 		url: 'https://bechdel.io',
 	},
 	{
 		name: 'Homelab',
 		description:
-			'20+ self-hosted services running on bare metal and VMs — Proxmox, Unraid, TrueNAS, Jellyfin, Home Assistant, Authentik, Immich, and more.',
+			'20+ self-hosted services running on bare metal and VMs: Proxmox, Unraid, TrueNAS, Jellyfin, Home Assistant, Authentik, Immich, and more.',
 		tech: ['Proxmox', 'Docker', 'Tailscale', 'Caddy', 'Home Assistant'],
 		url: '/blog/how-to-get-started-building-a-homelab-server-in-2024/',
 	},
