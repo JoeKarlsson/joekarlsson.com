@@ -306,6 +306,7 @@ XMOS
 Xnip
 Zakas
 zettabytes
+qwen
 Ahrefs
 backlink
 deprioritized
