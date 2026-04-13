@@ -82,13 +82,17 @@ describe('Bundle Size', () => {
 			const totalSize = getTotalSize(jsFiles);
 
 			// This test always passes but logs the bundle breakdown
+			// eslint-disable-next-line no-console
 			console.log('\n  JS Bundle Breakdown:');
 			jsFiles
 				.sort((a, b) => b.size - a.size)
 				.forEach((f) => {
+					// eslint-disable-next-line no-console
 					console.log(`    ${f.name}: ${formatBytes(f.size)}`);
 				});
+			// eslint-disable-next-line no-console
 			console.log(`    ─────────────────────`);
+			// eslint-disable-next-line no-console
 			console.log(`    Total: ${formatBytes(totalSize)}`);
 
 			expect(true).toBe(true);
@@ -107,13 +111,17 @@ describe('Bundle Size', () => {
 			const cssFiles = getFilesWithExtension(ASTRO_DIR, '.css');
 			const totalSize = getTotalSize(cssFiles);
 
+			// eslint-disable-next-line no-console
 			console.log('\n  CSS Bundle Breakdown:');
 			cssFiles
 				.sort((a, b) => b.size - a.size)
 				.forEach((f) => {
+					// eslint-disable-next-line no-console
 					console.log(`    ${f.name}: ${formatBytes(f.size)}`);
 				});
+			// eslint-disable-next-line no-console
 			console.log(`    ─────────────────────`);
+			// eslint-disable-next-line no-console
 			console.log(`    Total: ${formatBytes(totalSize)}`);
 
 			expect(true).toBe(true);
