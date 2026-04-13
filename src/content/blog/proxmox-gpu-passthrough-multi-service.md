@@ -31,7 +31,7 @@ Frigate dropping frames on a security camera because Plex decided to transcode a
 
 A GPU memory collision is what led me to a two-node strategy. Not "I planned this out carefully from the start." More like "I added enough things to one GPU that they started stepping on each other, and I had to actually think about it."
 
-![Drake meme - rejecting 'planning GPU workload distribution before buying the second server', approving 'filling two servers with 8 services and figuring it out when Frigate drops frames'](/images/blog/proxmox-gpu-passthrough-multi-service/drake-gpu-planning.webp)
+![Expanding brain meme - four panels with increasing glow: 'GPU passthrough tutorial: copy-paste the LXC config block', 'Assign services to nodes based on VRAM budget', 'Separate latency-sensitive from bursty workloads', 'Two GPUs, one distributed compute cluster'](/images/blog/proxmox-gpu-passthrough-multi-service/expanding-brain-gpu.webp)
 
 This post is the thinking-out-loud version of that process: how I distribute GPU workloads across two Proxmox nodes, why certain services live where they do, and the actual LXC passthrough config that makes it work. If you're running a single GPU server and starting to feel that pressure, this is one path forward.
 
@@ -219,7 +219,7 @@ Here's how all of that adds up across both nodes:
 
 The VRAM numbers for prxbox1 are from `nvidia-smi` inside the containers. The prxbox2 numbers are harder to nail down because services there compete more dynamically - what matters is that the 16GB ceiling gives Ollama room to load an 8B model without evicting everything else.
 
-![Panik Kalm Panik meme - VRAM is fine / Oh Plex is transcoding that's probably fine / They're sharing the same GPU and Frigate is dropping frames](/images/blog/proxmox-gpu-passthrough-multi-service/panik-kalm-vram.webp)
+![Change My Mind meme - person sitting at table with sign reading 'If your GPU services don't compete for VRAM, you don't have enough GPU services.'](/images/blog/proxmox-gpu-passthrough-multi-service/change-my-mind-vram.webp)
 
 ## Tdarr as a Distributed Encoding Cluster
 
