@@ -129,6 +129,16 @@ export const projects: Project[] = [
 
 	// Art & Digital Humanities
 	{
+		title: 'Punc',
+		description:
+			'What does a book look like without words? Punc strips text down to its punctuation skeleton and visualizes the patterns left behind. Feed it any text file and get a PDF showing the structure beneath the prose.',
+		image: '/images/projects/punc.webp',
+		imageAlt: 'Punc punctuation visualization',
+		category: 'art',
+		tech: ['TypeScript', 'NLP', 'PDF Generation'],
+		sourceUrl: 'https://github.com/JoeKarlsson/punc',
+	},
+	{
 		title: 'Rose Hobart',
 		description:
 			"A digital humanities project exploring performativity in cinema. Inspired by Joseph Cornell's 1936 found footage film. Analyzes and visualizes narrative structure in film scripts.",
