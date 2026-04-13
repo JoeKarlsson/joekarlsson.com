@@ -3,7 +3,7 @@ export interface Project {
 	description: string;
 	image: string;
 	imageAlt: string;
-	category: 'iot' | 'web' | 'games' | 'dev-tools' | 'homelab';
+	category: 'iot' | 'web' | 'art' | 'dev-tools' | 'homelab';
 	tech: string[];
 	sourceUrl?: string;
 	demoUrl?: string;
@@ -30,9 +30,9 @@ export const CATEGORY_META: Record<
 		borderColor: 'hover:border-lavender/30',
 		shadowColor: 'hover:shadow-lavender/10',
 	},
-	games: {
-		label: 'Games & Fun',
-		command: 'ls games/',
+	art: {
+		label: 'Art & Digital Humanities',
+		command: 'ls art/',
 		hoverColor: 'group-hover:text-pink',
 		borderColor: 'hover:border-pink/30',
 		shadowColor: 'hover:shadow-pink/10',
@@ -113,6 +113,32 @@ export const projects: Project[] = [
 		blogUrl: '/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/',
 		stars: 131,
 	},
+
+	// Web - Digital Graffiti Wall
+	{
+		title: 'Digital Graffiti Wall',
+		description:
+			'An interactive art installation where audience members draw on a shared digital canvas that displays their creations in real-time on a physical RGB LED grid. Uses MongoDB Realm for instant cross-client data sync.',
+		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
+		imageAlt: 'Digital Graffiti Wall',
+		category: 'web',
+		tech: ['JavaScript', 'MongoDB Realm', 'RGB LEDs', 'Real-Time Sync'],
+		blogUrl: '/blog/building-a-real-time-digital-graffiti-wall/',
+		sourceUrl: 'https://github.com/JoeKarlsson/digital-graffiti-wall',
+	},
+
+	// Art & Digital Humanities
+	{
+		title: 'Rose Hobart',
+		description:
+			"A digital humanities project exploring performativity in cinema. Inspired by Joseph Cornell's 1936 found footage film. Analyzes and visualizes narrative structure in film scripts.",
+		image: '/images/projects/rose-hobart.webp',
+		imageAlt: 'Rose Hobart',
+		category: 'art',
+		tech: ['JavaScript', 'D3.js', 'NLP'],
+		sourceUrl: 'https://github.com/JoeKarlsson/rose-hobart',
+		stars: 2,
+	},
 	{
 		title: 'Bechdel.io',
 		description:
@@ -120,36 +146,11 @@ export const projects: Project[] = [
 		image:
 			'/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/Bechdel.io-Blog-Banner.webp',
 		imageAlt: 'Bechdel.io',
-		category: 'web',
+		category: 'art',
 		tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
 		sourceUrl: 'https://github.com/JoeKarlsson/bechdel-test',
 		blogUrl: '/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
 		stars: 30,
-	},
-
-	// Games & Fun
-	{
-		title: 'Rose Hobart',
-		description:
-			"A digital humanities project exploring performativity in cinema. Inspired by Joseph Cornell's 1936 found footage film. Analyzes and visualizes narrative structure in film scripts.",
-		image: '/images/projects/rose-hobart.webp',
-		imageAlt: 'Rose Hobart',
-		category: 'games',
-		tech: ['JavaScript', 'D3.js', 'NLP'],
-		sourceUrl: 'https://github.com/JoeKarlsson/rose-hobart',
-		stars: 2,
-	},
-
-	{
-		title: 'Digital Graffiti Wall',
-		description:
-			'An interactive art installation where audience members draw on a shared digital canvas that displays their creations in real-time on a physical RGB LED grid. Uses MongoDB Realm for instant cross-client data sync.',
-		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
-		imageAlt: 'Digital Graffiti Wall',
-		category: 'games',
-		tech: ['JavaScript', 'MongoDB Realm', 'RGB LEDs', 'Real-Time Sync'],
-		blogUrl: '/blog/building-a-real-time-digital-graffiti-wall/',
-		sourceUrl: 'https://github.com/JoeKarlsson/digital-graffiti-wall',
 	},
 
 	// Developer Tools & Education

@@ -8,7 +8,7 @@ import { SOCIAL_LINKS } from '../consts';
 const featuredProject = projects.find((p) => p.featured);
 const nonFeatured = projects.filter((p) => !p.featured);
 
-const categories = ['iot', 'web', 'games', 'dev-tools', 'homelab'] as const;
+const categories = ['iot', 'art', 'web', 'dev-tools', 'homelab'] as const;
 
 const workHeadings = categories
 	.filter((catKey) => nonFeatured.some((p) => p.category === catKey))
