@@ -313,6 +313,7 @@ yolox
 onnx
 tensorrt
 bursty
+nvidiactl
 backlink
 deprioritized
 HUBSPOT
