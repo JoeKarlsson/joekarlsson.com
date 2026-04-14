@@ -10,7 +10,7 @@ function formatYearRange(start: number, end: number | null): string {
 
 <BaseLayout
 	title="Resume | Joe Karlsson"
-	description="Joe Karlsson's resume. Senior Developer Advocate and software engineer with 15+ years at data companies including CloudQuery, Tinybird, SingleStore, MongoDB, and Best Buy."
+	description="Joe Karlsson's resume. Head of Developer Relations and software engineer with 15+ years at data companies including CloudQuery, Tinybird, SingleStore, MongoDB, and Best Buy."
 	schemaType="ProfilePage"
 >
 	<div class="mx-auto max-w-3xl px-4 py-8">
@@ -19,7 +19,7 @@ function formatYearRange(start: number, end: number | null): string {
 		<div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 			<div>
 				<h1 class="mb-1 text-3xl font-bold text-white md:text-4xl">Joe Karlsson</h1>
-				<p class="text-lg text-teal">Developer Advocate & Engineering Lead</p>
+				<p class="text-lg text-teal">Head of Developer Relations</p>
 				<div class="mt-2 flex flex-wrap gap-3 font-mono text-xs text-gray-400">
 					<a
 						href={SOCIAL_LINKS.linkedin}
@@ -70,9 +70,9 @@ function formatYearRange(start: number, end: number | null): string {
 		<!-- Summary -->
 		<p class="mb-8 text-gray-400 leading-relaxed max-w-2xl">
 			I've spent 15 years making complex data systems click for developers - through talks, docs,
-			demos, content, and building things that probably shouldn't exist. I run full DevRel functions
-			at data companies, with a track record in organic growth, developer activation, and pipeline
-			influence.
+			demos, content, and building things that probably shouldn't exist. I build and run DevRel
+			functions at data companies, embedded across Sales, Product, and Engineering, with a track
+			record in organic growth, developer activation, and pipeline influence.
 		</p>
 
 		<!-- Quick stats -->
@@ -148,7 +148,23 @@ function formatYearRange(start: number, end: number | null): string {
 								{role.bullets.map((b) => (
 									<li class="flex gap-2 text-sm text-gray-400">
 										<span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-coral" />
-										<span>{b}</span>
+										<span>
+											{typeof b === 'string' ? (
+												b
+											) : (
+												<>
+													{b.text}{' '}
+													<a
+														href={b.link.url}
+														target="_blank"
+														rel="noopener noreferrer"
+														class="text-teal hover:text-coral"
+													>
+														({b.link.label} &rarr;)
+													</a>
+												</>
+											)}
+										</span>
 									</li>
 								))}
 							</ul>

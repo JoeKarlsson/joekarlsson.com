@@ -191,7 +191,7 @@ function formatYearRange(start: number, end: number | null): string {
 		<div class="header">
 			<div>
 				<h1>Joe Karlsson</h1>
-				<p class="subtitle">Developer Advocate &amp; Engineering Lead</p>
+				<p class="subtitle">Head of Developer Relations</p>
 			</div>
 			<div class="contact">
 				<div>joekarlsson.com</div>
@@ -223,7 +223,7 @@ function formatYearRange(start: number, end: number | null): string {
 					<div class="role-tech">{role.tech.join(' · ')}</div>
 					<ul>
 						{role.bullets.map((b) => (
-							<li>{b}</li>
+							<li>{typeof b === 'string' ? b : b.text}</li>
 						))}
 					</ul>
 				</div>

@@ -1,3 +1,10 @@
+export interface BulletLink {
+	label: string;
+	url: string;
+}
+
+export type Bullet = string | { text: string; link: BulletLink };
+
 export interface Role {
 	company: string;
 	title: string;
@@ -6,23 +13,25 @@ export interface Role {
 	location: string;
 	logo?: string;
 	tech: string[];
-	bullets: string[];
+	bullets: Bullet[];
 }
 
 export const roles: Role[] = [
 	{
 		company: 'CloudQuery',
-		title: 'Senior Developer Advocate',
+		title: 'Head of Developer Relations',
 		startYear: 2024,
 		endYear: null,
 		location: 'Remote',
 		logo: '/images/logos/cloudquery.webp',
 		tech: ['GCP', 'AWS', 'Azure', 'ClickHouse', 'Python', 'SQL'],
 		bullets: [
-			'Own the entire web presence: sole owner of all CloudQuery web properties including the marketing site, docs, and developer hub; responsible for the full developer experience from first Google result to trial activation',
-			'Solo DevRel function: own content strategy, community, social channels, event strategy, webinar series, and video production',
-			'Speak at conferences and staff booth during event season; produce webinars and demo videos that feed directly into the sales pipeline',
-			'Authored 80+ blog posts and learning center articles; 373 PRs merged across website, docs, SEO, and analytics with before/after measurement on each',
+			'Embedded cross-functionally across Sales, Product, and Engineering - partner with Sales on enablement assets, serve as product owner of all marketing channels, and attend daily engineering standups; 373+ PRs merged directly into company apps and growing daily',
+			'Sole owner of all CloudQuery web properties including the marketing site, docs, and developer hub; responsible for the full developer experience from first Google result to trial activation',
+			'Built AI automations for sales enablement asset production (one-pagers, discovery decks, pitch slides) - enabling the team to scale output without adding headcount',
+			'Built interactive demos and reference architectures used in conference talks, customer demos, and blog content - including an end-to-end secure AI data pipelines architecture',
+			'Built and own the entire DevRel function from scratch: content strategy, community, event strategy, and full video and social production',
+			'Produce content across every format: 80+ blog posts and learning center articles, YouTube tutorials, product demo videos, webinar series, and social content across LinkedIn, X, and developer communities; speak at conferences and staff booth during event season',
 			'Organic MQLs +216% MoM; demo submissions 7x MoM; non-branded organic traffic up 44% over 3 months',
 			'Search impressions 4.9x to a new all-time high; average position improved from 21 to 10',
 			'Docs traffic +302%; Quickstart completions from zero to meaningful weekly volume after full docs rewrite',
@@ -47,9 +56,10 @@ export const roles: Role[] = [
 			'AWS',
 		],
 		bullets: [
-			'Built real-time fraud detection system on GCP/BigQuery/Kafka, achieving a 33% reduction in fraudulent transactions',
-			'Optimized BigQuery for IoT trucking firm: materialized views reduced compute costs 40% and sped up data retrieval 30%',
-			'Built community through workshops, webinars, and online forums; represented Tinybird at industry conferences',
+			"Partnered closely with the Sales team on pre-sales support and customer demos - integrated with prospects' existing tech stacks to build tailored demos that showed exactly how Tinybird fit their architecture",
+			'Built real-time technical integrations for demos and customer proof-of-concepts: fraud detection system on GCP/BigQuery/Kafka (33% reduction in fraudulent transactions); BigQuery IoT optimization for a trucking firm (40% compute cost reduction, 30% faster data retrieval)',
+			'Produced technical content, videos, and webinars covering real-time analytics use cases for a developer audience',
+			'Built community through workshops, online forums, and conference representation',
 		],
 	},
 	{
@@ -61,9 +71,10 @@ export const roles: Role[] = [
 		logo: '/images/logos/singlestore.webp',
 		tech: ['SQL', 'MySQL', 'Go', 'Node.js'],
 		bullets: [
-			"Created technical content, conference talks, and documentation for SingleStore's HTAP database targeting developers migrating from MySQL and PostgreSQL",
-			'Collaborated with the partnerships team on co-marketed demos and workshops with cloud and tooling partners',
-			'Represented SingleStore at developer conferences and produced video content covering real-time analytics use cases',
+			"Led content and video production strategy for SingleStore's developer audience - technical tutorials, conference talks, and demos targeting developers migrating from MySQL and PostgreSQL",
+			'Built co-marketing partnerships with cloud providers and tooling partners, coordinating joint content, webinars, and conference activations with their marketing and DevRel teams',
+			'Planned and executed developer conference presence end-to-end: talk submissions, booth strategy, event logistics, and post-event content amplification',
+			'Worked cross-functionally with Engineering, Documentation, and Sales to align content with product launches, maintain technical accuracy, and support pre-sales needs',
 		],
 	},
 	{
@@ -75,10 +86,16 @@ export const roles: Role[] = [
 		logo: '/images/logos/mongodb.webp',
 		tech: ['JavaScript', 'Node.js', 'Python', 'React', 'MongoDB', 'AWS'],
 		bullets: [
-			'Keynoted at MongoDB World and spoke at hundreds of developer conferences globally on databases, JavaScript, and NoSQL architecture',
-			'Developed MongoDB best practices content on schema design, aggregation, and Atlas that became some of the most widely referenced tutorials in the ecosystem',
-			'Owned MongoDB\'s live stream and video production, growing the channel and building a 25K+ TikTok following; ranked #1 on "Must-Follow Developers on TikTok"',
-			'Published extensively across MongoDB Developer Hub, The New Stack, and Medium',
+			"Keynoted at MongoDB World and led global conference event strategy; when COVID hit, pivoted to lead MongoDB's digital growth strategy across Twitch, YouTube, and social - driving developer awareness and product adoption through an entirely new channel mix",
+			'Built memorable technical demos to showcase MongoDB features in creative, engaging ways: IoT kitty litter box, IoT digital graffiti board, and dozens of other projects that drove community growth and product awareness',
+			'Owned MongoDB\'s live stream and video production, building a 25K+ TikTok following; ranked #1 on "Must-Follow Developers on TikTok"',
+			{
+				text: 'Played a key role in defining and standardizing MongoDB developer best practices - authored canonical guides and videos on schema design, aggregation, and Atlas that became the reference point for the ecosystem; published across MongoDB Developer Hub, The New Stack, and Medium',
+				link: {
+					label: 'MongoDB Schema Design Best Practices',
+					url: 'https://www.youtube.com/watch?v=QAqK-R9HUhc',
+				},
+			},
 		],
 	},
 	{
@@ -90,9 +107,8 @@ export const roles: Role[] = [
 		logo: '/images/logos/bestbuy.webp',
 		tech: ['JavaScript', 'Node.js', 'React', 'Redux', 'Express', 'AWS'],
 		bullets: [
-			'Led front end engineering on one of the top 3 largest eCommerce sites in North America, a platform handling millions of users and thousands of requests per second',
-			'Owned Account Home for bestbuy.com: led a team of engineers through a full redesign and implementation, partnering closely with UX, product, and backend teams',
-			'Helped architect and scale one of the largest and most performant eCommerce front ends on the web, with a focus on reliability and user experience at scale',
+			'Led a cross-functional team of 10 engineers, QA, and product on one of the top 3 largest eCommerce sites in North America - a platform handling millions of users and thousands of requests per second',
+			'Owned Account Home for bestbuy.com end-to-end: drove full redesign and implementation partnering closely with UX, product, and backend teams',
 			'Engineered AI-driven chatbot using NLP and ML that reduced customer support call volume by 25%',
 		],
 	},
@@ -115,11 +131,17 @@ export const highlights = [
 	'TEDx Speaker: "The Art of Computer Science" (delivered as TEDx talk and keynote at multiple conferences)',
 	'Ranked #1 on "10 Must-Follow Developers on TikTok"; 25K+ followers, 844K+ likes',
 	'Hackathon organizer: co-organized "Stupid Shit No One In Hawaii Needs" (2016), sponsored by GitHub & Frontend Masters',
-	"Arctic Code Vault Contributor; code preserved in GitHub's Arctic Code Vault",
 	'Published in The New Stack, MongoDB Developer Hub, Tinybird blog, Medium, DEV Community',
 ];
 
 export const openSource = [
+	{
+		name: 'Secure AI Data Pipelines',
+		description:
+			'End-to-end reference architecture for building secure AI data pipelines. Built for conference talks and customer demos; shows how to move data safely into AI workflows at scale.',
+		tech: ['Python', 'SQL', 'GCP', 'CloudQuery', 'AI/LLM'],
+		url: 'https://github.com/cloudquery/secure-ai-data-pipelines-demo',
+	},
 	{
 		name: 'bechdel.io',
 		description:
@@ -133,13 +155,6 @@ export const openSource = [
 			'20+ self-hosted services running on bare metal and VMs: Proxmox, Unraid, TrueNAS, Jellyfin, Home Assistant, Authentik, Immich, and more.',
 		tech: ['Proxmox', 'Docker', 'Tailscale', 'Caddy', 'Home Assistant'],
 		url: '/blog/how-to-get-started-building-a-homelab-server-in-2024/',
-	},
-	{
-		name: 'Real-Time Inventory Management System',
-		description:
-			'Fully scalable real-time inventory management backend and dashboard for eCommerce platforms.',
-		tech: ['Tinybird', 'ClickHouse', 'Python', 'Svelte', 'Tailwind'],
-		url: 'https://github.com/tinybirdco/real-time-inventory-management-system',
 	},
 ];
 
@@ -173,16 +188,29 @@ export const skills = [
 		items: ['AWS', 'GCP', 'Azure', 'BigQuery', 'Snowflake', 'Kafka', 'Airflow'],
 	},
 	{
+		category: 'AI & Automation',
+		items: [
+			'LLM APIs',
+			'AI Workflow Automation',
+			'Prompt Engineering',
+			'AI-assisted Content Pipelines',
+			'Sales Enablement Automation',
+		],
+	},
+	{
 		category: 'Frontend',
 		items: ['React', 'Redux', 'Astro', 'Tailwind CSS', 'D3.js'],
 	},
 	{
-		category: 'DevRel',
+		category: 'DevRel & Marketing',
 		items: [
 			'Technical Writing',
 			'Conference Speaking',
 			'Content Strategy',
 			'SEO',
+			'Conversion Optimization',
+			'Sales Enablement',
+			'Marketing Analytics',
 			'Community',
 			'Webinars',
 		],
