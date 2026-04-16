@@ -325,14 +325,16 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 	<!-- Fun footer banner - brutalist marquee -->
 	<section class="border-t-4 border-lavender overflow-hidden bg-surface-1 py-3">
 		<div class="marquee whitespace-nowrap font-mono text-sm text-gray-400">
-			<span class="marquee-content" aria-hidden="false">
-				DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS
-				&bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull;&nbsp;
-			</span>
-			<span class="marquee-content" aria-hidden="true">
-				DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS
-				&bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull;&nbsp;
-			</span>
+			<div class="marquee-inner">
+				<span class="marquee-content">
+					DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS
+					&bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull;&nbsp;
+				</span>
+				<span class="marquee-content" aria-hidden="true">
+					DATABASES &bull; SMART HOMES &bull; IoT &bull; DEVREL &bull; OPEN SOURCE &bull; HOMELABS
+					&bull; FILM &bull; CATS &bull; WEIRD PROJECTS &bull; CONFERENCE TALKS &bull;&nbsp;
+				</span>
+			</div>
 		</div>
 	</section>
 </BaseLayout>
@@ -426,20 +428,22 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 	}
 
 	.marquee {
-		display: flex;
 		overflow: hidden;
+	}
+	.marquee-inner {
+		display: flex;
+		width: max-content;
+		animation: marquee 25s linear infinite;
 	}
 	.marquee-content {
 		flex-shrink: 0;
-		display: inline-block;
-		animation: marquee 25s linear infinite;
 	}
 	@keyframes marquee {
 		from {
 			transform: translateX(0);
 		}
 		to {
-			transform: translateX(-100%);
+			transform: translateX(-50%);
 		}
 	}
 
@@ -453,7 +457,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			transform: none;
 			transition: none;
 		}
-		.marquee-content {
+		.marquee-inner {
 			animation: none;
 		}
 	}
