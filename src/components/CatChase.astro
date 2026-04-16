@@ -75,7 +75,9 @@ const mouseAsciiLeft = '<:3)~~';
 		// Easing factors
 		const MOUSE_SPEED = 0.1;
 		const CAT_SPEED = 0.05;
-		const MIN_GAP = 0.18; // Minimum distance cat keeps from mouse
+		// Larger gap on mobile (narrower screens need more relative space)
+		const isMobile = window.innerWidth < 640;
+		const MIN_GAP = isMobile ? 0.35 : 0.18; // Minimum distance cat keeps from mouse
 
 		// Check for reduced motion preference
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

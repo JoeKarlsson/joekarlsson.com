@@ -821,11 +821,15 @@ const aboutHeadings = [
 					});
 				</script>
 			</div>
+		</div>{/* end grid */}
 
-			<!-- Cat chases mouse animation - breaks out of container for full-width -->
-			<CatChase />
+		<!-- Cat chases mouse animation - full-width section outside grid -->
+		<CatChase />
 
-			<div class="mx-auto max-w-3xl px-4">
+		<!-- Resume grid for remaining content -->
+		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
+			<div class="hidden xl:block"></div>{/* empty column for TOC alignment */}
+			<div>
 				<!-- What I'm Into -->
 				<h2 id="interests" class="mb-4 text-lg font-bold text-white">
 					<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat interests.md
@@ -1058,7 +1062,7 @@ const aboutHeadings = [
 						Get in touch &rarr;
 					</a>
 				</div>
-			</div>{/* end grid content column */}
-		</div>{/* end grid */}
+			</div>
+		</div>{/* end resumed grid */}
 	</div>
 </BaseLayout>
