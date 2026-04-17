@@ -4,7 +4,7 @@ date: 2026-02-26
 slug: 'cloud-operations-playbook-part-08-cloud-security-posture-sql'
 description: >-
   Write cloud security checks in SQL instead of proprietary policy languages. See practical queries for public buckets, MFA, encryption, and more.
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Operations', 'Security']
 heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/thumbnail.png'
 heroAlt: 'Cloud Security Posture Management with SQL'

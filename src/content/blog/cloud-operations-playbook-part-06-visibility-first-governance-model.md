@@ -4,7 +4,7 @@ date: 2026-02-24
 slug: 'cloud-operations-playbook-part-06-visibility-first-governance-model'
 description: >-
   Most governance models fail because they enforce rules about infrastructure they cannot see. The Visibility-First model starts with a queryable foundation.
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Operations', 'Governance', 'Cloud Infrastructure']
 heroImage: /images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/thumbnail.png
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-06-visibility-first-governance-model

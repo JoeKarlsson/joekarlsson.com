@@ -3,7 +3,7 @@ title: 'Find EOL Docker Images, Missing Licenses, and Stale CODEOWNERS Across Th
 date: 2026-01-04
 slug: 'introducing-the-git-source-plugin'
 description: 'Query your Dockerfiles, CODEOWNERS, and package.json files across all repos with SQL. No cloning, no custom scripts - just SQL queries that find EOL images, missing licenses, and outdated dependencies in seconds.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Product News']
 heroImage: '/images/blog/introducing-the-git-source-plugin/thumbnail.png'
 heroAlt: 'Introducing the CloudQuery Git source plugin'

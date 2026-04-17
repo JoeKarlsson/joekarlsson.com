@@ -3,7 +3,7 @@ title: 'How to Use SingleStore as a Key-Value Store'
 date: 2022-06-22
 slug: 'how-to-use-singlestore-as-a-key-value-store'
 description: 'Key-value stores are perhaps one of the most popular databases on the market today - and with good reason! They are fast, scalable and super easy to use. But did you know you can get all the...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/how-to-use-singlestore-as-a-key-value-store/img_blog_post_featured_bp-jk-how-to-use-singlestore-as-a-key-value-store.webp'
 heroAlt: 'How to use SingleStore as a key-value store'
 tldr: 'You can skip spinning up a separate key-value database by using SingleStore as one instead. I show you how to create a rowstore table with a hash index and wire it up with Node.js for fast key-value reads and writes using plain SQL.'

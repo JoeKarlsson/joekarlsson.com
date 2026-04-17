@@ -3,7 +3,7 @@ title: 'Linked Lists and MongoDB: A Gentle Introduction'
 date: 2020-11-03
 slug: 'linked-lists-and-mongodb-a-gentle-introduction'
 description: 'Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist....'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/ATF_Linked-Lists.webp'
 heroAlt: 'Diagram of a linked list data structure'
 contentNotice: 'This tutorial uses MongoDB Node.js driver v3.x. The current driver (v6+) has different connection and CRUD APIs.'

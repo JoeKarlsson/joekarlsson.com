@@ -3,7 +3,7 @@ title: 'How to Add Machine Learning Predictions with SingleStore and MindsDB'
 date: 2021-11-04
 slug: 'how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb'
 description: 'Have you ever needed to set a machine learning model on your data before?'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/img_blog_post_featured_how-to-add-real-time-machine-learning-predictions-to-datawith-mindsdb.webp'
 heroAlt: 'Adding machine learning predictions to SingleStore with MindsDB'
 contentNotice: 'MindsDB has changed significantly since this was written. Refer to current MindsDB documentation for up-to-date integration patterns.'

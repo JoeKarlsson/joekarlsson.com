@@ -3,7 +3,7 @@ title: 'How to Seed a MongoDB Database with Fake Data'
 date: 2021-06-30
 slug: 'how-to-seed-a-mongodb-database-with-fake-data'
 description: 'Have you ever worked on a MongoDB project and needed to seed your database with fake data in order to provide initial values for lookups, demo purposes, proof of concepts, etc.? I’m biased, but I’ve...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/twitter-mongoimport.webp'
 heroAlt: 'How to seed a MongoDB database with fake data using mongoimport'
 tldr: 'A quick Node.js script using faker.js to generate thousands of fake documents and insert them into a MongoDB Atlas database. Copy it, tweak the document shape, and you have seed data in seconds.'

@@ -3,7 +3,7 @@ title: 'How to Build a Multi-Cloud Asset Inventory'
 date: 2024-08-29
 slug: 'how-to-build-a-multi-cloud-asset-inventory'
 description: 'Learn how to build a multi-cloud asset inventory (AWS, GCP, Azure) with this step-by-step guide. It covers cloud data collection, transformation, and storage, helping you optimize security, compliance, and cost management in your cloud environments.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Tutorials', 'AWS', 'GCP', 'Azure', 'Cloud Asset Inventory']
 heroImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/how-to-build-a-multi-cloud-asset-inventory.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-build-a-multi-cloud-asset-inventory'

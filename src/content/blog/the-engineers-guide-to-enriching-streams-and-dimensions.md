@@ -3,7 +3,7 @@ title: 'The Engineer’s Guide to Enriching Streams and Dimensions'
 date: 2024-04-05
 slug: 'the-engineers-guide-to-enriching-streams-and-dimensions'
 description: 'Data - it’s the new oil, the new gold, the new …  you get the idea. There’s a whole lot of it, and it’s valuable. But unless you’re into data hoarding, the point isn’t just to collect it; you want …...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/ac050f67-data-stream1-1024x488-1.webp'
 heroAlt: 'Guide to enriching streams and dimensions for real-time data'
 tldr: 'Joining real-time event streams from Kafka with dimension tables in a data warehouse unlocks powerful use cases like fraud detection, e-commerce personalization, and log analytics. I walk through three concrete examples with SQL showing how to enrich streaming data with historical context.'

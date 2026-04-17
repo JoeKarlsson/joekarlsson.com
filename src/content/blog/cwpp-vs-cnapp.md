@@ -3,7 +3,7 @@ title: 'CWPP vs CNAPP: What Cloud Security Teams Need to Know in 2026'
 date: 2026-04-06
 slug: cwpp-vs-cnapp
 description: 'CWPP protects cloud workloads at runtime. CNAPP unifies CWPP, CSPM, and CIEM into one platform. Learn when each makes sense and how they compare.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Security', 'Cloud Infrastructure']
 heroImage: /images/blog/cwpp-vs-cnapp/thumbnail.png
 heroAlt: 'CWPP vs CNAPP header image'

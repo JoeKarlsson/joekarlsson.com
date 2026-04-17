@@ -3,7 +3,7 @@ title: 'MongoDB Aggregation Pipeline Queries vs SQL Queries'
 date: 2021-05-28
 slug: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
 description: 'Let’s be honest: Many devs coming to MongoDB are joining the community with a strong background in SQL. I would personally include myself in this subset of MongoDB devs. I think it’s useful to map...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/og-aggregation-framework.webp'
 heroAlt: 'MongoDB aggregation pipeline queries compared to SQL queries'
 contentNotice: false

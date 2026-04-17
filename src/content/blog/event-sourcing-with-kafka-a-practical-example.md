@@ -3,7 +3,7 @@ title: 'Event sourcing with Kafka: A practical example'
 date: 2024-03-29
 slug: 'event-sourcing-with-kafka-a-practical-example'
 description: 'Imagine you’re building banking software, and you’ve been asked to figure out one of the most fundamental tasks in fintech: determining the current balance of every customer in your system....'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/651452893449276c78cd22de_Event-sourcing-with-Kafka-Blog.webp'
 heroAlt: 'Event sourcing with Kafka data pipeline diagram'
 tldr: 'I walk through event sourcing with Kafka using a banking app example, where you reconstruct account balances from a log of deposit and withdrawal events instead of storing state directly. Includes a practical tutorial with Kafka and Tinybird for snapshotting and serving state as an API.'

@@ -3,7 +3,7 @@ title: 'How to Query from Multiple MongoDB Databases'
 date: 2021-06-30
 slug: 'how-to-query-from-multiple-mongodb-databases'
 description: 'Have you ever needed to make queries across databases, clusters, data centers, or even mix it with data stored in an AWS S3 blob? You probably haven’t had to do all of these at once, but I’m guessing...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/how-to-query-from-multiple-mongodb-databases/twitter-datalake.webp'
 heroAlt: 'MongoDB Atlas Data Lake graphic for querying from multiple databases'
 tldr: 'I walk through setting up MongoDB Atlas Data Lake to run a single aggregation query across two separate databases hosted on different cloud providers. Federated queries make it feel like all your data lives in one place.'

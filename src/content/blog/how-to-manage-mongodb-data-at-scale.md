@@ -3,7 +3,7 @@ title: 'How to Manage MongoDB Data at Scale'
 date: 2021-06-30
 slug: 'how-to-manage-mongodb-data-at-scale'
 description: 'Let’s face it: Your data can get stale and old quickly. But just because the data isn’t being used as often as it once was doesn’t mean that it’s not still valuable or that it won’t be valuable again...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/how-to-manage-mongodb-data-at-scale/og-pink-pattern.webp'
 heroAlt: 'Managing MongoDB data at scale with Atlas Online Archive'
 contentNotice: false

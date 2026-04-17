@@ -3,7 +3,7 @@ title: 'How to Detect Public Databases Across AWS, Azure, and GCP with CloudQuer
 date: 2026-02-12
 slug: 'detect-public-databases-across-aws-azure-gcp'
 description: 'Detect publicly accessible databases across AWS RDS, Azure, and GCP Cloud SQL. Step-by-step CloudQuery Policies tutorial with copy-paste ClickHouse SQL.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Tutorials', 'Security']
 heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumbnail.png'
 heroAlt: 'How to Detect Public Databases Across AWS, Azure, and GCP with CloudQuery Policies'

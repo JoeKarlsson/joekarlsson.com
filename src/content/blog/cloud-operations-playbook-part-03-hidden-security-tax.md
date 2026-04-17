@@ -4,7 +4,7 @@ date: 2026-02-19
 slug: 'cloud-operations-playbook-part-03-hidden-security-tax'
 description: >-
   Security teams spend more time correlating information than fixing problems. See how a single alert costs 45 minutes of manual investigation.
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Operations', 'Security']
 heroImage: /images/blog/cloud-operations-playbook-part-03-hidden-security-tax/thumbnail.png
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-03-hidden-security-tax

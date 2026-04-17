@@ -3,7 +3,7 @@ title: 'How to build a real-time fraud detection system'
 date: 2024-03-30
 slug: 'how-to-build-a-real-time-fraud-detection-system'
 description: 'Financial fraud is a growing concern in our increasingly digital world. According to a report by PwC, almost half of the surveyed organizations experienced fraud in the past 2 years. For...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/645935d81911cd8d715406a1_Fraud-prevention-Blog-4.webp'
 heroAlt: 'Building a real-time fraud detection system architecture diagram'
 tldr: 'I break down how to build a real-time fraud detection system that ingests transaction streams, analyzes them with SQL for suspicious patterns, and exposes the results as APIs. Includes example queries for catching things like unusual locations, high-velocity transactions, and weird spending patterns.'

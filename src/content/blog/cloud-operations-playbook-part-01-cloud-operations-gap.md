@@ -4,7 +4,7 @@ date: 2026-02-17
 slug: 'cloud-operations-playbook-part-01-cloud-operations-gap'
 description: >-
   89% of organizations use multiple clouds but only 8% are cloud-mature. Learn what the Cloud Operations Gap is and why it costs teams hours every week.
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Operations', 'Platform Engineering', 'Security']
 heroImage: /images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/thumbnail.png
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap

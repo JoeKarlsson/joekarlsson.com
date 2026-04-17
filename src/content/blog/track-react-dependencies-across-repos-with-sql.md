@@ -3,7 +3,7 @@ title: 'Track React Dependencies Across Your Organization with SQL'
 date: 2026-01-04
 slug: 'track-react-dependencies-across-repos-with-sql'
 description: 'Find every package.json using React across all repositories. Query dependency versions, track upgrades, identify outdated packages - all with SQL.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Product News']
 heroImage: '/images/blog/track-react-dependencies-across-repos-with-sql/thumbnail.png'
 heroAlt: 'Track React dependencies across repos with SQL'

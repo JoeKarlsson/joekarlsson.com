@@ -3,7 +3,7 @@ title: The Best Way to Keep Your Cloud Inventory Up to Date
 date: 2025-03-13
 slug: 'best-way-keep-cloud-inventory-up-to-date'
 description: 'Keeping cloud asset data up to date across AWS, GCP, Azure, and Kubernetes has been a challenge until now. CloudQuery Data Pipelines automate syncing, normalizing, and structuring cloud data into a unified format. Say goodbye to fragile scripts and manual exports. See how it works'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Product News']
 canonicalUrl: 'https://www.cloudquery.io/blog/best-way-keep-cloud-inventory-up-to-date'
 contentNotice: 'This post was originally published on CloudQuery blog.'

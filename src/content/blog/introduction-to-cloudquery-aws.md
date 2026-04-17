@@ -3,7 +3,7 @@ title: 'Introduction to CloudQuery for AWS'
 date: 2025-10-03
 slug: 'introduction-to-cloudquery-aws'
 description: "Discover how CloudQuery solves cloud visibility fragmentation by providing AI-powered insights across all AWS resources. Learn CloudQuery's architecture, how it transforms multi-source data into unified schemas, and why it's become essential for security monitoring, cost optimization, and compliance automation."
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['AWS', 'Cloud Infrastructure']
 heroImage: '/images/blog/introduction-to-cloudquery-aws/thumbnail.png'
 canonicalUrl: 'https://www.cloudquery.io/blog/introduction-to-cloudquery-aws'

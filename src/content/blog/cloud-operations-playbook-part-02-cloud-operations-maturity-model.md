@@ -4,7 +4,7 @@ date: 2026-02-17
 slug: 'cloud-operations-playbook-part-02-cloud-operations-maturity-model'
 description: >-
   Score your cloud operations maturity across six dimensions. Only 8% of orgs qualify as highly cloud-mature - here is where most teams actually fall.
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Operations', 'Platform Engineering', 'Governance']
 heroImage: /images/blog/cloud-operations-playbook-part-02-cloud-operations-maturity-model/thumbnail.png
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-02-cloud-operations-maturity-model

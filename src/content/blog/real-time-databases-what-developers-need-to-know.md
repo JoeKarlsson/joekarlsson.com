@@ -3,7 +3,7 @@ title: 'Real-time Databases: What developers need to know'
 date: 2024-03-30
 slug: 'real-time-databases-what-developers-need-to-know'
 description: 'Selecting the right application database can be a challenge for developers, especially so when you need a database for building real-time applications. Real-time data has become an essential...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/real-time-databases-what-developers-need-to-know/6446a968293c7e47d3d64c13_Real-time-databases_-What-developer-1.webp'
 heroAlt: 'Real-time databases - what developers need to know'
 tldr: 'I compare MongoDB, PostgreSQL, Tinybird, ClickHouse, Pinot, Druid, and Snowflake for real-time analytics workloads. Spoiler: your favorite OLTP database probably is not the right pick for real-time.'

@@ -3,7 +3,7 @@ title: 'Modern data management with real-time Change Data Capture'
 date: 2024-03-30
 slug: 'modern-data-management-with-real-time-change-data-capture'
 description: 'Data engineers are grappling with surging data volumes while stakeholders increasingly demand real-time decision-making and user-facing features powered by data. This raises a fundamental question:...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/modern-data-management-with-real-time-change-data-capture/64d25c705289244c4387c2e9_Real-time-change-data-capture-Blo-1.webp'
 heroAlt: 'Modern data management with real-time change data capture'
 tldr: 'Change Data Capture (CDC) watches your database transaction log and streams every insert, update, and delete to downstream systems in real time. I cover how it works, when to use it over batch ETL, and what to watch out for.'

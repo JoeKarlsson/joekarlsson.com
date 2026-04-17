@@ -3,7 +3,7 @@ title: 'Find Commits by Departed Employees Across All Repos with SQL'
 date: 2026-01-04
 slug: 'find-commits-by-departed-employees-with-sql'
 description: 'Identify code changes made by employees who left your organization. Cross-reference git commit authors against your identity provider to find commits needing review.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Tutorials', 'Security']
 heroImage: '/images/blog/find-commits-by-departed-employees-with-sql/thumbnail.png'
 heroAlt: 'Find commits by departed employees with SQL'

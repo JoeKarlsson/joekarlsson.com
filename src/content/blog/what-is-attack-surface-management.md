@@ -3,7 +3,7 @@ title: 'What Is Attack Surface Management? A Technical Guide for Cloud Teams'
 date: 2026-04-06
 slug: what-is-attack-surface-management
 description: 'Attack surface management finds exposed cloud assets before attackers do. Learn how ASM differs from CSPM and vulnerability management, with SQL examples.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Security', 'Cloud Infrastructure']
 heroImage: /images/blog/what-is-attack-surface-management/thumbnail.png
 heroAlt: 'What is Attack Surface Management header image'

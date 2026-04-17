@@ -3,7 +3,7 @@ title: 'Kubernetes Asset Tracking: Why 70% of Enterprises are Struggling (And Ho
 date: 2025-05-01
 slug: 'kubernetes-asset-tracking-at-scale'
 description: 'Learn how to tackle the challenges of managing Kubernetes assets across multiple clouds with the central configuration store pattern. Discover how CloudQuery enables SQL-based querying for efficient governance, security enforcement, and compliance at scale.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Engineering', 'Governance']
 heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumbnail.png'
 canonicalUrl: 'https://www.cloudquery.io/blog/kubernetes-asset-tracking-at-scale'

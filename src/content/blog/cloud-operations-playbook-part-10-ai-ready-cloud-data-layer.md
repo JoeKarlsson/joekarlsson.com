@@ -4,7 +4,7 @@ date: 2026-02-28
 slug: 'cloud-operations-playbook-part-10-ai-ready-cloud-data-layer'
 description: >-
   AI for cloud operations is only as good as the data behind it. Learn what makes a cloud data layer AI-ready and which use cases it enables first.
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Operations', 'AI', 'Cloud Infrastructure']
 heroImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/thumbnail.png'
 heroAlt: 'Building an AI-Ready Cloud Data Layer'

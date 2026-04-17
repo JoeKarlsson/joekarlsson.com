@@ -3,7 +3,7 @@ title: 'AWS Lambda Python 3.9 End-of-Support: Find and Upgrade Every Affected Fu
 date: 2026-02-10
 slug: 'python-39-lambda-deprecation'
 description: 'AWS Lambda Python 3.9 security patches stopped Dec 15, 2025. Find every affected function across all accounts with SQL queries and upgrade to 3.12 or 3.13.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
 heroImage: '/images/blog/python-39-lambda-deprecation/thumbnail.png'
 canonicalUrl: 'https://www.cloudquery.io/blog/python-39-lambda-deprecation'

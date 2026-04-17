@@ -3,7 +3,7 @@ title: 'What is an AWS Cloud Asset Inventory?'
 date: 2025-08-21
 slug: 'what-is-an-aws-cloud-asset-inventory'
 description: "What is AWS Cloud Asset Inventory? Learn why it's essential for security and cost optimization, and compare AWS Config, Systems Manager, and CloudQuery."
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['AWS', 'Cloud Asset Inventory']
 heroImage: '/images/blog/what-is-an-aws-cloud-asset-inventory/thumbnail.png'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-is-an-aws-cloud-asset-inventory'

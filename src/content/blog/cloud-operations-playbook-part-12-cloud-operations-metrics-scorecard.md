@@ -4,7 +4,7 @@ date: 2026-03-04
 slug: 'cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard'
 description: >-
   Track the five metric categories that prove cloud operations ROI to leadership. Includes a one-page scorecard template with before-and-after targets.
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Operations', 'Platform Engineering']
 heroImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/thumbnail.png'
 heroAlt: 'Cloud Operations Metrics That Matter'

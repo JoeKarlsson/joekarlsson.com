@@ -3,7 +3,7 @@ title: 'What it takes to build a real-time recommendation system'
 date: 2024-03-30
 slug: 'what-it-takes-to-build-a-real-time-recommendation-system'
 description: 'Real-time, personalized recommendations have become a foundational part of our online experiences. From streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/64be9b1121ab250bbca26d13_Confluent-ConnectorWhat-it-takes-to.webp'
 heroAlt: 'What it takes to build a real-time recommendation system'
 tldr: 'I break down the key components of real-time recommendation systems, from content-based and collaborative filtering to data storage and ML model selection. You can start with simple SQL heuristics and scale up to machine learning later.'

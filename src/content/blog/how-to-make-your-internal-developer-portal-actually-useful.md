@@ -3,7 +3,7 @@ title: How to Make Your Internal Developer Portal Actually Useful
 date: 2025-06-08
 slug: 'how-to-make-your-internal-developer-portal-actually-useful'
 description: 'A fresh asset inventory is the foundation of successful developer portals. Learn how organizations achieve 224% ROI, reduce onboarding by 67%, and save millions through inventory-driven Backstage implementations with real case studies from Spotify, Toyota, and financial services.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Engineering', 'Cloud Asset Inventory']
 heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/thumbnail.png'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-make-your-internal-developer-portal-actually-useful'

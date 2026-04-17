@@ -3,7 +3,7 @@ title: 'AWS + Google Cloud Networking Partnership: Connectivity Solved, Visibili
 date: 2026-01-20
 slug: 'aws-google-cloud-networking-partnership'
 description: 'AWS and Google Cloud partnered on multicloud networking, provisioning connections in minutes. But network pipes were the easy problem. Unified visibility across different cloud APIs remains unsolved.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Infrastructure', 'AWS', 'GCP']
 heroImage: '/images/blog/aws-google-cloud-networking-partnership/thumbnail.png'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-google-cloud-networking-partnership'

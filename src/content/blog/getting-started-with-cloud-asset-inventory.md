@@ -3,7 +3,7 @@ title: 'Getting Started with Cloud Asset Inventory in 2026'
 date: 2024-11-21
 slug: 'getting-started-with-cloud-asset-inventory'
 description: 'Cloud asset inventory is vital for managing multi-cloud environments, enhancing security, and ensuring compliance. Learn how to build and maintain an effective inventory. Explore best practices, address challenges, and see real-world applications.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Asset Inventory']
 canonicalUrl: 'https://www.cloudquery.io/blog/getting-started-with-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'

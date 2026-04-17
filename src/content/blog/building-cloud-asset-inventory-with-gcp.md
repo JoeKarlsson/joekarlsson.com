@@ -3,7 +3,7 @@ title: 'Step-by-Step Guide to Building a Cloud Asset Inventory for GCP'
 date: 2024-06-13
 slug: 'building-cloud-asset-inventory-with-gcp'
 description: 'Learn how to build a GCP cloud asset inventory with CloudQuery, PostgreSQL, and dbt. Covers setup, data transformation with dbt models, and querying your cloud resources.'
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Cloud Asset Inventory', 'GCP', 'Tutorials']
 heroImage: '/images/blog/building-cloud-asset-inventory-with-gcp/image1.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/building-cloud-asset-inventory-with-gcp'

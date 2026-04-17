@@ -3,7 +3,7 @@ title: 'Using Bloom filter indexes for real-time text search in ClickHouse'
 date: 2024-03-30
 slug: 'using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse'
 description: 'Efficient text search is one of the hardest problems in data engineering. Text-based data presents a unique set of challenges, especially when you need results in real time...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/6491f38b8b96dc45ff73fee5_Bloom-filters-Blog-5.webp'
 heroAlt: 'Using bloom filter indexes for real-time text search in ClickHouse'
 tldr: 'Bloom filter indexes in ClickHouse can speed up text search by 25-90x and reduce scan size by 250-750x on large log datasets. I walk through how they work, how to configure n-gram Bloom filters, and share real benchmark results from a customer use case.'

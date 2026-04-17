@@ -3,7 +3,7 @@ title: 'One Year Into DORA: What Actually Worked for ICT Asset Registers'
 date: 2026-01-26
 slug: dora-ict-asset-register
 description: One year into DORA enforcement, 46% of institutions still struggle with asset registers. Learn what worked, common pitfalls, and how to prepare for stricter 2026 enforcement.
-categories: ['DevRel', 'Databases']
+categories: ['Work']
 tags: ['Security', 'Cloud Asset Inventory', 'Governance']
 heroImage: /images/blog/dora-ict-asset-register/thumbnail.png
 heroAlt: 'One Year Into DORA: What Actually Worked for ICT Asset Registers'

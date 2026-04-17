@@ -3,7 +3,7 @@ title: 'How to query Google Sheets with SQL in real time'
 date: 2024-03-29
 slug: 'how-to-query-google-sheets-with-sql-in-real-time'
 description: 'Sick of manually wrestling with Google Sheets like it’s an Excel spreadsheet from 2005? Feel like force-quitting Chrome every time you attempt to sift through just 10,000 rows of data?  We’ve all...'
-categories: ['Databases']
+categories: ['Work']
 heroImage: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/How-to-analyze-Google-Sheets-data-in-real-time-BlogPost-He-1-scaled.webp'
 heroAlt: 'How to analyze Google Sheets data in real time with SQL'
 tldr: 'Google Sheets chokes on anything past a few thousand rows. I show you how to sync your spreadsheet data to Tinybird with an Apps Script, query it with SQL, and publish the results as an API.'
