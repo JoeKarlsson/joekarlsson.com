@@ -5,6 +5,7 @@ slug: 'query-cloud-like-database-stop-wasting-time'
 description: 'CloudQuery SQL Console lets you search your cloud like a database. No more clicking through endless dashboards or writing brittle scripts - just instant answers with SQL.'
 categories: ['Work']
 tags: ['Product News']
+heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/image1.png'
 canonicalUrl: 'https://www.cloudquery.io/blog/query-cloud-like-database-stop-wasting-time'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
