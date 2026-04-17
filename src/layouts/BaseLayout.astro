@@ -15,6 +15,7 @@ interface Props {
 	wordCount?: number;
 	faq?: { question: string; answer: string }[];
 	howToSteps?: { name: string; text: string }[];
+	canonicalUrl?: string;
 }
 
 const {
@@ -29,6 +30,7 @@ const {
 	wordCount,
 	faq,
 	howToSteps,
+	canonicalUrl,
 } = Astro.props;
 ---
 
@@ -80,6 +82,7 @@ const {
 			wordCount={wordCount}
 			faq={faq}
 			howToSteps={howToSteps}
+			canonicalUrl={canonicalUrl}
 		/>
 	</head>
 	<body class="flex min-h-screen flex-col">

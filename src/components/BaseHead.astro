@@ -14,9 +14,9 @@ interface Props {
 	wordCount?: number;
 	faq?: { question: string; answer: string }[];
 	howToSteps?: { name: string; text: string }[];
+	canonicalUrl?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
 	title,
 	description,
@@ -29,7 +29,11 @@ const {
 	wordCount,
 	faq,
 	howToSteps,
+	canonicalUrl,
 } = Astro.props;
+
+// Use provided canonical URL for syndicated content, otherwise generate from current path
+const canonicalURL = canonicalUrl ? new URL(canonicalUrl) : new URL(Astro.url.pathname, Astro.site);
 
 const ogImageURL = new URL(image, Astro.site);
 ---

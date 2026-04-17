@@ -1,0 +1,82 @@
+---
+title: 'Cloud Centers of Excellence (Part 2): Governance, Security, and Compliance in CCOEs'
+description: Who actually owns cloud policy? We break down how real CCOEs manage governance, enforce security without compromising velocity, and keep regulators at bay. We share what works and what quietly fails, inside enterprises handling sensitive workloads.
+date: 2025-06-03
+slug: cloud-centers-of-excellence-part-2-governance-security-compliance
+tags:
+  - Governance
+categories:
+  - DevRel
+  - Databases
+heroImage: /images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumbnail.png
+canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance
+contentNotice: "This post was originally published on CloudQuery's blog."
+---
+
+![Designing a Cloud Center of Excellence blog post header](/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumbnail.png)
+
+**About This Series:** This is Part 2 of our comprehensive 5-part series on Cloud Centers of Excellence (CCOEs). If you missed it, start with **Part 1: Introduction and Organizational Structure** to understand the foundational concepts.
+
+- [**Part 1**: Introduction and Organizational Structure](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance)
+- **Part 2** (This post): Governance, Security, and Compliance
+- [**Part 3**: FinOps, Cost Management, and Real-World Case Studies](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies)
+- [**Part 4**: Implementation Best Practices and Common Pitfalls](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls)
+- [**Part 5**: The Future of CCOEs and Getting Started](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started)
+
+Each post builds on the previous ones, so bookmark this series for your complete CCOE implementation roadmap.
+
+> **Note:** **TL;DR:**
+> Cloud adoption in large enterprises has driven the rise of Cloud Centers of Excellence (CCOEs) over the past five years. [These CCOEs are cross-functional teams that establish cloud governance, security, and best practices across an organization](https://www.infracost.io/glossary/cloud-center-of-excellence/#:~:text=A%20Cloud%20Center%20of%20Excellence,minimizing%20risks%20and%20controlling%20costs). In North America and Europe, medium-to-large organizations in technology, finance, healthcare, and consumer goods have increasingly formalized CCOEs to accelerate cloud innovation while maintaining control. [Surveys show that by 2021, about _75% of enterprises had a central cloud team or CCOE_](https://www.globenewswire.com/news-release/2021/03/09/2189764/0/en/Flexera-Releases-2021-State-of-the-Cloud-Report.html#:~:text=cloud%C2%A0progress%20,service%20providers%20for%20public%20cloud%C2%A0use), reflecting a broad trend toward centralized cloud oversight.
+
+## Organizational Structure and Cross-Functional Collaboration
+
+A Cloud Center of Excellence's effectiveness heavily depends on how it is organized and integrated into the larger enterprise. Successful CCOEs typically feature a [**cross-functional team structure**](https://www.infracost.io/glossary/cloud-center-of-excellence/#:~:text=To%20ensure%20comprehensive%20cloud%20governance%2C,CCoE%20should%20include%20representatives%20from) that brings together stakeholders from IT operations, security, software engineering, finance, and compliance/legal teams. The goal is to break down silos and move as quickly as possible, the CCOE serves as a hub where different perspectives converge to make balanced decisions about cloud strategy and governance.
+
+### Typical CCOE Organizational Models
+
+There is no one-size-fits-all structure for a CCOE; however, [common patterns have emerged](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf#:~:text=CBO%20also%20oversees%20the%20work,21). **Figure 2** illustrates an example organizational model for a Cloud CoE. In this model, a Cloud Business Office (CBO) sits at the top of the CCOE hierarchy, usually led by an Executive Sponsor (a C-level champion such as a CIO, CTO, or Chief Cloud Officer). [The Cloud Business Office is the strategic arm of the CCOE, responsible for overall cloud strategy, governance policy development, and managing the cloud budget](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf#:~:text=The%20CBO%20is%20the%20central,The%20Cloud). Under the CBO, there may be various leadership roles (often called Practice Leads or Domain Leads) overseeing specific focus areas, for example, an Architecture/Engineering Lead, a Security Lead, a FinOps (Cost) Lead, and representatives for other domains like Operations or Compliance. These leads often report into the CBO and coordinate working groups or "practices" in their respective areas. The [Cloud Engineering Team forms the execution arm of the CCOE](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf#:~:text=The%20Cloud%20Engineering%20team%20is,21), handling the technical implementation: they build and manage cloud infrastructure, develop automation (IaC templates, CI/CD pipelines), and work on cloud migrations and operations. [The Cloud Engineering team also shoulders the responsibility of ensuring security and compliance in day-to-day cloud environment management](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf#:~:text=The%20Cloud%20Engineering%20team%20is,21).
+
+![Example Cloud Center of Excellence Structure](/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/image1.png)
+
+**Figure 2:** Example Cloud Center of Excellence Structure (Source: AWS Prescriptive Guidance). In this illustrative org chart, a Cloud Business Office (with an Executive Sponsor and leads for alliances, sales, marketing, and PMO) provides leadership and oversight. Underneath, Practice Owners head specific domains; each practice owner works with a Product Lead and Tech Lead, supported by team members, to deliver projects and set standards in their domain. Finally, [a centralized Cloud Engineering Team underpins the CCOE](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.html#:~:text=Business%20Office%20,shown%20in%20the%20following%20diagram), focusing on the technical build-out and operations of cloud infrastructure. This structure highlights how both business functions and engineering functions are unified within the CCOE. The practice areas can be tailored to organizational needs ([common examples include Cloud Architecture, Migration, Security, FinOps, Data & Analytics, etc](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf#:~:text=Each%20practice%20owner%20will%20be,shown%20in%20the%20following%20diagram).), and each practice owner is accountable for KPIs in their domain. Such an arrangement ensures that expertise is pooled but also aligned with business objectives.
+
+### Cross-Functional Representation
+
+A key principle is that the CCOE should represent all relevant stakeholders in the cloud adoption process. [Infracost (FinOps firm) suggests including representatives from _"IT Operations, Finance, Legal/Compliance, Business Units, and the Project Management Office (PMO)"_ within or allied to the CCOE](https://www.infracost.io/glossary/cloud-center-of-excellence/#:~:text=To%20ensure%20comprehensive%20cloud%20governance%2C,CCoE%20should%20include%20representatives%20from). For instance, having a Finance or FinOps specialist on the team ensures cost governance is built in (rather than an afterthought), while a Legal/Compliance officer makes sure regulatory constraints are understood early on. Many CCOEs have a rotational or dotted-line involvement from business units, for example, a business product owner might liaise with the CCOE to prioritize cloud migration for their unit and communicate needs. This cross-functional makeup helps the CCOE to formulate cloud standards that are practical and address the real-world needs of development teams, rather than being disconnected from operational realities. It also encourages buy-in: teams are more likely to follow CCOE recommendations if they feel their interests are represented in its formation.
+
+### Reporting Structure and Executive Sponsorship
+
+Successful CCOEs usually report to a high-level executive to give them the clout needed to enforce policies. [Commonly the CCOE might report directly to the **CIO or CTO**](https://www.infracost.io/glossary/cloud-center-of-excellence/#:~:text=Reporting%20Structure%20and%20Organizational%20Placement). In some cases, organizations create a dedicated role such as a **Head of Cloud CoE** or **VP of Cloud Transformation** who reports to the CIO. Executive sponsorship is repeatedly cited as a critical success factor: an authoritative sponsor (say, the CIO or a business unit president) can champion the CCOE's mandate across the company, ensuring cooperation from various departments. [AWS guidance stresses appointing a CCoE leader with clear authority and accountability](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf#:~:text=3,the%20organization%20to%20set%20clear). This leader often needs to be empowered to set policies that others must follow and to arbitrate conflicts (for example, if a project wants to bypass a certain security control, the CCOE leader has the backing to enforce the standard).
+
+Interestingly, in some large enterprises, the CCOE is placed within the Enterprise Architecture (EA) or Strategy group rather than under IT operations. [Gartner describes the CCOE as essentially an enterprise architecture function for cloud that sets policy, guides provider selection, and assists with solution design](https://www.gartner.com/en/conferences/hub/cloud-conferences/insights/how-to-build-a-cloud-center-of-excellence#:~:text=The%20CCOE%20is%20an%20enterprise,and%20assisting%20with%20solution). Placing it in EA can reinforce its cross-organizational scope. Other companies [assign the cloud CoE responsibility to a Chief Strategy Officer or Chief Enterprise Architect to drive broad adoption](https://www.kyndryl.com/us/en/perspectives/articles/2023/04/cloud-center-of-excellence#:~:text=,product%20and). What matters is less the exact department and more that the CCOE is positioned as an enterprise-wide service team rather than just an IT operations subset.
+
+### Size and Composition
+
+The typical CCOE team is relatively small and high-impact. [Pluralsight's analysis observed many central cloud teams start with fewer than ten people, usually highly skilled cloud experts](https://www.pluralsight.com/resources/blog/cloud/why-central-cloud-teams-fail-and-how-to-save-yours#:~:text=Central%20cloud%20teams%2C%20often%20established,transformation%2C%20have%20three%20common%20characteristics). These "cloud gurus" can design initial architectures and frameworks. However, as cloud usage grows, the CCOE may expand or adopt a "hub-and-spoke" model, a small core team (hub) that coordinates a larger virtual team of cloud reps in each business unit (spokes). Some organizations designate "Cloud Champions" or "Cloud Ambassadors" in each development team who interface with the CCOE. This federated model scales knowledge without having to greatly increase headcount in the core CoE team.
+
+### Collaboration Models: Enabling vs. Gatekeeping
+
+Cross-functional collaboration is also about how the CCOE interacts with the rest of the organization. The culture set by the CCOE determines whether it is seen as a helpful partner or a bureaucratic hurdle. Best-in-class CCOEs position themselves as enablement hubs: _they provide reusable infrastructure templates, advisory services, and hands-on support to project teams, effectively accelerating those teams' cloud adoption_. For example, a CCOE might run a "_"Cloud Enablement Center"_" or internal consulting service where application teams can request architectural reviews or help with migrating an application. The CCOE can facilitate co-creation: Kyndryl notes that with a CoE, _"[products, application development, and platform engineering teams are able to co-create solutions more efficiently,](https://www.kyndryl.com/us/en/perspectives/articles/2023/04/cloud-center-of-excellence#:~:text=3.%20More%20cross,provisioning%20and%20managing%20cloud%20infrastructure)"_ thereby reducing technical debt and improving agility. This is achieved by embedding CCOE architects into project teams or holding design workshops that bring everyone together.
+
+On the other hand, a poorly implemented CCOE can become a bottleneck. If every cloud change requires CCOE approval and the team is understaffed, projects can stall. [Pluralsight's cloud blog recounts how some central teams set themselves up as "cloud gatekeepers" all cloud access had to go through them, which led to burnout of the central team and frustration across the org](https://www.pluralsight.com/resources/blog/cloud/why-central-cloud-teams-fail-and-how-to-save-yours#:~:text=These%20teams%2C%20like%20mine%20did%2C,%E2%80%9Ccloud%20gatekeepers%E2%80%9D%20for%20their%20organization). The lesson is that collaboration and knowledge sharing must be prioritized. Many organizations mitigate bottlenecks by shifting the CCOE's focus from doing everything itself to teaching and empowering others. This can involve creating training programs, cloud communities of practice, and rotation programs (where CCOE experts spend time with different product teams). We will discuss this more in the section on opposing viewpoints and evolving models, but it's worth noting here that cross-functional collaboration is as much about _how_ the CCOE works as _who_ is in it.
+
+The organizational secret of a CCOE is to blend authority with inclusivity. The team needs enough authority (through executive backing and clarity of mandate) to enforce enterprise-wide standards. Simultaneously, it must remain inclusive and connected, pulling in expertise from all relevant domains and maintaining dialogues with the teams it governs. The past five years have shown that companies willing to invest in such multidisciplinary cloud teams reap benefits in consistency and speed. A CCOE not only bridges gaps between security, IT, and business, but often becomes a catalyst for a more cloud-fluent and collaborative culture across the entire organization.
+
+## Key Takeaways
+
+The governance, security, and compliance functions of a CCOE represent perhaps the most critical aspect of cloud transformation for regulated industries. Without proper frameworks in place, organizations risk not just security breaches, but potentially catastrophic regulatory violations that can result in hundreds of millions in fines.
+
+The most effective CCOEs we've examined share several key approaches:
+
+- **Automation-first compliance** that embeds checks into development workflows rather than relying on manual reviews
+- **Centralized policy interpretation** that translates complex regulations into actionable cloud-specific guidelines
+- **Proactive security posture management** using policy-as-code and continuous monitoring
+- **Integration with enterprise governance** structures to ensure alignment with broader risk management
+
+As we've seen, this isn't just about checking compliance boxes - it's about creating a foundation that enables innovation while maintaining the trust of customers, regulators, and leadership.
+
+## Up Next
+
+In Part 3 of this series, we'll explore how CCOEs have evolved to tackle the challenge that has overtaken security as the #1 cloud concern: cost management. We'll dive into FinOps practices, examine real-world case studies from companies like Capital One and Commerzbank, and show how mature CCOEs balance innovation with financial discipline.
+
+[**Continue to Part 3: FinOps, Cost Management, and Case Studies**](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies)

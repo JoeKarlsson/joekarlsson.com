@@ -21,6 +21,7 @@ interface Props {
 	faq?: { question: string; answer: string }[];
 	howToSteps?: { name: string; text: string }[];
 	headings?: { depth: number; slug: string; text: string }[];
+	canonicalUrl?: string;
 }
 
 const {
@@ -38,6 +39,7 @@ const {
 	faq,
 	howToSteps,
 	headings,
+	canonicalUrl,
 } = Astro.props;
 
 const tocHeadings = (headings || [])
@@ -134,6 +136,7 @@ const relatedPosts = publishedPosts
 	wordCount={wordCount}
 	faq={faq}
 	howToSteps={howToSteps}
+	canonicalUrl={canonicalUrl}
 >
 	<div
 		id="reading-progress"
