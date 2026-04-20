@@ -4,7 +4,7 @@
  */
 
 import { readdir, readFile, writeFile } from 'fs/promises';
-import { join, basename } from 'path';
+import { join } from 'path';
 
 const BLOG_DIR = new URL('../src/content/blog', import.meta.url).pathname;
 

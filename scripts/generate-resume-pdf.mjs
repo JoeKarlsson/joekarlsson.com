@@ -9,7 +9,6 @@
 
 import { chromium } from '@playwright/test';
 import { execSync, spawn } from 'child_process';
-import { existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 

@@ -46,7 +46,7 @@ async function processFile(filePath) {
 
 	// Pattern: ![](path)*Caption text* or ![](path) *Caption text*
 	// Replace with ![Caption text](path)*Caption text*
-	newContent = newContent.replace(/!\[\]\(([^)]+)\)\s*\*([^*]+)\*/g, (match, path, caption) => {
+	newContent = newContent.replace(/!\[\]\(([^)]+)\)\s*\*([^*]+)\*/g, (_match, path, caption) => {
 		const cleanCaption = caption.trim();
 		changes++;
 		return `![${cleanCaption}](${path})*${caption}*`;

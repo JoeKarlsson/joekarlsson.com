@@ -10,8 +10,6 @@
 import sharp from 'sharp';
 import { readdir, readFile, writeFile, mkdir, stat } from 'fs/promises';
 import { join, basename, extname } from 'path';
-import { createWriteStream } from 'fs';
-import { pipeline } from 'stream/promises';
 
 const BLOG_DIR = new URL('../src/content/blog', import.meta.url).pathname;
 const PUBLIC_DIR = new URL('../public', import.meta.url).pathname;
@@ -81,7 +79,7 @@ async function processFile(filePath) {
 
 	// Process linked images first (they contain the image URL)
 	for (const match of linkedMatches) {
-		const [fullMatch, alt, imgUrl, linkUrl] = match;
+		const [fullMatch, alt, imgUrl, _linkUrl] = match;
 		imgIndex++;
 
 		// Skip blob: URLs
@@ -103,7 +101,7 @@ async function processFile(filePath) {
 				console.log(`  SKIP (exists): ${destFilename}`);
 			} catch {
 				console.log(`  Downloading: ${imgUrl.substring(0, 80)}...`);
-				const buffer = await downloadFile(imgUrl, join(imgDir, origFilename));
+				await downloadFile(imgUrl, join(imgDir, origFilename));
 
 				if (!isGif) {
 					await sharp(join(imgDir, origFilename)).webp({ quality: 80 }).toFile(destPath);

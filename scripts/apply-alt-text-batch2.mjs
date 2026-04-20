@@ -5,7 +5,7 @@
  */
 
 import { readdir, readFile, writeFile } from 'fs/promises';
-import { join, basename } from 'path';
+import { join } from 'path';
 
 const BLOG_DIR = new URL('../src/content/blog', import.meta.url).pathname;
 
@@ -140,7 +140,7 @@ async function main() {
 			// Match ![oldAlt](anything)
 			const regex = new RegExp(`!\\[${escaped}\\]\\(([^)]+)\\)`, 'g');
 
-			const newContent = content.replace(regex, (match, imgPath) => {
+			const newContent = content.replace(regex, (_match, imgPath) => {
 				totalChanges++;
 				changed = true;
 				return `![${newAlt}](${imgPath})`;
