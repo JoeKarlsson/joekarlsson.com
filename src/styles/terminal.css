@@ -8,9 +8,10 @@
 	scrollbar-color: #fdae84 transparent;
 }
 
-.terminal-body .cursor {
-	animation: blink 1s step-end infinite;
+.terminal-body .cursor-blink::after {
+	content: '█';
 	color: #fdae84;
+	animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
@@ -54,7 +55,7 @@
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-	.terminal-body .cursor {
+	.terminal-body .cursor-blink::after {
 		animation: none !important;
 		opacity: 1;
 	}

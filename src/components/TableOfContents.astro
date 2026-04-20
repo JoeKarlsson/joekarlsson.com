@@ -7,7 +7,7 @@ const { headings } = Astro.props;
 
 <div class="hidden xl:block">
 	<nav class="sticky top-20 font-mono text-xs" id="toc-nav" aria-label="Table of contents">
-		<p class="mb-3 text-gray-500">
+		<p class="mb-3 text-gray-400">
 			<span class="text-coral" aria-hidden="true">~$</span>{' '}
 			cat contents.md
 		</p>
@@ -21,7 +21,7 @@ const { headings } = Astro.props;
 							class={[
 								'toc-link block leading-snug transition-colors duration-150',
 								h.depth === 3
-									? 'pl-4 text-[10px] text-gray-500 hover:text-gray-300'
+									? 'pl-4 text-[10px] text-gray-400 hover:text-gray-200'
 									: 'text-[11px] font-bold text-gray-200 hover:text-white',
 							].join(' ')}
 						>
@@ -56,7 +56,7 @@ const { headings } = Astro.props;
 		});
 
 		const inactiveColors: string[] = Array.from(links).map((l) =>
-			l.classList.contains('text-gray-500') ? 'text-gray-500' : 'text-gray-200',
+			l.classList.contains('text-gray-400') ? 'text-gray-400' : 'text-gray-200',
 		);
 
 		let currentActive = -1;

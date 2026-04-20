@@ -41,17 +41,15 @@ import '../styles/terminal.css';
 					<span class="relative">
 						<span
 							id="placeholder"
-							class="text-gray-500 absolute left-0 pointer-events-none"
+							class="text-gray-400 absolute left-0 pointer-events-none"
 							style="white-space: nowrap;">type a command...</span
 						>
-						<span id="input-text" class="text-gray-200"></span><span id="cursor" class="cursor"
-							>&#9608;</span
-						>
+						<span id="input-text" class="text-gray-200 cursor-blink"></span>
 					</span>
 				</div>
 				<div
 					id="hint-text"
-					class="text-xs text-gray-500 mt-2 transition-opacity duration-500"
+					class="text-xs text-gray-400 mt-2 transition-opacity duration-500"
 					style="display:none;"
 				>
 					Type <span class="text-coral">help</span> or use <span class="text-teal">↑↓</span> for history
