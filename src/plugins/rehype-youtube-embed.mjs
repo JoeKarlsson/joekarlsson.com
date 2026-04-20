@@ -8,13 +8,13 @@ function extractVideoId(url) {
 	return match ? match[1] : null;
 }
 
-function isStandaloneLink(node, parent) {
+function isStandaloneLink(_node, parent) {
 	return parent.type === 'element' && parent.tagName === 'p' && parent.children.length === 1;
 }
 
 export default function rehypeYouTubeEmbed() {
 	return (tree) => {
-		visit(tree, 'element', (node, index, parent) => {
+		visit(tree, 'element', (node, _index, parent) => {
 			if (node.tagName !== 'a' || !node.properties?.href) return;
 
 			const videoId = extractVideoId(node.properties.href);
