@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BlogCard from '../../components/BlogCard.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { DEFAULT_HERO_IMAGE } from '../../consts';
 
 function getReadingTime(body: string): number {
 	const words = body.trim().split(/\s+/).length;
@@ -80,14 +81,12 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					class="group mb-8 block rounded-lg border border-coral/30 bg-surface-1 overflow-hidden no-underline transition-all duration-300 hover:border-coral/50 hover:bg-surface-2"
 				>
 					<div class="md:flex">
-						{featuredPost.data.heroImage && (
-							<img
-								src={featuredPost.data.heroImage}
-								alt={featuredPost.data.heroAlt || `Hero image for ${featuredPost.data.title}`}
-								class="h-48 w-full object-cover md:h-auto md:w-1/2"
-								loading="eager"
-							/>
-						)}
+						<img
+							src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
+							alt={featuredPost.data.heroAlt || `Hero image for ${featuredPost.data.title}`}
+							class="h-48 w-full object-cover md:h-auto md:w-1/2"
+							loading="eager"
+						/>
 						<div class="p-6 flex flex-col justify-center">
 							<p class="mb-2 font-mono text-xs text-coral">Featured Post</p>
 							<h2 class="mb-2 text-2xl font-bold text-white group-hover:text-coral transition-colors">
