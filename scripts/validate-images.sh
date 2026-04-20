@@ -63,6 +63,11 @@ while IFS= read -r md_file; do
       echo "  Referenced: $HERO"
       echo "  Expected at: $HERO_PATH"
       MISSING_HEROES=$((MISSING_HEROES + 1))
+    elif [ ! -s "$HERO_PATH" ]; then
+      echo "ERROR: Empty heroImage file in $md_file"
+      echo "  File is 0 bytes: $HERO_PATH"
+      MISSING_HEROES=$((MISSING_HEROES + 1))
+      ERRORS=$((ERRORS + 1))
     fi
   fi
 done < <(find src/content/blog -name "*.md" 2>/dev/null)

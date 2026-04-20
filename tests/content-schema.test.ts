@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from 'fs';
+import { readFileSync, readdirSync, statSync } from 'fs';
 import { resolve, basename } from 'path';
 import { describe, expect, it } from 'vitest';
 
@@ -51,6 +51,15 @@ describe('blog post frontmatter', () => {
 				expect(slug.length).toBeGreaterThan(0);
 				// Slug should be URL-safe
 				expect(slug).toMatch(/^[a-z0-9-]+$/);
+			});
+
+			it('heroImage file is non-empty if it exists', () => {
+				const heroImage = fm.heroImage?.replace(/['"]/g, '');
+				if (!heroImage || heroImage.startsWith('http')) return;
+				const imagePath = resolve(import.meta.dirname, '..', 'public', heroImage);
+				const stat = statSync(imagePath, { throwIfNoEntry: false });
+				if (!stat) return; // missing files are caught by validate-images.sh
+				expect(stat.size, `heroImage is empty (0 bytes): ${heroImage}`).toBeGreaterThan(0);
 			});
 
 			it('has description', () => {
