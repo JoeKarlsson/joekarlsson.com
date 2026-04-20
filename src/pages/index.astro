@@ -127,7 +127,10 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 								class="text-gray-400 absolute left-0 pointer-events-none"
 								style="white-space: nowrap;">type a command...</span
 							>
-							<span id="input-text" class="text-gray-200 cursor-blink"></span>
+							<span id="input-text" class="text-gray-200"></span><span
+								id="cursor"
+								class="cursor-blink"
+								aria-hidden="true"></span>
 						</span>
 					</div>
 					<div
