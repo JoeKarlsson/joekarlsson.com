@@ -31,7 +31,7 @@ My priorities, in order: **speed first, good enough reasoning second, accuracy t
 
 The other constraint: I'm not going to add dedicated hardware just for voice. I already have GPU servers running Plex, Frigate, Immich, and subtitle generation. Voice AI had to share those resources or it wasn't happening. That pushed me toward smaller, faster models over larger, more capable ones.
 
-The gap left by a small fast model: I filled it with [HA's native voice intents](https://www.home-assistant.io/voice_control/intents/) for device control, and kept the LLM for the cases where I actually need reasoning. That combination fits my use case well. If you want richer natural language for complex queries and you have hardware to spare, you'd make different choices - run a 13B model, accept the latency, and get better results. There's no universally right answer here.
+The gap left by a small fast model: I filled it with [HA's native voice intents](https://www.home-assistant.io/voice_control/builtin_sentences/) for device control, and kept the LLM for the cases where I actually need reasoning. That combination fits my use case well. If you want richer natural language for complex queries and you have hardware to spare, you'd make different choices - run a 13B model, accept the latency, and get better results. There's no universally right answer here.
 
 ## The Three-Component Stack
 
@@ -136,7 +136,7 @@ The problem is that automations don't compose well with the LLM pipeline. They'r
 
 The better approach: **Home Assistant's built-in voice intents**. These are native command patterns baked into HA itself - covering lights, switches, covers, climate, scenes, scripts, and more. They understand natural language variation natively. "Dim the bedroom lights to 40 percent" and "set bedroom brightness to 40" both work without any automation at all. They're fast, they don't involve the LLM, and they scale across every device without you writing anything.
 
-Where I still use automations: genuinely custom things that HA's intent system doesn't cover. My weather forecast voice command. Calendar queries. Anything that needs to pull live HA sensor data and format a spoken response. For that, conversation-trigger automations are the right tool. But for device control? Use intents. The [HA voice intent docs](https://www.home-assistant.io/voice_control/intents/) are worth reading before you build anything.
+Where I still use automations: genuinely custom things that HA's intent system doesn't cover. My weather forecast voice command. Calendar queries. Anything that needs to pull live HA sensor data and format a spoken response. For that, conversation-trigger automations are the right tool. But for device control? Use intents. The [HA voice intent docs](https://www.home-assistant.io/voice_control/builtin_sentences/) are worth reading before you build anything.
 
 > **The short version:** Intents for device control. Automations only for custom queries that need live sensor data. LLM as a last resort for everything else.
 

@@ -6,7 +6,6 @@ description: 'We benchmarked our ETL tool and synced 1 million rows in 2 seconds
 categories: ['Work']
 tags: ['Engineering']
 heroImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumbnail.png'
-canonicalUrl: 'https://www.cloudquery.io/blog/etl-benchmark-1-million-rows-2-seconds-macbook'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 

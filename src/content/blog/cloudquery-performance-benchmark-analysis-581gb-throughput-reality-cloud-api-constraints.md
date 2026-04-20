@@ -165,4 +165,4 @@ Get started with CloudQuery today through our [documentation](https://www.cloudq
 - [Performance tuning guide](https://www.cloudquery.io/docs/cli/advanced/performance-tuning)
 - [AWS API throttling documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/throttling.html)
 - [Azure Resource Manager throttling guide](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/request-limits-and-throttling)
-- [GCP API quotas and limits](https://cloud.google.com/compute/quotas)
+- [GCP API quotas and limits](https://cloud.google.com/compute/quotas-limits)

@@ -137,7 +137,7 @@ class SecureModelServer:
         return result
 ```
 
-This secure model server implementation addresses several critical attack vectors. Model integrity verification ensures that the ML weights haven't been tampered with through [supply chain attacks](https://www.cisa.gov/insights/blog/defending-against-software-supply-chain-attacks) or insider threats. The system calculates a cryptographic hash of the model weights and compares it against a known-good hash from a secure model registry.
+This secure model server implementation addresses several critical attack vectors. Model integrity verification ensures that the ML weights haven't been tampered with through [supply chain attacks](https://www.cisa.gov/resources-tools/resources/defending-against-software-supply-chain-attacks) or insider threats. The system calculates a cryptographic hash of the model weights and compares it against a known-good hash from a secure model registry.
 
 [Prompt injection](https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-2023-v1_1.pdf) detection happens before any inference request reaches the model. The validator analyzes incoming prompts for patterns that could manipulate the model's behavior, such as instructions to ignore previous context or reveal system prompts. Resource monitoring implements GPU memory isolation to prevent inference requests from accessing memory used by other requests or system processes.
 
@@ -180,7 +180,7 @@ def apply_differential_privacy(
         return max(0.0, float(numeric_data + noise))
 ```
 
-The differential privacy implementation uses the [Laplace mechanism](https://programming-dp.com/ch5.html) to add mathematically calibrated noise to numeric values. The epsilon parameter controls the privacy-utility tradeoff: smaller values provide stronger privacy guarantees but reduce data accuracy. The sensitivity parameter represents the maximum change a single individual's data could cause to the query result.
+The differential privacy implementation uses the [Laplace mechanism](https://programming-dp.com/chapter5.html) to add mathematically calibrated noise to numeric values. The epsilon parameter controls the privacy-utility tradeoff: smaller values provide stronger privacy guarantees but reduce data accuracy. The sensitivity parameter represents the maximum change a single individual's data could cause to the query result.
 
 For security analysis, this approach protects sensitive metrics like resource counts, memory allocations, or network traffic volumes while preserving the statistical patterns that enable threat detection. Full GDPR compliance requires additional data lineage tracking, processing activity logs, and retention management covered in [NIST Privacy Framework](https://www.nist.gov/privacy-framework) and [GDPR AI Guidelines](https://www.edpb.europa.eu/our-work-tools/our-documents/opinion-board-art-64/opinion-282024-certain-data-protection-aspects_en).
 
@@ -245,7 +245,7 @@ The template structure guides the AI toward security-focused analysis by explici
 
 ### Governance and Access Controls
 
-Comprehensive audit logging and access controls form the foundation of trustworthy AI security systems. Every interaction with sensitive data must be tracked, and access to different system components should follow [principle of least privilege](https://www.cisa.gov/news-events/news/understanding-principle-least-privilege).
+Comprehensive audit logging and access controls form the foundation of trustworthy AI security systems. Every interaction with sensitive data must be tracked, and access to different system components should follow principle of least privilege.
 
 ```python
 # From backend/app/core/security.py
@@ -389,7 +389,7 @@ The audit logging component ensures every AI decision includes complete context 
 
 ## Real-World Security Scenarios
 
-Realistic attack scenarios validate the platform's detection capabilities using patterns observed in actual security incidents. These scenarios demonstrate how AI-powered analysis can identify complex threats that traditional rule-based systems miss. For a real-world example of how cybersecurity companies implement CloudQuery for threat detection, see how [SkyHawk Security Powers their cyber-security Platform with CloudQuery](https://www.cloudquery.io/blog/how-skyhawk-security-powers-their-cyber-security-platform-data-collection-with) - they use CloudQuery for [Cloud Detection and Response (CDR)](https://www.crowdstrike.com/cybersecurity-101/cloud-security/cloud-detection-and-response-cdr/), [Cloud Infrastructure Entitlement Management (CIEM)](https://www.gartner.com/en/information-technology/glossary/cloud-infrastructure-entitlement-management-ciem), and [Cloud Security Posture Management](https://www.gartner.com/en/information-technology/glossary/cloud-security-posture-management-cspm) across AWS, GCP, and Azure.
+Realistic attack scenarios validate the platform's detection capabilities using patterns observed in actual security incidents. These scenarios demonstrate how AI-powered analysis can identify complex threats that traditional rule-based systems miss. For a real-world example of how cybersecurity companies implement CloudQuery for threat detection, see how [SkyHawk Security Powers their cyber-security Platform with CloudQuery](https://www.cloudquery.io/blog/how-skyhawk-security-powers-their-cyber-security-platform-data-collection-with) - they use CloudQuery for [Cloud Detection and Response (CDR)](https://www.crowdstrike.com/en-us/cybersecurity-101/cloud-security/cloud-detection-and-response/), [Cloud Infrastructure Entitlement Management (CIEM)](https://www.gartner.com/en/information-technology/glossary/cloud-infrastructure-entitlement-management-ciem), and [Cloud Security Posture Management](https://www.gartner.com/en/information-technology/glossary/cloud-security-posture-management-cspm) across AWS, GCP, and Azure.
 
 ### Scenario 1: Cross-Cloud Data exfiltration Path
 
@@ -723,7 +723,7 @@ The demo provides a foundation, but production deployments need additional compo
 
 **Monitoring & Observability:**
 
-- [ ] Model performance monitoring with [[ML Ops Security Practices](https://ml-ops.org/content/security)]
+- [ ] Model performance monitoring with ML Ops Security Practices
 - [ ] Real-time anomaly detection for AI pipeline behavior
 - [ ] Cost optimization monitoring for model inference
 - [ ] Security incident response procedures for AI-specific threats
@@ -815,7 +815,7 @@ Start with the open-source [Secure AI Data Pipelines Demo](https://github.com/cl
 
 - IEEE Standards Association. "Autonomous and Intelligent Systems Standards." <https://standards.ieee.org/initiatives/autonomous-intelligence-systems/standards/>
 
-- ML Ops Community. "Security Practices for Machine Learning Operations." <https://ml-ops.org/content/security>
+- ML Ops Community. "Security Practices for Machine Learning Operations." (link no longer available)
 
 - NIST. "AI Risk Management Framework (AI RMF 1.0)." <https://www.nist.gov/itl/ai-risk-management-framework>
 

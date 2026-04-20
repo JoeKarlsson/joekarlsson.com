@@ -20,7 +20,11 @@ exclude = [
   "confoo\\.ca",
   "smarthomejunkie\\.net",
   "ui\\.tinybird\\.co",
-  "kailua\\.org"
+  "kailua\\.org",
+  "mckinsey\\.com",
+  "last\\.fm",
+  "bechdel\\.io",
+  "audiopro\\.com"
 ]
 
 # Exclude paths that don't map to files or are known broken

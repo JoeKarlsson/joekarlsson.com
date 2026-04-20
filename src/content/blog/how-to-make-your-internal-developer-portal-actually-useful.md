@@ -54,7 +54,7 @@ The complexity of modern infrastructure environments creates significant challen
 
 **Real-time synchronization complexities** further complicate asset management. [Cloud resources are created and destroyed rapidly, ephemeral workloads like containers and serverless functions exist briefly](https://www.firemon.com/blog/asset-discovery-tools/), and API rate limits constrain discovery frequency. Organizations must balance real-time accuracy with system performance while managing costs associated with continuous discovery.
 
-**Toyota Motor North America's experience** demonstrates the transformation possible when these challenges are addressed systematically. Their [Chofer platform, built on Backstage, achieved over $10 million in cost reduction](https://backstage.spotify.com/discover/blog/adopter-spotlight-toyota/) during 2022 by implementing a comprehensive asset inventory that reduced new environment setup from months to six hours. This success required solving multi-cloud data normalization, real-time synchronization, and governance integration simultaneously.
+**Toyota Motor North America's experience** demonstrates the transformation possible when these challenges are addressed systematically. Their Chofer platform, built on Backstage, achieved over $10 million in cost reduction during 2022 by implementing a comprehensive asset inventory that reduced new environment setup from months to six hours. This success required solving multi-cloud data normalization, real-time synchronization, and governance integration simultaneously.
 
 ## Architecture patterns for inventory-driven developer portals
 
@@ -90,9 +90,9 @@ Through conversations with platform engineering teams at major financial institu
 
 The business value of inventory-driven developer portals extends far beyond theoretical productivity improvements, with documented case studies demonstrating significant, quantifiable benefits across multiple industries.
 
-**Toyota Motor North America's comprehensive results** provide the most detailed financial analysis available. Their [Backstage-based platform achieved total cost reduction exceeding $10 million in 2022](https://backstage.spotify.com/discover/blog/adopter-spotlight-toyota/), with $5 million in infrastructure savings annually. Individual development teams report saving 6 weeks of development time valued at $250,000 per project. Their developer portal platform makes delivery in weeks rather than quarterly cycles through automated provisioning and compliance checking.
+**Toyota Motor North America's comprehensive results** provide the most detailed financial analysis available. Their Backstage-based platform achieved total cost reduction exceeding $10 million in 2022, with $5 million in infrastructure savings annually. Individual development teams report saving 6 weeks of development time valued at $250,000 per project. Their developer portal platform makes delivery in weeks rather than quarterly cycles through automated provisioning and compliance checking.
 
-**Spotify's productivity metrics** demonstrate the developer experience improvements possible with mature portal implementations. Their [complete Backstage adoption achieved 55% reduction in developer onboarding time](https://backstage.spotify.com/discover/blog/how-spotify-measures-backstage-roi/), with new developers reaching their 10th pull request in 10 days versus 20 days previously. [High-frequency portal users show 2.3x more GitHub activity and 2x more frequent deployments](https://www.infoq.com/news/2023/04/spotify-success-backstage/), with deployed code staying in production 3x longer.
+**Spotify's productivity metrics** demonstrate the developer experience improvements possible with mature portal implementations. Their [complete Backstage adoption achieved 55% reduction in developer onboarding time](https://backstage.spotify.com/blog/how-spotify-measures-backstage-roi), with new developers reaching their 10th pull request in 10 days versus 20 days previously. [High-frequency portal users show 2.3x more GitHub activity and 2x more frequent deployments](https://www.infoq.com/news/2023/04/spotify-success-backstage/), with deployed code staying in production 3x longer.
 
 **Expedia Group's enterprise-scale deployment** supports [5,000+ developers across 15+ brands with ~20,000 microservices](https://roadie.io/case-studies/expedia-group-backstage-mvp/). Their [expected ROI of 6x return on investment with a 40-day payback period](https://backstage.io/blog/2023/08/17/expedia-proof-of-value-metrics-2/) demonstrates the scalability of inventory-driven portal benefits. The platform consolidates 21+ brand-specific portals into a unified developer experience while managing 400 unique developer tools and 3,000 APIs.
 
@@ -232,9 +232,9 @@ ProsperOps. (2025). Mastering IT cost optimization: 14 strategies for long-term 
 
 Roadie. (2025). Backstage at Expedia Group. <https://roadie.io/case-studies/expedia-group-backstage-mvp/>
 
-Spotify. (2025). Adopter spotlight: Toyota revs up secure app development with Backstage and AWS. <https://backstage.spotify.com/discover/blog/adopter-spotlight-toyota/>
+Spotify. (2025). Adopter spotlight: Toyota revs up secure app development with Backstage and AWS.
 
-Spotify. (2025). How Spotify measures the value of Backstage. <https://backstage.spotify.com/discover/blog/how-spotify-measures-backstage-roi/>
+Spotify. (2025). How Spotify measures the value of Backstage. <https://backstage.spotify.com/blog/how-spotify-measures-backstage-roi>
 
 Sprinto. (2025). Top 10 compliance standards: SOC 2, GDPR, HIPAA & more. <https://sprinto.com/blog/compliance-standards/>
 

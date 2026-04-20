@@ -87,7 +87,7 @@ Run the sync:
 cloudquery sync config.yml
 ```
 
-CloudQuery Platform calls the AWS Lambda [`ListFunctions` API](https://docs.aws.amazon.com/lambda/latest/APIReference/API_ListFunctions.html) across all configured accounts and regions, extracting configuration data including the `Runtime` field.
+CloudQuery Platform calls the AWS Lambda [`ListFunctions` API](https://docs.aws.amazon.com/lambda/latest/api/API_ListFunctions.html) across all configured accounts and regions, extracting configuration data including the `Runtime` field.
 
 ### Query for All Affected Functions
 

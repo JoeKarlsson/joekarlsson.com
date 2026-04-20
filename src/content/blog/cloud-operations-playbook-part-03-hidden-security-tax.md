@@ -18,7 +18,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 ## Your Security Team Has a Time Problem
 
-Here's a number that should concern every engineering leader: [61% of organizations experienced a third-party data breach or security incident in the last 12 months](https://mitratech.com/en/resource-hub/blog/third-party-risk-management-statistics/). Not in some abstract industry survey from five years ago. Last year. Your peers, your competitors, maybe you.
+Here's a number that should concern every engineering leader: [61% of organizations experienced a third-party data breach or security incident in the last 12 months](https://mitratech.com/resource-hub/blog/2025-tprm-study/). Not in some abstract industry survey from five years ago. Last year. Your peers, your competitors, maybe you.
 
 And the natural response has been to buy more security tooling. The CSPM market alone grew 45% year-over-year in 2023, reaching $1.64 billion. Organizations are spending record amounts on tools that detect misconfigurations, flag policy violations, and generate alerts.
 
