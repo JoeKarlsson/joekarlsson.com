@@ -5,6 +5,9 @@ on:
     - cron: '0 5 * * 1' # Monday at 5am UTC
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   outdated:
     name: Check Outdated Dependencies
