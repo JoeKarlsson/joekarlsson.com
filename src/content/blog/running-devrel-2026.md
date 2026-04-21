@@ -79,43 +79,45 @@ The reason I find it useful: most DevRel programs measure activity, not progress
 
 ### Discover
 
-Developer first encounters your product. They searched for something, found your docs, hit your README, heard about you in a Slack channel. You have maybe 30 seconds.
+Developer first hears about you. Searched for a solution, found your docs, hit your README, caught your name in a Slack channel. You have maybe 30 seconds before they decide whether to keep reading.
 
-What breaks here: a homepage that explains the architecture before explaining the problem you solve, a README with three paragraphs and no working example, thin search presence on the queries your ICP actually types. Developer bounces before understanding why they should care.
+The metric question here is simple: are developers finding us? Organic traffic by source, search rankings for ICP queries, AI referral traffic. Not "are we publishing" - whether the publishing is actually reaching people.
 
-What I track: organic traffic by source, search rankings for ICP queries, content engagement rates, AI referral traffic. The question is "are developers finding us?" - not "are we publishing?"
+The most common break at this stage isn't thin content. It's a homepage that leads with architecture instead of the problem it solves.
 
 ### Evaluate
 
-Developer decides whether the product is worth trying. They read docs, look at pricing, check how active the GitHub repo is, compare you against alternatives.
+Developer decides whether the product is worth trying. They read docs, look at pricing, check GitHub activity, compare against alternatives. Three things will kill this stage before they ever try the product:
 
-What breaks here: "contact sales" where pricing should be, a changelog that hasn't been updated in six months, a GitHub issues backlog full of unanswered questions. All of it signals risk. Developer moves on.
+- "Contact sales" where pricing should be
+- A changelog that hasn't moved in six months
+- A GitHub issues backlog full of unanswered questions
 
-What I track: docs page views (especially getting-started sections), pricing page scroll depth, competitor comparison page traffic, free tier signup conversion. The goal is getting from "found you" to "made an account."
+All three signal the same thing: risk. Developer moves on.
+
+I track docs page views on getting-started sections and pricing page scroll depth. If people are reading but not signing up, that's an Evaluate problem - something in the friction between "found you" and "made an account."
 
 ### Learn
 
-Developer tries to get something working. This is where most developer tools die.
+This is where most developer tools die. Not because the product is bad - because the first 20 minutes are brutal.
 
-Time to first value is the number here. How long from "I signed up" to "I have a working implementation"? If it's past 20 minutes, stop everything and fix that. No content strategy compensates for a quickstart that fails on half the platforms your developers actually use. Benchmark it yourself against competitors with a stopwatch.
+Time to first value is the number that matters here. How long from "I signed up" to "I have a working output"? If it's past 20 minutes, nothing else matters until you fix that. I benchmark this myself against two or three competitors with an actual stopwatch. Not a gut feeling. A stopwatch.
 
-What I track: tutorial completion rates, docs search queries (failed searches are the most valuable - they show you exactly what's missing), community question volume, average time to resolution. When the same question keeps appearing in community, that's a docs bug masquerading as a support problem.
+Failed docs searches are the most underrated signal I track. Every search query with zero results is a gap someone hit in the wild. When the same question keeps coming up in community, that's a docs bug - not a support problem.
 
 ### Build
 
-Developer is doing real work. API calls, integrations, debugging production-adjacent problems.
+Developer is doing real work. API calls, integrations, debugging against production data.
 
-DevRel's job at this stage is less about content and more about making sure the feedback loop back to engineering actually functions. SDK quality matters here. Error messages either help or actively hurt. The difference between "this is annoying" and "I'm switching to the competitor" usually happens quietly, in a terminal window, when something fails and the error is useless.
+DevRel's job at Build is less about content and more about whether the feedback loop to engineering actually works. SDK quality matters here in ways that tutorials can't compensate for. Error messages either help or they don't. The switch to a competitor usually happens quietly, alone, when something fails and the error is useless.
 
-What I track: API call volume, feature adoption rates, support ticket topics. Error message frequency patterns are underrated - a specific error showing up repeatedly in support tickets is almost always a product problem, not a documentation problem.
+A specific error appearing repeatedly in support tickets is almost never a support problem. It's a product problem. Flagging that pattern upstream is some of the highest-leverage work I do at this stage.
 
 ### Scale
 
-Developer is in production and has committed. Now the question is whether they stay, expand, and tell other people.
+Developer is in production. They've committed. Now the question is: do they stay, expand, and tell other people?
 
-This is where community advocacy becomes measurable as a business outcome. A developer who's been in production six months, answers other people's questions, and refers their team to the tool - that's pipeline. Not theoretical pipeline. Actual revenue-correlated behavior. Most companies treat these people as a side effect rather than the asset they are.
-
-What I track: production deployment counts, upgrade and conversion rates, churn signals, referral rates. Community advocacy signals - who's answering other people's questions? Who's sharing their implementations publicly? Those developers are your best growth surface.
+This is the stage most DevRel programs ignore - because the work is less visible and the feedback loop is long. But it's where community advocacy becomes a measurable business asset. A developer who's been in production six months, answers other people's questions publicly, and refers their team? That's pipeline with a long first-touch trail. Track upgrade and conversion rates, churn signals, and referral rates. Watch who's answering questions in your Discord and sharing their implementations publicly. Those people are not a side effect. They're the program working.
 
 ---
 
@@ -154,11 +156,17 @@ Before you invest in any channel, you need to know what's actually broken.
 
 I spend the first 30 days on a Developer Discoverability Audit before touching anything else. The goal is evidence, not opinions. Specifically, I look at three things in parallel.
 
-#### Technical site health Every subdomain - docs, blog, app, changelog, API reference. Core Web Vitals, robots.txt hygiene, internal link structure (docs siloed on a separate subdomain build authority independently instead of contributing to yours), redirect chains, keyword cannibalization between the blog and the docs, structured data gaps. The tool I use is Ahrefs at ~$129/month - not cheap, but one found indexing bug pays for a year of the subscription. If budget is tight, Screaming Frog has a free tier that handles up to 500 URLs. Run a content gap analysis against two or three competitors. What are they ranking for that you aren't? That becomes your content priority list.
+#### Technical site health
 
-#### LLM presence Open GPT-4o, Claude, Gemini, and Perplexity. Type in your ICP's actual queries. "Best tool for real-time analytics on streaming data." "Compare [your product] vs [competitor]." Document where you appear, how you're described, what gets wrong about you, where competitors show up instead. Check your README quality and your examples directory. Check whether you have a `llms.txt` - honest caveat: as of early 2026 there's no confirmed evidence that major AI platforms read this, but it costs 10 minutes and signals intent.
+Every subdomain - docs, blog, app, changelog, API reference. Core Web Vitals, robots.txt hygiene, internal link structure (docs siloed on a separate subdomain build authority independently instead of contributing to yours), redirect chains, keyword cannibalization between the blog and the docs, structured data gaps. The tool I use is Ahrefs at ~$129/month - not cheap, but one found indexing bug pays for a year of the subscription. If budget is tight, Screaming Frog has a free tier that handles up to 500 URLs. Run a content gap analysis against two or three competitors. What are they ranking for that you aren't? That becomes your content priority list.
 
-#### Developer UX Go through the product as a complete stranger. No internal Slack, no engineer sitting next to you. Measure time to first value - meaning how long from landing on your homepage to getting a working output. Benchmark against two or three competitors, with a stopwatch. Does the quickstart work on an M-series Mac? On Windows? In Docker? Can every code snippet be copy-pasted and run without modification? What happens when something goes wrong - are errors searchable? Do they tell you what to do next?
+#### LLM presence
+
+Open GPT-4o, Claude, Gemini, and Perplexity. Type in your ICP's actual queries. "Best tool for real-time analytics on streaming data." "Compare [your product] vs [competitor]." Document where you appear, how you're described, what gets wrong about you, where competitors show up instead. Check your README quality and your examples directory. Check whether you have a `llms.txt` - honest caveat: as of early 2026 there's no confirmed evidence that major AI platforms read this, but it costs 10 minutes and signals intent.
+
+#### Developer UX
+
+Go through the product as a complete stranger. No internal Slack, no engineer sitting next to you. Measure time to first value - meaning how long from landing on your homepage to getting a working output. Benchmark against two or three competitors, with a stopwatch. Does the quickstart work on an M-series Mac? On Windows? In Docker? Can every code snippet be copy-pasted and run without modification? What happens when something goes wrong - are errors searchable? Do they tell you what to do next?
 
 The deliverable is what I call a "State of Developer Experience" brief. A prioritized list of what's broken, with severity ratings, backed by data. Not a content plan. Not a pitch deck. Evidence of where you're leaking discoverability, specific enough that engineering and product can act on it.
 
