@@ -165,6 +165,36 @@ export const projects: Project[] = [
 
 	// Developer Tools & Education
 	{
+		title: 'Secure AI Data Pipelines Demo',
+		description:
+			'A full-stack open source demo showing how to build AI-powered cloud security analysis across AWS, GCP, and Azure. Ingests multi-cloud data via CloudQuery, sanitizes PII with differential privacy, and uses GPT-4 to detect cross-cloud attack paths and generate Terraform remediation steps. Includes a React dashboard and a companion YouTube walkthrough.',
+		image: '/images/blog/building-secure-ai-powered-cloud-security/thumbnail.png',
+		imageAlt: 'Secure AI Data Pipelines Demo dashboard showing multi-cloud security risk analysis',
+		category: 'dev-tools',
+		tech: [
+			'Python',
+			'React',
+			'Next.js',
+			'TypeScript',
+			'PostgreSQL',
+			'OpenAI',
+			'CloudQuery',
+			'Docker',
+		],
+		sourceUrl: 'https://github.com/cloudquery/secure-ai-data-pipelines-demo',
+		blogUrl: '/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/',
+	},
+	{
+		title: 'CloudQuery Go MCP Server',
+		description:
+			"Built a Go MCP server before Anthropic released an official Go SDK, bridging Claude and Cursor directly to CloudQuery's cloud infrastructure database. AI assistants went from zero database awareness to querying live cloud data mid-conversation — no copy-pasting schemas. Co-authored two posts: the build walkthrough and a hard-won gotchas guide on tool descriptions, naming, and context window limits.",
+		image: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.png',
+		imageAlt: 'CloudQuery Go MCP Server architecture diagram',
+		category: 'dev-tools',
+		tech: ['Go', 'MCP', 'Claude', 'Cursor', 'PostgreSQL', 'CloudQuery'],
+		blogUrl: '/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/',
+	},
+	{
 		title: 'Data Structures & Algorithms in JS',
 		description:
 			'Common data structures and algorithms implemented in JavaScript. Created as teaching material when I was an instructor at DevLeague. Covers linked lists, trees, graphs, sorting, and more.',
