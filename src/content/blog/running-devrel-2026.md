@@ -26,7 +26,7 @@ faq:
   - question: 'What should I actually do in my first 30 days as the DevRel hire?'
     answer: "Run a Developer Discoverability Audit - technical SEO and site health, LLM discoverability, and developer UX. Go through the product as a complete stranger and measure time to first value. Interview product, eng, sales, and CS. Build a baseline metrics snapshot. Do NOT ship content yet - you need evidence of what's broken before you decide what to build."
   - question: 'How do I show DevRel ROI before downloads start moving?'
-    answer: 'Downloads are a lagging indicator. The leading indicators that predict growth weeks before download numbers move: star velocity (week-over-week delta, not cumulative), new contributor count per month, issue response time, PR merge rate for external contributors, fork-to-contributor conversion, and LLM mention rank tracked quarterly. Define these up front with leadership so they understand what predicts the number they care about.'
+    answer: 'Downloads are a lagging indicator. The leading indicators I actually find predictive: star velocity (week-over-week delta, not cumulative), issue response time (developers vote with their feet on this one), and LLM mention rank tracked quarterly. Contributor metrics like PR merge rate and fork-to-contributor conversion show up in a lot of playbooks but in practice most companies do not care about them - they are closer to vanity metrics than predictive signals. Define the ones you do track up front with leadership so they understand what predicts the number they care about.'
 ---
 
 Ask ten DevRel candidates what they'd focus on in the first 90 days. Community, content, events - in some order, with "developer experience" added if they're sharp. Every time. None of it is wrong. It's just describing one distribution surface out of three, while the other two sit broken and nobody's talking about them.
@@ -123,18 +123,17 @@ This is the stage most DevRel programs ignore - because the work is less visible
 
 The core thesis - DevRel is a revenue function, not a marketing expense - is one I've come to agree with completely. When I can map a content piece to Discover, a quickstart fix to Learn, an SDK improvement to Build, and show that each one moved its stage metric, the program stops being a line item that gets cut in a downturn. The metrics have to trace back to revenue. Not perfectly, not directly, but traceably.
 
-For OSS tools, downloads are the lagging indicator. The leading indicators I track:
+For OSS tools, downloads are the lagging indicator. The leading indicators I actually track:
 
-| Metric                                         | Why I care about it                                                                            |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Star velocity (W/W delta, not cumulative)      | Momentum signal. A flat cumulative count looks fine until you notice stars/week dropped 40%    |
-| New contributor count per month                | Predicts ecosystem health 6 months out more reliably than almost anything else                 |
-| Issue response time and time to first response | Developers will tell you how they feel about your responsiveness with their feet               |
-| PR merge rate (external contributors)          | Nothing tells potential contributors whether their work is welcome faster than your merge rate |
-| Fork-to-contributor conversion                 | The ratio of people who explore to people who engage is a DX health signal                     |
-| LLM mention rank (quarterly)                   | Still early, but it's a surface I want data on before everyone else starts measuring it        |
+| Metric                                         | Why I care about it                                                                       |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Star velocity (W/W delta, not cumulative)      | Momentum signal. Flat cumulative count looks fine until you notice stars/week dropped 40% |
+| Issue response time and time to first response | Developers vote with their feet. A long first-response time kills early-stage trust fast  |
+| LLM mention rank (quarterly)                   | Still early, but I want baseline data before everyone else starts measuring it            |
 
-I frame this to leadership the same way every time: downloads are the number we're trying to move, but these are the numbers that predict downloads 8-12 weeks from now. If these trend right and downloads lag, the program is working and the cycle is just long. That framing - established before you start, with the logic written down somewhere - is what protects you from the 90-day credibility gap.
+A note on contributor metrics: I've seen contributor count, PR merge rate, and fork-to-contributor conversion pushed as leading indicators in a lot of DevRel playbooks. Honestly, most companies I've worked with don't care about them - and in my experience they're closer to vanity metrics than predictive signals. Issue response time is the one that actually matters in practice. The others look good in a slide deck.
+
+I frame the metrics I do track to leadership the same way every time: downloads are the number we're trying to move, but these are the numbers that predict downloads 8-12 weeks from now. If these trend right and downloads lag, the program is working and the cycle is just long. That framing - established before you start, with the logic written down somewhere - is what protects you from the 90-day credibility gap.
 
 Here's what the data loop actually looked like in practice. At a cloud-native developer tools company where I ran DevRel, a three-month sprint of audit-first work produced: 200 PRs merged (86 content, 44 SEO, 31 other), organic traffic at an all-time high with Ahrefs estimated daily visits up 121% from the starting baseline, and 426 keywords ranking in the top 10. Specific keyword movements: "it asset management" went from position 43 to 7; "cloud governance framework" from position 11 to 2. Trial signups increased 61% over the same period. And this came in from a customer on a first sales call:
 
@@ -303,7 +302,7 @@ Vanity metrics are what happen when nobody pushed back on the first measurement 
 
 ### Scope creep
 
-![This Is Fine meme: "DevRel also owning: SEO, docs, social, events, customer success, AND pre-sales support" — this is fine](/images/blog/running-devrel-2026/meme-this-is-fine.webp)
+![Gru's Plan meme: "Define a focused DevRel scope: content, community, developer experience" then "Also own SEO, docs, social, events, pre-sales support, and every underfunded function without a clear owner"](/images/blog/running-devrel-2026/meme-this-is-fine.webp)
 
 And then scope creep, which burns people out quietly. Founding DevRel means you own everything that doesn't obviously belong to someone else. SEO. Docs. Social. Event logistics. Sometimes customer success adjacent things. Nobody assigns this to you maliciously - it's just what happens on small teams. Within a year you're doing five jobs, none of them well. The fix is simple in theory: define your scope explicitly, write it down, revisit it quarterly. In practice it requires saying no to things that feel important, which is hard when you're trying to prove the function's value.
 
