@@ -73,9 +73,53 @@ Here's the thing I've noticed: when DevRel struggles to get resources or headcou
 
 The first time I showed up to a leadership review with a dashboard instead of a list of things I'd done, the dynamic changed. Not because executives love dashboards. Because a dashboard forces you to make claims that can be verified, and verified claims build credibility faster than any amount of storytelling.
 
-[Tessa Kriesel](https://builtfor.dev) at builtfor.dev has a framework I've found genuinely useful: the developer journey maps to five stages - Discover, Evaluate, Learn, Build, Scale. Every DevRel initiative you can think of maps to one of those stages. Every metric you track should connect back to movement along that journey. When you can show a leadership team "we're moving developers from Discover to Evaluate faster than last quarter, and here's the data," you've turned DevRel from a cost center into something that reports on outcomes.
+[Tessa Kriesel](https://builtfor.dev) at builtfor.dev has a framework I keep coming back to: the developer journey maps to five stages - Discover, Evaluate, Learn, Build, Scale. [The builtfor.dev DevRel playbook](https://builtfor.dev/blog/devrel-playbook) lays it out in full and is worth reading.
 
-[The builtfor.dev DevRel playbook](https://builtfor.dev/blog/devrel-playbook) is worth reading in full. The core thesis - DevRel is a revenue function, not a marketing expense - is one I've come to agree with completely. The implication is that your metrics have to trace back to revenue. Not perfectly, not directly, but traceably.
+The reason I find it useful: most DevRel programs measure activity, not progression. Tutorials published. Events attended. Community posts. Fine to track, but they don't tell you which stage is broken. This framework forces that question before you decide what to build.
+
+### Discover
+
+Developer first encounters your product. They searched for something, found your docs, hit your README, heard about you in a Slack channel. You have maybe 30 seconds.
+
+What breaks here: a homepage that explains the architecture before explaining the problem you solve, a README with three paragraphs and no working example, thin search presence on the queries your ICP actually types. Developer bounces before understanding why they should care.
+
+What I track: organic traffic by source, search rankings for ICP queries, content engagement rates, AI referral traffic. The question is "are developers finding us?" - not "are we publishing?"
+
+### Evaluate
+
+Developer decides whether the product is worth trying. They read docs, look at pricing, check how active the GitHub repo is, compare you against alternatives.
+
+What breaks here: "contact sales" where pricing should be, a changelog that hasn't been updated in six months, a GitHub issues backlog full of unanswered questions. All of it signals risk. Developer moves on.
+
+What I track: docs page views (especially getting-started sections), pricing page scroll depth, competitor comparison page traffic, free tier signup conversion. The goal is getting from "found you" to "made an account."
+
+### Learn
+
+Developer tries to get something working. This is where most developer tools die.
+
+Time to first value is the number here. How long from "I signed up" to "I have a working implementation"? If it's past 20 minutes, stop everything and fix that. No content strategy compensates for a quickstart that fails on half the platforms your developers actually use. Benchmark it yourself against competitors with a stopwatch.
+
+What I track: tutorial completion rates, docs search queries (failed searches are the most valuable - they show you exactly what's missing), community question volume, average time to resolution. When the same question keeps appearing in community, that's a docs bug masquerading as a support problem.
+
+### Build
+
+Developer is doing real work. API calls, integrations, debugging production-adjacent problems.
+
+DevRel's job at this stage is less about content and more about making sure the feedback loop back to engineering actually functions. SDK quality matters here. Error messages either help or actively hurt. The difference between "this is annoying" and "I'm switching to the competitor" usually happens quietly, in a terminal window, when something fails and the error is useless.
+
+What I track: API call volume, feature adoption rates, support ticket topics. Error message frequency patterns are underrated - a specific error showing up repeatedly in support tickets is almost always a product problem, not a documentation problem.
+
+### Scale
+
+Developer is in production and has committed. Now the question is whether they stay, expand, and tell other people.
+
+This is where community advocacy becomes measurable as a business outcome. A developer who's been in production six months, answers other people's questions, and refers their team to the tool - that's pipeline. Not theoretical pipeline. Actual revenue-correlated behavior. Most companies treat these people as a side effect rather than the asset they are.
+
+What I track: production deployment counts, upgrade and conversion rates, churn signals, referral rates. Community advocacy signals - who's answering other people's questions? Who's sharing their implementations publicly? Those developers are your best growth surface.
+
+---
+
+The core thesis - DevRel is a revenue function, not a marketing expense - is one I've come to agree with completely. When I can map a content piece to Discover, a quickstart fix to Learn, an SDK improvement to Build, and show that each one moved its stage metric, the program stops being a line item that gets cut in a downturn. The metrics have to trace back to revenue. Not perfectly, not directly, but traceably.
 
 For OSS tools, downloads are the lagging indicator. The leading indicators I track:
 
@@ -213,6 +257,8 @@ Fighting for docs to be part of the feature spec - reviewed before launch, not s
 
 I've worked at several developer-first companies and this tension shows up at all of them. It's not a people problem. It's structural.
 
+![Two Buttons meme: sweating person choosing between "Pass developer names directly to sales" and "Proactively flag enterprise signals with context so the community stays healthy"](/images/blog/running-devrel-2026/meme-two-buttons.webp)
+
 The most obvious version: sales wants names from Discord. Who's active, who might be enterprise-ready, who's asking questions that sound like a buying signal. And if you just hand over a list, you've poisoned the well. Developers feel the room shift. They stop asking real questions. The community goes quiet in exactly the ways that made it valuable.
 
 The attribution version is more insidious. You've been doing DevRel for six months. A developer who was active in your community for months closes a deal. Sales gets 100% of the credit. DevRel gets none. This matters more than it sounds - your budget depends on demonstrating what you contribute to revenue, and if every community-influenced deal disappears into sales attribution you can't make the case for the next hire or the next conference budget or anything else.
@@ -235,6 +281,8 @@ The wrong first hire is its own failure mode, and it's more specific than it sou
 
 ### Wrong problem diagnosis
 
+![Surprised Pikachu meme: "Hired DevRel to fix an 'awareness problem.' DX was broken the whole time."](/images/blog/running-devrel-2026/meme-surprised-pikachu.webp)
+
 The trickier failure mode is wrong problem diagnosis. A company has a DX problem - the quickstart fails on half the platforms their developers actually use, the APIs are confusing, the error messages are incomprehensible without internal context. They hire DevRel to fix "awareness." You write great content about a product that frustrates developers. Nothing converts. Six months later you're blamed for not moving the needle. The problem was never yours to fix. This one is hard to see from outside before you join, which is why I spent so much time on the diagnosis question at the end of this post.
 
 ### Sales capture
@@ -246,6 +294,8 @@ Sales capture is the slow one, and it usually happens because you're succeeding.
 Vanity metrics are what happen when nobody pushed back on the first measurement conversation. Event attendance, social followers, blog views. Fine things to track. Completely insufficient to defend a budget when someone in leadership asks what DevRel actually contributed to revenue. Cut in the next downturn, every time.
 
 ### Scope creep
+
+![This Is Fine meme: "DevRel also owning: SEO, docs, social, events, customer success, AND pre-sales support" — this is fine](/images/blog/running-devrel-2026/meme-this-is-fine.webp)
 
 And then scope creep, which burns people out quietly. Founding DevRel means you own everything that doesn't obviously belong to someone else. SEO. Docs. Social. Event logistics. Sometimes customer success adjacent things. Nobody assigns this to you maliciously - it's just what happens on small teams. Within a year you're doing five jobs, none of them well. The fix is simple in theory: define your scope explicitly, write it down, revisit it quarterly. In practice it requires saying no to things that feel important, which is hard when you're trying to prove the function's value.
 
