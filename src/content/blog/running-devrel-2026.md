@@ -106,23 +106,29 @@ The most common mistake when you're the first DevRel hire is doing too much too 
 
 Before you invest in any channel, you need to know what's actually broken.
 
+### Days 1-30: The Developer Discoverability Audit
+
 I spend the first 30 days on a Developer Discoverability Audit before touching anything else. The goal is evidence, not opinions. Specifically, I look at three things in parallel.
 
-The first is technical site health. Every subdomain - docs, blog, app, changelog, API reference. Core Web Vitals, robots.txt hygiene, internal link structure (docs siloed on a separate subdomain build authority independently instead of contributing to yours), redirect chains, keyword cannibalization between the blog and the docs, structured data gaps. The tool I use is Ahrefs at ~$129/month - not cheap, but one found indexing bug pays for a year of the subscription. If budget is tight, Screaming Frog has a free tier that handles up to 500 URLs. Run a content gap analysis against two or three competitors. What are they ranking for that you aren't? That becomes your content priority list.
+#### Technical site health Every subdomain - docs, blog, app, changelog, API reference. Core Web Vitals, robots.txt hygiene, internal link structure (docs siloed on a separate subdomain build authority independently instead of contributing to yours), redirect chains, keyword cannibalization between the blog and the docs, structured data gaps. The tool I use is Ahrefs at ~$129/month - not cheap, but one found indexing bug pays for a year of the subscription. If budget is tight, Screaming Frog has a free tier that handles up to 500 URLs. Run a content gap analysis against two or three competitors. What are they ranking for that you aren't? That becomes your content priority list.
 
-The second is LLM presence. Open GPT-4o, Claude, Gemini, and Perplexity. Type in your ICP's actual queries. "Best tool for real-time analytics on streaming data." "Compare [your product] vs [competitor]." Document where you appear, how you're described, what gets wrong about you, where competitors show up instead. Check your README quality and your examples directory. Check whether you have a `llms.txt` - honest caveat: as of early 2026 there's no confirmed evidence that major AI platforms read this, but it costs 10 minutes and signals intent.
+#### LLM presence Open GPT-4o, Claude, Gemini, and Perplexity. Type in your ICP's actual queries. "Best tool for real-time analytics on streaming data." "Compare [your product] vs [competitor]." Document where you appear, how you're described, what gets wrong about you, where competitors show up instead. Check your README quality and your examples directory. Check whether you have a `llms.txt` - honest caveat: as of early 2026 there's no confirmed evidence that major AI platforms read this, but it costs 10 minutes and signals intent.
 
-The third is developer UX. Go through the product as a complete stranger. No internal Slack, no engineer sitting next to you. Measure time to first value - meaning how long from landing on your homepage to getting a working output. Benchmark against two or three competitors, with a stopwatch. Does the quickstart work on an M-series Mac? On Windows? In Docker? Can every code snippet be copy-pasted and run without modification? What happens when something goes wrong - are errors searchable? Do they tell you what to do next?
+#### Developer UX Go through the product as a complete stranger. No internal Slack, no engineer sitting next to you. Measure time to first value - meaning how long from landing on your homepage to getting a working output. Benchmark against two or three competitors, with a stopwatch. Does the quickstart work on an M-series Mac? On Windows? In Docker? Can every code snippet be copy-pasted and run without modification? What happens when something goes wrong - are errors searchable? Do they tell you what to do next?
 
 The deliverable is what I call a "State of Developer Experience" brief. A prioritized list of what's broken, with severity ratings, backed by data. Not a content plan. Not a pitch deck. Evidence of where you're leaking discoverability, specific enough that engineering and product can act on it.
 
 This is what you bring to the first roadmap meeting. The difference between "I've been thinking about some content ideas" and "here are six indexing bugs and three quickstart gaps we should fix before we invest more in content" is enormous.
+
+### Days 31-60: Building the foundation
 
 Days 31-60 are about building the foundation. Fix the highest-priority DX gaps from the audit - some of this needs engineering, file the tickets and follow up until they're closed. Ship your first two or three content pieces, but make them count: benchmark content comparing your approach to alternatives, or integration-specific tutorials targeting queries with real search volume. Not a product announcement, not a "hello world" tutorial, not a thought leadership post about the future of the industry. Something a developer would search for, find, and use.
 
 Pick one or two community channels and go deep. Not five. A Discord with one person who answers questions within an hour beats five channels where nothing happens. Set up tracking: UTM attribution, download-to-signup funnel, community metrics. The measurement infrastructure is tedious to build and you'll be grateful for it in month four.
 
 One thing that changed my output significantly at this stage: automating the measurement layer instead of doing it manually. I built a [Claude Code skill for weekly SEO analysis](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling) that pulls from Google Search Console, Ahrefs, and Plausible together, compares against last week's snapshot, and surfaces what moved. What used to take an afternoon now takes ten minutes. That's not a productivity flex - it's about frequency. When the analysis is fast, you do it weekly instead of monthly, and you catch problems before they compound. The same principle applies to community monitoring: if pulling the "who's active from which company" report is a manual thirty-minute task, it doesn't happen. If it's a command, it happens every week.
+
+### Days 61-90: Execute and measure
 
 Days 61-90: run the first full content cycle. Check whether what you shipped in days 31-60 actually moved anything. Present learnings with data to leadership - even if the data is "here's what we tried, here's what we measured, here's what we'd do differently." Draft a six-month roadmap. The goal at 90 days is not to have won. The goal is a measurement layer, evidence of what's working, and a credible hypothesis about what to do next. If you've built that, you're ahead.
 
@@ -148,7 +154,7 @@ The mistake I see most often is optimizing for executives at the expense of deve
 
 Each surface has its own playbook. Applying the same tactic to all three is how programs stay busy without moving anything.
 
-**The human developer surface is mostly a DX problem in disguise.**
+### The human developer surface
 
 Fix the quickstart before you write anything. Benchmark time to first value against two or three competitors with a stopwatch - not a gut feeling, a stopwatch. If it's over 20 minutes, no content strategy compensates for that.
 
@@ -156,7 +162,7 @@ After that works, comparison posts are the format I'd reach for first. Not "us v
 
 Community: deep in one or two channels, fast response time, real answers. Not five channels where nothing happens.
 
-**Search in 2026 is mostly a plumbing problem, and most teams skip the plumbing.**
+### Search is mostly a plumbing problem
 
 The biggest ranking jumps I've seen this year didn't come from new content. They came from fixing what was already broken. One redirect chain cleanup sprint across 200+ pages moved keywords more than six months of publishing had. Orphan pages with zero internal links are invisible to Google - just adding contextual links from related posts changes their trajectory fast. High-impression/low-CTR pages recover well once you add structured data: FAQPage schema specifically, TechArticle type on docs pages.
 
@@ -171,7 +177,7 @@ The biggest ranking jumps I've seen this year didn't come from new content. They
 
 One pattern worth watching in your GSC: "impressions up, position up, clicks flat." That's AI Overviews suppressing CTR on informational queries even as rankings improve. The SEO work is working. The click economy on informational queries is just changing. You need to understand that distinction before you explain the numbers to leadership or it looks like the program is stalling.
 
-**The LLM surface is the one I'll be most honest about not having figured out.**
+### The LLM surface
 
 The playbook is early. Anyone claiming certainty is overstating it.
 
@@ -189,9 +195,13 @@ The highest-impact thing I've done in DevRel - consistently, at every company - 
 
 Most companies don't install this function until they've shipped something that confused developers publicly. An error message that makes no sense without internal context. A quickstart that broke silently after a dependency update. An API that changed behavior without a deprecation notice. The external damage is visible. The internal damage is invisible: the developers who silently churned and never came back.
 
+### The Dev Zero function
+
 I think of this as the [Dev Zero role](/blog/devrel-as-dev-zero/) - being developer-zero in the product development process rather than a post-ship wrapper. You go through new features as a complete stranger before launch. You find the friction before developers in the wild do. You fight for docs to be written alongside the feature rather than six weeks after.
 
 There's no dashboard for this. But it shows up as fewer developer complaints, better top-of-funnel retention, and a product team that actually trusts the DX feedback loop because you speak their language.
+
+### Docs as a product
 
 Docs are the most neglected part of this. Not writing them - fighting for how they get made.
 
@@ -215,15 +225,27 @@ UTM and first-touch attribution from day one helps with the other problem. If a 
 
 ## How DevRel programs actually die
 
+### No metrics defined before you start
+
 The most common version is simple: no metrics defined before you start. You spend the first 90 days writing content, going to an event, building community presence. At the check-in, someone asks what the impact has been. You don't have a clean answer because you never defined "working" before you started. Leadership loses confidence. The program gets starved or cut. The work wasn't bad. The framing was.
+
+### The wrong first hire
 
 The wrong first hire is its own failure mode, and it's more specific than it sounds. The role almost always gets written as a content or community hire - someone who can ship tutorials and grow a Discord. That's the output layer. What's actually needed first is someone who can run the diagnostic: read crawl data, benchmark the quickstart as a stranger, identify what's leaking discoverability, and earn enough credibility with engineering to get the findings acted on. Hiring for output before you've done the diagnosis means 90 days of newsletters and conference abstracts while the real problems stay invisible.
 
+### Wrong problem diagnosis
+
 The trickier failure mode is wrong problem diagnosis. A company has a DX problem - the quickstart fails on half the platforms their developers actually use, the APIs are confusing, the error messages are incomprehensible without internal context. They hire DevRel to fix "awareness." You write great content about a product that frustrates developers. Nothing converts. Six months later you're blamed for not moving the needle. The problem was never yours to fix. This one is hard to see from outside before you join, which is why I spent so much time on the diagnosis question at the end of this post.
+
+### Sales capture
 
 Sales capture is the slow one, and it usually happens because you're succeeding. You're generating pipeline signals that sales values. They start treating you like a resource for deal support. You say yes because the work feels important. After six months you're running custom demos and jumping on prospect calls, building for one company instead of a thousand developers, and the community that made the signals worth anything in the first place has gone quiet.
 
+### Vanity metrics
+
 Vanity metrics are what happen when nobody pushed back on the first measurement conversation. Event attendance, social followers, blog views. Fine things to track. Completely insufficient to defend a budget when someone in leadership asks what DevRel actually contributed to revenue. Cut in the next downturn, every time.
+
+### Scope creep
 
 And then scope creep, which burns people out quietly. Founding DevRel means you own everything that doesn't obviously belong to someone else. SEO. Docs. Social. Event logistics. Sometimes customer success adjacent things. Nobody assigns this to you maliciously - it's just what happens on small teams. Within a year you're doing five jobs, none of them well. The fix is simple in theory: define your scope explicitly, write it down, revisit it quarterly. In practice it requires saying no to things that feel important, which is hard when you're trying to prove the function's value.
 
