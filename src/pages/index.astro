@@ -130,6 +130,9 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 							<span id="input-text" class="text-gray-200"></span><span
 								id="cursor"
 								class="cursor-blink"
+								aria-hidden="true"></span><span
+								id="ghost-text"
+								class="text-gray-600 pointer-events-none"
 								aria-hidden="true"></span>
 						</span>
 					</div>
@@ -353,6 +356,10 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		scrollbar-color: #fdae84 transparent;
 	}
 
+	.terminal-body :global(#output) {
+		white-space: pre-wrap;
+	}
+
 	.cursor-blink::after {
 		content: '█';
 		color: #fdae84;
@@ -499,6 +506,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		const hiddenInput = _hiddenInput;
 		const placeholder = document.getElementById('placeholder');
 		const hintText = document.getElementById('hint-text');
+		const ghostText = document.getElementById('ghost-text');
 
 		let currentInput = '';
 		const commandHistory: string[] = [];
@@ -1616,11 +1624,40 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			return div.innerHTML;
 		}
 
+		function getGhostCompletion(input: string): string {
+			if (!input) return '';
+			const lower = input.toLowerCase();
+			if (lower.startsWith('cd ') || lower.startsWith('goto ')) {
+				const partial = input.replace(/^(cd|goto)\s+/i, '');
+				const matches = Object.keys(pages)
+					.filter((p) => p.toLowerCase().startsWith(partial.toLowerCase()))
+					.sort();
+				if (matches.length >= 1) return matches[0].slice(partial.length);
+				return '';
+			}
+			if (lower.startsWith('cat ')) {
+				const partial = input.replace(/^cat\s+/i, '');
+				const matches = catFiles
+					.filter((f) => f.toLowerCase().startsWith(partial.toLowerCase()))
+					.sort();
+				if (matches.length >= 1) return matches[0].slice(partial.length);
+				return '';
+			}
+			if (!lower.includes(' ')) {
+				const matches = allCommands.filter((c) => c.startsWith(lower)).sort();
+				if (matches.length >= 1 && matches[0] !== lower) return matches[0].slice(lower.length);
+				return '';
+			}
+			return '';
+		}
+
 		function updateInputDisplay() {
 			inputText.textContent = currentInput;
-			// Show/hide placeholder based on input
 			if (placeholder) {
 				placeholder.style.display = currentInput.length > 0 ? 'none' : 'inline';
+			}
+			if (ghostText) {
+				ghostText.textContent = getGhostCompletion(currentInput);
 			}
 			scrollToBottom();
 		}
@@ -1726,42 +1763,13 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				}
 				hiddenInput.value = currentInput;
 				updateInputDisplay();
-			} else if (e.key === 'Tab') {
+			} else if (e.key === 'Tab' || (e.key === 'ArrowRight' && ghostText?.textContent)) {
 				e.preventDefault();
-				const input = currentInput.toLowerCase();
-
-				// Tab completion for cd/goto <page>
-				if (input.startsWith('cd ') || input.startsWith('goto ')) {
-					const partial = currentInput.replace(/^(cd|goto)\s+/i, '');
-					const prefix = currentInput.slice(0, currentInput.length - partial.length);
-					const matches = Object.keys(pages).filter((p) =>
-						p.toLowerCase().startsWith(partial.toLowerCase()),
-					);
-					if (matches.length === 1) {
-						currentInput = prefix + matches[0];
-						hiddenInput.value = currentInput;
-						updateInputDisplay();
-					}
-				}
-				// Tab completion for cat <file>
-				else if (input.startsWith('cat ')) {
-					const partial = currentInput.replace(/^cat\s+/i, '');
-					const prefix = 'cat ';
-					const matches = catFiles.filter((f) => f.toLowerCase().startsWith(partial.toLowerCase()));
-					if (matches.length === 1) {
-						currentInput = prefix + matches[0];
-						hiddenInput.value = currentInput;
-						updateInputDisplay();
-					}
-				}
-				// Tab completion for base commands
-				else if (!input.includes(' ')) {
-					const matches = allCommands.filter((c) => c.startsWith(input)).sort();
-					if (matches.length >= 1) {
-						currentInput = matches[0];
-						hiddenInput.value = currentInput;
-						updateInputDisplay();
-					}
+				const ghost = ghostText?.textContent;
+				if (ghost) {
+					currentInput += ghost;
+					hiddenInput.value = currentInput;
+					updateInputDisplay();
 				}
 			} else if (e.key === 'l' && e.ctrlKey) {
 				e.preventDefault();
