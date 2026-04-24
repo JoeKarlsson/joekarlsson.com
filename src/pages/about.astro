@@ -11,7 +11,6 @@ const aboutHeadings = [
 	{ slug: 'recognition', text: 'Recognition' },
 	{ slug: 'as-seen-on', text: 'As Seen On' },
 	{ slug: 'videos', text: 'Videos' },
-	{ slug: 'tiktok', text: 'TikTok' },
 	{ slug: 'interests', text: 'Interests' },
 	{ slug: 'crop-art', text: 'Crop Art' },
 	{ slug: 'now', text: 'Right Now' },
@@ -744,83 +743,6 @@ const aboutHeadings = [
 						</a>
 					</div>
 				</div>
-
-				<!-- TikTok -->
-				<h2 id="tiktok" class="mb-4 text-lg font-bold text-white">
-					<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls tiktok/
-				</h2>
-				<div class="mb-10 grid gap-4 sm:grid-cols-3" id="tiktok-grid">
-					<button
-						class="tiktok-facade group flex aspect-[9/16] items-center justify-center overflow-hidden rounded-lg border border-surface-3 bg-surface-2 transition-colors hover:border-coral/40"
-						data-video-id="6794216912239742213"
-						aria-label="Load TikTok: Working remotely is so cool"
-					>
-						<div class="text-center">
-							<span class="mb-2 block text-3xl">▶</span>
-							<span class="text-sm text-gray-400 group-hover:text-coral"
-								>Working remotely is so cool</span
-							>
-							<span class="mt-1 block text-xs text-gray-400">@joekarlsson on TikTok</span>
-						</div>
-					</button>
-					<button
-						class="tiktok-facade group flex aspect-[9/16] items-center justify-center overflow-hidden rounded-lg border border-surface-3 bg-surface-2 transition-colors hover:border-coral/40"
-						data-video-id="6903939878464081157"
-						aria-label="Load TikTok: The joys of WFH"
-					>
-						<div class="text-center">
-							<span class="mb-2 block text-3xl">▶</span>
-							<span class="text-sm text-gray-400 group-hover:text-coral">The joys of WFH</span>
-							<span class="mt-1 block text-xs text-gray-400">@joekarlsson on TikTok</span>
-						</div>
-					</button>
-					<button
-						class="tiktok-facade group flex aspect-[9/16] items-center justify-center overflow-hidden rounded-lg border border-surface-3 bg-surface-2 transition-colors hover:border-coral/40"
-						data-video-id="6980072982978891013"
-						aria-label="Load TikTok: It never gets old"
-					>
-						<div class="text-center">
-							<span class="mb-2 block text-3xl">▶</span>
-							<span class="text-sm text-gray-400 group-hover:text-coral">It never gets old</span>
-							<span class="mt-1 block text-xs text-gray-400">@joekarlsson on TikTok</span>
-						</div>
-					</button>
-				</div>
-				<script>
-					document.querySelectorAll('.tiktok-facade').forEach((btn) => {
-						btn.addEventListener('click', () => {
-							const videoId = btn.getAttribute('data-video-id');
-							if (!videoId) return;
-							if (typeof window.plausible === 'function') {
-								window.plausible('TikTok Embed Load', { props: { video_id: videoId } });
-							}
-							const container = btn.parentElement;
-							if (!container) return;
-							const blockquote = document.createElement('blockquote');
-							blockquote.className = 'tiktok-embed';
-							blockquote.setAttribute(
-								'cite',
-								`https://www.tiktok.com/@joekarlsson/video/${videoId}`,
-							);
-							blockquote.setAttribute('data-video-id', videoId);
-							blockquote.style.maxWidth = '100%';
-							blockquote.style.minWidth = '200px';
-							blockquote.innerHTML = `<section><a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@joekarlsson">@joekarlsson</a></section>`;
-							const wrapper = document.createElement('div');
-							wrapper.className = 'overflow-hidden rounded-lg border border-surface-3';
-							wrapper.appendChild(blockquote);
-							container.replaceChild(wrapper, btn);
-							if (!document.querySelector('script[src*="tiktok.com/embed"]')) {
-								const script = document.createElement('script');
-								script.src = 'https://www.tiktok.com/embed.js';
-								script.async = true;
-								document.body.appendChild(script);
-							} else if (window.tiktokEmbed) {
-								window.tiktokEmbed.lib.render();
-							}
-						});
-					});
-				</script>
 
 				<!-- Cat chases mouse animation -->
 				<CatChase />
