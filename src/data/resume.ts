@@ -18,7 +18,7 @@ export interface Role {
 
 export const roles: Role[] = [
 	{
-		company: 'CloudQuery',
+		company: 'CloudQuery (now env0)',
 		title: 'Head of Developer Relations',
 		startYear: 2024,
 		endYear: null,

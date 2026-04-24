@@ -14,7 +14,7 @@ export const summary =
 
 export const roles: Role[] = [
 	{
-		company: 'CloudQuery',
+		company: 'CloudQuery (now env0)',
 		title: 'Senior Developer Advocate',
 		startYear: 2024,
 		endYear: null,
