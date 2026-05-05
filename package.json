@@ -33,7 +33,6 @@
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^5.0.2",
-		"zod": "^4.0.0",
 		"@astrojs/rss": "^4.0.17",
 		"@astrojs/sitemap": "^3.7.1",
 		"@fontsource/inter": "^5.2.8",
@@ -44,7 +43,8 @@
 		"rehype-slug": "^6.0.0",
 		"sharp": "^0.34.3",
 		"tailwindcss": "^4.2.2",
-		"unist-util-visit": "^5.1.0"
+		"unist-util-visit": "^5.1.0",
+		"zod": "^4.0.0"
 	},
 	"overrides": {
 		"fast-xml-parser": "^5.5.6",
@@ -59,7 +59,7 @@
 		"@lhci/cli": "^0.15.1",
 		"@playwright/test": "^1.58.2",
 		"@types/jsdom": "^28.0.1",
-		"cspell": "^9.7.0",
+		"cspell": "^10.0.0",
 		"eslint": "^10.0.3",
 		"eslint-plugin-astro": "^1.6.0",
 		"husky": "^9.1.7",
