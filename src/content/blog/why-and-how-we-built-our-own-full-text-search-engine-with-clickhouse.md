@@ -41,7 +41,7 @@ Before building our own solution, we carefully evaluated external search engines
 
 While all these options provided excellent full-text search capabilities, they presented several limitations for our specific use case:
 
-1. **Memory constraints**: [Most specialized search engines are memory-intensive](https://www.elastic.co/guide/en/elasticsearch/reference/current/memory.html), making them costly to run at the scale we required.
+1. **Memory constraints**: Most specialized search engines are memory-intensive, making them costly to run at the scale we required.
 2. **Operational complexity**: Adding another service to our architecture would increase maintenance overhead.
 3. **Data synchronization challenges**: Our asset inventory data changes frequently (with each sync), requiring continuous reindexing.
 4. **Existing investment**: We already use ClickHouse as our primary analytics database and have deep expertise with it, as documented in our previous post ["Six Months with ClickHouse at CloudQuery"](/blog/six-months-with-clickhouse-at-cloudquery).

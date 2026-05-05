@@ -6,8 +6,6 @@ const config: KnipConfig = {
 		// Font packages imported in Astro components
 		'@fontsource/inter',
 		'@fontsource/jetbrains-mono',
-		// Astro uses sharp internally for image optimization
-		'sharp',
 	],
 	ignoreBinaries: [
 		// lychee is installed via GitHub Action, not npm

@@ -69,7 +69,7 @@ I want to be honest about the limits of what I know here: LLM discoverability me
 
 ## Data is how you get buy-in
 
-Here's the thing I've noticed: when DevRel struggles to get resources or headcount or leadership attention, it's almost never because the work is bad. It's because the work isn't connected to anything leadership already cares about. The [State of Developer Relations 2024 report](https://www.developerrelations.com/state-of-developer-relations) found that 60.7% of DevRel practitioners cite proving impact with data as their top challenge - which means most people in this role already know the problem. The gap is usually execution, not awareness.
+Here's the thing I've noticed: when DevRel struggles to get resources or headcount or leadership attention, it's almost never because the work is bad. It's because the work isn't connected to anything leadership already cares about. The State of Developer Relations 2024 report found that 60.7% of DevRel practitioners cite proving impact with data as their top challenge - which means most people in this role already know the problem. The gap is usually execution, not awareness.
 
 The first time I showed up to a leadership review with a dashboard instead of a list of things I'd done, the dynamic changed. Not because executives love dashboards. Because a dashboard forces you to make claims that can be verified, and verified claims build credibility faster than any amount of storytelling.
 
@@ -330,4 +330,4 @@ If you're running a DevRel program - or trying to make the case for one to skept
 - [DevRel Metrics and Why They Matter](https://thefalc.com/2020/12/devrel-metrics-and-why-they-matter/) by Sean Falconer - North Star metrics framework and how to connect DevRel activity to business outcomes
 - [Developer Relations at GitLab: What We've Learned](https://about.gitlab.com/blog/2024/03/13/developer-relations-at-gitlab-what-weve-learned-since-our-start/) by John Coghlan - five years of lessons on evolving a DevRel program through attention, active users, and revenue phases
 - [The Future of DevRel: Six Shifts Reshaping Developer Engagement in 2026](https://blog.stateshift.com/future-of-devrel-2026/) by Mindy Faieta at Stateshift - good overview of where the industry is heading, especially the LLM discovery and time-to-value shifts
-- [State of Developer Relations 2024](https://www.developerrelations.com/state-of-developer-relations) - 60.7% of DevRel practitioners cite proving impact with data as their top challenge; useful context for why the metrics framing matters
+- State of Developer Relations 2024 - 60.7% of DevRel practitioners cite proving impact with data as their top challenge; useful context for why the metrics framing matters

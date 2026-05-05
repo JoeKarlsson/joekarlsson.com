@@ -31,7 +31,7 @@ exclude = [
 exclude_path = ["404", "hero-illustration", "http:/https:"]
 
 # Accept these status codes as valid
-accept = [200, 204, 301, 302, 307, 403, 429]
+accept = [200, 202, 204, 301, 302, 307, 403, 429]
 
 # Timeout per request (seconds)
 timeout = 30
