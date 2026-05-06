@@ -6,6 +6,7 @@ description: 'Key-value stores are perhaps one of the most popular databases on 
 categories: ['Work']
 heroImage: '/images/blog/how-to-use-singlestore-as-a-key-value-store/img_blog_post_featured_bp-jk-how-to-use-singlestore-as-a-key-value-store.webp'
 heroAlt: 'How to use SingleStore as a key-value store'
+canonicalUrl: 'https://www.singlestore.com/blog/how-to-use-singlestore-as-a-key-value-store/'
 tldr: 'You can skip spinning up a separate key-value database by using SingleStore as one instead. I show you how to create a rowstore table with a hash index and wire it up with Node.js for fast key-value reads and writes using plain SQL.'
 ---
 

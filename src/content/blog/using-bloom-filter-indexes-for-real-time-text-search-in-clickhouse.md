@@ -6,6 +6,7 @@ description: 'Efficient text search is one of the hardest problems in data engin
 categories: ['Work']
 heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/6491f38b8b96dc45ff73fee5_Bloom-filters-Blog-5.webp'
 heroAlt: 'Using bloom filter indexes for real-time text search in ClickHouse'
+canonicalUrl: 'https://www.tinybird.co/blog/using-bloom-filter-text-indexes-in-clickhouse'
 tldr: 'Bloom filter indexes in ClickHouse can speed up text search by 25-90x and reduce scan size by 250-750x on large log datasets. I walk through how they work, how to configure n-gram Bloom filters, and share real benchmark results from a customer use case.'
 ---
 

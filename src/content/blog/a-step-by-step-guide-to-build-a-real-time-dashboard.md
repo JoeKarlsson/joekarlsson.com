@@ -6,6 +6,7 @@ description: 'Can you imagine shipping a new user-facing dashboard only to have 
 categories: ['Work']
 heroImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/64f23ec5d8fe4c29723ee435_Build-a-real-time-dashboard-step-.webp'
 heroAlt: 'Step-by-step guide to building a real-time dashboard with Tinybird and Next.js'
+canonicalUrl: 'https://www.tinybird.co/blog/real-time-dashboard-step-by-step'
 tldr: 'I walk through building a real-time dashboard from scratch using Tinybird for the data backend and Next.js for the frontend. You will learn how to ingest streaming data, write SQL queries, publish them as APIs, and wire it all up to live charts.'
 ---
 
