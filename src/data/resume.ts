@@ -192,6 +192,16 @@ export const writingSamples: WritingSampleGroup[] = [
 				url: 'https://www.tinybird.co/blog/real-time-dashboard-step-by-step',
 				publisher: 'Tinybird',
 			},
+			{
+				title: 'From SQL to NoSQL: A Gentle Intro for Devs',
+				url: 'https://www.youtube.com/watch?v=Y9qSp8kd1u4',
+				publisher: 'Conf42 JavaScript 2020',
+			},
+			{
+				title: 'MongoDB Schema Design Best Practices',
+				url: 'https://www.youtube.com/watch?v=leNCfU5SYR8',
+				publisher: 'MongoDB',
+			},
 		],
 	},
 	{
@@ -236,13 +246,48 @@ export const writingSamples: WritingSampleGroup[] = [
 		],
 	},
 	{
-		category: 'DevRel & Documentation',
+		category: 'Webinars & Conference Talks',
+		items: [
+			{
+				title: 'What is Apache Arrow?',
+				url: 'https://www.youtube.com/watch?v=hVW7kflCyIQ',
+				publisher: 'CloudQuery',
+			},
+			{
+				title: 'Databases and DevOps w/ Rizel Scarlett from GitHub',
+				url: 'https://www.singlestore.com/resources/webinar-databases-and-devops-joe-karlsson-and-rizel-scarlett-github-2022-02/',
+				publisher: 'SingleStore',
+			},
+		],
+	},
+	{
+		category: 'Case Studies',
+		items: [
+			{
+				title: 'Unicorne + CloudQuery Case Study',
+				url: 'https://www.cloudquery.io/blog/unicorne-cloudquery-case-study',
+				publisher: 'CloudQuery',
+			},
+			{
+				title: 'Tempus: Multi-Cloud Asset Inventory',
+				url: 'https://www.cloudquery.io/blog/tempus-multi-cloud-asset-inventory?category=case-studies',
+				publisher: 'CloudQuery',
+			},
+		],
+	},
+	{
+		category: 'DevRel & Strategy',
 		items: [
 			{
 				title: 'What I Learned Running DevRel in 2026',
 				url: 'https://joekarlsson.com/blog/running-devrel-2026/',
 				publisher: 'joekarlsson.com',
 			},
+		],
+	},
+	{
+		category: 'Technical Documentation',
+		items: [
 			{
 				title: 'CloudQuery Platform Documentation',
 				url: 'https://www.cloudquery.io/docs/platform/introduction',
