@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Joe Karlsson - Resume (Runway)</title>
+		<meta name="robots" content="noindex" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				font-size: 9.5pt;
+				line-height: 1.5;
+				color: #1a1a1a;
+				background: #fff;
+				max-width: 8.5in;
+				margin: 0 auto;
+				padding: 0.6in 0.75in;
+			}
+
+			/* ─── Header ─────────────────────────────────────── */
+			.header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				padding-bottom: 10pt;
+				margin-bottom: 12pt;
+				border-bottom: 2pt solid #e8461e;
+			}
+
+			h1 {
+				font-size: 24pt;
+				font-weight: 700;
+				color: #1a1a1a;
+				letter-spacing: -0.5pt;
+				line-height: 1.1;
+			}
+
+			.subtitle {
+				font-size: 11pt;
+				color: #e8461e;
+				font-weight: 500;
+				margin-top: 2pt;
+			}
+
+			.contact {
+				text-align: right;
+				font-size: 8pt;
+				color: #555;
+				line-height: 1.8;
+			}
+
+			/* ─── Section headers ────────────────────────────── */
+			h2 {
+				font-size: 8pt;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 1.5pt;
+				color: #e8461e;
+				border-bottom: 0.5pt solid #ddd;
+				padding-bottom: 2pt;
+				margin-top: 14pt;
+				margin-bottom: 8pt;
+			}
+
+			/* ─── Summary ────────────────────────────────────── */
+			.summary {
+				font-size: 9pt;
+				color: #444;
+				line-height: 1.5;
+				margin-bottom: 14pt;
+			}
+
+			/* ─── Experience ─────────────────────────────────── */
+			.role {
+				margin-bottom: 11pt;
+			}
+
+			.role-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+			}
+
+			.role-title {
+				font-size: 10pt;
+				font-weight: 700;
+				color: #1a1a1a;
+			}
+
+			.role-dates {
+				font-size: 8pt;
+				color: #888;
+				font-family: 'Courier New', monospace;
+				white-space: nowrap;
+			}
+
+			.role-meta {
+				font-size: 8.5pt;
+				color: #e8461e;
+				font-weight: 600;
+				margin-top: 0.5pt;
+				margin-bottom: 4pt;
+			}
+
+			.role-location {
+				color: #aaa;
+				font-weight: 400;
+			}
+
+			.role ul {
+				padding-left: 10pt;
+			}
+
+			.role li {
+				font-size: 8.5pt;
+				color: #333;
+				margin-bottom: 1.5pt;
+				line-height: 1.4;
+			}
+
+			/* ─── Highlights ─────────────────────────────────── */
+			.highlights ul {
+				padding-left: 10pt;
+			}
+
+			.highlights li {
+				font-size: 8.5pt;
+				color: #333;
+				margin-bottom: 1.5pt;
+				line-height: 1.4;
+			}
+
+			/* ─── Skills ─────────────────────────────────────── */
+			.skills-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 6pt 16pt;
+			}
+
+			.skill-label {
+				font-size: 7.5pt;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.5pt;
+				color: #777;
+				margin-bottom: 1.5pt;
+			}
+
+			.skill-items {
+				font-size: 8pt;
+				color: #444;
+				line-height: 1.5;
+			}
+
+			/* ─── Education ──────────────────────────────────── */
+			.edu-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+			}
+
+			.edu-degree {
+				font-size: 10pt;
+				font-weight: 700;
+			}
+
+			.edu-years {
+				font-size: 8pt;
+				color: #888;
+				font-family: 'Courier New', monospace;
+			}
+
+			.edu-school {
+				font-size: 8.5pt;
+				color: #e8461e;
+				font-weight: 600;
+				margin-top: 1pt;
+			}
+
+			.edu-detail {
+				font-size: 8pt;
+				color: #888;
+				margin-top: 1pt;
+			}
+
+			/* ─── Print / page setup ─────────────────────────── */
+			@page {
+				size: letter;
+				margin: 0.6in 0.75in;
+			}
+
+			@media print {
+				body {
+					padding: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div>
+				<h1>Joe Karlsson</h1>
+				<p class="subtitle">Developer Relations Lead</p>
+			</div>
+			<div class="contact">
+				<div>joekarlsson.com</div>
+				<div>joekarlsson1@gmail.com</div>
+				<div>linkedin.com/in/joekarlsson</div>
+				<div>github.com/JoeKarlsson</div>
+			</div>
+		</div>
+
+		<p class="summary">
+			Developer relations lead with 7+ years building developer communities for technical platforms.
+			The work I'm proudest of has always been at the intersection of code and creativity - IoT
+			demos that audiences remembered, TikTok videos that made database concepts actually fun,
+			conference keynotes that stuck. I've built DevRel programs from scratch multiple times, driven
+			measurable API adoption, and I follow generative AI closely enough to have real opinions about
+			where it's going.
+		</p>
+
+		<h2>Experience</h2>
+
+		<div class="role">
+			<div class="role-header">
+				<span class="role-title">Head of Developer Relations</span>
+				<span class="role-dates">2024 - Present</span>
+			</div>
+			<div class="role-meta">
+				CloudQuery (now env0) &middot; <span class="role-location">Remote</span>
+			</div>
+			<ul>
+				<li>
+					Built the entire DevRel function from scratch - content strategy, community, events, video
+					production, social presence - no playbook, no team, full ownership from day one
+				</li>
+				<li>
+					Sole owner of all web properties (marketing site, docs, developer hub); responsible for
+					the full developer experience from first search result to API activation; 373+ PRs merged
+					directly into company apps
+				</li>
+				<li>
+					Built AI automations for content and sales enablement production, enabling the team to
+					scale output without adding headcount
+				</li>
+				<li>
+					Built interactive demos and reference architectures used in conference talks and customer
+					demos - including an end-to-end secure AI data pipelines architecture
+				</li>
+				<li>
+					Produce content across every format: 80+ blog posts, YouTube tutorials, product demo
+					videos, webinar series, and social content across LinkedIn, X, and developer communities;
+					regular conference speaker during event season
+				</li>
+				<li>
+					Developer funnel outcomes: organic MQLs +216% MoM; demo submissions 7x MoM; non-branded
+					organic traffic +44%; search impressions 4.9x to a new all-time high; docs traffic +302%;
+					Quickstart completions from zero to meaningful weekly volume after full docs rewrite
+				</li>
+			</ul>
+		</div>
+
+		<div class="role">
+			<div class="role-header">
+				<span class="role-title">Senior Developer Advocate</span>
+				<span class="role-dates">2023 - 2024</span>
+			</div>
+			<div class="role-meta">Tinybird &middot; <span class="role-location">Remote</span></div>
+			<ul>
+				<li>
+					Built technical integrations for customer demos and proof-of-concepts - including a
+					real-time fraud detection system (33% reduction in fraudulent transactions) and an IoT
+					optimization demo (40% compute cost reduction)
+				</li>
+				<li>
+					Produced technical content, video, and webinars for developer audiences; built community
+					through workshops, online forums, and conference representation
+				</li>
+			</ul>
+		</div>
+
+		<div class="role">
+			<div class="role-header">
+				<span class="role-title">Senior Developer Advocate</span>
+				<span class="role-dates">2021 - 2023</span>
+			</div>
+			<div class="role-meta">SingleStore &middot; <span class="role-location">Remote</span></div>
+			<ul>
+				<li>
+					Led content and video production strategy: technical tutorials, conference talks, and
+					demos for a developer audience
+				</li>
+				<li>
+					Planned and executed developer conference presence end-to-end: talk submissions, booth
+					strategy, event logistics, and post-event amplification
+				</li>
+				<li>
+					Built co-marketing partnerships with cloud providers and tooling partners, coordinating
+					joint content, webinars, and conference activations
+				</li>
+			</ul>
+		</div>
+
+		<div class="role">
+			<div class="role-header">
+				<span class="role-title">Developer Advocate</span>
+				<span class="role-dates">2019 - 2021</span>
+			</div>
+			<div class="role-meta">MongoDB &middot; <span class="role-location">Remote</span></div>
+			<ul>
+				<li>
+					Keynoted at MongoDB World; when COVID hit, pivoted to lead MongoDB's digital growth
+					strategy across Twitch, YouTube, and social - driving developer awareness through an
+					entirely new channel mix
+				</li>
+				<li>
+					Built creative technical demos designed to spark curiosity in creative and developer
+					audiences: IoT digital graffiti board, IoT sensor projects, and dozens more - the kind of
+					builds people remember at conferences
+				</li>
+				<li>
+					Owned live stream and video production; built a 25K+ TikTok following; ranked #1 on
+					"Must-Follow Developers on TikTok"
+				</li>
+				<li>
+					Authored canonical guides and videos on schema design and Atlas that became the reference
+					point for the MongoDB ecosystem; published across MongoDB Developer Hub, The New Stack,
+					and Medium
+				</li>
+			</ul>
+		</div>
+
+		<div class="role">
+			<div class="role-header">
+				<span class="role-title">Front End Technical Lead</span>
+				<span class="role-dates">2017 - 2019</span>
+			</div>
+			<div class="role-meta">
+				Best Buy &middot; <span class="role-location">Minneapolis, MN</span>
+			</div>
+			<ul>
+				<li>
+					Led a cross-functional team of 10 engineers on one of the top 3 largest eCommerce sites in
+					North America - a platform handling millions of users and thousands of requests per second
+				</li>
+				<li>
+					Engineered an AI-driven chatbot using NLP and ML that reduced customer support call volume
+					by 25%
+				</li>
+			</ul>
+		</div>
+
+		<div class="role">
+			<div class="role-header">
+				<span class="role-title">Full-Stack JavaScript Instructor</span>
+				<span class="role-dates">2015 - 2017</span>
+			</div>
+			<div class="role-meta">
+				DevLeague &middot; <span class="role-location">Honolulu, HI</span>
+			</div>
+			<ul>
+				<li>
+					Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide; mentored
+					students into engineering roles at local and national companies
+				</li>
+			</ul>
+		</div>
+
+		<h2>Highlights</h2>
+		<div class="highlights">
+			<ul>
+				<li>
+					TEDx Speaker: "The Art of Computer Science" (delivered as TEDx talk and keynote at
+					multiple conferences)
+				</li>
+				<li>Ranked #1 on "10 Must-Follow Developers on TikTok" - 25K+ followers, 844K+ likes</li>
+				<li>
+					Co-organized "Stupid Shit No One In Hawaii Needs" hackathon (2016), sponsored by GitHub
+					&amp; Frontend Masters
+				</li>
+				<li>
+					Published in The New Stack, MongoDB Developer Hub, Tinybird blog, Medium, DEV Community
+				</li>
+			</ul>
+		</div>
+
+		<h2>Skills</h2>
+		<div class="skills-grid">
+			<div>
+				<div class="skill-label">Languages</div>
+				<div class="skill-items">JavaScript, TypeScript, Python, Go, SQL</div>
+			</div>
+			<div>
+				<div class="skill-label">AI &amp; Automation</div>
+				<div class="skill-items">
+					LLM APIs, Generative AI, AI Workflow Automation, Prompt Engineering, AI-assisted Content
+					Pipelines
+				</div>
+			</div>
+			<div>
+				<div class="skill-label">Frontend</div>
+				<div class="skill-items">React, Redux, Astro, Tailwind CSS, D3.js</div>
+			</div>
+			<div>
+				<div class="skill-label">Cloud</div>
+				<div class="skill-items">AWS, GCP, Azure</div>
+			</div>
+			<div>
+				<div class="skill-label">DevRel</div>
+				<div class="skill-items">
+					Technical Writing, Conference Speaking, Content Strategy, Community Building, Hackathons,
+					Video Production, SEO, Developer Funnel Analytics
+				</div>
+			</div>
+		</div>
+
+		<h2>Education</h2>
+		<div class="edu-row">
+			<span class="edu-degree">Bachelor of Arts, Computer Science</span>
+			<span class="edu-years">2008 - 2012</span>
+		</div>
+		<div class="edu-school">Gustavus Adolphus College</div>
+		<div class="edu-detail">GPA: 3.5 &middot; Minors: Art History, Mathematics</div>
+	</body>
+</html>
