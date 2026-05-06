@@ -166,6 +166,93 @@ export const education = {
 	minors: ['Art History', 'Math'],
 };
 
+export interface WritingSample {
+	title: string;
+	url: string;
+	publisher: string;
+	note?: string;
+}
+
+export interface WritingSampleGroup {
+	category: string;
+	items: WritingSample[];
+}
+
+export const writingSamples: WritingSampleGroup[] = [
+	{
+		category: 'Database: Conceptual',
+		items: [
+			{
+				title: "Database Partitioning vs. Sharding: What's the Difference?",
+				url: 'https://www.singlestore.com/blog/database-sharding-vs-partitioning-whats-the-difference/',
+				publisher: 'SingleStore',
+			},
+			{
+				title: 'A Step-by-Step Guide to Build a Real-Time Dashboard',
+				url: 'https://www.tinybird.co/blog/real-time-dashboard-step-by-step',
+				publisher: 'Tinybird',
+			},
+		],
+	},
+	{
+		category: 'Database: Deep Technical',
+		items: [
+			{
+				title: 'How to Use SingleStore as a Key-Value Store',
+				url: 'https://www.singlestore.com/blog/how-to-use-singlestore-as-a-key-value-store/',
+				publisher: 'SingleStore',
+			},
+			{
+				title: 'Using Bloom Filter Indexes for Real-Time Text Search in ClickHouse',
+				url: 'https://www.tinybird.co/blog/using-bloom-filter-text-indexes-in-clickhouse',
+				publisher: 'Tinybird',
+				note: 'ghost-written',
+			},
+			{
+				title: 'Why and How We Built Our Own Full-Text Search Engine with ClickHouse',
+				url: 'https://www.cloudquery.io/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse',
+				publisher: 'CloudQuery',
+			},
+			{
+				title: 'How We Handle Billion-Row ClickHouse Inserts with UUID Range Bucketing',
+				url: 'https://www.cloudquery.io/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing',
+				publisher: 'CloudQuery',
+			},
+		],
+	},
+	{
+		category: 'Cloud & Data Pipelines',
+		items: [
+			{
+				title: 'Building AI-Powered Cloud Security Data Pipelines',
+				url: 'https://www.cloudquery.io/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection',
+				publisher: 'CloudQuery',
+			},
+			{
+				title: 'Steampipe vs CloudQuery: Architecture and Trade-offs',
+				url: 'https://www.cloudquery.io/blog/steampipe-vs-cloudquery',
+				publisher: 'CloudQuery',
+			},
+		],
+	},
+	{
+		category: 'DevRel & Documentation',
+		items: [
+			{
+				title: 'What I Learned Running DevRel in 2026',
+				url: 'https://joekarlsson.com/blog/running-devrel-2026/',
+				publisher: 'joekarlsson.com',
+			},
+			{
+				title: 'CloudQuery Platform Documentation',
+				url: 'https://www.cloudquery.io/docs/platform/introduction',
+				publisher: 'CloudQuery',
+				note: 'sole author',
+			},
+		],
+	},
+];
+
 export const skills = [
 	{
 		category: 'Languages',

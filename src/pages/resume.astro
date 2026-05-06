@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SOCIAL_LINKS } from '../consts';
-import { roles, education, skills, highlights, openSource } from '../data/resume';
+import { roles, education, skills, highlights, openSource, writingSamples } from '../data/resume';
 
 function formatYearRange(start: number, end: number | null): string {
 	return end ? `${start} - ${end}` : `${start} - Present`;
@@ -203,6 +203,38 @@ function formatYearRange(start: number, end: number | null): string {
 				))
 			}
 		</ul>
+
+		<!-- Writing Samples -->
+		<h2 class="mb-4 text-lg font-bold text-white">
+			<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat writing.md
+		</h2>
+		<div class="mb-10 grid gap-3 sm:grid-cols-2">
+			{
+				writingSamples.map((group) => (
+					<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+						<h3 class="mb-2 font-mono text-xs text-coral">{group.category}</h3>
+						<ul class="space-y-2">
+							{group.items.map((item) => (
+								<li>
+									<a
+										href={item.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="plausible-event-name=Resume+Writing+Sample+Click text-sm text-gray-400 no-underline hover:text-coral leading-snug block"
+									>
+										{item.title}
+									</a>
+									<p class="font-mono text-[10px] text-gray-600">
+										{item.publisher}
+										{item.note && ` — ${item.note}`}
+									</p>
+								</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
 
 		<!-- Open Source & Side Projects -->
 		<h2 class="mb-4 text-lg font-bold text-white">
