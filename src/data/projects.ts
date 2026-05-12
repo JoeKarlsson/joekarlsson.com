@@ -232,6 +232,16 @@ export const projects: Project[] = [
 
 	// Homelab
 	{
+		title: 'Streamroll',
+		description:
+			'AI-generated custom pre-roll intros for Plex. Give it a theme and it chains Runway gen4_image to create a still, then gen4_turbo to animate it into a full video intro - VHS glitch, cinematic nature, neon outrun, whatever you want playing before your movie starts.',
+		image: '/images/projects/streamroll.webp',
+		imageAlt: 'Streamroll - AI Generated Pre-Roll Intros logo on a VHS-style distorted screen',
+		category: 'homelab',
+		tech: ['TypeScript', 'Runway ML', 'Plex', 'AI Video Generation'],
+		sourceUrl: 'https://github.com/JoeKarlsson/streamroll',
+	},
+	{
 		title: 'GPU-Accelerated Subtitle Generator',
 		description:
 			'A production subtitle generation pipeline using GPU-accelerated Whisper (faster-whisper) with NVIDIA CUDA. Features parallel workers, automatic language detection and translation, VRAM-aware scheduling, and time-of-day worker scaling to share GPU resources across services.',
