@@ -235,7 +235,7 @@ export const projects: Project[] = [
 		title: 'Adult Swim Bumper',
 		description:
 			'A CLI tool for generating [adult swim]-style pre-roll bumpers for your personal media server. Define bumpers in YAML, drop in background video clips and music, and render MP4s ready to load into Tunarr. White text cards, fading audio, your server name in brackets at the end — the whole bit.',
-		image: '/images/projects/adult-swim-bumper.webp',
+		image: '/images/projects/adult-swim-bumper-v2.webp',
 		imageAlt: 'City at night with [adult swim bumper] text overlay',
 		category: 'homelab',
 		tech: ['Python', 'ffmpeg', 'Tunarr', 'CLI', 'YAML'],
