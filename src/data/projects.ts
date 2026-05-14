@@ -232,6 +232,16 @@ export const projects: Project[] = [
 
 	// Homelab
 	{
+		title: 'Adult Swim Bumper',
+		description:
+			'A CLI tool for generating [adult swim]-style pre-roll bumpers for your personal media server. Define bumpers in YAML, drop in background video clips and music, and render MP4s ready to load into Tunarr. White text cards, fading audio, your server name in brackets at the end — the whole bit.',
+		image: '/images/projects/adult-swim-bumper.webp',
+		imageAlt: 'City at night with [adult swim bumper] text overlay',
+		category: 'homelab',
+		tech: ['Python', 'ffmpeg', 'Tunarr', 'CLI', 'YAML'],
+		sourceUrl: 'https://github.com/JoeKarlsson/adult-swim-bumper',
+	},
+	{
 		title: 'Streamroll',
 		description:
 			'AI-generated custom pre-roll intros for Plex. Give it a theme and it chains Runway gen4_image to create a still, then gen4_turbo to animate it into a full video intro - VHS glitch, cinematic nature, neon outrun, whatever you want playing before your movie starts.',
