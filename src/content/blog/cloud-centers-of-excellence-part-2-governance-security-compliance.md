@@ -6,7 +6,6 @@ slug: cloud-centers-of-excellence-part-2-governance-security-compliance
 tags:
   - Governance
 categories:
-  - DevRel
   - Databases
 heroImage: /images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumbnail.png
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance

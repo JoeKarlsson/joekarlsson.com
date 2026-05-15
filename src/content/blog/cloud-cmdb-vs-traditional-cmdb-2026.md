@@ -9,7 +9,6 @@ date: 2025-10-20
 description: Traditional CMDBs fail 70-80% (Gartner 2024) due to agent-based architecture and rigid ITIL data models. Cloud CMDBs use API-based discovery and native schemas. Compare architecture, implementation time, and technical approaches for 2026.
 heroImage: /images/blog/cloud-cmdb-vs-traditional-cmdb-2026/thumbnail.png
 categories:
-  - DevRel
   - Databases
 canonicalUrl: https://www.cloudquery.io/blog/cloud-cmdb-vs-traditional-cmdb-2026
 contentNotice: "This post was originally published on CloudQuery's blog."

@@ -7,7 +7,6 @@ date: 2025-09-01
 description: AI applications need fresh, unified data to succeed. CloudQuery delivers faster data movement from 50+ sources to AI destinations like vector databases and training pipelines - privately on your infrastructure.
 heroImage: /images/blog/production-ai-data-pipeline-architectures/thumbnail.png
 categories:
-  - DevRel
   - Databases
 canonicalUrl: https://www.cloudquery.io/blog/production-ai-data-pipeline-architectures
 contentNotice: "This post was originally published on CloudQuery's blog."

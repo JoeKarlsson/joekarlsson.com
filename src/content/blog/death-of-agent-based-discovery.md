@@ -9,7 +9,6 @@ date: 2025-10-24
 description: Agent-based CMDB discovery fails in cloud environments with containers, serverless, and managed services. API-driven discovery costs 90% less and works everywhere.
 heroImage: /images/blog/death-of-agent-based-discovery/thumbnail.png
 categories:
-  - DevRel
   - Databases
 canonicalUrl: https://www.cloudquery.io/blog/death-of-agent-based-discovery
 contentNotice: "This post was originally published on CloudQuery's blog."

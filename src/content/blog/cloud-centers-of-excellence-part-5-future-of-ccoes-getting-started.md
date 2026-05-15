@@ -6,7 +6,6 @@ slug: cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started
 tags:
   - Governance
 categories:
-  - DevRel
   - Databases
 heroImage: /images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/thumbnail.png
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started

@@ -6,7 +6,6 @@ slug: cloud-centers-of-excellence-part-1-building-effective-cloud-governance
 tags:
   - Governance
 categories:
-  - DevRel
   - Databases
 heroImage: /images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumbnail.png
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance

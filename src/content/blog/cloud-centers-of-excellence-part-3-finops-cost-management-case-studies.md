@@ -6,7 +6,6 @@ slug: cloud-centers-of-excellence-part-3-finops-cost-management-case-studies
 tags:
   - Governance
 categories:
-  - DevRel
   - Databases
 heroImage: /images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/thumbnail.png
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies

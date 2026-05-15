@@ -8,7 +8,6 @@ date: 2025-10-24
 description: Traditional CMDBs miss most ephemeral resources because containers live just minutes. Modern cloud CMDBs use tiered sync strategies (15-30 min for critical, hourly for important, daily for baseline). Compare approaches, costs, and learn why ephemeral infrastructure killed traditional discovery.
 heroImage: /images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/thumbnail.png
 categories:
-  - DevRel
   - Databases
 canonicalUrl: https://www.cloudquery.io/blog/real-time-cloud-cmdb-ephemeral-infrastructure
 contentNotice: "This post was originally published on CloudQuery's blog."

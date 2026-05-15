@@ -6,7 +6,6 @@ slug: cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls
 tags:
   - Governance
 categories:
-  - DevRel
   - Databases
 heroImage: /images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumbnail.png
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls

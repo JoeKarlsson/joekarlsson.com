@@ -8,7 +8,6 @@ date: 2025-07-01
 description: CloudQuery's new MCP server lets AI agents directly query your cloud inventory using natural language. Get real dashboards, reports, and analytics from actual infrastructure data across AWS, GCP, Azure, and more.
 heroImage: /images/blog/ai-for-analyzing-your-cloud-asset-inventory/thumbnail.png
 categories:
-  - DevRel
   - Databases
 canonicalUrl: https://www.cloudquery.io/blog/ai-for-analyzing-your-cloud-asset-inventory
 contentNotice: "This post was originally published on CloudQuery's blog."
