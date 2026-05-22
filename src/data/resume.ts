@@ -29,7 +29,7 @@ export const roles: Role[] = [
 			'Built the Developer Relations function from scratch - sole owner of content, community, docs, events, and video; focused on making developers genuinely successful first, business results followed',
 			'Rewrote docs end-to-end: Quickstart completions went from zero to 25/week, docs traffic grew 302%, and docs became a measurable activation channel',
 			'Grew organic traffic 4x in under 3 months (~1,350 → 5,600+ visitors/week); two target keywords reached #1',
-			'Monthly MQLs hit 239% of target; traced a $10K deal directly to a blog post - reader found CloudQuery via Google, consumed 26 sessions of technical content, started a trial, and closed with no paid touchpoints',
+			'Monthly MQLs hit 239% of target; traced a closed deal directly to organic content - reader found CloudQuery via Google, worked through the blog, started a trial, and closed with no paid touchpoints',
 			'Published 80+ technical posts across cloud security, IaC, and data engineering; ran a webinar series, YouTube channel, and spoke at conferences',
 			'Embedded across Engineering, Product, and Sales - attended daily standups and merged 480+ PRs directly into production',
 			'Replicated the content playbook at env0.com post-merger: +106% organic traffic in 3 weeks',
