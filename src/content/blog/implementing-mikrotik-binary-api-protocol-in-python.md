@@ -2,26 +2,26 @@
 title: "Implementing MikroTik's Binary API Protocol in Python from Scratch"
 date: 2026-03-05
 slug: 'implementing-mikrotik-binary-api-protocol-in-python'
-description: "A deep dive into implementing MikroTik's proprietary RouterOS binary API protocol in Python — variable-length encoding, sentence-based messaging, and programmatic network infrastructure control. Zero dependencies, 137 lines."
+description: "A deep dive into implementing MikroTik's proprietary RouterOS binary API protocol in Python - variable-length encoding, sentence-based messaging, and programmatic network infrastructure control. Zero dependencies, 137 lines."
 categories: ['Homelab', 'Networking']
 heroImage: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp'
 heroAlt: 'MikroTik binary API protocol implementation'
 tldr: "I implemented MikroTik's proprietary binary API protocol from scratch in Python to programmatically manage my network infrastructure. The protocol uses variable-length encoding (similar to UTF-8), sentence-based messaging over raw TCP, and plain-text authentication. In ~137 lines of Python, you get full control over bonding, DHCP, firewall rules, and anything else exposed by the RouterOS API."
 ---
 
-My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) runs a MikroTik CRS317 as the 10G backbone switch, handling LACP bonds to two Proxmox hosts and a failover bond to a UniFi switch. When I started managing bonding configurations, DHCP settings, and firewall rules, I wanted to do it programmatically — not by SSHing in and typing commands interactively.
+My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) runs a MikroTik CRS317 as the 10G backbone switch, handling LACP bonds to two Proxmox hosts and a failover bond to a UniFi switch. When I started managing bonding configurations, DHCP settings, and firewall rules, I wanted to do it programmatically - not by SSHing in and typing commands interactively.
 
 [MikroTik routers expose an API](https://help.mikrotik.com/docs/spaces/ROS/pages/47579160/API) on port 8728, but it's not REST. It's not even HTTP. It's a proprietary binary protocol with its own encoding scheme. Most people use existing libraries or just stick with SSH. I decided to implement the protocol from scratch.
 
 ## Why Not Use an Existing Library?
 
-Honestly? I wanted to understand the protocol. MikroTik's documentation describes it at a high level, but the actual byte-level encoding is the kind of thing you only truly understand by implementing it yourself. Plus, the existing Python libraries tend to be heavy — I just wanted a lightweight script I could call from shell scripts and automation.
+Honestly? I wanted to understand the protocol. MikroTik's documentation describes it at a high level, but the actual byte-level encoding is the kind of thing you only truly understand by implementing it yourself. Plus, the existing Python libraries tend to be heavy - I just wanted a lightweight script I could call from shell scripts and automation.
 
-The result is about 137 lines of Python — using only `socket` and `struct` from the standard library — that give me full programmatic control over the router.
+The result is about 137 lines of Python - using only `socket` and `struct` from the standard library - that give me full programmatic control over the router.
 
 ## The Protocol: Sentences and Words
 
-MikroTik's API protocol is built around **sentences** — sequences of **words** terminated by a null byte. Each word is a length-prefixed UTF-8 string. A command looks like this on the wire:
+MikroTik's API protocol is built around **sentences** - sequences of **words** terminated by a null byte. Each word is a length-prefixed UTF-8 string. A command looks like this on the wire:
 
 ```
 [length][word][length][word]...[0x00]
@@ -50,7 +50,7 @@ The clever bit is how word lengths are encoded. Rather than using a fixed 4-byte
 | 2,097,152–268,435,455 | 4          | `1110xxxx xxxxxxxx xxxxxxxx xxxxxxxx`          |
 | 268,435,456+          | 5          | `11110000 xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx` |
 
-If you squint, this looks a lot like UTF-8's encoding scheme — the leading bits are a "type marker" that signals the total length of the field. It's elegant: short API commands (which are the vast majority) use just one byte for the length, while the protocol can still handle arbitrarily large payloads.
+If you squint, this looks a lot like UTF-8's encoding scheme - the leading bits are a "type marker" that signals the total length of the field. It's elegant: short API commands (which are the vast majority) use just one byte for the length, while the protocol can still handle arbitrarily large payloads.
 
 Here's the encoding function:
 
@@ -115,9 +115,9 @@ def connect(self):
         raise Exception(f"Login failed: {response}")
 ```
 
-No tokens, no OAuth, no session cookies. Just username and password over a persistent TCP connection. Security relies on network-level controls — this API should only be accessible from trusted networks.
+No tokens, no OAuth, no session cookies. Just username and password over a persistent TCP connection. Security relies on network-level controls - this API should only be accessible from trusted networks.
 
-> **Security note:** If you need encryption, MikroTik also offers an API-SSL endpoint on port 8729 with TLS. For a homelab on a trusted LAN, plaintext on port 8728 is fine — but don't expose it to the internet.
+> **Security note:** If you need encryption, MikroTik also offers an API-SSL endpoint on port 8729 with TLS. For a homelab on a trusted LAN, plaintext on port 8728 is fine - but don't expose it to the internet.
 
 ## Sending Commands
 
@@ -136,7 +136,7 @@ def command(self, *words):
     return responses
 ```
 
-The `command()` method collects all response sentences until it sees `!done` (success) or `!trap` (error). A single command can return multiple `!re` (record entry) sentences — for example, listing all bonding interfaces returns one `!re` per bond.
+The `command()` method collects all response sentences until it sees `!done` (success) or `!trap` (error). A single command can return multiple `!re` (record entry) sentences - for example, listing all bonding interfaces returns one `!re` per bond.
 
 ## Real-World Usage
 
@@ -158,7 +158,7 @@ python mikrotik-api.py /system/resource/print
 python mikrotik-api.py /ip/dhcp-server/lease/print
 ```
 
-The CLI is generic — any RouterOS API command works without code changes. The output formatter pretty-prints `=key=value` pairs from response sentences, making it easy to pipe into shell scripts.
+The CLI is generic - any RouterOS API command works without code changes. The output formatter pretty-prints `=key=value` pairs from response sentences, making it easy to pipe into shell scripts.
 
 I use this from automation scripts to:
 
@@ -175,6 +175,6 @@ I use this from automation scripts to:
 
 **Sometimes you don't need a library.** At 137 lines, this script is smaller than most library README files. It has zero dependencies beyond Python's standard library. For a homelab tool that runs on a cron job, that's exactly the right level of complexity.
 
-**Raw TCP still has its place.** In a world of REST APIs and GraphQL, there's something satisfying about writing bytes to a socket and parsing the response. The protocol is efficient — no HTTP overhead, no JSON parsing, just compact binary messages over a persistent connection.
+**Raw TCP still has its place.** In a world of REST APIs and GraphQL, there's something satisfying about writing bytes to a socket and parsing the response. The protocol is efficient - no HTTP overhead, no JSON parsing, just compact binary messages over a persistent connection.
 
 The full implementation is straightforward enough that I'd recommend it as a learning exercise for anyone interested in network protocols. There's no better way to understand a protocol than to implement it from scratch.

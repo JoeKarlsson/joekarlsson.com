@@ -2,7 +2,7 @@
 title: 'Building a GPU-Accelerated Subtitle Generator for My Video Library'
 date: 2026-02-05
 slug: 'building-a-gpu-accelerated-subtitle-generator'
-description: 'How I built a self-hosted subtitle generation pipeline using GPU-accelerated Whisper AI on my homelab — with parallel workers, VRAM-aware scheduling, automatic language detection, and a multi-layer hallucination filter. A practical faster-whisper guide for video libraries at scale.'
+description: 'How I built a self-hosted subtitle generation pipeline using GPU-accelerated Whisper AI on my homelab - with parallel workers, VRAM-aware scheduling, automatic language detection, and a multi-layer hallucination filter. A practical faster-whisper guide for video libraries at scale.'
 categories: ['Homelab', 'AI']
 heroImage: '/images/blog/building-a-gpu-accelerated-subtitle-generator/hero.webp'
 heroAlt: 'GPU-accelerated subtitle generation pipeline architecture'
@@ -41,15 +41,15 @@ If you want to build something similar, you'll need:
 
 ## The Problem
 
-The core challenge isn't just transcription — it's doing it **at scale** without destroying everything else running on the same hardware. My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) GPUs (an RTX A4000 and a Quadro RTX 4000) are shared across Plex transcoding, Tdarr video health checks, and [Wyoming Whisper for Home Assistant voice control](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/). I needed a system that could chew through thousands of videos without stepping on other services.
+The core challenge isn't just transcription - it's doing it **at scale** without destroying everything else running on the same hardware. My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) GPUs (an RTX A4000 and a Quadro RTX 4000) are shared across Plex transcoding, Tdarr video health checks, and [Wyoming Whisper for Home Assistant voice control](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/). I needed a system that could chew through thousands of videos without stepping on other services.
 
 The requirements:
 
 - **Automatic language detection** and translation to English
-- **Parallel processing** — one worker is too slow for thousands of files
-- **GPU-aware** — wait gracefully when VRAM is scarce instead of crashing
-- **Incremental** — process new files without re-scanning everything
-- **Reliable** — handle crashes, stale locks, and failures without human intervention
+- **Parallel processing** - one worker is too slow for thousands of files
+- **GPU-aware** - wait gracefully when VRAM is scarce instead of crashing
+- **Incremental** - process new files without re-scanning everything
+- **Reliable** - handle crashes, stale locks, and failures without human intervention
 
 ## Architecture Overview
 
@@ -87,7 +87,7 @@ COMPUTE_TYPE = "float16"
 MIN_VRAM_GB = 5
 ```
 
-Each Whisper process needs about 5GB of VRAM. On the RTX A4000 (16GB), that means a theoretical maximum of 3 concurrent processes — but in practice I run 1-2 to leave headroom for Plex.
+Each Whisper process needs about 5GB of VRAM. On the RTX A4000 (16GB), that means a theoretical maximum of 3 concurrent processes - but in practice I run 1-2 to leave headroom for Plex.
 
 Before processing any video, the script checks GPU availability:
 
@@ -126,17 +126,17 @@ Anyone who's used Whisper at scale knows about hallucinations. Feed it a silent 
 
 I built a multi-layer hallucination filter:
 
-**1. Pattern matching** — Over 200 hardcoded patterns catch common Whisper artifacts:
+**1. Pattern matching** - Over 200 hardcoded patterns catch common Whisper artifacts:
 
 - YouTube-isms: "thank you for watching", "please subscribe"
 - Audio descriptions: "[music]", "[applause]"
 - Foreign subtitle artifacts: "sous-titres", "untertitel"
 
-**2. Repetition detection** — If the same text appears twice in the last 5 segments, or has 80%+ word overlap with a recent segment, it gets filtered.
+**2. Repetition detection** - If the same text appears twice in the last 5 segments, or has 80%+ word overlap with a recent segment, it gets filtered.
 
-**3. Duration check** — Any segment longer than 10 seconds is almost certainly broken and gets rejected.
+**3. Duration check** - Any segment longer than 10 seconds is almost certainly broken and gets rejected.
 
-**4. No-speech markers** — Videos with no detected speech get a `.nospeech` marker file so they're never reprocessed. This alone saves enormous amounts of GPU time on re-runs.
+**4. No-speech markers** - Videos with no detected speech get a `.nospeech` marker file so they're never reprocessed. This alone saves enormous amounts of GPU time on re-runs.
 
 ## Parallel Workers and Atomic Locking
 
@@ -154,7 +154,7 @@ claim_folder() {
 }
 ```
 
-`mkdir` is atomic on all POSIX systems — it either succeeds or fails, with no race condition window. Each lock directory stores the claiming worker's ID and PID, which the scheduler uses for stale lock cleanup:
+`mkdir` is atomic on all POSIX systems - it either succeeds or fails, with no race condition window. Each lock directory stores the claiming worker's ID and PID, which the scheduler uses for stale lock cleanup:
 
 ```bash
 clear_stale_locks() {
@@ -209,7 +209,7 @@ The system supports two complementary approaches:
 
 **Incremental workers** scan all folders looking for individual videos missing subtitle files. They ignore the folder-level progress tracking and instead check each video for a `.en.srt` or `.en.nospeech` file. Perfect for catching newly added content.
 
-Both can run simultaneously — they use the same locking mechanism but different claiming strategies.
+Both can run simultaneously - they use the same locking mechanism but different claiming strategies.
 
 ## Time-of-Day Scaling
 
@@ -227,7 +227,7 @@ Via cron, I run 2 workers from midnight to 4 PM when nobody's streaming, then dr
 
 The output quality is surprisingly good. Word-level timestamps mean subtitles are tightly synced to speech. The VAD filter catches dialogue even through background music (I use an ultra-low threshold of 0.1). And the hallucination filter catches the vast majority of Whisper's creative additions.
 
-The system generates standard `.en.srt` files that any media player can pick up automatically. Plex, Jellyfin, VLC — they all just find the subtitle file and offer it to the user.
+The system generates standard `.en.srt` files that any media player can pick up automatically. Plex, Jellyfin, VLC - they all just find the subtitle file and offer it to the user.
 
 ## What I Learned
 
@@ -239,4 +239,4 @@ The system generates standard `.en.srt` files that any media player can pick up 
 
 **Incremental processing is essential.** Any system that processes thousands of files needs a way to pick up where it left off. The combination of progress files and `.nospeech` markers means I can restart the system at any time without redoing work.
 
-The whole system has been running for months now, churning through my video library a few folders at a time. It's not glamorous infrastructure, but it's the kind of thing that makes a homelab feel like a real production environment — and it's been one of the most satisfying things I've built.
+The whole system has been running for months now, churning through my video library a few folders at a time. It's not glamorous infrastructure, but it's the kind of thing that makes a homelab feel like a real production environment - and it's been one of the most satisfying things I've built.

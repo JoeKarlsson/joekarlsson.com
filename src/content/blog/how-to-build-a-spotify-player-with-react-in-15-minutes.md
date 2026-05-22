@@ -14,7 +14,7 @@ howToSteps:
   - name: 'Register Your Application'
     text: 'Create a new app in the Developer Dashboard, fill out the app form, and set the redirect URI to http://localhost:3000.'
   - name: 'Save Your Client ID'
-    text: 'Note your Client ID from the app details — you will need this to authenticate users via the Spotify API.'
+    text: 'Note your Client ID from the app details - you will need this to authenticate users via the Spotify API.'
   - name: 'Initialize a React App'
     text: 'Run create-react-app and start the dev server with npx create-react-app react-spotify-player && npm start.'
   - name: 'Implement Spotify Authentication'

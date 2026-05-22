@@ -9,7 +9,7 @@ heroAlt: 'Digital graffiti wall interactive art installation'
 tldr: 'The Digital Graffiti Wall is an interactive art installation where audiences draw on a shared 32x32 pixel canvas in their browsers, and their artwork appears in real-time on a physical RGB LED grid. MongoDB Realm handles the real-time synchronization between all connected clients with anonymous authentication and atomic pixel updates.'
 ---
 
-There's something magical about seeing your digital creation appear on a physical object in real-time. The Digital Graffiti Wall is an interactive art installation I built that lets multiple people draw simultaneously on a shared canvas — and then displays their collaborative artwork on a physical RGB LED grid, live.
+There's something magical about seeing your digital creation appear on a physical object in real-time. The Digital Graffiti Wall is an interactive art installation I built that lets multiple people draw simultaneously on a shared canvas - and then displays their collaborative artwork on a physical RGB LED grid, live.
 
 The idea came from wanting to make audience interaction with speakers at tech events more collaborative and visual. (If you like physical computing projects, check out my [IoT Kitty Litter Box](/blog/an-introduction-to-iot-internet-of-toilets/) too.) Instead of just typing questions in a chat, what if everyone in the room could paint on a shared wall together?
 
@@ -19,10 +19,10 @@ The setup is straightforward: attendees open a URL on their phones or laptops, p
 
 The constraints shaped the design:
 
-- **32x32 pixels** — matches common addressable LED matrix sizes
-- **8 colors** — simple enough for quick interaction, limited enough for visual coherence
-- **No accounts** — anonymous access means zero friction at an event
-- **Touch support** — most users would be on phones
+- **32x32 pixels** - matches common addressable LED matrix sizes
+- **8 colors** - simple enough for quick interaction, limited enough for visual coherence
+- **No accounts** - anonymous access means zero friction at an event
+- **Touch support** - most users would be on phones
 
 ## Architecture
 
@@ -64,7 +64,7 @@ Simple, flat, queryable. No nested arrays, no complex schemas. Each pixel is ind
 
 ## The Drawing Interface
 
-The canvas is built from plain HTML divs — no Canvas API, no WebGL. Each of the 1,024 cells is a 20x20 pixel `<div>` with a unique ID encoding its coordinates.
+The canvas is built from plain HTML divs - no Canvas API, no WebGL. Each of the 1,024 cells is a 20x20 pixel `<div>` with a unique ID encoding its coordinates.
 
 Drawing uses pointer events for cross-platform support (mouse, touch, stylus):
 
@@ -88,7 +88,7 @@ This means the UI feels instant even though the database round-trip takes a few 
 
 ## Real-Time Sync with MongoDB Realm
 
-[MongoDB Realm](https://www.mongodb.com/docs/atlas/device-sdks/) (now Atlas Device SDK) handles the heavy lifting. Users authenticate anonymously — no sign-up, no passwords:
+[MongoDB Realm](https://www.mongodb.com/docs/atlas/device-sdks/) (now Atlas Device SDK) handles the heavy lifting. Users authenticate anonymously - no sign-up, no passwords:
 
 ```javascript
 const app = new Realm.App({ id: CONFIG.appID });
@@ -122,11 +122,11 @@ async updateOnePixel(cellID, color) {
 }
 ```
 
-If two people paint the same pixel at the same time, last-write-wins. At a 32x32 resolution with 8 colors, that's totally fine — the collaborative chaos is part of the fun.
+If two people paint the same pixel at the same time, last-write-wins. At a 32x32 resolution with 8 colors, that's totally fine - the collaborative chaos is part of the fun.
 
 ## The Physical Display
 
-The 32x32 grid size isn't arbitrary — it maps to standard addressable RGB LED matrices. [WS2812B](https://learn.adafruit.com/adafruit-neopixel-uberguide) LED strips arranged in a serpentine pattern create a physical display that a microcontroller drives by reading pixel state from the same MongoDB collection.
+The 32x32 grid size isn't arbitrary - it maps to standard addressable RGB LED matrices. [WS2812B](https://learn.adafruit.com/adafruit-neopixel-uberguide) LED strips arranged in a serpentine pattern create a physical display that a microcontroller drives by reading pixel state from the same MongoDB collection.
 
 The data flow is simple: browser writes pixel to database, LED controller reads pixel from database, physical LED updates. The 5-second polling interval means there's a slight delay between drawing and physical display, but at an event with 50+ people drawing simultaneously, the wall is constantly changing anyway.
 
@@ -170,7 +170,7 @@ A "Clear" button resets all pixels to white using a bulk update. This is useful 
 
 The setup is minimal: point a projector at the LED grid (or just let people watch the physical display), share a URL or QR code, and let people draw. The [NES.css](https://nostalgic-css.github.io/NES.css/) styling gives it a retro 8-bit aesthetic that matches the pixel art constraints.
 
-The best moments are when the audience self-organizes — someone starts drawing a recognizable shape and others join in, or competing groups try to "claim" corners of the grid. The constraint of 32x32 pixels forces creativity in a way that a blank whiteboard never would.
+The best moments are when the audience self-organizes - someone starts drawing a recognizable shape and others join in, or competing groups try to "claim" corners of the grid. The constraint of 32x32 pixels forces creativity in a way that a blank whiteboard never would.
 
 ## What I Learned
 

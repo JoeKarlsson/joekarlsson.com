@@ -187,7 +187,7 @@ export const projects: Project[] = [
 	{
 		title: 'CloudQuery Go MCP Server',
 		description:
-			"Built a Go MCP server before Anthropic released an official Go SDK, bridging Claude and Cursor directly to CloudQuery's cloud infrastructure database. AI assistants went from zero database awareness to querying live cloud data mid-conversation — no copy-pasting schemas. Co-authored two posts: the build walkthrough and a hard-won gotchas guide on tool descriptions, naming, and context window limits.",
+			"Built a Go MCP server before Anthropic released an official Go SDK, bridging Claude and Cursor directly to CloudQuery's cloud infrastructure database. AI assistants went from zero database awareness to querying live cloud data mid-conversation - no copy-pasting schemas. Co-authored two posts: the build walkthrough and a hard-won gotchas guide on tool descriptions, naming, and context window limits.",
 		image: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.png',
 		imageAlt: 'CloudQuery Go MCP Server architecture diagram',
 		category: 'dev-tools',
@@ -234,7 +234,7 @@ export const projects: Project[] = [
 	{
 		title: 'Adult Swim Bumper',
 		description:
-			'A CLI tool for generating [adult swim]-style pre-roll bumpers for your personal media server. Define bumpers in YAML, drop in background video clips and music, and render MP4s ready to load into Tunarr. White text cards, fading audio, your server name in brackets at the end — the whole bit.',
+			'A CLI tool for generating [adult swim]-style pre-roll bumpers for your personal media server. Define bumpers in YAML, drop in background video clips and music, and render MP4s ready to load into Tunarr. White text cards, fading audio, your server name in brackets at the end - the whole bit.',
 		image: '/images/projects/adult-swim-bumper-v2.webp',
 		imageAlt: 'City at night with [adult swim bumper] text overlay',
 		category: 'homelab',
