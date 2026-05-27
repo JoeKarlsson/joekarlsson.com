@@ -55,7 +55,7 @@ Forty-plus containers, each configured by hand. Some had documentation. Most did
 
 For maybe a third of them? Probably. For the rest? I'd be digging through forum posts, my own commit history, and months of `journalctl` output trying to reconstruct what I'd actually done. Some configuration had been running so long the original setup was effectively gone - not failing today, just undocumented and unrecoverable the day it did.
 
-That's maintenance fatigue. Not one big failure. The slow accumulation of things you no longer understand.
+> That's maintenance fatigue. Not one big failure. The slow accumulation of things you no longer understand.
 
 The other cost was harder to name. Every time something broke, I had to reconstruct the context from memory: what was installed in that container, how it was configured, what it depended on, when I last touched it.
 
@@ -119,7 +119,7 @@ Ansible: operational layer
 
 ![Expanding Brain meme: 'SSH into containers and hope you remember what you did' / 'Ansible playbooks' / 'OpenTofu with MinIO state backend' / 'OpenTofu + Ansible + MinIO + 86 health checks + 50 git commits'](/images/blog/opentofu-proxmox-immutable-homelab/expanding-brain.webp)
 
-The key insight: OpenTofu is for "what exists." Ansible is for "what runs on what exists." MinIO is what makes OpenTofu's state durable.
+> **The key insight:** OpenTofu is for "what exists." Ansible is for "what runs on what exists." MinIO is what makes OpenTofu's state durable.
 
 ## Write One Script, Call It 62 Times
 
@@ -190,7 +190,7 @@ The migration went in waves:
 | Wave 5 | 8        | NPM, Authentik, MariaDB, Zigbee2MQTT                   | High - critical infra |
 | VMs    | 1        | Home Assistant OS                                      | Medium                |
 
-The rule at every wave: never destroy the old container until the new one has been verified for at least 24-48 hours.
+> **The rule at every wave:** never destroy the old container until the new one has been verified for at least 24-48 hours.
 
 ## What broke during the migration (there was a lot)
 
