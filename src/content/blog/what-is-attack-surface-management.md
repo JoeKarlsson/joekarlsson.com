@@ -15,7 +15,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 > **Note:** Attack surface management finds what attackers can reach, including resources your security team doesn't know exist. Unlike CSPM (which audits known configurations) or vulnerability management (which scans for CVEs), ASM starts from the attacker's perspective and asks what's reachable from outside. CloudQuery gives cloud teams a continuously updated attack surface inventory across AWS, GCP, and Azure, queryable in SQL.
 
-In 2022, researchers at Tenable [found that 62% of organizations have unknown or undiscovered assets](https://www.tenable.com/blog/the-attack-surface-problem) on their attack surface. Not misconfigured - unknown. Resources that security teams didn't know existed, exposed to the internet, available for attackers to find.
+In 2022, researchers at Tenable found that 62% of organizations have unknown or undiscovered assets on their attack surface. Not misconfigured - unknown. Resources that security teams didn't know existed, exposed to the internet, available for attackers to find.
 
 This is the problem attack surface management (ASM) was built to solve: not just scanning what you know about, but finding everything that could be targeted.
 

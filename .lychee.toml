@@ -24,7 +24,14 @@ exclude = [
   "mckinsey\\.com",
   "last\\.fm",
   "bechdel\\.io",
-  "audiopro\\.com"
+  "audiopro\\.com",
+  "pi-hole\\.net",
+  "raspberrytips\\.com",
+  "building\\.calibreapp\\.com",
+  "docs\\.atlas\\.mongodb\\.com",
+  "docs\\.mongodb\\.com",
+  "gdpr\\.eu",
+  "icebreakers\\.ws"
 ]
 
 # Exclude paths that don't map to files or are known broken
