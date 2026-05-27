@@ -317,3 +317,25 @@ That's a lot of things that aren't `tofu apply`. Each one takes real time — wh
 **Some stuff will get lost.** Config that was never written down won't survive the migration intact. Find it when things break, write it in code. It's a process.
 
 The homelab is never really done. This is just what the current chapter looks like: 62 containers, 21,135 lines of provision script code, and a git log that shows every decision I've made since May 23rd. Worth it for me.
+
+## Frequently Asked Questions
+
+### How long does it take to migrate an existing Proxmox homelab to OpenTofu?
+
+It depends on how many containers you have and how documented they are. I migrated 62 containers across 6 intensive days of active work after months of auditing with health checks. Stateless services take 30–60 minutes each. Stateful services with databases or media libraries take 2–4 hours including verification time.
+
+### Do I need Terraform Cloud or a paid service to use OpenTofu with Proxmox?
+
+No. I use [MinIO](https://min.io) — a self-hosted S3-compatible object store running as a Proxmox LXC container — as the state backend. It costs nothing, versioning is enabled for rollback, and it runs entirely on my own hardware.
+
+### Can I use OpenTofu with Proxmox containers that are already running?
+
+Yes, but with care. For stateless services, provision the new container alongside the old one, verify it works, then retire the old one. For stateful services with databases or persistent data, run both in parallel for 24–48 hours before shutting down the original. Never destroy the old container first.
+
+### What is the difference between OpenTofu and Terraform for Proxmox?
+
+For Proxmox homelab use, the practical difference is minimal — both use the same [bpg/proxmox provider](https://github.com/bpg/terraform-provider-proxmox) and the same HCL syntax. [OpenTofu](https://opentofu.org) is a Linux Foundation open-source fork created after HashiCorp changed Terraform from MPL 2.0 to the Business Source License in August 2023. I chose OpenTofu to avoid future licensing surprises on my personal infrastructure.
+
+### Should I use OpenTofu or Ansible for my homelab?
+
+Both, but for different jobs. OpenTofu manages what exists — it creates containers and provisions initial setup. [Ansible](https://www.ansible.com) handles operational tasks across existing containers: bulk config changes, deploying monitoring agents, ad-hoc operations across multiple hosts. They complement each other rather than compete.
