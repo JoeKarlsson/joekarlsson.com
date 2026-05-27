@@ -1,3 +1,8 @@
+# REFERENCE ONLY — not deployed by deploy.sh
+# The live Caddyfile is managed by OpenTofu:
+#   ~/claude/opentofu/services/joekarlsson-astro/provision.sh.tpl
+# To update Caddy config: edit that file and run tofu apply from that directory.
+
 :80 {
 	# Serve static files from Astro build output
 	root * /var/www/joekarlsson.com

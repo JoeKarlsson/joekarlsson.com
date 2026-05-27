@@ -15,14 +15,20 @@ fi
 echo "Building site..."
 npm run build
 
-echo "Deploying to CT 165..."
-rsync -avz --delete dist/ root@192.168.0.165:/var/www/joekarlsson.com/
+# CT 165 is immutable — managed by OpenTofu.
+# Direct SSH/rsync/scp to the container is forbidden.
+# tofu apply detects dist/index.html has changed and pushes content via push_content resource.
+#
+# To update the Caddyfile: edit ~/claude/opentofu/services/joekarlsson-astro/provision.sh.tpl
+# and run tofu apply from that directory — do NOT scp Caddyfile directly.
+TOFU_DIR="$HOME/claude/opentofu/services/joekarlsson-astro"
+if [[ ! -f "$TOFU_DIR/terraform.tfvars" ]]; then
+    echo "ERROR: $TOFU_DIR/terraform.tfvars not found"
+    exit 1
+fi
 
-echo "Updating Caddyfile..."
-scp Caddyfile root@192.168.0.165:/etc/caddy/Caddyfile
-
-echo "Reloading Caddy..."
-ssh root@192.168.0.165 "systemctl reload caddy"
+echo "Deploying to CT 165 via OpenTofu..."
+(cd "$TOFU_DIR" && tofu apply -var-file=terraform.tfvars -auto-approve)
 
 echo "Deployed to origin server"
 

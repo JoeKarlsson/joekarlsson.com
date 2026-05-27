@@ -2,7 +2,7 @@
 
 ## Site Overview
 
-Astro v6 static site replacing WordPress. Deployed via rsync to Caddy server at 192.168.0.165.
+Astro v6 static site. Served by Caddy on CT 165 (192.168.0.165), managed by OpenTofu at `~/claude/opentofu/services/joekarlsson-astro/`.
 
 ## Writing Content
 
@@ -16,9 +16,14 @@ Astro v6 static site replacing WordPress. Deployed via rsync to Caddy server at 
 ## Build & Deploy
 
 ```bash
-npm run build      # Build static site
-./deploy.sh        # Build + rsync to server
+npm run build      # Build static site to ./dist/
+./deploy.sh        # Build + deploy via OpenTofu (tofu apply) + purge Cloudflare cache
 ```
+
+**CT 165 is immutable.** Never SSH/rsync/scp directly to `192.168.0.165`.
+
+- **Content deploy**: `./deploy.sh` (builds + runs `tofu apply` which detects `dist/index.html` changed)
+- **Caddyfile changes**: Edit `~/claude/opentofu/services/joekarlsson-astro/provision.sh.tpl`, then run `tofu apply` from that directory. The `Caddyfile` in this repo is kept as a reference but is **not deployed by deploy.sh**.
 
 ## Blog Posts
 
