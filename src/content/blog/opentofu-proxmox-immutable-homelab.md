@@ -59,7 +59,7 @@ For maybe a third of them? Probably. For the rest? I'd be digging through forum 
 
 The other cost was harder to name. Every time something broke, I had to reconstruct the context from memory: what was installed in that container, how it was configured, what it depended on, when I last touched it.
 
-For one container that's fine. For forty-plus, that's a real cognitive load — and I'd been carrying it for years without noticing. That's what I wanted to offload. Not the downtime. The overhead.
+For one container that's fine. For forty-plus, that's a real cognitive load, and I'd been carrying it for years without noticing. That's what I wanted to offload. Not the downtime. The overhead.
 
 ## 86 health checks before I touched a config file
 
@@ -81,7 +81,7 @@ People ask if this is just Ansible with extra steps. It's not. They solve differ
 
 **[OpenTofu](https://opentofu.org)** manages what _exists_. It talks to the Proxmox API, creates LXC containers, assigns resources, and runs the provision script. It knows what should be there and what actually is there. `tofu plan` shows the diff. `tofu apply` reconciles them. State drift becomes detectable instead of invisible.
 
-**[MinIO](https://min.io)** is the state backend. It runs as CT 202 on my own hardware — S3-compatible, versioned. Every `tofu apply` writes state there. No Terraform Cloud. No recurring cost. No data leaving my network.
+**[MinIO](https://min.io)** is the state backend. It runs as CT 202 on my own hardware, S3-compatible and versioned. Every `tofu apply` writes state there. No Terraform Cloud. No recurring cost. No data leaving my network.
 
 **[Ansible](https://www.ansible.com)** handles what OpenTofu doesn't: operational tasks across existing containers. Deploying Promtail config changes to all 62 hosts at once. Running health checks. Ad-hoc operations that don't fit the "single container state" model. Ansible doesn't track what exists - it just does things. That's fine when you're operating on containers OpenTofu already knows about.
 
@@ -127,7 +127,7 @@ The design decision that made this manageable: a single reusable module.
 
 `modules/proxmox-lxc/` defines a standard Debian 12 LXC baseline - networking, DNS, resource limits, disk, optional Docker support, optional GPU passthrough, optional NAS bind-mounts. Every service calls this module. The differences between containers live in variables: VMID, IP, hostname, resource allocation, what to install.
 
-The other half is `provision.sh.tpl`. This bash script runs inside the container after OpenTofu creates it. It installs packages, writes config files, creates systemd units, enables services, sets up Promtail, and sets up Prometheus node-exporter. One script per service. Idempotent — running it twice produces the same result as running it once.
+The other half is `provision.sh.tpl`. This bash script runs inside the container after OpenTofu creates it. It installs packages, writes config files, creates systemd units, enables services, sets up Promtail, and sets up Prometheus node-exporter. One script per service. Idempotent: running it twice produces the same result as running it once.
 
 Here's what a typical one looks like (Sonarr, condensed):
 
@@ -172,7 +172,7 @@ systemctl enable --now sonarr
 log "Provision complete."
 ```
 
-The `$${hostname}` and `$${container_ip}` are OpenTofu template variables — substituted at apply time. Everything else is plain bash. The `if [ ! -f ... ]` guard is the idempotency pattern: only install if missing, safe to re-run.
+The `$${hostname}` and `$${container_ip}` are OpenTofu template variables, substituted at apply time. Everything else is plain bash. The `if [ ! -f ... ]` guard is the idempotency pattern: only install if missing, safe to re-run.
 
 Every container gets observability by default. Prometheus node-exporter and Promtail are in the module, not in each provision script. You get metrics and log shipping whether you think to add them or not.
 
@@ -241,7 +241,7 @@ One benefit I didn't anticipate: AI coding agents like [Claude Code](/blog/build
 
 ## One week later
 
-Troubleshooting is easier. Not dramatically — I'm not claiming this solved everything. But when something breaks now, I have a document that says what the container should be doing. Start there. Compare reality to the spec. The gap is usually where the problem is.
+Troubleshooting is easier. Not dramatically. I'm not claiming this solved everything. But when something breaks now, I have a document that says what the container should be doing. Start there. Compare reality to the spec. The gap is usually where the problem is.
 
 Real example from last week: Lidarr was OOMing. Old me would have SSHed in, poked around, maybe found it. New me opened the provision script, checked the memory limit, pulled up the Prometheus graph showing it pegging the ceiling, bumped the limit in `main.tf`, ran `tofu apply`. Ten minutes. And now there's a commit that says exactly what changed and why.
 
@@ -280,14 +280,14 @@ I build things when I start experiencing pain - not because I read a best practi
 - You've been managing this for a couple years and keeping every container's full state in your head for every troubleshooting session has become the real overhead
 - 10+ containers you couldn't rebuild from scratch if they died tonight
 - You've asked "what did I do to this thing six months ago?" and had nothing to go back to
-- Drift detection matters — knowing when what's actually running no longer matches what you think you configured
+- Drift detection matters: knowing when what's actually running no longer matches what you think you configured
 - You want AI agents like Claude Code to read your infrastructure and actually help debug, without you reconstructing context from memory every session
 
 **Probably not worth it if:**
 
 - You stood up Proxmox last month. Come back in a year.
 - You have 3-5 containers that are already documented
-- The hands-on tinkering IS the hobby — you genuinely like SSHing in and making live changes
+- The hands-on tinkering IS the hobby. You genuinely like SSHing in and making live changes.
 - You won't commit to keeping provision scripts current. Half-committed IaC is worse than none.
 
 The setup cost is real. The payoff is real. Where that lands is different for everyone.
@@ -308,9 +308,9 @@ The setup cost is real. The payoff is real. Where that lands is different for ev
 | Observability | Promtail shipping logs to Loki; Prometheus scraping node-exporter                                         |
 | Access        | DHCP reservation confirmed; NPM reverse proxy updated; Authentik SSO configured                           |
 | Monitoring    | Uptime Kuma monitor green; health check script written, deployed, exits 0                                 |
-| Documentation | Ansible inventory, CLAUDE.md ×2, VMID registry, migration plan — all updated; old CT retired after 24h+   |
+| Documentation | Ansible inventory, CLAUDE.md ×2, VMID registry, migration plan, all updated; old CT retired after 24h+    |
 
-That's a lot of things that aren't `tofu apply`. Each one takes real time — which is why "one container at a time" is the only approach that works.
+That's a lot of things that aren't `tofu apply`. Each one takes real time, which is why "one container at a time" is the only approach that works.
 
 **The feedback cycle is longer. Accept it before you start.** You'll miss SSH + edit + done. You won't miss rebuilding a container from scratch because it died and you had no notes.
 
@@ -322,20 +322,20 @@ The homelab is never really done. This is just what the current chapter looks li
 
 ### How long does it take to migrate an existing Proxmox homelab to OpenTofu?
 
-It depends on how many containers you have and how documented they are. I migrated 62 containers across 6 intensive days of active work after months of auditing with health checks. Stateless services take 30–60 minutes each. Stateful services with databases or media libraries take 2–4 hours including verification time.
+It depends on how many containers you have and how documented they are. I migrated 62 containers across 6 intensive days of active work after months of auditing with health checks. Stateless services take 30-60 minutes each. Stateful services with databases or media libraries take 2-4 hours including verification time.
 
 ### Do I need Terraform Cloud or a paid service to use OpenTofu with Proxmox?
 
-No. I use [MinIO](https://min.io) — a self-hosted S3-compatible object store running as a Proxmox LXC container — as the state backend. It costs nothing, versioning is enabled for rollback, and it runs entirely on my own hardware.
+No. I use [MinIO](https://min.io) (a self-hosted S3-compatible object store running as a Proxmox LXC container) as the state backend. It costs nothing, versioning is enabled for rollback, and it runs entirely on my own hardware.
 
 ### Can I use OpenTofu with Proxmox containers that are already running?
 
-Yes, but with care. For stateless services, provision the new container alongside the old one, verify it works, then retire the old one. For stateful services with databases or persistent data, run both in parallel for 24–48 hours before shutting down the original. Never destroy the old container first.
+Yes, but with care. For stateless services, provision the new container alongside the old one, verify it works, then retire the old one. For stateful services with databases or persistent data, run both in parallel for 24-48 hours before shutting down the original. Never destroy the old container first.
 
 ### What is the difference between OpenTofu and Terraform for Proxmox?
 
-For Proxmox homelab use, the practical difference is minimal — both use the same [bpg/proxmox provider](https://github.com/bpg/terraform-provider-proxmox) and the same HCL syntax. [OpenTofu](https://opentofu.org) is a Linux Foundation open-source fork created after HashiCorp changed Terraform from MPL 2.0 to the Business Source License in August 2023. I chose OpenTofu to avoid future licensing surprises on my personal infrastructure.
+For Proxmox homelab use, the practical difference is minimal: both use the same [bpg/proxmox provider](https://github.com/bpg/terraform-provider-proxmox) and the same HCL syntax. [OpenTofu](https://opentofu.org) is a Linux Foundation open-source fork created after HashiCorp changed Terraform from MPL 2.0 to the Business Source License in August 2023. I chose OpenTofu to avoid future licensing surprises on my personal infrastructure.
 
 ### Should I use OpenTofu or Ansible for my homelab?
 
-Both, but for different jobs. OpenTofu manages what exists — it creates containers and provisions initial setup. [Ansible](https://www.ansible.com) handles operational tasks across existing containers: bulk config changes, deploying monitoring agents, ad-hoc operations across multiple hosts. They complement each other rather than compete.
+Both, but for different jobs. OpenTofu manages what exists: it creates containers and provisions initial setup. [Ansible](https://www.ansible.com) handles operational tasks across existing containers: bulk config changes, deploying monitoring agents, ad-hoc operations across multiple hosts. They complement each other rather than compete.
