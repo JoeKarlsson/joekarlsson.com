@@ -34,3 +34,11 @@ jobs:
           content-filepath: ./lychee/out.md
           labels: maintenance
           update-existing: true
+      - name: Close resolved link issues
+        if: steps.lychee.outputs.exit_code == 0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --state open --label maintenance --json number,title \
+            --jq '.[] | select(.title == "Broken external links detected") | .number' \
+            | xargs -r -I{} gh issue close {} --comment "All external links are now passing. Closing automatically."

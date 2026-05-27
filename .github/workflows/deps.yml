@@ -66,6 +66,14 @@ jobs:
           content-filepath: /tmp/outdated.md
           labels: dependencies,maintenance
           update-existing: true
+      - name: Close resolved dependency issues
+        if: steps.outdated.outputs.has_outdated == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --state open --label dependencies --json number,title \
+            --jq '.[] | select(.title == "Outdated npm dependencies detected") | .number' \
+            | xargs -r -I{} gh issue close {} --comment "All dependencies are now up to date. Closing automatically."
 
   audit:
     name: Security Audit
@@ -111,3 +119,11 @@ jobs:
           content-filepath: /tmp/audit.md
           labels: security,maintenance
           update-existing: true
+      - name: Close resolved security issues
+        if: steps.audit.outputs.has_vulns == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --state open --label security --json number,title \
+            --jq '.[] | select(.title == "npm security vulnerabilities detected") | .number' \
+            | xargs -r -I{} gh issue close {} --comment "No security vulnerabilities detected. Closing automatically."
