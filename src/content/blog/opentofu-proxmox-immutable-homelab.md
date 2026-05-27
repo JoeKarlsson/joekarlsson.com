@@ -15,7 +15,7 @@ faq:
   - question: 'Can I use OpenTofu with Proxmox containers that are already running?'
     answer: 'Yes, but with care. For stateless services, provision the new container alongside the old one, verify it works, then retire the old one. For stateful services with databases or persistent data, run both in parallel for 24-48 hours before shutting down the original. Never destroy the old container first.'
   - question: 'What is the difference between OpenTofu and Terraform for Proxmox?'
-    answer: 'For Proxmox homelab use, the practical difference is minimal - both use the same bpg/proxmox provider and the same HCL syntax. OpenTofu is a Linux Foundation open-source fork created after HashiCorp changed Terraform from MPL 2.0 to the Business Source License in August 2023. I chose OpenTofu to avoid future licensing surprises on my personal infrastructure.'
+    answer: 'For Proxmox homelab use, the practical difference is minimal - both use the same bpg/proxmox provider (https://github.com/bpg/terraform-provider-proxmox) and the same HCL syntax. OpenTofu is a Linux Foundation open-source fork created after HashiCorp changed Terraform from MPL 2.0 to the Business Source License in August 2023. I chose OpenTofu to avoid future licensing surprises on my personal infrastructure.'
   - question: 'Should I use OpenTofu or Ansible for my homelab?'
     answer: 'Both, but for different jobs. OpenTofu manages what exists - it creates containers and provisions initial setup. Ansible handles operational tasks across existing containers - bulk config changes, deploying monitoring agents, ad-hoc operations across multiple hosts. They complement each other rather than compete.'
 howToSteps:
@@ -79,11 +79,11 @@ Trying to document what I had made it obvious why it couldn't stay that way. Tha
 
 People ask if this is just Ansible with extra steps. It's not. They solve different problems and I use all three.
 
-**OpenTofu** manages what _exists_. It talks to the Proxmox API, creates LXC containers, assigns resources, and runs the provision script. It knows what should be there and what actually is there. `tofu plan` shows the diff. `tofu apply` reconciles them. State drift becomes detectable instead of invisible.
+**[OpenTofu](https://opentofu.org)** manages what _exists_. It talks to the Proxmox API, creates LXC containers, assigns resources, and runs the provision script. It knows what should be there and what actually is there. `tofu plan` shows the diff. `tofu apply` reconciles them. State drift becomes detectable instead of invisible.
 
-**MinIO** is the state backend. It runs as CT 202 on my own hardware — S3-compatible, versioned. Every `tofu apply` writes state there. No Terraform Cloud. No recurring cost. No data leaving my network.
+**[MinIO](https://min.io)** is the state backend. It runs as CT 202 on my own hardware — S3-compatible, versioned. Every `tofu apply` writes state there. No Terraform Cloud. No recurring cost. No data leaving my network.
 
-**Ansible** handles what OpenTofu doesn't: operational tasks across existing containers. Deploying Promtail config changes to all 62 hosts at once. Running health checks. Ad-hoc operations that don't fit the "single container state" model. Ansible doesn't track what exists - it just does things. That's fine when you're operating on containers OpenTofu already knows about.
+**[Ansible](https://www.ansible.com)** handles what OpenTofu doesn't: operational tasks across existing containers. Deploying Promtail config changes to all 62 hosts at once. Running health checks. Ad-hoc operations that don't fit the "single container state" model. Ansible doesn't track what exists - it just does things. That's fine when you're operating on containers OpenTofu already knows about.
 
 ```
 Git repo (opentofu/)
