@@ -38,7 +38,7 @@
 		"@fontsource/inter": "^5.2.8",
 		"@fontsource/jetbrains-mono": "^5.2.8",
 		"@tailwindcss/vite": "^4.2.2",
-		"astro": "6.2.x",
+		"astro": "6.4.x",
 		"rehype-autolink-headings": "^7.1.0",
 		"rehype-slug": "^6.0.0",
 		"sharp": "^0.34.3",
