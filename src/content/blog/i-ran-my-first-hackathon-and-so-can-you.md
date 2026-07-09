@@ -191,7 +191,7 @@ Offer a variety of workshops to the public, with a variety of languages and topi
 
 ### **Prizes**
 
-I find that prizes can be a great way to market your event, but you need to be careful about the prizes you offer, as they can severely affect the mood of your event. For example, large cash prizes can make the event more competitive, which might turn off lots of inexperienced programmers, future programmers, and future technology leaders. The folks over at Major League Hacking wrote up a [much better](http://news.mlh.io/are-hackathon-prizes-the-worst-thing-since-moldy-sliced-bread-04-18-2014) article than I could ever hope to write about how to select “good” prizes for your event. I encourage you to check out their take on what makes a great or terrible hackathon prize.
+I find that prizes can be a great way to market your event, but you need to be careful about the prizes you offer, as they can severely affect the mood of your event. For example, large cash prizes can make the event more competitive, which might turn off lots of inexperienced programmers, future programmers, and future technology leaders. The folks over at Major League Hacking have written about how to select “good” prizes for your event - it's worth thinking carefully about whether prizes drive the kind of participation you actually want.
 
 ### **Swag**
 
@@ -377,4 +377,3 @@ Do you have more ideas for how to run a hackathon – let me know. This was only
 
 - [http://alexeymk.com/hosting-hackathons/](http://alexeymk.com/hosting-hackathons/)
 - [https://hackathon.guide/](https://hackathon.guide/)
-- [http://news.mlh.io/are-hackathon-prizes-the-worst-thing-since-moldy-sliced-bread-04-18-2014](http://news.mlh.io/are-hackathon-prizes-the-worst-thing-since-moldy-sliced-bread-04-18-2014)

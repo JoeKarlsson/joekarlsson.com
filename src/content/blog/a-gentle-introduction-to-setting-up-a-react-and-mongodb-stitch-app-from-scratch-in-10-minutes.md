@@ -82,7 +82,7 @@ Enter `todos` for the **Database Name**. Enter `item` for the **Collection
 
 ![Add Collection dialog with todos database and item collection](/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/vgZ-OI69Q7IqPRLS4yB5Gg.webp)
 
-You should now see the **Permissions** tab of the rules for the *`item`collection*, and the default role doesn’t allow any user to read or write to the collection.
+You should now see the **Permissions** tab of the rules for the _`item`collection_, and the default role doesn’t allow any user to read or write to the collection.
 
 To enable reading and writing to the `comments` collection:
 

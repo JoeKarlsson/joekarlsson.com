@@ -31,7 +31,9 @@ exclude = [
   "docs\\.atlas\\.mongodb\\.com",
   "docs\\.mongodb\\.com",
   "gdpr\\.eu",
-  "icebreakers\\.ws"
+  "icebreakers\\.ws",
+  "dykestowatchoutfor\\.com",
+  "sonoff\\.tech"
 ]
 
 # Exclude paths that don't map to files or are known broken
