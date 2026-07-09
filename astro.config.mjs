@@ -2,6 +2,7 @@
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -19,26 +20,28 @@ export default defineConfig({
 		shikiConfig: {
 			theme: 'github-dark',
 		},
-		rehypePlugins: [
-			rehypeYouTubeEmbed,
-			rehypeSlug,
-			[
-				rehypeAutolinkHeadings,
-				{
-					behavior: 'append',
-					properties: {
-						className: ['heading-anchor'],
-						ariaLabel: 'Link to section',
+		processor: unified({
+			rehypePlugins: [
+				rehypeYouTubeEmbed,
+				rehypeSlug,
+				[
+					rehypeAutolinkHeadings,
+					{
+						behavior: 'append',
+						properties: {
+							className: ['heading-anchor'],
+							ariaLabel: 'Link to section',
+						},
+						content: {
+							type: 'element',
+							tagName: 'span',
+							properties: { ariaHidden: 'true' },
+							children: [{ type: 'text', value: '#' }],
+						},
 					},
-					content: {
-						type: 'element',
-						tagName: 'span',
-						properties: { ariaHidden: 'true' },
-						children: [{ type: 'text', value: '#' }],
-					},
-				},
+				],
 			],
-		],
+		}),
 	},
 	redirects: {
 		// WordPress date-based blog URLs → new /blog/slug pattern
