@@ -229,7 +229,7 @@ describe('Terminal Core - Command Handlers', () => {
 		it('returns user info', () => {
 			const result = cmdWhoami();
 			expect(result.join('\n')).toContain('joe-karlsson');
-			expect(result.join('\n')).toContain('developer advocate');
+			expect(result.join('\n')).toContain('developer marketing engineer');
 		});
 	});
 

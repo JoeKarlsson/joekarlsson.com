@@ -6,7 +6,7 @@ export async function GET() {
 
 	const body = `# Joe Karlsson
 
-> Software Engineer and Developer Advocate specializing in data engineering, developer experience, and real-time data systems. Currently at CloudQuery. TEDx speaker, 100+ conference talks, 100,000+ social media followers. Runs a 40+ container Proxmox homelab with AI-powered smart home automations. CS degree from Gustavus Adolphus College. Writing about databases, data pipelines, smart homes, developer tools, and the things I build.
+> Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker, 100+ conference talks, 100,000+ social media followers. Runs a 40+ container Proxmox homelab with AI-powered smart home automations. CS degree from Gustavus Adolphus College. Writing about databases, data pipelines, smart homes, developer tools, and the things I build.
 
 This file offers a summary. For full details, see [llms-full.txt](https://www.joekarlsson.com/llms-full.txt).
 
@@ -24,7 +24,7 @@ This file offers a summary. For full details, see [llms-full.txt](https://www.jo
 ## Areas of Expertise
 
 - **Data Engineering & Databases**: ClickHouse, MongoDB, SingleStore, real-time analytics, CDC, schema design, sharding, partitioning, data pipelines, ELT
-- **Developer Experience**: Developer advocacy, developer tools, API design, documentation, community building
+- **Developer Marketing & Experience**: Developer marketing, developer advocacy, developer tools, API design, documentation, SEO/AEO, community building
 - **Infrastructure & Self-Hosting**: Proxmox, LXC containers, Home Assistant, 10G networking, GPU passthrough, local AI inference
 
 ## Featured Projects
@@ -91,8 +91,9 @@ Joe is available for conference talks, podcast guest spots, webinars, and techni
 
 ## Experience
 
-- **CloudQuery** (2025-Present): Developer Advocate - building developer content and community for the open-source ELT framework for data pipelines and cloud infrastructure
-- **Tinybird** (2023-2025): Developer Advocate - real-time analytics and data APIs
+- **CData** (2026-Present): Principal Developer Marketing Manager - leading developer growth for the managed MCP platform that connects AI agents to live enterprise data
+- **CloudQuery** (2024-2026): Head of Developer Relations - built the DevRel function from scratch for the open-source ELT framework for data pipelines and cloud infrastructure
+- **Tinybird** (2023-2024): Senior Developer Advocate - real-time analytics and data APIs
 - **SingleStore** (2021-2023): Senior Developer Advocate - distributed SQL database
 - **MongoDB** (2019-2021): Senior Developer Advocate - NoSQL databases and developer community
 - **Best Buy** (2017-2019): Front-end Technical Lead - one of the largest eCommerce sites in North America

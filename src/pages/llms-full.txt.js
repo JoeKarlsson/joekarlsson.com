@@ -13,11 +13,11 @@ export async function GET() {
 
 	const body = `# Joe Karlsson - Full Site Guide
 
-> Software Engineer and Developer Advocate specializing in data engineering, developer experience, and real-time data systems. Currently at CloudQuery building developer content and community for the open-source ELT framework. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a 40+ container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
+> Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a 40+ container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
 
 ## About Joe Karlsson
 
-Joe Karlsson is a Software Engineer and Developer Advocate who helps developers build better data systems. His career spans teaching full-stack JavaScript in Honolulu, leading front-end engineering at Best Buy (one of North America's largest eCommerce sites), and building developer communities at MongoDB, SingleStore, Tinybird, and now CloudQuery.
+Joe Karlsson is a Developer Marketing Engineer who helps developers build better data systems. His career spans teaching full-stack JavaScript in Honolulu, leading front-end engineering at Best Buy (one of North America's largest eCommerce sites), and building developer communities at MongoDB, SingleStore, Tinybird, CloudQuery, and now CData - where he leads developer marketing for the managed MCP platform that connects AI agents to live enterprise data.
 
 He's a TEDx speaker ("The Art of Computer Science") with 100+ conference talks worldwide on databases, IoT, data engineering, and developer tools. He has 100,000+ followers across social media platforms including TikTok, Twitter/X, YouTube, and LinkedIn.
 
@@ -182,8 +182,9 @@ Contact via [joekarlsson.com/contact](https://www.joekarlsson.com/contact/) or c
 
 ## Professional Experience
 
-- **CloudQuery** (2025-Present): Developer Advocate - building developer content, demos, tutorials, and community for the open-source ELT framework. Creating resources for data pipelines and cloud infrastructure visibility.
-- **Tinybird** (2023-2025): Developer Advocate - helped developers build real-time analytics applications. Created documentation, demos, blog posts, webinars, and workshops for real-time data APIs.
+- **CData** (2026-Present): Principal Developer Marketing Manager - lead developer marketing for the managed MCP platform that connects AI agents to live enterprise data. Own the developer growth engine: docs, content, SEO and AEO, and platform positioning, shipping alongside the team.
+- **CloudQuery** (2024-2026): Head of Developer Relations - built the DevRel function from scratch for the open-source ELT framework: content, community, docs, events, and video. Grew organic traffic 4x in under 3 months and MQLs to 239% of target.
+- **Tinybird** (2023-2024): Senior Developer Advocate - helped developers build real-time analytics applications. Created documentation, demos, blog posts, webinars, and workshops for real-time data APIs.
 - **SingleStore** (2021-2023): Senior Developer Advocate - led community engagement around scaling SQL workloads. Built demos and content for the distributed SQL database.
 - **MongoDB** (2019-2021): Senior Developer Advocate - built developer community, created tutorials, demos, and educational content. Subject matter expert for developer experience.
 - **Best Buy** (2017-2019): Front-end Technical Lead - engineered high-performance solutions for one of the top 10 eCommerce sites in North America. Scaled production apps handling thousands of requests per second.

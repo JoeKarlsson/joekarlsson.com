@@ -1,7 +1,7 @@
 export const SITE_TITLE = 'Joe Karlsson';
 export const DEFAULT_HERO_IMAGE = '/images/og-default.webp';
 export const SITE_DESCRIPTION =
-	'Software Engineer and Developer Advocate. Writing about databases, smart homes, developer tools, and the things I build.';
+	'Developer Marketing Engineer. Writing about databases, smart homes, developer tools, and the things I build.';
 export const SITE_URL = 'https://www.joekarlsson.com';
 
 export const SOCIAL_LINKS = {

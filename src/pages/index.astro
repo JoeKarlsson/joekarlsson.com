@@ -37,11 +37,11 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 ---
 
 <BaseLayout
-	title="Joe Karlsson | Software Engineer & Developer Advocate"
+	title="Joe Karlsson | Developer Marketing Engineer"
 	description={SITE_DESCRIPTION}
 	schemaType="WebSite"
 >
-	<h1 class="sr-only">Joe Karlsson - Software Engineer & Developer Advocate</h1>
+	<h1 class="sr-only">Joe Karlsson - Developer Marketing Engineer</h1>
 	<!-- Hero: Two terminal windows side by side -->
 	<section id="hero-section" class="border-b-4 border-coral relative overflow-hidden">
 		<div id="hero-content" class="flex flex-col lg:flex-row">
@@ -57,14 +57,15 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					<p class="text-yellow mb-3">## about.md</p>
 
 					<p class="text-coral text-xl font-bold mb-1">Joe Karlsson</p>
-					<p class="text-teal text-xs mb-4">he/they · software engineer · dev advocate</p>
+					<p class="text-teal text-xs mb-4">he/they · developer marketing · still in the code</p>
 
 					<p class="text-gray-300 mb-3">
 						Hey, I'm Joe. I help developers build cool stuff - through demos, blog posts, talks,
 						videos, whatever works.
 					</p>
 					<p class="text-gray-300 mb-3">
-						Leading DevRel at <span class="text-white">CloudQuery</span>. Outside of work I run a
+						Leading developer marketing at <span class="text-white">CData</span>. Outside of work I
+						run a
 						<span class="text-teal">40+ container homelab</span>, watch way too many movies, and
 						build things that probably shouldn't be connected to the internet.
 					</p>
@@ -180,14 +181,15 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					<p class="text-yellow mb-3">## about.md</p>
 
 					<p class="text-coral text-lg font-bold mb-1">Joe Karlsson</p>
-					<p class="text-teal text-xs mb-3">he/they · software engineer · dev advocate</p>
+					<p class="text-teal text-xs mb-3">he/they · developer marketing · still in the code</p>
 
 					<p class="text-gray-300 mb-2">
 						Hey, I'm Joe. I help developers build cool stuff - through demos, blog posts, talks,
 						videos, whatever works.
 					</p>
 					<p class="text-gray-300 mb-2">
-						Leading DevRel at <span class="text-white">CloudQuery</span>. Outside of work I run a
+						Leading developer marketing at <span class="text-white">CData</span>. Outside of work I
+						run a
 						<span class="text-teal">40+ container homelab</span>, watch way too many movies, and
 						build things that probably shouldn't be connected to the internet.
 					</p>
@@ -914,10 +916,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		}
 
 		function cmdWhoami(): string[] {
-			return [
-				'<span class="text-teal">joe-karlsson</span> - software engineer & developer advocate',
-				'',
-			];
+			return ['<span class="text-teal">joe-karlsson</span> - developer marketing engineer', ''];
 		}
 
 		function cmdCatAbout(): string[] {
@@ -926,11 +925,12 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				'  <span class="text-yellow">## about.md</span>',
 				'',
 				'  Hey, I\'m <span class="text-coral">Joe Karlsson</span>.',
-				'  Software engineer turned dev advocate.',
+				'  Engineer who does developer marketing.',
 				'',
 				'  I help developers build cool stuff - through demos,',
 				'  blog posts, talks, videos, whatever works. Currently',
-				'  doing that at <span class="text-white">CloudQuery</span>.',
+				'  doing that at <span class="text-white">CData</span>, on the MCP',
+				'  platform that wires AI agents to enterprise data.',
 				'',
 				'  Outside of work I run a <span class="text-teal">40+ container homelab</span>,',
 				'  watch way too many movies, and build things that',
@@ -956,9 +956,9 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				'  Proxmox cluster, dual GPUs, Home Assistant,',
 				'  media automation, monitoring - the works.',
 				'',
-				'  <span class="text-coral">Developer Advocacy</span>',
+				'  <span class="text-coral">Developer Marketing</span>',
 				'  Spoken at hundreds of conferences. Built demos,',
-				'  docs, and tools at CloudQuery, Tinybird,',
+				'  docs, and tools at CData, CloudQuery, Tinybird,',
 				'  SingleStore, and MongoDB.',
 				'',
 				'  <span class="text-dim">See everything → <span class="text-teal">cd work</span></span>',
@@ -972,7 +972,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				'',
 				'  Welcome to joekarlsson.com!',
 				'  This site is where I write about software engineering,',
-				'  developer advocacy, homelabs, IoT cat litter boxes,',
+				'  developer marketing, homelabs, IoT cat litter boxes,',
 				"  and whatever else I'm nerding out about.",
 				'',
 				'  Built with Astro. Powered by coffee and stubbornness.',
@@ -1001,7 +1001,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				'  <span class="text-coral">GPU</span>:        RTX A4000 + Quadro RTX 4000',
 				'  <span class="text-coral">Containers</span>: 40+',
 				'  <span class="text-coral">Shell</span>:      bash + vibes',
-				'  <span class="text-coral">Work</span>:       CloudQuery (now env0)',
+				'  <span class="text-coral">Work</span>:       CData (MCP + AI agents)',
 				'  <span class="text-coral">Cats</span>:       2 (1 IoT-enabled)',
 				'',
 				'  <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
@@ -1063,7 +1063,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				'<span class="text-yellow">JOE(1)                    User Commands                    JOE(1)</span>',
 				'',
 				'<span class="text-white">NAME</span>',
-				'       joe - software engineer, developer advocate',
+				'       joe - developer marketing engineer',
 				'',
 				'<span class="text-white">SYNOPSIS</span>',
 				'       joe [--verbose] [--homelab] [--cats]',

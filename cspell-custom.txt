@@ -533,3 +533,5 @@ Nextcloud
 Immich
 Frigate
 Ollama
+CData
+AEO

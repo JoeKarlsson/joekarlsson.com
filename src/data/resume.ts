@@ -18,10 +18,26 @@ export interface Role {
 
 export const roles: Role[] = [
 	{
+		company: 'CData',
+		title: 'Principal Developer Marketing Manager',
+		startYear: 2026,
+		endYear: null,
+		location: 'Remote',
+		tech: ['MCP', 'AI Agents', 'SQL', 'REST APIs', 'SEO', 'Python'],
+		bullets: [
+			"Lead developer marketing for CData's managed MCP platform - the layer that connects AI agents to live enterprise data - owning developer growth end to end",
+			'Own the developer growth engine: technical docs, content, SEO and AEO, and how the platform gets positioned to the engineers actually building on it',
+			'Scaling the organic developer adoption already forming around Connect AI on purpose - find what is working, then do a lot more of it',
+			'Partner with Product, Engineering, and Docs to keep the developer experience tight and make CData the obvious pick for wiring AI agents up to enterprise data',
+			'Build the demos, guides, and content that show developers how to solve their actual problem instead of pitching at them',
+			"Stay in the code - I write, build, and ship alongside the team so the marketing holds up to the engineers it's aimed at",
+		],
+	},
+	{
 		company: 'CloudQuery (now env0)',
 		title: 'Head of Developer Relations',
 		startYear: 2024,
-		endYear: null,
+		endYear: 2026,
 		location: 'Remote',
 		logo: '/images/logos/cloudquery.webp',
 		tech: ['GCP', 'AWS', 'Azure', 'ClickHouse', 'Python', 'SQL'],

@@ -178,10 +178,7 @@ export function cmdCd(
 }
 
 export function cmdWhoami(): string[] {
-	return [
-		'<span class="text-teal">joe-karlsson</span> - software engineer & developer advocate',
-		'',
-	];
+	return ['<span class="text-teal">joe-karlsson</span> - developer marketing engineer', ''];
 }
 
 export function cmdCatAbout(): string[] {
@@ -190,11 +187,12 @@ export function cmdCatAbout(): string[] {
 		'  <span class="text-yellow">## about.md</span>',
 		'',
 		'  Hey, I\'m <span class="text-coral">Joe Karlsson</span>.',
-		'  Software engineer turned dev advocate.',
+		'  Engineer who does developer marketing.',
 		'',
 		'  I help developers build cool stuff - through demos,',
 		'  blog posts, talks, videos, whatever works. Currently',
-		'  doing that at <span class="text-white">CloudQuery</span>.',
+		'  doing that at <span class="text-white">CData</span>, on the MCP',
+		'  platform that wires AI agents to enterprise data.',
 		'',
 		'  Outside of work I run a <span class="text-teal">40+ container homelab</span>,',
 		'  watch way too many movies, and build things that',
@@ -220,9 +218,9 @@ export function cmdCatWork(): string[] {
 		'  Proxmox cluster, dual GPUs, Home Assistant,',
 		'  media automation, monitoring - the works.',
 		'',
-		'  <span class="text-coral">Developer Advocacy</span>',
+		'  <span class="text-coral">Developer Marketing</span>',
 		'  Spoken at hundreds of conferences. Built demos,',
-		'  docs, and tools at CloudQuery, Tinybird,',
+		'  docs, and tools at CData, CloudQuery, Tinybird,',
 		'  SingleStore, and MongoDB.',
 		'',
 		'  <span class="text-dim">See everything → <span class="text-teal">cd work</span></span>',
@@ -237,7 +235,7 @@ export function cmdCatReadme(variant: 'homepage' | '404'): string[] {
 		'  Welcome to joekarlsson.com!',
 		'',
 		'  This site is where I write about software engineering,',
-		'  developer advocacy, homelabs, IoT cat litter boxes,',
+		'  developer marketing, homelabs, IoT cat litter boxes,',
 		"  and whatever else I'm nerding out about.",
 		'',
 		'  Built with Astro. Powered by coffee and stubbornness.',
@@ -297,7 +295,7 @@ export function cmdNeofetch(variant: 'homepage' | '404'): string[] {
 		'  <span class="text-coral">GPU</span>:        RTX A4000 + Quadro RTX 4000',
 		'  <span class="text-coral">Containers</span>: 40+',
 		'  <span class="text-coral">Shell</span>:      bash + vibes',
-		'  <span class="text-coral">Work</span>:       CloudQuery (now env0)',
+		'  <span class="text-coral">Work</span>:       CData (MCP + AI agents)',
 		'  <span class="text-coral">Cats</span>:       2 (1 IoT-enabled)',
 		'',
 		'  <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
@@ -469,7 +467,7 @@ export function cmdManJoe(): string[] {
 		'<span class="text-yellow">JOE(1)                    User Commands                    JOE(1)</span>',
 		'',
 		'<span class="text-white">NAME</span>',
-		'       joe - software engineer, developer advocate',
+		'       joe - developer marketing engineer',
 		'',
 		'<span class="text-white">SYNOPSIS</span>',
 		'       joe [--verbose] [--homelab] [--cats]',
