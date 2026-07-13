@@ -4,3 +4,4 @@ node_modules/
 .lighthouseci/
 public/
 package-lock.json
+.claude/
