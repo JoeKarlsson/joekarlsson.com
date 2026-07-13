@@ -23,6 +23,7 @@ export const roles: Role[] = [
 		startYear: 2026,
 		endYear: null,
 		location: 'Remote',
+		logo: '/images/logos/cdata.webp',
 		tech: ['MCP', 'AI Agents', 'SQL', 'REST APIs', 'SEO', 'Python'],
 		bullets: [
 			"Lead developer marketing for CData's managed MCP platform - the layer that connects AI agents to live enterprise data - owning developer growth end to end",
