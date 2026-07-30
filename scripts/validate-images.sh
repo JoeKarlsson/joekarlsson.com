@@ -5,6 +5,11 @@ ERRORS=0
 WARNINGS=0
 IMAGE_DIR="public/images"
 
+# Anything at or above this fails the build. Set well above the current worst
+# offender so the existing backlog stays a warning, while a new image of the
+# 18MB-GIF variety cannot land. Ratchet it down as the backlog shrinks.
+MAX_IMAGE_KB=2048
+
 echo "=== Image Validation ==="
 echo ""
 
@@ -25,25 +30,49 @@ else
 fi
 echo ""
 
-# Step 2: Check for oversized images (>200KB)
-echo "--- Checking for images over 200KB ---"
+# Step 2: Check for oversized images (>200KB warns, >MAX_IMAGE_KB fails)
+echo "--- Checking image sizes (warn >200KB, fail >${MAX_IMAGE_KB}KB) ---"
 LARGE_IMAGES=""
+LARGE_COUNT=0
+LARGE_BYTES=0
+OVER_MAX=""
+OVER_MAX_COUNT=0
 while IFS= read -r file; do
   if [ -f "$file" ]; then
     SIZE=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null || echo "0")
     if [ "$SIZE" -gt 204800 ]; then
       SIZE_KB=$((SIZE / 1024))
       LARGE_IMAGES="${LARGE_IMAGES}  ${file} (${SIZE_KB}KB)\n"
+      LARGE_COUNT=$((LARGE_COUNT + 1))
+      LARGE_BYTES=$((LARGE_BYTES + SIZE))
+      if [ "$SIZE_KB" -gt "$MAX_IMAGE_KB" ]; then
+        OVER_MAX="${OVER_MAX}  ${file} (${SIZE_KB}KB)\n"
+        OVER_MAX_COUNT=$((OVER_MAX_COUNT + 1))
+      fi
     fi
   fi
 done < <(find "$IMAGE_DIR" -type f \( -name "*.webp" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" \) 2>/dev/null)
 
-if [ -n "$LARGE_IMAGES" ]; then
-  echo "WARNING: Found images over 200KB:"
-  echo -e "$LARGE_IMAGES" | head -20 || true
+if [ "$LARGE_COUNT" -gt 0 ]; then
+  # Always report the true count - a head-truncated list used to make 136
+  # oversized images look like 20.
+  echo "WARNING: $LARGE_COUNT image(s) over 200KB, $((LARGE_BYTES / 1048576))MB total"
+  echo -e "$LARGE_IMAGES" | sort -t'(' -k2 -rn | head -20 || true
+  if [ "$LARGE_COUNT" -gt 20 ]; then
+    echo "  ... and $((LARGE_COUNT - 20)) more"
+  fi
   WARNINGS=$((WARNINGS + 1))
 else
-  echo "OK: No oversized images found"
+  echo "OK: No images over 200KB"
+fi
+
+if [ "$OVER_MAX_COUNT" -gt 0 ]; then
+  echo ""
+  echo "ERROR: $OVER_MAX_COUNT image(s) exceed the ${MAX_IMAGE_KB}KB hard limit:"
+  echo -e "$OVER_MAX" || true
+  echo "  Convert animated GIFs with ./scripts/convert-gifs-to-video.sh"
+  echo "  Convert stills to WebP, or raise MAX_IMAGE_KB if this is deliberate."
+  ERRORS=$((ERRORS + 1))
 fi
 echo ""
 

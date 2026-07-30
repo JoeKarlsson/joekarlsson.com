@@ -169,8 +169,10 @@
 }
 
 .prose video {
-	@apply rounded-lg;
+	@apply rounded-lg my-6 mx-auto;
+	display: block;
 	max-width: 100%;
+	max-height: 500px;
 	height: auto;
 }
 

@@ -263,7 +263,7 @@ The [CloudQuery Platform](https://www.cloudquery.io/contact-us) has 235+ pre-bui
 
 Watch how to create a CloudQuery Policy from scratch - from writing the ClickHouse SQL query to configuring alerts and reviewing violations:
 
-[![Watch the CloudQuery Platform Policies walkthrough video](/images/blog/introducing-cloudquery-platform-policies/thumbnail.png)](https://www.youtube.com/embed/cWHXTZa-6KI)
+[![Watch the CloudQuery Platform Policies walkthrough video](/images/blog/introducing-cloudquery-platform-policies/thumbnail.webp)](https://www.youtube.com/embed/cWHXTZa-6KI)
 
 ## Frequently Asked Questions
 

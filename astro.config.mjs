@@ -7,6 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
+import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 
 // https://astro.build/config
@@ -23,6 +25,10 @@ export default defineConfig({
 		processor: unified({
 			rehypePlugins: [
 				rehypeYouTubeEmbed,
+				// gif-video first: it removes <img> nodes that lazy-images would
+				// otherwise annotate for no reason
+				rehypeGifVideo,
+				rehypeLazyImages,
 				rehypeSlug,
 				[
 					rehypeAutolinkHeadings,

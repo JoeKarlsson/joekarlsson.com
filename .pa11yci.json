@@ -18,6 +18,8 @@
 		"http://localhost:4321/uses/",
 		"http://localhost:4321/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/",
 		"http://localhost:4321/blog/self-hosted-music-still-sucks-in-2026/",
-		"http://localhost:4321/blog/how-to-get-started-building-a-homelab-server-in-2024/"
+		"http://localhost:4321/blog/how-to-get-started-building-a-homelab-server-in-2024/",
+		"http://localhost:4321/blog/how-we-accidentally-invented-a-cloud-search-language/",
+		"http://localhost:4321/blog/an-introduction-to-iot-internet-of-toilets/"
 	]
 }
