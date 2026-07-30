@@ -14,7 +14,8 @@ NON_WEBP=$(find "$IMAGE_DIR" -type f \( -name "*.png" -o -name "*.jpg" -o -name 
 if [ -n "$NON_WEBP" ]; then
   COUNT=$(echo "$NON_WEBP" | wc -l | tr -d ' ')
   echo "WARNING: Found $COUNT non-WebP image(s). These should be converted to WebP:"
-  echo "$NON_WEBP" | head -20
+  # head closes the pipe early, which trips pipefail via EPIPE - tolerate it
+  echo "$NON_WEBP" | head -20 || true
   if [ "$COUNT" -gt 20 ]; then
     echo "  ... and $((COUNT - 20)) more"
   fi
@@ -39,7 +40,7 @@ done < <(find "$IMAGE_DIR" -type f \( -name "*.webp" -o -name "*.png" -o -name "
 
 if [ -n "$LARGE_IMAGES" ]; then
   echo "WARNING: Found images over 200KB:"
-  echo -e "$LARGE_IMAGES" | head -20
+  echo -e "$LARGE_IMAGES" | head -20 || true
   WARNINGS=$((WARNINGS + 1))
 else
   echo "OK: No oversized images found"
