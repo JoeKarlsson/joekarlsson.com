@@ -1,39 +1,47 @@
 # Lychee link checker configuration
 # Shared by CI (internal only) and weekly external check
 
-# Exclude known-flaky domains and embed URLs that lack https://
+# Excluded domains. An exclusion hides a link from CI but still ships it to
+# readers, so only add one for a site that is alive but hostile to automated
+# checkers - never to silence a genuinely dead link.
+#
+# Audited 2026-07-30: the speakerdeck exclusion was masking five 404s, all of
+# which are now fixed. Verify before adding anything here.
 exclude = [
+  # Block or rate-limit CI runners; alive in a browser
   "twitter\\.com",
   "x\\.com",
   "linkedin\\.com",
   "facebook\\.com",
   "instagram\\.com",
   "t\\.co",
-  "localhost",
-  "127\\.0\\.0\\.1",
-  "192\\.168\\.",
-  "speakerdeck\\.com",
-  "giphy\\.com",
-  "hero-illustration\\.webp",
-  "http:/https:",
   "bestbuy\\.com",
+  "mckinsey\\.com",
+  "building\\.calibreapp\\.com",
+  "dykestowatchoutfor\\.com",
+  "ui\\.tinybird\\.co",
+
+  # Slow or intermittently 5xx from CI, verified reachable 2026-07-30
+  "speakerdeck\\.com",
   "confoo\\.ca",
   "smarthomejunkie\\.net",
-  "ui\\.tinybird\\.co",
   "kailua\\.org",
-  "mckinsey\\.com",
-  "last\\.fm",
   "bechdel\\.io",
   "audiopro\\.com",
   "pi-hole\\.net",
   "raspberrytips\\.com",
-  "building\\.calibreapp\\.com",
   "docs\\.atlas\\.mongodb\\.com",
   "docs\\.mongodb\\.com",
   "gdpr\\.eu",
   "icebreakers\\.ws",
-  "dykestowatchoutfor\\.com",
-  "sonoff\\.tech"
+  "sonoff\\.tech",
+
+  # Not real external links
+  "localhost",
+  "127\\.0\\.0\\.1",
+  "192\\.168\\.",
+  "hero-illustration\\.webp",
+  "http:/https:"
 ]
 
 # Exclude paths that don't map to files or are known broken

@@ -26,7 +26,7 @@ In this session will begin a beginner-friendly introduction to Serverless comput
 
 ## Slides
 
-[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson1/a-gentle-introduction-to-building-serverless-apps)
+[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson)
 
 _20 Min Version_
 

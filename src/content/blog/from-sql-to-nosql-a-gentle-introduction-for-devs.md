@@ -18,7 +18,7 @@ Thanks for coming to my talk, From SQL to NoSQL: A Gentle Introduction For Devs.
 
 ## Slides
 
-[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson1/)
+[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson)
 
 ## Video
 

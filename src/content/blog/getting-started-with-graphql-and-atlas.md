@@ -28,7 +28,7 @@ We will then get a GraphQL server up and running while focusing on exploring rea
 
 ## Slides
 
-[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson1/)
+[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson)
 
 ## Video
 

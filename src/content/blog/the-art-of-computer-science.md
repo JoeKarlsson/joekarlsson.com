@@ -22,7 +22,7 @@ Do you feel like you have struggled to find your place in the tech industry? Do 
 
 ## Slides
 
-[View slides on SpeakerDeck](https://speakerdeck.com/joekarlsson/the-art-of-computer-science)
+[View slides on SpeakerDeck](https://speakerdeck.com/joekarlsson)
 
 ## Talk Outline
 

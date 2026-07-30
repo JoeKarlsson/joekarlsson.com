@@ -25,7 +25,7 @@ Together, we will go through how I set up my IoT Litter Box from start to finish
 
 ## Internet of Toilets Slides
 
-[View slides on SpeakerDeck](https://speakerdeck.com/joekarlsson/iot-and-javascript)
+[View slides on SpeakerDeck](https://speakerdeck.com/joekarlsson)
 
 ## Schematics
 
