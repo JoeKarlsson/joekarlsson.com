@@ -130,5 +130,3 @@ Personally, I would also recommend that you check out the SingleStore Developers
 The [SingleStore Training](https://www.singlestore.com/training/) page includes more self-paced courses like Schema Design, Data Ingestion, Optimizing Queries, and more.
 
 If you run into any issues or get stuck, make sure to connect with the [SingleStore community](https://www.singlestore.com/forum/) and get all of your questions answered, or check out more cool developer content on our [SingleStore Developer](https://developers.singlestore.com/) page. The community forums are the best place to get your SingleStore questions answered.
-
-Follow us on [X](http://x.com/singlestoredevs) to keep up on more cool dev stuff.
