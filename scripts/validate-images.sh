@@ -7,9 +7,9 @@ IMAGE_DIR="public/images"
 
 # Anything at or above this fails the build. Ratcheted down as the backlog
 # shrinks: 2048 once left room for a 1.9MB image to land silently. The worst
-# offender is now 715KB (crop-art/seeds-of-remembrance.webp), so this sits just
-# above it. Lower it again as those come down.
-MAX_IMAGE_KB=800
+# offender is now 424KB, so this sits just above it. Lower it again as those
+# come down.
+MAX_IMAGE_KB=500
 
 # Ratchet on the PNG/JPG backlog: the count may fall but never rise. The
 # backlog is now clear, so any PNG or JPG landing under public/images fails.

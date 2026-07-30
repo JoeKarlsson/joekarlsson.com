@@ -56,12 +56,20 @@ node scripts/convert-animated-webp-to-video.mjs --min 256 [--dry-run] [paths...]
 
 **Size gates** in `validate-images.sh`, all ratchets - tighten them as the backlog shrinks, never loosen:
 
-- `MAX_IMAGE_KB=800` - hard fail. Worst offender is currently 715KB.
+- `MAX_IMAGE_KB=500` - hard fail. Worst offender is currently 424KB.
 - `MAX_NON_WEBP=0` - any PNG/JPG under `public/images` fails.
 - `GIF_MP4_MIN_KB=256` - any GIF or animated WebP at/over this with no `.mp4` sibling fails.
-- Over 200KB warns only. 10 images sit there, all genuine high-resolution stills.
+- Over 200KB warns only. 9 images sit there, all genuine high-resolution stills.
 
-Note `convert-images-to-webp.mjs` only reads PNG/JPG, so a file that arrived already as `.webp` never had the 1920px cap or quality setting applied to it. `blog/running-devrel-2026/hero.webp` is 2240px wide for that reason.
+Note `convert-images-to-webp.mjs` only reads PNG/JPG, so a file that arrived already as `.webp` never had the 1920px cap or quality setting applied to it. `blog/running-devrel-2026/hero.webp` is 2240px wide for that reason, deliberately left full size.
+
+To cap an existing WebP's dimensions, `scripts/resize-webp.mjs` re-encodes in place. It requires explicit paths - some images are deliberately large, and only you know which:
+
+```bash
+node scripts/resize-webp.mjs --max-width 1200 [--quality 82] [--dry-run] <paths...>
+```
+
+Check what the page actually renders at before picking a width. The crop-art gallery on `/about` declares `width="300"` with `object-cover` and links out to cropart.com rather than to a full-size image, so 1200px is already generous there.
 
 ## Code Quality
 
