@@ -6,13 +6,13 @@ description: >-
   Map SOC 2 and CIS controls to SQL queries that run daily. Replace quarterly audit scrambles with continuous compliance evidence generation.
 categories: ['Work']
 tags: ['Cloud Operations', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/thumbnail.png'
+heroImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/thumbnail.webp'
 heroAlt: 'From Audit Panic to Continuous Compliance with SQL'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-09-continuous-compliance-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![From Audit Panic to Continuous Compliance with SQL](/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/header.png)
+![From Audit Panic to Continuous Compliance with SQL](/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/header.webp)
 
 > **Note:** Compliance frameworks like SOC 2 and CIS Benchmarks map directly to SQL queries against your cloud infrastructure data. Instead of scrambling before audits to prove compliance at one point in time, you can run those queries daily and generate evidence continuously. This post shows how to map specific compliance controls to build a continuous compliance loop, and shift from audit panic to always-on proof.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes full control-to-SQL mapping tables for SOC 2, CIS, PCI-DSS, and HIPAA.

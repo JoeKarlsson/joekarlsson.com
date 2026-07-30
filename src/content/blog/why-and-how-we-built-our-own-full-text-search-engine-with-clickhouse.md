@@ -5,7 +5,7 @@ slug: 'why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
 description: 'How we built a full-text search for CloudQuery using ClickHouse, achieving 10x faster queries without dedicated search engines.'
 categories: ['Databases']
 tags: ['ClickHouse', 'Engineering', 'Data Engineering', 'Full-Text Search']
-heroImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/thumbnail.png'
+heroImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/thumbnail.webp'
 heroAlt: 'Why and How We Built Our Own Full Text Search Engine with ClickHouse'
 canonicalUrl: 'https://www.cloudquery.io/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
 tldr: 'We built a full text search index directly in ClickHouse using ngrambf_v1 Bloom filter indices instead of adding Elasticsearch or Meilisearch. Our custom key-value flattening approach achieved sub-400ms queries across hundreds of millions of rows, with 10x faster performance on complex searches compared to naive JOIN approaches, without requiring additional infrastructure.'
@@ -13,7 +13,7 @@ tldr: 'We built a full text search index directly in ClickHouse using ngrambf_v1
 
 _Co-authored with James Riley at CloudQuery._
 
-![Why and How We Built Our Own Full Text Search Engine with ClickHouse blog post header](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/thumbnail.png)
+![Why and How We Built Our Own Full Text Search Engine with ClickHouse blog post header](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/thumbnail.webp)
 
 During a production incident, every second counts. You need to find that specific EC2 instance, security group, or IAM role quickly - but which of the 200+ tables contains the resource you need? This is the core problem we set out to solve.
 
@@ -52,7 +52,7 @@ Given these constraints, we decided to implement full-text search directly withi
 - Avoid additional operational overhead
 - Create a truly integrated search engine
 
-![Drake meme with two panels. Top panel shows Drake gesturing disapprovingly at 'Dedicated full-text search engine'. Bottom panel shows Drake smiling approvingly at 'Abusing ClickHouse harder'](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image3.png)
+![Drake meme with two panels. Top panel shows Drake gesturing disapprovingly at 'Dedicated full-text search engine'. Bottom panel shows Drake smiling approvingly at 'Abusing ClickHouse harder'](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image3.webp)
 
 ## Technical Implementation
 
@@ -88,7 +88,7 @@ Key features of this design:
 
 The core technology that allows our fast text search is [ClickHouse's `ngrambf_v1` index type](https://clickhouse.com/docs/engines/table-engines/mergetree-family/mergetree#n-gram-bloom-filter). This specialized data skipping index leverages [Bloom filters](https://en.wikipedia.org/wiki/Bloom_filter) to dramatically improve search performance.
 
-![Expanding brain meme showing three levels of database sophistication. Top panel: 'WRITING COMPLEX JOINS' with normal brain. Middle panel: 'USING OPENSEARCH ACROSS MULTIPLE SHARDS' with glowing brain. Bottom panel: 'ClickHouse WITH N-GRAM BLOOM FILTERS' with maximally enlightened, glowing blue brain.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image1.png)
+![Expanding brain meme showing three levels of database sophistication. Top panel: 'WRITING COMPLEX JOINS' with normal brain. Middle panel: 'USING OPENSEARCH ACROSS MULTIPLE SHARDS' with glowing brain. Bottom panel: 'ClickHouse WITH N-GRAM BLOOM FILTERS' with maximally enlightened, glowing blue brain.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image1.webp)
 
 The team at Tinybird wrote an [excellent blog post](https://www.tinybird.co/blog-posts/using-bloom-filter-text-indexes-in-clickhouse) about using Bloom filter indexes for text search in ClickHouse, which was extremely helpful in our implementation. I highly recommend reading it for a deeper understanding of how these indices work.
 
@@ -174,7 +174,7 @@ Our testing compared four fundamentally different approaches to executing full-t
 
 The first approach, which we called "naive," was straightforward, but inefficient. It looked up each search term individually and then joined the results together. While simple to implement, it scanned excessive amounts of data and performed poorly at scale, especially for search terms matching large numbers of resources.
 
-![Diagram of a "SEARCH QUERY" breaking into two parallel result sets, each labeled "Results," joined together via a "JOIN" block. Depicts the naive strategy that performs separate term lookups followed by a join.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image2.png)
+![Diagram of a "SEARCH QUERY" breaking into two parallel result sets, each labeled "Results," joined together via a "JOIN" block. Depicts the naive strategy that performs separate term lookups followed by a join.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image2.webp)
 
 We then developed an "ungrouped" strategy that unions all term lookups first before aggregating results. This reduced join overhead but still required reading all data matching any search term.
 
@@ -195,7 +195,7 @@ The key here is that for single search conditions, we can significantly reduce q
 
 For example, in a search for `a AND b` where the only resources matching both terms appear in the last quarter of the dataset, limiting results too early would miss these valid matches entirely. Additionally, this approach doesn't sum weights across multiple matching properties, instead choosing a single arbitrary weight, which sacrifices some precision in relevance ranking.
 
-![Diagram that shows multiple search terms flowing through a single "STR MATCH → UNION ALL → AGGREGATE" path, reflecting that the strategy supports any number of sub-conditions, not just one.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/ungrouped.png)
+![Diagram that shows multiple search terms flowing through a single "STR MATCH → UNION ALL → AGGREGATE" path, reflecting that the strategy supports any number of sub-conditions, not just one.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/ungrouped.webp)
 
 Finally, we developed what became our default strategy: the `sumIf` approach. This method sums match weights across all terms in a single pass using a materialized score column:
 
@@ -216,13 +216,13 @@ LIMIT <limit>
 
 While this approach doesn't benefit from the early termination that made ungrouped-limited fast for simple queries, it scales almost linearly with result size and query complexity. Crucially, it correctly handles arbitrarily complex filter conditions and intersection logic, making it our most reliable and versatile strategy for production use. The `sumIf` approach produces the most accurate relevance scoring by properly accounting for all matching properties of each resource.
 
-![Flow diagram showing three "SEARCH TERM" boxes feeding into a single "UNION ALL" box, which then flows into an "AGGREGATE" box. Diagram showing the single-pass aggregation strategy: term lookups union before a single aggregate step.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image7.png)
+![Flow diagram showing three "SEARCH TERM" boxes feeding into a single "UNION ALL" box, which then flows into an "AGGREGATE" box. Diagram showing the single-pass aggregation strategy: term lookups union before a single aggregate step.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image7.webp)
 
 ### The Results
 
 The performance improvements we achieved were substantial, especially for challenging query patterns where the condition matched a large portion of the dataset. For example, in our basic-frequent benchmark (which tests worst-case performance where the condition matched approximately 72% of all rows), we reduced median latency from ~3,800 milliseconds to just 385 milliseconds using the ungrouped-limited strategy. That's a **10x speedup** for these challenging cases.
 
-![Bar chart titled 'Basic-Frequent: Median Query Time by Variant' showing median query times (ms) for four strategies: ungrouped-limited ~390 ms, ungrouped ~2730 ms, naive ~3820 ms, and the single-pass strategy ~3810 ms, ungrouped-limited is markedly faster than the others.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image6.png)
+![Bar chart titled 'Basic-Frequent: Median Query Time by Variant' showing median query times (ms) for four strategies: ungrouped-limited ~390 ms, ungrouped ~2730 ms, naive ~3820 ms, and the single-pass strategy ~3810 ms, ungrouped-limited is markedly faster than the others.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image6.webp)
 
 It's important to note that the ungrouped-limited strategy is essentially a practical compromise for situations where a user queries something that would return millions of results. It's based on the assumption that users would prefer to get approximate results quickly rather than waiting a minute or more for exact results. The "\*-frequent" benchmarks represent worst-case scenarios for our system, not necessarily the most common user queries (as we don't yet have comprehensive data on actual search patterns).
 
@@ -252,7 +252,7 @@ However, we've since developed a more efficient approach that reuses unmodified 
 
 Our testing and implementation revealed several practical insights for others looking to implement high-performance text search in ClickHouse:
 
-![Dave Chappelle meme with caption 'YOU DON'T NEED A SEARCH ENGINE IF YOUR DATABASE HAS BLOOM FILTERS' and bottom text 'Modern problems require modern solutions'. Shows Chappelle in a suit with red tie gesturing as if making a point.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image9.png)
+![Dave Chappelle meme with caption 'YOU DON'T NEED A SEARCH ENGINE IF YOUR DATABASE HAS BLOOM FILTERS' and bottom text 'Modern problems require modern solutions'. Shows Chappelle in a suit with red tie gesturing as if making a point.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image9.webp)
 
 The [**warm vs. cold state of your ClickHouse cluster makes a substantial difference**](https://clickhouse.com/docs/guides/developer/ttl#implementing-a-hotwarmcold-architecture). Background merges, cold caches, and OS disk I/O can introduce 10-20% performance variability. For consistent benchmarking, it's essential to warm up your cluster and disable heavy merges during testing.
 

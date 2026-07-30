@@ -6,13 +6,13 @@ description: >-
   A week-by-week plan from first inventory sync to automated governance. Three phases, clear milestones, and metrics to prove ROI to leadership.
 categories: ['Work']
 tags: ['Cloud Operations', 'Platform Engineering', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/thumbnail.png'
+heroImage: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/thumbnail.webp'
 heroAlt: 'The 90-Day Cloud Operations Roadmap'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![The 90-Day Cloud Operations Roadmap](/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/header.png)
+![The 90-Day Cloud Operations Roadmap](/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/header.webp)
 
 > **Note:** You don't need a year-long initiative to fix cloud operations. This post lays out a 90-day roadmap in three phases: Foundation (see everything), Governance (set the rules), and Optimization (make it better). Each phase has weekly milestones, concrete deliverables, and a key metric to prove progress. By day 90, you should be able to answer any infrastructure question in seconds, generate compliance evidence in under an hour, and show measurable toil reduction to leadership.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes week-by-week checklists and the leadership ROI template.

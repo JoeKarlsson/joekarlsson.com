@@ -5,7 +5,7 @@ slug: 'best-way-keep-cloud-inventory-up-to-date'
 description: 'Keeping cloud asset data up to date across AWS, GCP, Azure, and Kubernetes has been a challenge until now. CloudQuery Data Pipelines automate syncing, normalizing, and structuring cloud data into a unified format. Say goodbye to fragile scripts and manual exports. See how it works'
 categories: ['Work']
 tags: ['Product News']
-heroImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/image2.png'
+heroImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/image2.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/best-way-keep-cloud-inventory-up-to-date'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
@@ -31,7 +31,7 @@ With CloudQuery's Data Pipelines, we do the heavy lifting - monitoring, error ma
 
 Managing cloud data across multiple providers is like trying to understand your dog's thought process - confusing, inconsistent, and occasionally alarming. Every cloud has its own APIs, formats, and authentication hoops to jump through. It's a mess.
 
-![Meme of the I Have No Idea What I Am Doing Dog, with text that says, "Parsing AWS, GCP, and Azure logs like... Yep, looks good to me!"](/images/blog/best-way-keep-cloud-inventory-up-to-date/image3.png)
+![Meme of the I Have No Idea What I Am Doing Dog, with text that says, "Parsing AWS, GCP, and Azure logs like... Yep, looks good to me!"](/images/blog/best-way-keep-cloud-inventory-up-to-date/image3.webp)
 
 CloudQuery fixes that. We sync and normalize all your cloud asset data into a single structured format that actually makes sense. One queryable dataset, no more clicking through endless dashboards.
 
@@ -45,7 +45,7 @@ Set Your Schedule - Hourly, daily, real-time. Whatever works. Just don't overdo 
 
 Built-in Monitoring and Logging - You'll know what's happening at all times. If something breaks, we'll tell you before your CFO or CISO does.
 
-![Reviewing and monitoring CloudQuery data syncs in the CloudQuery Platform](/images/blog/best-way-keep-cloud-inventory-up-to-date/image6.png)
+![Reviewing and monitoring CloudQuery data syncs in the CloudQuery Platform](/images/blog/best-way-keep-cloud-inventory-up-to-date/image6.webp)
 
 ## Standardized for Easy Analysis
 

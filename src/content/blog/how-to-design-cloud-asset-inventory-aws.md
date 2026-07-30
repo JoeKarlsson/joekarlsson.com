@@ -5,13 +5,13 @@ slug: 'how-to-design-cloud-asset-inventory-aws'
 description: 'Learn the five essential design principles for building cloud asset inventories that deliver results - freshness, completeness, normalization, queryability, and extensibility. Discover the maturity stages from ad-hoc scripts to optimized systems with predictive analytics and real-time decision making.'
 categories: ['Work']
 tags: ['AWS', 'Cloud Infrastructure', 'Engineering']
-heroImage: '/images/blog/how-to-design-cloud-asset-inventory-aws/thumbnail.png'
+heroImage: '/images/blog/how-to-design-cloud-asset-inventory-aws/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-design-cloud-asset-inventory-aws'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "Designing an effective cloud asset inventory isn't a technical problem - it's a decision-making problem. Learn the five design principles (freshness, completeness, normalization, queryability, extensibility) and maturity stages that separate systems delivering sub-five-minute response times from those taking days to answer critical security questions. The gap between containing a breach and watching it spread often comes down to inventory architecture."
 ---
 
-![How to Design a Cloud Asset Inventory for AWS header](/images/blog/how-to-design-cloud-asset-inventory-aws/header.png)
+![How to Design a Cloud Asset Inventory for AWS header](/images/blog/how-to-design-cloud-asset-inventory-aws/header.webp)
 
 Your security team discovers a critical vulnerability affecting unencrypted databases. How long does it take you to identify and remediate all affected systems?
 
@@ -23,7 +23,7 @@ The difference isn't just efficiency. It's the gap between containing a security
 
 In this video, AWS Partner Solutions Architect Keegan Marazzi and CloudQuery Developer Advocate Joe Karlsson break down how to build cloud asset inventory systems that deliver answers in seconds, not days.
 
-[![How to Design a Cloud Asset Inventory for AWS](/images/blog/how-to-design-cloud-asset-inventory-aws/video.png)](https://www.youtube.com/embed/quxBtPGPPbc)
+[![How to Design a Cloud Asset Inventory for AWS](/images/blog/how-to-design-cloud-asset-inventory-aws/video.webp)](https://www.youtube.com/embed/quxBtPGPPbc)
 
 ## The Real Problem: Decision Velocity, Not Data Collection
 

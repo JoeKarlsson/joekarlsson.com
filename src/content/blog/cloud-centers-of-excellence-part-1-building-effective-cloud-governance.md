@@ -7,12 +7,12 @@ tags:
   - Governance
 categories:
   - Databases
-heroImage: /images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumbnail.png
+heroImage: /images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---
 
-![Designing a Cloud Center of Excellence blog post header](/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumbnail.png)
+![Designing a Cloud Center of Excellence blog post header](/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumbnail.webp)
 
 **About This Series:** This is Part 1 of our comprehensive 5-part series on Cloud Centers of Excellence (CCOEs). Over the next few weeks, we'll dive deep into every aspect of building and managing effective cloud governance through CCOEs. Here's what's coming:
 
@@ -31,7 +31,7 @@ Over the last five years, cloud computing has become a cornerstone of IT strateg
 
 The concept of a Cloud Center of Excellence is not entirely new; it builds on the idea of an IT Center of Excellence. However, it has gained significant traction since the late 2010s, as cloud adoption has scaled up. According to industry surveys, by the early 2020s, the majority of enterprises had established a central cloud team or CCOE. [Flexera's 2021 State of the Cloud report found that 75% of enterprises already had a central cloud team/CoE in place](https://www.globenewswire.com/news-release/2021/03/09/2189764/0/en/Flexera-Releases-2021-State-of-the-Cloud-Report.html#:~:text=cloud%C2%A0progress%20,service%20providers%20for%20public%20cloud%C2%A0use), and many of the rest were planning to form one. This trend has only accelerated: [a recent Gartner prediction suggests that formalizing a cloud CoE has become a key step in enterprise cloud maturity](https://www.kyndryl.com/us/en/perspectives/articles/2023/04/cloud-center-of-excellence#:~:text=1%20Gartner%2C%20Predicts%202023%3A%20The,All%20Boats%2C%209%20March%202023). The rationale is clear, without a coordinating function, organizations risk cloud sprawl, inconsistent security postures, unchecked costs, and compliance violations.
 
-![Rise of Cloud Center of Excellence (CCOE) adoption from 2018 to 2025. By 2021, approximately 75% of enterprises had implemented a CCOE, with adoption continuing to rise beyond 90% as cloud maturity grows.](/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/image1.png)
+![Rise of Cloud Center of Excellence (CCOE) adoption from 2018 to 2025. By 2021, approximately 75% of enterprises had implemented a CCOE, with adoption continuing to rise beyond 90% as cloud maturity grows.](/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/image1.webp)
 
 **\*Figure 2:** Rise of Cloud Center of Excellence (CCOE) adoption from 2018 to 2025. By 2021, approximately 75% of enterprises had implemented a CCOE, with adoption continuing to rise beyond 90% as cloud maturity grows.\*
 
@@ -39,7 +39,7 @@ The concept of a Cloud Center of Excellence is not entirely new; it builds on th
 
 [A Cloud Center of Excellence is typically a **cross-functional governing body**, often a small team of cloud architects, engineers, security specialists, finance/FinOps analysts, and compliance experts, that sets cloud strategy, establishes policies and standards, and provides guidance across the organization](https://www.infracost.io/glossary/cloud-center-of-excellence/#:~:text=A%20Cloud%20Center%20of%20Excellence,minimizing%20risks%20and%20controlling%20costs). Unlike traditional siloed IT governance boards, a CCOE is usually hands-on and proactive: it might develop reference architectures, build automation frameworks, run a Cloud Enablement Platform, and directly assist application teams in cloud adoption. The mission often covers technical domains (architecture, security, operations) and business domains (cost management, training, vendor management). [Many organizations tie the CCOE into their enterprise architecture function or IT governance structure, reporting to C-level leadership (e.g., CIO/CTO) to ensure it has authority and visibility](https://www.infracost.io/glossary/cloud-center-of-excellence/#:~:text=Reporting%20Structure%20and%20Organizational%20Placement).
 
-![Strategic focus areas of a Cloud Center of Excellence (CCOE). A mature CCOE bridges innovation, compliance, and cost control across an enterprise's cloud operations.](/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/image3.png)
+![Strategic focus areas of a Cloud Center of Excellence (CCOE). A mature CCOE bridges innovation, compliance, and cost control across an enterprise's cloud operations.](/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/image3.webp)
 
 **Figure 2.** Strategic focus areas of a Cloud Center of Excellence (CCOE). A mature CCOE bridges innovation, compliance, and cost control across an enterprise's cloud operations.
 

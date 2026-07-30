@@ -5,13 +5,13 @@ slug: 'what-is-cloud-asset-inventory'
 description: 'Discover why and when you need a cloud asset inventory for your AWS environment. Learn how asset inventories solve critical challenges in security governance, cost optimization, and operational excellence - and when organizations should implement them.'
 categories: ['Work']
 tags: ['Cloud Infrastructure', 'AWS', 'Best Practices']
-heroImage: '/images/blog/what-is-cloud-asset-inventory/thumbnail.png'
+heroImage: '/images/blog/what-is-cloud-asset-inventory/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-is-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "You need a cloud asset inventory when you can't answer basic questions about your AWS resources - what exists, where it is, who owns it, and what it costs. Organizations need inventories to solve three critical challenges: security governance (you can't secure what you can't see), cost optimization (you can't optimize spending on resources you don't know exist), and operational excellence (you can't adapt to change without understanding your current state). When resource counts exceed manual tracking, when multi-account complexity increases, or when compliance requirements demand visibility - that's when you need a cloud asset inventory."
 ---
 
-![What Is a Cloud Asset Inventory header](/images/blog/what-is-cloud-asset-inventory/header.png)
+![What Is a Cloud Asset Inventory header](/images/blog/what-is-cloud-asset-inventory/header.webp)
 
 You probably have 847 different AWS resources running across six accounts right now. Or maybe it's 1,200 resources across nine accounts.
 
@@ -25,7 +25,7 @@ That engineer who spun up a test environment six months ago and forgot to tear i
 
 In this foundational video, AWS Partner Solutions Architect Keegan Marazzi and CloudQuery Developer Advocate Joe Karlsson break down why you need a cloud asset inventory, when organizations should implement one, and what makes an effective inventory system.
 
-[![What Is a Cloud Asset Inventory Video Thumbnail](/images/blog/what-is-cloud-asset-inventory/video.png)](https://www.youtube.com/embed/dGiHSQKSKpw)
+[![What Is a Cloud Asset Inventory Video Thumbnail](/images/blog/what-is-cloud-asset-inventory/video.webp)](https://www.youtube.com/embed/dGiHSQKSKpw)
 
 ## What Is a Cloud Asset?
 

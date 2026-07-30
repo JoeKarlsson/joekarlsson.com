@@ -5,7 +5,7 @@ slug: 'query-cloud-like-database-stop-wasting-time'
 description: 'CloudQuery SQL Console lets you search your cloud like a database. No more clicking through endless dashboards or writing brittle scripts - just instant answers with SQL.'
 categories: ['Work']
 tags: ['Product News']
-heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/image1.png'
+heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/image1.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/query-cloud-like-database-stop-wasting-time'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
@@ -18,7 +18,7 @@ Ah yes, you _could_ write your own scripts to get this data. Except now, you're 
 
 Let's not even get started on spreadsheets...
 
-![A meme featuring scenes of Pablo Escobar, from the TV show Narcos, looking bored and contemplative. It reads, "Me, waiting for Excel to respond after applying a filter on a million-row dataset."](/images/blog/query-cloud-like-database-stop-wasting-time/image1.png)
+![A meme featuring scenes of Pablo Escobar, from the TV show Narcos, looking bored and contemplative. It reads, "Me, waiting for Excel to respond after applying a filter on a million-row dataset."](/images/blog/query-cloud-like-database-stop-wasting-time/image1.webp)
 
 These inefficiencies come at a cost:
 

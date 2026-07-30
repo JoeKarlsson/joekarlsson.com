@@ -5,14 +5,14 @@ slug: 'what-we-learned-querying-cloud-infra-for-expired-dependencies'
 description: 'Learn how to easily track and fix end-of-life cloud services across AWS, Azure, and GCP with CloudQuery new End-of-Life (EOL) integration.'
 categories: ['Work']
 tags: ['Engineering', 'Product News']
-heroImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/thumbnail.png'
+heroImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
 Every cloud engineer has, at some point, found themselves frantically searching for unsupported software lurking in their environment. Maybe it's an _EKS cluster running an ancient Kubernetes version_, or a _Lambda function still clinging to Python 3.7_ like it's 2019. Whatever it is, finding it is always a pain, especially when you have multiple cloud providers in the mix.
 
-![Meme of a man confidently thinking the tech stack is modern (left), realizing half the dependencies are already out of support (right).](/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/image1.png)
+![Meme of a man confidently thinking the tech stack is modern (left), realizing half the dependencies are already out of support (right).](/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/image1.webp)
 
 And here's the thing: this happens all the time. In our experience, identifying EOL (end-of-life) software across AWS, Azure, and GCP is one of the most frustratingly common problems teams run into. You don't get a nice alert from your cloud provider saying, "Hey, your function runtime is about to be deprecated, want us to fix that for you?" Instead, you get zero security patches, compliance headaches, and broken services at the worst possible time.
 
@@ -20,7 +20,7 @@ Tracking this manually? Forget it. Every cloud provider stores this information 
 
 That's why we built [CloudQuery's new End of Life (EOL) integration](https://www.cloudquery.io/hub/plugins/source/cloudquery/endoflife/latest/docs), because this problem shouldn't be this hard. This integration pulls in end-of-life data from [endoflife.date](https://endoflife.date/) and makes it queryable alongside your cloud infrastructure. Now, instead of digging through multiple cloud dashboards, you can run a single SQL query and instantly see which services are unsupported or about to be.
 
-![Meme showing two perspectives on cloud management: one side struggling with managing different clouds separately, the other happily querying everything in one place.](/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/image3.png)
+![Meme showing two perspectives on cloud management: one side struggling with managing different clouds separately, the other happily querying everything in one place.](/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/image3.webp)
 
 In this post, I'll walk you through some things we learned using the EOL Integration, and how to use SQL to find and fix outdated software across [AWS](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs), [Azure](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/docs), and [GCP](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs) in one place, so you can spend less time playing _guess-the-deprecated-service_ and more time actually fixing it.
 
@@ -212,7 +212,7 @@ Keeping track of serverless functions across multiple cloud providers can feel l
 
 That's where CloudQuery comes in. Instead of digging through AWS, Azure, and GCP individually, you can pull all your functions into one place and analyze them with a single SQL query
 
-![CloudQuery SQL Console running a query to identify outdated serverless functions across AWS, Azure, and GCP, displaying results in a unified table.](/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/image2.png)
+![CloudQuery SQL Console running a query to identify outdated serverless functions across AWS, Azure, and GCP, displaying results in a unified table.](/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/image2.webp)
 
 The query below does exactly that. It gathers end-of-life details for Python, Node, and Go from a products table and combines function details from AWS, Azure, and GCP into a single dataset. It then joins these datasets on the runtime field and assigns a status color (red, yellow, green) based on the support expiration date.
 

@@ -6,13 +6,13 @@ description: >-
   AI for cloud operations is only as good as the data behind it. Learn what makes a cloud data layer AI-ready and which use cases it enables first.
 categories: ['Work']
 tags: ['Cloud Operations', 'AI', 'Cloud Infrastructure']
-heroImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/thumbnail.png'
+heroImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/thumbnail.webp'
 heroAlt: 'Building an AI-Ready Cloud Data Layer'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![Building an AI-Ready Cloud Data Layer](/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/header.png)
+![Building an AI-Ready Cloud Data Layer](/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/header.webp)
 
 > **Note:** Every vendor is pitching AI for cloud operations: AI-powered security, AI cost optimization, AIOps. But AI is only as good as the data you feed it. Most organizations' cloud data is fragmented across a dozen tools, which means no AI system can see the full picture. The unified data layer we've been building throughout this series isn't just good for governance. It's the foundation that makes AI-powered cloud operations actually work.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes the data layer architecture reference and AI-readiness checklist.

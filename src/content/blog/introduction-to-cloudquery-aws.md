@@ -5,13 +5,13 @@ slug: 'introduction-to-cloudquery-aws'
 description: "Discover how CloudQuery solves cloud visibility fragmentation by providing AI-powered insights across all AWS resources. Learn CloudQuery's architecture, how it transforms multi-source data into unified schemas, and why it's become essential for security monitoring, cost optimization, and compliance automation."
 categories: ['Work']
 tags: ['AWS', 'Cloud Infrastructure']
-heroImage: '/images/blog/introduction-to-cloudquery-aws/thumbnail.png'
+heroImage: '/images/blog/introduction-to-cloudquery-aws/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/introduction-to-cloudquery-aws'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'CloudQuery transforms cloud visibility from fragmented dashboards and siloed tools into unified, queryable infrastructure intelligence. Connect AWS accounts with read-only IAM roles, sync data from 240+ services plus external SaaS platforms, normalize everything into consistent schemas, and query across your entire technology stack. No agents, no infrastructure changes - just comprehensive visibility that drives security, cost optimization, and operational excellence.'
 ---
 
-![Introduction to CloudQuery for AWS header](/images/blog/introduction-to-cloudquery-aws/header.png)
+![Introduction to CloudQuery for AWS header](/images/blog/introduction-to-cloudquery-aws/header.webp)
 
 Quick questions: How many cloud resources in your AWS environment are publicly accessible? How many are currently unencrypted? Which ones cost the most?
 
@@ -23,7 +23,7 @@ That's the problem CloudQuery solves.
 
 In this video, AWS Partner Solutions Architect Keegan Marazzi sits down with CloudQuery Developer Advocate Joe Karlsson to explore what CloudQuery is, what problems it solves, and how its architecture delivers unified visibility across your entire cloud infrastructure.
 
-[![Introduction to CloudQuery for AWS Video Thumbnail](/images/blog/introduction-to-cloudquery-aws/video.png)](https://www.youtube.com/embed/dGiHSQKSKpw)
+[![Introduction to CloudQuery for AWS Video Thumbnail](/images/blog/introduction-to-cloudquery-aws/video.webp)](https://www.youtube.com/embed/dGiHSQKSKpw)
 
 ## The Cloud Visibility Problem
 

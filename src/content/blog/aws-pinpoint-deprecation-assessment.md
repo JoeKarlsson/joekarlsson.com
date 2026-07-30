@@ -5,14 +5,14 @@ slug: 'aws-pinpoint-deprecation-assessment'
 description: 'AWS Pinpoint reaches end of support October 2026. Query your Pinpoint usage across all accounts to find what needs migrating before the deadline.'
 categories: ['Work']
 tags: ['Tutorials', 'AWS']
-heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumbnail.png'
+heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-pinpoint-deprecation-assessment'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
 AWS announced that [Amazon Pinpoint is reaching end of support on October 30, 2026](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html). New customers have been locked out since May 2025, and existing customers lose console access after the cutoff. But here's the thing that trips people up: not everything is going away.
 
-![Assess Your AWS Pinpoint Deprecation Exposure with CloudQuery](/images/blog/aws-pinpoint-deprecation-assessment/header.png)
+![Assess Your AWS Pinpoint Deprecation Exposure with CloudQuery](/images/blog/aws-pinpoint-deprecation-assessment/header.webp)
 
 > **TL;DR:** Pinpoint's campaigns, journeys, segments, and templates are being retired in October 2026. Transactional messaging (SMS, push, voice) continues under AWS End User Messaging. This tutorial walks you through how to identify resources that will be impacted by this deprecation so that you can assess your migration scope across your entire AWS Organization.
 

@@ -6,12 +6,12 @@ description: >-
   89% of organizations use multiple clouds but only 8% are cloud-mature. Learn what the Cloud Operations Gap is and why it costs teams hours every week.
 categories: ['Work']
 tags: ['Cloud Operations', 'Platform Engineering', 'Security']
-heroImage: /images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/thumbnail.png
+heroImage: /images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![Blog header for The Cloud Operations Gap: Part 1 of the Cloud Operations Playbook series](/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/header.png)
+![Blog header for The Cloud Operations Gap: Part 1 of the Cloud Operations Playbook series](/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/header.webp)
 
 > **Note:** **TL;DR:** The "Cloud Operations Gap" is the distance between what leadership thinks they know about cloud infrastructure and what's actually running. 89% of organizations now operate across multiple clouds, yet only 8% qualify as highly cloud-mature. Fragmented tooling traps critical context in silos, making basic questions like "how many S3 buckets do we have?" surprisingly hard to answer. This post explains why the gap exists, why it's getting worse, and how to start measuring it.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), a 67-page guide covering everything from self-assessment to automated governance.

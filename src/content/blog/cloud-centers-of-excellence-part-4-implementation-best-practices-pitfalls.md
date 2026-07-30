@@ -7,12 +7,12 @@ tags:
   - Governance
 categories:
   - Databases
-heroImage: /images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumbnail.png
+heroImage: /images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---
 
-![Designing a Cloud Center of Excellence blog post header](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumbnail.png)
+![Designing a Cloud Center of Excellence blog post header](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumbnail.webp)
 
 **About This Series:** This is Part 4 of our comprehensive 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:
 
@@ -27,7 +27,7 @@ contentNotice: "This post was originally published on CloudQuery's blog."
 
 If you're thinking about establishing a CCOE (or improving an existing one), let me walk you through what actually works based on real-world implementations. Drawing from analysis of cloud providers (AWS, Azure, GCP), industry frameworks, and lessons learned from real-world case studies, here's a structured approach an organization can follow:
 
-![Diagram of a 12-step roadmap for building a Cloud Center of Excellence (CCOE)](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image5.png)
+![Diagram of a 12-step roadmap for building a Cloud Center of Excellence (CCOE)](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image5.webp)
 
 **Figure 5:** Diagram of a 12-step roadmap for building a Cloud Center of Excellence (CCOE), arranged in a snaking vertical-horizontal flow with white arrows and text.
 
@@ -135,7 +135,7 @@ As emphasized, building cloud skill in the broader organization is a key respons
 
 Every CCOE needs metrics, but not all metrics are created equal. Sure, you should track things like cloud spend and security incidents. But the metrics that really matter are the ones that show you're enabling the business.
 
-![Meme image of a man tapping his temple and smiling knowingly (known as the "Roll Safe" meme). The overlaid text reads: "CAN'T ARGUE THE COE ISN'T VALUABLE... IF YOU MEASURE EVERYTHING."](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image1.png)
+![Meme image of a man tapping his temple and smiling knowingly (known as the "Roll Safe" meme). The overlaid text reads: "CAN'T ARGUE THE COE ISN'T VALUABLE... IF YOU MEASURE EVERYTHING."](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image1.webp)
 
 To ensure the CCOE is meeting its goals, put in place a set of **Key Performance Indicators (KPIs)** and [regularly report on them](https://www.infracost.io/glossary/cloud-center-of-excellence/). Metrics might include:
 
@@ -197,7 +197,7 @@ People may resist adopting standards or fear that the CoE threatens their jobs (
 
 **Strategy:** Address resistance through education and quick wins. As Infracost notes, resistance can be overcome by "[education and showcasing early wins](https://www.infracost.io/glossary/cloud-center-of-excellence/#:~:text=1,for%20modernization%20and%20cloud%20migration)". Identify skeptics and involve them in CoE pilot projects so they feel ownership. Highlight success stories of how the CoE made someone's work easier (e.g., a developer who used to wait weeks for infra now gets it in hours). And importantly, reassure that the CoE is not there to cut jobs but to elevate skills (train ops staff in cloud, etc.). Align CoE activities with incentives: e.g., incorporate cloud goals into teams' performance objectives to encourage adoption.
 
-![A meme featuring Bernie Sanders standing outside in a winter coat, from a well-known campaign video. The overlaid text reads: "I am once again asking your teams to stop bypassing the CoE processes"](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image4.png)
+![A meme featuring Bernie Sanders standing outside in a winter coat, from a well-known campaign video. The overlaid text reads: "I am once again asking your teams to stop bypassing the CoE processes"](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image4.webp)
 
 ### Pitfall 4: Underestimating Ongoing Effort
 
@@ -211,7 +211,7 @@ A CoE that tries to solve every cloud issue at once can overwhelm itself and oth
 
 **Strategy:** Prioritize ruthlessly. Use a maturity model approach, focus on foundational capabilities first (security, identity, baseline automation), then gradually add advanced ones (like complex multi-cloud strategies or AI governance). Communicate these phases so management understands why some features are not there on day one. It's often useful to align with a known cloud adoption maturity model (AWS CAF or similar) so stakeholders see a roadmap. Deliver in small increments, e.g., roll out tagging enforcement this quarter, next quarter tackle DR/backup standards, etc. This agile approach also yields iterative value.
 
-![A five-level pyramid diagram from CloudQuery illustrating Cloud Center of Excellence (CCOE) maturity stages: 1. Ad hoc - Undocumented, unmanaged, individual effort 2. Reactive - siloed teams, inconsistent practices 3. Defined - Governance, policy, and repeatable processes 4. Integrated - Security, FinOps, and DevOps are aligned 5. Optimized CCOE - Cross-functional, automated, productive. Each ascending level represents increased maturity, alignment, and operational efficiency in cloud governance practices.](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image3.png)
+![A five-level pyramid diagram from CloudQuery illustrating Cloud Center of Excellence (CCOE) maturity stages: 1. Ad hoc - Undocumented, unmanaged, individual effort 2. Reactive - siloed teams, inconsistent practices 3. Defined - Governance, policy, and repeatable processes 4. Integrated - Security, FinOps, and DevOps are aligned 5. Optimized CCOE - Cross-functional, automated, productive. Each ascending level represents increased maturity, alignment, and operational efficiency in cloud governance practices.](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image3.webp)
 
 **Figure 6.** The Cloud Center of Excellence (CCOE) Maturity Pyramid. This model outlines the five stages organizations typically progress through, starting from ad-hoc, fragmented practices to a fully optimized, cross-functional governance model.
 

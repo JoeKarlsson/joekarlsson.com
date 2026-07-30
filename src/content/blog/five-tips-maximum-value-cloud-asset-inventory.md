@@ -5,13 +5,13 @@ slug: 'five-tips-maximum-value-cloud-asset-inventory'
 description: 'Discover five essential principles for building cloud asset inventories that deliver real business value. Learn how successful organizations transform cloud infrastructure visibility into measurable outcomes through business-focused implementation, cross-functional collaboration, and actionable intelligence.'
 categories: ['Work']
 tags: ['Cloud Infrastructure', 'Best Practices']
-heroImage: '/images/blog/five-tips-maximum-value-cloud-asset-inventory/thumbnail.png'
+heroImage: '/images/blog/five-tips-maximum-value-cloud-asset-inventory/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/five-tips-maximum-value-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "Building a cloud asset inventory isn't just about collecting data - it's about creating a business capability that drives measurable outcomes. Learn the five core principles that separate successful cloud asset inventory programs from failed implementations: focusing on business outcomes over technical features, engaging stakeholders across teams, prioritizing high-impact use cases, providing actionable intelligence, and planning for continuous improvement at scale."
 ---
 
-![Five Tips for Getting Maximum Value from a Cloud Asset Inventory header](/images/blog/five-tips-maximum-value-cloud-asset-inventory/header.png)
+![Five Tips for Getting Maximum Value from a Cloud Asset Inventory header](/images/blog/five-tips-maximum-value-cloud-asset-inventory/header.webp)
 
 Most organizations treat cloud asset inventories as technical projects. They invest in powerful tools, sync every possible resource, and build comprehensive dashboards. Then they wonder why adoption stays low and business value remains elusive.
 
@@ -19,7 +19,7 @@ The difference between cloud asset inventories that succeed and those that fail 
 
 In this final video of our series on designing, building, maintaining, and scaling cloud asset inventories, CloudQuery Developer Advocate Joe Karlsson sits down with AWS Partner Solutions Architect Keegan Marazzi to share five value-maximizing principles that separate successful implementations from those that stall.
 
-[![Five Tips for Getting Maximum Value from a Cloud Asset Inventory](/images/blog/five-tips-maximum-value-cloud-asset-inventory/video.png)](https://www.youtube.com/embed/d-ln5aDzM8c)
+[![Five Tips for Getting Maximum Value from a Cloud Asset Inventory](/images/blog/five-tips-maximum-value-cloud-asset-inventory/video.webp)](https://www.youtube.com/embed/d-ln5aDzM8c)
 
 ## The Five Value-Maximizing Principles
 

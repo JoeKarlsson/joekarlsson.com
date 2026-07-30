@@ -5,12 +5,12 @@ slug: 'kubernetes-asset-tracking-at-scale'
 description: 'Learn how to tackle the challenges of managing Kubernetes assets across multiple clouds with the central configuration store pattern. Discover how CloudQuery enables SQL-based querying for efficient governance, security enforcement, and compliance at scale.'
 categories: ['Work']
 tags: ['Engineering', 'Governance']
-heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumbnail.png'
+heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/kubernetes-asset-tracking-at-scale'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![Kubernetes Asset Tracking blog header](/images/blog/kubernetes-asset-tracking-at-scale/header.png)
+![Kubernetes Asset Tracking blog header](/images/blog/kubernetes-asset-tracking-at-scale/header.webp)
 
 > **TL;DR:**
 > Managing Kubernetes assets across multiple cloud environments creates significant challenges for enterprises. According to CNCF research, 88% of enterprises run Kubernetes across multiple clouds, but 70% struggle with visibility and governance.
@@ -19,7 +19,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 Managing Kubernetes assets across multiple clouds isn't just hard it's becoming nearly impossible without the right approach. When your organization runs dozens or hundreds of clusters across AWS, Azure, and GCP, keeping track of what you have and ensuring it meets your standards becomes a significant technical challenge.
 
-![Ralph Wiggum from The Simpsons saying, "I'm in Danger," with the caption, "When you realize your Kubernetes asset tracking is a mess".](/images/blog/kubernetes-asset-tracking-at-scale/image1.jpg)
+![Ralph Wiggum from The Simpsons saying, "I'm in Danger," with the caption, "When you realize your Kubernetes asset tracking is a mess".](/images/blog/kubernetes-asset-tracking-at-scale/image1.webp)
 
 We've worked with numerous Fortune 500 companies who initially struggled with this exact problem. Their platform teams were drowning in kubectl commands, custom scripts, and fragmented dashboards all trying to answer seemingly simple questions like "how many pods are running across all our clusters?" or "which CRDs are deployed in production?"
 
@@ -68,7 +68,7 @@ done
 
 This approach might work for 3-5 clusters, but it breaks down spectacularly at scale. You'll quickly hit API rate limits from the Kubernetes API server and experience authentication timeouts as tokens expire during long-running operations. Error handling becomes a nightmare what happens when one cluster is unreachable? The runtime grows linearly with the number of clusters and resources, and these operations become increasingly memory-intensive as your environment grows.
 
-![The Most Interesting Man in the World, with the caption, "I don't always track Kubernetes assets, but when I do, I use manual scripts and end up DDoSing my own APIs."](/images/blog/kubernetes-asset-tracking-at-scale/image7.jpg)
+![The Most Interesting Man in the World, with the caption, "I don't always track Kubernetes assets, but when I do, I use manual scripts and end up DDoSing my own APIs."](/images/blog/kubernetes-asset-tracking-at-scale/image7.webp)
 
 ### 2. Fragmented Visibility
 
@@ -95,7 +95,7 @@ Now imagine running this across dozens of security policies, hundreds of cluster
 
 As Kubernetes adoption proliferates, organizations have developed sophisticated approaches to asset management. Before diving into specific solutions, let's explore the industry best practices that have emerged for tracking and managing Kubernetes resources at scale.
 
-![Infographic titled 'Best Practices for Kubernetes Asset Management' showing four quadrants: a computer monitor with graphs labeled 'Centralized Visibility'; three colored labels reading 'team', 'app', and 'ENV' labeled 'Consistent Labeling Strategy'; a document and gear icon labeled 'Automated Data Collection'; and a code snippet with a shield icon labeled 'Governance of Custom Resources'.](/images/blog/kubernetes-asset-tracking-at-scale/image4.png)
+![Infographic titled 'Best Practices for Kubernetes Asset Management' showing four quadrants: a computer monitor with graphs labeled 'Centralized Visibility'; three colored labels reading 'team', 'app', and 'ENV' labeled 'Consistent Labeling Strategy'; a document and gear icon labeled 'Automated Data Collection'; and a code snippet with a shield icon labeled 'Governance of Custom Resources'.](/images/blog/kubernetes-asset-tracking-at-scale/image4.webp)
 
 ### Centralized Visibility
 
@@ -135,7 +135,7 @@ Organizations have developed several distinct approaches to Kubernetes governanc
 
 ### The Script-Based Approach
 
-![Diagram titled 'Script-Based Approach' showing cron Jobs and Custom Scripts feeding into kubectl, which queries multiple Kubernetes clusters. Issues highlighted include authentication and rate limit problems, maintenance overhead, and performance slowdowns at scale.](/images/blog/kubernetes-asset-tracking-at-scale/image2.png)
+![Diagram titled 'Script-Based Approach' showing cron Jobs and Custom Scripts feeding into kubectl, which queries multiple Kubernetes clusters. Issues highlighted include authentication and rate limit problems, maintenance overhead, and performance slowdowns at scale.](/images/blog/kubernetes-asset-tracking-at-scale/image2.webp)
 
 Many organizations begin with a collection of custom scripts and cron jobs that execute kubectl commands against their clusters. This approach is simple to implement initially but comes with significant drawbacks at scale. Scripts are difficult to maintain, prone to breaking when cluster configurations change, and struggle with authentication and rate limiting in multi-cluster environments.
 
@@ -143,7 +143,7 @@ Google's Site Reliability Engineering team has documented how their initial scri
 
 ### The Agent-Based Approach
 
-![Diagram titled 'Agent-Based Approach' showing three Kubernetes clusters each running an agent that sends data to a Central Platform. Listed issues include resource overhead, management complexity, and a focus on metrics over configuration data.](/images/blog/kubernetes-asset-tracking-at-scale/image5.png)
+![Diagram titled 'Agent-Based Approach' showing three Kubernetes clusters each running an agent that sends data to a Central Platform. Listed issues include resource overhead, management complexity, and a focus on metrics over configuration data.](/images/blog/kubernetes-asset-tracking-at-scale/image5.webp)
 
 Some organizations deploy monitoring agents within each Kubernetes cluster that report metrics and configuration data back to a central platform. This approach, used by tools like Datadog and New Relic, provides near real-time visibility but typically focuses more on performance metrics than configuration governance.
 
@@ -151,7 +151,7 @@ The primary limitation is that agents require cluster access and consume resourc
 
 ### The Snapshot-Based Approach
 
-![Diagram titled 'Snapshot-Based Approach' showing three labeled snapshots pointing to a storage system. Drawbacks listed include historical audit use, stale data, and lack of real-time query capabilities.](/images/blog/kubernetes-asset-tracking-at-scale/image3.png)
+![Diagram titled 'Snapshot-Based Approach' showing three labeled snapshots pointing to a storage system. Drawbacks listed include historical audit use, stale data, and lack of real-time query capabilities.](/images/blog/kubernetes-asset-tracking-at-scale/image3.webp)
 
 Another common pattern is periodic snapshots of cluster configuration, often stored in object storage like S3 or GCS. This approach provides a historical record of cluster state but typically lacks real-time querying capabilities. Teams must process these snapshots with custom tools to extract meaningful insights.
 

@@ -5,11 +5,11 @@ slug: 'etl-benchmark-1-million-rows-2-seconds-macbook'
 description: 'We benchmarked our ETL tool and synced 1 million rows in 2 seconds on laptop hardware, which is 68% faster than enterprise platforms. Full methodology and code included.'
 categories: ['Work']
 tags: ['Engineering']
-heroImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumbnail.png'
+heroImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumbnail.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![We bench marked our ETL tool and synced 1 million rows in 2 seconds on a MacBook blog post header](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumbnail.png)
+![We bench marked our ETL tool and synced 1 million rows in 2 seconds on a MacBook blog post header](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumbnail.webp)
 
 > **TL;DR:**
 > CloudQuery achieved 163,489 rows/sec and 841.9 GB/hour data throughput on an 11-core MacBook - 68% faster than Fivetran's enterprise infrastructure benchmarks. Our Go-based architecture with Apache Arrow integration delivers multi-cloud extraction at 42 resources/sec across AWS, GCP, and Azure simultaneously, using just 47% CPU and 75MB memory. The complete benchmark methodology is [open-source](http://github.com/cloudquery/benchmark) and reproducible on any hardware, from laptops to enterprise clusters.
@@ -20,7 +20,7 @@ We think that the real story here isn't just the data movement speeds - it's tha
 
 Here's how the numbers break down: We pushed 163,489 rows per second through our data pipeline while processing 841.9 GB/hour on an 11-core MacBook. For comparison, [Fivetran's latest published benchmarks](https://www.fivetran.com/benchmarking) show 500+ GB/hour throughput at roughly 105,000-117,000 rows/sec on enterprise GCP infrastructure with 16 cores and 128GB RAM - that's 68% higher throughput on hardware you probably have sitting on your desk.
 
-![Side-by-side performance comparison chart showing CloudQuery vs Fivetran throughput metrics.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image4.png)
+![Side-by-side performance comparison chart showing CloudQuery vs Fivetran throughput metrics.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image4.webp)
 
 ## Why data movement performance matters
 
@@ -76,7 +76,7 @@ Resource utilization data is collected at 100ms intervals throughout execution, 
 
 \*Industry performance varies significantly. Independent analysis shows processing time differences of 19x between fastest and slowest ETL tools for equivalent workloads.
 
-![Side-by-side performance comparison chart showing ETL Tool Data Throughput in GB per Hour.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image5.png)
+![Side-by-side performance comparison chart showing ETL Tool Data Throughput in GB per Hour.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image5.webp)
 
 #### Architectural Performance Factors
 
@@ -122,7 +122,7 @@ The demonstrated throughput on consumer hardware exceeds enterprise cloud infras
 | **Hardware**  | 11-core laptop       | 16-core cloud server      | Smaller footprint |
 | **CPU usage** | 47%                  | Not disclosed             | Room to scale     |
 
-![Side-by-side performance comparison chart showing ETL Tool Data Throughput in GB per Hour.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image5.png)
+![Side-by-side performance comparison chart showing ETL Tool Data Throughput in GB per Hour.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image5.webp)
 
 The key here is that we can achieve superior throughput on consumer laptop hardware compared to enterprise cloud infrastructure. This performance profile enables consistent results across any deployment scenario, from development environments to production data centers.
 
@@ -136,7 +136,7 @@ CloudQuery leverages Go's goroutine model for lightweight concurrency. Each goro
 
 Apache Arrow's columnar memory format provides 10-100x performance improvements through SIMD vectorization. Instead of row-wise processing, we handle entire 64-byte buffers with single CPU instructions. Arrow's zero-copy data access eliminates serialization overhead between processes, creating genuine zero-copy data movement from source to destination.
 
-![Technical architecture diagram showing Go goroutines vs traditional threads, plus Apache Arrow columnar format benefits.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image6.png)
+![Technical architecture diagram showing Go goroutines vs traditional threads, plus Apache Arrow columnar format benefits.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image6.webp)
 
 ## Multi-cloud performance testing results
 
@@ -174,9 +174,9 @@ CloudQuery is purpose-built for cloud infrastructure data extraction and managem
 
 Our benchmark demonstrates 47% CPU usage and 75.7MB memory consumption on laptop hardware while outperforming enterprise ETL platforms. Traditional enterprise tools typically require dedicated cloud infrastructure and significantly more resources to achieve comparable throughput.
 
-![Resource utilization comparison showing CPU utilization for CloudQuery vs typical enterprise ETL.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image7.png)
+![Resource utilization comparison showing CPU utilization for CloudQuery vs typical enterprise ETL.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image7.webp)
 
-![Resource utilization comparison showing memory usage CloudQuery vs typical enterprise ETL.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image3.png)
+![Resource utilization comparison showing memory usage CloudQuery vs typical enterprise ETL.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image3.webp)
 
 ### Self-hosted performance advantages
 

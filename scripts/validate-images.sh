@@ -10,9 +10,10 @@ IMAGE_DIR="public/images"
 # 18MB-GIF variety cannot land. Ratchet it down as the backlog shrinks.
 MAX_IMAGE_KB=2048
 
-# Ratchet on the PNG/JPG backlog: the count may fall but never rise. Lower this
-# as images get converted - the script prints the new number when it drops.
-MAX_NON_WEBP=197
+# Ratchet on the PNG/JPG backlog: the count may fall but never rise. The
+# backlog is now clear, so any PNG or JPG landing under public/images fails.
+# Convert with ./scripts/convert-images-to-webp.mjs.
+MAX_NON_WEBP=0
 
 echo "=== Image Validation ==="
 echo ""

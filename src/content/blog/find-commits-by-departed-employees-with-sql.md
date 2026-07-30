@@ -5,14 +5,14 @@ slug: 'find-commits-by-departed-employees-with-sql'
 description: 'Identify code changes made by employees who left your organization. Cross-reference git commit authors against your identity provider to find commits needing review.'
 categories: ['Work']
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/find-commits-by-departed-employees-with-sql/thumbnail.png'
+heroImage: '/images/blog/find-commits-by-departed-employees-with-sql/thumbnail.webp'
 heroAlt: 'Find commits by departed employees with SQL'
 canonicalUrl: 'https://www.cloudquery.io/blog/find-commits-by-departed-employees-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs commit history. Join with Okta or Azure AD to identify commits by former employees for compliance audits and security reviews.'
 ---
 
-![Find commits by departed employees header](/images/blog/find-commits-by-departed-employees-with-sql/header.png)
+![Find commits by departed employees header](/images/blog/find-commits-by-departed-employees-with-sql/header.webp)
 
 An engineer leaves your company. Their access gets revoked, their laptop returned. But their commits remain across dozens of repositories. For compliance audits, security reviews, or simply understanding code ownership, you need to identify which code was authored by former employees. The manual approach: export HR data, clone repos, run `git log`, correlate email addresses, compile spreadsheets. Repeat quarterly.
 

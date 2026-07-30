@@ -7,14 +7,14 @@ tags:
   - Best Practices
 date: 2025-10-24
 description: Agent-based CMDB discovery fails in cloud environments with containers, serverless, and managed services. API-driven discovery costs 90% less and works everywhere.
-heroImage: /images/blog/death-of-agent-based-discovery/thumbnail.png
+heroImage: /images/blog/death-of-agent-based-discovery/thumbnail.webp
 categories:
   - Databases
 canonicalUrl: https://www.cloudquery.io/blog/death-of-agent-based-discovery
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---
 
-![The Death of Agent-Based CMDB Discovery](/images/blog/death-of-agent-based-discovery/header.png)
+![The Death of Agent-Based CMDB Discovery](/images/blog/death-of-agent-based-discovery/header.webp)
 
 We spent 20 years deploying agents on servers. Then AWS gave us APIs. Why are we still installing agents?
 

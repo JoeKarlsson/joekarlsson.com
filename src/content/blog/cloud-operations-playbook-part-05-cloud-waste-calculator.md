@@ -6,12 +6,12 @@ description: >-
   Engineering toil from fragmented cloud visibility costs $47K-$90K per engineer yearly. Use our calculator to measure the real cost at your organization.
 categories: ['Work']
 tags: ['Cloud Operations', 'FinOps']
-heroImage: /images/blog/cloud-operations-playbook-part-05-cloud-waste-calculator/thumbnail.png
+heroImage: /images/blog/cloud-operations-playbook-part-05-cloud-waste-calculator/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-05-cloud-waste-calculator
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![Blog header for the Cloud Waste Calculator: Part 5 of the Cloud Operations Playbook series](/images/blog/cloud-operations-playbook-part-05-cloud-waste-calculator/header.png)
+![Blog header for the Cloud Waste Calculator: Part 5 of the Cloud Operations Playbook series](/images/blog/cloud-operations-playbook-part-05-cloud-waste-calculator/header.webp)
 
 > **Note:** **TL;DR:** Fragmented cloud visibility doesn't just slow teams down, it bleeds money. A mid-size engineering team of 10 people loses roughly 26 hours per week to infrastructure toil: investigating security alerts, gathering compliance evidence, tracking down cost attribution, answering inventory questions, and pulling incident context from scattered systems. That's $117,600/year in direct costs. Factor in the opportunity cost of senior engineers not building automation or reducing tech debt, and the real number lands between $47K and $90K per engineer per year. This post breaks down each category of toil and gives you the math to calculate it for your own team.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes the complete calculation worksheet and ROI presentation template.

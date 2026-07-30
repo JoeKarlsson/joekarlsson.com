@@ -5,12 +5,12 @@ slug: 'visualize-govern-cloud-stack-cloudquery-reports'
 description: 'CloudQuery Reports delivers actionable insights for multi-cloud security, compliance, and cost optimization with ready-to-use dashboards and SQL queries.'
 categories: ['Work']
 tags: ['Product News']
-heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumbnail.png'
+heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/visualize-govern-cloud-stack-cloudquery-reports'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![Visualize & Govern Your Cloud Stack with CloudQuery Reports header image](/images/blog/visualize-govern-cloud-stack-cloudquery-reports/header.png)
+![Visualize & Govern Your Cloud Stack with CloudQuery Reports header image](/images/blog/visualize-govern-cloud-stack-cloudquery-reports/header.webp)
 
 > **TL;DR:**
 > CloudQuery Reports provides pre-built insights into your multi-cloud environment with ready-to-use dashboards for security, compliance, cost management, and operations. Access underlying SQL queries to customize reports and get actionable intelligence across all your cloud resources without specialized expertise.

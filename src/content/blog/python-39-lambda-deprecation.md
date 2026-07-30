@@ -5,12 +5,12 @@ slug: 'python-39-lambda-deprecation'
 description: 'AWS Lambda Python 3.9 security patches stopped Dec 15, 2025. Find every affected function across all accounts with SQL queries and upgrade to 3.12 or 3.13.'
 categories: ['Work']
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
-heroImage: '/images/blog/python-39-lambda-deprecation/thumbnail.png'
+heroImage: '/images/blog/python-39-lambda-deprecation/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/python-39-lambda-deprecation'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![Blog header for finding AWS Lambda functions running deprecated Python 3.9 runtime](/images/blog/python-39-lambda-deprecation/header.png)
+![Blog header for finding AWS Lambda functions running deprecated Python 3.9 runtime](/images/blog/python-39-lambda-deprecation/header.webp)
 
 > **TL;DR**
 >

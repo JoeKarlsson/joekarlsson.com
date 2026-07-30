@@ -5,14 +5,14 @@ slug: 'detect-public-databases-across-aws-azure-gcp'
 description: 'Detect publicly accessible databases across AWS RDS, Azure, and GCP Cloud SQL. Step-by-step CloudQuery Policies tutorial with copy-paste ClickHouse SQL.'
 categories: ['Work']
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumbnail.png'
+heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumbnail.webp'
 heroAlt: 'How to Detect Public Databases Across AWS, Azure, and GCP with CloudQuery Policies'
 canonicalUrl: 'https://www.cloudquery.io/blog/detect-public-databases-across-aws-azure-gcp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'This tutorial walks through building a CloudQuery Policy that detects publicly accessible databases across AWS, Azure, and GCP. You will get copy-paste ClickHouse SQL covering 9 database types across 3 cloud providers, screenshots of the full setup process, and a breakdown of how violation details and related resource views work.'
 ---
 
-![How to Detect Public Databases Across AWS, Azure, and GCP with CloudQuery Policies](/images/blog/detect-public-databases-across-aws-azure-gcp/header.png)
+![How to Detect Public Databases Across AWS, Azure, and GCP with CloudQuery Policies](/images/blog/detect-public-databases-across-aws-azure-gcp/header.webp)
 
 CloudQuery Policies let you write ClickHouse SQL queries that flag infrastructure violations across all your cloud providers. We [recently launched this feature](https://www.cloudquery.io/blog/introducing-cloudquery-platform-policies), and this post shows how to put it to work.
 
@@ -38,7 +38,7 @@ Every resource in CloudQuery has normalized metadata columns (`_cq_platform_id`,
 
 Navigate to **Policies** in the sidebar and click **Add new policy**:
 
-![New Policy configuration showing policy name, domain, severity, and policy group settings](/images/blog/detect-public-databases-across-aws-azure-gcp/policy-configuration.png)
+![New Policy configuration showing policy name, domain, severity, and policy group settings](/images/blog/detect-public-databases-across-aws-azure-gcp/policy-configuration.webp)
 
 Fill in the basics:
 
@@ -55,7 +55,7 @@ Click **Next step** to move to the rule logic.
 
 The rule logic screen shows a library of 235+ pre-built queries you can select from, tagged by cloud provider and category:
 
-![Rule logic editor showing query library with pre-built queries tagged by cloud provider and category](/images/blog/detect-public-databases-across-aws-azure-gcp/define-rule-logic.png)
+![Rule logic editor showing query library with pre-built queries tagged by cloud provider and category](/images/blog/detect-public-databases-across-aws-azure-gcp/define-rule-logic.webp)
 
 We're writing a custom query, so click **Write new query**. Let's build it up provider by provider.
 
@@ -202,13 +202,13 @@ Pick the notification channel that matches your incident response workflow. Secu
 
 Once the policy is saved and has run at least once, the Policies dashboard gives you a bird's-eye view:
 
-![Policies dashboard showing active violations, severity breakdown, violations over time, and latest notifications](/images/blog/detect-public-databases-across-aws-azure-gcp/policies-dashboard.png)
+![Policies dashboard showing active violations, severity breakdown, violations over time, and latest notifications](/images/blog/detect-public-databases-across-aws-azure-gcp/policies-dashboard.webp)
 
 The dashboard shows active violations, severity breakdown, a trend graph over time, and recent notifications. You can filter by policy group, severity, and domain. The violations-over-time graph is especially useful after deployments. A spike there tells you something changed.
 
 Click into a specific policy to see the list of violating resources. Click any resource to open the detail panel:
 
-![Violating resource detail view showing properties, metadata, and JSON configuration for a Redis Cache with public access enabled](/images/blog/detect-public-databases-across-aws-azure-gcp/violating-resource-detail.png)
+![Violating resource detail view showing properties, metadata, and JSON configuration for a Redis Cache with public access enabled](/images/blog/detect-public-databases-across-aws-azure-gcp/violating-resource-detail.webp)
 
 ### What the Resource Detail Shows You
 

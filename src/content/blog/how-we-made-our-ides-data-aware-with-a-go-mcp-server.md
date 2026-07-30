@@ -5,7 +5,7 @@ slug: 'how-we-made-our-ides-data-aware-with-a-go-mcp-server'
 description: 'How we built a Go-based MCP server to make AI Assistants data-aware, bridging code and database, which ended up transforming the way we code.'
 categories: ['Dev Tools']
 tags: ['MCP', 'LLM', 'AI', 'Engineering', 'Go']
-heroImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.png'
+heroImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.webp'
 heroAlt: 'How we made our IDEs data-aware with a Go MCP Server'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server'
 tldr: 'We built a Go-based MCP server that bridges the gap between AI code assistants and our cloud infrastructure data. By exposing database schemas, queries, and insights directly to Claude, Cursor (or any client that supports MCP), our AI assistant now understands both our code and data. This eliminated context-switching, sped up workflows (from hours to minutes), and unlocked new ways to audit, analyze, and troubleshoot infrastructure.'
@@ -13,7 +13,7 @@ tldr: 'We built a Go-based MCP server that bridges the gap between AI code assis
 
 _Co-authored with Mariano Gappa at CloudQuery._
 
-![How we made our IDEs data-aware with a Go MCP Server header](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/header.png)
+![How we made our IDEs data-aware with a Go MCP Server header](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/header.webp)
 
 Most developers (and our own team) have been fully using AI code assistance to help with all aspects of building software. We have found that our AI-assisted IDEs know our functions, suggest completions, and help debug issues. However, their usefulness stopped dead at our database. AI assistants have zero understanding of what's actually in our tables, what queries make sense, or how your data connects together. This often results in hallucinations/bad data if you ever were to ask it a question about cloud infrastructure.
 
@@ -34,7 +34,7 @@ We noticed something frustrating: our engineers (and users) were constantly swit
 - Write more SQL queries, debug them separately
 - Go back to Claude with the results for further analysis
 
-![Meme with two panels: left shows a woman yelling and pointing while another woman holds her back, captioned: 'Engineers frantically switching between Claude for code and CloudQuery for data, copy-pasting schemas, manually explaining relationships.' Right panel shows a cat sitting at a dinner table looking indifferent, captioned: 'Claude completely clueless about what's actually in your database.'](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/image1.png)
+![Meme with two panels: left shows a woman yelling and pointing while another woman holds her back, captioned: 'Engineers frantically switching between Claude for code and CloudQuery for data, copy-pasting schemas, manually explaining relationships.' Right panel shows a cat sitting at a dinner table looking indifferent, captioned: 'Claude completely clueless about what's actually in your database.'](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/image1.webp)
 
 **We realized: What if AI Assistants could directly explore our data layer?**
 
@@ -146,7 +146,7 @@ Our security team regularly needs to audit cloud configurations. Previously, thi
 
 **Now:** "Audit our production AWS environment for instances with overly permissive security groups."
 
-![Composite image showing a chat interface where a user asks: 'Can you help me find some security risks in my CloudQuery asset inventory?' The assistant replies with a plan to identify EC2 instances with public IPs and unrestricted SSH, and to create a dashboard. On the right, an AWS EC2 Security Dashboard is displayed, highlighting 7 instances with unrestricted SSH, 23 public instances, 34.2% permissive security group ratio, and 156 total instances.](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/image4.png)
+![Composite image showing a chat interface where a user asks: 'Can you help me find some security risks in my CloudQuery asset inventory?' The assistant replies with a plan to identify EC2 instances with public IPs and unrestricted SSH, and to create a dashboard. On the right, an AWS EC2 Security Dashboard is displayed, highlighting 7 instances with unrestricted SSH, 23 public instances, 34.2% permissive security group ratio, and 156 total instances.](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/image4.webp)
 
 Your AI Assistant automatically:
 
@@ -161,7 +161,7 @@ The security team gets actionable insights instead of raw data dumps.
 
 By giving Claude/Cursor direct access to our data layer through structured tools, we've created something genuinely new: an AI assistant that understands both our code AND our data.
 
-![Epic Handshake meme. Left arm labeled 'Your Code,' right arm labeled 'Your Data,' and the handshake labeled 'MCP Server.'](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/image6.png)
+![Epic Handshake meme. Left arm labeled 'Your Code,' right arm labeled 'Your Data,' and the handshake labeled 'MCP Server.'](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/image6.webp)
 
 This pattern isn't specific to CloudQuery. Any team with substantial databases could benefit from this approach:
 

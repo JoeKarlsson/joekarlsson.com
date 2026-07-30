@@ -6,13 +6,13 @@ description: >-
   Write cloud security checks in SQL instead of proprietary policy languages. See practical queries for public buckets, MFA, encryption, and more.
 categories: ['Work']
 tags: ['Cloud Operations', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/thumbnail.png'
+heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/thumbnail.webp'
 heroAlt: 'Cloud Security Posture Management with SQL'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![Cloud Security Posture Management with SQL](/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/header.png)
+![Cloud Security Posture Management with SQL](/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/header.webp)
 
 > **Note:** Traditional CSPM tools force you to learn proprietary policy languages like Rego or vendor-specific DSLs. But if your cloud asset data lives in a database, you can write security checks in SQL instead. Your security team writes checks that engineering can actually read. Your checks live in version control next to your infrastructure code. And the same query that finds a misconfiguration can serve as compliance evidence, investigation tool, and automated policy check all at once.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes the complete SQL security check library for all major cloud providers.

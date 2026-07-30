@@ -5,14 +5,14 @@ tags:
   - Tutorials
 date: 2025-09-01
 description: AI applications need fresh, unified data to succeed. CloudQuery delivers faster data movement from 50+ sources to AI destinations like vector databases and training pipelines - privately on your infrastructure.
-heroImage: /images/blog/production-ai-data-pipeline-architectures/thumbnail.png
+heroImage: /images/blog/production-ai-data-pipeline-architectures/thumbnail.webp
 categories:
   - Databases
 canonicalUrl: https://www.cloudquery.io/blog/production-ai-data-pipeline-architectures
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---
 
-![Blog header for production AI data pipeline architectures: feeding AI with real infrastructure data](/images/blog/production-ai-data-pipeline-architectures/thumbnail.png)
+![Blog header for production AI data pipeline architectures: feeding AI with real infrastructure data](/images/blog/production-ai-data-pipeline-architectures/thumbnail.webp)
 
 > **Note:** **TL;DR:**
 > AI applications need the right data at the right time, in the right format, in the right place. But data fragmentation across structured and unstructured sources forces teams to build complex ELT glue code that consumes months of engineering time. CloudQuery solves this by moving data from many different sources to where your AI needs it, at high speed, integrated into the code you're already writing for RAG, agents, and LLM fine-tuning.
@@ -86,7 +86,7 @@ CloudQuery supports both structured and unstructured data, from any source to an
 
 ### E-commerce Recommendations
 
-![AI-powered e-commerce data pipeline architecture using CloudQuery to process Shopify and analytics data through vector databases and feature stores for ML-driven product recommendations.](/images/blog/production-ai-data-pipeline-architectures/image4.png)
+![AI-powered e-commerce data pipeline architecture using CloudQuery to process Shopify and analytics data through vector databases and feature stores for ML-driven product recommendations.](/images/blog/production-ai-data-pipeline-architectures/image4.webp)
 
 **Stream fresh product data into a vector DB for real-time recommendations.**
 
@@ -104,7 +104,7 @@ Transform customer support tickets, surveys, and reviews into training-ready dat
 
 ### Fresh RAG Pipelines
 
-![Enterprise RAG architecture using CloudQuery to sync Confluence, Notion, and Wiki data into PostgreSQL pgvector for AI-powered knowledge assistant with fresh, searchable embeddings.](/images/blog/production-ai-data-pipeline-architectures/image5.png)
+![Enterprise RAG architecture using CloudQuery to sync Confluence, Notion, and Wiki data into PostgreSQL pgvector for AI-powered knowledge assistant with fresh, searchable embeddings.](/images/blog/production-ai-data-pipeline-architectures/image5.webp)
 
 **Keep RAG pipelines fresh with daily syncs from internal knowledge bases or wikis.**
 

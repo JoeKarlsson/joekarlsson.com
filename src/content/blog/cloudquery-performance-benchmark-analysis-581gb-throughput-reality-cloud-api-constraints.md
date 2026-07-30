@@ -5,12 +5,12 @@ slug: 'cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-
 description: 'Comprehensive performance analysis of CloudQuery across multiple platforms and data sources, achieving 581 GB/hour throughput on consumer grade hardware when processing local data, with detailed analysis of cloud provider API rate limiting impacts.'
 categories: ['Work']
 tags: ['Engineering']
-heroImage: '/images/blog/cloudquery-performance-analysis-581gb/header.png'
+heroImage: '/images/blog/cloudquery-performance-analysis-581gb/header.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![CloudQuery Performance Benchmark Analysis](/images/blog/cloudquery-performance-analysis-581gb/header.png)
+![CloudQuery Performance Benchmark Analysis](/images/blog/cloudquery-performance-analysis-581gb/header.webp)
 
 > **Executive Summary:**
 > CloudQuery achieved 581 GB/hour processing throughput when handling file data on Apple M4 Pro hardware, demonstrating our engine's architectural capabilities when unconstrained by external rate limits. Production cloud data synchronization performance ranges from 7-91 GB/hour due to provider API rate limiting, with Azure achieving 91 GB/hour, GCP reaching 49 GB/hour, and AWS delivering 13 GB/hour - representing optimal throughput within documented API constraints. Complete benchmark methodology and reproducible test framework available via [open-source repository](https://github.com/cloudquery/benchmark).
@@ -21,7 +21,7 @@ The distinction matters because most discussions of ETL performance focus on har
 
 Compared to other open-source alternatives like [Airbyte](https://airbyte.com/resources/benchmark-of-data-pipeline-performance-cost), which typically processes data at 50-200 GB/hour depending on configuration complexity, CloudQuery's specialized cloud infrastructure focus enables superior performance across both consumer-grade and enterprise hardware configurations. Our testing methodology isolates these variables to provide actionable performance data for teams planning CloudQuery deployments across different scenarios.
 
-![Data Volume Throughput Comparison](/images/blog/cloudquery-performance-analysis-581gb/data-volume-throughput-comparison.png)
+![Data Volume Throughput Comparison](/images/blog/cloudquery-performance-analysis-581gb/data-volume-throughput-comparison.webp)
 
 ## Methodology and Testing Framework
 
@@ -35,7 +35,7 @@ The [File](https://www.cloudquery.io/hub/plugins/source/cloudquery/file/latest/d
 
 The following table presents raw performance measurements from our primary test configuration running CloudQuery on Apple M4 Pro hardware:
 
-![CloudQuery Performance Dashboard](/images/blog/cloudquery-performance-analysis-581gb/performance-dashboard.png)
+![CloudQuery Performance Dashboard](/images/blog/cloudquery-performance-analysis-581gb/performance-dashboard.webp)
 
 | Data Source | Total Rows | Total MB | Duration (s) | GB/Hour | Average CPU | Max Memory (MB) |
 | ----------- | ---------- | -------- | ------------ | ------- | ----------- | --------------- |

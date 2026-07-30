@@ -5,7 +5,7 @@ slug: 'how-we-accidentally-invented-a-cloud-search-language'
 description: 'How we turned our search bar into a domain-specific language using Peggy instead of regex, solving complex parsing challenges for cloud resource queries.'
 categories: ['Dev Tools']
 tags: ['Parsing', 'DSL', 'Engineering', 'JavaScript']
-heroImage: '/images/blog/we-built-a-search-language-for-cloudquery/thumbnail.png'
+heroImage: '/images/blog/we-built-a-search-language-for-cloudquery/thumbnail.webp'
 heroAlt: 'How We Accidentally Invented a Cloud Search Language'
 canonicalUrl: 'https://www.cloudquery.io/blog/we-built-a-search-language-for-cloudquery'
 tldr: 'A "simple" search bar turned into a full domain-specific language (DSL) for cloud queries. Regex melted. Peggy rescued us. Along the way we learned more about Chomsky, compilers, and a few surprises about UX.'
@@ -13,7 +13,7 @@ tldr: 'A "simple" search bar turned into a full domain-specific language (DSL) f
 
 _Co-authored with Christopher Duflo at CloudQuery._
 
-![How We Accidentally Invented a Cloud Search Language blog post header](/images/blog/we-built-a-search-language-for-cloudquery/thumbnail.png)
+![How We Accidentally Invented a Cloud Search Language blog post header](/images/blog/we-built-a-search-language-for-cloudquery/thumbnail.webp)
 
 All we wanted was a box where you could type something like:
 
@@ -117,7 +117,7 @@ ComparisonExpression = identifier:Identifier _ op:ComparisonOperator _ value:Val
 
 This rule matches expressions like `region="us-west-2"` and builds a structured object with the field, operator, and value. It also tracks position information for syntax highlighting and validation, as well as completeness for conversion to a chip in the filter bar.
 
-![Flowchart diagram showing a query parsing pipeline. It starts with "input string" at the top, followed by arrows pointing downward to each step: "lexer," "PEG engine," "AST," "planner," and finally "query plan."](/images/blog/we-built-a-search-language-for-cloudquery/peggy.png)
+![Flowchart diagram showing a query parsing pipeline. It starts with "input string" at the top, followed by arrows pointing downward to each step: "lexer," "PEG engine," "AST," "planner," and finally "query plan."](/images/blog/we-built-a-search-language-for-cloudquery/peggy.webp)
 
 1. **Input String** - You type your query
 2. **Lexer** - Breaks the string into tokens - identifiers, operators, parentheses, quoted strings
@@ -141,7 +141,7 @@ It turns out our journey from regex to formal grammar has deep theoretical roots
 
 We jumped from Type 3 (regex) to Type 2 (PEG.js) so we could support nested parentheses, operator precedence, and clean error handling without hand-written hacks.
 
-![Concentric-circle diagram of Chomsky's grammar hierarchy. Innermost Type 3 "Regular," then Type 2 "Context-Free," Type 1 "Context-Sensitive," and outermost Type 0 "Unrestricted", with an arrow showing CloudQuery's jump from Type 3 (regex) to Type 2 (PEG.js).](/images/blog/we-built-a-search-language-for-cloudquery/image2.png)
+![Concentric-circle diagram of Chomsky's grammar hierarchy. Innermost Type 3 "Regular," then Type 2 "Context-Free," Type 1 "Context-Sensitive," and outermost Type 0 "Unrestricted", with an arrow showing CloudQuery's jump from Type 3 (regex) to Type 2 (PEG.js).](/images/blog/we-built-a-search-language-for-cloudquery/image2.webp)
 
 Our first approach with regex operated at Type 3 (Regular Grammar) level, which worked fine for simple `field:value` matching. But as soon as our users needed nested parentheses and logical operators with precedence rules, we hit a wall.
 

@@ -5,12 +5,12 @@ slug: 'how-to-make-your-internal-developer-portal-actually-useful'
 description: 'A fresh asset inventory is the foundation of successful developer portals. Learn how organizations achieve 224% ROI, reduce onboarding by 67%, and save millions through inventory-driven Backstage implementations with real case studies from Spotify, Toyota, and financial services.'
 categories: ['Work']
 tags: ['Engineering', 'Cloud Asset Inventory']
-heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/thumbnail.png'
+heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-make-your-internal-developer-portal-actually-useful'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![How to Make Your Internal Developer Portal Actually Useful blog post header](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/header.png)
+![How to Make Your Internal Developer Portal Actually Useful blog post header](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/header.webp)
 
 > **TL;DR:**
 > Internal developer Platforms fail when they lack a fresh and accurate asset inventory. Organizations that make sure they have an up-to-date inventory portal can achieve:
@@ -24,7 +24,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 Internal Developer Portals (IDPs) have emerged as critical infrastructure for modern software development; however, many implementations fail to reach their full potential. The key differentiator between successful and struggling portals isn't a sophisticated UI or an extensive plugin ecosystem. _It's the quality and freshness of their underlying asset inventory_. Organizations that have an up-to-date asset inventory can see [developer productivity gains of 20-55%, reduce onboarding times by 67%, and achieve ROI exceeding 224%](https://www.cortex.io/post/an-overview-of-forresters-total-economic-impact-study-for-cortex-idp) within months.
 
-![This is Fine meme with the dog labeled 'Developer' sitting in a burning room with text 'Trying to find service dependencies in a portal with stale asset inventory' and a speech bubble reading 'This is fine.'](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image2.jpg)
+![This is Fine meme with the dog labeled 'Developer' sitting in a burning room with text 'Trying to find service dependencies in a portal with stale asset inventory' and a speech bubble reading 'This is fine.'](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image2.webp)
 
 **The asset inventory paradox** is stark: while [developer portals promise unified visibility and self-service capabilities](https://www.port.io/guide/overview-of-internal-developer-portals), they often become stale documentation repositories when divorced from real-time infrastructure data. Fresh, accurate asset inventory transforms developer portals from static catalogs into dynamic, intelligent platforms that accelerate development cycles while maintaining governance and compliance.
 
@@ -34,7 +34,7 @@ This blog examines why asset inventory quality determines developer portal succe
 
 Modern developer portals, particularly those built on frameworks like [Backstage](https://backstage.io/docs/overview/what-is-backstage/), represent a fundamental shift in how organizations approach internal tooling. Unlike traditional development environments where teams juggle dozens of disparate tools, [developer portals provide unified interfaces](https://www.atlassian.com/developer-experience/internal-developer-platform) that consolidate service catalogs, infrastructure visibility, documentation, and automation capabilities.
 
-![Is this a pigeon meme with the man labeled 'Platform Teams' pointing at a butterfly labeled 'Documentation repository with plugins' with text 'Is this a Developer Portal?'](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image5.png)
+![Is this a pigeon meme with the man labeled 'Platform Teams' pointing at a butterfly labeled 'Documentation repository with plugins' with text 'Is this a Developer Portal?'](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image5.webp)
 
 **The architecture revolution** centers on [plugin-based extensibility, allowing distributed ownership](https://backstage.io/docs/backend-system/architecture/index/) while maintaining cohesive user experiences. [Spotify's Backstage, now a CNCF incubating project](https://www.cncf.io/projects/backstage/), demonstrates this pattern with 135+ internal plugins, where 85% of contributions come from outside the core team. This distributed development model scales to support 280 engineering teams managing 2,000+ backend services.
 
@@ -48,7 +48,7 @@ The complexity of modern infrastructure environments creates significant challen
 
 **Fragmented visibility across cloud providers** represents the most common failure pattern for internal developer portals. [Each cloud provider maintains proprietary asset management systems](https://www.cycloid.io/how-can-you-track-scale-your-asset-inventory-for-hybrid-and-multi-cloud-environments/) - AWS Config, Azure Resource Graph, and GCP Asset Inventory - with incompatible APIs and data formats. Organizations struggle with data silos requiring multiple queries and post-processing to achieve unified visibility. Without consolidated asset data, developer portals cannot provide accurate service catalogs or meaningful dependency mappings.
 
-![Hotline bling Drake meme: top panel shows Drake rejecting 'Managing AWS Config + Azure Resource Graph + GCP Asset Inventory separately'; bottom panel shows Drake approving 'Unified asset inventory'.](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image1.png)
+![Hotline bling Drake meme: top panel shows Drake rejecting 'Managing AWS Config + Azure Resource Graph + GCP Asset Inventory separately'; bottom panel shows Drake approving 'Unified asset inventory'.](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image1.webp)
 
 **Infrastructure sprawl amplifies these challenges** as organizations scale. Research indicates [76% of organizations experience cyberattacks exploiting unknown or unmanaged assets](https://www.firemon.com/blog/asset-discovery-tools/). The problem intensifies in financial services and regulated industries where shadow IT proliferation creates compliance risks alongside security vulnerabilities.
 
@@ -110,7 +110,7 @@ Successful developer portal implementations require sophisticated integration pa
 
 **Real-time data synchronization patterns** determine portal usability and developer trust. Organizations implement [event-driven architectures using message brokers](https://learn.microsoft.com/en-us/industry/well-architected/cross-industry/data-integration-patterns) like Apache Kafka or cloud-native streaming services. These patterns provide immediate propagation of infrastructure changes while maintaining system performance under high-volume conditions.
 
-![Expanding-brain meme with four tiers labeled: "Manual spreadsheet tracking," "Cloud-native asset tools," "Multi-cloud inventory integration," and "Real-time inventory-driven developer portals.](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image6.png)
+![Expanding-brain meme with four tiers labeled: "Manual spreadsheet tracking," "Cloud-native asset tools," "Multi-cloud inventory integration," and "Real-time inventory-driven developer portals.](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image6.webp)
 
 **Plugin ecosystem strategies** give you distributed ownership while maintaining consistent experiences. Successful implementations establish [clear plugin development standards](https://backstage.io/docs/backend-system/architecture/index/), provide comprehensive SDKs, and maintain plugin registries for discovery and lifecycle management. The most successful portals achieve 80%+ plugin contributions from outside core platform teams.
 
@@ -142,7 +142,7 @@ While organizations can build inventory-driven developer portals using various t
 
 Organizations seeking to implement inventory-driven developer portals should follow proven implementation patterns that minimize risk while maximizing time-to-value.
 
-![Developer Portal Implementation Roadmap. A three-phase Gantt chart showing the journey from asset inventory foundation to platform maturity. Phase 1 Foundation (0-3 months) includes asset discovery, CloudQuery setup, and governance in purple. Phase 2 Deployment (3-12 months) covers Backstage portal, service catalog, and developer onboarding in blue. Phase 3 Maturity (12+ months) focuses on AI analytics and optimization in green.](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image3.png)
+![Developer Portal Implementation Roadmap. A three-phase Gantt chart showing the journey from asset inventory foundation to platform maturity. Phase 1 Foundation (0-3 months) includes asset discovery, CloudQuery setup, and governance in purple. Phase 2 Deployment (3-12 months) covers Backstage portal, service catalog, and developer onboarding in blue. Phase 3 Maturity (12+ months) focuses on AI analytics and optimization in green.](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image3.webp)
 
 **Figure 1:** Developer Portal Implementation Roadmap. A three-phase Gantt chart showing the journey from asset inventory foundation to platform maturity. Phase 1 Foundation (0-3 months) includes asset discovery, CloudQuery setup, and governance in purple. Phase 2 Deployment (3-12 months) covers Backstage portal, service catalog, and developer onboarding in blue. Phase 3 Maturity (12+ months) focuses on AI analytics and optimization in green.
 

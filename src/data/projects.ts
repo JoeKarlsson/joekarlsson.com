@@ -168,7 +168,7 @@ export const projects: Project[] = [
 		title: 'Secure AI Data Pipelines Demo',
 		description:
 			'A full-stack open source demo showing how to build AI-powered cloud security analysis across AWS, GCP, and Azure. Ingests multi-cloud data via CloudQuery, sanitizes PII with differential privacy, and uses GPT-4 to detect cross-cloud attack paths and generate Terraform remediation steps. Includes a React dashboard and a companion YouTube walkthrough.',
-		image: '/images/blog/building-secure-ai-powered-cloud-security/thumbnail.png',
+		image: '/images/blog/building-secure-ai-powered-cloud-security/thumbnail.webp',
 		imageAlt: 'Secure AI Data Pipelines Demo dashboard showing multi-cloud security risk analysis',
 		category: 'dev-tools',
 		tech: [
@@ -188,7 +188,7 @@ export const projects: Project[] = [
 		title: 'CloudQuery Go MCP Server',
 		description:
 			"Built a Go MCP server before Anthropic released an official Go SDK, bridging Claude and Cursor directly to CloudQuery's cloud infrastructure database. AI assistants went from zero database awareness to querying live cloud data mid-conversation - no copy-pasting schemas. Co-authored two posts: the build walkthrough and a hard-won gotchas guide on tool descriptions, naming, and context window limits.",
-		image: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.png',
+		image: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.webp',
 		imageAlt: 'CloudQuery Go MCP Server architecture diagram',
 		category: 'dev-tools',
 		tech: ['Go', 'MCP', 'Claude', 'Cursor', 'PostgreSQL', 'CloudQuery'],

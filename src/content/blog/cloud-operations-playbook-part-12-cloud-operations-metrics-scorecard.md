@@ -6,13 +6,13 @@ description: >-
   Track the five metric categories that prove cloud operations ROI to leadership. Includes a one-page scorecard template with before-and-after targets.
 categories: ['Work']
 tags: ['Cloud Operations', 'Platform Engineering']
-heroImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/thumbnail.png'
+heroImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/thumbnail.webp'
 heroAlt: 'Cloud Operations Metrics That Matter'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![Cloud Operations Metrics That Matter](/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/header.png)
+![Cloud Operations Metrics That Matter](/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/header.webp)
 
 > **Note:** You've built the visibility layer, set governance rules, and started automating. Now you need to prove it's working. This post covers the five metric categories that matter for cloud operations, a one-page leadership scorecard you can present to your VP or CxO, and how to re-take the maturity self-assessment from Part 2 to measure real progress.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes the printable scorecard template and SQL queries for measuring each metric.

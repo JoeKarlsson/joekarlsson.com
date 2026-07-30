@@ -6,14 +6,14 @@ tags:
   - Engineering
 date: 2025-10-24
 description: Traditional CMDBs miss most ephemeral resources because containers live just minutes. Modern cloud CMDBs use tiered sync strategies (15-30 min for critical, hourly for important, daily for baseline). Compare approaches, costs, and learn why ephemeral infrastructure killed traditional discovery.
-heroImage: /images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/thumbnail.png
+heroImage: /images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/thumbnail.webp
 categories:
   - Databases
 canonicalUrl: https://www.cloudquery.io/blog/real-time-cloud-cmdb-ephemeral-infrastructure
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---
 
-![The Real-Time Cloud CMDB: Why Ephemeral Infrastructure Killed Traditional Discovery](/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/header.png)
+![The Real-Time Cloud CMDB: Why Ephemeral Infrastructure Killed Traditional Discovery](/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/header.webp)
 
 Your Kubernetes pods live for 3 minutes. Your Lambda functions for 300 milliseconds. Your CMDB updates weekly. See the problem?
 

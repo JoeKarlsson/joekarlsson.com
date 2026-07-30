@@ -6,14 +6,14 @@ tags:
   - AI
 date: 2025-07-01
 description: CloudQuery's new MCP server lets AI agents directly query your cloud inventory using natural language. Get real dashboards, reports, and analytics from actual infrastructure data across AWS, GCP, Azure, and more.
-heroImage: /images/blog/ai-for-analyzing-your-cloud-asset-inventory/thumbnail.png
+heroImage: /images/blog/ai-for-analyzing-your-cloud-asset-inventory/thumbnail.webp
 categories:
   - Databases
 canonicalUrl: https://www.cloudquery.io/blog/ai-for-analyzing-your-cloud-asset-inventory
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---
 
-![AI for Analyzing Your Cloud Asset Inventory header](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/header.png)
+![AI for Analyzing Your Cloud Asset Inventory header](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/header.webp)
 
 > **Note:** **TL;DR:**
 > We built an MCP server that lets any AI agent directly query your cloud inventory using natural language. Your existing CloudQuery Asset Inventory data now powers Claude Desktop, Cursor, and custom workflows to generate real dashboards, tables, and reports from actual infrastructure data.
@@ -30,7 +30,7 @@ They don't have the context they need, because they can't see your actual infras
 
 We built CloudQuery's Model Context Protocol (MCP) server to fix this gap.
 
-![CloudQuery Security Risk Dashboard. On the left, a chat bubble shows a user asking, "Can you help me find some security risks in my CloudQuery asset inventory?" with a response offering an interactive dashboard powered by CloudQuery MCP server data. On the right, a dashboard interface displays metrics such as total resources (4.7M+), clouds (3), issues (5), and a risk score (68%), alongside a pie chart of risk distribution.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image5.png)
+![CloudQuery Security Risk Dashboard. On the left, a chat bubble shows a user asking, "Can you help me find some security risks in my CloudQuery asset inventory?" with a response offering an interactive dashboard powered by CloudQuery MCP server data. On the right, a dashboard interface displays metrics such as total resources (4.7M+), clouds (3), issues (5), and a risk score (68%), alongside a pie chart of risk distribution.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image5.webp)
 
 The CloudQuery MCP server gives AI agents a performant, trusted database that they can query in a structured way. This allows them to work autonomously, making recommendations or decisions based on real-life cloud data. Connect the CloudQuery MCP server to your favorite LLM to run security, governance, or FinOps analysis that makes an immediate impact in a fraction of the time.
 
@@ -52,7 +52,7 @@ We made CloudQuery speak directly to any AI agent that supports MCP. Your existi
 
 No wrappers. No maintenance overhead. No stale data.
 
-![Diagram showing a feedback loop between a user, a large language model (LLM) call, and the CloudQuery MCP system. The user initiates a request to the LLM, which performs an action via the CloudQuery MCP. CloudQuery MCP returns feedback to the LLM. If necessary, the process stops based on the feedback loop.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image3.png)
+![Diagram showing a feedback loop between a user, a large language model (LLM) call, and the CloudQuery MCP system. The user initiates a request to the LLM, which performs an action via the CloudQuery MCP. CloudQuery MCP returns feedback to the LLM. If necessary, the process stops based on the feedback loop.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image3.webp)
 
 We already sync your entire multi-cloud asset inventory. Now your agents can query it directly using natural language.
 
@@ -72,7 +72,7 @@ Since we released the MCP server, our users have been doing things that honestly
 
 One platform team asked: "_Show me all EC2 instances with public IPs that don't have security groups restricting SSH access, then create a dashboard showing trends over the past 6 months._"
 
-![Screenshot of a prompt to Claude asking for a dashboard of EC2 instances with unrestricted SSH access and trend analysis, next to the CloudQuery MCP server's AWS EC2 Security Dashboard. The output shows 7 vulnerable instances, 34.2% permissive security groups, and a 6-month instance launch trend chart.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image6.png)
+![Screenshot of a prompt to Claude asking for a dashboard of EC2 instances with unrestricted SSH access and trend analysis, next to the CloudQuery MCP server's AWS EC2 Security Dashboard. The output shows 7 vulnerable instances, 34.2% permissive security groups, and a 6-month instance launch trend chart.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image6.webp)
 
 Their agent pulled actual instance data, generated visualizations, and created an automated report. No more manual security reviews.
 
@@ -80,7 +80,7 @@ Their agent pulled actual instance data, generated visualizations, and created a
 
 "_Generate a table showing which S3 buckets lack encryption, include their monthly costs, and create a pie chart showing cost distribution by team ownership._"
 
-![Screenshot of a query to Claude requesting a table of unencrypted S3 buckets with cost analysis, alongside the CloudQuery MCP server output showing an S3 Encryption Security Analysis. It highlights five unencrypted buckets, $1,839.36 in monthly cost exposure, and risk levels per bucket.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image1.png)
+![Screenshot of a query to Claude requesting a table of unencrypted S3 buckets with cost analysis, alongside the CloudQuery MCP server output showing an S3 Encryption Security Analysis. It highlights five unencrypted buckets, $1,839.36 in monthly cost exposure, and risk levels per bucket.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image1.webp)
 
 The agent combined security posture with cost analysis, outputting formatted tables and charts. Security and finance finally had the same data.
 
@@ -88,7 +88,7 @@ The agent combined security posture with cost analysis, outputting formatted tab
 
 "Create a report of orphaned resources across all clouds, include cost impact, and generate charts showing resource waste by region and team."
 
-![Screenshot of a Claude-generated prompt asking for a report on orphaned cloud resources, next to the MCP server output showing a Cloud Orphaned Resources Report. It visualizes 19 orphaned resources, $28.80 in monthly waste, 14 security risks, and 1GB of unused storage.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image4.png)
+![Screenshot of a Claude-generated prompt asking for a report on orphaned cloud resources, next to the MCP server output showing a Cloud Orphaned Resources Report. It visualizes 19 orphaned resources, $28.80 in monthly waste, 14 security risks, and 1GB of unused storage.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image4.webp)
 
 The agent produced multi-page reports with embedded graphs. Manual resource audits became automated intelligence.
 

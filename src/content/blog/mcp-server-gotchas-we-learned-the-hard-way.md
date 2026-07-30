@@ -5,7 +5,7 @@ slug: 'mcp-server-gotchas-we-learned-the-hard-way'
 description: 'Lessons we learned from building an MCP server to bridge LLMs with cloud infrastructure databases. What we learned about tool descriptions, naming, context limits, and quirks, and how we fixed them.'
 categories: ['Dev Tools']
 tags: ['MCP', 'LLM', 'AI', 'Engineering', 'Go']
-heroImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/thumbnail.png'
+heroImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/thumbnail.webp'
 heroAlt: 'MCP Server Gotchas Nobody Talks About'
 canonicalUrl: 'https://www.cloudquery.io/blog/mcp-server-gotchas-we-learned-the-hard-way'
 tldr: 'We built an MCP server in Go to let Claude and Cursor query our cloud infrastructure database directly. Short, vague tool descriptions confused the model - longer, domain-specific ones fixed it. Ambiguous tool names kept tools unused - renaming them to match intent made them indispensable. Raw schemas overwhelmed the context window - we filtered them down to high-signal columns. Even at temperature=0, LLMs showed non-determinism and selective attention.'
@@ -13,7 +13,7 @@ tldr: 'We built an MCP server in Go to let Claude and Cursor query our cloud inf
 
 _Co-authored with Mariano Gappa at CloudQuery._
 
-![The MCP Gotchas Nobody Talks About header](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/header.png)
+![The MCP Gotchas Nobody Talks About header](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/header.webp)
 
 We've been running an experiment at [CloudQuery](https://www.cloudquery.io/): What happens when you wire an LLM directly into your cloud infrastructure database?
 
@@ -64,7 +64,7 @@ We focused on:
 - Suggesting when and why the tool should be used
 - Clarifying what the return payload looks like
 
-![Meme showing two panels of Winnie the Pooh. Top panel: Pooh in a red shirt looking unimpressed with the caption 'Writing tool descriptions like you're talking to another engineer.' Bottom panel: Pooh in a tuxedo looking smug with the caption 'Writing tool descriptions like you're explaining to a literal alien.'](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image3.png)
+![Meme showing two panels of Winnie the Pooh. Top panel: Pooh in a red shirt looking unimpressed with the caption 'Writing tool descriptions like you're talking to another engineer.' Bottom panel: Pooh in a tuxedo looking smug with the caption 'Writing tool descriptions like you're explaining to a literal alien.'](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image3.webp)
 
 The character count increased from ~50 to ~400, and response quality improved dramatically. Instead of guessing, Claude systematically queried the tool to understand the data structure before proceeding.
 
@@ -127,7 +127,7 @@ s.AddTool(mcp.Tool{
 
 This added clear, task-specific signals like proven, working SQL, common analysis tasks, and patterns.
 
-![Meme showing Surprised Pikachu with the caption: 'Me when renaming a tool from "example queries" to "known good queries" magically makes the LLM use it.'](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image4.png)
+![Meme showing Surprised Pikachu with the caption: 'Me when renaming a tool from "example queries" to "known good queries" magically makes the LLM use it.'](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image4.webp)
 
 ### Okay... but Why Did That Work?
 
@@ -143,7 +143,7 @@ Every LLM has a fixed [context window](https://www.ibm.com/think/topics/context-
 
 We learned this the hard way: a single raw CloudQuery schema dump can easily exceed 50,000 tokens. Some of our more complex tables contain hundreds of columns and foreign keys. Feeding even a few of these tables into Claude consumed nearly its entire context window, leaving no room for query planning or instructions.
 
-![Meme showing the 'This is fine' dog sitting calmly in a room on fire. Caption added: 'Your LLM trying to process 50,000 tokens of raw schema.' Dog says 'This is fine'.](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image5.png)
+![Meme showing the 'This is fine' dog sitting calmly in a room on fire. Caption added: 'Your LLM trying to process 50,000 tokens of raw schema.' Dog says 'This is fine'.](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image5.webp)
 
 Research shows that once the context window saturates, the model selectively forgets earlier tokens rather than gracefully degrading ([Xiong et al., 2023](https://arxiv.org/abs/2307.03172)). This means the model would ignore parts of our schema arbitrarily, which is not ideal.
 
@@ -178,7 +178,7 @@ Here's what's really going on:
 
 ## Final Thoughts
 
-![Meme with four panels of an expanding brain, each representing increasing realization about tool descriptions: Top: 'LLMs are smart, they'll figure out my tools.' Second: 'I need better documentation for my tools.' Third: 'I need to think like an LLM when writing descriptions.' Bottom: 'I need to psychologically manipulate a statistical model into doing what I want.'](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image6.png)
+![Meme with four panels of an expanding brain, each representing increasing realization about tool descriptions: Top: 'LLMs are smart, they'll figure out my tools.' Second: 'I need better documentation for my tools.' Third: 'I need to think like an LLM when writing descriptions.' Bottom: 'I need to psychologically manipulate a statistical model into doing what I want.'](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image6.webp)
 
 Building and running our own MCP server taught us more about LLM behavior than we expected, and not always the lessons we thought we'd learn. We set out to make it easier for Claude and Cursor to talk to our cloud infrastructure database. What we uncovered along the way was how fragile and opaque LLM interactions can be without deliberate engineering.
 

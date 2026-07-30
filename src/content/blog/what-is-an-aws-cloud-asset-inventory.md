@@ -5,13 +5,13 @@ slug: 'what-is-an-aws-cloud-asset-inventory'
 description: "What is AWS Cloud Asset Inventory? Learn why it's essential for security and cost optimization, and compare AWS Config, Systems Manager, and CloudQuery."
 categories: ['Work']
 tags: ['AWS', 'Cloud Asset Inventory']
-heroImage: '/images/blog/what-is-an-aws-cloud-asset-inventory/thumbnail.png'
+heroImage: '/images/blog/what-is-an-aws-cloud-asset-inventory/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-is-an-aws-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'AWS Cloud Asset Inventory is a comprehensive record of all your AWS resources (compute, storage, databases, networking, and IAM), essential for cost optimization, security compliance, and operational efficiency. Organizations can build inventories using AWS Config, Systems Manager, third-party tools like CloudQuery, or custom solutions. AWS Config provides native integration but can be expensive for large environments, while third-party solutions offer multi-cloud support and cost advantages. The right choice depends on your environment size, budget, and multi-cloud requirements.'
 ---
 
-![What is an AWS Cloud Asset Inventory blog post header](/images/blog/what-is-an-aws-cloud-asset-inventory/header.png)
+![What is an AWS Cloud Asset Inventory blog post header](/images/blog/what-is-an-aws-cloud-asset-inventory/header.webp)
 
 An AWS Cloud Asset Inventory refers to a comprehensive, centralized record of all resources and services deployed and utilized within an organization's Amazon Web Services (AWS) environment. This inventory provides a detailed overview of various cloud assets, including but not limited to:
 

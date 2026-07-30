@@ -5,7 +5,7 @@ slug: 'six-months-with-clickhouse-at-cloudquery'
 description: "After six months using ClickHouse as CloudQuery's default backend, here's what we learned about performance, JOIN limits, sorting keys, materialized views, and benchmarking."
 categories: ['Databases']
 tags: ['ClickHouse', 'Engineering', 'Data Engineering']
-heroImage: '/images/blog/six-months-with-clickhouse-at-cloudquery/thumbnail.png'
+heroImage: '/images/blog/six-months-with-clickhouse-at-cloudquery/thumbnail.webp'
 heroAlt: 'Six Months with ClickHouse at CloudQuery - engineering lessons learned'
 canonicalUrl: 'https://www.cloudquery.io/blog/six-months-with-clickhouse-at-cloudquery'
 tldr: 'ClickHouse delivered on speed and scale, but JOINs need careful handling (use dictionaries), sorting keys are critical and unchangeable after the fact, materialized views were too unpredictable for us, and it works surprisingly well for logging/observability beyond just analytics.'
@@ -23,7 +23,7 @@ Enter [ClickHouse](https://clickhouse.com/). After considering and even stress-t
 
 Before diving into those lessons, let's first take a quick look at the challenges we needed ClickHouse to solve and why we picked it in the first place.
 
-![High-level technical visual showing CloudQuery ingesting from cloud providers, then streaming into ClickHouse.](/images/blog/six-months-with-clickhouse-at-cloudquery/image2.png)
+![High-level technical visual showing CloudQuery ingesting from cloud providers, then streaming into ClickHouse.](/images/blog/six-months-with-clickhouse-at-cloudquery/image2.webp)
 
 ## What We Actually Needed From Our Database
 
@@ -112,7 +112,7 @@ Initially, we considered using [ClickHouse Materialized Views (MVs)](https://cli
 
 A ClickHouse MV attaches to a source table and, on every insert into the source, it runs a specified query to transform and write data into a target table.
 
-![A diagram showing how a materialized view in CloudQuery aggregates and transforms data from a source table to a target table. The view uses SQL to calculate maximum and average values, mapping source columns to target columns.](/images/blog/six-months-with-clickhouse-at-cloudquery/image1.png)
+![A diagram showing how a materialized view in CloudQuery aggregates and transforms data from a source table to a target table. The view uses SQL to calculate maximum and average values, mapping source columns to target columns.](/images/blog/six-months-with-clickhouse-at-cloudquery/image1.webp)
 
 First, **MVs operate asynchronously** relative to the statement that creates or inserts data into them. This meant two significant operational headaches:
 

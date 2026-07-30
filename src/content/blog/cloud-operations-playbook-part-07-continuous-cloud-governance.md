@@ -6,13 +6,13 @@ description: >-
   Deploy-time policy checks miss console changes, configuration drift, and external changes. Continuous governance catches what CI/CD pipelines cannot.
 categories: ['Work']
 tags: ['Cloud Operations', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/thumbnail.png'
+heroImage: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/thumbnail.webp'
 heroAlt: 'Continuous Cloud Governance - Part 7 of the Cloud Operations Playbook series'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-07-continuous-cloud-governance'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![Blog header for Continuous Cloud Governance: Part 7 of the Cloud Operations Playbook series](/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/header.png)
+![Blog header for Continuous Cloud Governance: Part 7 of the Cloud Operations Playbook series](/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/header.webp)
 
 > **Note:** CI/CD policy checks only catch violations at deploy time. But infrastructure changes through console clicks, configuration drift, and cloud provider updates without ever touching a pipeline. Continuous governance runs the same SQL-based policies at deploy time, on a schedule, and historically so nothing slips through. If your governance only runs when code ships, you're blind to most of the changes that actually cause incidents.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes 20+ production-ready governance queries and the policy lifecycle guide.

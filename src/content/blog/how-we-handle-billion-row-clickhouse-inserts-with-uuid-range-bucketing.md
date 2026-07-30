@@ -5,7 +5,7 @@ slug: 'how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing'
 description: 'How we solved memory explosion issues in ClickHouse when processing billions of rows of cloud configuration data using an Insert-Splitter with UUID-range bucketing technique.'
 categories: ['Databases']
 tags: ['ClickHouse', 'Engineering', 'Data Engineering', 'Performance']
-heroImage: '/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/thumbnail.png'
+heroImage: '/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/thumbnail.webp'
 heroAlt: 'How We Handle Billion Row ClickHouse Inserts With UUID Range Bucketing'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing'
 tldr: "ClickHouse loads entire working sets into memory before spilling to disk, and when you're inserting billions of rows, that means OvercommitTracker starts killing queries. Our solution? An algorithm we call Insert-Splitter with UUID range bucketing. It breaks big inserts into smaller, evenly distributed chunks that play nicely with ClickHouse's memory model, reducing peak memory usage by ~75%."
@@ -13,7 +13,7 @@ tldr: "ClickHouse loads entire working sets into memory before spilling to disk,
 
 _Co-authored with Mariano Gappa at CloudQuery._
 
-![How We Handle Billion Row ClickHouse Inserts With UUID Range Bucketing Blog Thumbnail](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/header.png)
+![How We Handle Billion Row ClickHouse Inserts With UUID Range Bucketing Blog Thumbnail](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/header.webp)
 
 At [CloudQuery](https://www.cloudquery.io/), we've been on a journey with [ClickHouse](https://clickhouse.com/) for a couple of months. [We recently wrote about our experience with our first 6 months of ClickHouse](/blog/six-months-with-clickhouse-at-cloudquery) as our database of choice for CloudQuery. While it's been transformative for our data processing capabilities, we're still learning how to use it effectively and discovering ways to work around some of its rough edges.
 
@@ -117,7 +117,7 @@ Note: the above is an oversimplified `SELECT` query. This algorithm is meant to 
 
 The magic happens in the `generateEvenUUIDRanges` function. Since CloudQuery assigns a UUID to every row, we can use these UUIDs to split our data. But UUIDs aren't straightforward in ClickHouse. They have specific constraints in their format, and ClickHouse has quirky sorting behavior.
 
-![Diagram showing the full UUID range (00000000-0000-0000-0000-000000000000 to ffffffff-ffff-ffff-ffff-ffffffffffff) fed into a black box labeled 'UUIDRanges(numOfBuckets)', which splits the range into multiple output buckets labeled Bucket 1, Bucket 2, Bucket 3, Bucket 4 ... Bucket n.](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/image2.png)
+![Diagram showing the full UUID range (00000000-0000-0000-0000-000000000000 to ffffffff-ffff-ffff-ffff-ffffffffffff) fed into a black box labeled 'UUIDRanges(numOfBuckets)', which splits the range into multiple output buckets labeled Bucket 1, Bucket 2, Bucket 3, Bucket 4 ... Bucket n.](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/image2.webp)
 
 The actual implementation of the algorithm is probably too boring to mention here (you can probably ask your favourite AI to do it for you), but before you autocomplete away you should know about these two quirks we found:
 
@@ -139,7 +139,7 @@ How do we know our distribution is even? This is where our validation query come
 
 Our results? A deviation of 0.000886 (less than 0.01%), with a total of 1,000,000 UUIDs processed in 0.157 seconds using just 159.80 KiB of memory.
 
-![ClickHouse SQL query that generates one million UUIDs, buckets them into eight ranges with multiIf, and calculates deviation and total counts.](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/image1.png)
+![ClickHouse SQL query that generates one million UUIDs, buckets them into eight ranges with multiIf, and calculates deviation and total counts.](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/image1.webp)
 
 We processed 1 million rows in just 0.157 seconds, using just 159.80 KiB of memory. The system achieved a 6.37 million rows per second processing rate with 50.98 MB/s throughput.
 

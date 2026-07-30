@@ -5,7 +5,7 @@ slug: 'eliminate-blind-spots-cloud-environment'
 description: 'Stop guessing what in your multi-cloud environment. Use CloudQuery asset inventory to see everything, secure everything, and save money doing it.'
 categories: ['Work']
 tags: ['Product News']
-heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/image2.png'
+heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/image2.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/eliminate-blind-spots-cloud-environment'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
@@ -14,7 +14,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 Keeping track of your cloud assets across AWS, GCP, Azure, and Kubernetes is like herding cats - except the cats are invisible, constantly moving, and occasionally cost you thousands of dollars when they escape
 
-![A meme showing cowboys on horseback attempting to herd a massive clowder of cats. The text reads, "HOW IT FEELS TO KEEP YOUR CLOUD ASSETS UNDER CONTROL."](/images/blog/eliminate-blind-spots-cloud-environment/image2.png)
+![A meme showing cowboys on horseback attempting to herd a massive clowder of cats. The text reads, "HOW IT FEELS TO KEEP YOUR CLOUD ASSETS UNDER CONTROL."](/images/blog/eliminate-blind-spots-cloud-environment/image2.webp)
 
 We recently launched the [CloudQuery Platform](https://www.cloudquery.io/blog/introducing-the-cloudquery-platform), which includes our integrated **Cloud Asset Inventory**. No more duct-taping multiple tools together or relying on reports that aged like milk. Now, you get a single source of truth to lock down security, enforce governance, and optimize spending. All without losing your sanity
 

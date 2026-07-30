@@ -6,12 +6,12 @@ description: >-
   Most teams spend weeks preparing for audits that should take hours. Learn why compliance scrambles persist and how queryable data eliminates them.
 categories: ['Work']
 tags: ['Cloud Operations', 'Governance']
-heroImage: /images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/thumbnail.png
+heroImage: /images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![The Real Cost of Cloud Compliance Scrambles](/images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/header.png)
+![The Real Cost of Cloud Compliance Scrambles](/images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/header.webp)
 
 > **Note:** **TL;DR:** Audit prep shouldn't take weeks, but for most teams it does. The compliance scramble is a recurring tax on engineering productivity: frantically gathering evidence from scattered systems, pulling engineers off real work, and compiling CSVs that prove compliance for a single point in time. The [Fortinet 2024 Cloud Security Report](https://www.fortinet.com/resources/reports/cloud-security) found 96% of companies are worried about cloud security, yet that worry rarely translates into action. The fix isn't more process. It's a queryable data layer that makes compliance evidence a byproduct of daily operations, not a quarterly fire drill.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes ready-to-run compliance queries and framework mappings.
