@@ -297,8 +297,6 @@ Our tests on a sizable log data set revealed that Bloom filters significantly bo
 
 - [Bloom Filters with ClickHouse Use Cases (ChistaDATA)](https://chistadata.com/bloom-filters-with-clickhouse-use-cases/)
 
-- [Improve Query Performance with ClickHouse Data Skipping Index (Instana)](https://www.instana.com/blog/improve-query-performance-with-clickhouse-data-skipping-index/)
-
 ## FAQ about Bloom filters in ClickHouse
 
 ### What are ClickHouse’s Data Skipping Indexes, and how do they improve text search?
