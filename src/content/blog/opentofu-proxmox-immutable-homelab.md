@@ -176,7 +176,7 @@ The `$${hostname}` and `$${container_ip}` are OpenTofu template variables, subst
 
 Every container gets observability by default. Prometheus node-exporter and Promtail are in the module, not in each provision script. You get metrics and log shipping whether you think to add them or not.
 
-The numbers: 62 service directories, 21,135 total lines of provision script code. Average is about 340 lines per service. The largest is Stash at 5,684 lines - it builds from source and has a lot of moving parts. The smallest are simple services like Ollama at around 140 lines.
+The numbers: 62 service directories, 21,135 total lines of provision script code. Average is about 340 lines per service. The outliers are the services that build from source instead of installing a package - those run into the thousands of lines and have a lot of moving parts. The smallest are simple services like Ollama at around 140 lines.
 
 The migration went in waves:
 

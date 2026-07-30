@@ -1,5 +1,5 @@
 ---
-title: 'Two GPUs, Two Nodes, Eight Services: GPU Workload Distribution on Proxmox'
+title: 'Two GPUs, Two Nodes, Seven Services: GPU Workload Distribution on Proxmox'
 date: 2026-04-13
 slug: 'proxmox-gpu-passthrough-multi-service'
 description: 'How I distribute GPU workloads across two Proxmox nodes using LXC device binding - VRAM strategy, LXC passthrough config, and Tdarr distributed encoding.'
@@ -7,7 +7,7 @@ categories: ['Homelab']
 tags: ['proxmox', 'nvidia', 'gpu', 'lxc', 'frigate', 'homelab', 'ollama']
 heroImage: '/images/blog/proxmox-gpu-passthrough-multi-service/hero.webp'
 heroAlt: 'Two Dell R730 servers in a rack with NVIDIA GPU cards visible, showing GPU workload distribution across a Proxmox cluster'
-tldr: 'I run eight GPU-accelerated services across two Proxmox nodes using LXC device binding. The 8GB Quadro RTX 4000 on prxbox1 handles Frigate NVR, Wyoming Whisper STT, and a Tdarr encoding node. The 16GB RTX A4000 on prxbox2 handles Plex, Ollama, Immich ML, and Tdarr server. The config is straightforward once you understand what LXC passthrough actually is and why workload placement matters more than the passthrough setup itself.'
+tldr: 'I run seven GPU-accelerated services across two Proxmox nodes using LXC device binding. The 8GB Quadro RTX 4000 on prxbox1 handles Frigate NVR, Wyoming Whisper STT, and a Tdarr encoding node. The 16GB RTX A4000 on prxbox2 handles Plex, Ollama, Immich ML, and Tdarr server. The config is straightforward once you understand what LXC passthrough actually is and why workload placement matters more than the passthrough setup itself.'
 faq:
   - question: 'Does sharing a GPU across multiple LXC containers hurt performance?'
     answer: 'It depends on the workload. Services compete for VRAM and CUDA execution time when running simultaneously. Batch and async workloads (Tdarr encoding, Immich photo ML) tolerate sharing fine. Real-time services like Frigate object detection and Whisper STT need predictable access - which is why I put them on their own GPU node rather than sharing with bursty workloads like Plex and Ollama.'
@@ -19,7 +19,7 @@ faq:
     answer: 'LXC device binding works on PVE 7+ with cgroup v2 enabled. My setup runs PVE 9.1.1 (Debian 13 Trixie) with kernel 6.17.2-1-pve and NVIDIA driver 580.95.05. The cgroup2 device allowlist syntax (lxc.cgroup2.devices.allow) replaced the older cgroup v1 syntax in PVE 7.'
 ---
 
-> **TL;DR**: Two-node Proxmox cluster, two NVIDIA GPUs, eight GPU-accelerated services. The 8GB card runs Frigate, Whisper STT, and a Tdarr node. The 16GB card runs Plex, Ollama, Immich, and Tdarr server. LXC device binding - not full VM passthrough, not enterprise vGPU. Here's the actual config and the reasoning behind the workload split.
+> **TL;DR**: Two-node Proxmox cluster, two NVIDIA GPUs, seven GPU-accelerated services. The 8GB card runs Frigate, Whisper STT, and a Tdarr node. The 16GB card runs Plex, Ollama, Immich, and Tdarr server. LXC device binding - not full VM passthrough, not enterprise vGPU. Here's the actual config and the reasoning behind the workload split.
 
 ---
 
@@ -201,8 +201,6 @@ More services, more variable VRAM demands, which is exactly why this one got the
 
 **Tdarr server** coordinates the distributed encoding cluster and also runs its own GPU encoding workers. With 3 GPU workers configured and `hevc_nvenc` for 1080p content, it can churn through a significant queue while Plex and Ollama handle their own workloads. (My encode speed varies with source material and settings - `preset p4` HEVC is meaningfully faster than CPU-only, but I haven't benchmarked it precisely.)
 
-**[Stash](https://stashapp.cc/)** is a self-hosted video library manager - think Plex but for personal video collections, with scene detection, tag generation, and face recognition. It uses the GPU for video transcoding when generating preview clips and for streaming incompatible formats to the browser. Like Plex, it's a bursty consumer - it only hits the GPU when someone's actively browsing or when it's processing a new import. It doesn't hold VRAM between sessions.
-
 Here's how all of that adds up across both nodes:
 
 | Service                        | Node    | VRAM (steady-state) | Pattern                |
@@ -217,7 +215,6 @@ Here's how all of that adds up across both nodes:
 | Plex NVENC transcoding         | prxbox2 | ~500MB-2GB          | Per active stream      |
 | Immich ML (face/scene)         | prxbox2 | ~1-2GB              | Background, async      |
 | Tdarr server + workers         | prxbox2 | ~2-4GB              | Bursty, queue-driven   |
-| Stash transcoding              | prxbox2 | varies              | Session-driven         |
 
 The VRAM numbers for prxbox1 are from `nvidia-smi` inside the containers. The prxbox2 numbers are harder to nail down because services there compete more dynamically - what matters is that the 16GB ceiling gives Ollama room to load an 8B model without evicting everything else.
 
