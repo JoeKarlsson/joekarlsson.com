@@ -15,6 +15,11 @@
 #   ./scripts/convert-gifs-to-video.sh --min 500  # ... over 500KB
 #   ./scripts/convert-gifs-to-video.sh --dry-run
 #   ./scripts/convert-gifs-to-video.sh --keep-gifs
+#   ./scripts/convert-gifs-to-video.sh path/to/one.gif   # just these
+#
+# Given explicit paths it considers only those, which is how the pre-commit
+# hook (scripts/convert-staged-images.sh) drives it. The size threshold still
+# applies either way.
 
 set -euo pipefail
 
@@ -22,6 +27,7 @@ IMAGE_DIR="public/images"
 MIN_KB=1024
 DRY_RUN=0
 KEEP_GIFS=0
+FILES=()
 
 while [ $# -gt 0 ]; do
 	case "$1" in
@@ -37,12 +43,29 @@ while [ $# -gt 0 ]; do
 		KEEP_GIFS=1
 		shift
 		;;
-	*)
+	--*)
 		echo "unknown option: $1" >&2
 		exit 1
 		;;
+	*)
+		if [ ! -f "$1" ]; then
+			echo "ERROR: no such file: $1" >&2
+			exit 1
+		fi
+		FILES+=("$1")
+		shift
+		;;
 	esac
 done
+
+# Explicit paths win; otherwise walk the whole image tree.
+list_gifs() {
+	if [ ${#FILES[@]} -gt 0 ]; then
+		printf '%s\n' "${FILES[@]}"
+	else
+		find "$IMAGE_DIR" -type f -name "*.gif" 2> /dev/null | sort
+	fi
+}
 
 if ! command -v ffmpeg > /dev/null 2>&1; then
 	echo "ERROR: ffmpeg is required but not installed (brew install ffmpeg)" >&2
@@ -132,7 +155,7 @@ while IFS= read -r gif; do
 		rm -f "$mp4"
 		FAILED=$((FAILED + 1))
 	fi
-done < <(find "$IMAGE_DIR" -type f -name "*.gif" 2> /dev/null | sort)
+done < <(list_gifs)
 
 echo ""
 echo "=== Summary ==="
@@ -145,6 +168,17 @@ if [ "$TOTAL_BEFORE" -gt 0 ]; then
 	echo "GIF bytes removed: $((TOTAL_BEFORE / 1048576))MB"
 	echo "MP4 bytes added:   $((TOTAL_AFTER / 1048576))MB"
 	echo "Net saving:        $((SAVED / 1048576))MB ($((SAVED * 100 / TOTAL_BEFORE))%)"
+fi
+
+# rehype-gif-video decides img-vs-video by probing the filesystem, and Astro
+# does not treat that as a dependency of the markdown it caches. A warm cache
+# therefore re-emits <img src="...gif"> for a GIF this script just deleted - a
+# broken image, and one CI never sees because its cache is always cold. Drop the
+# content cache so the next build re-renders those posts.
+if [ "$DRY_RUN" -eq 0 ] && [ $((CONVERTED + SKIPPED)) -gt 0 ]; then
+	rm -rf node_modules/.astro
+	echo ""
+	echo "Cleared node_modules/.astro so the next build re-renders affected posts."
 fi
 
 if [ "$FAILED" -gt 0 ]; then

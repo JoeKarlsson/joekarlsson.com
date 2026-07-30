@@ -15,6 +15,12 @@ MAX_IMAGE_KB=2048
 # Convert with ./scripts/convert-images-to-webp.mjs.
 MAX_NON_WEBP=0
 
+# A GIF this size or larger with no .mp4 sibling is served as a raw GIF, which
+# is roughly 5x the bytes of the h264 version. It sits under MAX_IMAGE_KB, so
+# without this check it passes silently and just makes the page slow. Keep in
+# sync with GIF_MIN_KB in scripts/convert-staged-images.sh.
+GIF_MP4_MIN_KB=256
+
 echo "=== Image Validation ==="
 echo ""
 
@@ -92,7 +98,61 @@ if [ "$OVER_MAX_COUNT" -gt 0 ]; then
 fi
 echo ""
 
-# Step 3: Verify heroImage frontmatter references resolve to real files
+# Step 3: Animated GIFs above the threshold must have an .mp4 to render instead
+echo "--- Checking GIFs at/over ${GIF_MP4_MIN_KB}KB have an .mp4 sibling ---"
+GIF_NO_MP4=""
+GIF_NO_MP4_COUNT=0
+while IFS= read -r gif; do
+	[ -f "$gif" ] || continue
+	SIZE=$(stat -f%z "$gif" 2> /dev/null || stat -c%s "$gif" 2> /dev/null || echo "0")
+	SIZE_KB=$((SIZE / 1024))
+	if [ "$SIZE_KB" -ge "$GIF_MP4_MIN_KB" ] && [ ! -f "${gif%.gif}.mp4" ]; then
+		GIF_NO_MP4="${GIF_NO_MP4}  ${gif} (${SIZE_KB}KB)\n"
+		GIF_NO_MP4_COUNT=$((GIF_NO_MP4_COUNT + 1))
+	fi
+done < <(find "$IMAGE_DIR" -type f -name "*.gif" 2> /dev/null)
+
+if [ "$GIF_NO_MP4_COUNT" -gt 0 ]; then
+	echo "ERROR: $GIF_NO_MP4_COUNT GIF(s) at/over ${GIF_MP4_MIN_KB}KB with no .mp4 sibling:"
+	echo -e "$GIF_NO_MP4" || true
+	echo "  Convert with ./scripts/convert-gifs-to-video.sh --min ${GIF_MP4_MIN_KB}"
+	ERRORS=$((ERRORS + 1))
+else
+	echo "OK: every GIF at/over ${GIF_MP4_MIN_KB}KB has an .mp4 sibling"
+fi
+echo ""
+
+# Step 4: Built pages must not reference media that is not in dist
+# Catches the stale-Astro-cache case in both directions: a converted GIF whose
+# cached render still emits <img src="...gif">, or a deleted MP4 still referenced
+# by <video>. Skipped in the CI image job, which has no dist/.
+if [ -d dist ]; then
+	echo "--- Checking built <img>/<video> references resolve in dist ---"
+	DANGLING=""
+	DANGLING_COUNT=0
+	while IFS= read -r src; do
+		[ -n "$src" ] || continue
+		if [ ! -f "dist${src}" ]; then
+			DANGLING="${DANGLING}  ${src}\n"
+			DANGLING_COUNT=$((DANGLING_COUNT + 1))
+		fi
+	done < <(grep -rho '<\(img\|video\)[^>]*>' dist/ 2> /dev/null |
+		grep -o 'src="/[^"]*\.\(webp\|png\|jpe\?g\|gif\|mp4\)"' |
+		sed 's/^src="//; s/"$//' | sort -u)
+
+	if [ "$DANGLING_COUNT" -gt 0 ]; then
+		echo "ERROR: $DANGLING_COUNT built reference(s) point at files missing from dist:"
+		echo -e "$DANGLING" || true
+		echo "  If images were just converted, the Astro cache is stale:"
+		echo "  rm -rf node_modules/.astro && npm run build"
+		ERRORS=$((ERRORS + 1))
+	else
+		echo "OK: every built <img>/<video> reference resolves in dist"
+	fi
+	echo ""
+fi
+
+# Step 5: Verify heroImage frontmatter references resolve to real files
 echo "--- Checking heroImage references ---"
 MISSING_HEROES=0
 while IFS= read -r md_file; do

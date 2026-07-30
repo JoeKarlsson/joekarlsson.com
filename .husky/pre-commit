@@ -1,2 +1,6 @@
 . "$HOME/.nvm/nvm.sh"
+
+# Runs first: it can stage rewritten markdown, which lint-staged then formats.
+./scripts/convert-staged-images.sh
+
 npx lint-staged

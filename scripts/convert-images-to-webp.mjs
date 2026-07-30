@@ -14,6 +14,12 @@
  *   node scripts/convert-images-to-webp.mjs --dry-run
  *   node scripts/convert-images-to-webp.mjs
  *   node scripts/convert-images-to-webp.mjs --quality 85 --max-width 1600
+ *   node scripts/convert-images-to-webp.mjs public/images/blog/foo/bar.png
+ *
+ * Given explicit paths it converts only those, which is how the pre-commit
+ * hook (scripts/convert-staged-images.sh) drives it. Every src/ file whose
+ * references get repointed is echoed as a "REWROTE <path>" line so the hook
+ * knows exactly what to stage.
  */
 
 import fs from 'node:fs';
@@ -36,6 +42,21 @@ function valueOf(flag) {
 	return i === -1 ? undefined : args[i + 1];
 }
 
+/** Bare paths, skipping flags and the values that belong to them. */
+function positionals() {
+	const withValues = new Set(['--quality', '--max-width']);
+	const out = [];
+	for (let i = 0; i < args.length; i++) {
+		if (withValues.has(args[i])) {
+			i++;
+			continue;
+		}
+		if (args[i].startsWith('--')) continue;
+		out.push(args[i]);
+	}
+	return out;
+}
+
 function walk(dir) {
 	return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
 		const full = path.join(dir, entry.name);
@@ -47,7 +68,20 @@ function mb(bytes) {
 	return `${(bytes / 1048576).toFixed(1)}MB`;
 }
 
-const originals = walk(IMAGE_DIR).filter((f) => /\.(png|jpe?g)$/i.test(f));
+const EXPLICIT = positionals();
+
+// A missing explicit path is a caller bug worth failing on; a whole-tree scan
+// just finds whatever is there.
+for (const f of EXPLICIT) {
+	if (!fs.existsSync(f)) {
+		console.error(`ERROR: no such file: ${f}`);
+		process.exit(1);
+	}
+}
+
+const originals = (EXPLICIT.length > 0 ? EXPLICIT : walk(IMAGE_DIR)).filter((f) =>
+	/\.(png|jpe?g)$/i.test(f),
+);
 
 let converted = 0;
 let staleDropped = 0;
@@ -132,6 +166,7 @@ if (!DRY_RUN && rewrites.size > 0) {
 		}
 		if (after !== before) {
 			fs.writeFileSync(file, after);
+			console.log(`REWROTE ${file}`);
 			filesTouched++;
 		}
 	}

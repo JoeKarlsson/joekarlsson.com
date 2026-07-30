@@ -34,13 +34,30 @@ npm run build      # Build static site to ./dist/
 - All images should be WebP (except GIFs for animation)
 - All images must have descriptive alt text
 
+### Image conversion (automatic)
+
+Drop the raw PNG/JPG/GIF in `public/images/blog/{slug}/`, reference it normally, and commit. The pre-commit hook runs `scripts/convert-staged-images.sh`, which converts anything staged under `public/images`:
+
+- **PNG/JPG** -> WebP via `scripts/convert-images-to-webp.mjs`, which also repoints every reference across `src/`. Rewritten files are staged for you, unless they already had unstaged edits - then the commit stops so you can review.
+- **GIF at/over 256KB** -> gains an `.mp4` sibling via `scripts/convert-gifs-to-video.sh` (requires `ffmpeg`; without it you get a warning and pre-push fails instead). Markdown keeps referencing the `.gif`; `src/plugins/rehype-gif-video.mjs` swaps in a `<video>` at build time. Smaller GIFs are left alone.
+
+To convert by hand (whole tree or specific paths):
+
+```bash
+node scripts/convert-images-to-webp.mjs [--dry-run] [paths...]
+./scripts/convert-gifs-to-video.sh --min 256 [--dry-run] [paths...]
+```
+
+**Astro caching gotcha**: `rehype-gif-video` probes the filesystem, which Astro does not track as a dependency of the markdown it caches. Converting a GIF without clearing `node_modules/.astro` makes the next build re-emit `<img src="...gif">` for a file that no longer exists. `convert-gifs-to-video.sh` clears that cache itself, and `validate-images.sh` fails on any built `<img>`/`<video>` whose source is missing from `dist/`. CI never hits this (cold cache); local `./deploy.sh` would.
+
 ## Code Quality
 
 - **Prettier** formats all code (`npm run format`). Config: `.prettierrc`
 - **ESLint** lints TS/Astro files (`npm run lint`). Config: `eslint.config.mjs`
 - **Vitest** tests build output and content schema (`tests/`). Config: `vitest.config.ts`
 - **Knip** detects unused dependencies and exports (`npm run test:unused`). Config: `knip.config.ts`
-- **Pre-commit hook** (husky + lint-staged) auto-formats and lints staged files on commit
+- **Pre-commit hook** (husky) converts staged images, then lint-staged auto-formats and lints staged files
+- **Pre-push hook** runs the full `npm test`, so an unconverted or oversized image cannot be pushed
 - All checks run in CI and will fail the build if issues are found
 
 ## CI/CD
