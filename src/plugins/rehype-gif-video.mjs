@@ -6,14 +6,21 @@ import { visit } from 'unist-util-visit';
 const PUBLIC_DIR = 'public';
 
 /**
- * Swap <img src="foo.gif"> for a <video> when a sibling foo.mp4 exists.
+ * Swap <img src="foo.gif"> or <img src="foo.webp"> for a <video> when a sibling
+ * foo.mp4 exists.
  *
- * Animated GIFs are wildly inefficient - the h264 versions in public/images
- * run about 80% smaller. Rewriting at build time means markdown keeps
- * referencing the .gif and posts never need editing; drop an .mp4 next to a
- * .gif (see scripts/convert-gifs-to-video.sh) and it gets picked up.
+ * Animated GIF and animated WebP are both wildly inefficient - the h264
+ * versions in public/images run 50-95% smaller. Rewriting at build time means
+ * markdown keeps referencing the original and posts never need editing; drop an
+ * .mp4 beside it (see scripts/convert-gifs-to-video.sh and
+ * scripts/convert-animated-webp-to-video.mjs) and it gets picked up.
  *
- * A GIF with no .mp4 sibling is left alone, so this is safe to run against a
+ * Existence of the sibling .mp4 is the whole test, which is what makes it safe
+ * to probe .webp at all: the converters only ever emit one for an animated
+ * source, so the site's several hundred still WebPs are untouched. The one way
+ * to fool it is to park an unrelated foo.mp4 next to a still foo.webp.
+ *
+ * Anything with no .mp4 sibling is left alone, so this is safe to run against a
  * partially converted image directory.
  *
  * controls is deliberate: an autoplaying loop with no way to stop it fails
@@ -26,9 +33,9 @@ export default function rehypeGifVideo() {
 			if (!parent || index === null) return;
 
 			const src = String(node.properties.src);
-			if (!src.toLowerCase().endsWith('.gif')) return;
+			if (!/\.(gif|webp)$/i.test(src)) return;
 
-			const mp4Src = src.replace(/\.gif$/i, '.mp4');
+			const mp4Src = src.replace(/\.(gif|webp)$/i, '.mp4');
 
 			// src is site-absolute (/images/...), which maps onto public/
 			const mp4Path = path.join(PUBLIC_DIR, mp4Src.replace(/^\//, ''));

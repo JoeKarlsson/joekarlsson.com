@@ -31,7 +31,7 @@ npm run build      # Build static site to ./dist/
 - Images: `public/images/blog/{slug}/`
 - Schema: `src/content.config.ts` (title, date, slug, description, categories, tags, heroImage)
 - Categories: Databases, Dev Tools, Smart Home, Homelab, Film, DevRel, IoT, Travel, Career, Personal
-- All images should be WebP (except GIFs for animation)
+- Stills should be WebP; animations should be MP4 (see below) - a raw GIF or animated WebP over 256KB fails validation
 - All images must have descriptive alt text
 
 ### Image conversion (automatic)
@@ -40,15 +40,28 @@ Drop the raw PNG/JPG/GIF in `public/images/blog/{slug}/`, reference it normally,
 
 - **PNG/JPG** -> WebP via `scripts/convert-images-to-webp.mjs`, which also repoints every reference across `src/`. Rewritten files are staged for you, unless they already had unstaged edits - then the commit stops so you can review.
 - **GIF at/over 256KB** -> gains an `.mp4` sibling via `scripts/convert-gifs-to-video.sh` (requires `ffmpeg`; without it you get a warning and pre-push fails instead). Markdown keeps referencing the `.gif`; `src/plugins/rehype-gif-video.mjs` swaps in a `<video>` at build time. Smaller GIFs are left alone.
+- **Animated WebP at/over 256KB** -> same treatment via `scripts/convert-animated-webp-to-video.mjs`. Still WebP is left alone; the two are told apart by the `ANIM` chunk in the RIFF header. ffmpeg cannot decode animated WebP at all ("image data not found"), so frames come out through sharp and go into ffmpeg as a concat list carrying each frame's delay.
+
+Only an `.mp4` sibling makes the plugin swap an `<img>` for a `<video>`, which is what keeps the site's ~570 still WebPs untouched.
 
 To convert by hand (whole tree or specific paths):
 
 ```bash
 node scripts/convert-images-to-webp.mjs [--dry-run] [paths...]
 ./scripts/convert-gifs-to-video.sh --min 256 [--dry-run] [paths...]
+node scripts/convert-animated-webp-to-video.mjs --min 256 [--dry-run] [paths...]
 ```
 
-**Astro caching gotcha**: `rehype-gif-video` probes the filesystem, which Astro does not track as a dependency of the markdown it caches. Converting a GIF without clearing `node_modules/.astro` makes the next build re-emit `<img src="...gif">` for a file that no longer exists. `convert-gifs-to-video.sh` clears that cache itself, and `validate-images.sh` fails on any built `<img>`/`<video>` whose source is missing from `dist/`. CI never hits this (cold cache); local `./deploy.sh` would.
+**Astro caching gotcha**: `rehype-gif-video` probes the filesystem, which Astro does not track as a dependency of the markdown it caches. Converting an animation without clearing `node_modules/.astro` makes the next build re-emit `<img src="...gif">` for a file that no longer exists. Both video converters clear that cache themselves, `validate-images.sh` fails on any built `<img>`/`<video>` whose source is missing from `dist/`, and `deploy.sh` runs that check before shipping. CI never hits this (cold cache); local `./deploy.sh` would have.
+
+**Size gates** in `validate-images.sh`, all ratchets - tighten them as the backlog shrinks, never loosen:
+
+- `MAX_IMAGE_KB=800` - hard fail. Worst offender is currently 715KB.
+- `MAX_NON_WEBP=0` - any PNG/JPG under `public/images` fails.
+- `GIF_MP4_MIN_KB=256` - any GIF or animated WebP at/over this with no `.mp4` sibling fails.
+- Over 200KB warns only. 10 images sit there, all genuine high-resolution stills.
+
+Note `convert-images-to-webp.mjs` only reads PNG/JPG, so a file that arrived already as `.webp` never had the 1920px cap or quality setting applied to it. `blog/running-devrel-2026/hero.webp` is 2240px wide for that reason.
 
 ## Code Quality
 

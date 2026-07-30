@@ -5,20 +5,21 @@ ERRORS=0
 WARNINGS=0
 IMAGE_DIR="public/images"
 
-# Anything at or above this fails the build. Set well above the current worst
-# offender so the existing backlog stays a warning, while a new image of the
-# 18MB-GIF variety cannot land. Ratchet it down as the backlog shrinks.
-MAX_IMAGE_KB=2048
+# Anything at or above this fails the build. Ratcheted down as the backlog
+# shrinks: 2048 once left room for a 1.9MB image to land silently. The worst
+# offender is now 715KB (crop-art/seeds-of-remembrance.webp), so this sits just
+# above it. Lower it again as those come down.
+MAX_IMAGE_KB=800
 
 # Ratchet on the PNG/JPG backlog: the count may fall but never rise. The
 # backlog is now clear, so any PNG or JPG landing under public/images fails.
 # Convert with ./scripts/convert-images-to-webp.mjs.
 MAX_NON_WEBP=0
 
-# A GIF this size or larger with no .mp4 sibling is served as a raw GIF, which
-# is roughly 5x the bytes of the h264 version. It sits under MAX_IMAGE_KB, so
-# without this check it passes silently and just makes the page slow. Keep in
-# sync with GIF_MIN_KB in scripts/convert-staged-images.sh.
+# An animation this size or larger with no .mp4 sibling is served as a raw GIF
+# or animated WebP, roughly 2-5x the bytes of the h264 version. It sits under
+# MAX_IMAGE_KB, so without this check it passes silently and just makes the page
+# slow. Keep in sync with GIF_MIN_KB in scripts/convert-staged-images.sh.
 GIF_MP4_MIN_KB=256
 
 echo "=== Image Validation ==="
@@ -98,27 +99,35 @@ if [ "$OVER_MAX_COUNT" -gt 0 ]; then
 fi
 echo ""
 
-# Step 3: Animated GIFs above the threshold must have an .mp4 to render instead
-echo "--- Checking GIFs at/over ${GIF_MP4_MIN_KB}KB have an .mp4 sibling ---"
-GIF_NO_MP4=""
-GIF_NO_MP4_COUNT=0
-while IFS= read -r gif; do
-	[ -f "$gif" ] || continue
-	SIZE=$(stat -f%z "$gif" 2> /dev/null || stat -c%s "$gif" 2> /dev/null || echo "0")
+# Step 3: Animations above the threshold must have an .mp4 to render instead.
+# Covers animated WebP as well as GIF - five animated WebPs hid here for a long
+# time, because the size check saw a .webp and assumed a still. Animation is
+# detected from the ANIM chunk in the RIFF header rather than with sharp, since
+# the CI image job runs this with no npm install.
+echo "--- Checking animations at/over ${GIF_MP4_MIN_KB}KB have an .mp4 sibling ---"
+ANIM_NO_MP4=""
+ANIM_NO_MP4_COUNT=0
+while IFS= read -r anim; do
+	[ -f "$anim" ] || continue
+	case "$anim" in
+		*.webp) head -c 64 "$anim" | grep -qa ANIM || continue ;;
+	esac
+	SIZE=$(stat -f%z "$anim" 2> /dev/null || stat -c%s "$anim" 2> /dev/null || echo "0")
 	SIZE_KB=$((SIZE / 1024))
-	if [ "$SIZE_KB" -ge "$GIF_MP4_MIN_KB" ] && [ ! -f "${gif%.gif}.mp4" ]; then
-		GIF_NO_MP4="${GIF_NO_MP4}  ${gif} (${SIZE_KB}KB)\n"
-		GIF_NO_MP4_COUNT=$((GIF_NO_MP4_COUNT + 1))
+	if [ "$SIZE_KB" -ge "$GIF_MP4_MIN_KB" ] && [ ! -f "${anim%.*}.mp4" ]; then
+		ANIM_NO_MP4="${ANIM_NO_MP4}  ${anim} (${SIZE_KB}KB)\n"
+		ANIM_NO_MP4_COUNT=$((ANIM_NO_MP4_COUNT + 1))
 	fi
-done < <(find "$IMAGE_DIR" -type f -name "*.gif" 2> /dev/null)
+done < <(find "$IMAGE_DIR" -type f \( -name "*.gif" -o -name "*.webp" \) 2> /dev/null)
 
-if [ "$GIF_NO_MP4_COUNT" -gt 0 ]; then
-	echo "ERROR: $GIF_NO_MP4_COUNT GIF(s) at/over ${GIF_MP4_MIN_KB}KB with no .mp4 sibling:"
-	echo -e "$GIF_NO_MP4" || true
-	echo "  Convert with ./scripts/convert-gifs-to-video.sh --min ${GIF_MP4_MIN_KB}"
+if [ "$ANIM_NO_MP4_COUNT" -gt 0 ]; then
+	echo "ERROR: $ANIM_NO_MP4_COUNT animation(s) at/over ${GIF_MP4_MIN_KB}KB with no .mp4 sibling:"
+	echo -e "$ANIM_NO_MP4" || true
+	echo "  GIF:           ./scripts/convert-gifs-to-video.sh --min ${GIF_MP4_MIN_KB}"
+	echo "  Animated WebP: node scripts/convert-animated-webp-to-video.mjs --min ${GIF_MP4_MIN_KB}"
 	ERRORS=$((ERRORS + 1))
 else
-	echo "OK: every GIF at/over ${GIF_MP4_MIN_KB}KB has an .mp4 sibling"
+	echo "OK: every animation at/over ${GIF_MP4_MIN_KB}KB has an .mp4 sibling"
 fi
 echo ""
 

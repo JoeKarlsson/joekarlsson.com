@@ -15,6 +15,12 @@ fi
 echo "Building site..."
 npm run build
 
+# The pre-push hook runs the full npm test, but deploying does not have to go
+# through a push - and a warm Astro cache can render a converted image as an
+# <img> pointing at a file that no longer exists. Validate what is about to ship.
+echo "Validating build output..."
+npm run test:images
+
 # CT 165 is immutable — managed by OpenTofu.
 # Direct SSH/rsync/scp to the container is forbidden.
 # tofu apply detects dist/index.html has changed and pushes content via push_content resource.

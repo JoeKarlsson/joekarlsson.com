@@ -21,6 +21,7 @@ GIF_MIN_KB=256
 
 PNGS=()
 GIFS=()
+AWEBPS=()
 
 while IFS= read -r f; do
 	[ -n "$f" ] || continue
@@ -29,10 +30,14 @@ while IFS= read -r f; do
 	case "$(printf '%s' "$f" | tr '[:upper:]' '[:lower:]')" in
 	*.png | *.jpg | *.jpeg) PNGS+=("$f") ;;
 	*.gif) GIFS+=("$f") ;;
+	# Animated WebP belongs in an MP4 just as much as a GIF does; still WebP is
+	# already the target format and wants leaving alone. The ANIM chunk in the
+	# RIFF header tells them apart.
+	*.webp) head -c 64 "$f" | grep -qa ANIM && AWEBPS+=("$f") ;;
 	esac
 done < <(git -c core.quotepath=false diff --cached --name-only --diff-filter=ACM -- public/images)
 
-if [ ${#PNGS[@]} -eq 0 ] && [ ${#GIFS[@]} -eq 0 ]; then
+if [ ${#PNGS[@]} -eq 0 ] && [ ${#GIFS[@]} -eq 0 ] && [ ${#AWEBPS[@]} -eq 0 ]; then
 	exit 0
 fi
 
@@ -63,11 +68,18 @@ if [ ${#PNGS[@]} -gt 0 ]; then
 	done
 fi
 
-if [ ${#GIFS[@]} -gt 0 ]; then
-	if command -v ffmpeg > /dev/null 2>&1; then
-		./scripts/convert-gifs-to-video.sh --min "$GIF_MIN_KB" "${GIFS[@]}"
+ANIMATIONS=()
+[ ${#GIFS[@]} -gt 0 ] && ANIMATIONS+=("${GIFS[@]}")
+[ ${#AWEBPS[@]} -gt 0 ] && ANIMATIONS+=("${AWEBPS[@]}")
 
-		for f in "${GIFS[@]}"; do
+if [ ${#ANIMATIONS[@]} -gt 0 ]; then
+	if command -v ffmpeg > /dev/null 2>&1; then
+		[ ${#GIFS[@]} -gt 0 ] && ./scripts/convert-gifs-to-video.sh --min "$GIF_MIN_KB" "${GIFS[@]}"
+		# ffmpeg cannot decode animated WebP, so that path goes through sharp.
+		[ ${#AWEBPS[@]} -gt 0 ] &&
+			node scripts/convert-animated-webp-to-video.mjs --min "$GIF_MIN_KB" "${AWEBPS[@]}"
+
+		for f in "${ANIMATIONS[@]}"; do
 			mp4="${f%.*}.mp4"
 			[ -f "$mp4" ] && git add -- "$mp4"
 			git add -A -- "$f"
@@ -75,7 +87,7 @@ if [ ${#GIFS[@]} -gt 0 ]; then
 	else
 		# Not an npm dependency, so a fresh clone will not have it. Warn here
 		# and let validate-images.sh at pre-push be the hard gate.
-		for f in "${GIFS[@]}"; do
+		for f in "${ANIMATIONS[@]}"; do
 			SIZE_KB=$(($(stat -f%z "$f" 2> /dev/null || stat -c%s "$f") / 1024))
 			if [ "$SIZE_KB" -ge "$GIF_MIN_KB" ]; then
 				echo "WARNING: $f is ${SIZE_KB}KB and needs an .mp4, but ffmpeg is not installed."

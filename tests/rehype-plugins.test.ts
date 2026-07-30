@@ -146,11 +146,28 @@ describe('rehype-gif-video', () => {
 		expect(paragraph(root)[0].properties?.src).toBe('/images/A.mp4');
 	});
 
-	it('ignores non-gif images without touching the filesystem', () => {
-		const root = run(rehypeGifVideo, tree(img({ src: '/images/a.webp', alt: 'x' })));
+	it('ignores still formats without touching the filesystem', () => {
+		const root = run(rehypeGifVideo, tree(img({ src: '/images/a.png', alt: 'x' })));
 
 		expect(paragraph(root)[0].tagName).toBe('img');
 		expect(existsSync).not.toHaveBeenCalled();
+	});
+
+	it('swaps an animated webp that has an mp4 sibling', () => {
+		existsSync.mockReturnValue(true);
+		const root = run(rehypeGifVideo, tree(img({ src: '/images/blog/p/reaction.webp', alt: 'x' })));
+
+		expect(paragraph(root)[0].tagName).toBe('video');
+		expect(paragraph(root)[0].properties?.src).toBe('/images/blog/p/reaction.mp4');
+	});
+
+	it('leaves a still webp alone when no mp4 sibling exists', () => {
+		// The site has hundreds of still WebPs; only the handful the converter
+		// turned into video get an .mp4 beside them.
+		existsSync.mockReturnValue(false);
+		const root = run(rehypeGifVideo, tree(img({ src: '/images/blog/p/photo.webp', alt: 'x' })));
+
+		expect(paragraph(root)[0].tagName).toBe('img');
 	});
 
 	it('ignores an image with no src', () => {
