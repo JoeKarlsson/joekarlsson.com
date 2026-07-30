@@ -46,7 +46,7 @@ npm run build      # Build static site to ./dist/
 ## CI/CD
 
 - GitHub Actions CI runs on PRs + push to main (`.github/workflows/ci.yml`)
-- 15 jobs: build, type check, lint/format, markdown lint, spell check, image validation, internal links (lychee), RSS/sitemap, accessibility (Pa11y), Lighthouse, build output tests (vitest), content schema validation (vitest), unused deps (knip), security audit, failure notification (ntfy)
+- 15 jobs: build, type check, lint/format, markdown lint, spell check, image validation, internal links (lychee), RSS/sitemap, accessibility (Pa11y), Lighthouse, unit tests (vitest, whole `tests/` dir), unused deps (knip), security audit, E2E (Playwright), failure notification (ntfy)
 - Weekly external link check (`.github/workflows/links.yml`)
 - Weekly dependency health check (`.github/workflows/deps.yml`) - opens GitHub issues for outdated packages and security vulnerabilities
 - Config files: `.markdownlint.jsonc`, `cspell.json`, `cspell-custom.txt`, `.pa11yci.json`, `.lighthouserc.json`, `.lychee.toml`, `vitest.config.ts`, `knip.config.ts`
@@ -68,6 +68,8 @@ npm run build      # Build static site to ./dist/
 - `STYLE_GUIDE.md` - Writing voice and style reference
 - `tests/build-output.test.ts` - Vitest tests for robots.txt, sitemap, RSS, llms.txt, SEO meta, webmanifest
 - `tests/content-schema.test.ts` - Vitest tests for blog post frontmatter validation
+- `tests/rehype-plugins.test.ts` - Vitest tests for the gif-video and lazy-image rehype plugins
+- CI runs `npx vitest run` over the whole `tests/` directory - add a file and it runs, no wiring needed
 
 ## Pages
 

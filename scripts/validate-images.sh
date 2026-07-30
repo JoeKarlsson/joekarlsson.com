@@ -10,6 +10,10 @@ IMAGE_DIR="public/images"
 # 18MB-GIF variety cannot land. Ratchet it down as the backlog shrinks.
 MAX_IMAGE_KB=2048
 
+# Ratchet on the PNG/JPG backlog: the count may fall but never rise. Lower this
+# as images get converted - the script prints the new number when it drops.
+MAX_NON_WEBP=197
+
 echo "=== Image Validation ==="
 echo ""
 
@@ -25,6 +29,17 @@ if [ -n "$NON_WEBP" ]; then
     echo "  ... and $((COUNT - 20)) more"
   fi
   WARNINGS=$((WARNINGS + 1))
+
+  if [ "$COUNT" -gt "$MAX_NON_WEBP" ]; then
+    echo ""
+    echo "ERROR: non-WebP count rose from $MAX_NON_WEBP to $COUNT."
+    echo "  New images must be WebP. Convert with sharp, or raise MAX_NON_WEBP"
+    echo "  in this script if the addition is deliberate."
+    ERRORS=$((ERRORS + 1))
+  elif [ "$COUNT" -lt "$MAX_NON_WEBP" ]; then
+    echo ""
+    echo "NOTE: backlog shrank to $COUNT. Lower MAX_NON_WEBP to $COUNT to hold the gain."
+  fi
 else
   echo "OK: All images are WebP (or GIF)"
 fi

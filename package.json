@@ -16,8 +16,7 @@
 		"test:a11y": "pa11y-ci --config .pa11yci.json",
 		"test:lighthouse": "lhci autorun",
 		"test:links": "lychee --offline --no-progress --root-dir dist/ --config .lychee.toml dist/",
-		"test:build-output": "vitest run tests/build-output.test.ts",
-		"test:content": "vitest run tests/content-schema.test.ts",
+		"test:unit": "vitest run",
 		"test:unused": "knip",
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
@@ -28,7 +27,7 @@
 		"lint:fix": "eslint . --fix",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"test": "npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:build-output && npm run test:content",
+		"test": "npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:unit",
 		"prepare": "husky"
 	},
 	"dependencies": {

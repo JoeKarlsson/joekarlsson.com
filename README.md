@@ -34,23 +34,22 @@ npm test
 
 ### Individual Test Commands
 
-| Command                     | What it checks                                                            |
-| --------------------------- | ------------------------------------------------------------------------- |
-| `npm run format:check`      | Prettier formatting                                                       |
-| `npm run lint`              | ESLint (TypeScript + Astro)                                               |
-| `npm run check`             | Astro type checking                                                       |
-| `npm run test:images`       | WebP format, file sizes, heroImage references                             |
-| `npm run test:spelling`     | Spell check on blog posts (cspell)                                        |
-| `npm run test:markdown`     | Markdown lint on blog posts                                               |
-| `npm run test:build-output` | Vitest: robots.txt, sitemap, RSS, llms.txt, SEO meta tags, webmanifest    |
-| `npm run test:content`      | Vitest: blog post frontmatter validation (title, date, slug, description) |
-| `npm run test:unused`       | Knip: unused dependencies, exports, and files                             |
-| `npm run test:feeds`        | RSS and sitemap XML validation                                            |
-| `npm run test:caddyfile`    | Security headers in Caddyfile                                             |
-| `npm run test:links`        | Internal link check (lychee, requires build)                              |
-| `npm run test:a11y`         | Accessibility - WCAG2AA with axe (Pa11y, requires running server)         |
-| `npm run test:lighthouse`   | Lighthouse CI - performance, a11y, best practices, SEO                    |
-| `npm run test:outdated`     | Check for outdated npm packages                                           |
+| Command                   | What it checks                                                          |
+| ------------------------- | ----------------------------------------------------------------------- |
+| `npm run format:check`    | Prettier formatting                                                     |
+| `npm run lint`            | ESLint (TypeScript + Astro)                                             |
+| `npm run check`           | Astro type checking                                                     |
+| `npm run test:images`     | WebP format, file sizes, heroImage references                           |
+| `npm run test:spelling`   | Spell check on blog posts (cspell)                                      |
+| `npm run test:markdown`   | Markdown lint on blog posts                                             |
+| `npm run test:unit`       | Vitest: build output, content schema, feeds, bundle size, terminal core |
+| `npm run test:unused`     | Knip: unused dependencies, exports, and files                           |
+| `npm run test:feeds`      | RSS and sitemap XML validation                                          |
+| `npm run test:caddyfile`  | Security headers in Caddyfile                                           |
+| `npm run test:links`      | Internal link check (lychee, requires build)                            |
+| `npm run test:a11y`       | Accessibility - WCAG2AA with axe (Pa11y, requires running server)       |
+| `npm run test:lighthouse` | Lighthouse CI - performance, a11y, best practices, SEO                  |
+| `npm run test:outdated`   | Check for outdated npm packages                                         |
 
 ### CI Pipeline
 
@@ -66,10 +65,10 @@ GitHub Actions runs **15 jobs** on every push to main and every PR:
 8. Accessibility (Pa11y)
 9. Lighthouse CI
 10. Security Headers Check
-11. Build Output Tests (Vitest)
-12. Content Schema Validation (Vitest)
-13. Unused Dependencies & Exports (Knip)
-14. Security Audit (advisory)
+11. Unit Tests (Vitest - runs the whole `tests/` directory)
+12. Unused Dependencies & Exports (Knip)
+13. Security Audit (advisory)
+14. E2E Tests (Playwright)
 15. Failure Notification (ntfy)
 
 ### Scheduled Workflows

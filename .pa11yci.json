@@ -10,16 +10,24 @@
 		},
 		"ignore": []
 	},
+	"_comment": "One page per distinct layout or content shape, not a random sample. A video-bearing post was missing here when <video> was introduced, so the regression it caused went unnoticed locally.",
 	"urls": [
 		"http://localhost:4321/",
 		"http://localhost:4321/blog/",
+		"http://localhost:4321/blog/category/homelab/",
 		"http://localhost:4321/about/",
 		"http://localhost:4321/work/",
 		"http://localhost:4321/uses/",
+		"http://localhost:4321/contact/",
+		"http://localhost:4321/talk-archive/",
+		"http://localhost:4321/resume/",
+		"http://localhost:4321/404-error/",
 		"http://localhost:4321/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/",
 		"http://localhost:4321/blog/self-hosted-music-still-sucks-in-2026/",
 		"http://localhost:4321/blog/how-to-get-started-building-a-homelab-server-in-2024/",
 		"http://localhost:4321/blog/how-we-accidentally-invented-a-cloud-search-language/",
-		"http://localhost:4321/blog/an-introduction-to-iot-internet-of-toilets/"
+		"http://localhost:4321/blog/an-introduction-to-iot-internet-of-toilets/",
+		"http://localhost:4321/blog/aws-google-cloud-networking-partnership/",
+		"http://localhost:4321/blog/a-gentle-introduction-to-building-serverless-apps/"
 	]
 }
