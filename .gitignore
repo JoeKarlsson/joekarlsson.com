@@ -39,3 +39,7 @@ src/pages/resume-fiveonefour-pdf.astro
 
 # claude working files - local notes, not part of the site
 .claude/blog-notes/
+
+# claude permissions - machine-specific, not shared config
+# (.claude/commands/ stays tracked - those are part of the project)
+.claude/settings.json
