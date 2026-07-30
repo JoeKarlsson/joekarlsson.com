@@ -59,13 +59,28 @@ jobs:
           else
             echo "has_outdated=false" >> "$GITHUB_OUTPUT"
           fi
+      # create-issue-from-file has no update-existing input - it only takes
+      # issue-number - so look the open issue up ourselves. Passing an empty
+      # value creates a new issue, which is what we want when none is open.
+      - name: Find existing outdated issue
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUMBERS=$(gh issue list --state open --label dependencies --json number,title \
+            --jq '[.[] | select(.title == "Outdated npm dependencies detected") | .number] | sort | .[]')
+          KEEP=$(echo "$NUMBERS" | head -1)
+          echo "number=$KEEP" >> "$GITHUB_OUTPUT"
+          # Anything beyond the oldest is a duplicate from before this fix
+          echo "$NUMBERS" | tail -n +2 | xargs -r -I{} \
+            gh issue close {} --comment "Duplicate of #$KEEP, which this workflow now updates in place."
       - uses: peter-evans/create-issue-from-file@v5
         if: steps.outdated.outputs.has_outdated == 'true'
         with:
           title: 'Outdated npm dependencies detected'
           content-filepath: /tmp/outdated.md
           labels: dependencies,maintenance
-          update-existing: true
+          issue-number: ${{ steps.existing.outputs.number }}
       - name: Close resolved dependency issues
         if: steps.outdated.outputs.has_outdated == 'false'
         env:
@@ -112,13 +127,24 @@ jobs:
           else
             echo "has_vulns=false" >> "$GITHUB_OUTPUT"
           fi
+      - name: Find existing audit issue
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUMBERS=$(gh issue list --state open --label security --json number,title \
+            --jq '[.[] | select(.title == "npm security vulnerabilities detected") | .number] | sort | .[]')
+          KEEP=$(echo "$NUMBERS" | head -1)
+          echo "number=$KEEP" >> "$GITHUB_OUTPUT"
+          echo "$NUMBERS" | tail -n +2 | xargs -r -I{} \
+            gh issue close {} --comment "Duplicate of #$KEEP, which this workflow now updates in place."
       - uses: peter-evans/create-issue-from-file@v5
         if: steps.audit.outputs.has_vulns == 'true'
         with:
           title: 'npm security vulnerabilities detected'
           content-filepath: /tmp/audit.md
           labels: security,maintenance
-          update-existing: true
+          issue-number: ${{ steps.existing.outputs.number }}
       - name: Close resolved security issues
         if: steps.audit.outputs.has_vulns == 'false'
         env:

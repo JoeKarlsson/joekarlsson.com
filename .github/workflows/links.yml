@@ -27,13 +27,27 @@ jobs:
         with:
           args: --no-progress --root-dir dist/ --config .lychee.toml dist/
           fail: false
+      # create-issue-from-file has no update-existing input - it only takes
+      # issue-number - so look the open issue up ourselves. Passing an empty
+      # value creates a new issue, which is what we want when none is open.
+      - name: Find existing link issue
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUMBERS=$(gh issue list --state open --label maintenance --json number,title \
+            --jq '[.[] | select(.title == "Broken external links detected") | .number] | sort | .[]')
+          KEEP=$(echo "$NUMBERS" | head -1)
+          echo "number=$KEEP" >> "$GITHUB_OUTPUT"
+          echo "$NUMBERS" | tail -n +2 | xargs -r -I{} \
+            gh issue close {} --comment "Duplicate of #$KEEP, which this workflow now updates in place."
       - uses: peter-evans/create-issue-from-file@v5
         if: steps.lychee.outputs.exit_code != 0
         with:
           title: 'Broken external links detected'
           content-filepath: ./lychee/out.md
           labels: maintenance
-          update-existing: true
+          issue-number: ${{ steps.existing.outputs.number }}
       - name: Close resolved link issues
         if: steps.lychee.outputs.exit_code == 0
         env:
