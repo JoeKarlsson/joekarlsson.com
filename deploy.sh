@@ -54,4 +54,50 @@ else
     echo "     Use template: 'Edit zone DNS' or create custom with 'Zone.Cache Purge' permission"
 fi
 
-echo "Done! Site available at https://www.joekarlsson.com"
+# Verify the deploy actually landed rather than just reporting success.
+# Astro fingerprints its CSS, so the hashed filename from the local build
+# appearing in the live HTML proves the new build is being served - a plain
+# 200 would pass against the previous deploy just as happily.
+SITE_URL="https://www.joekarlsson.com"
+FINGERPRINT=$(grep -oE '/_astro/[A-Za-z0-9_.-]+\.css' dist/index.html | head -1)
+
+if [[ -z "$FINGERPRINT" ]]; then
+    echo "WARNING: no hashed CSS found in dist/index.html; skipping verification"
+else
+    echo "Verifying deploy (looking for $FINGERPRINT)..."
+    VERIFIED=0
+    for attempt in $(seq 1 12); do
+        LIVE_HTML=$(curl -sL --max-time 20 "$SITE_URL/?cachebust=$(date +%s)-$attempt" || true)
+        if grep -qF "$FINGERPRINT" <<< "$LIVE_HTML"; then
+            echo "  new build is live (after ${attempt} attempt(s))"
+            VERIFIED=1
+            break
+        fi
+        sleep 5
+    done
+
+    if [[ "$VERIFIED" -ne 1 ]]; then
+        echo "ERROR: $SITE_URL is not serving the build just deployed." >&2
+        echo "  Expected asset: $FINGERPRINT" >&2
+        echo "  The origin may have failed to update, or the CDN is still stale." >&2
+        exit 1
+    fi
+
+    # Spot-check representative routes so a broken render is not reported as success
+    FAILED=0
+    for path in "/" "/blog/" "/about/" "/rss.xml" "$FINGERPRINT"; do
+        CODE=$(curl -sL --max-time 20 -o /dev/null -w "%{http_code}" "$SITE_URL$path" || echo "000")
+        if [[ "$CODE" != "200" ]]; then
+            echo "ERROR: $path returned $CODE" >&2
+            FAILED=1
+        fi
+    done
+
+    if [[ "$FAILED" -ne 0 ]]; then
+        echo "ERROR: post-deploy checks failed." >&2
+        exit 1
+    fi
+    echo "  all smoke checks passed"
+fi
+
+echo "Done! Site available at $SITE_URL"
