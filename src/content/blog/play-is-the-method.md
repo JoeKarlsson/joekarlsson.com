@@ -9,19 +9,15 @@ heroAlt: 'Abstract 3D render of cartoon hands gripping a cylindrical object, wit
 tldr: "Review-heavy processes don't just slow creative work - they apply the wrong logic to it. The conditions that produce good iterative work look like play: autonomy to experiment, cheap errors, and enough uninterrupted time to hold the system in your head."
 ---
 
-A few years back I was running a broad scope of work: marketing channels, website, documentation, education materials, community. We had a review process. Everything that shipped went through it. But I had genuine autonomy to iterate. I could try something, measure it, adjust, and ship again without a multi-week approval cycle blocking every small experiment.
+Review-heavy processes don't just slow creative work. They apply the wrong cognitive logic to it entirely.
 
-I kept the whole system in my head: what I'd tried, what failed, what the next test was. Within a few months the pages I'd been iterating on were converting at five times their previous rate. Not because I had a brilliant plan. Because I had the space to find out what actually worked.
+A few years back I ran marketing, website, docs, and community for a company. Reviews existed - everything shipped through them. But I had genuine autonomy to iterate between them. Within a few months the pages I was working on were converting at five times their previous rate. Not from a plan. From having space to find out what actually worked.
 
-I've run the same type of work inside heavier structures. The output was different. The skills weren't.
+I've run the same work inside heavier structures - briefs approved before anything starts, every change requiring signoff, review cycles running weeks. The output was different. The skills weren't.
 
-That's not the same as working without oversight. The reviews existed. The difference was they didn't gate every small bet. I could play.
+The variable wasn't review. It was play.
 
-Compare that to projects I've run through heavier structures: briefs approved before work starts, every change requiring signoff, review cycles running days to weeks. Some took months to ship a single change. Some stalled entirely. The reviews weren't the problem. The weight and timing of them were.
-
-I used to think the difference was luck or circumstance. I don't think that anymore.
-
-I've written about what that process actually looked like - the [SEO work](https://www.joekarlsson.com/blog/reversing-seo-traffic-decline-ai-overviews/) and the [DevRel sprint](https://www.joekarlsson.com/blog/running-devrel-2026/) - if you want the tactics. This post is about why the conditions that made those tactics possible were the harder problem.
+I've written about what that process looked like - the [SEO work](https://www.joekarlsson.com/blog/reversing-seo-traffic-decline-ai-overviews/) and the [DevRel sprint](https://www.joekarlsson.com/blog/running-devrel-2026/) - if you want the tactics. This post is about why the conditions that made those tactics possible were the harder problem.
 
 ## The planning trap
 
