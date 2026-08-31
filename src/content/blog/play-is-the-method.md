@@ -1,5 +1,5 @@
 ---
-title: 'Play is the Method'
+title: 'The Cognitive Case for Play in Technical Work'
 date: 2026-08-31
 slug: 'play-is-the-method'
 description: 'Why review-heavy processes kill creative output - and what research on psychological safety, play, and agile says about how good work actually happens.'
