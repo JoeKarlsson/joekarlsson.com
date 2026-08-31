@@ -34,13 +34,14 @@ if [[ ! -f "$TOFU_DIR/terraform.tfvars" ]]; then
 fi
 
 # Update site_content_hash in terraform.tfvars so tofu detects the new build.
+# Hash all HTML files so any page change (not just index.html) triggers a push.
 # Without this, tofu sees no trigger change and skips push_content entirely.
-NEW_HASH=$(sha256sum dist/index.html | cut -d' ' -f1)
+NEW_HASH=$(find dist -name "*.html" | sort | xargs sha256sum | sha256sum | cut -d' ' -f1)
 sed -i '' "s/^site_content_hash = .*/site_content_hash = \"$NEW_HASH\"/" "$TOFU_DIR/terraform.tfvars"
 echo "Content hash updated: $NEW_HASH"
 
 echo "Deploying to CT 165 via OpenTofu..."
-(cd "$TOFU_DIR" && tofu apply -var-file=terraform.tfvars -auto-approve)
+tofu -chdir="$TOFU_DIR" apply -var-file=terraform.tfvars -auto-approve
 
 echo "Deployed to origin server"
 
