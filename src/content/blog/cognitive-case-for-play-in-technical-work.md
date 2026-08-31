@@ -1,10 +1,10 @@
 ---
 title: 'The Cognitive Case for Play in Technical Work'
 date: 2026-08-31
-slug: 'play-is-the-method'
+slug: 'cognitive-case-for-play-in-technical-work'
 description: 'Why review-heavy processes kill creative output - and what research on psychological safety, play, and agile says about how good work actually happens.'
 categories: ['Career']
-heroImage: '/images/blog/play-is-the-method/hero.webp'
+heroImage: '/images/blog/cognitive-case-for-play-in-technical-work/hero.webp'
 heroAlt: 'Abstract 3D render of cartoon hands gripping a cylindrical object, with organic blob shapes floating on a dark blue background'
 tldr: "Review-heavy processes don't just slow creative work - they apply the wrong logic to it. The conditions that produce good iterative work look like play: autonomy to experiment, cheap errors, and enough uninterrupted time to hold the system in your head."
 ---
