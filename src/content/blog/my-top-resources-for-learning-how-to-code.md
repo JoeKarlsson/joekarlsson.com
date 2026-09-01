@@ -221,7 +221,7 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 
 - [JSFoo ](https://jsfoo.in/)- Bangalore, India
 
-- VueConf US - Austin, USA
+- [VueConf US](https://web.archive.org/web/20260722063701/http://vueconf.us/) - Austin, USA
 
 - [OpenJS World](https://openjsf.org/blog/2020/01/28/introducing-openjs-world/) - Austin, TX
 

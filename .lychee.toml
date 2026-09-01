@@ -21,8 +21,9 @@ exclude = [
   "dykestowatchoutfor\\.com",
   "ui\\.tinybird\\.co",
 
-  # HTTP/2 protocol errors from CI runners; alive in a browser
+  # HTTP/2 protocol errors or rate-limits from CI runners; alive in a browser
   "globenewswire\\.com",
+  "web\\.archive\\.org",
 
   # Slow or intermittently 5xx from CI, verified reachable 2026-07-30
   "speakerdeck\\.com",

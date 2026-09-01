@@ -75,7 +75,7 @@ As you can see, the architecture of the new data pipeline is simpler and fault t
 
 ### Yandex.Metrica
 
-The world’s second-largest web analytics platform, Yandex.Metrica uses ClickHouse to handle over a trillion rows of data. A trillion! Yandex uses ClickHouse for:
+The world’s second-largest web analytics platform, [Yandex.Metrica uses ClickHouse to handle over a trillion rows of data. A trillion!](https://web.archive.org/web/20251010002015/https://devdoc.net/database/ClickhouseDocs_19.4.1.3-docs/introduction/ya_metrika_task/) Yandex uses ClickHouse for:
 
 - Storing data for session replay.
 
