@@ -542,3 +542,4 @@ Frigate
 Ollama
 CData
 AEO
+sandboxed
