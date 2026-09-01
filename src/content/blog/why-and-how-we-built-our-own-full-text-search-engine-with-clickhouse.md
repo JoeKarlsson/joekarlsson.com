@@ -312,4 +312,4 @@ Full-text search has become one of the most appreciated features in CloudQuery P
 2. [Using Bloom Filter Indexes for Real-time Text Search in ClickHouse (Tinybird)](https://www.tinybird.co/blog-posts/using-bloom-filter-text-indexes-in-clickhouse)
 3. [ClickHouse Bloom Filters Explained (Altinity)](https://altinity.com/blog/skipping-indices-part-2-bloom-filters)
 4. [Introducing Inverted Indices in ClickHouse](https://clickhouse.com/blog/clickhouse-search-with-inverted-indices)
-5. [Solving Large Logs with ClickHouse (Embrace)](https://embrace.io/blog/solving-large-logs-with-clickhouse/)
+5. Solving Large Logs with ClickHouse (Embrace)

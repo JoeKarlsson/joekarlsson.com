@@ -328,6 +328,6 @@ If you're running a DevRel program - or trying to make the case for one to skept
 
 - [The builtfor.dev DevRel Playbook](https://builtfor.dev/blog/devrel-playbook) by Tessa Kriesel - the Discover/Evaluate/Learn/Build/Scale framework and the "DevRel is a revenue function" thesis
 - [DevRel Metrics and Why They Matter](https://thefalc.com/2020/12/devrel-metrics-and-why-they-matter/) by Sean Falconer - North Star metrics framework and how to connect DevRel activity to business outcomes
-- [Developer Relations at GitLab: What We've Learned](https://about.gitlab.com/blog/2024/03/13/developer-relations-at-gitlab-what-weve-learned-since-our-start/) by John Coghlan - five years of lessons on evolving a DevRel program through attention, active users, and revenue phases
+- "Developer Relations at GitLab: What We've Learned" by John Coghlan - five years of lessons on evolving a DevRel program through attention, active users, and revenue phases
 - [The Future of DevRel: Six Shifts Reshaping Developer Engagement in 2026](https://blog.stateshift.com/future-of-devrel-2026/) by Mindy Faieta at Stateshift - good overview of where the industry is heading, especially the LLM discovery and time-to-value shifts
 - State of Developer Relations 2024 - 60.7% of DevRel practitioners cite proving impact with data as their top challenge; useful context for why the metrics framing matters

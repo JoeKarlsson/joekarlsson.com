@@ -21,6 +21,9 @@ exclude = [
   "dykestowatchoutfor\\.com",
   "ui\\.tinybird\\.co",
 
+  # HTTP/2 protocol errors from CI runners; alive in a browser
+  "globenewswire\\.com",
+
   # Slow or intermittently 5xx from CI, verified reachable 2026-07-30
   "speakerdeck\\.com",
   "confoo\\.ca",
@@ -35,6 +38,7 @@ exclude = [
   "gdpr\\.eu",
   "icebreakers\\.ws",
   "sonoff\\.tech",
+  "embrace\\.io",
 
   # Not real external links
   "localhost",
