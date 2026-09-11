@@ -1,7 +1,7 @@
 ---
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch, Agent, AskUserQuestion
 argument-hint: [topic or path to notes file]
-description: Create blog posts for joekarlsson.com with research, fact-checking, and voice validation
+description: Create blog posts for joekarlsson.com using a multi-agent pipeline: parallel research (source-researcher + competitor-analyst), internal link scouting, positioning review, voice review, fact-checking, and parallel final validation (EEAT + SEO/AEO + positioning draft pass). Includes quick-review mode for existing posts.
 ---
 
 # joekarlsson.com Blog Post Skill
@@ -91,6 +91,10 @@ Present the topic to the user with:
 
 Use AskUserQuestion to get approval before proceeding.
 
+### 1a-ii. Headline test
+
+Before moving on, launch **Agent: `blog-headline-tester`** with the working title, primary keyword, and one-sentence thesis. Use the top-scoring title (or a hybrid) as the title going into Phase 2. If the current working title scores highest, keep it.
+
 ### 1b. SEO Research
 
 Use WebSearch to research the topic from an SEO angle:
@@ -110,15 +114,13 @@ The post should target these keywords naturally - never stuff them. Use the prim
 
 ### 1c. Independent Research
 
-Use WebSearch and WebFetch to research the topic:
+Launch two sub-agents in parallel to handle research:
 
-- Find 5-10 authoritative sources on the subject
-- Look for data points, benchmarks, or statistics that support the post's claims
-- Find competing perspectives or counterarguments
-- Check what others have written about this topic (avoid rehashing existing content)
-- Note any technical details that need verification
+**Agent: `blog-source-researcher`** - verifies current versions, dates, product names, and what's changed. Produces a sourced findings list to inform the draft.
 
-Save research notes internally - these back up claims in the draft.
+**Agent: `blog-competitor-analyst`** - finds the top-ranking competing pages, outlines them, and returns an explicit gap analysis (sections/angles the field covers that this post should address or differentiate from).
+
+Wait for both reports before proceeding to outline. Incorporate their findings into Phase 2.
 
 **Check for restricted content:** If the source notes/plan mention topics marked "DO NOT INCLUDE" or "SENSITIVE", respect those restrictions throughout all phases. Never include restricted topics in the outline or draft.
 
@@ -145,18 +147,15 @@ Create a detailed outline with:
 
 ### 2b. Internal linking plan
 
-Search for related posts on the site:
+Launch **Agent: `blog-internal-link-scout`** with the post's title, slug, and primary + secondary keywords. The agent searches the full blog corpus and returns:
+- **Part A**: 2-5 existing posts the new post should link to, with anchor text and section placement
+- **Part B**: 2-4 existing posts that should be edited to link back to the new post (for follow-up after publishing)
 
-```bash
-grep -ril "keyword1\|keyword2\|keyword3" src/content/blog/*.md
-```
+Use Part A findings to mark link placements in the outline. Save Part B for after the post ships.
 
-Identify 2-5 existing posts to link to from the new post. For each:
+Before presenting the outline for approval, launch **Agent: `blog-positioning-reviewer`** in **OUTLINE mode** with the research brief and proposed outline. Incorporate its findings - sharpening section headers into analytical claims, adding the named frame if one is needed, and adjusting the intro so it leads with the conclusion.
 
-- Note which section of the new post should contain the link
-- Use natural anchor text, not "click here" or "read more"
-
-Display the full outline inline, then use AskUserQuestion:
+Display the full outline inline (with positioning improvements applied), then use AskUserQuestion:
 
 - Approve outline
 - Request changes (specify what)
@@ -203,7 +202,7 @@ The #1 failure mode is writing that's technically correct but has zero personali
 
 #### Memes and visual humor
 
-When available, use the meme MCP server to generate relevant memes for the post. Memes should:
+Include memes where they fit naturally. Generate them via the ImgFlip API (requires free imgflip.com credentials set as `IMGFLIP_USER` / `IMGFLIP_PASS` env vars) or skip if not configured. Memes should:
 
 - Be placed at natural breaks between major sections
 - Reference the actual content (not generic tech memes)
@@ -225,6 +224,28 @@ Read each section aloud and ask: "Would I keep reading this if it showed up on m
 - NO banned transitions: "In fact," "Indeed," "Furthermore," "Moreover," "Additionally," "In other words," "In summary," "To sum up," "In conclusion," "All in all"
 - NO marketing speak: "Game-changer," "paradigm shift," "seamless," "revolutionize," "future-proof," "cutting-edge"
 - NO hashtags ever
+
+### Analytical structure (Thompson / McKenzie)
+
+These are the moves that separate analysis from topic coverage. They apply to written posts the same way they apply to video.
+
+**Lead with the conclusion, then build the argument.** Open with the insight the post earns, then explain why. Front-load the analytical frame: "There are two distinct trust problems in enterprise MCP deployments. The roadmap solves one of them." The reader knows the thesis before they invest in the detail.
+
+**Name the frame explicitly.** Give recurring concepts a name and use it. "Call this the two-auth-boundary problem." Named frames stick. Repeated gestures at the same idea don't.
+
+**Analytical claims, not topic labels.** "What the roadmap won't fix" is a claim the reader leans into. "Gaps in the roadmap" is a label they tune out. Headers and section openers should make claims, not announce categories.
+
+**State opinions plainly.** "Priority 3 is the one that matters" is a take. "Priority 3 is important" is not. Every post should have a point of view, stated directly, not hedged away.
+
+**Name what everyone's thinking but not saying.** If a tool, spec, or decision has a catch, say the catch. "The roadmap addresses one of two auth problems. The other one it leaves to you." Don't bury the thing the reader most needs to hear.
+
+**Specific, named scenarios over categories.** "Salesforce, SQL Server, NetSuite" beats "enterprise data sources." Name the actual system, error, config value, or dollar amount. Specificity is credibility.
+
+**Honest about what doesn't work yet.** "The conformance testing harness doesn't exist yet; watch for it and integrate it when it ships" is a real recommendation. "SDK developer experience improvements are coming" is noise.
+
+**Per-section tactical call.** After explaining a trade-off or priority, tell the reader what to actually do. "Here's what I'd actually do" turns analysis into a recommendation, not a survey. Every major section should land with a concrete action.
+
+---
 
 ### Anti-AI structural patterns (CRITICAL)
 
@@ -296,7 +317,7 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 
 **User photos:** Ask the user if they have photos related to the post topic. Check `~/Downloads/` for photo directories. Convert HEIC to JPEG with `sips`, then to WebP with `cwebp -q 85`. Save to `public/images/blog/{slug}/`. Every photo needs descriptive alt text.
 
-**Memes:** Use the ImgFlip meme MCP server (`mcp__meme__generateMeme`) to generate 2-4 relevant memes per long post. Common template IDs:
+**Memes:** Generate via the ImgFlip API with curl. Common template IDs:
 
 - Drake Hotline Bling: 181913649
 - Distracted Boyfriend: 112126428
@@ -305,7 +326,13 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 - One Does Not Simply: 61579
 - Panik Kalm Panik: 226297822
 
-To download: generate via ImgFlip API with curl, get the URL, download with `curl -sL`. Convert to WebP. Memes should reference actual post content, not be generic.
+```bash
+curl -s "https://api.imgflip.com/caption_image" \
+  -d "template_id=TEMPLATE_ID&username=$IMGFLIP_USER&password=$IMGFLIP_PASS&text0=TOP TEXT&text1=BOTTOM TEXT" \
+  | python3 -c "import sys,json; print(json.load(sys.stdin)['data']['url'])"
+```
+
+Download the URL with `curl -sL`, convert to WebP. If `IMGFLIP_USER`/`IMGFLIP_PASS` aren't set, skip memes and note it for the user. Memes should reference actual post content, not be generic.
 
 **ASCII diagrams:** Use code blocks for architecture diagrams, network topologies, before/after comparisons, and flow charts. These render well in the terminal-aesthetic site and don't require external tools.
 
@@ -327,26 +354,33 @@ Do NOT proceed without approval.
 
 Re-read the entire draft with fresh eyes. This is a REVISION pass, not a proofreading pass.
 
-### 4a. AI Detection Read-Through
+### 4a. Voice review agent
 
-Read every paragraph and ask: "Would a human write it this way, or does this sound like ChatGPT?"
+Launch **Agent: `blog-voice-reviewer`** with the draft file path. The agent applies three layers:
+1. Joe's personal voice rules (STYLE_GUIDE.md hard rules - em dashes, banned words, etc.)
+2. Analytical structure check (Thompson/McKenzie - does the intro lead with the conclusion, do headers make claims, are opinions stated plainly)
+3. AI-pattern audit (humanizer pass - significance inflation, signposting, uniform rhythm, missing fragments)
 
-Red flags to look for:
+Apply every **must-fix** edit before proceeding. Apply **should-fix** edits where they improve the writing. Use the agent's anti-AI audit to find and rewrite the spots that still read as assembled.
 
-- Paragraphs that are all the same length (3-4 sentences each)
-- Sections that all follow the same internal structure
-- Overly smooth transitions ("Building on this," "This brings us to")
-- Hedging language that Joe wouldn't use ("It's worth noting that," "One might consider")
-- Lists where every item is the same length and structure
-- A conclusion that restates the intro
-
-For every red flag found, rewrite that section. Make it messier, more specific, more opinionated.
+**Re-run note:** If the voice reviewer's must-fix list is long (5+ items, or requires restructuring the intro or more than one full section rewrite), re-run `blog-voice-reviewer` after applying those changes before moving on. The Phase 6 agents will run on whatever state the draft is in - don't let them review a pre-fix version.
 
 ### 4b. Voice Comparison
 
 Re-read the category-specific posts from Phase 0b. Compare the draft's tone, rhythm, and structure to Joe's actual writing. Identify the 3 weakest sections (the ones that sound least like Joe) and rewrite them.
 
-### 4c. Specificity Check
+### 4c. Sentence craft
+
+Apply after structure and voice are right. This is where writing earns its keep or doesn't.
+
+- **Strip every sentence.** If a word can be cut without losing meaning, cut it.
+- **Use active verbs.** Passive constructions bury the actor. "Astro builds the page" beats "The page is built by Astro."
+- **Cut qualifiers.** Very, quite, rather, somewhat, pretty much, basically, essentially - these weaken every sentence they touch. If a fact is true, state it directly.
+- **The lead earns the second sentence.** If the first sentence of a section is warming up, cut it and start on the real point.
+- **End paragraphs on the strongest point.** Not a vague summary. Not a trailing qualifier. The last sentence of a paragraph should be the one worth keeping.
+- **End when you're done.** Don't add a closing paragraph that restates the opening. Stop when the point is made.
+
+### 4d. Specificity Check
 
 Scan the draft for vague claims. Every one of these should be replaced with a specific detail:
 
@@ -365,109 +399,77 @@ Save edits to the file.
 
 This phase is CRITICAL. Every claim and every link must be verified.
 
-### 5a. Extract All Factual Claims
+### 5a. Launch fact-checker agent
 
-Go through the draft and extract every verifiable claim into a numbered list:
+Launch **Agent: `blog-fact-checker`** with the draft file path and the source-researcher's findings from Phase 1c (as additional context, not as a substitute for independent verification).
 
-- Technical specs (CPU models, RAM amounts, speeds)
-- Statistics or data points
-- Tool/software capabilities
-- Pricing information
-- Performance claims
-- Historical facts or dates
+The agent checks:
+- Every factual claim (specs, versions, stats, prices, comparisons) against primary sources
+- Every CLI command, config key, and code sample against current docs
+- Every URL (external and internal) via HTTP check
+- Claims missing inline source links
 
-### 5b. Verify Each Claim
+### 5b. Apply fact-check findings
 
-For each claim, use WebSearch and WebFetch to verify:
+For every **BLOCK** item in the report:
+- Fix incorrect claims immediately using the agent's cited source
+- Update broken links to the corrected URL, or remove if no replacement exists
+- Soften or flag unverifiable claims for user review
 
-- Search for the specific claim
-- Find an authoritative source (official docs, manufacturer specs, reputable tech publications)
-- Mark each claim as: VERIFIED (with source), UNVERIFIED (couldn't confirm), or INCORRECT (found contradicting info)
+For claims the agent flags as missing an inline source: add the source link at the point of assertion.
 
-If a claim is INCORRECT:
+### 5c. Present Fact Check Report
 
-- Fix it in the draft immediately
-- Note what was changed and why
+Display the agent's report to the user, highlighting any must-fix items that require judgment (claims that can't be verified, links with no good replacement, or claims the user should confirm from personal experience).
 
-If a claim is UNVERIFIED:
-
-- Flag it for the user
-- Suggest softening the language ("in my experience" vs stating as fact) or removing it
-
-### 5c. Extract and Verify All Links
-
-Go through the draft and extract every URL (including internal joekarlsson.com links). For each link:
-
-```bash
-curl -sL -o /dev/null -w "%{http_code} %{url_effective}" "URL_HERE"
-```
-
-- **200**: Link is good
-- **301/302**: Follow redirect, update URL to final destination
-- **403/404/5xx**: Link is BROKEN
-
-For BROKEN links:
-
-- Use WebSearch to find the correct/current URL
-- If the content has moved, find the new location
-- If the content no longer exists, find an alternative source or remove the link
-- Update the draft with corrected URLs
-
-For internal links, verify the target file exists:
-
-```bash
-ls src/content/blog/{linked-slug}.md
-```
-
-### 5d. Present Fact Check Report
-
-Display a summary table:
-
-```
-FACT CHECK REPORT
-=================
-Claims verified: X/Y
-Links checked: X/Y (Z broken, fixed)
-
-VERIFIED CLAIMS:
-1. [claim] - Source: [url]
-2. ...
-
-FLAGGED CLAIMS (need attention):
-1. [claim] - Issue: [what's wrong]
-
-LINK STATUS:
-- [url] - 200 OK
-- [url] - FIXED (was 404, updated to [new url])
-- [url] - BROKEN (no replacement found) <-- NEEDS ATTENTION
-```
-
-Use AskUserQuestion if any claims or links need user input.
+Use AskUserQuestion if any claims or links need user input before proceeding.
 
 ---
 
 ## Phase 6: Voice & Style Validation
 
-Run a final automated check on the draft:
+Run final review agents in parallel, then apply findings.
 
-### 6a. Prohibited Language Scan
+### 6a. Launch review agents (run in parallel)
 
-Use Grep to search the draft file for every prohibited word/phrase from STYLE_GUIDE.md. Fix any violations.
+Launch these three agents simultaneously with the final draft file path:
 
-### 6b. Em Dash Check
+**Agent: `blog-eeat-reviewer`** - checks originality, first-hand experience, expertise signal, sourcing, and trustworthiness. A post that passes fact-check but has zero original insight gets a REVISE verdict here.
+
+**Agent: `blog-seo-aeo-reviewer`** - checks meta description, title, keyword placement, internal links, FAQ/AEO extractability, and that the closing lands well.
+
+**Agent: `blog-positioning-reviewer`** in **DRAFT mode** - checks that the post delivered its thesis, that the analytical stance is consistent, and that each major section ends with a concrete recommendation.
+
+### 6b. Apply findings
+
+For each **must-fix** item across all three reports:
+- Apply immediately (EEAT: add original beat or caveat; SEO: fix meta or keyword; Positioning: sharpen intro or hedged claim)
+
+For **should-fix** items: apply where they strengthen the post.
+
+### 6c. Prohibited Language Scan
+
+Use Grep to search the draft for every prohibited word/phrase from STYLE_GUIDE.md. Fix any violations not already caught by the voice-reviewer agent in Phase 4.
+
+### 6d. Em Dash Check
 
 Search for any em dash characters (the actual em dash character, or triple hyphens ---). Replace with regular dashes or rewrite.
 
-### 6c. Quality Checklist
+### 6e. Quality Checklist
 
-Verify each item:
+Final human review before moving on. Verify each item:
 
 - [ ] Does this sound like Joe talking, or like an AI wrote it?
-- [ ] Are there specific examples from real experience?
+- [ ] Are there specific examples from real experience (error messages, exact versions, costs)?
 - [ ] Does confidence match certainty of each claim?
+- [ ] Does the post open with its conclusion and build the argument from there?
+- [ ] Do section headers make analytical claims, not announce categories?
+- [ ] Is there a clear point of view, stated plainly - not hedged away?
+- [ ] Does each major section end with a concrete "here's what I'd do"?
 - [ ] Is structure varied and natural, not perfectly uniform?
 - [ ] No em dashes anywhere?
 - [ ] No prohibited words?
+- [ ] No trailing qualifiers (very, quite, basically, essentially)?
 - [ ] Would Joe actually say this out loud?
 - [ ] All images have descriptive alt text?
 - [ ] TL;DR present for longer posts?
@@ -477,8 +479,11 @@ Verify each item:
 - [ ] Paragraph lengths vary (not all 3-4 sentences)?
 - [ ] Section lengths vary (not all the same)?
 - [ ] No two consecutive paragraphs start with the same word?
+- [ ] Post ends when it's done - no closing paragraph restating the intro?
+- [ ] EEAT: at least one original beat only someone who did this could write?
+- [ ] EEAT: at least one honest limitation or "I haven't tested" moment?
 
-### 6d. Spelling Check
+### 6f. Spelling Check
 
 Add any new technical terms to `cspell-custom.txt` so spell check won't flag them.
 
@@ -571,8 +576,14 @@ Show the user:
 - Fact check summary (all green?)
 - Link check summary (all 200s?)
 - Voice check summary (all clear?)
+- EEAT verdict (PASS / REVISE)
+- SEO/AEO verdict (PASS / REVISE)
 - CI check results
 - Hero image (read the generated image to display it)
+
+**Headline check:** Re-run `blog-headline-tester` with the final post slug, conclusion (as actually written - not the working thesis from Phase 1), and primary keyword. The title often shifts once the post is written. If the tester surfaces a stronger option, use AskUserQuestion to offer the swap before committing. If the current title still wins, move on.
+
+**Inbound link follow-ups (post-publish TODO):** Display the Part B list from the `blog-internal-link-scout` report - these are existing posts that should be edited to link back to the new post. Present them as a numbered action list the user can tackle after the post ships. These don't block the commit.
 
 Use AskUserQuestion for final approval before committing.
 
@@ -597,12 +608,79 @@ Do NOT push unless the user explicitly asks.
 
 Runs all phases sequentially with checkpoints.
 
-### If $ARGUMENTS is a file path
+### If $ARGUMENTS is a file path (to notes)
 
 Read the file as topic notes/outline and use that as the starting point. Still run all phases but use the file contents to inform Phase 1 and Phase 2.
 
+### Quick-review mode: `--review <path>`
+
+When `$ARGUMENTS` starts with `--review`, skip Phases 0-3 entirely. Run only the review agents against the existing draft at `<path>`:
+
+1. Launch in parallel: `blog-voice-reviewer`, `blog-fact-checker`, `blog-eeat-reviewer`, `blog-seo-aeo-reviewer`, `blog-positioning-reviewer` (draft mode)
+2. Also launch `blog-internal-link-scout` to find any missing internal link opportunities
+3. Present a consolidated findings report grouped by agent
+4. Ask the user which findings to apply
+5. Apply approved edits to the file
+
+Use this for improving older posts or doing a pre-publish review of a draft written outside this skill.
+
+### Post refresh mode: `--update <slug>`
+
+When `$ARGUMENTS` starts with `--update`, the goal is refreshing an existing post, not writing a new one. The existing post stays as the base; the workflow surfaces what needs to change.
+
+**Step 1: Read the existing post.**
+
+```bash
+cat src/content/blog/<slug>.md
+```
+
+Note the post's original publish date, primary keyword, thesis, and any explicit version numbers, prices, or dated claims.
+
+**Step 2: Launch research agents in parallel.**
+
+- `blog-source-researcher` - verify every dated/version-sensitive claim against current primary sources; find what has changed since the post was written
+- `blog-competitor-analyst` - re-run the SERP for the primary keyword; identify sections or angles the field now covers that this post is missing
+- `blog-internal-link-scout` - find new internal linking opportunities from posts published after this one
+
+**Step 3: Build a refresh plan.**
+
+Synthesize the three reports into a prioritized diff:
+
+```
+## Refresh plan: /blog/<slug>
+
+### Must update (factually stale)
+- <claim>: was "<old>" → now "<new>" (<source>)
+
+### Should add (SERP gaps)
+- [High] <section> - covered by N competitors, not in this post
+- [Medium] <section>
+
+### Should add (new internal links)
+- Link to /blog/<newer-slug> from "<anchor>" in <section>
+
+### Freshness signal
+- Update the frontmatter `date` to today
+- Add "Updated <month> <year>" note at top if the post changes significantly
+
+### Verdict
+<Light refresh (date + a few facts) | Medium refresh (add 1-2 sections) | Major rewrite (structure needs rethinking)>
+```
+
+Present the plan to the user with AskUserQuestion before making any changes.
+
+**Step 4: Apply approved changes, then run `--review` mode.**
+
+Apply the user-approved refresh items, then run the full `--review` agent suite on the updated file. Commit with:
+
+```bash
+git commit -m "content: refresh /blog/<slug> - <summary of what changed>"
+```
+
 ### Tips
 
-- If the user says "skip research" or "I've already verified the facts", skip Phase 5b but still run 5c (link verification is always mandatory)
-- If the user provides their own outline, skip Phase 2 but still apply voice check
+- If the user says "skip research" or "I've already verified the facts", skip Phase 1c agents but still run the fact-checker in Phase 5
+- If the user provides their own outline, skip Phase 2 but still run the positioning reviewer on it before drafting
+- If the user says "I'll do the hero image later", skip Phase 7 and note it in the Phase 8 summary
 - The user can interrupt at any checkpoint to adjust course
+- After publishing, return to the Phase 8e inbound link list and work through those edits in a separate session
