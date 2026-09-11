@@ -127,6 +127,21 @@
 .prose blockquote {
 	@apply border-l-4 border-coral/50 pl-4 py-1 my-6 text-gray-400 italic;
 }
+.prose .callout {
+	@apply rounded-lg border border-teal/30 bg-teal/5 px-5 py-4 my-6 text-sm not-italic;
+}
+.prose .callout p {
+	@apply my-0 text-gray-300;
+}
+.prose .callout a {
+	@apply text-teal underline underline-offset-2;
+}
+.prose .pull-quote {
+	@apply my-8 py-6 px-6 text-center text-xl font-semibold text-gray-100 border-t border-b border-coral/40 not-italic;
+}
+.prose .pull-quote p {
+	@apply my-0 leading-snug;
+}
 .prose code {
 	@apply font-mono text-teal bg-surface-3 px-1.5 py-0.5 rounded-sm text-sm;
 }

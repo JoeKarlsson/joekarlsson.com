@@ -70,6 +70,29 @@ When possible, include relevant memes in blog posts to break up technical conten
 - Code blocks with context - explain what the code does before showing it
 - Show expected output for tutorials
 
+### Callouts
+
+Use a `<div class="callout">` for inline asides that should visually separate from the prose - related posts, key definitions, or context that enriches the argument without being the argument. Keep them short (1-2 sentences). Don't use them for the main point of a section.
+
+```html
+<div class="callout">Related: [Post title](url) - one sentence on why it's relevant.</div>
+```
+
+The blank lines inside the div are required for markdown to parse the content.
+
+### Emphasis for scannability
+
+When a sentence is the payoff of a build-up - the conclusion after evidence, the lesson after the parable, the claim the whole section earns - italicize it so it reads as a pull quote for someone scanning.
+
+Pattern: build-up sentence(s), then: _the thing that matters_
+
+Examples:
+
+- "All pointing at the same underlying mechanism: _you don't think your way to quality. You ship your way there._"
+- "Speed and quality don't trade off. _They correlate positively._"
+
+Use this sparingly - once or twice per post, at the moments that most deserve to land. If everything is emphasized, nothing is.
+
 ### Lists
 
 - Use lists for specs, requirements, and step-by-step instructions
