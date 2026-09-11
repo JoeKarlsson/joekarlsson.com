@@ -25,31 +25,31 @@
 }
 
 /* Terminal text colors */
-.terminal-body :global(.text-coral) {
+.terminal-body .text-coral {
 	color: #fdae84;
 }
 
-.terminal-body :global(.text-teal) {
+.terminal-body .text-teal {
 	color: #8bcbc8;
 }
 
-.terminal-body :global(.text-lavender) {
+.terminal-body .text-lavender {
 	color: #c4b5fd;
 }
 
-.terminal-body :global(.text-dim) {
+.terminal-body .text-dim {
 	color: #9ca3af;
 }
 
-.terminal-body :global(.text-white) {
+.terminal-body .text-white {
 	color: #e5e7eb;
 }
 
-.terminal-body :global(.text-green) {
+.terminal-body .text-green {
 	color: #86efac;
 }
 
-.terminal-body :global(.text-yellow) {
+.terminal-body .text-yellow {
 	color: #fde68a;
 }
 

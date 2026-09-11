@@ -162,7 +162,6 @@ test.describe('CatChase Cursor Tracking', () => {
 });
 
 test.describe('CatChase Reduced Motion', () => {
-	// @ts-expect-error - reducedMotion is valid Playwright option
 	test.use({ reducedMotion: 'reduce' });
 
 	test('respects prefers-reduced-motion', async ({ page }) => {
