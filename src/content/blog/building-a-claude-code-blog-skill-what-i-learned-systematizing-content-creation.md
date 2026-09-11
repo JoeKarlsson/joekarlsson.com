@@ -84,6 +84,8 @@ AI tools are most powerful when they’re systematic. One-off prompts are useful
 
 Quality controls matter. Without checkpoints and linting, AI output drifts. We have two approval gates (outline and draft) and automated linting before anything ships. This keeps quality high without manual review of every detail.
 
+There’s a real tension worth naming here: approval gates add latency. Too many of them and you’re back to the slow, review-gated world you were trying to escape. The goal is kilns, not gates - feedback that improves the work, not gates that just add time. If you’re thinking about where the line is between "enough review" and "too much process," I wrote about this directly in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/).
+
 This doesn’t replace judgment. It can’t replace deep technical knowledge, understanding our audience, knowing when to break the rules. It handles structure, consistency, grunt work. Humans handle the hard stuff: knowing what to say, how to say it, when to bend the rules.
 
 ## Where This Goes Next
