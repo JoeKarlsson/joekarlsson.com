@@ -100,7 +100,7 @@ The port range check (`from_port <= 22 AND to_port >= 22`) catches both rules th
 
 ### 5. Cross-Cloud Security Posture in a Single Query
 
-This is where SQL-based CSPM really pulls ahead. Traditional tools run separate rule sets per cloud provider. With SQL against a unified [cloud asset inventory](https://www.cloudquery.io/product/cloud-asset-inventory), you can check posture across providers in a single query:
+This is where SQL-based CSPM pulls ahead. Traditional tools run separate rule sets per cloud provider. With SQL against a unified [cloud asset inventory](https://www.cloudquery.io/product/cloud-asset-inventory), you can check posture across providers in a single query:
 
 ```sql
 -- AWS public buckets

@@ -46,9 +46,9 @@ In this post, I’ll dig into the details of using Data Skipping Indexes. In par
 
 Among all the Data Skipping Indexes available in ClickHouse, there is one that we’re looking at specifically in this post: the [Bloom filter “family”](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#bloom-filter). These indexes are based on [Bloom filters](https://en.wikipedia.org/wiki/Bloom_filter), which are a probabilistic data structure used to determine if an item is in a set of elements.
 
-The _probabilistic_ part means that if an element is in the set, the response is “Maybe the element is in the set”, but if it is not, the response is “It’s definitely not in the set”. This means that there can be false positives (i.e., “Maybe the element is in the set”, but when you actually check it, it turns out that it isn’t present).
+The _probabilistic_ part means that if an element is in the set, the response is “Maybe the element is in the set”, but if it is not, the response is “It’s not in the set”. This means that there can be false positives (i.e., “Maybe the element is in the set”, but when you actually check it, it turns out that it isn’t present).
 
-Bloom filters work by utilizing a fixed-size bit array and multiple hash functions. When an element is inserted into the filter, the hash functions generate a set of positions in the array, and those positions are set to 1. To check if an element is in the filter, the hash functions are applied to the element, and if any of the corresponding positions in the array are not set to 1, then the element is definitely not in the filter. However, if all positions are set to 1, it is possible that the element is in the filter (although there is a chance of a false positive).
+Bloom filters work by utilizing a fixed-size bit array and multiple hash functions. When an element is inserted into the filter, the hash functions generate a set of positions in the array, and those positions are set to 1. To check if an element is in the filter, the hash functions are applied to the element, and if any of the corresponding positions in the array are not set to 1, then the element is not in the filter. However, if all positions are set to 1, it is possible that the element is in the filter (although there is a chance of a false positive).
 
 Here’s how this works with a concrete example. Imagine we created a Bloom filter of 3 bits and 2 hash functions and inserted the strings “Hello” and “Bloom” into the filter. If the hash functions match an incoming value with an index in the bit array, the Bloom filter will make sure the bit at that position in the array is 1. Take a look at this gif:
 
@@ -66,7 +66,7 @@ Today, Bloom filters are widely used across many technologies including database
 
 - Databases may use Bloom filters to avoid costly disk reads when searching for nonexistent keys.
 
-- Web browsers utilize them to check URLs against a list of malicious websites.
+- Web browsers use them to check URLs against a list of malicious websites.
 
 - Web applications use them to determine whether a user ID is already taken.
 
@@ -90,7 +90,7 @@ ClickHouse currently offers two ways to do this. Each of them involves splitting
 
 ### Tokenization
 
-The first of these is **tokenization**. This basically means splitting the text using any kind of whitespace (blank spaces, dashes, punctuation marks, etc.) as delimiters, attempting to isolate whole words. This presents a problem for text-based searches.
+The first of these is **tokenization**. This means splitting the text using any kind of whitespace (blank spaces, dashes, punctuation marks, etc.) as delimiters, attempting to isolate whole words. This presents a problem for text-based searches.
 
 Since tokenization targets whole words, the performance gains it offers when used for Bloom filters will only apply to searches where you’re looking for whole words surrounded by whitespace. It would work for your “fiat fiorino” search, but not for searches where you want to find all text with particular prefixes or suffixes, for example.
 
@@ -98,7 +98,7 @@ Tokenization can be useful in some cases, but it’s too limited for more comple
 
 ### n-grams
 
-The second (and more interesting) option is **n-grams**, which basically means that the text is split into groups of _n_ consecutive characters. Imagine a string of text flowing from left to right, with an ‘n-gram window’ of size 4 moving across the text, one character at a time. Here’s how that might look for your example text “Hello_world!”:
+The second (and more interesting) option is **n-grams**, which means that the text is split into groups of _n_ consecutive characters. Imagine a string of text flowing from left to right, with an ‘n-gram window’ of size 4 moving across the text, one character at a time. Here’s how that might look for your example text “Hello_world!”:
 
 ```text
 [Hell]o_world!
@@ -219,15 +219,15 @@ To understand the tradeoff of storing the Bloom filter, this chart shows how muc
 
 ### Our conclusions from this performance test
 
-_tl;dr: Bloom filters significantly boost ClickHouse’s search efficiency for uncommon terms, as shown in our tests of log data. While a Bloom filter notably speeds up query times and reduces the amount of data scanned, it also increases storage needs. We found that optimal configuration depends on balancing performance enhancement and storage cost for each use case._
+_tl;dr: Bloom filters significantly boost ClickHouse’s search efficiency for uncommon terms, as shown in our tests of log data. While a Bloom filter speeds up query times and reduces the amount of data scanned, it also increases storage needs. We found that optimal configuration depends on balancing performance enhancement and storage cost for each use case._
 
-From our tests of ~130GB of log data, we found that Bloom filters can significantly enhance ClickHouse’s search capabilities, particularly when searching for uncommon terms. Applying a Bloom filter to the search for the term “lambda” led to drastic reductions in query time and scan size across various configurations. Notably, for our dataset, the `ngrambf_v1(4, 1024, 1, 0)` configuration delivered an impressive speedup, with _a query time approximately 88 times faster than a non-indexed search, while reducing the scanned data by a factor of 324._
+From our tests of ~130GB of log data, we found that Bloom filters can significantly enhance ClickHouse’s search capabilities, particularly when searching for uncommon terms. Applying a Bloom filter to the search for the term “lambda” led to drastic reductions in query time and scan size across various configurations. For our dataset, the `ngrambf_v1(4, 1024, 1, 0)` configuration delivered an impressive speedup, with _a query time approximately 88 times faster than a non-indexed search, while reducing the scanned data by a factor of 324._
 
 However, these improvements come with the cost of increased storage. For instance, the `ngrambf_v1(4, 8192, 1, 0)` configuration increased storage by around 32% of the column size. While the `ngrambf_v1(4, 8192, 1, 0)` configuration provided less of a speedup factor (around 25 times faster), it achieved the greatest reduction in scanned data.
 
-Since our customer favored speed over reducing scan size, and storage increase was not a critical issue, they ultimately chose the `ngrambf_v1(4, 1024, 1, 0)`.
+Since our customer favored speed over reducing scan size, and storage increase was not a critical issue, they chose the `ngrambf_v1(4, 1024, 1, 0)`.
 
-These results highlight the importance of identifying the right balance based on your specific needs. They also highlight the potential of Bloom filters to substantially improve the efficiency of searches within ClickHouse but with consideration of the trade-off in storage and specific use-case requirements. And finally, (and most importantly), there is no one-size-fits-all configuration for Bloom filters. We encourage you to conduct performance tests on your own data to determine the optimal settings for your specific needs.
+These results highlight the importance of identifying the right balance based on your specific needs. They also highlight the potential of Bloom filters to substantially improve the efficiency of searches within ClickHouse but with consideration of the trade-off in storage and specific use-case requirements. And finally, there is no one-size-fits-all configuration for Bloom filters. We encourage you to conduct performance tests on your own data to determine the optimal settings for your specific needs.
 
 ## How to create a Bloom filter index in ClickHouse
 

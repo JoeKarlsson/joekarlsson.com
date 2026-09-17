@@ -12,7 +12,7 @@ tldr: 'A step-by-step guide to setting up the MongoDB VS Code extension, connect
 
 To make developers more productive when working with MongoDB, we built [MongoDB for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode), an extension that allows you to quickly connect to MongoDB and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and work with your data to build applications right inside your code editor. With the MongoDB Visual Studio Code Plugin, you can:
 
-- Connect to a MongoDB or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) cluster, navigate through your databases and collections, get a quick overview of your schema, and see the documents in your collections;
+- Connect to a MongoDB or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) cluster, browse through your databases and collections, get a quick overview of your schema, and see the documents in your collections;
 
 - Create MongoDB Playgrounds, the fastest way to prototype CRUD operations and MongoDB commands;
 
@@ -70,7 +70,7 @@ For each collection, you will see a list of sample documents and a quick overvie
 
 Once installed there will be a new MongoDB tab that we can use to add our connections by clicking “Add Connection”. If you’ve used [MongoDB Compass](https://www.mongodb.com/products/compass) before, then the form should be familiar. You can enter your connection details in the form, or use a connection string. I went with the latter as my database is hosted on MongoDB Atlas.
 
-To obtain your connection string, navigate to your “Clusters” page and select “Connect”.
+To obtain your connection string, go to your “Clusters” page and select “Connect”.
 
 Choose the “Connect using MongoDB Compass” option and copy the connection string. Make sure to add your username and password in their respective places before entering the string in Visual Studio Code.
 
@@ -82,7 +82,7 @@ Once you’ve connected successfully, you should see an alert. At this point, yo
 
 ![Connect successful 20d877da49](/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/13_connect_successful_20d877da49.webp)
 
-## Navigate Your Data
+## Browse Your Data
 
 Once you connect to your deployment using MongoDB for Visual Studio Code, use the left navigation to:
 
@@ -333,7 +333,7 @@ If you use Terraform to manage your infrastructure, MongoDB for Visual Studio Co
 
 ## Summary
 
-There you have it! MongoDB for Visual Studio Code Extension allows you to connect to your MongoDB instance and enables you to interact in a way that fits into your native workflow and development tools. You can navigate and browse your MongoDB databases and collections, and prototype queries and aggregations for use in your applications.
+There you have it! MongoDB for Visual Studio Code Extension allows you to connect to your MongoDB instance and enables you to interact in a way that fits into your native workflow and development tools. You can browse your MongoDB databases and collections, and prototype queries and aggregations for use in your applications.
 
 If you are a Visual Studio Code user, getting started with MongoDB for Visual Studio Code is easy:
 

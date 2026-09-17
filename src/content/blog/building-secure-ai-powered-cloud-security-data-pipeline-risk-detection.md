@@ -141,9 +141,13 @@ This secure model server implementation addresses several critical attack vector
 
 [Prompt injection](https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-2023-v1_1.pdf) detection happens before any inference request reaches the model. The validator analyzes incoming prompts for patterns that could manipulate the model's behavior, such as instructions to ignore previous context or reveal system prompts. Resource monitoring implements GPU memory isolation to prevent inference requests from accessing memory used by other requests or system processes.
 
+<!-- vale JoeKarlsson.BannedWords = NO -->
+
 Teams using AWS Bedrock can implement similar controls through IAM policies that restrict model access by resource tags and [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html) that prevent network-based attacks. Container orchestration platforms like Kubernetes require additional security contexts and resource limits to prevent [container escape attacks](https://kubernetes.io/docs/concepts/security/pod-security-standards/) during model serving.
 
-> **Note:** This secure model server represents a foundational architecture. Production deployments would require distributed model serving with load balancing, comprehensive telemetry and alerting, automated model validation pipelines, secure multi-tenant isolation, and integration with enterprise PKI systems for certificate management.
+<!-- vale JoeKarlsson.BannedWords = YES -->
+
+> **Note:** This secure model server represents a foundational architecture. Production deployments would require distributed model serving with load balancing, full telemetry and alerting, automated model validation pipelines, secure multi-tenant isolation, and integration with enterprise PKI systems for certificate management.
 
 #### Compliance-Aware Data Handling
 
@@ -188,7 +192,7 @@ For security analysis, this approach protects sensitive metrics like resource co
 
 ### Secure Prompt Engineering Implementation
 
-Structured prompt templates provide a robust defense against injection attacks while maintaining consistent AI analysis quality. Rather than accepting free-form user input, the system uses parameterized templates that strictly control what information reaches the AI model.
+Structured prompt templates provide a solid defense against injection attacks while maintaining consistent AI analysis quality. Rather than accepting free-form user input, the system uses parameterized templates that strictly control what information reaches the AI model.
 
 ```python
 # From backend/app/services/ai_analysis.py
@@ -241,11 +245,11 @@ Input validation occurs before template rendering. The system checks that all re
 
 The template structure guides the AI toward security-focused analysis by explicitly defining the expected output format and analysis criteria. This constraint reduces variability in AI responses and makes the system's behavior more predictable and auditable.
 
-> **Note:** This prompt engineering approach provides basic security controls. Production systems would implement more sophisticated input validation with schema enforcement, dynamic template selection based on resource types, comprehensive output validation with semantic analysis, rate limiting per user/organization, and real-time monitoring for prompt injection attempts.
+> **Note:** This prompt engineering approach provides basic security controls. Production systems would implement more sophisticated input validation with schema enforcement, dynamic template selection based on resource types, full output validation with semantic analysis, rate limiting per user/organization, and real-time monitoring for prompt injection attempts.
 
 ### Governance and Access Controls
 
-Comprehensive audit logging and access controls form the foundation of trustworthy AI security systems. Every interaction with sensitive data must be tracked, and access to different system components should follow principle of least privilege.
+Full audit logging and access controls form the foundation of trustworthy AI security systems. Every interaction with sensitive data must be tracked, and access to different system components should follow principle of least privilege.
 
 ```python
 # From backend/app/core/security.py
@@ -290,7 +294,7 @@ Field masking operates recursively through nested data structures, ensuring that
 
 Access control integration points include [JWT token](https://jwt.io/introduction) validation for API authentication, role-based permissions for different analysis functions, and session management that prevents unauthorized access to AI analysis results.
 
-> **Note:** This security implementation provides core functionality for demonstration purposes. Production systems require Hardware Security Module (HSM) integration for key management, support for multiple encryption algorithms with key rotation policies, comprehensive session management with distributed caching, detailed audit trails with immutable logging, and integration with enterprise identity providers like SAML/OIDC.
+> **Note:** This security implementation provides core functionality for demonstration purposes. Production systems require Hardware Security Module (HSM) integration for key management, support for multiple encryption algorithms with key rotation policies, full session management with distributed caching, detailed audit trails with immutable logging, and integration with enterprise identity providers like SAML/OIDC.
 
 ## How to Get Fresh Multi-Cloud Data
 
@@ -329,7 +333,7 @@ spec:
     pgx_log_level: 'info'
 ```
 
-The destination specification routes all extracted data to a unified PostgreSQL database, where CloudQuery automatically creates normalized table schemas. This normalization process handles the complexity of mapping AWS security groups, GCP firewall rules, and Azure network security groups into consistent data structures that enable cross-cloud analysis. For a comprehensive guide on building multi-cloud asset inventories, see the detailed walkthrough: [How to Build a Multi-Cloud Asset Inventory](https://www.cloudquery.io/blog/how-to-build-a-multi-cloud-asset-inventory).
+The destination specification routes all extracted data to a unified PostgreSQL database, where CloudQuery automatically creates normalized table schemas. This normalization process handles the complexity of mapping AWS security groups, GCP firewall rules, and Azure network security groups into consistent data structures that enable cross-cloud analysis. For a full guide on building multi-cloud asset inventories, see the detailed walkthrough: [How to Build a Multi-Cloud Asset Inventory](https://www.cloudquery.io/blog/how-to-build-a-multi-cloud-asset-inventory).
 
 > **Note:** This configuration provides basic multi-cloud data collection. Production deployments require incremental sync scheduling, retry logic with exponential backoff, resource filtering to avoid rate limits, monitoring and alerting for sync failures, and data quality validation to ensure completeness.
 
@@ -383,7 +387,7 @@ The `ResourceGraphBuilder` constructs a [directed graph](https://en.wikipedia.or
 
 Attack path identification uses [graph traversal algorithms](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/) to find routes through the resource graph that could enable unauthorized access or data exfiltration. The system prioritizes paths based on factors like privilege levels, data sensitivity, and network exposure. Each identified path gets analyzed by the AI system, which evaluates the likelihood and impact of successful exploitation.
 
-The audit logging component ensures every AI decision includes complete context - the original prompt, the AI response, user identification, and timestamp information. This comprehensive logging enables security teams to understand how the system reached specific conclusions and provides the audit trail required for compliance frameworks.
+The audit logging component ensures every AI decision includes complete context - the original prompt, the AI response, user identification, and timestamp information. This logging enables security teams to understand how the system reached specific conclusions and provides the audit trail required for compliance frameworks.
 
 > **Note:** This risk analysis implementation demonstrates core concepts. Production systems require optimized graph algorithms for large-scale infrastructure, caching mechanisms for repeated analysis, parallel processing for multiple attack path evaluation, integration with threat intelligence feeds, and customizable risk scoring based on organizational priorities.
 
@@ -660,9 +664,9 @@ The data supports AI adoption. The approaches exist for secure implementation. T
 
 If you're looking for a way to get the most up-to-date, accurate data about your cloud infrastructure from any cloud provider, try CloudQuery today. Stop struggling with fragmented visibility across AWS, GCP, Azure, and hundreds of other services.
 
-**Transform Your Cloud Data Management:**
+**Take the Next Step:**
 
-**See It In Action:** Experience the AI-powered security demo at [GitHub.com/CloudQuery/secure-ai-data-pipelines-demo](https://github.com/cloudquery/secure-ai-data-pipelines-demo) to see how comprehensive cloud data enables advanced security analysis across multiple providers.
+**See It In Action:** Experience the AI-powered security demo at [GitHub.com/CloudQuery/secure-ai-data-pipelines-demo](https://github.com/cloudquery/secure-ai-data-pipelines-demo) to see how full cloud data enables advanced security analysis across multiple providers.
 
 **Discover CloudQuery:** Visit [CloudQuery.io](https://cloudquery.io/) to learn how they unify data from 500+ cloud providers into a single, queryable source of truth for security, compliance, and operations teams.
 
@@ -716,7 +720,7 @@ The demo provides a foundation, but production deployments need additional compo
 
 **Integration Patterns:**
 
-- [ ] SIEM integration with [[Splunk ML Toolkit](https://splunkbase.splunk.com/app/2890/)] or Elastic Security. See the [Splunk Destination Integration guide](https://www.cloudquery.io/blog/introducing-the-new-splunk-plugin) for seamless CloudQuery integration
+- [ ] SIEM integration with [[Splunk ML Toolkit](https://splunkbase.splunk.com/app/2890/)] or Elastic Security. See the [Splunk Destination Integration guide](https://www.cloudquery.io/blog/introducing-the-new-splunk-plugin) for CloudQuery integration
 - [ ] SOAR workflow automation with Phantom/Demisto
 - [ ] Existing security tool correlation (Nessus, CrowdStrike, Palo Alto)
 - [ ] Identity provider integration with Okta/Azure AD for context-aware analysis
@@ -755,7 +759,7 @@ According to industry research, AI-powered risk analysis can accelerate alert in
 
 ### Is AI-powered cloud security compliant with GDPR and other regulations?
 
-Yes, but it requires specific implementation approaches. AI security systems can be made GDPR compliant through proper data classification, sanitization pipelines that preserve security context while removing PII, comprehensive audit logging, and data retention management. The system must implement "privacy by design" principles under GDPR Article 25, maintain processing activity logs under Article 30, and support data subject rights. Similar compliance frameworks apply for SOC2, HIPAA, and FedRAMP requirements.
+Yes, but it requires specific implementation approaches. AI security systems can be made GDPR compliant through proper data classification, sanitization pipelines that preserve security context while removing PII, full audit logging, and data retention management. The system must implement "privacy by design" principles under GDPR Article 25, maintain processing activity logs under Article 30, and support data subject rights. Similar compliance frameworks apply for SOC2, HIPAA, and FedRAMP requirements.
 
 ### How do you prevent AI models from exposing sensitive cloud infrastructure data?
 
@@ -775,7 +779,7 @@ Yes, AI security platforms can integrate with SIEM systems (Splunk ML Toolkit, E
 
 ### What's the difference between real-time and batch AI security analysis?
 
-Real-time analysis reduces detection time from 2 minutes to 15 seconds but increases false positive rates by 25%. Batch processing provides better accuracy and comprehensive analysis but with longer detection windows. The choice depends on organizational requirements: real-time for immediate threat response, batch processing for thorough security assessments. Cost optimization varies by organization size and alert volume.
+Real-time analysis reduces detection time from 2 minutes to 15 seconds but increases false positive rates by 25%. Batch processing provides better accuracy and thorough analysis but with longer detection windows. The choice depends on organizational requirements: real-time for immediate threat response, batch processing for thorough security assessments. Cost optimization varies by organization size and alert volume.
 
 ### How do I get started with implementing AI-powered cloud security?
 
@@ -805,7 +809,11 @@ Start with the open-source [Secure AI Data Pipelines Demo](https://github.com/cl
 
 **Technical Standards and Frameworks:**
 
+<!-- vale JoeKarlsson.BannedWords = NO -->
+
 - AWS Documentation. "Amazon Bedrock Security." <https://docs.aws.amazon.com/bedrock/latest/userguide/security.html>
+
+<!-- vale JoeKarlsson.BannedWords = YES -->
 
 - European Data Protection Board. "Opinion 28/2024 on AI Models and Data Protection." <https://www.edpb.europa.eu/our-work-tools/our-documents/opinion-board-art-64/opinion-282024-certain-data-protection-aspects_en>
 

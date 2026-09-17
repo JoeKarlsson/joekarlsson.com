@@ -225,7 +225,7 @@ And you should get this output in the terminal. Be sure to save this key, as we 
 
 ![Screenshot from the terminal showing the output of running node make-data-key.js, it outputs “Base64 data key. Copy and paste this into clients.js W2Blh9teTxyORC8QT1jnzw==”](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/a407c324761ad6b1478a24058f586024519c4eeb-1-1024x144.webp)_Screenshot from the terminal showing the output of running node make-data-key.js, it outputs “Base64 data key. Copy and paste this into clients.js W2Blh9teTxyORC8QT1jnzw==”_
 
-It’s also a good idea to check in to make sure that this data has been saved correctly. Go to your clusters in Atlas, and navigate to your collections. You should see a new key saved in the **encryption.\_\_keyVault** collection.
+It’s also a good idea to check in to make sure that this data has been saved correctly. Go to your clusters in Atlas, then to your collections. You should see a new key saved in the **encryption.\_\_keyVault** collection.
 
 ![Screenshot of MongoDB Atlas showing that a new key has been added to our new collection.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/82ef708912590e63229cddbb71408d1eb1f58041-1024x552.webp)_Screenshot of MongoDB Atlas showing that a new key has been added to our new collection._
 

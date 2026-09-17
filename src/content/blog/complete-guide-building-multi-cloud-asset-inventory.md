@@ -29,7 +29,7 @@ If you want to follow along with a video version of this post, you can check tha
 
 ## Why Build a Multi-Cloud Asset Inventory?
 
-As companies increasingly rely on multiple cloud providers, keeping track of resources becomes crucial for operations and security. Cloud assets like storage buckets, virtual machines, and security policies often span multiple clouds. Without centralized oversight, it's easy to lose track of important assets, leading to security vulnerabilities, inefficiencies, and unnecessary spend.
+As companies increasingly rely on multiple cloud providers, keeping track of resources becomes critical for operations and security. Cloud assets like storage buckets, virtual machines, and security policies often span multiple clouds. Without centralized oversight, it's easy to lose track of important assets, leading to security vulnerabilities, inefficiencies, and unnecessary spend.
 
 Using **CloudQuery**, we can easily pull this data into a central database and ensure everything is visible from one location. This simplifies tracking down assets, audits their configurations, and ensures they comply with your security policies.
 
@@ -38,7 +38,7 @@ Using **CloudQuery**, we can easily pull this data into a central database and e
 Here's what we'll be doing:
 
 1. **Install and configure CloudQuery**: Set up the tool that pulls in data from AWS and GCP.
-2. **Set up PostgreSQL**: Store your cloud data in a robust, queryable database.
+2. **Set up PostgreSQL**: Store your cloud data in a solid, queryable database.
 3. **Sync AWS and GCP data**: Import assets from both clouds into PostgreSQL.
 4. **Run example queries**: Retrieve and analyze your cloud assets.
 

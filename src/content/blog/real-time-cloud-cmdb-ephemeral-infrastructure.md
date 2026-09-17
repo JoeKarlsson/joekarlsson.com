@@ -63,7 +63,7 @@ Consider a moderately large cloud environment generating 1,000 infrastructure ch
 
 > **Note:** **The Ephemeral Infrastructure Problem**
 >
-> With a 24-hour discovery window, you miss the vast majority of short-lived resources. Traditional discovery fundamentally cannot track infrastructure that appears and disappears between scans. Resources existing for minutes are effectively invisible.
+> With a 24-hour discovery window, you miss the vast majority of short-lived resources. Traditional discovery cannot track infrastructure that appears and disappears between scans. Resources existing for minutes are effectively invisible.
 
 ### Real-World Impact
 
@@ -259,4 +259,4 @@ The main challenges are API rate limits (cloud providers throttle aggressive pol
 
 ### How much does it cost to build a cloud CMDB?
 
-Costs vary based on environment size and sync frequency. For an organization with 1,000 AWS accounts, expect database storage costs (hosting billions of historical records for 2-year retention), API call costs (though cloud providers don't charge for most metadata API calls), and infrastructure costs for running sync jobs. Using CloudQuery with your existing database is significantly more cost-effective than traditional CMDB applications, as you avoid proprietary licensing fees and leverage databases you already have.
+Costs vary based on environment size and sync frequency. For an organization with 1,000 AWS accounts, expect database storage costs (hosting billions of historical records for 2-year retention), API call costs (though cloud providers don't charge for most metadata API calls), and infrastructure costs for running sync jobs. Using CloudQuery with your existing database is significantly more cost-effective than traditional CMDB applications, as you avoid proprietary licensing fees and use databases you already have.

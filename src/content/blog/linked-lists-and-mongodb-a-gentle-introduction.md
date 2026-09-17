@@ -124,7 +124,7 @@ If you have any issues connecting or setting up your free MongoDB Atlas cluster,
 
 Next, we are going to connect to our new MongoDB Atlas database cluster using the [Visual Studio Code MongoDB Plugin](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode). The MongoDB extension allow us to:
 
-- Connect to a MongoDB or Atlas cluster, navigate through your databases and collections, get a quick overview of your schema, and see the documents in your collections.
+- Connect to a MongoDB or Atlas cluster, browse your databases and collections, get a quick overview of your schema, and see the documents in your collections.
 
 - Create MongoDB Playgrounds, the fastest way to prototype CRUD operations and MongoDB commands.
 
@@ -132,7 +132,7 @@ Next, we are going to connect to our new MongoDB Atlas database cluster using th
 
 To install MongoDB for VS Code, simply search for it in the Extensions list directly inside VS Code or head to the [“MongoDB for VS Code” homepage](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) in the VS Code Marketplace.
 
-#### Navigate Your MongoDB Data
+#### Browse Your MongoDB Data
 
 MongoDB for VS Code can connect to MongoDB standalone instances or clusters on MongoDB Atlas or self-hosted. Once connected, you can **browse databases**, **collections**, and **read-only views** directly from the tree view.
 
@@ -140,7 +140,7 @@ For each collection, you will see a list of sample documents and a **quick overv
 
 Once installed, there will be a new MongoDB tab that we can use to add our connections by clicking “Add Connection.” If you’ve used MongoDB Compass before, then the form should be familiar. You can enter your connection details in the form or use a connection string. I went with the latter, as my database is hosted on MongoDB Atlas.
 
-To obtain your connection string, navigate to your “Clusters” page and select “Connect.”
+To obtain your connection string, go to your “Clusters” page and select “Connect.”
 
 Choose the “Connect using MongoDB Compass” option and copy the connection string. Make sure to add your username and password in their respective places before entering the string in VS Code.
 

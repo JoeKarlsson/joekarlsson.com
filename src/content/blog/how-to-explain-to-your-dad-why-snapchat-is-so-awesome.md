@@ -16,7 +16,7 @@ A [recent article](https://web.archive.org/web/20171024023758/http://lsvp.com/20
 
 Jeremy Liew writes, “To write it off as just a sexting app is to underestimate the power of its simplicity. I’ve been sending snaps to friends for a couple of weeks and there’s something very liberating about taking a quick photo. It can be a crappy photo. It can be silly. I don’t need to spend 15 minutes setting up the perfect shot or scrolling through filter options.”
 
-I totally agree with his point on simplicity really is the key to Snapchat’s success. To expend so much can be communicated through an image that cannot be delivered through text. One of the struggles with emails and texting is that the sender’s intent is often lost without facial and verbal cues. Snapchat easily breaks down this wall, and in a world where our social interactions become ever more digital, the more human we can get the better.
+I totally agree with his point on simplicity is the key to Snapchat’s success. To expend so much can be communicated through an image that cannot be delivered through text. One of the struggles with emails and texting is that the sender’s intent is often lost without facial and verbal cues. Snapchat easily breaks down this wall, and in a world where our social interactions become ever more digital, the more human we can get the better.
 
 Other details can be more simply communicated with an image than would with other traditional methods (Yikes, I just referred to texting as traditional!). Such as what you are doing or where you currently are.
 

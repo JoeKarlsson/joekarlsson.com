@@ -55,7 +55,7 @@ Cloud governance has gotten harder in the last few years, not easier. A few reas
 
 Cloud sprawl makes this worse. The ease of provisioning means resources multiply without centralized oversight - test environments that never get cleaned up, IAM credentials that stay active after a project ends, GPU instances left running over a long weekend. Without governance, the gap between "what we intended to have" and "what we actually have" widens continuously. Most organizations can't give you a reliable count of how many cloud resources they own right now. And that's before accounting for shadow IT.
 
-Compliance requirements aren't getting lighter either. PCI DSS v4.0 went fully mandatory in March 2025. GDPR enforcement has increased. New AI governance requirements are emerging around model access controls and data residency that existing frameworks weren't designed to cover. Platform teams are now expected to monitor continuously rather than audit annually - which is a fundamentally different operational model.
+Compliance requirements aren't getting lighter either. PCI DSS v4.0 went fully mandatory in March 2025. GDPR enforcement has increased. New AI governance requirements are emerging around model access controls and data residency that existing frameworks weren't designed to cover. Platform teams are now expected to monitor continuously rather than audit annually - which is a different operational model.
 
 ## What Are the 6 Pillars of Cloud Governance?
 

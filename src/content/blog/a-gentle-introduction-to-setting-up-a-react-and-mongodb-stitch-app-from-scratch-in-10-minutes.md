@@ -11,6 +11,8 @@ contentNotice: 'MongoDB Stitch was replaced by Atlas App Services in 2020, and t
 tldr: 'A quick tutorial for building a React to-do app backed by MongoDB Stitch, from Atlas setup to a working app in about 10 minutes.'
 ---
 
+<!-- vale JoeKarlsson.BannedWords = NO -->
+
 Are you interested in learning how to build a React and MongoDB App? Like many of you, I have been interested in learning more about MongoDB’s cloud offerings and also not spending a dime. This guide is for the developer who only has 10 minutes to spare and who wants to learn a brand new tool from MongoDB.
 
 <video autoplay loop muted playsinline aria-label="If this is your reaction, then this is the tutorial for you\!"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/zIzh9CW5C3QCpRetsbKgxg.webm" type="video/webm"><source src="/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/zIzh9CW5C3QCpRetsbKgxg.mp4" type="video/mp4"></video>

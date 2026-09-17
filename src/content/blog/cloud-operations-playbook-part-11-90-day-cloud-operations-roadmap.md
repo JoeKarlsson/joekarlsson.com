@@ -168,7 +168,7 @@ Want the complete guide? [Download the free 67-page eBook](https://www.cloudquer
 
 ## FAQ
 
-### How Long Does It Really Take to Implement This Roadmap?
+### How Long Does It Take to Implement This Roadmap?
 
 90 days for the core implementation. Most teams start seeing value in the first two weeks when the initial inventory sync reveals resources they didn't know about. The full governance and automation layers take the remaining time to build out. Some teams move faster, some slower. The week-by-week structure is a guide, not a rigid schedule.
 

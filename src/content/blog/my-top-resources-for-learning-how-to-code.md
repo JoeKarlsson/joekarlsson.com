@@ -15,7 +15,7 @@ I love keeping my questions/answers public so others can learn and share from ea
 
 ## First, ask yourself “Why do I want to code?”
 
-The field of programming is absolutely massive and there are so many different programming languages and things to do with it. Ask yourself, do I want to learn how to make websites? Am I interested in creating robots? Can constructing a neural network for machine learning be my thing? Do I just need to make my boss happy and learn how to make a SharePoint site? Each answer would lead to a different recommendation for learning and could affect which programming language(s) you should start learning.
+The field of programming is massive and there are so many different programming languages and things to do with it. Ask yourself, do I want to learn how to make websites? Am I interested in creating robots? Can constructing a neural network for machine learning be my thing? Do I just need to make my boss happy and learn how to make a SharePoint site? Each answer would lead to a different recommendation for learning and could affect which programming language(s) you should start learning.
 
 If you are learning to code because you are looking to make a career change, then you might also want to check out my guide on [how to pass a coding interview](/blog/how-to-pass-coding-interview/) once you feel ready. I might also recommend that you start looking into one of those Coding Bootcamps. I was personally a technical instructor at a Bootcamp for several years in Honolulu, Hawaii and I know that they can be a great, albeit expensive, way to get into programming as a profession. However, if you don’t need something as intense because you are looking to make a website for your friend’s new band then a Bootcamp might be overdoing it.
 
@@ -33,7 +33,7 @@ Here’s my take on this. The top three most used programming languages in the w
 
 ## Try a couple of free online courses
 
-First, let’s start with some of my personal FREE websites for learning to code. I would definitely start here if you are just starting to learn. You might find out that programming is not for you, and you haven’t dropped any serious coin.
+First, let’s start with some of my personal FREE websites for learning to code. I would start here if you are just starting to learn. You might find out that programming is not for you, and you haven’t dropped any serious coin.
 
 [Codecademy](https://www.codecademy.com) is the perfect place for aspiring coders to start learning. Interactive projects and quizzes let you get the hands-on experience you need to grasp the concepts you’re being taught. There are separate courses for each topic: you might start out with Make a Website or Learn HTML & CSS, and progress to JavaScript, SQL, and more. Codecademy also provides forums for discussion, programming language glossaries, and blog posts and articles to help you as you learn.
 
@@ -275,7 +275,11 @@ You can check out my Top Tech Talks of all time here:
 
 - [Crockford on JavaScript](https://www.youtube.com/playlist?list=PL7664379246A246CB) by **Douglas Crockford** (it’s 10 hours long!)
 
+<!-- vale JoeKarlsson.FillerWords = NO -->
+
 - [Really. JavaScript.](https://www.youtube.com/watch?v=lTWGoL1N-Kc) [00:46:10] by **Douglas Crockford**
+
+<!-- vale JoeKarlsson.FillerWords = YES -->
 
 - [Monads and Gonads](https://www.youtube.com/watch?v=b0EF0VTs9Dc) [00:49:48] by **Douglas Crockford**
 
@@ -287,13 +291,17 @@ You can check out my Top Tech Talks of all time here:
 
 - [Large Scale JavaScript Application Architecture](https://www.youtube.com/watch?v=kNrnRG1YgAQ) [00:50:40] by **Dan Lynch**
 
-- Dissecting WebGL [01:11:04] by **Justin Windle** (you might want to take a look at [the slides](https://github.com/hugeinc/doctype-meetup/tree/master/dissecting-webgl), you cannot really see them well)
+- Dissecting WebGL [01:11:04] by **Justin Windle** (you might want to take a look at [the slides](https://github.com/hugeinc/doctype-meetup/tree/master/dissecting-webgl), you cannot see them well)
 
 - [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ) [00:26:53] by **Philip Roberts**
 
 - [Functional programming patterns for the non-mathematician](https://www.youtube.com/watch?v=AvgwKjTPMmM) [00:29:58] by **Brian Lonsdorf** (beware; the pace is somewhat high)
 
+<!-- vale JoeKarlsson.BannedWords = NO -->
+
 - [Hey Underscore, You’re Doing It Wrong!](https://www.youtube.com/watch?v=m3svKOdZijA) [00:36:31] by **Brian Lonsdorf**
+
+<!-- vale JoeKarlsson.BannedWords = YES -->
 
 - [Immutability, interactivity & JavaScript](https://www.youtube.com/watch?v=mS264h8KGwk) [00:26:20] by **David Nolen**
 

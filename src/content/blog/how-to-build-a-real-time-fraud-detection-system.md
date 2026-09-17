@@ -15,7 +15,7 @@ Need to build real-time fraud detection?
 
 [Tinybird](https://www.tinybird.co) is a powerful real-time data platform for building real-time analytics use cases like fraud detection. Tinybird takes care of all of the data infrastructure, including data ingestion, data storage, data processing, and data access through APIs, and gives you an intuitive, SQL-based development environment to build and ship real-time use cases faster. [Get started for free](https://www.tinybird.co/blog-posts/how-to-build-a-real-time-fraud-detection-system) (with no time limit!) and build your first real-time fraud detection API in minutes.
 
-Luckily, companies have a powerful weapon in their arsenal to fight back effectively: **real-time fraud detection systems**. These systems offer a proactive approach to identifying and stopping fraudulent transactions before they even happen. A solid real-time fraud detection system consists of the following components:
+Luckily, companies have a powerful weapon in their arsenal to fight back effectively: **real-time fraud detection systems**. These systems identify and stop fraudulent transactions before they happen. A solid real-time fraud detection system consists of the following components:
 
 - **The ability to ingest transaction streams:** To detect fraud in real-time, you need access to transaction data as soon as it’s generated. This requires a system that can ingest and process high volumes of transaction data in real-time, capturing relevant details like user information, transaction amount, IP address, location, and other potential risk factors.
 
@@ -29,7 +29,7 @@ Together, these components form the backbone of a real-time fraud detection syst
 
 ## Why does fraud detection need to be real-time?
 
-Imagine a world where every time you swipe your credit card or make an online purchase, you have to wait 15 minutes for the transaction to clear. Not only would this be incredibly frustrating, but it would also significantly disrupt the flow of commerce, as businesses would face delays in processing orders and receiving payments.
+Imagine a world where every time you swipe your credit card or make an online purchase, you have to wait 15 minutes for the transaction to clear. Not only would this be frustrating, but it would also significantly disrupt the flow of commerce, as businesses would face delays in processing orders and receiving payments.
 
 But, credit card fraud (and other types of online fraud) are a massive thorn in the side of eCommerce stores and the financial institutions where they bank. They need ways to detect fraudulent behavior and stop those real-time transactions - and allow all others - before the purchaser notices a delay. This is why fraud detection must happen in real-time.
 
@@ -300,7 +300,7 @@ Congratulations, fraud-fighter! You’ve built a real-time fraud detection syste
 
 In the next part of this fraud-fighting adventure, I’ll explore how to build a dashboard using Retool components to visualize the fraud detection data in real-time. Stay tuned!
 
-Ready to experience the industry-leading real-time analytics platform? [Try Tinybird today](https://ui.tinybird.co/signup), for free. Get started with the Build Plan - which is more than enough for most simple projects and has no time limit - and upgrade as you scale.
+Ready to experience the real-time analytics platform? [Try Tinybird today](https://ui.tinybird.co/signup), for free. Get started with the Build Plan - which is more than enough for most simple projects and has no time limit - and upgrade as you scale.
 
 ## FAQs
 
@@ -310,7 +310,7 @@ Yes! The code for this demo fraud detection application can be found on the [Tin
 
 ### Can I use a different dataset for my fraud detection system?
 
-Absolutely! The Mockingbird demo data is just an example. Feel free to use any dataset that suits your needs, as long as it contains the necessary fields for fraud detection.
+Yes! The Mockingbird demo data is just an example. Feel free to use any dataset that suits your needs, as long as it contains the necessary fields for fraud detection.
 
 ### How can I enhance my fraud detection pipeline?
 

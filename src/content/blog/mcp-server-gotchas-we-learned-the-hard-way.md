@@ -168,7 +168,7 @@ Even after solving tool descriptions, naming, and context window issues, we ran 
 
 **First**: non-determinism. In plain terms, this means you can send the exact same input to the model twice and still get slightly different outputs. Even when we set `temperature=0`, which is supposed to make the model always pick the most likely next word at every step, Claude sometimes chose different tools or wrote slightly different SQL.
 
-Here's what's really going on:
+Here's what's going on:
 
 - **Temperature** controls how "creative" or random the model's output is. At higher temperatures, it's more likely to pick less-obvious words or paths. At `temperature=0`, it always picks the most probable next word, which should make outputs repeatable.
 

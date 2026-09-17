@@ -58,7 +58,7 @@ Now you know exactly which instances to right size shut down or put in the cloud
 
 ## Auditing Cloud Resources for Compliance (or: How to Not Accidentally Break the Law)
 
-Ever had that sinking feeling when you realize a cloud resource just popped up in a region you're definitely not supposed to be using? Maybe it's a data sovereignty violation, maybe it's an compliance disaster, or maybe it's just an intern going rogue with the deploy button. Either way, someone's about to have a bad day.
+Ever had that sinking feeling when you realize a cloud resource just popped up in a region you're not supposed to be using? Maybe it's a data sovereignty violation, maybe it's an compliance disaster, or maybe it's just an intern going rogue with the deploy button. Either way, someone's about to have a bad day.
 
 Governance teams set the rules - approved regions, allowed instance types, and who can deploy what, where. But policies don't enforce themselves. CloudQuery makes it dead simple to check for violations:
 
@@ -78,7 +78,7 @@ The shift is already happening. Cloud and application security teams are merging
 
 ## **What's Next?**
 
-The way organizations secure and govern cloud environments is changing fast, and CloudQuery is built to help teams stay ahead. Whether you are looking to improve security visibility, optimize cloud costs, or streamline compliance, CloudQuery gives you the data-driven control you need to make smarter decisions without the headache.
+The way organizations secure and govern cloud environments is changing fast, and CloudQuery is built to help teams stay ahead. Whether you are looking to improve security visibility, optimize cloud costs, or simplify compliance, CloudQuery gives you the data-driven control you need to make smarter decisions without the headache.
 
 The best way to understand how CloudQuery transforms cloud visibility is to see it live. Our team can walk you through a tailored demo based on your cloud environment and use cases. Let's talk about how CloudQuery can fit into your stack. [Schedule a demo today](https://www.cloudquery.io/contact-us)
 

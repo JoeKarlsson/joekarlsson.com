@@ -358,7 +358,7 @@ Sending mock data to Tinybird with our data seeding script.
 
 Let this mock data generator run in the background so you can have some data to play with in the next step.
 
-To verify that the data is flowing properly into Tinybird, inspect the Tinybird Data Sources. In the Tinybird UI, navigate to the `signatures` and `accounts` Data Sources to confirm that the data has been received. The latest records should be visible.
+To verify that the data is flowing properly into Tinybird, inspect the Tinybird Data Sources. In the Tinybird UI, go to the `signatures` and `accounts` Data Sources to confirm that the data has been received. The latest records should be visible.
 
 ![Tinybird signatures data source showing 2k rows with ingestion graph and data preview](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-10.webp)
 
@@ -517,7 +517,7 @@ Try altering the values for these parameters in the browser’s address bar. As 
 
 If you request the data in a JSON format, you’ll also receive some metadata about the response, including statistics about the query latency:
 
-In the above example, the API response took barely 1 millisecond, which is a recipe for fast dashboards! You can utilize this metadata to continue to monitor your dashboard query performance and optimize as needed.
+In the above example, the API response took barely 1 millisecond, which is a recipe for fast dashboards! You can use this metadata to continue to monitor your dashboard query performance and optimize as needed.
 
 #### Pulling your Tinybird project into your local directory
 
@@ -678,7 +678,7 @@ To view your real-time dashboard component, run the following:
 
 [View the interactive dashboard snippet](https://snippets.tinybird.co/XQAAAAJbAAAAAAAAAABBKUqGk9nLKvRhdt7jwU0BO7-jo5YmrmXP95NHxwkAEidOTOER9mmwsKD-ochEVM96Dr8kw2mNXVOJsQLOq4_LRekG_lci3pLAg8wCoZQ3nc1ISo6Mjjc5ygf-hv8A/embed)
 
-Navigate to `​​`[`http://localhost:3000/`](http://localhost:3000/) in your browser. You should see something like this:
+Go to `​​`[`http://localhost:3000/`](http://localhost:3000/) in your browser. You should see something like this:
 
 ![Bar chart of top organizations creating signatures with tooltip showing Wuckert Group at 1136](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-8.webp)
 

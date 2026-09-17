@@ -91,9 +91,9 @@ Kafka is a perfect technology for event sourcing. Here’s why:
 
 Before we get into a practical example of implementing event sourcing with Kafka, it’s important to set some ground rules. Best practices not only mitigate the complexities but also help you build for scale, ensuring smooth scalability and reliability. Here are some best practices worth following.
 
-- **Schema Evolution**: Always design your events with schema evolution in mind. Utilize [schema registries](https://docs.confluent.io/platform/current/schema-registry/index.html) and versioning to manage changes to your event schemas. This makes it possible to add or modify fields without breaking existing systems.
+- **Schema Evolution**: Always design your events with schema evolution in mind. Use [schema registries](https://docs.confluent.io/platform/current/schema-registry/index.html) and versioning to manage changes to your event schemas. This makes it possible to add or modify fields without breaking existing systems.
 
-- **Versioning:** [Implement event versioning](https://www.tinybird.co/blog-posts/git-for-real-time-data-projects) from the start to ensure backward and forward compatibility as your application evolves. Utilize a schema registry or embed version numbers in event schemas to manage changes effectively. Always try to make backward-compatible changes. If not, use a different topic for non-backward compatible changes.
+- **Versioning:** [Implement event versioning](https://www.tinybird.co/blog-posts/git-for-real-time-data-projects) from the start to ensure backward and forward compatibility as your application evolves. Use a schema registry or embed version numbers in event schemas to manage changes effectively. Always try to make backward-compatible changes. If not, use a different topic for non-backward compatible changes.
 
 - **Idempotence**: Ensure that your system can handle the same or duplicated event multiple times without causing unwanted side effects. Kafka provides native support for idempotent producers, but you should also implement idempotence in your business logic.
 
@@ -101,7 +101,7 @@ Before we get into a practical example of implementing event sourcing with Kafka
 
 - **Compensation Events**: Implement compensation events to undo the actions of a previous event. This can be valuable in failure scenarios or in handling business operations that are complex and conditional.
 
-- **Snapshots**: For long event chains, utilize snapshots to reduce the overhead of replaying events. This is critical for maintaining system performance and ensuring real-time data analytics.
+- **Snapshots**: For long event chains, use snapshots to reduce the overhead of replaying events. This is critical for maintaining system performance and ensuring real-time data analytics.
 
 - **Data Retention and Cleanup**: Configure Kafka’s data retention settings carefully to balance between data availability for replays and system performance. Too long retention periods can lead to unnecessary storage costs and reduced performance.
 
@@ -180,7 +180,7 @@ Create a Copy Job from the first node in your Pipe.
 
 ### Step 4: Create a Copy Pipe to calculate the user balance based on the last Account Snapshot
 
-Now that you have the `account_snapshot` seeded with account balance data, you will create two more Pipe nodes to calculate the new account balance based on the previous account snapshot. This way, you won’t need to sum up all the events every time you create a new snapshot.
+Now that you have the `account_snapshot` seeded with account balance data, you will create two more Pipe nodes to calculate the new account balance based on the previous account snapshot. This way, you won’t need to add up all the events every time you create a new snapshot.
 
 First, create a new node, `get_latest_snapshot_from_account_snapshot` that gets the latest snapshot from the `account_snapshot` Data Source:
 

@@ -20,7 +20,7 @@ We spent 20 years deploying agents on servers. Then AWS gave us APIs. Why are we
 
 Your Lambda function executes for 200 milliseconds. Your container lives for 45 seconds before Kubernetes kills it. Your RDS database has no operating system you can SSH into. Yet somehow, we're still trying to install discovery agents like it's 2005.
 
-The infrastructure paradigm shifted, but CMDBs didn't adjust. Agents made perfect sense when servers lived in racks and ran for years. They make zero sense when your "server" is an API Gateway endpoint backed by Lambda functions that spin up and vanish 1,000 times per hour. [Traditional CMDB architecture fails 70-80% of the time](https://www.cloudquery.io/blog/cloud-cmdb-vs-traditional-cmdb-2026) precisely because it assumes stable, long-lived infrastructure you can install agents on.
+The infrastructure model shifted, but CMDBs didn't adjust. Agents made perfect sense when servers lived in racks and ran for years. They make zero sense when your "server" is an API Gateway endpoint backed by Lambda functions that spin up and vanish 1,000 times per hour. [Traditional CMDB architecture fails 70-80% of the time](https://www.cloudquery.io/blog/cloud-cmdb-vs-traditional-cmdb-2026) precisely because it assumes stable, long-lived infrastructure you can install agents on.
 
 ## Why Agents Made Sense (And Why We're Not Wrong for Using Them)
 
@@ -58,9 +58,9 @@ Your AWS Lambda function cold starts in 100-200 milliseconds [[AWS Lambda](https
 
 The function already finished executing before the agent even initialized.
 
-You literally cannot install an agent in a Lambda function that runs for 200ms. Even if you could, the function would time out waiting for the agent to start. And if you somehow made it work, you'd pay for 2-5 seconds of Lambda execution time just to initialize a discovery agent for a function that runs for 200ms.
+You cannot install an agent in a Lambda function that runs for 200ms. Even if you could, the function would time out waiting for the agent to start. And if you somehow made it work, you'd pay for 2-5 seconds of Lambda execution time just to initialize a discovery agent for a function that runs for 200ms.
 
-It doesn't work. There's no workaround. Agents fundamentally cannot discover serverless infrastructure.
+It doesn't work. There's no workaround. Agents cannot discover serverless infrastructure.
 
 ### Managed Services: No OS, No Agent
 
@@ -200,7 +200,7 @@ For on-premises infrastructure, agents still make sense. Your physical data cent
 
 ## Agents Are Dead. Long Live APIs.
 
-Cloud infrastructure is fundamentally API-driven. When 70-80% of your AWS resources are managed services with no OS to install agents on, agent-based discovery is fighting against the architecture instead of working with it.
+Cloud infrastructure is API-driven. When 70-80% of your AWS resources are managed services with no OS to install agents on, agent-based discovery is fighting against the architecture instead of working with it.
 
 The future is agentless, multi-cloud, API-first. Organizations that adjust their CMDB approach to match cloud architecture get better visibility, lower costs, and fewer operational headaches. CloudQuery was built specifically for this API-driven world - syncing cloud infrastructure data from [AWS](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws), [Azure](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure), [GCP](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp), and 70+ other providers without requiring a single agent installation.
 

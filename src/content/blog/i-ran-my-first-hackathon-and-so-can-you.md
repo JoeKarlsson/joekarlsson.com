@@ -27,7 +27,7 @@ The bottom line is that everyone at the event came in order to build stuff for t
 
 Over the years as my career as a Software Engineer, I had attended dozens of hackathons, but until now, I had not organized one on my own. I learned a ton through trial and error, research (see resources below), friends (Ray Farias, Jon and Kelli Borgonia, Jason Sewell, Russel Cheng, and Vic Lee). I am by no means an expert, but here are the lessons I learned from organizing my first hackathon ever. I hope it helps and encourages other new hackathon organizers to run an amazing event.
 
-### **Here's what I'll cover:**
+### **What I'll cover:**
 
 - How to get prepared for your hackathon
 - How to market your hackathon
@@ -41,7 +41,7 @@ Over the years as my career as a Software Engineer, I had attended dozens of hac
 
 - The event I organized had about 60 people in attendance, if you are planning an event with 100 people or more, you are probably on a whole other level and you will need to do a lot more prep work. I would recommend checking out the [Hackathon Guide](https://hackathon.guide/) for details on how to run an event with lots of people in attendance.
 - This was a Stupid Shit and Terrible Ideas hackathon, which by its very nature is a very nonstandard hackathon. We wanted to create more of a collaborative and warm vibe so that all of our entrants have fun, but hopefully you can bring the positive and welcoming vibes to your hackathon.
-- This was the first hackathon I ever ran - I definitely still have lots to learn in regards to running a smooth, diverse and inclusive event, but I am trying my hardest.
+- This was the first hackathon I ever ran - I still have lots to learn in regards to running a smooth, diverse and inclusive event, but I am trying my hardest.
 - I am a software engineer, not a lawyer. **Do not take anything I say here as legal advice.**
 
 ---
@@ -92,7 +92,7 @@ Picking a date for your event is hard. There are many things that you will want 
 
 Have it on a weekend – trust us – just do it. Nobody can jam during the week.
 
-Picking a date about 6 months ahead was really helpful for us. We were able to stake a claim on a date before anyone else had a chance to take the great event dates. If you have the ability, be sure to reserve your date as early as you possibly can. We never regretted planning our event so early.
+Picking a date about 6 months ahead was helpful for us. We were able to stake a claim on a date before anyone else had a chance to take the great event dates. If you have the ability, be sure to reserve your date as early as you possibly can. We never regretted planning our event so early.
 
 ### **Food**
 
@@ -171,7 +171,7 @@ You’re running a hackathon, you have got to make a website for your event. Thi
 
 ### **Social Media**
 
-Alright, this is a tech event, you basically gotta have an online presence for your hackathon. You should have at least a Twitter account, and a Facebook event page.
+Alright, this is a tech event, you need an online presence for your hackathon. You should have at least a Twitter account, and a Facebook event page.
 
 **Twitter**
 
@@ -201,7 +201,7 @@ Here is some great examples of good swag for your event:
 
 **Stickers**
 
-- Making exclusive stickers. Devs love putting stickers on their laptops, water bottles, children, bosses. Basically, we put them everywhere.
+- Making exclusive stickers. Devs love putting stickers on their laptops, water bottles, children, bosses. We put them everywhere.
 
 **T-shirts**
 
@@ -215,7 +215,7 @@ This last one is huge, but be sure to get the word out about your hackathon with
 
 ## How To Get Sponsors
 
-Organizing hackathons costs money, there is no way around it. Even if you are running a barebones hackathon, you are going to need to find some money for food, prizes, and space to hack. You basically have two options:
+Organizing hackathons costs money, there is no way around it. Even if you are running a barebones hackathon, you are going to need to find some money for food, prizes, and space to hack. You have two options:
 
 - Pay for it out of pocket or
 - Find corporate sponsors to help you fund your hackathon.
@@ -238,7 +238,7 @@ Okay, so you want to make a cold call to a potential sponsor, what do you even s
 
 > Greetings [Company you are asking for a sponsor],
 
-I’m am [Who you are <student, engineer, space whale> ], and we’re putting together a [Name of your hackathon] on [Start date of your hackathon]. I was thinking that [Company Name] might make a great sponsor for our hackathon. [List out reasons why you think the company is good fit.] Let me know if this is something you may be interested in and I’d be happy to send your more details or set up a phone call.
+I’m am [Who you are <student, engineer, space whale> ], and we’re putting together a [Name of your hackathon] on [Start date of your hackathon]. I was thinking that [Company Name] might make a great sponsor for our hackathon. [List out reasons why you think the company is good fit.] Let me know if this is something you may be interested in - reply and I can send more details or set up a call.
 
 Kind regards,
 [Your name]

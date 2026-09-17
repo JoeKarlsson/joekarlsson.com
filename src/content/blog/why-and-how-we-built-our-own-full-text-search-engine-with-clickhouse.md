@@ -33,7 +33,7 @@ Plus, from a DX perspective, we heard from our customers about the same challeng
 
 "I just want to find stuff quickly without having to learn your entire data model."
 
-The reality is that cloud infrastructure has grown incredibly complex, and nobody wants to write complicated queries or memorize complex data structures.
+The reality is that cloud infrastructure has grown complex, and nobody wants to write complicated queries or memorize complex data structures.
 
 ## Why We Built Our Own Full-Text Search Engine with ClickHouse
 
@@ -48,7 +48,7 @@ While all these options provided excellent full-text search capabilities, they p
 
 Given these constraints, we decided to implement full-text search directly within ClickHouse, our existing database engine. This approach allowed us to:
 
-- Leverage our existing infrastructure
+- Use our existing infrastructure
 - Avoid additional operational overhead
 - Create a truly integrated search engine
 
@@ -112,7 +112,7 @@ Positions:   [s][e][a][r][c][h]
 Trigrams:    ["sea", "ear", "arc", "rch"]
 ```
 
-When searching for "arc", the Bloom filter can quickly tell us which granules (blocks of text data) might contain this pattern, which allows ClickHouse's Bloom Filter to skip reading large portions of data that definitely don't contain that block of text.
+When searching for "arc", the Bloom filter can quickly tell us which granules (blocks of text data) might contain this pattern, which allows ClickHouse's Bloom Filter to skip reading large portions of data that don't contain that block of text.
 
 #### Our Multi-tier n-gram Approach
 
@@ -164,13 +164,13 @@ The specific optimizations we've implemented (such as efficient query strategies
 
 ## Performance Results and Tradeoffs
 
-When we set out to measure our full-text search implementation, we wanted to establish a solid baseline for comparison. We designed a set of benchmark queries representing different potential search patterns, which we categorized into representative "shapes" like basic-frequent, frequent, and infrequent. These weren't based on actual user behavior (as we didn't yet have comprehensive data on search patterns), but rather represented our best estimation of different query types users might execute.
+When we set out to measure our full-text search implementation, we wanted to establish a solid baseline for comparison. We designed a set of benchmark queries representing different potential search patterns, which we categorized into representative "shapes" like basic-frequent, frequent, and infrequent. These weren't based on actual user behavior (as we didn't yet have full data on search patterns), but rather represented our best estimation of different query types users might execute.
 
 For each query shape, we tested four different execution strategies repeatedly to account for the natural variability in database performance. Running the same query dozens of times helped us smooth out anomalies from background merges or cache misses that could skew our results.
 
 ### Query Execution Strategies
 
-Our testing compared four fundamentally different approaches to executing full-text search queries:
+Our testing compared four different approaches to executing full-text search queries:
 
 The first approach, which we called "naive," was straightforward, but inefficient. It looked up each search term individually and then joined the results together. While simple to implement, it scanned excessive amounts of data and performed poorly at scale, especially for search terms matching large numbers of resources.
 
@@ -178,7 +178,7 @@ The first approach, which we called "naive," was straightforward, but inefficien
 
 We then developed an "ungrouped" strategy that unions all term lookups first before aggregating results. This reduced join overhead but still required reading all data matching any search term.
 
-Our third approach, "ungrouped-limited," was a breakthrough, but with important trade-offs. This strategy is essentially a simplified version that works well for single search conditions:
+Our third approach, "ungrouped-limited," was a breakthrough, but with important trade-offs. This strategy is a simplified version that works well for single search conditions:
 
 ```sql
 SELECT
@@ -224,7 +224,7 @@ The performance improvements we achieved were substantial, especially for challe
 
 ![Bar chart titled 'Basic-Frequent: Median Query Time by Variant' showing median query times (ms) for four strategies: ungrouped-limited ~390 ms, ungrouped ~2730 ms, naive ~3820 ms, and the single-pass strategy ~3810 ms, ungrouped-limited is markedly faster than the others.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image6.webp)
 
-It's important to note that the ungrouped-limited strategy is essentially a practical compromise for situations where a user queries something that would return millions of results. It's based on the assumption that users would prefer to get approximate results quickly rather than waiting a minute or more for exact results. The "\*-frequent" benchmarks represent worst-case scenarios for our system, not necessarily the most common user queries (as we don't yet have comprehensive data on actual search patterns).
+The ungrouped-limited strategy is a practical compromise for situations where a user queries something that would return millions of results. It's based on the assumption that users would prefer to get approximate results quickly rather than waiting a minute or more for exact results. The "\*-frequent" benchmarks represent worst-case scenarios for our system, not necessarily the most common user queries (as we don't yet have full data on actual search patterns).
 
 This performance came with tradeoffs. In ungrouped and ungrouped-limited, we sacrifice some precision and relevance scoring, especially when conditions match a large number of results. This is due to the nature of our dataset, where common substrings appear frequently and can overwhelm result sets. In these cases, traditional relevance heuristics become less meaningful, and speed becomes the priority.
 
@@ -256,7 +256,7 @@ Our testing and implementation revealed several practical insights for others lo
 
 The [**warm vs. cold state of your ClickHouse cluster makes a substantial difference**](https://clickhouse.com/docs/guides/developer/ttl#implementing-a-hotwarmcold-architecture). Background merges, cold caches, and OS disk I/O can introduce 10-20% performance variability. For consistent benchmarking, it's essential to warm up your cluster and disable heavy merges during testing.
 
-**Different query shapes benefit from different optimization strategies.** The key factors we optimize for are "how many results does each subcondition return" and "how many subconditions do we have." For queries with subconditions that return few results, we can leverage early filtering to minimize the data scanned. For queries with many subconditions, focusing on efficient evaluation and minimizing redundant data access becomes critical.
+**Different query shapes benefit from different optimization strategies.** The key factors we optimize for are "how many results does each subcondition return" and "how many subconditions do we have." For queries with subconditions that return few results, we can use early filtering to minimize the data scanned. For queries with many subconditions, focusing on efficient evaluation and minimizing redundant data access becomes critical.
 
 An important optimization we discovered is that certain subconditions are merged during query compilation. For example, a query like `resource_type=aws_ec2_instances AND demo` contains one column-wise condition (`resource_type=aws_ec2_instances`, which filters on an indexed column) and one row-wise condition (`demo`, which searches key-value pairs). The column-wise conditions can be merged and efficiently evaluated using standard database indexes, while each separate row-wise condition requires separate evaluation. Understanding this distinction allows us to structure queries to maximize the use of column-wise filtering before applying more expensive row-wise operations.
 
@@ -264,7 +264,7 @@ An important optimization we discovered is that certain subconditions are merged
 
 **Operational patterns matter too**. Our approach of nightly offline rebuilds with atomic table swaps effectively hides the heavy insertion overhead from users. For workloads requiring near-real-time updates, incremental materialized views might be a better approach despite their added complexity.
 
-Finally, **thoughtful partitioning and ordering of your data can make a huge difference**. Instead of slicing the search-index table by sync date, we partition by source table (i.e., `resource type`). Each partition holds rows with near-identical key/value shapes, so Bloom-filter bitmaps stay dense, data pages compress better, and queries that scope to a single resource type, our most common pattern, hit only one partition's parts. We still order the MergeTree key so that high-cardinality predicates (`type`, `key`, `weight`, ...) come first, giving ClickHouse maximum leverage for data skipping and late-materialisation.
+Finally, **thoughtful partitioning and ordering of your data can make a huge difference**. Instead of slicing the search-index table by sync date, we partition by source table (i.e., `resource type`). Each partition holds rows with near-identical key/value shapes, so Bloom-filter bitmaps stay dense, data pages compress better, and queries that scope to a single resource type, our most common pattern, hit only one partition's parts. We still order the MergeTree key so that high-cardinality predicates (`type`, `key`, `weight`, ...) come first, giving ClickHouse maximum use for data skipping and late-materialisation.
 
 ## Impact
 
@@ -274,7 +274,7 @@ The implementation of full-text search has transformed how our customers interac
 2. **Improved resource discovery**: Engineers can easily find resources without needing extensive knowledge of our data model.
 3. **Simplified troubleshooting**: Operations teams can trace dependencies between resources by finding all references to specific identifiers.
 
-The implementation of full-text search has fundamentally transformed how our customers interact with their cloud. It's a shift from not being able to search effectively at all to having powerful search capabilities at their fingertips. What would have previously required complex, manually-crafted SQL queries across multiple tables (a task many users simply couldn't or wouldn't attempt) is now accessible through a search box.
+The implementation of full-text search has changed how our customers interact with their cloud. It's a shift from not being able to search effectively at all to having powerful search capabilities at their fingertips. What would have previously required complex, manually-crafted SQL queries across multiple tables (a task many users simply couldn't or wouldn't attempt) is now accessible through a search box.
 
 ## Future Directions
 
@@ -304,7 +304,7 @@ For teams considering similar projects, we recommend:
 3. **Benchmark different approaches** against realistic datasets
 4. **Accept reasonable tradeoffs** that align with your priorities (in our case, optimizing for read performance over write efficiency)
 
-Full-text search has become one of the most appreciated features in CloudQuery Platform, validating our decision to build rather than integrate. While specialized search engines certainly have their place, sometimes the best solution is hiding in plain sight within the tools you already know and use.
+Full-text search has become one of the most appreciated features in CloudQuery Platform, validating our decision to build rather than integrate. While specialized search engines have their place, sometimes the best solution is hiding in plain sight within the tools you already know and use.
 
 ## References
 

@@ -27,7 +27,7 @@ After installing and setting up Node and NPM, it’s time for you to create a br
 mkdir singlestore_node_quickstart
 ```
 
-Then, you will navigate to your new directory, so we can start using our project files.
+Then, change into your new directory to start using the project files.
 
 ```bash
 cd singlestore_node_quickstart

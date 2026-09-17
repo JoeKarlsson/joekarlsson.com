@@ -90,7 +90,7 @@ CNAPP makes more sense if you're building a cloud security program from scratch 
 - Heavily containerized or serverless environments, where agentless approaches have lower overhead than per-container agents
 - Teams where attack path analysis is the priority - understanding which combinations of findings represent real exploitability, rather than triaging a flat list of hundreds of individual alerts
 
-**The honest trade-off:** CNAPP consolidation reduces tool sprawl and enables correlation, but the best-in-class CWPP often detects more runtime threats than the CWPP capability bundled inside a CNAPP. Organizations with sophisticated security operations sometimes buy a dedicated CWPP (like CrowdStrike Falcon or Sysdig Secure) alongside a CNAPP - accepting the integration complexity for better detection depth.
+**The honest trade-off:** CNAPP consolidation reduces tool sprawl and enables correlation, but a dedicated CWPP often detects more runtime threats than the CWPP capability bundled inside a CNAPP. Organizations with sophisticated security operations sometimes buy a dedicated CWPP (like CrowdStrike Falcon or Sysdig Secure) alongside a CNAPP - accepting the integration complexity for better detection depth.
 
 ## How CloudQuery Fits into a CWPP or CNAPP Strategy
 

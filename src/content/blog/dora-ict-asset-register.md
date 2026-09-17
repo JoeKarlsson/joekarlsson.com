@@ -35,7 +35,7 @@ Then July happened. POST Luxembourg suffered an ["exceptionally advanced" cybera
 
 ## Why Did Some Organizations Succeed While Others Scrambled
 
-[Skadden's analysis of the first six months](https://www.skadden.com/insights/publications/2025/07/the-last-piece-of-dora-falls-into-place) revealed that compliance maturity varied widely across the industry. Banks and large IT providers with existing robust frameworks fared better, while smaller fund managers started from less robust positions and required more wide-ranging changes. But across the board, certain patterns separated those who succeeded from those who scrambled.
+[Skadden's analysis of the first six months](https://www.skadden.com/insights/publications/2025/07/the-last-piece-of-dora-falls-into-place) revealed that compliance maturity varied widely across the industry. Banks and large IT providers with existing solid frameworks fared better, while smaller fund managers started from weaker positions and required more wide-ranging changes. But across the board, certain patterns separated those who succeeded from those who scrambled.
 
 **Automated discovery consistently outperformed manual documentation.** [Dynatrace reported](https://www.dynatrace.com/news/blog/financial-institutions-achieve-dora-compliance-with-automation/) that organizations can automate up to 80% of DORA technical tasks, reducing required time and personnel by 50-70%. The organizations that invested in automated asset discovery before the deadline found themselves running queries while others were still consolidating spreadsheets. Companies without automated tracking [overspend 12-20% on IT annually](https://www.lansweeper.com/blog/itam/how-to-automate-it-asset-inventory-for-large-networks/) due to duplicate purchases, unused licenses, and poor resource allocation. The compliance benefits are almost a side effect of the operational improvements.
 
@@ -129,7 +129,7 @@ The patterns that worked are clear:
 - [BaFin signaled](https://www.deloittelegal.de/dl/en/services/legal/analysis/dora-contract-compliance-challenge.html) on-site inspections and stricter enforcement for 2026
 - [19 critical ICT providers](https://www.ey.com/en_lu/insights/wealth-asset-management/luxembourg-market-pulse/dora-one-year-later-from-regulatory-compliance-to-strategic-resilience) including AWS, Azure, and GCP now face direct EU supervision
 
-If year one was reactive, make year two proactive. The organizations that succeeded treated this as an infrastructure problem, not a documentation problem. Start with your critical business functions, automate what you're tracking manually, and build queries for your specific audit requirements.
+If year one was reactive, get ahead of it in year two. The organizations that succeeded treated this as an infrastructure problem, not a documentation problem. Start with your critical business functions, automate what you're tracking manually, and build queries for your specific audit requirements.
 
 **Stop wasting time chasing data about your own cloud.** [Download CloudQuery for free](https://www.cloudquery.io/download) and see how much easier it is to get visibility into your infrastructure. You can also [contact CloudQuery](https://www.cloudquery.io/contact-us) to discuss your specific DORA compliance requirements.
 

@@ -31,7 +31,7 @@ Did I mention ClickHouse loves big data? This [database system scales](https://r
 
 ## What Makes ClickHouse Unique?
 
-At the heart of ClickHouse’s distinctiveness is its true column-oriented DBMS design. This unique architecture ensures compact storage with no extra data accompanying the values, a trait that notably enhances processing speed. Supporting constant-length values, ClickHouse guarantees efficient space utilization, reinforcing its speedy performance. Notably, ClickHouse’s capacity to handle hundreds of millions of rows per second surpasses systems like HBase and Cassandra, setting a new industry standard.
+At the heart of ClickHouse’s distinctiveness is its true column-oriented DBMS design. This unique architecture ensures compact storage with no extra data accompanying the values, a trait that enhances processing speed. Supporting constant-length values, ClickHouse guarantees efficient space utilization, reinforcing its speedy performance. ClickHouse’s capacity to handle hundreds of millions of rows per second surpasses systems like HBase and Cassandra, setting a new industry standard.
 
 The uniqueness of ClickHouse also shines in its flexible functionality as a database management system. Rather than being confined to a single database, ClickHouse enables the real-time creation of tables and databases, data loading and query execution. This adaptability ensures smooth database operations without the need for server reconfiguration or restarts.
 
@@ -111,13 +111,13 @@ ClickHouse also proves to be more storage-efficient. The benchmark indicates tha
 
 ## Conclusion
 
-Based on the ClickHouse benchmark, ClickHouse significantly outperforms PostgreSQL in data load time and storage size efficiency when optimized and deployed under the same conditions. It is important to note that these results pertain to a specific analytical scenario and real-world results might vary based on the specific use case and tuning of the systems.
+Based on the ClickHouse benchmark, ClickHouse significantly outperforms PostgreSQL in data load time and storage size efficiency when optimized and deployed under the same conditions. These results pertain to a specific analytical scenario and real-world results might vary based on the specific use case and tuning of the systems.
 
 You can also check out how ClickHouse compares to other databases in the [benchmark report](https://benchmark.clickhouse.com).
 
 ## What’s the Best Way to Start Using ClickHouse?
 
-Think you might be ready to try ClickHouse? There are a few ways to start, most fundamentally with the open source [version](https://github.com/ClickHouse/ClickHouse).
+Think you might be ready to try ClickHouse? There are a few ways to start, most simply with the open source [version](https://github.com/ClickHouse/ClickHouse).
 
 Prefer to avoid hosting and scaling yourself? [Tinybird](https://www.tinybird.co?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database), a tool that developers affectionately dub “ClickHouse++” takes ClickHouse’s already powerful capabilities, offers [serverless hosting](https://www.tinybird.co/clickhouse?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q2-2023-the-new-stack&utm_term=clickhouse-database) and adds even more developer-focused goodness to the mix, including
 

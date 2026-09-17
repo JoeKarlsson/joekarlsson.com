@@ -17,7 +17,7 @@ _Co-authored with Mariano Gappa at CloudQuery._
 
 Most developers (and our own team) have been fully using AI code assistance to help with all aspects of building software. We have found that our AI-assisted IDEs know our functions, suggest completions, and help debug issues. However, their usefulness stopped dead at our database. AI assistants have zero understanding of what's actually in our tables, what queries make sense, or how your data connects together. This often results in hallucinations/bad data if you ever were to ask it a question about cloud infrastructure.
 
-At [CloudQuery](https://www.cloudquery.io/), we've been running an experiment for months: what happens when you bridge that gap? We built an MCP server in Go (in fact, [our entire stack runs on Go](https://github.com/cloudquery/cloudquery)) that gives Claude or Cursor direct access to our cloud infrastructure database, and the results have fundamentally changed how our engineering team works.
+At [CloudQuery](https://www.cloudquery.io/), we've been running an experiment for months: what happens when you bridge that gap? We built an MCP server in Go (in fact, [our entire stack runs on Go](https://github.com/cloudquery/cloudquery)) that gives Claude or Cursor direct access to our cloud infrastructure database, and the results have changed how our engineering team works.
 
 This post covers what we learned about making LLMs truly data-aware, the technical gotchas nobody talks about, and why this pattern could transform how any team with substantial data operates.
 
@@ -130,7 +130,7 @@ Claude uses our MCP tools to:
 - Query sync run metadata across time windows
 - Analyze resource count patterns and state transitions
 - Cross-reference with expected AWS API responses
-- Generate a comprehensive convergence report
+- Generate a full convergence report
 
 ![Screenshot of Claude's interface with the input box contains the question: 'Can you check if our CloudQuery asset sync data is converging for our production AWS account?' And showing Claude using the CloudQuery MCP server to query and analyze cloud asset data directly.](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/image5.gif)
 
@@ -178,6 +178,6 @@ Building an MCP server taught me more about how LLMs actually work than months o
 
 **The code-data bridge we built isn't just a productivity hack. It's a preview of how software development changes when your AI assistant has full context of both your code and your data.**
 
-I'd argue 99.99% of developers haven't thought of this pattern yet. But exposing your data layer to LLMs through MCP servers genuinely supercharges what's possible with AI-assisted development. The barrier between "I have a question about our data" and "I have a comprehensive answer" basically disappears.
+I'd argue 99.99% of developers haven't thought of this pattern yet. But exposing your data layer to LLMs through MCP servers genuinely supercharges what's possible with AI-assisted development. The barrier between "I have a question about our data" and "I have a complete answer" disappears.
 
 That changes everything.

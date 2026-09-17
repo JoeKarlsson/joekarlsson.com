@@ -34,7 +34,7 @@ There are lots of reasons why you might want to set up custom rules for archivin
 
 ## How to Create Custom Archival Rules for MongoDB
 
-In order to configure our Online Archive, first navigate to the Cluster page for your project, click on the name of the cluster you want to configure Online Archive for, and click on the **Online Archive** tab.
+In order to configure our Online Archive, first go to the Cluster page for your project, click on the name of the cluster you want to configure Online Archive for, and click on the **Online Archive** tab.
 
 Next, click the Configure Online Archive button the first time and the **Add Archive** button subsequently to start configuring Online Archive for your collection. Then, you will need to create an Archiving Rule by specifying the collection namespace, which will be `sample_analytics.customers`.
 

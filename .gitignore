@@ -43,3 +43,10 @@ src/pages/resume-fiveonefour-pdf.astro
 # claude permissions - machine-specific, not shared config
 # (.claude/commands/ stays tracked - those are part of the project)
 .claude/settings.json
+
+# Vale downloaded packages (installed via vale sync; only JoeKarlsson/ is tracked)
+.vale/styles/ai-tells/
+.vale/styles/Slop/
+.vale/styles/STE/
+.vale/styles/write-good/
+.vale/styles/config/

@@ -37,7 +37,7 @@ After you sign up and confirm your email, you can create a [Workspace](https://w
 
 ## Step 2: Obtain Your Tinybird Auth Token
 
-All Tinybird resources are protected by [Auth Tokens](https://www.tinybird.co/docs/concepts/auth-tokens.html). Navigate to [your Tinybird dashboard](https://ui.tinybird.co) in your Workspace, click “Auth Tokens” from the left navigation bar, and copy the “create datasource” token.
+All Tinybird resources are protected by [Auth Tokens](https://www.tinybird.co/docs/concepts/auth-tokens.html). Go to [your Tinybird dashboard](https://ui.tinybird.co) in your Workspace, click “Auth Tokens” from the left navigation bar, and copy the “create datasource” token.
 
 ![Tinybird Auth Tokens page showing the create datasource token to copy](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/token-1024x612.webp)
 
@@ -51,7 +51,7 @@ If you need to import this data set into Google Sheets, first download it to you
 
 ## Step 4. Write an Apps Script to sync data to Tinybird
 
-Next, you need to add a script to your Google Sheet to tell it to send data to Tinybird. To do so, navigate to “Extensions > Apps Script” on the Google Sheet menu bar.
+Next, you need to add a script to your Google Sheet to tell it to send data to Tinybird. To do so, open “Extensions > Apps Script” on the Google Sheet menu bar.
 
 ![Google Sheets Extensions menu showing Apps Script option with shopping data](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/create_apps_script-1024x614.webp)
 
@@ -157,7 +157,7 @@ The console will show you how much data has been sent to Tinybird, and if any ro
 
 ## Step 6: Check that your data is in Tinybird
 
-Navigate to your Tinybird Workspace. You should see a new Data Source with the name you added to the Apps Script in Step 5. If you used the default name, it will be the same name as your Google Sheet. You’ll notice that Tinybird’s [Analyze API](https://www.tinybird.co/docs/api-reference/analyze-api.html) has automatically inferred the appropriate data types for the table based on the data you sent.
+Open your Tinybird Workspace. You should see a new Data Source with the name you added to the Apps Script in Step 5. If you used the default name, it will be the same name as your Google Sheet. You’ll notice that Tinybird’s [Analyze API](https://www.tinybird.co/docs/api-reference/analyze-api.html) has automatically inferred the appropriate data types for the table based on the data you sent.
 
 ![Tinybird workspace showing customer shopping trends data source table](/images/blog/how-to-query-google-sheets-with-sql-in-real-time/image.webp)
 
@@ -240,7 +240,7 @@ While Google Sheets itself has row and column limits, Tinybird is engineered for
 
 ### Can I use other data visualization tools along with Tinybird and Google Sheets?
 
-Yes, the API Endpoints created in Tinybird can be used to feed data into other visualization tools like Tableau, Power BI, Grafana, or custom web dashboards. Tinybird essentially allows your Google Sheets data to be accessed in a standardized, API-friendly manner.
+Yes, the API Endpoints created in Tinybird can be used to feed data into other visualization tools like Tableau, Power BI, Grafana, or custom web dashboards. Tinybird allows your Google Sheets data to be accessed in a standardized, API-friendly manner.
 
 ### Is real-time data enrichment limited to specific types of data sources?
 
@@ -248,7 +248,7 @@ No. Tinybird can integrate with a variety of data sources, including CRMs, inven
 
 ### Can I execute complex SQL queries using Tinybird and Google Sheets?
 
-Absolutely. Tinybird’s SQL engine is very powerful and designed for complex analytics queries. You can perform complex joins, aggregation functions, and filters on your data, even if it’s coming from multiple sources. This allows for in-depth, real-time analytics directly using SQL.
+Yes. Tinybird’s SQL engine is designed for complex analytics queries. You can perform complex joins, aggregation functions, and filters on your data, even if it’s coming from multiple sources. This allows for in-depth, real-time analytics directly using SQL.
 
 ### What alternatives to Google Sheets should I consider for storing data?
 

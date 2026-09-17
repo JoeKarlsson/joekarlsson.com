@@ -166,7 +166,7 @@ The [Git Source Plugin](https://www.cloudquery.io/hub/plugins/source/cloudquery/
 | Use Case                                              | Git Source | GitHub Source |
 | ----------------------------------------------------- | ---------- | ------------- |
 | File contents (Dockerfiles, package.json, CODEOWNERS) | Yes        | No            |
-| Repository metadata                                   | Basic      | Comprehensive |
+| Repository metadata                                   | Basic      | Complete      |
 | Pull requests, issues, reviews                        | No         | Yes           |
 | Branch protection rules                               | No         | Yes           |
 | Commit history                                        | Yes        | Yes           |

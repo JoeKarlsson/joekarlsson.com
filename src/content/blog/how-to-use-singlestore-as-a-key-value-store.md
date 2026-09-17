@@ -26,7 +26,7 @@ A key-value store (also known as a key-value database) can be defined as a non-r
 
 ### Use cases
 
-There are so many databases out there, and it’s often hard to know when it’s appropriate to use a key-value store over other data storage paradigms. Due to key-value stores being incredibly fast and scalable, the following use cases are well suited for this datastore:
+There are so many databases out there, and it’s often hard to know when it’s appropriate to use a key-value store over other data storage paradigms. Due to key-value stores being fast and scalable, the following use cases are well suited for this datastore:
 
 - Web applications to store user session details and preferences
 
@@ -52,7 +52,7 @@ So the big question remains, why not just use a database that was designed to be
 
 ### How to use SingleStore as a key-value store
 
-I know it can be weird using a SQL database as a key-value store at first, but I promise it’s pretty straightforward once we dig in. It helps that the structure of a key-value store is incredibly simple. The first thing you are going to need to do is to [create a free SingleStore database](https://www.singlestore.com/cloud-trial/). SingleStoreDB Cloud is the easiest way to try SingleStore, giving you a fully-managed database online in minutes. You can learn more about setting up SingleStore [here](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service.html).
+I know it can be weird using a SQL database as a key-value store at first, but I promise it’s pretty straightforward once we dig in. It helps that the structure of a key-value store is simple. The first thing you are going to need to do is to [create a free SingleStore database](https://www.singlestore.com/cloud-trial/). SingleStoreDB Cloud is the easiest way to try SingleStore, giving you a fully-managed database online in minutes. You can learn more about setting up SingleStore [here](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service.html).
 
 ### Selecting the right kind of table
 
@@ -198,7 +198,7 @@ async function singleStoreReadData({ conn, numberOfRequests }) {
 
 ## Summary
 
-Let’s recap what we’ve learned today. In its simplest form, a key-value store uses a simple key-value method to store data, like a hashtable or dictionary. They are often used for their simplicity, scalability, and performance. By using SingleStore as a key-value store on your application, you can save money by only using a single database, without learning new skills since SingleStore speaks SQL. You can simplify your application’s architecture and most importantly, you can use SingleStore as a key-value store with incredible performance that is in the same league as competitors - including super-fast data ingest and sub-second latencies.
+Let’s recap what we’ve learned today. In its simplest form, a key-value store uses a simple key-value method to store data, like a hashtable or dictionary. They are often used for their simplicity, scalability, and performance. By using SingleStore as a key-value store on your application, you can save money by only using a single database, without learning new skills since SingleStore speaks SQL. You can simplify your application’s architecture and you can use SingleStore as a key-value store with incredible performance that is in the same league as competitors - including super-fast data ingest and sub-second latencies.
 
 Now that we’ve discussed using SingleStore as a key-value store, what’s next? If you want to play around with SingleStore in the cloud, the best way is to spin up a database cluster on SingleStore and try it out for yourself! You can sign up for free SingleStoreDB Clouds [here](https://www.singlestore.com/cloud-trial/).
 

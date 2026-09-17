@@ -36,7 +36,7 @@ The scramble doesn't show up on any budget line. There's no "compliance panic" c
 
 Here's what actually happens during a typical audit prep cycle. Engineers stop shipping features. Security analysts stop triaging alerts. DevOps engineers stop building automation. Instead, everyone becomes a data entry clerk, pulling reports from five or six systems and stitching them together by hand.
 
-The [Fortinet 2024 Cloud Security Report](https://www.fortinet.com/resources/reports/cloud-security) found that 96% of companies are concerned about cloud security. Ninety-six percent. But concern and capability are fundamentally different things. That concern mostly manifests as anxiety rather than action, because teams lack the queryable foundation to actually fix anything. They know there are problems. They just can't find them fast enough.
+The [Fortinet 2024 Cloud Security Report](https://www.fortinet.com/resources/reports/cloud-security) found that 96% of companies are concerned about cloud security. Ninety-six percent. But concern and capability are different things. That concern mostly manifests as anxiety rather than action, because teams lack the queryable foundation to actually fix anything. They know there are problems. They just can't find them fast enough.
 
 This is the heart of the scramble. It's not that organizations don't care about compliance. They care deeply. They just don't have a way to produce evidence without stopping everything else.
 

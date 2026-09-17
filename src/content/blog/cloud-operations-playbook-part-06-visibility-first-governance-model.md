@@ -167,7 +167,7 @@ Security investigations get faster. When someone asks "are we affected by this n
 
 Governance becomes a shared responsibility instead of a bottleneck. When anyone can read, write, and verify policies, governance isn't something the security team does to the engineering team. It's something everyone participates in.
 
-And perhaps most importantly, teams stop being surprised. Drift gets caught early. Misconfigurations get flagged before they become incidents. The gap between "what we think is running" and "what's actually running" starts to close.
+And teams stop being surprised. Drift gets caught early. Misconfigurations get flagged before they become incidents. The gap between "what we think is running" and "what's actually running" starts to close.
 
 ## Key Takeaways
 

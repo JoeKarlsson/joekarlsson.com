@@ -55,6 +55,34 @@ jobs:
       - run: npm ci
       - run: npx cspell "src/content/blog/**/*.md" --no-progress
 
+  voice-lint:
+    name: Voice & AI-Slop Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Vale
+        run: |
+          wget -q https://github.com/errata-ai/vale/releases/latest/download/vale_Linux_64-bit.tar.gz
+          tar -xzf vale_Linux_64-bit.tar.gz vale
+          sudo mv vale /usr/local/bin/
+      - name: Download Vale packages
+        run: vale sync
+      - name: Lint blog voice (changed posts only)
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE=${{ github.event.pull_request.base.sha }}
+          else
+            BASE="${{ github.event.before }}"
+          fi
+          CHANGED=$(git diff --name-only "$BASE" HEAD -- 'src/content/blog/*.md' 2>/dev/null || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No blog posts changed, skipping voice lint"
+          else
+            echo "Linting changed posts:"
+            echo "$CHANGED"
+            vale --minAlertLevel error $CHANGED
+          fi
+
   lint:
     name: Lint & Format
     runs-on: ubuntu-latest
@@ -244,6 +272,7 @@ jobs:
       - build
       - markdown
       - spelling
+      - voice-lint
       - lint
       - images
       - links

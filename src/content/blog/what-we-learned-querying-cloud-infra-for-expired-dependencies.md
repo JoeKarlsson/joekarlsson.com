@@ -26,7 +26,7 @@ In this post, I'll walk you through some things we learned using the EOL Integra
 
 ## Identifying Cloud and Software Products Losing Support in the Next 30 Days
 
-I'm sure you already know this, but running unsupported software is a really bad idea. If a product loses support, that means no more security patches, no bug fixes, and no help when things go sideways. That's a nightmare for security and cloud governance teams, who need to ensure everything stays secure, compliant, and actually working.
+I'm sure you already know this, but running unsupported software is a bad idea. If a product loses support, that means no more security patches, no bug fixes, and no help when things go sideways. That's a nightmare for security and cloud governance teams, who need to ensure everything stays secure, compliant, and actually working.
 
 This query retrieves a **list of products that will lose support within the next 30 days.**
 
@@ -163,7 +163,7 @@ When you run this query:
 
 Once AWS drops support, there are no more security patches, meaning every hacker with an internet connection gets a free shot at your outdated functions.
 
-And if you're in cloud governance or compliance, congratulations, you now have an audit headache because unsupported software is a big red flag for frameworks like SOC 2, ISO 27001, and PCI DSS. Plus, do you really want to explain to your boss why critical functions broke after an AWS update? No? Then run the query, find your at-risk functions, and upgrade before Python 3.8 turns into a security time bomb.
+And if you're in cloud governance or compliance, congratulations, you now have an audit headache because unsupported software is a big red flag for frameworks like SOC 2, ISO 27001, and PCI DSS. Plus, do you want to explain to your boss why critical functions broke after an AWS update? No? Then run the query, find your at-risk functions, and upgrade before Python 3.8 turns into a security time bomb.
 
 This query retrieves AWS Lambda functions with their version details and joins them with Python end-of-life support data for runtimes expiring between the current time and six months from now.
 

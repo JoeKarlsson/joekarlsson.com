@@ -9,7 +9,7 @@ heroAlt: 'Using SingleStore with GitHub Actions for database CI/CD'
 tldr: 'Most teams skip the database in their CI/CD pipeline, and that is a mistake. I walk through best practices for database DevOps and show you how to set up SingleStore with GitHub Actions so your database deployments are automated on every push.'
 ---
 
-Databases are frequently not included when transforming an application and engineering culture toward a DevOps, or continuous deployment engineering organization. And, you could be forgiven for this because setting up repeatable, fast, and up-to-date database environments for an application is really hard!
+Databases are frequently not included when transforming an application and engineering culture toward a DevOps, or continuous deployment engineering organization. And, you could be forgiven for this because setting up repeatable, fast, and up-to-date database environments for an application is hard!
 
 By not including the database in the pipeline, most of the work related to database changes ends up being manual, with the associated costs and risks. This also:
 
@@ -25,7 +25,7 @@ I did a live stream on this topic with [Rizel Scarlett](https://x.com/blackgirlb
 
 ## What Are Technical Best Practices for Databases and DevOps?
 
-First of all, let’s cover best practices for databases and DevOps. I think it’s important to cover since, to begin with, databases were never part of the original DevOps vision. That means as a practice, there is a general lack of culture and well-established processes around building databases into your pipeline. Here’s how it works.
+First of all, let’s cover best practices for databases and DevOps. I think it’s important to cover since, to begin with, databases were never part of the original DevOps vision. That means as a practice, there is a general lack of culture and well-established processes around building databases into your pipeline.
 
 ### Test!
 
@@ -33,7 +33,7 @@ No brainer. You should be testing your databases every time you push. You need t
 
 ### Developers need a way to easily create local databases
 
-Right off the bat, it needs to be easy for everyone on the team to set up databases either locally, in a cloud sandbox environment or both! Here’s where containers come to the rescue. Containers are a good way to practice, they’re easy and cheap to set up, and most importantly, if something goes wrong you can throw everything out and start over again. Your team needs to easily develop in a non-shared environment to ensure everything is working correctly.
+Right off the bat, it needs to be easy for everyone on the team to set up databases either locally, in a cloud sandbox environment or both! Here’s where containers come to the rescue. Containers are a good way to practice, they’re easy and cheap to set up, and if something goes wrong you can throw everything out and start over again. Your team needs to easily develop in a non-shared environment to ensure everything is working correctly.
 
 ### The database schema - including all indexes - needs to be in source control
 

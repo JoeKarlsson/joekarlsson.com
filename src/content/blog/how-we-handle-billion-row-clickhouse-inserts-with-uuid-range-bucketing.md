@@ -15,7 +15,7 @@ _Co-authored with Mariano Gappa at CloudQuery._
 
 ![How We Handle Billion Row ClickHouse Inserts With UUID Range Bucketing Blog Thumbnail](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/header.webp)
 
-At [CloudQuery](https://www.cloudquery.io/), we've been on a journey with [ClickHouse](https://clickhouse.com/) for a couple of months. [We recently wrote about our experience with our first 6 months of ClickHouse](/blog/six-months-with-clickhouse-at-cloudquery) as our database of choice for CloudQuery. While it's been transformative for our data processing capabilities, we're still learning how to use it effectively and discovering ways to work around some of its rough edges.
+At [CloudQuery](https://www.cloudquery.io/), we've been on a journey with [ClickHouse](https://clickhouse.com/) for a couple of months. [We recently wrote about our experience with our first 6 months of ClickHouse](/blog/six-months-with-clickhouse-at-cloudquery) as our database of choice for CloudQuery. While it's changed how we process data at scale, we're still learning how to use it effectively and discovering ways to work around some of its rough edges.
 
 One of those rough edges involves handling extremely large data volumes, particularly during bulk insert operations. As we've scaled our platform to handle and analyze more and more cloud configuration data, we've had to develop creative solutions to the memory challenges that come with processing billions of rows of data.
 
@@ -35,7 +35,7 @@ ClickHouse is an amazing columnar database for analytical workloads, but it has 
 
 This behavior is well-documented across the ClickHouse community. According to [ClickHouse's official blog](https://clickhouse.com/blog/common-getting-started-issues-with-clickhouse), ClickHouse requires specific settings like `max_bytes_before_external_group_by` and `max_bytes_before_external_sort` to enable disk spilling for memory-intensive operations. Without these explicit configurations, ClickHouse tries to hold everything in RAM.
 
-> **Important Note:** Even after tuning these memory settings, we still experienced difficulties preventing ClickHouse from killing queries under heavy memory pressure. Despite attempts to configure ClickHouse to spill operations to disk with settings like `max_bytes_before_external_group_by`, queries may still fail with memory errors. In our experience, tuning these parameters helped, but ultimately was less effective than implementing the `InsertSplitter` solution described below.
+> **Important Note:** Even after tuning these memory settings, we still experienced difficulties preventing ClickHouse from killing queries under heavy memory pressure. Despite attempts to configure ClickHouse to spill operations to disk with settings like `max_bytes_before_external_group_by`, queries may still fail with memory errors. In our experience, tuning these parameters helped, but was less effective than implementing the `InsertSplitter` solution described below.
 
 The [ChistaDATA knowledge base](https://chistadata.com/implementation-of-spill-to-disk-clickhouse-memory/) explains that while ClickHouse does have a spill-to-disk mechanism, it only activates once allocated memory is already exhausted, which is often too late for large operations. This explains why, by default, you'll often encounter memory limits before the spill mechanism kicks in.
 
@@ -174,7 +174,7 @@ Read: 6,548,458 rows (2.13 GB)
 
 We reduced peak memory usage by approximately 75% (from 8.47 GB to ~2.15 GB per operation) without sacrificing overall performance. The total processing time remained virtually the same (22.6s vs 23.2s if run sequentially), while gaining the ability to process the chunks in parallel if needed.
 
-Even more importantly, this approach eliminated the memory explosions and "OvercommitTracker killed query" errors that were previously impacting us during large syncs. The Insert-Splitter algorithm has proven to be both deterministic and reliable, with consistently even distribution across buckets just as our testing predicted.
+This approach also eliminated the memory explosions and "OvercommitTracker killed query" errors that were previously impacting us during large syncs. The Insert-Splitter algorithm has proven to be both deterministic and reliable, with consistently even distribution across buckets just as our testing predicted.
 
 ## Wrap Up
 

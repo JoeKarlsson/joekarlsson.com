@@ -59,7 +59,7 @@ One night we ordered a “hamburger” and it was a chunk of literal Ham.
 
 Havana Club Rum
 
-Cuba is known for two things, cigars, and rum. You should be sure to drink lots of rum when you are there. Literally, every drink I had in Cuba had some sort of rum in it.
+Cuba is known for two things, cigars, and rum. You should be sure to drink lots of rum when you are there. Every drink I had in Cuba had some sort of rum in it.
 
 My favorite rum drinks were:
 
@@ -87,7 +87,7 @@ The best Canchanchara I had was made inside of a grapefruit - it was incredible.
 
 ## Cigars
 
-I’m not a big “cigar guy,” but shit, Cuban cigars are really fucking good. Even if you don’t smoke, do yourself a favor and split one with a friend. Pro-tip - put honey on the end.
+I’m not a big “cigar guy,” but shit, Cuban cigars are fucking good. Even if you don’t smoke, do yourself a favor and split one with a friend. Pro-tip - put honey on the end.
 
 > Pro-tip - Hold the cigar like Che for extra points.
 
@@ -95,7 +95,7 @@ I’m not a big “cigar guy,” but shit, Cuban cigars are really fucking good.
 
 ## WiFi
 
-There is very limited internet in Cuba. But, I found that not having WiFi was a really great way for me to forcibly disconnect. When we did reconnect, we learned that we didn’t miss anything. We had fantasies of missing major news, but it turns out nothing important happened. This was an important reminder of that.
+There is very limited internet in Cuba. But, I found that not having WiFi was a great way for me to forcibly disconnect. When we did reconnect, we learned that we didn’t miss anything. We had fantasies of missing major news, but it turns out nothing important happened. This was an important reminder of that.
 
 ## Havana
 
@@ -107,7 +107,7 @@ Not living in a late-stage capitalist nightmare.
 
 ## Vinales
 
-Real lil town. Pretty touristy to be honest, but it’s quiet and gorgeous. Every sunset was incredible. We stayed at a really interesting Airbnb.
+Real lil town. Pretty touristy to be honest, but it’s quiet and gorgeous. Every sunset was incredible. We stayed at an interesting Airbnb.
 
 ## Misc Tips
 

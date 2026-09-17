@@ -13,7 +13,7 @@ tldr: 'The *arr ecosystem nailed video automation, but self-hosted music is stil
 
 > TL;DR: The \*arr ecosystem perfected video automation but music remains stuck with album-centric workflows that don’t match how we actually consume music. Current tools like Lidarr force complete album downloads when users want individual tracks, creating a fundamental UX mismatch. We need ‘Songarr’ a track-first automation system that bridges streaming discovery with self-hosted ownership.
 
-Look, I need to get something off my chest. After fifteen years of meticulously curating seasonal playlists and being a power Spotify user since 2011 (recently migrated to Apple Music for reasons we won’t get into here), I’m having a technical existential crisis about self-hosted music solutions. And frankly, it’s driving me absolutely insane.
+Look, I need to get something off my chest. After fifteen years of meticulously curating seasonal playlists and being a power Spotify user since 2011 (recently migrated to Apple Music for reasons we won’t get into here), I’m having a technical existential crisis about self-hosted music solutions. And frankly, it’s driving me insane.
 
 Here’s the thing that keeps me up at night: We’ve completely solved video and TV automation from a technical standpoint. The \*arr ecosystem is an architectural masterpiece, Sonarr and Radarr orchestrate complex workflows, Overseerr provides RESTful request management, and the entire stack scales horizontally with Docker compose files that would make infrastructure engineers weep with joy.
 
@@ -29,13 +29,13 @@ The technical architecture is elegant: **TVDb/TMDb APIs provide canonical metada
 
 Then there’s **Overseerr, the crown jewel of microservice request interfaces**. Under the hood, it’s a Node.js application that speaks directly to \*arr APIs, manages user authentication through Plex/Jellyfin SSO, and provides real-time WebSocket updates on request status. The entire workflow, from request submission to final media server refresh, is choreographed through well-defined API contracts and event-driven architecture patterns [[Overseerr](https://overseerr.dev/)].
 
-But here’s where everything breaks down: **Lidarr operates in the same technical universe but feels like it was designed by completely different engineering teams with fundamentally incompatible requirements**.
+But here’s where everything breaks down: **Lidarr operates in the same technical universe but feels like it was designed by completely different engineering teams with incompatible requirements**.
 
 ## My music workflow for the past 15 years
 
 Since 2011, my music consumption has been relentlessly focused on **track-level granular curation**. I’m that man that loves carefully crafted seasonal playlists, “Winter 2024,” “Summer Road Trip Bangers”, all built from individual tracks.
 
-This isn’t because I’m anti-album. I deeply miss the full album experience and the artistic cohesion of a complete work. But streaming services fundamentally rewired how I discover and consume music through.
+This isn’t because I’m anti-album. I deeply miss the full album experience and the artistic cohesion of a complete work. But streaming services rewired how I discover and consume music through.
 
 Now I want to self-host this workflow, and I keep running into the same technical brick wall: **current solutions are architected around release-centric data models that completely ignore modern consumption patterns**.
 
@@ -53,7 +53,7 @@ The next time I’m home and fire up my music app, “Midnight City” is just t
 
 Compare this to the current reality: I hear a song, I have to remember it, go home, fire up Lidarr’s web interface, search for the artist (hope I remembered the name correctly), browse through their discography to find the right album, add the entire album to monitoring, wait for it to download, manually import it, then separately fire up Navidrome or whatever music server I’m using, find the specific track I wanted from the 12 tracks that got downloaded, and manually add it to a playlist.
 
-It's 2026. This workflow is absolutely barbaric for track-level music discovery and curation.
+It's 2026. This workflow is barbaric for track-level music discovery and curation.
 
 **The missing piece is a smooth request flow**. Overseerr nailed this for video content, beautiful search interface, one-click requests, automatic processing, notifications when ready. Music needs exactly the same pattern, but every current solution treats requesting music like you’re filing paperwork with the Department of Motor Vehicles.
 
@@ -61,7 +61,7 @@ I don’t care if my server downloads entire albums behind the scenes. Storage i
 
 ## Lidarr's album-first architecture
 
-Lidarr, despite being part of the \*arr family, approaches music with an album-first data model that's fundamentally misaligned with how humans actually consume music in 2026. The entire system is built around MusicBrainz releases, complete albums that exist as indivisible units in the database schema.
+Lidarr, despite being part of the \*arr family, approaches music with an album-first data model that's misaligned with how humans actually consume music in 2026. The entire system is built around MusicBrainz releases, complete albums that exist as indivisible units in the database schema.
 
 **Update for 2026**: Lidarr has had a rough year. The metadata server has been unreliable, breaking core functions like adding artists and library imports. The team is working on it, but it's made an already frustrating tool even more painful to use. And no, track-level support still hasn't materialized - the fundamental architecture remains album-centric.
 
@@ -83,7 +83,7 @@ I've been deep in the weeds investigating every possible solution, and the techn
 
 Earlier versions added multi-artist album support, composer/conductor metadata, and smart playlists that can use custom tags. The 0.59 release brought selective folder scanning and scrobble history. Multi-library support is coming in the next version.
 
-But here's the thing: **Navidrome is still architecturally a media server, not an automation system**. It's a Go-based application that implements the Subsonic API specification, provides a clean React frontend, and handles audio transcoding through FFmpeg integration. The technical execution is excellent - Docker deployment, SQLite/PostgreSQL backend options, LDAP authentication support [[Navidrome](https://www.navidrome.org/docs/overview/)]. But it's basically saying "bring your own music collection and I'll serve it beautifully," which completely sidesteps the workflow integration problem. Instant Mix is nice for discovery within your existing library, but it doesn't help you get music into that library in the first place.
+But here's the thing: **Navidrome is still architecturally a media server, not an automation system**. It's a Go-based application that implements the Subsonic API specification, provides a clean React frontend, and handles audio transcoding through FFmpeg integration. The technical execution is excellent - Docker deployment, SQLite/PostgreSQL backend options, LDAP authentication support [[Navidrome](https://www.navidrome.org/docs/overview/)]. But it's saying "bring your own music collection and I'll serve it beautifully," which completely sidesteps the workflow integration problem. Instant Mix is nice for discovery within your existing library, but it doesn't help you get music into that library in the first place.
 
 **Music Assistant takes a different architectural approach**, designed as a Home Assistant add-on with focus on multi-room audio and streaming service integration. The technical innovation is in the provider system-it can connect simultaneously to Spotify, YouTube Music, local libraries, and physical audio equipment through a unified API abstraction layer [[Music Assistant](https://github.com/music-assistant)]. But again, it’s not solving the core problem of building local libraries-it’s assuming you’re either streaming everything or already have local files.
 
@@ -91,7 +91,7 @@ But here's the thing: **Navidrome is still architecturally a media server, not a
 
 E**very established solution has excellent technical execution within its domain, but the domains don’t overlap to solve the acquisition + automation + serving pipeline**.
 
-## Why music automation is fundamentally harder
+## Why music automation is harder
 
 Video automation succeeds because of clean data modeling. One episode maps to one file maps to one torrent maps to one user request. The TMDb API provides canonical identifiers, release dates are predictable, and metadata relationships are hierarchical and stable. When someone requests “The Office S02E15,” every component in the stack knows exactly what that means and how to find it.
 

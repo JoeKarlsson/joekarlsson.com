@@ -66,7 +66,7 @@ A faster network pipe doesn't help when you can't answer: "Which resources acros
 
 ## What Unified Visibility Actually Requires
 
-Solving multi-cloud visibility means normalizing data across fundamentally different APIs. You need to handle authentication for each cloud - AWS credentials, GCP service accounts, Azure service principals. You need to understand each provider's rate limits and pagination. You need continuous syncing of compute, storage, IAM, databases, and serverless resources - not just network state.
+Solving multi-cloud visibility means normalizing data across incompatible APIs. You need to handle authentication for each cloud - AWS credentials, GCP service accounts, Azure service principals. You need to understand each provider's rate limits and pagination. You need continuous syncing of compute, storage, IAM, databases, and serverless resources - not just network state.
 
 This is where cloud asset inventory approaches come in. Tools like [CloudQuery](https://www.cloudquery.io/docs/cli/getting-started) call APIs like `DescribeInstances` and `compute.instances.list`, extract the full resource schemas, and load everything into SQL databases. Instead of three consoles, you write one query across `aws_ec2_instances` and `gcp_compute_instances`. The goal: answer "show me all unencrypted storage" regardless of which cloud the buckets live in.
 

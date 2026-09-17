@@ -31,7 +31,7 @@ SOC2 compliance is important for several reasons:
 
 ## How to Achieve SOC2 Compliance
 
-Achieving SOC2 compliance requires a comprehensive approach to data security and privacy. Here are the key steps to achieving SOC2 compliance:
+Achieving SOC2 compliance requires a full approach to data security and privacy. Here are the key steps to achieving SOC2 compliance:
 
 1. **Define scope:** Identify the systems, processes, and data that are in scope for SOC2 compliance.
 2. **Conduct a risk assessment:** Assess the risks to the confidentiality, integrity, and availability of the systems, processes, and data in scope.
@@ -45,4 +45,4 @@ By having an [infrastructure data lake](https://www.cloudquery.io/blog/what-is-i
 
 ## Summary
 
-SOC2 compliance is an important standard for companies that handle sensitive customer data. Achieving SOC2 compliance requires a comprehensive approach to data security and privacy, including defining scope, conducting a risk assessment, implementing controls, monitoring and testing, and obtaining an independent audit. By achieving SOC2 compliance, companies can protect their customers' data, build trust, meet regulatory requirements, and gain a competitive advantage in the marketplace.
+SOC2 compliance is an important standard for companies that handle sensitive customer data. Achieving SOC2 compliance requires a full approach to data security and privacy, including defining scope, conducting a risk assessment, implementing controls, monitoring and testing, and obtaining an independent audit. By achieving SOC2 compliance, companies can protect their customers' data, build trust, meet regulatory requirements, and gain a competitive advantage in the marketplace.

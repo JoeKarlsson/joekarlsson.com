@@ -101,7 +101,7 @@ Your dataset is now successfully connected to MindsDB! Way to go!
 
 ### How to use MindsDB to Run Predictive Analysis
 
-Here’s the moment we’ve all been waiting for! We’re going to use our SingleStore data to make predictions about people based on the insurance data we imported into SingleStore. Using MindsDB, we can answer questions like, “What is the predicted BMI of a smoker?” “What’s the predicted age of a person with children in New York City?” and so much more. It really makes me feel like I have mind-reading abilities.
+Here’s the moment we’ve all been waiting for! We’re going to use our SingleStore data to make predictions about people based on the insurance data we imported into SingleStore. Using MindsDB, we can answer questions like, “What is the predicted BMI of a smoker?” “What’s the predicted age of a person with children in New York City?” and so much more. It makes me feel like I have mind-reading abilities.
 
 ![Mind-reading prediction GIF](/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/psychic-woman.gif)
 

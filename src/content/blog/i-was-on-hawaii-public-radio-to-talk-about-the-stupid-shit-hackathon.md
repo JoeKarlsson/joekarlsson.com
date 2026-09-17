@@ -18,6 +18,6 @@ Ray and I stole the idea for the hackathon from the original [Stupid Hackathon i
 
 As a developer, Ray and I go to a new hackathon about once or twice a month. I love going to these hackathons because it is an opportunity to do my favorite thing, building software. However, I find that at most hackathons that I attend, it is sponsored by an organization that is trying to get free development work or to get devs to start using some shitty product, or to recruit new devs to their company. This is all fine, but we wanted to provide something new to the tech scene down here in Hawaii. Hence the Stupid Shit Hackathon was born.
 
-Our hackathon was on January 7th, 2017 in Honolulu, Hawaii. You can check out the submissions on our website. We had some really awesome/shitty submissions.
+Our hackathon was on January 7th, 2017 in Honolulu, Hawaii. You can check out the submissions on our website. We had some awesome/shitty submissions.
 
 You can listen to the original broadcast on the HPR’s [Bytemarks Cafe website](http://www.bytemarkscafe.org/2016/12/14/episode-433-maui-groundwater-study-dec-14-2016/). I go on at the 11-minute mark.

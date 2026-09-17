@@ -2,7 +2,7 @@
 title: The Best Way to Keep Your Cloud Inventory Up to Date
 date: 2025-03-13
 slug: 'best-way-keep-cloud-inventory-up-to-date'
-description: 'Keeping cloud asset data up to date across AWS, GCP, Azure, and Kubernetes has been a challenge until now. CloudQuery Data Pipelines automate syncing, normalizing, and structuring cloud data into a unified format. Say goodbye to fragile scripts and manual exports. See how it works'
+description: 'Keeping cloud asset data up to date across AWS, GCP, Azure, and Kubernetes has been a challenge until now. CloudQuery Data Pipelines automate syncing, normalizing, and structuring cloud data into a unified format. No more fragile scripts or manual exports. See how it works'
 categories: ['Work']
 tags: ['Product News']
 heroImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/image2.webp'
@@ -20,7 +20,7 @@ With the release of the [CloudQuery Platform](https://www.cloudquery.io/blog/int
 
 ![CloudQuery's integration hub showcasing various cloud data sources, including AWS, GCP, Azure, GitHub, and Kubernetes.](/images/blog/best-way-keep-cloud-inventory-up-to-date/image1.gif)
 
-With CloudQuery's Data Pipelines, we do the heavy lifting - monitoring, error management, and keeping up with new cloud services - so you don't have to. Here's how it works:
+With CloudQuery's Data Pipelines, we do the heavy lifting - monitoring, error management, and keeping up with new cloud services - so you don't have to. This is what it handles:
 
 - **Scheduled Syncs** - No more downloading CSVs like it's 2007. CloudQuery syncs your cloud data on your schedule. No need to DDOS your own infrastructure or sync more than you need.
 - **Multi-cloud sanity** - AWS, GCP, Azure, Kubernetes, and [more](https://www.cloudquery.io/hub)? One place, one format.

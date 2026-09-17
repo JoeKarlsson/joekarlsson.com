@@ -2,7 +2,7 @@
 title: 'MongoDB Schema Design Best Practices'
 date: 2020-04-02
 slug: 'mongodb-schema-design-best-practices'
-description: 'Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you will find all the resources discussed during the talk. About Have you ever wondered, “How do I model my schema for my...'
+description: 'Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you will find all the resources discussed during the talk. About: “How do I model my schema for my...'
 categories: ['Work']
 heroImage: '/images/blog/mongodb-schema-design-best-practices/2.webp'
 heroAlt: 'MongoDB schema design best practices'
@@ -14,7 +14,7 @@ Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you wil
 
 ## About
 
-Have you ever wondered, “How do I model my schema for my application?” It’s one of the most common questions devs have pertaining to MongoDB. And the answer is, it depends. This is because document databases have a rich vocabulary that is capable of expressing data relationships in more nuanced ways than SQL. There are many things to consider when picking a schema. is your app read or write-heavy? What data is frequently accessed together? What are your performance considerations? How will your data set grow and scale? If you're coming from a SQL background, I wrote a separate post on [moving from SQL to NoSQL](/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/) that covers how to shift your thinking about data modeling.
+“How do I model my schema for my application?” It’s one of the most common questions devs have pertaining to MongoDB. And the answer is, it depends. This is because document databases have a rich vocabulary that is capable of expressing data relationships in more nuanced ways than SQL. There are many things to consider when picking a schema. is your app read or write-heavy? What data is frequently accessed together? What are your performance considerations? How will your data set grow and scale? If you're coming from a SQL background, I wrote a separate post on [moving from SQL to NoSQL](/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/) that covers how to shift your thinking about data modeling.
 
 In this talk, we will discuss the basics of data modeling using real-world examples. You will learn common methodologies and vocabulary you can use when designing your database schema on your application.
 

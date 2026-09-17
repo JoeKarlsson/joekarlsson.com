@@ -56,7 +56,7 @@ The jump from Reactive to Visible is the hardest one. It requires admitting that
 
 Governed teams have moved from "we can see it" to "we enforce rules about it." [Policies](https://www.cloudquery.io/product/policies) are defined as code. Compliance evidence is generated continuously, not compiled before audits. [Security posture](https://www.cloudquery.io/solutions/cspm) is measured and tracked over time, not just scanned and forgotten.
 
-The key difference from Visible: governance is proactive, not reactive. Violations are caught at deployment time or shortly after, not weeks later during a review.
+The key difference from Visible: governance catches violations at deployment time or shortly after, not weeks later during a review.
 
 ### Level 4: Automated (8% of Organizations)
 

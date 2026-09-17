@@ -2,20 +2,20 @@
 title: 'Building a Claude Code Blog Skill: What I Learned Systematizing Content Creation'
 date: 2025-10-24
 slug: 'building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation'
-description: 'I live in the terminal. Like, really live there. As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code...'
+description: 'I live in the terminal. Like, genuinely live there. As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code...'
 categories: ['Dev Tools']
 heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/Building-a-Claude-Code-Blog-Skill.webp'
 heroAlt: 'Building a Claude Code blog skill for systematizing content creation'
 tldr: 'I built a Claude Code slash command that turns blog post creation into a repeatable, enforceable workflow with brand voice checks, Vale linting, image generation, and automatic PR submission. It unblocked our marketing team from depending on me as the content quality bottleneck.'
 ---
 
-I live in the terminal. Like, really live there.
+I live in the terminal. Like, I mean it.
 
 As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code became my primary interface for getting work done. Not just coding. Content creation, documentation, the constant stream of blog posts that come with DevRel.
 
 That created a weird problem.
 
-I got really good at using AI tools. But it was still a personal, one-off workflow. Every blog post started with me crafting the perfect prompt, tweaking the output, running linting checks, formatting everything manually. It worked. It didn’t scale. Our marketing team needed to produce more content, hit more keywords, maintain consistency… and they couldn’t all live in my head.
+I got good at using AI tools. But it was still a personal, one-off workflow. Every blog post started with me crafting the perfect prompt, tweaking the output, running linting checks, formatting everything manually. It worked. It didn’t scale. Our marketing team needed to produce more content, hit more keywords, maintain consistency… and they couldn’t all live in my head.
 
 So I built a Claude Code skill to systematize it.
 
@@ -70,9 +70,9 @@ What used to require me reviewing every piece of content now happens automatical
 
 We rolled this out to the marketing team a week ago.
 
-They adopted it fast. Really fast.
+They adopted it fast. Genuinely fast.
 
-Giving this tool to the team essentially replaced one of my primary functions: being the bottleneck for content quality and technical accuracy. And that’s freeing me up to do what I actually want to do: developer outreach, building relationships, experimenting with new approaches to advocacy.
+Giving this tool to the team replaced one of my primary functions: being the bottleneck for content quality and technical accuracy. And that’s freeing me up to do what I actually want to do: developer outreach, building relationships, experimenting with new approaches to advocacy.
 
 We’re covering more keywords, faster. Blog posts ship with consistent voice and style. SEO optimization, FAQ sections, internal links, quotable statistics - are baked into the workflow instead of being an afterthought. The team can focus on research and strategy rather than fighting with formatting and style checks.
 
@@ -98,4 +98,4 @@ The terminal has always been where I do my best work. Claude Code is one of seve
 
 Now it’s where I build tools that let the whole team do theirs.
 
-If you’re in DevRel or developer marketing: start small, build workflows, share what you learn. I wrote previously about [treating content development for your open source project like your open source project](/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/), and this skill is really the next evolution of that idea. We’re all defining what this looks like together.
+If you’re in DevRel or developer marketing: start small, build workflows, share what you learn. I wrote previously about [treating content development for your open source project like your open source project](/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/), and this skill is the next evolution of that idea. We’re all defining what this looks like together.

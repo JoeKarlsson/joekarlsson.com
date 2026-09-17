@@ -26,9 +26,9 @@ howToSteps:
     text: 'Set up a scheduler that dynamically scales worker count (2 overnight, 1 daytime) via cron for balanced resource sharing.'
 ---
 
-I have a large video library. Thousands of files across dozens of languages, and most of them don't have subtitles. Buying subtitle files isn't really an option at this scale, and the cloud transcription services that exist are either expensive or painfully slow. So I did what any reasonable person with two NVIDIA GPUs in their homelab would do: I built my own.
+I have a large video library. Thousands of files across dozens of languages, and most of them don't have subtitles. Buying subtitle files isn't an option at this scale, and the cloud transcription services that exist are either expensive or painfully slow. So I did what any reasonable person with two NVIDIA GPUs in their homelab would do: I built my own.
 
-What started as a simple "just run Whisper on some files" script turned into a full production pipeline with parallel workers, GPU resource management, hallucination detection, and time-of-day scheduling. Here's how it works.
+What started as a simple "just run Whisper on some files" script turned into a full production pipeline with parallel workers, GPU resource management, hallucination detection, and time-of-day scheduling.
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ I built a multi-layer hallucination filter:
 
 **2. Repetition detection** - If the same text appears twice in the last 5 segments, or has 80%+ word overlap with a recent segment, it gets filtered.
 
-**3. Duration check** - Any segment longer than 10 seconds is almost certainly broken and gets rejected.
+**3. Duration check** - Any segment longer than 10 seconds is broken and gets rejected.
 
 **4. No-speech markers** - Videos with no detected speech get a `.nospeech` marker file so they're never reprocessed. This alone saves enormous amounts of GPU time on re-runs.
 

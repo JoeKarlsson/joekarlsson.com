@@ -31,11 +31,11 @@ Unlike batch recommendation systems, real-time recommendation systems use stream
 
 Real-time recommendation systems often use machine learning models or advanced data processing techniques to predict user preferences and offer personalized suggestions. The most advanced real-time rec sys will use an [online feature store](https://www.tinybird.co/blog-posts/using-tinybird-as-a-serverless-online-feature-store) or real-time model inference system paired with a long-term model training system to both provide the best recommendations in real-time and continuously retrain and optimize the model based on user feedback.
 
-A common advantage of real-time recommendation systems is their ability to handle dynamic and unpredictable user behavior. Traditional recommendation systems often struggle to adapt to sudden changes in user preferences or trends, as they rely on pre-processed data. In contrast, real-time recommendation systems that utilize machine learning can quickly adjust their recommendations based on new user interactions, ensuring the suggestions remain timely and effective.
+A common advantage of real-time recommendation systems is their ability to handle dynamic and unpredictable user behavior. Traditional recommendation systems often struggle to adapt to sudden changes in user preferences or trends, as they rely on pre-processed data. In contrast, real-time recommendation systems that use machine learning can quickly adjust their recommendations based on new user interactions, ensuring the suggestions remain timely and effective.
 
 > Real-time recommendation systems often use online machine learning models, however, machine learning is not a prerequisite, and many real-time recommenders can use heuristic analysis developed in simple languages like SQL.
 
-By integrating real-time recommendation systems powered by machine learning models into various online platforms, engineers can build differentiated features that enhance user engagement, increase average order value, boost conversion rates and average order values, and ultimately drive revenue growth.
+By integrating real-time recommendation systems powered by machine learning models into various online platforms, engineers can build differentiated features that enhance user engagement, increase average order value, boost conversion rates and average order values, and drive revenue growth.
 
 Of course, not every recommendation system uses machine learning or artificial intelligence. Some models may be quite simple, utilizing stream processing or [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) to compute recommendations on the fly, often using tried-and-true query languages such as SQL. The complexity of the system will depend on the use case.
 
@@ -145,7 +145,7 @@ Building a real-time recommendation system with SQL can be a smart approach if y
 
 ### Real-Time Data Processing and Access
 
-Real-time recommendation systems must inject their analysis into a user-facing application within a session timeframe. They generally include APIs that these applications utilize to get recommendations and post feedback results.
+Real-time recommendation systems must inject their analysis into a user-facing application within a session timeframe. They generally include APIs that these applications use to get recommendations and post feedback results.
 
 > Real-time recommendation systems include an API layer by which the user-facing application can both post user activity and request real-time recommendations.
 
@@ -153,7 +153,7 @@ Tinybird, for example, allows engineers to publish SQL queries and materializati
 
 ![Architecture diagram of a real-time recommendation system with event streaming, database, and API layers](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-12-1.webp)
 
-Real-time recommendation systems utilize event streaming platforms, a real-time database, online machine learning or heuristic real-time analytics, and an API layer to both measure user data and make recommendations in real-time.
+Real-time recommendation systems use event streaming platforms, a real-time database, online machine learning or heuristic real-time analytics, and an API layer to both measure user data and make recommendations in real-time.
 
 Each of these components plays a key role in the overall effectiveness and performance of a real-time recommendation engine. Careful consideration and integration of these elements are vital to ensure accurate recommendations and a smooth user experience.
 

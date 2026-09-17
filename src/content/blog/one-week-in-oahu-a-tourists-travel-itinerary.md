@@ -11,7 +11,7 @@ contentNotice: 'Aloha Stadium closed in 2023 and the swap meet relocated. Some r
 tldr: 'My day-by-day Oahu itinerary for when friends visit, hitting Lanikai Beach, Hanauma Bay, Koko Head, the North Shore, and the local spots tourists usually miss.'
 ---
 
-> **Note:** This itinerary was written in 2015. Some places mentioned may have changed or closed - notably, Aloha Stadium was demolished in 2023 and the swap meet has relocated. Double-check restaurants and attractions before visiting.
+> **Note:** This itinerary was written in 2015. Some places mentioned may have changed or closed - Aloha Stadium was demolished in 2023 and the swap meet has relocated. Double-check restaurants and attractions before visiting.
 
 I've lived on the island of Oahu, Hawaii for a couple of months now, and I have noticed that there are a couple of things when you move to a place as beautiful, naturally rich, and exciting as Hawaii. One of these things is that you get asked to be a tour guide for your friends, and for your friends of friends, who are visiting the island for their first or their fifth time. Now, let me just say that there is nothing wrong with taking advantage of friends who live on the island. I love seeing old friends and meeting new ones from all over the world. It's just part of the deal when you move to a place like this.
 

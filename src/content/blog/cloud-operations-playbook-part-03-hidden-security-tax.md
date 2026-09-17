@@ -56,7 +56,7 @@ Fifteen minutes of detective work, and you've maybe identified the team. Maybe.
 
 **Minutes 25:01-35:00 - Should It Be Public? (10 minutes)**
 
-Here's where it gets really frustrating. Even if you find the owner, you still don't know if the bucket is supposed to be public. Not every public bucket is a problem. Some serve static content. Some are intentionally shared with partners.
+Here's where it gets frustrating. Even if you find the owner, you still don't know if the bucket is supposed to be public. Not every public bucket is a problem. Some serve static content. Some are intentionally shared with partners.
 
 That context doesn't live in any tool, though. It lives in someone's head. Or in a Confluence page from 2023 that may or may not reflect the current architecture. Or in a Terraform comment that says `# TODO: restrict access after migration`.
 

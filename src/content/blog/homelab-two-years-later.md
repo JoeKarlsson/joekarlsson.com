@@ -61,7 +61,7 @@ Best places I've found: eBay (sort by newly listed - the good deals go fast), r/
 
 Here's something I learned the expensive way: you cannot just drop a desktop gaming GPU into a 2U rack server.
 
-I know. Obvious in retrospect. But when you've spent years building desktop PCs where basically any GPU fits in basically any case, it doesn't occur to you that rack servers are a completely different universe. Desktop GPUs are designed for full-height PCIe slots with side-panel fans blowing directly onto them. Rack servers are 3.5 inches tall. The airflow goes front-to-back through a carefully engineered wind tunnel. A full-size RTX 4090 physically will not fit. Period.
+I know. Obvious in retrospect. But when you've spent years building desktop PCs where any GPU fits in any case, it doesn't occur to you that rack servers are a completely different universe. Desktop GPUs are designed for full-height PCIe slots with side-panel fans blowing directly onto them. Rack servers are 3.5 inches tall. The airflow goes front-to-back through a carefully engineered wind tunnel. A full-size RTX 4090 physically will not fit. Period.
 
 For the R730, you need cards under a specific length and height - typically workstation or datacenter class GPUs. NVIDIA Quadro, NVIDIA RTX (the professional ones), Tesla. Not GeForce. I burned a weekend figuring this out before finding cards that actually worked.
 

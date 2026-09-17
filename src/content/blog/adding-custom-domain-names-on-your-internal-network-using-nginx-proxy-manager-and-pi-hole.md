@@ -17,7 +17,7 @@ Pi-Hole, primarily known for ad-blocking, also serves as a local DNS server. To 
 
 - **Access Pi-Hole**: Log into the Pi-Hole administrative interface.
 
-- **Navigate to Local DNS**: Select ‘Local DNS’ from the menu, then ‘DNS Records’.
+- **Go to Local DNS**: Select ‘Local DNS’ from the menu, then ‘DNS Records’.
 
 - **Add Custom Domain**: Enter your desired custom domain name (e.g., `magic.mirror`) and the IP address of your NGINX Proxy Manager server. Remember, this domain doesn’t need to be a registered one or have a valid top-level domain (TLD).
 

@@ -25,7 +25,7 @@ If you're brand new to Home Assistant, [start here first](/blog/how-to-get-start
 
 ## What I Was Actually Optimizing For
 
-Before getting into the setup, I want to be upfront about my goals - because yours are probably different, and this whole thing is really about trade-offs.
+Before getting into the setup, I want to be upfront about my goals - because yours are probably different, and this whole thing is about trade-offs.
 
 My priorities, in order: **speed first, good enough reasoning second, accuracy third.** I wanted a voice assistant that responds fast enough to not feel broken. Sub-3 seconds from wake word to spoken reply. Everything else is secondary to that. I was willing to accept worse recognition accuracy and a less capable LLM if it meant the round-trip stayed snappy.
 
@@ -304,7 +304,7 @@ The part the tutorials don't cover: tuning. The initial setup - installing faste
 
 That's the gap between "it runs" and "we use it." For what it's worth, we use it every day.
 
-I want to be clear that this is still a work in progress. Recognition accuracy has plenty of room to improve. Model quality keeps getting better and I'll almost certainly swap llama3.2:3b for something newer in six months. HA's voice intent coverage keeps expanding with every release. The whole space is moving fast enough that anything I write here will be partially out of date by the time you read it.
+I want to be clear that this is still a work in progress. Recognition accuracy has plenty of room to improve. Model quality keeps getting better and I'll probably swap llama3.2:3b for something newer in six months. HA's voice intent coverage keeps expanding with every release. The whole space is moving fast enough that anything I write here will be partially out of date by the time you read it.
 
 But that's also what makes it interesting. This has been one of the more genuinely satisfying homelab projects I've taken on - not because it's finished, but because it's actually useful and I can see exactly how it works at every layer. No black boxes. No terms of service I agreed to without reading. Just my hardware, my models, my data.
 

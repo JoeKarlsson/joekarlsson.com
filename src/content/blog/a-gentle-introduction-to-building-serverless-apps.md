@@ -6,9 +6,11 @@ description: 'Thanks for coming to my talk, A Gentle Introduction to Building Se
 categories: ['Dev Tools']
 heroImage: '/images/blog/a-gentle-introduction-to-building-serverless-apps/A-Gentle-Introduction-to-Building-Serverless-Apps-with-MongoDB-Stitch-_-Serverless-MN.webp'
 heroAlt: 'Title slide for A Gentle Introduction to Building Serverless Apps with MongoDB Stitch'
-contentNotice: 'MongoDB Stitch was rebranded to Realm and fully discontinued in September 2024. This tutorial will not work with current MongoDB services.'
+contentNotice: 'MongoDB Stitch was rebranded to Atlas App Services and fully discontinued in September 2024. This tutorial will not work with current MongoDB services.'
 tldr: 'A beginner-friendly intro to serverless computing using MongoDB Stitch. The platform is now discontinued, but the serverless concepts still hold up.'
 ---
+
+<!-- vale JoeKarlsson.BannedWords = NO -->
 
 > **Note:** This talk was about MongoDB Stitch, which was later rebranded to MongoDB Realm and has since been fully discontinued (September 2024). The content is preserved here as a historical reference, but the platform and its features are no longer available.
 

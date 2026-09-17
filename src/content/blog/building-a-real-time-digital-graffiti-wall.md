@@ -9,6 +9,8 @@ heroAlt: 'Digital graffiti wall interactive art installation'
 tldr: 'The Digital Graffiti Wall is an interactive art installation where audiences draw on a shared 32x32 pixel canvas in their browsers, and their artwork appears in real-time on a physical RGB LED grid. MongoDB Realm handles the real-time synchronization between all connected clients with anonymous authentication and atomic pixel updates.'
 ---
 
+<!-- vale JoeKarlsson.BannedWords = NO -->
+
 There's something magical about seeing your digital creation appear on a physical object in real-time. The Digital Graffiti Wall is an interactive art installation I built that lets multiple people draw simultaneously on a shared canvas - and then displays their collaborative artwork on a physical RGB LED grid, live.
 
 The idea came from wanting to make audience interaction with speakers at tech events more collaborative and visual. (If you like physical computing projects, check out my [IoT Kitty Litter Box](/blog/an-introduction-to-iot-internet-of-toilets/) too.) Instead of just typing questions in a chat, what if everyone in the room could paint on a shared wall together?

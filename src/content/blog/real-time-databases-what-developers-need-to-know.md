@@ -95,7 +95,7 @@ While MongoDB has its advantages for real-time data processing, certain characte
 
 - **It lacks support for certain complex analytics queries:** MongoDB’s query language and aggregation framework lack the full range of features and expressiveness provided by SQL. If your real-time analytics application requires complex SQL queries, window functions, or advanced analytics, you may find MongoDB’s query capabilities limiting.
 
-- **The native query language limits collaboration:** MongoDB’s native query language and data model may present limitations when it comes to sharing insights through APIs. MongoDB’s query capabilities may not be as strong as those in SQL-based databases, which can limit the complexity and flexibility of the insights shared through APIs.
+- **The native query language limits collaboration:** MongoDB’s native query language and data model may limit how you share insights through APIs. MongoDB’s query capabilities may not be as strong as those in SQL-based databases, which can limit the complexity and flexibility of the insights shared through APIs.
 
 - **It’s not built for OLAP**: MongoDB is not primarily designed for OLAP workloads, which involve complex analytical processing, aggregation, and reporting on large volumes of data. As a result, it may not provide the same performance and functionality as dedicated analytical databases. For such use cases, specialized analytical databases like ClickHouse, Pinot, or Druid might be more appropriate.
 
@@ -115,7 +115,7 @@ While generally not optimized for real-time data, [PostgreSQL](https://www.postg
 
 - **Variety of providers**: As well as being free and open-source, PostgreSQL is offered as a service by many vendors, including all of the major cloud providers and various smaller boutique vendors.
 
-- **Easy to start**: PostgreSQL can be incredibly easy (and cheap!) to start with, which can make it attractive as a real-time database when scalability is not a primary concern.
+- **Easy to start**: PostgreSQL can be easy (and cheap!) to start with, which can make it attractive as a real-time database when scalability is not a primary concern.
 
 - **Updates & deletes**: As a transactional database, PostgreSQL is purposefully designed to support updates & deletes, which simplifies deduplication.
 
@@ -233,4 +233,4 @@ To learn more about how to build real-time analytics APIs with Tinybird, check o
 
 - [Talk - Building fast APIs, faster, over streaming data at scale](https://www.tinybird.co/blog-posts/ddnyc-talk-fast-apis-faster-at-scale)
 
-Ready to experience the industry-leading real-time analytics platform? [Try Tinybird today](https://www.tinybird.co/signup?referrer=https%3A%2F%2Fwww.tinybird.co%2Freal-time-databases-what-developers-need-to-know), for free. Get started with the Build Plan - which is more than enough for most simple projects and has no time limit - and upgrade as you scale.
+Ready to try the real-time analytics platform? [Try Tinybird today](https://www.tinybird.co/signup?referrer=https%3A%2F%2Fwww.tinybird.co%2Freal-time-databases-what-developers-need-to-know), for free. Get started with the Build Plan - which is more than enough for most simple projects and has no time limit - and upgrade as you scale.

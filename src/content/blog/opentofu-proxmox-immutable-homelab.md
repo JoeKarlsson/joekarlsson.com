@@ -316,7 +316,7 @@ That's a lot of things that aren't `tofu apply`. Each one takes real time, which
 
 **Some stuff will get lost.** Config that was never written down won't survive the migration intact. Find it when things break, write it in code. It's a process.
 
-The homelab is never really done. This is just what the current chapter looks like: 62 containers, 21,135 lines of provision script code, and a git log that shows every decision I've made since May 23rd. Worth it for me.
+The homelab is never done. This is just what the current chapter looks like: 62 containers, 21,135 lines of provision script code, and a git log that shows every decision I've made since May 23rd. Worth it for me.
 
 ## Frequently Asked Questions
 

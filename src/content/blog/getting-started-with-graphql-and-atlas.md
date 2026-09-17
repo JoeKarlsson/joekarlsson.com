@@ -10,13 +10,15 @@ contentNotice: 'MongoDB Atlas GraphQL API (formerly Stitch GraphQL) has been dep
 tldr: 'A talk about building your first GraphQL client in JavaScript using MongoDB Atlas. The platform has since been deprecated, so this is mostly a historical reference now.'
 ---
 
+<!-- vale JoeKarlsson.BannedWords = NO -->
+
 > **Note:** This talk covered MongoDB's GraphQL API support through Stitch/Realm, which has since been deprecated and shut down. The content is preserved here as a historical reference.
 
 Thanks for coming to my talk, Building Your First GraphQL Client in JS. Here you will find all the resources discussed during the talk.
 
 ## About
 
-RESTful APIs have been around for a while now, but they are flawed. Things like non-standard CRUD operations, response validation, error handling, in-memory state management, etc. just get really hard. In this talk, you will learn how GraphQL – a standard that unifies server and client communication – comes to save the day, and why the surrounding tooling is a huge improvement.
+RESTful APIs have been around for a while now, but they are flawed. Things like non-standard CRUD operations, response validation, error handling, in-memory state management, etc. just get hard. In this talk, you will learn how GraphQL – a standard that unifies server and client communication – comes to save the day, and why the surrounding tooling is a huge improvement.
 
 We will answer the following questions. What is the philosophy behind GraphQL? How do you architect a scalable schema? How can GraphQL boost productivity? How can you avoid common pitfalls?
 

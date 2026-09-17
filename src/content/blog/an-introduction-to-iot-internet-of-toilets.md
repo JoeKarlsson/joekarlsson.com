@@ -50,7 +50,7 @@ This leads me to my personal IoT project, the IoT Kitty Litter Box. For this pro
 
 - Explore IoT projects and have some fun!
 
-Also, personally, I like the thought of building something that teeters right on the border of being completely ridiculous and kinda genius. Frankly, I’m shocked that no one has really made a consumer product like this! Here it is in all of its completed glory.
+Also, personally, I like the thought of building something that teeters right on the border of being completely ridiculous and kinda genius. Frankly, I’m shocked that no one has made a consumer product like this! Here it is in all of its completed glory.
 
 ![Stop Motion gif of the completed IoT Kitty Litter Box](/images/blog/an-introduction-to-iot-internet-of-toilets/stop_motion_intro-1024x683.gif)_Stop Motion gif of the completed IoT Kitty Litter Box_
 
@@ -159,13 +159,13 @@ board.on('fail', (error) => {
 });
 ```
 
-You can see the event and asynchronous nature of IoT plays really nicely with Node’s callback structure. Here’s a demo of the magnetic switch component in action.
+You can see the event and asynchronous nature of IoT plays nicely with Node’s callback structure. Here’s a demo of the magnetic switch component in action.
 
 ![Demo of the magnetic reed switch detecting litter box lid](/images/blog/an-introduction-to-iot-internet-of-toilets/switch_demo.gif)_Demo of the magnetic reed switch detecting litter box lid_
 
 ### Load Cells
 
-Okay, now let’s talk about my favorite component, the load cells. The load cells work basically like any bathroom scale you may have at home. The load cells are responsible for converting the pressure placed on them into a digital weight measurement I can read on the Raspberry Pi. I start by taking the base weight of the litter box. Then, I wait for the weight of something that is approximately cat-sized to be added to the base weight of the box and take the cat’s weight. Once the cat leaves the box, I then recalibrate the base weight of the box. I also recalibrate the base weight after every time the lid is taken off in order to account for events like the box being cleaned or having more litter added to the box.
+Okay, now let’s talk about my favorite component, the load cells. The load cells work like any bathroom scale you may have at home. The load cells are responsible for converting the pressure placed on them into a digital weight measurement I can read on the Raspberry Pi. I start by taking the base weight of the litter box. Then, I wait for the weight of something that is approximately cat-sized to be added to the base weight of the box and take the cat’s weight. Once the cat leaves the box, I then recalibrate the base weight of the box. I also recalibrate the base weight after every time the lid is taken off in order to account for events like the box being cleaned or having more litter added to the box.
 
 In regards to the code for reading data from the load cells, things were kind of tricky. This is because the load cells are not directly compatible with [Johnny-Five](http://johnny-five.io/). I was, however, able to find a [Python library that can interact with the HX711 load cells](https://github.com/tatobari/hx711py).
 
@@ -233,7 +233,7 @@ class Scale {
 module.exports = Scale;
 ```
 
-This was the first time I have played around with the Spawn Child Process API from Node. Personally, I was really impressed by how easy it was to use and troubleshoot. It’s not the most elegant solution, but it totally works for my project and it uses some cool features of Node. Let’s take a look at what the load cells look like in action. In the video below, you can see how pressure placed on the load cells is registered as a weight measurement from the Raspberry Pi.
+This was the first time I have played around with the Spawn Child Process API from Node. Personally, I was impressed by how easy it was to use and troubleshoot. It’s not the most elegant solution, but it totally works for my project and it uses some cool features of Node. Let’s take a look at what the load cells look like in action. In the video below, you can see how pressure placed on the load cells is registered as a weight measurement from the Raspberry Pi.
 
 ![Demo of the load cell measuring weight changes](/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo.gif)_Demo of the load cell measuring weight changes_
 

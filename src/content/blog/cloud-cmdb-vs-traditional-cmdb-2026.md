@@ -42,7 +42,7 @@ The technical differences explain the time gap. Traditional CMDBs use agent-base
 
 ## Terminology
 
-Before we go deeper, let's define what we're actually talking about. A **CMDB (Configuration Management Database)** stores information about IT infrastructure components and their relationships. Traditional CMDBs follow the [ITIL framework](https://www.axelos.com/certifications/itil-service-management) using Configuration Items (CIs) - basically templates for servers, applications, and databases. (For a full breakdown of the leading options, see our guide to the [best CMDB tools in 2026](https://www.cloudquery.io/learning-center/what-are-cmdb-tools).)
+Before we go deeper, let's define what we're actually talking about. A **CMDB (Configuration Management Database)** stores information about IT infrastructure components and their relationships. Traditional CMDBs follow the [ITIL framework](https://www.axelos.com/certifications/itil-service-management) using Configuration Items (CIs) - templates for servers, applications, and databases. (For a full breakdown of the leading options, see our guide to the [best CMDB tools in 2026](https://www.cloudquery.io/learning-center/what-are-cmdb-tools).)
 
 A **Configuration Item (CI)** is ITIL-speak for infrastructure components. You've got Server CIs, Application CIs, Database CIs. Each follows a rigid template.
 
@@ -54,7 +54,7 @@ The **MID Server** is middleware that traditional CMDBs use to run discovery pro
 
 ## Part 1: Philosophical Differences
 
-Traditional CMDBs and cloud-native approaches start from fundamentally different assumptions about how infrastructure works.
+Traditional CMDBs and cloud-native approaches start from different assumptions about how infrastructure works.
 
 ### Traditional CMDB Assumptions
 

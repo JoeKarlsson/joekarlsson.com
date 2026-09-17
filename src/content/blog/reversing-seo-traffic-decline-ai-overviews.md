@@ -64,7 +64,7 @@ And these things are _everywhere_ now. AI Overviews went from appearing on about
 
 If you're thinking "okay but that's mostly a publisher and e-commerce problem" - no. [TripleDart's 2026 B2B SaaS benchmark](https://www.tripledart.com/guides/b2b-saas-inbound-marketing-report) found AI Overviews appearing on **54% of tracked B2B SaaS keywords**. [Semrush found the Computers & Electronics category](https://www.semrush.com/blog/semrush-ai-overviews-study/) now sees AI Overviews on nearly 18% of keywords. This is squarely our space.
 
-The cruel part: if AI Overviews are appearing on your queries, it's because Google considers your content good enough to summarize. You're being rewarded with _invisibility._
+The cruel part: if AI Overviews are appearing on your queries, it's because Google considers your content citation-worthy. You're being rewarded with _invisibility._
 
 Welcome to 2026.
 
@@ -94,7 +94,7 @@ One thing worth being honest about: [the same Seer Interactive study](https://ww
 
 ## How I Ended Up Owning This
 
-I'd been accumulating a mental backlog of things I wanted to fix for years - bad titles on pages that ranked but didn't convert, blog posts with no internal links going anywhere, a resource hub (we call ours the Learning Center: in-depth evergreen guides with original research where possible) that was basically invisible because nothing pointed to it, redirect chains from a subdomain migration that nobody ever cleaned up. I knew what was wrong. I just couldn't do anything about it at a pace that mattered, because acting on it meant writing up a request and getting in the engineering team's queue, which was legitimately full of more important work.
+I'd been accumulating a mental backlog of things I wanted to fix for years - bad titles on pages that ranked but didn't convert, blog posts with no internal links going anywhere, a resource hub (we call ours the Learning Center: in-depth evergreen guides with original research where possible) that was invisible because nothing pointed to it, redirect chains from a subdomain migration that nobody ever cleaned up. I knew what was wrong. I just couldn't do anything about it at a pace that mattered, because acting on it meant writing up a request and getting in the engineering team's queue, which was legitimately full of more important work.
 
 I don't say this as a criticism. It's just the reality of a startup where the front-end team is building the actual product. SEO debt accumulates _silently._ Nothing obviously breaks. The decline is gradual enough to explain away week by week - until you zoom out and see the trend.
 
@@ -110,7 +110,7 @@ I should say something here that I don't see in other "AI productivity" posts: I
 
 Something about working with Claude Code broke that pattern for me. I don't fully understand the psychology of it - maybe it's that I can just think out loud and the work starts happening, rather than having to hold the whole structure in my head before I can begin. Maybe it's that each step stays small enough to feel tractable. Whatever it is, the barrier that used to make this kind of work genuinely difficult for my ADHD brain just... isn't there in the same way anymore. I'm not just faster. I'm actually doing work I would have avoided before.
 
-I thought the bottleneck was implementation speed. Write the fix faster, ship more. That's part of it. But the real shift was realizing this is fundamentally a **data problem**. You can't fix what you can't see. And I couldn't see very much, because every tool I had was showing me a different slice of the picture and none of them talked to each other.
+I thought the bottleneck was implementation speed. Write the fix faster, ship more. That's part of it. But the real shift was realizing this is a **data problem**. You can't fix what you can't see. And I couldn't see very much, because every tool I had was showing me a different slice of the picture and none of them talked to each other.
 
 GSC shows you clicks and impressions but not actual visitors. Ahrefs shows you estimated traffic but not funnel conversions. Plausible shows you real visitor counts but not keyword positions. HubSpot shows you which leads came from organic but not what pages they landed on first. The data was all there, just siloed, and synthesizing it by hand was slow enough that I'd only do it occasionally, which meant I was always making decisions on stale or partial information.
 
@@ -209,7 +209,7 @@ We hit position #1 for a couple of target keywords. Moved a high-volume query fr
 ![Ahrefs organic positions stacked area chart showing position brackets (1-3, 4-10, 11-20, 21-50, 51+). After the "Start" line at Feb 27, the total number of tracked keyword positions rises across every bracket - the whole stack grows.](/images/blog/reversing-seo-traffic-decline-ai-overviews/chart-organic-positions.webp)
 _Organic positions across all ranking brackets, Jan-Apr 2026. Every band grew after the start date. This is what "improving average position" actually looks like in the underlying data._
 
-And then: look at the clicks. Basically flat.
+And then: look at the clicks. Flat.
 
 That's the AI Overview effect in real data. We tripled our search visibility. _The clicks got absorbed._ This is the game now.
 
@@ -219,7 +219,7 @@ That's the AI Overview effect in real data. We tripled our search visibility. _T
 
 ## Being Cited in an AI Overview is Actually Good (With an Asterisk)
 
-Being featured in an AI Overview is a weird flex. Google is saying your content is authoritative enough to summarize in a generated answer. The asterisk is that the user might never come to your site. You're rewarded for quality with reduced traffic.
+Being featured in an AI Overview is a weird flex. Google is saying your content is authoritative enough to be pulled into a generated answer. The asterisk is that the user might never come to your site. You're rewarded for quality with reduced traffic.
 
 We went from 11 AI Overview placements to a peak of 115 in a single week. That's not something we engineered - that's Google expanding coverage and our content being in the right shape to get pulled.
 
@@ -227,7 +227,7 @@ Here's where it gets interesting though. The Seer Interactive study found someth
 
 There's a win condition. You're not trying to avoid AI Overviews - you can't, and optimizing to avoid them would mean worse content. You're trying to be the source that gets cited.
 
-Here's what I didn't expect though: our conversion rate has been _going up_ as our raw traffic has been going down. People are arriving at our site more fully understanding what we do. They've already had the AI do the research for them, they've already seen our product mentioned in the answer, and they're coming to us to convert - not to browse. Trial signups and sales inquiries from people who need less convincing. The funnel is shorter. The win rate is higher.
+What I didn't expect: our conversion rate has been _going up_ as our raw traffic has been going down. People are arriving at our site more fully understanding what we do. They've already had the AI do the research for them, they've already seen our product mentioned in the answer, and they're coming to us to convert - not to browse. Trial signups and sales inquiries from people who need less convincing. The funnel is shorter. The win rate is higher.
 
 I don't know if this is permanent or a blip. The sphere in which marketing actually happens is in flux right now - some of it is playing out on Google, some of it in AI Overviews, some of it in conversations people are having with Claude and ChatGPT before they ever search for anything. We're in the middle of it and nobody knows where it lands. But the signal I'm seeing today is that the visitors who do click through are higher quality than they used to be. Fewer browsers. More buyers.
 
@@ -295,7 +295,7 @@ The highest-return work has been internal linking and redirect cleanup - and I s
 
 Redirect chains fall into the same category. Every hop loses signal. If you've done any site migrations, you have chains. We found 1,555 redirects in one crawl, some with 4 hops. Same goes for 404s with link equity - run Ahrefs, sort by URL Rating, redirect the highest-equity broken pages first. None of this is glamorous. All of it compounds.
 
-> _"The cruel part: if AI Overviews are appearing on your queries, it's because Google considers your content good enough to summarize. You're being rewarded with invisibility."_
+> _"The cruel part: if AI Overviews are appearing on your queries, it's because Google considers your content citation-worthy. You're being rewarded with invisibility."_
 
 After the technical cleanup, the next thing I do every week is build the high-impressions/low-CTR hit list. I export GSC data, sort by impressions, and find everything sitting in positions 4-16 with CTR below 5%. These pages are showing up on Google - they just aren't getting clicked. Nine times out of ten it's a title that doesn't match what someone actually searched. Batch the rewrites, ship in one PR, check back in three weeks. This was one of our fastest-moving wins.
 
@@ -414,7 +414,7 @@ The system I've described is working, but it has real gaps I haven't solved yet.
 
 The biggest one is the Ahrefs API. I'm on the Lite tier, which doesn't include API access - you have to jump to a significantly more expensive plan to get it. Right now I'm manually exporting CSVs, which works but breaks the automation story. The dream is a cron job that collects all the data automatically every week without me having to trigger it. I'm not there yet.
 
-The data blind spot I'm most frustrated about: **I have no reliable way to measure how often we show up in AI assistants, in what context, or what search terms trigger us.** When someone asks Claude or ChatGPT about building a cloud asset inventory and our product gets mentioned, I have no visibility into that. I don't know how frequently it's happening, what questions surface us, or how we're being characterized. That's a significant chunk of the discovery funnel I'm essentially flying blind on. If you know of good data sources for LLM appearance tracking, I genuinely want to hear about them.
+The data blind spot I'm most frustrated about: **I have no reliable way to measure how often we show up in AI assistants, in what context, or what search terms trigger us.** When someone asks Claude or ChatGPT about building a cloud asset inventory and our product gets mentioned, I have no visibility into that. I don't know how frequently it's happening, what questions surface us, or how we're being characterized. That's a significant chunk of the discovery funnel I'm flying blind on. If you know of good data sources for LLM appearance tracking, I genuinely want to hear about them.
 
 The same gap exists for AI Overviews specifically - I can see that we have placements via Ahrefs, but understanding the _context_ of those placements at scale is still manual work.
 

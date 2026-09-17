@@ -50,7 +50,7 @@ When Claude Code dropped slash commands - custom `/commands` you define in markd
 
 So I built a few things for myself. `/social` to turn blog posts into LinkedIn copy. `/seo-analysis` to pull traffic data from Plausible and GSC without manually querying three different tools - if you want to see what that skill actually produced, I wrote about [four weeks of results here](/blog/reversing-seo-traffic-decline-ai-overviews). Stuff I was doing every week that I hated doing every week.
 
-The thing that makes skills shareable - and this is the part that unlocked everything - is that they're just markdown files. A skill is a prompt with some frontmatter. It lives in `.claude/commands/` (or `.claude/skills/<name>/SKILL.md` in the newer structure - both work identically). You can read it, version control it, share it with `git clone`. It's basically a documented runbook that Claude executes.
+The thing that makes skills shareable - and this is the part that unlocked everything - is that they're just markdown files. A skill is a prompt with some frontmatter. It lives in `.claude/commands/` (or `.claude/skills/<name>/SKILL.md` in the newer structure - both work identically). You can read it, version control it, share it with `git clone`. It's a documented runbook that Claude executes.
 
 So when a coworker said "hey, can you show me how you do that LinkedIn thing?" - the answer wasn't a Notion doc or a prompt to paste somewhere. It was "clone this repo."
 
@@ -80,7 +80,7 @@ I'm on a marketing team. My coworkers are great at their jobs - writing, strateg
 
 We ran a lot of training sessions. Not one big "here's how this works" meeting - those don't stick. Short, focused sessions on specific workflows. Not "here's what Claude Code is," but "here's how to turn a blog post into scheduled social content in ten minutes." The tool is secondary. The workflow is what people remember.
 
-I also built a `/setup` wizard - a skill whose entire job is onboarding. It runs a setup checker, and instead of dumping raw error output at someone, it explains each failure in plain English and either fixes it automatically or tells you exactly who to ask. The instructions inside that skill literally say: be friendly, patient, avoid jargon. Because I wrote it knowing I wasn't the one who'd be running it.
+I also built a `/setup` wizard - a skill whose entire job is onboarding. It runs a setup checker, and instead of dumping raw error output at someone, it explains each failure in plain English and either fixes it automatically or tells you exactly who to ask. The instructions inside that skill say: be friendly, patient, avoid jargon. Because I wrote it knowing I wasn't the one who'd be running it.
 
 There's also an init script that outputs `[OK]`, `[WARN]`, and `[FAIL]` lines so anyone can immediately see their status without having to understand what any of it means. Small thing. Huge difference in how people felt about whether the thing was "working."
 
@@ -138,7 +138,7 @@ I'm not going to pretend I measured this rigorously. But the qualitative shift i
 
 The most valuable file in the repo isn't a skill. It's `BRAND_VOICE.md`.
 
-Brand voice, messaging framework, the words we're not allowed to use ("unlock," "seamless," "game-changer," a long list), current product positioning - all of it checked in, all of it referenced automatically by every content-generating skill. When someone runs `/social` or `/rewrite` or `/blog`, Claude already knows how we talk about our product. The output sounds like us rather than like every other AI-generated B2B marketing piece on the internet.
+Brand voice, messaging framework, the words we're not allowed to use (a long list of banned buzzwords), current product positioning - all of it checked in, all of it referenced automatically by every content-generating skill. When someone runs `/social` or `/rewrite` or `/blog`, Claude already knows how we talk about our product. The output sounds like us rather than like every other AI-generated B2B marketing piece on the internet.
 
 The other thing: updating the brand voice is a PR. One PR, and every skill picks it up on the next `git pull`. That's a sentence that would have sounded like nonsense two years ago and now it's just how we work.
 
@@ -205,7 +205,7 @@ model: sonnet
 
 **Namespace your skills when you have multiple products.** We run skills for two brands - CloudQuery and env0. A skill file at `.claude/commands/env0/blog.md` gets invoked as `/env0:blog`. Claude Code uses the directory separator as a colon in the UI. This keeps everything organized and makes it obvious at a glance which brand a skill belongs to. If you're building skills for more than one product, project, or client, use namespacing before the list gets unwieldy.
 
-**Brand voice enforcement should be code, not a doc.** `BRAND_VOICE.md` tells Claude how to write. But we also have `scripts/validate_content.py` that actually checks generated content for banned words before anything gets scheduled. Hard to miss "seamless" when the validation script refuses to continue until it's removed. When brand consistency matters, automate the check - don't rely on Claude remembering the rules from session to session.
+**Brand voice enforcement should be code, not a doc.** `BRAND_VOICE.md` tells Claude how to write. But we also have `scripts/validate_content.py` that actually checks generated content for banned words before anything gets scheduled. Hard to miss a banned word when the validation script refuses to continue until it's removed. When brand consistency matters, automate the check - don't rely on Claude remembering the rules from session to session.
 
 **Always build a dry-run flag.** Any skill that takes an action - scheduling a post, sending something, updating a file - should have a `--dry-run` mode that does all the work and shows you the output without executing. This made a bigger difference than I expected in how comfortable non-technical people felt using the tools. "I can see what it would do before it does it" is something I heard a lot in early training sessions.
 

@@ -26,7 +26,7 @@ Grab some coffee. Let's get a handle on all your AWS resources.
 
 ## What is a Cloud Asset Inventory?
 
-The core of any Cloud Asset Management solution is a Cloud Asset Inventory. Fundamentally, a Cloud Asset Inventory is a centralized database of all the cloud assets you're paying for.
+The core of any Cloud Asset Management solution is a Cloud Asset Inventory. A Cloud Asset Inventory is a centralized database of all the cloud assets you're paying for.
 
 A Cloud Asset Inventory is constructed by collecting information from the various Cloud Platform APIs (e.g. AWS, Google Cloud, Azure, etc.) and storing it in an accessible format, such as a SQL database.
 
@@ -245,7 +245,7 @@ Now, let's talk about **what you can actually do with this data** beyond just lo
 - **Build Custom Dashboards** - Visualize your cloud footprint exactly how you want it.
 - **Use CloudQuery's Built-in Dashboards** - No extra setup required - just log in and start exploring.
 
-Having an inventory is one thing - **making it actionable is what really matters**. If you prefer to run CloudQuery from the command line, follow our step-by-step [AWS to PostgreSQL guide](https://www.cloudquery.io/docs/cli/getting-started/aws-to-postgresql) to sync your AWS resources into a local database in minutes. Ready to get started with the full platform? [**Reach out to our team**](https://www.cloudquery.io/contact-us) and start building smarter cloud governance today.
+Having an inventory is one thing - **making it actionable is what matters**. If you prefer to run CloudQuery from the command line, follow our step-by-step [AWS to PostgreSQL guide](https://www.cloudquery.io/docs/cli/getting-started/aws-to-postgresql) to sync your AWS resources into a local database in minutes. Ready to get started with the full platform? [**Reach out to our team**](https://www.cloudquery.io/contact-us) and start building smarter cloud governance today.
 
 The best way to understand how CloudQuery transforms cloud visibility is to see it live. Our team can walk you through a tailored demo based on your cloud environment and use cases. Let's talk about how CloudQuery can fit into your stack. [Schedule a demo today](https://www.cloudquery.io/contact-us)
 
@@ -273,7 +273,7 @@ A: A Cloud Asset Inventory is a centralized database that tracks all cloud resou
 
 **Q: Why do I need a Cloud Asset Inventory for my AWS environment?**
 
-A: An asset inventory helps improve security, ensure compliance, manage costs, and enhance operational efficiency by providing a comprehensive view of all cloud resources.
+A: An asset inventory helps improve security, ensure compliance, manage costs, and enhance operational efficiency by providing a full view of all cloud resources.
 
 **Q: What is CloudQuery and how does it help with Cloud Asset Inventory?**
 
@@ -297,4 +297,4 @@ A: Yes, CloudQuery can integrate seamlessly with your current stack of data ware
 
 **Q: What is an infrastructure data lake and how does it relate to CloudQuery?**
 
-A: An infrastructure data lake is a concept where all infrastructure-related data is collected and stored in a centralized repository for analysis. CloudQuery supports this idea by enabling organizations to gather and analyze comprehensive infrastructure data within their data warehouses.
+A: An infrastructure data lake is a concept where all infrastructure-related data is collected and stored in a centralized repository for analysis. CloudQuery supports this idea by enabling organizations to gather and analyze infrastructure data within their data warehouses.

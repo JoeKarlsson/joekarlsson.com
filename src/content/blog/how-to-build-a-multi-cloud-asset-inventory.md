@@ -12,9 +12,9 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 Managing multi-cloud environments presents unique challenges that can quickly overwhelm even the most experienced cloud architects. Each cloud provider has its own set of tools, APIs, and management practices, leading to fragmented visibility and control. Without a unified view, identifying and managing cloud assets across AWS, Azure, GCP, and other providers becomes daunting.
 
-A comprehensive inventory of all your cloud assets is crucial for maintaining security, ensuring compliance, and optimizing costs in complex environments. By centralizing asset data from multiple clouds, organizations can gain the visibility and control needed to mitigate risks, avoid unnecessary expenses, and meet regulatory requirements.
+A complete inventory of all your cloud assets is essential for maintaining security, ensuring compliance, and optimizing costs in complex environments. By centralizing asset data from multiple clouds, organizations can gain the visibility and control needed to mitigate risks, avoid unnecessary expenses, and meet regulatory requirements.
 
-This guide will walk you through the step-by-step process of building a robust multi-cloud asset inventory. Utilizing CloudQuery, a powerful open-source cloud asset management tool, you'll learn how to aggregate, normalize, and visualize your cloud assets, providing a clear and actionable inventory across all your cloud environments.
+This guide will walk you through the step-by-step process of building a multi-cloud asset inventory. Using CloudQuery, a powerful open-source cloud asset management tool, you'll learn how to aggregate, normalize, and visualize your cloud assets, providing a clear and actionable inventory across all your cloud environments.
 
 If you want to follow along with a video version of this post, you can check that out here:
 
@@ -193,7 +193,7 @@ psql -U postgres
 SELECT * from GCP_storage_accounts where enable_https_traffic_only = false;
 ```
 
-### How to use dbt to transform your cloud data into a cloud asset inventory
+### How to use dbt to convert your cloud data into a cloud asset inventory
 
 CloudQuery provides several pre-built dbt projects to simplify data transformations, including security and compliance frameworks like PCI_DSS, CIS, and Foundational Security Best Practices. But for this tutorial, you will be using our prebuilt [AWS Asset Inventory](https://www.cloudquery.io/hub/addons/transformation/cloudquery/aws-asset-inventory/latest/docs), [GCP Asset Inventory](https://www.cloudquery.io/hub/addons/transformation/cloudquery/gcp-asset-inventory/latest/docs), and the [Azure Asset Inventory](https://www.cloudquery.io/hub/addons/transformation/cloudquery/azure-asset-inventory/latest/docs) transformations. Here's how you set up your dbt Transformations.
 
@@ -259,7 +259,7 @@ docker run --platform linux/amd64 --name dbt_container \
 
 ## Analyzing your multi-cloud cloud asset inventory data
 
-Having all your cloud asset data in one place is not just convenient - it's incredibly powerful. When you centralize your data from AWS, Azure, and GCP into a single database, you can enrich, compare, and analyze your assets using consistent tooling, like SQL, that you're already familiar with. This unified approach allows you to uncover insights that would be difficult, if not impossible, to achieve if your data was stuck within each cloud provider.
+Having all your cloud asset data in one place is not just convenient - it's powerful. When you centralize your data from AWS, Azure, and GCP into a single database, you can enrich, compare, and analyze your assets using consistent tooling, like SQL, that you're already familiar with. This unified approach allows you to uncover insights that would be difficult, if not impossible, to achieve if your data was stuck within each cloud provider.
 
 With your multi-cloud asset inventory in one place, you can start answering critical questions about your infrastructure. For example, you can identify which instances cost you the most across all clouds, spot redundant resources that could be consolidated, and analyze cross-cloud data transfer costs to optimize your spending.
 
@@ -418,11 +418,11 @@ spec:
 
 **Q: What is a cloud asset inventory?**
 
-A: A cloud asset inventory is a comprehensive and centralized record of all cloud resources and assets across one or multiple cloud environments. It includes details like virtual machines, storage buckets, networking components, and other resources, providing visibility and control to ensure security, compliance, and cost optimization.
+A: A cloud asset inventory is a centralized record of all cloud resources and assets across one or multiple cloud environments. It includes details like virtual machines, storage buckets, networking components, and other resources, providing visibility and control to ensure security, compliance, and cost optimization.
 
 **Q: Why is a multi-cloud asset inventory important?**
 
-A: A multi-cloud asset inventory is crucial for maintaining security, ensuring compliance, and optimizing costs by centralizing asset data, enabling better visibility and control across cloud environments.
+A: A multi-cloud asset inventory is important for maintaining security, ensuring compliance, and optimizing costs by centralizing asset data, enabling better visibility and control across cloud environments.
 
 **Q: What tool is recommended for building a multi-cloud asset inventory?**
 
@@ -446,7 +446,7 @@ A: CloudQuery supports connections to all major cloud providers, including Amazo
 
 **Q: Can I save my cloud asset data anywhere?**
 
-A: Yes, CloudQuery allows you to save your cloud asset data in any compatible data store. This includes relational databases like PostgreSQL, data warehouses, data lakes, or even custom destinations by building your own plugins. This flexibility enables seamless integration into your existing data infrastructure.
+A: Yes, CloudQuery allows you to save your cloud asset data in any compatible data store. This includes relational databases like PostgreSQL, data warehouses, data lakes, or even custom destinations by building your own plugins. This flexibility makes it easy to integrate into your existing data infrastructure.
 
 ## Additional Resources
 

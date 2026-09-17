@@ -111,7 +111,7 @@ Developer is doing real work. API calls, integrations, debugging against product
 
 DevRel's job at Build is less about content and more about whether the feedback loop to engineering actually works. SDK quality matters here in ways that tutorials can't compensate for. Error messages either help or they don't. The switch to a competitor usually happens quietly, alone, when something fails and the error is useless.
 
-A specific error appearing repeatedly in support tickets is almost never a support problem. It's a product problem. Flagging that pattern upstream is some of the highest-leverage work I do at this stage.
+A specific error appearing repeatedly in support tickets is almost never a support problem. It's a product problem. Flagging that pattern upstream is some of the highest-value work I do at this stage.
 
 ### Scale
 

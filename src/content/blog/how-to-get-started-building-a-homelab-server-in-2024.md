@@ -145,9 +145,9 @@ I'm glad I did. Here's what sold me:
 
 Proxmox is my pick, but it's not the only option:
 
-- **[Unraid](https://unraid.net/)** - Paid ($59+), but has a really polished UI and a built-in app store. Great if you want something that "just works" and don't mind paying for it. Particularly good for NAS + containers on the same box.
+- **[Unraid](https://unraid.net/)** - Paid ($59+), but has a polished UI and a built-in app store. Great if you want something that "just works" and don't mind paying for it. Particularly good for NAS + containers on the same box.
 - **[TrueNAS Scale](https://www.truenas.com/truenas-scale/)** - Free, Linux-based, strong on storage and ZFS. Better if your primary use case is NAS with some containers on the side.
-- **[CasaOS](https://casaos.zimaspace.com/)** - Free, runs on top of any Debian/Ubuntu install. The simplest option - basically an app store for self-hosted services. No virtualization support, but for pure Docker containers it's hard to beat for ease of use.
+- **[CasaOS](https://casaos.zimaspace.com/)** - Free, runs on top of any Debian/Ubuntu install. The simplest option - an app store for self-hosted services. No virtualization support, but for pure Docker containers it's hard to beat for ease of use.
 - **Ubuntu/Debian + Docker** - The DIY option. No web UI out of the box (add [Portainer](https://www.portainer.io/) for that), but maximum flexibility and the most online tutorials.
 
 If you're brand new and just want to run Docker containers, CasaOS or Unraid are the lowest friction options. If you want to learn virtualization and have more control, Proxmox is the way to go.

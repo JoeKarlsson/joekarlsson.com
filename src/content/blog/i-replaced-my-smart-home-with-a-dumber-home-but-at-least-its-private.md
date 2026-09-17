@@ -20,13 +20,13 @@ Amazon’s recent privacy policy changes around voice data collection finally pu
 
 ![Hand holding a smart home voice assistant device with black cat watching](/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/IMG_2349-1024x576.webp)
 
-The $59 device features professional-grade hardware with dual microphones, XMOS audio processing, and an ESP32-S3 chip that can handle local wake word detection. [[The Pi Hut](https://thepihut.com/products/home-assistant-voice-preview-edition)] More importantly, it includes a physical mute switch that actually cuts power to the microphones.
+The $59 device features professional-grade hardware with dual microphones, XMOS audio processing, and an ESP32-S3 chip that can handle local wake word detection. [[The Pi Hut](https://thepihut.com/products/home-assistant-voice-preview-edition)] It includes a physical mute switch that actually cuts power to the microphones.
 
 ## Hardware setup: Surprisingly smooth initial experience
 
 The physical setup proved surprisingly straightforward. The Voice Preview Edition connected to my existing Home Assistant instance within minutes, and the initial device registration worked flawlessly. The build quality impressed me, the audio processing hardware rivals devices costing significantly more, and the LED feedback ring provides clear visual status indicators. [[Home Assistant](https://www.home-assistant.io/voice_control/)]
 
-However, I quickly discovered that “working” and “working well” are very different things when it comes to voice assistants. The default wake word detection had maybe a 50% success rate from across the room, and voice recognition accuracy felt inconsistent at best. Alexa was good at picking up my voice when the TV was on, or if I was listening to a Podcast. Home Assistant Voice struggles in this department.
+However, I quickly discovered that “working” and “working well” are very different things for voice assistants. The default wake word detection had maybe a 50% success rate from across the room, and voice recognition accuracy felt inconsistent at best. Alexa was good at picking up my voice when the TV was on, or if I was listening to a Podcast. Home Assistant Voice struggles in this department.
 
 ## “Okay Nabu” proves problematic
 
@@ -131,7 +131,7 @@ The technical challenges were manageable, but family acceptance proved the real 
 
 “I just want to turn on the lights without thinking about it,” she explained after a particularly frustrating evening of failed commands.
 
-Interestingly, we developed different usage patterns than we had with Alexa. Instead of casual queries throughout the day, voice commands became more intentional and focused on home automation rather than general assistance. The system works best for users who treat it as a smart home interface rather than a general-purpose assistant. That being said the ChatGPT interface makes this more forgiving.
+We developed different usage patterns than we had with Alexa. Instead of casual queries throughout the day, voice commands became more intentional and focused on home automation rather than general assistance. The system works best for users who treat it as a smart home interface rather than a general-purpose assistant. That being said the ChatGPT interface makes this more forgiving.
 
 Training family members on effective phrasing became essential. Commands like “turn on the living room lights” work reliably, while natural variations like “brighten up the living room” require specific automation creation. [[Home Assistant Community](https://community.home-assistant.io/t/one-week-of-home-assistant-voice-a-pretty-good-start/826175)] The learning curve is steep, but the payoff is much more predictable behavior than Alexa’s sometimes mysterious interpretation failures.
 
@@ -175,7 +175,7 @@ After several months of daily use, the migration succeeded for my specific use c
 
 **Who should consider this migration**: Technical users who prioritize privacy over convenience, existing Home Assistant power users comfortable with YAML automation development, and households willing to accept reduced functionality for complete data ownership. [[Smart Home Solver](https://smarthomesolver.com/reviews/home-assistant-voice-preview-edition-review/)]
 
-**Who should wait**: Families expecting plug-and-play Alexa replacement, users without existing Home Assistant experience, or anyone requiring reliable voice assistant functionality for daily tasks.
+**Who should wait**: Families expecting a drop-in Alexa replacement, users without existing Home Assistant experience, or anyone requiring reliable voice assistant functionality for daily tasks.
 
 The Home Assistant Voice Preview Edition delivers on its promise as an open-source, privacy-focused voice assistant foundation. However, the “Preview” designation accurately reflects its current state-promising technology that needs substantial development before reaching consumer readiness. For the right user with appropriate expectations, it provides compelling benefits unavailable elsewhere in the voice assistant market.
 

@@ -1,0 +1,8 @@
+# Em dashes are banned everywhere on joekarlsson.com - use commas, colons, or periods.
+# (Scope omitted intentionally: this catches em dashes in prose, not just headings.)
+extends: existence
+message: 'Em dash found. Use a comma, colon, or period instead.'
+level: error
+raw:
+  - '—'
+  - ' -- '

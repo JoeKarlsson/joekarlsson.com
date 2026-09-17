@@ -132,7 +132,7 @@ Of course, these are just examples. The kinds of transformations you can build w
 
 Any backend requires an API layer to connect the database to the frontend application. In typical development, this requires an ORM, but with Tinybird, the [APIs are generated automatically](https://www.tinybird.co/docs/concepts/apis.html?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data) from the SQL you write.
 
-Once you’re happy with your SQL, you simply publish the query as an endpoint, and it becomes a secure, documented and, most importantly, scalable API.
+Once you’re happy with your SQL, you simply publish the query as an endpoint, and it becomes a secure, documented, and scalable API.
 
 ![Tinybird publishing a SQL query as an API endpoint](/images/blog/how-to-build-applications-over-streaming-data-the-right-way/6d5d5116-image1.gif)
 

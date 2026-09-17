@@ -12,7 +12,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 Are you experiencing challenges in managing your Azure infrastructure? Do you need help keeping track of all your cloud assets, ensuring compliance, and maintaining security? If these issues sound familiar, then it's time to consider implementing a cloud asset inventory.
 
-Managing assets in cloud environments such as Azure is growing increasingly complex. As organizations expand their cloud infrastructure, tracking resources, ensuring compliance, and maintaining strong security measures become more challenging. The dynamic nature of cloud environments, with frequent changes and additions, complicates asset management further. Therefore, a comprehensive cloud asset inventory is essential. It offers a clear and organized view of all cloud resources, streamlining operations and mitigating potential risks.
+Managing assets in cloud environments such as Azure is growing increasingly complex. As organizations expand their cloud infrastructure, tracking resources, ensuring compliance, and maintaining strong security measures become more challenging. The dynamic nature of cloud environments, with frequent changes and additions, complicates asset management further. Therefore, a complete cloud asset inventory is essential. It offers a clear and organized view of all cloud resources, streamlining operations and mitigating potential risks.
 
 In this tutorial, you will build a cloud asset manager for Azure using CloudQuery. You'll connect to your Azure account, collect data on all your cloud assets, and store it in a PostgreSQL database for analysis and reporting. However, with CloudQuery, you can extract data from [ANY data source](https://www.cloudquery.io/hub/plugins/source) ([AWS](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs), [GCP](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs), [etc](https://www.cloudquery.io/hub/plugins/source).) and load it into [ANY data destination](https://www.cloudquery.io/hub/plugins/destination) ([Snowflake](https://www.cloudquery.io/hub/plugins/destination/cloudquery/snowflake/latest/docs), [BigQuery](https://www.cloudquery.io/hub/plugins/destination/cloudquery/bigquery/latest/docs), [Databricks](https://www.cloudquery.io/hub/plugins/destination/cloudquery/databricks/latest/docs), [DuckDB](https://www.cloudquery.io/hub/plugins/destination/cloudquery/duckdb/latest/docs), [ClickHouse](https://www.cloudquery.io/hub/plugins/destination/cloudquery/clickhouse/latest/docs), etc.).
 
@@ -152,7 +152,7 @@ SELECT * FROM azure_storage_accounts WHERE enable_https_traffic_only = false;
 
 ### How to Use dbt to Transform Azure Data into a Cloud Asset Inventory
 
-dbt (Data Build Tool) is used here to transform your raw Azure data into structured tables. These tables are then ready to be consumed by visualization tools for easier data interpretation and analysis. This process is fully customizable, allowing you to tailor the transformations to fit your specific Azure configuration and requirements.
+dbt (Data Build Tool) converts raw Azure data into structured tables. These tables are then ready to be consumed by visualization tools for easier data interpretation and analysis. This process is fully customizable, allowing you to tailor the transformations to fit your specific Azure configuration and requirements.
 
 To simplify data transformations, CloudQuery provides several pre-built dbt projects, including security and compliance frameworks like PCI_DSS, CIS, and Foundational Security Best Practices. But for this tutorial, you will be using our prebuilt [Azure Asset Inventory](https://www.cloudquery.io/hub/addons/transformation/cloudquery/azure-asset-inventory/latest/docs) transformation. Here's how you set up your dbt Transformations:
 
@@ -222,7 +222,7 @@ In this tutorial, you walked through the process of building a cloud asset inven
 - **Storing Data in PostgreSQL**: You set up a PostgreSQL database to store the collected asset data, enabling efficient querying and analysis.
 - **Transforming Data with dbt**: You utilized dbt to apply data transformations, enhancing the quality and usability of your cloud asset inventory.
 
-By using CloudQuery, you can ensure that your asset inventory is comprehensive, adaptable, and integrated with your broader data strategy. This empowers your team to gain better insights and make informed decisions, ultimately driving more value from your cloud infrastructure.
+By using CloudQuery, you can ensure that your asset inventory is complete, adaptable, and integrated with your broader data strategy. This empowers your team to gain better insights and make informed decisions, driving more value from your cloud infrastructure.
 
 _Want to see CloudQuery in action?_ [Schedule a demo with our team](https://www.cloudquery.io/contact-us) or check out the [platform documentation](https://www.cloudquery.io/docs/platform/introduction) to learn more.
 

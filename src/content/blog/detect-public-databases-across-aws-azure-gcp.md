@@ -36,7 +36,7 @@ Every resource in CloudQuery has normalized metadata columns (`_cq_platform_id`,
 
 ## Step 1: Configure Your Policy
 
-Navigate to **Policies** in the sidebar and click **Add new policy**:
+Go to **Policies** in the sidebar and click **Add new policy**:
 
 ![New Policy configuration showing policy name, domain, severity, and policy group settings](/images/blog/detect-public-databases-across-aws-azure-gcp/policy-configuration.webp)
 
@@ -229,7 +229,7 @@ Here's how this plays out in practice:
 5. Open a PR to add a private endpoint and disable public access
 6. Notify the sales team via Slack with the full context from the violation
 
-Without the related resources view, steps 2-4 would require you to manually navigate the Azure portal, cross-reference resource groups, and dig through IAM assignments. The policy violation gives you the "what's wrong," and the related resources give you the "what to do about it."
+Without the related resources view, steps 2-4 would require you to manually go through the Azure portal, cross-reference resource groups, and dig through IAM assignments. The policy violation gives you the "what's wrong," and the related resources give you the "what to do about it."
 
 ## Customizing the Policy
 

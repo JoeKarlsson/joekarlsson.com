@@ -12,7 +12,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 Are you experiencing challenges in managing your Google Cloud Platform (GCP) infrastructure? Do you need help keeping track of all your cloud assets, ensuring compliance, and maintaining security? If these issues sound familiar, then it's time to consider implementing a cloud asset inventory.
 
-Managing assets in cloud environments such as GCP is growing increasingly complex. As organizations expand their cloud infrastructure, tracking resources, ensuring compliance, and maintaining strong security measures become more challenging. The dynamic nature of cloud environments, with frequent changes and additions, complicates asset management further. Therefore, a comprehensive cloud asset inventory is essential. It offers a clear and organized view of all cloud resources, streamlining operations and mitigating potential risks.
+Managing assets in cloud environments such as GCP is growing increasingly complex. As organizations expand their cloud infrastructure, tracking resources, ensuring compliance, and maintaining strong security measures become more challenging. The dynamic nature of cloud environments, with frequent changes and additions, complicates asset management further. Therefore, a complete cloud asset inventory is essential. It offers a clear and organized view of all cloud resources, streamlining operations and mitigating potential risks.
 
 In this tutorial, you will build a cloud asset manager for GCP using [CloudQuery](https://www.cloudquery.io/). You'll connect to your GCP account, collect data on all your cloud assets, and store it in a PostgreSQL database for analysis and reporting. However, with CloudQuery, you can extract data from [ANY data source](https://www.cloudquery.io/hub/plugins/source) ([AWS](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs), [GCP](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs), [etc](https://www.cloudquery.io/hub/plugins/source).) and load it into [ANY data destination](https://www.cloudquery.io/hub/plugins/destination) ([Snowflake](https://www.cloudquery.io/hub/plugins/destination/cloudquery/snowflake/latest/docs), [BigQuery](https://www.cloudquery.io/hub/plugins/destination/cloudquery/bigquery/latest/docs), [Databricks](https://www.cloudquery.io/hub/plugins/destination/cloudquery/databricks/latest/docs), [DuckDB](https://www.cloudquery.io/hub/plugins/destination/cloudquery/duckdb/latest/docs), [ClickHouse](https://www.cloudquery.io/hub/plugins/destination/cloudquery/clickhouse/latest/docs), etc.).
 
@@ -34,9 +34,9 @@ Let's break down the tech stack and architecture of this project, and I'll expla
   - dbt is used to transform and model the data stored in PostgreSQL.
   - _Why_: With dbt, we can apply transformations directly within the data warehouse. This makes our data pipelines more efficient and maintainable, which is a huge win for keeping everything organized and running smoothly.
 
-While CloudQuery can run locally as a binary or in Docker, for convenience, we'll be running CloudQuery locally and the other services in Docker. This setup helps streamline the process and keeps the environment consistent. By these tools together, you're creating a powerful setup that can collect, store, transform, and visualize our cloud asset data efficiently and effectively.
+While CloudQuery can run locally as a binary or in Docker, for convenience, we'll be running CloudQuery locally and the other services in Docker. This setup simplifies the process and keeps the environment consistent. By these tools together, you're creating a powerful setup that can collect, store, transform, and visualize our cloud asset data efficiently and effectively.
 
-It's important to note that _you can re-use your current data and infrastructure stack of data warehouse and business intelligence (BI) tools when you use CloudQuery_. You can sync data from any data source and persist them into any database. We find that this flexibility helps you derive even more insights from your infrastructure data. As well as helping you reduce cloud costs, by allowing you to reuse the data tech stack that your data team is already familiar with.
+_You can re-use your current data and infrastructure stack of data warehouse and business intelligence (BI) tools when you use CloudQuery_. You can sync data from any data source and persist them into any database. We find that this flexibility helps you derive even more insights from your infrastructure data. As well as helping you reduce cloud costs, by allowing you to reuse the data tech stack that your data team is already familiar with.
 
 ### Prerequisites
 
@@ -156,7 +156,7 @@ SELECT * from GCP_storage_accounts where enable_https_traffic_only = false;
 
 ### How to Use dbt to Transform GCP Data into a Cloud Asset Inventory
 
-dbt (Data Build Tool) is used here to transform your raw GCP data into structured tables. These tables are then ready to be consumed by visualization tools for easier data interpretation and analysis. This process is fully customizable, allowing you to tailor the transformations to fit your specific GCP configuration and requirements.
+dbt (Data Build Tool) converts your raw GCP data into structured tables. These tables are then ready to be consumed by visualization tools for easier data interpretation and analysis. This process is fully customizable, allowing you to tailor the transformations to fit your specific GCP configuration and requirements.
 
 To simplify data transformations, CloudQuery provides several pre-built dbt projects, including cloud security and compliance frameworks like PCI_DSS, and Foundational Security Best Practices. But for this tutorial, you will be using our prebuilt [GCP Asset Inventory](https://www.cloudquery.io/hub/addons/transformation/cloudquery/gcp-asset-inventory/latest/docs) transformation. Here's how you set up your dbt Transformations:
 
@@ -225,7 +225,7 @@ In this tutorial, you walked through the process of building a cloud asset inven
 - **Storing Data in PostgreSQL**: You set up a PostgreSQL database to store the collected asset data, enabling efficient querying and analysis.
 - **Transforming Data with dbt**: You utilized dbt to apply data transformations, enhancing the quality and usability of your cloud asset inventory.
 
-By using CloudQuery, you can ensure that your asset inventory is comprehensive, adaptable, and integrated with your broader data strategy. This empowers your team to gain better insights and make informed decisions, ultimately driving more value from your cloud infrastructure.
+By using CloudQuery, you can ensure that your asset inventory is complete, adaptable, and integrated with your broader data strategy. This empowers your team to gain better insights and make informed decisions, driving more value from your cloud infrastructure.
 
 _Ready to dive deeper?_ Join the [CloudQuery Community](https://community.cloudquery.io) to connect with other users and experts. You can also try out CloudQuery locally with our [quick start guide](https://www.cloudquery.io/download) or [setup a call with our team](https://www.cloudquery.io/contact-us) to learn more about how CloudQuery can help you manage your cloud assets more effectively.
 

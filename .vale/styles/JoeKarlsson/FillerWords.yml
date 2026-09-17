@@ -1,0 +1,17 @@
+# Filler words that add weight but not meaning. write-good.Weasel catches 'very',
+# 'quite', and 'extremely' — this rule covers the rest from STYLE_GUIDE.md.
+extends: existence
+message: "Filler word: '%s'. Delete it."
+level: error
+ignorecase: true
+tokens:
+  - 'really'
+  - 'incredibly'
+  - 'absolutely'
+  - 'definitely'
+  - 'certainly'
+  - 'basically'
+  - 'essentially'
+  - 'fundamentally'
+  - 'literally'
+  - 'ultimately'

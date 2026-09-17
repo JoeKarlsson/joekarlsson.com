@@ -79,7 +79,7 @@ _By Richard W. Hamming_
 
 This talk was intended to instill a “style of thinking” that will enhance your ability to function as a problem solver of complex technical issues as an engineer.
 
-Most importantly though, Hamming provides a first-person perspective about the thought processes and reasoning that took place as Dr. Hamming, his associates, and other major thinkers, in computer science and electronics, progressed through the grand challenges of science and engineering in the twentieth century.
+Above all, Hamming provides a first-person perspective about the thought processes and reasoning that took place as Dr. Hamming, his associates, and other major thinkers, in computer science and electronics, progressed through the grand challenges of science and engineering in the twentieth century.
 
 [You and Your Research](https://www.youtube.com/watch?v=a1zDuOPkMSw)
 

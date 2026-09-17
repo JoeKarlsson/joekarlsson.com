@@ -21,7 +21,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 You've done the hard part. You stood up a [cloud asset inventory](https://www.cloudquery.io/product/cloud-asset-inventory), wrote [security policies in SQL](https://www.cloudquery.io/product/policies), started [automating](https://www.cloudquery.io/product/automation) the tedious stuff, and got your 90-day roadmap moving. Your team can feel the difference. Investigations that used to take an hour now take minutes. Compliance prep went from a four-week scramble to a two-day export.
 
-Here's the thing: your VP doesn't feel any of that. Your CxO definitely doesn't.
+Here's the thing: your VP doesn't feel any of that. Your CxO doesn't.
 
 If you can't put numbers in front of leadership, your cloud operations program looks like a cost center rather than a strategic investment. And cost centers get cut when budgets tighten. The metrics framework in this post gives you the language to communicate what you've built, why it matters, and where you're headed next.
 

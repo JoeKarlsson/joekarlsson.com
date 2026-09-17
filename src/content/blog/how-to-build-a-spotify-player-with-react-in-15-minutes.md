@@ -352,6 +352,6 @@ And that’s it!
 
 ![You did it!](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/spotify-final-result.gif)_You did it!_
 
-If you have any questions or comments, feel free to reach out or [open an issue in the repo](https://github.com/JoeKarlsson/react-spotify-player/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
+For questions or comments, [open an issue in the repo](https://github.com/JoeKarlsson/react-spotify-player/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
 
 > You can find the source code for this tutorial here: [JoeKarlsson/react-spotify-player on GitHub](https://github.com/JoeKarlsson/react-spotify-player)

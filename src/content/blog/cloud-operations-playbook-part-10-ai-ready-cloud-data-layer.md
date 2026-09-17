@@ -31,7 +31,7 @@ The AI isn't the bottleneck. The data is.
 
 We covered the fragmentation problem back in [Part 1](https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap). Cost data in CloudHealth. Security findings in Wiz. Configuration state in Terraform Cloud. Compliance evidence scattered across spreadsheets. That fragmentation is annoying for humans. For AI, it's fatal.
 
-Consider what happens when you ask an AI system to answer a cross-domain question: "Which of our high-cost production resources have security vulnerabilities?" That question requires cost data, resource tagging, environment classification, and security scan results. If those live in four different systems with four different data models, no AI can answer it. Not because the AI isn't smart enough, but because it literally doesn't have the data.
+Consider what happens when you ask an AI system to answer a cross-domain question: "Which of our high-cost production resources have security vulnerabilities?" That question requires cost data, resource tagging, environment classification, and security scan results. If those live in four different systems with four different data models, no AI can answer it. Not because the AI isn't smart enough, but because it doesn't have the data.
 
 An AI that only sees cost data will optimize for cost but might recommend downsizing a resource that's running a critical security tool. An AI that only sees security findings can tell you a resource is misconfigured but can't assess whether fixing it will break a revenue-generating service. An AI that only sees one cloud provider can't detect that your team just provisioned duplicate infrastructure in a second provider.
 
@@ -131,7 +131,7 @@ If you're thinking about applying AI to cloud operations, don't start with the A
 
 The remaining steps, from metadata enrichment through monitoring and prediction, follow a specific sequence that depends on your environment and maturity level. The eBook includes the full implementation roadmap with a step-by-step checklist for each phase.
 
-The organizations getting real value from AI in [cloud operations](https://www.cloudquery.io/product/cloud-ops) aren't the ones with the fanciest AI tools. They're the ones with the cleanest, most comprehensive data. The AI part is getting easier every month. The data part is the hard work that pays compounding returns.
+The organizations getting real value from AI in [cloud operations](https://www.cloudquery.io/product/cloud-ops) aren't the ones with the fanciest AI tools. They're the ones with the cleanest, most complete data. The AI part is getting easier every month. The data part is the hard work that pays compounding returns.
 
 ## Key Takeaways
 

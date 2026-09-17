@@ -14,9 +14,9 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 > **TL;DR:**
 > CloudQuery achieved 163,489 rows/sec and 841.9 GB/hour data throughput on an 11-core MacBook - 68% faster than Fivetran's enterprise infrastructure benchmarks. Our Go-based architecture with Apache Arrow integration delivers multi-cloud extraction at 42 resources/sec across AWS, GCP, and Azure simultaneously, using just 47% CPU and 75MB memory. The complete benchmark methodology is [open-source](http://github.com/cloudquery/benchmark) and reproducible on any hardware, from laptops to enterprise clusters.
 
-We ran comprehensive performance benchmarks to test CloudQuery's data synchronization capabilities against industry leaders - and the results exceeded our expectations. This post breaks down our methodology, presents the complete performance data, and explains the architectural choices that enable CloudQuery to outperform managed ETL tools on standard hardware.
+We ran thorough performance benchmarks to test CloudQuery's data synchronization capabilities against industry leaders - and the results exceeded our expectations. This post breaks down our methodology, presents the complete performance data, and explains the architectural choices that enable CloudQuery to outperform managed ETL tools on standard hardware.
 
-We think that the real story here isn't just the data movement speeds - it's that we achieved superior throughput on small, affordable hardware compared to enterprise infrastructure. CloudQuery delivers best-in-class performance whether you're running dev pipelines locally on your MacBook, managing enterprise Kubernetes clusters in the cloud, or deploying on your hardware at any scale.
+We think that the real story here isn't just the data movement speeds - it's that we achieved superior throughput on small, affordable hardware compared to enterprise infrastructure. CloudQuery delivers the same performance whether you're running dev pipelines locally on your MacBook, managing enterprise Kubernetes clusters in the cloud, or deploying on your hardware at any scale.
 
 Here's how the numbers break down: We pushed 163,489 rows per second through our data pipeline while processing 841.9 GB/hour on an 11-core MacBook. For comparison, [Fivetran's latest published benchmarks](https://www.fivetran.com/benchmarking) show 500+ GB/hour throughput at roughly 105,000-117,000 rows/sec on enterprise GCP infrastructure with 16 cores and 128GB RAM - that's 68% higher throughput on hardware you probably have sitting on your desk.
 
@@ -40,7 +40,7 @@ Our benchmark follows rigorous testing principles with complete transparency. Th
 
 These benchmarks were executed on a MacBook Pro with an M3 processor and 36GB of RAM, running macOS Sequoia. This consumer-grade hardware provides a consistent baseline for performance measurement and represents typical development environments.
 
-Our benchmark framework implements comprehensive performance monitoring with process-specific resource tracking. Rather than measuring system-wide metrics, we monitor CloudQuery's specific CPU and memory utilization during execution. This approach isolates CloudQuery's performance characteristics from background system processes.
+Our benchmark framework implements detailed performance monitoring with process-specific resource tracking. Rather than measuring system-wide metrics, we monitor CloudQuery's specific CPU and memory utilization during execution. This approach isolates CloudQuery's performance characteristics from background system processes.
 
 The framework supports:
 
@@ -49,7 +49,7 @@ The framework supports:
 **Concurrent execution**: Configurable worker pools for parallel source processing
 **Resource monitoring**: Process-specific CPU and memory tracking with 100ms sampling intervals
 **Dual throughput metrics**: Both rows/second and MB/second (GB/hour) measurement
-**Comprehensive reporting**: CSV and Markdown output with detailed system specifications
+**Detailed reporting**: CSV and Markdown output with detailed system specifications
 
 #### Performance Measurement Methodology
 

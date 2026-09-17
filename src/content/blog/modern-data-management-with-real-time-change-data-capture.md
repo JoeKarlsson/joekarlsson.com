@@ -97,7 +97,7 @@ ETL is a batch-oriented process that involves extracting bulk data from one or m
 
 - **Data transformation**: By design, change data capture doesn’t modify change operations, favoring precise replication that ensures upstream and downstream systems match. While this is often desirable, there are scenarios where an ETL process may be preferred, especially when downstream systems require a different data schema or format. ETL allows you to perform data cleansing, aggregation, and other data transformations during the process, ensuring the data is in the desired format for analysis or reporting.
 
-- **Independence from database logs**: ETL doesn’t rely on database logs, making it more portable and independent of specific database implementations. CDC tools must rely on source and sink connectors to move data between systems, whereas ETL workflows can often utilize SQL and orchestrators, making them more flexible.
+- **Independence from database logs**: ETL doesn’t rely on database logs, making it more portable and independent of specific database implementations. CDC tools must rely on source and sink connectors to move data between systems, whereas ETL workflows can often use SQL and orchestrators, making them more flexible.
 
 ### Disadvantages of ETL vs CDC
 

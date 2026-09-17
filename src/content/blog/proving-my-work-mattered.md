@@ -64,7 +64,7 @@ The technical skill here is easy. Deciding what to measure and noticing when you
 
 ## The actual advice
 
-If you're a developer marketer, DevRel person, or content creator who can't answer whether your work drives business results, here's what I'd suggest:
+If you're a developer marketer, DevRel person, or content creator who can't answer whether your work drives business results, this is what I'd suggest:
 
 1. Figure out the one question you can't currently answer about downstream impact
 2. Find out which team owns that data
@@ -72,6 +72,6 @@ If you're a developer marketer, DevRel person, or content creator who can't answ
 4. Ask whether your company already has a connectivity layer that might make this trivial
 5. Use an AI agent to build the report if you don't want to learn the query language
 
-The decision about what to measure - and the integrity to notice when your measurements are flattering you - stays yours. But the technical barrier to getting the data is almost certainly lower than you think.
+The decision about what to measure - and the integrity to notice when your measurements are flattering you - stays yours. But the technical barrier to getting the data is lower than you think.
 
 I spent two years not asking. Don't do that.

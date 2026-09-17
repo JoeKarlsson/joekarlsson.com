@@ -77,7 +77,7 @@ ORDER BY
 
 ### Compliance: Stopping Cloud Resources from Wandering into the Wrong Regions
 
-Ever had that moment when you realized someone spun up an EC2 instance in a region you _definitely_ don't operate in? Maybe it was an intern? Either way, **running resources in unauthorized regions** is a compliance and security nightmare.
+Ever had that moment when you realized someone spun up an EC2 instance in a region you _don't_ operate in? Maybe it was an intern? Either way, **running resources in unauthorized regions** is a compliance and security nightmare.
 
 This query helps you track down any rogue resources before they become a problem:
 

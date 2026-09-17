@@ -32,7 +32,7 @@ Do you feel like you have struggled to find your place in the tech industry? Do 
   - In fact, if my CS Profs knew I was here talking to you all to give an inspiring speech about tech, they would
 - Before we get started, let's go over how this is going to work:
   - All resources, video, slides, and a transcription of this talk can be found here:
-  - Feel free to ask any questions in the chat. I'll answer questions at the end too.
+  - Ask any questions in the chat. I'll answer questions at the end too.
   - Thank YOU
 - Let's get the obvious out of the way – yes, I am another White Dude in tech mansplaining about his career journey.
   - I want to acknowledge that I do in fact have a lot of privilege in this industry as a CIS White Man and you may not have the same experience that I have had or will continue to have.

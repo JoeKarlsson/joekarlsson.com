@@ -203,6 +203,6 @@ Alright, let’s recap everything learned. If you want to make your React applic
 - Analyze your Webpack bundle
 - Make it work, then make it fast
 
-There you have it, I hope these are some practical and easy-to-implement things you can do to start making your React apps faster. If you want to see these ideas in action, check out my tutorial on [how to build a Spotify player with React in 15 minutes](/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/). If I missed anything, feel free to reach out.
+There you have it, I hope these are some practical and easy-to-implement things you can do to start making your React apps faster. If you want to see these ideas in action, check out my tutorial on [how to build a Spotify player with React in 15 minutes](/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/). If I missed anything, contact me.
 
 ![Thanks for reading!](/images/blog/building-high-performance-react-applications/H1l9k2ruGjHDxqmoHgaD1Q.gif)_Thanks for reading!_
