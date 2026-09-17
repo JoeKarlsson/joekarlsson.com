@@ -5,3 +5,4 @@ node_modules/
 public/
 package-lock.json
 .claude/
+.vale/styles/.vale-config/
