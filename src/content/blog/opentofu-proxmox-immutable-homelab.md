@@ -33,8 +33,6 @@ howToSteps:
     text: 'Set the Proxmox protection flag on managed containers. Document that changes must go through provision scripts, not direct SSH. The rule is: read the container however you want, but write changes in code.'
 ---
 
-> **TL;DR**: Built 86 health check scripts to audit my Proxmox homelab. Discovered it was more broken than I thought. Migrated 62 containers to OpenTofu with a self-hosted MinIO state backend over six intensive days. That is 21,135 lines of provision script code and 50 git commits that now represent my entire infrastructure history. Whether this is worth it depends on a few honest questions I'll get to near the end.
-
 I was writing a health check script for one of my Proxmox containers - a service I'd been running for roughly two years, mostly without thinking about it. The check was simple: ping the API endpoint, verify the response, exit 0 if healthy.
 
 It returned 1. Service unreachable.

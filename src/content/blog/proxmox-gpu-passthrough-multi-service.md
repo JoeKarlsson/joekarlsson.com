@@ -19,8 +19,6 @@ faq:
     answer: 'LXC device binding works on PVE 7+ with cgroup v2 enabled. My setup runs PVE 9.1.1 (Debian 13 Trixie) with kernel 6.17.2-1-pve and NVIDIA driver 580.95.05. The cgroup2 device allowlist syntax (lxc.cgroup2.devices.allow) replaced the older cgroup v1 syntax in PVE 7.'
 ---
 
-> **TL;DR**: Two-node Proxmox cluster, two NVIDIA GPUs, seven GPU-accelerated services. The 8GB card runs Frigate, Whisper STT, and a Tdarr node. The 16GB card runs Plex, Ollama, Immich, and Tdarr server. LXC device binding - not full VM passthrough, not enterprise vGPU. Here's the actual config and the reasoning behind the workload split.
-
 ---
 
 The moment things got complicated: I was watching Frigate's object detection logs and noticed the detection latency had jumped from the usual 30ms to over 2 seconds. Plex was transcoding something for my partner at the same time. Both were fighting for GPU memory on the same card - and Frigate was losing.

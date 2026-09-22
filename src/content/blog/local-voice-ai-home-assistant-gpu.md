@@ -9,8 +9,6 @@ heroAlt: 'Home Assistant local voice pipeline architecture showing Whisper GPU, 
 tldr: "I replaced all cloud AI in Home Assistant's voice pipeline with a fully local stack: GPU-accelerated faster-whisper for speech-to-text, Piper TTS, and Ollama running llama3.2:3b as the conversation agent. Zero audio leaves my network. The path to a working setup involved a qwen3 experiment that ended with the LLM narrating its own thought process for five minutes straight, a system prompt explicitly forbidding voice commands from killing my server rack, and a three-tier fallback chain I am genuinely glad I built."
 ---
 
-> **TL;DR**: Local voice pipeline in Home Assistant using GPU-accelerated faster-whisper (STT), Piper (TTS), and Ollama with llama3.2:3b (conversation). Zero cloud. Works. Getting there involved a qwen3 think-mode disaster, a system prompt that protects my server from my own voice commands, and a lot of tuning. Here's what production looks like.
-
 ---
 
 The honest reason I started this: Amazon. Specifically, the moment I actually read what Amazon's voice data policies let them do - and realized I had no real way to opt out. Every command to Alexa - lights, calendar, weather, whatever - was going to their servers, processed there, retained under terms I couldn't meaningfully negotiate. I'd been fine with that tradeoff for years without thinking hard about it. Then Amazon [removed the "Do Not Send Voice Recordings" option entirely](https://www.malwarebytes.com/blog/news/2025/03/amazon-disables-option-to-store-echo-voice-recordings-on-your-device), effective March 28, 2025. That was the end of it for me.

@@ -22,8 +22,6 @@ faq:
     answer: "Teams that adopted AI code assistants saw throughput increase. But delivery stability was determined by teams' existing feedback infrastructure - testing, observability, deployment practices. AI made it easier to produce clay. Whether teams ran it through the kiln was the variable that mattered."
 ---
 
-> **TL;DR:** Quantity beats quality as a learning strategy - not because volume matters, but because each completed artifact generates feedback the next one benefits from. Elite teams ship most frequently AND have the lowest failure rates. Quantity without feedback infrastructure just builds debt.
-
 Ship the ugly pot. Ship it before it's ready, before it's good, before you're proud of it. The path to good work runs directly through a pile of bad work - not around it, not after some undetermined future point when you've "figured it out." Through it.
 
 Here's the experiment that convinced me quantity beats quality - and why that's almost the opposite of what it sounds like.
