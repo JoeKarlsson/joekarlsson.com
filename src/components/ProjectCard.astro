@@ -8,7 +8,12 @@ interface Props {
 
 const { project } = Astro.props;
 const meta = CATEGORY_META[project.category];
-const primaryUrl = project.sourceUrl || project.blogUrl || project.demoUrl || '#';
+const primaryUrl =
+	(project.page && `/work/${project.page.slug}/`) ||
+	project.sourceUrl ||
+	project.blogUrl ||
+	project.demoUrl ||
+	'#';
 const isExternal = primaryUrl.startsWith('http');
 ---
 
@@ -20,6 +25,7 @@ const isExternal = primaryUrl.startsWith('http');
 		target={isExternal ? '_blank' : undefined}
 		rel={isExternal ? 'noopener noreferrer' : undefined}
 		class="plausible-event-name=Project+Click block no-underline"
+		data-hover-target
 	>
 		{
 			project.video ? (
@@ -117,25 +123,5 @@ const isExternal = primaryUrl.startsWith('http');
 </div>
 
 <script>
-	// Hover or keyboard focus plays the clip; leaving pauses and rewinds it.
-	// No autoplay: an unstoppable loop over five seconds fails WCAG 2.2.2.
-	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-	if (!reducedMotion) {
-		document.querySelectorAll<HTMLVideoElement>('video[data-hover-play]').forEach((video) => {
-			const card = video.closest('a');
-			if (!card) return;
-
-			const play = () => void video.play().catch(() => {});
-			const stop = () => {
-				video.pause();
-				video.currentTime = 0;
-			};
-
-			card.addEventListener('mouseenter', play);
-			card.addEventListener('focus', play);
-			card.addEventListener('mouseleave', stop);
-			card.addEventListener('blur', stop);
-		});
-	}
+	import '../scripts/hover-play';
 </script>

@@ -193,6 +193,7 @@ describe('critical pages exist', () => {
 		'blog/index.html',
 		'about/index.html',
 		'work/index.html',
+		'work/adult-swim-bumper/index.html',
 		'uses/index.html',
 		'contact/index.html',
 		'talk-archive/index.html',

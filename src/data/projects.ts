@@ -1,3 +1,21 @@
+export interface ProjectClip {
+	video: string;
+	poster: string;
+	alt: string;
+}
+
+// Giving a project a `page` builds /work/{slug}/ and points its card there.
+// Text fields render `backticks` as inline code; everything else is plain text.
+export interface ProjectPage {
+	slug: string;
+	tagline: string;
+	intro: string[];
+	steps?: { title: string; text: string }[];
+	install?: string;
+	example?: { lang: 'yaml' | 'json' | 'toml' | 'bash' | 'python'; code: string };
+	gallery?: ProjectClip[];
+}
+
 export interface Project {
 	title: string;
 	description: string;
@@ -12,7 +30,16 @@ export interface Project {
 	blogUrl?: string;
 	stars?: number;
 	featured?: boolean;
+	page?: ProjectPage;
 }
+
+const BUMPER_DIR = '/images/blog/adult-swim-bumpers-plex-pre-rolls';
+
+const bumperClip = (name: string, alt: string): ProjectClip => ({
+	video: `${BUMPER_DIR}/${name}.mp4`,
+	poster: `${BUMPER_DIR}/${name}-poster.webp`,
+	alt,
+});
 
 export const CATEGORY_META: Record<
 	Project['category'],
@@ -245,6 +272,68 @@ export const projects: Project[] = [
 		tech: ['Python', 'ffmpeg', 'Plex', 'NeXroll', 'CLI', 'YAML'],
 		sourceUrl: 'https://github.com/JoeKarlsson/adult-swim-bumper',
 		blogUrl: '/blog/adult-swim-bumpers-plex-pre-rolls/',
+		page: {
+			slug: 'adult-swim-bumper',
+			tagline: 'Adult Swim-style bumpers for your Plex server.',
+			intro: [
+				'A small Python CLI that turns a few lines of YAML into ten-second bumpers: plain white text over a background clip, some music underneath, and your server name in brackets at the end. Exactly like the ones I stayed up way too late watching on Adult Swim.',
+				'I built it for Joeflix, the Plex server I run for friends and family. 121 of these play in rotation before movies now, and people who join the server bring them up all the time.',
+			],
+			steps: [
+				{
+					title: 'Write the jokes',
+					text: 'Each bumper in `bumpers.yaml` gets a name, two to four text cards, a background clip, and a music track.',
+				},
+				{
+					title: 'Render',
+					text: '`bumper render` builds an MP4 for every new bumper with ffmpeg and adds `[yourserver]` as the last card.',
+				},
+				{
+					title: 'Play them before movies',
+					text: 'Drop the output folder into NeXroll, or any pre-roll manager, and it shuffles them before every movie.',
+				},
+			],
+			install:
+				'pipx install git+https://github.com/joekarlsson/adult-swim-bumper.git\nbumper init\nbumper render',
+			example: {
+				lang: 'yaml',
+				code: "- name: hotdish\n  cards:\n    - 'a hotdish'\n    - 'is just a casserole'\n    - 'made with more intention.'\n  video: videos/hotdish.mp4\n  music: music/ambient-01.mp3",
+			},
+			gallery: [
+				bumperClip(
+					'hotdish',
+					'Close-up of a bubbling hotdish while white text cards read "a hotdish" then "is just a casserole" then "made with more intention." and finally "[joeflix]"',
+				),
+				bumperClip(
+					'st-paul',
+					'An aerial view of downtown St. Paul while white text cards read "St. Paul" then "has always let Minneapolis" then "have the attention." then "we don\'t mind." and finally "[joeflix]"',
+				),
+				bumperClip(
+					'cold-in-minnesota',
+					'Snowy Minnesota fields under a blue sky while white text cards read "when it gets very cold in Minnesota," then "everyone slows down" then "at the same time." then "there is something to that." and finally "[joeflix]"',
+				),
+				bumperClip(
+					'bigger-hard-drive',
+					'A lake covered in fallen autumn leaves while white text cards read "joe bought a bigger hard drive." then "for you." then "he didn\'t tell you." and finally "[joeflix]"',
+				),
+				bumperClip(
+					'storage-94-percent',
+					'A plain black screen with white text cards reading "storage is 94% full." then "everything is fine." and finally "[joeflix]"',
+				),
+				bumperClip(
+					'twenty-two-dollars',
+					'A plain black screen with white text cards reading "somewhere, someone is paying $22 a month." then "not you." then "enjoy." and finally "[joeflix]"',
+				),
+				bumperClip(
+					'dear-joeflix-buffering',
+					'A plain black screen with white text cards reading "dear joeflix, why is it buffering?" then "it isn\'t. i just checked." and finally "[joeflix]"',
+				),
+				bumperClip(
+					'server-has-seen-things',
+					'A plain black screen with white text cards reading "This server has seen things." then "Mostly Nicolas Cage." then "And regret." and finally "[joeflix]"',
+				),
+			],
+		},
 	},
 	{
 		title: 'Streamroll',
