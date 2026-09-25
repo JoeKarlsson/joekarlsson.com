@@ -12,6 +12,8 @@ interface Props {
 	date: Date;
 	updatedDate?: Date;
 	heroImage?: string;
+	heroAlt?: string;
+	heroVideo?: string;
 	tags?: string[];
 	categories?: string[];
 	slug: string;
@@ -31,6 +33,8 @@ const {
 	date,
 	updatedDate,
 	heroImage,
+	heroAlt,
+	heroVideo,
 	categories,
 	slug,
 	contentNotice,
@@ -197,16 +201,35 @@ const relatedPosts = publishedPosts
 					<span class="text-gray-400">{title}</span>
 				</nav>
 
+				{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video */}
 				{
-					heroImage && (
-						<img
-							src={heroImage}
-							alt={title}
+					heroVideo ? (
+						<video
+							src={heroVideo}
+							poster={heroImage}
+							autoplay
+							loop
+							muted
+							playsinline
+							controls
+							preload="metadata"
+							role="img"
+							aria-label={heroAlt || title}
 							class="mb-8 w-full max-h-[400px] rounded-lg object-cover"
 							width="768"
 							height="400"
-							loading="eager"
 						/>
+					) : (
+						heroImage && (
+							<img
+								src={heroImage}
+								alt={title}
+								class="mb-8 w-full max-h-[400px] rounded-lg object-cover"
+								width="768"
+								height="400"
+								loading="eager"
+							/>
+						)
 					)
 				}
 				{

@@ -21,12 +21,29 @@ const isExternal = primaryUrl.startsWith('http');
 		rel={isExternal ? 'noopener noreferrer' : undefined}
 		class="plausible-event-name=Project+Click block no-underline"
 	>
-		<img
-			src={project.image}
-			alt={project.imageAlt}
-			class="h-44 w-full rounded-md object-cover transition-transform duration-300 group-hover:scale-105"
-			loading="lazy"
-		/>
+		{
+			project.video ? (
+				<video
+					src={project.video}
+					poster={project.image}
+					loop
+					muted
+					playsinline
+					preload="none"
+					role="img"
+					aria-label={project.imageAlt}
+					data-hover-play
+					class="h-44 w-full rounded-md object-cover transition-transform duration-300 group-hover:scale-105"
+				/>
+			) : (
+				<img
+					src={project.image}
+					alt={project.imageAlt}
+					class="h-44 w-full rounded-md object-cover transition-transform duration-300 group-hover:scale-105"
+					loading="lazy"
+				/>
+			)
+		}
 		<div class="p-4">
 			<div class="mb-1 flex items-center justify-between">
 				<h3 class={`font-semibold text-white ${meta.hoverColor}`}>{project.title}</h3>
@@ -98,3 +115,27 @@ const isExternal = primaryUrl.startsWith('http');
 		)
 	}
 </div>
+
+<script>
+	// Hover or keyboard focus plays the clip; leaving pauses and rewinds it.
+	// No autoplay: an unstoppable loop over five seconds fails WCAG 2.2.2.
+	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	if (!reducedMotion) {
+		document.querySelectorAll<HTMLVideoElement>('video[data-hover-play]').forEach((video) => {
+			const card = video.closest('a');
+			if (!card) return;
+
+			const play = () => void video.play().catch(() => {});
+			const stop = () => {
+				video.pause();
+				video.currentTime = 0;
+			};
+
+			card.addEventListener('mouseenter', play);
+			card.addEventListener('focus', play);
+			card.addEventListener('mouseleave', stop);
+			card.addEventListener('blur', stop);
+		});
+	}
+</script>

@@ -13,6 +13,9 @@ const blog = defineCollection({
 		tags: z.array(z.string()).optional().default([]),
 		heroImage: z.string().optional(),
 		heroAlt: z.string().optional(),
+		// Looping MP4 shown in place of heroImage on the post page. heroImage is
+		// still required as its poster and for og:image and blog cards.
+		heroVideo: z.string().optional(),
 		updatedDate: z.coerce.date().optional(),
 		canonicalUrl: z.url().optional(),
 		contentNotice: z.union([z.string(), z.boolean()]).optional(),

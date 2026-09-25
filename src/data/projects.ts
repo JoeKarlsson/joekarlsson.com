@@ -3,6 +3,8 @@ export interface Project {
 	description: string;
 	image: string;
 	imageAlt: string;
+	// Plays over `image` (its poster) while the card is hovered or focused
+	video?: string;
 	category: 'iot' | 'web' | 'art' | 'dev-tools' | 'homelab';
 	tech: string[];
 	sourceUrl?: string;
@@ -235,11 +237,14 @@ export const projects: Project[] = [
 		title: 'Adult Swim Bumper',
 		description:
 			'A CLI tool for generating [adult swim]-style pre-roll bumpers for your personal media server. Define bumpers in YAML, drop in background video clips and music, and render MP4s ready to load into Tunarr. White text cards, fading audio, your server name in brackets at the end - the whole bit.',
-		image: '/images/projects/adult-swim-bumper-v2.webp',
-		imageAlt: 'City at night with [adult swim bumper] text overlay',
+		image: '/images/blog/adult-swim-bumpers-plex-pre-rolls/hero.webp',
+		video: '/images/blog/adult-swim-bumpers-plex-pre-rolls/hero.mp4',
+		imageAlt:
+			'A jellyfish drifting in dark blue water with white text reading "no idea what you should watch."',
 		category: 'homelab',
-		tech: ['Python', 'ffmpeg', 'Tunarr', 'CLI', 'YAML'],
+		tech: ['Python', 'ffmpeg', 'Plex', 'NeXroll', 'CLI', 'YAML'],
 		sourceUrl: 'https://github.com/JoeKarlsson/adult-swim-bumper',
+		blogUrl: '/blog/adult-swim-bumpers-plex-pre-rolls/',
 	},
 	{
 		title: 'Streamroll',
