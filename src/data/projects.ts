@@ -1,7 +1,10 @@
+// A gallery item: a hover-to-play clip when `video` is set, otherwise just the
+// `poster` as a still image.
 export interface ProjectClip {
-	video: string;
+	video?: string;
 	poster: string;
 	alt: string;
+	caption?: string;
 }
 
 // Giving a project a `page` builds /work/{slug}/ and points its card there.
@@ -12,8 +15,14 @@ export interface ProjectPage {
 	intro: string[];
 	steps?: { title: string; text: string }[];
 	install?: string;
-	example?: { lang: 'yaml' | 'json' | 'toml' | 'bash' | 'python'; code: string };
+	example?: {
+		lang: 'yaml' | 'json' | 'toml' | 'bash' | 'python' | 'markdown';
+		code: string;
+		intro?: string;
+	};
 	gallery?: ProjectClip[];
+	galleryTitle?: string;
+	galleryNote?: string;
 }
 
 export interface Project {
@@ -194,6 +203,64 @@ export const projects: Project[] = [
 
 	// Developer Tools & Education
 	{
+		title: 'FollowSpot',
+		description:
+			"A voice-following teleprompter that runs in the browser and listens with a local whisper.cpp model. Read your script out loud and the highlight follows you, through flubs, skips, and ad-libs. You pick the model, the audio never leaves your machine, and the column centers over the camera lens so nobody can see your eyes reading. I built it because I can't memorize lines.",
+		image: '/images/blog/followspot-local-whisper-teleprompter/hero.webp',
+		video: '/images/blog/followspot-local-whisper-teleprompter/demo.mp4',
+		imageAlt:
+			'FollowSpot highlighting the current word of a bread recipe script as it scrolls, with dimmed words already read',
+		category: 'dev-tools',
+		tech: ['JavaScript', 'whisper.cpp', 'Whisper', 'Web Audio', 'Bash'],
+		sourceUrl: 'https://github.com/JoeKarlsson/followspot',
+		blogUrl: '/blog/followspot-local-whisper-teleprompter/',
+		page: {
+			slug: 'followspot',
+			tagline: 'A teleprompter that listens, running Whisper on your own machine.',
+			intro: [
+				'Read your script out loud and the highlight follows you. Skip a sentence, flub a word, or ad-lib a little and it keeps going. Stop talking and it stops too.',
+				"The listening is a whisper.cpp model you choose, served on `127.0.0.1`, so your audio never leaves your laptop. I built it because I have the energy of a theater kid and can't memorize lines, and the prompter apps I had didn't let me pick the model or set up the screen the way I wanted.",
+			],
+			steps: [
+				{
+					title: 'Listen',
+					text: 'Every quarter second, while you are talking, the page sends the last 3.5 seconds of audio to a local `whisper-server`.',
+				},
+				{
+					title: 'Match',
+					text: "The transcript gets fuzzy-matched against the script around your place, so misheard words and ad-libs don't lose it.",
+				},
+				{
+					title: 'Follow',
+					text: 'The highlight moves and the page scrolls to keep your line at lens height. Click any word to jump there for a retake.',
+				},
+			],
+			install:
+				'brew install whisper-cpp\ngit clone https://github.com/JoeKarlsson/followspot.git && cd followspot\n./followspot download small.en\n./followspot download vad\n./followspot your-script.md',
+			example: {
+				lang: 'markdown',
+				intro:
+					'Scripts are plain Markdown. Stage directions are shown dimmed and never listened for:',
+				code: "# Episode 12 notes (ignored)\n\n---\n\n*[Wide shot. Lights up.]*\n\nHey, welcome back. Today I'm going to show you something I built\nbecause I can't memorize lines.\n\n---\n\nShot list down here is ignored too.",
+			},
+			galleryTitle: 'ls screenshots/',
+			galleryNote:
+				'A wide column makes your eyes sweep on every line. A narrow one centered on the lens hides it.',
+			gallery: [
+				{
+					poster: '/images/blog/followspot-local-whisper-teleprompter/column-wide.webp',
+					alt: 'FollowSpot with a wide text column stretching most of the way across the screen',
+					caption: 'Default: wide column',
+				},
+				{
+					poster: '/images/blog/followspot-local-whisper-teleprompter/column-narrow.webp',
+					alt: 'FollowSpot with a narrow text column centered on screen, three or four words per line',
+					caption: 'How I run it: 30% column over the lens',
+				},
+			],
+		},
+	},
+	{
 		title: 'Secure AI Data Pipelines Demo',
 		description:
 			'A full-stack open source demo showing how to build AI-powered cloud security analysis across AWS, GCP, and Azure. Ingests multi-cloud data via CloudQuery, sanitizes PII with differential privacy, and uses GPT-4 to detect cross-cloud attack paths and generate Terraform remediation steps. Includes a React dashboard and a companion YouTube walkthrough.',
@@ -297,8 +364,11 @@ export const projects: Project[] = [
 				'pipx install git+https://github.com/joekarlsson/adult-swim-bumper.git\nbumper init\nbumper render',
 			example: {
 				lang: 'yaml',
+				intro: 'A bumper is just a few lines of YAML:',
 				code: "- name: hotdish\n  cards:\n    - 'a hotdish'\n    - 'is just a casserole'\n    - 'made with more intention.'\n  video: videos/hotdish.mp4\n  music: music/ambient-01.mp3",
 			},
+			galleryTitle: 'ls output/',
+			galleryNote: 'A few from Joeflix. Hover to play, or use the controls.',
 			gallery: [
 				bumperClip(
 					'hotdish',

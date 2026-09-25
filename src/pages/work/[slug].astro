@@ -69,7 +69,7 @@ const inline = (text: string) =>
 					preload="metadata"
 					role="img"
 					aria-label={project.imageAlt}
-					class="mb-6 aspect-video w-full rounded-lg bg-black object-cover"
+					class="mb-6 aspect-video w-full rounded-lg bg-black object-contain"
 				/>
 			) : (
 				<img
@@ -156,7 +156,7 @@ const inline = (text: string) =>
 					{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
 					{page.example && (
 						<>
-							<p>A bumper is just a few lines of YAML:</p>
+							{page.example.intro && <p set:html={inline(page.example.intro)} />}
 							<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
 						</>
 					)}
@@ -171,26 +171,42 @@ const inline = (text: string) =>
 						<span class="font-mono text-sm text-coral" aria-hidden="true">
 							~$
 						</span>{' '}
-						ls output/
+						{page.galleryTitle ?? 'gallery'}
 					</h2>
-					<p class="mb-4 text-sm text-gray-400">
-						A few from Joeflix. Hover to play, or use the controls.
-					</p>
+					{page.galleryNote && (
+						<p class="mb-4 text-sm text-gray-400" set:html={inline(page.galleryNote)} />
+					)}
 					<div class="grid gap-4 sm:grid-cols-2">
 						{page.gallery.map((clip) => (
-							<video
-								src={clip.video}
-								poster={clip.poster}
-								loop
-								muted
-								playsinline
-								controls
-								preload="none"
-								role="img"
-								aria-label={clip.alt}
-								data-hover-play
-								class="aspect-video w-full rounded-lg bg-black object-cover"
-							/>
+							<figure class="m-0">
+								{clip.video ? (
+									<video
+										src={clip.video}
+										poster={clip.poster}
+										loop
+										muted
+										playsinline
+										controls
+										preload="none"
+										role="img"
+										aria-label={clip.alt}
+										data-hover-play
+										class="aspect-video w-full rounded-lg bg-black object-cover"
+									/>
+								) : (
+									<img
+										src={clip.poster}
+										alt={clip.alt}
+										loading="lazy"
+										class="aspect-video w-full rounded-lg bg-black object-cover"
+									/>
+								)}
+								{clip.caption && (
+									<figcaption class="mt-2 font-mono text-xs text-gray-400">
+										{clip.caption}
+									</figcaption>
+								)}
+							</figure>
 						))}
 					</div>
 				</section>

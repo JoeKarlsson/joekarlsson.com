@@ -194,6 +194,7 @@ describe('critical pages exist', () => {
 		'about/index.html',
 		'work/index.html',
 		'work/adult-swim-bumper/index.html',
+		'work/followspot/index.html',
 		'uses/index.html',
 		'contact/index.html',
 		'talk-archive/index.html',
