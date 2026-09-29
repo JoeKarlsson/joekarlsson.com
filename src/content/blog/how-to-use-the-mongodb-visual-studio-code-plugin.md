@@ -345,7 +345,7 @@ If you are a Visual Studio Code user, getting started with MongoDB for Visual St
 
 You can find more information about MongoDB for Visual Studio Code and all its features in [the documentation](http://dochub.mongodb.org/core/vsce-landing).
 
-> If you have any questions on MongoDB for Visual Studio Code, you can join in the discussion at the [MongoDB Community Forums](https://developer.mongodb.com/community/forums/), and you can share feature requests using the MongoDB Feedback Engine.
+> If you have any questions on MongoDB for Visual Studio Code, you can join in the discussion at the [MongoDB Community Forums](https://www.mongodb.com/community/forums/), and you can share feature requests using the MongoDB Feedback Engine.
 
 > When you’re ready to try out the MongoDB Visual Studio Code plugin for yourself, check out [MongoDB Atlas](http://bit.ly/MDB_Atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
 
@@ -359,7 +359,7 @@ Check out the following resources for more information:
 
 - [MongoDB University](https://university.mongodb.com/)
 
-- [MongoDB Community Forums](https://developer.mongodb.com/community/forums/)
+- [MongoDB Community Forums](https://www.mongodb.com/community/forums/)
 
 - [How to Pass A Coding Interview](/blog/how-to-pass-coding-interview/)
 

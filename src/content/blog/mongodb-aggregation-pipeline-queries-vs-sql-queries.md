@@ -423,7 +423,7 @@ If you want to get better at using the MongoDB Aggregation Framework, be sure to
 - [Aggregation Pipeline Quick Reference](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/)
 - [SQL to Aggregation Mapping Chart](https://docs.mongodb.com/manual/reference/sql-aggregation-comparison/)
 - [SQL to MongoDB Mapping Chart](https://docs.mongodb.com/manual/reference/sql-comparison/)
-- [MongoDB Community Forums](https://developer.mongodb.com/community/forums/)
+- [MongoDB Community Forums](https://www.mongodb.com/community/forums/)
 
 ## Want to check out more of my technical posts?
 
