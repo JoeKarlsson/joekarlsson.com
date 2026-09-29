@@ -303,7 +303,7 @@ tldr: 'TL;DR summary for the frontmatter field'
 
 ### Structure
 
-- Start with a TL;DR blockquote for longer posts
+- Put the TL;DR in the frontmatter `tldr:` field ONLY. The BlogPost layout renders it as a box above the body. Never also add a `> **TL;DR:**` blockquote in the body - that shows up twice (a test in `tests/content-schema.test.ts` fails if you do)
 - Strong opening hook - not a generic intro
 - Narrative flow through sections
 - Code blocks with context (explain WHY before showing)
@@ -472,7 +472,7 @@ Final human review before moving on. Verify each item:
 - [ ] No trailing qualifiers (very, quite, basically, essentially)?
 - [ ] Would Joe actually say this out loud?
 - [ ] All images have descriptive alt text?
-- [ ] TL;DR present for longer posts?
+- [ ] TL;DR present in frontmatter `tldr:` (and NOT duplicated as a body blockquote)?
 - [ ] At least 2 internal links to other joekarlsson.com posts?
 - [ ] Target keyword appears in title, slug, description, and first paragraph?
 - [ ] Meta description is under 160 characters?

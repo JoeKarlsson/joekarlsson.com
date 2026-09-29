@@ -69,6 +69,17 @@ describe('blog post frontmatter', () => {
 					expect(desc.length).toBeLessThan(320);
 				}
 			});
+
+			it('does not repeat a frontmatter tldr as a body blockquote', () => {
+				if (!fm.tldr) return;
+				// BlogPost.astro renders frontmatter tldr as its own box, so a body
+				// "> **TL;DR:**" blockquote shows the summary twice.
+				const body = content.replace(/^---\n[\s\S]*?\n---/, '');
+				expect(
+					body,
+					'remove the body TL;DR blockquote; frontmatter tldr is rendered by the layout',
+				).not.toMatch(/^>\s*\*\*TL;DR/im);
+			});
 		});
 	}
 });
