@@ -118,7 +118,7 @@ The first thing we will need to set up is a [MongoDB Atlas](https://www.mongodb.
 
 After signing up for Atlas, we will then need to deploy a free MongoDB cluster. Note, you will need to add a rule to [allow the IP address of the computer we are connecting to MongoDB Atlas Custer](https://docs.atlas.mongodb.com/tutorial/whitelist-connection-ip-address/) too, and you will need to [create a database user](https://docs.atlas.mongodb.com/tutorial/create-mongodb-user-for-cluster/) before you are able to connect to your new cluster. These are security features that are put in place to make sure bad actors cannot access your database.
 
-If you have any issues connecting or setting up your free MongoDB Atlas cluster, be sure to check out the [MongoDB Community Forums](https://developer.mongodb.com/community/forums/) to get help.
+If you have any issues connecting or setting up your free MongoDB Atlas cluster, be sure to check out the [MongoDB Community Forums](https://www.mongodb.com/community/forums/) to get help.
 
 #### Connect to VS Code MongoDB Plugin
 
