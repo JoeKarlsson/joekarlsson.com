@@ -1168,11 +1168,14 @@ const usesHeadings = [
 								target="_blank"
 								rel="noopener noreferrer"
 								class="text-coral hover:text-teal">Home Assistant</a
-							> with 90+ automations, voice control, and zero cloud dependencies. Everything processes
-							locally on my homelab. I wrote about <a
+							> with 128 automations, all processed locally on my homelab. I've been running it since
+							2016, and I wrote up <a
+								href="/blog/best-home-assistant-automations/"
+								class="text-coral hover:text-teal">my favorite Home Assistant automations</a
+							>, basic to advanced, plus how I keep them from breaking. If you're new, start with <a
 								href="/blog/how-to-get-started-with-home-assistant-in-2026/"
 								class="text-coral hover:text-teal">getting started with Home Assistant</a
-							> and how I <a
+							>. I also wrote about how I <a
 								href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/"
 								class="text-coral hover:text-teal">replaced Alexa with local voice control</a
 							>.
@@ -1189,19 +1192,7 @@ const usesHeadings = [
 											rel="noopener noreferrer"
 											class="text-coral hover:text-teal">Home Assistant OS</a
 										></strong
-									> - running as a VM on Proxmox with dedicated MariaDB.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white"
-										><a
-											href="https://hacs.xyz/"
-											target="_blank"
-											rel="noopener noreferrer"
-											class="text-coral hover:text-teal">HACS</a
-										></strong
-									> - community store for custom integrations and dashboard cards.
+									> - running as a VM on Proxmox with a dedicated MariaDB database.
 								</p>
 							</div>
 							<div class="py-3">
@@ -1213,7 +1204,54 @@ const usesHeadings = [
 											rel="noopener noreferrer"
 											class="text-coral hover:text-teal">Zigbee2MQTT</a
 										></strong
-									> - all Zigbee devices go through this instead of proprietary hubs.
+									> - 29 Zigbee devices on a ConBee II, no proprietary hubs. I'm staying on Zigbee rather
+									than moving to Matter.
+								</p>
+							</div>
+							<div class="py-3">
+								<p class="text-sm text-gray-400">
+									<strong class="text-white"
+										><a
+											href="https://frigate.video/"
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-coral hover:text-teal">Frigate</a
+										></strong
+									> - local NVR with person detection and face recognition on a GPU. It drives motion
+									lighting and package detection.
+								</p>
+							</div>
+							<div class="py-3">
+								<p class="text-sm text-gray-400">
+									<strong class="text-white">Local voice and AI</strong> - Wyoming faster-whisper on a
+									GPU, Piper for text-to-speech, and Ollama through the AI Task integration, with 4 <a
+										href="https://www.home-assistant.io/voice-pe/"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="text-coral hover:text-teal">Home Assistant Voice Preview Edition</a
+									> satellites.
+								</p>
+							</div>
+							<div class="py-3">
+								<p class="text-sm text-gray-400">
+									<strong class="text-white"
+										><a
+											href="https://hacs.xyz/"
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-coral hover:text-teal">HACS</a
+										></strong
+									> - kept to the few custom integrations that earn it, like <a
+										href="https://github.com/nielsfaber/alarmo"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="text-coral hover:text-teal">Alarmo</a
+									> and <a
+										href="https://github.com/slashback100/presence_simulation"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="text-coral hover:text-teal">Presence Simulation</a
+									>.
 								</p>
 							</div>
 							<div class="py-3">
@@ -1225,7 +1263,7 @@ const usesHeadings = [
 											rel="noopener noreferrer"
 											class="text-coral hover:text-teal">Apple HomeKit bridge</a
 										></strong
-									> - exposes key entities to Siri for quick voice commands.
+									> - exposes key entities to Siri.
 								</p>
 							</div>
 						</div>
@@ -1278,154 +1316,6 @@ const usesHeadings = [
 							</div>
 						</div>
 
-						<p class="text-xs font-mono text-teal mb-3 mt-6">ai-powered automations</p>
-						<div class="divide-y divide-surface-3/50">
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Doorbell AI Vision</strong> -
-									<a
-										href="https://github.com/blakeblackshear/frigate"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Frigate</a
-									> captures a snapshot when someone's at the door, sends it to a local LLM running on
-									the GPU via <a
-										href="https://github.com/rhasspy/wyoming"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Wyoming Whisper</a
-									>, and announces a natural-language description through the house speakers -
-									"There's a delivery driver with a package at the front door." No cloud APIs
-									involved.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Voice Camera Queries</strong> - "Hey, what's at the front
-									door?" or "Describe the garage" triggers on-demand AI vision analysis through Home Assistant's
-									<a
-										href="https://www.home-assistant.io/voice_control/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Assist</a
-									> voice pipeline. Camera snapshot → GPU inference → spoken response, all local.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Infrastructure Alert Translation</strong> - Raw <a
-										href="https://prometheus.io/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Prometheus</a
-									> alerts get fed through a local LLM that translates technical jargon into friendly
-									notifications - "One of your archive drives is running low on space" instead of a wall
-									of metrics.
-								</p>
-							</div>
-						</div>
-
-						<p class="text-xs font-mono text-teal mb-3 mt-6">multi-service automations</p>
-						<div class="divide-y divide-surface-3/50">
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Laundry Detection System</strong> - Vibration sensor on the
-									dryer detects 9 minutes of no movement to confirm it's done. Contact sensor on the washer
-									starts a 70-minute timer after the door closes. If both finish within 15 minutes, a
-									single combined notification goes out - chimes on 3 speakers, TTS announcements, and
-									a mobile notification with snooze. Includes cooldown to prevent spam.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Doorbell Music Pause</strong> - When <a
-										href="https://github.com/blakeblackshear/frigate"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Frigate</a
-									> detects a person at the door during the day, all <a
-										href="https://github.com/LMS-Community/slimserver"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Lyrion Music Server</a
-									> / WiiM players auto-pause so you can hear the doorbell and have a conversation. Resumes
-									after.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Power Night Mode</strong> - At 11 PM, Home Assistant SSHs
-									into
-									<a
-										href="https://www.proxmox.com/en/proxmox-virtual-environment"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Proxmox</a
-									> and shuts down non-essential containers, saving ~175W overnight. At 7 AM, everything
-									restarts and health checks confirm services are back before reporting success. Manual
-									override available for late nights.
-								</p>
-							</div>
-						</div>
-
-						<p class="text-xs font-mono text-teal mb-3 mt-6">context-aware routines</p>
-						<div class="divide-y divide-surface-3/50">
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Weather-aware mornings</strong> - "Good Morning" checks the
-									forecast: opens curtains if mild, closes blackout curtains if &gt;85&deg;F and high
-									UV. Chooses between natural light and warm scene based on whether the sun is up yet.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Vacation presence simulation</strong> - Activates realistic
-									light patterns that mimic normal activity, arms alarm in vacation mode, returns vacuums
-									to base, closes all blinds, adjusts climate to away preset. Reverses everything on return.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Welcome home status</strong> - Announces what happened while
-									you were away by comparing state changes since departure.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Voice modes</strong> - "Work Mode", "Meeting Mode", "Movie
-									Mode", and "Nap Time" each reconfigure lights, audio, and notifications across every
-									room.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Motion lighting</strong> - 9 rooms with motion-activated
-									lights that adapt brightness and temperature to time of day via <a
-										href="https://github.com/basnijholt/adaptive-lighting"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Adaptive Lighting</a
-									>.
-								</p>
-							</div>
-							<div class="py-3">
-								<p class="text-sm text-gray-400">
-									<strong class="text-white">Presence-based security</strong> - Garage opens when approaching
-									home, lights adjust on arrival/departure, <a
-										href="https://github.com/nielsfaber/alarmo"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Alarmo</a
-									> arms when everyone leaves. <a
-										href="https://github.com/bramstroker/homeassistant-powercalc"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-coral hover:text-teal">Powercalc</a
-									> tracks energy across every device.
-								</p>
-							</div>
-						</div>
-
 						<p class="text-xs font-mono text-teal mb-3 mt-6">devices</p>
 						<div class="py-3">
 							<div class="grid gap-3 sm:grid-cols-2">
@@ -1433,89 +1323,36 @@ const usesHeadings = [
 									<p class="text-xs font-mono text-teal mb-1">lighting & climate</p>
 									<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
 										<li>
-											Philips Hue lights + <a
-												href="https://www.philips-hue.com/en-us/p/hue-motion-sensor/046677570972"
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-coral hover:text-teal">motion sensors</a
-											>
+											Philips Hue lights on a Hue Bridge Pro, with Hue motion sensors and dimmers
 										</li>
-										<li>
-											Zigbee contact & temperature sensors via <a
-												href="https://sonoff.tech/en-us/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-p"
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-coral hover:text-teal">SONOFF Zigbee dongle</a
-											>
-										</li>
-										<li>Smart thermostats</li>
-										<li>Motorized curtains (weather-aware)</li>
+										<li>Lutron Aurora dimmers and Zigbee buttons</li>
+										<li>2x ecobee3 lite thermostats with room sensors</li>
+										<li>Levoit humidifier (winter only)</li>
 									</ul>
 								</div>
 								<div>
-									<p class="text-xs font-mono text-teal mb-1">security & cameras</p>
+									<p class="text-xs font-mono text-teal mb-1">security & safety</p>
 									<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
+										<li>Reolink video doorbell and floodlight camera</li>
+										<li>Tapo C210 indoor camera</li>
+										<li>4x Aqara leak sensors and a Heiman smoke detector</li>
 										<li>
-											<a
-												href="https://www.eufy.com/video-doorbell"
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-coral hover:text-teal">Eufy doorbell</a
-											> + <a
-												href="https://www.eufy.com/floodlight-cam"
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-coral hover:text-teal">floodlight cam</a
-											>
+											Zigbee door contacts, an Aqara FP2 presence sensor, and an Aranet4 CO2 monitor
 										</li>
-										<li>
-											<a
-												href="https://www.tp-link.com/us/home-networking/cloud-camera/tapo-c200/"
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-coral hover:text-teal">Tapo C200</a
-											> indoor cameras
-										</li>
-										<li>Smoke/CO2 sensors</li>
-										<li>Moisture leak sensors</li>
 									</ul>
 								</div>
 								<div>
 									<p class="text-xs font-mono text-teal mb-1">audio</p>
 									<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
+										<li>4x Audio Pro A10 MkII speakers running WiiM firmware</li>
+										<li>WiiM Pro and WiiM Mini</li>
 										<li>
-											WiiM devices (<a
-												href="https://wiimhome.com/wiimamp/overview"
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-coral hover:text-teal">Amp</a
-											>, <a
-												href="https://www.wiimhome.com/wiimpro/overview"
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-coral hover:text-teal">Pro</a
-											>, <a
-												href="https://www.wiimhome.com/wiimmini/overview"
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-coral hover:text-teal">Mini</a
-											>)
-										</li>
-										<li>
-											<a
-												href="https://audiopro.com/"
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-coral hover:text-teal">Audio Pro A10</a
-											> speakers
-										</li>
-										<li>
-											8+ audio zones via <a
+											Multi-room audio through <a
 												href="https://github.com/LMS-Community/slimserver"
 												target="_blank"
 												rel="noopener noreferrer"
 												class="text-coral hover:text-teal">Lyrion Music Server</a
-											>
+											> and Music Assistant
 										</li>
 									</ul>
 								</div>
@@ -1523,9 +1360,10 @@ const usesHeadings = [
 									<p class="text-xs font-mono text-teal mb-1">other</p>
 									<ul class="list-disc space-y-1 pl-5 text-sm text-gray-400">
 										<li>2x Roomba vacuums</li>
-										<li>Meross smart plugs (energy monitoring)</li>
-										<li>3D printer (Prusa MK3) power tracking</li>
-										<li>Hue Play HDMI Sync Box</li>
+										<li>Meross garage door opener</li>
+										<li>Sengled and Securifi Zigbee plugs (energy monitoring)</li>
+										<li>Prusa MK3 3D printer through OctoPrint</li>
+										<li>Hue Play HDMI Sync Box and a Broadlink IR blaster</li>
 									</ul>
 								</div>
 							</div>
@@ -2317,7 +2155,47 @@ const usesHeadings = [
 					<p>
 						<span class="text-gray-600">├──</span>
 						<span class="text-teal">home-assistant-os</span><span class="text-gray-400"
-							>/stable VM proxmox</span
+							>/stable VM proxmox 2026.9</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">zigbee2mqtt</span><span class="text-gray-400"
+							>/stable conbee-ii 29-devices</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">frigate-nvr</span><span class="text-gray-400"
+							>/stable face-recognition</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">wyoming-whisper</span><span class="text-gray-400"
+							>/stable local-STT GPU</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">piper</span><span class="text-gray-400">/stable local-TTS</span>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">ai-task-ollama</span><span class="text-gray-400"
+							>/stable local-vision</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">voice-preview-edition</span><span class="text-gray-400"
+							>/stable x4 satellites</span
 						>
 						<span class="text-green-400">[installed]</span>
 					</p>
@@ -2330,83 +2208,6 @@ const usesHeadings = [
 					</p>
 					<p>
 						<span class="text-gray-600">├──</span>
-						<span class="text-teal">zigbee2mqtt</span><span class="text-gray-400"
-							>/stable bridge</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">sonoff-zigbee-dongle</span><span class="text-gray-400"
-							>/stable coordinator</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">apple-homekit-bridge</span><span class="text-gray-400"
-							>/stable siri-control</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">philips-hue-lights</span><span class="text-gray-400"
-							>/stable whole-home</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">philips-hue-motion-sensors</span><span class="text-gray-400"
-							>/stable 9-rooms</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">adaptive-lighting</span><span class="text-gray-400"
-							>/stable circadian</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">motorized-curtains</span><span class="text-gray-400"
-							>/stable weather-aware</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">smart-thermostats</span><span class="text-gray-400"
-							>/stable climate</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">eufy-doorbell</span><span class="text-gray-400"
-							>/stable video</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">eufy-floodlight-cam</span><span class="text-gray-400"
-							>/stable outdoor</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">tapo-c200</span><span class="text-gray-400"
-							>/stable indoor-cameras</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
 						<span class="text-teal">alarmo</span><span class="text-gray-400"
 							>/stable security-system</span
 						>
@@ -2414,8 +2215,78 @@ const usesHeadings = [
 					</p>
 					<p>
 						<span class="text-gray-600">├──</span>
-						<span class="text-teal">wiim-amp</span><span class="text-gray-400"
-							>/stable multi-room-audio</span
+						<span class="text-teal">presence-simulation</span><span class="text-gray-400"
+							>/stable vacation-mode</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">apple-homekit-bridge</span><span class="text-gray-400"
+							>/stable siri</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">philips-hue</span><span class="text-gray-400"
+							>/stable bridge-pro motionaware</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">lutron-aurora</span><span class="text-gray-400"
+							>/stable dimmers</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">ecobee3-lite</span><span class="text-gray-400"
+							>/stable x2 thermostats</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">reolink-doorbell</span><span class="text-gray-400"
+							>/stable video</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">reolink-floodlight</span><span class="text-gray-400"
+							>/stable outdoor</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">tapo-c210</span><span class="text-gray-400"
+							>/stable indoor-camera</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">aqara-leak-sensors</span><span class="text-gray-400"
+							>/stable x4</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">aranet4</span><span class="text-gray-400"
+							>/stable co2-monitor</span
+						>
+						<span class="text-green-400">[installed]</span>
+					</p>
+					<p>
+						<span class="text-gray-600">├──</span>
+						<span class="text-teal">audio-pro-a10-mkii</span><span class="text-gray-400"
+							>/stable x4 wiim-firmware</span
 						>
 						<span class="text-green-400">[installed]</span>
 					</p>
@@ -2435,50 +2306,34 @@ const usesHeadings = [
 					</p>
 					<p>
 						<span class="text-gray-600">├──</span>
-						<span class="text-teal">audio-pro-a10</span><span class="text-gray-400"
-							>/stable speakers</span
+						<span class="text-teal">lyrion-music-server</span><span class="text-gray-400"
+							>/stable multi-room-audio</span
 						>
 						<span class="text-green-400">[installed]</span>
 					</p>
 					<p>
 						<span class="text-gray-600">├──</span>
-						<span class="text-teal">roomba-vacuums</span><span class="text-gray-400"
-							>/stable x2</span
-						>
+						<span class="text-teal">roomba</span><span class="text-gray-400">/stable x2</span>
 						<span class="text-green-400">[installed]</span>
 					</p>
 					<p>
 						<span class="text-gray-600">├──</span>
-						<span class="text-teal">meross-smart-plugs</span><span class="text-gray-400"
-							>/stable energy-monitoring</span
+						<span class="text-teal">meross-garage-opener</span><span class="text-gray-400"
+							>/stable garage</span
 						>
 						<span class="text-green-400">[installed]</span>
 					</p>
 					<p>
 						<span class="text-gray-600">├──</span>
 						<span class="text-teal">prusa-mk3</span><span class="text-gray-400"
-							>/stable 3d-printer</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">hue-play-hdmi-sync-box</span><span class="text-gray-400"
-							>/stable ambient-TV</span
-						>
-						<span class="text-green-400">[installed]</span>
-					</p>
-					<p>
-						<span class="text-gray-600">├──</span>
-						<span class="text-teal">powercalc</span><span class="text-gray-400"
-							>/stable energy-tracking</span
+							>/stable octoprint</span
 						>
 						<span class="text-green-400">[installed]</span>
 					</p>
 					<p>
 						<span class="text-gray-600">└──</span>
-						<span class="text-teal">wyoming-whisper</span><span class="text-gray-400"
-							>/stable local-voice-AI</span
+						<span class="text-teal">hue-play-hdmi-sync-box</span><span class="text-gray-400"
+							>/stable ambient-TV</span
 						>
 						<span class="text-green-400">[installed]</span>
 					</p>

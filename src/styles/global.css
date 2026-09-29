@@ -142,6 +142,9 @@
 .prose .pull-quote p {
 	@apply my-0 leading-snug;
 }
+.prose summary {
+	@apply cursor-pointer font-mono text-sm text-coral;
+}
 .prose code {
 	@apply font-mono text-teal bg-surface-3 px-1.5 py-0.5 rounded-sm text-sm;
 }
