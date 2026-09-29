@@ -134,7 +134,7 @@ The problem is that automations don't compose well with the LLM pipeline. They'r
 
 The better approach: **Home Assistant's built-in voice intents**. These are native command patterns baked into HA itself - covering lights, switches, covers, climate, scenes, scripts, and more. They understand natural language variation natively. "Dim the bedroom lights to 40 percent" and "set bedroom brightness to 40" both work without any automation at all. They're fast, they don't involve the LLM, and they scale across every device without you writing anything.
 
-Where I still use automations: genuinely custom things that HA's intent system doesn't cover. My weather forecast voice command. Calendar queries. Anything that needs to pull live HA sensor data and format a spoken response. For that, conversation-trigger automations are the right tool. But for device control? Use intents. The [HA voice intent docs](https://www.home-assistant.io/voice_control/builtin_sentences/) are worth reading before you build anything.
+Where I still use automations: genuinely custom things that HA's intent system doesn't cover. My weather forecast voice command. Calendar queries. Anything that needs to pull live HA sensor data and format a spoken response. For that, conversation-trigger automations are the right tool. But for device control? Use intents. The [HA voice intent docs](https://www.home-assistant.io/voice_control/builtin_sentences/) are worth reading before you build anything. (For the non-voice side of my setup, here are [my other Home Assistant automation ideas](/blog/best-home-assistant-automations/).)
 
 > **The short version:** Intents for device control. Automations only for custom queries that need live sensor data. LLM as a last resort for everything else.
 

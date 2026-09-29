@@ -313,6 +313,8 @@ Always running 24/7 (never stopped):
   Media Automation (*arr stack, download clients)
 ```
 
+The container list has changed since I wrote this, and I've since written up night mode alongside [more of my favorite Home Assistant automations](/blog/best-home-assistant-automations/).
+
 That's **175W saved** for 8 hours every night - roughly 1.4 kWh/day, or about **$7/month**. If I need Ollama at 1 AM (it happens), I can override from my phone. But 95% of the time, those services have no business running while I'm sleeping.
 
 **CPU governor tuning.** Both hosts run the `powersave` frequency governor instead of `performance`. With 160 total cores, there's absurd headroom even in power-save. CPUs ramp up when a workload demands it, drop to minimum frequency when idle.

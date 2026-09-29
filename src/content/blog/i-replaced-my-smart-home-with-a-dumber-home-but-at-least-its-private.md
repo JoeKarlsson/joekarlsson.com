@@ -153,7 +153,7 @@ For example, my calendar integration automation dynamically handles queries abou
 
 This level of dynamic template processing enables natural language interactions that adapt to context while remaining completely local and private.
 
-“OK, that’s actually pretty cool,” my partner admitted when I demonstrated asking “what’s on my calendar tomorrow morning” and getting a contextually relevant response. These moments of technical elegance help justify the migration complexity.
+“OK, that’s actually pretty cool,” my partner admitted when I demonstrated asking “what’s on my calendar tomorrow morning” and getting a contextually relevant response. These moments of technical elegance help justify the migration complexity. If you want to see what I've built on top of it since, here are [the automations I ended up keeping](/blog/best-home-assistant-automations/).
 
 ## Current limitations justify preview designation
 

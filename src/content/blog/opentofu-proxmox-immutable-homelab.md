@@ -67,7 +67,7 @@ Before touching a single line of OpenTofu code, I spent a couple months doing so
 
 One per container, sometimes more. CPU, disk, memory, service reachability, certificate expiry, backup verification, Docker container restart counts, specific API endpoints, cron job execution. I mentioned "41 health check scripts" in my [two-year retrospective](/blog/homelab-two-years-later/) - the suite has grown since then.
 
-Writing a health check forces you to answer a question: _what should this container be doing right now?_ For a lot of mine, I didn't have a clean answer. Some things I'd been treating as "running fine" were quietly broken. Some services had dependencies I'd forgotten about - delete this container and three other things stop working, not obviously, just gradually. Some cron jobs hadn't run in months and nothing had complained.
+Writing a health check forces you to answer a question: _what should this container be doing right now?_ For a lot of mine, I didn't have a clean answer. Some things I'd been treating as "running fine" were quietly broken. Some services had dependencies I'd forgotten about - delete this container and three other things stop working, not obviously, just gradually. Some cron jobs hadn't run in months and nothing had complained. I later pointed the same idea at Home Assistant, which is [how I find broken Home Assistant automations](/blog/best-home-assistant-automations/) before they bite.
 
 Trying to document what I had made it obvious why it couldn't stay that way. That was the moment I committed to doing this properly.
 

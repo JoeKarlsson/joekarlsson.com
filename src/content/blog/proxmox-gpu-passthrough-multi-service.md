@@ -25,7 +25,7 @@ The moment things got complicated: I was watching Frigate's object detection log
 
 That's the problem with Proxmox LXC GPU passthrough once you stack enough services: the setup is straightforward, but nobody writes about what happens when six different things want CUDA time on the same card.
 
-Frigate dropping frames on a security camera because Plex decided to transcode a movie is exactly the kind of failure mode that seems obvious in retrospect. Of course they compete. They're both CUDA processes on the same card. But when you're building a homelab incrementally - adding one service at a time, each one working fine in isolation - it doesn't feel obvious until something breaks.
+Frigate dropping frames on a security camera because Plex decided to transcode a movie is exactly the kind of failure mode that seems obvious in retrospect. Of course they compete. They're both CUDA processes on the same card. But when you're building a homelab incrementally - adding one service at a time, each one working fine in isolation - it doesn't feel obvious until something breaks. (If you're curious what Frigate's person detection actually does for my house, it drives a lot of [my favorite Home Assistant automations](/blog/best-home-assistant-automations/).)
 
 A GPU memory collision is what led me to a two-node strategy. Not "I planned this out carefully from the start." More like "I added enough things to one GPU that they started stepping on each other, and I had to actually think about it."
 

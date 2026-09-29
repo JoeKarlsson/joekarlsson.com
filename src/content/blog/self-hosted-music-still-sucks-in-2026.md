@@ -87,7 +87,7 @@ But here's the thing: **Navidrome is still architecturally a media server, not a
 
 **Music Assistant takes a different architectural approach**, designed as a Home Assistant add-on with focus on multi-room audio and streaming service integration. The technical innovation is in the provider system-it can connect simultaneously to Spotify, YouTube Music, local libraries, and physical audio equipment through a unified API abstraction layer [[Music Assistant](https://github.com/music-assistant)]. But again, it’s not solving the core problem of building local libraries-it’s assuming you’re either streaming everything or already have local files.
 
-**Lyrion Music Server (formerly Logitech Media Server)** offers sophisticated playlist management and a plugin ecosystem, but it’s built on Perl architecture from 2001 that predates modern container orchestration and API design patterns [[Lyrion](https://lyrion.org/)]. While functionally capable, the technical debt makes integration with modern self-hosted stacks painful.
+**Lyrion Music Server (formerly Logitech Media Server)** offers sophisticated playlist management and a plugin ecosystem, but it’s built on Perl architecture from 2001 that predates modern container orchestration and API design patterns [[Lyrion](https://lyrion.org/)]. While functionally capable, the technical debt makes integration with modern self-hosted stacks painful. (I still run it for multi-room audio, and my house [pauses every player when someone's at the door](/blog/best-home-assistant-automations/).)
 
 E**very established solution has excellent technical execution within its domain, but the domains don’t overlap to solve the acquisition + automation + serving pipeline**.
 

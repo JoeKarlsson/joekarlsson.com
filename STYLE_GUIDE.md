@@ -66,7 +66,7 @@ When possible, include relevant memes in blog posts to break up technical conten
 - Mix paragraph lengths - some short punchy ones, some longer explanatory ones
 - Use bold for emphasis on key phrases, not whole sentences
 - Headers as questions or statements, not generic labels ("Why does Lidarr suck?" not "Lidarr Limitations")
-- Include TL;DR at the top for longer technical posts
+- Include a TL;DR for longer technical posts, in the frontmatter `tldr:` field only (the layout renders it; never repeat it as a body blockquote)
 - Code blocks with context - explain what the code does before showing it
 - Show expected output for tutorials
 
