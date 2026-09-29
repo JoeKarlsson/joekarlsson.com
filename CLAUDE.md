@@ -16,8 +16,9 @@ Astro v6 static site. Served by Caddy on CT 165 (192.168.0.165), managed by Open
 ## Build & Deploy
 
 ```bash
-npm run build      # Build static site to ./dist/
-./deploy.sh        # Build + deploy via OpenTofu (tofu apply) + purge Cloudflare cache
+npm run build      # Build static site to ./dist/ (local dev/preview only)
+npm run deploy     # Build + deploy via OpenTofu (tofu apply) + purge Cloudflare cache
+./deploy.sh        # Same as npm run deploy (called directly)
 ```
 
 **CT 165 is immutable.** Never SSH/rsync/scp directly to `192.168.0.165`.
