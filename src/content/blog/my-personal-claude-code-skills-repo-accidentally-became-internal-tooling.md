@@ -54,6 +54,8 @@ The thing that makes skills shareable - and this is the part that unlocked every
 
 So when a coworker said "hey, can you show me how you do that LinkedIn thing?" - the answer wasn't a Notion doc or a prompt to paste somewhere. It was "clone this repo."
 
+The same repo runs my house, too. It holds the rules Claude follows when it helps me build [Home Assistant automations](/blog/best-home-assistant-automations/).
+
 ![Drake meme: rejecting 'Shared Notion prompt library nobody updates', approving 'Skills repo where updating brand voice is a git PR'](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-notion-vs-skills-repo.webp)
 
 ---

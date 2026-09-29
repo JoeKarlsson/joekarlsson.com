@@ -108,6 +108,8 @@ Once I got comfortable with the basics, we started to explore more advanced inte
 
 - Monitor your home’s air quality and adjust the ventilation system accordingly
 
+These are generic ideas to get you going. For the ones I actually still run after a decade, with the details that make them work, I wrote up [the best Home Assistant automations I've built in 10 years](/blog/best-home-assistant-automations/).
+
 ## Conclusion
 
 Getting started with Home Assistant can seem overwhelming, but with a little bit of patience and some creativity, you can turn your home into a smart home that is efficient, secure, and fun to live in. Start with the basics and gradually progress to more advanced integrations. Remember to have fun and don’t be afraid to experiment with different automation ideas!
