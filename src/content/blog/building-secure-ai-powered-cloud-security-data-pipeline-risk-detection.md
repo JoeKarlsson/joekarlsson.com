@@ -688,7 +688,7 @@ The demo provides a foundation, but production deployments need additional compo
 
 **Threat Modeling & Attack Surface Analysis:**
 
-- [ ] AI pipeline threat model using [[OWASP AI Security Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)]
+- [ ] AI pipeline threat model using [OWASP AI Exchange](https://owaspai.org/)
 - [ ] Model supply chain verification with [[SLSA Framework](https://slsa.dev/)]
 - [ ] Adversarial attack testing for prompt injection and model inversion
 - [ ] Container security scanning for ML frameworks and dependencies
@@ -829,7 +829,7 @@ Start with the open-source [Secure AI Data Pipelines Demo](https://github.com/cl
 
 - NIST. "Privacy Framework: A Tool for Improving Privacy through Enterprise Risk Management." <https://www.nist.gov/privacy-framework>
 
-- OWASP Foundation. "AI Security and Privacy Guide." <https://owasp.org/www-project-ai-security-and-privacy-guide/>
+- OWASP Foundation. "OWASP AI Exchange." <https://owaspai.org/>
 
 - OWASP Foundation. "Top 10 for Large Language Model Applications." <https://owasp.org/www-project-top-10-for-large-language-model-applications/>
 

@@ -10,6 +10,8 @@ const config: KnipConfig = {
 	ignoreBinaries: [
 		// lychee is installed via GitHub Action, not npm
 		'lychee',
+		// vale is installed from its GitHub release in CI, not npm
+		'vale',
 	],
 	ignoreExportsUsedInFile: true,
 	ignore: [
