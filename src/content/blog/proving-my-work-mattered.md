@@ -5,7 +5,7 @@ slug: 'proving-my-work-mattered'
 description: "For most of my last job I couldn't say whether my work mattered. What I learned getting the data that finally answered it - and what it did to my influence."
 categories: ['DevRel', 'Career']
 tags: ['analytics', 'data', 'devrel', 'cdata']
-heroImage: '/images/blog/proving-my-work-mattered/hero.webp'
+heroImage: '/images/blog/proving-my-work-mattered/hero-2.webp'
 heroAlt: 'Proving my work mattered - connect ai'
 canonicalUrl: 'https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered).'

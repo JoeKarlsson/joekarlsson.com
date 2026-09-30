@@ -5,7 +5,7 @@ slug: 'mcp-2026-07-28-release-explained'
 description: "The MCP 2026-07-28 release makes the protocol stateless, adds an extensions framework, and hardens authorization. Here's what each change actually means for teams running MCP in production."
 categories: ['Dev Tools']
 tags: ['mcp', 'ai', 'enterprise', 'protocol', 'cdata']
-heroImage: '/images/blog/mcp-2026-07-28-release-explained/hero.webp'
+heroImage: '/images/blog/mcp-2026-07-28-release-explained/hero-2.webp'
 heroAlt: 'The 2026-07-28 MCP Release Explained'
 canonicalUrl: 'https://www.cdata.com/blog/mcp-2026-07-28-release'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/mcp-2026-07-28-release).'

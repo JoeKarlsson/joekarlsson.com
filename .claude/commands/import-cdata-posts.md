@@ -43,6 +43,14 @@ Read each post in full, then set:
 
 - **`tags`**: replace CData's taxonomy slugs (`industry-insights`, `solutions-and-use-cases`, `data-management`, `cdata-connect-ai`) with topical tags. Examples: `mcp`, `ai`, `enterprise`, `ai-agents`, `tutorial`, `protocol`, plus a product tag when it's the subject (`litellm`, `meta-muse`). Keep `cdata` last.
 - **`categories`**: the script defaults to `['Dev Tools']`, which fits most AI/MCP posts. Use `DevRel` or `Career` for posts about the job itself (see `proving-my-work-mattered.md`). Pick from the list in CLAUDE.md.
+- **Hero background (required)**: every CData hero must end up as a 1200x675 opaque WebP on the off-white `#f4f4f5` canvas. The raw ones are transparent black line art that is unreadable on this site's black cards. The importer does this, but check it for every post:
+
+  ```bash
+  node -e "require('sharp')('public/images/blog/<slug>/hero.webp').metadata().then(m=>console.log(m.width,m.height,'alpha',m.hasAlpha))"
+  # must print: 1200 675 alpha false
+  ```
+
+  If a hero ever comes through transparent or the wrong size, rebuild it with the same treatment as `heroCanvas()` in the script: fit inside 720x506, centered on 1200x675 `#f4f4f5`, WebP quality 82. Don't pick a different color; sky and teal were tried and wash out the pale-gray details.
 - **`heroAlt`**: CData's hero alt is just the title. Look at `hero.webp` (convert it to PNG with sharp and Read it) and describe the graphic.
 - **`tldr`**: 2-4 plain sentences in Joe's voice (read STYLE_GUIDE.md): the post's actual claims, specific, with no em dashes and no hype words.
 - **Image alt text**: `grep -o '!\[[^]]*' <file>` and fix any that are still stubs by looking at the image.
@@ -81,6 +89,11 @@ npm test          # format, lint, types, build, images, spelling, markdown, unit
 
 Then check the rendered pages in `dist/blog/{slug}/index.html`: canonical link, hero, tables, and FAQ.
 
-Commit only your paths (the posts, their image dirs, `cspell-custom.txt`) as `feat: Crosspost N CData blog posts`, then push, then `npm run deploy`, then curl each live URL and check for a 200 and the canonical tag.
+Commit only your paths (the posts, their image dirs, `cspell-custom.txt`) as `feat: Crosspost N CData blog posts`, then push, then `npm run deploy`. Then verify live:
+
+- curl each post URL and check for a 200 and the canonical tag.
+- Fetch each hero on its **plain URL** (no `?query`, which skips caches and proves nothing) and confirm `1200 675 alpha false`.
+
+**Never replace an image in place under a URL that has already been published.** Browsers cache images for about 4 hours, and on 2026-09-30 Cloudflare kept serving the old heroes on their plain URLs even after a successful purge-everything. When an already-live image changes, give it a new filename (`hero-2.webp`, `hero-3.webp`, ...) and update the frontmatter. New imports can use `hero.webp`, since nothing has cached those URLs yet.
 
 In the report, list what was imported and skipped, plus any content problems on CData's side that Joe may want to fix at the source (typos, broken formatting, factual oddities).

@@ -5,7 +5,7 @@ slug: 'ai-gateway-data-access-layer'
 description: "Enterprise data access for AI agents is the part of the AI gateway stack most teams haven't built yet. Here's what it handles and why it matters now."
 categories: ['Dev Tools']
 tags: ['mcp', 'ai', 'enterprise', 'ai-agents', 'cdata']
-heroImage: '/images/blog/ai-gateway-data-access-layer/hero.webp'
+heroImage: '/images/blog/ai-gateway-data-access-layer/hero-2.webp'
 heroAlt: 'Diagram of an AI chip separated from a database server by a gateway boundary'
 canonicalUrl: 'https://www.cdata.com/blog/ai-gateway-data-access-layer'
 faq:

@@ -5,7 +5,7 @@ slug: 'connect-enterprise-data-meta-muse'
 description: 'Connect enterprise data to Meta Muse with CData Connect AI. Add Salesforce, NetSuite, or HubSpot as a custom connector in about 10 minutes.'
 categories: ['Dev Tools']
 tags: ['mcp', 'ai', 'tutorial', 'meta-muse', 'cdata']
-heroImage: '/images/blog/connect-enterprise-data-meta-muse/hero.webp'
+heroImage: '/images/blog/connect-enterprise-data-meta-muse/hero-2.webp'
 heroAlt: 'Diagram of a browser window connecting through CData Connect AI to Meta'
 canonicalUrl: 'https://www.cdata.com/blog/connect-enterprise-data-meta-muse'
 faq:

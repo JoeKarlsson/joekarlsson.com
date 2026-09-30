@@ -5,7 +5,7 @@ slug: 'ai-gateway-for-developers'
 description: "Building internal AI agents on enterprise data without a custom permission system. Here's what teams are shipping on CData Connect AI in 2026."
 categories: ['Dev Tools']
 tags: ['mcp', 'ai', 'enterprise', 'ai-agents', 'cdata']
-heroImage: '/images/blog/ai-gateway-for-developers/hero.webp'
+heroImage: '/images/blog/ai-gateway-for-developers/hero-2.webp'
 heroAlt: 'Illustration of stacked dashboard windows connected to a data layer below'
 canonicalUrl: 'https://www.cdata.com/blog/ai-gateway-for-developers'
 faq:
