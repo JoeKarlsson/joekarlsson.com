@@ -30,6 +30,8 @@ From David Bayles and Ted Orland's [_Art & Fear_](https://www.amazon.com/Art-Fea
 
 > "The ceramics teacher announced on opening day that he was dividing the class into two groups. All those on the left side of the studio, he said, would be graded solely on the quantity of work they produced, all those on the right solely on its quality. His procedure was simple: on the final day of class he would bring in his bathroom scales and weigh the work of the 'quantity' group: fifty pounds of pots rated an 'A', forty pounds a 'B', and so on. Those being graded on 'quality', however, needed to produce only one pot - albeit a perfect one - to get an 'A'. Well, came grading time and a curious fact emerged: the works of highest quality were all produced by the group being graded for quantity. It seems that while the 'quantity' group was busily churning out piles of work - and learning from their mistakes - the 'quality' group had sat theorizing about perfection, and in the end had little more to show for their effort than grandiose theories and a pile of dead clay."
 
+![Squidward Window meme: Squidward, labeled 'Quality group, week 11 of the perfect pot design doc', stares out the window at SpongeBob and Patrick, labeled 'Quantity group, on pot #83'.](/images/blog/ship-the-ugly-pot/meme-squidward-window.webp)
+
 The quality group's mistake has a name: call it the **perfection trap**. They confused planning for quality with producing quality. Both require thinking carefully. Both feel like work. But only one generates feedback. Without feedback, you're theorizing in a vacuum.
 
 <div class="callout">
@@ -37,6 +39,8 @@ The quality group's mistake has a name: call it the **perfection trap**. They co
 **Perfection trap:** Confusing planning for quality with producing quality. Both feel like work from the inside. Only production generates feedback.
 
 </div>
+
+![They're The Same Picture meme: Pam from The Office is asked to find the differences between 'Planning a perfect pot' and 'Making a perfect pot'. Labeled 'The quality group', she answers 'They're the same picture.'](/images/blog/ship-the-ugly-pot/meme-same-picture.webp)
 
 ## The mechanism: it's the kiln, not the clay
 
@@ -86,6 +90,8 @@ I've seen this play out at previous jobs. Two orgs, same pattern, opposite outco
 
 Some orgs have content systems with no version control, no linting, no automated link checking, no rollback. Every change is irreversible. Of course those teams run everything through four rounds of review before it touches a user - the cost of a mistake is enormous, and the tooling makes every change feel like open-heart surgery. That's not a review culture. It's a fragile infrastructure that forced a review culture.
 
+![Flex Tape meme: a tank leaking water is labeled 'Content system with no version control and no rollback', and the hand slapping Flex Tape over the leak is labeled 'Four rounds of review'.](/images/blog/ship-the-ugly-pot/meme-flex-tape.webp)
+
 The orgs that grade on output have built different tooling: version control, automated tests, monitoring, rollback capability, analytics. Review exists as a checkpoint, not a gate, because the blast radius of any individual change is small and reversible. The iteration speed isn't a cultural stance. It's an infrastructure consequence.
 
 Going rogue in an org without that foundation doesn't work - I've seen that fail too. Without version control, tests, measurement, and team buy-in, moving fast just means breaking things with no way back. You need [a completion standard that the team actually holds](/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/) - but one built for iteration, not for permanence.
@@ -129,6 +135,8 @@ Sister Corita Kent taught in the [Immaculate Heart College Art Department](https
 > "The only rule is work. If you work, it will lead to something. It's the people who do all of the work all of the time who eventually catch on to things."
 
 No caveats. No "but make sure it's good first." **Just: work.**
+
+![Bell Curve meme: the low end says 'just make stuff', the crying middle says 'I need to read 12 books on creativity and build a craft framework before I start', and the hooded monk at the high end says 'The only rule is work.'](/images/blog/ship-the-ugly-pot/meme-bell-curve.webp)
 
 The pottery group. Rule 7. The DORA data. The Artist's Way. All pointing at the same underlying mechanism: _you don't think your way to quality. You ship your way there._
 
