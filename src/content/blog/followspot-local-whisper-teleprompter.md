@@ -21,7 +21,11 @@ Lately I've been making more videos, though, and some of them need tight monolog
 
 Voice-following teleprompters exist. Elgato's Camera Hub has one called [Voice Sync](https://help.elgato.com/hc/en-us/articles/29902730928653-Camera-Hub-How-to-use-Voice-Sync), and it runs on-device, which I appreciate. You just can't choose what's listening. Elgato doesn't say which model Voice Sync uses. One developer who dug through the Mac app [reports](https://github.com/drbarq/elgato-camera-hub-teleprompter-fix/blob/main/docs/VOICE_SYNC.md) that it bundles whisper.cpp with `base.en`, one of the smallest Whisper models.
 
+![Pawn Stars Best I Can Do meme: Rick Harrison hears 'I'd like to pick my own Whisper model' and answers 'Best I can do is base.en'.](/images/blog/followspot-local-whisper-teleprompter/meme-pawn-stars-base-en.webp)
+
 Browser teleprompters are worse on the privacy front. Many of the ones that follow your voice use Chrome's Web Speech API, which sends your audio to Google unless the site has opted into Chrome's [newer on-device mode](https://chromestatus.com/feature/6090916291674112).
+
+![They Don't Know meme: a guy in a party hat stands alone in the corner while everyone else dances, thinking 'They don't know their browser teleprompter is sending their audio to Google'.](/images/blog/followspot-local-whisper-teleprompter/meme-they-dont-know-web-speech.webp)
 
 Meanwhile my MacBook Pro has an M5 Max in it. It can run models far bigger than `base.en` in real time, and in my experience a bigger local model is more accurate than anything built into a prompter app. I also had a specific picture of how I wanted the screen to look, and nothing let me set it up exactly that way. So FollowSpot takes any whisper.cpp model you point it at, from `tiny.en` up to `large-v3-turbo`.
 
@@ -66,6 +70,8 @@ Latency is one request to whisper.cpp. Highlight lag is how long after I finishe
 Speed isn't the constraint on this laptop. Even `large-v3-turbo` answers in about 180 ms, which fits inside the browser's quarter-second tick. On an older Intel machine that would be a different story.
 
 The smallest model falls apart on jargon. `tiny.en` heard "Xeon E3-1226" as "Zion E3, 1, 2, 2, 6" and "ThinkServer" as "things server." `base.en` fixed the Xeon and still wrote "the thing server." Everything from `small.en` up got ThinkServer right. And every single model wrote "R stack" for the arr stack, which, fair.
+
+![Mocking SpongeBob meme: the top reads 'Me: ThinkServer' and the bottom, over a mocking SpongeBob, reads 'tiny.en: tHiNgS sErVeR'.](/images/blog/followspot-local-whisper-teleprompter/meme-mocking-spongebob-tiny-en.webp)
 
 Above `small.en`, I couldn't measure a difference. On this script, `small.en`, `medium`, and `large-v3-turbo` all landed on 14 of 16 terms. To get word error rates I also ran four synthetic macOS voices, clean and with pink noise at 15 dB SNR, and those flattened out at the same point. The leftover errors were mostly the synthetic voices mispronouncing things ("Flex" for Plex) in ways no model could fix.
 
