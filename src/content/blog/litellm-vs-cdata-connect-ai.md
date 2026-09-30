@@ -164,7 +164,7 @@ Connect AI is the right tool when the problem includes governed data access, not
 | **If your primary need is…**                                    | **Start with…**  |
 | --------------------------------------------------------------- | ---------------- |
 | Self-hosted LLM routing across many providers                   | LiteLLM          |
-| Cost visibility and token budget enforcement at the model layer | CData Connect AI |
+| Cost visibility and token budget enforcement at the model layer | LiteLLM          |
 | Governed live access to enterprise data through MCP             | CData Connect AI |
 | Per-user identity enforcement and source-system RBAC via agents | CData Connect AI |
 | Enterprise SSO, HIPAA compliance, or EU AI Act audit readiness  | CData Connect AI |
