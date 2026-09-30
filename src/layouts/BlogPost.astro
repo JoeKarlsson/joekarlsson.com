@@ -70,6 +70,16 @@ if (contentNotice === false) {
 	noticeMessage = `This post is ${ageInYears} years old. Some information may be outdated.`;
 }
 
+// Notices are plain text plus optional [text](https://...) links, e.g. crosspost credits
+const escapeHtml = (s: string) =>
+	s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const noticeHtml = noticeMessage
+	? escapeHtml(noticeMessage).replace(
+			/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
+			'<a href="$2" class="underline hover:text-yellow-100">$1</a>',
+		)
+	: null;
+
 const allPosts = await getCollection('blog');
 const publishedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
@@ -241,7 +251,7 @@ const relatedPosts = publishedPosts
 							<span class="mr-2 text-yellow-400" aria-hidden="true">
 								&#9888;
 							</span>
-							{noticeMessage}
+							<Fragment set:html={noticeHtml} />
 						</div>
 					)
 				}
