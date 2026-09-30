@@ -31,6 +31,8 @@ The problem isn't review. It's that planning-first changes the cognitive frame b
 
 People who expect external evaluation before creative work produce less creative output. Not from lack of effort. From the wrong kind of attention.
 
+![Sleeping Shaq meme: Shaq sleeps next to 'Team when handed the Q3 brief template' and wakes up wide-eyed and glowing next to 'Team when told they can try anything for two weeks'.](/images/blog/cognitive-case-for-play-in-technical-work/meme-sleeping-shaq.webp)
+
 The cognitive frame that actually produces good iterative work looks different. It looks like play.
 
 ## Defining play
@@ -75,6 +77,8 @@ Teams with it experiment more, learn faster, produce better work.
 
 Review-heavy cultures erode this not through malice but through repetition. Every judgment cycle signals that getting it wrong is costly. Eventually people stop experimenting before they're told to. The play state disappears not because anyone banned it, but because the environment made it feel too risky. Same person, different environment, wildly different output. It's not talent that varies.
 
+![Grim Reaper Knocking Door meme: the Grim Reaper, labeled 'Review cycle', has already left blood behind the doors labeled 'Weird idea' and 'Bold bet', and is now knocking on the door labeled 'Last original thought'.](/images/blog/cognitive-case-for-play-in-technical-work/meme-grim-reaper.webp)
+
 The most capable people I've worked with were also the most sensitive to the environment. Give them psychological safety and room to experiment, and the ceiling on what they produce is surprisingly high. The same person in a risk-averse environment produces process-compliant work instead.
 
 ## Agile already solved this. Sort of.
@@ -88,6 +92,8 @@ That principle applies beyond software. It applies to content, design, marketing
 ## What to do instead
 
 This isn't an argument against review or accountability. It's about sequence and weight. If you're a manager, your role in this model is to protect the conditions: shield uninterrupted work time, review results rather than activity, and resist the urge to check in mid-experiment. The output is your accountability. The process is theirs.
+
+![Boardroom Meeting Suggestion meme: the boss asks 'How do we make the team more creative?' Two people suggest 'Innovation KPI' and 'Creativity review'. The third says 'Try things before reviewing them' and gets thrown out the window.](/images/blog/cognitive-case-for-play-in-technical-work/meme-boardroom.webp)
 
 **Separate creation from evaluation.** Don't let evaluation enter the room during generation. Timebox a period where you run experiments without a formal review gate. Review results, not process. Every creative discipline that produces good work does this.
 
@@ -106,6 +112,8 @@ The [SEO work I described here](https://www.joekarlsson.com/blog/reversing-seo-t
 > — [Frontiers in Psychology, flow states research](https://pmc.ncbi.nlm.nih.gov/articles/PMC7551835/)
 
 Anything that triggers self-evaluation re-activates exactly the circuitry the flow state had quieted. You don't just lose time. You lose the state. Protect blocks of uninterrupted work the way you'd protect a production deployment.
+
+![Running Away Balloon meme: 'Me, 90 minutes into flow' reaches for a balloon labeled 'The whole system in my head', then gets held back by a pink figure labeled 'Quick status sync?' as the balloon, now 'The whole system', floats away.](/images/blog/cognitive-case-for-play-in-technical-work/meme-running-away-balloon.webp)
 
 ## Play and accountability aren't opposites
 
@@ -128,6 +136,8 @@ Does this require experience? Yes. Play without enough context to hold a coheren
 The project I described at the start wasn't special. The domain wasn't unusual. It worked because the conditions for play existed: enough autonomy to experiment, lightweight enough review that I could move between tests quickly, and enough uninterrupted time to keep a clear picture of what I was building in my head.
 
 When those conditions exist, work tends to produce something. When they don't - when every change needs a brief, every brief needs a review, and every review runs weeks - the work tends to produce process artifacts instead.
+
+![Bike Fall meme: a cyclist labeled 'Manager with a creative team' jams a stick in his own front wheel, captioned 'Adds an approval gate to exploratory work', then lies on the ground asking 'Why doesn't my team experiment anymore?'](/images/blog/cognitive-case-for-play-in-technical-work/meme-bike-fall.webp)
 
 I've watched this pattern hold for fifteen years, across startups, scale-ups, and enterprise teams. The work that mattered wasn't the most planned. It was the work where there was enough room to find out what worked.
 
