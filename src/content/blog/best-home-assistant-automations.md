@@ -39,6 +39,8 @@ I live alone. I've lived with partners in this house before, and I have guests o
 
 **Could someone who has never been here, and doesn't have my app, live in this house without noticing the automations or having to work around them?**
 
+![Soldier Protecting Sleeping Child meme: a soldier labeled "The physical light switch" shields a sleeping guest labeled "A guest at 2 AM" from flying weapons labeled "My motion automations"](/images/blog/best-home-assistant-automations/soldier-physical-switch-guest-test.webp)
+
 That means a physical switch for everything. It means lights that turn on when you walk in and don't turn off while you're still sitting there. It means nobody has to learn a voice command to use the bathroom at night. If an automation fails the guest test, it's not done.
 
 ![My Home Assistant main dashboard with scene tiles, room tiles, infrastructure health, energy, and laundry status](/images/blog/best-home-assistant-automations/dashboard-overview.webp)
@@ -195,6 +197,8 @@ The guest test says there's a physical switch for everything, so buttons are an 
 
 Most of my lights are Philips Hue, and here's the thing I'd tell anyone with Hue bulbs: **let the Hue bridge handle the basic switch-to-bulb stuff.** Pairing a Hue dimmer straight to the Hue bridge is faster, with fewer round trips than sending every button press through Home Assistant and a Zigbee coordinator. When someone hits a switch, the light should respond instantly, every time, even if Home Assistant is restarting.
 
+![Batman Slapping Robin meme: Robin says "Just route every button press through Home Assistant and..." and Batman slaps him, saying "LET THE HUE BRIDGE HANDLE IT"](/images/blog/best-home-assistant-automations/batman-robin-hue-bridge-dimmers.webp)
+
 Then I layer custom actions on top in Home Assistant. One automation handles every Hue and Lutron Aurora dimmer in the house, so special behavior like long presses lives in one place. In the bedroom, a Zigbee button does different things depending on the time of day:
 
 - **Single press:** good night in the evening, good morning in the morning.
@@ -270,6 +274,8 @@ actions:
 ### Movie lighting that follows Plex
 
 When the Great Room TV turns on, the lights fade into a movie scene over 10 seconds. When I press play in Plex, they step down to almost nothing over a few seconds. Pause or stop, and a lighter movie scene fades back in so you can find your drink. Turn the TV off, and the room goes back to a normal dimmed scene.
+
+![Absolute Cinema meme: Martin Scorsese with his hands raised, captioned "Me when I press play in Plex and the lights fade to almost nothing" and "ABSOLUTE CINEMA"](/images/blog/best-home-assistant-automations/absolute-cinema-plex-lighting.webp)
 
 Getting there took a lot of tuning. The fade times, the pause and stop behavior, and which scene lands when all took real trial and error. But once I locked it in, it's been incredible.
 
@@ -491,9 +497,13 @@ Every 6 hours, a health check script pulls all my automations, scripts, and dash
 
 The first time I ran it, it found 12 dead references nothing else had flagged. Home Assistant's Repairs page didn't flag any of these for me. It doesn't look inside templates, dashboards, or notify targets, which is where most of the breakage hides. If you don't want to write your own script, the [Watchman](https://github.com/dummylabs/thewatchman) integration does a lighter version of the same job (it scans your config files for missing entities and actions), and it's a great place to start once you're past about 30 automations.
 
+![Scooby Doo Mask Reveal meme: Fred, labeled "My health check," pulls the mask off a ghost labeled "Repairs page: no issues found" to reveal a villain labeled "12 dead references"](/images/blog/best-home-assistant-automations/scooby-doo-health-check-dead-references.webp)
+
 ### Use continue_on_error so one failure doesn't stop everything
 
 By default, when one action in a Home Assistant automation fails, [the whole automation stops right there](https://www.home-assistant.io/docs/scripts/). Every step after it never runs. So if a bedtime routine turns off the lights and then tries to pause a speaker that happens to be offline, that one offline speaker stops everything that was supposed to come after it.
+
+![Domino Effect meme: a man tips over a tiny domino labeled "One offline speaker," starting a chain that ends at a giant domino labeled "My entire 1AM bedtime routine"](/images/blog/best-home-assistant-automations/domino-effect-continue-on-error.webp)
 
 I'd much rather one step fail quietly than have my whole bedtime routine die at 1 AM. So any step that talks to something outside Home Assistant, like a device, a server, or an AI model, gets `continue_on_error: true`. My automations file has 148 of them.
 
