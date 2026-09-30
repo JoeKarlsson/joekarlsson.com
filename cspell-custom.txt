@@ -556,3 +556,11 @@ NeXroll
 Aqara
 Heiman
 Aranet
+Ghostty
+chezmoi
+CLAUDECODE
+zdiff
+rerere
+stfu
+pumpitup
+worktrees

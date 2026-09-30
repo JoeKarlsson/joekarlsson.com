@@ -235,7 +235,7 @@ What you get for it: I can tell you, with high confidence, what should be runnin
 
 Reading is still fine. Immutability is about writes, not reads. I can SSH in, check logs, run diagnostics, look at anything. I just don't make persistent changes that way. If something needs fixing, it goes in the provision script first.
 
-One benefit I didn't anticipate: AI coding agents like [Claude Code](/blog/building-a-gpu-accelerated-subtitle-generator/) can read a provision script and immediately understand what a container is supposed to be doing - what's installed, what's configured, what services are enabled, what dependencies exist. Before, debugging with an agent meant I had to reconstruct all of that context in the conversation. Now I just point it at the provision script. That's actually one of the reasons I pushed to finish this migration - I wanted my infrastructure to be readable by tools, not just by me trying to remember things.
+One benefit I didn't anticipate: AI coding agents like Claude Code can read a provision script and immediately understand what a container is supposed to be doing - what's installed, what's configured, what services are enabled, what dependencies exist. Before, debugging with an agent meant I had to reconstruct all of that context in the conversation. Now I just point it at the provision script. That's actually one of the reasons I pushed to finish this migration - I wanted my infrastructure to be readable by tools, not just by me trying to remember things. Since then I've added a [hook that blocks writes into immutable containers](/blog/my-development-setup-2026/), so an agent can't skip the provision script even if it tries.
 
 ## One week later
 

@@ -423,6 +423,7 @@ The homelab is never done. I know that now. Current explorations:
 - Lower-power hardware for services that don't need 80 cores (maybe a small NUC or mini PC for lightweight containers)
 - Long-term energy trending in Grafana to correlate power draw with specific workloads over months
 - More self-healing automation - containers that detect their own failure and restart without waking me up
+- Fixing things remotely - I've since started [driving the homelab from my phone with Claude Code](/blog/my-development-setup-2026/)
 
 None of this was planned. I didn't draw up a blueprint for a dual-server rack with 10G networking in 2023. Each phase started with curiosity about one thing - "I want GPU transcoding," "I want to learn networking," "I want to run AI locally," "why did my power bill double?" - and ended with new hardware and new knowledge.
 

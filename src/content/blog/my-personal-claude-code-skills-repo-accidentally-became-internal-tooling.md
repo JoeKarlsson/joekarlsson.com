@@ -68,6 +68,8 @@ It's a file at the root of your repo that Claude reads automatically at the star
 
 When a new teammate opens the project and runs a skill for the first time, Claude already knows all of it. They don't have to learn it. They don't have to ask me. It's just there.
 
+The same idea works for one person across several machines. I keep my own global `CLAUDE.md` in my dotfiles - here's [how I deploy my personal CLAUDE.md with chezmoi](/blog/my-development-setup-2026/).
+
 If you only take one thing from this post: write a solid `CLAUDE.md` before you write your third skill. The skills are the features. The `CLAUDE.md` is the foundation.
 
 (The `BRAND_VOICE.md` covered in a later section is a different layer - `CLAUDE.md` is what Claude knows about how your team operates. `BRAND_VOICE.md` is what it knows about how your team writes. Both matter, but they're not the same file.)
