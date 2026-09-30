@@ -261,13 +261,29 @@ function imageName(src, used) {
 	return `${name}.webp`;
 }
 
-async function downloadWebp(src, dest) {
+async function downloadWebp(src, dest, { hero = false } = {}) {
 	const res = await fetch(src, { headers: { 'User-Agent': UA } });
 	if (!res.ok) throw new Error(`${res.status} fetching ${src}`);
-	let img = sharp(Buffer.from(await res.arrayBuffer()));
+	const buf = Buffer.from(await res.arrayBuffer());
+	if (hero) return heroCanvas(buf).then((img) => img.toFile(dest));
+	let img = sharp(buf);
 	const { width } = await img.metadata();
 	if (width && width > MAX_WIDTH) img = img.resize({ width: MAX_WIDTH });
 	await img.webp({ quality: QUALITY }).toFile(dest);
+}
+
+// CData heroes are small transparent line art drawn for a white page; on this
+// site's black cards they vanish, and BlogCard's 16:9 object-cover crops them.
+// Center at 2x on an off-white 16:9 canvas.
+const HERO_BG = '#f4f4f5';
+async function heroCanvas(input) {
+	const [W, H] = [1200, 675];
+	const graphic = await sharp(input)
+		.resize({ width: Math.round(W * 0.6), height: Math.round(H * 0.75), fit: 'inside' })
+		.toBuffer();
+	return sharp({ create: { width: W, height: H, channels: 3, background: HERO_BG } })
+		.composite([{ input: graphic, gravity: 'center' }])
+		.webp({ quality: QUALITY });
 }
 
 const tidy = (s) =>
@@ -308,7 +324,7 @@ async function importPost(page, url, existingFile) {
 		md = md.split(whole).join(`![${alt || post.title}](${webPath(file)})`);
 	}
 	md = md.replace(/\[(!\[[^\]]*\]\([^)]+\))\]\([^)]+\)/g, '$1');
-	if (post.heroSrc) downloads.push([post.heroSrc, path.join(imgDir, 'hero.webp')]);
+	if (post.heroSrc) downloads.push([post.heroSrc, path.join(imgDir, 'hero.webp'), { hero: true }]);
 
 	const date = toIsoDate(post.date);
 	const updated = toIsoDate(post.updated);
@@ -353,7 +369,7 @@ async function importPost(page, url, existingFile) {
 		return;
 	}
 	fs.mkdirSync(imgDir, { recursive: true });
-	for (const [src, dest] of downloads) await downloadWebp(src, dest);
+	for (const [src, dest, opts] of downloads) await downloadWebp(src, dest, opts);
 	fs.writeFileSync(mdPath, frontmatter + '\n' + md);
 	console.log(`wrote ${path.relative(ROOT, mdPath)} (${downloads.length} images)`);
 }

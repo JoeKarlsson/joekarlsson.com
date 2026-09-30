@@ -24,7 +24,7 @@ npm run import:cdata              # imports them all
 
 - It gets past cdata.com's Cloudflare challenge with headless **system Chrome** (curl and WebFetch get a 403 or a paraphrase). If Chrome isn't installed or the challenge changes, it fails loudly. Don't fall back to WebFetch for the body text, because it paraphrases.
 - It writes `src/content/blog/{cdata-slug}.md` with `canonicalUrl`, `contentNotice`, and `faq` (from the `<details>` accordions), with dates from the byline.
-- It downloads every image, hero included, to `public/images/blog/{slug}/` as WebP (1920px cap, quality 82).
+- It downloads every image, hero included, to `public/images/blog/{slug}/` as WebP (1920px cap, quality 82). CData heroes are 300x245 transparent line art that disappears on this site's black cards, so the hero is centered at 2x on a 1200x675 off-white (`#f4f4f5`) canvas. That also stops the 16:9 card crop from cutting it off.
 - It cleans up CMS markup: header-less tables, loose lists, link titles, zoom links around images, and alt text left as a stub with the real description pasted as a paragraph underneath.
 
 **Never overwrite an existing crosspost casually.** Existing ones carry hand edits. `--force` only works with explicit URLs, and it replaces the file wholesale:
