@@ -202,7 +202,7 @@ The #1 failure mode is writing that's technically correct but has zero personali
 
 #### Memes and visual humor
 
-Include memes where they fit naturally. Generate them via the ImgFlip API (requires free imgflip.com credentials set as `IMGFLIP_USER` / `IMGFLIP_PASS` env vars) or skip if not configured. Memes should:
+Include memes where they fit naturally. Make them with the **Meme generation step** below, which enforces format rotation. Memes should:
 
 - Be placed at natural breaks between major sections
 - Reference the actual content (not generic tech memes)
@@ -317,26 +317,64 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 
 **User photos:** Ask the user if they have photos related to the post topic. Check `~/Downloads/` for photo directories. Convert HEIC to JPEG with `sips`, then to WebP with `cwebp -q 85`. Save to `public/images/blog/{slug}/`. Every photo needs descriptive alt text.
 
-**Memes:** Generate via the ImgFlip API with curl. Common template IDs:
-
-- Drake Hotline Bling: 181913649
-- Distracted Boyfriend: 112126428
-- Change My Mind: 129242436
-- This Is Fine: 55311130
-- One Does Not Simply: 61579
-- Panik Kalm Panik: 226297822
-
-```bash
-curl -s "https://api.imgflip.com/caption_image" \
-  -d "template_id=TEMPLATE_ID&username=$IMGFLIP_USER&password=$IMGFLIP_PASS&text0=TOP TEXT&text1=BOTTOM TEXT" \
-  | python3 -c "import sys,json; print(json.load(sys.stdin)['data']['url'])"
-```
-
-Download the URL with `curl -sL`, convert to WebP. If `IMGFLIP_USER`/`IMGFLIP_PASS` aren't set, skip memes and note it for the user. Memes should reference actual post content, not be generic.
+**Memes:** see the Meme generation step below. Never pick templates from memory.
 
 **ASCII diagrams:** Use code blocks for architecture diagrams, network topologies, before/after comparisons, and flow charts. These render well in the terminal-aesthetic site and don't require external tools.
 
 **Placement:** Alternate between photos, memes, and diagrams throughout the post. Place them at natural section breaks. Never have more than 3-4 paragraphs of prose without a visual element.
+
+### Meme generation step (format rotation is mandatory)
+
+Memes are a step, not an afterthought. Run this after the draft text exists, so the jokes point at real lines in the post, and before you show the draft.
+
+Past posts leaned on the same few formats over and over (Drake alone showed up ten times). The rules below exist to stop that.
+
+**1. Audit what the blog already uses.**
+
+```bash
+python3 scripts/make-meme.py used
+```
+
+It prints how often each format appears across every post, which formats the 5 most recent meme posts used, and an "off the table" list.
+
+**2. Rotation rules. These are hard rules, not suggestions.**
+
+- **Never use a format on the off-the-table list.** That's any format used 3 or more times across the blog, or used in any of the 5 most recent posts with memes. As of September 2026 this covers Drake, This Is Fine, One Does Not Simply, Expanding/Galaxy Brain, Surprised Pikachu, Distracted Boyfriend, Gru's Plan, and Two Buttons, but the script's live output wins over this sentence.
+- **Never repeat a format within a post.**
+- **Vary the joke structure, not only the template.** Two "reject this, pick that" comparisons in one post count as a repeat even with different templates.
+- **Don't pick from memory.** Pull fresh candidates with `python3 scripts/make-meme.py templates --exclude-overused --limit 100`, and look beyond ImgFlip's top 100 when a less common format fits the joke better.
+- **Match the format to the joke.** Examples, not a fixed menu (rotate these too):
+  - A choice or swerve: Left Exit 12 Off Ramp, Trade Offer, Buff Doge vs. Cheems
+  - Escalation or self-own: Clown Applying Makeup, Bike Fall
+  - Irony or a plan going wrong: Anakin Padme 4 Panel, Running Away Balloon
+  - Awkward reaction: Monkey Puppet, Squidward Window, Absolute Cinema
+  - Labeling or sameness: They're The Same Picture, X X Everywhere
+  - Persistence: Bernie Once Again Asking, UNO Draw 25 Cards
+
+**3. Pitch before you generate.** Offer at least 5 ideas, each with a different format, and use AskUserQuestion (multiSelect) to let Joe pick. For each idea give the section it goes in, the format, the exact caption text, and one line on why that format fits the joke.
+
+**4. Generate locally.** No ImgFlip credentials needed; the script downloads the blank template and captions it with Pillow.
+
+```bash
+# Caption in a white band above the image (works on any template)
+python3 scripts/make-meme.py make --template "Monkey Puppet" \
+  --caption "When Claude offers to run the full test suite to change a comment" \
+  --out public/images/blog/{slug}/meme-monkey-puppet.webp
+
+# Text placed inside panels, coordinates as fractions of the image (x0,y0,x1,y1)
+python3 scripts/make-meme.py make --template "Left Exit 12 Off Ramp" \
+  --box "0.28,0.1,0.5,0.3=Keep iTerm" --box "0.52,0.1,0.73,0.3=Ghostty" \
+  --box "0.35,0.72,0.72,0.92=Me" \
+  --out public/images/blog/{slug}/meme-exit-12.webp
+
+# Classic white Impact top/bottom text
+python3 scripts/make-meme.py make --template "Bike Fall" --style impact \
+  --caption "Top text" --caption "Bottom text" --out ...
+```
+
+Box text color flips to white with an outline on dark backgrounds. **Open every generated meme with the Read tool and look at it** before placing it: fix boxes that land on the wrong panel, captions that wrap badly, or text that's hard to read, then regenerate.
+
+**5. Name the format in the alt text**, e.g. `![Left Exit 12 Off Ramp meme: ...]`. The audit in step 1 only counts formats it can find in alt text, so an unnamed format never gets rotated out.
 
 Write the draft to `src/content/blog/{slug}.md` so subsequent phases can grep and edit the file directly.
 
