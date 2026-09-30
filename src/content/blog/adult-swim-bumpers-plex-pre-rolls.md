@@ -23,6 +23,8 @@ Plex is great at playing movies and has zero personality. You hit play and it co
 
 But Plex will play a pre-roll video before every movie, and that's your one chance for the server to say something. I wanted it to sound like me.
 
+![Trade Offer meme: a man in a suit steeples his fingers under "TRADE OFFER." I receive: "10 seconds before every movie." You receive: "my opinions on St. Paul."](/images/blog/adult-swim-bumpers-plex-pre-rolls/trade-offer-pre-roll-st-paul.webp)
+
 ## Most of them are about Minnesota or my hard drives
 
 I have 121 of them in rotation right now. Here are a couple that I made.
@@ -43,6 +45,8 @@ And some of them are just dumb. I'm fine with that. Adult Swim was dumb sometime
 
 ![A plain black screen with white text cards reading "This server has seen things." then "Mostly Nicolas Cage." then "And regret." and finally "[joeflix]"](/images/blog/adult-swim-bumpers-plex-pre-rolls/server-has-seen-things.gif)
 
+![Oprah You Get A meme: Oprah shouting with her arms spread, captioned "You get a bumper!" and "Every movie gets a bumper!"](/images/blog/adult-swim-bumpers-plex-pre-rolls/oprah-every-movie-gets-a-bumper.webp)
+
 ## It's just YAML and ffmpeg
 
 The tool is [adult-swim-bumper](https://github.com/JoeKarlsson/adult-swim-bumper), a small Python CLI on top of ffmpeg. Each bumper is a few lines of YAML with the cards, a background clip, and a music track:
@@ -58,6 +62,8 @@ The tool is [adult-swim-bumper](https://github.com/JoeKarlsson/adult-swim-bumper
 ```
 
 Run `bumper render` and you get a ten-second MP4 with the cards fading through one at a time, a little music underneath, and your server name in brackets at the end.
+
+![Evil Kermit meme: Kermit says "It's a movie server. It doesn't need a personality." and hooded Kermit replies "Write 121 jokes in YAML."](/images/blog/adult-swim-bumpers-plex-pre-rolls/evil-kermit-121-jokes-in-yaml.webp)
 
 I didn't build the Plex side, and you shouldn't either. [NeXroll](https://github.com/JFLXCLOUD/NeXroll) is a self-hosted pre-roll manager that already does it well. I dumped the rendered bumpers into an "Adult Swim" category, and NeXroll shuffles through them before every movie, next to the seasonal ones it plays around Christmas and Halloween.
 
