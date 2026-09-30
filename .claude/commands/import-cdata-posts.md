@@ -8,14 +8,16 @@ description: Crosspost Joe's new CData blog articles (cdata.com/blog/author/joe-
 
 Crosspost Joe's articles from https://www.cdata.com/blog/author/joe-karlsson/ into this site. Arguments (optional): $ARGUMENTS
 
+**With no arguments, this is fully automatic.** Scan the author page, import every post that isn't already here, run the editorial pass and lint, then commit, push, and deploy. Don't ask Joe which posts to import. If the scan finds nothing new, say so and stop. Arguments are only for re-importing specific URLs (see `--force` below).
+
 A crosspost is Joe's CData article republished with `canonicalUrl` pointing back at CData. Keep the body faithful to the original. Only change it where site rules require (em dashes, lint), where the CMS mangled something, or to fix an obvious typo that's also on CData's page (tell Joe about those so he can fix the original).
 
 ## 1. Import
 
 ```bash
 git fetch && git status --short   # note anything uncommitted that isn't yours
-npm run import:cdata -- --dry-run # lists new posts; skips any whose URL is already a canonicalUrl
-npm run import:cdata
+npm run import:cdata -- --dry-run # scans the author page; lists new posts, skips any whose URL is already a canonicalUrl
+npm run import:cdata              # imports them all
 ```
 
 `scripts/import-cdata-posts.mjs` handles the mechanical work:
