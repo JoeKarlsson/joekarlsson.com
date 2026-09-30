@@ -1,4 +1,5 @@
-. "$HOME/.nvm/nvm.sh"
+# nvm only if present: node may come from mise shims (or anything else) on PATH
+[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
 
 # Runs first: it can stage rewritten markdown, which lint-staged then formats.
 ./scripts/convert-staged-images.sh
