@@ -34,10 +34,17 @@ if [[ ! -f "$TOFU_DIR/terraform.tfvars" ]]; then
 fi
 
 # Update site_content_hash in terraform.tfvars so tofu detects the new build.
-# Hash all HTML files so any page change (not just index.html) triggers a push.
-# Without this, tofu sees no trigger change and skips push_content entirely.
-NEW_HASH=$(find dist -name "*.html" | sort | xargs sha256sum | sha256sum | cut -d' ' -f1)
-sed -i '' "s/^site_content_hash = .*/site_content_hash = \"$NEW_HASH\"/" "$TOFU_DIR/terraform.tfvars"
+# Hash every built file so any change (pages, images, video) triggers a push.
+# Without this, tofu sees no trigger change and skips push_content entirely;
+# hashing only HTML once let an image-only change "deploy" without shipping.
+NEW_HASH=$(find dist -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | cut -d' ' -f1)
+# Tolerate `tofu fmt` column alignment ("site_content_hash       = ..."). A
+# pattern that misses leaves the old hash in place and tofu skips the push.
+sed -i '' -E "s/^(site_content_hash[[:space:]]*=[[:space:]]*).*/\1\"$NEW_HASH\"/" "$TOFU_DIR/terraform.tfvars"
+if ! grep -qE "^site_content_hash[[:space:]]*=[[:space:]]*\"$NEW_HASH\"" "$TOFU_DIR/terraform.tfvars"; then
+    echo "ERROR: could not write site_content_hash to $TOFU_DIR/terraform.tfvars"
+    exit 1
+fi
 echo "Content hash updated: $NEW_HASH"
 
 echo "Deploying to CT 165 via OpenTofu..."
