@@ -395,7 +395,7 @@ If you're letting an agent near real systems, learn hooks first.
 
 For anything bigger than a quick fix, I have Claude write the plan to a markdown file, then I open it in VS Code and edit it like a normal document. Cut steps, reorder, fix what it misunderstood. Claude works from my version. That's faster than correcting a plan through chat, and it leaves a record of what Claude and I agreed to.
 
-I dropped [GitHub Copilot](https://github.com/features/copilot) this year. With agents writing most of the code, inline autocomplete for the lines I fix by hand wasn't worth keeping. [Prettier](https://prettier.io/), [ESLint](https://eslint.org/), [markdownlint](https://github.com/DavidAnson/markdownlint), and [cspell](https://cspell.org/) run on save.
+I dropped [GitHub Copilot](https://github.com/features/copilot) after it changed its billing model, and I haven't missed it. [Prettier](https://prettier.io/), [ESLint](https://eslint.org/), [markdownlint](https://github.com/DavidAnson/markdownlint), and [cspell](https://cspell.org/) run on save.
 
 ### Linters: my voice, written down as rules
 
