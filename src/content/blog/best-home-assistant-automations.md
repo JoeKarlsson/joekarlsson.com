@@ -10,7 +10,7 @@ heroAlt: 'A finger pressing a pink 3D house made of circuit board traces, repres
 tldr: "As of September 2026 (Home Assistant 2026.9), after 10 years and 128 running automations, these are the best Home Assistant automations worth building. Basic: motion lighting with a manual override, arriving and leaving, and leak, smoke, and CO2 alerts. Intermediate: one combined laundry notification, Meeting Mode from my Mac camera, modes that turn themselves off, and a nightlight that doubles as a status light. Advanced: local AI package detection and a night mode that shuts down part of my homelab. The biggest lesson from 10 years: automations break as devices change, so I run health checks to catch problems ahead of time and use continue_on_error so one broken step doesn't take down a whole automation."
 faq:
   - question: 'What are the best Home Assistant automations for beginners?'
-    answer: 'The best Home Assistant automations for beginners are motion lighting with a manual override, arriving and leaving routines, and safety alerts for any leak, smoke, or CO2 sensor you own. They pay off every day, and they work for everyone in the house without needing the app.'
+    answer: 'The best Home Assistant automations for beginners are motion lighting with a manual override, arriving and leaving routines, and safety alerts for any leak, smoke, or CO2 sensor you own. They pay off every day, and they work for guests without needing the app.'
   - question: 'Should I use YAML or the visual editor for Home Assistant automations in 2026?'
     answer: 'Both, in that order. Draft in the visual editor, especially now that purpose-specific triggers are the default since Home Assistant 2026.7, then keep the resulting YAML in git so you can diff it, review it, and scan it for broken references.'
   - question: 'How do I find broken automations and dead entities in Home Assistant?'
@@ -29,7 +29,7 @@ faq:
 
 I've been running Home Assistant since 2016. Today I have 128 automations, and the best Home Assistant automations I've built share a single trait: someone who has never been in my house can live with them. No app, no instructions, no "oh, don't touch that switch."
 
-These are the automation ideas I actually run, basic to advanced, with the details that took me years to get right. And the biggest thing 10 years taught me isn't an automation at all. Automations break, constantly and quietly, and keeping them working is its own job.
+These are the automation ideas I actually run, basic to advanced, with the details that took me years to get right. And the biggest thing 10 years taught me: _automations break, constantly and quietly, and keeping them working is its own job._
 
 Quick context on the setup: Home Assistant 2026.9 runs as a VM on my [Proxmox cluster](/blog/homelab-two-years-later/), with 29 Zigbee devices on Zigbee2MQTT, [Frigate and local LLMs on GPUs](/blog/proxmox-gpu-passthrough-multi-service/), and [Ollama](https://ollama.com/) for the AI side. If you're brand new, start with my [Home Assistant getting-started guide](/blog/how-to-get-started-with-home-assistant-in-2026/) and come back. And if you want the actual hardware, every device is listed in the [smart home section of my uses page](/uses/#smart-home).
 
@@ -70,9 +70,9 @@ The whole list, at a glance:
 
 ## Basic Home Assistant automations
 
-The best Home Assistant automations for beginners are motion lighting, arriving and leaving, and safety alerts. They're boring. They're also the only ones everyone in the house uses every single day.
+Start here: motion lighting, arriving and leaving, and safety alerts. They're boring. They're also the only ones my guests and I use every single day.
 
-### Motion lighting
+### Motion lighting with a manual override
 
 I have motion lighting in 10 rooms. My first attempts had a habit of turning the lights off on people who were sitting still, so everyone learned to wave their arms like they were landing a plane. What fixed it:
 
@@ -108,47 +108,17 @@ One gotcha took me way too long to find. If a `for: minutes: 30` timer is counti
 
 If you're starting today, Home Assistant 2026.7 made [purpose-specific triggers](https://www.home-assistant.io/blog/2026/07/01/release-20267/) the default in the visual editor, so "Motion detected in the kitchen" is a real trigger now, and it handles unavailable sensors for you. Use them for new automations. And my take on YAML vs the visual editor: draft in the editor, then keep the YAML in git so you can see what changed.
 
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** any motion sensor, or Hue lights that support MotionAware
-- **Difficulty:** Basic
-- **The one thing to get right:** build the manual override before the motion trigger
-
-</div>
-
 ### Closet lights on a door sensor
 
 This is the easiest automation in my house. A contact sensor on the bedroom and office closet doors turns the closet light on at 100% when the door opens and off when it closes. If the door gets left open, the light turns itself off after 10 minutes anyway.
 
 It's the purest version of the guest test. Nobody has to know it's there. You open a door, and the light is on.
 
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** a Zigbee door contact sensor and a smart bulb in the closet
-- **Difficulty:** Basic
-- **The one thing to get right:** add a timeout, because someone will leave the door open
-
-</div>
-
 ### Arriving and leaving
 
 When the house goes from nobody home to someone home, an `im_home` script runs. When it goes back to nobody, `im_leaving` runs: the alarm arms (unless guest mode is on), and the Roombas start, because the best time to vacuum is when nobody is there to trip over them.
 
-The garage door is the one to be careful with. An automation that opens a door to your house needs to be paranoid, so mine won't open just because my phone entered the home zone. It also needs evidence that I'm in a car: either I crossed a 1.5-mile "approaching" zone in the last 10 minutes, or my iPhone reports its activity as Automotive. Walking past the house doesn't open the garage. Pulling into the driveway does. And a midnight routine closes the garage no matter what.
-
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** the Home Assistant companion app on your phone, plus a smart garage opener if you want the garage part (mine is a Meross)
-- **Difficulty:** Basic
-- **The one thing to get right:** never open a door on zone entry alone. Require a second signal.
-
-</div>
+The garage door (a Meross opener) is the one to be careful with. An automation that opens a door to your house needs to be paranoid, so mine won't open just because my phone entered the home zone. It also needs evidence that I'm in a car: either I crossed a 1.5-mile "approaching" zone in the last 10 minutes, or my iPhone reports its activity as Automotive. Walking past the house doesn't open the garage. Pulling into the driveway does. And a midnight routine closes the garage no matter what.
 
 ### Water leak, smoke, and CO2 alerts
 
@@ -159,33 +129,13 @@ If you own a leak sensor and it isn't wired to an automation, you own an expensi
 - **Heat:** if the thermostat turns off between November and March, or when it's under 50°F outside, Home Assistant forces the heat back on at 62°F. Minnesota pipes don't care that someone bumped the thermostat.
 - **CO2:** above 1000 ppm, the office pushes me after 5 minutes and announces after 10. I keep an Aranet4 on my desk because I start getting foggy before I notice why.
 
-One catch: these alerts fire when a sensor changes state, and a dead sensor never changes state. My kitchen smoke detector read "off" for 45.7 hours in September 2026 because it had stopped reporting entirely. More on catching that in the section on keeping automations working.
-
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** any leak, smoke, or CO2 sensor Home Assistant can see
-- **Difficulty:** Basic
-- **The one thing to get right:** use a critical notification that breaks through Do Not Disturb, and announce it out loud for anyone in the house without the app
-
-</div>
+One catch: these alerts fire when a sensor changes state, and a dead sensor never changes state. More on catching that in the section on keeping automations working.
 
 ### Trash day reminder
 
 Every Tuesday at 6 PM, my phone tells me the bins go out tonight, with "Done" and "Remind in 1hr" buttons right on the notification. If I'm home, the kitchen speaker says it out loud too, at a volume that doesn't make me jump. It's also the "Garbage Day tomorrow" line at the top of my dashboard.
 
-It's a calendar reminder with better manners, and it's hard to ignore.
-
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** the companion app on your phone, and a speaker if you want it announced
-- **Difficulty:** Basic
-- **The one thing to get right:** put Done and Remind me later buttons on the notification so it gets out of your way
-
-</div>
+It's a calendar reminder with better manners.
 
 ## Intermediate Home Assistant automations
 
@@ -193,11 +143,9 @@ These take more setup, usually a helper or two and some templating, and they're 
 
 ### Physical buttons and dimmer switches
 
-The guest test says there's a physical switch for everything, so buttons are an automation category in my house, not an afterthought.
+The guest test says there's a physical switch for everything, so buttons get as much automation work as anything else in my house.
 
-Most of my lights are Philips Hue, and here's the thing I'd tell anyone with Hue bulbs: **let the Hue bridge handle the basic switch-to-bulb stuff.** Pairing a Hue dimmer straight to the Hue bridge is faster, with fewer round trips than sending every button press through Home Assistant and a Zigbee coordinator. When someone hits a switch, the light should respond instantly, every time, even if Home Assistant is restarting.
-
-![Batman Slapping Robin meme: Robin says "Just route every button press through Home Assistant and..." and Batman slaps him, saying "LET THE HUE BRIDGE HANDLE IT"](/images/blog/best-home-assistant-automations/batman-robin-hue-bridge-dimmers.webp)
+Most of my lights are Philips Hue, and here's the thing I'd tell anyone with Hue bulbs: **let the Hue bridge handle the basic switch-to-bulb stuff.** A Hue dimmer paired straight to the Hue bridge talks to the bulbs without Home Assistant or a Zigbee coordinator in the middle. When someone hits a switch, the light should respond instantly, every time, even if Home Assistant is restarting. The cost is that my switch logic now lives in two places, the Hue app and Home Assistant, and I have to remember which one owns what.
 
 Then I layer custom actions on top in Home Assistant. One automation handles every Hue and Lutron Aurora dimmer in the house, so special behavior like long presses lives in one place. In the bedroom, a Zigbee button does different things depending on the time of day:
 
@@ -207,23 +155,13 @@ Then I layer custom actions on top in Home Assistant. One automation handles eve
 
 One button, six jobs, and a guest who presses it once still gets something sensible.
 
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** Hue dimmer switches or any Zigbee button
-- **Difficulty:** Intermediate
-- **The one thing to get right:** keep the basic on and off on the Hue bridge for speed, and use Home Assistant only for the extras
-
-</div>
-
 ### Laundry notifications
 
 <img src="/images/blog/best-home-assistant-automations/dashboard-laundry.webp" alt="Home Assistant laundry tiles showing the washer running and the dryer idle" width="234" height="126" loading="lazy" />
 
 Most laundry automations watch a smart plug's power draw and notify when it drops. Mine skips the plugs entirely:
 
-- **Washer:** a door contact sensor. The door closes, the cycle starts, and 70 minutes later it's done.
+- **Washer:** a door contact sensor. The door closes, the cycle starts, and 70 minutes later it's done. That's a timer, not real detection: 70 minutes fits my usual cycle, so a quick wash or an extra-long one gets the time wrong.
 - **Dryer:** a vibration sensor. 5 minutes of continuous shaking means it started; 9 minutes of stillness means it's finished.
 
 No power thresholds, and no false finishes when the washer pauses mid-cycle.
@@ -261,35 +199,15 @@ actions:
 
 </details>
 
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** a door contact sensor on the washer and a vibration sensor on the dryer
-- **Difficulty:** Intermediate
-- **The one thing to get right:** store each finish time in an `input_datetime` helper, then combine alerts that land within 15 minutes of each other
-
-</div>
-
 ### Movie lighting that follows Plex
 
-When the Great Room TV turns on, the lights fade into a movie scene over 10 seconds. When I press play in Plex, they step down to almost nothing over a few seconds. Pause or stop, and a lighter movie scene fades back in so you can find your drink. Turn the TV off, and the room goes back to a normal dimmed scene.
+When the Great Room TV (an onn 4K Pro running Plex) turns on, the lights fade into a movie scene over 10 seconds. When I press play in Plex, they step down to almost nothing over a few seconds. Pause or stop, and a lighter movie scene fades back in so you can find your drink. Turn the TV off, and the room goes back to a normal dimmed scene.
 
 ![Absolute Cinema meme: Martin Scorsese with his hands raised, captioned "Me when I press play in Plex and the lights fade to almost nothing" and "ABSOLUTE CINEMA"](/images/blog/best-home-assistant-automations/absolute-cinema-plex-lighting.webp)
 
-Getting there took a lot of tuning. The fade times, the pause and stop behavior, and which scene lands when all took real trial and error. But once I locked it in, it's been incredible.
+I didn't get the fade times, the pause and stop behavior, or which scene lands when right on the first try. Once I did, I stopped thinking about the lights during movies, which is the whole point.
 
-The piece that makes it livable is a **Light Lock**. Flip it on and the automation stops touching the Great Room lights, for when you want the lights your way. It clears itself at 3 AM, because every mode needs an expiration date.
-
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** a media player Home Assistant can see (mine is Plex on an onn 4K Pro) and lights with scenes
-- **Difficulty:** Intermediate
-- **The one thing to get right:** add a lock toggle that turns the automation off, and have it reset itself overnight
-
-</div>
+The piece that makes it livable is a **Light Lock**. Flip it on and the automation stops touching the Great Room lights, for when you want the lights your way. It clears itself at 3 AM.
 
 ### Meeting Mode from your Mac camera
 
@@ -318,51 +236,21 @@ triggers:
 
 _The Work panel: every mode is a tile, and Meeting turns on by itself when the Mac camera does. Below it, the health checks tile, which comes up in the maintenance section._
 
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** the Home Assistant companion app on your Mac, and a light you want on during calls
-- **Difficulty:** Intermediate
-- **The one thing to get right:** trigger on both camera on and camera off, so the mode always ends itself
-
-</div>
-
 ### Party and guest modes that turn themselves off
 
-Party Mode turns on guest mode and disables 7 automations that would be annoying with a crowd, like doorbell announcements, package alerts, the midnight shutdown, and night mode. The motion lights skip their auto-off too, so nobody gets plunged into darkness mid-conversation. Guest Mode disarms the alarm, puts the indoor camera in privacy mode, and stops Frigate recording.
+Party Mode turns on guest mode and disables 7 automations that would be annoying with a crowd, like doorbell announcements, package alerts, and the midnight shutdown, and it holds night mode off until 4 AM. The motion lights skip their auto-off too, so nobody gets plunged into darkness mid-conversation. Guest Mode disarms the alarm, puts the indoor camera in privacy mode, and stops Frigate recording.
 
-Both expire on their own. That's the whole trick. Party Mode turns off at 4 AM. Guest Mode turns off after 24 hours. A mode you have to remember to turn off will eventually get left on, and then your motion lights mysteriously stop working three weeks later.
+Both expire on their own: Party Mode at 4 AM, Guest Mode after 24 hours. A mode you have to remember to turn off will eventually get left on, and then your motion lights stop working and you don't know why.
 
-<div class="callout">
+### Vacation mode and a daily report
 
-**Build it yourself**
-
-- **You need:** an `input_boolean` for each mode, nothing else
-- **Difficulty:** Intermediate
-- **The one thing to get right:** give every mode an automatic off time
-
-</div>
-
-### Vacation mode
-
-When I turn on Vacation Mode, the [Presence Simulation](https://github.com/slashback100/presence_simulation) integration replays realistic light patterns so the house looks lived in, and [Alarmo](https://github.com/nielsfaber/alarmo) arms in vacation mode. If the alarm fails to arm, I get a critical push, because an alarm that silently didn't arm is worse than no alarm.
+When I turn on Vacation Mode, the [Presence Simulation](https://github.com/slashback100/presence_simulation) integration (from HACS, like Alarmo) replays realistic light patterns so the house looks lived in, and [Alarmo](https://github.com/nielsfaber/alarmo) arms in vacation mode. If the alarm fails to arm, I get a critical push, because an alarm that silently didn't arm is worse than no alarm.
 
 What I use every trip is a daily report. At 9 AM every morning I'm away, one notification tells me the indoor temperature, the alarm state, any leaks, how many times the doorbell rang, packages detected, doors opened, when the pet sitter came by, and any National Weather Service alerts. One push, and I stop wondering about my house.
 
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** the Presence Simulation and Alarmo integrations from HACS, plus whatever sensors you already have
-- **Difficulty:** Intermediate
-- **The one thing to get right:** send one daily summary instead of a notification for every event
-
-</div>
-
 ### A nightlight that doubles as a status light
 
-There's a small Zigbee nightlight in my Great Room. At night it glows when you walk by in the dark, and its color tells me what's going on:
+There's a small Third Reality Zigbee nightlight in my Great Room. It glows when you walk by in the dark, and its color tells me what's going on:
 
 ```text
 Great Room nightlight, decoded:
@@ -376,53 +264,23 @@ Great Room nightlight, decoded:
   (normal) ....... everything is fine, go to bed
 ```
 
-It's the best dashboard in my house because it isn't a dashboard. A guest walking to the kitchen at midnight sees a nightlight. I see "the garage is still open" without unlocking my phone.
-
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** any color Zigbee bulb or nightlight (mine is a Third Reality)
-- **Difficulty:** Intermediate
-- **The one thing to get right:** keep it to 3 colors, and only show them when there's motion in the dark
-
-</div>
+It's the best dashboard in my house because it isn't a dashboard. A guest walking to the kitchen at midnight sees a nightlight. I see "the garage is still open" without unlocking my phone. I keep it to three colors so I never have to look up what one means.
 
 ### Pause the music when someone's at the door
 
-When the doorbell sees a person at the front door between 6 AM and 10 PM, all six [self-hosted music players](/blog/self-hosted-music-still-sucks-in-2026/) in the house pause, so you can hear the door and talk to whoever is there. It's a tiny automation, and nobody knows it exists until the moment it helps them.
-
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** a doorbell or camera with person detection, and speakers Home Assistant can control
-- **Difficulty:** Intermediate
-- **The one thing to get right:** limit it to the hours someone might actually be at the door
-
-</div>
+When the doorbell sees a person at the front door between 6 AM and 10 PM, all six [self-hosted music players](/blog/self-hosted-music-still-sucks-in-2026/) in the house pause, so you can hear the door and talk to whoever is there.
 
 ### 3D printer alerts and auto power-off
 
 My Prusa runs through OctoPrint, and Home Assistant sends a push when a print starts, finishes, or fails. When a print finishes, the printer turns itself off once the bed cools below 95°F, and the notification has a "Keep On" button in case I'm about to start another one. No more printers idling overnight because I forgot.
 
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** OctoPrint and a smart plug on the printer
-- **Difficulty:** Intermediate
-- **The one thing to get right:** wait for the bed to cool before cutting power, and put a Keep On button on the notification
-
-</div>
-
 ## Advanced Home Assistant automations
 
 These need more hardware or more trust in your setup: a GPU, local AI, or Home Assistant reaching into other machines and turning them off. What could go wrong. They still have to pass the guest test: a guest should never know the AI or the homelab is involved, and when either one fails, the house falls back to something sensible.
 
-### Local AI package and person detection
+### Local AI package detection: only worth it for yes-or-no answers
 
-My honest take after months of running local AI in my automations: **it's worth it when it answers a yes-or-no question.** Free-text descriptions are a novelty.
+My take after running local AI in my automations: **it's worth it when it answers a yes-or-no question.** Free-text descriptions are a novelty.
 
 The stack: [Frigate 0.18](https://github.com/blakeblackshear/frigate/releases/tag/v0.18.0) runs object detection and face recognition on a Quadro RTX 4000. Ollama runs [`qwen3-vl:8b`](https://ollama.com/library/qwen3-vl) for vision on an RTX A4000. Home Assistant calls it through the [AI Task integration](https://www.home-assistant.io/integrations/ai_task/), which sends a camera snapshot to the model and gets structured data back. I wrote up the voice side of this stack in my post on a [fully local voice assistant on a GPU](/blog/local-voice-ai-home-assistant-gpu/), which I built after [replacing Alexa with Voice Preview Edition](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
 
@@ -431,7 +289,7 @@ The two that earn their keep:
 - **Package detection.** When a person stands at the front door for 10 to 60 seconds without ringing, the AI returns `has_package: true` or `false`.
 - **Person or pet.** When there's motion in the Great Room while I'm away, the AI returns `is_person` and `is_animal`. A person gets a real alert, a pet gets a quiet note, and if Frigate recognized my face in the last 60 seconds, it doesn't bother asking.
 
-Both change what happens next based on the answer. That's the difference. Here's the package flow:
+Both change what happens next based on the answer. Here's the package flow:
 
 ```text
 person at the front door 10-60 s, no ring   (doorbell person detection)
@@ -451,33 +309,17 @@ package, or nobody home?  --yes-->  push with the snapshot
 
 The novelty ones: the doorbell describes who's there ("A delivery driver in a brown uniform is holding a package"), and I can ask what's at the front door. Both work. I'd barely notice if they disappeared.
 
+When the model doesn't answer at all, mine assumes there's a package, because a false alert beats a missed delivery.
+
 My AI automations talk to Ollama directly, not through a cloud fallback, so camera snapshots never leave my network. The trade-off: no AI overnight, because Ollama is one of the things my house shuts off at 11 PM.
-
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** a camera in Frigate, a GPU for Ollama with enough VRAM for an 8B vision model, and the AI Task integration
-- **Difficulty:** Advanced
-- **The one thing to get right:** ask the model for a structured yes-or-no answer, and decide what happens when it doesn't answer at all
-
-</div>
 
 ### Night mode for a homelab
 
-At 11 PM, Home Assistant SSHes into one of my Proxmox hosts and stops 11 containers nobody needs at night: Ollama, Paperless, Kometa, Lyrion, SearXNG, and a handful of media tools. At 6 AM it brings them back. The notification says "Saving ~175W," and the script estimates about $60 a year (an estimate, not something I've metered).
+At 11 PM, Home Assistant SSHes into one of my Proxmox hosts and stops 11 containers across both hosts that nobody needs at night: Ollama, Paperless, Kometa, Lyrion, SearXNG, and a handful of media tools. At 6 AM it brings them back.
 
-Party Mode pushes night mode back to 4 AM, and there's a manual "override until" time for nights I'm working late. I wrote about the original [night mode system in my homelab post](/blog/homelab-two-years-later/).
+The notification says "Saving ~175W." It doesn't. When I finally pulled 30 days of power data out of Prometheus, the two servers averaged 414.5W overnight and 419.1W the rest of the day. That's about 5W, or roughly 15 cents a month. The containers it stops sit idle most of the time anyway, and the overnight backup jobs run in exactly that window. So I'm giving up overnight AI for 15 cents a month. Night mode either needs to stop things that actually draw power, or it needs to go, and I haven't decided which.
 
-<div class="callout">
-
-**Build it yourself**
-
-- **You need:** a `shell_command` in Home Assistant with SSH access to your hypervisor
-- **Difficulty:** Advanced
-- **The one thing to get right:** only stop things nobody needs at night, and give yourself an override
-
-</div>
+Party Mode pushes night mode back to 4 AM, and there's a manual "override until" time for nights I'm working late. The full numbers are in the [night mode section of my homelab post](/blog/homelab-two-years-later/). If you build one, put a power meter on it first and measure before and after.
 
 ## Keeping 128 Home Assistant automations working
 
@@ -495,13 +337,13 @@ Two fixes: catch problems ahead of time, and make sure one broken step can't tak
 
 Every 6 hours, a health check script pulls all my automations, scripts, and dashboards off the Home Assistant server and checks every entity, device, service, and notify target they reference. Anything that points at something that no longer exists shows up in a report and on my dashboard (that "Health checks 138/141" tile above). A separate check flags safety sensors that haven't reported in too long, which is how the smoke detector got caught. It's the same approach I use across the rest of my homelab, where [86 health check scripts](/blog/opentofu-proxmox-immutable-homelab/) watch every container.
 
-The first time I ran it, it found 12 dead references nothing else had flagged. Home Assistant's Repairs page didn't flag any of these for me. It doesn't look inside templates, dashboards, or notify targets, which is where most of the breakage hides. If you don't want to write your own script, the [Watchman](https://github.com/dummylabs/thewatchman) integration does a lighter version of the same job (it scans your config files for missing entities and actions), and it's a great place to start once you're past about 30 automations.
+The first time I ran it, it found 12 dead references nothing else had flagged. Home Assistant's Repairs page didn't flag any of these for me. As far as I can tell, it doesn't look inside templates, dashboards, or notify targets, which is where most of the breakage hides. If you don't want to write your own script, the [Watchman](https://github.com/dummylabs/thewatchman) integration does a lighter version of the same job (it scans your config files for missing entities and actions), and it's a great place to start once you're past about 30 automations.
 
 ![Scooby Doo Mask Reveal meme: Fred, labeled "My health check," pulls the mask off a ghost labeled "Repairs page: no issues found" to reveal a villain labeled "12 dead references"](/images/blog/best-home-assistant-automations/scooby-doo-health-check-dead-references.webp)
 
 ### Use continue_on_error so one failure doesn't stop everything
 
-By default, when one action in a Home Assistant automation fails, [the whole automation stops right there](https://www.home-assistant.io/docs/scripts/). Every step after it never runs. So if a bedtime routine turns off the lights and then tries to pause a speaker that happens to be offline, that one offline speaker stops everything that was supposed to come after it.
+By default, when one action in a Home Assistant automation fails, [the whole automation stops right there](https://www.home-assistant.io/docs/scripts/). So if a bedtime routine turns off the lights and then tries to pause a speaker that happens to be offline, that one offline speaker stops everything that was supposed to come after it.
 
 ![Domino Effect meme: a man tips over a tiny domino labeled "One offline speaker," starting a chain that ends at a giant domino labeled "My entire 1AM bedtime routine"](/images/blog/best-home-assistant-automations/domino-effect-continue-on-error.webp)
 
@@ -513,7 +355,7 @@ I'd much rather one step fail quietly than have my whole bedtime routine die at 
   continue_on_error: true
 ```
 
-The health checks are what make that safe. `continue_on_error` keeps the routine running tonight, and the next health check report tells me what's broken so I can fix it tomorrow. On its own, `continue_on_error` just hides failures. The health checks are how I hear about them.
+The health checks are what make that safe. `continue_on_error` keeps the routine running tonight, and the next health check report tells me what's broken so I can fix it tomorrow. _On its own, `continue_on_error` just hides failures._ The health checks are how I hear about them.
 
 ## Using Claude to write Home Assistant automations
 
@@ -531,12 +373,12 @@ While I was writing this post, Claude also audited my setup and found three real
 4. **Local AI only for yes-or-no answers.**
 5. **Health checks and `continue_on_error` once you pass about 30 automations.**
 
-## Ten years in, and I'm not done
+## What's next: fewer custom components and fewer batteries
 
-My 10 years with Home Assistant haven't been a straight line. They've been stops and starts. I'd go months without touching anything, then see someone's setup on Reddit and get inspired all over again. Or a new device or integration would show up and unlock an idea I'd been sitting on for years.
+My 10 years with Home Assistant have been stops and starts. I'd go months without touching anything, then see someone's setup on Reddit and get inspired all over again. Or a new device or integration would show up and unlock an idea I'd been sitting on for years.
 
-Lately, the goal has changed. I still want to automate as much as I possibly can, but what I care about most now is reliability: a house that's as simple as possible for guests, with as few errors as possible. So I use things out of the box whenever I can, and I'm a lot less likely to reach for third-party custom components or custom code than I used to be. Every custom piece is one more thing that can break on an update. The few in this post, like Alarmo, Presence Simulation, and my health check script, stayed because nothing built in does their job, and the health checks are there to tell me when one of them breaks.
+Lately, what I care about most is reliability, not more automations. So I use things out of the box whenever I can, and I'm a lot less likely to reach for third-party custom components or custom code than I used to be. Every custom piece is one more thing that can break on an update. The ones that survived, like Alarmo, Presence Simulation, and my health check script, stayed because nothing built in does their job, and the health checks are there to tell me when one of them breaks.
 
-I'm also trying to make the house more sustainable, and part of that is avoiding batteries wherever I can. Keeping batteries fresh across a house full of sensors sucks, and the battery-powered devices are usually the finicky ones. Most of the sensors in this post still run on batteries, which is exactly why my health checks watch for the ones that go quiet. I'm staying on Zigbee, and I'm not planning to migrate to Matter anytime soon.
+I'm also trying to make the house more sustainable, and part of that is avoiding batteries wherever I can. Keeping batteries fresh across a house full of sensors sucks, and the battery-powered devices are usually the finicky ones. Most of the sensors in this post still run on batteries, which is exactly why my health checks watch for the ones that go quiet.
 
-And honestly? I've been extremely happy with Home Assistant. It's an incredible project, and I'm planning to use it for another 10 years. I can't wait to see what this list looks like then.
+Ten years in, Home Assistant is still the center of my house, and I'm planning to run it for another 10. What's still on the list: fewer battery sensors, a night mode that saves real power or no night mode at all, and getting that health checks tile from 138/141 to 141/141.
