@@ -590,3 +590,5 @@ homelabbers
 RDIMMs
 DIMM
 exitcode
+compinit
+atuin

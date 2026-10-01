@@ -75,6 +75,8 @@ iTerm never broke. I switched for two reasons. Ghostty's config is one plain tex
 
 A normal session is one Ghostty window cut into four or five panes, each running a separate [Claude Code](https://code.claude.com/docs) session on a separate job. The screenshot below is a real afternoon: orphaned OpenTofu state, a Last.fm replacement, my social post scheduler, a music server's web UI, and this post. I glance across them like a row of monitors.
 
+I don't run tmux on the Mac. Ghostty's native splits do what I need with nothing extra to configure.
+
 That's also why I don't use the Claude Code extension for VS Code. It gives me one Claude inside one editor. Ghostty gives me as many as I want.
 
 ![A Ghostty window split into five panes, each running its own Claude Code session on a different task, with a status line under each pane naming the task](/images/blog/my-development-setup-2026/ghostty-claude-code-splits.webp)
@@ -102,7 +104,7 @@ shell-integration-features = no-cursor,ssh-env,ssh-terminfo
 
 ### Plain zsh: startup from 108 ms to 46 ms
 
-I noticed lag. Opening a new tab had a small but real delay, and I open a lot of tabs. So I audited it: startup was around 108 ms, mostly [Oh My Zsh](https://ohmyz.sh/) plus a handful of tools spawning a subprocess every time a shell started. After the cleanup it was 46 ms, and new tabs feel instant.
+I noticed lag. Opening a new tab had a small but real delay, and I open a lot of tabs. So I audited it: startup was around 108 ms, mostly [Oh My Zsh](https://ohmyz.sh/) plus a handful of tools spawning a subprocess every time a shell started. After the cleanup it was 46 ms, and new tabs feel instant. That's warm-cache `.zshrc` load time in a real pty, timed with zprof and per-section timers under `env -i`, so my agent's environment didn't skew it. The first numbers lied, too: a cold completion cache made `compinit` look like 460 ms. Warm, it's 7 ms.
 
 What I learned from measuring: **aliases are free, subprocesses aren't.** Dozens of aliases cost nothing measurable. Every `eval "$(some-tool init)"` did.
 
@@ -201,9 +203,13 @@ mcd() { mkdir -p "$1" && cd "$1"; }   # make a directory and cd into it
 
 For everything else, [zoxide](https://github.com/ajeetdsouza/zoxide) handles the jumping: `z blog` takes me to this repo from anywhere.
 
+The one thing I added back is [atuin](https://atuin.sh/) for Ctrl-R, local only with no sync. It isn't free. It adds about 14 ms before every command, and its init quietly rewired zsh-autosuggestions to spawn `atuin search` on every keystroke, which I switched back to plain history. Searchable history with directory, exit code, and duration is worth 14 ms to me. The keystroke thing wasn't.
+
 ### Starship, because Powerlevel10k is on life support
 
-I loved [Powerlevel10k](https://github.com/romkatv/powerlevel10k), but its README has said "NO NEW FEATURES ARE IN THE WORKS" and "MOST BUGS WILL GO UNFIXED" since 2024. I don't want the thing I look at thousands of times a day to be one macOS update away from breaking. [Starship](https://starship.rs/) is maintained, works in any shell, and is one TOML file.
+I loved [Powerlevel10k](https://github.com/romkatv/powerlevel10k), but its README has said "NO NEW FEATURES ARE IN THE WORKS" and "MOST BUGS WILL GO UNFIXED" since 2024. I don't want the thing I look at thousands of times a day to be one macOS update away from breaking. I looked at [Oh My Posh](https://ohmyposh.dev/) (best looking, my runner-up), [Pure](https://github.com/sindresorhus/pure) (fast, almost no segments), Spaceship, and just staying on p10k. I picked [Starship](https://starship.rs/) because it's the one I'd bet is still maintained in five years: works in any shell, one TOML file.
+
+It costs me something. p10k is still faster in git repos. It keeps a background daemon that already knows the repo state, and it draws a cached prompt before `.zshrc` finishes loading. Starship runs every module synchronously and waits for all of them.
 
 I use the catppuccin-powerline preset with two things turned off: git status counts and language versions. Out of the box they ran `git status` and `node --version` before every prompt. When I want the details, I type `gs`.
 
@@ -410,7 +416,7 @@ When an AI helps you write, the drafts drift toward _generic_. Em dashes everywh
 <!-- vale JoeKarlsson.BannedOpenings = YES -->
 <!-- vale Slop.Vocabulary = YES -->
 
-![Clown Applying Makeup meme in four panels: "Let AI help write my blog posts," "Get annoyed by all the em dashes," "Write 137 lint rules against AI slop," and, in full clown makeup, "My own drafts fail the rules"](/images/blog/my-development-setup-2026/clown-makeup-ai-slop-linters.webp)
+![Clown Applying Makeup meme in four panels: "Let AI help write my blog posts," "Get annoyed by all the em dashes," "Write 137 lint rules against AI slop," and, in full clown makeup, "Turn off the rules that flag my own voice"](/images/blog/my-development-setup-2026/clown-makeup-ai-slop-linters.webp)
 
 A [LanguageTool](https://languagetool.org/) server in my homelab handles grammar without sending drafts anywhere. And the part that matters: **agents run the same checks.** The linters run in the editor, before commits, and in CI, so the rules apply whether I wrote the sentence or Claude did.
 
@@ -455,7 +461,7 @@ Claude Code  --ssh-->  Plex, Home Assistant, Proxmox nodes, NAS ...
 
 I run a [Plex](https://www.plex.tv/) server for friends and family, which makes me their on-call support whether I like it or not. When someone texts me that Plex is broken and I'm out, I open Termius, tell Claude what they told me, and let it dig through logs and fix it while I keep doing whatever I was doing. A push notification tells me when it's done. Mosh is what makes it work on a phone: elevators, Wi-Fi to cell, a locked screen, and it picks right back up.
 
-![Buff Doge vs. Cheems meme: Buff Doge labeled "Me in 2026: fixes Plex from the grocery checkout line" next to a crying Cheems labeled "Me in 2025: I'll look at it when I get home"](/images/blog/my-development-setup-2026/buff-doge-cheems-plex-on-call.webp)
+![Buff Doge vs. Cheems meme: Buff Doge labeled "Me in 2026: fixes Plex from my phone while I'm out" next to a crying Cheems labeled "Me in 2025: I'll look at it when I get home"](/images/blog/my-development-setup-2026/buff-doge-cheems-plex-on-call.webp)
 
 The container updates itself every Sunday, Claude Code and dotfiles included. It's managed by OpenTofu like the rest of the lab, which I covered in [moving the whole homelab into OpenTofu](/blog/opentofu-proxmox-immutable-homelab/).
 
@@ -559,7 +565,7 @@ mode = "symlink"
 
 </details>
 
-A new Mac is one clone and `install.sh`, which is now a short bootstrap: install Homebrew and chezmoi, then hand off to `chezmoi init`. `bin/doctor` keeps it honest afterward. As I write this, it's failing on Brewfile drift, which is the point.
+A new Mac is one clone and `install.sh`, which is now a short bootstrap: install Homebrew and chezmoi, then hand off to `chezmoi init`. `bin/doctor` keeps it honest afterward.
 
 ## What I'd keep and what's still broken
 
@@ -570,6 +576,5 @@ Still broken or missing:
 - **Worktrees have overhead.** Every one needs its own `npm install`, dev servers fight over ports, and merge conflicts still land on me.
 - **Hooks are pattern lists, not a sandbox.** They catch the mistakes agents make in practice, and anything the list doesn't anticipate gets through.
 - **Local models aren't good enough for coding yet**, at least not on a 16 GB card shared with Plex and photo processing.
-- **`bin/doctor` is failing right now** on Brewfile drift.
 
 Next on my list: testing one of the bigger Qwen3.8 models on real coding work, and getting these dotfiles running cleanly on more than macOS and Debian.
