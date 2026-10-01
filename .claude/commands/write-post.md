@@ -337,11 +337,12 @@ My track record so far: three joekarlsson.com submissions to HN (MikroTik binary
 
 #### Content that survives HN and Reddit comments
 
+- **Follow STYLE_GUIDE.md "Writing About Infrastructure and Technical Decisions".** Every spec gets a reason, every fix names its cost, and numbers replace adjectives. Also say whether a number is measured or guessed, and make sure claims don't contradict each other.
 - **Original data or first-hand experience is the whole point.** That means metered numbers, real configs, costs, failure stories and benchmarks you ran yourself. Commenters forgive rough writing when the data is real. They don't forgive a well-written summary of things they've already read.
 - **Every number must be internally consistent.** HN will multiply your watts by 24 and compare the result to your kWh. It will check core counts against Intel ARK and add up your cost tables. Before shipping, recompute every derived number in the post (totals, averages, break-even, per-month vs per-year) and make sure the spec numbers match the vendor's spec sheet. Cores are not threads.
 - **Concede the obvious objection in the post itself.** Every topic has its standard top comment. For homelabs it's "you could do this on a $150 mini PC" and "the power bill makes this a loss". For self-hosting it's "your time isn't free" and "what about backups?". For AI it's "a bigger hosted model would do this better". One honest paragraph that names the objection and answers it (or concedes it) takes that comment away.
 - **Be careful with anything that sounds like piracy, security theater or astroturfing.** "Replaced Netflix with Plex plus the \*arr stack" invites a thread about piracy instead of your post. Frame media in terms of what you own, or leave it out. Disclose employer ties and sponsorships up front.
-- **Keep memes to a minimum.** HN reads memes as low effort, and a meme above the first real paragraph gets mentioned in the comments. For an HN-targeted post, cap memes at 1-2, keep them out of the first screen, and let photos, diagrams and tables carry the visuals. Reddit is more tolerant, but a real photo beats a meme in r/homelab every time.
+- **Keep the memes, and make them earn it.** Memes are part of Joe's voice and stay in HN- and Reddit-bound posts too. Don't recommend cutting them. On these audiences, each meme has to joke about a specific finding in the post, land after the point instead of replacing it, and not echo the header above it (STYLE_GUIDE.md **Memes**). Keep them out of the first screen so the opening is substance.
 - **Headers are the skim layer.** HN and Reddit readers scan the headers before deciding whether to read. Use plain labels or claims that contain the answer ("Desktop GPUs don't fit in a 2U server"), never teasers. Top posts in this space use headers like "The hardware", "Step 4. Backup" and "Immich is actually great". See STYLE_GUIDE.md **Headers**.
 - **Open with substance, not a warm-up.** Readers decide within one screen. The first paragraph should state the claim or the headline number, not "Look, when I wrote..." throat-clearing. Use the TL;DR box for the numbers.
 - **Date-sensitive claims need dates.** Prices, versions and "currently running" lists go stale. Write "as of <month year>" and link the primary source. A retired project in your "what I run" list (for example, Readarr was retired in June 2025) signals the post is out of date.
@@ -568,7 +569,7 @@ Final human review before moving on. Verify each item:
 - [ ] HN/Reddit (if targeted): title is plain and specific with no colon-label, and works pasted unchanged as the HN title?
 - [ ] HN/Reddit (if targeted): every derived number recomputed (totals, W vs kWh, per-month vs per-year), and spec numbers match the vendor sheet?
 - [ ] HN/Reddit (if targeted): the obvious top-comment objection is named and answered in the post?
-- [ ] HN/Reddit (if targeted): memes capped at 1-2 and none in the first screen?
+- [ ] Memes: each one jokes about a real finding, doesn't echo its header, and isn't in the first screen?
 
 ### 6f. Spelling Check
 

@@ -38,11 +38,11 @@ The writing MUST be enjoyable to read. Technical accuracy with zero personality 
 ### Techniques that create energy:
 
 - **Scene-setting:** "Picture this: it's 11 PM on a Tuesday and I'm measuring server racks with a tape measure..."
-- **Real dialogue:** Quote yourself, your partner, error messages, forum posts. Dialogue creates intimacy.
+- **Real dialogue:** Quote yourself, friends, error messages, forum posts. Dialogue creates intimacy. Never invent a quote or a reaction that didn't happen.
 - **The setup/punchline:** Build something up, then puncture it. Long technical description followed by "But music? Music is where technical elegance goes to die."
 - **Emotional specificity:** Not "it was frustrating" but "I spent two days SSHing into the MikroTik at midnight trying to figure out why half my containers lost network connectivity."
 - **The admission:** "I didn't know 19 inches was a standard. I was measuring with a tape measure." Being wrong is endearing.
-- **Sensory details:** What did the server sound like? What did your partner say? What time was it? These details separate real stories from spec sheets.
+- **Sensory details:** What did the server sound like? What did a guest say? What time was it? These details separate real stories from spec sheets.
 
 ### The energy test:
 
@@ -50,7 +50,16 @@ Read each section aloud. Would you keep reading if this showed up in your RSS fe
 
 ### Memes
 
-When possible, include relevant memes in blog posts to break up technical content with humor. Use real meme templates (ImgFlip style) with text that references the actual post content. Place them at natural section breaks, 2-4 per long post. Don't force them.
+Memes are part of how I write. They go in every post where one fits, including posts I'm sending to Hacker News or Reddit. I'm not cutting them to look more serious. A good meme is a joke about something the post actually found, and that's the same kind of humor that works everywhere else in my writing.
+
+What makes a meme earn its spot:
+
+- **It's about a real line in the post.** The Anakin/Padme one about config drift works because the post just showed 31 threads drifting back to `performance`. A generic "servers go brrr" meme could go in anyone's post, so it doesn't go in mine.
+- **It lands after the point, not instead of it.** The paragraph makes the claim with the numbers. The meme is the reaction. If the meme is the only place a fact shows up, the fact needs to be in the text too.
+- **It doesn't repeat the header right above it.** If the header already says "Cheap to buy, expensive to run," a meme that says the same thing is an echo, not a joke. Give it a different angle or move it.
+- **Rotate formats.** Run `python3 scripts/make-meme.py used` before picking. Anything I've used 3+ times or in the last 5 meme posts is off the table. Never repeat a format within a post.
+- **Name the format in the alt text** ("Anakin Padme 4 Panel meme: ..."), so the rotation audit can count it.
+- **2-4 per long post, 1-2 per short one.** Spread them out at section breaks. Don't force one where nothing fits.
 
 ## Formatting Rules
 
@@ -196,6 +205,24 @@ very, really, quite, extremely, incredibly, absolutely (except when used for emp
 - Reference real scenarios from personal experience
 - Compare approaches with honest trade-offs
 
+### Writing About Infrastructure and Technical Decisions
+
+This is what the technical posts that do well on Hacker News and Reddit have in common, and it holds for every post I write, whether that's a homelab build, a database deep dive, or a tool review. The short version: the reader is a smart engineer who will check my work, so I show my work.
+
+- **Every spec gets a "because."** "64GB of RAM" is a spec sheet. "64GB of RAM, so the LLM and Immich's ML models fit at the same time" is a decision. If I can't say why a number matters, it probably doesn't belong in the post.
+- **Say what I was trying to do before I say what I bought.** State the goal, the constraints, or the thing that broke first. Every choice later in the post should trace back to it.
+- **Name what I didn't pick, and why.** One or two sentences: "A Coral TPU would have fixed Frigate, but not Plex or local LLMs." If I skip this, the comments will ask.
+- **Every "this fixed it" comes with what it cost.** Moving Home Assistant into a VM fixed isolation and created a dependency on the host. Say both. A trade-off I name is credibility. A trade-off a commenter finds is a pile-on.
+- **Measured, estimated, or guessed - say which.** "That's metered" and "my current guess is" are both fine. Presenting a guess like a measurement is not. If I haven't measured something, say so.
+- **Numbers beat adjectives.** "The hosts sit around 15% CPU" beats "absurd headroom." "Plex went from choking on two streams to handling six" beats "performance was unreal." Use units, a date or time window, and where the number came from.
+- **Claims have to agree with each other.** If one section says I filled the hardware and another says there's tons of headroom, one of them is wrong. Reread the whole post for numbers and claims that contradict each other.
+- **Show the real config.** A trimmed resource block, the actual command, the real error message. Engineers trust config more than prose. Strip secrets, hostnames, and anything private before it goes in.
+- **Praise comes with a receipt and a catch.** "Immich is great: 40,000 photos, face recognition on the GPU, and the only thing I miss is editing" beats "genuinely excellent." Superlatives stacked on superlatives read as AI-written, and HN says so in the comments.
+- **Treat the reader as a peer.** Explain only the concept the argument depends on. Don't explain what a VM is. Do explain why LACP won't speed up a single connection, if the point depends on it.
+- **Link the primary source.** Vendor spec sheets, docs, changelogs, the forum thread where I found the fix.
+- **Keep private things private.** No public IPs, private domain names, serial numbers, bucket names, tokens, or anything that maps out my house. Private subnets and host nicknames are fine.
+- **End with a verdict and what's still missing.** What I'd keep, what's still broken, what's next. No moral, and don't restate the intro.
+
 ### Honesty About Limitations
 
 - "The default wake word detection had maybe a 50% success rate"
@@ -206,7 +233,7 @@ very, really, quite, extremely, incredibly, absolutely (except when used for emp
 ## What Makes Joe's Writing Distinct
 
 1. **Real frustration about real problems** - not manufactured outrage, genuine annoyance at bad UX
-2. **Partner/family perspective** - includes how tech decisions affect real people in the household
+2. **The guest test** - how tech decisions affect real people who don't have the app or know the setup (I live alone, so write about guests and past experience, not a current partner)
 3. **Specific numbers and specs** - CPU models, RAM amounts, response times, success rates
 4. **Architecture diagrams and system design** - thinks in systems, explains how pieces connect
 5. **Pop culture references** - casual, not forced
