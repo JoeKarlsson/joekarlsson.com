@@ -63,7 +63,7 @@ The short version of what changed:
 
 "Last year" means 2025. Versions as of September 2026: Ghostty 1.3.1, Starship 1.26, Claude Code 2.1, chezmoi 2.73, and Handy 0.9.7, on macOS and Debian 13.
 
-The full inventory of hardware and apps lives on my [uses page](/uses). This post is the why. Where it helps, I've tucked the actual config into collapsible blocks so you can copy it.
+The full inventory of hardware and apps lives on my [uses page](/uses). This post is the why. Where it helps, I've tucked the actual config into collapsible blocks so you can copy it, and each one links to the full file in [my dotfiles repo](https://github.com/JoeKarlsson/dotfiles).
 
 ## Terminal and shell
 
@@ -100,6 +100,7 @@ window-inherit-working-directory = true
 shell-integration-features = no-cursor,ssh-env,ssh-terminfo
 ```
 
+Full file: [`config.ghostty`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/private_Library/private_Application%20Support/com.mitchellh.ghostty/config.ghostty) (the splits are [lines 53-59](https://github.com/JoeKarlsson/dotfiles/blob/main/home/private_Library/private_Application%20Support/com.mitchellh.ghostty/config.ghostty#L53-L59)).
 </details>
 
 ### Plain zsh: startup from 108 ms to 46 ms
@@ -155,6 +156,7 @@ export PATH="$HOME/.local/share/mise/shims:$PATH"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```
 
+Full file: [`.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc) (the init cache is [lines 212-224](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc#L212-L224)).
 </details>
 
 One more change, because of agents. Claude Code runs its commands in a shell that loads my `.zshrc`, and my `cp -i` alias sat at an invisible "overwrite?" prompt and hung a task. Claude Code [sets `CLAUDECODE=1`](https://code.claude.com/docs/en/env-vars), so the human-only stuff now steps aside:
@@ -168,6 +170,8 @@ if [[ -z $CLAUDECODE ]]; then
   cd() { builtin cd "$@"; [[ -o interactive ]] && ll; }
 fi
 ```
+
+The full guard, with everything it hides from Claude, is [lines 81-93 of my `.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc#L81-L93).
 
 Your shell has a second user now. Go read your `.zshrc` with that in mind.
 
@@ -199,6 +203,7 @@ alias e="code ."                # open this folder in VS Code
 mcd() { mkdir -p "$1" && cd "$1"; }   # make a directory and cd into it
 ```
 
+In the repo: [git aliases](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc#L101-L105) and [navigation](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc#L65-L74).
 </details>
 
 For everything else, [zoxide](https://github.com/ajeetdsouza/zoxide) handles the jumping: `z blog` takes me to this repo from anywhere.
@@ -228,6 +233,7 @@ palette = 'catppuccin_mocha'
 disabled = true
 ```
 
+Full file: [`starship.toml`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_config/starship.toml).
 </details>
 
 ## Running three to six agents at once
@@ -305,6 +311,7 @@ out=$(printf '\033[34m%s\033[0m' "$dir")
 printf '%s\n' "$out"
 ```
 
+Full file: [`statusline.sh`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_claude/statusline.sh). The notification hook that reuses the session title is [`notify.sh`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_claude/notify.sh).
 </details>
 
 ## Rules, hooks, and checks for agents
@@ -350,6 +357,7 @@ A .docx edit is not done until I can see it in Word. A correct file on disk
 proves nothing: Word and OneDrive can silently replace it.
 ```
 
+Full file: [`CLAUDE.md`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_claude/CLAUDE.md).
 </details>
 
 Workflows bake the same idea in. My homelab health check reports every finding, proposes a fix, and waits for my go-ahead. My [blog pipeline](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/) fact-checks every claim and link before I see a draft. I wrote more about project-level `CLAUDE.md` files in [how my Claude Code skills repo accidentally became internal tooling](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/).
@@ -441,6 +449,7 @@ write-good.Passive = warning
 write-good.Weasel = warning
 ```
 
+Full file: [`.vale.ini`](https://github.com/JoeKarlsson/joekarlsson.com/blob/main/.vale.ini), in this blog's repo.
 </details>
 
 ## Reach and reliability
@@ -517,6 +526,7 @@ My git config got an upgrade, mostly from Scott Chacon's [How Core Git Developer
     gpgsign = true
 ```
 
+Full file: [`.gitconfig`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_gitconfig.tmpl) (these settings are [lines 61-110](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_gitconfig.tmpl#L61-L110)).
 </details>
 
 ### CLI tools
@@ -537,6 +547,7 @@ My git config got an upgrade, mostly from Scott Chacon's [How Core Git Developer
 disable = ["system", "git_repos", "containers", "colima", "uv", "poetry", "pnpm"]
 ```
 
+Full file: [`topgrade.toml`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_config/topgrade.toml#L37).
 </details>
 
 ### Dotfiles: chezmoi
@@ -565,9 +576,10 @@ mode = "symlink"
     machine = {{ $machine | quote }}
 ```
 
+Full file: [`.chezmoi.toml.tmpl`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/.chezmoi.toml.tmpl).
 </details>
 
-A new Mac is one clone and `install.sh`, which is now a short bootstrap: install Homebrew and chezmoi, then hand off to `chezmoi init`. `bin/doctor` keeps it honest afterward.
+A new Mac is one clone and [`install.sh`](https://github.com/JoeKarlsson/dotfiles/blob/main/install.sh), which is now a short bootstrap: install Homebrew and chezmoi, then hand off to `chezmoi init`. [`bin/doctor`](https://github.com/JoeKarlsson/dotfiles/blob/main/bin/doctor) keeps it honest afterward.
 
 ## What I'd keep and what's still broken
 
