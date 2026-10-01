@@ -18,7 +18,7 @@ None of it was planned. Each phase started with one question or one frustration,
 
 _Updated October 2026: I first published this in March. Since then I've retired Open WebUI, Nextcloud, and Readarr, moved every container into OpenTofu, re-measured the power, and redid the money math - including a CPU count I had wrong by a factor of two. The numbers below are current._
 
-## The ThinkServer Hits a Wall
+## Where the $200 ThinkServer ran out
 
 The original setup was genuinely great. A Xeon E3-1226 v3 with 4 cores, 32GB of RAM, 2TB of storage. [Proxmox](https://www.proxmox.com/en/products/proxmox-virtual-environment/overview) running LXC containers. [Plex](https://www.plex.tv/), the \*arr stack, Pi-Hole, download clients. For six months it handled everything without complaint.
 
@@ -30,11 +30,17 @@ And then there was [Home Assistant](https://www.home-assistant.io/). I'd been ru
 
 The ThinkServer didn't fail spectacularly. It just ran out of room. And once you start seeing what's possible with more compute, more GPU VRAM, more network bandwidth - well. The itch starts.
 
-## Going Enterprise: The First Dell R730
+## Buying a used Dell R730
 
 The jump from consumer to enterprise hardware was driven by one thing: I needed a GPU in my server. Real PCIe slots. Proper power delivery. A chassis that could actually dissipate heat from a workstation graphics card without melting.
 
-### Why the R730?
+The R730 I landed on has dual Xeon E5-2698 v4 processors. 20 cores each, so 40 cores and 80 threads in one box.
+
+Performance was unreal. And then the electricity bill showed up. The ThinkServer drew maybe 80W at idle. Cute. About $9 a month.
+
+I have a Home Assistant smart plug tracking the entire rack's power draw in real time. The full numbers are in the [power section below](#power-about-500w-and-55-a-month), but the short version: **about $55/month in electricity.** A regular desktop PC idles at 60-100W. I'm running five to eight idle desktops' worth of power, 24/7, in my attic, in Minnesota.
+
+### Why the R730: ECC, iDRAC, dual PSUs, and PCIe slots
 
 I spent weeks reading r/homelab threads, watching ServeTheHome reviews, and comparing spec sheets. Kept coming back to the [Dell PowerEdge R730](https://www.dell.com/support/manuals/en-us/poweredge-r730/r730_ompublication/technical-specifications?guid=guid-c32a42e1-fbc4-4dfe-983d-df4d34ff1e17&lang=en-us) for four reasons:
 
@@ -46,13 +52,13 @@ I spent weeks reading r/homelab threads, watching ServeTheHome reviews, and comp
 
 **PCIe expansion.** Enough slots for GPUs, 10G network cards, and whatever I decide I need six months from now.
 
-### Where to find enterprise hardware for cheap
+### Where to buy used enterprise servers
 
 Here's the economics that make all of this possible: enterprise hardware depreciates like a luxury car. Companies lease thousands of R730s, run them for 3-5 years, and then dump them when the lease ends and newer hardware arrives. A barebones R730 chassis can show up on eBay for $300-500. But if you want one configured with specific CPUs, RAM, and drives - ready to rack and run - expect to pay more. I bought mine from Server Design Lab fully configured for about $1,850 each. Still a fraction of the $15,000+ sticker price new, but not the "$300 eBay special" you see in Reddit posts.
 
 Best places I've found: eBay (sort by newly listed - the good deals go fast), r/homelabsales on Reddit, specialty refurbishers like Server Design Lab, and local IT surplus liquidators. If you're near any city with tech companies, there's probably a warehouse within driving distance selling rack servers by the pallet.
 
-### The GPU lesson nobody warned me about
+### Desktop GPUs don't fit in a 2U server
 
 Here's something I learned the expensive way: you cannot just drop a desktop gaming GPU into a 2U rack server.
 
@@ -60,19 +66,23 @@ I know. Obvious in retrospect. But when you've spent years building desktop PCs 
 
 For the R730, you need cards under a specific length and height - typically workstation or datacenter class GPUs. NVIDIA Quadro, NVIDIA RTX (the professional ones), Tesla. Not GeForce. I burned a weekend figuring this out before finding cards that actually worked.
 
-### The power bill arrives
+### DDR4 ECC prices roughly tripled
 
-The ThinkServer drew maybe 80W at idle. Cute. About $9 a month.
+I need to talk about this because it caught me off guard. Enterprise DDR4 ECC RAM has gotten significantly more expensive since I started this project, and the timing couldn't be worse.
 
-The R730 has dual Xeon E5-2698 v4 processors. 20 cores each, so 40 cores and 80 threads in one box.
+The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of memory, and that demand is competing directly with the secondhand market that homelabbers depend on. Used DDR4 ECC sticks I could find for $40-80 a couple years ago now run $200-400 for 32GB RDIMMs - roughly 3x or worse. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2025%E2%80%93present_global_memory_supply_shortage). The supply of used enterprise RAM dried up because the same companies that used to surplus it are now keeping older servers running longer to meet AI compute demand.
 
-Performance was unreal. And then the electricity bill showed up.
+Each host has 128GB. Filling those DIMM slots was genuinely painful on the wallet. I picked the worst possible time to be upgrading enterprise servers as a hobby. But it's still a hobby, and it's still fun, so here we are.
 
-I have a Home Assistant smart plug tracking the entire rack's power draw in real time. The full numbers are in the [power section below](#power-the-uncomfortable-math), but the short version: **about $55/month in electricity.** A regular desktop PC idles at 60-100W. I'm running five to eight idle desktops' worth of power, 24/7, in my attic, in Minnesota.
+![Y'all Got Any More Of That meme: Dave Chappelle as a homelabber asking every AI company 'Y'all got any more of that DDR4 ECC?'](/images/blog/homelab-two-years-later/meme-yall-got-any-more-ddr4.webp)
 
-## Two Servers and a Rack
+There's not a great way to mitigate this. You can watch r/homelabsales for deals and buy in bulk when you find good prices. Moving to a newer DDR5 platform doesn't save you either - the shortage hits DDR5 at least as hard. For DDR4 ECC right now? Budget for it on day one. Don't treat it as a "I'll upgrade later" afterthought, because later is more expensive - and with DDR4 production winding down, it's only going in one direction.
 
-### Why did I need a second R730?
+![Front view of both Dell R730 servers in the rack with drive bays and status LEDs visible](/images/blog/homelab-two-years-later/rack-front-servers.webp)
+
+## A second server, a rack, and 10G networking
+
+### A second R730 so Frigate and Plex stop fighting over one GPU
 
 GPU time-sharing. I wanted to run local AI models (Ollama for LLMs, Immich ML for photo face recognition, Frigate for security camera object detection) alongside Plex transcoding and Tdarr video encoding. Trying to run all of that on one GPU simultaneously is a recipe for CUDA out-of-memory crashes and Plex stuttering every time Frigate detects a squirrel.
 
@@ -83,7 +93,7 @@ Two GPUs on two hosts solved it cleanly:
 
 The 16GB card was the important investment. Running a decent local LLM eats VRAM fast, and 8GB fills up the moment you're also running photo ML and video transcoding on the same GPU.
 
-### I knew nothing about server racks
+### A rack is just a desktop split into separate boxes
 
 Seriously. Embarrassingly little. I didn't know 19 inches was a standard width. I was measuring my R730s with a tape measure trying to figure out what kind of enclosure would hold them. Turns out the width goes back to the 1920s (telephone industry, originally), and today mounting holes, unit height, and rail depth all follow the same spec.
 
@@ -129,37 +139,23 @@ StarTech 25U Rack
 
 ![Close-up of the rack top section showing PDU, patch panel, UniFi switch, and Synology NAS with networking cables](/images/blog/homelab-two-years-later/rack-top-networking.webp)
 
-### 10G networking between hosts
+### Dual 10G LACP bonds to each host
 
 Each R730 has dual 10Gb SFP+ ports bonded via LACP to the MikroTik switch. That's 20Gbps aggregate bandwidth per host. A single TCP connection won't saturate both links (LACP distributes traffic by flow hash, not by individual packet), but when dozens of containers on each host are all hitting the NAS simultaneously - media files, log writes, backup streams - both links stay busy.
 
 I wrote a [Python script to manage the MikroTik bonding configuration programmatically](/blog/implementing-mikrotik-binary-api-protocol-in-python/) because clicking through web UIs to configure network infrastructure felt wrong. That turned into its own blog post about implementing MikroTik's proprietary binary protocol from scratch.
 
-### Enterprise RAM in 2026: the worst time to buy
-
-I need to talk about this because it caught me off guard. Enterprise DDR4 ECC RAM has gotten significantly more expensive since I started this project, and the timing couldn't be worse.
-
-The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of memory, and that demand is competing directly with the secondhand market that homelabbers depend on. Used DDR4 ECC sticks I could find for $40-80 a couple years ago now run $200-400 for 32GB RDIMMs - roughly 3x or worse. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2025%E2%80%93present_global_memory_supply_shortage). The supply of used enterprise RAM dried up because the same companies that used to surplus it are now keeping older servers running longer to meet AI compute demand.
-
-Each host has 128GB. Filling those DIMM slots was genuinely painful on the wallet. I picked the worst possible time to be upgrading enterprise servers as a hobby. But it's still a hobby, and it's still fun, so here we are.
-
-![Y'all Got Any More Of That meme: Dave Chappelle as a homelabber asking every AI company 'Y'all got any more of that DDR4 ECC?'](/images/blog/homelab-two-years-later/meme-yall-got-any-more-ddr4.webp)
-
-There's not a great way to mitigate this. You can watch r/homelabsales for deals and buy in bulk when you find good prices. Moving to a newer DDR5 platform doesn't save you either - the shortage hits DDR5 at least as hard. For DDR4 ECC right now? Budget for it on day one. Don't treat it as a "I'll upgrade later" afterthought, because later is more expensive - and with DDR4 production winding down, it's only going in one direction.
-
-![Front view of both Dell R730 servers in the rack with drive bays and status LEDs visible](/images/blog/homelab-two-years-later/rack-front-servers.webp)
-
-## "I Wanted to Learn Networking"
+## Rebuilding my home network to learn VLANs
 
 That was the entire motivation for this phase. Six words. I wanted to understand networking properly - VLANs, firewall rules, routing, subnets, all of it. So I did what any reasonable person would do.
 
 I tore down my entire home network and rebuilt it from scratch.
 
-### The setup
+### UniFi gateway, MikroTik backbone, three access points
 
 [UniFi Cloud Gateway Ultra](https://store.ui.com/us/en/products/ucg-ultra) as the router, DHCP server, and WiFi controller. Three UniFi access points with 802.11r fast roaming: two [U7 Pros](https://ui.com/us/wifi/u7-pro), one upstairs and one on the main floor, plus a U7 Pro XG I added in the basement later. Devices hand off between APs as I walk through the house without dropping connections. Guests don't notice, which is the highest compliment network infrastructure can receive.
 
-### VLANs: or, why your smart plug shouldn't talk to your NAS
+### Four VLANs keep the IoT junk away from my NAS
 
 Here's the thing about IoT devices. They're manufactured by companies you've never heard of, running firmware that rarely gets security patches, phoning home to servers in countries you can't identify on a map. I have maybe 40 of these things in my house. I do not want any of them to have network access to my NAS full of family photos and financial documents.
 
@@ -203,13 +199,11 @@ VLANs:
   Cameras     (192.168.40.0/24) - can reach Frigate + HA + DNS
 ```
 
-## The Service Explosion
+## What the 73 containers run
 
 Here's what happens when you hand someone 80 cores, 256GB of RAM, and 24GB of GPU VRAM.
 
 They fill it.
-
-### The services
 
 Right now that's 73 LXC containers plus the Home Assistant VM - 45 on prxbox1, 28 on prxbox2. Not exhaustive - check my [uses page](/uses) for more. But here's the landscape:
 
@@ -225,7 +219,7 @@ Right now that's 73 LXC containers plus the Home Assistant VM - 45 on prxbox1, 2
 
 **Productivity:** [Paperless-NGX](https://docs.paperless-ngx.com/) (scans every receipt and document, OCRs them, uses AI to categorize and tag automatically - it's magic), [Syncthing](https://syncthing.net/) for file sync. I ran Nextcloud for a while and replaced it in September. Syncthing does the one job I was actually using Nextcloud for.
 
-### Migrating Home Assistant into the Homelab
+## Home Assistant moved off its own box and into a Proxmox VM
 
 This one deserves a callout because it's one of the biggest changes from the original post.
 
@@ -235,13 +229,13 @@ Once I had proper network segmentation, migrating Home Assistant into a Proxmox 
 
 Moving it from dedicated hardware into the rack unlocked a whole new level of integration. Having Home Assistant on the same network backbone as the servers means automations can talk directly to Proxmox, containers, and monitoring - no hacks or workarounds needed.
 
-## The "Operations" Mindset
+## Monitoring, after three silent failures
 
 There's a specific moment where a homelab stops being a hobby project and starts feeling like production infrastructure you're personally responsible for. For me, that moment was the third time I discovered a service had been silently dead for over a week.
 
 Third time. A week each time. Nobody noticed.
 
-### Observability
+### Prometheus, Grafana, Loki, and Alertmanager
 
 **Prometheus** scrapes metrics from every host and container every 15 seconds. CPU, memory, disk, network throughput, GPU utilization, VRAM usage, inlet temperature, exhaust temperature, and the rack's power draw from Home Assistant. All of it, continuously, into a time-series database.
 
@@ -251,7 +245,7 @@ Third time. A week each time. Nobody noticed.
 
 **Alertmanager** is the one place alerts go. It emails me, and critical alerts also push through Home Assistant to my phone. I used to run ntfy for push notifications too, and shut it down in September. Two alert paths meant two things to maintain and one I'd eventually stop trusting.
 
-### The health check scripts got out of hand
+### 185 health checks, each testing one thing
 
 When I first wrote this post I had 41 health check scripts. Now it's 153 shell checks on the Proxmox side plus 32 Python checks for Home Assistant.
 
@@ -259,19 +253,19 @@ This sounds insane. I know it sounds insane. But each one is dead simple: check 
 
 The count keeps growing for a boring reason: every time something breaks in a way I didn't catch, the fix includes a new check. I haven't been surprised by a silent failure in months.
 
-### Everything is code now
-
-The biggest change since March isn't hardware. Every container is now defined in [OpenTofu](https://opentofu.org/) - resources, network, and everything installed inside it. If a fix isn't in the code, it doesn't exist, and SSH fixes on a finished container are banned. A scheduled drift check compares the running containers against the code. I wrote up the whole migration in [I Finally Stopped Managing My Homelab by Hand](/blog/opentofu-proxmox-immutable-homelab/).
-
-It's the change I'd make first if I started over, and the one I put off longest.
-
-### Backups
+### Backups: PBS locally, Backblaze B2 offsite
 
 [Proxmox Backup Server](https://www.proxmox.com/en/products/proxmox-backup-server/overview) handles incremental backups with deduplication. Most of the filesystem is identical between containers (they're nearly all Debian under the hood), so PBS only stores unique data chunks. The last time I checked, about 5TB of logical backups took up about 1.3TB on disk - roughly 3.8x.
 
 PBS is not an offsite backup, though. It lives in the same attic as everything it's backing up. So every day at 1 PM a small container syncs the whole PBS datastore to Backblaze B2, and the NAS runs its own B2 backup with 60-day retention. Yes, that means I pay Backblaze again. A fire in the attic shouldn't take the backups with it.
 
-## Power: The Uncomfortable Math
+## Every container is defined in OpenTofu
+
+The biggest change since March isn't hardware. Every container is now defined in [OpenTofu](https://opentofu.org/) - resources, network, and everything installed inside it. If a fix isn't in the code, it doesn't exist, and SSH fixes on a finished container are banned. A scheduled drift check compares the running containers against the code. I wrote up the whole migration in [I Finally Stopped Managing My Homelab by Hand](/blog/opentofu-proxmox-immutable-homelab/).
+
+It's the change I'd make first if I started over, and the one I put off longest.
+
+## Power: about 500W and $55 a month
 
 OK. Let's talk about the electricity.
 
@@ -288,7 +282,7 @@ Here's the real data, re-measured for this update. Rack totals come from my Home
 
 That's metered. Not estimated. The gap between the two servers and the rack total is everything else on the plug: switches, NAS, gateway, and UPS overhead.
 
-### What I did about it
+### Three ways I cut the power bill
 
 **Killed the third server.** I had prxbox3 - the original ThinkServer from my first blog post - still running 9 containers. Migrated all of them to the two R730s (which had plenty of headroom) and powered it off. It's fully out of the Proxmox cluster now. A Raspberry Pi running a quorum device gives the two-node cluster its tiebreaker vote instead.
 
@@ -321,7 +315,7 @@ When I first built it, night mode stopped 17 containers and saved about 175W ove
 
 ![Anakin Padme 4 Panel meme: 'I put everything in OpenTofu' / 'So nothing can drift, right?' / Anakin's silent stare / '...nothing can drift, right?'](/images/blog/homelab-two-years-later/meme-anakin-padme-drift.webp)
 
-### The uncomfortable truth
+### Cheap to buy, expensive to run
 
 ![Change My Mind meme - 'Enterprise servers are cheap to buy and expensive to run'](/images/blog/homelab-two-years-later/change-my-mind-enterprise.webp)
 
@@ -331,7 +325,7 @@ But these machines were designed for data centers paying industrial electricity 
 
 The obvious objection: a couple of modern mini PCs would run most of these 73 containers at a fraction of the power. For the \*arr stack, Vaultwarden, Paperless, and the monitoring stack, that's true, and it's why lower-power hardware is on my "What's Next" list. What a mini PC can't do is hold a 16GB workstation GPU for Frigate, Immich, and local LLMs, or give me iDRAC and ECC. If you don't want local AI or GPU video work, buy mini PCs and skip the rack.
 
-## The Before and After
+## 2023 vs. 2026
 
 Sometimes it helps to just see the numbers side by side.
 
@@ -355,7 +349,9 @@ That escalated.
 
 ![Ron Burgundy saying 'that escalated quickly'](/images/blog/homelab-two-years-later/escalated-quickly.webp)
 
-### What did all of this actually cost?
+## What it cost, and whether it pays for itself
+
+### $7,440 in hardware
 
 People always ask this, so here's the honest breakdown:
 
@@ -381,7 +377,7 @@ That's not counting the basement AP I added later.
 
 Is that a lot? Yes. Here's the other side of the math.
 
-### The subscription kill list
+### Break-even is 4.6 years, if you squint
 
 Every one of these services is something I used to pay for monthly and no longer do:
 
@@ -409,11 +405,13 @@ So does the homelab pay for itself? Eventually, maybe, if you squint. Subscripti
 
 Honestly? It's a hobby. Hobbies cost money. Nobody asks a golfer to justify their club membership with a break-even analysis.
 
+### The real return was my day job
+
 The unintended ROI has been professional. Running this homelab gave me a working understanding of the full stack - deployments, hosting, infrastructure, networking, monitoring, cost optimization - that I never got from application development alone. I'm not going to get a job titled "homelab engineer." But when I'm in a meeting scoping infrastructure costs, or collaborating with platform and DevOps teams on deployment strategy, or estimating cloud compute budgets, I actually understand what they're talking about. I can push back on vendor pricing because I know what the underlying resources cost. I can scope cross-domain projects more accurately because I've touched every layer of the stack myself.
 
-That's been the real return. The homelab made me better at my day job in ways I didn't expect when I bought that first ThinkServer.
+The homelab made me better at my day job in ways I didn't expect when I bought that first ThinkServer.
 
-## What I'd Do Differently
+## What I'd do differently
 
 If I were starting over tomorrow with everything I know now:
 
@@ -425,7 +423,7 @@ If I were starting over tomorrow with everything I know now:
 - **Budget for RAM upfront.** The AI boom crushed the DDR4 ECC market. Prices went up, not down, and they haven't come back.
 - **Power costs from the very start.** Not after the first bill shock.
 
-## What's Next
+## What's next
 
 The homelab is never done. I know that now. Current explorations:
 

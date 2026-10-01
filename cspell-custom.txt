@@ -586,3 +586,6 @@ workstreams
 unbuilt
 CUSTRECORD
 Syncthing
+homelabbers
+RDIMMs
+DIMM
