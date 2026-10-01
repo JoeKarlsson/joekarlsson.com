@@ -589,3 +589,4 @@ Syncthing
 homelabbers
 RDIMMs
 DIMM
+exitcode
