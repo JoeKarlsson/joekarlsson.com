@@ -471,7 +471,7 @@ The container updates itself every Sunday, Claude Code and dotfiles included. It
 
 My laptops only edit. When I push the homelab repo, a git hook syncs it to an always-on Proxmox node, which applies the change and checks for drift. Every change is a commit, so rolling back is a `git revert`.
 
-Every machine also has a health check: well over a hundred checks for the homelab, one for my Mac, and `bin/doctor` for my dotfiles. All of them report and wait for my go-ahead before fixing anything, because the first time I pointed cleanup tools at my Mac, `npm doctor` quietly deleted 3.3 GB of cache and an uninstaller nearly deleted live 1Password data.
+Every machine also has a health check: 156 checks for the homelab, covering all 64 services, one for my Mac, and `bin/doctor` for my dotfiles. All of them report and wait for my go-ahead before fixing anything, because the first time I pointed cleanup tools at my Mac, `npm doctor` quietly deleted 3.3 GB of cache and an uninstaller nearly deleted live 1Password data.
 
 ### Local models: not my coding tool
 
