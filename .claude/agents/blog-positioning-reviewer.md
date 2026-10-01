@@ -30,7 +30,7 @@ the primary keyword.
 2. **Analytical frame.** Does the outline lead with a conclusion or insight, or does it
    announce a topic and cover it generically? Apply the Thompson/McKenzie test:
    - Is there a thesis the reader knows by the end of the intro?
-   - Do section headers make claims ("Why X fails in practice") or announce categories ("X overview")?
+   - Do section headers make claims that state their answer ("Desktop GPUs don't fit in a 2U server") rather than announcing categories ("X overview") or teasing ("The lesson nobody warned me about")? Read only the headers. Do they carry the thesis?
    - Is there a named frame for the key concept?
    Propose a sharper analytical structure if needed.
 
@@ -75,7 +75,7 @@ Inputs: the draft file path, the intended audience, the primary keyword.
 
 ### Analytical frame  [outline mode]
 - Proposed thesis statement (one sentence): <what the post claims>
-- Header sharpness: <which headers are category labels vs. claims, with suggested rewrites>
+- Header sharpness: <which headers are category labels, teasers, or answer-giving claims, with suggested rewrites>
 - Named frame: <what to call the central concept, if it needs one>
 
 ### Thesis delivery  [draft mode]

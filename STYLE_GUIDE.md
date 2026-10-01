@@ -65,10 +65,34 @@ When possible, include relevant memes in blog posts to break up technical conten
 
 - Mix paragraph lengths - some short punchy ones, some longer explanatory ones
 - Use bold for emphasis on key phrases, not whole sentences
-- Headers as questions or statements, not generic labels ("Why does Lidarr suck?" not "Lidarr Limitations")
+- Headers tell you what's in the section or give you the answer - never tease it (see **Headers** below)
 - Include a TL;DR for longer technical posts, in the frontmatter `tldr:` field only (the layout renders it; never repeat it as a body blockquote)
 - Code blocks with context - explain what the code does before showing it
 - Show expected output for tutorials
+
+### Headers
+
+Here's how people actually read my posts: they scroll, read the headers, and decide in about ten seconds whether the thing is worth their time. On Hacker News and Reddit that's everyone. So every header has exactly one job - tell the reader what's in the section.
+
+Two kinds of header work:
+
+- **A plain label that says what's there.** "The hardware." "Backups." "What I'd do differently." Boring is fine. Boring is findable.
+- **A claim that gives away the answer.** "Desktop GPUs don't fit in a 2U server." "Immich is actually great." "Why does Lidarr suck?" works too, as long as the section answers it in the first paragraph.
+
+What doesn't work is the teaser. "The GPU lesson nobody warned me about" tells you there's a lesson, then makes you read three paragraphs to find out what it was. That's a YouTube thumbnail, not a header. Same goes for drama ("The power bill arrives," "The uncomfortable truth") and vague setup ("The setup," "The services"). The jokes, the story, the "I learned this the expensive way" - all of that is great, and all of it goes in the body. The header just tells you where you are.
+
+Quick checks before I ship:
+
+- **Cover up the body and read only the headers.** Could someone get the gist of the post? If a header is hiding the point, rewrite it so it says the point.
+- **Numbers and model names beat adjectives.** "Power: about 500W and $55 a month" beats "Power: The Uncomfortable Math."
+- **Sentence case.** "Buying a used Dell R730," not "Buying A Used Dell R730."
+
+H3s have their own rules:
+
+- **Only use H3s when an H2 has two or more real subsections.** An H2 with a single H3 right under it ("The Service Explosion" → "The services") means one of those headers shouldn't exist.
+- **An H3 has to belong to its H2.** If a section about adding a rack has an H3 about RAM prices, the H3 is in the wrong place.
+- **Don't use an H3 to preview another section.** If it just says "more on this below," cut the header and keep the sentence.
+- **If an H3 is one of the most important things in the post, make it an H2.** Home Assistant moving into the rack and every container moving into OpenTofu were both buried as H3s. They're the story.
 
 ### Callouts
 

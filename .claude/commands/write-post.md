@@ -142,7 +142,7 @@ Create a detailed outline with:
 
 ### 2a. Voice check the outline
 
-- Are headers questions or opinionated statements? (Good: "Why does Lidarr suck?" Bad: "Lidarr Limitations")
+- Do the headers say what's in each section or give its answer, with no teasers? (Good: "Desktop GPUs don't fit in a 2U server", "Why does Lidarr suck?" Bad: "The GPU lesson nobody warned me about", "Lidarr Limitations".) Read only the headers. Do they give the gist of the post? Do the H3s follow the H3 rules in STYLE_GUIDE.md **Headers**?
 - Does the flow feel like a story or a Wikipedia article? It should feel like a story.
 - Is there a strong opening hook?
 - Do sections vary in length? (NOT every section should be 3 paragraphs)
@@ -235,7 +235,7 @@ These are the moves that separate analysis from topic coverage. They apply to wr
 
 **Name the frame explicitly.** Give recurring concepts a name and use it. "Call this the two-auth-boundary problem." Named frames stick. Repeated gestures at the same idea don't.
 
-**Analytical claims, not topic labels.** "What the roadmap won't fix" is a claim the reader leans into. "Gaps in the roadmap" is a label they tune out. Headers and section openers should make claims, not announce categories.
+**Analytical claims, not topic labels.** Section openers should make claims, not announce categories. Headers follow the **Headers** rules in STYLE_GUIDE.md: a header is either a plain label for what's in the section or a claim that states the section's answer ("Desktop GPUs don't fit in a 2U server"). A claim that holds back its answer ("The GPU lesson nobody warned me about") is a teaser, and teasers fail. The same section covers the H3 rules.
 
 **State opinions plainly.** "Priority 3 is the one that matters" is a take. "Priority 3 is important" is not. Every post should have a point of view, stated directly, not hedged away.
 
@@ -342,6 +342,7 @@ My track record so far: three joekarlsson.com submissions to HN (MikroTik binary
 - **Concede the obvious objection in the post itself.** Every topic has its standard top comment. For homelabs it's "you could do this on a $150 mini PC" and "the power bill makes this a loss". For self-hosting it's "your time isn't free" and "what about backups?". For AI it's "a bigger hosted model would do this better". One honest paragraph that names the objection and answers it (or concedes it) takes that comment away.
 - **Be careful with anything that sounds like piracy, security theater or astroturfing.** "Replaced Netflix with Plex plus the \*arr stack" invites a thread about piracy instead of your post. Frame media in terms of what you own, or leave it out. Disclose employer ties and sponsorships up front.
 - **Keep memes to a minimum.** HN reads memes as low effort, and a meme above the first real paragraph gets mentioned in the comments. For an HN-targeted post, cap memes at 1-2, keep them out of the first screen, and let photos, diagrams and tables carry the visuals. Reddit is more tolerant, but a real photo beats a meme in r/homelab every time.
+- **Headers are the skim layer.** HN and Reddit readers scan the headers before deciding whether to read. Use plain labels or claims that contain the answer ("Desktop GPUs don't fit in a 2U server"), never teasers. Top posts in this space use headers like "The hardware", "Step 4. Backup" and "Immich is actually great". See STYLE_GUIDE.md **Headers**.
 - **Open with substance, not a warm-up.** Readers decide within one screen. The first paragraph should state the claim or the headline number, not "Look, when I wrote..." throat-clearing. Use the TL;DR box for the numbers.
 - **Date-sensitive claims need dates.** Prices, versions and "currently running" lists go stale. Write "as of <month year>" and link the primary source. A retired project in your "what I run" list (for example, Readarr was retired in June 2025) signals the post is out of date.
 - **Make the page easy to load.** The page needs to be fast, readable without JavaScript, free of popups and newsletter modals, and fine on mobile. HN traffic arrives all at once, so check the page and its images before submitting.
@@ -545,7 +546,7 @@ Final human review before moving on. Verify each item:
 - [ ] Are there specific examples from real experience (error messages, exact versions, costs)?
 - [ ] Does confidence match certainty of each claim?
 - [ ] Does the post open with its conclusion and build the argument from there?
-- [ ] Do section headers make analytical claims, not announce categories?
+- [ ] Do headers say what's in the section or state its answer, with no teasers, in sentence case? Do the H3s follow the STYLE_GUIDE.md H3 rules?
 - [ ] Is there a clear point of view, stated plainly - not hedged away?
 - [ ] Does each major section end with a concrete "here's what I'd do"?
 - [ ] Is structure varied and natural, not perfectly uniform?

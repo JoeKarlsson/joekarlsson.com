@@ -40,7 +40,7 @@ Run the full prohibited-language check:
 ## Layer 2: Analytical structure (Thompson / McKenzie)
 
 - Does the intro lead with the conclusion/insight, or does it warm up for two paragraphs?
-- Do section headers make analytical claims or announce category labels?
+- Do section headers say what's in the section or state its answer (STYLE_GUIDE.md **Headers**)? Flag teasers that hold back the answer ("The GPU lesson nobody warned me about"), drama headers ("The uncomfortable truth"), vague setup headers ("The setup") and Title Case, and check the H3 rules (no lone H3 under an H2, H3s belong to their H2, key sections are H2s).
 - Is there a named frame for the key concept?
 - Are opinions stated plainly ("X is the wrong approach") or hedged ("some might argue")?
 - Does the post name what everyone's thinking but not saying?
@@ -86,7 +86,7 @@ Two-pass audit: answer "What makes this obviously AI-generated?" then "Now rewri
 
 ### Analytical structure
 4. [warm-up intro] "<before>" → "<after>", the conclusion to lead with: <what it should be>
-5. [category label header] "<before>" → "<after claim>", location: <section>
+5. [teaser or label header] "<before>" → "<after: plain label or claim that states the answer>", location: <section>
 6. [hedged opinion] "<before>" → "<after>", take a stance
 7. [missing tactical call] <section> ends without a concrete action, suggest: <what>
 
