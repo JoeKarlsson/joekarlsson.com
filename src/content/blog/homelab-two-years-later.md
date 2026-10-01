@@ -95,7 +95,7 @@ The 16GB card was the important investment. Running a decent local LLM eats VRAM
 
 ### A rack is just a desktop split into separate boxes
 
-Seriously. Embarrassingly little. I didn't know 19 inches was a standard width. I was measuring my R730s with a tape measure trying to figure out what kind of enclosure would hold them. Turns out the width goes back to the 1920s (telephone industry, originally), and today mounting holes, unit height, and rail depth all follow the same spec.
+I knew embarrassingly little about server racks. I didn't know 19 inches was a standard width. I was measuring my R730s with a tape measure trying to figure out what kind of enclosure would hold them. Turns out the width goes back to the 1920s (telephone industry, originally), and today mounting holes, unit height, and rail depth all follow the same spec.
 
 The mental model that finally made it click for me: **a server rack is just a desktop computer where every component lives in its own chassis.** Your desktop has a CPU, GPU, RAM, storage, network card, and power supply all crammed into one box. A rack separates all of that:
 
@@ -147,7 +147,7 @@ I wrote a [Python script to manage the MikroTik bonding configuration programmat
 
 ## Rebuilding my home network to learn VLANs
 
-That was the entire motivation for this phase. Six words. I wanted to understand networking properly - VLANs, firewall rules, routing, subnets, all of it. So I did what any reasonable person would do.
+I wanted to understand networking properly - VLANs, firewall rules, routing, subnets, all of it. So I did what any reasonable person would do.
 
 I tore down my entire home network and rebuilt it from scratch.
 
