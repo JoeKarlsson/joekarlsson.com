@@ -256,6 +256,8 @@ git worktree remove ../docs-nav               # clean up after merging
 
 At work I've had five agents in one docs repo at once, each in its own worktree: one restructuring navigation, one fixing broken links, a few rewriting pages. The costs are small. Each worktree needs its own `npm install`, dev servers can fight over a port, and I still resolve conflicts at merge time.
 
+More agents doesn't mean less review. Every repo has tests for everything, I read all the code before it merges, and on a collaborative project other people review and test it too. Agents write the code. Humans still sign off on it.
+
 ### Status line: which pane is which
 
 With five panes open, I need to know which is which at a glance. Claude Code runs a [status line script](https://code.claude.com/docs/en/statusline) at the bottom of every session. Mine shows the session title, directory, git branch (with a `*` if there are uncommitted changes), model, and how much context is used.
