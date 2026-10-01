@@ -100,7 +100,7 @@ window-inherit-working-directory = true
 shell-integration-features = no-cursor,ssh-env,ssh-terminfo
 ```
 
-Full file: [`config.ghostty`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/private_Library/private_Application%20Support/com.mitchellh.ghostty/config.ghostty) (the splits are [lines 53-59](https://github.com/JoeKarlsson/dotfiles/blob/main/home/private_Library/private_Application%20Support/com.mitchellh.ghostty/config.ghostty#L53-L59)).
+Full file: [`config.ghostty`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/private_Library/private_Application%20Support/com.mitchellh.ghostty/config.ghostty).
 </details>
 
 ### Plain zsh: startup from 108 ms to 46 ms
@@ -156,7 +156,7 @@ export PATH="$HOME/.local/share/mise/shims:$PATH"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```
 
-Full file: [`.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc) (the init cache is [lines 212-224](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc#L212-L224)).
+Full file: [`.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc).
 </details>
 
 One more change, because of agents. Claude Code runs its commands in a shell that loads my `.zshrc`, and my `cp -i` alias sat at an invisible "overwrite?" prompt and hung a task. Claude Code [sets `CLAUDECODE=1`](https://code.claude.com/docs/en/env-vars), so the human-only stuff now steps aside:
@@ -171,7 +171,7 @@ if [[ -z $CLAUDECODE ]]; then
 fi
 ```
 
-The full guard, with everything it hides from Claude, is [lines 81-93 of my `.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc#L81-L93).
+The full guard, with everything it hides from Claude, is in [my `.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc).
 
 Your shell has a second user now. Go read your `.zshrc` with that in mind.
 
@@ -203,7 +203,7 @@ alias e="code ."                # open this folder in VS Code
 mcd() { mkdir -p "$1" && cd "$1"; }   # make a directory and cd into it
 ```
 
-In the repo: [git aliases](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc#L101-L105) and [navigation](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc#L65-L74).
+Full file: [`.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc).
 </details>
 
 For everything else, [zoxide](https://github.com/ajeetdsouza/zoxide) handles the jumping: `z blog` takes me to this repo from anywhere.
@@ -526,7 +526,7 @@ My git config got an upgrade, mostly from Scott Chacon's [How Core Git Developer
     gpgsign = true
 ```
 
-Full file: [`.gitconfig`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_gitconfig.tmpl) (these settings are [lines 61-110](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_gitconfig.tmpl#L61-L110)).
+Full file: [`.gitconfig`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_gitconfig.tmpl).
 </details>
 
 ### CLI tools
@@ -547,7 +547,7 @@ Full file: [`.gitconfig`](https://github.com/JoeKarlsson/dotfiles/blob/main/home
 disable = ["system", "git_repos", "containers", "colima", "uv", "poetry", "pnpm"]
 ```
 
-Full file: [`topgrade.toml`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_config/topgrade.toml#L37).
+Full file: [`topgrade.toml`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_config/topgrade.toml).
 </details>
 
 ### Dotfiles: chezmoi
