@@ -72,7 +72,7 @@ I need to talk about this because it caught me off guard. Enterprise DDR4 ECC RA
 
 The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of memory, and that demand is competing directly with the secondhand market that homelabbers depend on. Used DDR4 ECC sticks I could find for $40-80 a couple years ago now run $200-400 for 32GB RDIMMs - about 5x. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2025%E2%80%93present_global_memory_supply_shortage). The supply of used enterprise RAM dried up because the same companies that used to surplus it are now keeping older servers running longer to meet AI compute demand.
 
-Each host has 128GB. Filling those DIMM slots was painful on the wallet. I picked the worst possible time to be upgrading enterprise servers as a hobby.
+Each host has 128GB, and it came with the configured servers, so I never bought sticks on their own. I'm glad. Filling those 256GB today, at $200-400 per 32GB stick, would cost $1,600-3,200 - close to what I paid for one whole configured server.
 
 ![Y'all Got Any More Of That meme: Dave Chappelle as a homelabber asking every AI company 'Y'all got any more of that DDR4 ECC?'](/images/blog/homelab-two-years-later/meme-yall-got-any-more-ddr4.webp)
 
@@ -413,7 +413,7 @@ People always ask this, so here's the honest breakdown:
 | Electricity (~$47/month x 24 months)     | ~$1,130     |
 | **Total cost of ownership (2 years)**    | **~$8,570** |
 
-Not in the table: the NAS and its drives, the basement AP I added later, the cameras, and small stuff like the Coral and the Zigbee stick.
+Not in the table: the NAS and its drives, which I've owned for years and haven't added to since the servers arrived, plus the basement AP I added later, the cameras, and small stuff like the Coral and the Zigbee stick.
 
 Is that a lot? Yes. Here's the other side of the math.
 
@@ -449,7 +449,9 @@ Honestly? It's a hobby. Hobbies cost money. Nobody asks a golfer to justify thei
 
 ### The real return was my day job
 
-The unintended ROI has been professional. I'm not going to get a job titled "homelab engineer." But running every layer of this myself - the network, the hosts, the deploys, the monitoring, the power bill - means that when I'm in a meeting about infrastructure costs or deployment strategy, I actually know what the platform team is talking about. I can push back on vendor pricing because I know what the underlying resources cost, down to the watt.
+The unintended ROI has been professional. I'm not going to get a job titled "homelab engineer." But running every layer of this myself - the network, the hosts, the deploys, the monitoring, the power bill - shows up at work constantly.
+
+I know how to actually deploy the things I write about, instead of stopping at `localhost`. When I need a demo app, I can stand up the whole thing myself: the database, the backend, the hosting, and the monitoring that tells me when it falls over. And I can talk to very different engineers - network people, platform teams, data engineers, app developers - in their own terms, because I've broken every one of their layers of the stack in my own attic.
 
 ## What I'd do differently
 
