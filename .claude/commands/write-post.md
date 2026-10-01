@@ -95,6 +95,8 @@ Use AskUserQuestion to get approval before proceeding.
 
 Before moving on, launch **Agent: `blog-headline-tester`** with the working title, primary keyword, and one-sentence thesis. Use the top-scoring title (or a hybrid) as the title going into Phase 2. If the current working title scores highest, keep it.
 
+Also ask the user whether the post is aimed at Hacker News or Reddit. If it is, tell the headline tester, and apply **Distribution fit: Hacker News and Reddit** (Phase 3) while drafting. HN asks submitters to use the original title, so the H1 *is* the HN title. Get it right now, not at submission time.
+
 ### 1b. SEO Research
 
 Use WebSearch to research the topic from an SEO angle:
@@ -195,8 +197,8 @@ The #1 failure mode is writing that's technically correct but has zero personali
 
 #### What makes a section FUN vs BORING:
 
-- **BORING:** "The R730 has dual Xeon E5-2698 v4 processors with 40 cores each." (spec sheet)
-- **FUN:** "The R730 has dual Xeon E5-2698 v4s. That's 80 cores. In my attic. My partner asked why the electric bill doubled and I had to explain that I'd installed a small data center upstairs."
+- **BORING:** "The R730 has dual Xeon E5-2698 v4 processors with 20 cores each." (spec sheet)
+- **FUN:** "The R730 has dual Xeon E5-2698 v4s. That's 40 cores and 80 threads. In my attic. My partner asked why the electric bill doubled and I had to explain that I'd installed a small data center upstairs."
 - **BORING:** "I set up VLANs for network segmentation." (Wikipedia)
 - **FUN:** "I don't want my $15 smart plug from some company I can't pronounce to have network access to my NAS full of family photos. VLANs fix this."
 
@@ -310,6 +312,48 @@ tldr: 'TL;DR summary for the frontmatter field'
 - Specific numbers: CPU models, RAM amounts, versions, costs
 - End with a real conclusion, not "In conclusion..."
 - Include internal links to related joekarlsson.com posts (from Phase 2b)
+
+### Distribution fit: Hacker News and Reddit
+
+Apply this section when the post is meant for HN or Reddit. Both audiences are technical and skeptical, and they read the comments before the post. A post does well there when it gives them something they didn't have before, and when it holds up to someone checking the math in the first five minutes.
+
+My track record so far: three joekarlsson.com submissions to HN (MikroTik binary API, DevRel 2026, Ship the Ugly Pot) all stalled at 1 point and 0 comments. Homelab and self-hosting posts that did well in 2026 had plain, specific titles. Examples: "My Homelab Setup" (350 points), "I tested every IP KVM in my Homelab" (312) and "CLI agents make self-hosting on a home server easier and fun" (775). Check `hn.algolia.com` for the topic before writing the title. It shows what has already been posted, and what scored.
+
+#### Titles for Hacker News
+
+- **The title is a plain statement of what the post contains.** HN's guidelines ask for the original title, with no editorializing and no linkbait. Moderators rewrite titles that break this, and baity titles get flagged. Write the H1 so it can be pasted into the submission form unchanged.
+- **Specific nouns beat adjectives.** "Running two Dell R730s at home costs me $53 a month" beats "My amazing homelab journey". Numbers, model names and dollar figures do the work. Drop "ultimate", "everything you need", "you won't believe" and similar.
+- **No gimmicks.** That means no ALL CAPS, no exclamation points, no emoji, no "(2026 guide)" suffix, and no site name in the title. Leading list numbers like "10 lessons" are a weak frame for HN. HN's software also rewrites some title patterns automatically, so check the live title after submitting and fix it during the edit window.
+- **Don't use a colon to bolt a label onto a claim.** "My Homelab Two Years Later: From Desktop Tower to Server Rack" reads as SEO filler on HN. Pick one half, preferably the half with the claim or the number.
+- **"Show HN" is only for something people can try.** That means a repo, tool or demo, not a blog post about it. If the post comes with a tool, submit the tool as Show HN and link the post from it.
+- **Accurate beats exciting.** If the post is "what my homelab costs", the title should say that. A title that over-promises gets called out in the top comment, and that comment sets the tone of the thread.
+
+#### Titles for Reddit
+
+- **Every subreddit has its own rules, so read them before posting.** r/homelab, r/selfhosted, r/homeassistant, r/Proxmox, r/programming and r/devops all have different self-promotion rules. Some ban blog links outright, some want a text post or a flair, and many expect your account to participate beyond posting your own links (the old guideline was roughly 9 contributions per self-promotion post).
+- **Reddit titles can be more personal and descriptive than HN titles.** Write them as a person talking to the sub: "Two years and $7,400 later, here's what my homelab actually costs to run (with metered power data)". A question or an invitation brings in comments, and comments drive ranking.
+- **Lead with the thing the sub cares about.** r/homelab votes on rack photos, power numbers and hardware. r/selfhosted votes on the service list and the "what I replaced" angle. r/homeassistant votes on the automation itself. One post can produce several angles, so write a different title for each sub and never cross-post the same title everywhere.
+- **Prefer a text post with the substance inline.** Use 3-6 bullets of the actual findings and put the link at the bottom. A bare link to your own blog reads as promotion. A summary that stands on its own reads as a contribution.
+
+#### Content that survives HN and Reddit comments
+
+- **Original data or first-hand experience is the whole point.** That means metered numbers, real configs, costs, failure stories and benchmarks you ran yourself. Commenters forgive rough writing when the data is real. They don't forgive a well-written summary of things they've already read.
+- **Every number must be internally consistent.** HN will multiply your watts by 24 and compare the result to your kWh. It will check core counts against Intel ARK and add up your cost tables. Before shipping, recompute every derived number in the post (totals, averages, break-even, per-month vs per-year) and make sure the spec numbers match the vendor's spec sheet. Cores are not threads.
+- **Concede the obvious objection in the post itself.** Every topic has its standard top comment. For homelabs it's "you could do this on a $150 mini PC" and "the power bill makes this a loss". For self-hosting it's "your time isn't free" and "what about backups?". For AI it's "a bigger hosted model would do this better". One honest paragraph that names the objection and answers it (or concedes it) takes that comment away.
+- **Be careful with anything that sounds like piracy, security theater or astroturfing.** "Replaced Netflix with Plex plus the \*arr stack" invites a thread about piracy instead of your post. Frame media in terms of what you own, or leave it out. Disclose employer ties and sponsorships up front.
+- **Keep memes to a minimum.** HN reads memes as low effort, and a meme above the first real paragraph gets mentioned in the comments. For an HN-targeted post, cap memes at 1-2, keep them out of the first screen, and let photos, diagrams and tables carry the visuals. Reddit is more tolerant, but a real photo beats a meme in r/homelab every time.
+- **Open with substance, not a warm-up.** Readers decide within one screen. The first paragraph should state the claim or the headline number, not "Look, when I wrote..." throat-clearing. Use the TL;DR box for the numbers.
+- **Date-sensitive claims need dates.** Prices, versions and "currently running" lists go stale. Write "as of <month year>" and link the primary source. A retired project in your "what I run" list (for example, Readarr was retired in June 2025) signals the post is out of date.
+- **Make the page easy to load.** The page needs to be fast, readable without JavaScript, free of popups and newsletter modals, and fine on mobile. HN traffic arrives all at once, so check the page and its images before submitting.
+
+#### Submission (for the user, not the agent)
+
+Never submit, vote, or ask anyone to upvote on the user's behalf. HN's voting-ring detection penalizes coordinated upvotes, and Reddit treats them as vote manipulation. When the post is ready, give the user:
+
+- The HN title (normally the H1, unchanged) and 2-3 Reddit titles, each tied to a specific subreddit and a check of that sub's rules
+- A first comment for HN from the author: who you are, why you wrote it, and what you'd like feedback on. It should be 3-5 sentences and not a sales pitch.
+- The 3 objections most likely to show up in the comments, with a one-line honest answer to each
+- A timing note. US weekday mornings Eastern time are the usual advice, and it matters less than the title and the content. If an HN submission gets no traction, HN allows a resubmission after a while, and moderators sometimes put good posts in the second-chance pool.
 
 ### Photos and Visual Content (IMPORTANT)
 
@@ -520,6 +564,10 @@ Final human review before moving on. Verify each item:
 - [ ] Post ends when it's done - no closing paragraph restating the intro?
 - [ ] EEAT: at least one original beat only someone who did this could write?
 - [ ] EEAT: at least one honest limitation or "I haven't tested" moment?
+- [ ] HN/Reddit (if targeted): title is plain and specific with no colon-label, and works pasted unchanged as the HN title?
+- [ ] HN/Reddit (if targeted): every derived number recomputed (totals, W vs kWh, per-month vs per-year), and spec numbers match the vendor sheet?
+- [ ] HN/Reddit (if targeted): the obvious top-comment objection is named and answered in the post?
+- [ ] HN/Reddit (if targeted): memes capped at 1-2 and none in the first screen?
 
 ### 6f. Spelling Check
 
@@ -659,6 +707,8 @@ When `$ARGUMENTS` starts with `--review`, skip Phases 0-3 entirely. Run only the
 3. Present a consolidated findings report grouped by agent
 4. Ask the user which findings to apply
 5. Apply approved edits to the file
+
+If the user says the post is headed to Hacker News or Reddit, also check it against **Distribution fit: Hacker News and Reddit**. Tell the `blog-headline-tester` agent the target, and finish with the Submission handoff from that section.
 
 Use this for improving older posts or doing a pre-publish review of a draft written outside this skill.
 

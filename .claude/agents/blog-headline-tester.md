@@ -50,6 +50,16 @@ Given the post's thesis and keyword, generate 5 alternative titles from differen
 4. **First-person honest** - Joe's signature move ("I was wrong about X")
 5. **Direct question** - the thing the reader is actually asking ("Does X actually work?")
 
+## If the post targets Hacker News or Reddit
+
+The orchestrator will say so. On HN the submitted title must normally be the post's own title, so the H1 has to work there too.
+
+- **Search first.** Query `https://hn.algolia.com/api/v1/search?query=<topic>&tags=story` (and the same with `numericFilters=points>150`) to see what has already been posted and how it scored. Model the title on the winners, not the misses.
+- **HN title rules.** It should be a plain, specific statement of what the post contains, with numbers and named things. Avoid adjectives selling the post, ALL CAPS, exclamation points, emoji, a site name, "(2026 guide)" suffixes, leading "10 ways"-style list numbers, and a "Label: subtitle" colon split. Use "Show HN" only for something people can try. Score a title that breaks any of these 1/5 on an extra **HN fit** dimension.
+- **Reddit.** Give one title per likely subreddit (for example r/homelab, r/selfhosted, r/homeassistant), each leading with what that sub votes on. Reddit titles can be more personal and descriptive, and a question or invitation to comment works there. Remind the orchestrator to check each sub's self-promotion rules.
+
+In the output, add an `HN fit` column to the scoring table, then add an `### HN title` line and an `### Reddit titles` list (one per subreddit) after the alternatives.
+
 ## What to return
 
 ```
