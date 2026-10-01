@@ -1,5 +1,5 @@
 ---
-title: 'What My Homelab Actually Costs After Two Years'
+title: 'My Homelab Two Years Later, Every Upgrade and What It Cost'
 date: 2026-03-05
 updatedDate: 2026-10-01
 slug: 'homelab-two-years-later'
@@ -142,6 +142,8 @@ I need to talk about this because it caught me off guard. Enterprise DDR4 ECC RA
 The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of memory, and that demand is competing directly with the secondhand market that homelabbers depend on. Used DDR4 ECC sticks I could find for $40-80 a couple years ago now run $200-400 for 32GB RDIMMs - roughly 3x or worse. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2025%E2%80%93present_global_memory_supply_shortage). The supply of used enterprise RAM dried up because the same companies that used to surplus it are now keeping older servers running longer to meet AI compute demand.
 
 Each host has 128GB. Filling those DIMM slots was genuinely painful on the wallet. I picked the worst possible time to be upgrading enterprise servers as a hobby. But it's still a hobby, and it's still fun, so here we are.
+
+![Y'all Got Any More Of That meme: Dave Chappelle as a homelabber asking every AI company 'Y'all got any more of that DDR4 ECC?'](/images/blog/homelab-two-years-later/meme-yall-got-any-more-ddr4.webp)
 
 There's not a great way to mitigate this. You can watch r/homelabsales for deals and buy in bulk when you find good prices. Moving to a newer DDR5 platform doesn't save you either - the shortage hits DDR5 at least as hard. For DDR4 ECC right now? Budget for it on day one. Don't treat it as a "I'll upgrade later" afterthought, because later is more expensive - and with DDR4 production winding down, it's only going in one direction.
 
@@ -316,6 +318,8 @@ I've since written up night mode alongside [more of my favorite Home Assistant a
 When I first built it, night mode stopped 17 containers and saved about 175W overnight, roughly $7/month. Since then I've pulled Tdarr and a few others out of it because I wanted them running overnight, so it stops 11 now and the saving is smaller. I haven't re-measured it yet, which is a little embarrassing in a post about metered power. If I need Ollama at 1 AM (it happens), I can override from my phone.
 
 **CPU governor tuning.** Both hosts are supposed to run the `powersave` frequency governor instead of `performance`. There's absurd headroom even in power-save. CPUs ramp up when a workload demands it, drop to minimum frequency when idle. When I checked for this update, prxbox1 was all `powersave`, but 31 of prxbox2's 80 threads had drifted back to `performance`. Nothing in my OpenTofu code manages the governor, so nothing caught it. That's the whole argument for putting everything in code, in one bug.
+
+![Anakin Padme 4 Panel meme: 'I put everything in OpenTofu' / 'So nothing can drift, right?' / Anakin's silent stare / '...nothing can drift, right?'](/images/blog/homelab-two-years-later/meme-anakin-padme-drift.webp)
 
 ### The uncomfortable truth
 
