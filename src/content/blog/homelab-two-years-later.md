@@ -1,33 +1,28 @@
 ---
-title: 'My Homelab Two Years Later: From Desktop Tower to Server Rack'
+title: 'What My Homelab Actually Costs After Two Years'
 date: 2026-03-05
+updatedDate: 2026-10-01
 slug: 'homelab-two-years-later'
-description: 'How my homelab grew from a $200 ThinkServer to a dual R730 server rack with 60+ containers, 10G networking, GPU-accelerated AI, and real power monitoring data from Home Assistant.'
+description: 'Two years after a $200 ThinkServer: two Dell R730s, 73 containers, metered power data, and an honest look at whether a homelab pays for itself.'
 categories: ['Homelab']
 heroImage: '/images/blog/homelab-two-years-later/hero.webp'
 heroAlt: 'Server rack with two Dell R730 servers, 10G networking, and cable management'
-tldr: 'Two years after my first homelab post, I went from a $200 ThinkServer with 15 containers to a full server rack with two Dell R730s, dual NVIDIA GPUs, 10G networking, VLANs, 60+ containers, and a full observability stack. The rack draws about 380W and costs $53/month in electricity. Here is every phase of that evolution - what drove each upgrade, what it cost, and what I learned the hard way.'
+tldr: 'Two years after my first homelab post, I went from a $200 ThinkServer with 15 containers to a server rack with two Dell R730s (80 cores, 256GB RAM), two NVIDIA GPUs, 10G networking, VLANs, and 73 containers managed in OpenTofu. Hardware cost about $7,400. A smart plug meters the whole rack at roughly 430-510W on average, about $55/month at $0.15/kWh. On paper it pays for itself in about 4.6 years, but that leans on one $80/month line item - take it out and break-even is over a decade. Here is every phase, what drove it, what it cost, and what I got wrong.'
 ---
 
-Look, when I wrote my [original homelab post](/blog/how-to-get-started-building-a-homelab-server-in-2024/) a couple years ago, the pitch was dead simple. Buy a cheap used server off Facebook Marketplace. Install Proxmox. Run some containers. Done. The ThinkServer cost me $200, ran about 15 containers, and I genuinely thought that was the end of the story.
+Two years ago I bought a $200 ThinkServer off Facebook Marketplace, put Proxmox on it, ran about 15 containers, and wrote an [original homelab post](/blog/how-to-get-started-building-a-homelab-server-in-2024/) telling everyone that was all a homelab needed.
 
-That is not how homelabs work.
+Today I have two Dell R730s in a rack in my attic, 73 containers, two NVIDIA GPUs, and 10G networking. A smart plug on the rack says the whole thing averages around 500W, or about $55 a month in electricity. Total hardware spend: about $7,400.
 
-![Narrator voice: 'It was not the end of the story'](/images/blog/homelab-two-years-later/narrator.webp)
+None of it was planned. Each phase started with one question or one frustration, usually at 11 PM on a Tuesday, and somehow always ended with new hardware in the rack and a higher electricity bill. This post covers each phase: what drove it, what it cost, what went wrong, and whether any of it pays for itself. Short version: slower than I first claimed.
 
-What actually happened over the next two years was an unplanned evolution driven entirely by curiosity and the specific kind of brain damage that makes you think "I should rebuild my entire home network from scratch" at 11 PM on a Tuesday. Each phase started with one question or one frustration, and somehow always ended with new hardware in the rack and a higher electricity bill.
-
-This post is the full story of that evolution: what drove each upgrade, what it actually cost (including electricity - we're going to talk about electricity a lot), what went wrong, and what I'd do differently. If you're running a single homelab server right now and you're getting that itch - the "what if I just added one more thing" itch - this is one version of where that leads.
-
-![Columbo saying 'just one more thing' - the homelab motto](/images/blog/homelab-two-years-later/one-more-thing.webp)
+_Updated October 2026: I first published this in March. Since then I've retired Open WebUI, Nextcloud, and Readarr, moved every container into OpenTofu, re-measured the power, and redid the money math - including a CPU count I had wrong by a factor of two. The numbers below are current._
 
 ## The ThinkServer Hits a Wall
 
 The original setup was genuinely great. A Xeon E3-1226 v3 with 4 cores, 32GB of RAM, 2TB of storage. [Proxmox](https://www.proxmox.com/en/products/proxmox-virtual-environment/overview) running LXC containers. [Plex](https://www.plex.tv/), the \*arr stack, Pi-Hole, download clients. For six months it handled everything without complaint.
 
 Then I got ambitious. You know how it goes.
-
-![Drake meme - rejecting buying a $200 used server with 15 containers, approving buying two enterprise servers with GPUs and 60+ containers](/images/blog/homelab-two-years-later/drake-homelab.webp)
 
 First it was Plex transcoding. Two people streaming at once and the quad-core Xeon started choking. GPU-accelerated transcoding would fix that, but the ThinkServer didn't have a PCIe slot that could fit anything useful. Then I saw [Frigate](https://frigate.video/) - real-time AI object detection on security camera feeds. Sounds incredible, right? Four CPU cores cannot do real-time neural network inference while simultaneously running 15 other services. Not happening.
 
@@ -61,46 +56,42 @@ Best places I've found: eBay (sort by newly listed - the good deals go fast), r/
 
 Here's something I learned the expensive way: you cannot just drop a desktop gaming GPU into a 2U rack server.
 
-I know. Obvious in retrospect. But when you've spent years building desktop PCs where any GPU fits in any case, it doesn't occur to you that rack servers are a completely different universe. Desktop GPUs are designed for full-height PCIe slots with side-panel fans blowing directly onto them. Rack servers are 3.5 inches tall. The airflow goes front-to-back through a carefully engineered wind tunnel. A full-size RTX 4090 physically will not fit. Period.
+I know. Obvious in retrospect. But when you've spent years building desktop PCs where any GPU fits in any case, it doesn't occur to you that rack servers are a completely different universe. Desktop GPUs are designed for full-height PCIe slots with side-panel fans blowing directly onto them. A 2U server is 3.5 inches tall. The airflow goes front-to-back through a carefully engineered wind tunnel. A full-size RTX 4090 physically will not fit. Period.
 
 For the R730, you need cards under a specific length and height - typically workstation or datacenter class GPUs. NVIDIA Quadro, NVIDIA RTX (the professional ones), Tesla. Not GeForce. I burned a weekend figuring this out before finding cards that actually worked.
 
 ### The power bill arrives
 
-The ThinkServer drew maybe 80W at idle. Cute. Barely noticeable on the electric bill.
+The ThinkServer drew maybe 80W at idle. Cute. About $9 a month.
 
-The R730 with dual Xeon E5-2698 v4 processors? That's 40 cores per CPU. 80 cores total.
+The R730 has dual Xeon E5-2698 v4 processors. 20 cores each, so 40 cores and 80 threads in one box.
 
 Performance was unreal. And then the electricity bill showed up.
 
-I have a Home Assistant smart plug tracking the entire rack's power draw in real time. The full numbers are in the [power section below](#power-the-uncomfortable-math), but the short version: **$53/month in electricity.** A regular desktop PC idles at 60-100W. I'm running 3-4 desktops worth of power, 24/7, in my attic, in Minnesota.
-
-![This Is Fine meme - dog sitting in burning room, captioned 'Me checking my power bill after adding a second R730'](/images/blog/homelab-two-years-later/this-is-fine-power.webp)
+I have a Home Assistant smart plug tracking the entire rack's power draw in real time. The full numbers are in the [power section below](#power-the-uncomfortable-math), but the short version: **about $55/month in electricity.** A regular desktop PC idles at 60-100W. I'm running five to eight idle desktops' worth of power, 24/7, in my attic, in Minnesota.
 
 ## Two Servers and a Rack
 
 ### Why did I need a second R730?
 
-GPU time-sharing. I wanted to run local AI models (Ollama for LLMs, Immich ML for photo face recognition, Frigate for security camera object detection) alongside Plex transcoding and Tdarr video encoding. Trying to run all of that on one GPU simultaneously is a recipe for CUDA out-of-memory crashes and angry family members wondering why Plex stutters every time Frigate detects a squirrel.
+GPU time-sharing. I wanted to run local AI models (Ollama for LLMs, Immich ML for photo face recognition, Frigate for security camera object detection) alongside Plex transcoding and Tdarr video encoding. Trying to run all of that on one GPU simultaneously is a recipe for CUDA out-of-memory crashes and Plex stuttering every time Frigate detects a squirrel.
 
 Two GPUs on two hosts solved it cleanly:
 
-- **prxbox1** got a [Quadro RTX 4000](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf) (8GB VRAM) - dedicated to Frigate NVR running real-time object detection across 4 security cameras, plus a Tdarr distributed transcoding worker
-- **prxbox2** got an [RTX A4000](https://www.nvidia.com/en-us/design-visualization/rtx-a4000/) (16GB VRAM) - the big one, handling Plex hardware transcoding, [Immich](https://immich.app/) ML photo processing, [Tdarr](https://github.com/HaveAGitGat/Tdarr) encoding, and [Ollama](https://ollama.com/) for running local LLMs entirely on-device
+- **prxbox1** got a [Quadro RTX 4000](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf) (8GB VRAM) - dedicated to Frigate NVR running real-time object detection across 4 security cameras, plus a Tdarr distributed transcoding worker and the Whisper speech-to-text for Home Assistant voice
+- **prxbox2** got an [RTX A4000](https://www.nvidia.com/en-us/design-visualization/rtx-a4000/) (16GB VRAM) - the big one, handling Plex hardware transcoding, [Immich](https://immich.app/) ML photo processing, [Tdarr](https://github.com/HaveAGitGat/Tdarr) encoding, and local LLMs with [Ollama](https://ollama.com/) and [llama.cpp](https://github.com/ggml-org/llama.cpp)
 
 The 16GB card was the important investment. Running a decent local LLM eats VRAM fast, and 8GB fills up the moment you're also running photo ML and video transcoding on the same GPU.
 
 ### I knew nothing about server racks
 
-![Jon Snow - you know nothing](/images/blog/homelab-two-years-later/you-know-nothing.webp)
-
-Seriously. Embarrassingly little. I didn't know 19 inches was a standard width. I was measuring my R730s with a tape measure trying to figure out what kind of enclosure would hold them. Turns out this has been standardized since the 1920s (telephone industry, originally) and everything - mounting holes, unit height, rail depth - follows the same spec worldwide.
+Seriously. Embarrassingly little. I didn't know 19 inches was a standard width. I was measuring my R730s with a tape measure trying to figure out what kind of enclosure would hold them. Turns out the width goes back to the 1920s (telephone industry, originally), and today mounting holes, unit height, and rail depth all follow the same spec.
 
 The mental model that finally made it click for me: **a server rack is just a desktop computer where every component lives in its own chassis.** Your desktop has a CPU, GPU, RAM, storage, network card, and power supply all crammed into one box. A rack separates all of that:
 
 - **Compute** = the Dell R730 servers (CPU + RAM + GPU)
-- **Storage** = [Synology DS918+](https://www.synology.com/en-global/support/download/DS918+) on the bottom shelf
-- **Networking** = [MikroTik CRS317](https://mikrotik.com/product/crs317_1g_16s_rm) for 10G backbone + [UniFi US-24](https://store.ui.com/us/en/collections/unifi-switching-standard-power-over-ethernet/products/usw-24-poe) for 1G devices
+- **Storage** = [Synology DS418play](https://www.synology.com/en-global/support/download/DS418play) on a shelf
+- **Networking** = [MikroTik CRS317](https://mikrotik.com/product/crs317_1g_16s_rm) for 10G backbone + [UniFi US-24](https://store.ui.com/us/en/products/usw-24) for 1G devices
 - **Power** = PDU (power distribution) + two UPS units (battery backup so a power blip doesn't kill everything)
 - **Management** = iDRAC ports on each server
 
@@ -140,7 +131,7 @@ StarTech 25U Rack
 
 ### 10G networking between hosts
 
-Each R730 has dual 10Gb SFP+ ports bonded via LACP to the MikroTik switch. That's 20Gbps aggregate bandwidth per host. A single TCP connection won't saturate both links (LACP distributes traffic by flow hash, not by individual packet), but when 30+ containers on each host are all hitting the NAS simultaneously - media files, log writes, backup streams - both links stay busy.
+Each R730 has dual 10Gb SFP+ ports bonded via LACP to the MikroTik switch. That's 20Gbps aggregate bandwidth per host. A single TCP connection won't saturate both links (LACP distributes traffic by flow hash, not by individual packet), but when dozens of containers on each host are all hitting the NAS simultaneously - media files, log writes, backup streams - both links stay busy.
 
 I wrote a [Python script to manage the MikroTik bonding configuration programmatically](/blog/implementing-mikrotik-binary-api-protocol-in-python/) because clicking through web UIs to configure network infrastructure felt wrong. That turned into its own blog post about implementing MikroTik's proprietary binary protocol from scratch.
 
@@ -148,11 +139,11 @@ I wrote a [Python script to manage the MikroTik bonding configuration programmat
 
 I need to talk about this because it caught me off guard. Enterprise DDR4 ECC RAM has gotten significantly more expensive since I started this project, and the timing couldn't be worse.
 
-The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of ECC memory, and that demand is competing directly with the secondhand market that homelabbers depend on. DDR4 ECC sticks that were $40-80 a couple years ago are now running $200-400 new for 32GB RDIMMs - a 3-4x increase. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2024%E2%80%932026_global_memory_supply_shortage). The supply of used enterprise RAM dried up because the same companies that used to surplus it are now keeping older servers running longer to meet AI compute demand, or the RAM gets pulled and resold at inflated prices to AI startups who need it yesterday.
+The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of memory, and that demand is competing directly with the secondhand market that homelabbers depend on. Used DDR4 ECC sticks I could find for $40-80 a couple years ago now run $200-400 for 32GB RDIMMs - roughly 3x or worse. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2025%E2%80%93present_global_memory_supply_shortage). The supply of used enterprise RAM dried up because the same companies that used to surplus it are now keeping older servers running longer to meet AI compute demand.
 
-prxbox1 has 125GB, prxbox2 has 128GB. Filling those DIMM slots was genuinely painful on the wallet. I picked the worst possible time to be upgrading enterprise servers as a hobby. But it's still a hobby, and it's still fun, so here we are.
+Each host has 128GB. Filling those DIMM slots was genuinely painful on the wallet. I picked the worst possible time to be upgrading enterprise servers as a hobby. But it's still a hobby, and it's still fun, so here we are.
 
-There's not a great way to mitigate this. You can watch r/homelabsales for deals, buy in bulk when you find good prices, or accept DDR5 ECC when you eventually move to newer platforms (where supply is healthier). But for DDR4 ECC right now? Budget for it on day one. Don't treat it as a "I'll upgrade later" afterthought, because later is more expensive - and with DDR4 production winding down in favor of DDR5, it's only going in one direction.
+There's not a great way to mitigate this. You can watch r/homelabsales for deals and buy in bulk when you find good prices. Moving to a newer DDR5 platform doesn't save you either - the shortage hits DDR5 at least as hard. For DDR4 ECC right now? Budget for it on day one. Don't treat it as a "I'll upgrade later" afterthought, because later is more expensive - and with DDR4 production winding down, it's only going in one direction.
 
 ![Front view of both Dell R730 servers in the rack with drive bays and status LEDs visible](/images/blog/homelab-two-years-later/rack-front-servers.webp)
 
@@ -164,7 +155,7 @@ I tore down my entire home network and rebuilt it from scratch.
 
 ### The setup
 
-[UniFi Cloud Gateway Ultra](https://store.ui.com/us/en/products/ucg-ultra) as the router, DHCP server, and WiFi controller. Two [UniFi U7 Pro](https://ui.com/us/wifi/u7-pro) access points for whole-home WiFi 7 with 802.11r fast roaming - one upstairs, one main floor. Devices hand off between APs as I walk through the house without dropping connections. My partner doesn't notice, which is the highest compliment network infrastructure can receive.
+[UniFi Cloud Gateway Ultra](https://store.ui.com/us/en/products/ucg-ultra) as the router, DHCP server, and WiFi controller. Three UniFi access points with 802.11r fast roaming: two [U7 Pros](https://ui.com/us/wifi/u7-pro), one upstairs and one on the main floor, plus a U7 Pro XG I added in the basement later. Devices hand off between APs as I walk through the house without dropping connections. Guests don't notice, which is the highest compliment network infrastructure can receive.
 
 ### VLANs: or, why your smart plug shouldn't talk to your NAS
 
@@ -174,8 +165,8 @@ VLANs create separate virtual networks that can't talk to each other unless I ex
 
 - **Default LAN** (192.168.0.0/24) - trusted devices: servers, my workstation, phones
 - **Guest** (192.168.20.0/24) - internet access only, can't see anything local
-- **IoT** (192.168.30.0/24) - smart home devices, can only reach Home Assistant and DNS
-- **Cameras** (192.168.40.0/24) - security cameras, can only reach Frigate and Home Assistant
+- **IoT** (192.168.30.0/24) - smart home devices, can only reach Home Assistant, DNS, and my music server
+- **Cameras** (192.168.40.0/24) - security cameras, can only reach Frigate, Home Assistant, and DNS
 
 A compromised smart plug can't reach my NAS. A camera can't exfiltrate data to the internet. A guest can't scan my local network. Each VLAN is its own isolated world with strictly controlled exits.
 
@@ -190,48 +181,47 @@ Fiber ONT (bridge mode)
   v
 UniFi Cloud Gateway Ultra (Router / DHCP / WiFi Controller)
   |
-  +---> MikroTik CRS317 (10G Backbone)
-  |       |
-  |       +---> prxbox1 (2x 10G LACP = 20Gbps)
-  |       +---> prxbox2 (2x 10G LACP = 20Gbps)
+  v
+MikroTik CRS317 (10G Backbone)
+  |
+  +---> prxbox1 (2x 10G LACP = 20Gbps)
+  +---> prxbox2 (2x 10G LACP = 20Gbps)
   |
   +---> UniFi US24 (1G switch)
-  |       |
-  |       +---> iDRAC1, iDRAC2, IoT devices, cameras
-  |
-  +---> UniFi U7 Pro AP (Upstairs)
-  +---> UniFi U7 Pro AP (Main Floor)
+          |
+          +---> iDRAC1, iDRAC2, IoT devices, cameras
+          +---> UniFi U7 Pro AP (Upstairs)
+          +---> UniFi U7 Pro AP (Main Floor)
+          +---> UniFi U7 Pro XG AP (Basement)
 
 VLANs:
   Default LAN (192.168.0.0/24)  - servers, workstation, trusted
   Guest       (192.168.20.0/24) - internet only
-  IoT         (192.168.30.0/24) - can reach HA + DNS only
-  Cameras     (192.168.40.0/24) - can reach Frigate + HA only
+  IoT         (192.168.30.0/24) - can reach HA + DNS + music server
+  Cameras     (192.168.40.0/24) - can reach Frigate + HA + DNS
 ```
 
 ## The Service Explosion
 
-Here's what happens when you hand someone 160 cores, 250GB+ of RAM, and 24GB of GPU VRAM.
+Here's what happens when you hand someone 80 cores, 256GB of RAM, and 24GB of GPU VRAM.
 
 They fill it.
 
-![Palpatine from Star Wars cackling 'UNLIMITED POWER' - me after upgrading to 160 cores](/images/blog/homelab-two-years-later/unlimited-power.webp)
-
 ### The services
 
-Not exhaustive - check my [uses page](/uses) for the full inventory. But here's the landscape:
+Right now that's 73 LXC containers plus the Home Assistant VM - 45 on prxbox1, 28 on prxbox2. Not exhaustive - check my [uses page](/uses) for more. But here's the landscape:
 
-**Media:** Plex, Immich (self-hosted Google Photos - genuinely excellent), full \*arr stack ([Sonarr](https://sonarr.tv/), [Radarr](https://radarr.video/), [Prowlarr](https://prowlarr.com/), [Lidarr](https://lidarr.audio/), [Readarr](https://readarr.com/), and a few more), Tdarr for automated video health checking and transcoding, a [GPU-accelerated subtitle generator](/blog/building-a-gpu-accelerated-subtitle-generator/) I built with Whisper AI, [Audiobookshelf](https://www.audiobookshelf.org/)
+**Media:** Plex, Immich (self-hosted Google Photos - genuinely excellent), full \*arr stack ([Sonarr](https://sonarr.tv/), [Radarr](https://radarr.video/), [Prowlarr](https://prowlarr.com/), [Lidarr](https://lidarr.audio/), and a few more), [LazyLibrarian](https://lazylibrarian.gitlab.io/) for books since Readarr was retired, Tdarr for automated video health checking and transcoding, a [GPU-accelerated subtitle generator](/blog/building-a-gpu-accelerated-subtitle-generator/) I built with Whisper AI, [Audiobookshelf](https://www.audiobookshelf.org/)
 
 **Security:** Frigate NVR, [Vaultwarden](https://github.com/dani-garcia/vaultwarden) (self-hosted Bitwarden), [Authentik](https://goauthentik.io/) (SSO for every service), [CrowdSec](https://www.crowdsec.net/) (community threat intelligence)
 
 **Home automation:** Home Assistant as a full VM (not a container - it needs the supervisor for add-ons and updates), [Zigbee2MQTT](https://www.zigbee2mqtt.io/) for local Zigbee control without any cloud dependency
 
-**AI/ML:** Ollama with [Open WebUI](https://github.com/open-webui/open-webui) gives me a ChatGPT-like interface running entirely on local hardware. No API costs. No data leaving my network. No rate limits. I use it daily.
+**AI/ML:** Ollama and llama.cpp's `llama-server` behind a LiteLLM gateway. I used to run Open WebUI on top for a ChatGPT-style interface, then retired it in June - llama-server's built-in web UI does what I need with one less service to keep alive. No API costs. No data leaving my network. No rate limits. I use it daily.
 
-**Monitoring:** [Prometheus](https://prometheus.io/), [Grafana](https://grafana.com/), [Loki](https://grafana.com/oss/loki/), [Uptime Kuma](https://github.com/louislam/uptime-kuma), plus 41 custom health check scripts
+**Monitoring:** [Prometheus](https://prometheus.io/), [Grafana](https://grafana.com/), [Loki](https://grafana.com/oss/loki/), [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/), [Uptime Kuma](https://github.com/louislam/uptime-kuma), Healthchecks, plus a pile of custom health check scripts (more on those below)
 
-**Productivity:** [Paperless-NGX](https://docs.paperless-ngx.com/) (scans every receipt and document, OCRs them, uses AI to categorize and tag automatically - it's magic), [Nextcloud](https://nextcloud.com/)
+**Productivity:** [Paperless-NGX](https://docs.paperless-ngx.com/) (scans every receipt and document, OCRs them, uses AI to categorize and tag automatically - it's magic), [Syncthing](https://syncthing.net/) for file sync. I ran Nextcloud for a while and replaced it in September. Syncthing does the one job I was actually using Nextcloud for.
 
 ### Migrating Home Assistant into the Homelab
 
@@ -239,7 +229,7 @@ This one deserves a callout because it's one of the biggest changes from the ori
 
 I've been running Home Assistant for about 10 years - long before this homelab existed. But it always lived on its own dedicated hardware, completely isolated from everything else. Two years ago I deliberately kept it separate from the ThinkServer because I didn't trust mixing home automation with other services on a single machine with no network isolation. That was a reasonable concern! And it was completely addressed by VLANs and a dedicated VM.
 
-Once I had proper network segmentation, migrating Home Assistant into a Proxmox VM on the R730 was a no-brainer. Now it's the single most important piece of the entire homelab. It doesn't just control lights - it manages server power states, monitors container health, runs the night mode system that saves me real money, and orchestrates automations I couldn't have imagined two years ago. I wrote about that journey in my post about [replacing Alexa with a private, local-first setup](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
+Once I had proper network segmentation, migrating Home Assistant into a Proxmox VM on the R730 was a no-brainer. Now it's the single most important piece of the entire homelab. It doesn't just control lights - it manages server power states, monitors container health, runs the night mode system, and orchestrates automations I couldn't have imagined two years ago. I wrote about that journey in my post about [replacing Alexa with a private, local-first setup](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
 
 Moving it from dedicated hardware into the rack unlocked a whole new level of integration. Having Home Assistant on the same network backbone as the servers means automations can talk directly to Proxmox, containers, and monitoring - no hacks or workarounds needed.
 
@@ -251,44 +241,54 @@ Third time. A week each time. Nobody noticed.
 
 ### Observability
 
-**Prometheus** scrapes metrics from every host and container every 15 seconds. CPU, memory, disk, network throughput, GPU utilization, VRAM usage, inlet temperature, exhaust temperature. All of it, continuously, into a time-series database.
+**Prometheus** scrapes metrics from every host and container every 15 seconds. CPU, memory, disk, network throughput, GPU utilization, VRAM usage, inlet temperature, exhaust temperature, and the rack's power draw from Home Assistant. All of it, continuously, into a time-series database.
 
 **Grafana** turns that into dashboards. The main overview shows both servers at a glance - power draw, CPU load, memory pressure, GPU status, disk I/O. I check it most mornings with coffee. It's weirdly satisfying.
 
-**Loki** aggregates logs from all 60+ containers. When something breaks, I search from one Grafana panel instead of SSH-ing into individual containers and tailing log files like it's 2003.
+**Loki** aggregates logs from every container. When something breaks, I search from one Grafana panel instead of SSH-ing into individual containers and tailing log files like it's 2003.
 
-**Uptime Kuma** monitors from outside the cluster and pings me via ntfy (self-hosted push notifications) when anything goes down.
+**Alertmanager** is the one place alerts go. It emails me, and critical alerts also push through Home Assistant to my phone. I used to run ntfy for push notifications too, and shut it down in September. Two alert paths meant two things to maintain and one I'd eventually stop trusting.
 
-### 41 health check scripts
+### The health check scripts got out of hand
 
-This sounds insane. I know it sounds insane. But each one is dead simple: check one thing, exit 0 if healthy, exit 1 with a message if not. Backup verification. SSL certificate expiry. Disk space thresholds. DNS resolution. Container restart detection. A wrapper runs them all via cron and sends a daily summary.
+When I first wrote this post I had 41 health check scripts. Now it's 153 shell checks on the Proxmox side plus 32 Python checks for Home Assistant.
 
-I haven't been surprised by a silent failure in months. That peace of mind was worth the afternoon I spent writing them.
+This sounds insane. I know it sounds insane. But each one is dead simple: check one thing, exit 0 if healthy, exit 1 with a message if not. Backup verification. SSL certificate expiry. Disk space thresholds. DNS resolution. Container restart detection. Subtitles actually getting generated. A wrapper runs them all at 6 AM, pings Healthchecks so I know the wrapper itself ran, and sends anything critical to Alertmanager.
+
+The count keeps growing for a boring reason: every time something breaks in a way I didn't catch, the fix includes a new check. I haven't been surprised by a silent failure in months.
+
+### Everything is code now
+
+The biggest change since March isn't hardware. Every container is now defined in [OpenTofu](https://opentofu.org/) - resources, network, and everything installed inside it. If a fix isn't in the code, it doesn't exist, and SSH fixes on a finished container are banned. A scheduled drift check compares the running containers against the code. I wrote up the whole migration in [I Finally Stopped Managing My Homelab by Hand](/blog/opentofu-proxmox-immutable-homelab/).
+
+It's the change I'd make first if I started over, and the one I put off longest.
 
 ### Backups
 
-[Proxmox Backup Server](https://www.proxmox.com/en/products/proxmox-backup-server/overview) handles incremental backups with deduplication. The dedup ratios are wild - **90-98%** for containers sharing a common base image. Most of the filesystem is identical between containers (they're all Debian or Ubuntu under the hood), so PBS only stores unique data chunks. 60+ containers take a fraction of the storage you'd expect.
+[Proxmox Backup Server](https://www.proxmox.com/en/products/proxmox-backup-server/overview) handles incremental backups with deduplication. Most of the filesystem is identical between containers (they're nearly all Debian under the hood), so PBS only stores unique data chunks. The last time I checked, about 5TB of logical backups took up about 1.3TB on disk - roughly 3.8x.
+
+PBS is not an offsite backup, though. It lives in the same attic as everything it's backing up. So every day at 1 PM a small container syncs the whole PBS datastore to Backblaze B2, and the NAS runs its own B2 backup with 60-day retention. Yes, that means I pay Backblaze again. A fire in the attic shouldn't take the backups with it.
 
 ## Power: The Uncomfortable Math
 
 OK. Let's talk about the electricity.
 
-Here's the real data from my Home Assistant energy monitoring plug (entity `sensor.office_server_rack_energy`), tracking the entire server rack through a smart power outlet:
+Here's the real data, re-measured for this update. Rack totals come from my Home Assistant energy monitoring plug (`sensor.office_server_rack_power`), which tracks the entire server rack through a smart power outlet. Per-server numbers come from each R730's iDRAC.
 
-| Metric             | Value                                               |
-| ------------------ | --------------------------------------------------- |
-| prxbox1 power draw | 196W (Quadro RTX 4000 at 37-40W under Frigate load) |
-| prxbox2 power draw | 182W (RTX A4000 at 7W when GPU is idle)             |
-| Total rack         | ~380W continuous                                    |
-| Daily consumption  | 10.45 kWh/day (9-day average)                       |
-| Monthly cost       | ~$53 at $0.17/kWh                                   |
-| Annual projection  | ~$636                                               |
+| Metric             | Value                                                        |
+| ------------------ | ------------------------------------------------------------ |
+| prxbox1 power draw | ~214W, 7-day average (Quadro RTX 4000 at ~40W under Frigate) |
+| prxbox2 power draw | ~190W, 7-day average (RTX A4000 averaging ~12W)              |
+| Total rack         | ~430W 7-day average, ~510W 30-day average (range: 352W-868W) |
+| Daily consumption  | 10.4-12.3 kWh/day                                            |
+| Monthly cost       | ~$55 at $0.15/kWh (30-day average)                           |
+| Annual projection  | ~$660                                                        |
 
-That's metered. Not estimated.
+That's metered. Not estimated. The gap between the two servers and the rack total is everything else on the plug: switches, NAS, gateway, and UPS overhead.
 
 ### What I did about it
 
-**Killed the third server.** I had prxbox3 - the original ThinkServer from my first blog post - still running 9 containers. Migrated all of them to the two R730s (which had plenty of headroom) and powered it off. Gone. Instant savings.
+**Killed the third server.** I had prxbox3 - the original ThinkServer from my first blog post - still running 9 containers. Migrated all of them to the two R730s (which had plenty of headroom) and powered it off. It's fully out of the Proxmox cluster now. A Raspberry Pi running a quorum device gives the two-node cluster its tiebreaker vote instead.
 
 **Night mode.** This is the automation I'm most proud of building.
 
@@ -296,28 +296,26 @@ That's metered. Not estimated.
 Home Assistant: "Power - Night Mode System"
   |
   +--> 11 PM: Enter Night Mode
-  |     +---> Stop 10 containers on prxbox2 (Tdarr, Ollama, Paperless, etc.)
-  |     +---> Stop 7 containers on prxbox1 (Kometa, Dockge, etc.)
-  |     +---> ~175W saved continuously
+  |     +---> Stop 4 containers on prxbox2 (Ollama, Paperless, Paperless-AI, Audiobookshelf)
+  |     +---> Stop 7 containers on prxbox1 (Kometa, Dockge, Maintainerr, etc.)
   |
-  +--> 7 AM: Exit Night Mode
+  +--> 6 AM: Exit Night Mode
   |     +---> Start all stopped containers
-  |     +---> Run health check verification
-  |     +---> Send ntfy push notification
+  |     +---> Post a Home Assistant notification
   |
   +--> Manual Override (phone toggle anytime)
 
 Always running 24/7 (never stopped):
-  Plex, Frigate, Immich, Home Assistant, Monitoring Stack,
+  Plex, Frigate, Immich, Tdarr, Home Assistant, Monitoring Stack,
   Infrastructure (reverse proxy, AdGuard, Tailscale),
   Media Automation (*arr stack, download clients)
 ```
 
-The container list has changed since I wrote this, and I've since written up night mode alongside [more of my favorite Home Assistant automations](/blog/best-home-assistant-automations/).
+I've since written up night mode alongside [more of my favorite Home Assistant automations](/blog/best-home-assistant-automations/).
 
-That's **175W saved** for 8 hours every night - roughly 1.4 kWh/day, or about **$7/month**. If I need Ollama at 1 AM (it happens), I can override from my phone. But 95% of the time, those services have no business running while I'm sleeping.
+When I first built it, night mode stopped 17 containers and saved about 175W overnight, roughly $7/month. Since then I've pulled Tdarr and a few others out of it because I wanted them running overnight, so it stops 11 now and the saving is smaller. I haven't re-measured it yet, which is a little embarrassing in a post about metered power. If I need Ollama at 1 AM (it happens), I can override from my phone.
 
-**CPU governor tuning.** Both hosts run the `powersave` frequency governor instead of `performance`. With 160 total cores, there's absurd headroom even in power-save. CPUs ramp up when a workload demands it, drop to minimum frequency when idle.
+**CPU governor tuning.** Both hosts are supposed to run the `powersave` frequency governor instead of `performance`. There's absurd headroom even in power-save. CPUs ramp up when a workload demands it, drop to minimum frequency when idle. When I checked for this update, prxbox1 was all `powersave`, but 31 of prxbox2's 80 threads had drifted back to `performance`. Nothing in my OpenTofu code manages the governor, so nothing caught it. That's the whole argument for putting everything in code, in one bug.
 
 ### The uncomfortable truth
 
@@ -325,7 +323,9 @@ That's **175W saved** for 8 hours every night - roughly 1.4 kWh/day, or about **
 
 The R730 is an incredible value on the used market. Even configured, you're paying a fraction of the original five-figure price, with ECC RAM, redundant power supplies, iDRAC, and expansion capabilities that consumer hardware can't touch.
 
-But these machines were designed for data centers with negotiated commercial electricity rates - $0.05-0.08/kWh - and industrial cooling systems. In my attic, on a residential power plan at $0.17/kWh, paying Minnesota heating costs on top of it? The economics look different. Factor in power before you buy that second server. Not after.
+But these machines were designed for data centers paying industrial electricity rates well below residential, with industrial cooling. In my attic, on a residential plan, with Minnesota heating costs on top of it? The economics look different. Factor in power before you buy that second server. Not after.
+
+The obvious objection: a couple of modern mini PCs would run most of these 73 containers at a fraction of the power. For the \*arr stack, Vaultwarden, Paperless, and the monitoring stack, that's true, and it's why lower-power hardware is on my "What's Next" list. What a mini PC can't do is hold a 16GB workstation GPU for Frigate, Immich, and local LLMs, or give me iDRAC and ECC. If you don't want local AI or GPU video work, buy mini PCs and skip the rack.
 
 ## The Before and After
 
@@ -334,16 +334,17 @@ Sometimes it helps to just see the numbers side by side.
 ```
 2023 (ThinkServer Era)          2026 (Server Rack Era)
 ========================        ========================
-1x Lenovo ThinkServer           2x Dell R730 (+ThinkServer powered off)
-Xeon E3 quad-core               160 cores total
-32GB RAM                        250GB+ RAM total
+1x Lenovo ThinkServer           2x Dell R730 (ThinkServer retired)
+Xeon E3 quad-core               80 cores / 160 threads total
+32GB RAM                        256GB RAM total
 No GPU                          2x NVIDIA GPUs (24GB VRAM)
-~15 containers                  60+ containers
+~15 containers                  73 containers + 1 VM
 Flat network (no VLANs)         4 VLANs, 10G backbone
-No monitoring                   Full observability stack
-~80W power draw                 ~380W (with night mode savings)
-$200 hardware cost              ~$7,400 total hardware
-$0/yr power (negligible)        ~$636/yr power
+No monitoring                   Full observability + 185 health checks
+Configured by hand              Every container in OpenTofu
+~80W power draw                 ~430-510W average
+$200 hardware cost              ~$7,440 total hardware
+~$105/yr power                  ~$660/yr power
 ```
 
 That escalated.
@@ -354,25 +355,27 @@ That escalated.
 
 People always ask this, so here's the honest breakdown:
 
-| Item                                         | Cost        |
-| -------------------------------------------- | ----------- |
-| R730 #1 (Server Design Lab, configured)      | $1,857      |
-| R730 #2 (Server Design Lab, configured)      | $1,839      |
-| ThinkServer (original post, now powered off) | $200        |
-| Quadro RTX 4000 8GB (eBay)                   | $230        |
-| RTX A4000 16GB (eBay)                        | $895        |
-| UniFi Cloud Gateway Ultra                    | $129        |
-| UniFi U7 Pro APs (x2)                        | $378        |
-| UniFi US-24 (renewed)                        | $225        |
-| StarTech rack + shelves                      | $375        |
-| MikroTik CRS317                              | $433        |
-| CyberPower UPS (x2)                          | $778        |
-| Cables, adapters, misc                       | ~$100       |
-| **Total hardware**                           | **~$7,440** |
-| Annual electricity (~$636/yr x 2 years)      | ~$1,272     |
-| **Total cost of ownership (2 years)**        | **~$8,712** |
+| Item                                     | Cost        |
+| ---------------------------------------- | ----------- |
+| R730 #1 (Server Design Lab, configured)  | $1,857      |
+| R730 #2 (Server Design Lab, configured)  | $1,839      |
+| ThinkServer (original post, now retired) | $200        |
+| Quadro RTX 4000 8GB (eBay)               | $230        |
+| RTX A4000 16GB (eBay)                    | $895        |
+| UniFi Cloud Gateway Ultra                | $129        |
+| UniFi U7 Pro APs (x2)                    | $378        |
+| UniFi US-24 (renewed)                    | $225        |
+| StarTech rack + shelves                  | $375        |
+| MikroTik CRS317                          | $433        |
+| CyberPower UPS (x2)                      | $778        |
+| Cables, adapters, misc                   | ~$100       |
+| **Total hardware**                       | **~$7,440** |
+| Electricity (~$55/month x 24 months)     | ~$1,320     |
+| **Total cost of ownership (2 years)**    | **~$8,760** |
 
-Is that a lot? Yes. But here's the other side of the math.
+That's not counting the basement AP I added later.
+
+Is that a lot? Yes. Here's the other side of the math.
 
 ### The subscription kill list
 
@@ -380,26 +383,27 @@ Every one of these services is something I used to pay for monthly and no longer
 
 | Subscription replaced                       | Self-hosted with         | Monthly cost saved       |
 | ------------------------------------------- | ------------------------ | ------------------------ |
-| Netflix + Hulu + Disney+                    | Plex + \*arr stack       | ~$47                     |
-| Spotify Premium                             | Navidrome + Lidarr       | $12                      |
-| iCloud 2TB + Dropbox Plus                   | Nextcloud + PBS          | ~$22                     |
-| NordVPN                                     | Tailscale + WireGuard    | ~$12                     |
-| 1Password                                   | Vaultwarden              | $4                       |
-| ChatGPT Plus                                | Ollama + Open WebUI      | $20                      |
-| Ring Protect Plus                           | Frigate                  | $13                      |
+| iCloud 2TB + Dropbox Plus                   | Immich + Syncthing       | ~$22                     |
+| NordVPN                                     | Tailscale                | ~$13                     |
+| 1Password                                   | Vaultwarden              | ~$4                      |
+| ChatGPT Plus                                | Ollama + llama.cpp       | $20                      |
+| Ring Protect Plus                           | Frigate                  | $12                      |
 | Security monitoring plan                    | Frigate + Home Assistant | ~$80                     |
 | Audible                                     | Audiobookshelf           | $15                      |
-| Backblaze backup                            | Proxmox Backup Server    | $7                       |
 | Bluehost hosting (WordPress + dedicated IP) | Astro + Caddy on homelab | ~$21                     |
-| **Total subscriptions killed**              |                          | **~$253/mo ($3,036/yr)** |
+| **Total subscriptions killed**              |                          | **~$187/mo ($2,244/yr)** |
 
-Subtract my $53/month electricity cost and I'm netting about **$200/month in real savings**.
+I left streaming out of this table on purpose, video and music both. I still pay for Apple Music, and "I cancelled Netflix" is a different argument from this one - not one I want to hang a break-even number on.
 
-**Break-even: ~3.1 years** ($7,440 hardware / $200 monthly net savings).
+Subtract about $55/month of electricity and I'm netting about **$132/month**.
 
-That's not instant, but it's way better than I expected when I started adding up the numbers. Subscription prices only go up - Netflix has raised prices three times since I started this project. And once the hardware is paid off, it's $2,400+ per year in pure savings with no monthly bills going to nine different companies. Plus I own my data, I control my infrastructure, and nobody can cancel my favorite show or change my password manager's pricing tier.
+**Break-even: ~4.6 years** ($7,240 in hardware, leaving out the ThinkServer I already owned, divided by $132/month).
 
-But honestly? It's a hobby. Hobbies cost money. Nobody asks a golfer to justify their club membership with a break-even analysis.
+That number leans hard on one line. The $80 security monitoring plan is over 40% of the savings. Take it out and break-even stretches to more than 11 years. None of this counts my time either, which on a bad weekend is the most expensive part.
+
+So does the homelab pay for itself? Eventually, maybe, if you squint. Subscription prices do keep going up - 1Password went from $2.99 to $3.99 in March, and Ring Protect from $10 to $12 in February - and I own my data and control my infrastructure. But I'm not going to pretend the spreadsheet is why I did this.
+
+Honestly? It's a hobby. Hobbies cost money. Nobody asks a golfer to justify their club membership with a break-even analysis.
 
 The unintended ROI has been professional. Running this homelab gave me a working understanding of the full stack - deployments, hosting, infrastructure, networking, monitoring, cost optimization - that I never got from application development alone. I'm not going to get a job titled "homelab engineer." But when I'm in a meeting scoping infrastructure costs, or collaborating with platform and DevOps teams on deployment strategy, or estimating cloud compute budgets, I actually understand what they're talking about. I can push back on vendor pricing because I know what the underlying resources cost. I can scope cross-domain projects more accurately because I've touched every layer of the stack myself.
 
@@ -409,19 +413,20 @@ That's been the real return. The homelab made me better at my day job in ways I 
 
 If I were starting over tomorrow with everything I know now:
 
+- **Infrastructure as code from day one.** I put off OpenTofu for over a year because hand-configuring one more container always felt faster. It wasn't. Every undocumented fix became something I had to rediscover later.
 - **VLANs from day one.** Retrofitting network segmentation onto a running homelab means updating every single service that hardcodes an IP address. It's a miserable weekend project that should've been a 10-minute setup decision.
-- **Monitoring before the first failure, not after the third.** You don't need 41 scripts on day one. But Uptime Kuma and basic backup verification should exist before you need them.
+- **Monitoring before the first failure, not after the third.** You don't need 150 scripts on day one. But uptime checks and basic backup verification should exist before you need them.
+- **An offsite copy before you need it.** Local backups protect you from your own mistakes. They don't protect you from the attic.
 - **GPU form factor research.** Measure twice, buy once. Rack servers are not desktop cases.
-- **Budget for RAM upfront.** The AI boom crushed the DDR4 ECC market. Prices went up, not down, and they're not coming back.
-- **Document everything as you build.** I have a detailed infrastructure repo now with every config, VLAN rule, and container documented. I wish I'd started it from the beginning instead of reconstructing six months of decisions from memory.
+- **Budget for RAM upfront.** The AI boom crushed the DDR4 ECC market. Prices went up, not down, and they haven't come back.
 - **Power costs from the very start.** Not after the first bill shock.
 
 ## What's Next
 
 The homelab is never done. I know that now. Current explorations:
 
-- Lower-power hardware for services that don't need 80 cores (maybe a small NUC or mini PC for lightweight containers)
-- Long-term energy trending in Grafana to correlate power draw with specific workloads over months
+- Lower-power hardware for services that don't need 40 cores (maybe a small NUC or mini PC for lightweight containers)
+- Re-measuring night mode now that it stops fewer containers, and putting the CPU governor under code so it can't drift again
 - More self-healing automation - containers that detect their own failure and restart without waking me up
 - Fixing things remotely - I've since started [driving the homelab from my phone with Claude Code](/blog/my-development-setup-2026/)
 
