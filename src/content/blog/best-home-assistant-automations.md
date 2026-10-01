@@ -116,9 +116,9 @@ It's the purest version of the guest test. Nobody has to know it's there. You op
 
 ### Arriving and leaving
 
-When the house goes from nobody home to someone home, an `im_home` script runs. When it goes back to nobody, `im_leaving` runs: the alarm arms (unless guest mode is on), and the Roombas start, because the best time to vacuum is when nobody is there to trip over them.
+When the house goes from nobody home to someone home, an `im_home` script runs: the alarm disarms, both thermostats go back to their home presets, and the Roombas head back to their docks. When it goes back to nobody, `im_leaving` runs: the alarm arms (unless guest mode is on), and the Roombas start, because the best time to vacuum is when nobody is there to trip over them.
 
-The garage door (a Meross opener) is the one to be careful with. An automation that opens a door to your house needs to be paranoid, so mine won't open just because my phone entered the home zone. It also needs evidence that I'm in a car: either I crossed a 1.5-mile "approaching" zone in the last 10 minutes, or my iPhone reports its activity as Automotive. Walking past the house doesn't open the garage. Pulling into the driveway does. And a midnight routine closes the garage no matter what.
+The garage door (a Meross opener) is the one to be careful with. An automation that opens a door to your house needs to be paranoid, so mine won't open just because my phone entered the home zone. It also needs evidence that I'm in a car: either I crossed a 1.5-mile "approaching" zone in the last 10 minutes, or my iPhone reports its activity as Automotive. Walking past the house doesn't open the garage. Pulling into the driveway does. And a midnight routine closes the garage every night, unless Party Mode is on.
 
 ### Water leak, smoke, and CO2 alerts
 
@@ -211,7 +211,7 @@ The piece that makes it livable is a **Light Lock**. Flip it on and the automati
 
 ### Meeting Mode from your Mac camera
 
-This is my favorite automation, and it has no button. When my work MacBook's camera turns on, Meeting Mode starts. When the camera turns off, Meeting Mode ends. A second automation turns on my Elgato Key Light when the camera goes live and turns it off 30 seconds after it stops.
+This is my favorite automation, and it has no button. When my work MacBook's camera turns on, Meeting Mode starts. When the camera turns off, Meeting Mode ends. Meeting Mode turns on the office lights and pauses the office speaker, so I'm never on a call in the dark with music playing behind me. A second automation turns on my Elgato Key Light when the camera goes live and turns it off 30 seconds after it stops.
 
 The trigger is a `camera_in_use` binary sensor from the [Home Assistant companion app](https://companion.home-assistant.io/docs/core/sensors/) on the Mac. It's the most useful sensor I didn't know existed. I never think about my lighting on calls anymore.
 
@@ -315,7 +315,7 @@ My AI automations talk to Ollama directly, not through a cloud fallback, so came
 
 ### Night mode for a homelab
 
-At 11 PM, Home Assistant SSHes into one of my Proxmox hosts and stops 11 containers across both hosts that nobody needs at night: Ollama, Paperless, Kometa, Lyrion, SearXNG, and a handful of media tools. At 6 AM it brings them back.
+At 11 PM, Home Assistant SSHes into one of my Proxmox hosts and stops 11 containers across both hosts that nobody needs at night: Ollama, Paperless, Kometa, Lyrion, SearXNG, and a handful of media tools. At 6 AM it brings them back. Stopping Lyrion doesn't leave a guest in silence: every speaker in the house also takes AirPlay, Google Cast, or Bluetooth directly.
 
 The notification says "Saving ~175W." It doesn't. When I finally pulled 30 days of power data out of Prometheus, the two servers averaged 414.5W overnight and 419.1W the rest of the day. That's about 5W, or roughly 15 cents a month. The containers it stops sit idle most of the time anyway, and the overnight backup jobs run in exactly that window. So I'm giving up overnight AI for 15 cents a month. Night mode either needs to stop things that actually draw power, or it needs to go, and I haven't decided which.
 
@@ -335,7 +335,7 @@ Two fixes: catch problems ahead of time, and make sure one broken step can't tak
 
 ### Find broken Home Assistant automations with health checks
 
-Every 6 hours, a health check script pulls all my automations, scripts, and dashboards off the Home Assistant server and checks every entity, device, service, and notify target they reference. Anything that points at something that no longer exists shows up in a report and on my dashboard (that "Health checks 138/141" tile above). A separate check flags safety sensors that haven't reported in too long, which is how the smoke detector got caught. It's the same approach I use across the rest of my homelab, where [86 health check scripts](/blog/opentofu-proxmox-immutable-homelab/) watch every container.
+Every 6 hours, a health check script pulls all my automations, scripts, and dashboards off the Home Assistant server and checks every entity, device, service, and notify target they reference. It also flags devices that are offline or unavailable, and automation runs that failed. Anything it finds shows up in a report and on my dashboard (that "Health checks 138/141" tile above), and that's how I caught the failed runs in September. A separate check flags safety sensors that haven't reported in too long, which is how the smoke detector got caught. It's the same approach I use across the rest of my homelab, where [86 health check scripts](/blog/opentofu-proxmox-immutable-homelab/) watch every container.
 
 The first time I ran it, it found 12 dead references nothing else had flagged. Home Assistant's Repairs page didn't flag any of these for me. As far as I can tell, it doesn't look inside templates, dashboards, or notify targets, which is where most of the breakage hides. If you don't want to write your own script, the [Watchman](https://github.com/dummylabs/thewatchman) integration does a lighter version of the same job (it scans your config files for missing entities and actions), and it's a great place to start once you're past about 30 automations.
 
@@ -380,5 +380,7 @@ My 10 years with Home Assistant have been stops and starts. I'd go months withou
 Lately, what I care about most is reliability, not more automations. So I use things out of the box whenever I can, and I'm a lot less likely to reach for third-party custom components or custom code than I used to be. Every custom piece is one more thing that can break on an update. The ones that survived, like Alarmo, Presence Simulation, and my health check script, stayed because nothing built in does their job, and the health checks are there to tell me when one of them breaks.
 
 I'm also trying to make the house more sustainable, and part of that is avoiding batteries wherever I can. Keeping batteries fresh across a house full of sensors sucks, and the battery-powered devices are usually the finicky ones. Most of the sensors in this post still run on batteries, which is exactly why my health checks watch for the ones that go quiet.
+
+I'm staying on Zigbee. Matter has been pretty unstable so far, and I still have hope for it, but Zigbee is cheap and it works great for me. I'm not moving my devices over until Matter settles down.
 
 Ten years in, Home Assistant is still the center of my house, and I'm planning to run it for another 10. What's still on the list: fewer battery sensors, a night mode that saves real power or no night mode at all, and getting that health checks tile from 138/141 to 141/141.
