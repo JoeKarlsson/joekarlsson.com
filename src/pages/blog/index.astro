@@ -95,6 +95,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 							<div class="mb-3 flex items-center gap-2 font-mono text-xs text-gray-400">
 								<span>
 									{featuredPost.data.date.toLocaleDateString('en-us', {
+										timeZone: 'UTC',
 										year: 'numeric',
 										month: 'short',
 										day: 'numeric',

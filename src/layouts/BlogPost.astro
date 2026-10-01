@@ -499,6 +499,7 @@ const relatedPosts = publishedPosts
 										/>
 										<p class="mb-1 font-mono text-xs text-gray-400">
 											{post.data.date.toLocaleDateString('en-us', {
+												timeZone: 'UTC',
 												year: 'numeric',
 												month: 'short',
 												day: 'numeric',
