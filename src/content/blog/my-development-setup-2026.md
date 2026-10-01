@@ -37,39 +37,37 @@ faq:
     answer: 'No, not yet. I tried OpenCode and aider against Qwen3-Coder on a 16 GB RTX A4000, and they could not match Claude Code on long, multi-step changes across real systems. I have not yet tested the newer Qwen3.8 models on real coding work.'
 ---
 
-My development setup in 2026 is built around four goals: **speed, consistency, reliability, and reach.** Here's what each one means to me:
+The biggest change to my development setup in 2026 is **concurrency.** I rarely have only one agent working anymore. I usually have three to six Claude Code sessions going at once, on different tasks, until my brain starts to melt from the context switching. Agents amplify whatever environment you give them, and a messy one gets you messy work, faster. Most of what's below exists to make running several at once fast and safe.
+
+I use this setup every day at my day job, and the worktree pattern came from work: five agents in one docs repo. It's built around four goals:
 
 - **Speed.** A new terminal window should be ready the instant it opens. Starting a new task should take seconds. And my agents should finish tasks quickly _and_ correctly, because a fast wrong answer isn't fast.
 - **Consistency.** Anything I do more than twice becomes a skill, a workflow, a rule, or a hook, so it happens the same way every time, can run concurrently, and can be rolled back with git. That goes for my writing too, which runs through linter rules. And every machine I work on, across different operating systems, gets its environment from the same version-controlled repo.
 - **Reliability.** My homelab has to stay up, and my agents have to do the job right. Both need checks.
 - **Reach.** I can fix things from anywhere, including my phone.
 
-Running through all four is the biggest change this year: **concurrency.** I rarely have only one agent working anymore. I usually have three to six going at once (before my brain starts to melt from context switching), on different tasks, and most of this setup exists to make that fast and safe. Agents amplify whatever environment you give them. A messy one gets you messy work, faster.
-
-This isn't a side-project setup. I use it at my day job every day, and some of the most useful patterns below (worktrees especially) came from real work, not from tinkering with my homelab on a Saturday.
-
 The short version of what changed:
 
-| What                   | Last year                  | Now                                           | Goal               |
-| ---------------------- | -------------------------- | --------------------------------------------- | ------------------ |
-| Terminal               | iTerm2                     | Ghostty                                       | Consistency        |
-| Shell                  | Oh My Zsh + Powerlevel10k  | Plain zsh + Starship                          | Speed              |
-| Talking to agents      | Superwhisper               | Handy, with local speech models               | Speed              |
-| Claude Code            | One session at a time      | Several agents in splits and git worktrees    | Speed, consistency |
-| Agent rules            | Lived on one laptop        | Version controlled, deployed by chezmoi       | Consistency        |
-| Checking agent work    | Me, by eye                 | Verification workflows, hooks, health checks  | Reliability        |
-| Writing checks         | Spell check                | Vale rules for my voice and AI slop           | Consistency        |
-| Containers             | Docker Desktop             | Colima + the open source docker CLI           | Consistency        |
-| Dotfiles               | Hand-rolled symlink script | chezmoi across machines and operating systems | Consistency        |
-| Working away from home | Laptop on my home network  | iPhone to a homelab dev container             | Reach              |
+| What                   | Last year                  | Now                                          | Why                                             |
+| ---------------------- | -------------------------- | -------------------------------------------- | ----------------------------------------------- |
+| Terminal               | iTerm2                     | Ghostty                                      | One config file in my dotfiles, splits built in |
+| Shell                  | Oh My Zsh + Powerlevel10k  | Plain zsh + Starship                         | Startup went from about 108 ms to 46 ms         |
+| Talking to agents      | Superwhisper               | Handy, with local speech models              | Open source, transcription stays on my Mac      |
+| Claude Code            | One session at a time      | Several agents in splits and git worktrees   | Three to six tasks at once without collisions   |
+| Agent rules            | Lived on one laptop        | Version controlled, deployed by chezmoi      | Every machine's Claude follows the same rules   |
+| Checking agent work    | Me, by eye                 | Verification workflows, hooks, health checks | Agents check their work before saying "done"    |
+| Writing checks         | Spell check                | Vale rules for my voice and AI slop          | Same checks whether I wrote it or Claude did    |
+| Containers             | Docker Desktop             | Colima + the open source docker CLI          | Tired of Docker Desktop's licensing changes     |
+| Dotfiles               | Hand-rolled symlink script | chezmoi on macOS and Linux                   | My machines had quietly drifted apart           |
+| Working away from home | Laptop on my home network  | iPhone to a homelab dev container            | Fixing Plex no longer waits until I'm home      |
 
 "Last year" means 2025. Versions as of September 2026: Ghostty 1.3.1, Starship 1.26, Claude Code 2.1, chezmoi 2.73, and Handy 0.9.7, on macOS and Debian 13.
 
 The full inventory of hardware and apps lives on my [uses page](/uses). This post is the why. Where it helps, I've tucked the actual config into collapsible blocks so you can copy it.
 
-## The terminal: where everything starts
+## Terminal and shell
 
-### Terminal: Ghostty
+### Ghostty, because the config is one text file
 
 **Last year:** [iTerm2](https://iterm2.com/), which I'd used for about a decade. **Now:** [Ghostty](https://ghostty.org/).
 
@@ -102,7 +100,7 @@ shell-integration-features = no-cursor,ssh-env,ssh-terminfo
 
 </details>
 
-### Shell: plain zsh
+### Plain zsh: startup from 108 ms to 46 ms
 
 I noticed lag. Opening a new tab had a small but real delay, and I open a lot of tabs. So I audited it: startup was around 108 ms, mostly [Oh My Zsh](https://ohmyz.sh/) plus a handful of tools spawning a subprocess every time a shell started. After the cleanup it was 46 ms, and new tabs feel instant.
 
@@ -203,7 +201,7 @@ mcd() { mkdir -p "$1" && cd "$1"; }   # make a directory and cd into it
 
 For everything else, [zoxide](https://github.com/ajeetdsouza/zoxide) handles the jumping: `z blog` takes me to this repo from anywhere.
 
-### Prompt: Starship
+### Starship, because Powerlevel10k is on life support
 
 I loved [Powerlevel10k](https://github.com/romkatv/powerlevel10k), but its README has said "NO NEW FEATURES ARE IN THE WORKS" and "MOST BUGS WILL GO UNFIXED" since 2024. I don't want the thing I look at thousands of times a day to be one macOS update away from breaking. [Starship](https://starship.rs/) is maintained, works in any shell, and is one TOML file.
 
@@ -226,21 +224,21 @@ disabled = true
 
 </details>
 
-## Working with agents
+## Running three to six agents at once
 
-### Voice: Handy is my Jarvis
+### Voice: Handy with a local speech model
 
 **Last year:** [Superwhisper](https://superwhisper.com/). **Now:** [Handy](https://handy.computer/).
 
 I talk to my agents far more than I type to them. Hold a key, say what I want, let go, and the text lands in whichever Claude pane has focus. It feels a lot like having Jarvis: I narrate the problem the way I'd explain it to a coworker, and the agent goes and does it. Talking also makes me explain what I want instead of firing off half a thought.
 
-Superwhisper was good. Handy is [open source](https://github.com/cjpais/Handy), free, and runs any local model I want: Whisper, or NVIDIA's [Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3), which is what I use. Its cleanup pass (punctuation, misheard words) points at a local model on my homelab GPU, so nothing leaves hardware I own. That's a theme in this setup. Keeping my data on my own machines isn't one of the four goals, but it constrains all of them.
+Superwhisper was good. Handy is [open source](https://github.com/cjpais/Handy), free, and runs any local model I want: Whisper, or NVIDIA's [Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3), which is what I use. Its cleanup pass (punctuation, misheard words) points at a local model on my homelab GPU, so nothing leaves hardware I own. Keeping my data on hardware I own isn't one of the four goals. It's the constraint on all of them.
 
-### Concurrency: git worktrees
+### One git worktree per agent
 
 Two agents sharing one git checkout will happily commit each other's work. One of my commits once swept up three files a different session had left staged. So there's a rule now: stage and commit in the same step, by path, never `git add -A`.
 
-![Surprised Pikachu meme: "Me: runs two Claude Code agents in the same git checkout. Agent B: commits Agent A's unfinished files."](/images/blog/my-development-setup-2026/pikachu-shared-checkout.webp)
+![Spider-Man Pointing at Spider-Man meme: two identical Spider-Men pointing at each other, captioned "Two Claude Code agents in one git checkout, looking at a commit full of each other's half-finished files"](/images/blog/my-development-setup-2026/spiderman-pointing-shared-checkout.webp)
 
 That's enough when agents touch different parts of a repo. When they're in the same code, each one gets its own [git worktree](https://git-scm.com/docs/git-worktree): a separate checkout on its own branch, sharing one `.git`. Nobody sees anybody's half-finished changes, and I merge each branch when it's done.
 
@@ -256,7 +254,7 @@ At work I've had five agents in one docs repo at once, each in its own worktree:
 
 With five panes open, I need to know which is which at a glance. Claude Code runs a [status line script](https://code.claude.com/docs/en/statusline) at the bottom of every session. Mine shows the session title, directory, git branch (with a `*` if there are uncommitted changes), model, and how much context is used.
 
-The title does the heavy lifting. Each pane labels itself ("Orphan tofu state," "Dev setup workflow and philosophy"), and a notification hook uses the same title, so when an agent needs me I know which one. The context percentage tells me when it's time to wrap a session up.
+The title is the useful part. Each pane labels itself ("Orphan tofu state," "Dev setup workflow and philosophy"), and a notification hook uses the same title, so when an agent needs me I know which one. The context percentage tells me when it's time to wrap a session up.
 
 ![Close-up of five Claude Code status lines side by side, each starting with a session title in pink followed by the working directory](/images/blog/my-development-setup-2026/claude-code-status-line.webp)
 
@@ -301,7 +299,9 @@ printf '%s\n' "$out"
 
 </details>
 
-### Rules: a CLAUDE.md that follows me everywhere
+## Rules, hooks, and checks for agents
+
+### Rules: one CLAUDE.md, deployed to every machine
 
 What I've learned this year: **agents need a way to verify their own work.** Without one, a capable agent will confidently tell you it's done. With one, it checks, and when the check fails, it fixes the problem and checks again.
 
@@ -399,7 +399,7 @@ This is the part of my setup I'm proudest of, and the one nobody asks about.
 <!-- vale JoeKarlsson.BannedOpenings = NO -->
 <!-- vale Slop.Vocabulary = NO -->
 
-When an AI helps you write, the drafts drift. Not toward wrong, toward _generic_. Em dashes everywhere. "Robust." "Seamless." Sentences that all run the same length. After the fifth draft of something, I can't see it anymore. So I wrote it down as rules for [Vale](https://vale.sh/), a prose linter:
+When an AI helps you write, the drafts drift toward _generic_. Em dashes everywhere. "Robust." "Seamless." Sentences that all run the same length. After the fifth draft of something, I can't see it anymore. So I wrote it down as rules for [Vale](https://vale.sh/), a prose linter:
 
 - **My own style, `JoeKarlsson`.** Banned words (the "delve, leverage, robust" list), banned openings like "In today's world," AI filler, and no em dashes.
 - **[vale-llm-slop](https://github.com/Syntaf/vale-llm-slop)** for common LLM phrasing.
@@ -463,13 +463,13 @@ The container updates itself every Sunday, Claude Code and dotfiles included. It
 
 My laptops only edit. When I push the homelab repo, a git hook syncs it to an always-on Proxmox node, which applies the change and checks for drift. Every change is a commit, so rolling back is a `git revert`.
 
-Every machine also has a health check: a suite of well over a hundred for the homelab, one for my Mac, and `bin/doctor` for my dotfiles. All of them report and wait for my go-ahead before fixing anything, because the first time I pointed cleanup tools at my Mac, `npm doctor` quietly deleted 3.3 GB of cache and an uninstaller nearly deleted live 1Password data.
+Every machine also has a health check: well over a hundred checks for the homelab, one for my Mac, and `bin/doctor` for my dotfiles. All of them report and wait for my go-ahead before fixing anything, because the first time I pointed cleanup tools at my Mac, `npm doctor` quietly deleted 3.3 GB of cache and an uninstaller nearly deleted live 1Password data.
 
 ### Local models: not my coding tool
 
 Handy's transcription runs locally, and [Home Assistant](https://www.home-assistant.io/)'s voice assistant runs on a 16 GB RTX A4000 in [the rack I built over the last two years](/blog/homelab-two-years-later/) (more in [running local voice AI on a GPU in Proxmox](/blog/local-voice-ai-home-assistant-gpu/)).
 
-For code, I tried [OpenCode](https://opencode.ai/) and [aider](https://aider.chat/) with [Qwen3-Coder](https://github.com/QwenLM/Qwen3-Coder). Impressive for what they are, not close to Claude Code on long, multi-step work, partly because [a GPU shared with Plex and photo processing](/blog/proxmox-gpu-passthrough-multi-service/) means small context windows. I keep hearing the new Qwen3.8 models are excellent. I haven't tested one on real work, so I won't pretend to know.
+For code, I tried [OpenCode](https://opencode.ai/) and [aider](https://aider.chat/) with [Qwen3-Coder](https://github.com/QwenLM/Qwen3-Coder). Neither was close to Claude Code on long, multi-step work, partly because [a GPU shared with Plex and photo processing](/blog/proxmox-gpu-passthrough-multi-service/) means small context windows. I keep hearing the new Qwen3.8 models are excellent. I haven't tested one on real work, so I won't pretend to know.
 
 ## Everything else
 
@@ -559,14 +559,17 @@ mode = "symlink"
 
 </details>
 
-A new Mac is one clone and `install.sh`. `bin/doctor` keeps it honest afterward. As I write this, it's failing on Brewfile drift, which is the point.
+A new Mac is one clone and `install.sh`, which is now a short bootstrap: install Homebrew and chezmoi, then hand off to `chezmoi init`. `bin/doctor` keeps it honest afterward. As I write this, it's failing on Brewfile drift, which is the point.
 
-## Final thoughts: twelve months later
+## What I'd keep and what's still broken
 
-A year ago my setup was a terminal, an editor, and one AI session I'd open when I got stuck. Most of it was config I'd accumulated and never questioned.
+I'd keep all of it, but worktrees, the shared `CLAUDE.md`, and hooks are the three I'd set up first on a new machine. Those are what let me hand off more work and trust what comes back. The terminal and shell changes are nice. Those three are why running six agents doesn't end in a mess.
 
-Now it's built around working _with_ agents, several at a time. I talk to them through a local speech model. They run side by side in splits and worktrees without stepping on each other. They follow the same version-controlled rules on every machine I own, and they check their own work before they tell me they're done. When something breaks while I'm away, I fix it from my phone.
+Still broken or missing:
 
-Going harder on AI made me care more about the boring stuff. Fast shell startup, one dotfiles repo, rules in git, hooks that block bad commands, linters for my writing. _A consistent environment is what lets me hand off more and trust what comes back._
+- **Worktrees have overhead.** Every one needs its own `npm install`, dev servers fight over ports, and merge conflicts still land on me.
+- **Hooks are pattern lists, not a sandbox.** They catch the mistakes agents make in practice, and anything the list doesn't anticipate gets through.
+- **Local models aren't good enough for coding yet**, at least not on a 16 GB card shared with Plex and photo processing.
+- **`bin/doctor` is failing right now** on Brewfile drift.
 
 Next on my list: testing one of the bigger Qwen3.8 models on real coding work, and getting these dotfiles running cleanly on more than macOS and Debian.
