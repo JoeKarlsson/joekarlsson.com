@@ -592,3 +592,5 @@ DIMM
 exitcode
 compinit
 atuin
+Kimi
+opencode
