@@ -7,16 +7,16 @@ description: 'Two years after a $200 ThinkServer: two Dell R730s, 73 containers,
 categories: ['Homelab']
 heroImage: '/images/blog/homelab-two-years-later/hero.webp'
 heroAlt: 'Server rack with two Dell R730 servers, 10G networking, and cable management'
-tldr: 'Two years after my first homelab post, I went from a $200 ThinkServer with 15 containers to a server rack with two Dell R730s (80 cores, 256GB RAM), two NVIDIA GPUs, 10G networking, VLANs, and 73 containers managed in OpenTofu. Hardware cost about $7,400. The rack averages about 430W, roughly $47/month at $0.15/kWh. On paper it pays for itself in about 4.6 years, but that leans on one $80/month line item - take it out and break-even is over a decade. Along the way I found that my 10G links peak at 12% of one link, my night mode saves about 5W, and my CPUs average 13% busy. Here is every phase, what it cost, and what I got wrong.'
+tldr: 'Two years after my first homelab post, I went from a $200 ThinkServer with 15 containers to a server rack with two Dell R730s (80 cores, 256GB RAM), two NVIDIA GPUs, 10G networking, VLANs, and 73 containers managed in OpenTofu. Hardware cost about $7,400. The rack averages about 430W, roughly $47/month at $0.15/kWh. On paper it pays for itself in about 4.6 years, but that leans on one $80/month line item - take it out and break-even is over a decade. I also bought a lot more than I use. Here is every phase, what it cost, and what I got wrong.'
 ---
 
 Two years ago I bought a $200 ThinkServer off Facebook Marketplace, put Proxmox on it, ran about 15 containers, and wrote an [original homelab post](/blog/how-to-get-started-building-a-homelab-server-in-2024/) telling everyone that was all a homelab needed.
 
 Today I have two Dell R730s in a rack in my attic, 73 containers, two NVIDIA GPUs, and 10G networking. The rack averages about 430W, or about $47 a month in electricity. Total hardware spend: about $7,400.
 
-None of it was planned. Each phase started with one question or one frustration, usually at 11 PM on a Tuesday, and somehow always ended with new hardware in the rack and a higher electricity bill. Short version: it pays for itself slower than I first claimed, and some of what I bought, I barely use.
+None of it was planned. Each phase started with one question or one frustration and somehow always ended with new hardware in the rack and a higher electricity bill. Short version: it pays for itself slower than I first claimed, and some of what I bought, I barely use.
 
-_Updated October 2026: I first published this in March. Since then I've retired Open WebUI, Nextcloud, and Readarr and moved every container into OpenTofu. I also pulled 30 days of real data out of Prometheus for this update, and it corrected me in several places: a CPU count I had wrong by a factor of two, a night mode that saves almost nothing, and a rack power sensor that sat frozen for three weeks without anything noticing. The numbers below are current._
+_Updated October 2026: I first published this in March. Since then I've retired Open WebUI, Nextcloud, and Readarr and moved every container into OpenTofu. I also pulled 30 days of data out of Prometheus for this update, and some of what I'd written in March turned out to be wrong. The numbers below are current._
 
 ## Where the $200 ThinkServer ran out
 
@@ -42,7 +42,7 @@ Then the electricity bill showed up. I never metered the ThinkServer, but it was
 
 I spent weeks reading r/homelab threads, watching ServeTheHome reviews, and comparing spec sheets. Kept coming back to the [Dell PowerEdge R730](https://www.dell.com/support/manuals/en-us/poweredge-r730/r730_ompublication/technical-specifications?guid=guid-c32a42e1-fbc4-4dfe-983d-df4d34ff1e17&lang=en-us) for four reasons:
 
-**ECC RAM.** ECC corrects single-bit memory errors and flags the ones it can't fix, so a flaky stick shows up in a log instead of as a corrupted file or a container that crashes for no reason. That matters on a box that runs for months without a reboot. Full disclosure: across 63 days of uptime on both hosts, the kernel has logged zero corrected memory errors. So far it's insurance I haven't needed.
+**ECC RAM.** ECC corrects single-bit memory errors and flags the ones it can't fix, so a flaky stick shows up in a log instead of as a corrupted file or a container that crashes for no reason. That matters on a box that runs for months without a reboot. In 63 days of uptime the kernel hasn't logged a single corrected memory error on either host, so far it's insurance I haven't needed.
 
 **iDRAC.** This is the feature that ruins you for everything else. It's a management controller built into the board, independent of the OS - an IP KVM that came free with the server. I can watch the BIOS POST screen from bed, mount a virtual ISO to reinstall the OS, or power-cycle a hung box without walking up to the attic. The virtual console and virtual media need the iDRAC Enterprise license, so check for it before you buy a used one.
 
@@ -183,7 +183,7 @@ VLANs create separate virtual networks that can't talk to each other unless I wr
 
 A compromised smart plug on the IoT VLAN can't reach my NAS. A guest can't scan my local network. The IoT VLAN does still have internet access, because plenty of these devices stop working without their cloud.
 
-Two honest footnotes. First, casting across VLANs needs mDNS, and right now the gateway reflects all mDNS traffic between networks instead of just AirPlay and Cast. Narrowing that is on my list. Second, only 11 devices are on the IoT VLAN right now. A lot of my older smart stuff still lives on the main LAN, fenced in by a MikroTik firewall list I set up before the VLANs existed. Moving them over is the kind of job that never feels urgent until something gets popped.
+It's not airtight. Casting across VLANs needs mDNS, and right now the gateway reflects all mDNS traffic between networks instead of just AirPlay and Cast. And only 11 devices are on the IoT VLAN right now. A lot of my older smart stuff still lives on the main LAN, fenced in by a MikroTik firewall list I set up before the VLANs existed. Moving them over is the kind of job that never feels urgent until something gets popped.
 
 Here's how the network is structured:
 
@@ -237,7 +237,6 @@ VLANs:
 
 Home Assistant lived on its own hardware for years because of that flat network. VLANs fixed the isolation problem, so it moved into a VM on prxbox1. What that bought me is that Home Assistant now sits on the same network as the servers and can talk to Proxmox, Prometheus, and Alertmanager directly. A few of the 134 automations that depend on that:
 
-- **Night mode** SSHes to prxbox1 at 11 PM and runs a script that stops 11 non-essential containers across both hosts, then starts them again at 6 AM. (More on whether it's worth it below.)
 - **AI-translated alerts.** Alertmanager sends a webhook to Home Assistant, a local LLM rewrites the alert in plain English, and my phone gets a notification with "Open Grafana" and "Silence for 1 hour" buttons.
 - **Backup failure recovery.** If the Home Assistant backup fails to upload, it reloads the NAS mount, re-runs the backup, and checks the result five minutes later.
 - **UPS monitor.** When either UPS switches to battery, I get a live battery-level notification with a link to the Grafana UPS dashboard.
@@ -249,8 +248,6 @@ I wrote more about why Home Assistant matters so much to me in my post about [re
 ## Monitoring, after three silent failures
 
 There's a specific moment where a homelab stops being a hobby project and starts feeling like production infrastructure you're personally responsible for. For me, that moment was the third time I discovered a service had been silently dead for over a week.
-
-Third time. A week each time. Nobody noticed.
 
 ### Prometheus, Grafana, Loki, and Alertmanager
 
@@ -310,7 +307,7 @@ It's the change I'd make first if I started over, and the one I put off longest.
 
 ## Power: about 430W and $47 a month
 
-Here's the real data. Per-server numbers come from each R730's iDRAC, and the rack total comes from a Home Assistant smart plug that the whole rack runs through. I'm using the plug's last 7 days only, because of the frozen-sensor mess above.
+Per-server numbers come from each R730's iDRAC, and the rack total comes from a Home Assistant smart plug that the whole rack runs through. I'm using the plug's last 7 days only, because of the frozen-sensor mess above.
 
 | Metric               | Value                                           |
 | -------------------- | ----------------------------------------------- |
@@ -322,38 +319,15 @@ Here's the real data. Per-server numbers come from each R730's iDRAC, and the ra
 | Monthly cost         | ~$47 at $0.15/kWh                               |
 | Annual projection    | ~$565                                           |
 
-That's metered. Not estimated. The plug reads about 25W more than the two servers, which covers the switches, NAS, gateway, and UPS overhead.
+Those are metered, not estimated. The plug reads about 25W more than the two servers, which covers the switches, NAS, gateway, and UPS overhead.
 
 ### What I tried to cut the power bill
 
 **Killed the third server.** I had prxbox3 - the original ThinkServer from my first blog post - still running 9 containers. Migrated all of them to the two R730s (which had plenty of room) and powered it off. I never metered it, so I can't tell you what that saved. It's fully out of the Proxmox cluster now. A Raspberry Pi running a quorum device gives the two-node cluster its tiebreaker vote instead.
 
-**Night mode.** This was the automation I was proudest of.
+**Night mode.** Every night at 11 PM, Home Assistant stops 11 containers I don't need overnight (Ollama, Paperless, Kometa, that kind of stuff) and starts them back up at 6 AM. It sends me a notification that says "Saving ~175W." I picked that number when I built it and never checked it.
 
-```
-Home Assistant: "Power - Night Mode System"
-  |
-  +--> 11 PM: Enter Night Mode
-  |     +---> Stop 4 containers on prxbox2 (Ollama, Paperless, Paperless-AI, Audiobookshelf)
-  |     +---> Stop 7 containers on prxbox1 (Kometa, Dockge, Maintainerr, etc.)
-  |
-  +--> 6 AM: Exit Night Mode
-  |     +---> Start all stopped containers
-  |     +---> Run health checks, post a Home Assistant notification
-  |
-  +--> Manual Override (phone toggle anytime)
-
-Always running 24/7 (never stopped):
-  Plex, Frigate, Immich, Tdarr, Home Assistant, Monitoring Stack,
-  Infrastructure (reverse proxy, AdGuard, Tailscale),
-  Media Automation (*arr stack, download clients)
-```
-
-I've written up night mode alongside [more of my favorite Home Assistant automations](/blog/best-home-assistant-automations/).
-
-The notification it sends every night says "Saving ~175W." I never actually measured that. For this update I did. Over 30 days, the two servers averaged 414.5W between 11 PM and 6 AM and 419.1W the rest of the day - a difference of about 5W. Over the last 7 days, nights were slightly higher than days. The containers night mode stops are idle most of the time anyway, so stopping them saves almost nothing, and the overnight backup and cleanup jobs run in exactly that window.
-
-So night mode, as built, is a well-engineered way to save about 15 cents a month. It either needs to stop things that actually draw power, or it needs to go. I haven't decided which.
+When I finally checked, nights and days were within about 5W of each other. Those containers sit idle most of the day anyway, and my backups run overnight. So I built an automation that saves me about 15 cents a month, and it's in my [favorite Home Assistant automations](/blog/best-home-assistant-automations/) post, which is a little embarrassing now. I'll either point it at something that actually draws power or turn it off.
 
 **CPU governor tuning.** Both hosts are supposed to run the `powersave` frequency governor instead of `performance`. At 13% average CPU there's nothing for `performance` mode to speed up. When I checked for this update, prxbox1 was all `powersave`, but 31 of prxbox2's 80 threads had drifted back to `performance`. The governor is host-level config, and the hosts aren't in OpenTofu, so the drift check never had a chance to catch it. I also haven't measured what `powersave` actually saves. At 13% CPU, my guess is not much.
 
@@ -435,7 +409,7 @@ Every one of these services is something I used to pay for monthly and no longer
 
 I left streaming out of this table on purpose, video and music both. I still pay for Apple Music, and "I cancelled Netflix" is a different argument from this one - not one I want to hang a break-even number on.
 
-Two rows are generous, and I'd rather say so than have you find it. Tailscale isn't a privacy VPN like NordVPN - I just stopped needing one once I could reach my own network from anywhere. And a local 8B or 14B model isn't GPT-level. It handles tagging, summaries, and alert rewriting, and anything harder goes to Claude through the same gateway.
+Two of these rows are generous. Tailscale isn't a privacy VPN like NordVPN - I just stopped needing one once I could reach my own network from anywhere. And a local 8B or 14B model isn't GPT-level. It handles tagging, summaries, and alert rewriting, and anything harder goes to Claude through the same gateway.
 
 Subtract about $47/month of electricity and $9/month for the Backblaze B2 copy of my Proxmox backups, and I'm netting about **$131/month**. That leaves out the NAS's own B2 backup and the Claude usage I mentioned, so treat it as a best case.
 
@@ -476,6 +450,6 @@ Next on the list:
 - A second way into the iDRACs that doesn't depend on prxbox1 being up
 - Fixing things remotely - I've since started [driving the homelab from my phone with Claude Code](/blog/my-development-setup-2026/)
 
-Each phase of this started with curiosity about one thing - "I want GPU transcoding," "I want to learn networking," "I want to run AI locally," "why did my power bill double?" - and ended with new hardware and new knowledge. This update added one more: "what do my own numbers actually say?" Turns out they had opinions.
+Each phase of this started with curiosity about one thing - "I want GPU transcoding," "I want to learn networking," "I want to run AI locally," "why did my power bill double?" - and ended with new hardware and new knowledge.
 
 If you read my [original homelab post](/blog/how-to-get-started-building-a-homelab-server-in-2024/) and you're wondering what comes next: this is one version of that answer. Follow the curiosity. Just keep an eye on your power bill.
