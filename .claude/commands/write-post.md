@@ -251,7 +251,7 @@ These are the moves that separate analysis from topic coverage. They apply to wr
 
 ### Anti-AI structural patterns (CRITICAL)
 
-AI writing has tells beyond word choice. Older models wrote uniform 15-25 word sentences in uniform paragraphs. Current models overcorrect: fragment stacks, a punchline closing every paragraph, staged reveals, performed honesty. That's what got the homelab post called "whole goddamn thing written by a model" on HN in October 2026, and several of the old rules in this section caused it. Vary length because the thoughts vary, not to create a beat. The `humanizer` skill's patterns 41-51 are the reference, and STYLE_GUIDE.md **Moves that read as AI even in my voice** has the short list.
+AI writing has tells beyond word choice. Older models wrote uniform 15-25 word sentences in uniform paragraphs. Current models overcorrect: fragment stacks, a punchline closing every paragraph, staged reveals, performed honesty. That's what got the homelab post called "whole goddamn thing written by a model" on HN in October 2026, and several of the old rules in this section caused it. Vary length because the thoughts vary, not to create a beat. The `humanizer` skill (`~/.claude/skills/humanizer/SKILL.md` (source: `~/claude-skills/.claude/skills/humanizer`)), patterns 41-52, is the reference, and STYLE_GUIDE.md **Moves that read as AI even in my voice** has the short list.
 
 #### Sentence-level rules
 
@@ -445,7 +445,7 @@ Re-read the entire draft with fresh eyes. This is a REVISION pass, not a proofre
 Launch **Agent: `blog-voice-reviewer`** with the draft file path. The agent applies three layers:
 1. Joe's personal voice rules (STYLE_GUIDE.md hard rules - em dashes, banned words, etc.)
 2. Analytical structure check (Thompson/McKenzie - does the intro lead with the conclusion, do headers make claims, are opinions stated plainly)
-3. AI-pattern audit (humanizer pass - significance inflation, signposting, uniform rhythm, fragment stacks, quotable closers, performed candor, decorative numbers)
+3. AI-pattern audit (humanizer pass - fragment stacks, quotable closers, performed candor, staged reveals, decorative numbers, plus the humanizer's rubric with the quotable-line cap and fact diff against Joe's 2020 voice sample)
 
 Apply every **must-fix** edit before proceeding. Apply **should-fix** edits where they improve the writing. Use the agent's anti-AI audit to find and rewrite the spots that still read as assembled.
 

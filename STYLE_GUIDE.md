@@ -57,7 +57,7 @@ These came straight out of the HN thread on the homelab post ("Whole goddamn thi
 - **Labeled objections.** "The obvious objection:" Answer it in a normal sentence.
 - **Invented scenes.** "It was 11 PM on a Tuesday." If it didn't happen, it doesn't go in.
 
-The full list is in the `humanizer` skill, patterns 41-51.
+The full list is in the `humanizer` skill, `~/.claude/skills/humanizer/SKILL.md` (source: `~/claude-skills/.claude/skills/humanizer`), patterns 41-52. When a draft needs a voice sample, use `src/content/blog/an-introduction-to-iot-internet-of-toilets.md` (2020, written before I used AI for writing).
 
 ### The energy test:
 
