@@ -188,17 +188,17 @@ The #1 failure mode is writing that's technically correct but has zero personali
 
 #### Storytelling techniques Joe actually uses:
 
-- **"Paint a picture" scenes:** "Picture this: I'm sitting at my desk at 11 PM, and I just realized..." Put the reader IN the moment.
-- **Real dialogue:** Quote yourself, quote your partner, quote the error message your server threw at you. Dialogue breaks up walls of text and adds humanity.
-- **The setup/punchline rhythm:** Build up something serious or technical, then puncture it with humor. "The \*arr ecosystem is an architectural masterpiece... But music? Music is where technical elegance goes to die a slow death."
+- **Real scenes only.** Put the reader in a moment Joe actually described. Never use a stock opener ("Picture this: it's 11 PM...") or invent a time, place, or reaction.
+- **Real dialogue:** Quote Joe, a guest, a forum post, or the error message the server threw. Only quotes that exist in his notes or the source. Joe lives alone, so never write "my partner said".
+- **The setup/punchline rhythm:** Build up something serious or technical, then puncture it with humor. "The \*arr ecosystem is an architectural masterpiece... But music? Music is where technical elegance goes to die a slow death." One or two per post, where the material earns it. A punchline on every paragraph is the strongest AI tell readers call out.
 - **Emotional honesty:** "This drove me insane." "I spent two days debugging this and wanted to throw the server out a window." Don't sanitize the frustration.
 - **The "I was wrong" moment:** Joe freely admits when he was wrong or naive. This builds trust and makes the writing relatable.
-- **Specific sensory details:** Not "the server was loud" but "the R730 sounds like a jet engine during POST and my partner asked if I was running a wind tunnel in the attic."
+- **Specific sensory details:** Not "the server was loud" but "the R730 sounds like a jet engine during POST." Only details from Joe's notes.
 
 #### What makes a section FUN vs BORING:
 
 - **BORING:** "The R730 has dual Xeon E5-2698 v4 processors with 20 cores each." (spec sheet)
-- **FUN:** "The R730 has dual Xeon E5-2698 v4s. That's 40 cores and 80 threads. In my attic. My partner asked why the electric bill doubled and I had to explain that I'd installed a small data center upstairs."
+- **FUN:** "The R730 has dual Xeon E5-2698 v4s, 40 cores in a box that lives in my attic. I bought it for the PCIe slots. The cores average 13% busy."
 - **BORING:** "I set up VLANs for network segmentation." (Wikipedia)
 - **FUN:** "I don't want my $15 smart plug from some company I can't pronounce to have network access to my NAS full of family photos. VLANs fix this."
 
@@ -251,16 +251,17 @@ These are the moves that separate analysis from topic coverage. They apply to wr
 
 ### Anti-AI structural patterns (CRITICAL)
 
-AI writing has tells beyond word choice. Actively break these patterns. Research shows AI text has remarkably uniform sentence length (15-25 words), predictable paragraph structure, and monotonous cadence. Human writing has HIGH BURSTINESS - dramatic variation in both sentence and paragraph length.
+AI writing has tells beyond word choice. Older models wrote uniform 15-25 word sentences in uniform paragraphs. Current models overcorrect: fragment stacks, a punchline closing every paragraph, staged reveals, performed honesty. That's what got the homelab post called "whole goddamn thing written by a model" on HN in October 2026, and several of the old rules in this section caused it. Vary length because the thoughts vary, not to create a beat. The `humanizer` skill's patterns 41-51 are the reference, and STYLE_GUIDE.md **Moves that read as AI even in my voice** has the short list.
 
 #### Sentence-level rules
 
 - **MEASURE your sentence lengths.** After drafting, count words per sentence in each paragraph. If more than 3 consecutive sentences are within 5 words of each other in length, rewrite. Aim for a mix like: 4 words, 22 words, 8 words, 31 words, 6 words.
-- **Use sentence fragments.** "Not even close." "Total game changer." "Which, fair." Real people write fragments constantly. AI almost never does.
-- **Start sentences with conjunctions.** "And", "But", "So", "Or". At least 15% of sentences should start this way - it's one of the strongest human-writing signals.
-- **Use semicolons and parentheses.** AI avoids these; humans use them naturally. Parenthetical asides (like this one) are a strong human signal.
+- **No fragment stacks.** A single fragment is fine where Joe would say it out loud. Two or more in a row ("Third time. A week each time. Nobody noticed.") is a tell.
+- **Conjunctions and parentheses are fine where they're natural.** Don't hit a quota.
+- **Read the last sentence of every paragraph on its own.** If most of them are punchlines, morals, callbacks, or reversals, make most of them plain.
+- **No performed honesty or narrated rigor.** State caveats and results directly. No "Full disclosure:", "I'd rather say so than have you find it", or "I never measured that. For this update, I did."
 - **Vary sentence openings.** Never start 3+ consecutive sentences with the same word. Never start 2+ consecutive sentences with "The" or "It" or "I".
-- **Include rhetorical questions.** "Know what happened next?" "Sound familiar?" Sprinkle 2-3 per post.
+- **No staged reveals.** "Know what happened next?", "The funny part:", "The catch:", "Turns out", "The result? X." Say the thing.
 
 #### Paragraph-level rules
 
@@ -276,7 +277,8 @@ AI writing has tells beyond word choice. Actively break these patterns. Research
 - **Vary section lengths dramatically.** If your longest section is 8 paragraphs, your shortest should be 1-2. Never have all sections within 1-2 paragraphs of each other.
 - **Break the pattern.** If you've written 3 sections that each start with a narrative paragraph, make the 4th start with a list or a question or a code block.
 - **Include specific numbers and details** that only someone who actually did this would know (exact error messages, specific config values, dollar amounts, timestamps).
-- **Use the long-then-short rhythm.** A detailed paragraph followed by a one-liner creates impact. "But music? Music is where technical elegance goes to die a slow death." This is Joe's signature move.
+- **Use the long-then-short rhythm sparingly.** A detailed paragraph followed by a one-liner creates impact once or twice a post. "But music? Music is where technical elegance goes to die a slow death." Used every section, it turns into the template readers recognize as AI.
+- **One number per point.** Original data is the point of these posts, but stacked 7-day and 30-day averages, peaks, and decimals read as a model dumping query results. Pick the number that makes the point and round it.
 
 #### Self-check: The Burstiness Test
 
@@ -340,7 +342,7 @@ My track record so far: three joekarlsson.com submissions to HN (MikroTik binary
 - **Follow STYLE_GUIDE.md "Writing About Infrastructure and Technical Decisions".** Every spec gets a reason, every fix names its cost, and numbers replace adjectives. Also say whether a number is measured or guessed, and make sure claims don't contradict each other.
 - **Original data or first-hand experience is the whole point.** That means metered numbers, real configs, costs, failure stories and benchmarks you ran yourself. Commenters forgive rough writing when the data is real. They don't forgive a well-written summary of things they've already read.
 - **Every number must be internally consistent.** HN will multiply your watts by 24 and compare the result to your kWh. It will check core counts against Intel ARK and add up your cost tables. Before shipping, recompute every derived number in the post (totals, averages, break-even, per-month vs per-year) and make sure the spec numbers match the vendor's spec sheet. Cores are not threads.
-- **Concede the obvious objection in the post itself.** Every topic has its standard top comment. For homelabs it's "you could do this on a $150 mini PC" and "the power bill makes this a loss". For self-hosting it's "your time isn't free" and "what about backups?". For AI it's "a bigger hosted model would do this better". One honest paragraph that names the objection and answers it (or concedes it) takes that comment away.
+- **Concede the obvious objection in the post itself.** Every topic has its standard top comment. For homelabs it's "you could do this on a $150 mini PC" and "the power bill makes this a loss". For self-hosting it's "your time isn't free" and "what about backups?". For AI it's "a bigger hosted model would do this better". One plain paragraph that answers it (or concedes it) takes that comment away. Answer it in a normal sentence ("Yes, a couple of mini PCs would run most of this"), don't label it ("The obvious objection:").
 - **Be careful with anything that sounds like piracy, security theater or astroturfing.** "Replaced Netflix with Plex plus the \*arr stack" invites a thread about piracy instead of your post. Frame media in terms of what you own, or leave it out. Disclose employer ties and sponsorships up front.
 - **Keep the memes, and make them earn it.** Memes are part of Joe's voice and stay in HN- and Reddit-bound posts too. Don't recommend cutting them. On these audiences, each meme has to joke about a specific finding in the post, land after the point instead of replacing it, and not echo the header above it (STYLE_GUIDE.md **Memes**). Keep them out of the first screen so the opening is substance.
 - **Headers are the skim layer.** HN and Reddit readers scan the headers before deciding whether to read. Use plain labels or claims that contain the answer ("Desktop GPUs don't fit in a 2U server"), never teasers. Top posts in this space use headers like "The hardware", "Step 4. Backup" and "Immich is actually great". See STYLE_GUIDE.md **Headers**.
@@ -443,7 +445,7 @@ Re-read the entire draft with fresh eyes. This is a REVISION pass, not a proofre
 Launch **Agent: `blog-voice-reviewer`** with the draft file path. The agent applies three layers:
 1. Joe's personal voice rules (STYLE_GUIDE.md hard rules - em dashes, banned words, etc.)
 2. Analytical structure check (Thompson/McKenzie - does the intro lead with the conclusion, do headers make claims, are opinions stated plainly)
-3. AI-pattern audit (humanizer pass - significance inflation, signposting, uniform rhythm, missing fragments)
+3. AI-pattern audit (humanizer pass - significance inflation, signposting, uniform rhythm, fragment stacks, quotable closers, performed candor, decorative numbers)
 
 Apply every **must-fix** edit before proceeding. Apply **should-fix** edits where they improve the writing. Use the agent's anti-AI audit to find and rewrite the spots that still read as assembled.
 

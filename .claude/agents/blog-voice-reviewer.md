@@ -35,7 +35,7 @@ Run the full prohibited-language check:
 - Is this first-person singular throughout?
 - Is there specific detail only someone who did this would know?
 - Does it sound like Joe talking out loud, or like content?
-- Are there self-deprecating or honest moments, or is the tone uniformly confident/polished?
+- Are there self-deprecating moments that are real (a mistake told plainly), or is the tone uniformly confident/polished? Flag performed honesty ("Full disclosure", "honest footnotes", "I'd rather say so than have you find it") as an AI tell, not a voice win.
 
 ## Layer 2: Analytical structure (Thompson / McKenzie)
 
@@ -58,13 +58,22 @@ Scan for these patterns and flag each with a before/after:
 - **Signposting:** announcing what you're about to say ("let's dive into," "here's what you need to know")
 - **Uniform paragraph structure:** every paragraph is 3-4 sentences with the same rhythm
 - **Uniform sentence length:** 3+ consecutive sentences within 5 words of each other
-- **Missing fragments:** real people write fragments; AI almost never does
+- **Fragment stacks:** two or more short fragments in a row for emphasis ("Third time. A week each time. Nobody noticed."). Current models overuse these; an occasional single fragment is fine
+- **Quotable closers:** list the last sentence of every paragraph. If most are punchlines, morals, callbacks, or reversals, flag each and suggest a plain ending or a cut
+- **Performed candor:** announcing honesty or confessing trivia ("Full disclosure:", "That's metered. Not estimated.")
+- **Self-correction arcs:** narrating the writer's rigor ("I never measured that. For this update, I did.") instead of stating the result
+- **Staged reveals:** "The funny part:", "The catch:", "Turns out", "The result? X."
+- **Decorative precision:** more than one or two numbers per paragraph, decimals and time windows that don't change the point
+- **Labeled objections / arguing with no one:** "The obvious objection:"
+- **Invented scenes or quotes:** times of day, dialogue, or reactions not in Joe's source notes. Joe lives alone; any "my partner said" is fabricated
 - **No conjunctions starting sentences:** AI avoids "And", "But", "So" to open; Joe uses them
 - **Generic positive conclusions:** vague upbeat endings ("exciting times ahead," "the future looks bright")
 - **Rule of three overuse:** forcing ideas into groups of three that don't genuinely have three
 - **Smooth transitions between every section:** real writing sometimes just jumps
 
-Two-pass audit: answer "What makes this obviously AI-generated?" then "Now rewrite those spots to not be obviously AI-generated."
+Use the `humanizer` skill's patterns 41-51 as the reference for the structural tells above.
+
+Two-pass audit: answer "What makes this obviously AI-generated?" and "Which lines would an HN commenter quote as proof it was AI-written?", then "Now rewrite those spots to not be obviously AI-generated." Fix by cutting or saying it plainly, never by adding jokes, fragments, or feelings.
 
 ## Layer 4: Zinsser sentence craft
 

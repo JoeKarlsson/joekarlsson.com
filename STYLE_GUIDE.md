@@ -37,12 +37,27 @@ The writing MUST be enjoyable to read. Technical accuracy with zero personality 
 
 ### Techniques that create energy:
 
-- **Scene-setting:** "Picture this: it's 11 PM on a Tuesday and I'm measuring server racks with a tape measure..."
+- **Scene-setting:** a real moment, with the real time and place if I gave them. Never a stock opener like "Picture this: it's 11 PM on a Tuesday."
 - **Real dialogue:** Quote yourself, friends, error messages, forum posts. Dialogue creates intimacy. Never invent a quote or a reaction that didn't happen.
-- **The setup/punchline:** Build something up, then puncture it. Long technical description followed by "But music? Music is where technical elegance goes to die."
+- **The setup/punchline:** Build something up, then puncture it. "But music? Music is where technical elegance goes to die." Save it for the one or two spots per post that earn it. Every paragraph ending on a punchline reads as AI (see below).
 - **Emotional specificity:** Not "it was frustrating" but "I spent two days SSHing into the MikroTik at midnight trying to figure out why half my containers lost network connectivity."
-- **The admission:** "I didn't know 19 inches was a standard. I was measuring with a tape measure." Being wrong is endearing.
+- **The admission:** "I didn't know 19 inches was a standard. I was measuring with a tape measure." Being wrong is endearing when it's a real mistake told plainly. Announcing the honesty ("Full disclosure:", "Two honest footnotes") is not the same thing.
 - **Sensory details:** What did the server sound like? What did a guest say? What time was it? These details separate real stories from spec sheets.
+
+### Moves that read as AI even in my voice
+
+These came straight out of the HN thread on the homelab post ("Whole goddamn thing written by a model", October 2026). Each one started as a rule in this guide that a model applied to every paragraph. Once is a voice. Every paragraph is a template.
+
+- **A punchline at the end of every paragraph.** "The PCIe slots were the point. The cores came along for the ride." Read only the last sentence of each paragraph. Most should be plain.
+- **Fragment stacks.** "Third time. A week each time. Nobody noticed." One fragment is fine. Two or more in a row is a tell.
+- **Performed honesty.** "Full disclosure:", "Two honest footnotes", "I'd rather say so than have you find it", "That's metered. Not estimated." Just state the caveat. Don't announce that you're being honest.
+- **Narrating my own rigor.** "I never measured that. For this update, I did." Give the result.
+- **Staged reveals.** "The funny part:", "The catch:", "Turns out...", "The result? X." Say the thing.
+- **Decorative numbers.** 30-day averages, 7-day averages and decimals in every paragraph. One number per point, rounded, with a plain verdict.
+- **Labeled objections.** "The obvious objection:" Answer it in a normal sentence.
+- **Invented scenes.** "It was 11 PM on a Tuesday." If it didn't happen, it doesn't go in.
+
+The full list is in the `humanizer` skill, patterns 41-51.
 
 ### The energy test:
 
@@ -213,8 +228,8 @@ This is what the technical posts that do well on Hacker News and Reddit have in 
 - **Say what I was trying to do before I say what I bought.** State the goal, the constraints, or the thing that broke first. Every choice later in the post should trace back to it.
 - **Name what I didn't pick, and why.** One or two sentences: "A Coral TPU would have fixed Frigate, but not Plex or local LLMs." If I skip this, the comments will ask.
 - **Every "this fixed it" comes with what it cost.** Moving Home Assistant into a VM fixed isolation and created a dependency on the host. Say both. A trade-off I name is credibility. A trade-off a commenter finds is a pile-on.
-- **Measured, estimated, or guessed - say which.** "That's metered" and "my current guess is" are both fine. Presenting a guess like a measurement is not. If I haven't measured something, say so.
-- **Numbers beat adjectives.** "The hosts sit around 15% CPU" beats "absurd headroom." "Plex went from choking on two streams to handling six" beats "performance was unreal." Use units, a date or time window, and where the number came from.
+- **Measured, estimated, or guessed - say which.** Say it once, where the number comes from ("the rack runs through a smart plug"), not as a beat ("That's metered. Not estimated."). Presenting a guess like a measurement is not fine. If I haven't measured something, say so.
+- **Numbers beat adjectives, but one is enough.** "The hosts sit around 15% CPU" beats "absurd headroom." Don't stack averages, peaks and time windows to sound rigorous. Pick the number that makes the point. "Plex went from choking on two streams to handling six" beats "performance was unreal." Use units, a date or time window, and where the number came from.
 - **Claims have to agree with each other.** If one section says I filled the hardware and another says there's tons of headroom, one of them is wrong. Reread the whole post for numbers and claims that contradict each other.
 - **Show the real config.** A trimmed resource block, the actual command, the real error message. Engineers trust config more than prose. Strip secrets, hostnames, and anything private before it goes in.
 - **Praise comes with a receipt and a catch.** "Immich is great: 40,000 photos, face recognition on the GPU, and the only thing I miss is editing" beats "genuinely excellent." Superlatives stacked on superlatives read as AI-written, and HN says so in the comments.
