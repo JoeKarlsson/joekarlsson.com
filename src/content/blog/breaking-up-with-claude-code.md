@@ -2,7 +2,7 @@
 title: 'Breaking up with Claude Code'
 date: 2026-10-06
 slug: 'breaking-up-with-claude-code'
-description: 'OpenCode with open models, not a one-to-one swap for Claude Code. What broke, what fixed it, and which models I use.'
+description: "OpenCode with open models isn't a one-to-one swap for Claude Code. What broke, what fixed it, and which models I use."
 categories: ['Dev Tools', 'Homelab']
 tags:
   [
@@ -22,7 +22,7 @@ heroAlt: '3D illustration of a woman labeled "Me" covering her face with her han
 tldr: "In October 2026 I moved my default coding agent from Claude Code to OpenCode running open-weight models through OpenRouter and my own LiteLLM gateway. DeepSeek V4.1 Flash passed every run of my own two-task test at about two cents a task. But OpenCode isn't a one-to-one swap for Claude Code: I had to test models on my own work instead of trusting leaderboards, make OpenCode send DeepSeek its reasoning back, force the agent to run its code before saying done, and accept that my homelab GPUs can't run a coding agent. Claude is still my escalation path for the hardest problems."
 faq:
   - question: 'Is OpenCode with open models a drop-in replacement for Claude Code?'
-    answer: 'No. Claude Code was quietly passing reasoning back between steps, checking its own work, and keeping tools inside the context window. With OpenCode I had to turn on interleaved reasoning for DeepSeek, add a plugin that makes the agent run its code before saying done, and test models on my own tasks.'
+    answer: 'No. Claude Code was passing reasoning back between steps, checking its own work, and keeping tools inside the context window. With OpenCode I had to turn on interleaved reasoning for DeepSeek, add a plugin that makes the agent run its code before saying done, and test models on my own tasks.'
   - question: 'Which open model do you use for coding instead of Claude Code?'
     answer: 'DeepSeek V4.1 Flash. It passed every run of my two-task test in OpenCode at about two cents a task. DeepSeek V4 Pro handles harder work, and I still switch to Claude for the hardest problems.'
   - question: 'Why use OpenRouter and LiteLLM together?'
@@ -33,7 +33,7 @@ faq:
 
 I switched my default coding agent from Claude Code to [OpenCode](https://opencode.ai/) running open models. Most of my coding now goes to DeepSeek V4.1 Flash for about two cents a task, and it passes the tests I give it.
 
-But if you're used to Claude Code, **OpenCode with open models isn't a one-to-one swap.** Claude Code was quietly doing work for me that I never noticed until it was gone, like passing the model's reasoning back between steps and checking its own work more often. The model was fine. Everything around it needed work.
+But if you're used to Claude Code, **OpenCode with open models isn't a one-to-one swap.** Claude Code was doing work for me that I never noticed until it was gone, like passing the model's reasoning back between steps and checking its own work more often. The model itself was fine, but I had to fix a lot of what was around it.
 
 I'm early here. I've been at this for days, on two test tasks and a handful of models, so treat this as a field report and not a ranking. And "breaking up" is generous. Claude is the ex I still call when something is hard. I just don't call first anymore.
 
@@ -51,7 +51,7 @@ And the open models got good:
 
 _Built from the [LLM Stats coding leaderboard](https://llm-stats.com/leaderboards/best-ai-for-coding), October 6, 2026._
 
-That chart cuts both ways. Claude Opus 5.5 still leads by 8.5 points. But DeepSeek V4.1 Flash costs 1/23 as much, and it beats several proprietary models that cost 5 to 30 times more. _Open models don't beat the best. They beat most of what's under it, for pocket change._
+That chart cuts both ways. Claude Opus 5.5 still leads by 8.5 points. But DeepSeek V4.1 Flash costs 1/23 as much, and it beats several proprietary models that cost 5 to 30 times more. So the best open model doesn't beat Claude, but it beats most of what's under Claude for pocket change.
 
 **Privacy.** Local models never leave my house, and I can turn them off. For hosted models, OpenRouter lets me [refuse any provider that trains on or keeps my prompts](https://openrouter.ai/docs/guides/routing/provider-selection). I feel a lot better pointing an agent at my infrastructure knowing that.
 
@@ -78,7 +78,7 @@ Everything that talks to a model in my house goes through one [LiteLLM](https://
   (DeepSeek, GLM, Qwen)     (small local Qwen models)
 ```
 
-That buys me three things. Swapping a model is a one-line change, and no app notices. If my GPU box is down, local requests fall back to a cloud model, so the doorbell still describes whoever is at the door at 2 AM. And each app gets its own key and [budget](https://docs.litellm.ai/docs/proxy/users): OpenCode gets $20 a month, so a runaway agent loop hits a wall instead of my credit card.
+With the gateway, swapping a model is a one-line change, and no app notices. If my GPU box is down, local requests fall back to a cloud model, so the doorbell still describes whoever is at the door at 2 AM. And each app gets its own key and [budget](https://docs.litellm.ai/docs/proxy/users): OpenCode gets $20 a month, so a runaway agent loop hits a wall instead of my credit card.
 
 ```yaml
 - model_name: cloud-coder # what OpenCode asks for
@@ -92,7 +92,7 @@ I went with OpenRouter on the hosted side because one key reaches every open mod
 
 ![Line chart from Dirac showing open-weight versus proprietary share of OpenRouter tokens from March 19 to October 5, 2026. Open-weight models start near 40 percent, cross proprietary in late May, and end near 74 percent.](/images/blog/breaking-up-with-claude-code/openrouter-open-weight-share-dirac.webp)
 
-_Source: [Dirac](https://dirac.run/labs-market-share), from OpenRouter's usage data, through October 5, 2026. It tracks 10 labs, not every one._
+_Source: [Dirac](https://dirac.run/labs-market-share), from OpenRouter's usage data, through October 5, 2026. It only tracks 10 labs._
 
 <div class="callout">
 
@@ -102,13 +102,13 @@ Related: [LiteLLM or CData Connect AI?](/blog/litellm-vs-cdata-connect-ai/) cove
 
 ## Picking a model
 
-I didn't pick from a leaderboard. Two reasons.
+I didn't pick from a leaderboard, for two reasons.
 
 First, leaderboards get gamed. xAI's Grok 3 launch chart was [accused of leaving out](https://techcrunch.com/2025/02/22/did-xai-lie-about-grok-3s-benchmarks/) the scores that made OpenAI's model look better. OpenAI [funded the FrontierMath benchmark and had access to much of it](https://techcrunch.com/2025/01/19/ai-benchmarking-organization-criticized-for-waiting-to-disclose-funding-from-openai/) before the funding was disclosed. Looking at you, Grok and ChatGPT.
 
-Second, and this matters more: leaderboards are fine for the broad trend, but they test things I don't do. I'm not solving frontier math or competition programming. I do the work of an average software engineer and homelabber. I fix bugs, write small features, and wrangle config files, and I need a model that does that well, fast, and cheap.
+The bigger reason is that leaderboards are fine for the broad trend, but they test things I don't do. I'm not solving frontier math or competition programming. I do the work of an average software engineer and homelabber. I fix bugs, write small features, and wrangle config files, and I need a model that does that well, fast, and cheap.
 
-So I ran my own bake-off, inside OpenCode, on work that looks like mine. Nine models. Two tasks: a bug fix with visible tests, and a cron expression parser graded by 39 tests the model never saw. Two runs each, every model on the same fixed-up OpenCode config, with the reasoning and verification fixes below turned on.
+So I ran my own bake-off, inside OpenCode, on work that looks like mine. I tested nine models on two tasks: a bug fix with visible tests, and a cron expression parser graded by 39 tests the model never saw. Each model got two runs on the same fixed-up OpenCode config, with the reasoning and verification fixes below turned on.
 
 On my two tasks:
 
@@ -118,17 +118,15 @@ On my two tasks:
 - **GLM 5.3** quit on one run right after reading the spec.
 - **Claude**, for reference, passed every run too. It just cost more per task.
 
-Two runs per model isn't science. But it was enough to catch a model with a 75% SWE-bench score that couldn't write a cron parser in my agent. _The model you should use is the one that does your work, in your setup, for a price you'll pay._
+Two runs per model isn't science, but it was enough to catch a model with a 75% SWE-bench score that couldn't write a cron parser in my agent. _Use the models that pass your own tasks in your own agent, then pick the cheapest one._
 
 If you try this yourself, pull two real tasks from your backlog, one easy and one that needs actual thinking. Write tests for the hard one and hide them from the agent. Run each model twice through your own agent and config, and grade pass/fail, time, and cost. It takes an afternoon.
 
 ## Reasoning replay
 
-This one drove me nuts.
+This one drove me nuts. DeepSeek V4.1 Flash is a thinking model: it reasons, calls a tool, then reasons again. In OpenCode, it kept losing its train of thought every time it ran a tool. I only figured out why by reading my gateway's request logs. OpenCode was sending back the model's earlier tool calls and answers, but not its earlier reasoning, so every tool call threw away the reasoning that led to it.
 
-DeepSeek V4.1 Flash is a thinking model: it reasons, calls a tool, then reasons again. In OpenCode, it kept losing its train of thought every time it ran a tool. I only figured out why by reading my gateway's request logs. OpenCode was sending back the model's earlier tool calls and answers, but not its earlier reasoning. Every tool call wiped out the "why."
-
-[DeepSeek's docs](https://api-docs.deepseek.com/guides/thinking_mode) say that reasoning has to be passed back when tools are involved. Some setups get a hard error for skipping it, and you'll find "reasoning_content in the thinking mode must be passed back to the API" all over [OpenCode's GitHub issues](https://github.com/anomalyco/opencode/issues/24130). Mine didn't error. It just got dumber, which is worse, because nothing tells you.
+[DeepSeek's docs](https://api-docs.deepseek.com/guides/thinking_mode) say that reasoning has to be passed back when tools are involved. Some setups get a hard error for skipping it, and you'll find "reasoning_content in the thinking mode must be passed back to the API" all over [OpenCode's GitHub issues](https://github.com/anomalyco/opencode/issues/24130). Mine didn't error, it just got dumber, which is worse because nothing tells you.
 
 The fix is one setting per model in `opencode.json`:
 
@@ -143,11 +141,11 @@ The fix is one setting per model in `opencode.json`:
 
 DeepSeek V4 Pro had the opposite problem. Through my setup, it didn't reason at all until I explicitly sent a reasoning effort. That's what the `reasoningEffort` line is for.
 
-What I'd do: before you trust any thinking model in any agent, read one logged request and make sure the reasoning goes back. Two minutes, and it's the difference between the model you tested and the one you're running.
+What I'd do: before you trust any thinking model in any agent, read one logged request and make sure the reasoning goes back. It takes two minutes, and it's how I found this one.
 
 ## Verification
 
-Claude Code had trained me to expect a model that checks its own work. To be fair, Claude also says "done" about things it never ran. Just less often, in my experience. The open models will happily edit three files, write a confident summary, and stop without running a single command.
+Claude Code had trained me to expect a model that checks its own work. Claude also says "done" about things it never ran, just less often in my experience. The open models will happily edit three files, write a confident summary, and stop without running a single command.
 
 ![Anakin Padme 4 Panel meme: Anakin says "I edited three files. Task complete." Padme smiles and asks "You ran it, right?" Anakin stares back silently. Padme, no longer smiling: "You ran it... right?"](/images/blog/breaking-up-with-claude-code/meme-anakin-padme-ran-it.webp)
 
@@ -163,7 +161,7 @@ Before you say a task is done:
 3. State the result in one word: PASS or FAIL.
 ```
 
-That helped, but it didn't fix it. A rule asks nicely. The model can still ignore it.
+That helped but didn't fix it, because a model can still ignore a rule.
 
 So I wrote a small [OpenCode plugin](https://opencode.ai/v2/docs/build/plugins/) that watches what the agent does. If it edits code and then finishes without running anything, the plugin sends it back once with this:
 
@@ -177,21 +175,21 @@ exactly why in one line.
 
 The [whole plugin](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_config/opencode/plugins/verify-gate.js) is about 100 lines in my dotfiles. It catches a model skipping the run a few times a day. The cost is one extra turn each time, and at two cents a task I'll pay that every time.
 
-Copy the rule first. If your model still skips it, add a gate.
+Start with the rule, and add a gate if your model still skips it.
 
 ## Local models
 
 My homelab GPUs can't run a coding agent. I hoped they could.
 
-I have 24GB of VRAM across two cards, shared with Plex, Frigate, and Immich ([that juggling act is its own post](/blog/proxmox-gpu-passthrough-multi-service/)). The best coding model I can fit is Qwen3-Coder 30B, squeezed down hard, and in OpenCode it's stiff and weak. On [Artificial Analysis's index](https://artificialanalysis.ai/models/open-source), it scores 10. DeepSeek V4.1 Flash scores 39. The good models are hundreds of billions of parameters. They're not fitting in my rack.
+I have 24GB of VRAM across two cards, shared with Plex, Frigate, and Immich ([that juggling act is its own post](/blog/proxmox-gpu-passthrough-multi-service/)). The best coding model I can fit is Qwen3-Coder 30B, squeezed down hard, and in OpenCode it's stiff and weak. On [Artificial Analysis's index](https://artificialanalysis.ai/models/open-source), it scores 10. DeepSeek V4.1 Flash scores 39. The good models have hundreds of billions of parameters and won't fit on my cards.
 
-Small context windows make it worse. OpenCode's own instructions and tool definitions take about 9,500 tokens before I've typed anything. When I tried a local model with an 8K window, it never called a tool. It answered like a chatbot, because its tools had silently fallen out of the window. Watch out for Ollama here: on a GPU under 24GB, its [default window is 4K](https://docs.ollama.com/context-length).
+Small context windows make it worse. OpenCode's own instructions and tool definitions take about 9,500 tokens before I've typed anything. When I tried a local model with an 8K window, it never called a tool. It answered like a chatbot, because its tool definitions had fallen out of the window without any error. Watch out for Ollama here: on a GPU under 24GB, its [default window is 4K](https://docs.ollama.com/context-length).
 
-Could I buy my way out? NVIDIA's 96GB RTX PRO 6000 now lists at [$16,000](https://www.tomshardware.com/pc-components/gpus/nvidia-doubles-rtx-pro-6000-blackwells-msrp-to-a-staggering-usd16-000-96gb-card-started-pre-orders-below-usd8-000-last-year). That's 66 years of my $20-a-month OpenCode budget, and it still couldn't hold DeepSeek V4.1 Flash. Right now, the math isn't close.
+Could I buy my way out? NVIDIA's 96GB RTX PRO 6000 now lists at [$16,000](https://www.tomshardware.com/pc-components/gpus/nvidia-doubles-rtx-pro-6000-blackwells-msrp-to-a-staggering-usd16-000-96gb-card-started-pre-orders-below-usd8-000-last-year). That's 66 years of my $20-a-month OpenCode budget, and it still couldn't hold DeepSeek V4.1 Flash.
 
 So my GPUs do the light work, and they're great at it: [Home Assistant voice](/blog/local-voice-ai-home-assistant-gpu/) on Qwen3 8B, at about 1.3 seconds per command, and doorbell camera descriptions on Qwen3-VL 8B. Both fall back to the cloud when the GPU box is off.
 
-What I'd do: rent the big models for coding. Keep local for things that need to be fast, private, or working when the internet isn't.
+What I'd do: rent the big models for coding, and keep local models for things that need to be fast, private, or working when the internet is down.
 
 ## What I use for what
 
@@ -218,7 +216,7 @@ The broader data says the same thing:
 
 _Source: [Artificial Analysis](https://artificialanalysis.ai/models/open-source), October 6, 2026._
 
-Open models have trailed the best closed ones by about 12 points on this index for a while now. The open line just got high enough that most of my work fits under it. So Claude is my escalation path, not my default.
+Open models have trailed the best closed ones by about 12 points on this index for a while now. The open line just got high enough that most of my work fits under it, so Claude went from my default to the model I escalate to.
 
 ## What's next
 

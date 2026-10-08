@@ -26,7 +26,7 @@ faq:
   - question: 'How do you run multiple Claude Code agents at the same time without conflicts?'
     answer: "I run each agent in its own Ghostty split, and when several agents work on the same code, each one gets its own git worktree: a separate checkout of the repo on its own branch that shares one .git directory. Agents never see each other's half-finished changes, and I merge each branch when it is done. When agents share one checkout, I have them stage and commit in the same step, by path, never with git add -A."
   - question: 'Why switch from iTerm2 to Ghostty?'
-    answer: 'Not because iTerm2 broke. I switched because Ghostty keeps its whole config in one plain text file I can version in my dotfiles, so every Mac gets an identical terminal, and because its splits suit running several Claude Code sessions side by side.'
+    answer: "iTerm2 didn't break. I switched because Ghostty keeps its whole config in one plain text file I can version in my dotfiles, so every Mac gets an identical terminal, and because its splits suit running several Claude Code sessions side by side."
   - question: 'Why use Handy instead of Superwhisper for talking to Claude Code?'
     answer: 'Handy is open source, free, and runs any local speech model, including Whisper and NVIDIA Parakeet, so transcription never leaves my Mac. I also point its transcript cleanup pass at a local model on my homelab instead of a cloud API.'
   - question: 'Is Oh My Zsh worth replacing with plain zsh?'
@@ -37,13 +37,13 @@ faq:
     answer: 'No, not yet. I tried OpenCode and aider against Qwen3-Coder on a 16 GB RTX A4000, and they could not match Claude Code on long, multi-step changes across real systems. I have not yet tested the newer Qwen3.8 models on real coding work.'
 ---
 
-The biggest change to my development setup in 2026 is **concurrency.** I rarely have only one agent working anymore. I usually have three to six Claude Code sessions going at once, on different tasks, until my brain starts to melt from the context switching. Agents amplify whatever environment you give them, and a messy one gets you messy work, faster. Most of what's below exists to make running several at once fast and safe.
+The biggest change to my development setup in 2026 is **concurrency.** I rarely have only one agent working anymore. I usually have three to six Claude Code sessions going at once, on different tasks, until my brain starts to melt from the context switching. Agents make whatever environment you give them go faster, including the mess, so most of what's below exists to make running several at once fast and safe.
 
 I use this setup every day at my day job, and the worktree pattern came from work: five agents in one docs repo. It's built around four goals:
 
-- **Speed.** A new terminal window should be ready the instant it opens. Starting a new task should take seconds. And my agents should finish tasks quickly _and_ correctly, because a fast wrong answer isn't fast.
+- **Speed.** A new terminal window should be ready the instant it opens. Starting a new task should take seconds. And my agents should finish tasks quickly _and_ correctly, because a wrong answer I have to redo costs more time than it saved.
 - **Consistency.** Anything I do more than twice becomes a skill, a workflow, a rule, or a hook, so it happens the same way every time, can run concurrently, and can be rolled back with git. That goes for my writing too, which runs through linter rules. And every machine I work on, across different operating systems, gets its environment from the same version-controlled repo.
-- **Reliability.** My homelab has to stay up, and my agents have to do the job right. Both need checks.
+- **Reliability.** My homelab has to stay up and my agents have to do the job right, and both need checks.
 - **Reach.** I can fix things from anywhere, including my phone.
 
 The short version of what changed:
@@ -58,12 +58,12 @@ The short version of what changed:
 | Checking agent work    | Me, by eye                 | Verification workflows, hooks, health checks | Agents check their work before saying "done"    |
 | Writing checks         | Spell check                | Vale rules for my voice and AI slop          | Same checks whether I wrote it or Claude did    |
 | Containers             | Docker Desktop             | Colima + the open source docker CLI          | Tired of Docker Desktop's licensing changes     |
-| Dotfiles               | Hand-rolled symlink script | chezmoi on macOS and Linux                   | My machines had quietly drifted apart           |
+| Dotfiles               | Hand-rolled symlink script | chezmoi on macOS and Linux                   | My machines had drifted apart                   |
 | Working away from home | Laptop on my home network  | iPhone to a homelab dev container            | Fixing Plex no longer waits until I'm home      |
 
 "Last year" means 2025. Versions as of September 2026: Ghostty 1.3.1, Starship 1.26, Claude Code 2.1, chezmoi 2.73, and Handy 0.9.7, on macOS and Debian 13.
 
-The full inventory of hardware and apps lives on my [uses page](/uses). This post is the why. Where it helps, I've tucked the actual config into collapsible blocks so you can copy it, and each one links to the full file in [my dotfiles repo](https://github.com/JoeKarlsson/dotfiles).
+The full inventory of hardware and apps lives on my [uses page](/uses). This post is about why I changed things. Where it helps, I've tucked the actual config into collapsible blocks so you can copy it, and each one links to the full file in [my dotfiles repo](https://github.com/JoeKarlsson/dotfiles).
 
 ## Terminal and shell
 
@@ -71,13 +71,13 @@ The full inventory of hardware and apps lives on my [uses page](/uses). This pos
 
 **Last year:** [iTerm2](https://iterm2.com/), which I'd used for about a decade. **Now:** [Ghostty](https://ghostty.org/).
 
-iTerm never broke. I switched for two reasons. Ghostty's config is one plain text file, so it lives in my dotfiles and every Mac gets the identical terminal. And I spend my day in **splits** now, and I wanted splits that behave exactly how I expect with zero setup on a new machine.
+Nothing was wrong with iTerm. I switched for two reasons. Ghostty's config is one plain text file, so it lives in my dotfiles and every Mac gets the identical terminal. And I spend my day in **splits** now, and I wanted splits that behave exactly how I expect with zero setup on a new machine.
 
 A normal session is one Ghostty window cut into four or five panes, each running a separate [Claude Code](https://code.claude.com/docs) session on a separate job. The screenshot below is a real afternoon: orphaned OpenTofu state, a Last.fm replacement, my social post scheduler, a music server's web UI, and this post. I glance across them like a row of monitors.
 
 I don't run tmux on the Mac. Ghostty's native splits do what I need with nothing extra to configure.
 
-That's also why I don't use the Claude Code extension for VS Code. It gives me one Claude inside one editor. Ghostty gives me as many as I want.
+That's also why I don't use the Claude Code extension for VS Code. It gives me one Claude inside one editor, and I usually want four or five.
 
 ![A Ghostty window split into five panes, each running its own Claude Code session on a different task, with a status line under each pane naming the task](/images/blog/my-development-setup-2026/ghostty-claude-code-splits.webp)
 
@@ -105,9 +105,9 @@ Full file: [`config.ghostty`](https://github.com/JoeKarlsson/dotfiles/blob/main/
 
 ### Plain zsh: startup from 108 ms to 46 ms
 
-I noticed lag. Opening a new tab had a small but real delay, and I open a lot of tabs. So I audited it: startup was around 108 ms, mostly [Oh My Zsh](https://ohmyz.sh/) plus a handful of tools spawning a subprocess every time a shell started. After the cleanup it was 46 ms, and new tabs feel instant. That's warm-cache `.zshrc` load time in a real pty, timed with zprof and per-section timers under `env -i`, so my agent's environment didn't skew it. The first numbers lied, too: a cold completion cache made `compinit` look like 460 ms. Warm, it's 7 ms.
+I noticed lag. Opening a new tab had a small but real delay, and I open a lot of tabs. So I audited it: startup was around 108 ms, mostly [Oh My Zsh](https://ohmyz.sh/) plus a handful of tools spawning a subprocess every time a shell started. After the cleanup it was 46 ms, and new tabs feel instant. That's warm-cache `.zshrc` load time in a real pty, timed with zprof and per-section timers under `env -i`, so my agent's environment didn't skew it. My first measurement was misleading, because a cold completion cache made `compinit` look like 460 ms. Warm, it takes 7 ms.
 
-What I learned from measuring: **aliases are free, subprocesses aren't.** Dozens of aliases cost nothing measurable. Every `eval "$(some-tool init)"` did.
+Measuring showed me that **aliases are free and subprocesses aren't.** Dozens of aliases didn't register at all, while every `eval "$(some-tool init)"` added real time.
 
 The bigger job was deciding what to keep. My shell was still set up for how I worked years ago, so I threw out everything I don't use day to day anymore: Oh My Zsh itself (a couple hundred git aliases, of which my history showed I used two), [nvm](https://github.com/nvm-sh/nvm) and its 779 MB, a local MongoDB install I hadn't touched in ages, Python tooling I'd stopped using, leftover config for an editor I'd uninstalled, and a joke alias called `yolo` that committed with a random message from whatthecommit.com.
 
@@ -159,7 +159,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 Full file: [`.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc).
 </details>
 
-One more change, because of agents. Claude Code runs its commands in a shell that loads my `.zshrc`, and my `cp -i` alias sat at an invisible "overwrite?" prompt and hung a task. Claude Code [sets `CLAUDECODE=1`](https://code.claude.com/docs/en/env-vars), so the human-only stuff now steps aside:
+I made one more change because of agents. Claude Code runs its commands in a shell that loads my `.zshrc`, and my `cp -i` alias sat at an invisible "overwrite?" prompt and hung a task. Claude Code [sets `CLAUDECODE=1`](https://code.claude.com/docs/en/env-vars), so the human-only stuff now steps aside:
 
 ```bash
 # Human-only niceties. Claude Code (CLAUDECODE=1) runs commands through
@@ -173,11 +173,11 @@ fi
 
 The full guard, with everything it hides from Claude, is in [my `.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_zshrc).
 
-Your shell has a second user now. Go read your `.zshrc` with that in mind.
+If you use Claude Code, read through your `.zshrc` for anything that prompts or waits for input, because Claude runs it too.
 
 ### Aliases: git and getting around
 
-The aliases that survived are the ones I type without thinking. Git, and moving between directories. `gs` is probably the most-typed thing on my keyboard.
+The aliases that survived are the ones I type without thinking, which means git and moving between directories. `gs` is probably the most-typed thing on my keyboard.
 
 <details>
 <summary>Show my everyday aliases</summary>
@@ -208,13 +208,13 @@ Full file: [`.zshrc`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot
 
 For everything else, [zoxide](https://github.com/ajeetdsouza/zoxide) handles the jumping: `z blog` takes me to this repo from anywhere.
 
-The one thing I added back is [atuin](https://atuin.sh/) for Ctrl-R, local only with no sync. It isn't free. It adds about 14 ms before every command, and its init quietly rewired zsh-autosuggestions to spawn `atuin search` on every keystroke, which I switched back to plain history. Searchable history with directory, exit code, and duration is worth 14 ms to me. The keystroke thing wasn't.
+The one thing I added back is [atuin](https://atuin.sh/) for Ctrl-R, local only with no sync. It adds about 14 ms before every command, and its init rewired zsh-autosuggestions to spawn `atuin search` on every keystroke, which I switched back to plain history. Searchable history with directory, exit code, and duration is worth 14 ms to me, but a process on every keystroke wasn't.
 
 ### Starship, because Powerlevel10k is on life support
 
-I loved [Powerlevel10k](https://github.com/romkatv/powerlevel10k), but its README has said "NO NEW FEATURES ARE IN THE WORKS" and "MOST BUGS WILL GO UNFIXED" since 2024. I don't want the thing I look at thousands of times a day to be one macOS update away from breaking. I looked at [Oh My Posh](https://ohmyposh.dev/) (best looking, my runner-up), [Pure](https://github.com/sindresorhus/pure) (fast, almost no segments), Spaceship, and just staying on p10k. I picked [Starship](https://starship.rs/) because it's the one I'd bet is still maintained in five years: works in any shell, one TOML file.
+I loved [Powerlevel10k](https://github.com/romkatv/powerlevel10k), but its README has said "NO NEW FEATURES ARE IN THE WORKS" and "MOST BUGS WILL GO UNFIXED" since 2024. I don't want the thing I look at thousands of times a day to be one macOS update away from breaking. I looked at [Oh My Posh](https://ohmyposh.dev/) (best looking, my runner-up), [Pure](https://github.com/sindresorhus/pure) (fast, almost no segments), Spaceship, and just staying on p10k. I picked [Starship](https://starship.rs/) because it's the one I'd bet is still maintained in five years, and it works in any shell with one TOML file.
 
-It costs me something. p10k is still faster in git repos. It keeps a background daemon that already knows the repo state, and it draws a cached prompt before `.zshrc` finishes loading. Starship runs every module synchronously and waits for all of them.
+There's a tradeoff: p10k is still faster in git repos, because it keeps a background daemon that already knows the repo state, and it draws a cached prompt before `.zshrc` finishes loading. Starship runs every module synchronously and waits for all of them.
 
 I use the catppuccin-powerline preset with two things turned off: git status counts and language versions. Out of the box they ran `git status` and `node --version` before every prompt. When I want the details, I type `gs`.
 
@@ -244,7 +244,7 @@ Full file: [`starship.toml`](https://github.com/JoeKarlsson/dotfiles/blob/main/h
 
 I talk to my agents far more than I type to them. Hold a key, say what I want, let go, and the text lands in whichever Claude pane has focus. It feels a lot like having Jarvis: I narrate the problem the way I'd explain it to a coworker, and the agent goes and does it. Talking also makes me explain what I want instead of firing off half a thought.
 
-Superwhisper was good. Handy is [open source](https://github.com/cjpais/Handy), free, and runs any local model I want: Whisper, or NVIDIA's [Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3), which is what I use. Its cleanup pass (punctuation, misheard words) points at a local model on my homelab GPU, so nothing leaves hardware I own. Keeping my data on hardware I own isn't one of the four goals. It's the constraint on all of them.
+Superwhisper was good. Handy is [open source](https://github.com/cjpais/Handy), free, and runs any local model I want: Whisper, or NVIDIA's [Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3), which is what I use. Its cleanup pass (punctuation, misheard words) points at a local model on my homelab GPU, so nothing leaves hardware I own. Keeping my data on hardware I own isn't one of the four goals, but every tool in this post has to meet it.
 
 ### One git worktree per agent
 
@@ -262,7 +262,7 @@ git worktree remove ../docs-nav               # clean up after merging
 
 At work I've had five agents in one docs repo at once, each in its own worktree: one restructuring navigation, one fixing broken links, a few rewriting pages. The costs are small. Each worktree needs its own `npm install`, dev servers can fight over a port, and I still resolve conflicts at merge time.
 
-More agents doesn't mean less review. Every repo has tests for everything, I read all the code before it merges, and on a collaborative project other people review and test it too. Agents write the code. Humans still sign off on it.
+More agents doesn't mean less review. Every repo has tests for everything, I read all the code before it merges, and on a collaborative project other people review and test it too.
 
 ### Status line: which pane is which
 
@@ -318,13 +318,13 @@ Full file: [`statusline.sh`](https://github.com/JoeKarlsson/dotfiles/blob/main/h
 
 ### Rules: one CLAUDE.md, deployed to every machine
 
-What I've learned this year: **agents need a way to verify their own work.** Without one, a capable agent will confidently tell you it's done. With one, it checks, and when the check fails, it fixes the problem and checks again.
+The biggest thing I learned this year is that **agents need a way to verify their own work.** Without one, a capable agent will confidently tell you it's done. With one, it runs the check, and when the check fails, it fixes the problem and runs it again.
 
 So anything I do more than twice gets written down as a rule, a skill, a hook, or a linter, and all of it lives in git.
 
 The rules live in `CLAUDE.md`, the file Claude reads at the start of every session. Mine is in my dotfiles, and [chezmoi](https://www.chezmoi.io/) deploys it to every machine, including the Linux container I reach from my phone. Change a rule once, push, and every Claude I talk to follows it.
 
-Every rule started as a mistake. "Test the change you made" is a verification workflow in one sentence, and it's the one that changed the most. The "match the effort to the risk" line came after Claude ran my entire test suite to change a comment. The Word rule came from edits that passed validation and then vanished when Word reopened a stale OneDrive copy.
+Each of these rules came from something going wrong. "Test the change you made" is a verification workflow in one sentence, and it's the one that changed the most. The "match the effort to the risk" line came after Claude ran my entire test suite to change a comment. The Word rule came from edits that passed validation and then vanished when Word reopened a stale OneDrive copy.
 
 ![UNO Draw 25 Cards meme: the card says "Run the tests before saying it's done" and the man holding a huge hand of cards is labeled "Claude, before I put it in CLAUDE.md"](/images/blog/my-development-setup-2026/uno-draw-25-run-the-tests.webp)
 
@@ -366,7 +366,7 @@ Workflows bake the same idea in. My homelab health check reports every finding, 
 
 A rule is a suggestion Claude usually follows. A hook is a script that runs before a tool call and can block it.
 
-Every container in my homelab is managed by [OpenTofu](https://opentofu.org/) and supposed to be immutable, so a hook blocks Claude from writing inside one and points it at the provision script. Read-only commands pass through. Another blocks restoring a Home Assistant backup without my OK. It's a pattern list, not a sandbox, but it catches the mistakes agents make in practice.
+Every container in my homelab is managed by [OpenTofu](https://opentofu.org/) and supposed to be immutable, so a hook blocks Claude from writing inside one and points it at the provision script. Read-only commands pass through. Another blocks restoring a Home Assistant backup without my OK. It's only a pattern list, but it catches the mistakes agents make in practice.
 
 <details>
 <summary>Show part of the immutable-infrastructure hook</summary>
@@ -401,26 +401,26 @@ If you're letting an agent near real systems, learn hooks first.
 
 ### Editor: VS Code
 
-[VS Code](https://code.visualstudio.com/) didn't change. What I do in it did. It used to be where I wrote code; now it's where I **read and edit what agents wrote**.
+I still use [VS Code](https://code.visualstudio.com/), but differently. It used to be where I wrote code, and now it's where I **read and edit what agents wrote**.
 
-For anything bigger than a quick fix, I have Claude write the plan to a markdown file, then I open it in VS Code and edit it like a normal document. Cut steps, reorder, fix what it misunderstood. Claude works from my version. That's faster than correcting a plan through chat, and it leaves a record of what Claude and I agreed to.
+For anything bigger than a quick fix, I have Claude write the plan to a markdown file, then I open it in VS Code and edit it like a normal document. I cut steps, reorder them, and fix what it misunderstood, and Claude works from my version. That's faster than correcting a plan through chat, and it leaves a record of what Claude and I agreed to.
 
 I dropped [GitHub Copilot](https://github.com/features/copilot) after it changed its billing model. [Prettier](https://prettier.io/), [ESLint](https://eslint.org/), [markdownlint](https://github.com/DavidAnson/markdownlint), and [cspell](https://cspell.org/) run on save.
 
 ### Linters: my voice, written down as rules
 
-This is the part of my setup I'm proudest of, and the one nobody asks about.
+I'm proudest of this part of my setup, though nobody ever asks about it.
 
 <!-- vale JoeKarlsson.BannedWords = NO -->
 <!-- vale JoeKarlsson.BannedOpenings = NO -->
 <!-- vale Slop.Vocabulary = NO -->
 
-When an AI helps you write, the drafts drift toward _generic_. Em dashes everywhere. "Robust." "Seamless." Sentences that all run the same length. After the fifth draft of something, I can't see it anymore. So I wrote it down as rules for [Vale](https://vale.sh/), a prose linter:
+When an AI helps you write, the drafts drift toward _generic_: em dashes everywhere, words like "robust" and "seamless," and sentences that all run the same length. After the fifth draft of something, I can't see it anymore. So I wrote it down as rules for [Vale](https://vale.sh/), a prose linter:
 
 - **My own style, `JoeKarlsson`.** Banned words (the "delve, leverage, robust" list), banned openings like "In today's world," AI filler, and no em dashes.
 - **[vale-llm-slop](https://github.com/Syntaf/vale-llm-slop)** for common LLM phrasing.
 - **An `ai-tells` style with 137 rules** for the structural habits AI writing falls into: "not X, but Y," announcement headings, closing pleasantries, defensive hedges.
-- **[write-good](https://github.com/errata-ai/write-good) and [proselint](https://github.com/errata-ai/proselint)**, minus the rules that fight my voice. I start sentences with "So." Fine.
+- **[write-good](https://github.com/errata-ai/write-good) and [proselint](https://github.com/errata-ai/proselint)**, minus the rules that fight my voice, like the one that flags sentences starting with "So."
 
 <!-- vale JoeKarlsson.BannedWords = YES -->
 <!-- vale JoeKarlsson.BannedOpenings = YES -->
@@ -428,7 +428,7 @@ When an AI helps you write, the drafts drift toward _generic_. Em dashes everywh
 
 ![Clown Applying Makeup meme in four panels: "Let AI help write my blog posts," "Get annoyed by all the em dashes," "Write 137 lint rules against AI slop," and, in full clown makeup, "Turn off the rules that flag my own voice"](/images/blog/my-development-setup-2026/clown-makeup-ai-slop-linters.webp)
 
-A [LanguageTool](https://languagetool.org/) server in my homelab handles grammar without sending drafts anywhere. And the part that matters: **agents run the same checks.** The linters run in the editor, before commits, and in CI, so the rules apply whether I wrote the sentence or Claude did.
+A [LanguageTool](https://languagetool.org/) server in my homelab handles grammar without sending drafts anywhere. **Agents run the same checks.** The linters run in the editor, before commits, and in CI, so the rules apply whether I wrote the sentence or Claude did.
 
 <details>
 <summary>Show my blog's Vale config</summary>
@@ -480,13 +480,13 @@ The container updates itself every Sunday, Claude Code and dotfiles included. It
 
 My laptops only edit. When I push the homelab repo, a git hook syncs it to an always-on Proxmox node, which applies the change and checks for drift. Every change is a commit, so rolling back is a `git revert`.
 
-Every machine also has a health check: 156 checks for the homelab, one for my Mac, and `bin/doctor` for my dotfiles. All of them report and wait for my go-ahead before fixing anything, because the first time I pointed cleanup tools at my Mac, `npm doctor` quietly deleted 3.3 GB of cache and an uninstaller nearly deleted live 1Password data.
+Every machine also has a health check: 156 checks for the homelab, one for my Mac, and `bin/doctor` for my dotfiles. All of them report and wait for my go-ahead before fixing anything, because the first time I pointed cleanup tools at my Mac, `npm doctor` deleted 3.3 GB of cache and an uninstaller nearly deleted live 1Password data.
 
 ### Local models: not my coding tool
 
 Handy's transcription runs locally, and [Home Assistant](https://www.home-assistant.io/)'s voice assistant runs on a 16 GB RTX A4000 in [the rack I built over the last two years](/blog/homelab-two-years-later/) (more in [running local voice AI on a GPU in Proxmox](/blog/local-voice-ai-home-assistant-gpu/)).
 
-For code, I tried [OpenCode](https://opencode.ai/) and [aider](https://aider.chat/) with [Qwen3-Coder](https://github.com/QwenLM/Qwen3-Coder). Neither was close to Claude Code on long, multi-step work, partly because [a GPU shared with Plex and photo processing](/blog/proxmox-gpu-passthrough-multi-service/) means small context windows. I keep hearing the new Qwen3.8 models are excellent. I haven't tested one on real work, so I won't pretend to know.
+For code, I tried [OpenCode](https://opencode.ai/) and [aider](https://aider.chat/) with [Qwen3-Coder](https://github.com/QwenLM/Qwen3-Coder). Neither was close to Claude Code on long, multi-step work, partly because [a GPU shared with Plex and photo processing](/blog/proxmox-gpu-passthrough-multi-service/) means small context windows. I keep hearing the new Qwen3.8 models are excellent, but I haven't tested one on real work yet.
 
 ## Everything else
 
@@ -554,7 +554,7 @@ Full file: [`topgrade.toml`](https://github.com/JoeKarlsson/dotfiles/blob/main/h
 
 **Last year:** a hand-rolled `install.sh` that symlinked files into my home directory. **Now:** [chezmoi](https://www.chezmoi.io/).
 
-The script worked for one Mac. It fell apart with several machines that were mostly the same, one of which wasn't a Mac at all. When I audited it, one laptop had months of uncommitted changes and another had pushed commits that conflicted with them. "My dotfiles are in git" and "my machines match my dotfiles" are different claims.
+The script worked for one Mac. It fell apart with several machines that were mostly the same, one of which wasn't a Mac at all. When I audited it, one laptop had months of uncommitted changes and another had pushed commits that conflicted with them. Having my dotfiles in git hadn't kept my machines matching them.
 
 chezmoi fixes that with machine profiles. Each Mac gets asked once whether it's work or personal; Linux is always a server, so provisioning a container never hangs on a prompt. The Linux container skips the Mac stuff but gets the same git config and the same `CLAUDE.md`. Everything that isn't a template is a symlink, so editing `~/.zshrc` edits the repo.
 
@@ -579,11 +579,11 @@ mode = "symlink"
 Full file: [`.chezmoi.toml.tmpl`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/.chezmoi.toml.tmpl).
 </details>
 
-A new Mac is one clone and [`install.sh`](https://github.com/JoeKarlsson/dotfiles/blob/main/install.sh), which is now a short bootstrap: install Homebrew and chezmoi, then hand off to `chezmoi init`. [`bin/doctor`](https://github.com/JoeKarlsson/dotfiles/blob/main/bin/doctor) keeps it honest afterward.
+A new Mac is one clone and [`install.sh`](https://github.com/JoeKarlsson/dotfiles/blob/main/install.sh), which is now a short bootstrap: install Homebrew and chezmoi, then hand off to `chezmoi init`. [`bin/doctor`](https://github.com/JoeKarlsson/dotfiles/blob/main/bin/doctor) checks it afterward.
 
 ## What I'd keep and what's still broken
 
-I'd keep all of it, but worktrees, the shared `CLAUDE.md`, and hooks are the three I'd set up first on a new machine. Those are what let me hand off more work and trust what comes back. The terminal and shell changes are nice. Those three are why running six agents doesn't end in a mess.
+I'd keep all of it, but worktrees, the shared `CLAUDE.md`, and hooks are the three I'd set up first on a new machine. Those are what let me hand off more work and trust what comes back. The terminal and shell changes are nice to have, but those three are what keep six agents from making a mess.
 
 Still broken or missing:
 
