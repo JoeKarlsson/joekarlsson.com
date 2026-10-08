@@ -14,9 +14,9 @@ Two years ago I bought a $200 ThinkServer off Facebook Marketplace, put Proxmox 
 
 Today I have two Dell R730s in a rack in my attic, 73 containers, two NVIDIA GPUs, and 10G networking. The rack averages about 430W, or about $47 a month in electricity, and I've spent about $7,400 on hardware.
 
-None of it was planned. Each phase started with one question or one frustration and ended with new hardware in the rack and a higher electricity bill. It pays for itself more slowly than I first claimed, and I barely use some of what I bought.
+None of it was planned. I'd get curious about something or annoyed by something, buy hardware for the rack to deal with it, and the electricity bill would go up again. It pays for itself more slowly than I first claimed, and I barely use some of what I bought.
 
-_Updated October 2026: I first published this in March. Since then I've retired Open WebUI, Nextcloud, and Readarr and moved every container into OpenTofu. I also pulled 30 days of data out of Prometheus for this update, which corrected some of what I wrote in March. The numbers below are current._
+_Updated October 2026: I first published this in March. Since then I've retired Open WebUI, Nextcloud, and Readarr and moved every container into OpenTofu. I also pulled 30 days of data out of Prometheus for this update, which turned up a few things I got wrong in March. The numbers below are current._
 
 ## Where the $200 ThinkServer ran out
 
@@ -64,7 +64,7 @@ Single-slot workstation cards with blower coolers skip the size, connector-heigh
 
 This one caught me off guard. Enterprise DDR4 ECC RAM costs several times what it did when I started this project.
 
-The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of memory, and that demand is competing directly with the secondhand market that homelabbers depend on. Used DDR4 ECC sticks I could find for $40-80 a couple years ago now run $200-400 for 32GB RDIMMs - about 5x. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2025%E2%80%93present_global_memory_supply_shortage). The supply of used enterprise RAM dried up because the same companies that used to surplus it are now keeping older servers running longer to meet AI compute demand.
+The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of memory, and that demand is competing directly with the secondhand market that homelabbers depend on. Used DDR4 ECC sticks I could find for $40-80 a couple years ago now run $200-400 for 32GB RDIMMs - about 5x. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2025%E2%80%93present_global_memory_supply_shortage). The supply of used enterprise RAM dried up because the same companies that used to surplus it are now keeping their older servers running longer because they need the compute for AI.
 
 Each host has 128GB, and it came with the configured servers, so I never bought sticks on their own, and I'm glad. Filling those 256GB today would cost $1,600-3,200 - close to what I paid for one whole configured server.
 
@@ -143,7 +143,7 @@ In practice, the busiest minute either host has had was about 1.2Gbps, around 12
 
 The 10G links were the part I needed least. If you're planning a build like this, get the NAS onto 10G first, or skip 10G entirely.
 
-I still enjoyed setting it up. I wrote a [Python script to manage the MikroTik bonding configuration programmatically](/blog/implementing-mikrotik-binary-api-protocol-in-python/) because clicking through web UIs to configure network infrastructure felt wrong. That turned into its own blog post about implementing MikroTik's proprietary binary protocol from scratch.
+I still enjoyed setting it up. I wrote a [Python script to manage the MikroTik bonding configuration programmatically](/blog/implementing-mikrotik-binary-api-protocol-in-python/) because clicking through web UIs to configure a switch felt wrong. That turned into its own blog post about implementing MikroTik's proprietary binary protocol from scratch.
 
 ## Rebuilding my home network to learn VLANs
 
@@ -151,7 +151,7 @@ I wanted to understand networking properly (VLANs, firewall rules, routing, subn
 
 ### UniFi gateway, MikroTik backbone, three access points
 
-[UniFi Cloud Gateway Ultra](https://store.ui.com/us/en/products/ucg-ultra) as the router, firewall, DHCP server, and WiFi controller. It does all the routing between VLANs and runs Suricata intrusion prevention inline. The MikroTik is just a 10G switch. Three UniFi access points with 802.11r fast roaming: two [U7 Pros](https://ui.com/us/wifi/u7-pro), one upstairs and one on the main floor, plus a U7 Pro XG I added in the basement later. Devices hand off between APs as I walk through the house without dropping connections, and guests never notice.
+The router is a [UniFi Cloud Gateway Ultra](https://store.ui.com/us/en/products/ucg-ultra), which is also the firewall, DHCP server, and WiFi controller. It does all the routing between VLANs and runs Suricata intrusion prevention inline. The MikroTik is just a 10G switch. There are three UniFi access points with 802.11r fast roaming: two [U7 Pros](https://ui.com/us/wifi/u7-pro), one upstairs and one on the main floor, plus a U7 Pro XG I added in the basement later. Devices hand off between APs as I walk through the house without dropping connections, and guests never notice.
 
 ### Four VLANs keep the IoT junk away from my NAS
 
@@ -256,7 +256,7 @@ The count keeps growing because every time something breaks in a way I didn't ca
 
 [Proxmox Backup Server](https://www.proxmox.com/en/products/proxmox-backup-server/overview) runs as a container on prxbox2, with its datastore on the NAS. It does incremental backups with deduplication, and since nearly every container is the same Debian base, most chunks are shared. Right now 10.9TB of logical backups take up 1.31TB on disk - about 8.3x.
 
-PBS isn't an offsite backup, though. It's in the same attic as everything it backs up, and a fire up there would take both. So every day a small container syncs the whole PBS datastore to Backblaze B2, about $9 a month for 1.3TB. Once a week a separate job downloads a random 1/256 of the chunks and compares them against the local copy, and it's reported zero differences every week so far. The NAS also runs its own B2 backup with 60-day retention, so I pay Backblaze twice.
+PBS is in the same attic as everything it backs up, though, so a fire up there would take both. So every day a small container syncs the whole PBS datastore to Backblaze B2, about $9 a month for 1.3TB. Once a week a separate job downloads a random 1/256 of the chunks and compares them against the local copy, and it's reported zero differences every week so far. The NAS also runs its own B2 backup with 60-day retention, so I pay Backblaze twice.
 
 ## Every container is defined in OpenTofu
 
@@ -374,7 +374,7 @@ The table leaves out the NAS and its drives, which I've owned for years and have
 
 ### Break-even is 4.6 years, if you squint
 
-Every one of these services is something I used to pay for monthly and no longer do:
+I used to pay a monthly subscription for every one of these:
 
 | Subscription replaced                       | Self-hosted with         | Monthly cost saved       |
 | ------------------------------------------- | ------------------------ | ------------------------ |
@@ -398,7 +398,7 @@ Subtract about $47/month of electricity and $9/month for the Backblaze B2 copy o
 
 That number depends a lot on one line: the $80 security monitoring plan is over 40% of the gross savings, and without it break-even stretches to more than 11 years. None of this counts my time, either.
 
-It may pay for itself eventually. Subscription prices keep going up - [1Password went from $2.99 to $3.99](https://www.macrumors.com/2026/02/24/1password-march-price-increase/) in March, and [Ring Protect from $10 to $12](https://ring.com/support/articles/7zvp5/Ring-Protect-Plus-1st-Gen-Information) in February - and I own my data and control my infrastructure.
+It may pay for itself eventually. Subscription prices keep going up - [1Password went from $2.99 to $3.99](https://www.macrumors.com/2026/02/24/1password-march-price-increase/) in March, and [Ring Protect from $10 to $12](https://ring.com/support/articles/7zvp5/Ring-Protect-Plus-1st-Gen-Information) in February - and I own my data and the hardware it runs on.
 
 It's a hobby, and hobbies cost money. Nobody asks a golfer to justify their club membership with a break-even analysis.
 
@@ -406,7 +406,7 @@ It's a hobby, and hobbies cost money. Nobody asks a golfer to justify their club
 
 I'm not going to get a job titled "homelab engineer," but running every layer of this myself - the network, the hosts, the deploys, the monitoring, the power bill - shows up at work constantly.
 
-I know how to actually deploy the things I write about, instead of stopping at `localhost`. When I need a demo app, I can stand up the whole thing myself: the database, the backend, the hosting, and the monitoring that tells me when it falls over. And I can talk to very different engineers - network people, platform teams, data engineers, app developers - in their own terms, because I've broken every one of their layers of the stack in my own attic.
+I can actually deploy the things I write about instead of stopping at `localhost`. When I need a demo app, I stand up the whole thing myself: the database, the backend, the hosting, and the monitoring that tells me when it falls over. I can also talk to network people, platform teams, data engineers, and app developers on their own terms, because I've broken each of their layers in my attic.
 
 ## What I'd do differently
 
