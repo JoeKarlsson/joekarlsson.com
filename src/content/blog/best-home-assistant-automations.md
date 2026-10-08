@@ -317,7 +317,7 @@ At 11 PM, Home Assistant SSHes into one of my Proxmox hosts and stops 11 contain
 
 The notification says "Saving ~175W." I pulled 30 days of power data out of Prometheus, and the two servers drew about 5W less overnight than the rest of the day, roughly 15 cents a month. The containers it stops sit idle most of the time anyway, and the overnight backup jobs run in that same window. I'm giving up overnight AI for those 15 cents. Night mode either needs to stop things that actually draw power, or it needs to go, and I haven't decided which.
 
-Party Mode pushes night mode back to 4 AM, and there's a manual "override until" time for nights I'm working late. The full numbers are in the [night mode section of my homelab post](/blog/homelab-two-years-later/). If you build one, put a power meter on it first and measure before and after.
+Party Mode pushes night mode back to 4 AM, and there's a manual "override until" time for nights I'm working late. If you build one, put a power meter on it first and measure before and after.
 
 ## Keeping 128 Home Assistant automations working
 

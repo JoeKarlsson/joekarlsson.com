@@ -308,10 +308,6 @@ The plug reads about 25W more than the two servers, which covers the switches, N
 
 **Killed the third server.** I had prxbox3, the original ThinkServer from my first blog post, still running 9 containers. I migrated all of them to the two R730s, which had plenty of room, and powered it off. I never metered it, so I can't tell you what that saved. It's fully out of the Proxmox cluster now, and a Raspberry Pi running a quorum device gives the two-node cluster its tiebreaker vote instead.
 
-**Night mode.** Every night at 11 PM, Home Assistant stops 11 containers I don't need overnight (Ollama, Paperless, Kometa, that kind of stuff) and starts them back up at 6 AM. It sends me a notification that says "Saving ~175W." I picked that number when I built it and never checked it.
-
-Nights and days are within about 5W of each other, because those containers sit idle most of the day anyway and my backups run overnight. That's about 15 cents a month, and it's still in my [favorite Home Assistant automations](/blog/best-home-assistant-automations/) post. I'll either point it at something that actually draws power or turn it off.
-
 **CPU governor tuning.** Both hosts are supposed to run the `powersave` frequency governor instead of `performance`. At 13% average CPU there's nothing for `performance` mode to speed up. When I checked for this update, prxbox1 was all `powersave`, but 31 of prxbox2's 80 threads had drifted back to `performance`. The governor is host-level config, and the hosts aren't in OpenTofu, so the drift check couldn't catch it. I also haven't measured what `powersave` actually saves, and at 13% CPU I'd guess not much.
 
 ![Anakin Padme 4 Panel meme: 'I put everything in OpenTofu' / 'So nothing can drift, right?' / Anakin's silent stare / '...nothing can drift, right?'](/images/blog/homelab-two-years-later/meme-anakin-padme-drift.webp)
@@ -413,7 +409,6 @@ I can actually deploy the things I write about instead of stopping at `localhost
 If I were starting over tomorrow with everything I know now:
 
 - **Infrastructure as code from day one, hosts included.** I put off OpenTofu for over a year because hand-configuring one more container always felt faster, even though it wasn't. When I finally did it, I stopped at the containers, which is how the CPU governor drifted.
-- **Measure before you automate.** Night mode was a weekend of work to save about 5W. Five minutes in Prometheus would have told me that first.
 - **VLANs from day one.** Retrofitting network segmentation onto a running homelab means updating every single service that hardcodes an IP address. It's a miserable weekend project that should've been a 10-minute setup decision.
 - **Buy for the bottleneck.** I put 10G between two servers and left the NAS on 1G. Figure out what actually moves data before you buy the fast links.
 - **Monitoring before the first failure.** You don't need 185 checks on day one, but uptime checks and basic backup verification should be there from the start.
@@ -424,7 +419,6 @@ If I were starting over tomorrow with everything I know now:
 ## What's next
 
 - Lower-power hardware for the services that don't need 40 cores (maybe a small NUC or mini PC for lightweight containers)
-- Deciding whether night mode gets rebuilt around things that actually draw power, or retired
 - A check for sensors that stop changing, and the Proxmox hosts themselves under code so the governor can't drift again
 - A second way into the iDRACs that doesn't depend on prxbox1 being up
 - Fixing things remotely - I've since started [driving the homelab from my phone with Claude Code](/blog/my-development-setup-2026/)
