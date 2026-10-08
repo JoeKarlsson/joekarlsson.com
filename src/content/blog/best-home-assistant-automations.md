@@ -354,6 +354,8 @@ The Bayesian sensor treats every observation as independent evidence, and that b
 
 The second piece is mmWave radar. I added Aqara FP300 presence sensors in the Great Room and the bedroom and an FP2 in the office. Radar picks up someone sitting still, so it holds the lights on while I'm home or guest mode is on, and nobody has to wave their arms anymore. With the radar online, I cut the timeout after everyone leaves those rooms to 10 minutes. The radar gets ignored while Good Night, Time For Bed, or Nap Time has switched that room's motion sensing off, the same as the Hue motion sensors.
 
+I've been living with this for a while now, and I'm still tuning it, but it works so much better than motion sensors alone. Each room's lights respond faster and turn off sooner after I leave instead of waiting out a long timer, so I'm saving a lot of power on lighting too.
+
 ### A sensor that knows when I'm asleep
 
 Joe Asleep is the same idea applied to the whole house. It's a Bayesian sensor with eight observations: the time is between 10 PM and 10 AM, the bedroom reads occupied, the bedroom radar sees someone, no other room is occupied, nothing is playing outside the bedroom, the bedroom lights are off, my iPhone is charging, and a Focus is on. It needs 80% to turn on, so a daytime nap doesn't count, and I set it up that way on purpose.
