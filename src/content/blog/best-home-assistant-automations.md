@@ -1,13 +1,14 @@
 ---
 title: 'The Best Home Assistant Automations of 2026 (10 Years In)'
 date: 2026-09-29
+updatedDate: 2026-10-08
 slug: 'best-home-assistant-automations'
 description: 'The best Home Assistant automations after 10 years and 128 running: basic to advanced, plus how I find broken ones and keep them working.'
 categories: ['Smart Home']
 tags: ['Home Assistant', 'Smart Home', 'Automation', 'Local AI']
 heroImage: '/images/blog/best-home-assistant-automations/hero.webp'
 heroAlt: 'A finger pressing a pink 3D house made of circuit board traces, representing Home Assistant smart home automations'
-tldr: "As of September 2026 (Home Assistant 2026.9), after 10 years and 128 running automations, these are the best Home Assistant automations worth building. Basic: motion lighting with a manual override, arriving and leaving, and leak, smoke, and CO2 alerts. Intermediate: one combined laundry notification, Meeting Mode from my Mac camera, modes that turn themselves off, and a nightlight that doubles as a status light. Advanced: local AI package detection. The biggest lesson from 10 years: automations break as devices change, so I run health checks to catch problems ahead of time and use continue_on_error so one broken step doesn't take down a whole automation."
+tldr: "As of September 2026 (Home Assistant 2026.9), after 10 years and 128 running automations, these are the best Home Assistant automations worth building. Basic: motion lighting with a manual override, arriving and leaving, and leak, smoke, and CO2 alerts. Intermediate: one combined laundry notification, Meeting Mode from my Mac camera, modes that turn themselves off, and a nightlight that doubles as a status light. Advanced: local AI package detection, and room presence from mmWave radar and Bayesian sensors so the lights stay on while someone's sitting still. The biggest lesson from 10 years: automations break as devices change, so I run health checks to catch problems ahead of time and use continue_on_error so one broken step doesn't take down a whole automation."
 faq:
   - question: 'What are the best Home Assistant automations for beginners?'
     answer: 'The best Home Assistant automations for beginners are motion lighting with a manual override, arriving and leaving routines, and safety alerts for any leak, smoke, or CO2 sensor you own. They pay off every day, and they work for guests without needing the app.'
@@ -66,6 +67,8 @@ The whole list, at a glance:
 | Pause music when someone's at door    | Intermediate | Frigate or a doorbell, speakers   |
 | 3D printer alerts and auto power-off  | Intermediate | OctoPrint, smart plug             |
 | Local AI package and person detection | Advanced     | Frigate, Ollama, AI Task          |
+| Lights that know you're in the room   | Advanced     | mmWave presence sensors           |
+| A sensor that knows when I'm asleep   | Advanced     | Phone, presence sensors           |
 
 ## Basic Home Assistant automations
 
@@ -78,7 +81,7 @@ I have motion lighting in 10 rooms. My first attempts had a habit of turning the
 - **A manual override in every room.** Hit a physical switch or dimmer, and a timer starts; motion stops touching that room until it expires. If I started over, this is the first thing I'd build.
 - **Dim instead of dark.** After 30 minutes of stillness, the kitchen drops to a 5% nightlight instead of going dark. Move, and the lights come back.
 - **Time of day.** After 10 PM the kitchen comes on at 30% and a warm 2200K instead of full daylight at 2 AM.
-- **Pause for the TV.** The Great Room uses Frigate person detection, with Hue MotionAware as a fallback, and it stops entirely while the TV is on. Nothing kills a movie like the lights snapping on because you reached for popcorn.
+- **Pause for the TV.** The Hue bridge turns the Great Room lights on from Hue MotionAware, and Home Assistant never turns them off while the TV or a Great Room speaker is playing. Nothing kills a movie like the lights snapping on because you reached for popcorn.
 
 One gotcha took me way too long to find. If a `for: minutes: 30` timer is counting down and Home Assistant restarts, the timer is gone and the lights stay on until someone notices. My fix is a template trigger that asks "are the lights on, is nobody moving, and has nothing changed in 30 minutes?" That question has the same answer before and after a restart.
 
@@ -273,7 +276,7 @@ My Prusa runs through OctoPrint, and Home Assistant sends a push when a print st
 
 ## Advanced Home Assistant automations
 
-These need more hardware and more trust in your setup: a GPU and a local AI model. They still have to pass the guest test: a guest should never know the AI is involved, and when it fails, the house falls back to something sensible.
+These need more hardware and more trust in your setup: a GPU and a local AI model, or presence sensors and some probability math. They still have to pass the guest test: a guest should never know any of it is involved, and when it fails, the house falls back to something sensible.
 
 ### Local AI package detection: only worth it for yes-or-no answers
 
@@ -306,6 +309,58 @@ The novelty ones are the doorbell describing who's there ("A delivery driver in 
 When the model doesn't answer at all, mine assumes there's a package, because a false alert beats a missed delivery.
 
 My AI automations talk to Ollama directly with no cloud fallback, so camera snapshots never leave my network.
+
+### Lights that know you're still in the room
+
+The fixes in the motion lighting section got me most of the way, but a motion sensor only sees movement. Sit still on the couch long enough and the lights still dim on you, and a cat walking through an empty room still counts as a person. In October 2026 I stopped asking one sensor whether a room is occupied and started having Home Assistant work out how likely it is from everything it knows about that room.
+
+The first piece is a "sustained activity" sensor in six rooms. It turns on when the room shows a pattern a person makes and a cat doesn't: motion again at least 45 seconds after the lights came on, someone using the room's dimmer, voice satellite, or bedside button, or the lights getting turned back on within 2 minutes of the motion automation turning them off. A cat crossing the room is one burst of motion, so it leaves the sensor off. In the office, CO2 climbing faster than 2 ppm a minute also counts, using a [derivative sensor](https://www.home-assistant.io/integrations/derivative/).
+
+Each room then gets a [Bayesian sensor](https://www.home-assistant.io/integrations/bayesian/). You give it a starting probability and a list of observations, and for each observation you say how often it's true when someone's in the room and how often it's true when nobody is. Home Assistant combines them into one probability, and my rooms read as occupied above 50%. The bedroom uses sustained activity, any motion, a TV or speaker playing, the bedroom Light Lock, and whether I'm home or guest mode is on.
+
+<details>
+<summary>Show the YAML</summary>
+
+```yaml
+- platform: bayesian
+  name: Bedroom Presence
+  device_class: occupancy
+  prior: 0.3
+  probability_threshold: 0.5
+  observations:
+    - platform: state
+      entity_id: binary_sensor.bedroom_sustained_activity
+      to_state: 'on'
+      prob_given_true: 0.85
+      prob_given_false: 0.05
+    # Both motion sensors see the same room, so they're one observation
+    - platform: template
+      value_template: >
+        {{ is_state('binary_sensor.bedroom_motion', 'on')
+           or is_state('binary_sensor.hue_motion_sensor_2_motion', 'on') }}
+      prob_given_true: 0.3
+      prob_given_false: 0.05
+    - platform: template
+      value_template: >
+        {{ is_state('person.joekarlsson', 'home')
+           or is_state('input_boolean.guest_mode', 'on') }}
+      prob_given_true: 0.99
+      prob_given_false: 0.6
+```
+
+</details>
+
+The Bayesian sensor treats every observation as independent evidence, and that bit me right away. I'd listed the bedroom's two motion sensors separately, so one cat walking past tripped both and the room read 65% occupied. If two sensors are watching the same thing, combine them into one observation.
+
+The second piece is mmWave radar. I added Aqara FP300 presence sensors in the Great Room and the bedroom and an FP2 in the office. Radar picks up someone sitting still, so it holds the lights on while I'm home or guest mode is on, and nobody has to wave their arms anymore. With the radar online, I cut the timeout after everyone leaves those rooms to 10 minutes. The radar gets ignored while Good Night, Time For Bed, or Nap Time has switched that room's motion sensing off, the same as the Hue motion sensors.
+
+### A sensor that knows when I'm asleep
+
+Joe Asleep is the same idea applied to the whole house. It's a Bayesian sensor with eight observations: the time is between 10 PM and 10 AM, the bedroom reads occupied, the bedroom radar sees someone, no other room is occupied, nothing is playing outside the bedroom, the bedroom lights are off, my iPhone is charging, and a Focus is on. It needs 80% to turn on, so a daytime nap doesn't count, and I set it up that way on purpose.
+
+Three automations use it. The morning routine turns on the kitchen lights and the Great Room sound system 5 minutes after Joe Asleep turns off. It used to run at a fixed 7 AM, which lit up the kitchen while I was still in bed. My homelab alerts only push outages to my phone while I'm asleep and hold everything else until I'm up. And the Great Room TV turns itself off when Joe Asleep turns on.
+
+Tuning it took a few rounds. Before "no other room is occupied" was an observation, charging, Focus, and a dark bedroom added up to 82% while I was sitting in the Great Room, so now it's the strongest sign I'm awake. The cats sleep on the bed too, so the bedroom radar only counts as moderate evidence. And the window used to end at a hard 7 AM, which released the held alerts while I was still lying in bed.
 
 ## Keeping 128 Home Assistant automations working
 
