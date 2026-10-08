@@ -130,7 +130,6 @@ Joe replaces SaaS dependencies with self-hosted alternatives that integrate with
 - **Voice Camera Queries**: "What's at the front door?" triggers real-time AI vision analysis via Home Assistant Assist
 - **Infrastructure Alert Translation**: Prometheus alerts -> local LLM -> friendly natural-language notifications
 - **Laundry Detection**: Vibration + contact sensors detect washer/dryer completion, combined notifications across 3 speakers
-- **Power Night Mode**: HA SSHs into Proxmox at 11 PM, stops non-essential containers saving ~175W, restarts at 7 AM with health checks
 - **Weather-Aware Mornings**: Checks forecast to decide curtain position, light scenes, and climate presets
 - **Vacation Presence Simulation**: Mimics realistic light patterns, arms alarm, adjusts climate when away
 

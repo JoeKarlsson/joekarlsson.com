@@ -7,7 +7,7 @@ categories: ['Smart Home']
 tags: ['Home Assistant', 'Smart Home', 'Automation', 'Local AI']
 heroImage: '/images/blog/best-home-assistant-automations/hero.webp'
 heroAlt: 'A finger pressing a pink 3D house made of circuit board traces, representing Home Assistant smart home automations'
-tldr: "As of September 2026 (Home Assistant 2026.9), after 10 years and 128 running automations, these are the best Home Assistant automations worth building. Basic: motion lighting with a manual override, arriving and leaving, and leak, smoke, and CO2 alerts. Intermediate: one combined laundry notification, Meeting Mode from my Mac camera, modes that turn themselves off, and a nightlight that doubles as a status light. Advanced: local AI package detection and a night mode that shuts down part of my homelab. The biggest lesson from 10 years: automations break as devices change, so I run health checks to catch problems ahead of time and use continue_on_error so one broken step doesn't take down a whole automation."
+tldr: "As of September 2026 (Home Assistant 2026.9), after 10 years and 128 running automations, these are the best Home Assistant automations worth building. Basic: motion lighting with a manual override, arriving and leaving, and leak, smoke, and CO2 alerts. Intermediate: one combined laundry notification, Meeting Mode from my Mac camera, modes that turn themselves off, and a nightlight that doubles as a status light. Advanced: local AI package detection. The biggest lesson from 10 years: automations break as devices change, so I run health checks to catch problems ahead of time and use continue_on_error so one broken step doesn't take down a whole automation."
 faq:
   - question: 'What are the best Home Assistant automations for beginners?'
     answer: 'The best Home Assistant automations for beginners are motion lighting with a manual override, arriving and leaving routines, and safety alerts for any leak, smoke, or CO2 sensor you own. They pay off every day, and they work for guests without needing the app.'
@@ -18,7 +18,7 @@ faq:
   - question: 'How many automations is too many in Home Assistant?'
     answer: 'There is no hard limit. I run 128 on Home Assistant 2026.9. The practical limit is maintenance: past about 30 automations, add a health check such as Watchman or a scheduled script so broken references get caught before they bite.'
   - question: 'What are good Home Assistant automation ideas beyond lights?'
-    answer: 'Laundry alerts from a door contact and a vibration sensor, Meeting Mode triggered by the camera_in_use sensor on your Mac, a color-coded nightlight that shows garage, leak, and rain status, closet lights on a door sensor, and a night mode that shuts down homelab containers nobody needs overnight.'
+    answer: 'Laundry alerts from a door contact and a vibration sensor, Meeting Mode triggered by the camera_in_use sensor on your Mac, a color-coded nightlight that shows garage, leak, and rain status, and closet lights on a door sensor.'
   - question: 'Should I use continue_on_error on every action?'
     answer: 'No. Use it on steps that talk to something outside Home Assistant, like a device, a server, or an AI model. On its own it hides failures, so pair it with a health check that tells you what broke.'
   - question: 'What does continue_on_error do in Home Assistant?'
@@ -66,7 +66,6 @@ The whole list, at a glance:
 | Pause music when someone's at door    | Intermediate | Frigate or a doorbell, speakers   |
 | 3D printer alerts and auto power-off  | Intermediate | OctoPrint, smart plug             |
 | Local AI package and person detection | Advanced     | Frigate, Ollama, AI Task          |
-| Night mode for a homelab              | Advanced     | Proxmox, SSH from Home Assistant  |
 
 ## Basic Home Assistant automations
 
@@ -236,7 +235,7 @@ _The Work panel: every mode is a tile, and Meeting turns on by itself when the M
 
 ### Party and guest modes that turn themselves off
 
-Party Mode turns on guest mode and disables 7 automations that would be annoying with a crowd, like doorbell announcements, package alerts, and the midnight shutdown, and it holds night mode off until 4 AM. The motion lights skip their auto-off too, so the lights don't go off on anyone mid-conversation. Guest Mode disarms the alarm, puts the indoor camera in privacy mode, and stops Frigate recording.
+Party Mode turns on guest mode and disables 7 automations that would be annoying with a crowd, like doorbell announcements, package alerts, and the midnight shutdown. The motion lights skip their auto-off too, so the lights don't go off on anyone mid-conversation. Guest Mode disarms the alarm, puts the indoor camera in privacy mode, and stops Frigate recording.
 
 Both expire on their own: Party Mode at 4 AM, Guest Mode after 24 hours. A mode you have to remember to turn off will eventually get left on, and then your motion lights stop working and you don't know why.
 
@@ -274,7 +273,7 @@ My Prusa runs through OctoPrint, and Home Assistant sends a push when a print st
 
 ## Advanced Home Assistant automations
 
-These need more hardware or more trust in your setup: a GPU, local AI, or Home Assistant reaching into other machines and turning them off. They still have to pass the guest test: a guest should never know the AI or the homelab is involved, and when either one fails, the house falls back to something sensible.
+These need more hardware and more trust in your setup: a GPU and a local AI model. They still have to pass the guest test: a guest should never know the AI is involved, and when it fails, the house falls back to something sensible.
 
 ### Local AI package detection: only worth it for yes-or-no answers
 
@@ -293,9 +292,6 @@ Both change what happens next based on the answer. Here's the package flow:
 person at the front door 10-60 s, no ring   (doorbell person detection)
         |
         v
-AI offline for the night? --yes--> skip AI, assume there's a package
-        | no
-        v
 snapshot -> ai_task.generate_data            (qwen3-vl:8b)
         |      ...AI errors? keep going, assume there's a package
         v
@@ -309,15 +305,7 @@ The novelty ones are the doorbell describing who's there ("A delivery driver in 
 
 When the model doesn't answer at all, mine assumes there's a package, because a false alert beats a missed delivery.
 
-My AI automations talk to Ollama directly with no cloud fallback, so camera snapshots never leave my network. That means no AI overnight, because Ollama is one of the things my house shuts off at 11 PM.
-
-### Night mode for a homelab
-
-At 11 PM, Home Assistant SSHes into one of my Proxmox hosts and stops 11 containers across both hosts that nobody needs at night: Ollama, Paperless, Kometa, Lyrion, SearXNG, and a handful of media tools. At 6 AM it brings them back. Stopping Lyrion doesn't leave a guest in silence: every speaker in the house also takes AirPlay, Google Cast, or Bluetooth directly.
-
-The notification says "Saving ~175W." I pulled 30 days of power data out of Prometheus, and the two servers drew about 5W less overnight than the rest of the day, roughly 15 cents a month. The containers it stops sit idle most of the time anyway, and the overnight backup jobs run in that same window. I'm giving up overnight AI for those 15 cents. Night mode either needs to stop things that actually draw power, or it needs to go, and I haven't decided which.
-
-Party Mode pushes night mode back to 4 AM, and there's a manual "override until" time for nights I'm working late. If you build one, put a power meter on it first and measure before and after.
+My AI automations talk to Ollama directly with no cloud fallback, so camera snapshots never leave my network.
 
 ## Keeping 128 Home Assistant automations working
 
@@ -381,4 +369,4 @@ I'm also trying to make the house more sustainable, and part of that is avoiding
 
 I'm staying on Zigbee. Matter has been pretty unstable so far, and I still have hope for it, but Zigbee is cheap and it works great for me. I'm not moving my devices over until Matter settles down.
 
-Ten years in, Home Assistant is still the center of my house, and I'm planning to run it for another 10. What's still on the list: fewer battery sensors, a night mode that saves real power or no night mode at all, and getting that health checks tile from 138/141 to 141/141.
+Ten years in, Home Assistant is still the center of my house, and I'm planning to run it for another 10. What's still on the list: fewer battery sensors and getting that health checks tile from 138/141 to 141/141.
