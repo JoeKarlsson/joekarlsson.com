@@ -8,6 +8,9 @@ const issues = (await getCollection('newsletter')).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
+// Back issues carry substackUrl; issues sent from listmonk do not
+const substackCount = issues.filter((i) => i.data.substackUrl).length;
+
 const byYear = new Map<number, typeof issues>();
 for (const issue of issues) {
 	const year = issue.data.date.getUTCFullYear();
@@ -35,8 +38,8 @@ for (const issue of issues) {
 
 		<h2 class="mb-2 text-2xl font-bold text-white">Archive</h2>
 		<p class="mb-8 text-gray-400">
-			Every back issue of TL;DR in Tech, where I rounded up the best engineering posts I read each
-			week, plus a couple of longer posts. {issues.length} issues from 2021 to 2024, moved here from Substack.
+			Every issue, newest first. The {substackCount} TL;DR in Tech back issues from 2021 to 2024, where
+			I rounded up the best engineering posts I read each week, came over from Substack.
 		</p>
 
 		{
