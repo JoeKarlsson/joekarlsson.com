@@ -69,6 +69,12 @@ const ogImageURL = new URL(image, Astro.site);
 	title={SITE_TITLE}
 	href={new URL('rss.xml', Astro.site)}
 />
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="stdout by Joe Karlsson (newsletter)"
+	href={new URL('newsletter/rss.xml', Astro.site)}
+/>
 
 <!-- SEO -->
 <link rel="canonical" href={canonicalURL} />

@@ -156,3 +156,29 @@ describe('Category Pages', () => {
 		}
 	});
 });
+
+describe('Newsletter RSS feed', () => {
+	const newsletterDir = resolve(import.meta.dirname, '..', 'src', 'content', 'newsletter');
+	const feed = readDist('newsletter/rss.xml');
+	const issueCount = readdirSync(newsletterDir).filter((f) => f.endsWith('.md')).length;
+
+	it('has one item per newsletter issue', () => {
+		expect((feed.match(/<item>/g) || []).length).toBe(issueCount);
+	});
+
+	it('links items to the newsletter archive, not the blog', () => {
+		const links = feed.match(/<link>[^<]*<\/link>/g) || [];
+		const itemLinks = links.filter(
+			(l) => l.includes('/newsletter/') && !l.endsWith('/newsletter/</link>'),
+		);
+		expect(itemLinks.length).toBe(issueCount);
+	});
+
+	it('includes the full text of each issue', () => {
+		expect((feed.match(/<content:encoded>/g) || []).length).toBe(issueCount);
+	});
+
+	it('is advertised in the page head', () => {
+		expect(readDist('index.html')).toContain('newsletter/rss.xml');
+	});
+});
