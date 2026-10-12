@@ -19,7 +19,7 @@ interface Props {
 }
 
 const { issue, prev, next } = Astro.props;
-const { title, date, description } = issue.data;
+const { title, date, description, substackUrl } = issue.data;
 const { Content } = await render(issue);
 const linkClass =
 	'underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral';
@@ -40,13 +40,20 @@ const linkClass =
 				<span class="mx-1">&gt;</span>
 				<span class="text-gray-400">{title}</span>
 			</nav>
-			<div
-				class="mb-6 rounded-lg border border-yellow-500/30 bg-yellow-500/10 px-4 py-3 font-mono text-sm text-yellow-200"
-				role="note"
-			>
-				<span class="mr-2 text-yellow-400" aria-hidden="true">&#9888;</span>
-				From the TL;DR in Tech archive, originally sent on Substack. Some links may have died since.
-			</div>
+			{
+				substackUrl && (
+					<div
+						class="mb-6 rounded-lg border border-yellow-500/30 bg-yellow-500/10 px-4 py-3 font-mono text-sm text-yellow-200"
+						role="note"
+					>
+						<span class="mr-2 text-yellow-400" aria-hidden="true">
+							&#9888;
+						</span>
+						From the TL;DR in Tech archive, originally sent on Substack. Some links may have died
+						since.
+					</div>
+				)
+			}
 			<div class="mb-8">
 				<p class="mb-2 font-mono text-sm text-gray-400"><FormattedDate date={date} /></p>
 				<h1 class="mb-4 text-3xl font-bold text-white md:text-4xl">{title}</h1>
