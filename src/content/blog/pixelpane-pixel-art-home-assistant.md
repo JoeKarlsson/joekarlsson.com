@@ -1,0 +1,89 @@
+---
+title: 'I built a 32x32 pixel art frame that shows what my house is doing'
+date: 2026-10-12
+slug: 'pixelpane-pixel-art-home-assistant'
+description: 'PixelPane is my open source 32x32 LED pixel art frame on a Raspberry Pi. Home Assistant turns it into an ON AIR sign, a doorbell, and seasonal decor.'
+categories: ['Smart Home', 'IoT']
+tags: ['Home Assistant', 'Raspberry Pi', 'LED matrix', 'pixel art', 'open source']
+heroImage: '/images/blog/pixelpane-pixel-art-home-assistant/hero.webp'
+heroVideo: '/images/blog/pixelpane-pixel-art-home-assistant/board-demo.mp4'
+heroAlt: 'PixelPane on a desk: a black shadow box with a two-way mirror front, cycling through a clock, a spinning planet and a Halloween pumpkin under a crescent moon'
+tldr: 'PixelPane is a 32x32 LED panel on a Raspberry Pi 3B, behind a two-way mirror in a shadow box next to my desk. Most of the time it plays pixel art that changes with the seasons. Home Assistant pushes to it, so it also shows ON AIR when my camera turns on, flashes for the doorbell, packages and laundry, and draws the weather, what is playing and my next meeting as little animated scenes. I built it instead of buying one because I wanted something I could customize and wire into my self-hosted setup. Every scene is a plugin, one Python file each, and the whole thing is open source on GitHub.'
+---
+
+There's a black shadow box on the shelf next to my desk. Right now it's showing a pixel art pumpkin under a crescent moon, because it's October. When my camera turns on for a meeting it switches to a red ON AIR sign. When someone rings the doorbell it flashes yellow. Then it goes back to the pumpkin.
+
+It's called **PixelPane**: a 32x32 RGB LED panel and a Raspberry Pi behind a two-way mirror. It's an art project first, born from the 8-bit and 16-bit games I've been playing on emulators. It's also the only home dashboard I actually look at, because it shows my house's status as 8-bit art instead of a wall of numbers. The software is [open source on GitHub](https://github.com/JoeKarlsson/pixelpane) and plugin-based, and you can see more of it on the [project page](/work/pixelpane/).
+
+## A 32x32 square is enough for real pixel art
+
+As an adult I've fallen hard for retro gaming. The thing I love about 8-bit and 16-bit art is how much it does with almost nothing. A 32x32 grid is 1,024 pixels. That's enough for a pumpkin with a face, a snowman, a Christmas tree with blinking lights, or a little rain cloud. It's not enough for anything to look like a phone screen.
+
+![Nine of PixelPane's built-in scenes animating: a clock, weather, seasonal scenes and generative art](/images/blog/pixelpane-pixel-art-home-assistant/scenes.gif)
+
+The frame is what makes it look like art. From the front it's a dark mirror. Behind the mirror is a 3D-printed grid with one square cell per LED, then the panel, then the Pi with an Adafruit RGB Matrix HAT on its back. The grid turns each LED into a crisp square pixel instead of a fuzzy dot, and the mirror hides everything until it lights up. The full parts list and the printable grid are in [the build guide](https://github.com/JoeKarlsson/pixelpane/blob/main/docs/HARDWARE.md).
+
+![Side view of the inside of the PixelPane shadow box: from the front, a two-way mirror, an optional diffuser, the 3D-printed light grid, the LED panel facing forward, then the Raspberry Pi with the RGB Matrix HAT and a 5 V 4 A power supply going to the wall](/images/blog/pixelpane-pixel-art-home-assistant/build-layers.svg)
+
+## I owned a Pixoo 64 and still built my own
+
+I've owned a [Divoom Pixoo 64](https://divoom.com/products/pixoo-64), and it was fine. It's thinner than my shadow box and has four times the pixels. But the integrations are limited, you can only customize it as far as Divoom's app lets you, and it burned through several SD cards. It's write-heavy and goes through them fast. I wouldn't fully recommend it.
+
+Over the last couple of years I've gone all in on my [homelab](/blog/homelab-two-years-later/) and self-hosting, and I wanted the thing on my shelf to be part of that: something I could change whenever I wanted and wire into anything in the house. Off-the-shelf frames don't really work that way. An [Ulanzi TC001 running AWTRIX](https://blueforcer.github.io/awtrix3/) has great Home Assistant support for about $45, but it's a 32x8 ticker, not a canvas. Tidbyt was the closest thing to what I wanted, and it paused manufacturing when the company [joined Modal](https://tidbyt.com/blogs/tidbyt/tidbyt-is-joining-modal).
+
+Building your own isn't cheaper. The parts come to about $180 at today's prices (a Pi 3B, an Adafruit RGB Matrix HAT, a 32x32 panel, a 5 V 4 A supply, an SD card, a shadow box and some two-way mirror acrylic), which is more than a Pixoo. You're paying for owning every pixel and every integration (And because it's a fun project).
+
+## Putting it online was the point of the rebuild
+
+The board itself goes back to 2020, a spin-off of a [Digital Graffiti Wall](/blog/building-a-real-time-digital-graffiti-wall/) I built for conference talks. For years it was an offline Pi looping GIFs off its SD card, and changing anything meant SSHing in. This year I rebuilt it so it could keep up with the rest of my house. A few decisions shaped it:
+
+- **Home Assistant pushes to the board, and the board never reads from Home Assistant.** That way it doesn't need a Home Assistant token, and it can live on my IoT VLAN, where it can reach the internet and Home Assistant and nothing else.
+- **Scenes instead of a slideshow.** I rewrote the player in Python so it could draw live, animated scenes from data alongside the GIFs.
+- **A web page instead of SSH.** It has a built-in control page, so I can change the playlist, upload GIFs or put up ON AIR from my phone.
+- **Plugins for everything.** Adding a new scene is one Python file, so I can try an idea in an evening.
+- **Boring to run.** One installer sets up the whole Pi, and if the board is unplugged, nothing in my Home Assistant routines breaks.
+
+## My office decorates itself for the seasons
+
+I'm a seasonal person. I want my room to look like October in October and like December in December, and I'm lazy about putting decorations up and taking them down. So the board does it for me.
+
+![Is This A Pigeon meme: me, labeled Me, pointing at a butterfly labeled A pixel art pumpkin on a timer, with the caption Is this decorating for fall?](/images/blog/pixelpane-pixel-art-home-assistant/meme-is-this-a-pigeon.webp)
+
+The seasonal plugin knows the calendar. Autumn runs September through November, Halloween is all of October, and there are scenes for winter, spring, summer, Thanksgiving, Christmas, New Year, Valentine's Day, St. Patrick's Day and the Fourth of July. Each theme has a hand-animated scene plus its own GIF folder, so in October the playlist mixes falling leaves, the pumpkin and spooky GIFs into the usual rotation. On my birthday it puts up a cake.
+
+![Four seasonal PixelPane scenes in a grid: a Halloween pumpkin with a bat and crescent moon, a Christmas tree with blinking lights, a snowman in falling snow, and a birthday cake with candles under scrolling HAPPY BIRTHDAY text](/images/blog/pixelpane-pixel-art-home-assistant/grid-seasons.gif)
+
+There's also a sky plugin that draws tonight's moon with its real phase and names the full moons (Harvest, Hunter's, Wolf and so on), including supermoons and blue moons. It's calculated on the board with no network call.
+
+The rest of the rotation is about 350 GIFs I've collected since 2020, sorted into categories like retro, space, nature and animals. Most are from pixel artists on [OpenGameArt](https://opengameart.org/), [itch.io](https://itch.io/game-assets/free/tag-pixel-art) and [Kenney](https://kenney.nl/). I stick to native pixel art, because a downscaled video turns to mush at 32x32.
+
+## The house interrupts for a short list of things
+
+A notification jumps the queue, shows for a few seconds, and the art comes back. I keep the list short on purpose, so a flash on the board still means something.
+
+![Four PixelPane notification scenes in a grid: a red ON AIR sign, a flashing yellow doorbell with a ringing bell, an orange package alert, and a purple laundry-done alert with a spinning washer](/images/blog/pixelpane-pixel-art-home-assistant/grid-interrupts.gif)
+
+Here's the whole list:
+
+- **ON AIR** when my work MacBook's camera turns on. It hangs off the same [Meeting Mode from my Mac camera](/blog/best-home-assistant-automations/) that turns on my office lights and pauses the speaker, and it stays pinned until the camera turns off.
+- **Doorbell** and **package at the door**. I'm usually wearing headphones at my desk, and a flashing yellow bell in the corner of my eye works better than a phone buzz.
+- **Laundry done**, washer and dryer.
+- **Front door opened**.
+- **National Weather Service warnings** and **St. Paul snow emergencies**, because a car left on the wrong side of the street gets towed.
+- **A critical homelab alert**, from the same alert pipeline that pings my phone.
+
+![Sleeping Shaq meme: Shaq asleep next to My phone buzzing with a doorbell notification, then wide awake with glowing eyes next to A 32x32 yellow bell flashing in the corner of my eye](/images/blog/pixelpane-pixel-art-home-assistant/meme-sleeping-shaq.webp)
+
+## Weather, music, meetings and the homelab as animated scenes
+
+Between the GIFs, the playlist has live scenes: a clock, the weather, what's playing in my office, a countdown to my next meeting, and a six-page homelab dashboard that cycles through host CPU, NAS space, network and the UPS. Each one is animated: the weather cloud rains, the calendar icon rings when a meeting is close, and the homelab gauges fill up. Home Assistant pushes the data for all of them every 10 minutes, and right away whenever something changes.
+
+![Four PixelPane status scenes in a grid: rainy weather with the temperature and high and low, now playing with an equalizer and the song title, a calendar countdown to a meeting, and a homelab dashboard showing NAS usage](/images/blog/pixelpane-pixel-art-home-assistant/grid-status.gif)
+
+A scene with nothing to show skips itself. If no music is playing, there's no now-playing scene. If my next meeting is more than 12 hours away, no countdown. So when nothing's going on in the house, it's mostly showing art.
+
+## What's next
+
+I'm keeping all of it. ON AIR and the seasons are the parts I'd miss on day one. Next on my list is a draw mode, a 32x32 canvas on the control page that paints the panel live. I'd also like a Pomodoro scene, and a Siri sentence to show a message on the board.
+
+If you build one, [the repo](https://github.com/JoeKarlsson/pixelpane) has the parts list, the printable grid, the installer and the [Home Assistant setup](https://github.com/JoeKarlsson/pixelpane/blob/main/docs/HOME_ASSISTANT.md). Write a plugin and send me a PR.

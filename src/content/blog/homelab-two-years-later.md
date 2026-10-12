@@ -170,6 +170,8 @@ A compromised smart plug on the IoT VLAN can't reach my NAS, and a guest can't s
 
 It's not airtight. Casting across VLANs needs mDNS, and right now the gateway reflects all mDNS traffic between networks instead of just AirPlay and Cast. And only 11 devices are on the IoT VLAN right now. A lot of my older smart stuff still lives on the main LAN, fenced in by a MikroTik firewall list I set up before the VLANs existed. I haven't moved them yet.
 
+My LED pixel art frame, [PixelPane](/blog/pixelpane-pixel-art-home-assistant/), lives there now: it can reach Home Assistant and the internet and nothing else, and Home Assistant pushes to it instead of handing it a token.
+
 Here's how the network is structured:
 
 ```

@@ -215,6 +215,8 @@ This is my favorite automation, and it has no button. When my work MacBook's cam
 
 The trigger is a `camera_in_use` binary sensor from the [Home Assistant companion app](https://companion.home-assistant.io/docs/core/sensors/) on the Mac. It's the most useful sensor I didn't know existed.
 
+The same Meeting Mode also puts a red ON AIR sign on [PixelPane, the 32x32 pixel art display next to my desk](/blog/pixelpane-pixel-art-home-assistant/), which flashes for the doorbell and my homelab alerts too.
+
 <details>
 <summary>Show the YAML</summary>
 

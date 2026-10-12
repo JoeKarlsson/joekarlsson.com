@@ -183,3 +183,5 @@ The best moments are when the audience self-organizes - someone starts drawing a
 **Physical computing amplifies digital experiences.** The web canvas alone is fun. Seeing your pixels appear on a physical LED grid is _exciting_. The bridge between digital and physical is where the magic happens.
 
 The [source code is on GitHub](https://github.com/JoeKarlsson/digital-graffiti-wall) if you want to run your own at an event. All you need is a MongoDB Atlas account and a dream.
+
+The LED panel half of this project still lives on the shelf next to my desk. In 2026 I rebuilt it as [PixelPane, an open source pixel art frame that Home Assistant drives](/blog/pixelpane-pixel-art-home-assistant/).

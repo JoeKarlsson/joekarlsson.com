@@ -594,3 +594,13 @@ compinit
 atuin
 Kimi
 opencode
+Adafruit
+heatsink
+Divoom
+Divoom's
+Tidbyt
+supermoons
+Kenney
+Pomodoro
+Pixoo
+undervoltage

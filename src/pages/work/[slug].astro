@@ -15,6 +15,15 @@ interface Props {
 
 const { project } = Astro.props;
 const { page } = project;
+const square = page.galleryAspect === 'square';
+// Inline styles for the square layout keep the shared CSS bundle under budget
+const clipStyle = square ? 'aspect-ratio: 1 / 1' : undefined;
+const gridStyle = square
+	? 'grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))'
+	: undefined;
+const clipClass = square
+	? 'w-full rounded-lg bg-black object-contain'
+	: 'aspect-video w-full rounded-lg bg-black object-cover';
 
 // Page copy is plain text with `backticks` for inline code - escape first so
 // nothing in projects.ts can inject markup.
@@ -176,7 +185,7 @@ const inline = (text: string) =>
 					{page.galleryNote && (
 						<p class="mb-4 text-sm text-gray-400" set:html={inline(page.galleryNote)} />
 					)}
-					<div class="grid gap-4 sm:grid-cols-2">
+					<div class={square ? 'grid gap-4' : 'grid gap-4 sm:grid-cols-2'} style={gridStyle}>
 						{page.gallery.map((clip) => (
 							<figure class="m-0">
 								{clip.video ? (
@@ -191,14 +200,16 @@ const inline = (text: string) =>
 										role="img"
 										aria-label={clip.alt}
 										data-hover-play
-										class="aspect-video w-full rounded-lg bg-black object-cover"
+										class={clipClass}
+										style={clipStyle}
 									/>
 								) : (
 									<img
 										src={clip.poster}
 										alt={clip.alt}
 										loading="lazy"
-										class="aspect-video w-full rounded-lg bg-black object-cover"
+										class={clipClass}
+										style={clipStyle}
 									/>
 								)}
 								{clip.caption && (
@@ -210,6 +221,60 @@ const inline = (text: string) =>
 						))}
 					</div>
 				</section>
+			)
+		}
+
+		{
+			page.screenshots && (
+				<section class="mb-10" aria-labelledby="screenshots">
+					<h2 id="screenshots" class="mb-4 text-lg font-bold text-white">
+						<span class="font-mono text-sm text-coral" aria-hidden="true">
+							~$
+						</span>{' '}
+						{page.screenshotsTitle ?? 'screenshots'}
+					</h2>
+					<div class="grid gap-4">
+						{page.screenshots.map((shot) => (
+							<figure class="m-0">
+								<img
+									src={shot.poster}
+									alt={shot.alt}
+									loading="lazy"
+									class="mx-auto rounded-lg border border-surface-3"
+									style="max-height: 720px; max-width: 100%"
+								/>
+								{shot.caption && (
+									<figcaption class="mt-2 font-mono text-xs text-gray-400">
+										{shot.caption}
+									</figcaption>
+								)}
+							</figure>
+						))}
+					</div>
+				</section>
+			)
+		}
+
+		{
+			project.sourceUrl && (
+				<div class="mb-10 flex flex-wrap gap-3">
+					<a
+						href={project.sourceUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
+					>
+						Get the code on GitHub &rarr;
+					</a>
+					{project.blogUrl && (
+						<a
+							href={project.blogUrl}
+							class="inline-block rounded-md border border-surface-3 px-4 py-2 font-medium text-gray-300 no-underline hover:border-coral/50 hover:text-coral"
+						>
+							Read why I built it
+						</a>
+					)}
+				</div>
 			)
 		}
 

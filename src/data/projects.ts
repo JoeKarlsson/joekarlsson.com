@@ -23,6 +23,11 @@ export interface ProjectPage {
 	gallery?: ProjectClip[];
 	galleryTitle?: string;
 	galleryNote?: string;
+	// 'square' shows clips whole in a denser grid instead of cropping to 16:9
+	galleryAspect?: 'video' | 'square';
+	// Full-width stills at their own aspect ratio, after the gallery
+	screenshots?: ProjectClip[];
+	screenshotsTitle?: string;
 }
 
 export interface Project {
@@ -48,6 +53,15 @@ const bumperClip = (name: string, alt: string): ProjectClip => ({
 	video: `${BUMPER_DIR}/${name}.mp4`,
 	poster: `${BUMPER_DIR}/${name}-poster.webp`,
 	alt,
+});
+
+const PIXELPANE_DIR = '/images/blog/pixelpane-pixel-art-home-assistant';
+
+const pixelClip = (name: string, alt: string, caption: string): ProjectClip => ({
+	video: `${PIXELPANE_DIR}/scene-${name}.mp4`,
+	poster: `${PIXELPANE_DIR}/scene-${name}-poster.webp`,
+	alt,
+	caption,
 });
 
 export const CATEGORY_META: Record<
@@ -105,6 +119,74 @@ export const projects: Project[] = [
 		blogUrl: '/blog/an-introduction-to-iot-internet-of-toilets/',
 		stars: 25,
 		featured: true,
+	},
+	{
+		title: 'PixelPane',
+		description:
+			'A 32x32 LED pixel art frame behind a two-way mirror, driven by a Raspberry Pi. It plays seasonal pixel art, and Home Assistant pushes to it: ON AIR when my camera turns on, the doorbell, the weather. Open source, and every scene is a plugin.',
+		image: `${PIXELPANE_DIR}/hero.webp`,
+		video: `${PIXELPANE_DIR}/board-demo.mp4`,
+		imageAlt:
+			'PixelPane on a desk: a black shadow box with a two-way mirror front, cycling through a clock, a spinning planet and a Halloween pumpkin under a crescent moon',
+		category: 'iot',
+		tech: ['Python', 'Raspberry Pi', 'LED matrix', 'Home Assistant', '3D Printing'],
+		sourceUrl: 'https://github.com/JoeKarlsson/pixelpane',
+		blogUrl: '/blog/pixelpane-pixel-art-home-assistant/',
+		page: {
+			slug: 'pixelpane',
+			tagline: 'A 32x32 LED pixel art frame for your shelf, driven by a Raspberry Pi.',
+			intro: [
+				"PixelPane plays pixel art GIFs mixed with live, animated scenes: the clock, the weather, what's playing, your next meeting, and decorations that change with the seasons. From the front it's a dark mirror until the LEDs light up behind it.",
+				"It's open source and plugin-based, in the spirit of MagicMirror. Home Assistant, or anything that can send an HTTP request, pushes notifications and data to it, and it has its own web page for everything else.",
+			],
+			steps: [
+				{
+					title: 'Behind a mirror',
+					text: 'A 32x32 LED panel sits behind a 3D-printed grid and a two-way mirror in a shadow box, so every LED reads as a square pixel.',
+				},
+				{
+					title: 'Scenes are plugins',
+					text: 'A playlist mixes GIFs with animated scenes. Each scene comes from a plugin, and a plugin is one Python file.',
+				},
+				{
+					title: 'Your house pushes to it',
+					text: 'Home Assistant sends ON AIR, doorbell and laundry alerts, the weather and what is playing. The board never needs a token.',
+				},
+			],
+			galleryTitle: 'ls scenes/',
+			galleryAspect: 'square',
+			gallery: [
+				pixelClip('on-air', 'A red ON AIR sign with a glowing border', 'ON AIR during meetings'),
+				pixelClip(
+					'doorbell',
+					'A flashing yellow frame with a ringing bell and DOORBELL scrolling',
+					'the doorbell',
+				),
+				pixelClip(
+					'weather',
+					'A rain cloud dripping above 48 degrees, a high of 55, a low of 41 and a 60% chance of rain',
+					'the weather',
+				),
+				pixelClip(
+					'halloween',
+					'A jack-o-lantern under a crescent moon with bats flapping by',
+					'Halloween, all October',
+				),
+			],
+			screenshotsTitle: 'ls inside/',
+			screenshots: [
+				{
+					poster: `${PIXELPANE_DIR}/build-layers.svg`,
+					alt: 'Side view of the inside of the shadow box: from the front, a two-way mirror, an optional diffuser, the 3D-printed light grid, the LED panel facing forward, then the Raspberry Pi with the RGB Matrix HAT and a 5 V 4 A power supply going to the wall',
+					caption: 'Inside the shadow box',
+				},
+				{
+					poster: `${PIXELPANE_DIR}/live-control.webp`,
+					alt: "The board's control page in October: a live preview of a pixel art pumpkin under a crescent moon, power and brightness, the playlist position, the active Autumn and Halloween themes, and Play now buttons for every scene",
+					caption: 'The control page, with a live preview of the panel',
+				},
+			],
+		},
 	},
 	{
 		title: 'MagicMirror\u00B2 - Smart IoT Mirror',

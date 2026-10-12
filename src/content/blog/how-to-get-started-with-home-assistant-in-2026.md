@@ -98,6 +98,8 @@ Once I got comfortable with the basics, we started to explore more advanced inte
 
 - Use a smart plug to turn on/off appliances remotely
 
+- Build a [pixel art notification display](/blog/pixelpane-pixel-art-home-assistant/) that flashes when someone rings the doorbell
+
 - Set up a vacation mode to mimic your usual routine and deter burglars
 
 - Automatically adjust the thermostat based on the weather forecast
