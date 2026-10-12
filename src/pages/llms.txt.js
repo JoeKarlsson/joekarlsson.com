@@ -83,7 +83,7 @@ Joe is available for conference talks, podcast guest spots, webinars, and techni
 - [TikTok](https://www.tiktok.com/@joekarlsson)
 - [Threads](https://www.threads.net/@joekarlsson)
 - [Letterboxd](https://letterboxd.com/joekarlsson/)
-- [Substack](https://joekarlsson.substack.com/)
+- [Newsletter](https://www.joekarlsson.com/newsletter/)
 
 ## Education
 

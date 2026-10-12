@@ -21,7 +21,14 @@ export const SOCIAL_LINKS = {
 	npm: 'https://www.npmjs.com/~joekarlsson',
 	keybase: 'https://keybase.io/joekarlsson',
 	facebook: 'https://www.facebook.com/joe.karlsson13',
-	substack: 'https://joekarlsson.substack.com/',
+};
+
+// Self-hosted listmonk (CT 272). The list UUID is public: it is what the signup
+// form posts, and listmonk only accepts it because the list is public.
+export const NEWSLETTER = {
+	name: 'TL;DR in Tech',
+	subscribeAction: 'https://newsletter.joekarlsson.com/subscription/form',
+	listUuid: '3345d879-e533-438c-8d78-58c274001fd0',
 };
 
 export const NAV_LINKS = [
@@ -41,5 +48,6 @@ export const FOOTER_LINKS = [
 	{ href: '/work/', label: 'Projects' },
 	{ href: '/uses/', label: 'Uses' },
 	{ href: '/talk-archive/', label: 'Talk Archive' },
+	{ href: '/newsletter/', label: 'Newsletter' },
 	{ href: '/contact/', label: 'Contact' },
 ];

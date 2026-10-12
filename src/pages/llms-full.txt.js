@@ -209,7 +209,7 @@ Joe has 100,000+ followers across social media platforms.
 - [Threads](https://www.threads.net/@joekarlsson)
 - [Instagram](https://www.instagram.com/joekarlsson/)
 - [Letterboxd](https://letterboxd.com/joekarlsson/): Film reviews and ratings
-- [Substack](https://joekarlsson.substack.com/): Newsletter
+- [Newsletter](https://www.joekarlsson.com/newsletter/): Subscribe, plus the TL;DR in Tech archive
 - [Reddit](https://www.reddit.com/user/joekarlsson)
 - [Medium](https://medium.com/@joekarlsson)
 - [npm](https://www.npmjs.com/~joekarlsson)

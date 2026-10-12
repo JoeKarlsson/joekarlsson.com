@@ -87,11 +87,16 @@ test.describe('Footer', () => {
 		await expect(footer).toContainText(currentYear);
 	});
 
-	test('newsletter CTA button links to Substack', async ({ page }) => {
+	test('newsletter CTA posts to listmonk', async ({ page }) => {
 		await page.goto('/');
 
-		const subscribeLink = page.locator('footer').getByRole('link', { name: /subscribe/i });
-		await expect(subscribeLink).toHaveAttribute('href', /substack/);
+		const form = page.locator('footer form.newsletter-signup');
+		await expect(form).toHaveAttribute(
+			'action',
+			'https://newsletter.joekarlsson.com/subscription/form',
+		);
+		await expect(form.locator('input[name="l"]')).toHaveValue(/^[0-9a-f-]{36}$/);
+		await expect(form.getByRole('button', { name: /subscribe/i })).toBeVisible();
 	});
 });
 

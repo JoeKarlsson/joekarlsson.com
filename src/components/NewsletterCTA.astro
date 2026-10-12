@@ -1,5 +1,5 @@
 ---
-import { SOCIAL_LINKS } from '../consts';
+import NewsletterSignup from './NewsletterSignup.astro';
 ---
 
 <div class="rounded-lg border border-teal/20 bg-teal/5 p-6 text-center">
@@ -9,12 +9,12 @@ import { SOCIAL_LINKS } from '../consts';
 	<p class="mb-4 text-sm text-gray-400">
 		I write a weekly newsletter about databases, self-hosting, and whatever I'm building.
 	</p>
-	<a
-		href={SOCIAL_LINKS.substack}
-		target="_blank"
-		rel="noopener noreferrer"
-		class="plausible-event-name=Newsletter+CTA+Click inline-block rounded-md bg-teal px-5 py-2.5 font-medium text-surface-0 no-underline hover:bg-coral"
-	>
-		Subscribe on Substack &rarr;
-	</a>
+	<NewsletterSignup location="footer" />
+	<p class="mt-3 text-xs text-gray-400">
+		Free, no spam, unsubscribe anytime. <a
+			href="/newsletter/"
+			class="plausible-event-name=Newsletter+CTA+Click underline hover:text-coral"
+			>Read past issues</a
+		>.
+	</p>
 </div>

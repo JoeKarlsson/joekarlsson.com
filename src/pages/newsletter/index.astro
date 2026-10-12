@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
 
 const issues = (await getCollection('newsletter')).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -15,28 +16,38 @@ for (const issue of issues) {
 ---
 
 <BaseLayout
-	title="Newsletter Archive | Joe Karlsson"
-	description="Every back issue of TL;DR in Tech, my newsletter of the best engineering posts I read, from 2021 to 2024."
+	title="Newsletter | Joe Karlsson"
+	description="Subscribe to my newsletter about databases, self-hosting, and whatever I'm building, and read every back issue of TL;DR in Tech."
 	schemaType="CollectionPage"
 >
 	<div class="mx-auto max-w-3xl px-4 py-8">
-		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ ls newsletter/</p>
-		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Newsletter Archive</h1>
+		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ cat newsletter.md</p>
+		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Newsletter</h1>
+		<p class="mb-6 text-gray-400">
+			I write a weekly newsletter about databases, self-hosting, and whatever I'm building.
+		</p>
+		<div class="mb-12 rounded-lg border border-teal/20 bg-teal/5 p-6">
+			<NewsletterSignup location="newsletter-page" />
+			<p class="mt-3 text-center text-xs text-gray-400">
+				Free, no spam, unsubscribe anytime. You'll get an email to confirm first.
+			</p>
+		</div>
+
+		<h2 class="mb-2 text-2xl font-bold text-white">Archive</h2>
 		<p class="mb-8 text-gray-400">
-			Every back issue of TL;DR in Tech, the newsletter where I rounded up the best engineering
-			posts I read each week, plus a couple of longer posts. {issues.length} issues from 2021 to 2024,
-			moved here from Substack.
+			Every back issue of TL;DR in Tech, where I rounded up the best engineering posts I read each
+			week, plus a couple of longer posts. {issues.length} issues from 2021 to 2024, moved here from Substack.
 		</p>
 
 		{
 			[...byYear.entries()].map(([year, list]) => (
 				<section class="mb-10" id={String(year)}>
-					<h2 class="mb-4 text-lg font-bold text-white">
+					<h3 class="mb-4 text-lg font-bold text-white">
 						<span class="text-coral font-mono text-sm" aria-hidden="true">
 							~$
 						</span>{' '}
 						ls newsletter/{year}/
-					</h2>
+					</h3>
 					<ul class="space-y-2">
 						{list.map((issue) => (
 							<li class="flex flex-col gap-x-4 sm:flex-row sm:items-center">
