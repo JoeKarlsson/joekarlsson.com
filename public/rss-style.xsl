@@ -4,6 +4,13 @@
   xmlns:atom="http://www.w3.org/2005/Atom">
   <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
   <xsl:template match="/">
+    <!-- Each feed declares its own URL (atom:link rel=self); the blog feed is the fallback -->
+    <xsl:variable name="feedUrl">
+      <xsl:choose>
+        <xsl:when test="/rss/channel/atom:link[@rel='self']/@href"><xsl:value-of select="/rss/channel/atom:link[@rel='self']/@href"/></xsl:when>
+        <xsl:otherwise>https://www.joekarlsson.com/rss.xml</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
       <head>
         <title><xsl:value-of select="/rss/channel/title"/> - RSS Feed</title>
@@ -70,7 +77,7 @@
       </head>
       <body>
         <div class="header">
-          <span class="prompt">~$ cat rss.xml</span>
+          <span class="prompt">~$ cat rss.xml</span><xsl:text>&#10;</xsl:text>
 
 <span class="info">Hey, you found my RSS feed!
 
@@ -79,13 +86,24 @@ in a feed reader instead of checking back manually.
 It's like email newsletters but you control the inbox.
 
 To subscribe, copy this URL into your feed reader:
-<a class="url" href="https://www.joekarlsson.com/rss.xml">https://www.joekarlsson.com/rss.xml</a>
+<a class="url" href="{$feedUrl}"><xsl:value-of select="$feedUrl"/></a>
 
 Popular feed readers: NetNewsWire (Mac), Feedly,
 Miniflux (self-hosted), or Thunderbird.</span>
+<xsl:text>&#10;&#10;</xsl:text><span class="info"><xsl:choose>
+<xsl:when test="contains($feedUrl, '/newsletter/')">This is the feed for my newsletter. For blog posts, follow:
+<a class="url" href="https://www.joekarlsson.com/rss.xml">https://www.joekarlsson.com/rss.xml</a></xsl:when>
+<xsl:otherwise>My newsletter, Works on My Machine, has its own feed:
+<a class="url" href="https://www.joekarlsson.com/newsletter/rss.xml">https://www.joekarlsson.com/newsletter/rss.xml</a></xsl:otherwise>
+</xsl:choose></span>
         </div>
 
-        <div class="section-title">Recent posts:</div>
+        <div class="section-title">
+          <xsl:choose>
+            <xsl:when test="contains($feedUrl, '/newsletter/')">Recent issues:</xsl:when>
+            <xsl:otherwise>Recent posts:</xsl:otherwise>
+          </xsl:choose>
+        </div>
 
         <xsl:for-each select="/rss/channel/item">
           <div class="post">

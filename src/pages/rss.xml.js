@@ -9,6 +9,8 @@ export async function GET(context) {
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		site: context.site,
+		xmlns: { atom: 'http://www.w3.org/2005/Atom' },
+		customData: `<atom:link href="${new URL('rss.xml', context.site)}" rel="self" type="application/rss+xml"/>`,
 		items: posts
 			.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 			.map((post) => ({

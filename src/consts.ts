@@ -26,7 +26,7 @@ export const SOCIAL_LINKS = {
 // Self-hosted listmonk (CT 272). The list UUID is public: it is what the signup
 // form posts, and listmonk only accepts it because the list is public.
 export const NEWSLETTER = {
-	name: 'stdout',
+	name: 'Works on My Machine',
 	subscribeAction: 'https://newsletter.joekarlsson.com/subscription/form',
 	listUuid: '3345d879-e533-438c-8d78-58c274001fd0',
 };
