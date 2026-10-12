@@ -15,6 +15,8 @@ interface Props {
 	faq?: { question: string; answer: string }[];
 	howToSteps?: { name: string; text: string }[];
 	canonicalUrl?: string;
+	// Keep the page reachable but out of search results (e.g. the TL;DR in Tech back issues)
+	noindex?: boolean;
 }
 
 const {
@@ -30,6 +32,7 @@ const {
 	faq,
 	howToSteps,
 	canonicalUrl,
+	noindex = false,
 } = Astro.props;
 
 // Use provided canonical URL for syndicated content, otherwise generate from current path
@@ -42,7 +45,9 @@ const ogImageURL = new URL(image, Astro.site);
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta
 	name="robots"
-	content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+	content={noindex
+		? 'noindex, follow'
+		: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
 />
 
 <!-- Fonts -->

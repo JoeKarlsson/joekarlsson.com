@@ -5,16 +5,30 @@ import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
+import { readdirSync, readFileSync } from 'node:fs';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 
+// TL;DR in Tech back issues (imported from Substack, marked by substackUrl) are
+// noindex on the page; keep them out of the sitemap too. New issues stay in.
+const NEWSLETTER_DIR = new URL('./src/content/newsletter/', import.meta.url);
+const backIssuePaths = new Set(
+	readdirSync(NEWSLETTER_DIR)
+		.filter((f) => f.endsWith('.md'))
+		.map((f) => readFileSync(new URL(f, NEWSLETTER_DIR), 'utf8'))
+		.filter((md) => /^substackUrl:/m.test(md))
+		.map((md) => md.match(/^slug:\s*['"]?([^'"\n]+)/m)?.[1])
+		.filter(Boolean)
+		.map((slug) => `/newsletter/${slug}/`),
+);
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.joekarlsson.com',
-	integrations: [mdx(), sitemap()],
+	integrations: [mdx(), sitemap({ filter: (page) => !backIssuePaths.has(new URL(page).pathname) })],
 	vite: {
 		plugins: [/** @type {any} */ (tailwindcss())],
 	},

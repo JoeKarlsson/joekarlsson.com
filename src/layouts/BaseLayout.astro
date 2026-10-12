@@ -16,6 +16,7 @@ interface Props {
 	faq?: { question: string; answer: string }[];
 	howToSteps?: { name: string; text: string }[];
 	canonicalUrl?: string;
+	noindex?: boolean;
 }
 
 const {
@@ -31,6 +32,7 @@ const {
 	faq,
 	howToSteps,
 	canonicalUrl,
+	noindex,
 } = Astro.props;
 ---
 
@@ -83,6 +85,7 @@ const {
 			faq={faq}
 			howToSteps={howToSteps}
 			canonicalUrl={canonicalUrl}
+			noindex={noindex}
 		/>
 	</head>
 	<body class="flex min-h-screen flex-col">

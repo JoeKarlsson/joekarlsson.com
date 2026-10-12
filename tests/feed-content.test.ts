@@ -182,3 +182,24 @@ describe('Newsletter RSS feed', () => {
 		expect(readDist('index.html')).toContain('newsletter/rss.xml');
 	});
 });
+
+describe('Newsletter back issues stay out of search', () => {
+	it('marks imported TL;DR in Tech issues noindex', () => {
+		expect(readDist('newsletter/tldr-in-tech-issue-104/index.html')).toContain(
+			'<meta name="robots" content="noindex, follow"',
+		);
+	});
+
+	it('keeps the archive page indexable', () => {
+		expect(readDist('newsletter/index.html')).not.toContain('noindex');
+	});
+
+	it('leaves back issues out of the sitemap but keeps the archive page', () => {
+		const sitemap = readdirSync(dist)
+			.filter((f) => f.startsWith('sitemap-') && f.endsWith('.xml'))
+			.map((f) => readDist(f))
+			.join('');
+		expect(sitemap).not.toContain('/newsletter/tldr-in-tech');
+		expect(sitemap).toContain('/newsletter/</loc>');
+	});
+});

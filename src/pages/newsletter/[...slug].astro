@@ -30,6 +30,7 @@ const linkClass =
 	description={description || `${title}, from the TL;DR in Tech newsletter archive.`}
 	type="article"
 	publishedDate={date}
+	noindex={Boolean(substackUrl)}
 >
 	<div class="mx-auto max-w-3xl px-4 py-8">
 		<article class="min-w-0" data-post-title={title}>
