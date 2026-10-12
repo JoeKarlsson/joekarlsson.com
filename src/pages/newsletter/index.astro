@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const issues = (await getCollection('newsletter')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const byYear = new Map<number, typeof issues>();
+for (const issue of issues) {
+	const year = issue.data.date.getUTCFullYear();
+	byYear.set(year, [...(byYear.get(year) ?? []), issue]);
+}
+---
+
+<BaseLayout
+	title="Newsletter Archive | Joe Karlsson"
+	description="Every back issue of TL;DR in Tech, my newsletter of the best engineering posts I read, from 2021 to 2024."
+	schemaType="CollectionPage"
+>
+	<div class="mx-auto max-w-3xl px-4 py-8">
+		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ ls newsletter/</p>
+		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Newsletter Archive</h1>
+		<p class="mb-8 text-gray-400">
+			Every back issue of TL;DR in Tech, the newsletter where I rounded up the best engineering
+			posts I read each week, plus a couple of longer posts. {issues.length} issues from 2021 to 2024,
+			moved here from Substack.
+		</p>
+
+		{
+			[...byYear.entries()].map(([year, list]) => (
+				<section class="mb-10" id={String(year)}>
+					<h2 class="mb-4 text-lg font-bold text-white">
+						<span class="text-coral font-mono text-sm" aria-hidden="true">
+							~$
+						</span>{' '}
+						ls newsletter/{year}/
+					</h2>
+					<ul class="space-y-2">
+						{list.map((issue) => (
+							<li class="flex flex-col gap-x-4 sm:flex-row sm:items-center">
+								<span class="w-32 shrink-0 font-mono text-xs text-gray-400">
+									<FormattedDate date={issue.data.date} />
+								</span>
+								<a
+									href={`/newsletter/${issue.data.slug}/`}
+									class="text-white underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
+								>
+									{issue.data.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			))
+		}
+	</div>
+</BaseLayout>

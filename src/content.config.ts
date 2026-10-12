@@ -25,4 +25,18 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+// TL;DR in Tech back issues, imported from Substack (scripts/import-substack-newsletter.mjs).
+// Kept out of the blog list, homepage and RSS on purpose: they are an archive.
+const newsletter = defineCollection({
+	loader: glob({ base: './src/content/newsletter', pattern: '**/*.md' }),
+	schema: z.object({
+		title: z.string(),
+		date: z.coerce.date(),
+		slug: z.string(),
+		description: z.string().optional().default(''),
+		issue: z.number().int().optional(),
+		substackUrl: z.url().optional(),
+	}),
+});
+
+export const collections = { blog, newsletter };

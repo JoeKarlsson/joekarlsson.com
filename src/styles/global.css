@@ -2,6 +2,10 @@
 
 @config '../../tailwind.config.mjs';
 
+/* The newsletter archive is imported prose with no Tailwind classes; scanning its
+   95 issues turned ordinary words ("table", "hidden") into unused utilities. */
+@source not '../content/newsletter';
+
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
