@@ -32,7 +32,7 @@ _The real board, behind the two-way mirror._
 
 ## Why not just buy a Pixoo
 
-I've owned a [Divoom Pixoo 64](https://divoom.com/products/pixoo-64), and it was fine. It's thinner than my shadow box and has four times the pixels. But the integrations are limited, you can only customize it as far as Divoom's app lets you, and it's write-heavy enough that it burned through several SD cards. I wouldn't fully recommend it.
+I've owned a [Divoom Pixoo 64](https://divoom.com/products/pixoo-64), and it was fine. It's thinner than my shadow box and has four times the pixels. But the integrations are limited, you can only customize it as far as Divoom's app lets you, and it's write-heavy enough that it killed at least two SD cards in two or three years. I wouldn't fully recommend it.
 
 Over the last couple of years I've gone all in on my [homelab](/blog/homelab-two-years-later/) and self-hosting, and I wanted the thing on my shelf to be part of that: something I could change whenever I wanted and wire into anything in the house. Off-the-shelf frames don't work that way. An [Ulanzi TC001 running AWTRIX](https://blueforcer.github.io/awtrix3/) has great Home Assistant support for about $45 (as of October 2026), but it's a 32x8 ticker, not a canvas. Tidbyt was the closest thing to what I wanted, and it paused manufacturing when the company [joined Modal](https://tidbyt.com/blogs/tidbyt/tidbyt-is-joining-modal).
 
@@ -40,13 +40,15 @@ Building your own isn't cheaper. The parts come to about $180 as of October 2026
 
 ## Rebuilding the 2020 board
 
-The board itself goes back to 2020, a spin-off of a [Digital Graffiti Wall](/blog/building-a-real-time-digital-graffiti-wall/) I built for conference talks. For years it was an offline Pi looping GIFs off its SD card, and changing anything meant SSHing in. In 2026 I rebuilt it so it could keep up with the rest of my house. Here's what changed:
+The board itself goes back to 2020, a spin-off of a [Digital Graffiti Wall](/blog/building-a-real-time-digital-graffiti-wall/) I built for conference talks. For years it was an offline Pi looping GIFs off its SD card, and changing anything meant SSHing in. In 2026 I rebuilt it so it could keep up with the rest of my house. The Pi was old enough that I couldn't remember its username or password, so the rebuild started with wiping it and setting it up from scratch. Here's what changed:
 
 - **Home Assistant pushes to the board, and the board never reads from Home Assistant.** That way it doesn't need a Home Assistant token, and it can live on my IoT VLAN, where it can reach the internet and Home Assistant and nothing else.
 - I rewrote the player in Python so it could draw live, animated scenes from data alongside the GIFs.
 - It has a built-in control page, so I can change the playlist, upload GIFs or put up ON AIR from my phone instead of SSHing in.
 - Every scene is a plugin. A new one is one Python file, so I can try an idea in an evening.
 - One installer sets up the whole Pi, and if the board is unplugged, nothing in my Home Assistant routines breaks.
+
+It isn't done. The Pi 3B still runs hot, and I'm still working on that. Older Pis are slower and have some odd hardware quirks I still need to sort out.
 
 ![The PixelPane control page: moving moon up the playlist and saving it, then switching the generative and tiles plugins off and back on](/images/blog/pixelpane-pixel-art-home-assistant/pp-online.gif)
 
@@ -82,7 +84,7 @@ _The same notify and ON AIR calls Home Assistant makes, from the control page._
 
 These are the only things that interrupt it:
 
-- **ON AIR** when my work MacBook's camera turns on. It hangs off the same [Meeting Mode from my Mac camera](/blog/best-home-assistant-automations/) that turns on my office lights and pauses the speaker, and it stays pinned until the camera turns off.
+- **ON AIR** when my work MacBook's camera turns on. It hangs off the same [Meeting Mode from my Mac camera](/blog/best-home-assistant-automations/) that turns on my office lights and pauses the speaker, and it stays pinned until the camera turns off. I've had that automation for a couple of years, and it has never fired wrong.
 - **Doorbell** and **package at the door**. I'm usually wearing headphones at my desk, and a flashing yellow bell in the corner of my eye works better than a phone buzz.
 - **Laundry done**, washer and dryer.
 - **Front door opened**.
