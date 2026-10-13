@@ -36,6 +36,9 @@ const newsletter = defineCollection({
 		description: z.string().optional().default(''),
 		issue: z.number().int().optional(),
 		substackUrl: z.url().optional(),
+		// Header image for the post page, its og:image and its card in the blog list.
+		heroImage: z.string().optional(),
+		heroAlt: z.string().optional(),
 	}),
 });
 

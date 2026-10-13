@@ -1,25 +1,24 @@
 ---
-import { getCollection } from 'astro:content';
 import BlogCard from '../../components/BlogCard.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
+import { getFeedPosts } from '../../utils/posts';
 
 function getReadingTime(body: string): number {
 	const words = body.trim().split(/\s+/).length;
 	return Math.max(1, Math.ceil(words / 250));
 }
 
-const allPosts = (await getCollection('blog')).sort(
-	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const allPosts = await getFeedPosts();
 
 const featuredSlug = 'homelab-two-years-later';
 const featuredPost = allPosts.find((p) => p.data.slug === featuredSlug);
 const posts = allPosts.filter((p) => p.data.slug !== featuredSlug);
 
-// Collect all unique categories with counts
+// Collect all unique categories with counts (blog posts only: newsletter posts have no
+// category page)
 const categoryCounts = new Map<string, number>();
-for (const post of allPosts) {
+for (const post of allPosts.filter((p) => !p.isNewsletter)) {
 	for (const cat of post.data.categories) {
 		categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
 	}
@@ -188,6 +187,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 						heroAlt={post.data.heroAlt}
 						categories={post.data.categories}
 						readingTime={getReadingTime(post.body || '')}
+						href={post.href}
 					/>
 				))
 			}

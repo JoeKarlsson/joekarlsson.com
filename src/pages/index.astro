@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import BlogCard from '../components/BlogCard.astro';
 import CatChase from '../components/CatChase.astro';
 import RightNow from '../components/RightNow.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_DESCRIPTION } from '../consts';
+import { getFeedPosts } from '../utils/posts';
 import { projects } from '../data/projects';
 import '../styles/terminal.css';
 
@@ -25,9 +25,7 @@ const featuredSlugs = [
 	'how-to-get-started-with-home-assistant-in-2026',
 ];
 
-const allPosts = (await getCollection('blog')).sort(
-	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const allPosts = await getFeedPosts();
 
 const featuredPosts = featuredSlugs
 	.map((slug) => allPosts.find((p) => p.data.slug === slug))
@@ -295,6 +293,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 							date={post.data.date}
 							slug={post.data.slug}
 							heroImage={post.data.heroImage}
+							href={post.href}
 						/>
 					))
 				}
@@ -328,6 +327,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 							date={post.data.date}
 							slug={post.data.slug}
 							heroImage={post.data.heroImage}
+							href={post.href}
 						/>
 					</div>
 				))

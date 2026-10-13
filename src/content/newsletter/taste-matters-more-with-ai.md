@@ -1,15 +1,17 @@
 ---
 title: 'Taste Matters More with AI'
 date: 2026-10-12
-slug: 'its-been-a-while'
+slug: 'taste-matters-more-with-ai'
 description: "The newsletter is back after almost three years, it runs in my homelab now, and it's going to be about what I actually think about. First up, taste."
+heroImage: '/images/newsletter/taste-matters-more-with-ai/header.webp'
+heroAlt: "Header for Taste Matters More with AI from Works on My Machine, with a photo of Joe gluing a jack-o'-lantern collage onto red paper"
 ---
 
 This newsletter used to be TL;DR in Tech, a weekly roundup of the links I was reading, until I quit sending it. I'd stopped feeling the pull to make things online. The rise of AI made sharing links feel a lot less valuable, and I'd been laid off, which really hurt my confidence. Posting my thoughts on the internet started to feel silly.
 
 I've gotten [some wins](https://www.joekarlsson.com/blog/reversing-seo-traffic-decline-ai-overviews/) under my belt since then, and I feel confident and sure of myself again. A couple of months ago I picked up Julia Cameron's [The Artist's Way](https://juliacameronlive.com/book/the-artists-way-a-spiritual-path-to-higher-creativity/) and started doing the morning pages: one to three pages of whatever's in my head before the workday starts. Unfortunately, I have to report that journaling is incredibly useful. I'm someone who thinks about the same stuff over and over, and dumping it onto the page lets me stop thinking about it and focus on real work. I also catch what's bothering me at work or at home a lot sooner, before it turns into a bigger problem. And I've started painting and making collages.
 
-![Joe's hand holding a copy of The Artist's Way by Julia Cameron, 30th anniversary edition, in his living room](/images/newsletter/its-been-a-while/artists-way.webp)
+![Joe's hand holding a copy of The Artist's Way by Julia Cameron, 30th anniversary edition, in his living room](/images/newsletter/taste-matters-more-with-ai/artists-way.webp)
 
 I've been feeling creatively inspired again and wanted an outlet for all of it, so I'm bringing this newsletter back as **Works on My Machine**. Instead of a link roundup, it'll be about AI, the tech market, writing, open source and whatever I'm building in my homelab, whenever I have something to say. If you signed up for the links and this isn't for you, the unsubscribe link is at the bottom.
 
@@ -19,7 +21,7 @@ Models can turn out competent writing and code on demand now, and so much of it 
 
 Painting is where I started to understand that, and Paul Graham got there the same way. His 2021 essay [Is There Such a Thing as Good Taste?](https://www.paulgraham.com/goodtaste.html) starts with his dad telling him there wasn't. Graham's case is that if taste isn't real, good art isn't real either, so you couldn't even say a painter is better than a randomly chosen eight-year-old. He worked this out by taking up painting himself and seeing how far his paintings were from Bellini's. He doesn't claim anyone has perfect taste. He calls it a partial order, so some people's is clearly better than others', and you can get better at it.
 
-![Two photos from above. Left: Joe gluing a collage of a jack-o'-lantern, a black cat and a wheat field onto red paper, surrounded by markers and glue jars. Right: Joe sketching in pink watercolor at a marble cafe table next to a paint palette and a plate of oysters.](/images/newsletter/its-been-a-while/art.webp)
+![Two photos from above. Left: Joe gluing a collage of a jack-o'-lantern, a black cat and a wheat field onto red paper, surrounded by markers and glue jars. Right: Joe sketching in pink watercolor at a marble cafe table next to a paint palette and a plate of oysters.](/images/newsletter/taste-matters-more-with-ai/art.webp)
 
 Callum Flack's 2018 essay [The matter of taste](https://www.callum.website/the-matter-of-taste) goes further. He defines taste as knowhow you've built up for so long that it shows up as a feeling. You've made the same small decisions so many times that you skip over them and go straight to the hard part of the problem. He uses the German word _fingerspitzengefühl_ for it, which means fingertip feeling.
 
@@ -41,7 +43,7 @@ I left Substack partly over its content policy. I liked its recommendation engin
 
 I've also been on a mission to self-host as much as I can, and it turns out hosting your own newsletter isn't that hard. It runs on [listmonk](https://listmonk.app/), an open source newsletter manager, in a container in my homelab next to about 70 other services. I exported the 141 subscribers from Substack as a CSV, imported them, and Brevo's free plan does the actual sending.
 
-![Architecture diagram of how this newsletter is delivered. A signup on joekarlsson.com goes through a Cloudflare Tunnel with CrowdSec, then Nginx Proxy Manager, to listmonk and Postgres in one LXC container on Proxmox, built by OpenTofu and backed up to Proxmox Backup Server. Subscribers came from a Substack CSV export, and the admin UI is reachable only from the home network. listmonk sends over SMTP through Brevo's free plan to your inbox, and replies come back to Joe.](/images/newsletter/its-been-a-while/architecture.webp)
+![Architecture diagram of how this newsletter is delivered. A signup on joekarlsson.com goes through a Cloudflare Tunnel with CrowdSec, then Nginx Proxy Manager, to listmonk and Postgres in one LXC container on Proxmox, built by OpenTofu and backed up to Proxmox Backup Server. Subscribers came from a Substack CSV export, and the admin UI is reachable only from the home network. listmonk sends over SMTP through Brevo's free plan to your inbox, and replies come back to Joe.](/images/newsletter/taste-matters-more-with-ai/architecture.webp)
 
 The newsletter doesn't open any ports on my home network. A Cloudflare Tunnel brings the subscribe, confirm and unsubscribe pages in, and the admin side and its API answer with a 404 from outside my house. The container is built by OpenTofu, so I can tear it down and rebuild it, and the subscriber database is backed up to Proxmox Backup Server. Brevo's 300 emails a day are shared with my homelab's alerts and a couple of other services, which is plenty for 141 people.
 

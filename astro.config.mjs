@@ -83,6 +83,9 @@ export default defineConfig({
 		'/2025/[...slug]': '/blog/[...slug]',
 		'/2026/[...slug]': '/blog/[...slug]',
 
+		// Newsletter posts renamed after publishing
+		'/newsletter/its-been-a-while': '/newsletter/taste-matters-more-with-ai',
+
 		// Consolidated content redirects
 		'/blog/how-i-work': '/uses',
 

@@ -3,13 +3,19 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
+import BlogCard from '../../components/BlogCard.astro';
 
 const issues = (await getCollection('newsletter')).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
+// Works on My Machine posts get cards with their header image, like the blog list; the
+// imported TL;DR in Tech link roundups (substackUrl) stay a compact list by year.
+const posts = issues.filter((i) => !i.data.substackUrl);
+const backIssues = issues.filter((i) => i.data.substackUrl);
+
 const byYear = new Map<number, typeof issues>();
-for (const issue of issues) {
+for (const issue of backIssues) {
 	const year = issue.data.date.getUTCFullYear();
 	byYear.set(year, [...(byYear.get(year) ?? []), issue]);
 }
@@ -37,10 +43,26 @@ for (const issue of issues) {
 			</p>
 		</div>
 
-		<h2 class="mb-2 text-2xl font-bold text-white">Every issue</h2>
+		<h2 class="mb-6 text-2xl font-bold text-white">Every issue</h2>
+		<div class="mb-10 grid gap-4 sm:grid-cols-2">
+			{
+				posts.map((post) => (
+					<BlogCard
+						title={post.data.title}
+						description={post.data.description}
+						date={post.data.date}
+						slug={post.data.slug}
+						heroImage={post.data.heroImage}
+						heroAlt={post.data.heroAlt}
+						href={`/newsletter/${post.data.slug}/`}
+					/>
+				))
+			}
+		</div>
+
+		<h2 class="mb-2 text-2xl font-bold text-white">TL;DR in Tech</h2>
 		<p class="mb-8 text-gray-400">
-			Newest first. The older ones are from TL;DR in Tech, the weekly link roundup this newsletter
-			used to be.
+			The weekly link roundup this newsletter used to be, from 2021 to 2024.
 		</p>
 
 		{

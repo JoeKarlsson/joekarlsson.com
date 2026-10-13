@@ -10,9 +10,11 @@ interface Props {
 	heroAlt?: string;
 	categories?: string[];
 	readingTime?: number;
+	href?: string;
 }
 
-const { title, description, date, slug, heroImage, heroAlt, categories, readingTime } = Astro.props;
+const { title, description, date, slug, heroImage, heroAlt, categories, readingTime, href } =
+	Astro.props;
 const image = heroImage || DEFAULT_HERO_IMAGE;
 const formattedDate = date.toLocaleDateString('en-us', {
 	timeZone: 'UTC',
@@ -23,7 +25,7 @@ const formattedDate = date.toLocaleDateString('en-us', {
 ---
 
 <a
-	href={`/blog/${slug}/`}
+	href={href ?? `/blog/${slug}/`}
 	class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
 >
 	<img

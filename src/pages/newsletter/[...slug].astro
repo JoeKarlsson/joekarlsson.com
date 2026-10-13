@@ -19,7 +19,7 @@ interface Props {
 }
 
 const { issue, prev, next } = Astro.props;
-const { title, date, description, substackUrl } = issue.data;
+const { title, date, description, substackUrl, heroImage, heroAlt } = issue.data;
 const { Content } = await render(issue);
 const linkClass =
 	'underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral';
@@ -30,6 +30,7 @@ const linkClass =
 	description={description || `${title}, from the TL;DR in Tech newsletter archive.`}
 	type="article"
 	publishedDate={date}
+	image={heroImage}
 	noindex={Boolean(substackUrl)}
 >
 	<div class="mx-auto max-w-3xl px-4 py-8">
@@ -60,6 +61,18 @@ const linkClass =
 				<h1 class="mb-4 text-3xl font-bold text-white md:text-4xl">{title}</h1>
 				{description && <p class="text-gray-400">{description}</p>}
 			</div>
+			{
+				heroImage && (
+					<img
+						src={heroImage}
+						alt={heroAlt || ''}
+						class="mb-8 w-full rounded-lg"
+						width="1200"
+						height="630"
+						loading="eager"
+					/>
+				)
+			}
 			<div class="prose">
 				<Content />
 			</div>
