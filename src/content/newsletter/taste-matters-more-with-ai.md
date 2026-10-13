@@ -1,6 +1,6 @@
 ---
 title: 'Taste Matters More with AI'
-date: 2026-10-12
+date: 2026-10-12T22:45:47Z
 slug: 'taste-matters-more-with-ai'
 description: "The newsletter is back after almost three years, it runs in my homelab now, and it's going to be about what I actually think about. First up, taste."
 heroImage: '/images/newsletter/taste-matters-more-with-ai/header.webp'

@@ -1,6 +1,6 @@
 ---
 title: 'Reversing SEO Traffic Decline From AI Overviews: A Weekly Audit (2026)'
-date: 2026-04-07
+date: 2026-04-07T18:08:30Z
 slug: 'reversing-seo-traffic-decline-ai-overviews'
 description: 'How I reversed an SEO traffic decline caused partly by AI Overviews: two failure modes, a weekly Claude Code audit, and real numbers from four weeks.'
 categories: ['DevRel', 'Career']

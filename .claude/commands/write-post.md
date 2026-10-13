@@ -295,7 +295,7 @@ After drafting, perform this check:
 ```yaml
 ---
 title: 'Post Title Here'
-date: YYYY-MM-DD
+date: YYYY-MM-DDTHH:MM:SSZ
 slug: 'url-friendly-slug'
 description: 'One-sentence description for SEO/social cards (under 160 chars, include target keyword)'
 categories: ['Category']
@@ -304,6 +304,8 @@ heroAlt: 'Descriptive alt text for the hero image'
 tldr: 'TL;DR summary for the frontmatter field'
 ---
 ```
+
+`date` is the publish time: Central wall-clock time with a `Z` on the end (`date +%Y-%m-%dT%H:%M:%SZ`). The time breaks same-day ties so the newest post sorts first, and the `Z` keeps the shown day right, because the site displays every date in UTC.
 
 ### Structure
 
@@ -752,7 +754,7 @@ Synthesize the three reports into a prioritized diff:
 - Link to /blog/<newer-slug> from "<anchor>" in <section>
 
 ### Freshness signal
-- Update the frontmatter `date` to today
+- Update the frontmatter `date` to now (same `YYYY-MM-DDTHH:MM:SSZ` format as a new post)
 - Add "Updated <month> <year>" note at top if the post changes significantly
 
 ### Verdict

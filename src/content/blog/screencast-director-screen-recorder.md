@@ -1,6 +1,6 @@
 ---
 title: 'I hate editing video, so I built a screen recorder that edits for me'
-date: 2026-10-12
+date: 2026-10-12T20:56:41Z
 slug: 'screencast-director-screen-recorder'
 description: 'Screencast Director is an open source macOS screen recorder that drafts the edit: it cuts dead air, speeds up typing and takes edits from the AI model you pick.'
 categories: ['Dev Tools', 'DevRel']

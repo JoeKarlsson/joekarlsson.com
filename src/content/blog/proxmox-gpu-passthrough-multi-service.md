@@ -1,6 +1,6 @@
 ---
 title: 'Two GPUs, Two Nodes, Seven Services: GPU Workload Distribution on Proxmox'
-date: 2026-04-13
+date: 2026-04-13T11:24:48Z
 slug: 'proxmox-gpu-passthrough-multi-service'
 description: 'How I distribute GPU workloads across two Proxmox nodes using LXC device binding - VRAM strategy, LXC passthrough config, and Tdarr distributed encoding.'
 categories: ['Homelab']

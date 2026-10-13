@@ -1,6 +1,6 @@
 ---
 title: 'My Personal Claude Code Skills Repo Accidentally Became Internal Tooling'
-date: 2026-04-07
+date: 2026-04-07T15:42:53Z
 slug: 'my-personal-claude-code-skills-repo-accidentally-became-internal-tooling'
 description: 'I built a few Claude Code skills for myself because I was tired of copy-pasting the same prompts. Then my coworkers started asking questions. Here is what happened when a personal productivity tool became team infrastructure.'
 categories: ['DevRel', 'Dev Tools']

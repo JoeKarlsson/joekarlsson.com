@@ -1,6 +1,6 @@
 ---
 title: 'I Built a Fully Local Voice Assistant for Home Assistant (With GPU, No Cloud Required)'
-date: 2026-04-13
+date: 2026-04-13T10:51:02Z
 slug: 'local-voice-ai-home-assistant-gpu'
 description: 'How I built a GPU-accelerated local voice pipeline for Home Assistant using faster-whisper, Piper TTS, and Ollama - zero cloud required, and the failures that got me here.'
 categories: ['Smart Home', 'Homelab']

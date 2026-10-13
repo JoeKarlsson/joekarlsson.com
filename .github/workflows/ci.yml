@@ -76,14 +76,8 @@ jobs:
           else
             BASE="${{ github.event.before }}"
           fi
-          CHANGED=$(git diff --name-only "$BASE" HEAD -- 'src/content/blog/*.md' 2>/dev/null || true)
-          if [ -z "$CHANGED" ]; then
-            echo "No blog posts changed, skipping voice lint"
-          else
-            echo "Linting changed posts:"
-            echo "$CHANGED"
-            vale --minAlertLevel error $CHANGED
-          fi
+          git fetch --no-tags --depth=1 origin "$BASE" 2>/dev/null || true
+          VALE_BASE="$BASE" bash scripts/vale-changed.sh
 
   lint:
     name: Lint & Format

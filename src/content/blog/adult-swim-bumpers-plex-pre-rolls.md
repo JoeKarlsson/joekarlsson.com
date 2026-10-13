@@ -1,6 +1,6 @@
 ---
 title: 'I Made Adult Swim Bumpers for My Plex Server'
-date: 2026-09-25
+date: 2026-09-25T09:21:23Z
 slug: 'adult-swim-bumpers-plex-pre-rolls'
 description: 'I grew up on Toonami and Adult Swim, so I built a little CLI that makes Adult Swim-style bumpers and now every movie on my Plex server opens with one.'
 categories: ['Homelab', 'Film']
