@@ -64,6 +64,8 @@ const pixelClip = (name: string, alt: string, caption: string): ProjectClip => (
 	caption,
 });
 
+const SD_DIR = '/images/blog/screencast-director-screen-recorder';
+
 export const CATEGORY_META: Record<
 	Project['category'],
 	{ label: string; command: string; hoverColor: string; borderColor: string; shadowColor: string }
@@ -302,6 +304,7 @@ export const projects: Project[] = [
 			intro: [
 				'Read your script out loud and the highlight follows you. Skip a sentence, flub a word, or ad-lib a little and it keeps going. Stop talking and it stops too.',
 				"The listening is a whisper.cpp model you choose, served on `127.0.0.1`, so your audio never leaves your laptop. I built it because I have the energy of a theater kid and can't memorize lines, and the prompter apps I had didn't let me pick the model or set up the screen the way I wanted.",
+				'If you record with Screencast Director while FollowSpot is open, the draft edit keeps only your last take of each script line.',
 			],
 			steps: [
 				{
@@ -338,6 +341,89 @@ export const projects: Project[] = [
 					poster: '/images/blog/followspot-local-whisper-teleprompter/column-narrow.webp',
 					alt: 'FollowSpot with a narrow text column centered on screen, three or four words per line',
 					caption: 'How I run it: 30% column over the lens',
+				},
+			],
+		},
+	},
+	{
+		title: 'Screencast Director',
+		description:
+			'A macOS screen recorder that drafts the edit for me, because editing is the part of video I hate. Talk through a demo once: talking plays in real time, typing speeds up, dead air is cut, clicks get zooms and you get captions. Then fix it on a timeline or ask Claude to change it.',
+		image: `${SD_DIR}/project-hero.webp`,
+		video: `${SD_DIR}/sd-tour.mp4`,
+		imageAlt:
+			'The Screencast Director editor with my face filling the preview under a Joe Karlsson lower third, the camera framing and color inspector, and a timeline of clips, layouts and titles',
+		category: 'dev-tools',
+		tech: ['Swift', 'macOS', 'ScreenCaptureKit', 'whisper.cpp', 'Claude'],
+		sourceUrl: 'https://github.com/JoeKarlsson/screencast-director',
+		blogUrl: '/blog/screencast-director-screen-recorder/',
+		page: {
+			slug: 'screencast-director',
+			tagline: 'A screen recorder that does the boring part of the edit.',
+			intro: [
+				'Screencast Director records your screen, mic and camera, then drafts the edit from one rule: while you are talking it plays in real time, typing without talking gets sped up, and silence gets cut. It zooms in where you click, captions what you said, and drops the retakes you mark.',
+				"Then you adjust it on a timeline, or tell Claude what to change. It's a native Swift app for Apple silicon Macs, it transcribes on your machine with whisper.cpp, and it's open source. The app is on the latest GitHub release.",
+			],
+			steps: [
+				{
+					title: 'Record',
+					text: 'Press ⌃⌥⌘R in any app and talk through your demo. Flub a line? Press ⌃⌥⌘M and say it again.',
+				},
+				{
+					title: 'Draft',
+					text: 'It transcribes you on your Mac and drafts the edit: real time when you talk, fast when you type, cut when nothing happens.',
+				},
+				{
+					title: 'Adjust or ask',
+					text: 'Fix it on the timeline, or type "cut my retakes and zoom in when I mention the config". ⌘Z undoes it.',
+				},
+			],
+			galleryTitle: 'ls clips/',
+			galleryNote: 'Recorded in the app. Hover to play.',
+			gallery: [
+				{
+					video: `${SD_DIR}/sd-tour.mp4`,
+					poster: `${SD_DIR}/sd-tour-poster.webp`,
+					alt: 'Playing a recording, then clicking a clip, a layout and a title on the timeline, with the inspector switching to each one',
+					caption: 'The editor',
+				},
+				{
+					video: `${SD_DIR}/sd-ask.mp4`,
+					poster: `${SD_DIR}/sd-ask-poster.webp`,
+					alt: 'Typing a request into the Ask Claude box, a Claude is editing badge, then the edit landing on the timeline',
+					caption: 'Ask Claude to change the edit',
+				},
+				{
+					video: `${SD_DIR}/sd-timeline.mp4`,
+					poster: `${SD_DIR}/sd-timeline-poster.webp`,
+					alt: 'Clicking a dashed cut and pressing Restore, then setting a clip to 2x so it turns striped',
+					caption: 'Restore a cut, change a speed',
+				},
+				{
+					video: `${SD_DIR}/sd-ai-provider.mp4`,
+					poster: `${SD_DIR}/sd-ai-provider-poster.webp`,
+					alt: 'Hovering the AI provider options: Claude Code, Anthropic API, and OpenAI-compatible API',
+					caption: 'Pick the model',
+				},
+				{
+					video: `${SD_DIR}/sd-camera.mp4`,
+					poster: `${SD_DIR}/sd-camera-poster.webp`,
+					alt: 'Dragging the camera zoom, Center on My Face, color presets, and switching to side by side',
+					caption: 'Camera framing and color',
+				},
+				{
+					video: `${SD_DIR}/sd-export.mp4`,
+					poster: `${SD_DIR}/sd-export-poster.webp`,
+					alt: 'Opening the Export menu, hovering every format, clicking Shorts and watching it render',
+					caption: 'Export presets',
+				},
+			],
+			screenshotsTitle: 'ls editor/',
+			screenshots: [
+				{
+					poster: `${SD_DIR}/editor.webp`,
+					alt: 'The Screencast Director editor with my face filling the preview under a Joe Karlsson lower third, the camera framing and color inspector, and a timeline of clips, layouts and titles',
+					caption: 'The editor, with the Camera inspector open',
 				},
 			],
 		},

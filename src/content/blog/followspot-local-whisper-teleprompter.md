@@ -51,6 +51,8 @@ Three or four words per line means my eyes barely move. All of it is a slider in
 
 While I'm talking, the page keeps sending the last few seconds of audio to whisper.cpp on `127.0.0.1` and fuzzy-matches what comes back against the script near my place. A flubbed word or an ad-lib doesn't throw it off, and when I stop talking, it stops. If I blow a take, I click the word I want to restart from.
 
+I record those takes with [Screencast Director, a screen recorder I built that drafts the edit for me](/blog/screencast-director-screen-recorder/). When FollowSpot is open, it saves the script with the recording and keeps only the last take of each line.
+
 Scripts are plain Markdown, and stage directions in `*[brackets]*` show up dimmed so I don't read them out loud by accident.
 
 ## I benchmarked five Whisper models. On an M5 Max, all of them keep up

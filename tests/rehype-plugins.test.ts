@@ -127,13 +127,21 @@ describe('rehype-gif-video', () => {
 		expect(paragraph(root)[0].properties?.role).toBe('img');
 	});
 
+	it('uses a -poster.webp sibling as the poster when there is one', () => {
+		existsSync.mockReturnValue(true);
+		const root = run(rehypeGifVideo, tree(img({ src: '/images/blog/post/demo.gif', alt: 'x' })));
+
+		expect(paragraph(root)[0].properties?.poster).toBe('/images/blog/post/demo-poster.webp');
+	});
+
 	it('keeps controls so the motion can be stopped (WCAG 2.2.2)', () => {
 		existsSync.mockReturnValue(true);
 		const root = run(rehypeGifVideo, tree(img({ src: '/a.gif', alt: 'x' })));
 		const { properties } = paragraph(root)[0];
 
 		expect(properties?.controls).toBe(true);
-		expect(properties?.autoplay).toBe(true);
+		expect(properties?.dataAutoplayInView).toBe(true);
+		expect(properties?.preload).toBe('none');
 		expect(properties?.loop).toBe(true);
 		expect(properties?.muted).toBe(true);
 	});

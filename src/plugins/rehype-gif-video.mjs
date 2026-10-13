@@ -42,18 +42,24 @@ export default function rehypeGifVideo() {
 			if (!fs.existsSync(mp4Path)) return;
 
 			const alt = node.properties.alt ? String(node.properties.alt) : '';
+			// An optional foo-poster.webp beside foo.mp4 shows until the clip loads.
+			const posterSrc = mp4Src.replace(/\.mp4$/, '-poster.webp');
+			const hasPoster = fs.existsSync(path.join(PUBLIC_DIR, posterSrc.replace(/^\//, '')));
 
 			parent.children[index] = {
 				type: 'element',
 				tagName: 'video',
 				properties: {
 					src: mp4Src,
-					autoplay: true,
+					// Played and paused by src/scripts/in-view-play.ts as it scrolls in
+					// and out of view, so nothing downloads until it's about to be seen.
+					dataAutoplayInView: true,
 					loop: true,
 					muted: true,
 					playsinline: true,
 					controls: true,
-					preload: 'metadata',
+					preload: 'none',
+					...(hasPoster ? { poster: posterSrc } : {}),
 					// These are silent screen recordings standing in for GIFs, so
 					// they are animated images rather than media. role=img says that
 					// to assistive tech and keeps axe's video-caption rule - which
