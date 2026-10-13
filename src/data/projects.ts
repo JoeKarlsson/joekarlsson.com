@@ -57,13 +57,6 @@ const bumperClip = (name: string, alt: string): ProjectClip => ({
 
 const PIXELPANE_DIR = '/images/blog/pixelpane-pixel-art-home-assistant';
 
-const pixelClip = (name: string, alt: string, caption: string): ProjectClip => ({
-	video: `${PIXELPANE_DIR}/scene-${name}.mp4`,
-	poster: `${PIXELPANE_DIR}/scene-${name}-poster.webp`,
-	alt,
-	caption,
-});
-
 const SD_DIR = '/images/blog/screencast-director-screen-recorder';
 
 export const CATEGORY_META: Record<
@@ -126,10 +119,10 @@ export const projects: Project[] = [
 		title: 'PixelPane',
 		description:
 			'A 32x32 LED pixel art frame behind a two-way mirror, driven by a Raspberry Pi. It plays seasonal pixel art, and Home Assistant pushes to it: ON AIR when my camera turns on, the doorbell, the weather. Open source, and every scene is a plugin.',
-		image: `${PIXELPANE_DIR}/hero.webp`,
-		video: `${PIXELPANE_DIR}/board-demo.mp4`,
+		image: `${PIXELPANE_DIR}/project-hero.webp`,
+		video: `${PIXELPANE_DIR}/pp-playnow.mp4`,
 		imageAlt:
-			'PixelPane on a desk: a black shadow box with a two-way mirror front, cycling through a clock, a spinning planet and a Halloween pumpkin under a crescent moon',
+			'The PixelPane control page: pressing Play now on moon, fire, clock and Halloween, with the live preview of the panel switching to each scene',
 		category: 'iot',
 		tech: ['Python', 'Raspberry Pi', 'LED matrix', 'Home Assistant', '3D Printing'],
 		sourceUrl: 'https://github.com/JoeKarlsson/pixelpane',
@@ -155,25 +148,33 @@ export const projects: Project[] = [
 					text: 'Home Assistant sends ON AIR, doorbell and laundry alerts, the weather and what is playing. The board never needs a token.',
 				},
 			],
-			galleryTitle: 'ls scenes/',
-			galleryAspect: 'square',
+			galleryTitle: 'ls clips/',
+			galleryNote: 'The control page, recorded. Hover to play.',
 			gallery: [
-				pixelClip('on-air', 'A red ON AIR sign with a glowing border', 'ON AIR during meetings'),
-				pixelClip(
-					'doorbell',
-					'A flashing yellow frame with a ringing bell and DOORBELL scrolling',
-					'the doorbell',
-				),
-				pixelClip(
-					'weather',
-					'A rain cloud dripping above 48 degrees, a high of 55, a low of 41 and a 60% chance of rain',
-					'the weather',
-				),
-				pixelClip(
-					'halloween',
-					'A jack-o-lantern under a crescent moon with bats flapping by',
-					'Halloween, all October',
-				),
+				{
+					video: `${PIXELPANE_DIR}/pp-playnow.mp4`,
+					poster: `${PIXELPANE_DIR}/pp-playnow-poster.webp`,
+					alt: 'Pressing Play now on moon, fire, clock and Halloween, with the live preview switching to each scene',
+					caption: 'Play now, with a live preview',
+				},
+				{
+					video: `${PIXELPANE_DIR}/pp-interrupts.mp4`,
+					poster: `${PIXELPANE_DIR}/pp-interrupts-poster.webp`,
+					alt: 'Sending a Doorbell notification with a flashing bell, then turning ON AIR mode on and off',
+					caption: 'Notifications and ON AIR',
+				},
+				{
+					video: `${PIXELPANE_DIR}/pp-data.mp4`,
+					poster: `${PIXELPANE_DIR}/pp-data-poster.webp`,
+					alt: 'Play now on weather, now playing, calendar and homelab, each drawing pushed data',
+					caption: 'Weather, music, meetings, homelab',
+				},
+				{
+					video: `${PIXELPANE_DIR}/pp-gifs.mp4`,
+					poster: `${PIXELPANE_DIR}/pp-gifs-poster.webp`,
+					alt: 'Filtering the GIF library to space, switching to large thumbnails and searching for pumpkin',
+					caption: 'The GIF library',
+				},
 			],
 			screenshotsTitle: 'ls inside/',
 			screenshots: [
@@ -184,7 +185,7 @@ export const projects: Project[] = [
 				},
 				{
 					poster: `${PIXELPANE_DIR}/live-control.webp`,
-					alt: "The board's control page in October: a live preview of a pixel art pumpkin under a crescent moon, power and brightness, the playlist position, the active Autumn and Halloween themes, and Play now buttons for every scene",
+					alt: 'The PixelPane control page: a live preview of the panel, power and brightness, what is playing now and next, the active Autumn and Halloween themes, and Play now buttons for every scene',
 					caption: 'The control page, with a live preview of the panel',
 				},
 			],
