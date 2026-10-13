@@ -34,7 +34,7 @@ The first month of actually measuring impact was disorienting.
 
 ![Horizontal bar chart showing percentage change over four weeks: docs traffic up 440%, search impressions up 316%, estimated traffic value up 99%, weekly visitors up 76%, organic traffic up 57%](/images/blog/proving-my-work-mattered/analytics-four-weeks.webp)
 
-Docs traffic was up 440% over four weeks. Search impressions up 316%. One week hit 4.9x my previous all-time record for impressions.
+Docs traffic was up 440% over four weeks. Search impressions up 316%. One week hit 4.9x my previous all-time record for impressions. I wrote up [how I diagnosed the decline and set up the weekly audit behind those numbers](/blog/reversing-seo-traffic-decline-ai-overviews) separately.
 
 ![Indexed bar chart comparing the prior all-time high for search impressions at 1.0x to the peak week at 4.9x](/images/blog/proving-my-work-mattered/impressions-indexed.webp)
 
