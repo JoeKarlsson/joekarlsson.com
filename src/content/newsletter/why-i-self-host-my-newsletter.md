@@ -1,6 +1,6 @@
 ---
 title: 'Why I Self-Host My Newsletter'
-date: 2026-10-12
+date: 2026-10-13
 slug: 'why-i-self-host-my-newsletter'
 description: "Why my newsletter runs in my homelab, why I picked listmonk over Ghost, and what I haven't figured out about outgrowing a free email plan."
 heroImage: '/images/newsletter/why-i-self-host-my-newsletter/header.webp'
