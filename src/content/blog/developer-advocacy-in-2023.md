@@ -36,7 +36,7 @@ Now, let’s talk about that oh-so-elusive ROI for DevRel. With tightened budget
 
 - Upskill your teammates - share your DevRel expertise with other teams by offering training sessions, workshops, or mentorship. This way, you'll help them understand the value you bring and create a more developer-centric culture throughout the organization.
 
-It's time for Developer Advocacy to step up and show the world we're not just a bunch of nerdy hype-machines. By building internal collaboration and showcasing our ROI, we can weather the Techpocalypse and come out stronger than ever. I also wrote about how I think about [DevRel as "Dev Zero"](/blog/devrel-as-dev-zero/) - using developer advocacy as the first line of product testing.
+It's time for Developer Advocacy to step up and show the world we're not just a bunch of nerdy hype-machines. By building internal collaboration and showcasing our ROI, we can weather the Techpocalypse and come out stronger than ever. I also wrote about how I think about [DevRel as "Dev Zero"](/blog/devrel-as-dev-zero/) - using developer advocacy as the first line of product testing. For how my thinking changed three years later, see [running DevRel in 2026](/blog/running-devrel-2026/).
 
 Stay resilient, and happy advocating!
 

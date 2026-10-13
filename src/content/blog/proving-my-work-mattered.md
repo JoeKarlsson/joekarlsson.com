@@ -72,6 +72,6 @@ If you're a developer marketer, DevRel person, or content creator who can't answ
 4. Ask whether your company already has a connectivity layer that might make this trivial
 5. Use an AI agent to build the report if you don't want to learn the query language
 
-The decision about what to measure - and the integrity to notice when your measurements are flattering you - stays yours. But the technical barrier to getting the data is lower than you think.
+The decision about what to measure - and the integrity to notice when your measurements are flattering you - stays yours. But the technical barrier to getting the data is lower than you think. Once you have it, these are [the leading indicators I track for a DevRel program](/blog/running-devrel-2026/#metrics-that-predict-downloads).
 
 I spent two years not asking. Don't do that.

@@ -43,6 +43,6 @@ This targeted content helps users overcome hurdles, leading to better product us
 
 ## Why This Matters
 
-DevRel as Dev Zero is important in product development. It helps make products user-friendly and saves startups time and money. Using testing insights, DevRel creates targeted content addressing user issues. I wrote more about how the role is evolving in my post on [developer advocacy in 2023](/blog/developer-advocacy-in-2023/).
+DevRel as Dev Zero is important in product development. It helps make products user-friendly and saves startups time and money. Using testing insights, DevRel creates targeted content addressing user issues. I wrote more about how the role is evolving in my post on [developer advocacy in 2023](/blog/developer-advocacy-in-2023/), and how Dev Zero fits next to search and LLM work in [running DevRel in 2026](/blog/running-devrel-2026/#dev-zero-and-docs).
 
 Next time you spot a bug, be a superhero and catch it! Reach out to DevRel for help; we’re eager to save the day.
