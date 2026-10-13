@@ -1,5 +1,5 @@
 ---
-title: "How I Reversed a Traffic Death Spiral (And the Weekly Ritual That's Doing It)"
+title: 'Reversing SEO Traffic Decline From AI Overviews: A Weekly Audit (2026)'
 date: 2026-04-07
 slug: 'reversing-seo-traffic-decline-ai-overviews'
 description: 'How I reversed an SEO traffic decline caused partly by AI Overviews: two failure modes, a weekly Claude Code audit, and real numbers from four weeks.'
@@ -46,7 +46,7 @@ _A traffic decline usually has two failure modes that need different fixes. Once
 
 ---
 
-Our organic search traffic had been sliding for months. It wasn't a crash, just a slow, steady decline in impressions and clicks that was easy to explain away week by week and hard to ignore once I zoomed out to six months.
+Our organic search traffic had been sliding for months. It wasn't a crash. Apart from the occasional spike around a launch, we lost a little traffic almost every week, which was easy to explain away week by week and hard to ignore once I zoomed out to six months.
 
 When I finally sat down to diagnose it, I found two different problems, affecting different pages and needing different fixes, that I'd been treating as one. Applying the wrong fix to the wrong problem is why a lot of SEO recovery efforts don't work. And with Claude Code, shipping a fix takes an afternoon, so the diagnosis is where the real work is.
 
@@ -64,7 +64,7 @@ Google's AI-generated answer boxes now show up at the top of search results and 
 
 It's not just a publisher and e-commerce problem. [Semrush's AI Overviews study](https://www.semrush.com/blog/semrush-ai-overviews-study/) found them on nearly 18% of keywords in Computers & Electronics, the second-highest category it tracked, and that's our space. And clicks were already scarce before AI Overviews: [SparkToro's zero-click research](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/) found that for every 1,000 Google searches in the US, only **360 clicks** reach the open web at all.
 
-If AI Overviews are appearing on your queries, it's because Google considers your content worth citing. You're being rewarded with _invisibility._
+If AI Overviews are showing up on your queries, Google thinks your content is worth citing, and the Overview built from it is what keeps people from clicking through to you.
 
 That was part of what was happening to us. Some of our pages were ranking and getting summarized, and the clicks went nowhere. But we also had pages declining across the board, which is a different problem.
 
@@ -185,7 +185,7 @@ Here's where we started on Feb 27, 2026, and where we were about four weeks late
 | Weekly visitors (Plausible) | ~1,354    | ~2,386           | **+76%**           |
 | Docs visitors/week          | ~48       | ~261             | **+440%**          |
 
-The impressions number surprised me most. Our previous all-time high was around 10,150 impressions, in May 2024. By mid-March we'd passed it, and three weeks in we hit **49,220 impressions** in a single week, 4.9x the old record.
+The impressions number surprised me most. Our previous all-time high was around 10,150 impressions, in May 2024, and that was a one-off spike from a launch, not normal traffic. By mid-March we'd passed it, and three weeks in we hit **49,220 impressions** in a single week, 4.9x the old record.
 
 ![Ahrefs 90-day performance chart showing the "Start" line at Feb 27. After that date, impressions (pink) climb steeply, organic traffic (orange) rises, and referring domains (blue) hold steady - showing the growth is search-driven, not backlink-driven.](/images/blog/reversing-seo-traffic-decline-ai-overviews/chart-90day-performance.webp)
 _The 90-day view. The vertical red line is Feb 27, when the weekly audit workflow started._
@@ -223,7 +223,7 @@ A [2023 academic paper from Princeton, Georgia Tech, and Allen AI](https://arxiv
 - **First-person authoritative voice**: "we provide X" lands differently than "some tools include X"
 - **Specific, verifiable claims**: real numbers, named integrations, dated examples
 
-The content that gets cited in AI answers tends to be content that directly answers the query, which is also what ranks in traditional organic search. Good writing and good SEO are converging. Write for people, format for robots.
+The content that gets cited in AI answers tends to be content that directly answers the query, which is also what ranks in traditional organic search, so the work for both is mostly the same.
 
 ![Meme: Always Has Been astronaut - wait, good SEO is just writing thorough content that actually answers questions? Always has been.](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-always-has-been.webp)
 
