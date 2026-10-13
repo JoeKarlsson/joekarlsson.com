@@ -227,7 +227,7 @@ Via cron, I run 2 workers from midnight to 4 PM when nobody's streaming, then dr
 
 The output quality is surprisingly good. Word-level timestamps mean subtitles are tightly synced to speech. The VAD filter catches dialogue even through background music (I use an ultra-low threshold of 0.1). And the hallucination filter catches the vast majority of Whisper's creative additions.
 
-The system generates standard `.en.srt` files that any media player can pick up automatically. Plex, Jellyfin, VLC - they all just find the subtitle file and offer it to the user.
+The system generates standard `.en.srt` files that any media player can pick up automatically. Plex, Jellyfin, VLC - they all just find the subtitle file and offer it to the user. I use the same idea on my Mac in [a screen recorder that transcribes locally with whisper.cpp to caption and edit my demo videos](/blog/screencast-director-screen-recorder/).
 
 ## What I Learned
 

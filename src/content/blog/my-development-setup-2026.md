@@ -246,6 +246,8 @@ I talk to my agents far more than I type to them. Hold a key, say what I want, l
 
 Superwhisper was good. Handy is [open source](https://github.com/cjpais/Handy), free, and runs any local model I want: Whisper, or NVIDIA's [Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3), which is what I use. Its cleanup pass (punctuation, misheard words) points at a local model on my homelab GPU, so nothing leaves hardware I own. Keeping my data on hardware I own isn't one of the four goals, but every tool in this post has to meet it.
 
+The same rule applies to recording: I built an [open source screen recorder that edits the video for me](/blog/screencast-director-screen-recorder/), and its transcription runs locally.
+
 ### One git worktree per agent
 
 Two agents sharing one git checkout will happily commit each other's work. One of my commits once swept up three files a different session had left staged. So there's a rule now: stage and commit in the same step, by path, never `git add -A`.
