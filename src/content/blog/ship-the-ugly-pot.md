@@ -2,147 +2,123 @@
 title: 'Ship the Ugly Pot'
 date: 2026-09-11
 slug: 'ship-the-ugly-pot'
-description: 'Your org is the quality group from the pottery parable. They were told to make one perfect pot. They made worse pots.'
+description: 'Quantity beats quality as a learning strategy: the Art & Fear pottery story, DORA deploy data, and how to tell a kiln from a gate in your org.'
 categories: ['Career']
 heroImage: '/images/blog/ship-the-ugly-pot/hero.webp'
 heroAlt: 'Split image: left side labeled QUALITY shows one small clay pot alone; right side labeled QUANTITY shows a pile of many clay pots'
-tldr: 'Quantity beats quality as a learning strategy - not because volume matters, but because each completed artifact generates feedback the next one benefits from. Elite teams ship most frequently AND have the lowest failure rates. Quantity without feedback infrastructure just builds debt.'
+tldr: 'Quantity beats quality as a learning strategy because each finished piece of work gives you feedback for the next one. In DORA data, the teams that deploy most often also have the lowest change failure rates. Shipping a lot without that feedback just builds debt, and most slow review cultures are a symptom of fragile infrastructure.'
 faq:
   - question: 'Does quantity actually beat quality, or is that oversimplified?'
-    answer: 'It depends on the domain. In iterative creative and technical work - software, writing, design - quantity beats quality as a learning strategy because feedback compounds. Each completed artifact teaches you something the next one benefits from. In safety-critical domains like aviation, medical devices, and nuclear software, quality-first constraints are legally and morally required.'
+    answer: 'Yes in iterative work like software, writing, and design, where each finished piece teaches you something about the next one. No in safety-critical work like aviation and medical devices, where quality-first is legally required. Quantity only wins when each piece goes through a feedback loop.'
   - question: 'Is the pottery class experiment a real study?'
-    answer: "No, it's a parable from Art & Fear (Bayles and Orland, 1993). The original was Jerry Uelsmann's photography class at the University of Florida. Ted Orland replaced the medium with ceramics when retelling it. The DORA State of DevOps research provides large-scale empirical support for the same conclusion in software engineering."
-  - question: 'What is a deployment-quality loop?'
-    answer: 'The feedback cycle where frequent small deployments to production generate learning that improves the next deployment. DORA research shows elite teams that deploy on-demand have lower change failure rates and faster recovery times than teams that deploy infrequently. Speed and quality correlate positively.'
+    answer: "No. It's an anecdote from Art & Fear (Bayles and Orland, 1993), not a controlled study. Orland has said it's based on Jerry Uelsmann's photography class at the University of Florida, retold with ceramics. The closest large-scale evidence in software is the DORA State of DevOps research."
   - question: 'What is the perfection trap?'
-    answer: 'When a team or individual confuses planning for quality with producing quality. Both feel like work from the inside, but only production generates feedback. The quality group in the pottery parable fell into the perfection trap: they theorized about a perfect pot instead of making pots.'
+    answer: 'Confusing planning for quality with producing quality. Both take careful thought and both feel like work, but only producing something gets you feedback. The quality group in the pottery story fell into it.'
   - question: "What's the difference between a kiln and a gate?"
-    answer: 'A kiln runs work through production reality and makes it better - tests, observability, real user feedback, retros. A gate just adds latency and incentivizes safe, review-passable proposals over good ideas. Review cycles can be either. Auditing which type each review cycle is helps teams keep the kilns and remove the gates.'
-  - question: 'What did the 2025 DORA data say about AI coding tools and quality?'
-    answer: "Teams that adopted AI code assistants saw throughput increase. But delivery stability was determined by teams' existing feedback infrastructure - testing, observability, deployment practices. AI made it easier to produce clay. Whether teams ran it through the kiln was the variable that mattered."
+    answer: 'A kiln tests work against reality and makes it better: automated tests, monitoring, real user feedback, retros. A gate adds latency and rewards safe, easy-to-approve proposals. Review can be either. Keep the kilns, remove the gates, and if a gate exists because the infrastructure is fragile, fix the infrastructure.'
+  - question: 'What did the 2025 DORA report say about AI coding tools and quality?'
+    answer: "AI adoption went with higher throughput and, on average, lower delivery stability. The report ties the difference to the basics teams already had in place, such as automated testing, mature version control, and fast feedback loops. AI makes more clay. It doesn't build the kiln."
 ---
 
-Ship the ugly pot. Ship it before it's ready, before it's good, before you're proud of it. The path to good work runs directly through a pile of bad work - not around it, not after some undetermined future point when you've "figured it out." Through it.
+Ship the ugly pot. Ship it before it's good and before you're proud of it, because the way to good work runs through a pile of bad work, not around it.
 
-Here's the experiment that convinced me quantity beats quality - and why that's almost the opposite of what it sounds like.
+That sounds like an argument for volume, and it isn't. The pottery story everyone quotes from _Art & Fear_ is about feedback. Each finished pot taught the quantity group something about the next one. More pots without that feedback just means more bad pots. Artists have known this for a long time, and I think most of tech is still relearning it one DevOps report at a time.
 
-From David Bayles and Ted Orland's [_Art & Fear_](https://www.amazon.com/Art-Fear-Observations-Rewards-Artmaking/dp/0961454733):
+Here's the story, from David Bayles and Ted Orland's [_Art & Fear_](https://www.amazon.com/Art-Fear-Observations-Rewards-Artmaking/dp/0961454733):
 
 > "The ceramics teacher announced on opening day that he was dividing the class into two groups. All those on the left side of the studio, he said, would be graded solely on the quantity of work they produced, all those on the right solely on its quality. His procedure was simple: on the final day of class he would bring in his bathroom scales and weigh the work of the 'quantity' group: fifty pounds of pots rated an 'A', forty pounds a 'B', and so on. Those being graded on 'quality', however, needed to produce only one pot - albeit a perfect one - to get an 'A'. Well, came grading time and a curious fact emerged: the works of highest quality were all produced by the group being graded for quantity. It seems that while the 'quantity' group was busily churning out piles of work - and learning from their mistakes - the 'quality' group had sat theorizing about perfection, and in the end had little more to show for their effort than grandiose theories and a pile of dead clay."
 
+It's an anecdote, not a controlled study. Orland [has said](https://kottke.org/09/02/art-and-fear) it's based on Jerry Uelsmann's photography class at the University of Florida, retold with ceramics.
+
 ![Squidward Window meme: Squidward, labeled 'Quality group, week 11 of the perfect pot design doc', stares out the window at SpongeBob and Patrick, labeled 'Quantity group, on pot #83'.](/images/blog/ship-the-ugly-pot/meme-squidward-window.webp)
 
-The quality group's mistake has a name: call it the **perfection trap**. They confused planning for quality with producing quality. Both require thinking carefully. Both feel like work. But only one generates feedback. Without feedback, you're theorizing in a vacuum.
-
-<div class="callout">
-
-**Perfection trap:** Confusing planning for quality with producing quality. Both feel like work from the inside. Only production generates feedback.
-
-</div>
+The quality group fell into what I call the **perfection trap**: they confused planning for quality with producing it. Both take careful thought and both feel like work, but only producing something gets you feedback.
 
 ![They're The Same Picture meme: Pam from The Office is asked to find the differences between 'Planning a perfect pot' and 'Making a perfect pot'. Labeled 'The quality group', she answers 'They're the same picture.'](/images/blog/ship-the-ugly-pot/meme-same-picture.webp)
 
-## The mechanism: it's the kiln, not the clay
+## Why the quantity group won
 
 The quantity group didn't win because they made pots fast. They won because they made pots fast _and ran each one through the kiln._
 
-The kiln is the feedback mechanism. Take it away and you just have unfinished, untested clay. In software, shipping without feedback loops - no tests, no real users, no retros, no monitoring - doesn't produce the quantity group's outcome. It produces tech debt and a team that's busy but not learning.
+The kiln is the feedback. Take it away and you have a pile of unfired clay. In software, shipping without feedback loops (no tests, no real users, no retros, no monitoring) doesn't get you the quantity group's result. It gets you tech debt and a team that's busy without learning anything.
 
-There are two versions of quantity here, and only one of them works: quantity in service of output, and quantity in service of learning. The pottery group's result came from the second one.
+So the lesson is to learn faster, and shipping is the fastest way I know to do that, as long as something tells you how the shipped thing did.
 
-"Ship more" is not the lesson. "Learn faster" is. Shipping is just the fastest path to learning there is.
+Get changes in front of real users instead of letting them sit in staging, behind a feature flag and with a way to roll back. Staging doesn't have production data, production load, or production edge cases. Every week a feature sits there is a week you're not running pots through the kiln.
 
-**The call:** Ship to production, not to staging. Real feedback comes from real users doing real things. A staging environment doesn't have production data, production load, or production edge cases. Every week a feature sits in staging instead of production is a week you're not running pots through the kiln.
+## What the DORA data shows
 
-## DORA confirms it: quantity beats quality in software
-
-The DORA research - [_Accelerate_](https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339), from Nicole Forsgren, Jez Humble, and Gene Kim - synthesized years of State of DevOps survey data across thousands of teams. The finding is clear and has held up every year since: elite software teams deploy on-demand, multiple times per day, and have _lower_ change failure rates and _faster_ recovery times than low-performing teams.
+The DORA research behind [_Accelerate_](https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339) (Nicole Forsgren, Jez Humble, and Gene Kim, 2018) is built on years of State of DevOps survey data. The top-performing teams in that data deployed on demand, often several times a day, and also had the lowest change failure rates and the fastest recovery times. [DORA's own metrics guide](https://dora.dev/guides/dora-metrics/) puts it plainly: speed and stability aren't tradeoffs.
 
 <div class="pull-quote">
 
-Elite teams deploy most often and have the lowest failure rates. Speed and quality don't trade off - they correlate.
+In DORA's data, the teams that deploy most often also break things the least.
 
 </div>
 
-Call this the **deployment-quality loop**: the teams who ship most often aren't cutting corners - they're in a faster feedback cycle with production. Each deployment is a learning event. Small batches mean small blast radius when something goes wrong. [DORA says the same thing about software](https://dora.dev/guides/dora-metrics/) that the pottery class said about pots, with survey data instead of bathroom scales.
+The teams that ship most often are in a faster feedback cycle with production, and small batches mean a small blast radius when something goes wrong. DORA says the same thing about software that the pottery class said about pots, with survey data instead of bathroom scales.
+
+Maybe elite teams deploy often _because_ they're already good at testing and monitoring, and not the other way around. DORA is survey data, so it can't rule that out. But the [2025 DORA report](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) points the same direction as the kiln. AI adoption went with higher throughput and, on average, lower delivery stability. The teams that avoided the instability had strong automated testing, mature version control, and fast feedback loops. More clay without a kiln made things worse.
 
 <div class="callout">
 
-**Deployment-quality loop:** The feedback cycle where frequent small deployments generate learning that improves the next one. More shipping means more learning events, smaller blast radius per change, and faster recovery when something breaks.
+Case study: [How I built feedback discipline into an AI-assisted writing workflow](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/).
 
 </div>
 
-The obvious objection: maybe elite teams deploy often _because_ they're already good at testing and observability - not the other way around. The [2025 State of DevOps report](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) is about as close as we get to a natural experiment. AI coding assistants increased throughput broadly across teams. But delivery stability moved with teams' existing feedback infrastructure - testing, observability, deployment practices - not with how often teams had shipped before. The causal variable wasn't shipping history. It was whether the kiln existed.
+If you track deploy frequency, track change failure rate next to it. Frequency on its own is easy to game, and a team that ships a lot without a kiln is just making the debt pile faster. I wrote more about [measuring whether your work is converting](/blog/proving-my-work-mattered/) separately.
 
-<div class="callout">
+## Slow review comes from fragile infrastructure
 
-Case study: [How I built feedback discipline into an AI-assisted writing workflow](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/) - the practice version of this argument.
+I've worked on both sides of this, at two different places.
 
-</div>
-
-Perfectionism has the same data problem. A [2010 study of academic psychologists](https://www.sciencedaily.com/releases/2010/11/101112094532.htm) published in the _Canadian Journal of Behavioural Science_ found self-oriented perfectionism negatively correlated with publication count, citations, and journal impact. The prolific researchers had more influence. The quality group sat theorizing and produced less impact.
-
-**The call:** If you track one metric, track deploy frequency. It's both a leading indicator of quality and a forcing function for the feedback loops that produce it. Teams that deploy rarely are optimizing for something other than quality, whether they know it or not. For a longer look at [measuring whether your work is actually converting](/blog/proving-my-work-mattered/), that post gets into the mechanics.
-
-## Too many gates, not enough kilns
-
-I've seen this play out at previous jobs. Two orgs, same pattern, opposite outcomes.
-
-Some orgs have content systems with no version control, no linting, no automated link checking, no rollback. Every change is irreversible. Of course those teams run everything through four rounds of review before it touches a user - the cost of a mistake is enormous, and the tooling makes every change feel like open-heart surgery. That's not a review culture. It's a fragile infrastructure that forced a review culture.
+At one, a change had to go past every department that might have an opinion on it. Everyone had to read it and buy in. Review mostly meant poking holes and adjusting, and a single no anywhere in the chain blocked the whole thing until you got that person on board, or got their boss on board. A change to the website or to how the review process itself worked could take forever to land. The content system underneath had no version control, no linting, no automated link checking, and no rollback, so every change was effectively permanent. Of course everything went through that many rounds. The tooling made every change feel like open-heart surgery, and the review culture grew up around that.
 
 ![Flex Tape meme: a tank leaking water is labeled 'Content system with no version control and no rollback', and the hand slapping Flex Tape over the leak is labeled 'Four rounds of review'.](/images/blog/ship-the-ugly-pot/meme-flex-tape.webp)
 
-The orgs that grade on output have built different tooling: version control, automated tests, monitoring, rollback capability, analytics. Review exists as a checkpoint, not a gate, because the blast radius of any individual change is small and reversible. The iteration speed isn't a cultural stance. It's an infrastructure consequence.
+The other place had version control, protected branches, automated tests, redirects, monitoring, and easy rollback. We shipped tens of changes a day and adjusted based on what we saw. It was a little ridiculous how much we got done. I broke things there too. When I did, the fix was quick: roll back or patch it, add a test so the same regression would get caught next time, and get the fix reviewed fast. Review was still there, but it was a checkpoint, because no single change could do much damage.
 
-Going rogue in an org without that foundation doesn't work - I've seen that fail too. Without version control, tests, measurement, and team buy-in, moving fast just means breaking things with no way back. You need [a completion standard that the team actually holds](/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/) - but one built for iteration, not for permanence.
+The second place produced work that was more timely and more tied to what users needed right now. People there developed better taste over time, because taste comes from feedback and feedback comes from shipping. The first place produced grandiose theories and a pile of dead clay.
 
-The first type of org produces work that's more timely, more tied to what users actually need right now. They develop better taste over time, because taste comes from feedback, and feedback comes from shipping.
+What I took from it: review-heavy culture is mostly about taking ideas apart, and that makes a generative, fast-moving team hard to sustain. But going rogue in an org without the foundation doesn't work either. Without version control, tests, measurement, and team buy-in, moving fast means breaking things with no way back. You need [a completion standard the team holds](/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/), built for iteration.
 
-The second type produces grandiose theories and a pile of dead clay.
+I'm not arguing against review. Review is part of the kiln. The argument is about order and weight: build the infrastructure first, then use light review early and heavier review before major decisions, instead of heavy review before anything moves.
 
-I'm not arguing against review. Review cycles are part of the kiln. The argument is about sequence and weight: build the infrastructure first, then use light review early and heavier review before major decisions. Not heavy review before anything moves, in a system where every change is irreversible.
+**If you're a manager:** audit your review cycles. For each one, ask whether it's a kiln or a gate. A kiln tests the work against reality and makes it better. A gate adds latency and teaches people to propose only safe, easy-to-approve ideas. Remove the gates and keep the kilns. If a gate exists because the infrastructure is fragile, fix the infrastructure.
 
-**The call, if you're a manager:** Audit your review cycles. For each one, ask: is this a kiln or a gate? A kiln runs the work through production reality and makes it better. A gate adds latency and creates incentives to propose only safe, review-passable ideas. Kill the gates. Keep the kilns. And if the gates exist because the infrastructure is fragile - fix the infrastructure.
+**If you're an IC in a gated org:** ship the smallest thing that doesn't need the gate, and use the result as your argument for removing it.
 
-**The call, if you're an IC in a gated org:** Ship the smallest thing that doesn't require the gate. Use the result as the argument for removing it. One deployed experiment that didn't break anything is worth more than six months of process debate.
-
-<div class="callout">
-
-**AI makes this more urgent, not less.** AI tools let you write content, generate code, and make broad changes faster than ever - more clay, produced faster. But if your review infrastructure is still a gate, you've just moved the bottleneck. The orgs with version control, rollback, and automated checks will absorb that speed; the ones without will drown in it. The gap between high-infra and low-infra teams is going to widen as AI adoption grows. The philosophy hasn't changed. The stakes have.
-
-</div>
+AI raises the stakes here. It lets you write content, generate code, and make broad changes faster than ever, which is more clay produced faster. If your review process is still a gate, you've just moved the bottleneck. Orgs with version control, rollback, and automated checks can absorb that speed. The ones without it will drown in it.
 
 ## Don't ship the ugly pot into a radiation therapy machine
 
-Aviation. Medical devices. Nuclear.
+If you're writing flight control software or code for a radiation therapy machine, quality-first is legally required and morally necessary, and standards like [DO-178C](https://en.wikipedia.org/wiki/DO-178C) for avionics and [IEC 62304](https://en.wikipedia.org/wiki/IEC_62304) for medical device software exist for good reasons. "Ship and learn" breaks down when learning means someone gets hurt.
 
-If you're writing software for cancer radiation therapy equipment, quality-first isn't wrong - it's legally required and morally necessary. [DO-178C](https://en.wikipedia.org/wiki/DO-178C) exists for reasons. The argument for shipping fast breaks down completely when "ship and learn" means "someone dies."
-
-But here's how safety-critical domains actually work: the kiln doesn't disappear. It gets more expensive. Simulation rigs, hardware-in-the-loop testing, formal verification - those are kilns that cost a million dollars to fire. The feedback loop is still the mechanism. It just moved and got priced accordingly.
+Safety-critical teams still have kilns, though. Simulation rigs, hardware-in-the-loop testing, and formal verification are all feedback loops. They just cost a lot more to fire. If you work in one of those domains, spend on cheaper, faster kilns before you add another sign-off stage.
 
 Most software teams aren't in those domains. If you are, you already know this.
 
-## The only rule is work
+## What tech can learn from art school
 
-I've been reading [_The Artist's Way_](https://www.amazon.com/Artists-Way-25th-Anniversary/dp/0143129252) lately, and the thing I keep noticing - in my writing, in my creative work, in how I show up at work - is that the act of producing and paying attention makes you better faster than planning to produce. The skills I've built by making a lot of work quickly show up as confidence, as speed, as the ability to articulate what actually works and why. Because I'm running things through the kiln and observing what comes out.
+I've been reading [_The Artist's Way_](https://www.amazon.com/Artists-Way-25th-Anniversary/dp/0143129252) lately, and the idea I keep coming back to is that making things and paying attention to how they turn out makes you better faster than planning to make them. That's held up for me. Everything I make has gone up since I started working this way: blog posts here and at work, art, writing, video. More of it ships, and each round is faster than the last, because I'm making a lot and looking hard at what came out instead of waiting until I feel ready.
 
-What I keep returning to: most of what the art world figured out about how to get good at making things, the tech world hasn't fully absorbed. Art has always known you develop voice and craft through volume and attention - not by waiting until you know enough to start. There's a lot tech could learn from the softer disciplines, and this is probably the most transferable thing.
+Art has always known you build voice and craft through volume and attention, not by waiting until you know enough to start. Tech mostly treats that as a DevOps finding. There's a lot we could take from the softer disciplines, and I think this is the most transferable thing.
 
-Sister Corita Kent taught in the [Immaculate Heart College Art Department](https://www.corita.org/tenrules) from 1947 to 1968 and chaired it in its most influential years. Rule 7 from her department's list is the bluntest version of this I've found:
+It shows up outside art too. A [2010 study of 1,258 psychology professors](https://www.sciencedaily.com/releases/2010/11/101112094532.htm) in the _Canadian Journal of Behavioural Science_ found perfectionism went with fewer publications, fewer citations, and lower-impact journals. It's a correlation, but it points the same way.
+
+Sister Corita Kent taught at Immaculate Heart College in Los Angeles from 1947 to 1968 and [chaired its art department](https://en.wikipedia.org/wiki/Corita_Kent) from 1964. Rule 7 from the [Immaculate Heart College Art Department rules](https://www.corita.org/tenrules) she popularized is the bluntest version of this I've found:
 
 ![Immaculate Heart College Art Department Rules poster showing all ten rules in colorful handwritten text, with Rule 7 reading 'The only rule is work'](/images/blog/ship-the-ugly-pot/immaculate-heart-rules.webp)
 
-> "The only rule is work. If you work, it will lead to something. It's the people who do all of the work all of the time who eventually catch on to things."
+> "The only rule is work. If you work it will lead to something. It's the people who do all of the work all the time who eventually catch on to things."
 
-No caveats. No "but make sure it's good first." **Just: work.**
+The "catch on" part is the kiln. You do the work, and you pay attention to what it teaches you.
 
 ![Bell Curve meme: the low end says 'just make stuff', the crying middle says 'I need to read 12 books on creativity and build a craft framework before I start', and the hooded monk at the high end says 'The only rule is work.'](/images/blog/ship-the-ugly-pot/meme-bell-curve.webp)
 
-The pottery group. Rule 7. The DORA data. The Artist's Way. All pointing at the same underlying mechanism: _you don't think your way to quality. You ship your way there._
+The pottery story, the DORA data, _The Artist's Way_, and Corita Kent's rule 7 all point at the same thing: _you don't think your way to quality. You ship, look at what came out, and ship again._
 
-I've written more about the environment side of this - the psychological safety and conditions that make fast iteration possible - in [The Cognitive Case for Play in Technical Work](/blog/cognitive-case-for-play-in-technical-work/). This post is about the practice. That one's about the conditions.
-
-Make the pots. Run them through the kiln. Learn. Make better pots.
+I've written about the other half of this, the psychological safety and conditions that make fast iteration possible, in [The Cognitive Case for Play in Technical Work](/blog/cognitive-case-for-play-in-technical-work/).
 
 ---
 
@@ -150,24 +126,20 @@ Make the pots. Run them through the kiln. Learn. Make better pots.
 
 **Does quantity actually beat quality, or is that oversimplified?**
 
-It depends on the domain. In iterative creative and technical work - software, writing, design - quantity beats quality as a _learning strategy_ because feedback compounds. Each completed artifact teaches you something the next one benefits from. In safety-critical domains (aviation, medical devices, nuclear), quality-first constraints are legally and morally required and this framing doesn't apply the same way.
+Yes in iterative work like software, writing, and design, where each finished piece teaches you something about the next one. No in safety-critical work like aviation and medical devices, where quality-first is legally required. Quantity only wins when each piece goes through a feedback loop.
 
 **Is the pottery class experiment a real study?**
 
-No, it's a parable from _Art & Fear_ (Bayles and Orland, 1993). The original was Jerry Uelsmann's photography class at the University of Florida. Ted Orland replaced the medium with ceramics when retelling it. No peer-reviewed study replicated the exact setup - but the DORA State of DevOps research provides large-scale empirical support for the same conclusion in software engineering.
-
-**What is a deployment-quality loop?**
-
-The feedback cycle where frequent small deployments to production generate learning that improves the next deployment. DORA research shows elite teams that deploy on-demand have lower change failure rates and faster recovery times than teams that deploy infrequently. Speed and quality correlate positively - they don't trade off.
+No. It's an anecdote from _Art & Fear_ (Bayles and Orland, 1993), not a controlled study. Orland has said it's based on Jerry Uelsmann's photography class at the University of Florida, retold with ceramics. The closest large-scale evidence in software is the DORA State of DevOps research.
 
 **What is the perfection trap?**
 
-When a team or individual confuses planning for quality with producing quality. Both feel like work from the inside, but only production generates feedback. The quality group in the pottery parable fell into the perfection trap: they theorized about a perfect pot instead of making pots.
+Confusing planning for quality with producing quality. Both take careful thought and both feel like work, but only producing something gets you feedback. The quality group in the pottery story fell into it.
 
 **What's the difference between a kiln and a gate?**
 
-A kiln runs work through production reality and makes it better - tests, observability, real user feedback, retros. A gate just adds latency and incentivizes safe, review-passable proposals over good ideas. Review cycles can be either. Auditing which type each review cycle is helps teams keep the kilns and remove the gates.
+A kiln tests work against reality and makes it better: automated tests, monitoring, real user feedback, retros. A gate adds latency and rewards safe, easy-to-approve proposals. Review can be either. Keep the kilns, remove the gates, and if a gate exists because the infrastructure is fragile, fix the infrastructure.
 
-**What did the 2025 DORA data say about AI coding tools and quality?**
+**What did the 2025 DORA report say about AI coding tools and quality?**
 
-Teams that adopted AI code assistants saw throughput increase. But delivery stability was determined by teams' existing feedback infrastructure - testing, observability, deployment practices - not by how often they'd shipped before. AI made it easier to produce clay. Whether teams ran it through the kiln was the variable that mattered.
+AI adoption went with higher throughput and, on average, lower delivery stability. The report ties the difference to the basics teams already had in place, such as automated testing, mature version control, and fast feedback loops. AI makes more clay. It doesn't build the kiln.
