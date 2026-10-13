@@ -313,7 +313,7 @@ Proxmox snapshots are free and fast. Before updating a container, changing a con
 
 ### Use VLANs if you're exposing anything to the internet
 
-If you're planning to make any services publicly accessible (and you probably will eventually), segment your network. Put your public-facing services on a separate VLAN from your home network. Proxmox's built-in firewall makes this manageable.
+If you're planning to make any services publicly accessible (and you probably will eventually), segment your network. Put your public-facing services on a separate VLAN from your home network. Proxmox's built-in firewall makes this manageable. The same idea works for cheap gadgets: [my LED pixel art frame lives on its own IoT VLAN](/blog/pixelpane-pixel-art-home-assistant/), where it can reach Home Assistant and the internet and nothing else.
 
 ### Containers over VMs (usually)
 

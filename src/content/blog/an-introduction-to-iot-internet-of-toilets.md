@@ -233,7 +233,7 @@ class Scale {
 module.exports = Scale;
 ```
 
-This was the first time I have played around with the Spawn Child Process API from Node. Personally, I was impressed by how easy it was to use and troubleshoot. It’s not the most elegant solution, but it totally works for my project and it uses some cool features of Node. Let’s take a look at what the load cells look like in action. In the video below, you can see how pressure placed on the load cells is registered as a weight measurement from the Raspberry Pi.
+This was the first time I have played around with the Spawn Child Process API from Node. Personally, I was impressed by how easy it was to use and troubleshoot. Another Pi 3B now runs [a 32x32 pixel art frame on my desk](/blog/pixelpane-pixel-art-home-assistant/) that Home Assistant pushes alerts to. It’s not the most elegant solution, but it totally works for my project and it uses some cool features of Node. Let’s take a look at what the load cells look like in action. In the video below, you can see how pressure placed on the load cells is registered as a weight measurement from the Raspberry Pi.
 
 ![Demo of the load cell measuring weight changes](/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo.gif)_Demo of the load cell measuring weight changes_
 
