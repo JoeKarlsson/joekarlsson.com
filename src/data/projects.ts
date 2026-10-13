@@ -118,7 +118,7 @@ export const projects: Project[] = [
 	{
 		title: 'PixelPane',
 		description:
-			'A 32x32 LED pixel art frame behind a two-way mirror, driven by a Raspberry Pi. It plays seasonal pixel art, and Home Assistant pushes to it: ON AIR when my camera turns on, the doorbell, the weather. Open source, and every scene is a plugin.',
+			"A 32x32 LED pixel art frame behind a two-way mirror, driven by a Raspberry Pi. It plays seasonal pixel art, and Home Assistant pushes to it: ON AIR when my camera turns on, the doorbell, the weather. It's open source, and every scene is a plugin.",
 		image: `${PIXELPANE_DIR}/project-hero.webp`,
 		video: `${PIXELPANE_DIR}/pp-playnow.mp4`,
 		imageAlt:
@@ -129,10 +129,10 @@ export const projects: Project[] = [
 		blogUrl: '/blog/pixelpane-pixel-art-home-assistant/',
 		page: {
 			slug: 'pixelpane',
-			tagline: 'A 32x32 LED pixel art frame for your shelf, driven by a Raspberry Pi.',
+			tagline: 'A 32x32 LED pixel art frame on my shelf, driven by a Raspberry Pi.',
 			intro: [
-				"PixelPane plays pixel art GIFs mixed with live, animated scenes: the clock, the weather, what's playing, your next meeting, and decorations that change with the seasons. From the front it's a dark mirror until the LEDs light up behind it.",
-				"It's open source and plugin-based, in the spirit of MagicMirror. Home Assistant, or anything that can send an HTTP request, pushes notifications and data to it, and it has its own web page for everything else.",
+				"PixelPane plays pixel art GIFs mixed with live, animated scenes: the clock, the weather, what's playing, my next meeting, and decorations that change with the seasons. From the front it's a dark mirror until the LEDs light up behind it.",
+				"It's open source and plugin-based, like MagicMirror. Home Assistant, or anything that can send an HTTP request, pushes notifications and data to it, and it has its own control page, with a live preview of the panel, for everything else.",
 			],
 			steps: [
 				{
@@ -144,12 +144,12 @@ export const projects: Project[] = [
 					text: 'A playlist mixes GIFs with animated scenes. Each scene comes from a plugin, and a plugin is one Python file.',
 				},
 				{
-					title: 'Your house pushes to it',
-					text: 'Home Assistant sends ON AIR, doorbell and laundry alerts, the weather and what is playing. The board never needs a token.',
+					title: 'Home Assistant pushes to it',
+					text: "Home Assistant sends ON AIR, doorbell and laundry alerts, the weather and what's playing. It only receives, so it never needs a Home Assistant token.",
 				},
 			],
 			galleryTitle: 'ls clips/',
-			galleryNote: 'The control page, recorded. Hover to play.',
+			galleryNote: 'Recorded from the control page. Hover to play.',
 			gallery: [
 				{
 					video: `${PIXELPANE_DIR}/pp-playnow.mp4`,
@@ -310,7 +310,7 @@ export const projects: Project[] = [
 			steps: [
 				{
 					title: 'Listen',
-					text: 'Every quarter second, while you are talking, the page sends the last 3.5 seconds of audio to a local `whisper-server`.',
+					text: "Every quarter second, while you're talking, the page sends the last 3.5 seconds of audio to a local `whisper-server`.",
 				},
 				{
 					title: 'Match',
@@ -349,7 +349,7 @@ export const projects: Project[] = [
 	{
 		title: 'Screencast Director',
 		description:
-			'A macOS screen recorder that drafts the edit for me, because editing is the part of video I hate. Talk through a demo once: talking plays in real time, typing speeds up, dead air is cut, clicks get zooms and you get captions. Then fix it on a timeline or ask Claude to change it.',
+			'A macOS screen recorder that drafts the edit for me, because editing is the part of video I hate. I talk through a demo once, and it keeps the talking at real time, speeds up the typing, cuts the dead air, zooms on clicks and adds captions. Then I fix it on a timeline or ask an AI model to change it.',
 		image: `${SD_DIR}/project-hero.webp`,
 		video: `${SD_DIR}/sd-tour.mp4`,
 		imageAlt:
@@ -362,21 +362,21 @@ export const projects: Project[] = [
 			slug: 'screencast-director',
 			tagline: 'A screen recorder that does the boring part of the edit.',
 			intro: [
-				'Screencast Director records your screen, mic and camera, then drafts the edit from one rule: while you are talking it plays in real time, typing without talking gets sped up, and silence gets cut. It zooms in where you click, captions what you said, and drops the retakes you mark.',
-				"Then you adjust it on a timeline, or tell Claude what to change. It's a native Swift app for Apple silicon Macs, it transcribes on your machine with whisper.cpp, and it's open source. The app is on the latest GitHub release.",
+				"Screencast Director records your screen, mic and camera, then drafts the edit from one rule: while you're talking it plays in real time, typing without talking gets sped up, and silence gets cut. It zooms in where you click, captions what you said, and drops the retakes you mark.",
+				"It's a native Swift app for Apple silicon Macs, and transcription runs on your machine with whisper.cpp. It's open source, and you can download the app from the latest GitHub release.",
 			],
 			steps: [
 				{
 					title: 'Record',
-					text: 'Press ⌃⌥⌘R in any app and talk through your demo. Flub a line? Press ⌃⌥⌘M and say it again.',
+					text: 'Press ⌃⌥⌘R in any app and talk through your demo. If you flub a line, press ⌃⌥⌘M and say it again.',
 				},
 				{
 					title: 'Draft',
-					text: 'It transcribes you on your Mac and drafts the edit: real time when you talk, fast when you type, cut when nothing happens.',
+					text: 'It transcribes you on your Mac and lines that up with when you clicked and typed, which decides what plays at real time, what speeds up and what gets cut.',
 				},
 				{
 					title: 'Adjust or ask',
-					text: 'Fix it on the timeline, or type "cut my retakes and zoom in when I mention the config". ⌘Z undoes it.',
+					text: 'Fix it on the timeline, or type "cut my retakes and zoom in when I mention the config".',
 				},
 			],
 			galleryTitle: 'ls clips/',
@@ -404,7 +404,7 @@ export const projects: Project[] = [
 					video: `${SD_DIR}/sd-ai-provider.mp4`,
 					poster: `${SD_DIR}/sd-ai-provider-poster.webp`,
 					alt: 'Hovering the AI provider options: Claude Code, Anthropic API, and OpenAI-compatible API',
-					caption: 'Pick the model',
+					caption: 'Pick the AI provider',
 				},
 				{
 					video: `${SD_DIR}/sd-camera.mp4`,

@@ -25,12 +25,13 @@
 		"generate:resume:webflow": "node scripts/generate-resume-pdf.mjs --page resume-webflow-pdf --out joe-karlsson-resume-webflow.pdf",
 		"import:cdata": "node scripts/import-cdata-posts.mjs",
 		"vale": "vale --minAlertLevel error src/content/blog/",
+		"test:voice": "bash scripts/vale-changed.sh",
 		"test:outdated": "npm outdated || true",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"test": "npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:unit",
+		"test": "npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:voice && npm run test:unit",
 		"prepare": "husky"
 	},
 	"dependencies": {

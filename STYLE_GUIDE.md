@@ -103,6 +103,8 @@ Two kinds of header work:
 - **A plain label that says what's there.** "The hardware." "Backups." "What I'd do differently." Boring is fine. Boring is findable.
 - **A claim that gives away the answer.** "Desktop GPUs don't fit in a 2U server." "Immich is actually great." "Why does Lidarr suck?" works too, as long as the section answers it in the first paragraph.
 
+Default to the plain label. A claim header earns its place in one or two sections, not all of them: a post where every header is a sentence ("The house interrupts for a short list of things", "When the draft is wrong, I ask Claude") reads as a template, and that's AI slop even when each one is accurate. Keep headers short, usually under six words.
+
 What doesn't work is the teaser. "The GPU lesson nobody warned me about" tells you there's a lesson, then makes you read three paragraphs to find out what it was. That's a YouTube thumbnail, not a header. Same goes for drama ("The power bill arrives," "The uncomfortable truth") and vague setup ("The setup," "The services"). The jokes, the story, the "I learned this the expensive way" - all of that is great, and all of it goes in the body. The header just tells you where you are.
 
 Quick checks before I ship:

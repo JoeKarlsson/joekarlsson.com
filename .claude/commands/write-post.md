@@ -142,7 +142,7 @@ Create a detailed outline with:
 
 ### 2a. Voice check the outline
 
-- Do the headers say what's in each section or give its answer, with no teasers? (Good: "Desktop GPUs don't fit in a 2U server", "Why does Lidarr suck?" Bad: "The GPU lesson nobody warned me about", "Lidarr Limitations".) Read only the headers. Do they give the gist of the post? Do the H3s follow the H3 rules in STYLE_GUIDE.md **Headers**?
+- Do the headers say what's in each section or give its answer, with no teasers? (Good: "Desktop GPUs don't fit in a 2U server", "Why does Lidarr suck?" Bad: "The GPU lesson nobody warned me about", "Lidarr Limitations".) Read only the headers. Do they give the gist of the post? Are most of them short plain labels, with a full-sentence claim only where the answer is the point? A post where every header is a sentence-length claim reads as a template. Do the H3s follow the H3 rules in STYLE_GUIDE.md **Headers**?
 - Does the flow feel like a story or a Wikipedia article? It should feel like a story.
 - Is there a strong opening hook?
 - Do sections vary in length? (NOT every section should be 3 paragraphs)
@@ -155,7 +155,7 @@ Launch **Agent: `blog-internal-link-scout`** with the post's title, slug, and pr
 
 Use Part A findings to mark link placements in the outline. Save Part B for after the post ships.
 
-Before presenting the outline for approval, launch **Agent: `blog-positioning-reviewer`** in **OUTLINE mode** with the research brief and proposed outline. Incorporate its findings - sharpening section headers into analytical claims, adding the named frame if one is needed, and adjusting the intro so it leads with the conclusion.
+Before presenting the outline for approval, launch **Agent: `blog-positioning-reviewer`** in **OUTLINE mode** with the research brief and proposed outline. Incorporate its findings - making sure headers say what's in the section (not turning every header into a claim), adding the named frame if one is needed, and adjusting the intro so it leads with the conclusion.
 
 Display the full outline inline (with positioning improvements applied), then use AskUserQuestion:
 
@@ -235,7 +235,7 @@ These are the moves that separate analysis from topic coverage. They apply to wr
 
 **Name the frame explicitly.** Give recurring concepts a name and use it. "Call this the two-auth-boundary problem." Named frames stick. Repeated gestures at the same idea don't.
 
-**Analytical claims, not topic labels.** Section openers should make claims, not announce categories. Headers follow the **Headers** rules in STYLE_GUIDE.md: a header is either a plain label for what's in the section or a claim that states the section's answer ("Desktop GPUs don't fit in a 2U server"). A claim that holds back its answer ("The GPU lesson nobody warned me about") is a teaser, and teasers fail. The same section covers the H3 rules.
+**Analytical claims live in the opening sentence, not the header.** A section's first sentence should make a claim, not announce a category. Headers follow the **Headers** rules in STYLE_GUIDE.md, and the default is a short plain label ("The rebuild", "Why not just buy a Pixoo", "What's next"). Use a claim header only for the one or two sections where the answer is the point, and keep it short. Never make every header a full sentence: on the PixelPane and Screencast Director posts (October 2026) that template is what made Joe call the headings AI slop. a header is either a plain label for what's in the section or a claim that states the section's answer ("Desktop GPUs don't fit in a 2U server"). A claim that holds back its answer ("The GPU lesson nobody warned me about") is a teaser, and teasers fail. The same section covers the H3 rules.
 
 **State opinions plainly.** "Priority 3 is the one that matters" is a take. "Priority 3 is important" is not. Every post should have a point of view, stated directly, not hedged away.
 
@@ -444,7 +444,7 @@ Re-read the entire draft with fresh eyes. This is a REVISION pass, not a proofre
 
 Launch **Agent: `blog-voice-reviewer`** with the draft file path. The agent applies three layers:
 1. Joe's personal voice rules (STYLE_GUIDE.md hard rules - em dashes, banned words, etc.)
-2. Analytical structure check (Thompson/McKenzie - does the intro lead with the conclusion, do headers make claims, are opinions stated plainly)
+2. Analytical structure check (Thompson/McKenzie - does the intro lead with the conclusion, are headers mostly short plain labels with no teasers and no sentence-length claim template, are opinions stated plainly)
 3. AI-pattern audit (humanizer pass - fragment stacks, quotable closers, performed candor, staged reveals, decorative numbers, plus the humanizer's rubric with the quotable-line cap and fact diff against Joe's 2020 voice sample)
 
 Apply every **must-fix** edit before proceeding. Apply **should-fix** edits where they improve the writing. Use the agent's anti-AI audit to find and rewrite the spots that still read as assembled.
