@@ -66,7 +66,7 @@ Case study: [How I built feedback discipline into an AI-assisted writing workflo
 
 </div>
 
-If you track deploy frequency, track change failure rate next to it. Frequency on its own is easy to game, and a team that ships a lot without a kiln is just making the debt pile faster. I wrote more about [measuring whether your work is converting](/blog/proving-my-work-mattered/) separately.
+If you track deploy frequency, track change failure rate next to it. Frequency on its own is easy to game, and a team that ships a lot without a kiln is just making the debt pile faster. I wrote more about [measuring whether your work is converting](/blog/proving-my-work-mattered/) separately, and about a real version of this loop: [putting up SEO fixes the same afternoon and tracking what each one did](/blog/reversing-seo-traffic-decline-ai-overviews/).
 
 ## Slow review comes from fragile infrastructure
 
@@ -86,7 +86,7 @@ I'm not arguing against review. Review is part of the kiln. The argument is abou
 
 **If you're a manager:** audit your review cycles. For each one, ask whether it's a kiln or a gate. A kiln tests the work against reality and makes it better. A gate adds latency and teaches people to propose only safe, easy-to-approve ideas. Remove the gates and keep the kilns. If a gate exists because the infrastructure is fragile, fix the infrastructure.
 
-**If you're an IC in a gated org:** ship the smallest thing that doesn't need the gate, and use the result as your argument for removing it.
+**If you're an IC in a gated org:** ship the smallest thing that doesn't need the gate, and use the result as your argument for removing it. If you're new to the org, [audit first](/blog/running-devrel-2026/#the-first-90-days) so you know which gates are worth fighting.
 
 AI raises the stakes here. It lets you write content, generate code, and make broad changes faster than ever, which is more clay produced faster. If your review process is still a gate, you've just moved the bottleneck. Orgs with version control, rollback, and automated checks can absorb that speed. The ones without it will drown in it.
 

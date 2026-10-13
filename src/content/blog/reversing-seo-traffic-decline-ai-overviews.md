@@ -321,7 +321,7 @@ I think technical DevRels are well-positioned for this. It's not that we're bett
 
 ## What Claude Code changed
 
-I had a list of things I wanted to fix on our marketing site for years and couldn't ship fast enough for it to matter. Claude Code didn't change what I knew about the problem. It changed how much of what I identified actually shipped. I think of a fix, write it out, and have a PR up the same afternoon, and doing that every week adds up.
+I had a list of things I wanted to fix on our marketing site for years and couldn't ship fast enough for it to matter. Claude Code didn't change what I knew about the problem. It changed how much of what I identified actually shipped. I think of a fix, write it out, and have a PR up the same afternoon, and doing that every week adds up. It's the same reason I think [shipping small and often beats waiting for perfect](/blog/ship-the-ugly-pot/).
 
 I can also prove it now. The PR tracker ties changes to position and traffic data, so I can point to a specific PR and say it moved a page from position 19 to 7.7, show which set of work came before the 440% docs traffic jump, and show how organic search turned into funnel entries.
 

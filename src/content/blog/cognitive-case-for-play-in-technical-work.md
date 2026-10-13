@@ -127,7 +127,7 @@ The concern is fair. But accountability and play aren't in conflict - the sequen
 
 The first kills creative output. The second can enhance it. The argument isn't to remove accountability. It's to move it to where it's useful: after the experiment, not before it.
 
-I've had this called out directly: "sounds like you just want to ship without approval." That's not it. The distinction is whether measurement comes before or after you have information worth measuring.
+I've had this called out directly: "sounds like you just want to ship without approval." That's not it. The distinction is whether measurement comes before or after you have information worth measuring. I made the practice side of this argument, with the DORA data and the pottery story, in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/).
 
 Does this require experience? Yes. Play without enough context to hold a coherent model of what you're working in is just chaos. A junior contributor doing this without a more experienced collaborator reviewing work regularly isn't playing - they're guessing. The guardrails don't disappear; they shift. Instead of gatekeeping before the work, review happens after each small experiment. You still need someone who can tell you when you're heading in the wrong direction. This applies most directly to individual contributors and senior practitioners who know the territory well enough to recognize what they're finding.
 
