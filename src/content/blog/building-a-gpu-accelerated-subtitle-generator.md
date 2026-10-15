@@ -41,7 +41,7 @@ If you want to build something similar, you'll need:
 
 ## The Problem
 
-The core challenge isn't just transcription - it's doing it **at scale** without destroying everything else running on the same hardware. My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) GPUs (an RTX A4000 and a Quadro RTX 4000) are shared across Plex transcoding, Tdarr video health checks, and [Wyoming Whisper for Home Assistant voice control](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/). I needed a system that could chew through thousands of videos without stepping on other services.
+The core challenge isn't just transcription - it's doing it **at scale** without destroying everything else running on the same hardware. My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) GPUs (an RTX A4000 and a Quadro RTX 4000) are shared across Plex transcoding, Tdarr video health checks, and [Wyoming Whisper for Home Assistant voice control](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/). I needed a system that could chew through thousands of videos without stepping on other services. (Here's [how the two cards are split across seven services](/blog/proxmox-gpu-passthrough-multi-service/).)
 
 The requirements:
 

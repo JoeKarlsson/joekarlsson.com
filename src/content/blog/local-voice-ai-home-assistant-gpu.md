@@ -2,12 +2,15 @@
 title: 'I Built a Fully Local Voice Assistant for Home Assistant (With GPU, No Cloud Required)'
 date: 2026-04-13T10:51:02Z
 slug: 'local-voice-ai-home-assistant-gpu'
+updatedDate: 2026-10-15
 description: 'How I built a GPU-accelerated local voice pipeline for Home Assistant using faster-whisper, Piper TTS, and Ollama - zero cloud required, and the failures that got me here.'
 categories: ['Smart Home', 'Homelab']
 heroImage: '/images/blog/local-voice-ai-home-assistant-gpu/hero.webp'
 heroAlt: 'Home Assistant local voice pipeline architecture showing Whisper GPU, Piper TTS, and Ollama components connected via Wyoming protocol'
-tldr: "I replaced all cloud AI in Home Assistant's voice pipeline with a fully local stack: GPU-accelerated faster-whisper for speech-to-text, Piper TTS, and Ollama running llama3.2:3b as the conversation agent. Zero audio leaves my network. The path to a working setup involved a qwen3 experiment that ended with the LLM narrating its own thought process for five minutes straight, a system prompt explicitly forbidding voice commands from killing my server rack, and a three-tier fallback chain I am genuinely glad I built."
+tldr: "I replaced all cloud AI in Home Assistant's voice pipeline with a fully local stack: GPU-accelerated faster-whisper for speech-to-text, Piper TTS, and Ollama as the conversation agent (llama3.2:3b at first, qwen3:8b since summer 2026). Zero audio leaves my network. The path to a working setup involved a qwen3 experiment that ended with the LLM narrating its own thought process for five minutes straight, a system prompt explicitly forbidding voice commands from killing my server rack, and a three-tier fallback chain I am genuinely glad I built."
 ---
+
+_Updated October 2026: The conversation agent is now qwen3:8b, not llama3.2:3b, so the six-month swap I predicted near the end came true. Thinking is switched off in the request, which avoids the think-mode problem described below. In a July test with Home Assistant's real prompt and all 171 tool definitions, qwen3:8b took about 1.3 seconds per call and got every request right. Whisper also moved up from the small model to medium-int8, which still transcribes a short command in about a third of a second on the Quadro RTX 4000. The rest of this post is the original April story._
 
 ---
 
@@ -87,7 +90,7 @@ If you don't have Proxmox or want the simpler path: HA has official add-ons for 
 
 My [homelab](/blog/homelab-two-years-later/) runs two Dell R730 servers with NVIDIA GPUs - the bigger one has an RTX A4000 with 16GB of VRAM, which is where Ollama lives. The Whisper STT service runs on a separate host. Each component runs on whatever machine makes sense for that workload.
 
-The 16GB VRAM sounds like a lot, but it's shared. That GPU also handles Plex transcoding, Immich photo ML, and Tdarr video encoding. VRAM gets contested. You need enough headroom that a Plex transcode doesn't evict the voice pipeline mid-sentence. If your GPU is dedicated or less loaded, you could run a larger model and get better results.
+The 16GB VRAM sounds like a lot, but it's shared. That GPU also handles Plex transcoding, Immich video transcoding, and Tdarr video encoding. VRAM gets contested, and I wrote up [how the VRAM gets divided between services](/blog/proxmox-gpu-passthrough-multi-service/). You need enough headroom that a Plex transcode doesn't evict the voice pipeline mid-sentence. If your GPU is dedicated or less loaded, you could run a larger model and get better results.
 
 You don't need 16GB for this to work. Here's a rough VRAM floor guide:
 
@@ -314,7 +317,7 @@ Almost always a tool calling failure. The model produced a response but didn't o
 
 **Which Ollama models actually support tool calling reliably for HA?**
 
-Honestly, none of the small ones do reliably. llama3.2:3b and llama3.1:8b support the tool calling spec but fail inconsistently in practice - especially on sequential or multi-entity commands. The HA community reports this widely. If reliable tool calling is your goal, Claude via HA's Anthropic integration is currently the only consistently working option. Local tool calling is an active area - this will improve.
+In April, none of the small ones did. llama3.2:3b and llama3.1:8b support the tool calling spec but fail inconsistently in practice - especially on sequential or multi-entity commands. Since July I've used qwen3:8b with thinking off, and it has picked the right tool every time in my tests, including with all 171 of my Home Assistant tool definitions in the prompt. If you can't run an 8B model, Claude via HA's Anthropic integration is still the most reliable option.
 
 **How much VRAM do I actually need?**
 

@@ -123,7 +123,7 @@ Ansible: operational layer
 
 The design decision that made this manageable: a single reusable module.
 
-`modules/proxmox-lxc/` defines a standard Debian 12 LXC baseline - networking, DNS, resource limits, disk, optional Docker support, optional GPU passthrough, optional NAS bind-mounts. Every service calls this module. The differences between containers live in variables: VMID, IP, hostname, resource allocation, what to install.
+`modules/proxmox-lxc/` defines a standard Debian 12 LXC baseline - networking, DNS, resource limits, disk, optional Docker support, optional GPU passthrough (here are [the LXC GPU passthrough details](/blog/proxmox-gpu-passthrough-multi-service/)), optional NAS bind-mounts. Every service calls this module. The differences between containers live in variables: VMID, IP, hostname, resource allocation, what to install.
 
 The other half is `provision.sh.tpl`. This bash script runs inside the container after OpenTofu creates it. It installs packages, writes config files, creates systemd units, enables services, sets up Promtail, and sets up Prometheus node-exporter. One script per service. Idempotent: running it twice produces the same result as running it once.
 
@@ -206,7 +206,7 @@ None were catastrophic, because I never destroyed the old container first.
 
 ![Always Has Been astronaut meme: 'Wait, that service has been down for three weeks?' / 'Always has been'](/images/blog/opentofu-proxmox-immutable-homelab/always-has-been.webp)
 
-Before vs. after, honestly:
+Before vs. after:
 
 |                               | Manual click-ops                 | OpenTofu                            |
 | ----------------------------- | -------------------------------- | ----------------------------------- |

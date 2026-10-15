@@ -87,7 +87,7 @@ Two GPUs on two hosts split the work:
 
 The 16GB card is the reason the big model runs at all. My largest one is a 30B coding model quantized down to a 13.8GB file, and it peaked at about 15GB of VRAM. Most of the day the card is close to empty, because models unload when nobody's using them.
 
-Immich's face recognition and search models run on CPU on purpose, so they never fight an LLM for VRAM.
+Immich's face recognition and search models run on CPU on purpose, so they never fight an LLM for VRAM. The full breakdown, with benchmarks from both cards, is in [how I split workloads across the two GPUs](/blog/proxmox-gpu-passthrough-multi-service/).
 
 ### A rack is just a desktop split into separate boxes
 
