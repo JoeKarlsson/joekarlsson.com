@@ -1,278 +1,187 @@
 ---
-title: 'Two GPUs, Two Nodes, Seven Services: GPU Workload Distribution on Proxmox'
+title: 'How I Share Two Used GPUs Across Seven Services in My Proxmox Homelab'
 date: 2026-04-13T11:24:48Z
+updatedDate: 2026-10-15
 slug: 'proxmox-gpu-passthrough-multi-service'
-description: 'How I distribute GPU workloads across two Proxmox nodes using LXC device binding - VRAM strategy, LXC passthrough config, and Tdarr distributed encoding.'
+description: 'Proxmox GPU passthrough for LXC: how I share an 8GB Quadro RTX 4000 and a 16GB RTX A4000 across seven services, with local LLM speed and accuracy tests.'
 categories: ['Homelab']
-tags: ['proxmox', 'nvidia', 'gpu', 'lxc', 'frigate', 'homelab', 'ollama']
+tags: ['proxmox', 'nvidia', 'gpu', 'lxc', 'frigate', 'homelab', 'ollama', 'local-llm']
 heroImage: '/images/blog/proxmox-gpu-passthrough-multi-service/hero.webp'
 heroAlt: 'Two Dell R730 servers in a rack with NVIDIA GPU cards visible, showing GPU workload distribution across a Proxmox cluster'
-tldr: 'I run seven GPU-accelerated services across two Proxmox nodes using LXC device binding. The 8GB Quadro RTX 4000 on prxbox1 handles Frigate NVR, Wyoming Whisper STT, and a Tdarr encoding node. The 16GB RTX A4000 on prxbox2 handles Plex, Ollama, Immich ML, and Tdarr server. The config is straightforward once you understand what LXC passthrough actually is and why workload placement matters more than the passthrough setup itself.'
+tldr: 'Two used workstation GPUs, an 8GB Quadro RTX 4000 and a 16GB RTX A4000, run my cameras, voice assistant, local LLMs, and media across Proxmox LXC containers. Compute is shared fine, but VRAM is first come, first served, so the real work is deciding what shares a card. Always-on, latency-sensitive services (Frigate, Whisper) get the small card; bursty, VRAM-hungry ones (Ollama, Plex) get the big one, and Tdarr fills in on both. In my tests the old Quadro kept up with the A4000 on a model that fit (90 vs 83 tok/s for a 3B model) and fell to 5.9 tok/s on one that did not, and every local model except the weakest made up answers about things that do not exist.'
 faq:
   - question: 'Does sharing a GPU across multiple LXC containers hurt performance?'
-    answer: 'It depends on the workload. Services compete for VRAM and CUDA execution time when running simultaneously. Batch and async workloads (Tdarr encoding, Immich photo ML) tolerate sharing fine. Real-time services like Frigate object detection and Whisper STT need predictable access - which is why I put them on their own GPU node rather than sharing with bursty workloads like Plex and Ollama.'
+    answer: "At my workloads compute sharing barely matters. VRAM is what bites. When I loaded qwen3:8b onto the 8GB Quadro RTX 4000 that already runs Frigate and Whisper, Frigate's detector stayed at about 50ms. Ollama only took the 3.8GB that was free and pushed the rest of the model to the CPU, so the LLM slowed from 55 to 5.9 tokens per second instead, because the service that loads first keeps its memory."
+  - question: 'How fast are local LLMs on an 8GB versus a 16GB GPU?'
+    answer: 'About the same when the model fits. llama3.2:3b generated 90 tokens per second on a Quadro RTX 4000 and 83 on an RTX A4000, which tracks their similar memory bandwidth (416 vs 448 GB/s). When the model does not fit in free VRAM the drop is steep: qwen3:8b ran at 55 tokens per second on the A4000 and 5.9 on the Quadro with only 15 of 37 layers on the GPU. Measured with Ollama 0.32.14 in October 2026.'
+  - question: 'Are small local LLMs trustworthy?'
+    answer: 'For checkable tasks, mostly. Every model 8B and up picked the right Home Assistant entity and action 6 out of 6 times, and gpt-oss:20b got all 13 tool, math, and log-extraction tasks right. For facts, no. Asked four questions about things that do not exist, five of six models invented at least one confident answer. Only llama3.2:3b declined all four, and it also failed almost half of the real tasks.'
   - question: 'Can I use a gaming GPU (GeForce) for Proxmox LXC passthrough?'
-    answer: 'In a desktop Proxmox build, yes - GeForce cards work fine with LXC device binding. In a 2U rack server like a Dell R730, physical size constraints require workstation-class cards (Quadro, RTX professional series) that fit the 3.44-inch chassis height and front-to-back airflow design.'
+    answer: 'Yes. LXC device binding works the same with GeForce cards. I use workstation cards because they are single-slot blower designs that fit and cool properly in a 2U Dell R730. A desktop build has no such constraint.'
   - question: 'Does nvidia-smi work on the Proxmox host with LXC device binding?'
-    answer: 'Yes - with LXC device binding, the NVIDIA driver loads on the Proxmox host and nvidia-smi reports the GPU there. What it cannot show is per-container VRAM breakdown. To see which container is consuming VRAM, run nvidia-smi from inside the container: pct exec <ct-id> -- nvidia-smi. (This is the opposite of full VM vfio-pci passthrough, where the GPU is removed from the host device tree entirely and nvidia-smi on the host returns nothing.)'
+    answer: 'Yes. With LXC device binding the NVIDIA driver loads on the Proxmox host, so nvidia-smi on the host shows the GPU and the PIDs using it. To tie VRAM usage to a specific service, run it from inside the container: pct exec <ct-id> -- nvidia-smi. With full VM passthrough (vfio-pci) the GPU disappears from the host entirely.'
   - question: 'What Proxmox version do I need for LXC GPU passthrough?'
-    answer: 'LXC device binding works on PVE 7+ with cgroup v2 enabled. My setup runs PVE 9.1.1 (Debian 13 Trixie) with kernel 6.17.2-1-pve and NVIDIA driver 580.95.05. The cgroup2 device allowlist syntax (lxc.cgroup2.devices.allow) replaced the older cgroup v1 syntax in PVE 7.'
+    answer: 'Any recent one. As of October 2026 my nodes run Proxmox VE 9.2.21 on kernel 6.17.13 with NVIDIA driver 580.95.05 (CUDA 13.0). PVE 9.2 defaults to the 7.0 kernel, and Proxmox forum users have reported NVIDIA DKMS build failures on it, so check the forum before upgrading a GPU node.'
 ---
 
----
+_Updated October 2026: I first published this in April. Since then Whisper moved to a bigger model, Frigate went from two cameras to four, and I benchmarked the open-source models I actually run on both cards, for speed and for whether their answers can be trusted. The original also said the RTX A4000 could encode AV1, which was wrong._
 
-The moment things got complicated: I was watching Frigate's object detection logs and noticed the detection latency had jumped from the usual 30ms to over 2 seconds. Plex was transcoding something for my partner at the same time. Both were fighting for GPU memory on the same card - and Frigate was losing.
+Two used workstation GPUs do all the AI and video work in my house. An 8GB Quadro RTX 4000 watches the security cameras and transcribes voice commands. A 16GB RTX A4000 runs local LLMs, Plex transcoding, and a video encoding queue that never seems to end. Both live in Dell R730s in a Proxmox cluster, and every service gets the GPU through Proxmox GPU passthrough to an LXC container rather than a VM.
 
-That's the problem with Proxmox LXC GPU passthrough once you stack enough services: the setup is straightforward, but nobody writes about what happens when six different things want CUDA time on the same card.
+The passthrough config is the easy part. What took me a year to figure out is **who shares a card with whom**. At my current workloads, containers share a GPU's compute without much drama, but VRAM is first come, first served: whatever loads first keeps its memory, and whatever shows up later gets the leftovers.
 
-Frigate dropping frames on a security camera because Plex decided to transcode a movie is exactly the kind of failure mode that seems obvious in retrospect. Of course they compete. They're both CUDA processes on the same card. But when you're building a homelab incrementally - adding one service at a time, each one working fine in isolation - it doesn't feel obvious until something breaks. (If you're curious what Frigate's person detection actually does for my house, it drives a lot of [my favorite Home Assistant automations](/blog/best-home-assistant-automations/).)
+I learned that placement matters the obvious way. Back when everything ran on one card, I was watching Frigate's logs and saw object detection latency jump from about 30ms to over 2 seconds. Plex was transcoding a movie on the same GPU. Each service worked fine on its own, and I'd added them one at a time, so it never occurred to me they'd fight until a security camera started missing people.
 
-A GPU memory collision is what led me to a two-node strategy. Not "I planned this out carefully from the start." More like "I added enough things to one GPU that they started stepping on each other, and I had to actually think about it."
+In October I benchmarked the local LLMs I run on both cards, and the numbers back up the split: the older Quadro keeps up with the A4000 when a model fits in the VRAM that's left and slows to a crawl when it doesn't. I also checked whether the answers can be trusted, and every model except the weakest made up answers about things that don't exist.
 
-![Distracted Boyfriend meme - guy labeled 'me adding Ollama to the already-maxed 8GB GPU node' looking at girl labeled 'the 16GB node sitting right there'](/images/blog/proxmox-gpu-passthrough-multi-service/distracted-boyfriend-gpu.webp)
+The rest of the rack is in [the two-year homelab retrospective](/blog/homelab-two-years-later/).
 
-This post is the thinking-out-loud version of that process: how I distribute GPU workloads across two Proxmox nodes, why certain services live where they do, and the actual LXC passthrough config that makes it work. If you're running a single GPU server and starting to feel that pressure, this is one path forward.
+## What the GPUs do in my house
 
-My full homelab hardware story is in [the two-year retrospective](/blog/homelab-two-years-later/) - I won't re-cover the rack, the R730s, or why enterprise hardware makes sense. This post is specifically about GPUs and how to think about distributing work across them.
+Seven services do real work on the two cards:
 
-## The Two Cards
+- **[Frigate](https://frigate.video/)** runs object detection on four security cameras around the clock. It's what tells Home Assistant a person is at the door, which drives a lot of [my favorite automations](/blog/best-home-assistant-automations/).
+- **Wyoming Whisper** turns my voice into text for Home Assistant's [local voice assistant](/blog/local-voice-ai-home-assistant-gpu/). It sits idle until someone talks, then has to answer in well under a second.
+- **[Ollama](https://ollama.com/)** runs the local LLMs behind that voice assistant, plus a few document and tagging jobs.
+- **llama.cpp** serves a bigger coding model I experiment with.
+- **Plex** transcodes for anyone streaming outside the house. The busiest it got last month was three transcodes at once.
+- **[Immich](https://immich.app/)** transcodes the videos I back up from my phone. Its face recognition runs on CPU on purpose, so it never competes with an LLM for VRAM.
+- **Tdarr** re-encodes my old video library in the background, on both cards at once.
 
-Quick hardware context before getting into configs.
-
-**prxbox1** runs a [Quadro RTX 4000](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf) (8GB GDDR6 VRAM). **prxbox2** runs an [RTX A4000](https://www.nvidia.com/content/dam/en-zz/Solutions/gtcs21/rtx-a4000/nvidia-rtx-a4000-datasheet.pdf) (16GB GDDR6 VRAM). Both are professional/workstation class - not gaming GPUs. Both nodes run Proxmox VE 9.1.1 on Debian 13 (Trixie) with NVIDIA driver 580.95.05.
-
-That distinction matters if you're trying to install a GPU in a 2U rack server. Desktop GPUs are designed for full-height cases with side-panel fans blowing directly on them. A Dell R730 is 3.44 inches tall (2U). The airflow runs front-to-back through a carefully engineered wind tunnel. A standard RTX 4090 physically does not fit. You need cards that are short enough, or use the right slot configuration. Workstation GPUs - Quadro, RTX professional series, Tesla - are designed for exactly this environment.
-
-I also had to disable the Dell R730's third-party PCIe fan response after installing both cards. By default, when the server detects a GPU it doesn't recognize from its vendor list, it cranks the fans to maximum as a precaution. Setting `ThirdPartyPCIFanResponse Disabled` via iDRAC's racadm brought both servers back to sane noise levels.
+A couple of smaller things borrow a GPU too, like a [subtitle generator I built that waits for the GPU to be free](/blog/building-a-gpu-accelerated-subtitle-generator/).
 
 ```
-+----------------------------------+
-|  prxbox1                         |
-|  Quadro RTX 4000 - 8GB VRAM      |
-|  Frigate  |  Whisper  |  Tdarr   |
-+----------------------------------+
-            | 10G SFP+
-            |
-+----------------------------------+
-|  MikroTik CRS317 (10G Switch)    |
-+----------------------------------+
-      |                |
-  20G LACP          1G link
-      |                |
-+-------------+  +------------------+
-| prxbox2     |  | prxbox3          |
-| RTX A4000   |  | No GPU           |
-| 16GB VRAM   |  | Monitoring only  |
-| Plex/Ollama |  | Prometheus/Loki  |
-| Immich/Tdarr|  +------------------+
-+-------------+
+prxbox1: Quadro RTX 4000, 8GB          prxbox2: RTX A4000, 16GB
+  Frigate (4 cameras)                    Ollama + llama.cpp
+  Whisper (voice)                        Plex
+  Tdarr worker                           Immich video
+                                         Tdarr server + worker
+        \                                  /
+         +------ 10G switch, NAS ---------+
 ```
 
-Both R730s are in a 3-node Proxmox cluster. prxbox3 is a custom build with no GPU - it handles Prometheus, Grafana, Loki, and cluster management. The GPU work lives entirely on the two Dell nodes.
+## The two cards
 
-## How LXC Passthrough Actually Works
+The [Quadro RTX 4000](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf) is a Turing card from 2018 with 8GB of VRAM and 416 GB/s of memory bandwidth. The [RTX A4000](https://www.nvidia.com/content/dam/en-zz/Solutions/gtcs21/rtx-a4000/nvidia-rtx-a4000-datasheet.pdf) is Ampere, from 2021, with 16GB and 448 GB/s. They're both single-slot blower cards, which is the whole reason I bought workstation cards: most gaming GPUs don't physically fit in a 2U server, and they can't push heat out the back of a chassis designed for front-to-back airflow. I paid about $400 for the Quadro used.
 
-Before getting into the workload split, it's worth being clear about what I'm actually doing here, because there are three different approaches to GPU access in Proxmox and they work very differently.
+For LLMs, the bandwidth number matters more than the age. Generating each token means reading the whole model out of VRAM, so two cards with similar bandwidth generate at similar speeds, as long as the model fits.
 
-**vGPU** lets you split one physical GPU into multiple virtual GPUs and assign them to different VMs. Sounds ideal. It requires NVIDIA enterprise licensing and only works on specific Tesla/professional cards (not the ones I have). Not an option unless you're already paying for datacenter-class hardware and licensing.
+Neither card can encode AV1. Both do H.264 and HEVC in hardware, and the A4000 can decode AV1 but [not encode it](https://developer.nvidia.com/video-encode-decode-support-matrix).
 
-**Full VM passthrough** uses IOMMU to give an entire VM exclusive access to one physical GPU. Works fine. The VM boots with full GPU ownership, drivers installed inside the VM, and the GPU is invisible to the Proxmox host. Slightly heavier overhead than containers, and you lose the ability to run multiple services on the same GPU easily - you'd need one VM per service or Docker inside the VM.
+As of October 2026, both nodes run Proxmox VE 9.2.21 on kernel 6.17.13 with NVIDIA driver 580.95.05.
 
-**LXC device binding** is what I use. The NVIDIA driver loads on the Proxmox host directly - not vfio-pci, not IOMMU isolation. The driver creates `/dev/nvidia0`, `/dev/nvidiactl`, `/dev/nvidia-uvm`, and friends on the host. You then grant specific LXC containers access to those device nodes and bind-mount the NVIDIA libraries in. Multiple containers share the same physical GPU simultaneously. Same mechanism as Docker's `--gpus all`, but configured at the container level.
+## Sharing one GPU across LXC containers
 
-This is the key distinction from full VM passthrough: with vfio-pci, the GPU is removed from the host's device tree entirely and handed to one VM. With LXC device binding, the host owns the GPU and grants containers controlled access. You can't do both at the same time. IOMMU (`intel_iommu=on iommu=pt` in GRUB) is only needed if you're doing vfio-pci VM passthrough - not for LXC device binding.
+Proxmox gives a guest a GPU one of three ways. vGPU splits one card into virtual slices, but it needs NVIDIA licensing and a data center or high-end workstation card, and [neither of mine qualifies](https://docs.nvidia.com/vgpu/gpus-supported-by-vgpu.html). Full VM passthrough hands the entire card to one VM, so one service owns it. I use the third: **LXC device binding**.
 
-Here's the actual LXC config that makes it work. This is from the Frigate container on prxbox1:
+The NVIDIA driver loads on the Proxmox host. The host creates `/dev/nvidia0` and its friends, and each container gets permission to use those device nodes plus a bind mount of the driver libraries. Every container sees the same physical GPU at the same time. It's the same idea as Docker's `--gpus all`, one level down.
+
+Here's the part of a container config that does it:
 
 ```conf
-arch: amd64
-cores: 4
-features: nesting=1,keyctl=1
-hostname: frigate
-memory: 8192
-onboot: 1
-ostype: debian
-rootfs: local-lvm:vm-XXX-disk-0,size=20G
-
-# NVIDIA GPU Passthrough
 lxc.cgroup2.devices.allow: c 195:* rwm
 lxc.cgroup2.devices.allow: c 507:* rwm
-lxc.cgroup2.devices.allow: c 226:* rwm
-lxc.cgroup2.devices.allow: c 235:* rwm
 lxc.mount.entry: /dev/nvidia0 dev/nvidia0 none bind,optional,create=file
 lxc.mount.entry: /dev/nvidiactl dev/nvidiactl none bind,optional,create=file
 lxc.mount.entry: /dev/nvidia-uvm dev/nvidia-uvm none bind,optional,create=file
-lxc.mount.entry: /dev/nvidia-uvm-tools dev/nvidia-uvm-tools none bind,optional,create=file
-lxc.mount.entry: /dev/nvidia-caps dev/nvidia-caps none bind,optional,create=dir
-lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
-
-# NVIDIA Libraries
 lxc.mount.entry: /opt/nvidia-libs opt/nvidia-libs none bind,optional,create=dir
-lxc.mount.entry: /usr/bin/nvidia-smi usr/bin/nvidia-smi none bind,optional,create=file
 ```
 
-The `cgroup2.devices.allow` lines give the container permission to access NVIDIA device nodes. The cgroup device numbers (`195`, `507`, `226`, `235`) correspond to the NVIDIA devices. One important note: the device number for `nvidia-uvm` (507 in my case) is not fixed - it can vary between hosts. Check your actual value with `ls -la /dev/nvidia-uvm` before copying this config.
+The `507` is the device number for `nvidia-uvm`, and it varies between hosts, so check yours with `ls -l /dev/nvidia-uvm` before copying this. `/opt/nvidia-libs` is a copy of the host's driver libraries, and it has to be refreshed after every driver update or the containers fail with a version mismatch. Proxmox VE 8.2 and later can add the device nodes from the GUI (Resources, then Add, then Device Passthrough), but you still have to get matching libraries into the container. I don't hand-edit any of this anymore. It's a flag on the [OpenTofu module that builds every container in my lab](/blog/opentofu-proxmox-immutable-homelab/).
 
-The `/opt/nvidia-libs` directory on the Proxmox host contains copies of the NVIDIA driver libraries. I maintain it manually:
+Once a few containers share a card, two different resources are in play:
 
-```bash
-# Run this on the Proxmox host after any driver update
-rm -rf /opt/nvidia-libs/*
-cp /usr/lib/x86_64-linux-gnu/libnvidia* /opt/nvidia-libs/
-cp /usr/lib/x86_64-linux-gnu/libcuda* /opt/nvidia-libs/
-cp /usr/lib/x86_64-linux-gnu/libnvcuvid* /opt/nvidia-libs/
-```
+- **Compute is time-sliced.** If Frigate and Whisper both want the GPU at the same instant, they take turns, and each gets a little slower. At these workloads I can't measure the difference.
+- **VRAM is not shared.** Each process holds what it allocated until it exits. Nothing gets evicted to make room for a newcomer.
 
-Important: whenever you update the NVIDIA driver on the Proxmox host, you need to re-run those `cp` commands to refresh `/opt/nvidia-libs/`, then restart every GPU-bound container. The libraries in the directory need to match the running driver version - stale copies will cause containers to fail with `libcuda.so version mismatch` errors.
+## Fast services get the small card
 
-Every container that needs GPU access gets the same LXC block above. They all share the same `/dev/nvidia0` device. The GPU handles multiple concurrent CUDA contexts just fine.
+The rule I landed on: **services that have to answer right now get the small card, and services that can wait get the big one.**
 
-After restarting the container, verify the GPU is visible from inside it:
+Frigate and Whisper are the right-now services. A person walking past a camera is gone in a few seconds, and a voice command that takes three seconds to transcribe feels broken. Both are also predictable. They load once and hold the same amount of VRAM forever, so I can budget the 8GB card exactly:
 
-```bash
-# From the Proxmox host - should show your GPU model and driver version
-ssh root@<host-ip> "pct exec <ct-id> -- nvidia-smi"
+| On the Quadro RTX 4000 (8GB)      | VRAM       |
+| --------------------------------- | ---------- |
+| Frigate detector + 4 camera feeds | ~1.8GB     |
+| Whisper (medium-int8)             | ~2.1GB     |
+| Driver and CUDA reserve           | ~0.4GB     |
+| **Free for anything else**        | **~3.8GB** |
 
-# Expected output:
-# +-----------------------------------------------------------------------------------------+
-# | NVIDIA-SMI 580.95.05    Driver Version: 580.95.05    CUDA Version: 12.7                |
-# |-----------------------------------------+------------------------+----------------------|
-# | GPU  Name        Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
-# |   0  Quadro RTX 4000 ...  Off  |  00000000:82:00.0 Off  |                  N/A |
-# +-----------------------------------------------------------------------------------------+
-```
+The Tdarr worker on this card only uses that free space, and only when there's a job in the queue.
 
-If nvidia-smi returns "No devices were found", check that: (1) the cgroup device numbers match your host's actual device numbers, (2) `/opt/nvidia-libs` is populated, and (3) you restarted the container after editing the config.
+Everything bursty goes on the A4000. An LLM might want 5GB or 12GB depending on which model I just asked for. Plex and Tdarr want an encoder whenever someone presses play or a file lands in the queue. None of them is hurt by waiting half a second, and 16GB gives an 8B or 14B model room to load while Plex is transcoding.
 
-### The docker-compose gotcha
+Tdarr is the one service that spans both cards. The server on prxbox2 hands out jobs, and a worker on each node grabs files from the shared NAS and encodes them with its own GPU. Each file is independent, so two cards chew through the queue with no coordination beyond "who grabs the next file."
 
-This one burned me an afternoon. If you're running Docker inside your LXC containers and you try to use the NVIDIA container toolkit the standard way, it won't work. Setting `default-runtime: nvidia` in `/etc/docker/daemon.json` causes issues inside LXC because the CDI (Container Device Interface) mechanism doesn't function correctly in that environment.
+In October I broke the rule on purpose. I ran Ollama on the full Quadro, next to Frigate and Whisper, and watched Frigate's detector the whole time. It stayed at about 50ms, the same as before I started. (It was 30ms in April with two cameras. Four cameras put it at 50.)
 
-The fix: don't use the nvidia runtime at all. Mount the devices directly in your compose file instead:
+The LLM is what suffered. Ollama checks how much VRAM is free before it loads a model, puts as many layers on the GPU as will fit, and runs the rest on the CPU. qwen3:8b got 15 of its 37 layers onto the card and ran at about 6 tokens per second, down from 55 on the A4000.
 
-```yaml
-services:
-  frigate:
-    image: ghcr.io/blakeblackshear/frigate:stable-tensorrt
-    volumes:
-      - /opt/nvidia-libs:/usr/local/nvidia/lib64:ro
-      - /dev/nvidia0:/dev/nvidia0
-      - /dev/nvidiactl:/dev/nvidiactl
-      - /dev/nvidia-uvm:/dev/nvidia-uvm
-      - /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools
-      - /dev/dri:/dev/dri
-    environment:
-      NVIDIA_VISIBLE_DEVICES: all
-      NVIDIA_DRIVER_CAPABILITIES: all
-      LD_LIBRARY_PATH: /usr/local/nvidia/lib64
-```
+![Trade Offer meme: I receive: Frigate keeps its VRAM. You receive: qwen3:8b at 5.9 tok/s.](/images/blog/proxmox-gpu-passthrough-multi-service/meme-trade-offer.webp)
 
-No `runtime: nvidia`. No CDI. Direct device mounts, direct library path. Works reliably.
+I wouldn't count on every service being that polite, though. Plex knocked Frigate over in the first place. Keeping the latency-sensitive services on their own card means I don't have to find out which ones aren't.
 
-![Surprised Pikachu meme - top text: 'sets default-runtime: nvidia in daemon.json inside an LXC container', bottom text: 'all docker containers lose GPU access'](/images/blog/proxmox-gpu-passthrough-multi-service/surprised-pikachu-cdi.webp)
+## Local LLM speed and accuracy
 
-## The Workload Map
+### Speed
 
-The passthrough config above is the same on both nodes - the interesting decisions are which services run where and why.
+I ran the same prompt through every model I keep around (about 800 tokens in, 256 out, median of three runs) on Ollama 0.32.14. The A4000 was otherwise idle. On the Quadro, Frigate and Whisper kept running, so the LLM got the 3.8GB they left free.
 
-### prxbox1 - The 8GB node: real-time inference
+| Model       | RTX A4000 (16GB) | Quadro RTX 4000 (3.8GB free) |
+| ----------- | ---------------- | ---------------------------- |
+| llama3.2:3b | 83 tok/s         | 90 tok/s                     |
+| qwen3:4b    | 78 tok/s         | 22 tok/s (partly on CPU)     |
+| qwen3:8b    | 55 tok/s         | 5.9 tok/s (mostly on CPU)    |
+| gemma3:12b  | 36 tok/s         | doesn't fit                  |
+| qwen3:14b   | 33 tok/s         | doesn't fit                  |
+| gpt-oss:20b | 64 tok/s         | doesn't fit                  |
 
-Three GPU services live on prxbox1's Quadro RTX 4000.
+When the model fits, the 2018 card keeps up with the 2021 one, which is what the bandwidth numbers predict, and when it doesn't, the speed falls off a cliff. I've seen the same thing on the A4000: back in September, qwen3:30b-a3b needed more than the card's 16GB, spilled into system RAM, and managed under one token per second.
 
-**[Frigate NVR](https://frigate.video/)** runs ONNX-based object detection across my security cameras. My config uses a YOLOX model (`yolox_s.onnx`) - Frigate supports multiple detection backends and this is one option, not the only one. The inference workload is constant and real-time: every frame from every camera needs to be processed in under the frame interval or you start dropping detections. From `nvidia-smi` inside the container, VRAM usage looks like roughly 232MB for the ONNX detector process, plus 200-350MB per camera for FFmpeg hardware decode. With two cameras active, that's around 800-1000MB total. The `stable-tensorrt` image handles this well with `preset-nvidia-h264` for hardware decoding.
+gpt-oss:20b surprised me. It's the biggest model on the list and the third fastest, because it's a [mixture-of-experts model](https://docs.nvidia.com/nemo/microservices/latest/customizer/models/gpt-oss.html) that only uses a few billion of its 20 billion parameters for each token. On a 16GB card it's the best deal I've found.
 
-**Wyoming Whisper** does GPU-accelerated speech-to-text for Home Assistant's voice pipeline. I covered this setup in detail in the [local voice AI post](/blog/local-voice-ai-home-assistant-gpu/). The key number: the `small-int8` model loads approximately 2.2GB of VRAM and stays resident (this is from `nvidia-smi` inside the container - it may vary depending on your driver version and CUDA context overhead). It's always loaded, always waiting. Latency matters - sub-1-second transcription is the goal.
+### Accuracy: good at tasks, bad at facts
 
-**A Tdarr encoding node** (more on Tdarr in the next section). This one is bursty - it only consumes significant VRAM when there's encoding work in the queue.
+Speed doesn't matter if the answer is wrong, so I also gave every model 17 questions with answers I could grade automatically:
 
-Adding it up: Frigate at ~1GB, Whisper at ~2.2GB, leaves roughly 4.8GB for Tdarr encoding bursts. That's comfortable. The reason these three work well together is that Frigate and Whisper have predictable steady-state VRAM footprints, and the Tdarr node only needs significant GPU time when there's a transcoding job waiting.
+- **Home Assistant tool calls (6):** a device list and a command like "Kill the lights where I cook." The model has to answer with the right entity and action as JSON.
+- **Arithmetic (4):** things like the monthly power cost of a 430W rack, or how much VRAM is left on the Quadro.
+- **Log extraction (3):** pull a driver version or a percentage out of a log line.
+- **Trick questions (4):** questions about things that don't exist. What did Proxmox VE 12.4 add for Kubernetes? What's the plot of the 1987 Tom Hanks film _The Quantum Plumber_? How do I configure the `hass_turbo_ziggurat` integration? Which driver added AV1 encoding to the RTX A4000? The right answer to each is some version of "that doesn't exist."
 
-### prxbox2 - The 16GB node: heavy compute
+Quality shouldn't depend on the card, since the same model at the same quantization should give the same answers on either GPU, just faster or slower. So I ran this on the A4000 only.
 
-More services, more variable VRAM demands, which is exactly why this one got the bigger card.
+| Model       | Tool calls, math, logs (of 13) | Trick questions declined (of 4) |
+| ----------- | ------------------------------ | ------------------------------- |
+| llama3.2:3b | 7                              | 4                               |
+| qwen3:4b    | 12                             | 1                               |
+| qwen3:8b    | 11                             | 1                               |
+| gemma3:12b  | 10                             | 1                               |
+| qwen3:14b   | 10                             | 2                               |
+| gpt-oss:20b | 13                             | 1                               |
 
-**[Ollama](https://ollama.com/)** runs local LLMs. I'm typically running `llama3.2:3b`, which needs about 2-3GB of VRAM depending on quantization. But when I load `llama3.1:8b` for more demanding queries, that's 5-8GB depending on which quantization Ollama selects for your available VRAM. VRAM usage here is unpredictable - it depends entirely on what model I've loaded most recently. This is the primary reason Ollama lives on the 16GB node. Trying to fit an 8B parameter model alongside Plex transcoding on an 8GB card would be a disaster.
+Every model 8B and up got all six tool calls right. qwen3:4b got five, which lines up with how flaky I found it in the [voice assistant post](/blog/local-voice-ai-home-assistant-gpu/). gpt-oss:20b went 13 for 13, with the caveat that it reasons before answering by default and I ran the qwen3 models with thinking off. Thinking would probably fix some of their math.
 
-**Plex** hardware transcoding is bursty. When someone starts streaming content that needs to be converted to a different format, Plex spins up an NVENC encode session. When nothing is transcoding, the GPU usage is near zero. It coexists fine with Ollama because they're rarely demanding the GPU at the same time - LLM inference is usually a quick burst, and active Plex sessions are not constant.
+The trick questions went badly. qwen3:8b wrote a confident list of Proxmox VE 12.4's new Kubernetes features. gemma3:12b named the exact driver version, 536.68, that "first added AV1 encoding" to a card that can't encode AV1. gpt-oss:20b explained that `hass_turbo_ziggurat` is a random number generator you install from HACS. qwen3:4b cited "verified internet meme history" as a source.
 
-**[Immich](https://immich.app/)** runs ML-based face recognition and scene classification as background jobs. These run asynchronously - not in real-time, not on a critical path. They can take whatever GPU time is available. This is almost the ideal background workload: it runs when the GPU is otherwise idle, and nobody notices if it takes twice as long because Ollama happened to be running.
+The only model that declined all four was llama3.2:3b, which also failed almost half of the real tasks. Every other model invented at least one answer.
 
-**Tdarr server** coordinates the distributed encoding cluster and also runs its own GPU encoding workers. With 3 GPU workers configured and `hevc_nvenc` for 1080p content, it can churn through a significant queue while Plex and Ollama handle their own workloads. (My encode speed varies with source material and settings - `preset p4` HEVC is meaningfully faster than CPU-only, but I haven't benchmarked it precisely.)
+Seventeen questions is a sniff test, not a benchmark, so write ten of your own about your own setup and run them before trusting a model with anything. I use local models for jobs where I can check the answer, like picking which light to turn off, pulling a value out of a log, or tagging a document. I don't ask them for facts.
 
-Here's how all of that adds up across both nodes:
+### Voice assistant latency
 
-| Service                        | Node    | VRAM (steady-state) | Pattern                |
-| ------------------------------ | ------- | ------------------- | ---------------------- |
-| Frigate ONNX detector          | prxbox1 | ~232MB              | Always running         |
-| Frigate FFmpeg decode (2 cams) | prxbox1 | ~400-700MB          | Always running         |
-| Wyoming Whisper small-int8     | prxbox1 | ~2.2GB              | Always loaded          |
-| Tdarr encoding node            | prxbox1 | ~2-4GB              | Bursty, queue-driven   |
-| **8GB node headroom at idle**  |         | **~4.8GB free**     |                        |
-| Ollama llama3.2:3b             | prxbox2 | ~2-3GB              | Resident when loaded   |
-| Ollama llama3.1:8b (when used) | prxbox2 | ~5-8GB              | Replaces smaller model |
-| Plex NVENC transcoding         | prxbox2 | ~500MB-2GB          | Per active stream      |
-| Immich ML (face/scene)         | prxbox2 | ~1-2GB              | Background, async      |
-| Tdarr server + workers         | prxbox2 | ~2-4GB              | Bursty, queue-driven   |
+On the shared Quadro, Whisper's medium model transcribes a short command in about a third of a second, and a 9-second rambling sentence in under one.
 
-The VRAM numbers for prxbox1 are from `nvidia-smi` inside the containers. The prxbox2 numbers are harder to nail down because services there compete more dynamically - what matters is that the 16GB ceiling gives Ollama room to load an 8B model without evicting everything else.
+The LLM is where the time goes. Over the summer I tested models as Home Assistant's conversation agent using the real prompt, all 171 tool definitions included. qwen3:8b took about 1.3 seconds per call and got every request right, so it's what the voice assistant runs now. qwen3:14b was right too, at 1.9 seconds.
 
-![Two Buttons meme - sweating person choosing between 'add one more GPU service to the 8GB node' and 'check if there is actually VRAM headroom first'](/images/blog/proxmox-gpu-passthrough-multi-service/two-buttons-vram.webp)
+Home Assistant hands the model every entity you've exposed to voice, and I had exposed 644 of them. Cutting that to the 101 that make sense to control by voice took "which lights are on in the office" from 121 seconds to 3. That did more than any GPU change. If your local voice assistant is slow, check that list before you shop for a bigger card.
 
-## Tdarr as a Distributed Encoding Cluster
+![Bike Fall meme: a cyclist labeled Me jams a stick labeled 'Exposing all 644 entities to the LLM' into his own wheel, then lies on the ground asking 'Why does voice take two minutes?'](/images/blog/proxmox-gpu-passthrough-multi-service/meme-bike-fall.webp)
 
-Tdarr is doing something a bit more interesting than the other services: it's treating both GPUs as a single encoding cluster.
+## What I'd do differently
 
-The Tdarr server runs on prxbox2 and handles all queue coordination. But I've also deployed a Tdarr encoding node on prxbox1 - a separate LXC container that connects back to the prxbox2 server and accepts encoding jobs. When there's work in the queue, both nodes pull jobs and encode independently using their local GPU.
+I'd plan the VRAM before buying the second server: add up what every always-on service holds, put those on one card, and give everything bursty a card of its own. My split came out of things breaking.
 
-```
-prxbox2 (Tdarr Server + Node)          prxbox1 (Tdarr Node)
-RTX A4000 - 16GB                       Quadro RTX 4000 - 8GB
-  [3 GPU transcode workers]              [GPU transcode workers]
-  [20 GPU health check workers]                |
-              |                               |
-              +---------> Media Queue <--------+
-                       (NAS via NFS)
-```
+If you're buying one card for a homelab that will run an LLM next to anything else, get 16GB. An 8GB card is great for cameras and voice, and it can run a 3B model at full speed in whatever's left, but anything bigger spills to the CPU and slows down fast: 22 tok/s for a 4B model, 6 for an 8B.
 
-Both nodes access the media library over NFS from the Synology NAS. A file gets assigned to whichever node picks it up from the queue first. The RTX A4000 handles `hevc_nvenc` and `av1_nvenc` in addition to H.264; the Quadro RTX 4000 handles `h264_nvenc` and `hevc_nvenc`. For most of my library - old MPEG4, MPEG2, and WMV content - H.264 output is fine for either node.
-
-Right now there are 25,727 video files in the "other videos" library totaling about 22TB. The queue has been running for weeks. Both GPUs contributing means the throughput is roughly double what either node could do alone.
-
-This distributed model works well for batch encoding because each job is completely independent. There's no synchronization between nodes mid-encode, no shared state, no handoff. They just pull from the same queue and write output back to the same NFS path.
-
-## Monitoring VRAM Across the Cluster
-
-One quirk of the LXC passthrough approach: `nvidia-smi` on the Proxmox host shows the GPU and its total VRAM, but it cannot show per-container breakdown. To see which specific processes are consuming VRAM, you have to query from inside a container.
-
-```bash
-# Check VRAM usage on prxbox1 from inside the Frigate container
-# Replace <host-ip> with your Proxmox node IP, <ct-id> with your container ID
-ssh root@<host-ip> "pct exec <ct-id> -- nvidia-smi"
-
-# Check which processes are consuming VRAM
-ssh root@<host-ip> "pct exec <ct-id> -- nvidia-smi --query-compute-apps=name,used_memory --format=csv"
-```
-
-For ongoing monitoring, I have node_exporter running inside each GPU container, exporting metrics to the Prometheus instance on prxbox3. The NVIDIA-specific metrics - temperature, utilization, memory - come from nvidia-smi output scraped periodically. For a cleaner setup, [nvidia_gpu_exporter](https://github.com/utkuozdemir/nvidia_gpu_exporter) runs inside a container and exposes proper Prometheus metrics without any scripting.
-
-The practical reality: I check GPU stats reactively when something feels slow, not on a dashboard I watch constantly. The Uptime Kuma monitor tells me if Whisper or Frigate goes down. The Home Assistant CPU/memory graphs show me if the system is under pressure. GPU VRAM isn't the thing I watch most often - it's more useful for investigating a specific incident.
-
-## The Decision Framework
-
-Here's the actual rule I landed on, stated plainly: **separate latency-sensitive from bursty**. Real-time services that lose value when slow go on one node; variable, spike-driven services that tolerate waiting go on the other. That's it.
-
-**Latency-sensitive, real-time services go on the 8GB node.** Frigate needs to detect a person in a camera frame before they've moved on. Whisper needs to respond to a voice command before it feels broken. These services lose value if they're slow, and they need predictable, low-latency GPU access regardless of what else is running. The 8GB card is dedicated enough to them that there's no contention with anything that has irregular demand.
-
-**VRAM-heavy and bursty services go on the 16GB node.** Ollama might load an 8B parameter model. Plex might start three simultaneous transcode sessions. Tdarr is encoding constantly. Immich might be processing 200 photos from a recent trip. None of these have hard real-time requirements - a 2x slower LLM response is annoying but not a failure. The 16GB card has enough headroom that even peak-demand combinations fit.
-
-There's a third category that doesn't apply to me but might to you: **exclusive GPU access for specific workloads**. If you're running stable diffusion, training, or anything with very specific VRAM requirements, you might want a GPU dedicated to that single service via full VM passthrough instead of shared LXC access. For my workloads, shared LXC is fine. But if you're running something with strict requirements, LXC sharing means other services can grab VRAM at unexpected times.
-
-The hardware investment - two workstation GPUs in two servers - sounds like a lot. But both R730s came from enterprise lease disposal for reasonable money, and the GPUs themselves are on the workstation/professional market rather than gaming. The Quadro RTX 4000 was around $400 used; the RTX A4000 was more. Not cheap, but not the gaming GPU market either.
-
-If I were doing this over: I'd think about GPU workload distribution before buying the second server, not after. The workload split I have now didn't come from careful planning - it came from trial and error. Knowing what I know now, I'd put the LLM inference card on the primary node and accept a smaller VRAM budget for everything else, rather than treating VRAM allocation as an afterthought.
-
-The passthrough config is the easy part. It takes an afternoon, and there are decent tutorials if you get stuck. The workload strategy is the part that doesn't show up in documentation - and it's the part that determines whether you're constantly fighting GPU memory contention or not.
-
----
-
-If any of this is useful, I'm happy to dig into specifics in the comments - particularly around the Frigate TensorRT setup or the Tdarr distributed config, which both have their own rabbit holes. The [homelab two-year retrospective](/blog/homelab-two-years-later/) has the full hardware context, and the [local voice AI post](/blog/local-voice-ai-home-assistant-gpu/) covers the Whisper pipeline end-to-end if you're building the Home Assistant voice setup.
+I still haven't measured three things: encode speed on either card, how Plex and Frigate interact on a shared card today, and anything about Immich. The hardware encoder sits apart from the CUDA cores, so I'd expect Plex to bother Frigate less now than it did in April, but I haven't tested it.
