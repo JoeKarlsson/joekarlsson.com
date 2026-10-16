@@ -113,7 +113,6 @@ export const projects: Project[] = [
 		sourceUrl: 'https://github.com/JoeKarlsson/iot-kitty-litter-box',
 		blogUrl: '/blog/an-introduction-to-iot-internet-of-toilets/',
 		stars: 25,
-		featured: true,
 	},
 	{
 		title: 'PixelPane',
@@ -297,6 +296,7 @@ export const projects: Project[] = [
 			'Claude playing a Doom level built from live Connect AI data, shooting a pink demon labeled with an urgent Salesforce deal while a side panel logs every kill',
 		category: 'dev-tools',
 		tech: ['Python', 'Claude Code', 'MCP', 'CData Connect AI', 'psdoom-ng', 'SQL'],
+		featured: true,
 		page: {
 			slug: 'connect-ai-doom',
 			tagline: 'Doom built from live business data, where every monster is a real record.',
