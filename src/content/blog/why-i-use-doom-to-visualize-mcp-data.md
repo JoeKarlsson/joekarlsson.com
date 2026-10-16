@@ -25,15 +25,26 @@ I've been a database developer advocate for years, and the hard part of the job 
 
 So I put the data in Doom. **Connect AI × DOOM** turns an AI agent's MCP calls into a Doom level. You ask Claude a question, it pulls the answer out of your apps through the [CData Connect AI](https://www.cdata.com/ai/) MCP server (I work at CData, which makes it), and every monster in the level is a live record it found. I'd mentioned the idea before and nobody cared. I built the first version in one night, people saw it running and loved it, and it's now how my team shows off Connect AI. The code is [on GitHub](https://github.com/CDataSoftware/connect-ai-doom), and there's a short overview on the [project page](/work/connect-ai-doom/).
 
-![Claude playing a Doom level built from live Connect AI data: shooting Salesforce deals, passing the blocked PII vault and heading for the Zendesk tickets, with the side panel logging every kill](/images/blog/why-i-use-doom-to-visualize-mcp-data/claude-plays.gif)
-
-_Claude playing a level built from live data. The side panel logs every tool call._
-
 ## Data is hard to show
 
 Every data demo I've given ends the same way: a query, a result set, and me saying "and that's live" while the room takes my word for it, because a table of rows looks the same whether it's live or not.
 
 MCP makes it harder, because now there's an agent in the middle. Connect AI sits between AI agents and hundreds of data sources, so a real demo is an agent deciding which apps to look in, writing the queries, getting JSON back, and getting told no when it asks for something it shouldn't have. That all happens in tool calls nobody sees. (If you want the serious version, I wrote about [what teams are building on live enterprise data through an AI gateway](/blog/ai-gateway-for-developers/).)
+
+Here's one row an agent pulled out of a demo Salesforce account, trimmed down. This is what MCP looks like from the outside:
+
+```json
+{
+	"Id": "…",
+	"Label": "European Financial Holdings",
+	"Detail": "Urgent: $99,779.00, closed 2026-09-15 passed…",
+	"Hot": true
+}
+```
+
+And here's the same row in Doom:
+
+![A pink demon in Doom standing in a gray hallway, with the caption Salesforce: European Financial Holdings, Urgent: $99,779.00, closed 2026-09-15 passed across the bottom of the screen](/images/blog/why-i-use-doom-to-visualize-mcp-data/one-record.webp)
 
 I wanted something you could follow from across a room: which sources the agent can reach, what came back, what the agent did with it, and what it wasn't allowed to touch.
 
@@ -61,11 +72,7 @@ The first version used unpaid invoices as the monsters. About twenty minutes lat
 
 That's been the biggest perk of coding agents for me. I know what software can do, and now almost anything I can picture, I can build quickly. That makes them great for prototyping, and even better for getting people on board with an idea, and it's changed my career.
 
-![The Salesforce room: Claude walking into a hall of pink demons, each labeled with a Salesforce deal name, while the HUD shows the urgent deal for Sunshine State University and its amount](/images/blog/why-i-use-doom-to-visualize-mcp-data/salesforce-room.gif)
-
-_The Salesforce room. Every monster is a deal, with its name and amount over its head._
-
-Then I recorded a quick demo and sent it around. Here it is, unedited, me included. In it I call the whole thing "just an experiment."
+Then I recorded a quick demo and sent it around. Here's the unedited cut, me included. In it I call the whole thing "just an experiment."
 
 <video controls playsinline preload="none" poster="/images/blog/why-i-use-doom-to-visualize-mcp-data/demo-video-poster.webp" src="/images/blog/why-i-use-doom-to-visualize-mcp-data/demo-video.mp4" aria-label="My first Connect AI × DOOM demo: Claude playing a level built from a test Salesforce account while I explain the rooms, the monsters and the side panel on camera">
   <track kind="captions" srclang="en" label="English" src="/images/blog/why-i-use-doom-to-visualize-mcp-data/demo-video.vtt" />
@@ -74,10 +81,6 @@ Then I recorded a quick demo and sent it around. Here it is, unedited, me includ
 _The first demo I sent around._
 
 The same idea that got shrugs as a sentence got a different reaction once people saw it running, and they fell in love with it. I wrote about a version of this in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/): you learn what's good by finishing things and putting them in front of people.
-
-![The Doom main menu with a large Connect AI logo above New Game, Options, Load Game, Save Game and Quit Game](/images/blog/why-i-use-doom-to-visualize-mcp-data/branded-menu.gif)
-
-_I couldn't resist a little Connect AI branding._
 
 ## How it works
 
@@ -89,13 +92,15 @@ The short version, without getting into the build:
 - **Keycards are your permissions**: blue for apps you can only read, yellow for read and write.
 - **The red door is data Connect AI blocked**, like a lookup by Social Security number. There's no key. Try the door and it asks Connect AI again, live, and gets refused again.
 
-![The full Connect AI × DOOM screen: Doom on the left with a Salesforce deal labeled over a pink demon, and a side panel on the right showing 3 apps, 70 records, 1 blocked, the Salesforce, Zendesk and Stripe rooms, the red door PII vault, and Claude's feed of decisions and tool calls](/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp)
+![The Zendesk room: Claude walking into a hall of monsters labeled with support tickets like API endpoint returning 500 errors and phone service slow, with the urgent ticket named across the bottom of the screen](/images/blog/why-i-use-doom-to-visualize-mcp-data/zendesk-room.gif)
+
+_The Zendesk room. Every monster is a support ticket._
+
+![Claude walking past the red PII vault sign, Locked by Connect AI Data Security, on the way into the Salesforce deals](/images/blog/why-i-use-doom-to-visualize-mcp-data/red-door.gif)
+
+_The PII vault: data Connect AI refused to hand over, behind a door with no key._
 
 Shoot a monster and the game reads that record again from the source app, so what's on screen stays current. You can play it yourself, or let Claude play through a second MCP server that controls the marine, while the side panel shows every decision and tool call it makes. Nothing in your apps ever changes. I'm saving the full build story for the CData blog.
-
-![Claude clearing the Salesforce room, shooting deal after deal while the HUD names each one and its amount](/images/blog/why-i-use-doom-to-visualize-mcp-data/kills.gif)
-
-_Every kill is a live read through Connect AI._
 
 ## Where it's at now
 
