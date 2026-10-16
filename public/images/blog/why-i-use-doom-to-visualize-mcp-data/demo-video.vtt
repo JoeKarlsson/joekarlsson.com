@@ -1,0 +1,101 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.000
+ Welcome to Connect AI Doom.
+
+00:00:03.000 --> 00:00:07.000
+ I've gotten Doom running on macOS,
+
+00:00:07.000 --> 00:00:12.000
+ and I've gotten Connect AI integrated via MCP into Doom.
+
+00:00:13.380 --> 00:00:16.180
+ Right now what you're watching is Claude self directing
+
+00:00:16.180 --> 00:00:18.400
+ itself and playing and exploring
+
+00:00:18.400 --> 00:00:21.200
+ our procedurally generated environment.
+
+00:00:22.200 --> 00:00:24.000
+ Each room represents a different data source
+
+00:00:24.000 --> 00:00:25.920
+ and that each of the monsters within the room
+
+00:00:25.920 --> 00:00:28.560
+ is representing a different entry from the data source.
+
+00:00:28.560 --> 00:00:29.560
+ So you can see on screen,
+
+00:00:29.560 --> 00:00:31.520
+ this is the Salesforce room,
+
+00:00:31.520 --> 00:00:34.180
+ and it's all the entries of our test account
+
+00:00:34.180 --> 00:00:36.160
+ with different Salesforce, whatever.
+
+00:00:36.160 --> 00:00:37.440
+ But on the right,
+
+00:00:37.440 --> 00:00:39.840
+ you can see all of our alive view,
+
+00:00:39.840 --> 00:00:42.400
+ what's going on with details from Connect AI
+
+00:00:42.400 --> 00:00:43.940
+ about that data source.
+
+00:00:43.940 --> 00:00:46.240
+ The different monsters represent the level of urgency
+
+00:00:46.240 --> 00:00:48.200
+ or like importance of them.
+
+00:00:48.200 --> 00:00:50.520
+ It's easy to configure it's like actually going clear
+
+00:00:50.520 --> 00:00:53.100
+ and delete things in here or flag them.
+
+00:00:53.100 --> 00:00:54.600
+ But right now it's just read only
+
+00:00:54.600 --> 00:00:56.600
+ and kind of viewing and exploring them in Doom.
+
+00:00:56.600 --> 00:01:00.840
+ But this was just an experiment to see can I get
+
+00:01:00.840 --> 00:01:05.560
+ an MCP server to run in Doom and Connect AI.
+
+00:01:05.560 --> 00:01:09.080
+ I also did some light branding on Doom too,
+
+00:01:09.080 --> 00:01:10.860
+ with some light Connect AI branding
+
+00:01:10.860 --> 00:01:14.160
+ and added our colors in there and stuff like that too.
+
+00:01:14.160 --> 00:01:16.320
+ The game is also, you can play it on your own.
+
+00:01:16.320 --> 00:01:18.560
+ Like right now Claude is playing it for me,
+
+00:01:18.560 --> 00:01:20.680
+ but you can totally do whatever,
+
+00:01:20.680 --> 00:01:22.960
+ like this is a fully playable version of Doom
+
+00:01:22.960 --> 00:01:24.100
+ with Connect AI.
+
