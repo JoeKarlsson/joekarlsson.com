@@ -290,13 +290,36 @@ export const projects: Project[] = [
 	{
 		title: 'Connect AI × DOOM',
 		description:
-			"Ask Claude a business question and it builds a Doom level from the answer. Claude explores your apps through the CData Connect AI MCP server, each room is a data source, and every monster is a live record, like a Salesforce deal or a Zendesk ticket. Data Connect AI blocks becomes a red door with no key. KubeDOOM let you kill Kubernetes pods in Doom and doom-mcp let agents play it, but as far as I know this is the first one to put MCP data inside the level. I built it one night as a side project, and it's now the foundation of our developer marketing campaign and event strategy.",
+			"Ask Claude a business question and it builds a Doom level from the answer. Every monster is a live record from your apps, pulled through the CData Connect AI MCP server. I built it in one night as a side project, and it's now the foundation of my team's developer marketing campaign and event strategy.",
 		image: '/images/projects/connect-ai-doom.webp',
 		video: '/images/projects/connect-ai-doom.mp4',
 		imageAlt:
 			'Claude playing a Doom level built from live Connect AI data, shooting a pink demon labeled with an urgent Salesforce deal while a side panel logs every kill',
 		category: 'dev-tools',
 		tech: ['Python', 'Claude Code', 'MCP', 'CData Connect AI', 'psdoom-ng', 'SQL'],
+		page: {
+			slug: 'connect-ai-doom',
+			tagline: 'Doom built from live business data, where every monster is a real record.',
+			intro: [
+				'You ask Claude a business question, like "Which customers are at risk right now?" Claude answers it through the CData Connect AI MCP server, and the answer becomes a Doom level. Each room is an app that holds part of the answer, like Salesforce, Zendesk or Stripe. Each monster is a record from that app, and the urgent ones are pink demons. Keycards match your permissions, and anything Connect AI refused to hand over, like a lookup by Social Security number, sits behind a red door with no key.',
+				"You can play it yourself, or let Claude play while a side panel shows every decision and tool call it makes. Shoot a record and the game re-reads it live from the source app. Everything goes through Connect AI's read-only tools, so nothing in your apps changes.",
+				"I'm not the first person to put Doom on top of real infrastructure. KubeDOOM let you kill Kubernetes pods by shooting them, and doom-mcp lets AI agents play Doom over MCP. As far as I know, this is the first one to put MCP data inside the level. I built the first version in one night as a side project after seeing those two, and it's now the foundation of my team's developer marketing campaign and event strategy.",
+			],
+			steps: [
+				{
+					title: 'Query',
+					text: 'Claude Code runs headless with Connect AI as its only MCP server. It finds the three apps that answer your question and writes one SQL query for each.',
+				},
+				{
+					title: 'Build',
+					text: 'Every query returns the same four columns: `Id`, `Label`, `Detail`, `Hot`, so any connector can become a room.',
+				},
+				{
+					title: 'Refresh',
+					text: 'A small bridge re-runs each room every 15 seconds, so the monsters always match your data. With `--claude-plays`, Claude also gets a Doom MCP server so it can play the level.',
+				},
+			],
+		},
 	},
 	{
 		title: 'FollowSpot',
