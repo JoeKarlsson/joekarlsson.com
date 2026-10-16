@@ -59,6 +59,8 @@ const PIXELPANE_DIR = '/images/blog/pixelpane-pixel-art-home-assistant';
 
 const SD_DIR = '/images/blog/screencast-director-screen-recorder';
 
+const DOOM_DIR = '/images/blog/why-i-use-doom-to-visualize-mcp-data';
+
 export const CATEGORY_META: Record<
 	Project['category'],
 	{ label: string; command: string; hoverColor: string; borderColor: string; shadowColor: string }
@@ -304,7 +306,7 @@ export const projects: Project[] = [
 			tagline: 'Doom built from live business data, where every monster is a real record.',
 			intro: [
 				'You ask Claude a business question, like "Which customers are at risk right now?" Claude answers it through the CData Connect AI MCP server, and the answer becomes a Doom level. Each room is an app that holds part of the answer, like Salesforce, Zendesk or Stripe. Each monster is a record from that app, and the urgent ones are pink demons. Keycards match your permissions, and anything Connect AI refused to hand over, like a lookup by Social Security number, sits behind a red door with no key.',
-				"You can play it yourself, or let Claude play while a side panel shows every decision and tool call it makes. Shoot a record and the game re-reads it live from the source app. Everything goes through Connect AI's read-only tools, so nothing in your apps changes.",
+				"You can play it yourself, or let Claude play while a side panel shows every decision and tool call it makes. Shoot a record and the game re-reads it live from the source app. Everything goes through Connect AI's read-only tools, so nothing in your apps changes. It runs on a Mac, and setup takes about ten minutes.",
 			],
 			steps: [
 				{
@@ -322,6 +324,30 @@ export const projects: Project[] = [
 			],
 			install:
 				'git clone https://github.com/CDataSoftware/connect-ai-doom.git\ncd connect-ai-doom\n./setup.sh\n./raid.sh offline   # made-up data, no account needed',
+			galleryTitle: 'ls clips/',
+			galleryNote: 'Claude playing a level built from a demo Salesforce account. Hover to play.',
+			gallery: [
+				{
+					video: `${DOOM_DIR}/salesforce-room.mp4`,
+					poster: `${DOOM_DIR}/salesforce-room-poster.webp`,
+					alt: 'Claude walking into the Salesforce room, a hall of pink demons each labeled with a deal name, while the HUD shows the urgent deal for Sunshine State University and its amount',
+					caption: 'The Salesforce room: every monster is a deal',
+				},
+				{
+					video: `${DOOM_DIR}/kills.mp4`,
+					poster: `${DOOM_DIR}/kills-poster.webp`,
+					alt: 'Claude clearing the Salesforce room, shooting deal after deal while the HUD names each one and its amount',
+					caption: 'Every kill is a live read through Connect AI',
+				},
+			],
+			screenshots: [
+				{
+					poster: `${DOOM_DIR}/game-and-panel.webp`,
+					alt: "The full Connect AI × DOOM screen: Doom on the left with a Salesforce deal labeled over a pink demon, and a side panel on the right showing 3 apps, 70 records, 1 blocked, the Salesforce, Zendesk and Stripe rooms, the red door PII vault, and Claude's feed of decisions and tool calls",
+					caption: 'The game and the side panel that logs every decision and tool call',
+				},
+			],
+			screenshotsTitle: 'ls screenshots/',
 		},
 	},
 	{
