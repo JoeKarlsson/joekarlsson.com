@@ -428,7 +428,7 @@ Box text color flips to white with an outline on dark backgrounds. **Open every 
 
 Write the draft to `src/content/blog/{slug}.md` so subsequent phases can grep and edit the file directly.
 
-Display the full draft inline, then use AskUserQuestion:
+Open the draft in VS Code for Joe to review (`code src/content/blog/{slug}.md`) - do this every time, without asking, and again after any round of changes he requests. Don't paste the full draft inline; give a short summary (word count, sections, memes, anything he needs to confirm) and use AskUserQuestion:
 
 - Approve draft
 - Request changes
