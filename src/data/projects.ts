@@ -296,6 +296,7 @@ export const projects: Project[] = [
 			'Claude playing a Doom level built from live Connect AI data, shooting a pink demon labeled with an urgent Salesforce deal while a side panel logs every kill',
 		category: 'dev-tools',
 		tech: ['Python', 'Claude Code', 'MCP', 'CData Connect AI', 'psdoom-ng', 'SQL'],
+		sourceUrl: 'https://github.com/CDataSoftware/connect-ai-doom',
 		featured: true,
 		page: {
 			slug: 'connect-ai-doom',
