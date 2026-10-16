@@ -297,6 +297,7 @@ export const projects: Project[] = [
 		category: 'dev-tools',
 		tech: ['Python', 'Claude Code', 'MCP', 'CData Connect AI', 'psdoom-ng', 'SQL'],
 		sourceUrl: 'https://github.com/CDataSoftware/connect-ai-doom',
+		blogUrl: '/blog/why-i-use-doom-to-visualize-mcp-data/',
 		featured: true,
 		page: {
 			slug: 'connect-ai-doom',
@@ -304,7 +305,6 @@ export const projects: Project[] = [
 			intro: [
 				'You ask Claude a business question, like "Which customers are at risk right now?" Claude answers it through the CData Connect AI MCP server, and the answer becomes a Doom level. Each room is an app that holds part of the answer, like Salesforce, Zendesk or Stripe. Each monster is a record from that app, and the urgent ones are pink demons. Keycards match your permissions, and anything Connect AI refused to hand over, like a lookup by Social Security number, sits behind a red door with no key.',
 				"You can play it yourself, or let Claude play while a side panel shows every decision and tool call it makes. Shoot a record and the game re-reads it live from the source app. Everything goes through Connect AI's read-only tools, so nothing in your apps changes.",
-				"I'm not the first person to put Doom on top of real infrastructure. KubeDOOM let you kill Kubernetes pods by shooting them, and doom-mcp lets AI agents play Doom over MCP. As far as I know, this is the first one to put MCP data inside the level. I built the first version in one night as a side project after seeing those two, and it's now the foundation of my team's developer marketing campaign and event strategy.",
 			],
 			steps: [
 				{
@@ -320,6 +320,8 @@ export const projects: Project[] = [
 					text: 'A small bridge re-runs each room every 15 seconds, so the monsters always match your data. With `--claude-plays`, Claude also gets a Doom MCP server so it can play the level.',
 				},
 			],
+			install:
+				'git clone https://github.com/CDataSoftware/connect-ai-doom.git\ncd connect-ai-doom\n./setup.sh\n./raid.sh offline   # made-up data, no account needed',
 		},
 	},
 	{
