@@ -399,6 +399,8 @@ WRITE_PATTERNS = [
 
 If you're letting an agent near real systems, learn hooks first.
 
+Update, October 2026: since writing this, I've moved most of these rules into mods, because a few of my hooks turned out to have never worked. More in [First impressions of Claude Code mods](/blog/claude-code-mods-first-impressions/).
+
 ## Editing and writing
 
 ### Editor: VS Code

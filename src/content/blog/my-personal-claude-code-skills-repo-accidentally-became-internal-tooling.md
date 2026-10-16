@@ -68,7 +68,7 @@ It's a file at the root of your repo that Claude reads automatically at the star
 
 When a new teammate opens the project and runs a skill for the first time, Claude already knows all of it. They don't have to learn it. They don't have to ask me. It's just there.
 
-The same idea works for one person across several machines. I keep my own global `CLAUDE.md` in my dotfiles - here's [how I deploy my personal CLAUDE.md with chezmoi](/blog/my-development-setup-2026/).
+The same idea works for one person across several machines. I keep my own global `CLAUDE.md` in my dotfiles - here's [how I deploy my personal CLAUDE.md with chezmoi](/blog/my-development-setup-2026/). A CLAUDE.md rule still only works if Claude remembers it, so the rules I can't afford to have skipped now live in [Claude Code mods](/blog/claude-code-mods-first-impressions/) instead.
 
 If you only take one thing from this post: write a solid `CLAUDE.md` before you write your third skill. The skills are the features. The `CLAUDE.md` is the foundation.
 
