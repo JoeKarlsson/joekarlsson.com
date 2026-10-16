@@ -288,6 +288,17 @@ export const projects: Project[] = [
 
 	// Developer Tools & Education
 	{
+		title: 'Connect AI × DOOM',
+		description:
+			"Ask Claude a business question and it builds a Doom level from the answer. Claude explores your apps through the CData Connect AI MCP server, each room is a data source, and every monster is a live record, like a Salesforce deal or a Zendesk ticket. Data Connect AI blocks becomes a red door with no key. KubeDOOM let you kill Kubernetes pods in Doom and doom-mcp let agents play it, but as far as I know this is the first one to put MCP data inside the level. I built it one night as a side project, and it's now the foundation of our developer marketing campaign and event strategy.",
+		image: '/images/projects/connect-ai-doom.webp',
+		video: '/images/projects/connect-ai-doom.mp4',
+		imageAlt:
+			'Claude playing a Doom level built from live Connect AI data, shooting a pink demon labeled with an urgent Salesforce deal while a side panel logs every kill',
+		category: 'dev-tools',
+		tech: ['Python', 'Claude Code', 'MCP', 'CData Connect AI', 'psdoom-ng', 'SQL'],
+	},
+	{
 		title: 'FollowSpot',
 		description:
 			"A voice-following teleprompter that runs in the browser and listens with a local whisper.cpp model. Read your script out loud and the highlight follows you, through flubs, skips, and ad-libs. You pick the model, the audio never leaves your machine, and the column centers over the camera lens so nobody can see your eyes reading. I built it because I can't memorize lines.",
