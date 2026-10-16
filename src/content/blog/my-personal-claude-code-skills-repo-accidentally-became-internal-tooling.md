@@ -62,7 +62,7 @@ The same repo runs my house, too. It holds the rules Claude follows when it help
 
 ## CLAUDE.md: The Thing Most Posts Don't Explain
 
-Every tutorial about Claude Code explains slash commands. Almost none of them explain `CLAUDE.md`, which is honestly the more important piece.
+Every tutorial about Claude Code explains slash commands. Almost none of them explain `CLAUDE.md`, which is the more important piece.
 
 It's a file at the root of your repo that Claude reads automatically at the start of every session. Your team's standing context, always loaded, never forgotten. We put things like: never schedule posts on weekends, Plausible is our primary traffic source not GA4, brand voice lives in `BRAND_VOICE.md` and should be checked before writing anything, never auto-schedule without user approval. Team conventions that used to live in someone's head or a Notion page nobody reads.
 
