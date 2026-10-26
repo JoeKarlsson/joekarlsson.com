@@ -69,10 +69,10 @@ Outline:
 
 ## Related Links
 
-Note: The bechdel.io site is no longer live. The links below point to archived versions.
+Note: The bechdel.io domain is gone, but the site lives on at bechdel.joekarlsson.com.
 
-- Bechdel.io: [http://www.bechdel.io](https://web.archive.org/web/20211222040320/http://www.bechdel.io/)
-- Case Study: [http://www.bechdel.io/case-study](https://web.archive.org/web/20211222040320/http://www.bechdel.io/)
+- Bechdel.io: [https://bechdel.joekarlsson.com](https://bechdel.joekarlsson.com/)
+- Case Study: [https://bechdel.joekarlsson.com/#/case-study](https://bechdel.joekarlsson.com/#/case-study)
 - Source Code: [https://github.com/JoeKarlsson/bechdel-test](https://github.com/JoeKarlsson/bechdel-test)
 - Bechdel Test Movie List: [https://bechdeltest.com](https://web.archive.org/web/20240527030511/https://bechdeltest.com/)
 - Original Bechdel Test Comic: [https://dykestowatchoutfor.com/the-rule](https://dykestowatchoutfor.com/the-rule)

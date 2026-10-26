@@ -61,8 +61,8 @@ Joe runs production-grade self-hosted infrastructure: Proxmox clusters, LXC cont
 ### Web & Applications
 
 - **[React Spotify Player](https://github.com/JoeKarlsson/react-spotify-player)**: Web-based Spotify player built with React, demonstrating Spotify API integration. 130+ GitHub stars.
-- **Bechdel.io**: Movie script analysis tool that tests films against the Bechdel Test criteria. [GitHub](https://github.com/JoeKarlsson/bechdel-test) (30+ stars)
-- **Pixelate**: HTML5 Canvas image pixelation tool built with vanilla JavaScript. [GitHub](https://github.com/JoeKarlsson/Pixelate) (15+ stars)
+- **Bechdel.io**: Movie script analysis tool that tests films against the Bechdel Test criteria. [Live site](https://bechdel.joekarlsson.com/) · [GitHub](https://github.com/JoeKarlsson/bechdel-test) (30+ stars)
+- **Pixelate**: HTML5 Canvas image pixelation tool built with vanilla JavaScript. [Live demo](https://pixelate.joekarlsson.com/) · [GitHub](https://github.com/JoeKarlsson/Pixelate) (15+ stars)
 - **Launch Target**: Web-based spaceship game.
 
 ### Education & Open Source

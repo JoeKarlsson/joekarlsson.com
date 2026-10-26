@@ -162,7 +162,7 @@ export const openSource = [
 		description:
 			'Bechdel Test script analyzer; a collaborative digital humanities project with my sister. Parses film scripts to test for gender representation.',
 		tech: ['React', 'Redux', 'MongoDB', 'D3', 'Express'],
-		url: 'https://bechdel.io',
+		url: 'https://bechdel.joekarlsson.com',
 	},
 	{
 		name: 'Homelab',

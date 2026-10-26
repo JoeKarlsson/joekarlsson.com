@@ -271,6 +271,7 @@ export const projects: Project[] = [
 		category: 'art',
 		tech: ['JavaScript', 'D3.js', 'NLP'],
 		sourceUrl: 'https://github.com/JoeKarlsson/rose-hobart',
+		demoUrl: 'https://rosehobart.joekarlsson.com/',
 		stars: 2,
 	},
 	{
@@ -283,6 +284,7 @@ export const projects: Project[] = [
 		category: 'art',
 		tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
 		sourceUrl: 'https://github.com/JoeKarlsson/bechdel-test',
+		demoUrl: 'https://bechdel.joekarlsson.com/',
 		blogUrl: '/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
 		stars: 30,
 	},
