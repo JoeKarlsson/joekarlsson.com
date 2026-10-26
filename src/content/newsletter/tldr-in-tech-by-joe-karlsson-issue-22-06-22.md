@@ -6,7 +6,7 @@ issue: 29
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-06-22'
 ---
 
-[Want to find out why I joined There are a lot of reasons I joined the team at Viam? Be sure to check out my new blog post where I walk through all the reasons why.](https://www.joekarlsson.com/2022/06/why-i-joined-viam-%F0%9F%A4%96/)
+[Want to find out why I joined There are a lot of reasons I joined the team at Viam? Be sure to check out my new blog post where I walk through all the reasons why.](/newsletter/why-i-joined-viam/)
 
 [tl;dr: Varies on whether the company is early-stage, prioritizing growth or profitability.](https://lethain.com/should-you-prioritize-infrastructure-costs/)
 

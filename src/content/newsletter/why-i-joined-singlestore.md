@@ -66,4 +66,4 @@ Be sure to follow [@SingleStoreDevs](https://twitter.com/singlestoredevs/) on Tw
 - [How to Use SingleStore as a Key-Value Store](https://www.joekarlsson.com/2022/06/how-to-use-singlestore-as-a-key-value-store/)
 - June 22, 2022
 
-The post [Why I joined SingleStore](https://www.joekarlsson.com/2021/08/why-i-joined-singlestore/) appeared first on [Joe Karlsson](https://www.joekarlsson.com).
+The post [Why I joined SingleStore](/newsletter/why-i-joined-singlestore/) appeared first on [Joe Karlsson](https://www.joekarlsson.com).

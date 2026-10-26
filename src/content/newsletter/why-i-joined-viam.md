@@ -87,7 +87,7 @@ Please check your email to confirm your newsletter subscription.
 - [TikTok](https://www.tiktok.com/@joekarlsson)
 - [YouTube](https://www.youtube.com/c/JoeKarlsson)
 
-- [Why I joined SingleStore](https://www.joekarlsson.com/2021/08/why-i-joined-singlestore/)
+- [Why I joined SingleStore](/newsletter/why-i-joined-singlestore/)
 - August 5, 2021
 
 - [How to Query from Multiple MongoDB Databases](https://www.joekarlsson.com/2021/06/how-to-query-from-multiple-mongodb-databases/)
