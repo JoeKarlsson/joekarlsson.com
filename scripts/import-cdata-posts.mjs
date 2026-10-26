@@ -93,6 +93,8 @@ async function scrapePost(page, url) {
 		const meta = (sel) => document.querySelector(sel)?.getAttribute('content') ?? '';
 		const hero = document.querySelector('.article-hero-img img');
 		const body = document.querySelector('#articleContentMain').cloneNode(true);
+		// Embeds (videos, the CMS's interactive widgets) can't be carried over; report them
+		const embeds = [...body.querySelectorAll('iframe')].map((f) => f.src);
 		body
 			.querySelectorAll('script, style, noscript, iframe, form, button, colgroup')
 			.forEach((n) => n.remove());
@@ -181,6 +183,7 @@ async function scrapePost(page, url) {
 
 		return {
 			faq,
+			embeds,
 			title: document.querySelector('h1')?.textContent.trim() ?? meta('meta[property="og:title"]'),
 			date: document.querySelector('.blogDate')?.textContent.trim() ?? '',
 			updated: document.querySelector('.blogUpdated')?.textContent.trim() ?? '',
@@ -315,13 +318,15 @@ async function importPost(page, url, existingFile) {
 	// Body images: download, then repoint. Links whose target is the image itself
 	// (CMS click-to-zoom) are unwrapped so they don't point at cms.cdata.com.
 	const used = new Set(['hero']);
-	const images = [...md.matchAll(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)];
+	// Alt may hold Turndown-escaped brackets, e.g. "\[Alt text\]: ..." pasted by authors
+	const images = [...md.matchAll(/!\[((?:\\.|[^\]\\])*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)];
 	const downloads = [];
 	for (const [whole, alt, src] of images) {
 		const abs = new URL(src, ORIGIN).href;
 		const file = imageName(abs, used);
 		downloads.push([abs, path.join(imgDir, file)]);
-		md = md.split(whole).join(`![${alt || post.title}](${webPath(file)})`);
+		const cleanAlt = alt.replace(/^\\\[alt text\\\]:?\s*/i, '');
+		md = md.split(whole).join(`![${cleanAlt || post.title}](${webPath(file)})`);
 	}
 	md = md.replace(/\[(!\[[^\]]*\]\([^)]+\))\]\([^)]+\)/g, '$1');
 	if (post.heroSrc) downloads.push([post.heroSrc, path.join(imgDir, 'hero.webp'), { hero: true }]);
@@ -372,6 +377,7 @@ async function importPost(page, url, existingFile) {
 	for (const [src, dest, opts] of downloads) await downloadWebp(src, dest, opts);
 	fs.writeFileSync(mdPath, frontmatter + '\n' + md);
 	console.log(`wrote ${path.relative(ROOT, mdPath)} (${downloads.length} images)`);
+	for (const src of post.embeds) console.warn(`  dropped embed, re-add by hand if needed: ${src}`);
 }
 
 const browser = await chromium.launch({
