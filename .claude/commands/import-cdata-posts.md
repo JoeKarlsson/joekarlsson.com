@@ -52,9 +52,12 @@ Read each post in full, then set:
 
   If a hero ever comes through transparent or the wrong size, rebuild it with the same treatment as `heroCanvas()` in the script: fit inside 720x506, centered on 1200x675 `#f4f4f5`, WebP quality 82. Don't pick a different color; sky and teal were tried and wash out the pale-gray details.
 - **`heroAlt`**: CData's hero alt is just the title. Look at `hero.webp` (convert it to PNG with sharp and Read it) and describe the graphic.
-- **`tldr`**: 2-4 plain sentences in Joe's voice (read STYLE_GUIDE.md): the post's actual claims, specific, with no em dashes and no hype words.
-- **Image alt text**: `grep -o '!\[[^]]*' <file>` and fix any that are still stubs by looking at the image.
-- **Structure**: skim for anything the converter flattened, like a run of `**Label:** ...` pairs collapsed into one paragraph (turn it into a list), or stray HTML.
+- **Slug**: the file takes CData's slug. If it's too vague to stand alone on this site (2026-10-26: `muse` became `connect-business-apps-meta-muse`), rename the file, its image dir, and the `slug` and image paths in it. `canonicalUrl` keeps CData's URL.
+- **`tldr`**: 2-4 plain sentences in Joe's voice (read STYLE_GUIDE.md): the post's actual claims, specific, with no em dashes and no hype words. If the body opens with CData's own `**TL;DR:**` paragraph, move that text into `tldr` and delete it from the body, or the page shows two.
+- **Image alt text**: `grep -o '!\[[^]]*' <file>` and fix any that are still stubs by looking at the image. Also grep for `cms.cdata.com`. Any hit is an image the importer failed to download.
+- **Dropped embeds**: the importer prints `dropped embed, re-add by hand if needed: <src>` for every iframe. Re-add a YouTube video as a linked thumbnail (`[![alt](/images/blog/{slug}/video-thumbnail.webp)](https://www.youtube.com/watch?v=<id>)`, thumbnail from `img.youtube.com/vi/<id>/maxresdefault.jpg` as WebP). A CMS widget that only works on CData (like the Muse API-key generator) gets a link to the original post where the text refers to it.
+- **Links to other crossposts**: a link to a CData post that's already crossposted here (its URL is some post's `canonicalUrl`) should point at the local `/blog/{slug}` instead.
+- **Structure**: skim for anything the converter flattened, like a run of `**Label:** ...` pairs collapsed into one paragraph (turn it into a list), or stray HTML. Runs of bold-led step paragraphs ("**Sign up.** ...", "**Add your first app.** ...") become numbered lists.
 
 Don't rewrite CData's prose into Joe's personal-blog voice. It's a crosspost.
 

@@ -64,33 +64,33 @@ You need two things in ChatGPT. You'll create the Connect AI account in Part 1.
 
 ### Part 1: Connect your business apps to Connect AI
 
-**Sign up for Connect AI.** [Start a free trial](https://www.cdata.com/ai/signup/). The [Connect AI quick start](https://docs.cloud.cdata.com/en/Quick-Start-Guide) walks through the same steps with screenshots, including a sample data file you can use if you'd like to try it before connecting.
+1. **Sign up for Connect AI.** [Start a free trial](https://www.cdata.com/ai/signup/). The [Connect AI quick start](https://docs.cloud.cdata.com/en/Quick-Start-Guide) walks through the same steps with screenshots, including a sample data file you can use if you'd like to try it before connecting.
 
-**Add your first app.** In Connect AI, open **Sources > + Add Connection**, search for the app (Salesforce, for example), and select it.
+2. **Add your first app.** In Connect AI, open **Sources > + Add Connection**, search for the app (Salesforce, for example), and select it.
 
-**Sign in to that app.** Choose **OAuth** as the sign-in method if the app offers it, click **Sign in**, log in to the app, and grant access. Then click **Save and Test**. For Salesforce, an admin has to [install the CData connector](https://docs.cloud.cdata.com/en/Data-Sources/Salesforce) in your Salesforce org once before the first connection works.
+3. **Sign in to that app.** Choose **OAuth** as the sign-in method if the app offers it, click **Sign in**, log in to the app, and grant access. Then click **Save and Test**. For Salesforce, an admin has to [install the CData connector](https://docs.cloud.cdata.com/en/Data-Sources/Salesforce) in your Salesforce org once before the first connection works.
 
-**Repeat for each app you want your dot to use.** Every connection should show as [Authenticated](https://docs.cloud.cdata.com/en/Sources) on the **Sources** page. Your dot can only reach apps that are connected and authenticated here.
+4. **Repeat for each app you want your dot to use.** Every connection should show as [Authenticated](https://docs.cloud.cdata.com/en/Sources) on the **Sources** page. Your dot can only reach apps that are connected and authenticated here.
 
-![The CData Connect AI Sources page filtered to "Salesforce," showing four Salesforce connections (Salesforce, SalesforceHealthCloud, Salesforce\_APIBM, and Salesforce\_CRM) with each connection's last-queried time, a green Authenticated or red Not Authenticated status, and last-modified time.](/images/blog/how-to-use-chatgpt-dots/02-image2.webp)
+   ![The CData Connect AI Sources page filtered to "Salesforce," showing four Salesforce connections (Salesforce, SalesforceHealthCloud, Salesforce\_APIBM, and Salesforce\_CRM) with each connection's last-queried time, a green Authenticated or red Not Authenticated status, and last-modified time.](/images/blog/how-to-use-chatgpt-dots/02-image2.webp)
 
 ### Part 2: Install the CData Connect AI plugin in ChatGPT
 
-**Open Plugins.** In ChatGPT, click the **Plugins** icon in the far-left rail. You can also go to **Settings > Integrations > Plugins > Browse directory**.
+1. **Open Plugins.** In ChatGPT, click the **Plugins** icon in the far-left rail. You can also go to **Settings > Integrations > Plugins > Browse directory**.
 
-**Search for CData.** On the **Public** tab, type CData in the search box. The result is **CData Connect AI**, "Get answers without queries."
+2. **Search for CData.** On the **Public** tab, type CData in the search box. The result is **CData Connect AI**, "Get answers without queries."
 
-![The ChatGPT Plugins page with "CData" typed in the Search plugins box. One result is shown: CData Connect AI, with the tagline "Get answers without queries" and a plus button to add it.](/images/blog/how-to-use-chatgpt-dots/03-search-cdata.webp)
+   ![The ChatGPT Plugins page with "CData" typed in the Search plugins box. One result is shown: CData Connect AI, with the tagline "Get answers without queries" and a plus button to add it.](/images/blog/how-to-use-chatgpt-dots/03-search-cdata.webp)
 
-**Install it.** Click the result to open its detail page, then click **Install plugin**.
+3. **Install it.** Click the result to open its detail page, then click **Install plugin**.
 
-![The CData Connect AI plugin page in ChatGPT's plugin directory. The Install plugin button at the top right is outlined in yellow. Below the tagline "Get answers without queries" are a description of the plugin, an Apps section, and an Information panel listing CData Software Inc. as the developer, Data and Analytics as the category, and version 2.0.0, followed by the notice that ChatGPT may share relevant chats and memories with the app.](/images/blog/how-to-use-chatgpt-dots/04-plugin-detail-install.webp)
+   ![The CData Connect AI plugin page in ChatGPT's plugin directory. The Install plugin button at the top right is outlined in yellow. Below the tagline "Get answers without queries" are a description of the plugin, an Apps section, and an Information panel listing CData Software Inc. as the developer, Data and Analytics as the category, and version 2.0.0, followed by the notice that ChatGPT may share relevant chats and memories with the app.](/images/blog/how-to-use-chatgpt-dots/04-plugin-detail-install.webp)
 
-**Sign in with your Connect AI account.** ChatGPT opens the Connect AI sign-in. Use the account you created in Part 1 and approve access. If you're still signed in to Connect AI in the same browser, this step finishes on its own in a few seconds.
+4. **Sign in with your Connect AI account.** ChatGPT opens the Connect AI sign-in. Use the account you created in Part 1 and approve access. If you're still signed in to Connect AI in the same browser, this step finishes on its own in a few seconds.
 
-**Confirm it's connected.** A message reads "CData Connect AI plugin installed," and the plugin moves to **Installed** in the sidebar.
+5. **Confirm it's connected.** A message reads "CData Connect AI plugin installed," and the plugin moves to **Installed** in the sidebar.
 
-![The CData Connect AI plugin page in ChatGPT right after installation. A notification reads "CData Connect AI plugin installed" with a Try now button. The Install plugin button has changed to Try in chat, and a Connected accounts section lists a CData Connect AI account marked Primary, with an option to connect another account.](/images/blog/how-to-use-chatgpt-dots/05-plugin-installed-connected.webp)
+   ![The CData Connect AI plugin page in ChatGPT right after installation. A notification reads "CData Connect AI plugin installed" with a Try now button. The Install plugin button has changed to Try in chat, and a Connected accounts section lists a CData Connect AI account marked Primary, with an option to connect another account.](/images/blog/how-to-use-chatgpt-dots/05-plugin-installed-connected.webp)
 
 ### Part 3: Test the connection with your dot
 
