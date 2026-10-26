@@ -6,7 +6,7 @@
 
 Personal website and blog for Joe Karlsson - software engineer, developer advocate, and homelab enthusiast.
 
-Built with [Astro](https://astro.build) 6, Tailwind CSS 4, and MDX.
+Built with [Astro](https://astro.build) 7, Tailwind CSS 4, and MDX.
 
 ## Getting Started
 
@@ -88,7 +88,7 @@ This builds the site, rsyncs to the server, updates the Caddyfile, reloads Caddy
 
 ## Tech Stack
 
-- **Framework**: Astro 6
+- **Framework**: Astro 7
 - **Styling**: Tailwind CSS 4
 - **Content**: MDX blog posts via Astro Content Collections
 - **Hosting**: Caddy on Proxmox LXC behind Cloudflare

@@ -2,7 +2,7 @@
 
 ## Site Overview
 
-Astro v6 static site. Served by Caddy on CT 165 (192.168.0.165), managed by OpenTofu at `~/claude/opentofu/services/joekarlsson-astro/`.
+Astro v7 static site. Served by Caddy on CT 165 (192.168.0.165), managed by OpenTofu at `~/claude/opentofu/services/joekarlsson-astro/`.
 
 ## Writing Content
 
