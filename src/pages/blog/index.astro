@@ -49,7 +49,9 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 >
 	<div class="mx-auto max-w-5xl px-4 py-8">
 		<div class="mb-8">
-			<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ ls blog/</p>
+			<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">
+				~$ ls blog/
+			</p>
 			<h1 class="text-3xl font-bold text-coral md:text-4xl">Blog</h1>
 			<p class="mt-2 text-gray-400">{allPosts.length} posts</p>
 		</div>
@@ -61,74 +63,72 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 			>
 				All
 			</a>
-			{
-				categories.map(([cat, count]) => (
-					<a
-						href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`}
-						class="rounded-full bg-surface-3 px-3 py-1 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral"
-					>
-						{cat} <span class="text-gray-400">({count})</span>
-					</a>
-				))
-			}
+			{categories.map(([cat, count]) => (
+				<a
+					href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`}
+					class="rounded-full bg-surface-3 px-3 py-1 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral"
+				>
+					{cat} <span class="text-gray-400">({count})</span>
+				</a>
+			))}
 		</div>
 
-		{
-			featuredPost && (
-				<a
-					href={`/blog/${featuredPost.data.slug}/`}
-					class="group mb-8 block rounded-lg border border-coral/30 bg-surface-1 overflow-hidden no-underline transition-all duration-300 hover:border-coral/50 hover:bg-surface-2"
-				>
-					<div class="md:flex">
-						<img
-							src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
-							alt={featuredPost.data.heroAlt || `Hero image for ${featuredPost.data.title}`}
-							class="h-48 w-full object-cover md:h-auto md:w-1/2"
-							loading="eager"
-						/>
-						<div class="p-6 flex flex-col justify-center">
-							<p class="mb-2 font-mono text-xs text-coral">Featured Post</p>
-							<h2 class="mb-2 text-2xl font-bold text-white group-hover:text-coral transition-colors">
-								{featuredPost.data.title}
-							</h2>
-							<div class="mb-3 flex items-center gap-2 font-mono text-xs text-gray-400">
-								<span>
-									{featuredPost.data.date.toLocaleDateString('en-us', {
-										timeZone: 'UTC',
-										year: 'numeric',
-										month: 'short',
-										day: 'numeric',
-									})}
-								</span>
-								{featuredReadingTime > 0 && (
-									<>
-										<span>·</span>
-										<span>{featuredReadingTime} min read</span>
-									</>
-								)}
-							</div>
-							{featuredPost.data.categories && (
-								<div class="mb-3 flex flex-wrap gap-1">
-									{featuredPost.data.categories.map((cat) => (
-										<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
-											{cat}
-										</span>
-									))}
-								</div>
-							)}
-							{featuredPost.data.description && (
-								<p class="line-clamp-3 text-sm text-gray-400">{featuredPost.data.description}</p>
+		{featuredPost && (
+			<a
+				href={`/blog/${featuredPost.data.slug}/`}
+				class="group mb-8 block rounded-lg border border-coral/30 bg-surface-1 overflow-hidden no-underline transition-all duration-300 hover:border-coral/50 hover:bg-surface-2"
+			>
+				<div class="md:flex">
+					<img
+						src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
+						alt={featuredPost.data.heroAlt || `Hero image for ${featuredPost.data.title}`}
+						class="h-48 w-full object-cover md:h-auto md:w-1/2"
+						loading="eager"
+					/>
+					<div class="p-6 flex flex-col justify-center">
+						<p class="mb-2 font-mono text-xs text-coral">Featured Post</p>
+						<h2 class="mb-2 text-2xl font-bold text-white group-hover:text-coral transition-colors">
+							{featuredPost.data.title}
+						</h2>
+						<div class="mb-3 flex items-center gap-2 font-mono text-xs text-gray-400">
+							<span>
+								{featuredPost.data.date.toLocaleDateString('en-us', {
+									timeZone: 'UTC',
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric',
+								})}
+							</span>
+							{featuredReadingTime > 0 && (
+								<>
+									<span>·</span>
+									<span>{featuredReadingTime} min read</span>
+								</>
 							)}
 						</div>
+						{featuredPost.data.categories && (
+							<div class="mb-3 flex flex-wrap gap-1">
+								{featuredPost.data.categories.map((cat) => (
+									<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
+										{cat}
+									</span>
+								))}
+							</div>
+						)}
+						{featuredPost.data.description && (
+							<p class="line-clamp-3 text-sm text-gray-400">{featuredPost.data.description}</p>
+						)}
 					</div>
-				</a>
-			)
-		}
+				</div>
+			</a>
+		)}
 
 		<!-- Search and sort controls -->
 		<div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 			<div class="relative flex-1 max-w-md">
-				<label for="blog-search" class="sr-only">Search posts</label>
+				<label for="blog-search" class="sr-only">
+					Search posts
+				</label>
 				<input
 					type="text"
 					id="blog-search"
@@ -145,7 +145,8 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						stroke-width="2"
-						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+					></path>
 				</svg>
 			</div>
 			<div class="flex items-center gap-2">
@@ -176,21 +177,19 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 		</div>
 
 		<div id="posts-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{
-				posts.map((post) => (
-					<BlogCard
-						title={post.data.title}
-						description={post.data.description}
-						date={post.data.date}
-						slug={post.data.slug}
-						heroImage={post.data.heroImage}
-						heroAlt={post.data.heroAlt}
-						categories={post.data.categories}
-						readingTime={getReadingTime(post.body || '')}
-						href={post.href}
-					/>
-				))
-			}
+			{posts.map((post) => (
+				<BlogCard
+					title={post.data.title}
+					description={post.data.description}
+					date={post.data.date}
+					slug={post.data.slug}
+					heroImage={post.data.heroImage}
+					heroAlt={post.data.heroAlt}
+					categories={post.data.categories}
+					readingTime={getReadingTime(post.body || '')}
+					href={post.href}
+				/>
+			))}
 		</div>
 
 		<!-- Infinite scroll sentinel -->

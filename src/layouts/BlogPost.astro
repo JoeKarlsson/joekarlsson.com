@@ -170,8 +170,11 @@ const relatedPosts = publishedPosts
 		</div>
 		<!-- Reduced-motion fallback: simple thin line -->
 		<div id="progress-simple" class="hidden h-[2px] bg-surface-0/90">
-			<div id="progress-simple-fill" class="h-full bg-coral transition-none" style="width: 0%">
-			</div>
+			<div
+				id="progress-simple-fill"
+				class="h-full bg-coral transition-none"
+				style="width: 0%"
+			></div>
 		</div>
 	</div>
 
@@ -186,120 +189,108 @@ const relatedPosts = publishedPosts
 					<a
 						href="/"
 						class="underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
-						>Home</a
 					>
+						Home
+					</a>
 					<span class="mx-1">&gt;</span>
 					<a
 						href="/blog/"
 						class="underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
-						>Blog</a
 					>
-					{
-						primaryCategory && (
-							<>
-								<span class="mx-1">&gt;</span>
-								<a
-									href={`/blog/category/${categorySlug}/`}
-									class="underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
-								>
-									{primaryCategory}
-								</a>
-							</>
-						)
-					}
+						Blog
+					</a>
+					{primaryCategory && (
+						<>
+							<span class="mx-1">&gt;</span>
+							<a
+								href={`/blog/category/${categorySlug}/`}
+								class="underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
+							>
+								{primaryCategory}
+							</a>
+						</>
+					)}
 					<span class="mx-1">&gt;</span>
 					<span class="text-gray-400">{title}</span>
 				</nav>
 
 				{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video */}
-				{
-					heroVideo ? (
-						<video
-							src={heroVideo}
-							poster={heroImage}
-							autoplay
-							loop
-							muted
-							playsinline
-							controls
-							preload="metadata"
-							role="img"
-							aria-label={heroAlt || title}
+				{heroVideo ? (
+					<video
+						src={heroVideo}
+						poster={heroImage}
+						autoplay
+						loop
+						muted
+						playsinline
+						controls
+						preload="metadata"
+						role="img"
+						aria-label={heroAlt || title}
+						class="mb-8 w-full max-h-[400px] rounded-lg object-cover"
+						width="768"
+						height="400"
+					/>
+				) : (
+					heroImage && (
+						<img
+							src={heroImage}
+							alt={title}
 							class="mb-8 w-full max-h-[400px] rounded-lg object-cover"
 							width="768"
 							height="400"
+							loading="eager"
 						/>
-					) : (
-						heroImage && (
-							<img
-								src={heroImage}
-								alt={title}
-								class="mb-8 w-full max-h-[400px] rounded-lg object-cover"
-								width="768"
-								height="400"
-								loading="eager"
-							/>
-						)
 					)
-				}
-				{
-					noticeMessage && (
-						<div
-							class="mb-6 rounded-lg border border-yellow-500/30 bg-yellow-500/10 px-4 py-3 font-mono text-sm text-yellow-200"
-							role="note"
-						>
-							<span class="mr-2 text-yellow-400" aria-hidden="true">
-								&#9888;
-							</span>
-							<Fragment set:html={noticeHtml} />
-						</div>
-					)
-				}
+				)}
+				{noticeMessage && (
+					<div
+						class="mb-6 rounded-lg border border-yellow-500/30 bg-yellow-500/10 px-4 py-3 font-mono text-sm text-yellow-200"
+						role="note"
+					>
+						<span class="mr-2 text-yellow-400" aria-hidden="true">
+							&#9888;
+						</span>
+						<Fragment set:html={noticeHtml} />
+					</div>
+				)}
 				<div class="mb-8">
 					<p class="mb-2 font-mono text-sm text-gray-400">
 						<FormattedDate date={date} />
-						{
-							updatedDate && (
-								<span class="ml-2 italic">
-									(Updated <FormattedDate date={updatedDate} />)
-								</span>
-							)
-						}
-						{
-							readingTime && (
-								<>
-									<span class="mx-2 text-gray-400">|</span>
-									<span>{readingTime} min read</span>
-								</>
-							)
-						}
+						{updatedDate && (
+							<span class="ml-2 italic">
+								(Updated <FormattedDate date={updatedDate} />)
+							</span>
+						)}
+						{readingTime && (
+							<>
+								<span class="mx-2 text-gray-400">|</span>
+								<span>{readingTime} min read</span>
+							</>
+						)}
 					</p>
 					<h1 class="mb-4 text-3xl font-bold text-white md:text-4xl">{title}</h1>
-					{
-						categories && categories.length > 0 && (
-							<div class="flex flex-wrap gap-2">
-								{categories.map((cat) => (
-									<a
-										href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`}
-										class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400 no-underline transition-colors hover:bg-coral/20 hover:text-coral"
-									>
-										{cat}
-									</a>
-								))}
-							</div>
-						)
-					}
-				</div>
-				{
-					tldr && (
-						<div class="mb-8 rounded-lg border border-coral/20 bg-coral/5 px-4 py-3">
-							<p class="mb-1 font-mono text-xs font-bold uppercase tracking-wider text-coral">
-								TL;DR
-							</p>
-							<p class="text-sm leading-relaxed text-gray-300">{tldr}</p>
+					{categories && categories.length > 0 && (
+						<div class="flex flex-wrap gap-2">
+							{categories.map((cat) => (
+								<a
+									href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`}
+									class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400 no-underline transition-colors hover:bg-coral/20 hover:text-coral"
+								>
+									{cat}
+								</a>
+							))}
 						</div>
-					)
-				}
+					)}
+				</div>
+				{tldr && (
+					<div class="mb-8 rounded-lg border border-coral/20 bg-coral/5 px-4 py-3">
+						<p class="mb-1 font-mono text-xs font-bold uppercase tracking-wider text-coral">
+							TL;DR
+						</p>
+						<p class="text-sm leading-relaxed text-gray-300">{tldr}</p>
+					</div>
+				)}
 				<div class="prose">
 					<slot />
 				</div>
@@ -474,90 +465,86 @@ const relatedPosts = publishedPosts
 				</div>
 
 				{/* Related Posts - moved above prev/next for better visibility */}
-				{
-					relatedPosts.length > 0 && (
-						<section class="mt-12 border-t border-surface-3 pt-8">
-							<h2 class="mb-6 text-lg font-bold text-white">
-								<span class="text-coral font-mono text-sm" aria-hidden="true">
-									~$
-								</span>{' '}
-								Related Posts
-							</h2>
-							<div class="grid gap-4 sm:grid-cols-3">
-								{relatedPosts.map((post) => (
-									<a
-										href={`/blog/${post.data.slug}/`}
-										class="plausible-event-name=Related+Post+Click group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
-									>
-										<img
-											src={post.data.heroImage || DEFAULT_HERO_IMAGE}
-											alt={post.data.title}
-											class="mb-3 h-32 w-full rounded-md object-cover"
-											width="300"
-											height="128"
-											loading="lazy"
-										/>
-										<p class="mb-1 font-mono text-xs text-gray-400">
-											{post.data.date.toLocaleDateString('en-us', {
-												timeZone: 'UTC',
-												year: 'numeric',
-												month: 'short',
-												day: 'numeric',
-											})}
-										</p>
-										<h3 class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
-											{post.data.title}
-										</h3>
-										{post.data.description && (
-											<p class="mt-1 text-xs text-gray-400 line-clamp-2">{post.data.description}</p>
-										)}
-									</a>
-								))}
-							</div>
-						</section>
-					)
-				}
+				{relatedPosts.length > 0 && (
+					<section class="mt-12 border-t border-surface-3 pt-8">
+						<h2 class="mb-6 text-lg font-bold text-white">
+							<span class="text-coral font-mono text-sm" aria-hidden="true">
+								~$
+							</span>{' '}
+							Related Posts
+						</h2>
+						<div class="grid gap-4 sm:grid-cols-3">
+							{relatedPosts.map((post) => (
+								<a
+									href={`/blog/${post.data.slug}/`}
+									class="plausible-event-name=Related+Post+Click group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+								>
+									<img
+										src={post.data.heroImage || DEFAULT_HERO_IMAGE}
+										alt={post.data.title}
+										class="mb-3 h-32 w-full rounded-md object-cover"
+										width="300"
+										height="128"
+										loading="lazy"
+									/>
+									<p class="mb-1 font-mono text-xs text-gray-400">
+										{post.data.date.toLocaleDateString('en-us', {
+											timeZone: 'UTC',
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+									</p>
+									<h3 class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
+										{post.data.title}
+									</h3>
+									{post.data.description && (
+										<p class="mt-1 text-xs text-gray-400 line-clamp-2">{post.data.description}</p>
+									)}
+								</a>
+							))}
+						</div>
+					</section>
+				)}
 
 				{/* Prev/Next within category */}
-				{
-					(prevPost || nextPost) && (
-						<nav
-							class="mt-12 flex items-stretch gap-4 border-t border-surface-3 pt-8"
-							aria-label="Category navigation"
-						>
-							{prevPost ? (
-								<a
-									href={`/blog/${prevPost.data.slug}/`}
-									class="plausible-event-name=Blog+Navigation plausible-event-direction=prev group flex flex-1 flex-col rounded-lg border border-surface-3 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
-								>
-									<span class="mb-1 font-mono text-xs text-gray-400">
-										&larr; Previous in {primaryCategory}
-									</span>
-									<span class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
-										{prevPost.data.title}
-									</span>
-								</a>
-							) : (
-								<div class="flex-1" />
-							)}
-							{nextPost ? (
-								<a
-									href={`/blog/${nextPost.data.slug}/`}
-									class="plausible-event-name=Blog+Navigation plausible-event-direction=next group flex flex-1 flex-col items-end rounded-lg border border-surface-3 p-4 no-underline text-right transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
-								>
-									<span class="mb-1 font-mono text-xs text-gray-400">
-										Next in {primaryCategory} &rarr;
-									</span>
-									<span class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
-										{nextPost.data.title}
-									</span>
-								</a>
-							) : (
-								<div class="flex-1" />
-							)}
-						</nav>
-					)
-				}
+				{(prevPost || nextPost) && (
+					<nav
+						class="mt-12 flex items-stretch gap-4 border-t border-surface-3 pt-8"
+						aria-label="Category navigation"
+					>
+						{prevPost ? (
+							<a
+								href={`/blog/${prevPost.data.slug}/`}
+								class="plausible-event-name=Blog+Navigation plausible-event-direction=prev group flex flex-1 flex-col rounded-lg border border-surface-3 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+							>
+								<span class="mb-1 font-mono text-xs text-gray-400">
+									&larr; Previous in {primaryCategory}
+								</span>
+								<span class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
+									{prevPost.data.title}
+								</span>
+							</a>
+						) : (
+							<div class="flex-1" />
+						)}
+						{nextPost ? (
+							<a
+								href={`/blog/${nextPost.data.slug}/`}
+								class="plausible-event-name=Blog+Navigation plausible-event-direction=next group flex flex-1 flex-col items-end rounded-lg border border-surface-3 p-4 no-underline text-right transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+							>
+								<span class="mb-1 font-mono text-xs text-gray-400">
+									Next in {primaryCategory} &rarr;
+								</span>
+								<span class="text-sm font-semibold text-white transition-colors group-hover:text-coral">
+									{nextPost.data.title}
+								</span>
+							</a>
+						) : (
+							<div class="flex-1" />
+						)}
+					</nav>
+				)}
 			</article>
 		</div>
 	</div>

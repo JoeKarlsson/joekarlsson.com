@@ -38,28 +38,24 @@ const formattedDate = date.toLocaleDateString('en-us', {
 	/>
 	<div class="mb-1 flex items-center gap-2 font-mono text-xs text-gray-400">
 		<span>{formattedDate}</span>
-		{
-			readingTime && (
-				<>
-					<span>·</span>
-					<span>{readingTime} min read</span>
-				</>
-			)
-		}
+		{readingTime && (
+			<>
+				<span>·</span>
+				<span>{readingTime} min read</span>
+			</>
+		)}
 	</div>
 	<h3 class="mb-2 text-lg font-semibold text-white group-hover:text-coral transition-colors">
 		{title}
 	</h3>
-	{
-		categories && categories.length > 0 && (
-			<div class="mb-2 flex flex-wrap gap-1">
-				{categories.map((cat) => (
-					<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
-						{cat}
-					</span>
-				))}
-			</div>
-		)
-	}
+	{categories && categories.length > 0 && (
+		<div class="mb-2 flex flex-wrap gap-1">
+			{categories.map((cat) => (
+				<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
+					{cat}
+				</span>
+			))}
+		</div>
+	)}
 	{description && <p class="line-clamp-2 text-sm text-gray-400">{description}</p>}
 </a>

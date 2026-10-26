@@ -43,7 +43,9 @@ const inline = (text: string) =>
 >
 	<div class="mx-auto max-w-4xl px-4 py-8">
 		<nav class="mb-4 font-mono text-sm text-gray-400" aria-label="Breadcrumb">
-			<a href="/work/" class="text-gray-400 no-underline hover:text-coral">projects</a>
+			<a href="/work/" class="text-gray-400 no-underline hover:text-coral">
+				projects
+			</a>
 			<span class="mx-1">/</span>
 			<span>{page.slug}</span>
 		</nav>
@@ -55,228 +57,206 @@ const inline = (text: string) =>
 		<p class="mb-4 text-lg text-gray-300">{page.tagline}</p>
 
 		<div class="mb-6 flex flex-wrap gap-1">
-			{
-				project.tech.map((t) => (
-					<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-xs text-gray-400">
-						{t}
-					</span>
-				))
-			}
+			{project.tech.map((t) => (
+				<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-xs text-gray-400">
+					{t}
+				</span>
+			))}
 		</div>
 
 		{/* controls for the same WCAG 2.2.2 reason as rehype-gif-video */}
-		{
-			project.video ? (
-				<video
-					src={project.video}
-					poster={project.image}
-					autoplay
-					loop
-					muted
-					playsinline
-					controls
-					preload="metadata"
-					role="img"
-					aria-label={project.imageAlt}
-					class="mb-6 aspect-video w-full rounded-lg bg-black object-contain"
-				/>
-			) : (
-				<img
-					src={project.image}
-					alt={project.imageAlt}
-					class="mb-6 w-full rounded-lg object-cover"
-					loading="eager"
-				/>
-			)
-		}
+		{project.video ? (
+			<video
+				src={project.video}
+				poster={project.image}
+				autoplay
+				loop
+				muted
+				playsinline
+				controls
+				preload="metadata"
+				role="img"
+				aria-label={project.imageAlt}
+				class="mb-6 aspect-video w-full rounded-lg bg-black object-contain"
+			/>
+		) : (
+			<img
+				src={project.image}
+				alt={project.imageAlt}
+				class="mb-6 w-full rounded-lg object-cover"
+				loading="eager"
+			/>
+		)}
 
 		<div class="mb-10 flex flex-wrap gap-3">
-			{
-				project.sourceUrl && (
-					<a
-						href={project.sourceUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
-					>
-						View on GitHub &rarr;
-					</a>
-				)
-			}
-			{
-				project.blogUrl && (
+			{project.sourceUrl && (
+				<a
+					href={project.sourceUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
+				>
+					View on GitHub &rarr;
+				</a>
+			)}
+			{project.blogUrl && (
+				<a
+					href={project.blogUrl}
+					class="inline-block rounded-md border border-surface-3 px-4 py-2 font-medium text-gray-300 no-underline hover:border-coral/50 hover:text-coral"
+				>
+					Read why I built it
+				</a>
+			)}
+			{project.demoUrl && (
+				<a
+					href={project.demoUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block rounded-md border border-surface-3 px-4 py-2 font-medium text-gray-300 no-underline hover:border-coral/50 hover:text-coral"
+				>
+					Demo &rarr;
+				</a>
+			)}
+		</div>
+
+		<div class="prose prose-invert mb-10 max-w-none">
+			{page.intro.map((p) => (
+				<p set:html={inline(p)} />
+			))}
+		</div>
+
+		{page.steps && (
+			<section class="mb-10" aria-labelledby="how-it-works">
+				<h2 id="how-it-works" class="mb-4 text-lg font-bold text-white">
+					<span class="font-mono text-sm text-coral" aria-hidden="true">
+						~$
+					</span>{' '}
+					how it works
+				</h2>
+				<ol class="grid gap-4 sm:grid-cols-3">
+					{page.steps.map((step, i) => (
+						<li class="rounded-lg border border-surface-3 bg-surface-1 p-4">
+							<p class="mb-1 font-mono text-xs text-coral">0{i + 1}</p>
+							<h3 class="mb-2 font-semibold text-white">{step.title}</h3>
+							<p class="prose prose-invert prose-sm text-gray-400" set:html={inline(step.text)} />
+						</li>
+					))}
+				</ol>
+			</section>
+		)}
+
+		{(page.install || page.example) && (
+			<section class="prose prose-invert mb-10 max-w-none" aria-labelledby="try-it">
+				<h2 id="try-it" class="not-prose mb-4 text-lg font-bold text-white">
+					<span class="font-mono text-sm text-coral" aria-hidden="true">
+						~$
+					</span>{' '}
+					try it
+				</h2>
+				{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
+				{page.example && (
+					<>
+						{page.example.intro && <p set:html={inline(page.example.intro)} />}
+						<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
+					</>
+				)}
+			</section>
+		)}
+
+		{page.gallery && (
+			<section class="mb-10" aria-labelledby="examples">
+				<h2 id="examples" class="mb-2 text-lg font-bold text-white">
+					<span class="font-mono text-sm text-coral" aria-hidden="true">
+						~$
+					</span>{' '}
+					{page.galleryTitle ?? 'gallery'}
+				</h2>
+				{page.galleryNote && (
+					<p class="mb-4 text-sm text-gray-400" set:html={inline(page.galleryNote)} />
+				)}
+				<div class={square ? 'grid gap-4' : 'grid gap-4 sm:grid-cols-2'} style={gridStyle}>
+					{page.gallery.map((clip) => (
+						<figure class="m-0">
+							{clip.video ? (
+								<video
+									src={clip.video}
+									poster={clip.poster}
+									loop
+									muted
+									playsinline
+									controls
+									preload="none"
+									role="img"
+									aria-label={clip.alt}
+									data-hover-play
+									class={clipClass}
+									style={clipStyle}
+								/>
+							) : (
+								<img
+									src={clip.poster}
+									alt={clip.alt}
+									loading="lazy"
+									class={clipClass}
+									style={clipStyle}
+								/>
+							)}
+							{clip.caption && (
+								<figcaption class="mt-2 font-mono text-xs text-gray-400">{clip.caption}</figcaption>
+							)}
+						</figure>
+					))}
+				</div>
+			</section>
+		)}
+
+		{page.screenshots && (
+			<section class="mb-10" aria-labelledby="screenshots">
+				<h2 id="screenshots" class="mb-4 text-lg font-bold text-white">
+					<span class="font-mono text-sm text-coral" aria-hidden="true">
+						~$
+					</span>{' '}
+					{page.screenshotsTitle ?? 'screenshots'}
+				</h2>
+				<div class="grid gap-4">
+					{page.screenshots.map((shot) => (
+						<figure class="m-0">
+							<img
+								src={shot.poster}
+								alt={shot.alt}
+								loading="lazy"
+								class="mx-auto rounded-lg border border-surface-3"
+								style="max-height: 720px; max-width: 100%"
+							/>
+							{shot.caption && (
+								<figcaption class="mt-2 font-mono text-xs text-gray-400">{shot.caption}</figcaption>
+							)}
+						</figure>
+					))}
+				</div>
+			</section>
+		)}
+
+		{project.sourceUrl && (
+			<div class="mb-10 flex flex-wrap gap-3">
+				<a
+					href={project.sourceUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
+				>
+					Get the code on GitHub &rarr;
+				</a>
+				{project.blogUrl && (
 					<a
 						href={project.blogUrl}
 						class="inline-block rounded-md border border-surface-3 px-4 py-2 font-medium text-gray-300 no-underline hover:border-coral/50 hover:text-coral"
 					>
 						Read why I built it
 					</a>
-				)
-			}
-			{
-				project.demoUrl && (
-					<a
-						href={project.demoUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-block rounded-md border border-surface-3 px-4 py-2 font-medium text-gray-300 no-underline hover:border-coral/50 hover:text-coral"
-					>
-						Demo &rarr;
-					</a>
-				)
-			}
-		</div>
-
-		<div class="prose prose-invert mb-10 max-w-none">
-			{page.intro.map((p) => <p set:html={inline(p)} />)}
-		</div>
-
-		{
-			page.steps && (
-				<section class="mb-10" aria-labelledby="how-it-works">
-					<h2 id="how-it-works" class="mb-4 text-lg font-bold text-white">
-						<span class="font-mono text-sm text-coral" aria-hidden="true">
-							~$
-						</span>{' '}
-						how it works
-					</h2>
-					<ol class="grid gap-4 sm:grid-cols-3">
-						{page.steps.map((step, i) => (
-							<li class="rounded-lg border border-surface-3 bg-surface-1 p-4">
-								<p class="mb-1 font-mono text-xs text-coral">0{i + 1}</p>
-								<h3 class="mb-2 font-semibold text-white">{step.title}</h3>
-								<p class="prose prose-invert prose-sm text-gray-400" set:html={inline(step.text)} />
-							</li>
-						))}
-					</ol>
-				</section>
-			)
-		}
-
-		{
-			(page.install || page.example) && (
-				<section class="prose prose-invert mb-10 max-w-none" aria-labelledby="try-it">
-					<h2 id="try-it" class="not-prose mb-4 text-lg font-bold text-white">
-						<span class="font-mono text-sm text-coral" aria-hidden="true">
-							~$
-						</span>{' '}
-						try it
-					</h2>
-					{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
-					{page.example && (
-						<>
-							{page.example.intro && <p set:html={inline(page.example.intro)} />}
-							<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
-						</>
-					)}
-				</section>
-			)
-		}
-
-		{
-			page.gallery && (
-				<section class="mb-10" aria-labelledby="examples">
-					<h2 id="examples" class="mb-2 text-lg font-bold text-white">
-						<span class="font-mono text-sm text-coral" aria-hidden="true">
-							~$
-						</span>{' '}
-						{page.galleryTitle ?? 'gallery'}
-					</h2>
-					{page.galleryNote && (
-						<p class="mb-4 text-sm text-gray-400" set:html={inline(page.galleryNote)} />
-					)}
-					<div class={square ? 'grid gap-4' : 'grid gap-4 sm:grid-cols-2'} style={gridStyle}>
-						{page.gallery.map((clip) => (
-							<figure class="m-0">
-								{clip.video ? (
-									<video
-										src={clip.video}
-										poster={clip.poster}
-										loop
-										muted
-										playsinline
-										controls
-										preload="none"
-										role="img"
-										aria-label={clip.alt}
-										data-hover-play
-										class={clipClass}
-										style={clipStyle}
-									/>
-								) : (
-									<img
-										src={clip.poster}
-										alt={clip.alt}
-										loading="lazy"
-										class={clipClass}
-										style={clipStyle}
-									/>
-								)}
-								{clip.caption && (
-									<figcaption class="mt-2 font-mono text-xs text-gray-400">
-										{clip.caption}
-									</figcaption>
-								)}
-							</figure>
-						))}
-					</div>
-				</section>
-			)
-		}
-
-		{
-			page.screenshots && (
-				<section class="mb-10" aria-labelledby="screenshots">
-					<h2 id="screenshots" class="mb-4 text-lg font-bold text-white">
-						<span class="font-mono text-sm text-coral" aria-hidden="true">
-							~$
-						</span>{' '}
-						{page.screenshotsTitle ?? 'screenshots'}
-					</h2>
-					<div class="grid gap-4">
-						{page.screenshots.map((shot) => (
-							<figure class="m-0">
-								<img
-									src={shot.poster}
-									alt={shot.alt}
-									loading="lazy"
-									class="mx-auto rounded-lg border border-surface-3"
-									style="max-height: 720px; max-width: 100%"
-								/>
-								{shot.caption && (
-									<figcaption class="mt-2 font-mono text-xs text-gray-400">
-										{shot.caption}
-									</figcaption>
-								)}
-							</figure>
-						))}
-					</div>
-				</section>
-			)
-		}
-
-		{
-			project.sourceUrl && (
-				<div class="mb-10 flex flex-wrap gap-3">
-					<a
-						href={project.sourceUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
-					>
-						Get the code on GitHub &rarr;
-					</a>
-					{project.blogUrl && (
-						<a
-							href={project.blogUrl}
-							class="inline-block rounded-md border border-surface-3 px-4 py-2 font-medium text-gray-300 no-underline hover:border-coral/50 hover:text-coral"
-						>
-							Read why I built it
-						</a>
-					)}
-				</div>
-			)
-		}
+				)}
+			</div>
+		)}
 
 		<a href="/work/" class="font-mono text-sm text-gray-400 no-underline hover:text-coral">
 			&larr; cd ../projects

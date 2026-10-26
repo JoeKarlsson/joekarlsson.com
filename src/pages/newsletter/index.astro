@@ -27,7 +27,9 @@ for (const issue of backIssues) {
 	schemaType="CollectionPage"
 >
 	<div class="mx-auto max-w-3xl px-4 py-8">
-		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ cat newsletter.md</p>
+		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">
+			~$ cat newsletter.md
+		</p>
 		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Works on My Machine</h1>
 		<p class="mb-6 text-gray-400">
 			My thoughts and reactions on tech writing, AI, homelab builds and open source, plus whatever
@@ -36,28 +38,27 @@ for (const issue of backIssues) {
 		<div class="mb-12 rounded-lg border border-teal/20 bg-teal/5 p-6">
 			<NewsletterSignup location="newsletter-page" />
 			<p class="mt-3 text-center text-xs text-gray-400">
-				Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS? <a
-					href="/newsletter/rss.xml"
-					class="underline hover:text-coral">Follow Works on My Machine in your feed reader</a
-				>.
+				Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS?{' '}
+				<a href="/newsletter/rss.xml" class="underline hover:text-coral">
+					Follow Works on My Machine in your feed reader
+				</a>
+				.
 			</p>
 		</div>
 
 		<h2 class="mb-6 text-2xl font-bold text-white">Every issue</h2>
 		<div class="mb-10 grid gap-4 sm:grid-cols-2">
-			{
-				posts.map((post) => (
-					<BlogCard
-						title={post.data.title}
-						description={post.data.description}
-						date={post.data.date}
-						slug={post.data.slug}
-						heroImage={post.data.heroImage}
-						heroAlt={post.data.heroAlt}
-						href={`/newsletter/${post.data.slug}/`}
-					/>
-				))
-			}
+			{posts.map((post) => (
+				<BlogCard
+					title={post.data.title}
+					description={post.data.description}
+					date={post.data.date}
+					slug={post.data.slug}
+					heroImage={post.data.heroImage}
+					heroAlt={post.data.heroAlt}
+					href={`/newsletter/${post.data.slug}/`}
+				/>
+			))}
 		</div>
 
 		<h2 class="mb-2 text-2xl font-bold text-white">TL;DR in Tech</h2>
@@ -65,32 +66,30 @@ for (const issue of backIssues) {
 			The weekly link roundup this newsletter used to be, from 2021 to 2024.
 		</p>
 
-		{
-			[...byYear.entries()].map(([year, list]) => (
-				<section class="mb-10" id={String(year)}>
-					<h3 class="mb-4 text-lg font-bold text-white">
-						<span class="text-coral font-mono text-sm" aria-hidden="true">
-							~$
-						</span>{' '}
-						ls newsletter/{year}/
-					</h3>
-					<ul class="space-y-2">
-						{list.map((issue) => (
-							<li class="flex flex-col gap-x-4 sm:flex-row sm:items-center">
-								<span class="w-32 shrink-0 font-mono text-xs text-gray-400">
-									<FormattedDate date={issue.data.date} />
-								</span>
-								<a
-									href={`/newsletter/${issue.data.slug}/`}
-									class="text-white underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
-								>
-									{issue.data.title}
-								</a>
-							</li>
-						))}
-					</ul>
-				</section>
-			))
-		}
+		{[...byYear.entries()].map(([year, list]) => (
+			<section class="mb-10" id={String(year)}>
+				<h3 class="mb-4 text-lg font-bold text-white">
+					<span class="text-coral font-mono text-sm" aria-hidden="true">
+						~$
+					</span>{' '}
+					ls newsletter/{year}/
+				</h3>
+				<ul class="space-y-2">
+					{list.map((issue) => (
+						<li class="flex flex-col gap-x-4 sm:flex-row sm:items-center">
+							<span class="w-32 shrink-0 font-mono text-xs text-gray-400">
+								<FormattedDate date={issue.data.date} />
+							</span>
+							<a
+								href={`/newsletter/${issue.data.slug}/`}
+								class="text-white underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
+							>
+								{issue.data.title}
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		))}
 	</div>
 </BaseLayout>

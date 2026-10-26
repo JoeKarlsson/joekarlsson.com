@@ -63,9 +63,8 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					</p>
 					<p class="text-gray-300 mb-3">
 						Leading developer marketing at <span class="text-white">CData</span>. Outside of work I
-						run a
-						<span class="text-teal">40+ container homelab</span>, watch way too many movies, and
-						build things that probably shouldn't be connected to the internet.
+						run a<span class="text-teal">40+ container homelab</span>, watch way too many movies,
+						and build things that probably shouldn't be connected to the internet.
 					</p>
 					<p class="text-gray-300 mb-4">
 						I once built an IoT cat toilet and gave a conference talk about it. Also a
@@ -76,28 +75,33 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 						<a
 							href="/blog"
 							class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=blog inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
-							>blog/</a
 						>
+							blog/
+						</a>
 						<a
 							href="/about"
 							class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=about inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
-							>about/</a
 						>
+							about/
+						</a>
 						<a
 							href="/work"
 							class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=work inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
-							>work/</a
 						>
+							work/
+						</a>
 						<a
 							href="/uses"
 							class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=uses inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
-							>uses/</a
 						>
+							uses/
+						</a>
 						<a
 							href="/contact"
 							class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=contact inline-block rounded-sm border border-coral/30 bg-coral/10 px-3 py-1.5 text-xs text-coral hover:bg-coral/20 transition-colors"
-							>contact/</a
 						>
+							contact/
+						</a>
 					</div>
 				</div>
 			</div>
@@ -124,15 +128,17 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 							<span
 								id="placeholder"
 								class="text-gray-400 absolute left-0 pointer-events-none"
-								style="white-space: nowrap;">type a command...</span
+								style="white-space: nowrap;"
 							>
-							<span id="input-text" class="text-gray-200"></span><span
-								id="cursor"
-								class="cursor-blink"
-								aria-hidden="true"></span><span
+								type a command...
+							</span>
+							<span id="input-text" class="text-gray-200"></span>
+							<span id="cursor" class="cursor-blink" aria-hidden="true"></span>
+							<span
 								id="ghost-text"
 								class="text-gray-600 pointer-events-none"
-								aria-hidden="true"></span>
+								aria-hidden="true"
+							></span>
 						</span>
 					</div>
 					<div
@@ -140,8 +146,8 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 						class="text-xs text-gray-400 mt-2 transition-opacity duration-500 bg-surface-0"
 						style="display:none;"
 					>
-						Type <span class="text-coral">help</span> or use <span class="text-teal">↑↓</span> to navigate
-						• <span class="text-teal">Tab</span> to autocomplete
+						Type <span class="text-coral">help</span> or use <span class="text-teal">↑↓</span> to
+						navigate • <span class="text-teal">Tab</span> to autocomplete
 					</div>
 					<!-- Arrow-navigable menu -->
 					<nav
@@ -152,7 +158,9 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					>
 						<div id="nav-items" class="bg-surface-0"></div>
 					</nav>
-					<label for="hidden-input" class="sr-only">Terminal command input</label>
+					<label for="hidden-input" class="sr-only">
+						Terminal command input
+					</label>
 					<input
 						id="hidden-input"
 						type="text"
@@ -173,9 +181,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					<span class="w-3 h-3 rounded-full bg-green-500/80"></span>
 					<span class="ml-2 text-xs text-gray-400 font-mono">cat about.md</span>
 				</div>
-				<div
-					class="bg-surface-0 px-5 md:px-8 py-4 font-mono text-sm leading-relaxed h-112 overflow-hidden"
-				>
+				<div class="bg-surface-0 px-5 md:px-8 py-4 font-mono text-sm leading-relaxed h-112 overflow-hidden">
 					<p class="text-yellow mb-3">## about.md</p>
 
 					<p class="text-coral text-lg font-bold mb-1">Joe Karlsson</p>
@@ -187,9 +193,8 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					</p>
 					<p class="text-gray-300 mb-2">
 						Leading developer marketing at <span class="text-white">CData</span>. Outside of work I
-						run a
-						<span class="text-teal">40+ container homelab</span>, watch way too many movies, and
-						build things that probably shouldn't be connected to the internet.
+						run a<span class="text-teal">40+ container homelab</span>, watch way too many movies,
+						and build things that probably shouldn't be connected to the internet.
 					</p>
 					<p class="text-gray-300">
 						I once built an IoT cat toilet and gave a conference talk about it. Also a
@@ -204,7 +209,10 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 	<section class="border-b-4 border-teal">
 		<div class="mx-auto max-w-5xl px-6 py-14">
 			<h2 class="mb-4 text-lg font-bold text-white">
-				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> cat now.md
+				<span class="text-coral font-mono text-sm" aria-hidden="true">
+					~$
+				</span>{' '}
+				cat now.md
 			</h2>
 			<RightNow />
 		</div>
@@ -215,65 +223,67 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 		<div class="mx-auto max-w-5xl px-6 py-14">
 			<div class="mb-4 flex items-center justify-between">
 				<h2 class="text-lg font-bold text-white">
-					<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls projects/ --sort=stars
+					<span class="text-coral font-mono text-sm" aria-hidden="true">
+						~$
+					</span>{' '}
+					ls projects/ --sort=stars
 				</h2>
 				<a href="/work/" class="group text-sm text-coral hover:text-teal transition-colors">
-					See all <span
+					See all{' '}
+					<span
 						class="inline-block transition-transform group-hover:translate-x-1"
-						aria-hidden="true">&rarr;</span
+						aria-hidden="true"
 					>
+						&rarr;
+					</span>
 				</a>
 			</div>
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-				{
-					homepageProjects.map((project) => {
-						const url = project.sourceUrl || project.blogUrl || '#';
-						const isExternal = url.startsWith('http');
-						return (
-							<a
-								href={url}
-								target={isExternal ? '_blank' : undefined}
-								rel={isExternal ? 'noopener noreferrer' : undefined}
-								class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
-							>
-								<img
-									src={project.image}
-									alt={project.imageAlt}
-									class="mb-3 h-28 w-full rounded-md object-cover transition-transform duration-300 group-hover:scale-105"
-									width="600"
-									height="112"
-									loading="lazy"
-								/>
-								<p class="font-semibold text-sm text-white group-hover:text-coral">
-									{project.title}
-								</p>
-								<div class="mt-1 flex items-center gap-2">
-									{project.stars && (
-										<span class="flex items-center gap-1 font-mono text-[10px] text-yellow">
-											<svg
-												viewBox="0 0 16 16"
-												width="10"
-												height="10"
-												fill="currentColor"
-												aria-hidden="true"
-											>
-												<path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z" />
-											</svg>
-											{project.stars}
+				{homepageProjects.map((project) => {
+					const url = project.sourceUrl || project.blogUrl || '#';
+					const isExternal = url.startsWith('http');
+					return (
+						<a
+							href={url}
+							target={isExternal ? '_blank' : undefined}
+							rel={isExternal ? 'noopener noreferrer' : undefined}
+							class="group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-surface-2"
+						>
+							<img
+								src={project.image}
+								alt={project.imageAlt}
+								class="mb-3 h-28 w-full rounded-md object-cover transition-transform duration-300 group-hover:scale-105"
+								width="600"
+								height="112"
+								loading="lazy"
+							/>
+							<p class="font-semibold text-sm text-white group-hover:text-coral">{project.title}</p>
+							<div class="mt-1 flex items-center gap-2">
+								{project.stars && (
+									<span class="flex items-center gap-1 font-mono text-[10px] text-yellow">
+										<svg
+											viewBox="0 0 16 16"
+											width="10"
+											height="10"
+											fill="currentColor"
+											aria-hidden="true"
+										>
+											<path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z" />
+										</svg>
+										{project.stars}
+									</span>
+								)}
+								<div class="flex flex-wrap gap-1">
+									{project.tech.slice(0, 2).map((t) => (
+										<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
+											{t}
 										</span>
-									)}
-									<div class="flex flex-wrap gap-1">
-										{project.tech.slice(0, 2).map((t) => (
-											<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
-												{t}
-											</span>
-										))}
-									</div>
+									))}
 								</div>
-							</a>
-						);
-					})
-				}
+							</div>
+						</a>
+					);
+				})}
 			</div>
 		</div>
 	</section>
@@ -282,21 +292,22 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 	<section class="border-b border-surface-3">
 		<div class="mx-auto max-w-5xl px-6 py-14">
 			<h2 class="mb-4 text-lg font-bold text-white">
-				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls posts/ --featured
+				<span class="text-coral font-mono text-sm" aria-hidden="true">
+					~$
+				</span>{' '}
+				ls posts/ --featured
 			</h2>
 			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-				{
-					featuredPosts.map((post) => (
-						<BlogCard
-							title={post.data.title}
-							description={post.data.description}
-							date={post.data.date}
-							slug={post.data.slug}
-							heroImage={post.data.heroImage}
-							href={post.href}
-						/>
-					))
-				}
+				{featuredPosts.map((post) => (
+					<BlogCard
+						title={post.data.title}
+						description={post.data.description}
+						date={post.data.date}
+						slug={post.data.slug}
+						heroImage={post.data.heroImage}
+						href={post.href}
+					/>
+				))}
 			</div>
 		</div>
 	</section>
@@ -308,30 +319,34 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 	<section class="mx-auto max-w-5xl px-6 py-16 bg-surface-0">
 		<div class="mb-4 flex items-center justify-between">
 			<h2 class="text-lg font-bold text-white">
-				<span class="text-coral font-mono text-sm" aria-hidden="true">~$</span> ls posts/ --recent
+				<span class="text-coral font-mono text-sm" aria-hidden="true">
+					~$
+				</span>{' '}
+				ls posts/ --recent
 			</h2>
 			<a href="/blog/" class="group text-sm text-coral hover:text-teal transition-colors">
-				View all <span
+				View all{' '}
+				<span
 					class="inline-block transition-transform group-hover:translate-x-1"
-					aria-hidden="true">&rarr;</span
+					aria-hidden="true"
 				>
+					&rarr;
+				</span>
 			</a>
 		</div>
 		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{
-				posts.map((post, i) => (
-					<div class={`scroll-reveal scroll-reveal-delay-${i % 3}`}>
-						<BlogCard
-							title={post.data.title}
-							description={post.data.description}
-							date={post.data.date}
-							slug={post.data.slug}
-							heroImage={post.data.heroImage}
-							href={post.href}
-						/>
-					</div>
-				))
-			}
+			{posts.map((post, i) => (
+				<div class={`scroll-reveal scroll-reveal-delay-${i % 3}`}>
+					<BlogCard
+						title={post.data.title}
+						description={post.data.description}
+						date={post.data.date}
+						slug={post.data.slug}
+						heroImage={post.data.heroImage}
+						href={post.href}
+					/>
+				</div>
+			))}
 		</div>
 	</section>
 

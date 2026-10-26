@@ -11,17 +11,15 @@ import '../styles/terminal.css';
 	</script>
 	<div class="mx-auto max-w-3xl px-4 py-16 text-center">
 		<div class="glitch-wrapper mb-6">
-			<h1 class="glitch text-8xl font-bold text-coral" data-text="404">404</h1>
+			<h1 class="glitch text-8xl font-bold text-coral" data-text="404">
+				404
+			</h1>
 		</div>
 
 		<!-- Terminal -->
-		<div
-			class="terminal mx-auto max-w-2xl text-left rounded-lg overflow-hidden border border-surface-3 shadow-2xl mb-8"
-		>
+		<div class="terminal mx-auto max-w-2xl text-left rounded-lg overflow-hidden border border-surface-3 shadow-2xl mb-8">
 			<!-- Title bar -->
-			<div
-				class="terminal-titlebar flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3"
-			>
+			<div class="terminal-titlebar flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3">
 				<span class="w-3 h-3 rounded-full bg-red-500/80"></span>
 				<span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
 				<span class="w-3 h-3 rounded-full bg-green-500/80"></span>
@@ -42,12 +40,16 @@ import '../styles/terminal.css';
 						<span
 							id="placeholder"
 							class="text-gray-400 absolute left-0 pointer-events-none"
-							style="white-space: nowrap;">type a command...</span
+							style="white-space: nowrap;"
 						>
-						<span id="input-text" class="text-gray-200 cursor-blink"></span><span
+							type a command...
+						</span>
+						<span id="input-text" class="text-gray-200 cursor-blink"></span>
+						<span
 							id="ghost-text"
 							class="text-gray-600 pointer-events-none"
-							aria-hidden="true"></span>
+							aria-hidden="true"
+						></span>
 					</span>
 				</div>
 				<div
@@ -55,10 +57,12 @@ import '../styles/terminal.css';
 					class="text-xs text-gray-400 mt-2 transition-opacity duration-500"
 					style="display:none;"
 				>
-					Type <span class="text-coral">help</span> or use <span class="text-teal">↑↓</span> for history
-					• <span class="text-teal">Tab</span> to autocomplete
+					Type <span class="text-coral">help</span> or use <span class="text-teal">↑↓</span> for
+					history • <span class="text-teal">Tab</span> to autocomplete
 				</div>
-				<label for="hidden-input" class="sr-only">Terminal command input</label>
+				<label for="hidden-input" class="sr-only">
+					Terminal command input
+				</label>
 				<input
 					id="hidden-input"
 					type="text"

@@ -53,7 +53,9 @@ const currentSlug = category.toLowerCase().replace(/\s+/g, '-');
 >
 	<div class="mx-auto max-w-5xl px-4 py-8">
 		<div class="mb-8">
-			<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">~$ ls blog/{currentSlug}/</p>
+			<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">
+				~$ ls blog/{currentSlug}/
+			</p>
 			<h1 class="text-3xl font-bold text-coral md:text-4xl">{category}</h1>
 			<p class="mt-2 text-gray-400">{posts.length} posts</p>
 		</div>
@@ -65,40 +67,36 @@ const currentSlug = category.toLowerCase().replace(/\s+/g, '-');
 			>
 				All
 			</a>
-			{
-				categories.map(([cat, count]) => {
-					const slug = cat.toLowerCase().replace(/\s+/g, '-');
-					const isActive = slug === currentSlug;
-					return (
-						<a
-							href={`/blog/category/${slug}/`}
-							class={
-								isActive
-									? 'rounded-full bg-coral/20 px-3 py-1 font-mono text-xs text-coral border border-coral/30'
-									: 'rounded-full bg-surface-3 px-3 py-1 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral'
-							}
-						>
-							{cat} <span class={isActive ? 'text-coral/80' : 'text-gray-400'}>({count})</span>
-						</a>
-					);
-				})
-			}
+			{categories.map(([cat, count]) => {
+				const slug = cat.toLowerCase().replace(/\s+/g, '-');
+				const isActive = slug === currentSlug;
+				return (
+					<a
+						href={`/blog/category/${slug}/`}
+						class={
+							isActive
+								? 'rounded-full bg-coral/20 px-3 py-1 font-mono text-xs text-coral border border-coral/30'
+								: 'rounded-full bg-surface-3 px-3 py-1 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral'
+						}
+					>
+						{cat} <span class={isActive ? 'text-coral/80' : 'text-gray-400'}>({count})</span>
+					</a>
+				);
+			})}
 		</div>
 
 		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{
-				posts.map((post) => (
-					<BlogCard
-						title={post.data.title}
-						description={post.data.description}
-						date={post.data.date}
-						slug={post.data.slug}
-						heroImage={post.data.heroImage}
-						categories={post.data.categories}
-						readingTime={getReadingTime(post.body || '')}
-					/>
-				))
-			}
+			{posts.map((post) => (
+				<BlogCard
+					title={post.data.title}
+					description={post.data.description}
+					date={post.data.date}
+					slug={post.data.slug}
+					heroImage={post.data.heroImage}
+					categories={post.data.categories}
+					readingTime={getReadingTime(post.body || '')}
+				/>
+			))}
 		</div>
 	</div>
 </BaseLayout>

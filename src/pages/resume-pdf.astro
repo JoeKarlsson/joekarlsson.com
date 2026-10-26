@@ -210,36 +210,32 @@ function formatYearRange(start: number, end: number | null): string {
 		</p>
 
 		<h2>Experience</h2>
-		{
-			roles.map((role) => (
-				<div class="role">
-					<div class="role-header">
-						<span class="role-title">{role.title}</span>
-						<span class="role-dates">{formatYearRange(role.startYear, role.endYear)}</span>
-					</div>
-					<div class="role-meta">
-						{role.company} <span class="role-location">&middot; {role.location}</span>
-					</div>
-					<div class="role-tech">{role.tech.join(' · ')}</div>
-					<ul>
-						{role.bullets.map((b) => (
-							<li>{typeof b === 'string' ? b : b.text}</li>
-						))}
-					</ul>
+		{roles.map((role) => (
+			<div class="role">
+				<div class="role-header">
+					<span class="role-title">{role.title}</span>
+					<span class="role-dates">{formatYearRange(role.startYear, role.endYear)}</span>
 				</div>
-			))
-		}
+				<div class="role-meta">
+					{role.company} <span class="role-location">&middot; {role.location}</span>
+				</div>
+				<div class="role-tech">{role.tech.join(' · ')}</div>
+				<ul>
+					{role.bullets.map((b) => (
+						<li>{typeof b === 'string' ? b : b.text}</li>
+					))}
+				</ul>
+			</div>
+		))}
 
 		<h2>Skills</h2>
 		<div class="skills-grid">
-			{
-				skills.map((group) => (
-					<div>
-						<div class="skill-label">{group.category}</div>
-						<div class="skill-items">{group.items.join(', ')}</div>
-					</div>
-				))
-			}
+			{skills.map((group) => (
+				<div>
+					<div class="skill-label">{group.category}</div>
+					<div class="skill-items">{group.items.join(', ')}</div>
+				</div>
+			))}
 		</div>
 
 		<h2>Education</h2>
