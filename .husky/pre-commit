@@ -1,5 +1,5 @@
-# nvm only if present: node may come from mise shims (or anything else) on PATH
-[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
+# nvm only as a fallback: node from PATH (e.g. mise shims) wins, since nvm's default may be too old for Astro
+command -v node >/dev/null 2>&1 || { [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"; }
 
 # Runs first: it can stage rewritten markdown, which lint-staged then formats.
 ./scripts/convert-staged-images.sh
