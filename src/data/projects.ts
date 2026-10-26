@@ -113,6 +113,7 @@ export const projects: Project[] = [
 		category: 'iot',
 		tech: ['Raspberry Pi', 'Node.js', 'MongoDB', 'HX711'],
 		sourceUrl: 'https://github.com/JoeKarlsson/iot-kitty-litter-box',
+		demoUrl: 'https://kittylitter.joekarlsson.com/',
 		blogUrl: '/blog/an-introduction-to-iot-internet-of-toilets/',
 		stars: 25,
 	},

@@ -20,7 +20,7 @@ After reading [High-Performance Browser Networking](http://chimera.labs.oreilly.
 - HTTP/2
 - Server to server
 
-You can check out the complete source code for each implementation [here](https://github.com/JoeKarlsson1/Complete_Guide_To_Client_Server_Communication).
+You can check out the complete source code for each implementation [here](https://github.com/JoeKarlsson/complete-guide-to-client-server-communication).
 
 Before we begin, I should note that there is no one best protocol or API for client/server communication. Every non-trivial application will require a mix of different transports based on a variety of requirements: interaction with the browser cache, protocol overhead, message latency, reliability, type of data transfer, and more. Some protocols may offer low-latency delivery (e.g., Server-Sent Events, WebSocket), but may not meet other important criteria, such as the ability to use the browser cache or support efficient binary transfers in all cases. Here is a visualization to help illustrate how XHR, SSE, and WebSockets differ in their implementations.
 
@@ -42,7 +42,7 @@ Before we begin, I should note that there is no one best protocol or API for cli
 
 ---
 
-## [WebSocket Client-Server Demo](https://github.com/JoeKarlsson1/Complete_Guide_To_Client_Server_Communication/tree/master/client-server-sockets)
+## [WebSocket Client-Server Demo](https://github.com/JoeKarlsson/complete-guide-to-client-server-communication/tree/master/client-server-sockets)
 
 WebSockets is a technology, based on the _ws_ protocol, that makes it possible to establish a continuous full-duplex connection stream between a client and a server. A typical WebSocket client would be a user’s browser, but the protocol is platform-independent. It is the closest API to a raw network socket in the browser. Except a WebSocket connection is also much more than a network socket, as the browser abstracts all the complexity behind a simple API and provides a number of additional services:
 
@@ -100,7 +100,7 @@ ws.onclose = function() {
 
 ---
 
-## [Stream Updates with Server-Sent Events (SSE)](https://github.com/JoeKarlsson1/Complete_Guide_To_Client_Server_Communication/tree/master/server-side-events)
+## [Stream Updates with Server-Sent Events (SSE)](https://github.com/JoeKarlsson/complete-guide-to-client-server-communication/tree/master/server-side-events)
 
 SSEs are sent over traditional HTTP. That means they do not require a special protocol or server implementation to get working. WebSockets on the other hand, require full-duplex connections and new Web Socket servers to handle the protocol. In addition, Server-Sent Events have a variety of features that WebSockets lack by design such as automatic reconnection, event IDs, and the ability to send arbitrary events.
 
@@ -179,7 +179,7 @@ source.onmessage = function (e) {
 
 ---
 
-## [XMLHttpRequest (XHR)](https://github.com/JoeKarlsson1/Complete_Guide_To_Client_Server_Communication/tree/master/xhr)
+## [XMLHttpRequest (XHR)](https://github.com/JoeKarlsson/complete-guide-to-client-server-communication/tree/master/xhr)
 
 XMLHttpRequest (XHR) is a browser-level API that enables the client to script data transfers via JavaScript. XHR made its first debut in Internet Explorer 5, became one of the key technologies behind the Asynchronous JavaScript and XML (AJAX) revolution, and is now a fundamental building block of nearly every modern web application.
 

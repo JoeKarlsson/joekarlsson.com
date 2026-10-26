@@ -21,7 +21,7 @@ Okay, let’s check it out. When you are in a **development** build, you can now
 
 I’m not going to go into great detail about how this tool works, but if you want a more detailed walk-through, check out [this article by Ben Schwarz](https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad).
 
-For example, let’s try it out. I have [built the least performant React application possible](https://github.com/JoeKarlsson/high-performance-react-demo), you can check out the code here on my [GitHub](https://github.com/JoeKarlsson/high-performance-react-demo).
+For example, let’s try it out. I have [built the least performant React application possible](https://reactperf.joekarlsson.com/), you can check out the code here on my [GitHub](https://github.com/JoeKarlsson/high-performance-react-demo).
 
 Let’s go through and see how these tips boost the performance of our crummy ‘lil app.
 
