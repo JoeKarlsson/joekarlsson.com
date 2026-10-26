@@ -27,6 +27,12 @@ exclude = [
   "cyberpowersystems\\.com",
   "cdata\\.com/ai/signup",
   "analytics\\.google\\.com",
+  # Verified alive 2026-10-25 (browser or recent Wayback capture) but 405 or
+  # time out for GitHub runners
+  "ayende\\.com",
+  "jwz\\.org",
+  "rachelbythebay\\.com",
+  "www-cs-faculty\\.stanford\\.edu",
 
   # HTTP/2 protocol errors or rate-limits from CI runners; alive in a browser
   "globenewswire\\.com",

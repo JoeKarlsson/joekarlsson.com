@@ -46,7 +46,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 [5) Real-Time (and near real-time) infrastructure will become standard.](https://rudderstack.com/blog/the-future-of-data-engineering/)
 
-[tl;dr: "In cryptography, zero knowledge proofs let you convince me that you know something, or have done something, without revealing to me what your secret thing was."](https://blog.goodaudience.com/understanding-zero-knowledge-proofs-through-simple-examples-df673f796d99?gi=924ed6620481)
+[tl;dr: "In cryptography, zero knowledge proofs let you convince me that you know something, or have done something, without revealing to me what your secret thing was."](https://web.archive.org/web/20210201204502/https://blog.goodaudience.com/understanding-zero-knowledge-proofs-through-simple-examples-df673f796d99)
 
 [tl;dr: "Why is PHP still such a critical part of the web, when other programming languages and frameworks are seemingly more suited to the modern web? Second, what are the motivations behind the companies that have formed this new foundation?"](https://thenewstack.io/php-has-survived-for-26-years-because-it-keeps-evolving/)
 
