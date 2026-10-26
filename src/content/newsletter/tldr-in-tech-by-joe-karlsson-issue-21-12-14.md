@@ -6,13 +6,13 @@ issue: 4
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-21-12-14'
 ---
 
-[I recently sat down for an interview to discuss my role as a Developer Advocate at SingleStore. We talked about:](https://www.singlestore.com/blog/hello-joe-karlsson-developer-advocate/)
+[I recently sat down for an interview to discuss my role as a Developer Advocate at SingleStore. We talked about:](https://web.archive.org/web/20211208011950/https://www.singlestore.com/blog/hello-joe-karlsson-developer-advocate)
 
-[1) My mission as a Developer Advocate.](https://www.singlestore.com/blog/hello-joe-karlsson-developer-advocate/)
+[1) My mission as a Developer Advocate.](https://web.archive.org/web/20211208011950/https://www.singlestore.com/blog/hello-joe-karlsson-developer-advocate)
 
-[2) Making complex technical content more digestible.](https://www.singlestore.com/blog/hello-joe-karlsson-developer-advocate/)
+[2) Making complex technical content more digestible.](https://web.archive.org/web/20211208011950/https://www.singlestore.com/blog/hello-joe-karlsson-developer-advocate)
 
-[3) Tips for growing technical communities and more](https://www.singlestore.com/blog/hello-joe-karlsson-developer-advocate/)
+[3) Tips for growing technical communities and more](https://web.archive.org/web/20211208011950/https://www.singlestore.com/blog/hello-joe-karlsson-developer-advocate)
 
 [Wanna listen to one of the best playlists I have ever made? It's music for boppin' around the Christmas tree, with a mix of totally obscure and timeless Christmas classics.](https://open.spotify.com/playlist/5jYBBVo3aEkeQoM05MT2JG?nd=1&si=8f648008aa0040c4)
 
@@ -48,6 +48,6 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 [tl;dr: "Instead of spending your coffee break scrolling through your social feeds, how about a lovely little website instead? We came across some fantastic ones that are just too good not to be shared. But be warned, your break might take a bit longer than intended."](https://www.smashingmagazine.com/2021/11/showcase-lovely-little-websites/)
 
-[tl;dr: An Engineering Fundamentals Checklist checklist by Microsoft to help you with following the most recent best practices around managing code in a software project.](https://microsoft.github.io/code-with-engineering-playbook/ENG-FUNDAMENTALS-CHECKLIST/)
+[tl;dr: An Engineering Fundamentals Checklist checklist by Microsoft to help you with following the most recent best practices around managing code in a software project.](https://web.archive.org/web/20211218235840/https://microsoft.github.io/code-with-engineering-playbook/ENG-FUNDAMENTALS-CHECKLIST/)
 
 [tl;dr: In this post, Josh takes us on a tour of his custom CSS reset. He digs into each rule, and we learn what it does and why we might want to use it!](https://www.joshwcomeau.com/css/custom-css-reset/)

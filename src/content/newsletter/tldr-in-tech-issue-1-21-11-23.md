@@ -34,7 +34,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-1-21-11-23'
 
 [tl;dr: "This article is not an attempt to explain containers in one go. Instead, it's a front-page for my multi-year study of the domain. It outlines the said learning path and then walks you through it, pointing to more in-depth write-ups on this same blog."](https://iximiuz.com/en/posts/container-learning-path/)
 
-[tl;dr: "We started, like we often do, with git bisect. It helped us track down the set of changes that appeared to have introduced the issue; adding a Dark Mode to Tines. "This is bizarre," we thought, "how could a bunch of CSS changes have slowed things down?"."](https://engineering.tines.com/blog/understanding-why-our-build-got-15x-slower-with-webpack)
+[tl;dr: "We started, like we often do, with git bisect. It helped us track down the set of changes that appeared to have introduced the issue; adding a Dark Mode to Tines. "This is bizarre," we thought, "how could a bunch of CSS changes have slowed things down?"."](https://web.archive.org/web/20211122002918/https://engineering.tines.com/blog/understanding-why-our-build-got-15x-slower-with-webpack)
 
 [tl;dr: "Lambda is split into a control plane and data plane. Each plane is responsible for a specific set of activities in the service. The Control Plane provides management APIs and manages integrations with all AWS services. Whilst the Data Plane is Lambda's Invoke API that triggers Lambda function invocations, this explanation is still very abstract but things will become clearer over time." Bruno details the underlying mechanics of AWS Lamda.](https://www.bschaatsbergen.com/behind-the-scenes-lambda)
 

@@ -27,7 +27,7 @@ tl;dr: ChatGPT is all the rage, but how the heck does it work? Stephen Wolfram b
 
 tl;dr: What's hot in web dev? Meta frameworks, application and rendering patterns, serverless at the edge, database renaissance, and JavaScript runtimes, to name a few. Stay ahead of the curve, and hop on these trends like a champ! 🏄‍♂️
 
-## [Against Overwhelm 😌 -](https://hagakure.substack.com/p/twh45-against-overwhelm) _[Paolo André](https://hagakure.substack.com/p/twh45-against-overwhelmhttps://hagakure.substack.com/p/twh45-against-overwhelm)_
+## [Against Overwhelm 😌 -](https://hagakure.substack.com/p/twh45-against-overwhelm) _[Paolo André](https://hagakure.substack.com/p/twh45-against-overwhelm)_
 
 tl;dr: Engineering managers, are you drowning and feeling overwhelmed? Take a deep breath and follow Paolo's advice on setting goals, auditing your energy, focusing on leverage, designing your ideal week, and giving each task your full attention. Zen out, my friends! 🧘‍♀️
 

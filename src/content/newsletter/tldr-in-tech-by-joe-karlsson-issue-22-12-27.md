@@ -20,7 +20,7 @@ _Photo by Volodymyr Hryshchenko on Unsplash_
 
 [tl;dr: "Terminology matters and we can do better than 10x. We can be specific. Skills are not homogeneous, and people can quickly improve their craft as long as we don't treat talent like some mythical quality."](https://earthly.dev/blog/stop-10x-developer/)
 
-[tl;dr: "We've got distributions of a Go package that includes entirely unlicensed code. We've got a host of Go packages that may not be complying with the terms of the license, when the distributions can even agree what the license is. And it's apparently not limited to just go. Is this normal? Is this legal? I don't really know."](https://artemis.sh/2022/08/21/this-program-is-illegally-packaged-in-14-distributions.html)
+[tl;dr: "We've got distributions of a Go package that includes entirely unlicensed code. We've got a host of Go packages that may not be complying with the terms of the license, when the distributions can even agree what the license is. And it's apparently not limited to just go. Is this normal? Is this legal? I don't really know."](https://web.archive.org/web/20230115153337/https://artemis.sh/2022/08/21/this-program-is-illegally-packaged-in-14-distributions.html)
 
 [tl;dr: The bill is designed to further support engineering managers at Honeycomb, with the following guidelines:](https://www.honeycomb.io/blog/an-engineering-managers-bill-of-rights-and-responsibilities/)
 

@@ -38,14 +38,14 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 **[tl;dr:](https://catern.com/change_code.html)** ["I can't count how many times I've heard programmers talking about writing some new piece of code to work around the behavior of some other code which they don't want to change. You are a programmer - you are allowed to change code! In fact, it's your job! Just change the code to do what you want! Fix the bug! Change the behavior! Add the feature!" Spenser illustrates this with common excuses people give.](https://catern.com/change_code.html)
 
-**[tl;dr:](https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)** ["The biggest mistake I see engineers make is doing too much work on their own before looping in others." This costs time and creates the risk of going down the wrong path. Managers can help:](https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
+**[tl;dr:](https://web.archive.org/web/20220314014539/https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)** ["The biggest mistake I see engineers make is doing too much work on their own before looping in others." This costs time and creates the risk of going down the wrong path. Managers can help:](https://web.archive.org/web/20220314014539/https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
 
-[1) Encourage engineers to show work as quickly as possible.](https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
+[1) Encourage engineers to show work as quickly as possible.](https://web.archive.org/web/20220314014539/https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
 
-[2) Help them decide what to show that provides meaningful feedback.](https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
+[2) Help them decide what to show that provides meaningful feedback.](https://web.archive.org/web/20220314014539/https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
 
-[3) Encourage launching something end-to-end internally, quickly.](https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
+[3) Encourage launching something end-to-end internally, quickly.](https://web.archive.org/web/20220314014539/https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
 
-[4) Encourage constructive feedback & watch for toxic feedback, which discourages iterative development.](https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
+[4) Encourage constructive feedback & watch for toxic feedback, which discourages iterative development.](https://web.archive.org/web/20220314014539/https://www.thezbook.com/the-biggest-mistake-i-see-engineers-make/)
 
 **[tl;dr:](http://highscalability.com/blog/2022/1/25/designing-uber.html)** [Ankit shows us how to design architecture similar to Uber's: Riders are able to view available drivers in nearby locations, request rides from source to destination, notify nearby drivers of the ride and allow one of them to confirm the ride, show pickup ETA to customers when a ride is dispatched.](http://highscalability.com/blog/2022/1/25/designing-uber.html)

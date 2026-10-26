@@ -48,7 +48,7 @@ _By: Oren Eini_
 
 tl;dr: The Heisenbug Server was experiencing issues with nodes in the cluster going dark and stopping communication with the rest of the cluster. Despite internal and external metrics appearing fine, the server would stop responding to anything over the network. The solution was to restart the service, but the problem would reoccur every few days. As software engineers, it's important to be diligent in diagnosing and solving complex issues that may arise in our code.
 
-## [A Framework For Prioritizing Tech Debt](https://www.maxcountryman.com/articles/a-framework-for-prioritizing-tech-debt)
+## [A Framework For Prioritizing Tech Debt](https://web.archive.org/web/20230923075133/https://www.maxcountryman.com/articles/a-framework-for-prioritizing-tech-debt)
 
 _By: Max Countryman_
 

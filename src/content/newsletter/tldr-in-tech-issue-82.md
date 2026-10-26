@@ -12,7 +12,7 @@ _By: James Briggs_
 
 tl;dr: OpenAI's ChatGPT has launched plugins that anyone can build. James demonstrates how to create a plugin using the chatgpt-retrieval-plugin template, which could be useful for software engineers interested in building AI-powered chatbot features.
 
-## [Code Ownership And Software Quality](https://newsletter.abinoda.com/p/code-ownership)
+## [Code Ownership And Software Quality](https://newsletter.getdx.com/p/code-ownership)
 
 _By: Abi Noda_
 
@@ -30,7 +30,7 @@ _By: Donald Knuth_
 
 tl;dr: Donald Knuth's annual lecture video connects "three fascinating concepts, which seem at first to be entirely unrelated to each other, but are in fact in one-to-one correspondence, via three beautiful algorithms." For software engineers interested in algorithms, this is a must-watch!
 
-## [Devpod: Improving Developer Productivity at Uber with Remote Development](https://www.uber.com/blog/devpod-improving-developer-productivity-at-uber/)
+## [Devpod: Improving Developer Productivity at Uber with Remote Development](https://www.uber.com/us/en/blog/devpod-improving-developer-productivity-at-uber/)
 
 _By: Uber Engineering_
 

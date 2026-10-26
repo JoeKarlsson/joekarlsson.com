@@ -20,6 +20,13 @@ exclude = [
   "building\\.calibreapp\\.com",
   "dykestowatchoutfor\\.com",
   "ui\\.tinybird\\.co",
+  # Verified alive in a browser 2026-10-25: uber 406, wsj 401 (paywall),
+  # cyberpowersystems 405, cdata signup 400/403, GA refuses bot connections
+  "uber\\.com",
+  "wsj\\.com",
+  "cyberpowersystems\\.com",
+  "cdata\\.com/ai/signup",
+  "analytics\\.google\\.com",
 
   # HTTP/2 protocol errors or rate-limits from CI runners; alive in a browser
   "globenewswire\\.com",
@@ -54,7 +61,8 @@ exclude = [
 exclude_path = ["404", "hero-illustration", "http:/https:"]
 
 # Accept these status codes as valid
-accept = [200, 202, 204, 301, 302, 307, 403, 429]
+# 206: some servers answer a full GET with Partial Content (kalzumeus.com)
+accept = [200, 202, 204, 206, 301, 302, 307, 403, 429]
 
 # Timeout per request (seconds)
 timeout = 30

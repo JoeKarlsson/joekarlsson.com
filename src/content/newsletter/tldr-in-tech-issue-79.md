@@ -18,7 +18,7 @@ _By: Vadim Kravcenko_
 
 tl;dr: As a software engineer, there are certain contracts you should avoid signing. These include non-compete clauses in employee contracts, confidentiality agreements, exclusive distribution agreements, and project-based agreements without a clear definition of scope and definition of done. It's important to understand the terms and conditions of any contract before signing it, and to be aware of potential red flags that could negatively impact your career.
 
-## [What We Look For In A Resume](https://huyenchip.com/2023/01/24/what-we-look-for-in-a-candidate.html)
+## [What We Look For In A Resume](https://web.archive.org/web/20230511132137/https://huyenchip.com/2023/01/24/what-we-look-for-in-a-candidate.html)
 
 _By: Chip Huyen_
 

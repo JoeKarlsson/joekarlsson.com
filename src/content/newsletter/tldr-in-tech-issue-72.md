@@ -35,11 +35,11 @@ It's time for another episode of "tl;dr in tech"! Get ready for a wild ride thro
 
 **tl;dr:** Julia is kicking it old-school with JavaScript sans build systems. 🕺 Who needs 'em, anyway? Learn why some folks like Julia are still rocking simple, small projects without the extra baggage. Less is sometimes more! 💼
 
-## 🌐 [A Gentle Introduction To CRDTs](https://vlcn.io/blog/gentle-intro-to-crdts.html)
+## 🌐 [A Gentle Introduction To CRDTs](https://web.archive.org/web/20230402111821/https://vlcn.io/blog/gentle-intro-to-crdts.html)
 
 **tl;dr:** Get a gentle intro to these magical data structures that guarantee eventual consistency across your networked applications. It's like a warm hug from your favorite distributed system. 🤗
 
-## 🎥 [React.js: The Documentary](https://cult.honeypot.io/originals/react-the-documentary)
+## 🎥 [React.js: The Documentary](https://web.archive.org/web/20230329064900/https://cult.honeypot.io/originals/react-the-documentary/)
 
 **tl;dr:** Grab some popcorn and join us for React.js: The Documentary 🍿. Learn the untold story of React's early days, featuring an all-star cast of developers who brought this groundbreaking library to the masses.
 

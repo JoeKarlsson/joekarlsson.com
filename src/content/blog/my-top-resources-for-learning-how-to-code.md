@@ -243,7 +243,7 @@ If you want to hear more about my thoughts on CS fundamentals and finding your p
 
 - [Design Patterns](http://c2.com/cgi/wiki?DesignPatternsBook) by the Gang of Four
 
-- [The Art of Computer Programming](http://www-cs-faculty.stanford.edu/~uno/taocp.html) by Donald Knuth
+- [The Art of Computer Programming](https://www-cs-faculty.stanford.edu/~knuth/taocp.html) by Donald Knuth
 
 - [Gödel, Escher, Bach](http://www.amazon.com/G%C3%B6del-Escher-Bach-Eternal-Golden/dp/0465026567) by Douglas Hofstadter
 

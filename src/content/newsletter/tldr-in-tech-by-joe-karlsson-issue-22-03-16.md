@@ -18,7 +18,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 [5) Documents your eventual success and how it happened.](https://conorcorp.github.io/posts/make-debuggin-suck-less/)
 
-**[tl;dr:](https://malwaredefinition.com/index.php/2022/01/14/an-extremely-casual-code-review-of-metamasks-crypto/)** ["This post describes a very casual code review of a few cryptography functions used by MetaMask. It does not describe any vulnerabilities. If you're the kind of person who likes a meandering and amateurish code review that goes absolutely nowhere, you'll enjoy this post."](https://malwaredefinition.com/index.php/2022/01/14/an-extremely-casual-code-review-of-metamasks-crypto/)
+**[tl;dr:](https://web.archive.org/web/20220223223157/https://malwaredefinition.com/index.php/2022/01/14/an-extremely-casual-code-review-of-metamasks-crypto/)** ["This post describes a very casual code review of a few cryptography functions used by MetaMask. It does not describe any vulnerabilities. If you're the kind of person who likes a meandering and amateurish code review that goes absolutely nowhere, you'll enjoy this post."](https://web.archive.org/web/20220223223157/https://malwaredefinition.com/index.php/2022/01/14/an-extremely-casual-code-review-of-metamasks-crypto/)
 
 **[tl;dr:](https://devtoys.app/)** [Swiss Army knife for developers. An offline Windows app that helps developers in daily tasks.](https://devtoys.app/)
 

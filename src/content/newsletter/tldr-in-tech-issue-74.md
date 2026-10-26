@@ -20,7 +20,7 @@ tl;dr: This fungi-tastic article takes us inside the lab where mushroom computer
 
 tl;dr: Google's engineering team brings us Service Weaver, an open-source framework for building and deploying distributed applications. Write your app as a modular monolith and deploy it as a set of microservices - like a code transformer! 🤖
 
-## [No-Code Has No Future In A World Of AI](https://www.airplane.dev/blog/no-code-has-no-future-in-a-world-of-ai) - Ravi Parikh
+## [No-Code Has No Future In A World Of AI](https://web.archive.org/web/20230327034029/https://www.airplane.dev/blog/no-code-has-no-future-in-a-world-of-ai) - Ravi Parikh
 
 tl;dr: Ravi Parikh, CEO of Airplane, takes a flight of fancy ✈️ by discussing how AI-driven software development will dwarf no-code tools' capabilities and eventually make no-code go the way of the dodo. Sorry, no-code enthusiasts, looks like AI is taking the pilot's seat!
 

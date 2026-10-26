@@ -64,4 +64,4 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 [7) Other things to incorporate into the deployment process.](https://newsletter.pragmaticengineer.com/p/shipping-to-production)
 
-[tl;dr: The Stack Overflow memes are true: 60% of senior engineers commit 10-100 lines/week of copied and pasted code. And there is more: read the report to learn how 600 engineers (ICs and managers) spend time, from wrangling machines to wrangling people.](https://retool.com/reports/state-of-engineering-time-2022/)
+[tl;dr: The Stack Overflow memes are true: 60% of senior engineers commit 10-100 lines/week of copied and pasted code. And there is more: read the report to learn how 600 engineers (ICs and managers) spend time, from wrangling machines to wrangling people.](https://web.archive.org/web/20220702085646/https://retool.com/reports/state-of-engineering-time-2022/)

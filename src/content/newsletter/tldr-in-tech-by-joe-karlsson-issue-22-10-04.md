@@ -22,7 +22,7 @@ _Photo by David Kovalenko on Unsplash_
 
 [tl;dr: "They called it the "group test"; around 8 of us were led to a room and asked to solve a puzzle together. Each of us was given an information pack, there was a white board, and a timer ticking down from 60 minutes."](https://johnpublic.mataroa.blog/blog/the-asshole-test/)
 
-[tl;dr: "The bad news is that this was on Friday, and we needed to have the videos back up at most for Tuesday morning. We had to upload ~8TB of data with a 30MB/s connection. Not ideal, and I had to think about something fast."](https://blog.thevinter.com/posts/vimeo)
+[tl;dr: "The bad news is that this was on Friday, and we needed to have the videos back up at most for Tuesday morning. We had to upload ~8TB of data with a 30MB/s connection. Not ideal, and I had to think about something fast."](https://web.archive.org/web/20220510201842/https://blog.thevinter.com/posts/vimeo)
 
 **[tl;dr](https://jolynch.github.io/posts/distsys_shibboleths/)**[: "Shibboleths are historically a word that indicate membership in a particular group or culture.... I have only studied and worked in the field for around a decade, but in that time I believe I have learned to recognize some key "distsys shibboleths" that help me recognize when I can trust what a vendor or other engineer is telling me."](https://jolynch.github.io/posts/distsys_shibboleths/)
 

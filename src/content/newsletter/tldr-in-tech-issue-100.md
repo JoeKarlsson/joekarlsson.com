@@ -32,7 +32,7 @@ tl;dr: Your brand isn't just your logo on a hoodie. Will Larson discusses the pl
 
 ---
 
-## [2023 Engineering Salary Expectations Trends Report](https://www.teamblind.com/blog/index.php/2023/05/22/2023-engineering-salary-expectations-report/)
+## [2023 Engineering Salary Expectations Trends Report](https://www.teamblind.com/blog/2023-engineering-salary-expectations-report/)
 
 _By: Sam Graham_
 

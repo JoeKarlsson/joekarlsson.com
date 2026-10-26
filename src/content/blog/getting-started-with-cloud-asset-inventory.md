@@ -6,7 +6,6 @@ description: 'Cloud asset inventory is vital for managing multi-cloud environmen
 categories: ['Work']
 tags: ['Cloud Asset Inventory']
 heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/components_of_a_cloud_assset_inventory.webp'
-canonicalUrl: 'https://www.cloudquery.io/blog/getting-started-with-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 

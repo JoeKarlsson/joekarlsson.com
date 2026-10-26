@@ -24,7 +24,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 **[tl;dr:](https://github.com/ObuchiYuki/DevToysMac)** [This is the mac app version of the Windows app DevToys.](https://github.com/ObuchiYuki/DevToysMac)
 
-**[tl;dr:](https://www.theobservereffect.org/daniel.html)** ["A great meeting has three key elements: the desired outcome of the meeting is clear ahead of time; the various options are clear, ideally ahead of time; and the roles of the participants are clear at the time." Daniel, founder and CEO of Spotify, also discusses time management, common mistakes with time management, delegating decisions, and more.](https://www.theobservereffect.org/daniel.html)
+**[tl;dr:](https://web.archive.org/web/20220409083057/https://www.theobservereffect.org/daniel.html)** ["A great meeting has three key elements: the desired outcome of the meeting is clear ahead of time; the various options are clear, ideally ahead of time; and the roles of the participants are clear at the time." Daniel, founder and CEO of Spotify, also discusses time management, common mistakes with time management, delegating decisions, and more.](https://web.archive.org/web/20220409083057/https://www.theobservereffect.org/daniel.html)
 
 **[tl;dr:](https://medium.com/@micallst/lessons-learned-from-my-10-year-open-source-project-4a4c8c2b4f64)**
 

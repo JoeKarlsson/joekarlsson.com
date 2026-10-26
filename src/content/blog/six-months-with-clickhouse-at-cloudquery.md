@@ -13,7 +13,7 @@ tldr: 'ClickHouse delivered on speed and scale, but JOINs need careful handling 
 
 _Co-authored with Herman Schaaf and Mariano Gappa at CloudQuery._
 
-When we built [CloudQuery](https://www.cloudquery.io/), our initial goal was simple: pull data from users' cloud config data and let them send it anywhere - PostgreSQL, MongoDB, Neo4J, you name it. We designed it to play well with whatever database someone might have because, honestly, flexibility seemed like the best choice at the time.
+When we built [CloudQuery](https://www.cloudquery.io/), our initial goal was simple: pull data from users' cloud config data and let them send it anywhere - PostgreSQL, MongoDB, Neo4J, you name it. We designed it to play well with whatever database someone might have because flexibility seemed like the best choice at the time.
 
 However, it quickly became clear that supporting infinite options had a hidden cost: complexity. Each new database we supported meant that it was challenging to build new features, things like real-time dashboards, reporting, or interactive queries on top of our platform. And it became obvious that we needed a solid, default backend. Something scalable, reliable, and ideally one our team wouldn't resent maintaining six months (or six years) down the road.
 
@@ -66,9 +66,9 @@ Here's what we learned...
 
 #### JOIN Order Matters
 
-In one case highlighted in the [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/select/join/#join-algorithm), a naive query had the large table on the left and took 56 seconds. Simply flipping the JOIN sides (small table on the right) cut it to 1.5 seconds, a dramatic improvement.
+In one case highlighted in the [ClickHouse documentation](https://clickhouse.com/docs/reference/statements/select/join#join-algorithm), a naive query had the large table on the left and took 56 seconds. Simply flipping the JOIN sides (small table on the right) cut it to 1.5 seconds, a dramatic improvement.
 
-The key lesson for us: **Always position smaller tables on the right side of JOIN operations and limit complex multi-JOIN queries** ([ClickHouse recommends no more than 3 to 4 JOINs per query](https://clickhouse.com/docs/guides/joining-tables#:~:text=Aim%20for%20a%20maximum%20of%203%20to%204%20joins%20in%20a%20query)). Proper JOIN ordering alone can transform slow-running queries into sub-second responses.
+The key lesson for us: **Always position smaller tables on the right side of JOIN operations and limit complex multi-JOIN queries** ([ClickHouse recommends no more than 3 to 4 JOINs per query](https://clickhouse.com/docs/concepts/features/operations/select/joining-tables#:~:text=Aim%20for%20a%20maximum%20of%203%20to%204%20joins%20in%20a%20query)). Proper JOIN ordering alone can transform slow-running queries into sub-second responses.
 
 #### Pushing Joins to Dictionaries
 
@@ -208,6 +208,6 @@ As of today, asking ClickHouse to do Google-level text search is a bit like aski
 
 ## Wrapping Up
 
-Stepping back and looking at the past six months, we can honestly say that **adopting ClickHouse has been worth it**. Not because it solved every problem (it didn't), but because it forced us to level up our data engineering game. We got the speed and scalability we were promised, along with a few humbling reminders that no tool is a silver bullet. ClickHouse didn't magically do all the work for us (darn), but it allowed us to tackle challenges we couldn't have handled otherwise, so long as we met it halfway. Every DB choice is a compromise, and understanding which trade-offs you're comfortable with is key.
+Stepping back and looking at the past six months, we can say that **adopting ClickHouse has been worth it**. Not because it solved every problem (it didn't), but because it forced us to level up our data engineering game. We got the speed and scalability we were promised, along with a few humbling reminders that no tool is a silver bullet. ClickHouse didn't magically do all the work for us (darn), but it allowed us to tackle challenges we couldn't have handled otherwise, so long as we met it halfway. Every DB choice is a compromise, and understanding which trade-offs you're comfortable with is key.
 
 Here's to the next six months being a little smoother.

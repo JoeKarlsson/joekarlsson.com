@@ -73,7 +73,7 @@ Email address (required)
 
 Subscribe
 
-[https://www.getrevue.co/profile/joekarlsson](https://www.getrevue.co/profile/joekarlsson)
+[https://joekarlsson.substack.com](https://joekarlsson.substack.com)
 
 **Subscription received!**
 
@@ -93,4 +93,4 @@ Please check your email to confirm your newsletter subscription.
 - [How to Query from Multiple MongoDB Databases](https://www.joekarlsson.com/2021/06/how-to-query-from-multiple-mongodb-databases/)
 - June 30, 2021
 
-The post [Why I Joined Viam 🤖](https://www.joekarlsson.com/2022/06/why-i-joined-viam-%f0%9f%a4%96/) appeared first on [Joe Karlsson](https://www.joekarlsson.com).
+The post [Why I Joined Viam 🤖](/newsletter/why-i-joined-viam/) appeared first on [Joe Karlsson](https://www.joekarlsson.com).

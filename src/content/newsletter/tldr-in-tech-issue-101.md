@@ -46,7 +46,7 @@ tl;dr: Reka breaks down how GPT and other language models can help speed up prot
 
 ---
 
-## [Build Times And Developer Productivity](https://newsletter.abinoda.com/p/build-times-and-developer-productivity)
+## [Build Times And Developer Productivity](https://newsletter.getdx.com/p/build-times-and-developer-productivity)
 
 _By: Abi Noda_
 

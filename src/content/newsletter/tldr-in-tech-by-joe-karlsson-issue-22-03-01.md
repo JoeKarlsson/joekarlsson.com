@@ -10,7 +10,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 **[tl;dr:](https://www.colemanm.org/post/hard-edges-soft-middle)** [Coleman recommends the following management style: having a "hard outer boundary for work with soft requirements on approach." This requires trust in the product and engineering teams to choose approach trade-offs wisely, and allows for some freedom, but the team knows that freedom is not infinite. "The team can explore and experiment to a point, but doesn't have forever to mess around."](https://www.colemanm.org/post/hard-edges-soft-middle)
 
-**[tl;dr:](https://www.protocol.com/workplace/stay-interview-relay-payments-retention)** ["The stay interview is essentially the opposite of an exit interview." Examples of question: What's your favorite and least favorite thing about working here? What might tempt you to leave? If you could change something about your job, what would it be? What talents are not being used in your current role? What would you like to learn in your current role?](https://www.protocol.com/workplace/stay-interview-relay-payments-retention)
+**[tl;dr:](https://web.archive.org/web/20220215083324/https://www.protocol.com/workplace/stay-interview-relay-payments-retention)** ["The stay interview is essentially the opposite of an exit interview." Examples of question: What's your favorite and least favorite thing about working here? What might tempt you to leave? If you could change something about your job, what would it be? What talents are not being used in your current role? What would you like to learn in your current role?](https://web.archive.org/web/20220215083324/https://www.protocol.com/workplace/stay-interview-relay-payments-retention)
 
 **[tl;dr:](https://medium.com/flo-health/how-to-deal-with-tech-debt-at-the-scale-of-super-app-90da136d576d)** ["We want to share how we decided to work with technical debt and how Evolutionary architecture and SRE help us balance innovation and quality in mobile development." Maksim provides several examples, such as how each team can dedicate up to 20% of their capacity to technical improvements.](https://medium.com/flo-health/how-to-deal-with-tech-debt-at-the-scale-of-super-app-90da136d576d)
 
@@ -20,7 +20,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 **[tl;dr:](https://bekahhw.github.io/Dear-Senior-Devs,-Use-your-privilege)** [Attention all Senior Devs! "Use your privilege. As privileged tech community members, it's your job to help fight the gatekeepers on your teams. It is your job to make space at the table for those who have been kept out.](https://bekahhw.github.io/Dear-Senior-Devs,-Use-your-privilege)
 
-[Watch on YouTube](https://www.youtube.com/watch?v=ZwTx39orIXo)
+_The video has since been made private._
 
 **tl;dr:** This video really puts a lot of things into perspective about how 'easy' I have it as a cis white man in tech. Bree does a great job of breaking down how discrimination happens in the tech hiring pipeline.
 

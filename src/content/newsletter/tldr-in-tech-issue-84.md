@@ -30,7 +30,7 @@ _By: Kevin Sookocheff_
 
 tl;dr: Kevin Sookocheff breaks down the five phases of managing an engineering project according to the Project Management Institute. This informative article covers initiation, planning, execution, monitoring and control, and closure. Essential reading for software engineers in management roles or looking to improve their project management skills.
 
-## [Hired's 2023 State Of Software Engineers](https://pages.hired.email/rs/289-SIY-439/images/Hired_2023%20State%20of%20Software%20Engineers.pdf)
+## [Hired's 2023 State Of Software Engineers](https://web.archive.org/web/20230320113308/https://pages.hired.email/rs/289-SIY-439/images/Hired_2023%20State%20of%20Software%20Engineers.pdf)
 
 _By: Hired_
 

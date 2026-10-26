@@ -286,7 +286,7 @@ If you can't ask common questions like these and get instant answers, your inven
 
 ---
 
-_Ready to build your cloud asset inventory? Continue with our guides on [design principles for effective inventories](https://www.cloudquery.io/blog/how-to-design-cloud-asset-inventory-aws), [maximizing value from cloud visibility](https://www.cloudquery.io/blog/five-tips-maximum-value-cloud-asset-inventory), and [getting started with CloudQuery](https://www.cloudquery.io/blog/introduction-to-cloudquery-aws)._
+_Ready to build your cloud asset inventory? Continue with our guides on [design principles for effective inventories](https://www.cloudquery.io/blog/how-to-design-cloud-asset-inventory-aws), [maximizing value from cloud visibility](/blog/five-tips-maximum-value-cloud-asset-inventory/), and [getting started with CloudQuery](https://www.cloudquery.io/blog/introduction-to-cloudquery-aws)._
 
 ## Video Transcript
 

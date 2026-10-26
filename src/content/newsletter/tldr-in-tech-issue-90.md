@@ -6,7 +6,7 @@ issue: 90
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-90'
 ---
 
-## [The Best Managers Don't Fix, They Coach - Four Tools To Add to Your Toolkit](https://review.firstround.com/the-best-managers-dont-fix%2c-they-coach-four-tools-to-add-to-your-toolkit)
+## [The Best Managers Don't Fix, They Coach - Four Tools To Add to Your Toolkit](https://web.archive.org/web/20230926115626/https://review.firstround.com/the-best-managers-dont-fix,-they-coach-four-tools-to-add-to-your-toolkit)
 
 _By: First Round Review_
 
@@ -24,7 +24,7 @@ _By: Jerome Hardaway_
 
 tl;dr: This guide covers: (1) Key technical competencies managers prioritize for career advancement. (2) Essential communication skills expected from senior developers. (3) How to approach code development with a focus on addressing business requirements.
 
-## [Unit Testing Analytics Code](https://matthewrkaye.com/posts/series/doing-data-science/2023-04-03-unit-testing/unit-testing.html)
+## [Unit Testing Analytics Code](https://web.archive.org/web/20230502020527/https://matthewrkaye.com/posts/series/doing-data-science/2023-04-03-unit-testing/unit-testing.html)
 
 _By: Matt Kaye_
 

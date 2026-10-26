@@ -30,7 +30,7 @@ tl;dr: "Embracing failure, dissecting it, and learning from it not only builds s
 
 ---
 
-## [How Google Measures And Manages Tech Debt](https://newsletter.abinoda.com/p/measuring-and-managing-tech-debt)
+## [How Google Measures And Manages Tech Debt](https://newsletter.getdx.com/p/measuring-and-managing-tech-debt)
 
 _By: Abi Noda_
 
@@ -102,7 +102,7 @@ tl;dr: "I feel confident you will have a solid foundation upon which to build an
 
 ---
 
-## [What Drives Adoption Of Internal Developer Tools?](https://newsletter.abinoda.com/p/build-tool-adoption)
+## [What Drives Adoption Of Internal Developer Tools?](https://newsletter.getdx.com/p/build-tool-adoption)
 
 _By: Abi Noda_
 

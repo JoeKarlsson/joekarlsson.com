@@ -33,14 +33,14 @@ Welcome back to my weekly newsletter, where I bring you the latest and greatest 
 
 ---
 
-**[A Guide To Fixing Developer Posture](https://gaylelaakmann.substack.com/p/a-guide-to-fixing-computer-guy-posture)**  
+**[A Guide To Fixing Developer Posture](https://web.archive.org/web/20230107160219/https://gaylelaakmann.substack.com/p/a-guide-to-fixing-computer-guy-posture)**  
 \- Gayle Laakmann McDowell
 
 **tl;dr**: "This post is about anterior pelvic tilt, the most common posture dysfunction... How do you know if you have an anterior pelvic tilt? Look at your belt. If you belt points towards the floor, you have an anterior pelvic tilt. Or, look sideways in the mirror. does your butt stick out? Chances are that you have an anterior pelvic tilt. I'm gonna break bad posture in 2 sections, lower body and upper body. The lower body influences the upper body, but upper body doesn't always influence the lower body."
 
 ---
 
-**[There Is No Secure Software Supply-Chain](https://onengineering.substack.com/p/there-is-no-secure-software-supply)**  
+**[There Is No Secure Software Supply-Chain](https://web.archive.org/web/20230220190131/https://onengineering.substack.com/p/there-is-no-secure-software-supply)**  
 \- John McBride   
 **tl;dr**: "The security of open source software is under threat and we're running out of people to reliably maintain those projects. And as our stacks get deeper, our dependencies become more interlinked, leading to terrifying compromises in the secure software supply-chain. For a perfect example of what's happening in the open source world right now, we don't need to look much further than the extremely popular Gorilla toolkit for Go."
 

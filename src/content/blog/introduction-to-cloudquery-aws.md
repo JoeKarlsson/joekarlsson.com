@@ -211,7 +211,7 @@ As your AWS footprint grows - new accounts, new services, new teams - CloudQuery
 
 ---
 
-_Ready to get started? Learn more about [cloud asset inventory fundamentals](https://www.cloudquery.io/blog/what-is-cloud-asset-inventory), [design principles for effective inventories](https://www.cloudquery.io/blog/how-to-design-cloud-asset-inventory-aws), and [maximizing value from cloud visibility](https://www.cloudquery.io/blog/five-tips-maximum-value-cloud-asset-inventory)._
+_Ready to get started? Learn more about [cloud asset inventory fundamentals](https://www.cloudquery.io/blog/what-is-cloud-asset-inventory), [design principles for effective inventories](https://www.cloudquery.io/blog/how-to-design-cloud-asset-inventory-aws), and [maximizing value from cloud visibility](/blog/five-tips-maximum-value-cloud-asset-inventory/)._
 
 ## Video Transcript
 

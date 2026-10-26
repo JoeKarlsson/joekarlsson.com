@@ -42,7 +42,7 @@ _By: \[Author Unknown\]_
 
 tl;dr: The author explores alternative ways to represent Git hashes beyond the conventional hexadecimal format, experimenting with three unconventional methods: emoji, word and color representation of hashes. The author provides examples of these representations using recent commits from one of their repositories. The post emphasizes the experimental nature of these ideas.
 
-## [Enabling Good Work Habits Through Reflective Goal-Setting](https://newsletter.abinoda.com/p/reflective-goal-setting)
+## [Enabling Good Work Habits Through Reflective Goal-Setting](https://newsletter.getdx.com/p/reflective-goal-setting)
 
 _By: Abi Noda_
 

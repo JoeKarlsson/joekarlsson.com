@@ -22,7 +22,7 @@ _By: Mike Fisher_
 
 ---
 
-## [The Case Against Measuring Cycle Time](https://newsletter.abinoda.com/p/cycle-time)
+## [The Case Against Measuring Cycle Time](https://newsletter.getdx.com/p/cycle-time)
 
 _By: Abi Noda_
 

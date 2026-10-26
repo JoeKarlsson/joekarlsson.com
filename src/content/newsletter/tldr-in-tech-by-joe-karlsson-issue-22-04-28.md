@@ -6,7 +6,7 @@ issue: 20
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-04-28'
 ---
 
-[tl;dr: The ML model takes into account spatial and temporal features, such as the origin, destination and time of the request, as well information about real-time traffic and the nature of the request, such as whether it is a delivery dropoff or rideshare pickup."](https://eng.uber.com/deepeta-how-uber-predicts-arrival-times/)
+[tl;dr: The ML model takes into account spatial and temporal features, such as the origin, destination and time of the request, as well information about real-time traffic and the nature of the request, such as whether it is a delivery dropoff or rideshare pickup."](https://www.uber.com/us/en/blog/deepeta-how-uber-predicts-arrival-times/)
 
 [tl;dr: "If you agree with the notion that you need to be able to tell the difference between the absence of a value and a value itself, then this has some impacts on the code you write. If you want to keep 'em separated (so they can come out and play), then it gets you looking at your API designs in certain ways." The author shares her reactions to some of the ways a value can be returned.](https://rachelbythebay.com/w/2022/02/20/return/)
 

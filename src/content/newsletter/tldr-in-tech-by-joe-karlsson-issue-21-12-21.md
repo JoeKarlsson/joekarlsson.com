@@ -10,7 +10,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 [tl;dr: Some call community the newest "moat" for business today. No matter the sector, a vibrant community not only serves as a defensive hedge against the competition but can also drive learning, innovation, and value."](https://www.inc.com/patrick-woods/community-growth-tips-roblox-duolingo-poshmark-confluent-sephora.html)
 
-[\*NEW BLOG ALERT\* There are so many databases out there today! When picking your next database, it's vital to understand what problems you are attempting to solve, so you can pick one that will fit your needs today, and in the future. 🔮](https://www.singlestore.com/blog/4-questions-you-need-to-ask-when-choosing-a-database/)
+[\*NEW BLOG ALERT\* There are so many databases out there today! When picking your next database, it's vital to understand what problems you are attempting to solve, so you can pick one that will fit your needs today, and in the future. 🔮](https://web.archive.org/web/20211215044719/https://www.singlestore.com/blog/4-questions-you-need-to-ask-when-choosing-a-database/)
 
 [tl;dr:](https://cate.blog/2021/11/29/5-signs-its-time-to-quit-your-job/)
 
@@ -52,4 +52,4 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 ## Cool projects
 
-[Another Markdown editor? Yes please!](https://marktext.app/)
+[Another Markdown editor? Yes please!](https://github.com/marktext/marktext)

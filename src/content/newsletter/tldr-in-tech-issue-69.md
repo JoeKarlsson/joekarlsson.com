@@ -73,7 +73,7 @@ Free Data Engineering course. 
 
 ---
 
-**[What Happens When A CPU Starts](https://lateblt.tripod.com/bit68.txt)**
+**[What Happens When A CPU Starts](https://web.archive.org/web/20230327194921/https://lateblt.tripod.com/bit68.txt)**
 
 **tl;dr**: "Generally, when a CPU chip first receives power, it must be reset by receiving a pulse on its RESET (or RST) pin. This is because when the power supply is first powering up, even if it only takes a second or two, the CPU has already received "dirty" power, because the power supply was building up a steady stream of electricity."
 

@@ -18,7 +18,7 @@ _By: Unknown_
 
 tl;dr: This GitHub repository offers a C library implementation of NASA's ICER image compression algorithm. ICER is a progressive, wavelet-based algorithm designed for data loss resistance, making it suitable for encoding images transmitted over unreliable channels like satellite radio communications. A valuable resource for software engineers working with image compression or communication systems.
 
-## [Demand And ETR Forecasting At Airports](https://www.uber.com/en-IN/blog/demand-and-etr-forecasting-at-airports/)
+## [Demand And ETR Forecasting At Airports](https://www.uber.com/us/en/blog/demand-and-etr-forecasting-at-airports/)
 
 _By: Uber Engineering_
 

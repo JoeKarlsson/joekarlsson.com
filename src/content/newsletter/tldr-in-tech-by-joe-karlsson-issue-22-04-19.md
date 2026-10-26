@@ -74,4 +74,4 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 [Once we know how to weigh each, there are several models to consider: ownership, free-for-all, stewardship, and conservatorship, all discussed here.](https://bennorthrop.com/Essays/2022/code-ownership-stewardship-or-free-for-all.php)
 
-[tl;dr: "If you're here because you want to fix your GIF and want the quick answer, the solution is: set your frame delay to 20ms instead of 10ms. If you want to learn a bit more about GIFs, exactly why this edge case happens, and some thoughts on how to improve things, keep reading!"](https://www.biphelps.com/blog/The-Fastest-GIF-Does-Not-Exist)
+[tl;dr: "If you're here because you want to fix your GIF and want the quick answer, the solution is: set your frame delay to 20ms instead of 10ms. If you want to learn a bit more about GIFs, exactly why this edge case happens, and some thoughts on how to improve things, keep reading!"](https://web.archive.org/web/20220428175434/https://www.biphelps.com/blog/The-Fastest-GIF-Does-Not-Exist)

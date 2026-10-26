@@ -10,15 +10,15 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 _Photo by Umberto on Unsplash_
 
-[tl;dr: Airbnb went through this process by implementing the following practices:](https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
+[tl;dr: Airbnb went through this process by implementing the following practices:](https://web.archive.org/web/20220716173328/https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
 
-[1) Provide infrastructure as code to improve developer's productivity.](https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
+[1) Provide infrastructure as code to improve developer's productivity.](https://web.archive.org/web/20220716173328/https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
 
-[2) Clarify ownership and improve with tooling & observability.](https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
+[2) Clarify ownership and improve with tooling & observability.](https://web.archive.org/web/20220716173328/https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
 
-[3) Define a new architecture supported by organization & methods.](https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
+[3) Define a new architecture supported by organization & methods.](https://web.archive.org/web/20220716173328/https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
 
-[4) Lead a deprecation working group to accelerate the migration. Antoine discusses how each was solved.](https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
+[4) Lead a deprecation working group to accelerate the migration. Antoine discusses how each was solved.](https://web.archive.org/web/20220716173328/https://medium.com/qe-unit/airbnbs-microservices-architecture-journey-to-quality-engineering-d5a490e6ba4f)
 
 [tl;dr: "If I didn't have something like Heroku in my life I doubt that my career would be the same or even I would be the same person I am today. It's really hard to describe what having access to a platform that lets you turn ideas into production quality code does to your output ability. " The author also worked on the product at Salesforce. "I ended up working there and when I did I understood why Heroku had fallen so much."](https://xeiaso.net/blog/heroku-devex-2022-05-12)
 

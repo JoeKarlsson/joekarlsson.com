@@ -8,7 +8,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 **[tl;dr:](https://tiemoko.com/blog/vintage-tech-books/)** ["I enjoy collecting rare and vintage programming books. There's just something quaint about pre-internet computer books, with their dead-tree print editions and crude typesetting." Tiemo shares 3 favorites and sumarizes the backdrop of each.](https://tiemoko.com/blog/vintage-tech-books/)
 
-**[tl;dr:](https://2ality.com/2022/01/pipe-operator.html)** ["The proposal introduces a new operator. This operator is an idea borrowed from functional programming that makes applying functions more convenient in many cases. This post describes how the pipe operator works and what its use cases are (there are more than you might expect!)."](https://2ality.com/2022/01/pipe-operator.html)
+**[tl;dr:](https://web.archive.org/web/20220314014245/https://2ality.com/2022/01/pipe-operator.html)** ["The proposal introduces a new operator. This operator is an idea borrowed from functional programming that makes applying functions more convenient in many cases. This post describes how the pipe operator works and what its use cases are (there are more than you might expect!)."](https://web.archive.org/web/20220314014245/https://2ality.com/2022/01/pipe-operator.html)
 
 **[tl;dr:](https://jason-williams.co.uk/speeding-up-vscode-extensions-in-2022)** ["I was curious to know if the functionality of VSCode can catch up with the native speed of some editors, such as Sublime. That led me to seek out where some bottlenecks may be and where time is being spent. In this post, I look at both the internals and extensions."](https://jason-williams.co.uk/speeding-up-vscode-extensions-in-2022)
 
@@ -26,7 +26,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 **[tl;dr](https://netflixtechblog.com/fixing-performance-regressions-before-they-happen-eab2602b86fe?gif=true)**[: "This post describes how the Netflix TVUI team implemented a robust strategy to quickly and easily detect performance anomalies before they are released - and often before they are even committed to the codebase."](https://netflixtechblog.com/fixing-performance-regressions-before-they-happen-eab2602b86fe?gif=true)
 
-**[tl;dr](https://scribe.rip/the-cost-of-a-byte-3d675d00c25e)**[: "Researchers from MIT, Purdue, and Yale demonstrated that turning off the camera during a Zoom meeting shrinks the environmental footprint by 96%." This inspired Noah to think about a mobile app's carbon footprint and he shows us how adding or removing 1MB in app size can have a surprisingly large impact.](https://scribe.rip/the-cost-of-a-byte-3d675d00c25e)
+**[tl;dr](https://web.archive.org/web/20220327055336/https://scribe.rip/the-cost-of-a-byte-3d675d00c25e)**[: "Researchers from MIT, Purdue, and Yale demonstrated that turning off the camera during a Zoom meeting shrinks the environmental footprint by 96%." This inspired Noah to think about a mobile app's carbon footprint and he shows us how adding or removing 1MB in app size can have a surprisingly large impact.](https://web.archive.org/web/20220327055336/https://scribe.rip/the-cost-of-a-byte-3d675d00c25e)
 
 **[tl;dr:](https://www.infoq.com/articles/summary-podcast-2021-review/)**
 

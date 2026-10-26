@@ -52,7 +52,7 @@ tl;dr: The State of JS 2022 report highlights continued innovation in performanc
 
 tl;dr: This Github repository is a collection of generative AI applications that can help developers to explore new ways of utilizing AI. From language models to image generation, there are a variety of applications available for developers to experiment with.
 
-## [Crane: Uber's Next-Gen Infrastructure Stack](https://www.uber.com/en-IN/blog/crane-ubers-next-gen-infrastructure-stack/)
+## [Crane: Uber's Next-Gen Infrastructure Stack](https://www.uber.com/us/en/blog/crane-ubers-next-gen-infrastructure-stack/)
 
 tl;dr: Uber has been on a journey to reimagine their infrastructure stack for a hybrid, multi-cloud world. In this post, they discuss the requirements they needed to satisfy, the motivation behind Crane, and key features of their implementation.
 

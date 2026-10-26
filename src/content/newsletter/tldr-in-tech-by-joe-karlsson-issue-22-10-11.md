@@ -18,7 +18,7 @@ _Photo by Jess Bailey on Unsplash_
 
 [tl;dr: "The purpose of a software team is to provide valued capabilities to customers, internal or external. To do that, our software has to be up, it has to be fast enough, usable enough - a whole slew of properties that don't show up in JIRA." Jessica discusses 5 key properties - Availability, Security, Flow, Delight and Value - their measures, and questions they prompt.](https://jessitron.com/2022/04/23/five-measurements-you-should-make-and-then-ignore-plus-one-to-watch-intently/)
 
-[tl;dr: "Use feature requests as a breeding ground for the next generation of the system's architecture. By continuously evaluating what we are being asked to change, we can jump the gun and get to the next level faster and often more safely."](https://kislayverma.com/software-architecture/the-mechanics-of-software-evolution/)
+[tl;dr: "Use feature requests as a breeding ground for the next generation of the system's architecture. By continuously evaluating what we are being asked to change, we can jump the gun and get to the next level faster and often more safely."](https://web.archive.org/web/20221006203415/https://kislayverma.com/software-architecture/the-mechanics-of-software-evolution/)
 
 [As we emerge from the pandemic, employees are looking for more substantial offers that drive real value at the workplace. Will tech companies step up?](https://codesubmit.io/blog/workplace-perks/)
 

@@ -24,7 +24,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 [4) For every 45 minutes focused on something narrow, get 5 minutes of relaxation. And more.](https://medium.com/@juanpabloaranovich/optimizing-workspace-for-productivity-focus-creativity-fcc0f28b6fa9)
 
-**[tl;dr](https://www.leemeichin.com/posts/yes-i-can-connect-to-a-db-in-css.html)**[: "As the name might suggest, this is how you connect to a database using CSS. It only works in Chrome, unfortunately, but you can provide any SQLite database you like and query it via CSS."](https://www.leemeichin.com/posts/yes-i-can-connect-to-a-db-in-css.html)
+**[tl;dr](https://web.archive.org/web/20220407142132/https://www.leemeichin.com/posts/yes-i-can-connect-to-a-db-in-css.html)**[: "As the name might suggest, this is how you connect to a database using CSS. It only works in Chrome, unfortunately, but you can provide any SQLite database you like and query it via CSS."](https://web.archive.org/web/20220407142132/https://www.leemeichin.com/posts/yes-i-can-connect-to-a-db-in-css.html)
 
 **[tl;dr](https://daniel.haxx.se/blog/2022/02/02/curl-dash-dash-json/)**[: "This is a new option that basically works as an alias, or shortcut, to sending JSON to an endpoint."](https://daniel.haxx.se/blog/2022/02/02/curl-dash-dash-json/)
 

@@ -42,7 +42,7 @@ _By: Ashish Bhatia_
 
 tl;dr: Ashish Bhatia critiques GitHub's Actions template, pointing out its lack of dependency caching, cancelation of stale executions, path filtering, and timeouts. He also provides solutions for each issue. Software engineers working with GitHub Actions should take note of these potential pitfalls and suggested improvements.
 
-## [PSQL Tips](https://psql-tips.org/psql_tips_all.html)
+## [PSQL Tips](https://web.archive.org/web/20230609043908/https://psql-tips.org/psql_tips_all.html)
 
 tl;dr: Feast your eyes on 43 psql tips, like using the -c flag for single line commands, combining multiple -c flags, and displaying results as a CSV file with the --csv flag. PostgreSQL game strong! 💪
 

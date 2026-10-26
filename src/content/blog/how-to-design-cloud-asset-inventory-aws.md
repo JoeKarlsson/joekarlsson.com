@@ -222,7 +222,7 @@ These principles apply whether you're building internal solutions or evaluating 
 
 ---
 
-_Continue learning about cloud asset inventories with our guides on [what cloud asset inventories are](https://www.cloudquery.io/blog/what-is-cloud-asset-inventory), [maximizing value from inventories](https://www.cloudquery.io/blog/five-tips-maximum-value-cloud-asset-inventory), and [getting started with CloudQuery](https://www.cloudquery.io/blog/introduction-to-cloudquery-aws)._
+_Continue learning about cloud asset inventories with our guides on [what cloud asset inventories are](https://www.cloudquery.io/blog/what-is-cloud-asset-inventory), [maximizing value from inventories](/blog/five-tips-maximum-value-cloud-asset-inventory/), and [getting started with CloudQuery](https://www.cloudquery.io/blog/introduction-to-cloudquery-aws)._
 
 ## Video Transcript
 

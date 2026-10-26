@@ -40,6 +40,6 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-is
 
 [3) "This will be a success when…" - make this measurable and time-boxed.](https://larahogan.me/blog/delegation-is-an-art/)
 
-[tl;dr: "DX is about developer feelings - it is a sociotechnical system which should consider every touchpoint a developer interacts with to plan and produce software, from learning a platform to the very first line of code all the way through its promotion into production."](https://redmonk.com/jgovernor/2022/02/21/what-is-developer-experience-a-roundup-of-links-and-goodness/)
+[tl;dr: "DX is about developer feelings - it is a sociotechnical system which should consider every touchpoint a developer interacts with to plan and produce software, from learning a platform to the very first line of code all the way through its promotion into production."](https://web.archive.org/web/20220609141038/https://redmonk.com/jgovernor/2022/02/21/what-is-developer-experience-a-roundup-of-links-and-goodness/)
 
 [tl;dr: "Cypto-mania is not really about technology. If you want to understand what is going on, you need to understand it at the level of economics, culture and human nature." Luke asks the following 3 questions to evaluate cryptocurrencies: what problem does this try to solve? Does it actually solve it? What costs does it bring with it?](https://lukeplant.me.uk/blog/posts/the-technological-case-against-bitcoin-and-blockchain/)

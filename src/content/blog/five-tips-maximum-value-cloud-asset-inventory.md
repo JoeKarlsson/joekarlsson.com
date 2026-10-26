@@ -6,7 +6,6 @@ description: 'Discover five essential principles for building cloud asset invent
 categories: ['Work']
 tags: ['Cloud Infrastructure', 'Best Practices']
 heroImage: '/images/blog/five-tips-maximum-value-cloud-asset-inventory/thumbnail.webp'
-canonicalUrl: 'https://www.cloudquery.io/blog/five-tips-maximum-value-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "Building a cloud asset inventory isn't just about collecting data - it's about creating a business capability that drives measurable outcomes. Learn the five core principles that separate successful cloud asset inventory programs from failed implementations: focusing on business outcomes over technical features, engaging stakeholders across teams, prioritizing high-impact use cases, providing actionable intelligence, and planning for continuous improvement at scale."
 ---
@@ -162,7 +161,7 @@ Technology is the easy part. Organizational adoption is what determines whether 
 
 ---
 
-_Want to learn more about building effective cloud asset inventories? Check out our other resources on [designing cloud asset inventories for AWS](https://www.cloudquery.io/blog/how-to-design-cloud-asset-inventory-aws), [getting started with cloud asset inventory](https://www.cloudquery.io/blog/getting-started-with-cloud-asset-inventory), and [building multi-cloud asset inventories](https://www.cloudquery.io/blog/how-to-build-a-multi-cloud-asset-inventory) across your organization._
+_Want to learn more about building effective cloud asset inventories? Check out our other resources on [designing cloud asset inventories for AWS](https://www.cloudquery.io/blog/how-to-design-cloud-asset-inventory-aws), [getting started with cloud asset inventory](/blog/getting-started-with-cloud-asset-inventory/), and [building multi-cloud asset inventories](https://www.cloudquery.io/blog/how-to-build-a-multi-cloud-asset-inventory) across your organization._
 
 ## Video Transcript
 

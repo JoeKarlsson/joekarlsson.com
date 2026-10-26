@@ -38,7 +38,7 @@ tl;dr: AI coding tools aren't Skynet. They're here to help you learn (57%), be m
 
 ---
 
-## [How Google Measures And Manages Tech Debt](https://newsletter.abinoda.com/p/measuring-and-managing-tech-debt)
+## [How Google Measures And Manages Tech Debt](https://newsletter.getdx.com/p/measuring-and-managing-tech-debt)
 
 _By: Abi Noda_
 

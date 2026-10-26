@@ -30,13 +30,13 @@ _By: Eliran Turgeman_
 
 tl;dr: Eliran shares his best practices for logging. He believes that logging is an essential part of software development, as it helps with debugging, performance monitoring, and providing insight into how users are interacting with the application. Eliran shares tips for what to log, how to log it, and how to avoid common pitfalls such as over-logging, logging sensitive information, or logging too little information. By following these practices, Eliran believes that developers can create more effective and efficient logging systems.
 
-## [I Scanned Every Package On PyPi And Found 57 Live AWS Keys](https://tomforb.es/i-scanned-every-package-on-pypi-and-found-57-live-aws-keys/)
+## [I Scanned Every Package On PyPi And Found 57 Live AWS Keys](https://web.archive.org/web/20230705194659/https://tomforb.es/i-scanned-every-package-on-pypi-and-found-57-live-aws-keys/)
 
 _By: Tom Forbes_
 
 tl;dr: Tom shares his experience of scanning PyPi to find live AWS keys. Tom built a tool that automatically scans all new PyPi releases to notify AWS of potentially leaked keys. He also shares some analysis of the keys he found and draws some conclusions at the end. Tom recommends that developers use services such as AWS IAM roles and AWS Secrets Manager to better manage their access keys.
 
-## [Reverse Engineering TikTok's VM Obfuscation (Part 1)](https://ibiyemiabiodun.com/projects/reversing-tiktok-pt2/)
+## [Reverse Engineering TikTok's VM Obfuscation (Part 1)](https://web.archive.org/web/20230718010905/https://ibiyemiabiodun.com/projects/reversing-tiktok-pt2/)
 
 _By: Ibiyemi Abiodun_
 

@@ -6,7 +6,7 @@ issue: 85
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-85'
 ---
 
-## [Three-Bucket Framework For Engineering Metrics](https://newsletter.abinoda.com/p/choosing-engineering-metrics)
+## [Three-Bucket Framework For Engineering Metrics](https://newsletter.getdx.com/p/choosing-engineering-metrics)
 
 _By: Abi Noda_
 

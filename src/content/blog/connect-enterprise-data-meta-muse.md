@@ -56,7 +56,7 @@ Have these ready before you open Muse:
 
 **A** [**CData Connect AI account**](https://www.cdata.com/ai/) with at least one data source configured (Salesforce, HubSpot, NetSuite, or whichever system you want Muse to reach). If you don't have one yet, the [quick start guide](https://docs.cloud.cdata.com/en/Quick-Start-Guide?utm_source=cdata-blog&utm_medium=cta&utm_campaign=mcp&utm_content=connect-enterprise-data-meta-muse) walks through setup.
 
-**The MCP endpoint URL:** https://mcp.cloud.cdata.com/mcp
+**The MCP endpoint URL:** `https://mcp.cloud.cdata.com/mcp`
 
 **A personal access token (PAT)** from your [Connect AI Settings > Personal Access Tokens](https://cloud.cdata.com/settings); copy the token value when you create it, because it's only shown once
 
@@ -86,7 +86,7 @@ Prefix that output with Basic (capital B, one space) and you have the same strin
 
 ### Step 3: Note your MCP endpoint URL
 
-Your Connect AI MCP endpoint is always https://mcp.cloud.cdata.com/mcp. You can also confirm it on the [MCP Gateway page](https://cloud.cdata.com/ai-gateway/tool-servers) in Connect AI.
+Your Connect AI MCP endpoint is always `https://mcp.cloud.cdata.com/mcp`. You can also confirm it on the [MCP Gateway page](https://cloud.cdata.com/ai-gateway/tool-servers) in Connect AI.
 
 ![CData Connect AI MCP Gateway detail view showing the cdata-connect-mcp tool server, with the Agent URL field and the cdata MCP server listed as exposing all Connect data sources.](/images/blog/connect-enterprise-data-meta-muse/mcp-gateway-detail.webp)
 
@@ -96,7 +96,7 @@ Go to [muse.ai](https://muse.ai) and start a new chat. Type:
 
 _I'd like to connect a custom MCP data server for my enterprise data._
 
-Tell Muse the endpoint URL is https://mcp.cloud.cdata.com/mcp and that it uses API key authentication with the key going in the Authorization header. Muse will create a connector and ask you to connect.
+Tell Muse the endpoint URL is `https://mcp.cloud.cdata.com/mcp` and that it uses API key authentication with the key going in the Authorization header. Muse will create a connector and ask you to connect.
 
 ### Step 5: Enter your API key and confirm the connection
 
@@ -168,7 +168,7 @@ Add CData Connect AI as a custom connector in Muse and your agent can reach any 
 
 **Can Muse connect to Salesforce?**
 
-Not through a built-in connector as of September 2026. Muse's native connector list covers consumer and personal productivity apps. To connect Salesforce, add CData Connect AI as a custom connector in Muse using the MCP endpoint at https://mcp.cloud.cdata.com/mcp with a personal access token from your Connect AI settings. Once configured, you can query Salesforce data directly in your Muse conversation.
+Not through a built-in connector as of September 2026. Muse's native connector list covers consumer and personal productivity apps. To connect Salesforce, add CData Connect AI as a custom connector in Muse using the MCP endpoint at `https://mcp.cloud.cdata.com/mcp` with a personal access token from your Connect AI settings. Once configured, you can query Salesforce data directly in your Muse conversation.
 
 **Does this require any technical knowledge?**
 

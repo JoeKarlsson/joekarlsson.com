@@ -19,7 +19,7 @@ Welcome to this week's edition of _tl;dr in tech_! Buckle up, grab a cup of coff
 
 _Now, go forth and create some awesome content! 🤓_
 
-### 🏗️ [Let It Fail](https://www.maxcountryman.com/articles/let-it-fail) - Max Countryman
+### 🏗️ [Let It Fail](https://web.archive.org/web/20230329140538/https://www.maxcountryman.com/articles/let-it-fail) - Max Countryman
 
 **tl;dr:** Max shows us the beauty of letting things go kaput. Sometimes, we gotta let a situation implode to find the real gold underneath. Don't just put a Band-Aid on it; embrace the chaos and watch your business flourish! 🚀
 
@@ -47,7 +47,7 @@ _Narrow questions are so last year. It's time to go wide! 🌐_
 
 _Discontent? In tech? It's more likely than you think. 😏_
 
-### 🕵️ [Reverse Engineering A Mysterious UDP Stream In My Hotel](https://www.gkbrk.com/2016/05/hotel-music/) - Gokberk Yaltiraklileo
+### 🕵️ [Reverse Engineering A Mysterious UDP Stream In My Hotel](https://web.archive.org/web/20230330054629/https://www.gkbrk.com/2016/05/hotel-music/) - Gokberk Yaltiraklileo
 
 **tl;dr:** Gokberk's curiosity led him to discover a mysterious UDP stream at his hotel, and we're all invited to tag along for the ride. From smart TVs to Wireshark, let's snoop around and see what we can uncover! 🔍
 

@@ -8,7 +8,7 @@ substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-64'
 
 Hello loyal subscribers!
 
-As you may have noticed, [Revue](https://www.getrevue.co/) has gone the way of the dodo bird and closed its doors (Thanks, Elon 😤). But fear not! Your trusty newsletter has found a new home on [Substack](https://joekarlsson.substack.com), where it will continue to bring you the same great content with a fresh new look and feel. Just think of it as upgrading from a flip phone to an iPhone. So, say goodbye to Revue and hello to Substack! (And remember, if you're still using a flip phone, it's time for an upgrade!)
+As you may have noticed, [Revue](https://web.archive.org/web/20220616104810/https://www.getrevue.co/) has gone the way of the dodo bird and closed its doors (Thanks, Elon 😤). But fear not! Your trusty newsletter has found a new home on [Substack](https://joekarlsson.substack.com), where it will continue to bring you the same great content with a fresh new look and feel. Just think of it as upgrading from a flip phone to an iPhone. So, say goodbye to Revue and hello to Substack! (And remember, if you're still using a flip phone, it's time for an upgrade!)
 
 ---
 
@@ -30,7 +30,7 @@ Via: [Writing Docs Well: Why Should A Software Engineer Care?](https://surfingco
 
 _**tl;dr**_: "The Uber Eats system handles several hundred million product images and millions of image updates are performed every hour. We have implemented a content-addressable caching layer that very effectively detects duplicates and thereby reduces download times, processing times, and storage costs."
 
-Via: [Deduping And Storing Images At Uber Eats](https://ubr.to/3XAYJk6)
+Via: [Deduping And Storing Images At Uber Eats](https://www.uber.com/us/en/blog/deduping-and-storing-images-at-uber-eats/)
 
 ---
 

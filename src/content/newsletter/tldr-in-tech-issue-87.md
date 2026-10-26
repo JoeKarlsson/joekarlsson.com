@@ -42,6 +42,6 @@ _By: Krut Patel_
 
 tl;dr: Krut Patel shares an unexpected "memory leak" encountered when writing a Zig program. The focus is on a simple allocation pattern that causes a "leak" when using a particular allocator from Zig's stdlib. A captivating read for software engineers interested in memory management and Zig programming.
 
-## [Commandlinefu](https://www.commandlinefu.com/commands/browse)
+## [Commandlinefu](https://web.archive.org/web/20230729065441/https://www.commandlinefu.com/commands/browse)
 
 tl;dr: Commandlinefu is a treasure trove of command-line gems that users can record, share, comment on, discuss, and vote up or down. It's an excellent resource for software engineers looking to expand their command-line wisdom and learn from the experience of others.
