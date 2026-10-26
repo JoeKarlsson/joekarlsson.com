@@ -243,7 +243,7 @@ export const projects: Project[] = [
 	{
 		title: 'Digital Graffiti Wall',
 		description:
-			'An interactive art installation where audience members draw on a shared digital canvas that displays their creations in real-time on a physical RGB LED grid. Uses MongoDB Realm for instant cross-client data sync.',
+			'An interactive art installation where audience members draw on a shared digital canvas that displays their creations in real-time on a physical RGB LED grid. Uses MongoDB Realm for instant cross-client data sync. Since retired and replaced by PixelPane.',
 		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
 		imageAlt: 'Digital Graffiti Wall',
 		category: 'web',
