@@ -51,7 +51,7 @@ Not all five priorities are equally urgent, and the roadmap won't tell you which
 
 ## What already shipped
 
-The [2026-07-28 MCP release](https://www.cdata.com/blog/mcp-2026-07-28-release/) covers these in full. I'm not going to restate it here; read [that post](https://www.cdata.com/blog/mcp-2026-07-28-release/) if you want the mechanics. The short version of what's already in production:
+The [2026-07-28 MCP release](/blog/mcp-2026-07-28-release-explained) covers these in full. I'm not going to restate it here; read [that post](/blog/mcp-2026-07-28-release-explained) if you want the mechanics. The short version of what's already in production:
 
 Stateless core via [SEP-2575](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2575) and SEP-2567: no more server-pinned sessions. server/discover for upfront capability discovery. Cacheable list results (SEP-2549) with TTL metadata. Tasks as a first-class extension ([SEP-2663](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2663)). Multi Round-Trip Requests ([SEP-2322](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2322)) for server-initiated patterns without held SSE connections. Client ID Metadata Documents and Enterprise-Managed Authorization for corporate identity provider integration.
 
@@ -181,5 +181,5 @@ The March roadmap had four priorities: transport evolution and scalability, agen
 6. Model Context Protocol. [SEP-2663: Tasks Extension](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2663).
 7. Model Context Protocol. [SEP-2322: Multi Round-Trip Requests](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2322).
 8. [SEP-2133: Extensions Framework](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2133).
-9. [The 2026-07-28 MCP Release Explained: What It Means for Enterprise Teams](https://www.cdata.com/blog/mcp-2026-07-28-release/).
+9. [The 2026-07-28 MCP Release Explained: What It Means for Enterprise Teams](/blog/mcp-2026-07-28-release-explained).
 10. [RFC 8693: OAuth 2.0 Token Exchange](https://www.rfc-editor.org/rfc/rfc8693).
