@@ -79,7 +79,9 @@ Check what the page actually renders at before picking a width. The crop-art gal
 - **Vitest** tests build output and content schema (`tests/`). Config: `vitest.config.ts`
 - **Knip** detects unused dependencies and exports (`npm run test:unused`). Config: `knip.config.ts`
 - **Pre-commit hook** (husky) converts staged images, then lint-staged auto-formats and lints staged files
-- **Pre-push hook** runs the full `npm test`, so an unconverted or oversized image cannot be pushed
+- **Pre-push hook** checks the lockfile installs under npm 10, then runs the full `npm test`, so an unconverted or oversized image cannot be pushed
+- **Lockfile and npm versions**: CI uses the npm 10 bundled with Node 22. npm 12 can write a lockfile that npm 10's `npm ci` rejects (it dropped puppeteer's nested proxy-agent tree). After changing dependencies, regenerate with `npx npm@10 install --package-lock-only --ignore-scripts`; npm 12 accepts the result too
+- **Install scripts**: npm 12 blocks them unless listed in `allowScripts` in `package.json`. puppeteer (downloads headless Chrome for pa11y, Lighthouse, resume PDF) and fsevents are approved by name, so version bumps don't re-block them
 - All checks run in CI and will fail the build if issues are found
 
 ## CI/CD
