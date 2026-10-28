@@ -22,11 +22,45 @@ You can play a level Claude built from a demo company's Salesforce, Zendesk and 
   <iframe src="https://cdatasoftware.github.io/connect-ai-doom/" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-native-width="1280" data-native-height="720" style="border:0" allow="fullscreen; gamepad; autoplay" allowfullscreen loading="lazy"></iframe>
 </div>
 
+Here's how the two MCP servers fit together:
+
+```text
+BEFORE THE GAME: Claude builds the level
+
+  "What did I work on yesterday?"
+        |
+        v
+  Claude Code ----- MCP -----> Connect AI MCP server ---> your apps
+        |                      (read-only tools)
+        v
+  rooms, records, permissions, refusals
+        |
+        v
+  map builder ---> Doom level
+
+
+WHILE YOU PLAY: Claude plays it
+
+  Claude Code ----- MCP -----> Doom MCP server: look, go_to, attack
+        |                           |
+        |                           |  command file in, state.json out
+        |                           v
+        |                      Doom (patched psdoom-ng)
+        |                           ^
+        |                           |  local files only
+        |                           |
+        |                      bridge (an MCP client)
+        |                           |  re-runs each room's query every 15 s,
+        |                           |  re-reads kills, re-asks at the red door
+        |                           v
+        +------- MCP -------> Connect AI MCP server
+```
+
 ## How Claude plays Doom
 
 When I ran this at the CData booth at [AGNTCon + MCPCon](https://events.linuxfoundation.org/agntcon-mcpcon-north-america/) in San Jose last week, most of the questions were about the tool calls: how Claude moves the marine, and how you'd do the same thing with another game, so I'll answer both here.
 
-Claude doesn't get a keyboard. Doom runs at 35 tics a second, and a model takes a few seconds to decide anything, so a tool like "press W" would have the marine dead before Claude finished its first thought. Most "LLM plays a game" projects I've seen go the other way, feeding the model screenshots and letting it press buttons, and that's hard: in the 2025 [VideoGameBench](https://arxiv.org/abs/2505.18134) paper, the best model completed 0.48% of the benchmark. So I gave Claude verbs, and this is the whole tool list:
+Claude doesn't get a keyboard. Doom runs at 35 tics a second, and a model takes a few seconds to decide anything, so a tool like "press W" would have the marine dead before Claude finished its first thought. Most "LLM plays a game" projects I've seen go the other way, feeding the model screenshots and letting it press buttons, and that's hard/expensive: in the 2025 [VideoGameBench](https://arxiv.org/abs/2505.18134) paper, the best model completed 0.48% of the benchmark. So I gave Claude verbs, and this is the whole tool list:
 
 ```python
 TOOLS = {
