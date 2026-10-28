@@ -72,6 +72,12 @@ node scripts/resize-webp.mjs --max-width 1200 [--quality 82] [--dry-run] <paths.
 
 Check what the page actually renders at before picking a width. The crop-art gallery on `/about` declares `width="300"` with `object-cover` and links out to cropart.com rather than to a full-size image, so 1200px is already generous there.
 
+### Iframe embeds
+
+The CSP `frame-src` allows only YouTube, TikTok and `cdatasoftware.github.io`. A new embed origin is blocked silently in production (local dev and preview have no CSP, so it looks fine there). Add the origin to `frame-src` in `~/claude/opentofu/services/joekarlsson-astro/provision.sh.tpl` (deployed) and in this repo's `Caddyfile` (reference), then deploy.
+
+For an embed that refuses to run below a minimum window size (the Connect AI × DOOM web build needs 900x560), give the iframe `data-native-width`/`data-native-height` inside an `aspect-video overflow-hidden` wrapper. `src/scripts/scale-to-fit-embed.ts` renders it at that size and scales it down to fit.
+
 ## Code Quality
 
 - **Prettier** formats all code (`npm run format`). Config: `.prettierrc`
