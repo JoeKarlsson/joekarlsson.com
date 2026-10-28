@@ -528,6 +528,18 @@ const {
 				// ===== Utilities =====
 				const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+				function trackEvent(name, props) {
+					if (typeof window.plausible === 'function') window.plausible(name, { props: props });
+				}
+
+				// Once per egg per page load, so mashing the cat counts one find
+				const eggsFound = new Set();
+				function trackEasterEgg(egg) {
+					if (eggsFound.has(egg)) return;
+					eggsFound.add(egg);
+					trackEvent('Easter Egg Found', { egg: egg });
+				}
+
 				// ===== ASCII Cat Eye Tracking =====
 				const catEl = document.getElementById('ascii-cat');
 				const catEyes = document.getElementById('cat-eyes');
@@ -575,6 +587,7 @@ const {
 
 					// Meow on click
 					catEl.addEventListener('click', function () {
+						trackEasterEgg('cat-meow');
 						if (catTooltip) {
 							catTooltip.className = 'cat-tooltip-visible';
 							clearTimeout(catEl._meowTimer);
@@ -648,6 +661,7 @@ const {
 						desc: 'Subscribe via RSS',
 						icon: '*',
 						action: function () {
+							trackEvent('RSS Click', { feed: 'blog' });
 							window.location.href = '/rss.xml';
 						},
 					},
@@ -682,6 +696,7 @@ const {
 				function openPalette() {
 					if (paletteOpen) return;
 					paletteOpen = true;
+					trackEasterEgg('command-palette');
 					previousFocus = document.activeElement;
 					overlay.classList.remove('cmd-palette-hidden');
 					overlay.style.display = 'flex';
@@ -873,6 +888,7 @@ const {
 				}
 
 				function triggerKonami() {
+					trackEasterEgg('konami');
 					clearKonamiTimers();
 					konamiOverlay.classList.remove('konami-hidden');
 					konamiOverlay.style.display = 'flex';
@@ -1040,6 +1056,7 @@ const {
 		<script>
 			import '../scripts/in-view-play';
 			import '../scripts/scale-to-fit-embed';
+			import '../scripts/track-embed-play';
 		</script>
 	</body>
 </html>
