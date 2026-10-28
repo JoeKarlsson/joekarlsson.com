@@ -26,6 +26,14 @@ I've been a database developer advocate for years, and the hard part of the job 
 
 So I put an MCP server inside Doom. **Connect AI × DOOM** turns an AI agent's MCP calls into a Doom level, and as far as I can find, it's the first Doom level built out of MCP data. You ask Claude a question, it pulls the answer out of your apps through the [CData Connect AI](https://www.cdata.com/ai/) MCP server (I work at CData, which makes it), and every monster in the level is a live record it found. I built the first version in one night, and on October 22-23, 2026, it was the centerpiece of our booth at [AGNTCon + MCPCon](#taking-it-to-agntcon--mcpcon) in San Jose. The code is [on GitHub](https://github.com/CDataSoftware/connect-ai-doom), and there's a short overview on the [project page](/work/connect-ai-doom/).
 
+## Play it in your browser
+
+You can play it right here. Claude built this level from a demo company's Salesforce, Zendesk and Stripe through the Connect AI MCP server. Click the game to start. It needs a keyboard and mouse (WASD to move, click to fire, Esc frees the mouse), or you can hit **Watch Claude play** and let the agent drive. It's scaled down to fit this page, so [open it full screen](https://cdatasoftware.github.io/connect-ai-doom/) for the real thing.
+
+<div class="aspect-video overflow-hidden rounded-lg border border-surface-3">
+  <iframe src="https://cdatasoftware.github.io/connect-ai-doom/" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-native-width="1280" data-native-height="720" style="border:0" allow="fullscreen; gamepad; autoplay" allowfullscreen loading="lazy"></iframe>
+</div>
+
 ## Data is hard to show
 
 Every data demo I've given ends the same way: a query, a result set, and me saying "and that's live" while the room takes my word for it, because a table of rows looks the same whether it's live or not.
@@ -102,14 +110,6 @@ _The Zendesk room. Every monster is a support ticket._
 _The PII vault: data Connect AI refused to hand over, behind a door with no key._
 
 Shoot a monster and the game reads that record again from the source app, so what's on screen stays current. You can play it yourself, or let Claude play through a second MCP server that controls the marine, while the side panel shows every decision and tool call it makes. Nothing in your apps ever changes. I'm saving the full build story for the CData blog.
-
-## Play it in your browser
-
-We also shipped a web version, so you can play it right here. Claude built this level from a demo company's Salesforce, Zendesk and Stripe through the Connect AI MCP server. Click the game to start. It needs a keyboard and mouse (WASD to move, click to fire, Esc frees the mouse), or you can hit **Watch Claude play** and let the agent drive. It's scaled down to fit this page, so [open it full screen](https://cdatasoftware.github.io/connect-ai-doom/) for the real thing.
-
-<div class="aspect-video overflow-hidden rounded-lg border border-surface-3">
-  <iframe src="https://cdatasoftware.github.io/connect-ai-doom/" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-native-width="1280" data-native-height="720" style="border:0" allow="fullscreen; gamepad; autoplay" allowfullscreen loading="lazy"></iframe>
-</div>
 
 ## Taking it to AGNTCon + MCPCon
 
