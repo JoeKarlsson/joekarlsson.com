@@ -13,6 +13,10 @@ export interface ProjectPage {
 	slug: string;
 	tagline: string;
 	intro: string[];
+	// A web-playable build, embedded under the intro at 1280x720 and scaled to fit
+	// (src/scripts/scale-to-fit-embed.ts). Its origin must be in the CSP frame-src
+	// (Caddyfile and the OpenTofu provision template)
+	embedUrl?: string;
 	steps?: { title: string; text: string }[];
 	install?: string;
 	example?: {
@@ -302,6 +306,7 @@ export const projects: Project[] = [
 		category: 'dev-tools',
 		tech: ['Python', 'Claude Code', 'MCP', 'CData Connect AI', 'psdoom-ng', 'SQL'],
 		sourceUrl: 'https://github.com/CDataSoftware/connect-ai-doom',
+		demoUrl: 'https://cdatasoftware.github.io/connect-ai-doom/',
 		blogUrl: '/blog/why-i-use-doom-to-visualize-mcp-data/',
 		featured: true,
 		page: {
@@ -309,8 +314,10 @@ export const projects: Project[] = [
 			tagline: 'Doom built from live business data, where every monster is a real record.',
 			intro: [
 				'You ask Claude a business question, like "Which customers are at risk right now?" Claude answers it through the CData Connect AI MCP server, and the answer becomes a Doom level. Each room is an app that holds part of the answer, like Salesforce, Zendesk or Stripe. Each monster is a record from that app, and the urgent ones are pink demons. Keycards match your permissions, and anything Connect AI refused to hand over, like a lookup by Social Security number, sits behind a red door with no key.',
-				"You can play it yourself, or let Claude play while a side panel shows every decision and tool call it makes. Shoot a record and the game re-reads it live from the source app. Everything goes through Connect AI's read-only tools, so nothing in your apps changes. It runs on a Mac, and setup takes about ten minutes.",
+				"You can play it yourself, or let Claude play while a side panel shows every decision and tool call it makes. Shoot a record and the game re-reads it live from the source app. Everything goes through Connect AI's read-only tools, so nothing in your apps changes. The full version runs on a Mac, and setup takes about ten minutes.",
+				"Or play it right here: the web version below is a level Claude built from a demo company's Salesforce, Zendesk and Stripe. No install or account needed. It needs a keyboard and mouse.",
 			],
+			embedUrl: 'https://cdatasoftware.github.io/connect-ai-doom/',
 			steps: [
 				{
 					title: 'Query',

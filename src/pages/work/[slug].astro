@@ -125,6 +125,40 @@ const inline = (text: string) =>
 			))}
 		</div>
 
+		{page.embedUrl && (
+			<section class="mb-10" aria-labelledby="play-it">
+				<h2 id="play-it" class="mb-2 text-lg font-bold text-white">
+					<span class="font-mono text-sm text-coral" aria-hidden="true">
+						~$
+					</span>{' '}
+					play it
+				</h2>
+				<p class="mb-4 text-sm text-gray-400">
+					Click the game to play.{' '}
+					<a
+						href={page.embedUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-coral hover:text-teal"
+					>
+						Open it full screen &rarr;
+					</a>
+				</p>
+				<div class="aspect-video overflow-hidden rounded-lg border border-surface-3">
+					<iframe
+						src={page.embedUrl}
+						title={`${project.title}, playable in the browser`}
+						data-native-width="1280"
+						data-native-height="720"
+						style="border:0"
+						allow="fullscreen; gamepad; autoplay"
+						allowfullscreen
+						loading="lazy"
+					></iframe>
+				</div>
+			</section>
+		)}
+
 		{page.steps && (
 			<section class="mb-10" aria-labelledby="how-it-works">
 				<h2 id="how-it-works" class="mb-4 text-lg font-bold text-white">

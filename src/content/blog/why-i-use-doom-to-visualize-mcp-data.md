@@ -1,29 +1,30 @@
 ---
-title: 'Why I use DOOM to visualize MCP data'
+title: 'I put an MCP server inside DOOM'
 date: 2026-10-16T14:47:57Z
+updatedDate: 2026-10-28
 slug: 'why-i-use-doom-to-visualize-mcp-data'
-description: 'MCP data is just rows and JSON, so I built Doom out of it: an AI agent pulls live records through an MCP server, and each one becomes a monster.'
+description: 'An MCP server inside DOOM: an AI agent pulls live records over MCP and each becomes a monster. The first level built from MCP data, shown at MCPCon 2026.'
 categories: ['Dev Tools', 'DevRel']
 tags: ['MCP', 'Doom', 'CData Connect AI', 'Claude', 'developer marketing', 'demos']
 heroImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp'
 heroAlt: 'Connect AI × DOOM: a pink demon labeled with an urgent Salesforce deal for European Financial Holdings, next to a side panel showing the Salesforce, Zendesk and Stripe rooms, the red door PII vault, and Claude heading into room 1'
-tldr: "Data is hard to show off. Databases are rows and columns, and MCP servers hand back JSON. So I built Connect AI × DOOM: you ask Claude a business question, it pulls the answer out of your apps through the CData Connect AI MCP server, and the answer becomes a Doom level where every monster is a live record. I built the first version in one night without asking anyone, showed it around, and it's now the foundation of my team's developer marketing and event plans. KubeDOOM and doom-mcp came first, but as far as I can find, nobody had put MCP data inside a Doom level before. It's open source."
+tldr: "I put an MCP server inside Doom. Connect AI × DOOM is, as far as I can find, the first Doom level built out of MCP data. You ask Claude a business question, it pulls the answer out of your apps through the CData Connect AI MCP server, and the answer becomes a Doom level where every monster is a live record. KubeDOOM turned pods into monsters and doom-mcp lets an agent play Doom, but I couldn't find anyone who had built the level out of MCP data. I built the first version in one night without asking anyone, and in October 2026 I ran it at the CData booth at AGNTCon + MCPCon North America in San Jose, where hundreds of people stopped by to play it. It's open source, and you can play it in your browser."
 faq:
   - question: 'What is Connect AI × DOOM?'
     answer: 'A version of Doom built from live business data. Claude answers a question through the CData Connect AI MCP server, each app it uses becomes a room, each record becomes a monster, and data Connect AI blocked sits behind a red door with no key.'
   - question: 'Does Connect AI × DOOM change data in my apps?'
     answer: 'No. Every call goes through the Connect AI MCP server with read-only tools only, so shooting a monster reads the record again instead of changing it.'
-  - question: 'How is this different from KubeDOOM or doom-mcp?'
-    answer: 'KubeDOOM turns Kubernetes pods into monsters, and doom-mcp lets an AI agent play Doom. Connect AI × DOOM builds the level itself from the data an agent found over MCP.'
+  - question: 'Is Connect AI × DOOM the first MCP server inside Doom?'
+    answer: 'It is the first Doom level built from MCP data that I can find. KubeDOOM turns Kubernetes pods into monsters, and doom-mcp lets an AI agent play Doom. Connect AI × DOOM is the first to build the level itself out of the data an agent pulled through an MCP server.'
   - question: 'Do I need a Connect AI account to try Connect AI × DOOM?'
-    answer: 'Not for the offline demo. Running ./raid.sh offline plays a level built from made-up data with no account. Live data needs a Connect AI account.'
+    answer: 'No. The web version at cdatasoftware.github.io/connect-ai-doom plays in your browser with a level built from a demo company, and ./raid.sh offline plays made-up data locally. Live data from your own apps needs a Connect AI account.'
   - question: 'Can an AI agent play Doom over MCP?'
     answer: 'Yes. doom-mcp by Gunnar Grosch lets an agent play Doom, and Connect AI × DOOM gives Claude a second MCP server that controls the marine while a side panel shows every tool call.'
 ---
 
 I've been a database developer advocate for years, and the hard part of the job has never been explaining databases. It's making them look like anything. Data is rows and columns (like a boring Excel spreadsheet), and MCP servers, which is what I work with now, hand back JSON. Put a chat window on a projector at a conference booth and let an AI agent query five apps, and to everyone walking past, it looks like someone reading their email.
 
-So I put the data in Doom. **Connect AI × DOOM** turns an AI agent's MCP calls into a Doom level. You ask Claude a question, it pulls the answer out of your apps through the [CData Connect AI](https://www.cdata.com/ai/) MCP server (I work at CData, which makes it), and every monster in the level is a live record it found. I'd mentioned the idea before and nobody cared. I built the first version in one night, people saw it running and loved it, and it's now how my team shows off Connect AI. The code is [on GitHub](https://github.com/CDataSoftware/connect-ai-doom), and there's a short overview on the [project page](/work/connect-ai-doom/).
+So I put an MCP server inside Doom. **Connect AI × DOOM** turns an AI agent's MCP calls into a Doom level, and as far as I can find, it's the first Doom level built out of MCP data. You ask Claude a question, it pulls the answer out of your apps through the [CData Connect AI](https://www.cdata.com/ai/) MCP server (I work at CData, which makes it), and every monster in the level is a live record it found. I built the first version in one night, and on October 22-23, 2026, it was the centerpiece of our booth at [AGNTCon + MCPCon](#taking-it-to-agntcon--mcpcon) in San Jose. The code is [on GitHub](https://github.com/CDataSoftware/connect-ai-doom), and there's a short overview on the [project page](/work/connect-ai-doom/).
 
 ## Data is hard to show
 
@@ -56,11 +57,11 @@ The joke gets people to look. What makes Doom work for data is that everyone alr
 
 ![Trade Offer meme: the trade offer guy in a suit, with i receive: 30 seconds of your attention at the booth, and you receive: shooting a Salesforce deal in the face](/images/blog/why-i-use-doom-to-visualize-mcp-data/meme-trade-offer.webp)
 
-## KubeDOOM and doom-mcp got there first
+## KubeDOOM and doom-mcp
 
 I'm not the first person to wire a real system into Doom, and they deserve credit. [psDooM](https://psdoom.sourceforge.net/), from the late '90s, turned your Unix processes into monsters, and shooting one killed the process. [KubeDOOM](https://github.com/storax/kubedoom) did the same for Kubernetes pods in 2019. I'd heard of KubeDOOM from [an article about using it for chaos engineering](https://k8s.co.il/infrastructure/deploying-kubedoom-for-chaos-engineering-in-kubernetes/). Then in March 2026, Gunnar Grosch released [doom-mcp](https://github.com/gunnargrosch/doom-mcp), an MCP server that lets an AI agent play Doom.
 
-What I hadn't seen was anyone putting MCP data inside the level. doom-mcp hands the agent a game. I wanted the game to show what the agent found. As far as I can find, nobody had done that.
+What I hadn't seen was a level built out of what the agent found. doom-mcp gives the agent a game to play, but the level is still regular Doom. I couldn't find anyone who had built one from MCP data.
 
 ## I built the MVP in one night
 
@@ -102,10 +103,38 @@ _The PII vault: data Connect AI refused to hand over, behind a door with no key.
 
 Shoot a monster and the game reads that record again from the source app, so what's on screen stays current. You can play it yourself, or let Claude play through a second MCP server that controls the marine, while the side panel shows every decision and tool call it makes. Nothing in your apps ever changes. I'm saving the full build story for the CData blog.
 
+## Play it in your browser
+
+We also shipped a web version, so you can play it right here. Claude built this level from a demo company's Salesforce, Zendesk and Stripe through the Connect AI MCP server. Click the game to start. It needs a keyboard and mouse (WASD to move, click to fire, Esc frees the mouse), or you can hit **Watch Claude play** and let the agent drive. It's scaled down to fit this page, so [open it full screen](https://cdatasoftware.github.io/connect-ai-doom/) for the real thing.
+
+<div class="aspect-video overflow-hidden rounded-lg border border-surface-3">
+  <iframe src="https://cdatasoftware.github.io/connect-ai-doom/" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-native-width="1280" data-native-height="720" style="border:0" allow="fullscreen; gamepad; autoplay" allowfullscreen loading="lazy"></iframe>
+</div>
+
+## Taking it to AGNTCon + MCPCon
+
+On October 22-23, 2026, I took Connect AI × DOOM to [AGNTCon + MCPCon North America](https://events.linuxfoundation.org/agntcon-mcpcon-north-america/) in San Jose, the Linux Foundation's conference for MCP and AI agents, and ran it on the big screen at the CData booth. It went over better than I'd hoped, and it was the most fun I've had at a booth. Hundreds of people stopped by, and a lot of them grabbed the controls and played it while I walked them through it: which app each room came from, which record each monster was, and why the red door won't open.
+
+![Me at the CData booth explaining Connect AI × DOOM to a small crowd while someone films the screen on their phone, with the Doom level and the side panel of MCP tool calls on a big TV behind me](/images/blog/why-i-use-doom-to-visualize-mcp-data/booth-demo.webp)
+
+At an MCP conference, everyone walking the expo floor is looking at chat windows and architecture diagrams all day. A Doom level on a big screen stopped people from across the hall, and once they stopped, I could show them the real thing: an agent hitting an MCP server, getting data back, and getting refused.
+
+![The CData booth from the aisle, with a crowd gathered in front of the Doom demo on the big screen while I talk someone through it](/images/blog/why-i-use-doom-to-visualize-mcp-data/booth-crowd.webp)
+
+We made shirts for it, too: CDATA in the Doom logo lettering, and the whole team wore them at the booth.
+
+![A black t-shirt with CDATA printed in the orange-and-blue lettering of the Doom logo](/images/blog/why-i-use-doom-to-visualize-mcp-data/doom-shirt.webp)
+
+![The CData team posing at the booth in matching CDATA Doom shirts, with the Doom demo running on the screen to the right](/images/blog/why-i-use-doom-to-visualize-mcp-data/team-shirts.webp)
+
+I also wasn't the only one running Doom on the expo floor. Even at an AI conference, "can it run Doom?" still works: I spotted an Arm developer badge with a small screen on it, running Doom.
+
+![An Arm Create developer badge held in someone's hand, with a small built-in screen running Doom](/images/blog/why-i-use-doom-to-visualize-mcp-data/arm-badge-doom.webp)
+
 ## Where it's at now
 
-It's early, but the buzz has been good, and Connect AI × DOOM is now the foundation of my team's developer marketing campaign and our event strategy.
+My team built our developer marketing campaign and our event plans around Connect AI × DOOM, and after San Jose I'm sure that was the right call.
 
-What changed for me is how I think about demos. For years I tried to make data interesting by explaining it better, and I'd tried pitching this idea with words too. Neither worked as well as showing people something they already knew how to read. So if you're stuck explaining your data, look for a picture your audience already understands, and sometimes you just have to go build the thing.
+For years I tried to make data interesting by explaining it better, and I'd tried pitching this idea with words too. Neither worked as well as showing people something they already knew how to read. If you're stuck explaining your data, look for a picture your audience already understands.
 
-If you want to try it, the [repo](https://github.com/CDataSoftware/connect-ai-doom) sets everything up on a Mac in about ten minutes. Live data needs a Connect AI account, and `./raid.sh offline` plays with made-up data if you don't have one.
+To run it on your own data, the [repo](https://github.com/CDataSoftware/connect-ai-doom) sets everything up on a Mac in about ten minutes. Live data needs a Connect AI account, and `./raid.sh offline` plays with made-up data if you don't have one.
