@@ -2,15 +2,26 @@
 title: 'I wired Doom to two MCP servers and let Claude play it'
 date: 2026-10-28T14:16:52Z
 slug: 'i-wired-doom-to-two-mcp-servers'
-description: 'How Claude plays a Doom level built from live app data over two MCP servers, how I raced other AI models through it, and what still breaks.'
+description: 'I built a Doom MCP server so Claude Code can play Doom, built the level from live MCP data, and raced AI models through it.'
 categories: ['Dev Tools']
-tags: ['MCP', 'Doom', 'Claude', 'AI agents', 'CData Connect AI', 'LLM benchmarks']
+tags: ['MCP', 'Doom', 'Claude', 'Claude Code', 'AI agents', 'CData Connect AI', 'LLM benchmarks']
 heroImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp'
 heroAlt: 'Connect AI × DOOM: Claude aiming at a pink demon labeled with an urgent Salesforce deal, next to a side panel listing the Salesforce, Zendesk and Stripe rooms and every tool call Claude makes'
 tldr: "Doom runs as an MCP server here, with three tools (look, go_to and attack) in about 30 lines of Python and no SDK, so Claude can play it. The level comes from a second MCP server, CData Connect AI: every app Claude pulls from to answer a question becomes a room and every record becomes a monster, which makes it the world's first Doom level built out of MCP data. I raced other models through the same level with the same prompt and tools, scored from the game's state: Claude Haiku cleared 6 of 8 runs at about 7 cents a run, Gemini 3.7 Flash cleared none and went after a refused Social Security number another way in 3 of 8 runs, and half of Sonnet's runs got blocked three moves in. It's 32 runs on one level, so treat it as an anecdote. You can play it in your browser."
+faq:
+  - question: 'Can Claude play Doom?'
+    answer: 'Yes. In Connect AI × DOOM, Claude Code plays through a Doom MCP server with three tools: look, go_to and attack. Claude names a place or a monster, Python plans the route, and a patch to the engine steers every tic, so Claude never presses a key or sees a pixel.'
+  - question: 'Can AI play Doom?'
+    answer: "Yes, with a catch. Models that play from screenshots and keypresses struggle: in the 2025 VideoGameBench paper, the best model completed 0.48% of the benchmark. Giving the model high-level tools works far better, but then it's tested on its decisions, not its aim."
+  - question: 'What is a Doom MCP server?'
+    answer: 'A program that exposes Doom to an AI agent through the Model Context Protocol, so the agent can call tools like look, go_to and attack. This one is about 30 lines of Python with no SDK, on top of a command file the patched game reads every tic.'
+  - question: 'How is the Doom level built from MCP data?'
+    answer: "Claude answers a question through the Connect AI MCP server and picks the apps that answer it. Each app becomes a room and each record a monster, the connection's permissions set the keycard colors, and a request the server refused becomes a red door with no key."
+  - question: 'Is Connect AI × DOOM open source?'
+    answer: 'Yes. It is MIT licensed on GitHub, runs on a Mac, plays offline with made-up data, and has a version you can play in the browser.'
 ---
 
-I wired Doom to two MCP servers. One is Doom itself, exposed as an MCP server so Claude can play it. The other is a data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests and Slack threads. It's the world's first Doom level built out of MCP data.
+I wired Doom to two MCP servers. One is a Doom MCP server, so Claude can play the game. The other is a data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests and Slack threads. It's the world's first Doom level built out of MCP data.
 
 This post covers how it works: how Claude plays Doom with three tool calls, how the level gets built from the MCP server's data, how I raced other AI models through the same level, and what's still broken.
 
@@ -100,7 +111,7 @@ So when I say Claude understands the game, I mean it understands a short list of
 
 ### The game side
 
-I didn't teach Doom to speak JSON-RPC. The engine is [psdoom-ng](https://github.com/keymon/psdoom-ng), the Doom fork where monsters are Unix processes, and my patch adds a dumb agent channel to it. Each tic, the game checks a file for one command per line (`MOVE x y`, `TURN deg`, `ATTACK pid` and a few more) and writes everything it knows (the marine, its keycards, every monster) to `state.json`. Every `pid` maps back to a record from the data server, which is how `look` can tell Claude that monster 499785 is a Salesforce deal. On top of all that sits the MCP server itself, about [30 lines of Python](https://github.com/CDataSoftware/connect-ai-doom/blob/main/play.py) with no SDK, which lists the three tools and calls them.
+I didn't teach Doom to speak JSON-RPC. The engine is [psdoom-ng](https://github.com/keymon/psdoom-ng), the Doom fork where monsters are Unix processes, and my patch adds a dumb agent channel to it. Each tic, the game checks a file for one command per line (`MOVE x y`, `TURN deg`, `ATTACK pid` and a few more) and writes everything it knows (the marine, its keycards, every monster) to `state.json`. Every `pid` maps back to a record from the data server, which is how `look` can tell Claude that monster 499785 is a Salesforce deal. On top of all that sits the MCP server itself, about [30 lines of Python](https://github.com/CDataSoftware/connect-ai-doom/blob/main/play.py) with no SDK, which lists the three tools and calls them. (If you're building a real one, I wrote up the [MCP server gotchas we hit](/blog/mcp-server-gotchas-we-learned-the-hard-way/).)
 
 ### What the tool calls look like
 
