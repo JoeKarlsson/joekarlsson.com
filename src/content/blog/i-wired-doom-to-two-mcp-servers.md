@@ -16,29 +16,22 @@ So Doom talks MCP in both directions: it pulls its world from one server and han
 
 I work on MCP servers (I'm at CData, which makes the [Connect AI](https://www.cdata.com/ai/) MCP server this uses), and MCP data is hard to see. An agent calls a tool, gets JSON back, and the best anyone does with it is a table that looks like a spreadsheet. I wanted to walk around in it, and [KubeDOOM](https://github.com/storax/kubedoom), which turns Kubernetes pods into monsters, gave me the idea. I wrote about why I picked Doom in [I put an MCP server inside DOOM](/blog/why-i-use-doom-to-visualize-mcp-data/).
 
-## Drawing MCP data as a level
+## Building the level from MCP data
 
-An MCP server sends back more than rows. When Claude works through Connect AI, three kinds of things come back: the records, what each connection lets you do, and the requests it refused. A chat window shows the records as a table, and the other two end up as a line of red text halfway up a transcript, if they show up at all. I wanted all three on screen, in a form people already know how to read. Here's where each piece goes:
+As far as I can find, nobody had built a Doom level out of MCP data before. [doom-mcp](https://github.com/gunnargrosch/doom-mcp) and the other Doom MCP servers let an agent play regular Doom. Here, the level itself is what the agent found. Claude explores the apps through Connect AI's read-only tools, picks the three that answer the question, and pulls one list of records from each. Every list comes back with the same four fields (an ID, a name, a detail line and an urgent flag), and those four fields are all a room needs, so any app can become one.
 
-| From the MCP server                                                      | In the game                                                       |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| A connection Claude used (Salesforce, Zendesk, Stripe)                   | A room, themed after the app                                      |
-| A record                                                                 | A monster, with the record's name over its head                   |
-| The record's key fact ("$99779.00 Negotiation/Review, close 2026-09-15") | The text under the crosshair when you aim at it                   |
-| An urgent record                                                         | The biggest monster in the room                                   |
-| The connection's permissions                                             | The door's keycard: blue for read-only, yellow for read and write |
-| A request the server refused                                             | The red door, which has no key                                    |
-| A result that came back with values masked as `XXXX`                     | Flagged on the side panel                                         |
+| From the MCP server                                    | In the game                                                       |
+| ------------------------------------------------------ | ----------------------------------------------------------------- |
+| A connection Claude used (Salesforce, Zendesk, Stripe) | A room, themed after the app                                      |
+| A record                                               | A monster, with the record's name over its head                   |
+| The record's detail line                               | The text under the crosshair when you aim at it                   |
+| An urgent record                                       | The biggest monster in the room                                   |
+| The connection's permissions                           | The door's keycard: blue for read-only, yellow for read and write |
+| A request the server refused                           | The red door, which has no key                                    |
 
-Claude decides two things: which three apps answer the question, and what counts as urgent (a deal past its close date, a ticket marked urgent). It does that by asking Connect AI for one list from each app, and every list comes back with the same four fields: an ID, a name, a detail line and an urgent flag. Those four fields are the whole visual schema. The ID ties a monster to its record, the name goes over its head, the detail line goes under the crosshair, and the flag picks the monster. Connect AI puts every source behind the same handful of tools, so Stripe looks the same to Claude as Salesforce does, and any app can become a room.
+The doors come from the MCP server, not from Claude. Their colors are the permissions Connect AI lists for each connection, and the red door only exists if Connect AI blocked something during the run. I drew that line on purpose: if the model drew the doors, a model could draw itself a key.
 
-Everything about access comes from the MCP server, not from Claude. The door colors come from the permissions Connect AI lists for each connection, and the red door only exists if Connect AI blocked something during the run. The briefing code says it in a comment, "Governance comes from Connect AI, not from Claude," and I drew that line on purpose: if the model drew the doors, a model could draw itself a key.
-
-MCP has an official way to put UI in front of tool results now, [MCP Apps](https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/), which renders a server's HTML inside the chat. This goes the other way. The whole interface is the game, and the chat shrinks to a side panel next to it that streams every tool call Claude makes as it happens.
-
-A Python script turns all of that into a Doom 2 map from scratch, on a 16-unit grid with walls wherever two cells differ.
-
-Vanilla Doom did not love my maps. The themed rooms draw far more floor and ceiling planes than id ever planned for, and looking down the main hall crashed the game with `R_FindPlane: no more visplanes`. The fix was raising the renderer's limits in the engine patch, visplanes from 128 to 1,024, and that's been fine since.
+A Python script then writes a Doom 2 map from scratch, on a 16-unit grid with walls wherever two cells differ. Vanilla Doom did not love my maps. The themed rooms draw far more floor and ceiling planes than id ever planned for, and looking down the main hall crashed the game with `R_FindPlane: no more visplanes`. The fix was raising the renderer's limits in the engine patch, visplanes from 128 to 1,024, and that's been fine since.
 
 You can play the level Claude built from a demo company's Salesforce, Zendesk and Stripe right here. It needs a keyboard and mouse, or hit **Watch Claude play** and let it drive. It's [better full screen](https://cdatasoftware.github.io/connect-ai-doom/).
 
