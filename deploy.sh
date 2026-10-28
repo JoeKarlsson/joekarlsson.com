@@ -20,6 +20,7 @@ npm run build
 # <img> pointing at a file that no longer exists. Validate what is about to ship.
 echo "Validating build output..."
 npm run test:images
+npm run test:caddyfile
 
 # CT 165 is immutable — managed by OpenTofu.
 # Direct SSH/rsync/scp to the container is forbidden.

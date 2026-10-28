@@ -19,6 +19,7 @@
 		"http://localhost:4321/work/",
 		"http://localhost:4321/work/adult-swim-bumper/",
 		"http://localhost:4321/work/followspot/",
+		"http://localhost:4321/work/connect-ai-doom/",
 		"http://localhost:4321/uses/",
 		"http://localhost:4321/contact/",
 		"http://localhost:4321/talk-archive/",
@@ -30,6 +31,7 @@
 		"http://localhost:4321/blog/how-we-accidentally-invented-a-cloud-search-language/",
 		"http://localhost:4321/blog/an-introduction-to-iot-internet-of-toilets/",
 		"http://localhost:4321/blog/aws-google-cloud-networking-partnership/",
-		"http://localhost:4321/blog/a-gentle-introduction-to-building-serverless-apps/"
+		"http://localhost:4321/blog/a-gentle-introduction-to-building-serverless-apps/",
+		"http://localhost:4321/blog/why-i-use-doom-to-visualize-mcp-data/"
 	]
 }

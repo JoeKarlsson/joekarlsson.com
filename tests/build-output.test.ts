@@ -303,3 +303,81 @@ describe('build output structure', () => {
 		expect(existsSync(resolve(dist, 'portfolio'))).toBe(true);
 	});
 });
+
+const builtPages = (readdirSync(dist, { recursive: true, encoding: 'utf-8' }) as string[]).filter(
+	(file) => file.endsWith('.html'),
+);
+
+describe('iframe embeds', () => {
+	// Local dev and preview send no CSP, so an iframe whose origin is missing from
+	// frame-src looks fine everywhere except production. The deployed CSP lives in
+	// the OpenTofu provision template; validate-caddyfile.sh keeps this reference
+	// Caddyfile in sync with it.
+	const caddyfile = readFileSync(resolve(import.meta.dirname, '..', 'Caddyfile'), 'utf-8');
+	const frameSources =
+		caddyfile
+			.match(/frame-src ([^;"]+)/)?.[1]
+			.trim()
+			.split(/\s+/) ?? [];
+
+	// Matches an exact origin, or a wildcard like https://*.tiktok.com by scheme and host suffix
+	function isAllowedByFrameSrc(origin: string): boolean {
+		const { protocol, hostname } = new URL(origin);
+		return frameSources.some((source) => {
+			const [sourceScheme, sourceHost] = source.split('://');
+			if (!sourceHost?.startsWith('*.')) return origin === source;
+			return protocol === `${sourceScheme}:` && hostname.endsWith(sourceHost.slice(1));
+		});
+	}
+
+	it('finds frame-src in the Caddyfile CSP', () => {
+		expect(frameSources.length).toBeGreaterThan(0);
+	});
+
+	it('every built iframe loads from an origin frame-src allows', () => {
+		const blocked: string[] = [];
+		for (const page of builtPages) {
+			for (const [, src] of readDist(page).matchAll(/<iframe\b[^>]*?\ssrc="([^"]+)"/g)) {
+				const origin = new URL(src, 'https://www.joekarlsson.com').origin;
+				if (!isAllowedByFrameSrc(origin)) blocked.push(`${page}: ${src}`);
+			}
+		}
+		expect(blocked).toEqual([]);
+	});
+});
+
+describe('in-page anchor links', () => {
+	// Renaming a heading changes its slug and silently breaks any #fragment link
+	// to it. Lychee runs without fragment checking, so this is the only guard.
+	const idsByPage = new Map<string, Set<string>>();
+	function idsOn(page: string): Set<string> | undefined {
+		if (!idsByPage.has(page)) {
+			if (!existsSync(resolve(dist, page))) return undefined;
+			idsByPage.set(
+				page,
+				new Set([...readDist(page).matchAll(/\s(?:id|name)="([^"]+)"/g)].map(([, id]) => id)),
+			);
+		}
+		return idsByPage.get(page);
+	}
+
+	it('every internal #fragment link points at an id that exists', () => {
+		const broken: string[] = [];
+		for (const page of builtPages) {
+			for (const [, href] of readDist(page).matchAll(/\shref="([^"]*#[^"]+)"/g)) {
+				const url = new URL(href.replace(/&amp;/g, '&'), `https://www.joekarlsson.com/${page}`);
+				if (url.origin !== 'https://www.joekarlsson.com') continue;
+				const path = url.pathname.replace(/^\/|\/$/g, '');
+				const targetPage = path.endsWith('.html')
+					? path
+					: path
+						? `${path}/index.html`
+						: 'index.html';
+				const fragment = decodeURIComponent(url.hash.slice(1));
+				const ids = idsOn(targetPage);
+				if (ids && !ids.has(fragment)) broken.push(`${page}: ${href}`);
+			}
+		}
+		expect(broken).toEqual([]);
+	});
+});
