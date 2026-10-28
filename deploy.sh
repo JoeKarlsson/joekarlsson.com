@@ -55,14 +55,18 @@ echo "Deployed to origin server"
 
 # Purge Cloudflare cache to ensure HTML and CSS are in sync
 # Requires CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN environment variables
-if [[ -n "${CLOUDFLARE_ZONE_ID:-}" && -n "${CLOUDFLARE_API_TOKEN:-}" ]]; then
+purge_cloudflare_cache() {
     echo "Purging Cloudflare cache..."
     curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache" \
         -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
         -H "Content-Type: application/json" \
         --data '{"purge_everything":true}' \
         | jq -r '.success // "failed"' | xargs -I {} echo "Cache purge: {}"
-    echo "Cache purged"
+}
+CAN_PURGE=0
+if [[ -n "${CLOUDFLARE_ZONE_ID:-}" && -n "${CLOUDFLARE_API_TOKEN:-}" ]]; then
+    CAN_PURGE=1
+    purge_cloudflare_cache
 else
     echo ""
     echo "WARNING: Cloudflare cache not purged!"
@@ -75,50 +79,62 @@ else
     echo "     Use template: 'Edit zone DNS' or create custom with 'Zone.Cache Purge' permission"
 fi
 
-# Verify the deploy actually landed rather than just reporting success.
-# Astro fingerprints its CSS, so the hashed filename from the local build
-# appearing in the live HTML proves the new build is being served - a plain
-# 200 would pass against the previous deploy just as happily.
+# Verify the deploy actually landed rather than just reporting success: the
+# homepage visitors get must carry exactly the <body> just built. Two earlier
+# versions of this check passed against a stale site:
+#   - a hashed CSS filename: unchanged by most edits, so the old page matched
+#   - a ?cachebust= URL: a separate cache key, so it always reached the origin
+#     and never saw the cached homepage (2026-10-28: Cloudflare re-cached the
+#     old homepage right after the purge, and the deploy reported success)
+# Only <body> is compared because Cloudflare Fonts rewrites <head>. The homepage
+# is used because it has no email addresses, which Cloudflare also rewrites.
 SITE_URL="https://www.joekarlsson.com"
-FINGERPRINT=$(grep -oE '/_astro/[A-Za-z0-9_.-]+\.css' dist/index.html | head -1)
+page_body_hash() {
+    tr '\n' ' ' | sed -E 's/.*(<body[ >].*<\/body>).*/\1/' | shasum -a 256 | cut -d' ' -f1
+}
+EXPECTED_BODY=$(page_body_hash < dist/index.html)
 
-if [[ -z "$FINGERPRINT" ]]; then
-    echo "WARNING: no hashed CSS found in dist/index.html; skipping verification"
-else
-    echo "Verifying deploy (looking for $FINGERPRINT)..."
-    VERIFIED=0
-    for attempt in $(seq 1 12); do
-        LIVE_HTML=$(curl -sL --max-time 20 "$SITE_URL/?cachebust=$(date +%s)-$attempt" || true)
-        if grep -qF "$FINGERPRINT" <<< "$LIVE_HTML"; then
-            echo "  new build is live (after ${attempt} attempt(s))"
-            VERIFIED=1
-            break
-        fi
-        sleep 5
-    done
-
-    if [[ "$VERIFIED" -ne 1 ]]; then
-        echo "ERROR: $SITE_URL is not serving the build just deployed." >&2
-        echo "  Expected asset: $FINGERPRINT" >&2
-        echo "  The origin may have failed to update, or the CDN is still stale." >&2
-        exit 1
+echo "Verifying the homepage visitors get matches this build..."
+VERIFIED=0
+for attempt in $(seq 1 12); do
+    LIVE_BODY=$(curl -s --max-time 20 "$SITE_URL/" | page_body_hash || true)
+    if [[ "$LIVE_BODY" == "$EXPECTED_BODY" ]]; then
+        echo "  new build is live (after ${attempt} attempt(s))"
+        VERIFIED=1
+        break
     fi
-
-    # Spot-check representative routes so a broken render is not reported as success
-    FAILED=0
-    for path in "/" "/blog/" "/about/" "/rss.xml" "$FINGERPRINT"; do
-        CODE=$(curl -sL --max-time 20 -o /dev/null -w "%{http_code}" "$SITE_URL$path" || echo "000")
-        if [[ "$CODE" != "200" ]]; then
-            echo "ERROR: $path returned $CODE" >&2
-            FAILED=1
-        fi
-    done
-
-    if [[ "$FAILED" -ne 0 ]]; then
-        echo "ERROR: post-deploy checks failed." >&2
-        exit 1
+    # A stale copy can be re-cached after the purge, and it then stays until
+    # its TTL, so waiting alone would not clear it: purge again.
+    if [[ "$CAN_PURGE" -eq 1 && $((attempt % 3)) -eq 0 ]]; then
+        echo "  still stale after ${attempt} attempt(s)"
+        purge_cloudflare_cache
     fi
-    echo "  all smoke checks passed"
+    sleep 5
+done
+
+if [[ "$VERIFIED" -ne 1 ]]; then
+    echo "ERROR: $SITE_URL/ is not serving the build just deployed." >&2
+    echo "  The origin may have failed to update, or the CDN is still stale." >&2
+    echo "  If the homepage gained an email address, Cloudflare's email obfuscation" >&2
+    echo "  rewrites it in <body> and this comparison needs a different page." >&2
+    exit 1
 fi
+
+# Spot-check representative routes so a broken render is not reported as success
+FINGERPRINT=$(grep -oE '/_astro/[A-Za-z0-9_.-]+\.css' dist/index.html | head -1)
+FAILED=0
+for path in "/" "/blog/" "/about/" "/rss.xml" ${FINGERPRINT:+"$FINGERPRINT"}; do
+    CODE=$(curl -sL --max-time 20 -o /dev/null -w "%{http_code}" "$SITE_URL$path" || echo "000")
+    if [[ "$CODE" != "200" ]]; then
+        echo "ERROR: $path returned $CODE" >&2
+        FAILED=1
+    fi
+done
+
+if [[ "$FAILED" -ne 0 ]]; then
+    echo "ERROR: post-deploy checks failed." >&2
+    exit 1
+fi
+echo "  all smoke checks passed"
 
 echo "Done! Site available at $SITE_URL"
