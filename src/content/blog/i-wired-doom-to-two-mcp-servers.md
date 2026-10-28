@@ -12,13 +12,13 @@ tldr: "Doom talks MCP in both directions here. Claude explores a company's apps 
 
 I wired Doom to two MCP servers. The first one builds the level: you ask Claude something like "Which customers are at risk right now?", it digs through a company's Salesforce, Zendesk and Stripe over MCP, and about a minute later every monster in the level is a record it found. A $99K deal past its close date, a support ticket open since August 2025, an unpaid invoice. The second MCP server is Doom itself, and Claude uses it to play the level, saying why each record matters before it shoots it.
 
-So Doom talks MCP in both directions: it pulls its world from one server and hands its controls to the agent through the other. There's also a red door that never opens, because behind it is data the MCP server refused to hand over.
+So Doom talks MCP in both directions: it pulls its world from one server and hands its controls to the agent through the other.
 
 I work on MCP servers (I'm at CData, which makes the [Connect AI](https://www.cdata.com/ai/) MCP server this uses), and MCP data is hard to see. An agent calls a tool, gets JSON back, and the best anyone does with it is a table that looks like a spreadsheet. I wanted to walk around in it, and [KubeDOOM](https://github.com/storax/kubedoom), which turns Kubernetes pods into monsters, gave me the idea. I wrote about why I picked Doom in [I put an MCP server inside DOOM](/blog/why-i-use-doom-to-visualize-mcp-data/).
 
 ## Building the level from MCP data
 
-As far as I can find, nobody had built a Doom level out of MCP data before. [doom-mcp](https://github.com/gunnargrosch/doom-mcp) and the other Doom MCP servers let an agent play regular Doom. Here, the level itself is what the agent found. Claude explores the apps through Connect AI's read-only tools, picks the three that answer the question, and pulls one list of records from each. Every list comes back with the same four fields (an ID, a name, a detail line and an urgent flag), and those four fields are all a room needs, so any app can become one.
+This is the world's first Doom level built out of MCP data. [doom-mcp](https://github.com/gunnargrosch/doom-mcp) and the other Doom MCP servers let an agent play regular Doom. Here, the level itself is what the agent found. Claude explores the apps through Connect AI's read-only tools, picks the three that answer the question, and pulls one list of records from each. Every list comes back with the same four fields (an ID, a name, a detail line and an urgent flag), and those four fields are all a room needs, so any app can become one.
 
 | From the MCP server                                    | In the game                                                       |
 | ------------------------------------------------------ | ----------------------------------------------------------------- |
