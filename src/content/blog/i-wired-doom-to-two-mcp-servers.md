@@ -59,7 +59,27 @@ TOOLS = {
 }
 ```
 
-Each tool blocks until something happens in the game, then reports it. `go_to` walks the route through the halls and doors and comes back when the marine arrives or something's in the way. `attack` aims and fires until the monster dies. Claude also plays in god mode with a full chaingun, since I wanted to watch it decide what to shoot and didn't care whether it could aim.
+### What happens when Claude calls go_to
+
+From Claude's side, this is closer to StarCraft than to Doom. It never sees a pixel, a coordinate or the map. It names a place or a monster, the way you'd click a destination in an RTS, and two layers of code underneath do the walking:
+
+```text
+Claude        go_to("Salesforce")                         decides where, and who to shoot
+   |
+play.py       lobby -> hall -> stop at the door ->        plans the route: it generated the map,
+              turn 90 -> use -> wait 1.2 s -> walk in      so it knows where every door is
+   |
+psdoom (C)    every tic: turn toward the next point,      steers, 35 times a second
+              walk, "arrived" within 16 units
+```
+
+The planning layer doesn't need pathfinding, because the same project wrote the map. Every room's door sits at a known spot on a straight hall, so `go_to` turns a name into a list of waypoints: back out of the room you're in, walk the hall, stop just short of the door (Doom's use key only reaches 64 units), turn to face it, press use, wait about a second for it to open, and walk in. Each waypoint is one `MOVE` command to the engine.
+
+The steering layer is in the engine patch. On every tic, `MOVE x y` turns the marine toward the point, walks once it's facing within 45 degrees, and reports `arrived` within 16 units, or `blocked` after about two seconds without getting closer. `ATTACK pid` does the same with a monster: turn to face it every tic, fire when the crosshair is within 6 degrees and there's a line of sight, close in if it's far away or hidden, and give up after 12 seconds.
+
+When a step fails, `go_to` works out why and says it in plain English. A shut door with no keycard comes back as "Door locked: it needs the yellow keycard. Go to the keycards first." A walk that stalls with monsters in sight comes back as "Blocked: monsters in the way (3 in sight). Attack them, then try again," with their pids. `look` fills in the rest: which room the marine is in, its keycards, and every visible monster sorted by distance, each with its record and whether it's urgent.
+
+So when I say Claude understands the game, I mean it understands a short list of named places, named records and failures written as sentences. The spatial part lives in about 140 lines of Python and 440 lines of C in the engine patch, which is also why this tests an agent's decisions and not its gameplay. Claude plays in god mode with a full chaingun for the same reason: I wanted to watch it decide what to shoot, and I didn't care whether it could aim.
 
 ### The game side
 
