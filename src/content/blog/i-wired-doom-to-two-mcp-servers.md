@@ -80,6 +80,10 @@ WHILE YOU PLAY: Claude plays it
 
 When I ran this at the CData booth at [AGNTCon + MCPCon](https://events.linuxfoundation.org/agntcon-mcpcon-north-america/) in San Jose last week, most of the questions were about the tool calls: how Claude moves the marine, and how you'd do the same thing with another game.
 
+![Me at the CData booth explaining Connect AI × DOOM to a small crowd while someone films the screen on their phone, with the Doom level and the side panel of MCP tool calls on a big TV behind me](/images/blog/why-i-use-doom-to-visualize-mcp-data/booth-demo.webp)
+
+![The CData booth from the aisle, with a crowd gathered in front of the Doom demo on the big screen while I talk someone through it](/images/blog/why-i-use-doom-to-visualize-mcp-data/booth-crowd.webp)
+
 Claude doesn't get a keyboard. Doom runs at 35 tics a second, and a model takes a few seconds to decide anything, so a tool like "press W" would have the marine dead before Claude finished its first thought. Most "LLM plays a game" projects I've seen go the other way, feeding the model screenshots and letting it press buttons, and that's hard/expensive: in the 2025 [VideoGameBench](https://arxiv.org/abs/2505.18134) paper, the best model completed 0.48% of the benchmark. So I gave Claude verbs, and this is the whole tool list:
 
 ```python
@@ -231,11 +235,15 @@ If you're picking a model for agents that touch real systems, run the comparison
 
 ## What I want to add
 
-First, I want more tools. Look, go to, and attack covers a shooter, but I'd like agents to have real choices beyond moving and killing, and better logic for picking between them.
+None of this is built yet. First, I want more tools. Look, go to, and attack covers a shooter, but I'd like agents to have real choices beyond moving and killing, and better logic for picking between them.
 
 I also want to try a fast decision model under the LLM. [Laya](https://huggingface.co/convaiinnovations/laya) is a non-autoregressive model that takes a state and typed questions and, per its model card, returns calibrated probabilities in about 33 ms, which is fast enough to pick a target every few tics while Claude plans the route. That could close a lot of the seconds-versus-tics gap.
 
-After that: better maps, more models on the leaderboard, and a Quake-style deathmatch where the agents hunt each other instead of my records.
+I want you to be able to race your own model, too. Right now a model only gets on the leaderboard if I run it, so the board is the four I picked. I'd like a documented way to run the same level on your machine and send the runs in.
+
+The browser build needs a mobile version. On a phone, it shows a desktop-only screen today.
+
+After that: better maps, and a Quake-style deathmatch where the agents hunt each other instead of my records.
 
 ## Play it
 
