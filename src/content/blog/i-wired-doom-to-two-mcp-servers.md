@@ -86,47 +86,7 @@ I didn't teach Doom to speak JSON-RPC. The engine is [psdoom-ng](https://github.
 }
 ```
 
-The Python side writes a command with a sequence number, then polls `state.json` until `done_seq` catches up. Every `pid` maps back to a record from the data server, which is how `look` can tell Claude that monster 499785 is a Salesforce deal.
-
-### The 30-line MCP server
-
-On top of that sits the MCP server. It's newline-delimited JSON-RPC over stdio, with no SDK, because three tools didn't need one:
-
-```python
-def serve_mcp():
-    """A minimal MCP server over stdio (newline-delimited JSON-RPC)."""
-    game = Game()
-    for line in sys.stdin:
-        try:
-            msg = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        method, mid = msg.get("method"), msg.get("id")
-        if mid is None:
-            continue  # notifications
-        if method == "initialize":
-            result = {"protocolVersion": msg["params"].get("protocolVersion", "2025-06-18"),
-                      "capabilities": {"tools": {}}, "serverInfo": {"name": "doom", "version": "1"}}
-        elif method == "tools/list":
-            result = {"tools": [{"name": n, "description": d,
-                                 "inputSchema": {"type": "object", "properties": props,
-                                                 "required": list(props)}}
-                                for n, (_, d, props) in TOOLS.items()]}
-        elif method == "tools/call":
-            name, args = msg["params"]["name"], msg["params"].get("arguments", {})
-            try:
-                out = TOOLS[name][0](game, args)
-                result = {"content": [{"type": "text", "text": json.dumps(out)}]}
-            except Exception as e:
-                result = {"content": [{"type": "text", "text": f"Error: {e}"}], "isError": True}
-        else:
-            reply = {"jsonrpc": "2.0", "id": mid, "error": {"code": -32601, "message": method}}
-            print(json.dumps(reply), flush=True)
-            continue
-        print(json.dumps({"jsonrpc": "2.0", "id": mid, "result": result}), flush=True)
-```
-
-Claude Code starts it with `--mcp-config` next to Connect AI's server, plus `--strict-mcp-config` and `--tools ""`. That last flag takes away every built-in tool, so the only things Claude can do are play Doom and read from Connect AI.
+The Python side writes a command with a sequence number, then polls `state.json` until `done_seq` catches up. Every `pid` maps back to a record from the data server, which is how `look` can tell Claude that monster 499785 is a Salesforce deal. On top of all that sits the MCP server itself, about [30 lines of Python](https://github.com/CDataSoftware/connect-ai-doom/blob/main/play.py) with no SDK, which lists the three tools and calls them.
 
 ### What the tool calls look like
 
