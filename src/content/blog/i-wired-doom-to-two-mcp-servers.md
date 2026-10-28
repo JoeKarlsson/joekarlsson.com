@@ -66,27 +66,7 @@ So when I say Claude understands the game, I mean it understands a short list of
 
 ### The game side
 
-I didn't teach Doom to speak JSON-RPC. The engine is [psdoom-ng](https://github.com/keymon/psdoom-ng), the Doom fork where monsters are Unix processes, and my patch adds a dumb agent channel to it. Each tic, the game checks a file for one command per line (`MOVE x y`, `TURN deg`, `ATTACK pid` and a few more) and writes everything it knows to `state.json`. Trimmed, that looks like this:
-
-```json
-{
-	"tic": 48120,
-	"player": {
-		"x": 2560,
-		"y": -896,
-		"angle": 41,
-		"health": 100,
-		"ammo": 200,
-		"keys": { "blue": 0, "yellow": 0, "red": 0 }
-	},
-	"command": { "seq": 1793049856, "done_seq": 1793049856, "result": "set" },
-	"monsters": [
-		{ "pid": 353898, "x": 640, "y": 960, "health": 100, "visible": false, "distance": 2848 }
-	]
-}
-```
-
-The Python side writes a command with a sequence number, then polls `state.json` until `done_seq` catches up. Every `pid` maps back to a record from the data server, which is how `look` can tell Claude that monster 499785 is a Salesforce deal. On top of all that sits the MCP server itself, about [30 lines of Python](https://github.com/CDataSoftware/connect-ai-doom/blob/main/play.py) with no SDK, which lists the three tools and calls them.
+I didn't teach Doom to speak JSON-RPC. The engine is [psdoom-ng](https://github.com/keymon/psdoom-ng), the Doom fork where monsters are Unix processes, and my patch adds a dumb agent channel to it. Each tic, the game checks a file for one command per line (`MOVE x y`, `TURN deg`, `ATTACK pid` and a few more) and writes everything it knows (the marine, its keycards, every monster) to `state.json`. Every `pid` maps back to a record from the data server, which is how `look` can tell Claude that monster 499785 is a Salesforce deal. On top of all that sits the MCP server itself, about [30 lines of Python](https://github.com/CDataSoftware/connect-ai-doom/blob/main/play.py) with no SDK, which lists the three tools and calls them.
 
 ### What the tool calls look like
 
