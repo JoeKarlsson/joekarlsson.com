@@ -23,7 +23,14 @@ export default [
 		},
 	},
 	{
-		ignores: ['dist/', '.astro/', 'node_modules/', '.lighthouseci/', 'scripts/'],
+		ignores: [
+			'dist/',
+			'.astro/',
+			'node_modules/',
+			'.lighthouseci/',
+			'scripts/',
+			'.claude/worktrees/',
+		],
 	},
 	{
 		rules: {
