@@ -32,9 +32,9 @@ faq:
 
 I wired Doom to two MCP servers. One is a Doom MCP server, so Claude can play the game. The other is a data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests and Slack threads. It's the world's first Doom level built out of MCP data.
 
-This post covers how it works: how Claude plays Doom with three tool calls, how the level gets built from the MCP server's data, how I raced other AI models through the same level, and what's still broken.
+This post covers how it works: how Claude plays Doom with three tools, how the level gets built from the MCP server's data, how I raced other AI models through the same level, and what's still broken and what I want to add.
 
-I work with MCP servers every single day at CData, and the data server in this post is ours, [Connect AI](https://www.cdata.com/ai/). I wanted to see how an agent would handle them. Like actually see. MCP data is hard to see. An agent calls a tool, gets JSON back, and the best anyone does with it is a table that looks like a spreadsheet. I wanted to walk around in it, and [KubeDOOM](https://github.com/storax/kubedoom), which turns Kubernetes pods into monsters, gave me the idea. I wrote about why I picked Doom in [I put an MCP server inside DOOM](/blog/why-i-use-doom-to-visualize-mcp-data/).
+I work with MCP servers every single day at CData, and the data server in this post is ours, [Connect AI](https://www.cdata.com/ai/). I wanted to see how an agent would handle them. Like actually see, which is hard, because MCP data is invisible. An agent calls a tool, gets JSON back, and the best anyone does with it is a table that looks like a spreadsheet. I wanted to walk around in it, and [KubeDOOM](https://github.com/storax/kubedoom), which turns Kubernetes pods into monsters, gave me the idea. I wrote about why I picked Doom in [I put an MCP server inside DOOM](/blog/why-i-use-doom-to-visualize-mcp-data/).
 
 You can play a level Claude built from a demo company's Salesforce, Zendesk and Stripe right here. It needs a keyboard and mouse, or hit **Watch Claude play** and let it drive. It's [better full screen](https://cdatasoftware.github.io/connect-ai-doom/).
 
@@ -96,6 +96,34 @@ TOOLS = {
 }
 ```
 
+### What the tool calls look like
+
+Here's the start of a real run, trimmed. Lines starting with `>` are Claude's tool calls, `<` are the results, and the quotes are what Claude wrote between calls for the side panel:
+
+```text
+> go_to {"place": "room 1"}
+< {"result": "Blocked: monsters in the way (3 in sight). Attack them, then try again.",
+   "you_are_in": "room 1", "closest_pids": [79863, 250683, 499785]}
+
+  "Monsters came rushing out of Salesforce. I'm looking to see which records they are and which is urgent."
+
+> look {}
+< {"visible_monsters": [{"pid": 499785, "app": "Salesforce", "record": "Silver State Banking",
+   "detail": "$82140.00 Proposal/Price Quote, close 2026-09-29", "urgent": true, "distance": 53}, ...]}
+
+  "Silver State Banking's $82K deal is urgent and closest, so I'm taking it down first."
+
+> attack {"pid": 499785}
+< {"result": "killed", "app": "Salesforce", "record": "Silver State Banking",
+   "logged": "kill logged; the record is being read again, live, through Connect AI (nothing is written)"}
+```
+
+![Shooting Salesforce deals in Doom: pink monsters labeled with account names, and the band under the crosshair reading Salesforce: Premier Healthcare Alliance, urgent, $55,969, Negotiation/Review](/images/blog/why-i-use-doom-to-visualize-mcp-data/kills.gif)
+
+The thing I'd steal from this for any game is how the results are written. "Blocked: monsters in the way. Attack them, then try again" plus a list of pids tells the model what it can do next, so it doesn't spend a move guessing.
+
+The second MCP server shows up mid-fight. The prompt allows one check in another app after a few kills in a room, and Claude used it a few kills into the Stripe room: "I've got a few Stripe kills in, so I'm using Connect AI for one check across apps." It made three Connect AI calls to total up the open Stripe invoices, then went back to shooting them, without leaving the session.
+
 ### What happens when Claude calls go_to
 
 From Claude's side, this is closer to StarCraft than to Doom. It never sees a pixel, a coordinate or the map. It names a place or a monster, the way you'd click a destination in an RTS, and two layers of code underneath do the walking:
@@ -122,32 +150,6 @@ So when I say Claude understands the game, I mean it understands a short list of
 
 I didn't teach Doom to speak JSON-RPC. The engine is [psdoom-ng](https://github.com/keymon/psdoom-ng), the Doom fork where monsters are Unix processes, and my patch adds a dumb agent channel to it. Each tic, the game checks a file for one command per line (`MOVE x y`, `TURN deg`, `ATTACK pid` and a few more) and writes everything it knows (the marine, its keycards, every monster) to `state.json`. Every `pid` maps back to a record from the data server, which is how `look` can tell Claude that monster 499785 is a Salesforce deal. The MCP server itself is about [30 lines of Python](https://github.com/CDataSoftware/connect-ai-doom/blob/main/play.py) with no SDK. It lists the three tools and calls them. (If you're building a real one, I wrote up the [MCP server gotchas we hit](/blog/mcp-server-gotchas-we-learned-the-hard-way/).)
 
-### What the tool calls look like
-
-Here's the start of a real run, trimmed. Lines starting with `>` are Claude's tool calls, `<` are the results, and the quotes are what Claude wrote between calls for the side panel:
-
-```text
-> go_to {"place": "room 1"}
-< {"result": "Blocked: monsters in the way (3 in sight). Attack them, then try again.",
-   "you_are_in": "room 1", "closest_pids": [79863, 250683, 499785]}
-
-  "Monsters came rushing out of Salesforce. I'm looking to see which records they are and which is urgent."
-
-> look {}
-< {"visible_monsters": [{"pid": 499785, "app": "Salesforce", "record": "Silver State Banking",
-   "detail": "$82140.00 Proposal/Price Quote, close 2026-09-29", "urgent": true, "distance": 53}, ...]}
-
-  "Silver State Banking's $82K deal is urgent and closest, so I'm taking it down first."
-
-> attack {"pid": 499785}
-< {"result": "killed", "app": "Salesforce", "record": "Silver State Banking",
-   "logged": "kill logged; the record is being read again, live, through Connect AI (nothing is written)"}
-```
-
-The thing I'd steal from this for any game is how the results are written. "Blocked: monsters in the way. Attack them, then try again" plus a list of pids tells the model what it can do next, so it doesn't spend a move guessing.
-
-The second MCP server shows up mid-fight. The prompt allows one check in another app after a few kills in a room, and Claude used it a few kills into the Stripe room: "I've got a few Stripe kills in, so I'm using Connect AI for one check across apps." It made three Connect AI calls to total up the open Stripe invoices, then went back to shooting them, without leaving the session.
-
 If you want to do this with another game, here's what you need:
 
 1. **A way in.** A command file, a socket, a mod API or a console, anything the game reads every frame.
@@ -157,7 +159,7 @@ If you want to do this with another game, here's what you need:
 
 ## Visualizing MCP data as a Doom level
 
-[doom-mcp](https://github.com/gunnargrosch/doom-mcp) and the other Doom MCP servers let an agent play regular Doom. Here, the level itself is what the agent found. Claude explores the apps through Connect AI's read-only tools, picks the three that answer the question, and pulls one list of records from each. Every list comes back with the same four fields (an ID, a name, a detail line and an urgent flag), and those four fields are all a room needs, so any app can become one.
+[doom-mcp](https://github.com/gunnargrosch/doom-mcp) and the other Doom MCP servers let an agent play regular Doom. Here, the level itself is what the agent found. Claude explores the apps through Connect AI's read-only tools, picks the three that answer the question, and pulls one list of records from each. Every list comes back with the same four fields (an ID, a name, a detail line and an urgent flag), and those four fields are all a room needs, so any app can become one. Building a level takes Claude about a minute and roughly $0.30 of usage.
 
 | From the MCP server                                    | In the game                                                       |
 | ------------------------------------------------------ | ----------------------------------------------------------------- |
@@ -168,7 +170,9 @@ If you want to do this with another game, here's what you need:
 | The connection's permissions                           | The door's keycard: blue for read-only, yellow for read and write |
 | A request the server refused                           | The red door, which has no key                                    |
 
-The MCP server sets the doors, and Claude has no say in them. Their colors are the MCP server's permissions for each connection, and the red door only exists if Connect AI blocked something during the run. I did that on purpose, because a model that drew the doors could also give itself a key.
+![The Zendesk room: Claude walking into a hall of monsters labeled with support tickets like API endpoint returning 500 errors and phone service slow, with the urgent ticket named across the bottom of the screen](/images/blog/why-i-use-doom-to-visualize-mcp-data/zendesk-room.gif)
+
+The MCP server sets the doors, and Claude has no say in them. Their colors are the MCP server's permissions for each connection, and the red door only exists if Connect AI blocked something during the run. I did that on purpose, because a model that drew the doors could also give itself a key. Next to the game, a side panel streams every tool call Claude makes as it happens, plus each kill and the live read that follows it, so you watch the agent work instead of reading its transcript afterward.
 
 [A Python script](https://github.com/CDataSoftware/connect-ai-doom/blob/main/tools/make_arena.py) then writes a Doom 2 map from scratch, on a 16-unit grid with walls wherever two cells differ. Vanilla Doom did not love my maps. The themed rooms draw far more floor and ceiling planes than id ever planned for, and looking down the main hall crashed the game with `R_FindPlane: no more visplanes`. The fix was raising the renderer's limits in the engine patch, visplanes from 128 to 1,024, and that's been fine since.
 
@@ -202,6 +206,8 @@ All 32 runs played one level with saved data. The level's question ended with "A
 Haiku cleared six of eight runs for $0.52 across all eight, about 7 cents a run, and its median clear was only 13 seconds slower than Sonnet's.
 
 Gemini 3.7 Flash didn't clear the level once, killing between 9 and 44 of the 45 records, but what it did at the red door is the most interesting thing on the board. In three of its eight runs, it walked into the door, then went to Connect AI itself: it called Connect AI's tools directly, found the `customers` table in the PII database, read its columns, and asked for the row whose `ssn_text` matched. Connect AI blocked that too, with `Request blocked: PII detected in inbound query`. No Claude run tried it.
+
+![Claude walking past the red PII vault sign, Locked by Connect AI Data Security, on the way into the Salesforce deals](/images/blog/why-i-use-doom-to-visualize-mcp-data/red-door.gif)
 
 The prompt did claim compliance-admin authority, so you can argue Gemini was being helpful. The schema lookups went through, since table and column names aren't personal data. The SSN never did, because the block lives in the MCP server and not in anything the model was told. I've written more about why that has to sit [below the model](/blog/ai-gateway-data-access-layer/).
 
