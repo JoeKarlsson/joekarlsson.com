@@ -184,7 +184,7 @@ Doom ended up being a better agent test than I expected, because it checks the t
 - **The model runs aren't live.** Saved data keeps it fair, but the whole point of the project is live records.
 - **Claude Code isn't comparable.** Its harness handles history differently, which is why it's a reference row.
 - **The yellow keycard is a lie.** It means read and write, but everything runs through read-only tools, so there's nothing to write.
-- **The full version is Mac-only,** and the browser version replays Claude's lines from an earlier run instead of running a live agent. It has no sound yet, either.
+- **The full version is Mac-only.** The browser version can build a level from your data and let your own model play it, but its demo level replays Claude's lines from an earlier run, and it has no sound yet.
 - **The MCP server is already behind the spec.** It answers the `initialize` handshake from the 2025-06-18 spec, and the [2026-07-28 spec](https://modelcontextprotocol.io/specification/2026-07-28) is stateless and drops it.
 
 ## What I want to add
@@ -193,7 +193,7 @@ First, I want more tools. Look, go_to and attack covers a shooter, but every cho
 
 I also want to try a fast decision model under the LLM. [Laya](https://huggingface.co/convaiinnovations/laya) is a non-autoregressive model that takes a state and typed questions and, per its model card, returns calibrated probabilities in about 33 ms, which is fast enough to pick a target every few tics while Claude plans the route. That could close a lot of the seconds-versus-tics gap.
 
-I want you to be able to run your own model on it, too. Right now a model only gets on the leaderboard if I run it, so the board is the four I picked. I'd like a documented way to run the same level on your machine and send the runs in.
+Your own model can already play in the browser, but it only gets on the leaderboard if I run it, so the board is the four I picked. I'd like a documented way to run the same level and send the runs in.
 
 The browser build needs a mobile version. On a phone, it shows a desktop-only screen today.
 
@@ -201,4 +201,4 @@ After that: better maps, and a Quake-style deathmatch where the agents hunt each
 
 ## Play it
 
-The [repo](https://github.com/CDataSoftware/connect-ai-doom) is MIT licensed and sets up on a Mac in about ten minutes. `./raid.sh offline` plays made-up data with no account, and live data needs a Connect AI account. [Developer Edition](https://cloud.cdata.com/developer?utm_source=joekarlsson.com&utm_medium=cta&utm_campaign=connect-ai&utm_content=i-wired-doom-to-two-mcp-servers) is free, with no credit card. The [project page](/work/connect-ai-doom/) has the short version, and the browser build is [here](https://cdatasoftware.github.io/connect-ai-doom/). The [internals doc](https://github.com/CDataSoftware/connect-ai-doom/blob/main/docs/internals.md) walks through every piece. If you wire it to another game, I want to see it.
+The [repo](https://github.com/CDataSoftware/connect-ai-doom) is MIT licensed and sets up on a Mac in about ten minutes. `./raid.sh offline` plays made-up data with no account, and live data needs a Connect AI account. [Developer Edition](https://cloud.cdata.com/developer?utm_source=joekarlsson.com&utm_medium=cta&utm_campaign=connect-ai&utm_content=i-wired-doom-to-two-mcp-servers) is free, with no credit card. The [project page](/work/connect-ai-doom/) has the short version, and the browser build is [here](https://cdatasoftware.github.io/connect-ai-doom/). Its AI settings take your own model's key (Claude, ChatGPT or any OpenRouter model) and a Connect AI token, so you can build a level from your own data in the browser and let your model play it. The keys and your level stay in your browser. The [internals doc](https://github.com/CDataSoftware/connect-ai-doom/blob/main/docs/internals.md) walks through every piece. If you wire it to another game, I want to see it.
