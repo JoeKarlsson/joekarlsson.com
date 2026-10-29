@@ -14,6 +14,14 @@ There's a black shadow box on the shelf next to my desk. Right now it's showing 
 
 It's called **PixelPane**: a 32x32 RGB LED panel and a Raspberry Pi behind a two-way mirror. It's an art project first, born from the 8-bit and 16-bit games I've been playing on emulators. It's also the only home dashboard I actually look at, because it shows my house's status as pixel art instead of a wall of numbers. I built it instead of buying one so I could customize every scene and wire it into my self-hosted setup. The software is [open source on GitHub](https://github.com/JoeKarlsson/pixelpane) and plugin-based, and you can see more of it on the [project page](/work/pixelpane/).
 
+Here's a quick tour, me included.
+
+<video controls playsinline preload="none" poster="/images/blog/pixelpane-pixel-art-home-assistant/tour-poster.webp" src="/images/blog/pixelpane-pixel-art-home-assistant/tour.mp4" style="aspect-ratio: 9 / 16; max-width: 24rem; margin-inline: auto; display: block" aria-label="A quick tour of PixelPane: me at my desk showing the web UI, the homelab stats, music and calendar scenes, the shadow box build, the GIF animator and live drawing">
+  <track kind="captions" srclang="en" label="English" src="/images/blog/pixelpane-pixel-art-home-assistant/tour.vtt" />
+</video>
+
+_A quick tour of PixelPane._
+
 ## Why 32x32
 
 As an adult I've fallen hard for retro gaming. The thing I love about 8-bit and 16-bit art is how much it does with almost nothing. A 32x32 grid is 1,024 pixels. That's enough for a pumpkin with a face, a snowman, a Christmas tree with blinking lights, or a little rain cloud, but not for anything that looks like a phone screen.

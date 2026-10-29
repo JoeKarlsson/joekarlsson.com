@@ -125,6 +125,30 @@ const inline = (text: string) =>
 			))}
 		</div>
 
+		{page.tour && (
+			<section class="mb-10" aria-labelledby="tour">
+				<h2 id="tour" class="mb-4 text-lg font-bold text-white">
+					<span class="font-mono text-sm text-coral" aria-hidden="true">
+						~$
+					</span>{' '}
+					play tour.mp4
+				</h2>
+				{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
+				<video
+					src={page.tour.video}
+					poster={page.tour.poster}
+					controls
+					playsinline
+					preload="none"
+					aria-label={page.tour.alt}
+					class="mx-auto block w-full rounded-lg bg-black object-contain"
+					style="aspect-ratio: 9 / 16; max-width: 18rem"
+				>
+					<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
+				</video>
+			</section>
+		)}
+
 		{page.embedUrl && (
 			<section class="mb-10" aria-labelledby="play-it">
 				<h2 id="play-it" class="mb-2 text-lg font-bold text-white">

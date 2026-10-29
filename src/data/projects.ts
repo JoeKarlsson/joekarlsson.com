@@ -17,6 +17,8 @@ export interface ProjectPage {
 	// (src/scripts/scale-to-fit-embed.ts). Its origin must be in the CSP frame-src
 	// (Caddyfile and the OpenTofu provision template)
 	embedUrl?: string;
+	// A narrated video with sound, under the intro. Portrait (9:16) phone video
+	tour?: { video: string; poster: string; captions: string; alt: string };
 	steps?: { title: string; text: string }[];
 	install?: string;
 	example?: {
@@ -140,6 +142,12 @@ export const projects: Project[] = [
 				"PixelPane plays pixel art GIFs mixed with live, animated scenes: the clock, the weather, what's playing, my next meeting, and decorations that change with the seasons. From the front it's a dark mirror until the LEDs light up behind it.",
 				"It's open source and plugin-based, like MagicMirror. Home Assistant, or anything that can send an HTTP request, pushes notifications and data to it, and it has its own control page, with a live preview of the panel, for everything else.",
 			],
+			tour: {
+				video: `${PIXELPANE_DIR}/tour.mp4`,
+				poster: `${PIXELPANE_DIR}/tour-poster.webp`,
+				captions: `${PIXELPANE_DIR}/tour.vtt`,
+				alt: 'A quick tour of PixelPane: me at my desk showing the web UI, the homelab stats, music and calendar scenes, the shadow box build, the GIF animator and live drawing',
+			},
 			steps: [
 				{
 					title: 'Behind a mirror',

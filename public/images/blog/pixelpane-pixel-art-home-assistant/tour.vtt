@@ -1,0 +1,110 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.780
+Friends, I just want to show off this little pixel grid
+
+00:00:02.780 --> 00:00:04.360
+project I've been working on.
+
+00:00:05.160 --> 00:00:08.620
+I've been like fiddling with LED grids for years and I just
+
+00:00:08.620 --> 00:00:10.120
+did a big upgrade on this thing.
+
+00:00:10.520 --> 00:00:13.900
+It's got a little super old Raspberry Pi in it, but I built
+
+00:00:13.900 --> 00:00:16.180
+a web server into it so I can control
+
+00:00:16.180 --> 00:00:20.360
+it all from a web UI. I can just like click on stuff and
+
+00:00:20.360 --> 00:00:23.000
+have it pull through. It's also pulling
+
+00:00:23.000 --> 00:00:26.100
+through real-time stats from my homelab server so I can
+
+00:00:26.100 --> 00:00:29.980
+check that out in real time. I'm doing a bunch of other cool stuff
+
+00:00:29.980 --> 00:00:34.620
+here too, like syncing my music I'm listening to and my
+
+00:00:34.620 --> 00:00:37.980
+calendar and a bunch of other stuff that I'm
+
+00:00:37.980 --> 00:00:40.040
+pulling off Home Assistant in real time on here and a
+
+00:00:40.040 --> 00:00:41.940
+bunch of other stuff that I'm pulling off
+
+00:00:41.940 --> 00:00:45.800
+Home Assistant in real time on here. A plugin-based Python
+
+00:00:45.800 --> 00:00:48.480
+architecture so it can be easily customized
+
+00:00:48.480 --> 00:00:52.480
+and like added to anything. This is an old box I had. It's
+
+00:00:52.480 --> 00:00:55.300
+an old shadow box from Michael's with a
+
+00:00:55.300 --> 00:00:59.880
+two-way mirror, a 3D printed grid, and an LED grid from Adafruit.
+
+00:00:59.880 --> 00:01:02.140
+It's been running like a static loop
+
+00:01:02.140 --> 00:01:04.800
+for years and I just felt like inspired to go and try to
+
+00:01:04.800 --> 00:01:06.940
+like make it a little bit more useful and
+
+00:01:06.940 --> 00:01:10.250
+connect it up to information. But I've actually, I've had
+
+00:01:10.250 --> 00:01:12.720
+it up now for like two weeks and it's been so
+
+00:01:12.720 --> 00:01:15.840
+helpful. Like if there's an alert on my homelab, it'll just
+
+00:01:15.840 --> 00:01:17.780
+pop up and this is like the thing I'm
+
+00:01:17.780 --> 00:01:20.880
+most likely to see in my office while I'm working. The code
+
+00:01:20.880 --> 00:01:22.700
+is totally open source, which I'll have a
+
+00:01:22.700 --> 00:01:25.280
+link in my bio if you want to check that out. With build
+
+00:01:25.280 --> 00:01:27.200
+instructions. I added a GIF generator
+
+00:01:27.340 --> 00:01:29.820
+and animator on here too, and like a real-time
+
+00:01:29.820 --> 00:01:32.220
+drawing app on here. Anyways, if you're like
+
+00:01:32.220 --> 00:01:34.670
+interested in just getting started with projects or like
+
+00:01:34.670 --> 00:01:37.280
+hardware projects, I can't recommend,
+
+00:01:37.280 --> 00:01:41.280
+I recommend LED projects enough for just being very entry
+
+00:01:41.280 --> 00:01:41.740
+friendly.
+
