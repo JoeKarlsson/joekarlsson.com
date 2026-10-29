@@ -113,6 +113,6 @@ A scene with nothing to show skips itself. If no music is playing, there's no no
 
 ## What's next
 
-Next on my list is a draw mode, a 32x32 canvas on the control page that paints the panel live. I'd also like a Pomodoro scene, and a Siri sentence to show a message on the board.
+Since I first wrote this, I've added the draw mode that was at the top of this list. The Draw page is a 32x32 canvas that paints the panel live as I draw, and the Animate page makes frame-by-frame loops that save to the GIF library. Next I'd like a Pomodoro scene, and a Siri sentence to show a message on the board.
 
 If you build one, [the repo](https://github.com/JoeKarlsson/pixelpane) has the parts list, the printable grid, the installer and the [Home Assistant setup](https://github.com/JoeKarlsson/pixelpane/blob/main/docs/HOME_ASSISTANT.md). Write a plugin and send me a PR.
