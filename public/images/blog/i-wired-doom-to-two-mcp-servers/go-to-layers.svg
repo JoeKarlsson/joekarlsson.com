@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 720" role="img" aria-labelledby="t2 d2">
+  <title id="t2">What happens when Claude calls go_to</title>
+  <desc id="d2">Three stacked layers. Claude calls go_to("Salesforce") and decides where to go and who to shoot, without ever seeing a coordinate. play.py plans the route through the lobby, hall and door because it built the level. The psdoom C code steers every tic, 35 times a second, using MOVE x y waypoints.</desc>
+  <defs>
+    <marker id="ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#777577"/></marker>
+  </defs>
+  <rect width="880" height="720" fill="#0b0f1c"/>
+  <g font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#F1EEE9">
+    <text x="30" y="40" font-size="17" font-weight="600">What happens when Claude calls go_to</text>
+    <!-- Layer 1 -->
+    <rect x="30" y="64" width="820" height="156" rx="8" fill="#111827" stroke="#F1EEE9" stroke-width="2"/>
+    <text x="50" y="92" font-family="'JetBrains Mono', Menlo, monospace" font-size="16" font-weight="700">Claude</text>
+    <line x1="30" y1="106" x2="850" y2="106" stroke="#3a3a3a"/>
+    <text x="50" y="132" font-size="13" fill="#B5B9BC">WHAT IT DOES</text>
+    <text x="470" y="132" font-size="13" fill="#B5B9BC">ITS JOB</text>
+    <text x="50" y="158" font-family="'JetBrains Mono', Menlo, monospace" font-size="15">go_to("Salesforce")</text>
+    <text x="470" y="158">decides where, and who to shoot</text>
+    <text x="50" y="198" font-size="13" font-style="italic" fill="#B5B9BC">never sees a pixel or a coordinate</text>
+    <!-- arrow 1 -->
+    <line x1="440" y1="220" x2="440" y2="288" stroke="#777577" stroke-width="2" marker-end="url(#ae)"/>
+    <text x="456" y="260" font-size="13" fill="#B5B9BC">a name, nothing else</text>
+    <!-- Layer 2 -->
+    <rect x="30" y="290" width="820" height="170" rx="8" fill="#111827" stroke="#B5B9BC" stroke-width="2"/>
+    <text x="50" y="318" font-family="'JetBrains Mono', Menlo, monospace" font-size="16" font-weight="700">play.py</text>
+    <line x1="30" y1="332" x2="850" y2="332" stroke="#3a3a3a"/>
+    <text x="50" y="358" font-size="13" fill="#B5B9BC">WHAT IT DOES</text>
+    <text x="470" y="358" font-size="13" fill="#B5B9BC">ITS JOB</text>
+    <g font-family="'JetBrains Mono', Menlo, monospace" font-size="13">
+      <text x="50" y="384">lobby -&gt; hall -&gt; stop at the door -&gt;</text>
+      <text x="50" y="404">turn 90 -&gt; use -&gt; wait 1.2 s -&gt;</text>
+      <text x="50" y="424">walk in</text>
+    </g>
+    <text x="470" y="384">plans the route: we built the level,</text>
+    <text x="470" y="404">so it knows where every door is</text>
+    <!-- arrow 2 -->
+    <line x1="440" y1="460" x2="440" y2="528" stroke="#777577" stroke-width="2" marker-end="url(#ae)"/>
+    <text x="456" y="492" font-family="'JetBrains Mono', Menlo, monospace" font-size="13" fill="#B5B9BC">MOVE x y</text>
+    <text x="456" y="512" font-size="13" fill="#B5B9BC">each waypoint is one MOVE command</text>
+    <!-- Layer 3 -->
+    <rect x="30" y="530" width="820" height="156" rx="8" fill="#15151C" stroke="#E8290B" stroke-width="2"/>
+    <text x="50" y="558" font-family="'JetBrains Mono', Menlo, monospace" font-size="16" font-weight="700">psdoom (C)</text>
+    <line x1="30" y1="572" x2="850" y2="572" stroke="#3a3a3a"/>
+    <text x="50" y="598" font-size="13" fill="#B5B9BC">WHAT IT DOES</text>
+    <text x="470" y="598" font-size="13" fill="#B5B9BC">ITS JOB</text>
+    <g font-family="'JetBrains Mono', Menlo, monospace" font-size="13">
+      <text x="50" y="624">every tic: turn toward the next</text>
+      <text x="50" y="644">point, walk, "arrived" within</text>
+      <text x="50" y="664">16 units</text>
+    </g>
+    <text x="470" y="624">steers, 35 times a second</text>
+  </g>
+</svg>

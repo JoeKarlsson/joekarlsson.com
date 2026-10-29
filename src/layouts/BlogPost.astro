@@ -47,6 +47,14 @@ const {
 	canonicalUrl,
 } = Astro.props;
 
+// The TL;DR is plain text from frontmatter, except [text](url) links
+const markdownLink = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+const tldrParts = (tldr || '').split(/(\[[^\]]+\]\([^)\s]+\))/).map((part) => {
+	const link = /^\[([^\]]+)\]\(([^)\s]+)\)$/.exec(part);
+	return link ? { text: link[1], href: link[2] } : { text: part };
+});
+const tldrText = tldr?.replace(markdownLink, '$1');
+
 const tocHeadings = (headings || [])
 	.filter((h) => h.depth === 2 || h.depth === 3)
 	.map((h) => ({ ...h, text: h.text.replace(/#$/, '').trim() }));
@@ -142,7 +150,7 @@ const relatedPosts = publishedPosts
 
 <BaseLayout
 	title={`${title} | Joe Karlsson`}
-	description={description || tldr || title}
+	description={description || tldrText || title}
 	image={heroImage}
 	type="article"
 	publishedDate={date}
@@ -288,7 +296,20 @@ const relatedPosts = publishedPosts
 						<p class="mb-1 font-mono text-xs font-bold uppercase tracking-wider text-coral">
 							TL;DR
 						</p>
-						<p class="text-sm leading-relaxed text-gray-300">{tldr}</p>
+						<p class="text-sm leading-relaxed text-gray-300">
+							{tldrParts.map((part) =>
+								part.href ? (
+									<a
+										href={part.href}
+										class="text-coral underline underline-offset-2 hover:text-teal"
+									>
+										{part.text}
+									</a>
+								) : (
+									part.text
+								),
+							)}
+						</p>
 					</div>
 				)}
 				<div class="prose">
