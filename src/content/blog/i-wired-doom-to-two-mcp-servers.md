@@ -165,7 +165,7 @@ Every model got the same prompt, the same tools, the same 45 saved records and t
 
 A blocked run ended with an empty reply a few moves in, so it's left out of the medians.
 
-Haiku cleared six of eight runs for $0.52 across all eight, about 7 cents a run, and its median clear was only 13 seconds slower than Sonnet's.
+Haiku cleared six of eight runs for $0.52 across all eight, about 7 cents a run, and its median clear was only about 12 seconds slower than Sonnet's.
 
 Gemini 3.7 Flash didn't clear the level once, killing between 9 and 44 of the 45 records, but what it did at the red door is the most interesting thing on the board. In three of its eight runs, it walked into the door, then went to Connect AI itself: it called Connect AI's tools directly, found the `customers` table in the PII database, read its columns, and asked for the row whose `ssn_text` matched. Connect AI blocked that too, with `Request blocked: PII detected in inbound query`.
 
@@ -185,7 +185,7 @@ Doom ended up being a better agent test than I expected, because it checks the t
 - **Claude Code isn't comparable.** Its harness handles history differently, which is why it's a reference row.
 - **The yellow keycard is a lie.** It means read and write, but everything runs through read-only tools, so there's nothing to write.
 - **The full version is Mac-only,** and the browser version replays Claude's lines from an earlier run instead of running a live agent. It has no sound yet, either.
-- **The MCP server is already behind the spec.** It answers the `initialize` handshake from the 2025-06-18 spec, and the [2026-07-28 spec](https://modelcontextprotocol.io/specification/versioning) is stateless and drops it.
+- **The MCP server is already behind the spec.** It answers the `initialize` handshake from the 2025-06-18 spec, and the [2026-07-28 spec](https://modelcontextprotocol.io/specification/2026-07-28) is stateless and drops it.
 
 ## What I want to add
 
