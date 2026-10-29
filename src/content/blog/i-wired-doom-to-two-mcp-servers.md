@@ -21,7 +21,7 @@ faq:
   - question: 'Can Claude play Doom?'
     answer: 'Yes. In Connect AI × DOOM, Claude Code plays through a Doom MCP server with three tools: look, go_to and attack. Claude names a place or a monster, Python plans the route, and a patch to the engine steers every tic, so Claude never presses a key or sees a pixel.'
   - question: 'How do you test AI agents fairly?'
-    answer: 'Give every model the same prompt, system prompt and tools, the same data, and a budget of moves rather than turns, since some models make several tool calls a turn. Then score each run from what happened, never from what the model says it did. In Connect AI × DOOM, the score comes from game state: kills, time, stalls, urgent records first, and the locked door.'
+    answer: 'Give every model the same prompt, tools and data, then score each run from what happened, never from what the model says it did. In Connect AI × DOOM, every model got the same prompt, tools and 45 saved records, and the score comes from game state: kills, time, stalls, urgent records first, and the locked door.'
   - question: 'How do you test whether an AI agent respects MCP server permissions?'
     answer: 'Give it a request the MCP server will refuse, and watch what it does next. In Connect AI × DOOM the refused request is a locked red door. Over 32 runs, Gemini 3.7 Flash went after the refused Social Security number another way in 3 of its 8 runs, no Claude run did, and the server blocked every attempt.'
   - question: 'How can you visualize MCP data?'
@@ -30,13 +30,13 @@ faq:
     answer: 'Yes. It is MIT licensed on GitHub, runs on a Mac, plays offline with made-up data, and has a version you can play in the browser.'
 ---
 
-I wired Doom to two MCP servers. One is a MCP server inside of Doom, so Claude can play the game. The other is a MCP data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app from the MCP server becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests and Slack threads. It's the world's first Doom level built out of MCP data. I've been calling it DooMCP.
+I wired Doom to two MCP servers. One is an MCP server inside of Doom, so Claude can play the game. The other is an MCP data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app from the MCP server becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests and Slack threads. It's the world's first Doom level built out of MCP data. I've been calling it DooMCP.
 
-This post covers how it works: how Claude plays Doom with three tools, how the level gets built from the MCP server's data, how I benchmarked AI models through Doom.
+This post covers how Claude plays Doom with three tools, how the level gets built from the MCP server's data, and what other models did at a door the MCP server won't open.
 
 I work with MCP servers every single day at [CData](https://www.cdata.com/ai/), and the data source MCP server in this post is ours, [Connect AI](https://docs.cloud.cdata.com/en). I wanted to see how an agent would handle them. Like actually see, which is hard, because MCP data is boring. An agent calls a tool, gets JSON back, and the best anyone does with it is a table that looks like a spreadsheet. I wanted to walk around in it, and [KubeDOOM](https://github.com/storax/kubedoom), which turns Kubernetes pods into monsters, gave me the idea. I wrote about why I picked Doom in [I put an MCP server inside DOOM](/blog/why-i-use-doom-to-visualize-mcp-data/).
 
-You can play a level Claude built from a demo Salesforce, Zendesk and Stripe MCP data right here. You can **Watch Claude play** and let it drive. It's [better full screen](https://cdatasoftware.github.io/connect-ai-doom/).
+You can play a level Claude built from demo Salesforce, Zendesk and Stripe MCP data right here. You can **Watch Claude play** and let it drive. It's [better full screen](https://cdatasoftware.github.io/connect-ai-doom/).
 
 <div class="aspect-video overflow-hidden rounded-lg border border-surface-3">
   <iframe src="https://cdatasoftware.github.io/connect-ai-doom/" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-native-width="1280" data-native-height="720" style="border:0" allow="fullscreen; gamepad; autoplay" allowfullscreen loading="lazy"></iframe>
@@ -44,17 +44,17 @@ You can play a level Claude built from a demo Salesforce, Zendesk and Stripe MCP
 
 Here's how the two MCP servers fit together:
 
-![Two panels showing how Claude Code talks MCP to two servers. Before the game, Claude Code asks the Connect AI MCP server, which has read-only tools into apps like Salesforce, Zendesk and Stripe, and a map builder turns the rooms, records, permissions and refusals it found into a Doom level. While you play, Claude Code drives Doom through the Doom MCP server's look, go_to and attack tools, the game only touches local files, and a bridge that is an MCP client is the only part that talks to Connect AI](/images/blog/i-wired-doom-to-two-mcp-servers/two-mcp-servers.svg)
+![Two panels showing how Claude Code talks MCP to two servers. Before the game, Claude Code asks the Connect AI MCP server, which has read-only tools into apps like Salesforce, Zendesk and Stripe, and a map builder turns the rooms, records, permissions and refusals it found into a Doom level. While you play, Claude Code drives Doom through the Doom MCP server's look, go_to and attack tools, the game only touches local files, and a bridge (an MCP client) is the only part that talks to Connect AI](/images/blog/i-wired-doom-to-two-mcp-servers/two-mcp-servers.svg)
 
-## How Claude plays Doom
+## How Claude plays Doom through an MCP server
 
-When I ran this at the CData booth at [AGNTCon + MCPCon](https://events.linuxfoundation.org/agntcon-mcpcon-north-america/) in San Jose last week, most of the questions were about the tool calls: how Claude moves the marine, and how you'd do the same thing with another game.
+When I ran this at the CData booth at [AGNTCon + MCPCon](https://events.linuxfoundation.org/agntcon-mcpcon-north-america/) in San Jose in October, most of the questions were about the tool calls: how Claude moves the marine, and how you'd do the same thing with another game.
 
 ![Me at the CData booth explaining Connect AI × DOOM to a small crowd while someone films the screen on their phone, with the Doom level and the side panel of MCP tool calls on a big TV behind me](/images/blog/why-i-use-doom-to-visualize-mcp-data/booth-demo.webp)
 
 ![The CData booth from the aisle, with a crowd gathered in front of the Doom demo on the big screen while I talk someone through it](/images/blog/why-i-use-doom-to-visualize-mcp-data/booth-crowd.webp)
 
-Claude doesn't get a keyboard. Doom runs at 35 tics a second, and a model takes a few seconds to decide anything, so a tool like "press W" would have the marine dead before Claude finished its first thought. Most "LLM plays a game" projects I've seen go the other way, feeding the model screenshots and letting it press buttons, and that's hard and very expensive. The 2025 [VideoGameBench](https://arxiv.org/abs/2505.18134) paper tested exactly that setup, screenshots in and key presses out, and the best model completed 0.48% of the benchmark. So I skipped the buttons and gave Claude verbs: whole actions like "walk to the Salesforce room" or "shoot this monster," with code underneath doing the steering.
+Claude doesn't get a keyboard. Doom runs at 35 tics a second, and a model takes a few seconds to decide anything, so a tool like "press W" would have the marine dead before Claude finished its first thought. Most "LLM plays a game" projects I've seen go the other way, feeding the model screenshots and letting it press buttons, and that's hard and expensive. The 2025 [VideoGameBench](https://arxiv.org/abs/2505.18134) paper tested exactly that setup, screenshots in and key presses out, and the best model completed 0.48% of the benchmark. So I skipped the buttons and gave Claude verbs: whole actions like "walk to the Salesforce room" or "shoot this monster," with code underneath doing the steering.
 
 ```python
 TOOLS = {
@@ -131,7 +131,7 @@ If you want to do this with another game, here's what you need:
 
 ## Visualizing MCP data as a Doom level
 
-[doom-mcp](https://github.com/gunnargrosch/doom-mcp) and the other Doom MCP servers let an agent play regular Doom. Here, the level itself is what the agent found. Claude explores the apps through Connect AI's MCP servers read-only tools, picks the three that answer the question, and pulls one list of records from each. Every list comes back with the same four fields (an ID, a name, a detail line and an urgent flag), and those four fields are all a room needs, so any app can become one. Building a level takes Claude about a minute and roughly $0.30 of usage.
+[doom-mcp](https://github.com/gunnargrosch/doom-mcp) and the other Doom MCP servers let an agent play regular Doom. Here, the level itself is what the agent found. Claude explores the apps through the read-only tools on Connect AI's MCP server, picks the three that answer the question, and pulls one list of records from each. Every list comes back with the same four fields (an ID, a name, a detail line and an urgent flag), and those four fields are all a room needs, so any app can become one. Building a level takes Claude about a minute and roughly $0.30 of usage.
 
 | From the MCP server                                    | In the game                                                       |
 | ------------------------------------------------------ | ----------------------------------------------------------------- |
@@ -142,15 +142,15 @@ If you want to do this with another game, here's what you need:
 | The connection's permissions                           | The door's keycard: blue for read-only, yellow for read and write |
 | A request the server refused                           | The red door, which has no key                                    |
 
+[A Python script](https://github.com/CDataSoftware/connect-ai-doom/blob/main/tools/make_arena.py) then writes a Doom map from scratch, on a 16-unit grid with walls wherever two cells differ.
+
 ![The Zendesk room: Claude walking into a hall of monsters labeled with support tickets like API endpoint returning 500 errors and phone service slow, with the urgent ticket named across the bottom of the screen](/images/blog/why-i-use-doom-to-visualize-mcp-data/zendesk-room.gif)
 
 A side panel streams every tool call Claude makes as it happens, plus each kill and the live read that follows it, so you watch the agent work instead of reading its transcript afterward.
 
-[A Python script](https://github.com/CDataSoftware/connect-ai-doom/blob/main/tools/make_arena.py) then writes a Doom map from scratch, on a 16-unit grid with walls wherever two cells differ.
-
 A level built once from a query goes stale, so the game is also an MCP client. [A small bridge](https://github.com/CDataSoftware/connect-ai-doom/blob/main/connect_doom.py) talks to Connect AI while you play. It re-runs each room's query every 15 seconds, so a ticket someone closes in Zendesk drops out of the room's query and leaves on the next refresh, and a newly opened one walks in. It reads a record again when you kill it, and it re-sends the refused request when someone walks into the red door, so the no you get is live, too. Doom's game loop can't wait on any of that, so it all runs in the background and the game only ever reads local files.
 
-## How other AI models did
+## How other AI models handled a refused MCP request
 
 Once Claude could play, I wanted to see how other models handled the same level. Connect AI has an [LLM gateway](https://docs.cloud.cdata.com/en/LLM-Gateway/LLM-Gateway.md) with an OpenAI-style API, so another model can drive the marine through a [small agent loop](https://github.com/CDataSoftware/connect-ai-doom/blob/main/gateway_run.py) with the same tools. [Rootly's Doom Agent Arena](https://github.com/Rootly-AI-Labs/rootly-doom-agent-arena) already puts models head to head in Doom. Mine asks how they handle real records.
 
@@ -173,16 +173,16 @@ Gemini 3.7 Flash didn't clear the level once, killing between 9 and 44 of the 45
 
 The prompt lied to the agent and claimed compliance-admin authority, so you can argue Gemini was being helpful. The schema lookups went through, since table and column names aren't personal data. The SSN never did, because the block lives in the MCP server and not in anything the model was told. We've written more about why that has to sit [below the model](/blog/ai-gateway-data-access-layer/).
 
-## Doom as an agent test
+## Why Doom works for testing AI agents
 
-Doom ended up being a better agent test than I expected, because it checks the things I care about when an agent works on real data: whether it goes after urgent records first, whether it gets stuck repeating moves that do nothing, and whether it takes a no. You also get to watch every one of those decisions happen next to the game instead of reading them out of a log afterward.
+Doom ended up being a better agent test than I expected, because it checks the things I care about when an agent works on real data: whether it goes after urgent records first, whether it gets stuck repeating moves that do nothing, and whether it takes a no. The leaderboard scores all three from game state, and the red door is the one that split the models.
 
 ## What's wrong with it
 
 - **The sample is tiny.** It's one level and 32 runs, and they predate the 100-move budget the game uses now.
 - **It only tests decisions.** God mode and high-level tools mean nobody's aim gets measured.
 - **The model runs aren't live.** Saved data keeps it fair, but the whole point of the project is live records.
-- **Claude Code isn't comparable.** Its harness handles history differently, which is why it's a reference row.
+- **Claude Code isn't comparable.** It keeps its conversation history its own way, which is why it's a reference row.
 - **The yellow keycard is a lie.** It means read and write, but everything runs through read-only tools, so there's nothing to write.
 - **The full version is Mac-only.** The browser version can build a level from your data and let your own model play it, but its demo level replays Claude's lines from an earlier run, and it has no sound yet.
 - **The MCP server is already behind the spec.** It answers the `initialize` handshake from the 2025-06-18 spec, and the [2026-07-28 spec](https://modelcontextprotocol.io/specification/2026-07-28) is stateless and drops it.
