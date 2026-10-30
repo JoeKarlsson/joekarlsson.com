@@ -84,11 +84,12 @@ These are REAL excerpts from Joe's writing. Match this energy, not a sanitized v
 
 > "Home Assistant - originally avoided it in the first post, now it's the orchestration hub for the entire lab. Sometimes your concerns change as you learn more."
 
-### 0d. Prepare git branch
+### 0d. Sync main
+
+Posts ship straight to main (global Git rule), so there's no post branch:
 
 ```bash
 git checkout main && git pull origin main
-git checkout -b blog/{slug}
 ```
 
 ---
