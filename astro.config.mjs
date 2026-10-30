@@ -13,13 +13,14 @@ import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 
 // TL;DR in Tech back issues (imported from Substack, marked by substackUrl) are
-// noindex on the page; keep them out of the sitemap too. New issues stay in.
+// noindex on the page, and recaps of a blog post (recapOf) point their canonical at
+// that post; keep both out of the sitemap too. Other new issues stay in.
 const NEWSLETTER_DIR = new URL('./src/content/newsletter/', import.meta.url);
-const backIssuePaths = new Set(
+const unindexedIssuePaths = new Set(
 	readdirSync(NEWSLETTER_DIR)
 		.filter((f) => f.endsWith('.md'))
 		.map((f) => readFileSync(new URL(f, NEWSLETTER_DIR), 'utf8'))
-		.filter((md) => /^substackUrl:/m.test(md))
+		.filter((md) => /^(substackUrl|recapOf):/m.test(md))
 		.map((md) => md.match(/^slug:\s*['"]?([^'"\n]+)/m)?.[1])
 		.filter(Boolean)
 		.map((slug) => `/newsletter/${slug}/`),
@@ -28,7 +29,10 @@ const backIssuePaths = new Set(
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.joekarlsson.com',
-	integrations: [mdx(), sitemap({ filter: (page) => !backIssuePaths.has(new URL(page).pathname) })],
+	integrations: [
+		mdx(),
+		sitemap({ filter: (page) => !unindexedIssuePaths.has(new URL(page).pathname) }),
+	],
 	vite: {
 		plugins: [/** @type {any} */ (tailwindcss())],
 	},

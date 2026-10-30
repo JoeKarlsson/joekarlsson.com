@@ -19,7 +19,9 @@ interface Props {
 }
 
 const { issue, prev, next } = Astro.props;
-const { title, date, description, substackUrl, heroImage, heroAlt } = issue.data;
+const { title, date, description, substackUrl, heroImage, heroAlt, recapOf } = issue.data;
+// A recap condenses a blog post, so search engines should index the post instead.
+const canonicalUrl = recapOf ? new URL(`/blog/${recapOf}/`, Astro.site).href : undefined;
 const { Content } = await render(issue);
 const linkClass =
 	'underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral';
@@ -32,6 +34,7 @@ const linkClass =
 	publishedDate={date}
 	image={heroImage}
 	noindex={Boolean(substackUrl)}
+	canonicalUrl={canonicalUrl}
 >
 	<div class="mx-auto max-w-3xl px-4 py-8">
 		<article class="min-w-0" data-post-title={title}>
