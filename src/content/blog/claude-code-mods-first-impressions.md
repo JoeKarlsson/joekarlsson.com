@@ -84,6 +84,6 @@ It also replaced the dead hooks. When I mention a service, the mod hands Claude 
 
 Yes. It's only been a few days and all I have is my own experience, but mods have been far more useful to me than hooks. Claude ignores them less often because they don't depend on it remembering anything, and they've already made my workflow better and made me trust my agents more.
 
-If you keep repeating the same rules to your agent, start with those. My rule of thumb: if a rule in CLAUDE.md exists because something went wrong on a specific day, make it a mod. Keep CLAUDE.md for judgment calls like tone and taste, where there's nothing for code to check.
+If you keep repeating the same rules to your agent, start with those. My rule of thumb: if a rule in CLAUDE.md exists because something went wrong on a specific day, make it a mod. Keep CLAUDE.md for judgment calls like tone and taste, where there's nothing for code to check. And keep it small: here's [what I kept always-on in CLAUDE.md after splitting it](/blog/claude-md-open-knowledge-format/).
 
 Keep any hooks that block things, but check that they actually block. And if you have hooks that feed Claude extra context, test them: have one tell Claude a secret word, then ask for it.

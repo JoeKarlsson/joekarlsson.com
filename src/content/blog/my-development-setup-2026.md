@@ -324,7 +324,7 @@ The biggest thing I learned this year is that **agents need a way to verify thei
 
 So anything I do more than twice gets written down as a rule, a skill, a hook, or a linter, and all of it lives in git.
 
-The rules live in `CLAUDE.md`, the file Claude reads at the start of every session. Mine is in my dotfiles, and [chezmoi](https://www.chezmoi.io/) deploys it to every machine, including the Linux container I reach from my phone. Change a rule once, push, and every Claude I talk to follows it.
+The rules live in `CLAUDE.md`, the file Claude reads at the start of every session. Mine is in my dotfiles, and [chezmoi](https://www.chezmoi.io/) deploys it to every machine, including the Linux container I reach from my phone. Change a rule once, push, and every Claude I talk to follows it. When my homelab notes got too big, I [split my CLAUDE.md files into one file per concept](/blog/claude-md-open-knowledge-format/) and measured what it saved.
 
 Each of these rules came from something going wrong. "Test the change you made" is a verification workflow in one sentence, and it's the one that changed the most. The "match the effort to the risk" line came after Claude ran my entire test suite to change a comment. The Word rule came from edits that passed validation and then vanished when Word reopened a stale OneDrive copy.
 

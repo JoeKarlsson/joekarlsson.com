@@ -72,6 +72,8 @@ The same idea works for one person across several machines. I keep my own global
 
 If you only take one thing from this post: write a solid `CLAUDE.md` before you write your third skill. The skills are the features. The `CLAUDE.md` is the foundation.
 
+Just keep it short as it grows. I later [split my repo's CLAUDE.md files into small concept files and measured the difference](/blog/claude-md-open-knowledge-format/).
+
 (The `BRAND_VOICE.md` covered in a later section is a different layer - `CLAUDE.md` is what Claude knows about how your team operates. `BRAND_VOICE.md` is what it knows about how your team writes. Both matter, but they're not the same file.)
 
 ---
