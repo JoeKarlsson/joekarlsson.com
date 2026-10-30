@@ -19,7 +19,7 @@ export interface FeedPost {
 // Blog posts plus Works on My Machine newsletter posts, newest first. Joe treats new
 // newsletter issues as posts, so they show up in the blog list, on the homepage and in
 // the main RSS feed. The imported TL;DR in Tech link roundups (the ones with a
-// substackUrl) stay on /newsletter/ only.
+// substackUrl) and recaps of a blog post (recapOf) stay on /newsletter/ only.
 export async function getFeedPosts(): Promise<FeedPost[]> {
 	const blog = (await getCollection('blog')).map((p) => ({
 		id: p.id,
@@ -29,7 +29,7 @@ export async function getFeedPosts(): Promise<FeedPost[]> {
 		data: p.data,
 	}));
 	const newsletter = (await getCollection('newsletter'))
-		.filter((p) => !p.data.substackUrl)
+		.filter((p) => !p.data.substackUrl && !p.data.recapOf)
 		.map((p) => ({
 			id: p.id,
 			body: p.body,

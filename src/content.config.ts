@@ -39,6 +39,9 @@ const newsletter = defineCollection({
 		// Header image for the post page, its og:image and its card in the blog list.
 		heroImage: z.string().optional(),
 		heroAlt: z.string().optional(),
+		// Slug of the blog post this issue condenses. Recaps stay on /newsletter/ only, so the
+		// blog list, homepage and RSS don't show the same post twice.
+		recapOf: z.string().optional(),
 	}),
 });
 
