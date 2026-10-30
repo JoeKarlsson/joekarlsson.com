@@ -44,7 +44,7 @@ Run the full prohibited-language check:
 - Is there a named frame for the key concept?
 - Are opinions stated plainly ("X is the wrong approach") or hedged ("some might argue")?
 - Does the post name what everyone's thinking but not saying?
-- Does each major section end with a concrete recommendation?
+- Where a section lays out a trade-off, does it say what Joe would actually do?
 - Are scenarios specific (named tools, exact configs) or generic (enterprise data sources, etc.)?
 
 ## Layer 3: AI-writing pattern audit
@@ -101,7 +101,7 @@ Two-pass audit: answer "What makes this obviously AI-generated?" and "Which line
 4. [warm-up intro] "<before>" → "<after>", the conclusion to lead with: <what it should be>
 5. [teaser or label header] "<before>" → "<after: plain label or claim that states the answer>", location: <section>
 6. [hedged opinion] "<before>" → "<after>", take a stance
-7. [missing tactical call] <section> ends without a concrete action, suggest: <what>
+7. [missing tactical call] <section> explains a trade-off without saying what Joe would do, suggest: <what>
 
 ### AI tells (should-fix)
 8. [significance inflation] "<before>" → "<after>"

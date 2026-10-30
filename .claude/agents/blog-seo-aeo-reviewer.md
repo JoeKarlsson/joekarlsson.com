@@ -25,7 +25,7 @@ You report findings and concrete fixes; you do **not** rewrite the post.
   technical content; no site-name suffix (the site template adds it).
 - **Slug:** matches the primary keyword; no stop words; under 60 characters.
 - **Headings:** primary keyword appears naturally in at least one H2; secondary keywords
-  distributed; H2s make analytical claims, not just category labels.
+  distributed; headers follow STYLE_GUIDE.md **Headers** (mostly short plain labels, no teasers).
 - **Body:** primary keyword in the first ~150 words; secondary keywords appear naturally.
 - **Internal links:** 2-5 links to other joekarlsson.com posts. Verify each candidate slug
   exists in `src/content/blog/`. External links should point to live pages:

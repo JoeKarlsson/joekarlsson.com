@@ -30,7 +30,7 @@ These come from posts Joe sent back. They override defaults elsewhere in this sk
 
 ### 0a. Read style guide and project docs
 
-1. Read `STYLE_GUIDE.md` at the repo root - this is NON-NEGOTIABLE. Internalize every rule before writing a single word.
+1. Read `STYLE_GUIDE.md` at the repo root before writing. Its hard rules (em dashes, banned words) fail CI via Vale.
 2. Posts live in `src/content/blog/{slug}.md` and images in `public/images/blog/{slug}/`. Stills are WebP and animations MP4; drop raw PNG/JPG/GIF in and the pre-commit hook converts them.
 3. Read `src/content.config.ts` for the frontmatter schema.
 
@@ -76,10 +76,6 @@ These are REAL excerpts from Joe's writing. Match this energy, not a sanitized v
 
 > "But music? Music is where technical elegance goes to die a slow death."
 
-**Including family/real-life impact:**
-
-> "My partner finds herself walking closer to the device and raising her voice, which feels unnatural."
-
 **Acknowledging when he changed his mind:**
 
 > "Home Assistant - originally avoided it in the first post, now it's the orchestration hub for the entire lab. Sometimes your concerns change as you learn more."
@@ -112,7 +108,7 @@ Use AskUserQuestion to get approval before proceeding.
 
 ### 1a-ii. Headline test
 
-Before moving on, launch **Agent: `blog-headline-tester`** with the working title, primary keyword, and one-sentence thesis. Use the top-scoring title (or a hybrid) as the title going into Phase 2. If the current working title scores highest, keep it.
+Before moving on, launch **Agent: `blog-headline-tester`** with the working title, primary keyword, and one-sentence thesis. Use the top-ranked title (or a hybrid) as the title going into Phase 2. If the current working title ranks first, keep it.
 
 Also ask the user whether the post is aimed at Hacker News or Reddit. If it is, tell the headline tester, and apply **Distribution fit: Hacker News and Reddit** (Phase 3) while drafting. HN asks submitters to use the original title, so the H1 *is* the HN title. Get it right now, not at submission time.
 
@@ -201,9 +197,9 @@ Write the complete blog post following these rules strictly:
 - Bold for emphasis on key phrases, not whole sentences
 - Contractions are good
 
-### Energy, Fun, and Storytelling (CRITICAL - DO NOT SKIP)
+### Energy and storytelling
 
-The #1 failure mode is writing that's technically correct but has zero personality. Joe's posts are FUN to read. They tell stories. They make you laugh. They make you feel something. If your draft reads like a hardware spec sheet or a Wikipedia article, throw it away and start over.
+Joe's posts tell stories from things that actually happened to him. A draft that reads like a spec sheet or a Wikipedia article needs real scenes and opinions from his notes, not added jokes.
 
 #### Storytelling techniques Joe actually uses:
 
@@ -254,7 +250,7 @@ These are the moves that separate analysis from topic coverage. They apply to wr
 
 **Name the frame explicitly.** Give recurring concepts a name and use it. "Call this the two-auth-boundary problem." Named frames stick. Repeated gestures at the same idea don't.
 
-**Analytical claims live in the opening sentence, not the header.** A section's first sentence should make a claim, not announce a category. Headers follow the **Headers** rules in STYLE_GUIDE.md, and the default is a short plain label ("The rebuild", "Why not just buy a Pixoo", "What's next"). Use a claim header only for the one or two sections where the answer is the point, and keep it short. Never make every header a full sentence: on the PixelPane and Screencast Director posts (October 2026) that template is what made Joe call the headings AI slop. a header is either a plain label for what's in the section or a claim that states the section's answer ("Desktop GPUs don't fit in a 2U server"). A claim that holds back its answer ("The GPU lesson nobody warned me about") is a teaser, and teasers fail. The same section covers the H3 rules.
+**Analytical claims live in the opening sentence, not the header.** A section's first sentence should make a claim, not announce a category. Headers follow the **Headers** rules in STYLE_GUIDE.md, and the default is a short plain label ("The rebuild", "Why not just buy a Pixoo", "What's next"). Use a claim header only for the one or two sections where the answer is the point, and keep it short. Never make every header a full sentence; Joe reads that template as AI slop. A header is either a plain label for what's in the section or a claim that states the section's answer ("Desktop GPUs don't fit in a 2U server"). A claim that holds back its answer ("The GPU lesson nobody warned me about") is a teaser, and teasers fail.
 
 **State opinions plainly.** "Priority 3 is the one that matters" is a take. "Priority 3 is important" is not. Every post should have a point of view, stated directly, not hedged away.
 
@@ -264,7 +260,7 @@ These are the moves that separate analysis from topic coverage. They apply to wr
 
 **Honest about what doesn't work yet.** "The conformance testing harness doesn't exist yet; watch for it and integrate it when it ships" is a real recommendation. "SDK developer experience improvements are coming" is noise.
 
-**Per-section tactical call.** After explaining a trade-off or priority, tell the reader what to actually do. "Here's what I'd actually do" turns analysis into a recommendation, not a survey. Every major section should land with a concrete action.
+**Per-section tactical call.** After explaining a trade-off or priority, tell the reader what to actually do. "Here's what I'd actually do" turns analysis into a recommendation, not a survey.
 
 ---
 
@@ -279,16 +275,15 @@ AI writing has tells beyond word choice. Older models wrote uniform 15-25 word s
 - **Conjunctions and parentheses are fine where they're natural.** Don't hit a quota.
 - **Read the last sentence of every paragraph on its own.** If most of them are punchlines, morals, callbacks, or reversals, make most of them plain.
 - **No performed honesty or narrated rigor.** State caveats and results directly. No "Full disclosure:", "I'd rather say so than have you find it", or "I never measured that. For this update, I did."
-- **Vary sentence openings.** Never start 3+ consecutive sentences with the same word. Never start 2+ consecutive sentences with "The" or "It" or "I".
+- **Vary sentence openings.** Never start 3+ consecutive sentences with the same word.
 - **No staged reveals.** "Know what happened next?", "The funny part:", "The catch:", "Turns out", "The result? X." Say the thing.
 
 #### Paragraph-level rules
 
-- **Vary paragraph length DRAMATICALLY.** One-sentence paragraphs are powerful. So are 6-sentence paragraphs. AI tends toward uniform 3-4 sentence paragraphs - this is the #1 structural tell.
-- **DO NOT** make every section the same length. Some sections should be 1 paragraph, others 5+. Real writing is uneven.
-- **DO NOT** follow a predictable internal structure (setup -> explanation -> conclusion). Some sections are just a code block with one sentence of context. Some are long digressions. Some are just a list.
-- **DO NOT** wrap up every section with a summary sentence. Just stop when the point is made.
-- **DO NOT** balance pros and cons evenly. Joe has opinions. If something sucks, spend 3 paragraphs on why and 1 sentence on the upside.
+- Let paragraph and section length follow the content; uniform 3-4 sentence paragraphs read as generated.
+- Vary how sections are built. Some are a code block with one sentence of context, some a long digression, some a list.
+- Stop a section when the point is made, without a summary sentence.
+- Weight pros and cons by how Joe actually feels. If something sucks, spend the space on why.
 
 #### Post-level rules
 
@@ -384,7 +379,7 @@ Never submit, vote, or ask anyone to upvote on the user's behalf. HN's voting-ri
 
 Blog posts need visual breaks. Walls of text kill engagement. Include:
 
-**User photos:** Ask the user if they have photos related to the post topic. Check `~/Downloads/` for photo directories. Convert HEIC to JPEG with `sips`, then to WebP with `cwebp -q 85`. Save to `public/images/blog/{slug}/`. Every photo needs descriptive alt text.
+**User photos:** Ask the user if they have photos related to the post topic. Check `~/Downloads/` for photo directories. Convert HEIC to JPEG with `sips` and save the JPEG to `public/images/blog/{slug}/`; the pre-commit hook converts it to WebP. Every photo needs descriptive alt text.
 
 **Memes:** see the Meme generation step below. Never pick templates from memory.
 
@@ -546,7 +541,7 @@ Launch these three agents simultaneously with the final draft file path:
 
 **Agent: `blog-seo-aeo-reviewer`** - checks meta description, title, keyword placement, internal links, FAQ/AEO extractability, and that the closing lands well.
 
-**Agent: `blog-positioning-reviewer`** in **DRAFT mode** - checks that the post delivered its thesis, that the analytical stance is consistent, and that each major section ends with a concrete recommendation.
+**Agent: `blog-positioning-reviewer`** in **DRAFT mode** - checks that the post delivered its thesis and that the analytical stance is consistent.
 
 ### 6b. Apply findings
 
@@ -573,7 +568,6 @@ Final human review before moving on. Verify each item:
 - [ ] Does the post open with its conclusion and build the argument from there?
 - [ ] Do headers say what's in the section or state its answer, with no teasers, in sentence case? Do the H3s follow the STYLE_GUIDE.md H3 rules?
 - [ ] Is there a clear point of view, stated plainly - not hedged away?
-- [ ] Does each major section end with a concrete "here's what I'd do"?
 - [ ] Is structure varied and natural, not perfectly uniform?
 - [ ] No em dashes anywhere?
 - [ ] No prohibited words?
@@ -630,12 +624,7 @@ Instructions:
 ```
 
 Use AskUserQuestion to pause and wait for the user to confirm the image is ready.
-Once confirmed, verify the file exists at `public/images/blog/{slug}/hero.webp` (or `.png`).
-If PNG, convert to WebP:
-
-```bash
-python3 -c "from PIL import Image; Image.open('public/images/blog/{slug}/hero.png').save('public/images/blog/{slug}/hero.webp', 'WEBP', quality=85)"
-```
+Once confirmed, verify the file exists at `public/images/blog/{slug}/hero.webp` (or `.png`). A PNG is fine: the pre-commit hook converts it to WebP and repoints `heroImage`.
 
 ### 7b. Python Script (Fallback)
 

@@ -30,7 +30,7 @@ the primary keyword.
 2. **Analytical frame.** Does the outline lead with a conclusion or insight, or does it
    announce a topic and cover it generically? Apply the Thompson/McKenzie test:
    - Is there a thesis the reader knows by the end of the intro?
-   - Do section headers make claims that state their answer ("Desktop GPUs don't fit in a 2U server") rather than announcing categories ("X overview") or teasing ("The lesson nobody warned me about")? Read only the headers. Do they carry the thesis?
+   - Do section headers say what's in the section, mostly as short plain labels, with a claim that states its answer ("Desktop GPUs don't fit in a 2U server") only where the answer is the point, and no teasers ("The lesson nobody warned me about")? Read only the headers. Do they carry the thesis?
    - Is there a named frame for the key concept?
    Propose a sharper analytical structure if needed.
 
@@ -59,9 +59,6 @@ Inputs: the draft file path, the intended audience, the primary keyword.
    - Authorial stance that shifts (practitioner → marketing copy → academic)
    - A narrative section crashing into a spec sheet with no transition
 
-4. **Per-section tactical call check.** Does each major section end with a concrete recommendation,
-   not just an explanation? "Here's what I'd actually do" vs. "there are tradeoffs to consider."
-
 ## What to return
 
 ```
@@ -88,9 +85,6 @@ Inputs: the draft file path, the intended audience, the primary keyword.
 
 ### Altitude consistency  [draft mode]
 - <section>, <shift observed> → <fix>
-
-### Per-section tactical calls  [draft mode]
-- Sections missing a concrete action: <list>
 
 ### Verdict
 <PASS | REVISE, the must-fix items>
