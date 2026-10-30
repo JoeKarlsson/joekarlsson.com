@@ -8,12 +8,30 @@ description: Create blog posts for joekarlsson.com using a multi-agent pipeline:
 
 Create a blog post about: $ARGUMENTS
 
+## Ground rules from Joe's feedback
+
+These come from posts Joe sent back. They override defaults elsewhere in this skill.
+
+- **Build on Joe's lived experience, not the notes.** Working notes, benchmarks and session details are evidence, never the spine or the hook. Build the outline on the goals he states and why he works the way he does. Data he asks for goes in one section, not the title. If he says "don't get in the weeds", cap numbers at one or two lines per section. Ask what matters to him instead of inferring priority from the volume of notes, and don't pad with tools he doesn't use. Why: he rejected a dev-setup outline that led with a git-status benchmark, and a Proxmox GPU refresh that turned into a benchmark post.
+- **"In the style of <post>" means mirror that post's section structure literally**, even where it conflicts with this skill's header rules. His explicit request wins.
+- **Recap, don't dump.** Each section lands one idea with one piece of evidence and at most one short code sample. Recap what Joe ran and tell readers to run their own version; don't re-run his benchmarks. Cut alias tables, setup walkthroughs, every config field, caveat stacks and full data tables. A first-hand recap counts as original data. Why: he called a draft with an alias table and setup walkthrough "AI slop, garbage, too much detail."
+- **Experiment posts open with Joe's question and how he tested it**, findings next, methodology and full results at the bottom. Never frame a tool as failing at something it never promised, and give null results neutral labels ("Metadata alone", not "Frontmatter did nothing"). Why: a title saying Open Knowledge Format "didn't shrink my CLAUDE.md" was "a false promise" - OKF never claimed to shrink anything.
+- **Lead with the demo.** A playable embed or try-it tool goes right after the intro, before the backstory. Placing it after "How it works" buried the lead on the DOOM post.
+- **Employer stories stay vague on purpose.** Generic labels ("a docs team at a database company") are fine. Never ask for company, product, team or people names, don't flag the vagueness as an EEAT must-fix, and don't rewrite it as a composite. Get first-hand texture from process details instead. Why: they're real current and past employers, and naming them burns bridges.
+- **Run every phase** for a new post, or a post or project page whose copy changes a lot, even when Joe is iterating fast. Don't draft first and review afterwards. Vale runs as `npm run test:voice` (part of `npm test`). Why: two launch posts skipped the pipeline and shipped headings Joe called "AI-generated slop."
+- **Fix AI tells by cutting or saying it plainly**, never by adding jokes, fragments or feelings.
+
+### Product posts and project pages
+
+- **A `/work/{slug}` page (`src/data/projects.ts`) is a short overview**: about 2 intro paragraphs, 3 step cards, about 4 visuals, and a GitHub CTA. Config, YAML and install steps stay in the repo docs. The blog post is the story: why Joe built it, build vs buy, how it fits his house and life. Old history gets one line. Project pages get the voice and fact-check reviewers too. Why: the first PixelPane page had "too much going on" and its post was config-heavy.
+- **Clips show the app's own UI in use** (menus opening, buttons clicked, things rendering), each placed under the paragraph whose claim it demonstrates. No old tour videos, start-page stills, recordings of playback, or clips stacked at the end of a section. Before recording, get a shot list approved (section | what the text claims | what the clip shows). Record a separate app instance on a scratch, de-branded copy (no CData), capture only the app's windows, and trim so the first frame shows the feature (the video player shows frame 0, no poster). Change the text to match what was recorded. Skip table-stakes features like undo: "talk about what's special."
+
 ## Phase 0: Setup
 
 ### 0a. Read style guide and project docs
 
 1. Read `STYLE_GUIDE.md` at the repo root - this is NON-NEGOTIABLE. Internalize every rule before writing a single word.
-2. Read `CLAUDE.md` for site structure, categories, and CI requirements.
+2. Posts live in `src/content/blog/{slug}.md` and images in `public/images/blog/{slug}/`. Stills are WebP and animations MP4; drop raw PNG/JPG/GIF in and the pre-commit hook converts them.
 3. Read `src/content.config.ts` for the frontmatter schema.
 
 ### 0b. Category-specific voice calibration
@@ -391,6 +409,7 @@ It prints how often each format appears across every post, which formats the 5 m
 
 - **Never use a format on the off-the-table list.** That's any format used 3 or more times across the blog, or used in any of the 5 most recent posts with memes. As of September 2026 this covers Drake, This Is Fine, One Does Not Simply, Expanding/Galaxy Brain, Surprised Pikachu, Distracted Boyfriend, Gru's Plan, and Two Buttons, but the script's live output wins over this sentence.
 - **Never repeat a format within a post.**
+- **Make the joke generally funny.** Captions are about an experience any developer recognizes (agents, docs bloat, "I'll just add one more line"), not Joe's config details or his own numbers. Why: he rejected a set of pitches as "way too specific about my setup."
 - **Vary the joke structure, not only the template.** Two "reject this, pick that" comparisons in one post count as a repeat even with different templates.
 - **Don't pick from memory.** Pull fresh candidates with `python3 scripts/make-meme.py templates --exclude-overused --limit 100`, and look beyond ImgFlip's top 100 when a less common format fits the joke better.
 - **Match the format to the joke.** Examples, not a fixed menu (rotate these too):
@@ -687,10 +706,10 @@ After final approval:
 
 ```bash
 git add src/content/blog/{slug}.md public/images/blog/{slug}/ cspell-custom.txt
-git commit -m "feat: add blog post - {title}"
+git commit -m "feat: Add blog post - {title}"
 ```
 
-Do NOT push unless the user explicitly asks.
+Then push, run `npm run deploy`, and curl the live page to confirm (see CLAUDE.md Build & Deploy).
 
 ---
 
@@ -768,7 +787,7 @@ Present the plan to the user with AskUserQuestion before making any changes.
 Apply the user-approved refresh items, then run the full `--review` agent suite on the updated file. Commit with:
 
 ```bash
-git commit -m "content: refresh /blog/<slug> - <summary of what changed>"
+git commit -m "feat: Refresh /blog/<slug> - <summary of what changed>"
 ```
 
 ### Tips

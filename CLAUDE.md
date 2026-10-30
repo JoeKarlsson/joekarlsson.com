@@ -25,103 +25,15 @@ npm run deploy     # Build + deploy via OpenTofu (tofu apply) + purge Cloudflare
 
 - **Content deploy**: `./deploy.sh` (builds + runs `tofu apply` which detects `dist/index.html` changed)
 - **Caddyfile changes**: Edit `~/claude/opentofu/services/joekarlsson-astro/provision.sh.tpl`, then run `tofu apply` from that directory. The `Caddyfile` in this repo is kept as a reference but is **not deployed by deploy.sh**.
+- **Deploying from a worktree** ships the main checkout's `dist` (`site_dist_path` in terraform.tfvars is hardcoded) and skips the Cloudflare purge (no `.env`), yet the smoke check still passes. Run tofu with `-var "site_dist_path=$PWD/dist" -replace=null_resource.push_content`, purge with the main checkout's `.env`, then curl the live page for a changed sentence.
+- **Approved content changes**: commit, push, then `npm run deploy` and curl the live page. Don't stop at push. Still ask before Caddyfile or infra changes.
 
 ## Blog Posts
 
-- Content: `src/content/blog/*.md`
-- Images: `public/images/blog/{slug}/`
-- Schema: `src/content.config.ts` (title, date, slug, description, categories, tags, heroImage)
-- Categories: Databases, Dev Tools, Smart Home, Homelab, Film, DevRel, IoT, Travel, Career, Personal
-- Stills should be WebP; animations should be MP4 (see below) - a raw GIF or animated WebP over 256KB fails validation
-- All images must have descriptive alt text
+- All images need descriptive alt text.
+- Drop raw PNG/JPG/GIF images in; the pre-commit hook converts them (details in `.claude/rules/images.md`).
+- A new iframe origin must be added to CSP `frame-src` in `provision.sh.tpl` and `Caddyfile`, or the embed is silently blocked in production (`.claude/rules/embeds.md`).
 
-### Image conversion (automatic)
+## Checks
 
-Drop the raw PNG/JPG/GIF in `public/images/blog/{slug}/`, reference it normally, and commit. The pre-commit hook runs `scripts/convert-staged-images.sh`, which converts anything staged under `public/images`:
-
-- **PNG/JPG** -> WebP via `scripts/convert-images-to-webp.mjs`, which also repoints every reference across `src/`. Rewritten files are staged for you, unless they already had unstaged edits - then the commit stops so you can review.
-- **GIF at/over 256KB** -> gains an `.mp4` sibling via `scripts/convert-gifs-to-video.sh` (requires `ffmpeg`; without it you get a warning and pre-push fails instead). Markdown keeps referencing the `.gif`; `src/plugins/rehype-gif-video.mjs` swaps in a `<video>` at build time. Smaller GIFs are left alone.
-- **Animated WebP at/over 256KB** -> same treatment via `scripts/convert-animated-webp-to-video.mjs`. Still WebP is left alone; the two are told apart by the `ANIM` chunk in the RIFF header. ffmpeg cannot decode animated WebP at all ("image data not found"), so frames come out through sharp and go into ffmpeg as a concat list carrying each frame's delay.
-
-Only an `.mp4` sibling makes the plugin swap an `<img>` for a `<video>`, which is what keeps the site's ~570 still WebPs untouched.
-
-To convert by hand (whole tree or specific paths):
-
-```bash
-node scripts/convert-images-to-webp.mjs [--dry-run] [paths...]
-./scripts/convert-gifs-to-video.sh --min 256 [--dry-run] [paths...]
-node scripts/convert-animated-webp-to-video.mjs --min 256 [--dry-run] [paths...]
-```
-
-**Astro caching gotcha**: `rehype-gif-video` probes the filesystem, which Astro does not track as a dependency of the markdown it caches. Converting an animation without clearing `node_modules/.astro` makes the next build re-emit `<img src="...gif">` for a file that no longer exists. Both video converters clear that cache themselves, `validate-images.sh` fails on any built `<img>`/`<video>` whose source is missing from `dist/`, and `deploy.sh` runs that check before shipping. CI never hits this (cold cache); local `./deploy.sh` would have.
-
-**Size gates** in `validate-images.sh`, all ratchets - tighten them as the backlog shrinks, never loosen:
-
-- `MAX_IMAGE_KB=500` - hard fail. Worst offender is currently 424KB.
-- `MAX_NON_WEBP=0` - any PNG/JPG under `public/images` fails.
-- `GIF_MP4_MIN_KB=256` - any GIF or animated WebP at/over this with no `.mp4` sibling fails.
-- Over 200KB warns only. 9 images sit there, all genuine stills.
-
-Note `convert-images-to-webp.mjs` only reads PNG/JPG, so a file that arrived already as `.webp` never had the 1920px cap or quality setting applied to it. `blog/running-devrel-2026/hero.webp` is 2240px wide for that reason, deliberately left full size.
-
-To cap an existing WebP's dimensions, `scripts/resize-webp.mjs` re-encodes in place. It requires explicit paths - some images are deliberately large, and only you know which:
-
-```bash
-node scripts/resize-webp.mjs --max-width 1200 [--quality 82] [--dry-run] <paths...>
-```
-
-Check what the page actually renders at before picking a width. The crop-art gallery on `/about` declares `width="300"` with `object-cover` and links out to cropart.com rather than to a full-size image, so 1200px is already generous there.
-
-### Iframe embeds
-
-The CSP `frame-src` allows only YouTube, TikTok and `cdatasoftware.github.io`. A new embed origin is blocked silently in production (local dev and preview have no CSP, so it looks fine there). Add the origin to `frame-src` in `~/claude/opentofu/services/joekarlsson-astro/provision.sh.tpl` (deployed) and in this repo's `Caddyfile` (reference), then deploy. `tests/build-output.test.ts` fails on any built iframe whose origin the `Caddyfile` doesn't allow, and `validate-caddyfile.sh` (run by `deploy.sh`) fails if the two CSPs differ.
-
-For an embed that refuses to run below a minimum window size (the Connect AI × DOOM web build needs 900x560), give the iframe `data-native-width`/`data-native-height` inside an `aspect-video overflow-hidden` wrapper. `src/scripts/scale-to-fit-embed.ts` renders it at that size and scales it down to fit.
-
-## Code Quality
-
-- **Prettier** formats all code (`npm run format`). Config: `.prettierrc`
-- **ESLint** lints TS/Astro files (`npm run lint`). Config: `eslint.config.mjs`
-- **Vitest** tests build output and content schema (`tests/`). Config: `vitest.config.ts`
-- **Knip** detects unused dependencies and exports (`npm run test:unused`). Config: `knip.config.ts`
-- **Pre-commit hook** (husky) converts staged images, then lint-staged auto-formats and lints staged files
-- **Pre-push hook** checks the lockfile installs under npm 10, then runs the full `npm test`, so an unconverted or oversized image cannot be pushed
-- **Lockfile and npm versions**: CI uses the npm 10 bundled with Node 22. npm 12 can write a lockfile that npm 10's `npm ci` rejects (it dropped puppeteer's nested proxy-agent tree). After changing dependencies, regenerate with `npx npm@10 install --package-lock-only --ignore-scripts`; npm 12 accepts the result too
-- **Install scripts**: npm 12 blocks them unless listed in `allowScripts` in `package.json`. puppeteer (downloads headless Chrome for pa11y, Lighthouse, resume PDF) and fsevents are approved by name, so version bumps don't re-block them
-- All checks run in CI and will fail the build if issues are found
-
-## CI/CD
-
-- GitHub Actions CI runs on PRs + push to main (`.github/workflows/ci.yml`)
-- 15 jobs: build, type check, lint/format, markdown lint, spell check, image validation, internal links (lychee), RSS/sitemap, accessibility (Pa11y), Lighthouse, unit tests (vitest, whole `tests/` dir), unused deps (knip), security audit, E2E (Playwright), failure notification (ntfy)
-- Weekly external link check (`.github/workflows/links.yml`)
-- Weekly dependency health check (`.github/workflows/deps.yml`) - opens GitHub issues for outdated packages and security vulnerabilities
-- Config files: `.markdownlint.jsonc`, `cspell.json`, `cspell-custom.txt`, `.pa11yci.json`, `.lighthouserc.json`, `.lychee.toml`, `vitest.config.ts`, `knip.config.ts`
-- Validation scripts: `scripts/validate-images.sh`, `scripts/validate-feeds.sh`, `scripts/validate-caddyfile.sh`
-- Run `npm test` locally to run full suite: format, lint, type check, build, images, spelling, markdown, build output, content schema
-- Add new tech terms to `cspell-custom.txt` when spell check flags them
-
-## Key Files
-
-- `src/consts.ts` - Site title, URL, social links, nav links
-- `src/content.config.ts` - Content collection schemas
-- `src/env.d.ts` - TypeScript declarations (Window.plausible type)
-- `src/components/BaseHead.astro` - SEO, fonts, analytics
-- `src/layouts/BaseLayout.astro` - Page wrapper
-- `src/layouts/BlogPost.astro` - Blog post layout
-- `src/styles/global.css` - Global styles and prose classes
-- `tailwind.config.mjs` - Theme colors, fonts
-- `Caddyfile` - Server config, redirects, security headers
-- `STYLE_GUIDE.md` - Writing voice and style reference
-- `tests/build-output.test.ts` - Vitest tests for robots.txt, sitemap, RSS, llms.txt, SEO meta, webmanifest
-- `tests/content-schema.test.ts` - Vitest tests for blog post frontmatter validation
-- `tests/rehype-plugins.test.ts` - Vitest tests for the gif-video and lazy-image rehype plugins
-- CI runs `npx vitest run` over the whole `tests/` directory - add a file and it runs, no wiring needed
-
-## Pages
-
-- `/` - Homepage with interactive terminal
-- `/blog` - Blog index, `/blog/[slug]` - Individual posts
-- `/about`, `/work`, `/uses`, `/contact` - Static pages
-- `/talk-archive`, `/privacy-policy` - Content pages
-- `/rss.xml`, `/llms.txt`, `/llms-full.txt` - Machine-readable feeds
+The pre-commit hook formats and lints staged files; the pre-push hook runs the full `npm test`.
