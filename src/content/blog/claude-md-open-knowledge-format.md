@@ -125,14 +125,41 @@ The experiment took a morning. Switching my real setup over is where I found the
 
 ## How to set up your own
 
-You can get most of this in an afternoon with any agent that reads markdown. This is the order I'd do it in:
+You can get most of this in an afternoon. Here's a prompt you can steal. Paste it into Claude Code from the root of your repo:
 
-1. **Snapshot first:** a git tag, plus a copy of your memory folder (`~/.claude/projects/<project>/memory/`).
-2. **Grep for anything that reads your docs** (scripts, tests, hooks, slash commands) before you move a file.
-3. **Split your big docs into one concept per file**, with an `index.md` per folder. Move the text word for word, and check afterward that every original line still exists somewhere.
-4. **Turn each CLAUDE.md into a stub:** the rules that must apply every session, plus a pointer to the index. Keep small, constantly used tables always-on.
-5. **If you use auto-memory, set the OKF `type` to the memory's category** so Claude Code's rewrites don't fight you.
-6. **Add a pre-commit check** that keeps the stubs small and every concept listed in its index. Without one, the stubs grow right back.
+```text
+Convert my Claude Code notes (every CLAUDE.md, .claude/rules/*.md, and my
+auto-memory folder) to Open Knowledge Format:
+https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md
+
+Before changing anything:
+1. Make a git tag and a copy of my memory folder so I can roll back.
+2. Find every script, test, hook, and slash command that reads these files.
+   List them, and ask me before moving any file they depend on.
+3. Measure my startup context: run `claude -p "Reply with just OK"` here and
+   in an empty folder, and report the difference in tokens.
+
+Then:
+4. Split big docs into one concept per file under knowledge/, with an
+   index.md per folder that describes each file in one line. Name each file
+   for what's in it.
+5. Move text word for word. Don't rewrite, summarize, or "improve" anything.
+   Afterward, check that every original line still exists somewhere, and
+   show me any that don't.
+6. Give each concept OKF frontmatter (type, title, description). Write
+   descriptions that say what's in the file.
+7. Shrink each CLAUDE.md to a stub: the rules that apply to every task,
+   safety rules, and small tables I look things up in constantly, plus a
+   pointer to the right index.md.
+8. For auto-memory files, set the OKF `type` to the memory's existing
+   category so Claude Code's own rewrites don't conflict with it.
+9. Re-measure startup context. Show me before and after, and list what you
+   kept always-on and why.
+10. Suggest a pre-commit check that keeps the stubs short and every concept
+    listed in its index.
+```
+
+Read the list of what it kept always-on before you commit. That's where your judgment matters most.
 
 Once your docs are already lean, this buys you little. I split my global `~/.claude/CLAUDE.md` the same way afterward and saved 312 tokens, because nearly all of it is rules that apply everywhere. Most of an empty session is Claude Code's own system prompt and tool list.
 
@@ -148,58 +175,6 @@ What goes in mine:
 
 What stays out: anything about one project or one service, long examples, anything Claude can figure out by reading the code, and anything a hook can enforce instead.
 
-Here's my global `~/.claude/CLAUDE.md`, the one that [loads in every session on every machine](/blog/my-development-setup-2026/). It's about 1,600 tokens:
-
-<details>
-<summary>My global CLAUDE.md</summary>
-
-```markdown
-# Global instructions
-
-## Testing
-
-**Test the change you made.** Before calling it done, run the specific feature, fix, or test once and confirm it works. Don't claim something works without running it. If it fails, fix it and run it again. Don't ask me to check something you could check yourself.
-
-**Past that, use your judgment.** Match the effort to the risk. Speed matters, so don't be cautious just for the sake of it.
-
-- **Tests:** run the tests for the area you changed, not the whole suite by default. If existing tests check behavior you changed, update them. Add a test for new logic that's non-trivial and likely to break later; skip it for small or obvious changes.
-- **End-to-end and downstream checks:** do these when the change touches something shared (a module, schema, template, or config other things read), or when a failure would be silent or costly. Skip them for contained changes.
-- Check once. Don't confirm the same thing several different ways.
-
-**Reporting:** briefly say what you ran and what happened. **Text-only edits** (skills, CLAUDE.md, docs, READMEs, comments) need no test runs: re-read the section you edited and report what changed.
-
-## Code design
-
-- **Build only what was asked.** No speculative options, flags, or abstractions. Write the obvious solution; optimize only when there's a measured need.
-- **Don't hide failures.** No swallowed errors, silent fallbacks, or `|| true` without a stated reason. An explicit error beats a silent success.
-- **Rule of three.** Duplicate once; extract a shared helper when the third copy appears.
-- **Clean up as you go.** In the same change, delete code your change made dead or replaced: unused functions, variables, imports, files, stale comments, and debug leftovers. If you spot other clearly dead code nearby, grep for callers and remove it too. Less code is better; don't leave cleanup for later.
-- **Descriptive names over short ones.** Name variables, functions, parameters, and endpoints so they explain themselves to a human or an LLM (`waitUntilObjectIsSaved`, not `wait`). Keep the file's casing convention.
-
-## Git Workflow
-
-This is my personal computer: do NOT open pull requests by default.
-
-1. Always fetch the latest changes from the remote repository before making any changes.
-2. Commit messages (and any PR titles) should follow the format `feat: <Summary>`, `fix: <Summary>`, or `chore: <Summary>`, where the summary starts with an uppercase letter. Use `chore:` for non user-facing changes.
-3. When a change is ready, commit it directly **and push**; always keep the remote up to date without being asked. Don't create a PR unless I explicitly request one.
-4. Only when I explicitly ask for a PR: open it as a draft with a concise single-sentence description.
-
-## Parallel sessions: one worktree each
-
-- **Before the first edit in a git repo, run ListAgents.** If another session is working in the same repo (session names start with the repo's directory name), call **EnterWorktree** and do all the work there.
-- **Never touch another session's files or staged changes.** Outside a worktree, always commit with explicit paths: `git commit -- <paths>`.
-- **Working in a worktree** (shipping with `push origin HEAD:main`, gitignored files, removing it when done): read `~/.claude/knowledge/worktree-workflow.md` first.
-
-Other situational rules live in `~/.claude/knowledge/index.md` (an Open Knowledge Format bundle): read the index line, open only the concept you need.
-
-## Word documents (.docx)
-
-Before reading or editing any .docx, load the local `docx` skill (`~/.agents/skills/docx`), not the `anthropic-skills:docx` plugin variant, which lacks the Word workflow. An edit isn't done until you've read it back from Word.
-```
-
-</details>
-
 ## Takeaways
 
 Most of what I learned doesn't depend on OKF or on Claude Code. If you keep any kind of notes for a coding agent:
@@ -208,31 +183,12 @@ Most of what I learned doesn't depend on OKF or on Claude Code. If you keep any 
 2. **Point, don't preload.** Give the agent an index and let it open what it needs. Preload only what's small, used constantly, or a safety rule.
 3. **One idea per file, named for what's in it.** File names and index lines are how the agent decides what to open, so `critical-alerts-to-phone.md` beats `notes-3.md`.
 4. **Write the index descriptions yourself.** The generated ones were the weakest part of my conversion.
-5. **Don't let a model rewrite your notes while it reorganizes them.** Move the text as-is. An [ETH Zurich study](https://arxiv.org/abs/2602.11988) found that LLM-generated context files didn't improve coding agents' success and added cost.
-6. **If a rule must never break, make it a hook.** Text is a suggestion the agent can talk itself out of.
-7. **Your docs might be code.** If a script or test parses a file, moving it is a code change.
-8. **Facts go stale.** Put a date on the ones that will (OKF has a `stale_after` field for this), so something reminds you to check them.
+5. **If a rule must never break, make it a hook.** Text is a suggestion the agent can talk itself out of.
+6. **Facts go stale.** Put a date on the ones that will (OKF has a `stale_after` field for this), so something reminds you to check them.
 
 What OKF gave me was a clear structure to follow and a spec I could lint against. The structure is what made the difference, and it's what I'd copy.
 
 ## How I tested
-
-I made three copies of my skills repo, each with the files at their real paths, so CLAUDE.md files and memory auto-loaded the way they do in the real thing:
-
-- **As-is:** the original files.
-- **Metadata:** OKF frontmatter added to every file, content unchanged.
-- **Restructured:** one concept per file behind an index, thin CLAUDE.md stubs.
-
-I wrote 44 questions from the docs, each with a known answer. Some were facts that were already always-on, some were buried deep in big docs, and some were safety rules where the right answer is "no." Each copy got every question three times through headless `claude -p` on Sonnet 5.5, plus a smaller Opus 5.5 spot check. A script and a cheap judge model graded the answers, and I read every failure myself. The whole thing cost about $21.
-
-|                                | As-is  | Metadata | Restructured |
-| ------------------------------ | ------ | -------- | ------------ |
-| Tokens loaded at session start | 16,237 | 16,237   | 8,505        |
-| Accuracy (Sonnet)              | 97%    | 98%      | 99%          |
-| Cost per question (Sonnet)     | $0.043 | $0.042   | $0.030       |
-| Cost per question (Opus)       | $0.201 | $0.203   | $0.133       |
-
-Some caveats. 44 questions is a small set, and the accuracy ranges overlap, so read accuracy as "held," not "improved." I overturned one grade by hand, where the judge misread a correct refusal. I measured whether Claude could find and use what's in the docs, not whether it follows instructions better. That's a separate question, and a [study of 1,650 Claude Code sessions](https://arxiv.org/abs/2605.10039) found no detectable effect from CLAUDE.md length or file structure.
 
 <details>
 <summary>More results and lessons from building the test</summary>
@@ -250,10 +206,21 @@ Accuracy and tokens per question by question type (Sonnet):
 
 The "already always-on" and "safety rules" rows are where splitting went too far: those questions cost more once their tables weren't preloaded. After the experiment I put those tables back in the always-on files, and both kinds of question went back to one turn.
 
-If you build your own test:
-
-- `--allowedTools` pre-approves tools; it doesn't restrict them. Use `--tools` to restrict what the agent can call.
-- Read your failures by hand. My grader was wrong more often than the agents were: a too-strict regex and one reference answer that only listed one of two valid answers.
-- Run every version in its own folder with the same flags, so nothing from your real setup leaks in.
-
 </details>
+
+I made three copies of my skills repo, each with the files at their real paths, so CLAUDE.md files and memory auto-loaded the way they do in the real thing:
+
+- **As-is:** the original files.
+- **Metadata:** OKF frontmatter added to every file, content unchanged.
+- **Restructured:** one concept per file behind an index, thin CLAUDE.md stubs.
+
+I wrote 44 questions from the docs, each with a known answer. Some were facts that were already always-on, some were buried deep in big docs, and some were safety rules where the right answer is "no." Each copy got every question three times through headless `claude -p` on Sonnet 5.5, plus a smaller Opus 5.5 spot check. A script and a cheap judge model graded the answers, and I read every failure myself. The whole thing cost about $21.
+
+|                                | As-is  | Metadata | Restructured |
+| ------------------------------ | ------ | -------- | ------------ |
+| Tokens loaded at session start | 16,237 | 16,237   | 8,505        |
+| Accuracy (Sonnet)              | 97%    | 98%      | 99%          |
+| Cost per question (Sonnet)     | $0.043 | $0.042   | $0.030       |
+| Cost per question (Opus)       | $0.201 | $0.203   | $0.133       |
+
+Some caveats. 44 questions is a small set, and the accuracy ranges overlap, so read accuracy as "held," not "improved." I overturned one grade by hand, where the judge misread a correct refusal. I measured whether Claude could find and use what's in the docs, not whether it follows instructions better. That's a separate question, and a [study of 1,650 Claude Code sessions](https://arxiv.org/abs/2605.10039) found no detectable effect from CLAUDE.md length or file structure.
