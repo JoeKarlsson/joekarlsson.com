@@ -83,3 +83,28 @@ describe('blog post frontmatter', () => {
 		});
 	}
 });
+
+// Share links submit shareTitle (or the title) to Hacker News, which cuts titles at 80 characters
+describe('share titles fit Hacker News', () => {
+	const SHARE_TITLE_MAX = 80;
+	const contentDir = resolve(import.meta.dirname, '..', 'src', 'content');
+	const unquote = (value: string) => value.replace(/^(['"])(.*)\1$/, '$2').replace(/\\"/g, '"');
+
+	for (const collection of ['blog', 'newsletter']) {
+		const dir = resolve(contentDir, collection);
+		const files = readdirSync(dir, { recursive: true })
+			.filter((f) => typeof f === 'string' && /\.mdx?$/.test(f))
+			.map((f) => resolve(dir, f as string));
+
+		it(`${collection}: every share title is at most ${SHARE_TITLE_MAX} characters`, () => {
+			const tooLong = files
+				.map((file) => {
+					const fm = extractFrontmatter(readFileSync(file, 'utf-8'));
+					return { file: basename(file), shareTitle: unquote(fm.shareTitle || fm.title || '') };
+				})
+				.filter(({ shareTitle }) => shareTitle.length > SHARE_TITLE_MAX)
+				.map(({ file, shareTitle }) => `${file} (${shareTitle.length}): add a shorter shareTitle`);
+			expect(tooLong).toEqual([]);
+		});
+	}
+});

@@ -1,0 +1,56 @@
+---
+interface Props {
+	// Absolute URL to share; crossposts and recaps pass their canonical so HN dedupes against it
+	url: string;
+	// At most 80 characters, Hacker News's title limit
+	title: string;
+	// What the reader just finished: "post", "project", "issue"
+	noun: string;
+	class?: string;
+}
+
+const { url, title, noun, class: className } = Astro.props;
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+
+// `plausibleNetwork` becomes the Share Click event's network prop (tagged-events script)
+const networks = [
+	{
+		label: 'Hacker News',
+		plausibleNetwork: 'Hacker+News',
+		href: `https://news.ycombinator.com/submitlink?u=${encodedUrl}&t=${encodedTitle}`,
+	},
+	{
+		label: 'Bluesky',
+		plausibleNetwork: 'Bluesky',
+		href: `https://bsky.app/intent/compose?text=${encodeURIComponent(`${title} ${url}`)}`,
+	},
+	{
+		label: 'LinkedIn',
+		plausibleNetwork: 'LinkedIn',
+		href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+	},
+	{
+		label: 'X',
+		plausibleNetwork: 'X',
+		href: `https://x.com/intent/post?text=${encodedTitle}&url=${encodedUrl}`,
+	},
+];
+---
+
+<p class:list={['text-sm text-gray-400', className]} data-share-links>
+	If you liked this {noun}, consider sharing it on{' '}
+	{networks.map((network, i) => (
+		<>
+			<a
+				href={network.href}
+				target="_blank"
+				rel="noopener noreferrer"
+				class={`plausible-event-name=Share+Click plausible-event-network=${network.plausibleNetwork} underline hover:text-coral`}
+			>
+				{network.label}
+			</a>
+			{i < networks.length - 2 ? ', ' : i === networks.length - 2 ? ', or ' : '.'}
+		</>
+	))}
+</p>

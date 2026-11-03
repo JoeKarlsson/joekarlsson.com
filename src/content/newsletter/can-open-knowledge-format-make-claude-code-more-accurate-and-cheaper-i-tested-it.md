@@ -1,5 +1,6 @@
 ---
 title: 'Can Open Knowledge Format Make Claude Code More Accurate and Cheaper? I Tested It'
+shareTitle: 'Does Open Knowledge Format make Claude Code cheaper and more accurate? I tested'
 date: 2026-10-30T15:09:37Z
 slug: 'can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it'
 description: "What I learned moving the notes Claude Code reads for my homelab into Open Knowledge Format, and what I'd copy even without OKF."

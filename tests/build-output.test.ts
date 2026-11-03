@@ -381,3 +381,47 @@ describe('in-page anchor links', () => {
 		expect(broken).toEqual([]);
 	});
 });
+
+describe('share links', () => {
+	const pages = {
+		'blog post': 'blog/how-to-get-started-building-a-homelab-server-in-2024/index.html',
+		'project page': 'work/pixelpane/index.html',
+		'newsletter issue':
+			'newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/index.html',
+	};
+
+	for (const [kind, path] of Object.entries(pages)) {
+		describe(kind, () => {
+			const html = readDist(path);
+
+			for (const [network, prefix] of [
+				['Hacker+News', 'https://news.ycombinator.com/submitlink?u='],
+				['Bluesky', 'https://bsky.app/intent/compose?text='],
+				['LinkedIn', 'https://www.linkedin.com/sharing/share-offsite/?url='],
+				['X', 'https://x.com/intent/post?text='],
+			]) {
+				it(`links to ${network} with a tracked Share Click event`, () => {
+					const link = html.match(
+						new RegExp(
+							`<a href="([^"]+)"[^>]*plausible-event-name=Share\\+Click plausible-event-network=${network.replace('+', '\\+')} `,
+						),
+					);
+					expect(link?.[1].startsWith(prefix)).toBe(true);
+				});
+			}
+		});
+	}
+
+	it('submits a recap newsletter issue as its canonical blog post with the short shareTitle', () => {
+		const html = readDist(pages['newsletter issue']);
+		const hnUrl = new URL(
+			html
+				.match(/href="(https:\/\/news\.ycombinator\.com\/submitlink[^"]+)"/)![1]
+				.replace(/&amp;/g, '&'),
+		);
+		expect(hnUrl.searchParams.get('u')).toBe(
+			'https://www.joekarlsson.com/blog/claude-md-open-knowledge-format/',
+		);
+		expect(hnUrl.searchParams.get('t')!.length).toBeLessThanOrEqual(80);
+	});
+});

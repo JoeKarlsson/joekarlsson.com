@@ -6,9 +6,10 @@ import BaseLayout from './BaseLayout.astro';
 import NewsletterCTA from '../components/NewsletterCTA.astro';
 import AuthorBio from '../components/AuthorBio.astro';
 import TableOfContents from '../components/TableOfContents.astro';
-import HackerNewsShare from '../components/HackerNewsShare.astro';
+import ShareLinks from '../components/ShareLinks.astro';
 interface Props {
 	title: string;
+	shareTitle?: string;
 	description?: string;
 	date: Date;
 	updatedDate?: Date;
@@ -30,6 +31,7 @@ interface Props {
 
 const {
 	title,
+	shareTitle,
 	description,
 	date,
 	updatedDate,
@@ -457,9 +459,9 @@ const relatedPosts = publishedPosts
 					})();
 				</script>
 
-				<HackerNewsShare
+				<ShareLinks
 					url={canonicalUrl || new URL(`/blog/${slug}/`, Astro.site).href}
-					title={title}
+					title={shareTitle || title}
 					noun="post"
 					class="mt-10"
 				/>

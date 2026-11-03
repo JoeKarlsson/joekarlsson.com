@@ -1,5 +1,6 @@
 ---
 title: The Real-Time Cloud CMDB - Why Ephemeral Infrastructure Killed Traditional Discovery
+shareTitle: 'The Real-Time Cloud CMDB: Why Ephemeral Infrastructure Killed Discovery'
 slug: real-time-cloud-cmdb-ephemeral-infrastructure
 tags:
   - Cloud Asset Inventory

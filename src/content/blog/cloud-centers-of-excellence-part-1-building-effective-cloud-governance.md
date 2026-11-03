@@ -1,5 +1,6 @@
 ---
 title: 'Cloud Centers of Excellence (Part 1): Building Effective Cloud Governance Through Strategic Organization'
+shareTitle: 'Cloud Centers of Excellence (Part 1): Building Cloud Governance'
 description: Discover how to build a successful Cloud Center of Excellence (CCOE) to drive cloud governance, security, and innovation across your enterprise. Learn key structures, roles, and strategies in Part 1 of our 5-part implementation series.
 date: 2025-06-03
 slug: cloud-centers-of-excellence-part-1-building-effective-cloud-governance

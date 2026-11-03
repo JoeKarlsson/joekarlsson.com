@@ -38,6 +38,8 @@ export interface ProjectPage {
 
 export interface Project {
 	title: string;
+	// Used by the share links on its /work/ page; at most 80 characters for Hacker News
+	shareTitle?: string;
 	description: string;
 	image: string;
 	imageAlt: string;
@@ -128,6 +130,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'PixelPane',
+		shareTitle: 'PixelPane: A 32x32 LED pixel art frame driven by a Raspberry Pi',
 		description:
 			"A 32x32 LED pixel art frame behind a two-way mirror, driven by a Raspberry Pi. It plays seasonal pixel art, and Home Assistant pushes to it: ON AIR when my camera turns on, the doorbell, the weather. It's open source, and every scene is a plugin.",
 		image: `${PIXELPANE_DIR}/project-hero.webp`,
@@ -317,6 +320,7 @@ export const projects: Project[] = [
 	// Developer Tools & Education
 	{
 		title: 'Connect AI × DOOM',
+		shareTitle: 'Connect AI × DOOM: Doom levels built from live business data',
 		description:
 			"Ask Claude a business question and it builds a Doom level from the answer. Every monster is a live record from your apps, pulled through the CData Connect AI MCP server. I built it in one night as a side project, and it's now the foundation of my team's developer marketing campaign and event strategy.",
 		image: '/images/projects/connect-ai-doom.webp',
@@ -383,6 +387,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'FollowSpot',
+		shareTitle: 'FollowSpot: A teleprompter that listens, running Whisper locally',
 		description:
 			"A voice-following teleprompter that runs in the browser and listens with a local whisper.cpp model. Read your script out loud and the highlight follows you, through flubs, skips, and ad-libs. You pick the model, the audio never leaves your machine, and the column centers over the camera lens so nobody can see your eyes reading. I built it because I can't memorize lines.",
 		image: '/images/blog/followspot-local-whisper-teleprompter/hero.webp',
@@ -443,6 +448,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Screencast Director',
+		shareTitle: 'Screencast Director: A screen recorder that does the boring part of the edit',
 		description:
 			'A macOS screen recorder that drafts the edit for me, because editing is the part of video I hate. I talk through a demo once, and it keeps the talking at real time, speeds up the typing, cuts the dead air, zooms on clicks and adds captions. Then I fix it on a timeline or ask an AI model to change it.',
 		image: `${SD_DIR}/project-hero.webp`,
@@ -599,6 +605,7 @@ export const projects: Project[] = [
 	// Homelab
 	{
 		title: 'Adult Swim Bumper',
+		shareTitle: 'Adult Swim Bumper: Adult Swim-style bumpers for your Plex server',
 		description:
 			'A CLI tool for generating [adult swim]-style pre-roll bumpers for your personal media server. Define bumpers in YAML, drop in background video clips and music, and render MP4s ready to load into Tunarr. White text cards, fading audio, your server name in brackets at the end - the whole bit.',
 		image: '/images/blog/adult-swim-bumpers-plex-pre-rolls/hero.webp',

@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
-import HackerNewsShare from '../../components/HackerNewsShare.astro';
+import ShareLinks from '../../components/ShareLinks.astro';
 
 export async function getStaticPaths() {
 	const issues = (await getCollection('newsletter')).sort(
@@ -20,7 +20,8 @@ interface Props {
 }
 
 const { issue, prev, next } = Astro.props;
-const { title, date, description, substackUrl, heroImage, heroAlt, recapOf } = issue.data;
+const { title, shareTitle, date, description, substackUrl, heroImage, heroAlt, recapOf } =
+	issue.data;
 // A recap condenses a blog post, so search engines should index the post instead.
 const canonicalUrl = recapOf ? new URL(`/blog/${recapOf}/`, Astro.site).href : undefined;
 const { Content } = await render(issue);
@@ -82,9 +83,9 @@ const linkClass =
 			<div class="prose">
 				<Content />
 			</div>
-			<HackerNewsShare
+			<ShareLinks
 				url={canonicalUrl || new URL(`/newsletter/${issue.data.slug}/`, Astro.site).href}
-				title={title}
+				title={shareTitle || title}
 				noun="issue"
 				class="mt-10"
 			/>

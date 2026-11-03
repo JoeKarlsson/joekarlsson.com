@@ -1,5 +1,6 @@
 ---
 title: 'Treat Content Development for Your Open Source Project Like Your Open Source Project'
+shareTitle: "Treat Your Open Source Project's Content Like Your Open Source Project"
 date: 2023-02-28
 slug: 'treat-content-development-for-your-open-source-project-like-your-open-source-project'
 description: ‘Hello nerds! Let’s talk about how you should treat content development for your open source project like your open-source project. I know, it sounds meta, but bear with me. As a developer advocate, I’ve...’

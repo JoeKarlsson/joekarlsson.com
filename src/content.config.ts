@@ -2,10 +2,16 @@ import { defineCollection } from 'astro:content';
 import { z } from 'zod';
 import { glob } from 'astro/loaders';
 
+// Hacker News cuts titles at 80 characters. A post or issue whose title runs longer sets a
+// shorter shareTitle for the share links (tests/content-schema.test.ts enforces this).
+export const SHARE_TITLE_MAX = 80;
+const shareTitle = z.string().max(SHARE_TITLE_MAX).optional();
+
 const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
 		title: z.string(),
+		shareTitle,
 		date: z.coerce.date(),
 		slug: z.string(),
 		description: z.string().optional().default(''),
@@ -31,6 +37,7 @@ const newsletter = defineCollection({
 	loader: glob({ base: './src/content/newsletter', pattern: '**/*.md' }),
 	schema: z.object({
 		title: z.string(),
+		shareTitle,
 		date: z.coerce.date(),
 		slug: z.string(),
 		description: z.string().optional().default(''),

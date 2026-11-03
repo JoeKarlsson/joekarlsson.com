@@ -1,5 +1,6 @@
 ---
 title: 'Tempus: Multi-Cloud Asset Inventory Across 80+ AWS Accounts and 1000+ GCP Projects'
+shareTitle: 'Tempus: Asset Inventory Across 80+ AWS Accounts and 1000+ GCP Projects'
 date: 2024-11-01
 slug: 'tempus-multi-cloud-asset-inventory'
 description: 'How Tempus uses CloudQuery on GCP with Terraform, GKE, Cloud SQL, and Grafana to run nightly syncs across 80+ AWS accounts and 1000+ GCP projects for compliance and security.'

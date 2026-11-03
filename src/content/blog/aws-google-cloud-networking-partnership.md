@@ -1,5 +1,6 @@
 ---
 title: 'AWS + Google Cloud Networking Partnership: Connectivity Solved, Visibility Still Broken'
+shareTitle: 'AWS + Google Cloud Networking: Connectivity Solved, Visibility Still Broken'
 date: 2026-01-20
 slug: 'aws-google-cloud-networking-partnership'
 description: 'AWS and Google Cloud partnered on multicloud networking, provisioning connections in minutes. But network pipes were the easy problem. Unified visibility across different cloud APIs remains unsolved.'
