@@ -48,6 +48,19 @@ describe('RSS Feed Content', () => {
 		}
 	});
 
+	it('the 20 newest items carry full post content', () => {
+		const items = rss.split('<item>').slice(1);
+		const withContent = items.map((item) => item.includes('<content:encoded>'));
+		expect(withContent.slice(0, 20).every(Boolean)).toBe(true);
+		expect(withContent.slice(20).some(Boolean)).toBe(false);
+	});
+
+	it('full post content uses absolute URLs', () => {
+		const contents = rss.match(/<content:encoded>[\s\S]*?<\/content:encoded>/g) || [];
+		const relative = contents.filter((c) => /(src|href|poster)=(&quot;|")\/(?!\/)/.test(c));
+		expect(relative).toEqual([]);
+	});
+
 	it('RSS feed is sorted by date (newest first)', () => {
 		const pubDates = rss.match(/<pubDate>(.*?)<\/pubDate>/g) || [];
 		const dates = pubDates.map((tag) => {

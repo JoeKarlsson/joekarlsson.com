@@ -7,6 +7,7 @@ interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	imageAlt?: string;
 	type?: string;
 	publishedDate?: Date;
 	modifiedDate?: Date;
@@ -23,6 +24,7 @@ const {
 	title,
 	description,
 	image,
+	imageAlt,
 	type,
 	publishedDate,
 	modifiedDate,
@@ -76,6 +78,7 @@ const {
 			title={title}
 			description={description}
 			image={image}
+			imageAlt={imageAlt}
 			type={type}
 			publishedDate={publishedDate}
 			modifiedDate={modifiedDate}

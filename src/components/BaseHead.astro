@@ -1,11 +1,14 @@
 ---
 import '../styles/global.css';
 import { SITE_TITLE, SITE_URL } from '../consts';
+import { DEFAULT_OG_IMAGE, ogJpegPath } from '../utils/og-image';
 
 interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	// Describes the share image; falls back to the title for pages without one
+	imageAlt?: string;
 	type?: string;
 	publishedDate?: Date;
 	modifiedDate?: Date;
@@ -22,7 +25,8 @@ interface Props {
 const {
 	title,
 	description,
-	image = '/images/og-default.webp',
+	image = DEFAULT_OG_IMAGE,
+	imageAlt,
 	type = 'website',
 	publishedDate,
 	modifiedDate,
@@ -38,7 +42,9 @@ const {
 // Use provided canonical URL for syndicated content, otherwise generate from current path
 const canonicalURL = canonicalUrl ? new URL(canonicalUrl) : new URL(Astro.url.pathname, Astro.site);
 
-const ogImageURL = new URL(image, Astro.site);
+const ogImageURL = new URL(ogJpegPath(image), Astro.site);
+// Link previews already show the site name, so drop the " | Joe Karlsson" suffix there
+const socialTitle = title.replace(` | ${SITE_TITLE}`, '');
 ---
 
 <meta charset="utf-8" />
@@ -102,12 +108,12 @@ const ogImageURL = new URL(image, Astro.site);
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:site_name" content={SITE_TITLE} />
-<meta property="og:title" content={title} />
+<meta property="og:title" content={socialTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageURL} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content={title} />
+<meta property="og:image:alt" content={imageAlt || socialTitle} />
 {type === 'article' && (
 	<meta property="article:author" content="https://www.joekarlsson.com/about/" />
 )}
@@ -120,9 +126,10 @@ const ogImageURL = new URL(image, Astro.site);
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={canonicalURL} />
-<meta name="twitter:title" content={title} />
+<meta name="twitter:title" content={socialTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageURL} />
+<meta name="twitter:image:alt" content={imageAlt || socialTitle} />
 <meta name="twitter:site" content="@joekarlsson1" />
 <meta name="twitter:creator" content="@joekarlsson1" />
 

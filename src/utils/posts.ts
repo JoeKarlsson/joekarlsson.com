@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 export interface FeedPost {
 	id: string;
 	body?: string;
+	// Rendered post HTML (with the site's remark/rehype plugins applied), for the RSS feed
+	html?: string;
 	href: string;
 	isNewsletter: boolean;
 	data: {
@@ -24,6 +26,7 @@ export async function getFeedPosts(): Promise<FeedPost[]> {
 	const blog = (await getCollection('blog')).map((p) => ({
 		id: p.id,
 		body: p.body,
+		html: p.rendered?.html,
 		href: `/blog/${p.data.slug}/`,
 		isNewsletter: false,
 		data: p.data,
@@ -33,6 +36,7 @@ export async function getFeedPosts(): Promise<FeedPost[]> {
 		.map((p) => ({
 			id: p.id,
 			body: p.body,
+			html: p.rendered?.html,
 			href: `/newsletter/${p.data.slug}/`,
 			isNewsletter: true,
 			data: { ...p.data, categories: ['Newsletter'] },

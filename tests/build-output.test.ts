@@ -425,3 +425,43 @@ describe('share links', () => {
 		expect(hnUrl.searchParams.get('t')!.length).toBeLessThanOrEqual(80);
 	});
 });
+
+// LinkedIn previews don't render WebP, so every share image is a JPEG built under /og/
+describe('link preview meta', () => {
+	const pages = readdirSync(dist, { recursive: true })
+		.filter((f) => typeof f === 'string' && f.endsWith('index.html'))
+		.map((f) => f as string);
+
+	const metaContent = (html: string, key: string) =>
+		html.match(new RegExp(`<meta (?:property|name)="${key}" content="([^"]*)"`))?.[1];
+
+	it('every og:image is a JPEG that exists in the build', () => {
+		const broken = pages.flatMap((page) => {
+			const ogImage = metaContent(readDist(page), 'og:image');
+			if (!ogImage) return [];
+			const path = new URL(ogImage).pathname;
+			if (!path.endsWith('.jpg') || !existsSync(resolve(dist, path.slice(1)))) {
+				return [`${page}: ${ogImage}`];
+			}
+			return [];
+		});
+		expect(broken).toEqual([]);
+	});
+
+	it('og:title and twitter:title drop the " | Joe Karlsson" suffix', () => {
+		const suffixed = pages.filter((page) => {
+			const html = readDist(page);
+			return [metaContent(html, 'og:title'), metaContent(html, 'twitter:title')].some((t) =>
+				t?.endsWith(' | Joe Karlsson'),
+			);
+		});
+		expect(suffixed).toEqual([]);
+	});
+
+	it("a blog post's og:image:alt is its hero image alt text, not its title", () => {
+		const html = readDist('blog/local-voice-ai-home-assistant-gpu/index.html');
+		const alt = metaContent(html, 'og:image:alt');
+		expect(alt).toMatch(/^Home Assistant local voice pipeline architecture/);
+		expect(metaContent(html, 'twitter:image:alt')).toBe(alt);
+	});
+});
