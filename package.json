@@ -7,6 +7,7 @@
 		"build": "astro build",
 		"deploy": "bash deploy.sh",
 		"preview": "astro preview",
+		"update:popular": "node scripts/update-popular-posts.mjs",
 		"astro": "astro",
 		"check": "astro check",
 		"test:images": "bash scripts/validate-images.sh",
