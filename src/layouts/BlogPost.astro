@@ -138,6 +138,10 @@ const relatedPosts = publishedPosts
 	})
 	.slice(0, 3)
 	.map((r) => r!.post);
+
+// Crossposts share the original (canonical) URL so HN credits and dedupes against the source
+const shareUrl = canonicalUrl || new URL(`/blog/${slug}/`, Astro.site).href;
+const hackerNewsSubmitUrl = `https://news.ycombinator.com/submitlink?u=${encodeURIComponent(shareUrl)}&t=${encodeURIComponent(title)}`;
 ---
 
 <BaseLayout
@@ -455,6 +459,19 @@ const relatedPosts = publishedPosts
 						update();
 					})();
 				</script>
+
+				<p class="mt-10 text-sm text-gray-400">
+					If you liked this post, consider{' '}
+					<a
+						href={hackerNewsSubmitUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="plausible-event-name=Hacker+News+Share+Click underline hover:text-coral"
+					>
+						sharing it on Hacker News
+					</a>
+					.
+				</p>
 
 				{/* Author bio */}
 				<AuthorBio />
