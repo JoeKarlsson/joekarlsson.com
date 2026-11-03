@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import TableOfContents from '../components/TableOfContents.astro';
 import { projects, CATEGORY_META } from '../data/projects';
 import { SOCIAL_LINKS } from '../consts';
 
@@ -14,11 +13,15 @@ const featuredUrl =
 	'#';
 const featuredExternal = featuredUrl.startsWith('http');
 
-const categories = ['iot', 'art', 'web', 'dev-tools', 'homelab'] as const;
+const sortedProjects = [...nonFeatured].sort((a, b) => b.date.localeCompare(a.date));
 
-const workHeadings = categories
-	.filter((catKey) => nonFeatured.some((p) => p.category === catKey))
-	.map((catKey) => ({ slug: catKey, text: CATEGORY_META[catKey].label }));
+const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_META)[])
+	.map((catKey) => ({
+		key: catKey,
+		label: CATEGORY_META[catKey].label,
+		count: nonFeatured.filter((p) => p.category === catKey).length,
+	}))
+	.filter((c) => c.count > 0);
 ---
 
 <BaseLayout
@@ -116,31 +119,40 @@ const workHeadings = categories
 			</a>
 		)}
 
-		{/* Grid: TOC sidebar + category sections */}
-		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
-			<TableOfContents headings={workHeadings} />
+		<div>
 			<div>
-				{/* Project Categories */}
-				{categories.map((catKey) => {
-					const meta = CATEGORY_META[catKey];
-					const catProjects = nonFeatured.filter((p) => p.category === catKey);
-					if (catProjects.length === 0) return null;
-					return (
-						<>
-							<h2 id={catKey} class="mb-4 text-lg font-bold text-white">
-								<span class="text-coral font-mono text-sm" aria-hidden="true">
-									~$
-								</span>{' '}
-								{meta.command}
-							</h2>
-							<div class="mb-10 grid gap-4 sm:grid-cols-2">
-								{catProjects.map((project) => (
-									<ProjectCard project={project} />
-								))}
-							</div>
-						</>
-					);
-				})}
+				<div
+					class="mb-6 flex flex-wrap gap-2"
+					role="group"
+					aria-label="Filter projects by category"
+				>
+					<button
+						type="button"
+						class="project-filter rounded-full border px-3 py-1 font-mono text-xs transition-colors aria-pressed:border-coral/50 aria-pressed:bg-coral/20 aria-pressed:text-coral border-surface-3 bg-surface-1 text-gray-400 hover:border-coral/30 hover:text-coral"
+						data-filter="all"
+						aria-pressed="true"
+					>
+						All ({nonFeatured.length})
+					</button>
+					{categoryFilters.map((c) => (
+						<button
+							type="button"
+							class="project-filter rounded-full border px-3 py-1 font-mono text-xs transition-colors aria-pressed:border-coral/50 aria-pressed:bg-coral/20 aria-pressed:text-coral border-surface-3 bg-surface-1 text-gray-400 hover:border-coral/30 hover:text-coral"
+							data-filter={c.key}
+							aria-pressed="false"
+						>
+							{c.label} ({c.count})
+						</button>
+					))}
+				</div>
+
+				<div id="projects-grid" class="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					{sortedProjects.map((project) => (
+						<div data-category={project.category}>
+							<ProjectCard project={project} />
+						</div>
+					))}
+				</div>
 
 				{/* All repos link */}
 				<div class="mb-10 rounded-lg border border-surface-3 bg-surface-1 p-6 text-center">
@@ -199,8 +211,23 @@ const workHeadings = categories
 					</div>
 				</div>
 			</div>
-			{/* end grid content column */}
 		</div>
-		{/* end grid */}
 	</div>
+
+	<script>
+		const filterButtons = document.querySelectorAll<HTMLButtonElement>('.project-filter');
+		const projectCells = document.querySelectorAll<HTMLElement>('#projects-grid > [data-category]');
+		filterButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				const filter = button.dataset.filter;
+				filterButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+				projectCells.forEach((cell) => {
+					cell.hidden = filter !== 'all' && cell.dataset.category !== filter;
+				});
+				if (typeof window.plausible === 'function') {
+					window.plausible('Project Filter', { props: { category: filter || 'all' } });
+				}
+			});
+		});
+	</script>
 </BaseLayout>

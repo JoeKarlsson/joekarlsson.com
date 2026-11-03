@@ -49,7 +49,10 @@ const isExternal = primaryUrl.startsWith('http');
 		<div class="p-4">
 			<div class="mb-1 flex items-center justify-between">
 				<h3 class={`font-semibold text-white ${meta.hoverColor}`}>{project.title}</h3>
-				{project.stars && <span class="text-xs text-gray-400">{project.stars} stars</span>}
+				<span class="shrink-0 font-mono text-xs text-gray-400">
+					{project.date.slice(0, 4)}
+					{project.stars && ` · ${project.stars} stars`}
+				</span>
 			</div>
 			<div class="mb-2 flex flex-wrap gap-1">
 				{project.tech.map((t) => (

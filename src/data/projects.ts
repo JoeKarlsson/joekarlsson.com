@@ -44,6 +44,8 @@ export interface Project {
 	// Plays over `image` (its poster) while the card is hovered or focused
 	video?: string;
 	category: 'iot' | 'web' | 'art' | 'dev-tools' | 'homelab';
+	// YYYY-MM the project was built (first commit or launch post); /work/ sorts newest first
+	date: string;
 	tech: string[];
 	sourceUrl?: string;
 	demoUrl?: string;
@@ -117,6 +119,7 @@ export const projects: Project[] = [
 		image: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp',
 		imageAlt: 'IoT Kitty Litter Box',
 		category: 'iot',
+		date: '2019-09',
 		tech: ['Raspberry Pi', 'Node.js', 'MongoDB', 'HX711'],
 		sourceUrl: 'https://github.com/JoeKarlsson/iot-kitty-litter-box',
 		demoUrl: 'https://kittylitter.joekarlsson.com/',
@@ -132,6 +135,7 @@ export const projects: Project[] = [
 		imageAlt:
 			'The PixelPane control page: pressing Play now on moon, fire, clock and Halloween, with the live preview of the panel switching to each scene',
 		category: 'iot',
+		date: '2026-10',
 		tech: ['Python', 'Raspberry Pi', 'LED matrix', 'Home Assistant', '3D Printing'],
 		sourceUrl: 'https://github.com/JoeKarlsson/pixelpane',
 		blogUrl: '/blog/pixelpane-pixel-art-home-assistant/',
@@ -212,6 +216,7 @@ export const projects: Project[] = [
 		image: '/images/projects/magic-mirror.webp',
 		imageAlt: 'MagicMirror Smart Mirror',
 		category: 'iot',
+		date: '2022-01',
 		tech: ['Raspberry Pi', 'MagicMirror\u00B2', 'Home Assistant'],
 	},
 	{
@@ -221,6 +226,7 @@ export const projects: Project[] = [
 		image: '/images/projects/moodlite.webp',
 		imageAlt: 'Moodlite Smart Light Panels',
 		category: 'iot',
+		date: '2022-01',
 		tech: ['ESP8266', 'MQTT', 'Home Assistant', '3D Printing'],
 	},
 	{
@@ -231,6 +237,7 @@ export const projects: Project[] = [
 			'/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/Postcard-Rack-Planter.webp',
 		imageAlt: '3D Printed Planter',
 		category: 'iot',
+		date: '2023-02',
 		tech: ['Fusion 360', 'Prusa MK3', '3D Printing'],
 		blogUrl:
 			'/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/',
@@ -245,6 +252,7 @@ export const projects: Project[] = [
 			'/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/1_KGOTMV8KD120TApnijDauQ.webp',
 		imageAlt: 'React Spotify Player',
 		category: 'web',
+		date: '2019-03',
 		tech: ['React', 'Spotify API', 'JavaScript'],
 		sourceUrl: 'https://github.com/JoeKarlsson/react-spotify-player',
 		blogUrl: '/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/',
@@ -259,6 +267,7 @@ export const projects: Project[] = [
 		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
 		imageAlt: 'Digital Graffiti Wall',
 		category: 'web',
+		date: '2020-10',
 		tech: ['JavaScript', 'MongoDB Realm', 'RGB LEDs', 'Real-Time Sync'],
 		blogUrl: '/blog/building-a-real-time-digital-graffiti-wall/',
 		sourceUrl: 'https://github.com/JoeKarlsson/digital-graffiti-wall',
@@ -272,6 +281,7 @@ export const projects: Project[] = [
 		image: '/images/projects/punc.webp',
 		imageAlt: 'Punc punctuation visualization',
 		category: 'art',
+		date: '2016-02',
 		tech: ['TypeScript', 'NLP', 'PDF Generation'],
 		sourceUrl: 'https://github.com/JoeKarlsson/punc',
 	},
@@ -282,6 +292,7 @@ export const projects: Project[] = [
 		image: '/images/projects/rose-hobart.webp',
 		imageAlt: 'Rose Hobart',
 		category: 'art',
+		date: '2017-10',
 		tech: ['JavaScript', 'D3.js', 'NLP'],
 		sourceUrl: 'https://github.com/JoeKarlsson/rose-hobart',
 		demoUrl: 'https://rosehobart.joekarlsson.com/',
@@ -295,6 +306,7 @@ export const projects: Project[] = [
 			'/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/Bechdel.io-Blog-Banner.webp',
 		imageAlt: 'Bechdel.io',
 		category: 'art',
+		date: '2015-11',
 		tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
 		sourceUrl: 'https://github.com/JoeKarlsson/bechdel-test',
 		demoUrl: 'https://bechdel.joekarlsson.com/',
@@ -312,6 +324,7 @@ export const projects: Project[] = [
 		imageAlt:
 			'Claude playing a Doom level built from live Connect AI data, shooting a pink demon labeled with an urgent Salesforce deal while a side panel logs every kill',
 		category: 'dev-tools',
+		date: '2026-10',
 		tech: ['Python', 'Claude Code', 'MCP', 'CData Connect AI', 'psdoom-ng', 'SQL'],
 		sourceUrl: 'https://github.com/CDataSoftware/connect-ai-doom',
 		demoUrl: 'https://cdatasoftware.github.io/connect-ai-doom/',
@@ -377,6 +390,7 @@ export const projects: Project[] = [
 		imageAlt:
 			'FollowSpot highlighting the current word of a bread recipe script as it scrolls, with dimmed words already read',
 		category: 'dev-tools',
+		date: '2026-09',
 		tech: ['JavaScript', 'whisper.cpp', 'Whisper', 'Web Audio', 'Bash'],
 		sourceUrl: 'https://github.com/JoeKarlsson/followspot',
 		blogUrl: '/blog/followspot-local-whisper-teleprompter/',
@@ -436,6 +450,7 @@ export const projects: Project[] = [
 		imageAlt:
 			'The Screencast Director editor with my face filling the preview under a Joe Karlsson lower third, the camera framing and color inspector, and a timeline of clips, layouts and titles',
 		category: 'dev-tools',
+		date: '2026-10',
 		tech: ['Swift', 'macOS', 'ScreenCaptureKit', 'whisper.cpp', 'Claude'],
 		sourceUrl: 'https://github.com/JoeKarlsson/screencast-director',
 		blogUrl: '/blog/screencast-director-screen-recorder/',
@@ -517,6 +532,7 @@ export const projects: Project[] = [
 		image: '/images/blog/building-secure-ai-powered-cloud-security/thumbnail.webp',
 		imageAlt: 'Secure AI Data Pipelines Demo dashboard showing multi-cloud security risk analysis',
 		category: 'dev-tools',
+		date: '2025-09',
 		tech: [
 			'Python',
 			'React',
@@ -537,6 +553,7 @@ export const projects: Project[] = [
 		image: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.webp',
 		imageAlt: 'CloudQuery Go MCP Server architecture diagram',
 		category: 'dev-tools',
+		date: '2025-07',
 		tech: ['Go', 'MCP', 'Claude', 'Cursor', 'PostgreSQL', 'CloudQuery'],
 		blogUrl: '/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/',
 	},
@@ -547,6 +564,7 @@ export const projects: Project[] = [
 		image: '/images/projects/data-structures.webp',
 		imageAlt: 'Data Structures',
 		category: 'dev-tools',
+		date: '2016-06',
 		tech: ['JavaScript', 'Algorithms'],
 		sourceUrl: 'https://github.com/JoeKarlsson/data-structures',
 		stars: 185,
@@ -559,6 +577,7 @@ export const projects: Project[] = [
 			'/images/blog/complete-guide-node-client-server-communication/687474703a2f2f6f726d2d6368696d6572612d70726f642e73332e616d617a6f6e6177732e636f6d2f313233303030303030303534352f696d616765732f6870626e5f313530312e706e67-1-1024x559.webp',
 		imageAlt: 'Client-Server Communication Guide',
 		category: 'dev-tools',
+		date: '2016-07',
 		tech: ['Node.js', 'HTTP', 'WebSockets', 'GraphQL', 'gRPC'],
 		sourceUrl: 'https://github.com/JoeKarlsson/complete-guide-to-client-server-communication',
 		blogUrl: '/blog/complete-guide-node-client-server-communication/',
@@ -571,6 +590,7 @@ export const projects: Project[] = [
 		image: '/images/projects/sudoku-generator.webp',
 		imageAlt: 'Sudoku puzzle grid with numbers on a dark background',
 		category: 'dev-tools',
+		date: '2015-04',
 		tech: ['Python', 'Algorithms', 'Backtracking'],
 		sourceUrl: 'https://github.com/JoeKarlsson/python-sudoku-generator-solver',
 		stars: 90,
@@ -586,6 +606,7 @@ export const projects: Project[] = [
 		imageAlt:
 			'A jellyfish drifting in dark blue water with white text reading "no idea what you should watch."',
 		category: 'homelab',
+		date: '2026-05',
 		tech: ['Python', 'ffmpeg', 'Plex', 'NeXroll', 'CLI', 'YAML'],
 		sourceUrl: 'https://github.com/JoeKarlsson/adult-swim-bumper',
 		blogUrl: '/blog/adult-swim-bumpers-plex-pre-rolls/',
@@ -662,6 +683,7 @@ export const projects: Project[] = [
 		image: '/images/projects/streamroll.webp',
 		imageAlt: 'Streamroll - AI Generated Pre-Roll Intros logo on a VHS-style distorted screen',
 		category: 'homelab',
+		date: '2026-05',
 		tech: ['TypeScript', 'Runway ML', 'Plex', 'AI Video Generation'],
 		sourceUrl: 'https://github.com/JoeKarlsson/streamroll',
 	},
@@ -672,6 +694,7 @@ export const projects: Project[] = [
 		image: '/images/blog/building-a-gpu-accelerated-subtitle-generator/hero.webp',
 		imageAlt: 'GPU Subtitle Generator Architecture',
 		category: 'homelab',
+		date: '2026-02',
 		tech: ['Python', 'Whisper AI', 'CUDA', 'NVIDIA GPU', 'Bash'],
 		blogUrl: '/blog/building-a-gpu-accelerated-subtitle-generator/',
 	},
@@ -682,6 +705,7 @@ export const projects: Project[] = [
 		image: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp',
 		imageAlt: 'MikroTik API Client',
 		category: 'homelab',
+		date: '2026-03',
 		tech: ['Python', 'Binary Protocol', 'MikroTik', 'Networking'],
 		blogUrl: '/blog/implementing-mikrotik-binary-api-protocol-in-python/',
 	},
@@ -693,6 +717,7 @@ export const projects: Project[] = [
 			'/images/blog/how-to-get-started-building-a-homelab-server-in-2024/Homelab-Archiecture-1024x473.webp',
 		imageAlt: 'Homelab Architecture',
 		category: 'homelab',
+		date: '2023-09',
 		tech: ['Proxmox', 'Docker', 'LXC', 'Networking'],
 		blogUrl: '/blog/how-to-get-started-building-a-homelab-server-in-2024/',
 	},
@@ -704,6 +729,7 @@ export const projects: Project[] = [
 			'/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/I-Replaced-My-Smart-Home-with-a-Dumber-Home-But-at-Least-Its-Private.webp',
 		imageAlt: 'Private Smart Home Setup',
 		category: 'homelab',
+		date: '2025-06',
 		tech: ['Home Assistant', 'Zigbee', 'Frigate', 'Whisper'],
 		blogUrl: '/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/',
 	},
