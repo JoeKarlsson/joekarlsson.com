@@ -128,7 +128,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 				>
 					<button
 						type="button"
-						class="project-filter rounded-full border px-3 py-1 font-mono text-xs transition-colors aria-pressed:border-coral/50 aria-pressed:bg-coral/20 aria-pressed:text-coral border-surface-3 bg-surface-1 text-gray-400 hover:border-coral/30 hover:text-coral"
+						class="project-filter rounded-md bg-coral/20 px-3 py-1.5 font-mono text-xs text-coral border border-coral/30 transition-colors"
 						data-filter="all"
 						aria-pressed="true"
 					>
@@ -137,7 +137,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 					{categoryFilters.map((c) => (
 						<button
 							type="button"
-							class="project-filter rounded-full border px-3 py-1 font-mono text-xs transition-colors aria-pressed:border-coral/50 aria-pressed:bg-coral/20 aria-pressed:text-coral border-surface-3 bg-surface-1 text-gray-400 hover:border-coral/30 hover:text-coral"
+							class="project-filter rounded-md bg-surface-3 px-3 py-1.5 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral"
 							data-filter={c.key}
 							aria-pressed="false"
 						>
@@ -215,12 +215,21 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 	</div>
 
 	<script>
+		// Same classes as the blog index sort buttons, so the chips add no CSS
+		const ACTIVE_FILTER_CLASSES =
+			'rounded-md bg-coral/20 px-3 py-1.5 font-mono text-xs text-coral border border-coral/30 transition-colors';
+		const INACTIVE_FILTER_CLASSES =
+			'rounded-md bg-surface-3 px-3 py-1.5 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral';
 		const filterButtons = document.querySelectorAll<HTMLButtonElement>('.project-filter');
 		const projectCells = document.querySelectorAll<HTMLElement>('#projects-grid > [data-category]');
 		filterButtons.forEach((button) => {
 			button.addEventListener('click', () => {
 				const filter = button.dataset.filter;
-				filterButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+				filterButtons.forEach((b) => {
+					const isActive = b === button;
+					b.setAttribute('aria-pressed', String(isActive));
+					b.className = `project-filter ${isActive ? ACTIVE_FILTER_CLASSES : INACTIVE_FILTER_CLASSES}`;
+				});
 				projectCells.forEach((cell) => {
 					cell.hidden = filter !== 'all' && cell.dataset.category !== filter;
 				});
