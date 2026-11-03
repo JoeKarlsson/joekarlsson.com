@@ -1,6 +1,7 @@
 ---
 import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HackerNewsShare from '../../components/HackerNewsShare.astro';
 import { projects, type Project, type ProjectPage } from '../../data/projects';
 
 export function getStaticPaths() {
@@ -15,6 +16,9 @@ interface Props {
 
 const { project } = Astro.props;
 const { page } = project;
+// HN rejects titles over 80 characters and its style drops the trailing period
+const titleWithTagline = `${project.title}: ${page.tagline.replace(/\.$/, '')}`;
+const hackerNewsTitle = titleWithTagline.length <= 80 ? titleWithTagline : project.title;
 const square = page.galleryAspect === 'square';
 // Inline styles for the square layout keep the shared CSS bundle under budget
 const clipStyle = square ? 'aspect-ratio: 1 / 1' : undefined;
@@ -316,6 +320,13 @@ const inline = (text: string) =>
 				)}
 			</div>
 		)}
+
+		<HackerNewsShare
+			url={new URL(`/work/${page.slug}/`, Astro.site).href}
+			title={hackerNewsTitle}
+			noun="project"
+			class="mb-6"
+		/>
 
 		<a href="/work/" class="font-mono text-sm text-gray-400 no-underline hover:text-coral">
 			&larr; cd ../projects
