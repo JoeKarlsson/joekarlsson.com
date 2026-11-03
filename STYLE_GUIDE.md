@@ -88,7 +88,8 @@ What makes a meme earn its spot:
 ### Structure
 
 - Mix paragraph lengths - some short punchy ones, some longer explanatory ones
-- Use bold for emphasis on key phrases, not whole sentences
+- One point per paragraph. If a paragraph makes two points, split it. Most readers come from HN or Reddit on a phone, where a paragraph doing two jobs turns into a wall of text
+- Use bold for emphasis on key phrases, not whole sentences. Put the bold at the start of the sentence or bullet, not buried in the middle, so a skimmer reading only the bold still gets the point. If the key phrase lands mid-sentence, rewrite the sentence so it leads
 - Headers tell you what's in the section or give you the answer - never tease it (see **Headers** below)
 - Include a TL;DR for longer technical posts, in the frontmatter `tldr:` field only (the layout renders it; never repeat it as a body blockquote)
 - Code blocks with context - explain what the code does before showing it
@@ -234,6 +235,7 @@ This is what the technical posts that do well on Hacker News and Reddit have in 
 - **Numbers beat adjectives, but one is enough.** "The hosts sit around 15% CPU" beats "absurd headroom." Don't stack averages, peaks and time windows to sound rigorous. Pick the number that makes the point. "Plex went from choking on two streams to handling six" beats "performance was unreal." Use units, a date or time window, and where the number came from.
 - **Claims have to agree with each other.** If one section says I filled the hardware and another says there's tons of headroom, one of them is wrong. Reread the whole post for numbers and claims that contradict each other.
 - **Show the real config.** A trimmed resource block, the actual command, the real error message. Engineers trust config more than prose. Strip secrets, hostnames, and anything private before it goes in.
+- **Draw it instead of describing it.** If a paragraph is explaining how three or more pieces connect (VLANs, hosts, containers, data flow), draw a diagram and cut the paragraph down to the why. The diagram shows how the pieces connect. The prose says why I built it that way.
 - **Praise comes with a receipt and a catch.** "Immich is great: 40,000 photos, face recognition on the GPU, and the only thing I miss is editing" beats "genuinely excellent." Superlatives stacked on superlatives read as AI-written, and HN says so in the comments.
 - **Treat the reader as a peer.** Explain only the concept the argument depends on. Don't explain what a VM is. Do explain why LACP won't speed up a single connection, if the point depends on it.
 - **Link the primary source.** Vendor spec sheets, docs, changelogs, the forum thread where I found the fix.
@@ -268,3 +270,9 @@ Before publishing, ask:
 - Are there any em dashes? (remove them)
 - Are there any words from the prohibited list?
 - Would Joe actually say this out loud?
+
+Then reread it as someone who found it on Hacker News and knows nothing about my setup:
+
+- Where would they get confused? Is there context in my head that never made it onto the page (what a host is, why I already had that hardware, what broke first)?
+- What's redundant? Look for anything said twice, not only the ending restating the intro. Keep the better version and cut the other.
+- What would they skip? If a section exists only because I did the work, not because the reader needs it, cut it or shrink it to a sentence.
