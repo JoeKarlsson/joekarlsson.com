@@ -6,15 +6,23 @@
 import { BOARD_MARKS, CHALK, MARKS } from '../data/scribbles';
 import Scribble from './Scribble.astro';
 
+interface Props {
+	// The board's heading (the homepage's "Make a mark", the 404's own)
+	title?: string;
+	// Size and spacing around the board
+	class?: string;
+}
+
+const { title = 'Make a mark', class: className = 'mx-4 mt-20 min-h-[72vh]' } = Astro.props;
 const PINK = '#ff4fd8';
 ---
 
 <div
-	class="drawing-board relative mx-4 mt-20 min-h-[72vh] cursor-crosshair rounded-xl bg-surface-1"
+	class:list={['drawing-board relative cursor-crosshair rounded-xl bg-surface-1', className]}
 	aria-hidden="true"
 >
 	<p class="absolute top-6 left-7 font-display text-[clamp(40px,5vw,72px)] leading-none text-paper uppercase">
-		Make a mark
+		{title}
 		<span class="relative ml-2 inline-block size-[1em] align-top">
 			<Scribble
 				{...MARKS.burstDense}

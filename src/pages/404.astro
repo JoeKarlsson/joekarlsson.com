@@ -1,5 +1,37 @@
 ---
+// The 404: a scribble board to play with (strokes fade on their own, nothing is
+// saved) and every way back into the site: the main sections, the newest posts
+// and the blog topics, all from real data.
+import DrawingBoard from '../components/DrawingBoard.astro';
+import IndexRow from '../components/IndexRow.astro';
+import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { ARROW, CHALK, MARKS } from '../data/scribbles';
+import { getCategoryCounts } from '../utils/categories';
+import { getFeedPosts } from '../utils/posts';
+
+const posts = await getFeedPosts();
+const latestPosts = posts.slice(0, 5);
+const topics = getCategoryCounts(posts.filter((p) => !p.isNewsletter));
+
+const PLACES = [
+	{ href: '/blog/', label: 'Blog', meta: `${posts.length} posts` },
+	{ href: '/work/', label: 'Projects', meta: 'Things I built' },
+	{ href: '/about/', label: 'About', meta: 'Who I am' },
+	{ href: '/newsletter/', label: 'Newsletter', meta: 'Works on My Machine' },
+	{ href: '/uses/', label: 'Uses', meta: 'My gear and homelab' },
+	{ href: '/contact/', label: 'Contact', meta: 'Say hi' },
+];
+
+const SECTION_HEADING =
+	'relative mb-[18px] w-fit font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
+const LINK = 'text-paper underline decoration-pink underline-offset-4 hover:text-pink';
+const dateFormat = new Intl.DateTimeFormat('en-US', {
+	timeZone: 'UTC',
+	month: 'short',
+	day: 'numeric',
+	year: 'numeric',
+});
 ---
 
 <BaseLayout title="404 | Joe Karlsson" description="Page not found">
@@ -8,18 +40,112 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			window.plausible('404', { props: { path: window.location.pathname } });
 		}
 	</script>
-	<div class="mx-auto max-w-3xl px-4 py-24 text-center">
-		<h1 class="mb-6 font-display text-[clamp(64px,14vw,180px)] leading-none text-pink uppercase">
-			404
-		</h1>
-		<p class="mb-8 text-lg text-paper">Nothing lives at this address. It may have moved.</p>
-		<p class="flex justify-center gap-6 font-semibold">
-			<a href="/" class="text-pink no-underline hover:text-white">
-				Go home
-			</a>
-			<a href="/blog/" class="text-pink no-underline hover:text-white">
-				Read the blog
-			</a>
-		</p>
+	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+		<header class="relative z-20 mb-8 flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
+			<h1 class="relative font-display text-[clamp(120px,24vw,300px)] leading-[0.82] font-normal text-pink uppercase">
+				404
+				<Scribble
+					{...MARKS.cross}
+					color={CHALK}
+					strokeWidth={10}
+					duration="7s"
+					delay="0.4s"
+					class="top-[8%] left-[2%] h-[84%] w-[96%]"
+				/>
+			</h1>
+			<div class="relative max-w-[34ch] pb-4">
+				<p class="text-[clamp(20px,2vw,28px)] leading-snug text-paper">
+					Nothing lives at this address. It may have moved.
+				</p>
+				<p class="mt-3 text-muted">
+					Scribble on the board below while you're here, or pick a way back in further down.
+				</p>
+				<Scribble
+					path={ARROW}
+					color="#ff4fd8"
+					viewBox="0 0 260 140"
+					strokeWidth={7}
+					duration="6s"
+					delay="1.4s"
+					class="-bottom-[86px] left-[18%] z-20 hidden h-[70px] w-[110px] -rotate-[80deg] md:block"
+				/>
+			</div>
+		</header>
+	</div>
+
+	<DrawingBoard title="Doodle while you're lost" class="mx-4 min-h-[60vh] sm:mx-7" />
+
+	<div class="relative mx-auto max-w-6xl px-4 pt-20 pb-10 sm:px-7">
+		<section class="mb-16">
+			<h2 class={SECTION_HEADING}>
+				Try one of these
+				<Scribble
+					{...MARKS.underline}
+					color={CHALK}
+					duration="8s"
+					delay="0.2s"
+					class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+				/>
+			</h2>
+			{PLACES.map(({ href, label, meta }, i) => (
+				<IndexRow href={href} label={label} meta={meta} index={i} />
+			))}
+		</section>
+
+		<div class="grid gap-x-12 gap-y-14 md:grid-cols-[3fr_2fr]">
+			<section>
+				<h2 class={SECTION_HEADING}>
+					Newest posts
+					<Scribble
+						{...MARKS.rays}
+						color="#ff4fd8"
+						duration="7s"
+						delay="0.6s"
+						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+					/>
+				</h2>
+				<ul>
+					{latestPosts.map((post) => (
+						<li class="border-t border-surface-4 py-3">
+							<span class="block text-sm text-muted">
+								<time datetime={post.data.date.toISOString()}>
+									{dateFormat.format(post.data.date)}
+								</time>
+							</span>
+							<a href={post.href} class:list={[LINK, 'text-lg font-semibold']}>
+								{post.data.title}
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+			<section>
+				<h2 class={SECTION_HEADING}>
+					Topics
+					<Scribble
+						{...MARKS.asterisk}
+						color={CHALK}
+						duration="8s"
+						delay="1s"
+						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
+					/>
+				</h2>
+				<ul class="border-t border-surface-4 pt-3">
+					{topics.map(({ name, slug, count }) => (
+						<li class="py-1.5">
+							<a href={`/blog/category/${slug}/`} class:list={[LINK, 'text-lg']}>
+								{name}
+							</a>{' '}
+							<span class="text-muted">{count}</span>
+						</li>
+					))}
+				</ul>
+				<p class="mt-6">
+					<a href="/blog/" class="font-semibold text-pink no-underline hover:text-white">
+						Search every post on the blog &rarr;
+					</a>
+				</p>
+			</section>
+		</div>
 	</div>
 </BaseLayout>
