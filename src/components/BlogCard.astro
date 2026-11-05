@@ -16,10 +16,22 @@ interface Props {
 	writtenFor?: string;
 	readingTime?: number;
 	href?: string;
+	// One of the ten most-read posts: a flame after the title
+	popular?: boolean;
 }
 
-const { title, description, date, slug, heroImage, categories, writtenFor, readingTime, href } =
-	Astro.props;
+const {
+	title,
+	description,
+	date,
+	slug,
+	heroImage,
+	categories,
+	writtenFor,
+	readingTime,
+	href,
+	popular = false,
+} = Astro.props;
 const url = href ?? `/blog/${slug}/`;
 const image = heroImage || DEFAULT_HERO_IMAGE;
 const formattedDate = date.toLocaleDateString('en-us', {
@@ -63,6 +75,12 @@ const formattedDate = date.toLocaleDateString('en-us', {
 		>
 			{title}
 		</a>
+		{popular && (
+			<span class="ml-1.5 text-[clamp(18px,2vw,24px)]" title="One of my 10 most-read posts">
+				<span aria-hidden="true">🔥</span>
+				<span class="sr-only">One of my 10 most-read posts</span>
+			</span>
+		)}
 		{description && <p class="mt-2 line-clamp-2 max-w-[60ch] text-muted">{description}</p>}
 	</div>
 </li>

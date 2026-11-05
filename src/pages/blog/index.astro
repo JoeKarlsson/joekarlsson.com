@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
 import { CHALK, MARKS } from '../../data/scribbles';
 import BlogFilterNav from '../../components/BlogFilterNav.astro';
-import { getCategoryCounts, getWrittenForCounts } from '../../utils/categories';
+import { getCategoryCounts } from '../../utils/categories';
 import { getFeedPosts } from '../../utils/posts';
 import popularPosts from '../../data/popular-posts.json';
 
@@ -23,9 +23,18 @@ const posts = allPosts.filter((p) => p.data.slug !== featuredSlug);
 // Blog posts only: newsletter posts have no category page
 const blogPosts = allPosts.filter((p) => !p.isNewsletter);
 const categories = getCategoryCounts(blogPosts);
-const writtenFor = getWrittenForCounts(blogPosts);
 
 const POSTS_PER_PAGE = 12;
+
+const visitorsByPath = popularPosts.visitorsByPath as Record<string, number>;
+const TOP_POSTS = 10;
+const topPostHrefs = new Set(
+	posts
+		.filter((p) => visitorsByPath[p.href])
+		.sort((a, b) => visitorsByPath[b.href] - visitorsByPath[a.href])
+		.slice(0, TOP_POSTS)
+		.map((p) => p.href),
+);
 
 // Serialize post data for client-side search/sort/pagination
 const postsData = posts.map((p) => ({
@@ -35,8 +44,12 @@ const postsData = posts.map((p) => ({
 	date: p.data.date.toISOString(),
 	categories: p.data.categories || [],
 	readingTime: getReadingTime(p.body || ''),
-	visitors: (popularPosts.visitorsByPath as Record<string, number>)[p.href] || 0,
+	visitors: visitorsByPath[p.href] || 0,
 }));
+
+// The sort switch; the inline script swaps these as the choice changes
+const SORT_ACTIVE = 'sort-btn cursor-pointer rounded-md bg-pink px-3 py-1.5 font-semibold text-ink';
+const SORT_INACTIVE = 'sort-btn cursor-pointer rounded-md px-3 py-1.5 text-paper hover:text-pink';
 
 const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '') : 0;
 ---
@@ -47,148 +60,136 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 	schemaType="CollectionPage"
 >
 	<div class="relative px-4 pt-10 pb-10 sm:px-7">
-		<header class="relative mb-10">
-			<h1 class="relative inline-block font-display text-[clamp(72px,14vw,210px)] leading-[0.86] font-normal text-paper uppercase">
-				Blog
-				<Scribble
-					{...MARKS.underline}
-					color="#ff4fd8"
-					strokeWidth={10}
-					duration="8s"
-					delay="0.4s"
-					class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
-				/>
-			</h1>
-			<p class="mt-6 text-muted">{allPosts.length} posts</p>
-			<Scribble
-				{...MARKS.burst}
-				color={CHALK}
-				duration="9s"
-				delay="1.2s"
-				class="top-0 right-[6%] hidden h-[160px] w-[160px] md:block"
-			/>
-		</header>
-
-		{featuredPost && (
-			<a
-				href={featuredPost.href}
-				class="group relative mb-14 grid items-center gap-x-10 gap-y-6 no-underline md:grid-cols-2"
-			>
-				<span class="relative block">
+		<!-- Built like the homepage and About heroes: a big picture (the featured post)
+		beside a pink panel with the page name filling it and a dark panel for the post.
+		Only the picture is clipped; the mark sits in front of it. -->
+		<header class="relative mb-6 grid gap-4 md:grid-cols-2">
+			{featuredPost && (
+				<a
+					href={featuredPost.href}
+					tabindex="-1"
+					aria-hidden="true"
+					class="relative z-10 block aspect-video md:aspect-auto"
+				>
+					<img
+						src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
+						alt=""
+						aria-hidden="true"
+						data-halftone="flat"
+						width="1120"
+						height="630"
+						class="block size-full rounded-xl object-cover"
+						loading="eager"
+					/>
 					<Scribble
 						{...MARKS.box}
 						color={CHALK}
 						duration="10s"
 						delay="0.8s"
-						class="-inset-[6%] z-10 h-[112%] w-[112%]"
+						class="-inset-[5%] z-10 h-[110%] w-[110%]"
 					/>
-					<img
-						src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
-						alt=""
-						data-halftone="flat"
-						aria-hidden="true"
-						width="1120"
-						height="630"
-						class="block aspect-video w-full rounded-xl object-cover"
-						loading="eager"
-					/>
-				</span>
-				<span class="block">
-					<span class="mb-3 block text-sm text-muted">
-						{featuredPost.data.date.toLocaleDateString('en-us', {
-							timeZone: 'UTC',
-							year: 'numeric',
-							month: 'short',
-							day: 'numeric',
-						})}
-						{featuredReadingTime > 0 && <> · {featuredReadingTime} min read</>}
-						{featuredPost.data.categories.length > 0 && (
-							<> · {featuredPost.data.categories.join(' · ')}</>
-						)}
-						{featuredPost.data.writtenFor && <> · Written for {featuredPost.data.writtenFor}</>}
-					</span>
-					<h2 class="mb-4 font-display text-[clamp(40px,5vw,76px)] leading-[0.95] font-normal text-paper uppercase group-hover:text-pink">
-						{featuredPost.data.title}
-					</h2>
-					{featuredPost.data.description && (
-						<span class="line-clamp-3 block max-w-[52ch] text-muted">
-							{featuredPost.data.description}
+				</a>
+			)}
+			<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
+				<div class="rounded-xl bg-pink px-7 pt-6 pb-5 text-ink">
+					<div class="@container">
+						<h1 class="font-display text-[min(calc(100cqw/2.1),220px)] leading-[0.84] font-normal whitespace-nowrap uppercase">
+							Blog
+						</h1>
+					</div>
+					<p class="mt-3 font-semibold">{allPosts.length} posts</p>
+				</div>
+				{featuredPost && (
+					<a
+						href={featuredPost.href}
+						class="group flex flex-col justify-end gap-3 rounded-xl bg-surface-1 p-7 no-underline"
+					>
+						<span class="text-sm text-muted">
+							<span class="font-semibold text-pink">Featured</span>
+							{' · '}
+							{featuredPost.data.date.toLocaleDateString('en-us', {
+								timeZone: 'UTC',
+								year: 'numeric',
+								month: 'short',
+								day: 'numeric',
+							})}
+							{featuredReadingTime > 0 && <> · {featuredReadingTime} min read</>}
+							{featuredPost.data.categories.length > 0 && (
+								<> · {featuredPost.data.categories.join(' · ')}</>
+							)}
+							{featuredPost.data.writtenFor && <> · Written for {featuredPost.data.writtenFor}</>}
 						</span>
-					)}
-				</span>
-			</a>
-		)}
-
-		<BlogFilterNav
-			label="Blog categories"
-			items={categories}
-			basePath="/blog/category/"
-			allLink
-			class="mb-3"
-		/>
-		<BlogFilterNav
-			label="Who the posts were written for"
-			heading="Written for"
-			items={writtenFor}
-			basePath="/blog/written-for/"
-			class="mb-10"
-		/>
-
-		<!-- Search and sort controls -->
-		<div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-			<div class="relative max-w-md flex-1">
-				<label for="blog-search" class="sr-only">
-					Search posts
-				</label>
-				<input
-					type="search"
-					id="blog-search"
-					placeholder="Search posts"
-					class="w-full border-0 border-b-2 border-surface-4 bg-transparent px-0 py-2 pl-7 text-lg text-paper placeholder-muted outline-hidden transition-colors focus:border-pink"
-				/>
-				<svg
-					class="absolute top-1/2 left-0 h-5 w-5 -translate-y-1/2 text-muted"
-					fill="none"
-					stroke="currentColor"
-					viewBox="0 0 24 24"
-					aria-hidden="true"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-					></path>
-				</svg>
+						<h2 class="font-display text-[clamp(34px,3.6vw,60px)] leading-[0.95] font-normal text-paper uppercase group-hover:text-pink">
+							{featuredPost.data.title}
+						</h2>
+						{featuredPost.data.description && (
+							<span class="line-clamp-3 block max-w-[52ch] text-muted">
+								{featuredPost.data.description}
+							</span>
+						)}
+					</a>
+				)}
 			</div>
-			<div class="flex items-center gap-4 text-[15px]">
-				<span class="text-muted">Sort:</span>
-				<button
-					id="sort-newest"
-					class="sort-btn cursor-pointer text-pink underline underline-offset-4"
-					aria-pressed="true"
-					data-sort="newest"
+		</header>
+
+		<!-- One bar for finding posts: search and sort on top, then the categories,
+		which go to their own pages -->
+		<div class="mb-8 rounded-xl bg-surface-1 p-5 sm:p-7">
+			<div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+				<div class="relative flex-1">
+					<label for="blog-search" class="sr-only">
+						Search posts
+					</label>
+					<input
+						type="search"
+						id="blog-search"
+						placeholder="Search posts"
+						class="w-full rounded-md border border-surface-4 bg-ink py-3 pr-4 pl-11 text-lg text-paper placeholder-muted outline-hidden transition-colors focus:border-pink"
+					/>
+					<svg
+						class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						aria-hidden="true"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+						></path>
+					</svg>
+				</div>
+				<div
+					class="flex items-center gap-1 self-start rounded-md border border-surface-4 bg-ink p-1 text-[15px] sm:self-auto"
+					role="group"
+					aria-label="Sort posts"
 				>
-					Newest
-				</button>
-				<button
-					id="sort-oldest"
-					class="sort-btn cursor-pointer text-paper hover:text-pink"
-					aria-pressed="false"
-					data-sort="oldest"
-				>
-					Oldest
-				</button>
-				<button
-					id="sort-popular"
-					class="sort-btn cursor-pointer text-paper hover:text-pink"
-					aria-pressed="false"
-					data-sort="popular"
-					title={`Most visitors over the last 12 months, as of ${popularPosts.updatedAt}`}
-				>
-					Popular
-				</button>
+					<button id="sort-newest" class={SORT_ACTIVE} aria-pressed="true" data-sort="newest">
+						Newest
+					</button>
+					<button id="sort-oldest" class={SORT_INACTIVE} aria-pressed="false" data-sort="oldest">
+						Oldest
+					</button>
+					<button
+						id="sort-popular"
+						class={SORT_INACTIVE}
+						aria-pressed="false"
+						data-sort="popular"
+						title={`Most visitors over the last 12 months, as of ${popularPosts.updatedAt}`}
+					>
+						Popular
+					</button>
+				</div>
 			</div>
+			<BlogFilterNav
+				label="Blog categories"
+				items={categories}
+				basePath="/blog/category/"
+				allLink
+				class="mt-5 border-t border-surface-4 pt-5"
+			/>
 		</div>
 
 		<!-- Post count display (updates with search) -->
@@ -213,6 +214,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					writtenFor={post.data.writtenFor}
 					readingTime={getReadingTime(post.body || '')}
 					href={post.href}
+					popular={topPostHrefs.has(post.href)}
 				/>
 			))}
 		</ul>
@@ -221,7 +223,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 		<div id="load-more-sentinel" class="mt-8 h-4"></div>
 	</div>
 
-	<script is:inline define:vars={{ postsData, POSTS_PER_PAGE }}>
+	<script is:inline define:vars={{ postsData, POSTS_PER_PAGE, SORT_ACTIVE, SORT_INACTIVE }}>
 		(function () {
 			const grid = document.getElementById('posts-grid');
 			const cards = Array.from(grid.children);
@@ -321,9 +323,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					}
 					sortBtns.forEach((b) => {
 						const isActive = b === btn;
-						b.className = isActive
-							? 'sort-btn cursor-pointer text-pink underline underline-offset-4'
-							: 'sort-btn cursor-pointer text-paper hover:text-pink';
+						b.className = isActive ? SORT_ACTIVE : SORT_INACTIVE;
 						b.setAttribute('aria-pressed', String(isActive));
 					});
 					render();
