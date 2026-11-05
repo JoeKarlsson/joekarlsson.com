@@ -327,13 +327,14 @@ export const projects: Project[] = [
 		title: 'Punc',
 		shareTitle: 'Punc: What a book looks like with only its punctuation',
 		description:
-			'What does a book look like without words? Punc strips text down to its punctuation skeleton and visualizes the patterns left behind. Feed it any text file and get a PDF showing the structure beneath the prose.',
+			'Punc takes the words out of a book and leaves the punctuation where it was. Pick one off the shelf or bring your own.',
 		image: '/images/projects/punc.webp',
 		imageAlt: 'Punc punctuation visualization',
 		category: 'art',
 		date: '2016-02',
 		tech: ['TypeScript', 'NLP', 'PDF Generation'],
 		sourceUrl: 'https://github.com/JoeKarlsson/punc',
+		demoUrl: 'https://joekarlsson.github.io/punc/',
 		page: {
 			slug: 'punc',
 			tagline: 'What a book looks like without words.',
@@ -345,6 +346,9 @@ export const projects: Project[] = [
 				"It's an erasure, like the blackout poems I make on paper, except a blackout poem keeps a few words and Punc keeps none.",
 				"Like most of what I make, it isn't useful. It won't make you a better writer, and it can't tell you whether a book is any good.",
 			],
+			embedUrl: 'https://joekarlsson.github.io/punc/',
+			embedHeading: 'Read it',
+			embedNote: 'Pick a book off the shelf, or bring your own.',
 			screenshots: [
 				{
 					poster: '/images/projects/punc-alice-page-one.webp',
@@ -383,6 +387,9 @@ export const projects: Project[] = [
 				'Rose Hobart cannot be discussed without addressing its primary subject matter: the actress Rose Hobart herself. Due to the film’s nearly obsessive focus on a female body that has been rendered silent, the film lends itself to feminist critique. It seems plainly obvious, as Janet Harbord argues, that “Cornell’s film plays on the beauty and emotional intensity of the star, Rose Hobart, given shape through rhythmic repetition of certain sequences” (69). Thus, does the film ask its viewers to admire the physical beauty of Rose Hobart? Critic Jodi Hauptman writes that through his film, Cornell “forces Hobart’s body to act as a voice . . . Such a collapse of distance between feelings and expression, body and mind, is another indicator of [the hysterical body of the woman]” (qtd. in Lowenstein). Is Rose Hobart the subject of the film, or is her body the subject of the film? By presenting a project that not only recognizes the degradation of the filmic image but also emphasizes it, we ask our viewers to consider how this changes the representation of Hobart’s feminine beauty as well as how this changes the film as a whole.',
 				'Written with Laurel Karlsson. The full list of works consulted is on the supporting statement page of the project site.',
 			],
+			embedUrl: 'https://rosehobart.joekarlsson.com/',
+			embedHeading: 'Watch it',
+			embedNote: 'Press play, then change the tint, the speed and the music.',
 		},
 	},
 	{
@@ -414,6 +421,9 @@ export const projects: Project[] = [
 				"Bechdel.io is art, and it's research too. Data representation in art is the angle that interests me: a wall of movies most people have already seen, sorted into pass and fail, makes you look at them again.",
 				'Laurel and I used it to study the Best Picture nominees at the 2015 Oscars, and we released it as open source because we saw it as feminist activism.',
 			],
+			embedUrl: 'https://bechdel.joekarlsson.com/',
+			embedHeading: 'Try it',
+			embedNote: 'Pick a movie to see whether it passes.',
 		},
 	},
 

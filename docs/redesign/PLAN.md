@@ -314,5 +314,6 @@ Done when: every page uses the new system, `grep -r coral src` finds nothing, th
 
 - 2026-11-05 (Phase 5): autoplaying card clips put /work at 1.88MB (cap 1.5MB). Cards and the /work featured slot play a card-size copy (`cardClip()`, `npm run media:cards`: 640px, 15 fps, CRF 32, the original when that's smaller); project pages keep the full clips. The seven copies are 1.4MB against 4.2MB. Run `media:cards` after adding a project clip; a test fails if a copy is missing or over 450KB.
 - 2026-11-05 (Phase 5): About drops the RightNow summary (component deleted), puts Crop art after the now feed, keeps Previously at on one row (logos alone below `lg`), and the YouTube players load on click (`YouTubeFacade`).
+- 2026-11-05 (Phase 5): project pages drop the 32em prose cap, so the statement runs the full page width like the media above it (Joe: the cap left a big empty gap on the right). Blog posts keep 32em.
 
 No open decisions.

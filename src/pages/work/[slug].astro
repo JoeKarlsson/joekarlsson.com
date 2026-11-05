@@ -143,7 +143,8 @@ const inline = (text: string) =>
 		</div>
 
 		{page.introHeading && <h2 class={SECTION_HEADING}>{page.introHeading}</h2>}
-		<div class="prose mb-16">
+		{/* Full page width, not the 32em reading cap blog posts use */}
+		<div class="prose mb-16" style="max-width: none">
 			{page.intro.map((p) => (
 				<p set:html={inline(p)} />
 			))}
