@@ -75,7 +75,7 @@ const followMe = [
 	{ label: 'GitHub', meta: 'Code', href: SOCIAL_LINKS.github, icon: 'github' },
 	{ label: 'YouTube', meta: 'Videos', href: SOCIAL_LINKS.youtube, icon: 'youtube' },
 	{ label: 'Threads', meta: '@joekarlsson', href: SOCIAL_LINKS.threads, icon: 'threads' },
-	{ label: 'More', meta: 'Everywhere else, and email', href: '/contact/', icon: null },
+	{ label: 'More', meta: 'Everywhere else, and email', href: '/contact/', icon: 'more' },
 ] as const;
 
 // The mark that spills off each card's corner, cycling so neighbors differ
@@ -683,7 +683,14 @@ const cropArtPieces = [
 				</h2>
 				<div class="mb-12 grid gap-x-10 md:grid-cols-2">
 					{followMe.map(({ label, meta, href, icon }, i) => (
-						<IndexRow href={href} label={label} meta={meta} index={i} external={!!icon} compact>
+						<IndexRow
+							href={href}
+							label={label}
+							meta={meta}
+							index={i}
+							external={href.startsWith('http')}
+							compact
+						>
 							{icon && (
 								<SocialIcon
 									slot="icon"
@@ -706,8 +713,7 @@ const cropArtPieces = [
 </BaseLayout>
 
 <style>
-	/* A closed career row peeks open on hover, so it's clear there's more inside;
-	   clicking opens it the rest of the way */
+	/* A career row opens all the way on hover; clicking keeps it open */
 	details.job::details-content {
 		block-size: 0;
 		overflow: hidden;
@@ -715,10 +721,9 @@ const cropArtPieces = [
 			block-size 0.3s ease,
 			content-visibility 0.3s allow-discrete;
 	}
-	details.job:not([open]):hover::details-content {
+	details.job:hover::details-content {
 		content-visibility: visible;
-		block-size: 2.2em;
-		mask-image: linear-gradient(black 30%, transparent);
+		block-size: auto;
 	}
 	details.job[open]::details-content {
 		block-size: auto;
