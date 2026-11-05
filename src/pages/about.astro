@@ -142,6 +142,53 @@ const moreTalks = [
 
 const cropArtUrl = 'https://www.cropart.com/joek.dir/index.htm';
 
+// Snapshots taped up at the top of "Outside of work", tilted at a different angle each
+// (the .taped photo wall in motion.css). Converted with no EXIF, so no locations.
+const tapedPhotos = [
+	{
+		src: '/images/about/collage/painting.webp',
+		alt: 'Joe painting with watercolors at a garden table under string lights',
+		width: 675,
+		height: 900,
+		tilt: -4,
+	},
+	{
+		src: '/images/about/collage/seaplane.webp',
+		alt: 'Joe crouching on a beach in front of a seaplane',
+		width: 900,
+		height: 506,
+		tilt: 3,
+	},
+	{
+		src: '/images/about/collage/tiles.webp',
+		alt: 'Black and white photo of Joe in sunglasses and a patterned shirt leaning on a tiled wall',
+		width: 675,
+		height: 900,
+		tilt: -2,
+	},
+	{
+		src: '/images/about/collage/fisheye.webp',
+		alt: 'Fisheye selfie of Joe in a red cap reaching toward the camera',
+		width: 900,
+		height: 506,
+		tilt: 5,
+	},
+	{
+		src: '/images/about/collage/flowers.webp',
+		alt: 'Selfie of Joe in a pink shirt with his arm out beside a bed of coneflowers',
+		width: 900,
+		height: 506,
+		tilt: -3,
+	},
+	{
+		src: '/images/about/collage/studio.webp',
+		alt: 'Joe in a green shirt resting his chin on his hand in a dim studio',
+		width: 900,
+		height: 506,
+		tilt: 2,
+	},
+];
+
 const cropArtPieces = [
 	{
 		title: 'Beware of Riot Dog',
@@ -557,6 +604,29 @@ const cropArtPieces = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
+				<!-- Taped up like prints on a wall: overlapping, each at its own tilt. Portrait
+				prints are narrower so every print reads about the same size. -->
+				<ul class="mb-14 flex flex-wrap items-center justify-center gap-y-8 px-3 pt-4">
+					{tapedPhotos.map(({ src, alt, width, height, tilt }) => (
+						<li
+							class:list={[
+								'taped -mx-1.5 sm:-mx-3',
+								height > width ? 'w-[40%] sm:w-[23%]' : 'w-[50%] sm:w-[36%]',
+							]}
+							style={`--tilt:${tilt}deg;--tape-tilt:${-tilt * 1.5}deg`}
+						>
+							<img
+								src={src}
+								alt={alt}
+								width={width}
+								height={height}
+								loading="lazy"
+								decoding="async"
+								class="block h-auto w-full bg-paper p-1.5 sm:p-2"
+							/>
+						</li>
+					))}
+				</ul>
 				<div class="mb-12 grid gap-8 sm:grid-cols-2">
 					<a
 						href="/blog/how-to-get-started-building-a-homelab-server-in-2024/"
