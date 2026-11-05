@@ -2,6 +2,15 @@
 	"updatedAt": "2026-11-04",
 	"films": [
 		{
+			"title": "The Royal Tenenbaums",
+			"year": 2001,
+			"watchedDate": "2026-11-04",
+			"rating": 5,
+			"reviewExcerpt": "This is the Wes Anderson movie that gets me every time. This time it got me through Chas. I first saw The Royal Tenenbaums at a foundational age, and it's been...",
+			"url": "https://letterboxd.com/joekarlsson/film/the-royal-tenenbaums/",
+			"poster": "/images/now/film-9428.webp"
+		},
+		{
 			"title": "Jason Goes to Hell: The Final Friday",
 			"year": 1993,
 			"watchedDate": "2026-11-04",
@@ -27,15 +36,6 @@
 			"reviewExcerpt": "If David Lynch made E.T. for $60,000 in a London flat, it'd look like this. It's Close Encounters for horny moms and dads. Dad gets sucked up by a bright light...",
 			"url": "https://letterboxd.com/joekarlsson/film/xtro/",
 			"poster": "/images/now/film-25834.webp"
-		},
-		{
-			"title": "Chloe Radcliffe: Eyes Down Here",
-			"year": 2026,
-			"watchedDate": "2026-11-02",
-			"rating": 4,
-			"reviewExcerpt": "I went to college with Chloe Radcliffe. She was my girlfriend's roommate. I've followed her career ever since, and I am so goddamn proud of her. Even in college...",
-			"url": "https://letterboxd.com/joekarlsson/film/chloe-radcliffe-eyes-down-here/",
-			"poster": "/images/now/film-1805664.webp"
 		}
 	],
 	"podcastEpisodes": [
