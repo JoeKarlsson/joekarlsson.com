@@ -34,7 +34,7 @@ const FRAGMENT_SHADER = `
 precision mediump float;
 uniform sampler2D source;
 uniform vec2 canvasSize;   // device pixels
-uniform vec2 coverScale;   // object-fit: cover, as a UV scale around the center
+uniform vec2 fitScale;     // object-fit (cover or contain), as a UV scale around the center
 uniform float cell;        // dot spacing, device pixels
 uniform float invert;      // 1.0 flips a light image
 uniform float noDots;      // 1.0 draws the duotone without dots
@@ -52,10 +52,12 @@ const mat2 ROTATE = mat2(0.70710678, 0.70710678, -0.70710678, 0.70710678);
 // inverse is its transpose
 vec2 unrotate(vec2 p) { return vec2(dot(p, ROTATE[0]), dot(p, ROTATE[1])); }
 
-// Source brightness, flipped for a light image
+// Source brightness, flipped for a light image; black outside the picture
+// (the bars around an object-fit: contain clip)
 float luma(vec2 pixel) {
-	vec2 uv = (pixel / canvasSize - 0.5) * coverScale + 0.5;
-	float value = dot(texture2D(source, clamp(uv, 0.0, 1.0)).rgb, vec3(0.299, 0.587, 0.114));
+	vec2 uv = (pixel / canvasSize - 0.5) * fitScale + 0.5;
+	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) return 0.0;
+	float value = dot(texture2D(source, uv).rgb, vec3(0.299, 0.587, 0.114));
 	return mix(value, 1.0 - value, invert);
 }
 
@@ -91,6 +93,8 @@ type Source = HTMLImageElement | HTMLVideoElement;
 interface Look {
 	invert: boolean;
 	flat: boolean;
+	// object-fit: contain rather than cover
+	contain: boolean;
 }
 
 type Draw = (source: Source, target: HTMLCanvasElement, look: Look) => void;
@@ -129,9 +133,9 @@ function createRenderer(): Draw | null {
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 	gl.uniform3fv(gl.getUniformLocation(program, 'ink'), INK);
 	const uniform = (name: string) => gl.getUniformLocation(program, name);
-	const [canvasSize, coverScale, cell, invert, noDots] = [
+	const [canvasSize, fitScale, cell, invert, noDots] = [
 		'canvasSize',
-		'coverScale',
+		'fitScale',
 		'cell',
 		'invert',
 		'noDots',
@@ -148,10 +152,12 @@ function createRenderer(): Draw | null {
 		glCanvas.height = height;
 		gl.viewport(0, 0, width, height);
 		gl.uniform2f(canvasSize, width, height);
+		// Cover crops the longer side of the picture; contain pads the shorter one
+		const wider = targetAspect < sourceAspect;
 		gl.uniform2f(
-			coverScale,
-			targetAspect < sourceAspect ? targetAspect / sourceAspect : 1,
-			targetAspect < sourceAspect ? 1 : sourceAspect / targetAspect,
+			fitScale,
+			wider === look.contain ? 1 : targetAspect / sourceAspect,
+			wider === look.contain ? sourceAspect / targetAspect : 1,
 		);
 		gl.uniform1f(cell, CELL_CSS_PX * (window.devicePixelRatio || 1));
 		gl.uniform1f(invert, look.invert ? 1 : 0);
@@ -184,7 +190,11 @@ function attach(element: Source, draw: Draw): void {
 	canvas.style.cssText = 'position:absolute;margin:0;pointer-events:none';
 	element.after(canvas);
 
-	const look: Look = { invert: false, flat: element.dataset.halftone === 'flat' };
+	const look: Look = {
+		invert: false,
+		flat: element.dataset.halftone === 'flat',
+		contain: getComputedStyle(element).objectFit === 'contain',
+	};
 	// A video shows its still until the clip has a frame
 	const still =
 		element instanceof HTMLImageElement
