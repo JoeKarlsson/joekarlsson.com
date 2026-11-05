@@ -211,5 +211,7 @@ Done when: every page uses the new system, and the old styles and dead component
 - 2026-11-05: drop the ASCII cursor cat, the Konami dashboard, the Cmd+K command palette and the /uses apt view.
 - 2026-11-05: drop the lens animation (type lab #10). Joe's own Jitter or Rive wordmarks may replace the two phrase animations later.
 - 2026-11-05: interface font is Hanken Grotesk (replacing Inter), with Fraunces for reading and Anton for headlines.
+- 2026-11-05: on phones the nav wraps to three rows with every link visible, so it isn't sticky there (it would cover a third of the screen) and there's no menu button. It floats from `md` up.
+- 2026-11-05: the header drops its social icons; they live in the footer only, as in mock-r.
 
 No open decisions.

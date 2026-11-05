@@ -1,0 +1,34 @@
+---
+// A crayon scribble that draws itself in, holds, then erases on a slow loop
+// (.redraw in src/styles/motion.css). The crayon texture is the #crayon filter
+// defined once in BaseLayout. Decorative, so hidden from assistive tech.
+interface Props {
+	path: string;
+	color: string;
+	class?: string;
+	// Loop length and start delay, e.g. '10s'
+	duration?: string;
+	delay?: string;
+}
+
+const { path, color, class: className, duration = '7s', delay = '0s' } = Astro.props;
+---
+
+<svg
+	class:list={['redraw pointer-events-none absolute overflow-visible', className]}
+	style={`--dur:${duration};--del:${delay}`}
+	viewBox="0 0 900 300"
+	preserveAspectRatio="none"
+	aria-hidden="true"
+>
+	<g
+		fill="none"
+		stroke={color}
+		stroke-width="8"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		filter="url(#crayon)"
+	>
+		<path pathLength="1" d={path}></path>
+	</g>
+</svg>

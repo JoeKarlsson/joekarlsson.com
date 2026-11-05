@@ -18,58 +18,67 @@ test.describe('Header Navigation', () => {
 		await expect(page).toHaveURL(/\/blog/);
 	});
 
-	test('active nav link is visually distinct', async ({ page }) => {
-		await page.goto('/about');
+	test('marks the current page with aria-current', async ({ page }) => {
+		await page.goto('/about/');
 
-		const aboutLink = page.locator('header nav').getByRole('link', { name: 'About' });
-		// Active link should exist and be visible
-		await expect(aboutLink).toBeVisible();
-
-		// It should have some styling (class attribute)
-		const className = await aboutLink.getAttribute('class');
-		expect(className).toBeTruthy();
-	});
-
-	test('social links in header open in new tab', async ({ page }) => {
-		await page.goto('/');
-
-		const githubLink = page.locator('header').getByRole('link', { name: /github/i });
-		await expect(githubLink).toHaveAttribute('target', '_blank');
-		await expect(githubLink).toHaveAttribute('rel', /noopener/);
+		const nav = page.locator('header nav');
+		await expect(nav.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page');
+		await expect(nav.getByRole('link', { name: 'Blog' })).not.toHaveAttribute('aria-current');
 	});
 });
 
 test.describe('Mobile Navigation', () => {
 	test.use({ viewport: { width: 375, height: 667 } });
 
-	test('mobile menu button exists', async ({ page }) => {
+	test('every nav link is visible without a menu button', async ({ page }) => {
 		await page.goto('/');
 
-		// Look for any menu/hamburger button
-		const menuButton = page
-			.locator('button[aria-label*="menu" i], button[aria-label*="Menu" i], header button')
-			.first();
-		await expect(menuButton).toBeVisible();
-	});
-
-	test('mobile navigation is functional', async ({ page }) => {
-		await page.goto('/');
-
-		// Click menu button
-		const menuButton = page
-			.locator('button[aria-label*="menu" i], button[aria-label*="Menu" i], header button')
-			.first();
-		await menuButton.click();
-
-		// Should be able to find and click navigation links after menu opens
-		await page.waitForTimeout(300);
-
-		// Navigate to about via any visible link
-		const aboutLink = page.getByRole('link', { name: 'About' }).first();
-		if (await aboutLink.isVisible()) {
-			await aboutLink.click();
-			await expect(page).toHaveURL(/\/about/);
+		const nav = page.locator('header nav');
+		for (const name of ['Home', 'Blog', 'About', 'Projects', 'Newsletter', 'Uses', 'Contact']) {
+			await expect(nav.getByRole('link', { name, exact: true })).toBeVisible();
 		}
+		await nav.getByRole('link', { name: 'About' }).click();
+		await expect(page).toHaveURL(/\/about/);
+	});
+});
+
+test.describe('Pause motion', () => {
+	test('freezes animations and videos, and resumes them', async ({ page }) => {
+		await page.goto('/');
+		// A playing video stands in for the hero and collage loops that arrive in Phase 2
+		await page.evaluate(() => {
+			const video = document.createElement('video');
+			video.id = 'test-video';
+			let paused = false;
+			Object.defineProperty(video, 'paused', { get: () => paused });
+			video.pause = () => {
+				paused = true;
+			};
+			video.play = async () => {
+				paused = false;
+			};
+			document.body.append(video);
+		});
+
+		const button = page.getByRole('button', { name: 'Pause motion' });
+		const echo = page.locator('footer .echo > span[aria-hidden="true"]').first();
+		await expect(echo).toHaveCSS('animation-play-state', 'running');
+
+		await button.click();
+		await expect(page.getByRole('button', { name: 'Play motion' })).toHaveAttribute(
+			'aria-pressed',
+			'true',
+		);
+		await expect(echo).toHaveCSS('animation-play-state', 'paused');
+		expect(
+			await page.evaluate(() => (document.getElementById('test-video') as HTMLVideoElement).paused),
+		).toBe(true);
+
+		await page.getByRole('button', { name: 'Play motion' }).click();
+		await expect(echo).toHaveCSS('animation-play-state', 'running');
+		expect(
+			await page.evaluate(() => (document.getElementById('test-video') as HTMLVideoElement).paused),
+		).toBe(false);
 	});
 });
 

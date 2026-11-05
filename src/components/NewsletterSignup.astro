@@ -11,12 +11,17 @@ interface Props {
 
 const { location } = Astro.props;
 const inputId = `newsletter-email-${location}`;
+// The footer sits on pink, so its form is solid black; elsewhere it sits on the dark page
+const isFooter = location === 'footer';
 ---
 
 <form
 	method="post"
 	action={NEWSLETTER.subscribeAction}
-	class="newsletter-signup mx-auto flex max-w-md flex-col gap-2 sm:flex-row"
+	class:list={[
+		'newsletter-signup flex flex-col gap-2 sm:flex-row',
+		isFooter ? 'mt-5 max-w-[520px]' : 'mx-auto max-w-md',
+	]}
 	data-location={location}
 >
 	<input type="hidden" name="l" value={NEWSLETTER.listUuid} />
@@ -40,13 +45,18 @@ const inputId = `newsletter-email-${location}`;
 		required
 		autocomplete="email"
 		placeholder="you@example.com"
-		class="min-w-0 flex-1 rounded-lg border border-surface-3 bg-surface-1 px-4 py-2 text-sm text-white placeholder-gray-500 outline-hidden transition-colors focus:border-coral"
+		class:list={[
+			'min-w-0 flex-1 px-4 text-white outline-hidden',
+			isFooter
+				? 'rounded-md bg-ink py-3 text-base placeholder-muted focus-visible:outline-2 focus-visible:outline-ink'
+				: 'rounded-lg border border-surface-3 bg-surface-1 py-2 text-sm placeholder-gray-500 transition-colors focus:border-coral',
+		]}
 	/>
 	<button
 		type="submit"
 		class={
-			location === 'footer'
-				? 'rounded-md bg-surface-0 px-5 py-2.5 font-semibold text-white hover:bg-surface-2'
+			isFooter
+				? 'cursor-pointer rounded-md bg-ink px-[18px] py-3 font-semibold text-pink hover:text-white'
 				: 'rounded-md bg-coral px-5 py-2.5 font-medium text-surface-0 hover:bg-white'
 		}
 	>
