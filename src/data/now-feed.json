@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 208,
+			"commitCount": 210,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				84
+				86
 			],
-			"latestCommitMessage": "fix: Blog featured post is a 16:9 banner on phones, Contact gets the..."
+			"latestCommitMessage": "feat: Hovered text links warble, boiling through three hand-drawn..."
 		},
 		{
 			"name": "punc",
-			"description": " Ever wonder what your favorite books look like without words? ",
+			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
 			"url": "https://github.com/JoeKarlsson/punc",
 			"language": "TypeScript",
-			"commitCount": 6,
+			"commitCount": 7,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6
 			],
-			"latestCommitMessage": "fix: Book pages on phones put a small poster beside the title instead..."
+			"latestCommitMessage": "chore: README covers the live site, the CLI and the full API, and the..."
 		},
 		{
 			"name": "nothing-but-corners",
