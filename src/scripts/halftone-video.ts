@@ -129,8 +129,8 @@ function halftone(video: HTMLVideoElement): void {
 		canvas.style.visibility = 'visible';
 	}
 
-	// Redraw every new frame while playing, and once after a seek (hover-play
-	// rewinds on the way out, which would otherwise show frame 0 in color)
+	// Redraw every new frame while playing, and once after a seek (scrubbing a
+	// paused clip from its controls would otherwise show that frame in color)
 	const onFrame = () => {
 		draw();
 		if (!video.paused) video.requestVideoFrameCallback(onFrame);

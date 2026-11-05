@@ -64,7 +64,6 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 				target={featuredExternal ? '_blank' : undefined}
 				rel={featuredExternal ? 'noopener noreferrer' : undefined}
 				class="plausible-event-name=Featured+Project+Click group relative mb-20 grid items-center gap-x-10 gap-y-6 no-underline md:grid-cols-2"
-				data-hover-target
 			>
 				<span class="relative block">
 					<Scribble
@@ -81,10 +80,10 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 							loop
 							muted
 							playsinline
-							preload="metadata"
+							preload="none"
 							role="img"
 							aria-label={featuredProject.imageAlt}
-							data-hover-play
+							data-autoplay-in-view
 							data-halftone
 							class="block aspect-video w-full rounded-xl object-cover"
 						/>
@@ -217,7 +216,6 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 	</div>
 
 	<script>
-		import '../scripts/hover-play';
 		import '../scripts/halftone-video';
 		// Must match the server-rendered classes on .project-filter above
 		const ACTIVE_FILTER_CLASSES = 'cursor-pointer text-pink underline underline-offset-4';

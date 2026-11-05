@@ -60,19 +60,19 @@ const inline = (text: string) =>
 
 		<p class="mb-6 text-sm text-gray-400">{project.tech.join(' · ')}</p>
 
-		{/* controls for the same WCAG 2.2.2 reason as rehype-gif-video */}
+		{/* Plays while on screen (in-view-play), with controls for the same WCAG 2.2.2 reason as rehype-gif-video */}
 		{project.video ? (
 			<video
 				src={project.video}
 				poster={project.image}
-				autoplay
 				loop
 				muted
 				playsinline
 				controls
-				preload="metadata"
+				preload="none"
 				role="img"
 				aria-label={project.imageAlt}
+				data-autoplay-in-view
 				class="mb-6 aspect-video w-full rounded-lg bg-black object-contain"
 			/>
 		) : (
@@ -227,7 +227,7 @@ const inline = (text: string) =>
 									preload="none"
 									role="img"
 									aria-label={clip.alt}
-									data-hover-play
+									data-autoplay-in-view
 									class={clipClass}
 									style={clipStyle}
 								/>
@@ -315,7 +315,3 @@ const inline = (text: string) =>
 		</a>
 	</div>
 </BaseLayout>
-
-<script>
-	import '../../scripts/hover-play';
-</script>

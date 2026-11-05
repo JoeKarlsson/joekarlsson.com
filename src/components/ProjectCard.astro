@@ -29,7 +29,6 @@ const metaLine = [
 		target={isExternal ? '_blank' : undefined}
 		rel={isExternal ? 'noopener noreferrer' : undefined}
 		class="plausible-event-name=Project+Click group block no-underline"
-		data-hover-target
 	>
 		<span class="relative block">
 			{project.video ? (
@@ -42,7 +41,7 @@ const metaLine = [
 					preload="none"
 					role="img"
 					aria-label={project.imageAlt}
-					data-hover-play
+					data-autoplay-in-view
 					data-halftone
 					class="block aspect-video w-full rounded-lg object-cover"
 				/>
@@ -130,6 +129,5 @@ const metaLine = [
 </article>
 
 <script>
-	import '../scripts/hover-play';
 	import '../scripts/halftone-video';
 </script>
