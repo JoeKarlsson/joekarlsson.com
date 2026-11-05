@@ -328,8 +328,11 @@ const cropArtPieces = [
 					</p>
 				</div>
 
-				<div class="mb-12">
-					<p class="mb-3 text-sm text-muted">Previously at</p>
+				{/* A box with a tilted pink label, like the stickers in the header */}
+				<div class="relative mt-4 mb-14 rounded-xl border border-surface-4 bg-surface-2 px-5 pt-9 pb-5">
+					<p class="absolute -top-5 left-5 -rotate-2 rounded-md bg-pink px-3 pt-1.5 pb-0.5 font-display text-2xl leading-none text-ink uppercase">
+						Previously at
+					</p>
 					<ul class="flex flex-nowrap items-center justify-between gap-x-4">
 						{previousCompanies.map((company) => (
 							<li>
@@ -337,14 +340,14 @@ const cropArtPieces = [
 									href={company.url}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="relative flex items-center gap-2 text-paper no-underline hover:text-pink"
+									class="relative flex items-center gap-2.5 font-semibold text-paper no-underline hover:text-pink"
 								>
 									<img
 										src={company.logo}
 										alt=""
 										aria-hidden="true"
 										data-halftone="flat"
-										class="size-12 rounded-sm lg:size-8"
+										class="size-12 rounded-md lg:size-9"
 										width="48"
 										height="48"
 										loading="eager"
@@ -419,8 +422,12 @@ const cropArtPieces = [
 				</h2>
 				<div class="mb-6">
 					{career.map((job, i) => (
-						<details class="job ring-host border-t border-surface-4">
-							<summary class="flex cursor-pointer list-none flex-wrap items-baseline justify-between gap-x-6 pt-1.5 pb-0.5 text-paper">
+						<div class="job ring-host border-t border-surface-4">
+							<button
+								type="button"
+								aria-expanded="false"
+								class="flex w-full cursor-pointer flex-wrap items-baseline justify-between gap-x-6 pt-1.5 pb-0.5 text-left text-paper"
+							>
 								<span class="relative inline-flex items-center font-display text-[clamp(34px,4vw,56px)] leading-[0.98] uppercase">
 									<span class="relative mr-4 inline-block size-[0.8em]">
 										<img
@@ -448,11 +455,15 @@ const cropArtPieces = [
 									{job.role}
 									<span class="ml-3 text-paper">{job.years}</span>
 								</span>
-							</summary>
-							<p class="max-w-3xl pt-1 pb-5 pl-[calc(clamp(34px,4vw,56px)*0.8+1rem)] text-lg leading-relaxed text-paper">
-								{job.text}
-							</p>
-						</details>
+							</button>
+							<div class="job-body">
+								<div>
+									<p class="max-w-3xl pt-1 pb-5 pl-[calc(clamp(34px,4vw,56px)*0.8+1rem)] text-lg leading-relaxed text-paper">
+										{job.text}
+									</p>
+								</div>
+							</div>
+						</div>
 					))}
 				</div>
 
@@ -746,29 +757,33 @@ const cropArtPieces = [
 	</div>
 </BaseLayout>
 
+<script>
+	for (const button of document.querySelectorAll<HTMLButtonElement>('.job > button')) {
+		button.addEventListener('click', () => {
+			const isOpen = button.parentElement!.classList.toggle('is-open');
+			button.setAttribute('aria-expanded', String(isOpen));
+		});
+	}
+</script>
+
 <style>
-	/* A career row opens all the way on hover; clicking keeps it open */
-	details.job summary::-webkit-details-marker {
-		display: none;
-	}
-	details.job::details-content {
-		block-size: 0;
-		overflow: hidden;
+	/* A career row eases open on hover; clicking keeps it open. Animating the grid
+	   row from 0fr to 1fr works in every current browser, unlike height: auto */
+	.job-body {
+		display: grid;
+		grid-template-rows: 0fr;
+		opacity: 0;
 		transition:
-			block-size 0.3s ease,
-			content-visibility 0.3s allow-discrete;
+			grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+			opacity 0.35s ease-out;
 	}
-	details.job:hover::details-content {
-		content-visibility: visible;
-		block-size: auto;
+	.job-body > * {
+		overflow: hidden;
 	}
-	details.job[open]::details-content {
-		block-size: auto;
-	}
-	@supports (interpolate-size: allow-keywords) {
-		details.job {
-			interpolate-size: allow-keywords;
-		}
+	.job:hover .job-body,
+	.job.is-open .job-body {
+		grid-template-rows: 1fr;
+		opacity: 1;
 	}
 	/* What I do thumbnails crossfade through four frames, three seconds each */
 	.frame {
@@ -790,7 +805,7 @@ const cropArtPieces = [
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
-		details.job::details-content {
+		.job-body {
 			transition: none;
 		}
 		.frame {
