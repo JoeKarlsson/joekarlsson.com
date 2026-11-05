@@ -4,6 +4,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import BlogCard from '../../components/BlogCard.astro';
+import Scribble from '../../components/Scribble.astro';
+import { CHALK, MARKS } from '../../data/scribbles';
 
 const issues = (await getCollection('newsletter')).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -26,28 +28,41 @@ for (const issue of backIssues) {
 	description="Works on My Machine is Joe Karlsson's newsletter: thoughts and reactions on tech writing, AI, homelab builds and open source. Plus every back issue of TL;DR in Tech."
 	schemaType="CollectionPage"
 >
-	<div class="mx-auto max-w-3xl px-4 py-8">
-		<h1 class="mb-2 text-3xl font-bold text-white md:text-4xl">Works on My Machine</h1>
-		<p class="mb-6 text-gray-400">
-			My thoughts and reactions on tech writing, AI, homelab builds and open source, plus whatever
-			I'm working on. It goes out when I have something to say.
-		</p>
-		<div class="mb-12">
-			<NewsletterSignup location="newsletter-page" />
-			<p class="mt-3 text-center text-xs text-gray-400">
-				Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS?{' '}
-				<a
-					href="/newsletter/rss.xml"
-					class="plausible-event-name=RSS+Click plausible-event-feed=newsletter underline hover:text-coral"
-				>
-					Follow Works on My Machine in your feed reader
-				</a>
-				.
+	<div class="relative px-4 pt-10 pb-10 sm:px-7">
+		<header class="relative mb-14 max-w-[1100px]">
+			<h1 class="relative font-display text-[clamp(56px,11vw,170px)] leading-[0.86] font-normal text-paper uppercase">
+				Works on <span class="text-pink">My Machine</span>
+				<Scribble
+					{...MARKS.burst}
+					color={CHALK}
+					duration="9s"
+					delay="1s"
+					class="-top-[0.2em] right-[2%] hidden h-[0.9em] w-[0.9em] md:block"
+				/>
+			</h1>
+			<p class="mt-6 max-w-[52ch] font-serif text-[clamp(18px,1.6vw,22px)] leading-relaxed text-paper">
+				My thoughts and reactions on tech writing, AI, homelab builds and open source, plus whatever
+				I'm working on. It goes out when I have something to say.
 			</p>
-		</div>
+			<div class="mt-8">
+				<NewsletterSignup location="newsletter-page" />
+				<p class="mt-3 max-w-[520px] text-xs text-muted">
+					Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS?{' '}
+					<a
+						href="/newsletter/rss.xml"
+						class="plausible-event-name=RSS+Click plausible-event-feed=newsletter text-paper underline hover:text-pink"
+					>
+						Follow Works on My Machine in your feed reader
+					</a>
+					.
+				</p>
+			</div>
+		</header>
 
-		<h2 class="mb-6 text-3xl font-extrabold text-white">Every issue</h2>
-		<div class="mb-12 grid gap-x-6 gap-y-10 sm:grid-cols-2">
+		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase">
+			Every issue
+		</h2>
+		<ul class="mb-20">
 			{posts.map((post) => (
 				<BlogCard
 					title={post.data.title}
@@ -55,36 +70,44 @@ for (const issue of backIssues) {
 					date={post.data.date}
 					slug={post.data.slug}
 					heroImage={post.data.heroImage}
-					heroAlt={post.data.heroAlt}
 					href={`/newsletter/${post.data.slug}/`}
 				/>
 			))}
-		</div>
+		</ul>
 
-		<h2 class="mb-2 text-3xl font-extrabold text-white">TL;DR in Tech</h2>
-		<p class="mb-8 text-gray-400">
+		<h2 class="mb-2 font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase">
+			TL;DR in Tech
+		</h2>
+		<p class="mb-8 text-muted">
 			The weekly link roundup this newsletter used to be, from 2021 to 2024.
 		</p>
 
-		{[...byYear.entries()].map(([year, list]) => (
-			<section class="mb-10" id={String(year)}>
-				<h3 class="mb-4 text-lg font-semibold text-white">{year}</h3>
-				<ul class="space-y-2">
-					{list.map((issue) => (
-						<li class="flex flex-col gap-x-4 sm:flex-row sm:items-center">
-							<span class="w-32 shrink-0 text-sm text-gray-400">
-								<FormattedDate date={issue.data.date} />
-							</span>
-							<a
-								href={`/newsletter/${issue.data.slug}/`}
-								class="text-white underline decoration-gray-500 underline-offset-2 transition-colors hover:text-coral hover:decoration-coral"
-							>
-								{issue.data.title}
-							</a>
-						</li>
-					))}
-				</ul>
-			</section>
-		))}
+		<div class="grid gap-x-10 md:grid-cols-[auto_1fr]">
+			{[...byYear.entries()].map(([year, list]) => (
+				<section class="contents">
+					<h3
+						id={String(year)}
+						class="scroll-mt-24 border-t border-surface-4 pt-3 font-display text-[clamp(36px,4vw,56px)] leading-none font-normal text-paper md:pb-8"
+					>
+						{year}
+					</h3>
+					<ul class="mb-8 gap-x-10 pt-4 md:border-t md:border-surface-4 xl:columns-2">
+						{list.map((issue) => (
+							<li class="mb-2 flex break-inside-avoid flex-col gap-x-4 sm:flex-row sm:items-baseline">
+								<span class="w-32 shrink-0 text-sm text-muted">
+									<FormattedDate date={issue.data.date} />
+								</span>
+								<a
+									href={`/newsletter/${issue.data.slug}/`}
+									class="text-paper underline decoration-surface-4 underline-offset-4 hover:text-pink hover:decoration-pink"
+								>
+									{issue.data.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			))}
+		</div>
 	</div>
 </BaseLayout>

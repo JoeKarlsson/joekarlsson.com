@@ -19,8 +19,8 @@ const isFooter = location === 'footer';
 	method="post"
 	action={NEWSLETTER.subscribeAction}
 	class:list={[
-		'newsletter-signup flex flex-col gap-2 sm:flex-row',
-		isFooter ? 'mt-5 max-w-[520px]' : 'mx-auto max-w-md',
+		'newsletter-signup flex max-w-[520px] flex-col gap-2 sm:flex-row',
+		isFooter && 'mt-5',
 	]}
 	data-location={location}
 >
@@ -46,19 +46,18 @@ const isFooter = location === 'footer';
 		autocomplete="email"
 		placeholder="you@example.com"
 		class:list={[
-			'min-w-0 flex-1 px-4 text-white outline-hidden',
+			'min-w-0 flex-1 rounded-md bg-ink px-4 py-3 text-base text-paper placeholder-muted outline-hidden',
 			isFooter
-				? 'rounded-md bg-ink py-3 text-base placeholder-muted focus-visible:outline-2 focus-visible:outline-ink'
-				: 'rounded-lg border border-surface-3 bg-surface-1 py-2 text-sm placeholder-gray-500 transition-colors focus:border-coral',
+				? 'focus-visible:outline-2 focus-visible:outline-ink'
+				: 'border border-surface-4 transition-colors focus:border-pink',
 		]}
 	/>
 	<button
 		type="submit"
-		class={
-			isFooter
-				? 'cursor-pointer rounded-md bg-ink px-[18px] py-3 font-semibold text-pink hover:text-white'
-				: 'rounded-md bg-coral px-5 py-2.5 font-medium text-surface-0 hover:bg-white'
-		}
+		class:list={[
+			'cursor-pointer rounded-md px-[18px] py-3 font-semibold',
+			isFooter ? 'bg-ink text-pink hover:text-white' : 'bg-pink text-ink hover:bg-white',
+		]}
 	>
 		Subscribe
 	</button>

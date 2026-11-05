@@ -1,5 +1,9 @@
 ---
+// One post in a list (blog index, category pages, newsletter): the dithered pink
+// thumbnail on the left, then date, reading time and categories, the title, and
+// the description. Same row as the homepage's Recent posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
+import { halftoneThumbnail } from '../utils/thumbnails';
 
 interface Props {
 	title: string;
@@ -7,15 +11,13 @@ interface Props {
 	date: Date;
 	slug: string;
 	heroImage?: string;
-	heroAlt?: string;
 	categories?: string[];
 	readingTime?: number;
 	href?: string;
 }
 
-const { title, description, date, slug, heroImage, heroAlt, categories, readingTime, href } =
-	Astro.props;
-const image = heroImage || DEFAULT_HERO_IMAGE;
+const { title, description, date, slug, heroImage, categories, readingTime, href } = Astro.props;
+const url = href ?? `/blog/${slug}/`;
 const formattedDate = date.toLocaleDateString('en-us', {
 	timeZone: 'UTC',
 	year: 'numeric',
@@ -24,22 +26,31 @@ const formattedDate = date.toLocaleDateString('en-us', {
 });
 ---
 
-<a href={href ?? `/blog/${slug}/`} class="group block no-underline">
-	<img
-		src={image}
-		alt={heroAlt || `Hero image for ${title}`}
-		class="mb-3 h-40 w-full rounded-lg object-cover"
-		width="600"
-		height="160"
-		loading="lazy"
-	/>
-	<h3 class="mb-1 text-lg font-semibold text-white transition-colors group-hover:text-coral">
-		{title}
-	</h3>
-	<p class="mb-2 text-sm text-gray-400">
-		{formattedDate}
-		{readingTime && <> · {readingTime} min read</>}
-		{categories && categories.length > 0 && <> · {categories.join(' · ')}</>}
-	</p>
-	{description && <p class="line-clamp-2 text-sm text-gray-400">{description}</p>}
-</a>
+<li class="group grid items-center gap-x-7 gap-y-3 border-t border-surface-4 py-[18px] sm:grid-cols-[clamp(140px,22vw,280px)_1fr]">
+	<!-- The thumbnail repeats the title link, so it's skipped by keyboard and screen readers -->
+	<a href={url} tabindex="-1" aria-hidden="true" class="block">
+		<img
+			src={halftoneThumbnail(heroImage || DEFAULT_HERO_IMAGE)}
+			alt=""
+			width="560"
+			height="315"
+			loading="lazy"
+			decoding="async"
+			class="block aspect-video w-full rounded-lg object-cover"
+		/>
+	</a>
+	<div>
+		<span class="mb-1.5 block text-sm text-muted">
+			<time datetime={date.toISOString()}>{formattedDate}</time>
+			{readingTime && <> · {readingTime} min read</>}
+			{categories && categories.length > 0 && <> · {categories.join(' · ')}</>}
+		</span>
+		<a
+			href={url}
+			class="text-[clamp(20px,2.2vw,28px)] leading-tight font-semibold text-paper no-underline group-hover:text-pink"
+		>
+			{title}
+		</a>
+		{description && <p class="mt-2 line-clamp-2 max-w-[60ch] text-muted">{description}</p>}
+	</div>
+</li>

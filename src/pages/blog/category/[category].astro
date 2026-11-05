@@ -1,8 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogCard from '../../../components/BlogCard.astro';
+import Scribble from '../../../components/Scribble.astro';
+import { MARKS } from '../../../data/scribbles';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { categorySlug, getCategoryCounts } from '../../../utils/categories';
+import { getFeedPosts } from '../../../utils/posts';
 
 function getReadingTime(body: string): number {
 	const words = body.trim().split(/\s+/).length;
@@ -34,7 +37,10 @@ export async function getStaticPaths() {
 const { category, posts } = Astro.props;
 
 // Get all categories for the filter bar
-const categories = getCategoryCounts(await getCollection('blog'));
+const allBlogPosts = await getCollection('blog');
+const categories = getCategoryCounts(allBlogPosts);
+// Same count as the blog index header, which also lists newsletter posts
+const allPostCount = (await getFeedPosts()).length;
 const currentSlug = categorySlug(category);
 ---
 
@@ -43,14 +49,29 @@ const currentSlug = categorySlug(category);
 	description={`Browse ${posts.length} posts about ${category.toLowerCase()} by Joe Karlsson - developer marketing engineer.`}
 	schemaType="CollectionPage"
 >
-	<div class="mx-auto max-w-5xl px-4 py-8">
-		<div class="mb-8">
-			<h1 class="text-3xl font-bold text-white md:text-4xl">{category}</h1>
-			<p class="mt-2 text-gray-400">{posts.length} posts</p>
-		</div>
+	<div class="relative px-4 pt-10 pb-10 sm:px-7">
+		<header class="relative mb-10">
+			<p class="mb-3 text-[15px]">
+				<a href="/blog/" class="text-muted no-underline hover:text-pink">
+					← Blog
+				</a>
+			</p>
+			<h1 class="relative inline-block font-display text-[clamp(56px,11vw,170px)] leading-[0.88] font-normal text-paper uppercase">
+				{category}
+				<Scribble
+					{...MARKS.underline}
+					color="#ff4fd8"
+					strokeWidth={10}
+					duration="8s"
+					delay="0.4s"
+					class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
+				/>
+			</h1>
+			<p class="mt-6 text-muted">{posts.length} posts</p>
+		</header>
 
-		<nav class="mb-10 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label="Blog categories">
-			<a href="/blog/" class="text-gray-300 no-underline hover:text-coral">
+		<nav class="mb-12 flex flex-wrap gap-x-5 gap-y-2 text-[15px]" aria-label="Blog categories">
+			<a href="/blog/" class="text-paper no-underline hover:text-pink">
 				All
 			</a>
 			{categories.map(({ name, slug, count }) => {
@@ -60,18 +81,18 @@ const currentSlug = categorySlug(category);
 						href={`/blog/category/${slug}/`}
 						class={
 							isActive
-								? 'text-coral underline underline-offset-4'
-								: 'text-gray-300 no-underline hover:text-coral'
+								? 'text-pink underline underline-offset-4'
+								: 'text-paper no-underline hover:text-pink'
 						}
 						aria-current={isActive ? 'page' : undefined}
 					>
-						{name} <span class="text-gray-400">{count}</span>
+						{name} <span class="text-muted">{count}</span>
 					</a>
 				);
 			})}
 		</nav>
 
-		<div class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+		<ul class="relative">
 			{posts.map((post) => (
 				<BlogCard
 					title={post.data.title}
@@ -83,6 +104,11 @@ const currentSlug = categorySlug(category);
 					readingTime={getReadingTime(post.body || '')}
 				/>
 			))}
-		</div>
+		</ul>
+		<p class="mt-[18px]">
+			<a href="/blog/" class="font-semibold text-pink no-underline hover:text-white">
+				All {allPostCount} posts →
+			</a>
+		</p>
 	</div>
 </BaseLayout>

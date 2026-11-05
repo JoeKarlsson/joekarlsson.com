@@ -1,10 +1,13 @@
 ---
 import BlogCard from '../../components/BlogCard.astro';
+import Scribble from '../../components/Scribble.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
+import { CHALK, MARKS } from '../../data/scribbles';
 import { getCategoryCounts } from '../../utils/categories';
 import { getFeedPosts } from '../../utils/posts';
 import popularPosts from '../../data/popular-posts.json';
+import { halftoneThumbnail } from '../../utils/thumbnails';
 
 function getReadingTime(body: string): number {
 	const words = body.trim().split(/\s+/).length;
@@ -28,8 +31,6 @@ const postsData = posts.map((p) => ({
 	description: p.data.description,
 	slug: p.data.slug,
 	date: p.data.date.toISOString(),
-	heroImage: p.data.heroImage || '',
-	heroAlt: p.data.heroAlt || '',
 	categories: p.data.categories || [],
 	readingTime: getReadingTime(p.body || ''),
 	visitors: (popularPosts.visitorsByPath as Record<string, number>)[p.href] || 0,
@@ -43,73 +44,105 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 	description="Posts about databases, developer tools, smart homes, and the things I build."
 	schemaType="CollectionPage"
 >
-	<div class="mx-auto max-w-5xl px-4 py-8">
-		<div class="mb-8">
-			<h1 class="text-3xl font-bold text-white md:text-4xl">Blog</h1>
-			<p class="mt-2 text-gray-400">{allPosts.length} posts</p>
-		</div>
+	<div class="relative px-4 pt-10 pb-10 sm:px-7">
+		<header class="relative mb-10">
+			<h1 class="relative inline-block font-display text-[clamp(72px,14vw,210px)] leading-[0.86] font-normal text-paper uppercase">
+				Blog
+				<Scribble
+					{...MARKS.underline}
+					color="#ff4fd8"
+					strokeWidth={10}
+					duration="8s"
+					delay="0.4s"
+					class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
+				/>
+			</h1>
+			<p class="mt-6 text-muted">{allPosts.length} posts</p>
+			<Scribble
+				{...MARKS.burst}
+				color={CHALK}
+				duration="9s"
+				delay="1.2s"
+				class="top-0 right-[6%] hidden h-[160px] w-[160px] md:block"
+			/>
+		</header>
 
-		<nav class="mb-10 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label="Blog categories">
-			<a href="/blog/" class="text-coral underline underline-offset-4" aria-current="page">
+		{featuredPost && (
+			<a
+				href={featuredPost.href}
+				class="group relative mb-14 grid items-center gap-x-10 gap-y-6 no-underline md:grid-cols-2"
+			>
+				<span class="relative block">
+					<Scribble
+						{...MARKS.box}
+						color={CHALK}
+						duration="10s"
+						delay="0.8s"
+						class="-inset-[6%] h-[112%] w-[112%]"
+					/>
+					<img
+						src={halftoneThumbnail(featuredPost.data.heroImage || DEFAULT_HERO_IMAGE)}
+						alt=""
+						width="1120"
+						height="630"
+						class="block aspect-video w-full rounded-xl object-cover"
+						loading="eager"
+					/>
+				</span>
+				<span class="block">
+					<span class="mb-3 block text-sm text-muted">
+						{featuredPost.data.date.toLocaleDateString('en-us', {
+							timeZone: 'UTC',
+							year: 'numeric',
+							month: 'short',
+							day: 'numeric',
+						})}
+						{featuredReadingTime > 0 && <> · {featuredReadingTime} min read</>}
+						{featuredPost.data.categories.length > 0 && (
+							<> · {featuredPost.data.categories.join(' · ')}</>
+						)}
+					</span>
+					<h2 class="mb-4 font-display text-[clamp(40px,5vw,76px)] leading-[0.95] font-normal text-paper uppercase group-hover:text-pink">
+						{featuredPost.data.title}
+					</h2>
+					{featuredPost.data.description && (
+						<span class="line-clamp-3 block max-w-[52ch] text-muted">
+							{featuredPost.data.description}
+						</span>
+					)}
+				</span>
+			</a>
+		)}
+
+		<nav class="mb-10 flex flex-wrap gap-x-5 gap-y-2 text-[15px]" aria-label="Blog categories">
+			<a href="/blog/" class="text-pink underline underline-offset-4" aria-current="page">
 				All
 			</a>
 			{categories.map(({ name, slug, count }) => (
-				<a href={`/blog/category/${slug}/`} class="text-gray-300 no-underline hover:text-coral">
-					{name} <span class="text-gray-400">{count}</span>
+				<a href={`/blog/category/${slug}/`} class="text-paper no-underline hover:text-pink">
+					{name} <span class="text-muted">{count}</span>
 				</a>
 			))}
 		</nav>
 
-		{featuredPost && (
-			<a href={`/blog/${featuredPost.data.slug}/`} class="group mb-12 block no-underline">
-				<div class="gap-8 md:flex md:items-center">
-					<img
-						src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
-						alt={featuredPost.data.heroAlt || `Hero image for ${featuredPost.data.title}`}
-						class="mb-4 h-48 w-full rounded-lg object-cover md:mb-0 md:h-64 md:w-1/2"
-						loading="eager"
-					/>
-					<div class="md:w-1/2">
-						<h2 class="mb-2 text-3xl font-extrabold text-white transition-colors group-hover:text-coral">
-							{featuredPost.data.title}
-						</h2>
-						<p class="mb-3 text-sm text-gray-400">
-							{featuredPost.data.date.toLocaleDateString('en-us', {
-								timeZone: 'UTC',
-								year: 'numeric',
-								month: 'short',
-								day: 'numeric',
-							})}
-							{featuredReadingTime > 0 && <> · {featuredReadingTime} min read</>}
-							{featuredPost.data.categories.length > 0 && (
-								<> · {featuredPost.data.categories.join(' · ')}</>
-							)}
-						</p>
-						{featuredPost.data.description && (
-							<p class="line-clamp-3 text-gray-400">{featuredPost.data.description}</p>
-						)}
-					</div>
-				</div>
-			</a>
-		)}
-
 		<!-- Search and sort controls -->
-		<div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-			<div class="relative flex-1 max-w-md">
+		<div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+			<div class="relative max-w-md flex-1">
 				<label for="blog-search" class="sr-only">
 					Search posts
 				</label>
 				<input
-					type="text"
+					type="search"
 					id="blog-search"
-					placeholder="Search posts..."
-					class="w-full rounded-lg border border-surface-3 bg-surface-1 px-4 py-2 pl-10 text-sm text-white placeholder-gray-500 outline-hidden transition-colors focus:border-coral"
+					placeholder="Search posts"
+					class="w-full border-0 border-b-2 border-surface-4 bg-transparent px-0 py-2 pl-7 text-lg text-paper placeholder-muted outline-hidden transition-colors focus:border-pink"
 				/>
 				<svg
-					class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
+					class="absolute top-1/2 left-0 h-5 w-5 -translate-y-1/2 text-muted"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"
+					aria-hidden="true"
 				>
 					<path
 						stroke-linecap="round"
@@ -119,11 +152,11 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					></path>
 				</svg>
 			</div>
-			<div class="flex items-center gap-4 text-sm">
-				<span class="text-gray-400">Sort:</span>
+			<div class="flex items-center gap-4 text-[15px]">
+				<span class="text-muted">Sort:</span>
 				<button
 					id="sort-newest"
-					class="sort-btn cursor-pointer text-coral underline underline-offset-4"
+					class="sort-btn cursor-pointer text-pink underline underline-offset-4"
 					aria-pressed="true"
 					data-sort="newest"
 				>
@@ -131,7 +164,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 				</button>
 				<button
 					id="sort-oldest"
-					class="sort-btn cursor-pointer text-gray-300 hover:text-coral"
+					class="sort-btn cursor-pointer text-paper hover:text-pink"
 					aria-pressed="false"
 					data-sort="oldest"
 				>
@@ -139,7 +172,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 				</button>
 				<button
 					id="sort-popular"
-					class="sort-btn cursor-pointer text-gray-300 hover:text-coral"
+					class="sort-btn cursor-pointer text-paper hover:text-pink"
 					aria-pressed="false"
 					data-sort="popular"
 					title={`Most visitors over the last 12 months, as of ${popularPosts.updatedAt}`}
@@ -150,14 +183,16 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 		</div>
 
 		<!-- Post count display (updates with search) -->
-		<p id="results-count" class="mb-4 text-sm text-gray-400"></p>
+		<p id="results-count" class="mb-4 text-sm text-muted" aria-live="polite"></p>
 
 		<!-- No results message -->
-		<div id="no-results" class="hidden py-12 text-center">
-			<p class="text-gray-400">No posts found matching your search.</p>
+		<div id="no-results" class="hidden py-12">
+			<p class="font-display text-[clamp(32px,4vw,56px)] leading-none text-paper uppercase">
+				No posts found matching your search.
+			</p>
 		</div>
 
-		<div id="posts-grid" class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+		<ul id="posts-grid" class="flex flex-col">
 			{posts.map((post) => (
 				<BlogCard
 					title={post.data.title}
@@ -165,13 +200,12 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					date={post.data.date}
 					slug={post.data.slug}
 					heroImage={post.data.heroImage}
-					heroAlt={post.data.heroAlt}
 					categories={post.data.categories}
 					readingTime={getReadingTime(post.body || '')}
 					href={post.href}
 				/>
 			))}
-		</div>
+		</ul>
 
 		<!-- Infinite scroll sentinel -->
 		<div id="load-more-sentinel" class="mt-8 h-4"></div>
@@ -278,8 +312,8 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					sortBtns.forEach((b) => {
 						const isActive = b === btn;
 						b.className = isActive
-							? 'sort-btn cursor-pointer text-coral underline underline-offset-4'
-							: 'sort-btn cursor-pointer text-gray-300 hover:text-coral';
+							? 'sort-btn cursor-pointer text-pink underline underline-offset-4'
+							: 'sort-btn cursor-pointer text-paper hover:text-pink';
 						b.setAttribute('aria-pressed', String(isActive));
 					});
 					render();
