@@ -24,6 +24,8 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 			<div>
 				<a
 					href={film.url}
+					target="_blank"
+					rel="noopener noreferrer"
 					class="plausible-event-name=Now+Feed+Click plausible-event-source=letterboxd group block no-underline"
 				>
 					<img
@@ -72,6 +74,8 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 					{episode.url ? (
 						<a
 							href={episode.url}
+							target="_blank"
+							rel="noopener noreferrer"
 							class="plausible-event-name=Now+Feed+Click plausible-event-source=podcast flex items-center gap-3 no-underline"
 						>
 							{content}
@@ -86,7 +90,9 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 
 	<p class="mt-4 font-mono text-xs text-gray-400">
 		as of {formattedUpdatedAt}. Films via{' '}
-		<a href="https://letterboxd.com/joekarlsson/">Letterboxd</a>, podcasts from my self-hosted
-		Audiobookshelf.
+		<a href="https://letterboxd.com/joekarlsson/" target="_blank" rel="noopener noreferrer">
+			Letterboxd
+		</a>
+		, podcasts from my self-hosted Audiobookshelf.
 	</p>
 </div>
