@@ -6,13 +6,24 @@
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"language": "Astro",
-			"commitCount": 225,
+			"language": "TypeScript",
+			"commitCount": 239,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				103
+				118
 			],
-			"latestCommitMessage": "fix: Hovered cards draw the homepage's crayon box instead of an oval..."
+			"latestCommitMessage": "feat: Contact runs straight into the newsletter signup, the newsletter..."
+		},
+		{
+			"name": "dotfiles",
+			"description": "My dotfiles, managed with chezmoi",
+			"url": "https://github.com/JoeKarlsson/dotfiles",
+			"language": "Shell",
+			"commitCount": 87,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 2
+			],
+			"latestCommitMessage": "chore: Design notes record that homepage photos want captions and one..."
 		},
 		{
 			"name": "punc",
@@ -35,17 +46,6 @@
 				0, 0, 0, 0, 0, 23, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
 			],
 			"latestCommitMessage": "fix: ON AIR and messages pinned without minutes clear themselves after..."
-		},
-		{
-			"name": "dotfiles",
-			"description": "My dotfiles, managed with chezmoi",
-			"url": "https://github.com/JoeKarlsson/dotfiles",
-			"language": "Shell",
-			"commitCount": 86,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 1
-			],
-			"latestCommitMessage": "chore: Design check stops flagging ALL CAPS, which poster type uses on..."
 		}
 	],
 	"films": [
