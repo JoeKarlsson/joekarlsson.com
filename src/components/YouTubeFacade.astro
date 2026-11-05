@@ -9,9 +9,11 @@ interface Props {
 	title: string;
 	// Our own still instead of YouTube's thumbnail
 	poster?: string;
+	// A short muted loop played over the poster until the player loads
+	loop?: string;
 }
 
-const { id, title, poster } = Astro.props;
+const { id, title, poster, loop } = Astro.props;
 ---
 
 <button
@@ -21,16 +23,31 @@ const { id, title, poster } = Astro.props;
 	data-youtube-title={title}
 	aria-label={`Play ${title}`}
 >
-	<img
-		src={poster ?? `https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
-		alt=""
-		aria-hidden="true"
-		crossorigin={poster ? undefined : 'anonymous'}
-		loading="lazy"
-		decoding="async"
-		data-halftone={poster ? halftoneMode(poster) : 'flat'}
-		class="block size-full object-cover"
-	/>
+	{loop ? (
+		<video
+			src={loop}
+			poster={poster}
+			data-halftone="dots"
+			data-autoplay-in-view
+			muted
+			loop
+			playsinline
+			preload="none"
+			aria-hidden="true"
+			class="block size-full object-cover"
+		/>
+	) : (
+		<img
+			src={poster ?? `https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+			alt=""
+			aria-hidden="true"
+			crossorigin={poster ? undefined : 'anonymous'}
+			loading="lazy"
+			decoding="async"
+			data-halftone={poster ? halftoneMode(poster) : 'flat'}
+			class="block size-full object-cover"
+		/>
+	)}
 	<span
 		aria-hidden="true"
 		class="absolute top-1/2 left-1/2 z-10 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-pink text-ink group-hover:bg-paper"
