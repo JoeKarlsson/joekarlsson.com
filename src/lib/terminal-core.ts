@@ -198,10 +198,6 @@ export function cmdCatAbout(): string[] {
 		'  watch way too many movies, and build things that',
 		"  probably shouldn't be connected to the internet.",
 		'',
-		'  I once built an IoT cat toilet and gave a conference',
-		'  talk about it. Also a <span class="text-white">TEDx speaker</span>. I contain',
-		'  multitudes.',
-		'',
 	];
 }
 
