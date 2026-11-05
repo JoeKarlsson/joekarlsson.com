@@ -5,33 +5,15 @@ import nowFeed from '../data/now-feed.json';
 
 const { updatedAt, shippingWindowDays, shippedRepos, films, podcastEpisodes } = nowFeed;
 
-// Linguist's colors, as GitHub shows them; anything unlisted gets a neutral gray.
-const LANGUAGE_COLORS: Record<string, string> = {
-	Astro: '#ff5a03',
-	CSS: '#663399',
-	Go: '#00add8',
-	HTML: '#e34c26',
-	JavaScript: '#f1e05a',
-	Metal: '#8f14e9',
-	Python: '#3572a5',
-	Rust: '#dea584',
-	Shell: '#89e051',
-	Swift: '#f05138',
-	TypeScript: '#3178c6',
-};
-function languageColor(language: string) {
-	return LANGUAGE_COLORS[language] ?? '#9ca3af';
-}
-
 // 10px cells with a 2px gap
 const ACTIVITY_CELL_STEP = 12;
-// Solid steps from surface gray to coral. Empty days stay visible so the strip
+// Solid steps from dark gray to hot pink. Empty days stay visible so the strip
 // reads as 30 days, not a few dots.
 function activityColor(commitCount: number) {
-	if (commitCount === 0) return '#222222';
-	if (commitCount < 5) return '#6b4c3b';
-	if (commitCount < 20) return '#b47d5f';
-	return '#fdae84';
+	if (commitCount === 0) return '#262626';
+	if (commitCount < 5) return '#5c2350';
+	if (commitCount < 20) return '#a8388f';
+	return '#ff4fd8';
 }
 
 function ratingStars(rating: number) {
@@ -49,7 +31,7 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 <div class="mt-6">
 	{shippedRepos.length > 0 && (
 		<>
-			<h3 class="mb-3 text-base font-semibold text-white">Recently shipped</h3>
+			<h3 class="mb-4 font-display text-2xl font-normal text-paper uppercase">Recently shipped</h3>
 			<div class="mb-10 grid gap-x-8 gap-y-8 sm:grid-cols-2">
 				{shippedRepos.map((repo) => (
 					<a
@@ -59,18 +41,18 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						class="plausible-event-name=Now+Feed+Click plausible-event-source=github group flex flex-col no-underline"
 					>
 						<div class="flex items-center justify-between gap-2">
-							<p class="text-sm font-semibold text-white group-hover:text-coral">{repo.name}</p>
+							<p class="text-sm font-semibold text-paper group-hover:text-pink">{repo.name}</p>
 							{repo.language && (
-								<p class="flex items-center gap-1 text-sm text-gray-400">
+								<p class="flex items-center gap-1 text-sm text-muted">
 									<svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true">
-										<circle cx="4" cy="4" r="4" fill={languageColor(repo.language)} />
+										<circle cx="4" cy="4" r="4" fill="#ff4fd8" />
 									</svg>
 									{repo.language}
 								</p>
 							)}
 						</div>
-						{repo.description && <p class="mt-1 text-sm text-gray-400">{repo.description}</p>}
-						<p class="mt-1 text-sm text-gray-400">Latest commit: {repo.latestCommitMessage}</p>
+						{repo.description && <p class="mt-1 text-sm text-muted">{repo.description}</p>}
+						<p class="mt-1 text-sm text-muted">Latest commit: {repo.latestCommitMessage}</p>
 						{/* Pinned to the bottom so the strips line up across a row */}
 						<div class="mt-auto pt-3">
 							<svg
@@ -89,7 +71,7 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 									/>
 								))}
 							</svg>
-							<p class="mt-2 text-sm text-gray-400">
+							<p class="mt-2 text-sm text-muted">
 								{repo.commitCount} commits in the last {shippingWindowDays} days
 							</p>
 						</div>
@@ -99,7 +81,7 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 		</>
 	)}
 
-	<h3 class="mb-3 text-base font-semibold text-white">Recently watched</h3>
+	<h3 class="mb-4 font-display text-2xl font-normal text-paper uppercase">Recently watched</h3>
 	<div class="grid gap-6 grid-cols-2 sm:grid-cols-4">
 		{films.map((film) => (
 			<div>
@@ -107,7 +89,7 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 					href={film.url}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="plausible-event-name=Now+Feed+Click plausible-event-source=letterboxd group block no-underline"
+					class="plausible-event-name=Now+Feed+Click plausible-event-source=letterboxd group relative block no-underline"
 				>
 					<img
 						src={film.poster}
@@ -115,23 +97,26 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						width="200"
 						height="300"
 						loading="lazy"
-						class="mb-2 w-full rounded-lg"
+						data-halftone="flat"
+						class="mb-2 block w-full rounded-lg"
 					/>
-					<p class="text-sm font-semibold text-white group-hover:text-coral">
-						{film.title} <span class="text-gray-400">{film.year}</span>
+					<p class="text-sm font-semibold text-paper group-hover:text-pink">
+						{film.title} <span class="text-muted">{film.year}</span>
 					</p>
 				</a>
 				{film.rating !== null && (
-					<p class="text-sm text-coral" aria-label={`Rated ${film.rating} out of 5`}>
+					<p class="text-sm text-pink" aria-label={`Rated ${film.rating} out of 5`}>
 						{ratingStars(film.rating)}
 					</p>
 				)}
-				{film.reviewExcerpt && <p class="mt-1 text-sm text-gray-400">{film.reviewExcerpt}</p>}
+				{film.reviewExcerpt && <p class="mt-1 text-sm text-muted">{film.reviewExcerpt}</p>}
 			</div>
 		))}
 	</div>
 
-	<h3 class="mb-3 mt-10 text-base font-semibold text-white">Recently listened</h3>
+	<h3 class="mb-4 mt-10 font-display text-2xl font-normal text-paper uppercase">
+		Recently listened
+	</h3>
 	<div class="grid gap-6 sm:grid-cols-2">
 		{podcastEpisodes.map((episode) => {
 			const content = (
@@ -142,11 +127,12 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						width="48"
 						height="48"
 						loading="lazy"
+						data-halftone="flat"
 						class="h-12 w-12 shrink-0 rounded-lg object-cover"
 					/>
 					<div>
-						<p class="text-sm font-semibold text-white">{episode.episodeTitle}</p>
-						<p class="text-sm text-gray-400">{episode.podcastTitle}</p>
+						<p class="text-sm font-semibold text-paper">{episode.episodeTitle}</p>
+						<p class="text-sm text-muted">{episode.podcastTitle}</p>
 					</div>
 				</>
 			);
@@ -157,19 +143,19 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 							href={episode.url}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="plausible-event-name=Now+Feed+Click plausible-event-source=podcast flex items-center gap-3 no-underline"
+							class="plausible-event-name=Now+Feed+Click plausible-event-source=podcast relative flex items-center gap-3 no-underline"
 						>
 							{content}
 						</a>
 					) : (
-						<div class="flex items-center gap-3">{content}</div>
+						<div class="relative flex items-center gap-3">{content}</div>
 					)}
 				</div>
 			);
 		})}
 	</div>
 
-	<p class="mt-6 text-sm text-gray-400">
+	<p class="mt-6 text-sm text-muted">
 		As of {formattedUpdatedAt}. Commits via{' '}
 		<a href="https://github.com/JoeKarlsson" target="_blank" rel="noopener noreferrer">
 			GitHub
