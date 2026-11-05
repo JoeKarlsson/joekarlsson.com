@@ -71,7 +71,8 @@ const COLLAGE = [
 	schemaType="WebSite"
 >
 	<div slot="hero" class="grid gap-4 p-4 md:grid-cols-2">
-		<div class="relative aspect-square overflow-hidden rounded-xl">
+		<!-- At least square; grows with a taller text panel so the video never stops short -->
+		<div class="relative overflow-hidden rounded-xl before:block before:aspect-square before:content-['']">
 			<video
 				class="absolute inset-0 size-full object-cover"
 				src="/images/home/montage.mp4"
