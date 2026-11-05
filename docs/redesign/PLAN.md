@@ -28,7 +28,7 @@ The new look: a dark, art house, slightly weird personal site. It is hot pink on
 
 - **Headlines:** Anton in all caps. This is the poster concept, so all caps is intended.
 - **Reading text:** Fraunces for post bodies and long text.
-- **Interface:** Inter for nav, dates, buttons and forms.
+- **Interface:** Hanken Grotesk for nav, dates, buttons and forms.
 
 ### Photos and video
 
@@ -130,7 +130,7 @@ The new look: a dark, art house, slightly weird personal site. It is hot pink on
 ### Phase 0: Foundation
 
 1. **Design tokens in `tailwind.config.mjs`:** `ink`, `paper`, `pink`, `muted`. Remove `coral` once nothing uses it.
-2. **Fonts:** Anton, Fraunces and Inter, loaded via Google Fonts (CSP already allows them). Swap `fontFamily.sans` and add `display` and `serif`.
+2. **Fonts:** Anton, Fraunces and Hanken Grotesk, loaded via Google Fonts (CSP already allows them). Swap `fontFamily.sans` and add `display` and `serif`.
 3. **Media scripts:** move `halftone.py`, `vid2.sh` and `boil.sh` into `scripts/media/` and add npm scripts for them (`media:dither`, `media:loop`). Add a small test that runs the ditherer on a fixture image and checks the output size and colors.
 4. **Motion helpers:** a shared stylesheet with the redraw scribble animation, slot machine, stacked echo and tickers, plus the pause-motion script. Reduced motion is respected everywhere.
 
@@ -182,7 +182,7 @@ Done when: total homepage media is under the budget, and Lighthouse performance 
 
 1. Reskin `BlogPost.astro`:
    - Fraunces body at reading size with roughly 66-character lines.
-   - Inter for metadata.
+   - Hanken Grotesk for metadata.
    - Anton headings.
    - The dithered hero image.
    - Pink links and blockquotes.
@@ -206,9 +206,10 @@ Done when: every page uses the new system, and the old styles and dead component
    - Live homelab data in the tickers (Letterboxd, Home Assistant).
    - A 404 page that's a blank drawing board.
 
-## Open decisions
+## Decisions log
 
-Decided 2026-11-05: drop the ASCII cursor cat, the Konami dashboard, the Cmd+K command palette and the /uses apt view.
+- 2026-11-05: drop the ASCII cursor cat, the Konami dashboard, the Cmd+K command palette and the /uses apt view.
+- 2026-11-05: drop the lens animation (type lab #10). Joe's own Jitter or Rive wordmarks may replace the two phrase animations later.
+- 2026-11-05: interface font is Hanken Grotesk (replacing Inter), with Fraunces for reading and Anton for headlines.
 
-1. **Lens animation (type lab #10).** It's unused right now. Use it somewhere, or wait for the Jitter version?
-2. **Inter replacement.** Fraunces + Inter is the current pick. `font-lab-3.html` lists Inter alternatives if Joe wants one.
+No open decisions.
