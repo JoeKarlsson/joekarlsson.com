@@ -7,7 +7,7 @@
 // Two looks, picked at build time by halftoneMode() (src/utils/halftone.ts):
 // - data-halftone="dots": dots on a 45-degree grid sized by brightness, over a
 //   soft pink duotone. For photos.
-// - data-halftone="flat": the pink-and-black duotone alone, for anything with
+// - data-halftone="flat": just black and pink, no dots, for anything with
 //   text in it (src/data/images-with-text.json), which dots make unreadable.
 // Both lift dark footage and invert mostly white images (diagrams), so the
 // ground stays black.
@@ -43,26 +43,35 @@ uniform vec3 ink;
 const float CONTRAST = 1.15;
 const float DOTS_OVER_DUOTONE = 0.5;
 const float GAMMA = 0.7;
+// Flat mode: at or below FLAT_BLACK is black, at or above FLAT_PINK is full pink
+const float FLAT_BLACK = 0.25;
+const float FLAT_PINK = 0.55;
 const mat2 ROTATE = mat2(0.70710678, 0.70710678, -0.70710678, 0.70710678);
 
 // Grid space back to pixels. GLSL ES 1.0 has no transpose(), and a rotation's
 // inverse is its transpose
 vec2 unrotate(vec2 p) { return vec2(dot(p, ROTATE[0]), dot(p, ROTATE[1])); }
 
-float brightness(vec2 pixel) {
+// Source brightness, flipped for a light image
+float luma(vec2 pixel) {
 	vec2 uv = (pixel / canvasSize - 0.5) * coverScale + 0.5;
-	float luma = dot(texture2D(source, clamp(uv, 0.0, 1.0)).rgb, vec3(0.299, 0.587, 0.114));
-	luma = pow(mix(luma, 1.0 - luma, invert), GAMMA);
-	return clamp((luma - 0.5) * CONTRAST + 0.5, 0.0, 1.0);
+	float value = dot(texture2D(source, clamp(uv, 0.0, 1.0)).rgb, vec3(0.299, 0.587, 0.114));
+	return mix(value, 1.0 - value, invert);
+}
+
+float brightness(vec2 pixel) {
+	return clamp((pow(luma(pixel), GAMMA) - 0.5) * CONTRAST + 0.5, 0.0, 1.0);
 }
 
 void main() {
 	vec2 pixel = vec2(gl_FragCoord.x, canvasSize.y - gl_FragCoord.y);
-	vec3 tone = ink * brightness(pixel);
 	if (noDots > 0.5) {
-		gl_FragColor = vec4(tone, 1.0);
+		// Two tones: dark UI and backgrounds go black, text and anything lit goes
+		// pink, with a narrow ramp between so letter edges stay smooth
+		gl_FragColor = vec4(ink * smoothstep(FLAT_BLACK, FLAT_PINK, luma(pixel)), 1.0);
 		return;
 	}
+	vec3 tone = ink * brightness(pixel);
 	vec2 grid = ROTATE * pixel / cell;
 	// Bright dots outgrow their cell, so check the neighbors too
 	float dots = 0.0;
@@ -212,17 +221,22 @@ function attach(element: Source, draw: Draw): void {
 		else if (stillReady) draw(still, canvas, look);
 	};
 
-	if (still.src) {
-		still
-			.decode()
-			.then(() => {
-				look.invert = meanBrightness(still) > LIGHT_IMAGE_MEAN;
-				stillReady = true;
-				redraw();
-			})
-			.catch(() => {
+	// Not img.decode(): a lazy image starting to load cancels a pending decode
+	const onStill = () => {
+		look.invert = meanBrightness(still) > LIGHT_IMAGE_MEAN;
+		stillReady = true;
+		redraw();
+	};
+	if (still.complete && still.naturalWidth) onStill();
+	else if (still.src) {
+		still.addEventListener('load', onStill, { once: true });
+		still.addEventListener(
+			'error',
+			() => {
 				throw new Error(`Halftone: ${still.currentSrc || still.src} failed to load`);
-			});
+			},
+			{ once: true },
+		);
 	}
 	// Redraw when the element is resized or shown (a filtered list unhides rows)
 	new ResizeObserver(redraw).observe(element);
