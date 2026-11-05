@@ -3,7 +3,8 @@
 // on the left, small metadata on the right, and a crayon ring drawn around the
 // name on hover or focus. `external` opens the link in a new tab; `class` adds
 // classes to the link (e.g. Plausible event names).
-import HoverRing from './HoverRing.astro';
+import { CHALK, RINGS } from '../data/scribbles';
+import Scribble from './Scribble.astro';
 
 interface Props {
 	href: string;
@@ -29,7 +30,14 @@ const { href, label, meta, index, external = false, class: className } = Astro.p
 >
 	<span class="relative inline-block font-display text-[clamp(46px,7.4vw,108px)] leading-[0.98] uppercase">
 		{label}
-		<HoverRing index={index} class="-top-[22%] -left-[35px] h-[150%] w-[calc(100%+70px)]" />
+		<Scribble
+			path={RINGS[index % RINGS.length]}
+			color={index % 2 ? CHALK : '#ff4fd8'}
+			viewBox="0 0 520 150"
+			strokeWidth={7}
+			ring
+			class="-top-[22%] -left-[35px] h-[150%] w-[calc(100%+70px)]"
+		/>
 	</span>
 	<span class="text-sm whitespace-nowrap text-muted">{meta}</span>
 </a>

@@ -1,7 +1,7 @@
 ---
 import type { Project } from '../data/projects';
 import { cardClip } from '../utils/halftone';
-import HoverRing from './HoverRing.astro';
+import HoverBox from './HoverBox.astro';
 
 interface Props {
 	project: Project;
@@ -58,8 +58,7 @@ const metaLine = [
 					decoding="async"
 				/>
 			)}
-			<!-- Projects have no list position, so the title length varies the ring -->
-			<HoverRing index={project.title.length} />
+			<HoverBox />
 		</span>
 		<h3 class="mt-4 font-display text-[clamp(28px,2.4vw,36px)] leading-none font-normal text-paper uppercase group-hover:text-pink">
 			{project.title}

@@ -1,7 +1,7 @@
 ---
 import { MORE_LINK, SECTION_HEADING, formatDate } from '../utils/ui';
 import DrawingBoard from '../components/DrawingBoard.astro';
-import HoverRing from '../components/HoverRing.astro';
+import HoverBox from '../components/HoverBox.astro';
 import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
 import WrittenFor from '../components/WrittenFor.astro';
@@ -225,7 +225,8 @@ const COLLAGE = [
 							decoding="async"
 							class="block aspect-video w-full rounded-lg object-cover"
 						/>
-						<HoverRing index={i} />
+						{/* The newest post's box is always drawn; the rest draw it on hover */}
+						{i > 0 && <HoverBox />}
 					</a>
 					<div>
 						<span class="mb-1.5 block text-sm text-muted">

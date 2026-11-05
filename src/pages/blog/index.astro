@@ -1,6 +1,6 @@
 ---
 import KeepExploring from '../../components/KeepExploring.astro';
-import HoverRing from '../../components/HoverRing.astro';
+import HoverBox from '../../components/HoverBox.astro';
 import Scribble from '../../components/Scribble.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
@@ -85,7 +85,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 						delay="1s"
 						class="-bottom-[7%] -left-[6%] z-10 h-[12%] w-[70%]"
 					/>
-					<HoverRing index={1} featured />
+					<HoverBox featured />
 				</a>
 			)}
 			<p class={HERO_LEAD}>

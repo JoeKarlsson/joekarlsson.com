@@ -6,7 +6,7 @@
 import { DEFAULT_HERO_IMAGE } from '../consts';
 import { formatDate } from '../utils/ui';
 import { CHALK, MARKS } from '../data/scribbles';
-import HoverRing from './HoverRing.astro';
+import HoverBox from './HoverBox.astro';
 import Scribble from './Scribble.astro';
 import WrittenFor from './WrittenFor.astro';
 
@@ -80,8 +80,7 @@ const formattedDate = formatDate(date);
 				class="-top-[20%] -right-[8%] z-10 size-[40%]"
 			/>
 		)}
-		<!-- Rows without a markIndex vary their ring by title length -->
-		<HoverRing index={markIndex ?? title.length} />
+		<HoverBox />
 	</a>
 	<div>
 		<span class="mb-1.5 block text-sm text-muted">

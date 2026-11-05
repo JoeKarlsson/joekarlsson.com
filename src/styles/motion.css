@@ -52,9 +52,9 @@
 	}
 }
 
-/* Hover ring: a scribble circled around a .ring-host (an index row or a card's
-   picture, src/components/HoverRing.astro) while it's hovered or a link in it
-   has keyboard focus. A transition the visitor causes, so it stays on under
+/* Hover marks: a crayon ring around an index row's name, or a crayon box around
+   a card's picture (src/components/HoverBox.astro), drawn while its .ring-host
+   is hovered or a link in it has keyboard focus. A transition the visitor causes, so it stays on under
    reduced motion. */
 .hover-ring {
 	/* Round caps leave a dot at rest, so the ring only shows while drawn */
@@ -216,12 +216,13 @@
 	}
 }
 
-/* Every self-drawing scribble boils: three wobble frames (#boil-N in BaseLayout),
+/* Every self-drawing scribble and hover mark boils: three wobble frames (#boil-N in BaseLayout),
    held a beat each, so the marks feel hand-animated even while they hold. Off
    under reduced motion; the pause button freezes it on one frame. */
 @media (prefers-reduced-motion: no-preference) {
 	.redraw,
-	.redraw-strokes {
+	.redraw-strokes,
+	.hover-ring {
 		animation: boil 0.5s steps(1, end) infinite;
 	}
 }

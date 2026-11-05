@@ -15,7 +15,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PosterHero from '../components/PosterHero.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import NowFeed from '../components/NowFeed.astro';
-import HoverRing from '../components/HoverRing.astro';
+import HoverBox from '../components/HoverBox.astro';
 import Scribble from '../components/Scribble.astro';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -587,7 +587,7 @@ const cropArtPieces = [
 											class="mb-2 block aspect-video w-full rounded-md object-cover"
 											loading="lazy"
 										/>
-										<HoverRing index={talk.title.length} />
+										<HoverBox />
 									</span>
 									<span class="font-semibold text-paper group-hover:text-pink">{talk.title}</span>
 								</a>
@@ -658,7 +658,7 @@ const cropArtPieces = [
 								height="112"
 								loading="lazy"
 							/>
-							<HoverRing index={1} />
+							<HoverBox />
 						</span>
 						<Scribble
 							{...MARKS.check}
@@ -684,7 +684,7 @@ const cropArtPieces = [
 								height="112"
 								loading="lazy"
 							/>
-							<HoverRing index={2} />
+							<HoverBox />
 						</span>
 						<Scribble
 							{...MARKS.tally}
@@ -713,7 +713,7 @@ const cropArtPieces = [
 								height="112"
 								loading="lazy"
 							/>
-							<HoverRing index={3} />
+							<HoverBox />
 						</span>
 						<Scribble
 							{...MARKS.burst}
@@ -746,7 +746,7 @@ const cropArtPieces = [
 								height="112"
 								loading="lazy"
 							/>
-							<HoverRing index={4} />
+							<HoverBox />
 						</span>
 						<Scribble
 							{...MARKS.asterisk}
@@ -812,7 +812,7 @@ const cropArtPieces = [
 											height="375"
 											loading="lazy"
 										/>
-										<HoverRing index={piece.title.length} />
+										<HoverBox />
 									</span>
 									<span class="block font-semibold text-paper group-hover:text-pink">
 										{piece.title}

@@ -6,7 +6,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import BlogCard from '../../components/BlogCard.astro';
-import HoverRing from '../../components/HoverRing.astro';
+import HoverBox from '../../components/HoverBox.astro';
 import Scribble from '../../components/Scribble.astro';
 import PosterHero from '../../components/PosterHero.astro';
 import { CHALK, MARKS } from '../../data/scribbles';
@@ -87,7 +87,7 @@ for (const issue of backIssues) {
 						delay="1.6s"
 						class="-top-[7%] -left-[7%] z-10 size-[22%]"
 					/>
-					<HoverRing index={1} featured />
+					<HoverBox featured />
 				</a>
 			)}
 			<p class="font-display text-[clamp(36px,3.6vw,56px)] leading-none text-paper uppercase">
