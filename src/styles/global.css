@@ -33,8 +33,14 @@
 		overflow-x: clip;
 	}
 
+	/* Anton has one weight: without this, the base h1-h6 font-semibold smears a fake
+	   bold onto any Anton heading that doesn't reset its weight */
+	html {
+		font-synthesis-weight: none;
+	}
+
 	body {
-		@apply bg-surface-0 text-paper font-sans antialiased;
+		@apply bg-ink text-paper font-sans antialiased;
 	}
 
 	h1,
@@ -78,7 +84,7 @@
 		@apply w-2;
 	}
 	::-webkit-scrollbar-track {
-		@apply bg-surface-0;
+		@apply bg-ink;
 	}
 	::-webkit-scrollbar-thumb {
 		@apply bg-surface-4 rounded-full;
@@ -194,6 +200,10 @@
 	@apply bg-transparent p-0 text-paper text-sm;
 	font-size: 0.875rem;
 	line-height: 1.7;
+}
+/* Shiki's github-dark paints its own blue-gray (#24292e) inline; code sits on the site's gray */
+pre.astro-code {
+	background-color: var(--color-surface-2) !important;
 }
 /* Override Shiki comment color for WCAG AA contrast on surface-2 background */
 .prose pre code span[style*='color:#6A737D'] {

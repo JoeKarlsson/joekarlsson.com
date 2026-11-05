@@ -31,9 +31,11 @@ export const NEWSLETTER = {
 	listUuid: '3345d879-e533-438c-8d78-58c274001fd0',
 };
 
-export const NAV_LINKS = [
+// `also`: pages with no nav item of their own, which count as this one's (its link
+// shows as current there, and they link back to it)
+export const NAV_LINKS: { href: string; label: string; also?: string[] }[] = [
 	{ href: '/blog/', label: 'Blog' },
-	{ href: '/about/', label: 'About' },
+	{ href: '/about/', label: 'About', also: ['/resume/', '/talk-archive/'] },
 	{ href: '/work/', label: 'Projects' },
 	{ href: '/newsletter/', label: 'Newsletter' },
 	{ href: '/uses/', label: 'Uses' },

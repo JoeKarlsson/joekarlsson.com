@@ -1,11 +1,18 @@
 ---
+import KeepExploring from '../components/KeepExploring.astro';
 import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SOCIAL_LINKS } from '../consts';
 import { CHALK, MARKS } from '../data/scribbles';
 import PosterHero from '../components/PosterHero.astro';
-import { PRIMARY_BUTTON, SECONDARY_BUTTON, SECTION_HEADING } from '../utils/ui';
+import {
+	HERO_LEAD,
+	PAGE_CONTAINER,
+	PRIMARY_BUTTON,
+	SECONDARY_BUTTON,
+	SECTION_HEADING,
+} from '../utils/ui';
 
 // Each link reports its platform to Plausible as a "Contact Social Click" event
 const track = (platform: string) =>
@@ -45,7 +52,7 @@ const SECTIONS = [
 	description="Connect with Joe Karlsson - find me on Bluesky, LinkedIn, GitHub, YouTube, and more. Book me for speaking engagements or just say hi."
 	schemaType="ContactPage"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+	<div class={PAGE_CONTAINER}>
 		<!-- The halftone clip of Joe waving hello (the About page's clip) beside every
 		platform in the ticker and the best two ways to reach me. Pink dots are drawn live
 		(src/scripts/halftone.ts); in-view-play stops it with pause-motion and reduced motion. -->
@@ -84,7 +91,7 @@ const SECTIONS = [
 					class="-bottom-[7%] -left-[4%] z-10 h-[14%] w-[70%]"
 				/>
 			</div>
-			<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
+			<p class={HERO_LEAD}>
 				Want to talk homelabs, databases, or weird IoT projects, or book me for a speaking gig? Pick
 				a platform below.
 			</p>
@@ -132,5 +139,6 @@ const SECTIONS = [
 				))}
 			</section>
 		))}
+		<KeepExploring />
 	</div>
 </BaseLayout>

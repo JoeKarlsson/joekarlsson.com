@@ -19,6 +19,9 @@ export interface ProjectPage {
 	// (src/scripts/scale-to-fit-embed.ts). Its origin must be in the CSP frame-src
 	// (Caddyfile and the OpenTofu provision template)
 	embedUrl?: string;
+	// For a build that lays itself out at any width, the iframe's CSS height instead of
+	// the 1280x720 scaling; `cqw` is a percent of the column's width
+	embedHeight?: string;
 	// Defaults to "Play it" and "Click the game to play."
 	embedHeading?: string;
 	embedNote?: string;
@@ -431,7 +434,10 @@ export const projects: Project[] = [
 				"You can play it yourself, or let Claude play while a side panel shows every decision and tool call it makes. Shoot a record and the game re-reads it live from the source app. Everything goes through Connect AI's read-only tools, so nothing in your apps changes. The full version runs on a Mac, and setup takes about ten minutes.",
 				"Or play it right here: the web version below is a level Claude built from a demo company's Salesforce, Zendesk and Stripe. No install or account needed. It needs a keyboard and mouse.",
 			],
-			embedUrl: 'https://cdatasoftware.github.io/connect-ai-doom/',
+			// The game alone, built for blog posts: it fits the width and doesn't take focus
+			embedUrl: 'https://cdatasoftware.github.io/connect-ai-doom/embed.html',
+			// Its 4:3 game plus the logo strip above (52px) and the question below (84px)
+			embedHeight: 'calc(75cqw + 136px)',
 			steps: [
 				{
 					title: 'Query',

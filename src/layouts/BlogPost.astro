@@ -11,7 +11,14 @@ import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
-import { formatDate } from '../utils/ui';
+import {
+	ARTICLE_TITLE,
+	META,
+	PAGE_CONTAINER,
+	SECTION_HEADING,
+	SIDEBAR_GRID,
+	formatDate,
+} from '../utils/ui';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -185,8 +192,8 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 		aria-hidden="true"
 	></div>
 
-	<div class="mx-auto max-w-3xl px-4 py-8 xl:max-w-5xl">
-		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
+	<div class={PAGE_CONTAINER}>
+		<div class={SIDEBAR_GRID}>
 			{/* TOC sidebar */}
 			{showToc ? <TableOfContents headings={tocHeadings} /> : <div class="hidden xl:block" />}
 
@@ -236,10 +243,8 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 					)
 				)}
 				<div class="mb-8">
-					<h1 class="mb-4 font-display text-[clamp(2.4rem,1.6rem+3.2vw,4.25rem)] leading-[0.95] font-normal text-paper uppercase">
-						{title}
-					</h1>
-					<p class="text-[15px] text-muted">
+					<h1 class={ARTICLE_TITLE}>{title}</h1>
+					<p class={META}>
 						<FormattedDate date={date} />
 						{updatedDate && (
 							<>
@@ -391,9 +396,7 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 
 				{relatedPosts.length > 0 && (
 					<section class="mt-12">
-						<h2 class="mb-5 font-display text-[clamp(2rem,1.5rem+2vw,3rem)] leading-none font-normal text-pink uppercase">
-							Related posts
-						</h2>
+						<h2 class={SECTION_HEADING}>Related posts</h2>
 						<ul class="space-y-3">
 							{relatedPosts.map((post) => (
 								<li>
@@ -412,9 +415,7 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 
 				{(prevPost || nextPost) && (
 					<nav class="mt-12" aria-label="Category navigation">
-						<h2 class="mb-5 font-display text-[clamp(2rem,1.5rem+2vw,3rem)] leading-none font-normal text-pink uppercase">
-							More in {primaryCategory}
-						</h2>
+						<h2 class={SECTION_HEADING}>More in {primaryCategory}</h2>
 						<ul class="space-y-3">
 							{prevPost && (
 								<li>

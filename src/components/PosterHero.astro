@@ -20,7 +20,8 @@ const { title, wordRatio, tickerItems } = Astro.props;
 
 <header class="relative mb-14 grid gap-4 md:grid-cols-2">
 	<slot name="media" />
-	<div class="relative grid min-w-0 grid-rows-[auto_1fr] gap-4">
+	<!-- First on phones, so the page's name shows before its picture -->
+	<div class="relative grid min-w-0 grid-rows-[auto_1fr] gap-4 max-md:order-first">
 		<Scribble
 			{...MARKS.tally}
 			color={CHALK}

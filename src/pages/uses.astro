@@ -1,14 +1,19 @@
 ---
-import { SECTION_HEADING } from '../utils/ui';
+import KeepExploring from '../components/KeepExploring.astro';
+import {
+	GROUP_HEADING,
+	HERO_LEAD,
+	PAGE_CONTAINER,
+	SECTION_HEADING,
+	SIDEBAR_GRID,
+	TEXT_LINK,
+} from '../utils/ui';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import nowFeed from '../data/now-feed.json';
 import Scribble from '../components/Scribble.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import PosterHero from '../components/PosterHero.astro';
-
-const SUBHEADING =
-	'mb-4 font-display text-[clamp(24px,2vw,30px)] leading-none font-normal text-paper uppercase';
 
 const usesHeadings = [
 	{ slug: 'hardware', text: 'Hardware' },
@@ -26,7 +31,7 @@ const usesHeadings = [
 	imageAlt="Joe Karlsson's standing desk with two monitors, a laptop on a stand, a mic on a boom arm, a key light above the monitors, and warm LED backlighting"
 	schemaType="WebPage"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+	<div class={PAGE_CONTAINER}>
 		<!-- Built like the homepage, About and blog heroes: the desk in pink dots beside a
 		pink ticker of the sections and a dark panel whose USES fills it -->
 		<PosterHero title="Uses" wordRatio={1.86} tickerItems={usesHeadings.map(({ text }) => text)}>
@@ -56,7 +61,7 @@ const usesHeadings = [
 					class="-bottom-[9%] -left-[4%] z-10 h-[14%] w-[70%]"
 				/>
 			</div>
-			<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
+			<p class={HERO_LEAD}>
 				Hardware, software, and gear I use daily for development, content creation, and running my
 				homelab.
 			</p>
@@ -66,7 +71,7 @@ const usesHeadings = [
 		</PosterHero>
 
 		<!-- Grid: TOC sidebar + sections -->
-		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
+		<div class={SIDEBAR_GRID}>
 			<TableOfContents headings={usesHeadings} />
 			<div>
 				<!-- ═══════════════════════════════════════════ -->
@@ -84,16 +89,16 @@ const usesHeadings = [
 						/>
 					</h2>
 
-					<h3 class={SUBHEADING}>Computer & monitors</h3>
+					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Computer & monitors</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.apple.com/macbook-pro/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										14" MacBook Pro M5 Max
 									</a>
@@ -103,13 +108,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.apple.com/macbook-pro/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										14" MacBook Pro M5 Pro
 									</a>
@@ -119,13 +124,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Monitors</strong> -{' '}
 								<a
 									href="https://www.amazon.com/Lenovo-ThinkVision-P27h-10-LED-Monitor/dp/B071DK1TW8"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									ThinkVision P27h-10
 								</a>{' '}
@@ -134,7 +139,7 @@ const usesHeadings = [
 									href="https://www.amazon.com/Dell-U2723QE-UltraSharp-USB-C-Monitor/dp/B09TQZP9CL"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Dell U3417W
 								</a>{' '}
@@ -142,13 +147,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.ergotron.com/en-us/products/product-details/45-245"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Ergotron LX Dual Monitor Arm
 									</a>
@@ -158,13 +163,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/Dell-452-BCYT-D6000-Universal-Black/dp/B071YTQBXM"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Dell Universal Dock D6000
 									</a>
@@ -175,16 +180,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Input & peripherals</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Input & peripherals</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.razer.com/pc/gaming-mice/deathadder-line"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Razer DeathAdder Chroma
 									</a>
@@ -193,13 +198,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.apple.com/shop/product/MK2C3LL/A/magic-trackpad"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Apple Magic Trackpad 2
 									</a>
@@ -208,13 +213,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.razer.com/gaming-mouse-mats/razer-goliathus-extended-chroma"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Razer Goliathus Extended Chroma
 									</a>
@@ -223,13 +228,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.elgato.com/en/gaming/stream-deck"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Elgato Stream Deck
 									</a>
@@ -240,7 +245,7 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Keyboards</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Keyboards</h3>
 					<img
 						src="/images/blog/how-i-work/5422ABA8-496F-41FD-83A0-E04FD7807046-1024x823.webp"
 						data-halftone="flat"
@@ -252,13 +257,13 @@ const usesHeadings = [
 					/>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/gp/product/B072LZ2YRM"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Vortexgear Race 3
 									</a>
@@ -267,13 +272,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://vortexgear.store/products/the-new-pok3r-rgb"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Custom Vortex POK3R
 									</a>
@@ -285,22 +290,22 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Desk & audio</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Desk & audio</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Standing Desk</strong> - custom-built IKEA desktop on
 								industrial black steel legs, with a Luna Standing Desk Stool.
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/Sony-MDR7506-Professional-Diaphragm-Headphone/dp/B000AJIF4E"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Sony MDR7506
 									</a>
@@ -310,13 +315,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.bestbuy.com/site/philips-hue-play-white-color-ambiance-smart-led-bar-light-2-pack-multicolor/6298635.p"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Philips Hue Play
 									</a>
@@ -325,13 +330,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/dp/B07YY7BH2W"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Aranet4
 									</a>
@@ -341,13 +346,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/dp/B0BJDY6D1W"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										WiiM Pro
 									</a>
@@ -357,13 +362,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.home-assistant.io/voice-pe/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Home Assistant Voice Preview Edition
 									</a>
@@ -372,7 +377,7 @@ const usesHeadings = [
 								not in Amazon's cloud. I wrote about{' '}
 								<a
 									href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									what it's like replacing Alexa
 								</a>{' '}
@@ -381,16 +386,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Camera, mic & lighting</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Camera, mic & lighting</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.obsbot.com/obsbot-tiny-2"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										OBSBOT Tiny 2
 									</a>
@@ -400,13 +405,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.elgato.com/us/en/p/wave-3-black"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Elgato Wave:3
 									</a>
@@ -416,7 +421,7 @@ const usesHeadings = [
 									href="https://www.elgato.com/us/en/s/wave-link"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Wave Link
 								</a>{' '}
@@ -425,13 +430,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/gp/product/B07L755X9G"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Elgato Key Lights
 									</a>{' '}
@@ -468,8 +473,8 @@ const usesHeadings = [
 						/>
 					</h2>
 
-					<h3 class={SUBHEADING}>Recording studio</h3>
-					<p class="mb-4 text-muted">
+					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Recording studio</h3>
+					<p class="mb-4 text-paper">
 						I built a mini recording studio in a corner of my office. It's a second, fully separate
 						setup from my main desk, so I can walk over, plug in one cable, and start recording
 						without tearing anything down.
@@ -496,13 +501,13 @@ const usesHeadings = [
 					</div>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/dp/B0CRZBWVRN"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Sony ZV-E10
 									</a>
@@ -513,7 +518,7 @@ const usesHeadings = [
 									href="https://www.amazon.com/dp/B07K3FN5MR"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Elgato Cam Link 4K
 								</a>{' '}
@@ -522,7 +527,7 @@ const usesHeadings = [
 									href="https://www.amazon.com/dp/B08BCRSV4H"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Kimaru dummy battery
 								</a>
@@ -530,13 +535,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/dp/B0CH3P9K1X"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Elgato Prompter
 									</a>
@@ -546,13 +551,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/dp/B097376LKF"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Elgato Wave Low Profile Mic Arm
 									</a>{' '}
@@ -563,7 +568,7 @@ const usesHeadings = [
 									href="https://www.amazon.com/dp/B088P2WK3B"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Elgato Wave Shock Mount
 								</a>
@@ -572,13 +577,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/dp/B0CJM6G7JR"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										NEEWER NS4S Softboxes
 									</a>{' '}
@@ -587,7 +592,7 @@ const usesHeadings = [
 										href="https://www.amazon.com/dp/B0FMKF8PXJ"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										SMALLRIG Light Stands
 									</a>
@@ -598,7 +603,7 @@ const usesHeadings = [
 									href="https://www.amazon.com/dp/B0FBGYRDLW"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									orange mushroom floor lamp
 								</a>{' '}
@@ -606,13 +611,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/dp/B0HCNVWH1D"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										FLEXISPOT E6 MAX
 									</a>{' '}
@@ -621,7 +626,7 @@ const usesHeadings = [
 										href="https://www.amazon.com/dp/B0FPXPQJBT"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										HON Ignition 2.0
 									</a>
@@ -631,7 +636,7 @@ const usesHeadings = [
 									href="https://www.amazon.com/dp/B08Y5R5K5J"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									WORKLION cutting mat
 								</a>{' '}
@@ -639,13 +644,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.amazon.com/dp/B0DSVVJXK5"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Anker Prime TB5 Dock
 									</a>
@@ -656,16 +661,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Recording software</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Recording software</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.techsmith.com/camtasia.html"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Camtasia
 									</a>
@@ -675,13 +680,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.screen.studio/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Screen Studio
 									</a>
@@ -691,13 +696,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://xnipapp.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Xnip
 									</a>
@@ -725,16 +730,16 @@ const usesHeadings = [
 						/>
 					</h2>
 
-					<h3 class={SUBHEADING}>Editors</h3>
+					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Editors</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://code.visualstudio.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Visual Studio Code
 									</a>
@@ -744,7 +749,7 @@ const usesHeadings = [
 									href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									vscode-icons
 								</a>
@@ -752,13 +757,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Key extensions</strong> -{' '}
 								<a
 									href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									GitLens
 								</a>
@@ -767,7 +772,7 @@ const usesHeadings = [
 									href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Prettier
 								</a>{' '}
@@ -776,7 +781,7 @@ const usesHeadings = [
 									href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									ESLint
 								</a>
@@ -785,16 +790,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>AI tools</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>AI tools</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://docs.anthropic.com/en/docs/claude-code"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Claude Code
 									</a>{' '}
@@ -806,7 +811,7 @@ const usesHeadings = [
 								containers. I wrote about{' '}
 								<a
 									href="/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									building a Claude Code blog skill
 								</a>{' '}
@@ -814,13 +819,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://claude.ai/download"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Claude
 									</a>{' '}
@@ -830,13 +835,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://superwhisper.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										superwhisper
 									</a>
@@ -846,16 +851,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Terminal</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Terminal</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://iterm2.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										iTerm2
 									</a>
@@ -865,7 +870,7 @@ const usesHeadings = [
 									href="https://ohmyz.sh/"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Oh My Zsh
 								</a>{' '}
@@ -874,7 +879,7 @@ const usesHeadings = [
 									href="https://github.com/romkatv/powerlevel10k"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Powerlevel10k
 								</a>{' '}
@@ -882,13 +887,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://github.com/JoeKarlsson/dotfiles"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Dotfiles
 									</a>
@@ -898,16 +903,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Productivity</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Productivity</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.raycast.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Raycast
 									</a>
@@ -918,13 +923,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://vorssaint.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Vorssaint
 									</a>
@@ -935,13 +940,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://apps.apple.com/us/app/magnet/id441258766?mt=12"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Magnet
 									</a>
@@ -951,13 +956,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.notion.so/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Notion
 									</a>
@@ -967,13 +972,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://github.com/languagetool-org/languagetool"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										LanguageTool
 									</a>{' '}
@@ -986,16 +991,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Communication & media</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Communication & media</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://rambox.pro/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Rambox
 									</a>
@@ -1004,13 +1009,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://github.com/gitroomhq/postiz-app"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Postiz
 									</a>
@@ -1019,13 +1024,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.plex.tv/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Plex
 									</a>
@@ -1036,7 +1041,7 @@ const usesHeadings = [
 										href="https://www.videolan.org/vlc/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										VLC
 									</a>
@@ -1046,16 +1051,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Security & utilities</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Security & utilities</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://1password.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										1Password
 									</a>
@@ -1065,7 +1070,7 @@ const usesHeadings = [
 									href="https://github.com/dani-garcia/vaultwarden"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Vaultwarden
 								</a>{' '}
@@ -1073,13 +1078,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://tailscale.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Tailscale
 									</a>
@@ -1088,13 +1093,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.privateinternetaccess.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Private Internet Access
 									</a>
@@ -1103,13 +1108,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.docker.com/products/docker-desktop/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Docker Desktop
 									</a>
@@ -1119,13 +1124,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://github.com/dwarvesf/hidden"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Hidden Bar
 									</a>
@@ -1151,37 +1156,28 @@ const usesHeadings = [
 							class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
 						/>
 					</h2>
-					<p class="mb-4 text-muted">
+					<p class="mb-4 text-paper">
 						I run a two-node{' '}
 						<a
 							href="https://www.proxmox.com/en/proxmox-virtual-environment"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+							class={TEXT_LINK}
 						>
 							Proxmox VE
 						</a>{' '}
 						cluster with about 70 self-hosted services. Nearly all of them are immutable LXC
 						containers defined in OpenTofu, so every change goes through <code>tofu apply</code>{' '}
 						instead of SSH. The full story is in{' '}
-						<a
-							href="/blog/homelab-two-years-later/"
-							class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
-						>
+						<a href="/blog/homelab-two-years-later/" class={TEXT_LINK}>
 							my homelab two years later
 						</a>{' '}
 						and{' '}
-						<a
-							href="/blog/opentofu-proxmox-immutable-homelab/"
-							class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
-						>
+						<a href="/blog/opentofu-proxmox-immutable-homelab/" class={TEXT_LINK}>
 							how I made it immutable with OpenTofu
 						</a>
 						. If you're just starting out, read my{' '}
-						<a
-							href="/blog/how-to-get-started-building-a-homelab-server-in-2024/"
-							class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
-						>
+						<a href="/blog/how-to-get-started-building-a-homelab-server-in-2024/" class={TEXT_LINK}>
 							guide to getting started with a homelab
 						</a>
 						.
@@ -1196,17 +1192,17 @@ const usesHeadings = [
 						loading="lazy"
 					/>
 
-					<h3 class={SUBHEADING}>Server hardware</h3>
+					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Server hardware</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									prxbox1 -{' '}
 									<a
 										href="https://www.dell.com/support/manuals/en-us/poweredge-r730/r730_ompublication/technical-specifications?guid=guid-c32a42e1-fbc4-4dfe-983d-df4d34ff1e17&lang=en-us"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Dell PowerEdge R730
 									</a>
@@ -1216,7 +1212,7 @@ const usesHeadings = [
 									href="https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									NVIDIA Quadro RTX 4000
 								</a>{' '}
@@ -1225,14 +1221,14 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									prxbox2 -{' '}
 									<a
 										href="https://www.dell.com/support/manuals/en-us/poweredge-r730/r730_ompublication/technical-specifications?guid=guid-c32a42e1-fbc4-4dfe-983d-df4d34ff1e17&lang=en-us"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Dell PowerEdge R730
 									</a>
@@ -1242,7 +1238,7 @@ const usesHeadings = [
 									href="https://www.nvidia.com/en-us/design-visualization/rtx-a4000/"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									NVIDIA RTX A4000
 								</a>{' '}
@@ -1250,13 +1246,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Networking between them</strong> -{' '}
 								<a
 									href="https://www.intel.com/content/www/us/en/products/sku/83964/intel-ethernet-converged-network-adapter-x710da2/specifications.html"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Intel X710
 								</a>{' '}
@@ -1265,13 +1261,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.cyberpowersystems.com/product/ups/pfc-sinewave/or1500pfcrt2u/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										2x CyberPower OR1500PFCRT2U
 									</a>
@@ -1282,24 +1278,21 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>GPU workloads</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>GPU workloads</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">RTX A4000 (16 GB)</strong> - Plex hardware transcoding,
 								Immich face and object detection, Tdarr, and local LLMs through Ollama and
 								llama.cpp. I wrote about{' '}
-								<a
-									href="/blog/proxmox-gpu-passthrough-multi-service/"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
-								>
+								<a href="/blog/proxmox-gpu-passthrough-multi-service/" class={TEXT_LINK}>
 									sharing one GPU across multiple services
 								</a>
 								.
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Quadro RTX 4000 (8 GB)</strong> - Frigate object
 								detection for the security cameras, a Tdarr node, and Wyoming Whisper for local
 								speech-to-text.
@@ -1307,16 +1300,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Storage & backup</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Storage & backup</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.synology.com/en-global/products/DS418play"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Synology DS418play
 									</a>
@@ -1325,13 +1318,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.proxmox.com/en/proxmox-backup-server"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Proxmox Backup Server
 									</a>
@@ -1341,7 +1334,7 @@ const usesHeadings = [
 									href="https://www.backblaze.com/cloud-storage"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Backblaze B2
 								</a>{' '}
@@ -1350,16 +1343,16 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Networking</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Networking</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://store.ui.com/us/en/products/ucg-ultra"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										UniFi Cloud Gateway Ultra
 									</a>
@@ -1369,13 +1362,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://mikrotik.com/product/crs317_1g_16s_rm"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										MikroTik CRS317
 									</a>
@@ -1384,14 +1377,14 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									2x{' '}
 									<a
 										href="https://ui.com/us/wifi/u7-pro"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										UniFi U7 Pro
 									</a>{' '}
@@ -1400,7 +1393,7 @@ const usesHeadings = [
 										href="https://store.ui.com/us/en/products/u7-pro-xg"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										U7 Pro XG
 									</a>
@@ -1409,13 +1402,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://adguard.com/en/adguard-home/overview.html"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										AdGuard Home
 									</a>
@@ -1425,13 +1418,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://nginxproxymanager.com/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Nginx Proxy Manager
 									</a>{' '}
@@ -1440,7 +1433,7 @@ const usesHeadings = [
 										href="https://www.crowdsec.net/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										CrowdSec
 									</a>
@@ -1450,47 +1443,47 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Services (about 70)</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Services (about 70)</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Media</strong> - Plex, Tautulli, the Arr stack (Sonarr,
 								Radarr, Lidarr, Prowlarr, Bazarr), Tdarr, Kometa, Audiobookshelf, and Lyrion Music
 								Server for the WiiM speakers.
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Photos & documents</strong> - Immich (replaced Google
 								Photos), Paperless-ngx + Paperless-AI, and Syncthing for file sync.
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Local AI</strong> - Ollama, llama.cpp, LiteLLM as a
 								single API gateway, and Wyoming Whisper for the voice assistant.
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Home</strong> - Home Assistant, Frigate NVR, and
 								Zigbee2MQTT - more on that below.
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Security & access</strong> - Authentik for SSO,
 								Vaultwarden, Tailscale, and Cloudflare DDNS.
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Monitoring</strong> - Grafana, Prometheus, Loki,
 								Alertmanager, Uptime Kuma, Healthchecks, and Scrutiny for disk health.
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Everything else</strong> - Plausible Analytics,
 								LanguageTool, Postiz, and the server that hosts this site.
 							</p>
@@ -1512,51 +1505,45 @@ const usesHeadings = [
 							class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 						/>
 					</h2>
-					<p class="mb-6 text-muted">
+					<p class="mb-6 text-paper">
 						My smart home runs on{' '}
 						<a
 							href="https://www.home-assistant.io/"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+							class={TEXT_LINK}
 						>
 							Home Assistant
 						</a>{' '}
 						with 128 automations, all processed locally on my homelab. I've been running it since
 						2016, and I wrote up{' '}
-						<a
-							href="/blog/best-home-assistant-automations/"
-							class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
-						>
+						<a href="/blog/best-home-assistant-automations/" class={TEXT_LINK}>
 							my favorite Home Assistant automations
 						</a>
 						, basic to advanced, plus how I keep them from breaking. If you're new, start with{' '}
-						<a
-							href="/blog/how-to-get-started-with-home-assistant-in-2026/"
-							class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
-						>
+						<a href="/blog/how-to-get-started-with-home-assistant-in-2026/" class={TEXT_LINK}>
 							getting started with Home Assistant
 						</a>
 						. I also wrote about how I{' '}
 						<a
 							href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/"
-							class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+							class={TEXT_LINK}
 						>
 							replaced Alexa with local voice control
 						</a>
 						.
 					</p>
 
-					<h3 class={SUBHEADING}>Core platform</h3>
+					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Core platform</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.home-assistant.io/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Home Assistant OS
 									</a>
@@ -1565,13 +1552,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://github.com/Koenkk/zigbee2mqtt"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Zigbee2MQTT
 									</a>
@@ -1581,13 +1568,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://frigate.video/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Frigate
 									</a>
@@ -1597,14 +1584,14 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">Local voice and AI</strong> - Wyoming faster-whisper on a
 								GPU, Piper for text-to-speech, and Ollama through the AI Task integration, with 4{' '}
 								<a
 									href="https://www.home-assistant.io/voice-pe/"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Home Assistant Voice Preview Edition
 								</a>{' '}
@@ -1612,13 +1599,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://hacs.xyz/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										HACS
 									</a>
@@ -1628,7 +1615,7 @@ const usesHeadings = [
 									href="https://github.com/nielsfaber/alarmo"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Alarmo
 								</a>{' '}
@@ -1637,7 +1624,7 @@ const usesHeadings = [
 									href="https://github.com/slashback100/presence_simulation"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Presence Simulation
 								</a>
@@ -1645,13 +1632,13 @@ const usesHeadings = [
 							</p>
 						</div>
 						<div>
-							<p class="text-muted">
+							<p class="text-paper">
 								<strong class="text-paper">
 									<a
 										href="https://www.home-assistant.io/integrations/homekit/"
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+										class={TEXT_LINK}
 									>
 										Apple HomeKit bridge
 									</a>
@@ -1661,19 +1648,19 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Dashboards</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Dashboards</h3>
 					<div class="space-y-4">
 						<div>
-							<p class="mb-2 text-muted">
+							<p class="mb-2 text-paper">
 								Custom Lovelace dashboards for different form factors - desktop overview, phone, and
 								tablet views. Built with community cards:
 							</p>
-							<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-muted">
+							<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-paper">
 								<a
 									href="https://github.com/piitaya/lovelace-mushroom"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Mushroom Cards
 								</a>
@@ -1681,7 +1668,7 @@ const usesHeadings = [
 									href="https://github.com/Clooos/Bubble-Card"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Bubble Card
 								</a>
@@ -1689,7 +1676,7 @@ const usesHeadings = [
 									href="https://github.com/RomRider/apexcharts-card"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									ApexCharts Card
 								</a>
@@ -1697,7 +1684,7 @@ const usesHeadings = [
 									href="https://github.com/kalkih/mini-media-player"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Mini Media Player
 								</a>
@@ -1705,7 +1692,7 @@ const usesHeadings = [
 									href="https://github.com/kalkih/mini-graph-card"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Mini Graph Card
 								</a>
@@ -1713,7 +1700,7 @@ const usesHeadings = [
 									href="https://github.com/custom-cards/button-card"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+									class={TEXT_LINK}
 								>
 									Button Card
 								</a>
@@ -1721,12 +1708,12 @@ const usesHeadings = [
 						</div>
 					</div>
 
-					<h3 class:list={[SUBHEADING, 'mt-10']}>Devices</h3>
+					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Devices</h3>
 					<div>
 						<div class="grid gap-3 sm:grid-cols-2">
 							<div>
 								<h4 class="mb-1 text-lg font-semibold text-paper">Lighting & climate</h4>
-								<ul class="list-disc space-y-1 pl-5 text-muted marker:text-pink">
+								<ul class="list-disc space-y-1 pl-5 text-paper marker:text-pink">
 									<li>
 										Philips Hue lights on a Hue Bridge Pro, with Hue motion sensors and dimmers
 									</li>
@@ -1737,7 +1724,7 @@ const usesHeadings = [
 							</div>
 							<div>
 								<h4 class="mb-1 text-lg font-semibold text-paper">Security & safety</h4>
-								<ul class="list-disc space-y-1 pl-5 text-muted marker:text-pink">
+								<ul class="list-disc space-y-1 pl-5 text-paper marker:text-pink">
 									<li>Reolink video doorbell and floodlight camera</li>
 									<li>Tapo C210 indoor camera</li>
 									<li>4x Aqara leak sensors and a Heiman smoke detector</li>
@@ -1748,7 +1735,7 @@ const usesHeadings = [
 							</div>
 							<div>
 								<h4 class="mb-1 text-lg font-semibold text-paper">Audio</h4>
-								<ul class="list-disc space-y-1 pl-5 text-muted marker:text-pink">
+								<ul class="list-disc space-y-1 pl-5 text-paper marker:text-pink">
 									<li>4x Audio Pro A10 MkII speakers running WiiM firmware</li>
 									<li>WiiM Pro and WiiM Mini</li>
 									<li>
@@ -1757,7 +1744,7 @@ const usesHeadings = [
 											href="https://github.com/LMS-Community/slimserver"
 											target="_blank"
 											rel="noopener noreferrer"
-											class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+											class={TEXT_LINK}
 										>
 											Lyrion Music Server
 										</a>{' '}
@@ -1767,7 +1754,7 @@ const usesHeadings = [
 							</div>
 							<div>
 								<h4 class="mb-1 text-lg font-semibold text-paper">Other</h4>
-								<ul class="list-disc space-y-1 pl-5 text-muted marker:text-pink">
+								<ul class="list-disc space-y-1 pl-5 text-paper marker:text-pink">
 									<li>2x Roomba vacuums</li>
 									<li>Meross garage door opener</li>
 									<li>Sengled and Securifi Zigbee plugs (energy monitoring)</li>
@@ -1780,18 +1767,14 @@ const usesHeadings = [
 				</section>
 
 				<!-- Inspired by -->
-				<p class="text-muted">
+				<p class="text-paper">
 					Inspired by{' '}
-					<a
-						href="https://uses.tech"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
-					>
+					<a href="https://uses.tech" target="_blank" rel="noopener noreferrer" class={TEXT_LINK}>
 						uses.tech
 					</a>{' '}
 					- a list of developer /uses pages.
 				</p>
+				<KeepExploring />
 			</div>
 			{/* end grid content column */}
 		</div>

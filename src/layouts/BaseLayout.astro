@@ -126,7 +126,7 @@ const {
 			</filter>
 		</svg>
 		<script>
-			import { initCursorTrail } from '../scripts/cursor-trail';
+			import { hasCursorTrail, initCursorTrail } from '../scripts/cursor-trail';
 			import '../scripts/halftone';
 			import '../scripts/in-view-play';
 			import { initPauseMotion } from '../scripts/pause-motion';
@@ -137,7 +137,7 @@ const {
 			document
 				.querySelectorAll<HTMLButtonElement>('button[data-pause-motion]')
 				.forEach(initPauseMotion);
-			initCursorTrail();
+			if (hasCursorTrail(window.location.pathname)) initCursorTrail();
 			initScribbleNotice();
 		</script>
 	</body>

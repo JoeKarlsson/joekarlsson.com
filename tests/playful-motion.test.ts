@@ -1,6 +1,21 @@
 import { describe, it, expect } from 'vitest';
-import { livePoints, TRAIL_LIFETIME_MS } from '../src/scripts/cursor-trail';
+import { hasCursorTrail, livePoints, TRAIL_LIFETIME_MS } from '../src/scripts/cursor-trail';
 import { distanceToRect } from '../src/scripts/scribble-notice';
+
+describe('hasCursorTrail', () => {
+	it('is off across the blog and the newsletter, and on everywhere else', () => {
+		for (const path of [
+			'/blog/',
+			'/blog/a-post/',
+			'/blog/category/ai/',
+			'/newsletter/',
+			'/newsletter/an-issue/',
+		])
+			expect(hasCursorTrail(path)).toBe(false);
+		for (const path of ['/', '/about/', '/work/', '/blogroll/', '/uses/'])
+			expect(hasCursorTrail(path)).toBe(true);
+	});
+});
 
 describe('distanceToRect', () => {
 	const rect = { left: 10, top: 10, right: 20, bottom: 20 };

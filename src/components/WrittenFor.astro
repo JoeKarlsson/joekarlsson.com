@@ -1,4 +1,5 @@
 ---
+import { MORE_LINK } from '../utils/ui';
 // "Written for CloudQuery": which employer a professional post was written for,
 // linking to every post written for them. Renders nothing for a personal post.
 import { categorySlug } from '../utils/categories';
@@ -11,10 +12,7 @@ const { employer } = Astro.props;
 ---
 
 {employer && (
-	<a
-		href={`/blog/written-for/${categorySlug(employer)}/`}
-		class="font-semibold text-pink no-underline hover:text-paper"
-	>
+	<a href={`/blog/written-for/${categorySlug(employer)}/`} class={MORE_LINK}>
 		Written for {employer}
 	</a>
 )}

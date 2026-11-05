@@ -2,14 +2,12 @@
 // Every blog post written for one employer (a crosspost of their blog), or the
 // personal ones: /blog/written-for/cloudquery/, /blog/written-for/personal/.
 import { getCollection } from 'astro:content';
-import BackLink from '../../../components/BackLink.astro';
+import PageTitle from '../../../components/PageTitle.astro';
 import PostFinder from '../../../components/PostFinder.astro';
-import Scribble from '../../../components/Scribble.astro';
-import { MARKS } from '../../../data/scribbles';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { PERSONAL, categorySlug, getWrittenForCounts } from '../../../utils/categories';
 import { getFeedPosts } from '../../../utils/posts';
-import { MORE_LINK } from '../../../utils/ui';
+import { MORE_LINK, PAGE_CONTAINER } from '../../../utils/ui';
 
 export async function getStaticPaths() {
 	const posts = (await getCollection('blog')).sort(
@@ -49,22 +47,8 @@ const summary = isPersonal
 	}
 	schemaType="CollectionPage"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
-		<header class="relative mb-10">
-			<BackLink href="/blog/" label="Blog" />
-			<h1 class="relative inline-block font-display text-[clamp(56px,11vw,170px)] leading-[0.88] font-normal text-paper uppercase">
-				{heading}
-				<Scribble
-					{...MARKS.underline}
-					color="#ff4fd8"
-					strokeWidth={10}
-					duration="8s"
-					delay="0.4s"
-					class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
-				/>
-			</h1>
-			<p class="mt-6 text-muted">{summary}</p>
-		</header>
+	<div class={PAGE_CONTAINER}>
+		<PageTitle title={heading} back={{ href: '/blog/', label: 'Blog' }} summary={summary} />
 
 		<PostFinder
 			posts={employerPosts}

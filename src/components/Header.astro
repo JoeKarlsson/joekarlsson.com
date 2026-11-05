@@ -4,10 +4,12 @@ import { NAV_LINKS } from '../consts';
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.replace(/\/$/, '') || '/';
 
-function isActive(href: string): boolean {
-	const normalizedHref = href.replace(/\/$/, '') || '/';
-	if (normalizedHref === '/') return currentPath === '/';
-	return currentPath === normalizedHref || currentPath.startsWith(normalizedHref);
+function isActive(href: string, also: string[] = []): boolean {
+	return [href, ...also].some((path) => {
+		const normalized = path.replace(/\/$/, '') || '/';
+		if (normalized === '/') return currentPath === '/';
+		return currentPath === normalized || currentPath.startsWith(normalized);
+	});
 }
 ---
 
@@ -32,13 +34,13 @@ function isActive(href: string): boolean {
 		>
 			Joe Karlsson
 		</a>
-		{NAV_LINKS.map(({ href, label }) => (
+		{NAV_LINKS.map(({ href, label, also }) => (
 			<a
 				href={href}
-				aria-current={isActive(href) ? 'page' : undefined}
+				aria-current={isActive(href, also) ? 'page' : undefined}
 				class:list={[
 					'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
-					isActive(href) ? 'bg-pink text-ink' : 'text-ink hover:bg-ink hover:text-pink',
+					isActive(href, also) ? 'bg-pink text-ink' : 'text-ink hover:bg-ink hover:text-pink',
 				]}
 			>
 				{label}

@@ -1,4 +1,6 @@
 ---
+import KeepExploring from '../../components/KeepExploring.astro';
+import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../../utils/ui';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -34,7 +36,7 @@ for (const issue of backIssues) {
 	description="Works on My Machine is Joe Karlsson's newsletter: thoughts and reactions on tech writing, AI, homelab builds and open source. Plus every back issue of TL;DR in Tech."
 	schemaType="CollectionPage"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+	<div class={PAGE_CONTAINER}>
 		<!-- The latest issue on the left (its image shown whole: issue images are title
 		cards, so they're never cropped), what I write about in the pink ticker, and the
 		newsletter's name, pitch and signup in the dark panel above NEWSLETTER (the same
@@ -89,7 +91,7 @@ for (const issue of backIssues) {
 			<p class="font-display text-[clamp(36px,3.6vw,56px)] leading-none text-paper uppercase">
 				Works on <span class="text-pink">My Machine</span>
 			</p>
-			<p class="mt-4 font-serif text-[clamp(18px,1.5vw,21px)] leading-relaxed text-paper">
+			<p class={`mt-4 ${HERO_LEAD}`}>
 				My thoughts and reactions on tech writing, AI, homelab builds and open source, plus whatever
 				I'm working on. It goes out when I have something to say.
 			</p>
@@ -99,7 +101,7 @@ for (const issue of backIssues) {
 					Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS?{' '}
 					<a
 						href="/newsletter/rss.xml"
-						class="plausible-event-name=RSS+Click plausible-event-feed=newsletter text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+						class={`plausible-event-name=RSS+Click plausible-event-feed=newsletter ${TEXT_LINK}`}
 					>
 						Follow Works on My Machine in your feed reader
 					</a>
@@ -108,9 +110,7 @@ for (const issue of backIssues) {
 			</div>
 		</PosterHero>
 
-		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase">
-			Every issue
-		</h2>
+		<h2 class={SECTION_HEADING}>Every issue</h2>
 		<ul class="mb-20">
 			{olderPosts.map((post) => (
 				<BlogCard
@@ -124,9 +124,7 @@ for (const issue of backIssues) {
 			))}
 		</ul>
 
-		<h2 class="mb-2 font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase">
-			TL;DR in Tech
-		</h2>
+		<h2 class={`${SECTION_HEADING} !mb-2`}>TL;DR in Tech</h2>
 		<p class="mb-8 text-muted">
 			The weekly link roundup this newsletter used to be, from 2021 to 2024.
 		</p>
@@ -136,7 +134,7 @@ for (const issue of backIssues) {
 				<section class="contents">
 					<h3
 						id={String(year)}
-						class="scroll-mt-24 border-t border-surface-4 pt-3 font-display text-[clamp(36px,4vw,56px)] leading-none font-normal text-paper md:pb-8"
+						class="scroll-mt-24 border-t border-surface-4 pt-3 font-display text-[clamp(36px,4vw,56px)] leading-none font-normal text-pink md:pb-8"
 					>
 						{year}
 					</h3>
@@ -146,10 +144,7 @@ for (const issue of backIssues) {
 								<span class="w-32 shrink-0 text-sm text-muted">
 									<FormattedDate date={issue.data.date} />
 								</span>
-								<a
-									href={`/newsletter/${issue.data.slug}/`}
-									class="text-paper underline decoration-surface-4 underline-offset-4 hover:text-pink hover:decoration-pink"
-								>
+								<a href={`/newsletter/${issue.data.slug}/`} class={TEXT_LINK}>
 									{issue.data.title}
 								</a>
 							</li>
@@ -158,5 +153,6 @@ for (const issue of backIssues) {
 				</section>
 			))}
 		</div>
+		<KeepExploring />
 	</div>
 </BaseLayout>

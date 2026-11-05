@@ -1,6 +1,8 @@
 ---
+import { PAGE_CONTAINER } from '../utils/ui';
 import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 ---
 
@@ -9,17 +11,8 @@ import { CHALK, MARKS } from '../data/scribbles';
 	description="Privacy policy for joekarlsson.com covering analytics, cookies, and how your data is handled on this site."
 	schemaType="WebPage"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-16 sm:px-7">
-		<h1 class="relative mb-12 w-fit font-display text-[clamp(56px,10vw,150px)] leading-[0.88] font-normal text-paper uppercase">
-			Privacy
-			<Scribble
-				{...MARKS.underline}
-				color="#ff4fd8"
-				strokeWidth={10}
-				duration="8s"
-				delay="0.4s"
-				class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
-			/>
+	<div class={PAGE_CONTAINER}>
+		<PageTitle title="Privacy">
 			<Scribble
 				{...MARKS.asterisk}
 				color={CHALK}
@@ -27,7 +20,7 @@ import { CHALK, MARKS } from '../data/scribbles';
 				delay="1.2s"
 				class="-top-[0.05em] -right-[0.7em] size-[0.5em]"
 			/>
-		</h1>
+		</PageTitle>
 		<div class="prose">
 			<p>This website is a static site that collects minimal data.</p>
 

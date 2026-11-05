@@ -1,5 +1,5 @@
 ---
-import { formatDate } from '../utils/ui';
+import { GROUP_HEADING, formatDate } from '../utils/ui';
 // Recently shipped repos, watched films and podcast episodes, from the snapshot
 // that scripts/update-now-feed.mjs writes on every deploy.
 import nowFeed from '../data/now-feed.json';
@@ -31,7 +31,7 @@ const formattedUpdatedAt = formatDate(new Date(`${updatedAt}T00:00:00Z`));
 <div class="mt-6">
 	{shippedRepos.length > 0 && (
 		<>
-			<h3 class="mb-4 font-display text-2xl font-normal text-paper uppercase">Recently shipped</h3>
+			<h3 class={`mb-4 ${GROUP_HEADING}`}>Recently shipped</h3>
 			<div class="mb-10 grid gap-x-8 gap-y-8 sm:grid-cols-2">
 				{shippedRepos.map((repo) => (
 					<a
@@ -81,7 +81,7 @@ const formattedUpdatedAt = formatDate(new Date(`${updatedAt}T00:00:00Z`));
 		</>
 	)}
 
-	<h3 class="mb-4 font-display text-2xl font-normal text-paper uppercase">Recently watched</h3>
+	<h3 class={`mb-4 ${GROUP_HEADING}`}>Recently watched</h3>
 	<div class="grid gap-6 grid-cols-2 sm:grid-cols-4">
 		{films.map((film) => (
 			<div>
@@ -114,9 +114,7 @@ const formattedUpdatedAt = formatDate(new Date(`${updatedAt}T00:00:00Z`));
 		))}
 	</div>
 
-	<h3 class="mb-4 mt-10 font-display text-2xl font-normal text-paper uppercase">
-		Recently listened
-	</h3>
+	<h3 class={`mt-10 mb-4 ${GROUP_HEADING}`}>Recently listened</h3>
 	<div class="grid gap-6 sm:grid-cols-2">
 		{podcastEpisodes.map((episode) => {
 			const content = (

@@ -1,10 +1,18 @@
 ---
+import BackLink from '../components/BackLink.astro';
 // The web resume. The PDF is a separate page (resume-pdf.astro, printed by
 // npm run generate:resume), so this one can be pink on black.
 import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PosterHero from '../components/PosterHero.astro';
-import { MORE_LINK, PRIMARY_BUTTON, SECTION_HEADING } from '../utils/ui';
+import {
+	ITEM_TITLE,
+	MORE_LINK,
+	PAGE_CONTAINER,
+	PRIMARY_BUTTON,
+	SECTION_HEADING,
+	TEXT_LINK,
+} from '../utils/ui';
 import KeepExploring from '../components/KeepExploring.astro';
 import { SOCIAL_LINKS } from '../consts';
 import { CHALK, MARKS } from '../data/scribbles';
@@ -16,8 +24,6 @@ function formatYearRange(start: number, end: number | null): string {
 
 // Each company once, newest first, for the hero ticker
 const companies = [...new Set(roles.map(({ company }) => company))];
-const SUBHEADING = 'text-lg leading-tight font-semibold text-paper';
-const LINK = 'text-paper underline decoration-pink underline-offset-4 hover:text-pink';
 // Rows with a narrow left column (dates, labels) beside the content
 const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[11rem_1fr]';
 ---
@@ -27,7 +33,11 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 	description="Joe Karlsson's resume. Principal Developer Marketing Manager at CData and software engineer with 15+ years at data companies including CloudQuery, Tinybird, SingleStore, MongoDB, and Best Buy."
 	schemaType="ProfilePage"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+	<div class={PAGE_CONTAINER}>
+		<!-- Clear of the crayon burst that sticks up off the hero picture -->
+		<div class="mb-10">
+			<BackLink href="/about/" label="About" />
+		</div>
 		<!-- My headshot in pink dots beside the companies I've worked for in the ticker, and
 		who I am, where to find me and the PDF in the dark panel -->
 		<PosterHero title="Resume" wordRatio={3} tickerItems={companies}>
@@ -71,13 +81,18 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				</p>
 				<p class="mt-4 text-lg text-paper">Principal Developer Marketing Manager</p>
 				<p class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-					<a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class={LINK}>
+					<a
+						href={SOCIAL_LINKS.linkedin}
+						target="_blank"
+						rel="noopener noreferrer"
+						class={TEXT_LINK}
+					>
 						linkedin/in/joekarlsson
 					</a>
-					<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class={LINK}>
+					<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class={TEXT_LINK}>
 						github/JoeKarlsson
 					</a>
-					<a href="https://www.joekarlsson.com" class={LINK}>
+					<a href="https://www.joekarlsson.com" class={TEXT_LINK}>
 						joekarlsson.com
 					</a>
 				</p>
@@ -149,11 +164,11 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 								</span>
 							)}
 							<div>
-								<h3 class={SUBHEADING}>{role.title}</h3>
+								<h3 class={ITEM_TITLE}>{role.title}</h3>
 								<p class="text-sm text-paper">{role.company}</p>
 							</div>
 						</div>
-						<ul class="mb-3 list-disc space-y-1.5 pl-5 text-muted marker:text-pink">
+						<ul class="mb-3 list-disc space-y-1.5 pl-5 text-paper marker:text-pink">
 							{role.bullets.map((b) => (
 								<li>
 									{typeof b === 'string' ? (
@@ -161,7 +176,12 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 									) : (
 										<>
 											{b.text}{' '}
-											<a href={b.link.url} target="_blank" rel="noopener noreferrer" class={LINK}>
+											<a
+												href={b.link.url}
+												target="_blank"
+												rel="noopener noreferrer"
+												class={TEXT_LINK}
+											>
 												({b.link.label} &rarr;)
 											</a>
 										</>
@@ -189,7 +209,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 			{skills.map((group) => (
 				<div class={ROW}>
 					<dt class="font-semibold text-paper">{group.category}</dt>
-					<dd class="text-muted">{group.items.join(', ')}</dd>
+					<dd class="text-paper">{group.items.join(', ')}</dd>
 				</div>
 			))}
 		</dl>
@@ -231,7 +251,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 									href={item.url}
 									target="_blank"
 									rel="noopener noreferrer"
-									class={`plausible-event-name=Resume+Writing+Sample+Click leading-snug ${LINK}`}
+									class={`plausible-event-name=Resume+Writing+Sample+Click leading-snug ${TEXT_LINK}`}
 								>
 									{item.title}
 								</a>
@@ -263,11 +283,11 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 						href={project.url}
 						target={project.url.startsWith('http') ? '_blank' : undefined}
 						rel={project.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-						class={`plausible-event-name=Resume+Project+Click font-semibold ${LINK}`}
+						class={`plausible-event-name=Resume+Project+Click font-semibold ${TEXT_LINK}`}
 					>
 						{project.name}
 					</a>
-					<p class="mt-1 leading-relaxed text-muted">{project.description}</p>
+					<p class="mt-1 leading-relaxed text-paper">{project.description}</p>
 					<p class="mt-1 text-sm text-muted">{project.tech.join(' · ')}</p>
 				</li>
 			))}
@@ -289,7 +309,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				{education.gpa && <span class="block">GPA: {education.gpa}</span>}
 			</p>
 			<div>
-				<h3 class={SUBHEADING}>{education.degree}</h3>
+				<h3 class={ITEM_TITLE}>{education.degree}</h3>
 				<p class="text-sm text-paper">{education.school}</p>
 				{education.minors && (
 					<p class="text-sm text-muted">Minors: {education.minors.join(', ')}</p>

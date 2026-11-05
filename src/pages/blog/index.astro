@@ -1,8 +1,9 @@
 ---
+import KeepExploring from '../../components/KeepExploring.astro';
 import Scribble from '../../components/Scribble.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
-import { formatDate } from '../../utils/ui';
+import { HERO_LEAD, PAGE_CONTAINER, formatDate } from '../../utils/ui';
 import { CHALK, MARKS } from '../../data/scribbles';
 import PosterHero from '../../components/PosterHero.astro';
 import PostFinder from '../../components/PostFinder.astro';
@@ -33,7 +34,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 	description="Posts about databases, developer tools, smart homes, and the things I build."
 	schemaType="CollectionPage"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+	<div class={PAGE_CONTAINER}>
 		<!-- Mirrors the homepage hero: the featured post's picture (its title on a dark
 		strip) beside a pink ticker of the topics and a dark panel whose BLOG fills it.
 		Only the picture is clipped; the marks sit in front. On phones the picture is a
@@ -81,7 +82,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					/>
 				</a>
 			)}
-			<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
+			<p class={HERO_LEAD}>
 				{allPosts.length} posts since {firstPostYear}
 			</p>
 		</PosterHero>
@@ -95,5 +96,6 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 				allLink: true,
 			}}
 		/>
+		<KeepExploring />
 	</div>
 </BaseLayout>

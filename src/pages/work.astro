@@ -5,7 +5,14 @@ import ProjectCard from '../components/ProjectCard.astro';
 import { projects, CATEGORY_META } from '../data/projects';
 import Scribble from '../components/Scribble.astro';
 import PosterHero from '../components/PosterHero.astro';
-import { FILTER_ACTIVE, FILTER_INACTIVE, FILTER_ROW, MORE_LINK } from '../utils/ui';
+import {
+	FILTER_ACTIVE,
+	FILTER_INACTIVE,
+	FILTER_ROW,
+	HERO_LEAD,
+	MORE_LINK,
+	PAGE_CONTAINER,
+} from '../utils/ui';
 import { SOCIAL_LINKS } from '../consts';
 import { CHALK, MARKS } from '../data/scribbles';
 import { cardClip } from '../utils/halftone';
@@ -35,7 +42,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 	description="Joe Karlsson's projects, demos, open source work, and portfolio."
 	schemaType="CollectionPage"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+	<div class={PAGE_CONTAINER}>
 		<!-- Built like the blog's hero: the featured project's clip (its title on a dark
 		strip) beside a pink ticker of the project categories and a dark panel whose
 		PROJECTS fills it. On phones the clip is a 16:9 banner with the title under it. -->
@@ -106,9 +113,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 					/>
 				</a>
 			)}
-			<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
-				Software, hardware, and IoT projects I've built over the years.
-			</p>
+			<p class={HERO_LEAD}>Software, hardware, and IoT projects I've built over the years.</p>
 		</PosterHero>
 
 		<div

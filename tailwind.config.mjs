@@ -16,7 +16,6 @@ export default {
 				muted: '#a3a3a3',
 				pink: '#ff4fd8',
 				surface: {
-					0: '#0a0a0a',
 					1: '#111111',
 					2: '#1a1a1a',
 					3: '#222222',

@@ -1,5 +1,5 @@
 ---
-import { formatDate } from '../utils/ui';
+import { MORE_LINK, SECTION_HEADING, formatDate } from '../utils/ui';
 import DrawingBoard from '../components/DrawingBoard.astro';
 import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
@@ -190,7 +190,7 @@ const COLLAGE = [
 	</div>
 
 	<section class="relative px-4 pt-20 sm:px-7">
-		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none uppercase">
+		<h2 class={SECTION_HEADING}>
 			<a href="/blog/" class="relative text-pink no-underline hover:text-pink hover:underline">
 				Recent posts
 				<Scribble
@@ -268,7 +268,7 @@ const COLLAGE = [
 			class="top-10 right-[8%] hidden h-[110px] w-[200px] md:block"
 		/>
 		<p class="mt-[18px]">
-			<a href="/blog/" class="font-semibold text-pink no-underline hover:text-paper">
+			<a href="/blog/" class={MORE_LINK}>
 				All {allPosts.length} posts →
 			</a>
 		</p>
@@ -315,7 +315,7 @@ const COLLAGE = [
 	</a>
 
 	<section class="relative px-4 pt-20 sm:px-7">
-		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none uppercase">
+		<h2 class={SECTION_HEADING}>
 			<a href="/work/" class="text-pink no-underline hover:text-pink hover:underline">
 				Projects
 			</a>
@@ -333,7 +333,7 @@ const COLLAGE = [
 			))}
 		</div>
 		<p class="relative mt-[18px] inline-block">
-			<a href="/work/" class="font-semibold text-pink no-underline hover:text-paper">
+			<a href="/work/" class={MORE_LINK}>
 				All projects →
 			</a>
 			<Scribble
@@ -350,7 +350,7 @@ const COLLAGE = [
 	<DrawingBoard />
 
 	<section class="relative px-4 pt-20 sm:px-7">
-		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none uppercase">
+		<h2 class={SECTION_HEADING}>
 			<a href="/blog/" class="text-pink no-underline hover:text-pink hover:underline">
 				Writing by topic
 			</a>
@@ -383,7 +383,7 @@ const COLLAGE = [
 			))}
 		</div>
 		<p class="mt-[18px]">
-			<a href="/blog/" class="relative font-semibold text-pink no-underline hover:text-paper">
+			<a href="/blog/" class={`relative ${MORE_LINK}`}>
 				Every post and topic →
 				<Scribble
 					{...MARKS.double}

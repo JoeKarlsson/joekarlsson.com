@@ -14,6 +14,11 @@ export function livePoints(points: TimedPoint[], now: number): TimedPoint[] {
 	return points.filter((point) => now - point.time < TRAIL_LIFETIME_MS);
 }
 
+/** No trail while reading: the blog and the newsletter, index pages and all (Joe). */
+export function hasCursorTrail(pathname: string): boolean {
+	return !/^\/(blog|newsletter)(\/|$)/.test(pathname);
+}
+
 export function initCursorTrail(): void {
 	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 	const overlay = document.createElementNS('http://www.w3.org/2000/svg', 'svg');

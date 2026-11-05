@@ -9,7 +9,7 @@ interface Props {
 const { href, label } = Astro.props;
 ---
 
-<nav class="mb-3 text-[15px]" aria-label="Breadcrumb">
+<nav class="mb-3 text-sm" aria-label="Breadcrumb">
 	<a href={href} class="text-muted no-underline hover:text-pink">
 		← {label}
 	</a>

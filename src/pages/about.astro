@@ -1,5 +1,16 @@
 ---
-import { SECTION_HEADING, PRIMARY_BUTTON, SECONDARY_BUTTON, MORE_LINK } from '../utils/ui';
+import { halftoneMode } from '../utils/halftone';
+import {
+	GROUP_HEADING,
+	ITEM_TITLE,
+	MORE_LINK,
+	PAGE_CONTAINER,
+	PRIMARY_BUTTON,
+	SECONDARY_BUTTON,
+	SECTION_HEADING,
+	SIDEBAR_GRID,
+	TEXT_LINK,
+} from '../utils/ui';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PosterHero from '../components/PosterHero.astro';
 import KeepExploring from '../components/KeepExploring.astro';
@@ -10,9 +21,6 @@ import TableOfContents from '../components/TableOfContents.astro';
 import { SOCIAL_LINKS } from '../consts';
 import nowFeed from '../data/now-feed.json';
 import { CHALK, MARKS } from '../data/scribbles';
-
-const CARD_TITLE =
-	'font-display text-[clamp(24px,2vw,30px)] leading-none font-normal text-paper uppercase';
 
 const aboutHeadings = [
 	{ slug: 'career', text: 'Career' },
@@ -213,7 +221,7 @@ const cropArtPieces = [
 	description="Developer Marketing Engineer leading developer growth at CData for the managed MCP platform that connects AI agents to live enterprise data. Built DevRel from scratch at CloudQuery (now env0); 15+ years at MongoDB, SingleStore, Tinybird, and Best Buy. TEDx Speaker, homelab enthusiast."
 	schemaType="AboutPage"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+	<div class={PAGE_CONTAINER}>
 		<!-- The waving clip on the left, the page's sections in the pink ticker, and who I
 		am in the dark panel above ABOUT (the same top as every main page). The clip is
 		pre-cropped with Joe's face centered on the top third, so it's drawn centered. Pink
@@ -283,7 +291,7 @@ const cropArtPieces = [
 			</div>
 		</PosterHero>
 
-		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
+		<div class={SIDEBAR_GRID}>
 			<TableOfContents headings={aboutHeadings} />
 			<div>
 				<div class="prose mb-12 max-w-none!">
@@ -333,14 +341,14 @@ const cropArtPieces = [
 								<span class="text-lg font-semibold">{job.role}</span>{' '}
 								<span class="text-sm text-muted">{job.years}</span>
 							</summary>
-							<p class="mt-2 mb-1 leading-relaxed text-muted">{job.text}</p>
+							<p class="mt-2 mb-1 leading-relaxed text-paper">{job.text}</p>
 						</details>
 					))}
 				</div>
 				<p class="mb-12">
 					<a
 						href="/resume/"
-						class="plausible-event-name=About+CTA+Click plausible-event-destination=resume-banner-top font-semibold text-pink no-underline hover:text-paper"
+						class={`plausible-event-name=About+CTA+Click plausible-event-destination=resume-banner-top ${MORE_LINK}`}
 					>
 						View my full resume &rarr;
 					</a>{' '}
@@ -359,21 +367,21 @@ const cropArtPieces = [
 				</h2>
 				<div class="mb-12 grid gap-6 sm:grid-cols-3">
 					<div>
-						<h3 class:list={[CARD_TITLE, 'mb-2']}>Data Systems</h3>
-						<p class="text-muted">
+						<h3 class:list={[GROUP_HEADING, 'mb-2']}>Data Systems</h3>
+						<p class="text-paper">
 							I've worked at five data companies (MongoDB, SingleStore, Tinybird, CloudQuery, CData)
 							and scaled Best Buy's eCommerce platform.
 						</p>
 					</div>
 					<div>
-						<h3 class:list={[CARD_TITLE, 'mb-2']}>Teaching Complex Topics</h3>
-						<p class="text-muted">
+						<h3 class:list={[GROUP_HEADING, 'mb-2']}>Teaching Complex Topics</h3>
+						<p class="text-paper">
 							I taught at a coding bootcamp, gave a TEDx talk, and have spoken at 100+ conferences.
 						</p>
 					</div>
 					<div>
-						<h3 class:list={[CARD_TITLE, 'mb-2']}>Building Weird Stuff</h3>
-						<p class="text-muted">
+						<h3 class:list={[GROUP_HEADING, 'mb-2']}>Building Weird Stuff</h3>
+						<p class="text-paper">
 							IoT cat litter boxes, crop art from millet kernels, hackathons for terrible ideas.
 						</p>
 					</div>
@@ -391,12 +399,12 @@ const cropArtPieces = [
 				</h2>
 				<ul class="mb-12 grid gap-x-8 gap-y-5 sm:grid-cols-2">
 					<li>
-						<h3 class="text-lg font-semibold text-paper">
+						<h3 class={ITEM_TITLE}>
 							<a
 								href="https://www.ted.com/talks/joe_karlsson_the_art_of_computer_science"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+								class={TEXT_LINK}
 							>
 								TEDx Speaker & Conference Keynote
 							</a>
@@ -407,12 +415,12 @@ const cropArtPieces = [
 						</p>
 					</li>
 					<li>
-						<h3 class="text-lg font-semibold text-paper">
+						<h3 class={ITEM_TITLE}>
 							<a
 								href="https://unclebigbay.com/10-must-follow-developers-on-tik-tok"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+								class={TEXT_LINK}
 							>
 								#1 on "10 Must-Follow Developers on TikTok"
 							</a>
@@ -420,18 +428,18 @@ const cropArtPieces = [
 						<p class="text-sm text-muted">25K+ followers, 844K+ likes</p>
 					</li>
 					<li>
-						<h3 class="text-lg font-semibold text-paper">Published Author</h3>
+						<h3 class={ITEM_TITLE}>Published Author</h3>
 						<p class="text-sm text-muted">
 							The New Stack, MongoDB Developer Hub, Tinybird blog, Medium, DEV Community
 						</p>
 					</li>
 					<li>
-						<h3 class="text-lg font-semibold text-paper">
+						<h3 class={ITEM_TITLE}>
 							<a
 								href="https://stupidshitnooneinhawaiineedshackathon.github.io/"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+								class={TEXT_LINK}
 							>
 								Hackathon Organizer
 							</a>
@@ -442,13 +450,13 @@ const cropArtPieces = [
 						</p>
 					</li>
 					<li>
-						<h3 class="text-lg font-semibold text-paper">Arctic Code Vault Contributor</h3>
+						<h3 class={ITEM_TITLE}>Arctic Code Vault Contributor</h3>
 						<p class="text-sm text-muted">
 							Code preserved in GitHub's Arctic Code Vault for future generations
 						</p>
 					</li>
 					<li>
-						<h3 class="text-lg font-semibold text-paper">Coding Bootcamp Instructor</h3>
+						<h3 class={ITEM_TITLE}>Coding Bootcamp Instructor</h3>
 						<p class="text-sm text-muted">
 							Taught full-stack JavaScript at DevLeague, one of the top 10 coding bootcamps
 							worldwide (Honolulu, 2015-2017)
@@ -479,13 +487,13 @@ const cropArtPieces = [
 								loading="lazy"
 							/>
 							<div>
-								<h3 class="text-lg leading-tight font-semibold text-paper">
+								<h3 class={ITEM_TITLE}>
 									{podcast.url ? (
 										<a
 											href={podcast.url}
 											target="_blank"
 											rel="noopener noreferrer"
-											class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+											class={TEXT_LINK}
 										>
 											{podcast.name}
 										</a>
@@ -499,7 +507,7 @@ const cropArtPieces = [
 						</li>
 					))}
 				</ul>
-				<h3 class:list={[CARD_TITLE, 'mb-3']}>More appearances</h3>
+				<h3 class:list={[GROUP_HEADING, 'mb-3']}>More appearances</h3>
 				<ul class="mb-12 space-y-2">
 					{moreAppearances.map((appearance) => (
 						<li>
@@ -507,7 +515,7 @@ const cropArtPieces = [
 								href={appearance.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="font-semibold text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+								class={`font-semibold ${TEXT_LINK}`}
 							>
 								{appearance.name}
 							</a>{' '}
@@ -615,15 +623,19 @@ const cropArtPieces = [
 							]}
 							style={`--tilt:${tilt}deg;--tape-tilt:${-tilt * 1.5}deg`}
 						>
-							<img
-								src={src}
-								alt={alt}
-								width={width}
-								height={height}
-								loading="lazy"
-								decoding="async"
-								class="block h-auto w-full bg-paper p-1.5 sm:p-2"
-							/>
+							{/* The white print border is the wrapper, so the pink canvas (halftone.ts) covers only the photo */}
+							<div class="relative bg-paper p-1.5 sm:p-2">
+								<img
+									src={src}
+									alt={alt}
+									width={width}
+									height={height}
+									loading="lazy"
+									decoding="async"
+									data-halftone={halftoneMode(src)}
+									class="block h-auto w-full"
+								/>
+							</div>
 						</li>
 					))}
 				</ul>
@@ -648,8 +660,8 @@ const cropArtPieces = [
 							delay="0.0s"
 							class="-top-[7%] -right-[5%] z-10 size-[24%]"
 						/>
-						<h3 class:list={[CARD_TITLE, 'mb-2 group-hover:text-pink']}>Homelabber</h3>
-						<p class="text-muted">
+						<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>Homelabber</h3>
+						<p class="text-paper">
 							Running a Proxmox cluster with {nowFeed.homelab.runningContainers} containers,
 							self-hosted services, and Home Assistant automating the whole house.
 						</p>
@@ -671,8 +683,8 @@ const cropArtPieces = [
 							delay="0.7s"
 							class="-top-[7%] -right-[5%] z-10 size-[24%]"
 						/>
-						<h3 class:list={[CARD_TITLE, 'mb-2 group-hover:text-pink']}>Speaker</h3>
-						<p class="text-muted">
+						<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>Speaker</h3>
+						<p class="text-paper">
 							100+ conferences worldwide. TEDx speaker and keynote. I talk about databases, IoT, and
 							the weird stuff I build at home.
 						</p>
@@ -697,10 +709,10 @@ const cropArtPieces = [
 							delay="1.4s"
 							class="-top-[7%] -right-[5%] z-10 size-[24%]"
 						/>
-						<h3 class:list={[CARD_TITLE, 'mb-2 group-hover:text-pink']}>
+						<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>
 							Cat Person / IoT Tinkerer
 						</h3>
-						<p class="text-muted">
+						<p class="text-paper">
 							Built an IoT litter box with a Raspberry Pi to monitor my cat's health. Gave a
 							conference talk about it.
 						</p>
@@ -727,8 +739,8 @@ const cropArtPieces = [
 							delay="2.1s"
 							class="-top-[7%] -right-[5%] z-10 size-[24%]"
 						/>
-						<h3 class:list={[CARD_TITLE, 'mb-2 group-hover:text-pink']}>Crop Artist</h3>
-						<p class="text-muted">
+						<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>Crop Artist</h3>
+						<p class="text-paper">
 							I make art by gluing seeds to cardboard. Exhibited at the Minnesota State Fair and the
 							Seeds of Justice show.
 						</p>
@@ -760,7 +772,7 @@ const cropArtPieces = [
 					/>
 				</h2>
 				<div class="mb-12">
-					<p class="mb-6 text-muted">
+					<p class="mb-6 text-paper">
 						I got into crop art in 2025 - making pictures by gluing seeds and grains to cardboard. I
 						had two pieces in the Seeds of Justice exhibit, then entered the Minnesota State Fair
 						Crop Art competition for the first time. Here are some of my pieces:
@@ -804,7 +816,7 @@ const cropArtPieces = [
 					Want to work together, book me for a talk, or just say hi?{' '}
 					<a
 						href="/contact/"
-						class="plausible-event-name=About+CTA+Click plausible-event-destination=contact font-semibold text-pink no-underline hover:text-paper"
+						class={`plausible-event-name=About+CTA+Click plausible-event-destination=contact ${MORE_LINK}`}
 					>
 						Get in touch &rarr;
 					</a>
