@@ -4,7 +4,7 @@ The new look: a dark, art house, slightly weird personal site. It is hot pink on
 
 ## Status (2026-11-05)
 
-Phases 0–4 are shipped and live on joekarlsson.com. **Phase 5 (other pages) is next.** Every phase below is marked with its status, and the decisions log at the end records every call made along the way, so read it before changing something that looks odd.
+Phases 0–5 are shipped and live on joekarlsson.com (Phase 5 deployed 2026-11-05). **Phase 6 (personal layer) is next**, and waits on Joe's scanned marks. Every phase below is marked with its status, and the decisions log at the end records every call made along the way, so read it before changing something that looks odd.
 
 ### Handoff: how to work on this
 
@@ -244,7 +244,7 @@ Done when: a long post reads comfortably on desktop and phone, and the blog e2e 
 
 ### Phase 5: Other pages
 
-**Status: next.**
+**Status: shipped.** Every page is reskinned, no coral is left, and `/about` passes Lighthouse. See the Phase 5 entries in the decisions log.
 
 Reskin every remaining page into the new system: same rules as before (reskin the existing page, reuse the toolkit, delete what goes dead, tests and axe stay clean). Use index lists where they fit, but rethink each layout for its content rather than copying the homepage. Marks spill across every page, not just the homepage, but stay off running text.
 
