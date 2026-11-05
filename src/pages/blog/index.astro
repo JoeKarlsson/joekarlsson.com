@@ -176,9 +176,6 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					<button id="sort-newest" class={SORT_ACTIVE} aria-pressed="true" data-sort="newest">
 						Newest
 					</button>
-					<button id="sort-oldest" class={SORT_INACTIVE} aria-pressed="false" data-sort="oldest">
-						Oldest
-					</button>
 					<button
 						id="sort-popular"
 						class={SORT_INACTIVE}
@@ -266,7 +263,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					const da = new Date(a.data.date).getTime();
 					const db = new Date(b.data.date).getTime();
 					if (currentSort === 'popular') return b.data.visitors - a.data.visitors || db - da;
-					return currentSort === 'newest' ? db - da : da - db;
+					return db - da;
 				});
 				return filtered;
 			}
