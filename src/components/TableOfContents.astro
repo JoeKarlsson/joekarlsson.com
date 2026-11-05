@@ -17,8 +17,8 @@ const { headings } = Astro.props;
 						class={[
 							'toc-link block leading-snug no-underline transition-colors duration-150',
 							h.depth === 3
-								? 'pl-3 text-xs text-gray-400 hover:text-gray-200'
-								: 'text-gray-200 hover:text-white',
+								? 'pl-3 text-xs text-muted hover:text-paper'
+								: 'text-paper hover:text-paper',
 						].join(' ')}
 					>
 						{h.text}
@@ -51,7 +51,7 @@ const { headings } = Astro.props;
 		});
 
 		const inactiveColors: string[] = Array.from(links).map((l) =>
-			l.classList.contains('text-gray-400') ? 'text-gray-400' : 'text-gray-200',
+			l.classList.contains('text-muted') ? 'text-muted' : 'text-paper',
 		);
 
 		let currentActive = -1;

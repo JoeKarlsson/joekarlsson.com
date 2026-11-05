@@ -5,6 +5,7 @@
 // row as the homepage's Recent posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
 import { halftoneMode } from '../utils/halftone';
+import { formatDate } from '../utils/ui';
 import { CHALK, MARKS } from '../data/scribbles';
 import Scribble from './Scribble.astro';
 import WrittenFor from './WrittenFor.astro';
@@ -53,12 +54,7 @@ const mark =
 	markIndex === undefined ? undefined : THUMBNAIL_MARKS[markIndex % THUMBNAIL_MARKS.length];
 const url = href ?? `/blog/${slug}/`;
 const image = heroImage || DEFAULT_HERO_IMAGE;
-const formattedDate = date.toLocaleDateString('en-us', {
-	timeZone: 'UTC',
-	year: 'numeric',
-	month: 'short',
-	day: 'numeric',
-});
+const formattedDate = formatDate(date);
 ---
 
 <li class="blog-row group grid items-center gap-x-7 gap-y-3 border-t border-surface-4 py-[18px] sm:grid-cols-[clamp(140px,22vw,280px)_1fr]">

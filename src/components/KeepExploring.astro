@@ -1,0 +1,51 @@
+---
+// The "Keep exploring" list at the bottom of About, Resume and Projects: the same
+// pages everywhere, minus the one you're on, each with one line about it.
+import Scribble from './Scribble.astro';
+import { CHALK, MARKS } from '../data/scribbles';
+import { MORE_LINK, SECTION_HEADING } from '../utils/ui';
+
+const PAGES = [
+	{ href: '/blog/', label: 'Blog', blurb: 'Posts on homelab, AI, web dev and my career.' },
+	{ href: '/about/', label: 'About', blurb: "Who I am and what I've worked on." },
+	{ href: '/resume/', label: 'Resume', blurb: 'My work history, also as a PDF.' },
+	{ href: '/work/', label: 'Projects', blurb: "Software, hardware and IoT things I've built." },
+	{
+		href: '/talk-archive/',
+		label: 'Talks',
+		blurb: 'Conference talks, workshops and podcasts since 2019.',
+	},
+	{
+		href: '/newsletter/',
+		label: 'Newsletter',
+		blurb: 'Works on My Machine: tech writing, AI, homelab and open source.',
+	},
+	{ href: '/uses/', label: 'Uses', blurb: 'The hardware, software and gear I use every day.' },
+];
+
+const here = Astro.url.pathname.replace(/\/?$/, '/');
+const pages = PAGES.filter(({ href }) => href !== here);
+---
+
+<section class="mb-12">
+	<h2 class={SECTION_HEADING}>
+		Keep exploring
+		<Scribble
+			{...MARKS.double}
+			color={CHALK}
+			duration="8s"
+			delay="0.6s"
+			class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
+		/>
+	</h2>
+	<ul class="space-y-2">
+		{pages.map(({ href, label, blurb }) => (
+			<li>
+				<a href={href} class={MORE_LINK}>
+					{label}
+				</a>{' '}
+				<span class="text-muted">{blurb}</span>
+			</li>
+		))}
+	</ul>
+</section>

@@ -1,13 +1,13 @@
 ---
-import BlogCard from '../../components/BlogCard.astro';
 import Scribble from '../../components/Scribble.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
-import { ARROW, CHALK, HERO_COIL, MARKS } from '../../data/scribbles';
-import BlogFilterNav from '../../components/BlogFilterNav.astro';
+import { formatDate } from '../../utils/ui';
+import { CHALK, MARKS } from '../../data/scribbles';
+import PosterHero from '../../components/PosterHero.astro';
+import PostFinder from '../../components/PostFinder.astro';
 import { getCategoryCounts } from '../../utils/categories';
 import { getFeedPosts } from '../../utils/posts';
-import popularPosts from '../../data/popular-posts.json';
 
 function getReadingTime(body: string): number {
 	const words = body.trim().split(/\s+/).length;
@@ -24,33 +24,6 @@ const posts = allPosts.filter((p) => p.data.slug !== featuredSlug);
 const blogPosts = allPosts.filter((p) => !p.isNewsletter);
 const categories = getCategoryCounts(blogPosts);
 
-const POSTS_PER_PAGE = 12;
-
-const visitorsByPath = popularPosts.visitorsByPath as Record<string, number>;
-const TOP_POSTS = 10;
-const topPostHrefs = new Set(
-	posts
-		.filter((p) => visitorsByPath[p.href])
-		.sort((a, b) => visitorsByPath[b.href] - visitorsByPath[a.href])
-		.slice(0, TOP_POSTS)
-		.map((p) => p.href),
-);
-
-// Serialize post data for client-side search/sort/pagination
-const postsData = posts.map((p) => ({
-	title: p.data.title,
-	description: p.data.description,
-	slug: p.data.slug,
-	date: p.data.date.toISOString(),
-	categories: p.data.categories || [],
-	readingTime: getReadingTime(p.body || ''),
-	visitors: visitorsByPath[p.href] || 0,
-}));
-
-// The sort switch; the inline script swaps these as the choice changes
-const SORT_ACTIVE = 'sort-btn cursor-pointer rounded-md bg-pink px-3 py-1.5 font-semibold text-ink';
-const SORT_INACTIVE = 'sort-btn cursor-pointer rounded-md px-3 py-1.5 text-paper hover:text-pink';
-
 const firstPostYear = Math.min(...allPosts.map((p) => p.data.date.getUTCFullYear()));
 const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '') : 0;
 ---
@@ -60,14 +33,14 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 	description="Posts about databases, developer tools, smart homes, and the things I build."
 	schemaType="CollectionPage"
 >
-	<div class="relative px-4 pt-10 pb-10 sm:px-7">
+	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
 		<!-- Mirrors the homepage hero: the featured post's picture (its title on a dark
 		strip) beside a pink ticker of the topics and a dark panel whose BLOG fills it.
 		Only the picture is clipped; the marks sit in front. On phones the picture is a
 		16:9 banner with the title under it, so it doesn't fill the screen. -->
-		<header class="relative mb-6 grid gap-4 md:grid-cols-2">
+		<PosterHero title="Blog" wordRatio={1.86} tickerItems={categories.map(({ name }) => name)}>
 			{featuredPost && (
-				<a href={featuredPost.href} class="group relative z-10 block no-underline">
+				<a slot="media" href={featuredPost.href} class="group relative z-10 block no-underline">
 					<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
 						<img
 							src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
@@ -83,12 +56,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 							<span class="mb-1.5 block text-sm text-muted">
 								<span class="font-semibold text-pink">Featured</span>
 								{' · '}
-								{featuredPost.data.date.toLocaleDateString('en-us', {
-									timeZone: 'UTC',
-									year: 'numeric',
-									month: 'short',
-									day: 'numeric',
-								})}
+								{formatDate(featuredPost.data.date)}
 								{featuredReadingTime > 0 && <> · {featuredReadingTime} min read</>}
 							</span>
 							<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
@@ -113,270 +81,19 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					/>
 				</a>
 			)}
-			<div class="relative grid min-w-0 grid-rows-[auto_1fr] gap-4">
-				<Scribble
-					{...MARKS.tally}
-					color={CHALK}
-					duration="9s"
-					delay="0.6s"
-					class="-top-[6%] -right-[3%] z-10 hidden h-[12%] w-[18%] md:block"
-				/>
-				<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink" aria-hidden="true">
-					<div class="ticker-track font-display text-[clamp(52px,6.2vw,96px)] leading-none uppercase">
-						{[...categories, ...categories].map(({ name }) => (
-							<>
-								<span>{name}</span>
-								<span class="-translate-y-[0.15em] text-[0.38em]">●</span>
-							</>
-						))}
-					</div>
-				</div>
-				<div class="relative flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
-					<Scribble
-						{...MARKS.hatch}
-						color="#ff4fd8"
-						duration="8s"
-						delay="3.2s"
-						class="-right-[4%] -bottom-[9%] z-10 h-[16%] w-[22%]"
-					/>
-					<p class="text-[clamp(20px,1.8vw,26px)] font-semibold text-paper">
-						{allPosts.length} posts since {firstPostYear}
-					</p>
-					<div class="@container">
-						<h1 class="relative font-display text-[calc(100cqw/var(--word-ratio))] leading-[0.84] font-normal whitespace-nowrap text-paper uppercase [--word-ratio:1.86]">
-							Blog
-							<Scribble
-								path={HERO_COIL}
-								color="#ff4fd8"
-								duration="9s"
-								delay="0.3s"
-								class="-bottom-[10%] -left-[4%] h-[60%] w-[104%]"
-							/>
-						</h1>
-					</div>
-				</div>
-			</div>
-		</header>
-
-		<!-- One bar for finding posts: search and sort on top, then the categories,
-		which go to their own pages -->
-		<div class="relative mb-8 rounded-xl bg-surface-1 p-5 sm:p-7">
-			<Scribble
-				path={ARROW}
-				color="#ff4fd8"
-				viewBox="0 0 260 140"
-				strokeWidth={7}
-				duration="6s"
-				delay="1.4s"
-				class="-right-[1%] -bottom-[70px] z-10 hidden h-[90px] w-[150px] rotate-[30deg] lg:block"
-			/>
-			<div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-				<div class="relative flex-1">
-					<label for="blog-search" class="sr-only">
-						Search posts
-					</label>
-					<input
-						type="search"
-						id="blog-search"
-						placeholder="Search posts"
-						class="w-full rounded-md border border-surface-4 bg-ink py-3 pr-4 pl-11 text-lg text-paper placeholder-muted outline-hidden transition-colors focus:border-pink"
-					/>
-					<svg
-						class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-						aria-hidden="true"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-						></path>
-					</svg>
-				</div>
-				<div
-					class="flex items-center gap-1 self-start rounded-md border border-surface-4 bg-ink p-1 text-[15px] sm:self-auto"
-					role="group"
-					aria-label="Sort posts"
-				>
-					<button id="sort-newest" class={SORT_ACTIVE} aria-pressed="true" data-sort="newest">
-						Newest
-					</button>
-					<button
-						id="sort-popular"
-						class={SORT_INACTIVE}
-						aria-pressed="false"
-						data-sort="popular"
-						title={`Most visitors over the last 12 months, as of ${popularPosts.updatedAt}`}
-					>
-						Popular
-					</button>
-				</div>
-			</div>
-			<BlogFilterNav
-				label="Blog categories"
-				items={categories}
-				basePath="/blog/category/"
-				allLink
-				class="mt-5 border-t border-surface-4 pt-5"
-			/>
-		</div>
-
-		<!-- Post count display (updates with search) -->
-		<p id="results-count" class="mb-4 text-sm text-muted" aria-live="polite"></p>
-
-		<!-- No results message -->
-		<div id="no-results" class="hidden py-12">
-			<p class="font-display text-[clamp(32px,4vw,56px)] leading-none text-paper uppercase">
-				No posts found matching your search.
+			<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
+				{allPosts.length} posts since {firstPostYear}
 			</p>
-		</div>
+		</PosterHero>
 
-		<ul id="posts-grid" class="flex flex-col">
-			{posts.map((post, i) => (
-				<BlogCard
-					title={post.data.title}
-					description={post.data.description}
-					date={post.data.date}
-					slug={post.data.slug}
-					heroImage={post.data.heroImage}
-					categories={post.data.categories}
-					writtenFor={post.data.writtenFor}
-					readingTime={getReadingTime(post.body || '')}
-					href={post.href}
-					popular={topPostHrefs.has(post.href)}
-					markIndex={i % 5 === 2 ? Math.floor(i / 5) : undefined}
-				/>
-			))}
-		</ul>
-
-		<!-- Infinite scroll sentinel -->
-		<div id="load-more-sentinel" class="mt-8 h-4"></div>
+		<PostFinder
+			posts={posts}
+			filter={{
+				label: 'Blog categories',
+				items: categories,
+				basePath: '/blog/category/',
+				allLink: true,
+			}}
+		/>
 	</div>
-
-	<script is:inline define:vars={{ postsData, POSTS_PER_PAGE, SORT_ACTIVE, SORT_INACTIVE }}>
-		(function () {
-			const grid = document.getElementById('posts-grid');
-			const cards = Array.from(grid.children);
-			const searchInput = document.getElementById('blog-search');
-			const sentinel = document.getElementById('load-more-sentinel');
-			const noResults = document.getElementById('no-results');
-			const resultsCount = document.getElementById('results-count');
-			const sortBtns = document.querySelectorAll('.sort-btn');
-
-			let currentSort = 'newest';
-			let searchQuery = '';
-			let visibleCount = POSTS_PER_PAGE;
-
-			// Map cards to their data
-			const cardData = cards.map((card, i) => ({
-				el: card,
-				data: postsData[i],
-			}));
-
-			function getFiltered() {
-				const q = searchQuery.toLowerCase();
-				let filtered = cardData;
-				if (q) {
-					filtered = cardData.filter(
-						({ data }) =>
-							data.title.toLowerCase().includes(q) ||
-							data.description.toLowerCase().includes(q) ||
-							data.categories.some((c) => c.toLowerCase().includes(q)),
-					);
-				}
-				// Sort
-				filtered.sort((a, b) => {
-					const da = new Date(a.data.date).getTime();
-					const db = new Date(b.data.date).getTime();
-					if (currentSort === 'popular') return b.data.visitors - a.data.visitors || db - da;
-					return db - da;
-				});
-				return filtered;
-			}
-
-			function render() {
-				const filtered = getFiltered();
-				const total = filtered.length;
-				const showing = Math.min(visibleCount, total);
-
-				// Hide all cards first
-				cardData.forEach(({ el }) => {
-					el.style.display = 'none';
-					el.style.order = '';
-				});
-
-				// Show filtered cards up to visibleCount
-				filtered.forEach(({ el }, i) => {
-					el.style.display = i < showing ? '' : 'none';
-					el.style.order = String(i);
-				});
-
-				// Results count
-				if (searchQuery) {
-					resultsCount.textContent = `${total} post${total !== 1 ? 's' : ''} found`;
-					resultsCount.classList.remove('hidden');
-				} else {
-					resultsCount.classList.add('hidden');
-				}
-
-				// No results
-				noResults.classList.toggle('hidden', total > 0);
-				grid.classList.toggle('hidden', total === 0);
-
-				// Hide sentinel when all posts visible or searching
-				sentinel.classList.toggle('hidden', showing >= total || searchQuery !== '');
-			}
-
-			// Search
-			let searchTimeout;
-			searchInput.addEventListener('input', (e) => {
-				searchQuery = e.target.value;
-				visibleCount = POSTS_PER_PAGE;
-				render();
-				// Debounced tracking - only track after user stops typing
-				clearTimeout(searchTimeout);
-				if (searchQuery.trim()) {
-					searchTimeout = setTimeout(() => {
-						if (typeof window.plausible === 'function') {
-							window.plausible('Blog Search', { props: { query: searchQuery.trim() } });
-						}
-					}, 1000);
-				}
-			});
-
-			// Sort
-			sortBtns.forEach((btn) => {
-				btn.addEventListener('click', () => {
-					currentSort = btn.dataset.sort;
-					if (typeof window.plausible === 'function') {
-						window.plausible('Blog Sort', { props: { sort: currentSort } });
-					}
-					sortBtns.forEach((b) => {
-						const isActive = b === btn;
-						b.className = isActive ? SORT_ACTIVE : SORT_INACTIVE;
-						b.setAttribute('aria-pressed', String(isActive));
-					});
-					render();
-				});
-			});
-
-			// Infinite scroll
-			const observer = new IntersectionObserver(
-				(entries) => {
-					if (entries[0].isIntersecting) {
-						visibleCount += POSTS_PER_PAGE;
-						render();
-					}
-				},
-				{ rootMargin: '200px' },
-			);
-			observer.observe(sentinel);
-
-			// Initial render - hide posts beyond first page
-			render();
-		})();
-	</script>
 </BaseLayout>

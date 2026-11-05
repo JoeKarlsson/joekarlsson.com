@@ -1,4 +1,5 @@
 ---
+import { formatDate } from '../utils/ui';
 // Recently shipped repos, watched films and podcast episodes, from the snapshot
 // that scripts/update-now-feed.mjs writes on every deploy.
 import nowFeed from '../data/now-feed.json';
@@ -24,12 +25,7 @@ function ratingStars(rating: number) {
 	return '★'.repeat(Math.floor(rating)) + (rating % 1 ? '½' : '');
 }
 
-const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString('en-US', {
-	month: 'short',
-	day: 'numeric',
-	year: 'numeric',
-	timeZone: 'UTC',
-});
+const formattedUpdatedAt = formatDate(new Date(`${updatedAt}T00:00:00Z`));
 ---
 
 <div class="mt-6">

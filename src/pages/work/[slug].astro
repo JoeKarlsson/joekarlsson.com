@@ -1,6 +1,8 @@
 ---
+import { PRIMARY_BUTTON } from '../../utils/ui';
 import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BackLink from '../../components/BackLink.astro';
 import Scribble from '../../components/Scribble.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
@@ -31,9 +33,7 @@ const clipClass = square
 	: 'block aspect-video w-full rounded-lg bg-ink object-cover';
 
 // The live version gets the button when there is one; GitHub falls back to a link
-const PRIMARY_BUTTON =
-	'inline-block rounded-md bg-pink px-[18px] py-3 font-semibold text-ink no-underline hover:bg-white';
-const SECONDARY_LINK = 'font-semibold text-pink underline underline-offset-4 hover:text-white';
+const SECONDARY_LINK = 'font-semibold text-pink underline underline-offset-4 hover:text-paper';
 const SECTION_HEADING =
 	'mb-5 font-display text-[clamp(1.9rem,1.4rem+1.9vw,2.9rem)] leading-none font-normal text-paper uppercase';
 
@@ -75,11 +75,7 @@ const inline = (text: string) =>
 			)}
 
 			<article class="min-w-0">
-				<nav class="mb-4 text-[15px]" aria-label="Breadcrumb">
-					<a href="/work/" class="text-muted no-underline hover:text-pink">
-						&larr; All projects
-					</a>
-				</nav>
+				<BackLink href="/work/" label="Projects" />
 
 				{/* Muted loops play while on screen (in-view-play) and stop with the pause-motion
 		button, which covers WCAG 2.2.2; no player controls, as the pink canvas covers them */}
@@ -178,7 +174,7 @@ const inline = (text: string) =>
 							playsinline
 							preload="none"
 							aria-label={page.tour.alt}
-							class="mx-auto block w-full rounded-lg bg-black object-contain"
+							class="mx-auto block w-full rounded-lg bg-ink object-contain"
 							style="aspect-ratio: 9 / 16; max-width: 18rem"
 						>
 							<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
@@ -367,7 +363,7 @@ const inline = (text: string) =>
 					class="mb-6"
 				/>
 
-				<a href="/work/" class="font-semibold text-pink no-underline hover:text-white">
+				<a href="/work/" class="font-semibold text-pink no-underline hover:text-paper">
 					&larr; All projects
 				</a>
 			</article>

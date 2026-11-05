@@ -1,5 +1,7 @@
 ---
+import { SECTION_HEADING, PRIMARY_BUTTON, SECONDARY_BUTTON, MORE_LINK } from '../utils/ui';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import KeepExploring from '../components/KeepExploring.astro';
 import NowFeed from '../components/NowFeed.astro';
 import Scribble from '../components/Scribble.astro';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
@@ -8,8 +10,6 @@ import { SOCIAL_LINKS } from '../consts';
 import nowFeed from '../data/now-feed.json';
 import { CHALK, HERO_COIL, MARKS } from '../data/scribbles';
 
-const SECTION_HEADING =
-	'relative mb-6 w-fit scroll-mt-24 font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
 const CARD_TITLE =
 	'font-display text-[clamp(24px,2vw,30px)] leading-none font-normal text-paper uppercase';
 
@@ -216,7 +216,7 @@ const cropArtPieces = [
 					<div class="flex flex-wrap gap-3">
 						<a
 							href="/resume/"
-							class="plausible-event-name=About+CTA+Click plausible-event-destination=resume inline-block rounded-md bg-pink px-[18px] py-3 font-semibold text-ink no-underline hover:bg-white"
+							class={`plausible-event-name=About+CTA+Click plausible-event-destination=resume ${PRIMARY_BUTTON}`}
 						>
 							View Resume
 						</a>
@@ -224,7 +224,7 @@ const cropArtPieces = [
 							href="/joe-karlsson-resume.pdf"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="plausible-event-name=About+CTA+Click plausible-event-destination=pdf-download inline-block rounded-md border-2 border-pink px-4 py-2.5 font-semibold text-pink no-underline hover:border-white hover:text-white"
+							class={`plausible-event-name=About+CTA+Click plausible-event-destination=pdf-download ${SECONDARY_BUTTON}`}
 						>
 							Download PDF
 						</a>
@@ -279,7 +279,7 @@ const cropArtPieces = [
 					</ul>
 				</div>
 
-				<h2 id="career" class={SECTION_HEADING}>
+				<h2 id="career" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Career
 					<Scribble
 						{...MARKS.underline}
@@ -303,14 +303,14 @@ const cropArtPieces = [
 				<p class="mb-12">
 					<a
 						href="/resume/"
-						class="plausible-event-name=About+CTA+Click plausible-event-destination=resume-banner-top font-semibold text-pink no-underline hover:text-white"
+						class="plausible-event-name=About+CTA+Click plausible-event-destination=resume-banner-top font-semibold text-pink no-underline hover:text-paper"
 					>
 						View my full resume &rarr;
 					</a>{' '}
 					<span class="text-muted">Impact metrics, tech stack, and PDF download.</span>
 				</p>
 
-				<h2 id="specializations" class={SECTION_HEADING}>
+				<h2 id="specializations" class={`${SECTION_HEADING} scroll-mt-24`}>
 					What I work on
 					<Scribble
 						{...MARKS.rays}
@@ -342,7 +342,7 @@ const cropArtPieces = [
 					</div>
 				</div>
 
-				<h2 id="recognition" class={SECTION_HEADING}>
+				<h2 id="recognition" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Recognition
 					<Scribble
 						{...MARKS.asterisk}
@@ -419,7 +419,7 @@ const cropArtPieces = [
 					</li>
 				</ul>
 
-				<h2 id="as-seen-on" class={SECTION_HEADING}>
+				<h2 id="as-seen-on" class={`${SECTION_HEADING} scroll-mt-24`}>
 					As seen on
 					<Scribble
 						{...MARKS.double}
@@ -479,7 +479,7 @@ const cropArtPieces = [
 					))}
 				</ul>
 
-				<h2 id="videos" class={SECTION_HEADING}>
+				<h2 id="videos" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Videos
 					<Scribble
 						{...MARKS.underline}
@@ -550,14 +550,14 @@ const cropArtPieces = [
 							href={SOCIAL_LINKS.youtube}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="font-semibold text-pink no-underline hover:text-white"
+							class={MORE_LINK}
 						>
 							See all talks on YouTube &rarr;
 						</a>
 					</p>
 				</div>
 
-				<h2 id="interests" class={SECTION_HEADING}>
+				<h2 id="interests" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Outside of work
 					<Scribble
 						{...MARKS.rays}
@@ -675,7 +675,7 @@ const cropArtPieces = [
 					</a>
 				</div>
 
-				<h2 id="now" class={SECTION_HEADING}>
+				<h2 id="now" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Right now
 					<Scribble
 						{...MARKS.asterisk}
@@ -689,7 +689,7 @@ const cropArtPieces = [
 					<NowFeed />
 				</div>
 
-				<h2 id="crop-art" class={SECTION_HEADING}>
+				<h2 id="crop-art" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Crop art
 					<Scribble
 						{...MARKS.underline}
@@ -732,58 +732,19 @@ const cropArtPieces = [
 						))}
 					</ul>
 					<p class="mt-4">
-						<a
-							href={cropArtUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="font-semibold text-pink no-underline hover:text-white"
-						>
+						<a href={cropArtUrl} target="_blank" rel="noopener noreferrer" class={MORE_LINK}>
 							See all crop art &rarr;
 						</a>
 					</p>
 				</div>
 
-				<h2 class={SECTION_HEADING}>
-					Keep exploring
-					<Scribble
-						{...MARKS.double}
-						color={CHALK}
-						duration="8s"
-						delay="0.6s"
-						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
-					/>
-				</h2>
-				<ul class="mb-12 space-y-2">
-					<li>
-						<a href="/resume/" class="font-semibold text-pink no-underline hover:text-white">
-							Resume
-						</a>
-					</li>
-					<li>
-						<a href="/work/" class="font-semibold text-pink no-underline hover:text-white">
-							Projects
-						</a>
-					</li>
-					<li>
-						<a href="/newsletter/" class="font-semibold text-pink no-underline hover:text-white">
-							Newsletter
-						</a>{' '}
-						<span class="text-muted">
-							Works on My Machine: tech writing, AI, homelab and open source.
-						</span>
-					</li>
-					<li>
-						<a href="/uses/" class="font-semibold text-pink no-underline hover:text-white">
-							Uses
-						</a>
-					</li>
-				</ul>
+				<KeepExploring />
 
 				<p class="mb-10 text-paper">
 					Want to work together, book me for a talk, or just say hi?{' '}
 					<a
 						href="/contact/"
-						class="plausible-event-name=About+CTA+Click plausible-event-destination=contact font-semibold text-pink no-underline hover:text-white"
+						class="plausible-event-name=About+CTA+Click plausible-event-destination=contact font-semibold text-pink no-underline hover:text-paper"
 					>
 						Get in touch &rarr;
 					</a>

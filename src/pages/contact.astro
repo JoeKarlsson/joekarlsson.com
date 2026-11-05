@@ -4,6 +4,8 @@ import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SOCIAL_LINKS } from '../consts';
 import { CHALK, MARKS } from '../data/scribbles';
+import PosterHero from '../components/PosterHero.astro';
+import { PRIMARY_BUTTON, SECONDARY_BUTTON, SECTION_HEADING } from '../utils/ui';
 
 // Each link reports its platform to Plausible as a "Contact Social Click" event
 const track = (platform: string) =>
@@ -36,9 +38,6 @@ const SECTIONS = [
 		],
 	},
 ];
-
-const SECTION_HEADING =
-	'relative mb-[18px] w-fit font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
 ---
 
 <BaseLayout
@@ -47,28 +46,15 @@ const SECTION_HEADING =
 	schemaType="ContactPage"
 >
 	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
-		<!-- Like the other page heroes: CONTACT filling the pink panel and the best two ways
-		to reach me in the dark one, stacked on the left, beside the halftone clip of Joe
-		waving hello (the About page's clip). On phones the clip sits between the panels.
-		Pink dots are drawn live (src/scripts/halftone.ts); in-view-play stops it with
-		pause-motion and reduced motion. -->
-		<header class="relative mb-16 grid gap-4 md:grid-cols-2 md:grid-rows-[auto_1fr]">
-			<div class="relative flex flex-col justify-end rounded-xl bg-pink px-7 pt-6 pb-5 text-ink md:col-start-1">
-				<div class="@container">
-					<h1 class="font-display text-[calc(100cqw/var(--word-ratio))] leading-[0.84] font-normal whitespace-nowrap text-ink uppercase [--word-ratio:3.2]">
-						Contact
-					</h1>
-				</div>
-				<Scribble
-					{...MARKS.burst}
-					color={CHALK}
-					strokeWidth={6}
-					duration="8s"
-					delay="1.6s"
-					class="-top-[16%] -left-[5%] z-10 size-[26%]"
-				/>
-			</div>
-			<div class="relative z-10 aspect-[4/3] md:col-start-2 md:row-span-2 md:row-start-1 md:aspect-auto md:min-h-[420px]">
+		<!-- The halftone clip of Joe waving hello (the About page's clip) beside every
+		platform in the ticker and the best two ways to reach me. Pink dots are drawn live
+		(src/scripts/halftone.ts); in-view-play stops it with pause-motion and reduced motion. -->
+		<PosterHero
+			title="Contact"
+			wordRatio={3.2}
+			tickerItems={[...BEST, ...SECTIONS.flatMap(({ links }) => links)].map(({ label }) => label)}
+		>
+			<div slot="media" class="relative z-10 aspect-[4/3] md:aspect-auto md:min-h-[420px]">
 				<video
 					src="/images/about/joe-hello.mp4"
 					data-halftone-poster="/images/about/joe-hello-poster.webp"
@@ -83,49 +69,40 @@ const SECTION_HEADING =
 					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-[50%_8%] md:object-center"
 				></video>
 				<Scribble
+					{...MARKS.burst}
+					color={CHALK}
+					strokeWidth={6}
+					duration="8s"
+					delay="1.6s"
+					class="-top-[7%] -left-[5%] z-10 size-[20%]"
+				/>
+				<Scribble
 					{...MARKS.lines}
 					color={CHALK}
 					duration="11s"
 					delay="1s"
-					class="-right-[6%] -bottom-[7%] h-[14%] w-[70%]"
+					class="-bottom-[7%] -left-[4%] z-10 h-[14%] w-[70%]"
 				/>
 			</div>
-			<div class="relative flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7 md:col-start-1">
-				<Scribble
-					{...MARKS.tally}
-					color={CHALK}
-					duration="9s"
-					delay="0.6s"
-					class="-top-[12%] -right-[3%] z-10 hidden h-[24%] w-[18%] md:block"
-				/>
-				<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
-					Want to talk homelabs, databases, or weird IoT projects, or book me for a speaking gig?
-					Pick a platform below.
-				</p>
-				<div>
-					<p class="mb-3 text-sm text-muted">Best ways to reach me</p>
-					<div class="flex flex-wrap gap-3">
-						{BEST.map(({ label, meta, href }, i) => (
-							<a
-								href={href}
-								target="_blank"
-								rel="noopener noreferrer"
-								title={meta}
-								class:list={[
-									track(label),
-									'inline-block rounded-md px-[18px] py-3 font-semibold no-underline',
-									i === 0
-										? 'bg-pink text-ink hover:bg-white'
-										: 'border-2 border-pink px-4 py-2.5 text-pink hover:border-white hover:text-white',
-								]}
-							>
-								{label}
-							</a>
-						))}
-					</div>
-				</div>
+			<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
+				Want to talk homelabs, databases, or weird IoT projects, or book me for a speaking gig? Pick
+				a platform below.
+			</p>
+			<p class="mt-5 mb-3 text-sm text-muted">Best ways to reach me</p>
+			<div class="flex flex-wrap gap-3">
+				{BEST.map(({ label, meta, href }, i) => (
+					<a
+						href={href}
+						target="_blank"
+						rel="noopener noreferrer"
+						title={meta}
+						class:list={[track(label), i === 0 ? PRIMARY_BUTTON : SECONDARY_BUTTON]}
+					>
+						{label}
+					</a>
+				))}
 			</div>
-		</header>
+		</PosterHero>
 
 		{SECTIONS.map(({ heading, links }, s) => (
 			<section class="relative mb-16">

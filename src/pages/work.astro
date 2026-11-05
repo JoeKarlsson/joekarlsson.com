@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import KeepExploring from '../components/KeepExploring.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects, CATEGORY_META } from '../data/projects';
 import Scribble from '../components/Scribble.astro';
+import PosterHero from '../components/PosterHero.astro';
+import { FILTER_ACTIVE, FILTER_INACTIVE, FILTER_ROW, MORE_LINK } from '../utils/ui';
 import { SOCIAL_LINKS } from '../consts';
 import { CHALK, MARKS } from '../data/scribbles';
 import { cardClip } from '../utils/halftone';
@@ -32,127 +35,90 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 	description="Joe Karlsson's projects, demos, open source work, and portfolio."
 	schemaType="CollectionPage"
 >
-	<div class="relative px-4 pt-10 pb-10 sm:px-7">
-		<header class="relative mb-12">
-			<h1 class="relative inline-block font-display text-[clamp(64px,13vw,200px)] leading-[0.86] font-normal text-paper uppercase">
-				Projects
-				<Scribble
-					{...MARKS.underline}
-					color="#ff4fd8"
-					strokeWidth={10}
-					duration="8s"
-					delay="0.4s"
-					class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
-				/>
-			</h1>
-			<p class="mt-6 max-w-[52ch] font-serif text-[clamp(18px,1.6vw,22px)] text-paper">
+	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+		<!-- Built like the blog's hero: the featured project's clip (its title on a dark
+		strip) beside a pink ticker of the project categories and a dark panel whose
+		PROJECTS fills it. On phones the clip is a 16:9 banner with the title under it. -->
+		<PosterHero
+			title="Projects"
+			wordRatio={3.65}
+			tickerItems={categoryFilters.map(({ label }) => label)}
+		>
+			{featuredProject && (
+				<a
+					slot="media"
+					href={featuredUrl}
+					target={featuredExternal ? '_blank' : undefined}
+					rel={featuredExternal ? 'noopener noreferrer' : undefined}
+					class="plausible-event-name=Featured+Project+Click group relative z-10 block no-underline"
+				>
+					<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
+						{featuredProject.video ? (
+							<video
+								src={cardClip(featuredProject.video)}
+								data-halftone-poster={featuredProject.image}
+								loop
+								muted
+								playsinline
+								preload="none"
+								role="img"
+								aria-label={featuredProject.imageAlt}
+								data-autoplay-in-view
+								data-halftone="flat"
+								class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
+							/>
+						) : (
+							<img
+								src={featuredProject.image}
+								alt={featuredProject.imageAlt}
+								data-halftone="flat"
+								width="1120"
+								height="630"
+								class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
+								loading="eager"
+							/>
+						)}
+						<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
+							<span class="mb-1.5 block text-sm text-muted">
+								<span class="font-semibold text-pink">Featured</span>
+								{' · '}
+								{featuredProject.tech.join(' · ')}
+							</span>
+							<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+								{featuredProject.title}
+							</span>
+						</span>
+					</span>
+					<Scribble
+						{...MARKS.burst}
+						color={CHALK}
+						strokeWidth={6}
+						duration="8s"
+						delay="1.6s"
+						class="-top-[7%] -left-[7%] z-10 size-[22%]"
+					/>
+					<Scribble
+						{...MARKS.lines}
+						color={CHALK}
+						duration="11s"
+						delay="1s"
+						class="-bottom-[7%] -left-[6%] z-10 h-[12%] w-[70%]"
+					/>
+				</a>
+			)}
+			<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
 				Software, hardware, and IoT projects I've built over the years.
 			</p>
-			<Scribble
-				{...MARKS.tally}
-				color={CHALK}
-				duration="9s"
-				delay="1.2s"
-				class="top-[4%] right-[6%] hidden h-[120px] w-[150px] md:block"
-			/>
-		</header>
-
-		{/* Featured Project */}
-		{featuredProject && (
-			<a
-				href={featuredUrl}
-				target={featuredExternal ? '_blank' : undefined}
-				rel={featuredExternal ? 'noopener noreferrer' : undefined}
-				class="plausible-event-name=Featured+Project+Click group relative mb-20 grid items-center gap-x-10 gap-y-6 no-underline md:grid-cols-2"
-			>
-				<span class="relative block">
-					<Scribble
-						{...MARKS.box}
-						color={CHALK}
-						duration="10s"
-						delay="0.8s"
-						class="-inset-[6%] z-10 h-[112%] w-[112%]"
-					/>
-					{featuredProject.video ? (
-						<video
-							src={cardClip(featuredProject.video)}
-							data-halftone-poster={featuredProject.image}
-							loop
-							muted
-							playsinline
-							preload="none"
-							role="img"
-							aria-label={featuredProject.imageAlt}
-							data-autoplay-in-view
-							data-halftone="flat"
-							class="block aspect-video w-full rounded-xl object-cover"
-						/>
-					) : (
-						<img
-							src={featuredProject.image}
-							alt={featuredProject.imageAlt}
-							data-halftone="flat"
-							width="1120"
-							height="630"
-							class="block aspect-video w-full rounded-xl object-cover"
-							loading="eager"
-						/>
-					)}
-				</span>
-				<span class="block">
-					<span class="mb-3 block text-sm text-muted">
-						{[
-							featuredProject.tech.join(' · '),
-							featuredProject.stars && `${featuredProject.stars} stars on GitHub`,
-						]
-							.filter(Boolean)
-							.join(' · ')}
-					</span>
-					<h2 class="mb-4 font-display text-[clamp(44px,5.4vw,84px)] leading-[0.92] font-normal text-paper uppercase group-hover:text-pink">
-						{featuredProject.title}
-					</h2>
-					<span class="block max-w-[52ch] text-muted">{featuredProject.description}</span>
-					<span class="mt-4 flex items-center gap-4 text-sm text-pink">
-						{featuredProject.sourceUrl && (
-							<span class="flex items-center gap-1">
-								<svg aria-hidden="true" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-								</svg>
-								Source
-							</span>
-						)}
-						{featuredProject.blogUrl && (
-							<span class="flex items-center gap-1">
-								<svg
-									aria-hidden="true"
-									class="h-3.5 w-3.5"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-									/>
-								</svg>
-								Blog Post
-							</span>
-						)}
-					</span>
-				</span>
-			</a>
-		)}
+		</PosterHero>
 
 		<div
-			class="mb-12 flex flex-wrap gap-x-5 gap-y-2 rounded-xl bg-surface-1 p-5 sm:p-7 text-[15px]"
+			class={`mb-12 rounded-xl bg-surface-1 p-5 sm:p-7 ${FILTER_ROW}`}
 			role="group"
 			aria-label="Filter projects by category"
 		>
 			<button
 				type="button"
-				class="project-filter cursor-pointer text-pink underline underline-offset-4"
+				class={`project-filter ${FILTER_ACTIVE}`}
 				data-filter="all"
 				aria-pressed="true"
 			>
@@ -161,7 +127,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 			{categoryFilters.map((c) => (
 				<button
 					type="button"
-					class="project-filter cursor-pointer text-paper no-underline hover:text-pink"
+					class={`project-filter ${FILTER_INACTIVE}`}
 					data-filter={c.key}
 					aria-pressed="false"
 				>
@@ -179,64 +145,45 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 		</div>
 
 		<p class="mb-16">
-			<a
-				href={SOCIAL_LINKS.github}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="font-semibold text-pink no-underline hover:text-white"
-			>
+			<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class={MORE_LINK}>
 				View all repos on GitHub →
 			</a>
 		</p>
 
-		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase">
-			Keep exploring
-		</h2>
-		<ul class="flex flex-wrap gap-x-8 gap-y-2 text-lg">
-			<li>
-				<a href="/blog/" class="text-paper hover:text-pink">
-					Blog
-				</a>
-			</li>
-			<li>
-				<a href="/about/" class="text-paper hover:text-pink">
-					About me
-				</a>
-			</li>
-			<li>
-				<a href="/resume/" class="text-paper hover:text-pink">
-					Resume
-				</a>
-			</li>
-			<li>
-				<a href="/talk-archive/" class="text-paper hover:text-pink">
-					Talk archive
-				</a>
-			</li>
-		</ul>
+		<KeepExploring />
 	</div>
 
 	<script>
-		// Must match the server-rendered classes on .project-filter above
-		const ACTIVE_FILTER_CLASSES = 'cursor-pointer text-pink underline underline-offset-4';
-		const INACTIVE_FILTER_CLASSES = 'cursor-pointer text-paper no-underline hover:text-pink';
+		import { FILTER_ACTIVE, FILTER_INACTIVE } from '../utils/ui';
+
+		// The chosen category lives in the URL hash (/work/#hardware), so a filtered view
+		// can be linked to and survives a reload
 		const filterButtons = document.querySelectorAll<HTMLButtonElement>('.project-filter');
 		const projectCells = document.querySelectorAll<HTMLElement>('#projects-grid > [data-category]');
+
+		function showCategory(filter: string) {
+			filterButtons.forEach((b) => {
+				const isActive = b.dataset.filter === filter;
+				b.setAttribute('aria-pressed', String(isActive));
+				b.className = `project-filter ${isActive ? FILTER_ACTIVE : FILTER_INACTIVE}`;
+			});
+			projectCells.forEach((cell) => {
+				cell.hidden = filter !== 'all' && cell.dataset.category !== filter;
+			});
+		}
+
 		filterButtons.forEach((button) => {
 			button.addEventListener('click', () => {
-				const filter = button.dataset.filter;
-				filterButtons.forEach((b) => {
-					const isActive = b === button;
-					b.setAttribute('aria-pressed', String(isActive));
-					b.className = `project-filter ${isActive ? ACTIVE_FILTER_CLASSES : INACTIVE_FILTER_CLASSES}`;
-				});
-				projectCells.forEach((cell) => {
-					cell.hidden = filter !== 'all' && cell.dataset.category !== filter;
-				});
+				const filter = button.dataset.filter || 'all';
+				showCategory(filter);
+				history.replaceState(null, '', filter === 'all' ? location.pathname : `#${filter}`);
 				if (typeof window.plausible === 'function') {
-					window.plausible('Project Filter', { props: { category: filter || 'all' } });
+					window.plausible('Project Filter', { props: { category: filter } });
 				}
 			});
 		});
+
+		const fromHash = location.hash.slice(1);
+		if ([...filterButtons].some((b) => b.dataset.filter === fromHash)) showCategory(fromHash);
 	</script>
 </BaseLayout>

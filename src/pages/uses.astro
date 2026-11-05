@@ -1,12 +1,12 @@
 ---
+import { SECTION_HEADING } from '../utils/ui';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import nowFeed from '../data/now-feed.json';
 import Scribble from '../components/Scribble.astro';
 import TableOfContents from '../components/TableOfContents.astro';
-import { CHALK, HERO_COIL, MARKS } from '../data/scribbles';
+import { CHALK, MARKS } from '../data/scribbles';
+import PosterHero from '../components/PosterHero.astro';
 
-const SECTION_HEADING =
-	'relative mb-6 w-fit font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
 const SUBHEADING =
 	'mb-4 font-display text-[clamp(24px,2vw,30px)] leading-none font-normal text-paper uppercase';
 
@@ -29,8 +29,8 @@ const usesHeadings = [
 	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
 		<!-- Built like the homepage, About and blog heroes: the desk in pink dots beside a
 		pink ticker of the sections and a dark panel whose USES fills it -->
-		<header class="relative mb-14 grid gap-4 md:grid-cols-2">
-			<div class="relative z-10 aspect-video md:aspect-auto">
+		<PosterHero title="Uses" wordRatio={1.86} tickerItems={usesHeadings.map(({ text }) => text)}>
+			<div slot="media" class="relative z-10 aspect-video md:aspect-auto">
 				<img
 					src="/images/uses/desk-2026.webp"
 					alt="Joe Karlsson's standing desk with two monitors, a laptop on a stand, a mic on a boom arm, a key light above the monitors, and warm LED backlighting"
@@ -56,49 +56,14 @@ const usesHeadings = [
 					class="-bottom-[9%] -left-[4%] z-10 h-[14%] w-[70%]"
 				/>
 			</div>
-			<div class="relative grid min-w-0 grid-rows-[auto_1fr] gap-4">
-				<Scribble
-					{...MARKS.tally}
-					color={CHALK}
-					duration="9s"
-					delay="0.6s"
-					class="-top-[6%] -right-[3%] z-10 hidden h-[12%] w-[18%] md:block"
-				/>
-				<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink" aria-hidden="true">
-					<div class="ticker-track font-display text-[clamp(52px,6.2vw,96px)] leading-none uppercase">
-						{[...usesHeadings, ...usesHeadings].map(({ text }) => (
-							<>
-								<span>{text}</span>
-								<span class="-translate-y-[0.15em] text-[0.38em]">●</span>
-							</>
-						))}
-					</div>
-				</div>
-				<div class="relative flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
-					<div>
-						<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
-							Hardware, software, and gear I use daily for development, content creation, and
-							running my homelab.
-						</p>
-						<p class="mt-2 text-sm text-muted">
-							I update this page as my setup changes, most recently in September 2026.
-						</p>
-					</div>
-					<div class="@container">
-						<h1 class="relative font-display text-[calc(100cqw/var(--word-ratio))] leading-[0.84] font-normal whitespace-nowrap text-paper uppercase [--word-ratio:1.86]">
-							Uses
-							<Scribble
-								path={HERO_COIL}
-								color="#ff4fd8"
-								duration="9s"
-								delay="0.3s"
-								class="-bottom-[10%] -left-[4%] h-[60%] w-[104%]"
-							/>
-						</h1>
-					</div>
-				</div>
-			</div>
-		</header>
+			<p class="text-[clamp(18px,1.5vw,22px)] text-paper">
+				Hardware, software, and gear I use daily for development, content creation, and running my
+				homelab.
+			</p>
+			<p class="mt-2 text-sm text-muted">
+				I update this page as my setup changes, most recently in September 2026.
+			</p>
+		</PosterHero>
 
 		<!-- Grid: TOC sidebar + sections -->
 		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">

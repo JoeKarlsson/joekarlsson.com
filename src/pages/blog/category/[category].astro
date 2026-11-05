@@ -1,17 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
-import BlogCard from '../../../components/BlogCard.astro';
-import BlogFilterNav from '../../../components/BlogFilterNav.astro';
+import BackLink from '../../../components/BackLink.astro';
+import PostFinder from '../../../components/PostFinder.astro';
 import Scribble from '../../../components/Scribble.astro';
 import { MARKS } from '../../../data/scribbles';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { categorySlug, getCategoryCounts } from '../../../utils/categories';
 import { getFeedPosts } from '../../../utils/posts';
-
-function getReadingTime(body: string): number {
-	const words = body.trim().split(/\s+/).length;
-	return Math.max(1, Math.ceil(words / 250));
-}
+import { MORE_LINK } from '../../../utils/ui';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -40,9 +36,13 @@ const { category, posts } = Astro.props;
 // Get all categories for the filter bar
 const allBlogPosts = await getCollection('blog');
 const categories = getCategoryCounts(allBlogPosts);
+const feedPosts = await getFeedPosts();
 // Same count as the blog index header, which also lists newsletter posts
-const allPostCount = (await getFeedPosts()).length;
+const allPostCount = feedPosts.length;
 const currentSlug = categorySlug(category);
+const categoryPosts = feedPosts.filter(
+	(p) => !p.isNewsletter && p.data.categories.includes(category),
+);
 ---
 
 <BaseLayout
@@ -50,13 +50,9 @@ const currentSlug = categorySlug(category);
 	description={`Browse ${posts.length} posts about ${category.toLowerCase()} by Joe Karlsson - developer marketing engineer.`}
 	schemaType="CollectionPage"
 >
-	<div class="relative px-4 pt-10 pb-10 sm:px-7">
+	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
 		<header class="relative mb-10">
-			<p class="mb-3 text-[15px]">
-				<a href="/blog/" class="text-muted no-underline hover:text-pink">
-					← Blog
-				</a>
-			</p>
+			<BackLink href="/blog/" label="Blog" />
 			<h1 class="relative inline-block font-display text-[clamp(56px,11vw,170px)] leading-[0.88] font-normal text-paper uppercase">
 				{category}
 				<Scribble
@@ -71,31 +67,18 @@ const currentSlug = categorySlug(category);
 			<p class="mt-6 text-muted">{posts.length} posts</p>
 		</header>
 
-		<BlogFilterNav
-			label="Blog categories"
-			items={categories}
-			basePath="/blog/category/"
-			currentSlug={currentSlug}
-			allLink
-			class="mb-12 rounded-xl bg-surface-1 p-5 sm:p-7"
+		<PostFinder
+			posts={categoryPosts}
+			filter={{
+				label: 'Blog categories',
+				items: categories,
+				basePath: '/blog/category/',
+				currentSlug,
+				allLink: true,
+			}}
 		/>
-
-		<ul class="relative">
-			{posts.map((post) => (
-				<BlogCard
-					title={post.data.title}
-					description={post.data.description}
-					date={post.data.date}
-					slug={post.data.slug}
-					heroImage={post.data.heroImage}
-					categories={post.data.categories}
-					writtenFor={post.data.writtenFor}
-					readingTime={getReadingTime(post.body || '')}
-				/>
-			))}
-		</ul>
 		<p class="mt-[18px]">
-			<a href="/blog/" class="font-semibold text-pink no-underline hover:text-white">
+			<a href="/blog/" class={MORE_LINK}>
 				All {allPostCount} posts →
 			</a>
 		</p>

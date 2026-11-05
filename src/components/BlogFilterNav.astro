@@ -3,6 +3,7 @@
 // the posts were written for (/blog/written-for/). The current one is pink and
 // underlined. `allLink` adds a leading "All" back to /blog/.
 import type { CategoryCount } from '../utils/categories';
+import { FILTER_ACTIVE, FILTER_INACTIVE, FILTER_ROW } from '../utils/ui';
 
 interface Props {
 	label: string;
@@ -24,16 +25,14 @@ const {
 	heading,
 	class: className,
 } = Astro.props;
-const ACTIVE = 'text-pink underline underline-offset-4';
-const INACTIVE = 'text-paper no-underline hover:text-pink';
 ---
 
-<nav class:list={['flex flex-wrap gap-x-5 gap-y-2 text-[15px]', className]} aria-label={label}>
+<nav class:list={[FILTER_ROW, className]} aria-label={label}>
 	{heading && <span class="text-muted">{heading}</span>}
 	{allLink && (
 		<a
 			href="/blog/"
-			class={currentSlug ? INACTIVE : ACTIVE}
+			class={currentSlug ? FILTER_INACTIVE : FILTER_ACTIVE}
 			aria-current={currentSlug ? undefined : 'page'}
 		>
 			All
@@ -42,7 +41,7 @@ const INACTIVE = 'text-paper no-underline hover:text-pink';
 	{items.map(({ name, slug, count }) => (
 		<a
 			href={`${basePath}${slug}/`}
-			class={slug === currentSlug ? ACTIVE : INACTIVE}
+			class={slug === currentSlug ? FILTER_ACTIVE : FILTER_INACTIVE}
 			aria-current={slug === currentSlug ? 'page' : undefined}
 		>
 			{name} <span class="text-muted">{count}</span>

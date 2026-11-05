@@ -1,0 +1,16 @@
+---
+// The "← Blog" link above a sub-page's title, back to the section it belongs to.
+// The label is the section's name in the main nav.
+interface Props {
+	href: string;
+	label: string;
+}
+
+const { href, label } = Astro.props;
+---
+
+<nav class="mb-3 text-[15px]" aria-label="Breadcrumb">
+	<a href={href} class="text-muted no-underline hover:text-pink">
+		← {label}
+	</a>
+</nav>

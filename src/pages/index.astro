@@ -1,4 +1,5 @@
 ---
+import { formatDate } from '../utils/ui';
 import DrawingBoard from '../components/DrawingBoard.astro';
 import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
@@ -32,13 +33,6 @@ const homeProjects = HOME_PROJECTS.map((title) => {
 	const href = project.page ? `/work/${project.page.slug}/` : project.blogUrl;
 	if (!href) throw new Error(`Homepage project "${title}" has no project page or blog post`);
 	return { title, href, meta: [project.date.slice(0, 4), ...project.tech.slice(0, 2)].join(' · ') };
-});
-
-const dateFormat = new Intl.DateTimeFormat('en-US', {
-	timeZone: 'UTC',
-	month: 'short',
-	day: 'numeric',
-	year: 'numeric',
 });
 
 const TOP_TICKER = ['Joe Karlsson', 'Developer marketing', 'Homelab', 'Databases'];
@@ -150,7 +144,7 @@ const COLLAGE = [
 			</div>
 			<div class="flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
 				<div>
-					<p class="mb-3.5 text-[clamp(26px,2.6vw,40px)] leading-[1.15] font-semibold text-white">
+					<p class="mb-3.5 text-[clamp(26px,2.6vw,40px)] leading-[1.15] font-semibold text-paper">
 						I run developer marketing, from the docs and demos to the talks and videos.
 					</p>
 					<p class="max-w-[32em] text-[clamp(17px,1.4vw,21px)] text-paper">
@@ -233,9 +227,7 @@ const COLLAGE = [
 					</a>
 					<div>
 						<span class="mb-1.5 block text-sm text-muted">
-							<time datetime={post.data.date.toISOString()}>
-								{dateFormat.format(post.data.date)}
-							</time>
+							<time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
 							{post.data.categories[0] && ` · ${post.data.categories[0]}`}
 							{post.data.writtenFor && (
 								<>
@@ -276,7 +268,7 @@ const COLLAGE = [
 			class="top-10 right-[8%] hidden h-[110px] w-[200px] md:block"
 		/>
 		<p class="mt-[18px]">
-			<a href="/blog/" class="font-semibold text-pink no-underline hover:text-white">
+			<a href="/blog/" class="font-semibold text-pink no-underline hover:text-paper">
 				All {allPosts.length} posts →
 			</a>
 		</p>
@@ -341,7 +333,7 @@ const COLLAGE = [
 			))}
 		</div>
 		<p class="relative mt-[18px] inline-block">
-			<a href="/work/" class="font-semibold text-pink no-underline hover:text-white">
+			<a href="/work/" class="font-semibold text-pink no-underline hover:text-paper">
 				All projects →
 			</a>
 			<Scribble
@@ -391,7 +383,7 @@ const COLLAGE = [
 			))}
 		</div>
 		<p class="mt-[18px]">
-			<a href="/blog/" class="relative font-semibold text-pink no-underline hover:text-white">
+			<a href="/blog/" class="relative font-semibold text-pink no-underline hover:text-paper">
 				Every post and topic →
 				<Scribble
 					{...MARKS.double}

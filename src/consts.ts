@@ -45,8 +45,8 @@ export const FOOTER_LINKS = [
 	{ href: '/about/', label: 'About' },
 	{ href: '/resume/', label: 'Resume' },
 	{ href: '/work/', label: 'Projects' },
-	{ href: '/uses/', label: 'Uses' },
-	{ href: '/talk-archive/', label: 'Talk Archive' },
+	{ href: '/talk-archive/', label: 'Talks' },
 	{ href: '/newsletter/', label: 'Newsletter' },
+	{ href: '/uses/', label: 'Uses' },
 	{ href: '/contact/', label: 'Contact' },
 ];

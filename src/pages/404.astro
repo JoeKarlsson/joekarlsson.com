@@ -1,4 +1,5 @@
 ---
+import { SECTION_HEADING, formatDate } from '../utils/ui';
 // The 404: a scribble board to play with (strokes fade on their own, nothing is
 // saved) and every way back into the site: the main sections, the newest posts
 // and the blog topics, all from real data.
@@ -23,15 +24,7 @@ const PLACES = [
 	{ href: '/contact/', label: 'Contact', meta: 'Say hi' },
 ];
 
-const SECTION_HEADING =
-	'relative mb-[18px] w-fit font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
 const LINK = 'text-paper underline decoration-pink underline-offset-4 hover:text-pink';
-const dateFormat = new Intl.DateTimeFormat('en-US', {
-	timeZone: 'UTC',
-	month: 'short',
-	day: 'numeric',
-	year: 'numeric',
-});
 ---
 
 <BaseLayout title="404 | Joe Karlsson" description="Page not found">
@@ -108,9 +101,7 @@ const dateFormat = new Intl.DateTimeFormat('en-US', {
 					{latestPosts.map((post) => (
 						<li class="border-t border-surface-4 py-3">
 							<span class="block text-sm text-muted">
-								<time datetime={post.data.date.toISOString()}>
-									{dateFormat.format(post.data.date)}
-								</time>
+								<time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
 							</span>
 							<a href={post.href} class:list={[LINK, 'text-lg font-semibold']}>
 								{post.data.title}
@@ -141,7 +132,7 @@ const dateFormat = new Intl.DateTimeFormat('en-US', {
 					))}
 				</ul>
 				<p class="mt-6">
-					<a href="/blog/" class="font-semibold text-pink no-underline hover:text-white">
+					<a href="/blog/" class="font-semibold text-pink no-underline hover:text-paper">
 						Search every post on the blog &rarr;
 					</a>
 				</p>
