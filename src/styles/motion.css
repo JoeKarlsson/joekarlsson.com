@@ -94,8 +94,9 @@
 	}
 }
 
-/* Slot machine: <span class="slot-window"><span class="slot-reel"> holding five
-   phrases, the last repeating the first so the loop is seamless. */
+/* Slot machine: <span class="slot-window"><span class="slot-reel"> holding six
+   phrases, the last repeating the first so the loop is seamless. Each of the five
+   phrases holds for about 1.2s, then rolls to the next. */
 .slot-window {
 	display: inline-block;
 	height: 0.92em;
@@ -106,7 +107,7 @@
 .slot-reel {
 	display: flex;
 	flex-direction: column;
-	animation: slot-roll 7s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+	animation: slot-roll 8.5s cubic-bezier(0.8, 0, 0.2, 1) infinite;
 }
 
 .slot-reel > span {
@@ -116,23 +117,27 @@
 
 @keyframes slot-roll {
 	0%,
-	18% {
+	14% {
 		transform: translateY(0);
 	}
-	25%,
-	43% {
+	20%,
+	34% {
 		transform: translateY(-0.92em);
 	}
-	50%,
-	68% {
+	40%,
+	54% {
 		transform: translateY(-1.84em);
 	}
-	75%,
-	93% {
+	60%,
+	74% {
 		transform: translateY(-2.76em);
 	}
-	100% {
+	80%,
+	94% {
 		transform: translateY(-3.68em);
+	}
+	100% {
+		transform: translateY(-4.6em);
 	}
 }
 
