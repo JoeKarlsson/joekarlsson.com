@@ -170,16 +170,23 @@ const cropArtPieces = [
 		dark panel whose name fills its width. Only the photo is clipped to its box; the
 		marks spill over the gutters. -->
 		<header class="relative mb-14 grid gap-4 md:grid-cols-2">
-			<div class="relative z-10 aspect-video md:aspect-square">
-				<img
-					src="/images/joe-profile.webp"
-					alt="Joe Karlsson speaking at a conference"
+			<!-- At least square, and stretched to the right column's height so there's no gap
+			under it (the homepage hero's trick). A short loop drawn in pink dots live
+			(src/scripts/halftone.ts); in-view-play stops it with pause-motion and reduced motion. -->
+			<div class="relative z-10 aspect-[4/5] md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
+				<video
+					src="/images/about/joe-hello.mp4"
+					data-halftone-poster="/images/about/joe-hello-poster.webp"
 					data-halftone="dots"
-					class="block size-full rounded-xl object-cover object-[50%_30%]"
-					width="640"
-					height="640"
-					loading="eager"
-				/>
+					data-autoplay-in-view
+					muted
+					loop
+					playsinline
+					preload="metadata"
+					role="img"
+					aria-label="Joe Karlsson by a river, waving hello with a peace sign"
+					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-[50%_35%]"
+				></video>
 				<Scribble
 					{...MARKS.burst}
 					color={CHALK}
