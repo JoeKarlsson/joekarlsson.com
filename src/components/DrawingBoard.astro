@@ -34,7 +34,8 @@ const PINK = '#ff4fd8';
 			/>
 		</span>
 	</p>
-	<div class="absolute right-6 bottom-6 flex gap-2.5 sm:top-7 sm:bottom-auto">
+	<!-- z-10 lifts the crayons over the drawing pad below, which covers the whole board -->
+	<div class="absolute right-6 bottom-6 z-10 flex gap-2.5 sm:top-7 sm:bottom-auto">
 		{[
 			{ color: PINK, label: 'Pink' },
 			{ color: CHALK, label: 'Chalk' },

@@ -63,14 +63,12 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 	<div class="relative px-4 pt-10 pb-10 sm:px-7">
 		<!-- Mirrors the homepage hero: the featured post's picture (its title on a dark
 		strip) beside a pink ticker of the topics and a dark panel whose BLOG fills it.
-		Only the picture is clipped; the marks sit in front. -->
+		Only the picture is clipped; the marks sit in front. On phones the picture is a
+		16:9 banner with the title under it, so it doesn't fill the screen. -->
 		<header class="relative mb-6 grid gap-4 md:grid-cols-2">
 			{featuredPost && (
-				<a
-					href={featuredPost.href}
-					class="group relative z-10 block aspect-square no-underline md:aspect-auto"
-				>
-					<span class="absolute inset-0 overflow-hidden rounded-xl">
+				<a href={featuredPost.href} class="group relative z-10 block no-underline">
+					<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
 						<img
 							src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
 							alt=""
@@ -78,10 +76,10 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 							data-halftone="flat"
 							width="1120"
 							height="630"
-							class="block size-full object-cover"
+							class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
 							loading="eager"
 						/>
-						<span class="absolute inset-x-0 bottom-0 z-10 block bg-ink px-6 pt-4 pb-5">
+						<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
 							<span class="mb-1.5 block text-sm text-muted">
 								<span class="font-semibold text-pink">Featured</span>
 								{' · '}
