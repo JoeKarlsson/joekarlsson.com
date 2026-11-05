@@ -48,12 +48,32 @@ const BOTTOM_TICKER = [
 // The last repeats the first so the reel loops seamlessly (slot-roll in motion.css)
 const SLOT_WORDS = ['ugly pot', 'bad idea', 'ugly demo', 'weird idea', 'homelab', 'ugly pot'];
 
-const COLLAGE = [
-	{ name: 'racktop', alt: 'Photocopied networking gear at the top of the rack' },
-	{ name: 'rackfront', alt: 'Halftone server rack' },
-	{ name: 'kindle', alt: 'Photocopied video of the Kindle home dashboard' },
-	{ name: 'assembly', alt: 'Photocopied video of the litter box being built' },
-	{ name: 'desk', alt: "Halftone of Joe's desk" },
+// Around the house: one clip per thing, each with a caption that links to it.
+// Every clip is the same flat pink-and-black photocopy look at 4:5.
+const AROUND_THE_HOUSE = [
+	{
+		name: 'cat-wide',
+		alt: "Photocopied video of Joe's cat on the litter box wiring",
+		caption: 'My cat inspecting the litter box I wired to the internet',
+		href: '/blog/an-introduction-to-iot-internet-of-toilets/',
+	},
+	{
+		name: 'pixelpane',
+		alt: 'Photocopied video of Joe holding up his PixelPane pixel art frame',
+		caption: 'PixelPane, the pixel art frame behind my mirror',
+		href: '/work/pixelpane/',
+	},
+	{
+		name: 'rackfront',
+		alt: "Photocopied video of Joe's server rack",
+		caption: `The rack: ${runningContainers} containers running right now`,
+		href: '/blog/how-to-get-started-building-a-homelab-server-in-2024/',
+	},
+	{
+		name: 'kindle',
+		alt: 'Photocopied video of an old Kindle showing the house dashboard',
+		caption: 'An old Kindle, now the house dashboard',
+	},
 ];
 ---
 
@@ -400,73 +420,23 @@ const COLLAGE = [
 		</p>
 	</section>
 
-	<div class="relative">
-		<!-- Straddles the topics list and the cat -->
+	<section class="relative px-4 pt-24 sm:px-7">
+		<h2 class={SECTION_HEADING}>Around the house</h2>
+		<!-- Straddles the topics list and the strip -->
 		<Scribble
 			{...MARKS.burstDense}
 			color="#ff4fd8"
 			strokeWidth={6}
 			duration="9s"
 			delay="1.2s"
-			class="-top-[70px] right-[12%] z-10 size-[140px]"
+			class="-top-[30px] right-[12%] z-10 size-[140px]"
 		/>
-		<!-- Two bigger clips share a row: the cat on the litter box wiring, and Joe
-		pointing at the PixelPane board -->
-		<div class="mx-4 mt-24 grid items-center gap-10 sm:mx-7 md:grid-cols-[1.7fr_1fr] md:gap-14">
-			<figure class="relative -rotate-1">
-				<video
-					class="block w-full"
-					src="/images/home/cat-wide.mp4"
-					poster="/images/home/cat-wide-poster.webp"
-					data-autoplay-in-view
-					muted
-					loop
-					playsinline
-					preload="none"
-					aria-label="Photocopied video of Joe's cat on the litter box wiring"
-				></video>
-				<Scribble
-					{...MARKS.rays}
-					color={CHALK}
-					strokeWidth={6}
-					duration="7s"
-					delay="0.8s"
-					class="-top-[9%] -left-[4%] h-[14%] w-[12%]"
-				/>
-				<Scribble
-					{...MARKS.underline}
-					color="#ff4fd8"
-					duration="9s"
-					delay="2s"
-					class="-bottom-[7%] left-[20%] h-[6%] w-[62%]"
-				/>
-			</figure>
-			<figure class="relative rotate-2">
-				<video
-					class="block w-full"
-					src="/images/home/pixelpane.mp4"
-					poster="/images/home/pixelpane-poster.webp"
-					data-autoplay-in-view
-					muted
-					loop
-					playsinline
-					preload="none"
-					aria-label="Photocopied video of Joe holding up and pointing at his PixelPane pixel art frame"
-				></video>
-				<Scribble
-					{...MARKS.tally}
-					color={CHALK}
-					duration="9s"
-					delay="1.5s"
-					class="-right-[10%] -bottom-[6%] h-[12%] w-[40%]"
-				/>
-			</figure>
-		</div>
-		<div class="collage mx-4 mt-20 grid grid-cols-2 items-center gap-5 sm:mx-7 md:grid-cols-5">
-			{COLLAGE.map(({ name, alt }) => (
+		<div class="house-strip mt-12 grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-4 md:gap-x-10">
+			{AROUND_THE_HOUSE.map(({ name, alt, caption, href }, i) => (
 				<figure class="relative">
+					<span class="tape" aria-hidden="true" />
 					<video
-						class="block w-full"
+						class="block aspect-[4/5] w-full object-cover"
 						src={`/images/home/${name}.mp4`}
 						poster={`/images/home/${name}-poster.webp`}
 						data-autoplay-in-view
@@ -476,28 +446,25 @@ const COLLAGE = [
 						preload="none"
 						aria-label={alt}
 					/>
-					{name === 'kindle' && (
-						<Scribble
-							{...MARKS.box}
-							color={CHALK}
-							duration="10s"
-							delay="1.5s"
-							class="-inset-[10%] size-[120%]"
-						/>
-					)}
-					{name === 'racktop' && (
-						<Scribble
-							{...MARKS.cross}
-							color="#ff4fd8"
-							duration="8s"
-							delay="3s"
-							class="-top-[18%] -left-[8%] size-[70px]"
-						/>
-					)}
+					<figcaption class="mt-3 flex gap-2.5 text-[15px] leading-snug text-paper">
+						<span class="font-display text-[22px] leading-none text-pink" aria-hidden="true">
+							{String(i + 1).padStart(2, '0')}
+						</span>
+						{href ? (
+							<a
+								href={href}
+								class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+							>
+								{caption}
+							</a>
+						) : (
+							<span>{caption}</span>
+						)}
+					</figcaption>
 				</figure>
 			))}
 		</div>
-	</div>
+	</section>
 
 	<div class="pt-[90px] pb-24">
 		<div
@@ -517,29 +484,28 @@ const COLLAGE = [
 </BaseLayout>
 
 <style>
-	@media (min-width: 768px) {
-		.collage {
-			grid-template-columns: 1fr 0.8fr 0.7fr 1.1fr 0.9fr;
-		}
+	/* Taped up, slightly crooked: each clip tilts its own way and the tape leans against it */
+	.house-strip figure {
+		--tilt: -1.5deg;
+		transform: rotate(var(--tilt));
 	}
-
-	/* Taped-up, slightly crooked */
-	.collage figure:nth-child(1) {
-		transform: rotate(-2.5deg);
+	.house-strip figure:nth-child(2) {
+		--tilt: 1.2deg;
 	}
-	.collage figure:nth-child(2) {
-		transform: rotate(1.8deg) translateY(30px);
+	.house-strip figure:nth-child(3) {
+		--tilt: -0.8deg;
 	}
-	.collage figure:nth-child(3) {
-		transform: rotate(-1deg);
+	.house-strip figure:nth-child(4) {
+		--tilt: 1.8deg;
 	}
-	.collage figure:nth-child(4) {
-		transform: rotate(2.4deg) translateY(-20px);
-	}
-	.collage figure:nth-child(5) {
-		transform: rotate(-2deg) translateY(18px);
-	}
-	.collage figure:nth-child(6) {
-		transform: rotate(1.5deg) translateY(-14px);
+	.tape {
+		position: absolute;
+		top: -12px;
+		left: 50%;
+		z-index: 2;
+		width: 84px;
+		height: 24px;
+		transform: translateX(-50%) rotate(calc(var(--tilt) * -2));
+		background: #8f8a80;
 	}
 </style>
