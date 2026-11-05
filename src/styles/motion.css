@@ -261,52 +261,6 @@
 	}
 }
 
-/* Photos taped to the About page: each print hangs at its own --tilt with a strip
-   of translucent tape across the top (--tape-tilt), torn at both ends. Hovered, a
-   print straightens, lifts and comes to the front. */
-.taped {
-	position: relative;
-	transform: rotate(var(--tilt, 0deg));
-}
-
-.taped::before {
-	content: '';
-	position: absolute;
-	z-index: 1;
-	top: -12px;
-	left: 50%;
-	width: clamp(56px, 30%, 96px);
-	height: 26px;
-	background: rgb(237 237 237 / 0.55);
-	transform: translateX(-50%) rotate(var(--tape-tilt, -4deg));
-	clip-path: polygon(
-		0 8%,
-		4% 0,
-		96% 6%,
-		100% 0,
-		97% 30%,
-		100% 55%,
-		96% 78%,
-		100% 100%,
-		5% 94%,
-		0 100%,
-		3% 70%,
-		0 45%,
-		4% 22%
-	);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	.taped {
-		transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-	}
-
-	.taped:hover {
-		z-index: 10;
-		transform: rotate(0deg) scale(1.06);
-	}
-}
-
 @keyframes warble {
 	0% {
 		filter: url(#warble-1);
