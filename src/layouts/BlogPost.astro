@@ -10,13 +10,12 @@ import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
-import HoverBox from '../components/HoverBox.astro';
+import KeepExploring from '../components/KeepExploring.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
-import { DEFAULT_HERO_IMAGE } from '../consts';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
-import { ARTICLE_TITLE, META, PAGE_CONTAINER, SECTION_HEADING, SIDEBAR_GRID } from '../utils/ui';
+import { ARTICLE_TITLE, META, PAGE_CONTAINER, SIDEBAR_GRID } from '../utils/ui';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -114,9 +113,6 @@ const relatedSlugs = rankRelatedPosts(
 		body: post.body,
 	})),
 	popularPosts.visitorsByPath,
-);
-const keepReading = relatedSlugs.map((related) =>
-	publishedPosts.find((post) => post.data.slug === related)!,
 );
 
 // One crayon mark spills off each post's hero; the slug picks which, so a post
@@ -358,69 +354,13 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 
 				<AuthorBio />
 
-				{keepReading.length > 0 && (
-					<nav class="mt-16" aria-labelledby="keep-reading">
-						<h2 id="keep-reading" class={SECTION_HEADING}>
-							Keep reading
-						</h2>
-						<div class="relative -mt-4 mb-2 h-[clamp(70px,14vw,150px)]" aria-hidden="true">
-							<Scribble
-								{...MARKS.arrow}
-								color="#ff4fd8"
-								strokeWidth={7}
-								duration="8s"
-								class="inset-0 size-full"
-							/>
-						</div>
-						<ul class="grid gap-9 sm:grid-cols-[1fr_1.35fr]">
-							{keepReading.map((post, index) => {
-								const image = post.data.heroImage || DEFAULT_HERO_IMAGE;
-								const lead = index === 0;
-								return (
-									<li
-										class:list={[
-											'ring-host group',
-											lead && 'sm:col-start-2 sm:row-span-2 sm:row-start-1',
-										]}
-									>
-										<a
-											href={`/blog/${post.data.slug}/`}
-											class:list={[
-												'grid gap-3.5 text-paper no-underline',
-												// Which post led where, so the suggestions that work show up in Plausible
-												`plausible-event-name=Related+Post+Click plausible-event-from=${slug} plausible-event-to=${post.data.slug} plausible-event-position=${index + 1}`,
-											]}
-										>
-											<span class="relative block">
-												<img
-													src={image}
-													alt=""
-													data-halftone={halftoneMode(image)}
-													width="560"
-													height="315"
-													loading="lazy"
-													decoding="async"
-													class="block aspect-video w-full rounded-lg object-cover"
-												/>
-												<HoverBox featured={lead} />
-											</span>
-											<span
-												class:list={[
-													'font-display leading-none text-balance uppercase group-hover:text-pink',
-													lead ? 'text-[clamp(32px,4.2vw,52px)]' : 'text-[clamp(24px,2.6vw,34px)]',
-												]}
-											>
-												{post.data.title}
-											</span>
-											{lead && post.data.description && (
-												<span class="line-clamp-3 max-w-[60ch]">{post.data.description}</span>
-											)}
-										</a>
-									</li>
-								);
-							})}
-						</ul>
-					</nav>
+				{relatedSlugs.length > 0 && (
+					<KeepExploring
+						heading="Keep reading"
+						from={slug}
+						posts={relatedSlugs}
+						eventName="Related+Post+Click"
+					/>
 				)}
 			</article>
 		</div>

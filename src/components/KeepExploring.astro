@@ -1,48 +1,181 @@
 ---
-// The "Keep exploring" block at the bottom of About, Resume and Projects: the title as
-// a pink stacked echo (the footer's effect, src/styles/motion.css) filling the column,
-// then the same pages everywhere, minus the one you're on, as huge index rows with one
-// line about each.
-import IndexRow from './IndexRow.astro';
+// The end of a page or post: a pink poster heading, a crayon arrow that swirls
+// right and turns down, and what it points at, picked for each page:
+// - `posts`: picture cards for these post slugs, the first one big under the arrow
+// - `newest`: one card for my newest post
+// - `door`: one giant link with a sentence on why
+// - `pickRandom`: a random post from the archive, with a button to pick another
+// Each click is a Plausible event with which page led where.
+import { getCollection } from 'astro:content';
+import { DEFAULT_HERO_IMAGE } from '../consts';
+import { MARKS } from '../data/scribbles';
+import { halftoneMode } from '../utils/halftone';
+import { isOwnPost } from '../utils/posts';
+import { SECTION_HEADING } from '../utils/ui';
+import HoverBox from './HoverBox.astro';
+import Scribble from './Scribble.astro';
 
-const TITLE = 'Keep exploring';
+interface Props {
+	heading: string;
+	// Where the reader is, for the Plausible `from` prop: a post slug or a page path
+	from: string;
+	posts?: string[];
+	newest?: boolean;
+	door?: { href: string; label: string; blurb: string };
+	pickRandom?: boolean;
+	// Plausible event name; posts keep their older "Related Post Click"
+	eventName?: string;
+}
 
-const PAGES = [
-	{ href: '/blog/', label: 'Blog', blurb: 'Posts on homelab, AI, web dev and my career.' },
-	{ href: '/about/', label: 'About', blurb: "Who I am and what I've worked on." },
-	{ href: '/resume/', label: 'Resume', blurb: 'My work history, also as a PDF.' },
-	{ href: '/work/', label: 'Projects', blurb: "Software, hardware and IoT things I've built." },
-	{
-		href: '/talk-archive/',
-		label: 'Talks',
-		blurb: 'Conference talks, workshops and podcasts since 2019.',
-	},
-	{
-		href: '/newsletter/',
-		label: 'Newsletter',
-		blurb: 'Works on My Machine: tech writing, AI, homelab and open source.',
-	},
-	{ href: '/uses/', label: 'Uses', blurb: 'The hardware, software and gear I use every day.' },
-];
+const {
+	heading,
+	from,
+	posts: postSlugs = [],
+	newest = false,
+	door,
+	pickRandom = false,
+	eventName = 'Keep+Exploring+Click',
+} = Astro.props;
 
-const here = Astro.url.pathname.replace(/\/?$/, '/');
-const pages = PAGES.filter(({ href }) => href !== here);
+const ownPosts = (await getCollection('blog'))
+	.filter(isOwnPost)
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const allPosts = postSlugs.length ? await getCollection('blog') : [];
+
+const cards = newest
+	? ownPosts.slice(0, 1)
+	: postSlugs.map((slug) => {
+			const post = allPosts.find((entry) => entry.data.slug === slug);
+			if (!post) throw new Error(`KeepExploring: no post with slug "${slug}"`);
+			return post;
+		});
+
+const track = (to: string, position: number) =>
+	`plausible-event-name=${eventName} plausible-event-from=${from} plausible-event-to=${to} plausible-event-position=${position}`;
+
+const randomPool = pickRandom
+	? ownPosts.map((post) => ({ slug: post.data.slug, title: post.data.title }))
+	: [];
+const firstRandom = randomPool[0];
 ---
 
-<section class="mt-20 mb-12 @container">
-	<!-- "KEEP EXPLORING" is about 6.1em wide in Anton caps, so this fills the column -->
-	<h2
-		class="echo mb-8 font-display text-[calc(100cqw/6.15)] whitespace-nowrap text-pink uppercase"
-		style="--echo-fill:#ff4fd8;--echo-stroke:#ff4fd8"
-	>
-		<span class="sr-only">{TITLE}</span>
-		{[0, 1, 2, 3, 4].map((index) => (
-			<span aria-hidden="true" style={`--echo-index:${index}`}>
-				{TITLE}
-			</span>
-		))}
+<nav class="mt-20 mb-12" aria-labelledby="keep-exploring">
+	<h2 id="keep-exploring" class={SECTION_HEADING}>
+		{heading}
 	</h2>
-	{pages.map(({ href, label, blurb }, i) => (
-		<IndexRow href={href} label={label} meta={blurb} index={i} />
-	))}
-</section>
+	<div class="relative -mt-4 mb-2 h-[clamp(70px,14vw,150px)]" aria-hidden="true">
+		<Scribble
+			{...MARKS.arrow}
+			color="#ff4fd8"
+			strokeWidth={7}
+			duration="8s"
+			class="inset-0 size-full"
+		/>
+	</div>
+
+	{cards.length > 0 && (
+		<ul class="grid gap-9 sm:grid-cols-[1fr_1.35fr]">
+			{cards.map((post, index) => {
+				const image = post.data.heroImage || DEFAULT_HERO_IMAGE;
+				const lead = index === 0;
+				return (
+					<li
+						class:list={['ring-host group', lead && 'sm:col-start-2 sm:row-span-2 sm:row-start-1']}
+					>
+						<a
+							href={`/blog/${post.data.slug}/`}
+							class:list={[
+								'grid gap-3.5 text-paper no-underline',
+								track(post.data.slug, index + 1),
+							]}
+						>
+							<span class="relative block">
+								<img
+									src={image}
+									alt=""
+									data-halftone={halftoneMode(image)}
+									width="560"
+									height="315"
+									loading="lazy"
+									decoding="async"
+									class="block aspect-video w-full rounded-lg object-cover"
+								/>
+								<HoverBox featured={lead} />
+							</span>
+							<span
+								class:list={[
+									'font-display leading-none text-balance uppercase group-hover:text-pink',
+									lead ? 'text-[clamp(32px,4.2vw,52px)]' : 'text-[clamp(24px,2.6vw,34px)]',
+								]}
+							>
+								{post.data.title}
+							</span>
+							{lead && post.data.description && (
+								<span class="line-clamp-3 max-w-[60ch]">{post.data.description}</span>
+							)}
+						</a>
+					</li>
+				);
+			})}
+		</ul>
+	)}
+
+	{door && (
+		<div class="ml-auto grid w-fit max-w-[min(100%,640px)] gap-3">
+			<a
+				href={door.href}
+				class:list={[
+					'font-display text-[clamp(48px,8vw,104px)] leading-[0.95] text-pink uppercase no-underline hover:text-paper',
+					track(door.href, 1),
+				]}
+			>
+				{door.label} <span aria-hidden="true">→</span>
+			</a>
+			<p class="max-w-[46ch] text-lg text-paper">{door.blurb}</p>
+		</div>
+	)}
+
+	{firstRandom && (
+		<div class="ml-auto grid w-full max-w-[640px] justify-items-start gap-5" data-random-post>
+			<a
+				href={`/blog/${firstRandom.slug}/`}
+				data-random-link
+				class:list={[
+					'min-h-[2em] font-display text-[clamp(36px,5.6vw,68px)] leading-none text-balance text-paper uppercase no-underline hover:text-pink',
+					`plausible-event-name=${eventName} plausible-event-from=${from} plausible-event-to=random plausible-event-position=1`,
+				]}
+				aria-live="polite"
+			>
+				{firstRandom.title}
+			</a>
+			<button
+				type="button"
+				data-random-button
+				class="sticker rounded bg-pink px-5 py-3 font-extrabold text-ink"
+			>
+				Pick another
+			</button>
+			<script type="application/json" data-random-pool set:html={JSON.stringify(randomPool)} />
+		</div>
+	)}
+</nav>
+
+<script>
+	// Pick one for me: show a random post on load, and another on every click
+	document.querySelectorAll<HTMLElement>('[data-random-post]').forEach((box) => {
+		const pool: { slug: string; title: string }[] = JSON.parse(
+			box.querySelector('[data-random-pool]')!.textContent!,
+		);
+		const link = box.querySelector<HTMLAnchorElement>('[data-random-link]')!;
+		const show = () => {
+			let next = pool[Math.floor(Math.random() * pool.length)];
+			while (pool.length > 1 && link.pathname === `/blog/${next.slug}/`) {
+				next = pool[Math.floor(Math.random() * pool.length)];
+			}
+			link.href = `/blog/${next.slug}/`;
+			link.textContent = next.title;
+		};
+		show();
+		box.querySelector('[data-random-button]')!.addEventListener('click', show);
+	});
+</script>

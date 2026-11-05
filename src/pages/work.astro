@@ -157,7 +157,15 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 			</a>
 		</p>
 
-		<KeepExploring />
+		<KeepExploring
+			heading="Where to next"
+			from="/work/"
+			posts={[
+				'why-i-use-doom-to-visualize-mcp-data',
+				'followspot-local-whisper-teleprompter',
+				'pixelpane-pixel-art-home-assistant',
+			]}
+		/>
 	</div>
 
 	<script>
