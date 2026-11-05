@@ -1,12 +1,17 @@
 import type { KnipConfig } from 'knip';
 
 const config: KnipConfig = {
-	project: ['src/**/*.{ts,js,astro,mjs}'],
+	// Scripts run by hand or from package.json; listing them lets knip check their imports
+	entry: ['scripts/**/*.mjs'],
+	project: ['src/**/*.{ts,js,astro,mjs}', 'scripts/**/*.mjs'],
 	ignoreBinaries: [
 		// lychee is installed via GitHub Action, not npm
 		'lychee',
 		// vale is installed from its GitHub release in CI, not npm
 		'vale',
+		// media tests and scripts shell out to the system ffmpeg, which CI installs with apt
+		'ffmpeg',
+		'ffprobe',
 	],
 	ignoreExportsUsedInFile: true,
 };
