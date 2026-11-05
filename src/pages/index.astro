@@ -126,13 +126,32 @@ const COLLAGE = [
 					</p>
 					<p class="max-w-[32em] text-[clamp(17px,1.4vw,21px)] text-paper">
 						15 years writing software at companies like MongoDB and Best Buy. Now I lead developer
-						marketing at CData. Outside of work I run a {`${runningContainers}-container`} homelab,
-						build smart home projects, and watch a lot of movies.
+						marketing at CData. Outside of work I run a{' '}
+						<span class="relative whitespace-nowrap">
+							{`${runningContainers}-container`}
+							<Scribble
+								{...MARKS.oval}
+								color="#ff4fd8"
+								strokeWidth={11}
+								duration="10s"
+								delay="2.5s"
+								class="-top-[45%] -left-[12%] h-[190%] w-[124%]"
+							/>
+						</span>{' '}
+						homelab, build smart home projects, and watch a lot of movies.
 					</p>
 				</div>
 				<div class="@container">
 					<h1 class="relative font-display text-[calc(100cqw/var(--name-ratio))] leading-[0.88] whitespace-nowrap text-paper uppercase [--name-ratio:3.8]">
 						<span class="block">Joe</span>
+						<Scribble
+							{...MARKS.rays}
+							color="#ff4fd8"
+							strokeWidth={6}
+							duration="6s"
+							delay="1.2s"
+							class="top-[2%] left-[42%] h-[30%] w-[22%]"
+						/>
 						<span class="block">Karlsson</span>
 						<Scribble
 							path={HERO_COIL}
@@ -147,7 +166,7 @@ const COLLAGE = [
 		</div>
 	</div>
 
-	<section class="relative px-4 pt-20 sm:px-7">
+	<section class="relative overflow-x-clip px-4 pt-20 sm:px-7">
 		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none uppercase">
 			<a href="/blog/" class="relative text-pink no-underline hover:text-pink hover:underline">
 				Recent posts
@@ -161,9 +180,18 @@ const COLLAGE = [
 			</a>
 		</h2>
 		<ul>
-			{recentPosts.map((post) => (
+			{recentPosts.map((post, i) => (
 				<li class="group grid items-center gap-7 border-t border-surface-4 py-[18px] md:grid-cols-[clamp(140px,22vw,300px)_1fr]">
-					<a href={post.href} tabindex="-1" aria-hidden="true">
+					<a href={post.href} tabindex="-1" aria-hidden="true" class="relative block">
+						{i === 0 && (
+							<Scribble
+								{...MARKS.box}
+								color={CHALK}
+								duration="10s"
+								delay="0.8s"
+								class="-inset-[8%] h-[116%] w-[116%]"
+							/>
+						)}
 						<img
 							src={post.data.heroImage || DEFAULT_HERO_IMAGE}
 							alt=""
@@ -186,6 +214,18 @@ const COLLAGE = [
 						>
 							{post.data.title}
 						</a>
+						{i === 0 && (
+							<span class="relative ml-2 inline-block size-[0.9em] align-[-0.1em] text-[clamp(20px,2.2vw,30px)]">
+								<Scribble
+									{...MARKS.asterisk}
+									color="#ff4fd8"
+									strokeWidth={9}
+									duration="7s"
+									delay="2s"
+									class="inset-0 size-full"
+								/>
+							</span>
+						)}
 					</div>
 				</li>
 			))}
@@ -243,10 +283,18 @@ const COLLAGE = [
 				<IndexRow href={project.href} label={project.title} meta={project.meta} index={i} />
 			))}
 		</div>
-		<p class="mt-[18px]">
+		<p class="relative mt-[18px] inline-block">
 			<a href="/work/" class="font-semibold text-pink no-underline hover:text-white">
 				All projects →
 			</a>
+			<Scribble
+				{...MARKS.pointer}
+				color={CHALK}
+				strokeWidth={14}
+				duration="7s"
+				delay="1.5s"
+				class="top-[-10%] left-[calc(100%+12px)] h-[1.6em] w-[110px]"
+			/>
 		</p>
 	</section>
 
@@ -276,8 +324,16 @@ const COLLAGE = [
 			))}
 		</div>
 		<p class="mt-[18px]">
-			<a href="/blog/" class="font-semibold text-pink no-underline hover:text-white">
+			<a href="/blog/" class="relative font-semibold text-pink no-underline hover:text-white">
 				Every post and topic →
+				<Scribble
+					{...MARKS.double}
+					color="#ff4fd8"
+					strokeWidth={14}
+					duration="8s"
+					delay="1s"
+					class="-bottom-[0.55em] left-0 h-[0.5em] w-full"
+				/>
 			</a>
 		</p>
 	</section>
