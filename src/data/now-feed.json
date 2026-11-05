@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 210,
+			"commitCount": 215,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				86
+				91
 			],
-			"latestCommitMessage": "feat: Hovered text links warble, boiling through three hand-drawn..."
+			"latestCommitMessage": "feat: About and Newsletter open like every other main page, and Keep..."
 		},
 		{
 			"name": "punc",
 			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
 			"url": "https://github.com/JoeKarlsson/punc",
 			"language": "TypeScript",
-			"commitCount": 7,
+			"commitCount": 11,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 10
 			],
-			"latestCommitMessage": "chore: README covers the live site, the CLI and the full API, and the..."
+			"latestCommitMessage": "feat: Books show the year they were first published, sort oldest or..."
 		},
 		{
 			"name": "nothing-but-corners",
