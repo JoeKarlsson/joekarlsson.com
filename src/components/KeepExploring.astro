@@ -1,9 +1,11 @@
 ---
-// The "Keep exploring" list at the bottom of About, Resume and Projects: the same
-// pages everywhere, minus the one you're on, each with one line about it.
-import Scribble from './Scribble.astro';
-import { CHALK, MARKS } from '../data/scribbles';
-import { MORE_LINK, SECTION_HEADING } from '../utils/ui';
+// The "Keep exploring" block at the bottom of About, Resume and Projects: the title as
+// a pink stacked echo (the footer's effect, src/styles/motion.css) filling the column,
+// then the same pages everywhere, minus the one you're on, as huge index rows with one
+// line about each.
+import IndexRow from './IndexRow.astro';
+
+const TITLE = 'Keep exploring';
 
 const PAGES = [
 	{ href: '/blog/', label: 'Blog', blurb: 'Posts on homelab, AI, web dev and my career.' },
@@ -27,25 +29,20 @@ const here = Astro.url.pathname.replace(/\/?$/, '/');
 const pages = PAGES.filter(({ href }) => href !== here);
 ---
 
-<section class="mb-12">
-	<h2 class={SECTION_HEADING}>
-		Keep exploring
-		<Scribble
-			{...MARKS.double}
-			color={CHALK}
-			duration="8s"
-			delay="0.6s"
-			class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
-		/>
-	</h2>
-	<ul class="space-y-2">
-		{pages.map(({ href, label, blurb }) => (
-			<li>
-				<a href={href} class={MORE_LINK}>
-					{label}
-				</a>{' '}
-				<span class="text-muted">{blurb}</span>
-			</li>
+<section class="mt-20 mb-12 @container">
+	<!-- "KEEP EXPLORING" is about 6.1em wide in Anton caps, so this fills the column -->
+	<h2
+		class="echo mb-8 font-display text-[calc(100cqw/6.15)] whitespace-nowrap text-pink uppercase"
+		style="--echo-fill:#ff4fd8;--echo-stroke:#ff4fd8"
+	>
+		<span class="sr-only">{TITLE}</span>
+		{[0, 1, 2, 3, 4].map((index) => (
+			<span aria-hidden="true" style={`--echo-index:${index}`}>
+				{TITLE}
+			</span>
 		))}
-	</ul>
+	</h2>
+	{pages.map(({ href, label, blurb }, i) => (
+		<IndexRow href={href} label={label} meta={blurb} index={i} />
+	))}
 </section>

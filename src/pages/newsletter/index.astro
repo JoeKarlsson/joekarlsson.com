@@ -5,6 +5,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import Scribble from '../../components/Scribble.astro';
+import PosterHero from '../../components/PosterHero.astro';
 import { CHALK, MARKS } from '../../data/scribbles';
 
 const issues = (await getCollection('newsletter')).sort(
@@ -17,6 +18,9 @@ const posts = issues.filter((i) => !i.data.substackUrl);
 // The newest issue leads the page; the list below holds the rest
 const [latest, ...olderPosts] = posts;
 const backIssues = issues.filter((i) => i.data.substackUrl);
+
+// What I write about, from the pitch below, for the hero ticker
+const TOPICS = ['Tech writing', 'AI', 'Homelab', 'Open source'];
 
 const byYear = new Map<number, typeof issues>();
 for (const issue of backIssues) {
@@ -31,11 +35,14 @@ for (const issue of backIssues) {
 	schemaType="CollectionPage"
 >
 	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
-		<!-- Built like the blog hero: the latest issue's picture (its title on a dark strip)
-		beside a dark panel with the name filling it, the pitch and the signup form -->
-		<header class="relative mb-16 grid gap-4 md:grid-cols-2">
+		<!-- The latest issue on the left (its image shown whole: issue images are title
+		cards, so they're never cropped), what I write about in the pink ticker, and the
+		newsletter's name, pitch and signup in the dark panel above NEWSLETTER (the same
+		top as every main page) -->
+		<PosterHero title="Newsletter" wordRatio={4.7} tickerItems={TOPICS}>
 			{latest && (
 				<a
+					slot="media"
 					href={`/newsletter/${latest.data.slug}/`}
 					class="group relative z-10 flex flex-col no-underline"
 				>
@@ -79,40 +86,27 @@ for (const issue of backIssues) {
 					/>
 				</a>
 			)}
-			<div class="relative flex flex-col justify-between gap-7 rounded-xl bg-surface-1 p-7">
-				<Scribble
-					{...MARKS.tally}
-					color={CHALK}
-					duration="9s"
-					delay="0.6s"
-					class="-top-[6%] -right-[3%] z-10 hidden h-[10%] w-[18%] md:block"
-				/>
-				<div class="@container">
-					<!-- Two lines: "Works on" in white, then "My Machine" in pink, kept together -->
-					<h1 class="font-display text-[calc(100cqw/var(--line-ratio))] leading-[0.86] font-normal text-paper uppercase [--line-ratio:4.85]">
-						<span class="block whitespace-nowrap">Works on</span>
-						<span class="block whitespace-nowrap text-pink">My Machine</span>
-					</h1>
-				</div>
-				<p class="font-serif text-[clamp(18px,1.5vw,21px)] leading-relaxed text-paper">
-					My thoughts and reactions on tech writing, AI, homelab builds and open source, plus
-					whatever I'm working on. It goes out when I have something to say.
+			<p class="font-display text-[clamp(36px,3.6vw,56px)] leading-none text-paper uppercase">
+				Works on <span class="text-pink">My Machine</span>
+			</p>
+			<p class="mt-4 font-serif text-[clamp(18px,1.5vw,21px)] leading-relaxed text-paper">
+				My thoughts and reactions on tech writing, AI, homelab builds and open source, plus whatever
+				I'm working on. It goes out when I have something to say.
+			</p>
+			<div class="mt-6">
+				<NewsletterSignup location="newsletter-page" />
+				<p class="mt-3 text-xs text-muted">
+					Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS?{' '}
+					<a
+						href="/newsletter/rss.xml"
+						class="plausible-event-name=RSS+Click plausible-event-feed=newsletter text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+					>
+						Follow Works on My Machine in your feed reader
+					</a>
+					.
 				</p>
-				<div>
-					<NewsletterSignup location="newsletter-page" />
-					<p class="mt-3 text-xs text-muted">
-						Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS?{' '}
-						<a
-							href="/newsletter/rss.xml"
-							class="plausible-event-name=RSS+Click plausible-event-feed=newsletter text-paper underline decoration-pink underline-offset-4 hover:text-pink"
-						>
-							Follow Works on My Machine in your feed reader
-						</a>
-						.
-					</p>
-				</div>
 			</div>
-		</header>
+		</PosterHero>
 
 		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase">
 			Every issue

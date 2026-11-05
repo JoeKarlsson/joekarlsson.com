@@ -1,6 +1,7 @@
 ---
 import { SECTION_HEADING, PRIMARY_BUTTON, SECONDARY_BUTTON, MORE_LINK } from '../utils/ui';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PosterHero from '../components/PosterHero.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import NowFeed from '../components/NowFeed.astro';
 import Scribble from '../components/Scribble.astro';
@@ -8,7 +9,7 @@ import YouTubeFacade from '../components/YouTubeFacade.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import { SOCIAL_LINKS } from '../consts';
 import nowFeed from '../data/now-feed.json';
-import { CHALK, HERO_COIL, MARKS } from '../data/scribbles';
+import { CHALK, MARKS } from '../data/scribbles';
 
 const CARD_TITLE =
 	'font-display text-[clamp(24px,2vw,30px)] leading-none font-normal text-paper uppercase';
@@ -166,16 +167,16 @@ const cropArtPieces = [
 	schemaType="AboutPage"
 >
 	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
-		<!-- Built like the homepage hero: a big halftone picture beside a pink panel and a
-		dark panel whose name fills its width. Only the photo is clipped to its box; the
-		marks spill over the gutters. -->
-		<header class="relative mb-14 grid gap-4 md:grid-cols-2">
-			<!-- On the right from md up (first on phones). At least square, and stretched to the
-			left column's height so there's no gap under it (the homepage hero's trick). The
-			clip is pre-cropped with Joe's face centered on the top third (rule of thirds, like
-			the homepage montage), so it's drawn centered. Pink dots are drawn live
-			(src/scripts/halftone.ts); in-view-play stops it with pause-motion and reduced motion. -->
-			<div class="relative z-10 aspect-[4/3] md:order-last md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
+		<!-- The waving clip on the left, the page's sections in the pink ticker, and who I
+		am in the dark panel above ABOUT (the same top as every main page). The clip is
+		pre-cropped with Joe's face centered on the top third, so it's drawn centered. Pink
+		dots are drawn live (src/scripts/halftone.ts); in-view-play stops it with
+		pause-motion and reduced motion. -->
+		<PosterHero title="About" wordRatio={2.4} tickerItems={aboutHeadings.map(({ text }) => text)}>
+			<div
+				slot="media"
+				class="relative z-10 aspect-[4/3] md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']"
+			>
 				<video
 					src="/images/about/joe-hello.mp4"
 					data-halftone-poster="/images/about/joe-hello-poster.webp"
@@ -195,56 +196,45 @@ const cropArtPieces = [
 					strokeWidth={6}
 					duration="8s"
 					delay="1.6s"
-					class="-top-[7%] -right-[7%] size-[22%]"
+					class="-top-[7%] -left-[5%] z-10 size-[20%]"
 				/>
 				<Scribble
 					{...MARKS.lines}
 					color={CHALK}
 					duration="11s"
 					delay="1s"
-					class="-right-[6%] -bottom-[9%] h-[16%] w-[78%]"
+					class="-bottom-[7%] -left-[4%] z-10 h-[14%] w-[70%]"
 				/>
 			</div>
-			<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
-				<div class="rounded-xl bg-pink px-7 pt-6 pb-5 text-ink">
-					<p class="font-display text-[clamp(40px,4.6vw,72px)] leading-[0.92] uppercase">
-						Developer Marketing Engineer
-					</p>
-					<p class="mt-2 font-semibold">(He/They)</p>
-				</div>
-				<div class="flex flex-col justify-between gap-8 rounded-xl bg-surface-1 p-7">
-					<div class="flex flex-wrap gap-3">
-						<a
-							href="/resume/"
-							class={`plausible-event-name=About+CTA+Click plausible-event-destination=resume ${PRIMARY_BUTTON}`}
-						>
-							View Resume
-						</a>
-						<a
-							href="/joe-karlsson-resume.pdf"
-							target="_blank"
-							rel="noopener noreferrer"
-							class={`plausible-event-name=About+CTA+Click plausible-event-destination=pdf-download ${SECONDARY_BUTTON}`}
-						>
-							Download PDF
-						</a>
-					</div>
-					<div class="@container">
-						<h1 class="relative font-display text-[calc(100cqw/var(--name-ratio))] leading-[0.88] font-normal whitespace-nowrap text-paper uppercase [--name-ratio:3.8]">
-							<span class="block">Joe</span>
-							<span class="block">Karlsson</span>
-							<Scribble
-								path={HERO_COIL}
-								color="#ff4fd8"
-								duration="9s"
-								delay="0.3s"
-								class="-bottom-[14%] -left-[4%] h-[85%] w-[104%]"
-							/>
-						</h1>
-					</div>
-				</div>
+			<p class="relative w-fit font-display text-[clamp(36px,3.6vw,56px)] leading-none text-paper uppercase">
+				Joe Karlsson
+				<Scribble
+					{...MARKS.underline}
+					color="#ff4fd8"
+					strokeWidth={10}
+					duration="8s"
+					delay="0.3s"
+					class="-bottom-[0.3em] left-0 h-[0.25em] w-full"
+				/>
+			</p>
+			<p class="mt-4 text-lg text-paper">Developer Marketing Engineer (He/They)</p>
+			<div class="mt-5 flex flex-wrap gap-3">
+				<a
+					href="/resume/"
+					class={`plausible-event-name=About+CTA+Click plausible-event-destination=resume ${PRIMARY_BUTTON}`}
+				>
+					View Resume
+				</a>
+				<a
+					href="/joe-karlsson-resume.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+					class={`plausible-event-name=About+CTA+Click plausible-event-destination=pdf-download ${SECONDARY_BUTTON}`}
+				>
+					Download PDF
+				</a>
 			</div>
-		</header>
+		</PosterHero>
 
 		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
 			<TableOfContents headings={aboutHeadings} />
