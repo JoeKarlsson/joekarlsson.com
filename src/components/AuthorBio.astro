@@ -1,23 +1,11 @@
 ---
 // The bio at the end of every post, as a poster block: a pink halftone portrait
-// (src/scripts/halftone.ts) beside a solid pink panel with my name in poster type
-// and one live line from the now-feed snapshot, so it changes with every deploy.
+// (src/scripts/halftone.ts) beside a solid pink panel with my name in poster type,
+// one sentence on what I write about, and a link to the About page.
 import { SOCIAL_LINKS } from '../consts';
-import nowFeed from '../data/now-feed.json';
 import { halftoneMode } from '../utils/halftone';
 
 const PORTRAIT = '/images/about/collage/studio.webp';
-
-const { homelab, films } = nowFeed;
-const lastFilm = films[0];
-const filmStars =
-	lastFilm && lastFilm.rating !== null
-		? `${lastFilm.rating} ${lastFilm.rating === 1 ? 'star' : 'stars'}`
-		: undefined;
-
-const nowLine = `Right now: ${homelab.runningContainers} containers running on my homelab${
-	filmStars ? `, and I just gave ${lastFilm.title} ${filmStars}.` : '.'
-}`;
 
 const SOCIALS = [
 	{ label: 'Bluesky', href: SOCIAL_LINKS.bluesky },
@@ -48,11 +36,12 @@ const SOCIALS = [
 			<br />
 			Karlsson
 		</p>
-		<p>
-			Developer Marketing Engineer at CData. I write about databases, self-hosting, and the things I
-			build.
+		<p class="text-lg">
+			I write about my homelab, AI tools, databases, and the weird stuff I build on the side.
 		</p>
-		<p class="font-semibold">{nowLine}</p>
+		<a href="/about/" class="w-fit font-extrabold text-ink hover:text-paper">
+			More about me →
+		</a>
 		<p class="flex flex-wrap gap-x-4 gap-y-1 font-extrabold">
 			{SOCIALS.map(({ label, href }) => (
 				<a href={href} target="_blank" rel="noopener noreferrer" class="text-ink hover:text-paper">
