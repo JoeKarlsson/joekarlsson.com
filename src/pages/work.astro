@@ -5,7 +5,7 @@ import { projects, CATEGORY_META } from '../data/projects';
 import Scribble from '../components/Scribble.astro';
 import { SOCIAL_LINKS } from '../consts';
 import { CHALK, MARKS } from '../data/scribbles';
-import { halftoneHero } from '../utils/thumbnails';
+import { halftoneMode } from '../utils/halftone';
 
 const featuredProject = projects.find((p) => p.featured);
 const nonFeatured = projects.filter((p) => !p.featured);
@@ -76,7 +76,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 					{featuredProject.video ? (
 						<video
 							src={featuredProject.video}
-							poster={halftoneHero(featuredProject.image)}
+							data-halftone-poster={featuredProject.image}
 							loop
 							muted
 							playsinline
@@ -84,13 +84,14 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 							role="img"
 							aria-label={featuredProject.imageAlt}
 							data-autoplay-in-view
-							data-halftone
+							data-halftone={halftoneMode(featuredProject.video)}
 							class="block aspect-video w-full rounded-xl object-cover"
 						/>
 					) : (
 						<img
-							src={halftoneHero(featuredProject.image)}
+							src={featuredProject.image}
 							alt={featuredProject.imageAlt}
+							data-halftone={halftoneMode(featuredProject.image)}
 							width="1120"
 							height="630"
 							class="block aspect-video w-full rounded-xl object-cover"
@@ -216,7 +217,6 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 	</div>
 
 	<script>
-		import '../scripts/halftone-video';
 		// Must match the server-rendered classes on .project-filter above
 		const ACTIVE_FILTER_CLASSES = 'cursor-pointer text-pink underline underline-offset-4';
 		const INACTIVE_FILTER_CLASSES = 'cursor-pointer text-paper hover:text-pink';

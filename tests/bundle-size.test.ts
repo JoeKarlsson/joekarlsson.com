@@ -30,10 +30,10 @@ const THRESHOLDS = {
 	maxTotalCss: 55 * 1024,
 	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
 	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
-	// when dist sat at 199MB. Raised again to 225MB on 2026-11-05 for the bigger-dot
-	// heroes plus a list-size halftone of every post and project image (about 7MB
-	// more, 214.4MB). Still catches an unconverted GIF or a stray video.
-	maxTotalDist: 225 * 1024 * 1024,
+	// when dist sat at 199MB. Those halftones are now drawn live in the browser
+	// (src/scripts/halftone.ts), which freed the space again. Still catches an
+	// unconverted GIF or a stray video.
+	maxTotalDist: 215 * 1024 * 1024,
 };
 
 function getFilesWithExtension(dir: string, ext: string): { name: string; size: number }[] {

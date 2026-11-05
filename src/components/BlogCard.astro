@@ -1,9 +1,9 @@
 ---
-// One post in a list (blog index, category pages, newsletter): the dithered pink
-// thumbnail on the left, then date, reading time and categories, the title, and
+// One post in a list (blog index, category pages, newsletter): the pink
+// thumbnail (src/scripts/halftone.ts) on the left, then date, reading time and categories, the title, and
 // the description. Same row as the homepage's Recent posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
-import { halftoneThumbnail } from '../utils/thumbnails';
+import { halftoneMode } from '../utils/halftone';
 
 interface Props {
 	title: string;
@@ -18,6 +18,7 @@ interface Props {
 
 const { title, description, date, slug, heroImage, categories, readingTime, href } = Astro.props;
 const url = href ?? `/blog/${slug}/`;
+const image = heroImage || DEFAULT_HERO_IMAGE;
 const formattedDate = date.toLocaleDateString('en-us', {
 	timeZone: 'UTC',
 	year: 'numeric',
@@ -28,10 +29,12 @@ const formattedDate = date.toLocaleDateString('en-us', {
 
 <li class="group grid items-center gap-x-7 gap-y-3 border-t border-surface-4 py-[18px] sm:grid-cols-[clamp(140px,22vw,280px)_1fr]">
 	<!-- The thumbnail repeats the title link, so it's skipped by keyboard and screen readers -->
-	<a href={url} tabindex="-1" aria-hidden="true" class="block">
+	<a href={url} tabindex="-1" aria-hidden="true" class="relative block">
 		<img
-			src={halftoneThumbnail(heroImage || DEFAULT_HERO_IMAGE)}
+			src={image}
 			alt=""
+			aria-hidden="true"
+			data-halftone={halftoneMode(image)}
 			width="560"
 			height="315"
 			loading="lazy"

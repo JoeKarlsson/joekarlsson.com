@@ -12,7 +12,7 @@
 		"media:dither": "python3 scripts/media/halftone.py",
 		"media:dither:video": "bash scripts/media/dither-video.sh",
 		"media:loop": "bash scripts/media/loop.sh",
-		"media:thumbnails": "node scripts/media/dither-thumbnails.mjs",
+		"media:text": "node scripts/media/find-text-images.mjs",
 		"media:flash-check": "python3 scripts/media/flash-check.py",
 		"astro": "astro",
 		"check": "astro check",

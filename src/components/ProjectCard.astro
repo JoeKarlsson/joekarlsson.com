@@ -1,6 +1,6 @@
 ---
 import type { Project } from '../data/projects';
-import { halftoneThumbnail } from '../utils/thumbnails';
+import { halftoneMode } from '../utils/halftone';
 
 interface Props {
 	project: Project;
@@ -34,7 +34,7 @@ const metaLine = [
 			{project.video ? (
 				<video
 					src={project.video}
-					poster={halftoneThumbnail(project.image)}
+					data-halftone-poster={project.image}
 					loop
 					muted
 					playsinline
@@ -42,13 +42,14 @@ const metaLine = [
 					role="img"
 					aria-label={project.imageAlt}
 					data-autoplay-in-view
-					data-halftone
+					data-halftone={halftoneMode(project.video)}
 					class="block aspect-video w-full rounded-lg object-cover"
 				/>
 			) : (
 				<img
-					src={halftoneThumbnail(project.image)}
+					src={project.image}
 					alt={project.imageAlt}
+					data-halftone={halftoneMode(project.image)}
 					width="560"
 					height="315"
 					class="block aspect-video w-full rounded-lg object-cover"
@@ -127,7 +128,3 @@ const metaLine = [
 		</div>
 	)}
 </article>
-
-<script>
-	import '../scripts/halftone-video';
-</script>

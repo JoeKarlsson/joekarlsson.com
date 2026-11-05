@@ -272,6 +272,11 @@ const socialTitle = title.replace(` | ${SITE_TITLE}`, '');
 		],
 	})}
 />
+<!-- Hides img[data-halftone] until src/scripts/halftone.ts draws it in pink, so the
+color original never flashes; that script takes the class off again without WebGL -->
+<script is:inline>
+	document.documentElement.classList.add('halftone-on');
+</script>
 <!-- Plausible Analytics (self-hosted) - with bot filtering -->
 <script is:inline>
 	(function () {

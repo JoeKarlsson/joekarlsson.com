@@ -8,7 +8,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
 import { CHALK, MARKS } from '../data/scribbles';
-import { halftoneHero } from '../utils/thumbnails';
+import { halftoneMode } from '../utils/halftone';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -197,7 +197,8 @@ const formatShortDate = (d: Date) =>
 				{heroVideo ? (
 					<video
 						src={heroVideo}
-						poster={heroImage}
+						data-halftone={halftoneMode(heroVideo)}
+						data-halftone-poster={heroImage}
 						autoplay
 						loop
 						muted
@@ -213,9 +214,10 @@ const formatShortDate = (d: Date) =>
 				) : (
 					heroImage && (
 						<div class="relative mb-10">
-							{/* The pink halftone (npm run media:thumbnails); og:image stays the original */}
+							{/* Drawn in pink by src/scripts/halftone.ts */}
 							<img
-								src={halftoneHero(heroImage)}
+								src={heroImage}
+								data-halftone={halftoneMode(heroImage)}
 								alt={heroAlt || title}
 								class="block w-full max-h-[440px] rounded-xl object-cover"
 								width="1120"

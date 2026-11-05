@@ -63,6 +63,11 @@
 		@apply outline-2 outline-offset-2 outline-coral rounded-xs;
 	}
 
+	/* src/scripts/halftone.ts draws these in pink on a canvas laid over them */
+	.halftone-on img[data-halftone] {
+		visibility: hidden;
+	}
+
 	::selection {
 		@apply bg-coral text-surface-0;
 	}
