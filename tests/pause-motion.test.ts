@@ -23,7 +23,7 @@ describe('pause motion button', () => {
 	beforeEach(() => {
 		document.documentElement.className = '';
 		document.body.innerHTML =
-			'<button data-pause-motion aria-pressed="false">Pause motion</button>';
+			'<button data-pause-motion aria-pressed="false" aria-label="Pause motion"></button>';
 		button = document.querySelector('button')!;
 		initPauseMotion(button);
 	});
@@ -35,13 +35,13 @@ describe('pause motion button', () => {
 		button.click();
 		expect(isMotionPaused()).toBe(true);
 		expect(button.getAttribute('aria-pressed')).toBe('true');
-		expect(button.textContent).toBe('Play motion');
+		expect(button.getAttribute('aria-label')).toBe('Play motion');
 		expect(playing.pause).toHaveBeenCalled();
 
 		button.click();
 		expect(isMotionPaused()).toBe(false);
 		expect(button.getAttribute('aria-pressed')).toBe('false');
-		expect(button.textContent).toBe('Pause motion');
+		expect(button.getAttribute('aria-label')).toBe('Pause motion');
 		expect(playing.play).toHaveBeenCalled();
 		expect(stopped.play).not.toHaveBeenCalled();
 	});

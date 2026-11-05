@@ -211,7 +211,7 @@ Done when: every page uses the new system, and the old styles and dead component
 - 2026-11-05: drop the ASCII cursor cat, the Konami dashboard, the Cmd+K command palette and the /uses apt view.
 - 2026-11-05: drop the lens animation (type lab #10). Joe's own Jitter or Rive wordmarks may replace the two phrase animations later.
 - 2026-11-05: interface font is Hanken Grotesk (replacing Inter), with Fraunces for reading and Anton for headlines.
-- 2026-11-05: on phones the nav wraps to three rows with every link visible, so it isn't sticky there (it would cover a third of the screen) and there's no menu button. It floats from `md` up.
+- 2026-11-05: the nav is always one row. Its spacing is in em, so from `md` up the type shrinks until the bar fits; on phones it scrolls sideways inside the pill, starting with the current page centered. Sticky at every width. Pause motion is an icon (pause bars, then a play triangle) with the words as its accessible name and tooltip.
 - 2026-11-05: the header drops its social icons; they live in the footer only, as in mock-r.
 
 - 2026-11-05: Writing by topic leaves out the catch-all Work and Personal categories (79 and 6 posts), as mock-r did, and lists the top eight subjects.

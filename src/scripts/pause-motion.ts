@@ -17,7 +17,9 @@ export function initPauseMotion(button: HTMLButtonElement): void {
 		const pausing = !isMotionPaused();
 		document.documentElement.classList.toggle(PAUSED_CLASS, pausing);
 		button.setAttribute('aria-pressed', String(pausing));
-		button.textContent = pausing ? 'Play motion' : 'Pause motion';
+		const label = pausing ? 'Play motion' : 'Pause motion';
+		button.setAttribute('aria-label', label);
+		button.title = label;
 
 		if (pausing) {
 			document.querySelectorAll('video').forEach((video) => {

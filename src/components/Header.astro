@@ -11,13 +11,20 @@ function isActive(href: string): boolean {
 }
 ---
 
-<!-- Floats over the page from md up; on phones it wraps to a few rows, so it scrolls away -->
-<header class="pointer-events-none z-50 flex justify-center px-2 pt-2 md:sticky md:top-3.5">
+<!--
+	One row, always. Spacing is in em, so the whole bar scales with its type: from md
+	up the type shrinks until the bar (about 38.5em wide) fits the window; on phones
+	it stays readable and the row scrolls sideways instead.
+-->
+<header class="pointer-events-none sticky top-2 z-50 flex justify-center px-2 pt-2 md:top-3.5">
 	<nav
 		aria-label="Main navigation"
-		class="pointer-events-auto flex flex-wrap items-center justify-center gap-1 rounded-[14px] bg-paper p-1.5 font-display text-base leading-none text-ink uppercase md:text-[21px]"
+		class="pointer-events-auto flex max-w-full items-center gap-[0.19em] overflow-x-auto rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase [scrollbar-width:none] md:text-[min(21px,calc((100vw-24px)/38.5))]"
 	>
-		<a href="/" class="rounded-[9px] bg-ink px-2.5 py-2 text-paper no-underline">
+		<a
+			href="/"
+			class="shrink-0 rounded-[0.43em] bg-ink px-[0.48em] py-[0.38em] text-paper no-underline"
+		>
 			joekarlsson.com
 		</a>
 		{NAV_LINKS.map(({ href, label }) => (
@@ -25,20 +32,48 @@ function isActive(href: string): boolean {
 				href={href}
 				aria-current={isActive(href) ? 'page' : undefined}
 				class:list={[
-					'rounded-[9px] px-2.5 py-2 no-underline',
+					'shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
 					isActive(href) ? 'bg-pink text-ink' : 'text-ink hover:bg-ink hover:text-pink',
 				]}
 			>
 				{label}
 			</a>
 		))}
+		<!-- Pause bars while motion runs, a play triangle once paused (pause-motion.ts swaps the label) -->
 		<button
 			type="button"
 			data-pause-motion
 			aria-pressed="false"
-			class="cursor-pointer rounded-[9px] bg-ink px-2.5 py-2 uppercase text-paper aria-pressed:bg-pink aria-pressed:text-ink"
+			aria-label="Pause motion"
+			title="Pause motion"
+			class="group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink"
 		>
-			Pause motion
+			<svg
+				viewBox="0 0 16 16"
+				class="size-[1em] group-aria-pressed:hidden"
+				fill="currentColor"
+				aria-hidden="true"
+			>
+				<rect x="3" y="2" width="3.5" height="12"></rect>
+				<rect x="9.5" y="2" width="3.5" height="12"></rect>
+			</svg>
+			<svg
+				viewBox="0 0 16 16"
+				class="hidden size-[1em] group-aria-pressed:block"
+				fill="currentColor"
+				aria-hidden="true"
+			>
+				<path d="M4 2 L14 8 L4 14 Z"></path>
+			</svg>
 		</button>
 	</nav>
 </header>
+
+<script>
+	// On phones the bar scrolls sideways; start it with the current page's link centered
+	const nav = document.querySelector<HTMLElement>('header nav[aria-label="Main navigation"]');
+	const current = nav?.querySelector<HTMLElement>('[aria-current="page"]');
+	if (nav && current && nav.scrollWidth > nav.clientWidth) {
+		nav.scrollLeft = current.offsetLeft - (nav.clientWidth - current.offsetWidth) / 2;
+	}
+</script>
