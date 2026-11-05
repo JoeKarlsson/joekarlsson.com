@@ -6,14 +6,7 @@
 export const BLOG_CATEGORIES = ['Homelab', 'Web Dev', 'Career', 'AI', 'Cloud', 'Life'] as const;
 
 /** Employers a post can be written for (`writtenFor`), newest first. Posts without one are personal. */
-export const EMPLOYERS = [
-	'CData',
-	'env0',
-	'CloudQuery',
-	'Tinybird',
-	'SingleStore',
-	'MongoDB',
-] as const;
+export const EMPLOYERS = ['CData', 'CloudQuery', 'Tinybird', 'SingleStore', 'MongoDB'] as const;
 
 /** The label for posts with no `writtenFor`. */
 export const PERSONAL = 'Personal';
