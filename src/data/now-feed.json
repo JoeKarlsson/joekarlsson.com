@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 198,
+			"commitCount": 203,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				74
+				79
 			],
-			"latestCommitMessage": "chore: Card clips and text check for the Bechdel.io and Rose Hobart..."
+			"latestCommitMessage": "feat: About opens with a shorter, two-sentence intro"
 		},
 		{
 			"name": "punc",
 			"description": " Ever wonder what your favorite books look like without words? ",
 			"url": "https://github.com/JoeKarlsson/punc",
 			"language": "TypeScript",
-			"commitCount": 3,
+			"commitCount": 4,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3
 			],
-			"latestCommitMessage": "feat: Reader opens on the score, the spiral zooms and pans like a map..."
+			"latestCommitMessage": "feat: Site has Playwright browser tests in CI and unit-tested spiral..."
 		},
 		{
 			"name": "nothing-but-corners",
