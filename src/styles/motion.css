@@ -216,6 +216,27 @@
 	}
 }
 
+/* A hovered blog row wakes up: its title warbles and its thumbnail's crayon mark
+   redraws quickly and holds (the thumbnail itself turns to dots in halftone.ts) */
+@media (prefers-reduced-motion: no-preference) {
+	html:not(.motion-paused) .blog-row:hover a:not(:has(img, video, canvas)) {
+		animation: warble 0.36s steps(1, end) infinite;
+	}
+
+	html:not(.motion-paused) .blog-row:hover :is(.redraw, .redraw-strokes) path {
+		animation: redraw-now 0.7s cubic-bezier(0.3, 0.7, 0.2, 1) forwards;
+	}
+}
+
+@keyframes redraw-now {
+	from {
+		stroke-dashoffset: 1;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
 @keyframes warble {
 	0% {
 		filter: url(#warble-1);

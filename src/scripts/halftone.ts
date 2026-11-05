@@ -10,6 +10,7 @@
 // - data-halftone="flat": just black and pink, no dots. Every post and project
 //   card uses it, and so does anything with text in it
 //   (src/data/images-with-text.json), which dots make unreadable.
+//   Blog cards without text add data-halftone-hover="dots" to show dots on hover.
 // Both lift dark footage and invert mostly white images (diagrams), so the
 // ground stays black.
 //
@@ -224,6 +225,19 @@ function attach(element: Source, draw: Draw): void {
 		contain: getComputedStyle(element).objectFit === 'contain',
 		position: objectPosition(element),
 	};
+	// data-halftone-hover="dots": flat at rest, dots while its row (.blog-row) is hovered
+	if (element.dataset.halftoneHover === 'dots') {
+		const row = element.closest('.blog-row') ?? element.parentElement!;
+		row.addEventListener('pointerenter', () => {
+			look.flat = false;
+			redraw();
+		});
+		row.addEventListener('pointerleave', () => {
+			look.flat = true;
+			redraw();
+		});
+	}
+
 	// A video shows its still until the clip has a frame
 	const still =
 		element instanceof HTMLImageElement

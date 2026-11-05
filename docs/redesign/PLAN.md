@@ -120,7 +120,7 @@ Phases 0–5 are shipped and live on joekarlsson.com (Phase 5 deployed 2026-11-0
 
 ### Rejected, so don't bring these back
 
-- Wiggle, jitter, line-boil, glitch or rough-edged type.
+- Wiggle, jitter, glitch or rough-edged type at rest. Line-boil came back on hover (2026-11-05, see the decisions log).
 - Warp on hover over video.
 - Drips.
 - Oxblood fields.
@@ -281,6 +281,7 @@ Done when: every page uses the new system, `grep -r coral src` finds nothing, th
 
 ## Decisions log
 
+- 2026-11-05: Joe asked for links to warble on hover "so it feels alive", reversing the line-boil rejection for hover only: hovered text links and hovered blog rows boil through three `#warble-N` filters (`motion.css`); a hovered blog row also turns its thumbnail to dots and redraws its mark. He wants more playfulness of this kind (scribbles and warble), not more content.
 - 2026-11-05: drop the ASCII cursor cat, the Konami dashboard, the Cmd+K command palette and the /uses apt view.
 - 2026-11-05: drop the lens animation (type lab #10). Joe's own Jitter or Rive wordmarks may replace the two phrase animations later.
 - 2026-11-05: interface font is Hanken Grotesk (replacing Inter), with Fraunces for reading and Anton for headlines.
