@@ -1,8 +1,12 @@
 import { describe, it, expect } from 'vitest';
-import { existsSync } from 'fs';
+import { existsSync, statSync } from 'fs';
 import { join } from 'path';
+import { projects } from '../src/data/projects';
 import imagesWithText from '../src/data/images-with-text.json';
-import { halftoneMode } from '../src/utils/halftone';
+import { cardClip, halftoneMode } from '../src/utils/halftone';
+
+// /work autoplays every card clip in view; together they must fit its 1.5MB page budget
+const MAX_CARD_CLIP_BYTES = 450 * 1024;
 
 describe('halftoneMode', () => {
 	it('draws images with text flat, everything else in dots', () => {
@@ -12,5 +16,23 @@ describe('halftoneMode', () => {
 
 	it('lists only files that exist (re-run npm run media:text after moving one)', () => {
 		expect(imagesWithText.filter((src) => !existsSync(join('public', src)))).toEqual([]);
+	});
+});
+
+describe('card clips', () => {
+	it('names the card copy next to its clip', () => {
+		expect(cardClip('/images/projects/demo.mp4')).toBe('/images/projects/demo-card.mp4');
+	});
+
+	it('every project clip has a card copy under the size limit (npm run media:cards)', () => {
+		const problems = projects
+			.flatMap((p) => (p.video ? [cardClip(p.video)] : []))
+			.flatMap((clip) => {
+				const file = join('public', clip);
+				if (!existsSync(file)) return [`${clip} is missing`];
+				const size = statSync(file).size;
+				return size > MAX_CARD_CLIP_BYTES ? [`${clip} is ${Math.round(size / 1024)}KB`] : [];
+			});
+		expect(problems).toEqual([]);
 	});
 });

@@ -1,5 +1,6 @@
 ---
 import type { Project } from '../data/projects';
+import { cardClip } from '../utils/halftone';
 
 interface Props {
 	project: Project;
@@ -32,7 +33,7 @@ const metaLine = [
 		<span class="relative block">
 			{project.video ? (
 				<video
-					src={project.video}
+					src={cardClip(project.video)}
 					data-halftone-poster={project.image}
 					loop
 					muted

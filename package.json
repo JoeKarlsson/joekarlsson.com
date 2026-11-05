@@ -13,6 +13,7 @@
 		"media:dither:video": "bash scripts/media/dither-video.sh",
 		"media:loop": "bash scripts/media/loop.sh",
 		"media:text": "node scripts/media/find-text-images.mjs",
+		"media:cards": "node scripts/media/card-clips.mjs",
 		"media:flash-check": "python3 scripts/media/flash-check.py",
 		"astro": "astro",
 		"check": "astro check",

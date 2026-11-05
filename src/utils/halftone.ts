@@ -8,3 +8,8 @@ const withText = new Set<string>(imagesWithText);
 export function halftoneMode(src: string): 'flat' | 'dots' {
 	return withText.has(src) ? 'flat' : 'dots';
 }
+
+/** The card-size copy of a project clip (`npm run media:cards`): "/x/demo.mp4" -> "/x/demo-card.mp4" */
+export function cardClip(video: string): string {
+	return video.replace(/\.mp4$/, '-card.mp4');
+}
