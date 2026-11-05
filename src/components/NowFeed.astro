@@ -7,6 +7,10 @@ const { updatedAt, shippingWindowDays, shippedRepos, films, podcastEpisodes } = 
 
 // 10px cells with a 2px gap
 const ACTIVITY_CELL_STEP = 12;
+// The title of a linked item reads as a link before hover: underlined in pink,
+// turning pink when its card (`group`) is hovered or focused
+const LINK_TITLE =
+	'text-paper underline decoration-pink underline-offset-4 group-hover:text-pink group-focus-visible:text-pink';
 // Solid steps from dark gray to hot pink. Empty days stay visible so the strip
 // reads as 30 days, not a few dots.
 function activityColor(commitCount: number) {
@@ -41,7 +45,7 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						class="plausible-event-name=Now+Feed+Click plausible-event-source=github group flex flex-col no-underline"
 					>
 						<div class="flex items-center justify-between gap-2">
-							<p class="text-sm font-semibold text-paper group-hover:text-pink">{repo.name}</p>
+							<p class={`text-sm font-semibold ${LINK_TITLE}`}>{repo.name}</p>
 							{repo.language && (
 								<p class="flex items-center gap-1 text-sm text-muted">
 									<svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true">
@@ -100,8 +104,8 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						data-halftone="flat"
 						class="mb-2 block w-full rounded-lg"
 					/>
-					<p class="text-sm font-semibold text-paper group-hover:text-pink">
-						{film.title} <span class="text-muted">{film.year}</span>
+					<p class="text-sm font-semibold">
+						<span class={LINK_TITLE}>{film.title}</span> <span class="text-muted">{film.year}</span>
 					</p>
 				</a>
 				{film.rating !== null && (
@@ -131,7 +135,9 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						class="h-12 w-12 shrink-0 rounded-lg object-cover"
 					/>
 					<div>
-						<p class="text-sm font-semibold text-paper">{episode.episodeTitle}</p>
+						<p class:list={['text-sm font-semibold', episode.url ? LINK_TITLE : 'text-paper']}>
+							{episode.episodeTitle}
+						</p>
 						<p class="text-sm text-muted">{episode.podcastTitle}</p>
 					</div>
 				</>
@@ -143,7 +149,7 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 							href={episode.url}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="plausible-event-name=Now+Feed+Click plausible-event-source=podcast relative flex items-center gap-3 no-underline"
+							class="plausible-event-name=Now+Feed+Click plausible-event-source=podcast group relative flex items-center gap-3 no-underline"
 						>
 							{content}
 						</a>
