@@ -393,35 +393,58 @@ const COLLAGE = [
 			delay="1.2s"
 			class="-top-[70px] right-[12%] z-10 size-[140px]"
 		/>
-		<!-- The cat on the litter box wiring gets a row of its own -->
-		<figure class="relative mx-4 mt-24 -rotate-1 sm:mx-7 md:mx-[8%]">
-			<video
-				class="block w-full"
-				src="/images/home/cat-wide.mp4"
-				poster="/images/home/cat-wide-poster.webp"
-				data-autoplay-in-view
-				muted
-				loop
-				playsinline
-				preload="none"
-				aria-label="Photocopied video of Joe's cat on the litter box wiring"
-			></video>
-			<Scribble
-				{...MARKS.rays}
-				color={CHALK}
-				strokeWidth={6}
-				duration="7s"
-				delay="0.8s"
-				class="-top-[9%] -left-[4%] h-[14%] w-[12%]"
-			/>
-			<Scribble
-				{...MARKS.underline}
-				color="#ff4fd8"
-				duration="9s"
-				delay="2s"
-				class="-bottom-[7%] left-[20%] h-[6%] w-[62%]"
-			/>
-		</figure>
+		<!-- Two bigger clips share a row: the cat on the litter box wiring, and Joe
+		pointing at the PixelPane board -->
+		<div class="mx-4 mt-24 grid items-center gap-10 sm:mx-7 md:grid-cols-[1.7fr_1fr] md:gap-14">
+			<figure class="relative -rotate-1">
+				<video
+					class="block w-full"
+					src="/images/home/cat-wide.mp4"
+					poster="/images/home/cat-wide-poster.webp"
+					data-autoplay-in-view
+					muted
+					loop
+					playsinline
+					preload="none"
+					aria-label="Photocopied video of Joe's cat on the litter box wiring"
+				></video>
+				<Scribble
+					{...MARKS.rays}
+					color={CHALK}
+					strokeWidth={6}
+					duration="7s"
+					delay="0.8s"
+					class="-top-[9%] -left-[4%] h-[14%] w-[12%]"
+				/>
+				<Scribble
+					{...MARKS.underline}
+					color="#ff4fd8"
+					duration="9s"
+					delay="2s"
+					class="-bottom-[7%] left-[20%] h-[6%] w-[62%]"
+				/>
+			</figure>
+			<figure class="relative rotate-2">
+				<video
+					class="block w-full"
+					src="/images/home/pixelpane.mp4"
+					poster="/images/home/pixelpane-poster.webp"
+					data-autoplay-in-view
+					muted
+					loop
+					playsinline
+					preload="none"
+					aria-label="Photocopied video of Joe holding up and pointing at his PixelPane pixel art frame"
+				></video>
+				<Scribble
+					{...MARKS.tally}
+					color={CHALK}
+					duration="9s"
+					delay="1.5s"
+					class="-right-[10%] -bottom-[6%] h-[12%] w-[40%]"
+				/>
+			</figure>
+		</div>
 		<div class="collage mx-4 mt-20 grid grid-cols-2 items-center gap-5 sm:mx-7 md:grid-cols-5">
 			{COLLAGE.map(({ name, alt }) => (
 				<figure class="relative">
