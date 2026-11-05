@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 204,
+			"commitCount": 208,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				80
+				84
 			],
-			"latestCommitMessage": "feat: RSS page, hero generator and theme color match the pink-on-black..."
+			"latestCommitMessage": "fix: Blog featured post is a 16:9 banner on phones, Contact gets the..."
 		},
 		{
 			"name": "punc",
 			"description": " Ever wonder what your favorite books look like without words? ",
 			"url": "https://github.com/JoeKarlsson/punc",
 			"language": "TypeScript",
-			"commitCount": 4,
+			"commitCount": 6,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5
 			],
-			"latestCommitMessage": "feat: Site has Playwright browser tests in CI and unit-tested spiral..."
+			"latestCommitMessage": "fix: Book pages on phones put a small poster beside the title instead..."
 		},
 		{
 			"name": "nothing-but-corners",
