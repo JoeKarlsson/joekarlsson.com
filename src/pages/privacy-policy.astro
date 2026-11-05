@@ -1,5 +1,7 @@
 ---
+import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { CHALK, MARKS } from '../data/scribbles';
 ---
 
 <BaseLayout
@@ -7,11 +9,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	description="Privacy policy for joekarlsson.com covering analytics, cookies, and how your data is handled on this site."
 	schemaType="WebPage"
 >
-	<div class="mx-auto max-w-3xl px-4 py-8">
-		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">
-			~$ cat privacy.md
-		</p>
-		<h1 class="mb-8 text-3xl font-bold text-coral md:text-4xl">Privacy Policy</h1>
+	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-16 sm:px-7">
+		<h1 class="relative mb-12 w-fit font-display text-[clamp(56px,10vw,150px)] leading-[0.88] font-normal text-paper uppercase">
+			Privacy
+			<Scribble
+				{...MARKS.underline}
+				color="#ff4fd8"
+				strokeWidth={10}
+				duration="8s"
+				delay="0.4s"
+				class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
+			/>
+			<Scribble
+				{...MARKS.asterisk}
+				color={CHALK}
+				duration="8s"
+				delay="1.2s"
+				class="-top-[0.05em] -right-[0.7em] size-[0.5em]"
+			/>
+		</h1>
 		<div class="prose">
 			<p>This website is a static site that collects minimal data.</p>
 
