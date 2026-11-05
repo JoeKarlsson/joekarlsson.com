@@ -6,8 +6,8 @@ date: 2025-06-03
 slug: cloud-centers-of-excellence-part-2-governance-security-compliance
 tags:
   - Governance
-categories:
-  - Databases
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 heroImage: /images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance
 contentNotice: "This post was originally published on CloudQuery's blog."

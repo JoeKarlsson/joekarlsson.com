@@ -3,7 +3,8 @@ title: 'Integrate AbuseIPDB Threat Intelligence with CloudQuery'
 date: 2025-05-01
 slug: 'integrate-abuseipdb-with-cloudquery'
 description: 'Check your cloud public IPs against AbuseIPDB abuse scores using CloudQuery inventory data and SQL joins. Includes working query examples.'
-categories: ['Dev Tools']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Security', 'SQL', 'Cloud Infrastructure']
 canonicalUrl: 'https://www.cloudquery.io/blog/integrate-abuseipdb-with-cloudquery'
 tldr: 'AbuseIPDB scores IPs for abuse history. By joining it with CloudQuery cloud inventory data, you can find which of your public cloud resources have flagged IPs - before attackers or blocklists do.'

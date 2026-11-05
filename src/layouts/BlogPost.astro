@@ -4,6 +4,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 import { categorySlug } from '../utils/categories';
 import AuthorBio from '../components/AuthorBio.astro';
+import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
@@ -19,6 +20,8 @@ interface Props {
 	heroAlt?: string;
 	heroVideo?: string;
 	categories?: string[];
+	// The employer this post was written for; none for a personal post
+	writtenFor?: string;
 	slug: string;
 	contentNotice?: string | boolean;
 	tldr?: string;
@@ -40,6 +43,7 @@ const {
 	heroAlt,
 	heroVideo,
 	categories,
+	writtenFor,
 	slug,
 	contentNotice,
 	tldr,
@@ -96,7 +100,7 @@ let nextPost: (typeof publishedPosts)[number] | undefined;
 
 if (primaryCategory) {
 	const categoryPosts = publishedPosts
-		.filter((p) => p.data.categories?.includes(primaryCategory))
+		.filter((p) => p.data.categories.some((category) => category === primaryCategory))
 		.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 	const currentIndex = categoryPosts.findIndex((p) => p.data.slug === slug);
 	if (currentIndex > 0) {
@@ -260,6 +264,12 @@ const formatShortDate = (d: Date) =>
 									</a>
 								</>
 							))}
+						{writtenFor && (
+							<>
+								{' · '}
+								<WrittenFor employer={writtenFor} />
+							</>
+						)}
 					</p>
 				</div>
 				{noticeMessage && (

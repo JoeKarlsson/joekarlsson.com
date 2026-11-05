@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogCard from '../../../components/BlogCard.astro';
+import BlogFilterNav from '../../../components/BlogFilterNav.astro';
 import Scribble from '../../../components/Scribble.astro';
 import { MARKS } from '../../../data/scribbles';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
@@ -70,27 +71,14 @@ const currentSlug = categorySlug(category);
 			<p class="mt-6 text-muted">{posts.length} posts</p>
 		</header>
 
-		<nav class="mb-12 flex flex-wrap gap-x-5 gap-y-2 text-[15px]" aria-label="Blog categories">
-			<a href="/blog/" class="text-paper no-underline hover:text-pink">
-				All
-			</a>
-			{categories.map(({ name, slug, count }) => {
-				const isActive = slug === currentSlug;
-				return (
-					<a
-						href={`/blog/category/${slug}/`}
-						class={
-							isActive
-								? 'text-pink underline underline-offset-4'
-								: 'text-paper no-underline hover:text-pink'
-						}
-						aria-current={isActive ? 'page' : undefined}
-					>
-						{name} <span class="text-muted">{count}</span>
-					</a>
-				);
-			})}
-		</nav>
+		<BlogFilterNav
+			label="Blog categories"
+			items={categories}
+			basePath="/blog/category/"
+			currentSlug={currentSlug}
+			allLink
+			class="mb-12"
+		/>
 
 		<ul class="relative">
 			{posts.map((post) => (
@@ -101,6 +89,7 @@ const currentSlug = categorySlug(category);
 					slug={post.data.slug}
 					heroImage={post.data.heroImage}
 					categories={post.data.categories}
+					writtenFor={post.data.writtenFor}
 					readingTime={getReadingTime(post.body || '')}
 				/>
 			))}

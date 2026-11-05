@@ -3,7 +3,7 @@ title: 'Bechdel.io - How We Used JavaScript To Help Make Film More Inclusive'
 date: 2020-05-16
 slug: 'bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive'
 description: 'Thanks for coming to my talk, Bechdel.io - How We Used JavaScript To Help Make Film More Inclusive. Here you will find all the resources discussed during the talk. About What do The Social Network,...'
-categories: ['Film']
+categories: ['Web Dev']
 heroImage: '/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/Bechdel.io-Blog-Banner.webp'
 heroAlt: 'Bechdel.io blog banner showing the project logo'
 tldr: 'My sister and I built bechdel.io, a JavaScript tool that automatically parses film scripts to check if they pass the Bechdel Test. I cover how it works and what we learned from the data.'

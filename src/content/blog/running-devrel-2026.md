@@ -4,7 +4,7 @@ date: 2026-04-21
 updatedDate: 2026-10-12
 slug: 'running-devrel-2026'
 description: 'Running DevRel in 2026: developers find you through people, search, and LLMs. What breaks on each surface, how I measure it, and my first 90 days.'
-categories: ['DevRel', 'Career']
+categories: ['Career']
 tags:
   [
     'developer relations',

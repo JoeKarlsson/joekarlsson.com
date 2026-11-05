@@ -3,7 +3,8 @@ title: 'AI Gateway for Developers: What Teams Are Building on Live Enterprise Da
 date: 2026-09-28
 slug: 'ai-gateway-for-developers'
 description: "Building internal AI agents on enterprise data without a custom permission system. Here's what teams are shipping on CData Connect AI in 2026."
-categories: ['Dev Tools']
+categories: ['AI']
+writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'ai-agents', 'cdata']
 heroImage: '/images/blog/ai-gateway-for-developers/hero-2.webp'
 heroAlt: 'Illustration of stacked dashboard windows connected to a data layer below'

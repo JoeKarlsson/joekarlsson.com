@@ -7,8 +7,8 @@ tags:
   - Security
 date: 2024-12-19
 description: Learn how to build AI-powered applications while keeping your sensitive data secure and private on your own infrastructure.
-categories:
-  - Databases
+categories: ['AI']
+writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/ai-without-exposing-your-data
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---

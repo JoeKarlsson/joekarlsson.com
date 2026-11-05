@@ -3,7 +3,7 @@ title: 'Building Your First GraphQL Client in JS'
 date: 2020-01-16
 slug: 'getting-started-with-graphql-and-atlas'
 description: 'Thanks for coming to my talk, Building Your First GraphQL Client in JS. Here you will find all the resources discussed during the talk. About RESTful APIs have been around for a while now, but they...'
-categories: ['Databases', 'Dev Tools']
+categories: ['Web Dev']
 heroImage: '/images/blog/getting-started-with-graphql-and-atlas/From-SQL-to-NoSQL-Blog-Cover1.webp'
 heroAlt: 'Getting Started with GraphQL and MongoDB Atlas presentation title slide'
 contentNotice: 'MongoDB Atlas GraphQL API (formerly Stitch GraphQL) has been deprecated and shut down. This tutorial will not work with current MongoDB services.'

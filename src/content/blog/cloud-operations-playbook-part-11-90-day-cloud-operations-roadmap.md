@@ -4,7 +4,8 @@ date: 2026-03-03
 slug: 'cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap'
 description: >-
   A week-by-week plan from first inventory sync to automated governance. Three phases, clear milestones, and metrics to prove ROI to leadership.
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Platform Engineering', 'Governance']
 heroImage: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/thumbnail.webp'
 heroAlt: 'The 90-Day Cloud Operations Roadmap'

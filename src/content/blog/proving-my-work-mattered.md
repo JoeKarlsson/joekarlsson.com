@@ -3,7 +3,8 @@ title: 'What I Learned When I Could Finally Prove My Work Mattered'
 date: 2026-08-04
 slug: 'proving-my-work-mattered'
 description: "For most of my last job I couldn't say whether my work mattered. What I learned getting the data that finally answered it - and what it did to my influence."
-categories: ['DevRel', 'Career']
+categories: ['Cloud', 'Career']
+writtenFor: 'CData'
 tags: ['analytics', 'data', 'devrel', 'cdata']
 heroImage: '/images/blog/proving-my-work-mattered/hero-2.webp'
 heroAlt: 'Proving my work mattered - connect ai'

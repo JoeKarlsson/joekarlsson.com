@@ -3,7 +3,8 @@ title: 'How to Use SingleStore as a Key-Value Store'
 date: 2022-06-22
 slug: 'how-to-use-singlestore-as-a-key-value-store'
 description: 'Key-value stores are perhaps one of the most popular databases on the market today - and with good reason! They are fast, scalable and super easy to use. But did you know you can get all the...'
-categories: ['Work']
+categories: ['Web Dev']
+writtenFor: 'SingleStore'
 heroImage: '/images/blog/how-to-use-singlestore-as-a-key-value-store/img_blog_post_featured_bp-jk-how-to-use-singlestore-as-a-key-value-store.webp'
 heroAlt: 'How to use SingleStore as a key-value store'
 canonicalUrl: 'https://www.singlestore.com/blog/how-to-use-singlestore-as-a-key-value-store/'

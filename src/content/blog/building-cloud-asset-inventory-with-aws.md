@@ -3,7 +3,8 @@ title: 'Building an AWS Cloud Asset Inventory'
 date: 2025-03-12
 slug: 'building-cloud-asset-inventory-with-aws'
 description: 'Learn how to build a cloud asset inventory in AWS using CloudQuery, PostgreSQL, and Grafana. This guide covers setting up CloudQuery, transforming data with dbt, and visualizing cloud assets for improved security and compliance.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Cloud Asset Inventory', 'AWS']
 heroImage: '/images/blog/building-cloud-asset-inventory-with-aws/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/building-cloud-asset-inventory-with-aws'

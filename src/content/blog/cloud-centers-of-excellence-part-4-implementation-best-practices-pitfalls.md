@@ -6,8 +6,8 @@ date: 2025-06-03
 slug: cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls
 tags:
   - Governance
-categories:
-  - Databases
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 heroImage: /images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls
 contentNotice: "This post was originally published on CloudQuery's blog."

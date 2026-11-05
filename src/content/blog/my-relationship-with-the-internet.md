@@ -3,7 +3,7 @@ title: 'My Relationship With The Internet'
 date: 2015-05-09
 slug: 'my-relationship-with-the-internet'
 description: 'There have been a lot of articles recently published about how the internet, social media, and smartphones are killing ‘real human connections.’ I however believe that this is a reactionary knee jerk...'
-categories: ['Personal']
+categories: ['Life']
 heroImage: '/images/blog/my-relationship-with-the-internet/IMG_1947-e1437203870387.webp'
 heroAlt: 'Thoughts on my relationship with the internet'
 contentNotice: false

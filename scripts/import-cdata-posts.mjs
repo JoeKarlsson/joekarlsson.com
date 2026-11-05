@@ -349,7 +349,10 @@ async function importPost(page, url, existingFile) {
 		...(updated && updated !== date ? [`updatedDate: ${updated}`] : []),
 		`slug: ${yaml(slug)}`,
 		`description: ${yaml(post.description)}`,
-		`categories: ['Dev Tools']`,
+		// CData posts are about AI agents and enterprise data; the content schema
+		// (BLOG_CATEGORIES) rejects anything outside the six categories
+		`categories: ['AI']`,
+		`writtenFor: 'CData'`,
 		`tags: [${[...new Set(tags)].map(yaml).join(', ')}]`,
 		...(post.heroSrc
 			? [`heroImage: ${yaml(webPath('hero.webp'))}`, `heroAlt: ${yaml(post.heroAlt || post.title)}`]

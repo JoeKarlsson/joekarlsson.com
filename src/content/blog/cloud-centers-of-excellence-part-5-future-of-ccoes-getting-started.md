@@ -5,8 +5,8 @@ date: 2025-06-03
 slug: cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started
 tags:
   - Governance
-categories:
-  - Databases
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 heroImage: /images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started
 contentNotice: "This post was originally published on CloudQuery's blog."

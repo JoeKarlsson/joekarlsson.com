@@ -4,7 +4,8 @@ date: 2026-02-20
 slug: 'cloud-operations-playbook-part-04-cost-of-compliance-scrambles'
 description: >-
   Most teams spend weeks preparing for audits that should take hours. Learn why compliance scrambles persist and how queryable data eliminates them.
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance']
 heroImage: /images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles

@@ -6,8 +6,8 @@ date: 2025-06-03
 slug: cloud-centers-of-excellence-part-1-building-effective-cloud-governance
 tags:
   - Governance
-categories:
-  - Databases
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 heroImage: /images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance
 contentNotice: "This post was originally published on CloudQuery's blog."

@@ -3,7 +3,8 @@ title: 'Best MCP Servers for ChatGPT, Dots, and Meta Muse'
 date: 2026-10-26
 slug: 'best-mcp-servers-chatgpt-meta-muse'
 description: 'Best MCP servers for ChatGPT, dots, and Meta Muse in 2026, compared by use case, with the criteria business and IT teams use to approve one.'
-categories: ['Dev Tools']
+categories: ['AI']
+writtenFor: 'CData'
 tags: ['mcp', 'chatgpt', 'meta-muse', 'ai-agents', 'enterprise', 'cdata']
 heroImage: '/images/blog/best-mcp-servers-chatgpt-meta-muse/hero.webp'
 heroAlt: 'The OpenAI logo in a navy circle and the Meta logo in a white circle, each with an arrow to a yellow circle holding the CData logo'

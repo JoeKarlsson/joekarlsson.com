@@ -4,7 +4,8 @@ shareTitle: 'Building a Multi-Cloud Asset Inventory for GCP and AWS with CloudQu
 date: 2024-10-25
 slug: 'complete-guide-building-multi-cloud-asset-inventory'
 description: 'Learn how to build a unified multi-cloud asset inventory with CloudQuery. This post covers pulling data from AWS and GCP, storing it in PostgreSQL, and querying your cloud assets with ease.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Tutorials']
 heroImage: '/images/blog/complete-guide-building-multi-cloud-asset-inventory/complete-guide-building-multi-cloud-asset-inventory.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/complete-guide-building-multi-cloud-asset-inventory'

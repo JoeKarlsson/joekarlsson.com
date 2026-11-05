@@ -3,7 +3,7 @@ title: 'Databases and DevOps: How to Use SingleStore With GitHub Actions'
 date: 2022-06-22
 slug: 'databases-and-devops-how-to-usesinglestore-with-github-actions'
 description: 'Databases are frequently not included when transforming an application and engineering culture toward a DevOps, or continuous deployment engineering organization. And, you could be forgiven for this...'
-categories: ['Databases', 'Dev Tools']
+categories: ['Web Dev']
 heroImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/img_blog_post_featured_use-singlestore-with-github-actions.webp'
 heroAlt: 'Using SingleStore with GitHub Actions for database CI/CD'
 tldr: 'Most teams skip the database in their CI/CD pipeline, and that is a mistake. I walk through best practices for database DevOps and show you how to set up SingleStore with GitHub Actions so your database deployments are automated on every push.'

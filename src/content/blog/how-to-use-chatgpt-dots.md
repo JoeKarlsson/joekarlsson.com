@@ -3,7 +3,8 @@ title: 'How to Use ChatGPT Dots with Salesforce, Jira, and More'
 date: 2026-10-15
 slug: 'how-to-use-chatgpt-dots'
 description: 'How to use ChatGPT dots with Salesforce, Jira, QuickBooks, and more: connect your business apps in minutes, then ask across them and schedule checks.'
-categories: ['Dev Tools']
+categories: ['AI']
+writtenFor: 'CData'
 tags: ['chatgpt', 'ai-agents', 'mcp', 'tutorial', 'enterprise', 'cdata']
 heroImage: '/images/blog/how-to-use-chatgpt-dots/hero.webp'
 heroAlt: 'The OpenAI logo in a white circle at the center of looping orbit lines, with small brown, white, yellow, and navy dots on the orbits'

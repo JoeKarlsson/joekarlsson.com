@@ -3,7 +3,8 @@ title: 'MongoDB Schema Design Best Practices'
 date: 2020-04-02
 slug: 'mongodb-schema-design-best-practices'
 description: 'Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you will find all the resources discussed during the talk. About: “How do I model my schema for my...'
-categories: ['Work']
+categories: ['Web Dev']
+writtenFor: 'MongoDB'
 heroImage: '/images/blog/mongodb-schema-design-best-practices/2.webp'
 heroAlt: 'MongoDB schema design best practices'
 contentNotice: false

@@ -3,7 +3,8 @@ title: What We Learned Querying Cloud Infra for Expired Dependencies
 date: 2025-03-20
 slug: 'what-we-learned-querying-cloud-infra-for-expired-dependencies'
 description: 'Learn how to easily track and fix end-of-life cloud services across AWS, Azure, and GCP with CloudQuery new End-of-Life (EOL) integration.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Product News']
 heroImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies'

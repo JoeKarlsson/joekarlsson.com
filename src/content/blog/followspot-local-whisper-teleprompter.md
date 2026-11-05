@@ -3,7 +3,7 @@ title: "I Can't Memorize Lines, So I Built a Teleprompter That Listens"
 date: 2026-09-25T11:13:48Z
 slug: 'followspot-local-whisper-teleprompter'
 description: 'FollowSpot is a voice-following browser teleprompter that runs Whisper locally. Why I built it, plus benchmarks of five Whisper models on an M5 Max.'
-categories: ['Dev Tools', 'DevRel']
+categories: ['Web Dev', 'Career']
 tags: ['teleprompter', 'whisper.cpp', 'Whisper', 'video production', 'local AI']
 heroImage: '/images/blog/followspot-local-whisper-teleprompter/hero.webp'
 heroVideo: '/images/blog/followspot-local-whisper-teleprompter/demo.mp4'

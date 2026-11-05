@@ -3,7 +3,8 @@ title: 'How to Connect Your Business Apps to Meta Muse'
 date: 2026-09-22
 slug: 'connect-business-apps-meta-muse'
 description: 'Connect enterprise data to Meta Muse with CData Connect AI. Add Salesforce, NetSuite, or HubSpot as a custom connector in about 10 minutes.'
-categories: ['Dev Tools']
+categories: ['AI']
+writtenFor: 'CData'
 tags: ['mcp', 'ai-agents', 'meta-muse', 'tutorial', 'enterprise', 'cdata']
 heroImage: '/images/blog/connect-business-apps-meta-muse/hero.webp'
 heroAlt: 'Diagram of a business app window feeding into a CData Connect AI box, which feeds into the Meta logo, on a light gray background'

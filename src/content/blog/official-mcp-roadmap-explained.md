@@ -3,7 +3,8 @@ title: 'The Official MCP Roadmap: What Enterprise Teams Need to Plan for'
 date: 2026-09-14
 slug: 'official-mcp-roadmap-explained'
 description: "The official MCP roadmap (Aug 22, 2026) maps five priorities. Here's what each means if you operate MCP servers, and what the spec still won't fix for you."
-categories: ['Dev Tools']
+categories: ['AI']
+writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'protocol', 'cdata']
 heroImage: '/images/blog/official-mcp-roadmap-explained/hero-2.webp'
 heroAlt: 'Illustration of a timeline with one highlighted milestone under the MCP logo'

@@ -3,7 +3,7 @@ title: 'DevRel as Dev Zero'
 date: 2023-03-03
 slug: 'devrel-as-dev-zero'
 description: 'As a developer advocate, I often ponder DevRel’s role in catching bugs and tricky issues before they escalate. I’m sharing my thoughts in this blog post. DevRel as Dev Zero DevRel can serve as the...'
-categories: ['DevRel']
+categories: ['Career']
 heroImage: '/images/blog/devrel-as-dev-zero/DevRel-as-Dev-Zero.webp'
 heroAlt: 'DevRel as Dev Zero concept illustration'
 tldr: 'DevRel should be the first user of your product before it ships. I call this "Dev Zero" - we catch bugs, missing buttons, and confusing flows that developers miss, and then turn those findings into targeted docs and content.'

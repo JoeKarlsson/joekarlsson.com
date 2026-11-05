@@ -4,7 +4,8 @@ date: 2026-02-21
 slug: 'cloud-operations-playbook-part-05-cloud-waste-calculator'
 description: >-
   Engineering toil from fragmented cloud visibility costs $47K-$90K per engineer yearly. Use our calculator to measure the real cost at your organization.
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'FinOps']
 heroImage: /images/blog/cloud-operations-playbook-part-05-cloud-waste-calculator/thumbnail.webp
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-05-cloud-waste-calculator

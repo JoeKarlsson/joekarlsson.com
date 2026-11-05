@@ -4,7 +4,8 @@ date: 2026-02-25
 slug: 'cloud-operations-playbook-part-07-continuous-cloud-governance'
 description: >-
   Deploy-time policy checks miss console changes, configuration drift, and external changes. Continuous governance catches what CI/CD pipelines cannot.
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance']
 heroImage: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/thumbnail.webp'
 heroAlt: 'Continuous Cloud Governance - Part 7 of the Cloud Operations Playbook series'

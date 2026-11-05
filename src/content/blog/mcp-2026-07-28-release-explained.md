@@ -3,7 +3,8 @@ title: 'The 2026-07-28 MCP Release Explained: What It Means for Enterprise Teams
 date: 2026-07-28
 slug: 'mcp-2026-07-28-release-explained'
 description: "The MCP 2026-07-28 release makes the protocol stateless, adds an extensions framework, and hardens authorization. Here's what each change actually means for teams running MCP in production."
-categories: ['Dev Tools']
+categories: ['AI']
+writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'protocol', 'cdata']
 heroImage: '/images/blog/mcp-2026-07-28-release-explained/hero-2.webp'
 heroAlt: 'The 2026-07-28 MCP Release Explained'

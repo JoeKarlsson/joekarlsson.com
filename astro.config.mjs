@@ -92,6 +92,22 @@ export default defineConfig({
 
 		// Consolidated content redirects
 		'/blog/how-i-work': '/uses',
+		// The same CData article imported twice under two slugs (2026-11-05)
+		'/blog/connect-enterprise-data-meta-muse': '/blog/connect-business-apps-meta-muse',
+
+		// Old blog categories, folded into the six current ones (2026-11-05). Work was a
+		// catch-all for employer posts, now shown by /blog/written-for/.
+		'/blog/category/work': '/blog/',
+		'/blog/category/dev-tools': '/blog/category/web-dev/',
+		'/blog/category/databases': '/blog/category/web-dev/',
+		'/blog/category/javascript': '/blog/category/web-dev/',
+		'/blog/category/smart-home': '/blog/category/homelab/',
+		'/blog/category/iot': '/blog/category/homelab/',
+		'/blog/category/networking': '/blog/category/homelab/',
+		'/blog/category/devrel': '/blog/category/career/',
+		'/blog/category/personal': '/blog/category/life/',
+		'/blog/category/film': '/blog/category/life/',
+		'/blog/category/travel': '/blog/category/life/',
 
 		// WordPress page redirects
 		'/speaking/joe-karlssons-talk-archive': '/talk-archive',

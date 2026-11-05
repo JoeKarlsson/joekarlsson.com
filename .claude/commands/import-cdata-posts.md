@@ -42,7 +42,8 @@ If another session has uncommitted work in the repo, leave it alone. Never run `
 Read each post in full, then set:
 
 - **`tags`**: replace CData's taxonomy slugs (`industry-insights`, `solutions-and-use-cases`, `data-management`, `cdata-connect-ai`) with topical tags. Examples: `mcp`, `ai`, `enterprise`, `ai-agents`, `tutorial`, `protocol`, plus a product tag when it's the subject (`litellm`, `meta-muse`). Keep `cdata` last.
-- **`categories`**: the script defaults to `['Dev Tools']`, which fits most AI/MCP posts. Use `DevRel` or `Career` for posts about the job itself (see `proving-my-work-mattered.md`). Pick from the category list in `write-post.md` Phase 1a.
+- **`categories`**: the script defaults to `['AI']`, which fits most AI/MCP posts. Use `Cloud` for cloud infrastructure or security, or `Career` for posts about the job itself (see `proving-my-work-mattered.md`). Only the six in `BLOG_CATEGORIES` (`src/utils/categories.ts`) build.
+- **`writtenFor`**: the script sets `'CData'`, which labels the post "Written for CData" and lists it on `/blog/written-for/cdata/`.
 - **Hero background (required)**: every CData hero must end up as a 1200x675 opaque WebP on the off-white `#f4f4f5` canvas. The raw ones are transparent black line art that is unreadable on this site's black cards. The importer does this, but check it for every post:
 
   ```bash

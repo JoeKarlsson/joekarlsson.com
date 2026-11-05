@@ -3,7 +3,7 @@ title: 'Building a Claude Code Blog Skill: What I Learned Systematizing Content 
 date: 2025-10-24
 slug: 'building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation'
 description: 'I live in the terminal. Like, genuinely live there. As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code...'
-categories: ['Dev Tools']
+categories: ['AI']
 heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/Building-a-Claude-Code-Blog-Skill.webp'
 heroAlt: 'Building a Claude Code blog skill for systematizing content creation'
 tldr: 'I built a Claude Code slash command that turns blog post creation into a repeatable, enforceable workflow with brand voice checks, Vale linting, image generation, and automatic PR submission. It unblocked our marketing team from depending on me as the content quality bottleneck.'

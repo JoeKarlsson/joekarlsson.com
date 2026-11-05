@@ -1,0 +1,98 @@
+---
+// Every blog post written for one employer (a crosspost of their blog), or the
+// personal ones: /blog/written-for/cloudquery/, /blog/written-for/personal/.
+import { getCollection } from 'astro:content';
+import BlogCard from '../../../components/BlogCard.astro';
+import BlogFilterNav from '../../../components/BlogFilterNav.astro';
+import Scribble from '../../../components/Scribble.astro';
+import { MARKS } from '../../../data/scribbles';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { PERSONAL, categorySlug, getWrittenForCounts } from '../../../utils/categories';
+
+function getReadingTime(body: string): number {
+	const words = body.trim().split(/\s+/).length;
+	return Math.max(1, Math.ceil(words / 250));
+}
+
+export async function getStaticPaths() {
+	const posts = (await getCollection('blog')).sort(
+		(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+	);
+	return getWrittenForCounts(posts).map(({ name, slug }) => ({
+		params: { employer: slug },
+		props: {
+			name,
+			posts: posts.filter((p) => (p.data.writtenFor ?? PERSONAL) === name),
+		},
+	}));
+}
+
+const { name, posts } = Astro.props;
+const writtenFor = getWrittenForCounts(await getCollection('blog'));
+const isPersonal = name === PERSONAL;
+const heading = isPersonal ? 'Personal' : `For ${name}`;
+const summary = isPersonal
+	? `${posts.length} posts I wrote on my own`
+	: `${posts.length} posts I wrote for ${name}, first published on their blog`;
+---
+
+<BaseLayout
+	title={`${isPersonal ? 'Personal posts' : `Posts written for ${name}`} | Blog | Joe Karlsson`}
+	description={
+		isPersonal
+			? `${posts.length} personal posts by Joe Karlsson.`
+			: `${posts.length} posts Joe Karlsson wrote for ${name}.`
+	}
+	schemaType="CollectionPage"
+>
+	<div class="relative px-4 pt-10 pb-10 sm:px-7">
+		<header class="relative mb-10">
+			<p class="mb-3 text-[15px]">
+				<a href="/blog/" class="text-muted no-underline hover:text-pink">
+					← Blog
+				</a>
+			</p>
+			<h1 class="relative inline-block font-display text-[clamp(56px,11vw,170px)] leading-[0.88] font-normal text-paper uppercase">
+				{heading}
+				<Scribble
+					{...MARKS.underline}
+					color="#ff4fd8"
+					strokeWidth={10}
+					duration="8s"
+					delay="0.4s"
+					class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
+				/>
+			</h1>
+			<p class="mt-6 text-muted">{summary}</p>
+		</header>
+
+		<BlogFilterNav
+			label="Who the posts were written for"
+			heading="Written for"
+			items={writtenFor}
+			basePath="/blog/written-for/"
+			currentSlug={categorySlug(name)}
+			class="mb-12"
+		/>
+
+		<ul class="relative">
+			{posts.map((post) => (
+				<BlogCard
+					title={post.data.title}
+					description={post.data.description}
+					date={post.data.date}
+					slug={post.data.slug}
+					heroImage={post.data.heroImage}
+					categories={post.data.categories}
+					writtenFor={post.data.writtenFor}
+					readingTime={getReadingTime(post.body || '')}
+				/>
+			))}
+		</ul>
+		<p class="mt-[18px]">
+			<a href="/blog/" class="font-semibold text-pink no-underline hover:text-white">
+				All posts →
+			</a>
+		</p>
+	</div>
+</BaseLayout>

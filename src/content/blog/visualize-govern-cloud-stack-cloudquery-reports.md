@@ -3,7 +3,8 @@ title: Visualize & Govern Your Cloud Stack with CloudQuery Reports
 date: 2025-04-18
 slug: 'visualize-govern-cloud-stack-cloudquery-reports'
 description: 'CloudQuery Reports delivers actionable insights for multi-cloud security, compliance, and cost optimization with ready-to-use dashboards and SQL queries.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Product News']
 heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/visualize-govern-cloud-stack-cloudquery-reports'

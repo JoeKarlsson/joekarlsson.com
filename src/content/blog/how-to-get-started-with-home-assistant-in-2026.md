@@ -4,7 +4,7 @@ date: 2026-03-22
 updatedDate: 2026-03-22
 slug: 'how-to-get-started-with-home-assistant-in-2026'
 description: 'Are you looking to turn your home into a smart home? With the help of Home Assistant, you can easily automate tasks and make your home more efficient.'
-categories: ['Smart Home']
+categories: ['Homelab']
 tags: ['Home Assistant', 'Smart Home']
 heroImage: '/images/blog/how-to-get-started-with-home-assistant-in-2023/How-to-get-started-with-Home-Assistant.webp'
 heroAlt: 'Getting started with Home Assistant for smart home automation in 2026'

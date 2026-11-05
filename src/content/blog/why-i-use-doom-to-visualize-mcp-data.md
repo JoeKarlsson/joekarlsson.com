@@ -4,7 +4,7 @@ date: 2026-10-16T14:47:57Z
 updatedDate: 2026-10-28
 slug: 'why-i-use-doom-to-visualize-mcp-data'
 description: 'An MCP server inside DOOM: an AI agent pulls live records over MCP and each becomes a monster. The first level built from MCP data, shown at MCPCon 2026.'
-categories: ['Dev Tools', 'DevRel']
+categories: ['AI', 'Career']
 tags: ['MCP', 'Doom', 'CData Connect AI', 'Claude', 'developer marketing', 'demos']
 heroImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp'
 heroAlt: 'Connect AI × DOOM: a pink demon labeled with an urgent Salesforce deal for European Financial Holdings, next to a side panel showing the Salesforce, Zendesk and Stripe rooms, the red door PII vault, and Claude heading into room 1'

@@ -3,7 +3,7 @@ title: 'Breaking up with Claude Code'
 date: 2026-10-06
 slug: 'breaking-up-with-claude-code'
 description: "OpenCode with open models isn't a one-to-one swap for Claude Code. What broke, what fixed it, and which models I use."
-categories: ['Dev Tools', 'Homelab']
+categories: ['AI', 'Homelab']
 tags:
   [
     'OpenCode',

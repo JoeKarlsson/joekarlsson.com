@@ -3,7 +3,7 @@ title: 'Complete Guide To Node Client-Server Communication'
 date: 2016-07-23
 slug: 'complete-guide-node-client-server-communication'
 description: 'After reading High-Performance Browser Networking by Ilya Grigorik, I was inspired to implement all of the client-server communication techniques outlined in his book in Node and JavaScript. This...'
-categories: ['Dev Tools']
+categories: ['Web Dev']
 heroImage: '/images/blog/complete-guide-node-client-server-communication/Mom.webp'
 heroAlt: 'Diagram of client-server communication architecture'
 contentNotice: 'This post uses outdated Node.js patterns (CommonJS, deprecated util.puts()). Core concepts like WebSockets and SSE remain relevant, but use ES modules and the Fetch API in modern applications.'

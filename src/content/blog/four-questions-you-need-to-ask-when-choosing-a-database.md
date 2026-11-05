@@ -3,7 +3,7 @@ title: 'Four Questions You Need To Ask When Choosing a Database'
 date: 2021-12-29
 slug: 'four-questions-you-need-to-ask-when-choosing-a-database'
 description: 'Are you overwhelmed by the sheer amount of databases on the market today, and not sure where to start? Let’s say that you are a Software Developer, and you need to select a database for a brand new...'
-categories: ['Databases']
+categories: ['Web Dev']
 heroImage: '/images/blog/four-questions-you-need-to-ask-when-choosing-a-database/img_blog_post_featured_bp-jk-top-4-questions-to-ask-when-choosing-a-database.webp'
 heroAlt: 'Top 4 questions to ask when choosing a database'
 contentNotice: false

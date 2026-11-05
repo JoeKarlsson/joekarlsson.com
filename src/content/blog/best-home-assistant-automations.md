@@ -4,7 +4,7 @@ date: 2026-09-29
 updatedDate: 2026-10-12
 slug: 'best-home-assistant-automations'
 description: 'The best Home Assistant automations after 10 years and 134 running: start with the basics, layer on context, go advanced, and keep them working.'
-categories: ['Smart Home']
+categories: ['Homelab']
 tags: ['Home Assistant', 'Smart Home', 'Automation', 'Local AI']
 heroImage: '/images/blog/best-home-assistant-automations/hero.webp'
 heroAlt: 'A finger pressing a pink 3D house made of circuit board traces, representing Home Assistant smart home automations'

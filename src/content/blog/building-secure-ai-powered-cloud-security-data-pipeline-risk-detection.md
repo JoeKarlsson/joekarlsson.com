@@ -3,7 +3,8 @@ title: 'Building Secure AI-Powered Cloud Security: From Data Pipeline to Risk De
 date: 2025-09-17
 slug: building-secure-ai-powered-cloud-security-data-pipeline-risk-detection
 description: Learn how AI-powered cloud security reduces investigation time by 55% across AWS, GCP, Azure with our open-source demo.
-categories: ['Work']
+categories: ['AI']
+writtenFor: 'CloudQuery'
 tags: ['Security', 'AI', 'Tutorials']
 heroImage: /images/blog/building-secure-ai-powered-cloud-security/thumbnail.webp
 heroAlt: 'Building Secure AI-Powered Cloud Security'

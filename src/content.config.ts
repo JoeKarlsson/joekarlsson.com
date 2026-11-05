@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'zod';
 import { glob } from 'astro/loaders';
+import { BLOG_CATEGORIES, EMPLOYERS } from './utils/categories';
 
 // Hacker News cuts titles at 80 characters. A post or issue whose title runs longer sets a
 // shorter shareTitle for the share links (tests/content-schema.test.ts enforces this).
@@ -15,7 +16,10 @@ const blog = defineCollection({
 		date: z.coerce.date(),
 		slug: z.string(),
 		description: z.string().optional().default(''),
-		categories: z.array(z.string()).optional().default([]),
+		// One or two of the fixed list; a typo or an old category fails the build
+		categories: z.array(z.enum(BLOG_CATEGORIES)).min(1).max(2),
+		// The employer a post was written for (a crosspost of their blog); none means personal
+		writtenFor: z.enum(EMPLOYERS).optional(),
 		tags: z.array(z.string()).optional().default([]),
 		heroImage: z.string().optional(),
 		heroAlt: z.string().optional(),

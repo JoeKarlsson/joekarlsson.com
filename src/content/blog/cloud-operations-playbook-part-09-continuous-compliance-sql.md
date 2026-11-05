@@ -4,7 +4,8 @@ date: 2026-02-27
 slug: 'cloud-operations-playbook-part-09-continuous-compliance-sql'
 description: >-
   Map SOC 2 and CIS controls to SQL queries that run daily. Replace quarterly audit scrambles with continuous compliance evidence generation.
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance']
 heroImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/thumbnail.webp'
 heroAlt: 'From Audit Panic to Continuous Compliance with SQL'

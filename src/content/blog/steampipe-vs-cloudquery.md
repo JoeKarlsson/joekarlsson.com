@@ -3,7 +3,8 @@ title: 'Steampipe vs CloudQuery: Architecture and Trade-offs'
 date: 2026-02-01
 slug: 'steampipe-vs-cloudquery'
 description: 'Steampipe queries cloud APIs live from the terminal. CloudQuery syncs cloud configuration into a persistent inventory. Here is when to use each.'
-categories: ['Dev Tools']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Cloud Infrastructure', 'Open Source']
 canonicalUrl: 'https://www.cloudquery.io/blog/steampipe-vs-cloudquery'
 tldr: 'Steampipe queries cloud APIs in real time from the terminal. CloudQuery syncs cloud configuration into a persistent inventory with policy enforcement, automations, and team collaboration. Choose Steampipe for ad hoc investigations; choose CloudQuery when you need ongoing governance across teams.'

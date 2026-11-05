@@ -3,7 +3,8 @@ title: 'CloudQuery Sync Performance: A Practical Troubleshooting Guide'
 date: 2026-03-06
 slug: 'cloudquery-sync-performance-guide'
 description: 'Why CloudQuery syncs slow down (especially after a plugin upgrade), how to diagnose expensive tables, and the CLI command that replaces the tables wildcard with an explicit list.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Best Practices']
 heroImage: '/images/blog/cloudquery-sync-performance-guide/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-sync-performance-guide'

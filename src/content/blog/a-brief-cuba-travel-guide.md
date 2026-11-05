@@ -3,7 +3,7 @@ title: 'A Brief Cuba Travel Guide'
 date: 2019-03-03
 slug: 'a-brief-cuba-travel-guide'
 description: 'Have always wanted to see what communism looks like firsthand or try an authentic Cuban cigar? Well, travel to Cuba is still possible from the United States in 2018 (despite President Trump’s travel...'
-categories: ['Travel']
+categories: ['Life']
 tags: ['cuba']
 heroImage: '/images/blog/a-brief-cuba-travel-guide/A-Brief-Cuba-Travel-Guide.webp'
 heroAlt: 'Scenic view of Cuba for travel guide'

@@ -3,7 +3,7 @@ title: 'I hate editing video, so I built a screen recorder that edits for me'
 date: 2026-10-12T20:56:41Z
 slug: 'screencast-director-screen-recorder'
 description: 'Screencast Director is an open source macOS screen recorder that drafts the edit: it cuts dead air, speeds up typing and takes edits from the AI model you pick.'
-categories: ['Dev Tools', 'DevRel']
+categories: ['Web Dev', 'Career']
 tags: ['video production', 'screen recording', 'macOS', 'Claude', 'whisper.cpp', 'open source']
 heroImage: '/images/blog/screencast-director-screen-recorder/hero.webp'
 heroAlt: 'I hate editing video. So I built a screen recorder that does it for me: the title next to the Screencast Director editor, with my face filling the preview under a Joe Karlsson, Made Screencast Director lower third, and the camera framing and color controls'

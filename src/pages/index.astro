@@ -2,6 +2,7 @@
 import DrawingBoard from '../components/DrawingBoard.astro';
 import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
+import WrittenFor from '../components/WrittenFor.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE, SITE_DESCRIPTION } from '../consts';
 import { projects } from '../data/projects';
@@ -15,11 +16,8 @@ const { runningContainers } = nowFeed.homelab;
 
 const allPosts = await getFeedPosts();
 const recentPosts = allPosts.slice(0, 5);
-// Work and Personal are catch-all buckets most posts sit in; the index lists subjects
-const CATCH_ALL_CATEGORIES = ['Work', 'Personal'];
-const topics = getCategoryCounts(allPosts.filter((p) => !p.isNewsletter))
-	.filter((topic) => !CATCH_ALL_CATEGORIES.includes(topic.name))
-	.slice(0, 8);
+// All six subject categories (BLOG_CATEGORIES), most posts first
+const topics = getCategoryCounts(allPosts.filter((p) => !p.isNewsletter));
 
 const HOME_PROJECTS = [
 	'PixelPane',
@@ -221,7 +219,7 @@ const COLLAGE = [
 								color={CHALK}
 								duration="10s"
 								delay="0.8s"
-								class="-inset-[8%] h-[116%] w-[116%]"
+								class="-inset-[8%] z-10 h-[116%] w-[116%]"
 							/>
 						)}
 						<img
@@ -240,6 +238,12 @@ const COLLAGE = [
 								{dateFormat.format(post.data.date)}
 							</time>
 							{post.data.categories[0] && ` · ${post.data.categories[0]}`}
+							{post.data.writtenFor && (
+								<>
+									{' · '}
+									<WrittenFor employer={post.data.writtenFor} />
+								</>
+							)}
 						</span>
 						<a
 							href={post.href}

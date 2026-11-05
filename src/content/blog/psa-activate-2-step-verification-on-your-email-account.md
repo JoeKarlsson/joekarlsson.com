@@ -3,7 +3,7 @@ title: 'PSA: Activate 2-Step Verification on your Email Account'
 date: 2015-05-18
 slug: 'psa-activate-2-step-verification-on-your-email-account'
 description: 'You all should activate 2-Step Verification on all of your most important accounts. Making a new long password is no longer enough to protect your accounts. It’s easier than you think for someone to...'
-categories: ['Personal']
+categories: ['Life']
 heroImage: '/images/blog/placeholder/placeholder-personal.webp'
 heroAlt: 'Lock icon representing two-step verification security'
 contentNotice: 'This post recommends SMS-based 2FA. Modern best practice is to use authenticator apps or hardware security keys instead, and passkeys where available.'

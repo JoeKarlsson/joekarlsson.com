@@ -3,7 +3,7 @@ title: 'My Top 50 All-Time Favorite Records'
 date: 2019-06-11
 slug: 'my-top-50-records'
 description: 'Every couple of years, I like to compile a list of my 50 all-time favorite records. These tend to be the records that I listen to the most or that have had the greatest impact on me. The order...'
-categories: ['Personal']
+categories: ['Life']
 heroImage: '/images/blog/my-top-50-records/Joe-Karlssons-top-50-Records-of-all-Time.webp'
 heroAlt: 'Joe Karlsson top 50 records of all time'
 contentNotice: false

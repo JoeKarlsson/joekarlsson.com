@@ -1,0 +1,51 @@
+---
+// A row of blog filter links with post counts: categories (/blog/category/) or who
+// the posts were written for (/blog/written-for/). The current one is pink and
+// underlined. `allLink` adds a leading "All" back to /blog/.
+import type { CategoryCount } from '../utils/categories';
+
+interface Props {
+	label: string;
+	items: CategoryCount[];
+	basePath: '/blog/category/' | '/blog/written-for/';
+	currentSlug?: string;
+	allLink?: boolean;
+	// Shown before the links, e.g. "Written for"
+	heading?: string;
+	class?: string;
+}
+
+const {
+	label,
+	items,
+	basePath,
+	currentSlug,
+	allLink = false,
+	heading,
+	class: className,
+} = Astro.props;
+const ACTIVE = 'text-pink underline underline-offset-4';
+const INACTIVE = 'text-paper no-underline hover:text-pink';
+---
+
+<nav class:list={['flex flex-wrap gap-x-5 gap-y-2 text-[15px]', className]} aria-label={label}>
+	{heading && <span class="text-muted">{heading}</span>}
+	{allLink && (
+		<a
+			href="/blog/"
+			class={currentSlug ? INACTIVE : ACTIVE}
+			aria-current={currentSlug ? undefined : 'page'}
+		>
+			All
+		</a>
+	)}
+	{items.map(({ name, slug, count }) => (
+		<a
+			href={`${basePath}${slug}/`}
+			class={slug === currentSlug ? ACTIVE : INACTIVE}
+			aria-current={slug === currentSlug ? 'page' : undefined}
+		>
+			{name} <span class="text-muted">{count}</span>
+		</a>
+	))}
+</nav>

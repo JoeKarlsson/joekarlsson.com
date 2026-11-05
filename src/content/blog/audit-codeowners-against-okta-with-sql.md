@@ -3,7 +3,8 @@ title: 'Audit CODEOWNERS Against Okta to Find Orphaned Code Ownership with SQL'
 date: 2026-01-04
 slug: 'audit-codeowners-against-okta-with-sql'
 description: 'Find CODEOWNERS entries for employees who left the company by joining Git file content with your identity provider data. No scripts, just SQL.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
 heroImage: '/images/blog/audit-codeowners-against-okta-with-sql/thumbnail.webp'
 heroAlt: 'Audit CODEOWNERS against Okta with SQL'

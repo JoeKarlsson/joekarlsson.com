@@ -3,7 +3,8 @@ title: 'How We Accidentally Invented a Cloud Search Language'
 date: 2025-05-14
 slug: 'how-we-accidentally-invented-a-cloud-search-language'
 description: 'How we turned our search bar into a domain-specific language using Peggy instead of regex, solving complex parsing challenges for cloud resource queries.'
-categories: ['Dev Tools']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Parsing', 'DSL', 'Engineering', 'JavaScript']
 heroImage: '/images/blog/we-built-a-search-language-for-cloudquery/thumbnail.webp'
 heroAlt: 'How We Accidentally Invented a Cloud Search Language'

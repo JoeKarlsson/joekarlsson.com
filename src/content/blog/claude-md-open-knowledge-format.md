@@ -4,7 +4,7 @@ shareTitle: 'Does Open Knowledge Format make Claude Code cheaper and more accura
 date: 2026-10-30T11:17:52Z
 slug: 'claude-md-open-knowledge-format'
 description: 'I moved the CLAUDE.md files and memory Claude Code reads into Open Knowledge Format and tested three versions. Restructuring halved startup context.'
-categories: ['Dev Tools', 'Homelab']
+categories: ['AI', 'Homelab']
 tags:
   [
     'Claude Code',

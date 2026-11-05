@@ -1,8 +1,10 @@
 ---
 // One post in a list (blog index, category pages, newsletter): the pink
 // thumbnail (src/scripts/halftone.ts) on the left, then date, reading time and categories, the title, and
-// the description. Same row as the homepage's Recent posts.
+// the description, and which employer a professional post was written for. Same
+// row as the homepage's Recent posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
+import WrittenFor from './WrittenFor.astro';
 
 interface Props {
 	title: string;
@@ -11,11 +13,13 @@ interface Props {
 	slug: string;
 	heroImage?: string;
 	categories?: string[];
+	writtenFor?: string;
 	readingTime?: number;
 	href?: string;
 }
 
-const { title, description, date, slug, heroImage, categories, readingTime, href } = Astro.props;
+const { title, description, date, slug, heroImage, categories, writtenFor, readingTime, href } =
+	Astro.props;
 const url = href ?? `/blog/${slug}/`;
 const image = heroImage || DEFAULT_HERO_IMAGE;
 const formattedDate = date.toLocaleDateString('en-us', {
@@ -46,6 +50,12 @@ const formattedDate = date.toLocaleDateString('en-us', {
 			<time datetime={date.toISOString()}>{formattedDate}</time>
 			{readingTime && <> · {readingTime} min read</>}
 			{categories && categories.length > 0 && <> · {categories.join(' · ')}</>}
+			{writtenFor && (
+				<>
+					{' · '}
+					<WrittenFor employer={writtenFor} />
+				</>
+			)}
 		</span>
 		<a
 			href={url}

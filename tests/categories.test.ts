@@ -1,12 +1,27 @@
 import { describe, it, expect } from 'vitest';
-import { categorySlug, getCategoryCounts } from '../src/utils/categories';
+import { categorySlug, getCategoryCounts, getWrittenForCounts } from '../src/utils/categories';
 
 const post = (...categories: string[]) => ({ data: { categories } });
 
 describe('categorySlug', () => {
-	it('lowercases and hyphenates spaces', () => {
+	it('lowercases and hyphenates anything that is not a letter or digit', () => {
 		expect(categorySlug('Smart Home')).toBe('smart-home');
 		expect(categorySlug('IoT')).toBe('iot');
+		expect(categorySlug('Cloud & Security')).toBe('cloud-security');
+	});
+});
+
+describe('getWrittenForCounts', () => {
+	const by = (writtenFor?: string) => ({ data: { writtenFor } });
+
+	it('puts Personal first, then employers newest first, skipping employers with no posts', () => {
+		expect(
+			getWrittenForCounts([by('MongoDB'), by(), by('CloudQuery'), by(), by('CloudQuery')]),
+		).toEqual([
+			{ name: 'Personal', slug: 'personal', count: 2 },
+			{ name: 'CloudQuery', slug: 'cloudquery', count: 2 },
+			{ name: 'MongoDB', slug: 'mongodb', count: 1 },
+		]);
 	});
 });
 

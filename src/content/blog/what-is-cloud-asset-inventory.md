@@ -3,7 +3,8 @@ title: 'Why and When Do You Need a Cloud Asset Inventory?'
 date: 2025-10-03
 slug: 'what-is-cloud-asset-inventory'
 description: 'Discover why and when you need a cloud asset inventory for your AWS environment. Learn how asset inventories solve critical challenges in security governance, cost optimization, and operational excellence - and when organizations should implement them.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Cloud Infrastructure', 'AWS', 'Best Practices']
 heroImage: '/images/blog/what-is-cloud-asset-inventory/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-is-cloud-asset-inventory'

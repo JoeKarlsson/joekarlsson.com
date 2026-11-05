@@ -4,7 +4,7 @@ date: 2026-03-22
 updatedDate: 2026-03-22
 slug: 'self-hosted-music-still-sucks-in-2026'
 description: 'The *arr ecosystem perfected video automation but music remains stuck with album-centric workflows. Current tools like Lidarr force complete album downloads when users want individual tracks.'
-categories: ['Smart Home', 'Homelab']
+categories: ['Homelab']
 heroImage: '/images/blog/self-hosted-music-still-sucks-in-2025/image-1.webp'
 heroAlt: 'Self-hosted music still sucks in 2026'
 contentNotice: false

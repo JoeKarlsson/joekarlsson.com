@@ -3,7 +3,8 @@ title: 'Introducing CloudQuery Insights: Cloud Intelligence That Connects the Do
 date: 2025-09-01
 slug: 'introducing-cloudquery-insights'
 description: 'CloudQuery Insights monitors your complete asset inventory and surfaces interconnected signals across security, cost, policy, and audit data automatically.'
-categories: ['Dev Tools']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Cloud Infrastructure', 'Security']
 canonicalUrl: 'https://www.cloudquery.io/blog/introducing-cloudquery-insights'
 tldr: 'CloudQuery Insights correlates security findings, cost data, policy violations, and audit events across your cloud inventory automatically - so you stop spending hours assembling context and start acting on it.'

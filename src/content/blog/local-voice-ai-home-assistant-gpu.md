@@ -5,7 +5,7 @@ date: 2026-04-13T10:51:02Z
 slug: 'local-voice-ai-home-assistant-gpu'
 updatedDate: 2026-10-15
 description: 'How I built a GPU-accelerated local voice pipeline for Home Assistant using faster-whisper, Piper TTS, and Ollama - zero cloud required, and the failures that got me here.'
-categories: ['Smart Home', 'Homelab']
+categories: ['Homelab']
 heroImage: '/images/blog/local-voice-ai-home-assistant-gpu/hero.webp'
 heroAlt: 'Home Assistant local voice pipeline architecture showing Whisper GPU, Piper TTS, and Ollama components connected via Wyoming protocol'
 tldr: "I replaced all cloud AI in Home Assistant's voice pipeline with a fully local stack: GPU-accelerated faster-whisper for speech-to-text, Piper TTS, and Ollama as the conversation agent (llama3.2:3b at first, qwen3:8b since summer 2026). Zero audio leaves my network. The path to a working setup involved a qwen3 experiment that ended with the LLM narrating its own thought process for five minutes straight, a system prompt explicitly forbidding voice commands from killing my server rack, and a three-tier fallback chain I am genuinely glad I built."

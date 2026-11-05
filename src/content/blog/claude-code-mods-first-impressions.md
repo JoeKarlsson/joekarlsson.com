@@ -3,7 +3,7 @@ title: 'First impressions of Claude Code mods'
 date: 2026-10-16T11:37:33Z
 slug: 'claude-code-mods-first-impressions'
 description: 'Claude Code mods, new in October 2026, enforce rules that hooks and CLAUDE.md only hope Claude remembers. What I built in two days and what still worries me.'
-categories: ['Dev Tools']
+categories: ['AI']
 tags:
   [
     'Claude Code',

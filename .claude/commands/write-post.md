@@ -101,7 +101,8 @@ Present the topic to the user with:
 - **Working title** (opinionated, Joe's voice - not generic)
 - **One-paragraph pitch** - what's the angle? What makes this worth reading?
 - **Target audience** - who cares about this?
-- **Category** - one of: Databases, Dev Tools, Smart Home, Homelab, Film, DevRel, IoT, Travel, Career, Personal
+- **Category** - one or two of: Homelab, Web Dev, Career, AI, Cloud, Life (`BLOG_CATEGORIES` in `src/utils/categories.ts`; anything else fails the build)
+- **Written for** - a post written for an employer (a crosspost) sets `writtenFor` to one of `EMPLOYERS` in the same file; personal posts leave it out
 - **Estimated length** - short (800-1200 words), medium (1500-2500), long (3000+)
 
 Use AskUserQuestion to get approval before proceeding.

@@ -3,7 +3,8 @@ title: 'AWS IAM Identity Center (Formerly AWS SSO): The Complete 2026 Guide'
 date: 2026-04-06
 slug: 'aws-identity-center-guide'
 description: 'AWS IAM Identity Center replaced AWS SSO in 2022. Learn how to set it up, configure permission sets, use the AWS CLI, and audit access with CloudQuery.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Security', 'AWS', 'Tutorials']
 heroImage: '/images/blog/aws-identity-center-guide/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-identity-center-guide'

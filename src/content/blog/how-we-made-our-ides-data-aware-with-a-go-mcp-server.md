@@ -3,7 +3,8 @@ title: 'How We Made Our IDEs Data-Aware with a Go MCP Server'
 date: 2025-07-29
 slug: 'how-we-made-our-ides-data-aware-with-a-go-mcp-server'
 description: 'How we built a Go-based MCP server to make AI Assistants data-aware, bridging code and database, which ended up transforming the way we code.'
-categories: ['Dev Tools']
+categories: ['AI']
+writtenFor: 'CloudQuery'
 tags: ['MCP', 'LLM', 'AI', 'Engineering', 'Go']
 heroImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.webp'
 heroAlt: 'How we made our IDEs data-aware with a Go MCP Server'

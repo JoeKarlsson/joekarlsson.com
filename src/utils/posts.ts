@@ -13,6 +13,8 @@ export interface FeedPost {
 		slug: string;
 		description: string;
 		categories: string[];
+		// The employer a blog post was written for; newsletter posts never have one
+		writtenFor?: string;
 		heroImage?: string;
 		heroAlt?: string;
 	};

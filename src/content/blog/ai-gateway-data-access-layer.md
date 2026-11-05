@@ -3,7 +3,8 @@ title: "Enterprise Data Access for AI Agents: What Model Routing Doesn't Cover"
 date: 2026-09-28
 slug: 'ai-gateway-data-access-layer'
 description: "Enterprise data access for AI agents is the part of the AI gateway stack most teams haven't built yet. Here's what it handles and why it matters now."
-categories: ['Dev Tools']
+categories: ['AI']
+writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'ai-agents', 'cdata']
 heroImage: '/images/blog/ai-gateway-data-access-layer/hero-2.webp'
 heroAlt: 'Diagram of an AI chip separated from a database server by a gateway boundary'

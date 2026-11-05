@@ -3,7 +3,8 @@ title: 'A step-by-step guide to build a real-time dashboard'
 date: 2024-03-30
 slug: 'a-step-by-step-guide-to-build-a-real-time-dashboard'
 description: 'Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even minutes to load? No way, right? Your users would get...'
-categories: ['Work']
+categories: ['Web Dev']
+writtenFor: 'Tinybird'
 heroImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/64f23ec5d8fe4c29723ee435_Build-a-real-time-dashboard-step-.webp'
 heroAlt: 'Step-by-step guide to building a real-time dashboard with Tinybird and Next.js'
 canonicalUrl: 'https://www.tinybird.co/blog/real-time-dashboard-step-by-step'

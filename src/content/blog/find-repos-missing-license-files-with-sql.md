@@ -3,7 +3,8 @@ title: 'Find Every repo Missing a LICENSE File with One SQL Query'
 date: 2026-01-04
 slug: 'find-repos-missing-license-files-with-sql'
 description: 'Identify repositories without LICENSE files across your organization using SQL. No cloning required, no scripts to maintain - just query your git file data.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
 heroImage: '/images/blog/find-repos-missing-license-files-with-sql/thumbnail.webp'
 heroAlt: 'Find repositories missing LICENSE files with SQL'

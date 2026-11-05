@@ -3,7 +3,7 @@ title: 'How to pixelate images with HTML5 and JavaScript'
 date: 2015-05-16
 slug: 'how-to-pixelate-images-with-html5-and-javascript'
 description: 'A couple of months ago, I was interested in learning some new HTML5 elements. The more visual flourishes of the canvas class especially caught my eye. The ability to dynamically adjust elements in an...'
-categories: ['Dev Tools']
+categories: ['Web Dev']
 heroImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/pixelate-demo.webp'
 heroAlt: 'Demo of pixelating an image using HTML5 canvas and JavaScript'
 contentNotice: 'This post uses outdated JavaScript patterns (var, window.onload, browser-prefixed APIs). The pixelation technique still works, but refer to modern JavaScript documentation for current best practices.'

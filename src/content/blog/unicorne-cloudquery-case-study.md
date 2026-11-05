@@ -3,7 +3,8 @@ title: 'How Unicorne Increased Well-Architected Review Capacity by 60% with Clou
 date: 2026-01-01
 slug: 'unicorne-cloudquery-case-study'
 description: 'How Unicorne used CloudQuery to automate AWS Well-Architected Framework Reviews and build their FinOps SaaS product Stable - cutting engagement time from 50 to 20 hours.'
-categories: ['Dev Tools']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Cloud Infrastructure', 'Case Study', 'AWS']
 canonicalUrl: 'https://www.cloudquery.io/blog/unicorne-cloudquery-case-study'
 tldr: 'Unicorne cut WAFR engagement time from 50 hours to 20 by automating data collection with CloudQuery, then used the same infrastructure to build Stable, a FinOps SaaS product - without building a data layer from scratch.'

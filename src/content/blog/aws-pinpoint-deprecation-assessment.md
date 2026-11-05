@@ -3,7 +3,8 @@ title: 'AWS Pinpoint Is Being Deprecated: How to Assess Your Migration Scope'
 date: 2026-03-24
 slug: 'aws-pinpoint-deprecation-assessment'
 description: 'AWS Pinpoint reaches end of support October 2026. Query your Pinpoint usage across all accounts to find what needs migrating before the deadline.'
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'AWS']
 heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumbnail.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-pinpoint-deprecation-assessment'

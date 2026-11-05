@@ -3,7 +3,7 @@ title: 'My Development Setup in 2026'
 date: 2026-09-30
 slug: 'my-development-setup-2026'
 description: 'My development setup in 2026: Ghostty, plain zsh, Handy voice input, git worktrees for concurrent Claude Code agents, and chezmoi. What I switched and why.'
-categories: ['Dev Tools', 'Homelab']
+categories: ['Homelab']
 tags:
   [
     'Claude Code',

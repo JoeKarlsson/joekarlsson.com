@@ -4,7 +4,8 @@ import Scribble from '../../components/Scribble.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
 import { CHALK, MARKS } from '../../data/scribbles';
-import { getCategoryCounts } from '../../utils/categories';
+import BlogFilterNav from '../../components/BlogFilterNav.astro';
+import { getCategoryCounts, getWrittenForCounts } from '../../utils/categories';
 import { getFeedPosts } from '../../utils/posts';
 import popularPosts from '../../data/popular-posts.json';
 
@@ -20,7 +21,9 @@ const featuredPost = allPosts.find((p) => p.data.slug === featuredSlug);
 const posts = allPosts.filter((p) => p.data.slug !== featuredSlug);
 
 // Blog posts only: newsletter posts have no category page
-const categories = getCategoryCounts(allPosts.filter((p) => !p.isNewsletter));
+const blogPosts = allPosts.filter((p) => !p.isNewsletter);
+const categories = getCategoryCounts(blogPosts);
+const writtenFor = getWrittenForCounts(blogPosts);
 
 const POSTS_PER_PAGE = 12;
 
@@ -77,7 +80,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 						color={CHALK}
 						duration="10s"
 						delay="0.8s"
-						class="-inset-[6%] h-[112%] w-[112%]"
+						class="-inset-[6%] z-10 h-[112%] w-[112%]"
 					/>
 					<img
 						src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
@@ -102,6 +105,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 						{featuredPost.data.categories.length > 0 && (
 							<> · {featuredPost.data.categories.join(' · ')}</>
 						)}
+						{featuredPost.data.writtenFor && <> · Written for {featuredPost.data.writtenFor}</>}
 					</span>
 					<h2 class="mb-4 font-display text-[clamp(40px,5vw,76px)] leading-[0.95] font-normal text-paper uppercase group-hover:text-pink">
 						{featuredPost.data.title}
@@ -115,16 +119,20 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 			</a>
 		)}
 
-		<nav class="mb-10 flex flex-wrap gap-x-5 gap-y-2 text-[15px]" aria-label="Blog categories">
-			<a href="/blog/" class="text-pink underline underline-offset-4" aria-current="page">
-				All
-			</a>
-			{categories.map(({ name, slug, count }) => (
-				<a href={`/blog/category/${slug}/`} class="text-paper no-underline hover:text-pink">
-					{name} <span class="text-muted">{count}</span>
-				</a>
-			))}
-		</nav>
+		<BlogFilterNav
+			label="Blog categories"
+			items={categories}
+			basePath="/blog/category/"
+			allLink
+			class="mb-3"
+		/>
+		<BlogFilterNav
+			label="Who the posts were written for"
+			heading="Written for"
+			items={writtenFor}
+			basePath="/blog/written-for/"
+			class="mb-10"
+		/>
 
 		<!-- Search and sort controls -->
 		<div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -202,6 +210,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					slug={post.data.slug}
 					heroImage={post.data.heroImage}
 					categories={post.data.categories}
+					writtenFor={post.data.writtenFor}
 					readingTime={getReadingTime(post.body || '')}
 					href={post.href}
 				/>

@@ -3,7 +3,8 @@ title: 'Using Bloom filter indexes for real-time text search in ClickHouse'
 date: 2024-03-30
 slug: 'using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse'
 description: 'Efficient text search is one of the hardest problems in data engineering. Text-based data presents a unique set of challenges, especially when you need results in real time...'
-categories: ['Work']
+categories: ['Web Dev']
+writtenFor: 'Tinybird'
 heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/6491f38b8b96dc45ff73fee5_Bloom-filters-Blog-5.webp'
 heroAlt: 'Using bloom filter indexes for real-time text search in ClickHouse'
 canonicalUrl: 'https://www.tinybird.co/blog/using-bloom-filter-text-indexes-in-clickhouse'

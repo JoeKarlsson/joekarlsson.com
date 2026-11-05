@@ -3,7 +3,7 @@ title: 'Bechdel Test Script Parser - How It Works'
 date: 2015-12-19
 slug: 'bechdel-test-script-parser-works'
 description: 'The Bechdel Test Script Parser was a collaborative digital humanities project between myself and my sister, Laurel Karlsson. It is the product of a shared passion for film, feminism, and the creative...'
-categories: ['Film']
+categories: ['Web Dev']
 heroImage: '/images/blog/bechdel-test-script-parser-works/bechdel-test-rectangle.webp'
 heroAlt: 'Bechdel Test Script Parser project banner'
 contentNotice: false

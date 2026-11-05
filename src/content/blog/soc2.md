@@ -4,7 +4,8 @@ date: 2024-11-05
 slug: soc2
 description: >-
   Learn SOC2 compliance essentials: protect data, build trust, and meet regulatory standards with security, availability, integrity, confidentiality, and privacy.
-categories: ['Work']
+categories: ['Cloud']
+writtenFor: 'CloudQuery'
 tags: ['Engineering']
 canonicalUrl: https://www.cloudquery.io/blog/soc2
 contentNotice: 'This post was originally published on CloudQuery blog.'
