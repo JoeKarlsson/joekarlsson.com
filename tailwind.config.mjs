@@ -4,9 +4,10 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				mono: ['"JetBrains Mono"', '"Fira Code"', 'Menlo', 'Monaco', 'monospace'],
-				sans: ['"Hanken Grotesk"', 'system-ui', '-apple-system', 'sans-serif'],
-				display: ['"Anton"', 'Impact', 'sans-serif'],
+				// CSS variables from the fonts in astro.config.mjs, each ending in its fallbacks
+				mono: ['var(--font-jetbrains-mono)'],
+				sans: ['var(--font-hanken-grotesk)'],
+				display: ['var(--font-anton)'],
 				serif: ['"Fraunces"', 'Georgia', 'serif'],
 			},
 			colors: {

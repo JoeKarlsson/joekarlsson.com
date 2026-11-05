@@ -187,6 +187,8 @@ jobs:
         with:
           name: lighthouse-reports
           path: .lighthouseci/
+          # The folder starts with a dot, and upload-artifact skips hidden files by default
+          include-hidden-files: true
           retention-days: 14
           if-no-files-found: warn
 

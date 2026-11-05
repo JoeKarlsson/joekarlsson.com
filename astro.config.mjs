@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import { readdirSync, readFileSync } from 'node:fs';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -29,6 +29,34 @@ const unindexedIssuePaths = new Set(
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.joekarlsson.com',
+	// Self-hosted at build time, each with a fallback sized to its metrics, so text
+	// doesn't reflow when the font arrives (that shift cost /work/ and /uses/ their
+	// Lighthouse score). Fraunces stays on Google Fonts in BaseHead: Astro can't
+	// request its optical-size axis.
+	fonts: [
+		{
+			provider: fontProviders.google(),
+			name: 'Anton',
+			cssVariable: '--font-anton',
+			styles: ['normal'],
+		},
+		{
+			provider: fontProviders.google(),
+			name: 'Hanken Grotesk',
+			cssVariable: '--font-hanken-grotesk',
+			weights: ['400 900'],
+			styles: ['normal'],
+			subsets: ['latin', 'latin-ext'],
+		},
+		{
+			provider: fontProviders.google(),
+			name: 'JetBrains Mono',
+			cssVariable: '--font-jetbrains-mono',
+			weights: [400, 500, 700],
+			styles: ['normal'],
+			fallbacks: ['monospace'],
+		},
+	],
 	integrations: [
 		mdx(),
 		sitemap({ filter: (page) => !unindexedIssuePaths.has(new URL(page).pathname) }),
