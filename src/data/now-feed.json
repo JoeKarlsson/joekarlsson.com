@@ -6,46 +6,46 @@
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"language": "Astro",
-			"commitCount": 216,
+			"language": "TypeScript",
+			"commitCount": 225,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				92
+				101
 			],
-			"latestCommitMessage": "feat: About's Outside of work opens with six snapshots taped up at a..."
+			"latestCommitMessage": "fix: Homepage montage keeps looping after the browser pauses it in a..."
 		},
 		{
 			"name": "punc",
 			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
 			"url": "https://github.com/JoeKarlsson/punc",
 			"language": "TypeScript",
-			"commitCount": 11,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 10
-			],
-			"latestCommitMessage": "feat: Books show the year they were first published, sort oldest or..."
-		},
-		{
-			"name": "nothing-but-corners",
-			"description": "The DVD screensaver with the boring parts taken out. It hits the corner every time.",
-			"url": "https://github.com/JoeKarlsson/nothing-but-corners",
-			"language": "HTML",
 			"commitCount": 15,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14
 			],
-			"latestCommitMessage": "feat: After the tour, the giant swells into a leviathan that drifts..."
+			"latestCommitMessage": "fix: Plausible counts the page as joekarlsson.github.io/punc, the..."
+		},
+		{
+			"name": "pixelpane",
+			"description": "PixelPane: a 32x32 LED art pane for the Raspberry Pi. GIFs, live animated scenes, seasonal themes, Home Assistant and plugins",
+			"url": "https://github.com/JoeKarlsson/pixelpane",
+			"language": "Python",
+			"commitCount": 55,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 23, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+			],
+			"latestCommitMessage": "fix: ON AIR and messages pinned without minutes clear themselves after..."
 		},
 		{
 			"name": "dotfiles",
 			"description": "My dotfiles, managed with chezmoi",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
-			"language": "TypeScript",
-			"commitCount": 90,
+			"language": "Shell",
+			"commitCount": 86,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 0
+				0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 1
 			],
-			"latestCommitMessage": "fix: Drop the Inter design-check flag; Inter is an allowed choice now"
+			"latestCommitMessage": "chore: Design check stops flagging ALL CAPS, which poster type uses on..."
 		}
 	],
 	"films": [
