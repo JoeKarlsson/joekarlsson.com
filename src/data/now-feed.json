@@ -3,17 +3,17 @@
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
-			"name": "screencast-director",
-			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
-			"url": "https://github.com/JoeKarlsson/screencast-director",
-			"commitCount": 100,
-			"commitCountIsCapped": true
-		},
-		{
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"commitCount": 99,
+			"commitCountIsCapped": true
+		},
+		{
+			"name": "screencast-director",
+			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
+			"url": "https://github.com/JoeKarlsson/screencast-director",
+			"commitCount": 100,
 			"commitCountIsCapped": true
 		},
 		{
