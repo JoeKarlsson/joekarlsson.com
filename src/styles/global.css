@@ -39,7 +39,7 @@
 	}
 
 	a {
-		@apply text-coral hover:text-teal transition-colors;
+		@apply text-coral hover:text-white transition-colors;
 	}
 
 	/* Ensure links in text blocks are distinguishable without relying solely on color */
@@ -47,7 +47,7 @@
 	li a,
 	td a,
 	dd a {
-		@apply underline underline-offset-2 decoration-coral/40 hover:decoration-teal;
+		@apply underline underline-offset-2 decoration-gray-500 hover:decoration-coral;
 	}
 
 	/* Focus-visible styles for keyboard accessibility (WCAG 2.4.7) */
@@ -56,7 +56,7 @@
 	}
 
 	::selection {
-		@apply bg-coral/20 text-coral;
+		@apply bg-coral text-surface-0;
 	}
 
 	::-webkit-scrollbar {
@@ -110,7 +110,7 @@
 	@apply mb-6 text-base md:text-lg;
 }
 .prose a {
-	@apply text-coral hover:text-teal underline underline-offset-2;
+	@apply text-coral hover:text-white underline underline-offset-2 decoration-gray-500 hover:decoration-coral;
 }
 .prose strong {
 	@apply text-white font-semibold;
@@ -129,39 +129,31 @@
 	@apply mb-2;
 }
 .prose blockquote {
-	@apply border-l-4 border-coral/50 pl-4 py-1 my-6 text-gray-400 italic;
+	@apply border-l-4 border-surface-4 pl-4 py-1 my-6 text-gray-400;
 }
 .prose .callout {
-	@apply rounded-lg border border-teal/30 bg-teal/5 px-5 py-4 my-6 text-sm not-italic;
+	@apply border-l-4 border-coral pl-4 py-1 my-6 text-sm;
 }
 .prose .callout p {
 	@apply my-0 text-gray-300;
 }
 .prose .callout a {
-	@apply text-teal underline underline-offset-2;
+	@apply text-coral underline underline-offset-2;
 }
 .prose .pull-quote {
-	@apply my-8 py-6 px-6 text-center text-xl font-semibold text-gray-100 border-t border-b border-coral/40 not-italic;
+	@apply my-8 py-6 px-6 text-center text-xl font-semibold text-gray-100 border-t border-b border-surface-4;
 }
 .prose .pull-quote p {
 	@apply my-0 leading-snug;
 }
 .prose summary {
-	@apply cursor-pointer font-mono text-sm text-coral;
+	@apply cursor-pointer text-sm text-coral;
 }
 .prose code {
-	@apply font-mono text-teal bg-surface-3 px-1.5 py-0.5 rounded-sm text-sm;
+	@apply font-mono text-gray-200 bg-surface-3 px-1.5 py-0.5 rounded-sm text-sm;
 }
 .prose pre {
-	@apply bg-surface-2 border border-surface-4 rounded-lg pt-10 pb-4 px-4 my-6 overflow-x-auto relative;
-}
-.prose pre::before {
-	content: '';
-	@apply absolute top-0 left-0 right-0 h-8 bg-surface-3 rounded-t-lg;
-	background-image:
-		radial-gradient(circle at 16px 50%, #f87171 5px, transparent 5px),
-		radial-gradient(circle at 34px 50%, #fbbf24 5px, transparent 5px),
-		radial-gradient(circle at 52px 50%, #4ade80 5px, transparent 5px);
+	@apply bg-surface-2 border border-surface-4 rounded-lg pt-9 pb-4 px-4 my-6 overflow-x-auto relative;
 }
 .prose pre code {
 	@apply bg-transparent p-0 text-gray-300 text-sm;
@@ -173,10 +165,10 @@
 	color: #8b949e !important;
 }
 .prose pre .code-lang-label {
-	@apply absolute top-1.5 left-16 text-gray-400 font-mono text-xs select-none;
+	@apply absolute top-2 right-20 text-gray-400 font-mono text-xs select-none;
 }
 .prose pre .copy-button {
-	@apply absolute top-1 right-2 z-10 bg-transparent border-none text-gray-400 hover:text-white cursor-pointer font-mono text-xs px-2 py-1 rounded-sm transition-colors;
+	@apply absolute top-1 right-2 z-10 bg-transparent border-none text-gray-400 hover:text-white cursor-pointer text-xs px-2 py-1 rounded-sm transition-colors;
 }
 .prose pre .copy-button:hover,
 .prose pre .copy-button:focus-visible {
@@ -203,10 +195,10 @@
 }
 
 .prose figcaption {
-	@apply text-center text-sm text-gray-500 mt-2 italic;
+	@apply text-center text-sm text-gray-400 mt-2;
 }
 .prose hr {
-	@apply border-surface-4 my-8;
+	@apply border-surface-3 my-8;
 }
 .prose table {
 	@apply w-full my-6 text-sm;

@@ -123,38 +123,3 @@ test.describe('Homepage - Scroll Animations', () => {
 		await expect(page.locator('footer')).toBeVisible();
 	});
 });
-
-test.describe('Homepage - Marquee', () => {
-	test('marquee banner is present', async ({ page }) => {
-		await page.goto('/');
-
-		const marquee = page.locator('.marquee, [class*="marquee"]');
-
-		if ((await marquee.count()) > 0) {
-			await expect(marquee.first()).toBeVisible();
-
-			// Should have text content
-			const text = await marquee.first().textContent();
-			expect(text?.length).toBeGreaterThan(0);
-		}
-	});
-});
-
-test.describe('Homepage - Header Canvas', () => {
-	test.use({ viewport: { width: 1280, height: 720 } });
-
-	test('dot grid canvas is present on desktop', async ({ page }) => {
-		await page.goto('/');
-
-		const canvas = page.locator('header canvas, canvas#dot-grid');
-
-		if ((await canvas.count()) > 0) {
-			await expect(canvas).toBeVisible();
-
-			// Canvas should have dimensions
-			const box = await canvas.boundingBox();
-			expect(box?.width).toBeGreaterThan(0);
-			expect(box?.height).toBeGreaterThan(0);
-		}
-	});
-});

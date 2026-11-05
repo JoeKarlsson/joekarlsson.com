@@ -25,12 +25,13 @@ function languageColor(language: string) {
 
 // 10px cells with a 2px gap
 const ACTIVITY_CELL_STEP = 12;
-// Empty days stay faintly visible so the strip reads as 30 days, not a few dots.
-function activityOpacity(commitCount: number) {
-	if (commitCount === 0) return 0.12;
-	if (commitCount < 5) return 0.4;
-	if (commitCount < 20) return 0.7;
-	return 1;
+// Solid steps from surface gray to coral. Empty days stay visible so the strip
+// reads as 30 days, not a few dots.
+function activityColor(commitCount: number) {
+	if (commitCount === 0) return '#222222';
+	if (commitCount < 5) return '#6b4c3b';
+	if (commitCount < 20) return '#b47d5f';
+	return '#fdae84';
 }
 
 function ratingStars(rating: number) {
@@ -48,21 +49,19 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 <div class="mt-6">
 	{shippedRepos.length > 0 && (
 		<>
-			<p class="mb-3 font-mono text-xs text-gray-400">recently shipped</p>
-			<div class="mb-8 grid gap-4 sm:grid-cols-2">
+			<h3 class="mb-3 text-base font-semibold text-white">Recently shipped</h3>
+			<div class="mb-10 grid gap-x-8 gap-y-8 sm:grid-cols-2">
 				{shippedRepos.map((repo) => (
 					<a
 						href={repo.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="plausible-event-name=Now+Feed+Click plausible-event-source=github group flex flex-col rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+						class="plausible-event-name=Now+Feed+Click plausible-event-source=github group flex flex-col no-underline"
 					>
 						<div class="flex items-center justify-between gap-2">
-							<p class="font-mono text-sm font-semibold text-white group-hover:text-coral">
-								{repo.name}
-							</p>
+							<p class="text-sm font-semibold text-white group-hover:text-coral">{repo.name}</p>
 							{repo.language && (
-								<p class="flex items-center gap-1 text-xs text-gray-400">
+								<p class="flex items-center gap-1 text-sm text-gray-400">
 									<svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true">
 										<circle cx="4" cy="4" r="4" fill={languageColor(repo.language)} />
 									</svg>
@@ -70,16 +69,11 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 								</p>
 							)}
 						</div>
-						{repo.description && (
-							<p class="mt-1 text-xs leading-snug text-gray-400">{repo.description}</p>
-						)}
-						<p class="mt-1 font-mono text-xs text-gray-400">
-							$ git log -1: {repo.latestCommitMessage}
-						</p>
+						{repo.description && <p class="mt-1 text-sm text-gray-400">{repo.description}</p>}
+						<p class="mt-1 text-sm text-gray-400">Latest commit: {repo.latestCommitMessage}</p>
 						{/* Pinned to the bottom so the strips line up across a row */}
 						<div class="mt-auto pt-3">
 							<svg
-								class="text-coral"
 								width="100%"
 								viewBox={`0 0 ${repo.dailyCommitCounts.length * ACTIVITY_CELL_STEP - 2} 10`}
 								role="img"
@@ -91,12 +85,11 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 										width="10"
 										height="10"
 										rx="2"
-										fill="currentColor"
-										fill-opacity={activityOpacity(count)}
+										fill={activityColor(count)}
 									/>
 								))}
 							</svg>
-							<p class="mt-2 text-xs text-coral">
+							<p class="mt-2 text-sm text-gray-400">
 								{repo.commitCount} commits in the last {shippingWindowDays} days
 							</p>
 						</div>
@@ -106,8 +99,8 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 		</>
 	)}
 
-	<p class="mb-3 font-mono text-xs text-gray-400">recently watched</p>
-	<div class="grid gap-4 grid-cols-2 sm:grid-cols-4">
+	<h3 class="mb-3 text-base font-semibold text-white">Recently watched</h3>
+	<div class="grid gap-6 grid-cols-2 sm:grid-cols-4">
 		{films.map((film) => (
 			<div>
 				<a
@@ -122,24 +115,24 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						width="200"
 						height="300"
 						loading="lazy"
-						class="mb-2 w-full rounded border border-surface-3"
+						class="mb-2 w-full rounded-lg"
 					/>
 					<p class="text-sm font-semibold text-white group-hover:text-coral">
 						{film.title} <span class="text-gray-400">{film.year}</span>
 					</p>
 				</a>
 				{film.rating !== null && (
-					<p class="text-xs text-coral" aria-label={`Rated ${film.rating} out of 5`}>
+					<p class="text-sm text-coral" aria-label={`Rated ${film.rating} out of 5`}>
 						{ratingStars(film.rating)}
 					</p>
 				)}
-				{film.reviewExcerpt && <p class="mt-1 text-xs text-gray-400">{film.reviewExcerpt}</p>}
+				{film.reviewExcerpt && <p class="mt-1 text-sm text-gray-400">{film.reviewExcerpt}</p>}
 			</div>
 		))}
 	</div>
 
-	<p class="mb-3 mt-8 font-mono text-xs text-gray-400">recently listened</p>
-	<div class="grid gap-4 sm:grid-cols-2">
+	<h3 class="mb-3 mt-10 text-base font-semibold text-white">Recently listened</h3>
+	<div class="grid gap-6 sm:grid-cols-2">
 		{podcastEpisodes.map((episode) => {
 			const content = (
 				<>
@@ -149,11 +142,11 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						width="48"
 						height="48"
 						loading="lazy"
-						class="h-12 w-12 shrink-0 rounded border border-surface-3 object-cover"
+						class="h-12 w-12 shrink-0 rounded-lg object-cover"
 					/>
 					<div>
 						<p class="text-sm font-semibold text-white">{episode.episodeTitle}</p>
-						<p class="text-xs text-gray-400">{episode.podcastTitle}</p>
+						<p class="text-sm text-gray-400">{episode.podcastTitle}</p>
 					</div>
 				</>
 			);
@@ -176,8 +169,8 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 		})}
 	</div>
 
-	<p class="mt-4 font-mono text-xs text-gray-400">
-		as of {formattedUpdatedAt}. Commits via{' '}
+	<p class="mt-6 text-sm text-gray-400">
+		As of {formattedUpdatedAt}. Commits via{' '}
 		<a href="https://github.com/JoeKarlsson" target="_blank" rel="noopener noreferrer">
 			GitHub
 		</a>

@@ -27,15 +27,12 @@ for (const issue of backIssues) {
 	schemaType="CollectionPage"
 >
 	<div class="mx-auto max-w-3xl px-4 py-8">
-		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">
-			~$ cat newsletter.md
-		</p>
-		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Works on My Machine</h1>
+		<h1 class="mb-2 text-3xl font-bold text-white md:text-4xl">Works on My Machine</h1>
 		<p class="mb-6 text-gray-400">
 			My thoughts and reactions on tech writing, AI, homelab builds and open source, plus whatever
 			I'm working on. It goes out when I have something to say.
 		</p>
-		<div class="mb-12 rounded-lg border border-teal/20 bg-teal/5 p-6">
+		<div class="mb-12">
 			<NewsletterSignup location="newsletter-page" />
 			<p class="mt-3 text-center text-xs text-gray-400">
 				Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS?{' '}
@@ -49,8 +46,8 @@ for (const issue of backIssues) {
 			</p>
 		</div>
 
-		<h2 class="mb-6 text-2xl font-bold text-white">Every issue</h2>
-		<div class="mb-10 grid gap-4 sm:grid-cols-2">
+		<h2 class="mb-6 text-2xl font-semibold text-white">Every issue</h2>
+		<div class="mb-12 grid gap-x-6 gap-y-10 sm:grid-cols-2">
 			{posts.map((post) => (
 				<BlogCard
 					title={post.data.title}
@@ -64,23 +61,18 @@ for (const issue of backIssues) {
 			))}
 		</div>
 
-		<h2 class="mb-2 text-2xl font-bold text-white">TL;DR in Tech</h2>
+		<h2 class="mb-2 text-2xl font-semibold text-white">TL;DR in Tech</h2>
 		<p class="mb-8 text-gray-400">
 			The weekly link roundup this newsletter used to be, from 2021 to 2024.
 		</p>
 
 		{[...byYear.entries()].map(([year, list]) => (
 			<section class="mb-10" id={String(year)}>
-				<h3 class="mb-4 text-lg font-bold text-white">
-					<span class="text-coral font-mono text-sm" aria-hidden="true">
-						~$
-					</span>{' '}
-					ls newsletter/{year}/
-				</h3>
+				<h3 class="mb-4 text-lg font-semibold text-white">{year}</h3>
 				<ul class="space-y-2">
 					{list.map((issue) => (
 						<li class="flex flex-col gap-x-4 sm:flex-row sm:items-center">
-							<span class="w-32 shrink-0 font-mono text-xs text-gray-400">
+							<span class="w-32 shrink-0 text-sm text-gray-400">
 								<FormattedDate date={issue.data.date} />
 							</span>
 							<a

@@ -11,7 +11,7 @@ function isActive(href: string): boolean {
 }
 ---
 
-<header class="sticky top-0 z-50 border-b border-surface-3 bg-surface-0/80 backdrop-blur-md">
+<header class="sticky top-0 z-50 border-b border-surface-3 bg-surface-0">
 	<nav
 		aria-label="Main navigation"
 		class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4"
@@ -26,7 +26,7 @@ function isActive(href: string): boolean {
 					href={href}
 					class:list={[
 						'rounded-md px-3 py-1.5 text-sm font-medium no-underline',
-						isActive(href) ? 'bg-surface-3 text-coral' : 'text-gray-400',
+						isActive(href) ? 'text-coral' : 'text-gray-400 hover:text-white',
 					]}
 				>
 					{label}
@@ -35,16 +35,6 @@ function isActive(href: string): boolean {
 		</div>
 
 		<div class="flex items-center gap-3">
-			<!-- Interactive dot grid -->
-			<canvas
-				id="dot-grid"
-				class="hidden md:block"
-				width="120"
-				height="28"
-				style="cursor: default;"
-				aria-hidden="true"
-			></canvas>
-
 			<a
 				href={SOCIAL_LINKS.github}
 				target="_blank"
@@ -136,129 +126,4 @@ function isActive(href: string): boolean {
 		const expanded = btn.getAttribute('aria-expanded') === 'true';
 		btn.setAttribute('aria-expanded', String(!expanded));
 	});
-
-	// Dot grid animation
-	const canvas = document.getElementById('dot-grid') as HTMLCanvasElement;
-	if (canvas) {
-		const ctx = canvas.getContext('2d')!;
-		const cols = 15;
-		const rows = 3;
-		const spacingX = canvas.width / cols;
-		const spacingY = canvas.height / rows;
-		const radius = 1.5;
-		const pushRadius = 30;
-		const springBack = 0.08;
-
-		interface Dot {
-			baseX: number;
-			baseY: number;
-			x: number;
-			y: number;
-			vx: number;
-			vy: number;
-			displaced: number;
-		}
-
-		const dots: Dot[] = [];
-		for (let r = 0; r < rows; r++) {
-			for (let c = 0; c < cols; c++) {
-				const baseX = spacingX * (c + 0.5);
-				const baseY = spacingY * (r + 0.5);
-				dots.push({ baseX, baseY, x: baseX, y: baseY, vx: 0, vy: 0, displaced: 0 });
-			}
-		}
-
-		let mouseX = -100;
-		let mouseY = -100;
-		let isAnimating = false;
-		let settleFrames = 0;
-
-		canvas.addEventListener('mousemove', (e) => {
-			const rect = canvas.getBoundingClientRect();
-			mouseX = e.clientX - rect.left;
-			mouseY = e.clientY - rect.top;
-			settleFrames = 0;
-			if (!isAnimating) {
-				isAnimating = true;
-				animate();
-			}
-		});
-		canvas.addEventListener('mouseleave', () => {
-			mouseX = -100;
-			mouseY = -100;
-		});
-
-		// Colors
-		const baseColor = 'rgba(136, 136, 136, 0.3)';
-		const activeColor = '#fdae84'; // coral
-
-		// Draw initial static state
-		function drawStatic() {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			for (const dot of dots) {
-				ctx.beginPath();
-				ctx.arc(dot.baseX, dot.baseY, radius, 0, Math.PI * 2);
-				ctx.fillStyle = baseColor;
-				ctx.globalAlpha = 0.3;
-				ctx.fill();
-				ctx.globalAlpha = 1;
-			}
-		}
-
-		function animate() {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			let totalMotion = 0;
-
-			for (const dot of dots) {
-				const dx = dot.x - mouseX;
-				const dy = dot.y - mouseY;
-				const dist = Math.sqrt(dx * dx + dy * dy);
-
-				if (dist < pushRadius && dist > 0) {
-					const force = (pushRadius - dist) / pushRadius;
-					dot.vx += (dx / dist) * force * 2;
-					dot.vy += (dy / dist) * force * 2;
-				}
-
-				// Spring back
-				dot.vx += (dot.baseX - dot.x) * springBack;
-				dot.vy += (dot.baseY - dot.y) * springBack;
-
-				// Damping
-				dot.vx *= 0.85;
-				dot.vy *= 0.85;
-
-				dot.x += dot.vx;
-				dot.y += dot.vy;
-
-				// Track displacement for color
-				const displacement = Math.sqrt((dot.x - dot.baseX) ** 2 + (dot.y - dot.baseY) ** 2);
-				dot.displaced = Math.min(displacement / 8, 1);
-				totalMotion += Math.abs(dot.vx) + Math.abs(dot.vy);
-
-				ctx.beginPath();
-				ctx.arc(dot.x, dot.y, radius + dot.displaced * 0.5, 0, Math.PI * 2);
-				ctx.fillStyle = dot.displaced > 0.1 ? activeColor : baseColor;
-				ctx.globalAlpha = 0.3 + dot.displaced * 0.7;
-				ctx.fill();
-				ctx.globalAlpha = 1;
-			}
-
-			// Stop animating once dots have settled back to rest
-			if (totalMotion < 0.01 && mouseX === -100) {
-				settleFrames++;
-				if (settleFrames > 10) {
-					isAnimating = false;
-					drawStatic();
-					return;
-				}
-			} else {
-				settleFrames = 0;
-			}
-
-			requestAnimationFrame(animate);
-		}
-
-		drawStatic();
-	}
 </script>

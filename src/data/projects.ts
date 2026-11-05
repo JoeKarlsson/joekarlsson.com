@@ -71,45 +71,12 @@ const SD_DIR = '/images/blog/screencast-director-screen-recorder';
 
 const DOOM_DIR = '/images/blog/why-i-use-doom-to-visualize-mcp-data';
 
-export const CATEGORY_META: Record<
-	Project['category'],
-	{ label: string; command: string; hoverColor: string; borderColor: string; shadowColor: string }
-> = {
-	iot: {
-		label: 'IoT & Hardware',
-		command: 'ls iot/',
-		hoverColor: 'group-hover:text-teal',
-		borderColor: 'hover:border-teal/30',
-		shadowColor: 'hover:shadow-teal/10',
-	},
-	web: {
-		label: 'Web & Software',
-		command: 'ls web/',
-		hoverColor: 'group-hover:text-lavender',
-		borderColor: 'hover:border-lavender/30',
-		shadowColor: 'hover:shadow-lavender/10',
-	},
-	art: {
-		label: 'Art & Digital Humanities',
-		command: 'ls art/',
-		hoverColor: 'group-hover:text-pink',
-		borderColor: 'hover:border-pink/30',
-		shadowColor: 'hover:shadow-pink/10',
-	},
-	'dev-tools': {
-		label: 'Developer Tools & Education',
-		command: 'ls dev-tools/',
-		hoverColor: 'group-hover:text-terminal-yellow',
-		borderColor: 'hover:border-terminal-yellow/30',
-		shadowColor: 'hover:shadow-terminal-yellow/10',
-	},
-	homelab: {
-		label: 'Homelab',
-		command: 'ls homelab/',
-		hoverColor: 'group-hover:text-terminal-green',
-		borderColor: 'hover:border-terminal-green/30',
-		shadowColor: 'hover:shadow-terminal-green/10',
-	},
+export const CATEGORY_META: Record<Project['category'], { label: string }> = {
+	iot: { label: 'IoT & Hardware' },
+	web: { label: 'Web & Software' },
+	art: { label: 'Art & Digital Humanities' },
+	'dev-tools': { label: 'Developer Tools & Education' },
+	homelab: { label: 'Homelab' },
 };
 
 export const projects: Project[] = [
@@ -169,7 +136,7 @@ export const projects: Project[] = [
 					text: "Home Assistant sends ON AIR, doorbell and laundry alerts, the weather and what's playing. It only receives, so it never needs a Home Assistant token.",
 				},
 			],
-			galleryTitle: 'ls clips/',
+			galleryTitle: 'Clips',
 			galleryNote: 'Recorded from the control page. Hover to play.',
 			gallery: [
 				{
@@ -197,7 +164,7 @@ export const projects: Project[] = [
 					caption: 'The GIF library',
 				},
 			],
-			screenshotsTitle: 'ls inside/',
+			screenshotsTitle: 'Inside',
 			screenshots: [
 				{
 					poster: `${PIXELPANE_DIR}/build-layers.svg`,
@@ -359,7 +326,7 @@ export const projects: Project[] = [
 			],
 			install:
 				'git clone https://github.com/CDataSoftware/connect-ai-doom.git\ncd connect-ai-doom\n./setup.sh\n./raid.sh offline   # made-up data, no account needed',
-			galleryTitle: 'ls clips/',
+			galleryTitle: 'Clips',
 			galleryNote: 'Claude playing a level built from a demo Salesforce account. Hover to play.',
 			gallery: [
 				{
@@ -382,7 +349,7 @@ export const projects: Project[] = [
 					caption: 'The game and the side panel that logs every decision and tool call',
 				},
 			],
-			screenshotsTitle: 'ls screenshots/',
+			screenshotsTitle: 'Screenshots',
 		},
 	},
 	{
@@ -429,7 +396,7 @@ export const projects: Project[] = [
 					'Scripts are plain Markdown. Stage directions are shown dimmed and never listened for:',
 				code: "# Episode 12 notes (ignored)\n\n---\n\n*[Wide shot. Lights up.]*\n\nHey, welcome back. Today I'm going to show you something I built\nbecause I can't memorize lines.\n\n---\n\nShot list down here is ignored too.",
 			},
-			galleryTitle: 'ls screenshots/',
+			galleryTitle: 'Screenshots',
 			galleryNote:
 				'A wide column makes your eyes sweep on every line. A narrow one centered on the lens hides it.',
 			gallery: [
@@ -481,7 +448,7 @@ export const projects: Project[] = [
 					text: 'Fix it on the timeline, or type "cut my retakes and zoom in when I mention the config".',
 				},
 			],
-			galleryTitle: 'ls clips/',
+			galleryTitle: 'Clips',
 			galleryNote: 'Recorded in the app. Hover to play.',
 			gallery: [
 				{
@@ -521,7 +488,7 @@ export const projects: Project[] = [
 					caption: 'Export presets',
 				},
 			],
-			screenshotsTitle: 'ls editor/',
+			screenshotsTitle: 'Editor',
 			screenshots: [
 				{
 					poster: `${SD_DIR}/editor.webp`,
@@ -645,7 +612,7 @@ export const projects: Project[] = [
 				intro: 'A bumper is just a few lines of YAML:',
 				code: "- name: hotdish\n  cards:\n    - 'a hotdish'\n    - 'is just a casserole'\n    - 'made with more intention.'\n  video: videos/hotdish.mp4\n  music: music/ambient-01.mp3",
 			},
-			galleryTitle: 'ls output/',
+			galleryTitle: 'Output',
 			galleryNote: 'A few from Joeflix. Hover to play, or use the controls.',
 			gallery: [
 				bumperClip(

@@ -8,25 +8,8 @@ import nowFeed from '../data/now-feed.json';
 	description="The manual page for Joe Karlsson. Because every good engineer needs documentation."
 >
 	<div class="man-wrapper">
-		<div class="man-terminal">
-			<!-- Terminal header bar -->
-			<div class="man-titlebar">
-				<div class="man-dots">
-					<span class="man-dot man-dot-red"></span>
-					<span class="man-dot man-dot-yellow"></span>
-					<span class="man-dot man-dot-green"></span>
-				</div>
-				<span class="man-titlebar-text">man joe</span>
-				<div class="man-dots" style="visibility: hidden;">
-					<span class="man-dot"></span>
-					<span class="man-dot"></span>
-					<span class="man-dot"></span>
-				</div>
-			</div>
-
-			<!-- Man page content -->
-			<div class="man-content">
-				<pre class="man-pre"><span class="man-header">JOE(1)                          User Commands                          JOE(1)</span>
+		<div class="man-content">
+			<pre class="man-pre"><span class="man-header">JOE(1)                          User Commands                          JOE(1)</span>
 
 <span class="man-section">NAME</span>
        joe - developer marketing engineer
@@ -112,7 +95,6 @@ import nowFeed from '../data/now-feed.json';
        Written by Joe Karlsson, with mass-assistance from mass-caffeine.
 
 <span class="man-header">JOE(1)                          March 2026                          JOE(1)</span></pre>
-			</div>
 		</div>
 	</div>
 </BaseLayout>
@@ -124,57 +106,9 @@ import nowFeed from '../data/now-feed.json';
 		padding: 2rem 1rem;
 	}
 
-	.man-terminal {
+	.man-content {
 		width: 100%;
 		max-width: 52rem;
-		border: 1px solid #2a2d34;
-		border-radius: 0.5rem;
-		overflow: hidden;
-		background-color: #0a0a0f;
-		box-shadow:
-			0 25px 50px -12px rgba(0, 0, 0, 0.5),
-			0 0 0 1px rgba(42, 45, 52, 0.3);
-	}
-
-	.man-titlebar {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 0.5rem 1rem;
-		background-color: #111318;
-		border-bottom: 1px solid #2a2d34;
-	}
-
-	.man-dots {
-		display: flex;
-		gap: 0.5rem;
-	}
-
-	.man-dot {
-		width: 0.75rem;
-		height: 0.75rem;
-		border-radius: 50%;
-	}
-
-	.man-dot-red {
-		background-color: rgba(239, 68, 68, 0.8);
-	}
-
-	.man-dot-yellow {
-		background-color: rgba(234, 179, 8, 0.8);
-	}
-
-	.man-dot-green {
-		background-color: rgba(34, 197, 94, 0.8);
-	}
-
-	.man-titlebar-text {
-		font-family: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, monospace;
-		font-size: 0.75rem;
-		color: #8bcbc8;
-	}
-
-	.man-content {
 		padding: 1.5rem;
 		overflow-x: auto;
 	}

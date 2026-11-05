@@ -51,74 +51,51 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 >
 	<div class="mx-auto max-w-5xl px-4 py-8">
 		<div class="mb-8">
-			<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">
-				~$ ls blog/
-			</p>
-			<h1 class="text-3xl font-bold text-coral md:text-4xl">Blog</h1>
+			<h1 class="text-3xl font-bold text-white md:text-4xl">Blog</h1>
 			<p class="mt-2 text-gray-400">{allPosts.length} posts</p>
 		</div>
 
-		<div class="mb-6 flex flex-wrap gap-2">
-			<a
-				href="/blog/"
-				class="rounded-full bg-coral/20 px-3 py-1 font-mono text-xs text-coral border border-coral/30 transition-colors hover:bg-coral/30"
-			>
+		<nav class="mb-10 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label="Blog categories">
+			<a href="/blog/" class="text-coral underline underline-offset-4" aria-current="page">
 				All
 			</a>
 			{categories.map(([cat, count]) => (
 				<a
 					href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`}
-					class="rounded-full bg-surface-3 px-3 py-1 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral"
+					class="text-gray-300 no-underline hover:text-coral"
 				>
-					{cat} <span class="text-gray-400">({count})</span>
+					{cat} <span class="text-gray-500">{count}</span>
 				</a>
 			))}
-		</div>
+		</nav>
 
 		{featuredPost && (
-			<a
-				href={`/blog/${featuredPost.data.slug}/`}
-				class="group mb-8 block rounded-lg border border-coral/30 bg-surface-1 overflow-hidden no-underline transition-all duration-300 hover:border-coral/50 hover:bg-surface-2"
-			>
-				<div class="md:flex">
+			<a href={`/blog/${featuredPost.data.slug}/`} class="group mb-12 block no-underline">
+				<div class="gap-8 md:flex md:items-center">
 					<img
 						src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
 						alt={featuredPost.data.heroAlt || `Hero image for ${featuredPost.data.title}`}
-						class="h-48 w-full object-cover md:h-auto md:w-1/2"
+						class="mb-4 h-48 w-full rounded-lg object-cover md:mb-0 md:h-64 md:w-1/2"
 						loading="eager"
 					/>
-					<div class="p-6 flex flex-col justify-center">
-						<p class="mb-2 font-mono text-xs text-coral">Featured Post</p>
-						<h2 class="mb-2 text-2xl font-bold text-white group-hover:text-coral transition-colors">
+					<div class="md:w-1/2">
+						<h2 class="mb-2 text-2xl font-semibold text-white transition-colors group-hover:text-coral">
 							{featuredPost.data.title}
 						</h2>
-						<div class="mb-3 flex items-center gap-2 font-mono text-xs text-gray-400">
-							<span>
-								{featuredPost.data.date.toLocaleDateString('en-us', {
-									timeZone: 'UTC',
-									year: 'numeric',
-									month: 'short',
-									day: 'numeric',
-								})}
-							</span>
-							{featuredReadingTime > 0 && (
-								<>
-									<span>·</span>
-									<span>{featuredReadingTime} min read</span>
-								</>
+						<p class="mb-3 text-sm text-gray-400">
+							{featuredPost.data.date.toLocaleDateString('en-us', {
+								timeZone: 'UTC',
+								year: 'numeric',
+								month: 'short',
+								day: 'numeric',
+							})}
+							{featuredReadingTime > 0 && <> · {featuredReadingTime} min read</>}
+							{featuredPost.data.categories.length > 0 && (
+								<> · {featuredPost.data.categories.join(' · ')}</>
 							)}
-						</div>
-						{featuredPost.data.categories && (
-							<div class="mb-3 flex flex-wrap gap-1">
-								{featuredPost.data.categories.map((cat) => (
-									<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
-										{cat}
-									</span>
-								))}
-							</div>
-						)}
+						</p>
 						{featuredPost.data.description && (
-							<p class="line-clamp-3 text-sm text-gray-400">{featuredPost.data.description}</p>
+							<p class="line-clamp-3 text-gray-400">{featuredPost.data.description}</p>
 						)}
 					</div>
 				</div>
@@ -135,7 +112,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					type="text"
 					id="blog-search"
 					placeholder="Search posts..."
-					class="w-full rounded-lg border border-surface-3 bg-surface-1 px-4 py-2 pl-10 font-mono text-sm text-white placeholder-gray-500 outline-hidden transition-colors focus:border-coral/50 focus:ring-1 focus:ring-coral/30"
+					class="w-full rounded-lg border border-surface-3 bg-surface-1 px-4 py-2 pl-10 text-sm text-white placeholder-gray-500 outline-hidden transition-colors focus:border-coral"
 				/>
 				<svg
 					class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
@@ -151,25 +128,28 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					></path>
 				</svg>
 			</div>
-			<div class="flex items-center gap-2">
-				<span class="font-mono text-xs text-gray-400">Sort:</span>
+			<div class="flex items-center gap-4 text-sm">
+				<span class="text-gray-400">Sort:</span>
 				<button
 					id="sort-newest"
-					class="sort-btn rounded-md bg-coral/20 px-3 py-1.5 font-mono text-xs text-coral border border-coral/30 transition-colors"
+					class="sort-btn cursor-pointer text-coral underline underline-offset-4"
+					aria-pressed="true"
 					data-sort="newest"
 				>
 					Newest
 				</button>
 				<button
 					id="sort-oldest"
-					class="sort-btn rounded-md bg-surface-3 px-3 py-1.5 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral"
+					class="sort-btn cursor-pointer text-gray-300 hover:text-coral"
+					aria-pressed="false"
 					data-sort="oldest"
 				>
 					Oldest
 				</button>
 				<button
 					id="sort-popular"
-					class="sort-btn rounded-md bg-surface-3 px-3 py-1.5 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral"
+					class="sort-btn cursor-pointer text-gray-300 hover:text-coral"
+					aria-pressed="false"
 					data-sort="popular"
 					title={`Most visitors over the last 12 months, as of ${popularPosts.updatedAt}`}
 				>
@@ -179,14 +159,14 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 		</div>
 
 		<!-- Post count display (updates with search) -->
-		<p id="results-count" class="mb-4 font-mono text-xs text-gray-400"></p>
+		<p id="results-count" class="mb-4 text-sm text-gray-400"></p>
 
 		<!-- No results message -->
 		<div id="no-results" class="hidden py-12 text-center">
-			<p class="font-mono text-sm text-gray-400">No posts found matching your search.</p>
+			<p class="text-gray-400">No posts found matching your search.</p>
 		</div>
 
-		<div id="posts-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		<div id="posts-grid" class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
 			{posts.map((post) => (
 				<BlogCard
 					title={post.data.title}
@@ -307,8 +287,9 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					sortBtns.forEach((b) => {
 						const isActive = b === btn;
 						b.className = isActive
-							? 'sort-btn rounded-md bg-coral/20 px-3 py-1.5 font-mono text-xs text-coral border border-coral/30 transition-colors'
-							: 'sort-btn rounded-md bg-surface-3 px-3 py-1.5 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral';
+							? 'sort-btn cursor-pointer text-coral underline underline-offset-4'
+							: 'sort-btn cursor-pointer text-gray-300 hover:text-coral';
+						b.setAttribute('aria-pressed', String(isActive));
 					});
 					render();
 				});

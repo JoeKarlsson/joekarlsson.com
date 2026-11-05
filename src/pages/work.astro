@@ -30,9 +30,6 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 	schemaType="CollectionPage"
 >
 	<div class="mx-auto max-w-5xl px-4 py-8">
-		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">
-			~$ ls projects/
-		</p>
 		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">Projects</h1>
 		<p class="mb-10 text-gray-400">
 			I build things - software, hardware, IoT contraptions, and the occasional questionable idea.
@@ -45,12 +42,12 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 				href={featuredUrl}
 				target={featuredExternal ? '_blank' : undefined}
 				rel={featuredExternal ? 'noopener noreferrer' : undefined}
-				class="plausible-event-name=Featured+Project+Click group mb-12 block overflow-hidden rounded-lg border border-coral/30 bg-surface-1 no-underline transition-all duration-300 hover:border-coral/50 hover:bg-surface-2"
+				class="plausible-event-name=Featured+Project+Click group mb-12 block no-underline"
 				data-hover-target
 			>
-				<div class="md:flex">
+				<div class="md:flex md:gap-6">
 					{/* shrink-0 keeps the long description from squeezing the media */}
-					<div class="bg-black md:w-1/2" style="flex-shrink: 0">
+					<div class="overflow-hidden rounded-md bg-black md:w-1/2" style="flex-shrink: 0">
 						{featuredProject.video ? (
 							<video
 								src={featuredProject.video}
@@ -73,27 +70,18 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 							/>
 						)}
 					</div>
-					<div class="flex flex-col justify-center p-6">
-						<p class="mb-2 font-mono text-xs text-coral">Featured Project</p>
+					<div class="flex flex-col justify-center pt-4 md:pt-0">
 						<h2 class="mb-2 text-2xl font-bold text-white transition-colors group-hover:text-coral">
 							{featuredProject.title}
 						</h2>
-						<div class="mb-3 flex flex-wrap gap-1">
-							{featuredProject.tech.map((t) => (
-								<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-[10px] text-gray-400">
-									{t}
-								</span>
-							))}
-						</div>
+						<p class="mb-3 text-sm text-gray-400">{featuredProject.tech.join(' · ')}</p>
 						{featuredProject.stars && (
-							<p class="mb-2 font-mono text-xs text-gray-400">
-								{featuredProject.stars} stars on GitHub
-							</p>
+							<p class="mb-2 text-sm text-gray-400">{featuredProject.stars} stars on GitHub</p>
 						)}
 						<p class="text-sm text-gray-400">{featuredProject.description}</p>
 						<div class="mt-4 flex items-center gap-4">
 							{featuredProject.sourceUrl && (
-								<span class="flex items-center gap-1 font-mono text-xs text-coral">
+								<span class="flex items-center gap-1 text-sm text-coral">
 									<svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
 									</svg>
@@ -101,7 +89,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 								</span>
 							)}
 							{featuredProject.blogUrl && (
-								<span class="flex items-center gap-1 font-mono text-xs text-coral">
+								<span class="flex items-center gap-1 text-sm text-coral">
 									<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path
 											stroke-linecap="round"
@@ -122,13 +110,13 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 		<div>
 			<div>
 				<div
-					class="mb-6 flex flex-wrap gap-2"
+					class="mb-6 flex flex-wrap gap-x-5 gap-y-2"
 					role="group"
 					aria-label="Filter projects by category"
 				>
 					<button
 						type="button"
-						class="project-filter rounded-md bg-coral/20 px-3 py-1.5 font-mono text-xs text-coral border border-coral/30 transition-colors"
+						class="project-filter text-sm text-coral underline underline-offset-4 transition-colors"
 						data-filter="all"
 						aria-pressed="true"
 					>
@@ -137,7 +125,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 					{categoryFilters.map((c) => (
 						<button
 							type="button"
-							class="project-filter rounded-md bg-surface-3 px-3 py-1.5 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral"
+							class="project-filter text-sm text-gray-400 transition-colors hover:text-white"
 							data-filter={c.key}
 							aria-pressed="false"
 						>
@@ -154,72 +142,50 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 					))}
 				</div>
 
-				{/* All repos link */}
-				<div class="mb-10 rounded-lg border border-surface-3 bg-surface-1 p-6 text-center">
-					<p class="mb-3 text-gray-400">Want to see everything?</p>
+				<p class="mb-10 text-gray-400">
+					Want to see everything?{' '}
 					<a
 						href={SOCIAL_LINKS.github}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
+						class="text-coral"
 					>
 						View all repos on GitHub &rarr;
 					</a>
-				</div>
+				</p>
 
-				{/* Keep exploring section */}
-				<div class="mb-10">
-					<h2 class="mb-4 text-lg font-bold text-white">
-						<span class="text-coral font-mono text-sm" aria-hidden="true">
-							~$
-						</span>{' '}
-						cd ../
-					</h2>
-					<div class="grid gap-4 sm:grid-cols-3">
-						<a
-							href="/blog/"
-							class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
-						>
-							<p class="font-mono text-xs text-coral">Read</p>
-							<p class="font-bold text-white group-hover:text-coral">Blog Posts</p>
-							<p class="text-sm text-gray-400">Homelab, databases, and developer tools</p>
+				<h2 class="mb-4 text-2xl font-semibold text-white">Keep exploring</h2>
+				<ul class="mb-10 space-y-2">
+					<li>
+						<a href="/blog/" class="text-coral">
+							Blog
 						</a>
-						<a
-							href="/about/"
-							class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
-						>
-							<p class="font-mono text-xs text-coral">Learn</p>
-							<p class="font-bold text-white group-hover:text-coral">About Me</p>
-							<p class="text-sm text-gray-400">Background and what I'm working on</p>
+					</li>
+					<li>
+						<a href="/about/" class="text-coral">
+							About me
 						</a>
-						<a
-							href="/resume/"
-							class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
-						>
-							<p class="font-mono text-xs text-coral">View</p>
-							<p class="font-bold text-white group-hover:text-coral">Resume</p>
-							<p class="text-sm text-gray-400">Career history and impact metrics</p>
+					</li>
+					<li>
+						<a href="/resume/" class="text-coral">
+							Resume
 						</a>
-						<a
-							href="/talk-archive/"
-							class="group rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all hover:border-coral/50 hover:bg-surface-2"
-						>
-							<p class="font-mono text-xs text-coral">Watch</p>
-							<p class="font-bold text-white group-hover:text-coral">Talk Archive</p>
-							<p class="text-sm text-gray-400">Conference talks and presentations</p>
+					</li>
+					<li>
+						<a href="/talk-archive/" class="text-coral">
+							Talk archive
 						</a>
-					</div>
-				</div>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
 
 	<script>
-		// Same classes as the blog index sort buttons, so the chips add no CSS
+		// Must match the server-rendered classes on .project-filter above
 		const ACTIVE_FILTER_CLASSES =
-			'rounded-md bg-coral/20 px-3 py-1.5 font-mono text-xs text-coral border border-coral/30 transition-colors';
-		const INACTIVE_FILTER_CLASSES =
-			'rounded-md bg-surface-3 px-3 py-1.5 font-mono text-xs text-gray-400 border border-transparent transition-colors hover:border-coral/30 hover:text-coral';
+			'text-sm text-coral underline underline-offset-4 transition-colors';
+		const INACTIVE_FILTER_CLASSES = 'text-sm text-gray-400 transition-colors hover:text-white';
 		const filterButtons = document.querySelectorAll<HTMLButtonElement>('.project-filter');
 		const projectCells = document.querySelectorAll<HTMLElement>('#projects-grid > [data-category]');
 		filterButtons.forEach((button) => {

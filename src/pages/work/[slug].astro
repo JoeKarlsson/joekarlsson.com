@@ -44,27 +44,16 @@ const inline = (text: string) =>
 	schemaType="SoftwareSourceCode"
 >
 	<div class="mx-auto max-w-4xl px-4 py-8">
-		<nav class="mb-4 font-mono text-sm text-gray-400" aria-label="Breadcrumb">
-			<a href="/work/" class="text-gray-400 no-underline hover:text-coral">
-				projects
+		<nav class="mb-4 text-sm" aria-label="Breadcrumb">
+			<a href="/work/" class="text-gray-400 no-underline hover:text-white">
+				&larr; All projects
 			</a>
-			<span class="mx-1">/</span>
-			<span>{page.slug}</span>
 		</nav>
 
-		<p class="mb-2 font-mono text-sm text-coral" aria-hidden="true">
-			~$ cat projects/{page.slug}.md
-		</p>
 		<h1 class="mb-2 text-3xl font-bold text-coral md:text-4xl">{project.title}</h1>
 		<p class="mb-4 text-lg text-gray-300">{page.tagline}</p>
 
-		<div class="mb-6 flex flex-wrap gap-1">
-			{project.tech.map((t) => (
-				<span class="rounded-full bg-surface-3 px-2 py-0.5 font-mono text-xs text-gray-400">
-					{t}
-				</span>
-			))}
-		</div>
+		<p class="mb-6 text-sm text-gray-400">{project.tech.join(' · ')}</p>
 
 		{/* controls for the same WCAG 2.2.2 reason as rehype-gif-video */}
 		{project.video ? (
@@ -90,22 +79,19 @@ const inline = (text: string) =>
 			/>
 		)}
 
-		<div class="mb-10 flex flex-wrap gap-3">
+		<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
 			{project.sourceUrl && (
 				<a
 					href={project.sourceUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
+					class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-white"
 				>
 					View on GitHub &rarr;
 				</a>
 			)}
 			{project.blogUrl && (
-				<a
-					href={project.blogUrl}
-					class="inline-block rounded-md border border-surface-3 px-4 py-2 font-medium text-gray-300 no-underline hover:border-coral/50 hover:text-coral"
-				>
+				<a href={project.blogUrl} class="text-coral underline underline-offset-4 hover:text-white">
 					Read why I built it
 				</a>
 			)}
@@ -114,7 +100,7 @@ const inline = (text: string) =>
 					href={project.demoUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-block rounded-md border border-surface-3 px-4 py-2 font-medium text-gray-300 no-underline hover:border-coral/50 hover:text-coral"
+					class="text-coral underline underline-offset-4 hover:text-white"
 				>
 					Demo &rarr;
 				</a>
@@ -129,11 +115,8 @@ const inline = (text: string) =>
 
 		{page.tour && (
 			<section class="mb-10" aria-labelledby="tour">
-				<h2 id="tour" class="mb-4 text-lg font-bold text-white">
-					<span class="font-mono text-sm text-coral" aria-hidden="true">
-						~$
-					</span>{' '}
-					play tour.mp4
+				<h2 id="tour" class="mb-4 text-2xl font-semibold text-white">
+					Tour
 				</h2>
 				{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
 				<video
@@ -153,11 +136,8 @@ const inline = (text: string) =>
 
 		{page.embedUrl && (
 			<section class="mb-10" aria-labelledby="play-it">
-				<h2 id="play-it" class="mb-2 text-lg font-bold text-white">
-					<span class="font-mono text-sm text-coral" aria-hidden="true">
-						~$
-					</span>{' '}
-					play it
+				<h2 id="play-it" class="mb-2 text-2xl font-semibold text-white">
+					Play it
 				</h2>
 				<p class="mb-4 text-sm text-gray-400">
 					Click the game to play.{' '}
@@ -165,12 +145,12 @@ const inline = (text: string) =>
 						href={page.embedUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="text-coral hover:text-teal"
+						class="text-coral hover:text-white"
 					>
 						Open it full screen &rarr;
 					</a>
 				</p>
-				<div class="aspect-video overflow-hidden rounded-lg border border-surface-3">
+				<div class="aspect-video overflow-hidden rounded-lg">
 					<iframe
 						src={page.embedUrl}
 						title={`${project.title}, playable in the browser`}
@@ -188,17 +168,13 @@ const inline = (text: string) =>
 
 		{page.steps && (
 			<section class="mb-10" aria-labelledby="how-it-works">
-				<h2 id="how-it-works" class="mb-4 text-lg font-bold text-white">
-					<span class="font-mono text-sm text-coral" aria-hidden="true">
-						~$
-					</span>{' '}
-					how it works
+				<h2 id="how-it-works" class="mb-4 text-2xl font-semibold text-white">
+					How it works
 				</h2>
-				<ol class="grid gap-4 sm:grid-cols-3">
-					{page.steps.map((step, i) => (
-						<li class="rounded-lg border border-surface-3 bg-surface-1 p-4">
-							<p class="mb-1 font-mono text-xs text-coral">0{i + 1}</p>
-							<h3 class="mb-2 font-semibold text-white">{step.title}</h3>
+				<ol class="list-decimal space-y-4 pl-6 marker:text-gray-400">
+					{page.steps.map((step) => (
+						<li>
+							<h3 class="mb-1 text-lg font-semibold text-white">{step.title}</h3>
 							<p class="prose prose-invert prose-sm text-gray-400" set:html={inline(step.text)} />
 						</li>
 					))}
@@ -208,11 +184,8 @@ const inline = (text: string) =>
 
 		{(page.install || page.example) && (
 			<section class="prose prose-invert mb-10 max-w-none" aria-labelledby="try-it">
-				<h2 id="try-it" class="not-prose mb-4 text-lg font-bold text-white">
-					<span class="font-mono text-sm text-coral" aria-hidden="true">
-						~$
-					</span>{' '}
-					try it
+				<h2 id="try-it" class="not-prose mb-4 text-2xl font-semibold text-white">
+					Try it
 				</h2>
 				{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
 				{page.example && (
@@ -226,11 +199,8 @@ const inline = (text: string) =>
 
 		{page.gallery && (
 			<section class="mb-10" aria-labelledby="examples">
-				<h2 id="examples" class="mb-2 text-lg font-bold text-white">
-					<span class="font-mono text-sm text-coral" aria-hidden="true">
-						~$
-					</span>{' '}
-					{page.galleryTitle ?? 'gallery'}
+				<h2 id="examples" class="mb-2 text-2xl font-semibold text-white">
+					{page.galleryTitle ?? 'Gallery'}
 				</h2>
 				{page.galleryNote && (
 					<p class="mb-4 text-sm text-gray-400" set:html={inline(page.galleryNote)} />
@@ -263,7 +233,7 @@ const inline = (text: string) =>
 								/>
 							)}
 							{clip.caption && (
-								<figcaption class="mt-2 font-mono text-xs text-gray-400">{clip.caption}</figcaption>
+								<figcaption class="mt-2 text-sm text-gray-400">{clip.caption}</figcaption>
 							)}
 						</figure>
 					))}
@@ -273,11 +243,8 @@ const inline = (text: string) =>
 
 		{page.screenshots && (
 			<section class="mb-10" aria-labelledby="screenshots">
-				<h2 id="screenshots" class="mb-4 text-lg font-bold text-white">
-					<span class="font-mono text-sm text-coral" aria-hidden="true">
-						~$
-					</span>{' '}
-					{page.screenshotsTitle ?? 'screenshots'}
+				<h2 id="screenshots" class="mb-4 text-2xl font-semibold text-white">
+					{page.screenshotsTitle ?? 'Screenshots'}
 				</h2>
 				<div class="grid gap-4">
 					{page.screenshots.map((shot) => (
@@ -286,11 +253,11 @@ const inline = (text: string) =>
 								src={shot.poster}
 								alt={shot.alt}
 								loading="lazy"
-								class="mx-auto rounded-lg border border-surface-3"
+								class="mx-auto rounded-lg"
 								style="max-height: 720px; max-width: 100%"
 							/>
 							{shot.caption && (
-								<figcaption class="mt-2 font-mono text-xs text-gray-400">{shot.caption}</figcaption>
+								<figcaption class="mt-2 text-sm text-gray-400">{shot.caption}</figcaption>
 							)}
 						</figure>
 					))}
@@ -299,19 +266,19 @@ const inline = (text: string) =>
 		)}
 
 		{project.sourceUrl && (
-			<div class="mb-10 flex flex-wrap gap-3">
+			<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
 				<a
 					href={project.sourceUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-teal"
+					class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-white"
 				>
 					Get the code on GitHub &rarr;
 				</a>
 				{project.blogUrl && (
 					<a
 						href={project.blogUrl}
-						class="inline-block rounded-md border border-surface-3 px-4 py-2 font-medium text-gray-300 no-underline hover:border-coral/50 hover:text-coral"
+						class="text-coral underline underline-offset-4 hover:text-white"
 					>
 						Read why I built it
 					</a>
@@ -326,8 +293,8 @@ const inline = (text: string) =>
 			class="mb-6"
 		/>
 
-		<a href="/work/" class="font-mono text-sm text-gray-400 no-underline hover:text-coral">
-			&larr; cd ../projects
+		<a href="/work/" class="text-sm text-gray-400 no-underline hover:text-white">
+			&larr; All projects
 		</a>
 	</div>
 </BaseLayout>

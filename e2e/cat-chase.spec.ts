@@ -72,13 +72,6 @@ test.describe('CatChase Component', () => {
 			expect(mouseBox.x + mouseBox.width).toBeLessThanOrEqual(containerBox.x + containerBox.width);
 		}
 	});
-
-	test('displays comment text', async ({ page }) => {
-		const comment = page.locator('.cat-chase-comment');
-
-		await expect(comment).toBeVisible();
-		await expect(comment).toHaveText('// cat.exe running...');
-	});
 });
 
 test.describe('CatChase Cursor Tracking', () => {

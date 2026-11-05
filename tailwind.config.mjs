@@ -9,21 +9,10 @@ export default {
 				sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
 			},
 			colors: {
-				// Warm, fun palette inspired by old site
+				// Coral is the one accent; teal and lavender are terminal-only syntax colors.
 				coral: '#fdae84',
 				teal: '#8bcbc8',
-				mint: '#6ee7b7',
 				lavender: '#c4b5fd',
-				pink: '#f9a8d4',
-				sky: '#7dd3fc',
-				terminal: {
-					green: '#4ade80',
-					blue: '#60a5fa',
-					purple: '#c084fc',
-					yellow: '#fbbf24',
-					red: '#f87171',
-					cyan: '#22d3ee',
-				},
 				surface: {
 					0: '#0a0a0a',
 					1: '#111111',
