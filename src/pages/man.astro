@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Scribble from '../components/Scribble.astro';
+import { CHALK, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 ---
 
@@ -7,7 +9,16 @@ import nowFeed from '../data/now-feed.json';
 	title="man joe | Joe Karlsson"
 	description="The manual page for Joe Karlsson. Because every good engineer needs documentation."
 >
-	<div class="man-wrapper">
+	<div class="man-wrapper relative">
+		<!-- The one crayon mark, in the margin past the page's right edge (outside
+		.man-content, which scrolls sideways and would clip it): this stays a real man page -->
+		<Scribble
+			{...MARKS.asterisk}
+			color={CHALK}
+			duration="9s"
+			delay="1s"
+			class="top-[20px] right-[calc(50%-29rem)] hidden size-[70px] lg:block"
+		/>
 		<div class="man-content">
 			<pre class="man-pre"><span class="man-header">JOE(1)                          User Commands                          JOE(1)</span>
 
@@ -113,34 +124,37 @@ import nowFeed from '../data/now-feed.json';
 		overflow-x: auto;
 	}
 
+	/* The site's colors (tailwind.config.mjs): paper text, muted header and footer
+	   lines, pink section headings and flags */
 	.man-pre {
 		font-family: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, monospace;
 		font-size: 0.875rem;
 		line-height: 1.6;
-		color: #d1d5db;
+		color: #ededed;
 		white-space: pre;
 		margin: 0;
 		tab-size: 8;
 	}
 
 	.man-header {
-		color: #fdae84;
+		color: #a3a3a3;
 		font-weight: bold;
 	}
 
 	.man-section {
-		color: #ffffff;
+		color: #ff4fd8;
 		font-weight: bold;
 	}
 
 	.man-bold {
-		color: #ffffff;
+		color: #ff4fd8;
 		font-weight: bold;
 	}
 
 	.man-underline {
 		text-decoration: underline;
-		text-underline-offset: 2px;
+		text-decoration-color: #ff4fd8;
+		text-underline-offset: 3px;
 	}
 
 	@media (max-width: 640px) {
