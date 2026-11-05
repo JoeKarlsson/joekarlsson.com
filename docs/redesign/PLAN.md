@@ -110,20 +110,20 @@ The new look: a dark, art house, slightly weird personal site. It is hot pink on
 
 ## Reuse map
 
-| Existing                                                                                               | What happens                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BaseLayout.astro`, `BaseHead.astro`                                                                   | Reskin: new fonts, tokens, `<main>` landmark and pause-motion script. Remove the terminal hooks. Decide on the command palette, ASCII cat and Konami (see Open decisions).                                       |
-| `Header.astro`                                                                                         | Reskin into the floating pill nav plus the pause button. The ticker lives in the homepage hero only.                                                                                                             |
-| `Footer.astro`, `NewsletterCTA.astro`, `NewsletterSignup.astro`                                        | Reskin: the stacked-echo title, the existing form and Plausible events, links and socials. Drop "It goes out when I have something to say."                                                                      |
-| `getFeedPosts()` (`src/utils/posts.ts`)                                                                | Feeds Recent posts as is.                                                                                                                                                                                        |
-| Category counts (inline in `blog/index.astro`, and again in `blog/category/[category].astro`)          | Extract `getCategoryCounts()` into `src/utils/posts.ts`. The homepage makes a third copy, so it becomes a helper with a unit test.                                                                               |
-| `src/data/projects.ts`                                                                                 | Feeds the Projects index (title, year, stack, slug or blog URL).                                                                                                                                                 |
-| `ProjectCard.astro`, `BlogCard.astro`                                                                  | Reskin into index and post rows where layouts match. Delete either one once nothing uses it.                                                                                                                     |
-| `now-feed.json`                                                                                        | Feeds the container count in the hero bio and the tickers.                                                                                                                                                       |
-| `RightNow.astro`, `NowFeed.astro`                                                                      | Leave the homepage (the Now row was rejected). Keep them on /about if they're still used there.                                                                                                                  |
-| `CatChase.astro`                                                                                       | Leaves the homepage.                                                                                                                                                                                             |
-| Homepage terminal (`index.astro`), `src/lib/terminal-core.ts`, `styles/terminal.css`, the 404 terminal | **Delete** in Phase 2, together with `tests/terminal-core.test.ts`, `e2e/terminal.spec.ts` and `e2e/terminal-easter-eggs.spec.ts`. Check whether the /uses apt view still needs `terminal.css` (Open decisions). |
-| `scripts/validate-images.sh`, `tests/bundle-size.test.ts`                                              | Extend with video budgets (Phase 3).                                                                                                                                                                             |
+| Existing                                                                                               | What happens                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BaseLayout.astro`, `BaseHead.astro`                                                                   | Reskin: new fonts, tokens, `<main>` landmark and pause-motion script. Remove the terminal hooks. **Delete** the Cmd+K command palette, the cursor-following ASCII cat and the Konami dashboard (Phase 1). |
+| `Header.astro`                                                                                         | Reskin into the floating pill nav plus the pause button. The ticker lives in the homepage hero only.                                                                                                      |
+| `Footer.astro`, `NewsletterCTA.astro`, `NewsletterSignup.astro`                                        | Reskin: the stacked-echo title, the existing form and Plausible events, links and socials. Drop "It goes out when I have something to say."                                                               |
+| `getFeedPosts()` (`src/utils/posts.ts`)                                                                | Feeds Recent posts as is.                                                                                                                                                                                 |
+| Category counts (inline in `blog/index.astro`, and again in `blog/category/[category].astro`)          | Extract `getCategoryCounts()` into `src/utils/posts.ts`. The homepage makes a third copy, so it becomes a helper with a unit test.                                                                        |
+| `src/data/projects.ts`                                                                                 | Feeds the Projects index (title, year, stack, slug or blog URL).                                                                                                                                          |
+| `ProjectCard.astro`, `BlogCard.astro`                                                                  | Reskin into index and post rows where layouts match. Delete either one once nothing uses it.                                                                                                              |
+| `now-feed.json`                                                                                        | Feeds the container count in the hero bio and the tickers.                                                                                                                                                |
+| `RightNow.astro`, `NowFeed.astro`                                                                      | Leave the homepage (the Now row was rejected). Keep them on /about if they're still used there.                                                                                                           |
+| `CatChase.astro`                                                                                       | **Delete** with its spec (`e2e/cat-chase.spec.ts`).                                                                                                                                                       |
+| Homepage terminal (`index.astro`), `src/lib/terminal-core.ts`, `styles/terminal.css`, the 404 terminal | **Delete** in Phase 2, together with `tests/terminal-core.test.ts`, `e2e/terminal.spec.ts` and `e2e/terminal-easter-eggs.spec.ts`. The /uses apt view goes too (Phase 5).                                 |
+| `scripts/validate-images.sh`, `tests/bundle-size.test.ts`                                              | Extend with video budgets (Phase 3).                                                                                                                                                                      |
 
 ## Phases
 
@@ -141,7 +141,8 @@ Done when: the build and `npm test` pass, the CSS budget holds, and the live sit
 1. Reskin `Header.astro` into the floating nav with the pause button and `aria-current`.
 2. Reskin `Footer.astro` and the newsletter components into the pink footer with the stacked echo.
 3. Add `<main>` to `BaseLayout`.
-4. Tests:
+4. Delete the Cmd+K command palette, the cursor-following ASCII cat and the Konami dashboard from `BaseLayout`, with their CSS, scripts and the source-code banner that advertises them.
+5. Tests:
    - Update `e2e/navigation.spec.ts`.
    - Add a pause-motion e2e test: click it, check that animations and videos stop.
    - Keep `e2e/accessibility.spec.ts` axe-clean.
@@ -155,7 +156,7 @@ Done when: every page has the new header and footer, and the site deploys.
    - projects from `projects.ts`
    - topics from `getCategoryCounts()`
    - the container count from `now-feed.json`
-2. Delete the terminal and everything it alone used (see Reuse map), plus `CatChase` and `RightNow` on the homepage.
+2. Delete the terminal and everything it alone used (see Reuse map), plus `CatChase` (and `e2e/cat-chase.spec.ts`) and `RightNow` on the homepage.
 3. Port the drawing board (with the touch-scroll fix and the inert wrapper) and the slot-machine band.
 4. Tests:
    - Rewrite `e2e/homepage.spec.ts`: hero video present, every section heading links, rows link, the slot machine has screen-reader text, the drawing board doesn't block touch scroll.
@@ -192,7 +193,7 @@ Done when: a long post reads comfortably on desktop and phone, and the blog e2e 
 
 ### Phase 5: Other pages
 
-Blog index, category pages, `/work` and `/work/[slug]`, about, uses, resume, contact, newsletter, talk archive, and 404. Same rules: reskin the existing pages and use index lists where they fit. Rethink each layout with the new approach rather than copying the homepage.
+Blog index, category pages, `/work` and `/work/[slug]`, about, uses (drop the terminal-style apt view toggle and its code), resume, contact, newsletter, talk archive, and 404. Same rules: reskin the existing pages and use index lists where they fit. Rethink each layout with the new approach rather than copying the homepage.
 
 Done when: every page uses the new system, and the old styles and dead components are gone.
 
@@ -207,7 +208,7 @@ Done when: every page uses the new system, and the old styles and dead component
 
 ## Open decisions
 
-1. **ASCII cursor cat, Konami dashboard and Cmd+K command palette.** These live in `BaseLayout`. Keep, reskin or drop?
-2. **/uses apt view.** It's a terminal-style toggle. Keep it, or drop it with the terminal?
-3. **Lens animation (type lab #10).** It's unused right now. Use it somewhere, or wait for the Jitter version?
-4. **Inter replacement.** Fraunces + Inter is the current pick. `font-lab-3.html` lists Inter alternatives if Joe wants one.
+Decided 2026-11-05: drop the ASCII cursor cat, the Konami dashboard, the Cmd+K command palette and the /uses apt view.
+
+1. **Lens animation (type lab #10).** It's unused right now. Use it somewhere, or wait for the Jitter version?
+2. **Inter replacement.** Fraunces + Inter is the current pick. `font-lab-3.html` lists Inter alternatives if Joe wants one.
