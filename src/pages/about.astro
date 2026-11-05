@@ -209,12 +209,11 @@ const moreAppearances = [
 	},
 ];
 
+// Beside TEDx; three, then the YouTube tile, so the reel stays as tall as the player
 const moreVideos = [
 	{ id: 'QAqK-R9HUhc', title: 'MongoDB Schema Design Best Practices' },
 	{ id: '711Sb55fzdg', title: 'Bringing JavaScript to the IoT Edge' },
-	{ id: 'UuNVpLIOHW8', title: 'Mapping SQL to MongoDB' },
 	{ id: 'bIFrJJkUftA', title: 'Getting Started with SingleStore' },
-	{ id: '6bHYDUzY9j0', title: '8-Bits with Joe Karlsson' },
 ];
 
 const cropArtUrl = 'https://www.cropart.com/joek.dir/index.htm';
@@ -591,45 +590,53 @@ const cropArtPieces = [
 								/>
 							</div>
 						</div>
-						<ul class="space-y-4">
-							{moreVideos.map((video) => (
+						{/* On wide screens the reel is pinned to the TEDx player's height */}
+						<div class="relative">
+							<ul class="space-y-4 lg:absolute lg:inset-0 lg:flex lg:flex-col lg:justify-between lg:space-y-0">
+								{moreVideos.map((video) => (
+									<li>
+										<a
+											href={`https://www.youtube.com/watch?v=${video.id}`}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="ring-host group grid grid-cols-[120px_1fr] items-center gap-4 no-underline"
+										>
+											<span class="relative block">
+												<img
+													src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+													alt=""
+													aria-hidden="true"
+													crossorigin="anonymous"
+													data-halftone="flat"
+													class="block aspect-video w-full rounded-md object-cover"
+													loading="lazy"
+												/>
+												<HoverBox />
+											</span>
+											<span class="text-sm leading-snug font-semibold text-paper group-hover:text-pink">
+												{video.title}
+											</span>
+										</a>
+									</li>
+								))}
 								<li>
 									<a
-										href={`https://www.youtube.com/watch?v=${video.id}`}
+										href={SOCIAL_LINKS.youtube}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="ring-host group grid grid-cols-[140px_1fr] items-center gap-4 no-underline"
+										class="group grid grid-cols-[120px_1fr] items-center gap-4 text-paper no-underline"
 									>
-										<span class="relative block">
-											<img
-												src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-												alt=""
-												aria-hidden="true"
-												crossorigin="anonymous"
-												data-halftone="flat"
-												class="block aspect-video w-full rounded-md object-cover"
-												loading="lazy"
-											/>
-											<HoverBox />
+										<span class="grid aspect-video place-items-center rounded-md bg-pink text-ink group-hover:bg-paper">
+											<SocialIcon name="youtube" class="size-9" />
 										</span>
-										<span class="leading-snug font-semibold text-paper group-hover:text-pink">
-											{video.title}
+										<span class="font-display text-3xl leading-none uppercase group-hover:text-pink">
+											All my videos &rarr;
 										</span>
 									</a>
 								</li>
-							))}
-						</ul>
+							</ul>
+						</div>
 					</div>
-					<p class="mt-8">
-						<a
-							href={SOCIAL_LINKS.youtube}
-							target="_blank"
-							rel="noopener noreferrer"
-							class={MORE_LINK}
-						>
-							See everything on YouTube &rarr;
-						</a>
-					</p>
 				</div>
 
 				<h2 id="now" class={`${SECTION_HEADING} scroll-mt-24`}>
