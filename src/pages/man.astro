@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import nowFeed from '../data/now-feed.json';
 ---
 
 <BaseLayout
@@ -52,7 +53,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               Warning: may not shut up about Proxmox.
 
        <span class="man-bold">--homelab</span>
-              Activate homelab mode. Deploys 40+ containers, sets up
+              Activate homelab mode. Deploys {nowFeed.homelab.runningContainers} containers, sets up
               Proxmox cluster, configures Home Assistant, and wonders
               why the electricity bill is so high.
 

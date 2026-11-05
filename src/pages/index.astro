@@ -2,6 +2,7 @@
 import BlogCard from '../components/BlogCard.astro';
 import CatChase from '../components/CatChase.astro';
 import RightNow from '../components/RightNow.astro';
+import NowFeed from '../components/NowFeed.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_DESCRIPTION } from '../consts';
 import { getFeedPosts } from '../utils/posts';
@@ -220,6 +221,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				cat now.md
 			</h2>
 			<RightNow />
+			<NowFeed />
 		</div>
 	</section>
 
@@ -1057,7 +1059,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 			'My homelab has more containers than sense.',
 			'Have you tried turning it off and on again?',
 			'Self-hosting: because I trust myself more than AWS.',
-			'40+ containers and counting.',
+			`${_terminal?.dataset.runningContainers} containers and counting.`,
 		];
 
 		function cmdCowsay(): string[] {

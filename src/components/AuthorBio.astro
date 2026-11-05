@@ -1,5 +1,6 @@
 ---
 import { SOCIAL_LINKS } from '../consts';
+import nowFeed from '../data/now-feed.json';
 ---
 
 <div class="mt-10 flex items-start gap-4 rounded-lg border border-surface-3 bg-surface-1 p-5">
@@ -16,7 +17,8 @@ import { SOCIAL_LINKS } from '../consts';
 		<p class="mb-2 text-sm text-gray-400">
 			Developer Marketing Engineer at CData, leading developer growth for the managed MCP platform
 			that connects AI agents to live enterprise data. Writing about databases, self-hosting, and
-			the things I build. Runs a 60+ container Proxmox homelab with AI-powered automations.
+			the things I build. Runs a {nowFeed.homelab.runningContainers}-container Proxmox homelab with
+			AI-powered automations.
 		</p>
 		<div class="flex gap-3 text-sm">
 			<a

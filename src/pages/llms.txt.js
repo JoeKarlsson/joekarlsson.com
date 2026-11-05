@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content';
+import nowFeed from '../data/now-feed.json';
 
 export async function GET() {
 	const posts = await getCollection('blog');
@@ -6,7 +7,7 @@ export async function GET() {
 
 	const body = `# Joe Karlsson
 
-> Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker, 100+ conference talks, 100,000+ social media followers. Runs a 40+ container Proxmox homelab with AI-powered smart home automations. CS degree from Gustavus Adolphus College. Writing about databases, data pipelines, smart homes, developer tools, and the things I build.
+> Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker, 100+ conference talks, 100,000+ social media followers. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations. CS degree from Gustavus Adolphus College. Writing about databases, data pipelines, smart homes, developer tools, and the things I build.
 
 This file offers a summary. For full details, see [llms-full.txt](https://www.joekarlsson.com/llms-full.txt).
 
@@ -35,7 +36,7 @@ This file offers a summary. For full details, see [llms-full.txt](https://www.jo
 - Bechdel.io: Movie script analysis tool for the Bechdel Test
 - [Data Structures](https://github.com/JoeKarlsson/data-structures): Educational repo with 185+ GitHub stars
 - [React Spotify Player](https://github.com/JoeKarlsson/react-spotify-player): Real-time Spotify player built with React (130+ stars)
-- Proxmox Homelab Cluster: Two Dell R730 servers, 40+ containers, dual GPUs, 10G networking
+- Proxmox Homelab Cluster: Two Dell R730 servers, ${nowFeed.homelab.runningContainers} containers, dual GPUs, 10G networking
 - AI-Powered Smart Home: 90+ Home Assistant automations with local LLM vision and voice control
 
 ## Notable Talks

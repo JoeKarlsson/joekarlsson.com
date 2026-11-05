@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import nowFeed from '../data/now-feed.json';
 import TableOfContents from '../components/TableOfContents.astro';
 
 const usesHeadings = [
@@ -792,7 +793,8 @@ const usesHeadings = [
 									</strong>{' '}
 									- my primary coding companion. I use it in the terminal for everything from
 									infrastructure automation to building this website. It manages my homelab, writes
-									deployment scripts, and helps debug across 40+ containers. I wrote about{' '}
+									deployment scripts, and helps debug across {nowFeed.homelab.runningContainers}{' '}
+									containers. I wrote about{' '}
 									<a
 										href="/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/"
 										class="text-coral hover:text-teal"

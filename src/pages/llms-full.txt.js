@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content';
+import nowFeed from '../data/now-feed.json';
 
 export async function GET() {
 	const posts = await getCollection('blog');
@@ -13,7 +14,7 @@ export async function GET() {
 
 	const body = `# Joe Karlsson - Full Site Guide
 
-> Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a 40+ container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
+> Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
 
 ## About Joe Karlsson
 
@@ -21,7 +22,7 @@ Joe Karlsson is a Developer Marketing Engineer who helps developers build better
 
 He's a TEDx speaker ("The Art of Computer Science") with 100+ conference talks worldwide on databases, IoT, data engineering, and developer tools. He has 100,000+ followers across social media platforms including TikTok, Twitter/X, YouTube, and LinkedIn.
 
-He's an avid homelab enthusiast running a Proxmox cluster with 40+ containers across two Dell PowerEdge R730 servers with dual NVIDIA GPUs. His smart home runs 90+ Home Assistant automations with local AI vision - his doorbell captures camera snapshots and describes visitors using a local LLM, entirely without cloud APIs.
+He's an avid homelab enthusiast running a Proxmox cluster with ${nowFeed.homelab.runningContainers} containers across two Dell PowerEdge R730 servers with dual NVIDIA GPUs. His smart home runs 90+ Home Assistant automations with local AI vision - his doorbell captures camera snapshots and describes visitors using a local LLM, entirely without cloud APIs.
 
 He's a film buff who tracks everything on Letterboxd, a mechanical keyboard builder, and built an IoT-connected cat litter box and gave a conference talk about it.
 
@@ -119,7 +120,7 @@ Joe replaces SaaS dependencies with self-hosted alternatives that integrate with
 - **Calendar & Tasks**: Nextcloud CalDAV replaces iCloud - same Apple apps, own hardware
 - **Media**: Sonarr/Radarr/Prowlarr -> Tdarr (GPU H.265 transcoding) -> Plex
 - **Security**: Frigate GPU object detection -> Home Assistant automations -> local notifications
-- **Monitoring**: Grafana + Prometheus + Loki across 40+ containers, ntfy push notifications
+- **Monitoring**: Grafana + Prometheus + Loki across ${nowFeed.homelab.runningContainers} containers, ntfy push notifications
 - **Analytics**: Plausible replaces Google Analytics - self-hosted, no cookies, GDPR compliant
 - **Passwords**: 1Password primary + self-hosted Vaultwarden backup
 - **DNS**: AdGuard Home (primary container + secondary Raspberry Pi)

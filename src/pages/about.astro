@@ -5,6 +5,7 @@ import NowFeed from '../components/NowFeed.astro';
 import CatChase from '../components/CatChase.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import { SOCIAL_LINKS } from '../consts';
+import nowFeed from '../data/now-feed.json';
 
 const aboutHeadings = [
 	{ slug: 'career', text: 'Career' },
@@ -838,8 +839,8 @@ const aboutHeadings = [
 						<div class="bg-surface-1 p-4">
 							<h3 class="mb-1 font-semibold text-white group-hover:text-coral">Homelabber</h3>
 							<p class="text-sm text-gray-400">
-								Running a Proxmox cluster with 40+ containers, self-hosted services, and Home
-								Assistant automating the whole house.
+								Running a Proxmox cluster with {nowFeed.homelab.runningContainers} containers,
+								self-hosted services, and Home Assistant automating the whole house.
 							</p>
 						</div>
 					</a>

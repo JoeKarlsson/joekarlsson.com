@@ -5,6 +5,7 @@
 // Prometheus. deploy.sh runs this before every build:
 //   npm run update:now
 import { mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { loadEnvFile } from 'node:process';
 import sharp from 'sharp';
 
@@ -22,7 +23,7 @@ for (const [name, value] of Object.entries({
 const GITHUB_USERNAME = 'JoeKarlsson';
 const SHIPPING_WINDOW_DAYS = 30;
 const SHIPPING_MAX_REPOS = 4;
-// Each page is one of the 60 unauthenticated requests GitHub allows per hour.
+// A sanity cap on paging: a month with more commits than this is a bug, not a busy month.
 const MAX_COMMIT_PAGES_PER_REPO = 5;
 const LATEST_COMMIT_MESSAGE_MAX_CHARS = 70;
 const LETTERBOXD_RSS_URL = 'https://letterboxd.com/joekarlsson/rss/';
@@ -143,10 +144,13 @@ async function fetchRecentPodcastEpisodes() {
 	return episodes;
 }
 
-// Public repos I've committed to in the window, most recently pushed first.
-// Unauthenticated on purpose: the API then only returns public repos, so nothing
-// private can leak into the site.
-const GITHUB_REQUEST_OPTIONS = { headers: { Accept: 'application/vnd.github+json' } };
+const GITHUB_REQUEST_OPTIONS = {
+	headers: {
+		Accept: 'application/vnd.github+json',
+		// Unauthenticated calls get 60 an hour, which a few deploys in a row used up.
+		Authorization: `Bearer ${execFileSync('gh', ['auth', 'token'], { encoding: 'utf8' }).trim()}`,
+	},
+};
 // deploy.sh commits the snapshot on every deploy; those aren't work worth counting.
 const SNAPSHOT_REFRESH_COMMIT_MESSAGE = 'chore: Refresh recently watched and listened snapshot';
 
@@ -166,6 +170,7 @@ async function fetchAllCommitsSince(repoFullName, sinceIso) {
 	return commits;
 }
 
+// Public repos I've committed to in the window, most recently pushed first.
 async function fetchRecentlyShippedRepos() {
 	const windowStart = new Date(Date.now() - SHIPPING_WINDOW_DAYS * 24 * 60 * 60 * 1000);
 	const reposResponse = await fetchOrThrow(
@@ -174,6 +179,9 @@ async function fetchRecentlyShippedRepos() {
 	);
 	const candidateRepos = (await reposResponse.json()).filter(
 		(repo) =>
+			// Authenticated now, so filter private repos explicitly rather than trusting
+			// the endpoint to leave them out.
+			!repo.private &&
 			!repo.fork &&
 			// The profile README repo
 			repo.name !== GITHUB_USERNAME &&
