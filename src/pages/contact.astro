@@ -19,29 +19,32 @@ const track = (platform: string) =>
 	`plausible-event-name=Contact+Social+Click plausible-event-platform=${platform.replace(/[^A-Za-z0-9.]+/g, '+')}`;
 
 const BEST = [
-	{ label: 'Bluesky', meta: '@joekarlsson.com', href: SOCIAL_LINKS.bluesky },
 	{ label: 'LinkedIn', meta: 'Professional inquiries & speaking', href: SOCIAL_LINKS.linkedin },
+	{ label: 'Bluesky', meta: '@joekarlsson.com', href: SOCIAL_LINKS.bluesky },
 ];
 
+// All personal accounts, ranked: where I post first, then the side places
+// (Letterboxd gets a lot of use, but it's not why people come here), with the
+// ones I've mostly left at the very bottom
 const SECTIONS = [
 	{
-		heading: 'Work',
+		heading: 'Where I post',
 		links: [
-			{ label: 'GitHub', meta: 'Open source & projects', href: SOCIAL_LINKS.github },
-			{ label: 'YouTube', meta: 'Talks & tutorials', href: SOCIAL_LINKS.youtube },
-			{ label: 'Twitch', meta: 'Live coding & hangouts', href: SOCIAL_LINKS.twitch },
 			{ label: 'Threads', meta: '@joekarlsson', href: SOCIAL_LINKS.threads },
+			{ label: 'Twitter/X', meta: '@JoeKarlsson1', href: SOCIAL_LINKS.twitter },
+			{ label: 'Instagram', meta: 'Photos & stories', href: SOCIAL_LINKS.instagram },
+			{ label: 'YouTube', meta: 'Talks & tutorials', href: SOCIAL_LINKS.youtube },
+			{ label: 'GitHub', meta: 'Open source & projects', href: SOCIAL_LINKS.github },
 		],
 	},
 	{
-		heading: 'Elsewhere',
+		heading: 'Everywhere else',
 		links: [
 			{ label: 'Letterboxd', meta: 'Movie reviews & lists', href: SOCIAL_LINKS.letterboxd },
-			{ label: 'Instagram', meta: 'Photos & stories', href: SOCIAL_LINKS.instagram },
+			{ label: 'Reddit', meta: 'Lurking & commenting', href: SOCIAL_LINKS.reddit },
 			{ label: 'TikTok', meta: '@joekarlsson', href: SOCIAL_LINKS.tiktok },
 			{ label: 'Last.fm', meta: "What I'm listening to", href: SOCIAL_LINKS.lastfm },
-			{ label: 'Twitter/X', meta: 'Legacy account', href: SOCIAL_LINKS.twitter },
-			{ label: 'Reddit', meta: 'Lurking & commenting', href: SOCIAL_LINKS.reddit },
+			{ label: 'Twitch', meta: 'Old live-coding streams', href: SOCIAL_LINKS.twitch },
 		],
 	},
 ];
@@ -49,7 +52,7 @@ const SECTIONS = [
 
 <BaseLayout
 	title="Contact | Joe Karlsson"
-	description="Connect with Joe Karlsson - find me on Bluesky, LinkedIn, GitHub, YouTube, and more. Book me for speaking engagements or just say hi."
+	description="Connect with Joe Karlsson - find me on LinkedIn, Bluesky, Threads, Instagram, YouTube, and more. Book me for speaking engagements or just say hi."
 	schemaType="ContactPage"
 >
 	<div class={PAGE_CONTAINER}>
