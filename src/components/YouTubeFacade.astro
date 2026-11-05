@@ -1,0 +1,55 @@
+---
+// A YouTube video that costs one thumbnail until it's clicked: the button swaps
+// itself for the youtube-nocookie player (already in the CSP frame-src), playing.
+// Three real embeds put /about over the Lighthouse page-weight budget.
+interface Props {
+	id: string;
+	title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<button
+	type="button"
+	class="youtube-facade group relative block aspect-video w-full cursor-pointer overflow-hidden rounded-xl bg-ink"
+	data-youtube-id={id}
+	data-youtube-title={title}
+	aria-label={`Play ${title}`}
+>
+	<img
+		src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+		alt=""
+		aria-hidden="true"
+		crossorigin="anonymous"
+		loading="lazy"
+		decoding="async"
+		data-halftone="flat"
+		class="block size-full object-cover"
+	/>
+	<span
+		aria-hidden="true"
+		class="absolute top-1/2 left-1/2 z-10 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-pink text-ink group-hover:bg-white"
+	>
+		<svg viewBox="0 0 24 24" class="ml-1 size-7" fill="currentColor">
+			<path d="M8 5v14l11-7z"></path>
+		</svg>
+	</span>
+</button>
+
+<script>
+	for (const button of document.querySelectorAll<HTMLButtonElement>('button.youtube-facade')) {
+		button.addEventListener('click', () => {
+			const iframe = document.createElement('iframe');
+			iframe.src = `https://www.youtube-nocookie.com/embed/${button.dataset.youtubeId}?autoplay=1`;
+			iframe.title = button.dataset.youtubeTitle ?? '';
+			iframe.allow =
+				'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+			iframe.allowFullscreen = true;
+			iframe.className = 'block aspect-video w-full rounded-xl';
+			iframe.style.border = '0';
+			button.replaceWith(iframe);
+			iframe.focus();
+		});
+	}
+</script>

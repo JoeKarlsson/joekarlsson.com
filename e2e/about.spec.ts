@@ -38,13 +38,17 @@ test.describe('About Page', () => {
 		}
 	});
 
-	test('video embeds are present', async ({ page }) => {
-		// Look for YouTube iframes or video containers
-		const videos = page.locator('iframe[src*="youtube"], .video-container, lite-youtube');
-		const videoCount = await videos.count();
+	test('videos load the YouTube player only when clicked', async ({ page }) => {
+		// Click-to-load (YouTubeFacade): no player until asked, which keeps the page under its weight budget
+		await expect(page.locator('iframe[src*="youtube"]')).toHaveCount(0);
+		const play = page.getByRole('button', { name: /^Play The Art of Computer Science/ });
+		await expect(play).toBeVisible();
 
-		// About page should have videos
-		expect(videoCount).toBeGreaterThan(0);
+		await play.click();
+		await expect(page.locator('iframe[src*="youtube-nocookie.com/embed/GiNa2jen-lg"]')).toHaveCount(
+			1,
+		);
+		await expect(play).toHaveCount(0);
 	});
 
 	test('external links have proper attributes', async ({ page }) => {
