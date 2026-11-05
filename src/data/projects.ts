@@ -248,14 +248,13 @@ export const projects: Project[] = [
 
 	// Art & Digital Humanities
 	{
-		title: 'Nothing But Corners',
-		shareTitle: 'Nothing But Corners: The DVD screensaver that hits the corner every time',
-		description:
-			'The DVD screensaver with the boring parts taken out. The logo hits the corner every single time, with confetti. Click to add more logos. Under the hood it unfolds the screen into a grid so every corner hit is a straight line.',
+		title: 'DVD Screensaver',
+		shareTitle: 'The DVD screensaver with the boring parts taken out',
+		description: 'With the boring parts taken out.',
 		image: '/images/projects/nothing-but-corners.webp',
 		video: '/images/projects/nothing-but-corners.mp4',
 		imageAlt:
-			'Nothing But Corners: colored DVD logos bouncing around a black screen, and each time one lands in a corner the screen flashes and confetti bursts out of it',
+			'Colored DVD logos bouncing around a black screen, and each time one lands in a corner the screen flashes and confetti bursts out of it',
 		category: 'art',
 		date: '2026-11',
 		tech: ['JavaScript', 'Canvas', 'Web Audio', 'Playwright'],
@@ -266,25 +265,10 @@ export const projects: Project[] = [
 			tagline: 'The DVD screensaver with the boring parts taken out.',
 			intro: [
 				'Everybody who grew up with a DVD player has watched that logo drift around the screen, waiting for it to land exactly in the corner. It almost never does. This one does, every time, and the screen celebrates when it happens.',
-				'Click anywhere to add another logo. Press `S` for sound and `F` for full screen, then leave it running on a TV.',
 			],
 			embedUrl: 'https://joekarlsson.github.io/nothing-but-corners/',
 			embedHeading: 'Watch it',
 			embedNote: 'Click inside to add another logo.',
-			steps: [
-				{
-					title: 'Unfold the screen',
-					text: 'Mirror the screen across its walls and a bouncing path becomes a straight line. In that unfolded plane every corner is a grid point `(m·W, n·H)`.',
-				},
-				{
-					title: 'Aim at a corner',
-					text: 'Pick a grid point where `gcd(m, n) = 1`. The logo bounces off a few walls, passes no other corner on the way, and lands dead in that one.',
-				},
-				{
-					title: 'No near misses',
-					text: 'Any path whose wall bounces come within a quarter screen of a corner gets thrown out, so the logo never teases you. It brakes into the corner and ricochets out.',
-				},
-			],
 		},
 	},
 	{
