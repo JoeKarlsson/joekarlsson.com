@@ -3,6 +3,7 @@ import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Scribble from '../../components/Scribble.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
 import { projects, type Project, type ProjectPage } from '../../data/projects';
 import { CHALK, MARKS } from '../../data/scribbles';
 import { halftoneMode } from '../../utils/halftone';
@@ -34,7 +35,18 @@ const PRIMARY_BUTTON =
 	'inline-block rounded-md bg-pink px-[18px] py-3 font-semibold text-ink no-underline hover:bg-white';
 const SECONDARY_LINK = 'font-semibold text-pink underline underline-offset-4 hover:text-white';
 const SECTION_HEADING =
-	'mb-5 font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
+	'mb-5 font-display text-[clamp(1.9rem,1.4rem+1.9vw,2.9rem)] leading-none font-normal text-paper uppercase';
+
+// The sidebar lists the sections this page has, in page order; ids match the h2s below
+const sections = [
+	page.introHeading && { slug: 'statement', text: page.introHeading },
+	page.tour && { slug: 'tour', text: 'Tour' },
+	page.embedUrl && { slug: 'play-it', text: page.embedHeading ?? 'Play it' },
+	page.steps && { slug: 'how-it-works', text: 'How it works' },
+	(page.install || page.example) && { slug: 'try-it', text: 'Try it' },
+	page.gallery && { slug: 'examples', text: page.galleryTitle ?? 'Gallery' },
+	page.screenshots && { slug: 'screenshots', text: page.screenshotsTitle ?? 'Screenshots' },
+].filter((section): section is { slug: string; text: string } => Boolean(section));
 
 // Page copy is plain text with `backticks` for inline code - escape first so
 // nothing in projects.ts can inject markup.
@@ -53,302 +65,312 @@ const inline = (text: string) =>
 	imageAlt={project.imageAlt}
 	schemaType="SoftwareSourceCode"
 >
-	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
-		<nav class="mb-3 text-[15px]" aria-label="Breadcrumb">
-			<a href="/work/" class="text-muted no-underline hover:text-pink">
-				&larr; All projects
-			</a>
-		</nav>
-
-		<header class="relative mb-8">
-			<h1 class="relative inline-block font-display text-[clamp(56px,10vw,150px)] leading-[0.88] font-normal text-paper uppercase">
-				{project.title}
-				<Scribble
-					{...MARKS.underline}
-					color="#ff4fd8"
-					strokeWidth={10}
-					duration="8s"
-					delay="0.4s"
-					class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
-				/>
-			</h1>
-			<p class="mt-6 max-w-[40ch] font-serif text-[clamp(20px,2vw,28px)] leading-snug text-paper">
-				{page.tagline}
-			</p>
-			<p class="mt-3 text-sm text-muted">{project.tech.join(' · ')}</p>
-		</header>
-
-		{/* Muted loops play while on screen (in-view-play) and stop with the pause-motion
-		button, which covers WCAG 2.2.2; no player controls, as the pink canvas covers them */}
-		<div class="relative mb-8">
-			{/* Off the corner, not over the picture: most project media has text in it */}
-			<Scribble
-				{...MARKS.burst}
-				color={CHALK}
-				duration="9s"
-				delay="0.8s"
-				class="-top-[70px] -right-[40px] z-10 hidden size-[130px] sm:block"
-			/>
-			{project.video ? (
-				<video
-					src={project.video}
-					data-halftone-poster={project.image}
-					loop
-					muted
-					playsinline
-					preload="none"
-					role="img"
-					aria-label={project.imageAlt}
-					data-autoplay-in-view
-					data-halftone={halftoneMode(project.video)}
-					class="block aspect-video w-full rounded-xl bg-ink object-contain"
-				/>
+	{/* Same frame as a blog post (BlogPost.astro): an "On this page" sidebar beside a single column */}
+	<div class="relative mx-auto max-w-3xl px-4 py-8 xl:max-w-5xl">
+		<div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
+			{sections.length > 1 ? (
+				<TableOfContents headings={sections} />
 			) : (
-				<img
-					src={project.image}
-					alt={project.imageAlt}
-					data-halftone={halftoneMode(project.image)}
-					class="block w-full rounded-xl object-cover"
-					loading="eager"
-				/>
+				<div class="hidden xl:block" />
 			)}
-		</div>
 
-		<div class="mb-12 flex flex-wrap items-center gap-x-6 gap-y-3">
-			{project.demoUrl && (
-				<a
-					href={project.demoUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
-				>
-					See it live &rarr;
-				</a>
-			)}
-			{project.sourceUrl && (
-				<a
-					href={project.sourceUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? SECONDARY_LINK : PRIMARY_BUTTON}`}
-				>
-					View on GitHub &rarr;
-				</a>
-			)}
-			{project.blogUrl && (
-				<a href={project.blogUrl} class={SECONDARY_LINK}>
-					Read why I built it
-				</a>
-			)}
-		</div>
-
-		{page.introHeading && <h2 class={SECTION_HEADING}>{page.introHeading}</h2>}
-		{/* Full page width, not the 32em reading cap blog posts use */}
-		<div class="prose mb-16" style="max-width: none">
-			{page.intro.map((p) => (
-				<p set:html={inline(p)} />
-			))}
-		</div>
-
-		{page.tour && (
-			<section class="mb-16" aria-labelledby="tour">
-				<h2 id="tour" class={SECTION_HEADING}>
-					Tour
-				</h2>
-				{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
-				<video
-					src={page.tour.video}
-					poster={page.tour.poster}
-					controls
-					playsinline
-					preload="none"
-					aria-label={page.tour.alt}
-					class="mx-auto block w-full rounded-lg bg-black object-contain"
-					style="aspect-ratio: 9 / 16; max-width: 18rem"
-				>
-					<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
-				</video>
-			</section>
-		)}
-
-		{page.embedUrl && (
-			<section class="mb-16" aria-labelledby="play-it">
-				<h2 id="play-it" class={SECTION_HEADING}>
-					{page.embedHeading ?? 'Play it'}
-				</h2>
-				<p class="mb-4 text-muted">
-					{page.embedNote ?? 'Click the game to play.'}{' '}
-					<a href={page.embedUrl} target="_blank" rel="noopener noreferrer" class={SECONDARY_LINK}>
-						Open it full screen &rarr;
+			<article class="min-w-0">
+				<nav class="mb-4 text-[15px]" aria-label="Breadcrumb">
+					<a href="/work/" class="text-muted no-underline hover:text-pink">
+						&larr; All projects
 					</a>
-				</p>
-				<div class="aspect-video overflow-hidden rounded-lg">
-					<iframe
-						src={page.embedUrl}
-						title={`${project.title}, playable in the browser`}
-						data-embed-project={project.title}
-						data-native-width="1280"
-						data-native-height="720"
-						style="border:0"
-						allow="fullscreen; gamepad; autoplay"
-						allowfullscreen
-						loading="lazy"
-					></iframe>
-				</div>
-			</section>
-		)}
+				</nav>
 
-		{page.steps && (
-			<section class="mb-16" aria-labelledby="how-it-works">
-				<h2 id="how-it-works" class={SECTION_HEADING}>
-					How it works
-				</h2>
-				<ol class="grid max-w-[46rem] gap-y-7">
-					{page.steps.map((step, i) => (
-						<li class="grid grid-cols-[3.2rem_1fr] gap-x-4 border-t border-surface-4 pt-4">
-							<span
-								aria-hidden="true"
-								class="font-display text-[clamp(40px,4vw,56px)] leading-[0.9] text-pink"
+				{/* Muted loops play while on screen (in-view-play) and stop with the pause-motion
+		button, which covers WCAG 2.2.2; no player controls, as the pink canvas covers them */}
+				<div class="relative mb-10">
+					{/* Off the corner, not over the picture: most project media has text in it */}
+					<Scribble
+						{...MARKS.burst}
+						color={CHALK}
+						duration="9s"
+						delay="0.8s"
+						class="-top-[70px] -right-[40px] z-10 hidden size-[130px] sm:block"
+					/>
+					{project.video ? (
+						<video
+							src={project.video}
+							data-halftone-poster={project.image}
+							loop
+							muted
+							playsinline
+							preload="none"
+							role="img"
+							aria-label={project.imageAlt}
+							data-autoplay-in-view
+							data-halftone={halftoneMode(project.video)}
+							class="block aspect-video w-full rounded-xl bg-ink object-contain"
+						/>
+					) : (
+						<img
+							src={project.image}
+							alt={project.imageAlt}
+							data-halftone={halftoneMode(project.image)}
+							class="block max-h-[440px] w-full rounded-xl object-cover"
+							loading="eager"
+						/>
+					)}
+				</div>
+
+				<header class="mb-8">
+					<h1 class="mb-4 font-display text-[clamp(2.4rem,1.6rem+3.2vw,4.25rem)] leading-[0.95] font-normal text-paper uppercase">
+						{project.title}
+					</h1>
+					<p class="mb-3 font-serif text-xl leading-snug text-paper">{page.tagline}</p>
+					<p class="text-[15px] text-muted">{project.tech.join(' · ')}</p>
+				</header>
+
+				<div class="mb-12 flex flex-wrap items-center gap-x-6 gap-y-3">
+					{project.demoUrl && (
+						<a
+							href={project.demoUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
+						>
+							See it live &rarr;
+						</a>
+					)}
+					{project.sourceUrl && (
+						<a
+							href={project.sourceUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? SECONDARY_LINK : PRIMARY_BUTTON}`}
+						>
+							View on GitHub &rarr;
+						</a>
+					)}
+					{project.blogUrl && (
+						<a href={project.blogUrl} class={SECONDARY_LINK}>
+							Read why I built it
+						</a>
+					)}
+				</div>
+
+				{page.introHeading && (
+					<h2 id="statement" class={SECTION_HEADING}>
+						{page.introHeading}
+					</h2>
+				)}
+				{/* The column's full width, not the 32em reading cap blog posts use */}
+				<div class="prose mb-16" style="max-width: none">
+					{page.intro.map((p) => (
+						<p set:html={inline(p)} />
+					))}
+				</div>
+
+				{page.tour && (
+					<section class="mb-16" aria-labelledby="tour">
+						<h2 id="tour" class={SECTION_HEADING}>
+							Tour
+						</h2>
+						{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
+						<video
+							src={page.tour.video}
+							poster={page.tour.poster}
+							controls
+							playsinline
+							preload="none"
+							aria-label={page.tour.alt}
+							class="mx-auto block w-full rounded-lg bg-black object-contain"
+							style="aspect-ratio: 9 / 16; max-width: 18rem"
+						>
+							<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
+						</video>
+					</section>
+				)}
+
+				{page.embedUrl && (
+					<section class="mb-16" aria-labelledby="play-it">
+						<h2 id="play-it" class={SECTION_HEADING}>
+							{page.embedHeading ?? 'Play it'}
+						</h2>
+						<p class="mb-4 text-muted">
+							{page.embedNote ?? 'Click the game to play.'}{' '}
+							<a
+								href={page.embedUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class={SECONDARY_LINK}
 							>
-								{i + 1}
-							</span>
-							<div>
-								<h3 class="mb-1 text-xl font-semibold text-paper">{step.title}</h3>
-								<p class="text-muted" set:html={inline(step.text)} />
-							</div>
-						</li>
-					))}
-				</ol>
-			</section>
-		)}
-
-		{(page.install || page.example) && (
-			<section class="prose mb-16" aria-labelledby="try-it">
-				<h2 id="try-it" class:list={['not-prose', SECTION_HEADING]}>
-					Try it
-				</h2>
-				{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
-				{page.example && (
-					<>
-						{page.example.intro && <p set:html={inline(page.example.intro)} />}
-						<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
-					</>
-				)}
-			</section>
-		)}
-
-		{page.gallery && (
-			<section class="mb-16" aria-labelledby="examples">
-				<h2 id="examples" class={SECTION_HEADING}>
-					{page.galleryTitle ?? 'Gallery'}
-				</h2>
-				{page.galleryNote && (
-					<p class="mb-5 max-w-[60ch] text-muted" set:html={inline(page.galleryNote)} />
-				)}
-				<div
-					class={square ? 'grid gap-5' : 'grid gap-x-6 gap-y-8 sm:grid-cols-2'}
-					style={gridStyle}
-				>
-					{page.gallery.map((clip) => (
-						<figure class="m-0">
-							{clip.video ? (
-								<video
-									src={clip.video}
-									data-halftone-poster={clip.poster}
-									loop
-									muted
-									playsinline
-									preload="none"
-									role="img"
-									aria-label={clip.alt}
-									data-autoplay-in-view
-									data-halftone={halftoneMode(clip.video)}
-									class={clipClass}
-									style={clipStyle}
-								/>
-							) : (
-								<img
-									src={clip.poster}
-									alt={clip.alt}
-									loading="lazy"
-									data-halftone={halftoneMode(clip.poster)}
-									class={clipClass}
-									style={clipStyle}
-								/>
-							)}
-							{clip.caption && (
-								<figcaption class="mt-2 text-sm text-muted">{clip.caption}</figcaption>
-							)}
-						</figure>
-					))}
-				</div>
-			</section>
-		)}
-
-		{page.screenshots && (
-			<section class="mb-16" aria-labelledby="screenshots">
-				<h2 id="screenshots" class={SECTION_HEADING}>
-					{page.screenshotsTitle ?? 'Screenshots'}
-				</h2>
-				<div class="grid gap-4">
-					{page.screenshots.map((shot) => (
-						<figure class="m-0">
-							<img
-								src={shot.poster}
-								alt={shot.alt}
+								Open it full screen &rarr;
+							</a>
+						</p>
+						<div class="aspect-video overflow-hidden rounded-lg">
+							<iframe
+								src={page.embedUrl}
+								title={`${project.title}, playable in the browser`}
+								data-embed-project={project.title}
+								data-native-width="1280"
+								data-native-height="720"
+								style="border:0"
+								allow="fullscreen; gamepad; autoplay"
+								allowfullscreen
 								loading="lazy"
-								data-halftone={halftoneMode(shot.poster)}
-								class="mx-auto rounded-lg"
-								style="max-height: 720px; max-width: 100%"
-							/>
-							{shot.caption && (
-								<figcaption class="mt-2 text-sm text-muted">{shot.caption}</figcaption>
-							)}
-						</figure>
-					))}
-				</div>
-			</section>
-		)}
-
-		{(project.demoUrl || project.sourceUrl) && (
-			<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-				{project.demoUrl && (
-					<a
-						href={project.demoUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
-					>
-						See it live &rarr;
-					</a>
+							></iframe>
+						</div>
+					</section>
 				)}
-				{project.sourceUrl && (
-					<a
-						href={project.sourceUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? SECONDARY_LINK : PRIMARY_BUTTON}`}
-					>
-						Get the code on GitHub &rarr;
-					</a>
-				)}
-				{project.blogUrl && (
-					<a href={project.blogUrl} class={SECONDARY_LINK}>
-						Read why I built it
-					</a>
-				)}
-			</div>
-		)}
 
-		<ShareLinks
-			url={new URL(`/work/${page.slug}/`, Astro.site).href}
-			title={project.shareTitle || project.title}
-			noun="project"
-			class="mb-6"
-		/>
+				{page.steps && (
+					<section class="mb-16" aria-labelledby="how-it-works">
+						<h2 id="how-it-works" class={SECTION_HEADING}>
+							How it works
+						</h2>
+						<ol class="grid max-w-[46rem] gap-y-7">
+							{page.steps.map((step, i) => (
+								<li class="grid grid-cols-[3.2rem_1fr] gap-x-4 border-t border-surface-4 pt-4">
+									<span
+										aria-hidden="true"
+										class="font-display text-[clamp(40px,4vw,56px)] leading-[0.9] text-pink"
+									>
+										{i + 1}
+									</span>
+									<div>
+										<h3 class="mb-1 text-xl font-semibold text-paper">{step.title}</h3>
+										<p class="text-muted" set:html={inline(step.text)} />
+									</div>
+								</li>
+							))}
+						</ol>
+					</section>
+				)}
 
-		<a href="/work/" class="font-semibold text-pink no-underline hover:text-white">
-			&larr; All projects
-		</a>
+				{(page.install || page.example) && (
+					<section class="prose mb-16" aria-labelledby="try-it">
+						<h2 id="try-it" class:list={['not-prose', SECTION_HEADING]}>
+							Try it
+						</h2>
+						{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
+						{page.example && (
+							<>
+								{page.example.intro && <p set:html={inline(page.example.intro)} />}
+								<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
+							</>
+						)}
+					</section>
+				)}
+
+				{page.gallery && (
+					<section class="mb-16" aria-labelledby="examples">
+						<h2 id="examples" class={SECTION_HEADING}>
+							{page.galleryTitle ?? 'Gallery'}
+						</h2>
+						{page.galleryNote && (
+							<p class="mb-5 max-w-[60ch] text-muted" set:html={inline(page.galleryNote)} />
+						)}
+						<div
+							class={square ? 'grid gap-5' : 'grid gap-x-6 gap-y-8 sm:grid-cols-2'}
+							style={gridStyle}
+						>
+							{page.gallery.map((clip) => (
+								<figure class="m-0">
+									{clip.video ? (
+										<video
+											src={clip.video}
+											data-halftone-poster={clip.poster}
+											loop
+											muted
+											playsinline
+											preload="none"
+											role="img"
+											aria-label={clip.alt}
+											data-autoplay-in-view
+											data-halftone={halftoneMode(clip.video)}
+											class={clipClass}
+											style={clipStyle}
+										/>
+									) : (
+										<img
+											src={clip.poster}
+											alt={clip.alt}
+											loading="lazy"
+											data-halftone={halftoneMode(clip.poster)}
+											class={clipClass}
+											style={clipStyle}
+										/>
+									)}
+									{clip.caption && (
+										<figcaption class="mt-2 text-sm text-muted">{clip.caption}</figcaption>
+									)}
+								</figure>
+							))}
+						</div>
+					</section>
+				)}
+
+				{page.screenshots && (
+					<section class="mb-16" aria-labelledby="screenshots">
+						<h2 id="screenshots" class={SECTION_HEADING}>
+							{page.screenshotsTitle ?? 'Screenshots'}
+						</h2>
+						<div class="grid gap-4">
+							{page.screenshots.map((shot) => (
+								<figure class="m-0">
+									<img
+										src={shot.poster}
+										alt={shot.alt}
+										loading="lazy"
+										data-halftone={halftoneMode(shot.poster)}
+										class="mx-auto rounded-lg"
+										style="max-height: 720px; max-width: 100%"
+									/>
+									{shot.caption && (
+										<figcaption class="mt-2 text-sm text-muted">{shot.caption}</figcaption>
+									)}
+								</figure>
+							))}
+						</div>
+					</section>
+				)}
+
+				{(project.demoUrl || project.sourceUrl) && (
+					<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+						{project.demoUrl && (
+							<a
+								href={project.demoUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
+							>
+								See it live &rarr;
+							</a>
+						)}
+						{project.sourceUrl && (
+							<a
+								href={project.sourceUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? SECONDARY_LINK : PRIMARY_BUTTON}`}
+							>
+								Get the code on GitHub &rarr;
+							</a>
+						)}
+						{project.blogUrl && (
+							<a href={project.blogUrl} class={SECONDARY_LINK}>
+								Read why I built it
+							</a>
+						)}
+					</div>
+				)}
+
+				<ShareLinks
+					url={new URL(`/work/${page.slug}/`, Astro.site).href}
+					title={project.shareTitle || project.title}
+					noun="project"
+					class="mb-6"
+				/>
+
+				<a href="/work/" class="font-semibold text-pink no-underline hover:text-white">
+					&larr; All projects
+				</a>
+			</article>
+		</div>
 	</div>
 </BaseLayout>
