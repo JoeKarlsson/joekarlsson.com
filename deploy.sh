@@ -12,6 +12,17 @@ if [[ -f .env ]]; then
     set +a
 fi
 
+# Audiobookshelf is only reachable on the LAN, so this snapshot is taken here and
+# baked into the build. A failure stops the deploy rather than shipping stale data.
+echo "Refreshing recently watched/listened snapshot..."
+npm run update:now
+# Commit only the snapshot paths, so anything else staged is left alone.
+NOW_FEED_PATHS=(src/data/now-feed.json public/images/now)
+git add -A -- "${NOW_FEED_PATHS[@]}"
+if ! git diff --cached --quiet -- "${NOW_FEED_PATHS[@]}"; then
+    git commit -m "chore: Refresh recently watched and listened snapshot" -- "${NOW_FEED_PATHS[@]}"
+fi
+
 echo "Building site..."
 npm run build
 

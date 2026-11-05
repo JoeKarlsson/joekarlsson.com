@@ -1,0 +1,92 @@
+---
+// Recently watched films and podcast episodes, from the snapshot that
+// scripts/update-now-feed.mjs writes on every deploy.
+import nowFeed from '../data/now-feed.json';
+
+const { updatedAt, films, podcastEpisodes } = nowFeed;
+
+function ratingStars(rating: number) {
+	return '★'.repeat(Math.floor(rating)) + (rating % 1 ? '½' : '');
+}
+
+const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString('en-US', {
+	month: 'short',
+	day: 'numeric',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+---
+
+<div class="mt-6">
+	<p class="mb-3 font-mono text-xs text-gray-400">recently watched</p>
+	<div class="grid gap-4 grid-cols-2 sm:grid-cols-4">
+		{films.map((film) => (
+			<div>
+				<a
+					href={film.url}
+					class="plausible-event-name=Now+Feed+Click plausible-event-source=letterboxd group block no-underline"
+				>
+					<img
+						src={film.poster}
+						alt={`Poster for ${film.title} (${film.year})`}
+						width="200"
+						height="300"
+						loading="lazy"
+						class="mb-2 w-full rounded border border-surface-3"
+					/>
+					<p class="text-sm font-semibold text-white group-hover:text-coral">
+						{film.title} <span class="text-gray-400">{film.year}</span>
+					</p>
+				</a>
+				{film.rating !== null && (
+					<p class="text-xs text-coral" aria-label={`Rated ${film.rating} out of 5`}>
+						{ratingStars(film.rating)}
+					</p>
+				)}
+				{film.reviewExcerpt && <p class="mt-1 text-xs text-gray-400">{film.reviewExcerpt}</p>}
+			</div>
+		))}
+	</div>
+
+	<p class="mb-3 mt-8 font-mono text-xs text-gray-400">recently listened</p>
+	<div class="grid gap-4 sm:grid-cols-2">
+		{podcastEpisodes.map((episode) => {
+			const content = (
+				<>
+					<img
+						src={episode.cover}
+						alt={`Cover art for ${episode.podcastTitle}`}
+						width="48"
+						height="48"
+						loading="lazy"
+						class="h-12 w-12 shrink-0 rounded border border-surface-3 object-cover"
+					/>
+					<div>
+						<p class="text-sm font-semibold text-white">{episode.episodeTitle}</p>
+						<p class="text-xs text-gray-400">{episode.podcastTitle}</p>
+					</div>
+				</>
+			);
+			return (
+				<div>
+					{episode.url ? (
+						<a
+							href={episode.url}
+							class="plausible-event-name=Now+Feed+Click plausible-event-source=podcast flex items-center gap-3 no-underline"
+						>
+							{content}
+						</a>
+					) : (
+						<div class="flex items-center gap-3">{content}</div>
+					)}
+				</div>
+			);
+		})}
+	</div>
+
+	<p class="mt-4 font-mono text-xs text-gray-400">
+		as of {formattedUpdatedAt}. Films via{' '}
+		<a href="https://letterboxd.com/joekarlsson/">Letterboxd</a>, podcasts from my self-hosted
+		Audiobookshelf.
+	</p>
+</div>

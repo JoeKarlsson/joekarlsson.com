@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RightNow from '../components/RightNow.astro';
+import NowFeed from '../components/NowFeed.astro';
 import CatChase from '../components/CatChase.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import { SOCIAL_LINKS } from '../consts';
@@ -1007,6 +1008,7 @@ const aboutHeadings = [
 				</h2>
 				<div class="mb-10">
 					<RightNow columns={2} />
+					<NowFeed />
 				</div>
 
 				<!-- Explore More -->
