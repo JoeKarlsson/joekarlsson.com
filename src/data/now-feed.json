@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 203,
+			"commitCount": 204,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				79
+				80
 			],
-			"latestCommitMessage": "feat: About opens with a shorter, two-sentence intro"
+			"latestCommitMessage": "feat: RSS page, hero generator and theme color match the pink-on-black..."
 		},
 		{
 			"name": "punc",
