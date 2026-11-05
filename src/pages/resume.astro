@@ -1,11 +1,22 @@
 ---
+// The web resume. The PDF is a separate page (resume-pdf.astro, printed by
+// npm run generate:resume), so this one can be pink on black.
+import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SOCIAL_LINKS } from '../consts';
+import { CHALK, MARKS } from '../data/scribbles';
 import { roles, education, skills, highlights, openSource, writingSamples } from '../data/resume';
 
 function formatYearRange(start: number, end: number | null): string {
 	return end ? `${start} - ${end}` : `${start} - Present`;
 }
+
+const SECTION_HEADING =
+	'relative mb-6 w-fit font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
+const SUBHEADING = 'text-lg leading-tight font-semibold text-paper';
+const LINK = 'text-paper underline decoration-pink underline-offset-4 hover:text-pink';
+// Rows with a narrow left column (dates, labels) beside the content
+const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[11rem_1fr]';
 ---
 
 <BaseLayout
@@ -13,141 +24,201 @@ function formatYearRange(start: number, end: number | null): string {
 	description="Joe Karlsson's resume. Principal Developer Marketing Manager at CData and software engineer with 15+ years at data companies including CloudQuery, Tinybird, SingleStore, MongoDB, and Best Buy."
 	schemaType="ProfilePage"
 >
-	<div class="mx-auto max-w-3xl px-4 py-8">
-		<div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-			<div>
-				<h1 class="mb-1 text-3xl font-bold text-white md:text-4xl">Joe Karlsson</h1>
-				<p class="text-lg text-gray-300">Principal Developer Marketing Manager</p>
-				<div class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-400">
+	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+		<!-- Two panels like the other page heroes: RESUME filling the pink one, and who,
+		where to find me and the PDF in the dark one -->
+		<header class="relative mb-14 grid gap-4 md:grid-cols-2">
+			<div class="relative flex flex-col justify-end rounded-xl bg-pink px-7 pt-6 pb-5 text-ink">
+				<div class="@container">
+					<h1 class="font-display text-[calc(100cqw/var(--word-ratio))] leading-[0.84] font-normal whitespace-nowrap text-ink uppercase [--word-ratio:3]">
+						Resume
+					</h1>
+				</div>
+				<Scribble
+					{...MARKS.burst}
+					color={CHALK}
+					strokeWidth={6}
+					duration="8s"
+					delay="1.6s"
+					class="-top-[16%] -left-[5%] z-10 size-[26%]"
+				/>
+			</div>
+			<div class="relative flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
+				<Scribble
+					{...MARKS.tally}
+					color={CHALK}
+					duration="9s"
+					delay="0.6s"
+					class="-top-[12%] -right-[3%] z-10 hidden h-[24%] w-[18%] md:block"
+				/>
+				<div>
+					<p class="relative w-fit font-display text-[clamp(36px,3.6vw,56px)] leading-none text-paper uppercase">
+						Joe Karlsson
+						<Scribble
+							{...MARKS.underline}
+							color="#ff4fd8"
+							strokeWidth={10}
+							duration="8s"
+							delay="0.3s"
+							class="-bottom-[0.3em] left-0 h-[0.25em] w-full"
+						/>
+					</p>
+					<p class="mt-4 text-lg text-paper">Principal Developer Marketing Manager</p>
+					<p class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+						<a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class={LINK}>
+							linkedin/in/joekarlsson
+						</a>
+						<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class={LINK}>
+							github/JoeKarlsson
+						</a>
+						<a href="https://www.joekarlsson.com" class={LINK}>
+							joekarlsson.com
+						</a>
+					</p>
+				</div>
+				<div class="flex flex-wrap items-center gap-4">
 					<a
-						href={SOCIAL_LINKS.linkedin}
+						href="/joe-karlsson-resume.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="hover:text-coral no-underline"
+						class="plausible-event-name=Resume+Download inline-flex items-center gap-2 rounded-md bg-pink px-[18px] py-3 font-semibold text-ink no-underline hover:bg-white"
 					>
-						linkedin/in/joekarlsson
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							aria-hidden="true"
+						>
+							<path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path>
+						</svg>
+						Download PDF
 					</a>
-					<a
-						href={SOCIAL_LINKS.github}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="hover:text-coral no-underline"
-					>
-						github/JoeKarlsson
-					</a>
-					<a href="https://www.joekarlsson.com" class="hover:text-coral no-underline">
-						joekarlsson.com
+					<a href="/about/" class="font-semibold text-pink no-underline hover:text-white">
+						Full bio &rarr;
 					</a>
 				</div>
 			</div>
-			<div class="flex flex-col gap-2 sm:items-end">
-				<a
-					href="/joe-karlsson-resume.pdf"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="plausible-event-name=Resume+Download inline-flex items-center gap-2 rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-white text-sm"
-				>
-					<svg
-						width="14"
-						height="14"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						aria-hidden="true"
-					>
-						<path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path>
-					</svg>
-					Download PDF
-				</a>
-				<a href="/about/" class="text-sm text-gray-400 hover:text-coral no-underline sm:text-right">
-					Full bio &rarr;
-				</a>
-			</div>
-		</div>
+		</header>
 
-		<p class="mb-12 text-gray-300 leading-relaxed max-w-2xl">
+		<p class="mb-16 font-serif text-[clamp(19px,1.6vw,23px)] leading-relaxed text-paper">
 			I've spent 15 years making complex data systems click for developers - through talks, docs,
 			demos, and content. I build and run DevRel functions at data companies, with a track record in
 			organic growth, developer activation, and pipeline influence. So far that's 100+ conference
 			talks and 5 data companies.
 		</p>
 
-		<h2 class="mb-6 text-3xl font-extrabold text-white">Experience</h2>
-		<div class="mb-12 space-y-10">
+		<h2 class={SECTION_HEADING}>
+			Experience
+			<Scribble
+				{...MARKS.underline}
+				color={CHALK}
+				duration="8s"
+				delay="0.2s"
+				class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+			/>
+		</h2>
+		<div class="mb-16 space-y-8">
 			{roles.map((role) => (
-				<div>
-					<div class="mb-3 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-						<div class="flex items-center gap-3">
+				<div class={ROW}>
+					<p class="text-sm text-muted">
+						{formatYearRange(role.startYear, role.endYear)}
+						<span class="block">{role.location}</span>
+					</p>
+					<div>
+						<div class="mb-3 flex items-center gap-3">
 							{role.logo && (
-								<img
-									src={role.logo}
-									alt=""
-									aria-hidden="true"
-									class="h-8 w-8 rounded-sm object-contain"
-									width="32"
-									height="32"
-									loading="lazy"
-								/>
+								<span class="relative block shrink-0">
+									<img
+										src={role.logo}
+										alt=""
+										aria-hidden="true"
+										data-halftone="flat"
+										class="block h-9 w-9 rounded-sm object-contain"
+										width="36"
+										height="36"
+										loading="lazy"
+									/>
+								</span>
 							)}
 							<div>
-								<h3 class="font-semibold text-white leading-tight">{role.title}</h3>
-								<p class="text-sm text-gray-300">{role.company}</p>
+								<h3 class={SUBHEADING}>{role.title}</h3>
+								<p class="text-sm text-paper">{role.company}</p>
 							</div>
 						</div>
-						<p class="text-sm text-gray-400 sm:text-right shrink-0">
-							{formatYearRange(role.startYear, role.endYear)}
-							<span class="block">{role.location}</span>
-						</p>
+						<ul class="mb-3 list-disc space-y-1.5 pl-5 text-muted marker:text-pink">
+							{role.bullets.map((b) => (
+								<li>
+									{typeof b === 'string' ? (
+										b
+									) : (
+										<>
+											{b.text}{' '}
+											<a href={b.link.url} target="_blank" rel="noopener noreferrer" class={LINK}>
+												({b.link.label} &rarr;)
+											</a>
+										</>
+									)}
+								</li>
+							))}
+						</ul>
+						<p class="text-sm text-muted">{role.tech.join(' · ')}</p>
 					</div>
-					<ul class="mb-3 list-disc space-y-1.5 pl-5 text-gray-300 marker:text-gray-500">
-						{role.bullets.map((b) => (
-							<li>
-								{typeof b === 'string' ? (
-									b
-								) : (
-									<>
-										{b.text}{' '}
-										<a
-											href={b.link.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											class="text-coral hover:text-white"
-										>
-											({b.link.label} &rarr;)
-										</a>
-									</>
-								)}
-							</li>
-						))}
-					</ul>
-					<p class="text-sm text-gray-400">{role.tech.join(' · ')}</p>
 				</div>
 			))}
 		</div>
 
-		<h2 class="mb-4 text-3xl font-extrabold text-white">Skills</h2>
-		<dl class="mb-12 space-y-4">
+		<h2 class={SECTION_HEADING}>
+			Skills
+			<Scribble
+				{...MARKS.rays}
+				color="#ff4fd8"
+				duration="7s"
+				delay="0.6s"
+				class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+			/>
+		</h2>
+		<dl class="mb-16 space-y-4">
 			{skills.map((group) => (
-				<div>
-					<dt class="font-medium text-white">{group.category}</dt>
-					<dd class="text-gray-400">{group.items.join(', ')}</dd>
+				<div class={ROW}>
+					<dt class="font-semibold text-paper">{group.category}</dt>
+					<dd class="text-muted">{group.items.join(', ')}</dd>
 				</div>
 			))}
 		</dl>
 
-		<h2 class="mb-4 text-3xl font-extrabold text-white">Highlights</h2>
-		<ul class="mb-12 list-disc space-y-2 pl-5 text-gray-300 marker:text-gray-500">
+		<h2 class={SECTION_HEADING}>
+			Highlights
+			<Scribble
+				{...MARKS.asterisk}
+				color={CHALK}
+				duration="8s"
+				delay="1.2s"
+				class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
+			/>
+		</h2>
+		<ul class="mb-16 list-disc space-y-2 pl-5 text-paper marker:text-pink">
 			{highlights.map((h) => (
 				<li>{h}</li>
 			))}
 		</ul>
 
-		<h2 class="mb-4 text-3xl font-extrabold text-white">Writing</h2>
-		<div class="mb-12 space-y-8">
+		<h2 class={SECTION_HEADING}>
+			Writing
+			<Scribble
+				{...MARKS.double}
+				color="#ff4fd8"
+				duration="9s"
+				delay="0.4s"
+				class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
+			/>
+		</h2>
+		<div class="mb-16 space-y-8">
 			{writingSamples.map((group) => (
-				<div>
-					<h3 class="mb-3 font-medium text-white">{group.category}</h3>
+				<div class={ROW}>
+					<h3 class="font-semibold text-paper">{group.category}</h3>
 					<ul class="space-y-3">
 						{group.items.map((item) => (
 							<li>
@@ -155,11 +226,11 @@ function formatYearRange(start: number, end: number | null): string {
 									href={item.url}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="plausible-event-name=Resume+Writing+Sample+Click text-gray-300 no-underline hover:text-coral leading-snug"
+									class={`plausible-event-name=Resume+Writing+Sample+Click leading-snug ${LINK}`}
 								>
 									{item.title}
 								</a>
-								<p class="text-sm text-gray-400">
+								<p class="text-sm text-muted">
 									{item.publisher}
 									{item.note && ` - ${item.note}`}
 								</p>
@@ -170,53 +241,71 @@ function formatYearRange(start: number, end: number | null): string {
 			))}
 		</div>
 
-		<h2 class="mb-4 text-3xl font-extrabold text-white">Projects</h2>
-		<ul class="mb-12 space-y-6">
+		<h2 class={SECTION_HEADING}>
+			Projects
+			<Scribble
+				{...MARKS.underline}
+				color={CHALK}
+				duration="8s"
+				delay="0.9s"
+				class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+			/>
+		</h2>
+		<ul class="mb-16 grid gap-x-8 gap-y-6 md:grid-cols-2">
 			{openSource.map((project) => (
-				<li>
+				<li class="border-t border-surface-4 pt-5">
 					<a
 						href={project.url}
 						target={project.url.startsWith('http') ? '_blank' : undefined}
 						rel={project.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-						class="plausible-event-name=Resume+Project+Click font-medium text-white no-underline hover:text-coral"
+						class={`plausible-event-name=Resume+Project+Click font-semibold ${LINK}`}
 					>
 						{project.name}
 					</a>
-					<p class="text-gray-300 leading-relaxed">{project.description}</p>
-					<p class="text-sm text-gray-400">{project.tech.join(' · ')}</p>
+					<p class="mt-1 leading-relaxed text-muted">{project.description}</p>
+					<p class="mt-1 text-sm text-muted">{project.tech.join(' · ')}</p>
 				</li>
 			))}
 		</ul>
 
-		<h2 class="mb-4 text-3xl font-extrabold text-white">Education</h2>
-		<div class="mb-12 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-			<div>
-				<h3 class="font-semibold text-white">{education.degree}</h3>
-				<p class="text-sm text-gray-300">{education.school}</p>
-				{education.minors && (
-					<p class="text-sm text-gray-400">Minors: {education.minors.join(', ')}</p>
-				)}
-			</div>
-			<p class="text-sm text-gray-400 sm:text-right">
+		<h2 class={SECTION_HEADING}>
+			Education
+			<Scribble
+				{...MARKS.rays}
+				color={CHALK}
+				duration="7s"
+				delay="0.3s"
+				class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+			/>
+		</h2>
+		<div class:list={[ROW, 'mb-16']}>
+			<p class="text-sm text-muted">
 				{education.years}
 				{education.gpa && <span class="block">GPA: {education.gpa}</span>}
 			</p>
+			<div>
+				<h3 class={SUBHEADING}>{education.degree}</h3>
+				<p class="text-sm text-paper">{education.school}</p>
+				{education.minors && (
+					<p class="text-sm text-muted">Minors: {education.minors.join(', ')}</p>
+				)}
+			</div>
 		</div>
 
-		<h2 class="mb-4 text-3xl font-extrabold text-white">Keep exploring</h2>
-		<ul class="mb-10 space-y-2">
+		<h2 class={SECTION_HEADING}>Keep exploring</h2>
+		<ul class="mb-10 flex flex-wrap gap-x-8 gap-y-2 text-lg">
 			<li>
-				<a href="/about/" class="text-coral hover:text-white">
+				<a href="/about/" class={LINK}>
 					About me
 				</a>
 			</li>
 			<li>
-				<a href="/work/" class="text-coral hover:text-white">
+				<a href="/work/" class={LINK}>
 					Projects
 				</a>
 			</li>
 			<li>
-				<a href="/blog/" class="text-coral hover:text-white">
+				<a href="/blog/" class={LINK}>
 					Blog
 				</a>
 			</li>
