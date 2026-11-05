@@ -7,23 +7,34 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 145,
+			"commitCount": 198,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				21
+				74
 			],
-			"latestCommitMessage": "feat: Redesign phase 4 - blog post template in Fraunces, Anton and..."
+			"latestCommitMessage": "chore: Card clips and text check for the Bechdel.io and Rose Hobart..."
+		},
+		{
+			"name": "punc",
+			"description": " Ever wonder what your favorite books look like without words? ",
+			"url": "https://github.com/JoeKarlsson/punc",
+			"language": "TypeScript",
+			"commitCount": 3,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2
+			],
+			"latestCommitMessage": "feat: Reader opens on the score, the spiral zooms and pans like a map..."
 		},
 		{
 			"name": "nothing-but-corners",
 			"description": "The DVD screensaver with the boring parts taken out. It hits the corner every time.",
 			"url": "https://github.com/JoeKarlsson/nothing-but-corners",
 			"language": "HTML",
-			"commitCount": 6,
+			"commitCount": 15,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15
 			],
-			"latestCommitMessage": "fix: Cheers only, no near misses, brake closer to the corner"
+			"latestCommitMessage": "feat: After the tour, the giant swells into a leviathan that drifts..."
 		},
 		{
 			"name": "dotfiles",
@@ -35,18 +46,6 @@
 				0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 0
 			],
 			"latestCommitMessage": "fix: Drop the Inter design-check flag; Inter is an allowed choice now"
-		},
-		{
-			"name": "screencast-director",
-			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
-			"url": "https://github.com/JoeKarlsson/screencast-director",
-			"language": "Swift",
-			"commitCount": 245,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51,
-				0
-			],
-			"latestCommitMessage": "chore: The CLI check on the render's sound asserts what it guards..."
 		}
 	],
 	"films": [
