@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 224,
+			"commitCount": 225,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				102
+				103
 			],
-			"latestCommitMessage": "feat: Every hoverable card draws the same crayon ring around its..."
+			"latestCommitMessage": "fix: Hovered cards draw the homepage's crayon box instead of an oval..."
 		},
 		{
 			"name": "punc",
