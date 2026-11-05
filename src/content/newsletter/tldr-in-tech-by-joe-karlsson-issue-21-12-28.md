@@ -4,6 +4,8 @@ date: 2021-12-28
 slug: 'tldr-in-tech-by-joe-karlsson-issue-21-12-28'
 issue: 6
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-21-12-28'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-21-12-28/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 6, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: Derek shares his design review process, starting with the design doc (he shares his template) through to the in-person meeting, where he outlines specifics around planning, moderation and process. This review process helps with org-wide comms, understanding of technical infrastructure, knowledge of legacy work & current projects, better design, and saves time.](https://review.firstround.com/making-engineering-team-communication-clearer-faster-better)

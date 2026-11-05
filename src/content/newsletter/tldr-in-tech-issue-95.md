@@ -4,6 +4,8 @@ date: 2023-10-31
 slug: 'tldr-in-tech-issue-95'
 issue: 95
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-95'
+heroImage: '/images/newsletter/tldr-in-tech-issue-95/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 95, leading with Beautiful Branchless Binary Search, with the issue number circled in pink crayon'
 ---
 
 ## [Beautiful Branchless Binary Search](https://probablydance.com/2023/04/27/beautiful-branchless-binary-search/)

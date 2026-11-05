@@ -4,6 +4,8 @@ date: 2023-08-22
 slug: 'tldr-in-tech-issue-91'
 issue: 91
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-91'
+heroImage: '/images/newsletter/tldr-in-tech-issue-91/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 91, leading with How LinkedIn Adopted A GraphQL Architecture For Product Development, with the issue number circled in pink crayon'
 ---
 
 ## [How LinkedIn Adopted A GraphQL Architecture For Product Development](https://engineering.linkedin.com/blog/2023/how-linkedin-adopted-a-graphql-architecture-for-product-developm)

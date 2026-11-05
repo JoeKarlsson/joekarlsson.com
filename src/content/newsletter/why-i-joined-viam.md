@@ -3,6 +3,8 @@ title: 'Why I Joined Viam 🤖'
 date: 2022-06-15
 slug: 'why-i-joined-viam'
 substackUrl: 'https://joekarlsson.substack.com/p/why-i-joined-viam'
+heroImage: '/images/newsletter/why-i-joined-viam/card.webp'
+heroAlt: 'Works on My Machine card for Why I Joined Viam, with the year circled in pink crayon'
 ---
 
 Hello Friends I am excited to announce that I have joined [Viam](https://www.viam.com/) as a Developer Advocate where I will be working to help developers make cool robots. At Viam, we are building a software platform to enable users to create, configure and control any robotics project.

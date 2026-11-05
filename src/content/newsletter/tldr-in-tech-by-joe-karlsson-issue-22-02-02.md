@@ -4,6 +4,8 @@ date: 2022-02-02
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-02-02'
 issue: 11
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-02-02'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-02-02/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 11, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr:](https://review.firstround.com/this-is-how-effective-ctos-embrace-change)** ["A truly great leader is someone that can not only figure out the impact of a potential decision, they can fully understand the impact of that decision on all the people who will be touched by it." Evan Cooke, former Twilio CTO, outlines the two significant issues faced by CTOs of later stage startups](https://review.firstround.com/this-is-how-effective-ctos-embrace-change)

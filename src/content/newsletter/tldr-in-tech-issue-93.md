@@ -4,6 +4,8 @@ date: 2023-10-24
 slug: 'tldr-in-tech-issue-93'
 issue: 93
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-93'
+heroImage: '/images/newsletter/tldr-in-tech-issue-93/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 93, leading with From Assumption To Next Step, with the issue number circled in pink crayon'
 ---
 
 ## [From Assumption To Next Step](https://cutlefish.substack.com/p/tbm-214-from-assumption-to-next-step)

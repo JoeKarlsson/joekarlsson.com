@@ -4,6 +4,8 @@ date: 2022-01-12
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-01-12'
 issue: 8
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-01-12'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-01-12/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 8, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr:](https://www.singlestore.com/blog/how-to-use-singlestore-as-a-key-value-store/)** [New blog post alert! Key-value stores (like Redis) are perhaps one of the most popular databases on the market today - and with good reason! And in this post, I will show you how you can create a scalable key-value store in using just SQL.](https://www.singlestore.com/blog/how-to-use-singlestore-as-a-key-value-store/)

@@ -4,6 +4,8 @@ date: 2022-04-12
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-04-12'
 issue: 18
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-04-12'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-04-12/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 18, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: "Defining requirements for an April Fools' project is extremely important because it will launch with zero ramp-up and be available immediately to all of Reddit's users. If it doesn't work perfectly out of the gate, it's unlikely to attract enough users to make for an interesting experience."](https://www.redditinc.com/blog/how-we-built-rplace)

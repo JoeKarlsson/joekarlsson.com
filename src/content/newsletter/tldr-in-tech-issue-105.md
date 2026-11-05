@@ -4,6 +4,8 @@ date: 2024-01-23
 slug: 'tldr-in-tech-issue-105'
 issue: 105
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-105'
+heroImage: '/images/newsletter/tldr-in-tech-issue-105/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 105, leading with A Few Words On Taking Notes, with the issue number circled in pink crayon'
 ---
 
 ## [A Few Words On Taking Notes](https://www.allthingsdistributed.com/2023/06/a-few-words-on-taking-notes.html)

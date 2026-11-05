@@ -4,6 +4,8 @@ date: 2021-11-30
 slug: 'tldr-in-tech-by-joe-karlsson-issue-21-11-30'
 issue: 2
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-21-11-30'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-21-11-30/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 2, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: So, you want to learn how to code? Here's What You Need To Know to get started. This is basically a list of Joe Karlsson's favorite programming books, talks, podcasts, newsletters, websites, and general tips for learning more about programming.](https://www.joekarlsson.com/2018/01/my-top-resources-for-learning-how-to-code/)

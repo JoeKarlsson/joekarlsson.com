@@ -4,6 +4,8 @@ date: 2023-05-23
 slug: 'tldr-in-tech-issue-78'
 issue: 78
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-78'
+heroImage: '/images/newsletter/tldr-in-tech-issue-78/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 78, leading with Removing Uncertainty: The Tip Of The Iceberg, with the issue number circled in pink crayon'
 ---
 
 ## [Removing Uncertainty: The Tip Of The Iceberg](https://theengineeringmanager.substack.com/p/removing-uncertainty-the-tip-of-the)

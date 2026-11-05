@@ -4,6 +4,8 @@ date: 2022-10-04
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-10-04'
 issue: 36
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-10-04'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-10-04/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 36, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 ![airplane on ground surrounded with trees](/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-10-04/photo-1508138221679-760a23a2285b.webp)

@@ -5,6 +5,8 @@ slug: 'tldr-in-tech-issue-70'
 description: 'By: Joe Karlsson'
 issue: 70
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-70'
+heroImage: '/images/newsletter/tldr-in-tech-issue-70/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 70, leading with Measuring An Engineering Organization, with the issue number circled in pink crayon'
 ---
 
 Welcome back to my weekly newsletter, where I bring you the latest and greatest insights to keep your software engineering game strong. This week, I'm shining the spotlight on the data and database space, as we unravel some trends that are defining the landscape in 2023. So, let's dive in and see what's shaping the future of data management! 💾

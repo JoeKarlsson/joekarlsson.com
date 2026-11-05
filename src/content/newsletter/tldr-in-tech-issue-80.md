@@ -4,6 +4,8 @@ date: 2023-06-06
 slug: 'tldr-in-tech-issue-80'
 issue: 80
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-80'
+heroImage: '/images/newsletter/tldr-in-tech-issue-80/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 80, leading with Evaluating Managers: 5 Heuristics To Measure Managerial Impact, with the issue number circled in pink crayon'
 ---
 
 ## [Evaluating Managers: 5 Heuristics To Measure Managerial Impact](https://abdulapopoola.com/2023/01/09/evaluating-managers-5-heuristics-to-measure-managerial-impact/)

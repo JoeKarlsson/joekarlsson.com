@@ -4,6 +4,8 @@ date: 2024-01-02
 slug: 'tldr-in-tech-issue-102'
 issue: 102
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-102'
+heroImage: '/images/newsletter/tldr-in-tech-issue-102/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 102, leading with Writing Javascript Without A Build System, with the issue number circled in pink crayon'
 ---
 
 I hope you're all enjoying a well-deserved break this holiday season! It's always great to step away from the keyboard, recharge, and spend time with loved ones. But let's be honest, how many of you tried to make it look like you were giving that last-minute push to wrap up Q4? 😉 No judgment here, we've all been there. Now, as we prepare to dive back in, I want to extend my best wishes to each of you for a restful and rejuvenating break.

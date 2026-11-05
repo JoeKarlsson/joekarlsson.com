@@ -4,6 +4,8 @@ date: 2022-03-01
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-03-01'
 issue: 13
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-03-01'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-03-01/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 13, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr:](https://www.elidedbranches.com/2022/01/structural-lessons-in-engineering.html)** [Engineering managers are "attracted to formulas, algorithms, and structures" and this kind of thinking can create too much structure when applied to team management. Camille gives an example: Engineering managers do not scale well beyond 7 - 8 direct reports, and teams can also downsize quickly i.e. people quit. Therefore, "the temptation is to create a clean tree structure for your organization" to rebalance numbers, but this can have adverse consequences quickly. Camille advises "to nudge it back into shape over time, or very occasionally, reorganize into something more appropriate."](https://www.elidedbranches.com/2022/01/structural-lessons-in-engineering.html)

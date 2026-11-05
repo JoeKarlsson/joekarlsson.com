@@ -4,6 +4,8 @@ date: 2022-04-28
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-04-28'
 issue: 20
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-04-28'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-04-28/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 20, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: The ML model takes into account spatial and temporal features, such as the origin, destination and time of the request, as well information about real-time traffic and the nature of the request, such as whether it is a delivery dropoff or rideshare pickup."](https://www.uber.com/us/en/blog/deepeta-how-uber-predicts-arrival-times/)

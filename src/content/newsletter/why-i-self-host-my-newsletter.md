@@ -3,8 +3,10 @@ title: 'Why I Self-Host My Newsletter'
 date: 2026-10-13T00:01:00Z
 slug: 'why-i-self-host-my-newsletter'
 description: "Why my newsletter runs in my homelab, why I picked listmonk over Ghost, and what I haven't figured out about outgrowing a free email plan."
-heroImage: '/images/newsletter/why-i-self-host-my-newsletter/header.webp'
-heroAlt: "Header for Why I Self-Host My Newsletter from Works on My Machine, with the diagram of how the newsletter runs from joekarlsson.com through Cloudflare and listmonk in Joe's homelab to Brevo and your inbox"
+heroImage: '/images/newsletter/why-i-self-host-my-newsletter/card.webp'
+heroAlt: "Works on My Machine card for Why I Self-Host My Newsletter, with the diagram of how the newsletter runs from joekarlsson.com through Cloudflare and listmonk in Joe's homelab to Brevo and your inbox framed in a pink crayon box"
+cardPhoto: '/images/newsletter/why-i-self-host-my-newsletter/card-photo.webp'
+cardPhotoAlt: "the diagram of how the newsletter runs from joekarlsson.com through Cloudflare and listmonk in Joe's homelab to Brevo and your inbox"
 ---
 
 In [the last issue](https://www.joekarlsson.com/newsletter/taste-matters-more-with-ai/) I promised to write up how I built this newsletter in my homelab. I'd been thinking about leaving Substack for a long time, and there had been problems with it for a while, but I wasn't posting much, so it was low priority. Now that I'm writing again, I started rethinking where I wanted the newsletter to live and how I wanted to manage it. My homelab has changed a lot since I started on Substack, so it felt like time to go, plus the Nazi problem.

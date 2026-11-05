@@ -4,6 +4,8 @@ date: 2022-03-29
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-03-29'
 issue: 16
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-03-29'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-03-29/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 16, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr:](https://tiemoko.com/blog/vintage-tech-books/)** ["I enjoy collecting rare and vintage programming books. There's just something quaint about pre-internet computer books, with their dead-tree print editions and crude typesetting." Tiemo shares 3 favorites and sumarizes the backdrop of each.](https://tiemoko.com/blog/vintage-tech-books/)

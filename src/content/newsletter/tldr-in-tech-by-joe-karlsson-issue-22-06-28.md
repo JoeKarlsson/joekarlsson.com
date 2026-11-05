@@ -4,6 +4,8 @@ date: 2022-06-28
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-06-28'
 issue: 31
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-06-28'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-06-28/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 31, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr](https://hagakure.substack.com/p/twh35-20-principles-i-strive-to-live?s=r)**[: "You start realizing that everything comes back to a relatively small number of principles, universally applicable." Paulo's 20 principles include:](https://hagakure.substack.com/p/twh35-20-principles-i-strive-to-live?s=r)

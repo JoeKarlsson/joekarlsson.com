@@ -4,6 +4,8 @@ date: 2022-04-05
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-04-05'
 issue: 17
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-04-05'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-04-05/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 17, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr:](https://larahogan.me/blog/when-to-delegate-when-to-say-no/)** ["As a leader… if you spend all your time trying to stamp out fires, you'll never be able to look ahead, strategize, or actually grow and evolve." Lara walks us through the Eisenhower Matrix, which maps importance and urgency, and how that defines which tasks to delegate.](https://larahogan.me/blog/when-to-delegate-when-to-say-no/)

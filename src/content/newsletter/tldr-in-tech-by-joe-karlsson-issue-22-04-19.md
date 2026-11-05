@@ -4,6 +4,8 @@ date: 2022-04-19
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-04-19'
 issue: 19
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-04-19'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-04-19/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 19, leading with New Blog Alert! tl;dr:, with the issue number circled in pink crayon'
 ---
 
 **[New Blog Alert! tl;dr:](https://www.singlestore.com/blog/use-singlestore-with-github-actions/)** [Databases are frequently left out of the DevOps discussion. In this post, I talk about best practices for setting up a database in your DevOps pipeline and then show you how to do it using GitHub Actions.](https://www.singlestore.com/blog/use-singlestore-with-github-actions/)

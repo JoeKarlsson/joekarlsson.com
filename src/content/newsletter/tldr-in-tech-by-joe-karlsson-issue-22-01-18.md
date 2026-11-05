@@ -4,6 +4,8 @@ date: 2022-01-18
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-01-18'
 issue: 9
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-01-18'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-01-18/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 9, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: "The goal of this post is to help remind you to reflect on your current development process. Is there some piece of your pipeline taking longer than it needs to? Is there a way to create some debug tools that makes it easier to test a change? Would unit testing bring benefits, but you keep avoiding it because you think there's a big upfront cost to it?"](https://devtails.xyz/3-lines-of-code-shouldnt-take-all-day)

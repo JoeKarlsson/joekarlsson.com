@@ -4,6 +4,8 @@ date: 2022-12-20
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-12-20'
 issue: 24
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-12-20'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-12-20/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 24, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 ![swimming pool with stainless steel ladder](/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-12-20/photo-1504309092620-4d0ec726efa4.webp)

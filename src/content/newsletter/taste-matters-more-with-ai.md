@@ -3,8 +3,10 @@ title: 'Taste Matters More with AI'
 date: 2026-10-12T22:45:47Z
 slug: 'taste-matters-more-with-ai'
 description: "The newsletter is back after almost three years, it runs in my homelab now, and it's going to be about what I actually think about. First up, taste."
-heroImage: '/images/newsletter/taste-matters-more-with-ai/header.webp'
-heroAlt: "Header for Taste Matters More with AI from Works on My Machine, with a photo of Joe gluing a jack-o'-lantern collage onto red paper"
+heroImage: '/images/newsletter/taste-matters-more-with-ai/card.webp'
+heroAlt: "Works on My Machine card for Taste Matters More with AI, with a photo of Joe gluing a jack-o'-lantern collage onto red paper framed in a pink crayon box"
+cardPhoto: '/images/newsletter/taste-matters-more-with-ai/card-photo.webp'
+cardPhotoAlt: "a photo of Joe gluing a jack-o'-lantern collage onto red paper"
 ---
 
 This newsletter used to be TL;DR in Tech, a weekly roundup of the links I was reading, until I quit sending it. I'd stopped feeling the pull to make things online. The rise of AI made sharing links feel a lot less valuable, and I'd been laid off, which really hurt my confidence. Posting my thoughts on the internet started to feel silly.

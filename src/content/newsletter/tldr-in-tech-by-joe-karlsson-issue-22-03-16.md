@@ -4,6 +4,8 @@ date: 2022-03-16
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-03-16'
 issue: 14
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-03-16'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-03-16/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 14, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr:](https://conorcorp.github.io/posts/make-debuggin-suck-less/)** ["Scientists keep logbooks for their findings. Why don't computer scientists?" Conor shares an example of one and cites these benefits:](https://conorcorp.github.io/posts/make-debuggin-suck-less/)

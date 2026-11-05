@@ -4,6 +4,8 @@ date: 2022-07-20
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-07-20'
 issue: 36
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-07-20'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-07-20/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 36, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: 12 strategies, including:](https://about.gitlab.com/blog/2022/05/03/preventing-burnout-a-managers-toolkit/)

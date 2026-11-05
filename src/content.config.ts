@@ -50,6 +50,10 @@ const newsletter = defineCollection({
 		// Header image for the post page, its og:image and its card in the blog list.
 		heroImage: z.string().optional(),
 		heroAlt: z.string().optional(),
+		// Photo for the issue's generated header card (scripts/generate-issue-cards.mjs), a
+		// path under public/, and what it shows. Without one the card circles the issue number.
+		cardPhoto: z.string().optional(),
+		cardPhotoAlt: z.string().optional(),
 		// Slug of the blog post this issue condenses. Recaps stay on /newsletter/ only, so the
 		// blog list, homepage and RSS don't show the same post twice.
 		recapOf: z.string().optional(),

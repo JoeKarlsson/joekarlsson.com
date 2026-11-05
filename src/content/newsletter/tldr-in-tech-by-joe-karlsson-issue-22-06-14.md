@@ -4,6 +4,8 @@ date: 2022-06-14
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-06-14'
 issue: 23
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-06-14'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-06-14/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 23, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: Here are the steps I take when I'm stumped. No huge revelations here, just hard-earned advice. First 3 steps:](https://praeclarum.org/2022/02/19/hard-problems.html)

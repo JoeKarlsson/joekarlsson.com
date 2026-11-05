@@ -4,6 +4,8 @@ date: 2023-01-03
 slug: 'tldr-in-tech-by-joe-karlsson-issue-23-01-03'
 issue: 63
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-23-01-03'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-23-01-03/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 63, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 ![riped banana on pink surface](/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-23-01-03/photo-1481349518771-20055b2a7b24.webp)

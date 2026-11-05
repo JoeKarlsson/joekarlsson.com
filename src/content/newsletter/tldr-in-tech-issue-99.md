@@ -4,6 +4,8 @@ date: 2023-11-21
 slug: 'tldr-in-tech-issue-99'
 issue: 99
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-99'
+heroImage: '/images/newsletter/tldr-in-tech-issue-99/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 99, leading with Hashing, with the issue number circled in pink crayon'
 ---
 
 ## [Hashing](https://samwho.dev/hashing/)

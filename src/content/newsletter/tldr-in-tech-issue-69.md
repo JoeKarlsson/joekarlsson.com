@@ -5,6 +5,8 @@ slug: 'tldr-in-tech-issue-69'
 description: 'By: Joe Karlsson'
 issue: 69
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-69'
+heroImage: '/images/newsletter/tldr-in-tech-issue-69/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 69, leading with HTTP/3 Prioritization Demystified, with the issue number circled in pink crayon'
 ---
 
 Ahoy, mateys! Avast ye and hoist the mainsail, because we're setting course for uncharted digital waters. Here are three tips to help you build a site that'll shiver the timbers of even the toughest recruiters:

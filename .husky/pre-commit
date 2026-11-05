@@ -4,4 +4,7 @@ command -v node >/dev/null 2>&1 || { [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm
 # Runs first: it can stage rewritten markdown, which lint-staged then formats.
 ./scripts/convert-staged-images.sh
 
+# A newly staged newsletter issue with no header card gets one, staged with its heroImage.
+node scripts/generate-issue-cards.mjs --staged
+
 npx lint-staged

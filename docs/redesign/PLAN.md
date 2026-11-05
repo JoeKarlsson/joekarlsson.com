@@ -325,4 +325,4 @@ Done when: every page uses the new system, `grep -r coral src` finds nothing, th
 - 2026-11-05: the About "Outside of work" snapshots get the pink treatment (Joe); the white print border moved to a wrapper so the canvas covers only the photo.
 - 2026-11-05: no cursor trail on the blog or the newsletter (`hasCursorTrail()`), index pages included (Joe). It stays everywhere else.
 
-Open: the newsletter issue images are title cards in the old design (mono `~$ Works on My Machine` header). They need Joe's call on what replaces them.
+- 2026-11-05: newsletter issue images are Poster cards (Joe approved): Anton title, photo in a crayon box, or without a photo the issue number circled with two more marks picked by slug, and the stacked echo at the foot. `npm run newsletter:cards` draws them (`scripts/generate-issue-cards.mjs`); the pre-commit hook draws one for any staged issue without a card. Essays set `cardPhoto` + `cardPhotoAlt`. All 98 issues backfilled; the old `~$` headers are gone.

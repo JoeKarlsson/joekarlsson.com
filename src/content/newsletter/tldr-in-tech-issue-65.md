@@ -5,6 +5,8 @@ slug: 'tldr-in-tech-issue-65'
 description: 'By Joe Karlsson'
 issue: 65
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-65'
+heroImage: '/images/newsletter/tldr-in-tech-issue-65/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 65, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 Greetings, fellow nerds 🤓!

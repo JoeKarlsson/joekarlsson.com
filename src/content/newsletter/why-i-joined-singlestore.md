@@ -3,6 +3,8 @@ title: 'Why I joined SingleStore'
 date: 2021-08-04
 slug: 'why-i-joined-singlestore'
 substackUrl: 'https://joekarlsson.substack.com/p/why-i-joined-singlestore'
+heroImage: '/images/newsletter/why-i-joined-singlestore/card.webp'
+heroAlt: 'Works on My Machine card for Why I joined SingleStore, with the year circled in pink crayon'
 ---
 
 I am excited to share today that I've joined [SingleStore](https://www.singlestore.com/) (Formerly MemSQL) as a Developer Advocate.

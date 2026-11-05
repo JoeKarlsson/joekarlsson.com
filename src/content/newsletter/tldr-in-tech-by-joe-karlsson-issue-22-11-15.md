@@ -4,6 +4,8 @@ date: 2022-11-15
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-11-15'
 issue: 59
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-11-15'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-11-15/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 59, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: Top 5 in order are JS, Python, Java, PHP and C#, with the following trends to note:](https://redmonk.com/sogrady/2022/10/20/language-rankings-6-22/)

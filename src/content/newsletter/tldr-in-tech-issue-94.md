@@ -4,6 +4,8 @@ date: 2023-10-17
 slug: 'tldr-in-tech-issue-94'
 issue: 94
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-94'
+heroImage: '/images/newsletter/tldr-in-tech-issue-94/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 94, leading with An Example Of LLM Prompting For Programming, with the issue number circled in pink crayon'
 ---
 
 ## [An Example Of LLM Prompting For Programming](https://martinfowler.com/articles/2023-chatgpt-xu-hao.html)

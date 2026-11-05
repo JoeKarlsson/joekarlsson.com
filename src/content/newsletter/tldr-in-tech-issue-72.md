@@ -5,6 +5,8 @@ slug: 'tldr-in-tech-issue-72'
 description: 'By: Joe Karlsson'
 issue: 72
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-72'
+heroImage: '/images/newsletter/tldr-in-tech-issue-72/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 72, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 It's time for another episode of "tl;dr in tech"! Get ready for a wild ride through the world of software engineering, where we'll dive into some hilariously helpful articles that you definitely don't want to miss. So, grab your favorite caffeinated beverage, and let's get this party started! 🎉

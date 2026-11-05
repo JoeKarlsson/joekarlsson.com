@@ -4,6 +4,8 @@ date: 2023-05-09
 slug: 'tldr-in-tech-issue-76'
 issue: 76
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-76'
+heroImage: '/images/newsletter/tldr-in-tech-issue-76/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 76, leading with Cynefin For Developers, with the issue number circled in pink crayon'
 ---
 
 ## [Cynefin For Developers](https://lizkeogh.com/cynefin-for-developers/)

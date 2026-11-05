@@ -33,6 +33,7 @@ npm run deploy     # Build + deploy via OpenTofu (tofu apply) + purge Cloudflare
 
 - All images need descriptive alt text.
 - Drop raw PNG/JPG/GIF images in; the pre-commit hook converts them (details in `.claude/rules/images.md`).
+- Newsletter issues get a generated header card (`scripts/generate-issue-cards.mjs`, run by the pre-commit hook for a staged issue with no card; needs the network for Google Fonts). For a photo card set `cardPhoto` + `cardPhotoAlt`; after changing a title, redraw with `npm run newsletter:cards -- <slug>`.
 - A new iframe origin must be added to CSP `frame-src` in `provision.sh.tpl` and `Caddyfile`, or the embed is silently blocked in production (`.claude/rules/embeds.md`).
 
 ## Checks

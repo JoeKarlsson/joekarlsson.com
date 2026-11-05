@@ -4,6 +4,8 @@ date: 2021-12-14
 slug: 'tldr-in-tech-by-joe-karlsson-issue-21-12-14'
 issue: 4
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-21-12-14'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-21-12-14/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 4, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [I recently sat down for an interview to discuss my role as a Developer Advocate at SingleStore. We talked about:](https://web.archive.org/web/20211208011950/https://www.singlestore.com/blog/hello-joe-karlsson-developer-advocate)

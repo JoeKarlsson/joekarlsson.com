@@ -4,6 +4,8 @@ date: 2023-05-02
 slug: 'tldr-in-tech-issue-75'
 issue: 75
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-75'
+heroImage: '/images/newsletter/tldr-in-tech-issue-75/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 75, leading with Real-time Databases: What developers need to know, with the issue number circled in pink crayon'
 ---
 
 Welcome back to your favorite weekly newsletter, where we dish out the latest, greatest, and sometimes weirdest happenings in the world of software engineering. Let's dive right in! 🏊‍♂️

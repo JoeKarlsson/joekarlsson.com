@@ -5,8 +5,10 @@ date: 2026-10-30T15:09:37Z
 slug: 'can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it'
 description: "What I learned moving the notes Claude Code reads for my homelab into Open Knowledge Format, and what I'd copy even without OKF."
 recapOf: 'claude-md-open-knowledge-format'
-heroImage: '/images/newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/header.webp'
-heroAlt: 'Header for Can Open Knowledge Format Make Claude Code More Accurate and Cheaper? I Tested It from Works on My Machine, with two featureless mannequin heads, each with a pink brain on top, the one on the right taller with a larger brain'
+heroImage: '/images/newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/card.webp'
+heroAlt: 'Works on My Machine card for Can Open Knowledge Format Make Claude Code More Accurate and Cheaper? I Tested It, with two featureless mannequin heads, each with a pink brain on top, the one on the right taller with a larger brain framed in a pink crayon box'
+cardPhoto: '/images/newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/card-photo.webp'
+cardPhotoAlt: 'two featureless mannequin heads, each with a pink brain on top, the one on the right taller with a larger brain'
 ---
 
 I'd been hearing about Google's [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) (OKF) and wanted to know whether it could do anything for my Claude Code second brain. That's the pile of CLAUDE.md files, rules and auto-memory that teaches Claude how my homelab works.

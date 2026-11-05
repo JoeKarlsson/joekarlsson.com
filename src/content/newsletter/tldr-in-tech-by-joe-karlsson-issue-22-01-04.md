@@ -4,6 +4,8 @@ date: 2022-01-04
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-01-04'
 issue: 7
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-01-04'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-01-04/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 7, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: "Easter eggs are unexpected or undocumented feature in a piece of computer software, included as a joke or bonus" and, among the enthusiast community, "people seem to generally like this concept in software and devices." Dan explains why he's against adding them into Curl.](https://daniel.haxx.se/blog/2021/12/06/no-easter-eggs-in-curl/)

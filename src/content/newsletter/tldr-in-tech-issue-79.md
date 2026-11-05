@@ -4,6 +4,8 @@ date: 2023-05-30
 slug: 'tldr-in-tech-issue-79'
 issue: 79
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-79'
+heroImage: '/images/newsletter/tldr-in-tech-issue-79/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 79, leading with Ordering Numbers, How Hard Can It Be?, with the issue number circled in pink crayon'
 ---
 
 ## [Ordering Numbers, How Hard Can It Be?](https://orlp.net/blog/ordering-numbers/)

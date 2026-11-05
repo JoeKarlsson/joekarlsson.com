@@ -4,6 +4,8 @@ date: 2023-06-20
 slug: 'tldr-in-tech-issue-82'
 issue: 82
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-82'
+heroImage: '/images/newsletter/tldr-in-tech-issue-82/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 82, leading with ChatGPT Plugins: Build Your Own In Python!, with the issue number circled in pink crayon'
 ---
 
 ## [ChatGPT Plugins: Build Your Own In Python!](https://www.youtube.com/watch?v=hpePPqKxNq8)

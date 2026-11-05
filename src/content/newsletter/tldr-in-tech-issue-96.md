@@ -4,6 +4,8 @@ date: 2023-10-10
 slug: 'tldr-in-tech-issue-96'
 issue: 96
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-96'
+heroImage: '/images/newsletter/tldr-in-tech-issue-96/card.webp'
+heroAlt: "Works on My Machine card for TL;DR in Tech issue 96, leading with Promoted From Dev To Team Lead: 8 Things They Didn't Tell Me, with the issue number circled in pink crayon"
 ---
 
 ## [Promoted From Dev To Team Lead: 8 Things They Didn't Tell Me](https://devinterrupted.substack.com/p/promoted-from-dev-to-team-lead-8)

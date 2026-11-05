@@ -4,6 +4,8 @@ date: 2022-02-15
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-02-15'
 issue: 12
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-02-15'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-02-15/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 12, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr:](https://copyconstruct.medium.com/know-how-your-org-works-or-how-to-become-a-more-effective-engineer-1a3287d1f58d)** [Knowing how your org works can be:](https://copyconstruct.medium.com/know-how-your-org-works-or-how-to-become-a-more-effective-engineer-1a3287d1f58d)

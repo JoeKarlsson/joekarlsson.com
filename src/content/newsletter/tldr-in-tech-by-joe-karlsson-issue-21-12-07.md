@@ -4,6 +4,8 @@ date: 2021-12-07
 slug: 'tldr-in-tech-by-joe-karlsson-issue-21-12-07'
 issue: 3
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-21-12-07'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-21-12-07/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 3, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: I recently joined Liesse Jones from the DevOps State of Mind podcast to talk about an often overlooked facet of DevOps, data and databases. Be sure to check out if you want to hear my best practices for how to transform how you deploy your databases.](https://www.logdna.com/blog/devops-state-of-mind-podcast-episode-3-devrel-and-devops-two-peas-in-a-pod)

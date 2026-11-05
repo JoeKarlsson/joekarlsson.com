@@ -4,6 +4,8 @@ date: 2022-11-01
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-11-01'
 issue: 60
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-11-01'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-11-01/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 60, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: "Your language isn't broken, it's doing floating point math. Computers can only natively store integers, so they need some way of representing decimal numbers. This representation is not perfectly accurate. This is why, more often than not, 0.1 + 0.2 != 0.3."](https://0.30000000000000004.com/)

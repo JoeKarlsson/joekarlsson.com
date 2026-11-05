@@ -4,6 +4,8 @@ date: 2024-01-16
 slug: 'tldr-in-tech-issue-104'
 issue: 104
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-104'
+heroImage: '/images/newsletter/tldr-in-tech-issue-104/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 104, leading with Accidentally Load Bearing, with the issue number circled in pink crayon'
 ---
 
 ## [Accidentally Load Bearing](https://www.jefftk.com/p/accidentally-load-bearing)

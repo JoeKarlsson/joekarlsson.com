@@ -4,6 +4,8 @@ date: 2023-08-01
 slug: 'tldr-in-tech-issue-88'
 issue: 88
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-88'
+heroImage: '/images/newsletter/tldr-in-tech-issue-88/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 88, leading with The Ultimate Guide To Software Architecture Documentation, with the issue number circled in pink crayon'
 ---
 
 ## [The Ultimate Guide To Software Architecture Documentation](https://www.workingsoftware.dev/software-architecture-documentation-the-ultimate-guide/)

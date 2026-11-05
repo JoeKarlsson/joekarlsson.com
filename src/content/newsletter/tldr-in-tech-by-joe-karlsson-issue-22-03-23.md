@@ -4,6 +4,8 @@ date: 2022-03-23
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-03-23'
 issue: 15
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-03-23'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-03-23/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 15, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr:](https://quuxplusone.github.io/blog/2022/01/06/memcached-interview/)** ["It's been a while since I was on the receiving end of a software engineering interview. But I still remember my favorite interview question. It was at \[SingleStore\] circa 2013... Since \[SingleStore is\] a database company, this is a database challenge."](https://quuxplusone.github.io/blog/2022/01/06/memcached-interview/)

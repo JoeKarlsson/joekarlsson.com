@@ -5,6 +5,8 @@ slug: 'tldr-in-tech-issue-67'
 description: 'By: Joe Karlsson'
 issue: 67
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-67'
+heroImage: '/images/newsletter/tldr-in-tech-issue-67/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 67, leading with AI Commits, with the issue number circled in pink crayon'
 ---
 
 This week, I wanted to talk a little bit about the things that I think are commonly skipped, because they didn't have time to cover in dev boot camp. Because let's be real, they were too busy teaching you how to make a to-do list app to teach you the important stuff. But don't worry, we've got your back. Think of us as your boot camp BFF (Bootcamp Best Friend Forever). These are are some:

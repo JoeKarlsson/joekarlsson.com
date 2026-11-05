@@ -4,6 +4,8 @@ date: 2023-07-11
 slug: 'tldr-in-tech-issue-85'
 issue: 85
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-85'
+heroImage: '/images/newsletter/tldr-in-tech-issue-85/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 85, leading with Three-Bucket Framework For Engineering Metrics, with the issue number circled in pink crayon'
 ---
 
 ## [Three-Bucket Framework For Engineering Metrics](https://newsletter.getdx.com/p/choosing-engineering-metrics)

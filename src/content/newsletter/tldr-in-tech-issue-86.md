@@ -4,6 +4,8 @@ date: 2023-07-18
 slug: 'tldr-in-tech-issue-86'
 issue: 86
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-86'
+heroImage: '/images/newsletter/tldr-in-tech-issue-86/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 86, leading with Simple Explanations For Complex Phenomena, with the issue number circled in pink crayon'
 ---
 
 ## [Simple Explanations For Complex Phenomena](https://hagakure.substack.com/p/twh50-simple-explanations-for-complex)

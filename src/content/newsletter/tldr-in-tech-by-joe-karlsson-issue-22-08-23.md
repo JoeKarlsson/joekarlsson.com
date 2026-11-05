@@ -4,6 +4,8 @@ date: 2022-08-23
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-08-23'
 issue: 44
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-08-23'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-08-23/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 44, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 In dumb personal news - I posted a video of me singing a song about corn in my car over the weekend on TikTok and it got 1.2 MILLION views. 

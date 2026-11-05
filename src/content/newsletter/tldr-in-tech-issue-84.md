@@ -4,6 +4,8 @@ date: 2023-07-04
 slug: 'tldr-in-tech-issue-84'
 issue: 84
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-84'
+heroImage: '/images/newsletter/tldr-in-tech-issue-84/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 84, leading with Recognition And Rewards At Work, with the issue number circled in pink crayon'
 ---
 
 ## [Recognition And Rewards At Work](https://larahogan.me/blog/what-you-recognize-and-reward/#brainstorm-your-recognition-options-list)

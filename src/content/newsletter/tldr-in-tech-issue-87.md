@@ -4,6 +4,8 @@ date: 2023-07-25
 slug: 'tldr-in-tech-issue-87'
 issue: 87
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-87'
+heroImage: '/images/newsletter/tldr-in-tech-issue-87/card.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 87, leading with Architects, Anti-Patterns, and Organizational Fuckery, with the issue number circled in pink crayon'
 ---
 
 ## [Architects, Anti-Patterns, and Organizational Fuckery](https://charity.wtf/2023/03/09/architects-anti-patterns-and-organizational-fuckery/)
