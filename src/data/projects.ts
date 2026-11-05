@@ -307,20 +307,6 @@ export const projects: Project[] = [
 			embedUrl: 'https://linger.joekarlsson.com/poem.html',
 			embedHeading: 'Read it',
 			embedNote: 'Scroll inside the poem, slowly.',
-			steps: [
-				{
-					title: 'Skim',
-					text: 'Scroll faster than about 700 pixels a second and you get the skeleton, a few words with blanks where the rest should be. Skim hard enough and the page whispers "slower."',
-				},
-				{
-					title: 'Pause',
-					text: 'Hold still on a line for about a second and some of the blanks fill in. Those are the words marked `^` in `poems.js`.',
-				},
-				{
-					title: 'Linger',
-					text: 'Stay with a line for about four seconds and it completes. The words marked `~` only come for readers who stay.',
-				},
-			],
 		},
 	},
 	{
@@ -328,8 +314,10 @@ export const projects: Project[] = [
 		shareTitle: 'Punc: What a book looks like with only its punctuation',
 		description:
 			'Punc takes the words out of a book and leaves the punctuation where it was. Pick one off the shelf or bring your own.',
-		image: '/images/projects/punc.webp',
-		imageAlt: 'Punc punctuation visualization',
+		image: '/images/projects/punc-poster.webp',
+		video: '/images/projects/punc.mp4',
+		imageAlt:
+			"Punc's site: the shelf of books shown as punctuation, then Alice's Adventures in Wonderland with 26,777 words removed and 8,076 marks left, and the book's punctuation laid out in reading order",
 		category: 'art',
 		date: '2016-02',
 		tech: ['TypeScript', 'NLP', 'PDF Generation'],
@@ -349,14 +337,6 @@ export const projects: Project[] = [
 			embedUrl: 'https://joekarlsson.github.io/punc/',
 			embedHeading: 'Read it',
 			embedNote: 'Pick a book off the shelf, or bring your own.',
-			screenshots: [
-				{
-					poster: '/images/projects/punc-alice-page-one.webp',
-					alt: "Page one of Punc's PDF for chapter one of Alice's Adventures in Wonderland: a white page with only scattered commas, dashes, parentheses, quote marks, a question mark and exclamation points left where the words used to be",
-					caption: "Chapter one of Alice's Adventures in Wonderland, page one",
-				},
-			],
-			screenshotsTitle: 'Alice, without words',
 		},
 	},
 	{
@@ -395,8 +375,7 @@ export const projects: Project[] = [
 	{
 		title: 'Bechdel.io',
 		shareTitle: 'Bechdel.io: Checking movie scripts against the Bechdel Test',
-		description:
-			'Does your favorite film pass the Bechdel Test? Uses NLP to parse movie scripts and analyze gender representation in dialogue. Includes a custom scraper to pull scripts from IMSDB by genre or title. Featured in multiple publications and conference talks.',
+		description: 'Does your favorite movie pass the Bechdel Test? Made with my sister Laurel.',
 		image: '/images/projects/bechdel-io-poster.webp',
 		video: '/images/projects/bechdel-io.mp4',
 		imageAlt:
