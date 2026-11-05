@@ -91,7 +91,7 @@ const inline = (text: string) =>
 					{project.video ? (
 						<video
 							src={project.video}
-							data-halftone-poster={project.image}
+							poster={project.image}
 							loop
 							muted
 							playsinline
@@ -270,7 +270,7 @@ const inline = (text: string) =>
 									{clip.video ? (
 										<video
 											src={clip.video}
-											data-halftone-poster={clip.poster}
+											poster={clip.poster}
 											loop
 											muted
 											playsinline

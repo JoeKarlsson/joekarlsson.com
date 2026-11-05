@@ -19,9 +19,10 @@
 //
 // The canvas is the element's next sibling, placed over it by offsetLeft/Top, so
 // any layout works. While <html> has .halftone-on (set by an inline script in
-// BaseHead), CSS hides img[data-halftone] so the color original never flashes.
-// A video's still is data-halftone-poster, drawn before the clip plays (and
-// always, under reduced motion). With no WebGL the originals show in color.
+// BaseHead), CSS hides the originals (opacity 0) so the color never flashes.
+// A video's still is its poster, drawn before the clip plays (and
+// always, under reduced motion). With no WebGL, or only a software one, the
+// originals show in color.
 
 const CELL_CSS_PX = 3;
 const INK = [1, 0x4f / 255, 0xd8 / 255]; // #ff4fd8
@@ -116,10 +117,22 @@ function compile(gl: WebGLRenderingContext, type: number, source: string): WebGL
 	return shader;
 }
 
+const SOFTWARE_RENDERER = /swiftshader|llvmpipe|softpipe|software/i;
+
 function createRenderer(): Draw | null {
 	const glCanvas = document.createElement('canvas');
-	const gl = glCanvas.getContext('webgl', { antialias: false, alpha: false });
+	// No software WebGL: there a dots frame takes ~100ms, so clips starved the page
+	// (its load event never fired on a GPU-less CI runner). Those visitors get the originals.
+	const gl = glCanvas.getContext('webgl', {
+		antialias: false,
+		alpha: false,
+		failIfMajorPerformanceCaveat: true,
+	});
 	if (!gl) return null;
+	// Chrome doesn't count SwiftShader under ANGLE as a performance caveat, so check its name
+	const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+	const renderer = debugInfo ? String(gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)) : '';
+	if (SOFTWARE_RENDERER.test(renderer)) return null;
 
 	const program = gl.createProgram()!;
 	gl.attachShader(program, compile(gl, gl.VERTEX_SHADER, VERTEX_SHADER));
@@ -242,7 +255,7 @@ function attach(element: Source, draw: Draw): void {
 	const still =
 		element instanceof HTMLImageElement
 			? element
-			: Object.assign(new Image(), { src: element.dataset.halftonePoster ?? '' });
+			: Object.assign(new Image(), { src: element.poster });
 	let stillReady = false;
 
 	const fit = (): boolean => {
@@ -274,6 +287,10 @@ function attach(element: Source, draw: Draw): void {
 		if (hasFrame) draw(video, canvas, look);
 		else if (stillReady) draw(still, canvas, look);
 	};
+
+	// Place the canvas now: left where it lands in the flow until the still loads,
+	// it jumped into place later, a layout shift
+	fit();
 
 	// Not img.decode(): a lazy image starting to load cancels a pending decode
 	const onStill = () => {
@@ -307,12 +324,9 @@ function attach(element: Source, draw: Draw): void {
 	}
 }
 
-/** Shows the color originals, and gives clips their still back. */
+/** Shows the color originals. */
 function showOriginals(): void {
 	document.documentElement.classList.remove('halftone-on');
-	document
-		.querySelectorAll<HTMLVideoElement>('video[data-halftone-poster]')
-		.forEach((video) => (video.poster = video.dataset.halftonePoster!));
 }
 
 const elements = document.querySelectorAll<Source>('img[data-halftone], video[data-halftone]');
