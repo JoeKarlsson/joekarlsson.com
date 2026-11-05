@@ -59,11 +59,18 @@ const {
 		/>
 	</head>
 	<body class="flex min-h-screen flex-col">
+		<!-- Hidden until a keyboard user tabs to it: jumps past the hero and nav -->
+		<a
+			href="#main"
+			class="sr-only z-50 rounded-md bg-pink px-4 py-2 font-semibold text-ink no-underline focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+		>
+			Skip to content
+		</a>
 		<!-- A page's opening hero, set above the nav, as on the homepage -->
 		<slot name="hero" />
 		<Header />
 		<!-- pb leaves room for the footer's coil to rise into without crossing text -->
-		<main class="flex-1 pb-28">
+		<main id="main" tabindex="-1" class="flex-1 pb-28 focus:outline-none">
 			<slot />
 		</main>
 		<Footer />

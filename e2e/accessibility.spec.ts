@@ -75,25 +75,15 @@ test.describe('Keyboard Navigation', () => {
 	test('skip link works', async ({ page }) => {
 		await page.goto('/');
 
-		// First tab should reveal skip link (if exists)
+		// The first Tab lands on the skip link, which shows itself
 		await page.keyboard.press('Tab');
+		const skipLink = page.getByRole('link', { name: 'Skip to content' });
+		await expect(skipLink).toBeFocused();
+		await expect(skipLink).toBeInViewport();
 
-		const skipLink = page.locator('a[href="#main"], a[href="#content"], .skip-link');
-
-		if ((await skipLink.count()) > 0) {
-			await expect(skipLink.first()).toBeFocused();
-
-			// Pressing enter should skip to main content
-			await page.keyboard.press('Enter');
-
-			// Focus should now be in main content area
-			const focusedElement = page.locator(':focus');
-			const isInMain =
-				(await focusedElement.evaluate((el) => el.closest('main') !== null)) ||
-				(await focusedElement.getAttribute('id')) === 'main';
-
-			expect(isInMain).toBeTruthy();
-		}
+		// Enter moves focus past the hero and nav, into main
+		await page.keyboard.press('Enter');
+		await expect(page.locator('main#main')).toBeFocused();
 	});
 
 	test('interactive elements are keyboard accessible', async ({ page }) => {
