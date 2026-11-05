@@ -26,6 +26,11 @@ const clipClass = square
 	? 'w-full rounded-lg bg-black object-contain'
 	: 'aspect-video w-full rounded-lg bg-black object-cover';
 
+// The live version gets the button when there is one; GitHub falls back to a link
+const PRIMARY_BUTTON =
+	'inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-white';
+const SECONDARY_LINK = 'text-coral underline underline-offset-4 hover:text-white';
+
 // Page copy is plain text with `backticks` for inline code - escape first so
 // nothing in projects.ts can inject markup.
 const inline = (text: string) =>
@@ -80,29 +85,29 @@ const inline = (text: string) =>
 		)}
 
 		<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-			{project.sourceUrl && (
-				<a
-					href={project.sourceUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-white"
-				>
-					View on GitHub &rarr;
-				</a>
-			)}
-			{project.blogUrl && (
-				<a href={project.blogUrl} class="text-coral underline underline-offset-4 hover:text-white">
-					Read why I built it
-				</a>
-			)}
 			{project.demoUrl && (
 				<a
 					href={project.demoUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-coral underline underline-offset-4 hover:text-white"
+					class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
 				>
-					Demo &rarr;
+					See it live &rarr;
+				</a>
+			)}
+			{project.sourceUrl && (
+				<a
+					href={project.sourceUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? SECONDARY_LINK : PRIMARY_BUTTON}`}
+				>
+					View on GitHub &rarr;
+				</a>
+			)}
+			{project.blogUrl && (
+				<a href={project.blogUrl} class={SECONDARY_LINK}>
+					Read why I built it
 				</a>
 			)}
 		</div>
@@ -137,10 +142,10 @@ const inline = (text: string) =>
 		{page.embedUrl && (
 			<section class="mb-10" aria-labelledby="play-it">
 				<h2 id="play-it" class="mb-2 text-3xl font-extrabold text-white">
-					Play it
+					{page.embedHeading ?? 'Play it'}
 				</h2>
 				<p class="mb-4 text-sm text-gray-400">
-					Click the game to play.{' '}
+					{page.embedNote ?? 'Click the game to play.'}{' '}
 					<a
 						href={page.embedUrl}
 						target="_blank"
@@ -265,21 +270,30 @@ const inline = (text: string) =>
 			</section>
 		)}
 
-		{project.sourceUrl && (
+		{(project.demoUrl || project.sourceUrl) && (
 			<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-				<a
-					href={project.sourceUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="plausible-event-name=Project+Source+Click inline-block rounded-md bg-coral px-4 py-2 font-medium text-surface-0 no-underline hover:bg-white"
-				>
-					Get the code on GitHub &rarr;
-				</a>
-				{project.blogUrl && (
+				{project.demoUrl && (
 					<a
-						href={project.blogUrl}
-						class="text-coral underline underline-offset-4 hover:text-white"
+						href={project.demoUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
 					>
+						See it live &rarr;
+					</a>
+				)}
+				{project.sourceUrl && (
+					<a
+						href={project.sourceUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? SECONDARY_LINK : PRIMARY_BUTTON}`}
+					>
+						Get the code on GitHub &rarr;
+					</a>
+				)}
+				{project.blogUrl && (
+					<a href={project.blogUrl} class={SECONDARY_LINK}>
 						Read why I built it
 					</a>
 				)}

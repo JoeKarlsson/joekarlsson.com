@@ -17,6 +17,9 @@ export interface ProjectPage {
 	// (src/scripts/scale-to-fit-embed.ts). Its origin must be in the CSP frame-src
 	// (Caddyfile and the OpenTofu provision template)
 	embedUrl?: string;
+	// Defaults to "Play it" and "Click the game to play."
+	embedHeading?: string;
+	embedNote?: string;
 	// A narrated video with sound, under the intro. Portrait (9:16) phone video
 	tour?: { video: string; poster: string; captions: string; alt: string };
 	steps?: { title: string; text: string }[];
@@ -265,6 +268,9 @@ export const projects: Project[] = [
 				'Everybody who grew up with a DVD player has watched that logo drift around the screen, waiting for it to land exactly in the corner. It almost never does. This one does, every time, and the screen celebrates when it happens.',
 				'Click anywhere to add another logo. Press `S` for sound and `F` for full screen, then leave it running on a TV.',
 			],
+			embedUrl: 'https://joekarlsson.github.io/nothing-but-corners/',
+			embedHeading: 'Watch it',
+			embedNote: 'Click inside to add another logo.',
 			steps: [
 				{
 					title: 'Unfold the screen',
@@ -303,6 +309,9 @@ export const projects: Project[] = [
 				"They're about the stretches of time most days try to get rid of. Sitting in the driveway before going inside. A snow day. A power outage. Four hundred miles of the same field. A Sunday with nothing in it.",
 				'The page measures one thing, how fast it is scrolling. Nothing is stored, sent or counted. There are no cookies, no analytics and no share button.',
 			],
+			embedUrl: 'https://linger.joekarlsson.com/poem.html',
+			embedHeading: 'Read it',
+			embedNote: 'Scroll inside the poem, slowly.',
 			steps: [
 				{
 					title: 'Skim',
