@@ -35,9 +35,12 @@ const ECHO_TITLE = 'Works on my machine';
 		class="right-[6%] bottom-[150px] hidden size-[150px] md:block"
 	/>
 	<NewsletterCTA />
+	<!-- Always one row: the links take about 33em, so the type shrinks with the
+	viewport down to 15px, and below that (phones) the row scrolls sideways like the
+	header nav -->
 	<nav
 		aria-label="Footer"
-		class="mt-10 flex flex-wrap gap-x-[22px] gap-y-2 font-display text-[22px] uppercase"
+		class="mt-10 flex gap-x-[1em] overflow-x-auto font-display text-[clamp(15px,calc((100vw-64px)/33),22px)] whitespace-nowrap uppercase [scrollbar-width:none]"
 	>
 		{FOOTER_LINKS.map(({ href, label }) => (
 			<a href={href} class="text-ink no-underline hover:underline hover:decoration-[3px]">

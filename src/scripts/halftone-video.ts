@@ -8,11 +8,12 @@
 // until then (and always, under reduced motion, when nothing plays). With no
 // WebGL the clip plays in color.
 //
-// Matches scripts/media/halftone.py: dots on a 45-degree grid sized by
-// brightness, contrast 1.15, laid at 65% over a soft pink duotone.
+// Follows scripts/media/halftone.py (dots on a 45-degree grid sized by
+// brightness, contrast 1.15, over a soft pink duotone), but finer, with more of
+// the duotone and a lift for dark footage, so screen recordings stay readable.
 
 // Dot spacing in CSS pixels, unless the video sets data-halftone="6"
-const DEFAULT_CELL_CSS_PX = 4;
+const DEFAULT_CELL_CSS_PX = 3;
 const INK = [1, 0x4f / 255, 0xd8 / 255]; // #ff4fd8
 
 const VERTEX_SHADER = `
@@ -28,7 +29,9 @@ uniform float cell;        // dot spacing, device pixels
 uniform vec3 ink;
 
 const float CONTRAST = 1.15;
-const float DOTS_OVER_DUOTONE = 0.65;
+const float DOTS_OVER_DUOTONE = 0.5;
+// Lifts dark screen recordings (most project clips) so their UI reads through the dots
+const float GAMMA = 0.7;
 const mat2 ROTATE = mat2(0.70710678, 0.70710678, -0.70710678, 0.70710678);
 
 // Grid space back to pixels. GLSL ES 1.0 has no transpose(), and a rotation's
@@ -37,9 +40,8 @@ vec2 unrotate(vec2 p) { return vec2(dot(p, ROTATE[0]), dot(p, ROTATE[1])); }
 
 float brightness(vec2 pixel) {
 	vec2 uv = (pixel / canvasSize - 0.5) * coverScale + 0.5;
-	uv.y = 1.0 - uv.y;
 	vec3 rgb = texture2D(video, clamp(uv, 0.0, 1.0)).rgb;
-	float luma = dot(rgb, vec3(0.299, 0.587, 0.114));
+	float luma = pow(dot(rgb, vec3(0.299, 0.587, 0.114)), GAMMA);
 	return clamp((luma - 0.5) * CONTRAST + 0.5, 0.0, 1.0);
 }
 
