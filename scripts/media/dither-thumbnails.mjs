@@ -1,59 +1,66 @@
-// Makes the dithered version of every post hero image (and the default hero): a
-// pink halftone WebP next to the original, named by halftoneThumbnail() in
-// src/utils/thumbnails.ts. One file serves the homepage thumbnail and the hero at
-// the top of the post. Skips files newer than their source.
+// Makes the dithered versions of every post hero image (and the default hero) and
+// every project image: pink halftone WebPs next to the original, named by
+// halftoneHero() and halftoneThumbnail() in src/utils/thumbnails.ts. Each image gets
+// two sizes so the dots stay big and visible where it's shown. Skips files newer
+// than their source.
 //
 // Usage: npm run media:thumbnails
 import { execFile } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
+import { projects } from '../../src/data/projects.ts';
 
 const run = promisify(execFile);
 const CONTENT_DIRS = ['src/content/blog', 'src/content/newsletter'];
 const DEFAULT_HERO = '/images/og-default.webp'; // DEFAULT_HERO_IMAGE in src/consts.ts
-// Working width; the halftone comes out twice this (1120px), sharp for a post's
-// hero at reading width on a retina screen
-const WIDTH = 560;
-// Finer than the video's 3, over a soft duotone: coarse dots alone turn diagrams
-// and screenshots to mush
-const CELL = 1.5;
 const PARALLEL = 8;
 
-const halftoneThumbnail = (image) => image.replace(/\.[a-z0-9]+$/i, '-halftone.webp');
+// width: working width (the file comes out twice this). cell: dot spacing in
+// working pixels. Both aim for dots about 4 CSS pixels apart where the image is
+// shown: the hero around 700px wide, the list thumbnail around 280px.
+const SIZES = [
+	{ suffix: '-halftone.webp', width: 560, cell: 3.5 },
+	{ suffix: '-halftone-thumb.webp', width: 280, cell: 4 },
+];
 
-function heroImages() {
-	const heroes = new Set([DEFAULT_HERO]);
+const halftoneName = (image, suffix) => image.replace(/\.[a-z0-9]+$/i, suffix);
+
+function sourceImages() {
+	const images = new Set([DEFAULT_HERO, ...projects.map((p) => p.image)]);
 	for (const dir of CONTENT_DIRS) {
 		for (const file of readdirSync(dir).filter((f) => /\.mdx?$/.test(f))) {
 			const match = readFileSync(join(dir, file), 'utf8').match(
 				/^heroImage:\s*['"]?([^'"\n]+)['"]?\s*$/m,
 			);
-			if (match && match[1].startsWith('/')) heroes.add(match[1].trim());
+			if (match && match[1].startsWith('/')) images.add(match[1].trim());
 		}
 	}
-	return [...heroes];
+	return [...images];
 }
 
-const todo = heroImages().filter((hero) => {
-	const source = join('public', hero);
-	const thumbnail = join('public', halftoneThumbnail(hero));
-	if (!existsSync(source)) throw new Error(`Hero image ${hero} is missing from public/`);
-	return !existsSync(thumbnail) || statSync(thumbnail).mtimeMs < statSync(source).mtimeMs;
+const todo = sourceImages().flatMap((image) => {
+	const source = join('public', image);
+	if (!existsSync(source)) throw new Error(`Image ${image} is missing from public/`);
+	return SIZES.map((size) => ({
+		source,
+		out: join('public', halftoneName(image, size.suffix)),
+		size,
+	})).filter(({ out }) => !existsSync(out) || statSync(out).mtimeMs < statSync(source).mtimeMs);
 });
 
 let done = 0;
 async function worker() {
 	while (todo.length) {
-		const hero = todo.pop();
+		const { source, out, size } = todo.pop();
 		await run('python3', [
 			'scripts/media/halftone.py',
-			join('public', hero),
-			join('public', halftoneThumbnail(hero)),
+			source,
+			out,
 			'--width',
-			String(WIDTH),
+			String(size.width),
 			'--cell',
-			String(CELL),
+			String(size.cell),
 			'--invert-light',
 			'--duotone',
 		]);
@@ -61,4 +68,4 @@ async function worker() {
 	}
 }
 await Promise.all(Array.from({ length: PARALLEL }, worker));
-console.log(`Dithered ${done} thumbnail(s).`);
+console.log(`Dithered ${done} image(s).`);

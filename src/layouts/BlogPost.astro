@@ -8,7 +8,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
 import { CHALK, MARKS } from '../data/scribbles';
-import { halftoneThumbnail } from '../utils/thumbnails';
+import { halftoneHero } from '../utils/thumbnails';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -215,7 +215,7 @@ const formatShortDate = (d: Date) =>
 						<div class="relative mb-10">
 							{/* The pink halftone (npm run media:thumbnails); og:image stays the original */}
 							<img
-								src={halftoneThumbnail(heroImage)}
+								src={halftoneHero(heroImage)}
 								alt={heroAlt || title}
 								class="block w-full max-h-[440px] rounded-xl object-cover"
 								width="1120"
