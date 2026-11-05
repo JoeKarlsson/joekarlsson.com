@@ -71,10 +71,12 @@ const COLLAGE = [
 	schemaType="WebSite"
 >
 	<div slot="hero" class="grid gap-4 p-4 md:grid-cols-2">
-		<!-- At least square; grows with a taller text panel so the video never stops short -->
-		<div class="relative overflow-hidden rounded-xl before:block before:aspect-square before:content-['']">
+		<!-- Phones: a 16:9 banner zoomed in on Joe's face (each clip centers it in the top
+		third). Side by side: at least square, growing with a taller text panel so the
+		video never stops short. -->
+		<div class="relative aspect-video overflow-hidden rounded-xl md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
 			<video
-				class="absolute inset-0 size-full object-cover"
+				class="absolute inset-0 size-full scale-[1.4] object-cover object-[50%_11%] md:scale-100 md:object-center"
 				src="/images/home/montage.mp4"
 				poster="/images/home/montage-poster.webp"
 				data-autoplay-in-view
