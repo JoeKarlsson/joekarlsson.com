@@ -15,6 +15,7 @@ import PosterHero from '../components/PosterHero.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import NowFeed from '../components/NowFeed.astro';
 import HoverBox from '../components/HoverBox.astro';
+import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -26,103 +27,91 @@ const aboutHeadings = [
 	{ slug: 'what-i-do', text: 'What I do' },
 	{ slug: 'career', text: 'Career' },
 	{ slug: 'how-i-got-here', text: 'How I got here' },
-	{ slug: 'talks', text: 'Talks' },
-	{ slug: 'podcasts', text: 'Podcasts' },
+	{ slug: 'as-seen-on', text: 'As seen on' },
+	{ slug: 'videos', text: 'Videos' },
 	{ slug: 'interests', text: 'Outside of work' },
 	{ slug: 'now', text: 'Right now' },
-	{ slug: 'crop-art', text: 'Crop art' },
+	{ slug: 'art', text: 'Art' },
 	{ slug: 'elsewhere', text: 'Elsewhere' },
 ];
 
-// Four kinds of work, each with a picture and links to the real thing
+// What I do, building first: that's where the technical credibility comes from
 const whatIDo = [
 	{
-		title: 'Developer marketing',
-		image: '/images/blog/running-devrel-2026/hero.webp',
-		alt: 'Hero illustration for Running DevRel in 2026',
-		text: 'At CData I run docs, content, SEO and positioning for the MCP platform. Before that I built the DevRel program at CloudQuery from scratch, and spent six years as a developer advocate at MongoDB, SingleStore and Tinybird.',
-		links: [
-			{ href: '/blog/running-devrel-2026/', label: 'Running DevRel in 2026' },
-			{ href: '/blog/devrel-as-dev-zero/', label: 'DevRel as Dev Zero' },
-		],
+		title: 'Build',
+		href: '/work/',
+		image: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp',
+		alt: 'Connect AI × DOOM running beside its live data panel',
+		text: `Software and hardware side projects, from an MCP server inside DOOM to the ${nowFeed.homelab.runningContainers}-container homelab this site runs on.`,
 	},
 	{
-		title: 'Talks',
-		image: '/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp',
-		alt: 'Joe Karlsson giving The Art of Computer Science',
-		text: 'I spent years on the conference circuit: a TEDx talk, keynotes, ConFoo in Montreal, the Kansas City Developer Conference, and guest spots on Hanselminutes and Screaming in the Cloud. I rarely speak now, but the recordings are below.',
-		links: [
-			{ href: '#talks', label: 'Watch the TEDx talk' },
-			{ href: '/talk-archive/', label: 'Talk archive' },
-		],
-	},
-	{
-		title: 'Writing',
+		title: 'Write',
+		href: '/blog/',
 		image:
 			'/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp',
 		alt: 'Vaporwave style homelab server illustration',
-		text: 'Most people find me through my homelab and Home Assistant posts. I also write about AI tools, developer relations, and why you should ship the ugly pot, plus a newsletter called Works on My Machine.',
-		links: [
-			{
-				href: '/blog/how-to-get-started-building-a-homelab-server-in-2024/',
-				label: 'Start a homelab',
-			},
-			{ href: '/blog/local-voice-ai-home-assistant-gpu/', label: 'Local voice AI' },
-			{ href: '/blog/ship-the-ugly-pot/', label: 'Ship the Ugly Pot' },
-			{ href: '/newsletter/', label: 'Newsletter' },
-		],
+		text: 'Hands-on posts about homelabs, Home Assistant and AI tools, plus the Works on My Machine newsletter.',
 	},
 	{
-		title: 'Building',
-		image: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp',
-		alt: 'Connect AI × DOOM running beside its live data panel',
-		text: `Most of what I learn comes from side projects: an MCP server inside DOOM, a litter box that keeps tabs on my cat, an LED frame that shows what my house is doing, and a ${nowFeed.homelab.runningContainers}-container homelab to run it all.`,
-		links: [
-			{ href: '/work/connect-ai-doom/', label: 'DOOM' },
-			{ href: '/work/pixelpane/', label: 'PixelPane' },
-			{ href: '/blog/an-introduction-to-iot-internet-of-toilets/', label: 'The litter box' },
-			{ href: '/work/', label: 'All projects' },
-		],
+		title: 'Make videos',
+		href: SOCIAL_LINKS.youtube,
+		image: '/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp',
+		alt: 'Title card for The Art of Computer Science',
+		text: 'Tutorials, demos and a TEDx talk. I used to give a lot of conference talks, too.',
+	},
+	{
+		title: 'Developer marketing',
+		href: '/blog/running-devrel-2026/',
+		image: '/images/blog/running-devrel-2026/hero.webp',
+		alt: 'Hands typing on a laptop',
+		text: 'Strategy for how developers find and trust a product. Right now that is the MCP platform at CData.',
 	},
 ];
 
-// Short, specific, true
-const oddFacts = [
+// Life outside work, one picture and one line each
+const outsideOfWork = [
 	{
-		text: 'I enter crop art, pictures made of seeds, at the Minnesota State Fair.',
-		href: '#crop-art',
-	},
-	{
-		text: 'I built Bechdel.io with my sister. It runs the Bechdel test on movie scripts.',
-		href: '/work/bechdel-io/',
-	},
-	{
-		text: 'Home Assistant has run my house for ten years.',
-		href: '/blog/best-home-assistant-automations/',
-	},
-	{
-		text: "My cat's litter box is on the internet.",
-		href: '/blog/an-introduction-to-iot-internet-of-toilets/',
-	},
-	{ text: 'I ranked my top 50 records.', href: '/blog/my-top-50-records/' },
-	{
-		text: 'A list once named me the #1 developer to follow on TikTok.',
-		href: 'https://unclebigbay.com/10-must-follow-developers-on-tik-tok',
-	},
-	{
-		text: 'I write movie reviews on Letterboxd. The latest are under Right now.',
+		title: 'Movies',
 		href: SOCIAL_LINKS.letterboxd,
+		image: '/images/projects/bechdel-io-poster.webp',
+		alt: 'Bechdel.io showing a grid of movie posters',
+		text: 'I review movies on Letterboxd, and I built Bechdel.io with my sister Laurel.',
+	},
+	{
+		title: 'Music',
+		href: '/blog/my-top-50-records/',
+		image: '/images/blog/my-top-50-records/Joe-Karlssons-top-50-Records-of-all-Time.webp',
+		alt: "Collage of album covers from Joe Karlsson's top 50 records",
+		text: 'I ranked my top 50 records of all time.',
+	},
+	{
+		title: 'Smart home',
+		href: '/blog/best-home-assistant-automations/',
+		image: '/images/blog/best-home-assistant-automations/hero.webp',
+		alt: 'Home Assistant automations',
+		text: 'Home Assistant has run my house for ten years.',
+	},
+	{
+		title: 'My cat',
+		href: '/blog/an-introduction-to-iot-internet-of-toilets/',
+		image: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp',
+		alt: 'IoT litter box project with Raspberry Pi and sensors',
+		text: 'My cat has a litter box on the internet.',
 	},
 ];
 
+// My main accounts, in the order the contact page ranks them
 const elsewhere = [
-	{ label: 'GitHub', href: SOCIAL_LINKS.github },
-	{ label: 'LinkedIn', href: SOCIAL_LINKS.linkedin },
-	{ label: 'YouTube', href: SOCIAL_LINKS.youtube },
-	{ label: 'Bluesky', href: SOCIAL_LINKS.bluesky },
-	{ label: 'Letterboxd', href: SOCIAL_LINKS.letterboxd },
-	{ label: 'Last.fm', href: SOCIAL_LINKS.lastfm },
+	{ label: 'LinkedIn', meta: 'Work', href: SOCIAL_LINKS.linkedin },
+	{ label: 'Bluesky', meta: '@joekarlsson.com', href: SOCIAL_LINKS.bluesky },
+	{ label: 'GitHub', meta: 'Code', href: SOCIAL_LINKS.github },
+	{ label: 'YouTube', meta: 'Videos', href: SOCIAL_LINKS.youtube },
+	{ label: 'Threads', meta: '@joekarlsson', href: SOCIAL_LINKS.threads },
+	{ label: 'Instagram', meta: 'Photos', href: SOCIAL_LINKS.instagram },
 ];
+
+// The mark that spills off each card's corner, cycling so neighbors differ
+const CARD_MARKS = [MARKS.check, MARKS.tally, MARKS.burst, MARKS.asterisk];
 
 const previousCompanies = [
 	{ name: 'CloudQuery', logo: '/images/logos/cloudquery.webp' },
@@ -382,31 +371,37 @@ const cropArtPieces = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
-				<div class="mb-12 grid gap-x-8 gap-y-10 sm:grid-cols-2">
-					{whatIDo.map((area) => (
-						<div class="relative">
-							<img
-								src={area.image}
-								alt={area.alt}
-								data-halftone="flat"
-								class="mb-3 block aspect-video w-full rounded-lg object-cover"
-								width="300"
-								height="169"
-								loading="lazy"
+				<div class="mb-12 grid gap-8 sm:grid-cols-2">
+					{whatIDo.map((area, i) => (
+						<a
+							href={area.href}
+							class="ring-host group relative block no-underline"
+							{...(area.href.startsWith('http')
+								? { target: '_blank', rel: 'noopener noreferrer' }
+								: {})}
+						>
+							<span class="relative block">
+								<img
+									src={area.image}
+									alt={area.alt}
+									data-halftone="flat"
+									class="mb-3 block aspect-video w-full rounded-lg object-cover"
+									width="300"
+									height="169"
+									loading="lazy"
+								/>
+								<HoverBox />
+							</span>
+							<Scribble
+								{...CARD_MARKS[i % CARD_MARKS.length]}
+								color={i % 2 ? '#ff4fd8' : CHALK}
+								duration="9s"
+								delay={`${i * 0.7}s`}
+								class="-top-[7%] -right-[5%] z-10 size-[24%]"
 							/>
-							<h3 class:list={[GROUP_HEADING, 'mb-2']}>{area.title}</h3>
-							<p class="mb-3 text-paper">{area.text}</p>
-							<p class="text-sm">
-								{area.links.map((link, i) => (
-									<>
-										{i > 0 && <span class="text-muted"> · </span>}
-										<a href={link.href} class={TEXT_LINK}>
-											{link.label}
-										</a>
-									</>
-								))}
-							</p>
-						</div>
+							<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>{area.title}</h3>
+							<p class="text-paper">{area.text}</p>
+						</a>
 					))}
 				</div>
 
@@ -453,39 +448,93 @@ const cropArtPieces = [
 				</h2>
 				<div class="prose mb-12 max-w-none!">
 					<p>
-						I switched majors three times in college, from Art History to Physics to Computer
-						Science, and graduated without loving any of them. I hated my first developer job so
-						much that I moved to Hawaii to quit coding.
+						I got a computer science degree and went straight into Microsoft SharePoint consulting
+						during the Ballmer years. I was bad at coding, and SharePoint did not make it more fun.
+						It was a dark time.
 					</p>
 					<p>
-						I came back to it in Honolulu, teaching full-stack JavaScript at DevLeague, and my
-						friend Ray and I ran a hackathon for building useless things.{' '}
-						<a href="/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/">
-							Hawaii Public Radio had us on to explain ourselves
-						</a>
-						. Somewhere in there I figured out that the part I loved was making something odd and
-						then explaining it to people. I've done some version of that ever since: at Best Buy, at
-						database companies, and now in marketing. The TEDx talk below is the long version.
+						I fell back in love with programming in Hawaii. I met a group of developers at the local
+						coding bootcamp who had so much joy building the things they wanted to build, and I
+						realized I was good at programming as long as I was making things I wanted to make. I've
+						been following that ever since.
+					</p>
+					<p>
+						These days I make weird art, I solve problems in my own life and other people's, and I
+						even like the drudgery of maintaining software day in and day out. The rest of this page
+						is what came out of that.
 					</p>
 				</div>
 
-				<h2 id="talks" class={`${SECTION_HEADING} scroll-mt-24`}>
-					Talks
+				<h2 id="as-seen-on" class={`${SECTION_HEADING} scroll-mt-24`}>
+					As seen on
+					<Scribble
+						{...MARKS.double}
+						color={'#ff4fd8'}
+						duration="10s"
+						delay="0.0s"
+						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
+					/>
+				</h2>
+				<ul class="mb-8 grid gap-6 sm:grid-cols-2">
+					{featuredPodcasts.map((podcast) => (
+						<li class="relative flex items-center gap-4">
+							<img
+								src={podcast.image}
+								alt={podcast.alt}
+								data-halftone="flat"
+								class="h-20 w-20 shrink-0 rounded-md object-cover"
+								width="80"
+								height="80"
+								loading="lazy"
+							/>
+							<div>
+								<h3 class={ITEM_TITLE}>
+									{podcast.url ? (
+										<a
+											href={podcast.url}
+											target="_blank"
+											rel="noopener noreferrer"
+											class={TEXT_LINK}
+										>
+											{podcast.name}
+										</a>
+									) : (
+										podcast.name
+									)}
+								</h3>
+								<p class="text-sm text-muted">{podcast.host}</p>
+								<p class="text-sm text-muted">{podcast.episode}</p>
+							</div>
+						</li>
+					))}
+				</ul>
+				<h3 class:list={[GROUP_HEADING, 'mb-3']}>More appearances</h3>
+				<ul class="mb-12 space-y-2">
+					{moreAppearances.map((appearance) => (
+						<li>
+							<a
+								href={appearance.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class={`font-semibold ${TEXT_LINK}`}
+							>
+								{appearance.name}
+							</a>{' '}
+							<span class="text-sm text-muted">{appearance.detail}</span>
+						</li>
+					))}
+				</ul>
+
+				<h2 id="videos" class={`${SECTION_HEADING} scroll-mt-24`}>
+					Videos
 					<Scribble
 						{...MARKS.underline}
 						color={'#ff4fd8'}
-						duration="8s"
-						delay="0.4s"
+						duration="7s"
+						delay="0.6s"
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<p class="mb-6 text-paper">
-					I don't give many talks anymore. These are the ones I'm proudest of, and the{' '}
-					<a href="/talk-archive/" class={TEXT_LINK}>
-						talk archive
-					</a>{' '}
-					has the rest.
-				</p>
 				<div class="mb-12 space-y-8">
 					<div>
 						<h3 class="mb-3 text-lg font-semibold text-paper">
@@ -557,66 +606,6 @@ const cropArtPieces = [
 					</p>
 				</div>
 
-				<h2 id="podcasts" class={`${SECTION_HEADING} scroll-mt-24`}>
-					Podcasts
-					<Scribble
-						{...MARKS.double}
-						color={'#ff4fd8'}
-						duration="8s"
-						delay="0.4s"
-						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
-					/>
-				</h2>
-				<ul class="mb-8 grid gap-6 sm:grid-cols-2">
-					{featuredPodcasts.map((podcast) => (
-						<li class="relative flex items-center gap-4">
-							<img
-								src={podcast.image}
-								alt={podcast.alt}
-								data-halftone="flat"
-								class="h-20 w-20 shrink-0 rounded-md object-cover"
-								width="80"
-								height="80"
-								loading="lazy"
-							/>
-							<div>
-								<h3 class={ITEM_TITLE}>
-									{podcast.url ? (
-										<a
-											href={podcast.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											class={TEXT_LINK}
-										>
-											{podcast.name}
-										</a>
-									) : (
-										podcast.name
-									)}
-								</h3>
-								<p class="text-sm text-muted">{podcast.host}</p>
-								<p class="text-sm text-muted">{podcast.episode}</p>
-							</div>
-						</li>
-					))}
-				</ul>
-				<h3 class:list={[GROUP_HEADING, 'mb-3']}>More appearances</h3>
-				<ul class="mb-12 space-y-2">
-					{moreAppearances.map((appearance) => (
-						<li>
-							<a
-								href={appearance.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class={`font-semibold ${TEXT_LINK}`}
-							>
-								{appearance.name}
-							</a>{' '}
-							<span class="text-sm text-muted">{appearance.detail}</span>
-						</li>
-					))}
-				</ul>
-
 				<h2 id="interests" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Outside of work
 					<Scribble
@@ -627,21 +616,39 @@ const cropArtPieces = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
-				<ul class="mb-12 space-y-3">
-					{oddFacts.map((fact) => (
-						<li class="border-t border-surface-4 pt-3">
-							<a
-								href={fact.href}
-								class="text-lg text-paper no-underline hover:text-pink"
-								{...(fact.href.startsWith('http')
-									? { target: '_blank', rel: 'noopener noreferrer' }
-									: {})}
-							>
-								{fact.text}
-							</a>
-						</li>
+				<div class="mb-12 grid gap-8 sm:grid-cols-2">
+					{outsideOfWork.map((thing, i) => (
+						<a
+							href={thing.href}
+							class="ring-host group relative block no-underline"
+							{...(thing.href.startsWith('http')
+								? { target: '_blank', rel: 'noopener noreferrer' }
+								: {})}
+						>
+							<span class="relative block">
+								<img
+									src={thing.image}
+									alt={thing.alt}
+									data-halftone="flat"
+									class="mb-3 block aspect-video w-full rounded-lg object-cover"
+									width="300"
+									height="169"
+									loading="lazy"
+								/>
+								<HoverBox />
+							</span>
+							<Scribble
+								{...CARD_MARKS[i % CARD_MARKS.length]}
+								color={i % 2 ? '#ff4fd8' : CHALK}
+								duration="9s"
+								delay={`${i * 0.7}s`}
+								class="-top-[7%] -right-[5%] z-10 size-[24%]"
+							/>
+							<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>{thing.title}</h3>
+							<p class="text-paper">{thing.text}</p>
+						</a>
 					))}
-				</ul>
+				</div>
 
 				<h2 id="now" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Right now
@@ -657,8 +664,8 @@ const cropArtPieces = [
 					<NowFeed />
 				</div>
 
-				<h2 id="crop-art" class={`${SECTION_HEADING} scroll-mt-24`}>
-					Crop art
+				<h2 id="art" class={`${SECTION_HEADING} scroll-mt-24`}>
+					Art
 					<Scribble
 						{...MARKS.underline}
 						color={CHALK}
@@ -669,9 +676,9 @@ const cropArtPieces = [
 				</h2>
 				<div class="mb-12">
 					<p class="mb-6 text-paper">
-						I got into crop art in 2025 - making pictures by gluing seeds and grains to cardboard. I
-						had two pieces in the Seeds of Justice exhibit, then entered the Minnesota State Fair
-						Crop Art competition for the first time. Here are some of my pieces:
+						I make art. Lately that's crop art, pictures made by gluing seeds and grains to
+						cardboard. I had two pieces in the Seeds of Justice exhibit in 2025, then entered the
+						Minnesota State Fair Crop Art competition for the first time.
 					</p>
 					<ul class="grid gap-6 sm:grid-cols-3">
 						{cropArtPieces.map((piece) => (
@@ -719,20 +726,11 @@ const cropArtPieces = [
 						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
 					/>
 				</h2>
-				<ul class="mb-12 flex flex-wrap gap-x-6 gap-y-2">
-					{elsewhere.map((profile) => (
-						<li>
-							<a
-								href={profile.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								class={`font-semibold ${TEXT_LINK}`}
-							>
-								{profile.label}
-							</a>
-						</li>
+				<div class="mb-12 grid gap-x-10 md:grid-cols-2">
+					{elsewhere.map(({ label, meta, href }, i) => (
+						<IndexRow href={href} label={label} meta={meta} index={i} external compact />
 					))}
-				</ul>
+				</div>
 
 				<KeepExploring
 					heading="Read this next"
