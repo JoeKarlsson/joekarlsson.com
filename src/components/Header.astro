@@ -26,7 +26,7 @@ function isActive(href: string): boolean {
 			href="/"
 			aria-current={currentPath === '/' ? 'page' : undefined}
 			class:list={[
-				'shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
+				'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
 				currentPath === '/' ? 'bg-pink text-ink' : 'bg-ink text-paper hover:text-pink',
 			]}
 		>
@@ -37,7 +37,7 @@ function isActive(href: string): boolean {
 				href={href}
 				aria-current={isActive(href) ? 'page' : undefined}
 				class:list={[
-					'shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
+					'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
 					isActive(href) ? 'bg-pink text-ink' : 'text-ink hover:bg-ink hover:text-pink',
 				]}
 			>
@@ -51,7 +51,7 @@ function isActive(href: string): boolean {
 			aria-pressed="false"
 			aria-label="Pause motion"
 			title="Pause motion"
-			class="group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink"
+			class="sticker group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink"
 		>
 			<svg
 				viewBox="0 0 16 16"

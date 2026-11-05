@@ -216,6 +216,50 @@
 	}
 }
 
+/* Every self-drawing scribble boils: three wobble frames (#boil-N in BaseLayout),
+   held a beat each, so the marks feel hand-animated even while they hold. Off
+   under reduced motion; the pause button freezes it on one frame. */
+@media (prefers-reduced-motion: no-preference) {
+	.redraw,
+	.redraw-strokes {
+		animation: boil 0.5s steps(1, end) infinite;
+	}
+}
+
+@keyframes boil {
+	0% {
+		filter: url(#boil-1);
+	}
+	33.333% {
+		filter: url(#boil-2);
+	}
+	66.666% {
+		filter: url(#boil-3);
+	}
+}
+
+/* Buttons and nav pills act like stickers: hovered, one peels up at a slight
+   tilt (odd and even ones lean opposite ways); pressed, it squashes flat. A
+   reaction to the visitor, but still off under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+	.sticker {
+		transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	.sticker:hover {
+		transform: translateY(-2px) rotate(-2.5deg);
+	}
+
+	.sticker:nth-child(even):hover {
+		transform: translateY(-2px) rotate(2.5deg);
+	}
+
+	.sticker:active {
+		transform: scale(1.06, 0.88);
+		transition-duration: 0.06s;
+	}
+}
+
 /* A hovered blog row wakes up: its title warbles and its thumbnail's crayon mark
    redraws quickly and holds (the thumbnail itself turns to dots in halftone.ts) */
 @media (prefers-reduced-motion: no-preference) {

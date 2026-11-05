@@ -99,7 +99,7 @@ Phases 0–5 are shipped and live on joekarlsson.com (Phase 5 deployed 2026-11-0
 
 - Static crayon texture.
 - They draw themselves in once and redraw on a slow loop.
-- They are never jittered, wobbled or nudged, and have no drips.
+- They boil gently all the time (three `#boil-N` wobble frames, about 6 a second), and redraw when the mouse comes near (`scribble-notice.ts`). No drips. (Until 2026-11-05 they never wobbled; see the decisions log.)
 - They are not contained, but they never cross running text or links (that hurts reading and fails axe contrast). Marks spill past boxes, section edges and the screen edge, across the video, panels and nav, on every page, not just the homepage. Only the page clips sideways (`overflow-x: clip` on `html, body`); no section or card clips its marks.
 - A mark with several strokes (tallies, rays, hatching, bursts) draws one stroke at a time, like a single pen, and erases in the same order.
 - Kinds of marks, not only coils: hatching, tallies, long lines, underlines, an X, a loose box, a check, an oval around a word, emphasis rays, starbursts, a straight arrow.
@@ -282,6 +282,7 @@ Done when: every page uses the new system, `grep -r coral src` finds nothing, th
 ## Decisions log
 
 - 2026-11-05: Joe asked for links to warble on hover "so it feels alive", reversing the line-boil rejection for hover only: hovered text links and hovered blog rows boil through three `#warble-N` filters (`motion.css`); a hovered blog row also turns its thumbnail to dots and redraws its mark. He wants more playfulness of this kind (scribbles and warble), not more content.
+- 2026-11-05: Joe picked four more from a playfulness list: every scribble boils all the time, buttons and nav pills tilt like stickers on hover and squash when pressed (`.sticker`), a short pink crayon trail follows the mouse (`cursor-trail.ts`), and marks redraw when the mouse comes near (`scribble-notice.ts`). All off under reduced motion. Not picked: click-to-scribble, ransom-note heading tilt, a warped footer wordmark.
 - 2026-11-05: drop the ASCII cursor cat, the Konami dashboard, the Cmd+K command palette and the /uses apt view.
 - 2026-11-05: drop the lens animation (type lab #10). Joe's own Jitter or Rive wordmarks may replace the two phrase animations later.
 - 2026-11-05: interface font is Hanken Grotesk (replacing Inter), with Fraunces for reading and Anton for headlines.

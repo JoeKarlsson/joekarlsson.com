@@ -4,13 +4,13 @@
 export const SECTION_HEADING =
 	'relative mb-6 w-fit font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
 
-/** The solid pink button. */
+/** The solid pink button. `sticker` tilts it on hover and squashes it when pressed (motion.css). */
 export const PRIMARY_BUTTON =
-	'inline-flex items-center gap-2 rounded-md bg-pink px-[18px] py-3 font-semibold text-ink no-underline hover:bg-paper';
+	'sticker inline-flex items-center gap-2 rounded-md bg-pink px-[18px] py-3 font-semibold text-ink no-underline hover:bg-paper';
 
 /** The outlined pink button beside a primary one. */
 export const SECONDARY_BUTTON =
-	'inline-flex items-center gap-2 rounded-md border-2 border-pink px-4 py-2.5 font-semibold text-pink no-underline hover:border-paper hover:text-paper';
+	'sticker inline-flex items-center gap-2 rounded-md border-2 border-pink px-4 py-2.5 font-semibold text-pink no-underline hover:border-paper hover:text-paper';
 
 /** A bold pink "more" link, such as "All 178 posts →". */
 export const MORE_LINK = 'font-semibold text-pink no-underline hover:text-paper';

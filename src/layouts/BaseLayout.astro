@@ -84,6 +84,21 @@ const {
 					<feDisplacementMap in="SourceGraphic" in2="w" scale="4"></feDisplacementMap>
 				</filter>
 			))}
+			<!-- Every self-drawing scribble boils through these (.redraw in motion.css): a
+			slow, wide wobble, so a mark never sits perfectly still, like a line redrawn
+			by hand each frame. A wide region, because marks stroke past their boxes. -->
+			{[1, 2, 3].map((seed) => (
+				<filter id={`boil-${seed}`} x="-25%" y="-25%" width="150%" height="150%">
+					<feTurbulence
+						type="turbulence"
+						baseFrequency="0.02"
+						numOctaves="1"
+						seed={seed * 11}
+						result="w"
+					></feTurbulence>
+					<feDisplacementMap in="SourceGraphic" in2="w" scale="5"></feDisplacementMap>
+				</filter>
+			))}
 			<filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
 				<feTurbulence
 					type="fractalNoise"
@@ -104,15 +119,19 @@ const {
 			</filter>
 		</svg>
 		<script>
+			import { initCursorTrail } from '../scripts/cursor-trail';
 			import '../scripts/halftone';
 			import '../scripts/in-view-play';
 			import { initPauseMotion } from '../scripts/pause-motion';
 			import '../scripts/scale-to-fit-embed';
+			import { initScribbleNotice } from '../scripts/scribble-notice';
 			import '../scripts/track-embed-play';
 
 			document
 				.querySelectorAll<HTMLButtonElement>('button[data-pause-motion]')
 				.forEach(initPauseMotion);
+			initCursorTrail();
+			initScribbleNotice();
 		</script>
 	</body>
 </html>
