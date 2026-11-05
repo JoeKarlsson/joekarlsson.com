@@ -46,7 +46,9 @@ const { title, wordRatio, tickerItems } = Astro.props;
 				delay="3.2s"
 				class="-right-[4%] -bottom-[9%] z-10 h-[16%] w-[22%]"
 			/>
-			<div>
+			<!-- z-10: the huge title's text box reaches above its line (leading 0.84) and
+			would otherwise sit over this slot's buttons and take their clicks -->
+			<div class="relative z-10">
 				<slot />
 			</div>
 			<div class="@container">
