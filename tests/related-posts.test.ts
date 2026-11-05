@@ -29,18 +29,20 @@ const POOL: RelatablePost[] = [
 	},
 ];
 
+const post = (slug: string) => POOL.find((entry) => entry.slug === slug)!;
+
 describe('rankRelatedPosts', () => {
 	it('matches posts on what they are about, not their titles', () => {
-		expect(rankRelatedPosts('voice-assistant', POOL, {}, 2)).toEqual(
+		expect(rankRelatedPosts(post('voice-assistant'), POOL, {}, 2)).toEqual(
 			expect.arrayContaining(['home-assistant-gpu', 'home-assistant-popular']),
 		);
-		expect(rankRelatedPosts('clickhouse', POOL, {}, 1)).toEqual(['postgres']);
+		expect(rankRelatedPosts(post('clickhouse'), POOL, {}, 1)).toEqual(['postgres']);
 	});
 
 	it('breaks near ties toward the post more people read', () => {
-		const quiet = rankRelatedPosts('voice-assistant', POOL, {}, 2);
+		const quiet = rankRelatedPosts(post('voice-assistant'), POOL, {}, 2);
 		const popular = rankRelatedPosts(
-			'voice-assistant',
+			post('voice-assistant'),
 			POOL,
 			{ [`/blog/${quiet[1]}/`]: 16000, [`/blog/${quiet[0]}/`]: 10 },
 			2,
@@ -49,6 +51,17 @@ describe('rankRelatedPosts', () => {
 	});
 
 	it('leaves out posts that share nothing with this one', () => {
-		expect(rankRelatedPosts('clickhouse', POOL, {}, 5)).not.toContain('voice-assistant');
+		expect(rankRelatedPosts(post('clickhouse'), POOL, {}, 5)).not.toContain('voice-assistant');
+	});
+
+	it('ranks something outside the pool, like a newsletter issue, against it', () => {
+		const issue = {
+			slug: 'issue-12',
+			title: 'This week: columnar databases',
+			body: 'Analytical SQL queries over event data, columnar storage at scale.',
+		};
+		expect(rankRelatedPosts(issue, POOL, {}, 2)).toEqual(
+			expect.arrayContaining(['clickhouse', 'postgres']),
+		);
 	});
 });

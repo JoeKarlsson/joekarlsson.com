@@ -6,6 +6,10 @@ import BackLink from '../../components/BackLink.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
+import KeepExploring from '../../components/KeepExploring.astro';
+import popularPosts from '../../data/popular-posts.json';
+import { isOwnPost } from '../../utils/posts';
+import { rankRelatedPosts } from '../../utils/related-posts';
 
 export async function getStaticPaths() {
 	const issues = (await getCollection('newsletter')).sort(
@@ -32,6 +36,21 @@ const { Content, headings } = await render(issue);
 const tocHeadings = headings
 	.filter((h) => h.depth === 2 || h.depth === 3)
 	.map((h) => ({ ...h, text: h.text.replace(/#$/, '').trim() }));
+
+// Someone landing on an issue gets the blog posts closest to it under the crayon
+// arrow (src/utils/related-posts.ts), the same way a blog post does
+const blogPosts = (await getCollection('blog')).filter(isOwnPost).map((post) => ({
+	slug: post.data.slug,
+	title: post.data.title,
+	description: post.data.description,
+	tags: post.data.tags,
+	body: post.body,
+}));
+const relatedSlugs = rankRelatedPosts(
+	{ slug: `newsletter/${issue.data.slug}`, title, description, body: issue.body },
+	blogPosts,
+	popularPosts.visitorsByPath,
+);
 ---
 
 <BaseLayout
@@ -103,6 +122,13 @@ const tocHeadings = headings
 						</a>
 					)}
 				</nav>
+				{relatedSlugs.length > 0 && (
+					<KeepExploring
+						heading="Keep reading"
+						from={`/newsletter/${issue.data.slug}/`}
+						posts={relatedSlugs}
+					/>
+				)}
 			</article>
 		</div>
 	</div>

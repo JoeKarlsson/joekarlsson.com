@@ -155,14 +155,6 @@ for (const issue of backIssues) {
 				</section>
 			))}
 		</div>
-		<KeepExploring
-			heading="Who's writing this"
-			from="/newsletter/"
-			door={{
-				href: '/about/',
-				label: 'About me',
-				blurb: 'Who I am, what I work on, and why I write this.',
-			}}
-		/>
+		<KeepExploring heading="From the blog" from="/newsletter/" newest={3} />
 	</div>
 </BaseLayout>

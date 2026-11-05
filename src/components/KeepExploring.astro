@@ -2,7 +2,7 @@
 // The end of a page or post: a pink poster heading, a crayon arrow that swirls
 // right and turns down, and what it points at, picked for each page:
 // - `posts`: picture cards for these post slugs, the first one big under the arrow
-// - `newest`: one card for my newest post
+// - `newest`: cards for my newest few posts
 // - `door`: one giant link with a sentence on why
 // - `pickRandom`: a random post from the archive, with a button to pick another
 // Each click is a Plausible event with which page led where.
@@ -20,7 +20,7 @@ interface Props {
 	// Where the reader is, for the Plausible `from` prop: a post slug or a page path
 	from: string;
 	posts?: string[];
-	newest?: boolean;
+	newest?: number;
 	door?: { href: string; label: string; blurb: string };
 	pickRandom?: boolean;
 	// Plausible event name; posts keep their older "Related Post Click"
@@ -31,7 +31,7 @@ const {
 	heading,
 	from,
 	posts: postSlugs = [],
-	newest = false,
+	newest = 0,
 	door,
 	pickRandom = false,
 	eventName = 'Keep+Exploring+Click',
@@ -43,7 +43,7 @@ const ownPosts = (await getCollection('blog'))
 const allPosts = postSlugs.length ? await getCollection('blog') : [];
 
 const cards = newest
-	? ownPosts.slice(0, 1)
+	? ownPosts.slice(0, newest)
 	: postSlugs.map((slug) => {
 			const post = allPosts.find((entry) => entry.data.slug === slug);
 			if (!post) throw new Error(`KeepExploring: no post with slug "${slug}"`);

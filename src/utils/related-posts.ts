@@ -51,37 +51,52 @@ function postTokens(post: RelatablePost): string[] {
 	];
 }
 
-function buildVectors(posts: RelatablePost[]): Map<string, Vector> {
-	const counts = posts.map((post) => {
-		const termCounts = new Map<string, number>();
-		for (const token of postTokens(post)) termCounts.set(token, (termCounts.get(token) ?? 0) + 1);
-		return termCounts;
-	});
+function termCounts(post: RelatablePost): Map<string, number> {
+	const counts = new Map<string, number>();
+	for (const token of postTokens(post)) counts.set(token, (counts.get(token) ?? 0) + 1);
+	return counts;
+}
 
+interface PoolIndex {
+	documentFrequency: Map<string, number>;
+	size: number;
+	vectors: Map<string, Vector>;
+}
+
+// A post's vector against the pool. A word no other post in the pool uses can't
+// link it to anything, so it's left out. `inPool` says whether the post itself
+// was counted in the pool's document frequencies.
+function vectorize(
+	counts: Map<string, number>,
+	index: Omit<PoolIndex, 'vectors'>,
+	inPool: boolean,
+) {
+	const vector: Vector = new Map();
+	let norm = 0;
+	for (const [term, count] of counts) {
+		const df = index.documentFrequency.get(term) ?? 0;
+		if (df - (inPool ? 1 : 0) < 1) continue;
+		const weight = (1 + Math.log(count)) * Math.log(index.size / df);
+		vector.set(term, weight);
+		norm += weight * weight;
+	}
+	norm = Math.sqrt(norm) || 1;
+	for (const [term, weight] of vector) vector.set(term, weight / norm);
+	return vector;
+}
+
+function buildIndex(posts: RelatablePost[]): PoolIndex {
+	const counts = posts.map(termCounts);
 	const documentFrequency = new Map<string, number>();
-	for (const termCounts of counts) {
-		for (const term of termCounts.keys()) {
+	for (const postCounts of counts) {
+		for (const term of postCounts.keys()) {
 			documentFrequency.set(term, (documentFrequency.get(term) ?? 0) + 1);
 		}
 	}
-
+	const base = { documentFrequency, size: posts.length };
 	const vectors = new Map<string, Vector>();
-	posts.forEach((post, index) => {
-		const vector: Vector = new Map();
-		let norm = 0;
-		for (const [term, count] of counts[index]) {
-			const df = documentFrequency.get(term)!;
-			// A word in only this post can't link it to another, so it's left out
-			if (df < 2) continue;
-			const weight = (1 + Math.log(count)) * Math.log(posts.length / df);
-			vector.set(term, weight);
-			norm += weight * weight;
-		}
-		norm = Math.sqrt(norm) || 1;
-		for (const [term, weight] of vector) vector.set(term, weight / norm);
-		vectors.set(post.slug, vector);
-	});
-	return vectors;
+	posts.forEach((post, i) => vectors.set(post.slug, vectorize(counts[i], base, true)));
+	return { ...base, vectors };
 }
 
 function cosine(a: Vector, b: Vector): number {
@@ -91,40 +106,42 @@ function cosine(a: Vector, b: Vector): number {
 	return dot;
 }
 
-// Every page in a build ranks against the same pool, so its vectors are built once
-const vectorCache = new Map<string, Map<string, Vector>>();
+// Every page in a build ranks against the same pool, so it's indexed once
+const indexCache = new Map<string, PoolIndex>();
 
-function vectorsFor(pool: RelatablePost[]): Map<string, Vector> {
+function indexFor(pool: RelatablePost[]): PoolIndex {
 	const key = pool.map((post) => post.slug).join('|');
-	let vectors = vectorCache.get(key);
-	if (!vectors) {
-		vectors = buildVectors(pool);
-		vectorCache.set(key, vectors);
+	let index = indexCache.get(key);
+	if (!index) {
+		index = buildIndex(pool);
+		indexCache.set(key, index);
 	}
-	return vectors;
+	return index;
 }
 
 /**
- * The slugs of the `limit` posts in `pool` closest to the post `slug`, best first.
- * `visitorsByPath` is popular-posts.json's map of "/blog/<slug>/" to visitors.
+ * The slugs of the `limit` posts in `pool` closest to `current`, best first.
+ * `current` can be one of the pool's posts or anything else with text, like a
+ * newsletter issue. `visitorsByPath` is popular-posts.json's map of
+ * "/blog/<slug>/" to visitors.
  */
 export function rankRelatedPosts(
-	slug: string,
+	current: RelatablePost,
 	pool: RelatablePost[],
 	visitorsByPath: Record<string, number>,
 	limit = 3,
 ): string[] {
-	const vectors = vectorsFor(pool);
-	const current = vectors.get(slug);
-	if (!current) throw new Error(`rankRelatedPosts: "${slug}" is not in the pool`);
+	const index = indexFor(pool);
+	const currentVector =
+		index.vectors.get(current.slug) ?? vectorize(termCounts(current), index, false);
 
 	const visitors = (other: string) => visitorsByPath[`/blog/${other}/`] ?? 0;
 	const mostVisitors = Math.max(1, ...pool.map((post) => visitors(post.slug)));
 
 	return pool
-		.filter((post) => post.slug !== slug)
+		.filter((post) => post.slug !== current.slug)
 		.map((post) => {
-			const similarity = cosine(current, vectors.get(post.slug)!);
+			const similarity = cosine(currentVector, index.vectors.get(post.slug)!);
 			const popularity = Math.log1p(visitors(post.slug)) / Math.log1p(mostVisitors);
 			return { slug: post.slug, score: similarity * (1 + POPULARITY_BOOST * popularity) };
 		})

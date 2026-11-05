@@ -103,15 +103,16 @@ const publishedPosts = allPosts
 
 // "Keep reading": the three posts closest to this one in what they're about (full
 // text, src/utils/related-posts.ts), best match first, where the crayon arrow points
+const relatablePosts = publishedPosts.map((post) => ({
+	slug: post.data.slug,
+	title: post.data.title,
+	description: post.data.description,
+	tags: post.data.tags,
+	body: post.body,
+}));
 const relatedSlugs = rankRelatedPosts(
-	slug,
-	publishedPosts.map((post) => ({
-		slug: post.data.slug,
-		title: post.data.title,
-		description: post.data.description,
-		tags: post.data.tags,
-		body: post.body,
-	})),
+	relatablePosts.find((post) => post.slug === slug)!,
+	relatablePosts,
 	popularPosts.visitorsByPath,
 );
 
