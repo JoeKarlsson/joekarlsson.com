@@ -9,16 +9,11 @@ import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
+import HoverBox from '../components/HoverBox.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
-import {
-	ARTICLE_TITLE,
-	META,
-	PAGE_CONTAINER,
-	SECTION_HEADING,
-	SIDEBAR_GRID,
-	formatDate,
-} from '../utils/ui';
+import { DEFAULT_HERO_IMAGE } from '../consts';
+import { ARTICLE_TITLE, META, PAGE_CONTAINER, SECTION_HEADING, SIDEBAR_GRID } from '../utils/ui';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -154,6 +149,14 @@ const relatedPosts = publishedPosts
 	})
 	.slice(0, 3)
 	.map((r) => r!.post);
+
+// "Keep reading": the crayon arrow points at the post after this one in its
+// category (or the one before, for the newest), and related posts fill the rest
+const leadPost = nextPost ?? prevPost;
+const keepReading = [
+	...(leadPost ? [leadPost] : []),
+	...relatedPosts.filter((post) => post.data.slug !== leadPost?.data.slug),
+].slice(0, 3);
 
 // One crayon mark spills off each post's hero; the slug picks which, so a post
 // keeps the same one between builds
@@ -394,53 +397,68 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 
 				<AuthorBio />
 
-				{relatedPosts.length > 0 && (
-					<section class="mt-12">
-						<h2 class={SECTION_HEADING}>Related posts</h2>
-						<ul class="space-y-3">
-							{relatedPosts.map((post) => (
-								<li>
-									<a
-										href={`/blog/${post.data.slug}/`}
-										class="plausible-event-name=Related+Post+Click text-lg font-semibold text-paper no-underline hover:text-pink"
+				{keepReading.length > 0 && (
+					<nav class="mt-16" aria-labelledby="keep-reading">
+						<h2 id="keep-reading" class={SECTION_HEADING}>
+							Keep reading
+						</h2>
+						<div class="relative -mt-4 mb-2 h-[clamp(70px,14vw,150px)]" aria-hidden="true">
+							<Scribble
+								{...MARKS.arrow}
+								color="#ff4fd8"
+								strokeWidth={7}
+								duration="8s"
+								class="inset-0 size-full"
+							/>
+						</div>
+						<ul class="grid gap-9 sm:grid-cols-[1fr_1.35fr]">
+							{keepReading.map((post, index) => {
+								const image = post.data.heroImage || DEFAULT_HERO_IMAGE;
+								const lead = index === 0;
+								return (
+									<li
+										class:list={[
+											'ring-host group',
+											lead && 'sm:col-start-2 sm:row-span-2 sm:row-start-1',
+										]}
 									>
-										{post.data.title}
-									</a>
-									<span class="block text-sm text-muted">{formatDate(post.data.date)}</span>
-								</li>
-							))}
-						</ul>
-					</section>
-				)}
-
-				{(prevPost || nextPost) && (
-					<nav class="mt-12" aria-label="Category navigation">
-						<h2 class={SECTION_HEADING}>More in {primaryCategory}</h2>
-						<ul class="space-y-3">
-							{prevPost && (
-								<li>
-									<span class="block text-sm text-muted">Previous</span>
-									<a
-										href={`/blog/${prevPost.data.slug}/`}
-										class="plausible-event-name=Blog+Navigation plausible-event-direction=prev text-lg font-semibold text-paper no-underline hover:text-pink"
-									>
-										{prevPost.data.title}
-									</a>
-									<span class="block text-sm text-muted">{formatDate(prevPost.data.date)}</span>
-								</li>
-							)}
-							{nextPost && (
-								<li>
-									<span class="block text-sm text-muted">Next</span>
-									<a
-										href={`/blog/${nextPost.data.slug}/`}
-										class="plausible-event-name=Blog+Navigation plausible-event-direction=next text-lg font-semibold text-paper no-underline hover:text-pink"
-									>
-										{nextPost.data.title}
-									</a>
-									<span class="block text-sm text-muted">{formatDate(nextPost.data.date)}</span>
-								</li>
-							)}
+										<a
+											href={`/blog/${post.data.slug}/`}
+											class:list={[
+												'grid gap-3.5 text-paper no-underline',
+												lead && post === leadPost
+													? `plausible-event-name=Blog+Navigation plausible-event-direction=${nextPost ? 'next' : 'prev'}`
+													: 'plausible-event-name=Related+Post+Click',
+											]}
+										>
+											<span class="relative block">
+												<img
+													src={image}
+													alt=""
+													data-halftone={halftoneMode(image)}
+													width="560"
+													height="315"
+													loading="lazy"
+													decoding="async"
+													class="block aspect-video w-full rounded-lg object-cover"
+												/>
+												<HoverBox featured={lead} />
+											</span>
+											<span
+												class:list={[
+													'font-display leading-none text-balance uppercase group-hover:text-pink',
+													lead ? 'text-[clamp(32px,4.2vw,52px)]' : 'text-[clamp(24px,2.6vw,34px)]',
+												]}
+											>
+												{post.data.title}
+											</span>
+											{lead && post.data.description && (
+												<span class="line-clamp-3 max-w-[60ch]">{post.data.description}</span>
+											)}
+										</a>
+									</li>
+								);
+							})}
 						</ul>
 					</nav>
 				)}
