@@ -3,7 +3,7 @@
 // where visitors scribble in pink or chalk and their strokes erase themselves.
 // Purely decorative, so it's hidden from assistive tech and keyboard focus.
 // Touch only draws while pressed, so swiping across it still scrolls the page.
-import { BOARD_MARKS, CHALK } from '../data/scribbles';
+import { BOARD_MARKS, CHALK, MARKS } from '../data/scribbles';
 import Scribble from './Scribble.astro';
 
 const PINK = '#ff4fd8';
@@ -15,6 +15,16 @@ const PINK = '#ff4fd8';
 >
 	<p class="absolute top-6 left-7 font-display text-[clamp(40px,5vw,72px)] leading-none text-paper uppercase">
 		Make a mark
+		<span class="relative ml-2 inline-block size-[1em] align-top">
+			<Scribble
+				{...MARKS.burstDense}
+				color={PINK}
+				strokeWidth={7}
+				duration="7s"
+				delay="0.5s"
+				class="inset-0 size-full"
+			/>
+		</span>
 	</p>
 	<div class="absolute right-6 bottom-6 flex gap-2.5 sm:top-7 sm:bottom-auto">
 		{[

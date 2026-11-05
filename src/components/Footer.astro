@@ -1,6 +1,6 @@
 ---
 import { FOOTER_LINKS, SOCIAL_LINKS } from '../consts';
-import { COIL } from '../data/scribbles';
+import { COIL, MARKS } from '../data/scribbles';
 import NewsletterCTA from './NewsletterCTA.astro';
 import Scribble from './Scribble.astro';
 const year = new Date().getFullYear();
@@ -20,6 +20,14 @@ const ECHO_TITLE = 'Works on my machine';
 		))}
 	</h2>
 	<Scribble path={COIL} color="#000" duration="10s" class="top-0 right-[1%] h-[250px] w-[56%]" />
+	<Scribble
+		{...MARKS.burstDense}
+		color="#000"
+		strokeWidth={6}
+		duration="8s"
+		delay="2s"
+		class="right-[6%] bottom-[150px] hidden size-[150px] md:block"
+	/>
 	<NewsletterCTA />
 	<nav
 		aria-label="Footer"
