@@ -205,6 +205,29 @@
 	}
 }
 
+/* Hovered text links boil through three slightly different wobbles (the #warble-N
+   filters in BaseLayout), so they feel alive. Links around a picture or clip are
+   left alone: they're big, and the halftone canvas is already moving. Steps hold
+   each frame, since a filter URL can't tween. Off under reduced motion and while
+   motion is paused, where a frozen wobble would just look blurry. */
+@media (prefers-reduced-motion: no-preference) {
+	html:not(.motion-paused) a:hover:not(:has(img, video, canvas)) {
+		animation: warble 0.36s steps(1, end) infinite;
+	}
+}
+
+@keyframes warble {
+	0% {
+		filter: url(#warble-1);
+	}
+	33.333% {
+		filter: url(#warble-2);
+	}
+	66.666% {
+		filter: url(#warble-3);
+	}
+}
+
 .motion-paused * {
 	animation-play-state: paused !important;
 }

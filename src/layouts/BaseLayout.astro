@@ -68,8 +68,22 @@ const {
 		</main>
 		<Footer />
 
-		<!-- The crayon texture every Scribble draws with -->
+		<!-- The crayon texture every Scribble draws with, and the three warble frames a
+		hovered link boils through (.warble in motion.css): the same gentle wobble with
+		a different seed each, like a hand-drawn line redrawn every frame -->
 		<svg width="0" height="0" class="absolute" aria-hidden="true">
+			{[1, 2, 3].map((seed) => (
+				<filter id={`warble-${seed}`} x="-5%" y="-10%" width="110%" height="120%">
+					<feTurbulence
+						type="turbulence"
+						baseFrequency="0.035"
+						numOctaves="2"
+						seed={seed * 7}
+						result="w"
+					></feTurbulence>
+					<feDisplacementMap in="SourceGraphic" in2="w" scale="4"></feDisplacementMap>
+				</filter>
+			))}
 			<filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
 				<feTurbulence
 					type="fractalNoise"
