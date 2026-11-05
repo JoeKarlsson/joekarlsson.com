@@ -45,9 +45,6 @@ uniform vec3 ink;
 const float CONTRAST = 1.15;
 const float DOTS_OVER_DUOTONE = 0.5;
 const float GAMMA = 0.7;
-// Flat mode: at or below FLAT_BLACK is black, at or above FLAT_PINK is full pink
-const float FLAT_BLACK = 0.12;
-const float FLAT_PINK = 0.55;
 const mat2 ROTATE = mat2(0.70710678, 0.70710678, -0.70710678, 0.70710678);
 
 // Grid space back to pixels. GLSL ES 1.0 has no transpose(), and a rotation's
@@ -71,9 +68,9 @@ float brightness(vec2 pixel) {
 void main() {
 	vec2 pixel = vec2(gl_FragCoord.x, canvasSize.y - gl_FragCoord.y);
 	if (noDots > 0.5) {
-		// Two tones: dark UI and backgrounds go black, text and anything lit goes
-		// pink, with a narrow ramp between so letter edges stay smooth
-		gl_FragColor = vec4(ink * smoothstep(FLAT_BLACK, FLAT_PINK, luma(pixel)), 1.0);
+		// Black to pink, straight from the auto-leveled brightness: a steep cutoff
+		// blew out highlights and turned busy images to speckle
+		gl_FragColor = vec4(ink * luma(pixel), 1.0);
 		return;
 	}
 	vec3 tone = ink * brightness(pixel);
