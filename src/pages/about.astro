@@ -170,10 +170,12 @@ const cropArtPieces = [
 		dark panel whose name fills its width. Only the photo is clipped to its box; the
 		marks spill over the gutters. -->
 		<header class="relative mb-14 grid gap-4 md:grid-cols-2">
-			<!-- At least square, and stretched to the right column's height so there's no gap
-			under it (the homepage hero's trick). A short loop drawn in pink dots live
+			<!-- On the right from md up (first on phones). At least square, and stretched to the
+			left column's height so there's no gap under it (the homepage hero's trick). The
+			clip is pre-cropped with Joe's face centered on the top third (rule of thirds, like
+			the homepage montage), so it's drawn centered. Pink dots are drawn live
 			(src/scripts/halftone.ts); in-view-play stops it with pause-motion and reduced motion. -->
-			<div class="relative z-10 aspect-[4/5] md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
+			<div class="relative z-10 aspect-[4/5] md:order-last md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
 				<video
 					src="/images/about/joe-hello.mp4"
 					data-halftone-poster="/images/about/joe-hello-poster.webp"
@@ -185,7 +187,7 @@ const cropArtPieces = [
 					preload="metadata"
 					role="img"
 					aria-label="Joe Karlsson by a river, waving hello with a peace sign"
-					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-[50%_35%]"
+					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover"
 				></video>
 				<Scribble
 					{...MARKS.burst}
@@ -193,14 +195,14 @@ const cropArtPieces = [
 					strokeWidth={6}
 					duration="8s"
 					delay="1.6s"
-					class="-top-[7%] -left-[7%] size-[22%]"
+					class="-top-[7%] -right-[7%] size-[22%]"
 				/>
 				<Scribble
 					{...MARKS.lines}
 					color={CHALK}
 					duration="11s"
 					delay="1s"
-					class="-bottom-[9%] -left-[6%] h-[16%] w-[78%]"
+					class="-right-[6%] -bottom-[9%] h-[16%] w-[78%]"
 				/>
 			</div>
 			<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
