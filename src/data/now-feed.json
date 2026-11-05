@@ -6,13 +6,13 @@
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"language": "TypeScript",
-			"commitCount": 225,
+			"language": "Astro",
+			"commitCount": 224,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				101
+				102
 			],
-			"latestCommitMessage": "fix: Homepage montage keeps looping after the browser pauses it in a..."
+			"latestCommitMessage": "feat: Every hoverable card draws the same crayon ring around its..."
 		},
 		{
 			"name": "punc",
