@@ -146,7 +146,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 		)}
 
 		<div
-			class="mb-8 flex flex-wrap gap-x-5 gap-y-2 text-[15px]"
+			class="mb-12 flex flex-wrap gap-x-5 gap-y-2 rounded-xl bg-surface-1 p-5 sm:p-7 text-[15px]"
 			role="group"
 			aria-label="Filter projects by category"
 		>
@@ -156,16 +156,16 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 				data-filter="all"
 				aria-pressed="true"
 			>
-				All ({nonFeatured.length})
+				All <span class="text-muted">{nonFeatured.length}</span>
 			</button>
 			{categoryFilters.map((c) => (
 				<button
 					type="button"
-					class="project-filter cursor-pointer text-paper hover:text-pink"
+					class="project-filter cursor-pointer text-paper no-underline hover:text-pink"
 					data-filter={c.key}
 					aria-pressed="false"
 				>
-					{c.label} ({c.count})
+					{c.label} <span class="text-muted">{c.count}</span>
 				</button>
 			))}
 		</div>
@@ -219,7 +219,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 	<script>
 		// Must match the server-rendered classes on .project-filter above
 		const ACTIVE_FILTER_CLASSES = 'cursor-pointer text-pink underline underline-offset-4';
-		const INACTIVE_FILTER_CLASSES = 'cursor-pointer text-paper hover:text-pink';
+		const INACTIVE_FILTER_CLASSES = 'cursor-pointer text-paper no-underline hover:text-pink';
 		const filterButtons = document.querySelectorAll<HTMLButtonElement>('.project-filter');
 		const projectCells = document.querySelectorAll<HTMLElement>('#projects-grid > [data-category]');
 		filterButtons.forEach((button) => {
