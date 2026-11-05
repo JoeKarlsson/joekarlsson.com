@@ -91,6 +91,7 @@ const AROUND_THE_HOUSE = [
 				<video
 					class="absolute inset-0 size-full object-cover object-[50%_25%] md:object-center"
 					poster="/images/home/montage-poster.webp"
+					data-halftone="dots"
 					data-autoplay-in-view
 					muted
 					loop
@@ -98,9 +99,10 @@ const AROUND_THE_HOUSE = [
 					preload="metadata"
 					aria-label="Montage of short halftone clips of Joe"
 				>
-					<!-- Phones get their own 16:9 cut, already cropped to Joe's face (a third of
-					the bytes). VP9 keeps the halftone dots sharper at a smaller size; H.264 is
-					the fallback. -->
+					<!-- Plain color clips, each frame auto-leveled, so the live pink dots
+					(src/scripts/halftone.ts) stay sharp at any size and every shot matches the
+					poster's levels. Phones get their own 16:9 cut, already cropped to Joe's face.
+					VP9 is smaller; H.264 is the fallback. -->
 					<source
 						media="(max-width: 767px)"
 						src="/images/home/montage-phone.webm"
