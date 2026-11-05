@@ -23,14 +23,105 @@ import nowFeed from '../data/now-feed.json';
 import { CHALK, MARKS } from '../data/scribbles';
 
 const aboutHeadings = [
+	{ slug: 'what-i-do', text: 'What I do' },
 	{ slug: 'career', text: 'Career' },
-	{ slug: 'specializations', text: 'What I work on' },
-	{ slug: 'recognition', text: 'Recognition' },
-	{ slug: 'as-seen-on', text: 'As seen on' },
-	{ slug: 'videos', text: 'Videos' },
+	{ slug: 'how-i-got-here', text: 'How I got here' },
+	{ slug: 'talks', text: 'Talks' },
+	{ slug: 'podcasts', text: 'Podcasts' },
 	{ slug: 'interests', text: 'Outside of work' },
 	{ slug: 'now', text: 'Right now' },
 	{ slug: 'crop-art', text: 'Crop art' },
+	{ slug: 'elsewhere', text: 'Elsewhere' },
+];
+
+// Four kinds of work, each with a picture and links to the real thing
+const whatIDo = [
+	{
+		title: 'Developer marketing',
+		image: '/images/blog/running-devrel-2026/hero.webp',
+		alt: 'Hero illustration for Running DevRel in 2026',
+		text: 'At CData I run docs, content, SEO and positioning for the MCP platform. Before that I built the DevRel program at CloudQuery from scratch, and spent six years as a developer advocate at MongoDB, SingleStore and Tinybird.',
+		links: [
+			{ href: '/blog/running-devrel-2026/', label: 'Running DevRel in 2026' },
+			{ href: '/blog/devrel-as-dev-zero/', label: 'DevRel as Dev Zero' },
+		],
+	},
+	{
+		title: 'Talks',
+		image: '/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp',
+		alt: 'Joe Karlsson giving The Art of Computer Science',
+		text: 'I spent years on the conference circuit: a TEDx talk, keynotes, ConFoo in Montreal, the Kansas City Developer Conference, and guest spots on Hanselminutes and Screaming in the Cloud. I rarely speak now, but the recordings are below.',
+		links: [
+			{ href: '#talks', label: 'Watch the TEDx talk' },
+			{ href: '/talk-archive/', label: 'Talk archive' },
+		],
+	},
+	{
+		title: 'Writing',
+		image:
+			'/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp',
+		alt: 'Vaporwave style homelab server illustration',
+		text: 'Most people find me through my homelab and Home Assistant posts. I also write about AI tools, developer relations, and why you should ship the ugly pot, plus a newsletter called Works on My Machine.',
+		links: [
+			{
+				href: '/blog/how-to-get-started-building-a-homelab-server-in-2024/',
+				label: 'Start a homelab',
+			},
+			{ href: '/blog/local-voice-ai-home-assistant-gpu/', label: 'Local voice AI' },
+			{ href: '/blog/ship-the-ugly-pot/', label: 'Ship the Ugly Pot' },
+			{ href: '/newsletter/', label: 'Newsletter' },
+		],
+	},
+	{
+		title: 'Building',
+		image: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp',
+		alt: 'Connect AI × DOOM running beside its live data panel',
+		text: `Most of what I learn comes from side projects: an MCP server inside DOOM, a litter box that keeps tabs on my cat, an LED frame that shows what my house is doing, and a ${nowFeed.homelab.runningContainers}-container homelab to run it all.`,
+		links: [
+			{ href: '/work/connect-ai-doom/', label: 'DOOM' },
+			{ href: '/work/pixelpane/', label: 'PixelPane' },
+			{ href: '/blog/an-introduction-to-iot-internet-of-toilets/', label: 'The litter box' },
+			{ href: '/work/', label: 'All projects' },
+		],
+	},
+];
+
+// Short, specific, true
+const oddFacts = [
+	{
+		text: 'I enter crop art, pictures made of seeds, at the Minnesota State Fair.',
+		href: '#crop-art',
+	},
+	{
+		text: 'I built Bechdel.io with my sister. It runs the Bechdel test on movie scripts.',
+		href: '/work/bechdel-io/',
+	},
+	{
+		text: 'Home Assistant has run my house for ten years.',
+		href: '/blog/best-home-assistant-automations/',
+	},
+	{
+		text: "My cat's litter box is on the internet.",
+		href: '/blog/an-introduction-to-iot-internet-of-toilets/',
+	},
+	{ text: 'I ranked my top 50 records.', href: '/blog/my-top-50-records/' },
+	{
+		text: 'A list once named me the #1 developer to follow on TikTok.',
+		href: 'https://unclebigbay.com/10-must-follow-developers-on-tik-tok',
+	},
+	{
+		text: 'I write movie reviews on Letterboxd. The latest are under Right now.',
+		href: SOCIAL_LINKS.letterboxd,
+	},
+];
+
+const elsewhere = [
+	{ label: 'GitHub', href: SOCIAL_LINKS.github },
+	{ label: 'LinkedIn', href: SOCIAL_LINKS.linkedin },
+	{ label: 'YouTube', href: SOCIAL_LINKS.youtube },
+	{ label: 'Bluesky', href: SOCIAL_LINKS.bluesky },
+	{ label: 'Letterboxd', href: SOCIAL_LINKS.letterboxd },
+	{ label: 'Last.fm', href: SOCIAL_LINKS.lastfm },
 ];
 
 const previousCompanies = [
@@ -251,9 +342,12 @@ const cropArtPieces = [
 				<div class="prose mb-12 max-w-none!">
 					<p>
 						I lead developer marketing at CData, for the MCP platform that connects AI agents to
-						live enterprise data. Before that I built DevRel from scratch at CloudQuery and
-						quadrupled organic traffic in three months, after 15 years as an engineer at data
-						companies like MongoDB and SingleStore.
+						live enterprise data. I got here the long way: about 15 years of writing code, teaching
+						it, and explaining databases on stage before marketing was ever in my title.
+					</p>
+					<p>
+						Most of what I know about getting developers to care, I learned by building something
+						weird and showing my work.
 					</p>
 				</div>
 
@@ -276,6 +370,44 @@ const cropArtPieces = [
 							</li>
 						))}
 					</ul>
+				</div>
+
+				<h2 id="what-i-do" class={`${SECTION_HEADING} scroll-mt-24`}>
+					What I do
+					<Scribble
+						{...MARKS.rays}
+						color={'#ff4fd8'}
+						duration="8s"
+						delay="0.4s"
+						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+					/>
+				</h2>
+				<div class="mb-12 grid gap-x-8 gap-y-10 sm:grid-cols-2">
+					{whatIDo.map((area) => (
+						<div class="relative">
+							<img
+								src={area.image}
+								alt={area.alt}
+								data-halftone="flat"
+								class="mb-3 block aspect-video w-full rounded-lg object-cover"
+								width="300"
+								height="169"
+								loading="lazy"
+							/>
+							<h3 class:list={[GROUP_HEADING, 'mb-2']}>{area.title}</h3>
+							<p class="mb-3 text-paper">{area.text}</p>
+							<p class="text-sm">
+								{area.links.map((link, i) => (
+									<>
+										{i > 0 && <span class="text-muted"> · </span>}
+										<a href={link.href} class={TEXT_LINK}>
+											{link.label}
+										</a>
+									</>
+								))}
+							</p>
+						</div>
+					))}
 				</div>
 
 				<h2 id="career" class={`${SECTION_HEADING} scroll-mt-24`}>
@@ -309,185 +441,51 @@ const cropArtPieces = [
 					<span class="text-muted">Impact metrics, tech stack, and PDF download.</span>
 				</p>
 
-				<h2 id="specializations" class={`${SECTION_HEADING} scroll-mt-24`}>
-					What I work on
-					<Scribble
-						{...MARKS.rays}
-						color={'#ff4fd8'}
-						duration="8s"
-						delay="0.6s"
-						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
-					/>
-				</h2>
-				<div class="mb-12 grid gap-6 sm:grid-cols-3">
-					<div>
-						<h3 class:list={[GROUP_HEADING, 'mb-2']}>Data Systems</h3>
-						<p class="text-paper">
-							I've worked at five data companies (MongoDB, SingleStore, Tinybird, CloudQuery, CData)
-							and scaled Best Buy's eCommerce platform.
-						</p>
-					</div>
-					<div>
-						<h3 class:list={[GROUP_HEADING, 'mb-2']}>Teaching Complex Topics</h3>
-						<p class="text-paper">
-							I taught at a coding bootcamp, gave a TEDx talk, and have spoken at 100+ conferences.
-						</p>
-					</div>
-					<div>
-						<h3 class:list={[GROUP_HEADING, 'mb-2']}>Building Weird Stuff</h3>
-						<p class="text-paper">
-							IoT cat litter boxes, crop art from millet kernels, hackathons for terrible ideas.
-						</p>
-					</div>
-				</div>
-
-				<h2 id="recognition" class={`${SECTION_HEADING} scroll-mt-24`}>
-					Recognition
-					<Scribble
-						{...MARKS.asterisk}
-						color={CHALK}
-						duration="9s"
-						delay="1.2s"
-						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
-					/>
-				</h2>
-				<ul class="mb-12 grid gap-x-8 gap-y-5 sm:grid-cols-2">
-					<li>
-						<h3 class={ITEM_TITLE}>
-							<a
-								href="https://www.ted.com/talks/joe_karlsson_the_art_of_computer_science"
-								target="_blank"
-								rel="noopener noreferrer"
-								class={TEXT_LINK}
-							>
-								TEDx Speaker & Conference Keynote
-							</a>
-						</h3>
-						<p class="text-sm text-muted">
-							"The Art of Computer Science" - delivered as a TEDx talk and keynote at multiple
-							conferences
-						</p>
-					</li>
-					<li>
-						<h3 class={ITEM_TITLE}>
-							<a
-								href="https://unclebigbay.com/10-must-follow-developers-on-tik-tok"
-								target="_blank"
-								rel="noopener noreferrer"
-								class={TEXT_LINK}
-							>
-								#1 on "10 Must-Follow Developers on TikTok"
-							</a>
-						</h3>
-						<p class="text-sm text-muted">25K+ followers, 844K+ likes</p>
-					</li>
-					<li>
-						<h3 class={ITEM_TITLE}>Published Author</h3>
-						<p class="text-sm text-muted">
-							The New Stack, MongoDB Developer Hub, Tinybird blog, Medium, DEV Community
-						</p>
-					</li>
-					<li>
-						<h3 class={ITEM_TITLE}>
-							<a
-								href="https://stupidshitnooneinhawaiineedshackathon.github.io/"
-								target="_blank"
-								rel="noopener noreferrer"
-								class={TEXT_LINK}
-							>
-								Hackathon Organizer
-							</a>
-						</h3>
-						<p class="text-sm text-muted">
-							Co-organized "Stupid Shit No One In Hawaii Needs" hackathon (2016). Sponsored by
-							GitHub & Front End Masters.
-						</p>
-					</li>
-					<li>
-						<h3 class={ITEM_TITLE}>Arctic Code Vault Contributor</h3>
-						<p class="text-sm text-muted">
-							Code preserved in GitHub's Arctic Code Vault for future generations
-						</p>
-					</li>
-					<li>
-						<h3 class={ITEM_TITLE}>Coding Bootcamp Instructor</h3>
-						<p class="text-sm text-muted">
-							Taught full-stack JavaScript at DevLeague, one of the top 10 coding bootcamps
-							worldwide (Honolulu, 2015-2017)
-						</p>
-					</li>
-				</ul>
-
-				<h2 id="as-seen-on" class={`${SECTION_HEADING} scroll-mt-24`}>
-					As seen on
-					<Scribble
-						{...MARKS.double}
-						color={'#ff4fd8'}
-						duration="10s"
-						delay="0.0s"
-						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
-					/>
-				</h2>
-				<ul class="mb-8 grid gap-6 sm:grid-cols-2">
-					{featuredPodcasts.map((podcast) => (
-						<li class="relative flex items-center gap-4">
-							<img
-								src={podcast.image}
-								alt={podcast.alt}
-								data-halftone="flat"
-								class="h-20 w-20 shrink-0 rounded-md object-cover"
-								width="80"
-								height="80"
-								loading="lazy"
-							/>
-							<div>
-								<h3 class={ITEM_TITLE}>
-									{podcast.url ? (
-										<a
-											href={podcast.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											class={TEXT_LINK}
-										>
-											{podcast.name}
-										</a>
-									) : (
-										podcast.name
-									)}
-								</h3>
-								<p class="text-sm text-muted">{podcast.host}</p>
-								<p class="text-sm text-muted">{podcast.episode}</p>
-							</div>
-						</li>
-					))}
-				</ul>
-				<h3 class:list={[GROUP_HEADING, 'mb-3']}>More appearances</h3>
-				<ul class="mb-12 space-y-2">
-					{moreAppearances.map((appearance) => (
-						<li>
-							<a
-								href={appearance.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class={`font-semibold ${TEXT_LINK}`}
-							>
-								{appearance.name}
-							</a>{' '}
-							<span class="text-sm text-muted">{appearance.detail}</span>
-						</li>
-					))}
-				</ul>
-
-				<h2 id="videos" class={`${SECTION_HEADING} scroll-mt-24`}>
-					Videos
+				<h2 id="how-i-got-here" class={`${SECTION_HEADING} scroll-mt-24`}>
+					How I got here
 					<Scribble
 						{...MARKS.underline}
-						color={'#ff4fd8'}
-						duration="7s"
-						delay="0.6s"
+						color={CHALK}
+						duration="8s"
+						delay="0.4s"
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
+				<div class="prose mb-12 max-w-none!">
+					<p>
+						I switched majors three times in college, from Art History to Physics to Computer
+						Science, and graduated without loving any of them. I hated my first developer job so
+						much that I moved to Hawaii to quit coding.
+					</p>
+					<p>
+						I came back to it in Honolulu, teaching full-stack JavaScript at DevLeague, and my
+						friend Ray and I ran a hackathon for building useless things.{' '}
+						<a href="/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/">
+							Hawaii Public Radio had us on to explain ourselves
+						</a>
+						. Somewhere in there I figured out that the part I loved was making something odd and
+						then explaining it to people. I've done some version of that ever since: at Best Buy, at
+						database companies, and now in marketing. The TEDx talk below is the long version.
+					</p>
+				</div>
+
+				<h2 id="talks" class={`${SECTION_HEADING} scroll-mt-24`}>
+					Talks
+					<Scribble
+						{...MARKS.underline}
+						color={'#ff4fd8'}
+						duration="8s"
+						delay="0.4s"
+						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+					/>
+				</h2>
+				<p class="mb-6 text-paper">
+					I don't give many talks anymore. These are the ones I'm proudest of, and the{' '}
+					<a href="/talk-archive/" class={TEXT_LINK}>
+						talk archive
+					</a>{' '}
+					has the rest.
+				</p>
 				<div class="mb-12 space-y-8">
 					<div>
 						<h3 class="mb-3 text-lg font-semibold text-paper">
@@ -559,135 +557,91 @@ const cropArtPieces = [
 					</p>
 				</div>
 
+				<h2 id="podcasts" class={`${SECTION_HEADING} scroll-mt-24`}>
+					Podcasts
+					<Scribble
+						{...MARKS.double}
+						color={'#ff4fd8'}
+						duration="8s"
+						delay="0.4s"
+						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
+					/>
+				</h2>
+				<ul class="mb-8 grid gap-6 sm:grid-cols-2">
+					{featuredPodcasts.map((podcast) => (
+						<li class="relative flex items-center gap-4">
+							<img
+								src={podcast.image}
+								alt={podcast.alt}
+								data-halftone="flat"
+								class="h-20 w-20 shrink-0 rounded-md object-cover"
+								width="80"
+								height="80"
+								loading="lazy"
+							/>
+							<div>
+								<h3 class={ITEM_TITLE}>
+									{podcast.url ? (
+										<a
+											href={podcast.url}
+											target="_blank"
+											rel="noopener noreferrer"
+											class={TEXT_LINK}
+										>
+											{podcast.name}
+										</a>
+									) : (
+										podcast.name
+									)}
+								</h3>
+								<p class="text-sm text-muted">{podcast.host}</p>
+								<p class="text-sm text-muted">{podcast.episode}</p>
+							</div>
+						</li>
+					))}
+				</ul>
+				<h3 class:list={[GROUP_HEADING, 'mb-3']}>More appearances</h3>
+				<ul class="mb-12 space-y-2">
+					{moreAppearances.map((appearance) => (
+						<li>
+							<a
+								href={appearance.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class={`font-semibold ${TEXT_LINK}`}
+							>
+								{appearance.name}
+							</a>{' '}
+							<span class="text-sm text-muted">{appearance.detail}</span>
+						</li>
+					))}
+				</ul>
+
 				<h2 id="interests" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Outside of work
 					<Scribble
 						{...MARKS.rays}
 						color={CHALK}
 						duration="8s"
-						delay="1.2s"
+						delay="0.4s"
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
-				<div class="mb-12 grid gap-8 sm:grid-cols-2">
-					<a
-						href="/blog/how-to-get-started-building-a-homelab-server-in-2024/"
-						class="ring-host group relative block no-underline"
-					>
-						<span class="relative block">
-							<img
-								src="/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp"
-								alt="Vaporwave style homelab server illustration"
-								data-halftone="flat"
-								class="mb-3 block aspect-video w-full rounded-lg object-cover"
-								width="300"
-								height="112"
-								loading="lazy"
-							/>
-							<HoverBox />
-						</span>
-						<Scribble
-							{...MARKS.check}
-							color={CHALK}
-							duration="9s"
-							delay="0.0s"
-							class="-top-[7%] -right-[5%] z-10 size-[24%]"
-						/>
-						<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>Homelabber</h3>
-						<p class="text-paper">
-							Running a Proxmox cluster with {nowFeed.homelab.runningContainers} containers,
-							self-hosted services, and Home Assistant automating the whole house.
-						</p>
-					</a>
-					<a href="/talk-archive/" class="ring-host group relative block no-underline">
-						<span class="relative block">
-							<img
-								src="/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp"
-								alt="Joe Karlsson on the TEDx stage"
-								data-halftone="flat"
-								class="mb-3 block aspect-video w-full rounded-lg object-cover"
-								width="300"
-								height="112"
-								loading="lazy"
-							/>
-							<HoverBox />
-						</span>
-						<Scribble
-							{...MARKS.tally}
-							color="#ff4fd8"
-							duration="9s"
-							delay="0.7s"
-							class="-top-[7%] -right-[5%] z-10 size-[24%]"
-						/>
-						<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>Speaker</h3>
-						<p class="text-paper">
-							100+ conferences worldwide. TEDx speaker and keynote. I talk about databases, IoT, and
-							the weird stuff I build at home.
-						</p>
-					</a>
-					<a
-						href="/blog/an-introduction-to-iot-internet-of-toilets/"
-						class="ring-host group relative block no-underline"
-					>
-						<span class="relative block">
-							<img
-								src="/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp"
-								alt="IoT litter box project with Raspberry Pi and sensors"
-								data-halftone="flat"
-								class="mb-3 block aspect-video w-full rounded-lg object-cover"
-								width="300"
-								height="112"
-								loading="lazy"
-							/>
-							<HoverBox />
-						</span>
-						<Scribble
-							{...MARKS.burst}
-							color={CHALK}
-							duration="9s"
-							delay="1.4s"
-							class="-top-[7%] -right-[5%] z-10 size-[24%]"
-						/>
-						<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>
-							Cat Person / IoT Tinkerer
-						</h3>
-						<p class="text-paper">
-							Built an IoT litter box with a Raspberry Pi to monitor my cat's health. Gave a
-							conference talk about it.
-						</p>
-					</a>
-					<a
-						href={cropArtUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="ring-host group relative block no-underline"
-					>
-						<span class="relative block">
-							<img
-								src="/images/crop-art/riot-dog.webp"
-								alt="Crop art of Riot Dog made from seeds and grains"
-								data-halftone="flat"
-								class="mb-3 block aspect-video w-full rounded-lg object-cover"
-								width="300"
-								height="112"
-								loading="lazy"
-							/>
-							<HoverBox />
-						</span>
-						<Scribble
-							{...MARKS.asterisk}
-							color="#ff4fd8"
-							duration="9s"
-							delay="2.1s"
-							class="-top-[7%] -right-[5%] z-10 size-[24%]"
-						/>
-						<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>Crop Artist</h3>
-						<p class="text-paper">
-							I make art by gluing seeds to cardboard. Exhibited at the Minnesota State Fair and the
-							Seeds of Justice show.
-						</p>
-					</a>
-				</div>
+				<ul class="mb-12 space-y-3">
+					{oddFacts.map((fact) => (
+						<li class="border-t border-surface-4 pt-3">
+							<a
+								href={fact.href}
+								class="text-lg text-paper no-underline hover:text-pink"
+								{...(fact.href.startsWith('http')
+									? { target: '_blank', rel: 'noopener noreferrer' }
+									: {})}
+							>
+								{fact.text}
+							</a>
+						</li>
+					))}
+				</ul>
 
 				<h2 id="now" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Right now
@@ -755,6 +709,31 @@ const cropArtPieces = [
 					</p>
 				</div>
 
+				<h2 id="elsewhere" class={`${SECTION_HEADING} scroll-mt-24`}>
+					Elsewhere
+					<Scribble
+						{...MARKS.asterisk}
+						color={CHALK}
+						duration="8s"
+						delay="0.4s"
+						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
+					/>
+				</h2>
+				<ul class="mb-12 flex flex-wrap gap-x-6 gap-y-2">
+					{elsewhere.map((profile) => (
+						<li>
+							<a
+								href={profile.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								class={`font-semibold ${TEXT_LINK}`}
+							>
+								{profile.label}
+							</a>
+						</li>
+					))}
+				</ul>
+
 				<KeepExploring
 					heading="Read this next"
 					from="/about/"
@@ -762,7 +741,7 @@ const cropArtPieces = [
 				/>
 
 				<p class="mb-10 text-paper">
-					Want to work together, book me for a talk, or just say hi?{' '}
+					Want to say hi?{' '}
 					<a
 						href="/contact/"
 						class={`plausible-event-name=About+CTA+Click plausible-event-destination=contact ${MORE_LINK}`}
