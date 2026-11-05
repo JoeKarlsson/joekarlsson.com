@@ -5,7 +5,7 @@ import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE, SITE_DESCRIPTION } from '../consts';
 import { projects } from '../data/projects';
-import { ARROW, CHALK, HERO_COIL, MARKS } from '../data/scribbles';
+import { ARROW, CHALK, COIL, HERO_COIL, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts } from '../utils/posts';
@@ -86,6 +86,13 @@ const COLLAGE = [
 				preload="metadata"
 				aria-label="Montage of short halftone clips of Joe"
 			></video>
+			<Scribble
+				path={COIL}
+				color={CHALK}
+				duration="10s"
+				delay="1s"
+				class="top-[50%] -left-[4%] h-[24%] w-[108%]"
+			/>
 			<Scribble
 				{...MARKS.tally}
 				color="#000"
