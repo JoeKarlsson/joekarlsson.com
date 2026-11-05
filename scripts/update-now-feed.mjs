@@ -8,6 +8,7 @@ import { mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { loadEnvFile } from 'node:process';
 import sharp from 'sharp';
+import { parseLetterboxdFilms, truncateAtWord } from './now-feed-parsing.mjs';
 
 loadEnvFile('.env');
 
@@ -39,25 +40,6 @@ async function fetchOrThrow(url, options) {
 	return response;
 }
 
-function decodeEntities(text) {
-	return text
-		.replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
-		.replace(/&quot;/g, '"')
-		.replace(/&lt;/g, '<')
-		.replace(/&gt;/g, '>')
-		.replace(/&nbsp;/g, ' ')
-		.replace(/&amp;/g, '&');
-}
-
-function truncateAtWord(text, maxChars) {
-	if (text.length <= maxChars) return text;
-	return `${text.slice(0, text.lastIndexOf(' ', maxChars)).replace(/[\s,.;:-]+$/, '')}...`;
-}
-
-function readTag(itemXml, tag) {
-	return itemXml.match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)</${tag}>`))?.[1].trim();
-}
-
 async function saveCoverAsWebp(imageUrl, fileName, fetchOptions) {
 	const response = await fetchOrThrow(imageUrl, fetchOptions);
 	await sharp(Buffer.from(await response.arrayBuffer()))
@@ -69,36 +51,12 @@ async function saveCoverAsWebp(imageUrl, fileName, fetchOptions) {
 
 async function fetchRecentFilms() {
 	const rss = await (await fetchOrThrow(LETTERBOXD_RSS_URL)).text();
-	const items = [...rss.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((match) => match[1]);
-	// The feed also carries lists, which have no film title.
-	const filmItems = items.filter((item) => readTag(item, 'letterboxd:filmTitle'));
-	if (filmItems.length === 0) throw new Error('Letterboxd feed has no film entries');
-
 	const films = [];
-	for (const item of filmItems.slice(0, ITEMS_PER_FEED)) {
-		const description = readTag(item, 'description');
-		const posterUrl = description.match(/<img src="([^"]+)"/)?.[1];
-		if (!posterUrl) throw new Error(`No poster in Letterboxd item: ${readTag(item, 'link')}`);
-		const isReview = readTag(item, 'guid').startsWith('letterboxd-review-');
-		const reviewText = decodeEntities(
-			description
-				.replace(/<p><img[^>]*\/><\/p>/, '')
-				.replace(/<p><em>This review may contain spoilers\.<\/em><\/p>/, '')
-				.replace(/<[^>]+>/g, ' ')
-				.replace(/\]\]>|<!\[CDATA\[/g, ''),
-		)
-			.replace(/\s+/g, ' ')
-			.trim();
-		const tmdbId = readTag(item, 'tmdb:movieId');
-		const rating = readTag(item, 'letterboxd:memberRating');
-		films.push({
-			title: decodeEntities(readTag(item, 'letterboxd:filmTitle')),
-			year: Number(readTag(item, 'letterboxd:filmYear')),
-			rating: rating ? Number(rating) : null,
-			reviewExcerpt: isReview ? truncateAtWord(reviewText, REVIEW_EXCERPT_MAX_CHARS) : null,
-			url: readTag(item, 'link'),
-			poster: await saveCoverAsWebp(posterUrl, `film-${tmdbId}.webp`),
-		});
+	for (const { tmdbId, posterUrl, ...film } of parseLetterboxdFilms(rss, {
+		limit: ITEMS_PER_FEED,
+		reviewExcerptMaxChars: REVIEW_EXCERPT_MAX_CHARS,
+	})) {
+		films.push({ ...film, poster: await saveCoverAsWebp(posterUrl, `film-${tmdbId}.webp`) });
 	}
 	return films;
 }
