@@ -10,16 +10,6 @@ test.describe('Image Loading', () => {
 		expect(lazyCount).toBeGreaterThan(0);
 	});
 
-	test('above-fold images load eagerly', async ({ page }) => {
-		await page.goto('/');
-
-		const eagerImages = page.locator('img[loading="eager"]');
-		const count = await eagerImages.count();
-
-		// Should have at least one eager image or no loading attr (defaults to eager)
-		expect(count).toBeGreaterThanOrEqual(0);
-	});
-
 	test('images load on scroll', async ({ page }) => {
 		await page.goto('/blog');
 

@@ -1,79 +1,65 @@
 import { test, expect } from '@playwright/test';
 
+// Post rows the list script is currently showing (it hides the rest with display: none)
+const SHOWN_ROWS = '#posts-grid > li:visible';
+const POSTS_PER_PAGE = 12;
+
 test.describe('Blog Index Page', () => {
 	test.beforeEach(async ({ page }) => {
 		await page.goto('/blog');
 	});
 
-	test('displays blog posts', async ({ page }) => {
-		// Should have blog post links or cards
-		const postLinks = page.locator('a[href*="/blog/"]').filter({ hasNotText: /category/i });
-		const postCount = await postLinks.count();
-		expect(postCount).toBeGreaterThan(0);
+	test('shows the first page of posts, and more load on scroll', async ({ page }) => {
+		await expect(page.locator(SHOWN_ROWS)).toHaveCount(POSTS_PER_PAGE);
 
-		// First post link should be visible
-		await expect(postLinks.first()).toBeVisible();
+		await page.locator('#load-more-sentinel').scrollIntoViewIfNeeded();
+		await expect(page.locator(SHOWN_ROWS)).toHaveCount(POSTS_PER_PAGE * 2);
 	});
 
-	test('search filters posts by title', async ({ page }) => {
-		const searchInput = page.getByPlaceholder(/search/i);
-		await expect(searchInput).toBeVisible();
+	test('search narrows the list to matching posts and counts them', async ({ page }) => {
+		await page.getByPlaceholder(/search/i).fill('homelab');
 
-		// Get initial count
-		const initialPosts = await page.locator('article').count();
-
-		// Search for something specific
-		await searchInput.fill('mongodb');
-		await page.waitForTimeout(300); // Debounce
-
-		// Should show filtered results
-		const filteredPosts = await page.locator('article').count();
-		expect(filteredPosts).toBeLessThanOrEqual(initialPosts);
+		await expect(page.locator('#results-count')).toHaveText(/^\d+ posts? found$/);
+		const rows = page.locator(SHOWN_ROWS);
+		expect(await rows.count()).toBeGreaterThan(0);
+		expect(await rows.count()).toBeLessThanOrEqual(POSTS_PER_PAGE);
 	});
 
 	test('search shows no results message for invalid query', async ({ page }) => {
-		const searchInput = page.getByPlaceholder(/search/i);
-		await searchInput.fill('xyznonexistentpost123');
-		await page.waitForTimeout(300);
-
-		// Should show no results message
+		await page.getByPlaceholder(/search/i).fill('xyznonexistentpost123');
 		await expect(page.getByText(/no posts found/i)).toBeVisible();
+		await expect(page.locator(SHOWN_ROWS)).toHaveCount(0);
 	});
 
-	test('sort buttons are present', async ({ page }) => {
-		// Look for sort controls
-		const sortButtons = page.locator('button').filter({ hasText: /newest|oldest|sort/i });
+	test('Popular sort puts a most-read post first, and ten posts carry the flame', async ({
+		page,
+	}) => {
+		const flame = 'One of my 10 most-read posts';
+		await expect(page.locator('#posts-grid').getByText(flame, { exact: true })).toHaveCount(10);
 
-		// Sort buttons may or may not exist depending on page implementation
-		const buttonCount = await sortButtons.count();
-
-		// If they exist, they should be clickable
-		if (buttonCount > 0) {
-			await expect(sortButtons.first()).toBeVisible();
-		}
+		const popular = page.getByRole('button', { name: 'Popular' });
+		await popular.click();
+		await expect(popular).toHaveAttribute('aria-pressed', 'true');
+		await expect(page.getByRole('button', { name: 'Newest' })).toHaveAttribute(
+			'aria-pressed',
+			'false',
+		);
+		// Rows are reordered with CSS order, so find the one placed first
+		const firstShown = page.locator('#posts-grid > li[style*="order: 0"]');
+		await expect(firstShown.getByText(flame, { exact: true })).toBeAttached();
 	});
 
-	test('category links exist', async ({ page }) => {
-		// Find category links
-		const categoryLinks = page.locator('a[href*="/blog/category/"]');
-		const linkCount = await categoryLinks.count();
+	test('a category link opens its page with that category marked current', async ({ page }) => {
+		const categories = page.getByRole('navigation', { name: 'Blog categories' });
+		const category = categories.locator('a[href^="/blog/category/"]').first();
+		const href = await category.getAttribute('href');
 
-		// Categories should exist on blog page
-		expect(linkCount).toBeGreaterThan(0);
-		await expect(categoryLinks.first()).toBeVisible();
-	});
-
-	test('blog post links lead to valid pages', async ({ page }) => {
-		// Get first blog post link
-		const postLinks = page.locator('a[href*="/blog/"]').filter({ hasNotText: /category/i });
-		const firstLink = postLinks.first();
-
-		const href = await firstLink.getAttribute('href');
-		expect(href).toBeTruthy();
-
-		// Click and verify navigation
-		await firstLink.click();
-		await expect(page).toHaveURL(/\/blog\//);
+		await category.click();
+		await expect(page).toHaveURL(href!);
+		await expect(
+			page.getByRole('navigation', { name: 'Blog categories' }).locator(`a[href="${href}"]`),
+		).toHaveAttribute('aria-current', 'page');
+		expect(await page.locator(SHOWN_ROWS).count()).toBeGreaterThan(0);
 	});
 });
 
@@ -101,26 +87,5 @@ test.describe('Individual Blog Post', () => {
 		const mainContent = page.locator('main, article').first();
 		const textContent = await mainContent.textContent();
 		expect(textContent?.trim().length).toBeGreaterThan(200);
-	});
-});
-
-test.describe('Blog Pagination / Infinite Scroll', () => {
-	test('more posts load on scroll', async ({ page }) => {
-		await page.goto('/blog');
-
-		// Count initial visible posts
-		const initialCount = await page.locator('article').count();
-
-		// If there are more posts to load, scrolling should load them
-		// Scroll to bottom
-		await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-		await page.waitForTimeout(500);
-
-		// Check if more posts loaded (only if pagination exists)
-		const sentinel = page.locator('#sentinel, [data-sentinel]');
-		if (await sentinel.isVisible().catch(() => false)) {
-			const newCount = await page.locator('article').count();
-			expect(newCount).toBeGreaterThanOrEqual(initialCount);
-		}
 	});
 });

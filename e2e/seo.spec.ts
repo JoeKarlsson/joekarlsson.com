@@ -94,14 +94,11 @@ test.describe('Blog Post SEO', () => {
 			.first();
 		await postLink.click();
 
-		// Look for JSON-LD structured data
 		const jsonLd = page.locator('script[type="application/ld+json"]');
-		const count = await jsonLd.count();
-
-		// May or may not have JSON-LD, but if present it should be valid
-		if (count > 0) {
-			const content = await jsonLd.first().textContent();
-			expect(() => JSON.parse(content || '')).not.toThrow();
+		expect(await jsonLd.count()).toBeGreaterThan(0);
+		for (const script of await jsonLd.all()) {
+			const json = (await script.textContent()) || '';
+			expect(() => JSON.parse(json)).not.toThrow();
 		}
 	});
 });
@@ -158,11 +155,7 @@ test.describe('Favicon and Icons', () => {
 		const href = await manifest.getAttribute('href');
 
 		expect(href).toBeTruthy();
-
-		// Verify manifest is accessible
-		if (href) {
-			const response = await page.goto(href);
-			expect(response?.status()).toBe(200);
-		}
+		const response = await page.goto(href!);
+		expect(response?.status()).toBe(200);
 	});
 });

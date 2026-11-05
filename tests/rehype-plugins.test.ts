@@ -7,6 +7,7 @@ vi.mock('node:fs', () => ({ default: { existsSync } }));
 
 const { default: rehypeGifVideo } = await import('../src/plugins/rehype-gif-video.mjs');
 const { default: rehypeLazyImages } = await import('../src/plugins/rehype-lazy-images.mjs');
+const { default: rehypeYouTubeEmbed } = await import('../src/plugins/rehype-youtube-embed.mjs');
 
 type HastNode = {
 	type: string;
@@ -183,5 +184,49 @@ describe('rehype-gif-video', () => {
 
 		expect(paragraph(root)[0].tagName).toBe('img');
 		expect(existsSync).not.toHaveBeenCalled();
+	});
+});
+
+describe('rehype-youtube-embed', () => {
+	function link(href: string): HastNode {
+		return {
+			type: 'element',
+			tagName: 'a',
+			properties: { href },
+			children: [{ type: 'text', value: href }],
+		};
+	}
+
+	function iframeIn(root: HastNode): HastNode | undefined {
+		const block = root.children![0];
+		return block.tagName === 'div' ? block.children![0] : undefined;
+	}
+
+	it.each([
+		'https://www.youtube.com/watch?v=GiNa2jen-lg',
+		'https://youtu.be/GiNa2jen-lg',
+		'https://www.youtube.com/embed/GiNa2jen-lg',
+	])('turns a link alone in its paragraph into a privacy-mode player: %s', (href) => {
+		const root = run(rehypeYouTubeEmbed, tree(link(href)));
+
+		const iframe = iframeIn(root);
+		expect(iframe?.tagName).toBe('iframe');
+		expect(iframe?.properties?.src).toBe('https://www.youtube-nocookie.com/embed/GiNa2jen-lg');
+		expect(iframe?.properties?.loading).toBe('lazy');
+		expect(iframe?.properties?.title).toBeTruthy();
+	});
+
+	it('leaves a YouTube link inside a sentence as a link', () => {
+		const text: HastNode = { type: 'text', value: 'Watch ' };
+		const root = run(rehypeYouTubeEmbed, tree(text, link('https://youtu.be/GiNa2jen-lg')));
+
+		expect(root.children![0].tagName).toBe('p');
+		expect(paragraph(root)[1].tagName).toBe('a');
+	});
+
+	it('leaves other links alone', () => {
+		const root = run(rehypeYouTubeEmbed, tree(link('https://vimeo.com/123456789')));
+
+		expect(root.children![0].tagName).toBe('p');
 	});
 });

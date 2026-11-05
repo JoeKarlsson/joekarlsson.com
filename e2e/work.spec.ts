@@ -1,82 +1,75 @@
 import { test, expect } from '@playwright/test';
+import { projects } from '../src/data/projects';
+
+const projectsWithPages = projects.filter((p) => p.page);
 
 test.describe('Work Page', () => {
 	test.beforeEach(async ({ page }) => {
 		await page.goto('/work');
 	});
 
-	test('page loads with project content', async ({ page }) => {
-		// Should have main content
-		await expect(page.locator('main')).toBeVisible();
-
-		// Should have some project links or content
-		const content = page.locator('main a, main h2, main h3').first();
-		await expect(content).toBeVisible();
-	});
-
-	test('project cards have required elements', async ({ page }) => {
-		const projectCards = page.locator('article, [class*="project-card"]');
-
-		if ((await projectCards.count()) > 0) {
-			const firstProject = projectCards.first();
-
-			// Should have title
-			const title = firstProject.locator('h2, h3, h4');
-			await expect(title).toBeVisible();
+	test('links to every project that has its own page', async ({ page }) => {
+		expect(projectsWithPages.length).toBeGreaterThan(0);
+		for (const project of projectsWithPages) {
+			await expect(
+				page.locator(`main a[href="/work/${project.page!.slug}/"]`).first(),
+			).toBeAttached();
 		}
 	});
 
-	test('project links work correctly', async ({ page }) => {
-		// Find project links (GitHub, blog posts, etc.)
-		const projectLinks = page.locator('main a[href*="github"], main a[href*="/blog/"]');
+	test('a category filter shows only that category and is kept in the URL', async ({ page }) => {
+		const cells = page.locator('#projects-grid > [data-category]');
+		const total = await cells.count();
+		const filter = page.locator('.project-filter:not([data-filter="all"])').first();
+		const category = await filter.getAttribute('data-filter');
 
-		if ((await projectLinks.count()) > 0) {
-			const firstLink = projectLinks.first();
-			const href = await firstLink.getAttribute('href');
-
-			// External links should have target="_blank"
-			if (href?.startsWith('http')) {
-				await expect(firstLink).toHaveAttribute('target', '_blank');
-			}
+		await filter.click();
+		await expect(filter).toHaveAttribute('aria-pressed', 'true');
+		await expect(page).toHaveURL(new RegExp(`#${category}$`));
+		const visible = cells.locator('visible=true');
+		expect(await visible.count()).toBeGreaterThan(0);
+		expect(await visible.count()).toBeLessThan(total);
+		for (const cell of await visible.all()) {
+			await expect(cell).toHaveAttribute('data-category', category!);
 		}
-	});
 
-	test('featured project is highlighted', async ({ page }) => {
-		// Look for featured project section
-		const featuredSection = page.locator(
-			'[class*="featured"], [data-featured], section:first-of-type article',
+		// The hash survives a reload
+		await page.reload();
+		await expect(page.locator(`.project-filter[data-filter="${category}"]`)).toHaveAttribute(
+			'aria-pressed',
+			'true',
 		);
 
-		if ((await featuredSection.count()) > 0) {
-			await expect(featuredSection.first()).toBeVisible();
-		}
+		await page.locator('.project-filter[data-filter="all"]').click();
+		await expect(cells.locator('visible=true')).toHaveCount(total);
 	});
 
-	test('page has meaningful content', async ({ page }) => {
-		// Page should have substantial text content
-		const mainContent = page.locator('main');
-		const textContent = await mainContent.textContent();
-
-		// Should have meaningful content
-		expect(textContent?.trim().length).toBeGreaterThan(100);
+	test('the GitHub link opens in a new tab', async ({ page }) => {
+		const github = page.getByRole('link', { name: /all repos on GitHub/i });
+		await expect(github).toHaveAttribute('href', /github\.com/);
+		await expect(github).toHaveAttribute('target', '_blank');
+		await expect(github).toHaveAttribute('rel', /noopener/);
 	});
+});
 
-	test('category sections are organized', async ({ page }) => {
-		// Look for category headings
-		const categoryHeadings = page.locator('h2, h3').filter({ hasText: /projects|category/i });
+test.describe('Project page', () => {
+	test.use({ viewport: { width: 1440, height: 900 } });
 
-		// Page might have category organization
-		const headingCount = await categoryHeadings.count();
-		expect(headingCount).toBeGreaterThanOrEqual(0); // May or may not have categories
-	});
+	for (const project of projectsWithPages) {
+		// Every #fragment pointing at a real id is checked in tests/build-output.test.ts
+		test(`${project.page!.slug} has its title and an "On this page" list that scrolls to a section`, async ({
+			page,
+		}) => {
+			await page.goto(`/work/${project.page!.slug}/`);
+			await expect(page.locator('main h1')).toContainText(project.title, { ignoreCase: true });
 
-	test('GitHub CTA button works', async ({ page }) => {
-		// Look for "View all repos" or similar CTA
-		const githubCta = page.locator('a[href*="github.com"]').filter({ hasText: /repo|github/i });
-
-		if ((await githubCta.count()) > 0) {
-			await expect(githubCta.first()).toHaveAttribute('href', /github\.com/);
-			await expect(githubCta.first()).toHaveAttribute('target', '_blank');
-		}
-	});
+			const lastLink = page
+				.getByRole('navigation', { name: 'Table of contents' })
+				.getByRole('link')
+				.last();
+			const id = (await lastLink.getAttribute('href'))!.slice(1);
+			await lastLink.click();
+			await expect(page.locator(`[id="${id}"]`)).toBeInViewport();
+		});
+	}
 });
