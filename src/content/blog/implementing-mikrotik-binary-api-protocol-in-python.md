@@ -15,7 +15,7 @@ My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) runs a
 
 ## Why Not Use an Existing Library?
 
-Honestly? I wanted to understand the protocol. MikroTik's documentation describes it at a high level, but the actual byte-level encoding is the kind of thing you only truly understand by implementing it yourself. Plus, the existing Python libraries tend to be heavy - I just wanted a lightweight script I could call from shell scripts and automation.
+I wanted to understand the protocol. MikroTik's documentation describes it at a high level, but the actual byte-level encoding is the kind of thing you only truly understand by implementing it yourself. Plus, the existing Python libraries tend to be heavy - I just wanted a lightweight script I could call from shell scripts and automation.
 
 The result is about 137 lines of Python - using only `socket` and `struct` from the standard library - that give me full programmatic control over the router.
 

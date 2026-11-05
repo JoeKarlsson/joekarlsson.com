@@ -79,7 +79,7 @@ Above `small.en`, I couldn't measure a difference. On this script, `small.en`, `
 
 On an Apple Silicon Mac, run `small.en` or bigger, because the latency costs you nothing. On an older or CPU-only laptop, `small.en` is still the one to try first; add the `-ac 512` flag from the README, which cut CPU latency about 4x in my testing. Skip `tiny.en` unless you're debugging.
 
-I stick with `medium` because it's already on my machine. Honestly, `small.en` would do the same job on this script for less than half the RAM.
+I stick with `medium` because it's already on my machine. `small.en` would do the same job on this script for less than half the RAM.
 
 ## What's still rough
 

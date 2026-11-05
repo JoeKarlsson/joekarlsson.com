@@ -30,7 +30,7 @@ However, I quickly discovered that “working” and “working well” are very
 
 ## “Okay Nabu” proves problematic
 
-Here’s where we hit our first major adoption hurdle. My partner has been struggling terribly with remembering the wake word “Okay Nabu.” Honestly, I don’t blame her, it’s not exactly intuitive. We’d been using “OK Computer” for years with our previous setup, and breaking that muscle memory has proven nearly impossible.
+Here’s where we hit our first major adoption hurdle. My partner has been struggling terribly with remembering the wake word “Okay Nabu.” I don’t blame her, it’s not exactly intuitive. We’d been using “OK Computer” for years with our previous setup, and breaking that muscle memory has proven nearly impossible.
 
 “I keep saying ‘OK Computer’ and nothing happens,” she told me last week, clearly frustrated. “Why can’t we just use something normal?”
 
@@ -107,7 +107,7 @@ Here’s where my technical enthusiasm hit another wall. The Voice Preview Editi
 
 This forced me down an unexpected rabbit hole that’s become its own multi-month project. Initially, I connected external speakers via the 3.5 mm output, but that created configuration challenges around audio routing and volume control. [[Smart Home Junkie](https://www.smarthomejunkie.net/enhancing-voice-assistant-integrate-an-external-speaker-using-esphome/)]
 
-That led me into the world of self-hosted music solutions. I’m currently experimenting with [Music Assistant](https://www.music-assistant.io/installation/) as the audio coordinator, [Navidrome](https://www.navidrome.org/) for my personal music library, and a [Lyrion Squeezebox server](https://lyrion.org/) for multi-room audio. I’ve been testing WiiM smart speakers as potential endpoints, but honestly, I haven’t landed on anything definitive yet.
+That led me into the world of self-hosted music solutions. I’m currently experimenting with [Music Assistant](https://www.music-assistant.io/installation/) as the audio coordinator, [Navidrome](https://www.navidrome.org/) for my personal music library, and a [Lyrion Squeezebox server](https://lyrion.org/) for multi-room audio. I’ve been testing WiiM smart speakers as potential endpoints, but I haven’t landed on anything definitive yet.
 
 “So now you’re rebuilding our entire music system too?” my partner asked when she saw me researching yet another audio protocol. The answer, unfortunately, was yes.
 

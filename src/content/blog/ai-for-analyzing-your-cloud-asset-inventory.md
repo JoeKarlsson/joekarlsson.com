@@ -66,7 +66,7 @@ The same cloud inventory data powering your current analytics now works with you
 
 ## How Our Community Is Already Using This
 
-Since we released the MCP server, our users have been doing things that honestly surprised us. Here are some ways we've seen them using it:
+Since we released the MCP server, our users have been doing things that surprised us. Here are some ways we've seen them using it:
 
 ### Security Teams Going Beyond Manual Audits
 
