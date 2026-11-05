@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 239,
+			"commitCount": 241,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				118
+				120
 			],
-			"latestCommitMessage": "feat: Contact runs straight into the newsletter signup, the newsletter..."
+			"latestCommitMessage": "fix: The bio and Keep reading under a post or issue line up with the..."
 		},
 		{
 			"name": "dotfiles",
