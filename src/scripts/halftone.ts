@@ -35,7 +35,8 @@ const FRAGMENT_SHADER = `
 precision mediump float;
 uniform sampler2D source;
 uniform vec2 canvasSize;   // device pixels
-uniform vec2 fitScale;     // object-fit (cover or contain), as a UV scale around the center
+uniform vec2 fitScale;     // object-fit (cover or contain), as a UV scale
+uniform vec2 fitOffset;    // object-position: where the scaled picture sits
 uniform float cell;        // dot spacing, device pixels
 uniform float invert;      // 1.0 flips a light image
 uniform vec2 levels;       // the image's darkest and brightest tones, stretched to black and full pink
@@ -54,7 +55,7 @@ vec2 unrotate(vec2 p) { return vec2(dot(p, ROTATE[0]), dot(p, ROTATE[1])); }
 // Source brightness, flipped for a light image; black outside the picture
 // (the bars around an object-fit: contain clip)
 float luma(vec2 pixel) {
-	vec2 uv = (pixel / canvasSize - 0.5) * fitScale + 0.5;
+	vec2 uv = pixel / canvasSize * fitScale + fitOffset;
 	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) return 0.0;
 	float value = dot(texture2D(source, uv).rgb, vec3(0.299, 0.587, 0.114));
 	value = clamp((value - levels.x) / (levels.y - levels.x), 0.0, 1.0);
@@ -98,6 +99,8 @@ interface Look {
 	flat: boolean;
 	// object-fit: contain rather than cover
 	contain: boolean;
+	// object-position as fractions (0.5, 0.5 is centered), read on resize
+	position: [number, number];
 }
 
 type Draw = (source: Source, target: HTMLCanvasElement, look: Look) => void;
@@ -136,9 +139,10 @@ function createRenderer(): Draw | null {
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 	gl.uniform3fv(gl.getUniformLocation(program, 'ink'), INK);
 	const uniform = (name: string) => gl.getUniformLocation(program, name);
-	const [canvasSize, fitScale, cell, invert, noDots, levels] = [
+	const [canvasSize, fitScale, fitOffset, cell, invert, noDots, levels] = [
 		'canvasSize',
 		'fitScale',
+		'fitOffset',
 		'cell',
 		'invert',
 		'noDots',
@@ -158,11 +162,11 @@ function createRenderer(): Draw | null {
 		gl.uniform2f(canvasSize, width, height);
 		// Cover crops the longer side of the picture; contain pads the shorter one
 		const wider = targetAspect < sourceAspect;
-		gl.uniform2f(
-			fitScale,
-			wider === look.contain ? 1 : targetAspect / sourceAspect,
-			wider === look.contain ? sourceAspect / targetAspect : 1,
-		);
+		const scaleX = wider === look.contain ? 1 : targetAspect / sourceAspect;
+		const scaleY = wider === look.contain ? sourceAspect / targetAspect : 1;
+		gl.uniform2f(fitScale, scaleX, scaleY);
+		// Same rule as CSS object-position: the leftover space splits by the percentage
+		gl.uniform2f(fitOffset, (1 - scaleX) * look.position[0], (1 - scaleY) * look.position[1]);
 		gl.uniform1f(cell, CELL_CSS_PX * (window.devicePixelRatio || 1));
 		gl.uniform1f(invert, look.invert ? 1 : 0);
 		gl.uniform1f(noDots, look.flat ? 1 : 0);
@@ -198,6 +202,13 @@ function measure(image: HTMLImageElement): { mean: number; low: number; high: nu
 	return high - low < MIN_RANGE ? { mean, low: 0, high: 1 } : { mean, low, high };
 }
 
+/** An element's object-position as fractions; anything not in percent counts as centered. */
+function objectPosition(element: Element): [number, number] {
+	const parts = getComputedStyle(element).objectPosition.split(' ');
+	const fraction = (part = '50%') => (part.endsWith('%') ? parseFloat(part) / 100 : 0.5);
+	return [fraction(parts[0]), fraction(parts[1])];
+}
+
 function attach(element: Source, draw: Draw): void {
 	const canvas = document.createElement('canvas');
 	canvas.setAttribute('aria-hidden', 'true');
@@ -211,6 +222,7 @@ function attach(element: Source, draw: Draw): void {
 		high: 1,
 		flat: element.dataset.halftone === 'flat',
 		contain: getComputedStyle(element).objectFit === 'contain',
+		position: objectPosition(element),
 	};
 	// A video shows its still until the clip has a frame
 	const still =
@@ -220,6 +232,7 @@ function attach(element: Source, draw: Draw): void {
 	let stillReady = false;
 
 	const fit = (): boolean => {
+		look.position = objectPosition(element);
 		const ratio = window.devicePixelRatio || 1;
 		const width = Math.round(element.offsetWidth * ratio);
 		const height = Math.round(element.offsetHeight * ratio);

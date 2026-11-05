@@ -175,7 +175,7 @@ const cropArtPieces = [
 			clip is pre-cropped with Joe's face centered on the top third (rule of thirds, like
 			the homepage montage), so it's drawn centered. Pink dots are drawn live
 			(src/scripts/halftone.ts); in-view-play stops it with pause-motion and reduced motion. -->
-			<div class="relative z-10 aspect-[4/5] md:order-last md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
+			<div class="relative z-10 aspect-[4/3] md:order-last md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
 				<video
 					src="/images/about/joe-hello.mp4"
 					data-halftone-poster="/images/about/joe-hello-poster.webp"
@@ -187,7 +187,7 @@ const cropArtPieces = [
 					preload="metadata"
 					role="img"
 					aria-label="Joe Karlsson by a river, waving hello with a peace sign"
-					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover"
+					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-[50%_8%] md:object-center"
 				></video>
 				<Scribble
 					{...MARKS.burst}
