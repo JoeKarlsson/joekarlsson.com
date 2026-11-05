@@ -14,6 +14,8 @@ import HoverBox from '../components/HoverBox.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
 import { DEFAULT_HERO_IMAGE } from '../consts';
+import { rankRelatedPosts } from '../utils/related-posts';
+import popularPosts from '../data/popular-posts.json';
 import { ARTICLE_TITLE, META, PAGE_CONTAINER, SECTION_HEADING, SIDEBAR_GRID } from '../utils/ui';
 interface Props {
 	title: string;
@@ -100,68 +102,22 @@ const publishedPosts = allPosts
 	.filter((p) => writtenFor || isOwnPost(p))
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// Primary category for prev/next
-const primaryCategory = categories?.[0];
-
-// Prev/next within primary category
-let prevPost: (typeof publishedPosts)[number] | undefined;
-let nextPost: (typeof publishedPosts)[number] | undefined;
-
-if (primaryCategory) {
-	const categoryPosts = publishedPosts
-		.filter((p) => p.data.categories.some((category) => category === primaryCategory))
-		.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
-	const currentIndex = categoryPosts.findIndex((p) => p.data.slug === slug);
-	if (currentIndex > 0) {
-		prevPost = categoryPosts[currentIndex - 1];
-	}
-	if (currentIndex >= 0 && currentIndex < categoryPosts.length - 1) {
-		nextPost = categoryPosts[currentIndex + 1];
-	}
-}
-
-// Improved related posts: score by shared categories + title keyword overlap
-const currentCategories = new Set(categories || []);
-const currentTitleWords = new Set(
-	title
-		.toLowerCase()
-		.replace(/[^a-z0-9\s]/g, '')
-		.split(/\s+/)
-		.filter((w) => w.length > 3),
+// "Keep reading": the three posts closest to this one in what they're about (full
+// text, src/utils/related-posts.ts), best match first, where the crayon arrow points
+const relatedSlugs = rankRelatedPosts(
+	slug,
+	publishedPosts.map((post) => ({
+		slug: post.data.slug,
+		title: post.data.title,
+		description: post.data.description,
+		tags: post.data.tags,
+		body: post.body,
+	})),
+	popularPosts.visitorsByPath,
 );
-
-const relatedPosts = publishedPosts
-	.filter((p) => p.data.slug !== slug)
-	.map((p) => {
-		const postCategories = p.data.categories || [];
-		const categoryScore = postCategories.filter((cat) => currentCategories.has(cat)).length;
-		if (categoryScore === 0) return null;
-
-		const postTitleWords = p.data.title
-			.toLowerCase()
-			.replace(/[^a-z0-9\s]/g, '')
-			.split(/\s+/)
-			.filter((w: string) => w.length > 3);
-		const titleOverlap = postTitleWords.filter((w: string) => currentTitleWords.has(w)).length;
-
-		return { post: p, categoryScore, titleOverlap };
-	})
-	.filter(Boolean)
-	.sort((a, b) => {
-		if (b!.categoryScore !== a!.categoryScore) return b!.categoryScore - a!.categoryScore;
-		if (b!.titleOverlap !== a!.titleOverlap) return b!.titleOverlap - a!.titleOverlap;
-		return b!.post.data.date.valueOf() - a!.post.data.date.valueOf();
-	})
-	.slice(0, 3)
-	.map((r) => r!.post);
-
-// "Keep reading": the crayon arrow points at the post after this one in its
-// category (or the one before, for the newest), and related posts fill the rest
-const leadPost = nextPost ?? prevPost;
-const keepReading = [
-	...(leadPost ? [leadPost] : []),
-	...relatedPosts.filter((post) => post.data.slug !== leadPost?.data.slug),
-].slice(0, 3);
+const keepReading = relatedSlugs.map((related) =>
+	publishedPosts.find((post) => post.data.slug === related)!,
+);
 
 // One crayon mark spills off each post's hero; the slug picks which, so a post
 // keeps the same one between builds
@@ -431,9 +387,8 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 											href={`/blog/${post.data.slug}/`}
 											class:list={[
 												'grid gap-3.5 text-paper no-underline',
-												lead && post === leadPost
-													? `plausible-event-name=Blog+Navigation plausible-event-direction=${nextPost ? 'next' : 'prev'}`
-													: 'plausible-event-name=Related+Post+Click',
+												// Which post led where, so the suggestions that work show up in Plausible
+												`plausible-event-name=Related+Post+Click plausible-event-from=${slug} plausible-event-to=${post.data.slug} plausible-event-position=${index + 1}`,
 											]}
 										>
 											<span class="relative block">
