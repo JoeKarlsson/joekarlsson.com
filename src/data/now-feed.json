@@ -1,5 +1,5 @@
 {
-	"updatedAt": "2026-11-04",
+	"updatedAt": "2026-11-05",
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
@@ -7,22 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 120,
+			"commitCount": 127,
 			"dailyCommitCounts": [
-				3, 6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 9
+				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
+				3
 			],
-			"latestCommitMessage": "feat: Give the de-slopped site its character back: Recursive with..."
+			"latestCommitMessage": "feat: Redesign phase 0 - pink/ink tokens, Anton/Fraunces/Hanken..."
 		},
 		{
 			"name": "dotfiles",
 			"description": "My dotfiles, managed with chezmoi",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
 			"language": "TypeScript",
-			"commitCount": 78,
+			"commitCount": 90,
 			"dailyCommitCounts": [
-				6, 0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 10
+				0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 0
 			],
-			"latestCommitMessage": "feat: Open zsh in Herdr panes on claude-dev"
+			"latestCommitMessage": "fix: Drop the Inter design-check flag; Inter is an allowed choice now"
 		},
 		{
 			"name": "screencast-director",
@@ -31,8 +32,8 @@
 			"language": "Swift",
 			"commitCount": 245,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23,
-				51
+				0, 0, 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51,
+				0
 			],
 			"latestCommitMessage": "chore: The CLI check on the render's sound asserts what it guards..."
 		},
@@ -43,7 +44,7 @@
 			"language": "Metal",
 			"commitCount": 7,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0
 			],
 			"latestCommitMessage": "fix: Track draws detector boxes: a thin outline around the face, hands..."
 		}
