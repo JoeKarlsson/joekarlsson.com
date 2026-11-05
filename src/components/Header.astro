@@ -13,19 +13,24 @@ function isActive(href: string): boolean {
 
 <!--
 	One row, always. Spacing is in em, so the whole bar scales with its type: from md
-	up the type shrinks until the bar (about 38.5em wide) fits the window; on phones
+	up the type shrinks until the bar (about 33.5em wide) fits the window; on phones
 	it stays readable and the row scrolls sideways instead.
 -->
 <header class="pointer-events-none sticky top-2 z-50 flex justify-center px-2 pt-2 md:top-3.5">
 	<nav
 		aria-label="Main navigation"
-		class="pointer-events-auto flex max-w-full items-center gap-[0.19em] overflow-x-auto rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase [scrollbar-width:none] md:text-[min(21px,calc((100vw-24px)/38.5))]"
+		class="pointer-events-auto flex max-w-full items-center gap-[0.19em] overflow-x-auto rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase [scrollbar-width:none] md:text-[min(21px,calc((100vw-24px)/33.5))]"
 	>
+		<!-- The name is the home link; on the homepage it goes pink like any current page -->
 		<a
 			href="/"
-			class="shrink-0 rounded-[0.43em] bg-ink px-[0.48em] py-[0.38em] text-paper no-underline"
+			aria-current={currentPath === '/' ? 'page' : undefined}
+			class:list={[
+				'shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
+				currentPath === '/' ? 'bg-pink text-ink' : 'bg-ink text-paper hover:text-pink',
+			]}
 		>
-			joekarlsson.com
+			Joe Karlsson
 		</a>
 		{NAV_LINKS.map(({ href, label }) => (
 			<a

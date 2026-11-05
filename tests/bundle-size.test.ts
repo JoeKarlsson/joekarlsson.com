@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readdirSync, statSync } from 'fs';
+import { readdirSync, readFileSync, statSync } from 'fs';
 import { join } from 'path';
 
 /** Recursive byte total for a directory. */
@@ -128,5 +128,63 @@ describe('Bundle Size', () => {
 
 			expect(totalSize).toBeLessThan(THRESHOLDS.maxTotalCss);
 		});
+	});
+});
+
+// The homepage's media: what a visitor pulls before scrolling (the montage, in the
+// first <source> a browser picks, plus its poster), and everything on the page if
+// they scroll to the end. Lazy clips (preload="none") count only toward the total.
+// Measured 2026-11-05: about 2.4MB first view, about 7MB in all.
+const HOME_MEDIA_BUDGET = {
+	firstView: 3.5 * 1024 * 1024,
+	total: 9 * 1024 * 1024,
+};
+
+/** Each <video>'s first source (or src), poster, and every <img> on a built page. */
+function pageMedia(html: string): { path: string; eager: boolean }[] {
+	const media: { path: string; eager: boolean }[] = [];
+	for (const [, attrs, inner] of html.matchAll(/<video\b([^>]*)>([\s\S]*?)<\/video>/g)) {
+		const eager = !/preload="none"/.test(attrs);
+		const src =
+			attrs.match(/\ssrc="([^"]+)"/)?.[1] ?? inner.match(/<source[^>]*\ssrc="([^"]+)"/)?.[1];
+		const poster = attrs.match(/\sposter="([^"]+)"/)?.[1];
+		if (src) media.push({ path: src, eager });
+		if (poster) media.push({ path: poster, eager });
+	}
+	for (const [, attrs] of html.matchAll(/<img\b([^>]*)>/g)) {
+		const src = attrs.match(/\ssrc="([^"]+)"/)?.[1];
+		if (src?.startsWith('/')) media.push({ path: src, eager: !/loading="lazy"/.test(attrs) });
+	}
+	return media;
+}
+
+describe('Homepage media budget', () => {
+	const html = readFileSync(join(DIST_DIR, 'index.html'), 'utf8');
+	const media = pageMedia(html).map((m) => ({ ...m, size: statSync(join(DIST_DIR, m.path)).size }));
+
+	it('finds the montage, its poster and the lazy clips', () => {
+		expect(media.some((m) => m.path.includes('montage') && m.eager)).toBe(true);
+		expect(media.filter((m) => !m.eager).length).toBeGreaterThan(5);
+	});
+
+	it(`first view is under ${formatBytes(HOME_MEDIA_BUDGET.firstView)}`, () => {
+		const eager = media.filter((m) => m.eager);
+		const total = getTotalSize(eager);
+		if (total >= HOME_MEDIA_BUDGET.firstView) {
+			expect.fail(
+				`Homepage first view loads ${formatBytes(total)}:\n` +
+					breakdown(eager.map((m) => ({ name: m.path, size: m.size }))),
+			);
+		}
+	});
+
+	it(`whole page is under ${formatBytes(HOME_MEDIA_BUDGET.total)}`, () => {
+		const total = getTotalSize(media);
+		if (total >= HOME_MEDIA_BUDGET.total) {
+			expect.fail(
+				`Homepage media totals ${formatBytes(total)}:\n` +
+					breakdown(media.map((m) => ({ name: m.path, size: m.size }))),
+			);
+		}
 	});
 });

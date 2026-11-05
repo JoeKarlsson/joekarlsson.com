@@ -8,6 +8,7 @@ import { projects } from '../data/projects';
 import { ARROW, CHALK, COIL, HERO_COIL, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 import { getCategoryCounts } from '../utils/categories';
+import { halftoneThumbnail } from '../utils/thumbnails';
 import { getFeedPosts } from '../utils/posts';
 
 // Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
@@ -71,15 +72,13 @@ const COLLAGE = [
 	schemaType="WebSite"
 >
 	<div slot="hero" class="grid gap-4 p-4 md:grid-cols-2">
-		<!-- Phones: a 16:9 banner zoomed in on Joe's face (each clip centers it in the top
-		third). Side by side: at least square, growing with a taller text panel so the
+		<!-- Phones: a 16:9 banner of Joe's face (montage-phone is that crop). Side by side: at least square, growing with a taller text panel so the
 		video never stops short. Only the video is clipped to the rounded box; the marks
 		sit above everything and spill across the text panel, the gutters and the nav. -->
 		<div class="relative z-10 aspect-video md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
 			<div class="absolute inset-0 overflow-hidden rounded-xl">
 				<video
-					class="absolute inset-0 size-full scale-[1.4] object-cover object-[50%_11%] md:scale-100 md:object-center"
-					src="/images/home/montage.mp4"
+					class="absolute inset-0 size-full object-cover object-[50%_25%] md:object-center"
 					poster="/images/home/montage-poster.webp"
 					data-autoplay-in-view
 					muted
@@ -87,7 +86,23 @@ const COLLAGE = [
 					playsinline
 					preload="metadata"
 					aria-label="Montage of short halftone clips of Joe"
-				></video>
+				>
+					<!-- Phones get their own 16:9 cut, already cropped to Joe's face (a third of
+					the bytes). VP9 keeps the halftone dots sharper at a smaller size; H.264 is
+					the fallback. -->
+					<source
+						media="(max-width: 767px)"
+						src="/images/home/montage-phone.webm"
+						type="video/webm"
+					/>
+					<source
+						media="(max-width: 767px)"
+						src="/images/home/montage-phone.mp4"
+						type="video/mp4"
+					/>
+					<source src="/images/home/montage.webm" type="video/webm" />
+					<source src="/images/home/montage.mp4" type="video/mp4" />
+				</video>
 			</div>
 			<Scribble
 				path={COIL}
@@ -211,7 +226,7 @@ const COLLAGE = [
 							/>
 						)}
 						<img
-							src={post.data.heroImage || DEFAULT_HERO_IMAGE}
+							src={halftoneThumbnail(post.data.heroImage || DEFAULT_HERO_IMAGE)}
 							alt=""
 							aria-hidden="true"
 							loading="lazy"

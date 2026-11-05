@@ -22,6 +22,15 @@ MAX_NON_WEBP=0
 # slow. Keep in sync with GIF_MIN_KB in scripts/convert-staged-images.sh.
 GIF_MP4_MIN_KB=256
 
+# Video budgets. The homepage's decorative loops (public/images/home) each stay
+# at or under 3MB; the hero montage is the biggest at about 2.7MB. Every other
+# video is a ratchet at the largest one now, the narrated PixelPane tour
+# (14.6MB, as of 2026-11-05): lower it as that shrinks, never raise it.
+# Per-page totals live in tests/bundle-size.test.ts.
+HOME_LOOP_MAX_KB=3072
+HOME_LOOP_DIR="public/images/home"
+MAX_VIDEO_KB=14600
+
 echo "=== Image Validation ==="
 echo ""
 
@@ -192,6 +201,28 @@ if [ "$MISSING_HEROES" -gt 0 ]; then
   WARNINGS=$((WARNINGS + 1))
 else
   echo "OK: All heroImage references resolve to real files"
+fi
+echo ""
+
+# Step 6: Video sizes
+echo "--- Checking video sizes (home loops <=${HOME_LOOP_MAX_KB}KB, any video <=${MAX_VIDEO_KB}KB) ---"
+VIDEO_PROBLEMS=0
+while IFS= read -r video; do
+  SIZE_KB=$(( $(stat -f%z "$video" 2>/dev/null || stat -c%s "$video") / 1024 ))
+  LIMIT=$MAX_VIDEO_KB
+  case "$video" in
+    "$HOME_LOOP_DIR"/*) LIMIT=$HOME_LOOP_MAX_KB ;;
+  esac
+  if [ "$SIZE_KB" -gt "$LIMIT" ]; then
+    echo "ERROR: $video is ${SIZE_KB}KB, over its ${LIMIT}KB budget"
+    VIDEO_PROBLEMS=$((VIDEO_PROBLEMS + 1))
+  fi
+done < <(find "$IMAGE_DIR" -type f \( -name "*.mp4" -o -name "*.webm" \) 2>/dev/null)
+if [ "$VIDEO_PROBLEMS" -gt 0 ]; then
+  echo "  Re-encode it smaller (see scripts/media/ and docs/redesign/PLAN.md, Phase 3)."
+  ERRORS=$((ERRORS + VIDEO_PROBLEMS))
+else
+  echo "OK: Every video is within its budget"
 fi
 echo ""
 

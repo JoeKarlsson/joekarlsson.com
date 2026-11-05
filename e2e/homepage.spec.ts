@@ -13,9 +13,14 @@ test.describe('Homepage', () => {
 	});
 
 	test('hero montage video is present and labeled', async ({ page }) => {
-		const video = page.locator('video[src="/images/home/montage.mp4"]');
-		await expect(video).toHaveAttribute('aria-label', /montage/i);
+		const video = page.locator('video[aria-label*="Montage"]');
 		await expect(video).toHaveAttribute('poster', /montage-poster/);
+		await expect(video.locator('source')).toHaveCount(4);
+		await expect(video.locator('source').first()).toHaveAttribute('type', 'video/webm');
+		// Desktop plays the full square cut
+		expect(await video.evaluate((v: HTMLVideoElement) => v.currentSrc)).toMatch(
+			/montage\.(webm|mp4)$/,
+		);
 	});
 
 	test('the bio carries the live container count', async ({ page }) => {
@@ -77,6 +82,14 @@ test.describe('Homepage', () => {
 
 test.describe('Homepage - Mobile', () => {
 	test.use({ viewport: { width: 375, height: 667 }, hasTouch: true });
+
+	test('phones get the cropped montage', async ({ page }) => {
+		await page.goto('/');
+		const video = page.locator('video[aria-label*="Montage"]');
+		await expect
+			.poll(() => video.evaluate((v: HTMLVideoElement) => v.currentSrc))
+			.toMatch(/montage-phone/);
+	});
 
 	test('the drawing board lets touch scroll the page', async ({ page }) => {
 		await page.goto('/');

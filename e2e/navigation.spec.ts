@@ -6,7 +6,7 @@ test.describe('Header Navigation', () => {
 
 		// Check all nav links exist
 		const nav = page.locator('header nav');
-		await expect(nav.getByRole('link', { name: 'Home' })).toBeVisible();
+		await expect(nav.getByRole('link', { name: 'Joe Karlsson' })).toHaveAttribute('href', '/');
 		await expect(nav.getByRole('link', { name: 'Blog' })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'About' })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'Projects' })).toBeVisible();
@@ -34,7 +34,15 @@ test.describe('Mobile Navigation', () => {
 		await page.goto('/');
 
 		const nav = page.locator('header nav');
-		for (const name of ['Home', 'Blog', 'About', 'Projects', 'Newsletter', 'Uses', 'Contact']) {
+		for (const name of [
+			'Joe Karlsson',
+			'Blog',
+			'About',
+			'Projects',
+			'Newsletter',
+			'Uses',
+			'Contact',
+		]) {
 			await expect(nav.getByRole('link', { name, exact: true })).toBeVisible();
 		}
 		await nav.getByRole('link', { name: 'About' }).click();

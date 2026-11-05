@@ -12,9 +12,11 @@ import argparse
 import math
 import random
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps, ImageStat
 
 PINK = "#ff4fd8"
+# Mean gray level (0-255) above which --invert-light treats an image as light
+LIGHT_IMAGE_MEAN = 140
 
 
 def hex_to_rgb(color):
@@ -74,9 +76,17 @@ def main():
     parser.add_argument("--cell", type=float, default=3, help="dot grid size in working pixels")
     parser.add_argument("--contrast", type=float, default=1.15)
     parser.add_argument("--seed", type=int, default=4, help="vary per frame to make a living photocopy")
+    parser.add_argument(
+        "--invert-light",
+        action="store_true",
+        help="flip mostly-light images (diagrams on white) so the ground stays black",
+    )
     args = parser.parse_args()
 
     im = Image.open(args.src).convert("L")
+    # A white background would become solid pink dots and bury the subject
+    if args.invert_light and ImageStat.Stat(im).mean[0] > LIGHT_IMAGE_MEAN:
+        im = ImageOps.invert(im)
     im = im.resize((args.width, round(im.height * args.width / im.width)))
     im = ImageOps.autocontrast(im, cutoff=2)
     im = ImageEnhance.Contrast(im).enhance(args.contrast)
@@ -85,7 +95,13 @@ def main():
         out = halftone_dots(im, ink, args.cell, args.seed)
     else:
         out = photocopy(im, ink, args.seed)
-    out.save(args.out, quality=82)
+    if args.out.lower().endswith(".webp"):
+        # Two flat colors plus anti-aliased dot edges: four palette colors keep the
+        # dots crisp, and lossless WebP of that is about a fifth of lossy WebP's size
+        out = out.quantize(colors=4, method=Image.Quantize.FASTOCTREE).convert("RGB")
+        out.save(args.out, lossless=True, method=6)
+    else:
+        out.save(args.out, quality=82)
 
 
 if __name__ == "__main__":

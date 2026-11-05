@@ -215,8 +215,9 @@ jobs:
         with:
           name: dist
           path: dist/
-      # tests/media-dither.test.ts runs scripts/media/halftone.py
+      # tests/media-dither.test.ts and media-flash.test.ts run the scripts in scripts/media
       - run: pip install pillow
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - run: npx vitest run
 
   unused:

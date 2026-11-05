@@ -221,4 +221,9 @@ Done when: every page uses the new system, and the old styles and dead component
 - 2026-11-05: the drawing board is `aria-hidden` with `tabindex="-1"` swatches rather than `inert`, because `inert` also blocks clicks on the crayon swatches.
 - 2026-11-05: Phase 2 ships interim H.264 encodes in `public/images/home/` (montage 3.9 MB at 600px, six collage loops 2.8 MB, `preload="none"`), all played by `in-view-play` so reduced motion shows posters. Phase 3 replaces them with WebM, budgets and the PEAT check. Post thumbnails are still the color hero images until Phase 3 dithers them.
 
+- 2026-11-05: the nav drops Home; the black chip reads "Joe Karlsson", links home, and turns pink on the homepage.
+- 2026-11-05 (Phase 3): the hero montage ships as WebM (VP9, 2.3MB) with an MP4 fallback (2.7MB), plus a phone-only 16:9 face crop (0.9MB) picked by `<source media>`. Posters and post thumbnails are 4-color lossless WebP. Thumbnails use a finer dot (cell 1.5) than video (cell 3), because coarse dots made diagrams unreadable at 300px, and `--invert-light` flips white-background heroes so they read as pink on black.
+- 2026-11-05 (Phase 3): PEAT runs only on Windows, so `npm run media:flash-check` applies WCAG 2.3.1's general-flash rule (no more than three flashes a second, whole frame and each quarter) to every homepage clip. All pass with at most one.
+- 2026-11-05 (Phase 3): Lighthouse on `/about/` is over the 1.5MB weight cap (1.9MB) because of its YouTube embeds, not the redesign. Fix it with click-to-load embeds when Phase 5 reskins /about.
+
 No open decisions.
