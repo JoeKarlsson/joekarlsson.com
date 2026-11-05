@@ -7,12 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 130,
+			"commitCount": 142,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				6
+				18
 			],
-			"latestCommitMessage": "feat: Redesign phase 2 - mock-r homepage from real data; terminal and..."
+			"latestCommitMessage": "feat: Cat video shares its row with a clip of Joe pointing at..."
+		},
+		{
+			"name": "dvd-corner",
+			"description": "The idle DVD logo, but it always hits the corner",
+			"url": "https://github.com/JoeKarlsson/dvd-corner",
+			"language": "HTML",
+			"commitCount": 1,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+			],
+			"latestCommitMessage": "feat: DVD logo that only hits corners"
 		},
 		{
 			"name": "dotfiles",
@@ -36,17 +47,6 @@
 				0
 			],
 			"latestCommitMessage": "chore: The CLI check on the render's sound asserts what it guards..."
-		},
-		{
-			"name": "screencast-director-glitch",
-			"description": "Analog and glitch effects (VHS/CRT, datamosh) for Screencast Director",
-			"url": "https://github.com/JoeKarlsson/screencast-director-glitch",
-			"language": "Metal",
-			"commitCount": 7,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0
-			],
-			"latestCommitMessage": "fix: Track draws detector boxes: a thin outline around the face, hands..."
 		}
 	],
 	"films": [
