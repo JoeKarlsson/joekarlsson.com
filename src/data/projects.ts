@@ -13,6 +13,8 @@ export interface ProjectPage {
 	slug: string;
 	tagline: string;
 	intro: string[];
+	// A heading over the intro, for art pieces whose intro is an artist statement
+	introHeading?: string;
 	// A web-playable build, embedded under the intro at 1280x720 and scaled to fit
 	// (src/scripts/scale-to-fit-embed.ts). Its origin must be in the CSP frame-src
 	// (Caddyfile and the OpenTofu provision template)
@@ -263,8 +265,13 @@ export const projects: Project[] = [
 		page: {
 			slug: 'nothing-but-corners',
 			tagline: 'The DVD screensaver with the boring parts taken out.',
+			introHeading: 'Artist statement',
 			intro: [
-				'Everybody who grew up with a DVD player has watched that logo drift around the screen, waiting for it to land exactly in the corner. It almost never does. This one does, every time, and the screen celebrates when it happens.',
+				'Everybody has watched the DVD screensaver, and nobody made it for anyone to watch. It existed to keep a TV left on from burning the logo into the screen. Somehow whole rooms of people ended up watching it drift toward a corner and groaning when it missed by a few pixels, which was almost every time.',
+				'I called my version Nothing But Corners, because that\'s all it does. I aim every bounce, so the logo lands in a corner every single time. That took a lot more math than a joke should need. I unfold the screen into a grid so a bouncing path becomes a straight line, aim at a corner in that grid, and throw out any path that bounces off a wall too close to a corner. Most of that work went into getting rid of the near miss, and the near miss was why people watched the original. Click and you get another logo, then another, until the screen fills up with logos landing in corners. Turn the sound on and every corner gets a thump and a cheer, kids yelling "yay" or a round of applause.',
+				'You were waiting for something else when you watched the real one, a movie to start or someone to find the remote, and it happened to be on. The near misses kept people watching. Mine hits every time, so after about a minute I get bored of it.',
+				"Cory Arcangel's Super Mario Clouds hacked a Mario cartridge until only the scrolling sky was left. Both pieces take software everybody already knows and remove part of it.",
+				"It's also useless on purpose. I've been making things nobody needs for a long time, from co-organizing the Stupid Shit No One In Hawaii Needs hackathon in 2016 to gluing seeds to cardboard one at a time to make pictures. Both took a lot of work for something with no use, and I liked doing them.",
 			],
 			embedUrl: 'https://joekarlsson.github.io/nothing-but-corners/',
 			embedHeading: 'Watch it',
@@ -288,10 +295,14 @@ export const projects: Project[] = [
 		page: {
 			slug: 'linger',
 			tagline: 'Poems for the in-between hours. Stay a while, and the words will come.',
+			introHeading: 'Artist statement',
 			intro: [
-				'Almost everything on the web is built to move you along: infinite feeds, autoplay, a read time printed above every article. linger reverses the deal. It is seven poems that only finish for readers who slow down.',
-				"They're about the stretches of time most days try to get rid of. Sitting in the driveway before going inside. A snow day. A power outage. Four hundred miles of the same field. A Sunday with nothing in it.",
-				'The page measures one thing, how fast it is scrolling. Nothing is stored, sent or counted. There are no cookies, no analytics and no share button.',
+				"Almost everything on the web wants to move you along. Feeds don't end, and articles print a read time at the top so you can decide whether they're worth the minutes. I spend my working days in developer marketing, where every page I ship gets judged by where people click next. I wanted to make one page that worked the other way.",
+				'linger is seven poems that only finish if you slow down. Each line starts as a few words in white space, and the rest fills in while you hold still. Scroll fast and the words drain away again, and if you skim hard enough the page whispers "slower." at you. It\'s a bit of a joke, a page that won\'t give you the poem until you behave.',
+				'The poems are about in-between time, like sitting in the driveway before going inside, a snow day, or a Sunday with nothing in it, and I wanted reading them to take some time too.',
+				"I've been writing poetry for about ten years, and lately a lot of it has been blackout poetry on paper, where you black out most of a printed page until a poem is left. Tom Phillips did a version of this for A Humument, painting over the pages of a Victorian novel, and Mary Ruefle whited out words in an old book called A Little White Shadow. I kept wondering what the web could do with erasure that paper can't. Paper has no idea how fast you're reading, and a web page does, so I made speed the thing that decides which words you get.",
+				"The Deletionist was a big inspiration. It's a bookmarklet by Amaranth Borsuk, Nick Montfort and Jesper Juul that erases most of the text on any web page you run it on and leaves a poem behind. linger goes the other direction. It starts with the erased version, a few words left on the page, and gives the rest back if you stay.",
+				"The page only measures how fast you're scrolling, and it doesn't save that anywhere. It has no analytics, no cookies and no share button, so I have no idea whether anyone has read one all the way through.",
 			],
 			embedUrl: 'https://linger.joekarlsson.com/poem.html',
 			embedHeading: 'Read it',

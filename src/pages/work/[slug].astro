@@ -112,6 +112,9 @@ const inline = (text: string) =>
 			)}
 		</div>
 
+		{page.introHeading && (
+			<h2 class="mb-4 text-3xl font-extrabold text-white">{page.introHeading}</h2>
+		)}
 		<div class="prose prose-invert mb-10 max-w-none">
 			{page.intro.map((p) => (
 				<p set:html={inline(p)} />
