@@ -9,7 +9,7 @@ The new look: a dark, art house, slightly weird personal site. It is hot pink on
 - **Media and tools:** `~/Documents/dev/joe/joekarlsson-redesign/`
   - `mockups/img/`: every processed loop and photo.
   - `montage-clips/`: the final face-centered hero cuts.
-  - `scripts/detect.swift`: macOS Vision face finder used for the hero crops. The old `halftone.py`, `vid2.sh` and `boil.sh` there are superseded by `scripts/media/` below.
+  - `scripts/detect.swift`: macOS Vision face finder used for the hero crops.
   - `sources/`: where every clip came from (Screencast Director projects, the Downloads zip, Immich asset IDs).
 - **Media scripts, in this repo's `scripts/media/`** (moved in Phase 0):
   - `npm run media:dither -- in.jpg out.webp`: pink dots or photocopy treatment for a still (`halftone.py`).
