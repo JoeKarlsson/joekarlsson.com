@@ -255,7 +255,7 @@ Pages, with what each still carries (counts are `coral` uses as of 2026-11-05):
 6. **Resume** (`src/pages/resume.astro`, 11): careful, `resume-pdf.astro` and `npm run generate:resume` print it to PDF. Keep print styles readable (dark pink on black won't print); check the PDF after.
 7. **Contact** (24), **newsletter index** (`src/pages/newsletter/index.astro`, 2; it also uses the non-footer variant of `NewsletterSignup`, still coral), **newsletter issues** (`[...slug].astro`, 1, uses `BlogPost` already), **talk archive** (18), **privacy policy** (2).
 8. **404** (`src/pages/404.astro`): already a plain pink page; Phase 6 may make it a drawing board.
-9. **`/man`** (`src/pages/man.astro`): a man-page easter egg not in the original plan. Ask Joe: keep and reskin, or delete.
+9. **`/man`** (`src/pages/man.astro`): the man-page easter egg. Joe wants it kept: reskin it into the new system and keep it a man page (no terminal chrome, which was dropped).
 
 Site-wide cleanup once the pages are done:
 
@@ -296,5 +296,7 @@ Done when: every page uses the new system, `grep -r coral src` finds nothing, th
 - 2026-11-05 (Phase 4): post heroes use the same halftone as the homepage thumbnails, regenerated at 1120px with fine dots (cell 1.5) over a soft pink duotone (`--duotone`), because dots alone made screenshots and diagrams hard to read. 7.5MB for all 171; the dist budget went from 200MB to 215MB for it. og:image stays the original color image.
 - 2026-11-05 (Phase 4): prose is Fraunces at 17-20px, capped at 32em (about 67 characters a line on desktop). Headings are Anton; h4, code labels, captions and tables are Hanken Grotesk. Each post's hero gets one crayon mark, picked by its slug.
 - 2026-11-05 (Phase 4): marks may cross boxes and sections but not running text or links. The page leaves a gap above the footer so the footer coil rises into empty space. The footer echo draws its hollow copies with `-webkit-text-fill-color`, so contrast checkers don't read them as invisible text.
+
+- 2026-11-05: keep the `/man` easter-egg page and reskin it in Phase 5.
 
 No open decisions.
