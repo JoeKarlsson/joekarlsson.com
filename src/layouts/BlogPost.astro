@@ -353,16 +353,18 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 					class="mt-10"
 				/>
 
-				<AuthorBio />
+				<div class="max-w-(--reading-width)">
+					<AuthorBio />
 
-				{relatedSlugs.length > 0 && (
-					<KeepExploring
-						heading="Keep reading"
-						from={slug}
-						posts={relatedSlugs}
-						eventName="Related+Post+Click"
-					/>
-				)}
+					{relatedSlugs.length > 0 && (
+						<KeepExploring
+							heading="Keep reading"
+							from={slug}
+							posts={relatedSlugs}
+							eventName="Related+Post+Click"
+						/>
+					)}
+				</div>
 			</article>
 		</div>
 	</div>

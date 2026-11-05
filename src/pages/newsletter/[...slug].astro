@@ -122,13 +122,15 @@ const relatedSlugs = rankRelatedPosts(
 						</a>
 					)}
 				</nav>
-				{relatedSlugs.length > 0 && (
-					<KeepExploring
-						heading="Keep reading"
-						from={`/newsletter/${issue.data.slug}/`}
-						posts={relatedSlugs}
-					/>
-				)}
+				<div class="max-w-(--reading-width)">
+					{relatedSlugs.length > 0 && (
+						<KeepExploring
+							heading="Keep reading"
+							from={`/newsletter/${issue.data.slug}/`}
+							posts={relatedSlugs}
+						/>
+					)}
+				</div>
 			</article>
 		</div>
 	</div>
