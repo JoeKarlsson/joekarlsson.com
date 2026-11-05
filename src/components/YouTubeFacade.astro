@@ -39,6 +39,8 @@ const { id, title, poster } = Astro.props;
 			<path d="M8 5v14l11-7z"></path>
 		</svg>
 	</span>
+	<!-- Labels drawn over the still (a logo, a title); they go when the player loads -->
+	<slot />
 </button>
 
 <script>

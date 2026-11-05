@@ -567,8 +567,21 @@ const cropArtPieces = [
 								<YouTubeFacade
 									id="GiNa2jen-lg"
 									title="The Art of Computer Science - TEDx Talk by Joe Karlsson"
-									poster="/images/talks/tedx-art-of-computer-science.webp"
-								/>
+									poster="/images/talks/tedx-art-of-computer-science-still.webp"
+								>
+									<span class="absolute top-3 left-3 z-30 rounded-md bg-paper px-2 py-1.5">
+										<img
+											src="/images/talks/tedxyouth-lake-manalapan-logo.webp"
+											alt=""
+											class="block h-5 w-auto"
+											width="300"
+											height="46"
+										/>
+									</span>
+									<span class="absolute bottom-4 left-4 z-30 rounded-md bg-ink px-3 pt-1.5 pb-0.5 text-left font-display text-[clamp(18px,2vw,30px)] leading-none whitespace-nowrap text-paper uppercase">
+										The Art of Computer Science
+									</span>
+								</YouTubeFacade>
 								<Scribble
 									{...MARKS.box}
 									color={CHALK}
@@ -577,8 +590,6 @@ const cropArtPieces = [
 									class="-inset-[3%] z-20 h-[106%] w-[106%]"
 								/>
 							</div>
-							<h3 class={`${ITEM_TITLE} mt-4`}>The Art of Computer Science</h3>
-							<p class={META}>TEDx talk</p>
 						</div>
 						<ul class="space-y-4">
 							{moreVideos.map((video) => (
