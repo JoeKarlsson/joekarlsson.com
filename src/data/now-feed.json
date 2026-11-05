@@ -3,15 +3,26 @@
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
+			"name": "dotfiles",
+			"description": "My dotfiles, managed with chezmoi",
+			"url": "https://github.com/JoeKarlsson/dotfiles",
+			"language": "Shell",
+			"commitCount": 75,
+			"dailyCommitCounts": [
+				6, 0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 7
+			],
+			"latestCommitMessage": "feat: Manage Herdr's claude-dev config with agent-split keys, and add..."
+		},
+		{
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "Astro",
-			"commitCount": 117,
+			"commitCount": 119,
 			"dailyCommitCounts": [
-				3, 6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 6
+				3, 6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 8
 			],
-			"latestCommitMessage": "fix: Keep the recently shipped, watched and listened feed on the about..."
+			"latestCommitMessage": "feat: Strip the AI-slop design tells: plain headings instead of shell..."
 		},
 		{
 			"name": "screencast-director",
@@ -35,17 +46,6 @@
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7
 			],
 			"latestCommitMessage": "fix: Track draws detector boxes: a thin outline around the face, hands..."
-		},
-		{
-			"name": "dotfiles",
-			"description": "My dotfiles, managed with chezmoi",
-			"url": "https://github.com/JoeKarlsson/dotfiles",
-			"language": "Shell",
-			"commitCount": 68,
-			"dailyCommitCounts": [
-				6, 0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 0
-			],
-			"latestCommitMessage": "feat: Manage claude-dev's Claude Code settings from the same template..."
 		}
 	],
 	"films": [
