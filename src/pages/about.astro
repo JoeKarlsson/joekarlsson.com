@@ -15,6 +15,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PosterHero from '../components/PosterHero.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import NowFeed from '../components/NowFeed.astro';
+import HoverRing from '../components/HoverRing.astro';
 import Scribble from '../components/Scribble.astro';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -574,17 +575,20 @@ const cropArtPieces = [
 									href={`https://www.youtube.com/watch?v=${talk.id}`}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="group relative block no-underline"
+									class="ring-host group relative block no-underline"
 								>
-									<img
-										src={`https://img.youtube.com/vi/${talk.id}/mqdefault.jpg`}
-										alt=""
-										aria-hidden="true"
-										crossorigin="anonymous"
-										data-halftone="flat"
-										class="mb-2 block aspect-video w-full rounded-md object-cover"
-										loading="lazy"
-									/>
+									<span class="relative block">
+										<img
+											src={`https://img.youtube.com/vi/${talk.id}/mqdefault.jpg`}
+											alt=""
+											aria-hidden="true"
+											crossorigin="anonymous"
+											data-halftone="flat"
+											class="mb-2 block aspect-video w-full rounded-md object-cover"
+											loading="lazy"
+										/>
+										<HoverRing index={talk.title.length} />
+									</span>
 									<span class="font-semibold text-paper group-hover:text-pink">{talk.title}</span>
 								</a>
 							</li>
@@ -642,17 +646,20 @@ const cropArtPieces = [
 				<div class="mb-12 grid gap-8 sm:grid-cols-2">
 					<a
 						href="/blog/how-to-get-started-building-a-homelab-server-in-2024/"
-						class="group relative block no-underline"
+						class="ring-host group relative block no-underline"
 					>
-						<img
-							src="/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp"
-							alt="Vaporwave style homelab server illustration"
-							data-halftone="flat"
-							class="mb-3 block aspect-video w-full rounded-lg object-cover"
-							width="300"
-							height="112"
-							loading="lazy"
-						/>
+						<span class="relative block">
+							<img
+								src="/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp"
+								alt="Vaporwave style homelab server illustration"
+								data-halftone="flat"
+								class="mb-3 block aspect-video w-full rounded-lg object-cover"
+								width="300"
+								height="112"
+								loading="lazy"
+							/>
+							<HoverRing index={1} />
+						</span>
 						<Scribble
 							{...MARKS.check}
 							color={CHALK}
@@ -666,16 +673,19 @@ const cropArtPieces = [
 							self-hosted services, and Home Assistant automating the whole house.
 						</p>
 					</a>
-					<a href="/talk-archive/" class="group relative block no-underline">
-						<img
-							src="/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp"
-							alt="Joe Karlsson on the TEDx stage"
-							data-halftone="flat"
-							class="mb-3 block aspect-video w-full rounded-lg object-cover"
-							width="300"
-							height="112"
-							loading="lazy"
-						/>
+					<a href="/talk-archive/" class="ring-host group relative block no-underline">
+						<span class="relative block">
+							<img
+								src="/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp"
+								alt="Joe Karlsson on the TEDx stage"
+								data-halftone="flat"
+								class="mb-3 block aspect-video w-full rounded-lg object-cover"
+								width="300"
+								height="112"
+								loading="lazy"
+							/>
+							<HoverRing index={2} />
+						</span>
 						<Scribble
 							{...MARKS.tally}
 							color="#ff4fd8"
@@ -691,17 +701,20 @@ const cropArtPieces = [
 					</a>
 					<a
 						href="/blog/an-introduction-to-iot-internet-of-toilets/"
-						class="group relative block no-underline"
+						class="ring-host group relative block no-underline"
 					>
-						<img
-							src="/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp"
-							alt="IoT litter box project with Raspberry Pi and sensors"
-							data-halftone="flat"
-							class="mb-3 block aspect-video w-full rounded-lg object-cover"
-							width="300"
-							height="112"
-							loading="lazy"
-						/>
+						<span class="relative block">
+							<img
+								src="/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp"
+								alt="IoT litter box project with Raspberry Pi and sensors"
+								data-halftone="flat"
+								class="mb-3 block aspect-video w-full rounded-lg object-cover"
+								width="300"
+								height="112"
+								loading="lazy"
+							/>
+							<HoverRing index={3} />
+						</span>
 						<Scribble
 							{...MARKS.burst}
 							color={CHALK}
@@ -721,17 +734,20 @@ const cropArtPieces = [
 						href={cropArtUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="group relative block no-underline"
+						class="ring-host group relative block no-underline"
 					>
-						<img
-							src="/images/crop-art/riot-dog.webp"
-							alt="Crop art of Riot Dog made from seeds and grains"
-							data-halftone="flat"
-							class="mb-3 block aspect-video w-full rounded-lg object-cover"
-							width="300"
-							height="112"
-							loading="lazy"
-						/>
+						<span class="relative block">
+							<img
+								src="/images/crop-art/riot-dog.webp"
+								alt="Crop art of Riot Dog made from seeds and grains"
+								data-halftone="flat"
+								class="mb-3 block aspect-video w-full rounded-lg object-cover"
+								width="300"
+								height="112"
+								loading="lazy"
+							/>
+							<HoverRing index={4} />
+						</span>
 						<Scribble
 							{...MARKS.asterisk}
 							color="#ff4fd8"
@@ -784,17 +800,20 @@ const cropArtPieces = [
 									href={cropArtUrl}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="group relative block no-underline"
+									class="ring-host group relative block no-underline"
 								>
-									<img
-										src={piece.image}
-										alt={piece.alt}
-										data-halftone="flat"
-										class="mb-2 block aspect-4/5 w-full rounded-lg object-cover"
-										width="300"
-										height="375"
-										loading="lazy"
-									/>
+									<span class="relative block">
+										<img
+											src={piece.image}
+											alt={piece.alt}
+											data-halftone="flat"
+											class="mb-2 block aspect-4/5 w-full rounded-lg object-cover"
+											width="300"
+											height="375"
+											loading="lazy"
+										/>
+										<HoverRing index={piece.title.length} />
+									</span>
 									<span class="block font-semibold text-paper group-hover:text-pink">
 										{piece.title}
 									</span>

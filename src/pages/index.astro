@@ -1,6 +1,7 @@
 ---
 import { MORE_LINK, SECTION_HEADING, formatDate } from '../utils/ui';
 import DrawingBoard from '../components/DrawingBoard.astro';
+import HoverRing from '../components/HoverRing.astro';
 import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
 import WrittenFor from '../components/WrittenFor.astro';
@@ -204,7 +205,7 @@ const COLLAGE = [
 		</h2>
 		<ul>
 			{recentPosts.map((post, i) => (
-				<li class="group grid items-center gap-7 border-t border-surface-4 py-[18px] md:grid-cols-[clamp(140px,22vw,300px)_1fr]">
+				<li class="ring-host group grid items-center gap-7 border-t border-surface-4 py-[18px] md:grid-cols-[clamp(140px,22vw,300px)_1fr]">
 					<a href={post.href} tabindex="-1" aria-hidden="true" class="relative block">
 						{i === 0 && (
 							<Scribble
@@ -224,6 +225,7 @@ const COLLAGE = [
 							decoding="async"
 							class="block aspect-video w-full rounded-lg object-cover"
 						/>
+						<HoverRing index={i} />
 					</a>
 					<div>
 						<span class="mb-1.5 block text-sm text-muted">

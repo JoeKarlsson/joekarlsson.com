@@ -52,15 +52,16 @@
 	}
 }
 
-/* Hover ring: a scribble circled around an .index-row while it's hovered or
-   focused. A transition the visitor causes, so it stays on under reduced motion. */
+/* Hover ring: a scribble circled around a .ring-host (an index row or a card's
+   picture, src/components/HoverRing.astro) while it's hovered or a link in it
+   has keyboard focus. A transition the visitor causes, so it stays on under
+   reduced motion. */
 .hover-ring {
 	/* Round caps leave a dot at rest, so the ring only shows while drawn */
 	visibility: hidden;
 }
 
-.index-row:hover .hover-ring,
-.index-row:focus-visible .hover-ring {
+.ring-host:is(:hover, :focus-visible, :has(:focus-visible)) .hover-ring {
 	visibility: visible;
 }
 
@@ -70,8 +71,7 @@
 	transition: stroke-dashoffset 0.6s cubic-bezier(0.3, 0.7, 0.2, 1);
 }
 
-.index-row:hover .hover-ring path,
-.index-row:focus-visible .hover-ring path {
+.ring-host:is(:hover, :focus-visible, :has(:focus-visible)) .hover-ring path {
 	stroke-dashoffset: 0;
 }
 
@@ -303,27 +303,6 @@
 	.taped:hover {
 		z-index: 10;
 		transform: rotate(0deg) scale(1.06);
-	}
-}
-
-/* A hovered blog row wakes up: its title warbles and its thumbnail's crayon mark
-   redraws quickly and holds (the thumbnail itself turns to dots in halftone.ts) */
-@media (prefers-reduced-motion: no-preference) {
-	html:not(.motion-paused) .blog-row:hover a:not(:has(img, video, canvas)) {
-		animation: warble 0.36s steps(1, end) infinite;
-	}
-
-	html:not(.motion-paused) .blog-row:hover :is(.redraw, .redraw-strokes) path {
-		animation: redraw-now 0.7s cubic-bezier(0.3, 0.7, 0.2, 1) forwards;
-	}
-}
-
-@keyframes redraw-now {
-	from {
-		stroke-dashoffset: 1;
-	}
-	to {
-		stroke-dashoffset: 0;
 	}
 }
 

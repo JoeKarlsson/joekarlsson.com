@@ -4,9 +4,9 @@
 // the description, and which employer a professional post was written for. Same
 // row as the homepage's Recent posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
-import { halftoneMode } from '../utils/halftone';
 import { formatDate } from '../utils/ui';
 import { CHALK, MARKS } from '../data/scribbles';
+import HoverRing from './HoverRing.astro';
 import Scribble from './Scribble.astro';
 import WrittenFor from './WrittenFor.astro';
 
@@ -57,7 +57,7 @@ const image = heroImage || DEFAULT_HERO_IMAGE;
 const formattedDate = formatDate(date);
 ---
 
-<li class="blog-row group grid items-center gap-x-7 gap-y-3 border-t border-surface-4 py-[18px] sm:grid-cols-[clamp(140px,22vw,280px)_1fr]">
+<li class="ring-host group grid items-center gap-x-7 gap-y-3 border-t border-surface-4 py-[18px] sm:grid-cols-[clamp(140px,22vw,280px)_1fr]">
 	<!-- The thumbnail repeats the title link, so it's skipped by keyboard and screen readers -->
 	<a href={url} tabindex="-1" aria-hidden="true" class="relative block">
 		<img
@@ -65,7 +65,6 @@ const formattedDate = formatDate(date);
 			alt=""
 			aria-hidden="true"
 			data-halftone="flat"
-			data-halftone-hover={halftoneMode(image) === 'dots' ? 'dots' : undefined}
 			width="560"
 			height="315"
 			loading="lazy"
@@ -81,6 +80,8 @@ const formattedDate = formatDate(date);
 				class="-top-[20%] -right-[8%] z-10 size-[40%]"
 			/>
 		)}
+		<!-- Rows without a markIndex vary their ring by title length -->
+		<HoverRing index={markIndex ?? title.length} />
 	</a>
 	<div>
 		<span class="mb-1.5 block text-sm text-muted">

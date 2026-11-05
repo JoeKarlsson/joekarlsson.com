@@ -1,7 +1,8 @@
 ---
 // A crayon scribble (paths in src/data/scribbles.ts). By default it draws itself
 // in, holds, then erases on a slow loop (.redraw in src/styles/motion.css);
-// `ring` instead draws it only while its .index-row is hovered or focused. The
+// `ring` instead draws it only while its .ring-host is hovered or focused
+// (src/components/HoverRing.astro). The
 // crayon texture is the #crayon filter defined once in BaseLayout. Decorative,
 // so hidden from assistive tech.
 interface Props {
@@ -35,6 +36,8 @@ const strokes = path
 	.map((stroke) => stroke.trim())
 	.filter(Boolean);
 const oneStrokeAtATime = !ring && strokes.length > 1;
+// A ring stretches over boxes of any shape, so its line keeps strokeWidth in
+// screen pixels instead of thickening on tall cards (vector-effect below)
 ---
 
 <svg
@@ -57,7 +60,12 @@ const oneStrokeAtATime = !ring && strokes.length > 1;
 		filter="url(#crayon)"
 	>
 		{strokes.map((d, i) => (
-			<path pathLength="1" d={d} style={oneStrokeAtATime ? `--i:${i}` : undefined} />
+			<path
+				pathLength="1"
+				d={d}
+				style={oneStrokeAtATime ? `--i:${i}` : undefined}
+				vector-effect={ring ? 'non-scaling-stroke' : undefined}
+			/>
 		))}
 	</g>
 </svg>

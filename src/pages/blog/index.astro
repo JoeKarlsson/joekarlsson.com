@@ -1,5 +1,6 @@
 ---
 import KeepExploring from '../../components/KeepExploring.astro';
+import HoverRing from '../../components/HoverRing.astro';
 import Scribble from '../../components/Scribble.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
@@ -41,7 +42,11 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 		16:9 banner with the title under it, so it doesn't fill the screen. -->
 		<PosterHero title="Blog" wordRatio={1.86} tickerItems={categories.map(({ name }) => name)}>
 			{featuredPost && (
-				<a slot="media" href={featuredPost.href} class="group relative z-10 block no-underline">
+				<a
+					slot="media"
+					href={featuredPost.href}
+					class="ring-host group relative z-10 block no-underline"
+				>
 					<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
 						<img
 							src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
@@ -80,6 +85,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 						delay="1s"
 						class="-bottom-[7%] -left-[6%] z-10 h-[12%] w-[70%]"
 					/>
+					<HoverRing index={1} featured />
 				</a>
 			)}
 			<p class={HERO_LEAD}>

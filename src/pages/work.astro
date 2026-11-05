@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects, CATEGORY_META } from '../data/projects';
+import HoverRing from '../components/HoverRing.astro';
 import Scribble from '../components/Scribble.astro';
 import PosterHero from '../components/PosterHero.astro';
 import {
@@ -57,7 +58,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 					href={featuredUrl}
 					target={featuredExternal ? '_blank' : undefined}
 					rel={featuredExternal ? 'noopener noreferrer' : undefined}
-					class="plausible-event-name=Featured+Project+Click group relative z-10 block no-underline"
+					class="plausible-event-name=Featured+Project+Click ring-host group relative z-10 block no-underline"
 				>
 					<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
 						{featuredProject.video ? (
@@ -111,6 +112,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 						delay="1s"
 						class="-bottom-[7%] -left-[6%] z-10 h-[12%] w-[70%]"
 					/>
+					<HoverRing index={1} featured />
 				</a>
 			)}
 			<p class={HERO_LEAD}>Software, hardware, and IoT projects I've built over the years.</p>

@@ -1,6 +1,7 @@
 ---
 import type { Project } from '../data/projects';
 import { cardClip } from '../utils/halftone';
+import HoverRing from './HoverRing.astro';
 
 interface Props {
 	project: Project;
@@ -28,7 +29,7 @@ const metaLine = [
 		href={primaryUrl}
 		target={isExternal ? '_blank' : undefined}
 		rel={isExternal ? 'noopener noreferrer' : undefined}
-		class="plausible-event-name=Project+Click group block no-underline"
+		class="plausible-event-name=Project+Click ring-host group block no-underline"
 	>
 		<span class="relative block">
 			{project.video ? (
@@ -57,6 +58,8 @@ const metaLine = [
 					decoding="async"
 				/>
 			)}
+			<!-- Projects have no list position, so the title length varies the ring -->
+			<HoverRing index={project.title.length} />
 		</span>
 		<h3 class="mt-4 font-display text-[clamp(28px,2.4vw,36px)] leading-none font-normal text-paper uppercase group-hover:text-pink">
 			{project.title}
