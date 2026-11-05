@@ -36,6 +36,8 @@
 	h5,
 	h6 {
 		@apply text-white font-semibold;
+		/* Recursive's casual axis gives headings their hand-drawn warmth; body text stays linear */
+		font-variation-settings: 'CASL' 1;
 	}
 
 	a {
@@ -101,7 +103,7 @@
 	@apply text-2xl md:text-3xl font-bold text-white mt-10 mb-4;
 }
 .prose h3 {
-	@apply text-xl md:text-2xl font-semibold text-white mt-8 mb-3;
+	@apply text-xl md:text-3xl font-extrabold text-white mt-8 mb-3;
 }
 .prose h4 {
 	@apply text-lg font-semibold text-white mt-6 mb-2;

@@ -44,7 +44,11 @@ const inputId = `newsletter-email-${location}`;
 	/>
 	<button
 		type="submit"
-		class="rounded-md bg-coral px-5 py-2.5 font-medium text-surface-0 hover:bg-white"
+		class={
+			location === 'footer'
+				? 'rounded-md bg-surface-0 px-5 py-2.5 font-semibold text-white hover:bg-surface-2'
+				: 'rounded-md bg-coral px-5 py-2.5 font-medium text-surface-0 hover:bg-white'
+		}
 	>
 		Subscribe
 	</button>

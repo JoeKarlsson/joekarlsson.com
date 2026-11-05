@@ -347,7 +347,7 @@ const formatShortDate = (d: Date) =>
 
 				{relatedPosts.length > 0 && (
 					<section class="mt-12">
-						<h2 class="mb-4 text-2xl font-semibold text-white">Related posts</h2>
+						<h2 class="mb-4 text-3xl font-extrabold text-white">Related posts</h2>
 						<ul class="space-y-3">
 							{relatedPosts.map((post) => (
 								<li>
@@ -366,7 +366,7 @@ const formatShortDate = (d: Date) =>
 
 				{(prevPost || nextPost) && (
 					<nav class="mt-12" aria-label="Category navigation">
-						<h2 class="mb-4 text-2xl font-semibold text-white">More in {primaryCategory}</h2>
+						<h2 class="mb-4 text-3xl font-extrabold text-white">More in {primaryCategory}</h2>
 						<ul class="space-y-3">
 							{prevPost && (
 								<li>

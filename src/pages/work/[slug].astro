@@ -115,7 +115,7 @@ const inline = (text: string) =>
 
 		{page.tour && (
 			<section class="mb-10" aria-labelledby="tour">
-				<h2 id="tour" class="mb-4 text-2xl font-semibold text-white">
+				<h2 id="tour" class="mb-4 text-3xl font-extrabold text-white">
 					Tour
 				</h2>
 				{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
@@ -136,7 +136,7 @@ const inline = (text: string) =>
 
 		{page.embedUrl && (
 			<section class="mb-10" aria-labelledby="play-it">
-				<h2 id="play-it" class="mb-2 text-2xl font-semibold text-white">
+				<h2 id="play-it" class="mb-2 text-3xl font-extrabold text-white">
 					Play it
 				</h2>
 				<p class="mb-4 text-sm text-gray-400">
@@ -168,7 +168,7 @@ const inline = (text: string) =>
 
 		{page.steps && (
 			<section class="mb-10" aria-labelledby="how-it-works">
-				<h2 id="how-it-works" class="mb-4 text-2xl font-semibold text-white">
+				<h2 id="how-it-works" class="mb-4 text-3xl font-extrabold text-white">
 					How it works
 				</h2>
 				<ol class="list-decimal space-y-4 pl-6 marker:text-gray-400">
@@ -184,7 +184,7 @@ const inline = (text: string) =>
 
 		{(page.install || page.example) && (
 			<section class="prose prose-invert mb-10 max-w-none" aria-labelledby="try-it">
-				<h2 id="try-it" class="not-prose mb-4 text-2xl font-semibold text-white">
+				<h2 id="try-it" class="not-prose mb-4 text-3xl font-extrabold text-white">
 					Try it
 				</h2>
 				{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
@@ -199,7 +199,7 @@ const inline = (text: string) =>
 
 		{page.gallery && (
 			<section class="mb-10" aria-labelledby="examples">
-				<h2 id="examples" class="mb-2 text-2xl font-semibold text-white">
+				<h2 id="examples" class="mb-2 text-3xl font-extrabold text-white">
 					{page.galleryTitle ?? 'Gallery'}
 				</h2>
 				{page.galleryNote && (
@@ -243,7 +243,7 @@ const inline = (text: string) =>
 
 		{page.screenshots && (
 			<section class="mb-10" aria-labelledby="screenshots">
-				<h2 id="screenshots" class="mb-4 text-2xl font-semibold text-white">
+				<h2 id="screenshots" class="mb-4 text-3xl font-extrabold text-white">
 					{page.screenshotsTitle ?? 'Screenshots'}
 				</h2>
 				<div class="grid gap-4">

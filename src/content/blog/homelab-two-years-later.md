@@ -16,7 +16,7 @@ Today I have two Dell R730s in a rack in my attic, 73 containers, two NVIDIA GPU
 
 None of it was planned. I'd get curious about something or annoyed by something, buy hardware for the rack to deal with it, and the electricity bill would go up again. It pays for itself more slowly than I first claimed, and I barely use some of what I bought.
 
-_Updated October 2026: I first published this in March. Since then I've retired Open WebUI, Nextcloud, and Readarr and moved every container into OpenTofu. I also pulled 30 days of data out of Prometheus for this update, which turned up a few things I got wrong in March. The numbers below are current._
+**Updated October 2026:** I first published this in March. Since then I've retired Open WebUI, Nextcloud, and Readarr and moved every container into OpenTofu. I also pulled 30 days of data out of Prometheus for this update, which turned up a few things I got wrong in March. The numbers below are current.
 
 ## Where the $200 ThinkServer ran out
 

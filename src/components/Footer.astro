@@ -4,11 +4,11 @@ import NewsletterCTA from './NewsletterCTA.astro';
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-surface-3 bg-surface-1">
+<footer class="bg-surface-1">
+	<div class="bg-coral px-4 py-12 text-surface-0 [&_:focus-visible]:outline-surface-0">
+		<NewsletterCTA />
+	</div>
 	<div class="mx-auto max-w-5xl px-4 py-8">
-		<div class="mb-8">
-			<NewsletterCTA />
-		</div>
 		<nav class="mb-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
 			{FOOTER_LINKS.map(({ href, label }) => (
 				<a href={href} class="text-gray-400 no-underline transition-colors hover:text-coral">

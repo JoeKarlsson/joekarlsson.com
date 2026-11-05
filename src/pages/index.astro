@@ -115,10 +115,10 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 
 			<!-- About -->
 			<div class="px-6 py-10 lg:w-104 lg:px-8 lg:py-8 xl:w-120">
-				<h1 class="text-3xl font-semibold text-white">Joe Karlsson</h1>
-				<p class="mt-1 text-sm text-gray-400">he/they · developer marketing · still in the code</p>
+				<h1 class="text-5xl font-black text-coral xl:text-6xl">Joe Karlsson</h1>
+				<p class="mt-2 text-sm text-gray-400">he/they · developer marketing · still in the code</p>
 
-				<p class="mt-5 leading-relaxed text-gray-300">
+				<p class="mt-6 text-xl leading-snug font-semibold text-white">
 					Hey, I'm Joe. I help developers build cool stuff - through demos, blog posts, talks,
 					videos, whatever works.
 				</p>
@@ -171,14 +171,14 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 
 	<!-- Right Now -->
 	<section class="mx-auto max-w-5xl px-6 py-14">
-		<h2 class="mb-6 text-2xl font-semibold text-white">Now</h2>
+		<h2 class="mb-6 text-3xl font-extrabold text-white">Now</h2>
 		<RightNow />
 	</section>
 
 	<!-- Featured Projects -->
 	<section class="mx-auto max-w-5xl px-6 py-14">
 		<div class="mb-6 flex items-baseline justify-between">
-			<h2 class="text-2xl font-semibold text-white">Projects</h2>
+			<h2 class="text-3xl font-extrabold text-white">Projects</h2>
 			<a href="/work/" class="text-sm text-coral hover:underline">
 				See all &rarr;
 			</a>
@@ -218,7 +218,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 
 	<!-- Featured Posts -->
 	<section class="mx-auto max-w-5xl px-6 py-14">
-		<h2 class="mb-6 text-2xl font-semibold text-white">Featured writing</h2>
+		<h2 class="mb-6 text-3xl font-extrabold text-white">Featured writing</h2>
 		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 			{featuredPosts.map((post) => (
 				<BlogCard
@@ -239,7 +239,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 	<!-- Recent Posts -->
 	<section class="mx-auto max-w-5xl px-6 py-16">
 		<div class="mb-6 flex items-baseline justify-between">
-			<h2 class="text-2xl font-semibold text-white">Recent posts</h2>
+			<h2 class="text-3xl font-extrabold text-white">Recent posts</h2>
 			<a href="/blog/" class="text-sm text-coral hover:underline">
 				View all &rarr;
 			</a>
