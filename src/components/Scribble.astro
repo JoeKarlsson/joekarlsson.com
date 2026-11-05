@@ -26,11 +26,20 @@ const {
 	duration = '7s',
 	delay = '0s',
 } = Astro.props;
+
+// A mark made of several strokes (a tally, rays, hatching) is one path with a move
+// per stroke. SVG dashes restart on every move, so drawn as one path all the
+// strokes would appear at once. Split them, and draw them one after another.
+const strokes = path
+	.split(/(?=M)/)
+	.map((stroke) => stroke.trim())
+	.filter(Boolean);
+const oneStrokeAtATime = !ring && strokes.length > 1;
 ---
 
 <svg
 	class:list={[
-		ring ? 'hover-ring' : 'redraw',
+		ring ? 'hover-ring' : oneStrokeAtATime ? 'redraw-strokes' : 'redraw',
 		'pointer-events-none absolute overflow-visible',
 		className,
 	]}
@@ -47,6 +56,8 @@ const {
 		stroke-linejoin="round"
 		filter="url(#crayon)"
 	>
-		<path pathLength="1" d={path}></path>
+		{strokes.map((d, i) => (
+			<path pathLength="1" d={d} style={oneStrokeAtATime ? `--i:${i}` : undefined} />
+		))}
 	</g>
 </svg>

@@ -26,6 +26,13 @@
 }
 
 @layer base {
+	/* Crayon marks run past boxes, section edges and the screen edge on purpose. The
+	   page clips sideways here, once, so nothing on the way has to contain them. */
+	html,
+	body {
+		overflow-x: clip;
+	}
+
 	body {
 		@apply bg-surface-0 text-gray-300 font-sans antialiased;
 	}

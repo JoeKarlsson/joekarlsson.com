@@ -26,6 +26,32 @@
 	}
 }
 
+/* Multi-stroke marks (tallies, rays, hatching, bursts) draw like one pen: each
+   stroke takes 4.5% of the loop and starts as the one before it ends (Scribble
+   sets --i per stroke), all hold, then erase in the same order. */
+.redraw-strokes path {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	animation: redraw-stroke var(--dur, 7s)
+		calc(var(--del, 0s) + var(--i, 0) * var(--dur, 7s) * 0.045) infinite;
+}
+
+@keyframes redraw-stroke {
+	0% {
+		stroke-dashoffset: 1;
+		animation-timing-function: cubic-bezier(0.3, 0.6, 0.4, 1);
+	}
+	4.5%,
+	80% {
+		stroke-dashoffset: 0;
+		animation-timing-function: ease-in;
+	}
+	84%,
+	100% {
+		stroke-dashoffset: -1;
+	}
+}
+
 /* Hover ring: a scribble circled around an .index-row while it's hovered or
    focused. A transition the visitor causes, so it stays on under reduced motion. */
 .hover-ring {
@@ -177,13 +203,15 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.redraw path,
+	.redraw-strokes path,
 	.slot-reel,
 	.echo > span,
 	.ticker-track {
 		animation: none;
 	}
 
-	.redraw path {
+	.redraw path,
+	.redraw-strokes path {
 		stroke-dashoffset: 0;
 	}
 

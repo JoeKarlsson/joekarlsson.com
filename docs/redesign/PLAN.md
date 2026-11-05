@@ -62,6 +62,9 @@ The new look: a dark, art house, slightly weird personal site. It is hot pink on
 - Static crayon texture.
 - They draw themselves in once and redraw on a slow loop.
 - They are never jittered, wobbled or nudged, and have no drips.
+- They are not contained. Marks spill past boxes, section edges and the screen edge, across the video, panels and nav, on every page, not just the homepage. Only the page clips sideways (`overflow-x: clip` on `html, body`); no section or card clips its marks.
+- A mark with several strokes (tallies, rays, hatching, bursts) draws one stroke at a time, like a single pen, and erases in the same order.
+- Kinds of marks, not only coils: hatching, tallies, long lines, underlines, an X, a loose box, a check, an oval around a word, emphasis rays, starbursts, a straight arrow.
 - Joe's own scanned marks replace the generated ones later (Phase 6).
 
 ### Linking

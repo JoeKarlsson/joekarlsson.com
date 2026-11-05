@@ -10,7 +10,7 @@ const PINK = '#ff4fd8';
 ---
 
 <div
-	class="drawing-board relative mx-4 mt-20 min-h-[72vh] cursor-crosshair overflow-hidden rounded-xl bg-surface-1"
+	class="drawing-board relative mx-4 mt-20 min-h-[72vh] cursor-crosshair rounded-xl bg-surface-1"
 	aria-hidden="true"
 >
 	<p class="absolute top-6 left-7 font-display text-[clamp(40px,5vw,72px)] leading-none text-paper uppercase">
@@ -53,6 +53,14 @@ const PINK = '#ff4fd8';
 			class="inset-0 size-full"
 		/>
 	))}
+	<!-- Runs off the board's bottom edge into the next section -->
+	<Scribble
+		{...MARKS.lines}
+		color={PINK}
+		duration="12s"
+		delay="4s"
+		class="right-[4%] -bottom-[70px] z-10 h-[120px] w-[46%]"
+	/>
 	<svg class="drawing-board-pad absolute inset-0 size-full touch-pan-y">
 		<g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#crayon)"></g>
 	</svg>
