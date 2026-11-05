@@ -165,3 +165,18 @@ test.describe('Page Navigation', () => {
 		await expect(page.locator('body')).toContainText('404');
 	});
 });
+
+test.describe('Homepage montage', () => {
+	test('starts again after a pause the browser made', async ({ page }) => {
+		await page.goto('/');
+		const montage = page.locator('video[aria-label^="Montage"]');
+		await expect.poll(() => montage.evaluate((v: HTMLVideoElement) => v.paused)).toBe(false);
+
+		// Chrome pauses muted video in a hidden tab; that isn't the viewer stopping it
+		await montage.evaluate((v: HTMLVideoElement) => {
+			v.pause();
+			document.dispatchEvent(new Event('visibilitychange'));
+		});
+		await expect.poll(() => montage.evaluate((v: HTMLVideoElement) => v.paused)).toBe(false);
+	});
+});

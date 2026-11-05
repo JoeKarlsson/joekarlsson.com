@@ -35,11 +35,18 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 	videos.forEach((video) => {
 		video.addEventListener('pause', () => {
 			if (video.dataset.autoPausing) delete video.dataset.autoPausing;
-			else pausedByViewer.add(video);
+			// Only a clip with controls, on a visible page, can be paused by the viewer.
+			// Any other pause is the browser's (hidden tab, display asleep), and counting
+			// it as the viewer's froze the homepage montage for good.
+			else if (video.controls && document.visibilityState === 'visible') pausedByViewer.add(video);
 		});
 		video.addEventListener('play', () => pausedByViewer.delete(video));
 		observer.observe(video);
 	});
 	// Motion was paused when these scrolled in (perhaps on another page), so start them now
 	document.addEventListener(MOTION_RESUMED_EVENT, () => onScreen.forEach((video) => play(video)));
+	// The browser may pause clips while the tab is hidden and not start them again
+	document.addEventListener('visibilitychange', () => {
+		if (document.visibilityState === 'visible') onScreen.forEach((video) => play(video));
+	});
 }
