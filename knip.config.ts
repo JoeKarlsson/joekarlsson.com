@@ -14,10 +14,6 @@ const config: KnipConfig = {
 		'vale',
 	],
 	ignoreExportsUsedInFile: true,
-	ignore: [
-		// Terminal commands are dynamically invoked via command registry
-		'src/lib/terminal-core.ts',
-	],
 };
 
 export default config;

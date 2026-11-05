@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
+import { categorySlug } from '../utils/categories';
 import AuthorBio from '../components/AuthorBio.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
@@ -218,7 +219,7 @@ const formatShortDate = (d: Date) =>
 								<>
 									{' · '}
 									<a
-										href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`}
+										href={`/blog/category/${categorySlug(cat)}/`}
 										class="text-gray-400 no-underline hover:text-coral"
 									>
 										{cat}

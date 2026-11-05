@@ -214,4 +214,8 @@ Done when: every page uses the new system, and the old styles and dead component
 - 2026-11-05: on phones the nav wraps to three rows with every link visible, so it isn't sticky there (it would cover a third of the screen) and there's no menu button. It floats from `md` up.
 - 2026-11-05: the header drops its social icons; they live in the footer only, as in mock-r.
 
+- 2026-11-05: Writing by topic leaves out the catch-all Work and Personal categories (79 and 6 posts), as mock-r did, and lists the top eight subjects.
+- 2026-11-05: the drawing board is `aria-hidden` with `tabindex="-1"` swatches rather than `inert`, because `inert` also blocks clicks on the crayon swatches.
+- 2026-11-05: Phase 2 ships interim H.264 encodes in `public/images/home/` (montage 3.9 MB at 600px, six collage loops 2.8 MB, `preload="none"`), all played by `in-view-play` so reduced motion shows posters. Phase 3 replaces them with WebM, budgets and the PEAT check. Post thumbnails are still the color hero images until Phase 3 dithers them.
+
 No open decisions.

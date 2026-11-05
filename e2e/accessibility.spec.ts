@@ -162,20 +162,6 @@ test.describe('Reduced Motion', () => {
 });
 
 test.describe('ARIA Attributes', () => {
-	test('terminal has proper ARIA on desktop', async ({ page }) => {
-		// Use desktop viewport
-		await page.setViewportSize({ width: 1280, height: 720 });
-		await page.goto('/');
-
-		// Wait for terminal to load
-		await page.waitForSelector('#terminal', { timeout: 10000 });
-
-		// Terminal should have proper role
-		const terminal = page.locator('#terminal');
-		await expect(terminal).toHaveAttribute('role', 'application');
-		await expect(terminal).toHaveAttribute('aria-label');
-	});
-
 	test('navigation landmarks are present', async ({ page }) => {
 		await page.goto('/about'); // Use about page which has simpler structure
 

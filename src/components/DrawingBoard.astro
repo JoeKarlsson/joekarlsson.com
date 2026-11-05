@@ -1,0 +1,57 @@
+---
+// "Make a mark": a dark board with pre-drawn crayon marks that redraw on a loop,
+// where visitors scribble in pink or chalk and their strokes erase themselves.
+// Purely decorative, so it's hidden from assistive tech and keyboard focus.
+// Touch only draws while pressed, so swiping across it still scrolls the page.
+import { BOARD_MARKS, CHALK } from '../data/scribbles';
+import Scribble from './Scribble.astro';
+
+const PINK = '#ff4fd8';
+---
+
+<div
+	class="drawing-board relative mx-4 mt-20 min-h-[72vh] cursor-crosshair overflow-hidden rounded-xl bg-surface-1"
+	aria-hidden="true"
+>
+	<p class="absolute top-6 left-7 font-display text-[clamp(40px,5vw,72px)] leading-none text-paper uppercase">
+		Make a mark
+	</p>
+	<p class="absolute top-[calc(24px+clamp(44px,5.4vw,78px))] left-[30px] max-w-[30em] text-muted">
+		Draw on it. It fades on its own.
+	</p>
+	<div class="absolute right-6 bottom-6 flex gap-2.5 sm:top-7 sm:bottom-auto">
+		{[
+			{ color: PINK, label: 'Pink' },
+			{ color: CHALK, label: 'Chalk' },
+		].map(({ color, label }, i) => (
+			<button
+				type="button"
+				tabindex="-1"
+				data-crayon={color}
+				aria-pressed={i === 0 ? 'true' : 'false'}
+				aria-label={label}
+				class="size-[34px] cursor-pointer rounded-full border-[3px] border-transparent aria-pressed:border-paper"
+				style={`background:${color}`}
+			/>
+		))}
+	</div>
+	{BOARD_MARKS.map(({ color, path }, i) => (
+		<Scribble
+			path={path}
+			color={color === 'pink' ? PINK : CHALK}
+			viewBox="0 0 1400 620"
+			strokeWidth={6}
+			duration="11s"
+			delay={`${(i * 1.7).toFixed(1)}s`}
+			class="inset-0 size-full"
+		/>
+	))}
+	<svg class="drawing-board-pad absolute inset-0 size-full touch-pan-y">
+		<g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#crayon)"></g>
+	</svg>
+</div>
+
+<script>
+	import { initDrawingBoard } from '../scripts/drawing-board';
+	document.querySelectorAll<HTMLElement>('.drawing-board').forEach(initDrawingBoard);
+</script>

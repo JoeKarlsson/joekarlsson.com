@@ -1,41 +1,68 @@
 ---
-import BlogCard from '../components/BlogCard.astro';
-import CatChase from '../components/CatChase.astro';
-import RightNow from '../components/RightNow.astro';
+import DrawingBoard from '../components/DrawingBoard.astro';
+import IndexRow from '../components/IndexRow.astro';
+import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE_DESCRIPTION } from '../consts';
-import { getFeedPosts } from '../utils/posts';
+import { DEFAULT_HERO_IMAGE, SITE_DESCRIPTION } from '../consts';
 import { projects } from '../data/projects';
+import { ARROW, HERO_COIL } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
-import '../styles/terminal.css';
+import { getCategoryCounts } from '../utils/categories';
+import { getFeedPosts } from '../utils/posts';
 
 // Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
 const { runningContainers } = nowFeed.homelab;
 
-const homepageProjects = projects
-	.filter((p) =>
-		[
-			'Data Structures & Algorithms in JS',
-			'React Spotify Player',
-			'Bechdel.io',
-			'IoT Kitty Litter Box',
-		].includes(p.title),
-	)
-	.sort((a, b) => (b.stars || 0) - (a.stars || 0));
-
-const featuredSlugs = [
-	'how-to-get-started-building-a-homelab-server-in-2024',
-	'an-introduction-to-iot-internet-of-toilets',
-	'how-to-get-started-with-home-assistant-in-2026',
-];
-
 const allPosts = await getFeedPosts();
+const recentPosts = allPosts.slice(0, 5);
+// Work and Personal are catch-all buckets most posts sit in; the index lists subjects
+const CATCH_ALL_CATEGORIES = ['Work', 'Personal'];
+const topics = getCategoryCounts(allPosts.filter((p) => !p.isNewsletter))
+	.filter((topic) => !CATCH_ALL_CATEGORIES.includes(topic.name))
+	.slice(0, 8);
 
-const featuredPosts = featuredSlugs
-	.map((slug) => allPosts.find((p) => p.data.slug === slug))
-	.filter((post): post is (typeof allPosts)[number] => Boolean(post));
+const HOME_PROJECTS = [
+	'PixelPane',
+	'Screencast Director',
+	'FollowSpot',
+	'Connect AI × DOOM',
+	'IoT Kitty Litter Box',
+];
+const homeProjects = HOME_PROJECTS.map((title) => {
+	const project = projects.find((p) => p.title === title);
+	if (!project) throw new Error(`Homepage project "${title}" is not in src/data/projects.ts`);
+	const href = project.page ? `/work/${project.page.slug}/` : project.blogUrl;
+	if (!href) throw new Error(`Homepage project "${title}" has no project page or blog post`);
+	return { title, href, meta: [project.date.slice(0, 4), ...project.tech.slice(0, 2)].join(' · ') };
+});
 
-const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice(0, 6);
+const dateFormat = new Intl.DateTimeFormat('en-US', {
+	timeZone: 'UTC',
+	month: 'short',
+	day: 'numeric',
+	year: 'numeric',
+});
+
+const TOP_TICKER = ['Joe Karlsson', 'Developer marketing', 'Homelab', 'Databases', 'Smart home'];
+const BOTTOM_TICKER = [
+	'Homelab',
+	'Databases',
+	'Smart home',
+	'DevRel',
+	'AI tools',
+	'Talks',
+	`${runningContainers} containers`,
+];
+const SLOT_WORDS = ['ugly pot', 'ugly demo', 'weird idea', 'homelab', 'ugly pot'];
+
+const COLLAGE = [
+	{ name: 'racktop', alt: 'Photocopied networking gear at the top of the rack' },
+	{ name: 'rackfront', alt: 'Halftone server rack' },
+	{ name: 'cat', alt: "Photocopied video of Joe's cat on the litter box wiring" },
+	{ name: 'kindle', alt: 'Photocopied video of the Kindle home dashboard' },
+	{ name: 'assembly', alt: 'Photocopied video of the litter box being built' },
+	{ name: 'desk', alt: "Halftone of Joe's desk" },
+];
 ---
 
 <BaseLayout
@@ -43,1617 +70,225 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 	description={SITE_DESCRIPTION}
 	schemaType="WebSite"
 >
-	<section id="hero-section" class="relative overflow-hidden border-b border-surface-3">
-		<div id="hero-content" class="flex flex-col lg:flex-row">
-			<!-- Interactive terminal (desktop only) -->
-			<div class="hidden lg:flex flex-1 lg:border-r border-surface-3 flex-col">
-				<div class="flex items-center gap-2 px-4 py-2 bg-surface-1 border-b border-surface-3">
-					<span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-					<span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-					<span class="w-3 h-3 rounded-full bg-green-500/80"></span>
-					<span class="ml-2 text-xs text-gray-400 font-mono">joe@karlsson - bash</span>
-				</div>
-				<div
-					id="terminal"
-					data-running-containers={runningContainers}
-					class="terminal-body bg-surface-0 px-4 md:px-8 py-4 md:py-6 font-mono text-sm leading-relaxed h-112 overflow-y-auto cursor-text relative"
-					tabindex="0"
-					role="application"
-					aria-label="Interactive terminal. Type help for available commands."
-				>
-					<div id="output"></div>
-					<div id="input-line" class="flex items-center" style="display:none;">
-						<span class="prompt text-coral mr-2">~$</span>
-						<span class="relative">
-							<span
-								id="placeholder"
-								class="text-gray-400 absolute left-0 pointer-events-none"
-								style="white-space: nowrap;"
-							>
-								type a command...
-							</span>
-							<span id="input-text" class="text-gray-200"></span>
-							<span id="cursor" class="cursor-blink" aria-hidden="true"></span>
-							<span
-								id="ghost-text"
-								class="text-gray-600 pointer-events-none"
-								aria-hidden="true"
-							></span>
-						</span>
-					</div>
-					<div
-						id="hint-text"
-						class="text-xs text-gray-400 mt-2 transition-opacity duration-500 bg-surface-0"
-						style="display:none;"
-					>
-						Type <span class="text-coral">help</span> or use <span class="text-teal">↑↓</span> to
-						navigate • <span class="text-teal">Tab</span> to autocomplete
-					</div>
-					<!-- Arrow-navigable menu -->
-					<nav
-						id="nav-menu"
-						class="mt-3 bg-surface-0"
-						style="display:none;"
-						aria-label="Site navigation"
-					>
-						<div id="nav-items" class="bg-surface-0"></div>
-					</nav>
-					<label for="hidden-input" class="sr-only">
-						Terminal command input
-					</label>
-					<input
-						id="hidden-input"
-						type="text"
-						class="absolute opacity-0 w-0 h-0 pointer-events-none"
-						autocomplete="off"
-						autocorrect="off"
-						autocapitalize="off"
-						spellcheck="false"
-					/>
+	<div slot="hero" class="grid gap-4 p-4 md:grid-cols-2">
+		<div class="relative aspect-square overflow-hidden rounded-xl">
+			<video
+				class="absolute inset-0 size-full object-cover"
+				src="/images/home/montage.mp4"
+				poster="/images/home/montage-poster.webp"
+				data-autoplay-in-view
+				muted
+				loop
+				playsinline
+				preload="metadata"
+				aria-label="Montage of short halftone clips of Joe"
+			></video>
+		</div>
+		<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
+			<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink" aria-hidden="true">
+				<div class="ticker-track font-display text-[clamp(52px,6.2vw,96px)] leading-none uppercase">
+					{[...TOP_TICKER, ...TOP_TICKER].map((item) => (
+						<>
+							<span>{item}</span>
+							<span class="-translate-y-[0.15em] text-[0.38em]">●</span>
+						</>
+					))}
 				</div>
 			</div>
-
-			<!-- About -->
-			<div class="px-6 py-10 lg:w-104 lg:px-8 lg:py-8 xl:w-120">
-				<h1 class="text-5xl font-black text-coral xl:text-6xl">Joe Karlsson</h1>
-				<p class="mt-2 text-sm text-gray-400">he/they · developer marketing</p>
-
-				<p class="mt-6 text-xl leading-snug font-semibold text-white">
-					Hey, I'm Joe. I make demos, blog posts, talks, and videos for developers.
-				</p>
-				<p class="mt-3 leading-relaxed text-gray-300">
-					I lead developer marketing at <span class="text-white">CData</span>. Outside of work I run
-					a <span class="text-white">{runningContainers}-container homelab</span>, build smart home
-					projects, and watch a lot of movies.
-				</p>
-
-				<!-- The desktop terminal and header nav already cover these -->
-				<div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 lg:hidden">
-					<a
-						href="/blog"
-						class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=blog rounded-md bg-coral px-4 py-2 text-sm font-medium text-surface-0 no-underline hover:text-surface-0 hover:bg-white"
-					>
-						Blog
-					</a>
-					<a
-						href="/about"
-						class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=about text-sm text-coral hover:underline"
-					>
-						About
-					</a>
-					<a
-						href="/work"
-						class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=work text-sm text-coral hover:underline"
-					>
-						Work
-					</a>
-					<a
-						href="/uses"
-						class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=uses text-sm text-coral hover:underline"
-					>
-						Uses
-					</a>
-					<a
-						href="/contact"
-						class="plausible-event-name=Homepage+CTA+Click plausible-event-destination=contact text-sm text-coral hover:underline"
-					>
-						Contact
-					</a>
+			<div class="flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
+				<div>
+					<p class="mb-3.5 text-[clamp(26px,2.6vw,40px)] leading-[1.15] font-semibold text-white">
+						I make demos, blog posts, talks, and videos for developers.
+					</p>
+					<p class="max-w-[32em] text-[clamp(17px,1.4vw,21px)] text-paper">
+						I lead developer marketing at CData. Outside of work I run a {runningContainers}
+						-container homelab, build smart home projects, and watch a lot of movies.
+					</p>
 				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Right Now -->
-	<section class="mx-auto max-w-5xl px-6 py-14">
-		<h2 class="mb-6 text-3xl font-extrabold text-white">Now</h2>
-		<RightNow />
-	</section>
-
-	<!-- Featured Projects -->
-	<section class="mx-auto max-w-5xl px-6 py-14">
-		<div class="mb-6 flex items-baseline justify-between">
-			<h2 class="text-3xl font-extrabold text-white">Projects</h2>
-			<a href="/work/" class="text-sm text-coral hover:underline">
-				See all &rarr;
-			</a>
-		</div>
-		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-			{homepageProjects.map((project) => {
-				const url = project.sourceUrl || project.blogUrl || '#';
-				const isExternal = url.startsWith('http');
-				const meta = [
-					project.stars && `${project.stars} stars`,
-					project.tech.slice(0, 2).join(', '),
-				]
-					.filter(Boolean)
-					.join(' · ');
-				return (
-					<a
-						href={url}
-						target={isExternal ? '_blank' : undefined}
-						rel={isExternal ? 'noopener noreferrer' : undefined}
-						class="group block no-underline"
-					>
-						<img
-							src={project.image}
-							alt={project.imageAlt}
-							class="mb-3 h-28 w-full rounded-lg object-cover"
-							width="600"
-							height="112"
-							loading="lazy"
+				<div class="@container">
+					<h1 class="relative font-display text-[calc(100cqw/var(--name-ratio))] leading-[0.88] whitespace-nowrap text-paper uppercase [--name-ratio:3.8]">
+						<span class="block">Joe</span>
+						<span class="block">Karlsson</span>
+						<Scribble
+							path={HERO_COIL}
+							color="#ff4fd8"
+							duration="9s"
+							delay="0.3s"
+							class="-bottom-[14%] -left-[4%] h-[85%] w-[104%]"
 						/>
-						<p class="font-semibold text-white group-hover:text-coral">{project.title}</p>
-						<p class="mt-1 text-sm text-gray-400">{meta}</p>
-					</a>
-				);
-			})}
+					</h1>
+				</div>
+			</div>
 		</div>
+	</div>
+
+	<section class="relative px-4 pt-20 sm:px-7">
+		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none uppercase">
+			<a href="/blog/" class="text-pink no-underline hover:text-pink hover:underline">
+				Recent posts
+			</a>
+		</h2>
+		<ul>
+			{recentPosts.map((post) => (
+				<li class="group grid items-center gap-7 border-t border-surface-4 py-[18px] md:grid-cols-[clamp(140px,22vw,300px)_1fr]">
+					<a href={post.href} tabindex="-1" aria-hidden="true">
+						<img
+							src={post.data.heroImage || DEFAULT_HERO_IMAGE}
+							alt=""
+							aria-hidden="true"
+							loading="lazy"
+							decoding="async"
+							class="block aspect-video w-full rounded-lg object-cover"
+						/>
+					</a>
+					<div>
+						<span class="mb-1.5 block text-sm text-muted">
+							<time datetime={post.data.date.toISOString()}>
+								{dateFormat.format(post.data.date)}
+							</time>
+							{post.data.categories[0] && ` · ${post.data.categories[0]}`}
+						</span>
+						<a
+							href={post.href}
+							class="text-[clamp(20px,2.2vw,30px)] leading-tight font-semibold text-paper no-underline group-hover:text-pink"
+						>
+							{post.data.title}
+						</a>
+					</div>
+				</li>
+			))}
+		</ul>
+		<Scribble
+			path={ARROW}
+			color="#ff4fd8"
+			viewBox="0 0 260 140"
+			strokeWidth={7}
+			duration="5s"
+			delay="1s"
+			class="top-10 right-[8%] hidden h-[110px] w-[200px] md:block"
+		/>
+		<p class="mt-[18px]">
+			<a href="/blog/" class="font-semibold text-pink no-underline hover:text-white">
+				All {allPosts.length} posts →
+			</a>
+		</p>
 	</section>
 
-	<!-- Featured Posts -->
-	<section class="mx-auto max-w-5xl px-6 py-14">
-		<h2 class="mb-6 text-3xl font-extrabold text-white">Featured writing</h2>
-		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-			{featuredPosts.map((post) => (
-				<BlogCard
-					title={post.data.title}
-					description={post.data.description}
-					date={post.data.date}
-					slug={post.data.slug}
-					heroImage={post.data.heroImage}
-					href={post.href}
+	<p class="mx-4 mt-[110px] mb-[30px] flex items-baseline justify-center gap-[0.28em] font-display text-[clamp(32px,10vw,170px)] leading-[0.88] whitespace-nowrap text-paper uppercase sm:mx-7">
+		<span class="sr-only">Ship the ugly pot</span>
+		<span aria-hidden="true">Ship the</span>
+		<span class="slot-window" aria-hidden="true">
+			<span class="slot-reel text-pink">
+				{SLOT_WORDS.map((word) => (
+					<span>{word}</span>
+				))}
+			</span>
+		</span>
+	</p>
+
+	<section class="relative overflow-x-clip px-4 pt-20 sm:px-7">
+		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none uppercase">
+			<a href="/work/" class="text-pink no-underline hover:text-pink hover:underline">
+				Projects
+			</a>
+		</h2>
+		<div class="border-b border-surface-4">
+			{homeProjects.map((project, i) => (
+				<IndexRow href={project.href} label={project.title} meta={project.meta} index={i} />
+			))}
+		</div>
+		<p class="mt-[18px]">
+			<a href="/work/" class="font-semibold text-pink no-underline hover:text-white">
+				All projects →
+			</a>
+		</p>
+	</section>
+
+	<DrawingBoard />
+
+	<section class="relative overflow-x-clip px-4 pt-20 sm:px-7">
+		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none uppercase">
+			<a href="/blog/" class="text-pink no-underline hover:text-pink hover:underline">
+				Writing by topic
+			</a>
+		</h2>
+		<div class="border-b border-surface-4">
+			{topics.map((topic, i) => (
+				<IndexRow
+					href={`/blog/category/${topic.slug}/`}
+					label={topic.name}
+					meta={`${topic.count} posts`}
+					index={i + 1}
 				/>
 			))}
 		</div>
-	</section>
-
-	<!-- Cat Chase Animation -->
-	<CatChase />
-
-	<!-- Recent Posts -->
-	<section class="mx-auto max-w-5xl px-6 py-16">
-		<div class="mb-6 flex items-baseline justify-between">
-			<h2 class="text-3xl font-extrabold text-white">Recent posts</h2>
-			<a href="/blog/" class="text-sm text-coral hover:underline">
-				View all &rarr;
+		<p class="mt-[18px]">
+			<a href="/blog/" class="font-semibold text-pink no-underline hover:text-white">
+				Every post and topic →
 			</a>
-		</div>
-		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-			{posts.map((post) => (
-				<div>
-					<BlogCard
-						title={post.data.title}
-						description={post.data.description}
-						date={post.data.date}
-						slug={post.data.slug}
-						heroImage={post.data.heroImage}
-						href={post.href}
-					/>
-				</div>
-			))}
-		</div>
+		</p>
 	</section>
+
+	<div class="collage mx-4 mt-20 grid grid-cols-2 items-center gap-5 sm:mx-7 md:grid-cols-6">
+		{COLLAGE.map(({ name, alt }) => (
+			<figure>
+				<video
+					class="block w-full"
+					src={`/images/home/${name}.mp4`}
+					poster={`/images/home/${name}-poster.webp`}
+					data-autoplay-in-view
+					muted
+					loop
+					playsinline
+					preload="none"
+					aria-label={alt}
+				/>
+			</figure>
+		))}
+	</div>
+
+	<!-- Clips the tilted ticker's corners so the page doesn't scroll sideways -->
+	<div class="overflow-x-clip pt-[90px] pb-24">
+		<div
+			class="ticker scale-[1.04] -rotate-2 border-y-[3px] border-pink bg-ink pt-3 pb-1.5 ticker-reverse"
+			aria-hidden="true"
+		>
+			<div class="ticker-track font-display text-[clamp(44px,5vw,80px)] leading-none text-pink uppercase [--ticker-duration:45s]">
+				{[...BOTTOM_TICKER, ...BOTTOM_TICKER].map((item) => (
+					<>
+						<span>{item}</span>
+						<span class="-translate-y-[0.15em] text-[0.38em] text-paper">●</span>
+					</>
+				))}
+			</div>
+		</div>
+	</div>
 </BaseLayout>
 
 <style>
-	.terminal-body {
-		scrollbar-width: thin;
-		scrollbar-color: #fdae84 transparent;
-	}
-
-	.terminal-body :global(#output) {
-		white-space: pre-wrap;
-	}
-
-	.cursor-blink::after {
-		content: '█';
-		color: #fdae84;
-		animation: blink 1s step-end infinite;
-	}
-
-	@keyframes blink {
-		50% {
-			opacity: 0;
+	@media (min-width: 768px) {
+		.collage {
+			grid-template-columns: 1fr 0.8fr 1fr 0.7fr 1.1fr 0.9fr;
 		}
 	}
 
-	.terminal-body :global(.text-coral) {
-		color: #fdae84;
+	/* Taped-up, slightly crooked */
+	.collage figure:nth-child(1) {
+		transform: rotate(-2.5deg);
 	}
-	.terminal-body :global(.text-teal) {
-		color: #8bcbc8;
+	.collage figure:nth-child(2) {
+		transform: rotate(1.8deg) translateY(30px);
 	}
-	.terminal-body :global(.text-lavender) {
-		color: #c4b5fd;
+	.collage figure:nth-child(3) {
+		transform: rotate(-1deg);
 	}
-	.terminal-body :global(.text-dim) {
-		color: #b0b8c4;
+	.collage figure:nth-child(4) {
+		transform: rotate(2.4deg) translateY(-20px);
 	}
-	.terminal-body :global(.text-white) {
-		color: #e5e7eb;
+	.collage figure:nth-child(5) {
+		transform: rotate(-2deg) translateY(18px);
 	}
-	.terminal-body :global(.text-green) {
-		color: #86efac;
-	}
-	.terminal-body :global(.text-yellow) {
-		color: #fde68a;
-	}
-
-	/* CLI selector style - :global because items are JS-generated */
-	.terminal-body :global(.nav-item) {
-		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-		font-size: 0.875rem;
-		padding: 2px 0;
-		cursor: pointer;
-		white-space: nowrap;
-	}
-	.terminal-body :global(.nav-item:hover) {
-		background: rgba(253, 174, 132, 0.08);
-	}
-	.terminal-body :global(.nav-item-selected) {
-		color: #fdae84;
-	}
-	.terminal-body :global(.nav-item-unselected) {
-		color: #c9cdd3;
-	}
-	.terminal-body :global(.nav-item-unselected .nav-label) {
-		color: #c9cdd3;
-	}
-	.terminal-body :global(.nav-item-selected .nav-label) {
-		color: #e5e7eb;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.cursor-blink::after {
-			animation: none !important;
-			opacity: 1;
-		}
+	.collage figure:nth-child(6) {
+		transform: rotate(1.5deg) translateY(-14px);
 	}
 </style>
-
-<script>
-	const _output = document.getElementById('output');
-	const _inputLine = document.getElementById('input-line');
-	const _inputText = document.getElementById('input-text');
-	const _terminal = document.getElementById('terminal');
-	const _hiddenInput = document.getElementById('hidden-input') as HTMLInputElement | null;
-
-	// On mobile, terminal elements are hidden - skip all terminal JS
-	if (_output && _inputLine && _inputText && _terminal && _hiddenInput) {
-		// Non-null reassignment for TypeScript closure narrowing
-		const output = _output;
-		const inputLine = _inputLine;
-		const inputText = _inputText;
-		const terminal = _terminal;
-		const hiddenInput = _hiddenInput;
-		const placeholder = document.getElementById('placeholder');
-		const hintText = document.getElementById('hint-text');
-		const ghostText = document.getElementById('ghost-text');
-
-		let currentInput = '';
-		const commandHistory: string[] = [];
-		let historyIndex = -1;
-		let ready = false;
-		let hasInteracted = false;
-
-		// All available commands for tab completion
-		const allCommands = [
-			'help',
-			'ls',
-			'cd',
-			'goto',
-			'whoami',
-			'cat',
-			'uptime',
-			'neofetch',
-			'clear',
-			'fortune',
-			'cowsay',
-			'man',
-			'hack',
-			'matrix',
-			'pwd',
-			'hi',
-			'hello',
-			'coffee',
-			'beer',
-			'ping',
-			'ssh',
-			'docker',
-			'git',
-			'npm',
-			'top',
-			'htop',
-			'ps',
-			'nvidia-smi',
-			'xkcd',
-			'rickroll',
-			'42',
-		];
-
-		// Cat subcommands for tab completion
-		const catFiles = [
-			'about.md',
-			'about',
-			'work.md',
-			'work',
-			'readme',
-			'music',
-			'fails',
-			'blog/iot',
-			'blog/homelab',
-			'blog',
-			'cat',
-		];
-
-		// CLI selector menu
-		const navMenu = document.getElementById('nav-menu')!;
-		const navItems = document.getElementById('nav-items')!;
-		let menuActive = false;
-		let menuIndex = 0;
-		let currentMenuLevel: 'main' | 'pages' = 'main';
-
-		type MenuOption = {
-			label: string;
-			desc: string;
-			action: string;
-			href?: string;
-		};
-
-		const mainMenu: MenuOption[] = [
-			{ label: 'cat about.md', desc: 'who am I', action: 'cat-about' },
-			{ label: 'cat work.md', desc: "things I've built", action: 'cat-work' },
-			{ label: 'neofetch', desc: 'system info', action: 'neofetch' },
-			{ label: 'cd', desc: 'browse pages', action: 'browse-pages' },
-			{ label: 'whoami', desc: '', action: 'whoami' },
-			{ label: 'hack', desc: '???', action: 'easter-egg' },
-		];
-
-		const pagesMenu: MenuOption[] = [
-			{ label: 'blog/', desc: 'databases, homelabs, dev tools', action: 'nav', href: '/blog' },
-			{ label: 'about/', desc: 'the longer version', action: 'nav', href: '/about' },
-			{ label: 'work/', desc: "things I've built", action: 'nav', href: '/work' },
-			{ label: 'uses/', desc: 'gear & homelab', action: 'nav', href: '/uses' },
-			{ label: 'contact/', desc: 'say hi', action: 'nav', href: '/contact' },
-			{ label: '../', desc: 'back', action: 'back' },
-		];
-
-		function activeMenu(): MenuOption[] {
-			return currentMenuLevel === 'pages' ? pagesMenu : mainMenu;
-		}
-
-		function renderMenu() {
-			const menu = activeMenu();
-			const header =
-				currentMenuLevel === 'pages'
-					? '<div class="text-dim mb-1">  <span class="text-teal">~/pages</span> - where do you want to go?</div>'
-					: '';
-			navItems.innerHTML =
-				header +
-				menu
-					.map((opt, i) => {
-						const sel = i === menuIndex;
-						const arrow = sel ? '<span class="text-coral" aria-hidden="true">❯</span>' : ' ';
-						const desc = opt.desc ? ` <span class="text-dim">${opt.desc}</span>` : '';
-						const labelClass = currentMenuLevel === 'pages' ? 'text-teal' : '';
-						return `<div class="nav-item ${sel ? 'nav-item-selected' : 'nav-item-unselected'}" data-index="${i}">  ${arrow} <span class="nav-label ${sel ? labelClass : ''}">${opt.label}</span>${desc}</div>`;
-					})
-					.join('');
-
-			navItems.querySelectorAll('.nav-item').forEach((el) => {
-				el.addEventListener('click', () => {
-					menuIndex = parseInt((el as HTMLElement).dataset.index || '0');
-					renderMenu();
-					selectMenuItem();
-				});
-			});
-		}
-
-		function selectMenuItem() {
-			const menu = activeMenu();
-			const opt = menu[menuIndex];
-
-			if (opt.action === 'back') {
-				currentMenuLevel = 'main';
-				menuIndex = 0;
-				renderMenu();
-				scrollToBottom();
-				return;
-			}
-
-			if (opt.action === 'nav' && opt.href) {
-				appendLine(
-					`<span class="text-coral">~$</span> <span class="text-white">cd ${opt.label.replace('/', '')}</span>`,
-				);
-				appendLine(`Navigating to ${opt.href}...`);
-				setTimeout(() => {
-					window.location.href = opt.href!;
-				}, 400);
-				return;
-			}
-
-			if (opt.action === 'browse-pages') {
-				appendLine(`<span class="text-coral">~$</span> <span class="text-white">cd</span>`);
-				appendLines(cmdLs(''));
-				currentMenuLevel = 'pages';
-				menuIndex = 0;
-				renderMenu();
-				scrollToBottom();
-				focusInput();
-				return;
-			}
-
-			hideMenu();
-			// Remember where this command's output starts
-			const cmdMarker = document.createElement('div');
-			output.appendChild(cmdMarker);
-			appendLine(`<span class="text-coral">~$</span> <span class="text-white">${opt.label}</span>`);
-
-			switch (opt.action) {
-				case 'cat-about':
-					appendLines(cmdCatAbout());
-					showMenu();
-					break;
-				case 'cat-work':
-					appendLines(cmdCatWork());
-					showMenu();
-					break;
-				case 'neofetch':
-					appendLines(cmdNeofetch());
-					showMenu();
-					break;
-				case 'whoami':
-					appendLines(cmdWhoami());
-					showMenu();
-					break;
-				case 'easter-egg':
-					runMatrixRain();
-					break;
-			}
-			// Scroll terminal internally to show the command output at the top
-			terminal.scrollTop = cmdMarker.offsetTop - terminal.offsetTop;
-			focusInput();
-		}
-
-		function showMenu() {
-			navMenu.style.display = 'block';
-			menuActive = true;
-			currentMenuLevel = 'main';
-			menuIndex = 0;
-			renderMenu();
-			scrollToBottom();
-		}
-
-		function hideMenu() {
-			navMenu.style.display = 'none';
-			menuActive = false;
-		}
-
-		const suggestions = [
-			'help',
-			'neofetch',
-			'cat about.md',
-			'ls',
-			'whoami',
-			'hack',
-			'cat readme',
-			'uptime',
-			'fortune',
-			'cowsay',
-			'man joe',
-			'cat music',
-			'cat fails',
-			'cat blog/iot',
-			'cat blog/homelab',
-			'sudo rm -rf /',
-		];
-		let suggestionIndex = -1;
-
-		const pages: Record<string, string> = {
-			home: '/',
-			blog: '/blog',
-			about: '/about',
-			work: '/work',
-			contact: '/contact',
-			uses: '/uses',
-			'talk-archive': '/talk-archive',
-			man: '/man',
-		};
-
-		function scrollToBottom() {
-			terminal.scrollTop = terminal.scrollHeight;
-		}
-
-		function appendLine(html: string) {
-			const div = document.createElement('div');
-			div.innerHTML = html;
-			output.appendChild(div);
-			scrollToBottom();
-		}
-
-		function appendLines(lines: string[]) {
-			lines.forEach((line) => appendLine(line));
-		}
-
-		function sleep(ms: number): Promise<void> {
-			return new Promise((r) => setTimeout(r, ms));
-		}
-
-		// --- Matrix rain easter egg (full hero overlay) ---
-		async function runMatrixRain() {
-			ready = false;
-			inputLine.style.display = 'none';
-			navMenu.style.display = 'none';
-
-			const heroSection = document.getElementById('hero-section')!;
-
-			// Create overlay that covers the entire hero
-			const overlay = document.createElement('div');
-			overlay.style.cssText =
-				'position:absolute;top:0;left:0;right:0;bottom:0;z-index:50;background:#0a0a0f;display:flex;align-items:center;justify-content:center;';
-			heroSection.appendChild(overlay);
-
-			const rainCanvas = document.createElement('div');
-			rainCanvas.style.cssText =
-				'position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;font-family:monospace;padding:8px;';
-			overlay.appendChild(rainCanvas);
-
-			const msgDiv = document.createElement('div');
-			msgDiv.style.cssText =
-				'position:relative;z-index:10;text-align:center;opacity:0;transition:opacity 0.5s;';
-			overlay.appendChild(msgDiv);
-
-			const chars = 'ジョーカールソン01アイオーティー猫ホームラブ';
-			const charW = 10;
-			const lineH = 14;
-			const cols = Math.floor(heroSection.clientWidth / charW);
-			const rows = Math.floor(heroSection.clientHeight / lineH);
-			const grid: string[][] = Array.from({ length: rows }, () => Array(cols).fill(' '));
-			const drops: number[] = Array(cols)
-				.fill(0)
-				.map(() => Math.floor(Math.random() * -rows));
-
-			const rainPre = document.createElement('pre');
-			rainPre.style.cssText = `font-size:${charW + 2}px;line-height:${lineH}px;margin:0;white-space:pre;`;
-			rainCanvas.appendChild(rainPre);
-
-			for (let frame = 0; frame < 80; frame++) {
-				for (let c = 0; c < cols; c++) {
-					drops[c]++;
-					if (drops[c] >= 0 && drops[c] < rows) {
-						grid[drops[c]][c] = chars[Math.floor(Math.random() * chars.length)];
-					}
-					if (drops[c] > rows + Math.floor(Math.random() * rows)) {
-						drops[c] = Math.floor(Math.random() * -6);
-					}
-					if (drops[c] >= 3 && drops[c] - 3 < rows) {
-						grid[drops[c] - 3][c] =
-							Math.random() > 0.6 ? chars[Math.floor(Math.random() * chars.length)] : ' ';
-					}
-				}
-
-				let html = '';
-				for (let r = 0; r < rows; r++) {
-					for (let c = 0; c < cols; c++) {
-						const ch = grid[r][c];
-						if (ch !== ' ') {
-							const isHead = drops[c] === r;
-							const color = isHead ? '#fff' : Math.random() > 0.5 ? '#86efac' : '#22c55e';
-							html += `<span style="color:${color}">${ch}</span>`;
-						} else {
-							html += ' ';
-						}
-					}
-					html += '\n';
-				}
-				rainPre.innerHTML = html;
-				await sleep(50);
-			}
-
-			// Show HACK THE PLANET! centered over the rain
-			msgDiv.innerHTML =
-				'<span style="color:#86efac;font-size:2.5em;font-weight:bold;font-family:monospace;text-shadow:0 0 20px #22c55e,0 0 40px #22c55e;">HACK THE PLANET!</span>';
-			msgDiv.style.opacity = '1';
-			rainPre.style.opacity = '0.3';
-
-			await sleep(2500);
-
-			// Fade out overlay
-			overlay.style.transition = 'opacity 0.4s';
-			overlay.style.opacity = '0';
-			await sleep(400);
-			overlay.remove();
-
-			// Restore terminal
-			inputLine.style.display = 'flex';
-			ready = true;
-			showMenu();
-			focusInput();
-		}
-
-		// --- Commands ---
-
-		function cmdHelp(): string[] {
-			return [
-				'<span class="text-yellow">Available commands:</span>',
-				'',
-				'  <span class="text-coral">help</span>         show this message',
-				'  <span class="text-coral">ls</span>           list site pages',
-				'  <span class="text-coral">cd</span> &lt;page&gt;    navigate to a page',
-				'  <span class="text-coral">whoami</span>       who is this',
-				'  <span class="text-coral">cat</span>          list available files',
-				'  <span class="text-coral">cat about.md</span> about me',
-				'  <span class="text-coral">cat work.md</span>  things I\'ve built',
-				'  <span class="text-coral">cat readme</span>   about this site',
-				'  <span class="text-coral">cat music</span>    current favorite albums',
-				'  <span class="text-coral">cat fails</span>    project failures hall of fame',
-				'  <span class="text-coral">cat blog/</span>    preview a blog post',
-				'  <span class="text-coral">neofetch</span>     system info',
-				'  <span class="text-coral">uptime</span>       system uptime',
-				'  <span class="text-coral">fortune</span>      random dev hot take',
-				'  <span class="text-coral">cowsay</span>       moo',
-				'  <span class="text-coral">man joe</span>      read the manual',
-				'  <span class="text-coral">hack</span>         ???',
-				'  <span class="text-coral">clear</span>        clear terminal',
-				'',
-			];
-		}
-
-		function cmdLs(args: string): string[] {
-			const entries = Object.keys(pages).map((p) => `  <span class="text-teal">${p}/</span>`);
-			if (args.includes('-a') || args.includes('-la') || args.includes('-al')) {
-				return [
-					'<span class="text-dim">drwxr-xr-x  joe  staff</span>',
-					'  <span class="text-dim">.secrets/</span>     <span class="text-coral">[REDACTED]</span>',
-					'  <span class="text-dim">.env</span>          <span class="text-coral">[NICE TRY]</span>',
-					'  <span class="text-dim">.ssh/</span>         <span class="text-coral">[NOPE]</span>',
-					...entries,
-					'',
-				];
-			}
-			return ['<span class="text-dim">drwxr-xr-x  joe  staff</span>', ...entries, ''];
-		}
-
-		function cmdCd(args: string): string[] {
-			const target = args.trim().replace(/^\//, '').replace(/\/$/, '');
-			if (!target) return ['<span class="text-dim">usage: cd &lt;page&gt;</span>', ''];
-			if (target === '~' || target === '/') {
-				window.location.href = '/';
-				return ['Navigating to home...'];
-			}
-			const url = pages[target];
-			if (url) {
-				setTimeout(() => {
-					window.location.href = url;
-				}, 400);
-				return [`Navigating to /${target}...`];
-			}
-			return [
-				`<span class="text-coral">cd: no such page: ${target}</span>`,
-				`<span class="text-dim">try 'ls' to see available pages</span>`,
-				'',
-			];
-		}
-
-		function cmdWhoami(): string[] {
-			return ['<span class="text-teal">joe-karlsson</span> - developer marketing engineer', ''];
-		}
-
-		function cmdCatAbout(): string[] {
-			return [
-				'',
-				'  <span class="text-yellow">## about.md</span>',
-				'',
-				'  Hey, I\'m <span class="text-coral">Joe Karlsson</span>.',
-				'  Engineer who does developer marketing.',
-				'',
-				'  I make demos, blog posts, talks, and videos for',
-				'  developers. Currently doing that at <span class="text-white">CData</span>, on the MCP',
-				'  platform that wires AI agents to enterprise data.',
-				'',
-				`  Outside of work I run a <span class="text-teal">${_terminal?.dataset.runningContainers}-container homelab</span>,`,
-				'  build smart home projects, and watch a lot of movies.',
-				'',
-			];
-		}
-
-		function cmdCatWork(): string[] {
-			return [
-				'',
-				'  <span class="text-yellow">## work.md</span>',
-				'',
-				'  <span class="text-coral">IoT Smart Litter Box</span>',
-				'  Built an internet-connected cat toilet and gave',
-				'  conference talks about it at 20+ events.',
-				'',
-				'  <span class="text-coral">40+ Container Homelab</span>',
-				'  Proxmox cluster, dual GPUs, Home Assistant,',
-				'  media automation, monitoring - the works.',
-				'',
-				'  <span class="text-coral">Developer Marketing</span>',
-				'  Spoken at hundreds of conferences. Built demos,',
-				'  docs, and tools at CData, CloudQuery, Tinybird,',
-				'  SingleStore, and MongoDB.',
-				'',
-				'  <span class="text-dim">See everything → <span class="text-teal">cd work</span></span>',
-				'',
-			];
-		}
-
-		function cmdCatReadme(): string[] {
-			return [
-				'<span class="text-yellow">README.md</span>',
-				'',
-				'  Welcome to joekarlsson.com!',
-				'  This site is where I write about software engineering,',
-				'  developer marketing, homelabs, IoT cat litter boxes,',
-				"  and whatever else I'm nerding out about.",
-				'',
-				'  Built with Astro. Powered by coffee and stubbornness.',
-				'  <span class="text-dim">Type \'ls\' to see where you can go.</span>',
-				'',
-			];
-		}
-
-		function cmdUptime(): string[] {
-			return [
-				'  up <span class="text-green">42 days, 3 hours, 17 minutes</span>',
-				'  load average: 0.42, 0.69, 1.21',
-				'  <span class="text-dim">vibes: immaculate</span>',
-				'',
-			];
-		}
-
-		function cmdNeofetch(): string[] {
-			return [
-				'',
-				'  <span class="text-teal">joe</span>@<span class="text-teal">joekarlsson.com</span>',
-				'  ─────────────────────',
-				'  <span class="text-coral">OS</span>:         Astro, self-hosted on Proxmox',
-				'  <span class="text-coral">Host</span>:       Dell PowerEdge R730',
-				'  <span class="text-coral">Homelab</span>:    Proxmox Cluster x2',
-				'  <span class="text-coral">GPU</span>:        RTX A4000 + Quadro RTX 4000',
-				'  <span class="text-coral">Containers</span>: 40+',
-				'  <span class="text-coral">Shell</span>:      bash + vibes',
-				'  <span class="text-coral">Work</span>:       CData (MCP + AI agents)',
-				'  <span class="text-coral">Cats</span>:       2 (1 IoT-enabled)',
-				'',
-				'  <span style="color:#ff6b6b">██</span><span style="color:#fdae84">██</span><span style="color:#fde68a">██</span><span style="color:#86efac">██</span><span style="color:#8bcbc8">██</span><span style="color:#c4b5fd">██</span><span style="color:#f0abfc">██</span>',
-				'',
-			];
-		}
-
-		function cmdClear(): string[] {
-			output.innerHTML = '';
-			return [];
-		}
-
-		const fortunes = [
-			'Hot take: YAML is just spicy JSON.',
-			"The best database is the one you don't have to manage at 3am.",
-			'Docker compose is my love language.',
-			'There are two types of homelabbers: those who have lost data, and those who are about to.',
-			"Every time I say 'one more container' my wife sighs.",
-			'The IoT in IoT stands for Internet of Toilets.',
-			'My homelab has more uptime than most startups.',
-			'Self-hosting is just paying the electricity company instead of AWS.',
-			'Kubernetes is just Docker with anxiety.',
-			'I mass-assigned GPU transcoding jobs at 2am on a Tuesday. On purpose.',
-		];
-
-		function cmdFortune(): string[] {
-			const f = fortunes[Math.floor(Math.random() * fortunes.length)];
-			return ['', `  <span class="text-yellow">${f}</span>`, ''];
-		}
-
-		const cowQuotes = [
-			'I built an IoT cat toilet. No regrets.',
-			'My homelab has more containers than sense.',
-			'Have you tried turning it off and on again?',
-			'Self-hosting: because I trust myself more than AWS.',
-			`${_terminal?.dataset.runningContainers} containers and counting.`,
-		];
-
-		function cmdCowsay(): string[] {
-			const quote = cowQuotes[Math.floor(Math.random() * cowQuotes.length)];
-			const padded = quote.length < 36 ? quote + ' '.repeat(36 - quote.length) : quote;
-			const border = '_'.repeat(padded.length + 2);
-			return [
-				` ${border}`,
-				`/ ${padded} \\`,
-				`\\ ${' '.repeat(padded.length)} /`,
-				` ${'-'.repeat(padded.length + 2)}`,
-				'        \\   ^__^',
-				'         \\  (oo)\\_______',
-				'            (__)\\       )\\/\\',
-				'                ||----w |',
-				'                ||     ||',
-				'',
-			];
-		}
-
-		function cmdManJoe(): string[] {
-			return [
-				'<span class="text-yellow">JOE(1)                    User Commands                    JOE(1)</span>',
-				'',
-				'<span class="text-white">NAME</span>',
-				'       joe - developer marketing engineer',
-				'',
-				'<span class="text-white">SYNOPSIS</span>',
-				'       joe [--verbose] [--homelab] [--cats]',
-				'',
-				'<span class="text-white">DESCRIPTION</span>',
-				'       Full man page available at <span class="text-teal">/man</span>',
-				'',
-				'<span class="text-white">SEE ALSO</span>',
-				'       joekarlsson.com/about, joekarlsson.com/work',
-				'',
-			];
-		}
-
-		function cmdCatMusic(): string[] {
-			return [
-				'',
-				'  <span class="text-yellow">## /etc/music - current favorites</span>',
-				'',
-				'  <span class="text-coral">1.</span> Radiohead - OK Computer',
-				'  <span class="text-coral">2.</span> LCD Soundsystem - Sound of Silver',
-				'  <span class="text-coral">3.</span> Talking Heads - Remain in Light',
-				'  <span class="text-coral">4.</span> Bon Iver - For Emma, Forever Ago',
-				'  <span class="text-coral">5.</span> Japanese Breakfast - Jubilee',
-				'',
-				'  <span class="text-dim">$ spotify --shuffle --repeat</span>',
-				'',
-			];
-		}
-
-		function cmdCatFails(): string[] {
-			return [
-				'',
-				'  <span class="text-yellow">## /var/log/fails - project failures hall of fame</span>',
-				'',
-				'  <span class="text-coral">[ERROR]</span> Forgot to set up RAID. Lost 2TB of Linux ISOs.',
-				'  <span class="text-coral">[ERROR]</span> Ran docker system prune -a on prod. On purpose. By accident.',
-				'  <span class="text-coral">[ERROR]</span> IoT toilet sensor fell in the toilet. Twice.',
-				'  <span class="text-coral">[ERROR]</span> Accidentally exposed Portainer to the internet for 3 months.',
-				'  <span class="text-coral">[ERROR]</span> Bought a second server to "save money on cloud bills."',
-				'  <span class="text-coral">[ERROR]</span> Tried to mass-transcode 4K movies on a Raspberry Pi.',
-				'',
-				'  <span class="text-dim">errors: 6 | lessons learned: debatable</span>',
-				'',
-			];
-		}
-
-		function cmdCatBlogIot(): string[] {
-			return [
-				'',
-				'  <span class="text-yellow">## How I Built an IoT Smart Litter Box</span>',
-				'',
-				'  It started as a joke. "What if my cat\'s toilet was',
-				'  connected to the internet?" Turns out, it\'s not as',
-				'  ridiculous as it sounds. I used a Raspberry Pi, some',
-				'  sensors, and way too much free time to build a litter',
-				'  box that tweets when my cat uses it...',
-				'',
-				'  <span class="text-dim">-- truncated. visit <span class="text-teal">/blog/how-i-built-an-iot-kitty-litter-box</span> for full post --</span>',
-				'',
-			];
-		}
-
-		function cmdCatBlogHomelab(): string[] {
-			return [
-				'',
-				'  <span class="text-yellow">## My Homelab Setup</span>',
-				'',
-				'  I run a Proxmox cluster with two nodes, dual GPUs,',
-				'  40+ Docker containers, and enough storage to make',
-				'  my electricity bill a recurring source of regret.',
-				'  Home Assistant, Plex, Arr stack, monitoring, the',
-				'  whole nine yards...',
-				'',
-				'  <span class="text-dim">-- truncated. visit <span class="text-teal">/blog/homelab</span> for full post --</span>',
-				'',
-			];
-		}
-
-		async function runFakeDeletion() {
-			ready = false;
-			inputLine.style.display = 'none';
-			navMenu.style.display = 'none';
-
-			const files = [
-				'/home/joe/photos',
-				'/var/lib/docker',
-				'/etc/hostname',
-				'/usr/bin/vim',
-				'/boot/vmlinuz',
-			];
-
-			for (const f of files) {
-				appendLine(
-					`<span class="text-coral">rm:</span> deleting ${f}... <span class="text-green">done</span>`,
-				);
-				await sleep(400);
-			}
-
-			appendLine('<span class="text-coral">rm:</span> deleting / ...');
-			await sleep(1200);
-			appendLine('');
-			appendLine(
-				'<span class="text-yellow">Just kidding. But you should see your face right now.</span>',
-			);
-			appendLine('');
-
-			inputLine.style.display = 'flex';
-			ready = true;
-			showMenu();
-			focusInput();
-		}
-
-		function trackTerminalCommand(cmd: string) {
-			if (typeof window.plausible === 'function') {
-				window.plausible('Terminal Command', { props: { command: cmd } });
-			}
-		}
-
-		function executeCommand(raw: string) {
-			const trimmed = raw.trim();
-			if (!trimmed) return;
-
-			// Hide hint after first command
-			hideHint();
-
-			appendLine(
-				`<span class="text-coral">~$</span> <span class="text-white">${escapeHtml(trimmed)}</span>`,
-			);
-
-			trackTerminalCommand(trimmed);
-
-			if (trimmed) commandHistory.unshift(trimmed);
-			historyIndex = -1;
-
-			const [cmd, ...rest] = trimmed.split(/\s+/);
-			const args = rest.join(' ');
-
-			let result: string[];
-
-			switch (cmd.toLowerCase()) {
-				case 'help':
-					result = cmdHelp();
-					break;
-				case 'ls':
-					result = cmdLs(args);
-					break;
-				case 'cd':
-				case 'goto':
-					result = cmdCd(args);
-					break;
-				case 'whoami':
-					result = cmdWhoami();
-					break;
-				case 'cat':
-					if (args.toLowerCase() === 'about.md' || args.toLowerCase() === 'about') {
-						result = cmdCatAbout();
-					} else if (args.toLowerCase() === 'work.md' || args.toLowerCase() === 'work') {
-						result = cmdCatWork();
-					} else if (args.toLowerCase() === 'readme' || args.toLowerCase() === 'readme.md') {
-						result = cmdCatReadme();
-					} else if (args.toLowerCase() === '/etc/music' || args.toLowerCase() === 'music') {
-						result = cmdCatMusic();
-					} else if (args.toLowerCase() === '/var/log/fails' || args.toLowerCase() === 'fails') {
-						result = cmdCatFails();
-					} else if (args.toLowerCase() === 'blog/iot') {
-						result = cmdCatBlogIot();
-					} else if (args.toLowerCase() === 'blog/homelab') {
-						result = cmdCatBlogHomelab();
-					} else if (args.toLowerCase() === 'blog' || args.toLowerCase() === 'blog/') {
-						result = [
-							'<span class="text-yellow">Available blog previews:</span>',
-							'',
-							'  <span class="text-teal">cat blog/iot</span>      IoT litter box project',
-							'  <span class="text-teal">cat blog/homelab</span>  homelab setup',
-							'',
-							'<span class="text-dim">Or visit the full blog → <span class="text-coral">cd blog</span></span>',
-							'',
-						];
-					} else if (args.toLowerCase() === 'cat' || args.toLowerCase() === 'cat.md') {
-						result = [
-							'',
-							'    <span class="text-coral">/\\_/\\</span>',
-							'   <span class="text-coral">( o.o )</span>',
-							'    <span class="text-coral">> ^ <</span>',
-							'',
-							'  <span class="text-dim">meow. (IoT-enabled)</span>',
-							'',
-						];
-					} else if (!args) {
-						result = [
-							'<span class="text-yellow">Available files:</span>',
-							'',
-							'  <span class="text-teal">about.md</span>     about me',
-							'  <span class="text-teal">work.md</span>      things I\'ve built',
-							'  <span class="text-teal">readme</span>       about this site',
-							'  <span class="text-teal">music</span>        current favorite albums',
-							'  <span class="text-teal">fails</span>        project failures hall of fame',
-							'  <span class="text-teal">blog/iot</span>     IoT blog preview',
-							'  <span class="text-teal">blog/homelab</span> homelab blog preview',
-							'  <span class="text-teal">cat</span>          ???',
-							'',
-							'<span class="text-dim">usage: cat &lt;filename&gt;</span>',
-							'',
-						];
-					} else {
-						result = [
-							`<span class="text-coral">cat: ${escapeHtml(args)}: No such file</span>`,
-							'<span class="text-dim">type \'cat\' to see available files</span>',
-							'',
-						];
-					}
-					break;
-				case 'uptime':
-					result = cmdUptime();
-					break;
-				case 'neofetch':
-					result = cmdNeofetch();
-					break;
-				case 'clear':
-					result = cmdClear();
-					break;
-				case 'sudo':
-					if (trimmed.startsWith('sudo rm -rf')) {
-						runFakeDeletion();
-						return;
-					}
-					result = ['<span class="text-coral">nice try.</span>', ''];
-					break;
-				case 'exit':
-					result = ['<span class="text-dim">You\'re already home.</span>', ''];
-					break;
-				case 'rm':
-					result = ['<span class="text-coral">absolutely not.</span>', ''];
-					break;
-				case 'fortune':
-					result = cmdFortune();
-					break;
-				case 'cowsay':
-					result = cmdCowsay();
-					break;
-				case 'man':
-					if (args.toLowerCase() === 'joe') {
-						result = cmdManJoe();
-					} else {
-						result = [
-							`<span class="text-dim">man: no manual entry for ${escapeHtml(args) || '???'}. try 'man joe'</span>`,
-							'',
-						];
-					}
-					break;
-				case 'matrix':
-				case 'hack':
-					runMatrixRain();
-					return;
-				case 'pwd':
-					result = ['<span class="text-teal">/home/joe/joekarlsson.com</span>', ''];
-					break;
-				case 'hi':
-				case 'hello':
-				case 'hey':
-					result = [
-						'',
-						'  <span class="text-coral">Hey!</span> Welcome to my corner of the internet.',
-						'  <span class="text-dim">Type \'help\' to see what you can do here.</span>',
-						'',
-					];
-					break;
-				case 'curl':
-				case 'wget':
-					result = [
-						"<span class=\"text-dim\">You're already here. Try 'cat readme' instead.</span>",
-						'',
-					];
-					break;
-				case 'chmod':
-					result = ['<span class="text-coral">chmod: nice try, script kiddie.</span>', ''];
-					break;
-				case 'chown':
-					result = ['<span class="text-coral">chown: you don\'t own me.</span>', ''];
-					break;
-				case 'kill':
-				case 'pkill':
-				case 'killall':
-					result = ['<span class="text-coral">kill: process "website" is immortal.</span>', ''];
-					break;
-				case 'shutdown':
-				case 'reboot':
-				case 'poweroff':
-					result = [
-						'<span class="text-coral">Error: This website runs on pure stubbornness.</span>',
-						'<span class="text-dim">It cannot be stopped.</span>',
-						'',
-					];
-					break;
-				case 'dd':
-					result = [
-						'<span class="text-coral">dd: permission denied</span>',
-						'<span class="text-dim">Nice try. My disks are safe.</span>',
-						'',
-					];
-					break;
-				case 'mkfs':
-				case 'fdisk':
-					result = [
-						'<span class="text-coral">Whoa there. This is a website, not your homelab.</span>',
-						'',
-					];
-					break;
-				case 'fork':
-					result = [
-						'<span class="text-coral">:(){ :|:& };: detected</span>',
-						'<span class="text-dim">Fork bombs don\'t work here. I\'ve seen things.</span>',
-						'',
-					];
-					break;
-				case 'deltree':
-				case 'format':
-					result = [
-						'<span class="text-coral">This isn\'t Windows 95.</span>',
-						'<span class="text-dim">But I appreciate the nostalgia.</span>',
-						'',
-					];
-					break;
-				case 'drop':
-					result = [
-						'<span class="text-coral">DROP TABLE users; --</span>',
-						'<span class="text-dim">Nice try, Bobby Tables. This is a static site.</span>',
-						'',
-					];
-					break;
-				case 'vim':
-					result = [
-						'<span class="text-dim">You\'re now trapped in vim.</span>',
-						'<span class="text-dim">Just kidding. Type :q to... wait, that won\'t work here either.</span>',
-						'',
-					];
-					break;
-				case 'emacs':
-					result = ['<span class="text-dim">Emacs? In this economy?</span>', ''];
-					break;
-				case 'nano':
-					result = ['<span class="text-green">Finally, someone with taste.</span>', ''];
-					break;
-				case 'git':
-					result = [
-						'<span class="text-coral">git: this site is already committed.</span>',
-						'<span class="text-dim">125+ commits and mass refactors. No takebacks.</span>',
-						'',
-					];
-					break;
-				case 'echo':
-					result = [
-						`<span class="text-teal">${escapeHtml(args) || '...'}</span>`,
-						'<span class="text-dim">(...echo... ...echo...)</span>',
-						'',
-					];
-					break;
-				case 'sl':
-					result = [
-						'',
-						'<span class="text-dim">      ====        ________                ___________</span>',
-						'<span class="text-dim">  _D _|  |_______/        \\__I_I_____===__|_________|</span>',
-						'<span class="text-dim">   |(_)---  |   H\\________/ |   |        =|___ ___|</span>',
-						'<span class="text-dim">   /     |  |   H  |  |     |   |         ||_| |_||</span>',
-						'<span class="text-dim">  |      |  |   H  |__--------------------| [___] |</span>',
-						'<span class="text-dim">  | ________|___H__/__|_____/[][]~\\_______|       |</span>',
-						'<span class="text-dim">  |/ |   |-----------I_____I [][] []  D   |=======|__</span>',
-						'',
-						"<span class=\"text-coral\">You meant 'ls', didn't you?</span>",
-						'',
-					];
-					break;
-				case 'please':
-				case 'thanks':
-				case 'thank':
-					result = [
-						'<span class="text-green">You\'re welcome! Such nice manners.</span>',
-						'<span class="text-dim">Type \'help\' if you need anything.</span>',
-						'',
-					];
-					break;
-				case 'coffee':
-					result = [
-						'',
-						'    <span class="text-coral">   )</span>',
-						'    <span class="text-coral">  (</span>',
-						'    <span class="text-coral">c[_]</span>',
-						'',
-						'<span class="text-dim">Coffee level: ████████░░ 80%</span>',
-						'<span class="text-dim">Homelab uptime directly correlated.</span>',
-						'',
-					];
-					break;
-				case 'beer':
-					result = [
-						'',
-						'    <span class="text-yellow">  .~~~~.</span>',
-						'    <span class="text-yellow">  i====i_</span>',
-						'    <span class="text-yellow">  |cccc|_)</span>',
-						'    <span class="text-yellow">  |cccc|</span>',
-						'    <span class="text-yellow">  `-==-\'</span>',
-						'',
-						'<span class="text-dim">It\'s mass container migration o\'clock somewhere.</span>',
-						'',
-					];
-					break;
-				case '42':
-					result = [
-						'<span class="text-green">The Answer to the Ultimate Question of Life,</span>',
-						'<span class="text-green">the Universe, and Everything.</span>',
-						'',
-						'<span class="text-dim">...but what was the question?</span>',
-						'',
-					];
-					break;
-				case 'xkcd':
-					result = [
-						'<span class="text-dim">I see you\'re a person of culture.</span>',
-						'<span class="text-teal">sudo make me a sandwich</span>',
-						'',
-					];
-					break;
-				case 'rickroll':
-				case 'rick':
-					result = [
-						'<span class="text-coral">Never gonna give you up</span>',
-						'<span class="text-coral">Never gonna let you down</span>',
-						'<span class="text-coral">Never gonna run around and mass migrate containers</span>',
-						'',
-					];
-					break;
-				case 'ping':
-					result = [
-						'<span class="text-green">PONG!</span>',
-						'<span class="text-dim">64 bytes from joekarlsson.com: icmp_seq=1 ttl=64 time=0.042ms</span>',
-						'<span class="text-dim">vibes: excellent</span>',
-						'',
-					];
-					break;
-				case 'ssh':
-					result = [
-						'<span class="text-coral">ssh: Connection refused</span>',
-						'<span class="text-dim">Nice try. My homelab is behind a VPN.</span>',
-						'',
-					];
-					break;
-				case 'docker':
-					result = [
-						'<span class="text-teal">CONTAINER ID   IMAGE              STATUS</span>',
-						'<span class="text-dim">a1b2c3d4e5f6   joekarlsson.com    Up 42 days</span>',
-						'<span class="text-dim">...and 39 other containers</span>',
-						'',
-					];
-					break;
-				case 'npm':
-				case 'yarn':
-				case 'pnpm':
-					result = [
-						'<span class="text-dim">node_modules: 2.3GB</span>',
-						'<span class="text-dim">actual code: 47KB</span>',
-						'<span class="text-coral">This is fine.</span>',
-						'',
-					];
-					break;
-				case 'python':
-				case 'node':
-				case 'ruby':
-					result = [
-						`<span class="text-dim">${cmd} 3.x.x</span>`,
-						'<span class="text-dim">>>> print("hello from the terminal")</span>',
-						'<span class="text-teal">hello from the terminal</span>',
-						'<span class="text-dim">>>> # this isn\'t a real REPL though</span>',
-						'',
-					];
-					break;
-				case 'make':
-					result = [
-						'<span class="text-dim">make: *** No targets specified.</span>',
-						"<span class=\"text-dim\">Try 'make coffee' or 'make sense'</span>",
-						'',
-					];
-					break;
-				case 'top':
-				case 'htop':
-					result = [
-						'<span class="text-teal">  PID  USER     CPU%  MEM%  COMMAND</span>',
-						'<span class="text-dim">    1  joe      4.2%  69%   mass-containers</span>',
-						'<span class="text-dim">    2  joe      0.1%  1%    good-vibes</span>',
-						'<span class="text-dim">    3  joe      99%   42%   overthinking</span>',
-						'',
-					];
-					break;
-				case 'ps':
-					result = [
-						'<span class="text-dim">  PID TTY          TIME CMD</span>',
-						'<span class="text-dim">    1 pts/0    00:00:00 being-awesome</span>',
-						'<span class="text-dim">    2 pts/0    00:42:00 mass-migration</span>',
-						'',
-					];
-					break;
-				case 'touch':
-				case 'mkdir':
-				case 'mv':
-				case 'cp':
-					result = [
-						'<span class="text-coral">Permission denied.</span>',
-						'<span class="text-dim">This is a read-only filesystem. Very static. Much HTML.</span>',
-						'',
-					];
-					break;
-				case 'nvidia-smi':
-					result = [
-						'<span class="text-teal">+-----------------------------------------------------------------------------+</span>',
-						'<span class="text-teal">| NVIDIA-SMI 535.xx    Driver: 535.xx    CUDA: 12.x                          |</span>',
-						'<span class="text-teal">|-------------------------------+----------------------+----------------------|</span>',
-						'<span class="text-dim">| RTX A4000              | 42°C    | 8% |   2GB / 16GB  | jellyfin-transcode |</span>',
-						'<span class="text-dim">| Quadro RTX 4000        | 38°C    | 0% |   1GB /  8GB  | frigate-detection  |</span>',
-						'<span class="text-teal">+-----------------------------------------------------------------------------+</span>',
-						'',
-					];
-					break;
-				case 'nmap':
-				case 'telnet':
-				case 'traceroute':
-					result = [
-						'<span class="text-coral">Scanning...</span>',
-						'<span class="text-dim">PORT     STATE    SERVICE</span>',
-						'<span class="text-dim">443/tcp  open     https</span>',
-						'<span class="text-dim">22/tcp   filtered ssh (nice try)</span>',
-						'',
-					];
-					break;
-				case 'fuck':
-				case 'shit':
-				case 'damn':
-					result = [
-						'<span class="text-dim">I understand. Debugging is hard.</span>',
-						'<span class="text-dim">Have you tried mass migrating your containers?</span>',
-						'',
-					];
-					break;
-				case 'why':
-					result = ['<span class="text-dim">Why not?</span>', ''];
-					break;
-				default:
-					result = [
-						`<span class="text-dim">${escapeHtml(cmd)}: command not found. try 'help'</span>`,
-						'',
-					];
-			}
-
-			appendLines(result);
-		}
-
-		function escapeHtml(str: string): string {
-			const div = document.createElement('div');
-			div.textContent = str;
-			return div.innerHTML;
-		}
-
-		function getGhostCompletion(input: string): string {
-			if (!input) return '';
-			const lower = input.toLowerCase();
-			if (lower.startsWith('cd ') || lower.startsWith('goto ')) {
-				const partial = input.replace(/^(cd|goto)\s+/i, '');
-				const matches = Object.keys(pages)
-					.filter((p) => p.toLowerCase().startsWith(partial.toLowerCase()))
-					.sort();
-				if (matches.length >= 1) return matches[0].slice(partial.length);
-				return '';
-			}
-			if (lower.startsWith('cat ')) {
-				const partial = input.replace(/^cat\s+/i, '');
-				const matches = catFiles
-					.filter((f) => f.toLowerCase().startsWith(partial.toLowerCase()))
-					.sort();
-				if (matches.length >= 1) return matches[0].slice(partial.length);
-				return '';
-			}
-			if (!lower.includes(' ')) {
-				const matches = allCommands.filter((c) => c.startsWith(lower)).sort();
-				if (matches.length >= 1 && matches[0] !== lower) return matches[0].slice(lower.length);
-				return '';
-			}
-			return '';
-		}
-
-		function updateInputDisplay() {
-			inputText.textContent = currentInput;
-			if (placeholder) {
-				placeholder.style.display = currentInput.length > 0 ? 'none' : 'inline';
-			}
-			if (ghostText) {
-				ghostText.textContent = getGhostCompletion(currentInput);
-			}
-			scrollToBottom();
-		}
-
-		function hideHint() {
-			if (hintText && !hasInteracted) {
-				hasInteracted = true;
-				hintText.style.opacity = '0';
-				setTimeout(() => {
-					hintText.style.display = 'none';
-				}, 500);
-			}
-		}
-
-		function focusInput() {
-			hiddenInput.focus();
-		}
-
-		hiddenInput.addEventListener('keydown', (e: KeyboardEvent) => {
-			if (!ready) return;
-
-			if (menuActive) {
-				// If user has command history, prioritize history over menu navigation
-				if (e.key === 'ArrowUp' && commandHistory.length > 0) {
-					// Fall through to history handling below
-				} else if (e.key === 'ArrowDown' && commandHistory.length > 0) {
-					// Fall through to history handling below
-				} else if (e.key === 'ArrowUp') {
-					e.preventDefault();
-					menuIndex = (menuIndex - 1 + activeMenu().length) % activeMenu().length;
-					renderMenu();
-					scrollToBottom();
-					return;
-				} else if (e.key === 'ArrowDown') {
-					e.preventDefault();
-					menuIndex = (menuIndex + 1) % activeMenu().length;
-					renderMenu();
-					scrollToBottom();
-					return;
-				} else if (e.key === 'Escape' && currentMenuLevel === 'pages') {
-					e.preventDefault();
-					currentMenuLevel = 'main';
-					menuIndex = 0;
-					renderMenu();
-					scrollToBottom();
-					return;
-				} else if (e.key === 'Enter') {
-					e.preventDefault();
-					selectMenuItem();
-					return;
-				} else {
-					hideMenu();
-				}
-			}
-
-			if (e.key === 'Enter') {
-				e.preventDefault();
-				const cmd = currentInput;
-				currentInput = '';
-				hiddenInput.value = '';
-				updateInputDisplay();
-				inputLine.style.display = 'none';
-				hideMenu();
-				executeCommand(cmd);
-				inputLine.style.display = 'flex';
-				showMenu();
-				updateInputDisplay();
-			} else if (e.key === 'ArrowUp') {
-				e.preventDefault();
-				if (commandHistory.length > 0) {
-					if (historyIndex < commandHistory.length - 1) {
-						historyIndex++;
-						currentInput = commandHistory[historyIndex];
-						hiddenInput.value = currentInput;
-						updateInputDisplay();
-					}
-				} else {
-					if (suggestionIndex < suggestions.length - 1) {
-						suggestionIndex++;
-						currentInput = suggestions[suggestionIndex];
-						hiddenInput.value = currentInput;
-						updateInputDisplay();
-					}
-				}
-			} else if (e.key === 'ArrowDown') {
-				e.preventDefault();
-				if (commandHistory.length > 0) {
-					if (historyIndex > 0) {
-						historyIndex--;
-						currentInput = commandHistory[historyIndex];
-					} else {
-						historyIndex = -1;
-						currentInput = '';
-					}
-				} else {
-					if (suggestionIndex > 0) {
-						suggestionIndex--;
-						currentInput = suggestions[suggestionIndex];
-					} else {
-						suggestionIndex = -1;
-						currentInput = '';
-					}
-				}
-				hiddenInput.value = currentInput;
-				updateInputDisplay();
-			} else if (e.key === 'Tab' || (e.key === 'ArrowRight' && ghostText?.textContent)) {
-				e.preventDefault();
-				const ghost = ghostText?.textContent;
-				if (ghost) {
-					currentInput += ghost;
-					hiddenInput.value = currentInput;
-					updateInputDisplay();
-				}
-			} else if (e.key === 'l' && e.ctrlKey) {
-				e.preventDefault();
-				cmdClear();
-			}
-		});
-
-		hiddenInput.addEventListener('input', () => {
-			if (!ready) return;
-			currentInput = hiddenInput.value;
-			updateInputDisplay();
-		});
-
-		terminal.addEventListener('click', () => {
-			focusInput();
-		});
-
-		// --- Boot sequence ---
-		async function boot() {
-			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-			if (prefersReducedMotion) {
-				appendLine('<span class="text-dim">Welcome to joekarlsson.com</span>');
-				appendLine('');
-				inputLine.style.display = 'flex';
-				if (hintText) hintText.style.display = 'block';
-				showMenu();
-				ready = true;
-				focusInput();
-				return;
-			}
-
-			appendLine('<span class="text-dim">[  0.000] joekarlsson.com kernel loading...</span>');
-			await sleep(80);
-			appendLine(
-				'<span class="text-dim">[  0.042] Mounting /dev/pages ... <span class="text-green">OK</span></span>',
-			);
-			await sleep(150);
-			appendLine('<span class="text-dim">[  0.069] Welcome! Try typing a command below.</span>');
-			await sleep(200);
-			appendLine('');
-
-			inputLine.style.display = 'flex';
-			if (hintText) hintText.style.display = 'block';
-			showMenu();
-			ready = true;
-			focusInput();
-		}
-
-		boot();
-	}
-</script>

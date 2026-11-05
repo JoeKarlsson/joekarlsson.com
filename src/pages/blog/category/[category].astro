@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BlogCard from '../../../components/BlogCard.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { categorySlug, getCategoryCounts } from '../../../utils/categories';
 
 function getReadingTime(body: string): number {
 	const words = body.trim().split(/\s+/).length;
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
 	const categoryMap = new Map<string, typeof posts>();
 	for (const post of posts) {
 		for (const cat of post.data.categories) {
-			const slug = cat.toLowerCase().replace(/\s+/g, '-');
+			const slug = categorySlug(cat);
 			if (!categoryMap.has(slug)) categoryMap.set(slug, []);
 			categoryMap.get(slug)!.push(post);
 		}
@@ -24,9 +25,7 @@ export async function getStaticPaths() {
 	return [...categoryMap.entries()].map(([slug, catPosts]) => ({
 		params: { category: slug },
 		props: {
-			category: catPosts[0].data.categories.find(
-				(c: string) => c.toLowerCase().replace(/\s+/g, '-') === slug,
-			)!,
+			category: catPosts[0].data.categories.find((c: string) => categorySlug(c) === slug)!,
 			posts: catPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
 		},
 	}));
@@ -35,15 +34,8 @@ export async function getStaticPaths() {
 const { category, posts } = Astro.props;
 
 // Get all categories for the filter bar
-const allPosts = await getCollection('blog');
-const categoryCounts = new Map<string, number>();
-for (const post of allPosts) {
-	for (const cat of post.data.categories) {
-		categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
-	}
-}
-const categories = [...categoryCounts.entries()].sort((a, b) => b[1] - a[1]);
-const currentSlug = category.toLowerCase().replace(/\s+/g, '-');
+const categories = getCategoryCounts(await getCollection('blog'));
+const currentSlug = categorySlug(category);
 ---
 
 <BaseLayout
@@ -61,8 +53,7 @@ const currentSlug = category.toLowerCase().replace(/\s+/g, '-');
 			<a href="/blog/" class="text-gray-300 no-underline hover:text-coral">
 				All
 			</a>
-			{categories.map(([cat, count]) => {
-				const slug = cat.toLowerCase().replace(/\s+/g, '-');
+			{categories.map(({ name, slug, count }) => {
 				const isActive = slug === currentSlug;
 				return (
 					<a
@@ -74,7 +65,7 @@ const currentSlug = category.toLowerCase().replace(/\s+/g, '-');
 						}
 						aria-current={isActive ? 'page' : undefined}
 					>
-						{cat} <span class="text-gray-500">{count}</span>
+						{name} <span class="text-gray-400">{count}</span>
 					</a>
 				);
 			})}

@@ -1,0 +1,35 @@
+---
+// One row of a huge poster-type index list (projects, topics): the name on the
+// left, small metadata on the right, and a crayon ring drawn around the name on
+// hover or focus.
+import { CHALK, RINGS } from '../data/scribbles';
+import Scribble from './Scribble.astro';
+
+interface Props {
+	href: string;
+	label: string;
+	meta: string;
+	// Which ring and color, so neighboring rows don't get the same mark
+	index: number;
+}
+
+const { href, label, meta, index } = Astro.props;
+---
+
+<a
+	href={href}
+	class="index-row relative flex flex-wrap items-baseline justify-between gap-x-6 border-t border-surface-4 pt-1.5 pb-0.5 text-paper no-underline hover:text-paper"
+>
+	<span class="relative inline-block font-display text-[clamp(46px,7.4vw,108px)] leading-[0.98] uppercase">
+		{label}
+		<Scribble
+			path={RINGS[index % RINGS.length]}
+			color={index % 2 ? CHALK : '#ff4fd8'}
+			viewBox="0 0 520 150"
+			strokeWidth={7}
+			ring
+			class="-top-[22%] -left-[35px] h-[150%] w-[calc(100%+70px)]"
+		/>
+	</span>
+	<span class="text-[15px] whitespace-nowrap text-muted">{meta}</span>
+</a>

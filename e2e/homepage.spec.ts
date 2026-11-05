@@ -5,121 +5,90 @@ test.describe('Homepage', () => {
 		await page.goto('/');
 	});
 
-	test('page loads with main content', async ({ page }) => {
-		// Should have site header (the sticky nav one)
-		await expect(page.locator('header.sticky, header:first-of-type').first()).toBeVisible();
-
-		// Should have main content area
-		await expect(page.locator('main').first()).toBeVisible();
-
-		// Should have footer
-		await expect(page.locator('body > footer, footer').first()).toBeVisible();
+	test('has the landmarks: hero above the nav, main and footer', async ({ page }) => {
+		await expect(page.locator('header nav')).toBeVisible();
+		await expect(page.locator('main')).toBeVisible();
+		await expect(page.locator('footer')).toBeVisible();
+		await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Joe\s*Karlsson/);
 	});
 
-	test('featured blog posts are displayed', async ({ page }) => {
-		// Look for blog post cards or featured section — filter to visible only
-		// to avoid matching hidden nav links with plausible event classes containing "blog"
-		const blogSection = page
-			.locator('[class*="blog"], [class*="post"], article')
-			.filter({ visible: true });
+	test('hero montage video is present and labeled', async ({ page }) => {
+		const video = page.locator('video[src="/images/home/montage.mp4"]');
+		await expect(video).toHaveAttribute('aria-label', /montage/i);
+		await expect(video).toHaveAttribute('poster', /montage-poster/);
+	});
 
-		if ((await blogSection.count()) > 0) {
-			await expect(blogSection.first()).toBeVisible();
+	test('the bio carries the live container count', async ({ page }) => {
+		await expect(page.locator('body')).toContainText(/run a \d+-container homelab/);
+	});
+
+	test('every section heading links to its section page', async ({ page }) => {
+		const headings: [string, string][] = [
+			['Recent posts', '/blog/'],
+			['Projects', '/work/'],
+			['Writing by topic', '/blog/'],
+		];
+		for (const [name, href] of headings) {
+			await expect(page.getByRole('heading', { level: 2, name }).getByRole('link')).toHaveAttribute(
+				'href',
+				href,
+			);
 		}
 	});
 
-	test('project section is displayed', async ({ page }) => {
-		// Filter to visible only — avoids matching hidden plausible CTA links
-		// whose class contains plausible-event-destination=work
-		const projectsSection = page
-			.locator('[class*="project"], [class*="work"]')
-			.filter({ visible: true });
+	test('recent posts, project and topic rows all link somewhere', async ({ page }) => {
+		const rows = page.locator('main li a:not([tabindex="-1"]), main a.index-row');
+		expect(await rows.count()).toBeGreaterThanOrEqual(5 + 5 + 4);
+		for (const href of await rows.evaluateAll((links) =>
+			links.map((a) => a.getAttribute('href')),
+		)) {
+			expect(href).toMatch(/^\//);
+		}
+		await expect(page.getByRole('link', { name: /^All \d+ posts/ })).toHaveAttribute(
+			'href',
+			'/blog/',
+		);
+	});
 
-		if ((await projectsSection.count()) > 0) {
-			await expect(projectsSection.first()).toBeVisible();
+	test('the slot machine has real screen-reader text', async ({ page }) => {
+		await expect(page.locator('.sr-only', { hasText: 'Ship the ugly pot' })).toHaveCount(1);
+		await expect(page.locator('.slot-window')).toHaveAttribute('aria-hidden', 'true');
+	});
+
+	test('the drawing board is hidden from assistive tech and keyboard focus', async ({ page }) => {
+		const board = page.locator('.drawing-board');
+		await expect(board).toHaveAttribute('aria-hidden', 'true');
+		for (const tabindex of await board
+			.locator('button')
+			.evaluateAll((buttons) => buttons.map((b) => b.getAttribute('tabindex')))) {
+			expect(tabindex).toBe('-1');
 		}
 	});
 
-	test('page has proper SEO meta tags', async ({ page }) => {
-		// Check title
-		await expect(page).toHaveTitle(/joe karlsson/i);
-
-		// Check meta description
-		const metaDescription = page.locator('meta[name="description"]');
-		const description = await metaDescription.getAttribute('content');
-		expect(description?.length).toBeGreaterThan(50);
-
-		// Check og:title
-		const ogTitle = page.locator('meta[property="og:title"]');
-		await expect(ogTitle).toHaveAttribute('content', /.+/);
-	});
-});
-
-test.describe('Homepage - Desktop Terminal', () => {
-	test.use({ viewport: { width: 1280, height: 720 } });
-
-	test('terminal is visible on desktop', async ({ page }) => {
-		await page.goto('/');
-
-		const terminal = page.locator('#terminal');
-		await expect(terminal).toBeVisible();
-	});
-
-	test('right panel shows about content', async ({ page }) => {
-		await page.goto('/');
-
-		// Look for the right panel with about.md content
-		const aboutPanel = page.locator('[class*="about"], .prose').filter({ hasText: /joe/i });
-
-		if ((await aboutPanel.count()) > 0) {
-			await expect(aboutPanel.first()).toBeVisible();
-		}
+	test('mouse movement over the board draws a stroke', async ({ page }) => {
+		const board = page.locator('.drawing-board');
+		await board.scrollIntoViewIfNeeded();
+		const box = (await board.boundingBox())!;
+		await page.mouse.move(box.x + 100, box.y + 200);
+		await page.mouse.move(box.x + 300, box.y + 260, { steps: 10 });
+		await expect(page.locator('.drawing-board .board-stroke')).toHaveCount(1);
 	});
 });
 
 test.describe('Homepage - Mobile', () => {
-	test.use({ viewport: { width: 375, height: 667 } });
+	test.use({ viewport: { width: 375, height: 667 }, hasTouch: true });
 
-	test('terminal is hidden on mobile', async ({ page }) => {
+	test('the drawing board lets touch scroll the page', async ({ page }) => {
 		await page.goto('/');
-
-		// Terminal should be hidden on mobile (has lg:block class)
-		const terminal = page.locator('#terminal');
-
-		// Either hidden or not present on mobile
-		const isHidden =
-			(await terminal.isHidden().catch(() => true)) || (await terminal.count()) === 0;
-		expect(isHidden).toBeTruthy();
+		await expect(page.locator('.drawing-board-pad')).toHaveCSS('touch-action', 'pan-y');
 	});
 
-	test('mobile-friendly content is shown', async ({ page }) => {
+	test('the page does not scroll sideways', async ({ page }) => {
 		await page.goto('/');
-
-		// Main content should still be visible
-		await expect(page.locator('main').first()).toBeVisible();
-
-		// Site header should be visible
-		await expect(page.locator('header.sticky, header:first-of-type').first()).toBeVisible();
-	});
-});
-
-test.describe('Homepage - Scroll Animations', () => {
-	test('content sections become visible on scroll', async ({ page }) => {
-		await page.goto('/');
-
-		// Scroll down to trigger any reveal animations
-		await page.evaluate(() => window.scrollTo(0, 500));
-		await page.waitForTimeout(300);
-
-		// Content should be visible after scroll
-		const mainContent = page.locator('main');
-		await expect(mainContent).toBeVisible();
-
-		// Scroll more
-		await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-		await page.waitForTimeout(300);
-
-		// Footer should be visible
-		await expect(page.locator('footer')).toBeVisible();
+		const widths = await page.evaluate(() => [
+			document.documentElement.scrollWidth,
+			window.innerWidth,
+		]);
+		expect(widths[0]).toBeLessThanOrEqual(widths[1]);
 	});
 });

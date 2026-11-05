@@ -59,6 +59,8 @@ const {
 		/>
 	</head>
 	<body class="flex min-h-screen flex-col">
+		<!-- A page's opening hero, set above the nav, as on the homepage -->
+		<slot name="hero" />
 		<Header />
 		<main class="flex-1">
 			<slot />

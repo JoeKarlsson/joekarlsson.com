@@ -26,6 +26,48 @@
 	}
 }
 
+/* Hover ring: a scribble circled around an .index-row while it's hovered or
+   focused. A transition the visitor causes, so it stays on under reduced motion. */
+.hover-ring {
+	/* Round caps leave a dot at rest, so the ring only shows while drawn */
+	visibility: hidden;
+}
+
+.index-row:hover .hover-ring,
+.index-row:focus-visible .hover-ring {
+	visibility: visible;
+}
+
+.hover-ring path {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	transition: stroke-dashoffset 0.6s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+
+.index-row:hover .hover-ring path,
+.index-row:focus-visible .hover-ring path {
+	stroke-dashoffset: 0;
+}
+
+/* A visitor's stroke on the drawing board erases itself after a few seconds.
+   Under reduced motion it just disappears instead. */
+.board-stroke {
+	stroke-dasharray: 1;
+	animation: board-erase 6s 4s linear forwards;
+}
+
+@keyframes board-erase {
+	to {
+		stroke-dashoffset: -1;
+	}
+}
+
+@keyframes board-vanish {
+	to {
+		visibility: hidden;
+	}
+}
+
 /* Slot machine: <span class="slot-window"><span class="slot-reel"> holding five
    phrases, the last repeating the first so the loop is seamless. */
 .slot-window {
@@ -143,6 +185,10 @@
 
 	.redraw path {
 		stroke-dashoffset: 0;
+	}
+
+	.board-stroke {
+		animation: board-vanish 0s 10s forwards;
 	}
 
 	/* Show the first echo filled instead of five bare outlines */

@@ -2,6 +2,7 @@
 import BlogCard from '../../components/BlogCard.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
+import { getCategoryCounts } from '../../utils/categories';
 import { getFeedPosts } from '../../utils/posts';
 import popularPosts from '../../data/popular-posts.json';
 
@@ -16,15 +17,8 @@ const featuredSlug = 'homelab-two-years-later';
 const featuredPost = allPosts.find((p) => p.data.slug === featuredSlug);
 const posts = allPosts.filter((p) => p.data.slug !== featuredSlug);
 
-// Collect all unique categories with counts (blog posts only: newsletter posts have no
-// category page)
-const categoryCounts = new Map<string, number>();
-for (const post of allPosts.filter((p) => !p.isNewsletter)) {
-	for (const cat of post.data.categories) {
-		categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
-	}
-}
-const categories = [...categoryCounts.entries()].sort((a, b) => b[1] - a[1]);
+// Blog posts only: newsletter posts have no category page
+const categories = getCategoryCounts(allPosts.filter((p) => !p.isNewsletter));
 
 const POSTS_PER_PAGE = 12;
 
@@ -59,12 +53,9 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 			<a href="/blog/" class="text-coral underline underline-offset-4" aria-current="page">
 				All
 			</a>
-			{categories.map(([cat, count]) => (
-				<a
-					href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}/`}
-					class="text-gray-300 no-underline hover:text-coral"
-				>
-					{cat} <span class="text-gray-500">{count}</span>
+			{categories.map(({ name, slug, count }) => (
+				<a href={`/blog/category/${slug}/`} class="text-gray-300 no-underline hover:text-coral">
+					{name} <span class="text-gray-400">{count}</span>
 				</a>
 			))}
 		</nav>
