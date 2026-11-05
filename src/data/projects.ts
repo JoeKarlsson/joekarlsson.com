@@ -325,6 +325,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Punc',
+		shareTitle: 'Punc: What a book looks like with only its punctuation',
 		description:
 			'What does a book look like without words? Punc strips text down to its punctuation skeleton and visualizes the patterns left behind. Feed it any text file and get a PDF showing the structure beneath the prose.',
 		image: '/images/projects/punc.webp',
@@ -333,27 +334,66 @@ export const projects: Project[] = [
 		date: '2016-02',
 		tech: ['TypeScript', 'NLP', 'PDF Generation'],
 		sourceUrl: 'https://github.com/JoeKarlsson/punc',
+		page: {
+			slug: 'punc',
+			tagline: 'What a book looks like without words.',
+			introHeading: 'Artist statement',
+			intro: [
+				"A lot of what steers you through a book isn't the words. A comma tells you to take a breath, a period tells you to stop, and an exclamation point tells you someone is yelling. You follow every one of those instructions while you read, and you almost never notice them.",
+				"Punc takes the words away and leaves the instructions. Without the words, punctuation stops being invisible, and you can see a book's rhythm on its own: where a writer keeps you going without a breath, where the dialogue gets crowded and everyone talks over each other, and where it goes quiet for a while. Alice's Adventures in Wonderland comes out loud and nervous, full of exclamation points and questions, which is how the book feels to read.",
+				"I think a lot of what we call a writer's voice lives in those marks. Two writers can use the same words and sound nothing alike, because one of them never lets a sentence end and the other stops every few words. Punc takes the meaning out of a book, and a lot of the voice is still there.",
+				"It's an erasure, like the blackout poems I make on paper, except a blackout poem keeps a few words and Punc keeps none.",
+				"Like most of what I make, it isn't useful. It won't make you a better writer, and it can't tell you whether a book is any good.",
+			],
+			screenshots: [
+				{
+					poster: '/images/projects/punc-alice-page-one.webp',
+					alt: "Page one of Punc's PDF for chapter one of Alice's Adventures in Wonderland: a white page with only scattered commas, dashes, parentheses, quote marks, a question mark and exclamation points left where the words used to be",
+					caption: "Chapter one of Alice's Adventures in Wonderland, page one",
+				},
+			],
+			screenshotsTitle: 'Alice, without words',
+		},
 	},
 	{
 		title: 'Rose Hobart',
+		shareTitle: "Rose Hobart: Joseph Cornell's 1936 film, remastered for the web",
 		description:
-			"A digital humanities project exploring performativity in cinema. Inspired by Joseph Cornell's 1936 found footage film. Analyzes and visualizes narrative structure in film scripts.",
-		image: '/images/projects/rose-hobart.webp',
-		imageAlt: 'Rose Hobart',
+			"Joseph Cornell's 1936 collage film, with the tint, the speed and the music back in your hands while it plays. Made with my sister Laurel.",
+		image: '/images/projects/rose-hobart-poster.webp',
+		video: '/images/projects/rose-hobart.mp4',
+		imageAlt:
+			"Joseph Cornell's Rose Hobart playing on the site while the color tint switches from Prussian blue to rose, violet, amber and jade",
 		category: 'art',
 		date: '2017-10',
-		tech: ['JavaScript', 'D3.js', 'NLP'],
+		tech: ['React', 'Vite', 'WebGL', 'CSS filters'],
 		sourceUrl: 'https://github.com/JoeKarlsson/rose-hobart',
 		demoUrl: 'https://rosehobart.joekarlsson.com/',
 		stars: 2,
+		page: {
+			slug: 'rose-hobart',
+			tagline: "Joseph Cornell's Rose Hobart, remastered for the web.",
+			introHeading: 'Supporting statement',
+			intro: [
+				"The first showing of Joseph Cornell's short film Rose Hobart is the stuff of legend. Famously, the film's 1936 premier ended with Salvador Dalí storming out, claiming that the film had been stolen directly from his subconscious (Pigott 5). Very little else is known about this original showing; Cornell would not show the film again for nearly thirty years. Currently, only one version of Rose Hobart continues to be circulated; this version comes from Cornell's 1960s showings, leaving the performative details of the premier shrouded in mystery (Pigott 21).",
+				'Screenings of Rose Hobart were originally highly performative. In contrast to the currently available digital version which is “frozen” in time, several aspects of Cornell’s screenings were subject to change. First, the film was shown with a tinted filter. While the current version shows a deep blue tint being used, any number of colors could have been used in the other showings, with some evidence pointing to the use of a pink filter (Pigott 20). Second, the film was shown either at the standard 24 frames per second or 16 frames per second, also known as “silent speed” (Pigott 21). Today’s surviving version shows the film in the slightly slower “silent speed,” giving the short film a dreamier quality that is practically undetectable to the untrained eye. Lastly, due to the silence of the film itself, different music was paired with the film as it was shown. The version that remains today is paired with two jaunty tracks by Nestor Amaral and His Continentals, from their 1957 album Holiday in Brazil (Pigott 24). Because these songs were not released until 1957, it’s clear that different music was used in the original 1936 screening, and likely in other screenings as well. Unfortunately, there is no documentation of what that music might have been.',
+				'This collaborative digital humanities project is an exploration of the lack of performativity in the current version available of Joseph Cornell’s Rose Hobart. It is an attempt to bring the performative aspects of screening Rose Hobart back to the film by allowing viewers to change the soundtrack, filter, speed, and other options as they view the film. Due to the digital nature of this project, it is by no means an attempt to perfectly imitate Cornell’s original screenings. Rather, it is an attempt to “unfreeze” the currently available version of Rose Hobart from its place in time.',
+				'This project also emphasizes the digital nature of the film today. While there are physical copies of Rose Hobart available for viewing, the film is widely circulated online, which suggests that most viewers are accessing the film via the internet rather than through physical media. Due to the film’s transfer from physical to digital, signs of physical degradation of the film have been “frozen” or stopped in their tracks, bringing the film from the material film archive to the immaterial film archive (Baron 481). Jaimie Baron argues that both types of archive present viewers with a different experience of mediation: either bearing traces of the physical world or of digital technologies, both of which signal a relationship with the past (481). In order to simulate digital degradation, this project provides an option for viewers to blur and glitch the video, simulating the digital archival process that occurs when a digital video is damaged and continually copied.',
+				'By bringing the performative aspects of screening Rose Hobart into the digital realm, we collapse the distinction between presenter and viewer. When the physical film was screened historically, viewers were in a strictly passive position, spectating at the mercy of the performative choices made by the presenter of the film. With this project, that distinction ceases to exist. The presenter of the film – the person responsible for making performative choices like tint color, music, and speed – is also the viewer.',
+				'Rose Hobart cannot be discussed without addressing its primary subject matter: the actress Rose Hobart herself. Due to the film’s nearly obsessive focus on a female body that has been rendered silent, the film lends itself to feminist critique. It seems plainly obvious, as Janet Harbord argues, that “Cornell’s film plays on the beauty and emotional intensity of the star, Rose Hobart, given shape through rhythmic repetition of certain sequences” (69). Thus, does the film ask its viewers to admire the physical beauty of Rose Hobart? Critic Jodi Hauptman writes that through his film, Cornell “forces Hobart’s body to act as a voice . . . Such a collapse of distance between feelings and expression, body and mind, is another indicator of [the hysterical body of the woman]” (qtd. in Lowenstein). Is Rose Hobart the subject of the film, or is her body the subject of the film? By presenting a project that not only recognizes the degradation of the filmic image but also emphasizes it, we ask our viewers to consider how this changes the representation of Hobart’s feminine beauty as well as how this changes the film as a whole.',
+				'Written with Laurel Karlsson. The full list of works consulted is on the supporting statement page of the project site.',
+			],
+		},
 	},
 	{
 		title: 'Bechdel.io',
+		shareTitle: 'Bechdel.io: Checking movie scripts against the Bechdel Test',
 		description:
 			'Does your favorite film pass the Bechdel Test? Uses NLP to parse movie scripts and analyze gender representation in dialogue. Includes a custom scraper to pull scripts from IMSDB by genre or title. Featured in multiple publications and conference talks.',
-		image:
-			'/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/Bechdel.io-Blog-Banner.webp',
-		imageAlt: 'Bechdel.io',
+		image: '/images/projects/bechdel-io-poster.webp',
+		video: '/images/projects/bechdel-io.mp4',
+		imageAlt:
+			'Bechdel.io: a grid of movie posters, then the Gone Girl page showing Bechdel Pass: TRUE with charts of female and male characters and dialogue',
 		category: 'art',
 		date: '2015-11',
 		tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
@@ -361,6 +401,20 @@ export const projects: Project[] = [
 		demoUrl: 'https://bechdel.joekarlsson.com/',
 		blogUrl: '/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
 		stars: 30,
+		page: {
+			slug: 'bechdel-io',
+			tagline: 'Does your favorite movie pass the Bechdel Test?',
+			introHeading: 'Artist statement',
+			intro: [
+				'Bechdel.io checks movie scripts against the Bechdel Test, and the hardest part of building it was deciding who counts as a woman. The test comes from a 1985 Alison Bechdel comic strip, and it asks three things: are there at least two women, do they talk to each other, and do they talk about something other than a man.',
+				"My sister Laurel and I started it in 2015. She wanted to do feminist film analysis across a lot of movies at once and couldn't find a tool that would do it, so I built one.",
+				"The tool decides who counts as a woman by checking whether a film database credits each person as an actor or an actress, so gender comes down to one field with two possible values. It can't tell a trans character from the actor who plays her. It has nowhere to put a character whose gender changes during the film, or anyone who isn't a man or a woman.",
+				"It's easy to blame whoever maintains the database, but that field is the end of a long line. A production and its crew decide how a film is cast and credited, awards split performers into best actor and best actress, fans and volunteers fill in sites like IMDb, and every database after that sorts people into the same two boxes. Each of those steps has room for only two answers, and the tool inherits all of them, which sucks. I still chose to build it on a database, though. That's one of the limits of doing data analysis with data from the internet: it's messy, and it carries a bias against trans people that a tool like this passes straight through. The Bechdel Test has the same blind spot: it never says who the women are.",
+				"Code needs a yes or a no for every character before it can count anything, and that yes or no is exactly what gender studies questions. The hardest problem in this project was a humanities problem, and the tech industry mostly doesn't take the humanities or the arts seriously.",
+				"Bechdel.io is art, and it's research too. Data representation in art is the angle that interests me: a wall of movies most people have already seen, sorted into pass and fail, makes you look at them again.",
+				'Laurel and I used it to study the Best Picture nominees at the 2015 Oscars, and we released it as open source because we saw it as feminist activism.',
+			],
+		},
 	},
 
 	// Developer Tools & Education
