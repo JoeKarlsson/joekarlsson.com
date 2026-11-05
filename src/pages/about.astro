@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import RightNow from '../components/RightNow.astro';
 import NowFeed from '../components/NowFeed.astro';
 import Scribble from '../components/Scribble.astro';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
@@ -21,8 +20,8 @@ const aboutHeadings = [
 	{ slug: 'as-seen-on', text: 'As seen on' },
 	{ slug: 'videos', text: 'Videos' },
 	{ slug: 'interests', text: 'Outside of work' },
-	{ slug: 'crop-art', text: 'Crop art' },
 	{ slug: 'now', text: 'Right now' },
+	{ slug: 'crop-art', text: 'Crop art' },
 ];
 
 const previousCompanies = [
@@ -254,7 +253,7 @@ const cropArtPieces = [
 
 				<div class="mb-12">
 					<p class="mb-3 text-sm text-muted">Previously at</p>
-					<ul class="flex flex-wrap items-center gap-x-8 gap-y-4">
+					<ul class="flex flex-nowrap items-center justify-between gap-x-4">
 						{previousCompanies.map((company) => (
 							<li class="relative flex items-center gap-2">
 								<img
@@ -267,7 +266,7 @@ const cropArtPieces = [
 									height="32"
 									loading="eager"
 								/>
-								<span class="text-paper">{company.name}</span>
+								<span class="sr-only text-paper lg:not-sr-only">{company.name}</span>
 							</li>
 						))}
 					</ul>
@@ -574,6 +573,13 @@ const cropArtPieces = [
 					</a>
 				</div>
 
+				<h2 id="now" class={SECTION_HEADING}>
+					Right now
+				</h2>
+				<div class="mb-12">
+					<NowFeed />
+				</div>
+
 				<h2 id="crop-art" class={SECTION_HEADING}>
 					Crop art
 				</h2>
@@ -619,14 +625,6 @@ const cropArtPieces = [
 							See all crop art &rarr;
 						</a>
 					</p>
-				</div>
-
-				<h2 id="now" class={SECTION_HEADING}>
-					Right now
-				</h2>
-				<div class="mb-12">
-					<RightNow columns={2} />
-					<NowFeed />
 				</div>
 
 				<h2 class={SECTION_HEADING}>Keep exploring</h2>
