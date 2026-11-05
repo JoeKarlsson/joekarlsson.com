@@ -17,6 +17,8 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps, ImageStat
 PINK = "#ff4fd8"
 # Mean gray level (0-255) above which --invert-light treats an image as light
 LIGHT_IMAGE_MEAN = 140
+# With --duotone, how much of the result is dots (the rest is the smooth duotone)
+DOTS_OVER_DUOTONE = 0.65
 
 
 def hex_to_rgb(color):
@@ -77,6 +79,11 @@ def main():
     parser.add_argument("--contrast", type=float, default=1.15)
     parser.add_argument("--seed", type=int, default=4, help="vary per frame to make a living photocopy")
     parser.add_argument(
+        "--duotone",
+        action="store_true",
+        help="lay the dots over a soft pink duotone of the photo, so fine detail stays readable",
+    )
+    parser.add_argument(
         "--invert-light",
         action="store_true",
         help="flip mostly-light images (diagrams on white) so the ground stays black",
@@ -95,10 +102,15 @@ def main():
         out = halftone_dots(im, ink, args.cell, args.seed)
     else:
         out = photocopy(im, ink, args.seed)
+    if args.duotone:
+        tone = ImageOps.colorize(im.resize(out.size, Image.LANCZOS), (0, 0, 0), ink)
+        out = Image.blend(tone, out, DOTS_OVER_DUOTONE)
     if args.out.lower().endswith(".webp"):
-        # Two flat colors plus anti-aliased dot edges: four palette colors keep the
-        # dots crisp, and lossless WebP of that is about a fifth of lossy WebP's size
-        out = out.quantize(colors=4, method=Image.Quantize.FASTOCTREE).convert("RGB")
+        # Two flat colors plus anti-aliased dot edges: a few palette colors keep the
+        # dots crisp (more with the duotone's tones under them), and lossless WebP of
+        # that is a fraction of lossy WebP's size
+        colors = 8 if args.duotone else 4
+        out = out.quantize(colors=colors, method=Image.Quantize.FASTOCTREE).convert("RGB")
         out.save(args.out, lossless=True, method=6)
     else:
         out.save(args.out, quality=82)

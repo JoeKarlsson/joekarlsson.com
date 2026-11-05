@@ -226,4 +226,8 @@ Done when: every page uses the new system, and the old styles and dead component
 - 2026-11-05 (Phase 3): PEAT runs only on Windows, so `npm run media:flash-check` applies WCAG 2.3.1's general-flash rule (no more than three flashes a second, whole frame and each quarter) to every homepage clip. All pass with at most one.
 - 2026-11-05 (Phase 3): Lighthouse on `/about/` is over the 1.5MB weight cap (1.9MB) because of its YouTube embeds, not the redesign. Fix it with click-to-load embeds when Phase 5 reskins /about.
 
+- 2026-11-05 (Phase 4): post heroes use the same halftone as the homepage thumbnails, regenerated at 1120px with fine dots (cell 1.5) over a soft pink duotone (`--duotone`), because dots alone made screenshots and diagrams hard to read. 7.5MB for all 171; the dist budget went from 200MB to 215MB for it. og:image stays the original color image.
+- 2026-11-05 (Phase 4): prose is Fraunces at 17-20px, capped at 32em (about 67 characters a line on desktop). Headings are Anton; h4, code labels, captions and tables are Hanken Grotesk. Each post's hero gets one crayon mark, picked by its slug.
+- 2026-11-05 (Phase 4): marks may cross boxes and sections but not running text or links. The page leaves a gap above the footer so the footer coil rises into empty space. The footer echo draws its hollow copies with `-webkit-text-fill-color`, so contrast checkers don't read them as invisible text.
+
 No open decisions.

@@ -4,8 +4,9 @@ import { join } from 'path';
 import { DEFAULT_HERO_IMAGE } from '../src/consts';
 import { halftoneThumbnail } from '../src/utils/thumbnails';
 
-// The homepage shows these at up to 300px wide; a dithered 600px WebP runs 2-35KB
-const MAX_THUMBNAIL_BYTES = 60 * 1024;
+// One 1120px halftone serves the homepage thumbnail and the post hero. With the
+// duotone under the dots they run 5-170KB; busy screenshots are the big ones.
+const MAX_THUMBNAIL_BYTES = 180 * 1024;
 
 function heroImages(): string[] {
 	const heroes = new Set([DEFAULT_HERO_IMAGE]);

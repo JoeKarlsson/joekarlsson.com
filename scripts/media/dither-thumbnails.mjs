@@ -1,6 +1,7 @@
-// Makes the dithered thumbnail for every post hero image (and the default hero):
-// a pink halftone WebP next to the original, named by halftoneThumbnail() in
-// src/utils/thumbnails.ts. Skips thumbnails newer than their source.
+// Makes the dithered version of every post hero image (and the default hero): a
+// pink halftone WebP next to the original, named by halftoneThumbnail() in
+// src/utils/thumbnails.ts. One file serves the homepage thumbnail and the hero at
+// the top of the post. Skips files newer than their source.
 //
 // Usage: npm run media:thumbnails
 import { execFile } from 'node:child_process';
@@ -11,10 +12,11 @@ import { promisify } from 'node:util';
 const run = promisify(execFile);
 const CONTENT_DIRS = ['src/content/blog', 'src/content/newsletter'];
 const DEFAULT_HERO = '/images/og-default.webp'; // DEFAULT_HERO_IMAGE in src/consts.ts
-// Working width; the halftone comes out twice this, sharp at the homepage's 300px slot
-const WIDTH = 300;
-// Finer than the video's 3: at thumbnail size, coarser dots turn diagrams and
-// screenshots to mush
+// Working width; the halftone comes out twice this (1120px), sharp for a post's
+// hero at reading width on a retina screen
+const WIDTH = 560;
+// Finer than the video's 3, over a soft duotone: coarse dots alone turn diagrams
+// and screenshots to mush
 const CELL = 1.5;
 const PARALLEL = 8;
 
@@ -53,6 +55,7 @@ async function worker() {
 			'--cell',
 			String(CELL),
 			'--invert-light',
+			'--duotone',
 		]);
 		done++;
 	}

@@ -28,8 +28,10 @@ const THRESHOLDS = {
 	// Total CSS should not exceed 55KB. Raised from 50KB on 2026-11-04, when the
 	// site sat 21 bytes under it and every new utility class broke the build.
 	maxTotalCss: 55 * 1024,
-	// Total dist folder should not exceed 200MB (includes images)
-	maxTotalDist: 200 * 1024 * 1024,
+	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
+	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
+	// when dist sat at 199MB. Still catches an unconverted GIF or a stray video.
+	maxTotalDist: 215 * 1024 * 1024,
 };
 
 function getFilesWithExtension(dir: string, ext: string): { name: string; size: number }[] {

@@ -6,6 +6,9 @@ import { categorySlug } from '../utils/categories';
 import AuthorBio from '../components/AuthorBio.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
+import Scribble from '../components/Scribble.astro';
+import { CHALK, MARKS } from '../data/scribbles';
+import { halftoneThumbnail } from '../utils/thumbnails';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -139,6 +142,22 @@ const relatedPosts = publishedPosts
 	.slice(0, 3)
 	.map((r) => r!.post);
 
+// One crayon mark spills off each post's hero; the slug picks which, so a post
+// keeps the same one between builds
+const HERO_MARKS = [
+	{ mark: MARKS.burst, color: CHALK, class: '-top-[9%] -right-[4%] size-[22%] max-w-[170px]' },
+	{ mark: MARKS.rays, color: '#ff4fd8', class: '-top-[12%] -left-[3%] h-[20%] w-[18%]' },
+	{ mark: MARKS.tally, color: CHALK, class: '-right-[5%] -bottom-[7%] h-[14%] w-[26%]' },
+	{ mark: MARKS.hatch, color: '#ff4fd8', class: '-bottom-[8%] -left-[4%] h-[14%] w-[24%]' },
+	{
+		mark: MARKS.burstDense,
+		color: '#ff4fd8',
+		class: '-right-[5%] -bottom-[10%] size-[20%] max-w-[150px]',
+	},
+];
+const slugHash = [...slug].reduce((sum, char) => sum + char.charCodeAt(0), 0);
+const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
+
 const formatShortDate = (d: Date) =>
 	d.toLocaleDateString('en-us', {
 		timeZone: 'UTC',
@@ -164,7 +183,7 @@ const formatShortDate = (d: Date) =>
 >
 	<div
 		id="reading-progress"
-		class="fixed top-0 left-0 z-50 h-0.5 w-0 bg-coral"
+		class="fixed top-0 left-0 z-50 h-1 w-0 bg-pink"
 		aria-hidden="true"
 	></div>
 
@@ -187,25 +206,38 @@ const formatShortDate = (d: Date) =>
 						preload="metadata"
 						role="img"
 						aria-label={heroAlt || title}
-						class="mb-8 w-full max-h-[400px] rounded-lg object-cover"
+						class="mb-10 w-full max-h-[440px] rounded-xl object-cover"
 						width="768"
-						height="400"
+						height="440"
 					/>
 				) : (
 					heroImage && (
-						<img
-							src={heroImage}
-							alt={title}
-							class="mb-8 w-full max-h-[400px] rounded-lg object-cover"
-							width="768"
-							height="400"
-							loading="eager"
-						/>
+						<div class="relative mb-10">
+							{/* The pink halftone (npm run media:thumbnails); og:image stays the original */}
+							<img
+								src={halftoneThumbnail(heroImage)}
+								alt={heroAlt || title}
+								class="block w-full max-h-[440px] rounded-xl object-cover"
+								width="1120"
+								height="440"
+								loading="eager"
+							/>
+							<Scribble
+								{...heroMark.mark}
+								color={heroMark.color}
+								strokeWidth={6}
+								duration="9s"
+								delay="0.8s"
+								class={heroMark.class}
+							/>
+						</div>
 					)
 				)}
 				<div class="mb-8">
-					<h1 class="mb-3 text-3xl font-bold text-white md:text-4xl">{title}</h1>
-					<p class="text-sm text-gray-400">
+					<h1 class="mb-4 font-display text-[clamp(2.4rem,1.6rem+3.2vw,4.25rem)] leading-[0.95] font-normal text-paper uppercase">
+						{title}
+					</h1>
+					<p class="text-[15px] text-muted">
 						<FormattedDate date={date} />
 						{updatedDate && (
 							<>
@@ -220,7 +252,7 @@ const formatShortDate = (d: Date) =>
 									{' · '}
 									<a
 										href={`/blog/category/${categorySlug(cat)}/`}
-										class="text-gray-400 no-underline hover:text-coral"
+										class="text-pink underline decoration-1 underline-offset-[0.2em] hover:text-paper"
 									>
 										{cat}
 									</a>
@@ -229,13 +261,16 @@ const formatShortDate = (d: Date) =>
 					</p>
 				</div>
 				{noticeMessage && (
-					<p class="mb-6 text-sm text-gray-400" role="note">
+					<p class="mb-6 max-w-[40rem] text-sm text-muted" role="note">
 						<Fragment set:html={noticeHtml} />
 					</p>
 				)}
 				{tldr && (
-					<p class="mb-8 border-l-2 border-surface-4 pl-4 leading-relaxed text-gray-300">
-						<strong class="font-semibold text-white">TL;DR:</strong> {tldr}
+					<p class="mb-10 max-w-[40rem] border-l-4 border-pink pl-5 text-lg leading-relaxed text-paper">
+						<strong class="font-display text-xl font-normal tracking-wide text-pink uppercase">
+							TL;DR
+						</strong>{' '}
+						{tldr}
 					</p>
 				)}
 				<div class="prose">
@@ -348,17 +383,19 @@ const formatShortDate = (d: Date) =>
 
 				{relatedPosts.length > 0 && (
 					<section class="mt-12">
-						<h2 class="mb-4 text-3xl font-extrabold text-white">Related posts</h2>
+						<h2 class="mb-5 font-display text-[clamp(2rem,1.5rem+2vw,3rem)] leading-none font-normal text-pink uppercase">
+							Related posts
+						</h2>
 						<ul class="space-y-3">
 							{relatedPosts.map((post) => (
 								<li>
 									<a
 										href={`/blog/${post.data.slug}/`}
-										class="plausible-event-name=Related+Post+Click font-semibold text-white no-underline hover:text-coral"
+										class="plausible-event-name=Related+Post+Click text-lg font-semibold text-paper no-underline hover:text-pink"
 									>
 										{post.data.title}
 									</a>
-									<span class="block text-sm text-gray-400">{formatShortDate(post.data.date)}</span>
+									<span class="block text-sm text-muted">{formatShortDate(post.data.date)}</span>
 								</li>
 							))}
 						</ul>
@@ -367,32 +404,34 @@ const formatShortDate = (d: Date) =>
 
 				{(prevPost || nextPost) && (
 					<nav class="mt-12" aria-label="Category navigation">
-						<h2 class="mb-4 text-3xl font-extrabold text-white">More in {primaryCategory}</h2>
+						<h2 class="mb-5 font-display text-[clamp(2rem,1.5rem+2vw,3rem)] leading-none font-normal text-pink uppercase">
+							More in {primaryCategory}
+						</h2>
 						<ul class="space-y-3">
 							{prevPost && (
 								<li>
-									<span class="block text-sm text-gray-400">Previous</span>
+									<span class="block text-sm text-muted">Previous</span>
 									<a
 										href={`/blog/${prevPost.data.slug}/`}
-										class="plausible-event-name=Blog+Navigation plausible-event-direction=prev font-semibold text-white no-underline hover:text-coral"
+										class="plausible-event-name=Blog+Navigation plausible-event-direction=prev text-lg font-semibold text-paper no-underline hover:text-pink"
 									>
 										{prevPost.data.title}
 									</a>
-									<span class="block text-sm text-gray-400">
+									<span class="block text-sm text-muted">
 										{formatShortDate(prevPost.data.date)}
 									</span>
 								</li>
 							)}
 							{nextPost && (
 								<li>
-									<span class="block text-sm text-gray-400">Next</span>
+									<span class="block text-sm text-muted">Next</span>
 									<a
 										href={`/blog/${nextPost.data.slug}/`}
-										class="plausible-event-name=Blog+Navigation plausible-event-direction=next font-semibold text-white no-underline hover:text-coral"
+										class="plausible-event-name=Blog+Navigation plausible-event-direction=next text-lg font-semibold text-paper no-underline hover:text-pink"
 									>
 										{nextPost.data.title}
 									</a>
-									<span class="block text-sm text-gray-400">
+									<span class="block text-sm text-muted">
 										{formatShortDate(nextPost.data.date)}
 									</span>
 								</li>

@@ -78,9 +78,13 @@
 	}
 }
 
-/* Prose styles for blog content */
+/* Prose styles for blog content: Fraunces for reading, Anton for headings, Hanken Grotesk for code labels, captions and tables. */
 .prose {
-	@apply text-gray-300 leading-relaxed;
+	@apply font-serif text-paper;
+	font-size: clamp(1.0625rem, 0.95rem + 0.45vw, 1.25rem);
+	line-height: 1.65;
+	/* About 66 characters of Fraunces a line */
+	max-width: 32em;
 }
 .prose h1,
 .prose h2,
@@ -93,32 +97,41 @@
 .prose h2 .heading-anchor,
 .prose h3 .heading-anchor,
 .prose h4 .heading-anchor {
-	@apply ml-2 opacity-0 text-gray-500 no-underline font-normal transition-opacity;
-	font-size: 0.85em;
+	@apply ml-2 opacity-0 text-muted no-underline transition-opacity;
+	font-size: 0.6em;
 }
 .prose h1:hover .heading-anchor,
 .prose h2:hover .heading-anchor,
 .prose h3:hover .heading-anchor,
 .prose h4:hover .heading-anchor {
-	@apply opacity-100 text-coral;
+	@apply opacity-100 text-pink;
+}
+.prose h1,
+.prose h2,
+.prose h3 {
+	@apply font-display font-normal uppercase text-paper;
+	line-height: 1;
 }
 .prose h1 {
-	@apply text-3xl md:text-4xl font-bold text-white mt-10 mb-4;
+	font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem);
+	@apply mt-12 mb-5;
 }
 .prose h2 {
-	@apply text-2xl md:text-3xl font-bold text-white mt-10 mb-4;
+	font-size: clamp(1.9rem, 1.4rem + 1.9vw, 2.9rem);
+	@apply mt-14 mb-5;
 }
 .prose h3 {
-	@apply text-xl md:text-3xl font-extrabold text-white mt-8 mb-3;
+	font-size: clamp(1.45rem, 1.2rem + 1vw, 1.95rem);
+	@apply mt-10 mb-4;
 }
 .prose h4 {
-	@apply text-lg font-semibold text-white mt-6 mb-2;
+	@apply font-sans text-lg font-semibold text-paper mt-8 mb-2;
 }
 .prose p {
-	@apply mb-6 text-base md:text-lg;
+	@apply mb-6;
 }
 .prose a {
-	@apply text-coral hover:text-white underline underline-offset-2 decoration-gray-500 hover:decoration-coral;
+	@apply text-pink underline decoration-1 underline-offset-[0.18em] hover:text-paper hover:decoration-pink;
 }
 .prose strong {
 	@apply text-white font-semibold;
@@ -136,29 +149,36 @@
 .prose li {
 	@apply mb-2;
 }
+.prose li::marker {
+	@apply text-pink;
+}
 .prose blockquote {
-	@apply border-l-4 border-surface-4 pl-4 py-1 my-6 text-gray-400;
+	@apply border-l-4 border-pink pl-5 py-1 my-8 text-paper;
+	font-size: 1.08em;
 }
 .prose .callout {
-	@apply border-l-4 border-coral pl-4 py-1 my-6 text-sm;
+	@apply border-l-4 border-pink pl-4 py-1 my-6 font-sans text-base;
 }
 .prose .callout p {
-	@apply my-0 text-gray-300;
+	@apply my-0 text-paper;
 }
 .prose .callout a {
-	@apply text-coral underline underline-offset-2;
+	@apply text-pink underline underline-offset-2;
 }
 .prose .pull-quote {
-	@apply my-8 py-6 px-6 text-center text-xl font-semibold text-gray-100 border-t border-b border-surface-4;
+	@apply my-10 text-center font-display uppercase text-pink;
+	font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+	line-height: 1.05;
 }
 .prose .pull-quote p {
-	@apply my-0 leading-snug;
+	@apply my-0;
 }
 .prose summary {
-	@apply cursor-pointer text-sm text-coral;
+	@apply cursor-pointer font-sans text-base text-pink;
 }
 .prose code {
-	@apply font-mono text-gray-200 bg-surface-3 px-1.5 py-0.5 rounded-sm text-sm;
+	@apply font-mono text-gray-200 bg-surface-3 px-1.5 py-0.5 rounded-sm;
+	font-size: 0.8em;
 }
 .prose pre {
 	@apply bg-surface-2 border border-surface-4 rounded-lg pt-9 pb-4 px-4 my-6 overflow-x-auto relative;
@@ -183,7 +203,7 @@
 	@apply bg-surface-4;
 }
 .prose img {
-	@apply rounded-lg my-6 mx-auto;
+	@apply rounded-lg my-8 mx-auto;
 	max-width: 100%;
 	max-height: 500px;
 	height: auto;
@@ -203,16 +223,16 @@
 }
 
 .prose figcaption {
-	@apply text-center text-sm text-gray-400 mt-2;
+	@apply text-center font-sans text-sm text-muted mt-2;
 }
 .prose hr {
 	@apply border-surface-3 my-8;
 }
 .prose table {
-	@apply w-full my-6 text-sm;
+	@apply w-full my-6 font-sans text-sm;
 }
 .prose th {
-	@apply text-left text-white font-semibold p-2 border-b border-surface-4;
+	@apply text-left text-paper font-semibold p-2 border-b border-surface-4;
 }
 .prose td {
 	@apply p-2 border-b border-surface-3;

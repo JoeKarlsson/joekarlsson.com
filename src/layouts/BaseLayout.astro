@@ -62,7 +62,8 @@ const {
 		<!-- A page's opening hero, set above the nav, as on the homepage -->
 		<slot name="hero" />
 		<Header />
-		<main class="flex-1">
+		<!-- pb leaves room for the footer's coil to rise into without crossing text -->
+		<main class="flex-1 pb-28">
 			<slot />
 		</main>
 		<Footer />
