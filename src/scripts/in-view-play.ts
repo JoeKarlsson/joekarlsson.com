@@ -3,7 +3,9 @@
 // preload="none" nothing downloads until a clip is about to be seen, so a post
 // with several clips doesn't pull them all on page load. Reduced-motion users get
 // a still clip with controls. A clip the viewer paused from its controls stays
-// paused.
+// paused, and nothing starts while the pause-motion button is on.
+import { isMotionPaused } from './pause-motion';
+
 const videos = document.querySelectorAll<HTMLVideoElement>('video[data-autoplay-in-view]');
 if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 	const pausedByViewer = new WeakSet<HTMLVideoElement>();
@@ -12,7 +14,7 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 			for (const { target, isIntersecting } of entries) {
 				const video = target as HTMLVideoElement;
 				if (isIntersecting) {
-					if (!pausedByViewer.has(video)) video.play().catch(() => {});
+					if (!pausedByViewer.has(video) && !isMotionPaused()) video.play().catch(() => {});
 				} else if (!video.paused) {
 					video.dataset.autoPausing = '1';
 					video.pause();

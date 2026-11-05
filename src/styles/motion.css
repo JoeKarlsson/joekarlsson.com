@@ -1,0 +1,153 @@
+/*
+  Shared motion for the redesign (docs/redesign/PLAN.md): self-drawing scribbles,
+  the slot-machine phrase, stacked echo titles and tickers. Every animation stops
+  under prefers-reduced-motion, and the pause-motion button (src/scripts/pause-motion.ts)
+  freezes them by setting .motion-paused on <html>.
+*/
+
+/* Scribbles: an SVG whose paths carry pathLength="1" draws itself in, holds,
+   then erases, on a slow loop. Set --dur and --del per scribble. */
+.redraw path {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	animation: redraw var(--dur, 7s) var(--del, 0s) cubic-bezier(0.45, 0.55, 0.3, 1) infinite;
+}
+
+@keyframes redraw {
+	0% {
+		stroke-dashoffset: 1;
+	}
+	35%,
+	85% {
+		stroke-dashoffset: 0;
+	}
+	100% {
+		stroke-dashoffset: -1;
+	}
+}
+
+/* Slot machine: <span class="slot-window"><span class="slot-reel"> holding five
+   phrases, the last repeating the first so the loop is seamless. */
+.slot-window {
+	display: inline-block;
+	height: 0.92em;
+	overflow: hidden;
+	vertical-align: bottom;
+}
+
+.slot-reel {
+	display: flex;
+	flex-direction: column;
+	animation: slot-roll 7s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+}
+
+.slot-reel > span {
+	height: 0.92em;
+	line-height: 0.92;
+}
+
+@keyframes slot-roll {
+	0%,
+	18% {
+		transform: translateY(0);
+	}
+	25%,
+	43% {
+		transform: translateY(-0.92em);
+	}
+	50%,
+	68% {
+		transform: translateY(-1.84em);
+	}
+	75%,
+	93% {
+		transform: translateY(-2.76em);
+	}
+	100% {
+		transform: translateY(-3.68em);
+	}
+}
+
+/* Stacked echo: a <span class="sr-only"> with the title, then five aria-hidden
+   copies, each with --echo-index 0-4. One at a time fills with --echo-fill; the
+   rest are outlines in --echo-stroke. */
+.echo {
+	display: flex;
+	flex-direction: column;
+	line-height: 0.88;
+}
+
+.echo > span[aria-hidden='true'] {
+	color: transparent;
+	-webkit-text-stroke: 2px var(--echo-stroke, #000);
+	animation: echo 3s steps(1) infinite;
+	animation-delay: calc(var(--echo-index, 0) * -0.6s);
+}
+
+@keyframes echo {
+	0%,
+	19% {
+		color: var(--echo-fill, #000);
+		-webkit-text-stroke: 0;
+	}
+	20%,
+	100% {
+		color: transparent;
+		-webkit-text-stroke: 2px var(--echo-stroke, #000);
+	}
+}
+
+/* Tickers: the track holds its items twice, so sliding by half loops cleanly. */
+.ticker {
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.ticker-track {
+	display: inline-flex;
+	align-items: center;
+	gap: 26px;
+	animation: ticker-left var(--ticker-duration, 60s) linear infinite;
+}
+
+.ticker-reverse .ticker-track {
+	animation-name: ticker-right;
+}
+
+@keyframes ticker-left {
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes ticker-right {
+	from {
+		transform: translateX(-50%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+.motion-paused * {
+	animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.redraw path,
+	.slot-reel,
+	.echo > span,
+	.ticker-track {
+		animation: none;
+	}
+
+	.redraw path {
+		stroke-dashoffset: 0;
+	}
+
+	/* Show the first echo filled instead of five bare outlines */
+	.echo > .sr-only + span {
+		color: var(--echo-fill, #000);
+		-webkit-text-stroke: 0;
+	}
+}

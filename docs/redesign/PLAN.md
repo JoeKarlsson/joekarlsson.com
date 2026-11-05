@@ -9,12 +9,12 @@ The new look: a dark, art house, slightly weird personal site. It is hot pink on
 - **Media and tools:** `~/Documents/dev/joe/joekarlsson-redesign/`
   - `mockups/img/`: every processed loop and photo.
   - `montage-clips/`: the final face-centered hero cuts.
-  - `scripts/`:
-    - `halftone.py`: pink dots or photocopy treatment for a still.
-    - `vid2.sh`: dithers a video clip.
-    - `boil.sh`: makes a looping "living photocopy" from a still.
-    - `detect.swift`: macOS Vision face finder used for the hero crops.
+  - `scripts/detect.swift`: macOS Vision face finder used for the hero crops. The old `halftone.py`, `vid2.sh` and `boil.sh` there are superseded by `scripts/media/` below.
   - `sources/`: where every clip came from (Screencast Director projects, the Downloads zip, Immich asset IDs).
+- **Media scripts, in this repo's `scripts/media/`** (moved in Phase 0):
+  - `npm run media:dither -- in.jpg out.webp`: pink dots or photocopy treatment for a still (`halftone.py`).
+  - `npm run media:dither:video -- in.mov out.mp4 START DURATION`: dithers a video clip (`dither-video.sh`).
+  - `npm run media:loop -- still.webp out.mp4`: makes a looping "living photocopy" from a still (`loop.sh`).
 
 ## Design spec
 

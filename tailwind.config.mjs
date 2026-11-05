@@ -6,10 +6,18 @@ export default {
 		extend: {
 			fontFamily: {
 				mono: ['"JetBrains Mono"', '"Fira Code"', 'Menlo', 'Monaco', 'monospace'],
-				sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+				sans: ['"Hanken Grotesk"', 'system-ui', '-apple-system', 'sans-serif'],
+				display: ['"Anton"', 'Impact', 'sans-serif'],
+				serif: ['"Fraunces"', 'Georgia', 'serif'],
 			},
 			colors: {
-				// Coral is the one accent; teal and lavender are terminal-only syntax colors.
+				// Redesign tokens: black ink, paper-white text, gray metadata, one hot pink accent.
+				ink: '#000000',
+				paper: '#ededed',
+				muted: '#a3a3a3',
+				pink: '#ff4fd8',
+				// Old accent, removed once the reskin leaves nothing using it.
+				// Teal and lavender are terminal-only syntax colors.
 				coral: '#fdae84',
 				teal: '#8bcbc8',
 				lavender: '#c4b5fd',

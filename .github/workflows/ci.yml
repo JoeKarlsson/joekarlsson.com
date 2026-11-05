@@ -215,6 +215,8 @@ jobs:
         with:
           name: dist
           path: dist/
+      # tests/media-dither.test.ts runs scripts/media/halftone.py
+      - run: pip install pillow
       - run: npx vitest run
 
   unused:

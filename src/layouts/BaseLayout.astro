@@ -1057,8 +1057,13 @@ const {
 		</script>
 		<script>
 			import '../scripts/in-view-play';
+			import { initPauseMotion } from '../scripts/pause-motion';
 			import '../scripts/scale-to-fit-embed';
 			import '../scripts/track-embed-play';
+
+			document
+				.querySelectorAll<HTMLButtonElement>('button[data-pause-motion]')
+				.forEach(initPauseMotion);
 		</script>
 	</body>
 </html>
