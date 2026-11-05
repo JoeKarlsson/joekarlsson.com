@@ -1,14 +1,13 @@
 ---
 import {
-	GROUP_HEADING,
 	ITEM_TITLE,
+	META,
 	MORE_LINK,
 	PAGE_CONTAINER,
 	PRIMARY_BUTTON,
 	SECONDARY_BUTTON,
 	SECTION_HEADING,
 	SIDEBAR_GRID,
-	TEXT_LINK,
 } from '../utils/ui';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PosterHero from '../components/PosterHero.astro';
@@ -21,8 +20,10 @@ import Scribble from '../components/Scribble.astro';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import { SOCIAL_LINKS } from '../consts';
-import nowFeed from '../data/now-feed.json';
-import { CHALK, MARKS } from '../data/scribbles';
+import { CHALK, MARKS, RINGS } from '../data/scribbles';
+import { projects } from '../data/projects';
+import { getFeedPosts, isOwnPost } from '../utils/posts';
+import { halftoneMode } from '../utils/halftone';
 
 const aboutHeadings = [
 	{ slug: 'what-i-do', text: 'What I do' },
@@ -35,35 +36,36 @@ const aboutHeadings = [
 	{ slug: 'follow-me', text: 'Follow me' },
 ];
 
-// What I do, building first: that's where the technical credibility comes from
+// What I do. Make stuff and Share cycle through my newest projects and posts, so the
+// pictures and the "Newest" line change every time I ship something
+const FRAMES = 4;
+const newestProjects = [...projects].sort((a, b) => b.date.localeCompare(a.date)).slice(0, FRAMES);
+const newestPosts = (await getFeedPosts())
+	.filter((post) => isOwnPost(post) && post.data.heroImage)
+	.slice(0, FRAMES);
+
 const whatIDo = [
 	{
-		title: 'Build',
+		title: 'Make stuff',
 		href: '/work/',
-		image: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp',
-		alt: 'Connect AI × DOOM running beside its live data panel',
-		text: `Software and hardware side projects, from an MCP server inside DOOM to the ${nowFeed.homelab.runningContainers}-container homelab this site runs on.`,
+		frames: newestProjects.map((project) => ({ src: project.image, alt: project.imageAlt })),
+		text: `Side projects, hardware hacks and art. Newest: ${newestProjects[0].title}.`,
 	},
 	{
-		title: 'Write',
+		title: 'Share',
 		href: '/blog/',
-		image:
-			'/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp',
-		alt: 'Vaporwave style homelab server illustration',
-		text: 'Hands-on posts about homelabs, Home Assistant and AI tools, plus the Works on My Machine newsletter.',
-	},
-	{
-		title: 'Make videos',
-		href: SOCIAL_LINKS.youtube,
-		image: '/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp',
-		alt: 'Title card for The Art of Computer Science',
-		text: 'Tutorials, demos and a TEDx talk. I used to give a lot of conference talks, too.',
+		frames: newestPosts.map((post) => ({
+			src: post.data.heroImage as string,
+			alt: post.data.heroAlt ?? post.data.title,
+		})),
+		text: `Blog posts, videos and the Works on My Machine newsletter. Newest: ${newestPosts[0].data.title}.`,
 	},
 	{
 		title: 'Developer marketing',
 		href: '/blog/running-devrel-2026/',
-		image: '/images/blog/running-devrel-2026/hero.webp',
-		alt: 'Hands typing on a laptop',
+		frames: [
+			{ src: '/images/blog/running-devrel-2026/hero.webp', alt: 'Hands typing on a laptop' },
+		],
 		text: 'Strategy for how developers find and trust a product. Right now that is the MCP platform at CData.',
 	},
 ];
@@ -79,7 +81,6 @@ const followMe = [
 ] as const;
 
 // The mark that spills off each card's corner, cycling so neighbors differ
-const CARD_MARKS = [MARKS.check, MARKS.tally, MARKS.burst, MARKS.asterisk];
 
 const previousCompanies = [
 	{ name: 'CloudQuery', logo: '/images/logos/cloudquery.webp', url: 'https://www.cloudquery.io/' },
@@ -96,43 +97,50 @@ const previousCompanies = [
 
 const career = [
 	{
-		role: 'Principal Developer Marketing Manager - CData',
+		company: 'CData',
+		role: 'Principal Developer Marketing Manager',
 		logo: '/images/logos/cdata.webp',
 		years: '2026 - present',
 		text: 'Lead developer marketing for the managed MCP platform that connects AI agents to live enterprise data. Own the developer growth engine: docs, content, SEO and AEO, and platform positioning.',
 	},
 	{
-		role: 'Head of Developer Relations - CloudQuery (now env0)',
+		company: 'CloudQuery',
+		role: 'Head of Developer Relations (now env0)',
 		logo: '/images/logos/cloudquery.webp',
 		years: '2024 - 2026',
 		text: 'Built and ran the full DevRel function from scratch: content, community, docs, events, and video. 4x organic traffic in 3 months; docs traffic up 302%; MQLs at 239% of target. Replicated the playbook post-acquisition at env0: +106% organic traffic in 3 weeks.',
 	},
 	{
-		role: 'Developer Advocate - Tinybird',
+		company: 'Tinybird',
+		role: 'Developer Advocate',
 		logo: '/images/logos/tinybird.webp',
 		years: '2023 - 2025',
 		text: 'Helped developers building real-time analytics applications. Created documentation, demos, blog posts, webinars, and workshops.',
 	},
 	{
-		role: 'Senior Developer Advocate - SingleStore',
+		company: 'SingleStore',
+		role: 'Senior Developer Advocate',
 		logo: '/images/logos/singlestore.webp',
 		years: '2021 - 2023',
 		text: 'Led community conversations around scaling SQL workloads. Built demos and content for the distributed SQL database.',
 	},
 	{
-		role: 'Senior Developer Advocate - MongoDB',
+		company: 'MongoDB',
+		role: 'Senior Developer Advocate',
 		logo: '/images/logos/mongodb.webp',
 		years: '2019 - 2021',
 		text: 'Built developer community, created tutorials, demos, and educational content. Subject matter expert for developer experience.',
 	},
 	{
-		role: 'Front-end Technical Lead - Best Buy',
+		company: 'Best Buy',
+		role: 'Front-end Technical Lead',
 		logo: '/images/logos/bestbuy.webp',
 		years: '2017 - 2019',
 		text: 'Engineered high-performance solutions for one of the top 10 eCommerce sites in North America. Scaled production apps handling thousands of requests per second.',
 	},
 	{
-		role: 'Full-Stack JavaScript Instructor - DevLeague',
+		company: 'DevLeague',
+		role: 'Full-Stack JavaScript Instructor',
 		logo: '/images/logos/devleague.webp',
 		years: '2015 - 2017',
 		text: 'Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created curriculum and prepared students for software engineering careers in Honolulu.',
@@ -201,7 +209,9 @@ const moreAppearances = [
 	},
 ];
 
-const moreTalks = [
+const moreVideos = [
+	{ id: 'QAqK-R9HUhc', title: 'MongoDB Schema Design Best Practices' },
+	{ id: '711Sb55fzdg', title: 'Bringing JavaScript to the IoT Edge' },
 	{ id: 'UuNVpLIOHW8', title: 'Mapping SQL to MongoDB' },
 	{ id: 'bIFrJJkUftA', title: 'Getting Started with SingleStore' },
 	{ id: '6bHYDUzY9j0', title: '8-Bits with Joe Karlsson' },
@@ -306,7 +316,7 @@ const cropArtPieces = [
 
 		<div class={SIDEBAR_GRID}>
 			<TableOfContents headings={aboutHeadings} />
-			<div>
+			<div class="min-w-0">
 				<div class="prose mb-12 max-w-none!">
 					<p>
 						I lead developer marketing at CData, for the MCP platform that connects AI agents to
@@ -357,36 +367,43 @@ const cropArtPieces = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
-				<div class="mb-12 grid gap-8 sm:grid-cols-2">
+				<div class="mb-12 grid md:grid-cols-[minmax(0,1fr)_220px_280px] md:gap-x-8">
 					{whatIDo.map((area, i) => (
 						<a
 							href={area.href}
-							class="ring-host group relative block no-underline"
-							{...(area.href.startsWith('http')
-								? { target: '_blank', rel: 'noopener noreferrer' }
-								: {})}
+							class="ring-host group grid items-center gap-x-8 gap-y-3 border-t border-surface-4 py-4 text-paper no-underline md:col-span-3 md:grid-cols-subgrid"
 						>
-							<span class="relative block">
-								<img
-									src={area.image}
-									alt={area.alt}
-									data-halftone="flat"
-									class="mb-3 block aspect-video w-full rounded-lg object-cover"
-									width="300"
-									height="169"
-									loading="lazy"
+							<span class="relative inline-block w-fit font-display text-[clamp(40px,4.6vw,72px)] leading-[0.98] uppercase">
+								{area.title}
+								<Scribble
+									path={RINGS[i % RINGS.length]}
+									color={i % 2 ? CHALK : '#ff4fd8'}
+									viewBox="0 0 520 150"
+									strokeWidth={7}
+									ring
+									class="-top-[22%] -left-[35px] h-[150%] w-[calc(100%+70px)]"
 								/>
-								<HoverBox />
 							</span>
-							<Scribble
-								{...CARD_MARKS[i % CARD_MARKS.length]}
-								color={i % 2 ? '#ff4fd8' : CHALK}
-								duration="9s"
-								delay={`${i * 0.7}s`}
-								class="-top-[7%] -right-[5%] z-10 size-[24%]"
-							/>
-							<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>{area.title}</h3>
-							<p class="text-paper">{area.text}</p>
+							<span class="relative hidden aspect-video md:block">
+								{area.frames.map((frame, f) => (
+									<span
+										class:list={['absolute inset-0', area.frames.length > 1 && 'frame']}
+										style={`--frame: ${f}`}
+									>
+										<img
+											src={frame.src}
+											alt={f === 0 ? frame.alt : ''}
+											aria-hidden={f === 0 ? undefined : 'true'}
+											data-halftone={halftoneMode(frame.src)}
+											class="block size-full rounded-md object-cover"
+											width="220"
+											height="124"
+											loading="lazy"
+										/>
+									</span>
+								))}
+							</span>
+							<span class="text-sm text-muted group-hover:text-paper">{area.text}</span>
 						</a>
 					))}
 				</div>
@@ -402,28 +419,44 @@ const cropArtPieces = [
 					/>
 				</h2>
 				<div class="mb-6">
-					{career.map((job) => (
-						<details class="job border-t border-surface-4 py-3">
-							<summary class="cursor-pointer text-paper hover:text-pink">
-								<span class="relative mr-2 inline-block size-6 align-[-0.3em]">
-									<img
-										src={job.logo}
-										alt=""
-										aria-hidden="true"
-										data-halftone="flat"
-										class="block size-full rounded-sm"
-										width="24"
-										height="24"
-										loading="lazy"
+					{career.map((job, i) => (
+						<details class="job ring-host border-t border-surface-4">
+							<summary class="flex cursor-pointer list-none flex-wrap items-baseline justify-between gap-x-6 pt-1.5 pb-0.5 text-paper">
+								<span class="relative inline-flex items-center font-display text-[clamp(34px,4vw,56px)] leading-[0.98] uppercase">
+									<span class="relative mr-4 inline-block size-[0.8em]">
+										<img
+											src={job.logo}
+											alt=""
+											aria-hidden="true"
+											data-halftone="flat"
+											class="block size-full rounded-md"
+											width="48"
+											height="48"
+											loading="lazy"
+										/>
+									</span>
+									{job.company}
+									<Scribble
+										path={RINGS[i % RINGS.length]}
+										color={i % 2 ? CHALK : '#ff4fd8'}
+										viewBox="0 0 520 150"
+										strokeWidth={7}
+										ring
+										class="-top-[22%] -left-[35px] h-[150%] w-[calc(100%+70px)]"
 									/>
 								</span>
-								<span class="text-lg font-semibold">{job.role}</span>{' '}
-								<span class="text-sm text-muted">{job.years}</span>
+								<span class="text-right text-sm text-muted">
+									{job.role}
+									<span class="ml-3 text-paper">{job.years}</span>
+								</span>
 							</summary>
-							<p class="mt-2 mb-1 leading-relaxed text-paper">{job.text}</p>
+							<p class="max-w-3xl pt-1 pb-5 pl-[calc(clamp(34px,4vw,56px)*0.8+1rem)] text-lg leading-relaxed text-paper">
+								{job.text}
+							</p>
 						</details>
 					))}
 				</div>
+
 				<p class="mb-12">
 					<a
 						href="/resume/"
@@ -473,52 +506,46 @@ const cropArtPieces = [
 						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
 					/>
 				</h2>
-				<ul class="mb-8 grid gap-6 sm:grid-cols-2">
+				<ul class="-mx-4 mb-12 flex snap-x gap-5 overflow-x-auto px-4 pt-4 pb-6">
 					{featuredPodcasts.map((podcast) => (
-						<li class="relative flex items-center gap-4">
-							<img
-								src={podcast.image}
-								alt={podcast.alt}
-								data-halftone="flat"
-								class="h-20 w-20 shrink-0 rounded-md object-cover"
-								width="80"
-								height="80"
-								loading="lazy"
-							/>
-							<div>
-								<h3 class={ITEM_TITLE}>
-									{podcast.url ? (
-										<a
-											href={podcast.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											class={TEXT_LINK}
-										>
-											{podcast.name}
-										</a>
-									) : (
-										podcast.name
-									)}
-								</h3>
-								<p class="text-sm text-muted">{podcast.host}</p>
-								<p class="text-sm text-muted">{podcast.episode}</p>
-							</div>
+						<li class="w-56 shrink-0 snap-start">
+							<a
+								href={podcast.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="group block text-paper no-underline"
+							>
+								<span class="relative mb-3 block aspect-square">
+									<img
+										src={podcast.image}
+										alt={podcast.alt}
+										data-halftone="flat"
+										class="block size-full rounded-md object-cover"
+										width="224"
+										height="224"
+										loading="lazy"
+									/>
+								</span>
+								<span class:list={[ITEM_TITLE, 'block group-hover:text-pink']}>{podcast.name}</span>
+								<span class:list={[META, 'block']}>{podcast.episode}</span>
+							</a>
 						</li>
 					))}
-				</ul>
-				<h3 class:list={[GROUP_HEADING, 'mb-3']}>More appearances</h3>
-				<ul class="mb-12 space-y-2">
 					{moreAppearances.map((appearance) => (
-						<li>
+						<li class="w-56 shrink-0 snap-start">
 							<a
 								href={appearance.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class={`font-semibold ${TEXT_LINK}`}
+								class="group block text-paper no-underline"
 							>
-								{appearance.name}
-							</a>{' '}
-							<span class="text-sm text-muted">{appearance.detail}</span>
+								<span class="mb-3 flex aspect-square items-end rounded-md bg-pink p-4 group-hover:bg-paper">
+									<span class="font-display text-[40px] leading-[0.95] text-ink uppercase">
+										{appearance.name}
+									</span>
+								</span>
+								<span class:list={[META, 'block']}>{appearance.detail}</span>
+							</a>
 						</li>
 					))}
 				</ul>
@@ -533,74 +560,63 @@ const cropArtPieces = [
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<div class="mb-12 space-y-8">
-					<div>
-						<h3 class="mb-3 text-lg font-semibold text-paper">
-							The Art of Computer Science (TEDx)
-						</h3>
-						<div class="relative">
-							<YouTubeFacade
-								id="GiNa2jen-lg"
-								title="The Art of Computer Science - TEDx Talk by Joe Karlsson"
-								poster="/images/talks/tedx-art-of-computer-science.webp"
-							/>
-							<Scribble
-								{...MARKS.box}
-								color={CHALK}
-								duration="10s"
-								delay="0.8s"
-								class="-inset-[3%] z-20 h-[106%] w-[106%]"
-							/>
-						</div>
-					</div>
-					<div class="grid gap-6 sm:grid-cols-2">
+				<div class="mb-12">
+					<div class="grid gap-8 lg:grid-cols-[2fr_1fr]">
 						<div>
-							<h3 class="mb-3 text-lg font-semibold text-paper">
-								MongoDB Schema Design Best Practices
-							</h3>
-							<YouTubeFacade id="QAqK-R9HUhc" title="MongoDB Schema Design Best Practices" />
+							<div class="relative">
+								<YouTubeFacade
+									id="GiNa2jen-lg"
+									title="The Art of Computer Science - TEDx Talk by Joe Karlsson"
+									poster="/images/talks/tedx-art-of-computer-science.webp"
+								/>
+								<Scribble
+									{...MARKS.box}
+									color={CHALK}
+									duration="10s"
+									delay="0.8s"
+									class="-inset-[3%] z-20 h-[106%] w-[106%]"
+								/>
+							</div>
+							<h3 class={`${ITEM_TITLE} mt-4`}>The Art of Computer Science</h3>
+							<p class={META}>TEDx talk</p>
 						</div>
-						<div>
-							<h3 class="mb-3 text-lg font-semibold text-paper">
-								Bringing JavaScript to the IoT Edge
-							</h3>
-							<YouTubeFacade id="711Sb55fzdg" title="Bringing JavaScript to the IoT Edge" />
-						</div>
+						<ul class="space-y-4">
+							{moreVideos.map((video) => (
+								<li>
+									<a
+										href={`https://www.youtube.com/watch?v=${video.id}`}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="ring-host group grid grid-cols-[140px_1fr] items-center gap-4 no-underline"
+									>
+										<span class="relative block">
+											<img
+												src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+												alt=""
+												aria-hidden="true"
+												crossorigin="anonymous"
+												data-halftone="flat"
+												class="block aspect-video w-full rounded-md object-cover"
+												loading="lazy"
+											/>
+											<HoverBox />
+										</span>
+										<span class="leading-snug font-semibold text-paper group-hover:text-pink">
+											{video.title}
+										</span>
+									</a>
+								</li>
+							))}
+						</ul>
 					</div>
-					<ul class="grid gap-6 sm:grid-cols-3">
-						{moreTalks.map((talk) => (
-							<li>
-								<a
-									href={`https://www.youtube.com/watch?v=${talk.id}`}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="ring-host group relative block no-underline"
-								>
-									<span class="relative block">
-										<img
-											src={`https://img.youtube.com/vi/${talk.id}/mqdefault.jpg`}
-											alt=""
-											aria-hidden="true"
-											crossorigin="anonymous"
-											data-halftone="flat"
-											class="mb-2 block aspect-video w-full rounded-md object-cover"
-											loading="lazy"
-										/>
-										<HoverBox />
-									</span>
-									<span class="font-semibold text-paper group-hover:text-pink">{talk.title}</span>
-								</a>
-							</li>
-						))}
-					</ul>
-					<p>
+					<p class="mt-8">
 						<a
 							href={SOCIAL_LINKS.youtube}
 							target="_blank"
 							rel="noopener noreferrer"
 							class={MORE_LINK}
 						>
-							See all talks on YouTube &rarr;
+							See everything on YouTube &rarr;
 						</a>
 					</p>
 				</div>
@@ -714,6 +730,9 @@ const cropArtPieces = [
 
 <style>
 	/* A career row opens all the way on hover; clicking keeps it open */
+	details.job summary::-webkit-details-marker {
+		display: none;
+	}
 	details.job::details-content {
 		block-size: 0;
 		overflow: hidden;
@@ -733,9 +752,34 @@ const cropArtPieces = [
 			interpolate-size: allow-keywords;
 		}
 	}
+	/* What I do thumbnails crossfade through four frames, three seconds each */
+	.frame {
+		opacity: 0;
+		animation: frame-cycle 12s infinite;
+		animation-delay: calc((var(--frame) - 4) * 3s);
+	}
+	@keyframes frame-cycle {
+		0% {
+			opacity: 0;
+		}
+		4%,
+		25% {
+			opacity: 1;
+		}
+		29%,
+		100% {
+			opacity: 0;
+		}
+	}
 	@media (prefers-reduced-motion: reduce) {
 		details.job::details-content {
 			transition: none;
+		}
+		.frame {
+			animation: none;
+		}
+		.frame:first-child {
+			opacity: 1;
 		}
 	}
 </style>
