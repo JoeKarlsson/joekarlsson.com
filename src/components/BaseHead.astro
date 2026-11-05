@@ -276,6 +276,15 @@ const socialTitle = title.replace(` | ${SITE_TITLE}`, '');
 color original never flashes; that script takes the class off again without WebGL -->
 <script is:inline>
 	document.documentElement.classList.add('halftone-on');
+	// Keeps "Pause motion" on across pages (src/scripts/pause-motion.ts writes it).
+	// Set before paint, so nothing starts moving and then stops. Storage can be blocked.
+	try {
+		if (localStorage.getItem('motion-paused') === '1') {
+			document.documentElement.classList.add('motion-paused');
+		}
+	} catch {
+		// Not remembered; motion runs until paused on this page
+	}
 </script>
 <!-- Plausible Analytics (self-hosted) - with bot filtering -->
 <script is:inline>

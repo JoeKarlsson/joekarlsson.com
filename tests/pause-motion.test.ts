@@ -1,6 +1,12 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { initPauseMotion, isMotionPaused } from '../src/scripts/pause-motion';
+import {
+	MOTION_RESUMED_EVENT,
+	PAUSED_CLASS,
+	PAUSED_STORAGE_KEY,
+	initPauseMotion,
+	isMotionPaused,
+} from '../src/scripts/pause-motion';
 
 function fakeVideo(playing: boolean): HTMLVideoElement {
 	const video = document.createElement('video');
@@ -21,6 +27,7 @@ describe('pause motion button', () => {
 	let button: HTMLButtonElement;
 
 	beforeEach(() => {
+		localStorage.clear();
 		document.documentElement.className = '';
 		document.body.innerHTML =
 			'<button data-pause-motion aria-pressed="false" aria-label="Pause motion"></button>';
@@ -44,5 +51,29 @@ describe('pause motion button', () => {
 		expect(button.getAttribute('aria-label')).toBe('Pause motion');
 		expect(playing.play).toHaveBeenCalled();
 		expect(stopped.play).not.toHaveBeenCalled();
+	});
+
+	it('remembers the pause for the next page, and forgets it on resume', () => {
+		button.click();
+		expect(localStorage.getItem(PAUSED_STORAGE_KEY)).toBe('1');
+		button.click();
+		expect(localStorage.getItem(PAUSED_STORAGE_KEY)).toBeNull();
+	});
+
+	it('shows the remembered pause on a new page, and resuming starts clips on screen', () => {
+		// The next page: BaseHead's inline script already put the class back
+		document.documentElement.className = PAUSED_CLASS;
+		document.body.innerHTML =
+			'<button data-pause-motion aria-pressed="false" aria-label="Pause motion"></button>';
+		const next = document.querySelector('button')!;
+		initPauseMotion(next);
+		expect(next.getAttribute('aria-pressed')).toBe('true');
+		expect(next.getAttribute('aria-label')).toBe('Play motion');
+
+		const resumed = vi.fn();
+		document.addEventListener(MOTION_RESUMED_EVENT, resumed);
+		next.click();
+		expect(isMotionPaused()).toBe(false);
+		expect(resumed).toHaveBeenCalledOnce();
 	});
 });

@@ -1,25 +1,50 @@
 // The "Pause motion" button: a <button data-pause-motion aria-pressed="false">.
 // Pressing it sets .motion-paused on <html>, which freezes every CSS animation
-// (src/styles/motion.css), and pauses playing videos. Resuming plays only the
-// videos this button paused, so a clip the viewer stopped, or one held still for
-// reduced motion, stays still.
+// (src/styles/motion.css), and pauses playing videos. Resuming plays the videos
+// this button paused, and tells in-view-play to start the clips on screen, so a
+// clip the viewer stopped, or one held still for reduced motion, stays still.
+//
+// The choice is remembered across pages: an inline script in BaseHead puts the
+// class back before the page paints (PAUSED_STORAGE_KEY), and this script sets the
+// button to match.
 
 export const PAUSED_CLASS = 'motion-paused';
+// Read by the inline script in BaseHead, which has to run before this module loads
+export const PAUSED_STORAGE_KEY = 'motion-paused';
+// Fired on document when motion resumes, for in-view-play
+export const MOTION_RESUMED_EVENT = 'motion-resumed';
 
 export function isMotionPaused(): boolean {
 	return document.documentElement.classList.contains(PAUSED_CLASS);
 }
 
+function rememberPaused(paused: boolean): void {
+	// Browser storage can be blocked (private windows, site data off); the pause
+	// still works on this page, it just isn't remembered
+	try {
+		if (paused) localStorage.setItem(PAUSED_STORAGE_KEY, '1');
+		else localStorage.removeItem(PAUSED_STORAGE_KEY);
+	} catch {
+		// Not remembered; nothing else to do
+	}
+}
+
+function showState(button: HTMLButtonElement, paused: boolean): void {
+	button.setAttribute('aria-pressed', String(paused));
+	const label = paused ? 'Play motion' : 'Pause motion';
+	button.setAttribute('aria-label', label);
+	button.title = label;
+}
+
 export function initPauseMotion(button: HTMLButtonElement): void {
 	const pausedByButton = new Set<HTMLVideoElement>();
+	showState(button, isMotionPaused());
 
 	button.addEventListener('click', () => {
 		const pausing = !isMotionPaused();
 		document.documentElement.classList.toggle(PAUSED_CLASS, pausing);
-		button.setAttribute('aria-pressed', String(pausing));
-		const label = pausing ? 'Play motion' : 'Pause motion';
-		button.setAttribute('aria-label', label);
-		button.title = label;
+		showState(button, pausing);
+		rememberPaused(pausing);
 
 		if (pausing) {
 			document.querySelectorAll('video').forEach((video) => {
@@ -32,6 +57,7 @@ export function initPauseMotion(button: HTMLButtonElement): void {
 		} else {
 			pausedByButton.forEach((video) => video.play().catch(() => {}));
 			pausedByButton.clear();
+			document.dispatchEvent(new Event(MOTION_RESUMED_EVENT));
 		}
 	});
 }

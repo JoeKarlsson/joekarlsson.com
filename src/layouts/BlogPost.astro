@@ -197,13 +197,14 @@ const formatShortDate = (d: Date) =>
 			{showToc ? <TableOfContents headings={tocHeadings} /> : <div class="hidden xl:block" />}
 
 			<article class="min-w-0" data-post-title={title}>
-				{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video */}
+				{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video;
+				in-view-play starts it, so a remembered pause or reduced motion keeps it still */}
 				{heroVideo ? (
 					<video
 						src={heroVideo}
 						data-halftone={halftoneMode(heroVideo)}
 						data-halftone-poster={heroImage}
-						autoplay
+						data-autoplay-in-view
 						loop
 						muted
 						playsinline

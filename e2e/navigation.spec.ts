@@ -88,6 +88,31 @@ test.describe('Pause motion', () => {
 			await page.evaluate(() => (document.getElementById('test-video') as HTMLVideoElement).paused),
 		).toBe(false);
 	});
+
+	test('stays paused on the next page until resumed', async ({ page }) => {
+		await page.goto('/');
+		await page.getByRole('button', { name: 'Pause motion' }).click();
+
+		await page.goto('/about/');
+		const resume = page.getByRole('button', { name: 'Play motion' });
+		await expect(resume).toHaveAttribute('aria-pressed', 'true');
+		const echo = page.locator('footer .echo > span[aria-hidden="true"]').first();
+		await expect(echo).toHaveCSS('animation-play-state', 'paused');
+		// The header clip is on screen, but in-view-play doesn't start it while paused
+		const clip = page.locator('header video');
+		await page.waitForTimeout(1000);
+		expect(await clip.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+
+		await resume.click();
+		await expect(echo).toHaveCSS('animation-play-state', 'running');
+		await expect.poll(() => clip.evaluate((v: HTMLVideoElement) => v.paused)).toBe(false);
+
+		await page.goto('/blog/');
+		await expect(page.getByRole('button', { name: 'Pause motion' })).toHaveAttribute(
+			'aria-pressed',
+			'false',
+		);
+	});
 });
 
 test.describe('Footer', () => {
