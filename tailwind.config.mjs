@@ -6,7 +6,7 @@ export default {
 		extend: {
 			fontFamily: {
 				mono: ['"JetBrains Mono"', '"Fira Code"', 'Menlo', 'Monaco', 'monospace'],
-				sans: ['"Recursive"', 'system-ui', '-apple-system', 'sans-serif'],
+				sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
 			},
 			colors: {
 				// Coral is the one accent; teal and lavender are terminal-only syntax colors.

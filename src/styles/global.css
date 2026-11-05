@@ -36,8 +36,6 @@
 	h5,
 	h6 {
 		@apply text-white font-semibold;
-		/* Recursive's casual axis gives headings their hand-drawn warmth; body text stays linear */
-		font-variation-settings: 'CASL' 1;
 	}
 
 	a {
