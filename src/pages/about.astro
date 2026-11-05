@@ -16,6 +16,7 @@ import KeepExploring from '../components/KeepExploring.astro';
 import NowFeed from '../components/NowFeed.astro';
 import HoverBox from '../components/HoverBox.astro';
 import IndexRow from '../components/IndexRow.astro';
+import SocialIcon from '../components/SocialIcon.astro';
 import Scribble from '../components/Scribble.astro';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -29,10 +30,9 @@ const aboutHeadings = [
 	{ slug: 'how-i-got-here', text: 'How I got here' },
 	{ slug: 'as-seen-on', text: 'As seen on' },
 	{ slug: 'videos', text: 'Videos' },
-	{ slug: 'interests', text: 'Outside of work' },
 	{ slug: 'now', text: 'Right now' },
 	{ slug: 'art', text: 'Art' },
-	{ slug: 'elsewhere', text: 'Elsewhere' },
+	{ slug: 'follow-me', text: 'Follow me' },
 ];
 
 // What I do, building first: that's where the technical credibility comes from
@@ -68,93 +68,72 @@ const whatIDo = [
 	},
 ];
 
-// Life outside work, one picture and one line each
-const outsideOfWork = [
-	{
-		title: 'Movies',
-		href: SOCIAL_LINKS.letterboxd,
-		image: '/images/projects/bechdel-io-poster.webp',
-		alt: 'Bechdel.io showing a grid of movie posters',
-		text: 'I review movies on Letterboxd, and I built Bechdel.io with my sister Laurel.',
-	},
-	{
-		title: 'Music',
-		href: '/blog/my-top-50-records/',
-		image: '/images/blog/my-top-50-records/Joe-Karlssons-top-50-Records-of-all-Time.webp',
-		alt: "Collage of album covers from Joe Karlsson's top 50 records",
-		text: 'I ranked my top 50 records of all time.',
-	},
-	{
-		title: 'Smart home',
-		href: '/blog/best-home-assistant-automations/',
-		image: '/images/blog/best-home-assistant-automations/hero.webp',
-		alt: 'Home Assistant automations',
-		text: 'Home Assistant has run my house for ten years.',
-	},
-	{
-		title: 'My cat',
-		href: '/blog/an-introduction-to-iot-internet-of-toilets/',
-		image: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp',
-		alt: 'IoT litter box project with Raspberry Pi and sensors',
-		text: 'My cat has a litter box on the internet.',
-	},
-];
-
-// My main accounts, in the order the contact page ranks them
-const elsewhere = [
-	{ label: 'LinkedIn', meta: 'Work', href: SOCIAL_LINKS.linkedin },
-	{ label: 'Bluesky', meta: '@joekarlsson.com', href: SOCIAL_LINKS.bluesky },
-	{ label: 'GitHub', meta: 'Code', href: SOCIAL_LINKS.github },
-	{ label: 'YouTube', meta: 'Videos', href: SOCIAL_LINKS.youtube },
-	{ label: 'Threads', meta: '@joekarlsson', href: SOCIAL_LINKS.threads },
-	{ label: 'Instagram', meta: 'Photos', href: SOCIAL_LINKS.instagram },
-];
+// My main accounts, in the order the contact page ranks them, then the rest there
+const followMe = [
+	{ label: 'LinkedIn', meta: 'Work', href: SOCIAL_LINKS.linkedin, icon: 'linkedin' },
+	{ label: 'Bluesky', meta: '@joekarlsson.com', href: SOCIAL_LINKS.bluesky, icon: 'bluesky' },
+	{ label: 'GitHub', meta: 'Code', href: SOCIAL_LINKS.github, icon: 'github' },
+	{ label: 'YouTube', meta: 'Videos', href: SOCIAL_LINKS.youtube, icon: 'youtube' },
+	{ label: 'Threads', meta: '@joekarlsson', href: SOCIAL_LINKS.threads, icon: 'threads' },
+	{ label: 'More', meta: 'Everywhere else, and email', href: '/contact/', icon: null },
+] as const;
 
 // The mark that spills off each card's corner, cycling so neighbors differ
 const CARD_MARKS = [MARKS.check, MARKS.tally, MARKS.burst, MARKS.asterisk];
 
 const previousCompanies = [
-	{ name: 'CloudQuery', logo: '/images/logos/cloudquery.webp' },
-	{ name: 'Tinybird', logo: '/images/logos/tinybird.webp' },
-	{ name: 'SingleStore', logo: '/images/logos/singlestore.webp' },
-	{ name: 'MongoDB', logo: '/images/logos/mongodb.webp' },
-	{ name: 'Best Buy', logo: '/images/logos/bestbuy.webp' },
-	{ name: 'DevLeague', logo: '/images/logos/devleague.webp' },
+	{ name: 'CloudQuery', logo: '/images/logos/cloudquery.webp', url: 'https://www.cloudquery.io/' },
+	{ name: 'Tinybird', logo: '/images/logos/tinybird.webp', url: 'https://www.tinybird.co/' },
+	{
+		name: 'SingleStore',
+		logo: '/images/logos/singlestore.webp',
+		url: 'https://www.singlestore.com/',
+	},
+	{ name: 'MongoDB', logo: '/images/logos/mongodb.webp', url: 'https://www.mongodb.com/' },
+	{ name: 'Best Buy', logo: '/images/logos/bestbuy.webp', url: 'https://www.bestbuy.com/' },
+	{ name: 'DevLeague', logo: '/images/logos/devleague.webp', url: 'https://devleague.com/' },
 ];
 
 const career = [
 	{
 		role: 'Principal Developer Marketing Manager - CData',
+		logo: '/images/logos/cdata.webp',
 		years: '2026 - present',
 		text: 'Lead developer marketing for the managed MCP platform that connects AI agents to live enterprise data. Own the developer growth engine: docs, content, SEO and AEO, and platform positioning.',
 	},
 	{
 		role: 'Head of Developer Relations - CloudQuery (now env0)',
+		logo: '/images/logos/cloudquery.webp',
 		years: '2024 - 2026',
 		text: 'Built and ran the full DevRel function from scratch: content, community, docs, events, and video. 4x organic traffic in 3 months; docs traffic up 302%; MQLs at 239% of target. Replicated the playbook post-acquisition at env0: +106% organic traffic in 3 weeks.',
 	},
 	{
 		role: 'Developer Advocate - Tinybird',
+		logo: '/images/logos/tinybird.webp',
 		years: '2023 - 2025',
 		text: 'Helped developers building real-time analytics applications. Created documentation, demos, blog posts, webinars, and workshops.',
 	},
 	{
 		role: 'Senior Developer Advocate - SingleStore',
+		logo: '/images/logos/singlestore.webp',
 		years: '2021 - 2023',
 		text: 'Led community conversations around scaling SQL workloads. Built demos and content for the distributed SQL database.',
 	},
 	{
 		role: 'Senior Developer Advocate - MongoDB',
+		logo: '/images/logos/mongodb.webp',
 		years: '2019 - 2021',
 		text: 'Built developer community, created tutorials, demos, and educational content. Subject matter expert for developer experience.',
 	},
 	{
 		role: 'Front-end Technical Lead - Best Buy',
+		logo: '/images/logos/bestbuy.webp',
 		years: '2017 - 2019',
 		text: 'Engineered high-performance solutions for one of the top 10 eCommerce sites in North America. Scaled production apps handling thousands of requests per second.',
 	},
 	{
 		role: 'Full-Stack JavaScript Instructor - DevLeague',
+		logo: '/images/logos/devleague.webp',
 		years: '2015 - 2017',
 		text: 'Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created curriculum and prepared students for software engineering careers in Honolulu.',
 	},
@@ -344,18 +323,25 @@ const cropArtPieces = [
 					<p class="mb-3 text-sm text-muted">Previously at</p>
 					<ul class="flex flex-nowrap items-center justify-between gap-x-4">
 						{previousCompanies.map((company) => (
-							<li class="relative flex items-center gap-2">
-								<img
-									src={company.logo}
-									alt=""
-									aria-hidden="true"
-									data-halftone="flat"
-									class="size-12 rounded-sm lg:size-8"
-									width="48"
-									height="48"
-									loading="eager"
-								/>
-								<span class="sr-only text-paper lg:not-sr-only">{company.name}</span>
+							<li>
+								<a
+									href={company.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="relative flex items-center gap-2 text-paper no-underline hover:text-pink"
+								>
+									<img
+										src={company.logo}
+										alt=""
+										aria-hidden="true"
+										data-halftone="flat"
+										class="size-12 rounded-sm lg:size-8"
+										width="48"
+										height="48"
+										loading="eager"
+									/>
+									<span class="sr-only lg:not-sr-only">{company.name}</span>
+								</a>
 							</li>
 						))}
 					</ul>
@@ -417,8 +403,20 @@ const cropArtPieces = [
 				</h2>
 				<div class="mb-6">
 					{career.map((job) => (
-						<details class="border-t border-surface-4 py-3">
+						<details class="job border-t border-surface-4 py-3">
 							<summary class="cursor-pointer text-paper hover:text-pink">
+								<span class="relative mr-2 inline-block size-6 align-[-0.3em]">
+									<img
+										src={job.logo}
+										alt=""
+										aria-hidden="true"
+										data-halftone="flat"
+										class="block size-full rounded-sm"
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</span>
 								<span class="text-lg font-semibold">{job.role}</span>{' '}
 								<span class="text-sm text-muted">{job.years}</span>
 							</summary>
@@ -544,6 +542,7 @@ const cropArtPieces = [
 							<YouTubeFacade
 								id="GiNa2jen-lg"
 								title="The Art of Computer Science - TEDx Talk by Joe Karlsson"
+								poster="/images/talks/tedx-art-of-computer-science.webp"
 							/>
 							<Scribble
 								{...MARKS.box}
@@ -604,50 +603,6 @@ const cropArtPieces = [
 							See all talks on YouTube &rarr;
 						</a>
 					</p>
-				</div>
-
-				<h2 id="interests" class={`${SECTION_HEADING} scroll-mt-24`}>
-					Outside of work
-					<Scribble
-						{...MARKS.rays}
-						color={CHALK}
-						duration="8s"
-						delay="0.4s"
-						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
-					/>
-				</h2>
-				<div class="mb-12 grid gap-8 sm:grid-cols-2">
-					{outsideOfWork.map((thing, i) => (
-						<a
-							href={thing.href}
-							class="ring-host group relative block no-underline"
-							{...(thing.href.startsWith('http')
-								? { target: '_blank', rel: 'noopener noreferrer' }
-								: {})}
-						>
-							<span class="relative block">
-								<img
-									src={thing.image}
-									alt={thing.alt}
-									data-halftone="flat"
-									class="mb-3 block aspect-video w-full rounded-lg object-cover"
-									width="300"
-									height="169"
-									loading="lazy"
-								/>
-								<HoverBox />
-							</span>
-							<Scribble
-								{...CARD_MARKS[i % CARD_MARKS.length]}
-								color={i % 2 ? '#ff4fd8' : CHALK}
-								duration="9s"
-								delay={`${i * 0.7}s`}
-								class="-top-[7%] -right-[5%] z-10 size-[24%]"
-							/>
-							<h3 class:list={[GROUP_HEADING, 'mb-2 group-hover:text-pink']}>{thing.title}</h3>
-							<p class="text-paper">{thing.text}</p>
-						</a>
-					))}
 				</div>
 
 				<h2 id="now" class={`${SECTION_HEADING} scroll-mt-24`}>
@@ -716,8 +671,8 @@ const cropArtPieces = [
 					</p>
 				</div>
 
-				<h2 id="elsewhere" class={`${SECTION_HEADING} scroll-mt-24`}>
-					Elsewhere
+				<h2 id="follow-me" class={`${SECTION_HEADING} scroll-mt-24`}>
+					Follow me
 					<Scribble
 						{...MARKS.asterisk}
 						color={CHALK}
@@ -727,8 +682,16 @@ const cropArtPieces = [
 					/>
 				</h2>
 				<div class="mb-12 grid gap-x-10 md:grid-cols-2">
-					{elsewhere.map(({ label, meta, href }, i) => (
-						<IndexRow href={href} label={label} meta={meta} index={i} external compact />
+					{followMe.map(({ label, meta, href, icon }, i) => (
+						<IndexRow href={href} label={label} meta={meta} index={i} external={!!icon} compact>
+							{icon && (
+								<SocialIcon
+									slot="icon"
+									name={icon}
+									class="mr-3 inline-block size-[0.7em] align-[-0.02em]"
+								/>
+							)}
+						</IndexRow>
 					))}
 				</div>
 
@@ -737,17 +700,37 @@ const cropArtPieces = [
 					from="/about/"
 					posts={['ship-the-ugly-pot', 'devrel-as-dev-zero', 'homelab-two-years-later']}
 				/>
-
-				<p class="mb-10 text-paper">
-					Want to say hi?{' '}
-					<a
-						href="/contact/"
-						class={`plausible-event-name=About+CTA+Click plausible-event-destination=contact ${MORE_LINK}`}
-					>
-						Get in touch &rarr;
-					</a>
-				</p>
 			</div>
 		</div>
 	</div>
 </BaseLayout>
+
+<style>
+	/* A closed career row peeks open on hover, so it's clear there's more inside;
+	   clicking opens it the rest of the way */
+	details.job::details-content {
+		block-size: 0;
+		overflow: hidden;
+		transition:
+			block-size 0.3s ease,
+			content-visibility 0.3s allow-discrete;
+	}
+	details.job:not([open]):hover::details-content {
+		content-visibility: visible;
+		block-size: 2.2em;
+		mask-image: linear-gradient(black 30%, transparent);
+	}
+	details.job[open]::details-content {
+		block-size: auto;
+	}
+	@supports (interpolate-size: allow-keywords) {
+		details.job {
+			interpolate-size: allow-keywords;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		details.job::details-content {
+			transition: none;
+		}
+	}
+</style>

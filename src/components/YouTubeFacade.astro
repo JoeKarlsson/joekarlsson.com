@@ -2,12 +2,16 @@
 // A YouTube video that costs one thumbnail until it's clicked: the button swaps
 // itself for the youtube-nocookie player (already in the CSP frame-src), playing.
 // Three real embeds put /about over the Lighthouse page-weight budget.
+import { halftoneMode } from '../utils/halftone';
+
 interface Props {
 	id: string;
 	title: string;
+	// Our own still instead of YouTube's thumbnail
+	poster?: string;
 }
 
-const { id, title } = Astro.props;
+const { id, title, poster } = Astro.props;
 ---
 
 <button
@@ -18,13 +22,13 @@ const { id, title } = Astro.props;
 	aria-label={`Play ${title}`}
 >
 	<img
-		src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+		src={poster ?? `https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
 		alt=""
 		aria-hidden="true"
-		crossorigin="anonymous"
+		crossorigin={poster ? undefined : 'anonymous'}
 		loading="lazy"
 		decoding="async"
-		data-halftone="flat"
+		data-halftone={poster ? halftoneMode(poster) : 'flat'}
 		class="block size-full object-cover"
 	/>
 	<span
