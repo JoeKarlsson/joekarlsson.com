@@ -14,6 +14,8 @@ const issues = (await getCollection('newsletter')).sort(
 // Works on My Machine posts get cards with their header image, like the blog list; the
 // imported TL;DR in Tech link roundups (substackUrl) stay a compact list by year.
 const posts = issues.filter((i) => !i.data.substackUrl);
+// The newest issue leads the page; the list below holds the rest
+const [latest, ...olderPosts] = posts;
 const backIssues = issues.filter((i) => i.data.substackUrl);
 
 const byYear = new Map<number, typeof issues>();
@@ -28,34 +30,87 @@ for (const issue of backIssues) {
 	description="Works on My Machine is Joe Karlsson's newsletter: thoughts and reactions on tech writing, AI, homelab builds and open source. Plus every back issue of TL;DR in Tech."
 	schemaType="CollectionPage"
 >
-	<div class="relative px-4 pt-10 pb-10 sm:px-7">
-		<header class="relative mb-14 max-w-[1100px]">
-			<h1 class="relative font-display text-[clamp(56px,11vw,170px)] leading-[0.86] font-normal text-paper uppercase">
-				Works on <span class="text-pink">My Machine</span>
+	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
+		<!-- Built like the blog hero: the latest issue's picture (its title on a dark strip)
+		beside a dark panel with the name filling it, the pitch and the signup form -->
+		<header class="relative mb-16 grid gap-4 md:grid-cols-2">
+			{latest && (
+				<a
+					href={`/newsletter/${latest.data.slug}/`}
+					class="group relative z-10 flex flex-col no-underline"
+				>
+					<!-- Issue images are title cards, so they show whole, never cropped -->
+					<span class="flex flex-1 flex-col overflow-hidden rounded-xl bg-ink">
+						{latest.data.heroImage && (
+							<span class="relative block">
+								<img
+									src={latest.data.heroImage}
+									alt=""
+									aria-hidden="true"
+									data-halftone="flat"
+									width="1200"
+									height="630"
+									class="block aspect-[40/21] w-full object-cover"
+									loading="eager"
+								/>
+							</span>
+						)}
+						<span class="flex flex-1 flex-col justify-end px-6 pt-5 pb-6">
+							<span class="mb-1.5 block text-sm text-muted">
+								<span class="font-semibold text-pink">Latest issue</span>
+								{' · '}
+								<FormattedDate date={latest.data.date} />
+							</span>
+							<span class="block font-display text-[clamp(28px,2.8vw,44px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+								{latest.data.title}
+							</span>
+							{latest.data.description && (
+								<span class="mt-3 line-clamp-3 block text-muted">{latest.data.description}</span>
+							)}
+						</span>
+					</span>
+					<Scribble
+						{...MARKS.burst}
+						color={CHALK}
+						strokeWidth={6}
+						duration="8s"
+						delay="1.6s"
+						class="-top-[7%] -left-[7%] z-10 size-[22%]"
+					/>
+				</a>
+			)}
+			<div class="relative flex flex-col justify-between gap-7 rounded-xl bg-surface-1 p-7">
 				<Scribble
-					{...MARKS.burst}
+					{...MARKS.tally}
 					color={CHALK}
 					duration="9s"
-					delay="1s"
-					class="-top-[0.2em] right-[2%] hidden h-[0.9em] w-[0.9em] md:block"
+					delay="0.6s"
+					class="-top-[6%] -right-[3%] z-10 hidden h-[10%] w-[18%] md:block"
 				/>
-			</h1>
-			<p class="mt-6 max-w-[52ch] font-serif text-[clamp(18px,1.6vw,22px)] leading-relaxed text-paper">
-				My thoughts and reactions on tech writing, AI, homelab builds and open source, plus whatever
-				I'm working on. It goes out when I have something to say.
-			</p>
-			<div class="mt-8">
-				<NewsletterSignup location="newsletter-page" />
-				<p class="mt-3 max-w-[520px] text-xs text-muted">
-					Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS?{' '}
-					<a
-						href="/newsletter/rss.xml"
-						class="plausible-event-name=RSS+Click plausible-event-feed=newsletter text-paper underline hover:text-pink"
-					>
-						Follow Works on My Machine in your feed reader
-					</a>
-					.
+				<div class="@container">
+					<!-- Two lines: "Works on" in white, then "My Machine" in pink, kept together -->
+					<h1 class="font-display text-[calc(100cqw/var(--line-ratio))] leading-[0.86] font-normal text-paper uppercase [--line-ratio:4.85]">
+						<span class="block whitespace-nowrap">Works on</span>
+						<span class="block whitespace-nowrap text-pink">My Machine</span>
+					</h1>
+				</div>
+				<p class="font-serif text-[clamp(18px,1.5vw,21px)] leading-relaxed text-paper">
+					My thoughts and reactions on tech writing, AI, homelab builds and open source, plus
+					whatever I'm working on. It goes out when I have something to say.
 				</p>
+				<div>
+					<NewsletterSignup location="newsletter-page" />
+					<p class="mt-3 text-xs text-muted">
+						Free, no spam, unsubscribe anytime. You'll get an email to confirm first. Prefer RSS?{' '}
+						<a
+							href="/newsletter/rss.xml"
+							class="plausible-event-name=RSS+Click plausible-event-feed=newsletter text-paper underline decoration-pink underline-offset-4 hover:text-pink"
+						>
+							Follow Works on My Machine in your feed reader
+						</a>
+						.
+					</p>
+				</div>
 			</div>
 		</header>
 
@@ -63,7 +118,7 @@ for (const issue of backIssues) {
 			Every issue
 		</h2>
 		<ul class="mb-20">
-			{posts.map((post) => (
+			{olderPosts.map((post) => (
 				<BlogCard
 					title={post.data.title}
 					description={post.data.description}
