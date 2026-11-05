@@ -1,6 +1,5 @@
 ---
 import type { Project } from '../data/projects';
-import { halftoneMode } from '../utils/halftone';
 
 interface Props {
 	project: Project;
@@ -42,14 +41,14 @@ const metaLine = [
 					role="img"
 					aria-label={project.imageAlt}
 					data-autoplay-in-view
-					data-halftone={halftoneMode(project.video)}
+					data-halftone="flat"
 					class="block aspect-video w-full rounded-lg object-cover"
 				/>
 			) : (
 				<img
 					src={project.image}
 					alt={project.imageAlt}
-					data-halftone={halftoneMode(project.image)}
+					data-halftone="flat"
 					width="560"
 					height="315"
 					class="block aspect-video w-full rounded-lg object-cover"

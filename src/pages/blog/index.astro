@@ -7,7 +7,6 @@ import { CHALK, MARKS } from '../../data/scribbles';
 import { getCategoryCounts } from '../../utils/categories';
 import { getFeedPosts } from '../../utils/posts';
 import popularPosts from '../../data/popular-posts.json';
-import { halftoneMode } from '../../utils/halftone';
 
 function getReadingTime(body: string): number {
 	const words = body.trim().split(/\s+/).length;
@@ -83,7 +82,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					<img
 						src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
 						alt=""
-						data-halftone={halftoneMode(featuredPost.data.heroImage || DEFAULT_HERO_IMAGE)}
+						data-halftone="flat"
 						aria-hidden="true"
 						width="1120"
 						height="630"

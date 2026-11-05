@@ -7,8 +7,9 @@
 // Two looks, picked at build time by halftoneMode() (src/utils/halftone.ts):
 // - data-halftone="dots": dots on a 45-degree grid sized by brightness, over a
 //   soft pink duotone. For photos.
-// - data-halftone="flat": just black and pink, no dots, for anything with
-//   text in it (src/data/images-with-text.json), which dots make unreadable.
+// - data-halftone="flat": just black and pink, no dots. Every post and project
+//   card uses it, and so does anything with text in it
+//   (src/data/images-with-text.json), which dots make unreadable.
 // Both lift dark footage and invert mostly white images (diagrams), so the
 // ground stays black.
 //
@@ -37,6 +38,7 @@ uniform vec2 canvasSize;   // device pixels
 uniform vec2 fitScale;     // object-fit (cover or contain), as a UV scale around the center
 uniform float cell;        // dot spacing, device pixels
 uniform float invert;      // 1.0 flips a light image
+uniform vec2 levels;       // the image's darkest and brightest tones, stretched to black and full pink
 uniform float noDots;      // 1.0 draws the duotone without dots
 uniform vec3 ink;
 
@@ -44,7 +46,7 @@ const float CONTRAST = 1.15;
 const float DOTS_OVER_DUOTONE = 0.5;
 const float GAMMA = 0.7;
 // Flat mode: at or below FLAT_BLACK is black, at or above FLAT_PINK is full pink
-const float FLAT_BLACK = 0.25;
+const float FLAT_BLACK = 0.12;
 const float FLAT_PINK = 0.55;
 const mat2 ROTATE = mat2(0.70710678, 0.70710678, -0.70710678, 0.70710678);
 
@@ -58,6 +60,7 @@ float luma(vec2 pixel) {
 	vec2 uv = (pixel / canvasSize - 0.5) * fitScale + 0.5;
 	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) return 0.0;
 	float value = dot(texture2D(source, uv).rgb, vec3(0.299, 0.587, 0.114));
+	value = clamp((value - levels.x) / (levels.y - levels.x), 0.0, 1.0);
 	return mix(value, 1.0 - value, invert);
 }
 
@@ -92,6 +95,9 @@ type Source = HTMLImageElement | HTMLVideoElement;
 
 interface Look {
 	invert: boolean;
+	// Darkest and brightest tones (0-1), like halftone.py's autocontrast
+	low: number;
+	high: number;
 	flat: boolean;
 	// object-fit: contain rather than cover
 	contain: boolean;
@@ -133,12 +139,13 @@ function createRenderer(): Draw | null {
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 	gl.uniform3fv(gl.getUniformLocation(program, 'ink'), INK);
 	const uniform = (name: string) => gl.getUniformLocation(program, name);
-	const [canvasSize, fitScale, cell, invert, noDots] = [
+	const [canvasSize, fitScale, cell, invert, noDots, levels] = [
 		'canvasSize',
 		'fitScale',
 		'cell',
 		'invert',
 		'noDots',
+		'levels',
 	].map(uniform);
 
 	return (source, target, look) => {
@@ -162,6 +169,7 @@ function createRenderer(): Draw | null {
 		gl.uniform1f(cell, CELL_CSS_PX * (window.devicePixelRatio || 1));
 		gl.uniform1f(invert, look.invert ? 1 : 0);
 		gl.uniform1f(noDots, look.flat ? 1 : 0);
+		gl.uniform2f(levels, look.low, look.high);
 		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, source);
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 		// Copy out in the same task, before the WebGL buffer is cleared
@@ -169,18 +177,28 @@ function createRenderer(): Draw | null {
 	};
 }
 
-/** Mean brightness (0-1) of an image, sampled on a 16x16 canvas. */
-function meanBrightness(image: HTMLImageElement): number {
+const SAMPLE_SIZE = 32;
+// Ignore the darkest and brightest 2% when finding an image's range
+const LEVELS_CUTOFF = 0.02;
+// A range narrower than this (a flat color) is left as it is
+const MIN_RANGE = 0.1;
+
+/** An image's brightness (0-1): its mean, and its darkest and brightest tones. */
+function measure(image: HTMLImageElement): { mean: number; low: number; high: number } {
 	const sample = document.createElement('canvas');
-	sample.width = sample.height = 16;
+	sample.width = sample.height = SAMPLE_SIZE;
 	const context = sample.getContext('2d', { willReadFrequently: true })!;
-	context.drawImage(image, 0, 0, 16, 16);
-	const { data } = context.getImageData(0, 0, 16, 16);
-	let total = 0;
+	context.drawImage(image, 0, 0, SAMPLE_SIZE, SAMPLE_SIZE);
+	const { data } = context.getImageData(0, 0, SAMPLE_SIZE, SAMPLE_SIZE);
+	const values: number[] = [];
 	for (let i = 0; i < data.length; i += 4) {
-		total += 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+		values.push((0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2]) / 255);
 	}
-	return total / (data.length / 4) / 255;
+	values.sort((a, b) => a - b);
+	const mean = values.reduce((sum, v) => sum + v, 0) / values.length;
+	const low = values[Math.floor(values.length * LEVELS_CUTOFF)];
+	const high = values[Math.ceil(values.length * (1 - LEVELS_CUTOFF)) - 1];
+	return high - low < MIN_RANGE ? { mean, low: 0, high: 1 } : { mean, low, high };
 }
 
 function attach(element: Source, draw: Draw): void {
@@ -192,6 +210,8 @@ function attach(element: Source, draw: Draw): void {
 
 	const look: Look = {
 		invert: false,
+		low: 0,
+		high: 1,
 		flat: element.dataset.halftone === 'flat',
 		contain: getComputedStyle(element).objectFit === 'contain',
 	};
@@ -233,7 +253,8 @@ function attach(element: Source, draw: Draw): void {
 
 	// Not img.decode(): a lazy image starting to load cancels a pending decode
 	const onStill = () => {
-		look.invert = meanBrightness(still) > LIGHT_IMAGE_MEAN;
+		const { mean, low, high } = measure(still);
+		Object.assign(look, { invert: mean > LIGHT_IMAGE_MEAN, low, high });
 		stillReady = true;
 		redraw();
 	};

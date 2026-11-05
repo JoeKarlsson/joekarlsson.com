@@ -8,7 +8,6 @@ import { projects } from '../data/projects';
 import { ARROW, CHALK, COIL, HERO_COIL, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 import { getCategoryCounts } from '../utils/categories';
-import { halftoneMode } from '../utils/halftone';
 import { getFeedPosts } from '../utils/posts';
 
 // Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
@@ -228,7 +227,7 @@ const COLLAGE = [
 						<img
 							src={post.data.heroImage || DEFAULT_HERO_IMAGE}
 							alt=""
-							data-halftone={halftoneMode(post.data.heroImage || DEFAULT_HERO_IMAGE)}
+							data-halftone="flat"
 							aria-hidden="true"
 							loading="lazy"
 							decoding="async"

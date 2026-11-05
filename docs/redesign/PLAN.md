@@ -308,4 +308,6 @@ Done when: every page uses the new system, `grep -r coral src` finds nothing, th
 - 2026-11-05 (Phase 5): images and clips with text get a flat pink-and-black tone, no dots, because dots made them unreadable (Joe). Which ones is found by macOS Vision (`npm run media:text`): 157 of 231 at the time, including every project screen recording.
 - 2026-11-05 (Phase 5): project clips autoplay while on screen (`in-view-play`, which honors pause-motion and reduced motion) instead of on hover; `hover-play.ts` is deleted.
 
+- 2026-11-05 (Phase 5): every post and project card (post rows, Recent posts, the featured post and project, project cards) is flat pink and black, no dots (Joe). Dots stay only on photo heroes and project-page media without text. Flat mode auto-levels each image (its 2nd-98th percentile tones stretched to black and full pink), so dark screenshots don't vanish.
+
 No open decisions.

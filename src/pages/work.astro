@@ -5,7 +5,6 @@ import { projects, CATEGORY_META } from '../data/projects';
 import Scribble from '../components/Scribble.astro';
 import { SOCIAL_LINKS } from '../consts';
 import { CHALK, MARKS } from '../data/scribbles';
-import { halftoneMode } from '../utils/halftone';
 
 const featuredProject = projects.find((p) => p.featured);
 const nonFeatured = projects.filter((p) => !p.featured);
@@ -84,14 +83,14 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 							role="img"
 							aria-label={featuredProject.imageAlt}
 							data-autoplay-in-view
-							data-halftone={halftoneMode(featuredProject.video)}
+							data-halftone="flat"
 							class="block aspect-video w-full rounded-xl object-cover"
 						/>
 					) : (
 						<img
 							src={featuredProject.image}
 							alt={featuredProject.imageAlt}
-							data-halftone={halftoneMode(featuredProject.image)}
+							data-halftone="flat"
 							width="1120"
 							height="630"
 							class="block aspect-video w-full rounded-xl object-cover"
