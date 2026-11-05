@@ -465,3 +465,12 @@ describe('link preview meta', () => {
 		expect(metaContent(html, 'twitter:image:alt')).toBe(alt);
 	});
 });
+
+describe('post suggestions', () => {
+	it("homepage Recent posts lists only Joe's own posts, never employer posts", () => {
+		const homepage = readDist('index.html');
+		const recent = homepage.slice(homepage.indexOf('Recent posts'), homepage.indexOf('posts →'));
+		expect(recent).toContain('href="/blog/');
+		expect(recent).not.toContain('Written for');
+	});
+});

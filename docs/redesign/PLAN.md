@@ -133,6 +133,7 @@ Phases 0–5 are shipped and live on joekarlsson.com (Phase 5 deployed 2026-11-0
 - Still photos in the montage.
 - The boat clip.
 - The interactive terminal, which is dropped (see Phase 2).
+- Saving or sharing visitors' drawing-board marks anywhere (homelab, PixelPane, a shared board). Strokes fade, full stop.
 
 ## Principles for every phase
 
@@ -275,7 +276,6 @@ Done when: every page uses the new system, `grep -r coral src` finds nothing, th
 1. Joe's scribble scans traced to SVG, replacing the generated marks: loops, rings, underlines, arrows, hatching, cross-outs, a few handwritten words, one or two big gestures and some color fields.
 2. Lens wordmarks made in Jitter or Rive, if Joe makes them. Wire them in as WebM or `.riv`.
 3. Optional:
-   - A drawing board that saves visitors' marks to the homelab.
    - Live homelab data in the tickers (Letterboxd, Home Assistant).
    - A 404 page that's a blank drawing board.
 

@@ -9,10 +9,10 @@ import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { ARROW, CHALK, MARKS } from '../data/scribbles';
 import { getCategoryCounts } from '../utils/categories';
-import { getFeedPosts } from '../utils/posts';
+import { getFeedPosts, isOwnPost } from '../utils/posts';
 
 const posts = await getFeedPosts();
-const latestPosts = posts.slice(0, 5);
+const latestPosts = posts.filter(isOwnPost).slice(0, 5);
 const topics = getCategoryCounts(posts.filter((p) => !p.isNewsletter));
 
 const PLACES = [

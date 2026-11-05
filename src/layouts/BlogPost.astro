@@ -4,6 +4,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 import BackLink from '../components/BackLink.astro';
 import { categorySlug } from '../utils/categories';
+import { isOwnPost } from '../utils/posts';
 import AuthorBio from '../components/AuthorBio.astro';
 import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -93,7 +94,11 @@ const noticeHtml = noticeMessage
 	: null;
 
 const allPosts = await getCollection('blog');
-const publishedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+// Keep reading suggests Joe's own posts, unless this post was written for an employer:
+// that reader came for employer posts, so those stay in the pool
+const publishedPosts = allPosts
+	.filter((p) => writtenFor || isOwnPost(p))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 // Primary category for prev/next
 const primaryCategory = categories?.[0];

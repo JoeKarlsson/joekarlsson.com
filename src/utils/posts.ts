@@ -1,5 +1,12 @@
 import { getCollection } from 'astro:content';
 
+// Joe's own posts, not ones written for an employer (`writtenFor`). Anywhere the site
+// suggests what to read next it suggests these; employer posts still appear in the
+// full archive, their category pages and their /blog/written-for/ page.
+export function isOwnPost(post: { data: { writtenFor?: string } }): boolean {
+	return !post.data.writtenFor;
+}
+
 export interface FeedPost {
 	id: string;
 	body?: string;

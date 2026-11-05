@@ -11,13 +11,13 @@ import { projects } from '../data/projects';
 import { ARROW, CHALK, COIL, HERO_COIL, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 import { getCategoryCounts } from '../utils/categories';
-import { getFeedPosts } from '../utils/posts';
+import { getFeedPosts, isOwnPost } from '../utils/posts';
 
 // Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
 const { runningContainers } = nowFeed.homelab;
 
 const allPosts = await getFeedPosts();
-const recentPosts = allPosts.slice(0, 5);
+const recentPosts = allPosts.filter(isOwnPost).slice(0, 5);
 // All six subject categories (BLOG_CATEGORIES), most posts first
 const topics = getCategoryCounts(allPosts.filter((p) => !p.isNewsletter));
 
