@@ -16,11 +16,6 @@ export default {
 				paper: '#ededed',
 				muted: '#a3a3a3',
 				pink: '#ff4fd8',
-				// Old accent, removed once the reskin leaves nothing using it.
-				// Teal and lavender are terminal-only syntax colors.
-				coral: '#fdae84',
-				teal: '#8bcbc8',
-				lavender: '#c4b5fd',
 				surface: {
 					0: '#0a0a0a',
 					1: '#111111',

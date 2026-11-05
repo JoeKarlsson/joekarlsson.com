@@ -34,7 +34,7 @@
 	}
 
 	body {
-		@apply bg-surface-0 text-gray-300 font-sans antialiased;
+		@apply bg-surface-0 text-paper font-sans antialiased;
 	}
 
 	h1,
@@ -47,7 +47,7 @@
 	}
 
 	a {
-		@apply text-coral hover:text-white transition-colors;
+		@apply text-pink hover:text-white transition-colors;
 	}
 
 	/* Ensure links in text blocks are distinguishable without relying solely on color */
@@ -55,12 +55,12 @@
 	li a,
 	td a,
 	dd a {
-		@apply underline underline-offset-2 decoration-gray-500 hover:decoration-coral;
+		@apply underline underline-offset-4 decoration-pink;
 	}
 
 	/* Focus-visible styles for keyboard accessibility (WCAG 2.4.7) */
 	:focus-visible {
-		@apply outline-2 outline-offset-2 outline-coral rounded-xs;
+		@apply outline-2 outline-offset-2 outline-pink rounded-xs;
 	}
 
 	/* src/scripts/halftone.ts draws these in pink on a canvas laid over them */
@@ -69,7 +69,7 @@
 	}
 
 	::selection {
-		@apply bg-coral text-surface-0;
+		@apply bg-pink text-ink;
 	}
 
 	::-webkit-scrollbar {
