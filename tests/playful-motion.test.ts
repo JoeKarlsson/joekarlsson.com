@@ -1,8 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import {
+	advanceCurl,
 	curledPoint,
 	hasCursorTrail,
 	livePoints,
+	newCurl,
 	pointsAlongMove,
 	TRAIL_LIFETIME_MS,
 } from '../src/scripts/cursor-trail';
@@ -39,30 +41,40 @@ describe('distanceToRect', () => {
 describe('livePoints', () => {
 	it('drops points older than the trail lifetime', () => {
 		const points = [
-			{ x: 0, y: 0, time: 0, distance: 0 },
-			{ x: 1, y: 1, time: 500, distance: 1 },
+			{ x: 0, y: 0, time: 0, angle: 0, reach: 10 },
+			{ x: 1, y: 1, time: 500, angle: 0, reach: 10 },
 		];
 		expect(livePoints(points, TRAIL_LIFETIME_MS + 100)).toEqual([points[1]]);
 	});
 });
 
 describe('curledPoint', () => {
-	it('sits on the cursor path when new and swings away from it as it ages', () => {
-		const point = { x: 100, y: 100, time: 0, distance: 0 };
+	it('sits on the cursor path when new and swings out to its reach as it ages', () => {
+		const point = { x: 100, y: 100, time: 0, angle: 0, reach: 12 };
 		expect(curledPoint(point, 0)).toEqual([100, 100]);
-		const [x, y] = curledPoint(point, TRAIL_LIFETIME_MS);
-		expect(Math.hypot(x - 100, y - 100)).toBeGreaterThan(10);
+		expect(curledPoint(point, TRAIL_LIFETIME_MS)).toEqual([112, 100]);
+	});
+});
+
+describe('advanceCurl', () => {
+	it('holds its course until the stretch runs out, then heads somewhere new', () => {
+		const random = () => 0.9;
+		const curl = newCurl(random);
+		const firstTurn = curl.targetTurn;
+		advanceCurl(curl, curl.untilChange - 1, () => 0.1);
+		expect(curl.targetTurn).toBe(firstTurn);
+		advanceCurl(curl, 2, () => 0.1);
+		expect(curl.targetTurn).not.toBe(firstTurn);
 	});
 });
 
 describe('pointsAlongMove', () => {
-	it('starts a fresh trail with one point', () => {
-		expect(pointsAlongMove(undefined, 5, 5, 0)).toEqual([{ x: 5, y: 5, time: 0, distance: 0 }]);
-	});
-
-	it('fills a long jump in with close points that keep counting distance', () => {
-		const filled = pointsAlongMove({ x: 0, y: 0, time: 0, distance: 10 }, 40, 0, 100);
+	it('fills a long jump in with close points, turning round the curl as it goes', () => {
+		const curl = newCurl(() => 0.5);
+		const last = { x: 0, y: 0, time: 0, angle: 0, reach: curl.reach };
+		const filled = pointsAlongMove(last, 40, 0, 100, curl, () => 0.5);
 		expect(filled).toHaveLength(10);
-		expect(filled.at(-1)).toEqual({ x: 40, y: 0, time: 100, distance: 50 });
+		expect(filled.at(-1)).toMatchObject({ x: 40, y: 0, time: 100 });
+		expect(filled.at(-1)!.angle).not.toBe(0);
 	});
 });
