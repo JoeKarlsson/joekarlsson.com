@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { hasCursorTrail, livePoints, TRAIL_LIFETIME_MS } from '../src/scripts/cursor-trail';
+import {
+	curledPoint,
+	hasCursorTrail,
+	livePoints,
+	pointsAlongMove,
+	TRAIL_LIFETIME_MS,
+} from '../src/scripts/cursor-trail';
 import { distanceToRect } from '../src/scripts/scribble-notice';
 
 describe('hasCursorTrail', () => {
@@ -33,9 +39,30 @@ describe('distanceToRect', () => {
 describe('livePoints', () => {
 	it('drops points older than the trail lifetime', () => {
 		const points = [
-			{ x: 0, y: 0, time: 0 },
-			{ x: 1, y: 1, time: 500 },
+			{ x: 0, y: 0, time: 0, distance: 0 },
+			{ x: 1, y: 1, time: 500, distance: 1 },
 		];
 		expect(livePoints(points, TRAIL_LIFETIME_MS + 100)).toEqual([points[1]]);
+	});
+});
+
+describe('curledPoint', () => {
+	it('sits on the cursor path when new and swings away from it as it ages', () => {
+		const point = { x: 100, y: 100, time: 0, distance: 0 };
+		expect(curledPoint(point, 0)).toEqual([100, 100]);
+		const [x, y] = curledPoint(point, TRAIL_LIFETIME_MS);
+		expect(Math.hypot(x - 100, y - 100)).toBeGreaterThan(10);
+	});
+});
+
+describe('pointsAlongMove', () => {
+	it('starts a fresh trail with one point', () => {
+		expect(pointsAlongMove(undefined, 5, 5, 0)).toEqual([{ x: 5, y: 5, time: 0, distance: 0 }]);
+	});
+
+	it('fills a long jump in with close points that keep counting distance', () => {
+		const filled = pointsAlongMove({ x: 0, y: 0, time: 0, distance: 10 }, 40, 0, 100);
+		expect(filled).toHaveLength(10);
+		expect(filled.at(-1)).toEqual({ x: 40, y: 0, time: 100, distance: 50 });
 	});
 });
