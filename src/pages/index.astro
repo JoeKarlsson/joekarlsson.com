@@ -5,7 +5,7 @@ import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE, SITE_DESCRIPTION } from '../consts';
 import { projects } from '../data/projects';
-import { ARROW, HERO_COIL } from '../data/scribbles';
+import { ARROW, CHALK, HERO_COIL, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts } from '../utils/posts';
@@ -86,6 +86,27 @@ const COLLAGE = [
 				preload="metadata"
 				aria-label="Montage of short halftone clips of Joe"
 			></video>
+			<Scribble
+				{...MARKS.tally}
+				color="#000"
+				duration="9s"
+				delay="0.6s"
+				class="top-[6%] right-[6%] h-[11%] w-[22%]"
+			/>
+			<Scribble
+				{...MARKS.lines}
+				color={CHALK}
+				duration="11s"
+				delay="1.8s"
+				class="bottom-[9%] left-[5%] h-[15%] w-[68%]"
+			/>
+			<Scribble
+				{...MARKS.hatch}
+				color={CHALK}
+				duration="8s"
+				delay="3.2s"
+				class="right-[5%] bottom-[5%] h-[10%] w-[20%]"
+			/>
 		</div>
 		<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
 			<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink" aria-hidden="true">
@@ -128,8 +149,15 @@ const COLLAGE = [
 
 	<section class="relative px-4 pt-20 sm:px-7">
 		<h2 class="mb-[18px] font-display text-[clamp(40px,4.6vw,64px)] leading-none uppercase">
-			<a href="/blog/" class="text-pink no-underline hover:text-pink hover:underline">
+			<a href="/blog/" class="relative text-pink no-underline hover:text-pink hover:underline">
 				Recent posts
+				<Scribble
+					{...MARKS.underline}
+					color={CHALK}
+					duration="8s"
+					delay="0.5s"
+					class="-bottom-[0.3em] left-0 h-[0.3em] w-full"
+				/>
 			</a>
 		</h2>
 		<ul>
@@ -178,7 +206,7 @@ const COLLAGE = [
 		</p>
 	</section>
 
-	<p class="mx-4 mt-[110px] mb-[30px] flex items-baseline justify-center gap-[0.28em] font-display text-[clamp(32px,10vw,170px)] leading-[0.88] whitespace-nowrap text-paper uppercase sm:mx-7">
+	<p class="relative mx-4 mt-[110px] mb-[30px] flex items-baseline justify-center gap-[0.28em] font-display text-[clamp(32px,10vw,170px)] leading-[0.88] whitespace-nowrap text-paper uppercase sm:mx-7">
 		<span class="sr-only">Ship the ugly pot</span>
 		<span aria-hidden="true">Ship the</span>
 		<span class="slot-window" aria-hidden="true">
@@ -188,6 +216,13 @@ const COLLAGE = [
 				))}
 			</span>
 		</span>
+		<Scribble
+			{...MARKS.check}
+			color={CHALK}
+			duration="7s"
+			delay="2s"
+			class="-top-[0.35em] right-[2%] hidden h-[0.55em] w-[0.8em] md:block"
+		/>
 	</p>
 
 	<section class="relative overflow-x-clip px-4 pt-20 sm:px-7">
@@ -196,6 +231,13 @@ const COLLAGE = [
 				Projects
 			</a>
 		</h2>
+		<Scribble
+			{...MARKS.hatch}
+			color="#ff4fd8"
+			duration="9s"
+			delay="1s"
+			class="top-[86px] right-[6%] h-[60px] w-[120px]"
+		/>
 		<div class="border-b border-surface-4">
 			{homeProjects.map((project, i) => (
 				<IndexRow href={project.href} label={project.title} meta={project.meta} index={i} />
@@ -216,6 +258,13 @@ const COLLAGE = [
 				Writing by topic
 			</a>
 		</h2>
+		<Scribble
+			{...MARKS.lines}
+			color={CHALK}
+			duration="12s"
+			delay="0.4s"
+			class="top-[92px] right-[4%] hidden h-[56px] w-[250px] sm:block"
+		/>
 		<div class="border-b border-surface-4">
 			{topics.map((topic, i) => (
 				<IndexRow
@@ -233,22 +282,43 @@ const COLLAGE = [
 		</p>
 	</section>
 
-	<div class="collage mx-4 mt-20 grid grid-cols-2 items-center gap-5 sm:mx-7 md:grid-cols-6">
-		{COLLAGE.map(({ name, alt }) => (
-			<figure>
-				<video
-					class="block w-full"
-					src={`/images/home/${name}.mp4`}
-					poster={`/images/home/${name}-poster.webp`}
-					data-autoplay-in-view
-					muted
-					loop
-					playsinline
-					preload="none"
-					aria-label={alt}
-				/>
-			</figure>
-		))}
+	<!-- Clips marks that hang past the clips at the screen edge -->
+	<div class="overflow-x-clip">
+		<div class="collage mx-4 mt-20 grid grid-cols-2 items-center gap-5 sm:mx-7 md:grid-cols-6">
+			{COLLAGE.map(({ name, alt }, i) => (
+				<figure class="relative">
+					<video
+						class="block w-full"
+						src={`/images/home/${name}.mp4`}
+						poster={`/images/home/${name}-poster.webp`}
+						data-autoplay-in-view
+						muted
+						loop
+						playsinline
+						preload="none"
+						aria-label={alt}
+					/>
+					{i === 3 && (
+						<Scribble
+							{...MARKS.box}
+							color={CHALK}
+							duration="10s"
+							delay="1.5s"
+							class="-inset-[10%] size-[120%]"
+						/>
+					)}
+					{i === 0 && (
+						<Scribble
+							{...MARKS.cross}
+							color="#ff4fd8"
+							duration="8s"
+							delay="3s"
+							class="-top-[18%] -left-[8%] size-[70px]"
+						/>
+					)}
+				</figure>
+			))}
+		</div>
 	</div>
 
 	<!-- Clips the tilted ticker's corners so the page doesn't scroll sideways -->
