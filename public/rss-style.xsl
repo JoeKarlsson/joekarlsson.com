@@ -16,6 +16,8 @@
         <title><xsl:value-of select="/rss/channel/title"/> - RSS Feed</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap"/>
         <style>
           * {
             margin: 0;
@@ -23,9 +25,9 @@
             box-sizing: border-box;
           }
           body {
-            background: #0a0a0f;
-            color: #a0a0b0;
-            font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+            background: #000000;
+            color: #a3a3a3;
+            font-family: "JetBrains Mono", "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
             font-size: 14px;
             line-height: 1.6;
             padding: 2rem;
@@ -37,18 +39,19 @@
             white-space: pre-wrap;
           }
           .prompt {
-            color: #fdae84;
+            color: #ff4fd8;
             font-weight: bold;
           }
           .info {
-            color: #a0a0b0;
+            color: #a3a3a3;
             margin-top: 0.5rem;
           }
           .url {
-            color: #8bcbc8;
+            color: #ededed;
+            text-decoration-color: #ff4fd8;
           }
           .section-title {
-            color: #fdae84;
+            color: #ff4fd8;
             font-weight: bold;
             margin-bottom: 1rem;
           }
@@ -56,17 +59,17 @@
             margin-bottom: 1.25rem;
           }
           .post-date {
-            color: #666680;
+            color: #a3a3a3;
             display: inline;
           }
           .post-title {
-            color: #e0e0e8;
+            color: #ededed;
             display: inline;
             margin-left: 0.5rem;
           }
           .post-link {
             display: block;
-            color: #8bcbc8;
+            color: #ff4fd8;
             text-decoration: none;
             padding-left: 12ch;
           }

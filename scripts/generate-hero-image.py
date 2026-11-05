@@ -10,7 +10,7 @@ If no category given, defaults to a generic terminal aesthetic.
 
 Style: Dark background, monospace text, geometric grid elements, scanlines,
        terminal chrome. No photos, no illustrations, no title text. Pure vibe.
-       Each category gets its own color palette and themed code fragments.
+       Every category uses the site's hot pink; each gets its own code fragments.
 
 Colors pulled from tailwind.config.mjs.
 """
@@ -22,25 +22,16 @@ import sys
 
 from PIL import Image, ImageDraw, ImageFont
 
-# Site color palette
+# Site color palette (tailwind.config.mjs): black ink, paper-white, gray, one hot pink accent
 COLORS = {
-    "bg": "#0a0a0a",
+    "bg": "#000000",
     "surface1": "#111111",
     "surface2": "#1a1a1a",
     "surface3": "#222222",
     "surface4": "#3a3a3a",
-    "coral": "#fdae84",
-    "teal": "#8bcbc8",
-    "lavender": "#c4b5fd",
-    "mint": "#6ee7b7",
-    "pink": "#f9a8d4",
-    "sky": "#7dd3fc",
-    "green": "#4ade80",
-    "blue": "#60a5fa",
-    "purple": "#c084fc",
-    "yellow": "#fbbf24",
-    "red": "#f87171",
-    "cyan": "#22d3ee",
+    "pink": "#ff4fd8",
+    "paper": "#ededed",
+    "muted": "#a3a3a3",
 }
 
 WIDTH = 1280
@@ -49,7 +40,7 @@ HEIGHT = 720
 # Category-specific themes: (accent color keys, code fragments)
 CATEGORY_THEMES = {
     "homelab": {
-        "accents": ["green", "teal", "cyan"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "$ ssh root@proxmox",
             "$ pct list",
@@ -78,7 +69,7 @@ CATEGORY_THEMES = {
         ],
     },
     "smart-home": {
-        "accents": ["coral", "yellow", "pink"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "automation:",
             "  trigger:",
@@ -103,7 +94,7 @@ CATEGORY_THEMES = {
         ],
     },
     "databases": {
-        "accents": ["blue", "purple", "lavender"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "SELECT * FROM users",
             "  WHERE created_at > NOW() - INTERVAL '7d'",
@@ -129,7 +120,7 @@ CATEGORY_THEMES = {
         ],
     },
     "dev-tools": {
-        "accents": ["cyan", "green", "sky"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "$ git log --oneline -5",
             "a3f2c1d feat: add new API endpoint",
@@ -155,7 +146,7 @@ CATEGORY_THEMES = {
         ],
     },
     "devrel": {
-        "accents": ["coral", "lavender", "mint"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "$ gh pr list --state open",
             "#142  docs: update quickstart guide",
@@ -179,7 +170,7 @@ CATEGORY_THEMES = {
         ],
     },
     "iot": {
-        "accents": ["green", "yellow", "cyan"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "$ platformio run --target upload",
             "Compiling .pio/build/esp32/src/main.cpp.o",
@@ -202,7 +193,7 @@ CATEGORY_THEMES = {
         ],
     },
     "career": {
-        "accents": ["lavender", "coral", "sky"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "$ cat career.log | tail -20",
             "2018: junior developer @ startup",
@@ -226,7 +217,7 @@ CATEGORY_THEMES = {
         ],
     },
     "travel": {
-        "accents": ["coral", "sky", "mint"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "$ curl api.weather.com/forecast",
             "{ \"temp\": 28, \"condition\": \"sunny\" }",
@@ -250,7 +241,7 @@ CATEGORY_THEMES = {
         ],
     },
     "film": {
-        "accents": ["pink", "purple", "yellow"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "$ ffprobe input.mkv",
             "Duration: 02:14:33.12",
@@ -274,7 +265,7 @@ CATEGORY_THEMES = {
         ],
     },
     "personal": {
-        "accents": ["coral", "teal", "lavender"],
+        "accents": ["pink", "paper", "pink"],
         "code": [
             "$ neofetch",
             "OS: macOS 15.3 Sequoia",
@@ -303,7 +294,7 @@ CATEGORY_THEMES = {
 
 # Generic fallback
 GENERIC_THEME = {
-    "accents": ["coral", "teal", "lavender"],
+    "accents": ["pink", "paper", "pink"],
     "code": [
         "$ echo 'hello world'",
         "hello world",
@@ -444,9 +435,9 @@ def draw_terminal_chrome(draw, rng, accent):
     # Three dots (macOS window controls)
     dot_y = bar_y + bar_height // 2
     dot_colors = [
-        hex_to_rgb(COLORS["red"]),
-        hex_to_rgb(COLORS["yellow"]),
-        hex_to_rgb(COLORS["green"]),
+        hex_to_rgb(COLORS["pink"]),
+        hex_to_rgb(COLORS["muted"]),
+        hex_to_rgb(COLORS["muted"]),
     ]
     dot_r = max(4, bar_height // 8)
     for i, dc in enumerate(dot_colors):
