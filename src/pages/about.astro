@@ -9,7 +9,7 @@ import nowFeed from '../data/now-feed.json';
 import { CHALK, HERO_COIL, MARKS } from '../data/scribbles';
 
 const SECTION_HEADING =
-	'mb-6 scroll-mt-24 font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
+	'relative mb-6 w-fit scroll-mt-24 font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
 const CARD_TITLE =
 	'font-display text-[clamp(24px,2vw,30px)] leading-none font-normal text-paper uppercase';
 
@@ -292,6 +292,13 @@ const cropArtPieces = [
 
 				<h2 id="career" class={SECTION_HEADING}>
 					Career
+					<Scribble
+						{...MARKS.underline}
+						color={CHALK}
+						duration="7s"
+						delay="0.0s"
+						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+					/>
 				</h2>
 				<div class="mb-6">
 					{career.map((job) => (
@@ -316,6 +323,13 @@ const cropArtPieces = [
 
 				<h2 id="specializations" class={SECTION_HEADING}>
 					What I work on
+					<Scribble
+						{...MARKS.rays}
+						color={'#ff4fd8'}
+						duration="8s"
+						delay="0.6s"
+						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+					/>
 				</h2>
 				<div class="mb-12 grid gap-6 sm:grid-cols-3">
 					<div>
@@ -341,6 +355,13 @@ const cropArtPieces = [
 
 				<h2 id="recognition" class={SECTION_HEADING}>
 					Recognition
+					<Scribble
+						{...MARKS.asterisk}
+						color={CHALK}
+						duration="9s"
+						delay="1.2s"
+						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
+					/>
 				</h2>
 				<ul class="mb-12 grid gap-x-8 gap-y-5 sm:grid-cols-2">
 					<li>
@@ -411,6 +432,13 @@ const cropArtPieces = [
 
 				<h2 id="as-seen-on" class={SECTION_HEADING}>
 					As seen on
+					<Scribble
+						{...MARKS.double}
+						color={'#ff4fd8'}
+						duration="10s"
+						delay="0.0s"
+						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
+					/>
 				</h2>
 				<ul class="mb-8 grid gap-6 sm:grid-cols-2">
 					{featuredPodcasts.map((podcast) => (
@@ -464,16 +492,32 @@ const cropArtPieces = [
 
 				<h2 id="videos" class={SECTION_HEADING}>
 					Videos
+					<Scribble
+						{...MARKS.underline}
+						color={'#ff4fd8'}
+						duration="7s"
+						delay="0.6s"
+						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+					/>
 				</h2>
 				<div class="mb-12 space-y-8">
 					<div>
 						<h3 class="mb-3 text-lg font-semibold text-paper">
 							The Art of Computer Science (TEDx)
 						</h3>
-						<YouTubeFacade
-							id="GiNa2jen-lg"
-							title="The Art of Computer Science - TEDx Talk by Joe Karlsson"
-						/>
+						<div class="relative">
+							<YouTubeFacade
+								id="GiNa2jen-lg"
+								title="The Art of Computer Science - TEDx Talk by Joe Karlsson"
+							/>
+							<Scribble
+								{...MARKS.box}
+								color={CHALK}
+								duration="10s"
+								delay="0.8s"
+								class="-inset-[3%] z-20 h-[106%] w-[106%]"
+							/>
+						</div>
 					</div>
 					<div class="grid gap-6 sm:grid-cols-2">
 						<div>
@@ -526,6 +570,13 @@ const cropArtPieces = [
 
 				<h2 id="interests" class={SECTION_HEADING}>
 					Outside of work
+					<Scribble
+						{...MARKS.rays}
+						color={CHALK}
+						duration="8s"
+						delay="1.2s"
+						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+					/>
 				</h2>
 				<div class="mb-12 grid gap-8 sm:grid-cols-2">
 					<a
@@ -540,6 +591,13 @@ const cropArtPieces = [
 							width="300"
 							height="112"
 							loading="lazy"
+						/>
+						<Scribble
+							{...MARKS.check}
+							color={CHALK}
+							duration="9s"
+							delay="0.0s"
+							class="-top-[7%] -right-[5%] z-10 size-[24%]"
 						/>
 						<h3 class:list={[CARD_TITLE, 'mb-2 group-hover:text-pink']}>Homelabber</h3>
 						<p class="text-muted">
@@ -556,6 +614,13 @@ const cropArtPieces = [
 							width="300"
 							height="112"
 							loading="lazy"
+						/>
+						<Scribble
+							{...MARKS.tally}
+							color="#ff4fd8"
+							duration="9s"
+							delay="0.7s"
+							class="-top-[7%] -right-[5%] z-10 size-[24%]"
 						/>
 						<h3 class:list={[CARD_TITLE, 'mb-2 group-hover:text-pink']}>Speaker</h3>
 						<p class="text-muted">
@@ -575,6 +640,13 @@ const cropArtPieces = [
 							width="300"
 							height="112"
 							loading="lazy"
+						/>
+						<Scribble
+							{...MARKS.burst}
+							color={CHALK}
+							duration="9s"
+							delay="1.4s"
+							class="-top-[7%] -right-[5%] z-10 size-[24%]"
 						/>
 						<h3 class:list={[CARD_TITLE, 'mb-2 group-hover:text-pink']}>
 							Cat Person / IoT Tinkerer
@@ -599,6 +671,13 @@ const cropArtPieces = [
 							height="112"
 							loading="lazy"
 						/>
+						<Scribble
+							{...MARKS.asterisk}
+							color="#ff4fd8"
+							duration="9s"
+							delay="2.1s"
+							class="-top-[7%] -right-[5%] z-10 size-[24%]"
+						/>
 						<h3 class:list={[CARD_TITLE, 'mb-2 group-hover:text-pink']}>Crop Artist</h3>
 						<p class="text-muted">
 							I make art by gluing seeds to cardboard. Exhibited at the Minnesota State Fair and the
@@ -609,6 +688,13 @@ const cropArtPieces = [
 
 				<h2 id="now" class={SECTION_HEADING}>
 					Right now
+					<Scribble
+						{...MARKS.asterisk}
+						color={'#ff4fd8'}
+						duration="9s"
+						delay="0.0s"
+						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
+					/>
 				</h2>
 				<div class="mb-12">
 					<NowFeed />
@@ -616,6 +702,13 @@ const cropArtPieces = [
 
 				<h2 id="crop-art" class={SECTION_HEADING}>
 					Crop art
+					<Scribble
+						{...MARKS.underline}
+						color={CHALK}
+						duration="10s"
+						delay="0.6s"
+						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+					/>
 				</h2>
 				<div class="mb-12">
 					<p class="mb-6 text-muted">
@@ -661,7 +754,16 @@ const cropArtPieces = [
 					</p>
 				</div>
 
-				<h2 class={SECTION_HEADING}>Keep exploring</h2>
+				<h2 class={SECTION_HEADING}>
+					Keep exploring
+					<Scribble
+						{...MARKS.double}
+						color={CHALK}
+						duration="8s"
+						delay="0.6s"
+						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
+					/>
+				</h2>
 				<ul class="mb-12 space-y-2">
 					<li>
 						<a href="/resume/" class="font-semibold text-pink no-underline hover:text-white">
