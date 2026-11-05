@@ -65,9 +65,14 @@ test.describe('Responsive Breakpoints', () => {
 
 		await expect(page.locator('main').first()).toBeVisible();
 
-		// No horizontal overflow
-		const bodyWidth = await page.evaluate(() => document.body.scrollWidth);
-		expect(bodyWidth).toBeLessThanOrEqual(320);
+		// The page never scrolls sideways. Crayon marks hang past the edge on purpose and
+		// html/body clip them, so body.scrollWidth counts them; check what a visitor sees.
+		const { pageWidth, scrollX } = await page.evaluate(() => {
+			window.scrollTo(400, 0);
+			return { pageWidth: document.documentElement.scrollWidth, scrollX: window.scrollX };
+		});
+		expect(pageWidth).toBeLessThanOrEqual(320);
+		expect(scrollX).toBe(0);
 	});
 
 	test('large desktop (1920px) renders correctly', async ({ page }) => {
