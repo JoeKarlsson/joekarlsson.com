@@ -6,7 +6,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_DESCRIPTION } from '../consts';
 import { getFeedPosts } from '../utils/posts';
 import { projects } from '../data/projects';
+import nowFeed from '../data/now-feed.json';
 import '../styles/terminal.css';
+
+// Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
+const { runningContainers } = nowFeed.homelab;
 
 const homepageProjects = projects
 	.filter((p) =>
@@ -63,11 +67,11 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					</p>
 					<p class="text-gray-300 mb-3">
 						Leading developer marketing at <span class="text-white">CData</span>. Outside of work I
-						run a<span class="text-teal">40+ container homelab</span>, watch way too many movies,
-						and build things that probably shouldn't be connected to the internet.
+						run a <span class="text-teal">{runningContainers}-container homelab</span>, watch way
+						too many movies, and build things that probably shouldn't be connected to the internet.
 					</p>
 					<p class="text-gray-300 mb-4">
-						I once built an IoT cat toilet and gave a conference talk about it. Also a
+						I once built an IoT cat toilet and gave a conference talk about it. Also a{' '}
 						<span class="text-white">TEDx speaker</span>. I contain multitudes.
 					</p>
 
@@ -116,6 +120,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				</div>
 				<div
 					id="terminal"
+					data-running-containers={runningContainers}
 					class="terminal-body bg-surface-0 px-4 md:px-8 py-4 md:py-6 font-mono text-sm leading-relaxed h-112 overflow-y-auto cursor-text relative"
 					tabindex="0"
 					role="application"
@@ -193,11 +198,11 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 					</p>
 					<p class="text-gray-300 mb-2">
 						Leading developer marketing at <span class="text-white">CData</span>. Outside of work I
-						run a<span class="text-teal">40+ container homelab</span>, watch way too many movies,
-						and build things that probably shouldn't be connected to the internet.
+						run a <span class="text-teal">{runningContainers}-container homelab</span>, watch way
+						too many movies, and build things that probably shouldn't be connected to the internet.
 					</p>
 					<p class="text-gray-300">
-						I once built an IoT cat toilet and gave a conference talk about it. Also a
+						I once built an IoT cat toilet and gave a conference talk about it. Also a{' '}
 						<span class="text-white">TEDx speaker</span>. I contain multitudes.
 					</p>
 				</div>
@@ -947,7 +952,7 @@ const posts = allPosts.filter((p) => !featuredSlugs.includes(p.data.slug)).slice
 				'  doing that at <span class="text-white">CData</span>, on the MCP',
 				'  platform that wires AI agents to enterprise data.',
 				'',
-				'  Outside of work I run a <span class="text-teal">40+ container homelab</span>,',
+				`  Outside of work I run a <span class="text-teal">${_terminal?.dataset.runningContainers}-container homelab</span>,`,
 				'  watch way too many movies, and build things that',
 				"  probably shouldn't be connected to the internet.",
 				'',

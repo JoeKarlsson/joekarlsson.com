@@ -6,29 +6,46 @@
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"commitCount": 99,
-			"commitCountIsCapped": true
+			"language": "Astro",
+			"commitCount": 114,
+			"dailyCommitCounts": [
+				3, 6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 3
+			],
+			"latestCommitMessage": "feat: Show recently committed-to GitHub repos and live homelab stats..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
-			"commitCount": 100,
-			"commitCountIsCapped": true
+			"language": "Swift",
+			"commitCount": 245,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23,
+				51
+			],
+			"latestCommitMessage": "chore: The CLI check on the render's sound asserts what it guards..."
 		},
 		{
 			"name": "screencast-director-glitch",
 			"description": "Analog and glitch effects (VHS/CRT, datamosh) for Screencast Director",
 			"url": "https://github.com/JoeKarlsson/screencast-director-glitch",
+			"language": "Metal",
 			"commitCount": 7,
-			"commitCountIsCapped": false
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7
+			],
+			"latestCommitMessage": "fix: Track draws detector boxes: a thin outline around the face, hands..."
 		},
 		{
 			"name": "dotfiles",
 			"description": "My dotfiles, managed with chezmoi",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
+			"language": "Shell",
 			"commitCount": 68,
-			"commitCountIsCapped": false
+			"dailyCommitCounts": [
+				6, 0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 0
+			],
+			"latestCommitMessage": "feat: Manage claude-dev's Claude Code settings from the same template..."
 		}
 	],
 	"films": [

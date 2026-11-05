@@ -22,6 +22,9 @@ for (const [name, value] of Object.entries({
 const GITHUB_USERNAME = 'JoeKarlsson';
 const SHIPPING_WINDOW_DAYS = 30;
 const SHIPPING_MAX_REPOS = 4;
+// Each page is one of the 60 unauthenticated requests GitHub allows per hour.
+const MAX_COMMIT_PAGES_PER_REPO = 5;
+const LATEST_COMMIT_MESSAGE_MAX_CHARS = 70;
 const LETTERBOXD_RSS_URL = 'https://letterboxd.com/joekarlsson/rss/';
 const ITEMS_PER_FEED = 4;
 const REVIEW_EXCERPT_MAX_CHARS = 160;
@@ -147,6 +150,22 @@ const GITHUB_REQUEST_OPTIONS = { headers: { Accept: 'application/vnd.github+json
 // deploy.sh commits the snapshot on every deploy; those aren't work worth counting.
 const SNAPSHOT_REFRESH_COMMIT_MESSAGE = 'chore: Refresh recently watched and listened snapshot';
 
+async function fetchAllCommitsSince(repoFullName, sinceIso) {
+	const commits = [];
+	let url = `https://api.github.com/repos/${repoFullName}/commits?author=${GITHUB_USERNAME}&since=${sinceIso}&per_page=100`;
+	for (let page = 1; url; page += 1) {
+		if (page > MAX_COMMIT_PAGES_PER_REPO) {
+			throw new Error(
+				`${repoFullName} has over ${MAX_COMMIT_PAGES_PER_REPO * 100} commits since ${sinceIso}`,
+			);
+		}
+		const response = await fetchOrThrow(url, GITHUB_REQUEST_OPTIONS);
+		commits.push(...(await response.json()));
+		url = response.headers.get('link')?.match(/<([^>]+)>; rel="next"/)?.[1];
+	}
+	return commits;
+}
+
 async function fetchRecentlyShippedRepos() {
 	const windowStart = new Date(Date.now() - SHIPPING_WINDOW_DAYS * 24 * 60 * 60 * 1000);
 	const reposResponse = await fetchOrThrow(
@@ -164,21 +183,33 @@ async function fetchRecentlyShippedRepos() {
 	const shippedRepos = [];
 	for (const repo of candidateRepos) {
 		if (shippedRepos.length === SHIPPING_MAX_REPOS) break;
-		const commitsResponse = await fetchOrThrow(
-			`https://api.github.com/repos/${repo.full_name}/commits?author=${GITHUB_USERNAME}&since=${windowStart.toISOString()}&per_page=100`,
-			GITHUB_REQUEST_OPTIONS,
-		);
-		const commits = (await commitsResponse.json()).filter(
+		const commits = (await fetchAllCommitsSince(repo.full_name, windowStart.toISOString())).filter(
 			(commit) => !commit.commit.message.startsWith(SNAPSHOT_REFRESH_COMMIT_MESSAGE),
 		);
 		if (commits.length === 0) continue;
+		const commitCountByDate = {};
+		for (const commit of commits) {
+			const date = new Date(commit.commit.author.date).toLocaleDateString('en-CA');
+			commitCountByDate[date] = (commitCountByDate[date] || 0) + 1;
+		}
+		// Oldest first, today last, one entry per day including the empty ones.
+		const dailyCommitCounts = Array.from({ length: SHIPPING_WINDOW_DAYS }, (_, index) => {
+			const daysAgo = SHIPPING_WINDOW_DAYS - 1 - index;
+			const date = new Date(Date.now() - daysAgo * 24 * 60 * 60 * 1000).toLocaleDateString('en-CA');
+			return commitCountByDate[date] || 0;
+		});
 		shippedRepos.push({
 			name: repo.name,
 			description: repo.description,
 			url: repo.html_url,
-			// The API caps a page at 100; past that, the count is a floor.
+			language: repo.language,
 			commitCount: commits.length,
-			commitCountIsCapped: commitsResponse.headers.get('link')?.includes('rel="next"') ?? false,
+			dailyCommitCounts,
+			// The API lists newest first.
+			latestCommitMessage: truncateAtWord(
+				commits[0].commit.message.split('\n')[0],
+				LATEST_COMMIT_MESSAGE_MAX_CHARS,
+			),
 		});
 	}
 	return shippedRepos;
