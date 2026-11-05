@@ -192,7 +192,7 @@ export const projects: Project[] = [
 	{
 		title: 'Moodlite - Smart IoT Light Panels',
 		description:
-			'DIY smart light panels inspired by Nanoleaf, built with 3D-printed housings, WS2812B LED strips, and an ESP8266. Controllable via MQTT and Home Assistant. A fun weekend project that turned into a deep dive into embedded systems.',
+			'DIY smart light panels inspired by Nanoleaf, built with 3D-printed housings, WS2812B LED strips, and an ESP8266. Controllable via MQTT and Home Assistant.',
 		image: '/images/projects/moodlite.webp',
 		imageAlt: 'Moodlite Smart Light Panels',
 		category: 'iot',
@@ -202,7 +202,7 @@ export const projects: Project[] = [
 	{
 		title: '3D-Printed Postcard Rack Planter',
 		description:
-			'Custom 3D-printed planter insert designed in Fusion 360 for a recycled postcard rack. Printed on my Prusa MK3. A fun exercise in turning digital design into a real-world object.',
+			'Custom 3D-printed planter insert designed in Fusion 360 for a recycled postcard rack. Printed on my Prusa MK3.',
 		image:
 			'/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/Postcard-Rack-Planter.webp',
 		imageAlt: '3D Printed Planter',

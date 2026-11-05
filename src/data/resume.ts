@@ -28,10 +28,9 @@ export const roles: Role[] = [
 		bullets: [
 			"Lead developer marketing for CData's managed MCP platform - the layer that connects AI agents to live enterprise data - owning developer growth end to end",
 			'Own the developer growth engine: technical docs, content, SEO and AEO, and how the platform gets positioned to the engineers actually building on it',
-			'Scaling the organic developer adoption already forming around Connect AI on purpose - find what is working, then do a lot more of it',
+			'Grow the organic developer adoption already forming around Connect AI',
 			'Partner with Product, Engineering, and Docs to keep the developer experience tight and make CData the obvious pick for wiring AI agents up to enterprise data',
 			'Build the demos, guides, and content that show developers how to solve their actual problem instead of pitching at them',
-			"Stay in the code - I write, build, and ship alongside the team so the marketing holds up to the engineers it's aimed at",
 		],
 	},
 	{
@@ -43,7 +42,7 @@ export const roles: Role[] = [
 		logo: '/images/logos/cloudquery.webp',
 		tech: ['GCP', 'AWS', 'Azure', 'ClickHouse', 'Python', 'SQL'],
 		bullets: [
-			'Built the Developer Relations function from scratch - sole owner of content, community, docs, events, and video; focused on making developers genuinely successful first, business results followed',
+			'Built the Developer Relations function from scratch - sole owner of content, community, docs, events, and video',
 			'Rewrote docs end-to-end: Quickstart completions went from zero to 25/week, docs traffic grew 302%, and docs became a measurable activation channel',
 			'Grew organic traffic 4x in under 3 months (~1,350 → 5,600+ visitors/week); two target keywords reached #1',
 			'Monthly MQLs hit 239% of target; content became a measurable pipeline channel, with organic readers converting to trials and closed deals with no paid touchpoints',
