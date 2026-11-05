@@ -1,9 +1,9 @@
 ---
-// Recently watched films and podcast episodes, from the snapshot that
-// scripts/update-now-feed.mjs writes on every deploy.
+// Recently shipped repos, watched films and podcast episodes, from the snapshot
+// that scripts/update-now-feed.mjs writes on every deploy.
 import nowFeed from '../data/now-feed.json';
 
-const { updatedAt, films, podcastEpisodes } = nowFeed;
+const { updatedAt, shippingWindowDays, shippedRepos, films, podcastEpisodes } = nowFeed;
 
 function ratingStars(rating: number) {
 	return '★'.repeat(Math.floor(rating)) + (rating % 1 ? '½' : '');
@@ -18,6 +18,31 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 ---
 
 <div class="mt-6">
+	{shippedRepos.length > 0 && (
+		<>
+			<p class="mb-3 font-mono text-xs text-gray-400">recently shipped</p>
+			<div class="mb-8 grid gap-4 sm:grid-cols-2">
+				{shippedRepos.map((repo) => (
+					<a
+						href={repo.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="plausible-event-name=Now+Feed+Click plausible-event-source=github group block no-underline"
+					>
+						<p class="font-mono text-sm font-semibold text-white group-hover:text-coral">
+							{repo.name}
+						</p>
+						<p class="text-xs text-coral">
+							{repo.commitCountIsCapped ? '100+' : repo.commitCount} commits in the last{' '}
+							{shippingWindowDays} days
+						</p>
+						{repo.description && <p class="mt-1 text-xs text-gray-400">{repo.description}</p>}
+					</a>
+				))}
+			</div>
+		</>
+	)}
+
 	<p class="mb-3 font-mono text-xs text-gray-400">recently watched</p>
 	<div class="grid gap-4 grid-cols-2 sm:grid-cols-4">
 		{films.map((film) => (
@@ -89,7 +114,11 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 	</div>
 
 	<p class="mt-4 font-mono text-xs text-gray-400">
-		as of {formattedUpdatedAt}. Films via{' '}
+		as of {formattedUpdatedAt}. Commits via{' '}
+		<a href="https://github.com/JoeKarlsson" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+		, films via{' '}
 		<a href="https://letterboxd.com/joekarlsson/" target="_blank" rel="noopener noreferrer">
 			Letterboxd
 		</a>

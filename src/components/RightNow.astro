@@ -1,9 +1,13 @@
 ---
+import nowFeed from '../data/now-feed.json';
+
 interface Props {
 	columns?: 2 | 4;
 }
 
 const { columns = 4 } = Astro.props;
+// Live counts from the snapshot scripts/update-now-feed.mjs writes on every deploy
+const { homelab } = nowFeed;
 const gridClass =
 	columns === 2 ? 'grid gap-4 sm:grid-cols-2' : 'grid gap-4 sm:grid-cols-2 lg:grid-cols-4';
 ---
@@ -19,8 +23,9 @@ const gridClass =
 	<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">
 		<p class="text-xs text-gray-400 font-mono mb-1">tinkering with</p>
 		<p class="text-sm text-gray-400">
-			A <strong class="text-white">40+ container homelab</strong> running Proxmox, Home Assistant,
-			and way too many arr apps
+			A <strong class="text-white">{homelab.runningContainers}-container homelab</strong> on{' '}
+			{homelab.proxmoxNodes} Proxmox nodes ({homelab.cpuThreads} CPU threads, {homelab.memoryGB} GB
+			of RAM) running Home Assistant and way too many arr apps
 		</p>
 	</div>
 	<div class="rounded-lg border border-surface-3 bg-surface-1 p-4">

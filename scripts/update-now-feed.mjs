@@ -1,7 +1,8 @@
-// Snapshot what I've recently watched (Letterboxd) and listened to (Audiobookshelf
-// podcasts) into src/data/now-feed.json, with covers saved as WebP under
-// public/images/now/. The about page reads the snapshot at build time, so visitors
-// never reach Audiobookshelf. deploy.sh runs this before every build:
+// Snapshot what I've recently shipped (merged GitHub PRs), watched (Letterboxd) and
+// listened to (Audiobookshelf podcasts), plus live homelab stats (Prometheus), into
+// src/data/now-feed.json, with covers saved as WebP under public/images/now/. The
+// site reads the snapshot at build time, so visitors never reach Audiobookshelf or
+// Prometheus. deploy.sh runs this before every build:
 //   npm run update:now
 import { mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { loadEnvFile } from 'node:process';
@@ -9,11 +10,18 @@ import sharp from 'sharp';
 
 loadEnvFile('.env');
 
-const { AUDIOBOOKSHELF_URL, AUDIOBOOKSHELF_API_TOKEN } = process.env;
-for (const [name, value] of Object.entries({ AUDIOBOOKSHELF_URL, AUDIOBOOKSHELF_API_TOKEN })) {
+const { AUDIOBOOKSHELF_URL, AUDIOBOOKSHELF_API_TOKEN, PROMETHEUS_URL } = process.env;
+for (const [name, value] of Object.entries({
+	AUDIOBOOKSHELF_URL,
+	AUDIOBOOKSHELF_API_TOKEN,
+	PROMETHEUS_URL,
+})) {
 	if (!value) throw new Error(`${name} is missing from .env`);
 }
 
+const GITHUB_USERNAME = 'JoeKarlsson';
+const SHIPPING_WINDOW_DAYS = 30;
+const SHIPPING_MAX_REPOS = 4;
 const LETTERBOXD_RSS_URL = 'https://letterboxd.com/joekarlsson/rss/';
 const ITEMS_PER_FEED = 4;
 const REVIEW_EXCERPT_MAX_CHARS = 160;
@@ -132,12 +140,83 @@ async function fetchRecentPodcastEpisodes() {
 	return episodes;
 }
 
+// Public repos I've committed to in the window, most recently pushed first.
+// Unauthenticated on purpose: the API then only returns public repos, so nothing
+// private can leak into the site.
+const GITHUB_REQUEST_OPTIONS = { headers: { Accept: 'application/vnd.github+json' } };
+// deploy.sh commits the snapshot on every deploy; those aren't work worth counting.
+const SNAPSHOT_REFRESH_COMMIT_MESSAGE = 'chore: Refresh recently watched and listened snapshot';
+
+async function fetchRecentlyShippedRepos() {
+	const windowStart = new Date(Date.now() - SHIPPING_WINDOW_DAYS * 24 * 60 * 60 * 1000);
+	const reposResponse = await fetchOrThrow(
+		`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=20`,
+		GITHUB_REQUEST_OPTIONS,
+	);
+	const candidateRepos = (await reposResponse.json()).filter(
+		(repo) =>
+			!repo.fork &&
+			// The profile README repo
+			repo.name !== GITHUB_USERNAME &&
+			new Date(repo.pushed_at) >= windowStart,
+	);
+
+	const shippedRepos = [];
+	for (const repo of candidateRepos) {
+		if (shippedRepos.length === SHIPPING_MAX_REPOS) break;
+		const commitsResponse = await fetchOrThrow(
+			`https://api.github.com/repos/${repo.full_name}/commits?author=${GITHUB_USERNAME}&since=${windowStart.toISOString()}&per_page=100`,
+			GITHUB_REQUEST_OPTIONS,
+		);
+		const commits = (await commitsResponse.json()).filter(
+			(commit) => !commit.commit.message.startsWith(SNAPSHOT_REFRESH_COMMIT_MESSAGE),
+		);
+		if (commits.length === 0) continue;
+		shippedRepos.push({
+			name: repo.name,
+			description: repo.description,
+			url: repo.html_url,
+			// The API caps a page at 100; past that, the count is a floor.
+			commitCount: commits.length,
+			commitCountIsCapped: commitsResponse.headers.get('link')?.includes('rel="next"') ?? false,
+		});
+	}
+	return shippedRepos;
+}
+
+async function queryPrometheusScalar(promql) {
+	const response = await fetchOrThrow(
+		`${PROMETHEUS_URL}/api/v1/query?query=${encodeURIComponent(promql)}`,
+	);
+	const { data } = await response.json();
+	if (data.result.length !== 1) throw new Error(`Prometheus returned no value for: ${promql}`);
+	return Number(data.result[0].value[1]);
+}
+
+async function fetchHomelabStats() {
+	const [runningContainers, proxmoxNodes, cpuThreads, memoryBytes] = await Promise.all([
+		queryPrometheusScalar('sum(pve_up{id=~"lxc/.*"})'),
+		queryPrometheusScalar('count(pve_up{id=~"node/.*"})'),
+		queryPrometheusScalar('sum(pve_cpu_usage_limit{id=~"node/.*"})'),
+		queryPrometheusScalar('sum(pve_memory_size_bytes{id=~"node/.*"})'),
+	]);
+	return {
+		runningContainers,
+		proxmoxNodes,
+		cpuThreads,
+		// GiB, matching what Proxmox reports
+		memoryGB: Math.round(memoryBytes / 1024 ** 3),
+	};
+}
+
 mkdirSync(COVER_DIR, { recursive: true });
-const [films, podcastEpisodes] = await Promise.all([
+const [shippedRepos, films, podcastEpisodes, homelab] = await Promise.all([
+	fetchRecentlyShippedRepos(),
 	fetchRecentFilms(),
 	fetchRecentPodcastEpisodes(),
+	fetchHomelabStats(),
 ]);
-// Delete covers the new snapshot no longer uses, only after both feeds succeeded.
+// Delete covers the new snapshot no longer uses, only after every feed succeeded.
 const coversInUse = new Set(
 	[...films.map((film) => film.poster), ...podcastEpisodes.map((episode) => episode.cover)].map(
 		(path) => path.split('/').pop(),
@@ -149,11 +228,18 @@ for (const file of readdirSync(COVER_DIR)) {
 writeFileSync(
 	OUTPUT_PATH,
 	JSON.stringify(
-		{ updatedAt: new Date().toLocaleDateString('en-CA'), films, podcastEpisodes },
+		{
+			updatedAt: new Date().toLocaleDateString('en-CA'),
+			shippingWindowDays: SHIPPING_WINDOW_DAYS,
+			shippedRepos,
+			films,
+			podcastEpisodes,
+			homelab,
+		},
 		null,
 		'\t',
 	) + '\n',
 );
 console.log(
-	`Wrote ${films.length} films and ${podcastEpisodes.length} podcast episodes to ${OUTPUT_PATH}`,
+	`Wrote ${shippedRepos.length} shipped repos, ${films.length} films, ${podcastEpisodes.length} podcast episodes and homelab stats to ${OUTPUT_PATH}`,
 );

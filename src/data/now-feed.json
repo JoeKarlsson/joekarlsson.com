@@ -1,6 +1,46 @@
 {
 	"updatedAt": "2026-11-04",
+	"shippingWindowDays": 30,
+	"shippedRepos": [
+		{
+			"name": "screencast-director",
+			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
+			"url": "https://github.com/JoeKarlsson/screencast-director",
+			"commitCount": 100,
+			"commitCountIsCapped": true
+		},
+		{
+			"name": "joekarlsson.com",
+			"description": "Personal website and blog: joekarlsson.com",
+			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
+			"commitCount": 99,
+			"commitCountIsCapped": true
+		},
+		{
+			"name": "screencast-director-glitch",
+			"description": "Analog and glitch effects (VHS/CRT, datamosh) for Screencast Director",
+			"url": "https://github.com/JoeKarlsson/screencast-director-glitch",
+			"commitCount": 7,
+			"commitCountIsCapped": false
+		},
+		{
+			"name": "dotfiles",
+			"description": "My dotfiles, managed with chezmoi",
+			"url": "https://github.com/JoeKarlsson/dotfiles",
+			"commitCount": 68,
+			"commitCountIsCapped": false
+		}
+	],
 	"films": [
+		{
+			"title": "Mutiny",
+			"year": 2026,
+			"watchedDate": "2026-11-04",
+			"rating": 2,
+			"reviewExcerpt": "Mutiny is Under Siege with somehow more boring, worse writing, and it's uglier to look at. I don't put on a Jason Statham movie for the writing, though. I've...",
+			"url": "https://letterboxd.com/joekarlsson/film/mutiny-2026/",
+			"poster": "/images/now/film-1288445.webp"
+		},
 		{
 			"title": "The Royal Tenenbaums",
 			"year": 2001,
@@ -27,15 +67,6 @@
 			"reviewExcerpt": "Cocaine-era Stephen King fans, this is our Super Bowl. I have a special place in my heart for cocaine-fueled King. It's the era when it's clear he was losing...",
 			"url": "https://letterboxd.com/joekarlsson/film/maximum-overdrive/",
 			"poster": "/images/now/film-9980.webp"
-		},
-		{
-			"title": "Xtro",
-			"year": 1982,
-			"watchedDate": "2026-11-02",
-			"rating": 4,
-			"reviewExcerpt": "If David Lynch made E.T. for $60,000 in a London flat, it'd look like this. It's Close Encounters for horny moms and dads. Dad gets sucked up by a bright light...",
-			"url": "https://letterboxd.com/joekarlsson/film/xtro/",
-			"poster": "/images/now/film-25834.webp"
 		}
 	],
 	"podcastEpisodes": [
@@ -67,5 +98,11 @@
 			"url": "https://podcasts.apple.com/us/podcast/the-big-picture/id1439252196?uo=4",
 			"cover": "/images/now/podcast-22fc3916-1f4a-42a4-890f-ff8c09a6030c.webp"
 		}
-	]
+	],
+	"homelab": {
+		"runningContainers": 72,
+		"proxmoxNodes": 2,
+		"cpuThreads": 160,
+		"memoryGB": 252
+	}
 }
