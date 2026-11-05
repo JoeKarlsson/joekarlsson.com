@@ -57,7 +57,7 @@ const SECTIONS = [
 	schemaType="ContactPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- The halftone clip of Joe waving hello (the About page's clip) beside every
+		<!-- The halftone clip of Joe walking into the closet that holds his homelab rack, beside every
 		platform in the ticker and the best two ways to reach me. Pink dots are drawn live
 		(src/scripts/halftone.ts); in-view-play stops it with pause-motion and reduced motion. -->
 		<PosterHero
@@ -67,8 +67,8 @@ const SECTIONS = [
 		>
 			<div slot="media" class="relative z-10 aspect-[4/3] md:aspect-auto md:min-h-[420px]">
 				<video
-					src="/images/about/joe-hello.mp4"
-					poster="/images/about/joe-hello-poster.webp"
+					src="/images/about/joe-homelab.mp4"
+					poster="/images/about/joe-homelab-poster.webp"
 					data-halftone="dots"
 					data-autoplay-in-view
 					muted
@@ -76,7 +76,7 @@ const SECTIONS = [
 					playsinline
 					preload="metadata"
 					role="img"
-					aria-label="Joe Karlsson by a river, waving hello with a peace sign"
+					aria-label="Joe Karlsson walking into his homelab closet and giving a thumbs up next to the server rack"
 					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-[50%_8%] md:object-center"
 				></video>
 				<Scribble

@@ -223,9 +223,9 @@ const cropArtPieces = [
 	schemaType="AboutPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- The waving clip on the left, the page's sections in the pink ticker, and who I
+		<!-- The clip of Joe at his desk on the left, the page's sections in the pink ticker, and who I
 		am in the dark panel above ABOUT (the same top as every main page). The clip is
-		pre-cropped with Joe's face centered on the top third, so it's drawn centered. Pink
+		pre-cropped with Joe's face on the top third, so it's drawn centered. Pink
 		dots are drawn live (src/scripts/halftone.ts); in-view-play stops it with
 		pause-motion and reduced motion. -->
 		<PosterHero title="About" wordRatio={2.4} tickerItems={aboutHeadings.map(({ text }) => text)}>
@@ -234,8 +234,8 @@ const cropArtPieces = [
 				class="relative z-10 aspect-[4/3] md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']"
 			>
 				<video
-					src="/images/about/joe-hello.mp4"
-					poster="/images/about/joe-hello-poster.webp"
+					src="/images/about/joe-desk.mp4"
+					poster="/images/about/joe-desk-poster.webp"
 					data-halftone="dots"
 					data-autoplay-in-view
 					muted
@@ -243,7 +243,7 @@ const cropArtPieces = [
 					playsinline
 					preload="metadata"
 					role="img"
-					aria-label="Joe Karlsson by a river, waving hello with a peace sign"
+					aria-label="Joe Karlsson at his desk in pink light, pointing back at his monitors while he talks"
 					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-[50%_8%] md:object-center"
 				></video>
 				<Scribble
