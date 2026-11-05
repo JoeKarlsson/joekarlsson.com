@@ -6,7 +6,7 @@ import YouTubeFacade from '../components/YouTubeFacade.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import { SOCIAL_LINKS } from '../consts';
 import nowFeed from '../data/now-feed.json';
-import { CHALK, MARKS } from '../data/scribbles';
+import { CHALK, HERO_COIL, MARKS } from '../data/scribbles';
 
 const SECTION_HEADING =
 	'mb-6 scroll-mt-24 font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
@@ -166,56 +166,74 @@ const cropArtPieces = [
 	schemaType="AboutPage"
 >
 	<div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7">
-		<header class="relative mb-12 grid items-end gap-x-10 gap-y-8 md:grid-cols-[1fr_auto]">
-			<div>
-				<h1 class="relative inline-block font-display text-[clamp(56px,8.4vw,140px)] leading-[0.86] font-normal text-paper uppercase">
-					Joe Karlsson
-					<Scribble
-						{...MARKS.underline}
-						color="#ff4fd8"
-						strokeWidth={10}
-						duration="8s"
-						delay="0.4s"
-						class="-bottom-[0.12em] left-0 h-[0.18em] w-full"
-					/>
-				</h1>
-				<p class="mt-6 font-serif text-[clamp(20px,2vw,28px)] text-paper">
-					Developer Marketing Engineer <span class="font-sans text-base text-muted">(He/They)</span>
-				</p>
-				<div class="mt-5 flex flex-wrap gap-3">
-					<a
-						href="/resume/"
-						class="plausible-event-name=About+CTA+Click plausible-event-destination=resume inline-block rounded-md bg-pink px-[18px] py-3 font-semibold text-ink no-underline hover:bg-white"
-					>
-						View Resume
-					</a>
-					<a
-						href="/joe-karlsson-resume.pdf"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="plausible-event-name=About+CTA+Click plausible-event-destination=pdf-download inline-block rounded-md border-2 border-pink px-4 py-2.5 font-semibold text-pink no-underline hover:border-white hover:text-white"
-					>
-						Download PDF
-					</a>
-				</div>
-			</div>
-			<div class="relative w-[clamp(180px,24vw,320px)]">
+		<!-- Built like the homepage hero: a big halftone picture beside a pink panel and a
+		dark panel whose name fills its width. Only the photo is clipped to its box; the
+		marks spill over the gutters. -->
+		<header class="relative mb-14 grid gap-4 md:grid-cols-2">
+			<div class="relative z-10 aspect-video md:aspect-square">
 				<img
 					src="/images/joe-profile.webp"
 					alt="Joe Karlsson speaking at a conference"
 					data-halftone="dots"
-					class="block aspect-square w-full rounded-xl object-cover"
-					width="320"
-					height="320"
+					class="block size-full rounded-xl object-cover object-[50%_30%]"
+					width="640"
+					height="640"
 					loading="eager"
 				/>
 				<Scribble
 					{...MARKS.burst}
 					color={CHALK}
-					duration="9s"
-					delay="1s"
-					class="-top-[50px] -right-[30px] z-10 hidden size-[110px] sm:block"
+					strokeWidth={6}
+					duration="8s"
+					delay="1.6s"
+					class="-top-[7%] -left-[7%] size-[22%]"
 				/>
+				<Scribble
+					{...MARKS.lines}
+					color={CHALK}
+					duration="11s"
+					delay="1s"
+					class="-bottom-[9%] -left-[6%] h-[16%] w-[78%]"
+				/>
+			</div>
+			<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
+				<div class="rounded-xl bg-pink px-7 pt-6 pb-5 text-ink">
+					<p class="font-display text-[clamp(40px,4.6vw,72px)] leading-[0.92] uppercase">
+						Developer Marketing Engineer
+					</p>
+					<p class="mt-2 font-semibold">(He/They)</p>
+				</div>
+				<div class="flex flex-col justify-between gap-8 rounded-xl bg-surface-1 p-7">
+					<div class="flex flex-wrap gap-3">
+						<a
+							href="/resume/"
+							class="plausible-event-name=About+CTA+Click plausible-event-destination=resume inline-block rounded-md bg-pink px-[18px] py-3 font-semibold text-ink no-underline hover:bg-white"
+						>
+							View Resume
+						</a>
+						<a
+							href="/joe-karlsson-resume.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="plausible-event-name=About+CTA+Click plausible-event-destination=pdf-download inline-block rounded-md border-2 border-pink px-4 py-2.5 font-semibold text-pink no-underline hover:border-white hover:text-white"
+						>
+							Download PDF
+						</a>
+					</div>
+					<div class="@container">
+						<h1 class="relative font-display text-[calc(100cqw/var(--name-ratio))] leading-[0.88] font-normal whitespace-nowrap text-paper uppercase [--name-ratio:3.8]">
+							<span class="block">Joe</span>
+							<span class="block">Karlsson</span>
+							<Scribble
+								path={HERO_COIL}
+								color="#ff4fd8"
+								duration="9s"
+								delay="0.3s"
+								class="-bottom-[14%] -left-[4%] h-[85%] w-[104%]"
+							/>
+						</h1>
+					</div>
+				</div>
 			</div>
 		</header>
 
