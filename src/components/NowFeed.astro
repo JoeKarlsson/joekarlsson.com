@@ -55,7 +55,7 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						href={repo.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="plausible-event-name=Now+Feed+Click plausible-event-source=github group block rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
+						class="plausible-event-name=Now+Feed+Click plausible-event-source=github group flex flex-col rounded-lg border border-surface-3 bg-surface-1 p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30"
 					>
 						<div class="flex items-center justify-between gap-2">
 							<p class="font-mono text-sm font-semibold text-white group-hover:text-coral">
@@ -73,30 +73,33 @@ const formattedUpdatedAt = new Date(`${updatedAt}T00:00:00Z`).toLocaleDateString
 						{repo.description && (
 							<p class="mt-1 text-xs leading-snug text-gray-400">{repo.description}</p>
 						)}
-						<svg
-							class="mt-3 text-coral"
-							width="100%"
-							viewBox={`0 0 ${repo.dailyCommitCounts.length * ACTIVITY_CELL_STEP - 2} 10`}
-							role="img"
-							aria-label={`Commits per day over the last ${shippingWindowDays} days, oldest first: ${repo.dailyCommitCounts.join(', ')}`}
-						>
-							{repo.dailyCommitCounts.map((count, index) => (
-								<rect
-									x={index * ACTIVITY_CELL_STEP}
-									width="10"
-									height="10"
-									rx="2"
-									fill="currentColor"
-									fill-opacity={activityOpacity(count)}
-								/>
-							))}
-						</svg>
-						<p class="mt-2 text-xs text-coral">
-							{repo.commitCount} commits in the last {shippingWindowDays} days
-						</p>
 						<p class="mt-1 font-mono text-xs text-gray-400">
 							$ git log -1: {repo.latestCommitMessage}
 						</p>
+						{/* Pinned to the bottom so the strips line up across a row */}
+						<div class="mt-auto pt-3">
+							<svg
+								class="text-coral"
+								width="100%"
+								viewBox={`0 0 ${repo.dailyCommitCounts.length * ACTIVITY_CELL_STEP - 2} 10`}
+								role="img"
+								aria-label={`Commits per day over the last ${shippingWindowDays} days, oldest first: ${repo.dailyCommitCounts.join(', ')}`}
+							>
+								{repo.dailyCommitCounts.map((count, index) => (
+									<rect
+										x={index * ACTIVITY_CELL_STEP}
+										width="10"
+										height="10"
+										rx="2"
+										fill="currentColor"
+										fill-opacity={activityOpacity(count)}
+									/>
+								))}
+							</svg>
+							<p class="mt-2 text-xs text-coral">
+								{repo.commitCount} commits in the last {shippingWindowDays} days
+							</p>
+						</div>
 					</a>
 				))}
 			</div>

@@ -27,6 +27,7 @@ npm run deploy     # Build + deploy via OpenTofu (tofu apply) + purge Cloudflare
 - **Caddyfile changes**: Edit `~/claude/opentofu/services/joekarlsson-astro/provision.sh.tpl`, then run `tofu apply` from that directory. The `Caddyfile` in this repo is kept as a reference but is **not deployed by deploy.sh**.
 - **Deploying from a worktree** ships the main checkout's `dist` (`site_dist_path` in terraform.tfvars is hardcoded) and skips the Cloudflare purge (no `.env`), yet the smoke check still passes. Run tofu with `-var "site_dist_path=$PWD/dist" -replace=null_resource.push_content`, purge with the main checkout's `.env`, then curl the live page for a changed sentence.
 - **Approved content changes**: commit, push, then `npm run deploy` and curl the live page. Don't stop at push. Still ask before Caddyfile or infra changes.
+- **Now-feed snapshot**: `deploy.sh` first runs `npm run update:now`, which pulls recent commits (GitHub, via `gh auth token`), Letterboxd, Audiobookshelf podcasts and Proxmox stats from Prometheus into `src/data/now-feed.json` + `public/images/now/`, then commits them as `chore: Refresh now-feed snapshot` (not pushed). Needs the home LAN and `AUDIOBOOKSHELF_*` / `PROMETHEUS_URL` in `.env`; any source failing stops the deploy. Off-network or with a source down: `SKIP_NOW_REFRESH=1 npm run deploy` ships the committed snapshot. The live container count on every page comes from this file, so never hard-code it.
 
 ## Blog Posts
 

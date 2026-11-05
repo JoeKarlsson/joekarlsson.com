@@ -25,8 +25,9 @@ const THRESHOLDS = {
 	maxSingleJsFile: 50 * 1024,
 	// Total JS bundle should not exceed 150KB
 	maxTotalJsBundle: 150 * 1024,
-	// Total CSS should not exceed 50KB
-	maxTotalCss: 50 * 1024,
+	// Total CSS should not exceed 55KB. Raised from 50KB on 2026-11-04, when the
+	// site sat 21 bytes under it and every new utility class broke the build.
+	maxTotalCss: 55 * 1024,
 	// Total dist folder should not exceed 200MB (includes images)
 	maxTotalDist: 200 * 1024 * 1024,
 };

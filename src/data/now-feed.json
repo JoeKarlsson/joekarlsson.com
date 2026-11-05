@@ -52,7 +52,6 @@
 		{
 			"title": "Mutiny",
 			"year": 2026,
-			"watchedDate": "2026-11-04",
 			"rating": 2,
 			"reviewExcerpt": "Mutiny is Under Siege with somehow more boring, worse writing, and it's uglier to look at. I don't put on a Jason Statham movie for the writing, though. I've...",
 			"url": "https://letterboxd.com/joekarlsson/film/mutiny-2026/",
@@ -61,7 +60,6 @@
 		{
 			"title": "The Royal Tenenbaums",
 			"year": 2001,
-			"watchedDate": "2026-11-04",
 			"rating": 5,
 			"reviewExcerpt": "This is the Wes Anderson movie that gets me every time. This time it got me through Chas. I first saw The Royal Tenenbaums at a foundational age, and it's been...",
 			"url": "https://letterboxd.com/joekarlsson/film/the-royal-tenenbaums/",
@@ -70,7 +68,6 @@
 		{
 			"title": "Jason Goes to Hell: The Final Friday",
 			"year": 1993,
-			"watchedDate": "2026-11-04",
 			"rating": 1,
 			"reviewExcerpt": "This movie was dumb and bad.",
 			"url": "https://letterboxd.com/joekarlsson/film/jason-goes-to-hell-the-final-friday/",
@@ -79,7 +76,6 @@
 		{
 			"title": "Maximum Overdrive",
 			"year": 1986,
-			"watchedDate": "2026-11-02",
 			"rating": 2,
 			"reviewExcerpt": "Cocaine-era Stephen King fans, this is our Super Bowl. I have a special place in my heart for cocaine-fueled King. It's the era when it's clear he was losing...",
 			"url": "https://letterboxd.com/joekarlsson/film/maximum-overdrive/",
@@ -89,29 +85,25 @@
 	"podcastEpisodes": [
 		{
 			"episodeTitle": "The Age of Innocence with Libby Watson",
-			"podcastTitle": "Blank Check (Public)",
-			"listenedDate": "2026-11-04",
-			"url": null,
+			"podcastTitle": "Blank Check",
+			"url": "https://podcasts.apple.com/us/podcast/blank-check-with-griffin-david/id981330533",
 			"cover": "/images/now/podcast-ab4a04d4-3b5e-4bdc-b6ba-af9a721e2351.webp"
 		},
 		{
 			"episodeTitle": "Resident Evil: Welcome to Raccoon City",
 			"podcastTitle": "Blank Check with Griffin & David",
-			"listenedDate": "2026-11-02",
 			"url": "https://podcasts.apple.com/us/podcast/blank-check-with-griffin-david/id981330533?uo=4",
 			"cover": "/images/now/podcast-8c1b36c3-8647-4553-94c3-17031a478ff5.webp"
 		},
 		{
 			"episodeTitle": "‘A Nightmare on Elm Street’ With Bill Simmons, Chris Ryan, and Van Lathan",
 			"podcastTitle": "The Rewatchables",
-			"listenedDate": "2026-10-31",
 			"url": "https://podcasts.apple.com/us/podcast/the-rewatchables/id1268527882?uo=4",
 			"cover": "/images/now/podcast-fe6ad4e7-88b4-46b7-ad7c-a4a2e1a19c68.webp"
 		},
 		{
 			"episodeTitle": "‘Wildwood,’ ‘Wicker,’ and 10 Movies We Missed! Plus: Travis Knight!",
 			"podcastTitle": "The Big Picture",
-			"listenedDate": "2026-10-30",
 			"url": "https://podcasts.apple.com/us/podcast/the-big-picture/id1439252196?uo=4",
 			"cover": "/images/now/podcast-22fc3916-1f4a-42a4-890f-ff8c09a6030c.webp"
 		}

@@ -94,7 +94,6 @@ async function fetchRecentFilms() {
 		films.push({
 			title: decodeEntities(readTag(item, 'letterboxd:filmTitle')),
 			year: Number(readTag(item, 'letterboxd:filmYear')),
-			watchedDate: readTag(item, 'letterboxd:watchedDate'),
 			rating: rating ? Number(rating) : null,
 			reviewExcerpt: isReview ? truncateAtWord(reviewText, REVIEW_EXCERPT_MAX_CHARS) : null,
 			url: readTag(item, 'link'),
@@ -130,7 +129,6 @@ async function fetchRecentPodcastEpisodes() {
 		episodes.push({
 			episodeTitle: session.displayTitle,
 			podcastTitle: podcastMetadata.title,
-			listenedDate: new Date(session.updatedAt).toLocaleDateString('en-CA'),
 			// Only public pages: never link to the Audiobookshelf server itself.
 			url: podcastMetadata.itunesPageUrl || null,
 			cover: await saveCoverAsWebp(
@@ -152,7 +150,11 @@ const GITHUB_REQUEST_OPTIONS = {
 	},
 };
 // deploy.sh commits the snapshot on every deploy; those aren't work worth counting.
-const SNAPSHOT_REFRESH_COMMIT_MESSAGE = 'chore: Refresh recently watched and listened snapshot';
+// The second message is the old name: drop it once it's older than the window.
+const SNAPSHOT_REFRESH_COMMIT_MESSAGES = [
+	'chore: Refresh now-feed snapshot',
+	'chore: Refresh recently watched and listened snapshot',
+];
 
 async function fetchAllCommitsSince(repoFullName, sinceIso) {
 	const commits = [];
@@ -192,7 +194,7 @@ async function fetchRecentlyShippedRepos() {
 	for (const repo of candidateRepos) {
 		if (shippedRepos.length === SHIPPING_MAX_REPOS) break;
 		const commits = (await fetchAllCommitsSince(repo.full_name, windowStart.toISOString())).filter(
-			(commit) => !commit.commit.message.startsWith(SNAPSHOT_REFRESH_COMMIT_MESSAGE),
+			(commit) => !SNAPSHOT_REFRESH_COMMIT_MESSAGES.includes(commit.commit.message.trim()),
 		);
 		if (commits.length === 0) continue;
 		const commitCountByDate = {};
