@@ -4,6 +4,8 @@
 // the description, and which employer a professional post was written for. Same
 // row as the homepage's Recent posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
+import { CHALK, MARKS } from '../data/scribbles';
+import Scribble from './Scribble.astro';
 import WrittenFor from './WrittenFor.astro';
 
 interface Props {
@@ -18,7 +20,20 @@ interface Props {
 	href?: string;
 	// One of the ten most-read posts: a flame after the title
 	popular?: boolean;
+	// Draws a crayon mark on the thumbnail's corner; the number picks which, so
+	// neighboring marked rows differ
+	markIndex?: number;
 }
+
+// Marks for thumbnails, cycled by markIndex, alternating chalk and pink
+const THUMBNAIL_MARKS = [
+	MARKS.tally,
+	MARKS.check,
+	MARKS.asterisk,
+	MARKS.cross,
+	MARKS.rays,
+	MARKS.burst,
+];
 
 const {
 	title,
@@ -31,7 +46,10 @@ const {
 	readingTime,
 	href,
 	popular = false,
+	markIndex,
 } = Astro.props;
+const mark =
+	markIndex === undefined ? undefined : THUMBNAIL_MARKS[markIndex % THUMBNAIL_MARKS.length];
 const url = href ?? `/blog/${slug}/`;
 const image = heroImage || DEFAULT_HERO_IMAGE;
 const formattedDate = date.toLocaleDateString('en-us', {
@@ -56,6 +74,15 @@ const formattedDate = date.toLocaleDateString('en-us', {
 			decoding="async"
 			class="block aspect-video w-full rounded-lg object-cover"
 		/>
+		{mark && markIndex !== undefined && (
+			<Scribble
+				{...mark}
+				color={markIndex % 2 ? '#ff4fd8' : CHALK}
+				duration="9s"
+				delay={`${(markIndex % 4) * 0.7}s`}
+				class="-top-[20%] -right-[8%] z-10 size-[40%]"
+			/>
+		)}
 	</a>
 	<div>
 		<span class="mb-1.5 block text-sm text-muted">
