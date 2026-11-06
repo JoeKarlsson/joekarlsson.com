@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 324,
+			"commitCount": 326,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 34
+				169, 36
 			],
-			"latestCommitMessage": "feat: Five more posts get cut-paper diagrams: ChatGPT dots, Meta Muse..."
+			"latestCommitMessage": "feat: Post diagrams boil their arrows, callouts and paper edges like..."
 		},
 		{
 			"name": "bechdel-test",
 			"description": "Does your favorite film pass the test?",
 			"url": "https://github.com/JoeKarlsson/bechdel-test",
 			"language": "JavaScript",
-			"commitCount": 20,
+			"commitCount": 21,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20
 			],
-			"latestCommitMessage": "feat: Show the shelf a page of 60 at a time, with Show more, ready for..."
+			"latestCommitMessage": "feat: Add npm run analyze, which turns screenplays into the site's..."
 		},
 		{
 			"name": "rose-hobart",
