@@ -1,11 +1,11 @@
 ---
-title: 'tl;dr in tech by Joe Karlsson - Issue #39'
+title: 'tl;dr in tech - Issue #43'
 date: 2022-08-16
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-08-16'
-issue: 39
+issue: 43
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-08-16'
 heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-08-16/card.webp'
-heroAlt: 'Works on My Machine card for TL;DR in Tech issue 39, leading with TL;DR in Tech, with the issue number circled in pink crayon'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 43, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: "Note that the code should be taken as a twisted joke, or as an exercise in minimalism, or as both, probably a joke. Because of the aforementioned limitations, we are going to write some nasty macros to perform bitwise operations, use global variables, reuse the same counter, etc. This is not a good example of readable or elegant code."](https://www.andreinc.net/2022/05/01/4-integers-are-enough-to-write-a-snake-game)

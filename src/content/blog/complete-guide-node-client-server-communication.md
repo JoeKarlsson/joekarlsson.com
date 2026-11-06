@@ -1,5 +1,6 @@
 ---
 title: 'Complete Guide To Node Client-Server Communication'
+seoTitle: 'Node Client-Server Communication Guide'
 date: 2016-07-23
 slug: 'complete-guide-node-client-server-communication'
 description: 'After reading High-Performance Browser Networking by Ilya Grigorik, I was inspired to implement all of the client-server communication techniques outlined in his book in Node and JavaScript. This...'

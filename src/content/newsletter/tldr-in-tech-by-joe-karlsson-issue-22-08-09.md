@@ -1,11 +1,11 @@
 ---
-title: 'tl;dr in tech by Joe Karlsson - Issue #40'
+title: 'tl;dr in tech - Issue #42'
 date: 2022-08-09
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-08-09'
-issue: 40
+issue: 42
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-08-09'
 heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-08-09/card.webp'
-heroAlt: 'Works on My Machine card for TL;DR in Tech issue 40, leading with TL;DR in Tech, with the issue number circled in pink crayon'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 42, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: "In this article, I will present a new puzzle game and demonstrate techniques I used to write a fast, practical solver for it. Topics covered will include breadth-first/A\* search, memoization, optimization, and strategies specific to NP-hard and NP-complete puzzle games."](https://davidkoloski.me/blog/intelligent-brute-forcing/)

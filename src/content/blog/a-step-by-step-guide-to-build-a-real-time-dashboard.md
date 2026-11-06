@@ -1,5 +1,6 @@
 ---
 title: 'A step-by-step guide to build a real-time dashboard'
+seoTitle: 'How to Build a Real-Time Dashboard'
 date: 2024-03-30
 slug: 'a-step-by-step-guide-to-build-a-real-time-dashboard'
 description: 'Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even minutes to load? No way, right? Your users would get...'

@@ -1,5 +1,6 @@
 ---
 title: 'Database Sharding vs. Partitioning: What’s the Difference?'
+seoTitle: 'Database Sharding vs. Partitioning'
 date: 2021-11-04
 slug: 'database-sharding-vs-partitioning-whats-the-difference'
 description: 'In this post, I explain the differences between database sharding vs. partitioning and explore when to use each - or even to combine them for data-intensive applications.'

@@ -1,5 +1,6 @@
 ---
 title: 'Can Open Knowledge Format make Claude Code more accurate and cheaper? I tested it'
+seoTitle: 'Does Open Knowledge Format Help Claude Code?'
 shareTitle: 'Does Open Knowledge Format make Claude Code cheaper and more accurate? I tested'
 date: 2026-10-30T11:17:52Z
 slug: 'claude-md-open-knowledge-format'

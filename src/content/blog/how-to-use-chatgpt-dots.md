@@ -1,5 +1,6 @@
 ---
 title: 'How to Use ChatGPT Dots with Salesforce, Jira, and More'
+seoTitle: 'How to Use ChatGPT Dots'
 date: 2026-10-15
 slug: 'how-to-use-chatgpt-dots'
 description: 'How to use ChatGPT dots with Salesforce, Jira, QuickBooks, and more: connect your business apps in minutes, then ask across them and schedule checks.'

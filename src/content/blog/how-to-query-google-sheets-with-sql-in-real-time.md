@@ -1,5 +1,6 @@
 ---
 title: 'How to query Google Sheets with SQL in real time'
+seoTitle: 'Query Google Sheets with SQL in Real Time'
 date: 2024-03-29
 slug: 'how-to-query-google-sheets-with-sql-in-real-time'
 description: 'Sick of manually wrestling with Google Sheets like it’s an Excel spreadsheet from 2005? Feel like force-quitting Chrome every time you attempt to sift through just 10,000 rows of data?  We’ve all...'

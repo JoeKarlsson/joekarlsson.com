@@ -1,5 +1,6 @@
 ---
 title: 'AWS Pinpoint Is Being Deprecated: How to Assess Your Migration Scope'
+seoTitle: 'AWS Pinpoint Deprecation: Migration Scope'
 date: 2026-03-24
 slug: 'aws-pinpoint-deprecation-assessment'
 description: 'AWS Pinpoint reaches end of support October 2026. Query your Pinpoint usage across all accounts to find what needs migrating before the deadline.'

@@ -1,5 +1,6 @@
 ---
 title: 'Modern data management with real-time Change Data Capture'
+seoTitle: 'Real-Time Change Data Capture'
 date: 2024-03-30
 slug: 'modern-data-management-with-real-time-change-data-capture'
 description: 'Data engineers are grappling with surging data volumes while stakeholders increasingly demand real-time decision-making and user-facing features powered by data. This raises a fundamental question:...'

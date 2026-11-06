@@ -1,5 +1,6 @@
 ---
 title: 'I built a 32x32 pixel art frame that shows what my house is doing'
+seoTitle: 'A 32x32 Pixel Art Frame for Home Assistant'
 date: 2026-10-12T17:45:42Z
 slug: 'pixelpane-pixel-art-home-assistant'
 description: 'PixelPane is my open source 32x32 LED pixel art frame on a Raspberry Pi. Home Assistant turns it into an ON AIR sign, a doorbell, and seasonal decor.'

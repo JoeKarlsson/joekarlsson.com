@@ -1,5 +1,6 @@
 ---
 title: 'What it takes to build a real-time recommendation system'
+seoTitle: 'Building a Real-Time Recommendation System'
 date: 2024-03-30
 slug: 'what-it-takes-to-build-a-real-time-recommendation-system'
 description: 'Real-time, personalized recommendations have become a foundational part of our online experiences. From streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering...'

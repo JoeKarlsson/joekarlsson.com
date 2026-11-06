@@ -1,5 +1,6 @@
 ---
 title: 'Why Cloud Compliance Audit Prep Still Takes Weeks'
+seoTitle: 'Why Cloud Audit Prep Still Takes Weeks'
 date: 2026-02-20
 slug: 'cloud-operations-playbook-part-04-cost-of-compliance-scrambles'
 description: >-

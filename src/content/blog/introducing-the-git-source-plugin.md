@@ -1,5 +1,6 @@
 ---
 title: 'Find EOL Docker Images, Missing Licenses, and Stale CODEOWNERS Across Thousands of repos with SQL'
+seoTitle: 'Query Thousands of Git Repos with SQL'
 shareTitle: 'Find EOL Docker Images, Missing Licenses, and Stale CODEOWNERS with SQL'
 date: 2026-01-04
 slug: 'introducing-the-git-source-plugin'

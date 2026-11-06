@@ -1,5 +1,6 @@
 ---
 title: 'The Engineer’s Guide to Enriching Streams and Dimensions'
+seoTitle: 'Enriching Streams and Dimensions'
 date: 2024-04-05
 slug: 'the-engineers-guide-to-enriching-streams-and-dimensions'
 description: 'Data - it’s the new oil, the new gold, the new …  you get the idea. There’s a whole lot of it, and it’s valuable. But unless you’re into data hoarding, the point isn’t just to collect it; you want …...'

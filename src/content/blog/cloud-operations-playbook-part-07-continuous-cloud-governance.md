@@ -1,5 +1,6 @@
 ---
 title: 'Beyond Deploy-Time Checks: Continuous Cloud Governance'
+seoTitle: 'Continuous Cloud Governance'
 date: 2026-02-25
 slug: 'cloud-operations-playbook-part-07-continuous-cloud-governance'
 description: >-

@@ -1,5 +1,6 @@
 ---
 title: 'Mapping SOC 2 and CIS Controls to SQL for Continuous Compliance'
+seoTitle: 'SOC 2 and CIS Compliance in SQL'
 date: 2026-02-27
 slug: 'cloud-operations-playbook-part-09-continuous-compliance-sql'
 description: >-

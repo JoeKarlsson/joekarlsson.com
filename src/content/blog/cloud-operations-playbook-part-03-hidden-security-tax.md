@@ -1,5 +1,6 @@
 ---
 title: 'The Hidden Cost of Cloud Security Alert Investigation'
+seoTitle: 'The Hidden Cost of Cloud Security Alerts'
 date: 2026-02-19
 slug: 'cloud-operations-playbook-part-03-hidden-security-tax'
 description: >-

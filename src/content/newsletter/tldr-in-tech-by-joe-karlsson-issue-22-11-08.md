@@ -1,11 +1,11 @@
 ---
-title: 'tl;dr in tech by Joe Karlsson - Issue #61'
+title: 'tl;dr in tech - Issue #55'
 date: 2022-11-08
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-11-08'
-issue: 61
+issue: 55
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-11-08'
 heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-11-08/card.webp'
-heroAlt: 'Works on My Machine card for TL;DR in Tech issue 61, leading with TL;DR in Tech, with the issue number circled in pink crayon'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 55, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr: "A computer scientist was writing a column about Literate Programming - one of Knuth's ideas on how documentation and code should live side-by-side. So he asked both Knuth and McIlroy to write a program: "Given a text file and integer k, print the k most common words in the file - and the number of their occurrences - in decreasing frequency."](https://matt-rickard.com/instinct-and-culture)

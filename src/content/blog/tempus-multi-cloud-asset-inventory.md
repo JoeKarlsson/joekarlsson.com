@@ -1,5 +1,6 @@
 ---
 title: 'Tempus: Multi-Cloud Asset Inventory Across 80+ AWS Accounts and 1000+ GCP Projects'
+seoTitle: 'Tempus: Multi-Cloud Asset Inventory'
 shareTitle: 'Tempus: Asset Inventory Across 80+ AWS Accounts and 1000+ GCP Projects'
 date: 2024-11-01
 slug: 'tempus-multi-cloud-asset-inventory'

@@ -1,5 +1,6 @@
 ---
 title: 'An Introduction To IoT (Internet of Toilets 🚽): Talk Resources'
+seoTitle: 'An Introduction to IoT: Talk Resources'
 date: 2019-11-20
 slug: 'iot-and-js-a-gentle-introduction-to-the-internet-of-things'
 description: 'Thanks for coming to my talk, An Introduction To IoT (Internet of Toilets 🚽); Or How I Built an IoT Kitty Litter Box Using JavaScript, and here you will find all the resources discussed during the...'

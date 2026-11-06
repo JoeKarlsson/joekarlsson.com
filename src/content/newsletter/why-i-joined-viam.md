@@ -1,5 +1,5 @@
 ---
-title: 'Why I Joined Viam 🤖'
+title: 'Why I Joined Viam'
 date: 2022-06-15
 slug: 'why-i-joined-viam'
 substackUrl: 'https://joekarlsson.substack.com/p/why-i-joined-viam'

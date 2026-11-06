@@ -1,5 +1,6 @@
 ---
 title: 'From SQL to NoSQL: A Gentle Introduction For Devs'
+seoTitle: 'From SQL to NoSQL: An Intro for Devs'
 date: 2020-02-27
 slug: 'from-sql-to-nosql-a-gentle-introduction-for-devs'
 description: 'Thanks for coming to my talk, From SQL to NoSQL: A Gentle Introduction For Devs. Here you will find all the resources discussed during the talk. About “I have heard about NoSQL databases, but don’t...'

@@ -1,5 +1,6 @@
 ---
 title: '6 Cloud CMDB Best Practices for Platform Engineers (2026 Guide)'
+seoTitle: '6 Cloud CMDB Best Practices (2026)'
 slug: cloud-cmdb-best-practices-platform-engineers
 tags:
   - Cloud Asset Inventory

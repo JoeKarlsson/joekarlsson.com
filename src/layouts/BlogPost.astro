@@ -19,6 +19,7 @@ import { ARTICLE_TITLE, META, PAGE_CONTAINER, SIDEBAR_GRID } from '../utils/ui';
 interface Props {
 	title: string;
 	shareTitle?: string;
+	seoTitle?: string;
 	description?: string;
 	date: Date;
 	updatedDate?: Date;
@@ -42,6 +43,7 @@ interface Props {
 const {
 	title,
 	shareTitle,
+	seoTitle,
 	description,
 	date,
 	updatedDate,
@@ -134,7 +136,7 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 ---
 
 <BaseLayout
-	title={`${title} | Joe Karlsson`}
+	title={`${seoTitle || title} | Joe Karlsson`}
 	description={description || tldr || title}
 	image={heroImage}
 	imageAlt={heroAlt}

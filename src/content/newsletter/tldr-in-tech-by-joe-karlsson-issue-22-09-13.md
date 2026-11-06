@@ -1,11 +1,11 @@
 ---
-title: 'tl;dr in tech by Joe Karlsson - Issue #41'
+title: 'tl;dr in tech - Issue #47'
 date: 2022-09-13
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-09-13'
-issue: 41
+issue: 47
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-09-13'
 heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-09-13/card.webp'
-heroAlt: 'Works on My Machine card for TL;DR in Tech issue 41, leading with TL;DR in Tech, with the issue number circled in pink crayon'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 47, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 ![computer programming codes displayed on a monitor](/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-09-13/photo-1576836165612-8bc9b07e7778.webp)

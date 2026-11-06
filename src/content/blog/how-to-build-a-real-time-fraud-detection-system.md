@@ -1,5 +1,6 @@
 ---
 title: 'How to build a real-time fraud detection system'
+seoTitle: 'Build a Real-Time Fraud Detection System'
 date: 2024-03-30
 slug: 'how-to-build-a-real-time-fraud-detection-system'
 description: 'Financial fraud is a growing concern in our increasingly digital world. According to a report by PwC, almost half of the surveyed organizations experienced fraud in the past 2 years. For...'

@@ -1,5 +1,6 @@
 ---
 title: 'Adding Custom Domain Names on Your Internal Network Using Nginx Proxy Manager and Pi-Hole'
+seoTitle: 'Local Domains with Nginx Proxy Manager'
 shareTitle: 'Custom Domain Names on Your Home Network with Nginx Proxy Manager and Pi-Hole'
 date: 2024-01-17
 slug: 'adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole'

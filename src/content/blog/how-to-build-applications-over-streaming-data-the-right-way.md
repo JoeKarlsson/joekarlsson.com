@@ -1,5 +1,6 @@
 ---
 title: 'How to Build Applications over Streaming Data the Right Way'
+seoTitle: 'Building Apps over Streaming Data'
 date: 2024-04-05
 slug: 'how-to-build-applications-over-streaming-data-the-right-way'
 description: 'In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination,...'

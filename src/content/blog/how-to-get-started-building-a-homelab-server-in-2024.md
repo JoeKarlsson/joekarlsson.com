@@ -1,5 +1,6 @@
 ---
 title: 'How to get started building a Homelab server in 2026'
+seoTitle: 'How to Build a Homelab Server in 2026'
 date: 2023-09-27
 updatedDate: 2026-03-11
 slug: 'how-to-get-started-building-a-homelab-server-in-2024'

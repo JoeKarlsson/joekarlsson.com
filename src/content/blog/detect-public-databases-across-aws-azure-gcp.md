@@ -1,5 +1,6 @@
 ---
 title: 'How to Detect Public Databases Across AWS, Azure, and GCP with CloudQuery Policies'
+seoTitle: 'Detect Public Databases in AWS, Azure and GCP'
 shareTitle: 'Detecting Public Databases Across AWS, Azure, and GCP with CloudQuery Policies'
 date: 2026-02-12
 slug: 'detect-public-databases-across-aws-azure-gcp'

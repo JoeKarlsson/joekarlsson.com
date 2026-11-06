@@ -1,5 +1,6 @@
 ---
 title: Stop Wasting Time on Cloud UIs and Scripts, and Query Your Cloud Like a Database
+seoTitle: 'Query Your Cloud Like a Database'
 date: 2025-03-12
 slug: 'query-cloud-like-database-stop-wasting-time'
 description: 'CloudQuery SQL Console lets you search your cloud like a database. No more clicking through endless dashboards or writing brittle scripts - just instant answers with SQL.'

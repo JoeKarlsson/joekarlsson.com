@@ -1,5 +1,6 @@
 ---
 title: 'AI Gateway for Developers: What Teams Are Building on Live Enterprise Data'
+seoTitle: 'AI Gateway for Developers: What Teams Build'
 date: 2026-09-28
 slug: 'ai-gateway-for-developers'
 description: "Building internal AI agents on enterprise data without a custom permission system. Here's what teams are shipping on CData Connect AI in 2026."

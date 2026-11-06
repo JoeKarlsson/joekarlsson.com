@@ -1,5 +1,6 @@
 ---
 title: 'Event sourcing with Kafka: A practical example'
+seoTitle: 'Event Sourcing with Kafka: An Example'
 date: 2024-03-29
 slug: 'event-sourcing-with-kafka-a-practical-example'
 description: 'Imagine you’re building banking software, and you’ve been asked to figure out one of the most fundamental tasks in fintech: determining the current balance of every customer in your system....'

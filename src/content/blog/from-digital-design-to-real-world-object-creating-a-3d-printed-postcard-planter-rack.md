@@ -1,5 +1,6 @@
 ---
 title: 'From Digital Design to Real-World Object: How I Created a 3D-Printed Planter for a Recycled Postcard Rack Planter'
+seoTitle: 'A 3D-Printed Planter for a Postcard Rack'
 shareTitle: 'How I 3D-Printed a Planter for a Recycled Postcard Rack'
 date: 2023-02-27
 slug: 'from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack'

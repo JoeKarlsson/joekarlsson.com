@@ -1,5 +1,6 @@
 ---
 title: 'Cloud Operations Maturity Model: A Six-Dimension Self-Assessment'
+seoTitle: 'Cloud Operations Maturity Model'
 date: 2026-02-17
 slug: 'cloud-operations-playbook-part-02-cloud-operations-maturity-model'
 description: >-

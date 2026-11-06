@@ -1,5 +1,5 @@
 ---
-title: 'tl;dr in tech by Joe Karlsson - Issue #7'
+title: 'tl;dr in tech - Issue #7'
 date: 2022-01-04
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-01-04'
 issue: 7

@@ -1,5 +1,6 @@
 ---
 title: 'Cloud Centers of Excellence (Part 5): The Future of CCOEs and Getting Started'
+seoTitle: 'The Future of CCoEs (Part 5)'
 description: CCOEs aren't going away, they're evolving. Part 5 looks ahead at how CCOEs are shifting. We share what's next, what to build, and how to keep your CCOE adaptable without locking it in the past.
 date: 2025-06-03
 slug: cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started

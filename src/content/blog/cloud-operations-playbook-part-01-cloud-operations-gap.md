@@ -1,5 +1,6 @@
 ---
 title: 'The Cloud Operations Gap in Multi-Cloud Environments'
+seoTitle: 'The Multi-Cloud Operations Gap'
 date: 2026-02-17
 slug: 'cloud-operations-playbook-part-01-cloud-operations-gap'
 description: >-

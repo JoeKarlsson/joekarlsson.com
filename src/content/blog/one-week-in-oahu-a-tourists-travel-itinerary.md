@@ -1,5 +1,6 @@
 ---
 title: 'One Week in Oahu - A Seven Day Tourist Travel Itinerary'
+seoTitle: 'One Week in Oahu: A 7-Day Itinerary'
 date: 2015-07-12
 slug: 'one-week-in-oahu-a-tourists-travel-itinerary'
 description: 'This itinerary contains the list of spots I would bring friends and family one week in Oahu. I tried to avoid the usual tourist spots.'

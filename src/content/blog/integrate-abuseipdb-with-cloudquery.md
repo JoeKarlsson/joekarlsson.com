@@ -1,5 +1,6 @@
 ---
 title: 'Integrate AbuseIPDB Threat Intelligence with CloudQuery'
+seoTitle: 'AbuseIPDB Threat Intel with CloudQuery'
 date: 2025-05-01
 slug: 'integrate-abuseipdb-with-cloudquery'
 description: 'Check your cloud public IPs against AbuseIPDB abuse scores using CloudQuery inventory data and SQL joins. Includes working query examples.'

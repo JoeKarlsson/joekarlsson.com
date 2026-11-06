@@ -1,5 +1,6 @@
 ---
 title: 'Treat Content Development for Your Open Source Project Like Your Open Source Project'
+seoTitle: 'Treat Open Source Content Like Code'
 shareTitle: "Treat Your Open Source Project's Content Like Your Open Source Project"
 date: 2023-02-28
 slug: 'treat-content-development-for-your-open-source-project-like-your-open-source-project'

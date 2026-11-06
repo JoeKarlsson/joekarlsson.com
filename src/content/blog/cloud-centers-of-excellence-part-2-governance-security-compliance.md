@@ -1,5 +1,6 @@
 ---
 title: 'Cloud Centers of Excellence (Part 2): Governance, Security, and Compliance in CCOEs'
+seoTitle: 'CCoE Security and Compliance (Part 2)'
 shareTitle: 'Cloud Centers of Excellence (Part 2): Governance, Security, and Compliance'
 description: Who actually owns cloud policy? We break down how real CCOEs manage governance, enforce security without compromising velocity, and keep regulators at bay. We share what works and what quietly fails, inside enterprises handling sensitive workloads.
 date: 2025-06-03

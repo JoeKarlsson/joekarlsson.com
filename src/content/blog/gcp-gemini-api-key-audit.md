@@ -1,5 +1,6 @@
 ---
 title: 'Did Gemini Just Make Your Google API Keys a Security Risk?'
+seoTitle: 'Gemini and Your Google API Key Security'
 date: 2026-03-06
 slug: gcp-gemini-api-key-audit
 description: Google API keys safe to embed publicly now authenticate to Gemini. Here's how to audit your GCP projects with CloudQuery to find the exposure.

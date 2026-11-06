@@ -1,5 +1,6 @@
 ---
 title: 'How I Share Two Used GPUs Across Seven Services in My Proxmox Homelab'
+seoTitle: 'Proxmox GPU Sharing Across Seven Services'
 date: 2026-04-13T11:24:48Z
 updatedDate: 2026-10-15
 slug: 'proxmox-gpu-passthrough-multi-service'

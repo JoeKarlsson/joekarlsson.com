@@ -1,5 +1,6 @@
 ---
 title: 'A Gentle Introduction to Building Serverless Apps'
+seoTitle: 'A Gentle Introduction to Serverless Apps'
 date: 2020-04-18
 slug: 'a-gentle-introduction-to-building-serverless-apps'
 description: 'Thanks for coming to my talk, A Gentle Introduction to Building Serverless Apps. Here you will find all the resources discussed during the talk. About Do you want to crank out features the business...'

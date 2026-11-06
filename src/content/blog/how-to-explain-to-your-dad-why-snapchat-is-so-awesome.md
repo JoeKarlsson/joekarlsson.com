@@ -1,5 +1,6 @@
 ---
 title: 'How To Explain to Your Dad Why Snapchat Is So Awesome'
+seoTitle: 'Explaining Snapchat to Your Dad'
 date: 2015-05-09
 slug: 'how-to-explain-to-your-dad-why-snapchat-is-so-awesome'
 description: 'A recent article written by Jeremy Liew, titled “If you don’t “get” why Snapchat is growing so fast, read this,” and a conversation with my anti-Snapchat Dad has had me thinking about why Snapchat...'

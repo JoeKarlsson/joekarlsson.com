@@ -1,5 +1,6 @@
 ---
 title: 'How to get started with Home Assistant in 2026'
+seoTitle: 'Getting Started with Home Assistant (2026)'
 date: 2026-03-22
 updatedDate: 2026-03-22
 slug: 'how-to-get-started-with-home-assistant-in-2026'

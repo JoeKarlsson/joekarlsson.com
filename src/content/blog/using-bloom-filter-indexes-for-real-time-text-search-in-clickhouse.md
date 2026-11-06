@@ -1,5 +1,6 @@
 ---
 title: 'Using Bloom filter indexes for real-time text search in ClickHouse'
+seoTitle: 'Bloom Filter Text Search in ClickHouse'
 date: 2024-03-30
 slug: 'using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse'
 description: 'Efficient text search is one of the hardest problems in data engineering. Text-based data presents a unique set of challenges, especially when you need results in real time...'

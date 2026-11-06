@@ -1,5 +1,6 @@
 ---
 title: 'Best MCP Servers for ChatGPT, Dots, and Meta Muse'
+seoTitle: 'Best MCP Servers for ChatGPT and Meta Muse'
 date: 2026-10-26
 slug: 'best-mcp-servers-chatgpt-meta-muse'
 description: 'Best MCP servers for ChatGPT, dots, and Meta Muse in 2026, compared by use case, with the criteria business and IT teams use to approve one.'

@@ -1,5 +1,6 @@
 ---
 title: 'Kubernetes Asset Tracking: Why 70% of Enterprises are Struggling (And How to Fix It)'
+seoTitle: 'Kubernetes Asset Tracking at Scale'
 shareTitle: 'Kubernetes Asset Tracking: Why 70% of Enterprises Are Struggling'
 date: 2025-05-01
 slug: 'kubernetes-asset-tracking-at-scale'

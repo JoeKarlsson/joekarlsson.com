@@ -1,5 +1,6 @@
 ---
 title: 'I Built a Fully Local Voice Assistant for Home Assistant (With GPU, No Cloud Required)'
+seoTitle: 'Local Voice Assistant for Home Assistant'
 shareTitle: 'I Built a Fully Local Voice Assistant for Home Assistant (GPU, No Cloud)'
 date: 2026-04-13T10:51:02Z
 slug: 'local-voice-ai-home-assistant-gpu'

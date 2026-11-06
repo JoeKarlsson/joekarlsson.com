@@ -1,5 +1,6 @@
 ---
 title: 'Query Your Dockerfiles with SQL: Find EOL Node 18 Images Across All repos'
+seoTitle: 'Find EOL Dockerfile Base Images with SQL'
 date: 2026-01-04
 slug: 'query-dockerfiles-for-eol-base-images-with-sql'
 description: 'Node 18 reached end-of-life. Find every Dockerfile using Node 18 base images across your organization with a single SQL query - no cloning repos required.'

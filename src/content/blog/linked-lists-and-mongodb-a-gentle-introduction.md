@@ -1,5 +1,6 @@
 ---
 title: 'Linked Lists and MongoDB: A Gentle Introduction'
+seoTitle: 'Linked Lists and MongoDB'
 date: 2020-11-03
 slug: 'linked-lists-and-mongodb-a-gentle-introduction'
 description: 'Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist....'

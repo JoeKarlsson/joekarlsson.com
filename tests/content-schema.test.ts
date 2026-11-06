@@ -87,8 +87,14 @@ describe('blog post frontmatter', () => {
 // Share links submit shareTitle (or the title) to Hacker News, which cuts titles at 80 characters
 describe('share titles fit Hacker News', () => {
 	const SHARE_TITLE_MAX = 80;
+	// Matches SEO_TITLE_MAX in src/content.config.ts
+	const SEO_TITLE_MAX = 45;
 	const contentDir = resolve(import.meta.dirname, '..', 'src', 'content');
-	const unquote = (value: string) => value.replace(/^(['"])(.*)\1$/, '$2').replace(/\\"/g, '"');
+	const unquote = (value: string) =>
+		value
+			.replace(/^(['"])(.*)\1$/, '$2')
+			.replace(/\\"/g, '"')
+			.replace(/''/g, "'");
 
 	for (const collection of ['blog', 'newsletter']) {
 		const dir = resolve(contentDir, collection);
@@ -104,6 +110,18 @@ describe('share titles fit Hacker News', () => {
 				})
 				.filter(({ shareTitle }) => shareTitle.length > SHARE_TITLE_MAX)
 				.map(({ file, shareTitle }) => `${file} (${shareTitle.length}): add a shorter shareTitle`);
+			expect(tooLong).toEqual([]);
+		});
+
+		// "<title> | Joe Karlsson" stays within the ~60 characters Google shows
+		it(`${collection}: every tab title is at most ${SEO_TITLE_MAX} characters`, () => {
+			const tooLong = files
+				.map((file) => {
+					const fm = extractFrontmatter(readFileSync(file, 'utf-8'));
+					return { file: basename(file), seoTitle: unquote(fm.seoTitle || fm.title || '') };
+				})
+				.filter(({ seoTitle }) => [...seoTitle].length > SEO_TITLE_MAX)
+				.map(({ file, seoTitle }) => `${file} (${seoTitle.length}): add a shorter seoTitle`);
 			expect(tooLong).toEqual([]);
 		});
 	}

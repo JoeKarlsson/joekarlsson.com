@@ -1,5 +1,6 @@
 ---
 title: 'Cloud CMDB vs Traditional CMDB: A 2026 Comparison'
+seoTitle: 'Cloud CMDB vs Traditional CMDB (2026)'
 slug: cloud-cmdb-vs-traditional-cmdb-2026
 tags:
   - Cloud Infrastructure

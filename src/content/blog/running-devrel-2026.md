@@ -1,5 +1,6 @@
 ---
 title: 'Running DevRel in 2026 Means Owning Three Discovery Surfaces'
+seoTitle: 'Running DevRel in 2026'
 date: 2026-04-21
 updatedDate: 2026-10-12
 slug: 'running-devrel-2026'

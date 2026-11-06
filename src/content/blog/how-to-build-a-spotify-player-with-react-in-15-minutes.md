@@ -1,5 +1,6 @@
 ---
 title: 'How to Build A Spotify Player with React in 15 Minutes'
+seoTitle: 'Build a Spotify Player with React'
 date: 2019-04-02
 slug: 'how-to-build-a-spotify-player-with-react-in-15-minutes'
 description: 'Have you ever wanted to build a Spotify player for your app or website? Adding personalized music to any application is super easy with the Spotify Developer API. Personally, I have been playing...'

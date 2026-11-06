@@ -1,5 +1,6 @@
 ---
 title: How to Eliminate Blind Spots in Your Cloud Environment
+seoTitle: 'Eliminate Blind Spots in Your Cloud'
 date: 2025-03-11
 slug: 'eliminate-blind-spots-cloud-environment'
 description: 'Stop guessing what in your multi-cloud environment. Use CloudQuery asset inventory to see everything, secure everything, and save money doing it.'

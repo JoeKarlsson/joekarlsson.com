@@ -1,5 +1,6 @@
 ---
 title: 'The Best Home Assistant Automations of 2026 (10 Years In)'
+seoTitle: 'The Best Home Assistant Automations of 2026'
 date: 2026-09-29
 updatedDate: 2026-10-12
 slug: 'best-home-assistant-automations'

@@ -1,5 +1,6 @@
 ---
 title: 'I Replaced Alexa with a Dumber Voice Assistant (But at Least It’s Private)'
+seoTitle: 'I Replaced Alexa with a Private Assistant'
 date: 2025-06-18
 slug: 'i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private'
 description: 'After five years of building automations in Home Assistant, I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home...'

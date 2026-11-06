@@ -1,5 +1,6 @@
 ---
 title: 'AWS + Google Cloud Networking Partnership: Connectivity Solved, Visibility Still Broken'
+seoTitle: 'AWS + Google Cloud Networking Partnership'
 shareTitle: 'AWS + Google Cloud Networking: Connectivity Solved, Visibility Still Broken'
 date: 2026-01-20
 slug: 'aws-google-cloud-networking-partnership'

@@ -1,5 +1,6 @@
 ---
 title: 'So, You Want To Learn How To Code? Here’s What You Need To Know.'
+seoTitle: 'So, You Want to Learn How to Code?'
 date: 2018-01-26
 slug: 'my-top-resources-for-learning-how-to-code'
 description: 'So, you want to learn how to code? Here’s What You Need To Know to get started. This is a list of my favorite programming books, talks, podcasts, newsletters, websites, and general tips for...'

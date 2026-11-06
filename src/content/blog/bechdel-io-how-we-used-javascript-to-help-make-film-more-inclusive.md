@@ -1,5 +1,6 @@
 ---
 title: 'Bechdel.io - How We Used JavaScript To Help Make Film More Inclusive'
+seoTitle: 'Bechdel.io: JavaScript for Inclusive Film'
 date: 2020-05-16
 slug: 'bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive'
 description: 'Thanks for coming to my talk, Bechdel.io - How We Used JavaScript To Help Make Film More Inclusive. Here you will find all the resources discussed during the talk. About What do The Social Network,...'

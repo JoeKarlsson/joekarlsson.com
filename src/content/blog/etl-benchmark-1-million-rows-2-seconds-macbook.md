@@ -1,5 +1,6 @@
 ---
 title: 'We benchmarked our ETL tool and synced 1 million rows in 2 seconds on a MacBook'
+seoTitle: 'ETL Benchmark: 1M Rows in 2 Seconds'
 date: 2025-08-27
 slug: 'etl-benchmark-1-million-rows-2-seconds-macbook'
 description: 'We benchmarked our ETL tool and synced 1 million rows in 2 seconds on laptop hardware, which is 68% faster than enterprise platforms. Full methodology and code included.'

@@ -1,11 +1,11 @@
 ---
-title: 'tl;dr in tech by Joe Karlsson - Issue #35'
+title: 'tl;dr in tech - Issue #39'
 date: 2022-07-12
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-07-12'
-issue: 35
+issue: 39
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-07-12'
 heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-07-12/card.webp'
-heroAlt: 'Works on My Machine card for TL;DR in Tech issue 35, leading with TL;DR in Tech, with the issue number circled in pink crayon'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 39, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 **[tl;dr](https://www.edbatista.com/2022/04/flawless-teamwork.html)**[: Questions worth asking when considering if a team is achieving full potential: What kind of team we are? Are the right people here? Does everyone know their role? How do we make decisions? Have we built a sense of cohesiveness? Do we know what effectiveness looks like? What happens when we disagree?](https://www.edbatista.com/2022/04/flawless-teamwork.html)

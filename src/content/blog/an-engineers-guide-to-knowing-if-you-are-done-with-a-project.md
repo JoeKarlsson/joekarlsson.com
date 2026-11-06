@@ -1,5 +1,6 @@
 ---
 title: 'An Engineers Guide to Knowing if You Are Done With a Project'
+seoTitle: 'How Engineers Know a Project Is Done'
 date: 2018-11-14
 slug: 'an-engineers-guide-to-knowing-if-you-are-done-with-a-project'
 description: 'Have you ever started a project and thought to yourself, “When can I call this done?” Then this listicle is for you! This guide is intended to be a general list of things your personal or...'

@@ -1,5 +1,6 @@
 ---
 title: "Enterprise Data Access for AI Agents: What Model Routing Doesn't Cover"
+seoTitle: 'Enterprise Data Access for AI Agents'
 date: 2026-09-28
 slug: 'ai-gateway-data-access-layer'
 description: "Enterprise data access for AI agents is the part of the AI gateway stack most teams haven't built yet. Here's what it handles and why it matters now."

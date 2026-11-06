@@ -8,11 +8,18 @@ import { BLOG_CATEGORIES, EMPLOYERS } from './utils/categories';
 export const SHARE_TITLE_MAX = 80;
 const shareTitle = z.string().max(SHARE_TITLE_MAX).optional();
 
+// Google shows about 60 characters of a page title. A title longer than SEO_TITLE_MAX sets a
+// shorter seoTitle for the browser tab and search results, so "<seoTitle> | Joe Karlsson" fits;
+// the page heading keeps the full title (tests/content-schema.test.ts enforces this).
+export const SEO_TITLE_MAX = 45;
+const seoTitle = z.string().max(SEO_TITLE_MAX).optional();
+
 const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
 		title: z.string(),
 		shareTitle,
+		seoTitle,
 		date: z.coerce.date(),
 		slug: z.string(),
 		description: z.string().optional().default(''),
@@ -42,6 +49,7 @@ const newsletter = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		shareTitle,
+		seoTitle,
 		date: z.coerce.date(),
 		slug: z.string(),
 		description: z.string().optional().default(''),

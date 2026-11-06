@@ -1,5 +1,6 @@
 ---
 title: 'AWS Lambda Python 3.9 End-of-Support: Find and Upgrade Every Affected Function'
+seoTitle: 'AWS Lambda Python 3.9 End of Support'
 date: 2026-02-10
 slug: 'python-39-lambda-deprecation'
 description: 'AWS Lambda Python 3.9 security patches stopped Dec 15, 2025. Find every affected function across all accounts with SQL queries and upgrade to 3.12 or 3.13.'

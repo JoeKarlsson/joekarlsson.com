@@ -1,5 +1,6 @@
 ---
 title: 'Visibility-First Cloud Governance: Why You Should Start with Data'
+seoTitle: 'Visibility-First Cloud Governance'
 date: 2026-02-24
 slug: 'cloud-operations-playbook-part-06-visibility-first-governance-model'
 description: >-

@@ -1,11 +1,11 @@
 ---
-title: 'tl;dr in tech by Joe Karlsson - Issue #64'
+title: 'tl;dr in tech - Issue #62'
 date: 2022-12-27
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-12-27'
-issue: 64
+issue: 62
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-12-27'
 heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-12-27/card.webp'
-heroAlt: 'Works on My Machine card for TL;DR in Tech issue 64, leading with TL;DR in Tech, with the issue number circled in pink crayon'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 62, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 ![3x3 Rubik's cube toy](/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-12-27/photo-1577401239170-897942555fb3.webp)

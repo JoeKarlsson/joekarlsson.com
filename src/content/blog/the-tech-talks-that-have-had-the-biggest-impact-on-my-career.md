@@ -1,5 +1,6 @@
 ---
 title: 'The Tech Talks That Have Had The Biggest Impact On My Career'
+seoTitle: 'The Tech Talks That Shaped My Career'
 date: 2019-01-08
 slug: 'the-tech-talks-that-have-had-the-biggest-impact-on-my-career'
 description: 'It’s not that often that I go to a conference or watch a talk on YouTube that truly changes the way I think about programming or software development. Even though I’m someone who does frontend...'

@@ -1,5 +1,6 @@
 ---
 title: 'Calculating the True Cost of Cloud Operations Toil'
+seoTitle: 'The True Cost of Cloud Operations Toil'
 date: 2026-02-21
 slug: 'cloud-operations-playbook-part-05-cloud-waste-calculator'
 description: >-

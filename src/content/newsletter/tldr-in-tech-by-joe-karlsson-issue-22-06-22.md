@@ -1,11 +1,11 @@
 ---
-title: 'tl;dr in tech by Joe Karlsson - Issue #29'
+title: 'tl;dr in tech - Issue #36'
 date: 2022-06-22
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-06-22'
-issue: 29
+issue: 36
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-06-22'
 heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-06-22/card.webp'
-heroAlt: 'Works on My Machine card for TL;DR in Tech issue 29, leading with TL;DR in Tech, with the issue number circled in pink crayon'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 36, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [Want to find out why I joined There are a lot of reasons I joined the team at Viam? Be sure to check out my new blog post where I walk through all the reasons why.](/newsletter/why-i-joined-viam/)

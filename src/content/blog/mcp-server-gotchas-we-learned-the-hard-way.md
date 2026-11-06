@@ -1,5 +1,6 @@
 ---
 title: 'We Built an MCP Server and These Are the Gotchas Nobody Talks About'
+seoTitle: 'MCP Server Gotchas Nobody Talks About'
 date: 2025-07-29
 slug: 'mcp-server-gotchas-we-learned-the-hard-way'
 description: 'Lessons we learned from building an MCP server to bridge LLMs with cloud infrastructure databases. What we learned about tool descriptions, naming, context limits, and quirks, and how we fixed them.'

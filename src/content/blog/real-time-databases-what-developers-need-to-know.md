@@ -1,5 +1,6 @@
 ---
 title: 'Real-time Databases: What developers need to know'
+seoTitle: 'Real-Time Databases for Developers'
 date: 2024-03-30
 slug: 'real-time-databases-what-developers-need-to-know'
 description: 'Selecting the right application database can be a challenge for developers, especially so when you need a database for building real-time applications. Real-time data has become an essential...'

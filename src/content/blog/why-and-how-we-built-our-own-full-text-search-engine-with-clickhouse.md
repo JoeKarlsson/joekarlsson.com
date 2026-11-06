@@ -1,5 +1,6 @@
 ---
 title: 'Why (and How) We Built Our Own Full Text Search Engine with ClickHouse'
+seoTitle: 'A Full Text Search Engine with ClickHouse'
 date: 2025-05-15
 slug: 'why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
 description: 'How we built a full-text search for CloudQuery using ClickHouse, achieving 10x faster queries without dedicated search engines.'

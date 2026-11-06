@@ -1,5 +1,6 @@
 ---
 title: 'How to pixelate images with HTML5 and JavaScript'
+seoTitle: 'Pixelate Images with HTML5 and JavaScript'
 date: 2015-05-16
 slug: 'how-to-pixelate-images-with-html5-and-javascript'
 description: 'A couple of months ago, I was interested in learning some new HTML5 elements. The more visual flourishes of the canvas class especially caught my eye. The ability to dynamically adjust elements in an...'

@@ -1,5 +1,6 @@
 ---
 title: 'Cloud Centers of Excellence (Part 4): Implementation Best Practices and Common Pitfalls'
+seoTitle: 'CCoE Best Practices and Pitfalls (Part 4)'
 shareTitle: 'Cloud Centers of Excellence (Part 4): Implementation and Common Pitfalls'
 description: 'Part 4 of the Cloud CoE series: a battle-tested roadmap covering what to build first, what to skip, how to avoid the ivory tower trap, and keeping your CoE alive past year one.'
 date: 2025-06-03

@@ -27,7 +27,7 @@ interface Props {
 }
 
 const { issue, prev, next } = Astro.props;
-const { title, shareTitle, date, description, substackUrl, heroImage, heroAlt, recapOf } =
+const { title, shareTitle, seoTitle, date, description, substackUrl, heroImage, heroAlt, recapOf } =
 	issue.data;
 // A recap condenses a blog post, so search engines should index the post instead.
 const canonicalUrl = recapOf ? new URL(`/blog/${recapOf}/`, Astro.site).href : undefined;
@@ -54,7 +54,7 @@ const relatedSlugs = rankRelatedPosts(
 ---
 
 <BaseLayout
-	title={`${title} | Joe Karlsson`}
+	title={`${seoTitle || title} | Joe Karlsson`}
 	description={description || `${title}, from the TL;DR in Tech newsletter archive.`}
 	type="article"
 	publishedDate={date}

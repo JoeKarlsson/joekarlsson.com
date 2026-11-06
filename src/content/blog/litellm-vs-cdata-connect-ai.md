@@ -1,5 +1,6 @@
 ---
 title: 'LiteLLM or CData Connect AI? Choosing the Right Enterprise AI Gateway in 2026'
+seoTitle: 'LiteLLM vs CData Connect AI (2026)'
 date: 2026-09-28
 slug: 'litellm-vs-cdata-connect-ai'
 description: 'LiteLLM vs enterprise AI gateway, 2026 comparison: MCP governance, data connectivity, and when to use each. For IT admins and AI engineers.'

@@ -1,5 +1,6 @@
 ---
 title: 'How to Use Custom Archival Rules and Partitioning on MongoDB Atlas Online Archive'
+seoTitle: 'MongoDB Atlas Online Archive: Custom Rules'
 shareTitle: 'Custom Archival Rules and Partitioning on MongoDB Atlas Online Archive'
 date: 2021-06-30
 slug: 'how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive'

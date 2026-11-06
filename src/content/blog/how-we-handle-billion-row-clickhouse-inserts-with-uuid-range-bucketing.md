@@ -1,5 +1,6 @@
 ---
 title: 'How We Handle Billion-Row ClickHouse Inserts With UUID Range Bucketing'
+seoTitle: 'Billion-Row ClickHouse Inserts'
 date: 2025-05-01
 slug: 'how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing'
 description: 'How we solved memory explosion issues in ClickHouse when processing billions of rows of cloud configuration data using an Insert-Splitter with UUID-range bucketing technique.'

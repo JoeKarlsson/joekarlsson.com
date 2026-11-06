@@ -1,5 +1,6 @@
 ---
 title: 'Building a Claude Code Blog Skill: What I Learned Systematizing Content Creation'
+seoTitle: 'Building a Claude Code Blog Skill'
 date: 2025-10-24
 slug: 'building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation'
 description: 'I live in the terminal. Like, genuinely live there. As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code...'

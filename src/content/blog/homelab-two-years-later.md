@@ -1,5 +1,6 @@
 ---
 title: 'My Homelab Two Years Later, Every Upgrade and What It Cost'
+seoTitle: 'My Homelab Two Years Later'
 date: 2026-03-05
 updatedDate: 2026-10-01
 slug: 'homelab-two-years-later'

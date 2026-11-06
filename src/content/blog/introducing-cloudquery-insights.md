@@ -1,5 +1,6 @@
 ---
 title: 'Introducing CloudQuery Insights: Cloud Intelligence That Connects the Dots'
+seoTitle: 'Introducing CloudQuery Insights'
 date: 2025-09-01
 slug: 'introducing-cloudquery-insights'
 description: 'CloudQuery Insights monitors your complete asset inventory and surfaces interconnected signals across security, cost, policy, and audit data automatically.'

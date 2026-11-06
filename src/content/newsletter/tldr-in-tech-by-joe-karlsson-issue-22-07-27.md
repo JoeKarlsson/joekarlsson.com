@@ -1,11 +1,11 @@
 ---
-title: 'tl;dr in tech by Joe Karlsson - Issue #38'
+title: 'tl;dr in tech - Issue #41'
 date: 2022-07-27
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-07-27'
-issue: 38
+issue: 41
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-07-27'
 heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-07-27/card.webp'
-heroAlt: 'Works on My Machine card for TL;DR in Tech issue 38, leading with TL;DR in Tech, with the issue number circled in pink crayon'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 41, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
 [tl;dr:](https://kenkantzer.com/learnings-from-5-years-of-tech-startup-code-audits/)
