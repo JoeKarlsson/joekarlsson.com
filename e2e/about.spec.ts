@@ -11,15 +11,16 @@ test.describe('About Page', () => {
 		expect(textContent?.trim().length).toBeGreaterThan(100);
 	});
 
-	test('career details open and close', async ({ page }) => {
-		const details = page.locator('main details').first();
-		await expect(details).not.toHaveAttribute('open');
+	test('career rows open and close on click', async ({ page }) => {
+		// Hover eases a row open; a click keeps it open until clicked again
+		const toggle = page.locator('main .job > button').first();
+		await expect(toggle).toHaveAttribute('aria-expanded', 'false');
 
-		await details.locator('summary').click();
-		await expect(details).toHaveAttribute('open');
+		await toggle.click();
+		await expect(toggle).toHaveAttribute('aria-expanded', 'true');
 
-		await details.locator('summary').click();
-		await expect(details).not.toHaveAttribute('open');
+		await toggle.click();
+		await expect(toggle).toHaveAttribute('aria-expanded', 'false');
 	});
 
 	test('videos load the YouTube player only when clicked', async ({ page }) => {
