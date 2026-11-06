@@ -65,96 +65,6 @@ export const USES_SECTIONS: UsesSection[] = [
 				],
 			},
 			{
-				name: 'Input & peripherals',
-				items: [
-					{
-						name: 'Razer DeathAdder Chroma',
-						url: 'https://www.razer.com/pc/gaming-mice/deathadder-line',
-						descHtml: 'gaming mouse.',
-						pin: [68, 77],
-					},
-					{
-						name: 'Apple Magic Trackpad 2',
-						url: 'https://www.apple.com/shop/product/MK2C3LL/A/magic-trackpad',
-						descHtml: 'for swipe and pinch controls.',
-						pin: [61, 77],
-					},
-					{
-						name: 'Razer Goliathus Extended Chroma',
-						url: 'https://www.razer.com/gaming-mouse-mats/razer-goliathus-extended-chroma',
-						descHtml: 'mousepad with RGB backlighting.',
-						pin: [40, 79],
-					},
-					{
-						name: 'Elgato Stream Deck',
-						url: 'https://www.elgato.com/en/gaming/stream-deck',
-						descHtml:
-							'I use this more for productivity shortcuts than streaming. Muting/unmuting in Zoom, launching common workflows, and triggering Home Assistant scenes from my desk.',
-						pin: [57, 59],
-					},
-				],
-			},
-			{
-				name: 'Keyboards',
-				items: [
-					{
-						name: 'Vortexgear Race 3',
-						url: 'https://www.amazon.com/gp/product/B072LZ2YRM',
-						descHtml: 'with Cherry MX Clear switches.',
-						pin: [51, 73],
-					},
-					{
-						name: 'Custom Vortex POK3R',
-						url: 'https://vortexgear.store/products/the-new-pok3r-rgb',
-						descHtml:
-							"wood case, Cherry MX Blue switches, custom keycap set from WASD Keyboards. I like clicky switches - Blues are the loudest and clickiest. I'd recommend Clears as a good starter switch.",
-					},
-				],
-			},
-			{
-				name: 'Desk & audio',
-				items: [
-					{
-						name: 'Standing Desk',
-						url: '',
-						descHtml:
-							'custom-built IKEA desktop on industrial black steel legs, with a Luna Standing Desk Stool.',
-						pin: [45, 87],
-					},
-					{
-						name: 'Sony MDR7506',
-						url: 'https://www.amazon.com/Sony-MDR7506-Professional-Diaphragm-Headphone/dp/B000AJIF4E',
-						descHtml:
-							'professional headphones with upgraded velvet pads. Affordable, comfortable, and sound great.',
-						pin: [16, 93],
-					},
-					{
-						name: 'Philips Hue Play',
-						url: 'https://www.bestbuy.com/site/philips-hue-play-white-color-ambiance-smart-led-bar-light-2-pack-multicolor/6298635.p',
-						descHtml: 'White & Color Ambiance LED Bar Lights (2-Pack) for desk backlighting.',
-					},
-					{
-						name: 'Aranet4',
-						url: 'https://www.amazon.com/dp/B07YY7BH2W',
-						descHtml:
-							"CO2 monitor on my desk. When the number climbs, I start getting foggy, so it's my cue to open a window or take a break.",
-						pin: [61, 60],
-					},
-					{
-						name: 'WiiM Pro',
-						url: 'https://www.amazon.com/dp/B0BJDY6D1W',
-						descHtml:
-							"plays music in my office. It's cheaper than Sonos or Bose multi-room systems, and in my opinion better integrated. I love it.",
-					},
-					{
-						name: 'Home Assistant Voice Preview Edition',
-						url: 'https://www.home-assistant.io/voice-pe/',
-						descHtml:
-							'I swapped out all of my Amazon Alexas for these. Voice processing runs locally, not in Amazon\'s cloud. I wrote about <a href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/" data-text-link >what it\'s like replacing Alexa</a> if you want to learn more.',
-					},
-				],
-			},
-			{
 				name: 'Camera, mic & lighting',
 				items: [
 					{
@@ -191,6 +101,111 @@ export const USES_SECTIONS: UsesSection[] = [
 		},
 	},
 	{
+		slug: 'on-the-desk',
+		name: 'On the desk',
+		introHtml: '',
+		groups: [
+			{
+				name: 'Input & peripherals',
+				items: [
+					{
+						name: 'Razer DeathAdder Chroma',
+						url: 'https://www.razer.com/pc/gaming-mice/deathadder-line',
+						descHtml: 'gaming mouse.',
+						pin: [89, 62],
+					},
+					{
+						name: 'Apple Magic Trackpad 2',
+						url: 'https://www.apple.com/shop/product/MK2C3LL/A/magic-trackpad',
+						descHtml: 'for swipe and pinch controls.',
+						pin: [74, 67],
+					},
+					{
+						name: 'Razer Goliathus Extended Chroma',
+						url: 'https://www.razer.com/gaming-mouse-mats/razer-goliathus-extended-chroma',
+						descHtml: 'mousepad with RGB backlighting.',
+						pin: [14, 72],
+					},
+					{
+						name: 'Elgato Stream Deck',
+						url: 'https://www.elgato.com/en/gaming/stream-deck',
+						descHtml:
+							'I use this more for productivity shortcuts than streaming. Muting/unmuting in Zoom, launching common workflows, and triggering Home Assistant scenes from my desk.',
+						pin: [64, 15],
+					},
+				],
+			},
+			{
+				name: 'Keyboards',
+				items: [
+					{
+						name: 'Vortexgear Race 3',
+						url: 'https://www.amazon.com/gp/product/B072LZ2YRM',
+						descHtml: 'with Cherry MX Clear switches.',
+					},
+					{
+						name: 'Custom Vortex POK3R',
+						url: 'https://vortexgear.store/products/the-new-pok3r-rgb',
+						descHtml:
+							"wood case, Cherry MX Blue switches, custom keycap set from WASD Keyboards. I like clicky switches - Blues are the loudest and clickiest. I'd recommend Clears as a good starter switch.",
+						pin: [43, 58],
+					},
+				],
+			},
+			{
+				name: 'Desk & audio',
+				items: [
+					{
+						name: 'Standing Desk',
+						url: '',
+						descHtml:
+							'custom-built IKEA desktop on industrial black steel legs, with a Luna Standing Desk Stool.',
+						pin: [7, 47],
+					},
+					{
+						name: 'Sony MDR7506',
+						url: 'https://www.amazon.com/Sony-MDR7506-Professional-Diaphragm-Headphone/dp/B000AJIF4E',
+						descHtml:
+							'professional headphones with upgraded velvet pads. Affordable, comfortable, and sound great.',
+					},
+					{
+						name: 'Philips Hue Play',
+						url: 'https://www.bestbuy.com/site/philips-hue-play-white-color-ambiance-smart-led-bar-light-2-pack-multicolor/6298635.p',
+						descHtml: 'White & Color Ambiance LED Bar Lights (2-Pack) for desk backlighting.',
+					},
+					{
+						name: 'Aranet4',
+						url: 'https://www.amazon.com/dp/B07YY7BH2W',
+						descHtml:
+							"CO2 monitor on my desk. When the number climbs, I start getting foggy, so it's my cue to open a window or take a break.",
+						pin: [79, 10],
+					},
+					{
+						name: 'WiiM Pro',
+						url: 'https://www.amazon.com/dp/B0BJDY6D1W',
+						descHtml:
+							"plays music in my office. It's cheaper than Sonos or Bose multi-room systems, and in my opinion better integrated. I love it.",
+						pin: [34, 21],
+					},
+					{
+						name: 'Home Assistant Voice Preview Edition',
+						url: 'https://www.home-assistant.io/voice-pe/',
+						descHtml:
+							'I swapped out all of my Amazon Alexas for these. Voice processing runs locally, not in Amazon\'s cloud. I wrote about <a href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/" data-text-link >what it\'s like replacing Alexa</a> if you want to learn more.',
+						pin: [31, 9],
+					},
+				],
+			},
+		],
+		photo: {
+			src: '/images/uses/desk-2026-keyboard.webp',
+			width: 1920,
+			height: 1080,
+			alt: "Close-up of Joe's desk in pink backlight: a 60% keyboard with retro grey and cream keycaps in a walnut case, a walnut wrist rest, a white trackpad and a black Razer mouse on a long desk mat, and a shelf above holding a game controller, a WiiM Pro with a Home Assistant voice puck on top, an Anker charging stand, a Stream Deck and an Aranet4 reading 608",
+			tall: false,
+		},
+	},
+	{
 		slug: 'recording',
 		name: 'Recording',
 		introHtml:
@@ -204,13 +219,14 @@ export const USES_SECTIONS: UsesSection[] = [
 						url: 'https://www.amazon.com/dp/B0CRZBWVRN',
 						descHtml:
 							'mirrorless camera with the 16-50mm kit lens, and the main camera in the studio. It feeds the Mac through an <a href="https://www.amazon.com/dp/B07K3FN5MR" target="_blank" rel="noopener noreferrer" data-text-link >Elgato Cam Link 4K</a> and runs on wall power through a <a href="https://www.amazon.com/dp/B08BCRSV4H" target="_blank" rel="noopener noreferrer" data-text-link >Kimaru dummy battery</a>, so it never dies halfway through a take.',
+						pin: [67, 31],
 					},
 					{
 						name: 'Elgato Prompter',
 						url: 'https://www.amazon.com/dp/B0CH3P9K1X',
 						descHtml:
 							'teleprompter with a built-in screen. The camera sits behind the glass, so I can read a script and still look into the lens.',
-						pin: [50, 35],
+						pin: [73, 39],
 					},
 					{
 						name: 'Elgato Wave Low Profile Mic Arm (x2)',
@@ -219,7 +235,7 @@ export const USES_SECTIONS: UsesSection[] = [
 							'one holds the mic in an <a href="https://www.amazon.com/dp/B088P2WK3B" target="_blank" rel="noopener noreferrer" data-text-link >Elgato Wave Shock Mount</a>, the other holds the camera and prompter. Both clamp to the desk, so the whole rig moves as one unit when I shuffle the room around for a better shot.',
 						nameHtml:
 							'<a href="https://www.amazon.com/dp/B097376LKF" target="_blank" rel="noopener noreferrer" data-text-link >Elgato Wave Low Profile Mic Arm</a> (x2)',
-						pin: [57, 31],
+						pin: [28, 59],
 					},
 					{
 						name: 'NEEWER NS4S Softboxes + SMALLRIG Light Stands',
@@ -228,26 +244,25 @@ export const USES_SECTIONS: UsesSection[] = [
 							'softboxes over my LED panels for soft key and fill light. The stands fold down small and are easy to move when I reposition the camera. An <a href="https://www.amazon.com/dp/B0FBGYRDLW" target="_blank" rel="noopener noreferrer" data-text-link >orange mushroom floor lamp</a> sits in the background because it looks good on camera.',
 						nameHtml:
 							'<a href="https://www.amazon.com/dp/B0CJM6G7JR" target="_blank" rel="noopener noreferrer" data-text-link >NEEWER NS4S Softboxes</a> + <a href="https://www.amazon.com/dp/B0FMKF8PXJ" target="_blank" rel="noopener noreferrer" data-text-link >SMALLRIG Light Stands</a>',
-						pin: [54, 20],
+						pin: [14, 36],
 					},
 					{
 						name: 'FLEXISPOT E6 MAX',
 						url: 'https://www.amazon.com/dp/B0HCNVWH1D',
 						descHtml: '48x24 acacia dual-motor standing desk.',
-						pin: [72, 68],
+						pin: [21, 84],
 					},
 					{
 						name: 'WORKLION cutting mat',
 						url: 'https://www.amazon.com/dp/B08Y5R5K5J',
 						descHtml:
 							'24x36 self-healing mat that covers the desk and doubles as a work surface for crafts and hardware projects.',
-						pin: [62, 45],
+						pin: [30, 86],
 					},
 					{
 						name: 'HON Ignition 2.0',
 						url: 'https://www.amazon.com/dp/B0FPXPQJBT',
 						descHtml: 'ergonomic mesh chair with lumbar support.',
-						pin: [88, 36],
 					},
 					{
 						name: 'Anker Prime TB5 Dock',
@@ -260,7 +275,6 @@ export const USES_SECTIONS: UsesSection[] = [
 						url: 'https://www.prusa3d.com/',
 						descHtml:
 							'my 3D printer. It lives on a shelf in the recording corner and runs through OctoPrint, so it shows up in Home Assistant like everything else.',
-						pin: [26, 24],
 					},
 				],
 			},
@@ -289,10 +303,10 @@ export const USES_SECTIONS: UsesSection[] = [
 			},
 		],
 		photo: {
-			src: '/images/uses/recording-studio.webp',
+			src: '/images/uses/recording-studio-front.webp',
 			width: 1920,
 			height: 1080,
-			alt: "Overhead view of Joe's recording studio: an acacia standing desk with a green cutting mat, a softbox light, a mic and a prompter on boom arms, a chair, a shelf with a 3D printer, and a palm plant",
+			alt: "Joe's recording studio from the front: an acacia standing desk under kitchen cabinets with a green cutting mat, a gridded softbox on the left, a mic on a boom arm, a camera behind a teleprompter on a second arm, and a pink-and-orange watercolor and crayon painting drying on the mat",
 			tall: false,
 		},
 	},
@@ -476,14 +490,13 @@ export const USES_SECTIONS: UsesSection[] = [
 						url: '',
 						descHtml:
 							"the open-frame rack in my attic that holds all of it. I didn't know 19 inches was a standard width until I was measuring my R730s with a tape measure.",
-						pin: [82, 19],
+						pin: [83, 16],
 					},
 					{
 						name: 'StarTech 8-outlet PDU',
 						url: '',
 						descHtml:
 							'the 1U power strip at the top of the rack, model RKPW081915, with surge and ground lights on the front.',
-						pin: [50, 21],
 					},
 					{
 						name: 'prxbox1 - Dell PowerEdge R730',
@@ -492,7 +505,7 @@ export const USES_SECTIONS: UsesSection[] = [
 							'2x Intel Xeon E5-2698 v4 (80 threads), 128 GB DDR4 ECC, <a href="https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf" target="_blank" rel="noopener noreferrer" data-text-link >NVIDIA Quadro RTX 4000</a> (8 GB). The infrastructure node - Home Assistant, networking, monitoring, and the media automation stack.',
 						nameHtml:
 							'prxbox1 - <a href="https://www.dell.com/support/manuals/en-us/poweredge-r730/r730_ompublication/technical-specifications?guid=guid-c32a42e1-fbc4-4dfe-983d-df4d34ff1e17&lang=en-us" target="_blank" rel="noopener noreferrer" data-text-link >Dell PowerEdge R730</a>',
-						pin: [60, 58],
+						pin: [72, 59],
 					},
 					{
 						name: 'prxbox2 - Dell PowerEdge R730',
@@ -501,7 +514,7 @@ export const USES_SECTIONS: UsesSection[] = [
 							'126 GB RAM, <a href="https://www.nvidia.com/en-us/design-visualization/rtx-a4000/" target="_blank" rel="noopener noreferrer" data-text-link >NVIDIA RTX A4000</a> (16 GB). The GPU node - Plex, Immich, transcoding, and local LLMs.',
 						nameHtml:
 							'prxbox2 - <a href="https://www.dell.com/support/manuals/en-us/poweredge-r730/r730_ompublication/technical-specifications?guid=guid-c32a42e1-fbc4-4dfe-983d-df4d34ff1e17&lang=en-us" target="_blank" rel="noopener noreferrer" data-text-link >Dell PowerEdge R730</a>',
-						pin: [60, 64.5],
+						pin: [72, 66],
 					},
 					{
 						name: 'Networking between them',
@@ -514,7 +527,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						url: 'https://www.cyberpowersystems.com/product/ups/pfc-sinewave/or1500pfcrt2u/',
 						descHtml:
 							'rack UPSes, monitored with NUT so the cluster shuts down cleanly when the power goes out.',
-						pin: [60, 72],
+						pin: [72, 78],
 					},
 				],
 			},
@@ -543,7 +556,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						url: 'https://www.synology.com/en-global/products/DS418play',
 						descHtml:
 							'4-bay NAS serving NFS to the containers for media, photos, documents, and backups.',
-						pin: [40, 40],
+						pin: [42, 35],
 					},
 					{
 						name: 'Proxmox Backup Server',
@@ -561,19 +574,20 @@ export const USES_SECTIONS: UsesSection[] = [
 						url: 'https://store.ui.com/us/en/products/ucg-ultra',
 						descHtml:
 							'router and firewall across 4 VLANs (Default, Guest, IoT, Cameras). IoT and cameras stay isolated.',
+						pin: [44, 27],
 					},
 					{
 						name: 'MikroTik CRS317',
 						url: 'https://mikrotik.com/product/crs317_1g_16s_rm',
 						descHtml:
 							'10G backbone switch, 20 Gbps to each server. A UniFi US-24 handles the 1G devices.',
-						pin: [62, 27],
+						pin: [72, 21],
 					},
 					{
 						name: 'UniFi US24',
 						url: '',
 						descHtml: "24-port 1G switch for everything that doesn't need 10G.",
-						pin: [40, 30],
+						pin: [32, 23],
 					},
 					{
 						name: '2x UniFi U7 Pro + U7 Pro XG',
@@ -644,10 +658,10 @@ export const USES_SECTIONS: UsesSection[] = [
 			},
 		],
 		photo: {
-			src: '/images/blog/homelab-two-years-later/rack-full-front.webp',
-			width: 1000,
+			src: '/images/uses/rack-2026.webp',
+			width: 999,
 			height: 1777,
-			alt: 'Full 25U server rack in the attic showing both Dell R730 servers, MikroTik and UniFi networking, Synology NAS, and dual UPS units',
+			alt: 'Full StarTech server rack in the attic, top to bottom: MikroTik and UniFi switches, a UniFi Cloud Gateway, a Synology NAS on a shelf, both Dell R730 servers and two CyberPower UPS units',
 			tall: true,
 		},
 	},
