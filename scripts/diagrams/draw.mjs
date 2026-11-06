@@ -9,7 +9,7 @@
 // after, for when a file is opened on its own (RSS readers, a direct link).
 // Everything is seeded, so re-rendering an unchanged figure gives the same file.
 
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
 /**
  * Real logos, transparent, from scripts/diagrams/logos (sources in its README).
@@ -141,8 +141,20 @@ function readLogoFile(file, dir = 'logos') {
  * The version of a logo that reads on a surface (a box kind). A name that isn't a
  * logo is a Lucide icon from scripts/diagrams/icons, drawn in the surface's text colour.
  */
+/**
+ * A logo not listed in LOGOS can describe itself in logos/<name>.json:
+ * { "color": "#hex" } for a one-colour mark, or {} for a full-colour logo that
+ * reads on any surface. Lets several people add logos without editing this file.
+ */
+function sidecarEntry(name) {
+	const json = new URL(`./logos/${name}.json`, import.meta.url);
+	if (!existsSync(json)) return undefined;
+	const { color } = JSON.parse(readFileSync(json, 'utf8'));
+	return color ? { color } : { dark: name, light: name, black: name, white: name };
+}
+
 function loadLogo(name, surface = 'ink') {
-	const entry = LOGOS[name];
+	const entry = LOGOS[name] ?? sidecarEntry(name);
 	const background = SURFACES[surface];
 	if (!entry) {
 		const icon = readLogoFile(name, 'icons');
@@ -220,6 +232,7 @@ export function createFigure({ id, width, height }) {
 		target = previous;
 	};
 	const issues = [];
+	let logoCount = 0;
 	// What the collision check needs: where text and boxes are, and every line drawn
 	const textBoxes = [];
 	const boxRects = [];
@@ -306,8 +319,16 @@ export function createFigure({ id, width, height }) {
 	function logo(name, x, cy, logoHeight, surface = 'ink') {
 		const art = loadLogo(name, surface);
 		const w = logoHeight * art.aspect;
+		// Gradient and clip ids must be unique on the page: every figure is inlined
+		// twice (desktop and phone) and a logo can appear several times in each
+		logoCount++;
+		const prefix = `${id}-l${logoCount}-`;
+		const inner = art.inner
+			.replace(/\bid="([^"]+)"/g, (_, ref) => `id="${prefix}${ref}"`)
+			.replace(/url\(#([^)]+)\)/g, (_, ref) => `url(#${prefix}${ref})`)
+			.replace(/href="#([^"]+)"/g, (_, ref) => `href="#${prefix}${ref}"`);
 		target.push(
-			`<svg x="${n(x)}" y="${n(cy - logoHeight / 2)}" width="${n(w)}" height="${n(logoHeight)}" viewBox="${art.viewBox}">${art.inner}</svg>`,
+			`<svg x="${n(x)}" y="${n(cy - logoHeight / 2)}" width="${n(w)}" height="${n(logoHeight)}" viewBox="${art.viewBox}">${inner}</svg>`,
 		);
 		return w;
 	}

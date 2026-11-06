@@ -119,7 +119,7 @@ Note: the above is an oversimplified `SELECT` query. This algorithm is meant to 
 
 The magic happens in the `generateEvenUUIDRanges` function. Since CloudQuery assigns a UUID to every row, we can use these UUIDs to split our data. But UUIDs aren't straightforward in ClickHouse. They have specific constraints in their format, and ClickHouse has quirky sorting behavior.
 
-![Diagram showing the full UUID range (00000000-0000-0000-0000-000000000000 to ffffffff-ffff-ffff-ffff-ffffffffffff) fed into a black box labeled 'UUIDRanges(numOfBuckets)', which splits the range into multiple output buckets labeled Bucket 1, Bucket 2, Bucket 3, Bucket 4 ... Bucket n.](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/image2.webp)
+![UUID range bucketing: the full UUID range, from 00000000-0000-0000-0000-000000000000 to ffffffff-ffff-ffff-ffff-ffffffffffff, goes into UUIDRanges(numOfBuckets), which splits it into even buckets 1 through n, each inserted on its own.](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/uuid-buckets.svg)
 
 The actual implementation of the algorithm is probably too boring to mention here (you can probably ask your favourite AI to do it for you), but before you autocomplete away you should know about these two quirks we found:
 

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 390" width="360" height="390" role="img" aria-label="ClickHouse scaling across a cluster: a load balancer spreads queries over shards 0, 1 through N. Each shard has two replicas, each a ClickHouse server on its own machine and cloud disk, and the replicas in a shard copy data to each other, with data backup underneath.">
+<defs><filter id="why-clickhouse-should-be-your-next-database-cluster-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="430">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="390" fill="#000000"/>
+<path class="d-paper" d="M8.4,108.9 L25.1,110.9 L39.7,109.3 L57.5,110 L72.1,110.3 L86.8,111.2 L104.3,109.5 L110.9,110.1 L113.3,126 L112.3,141.4 L111.6,156.9 L111.5,173.4 L112.7,189.9 L111,205.5 L111,220.9 L113,239.5 L111,254.9 L113.5,269.1 L111.4,286 L112.5,302.1 L113.4,319.4 L112.6,332.7 L111.9,350.9 L112.9,359.2 L95.4,361 L80,358.9 L65.1,358.9 L46.7,358.4 L30.4,359.7 L15.5,360.9 L7.2,358.5 L7,344.7 L6.5,326.9 L7.2,312.8 L6.6,295.7 L6.7,281.2 L6.7,264.3 L7.1,248.3 L8.9,232.8 L8.3,214.5 L9.5,201.3 L7.2,185.1 L8.2,167.7 L8.5,152.1 L8.4,136.9 L9,119.9 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M8,88.1 L23.5,86.7 L39.1,86.5 L56.4,87.8 L73.3,88.9 L89,88.5 L91.1,88.3 L90.2,102.6 L91.5,111.3 L75,111 L57.2,110.9 L40.8,113 L26.8,111.4 L10.4,111.9 L6.5,111.8 L6.7,97 Z" fill="#2a2a2a"/>
+<text x="20" y="101" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">SHARD 0</text>
+<path class="d-paper" d="M129.5,109.6 L145.2,108.5 L160.1,108.7 L177.3,111.5 L192.4,110.2 L207.1,111 L224.8,109.5 L230.7,109.8 L230.9,124.6 L232.9,142.8 L231.9,157.1 L230.6,173.1 L232.9,190.5 L231,205.3 L233.2,222.9 L232.1,239 L233.3,254.5 L232.3,268.6 L231.5,287.2 L233.1,303.2 L230.6,317.2 L231.5,333.4 L230.8,349 L232.4,359.1 L215,359.6 L201.4,360.5 L185.6,360.3 L168.8,360.7 L151.2,359.5 L135.8,359.9 L129.2,359.1 L127.8,342.6 L129.4,328.6 L126.6,311 L129.3,294.4 L129.4,278.7 L126.4,265.5 L126.7,247.9 L128.5,233 L127.4,216.6 L128.5,201 L127,184.5 L126.7,167 L128.2,153.5 L128.1,136.8 L129.5,119 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M126.5,88.5 L143,88.1 L160.1,87.7 L177.2,86.8 L193.5,87.9 L209.3,88.8 L210,87.9 L209.3,104.7 L209,110.4 L195,110.9 L179.4,110.6 L161,110.5 L144.7,113 L131,112.6 L129.4,112.4 L129.3,96.2 Z" fill="#2a2a2a"/>
+<text x="140" y="101" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">SHARD 1</text>
+<path class="d-paper" d="M247.9,110.6 L263.5,110.5 L281.6,111.3 L296,110.8 L311.6,109 L327.3,110.8 L342.8,111.3 L352.6,109 L352.7,126.8 L350.6,141.3 L352.7,156.5 L350.9,173.1 L352.4,191.3 L350.9,207.5 L351.9,223.6 L352.7,238.9 L350.5,254.8 L352.7,269 L351.6,287.1 L353,301.8 L353.6,318 L353.6,333.5 L351.7,350.5 L351.2,359 L335.5,360.4 L321.2,360.8 L302.6,361 L287,359.7 L272.8,361 L254.5,358.8 L248.8,360.9 L248.4,345.5 L248.8,326.8 L246.7,312.4 L249.6,295.8 L246.6,278.9 L248.5,265.3 L247.2,248 L247.7,230.4 L248.1,217.1 L247,199.7 L247.2,185.6 L248,168.3 L249,152.7 L249.1,136.1 L248.1,120 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M247.2,87 L263.3,88.2 L279.6,88.7 L297.1,87.8 L312.4,87.2 L328.3,87.6 L330.2,88.9 L328.4,103.4 L330.7,113.4 L313,110.5 L298.1,113.1 L281.2,110.7 L264.5,113.2 L250.6,112 L246.6,112 L248,94.9 Z" fill="#2a2a2a"/>
+<text x="260" y="101" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">SHARD N</text>
+<g transform="rotate(0.2 180 32)">
+<path class="d-paper" d="M91.5,7.9 L106.4,8.1 L123.1,7.4 L138,8.1 L155.2,6.5 L170.8,7.8 L187,8 L203,8.5 L216.8,9.3 L233.7,7.7 L248.4,6.8 L266.9,8.7 L270,8.8 L269.2,24 L270.5,39.4 L270.7,56.2 L255.3,57 L238.4,55.7 L221.4,54.9 L204.8,55.5 L190.7,56 L174.2,54.7 L156.6,57.2 L142.7,54.9 L125.1,56.8 L109.2,54.9 L95.5,54.9 L89.2,55.8 L90,39.8 L90.9,24.1 Z" fill="#ff4fd8"/>
+<svg x="104" y="20" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5" />
+  <path d="M8 3H3v5" />
+  <path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" />
+  <path d="m15 9 6-6" /></g></svg>
+<text x="199" y="32" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">LOAD BALANCER</text>
+</g>
+<g transform="rotate(0.2 60 174)">
+<path class="d-paper" d="M18.5,127.2 L32.8,127.3 L51.2,125.5 L66.4,126.1 L81.4,127.4 L98.2,127.1 L100.7,125.8 L100.5,141.9 L103,159.2 L100.7,175.1 L102.2,191.4 L103.1,204.9 L101.2,221.1 L84.6,222 L69.4,222 L55.3,220.8 L38.9,221.6 L23.4,222.3 L18.8,220.5 L19.5,204.7 L17.9,189.1 L18.7,173.5 L17.5,157.2 L18.6,142.1 Z" fill="#ece6da"/>
+<svg x="47" y="134" width="26" height="26" viewBox="0 0 24 24"><g fill="#000000"><path d="M21.333 10H24v4h-2.667ZM16 1.335h2.667v21.33H16Zm-5.333 0h2.666v21.33h-2.666ZM0 22.665V1.335h2.667v21.33zm5.333-21.33H8v21.33H5.333Z"/></g></svg>
+<text x="60" y="180.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">REPLICA</text>
+<text x="60" y="201.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">0</text>
+</g>
+<g transform="rotate(1 60 292)">
+<path class="d-paper" d="M19.3,243.9 L32.8,245.4 L51.1,244.1 L64.9,244.4 L82.5,244.4 L98.2,244.5 L103.3,243.5 L102.2,259.3 L101.1,276.7 L103.3,293 L101.5,309.1 L101.6,322.6 L102,340.1 L84.5,340.1 L71.5,338.6 L53.7,339.3 L38.1,338.6 L22.5,339.2 L18.8,339.6 L16.7,324.3 L18.7,307.7 L17,291.6 L18.4,274.5 L17,260.8 Z" fill="#ece6da"/>
+<svg x="47" y="252" width="26" height="26" viewBox="0 0 24 24"><g fill="#000000"><path d="M21.333 10H24v4h-2.667ZM16 1.335h2.667v21.33H16Zm-5.333 0h2.666v21.33h-2.666ZM0 22.665V1.335h2.667v21.33zm5.333-21.33H8v21.33H5.333Z"/></g></svg>
+<text x="60" y="298.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">REPLICA</text>
+<text x="60" y="319.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">1</text>
+</g>
+<g transform="rotate(-1.1 180 174)">
+<path class="d-paper" d="M139.6,125.3 L153.5,126.2 L170.8,125.1 L184.7,124.7 L201.8,124.7 L218.5,126.7 L223.5,127.1 L222,142.8 L221.4,156.7 L221,175.3 L222.5,188.9 L222.1,205.1 L221.7,222.5 L205.6,222.8 L188.8,221.7 L175,222.8 L158.9,222.5 L140.6,221.5 L137.9,223.1 L139.3,206 L136.9,191.2 L137.7,174.2 L136.5,158.6 L137.3,141.9 Z" fill="#ece6da"/>
+<svg x="167" y="134" width="26" height="26" viewBox="0 0 24 24"><g fill="#000000"><path d="M21.333 10H24v4h-2.667ZM16 1.335h2.667v21.33H16Zm-5.333 0h2.666v21.33h-2.666ZM0 22.665V1.335h2.667v21.33zm5.333-21.33H8v21.33H5.333Z"/></g></svg>
+<text x="180" y="180.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">REPLICA</text>
+<text x="180" y="201.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">0</text>
+</g>
+<g transform="rotate(-0.1 180 292)">
+<path class="d-paper" d="M137.1,242.6 L155.5,243.1 L169,244.6 L186.7,243 L201.1,243 L218,243.5 L222.6,243.1 L220.7,261.1 L220.6,274.6 L221.4,291.5 L220.4,308.2 L223.2,324.1 L223,339.4 L206.1,340.8 L190,340.9 L174.8,340.2 L158.5,338.6 L142.3,339.3 L137.9,339.1 L136.9,325.3 L138.6,306.6 L137.7,291.1 L139.1,276.3 L139.3,260.6 Z" fill="#ece6da"/>
+<svg x="167" y="252" width="26" height="26" viewBox="0 0 24 24"><g fill="#000000"><path d="M21.333 10H24v4h-2.667ZM16 1.335h2.667v21.33H16Zm-5.333 0h2.666v21.33h-2.666ZM0 22.665V1.335h2.667v21.33zm5.333-21.33H8v21.33H5.333Z"/></g></svg>
+<text x="180" y="298.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">REPLICA</text>
+<text x="180" y="319.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">1</text>
+</g>
+<g transform="rotate(-1.1 300 174)">
+<path class="d-paper" d="M257.4,127.3 L273.8,125.5 L290.6,125.1 L306.8,127.5 L320.8,127.2 L338.7,125.2 L340.5,126.3 L341.4,141.8 L341.1,158.2 L340.9,174 L343.2,191.2 L343.1,206.6 L341.8,222.2 L324.5,222.5 L310.7,220.8 L293.6,222.3 L276.9,221.3 L263.6,222.9 L257.3,221.4 L258.2,206.7 L257.8,189.5 L258.8,173.1 L257.5,158.1 L257,143.6 Z" fill="#ece6da"/>
+<svg x="287" y="134" width="26" height="26" viewBox="0 0 24 24"><g fill="#000000"><path d="M21.333 10H24v4h-2.667ZM16 1.335h2.667v21.33H16Zm-5.333 0h2.666v21.33h-2.666ZM0 22.665V1.335h2.667v21.33zm5.333-21.33H8v21.33H5.333Z"/></g></svg>
+<text x="300" y="180.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">REPLICA</text>
+<text x="300" y="201.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">0</text>
+</g>
+<g transform="rotate(0.9 300 292)">
+<path class="d-paper" d="M257.4,244.3 L273,244.5 L288.7,245.1 L307.4,245 L323.4,244.5 L339,242.7 L342.3,245.4 L340.5,260.3 L342,277 L342.6,290.5 L341.6,309.3 L342.9,325.2 L341.4,340.5 L325.1,339.1 L311,339.3 L294.3,340 L278.9,341.4 L261.9,340.7 L256.5,339.3 L258.9,323.5 L257.7,308.3 L257.9,291 L257.2,274.9 L256.7,259.5 Z" fill="#ece6da"/>
+<svg x="287" y="252" width="26" height="26" viewBox="0 0 24 24"><g fill="#000000"><path d="M21.333 10H24v4h-2.667ZM16 1.335h2.667v21.33H16Zm-5.333 0h2.666v21.33h-2.666ZM0 22.665V1.335h2.667v21.33zm5.333-21.33H8v21.33H5.333Z"/></g></svg>
+<text x="300" y="298.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">REPLICA</text>
+<text x="300" y="319.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">1</text>
+</g>
+<text x="8" y="380" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Replicas in a shard copy each other; all backed up.</text>
+<g class="d-flow">
+<path d="M181.2,57.4 Q181.1,62.9 179.3,70.9 M179.8,68.7 Q120.4,69.4 60.1,70.3 M60.9,69.8 Q62.2,79.6 60.7,87.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+<path d="M53.6,79 L60,88 L66.4,79" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M180.5,57.1 Q180.6,61.7 180.5,68.6 M179.3,70.3 Q178.3,69.8 179.9,71.3 M180.4,70.6 Q181,79.4 180.3,86.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+<path d="M173.6,79 L180,88 L186.4,79" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M180,58.2 Q180.2,62.6 180.3,69.3 M179.8,71 Q238.2,69.6 299.7,69.5 M300.5,70.4 Q301.2,79.6 300.2,87.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+<path d="M293.6,79 L300,88 L306.4,79" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M59,222.8 Q59.7,232.5 58.8,241.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+<path d="M53.6,233 L60,242 L66.4,233" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+<path d="M66.4,233 L60,224 L53.6,233" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M181,223.9 Q179.6,234.6 180.6,243" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+<path d="M173.6,233 L180,242 L186.4,233" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+<path d="M186.4,233 L180,224 L173.6,233" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M300.3,223.8 Q299.9,234.1 298.8,242.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+<path d="M293.6,233 L300,242 L306.4,233" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+<path d="M306.4,233 L300,224 L293.6,233" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-clickhouse-should-be-your-next-database-cluster-phone-crayon)"/>
+</g>
+</svg>

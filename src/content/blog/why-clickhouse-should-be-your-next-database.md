@@ -20,7 +20,7 @@ ClickHouse is an open source, column-oriented database management system (DBMS) 
 
 To uncover this mystery, let’s peer into its architecture.
 
-![A schematic diagram of ClickHouse’s architecture, a column-oriented system.](/images/blog/why-clickhouse-should-be-your-next-database/2410c465-image1.webp)_A schematic diagram of ClickHouse’s architecture, a column-oriented system._
+![Normalization versus denormalization, using a student's grades. Normalized (OLTP): the student links to separate rows for each subject, Science B, English A, History B and Maths C, which suits looking up one grade. Denormalized (OLAP): all the grades sit together on one report card, History B, Maths C, English A and Science B, which suits analyzing many grades at once, the way ClickHouse works.](/images/blog/why-clickhouse-should-be-your-next-database/normalization.svg)
 
 ClickHouse is like a powerful system used by university administrators. As a student, you may want to quickly check your grade on a single assignment or test, which is a simple, straightforward transaction. However, the administrators need to perform more complex operations. They’re calculating class averages, evaluating grade distributions for the entire semester, analyzing patterns in student performance across all subjects and more. To accomplish these tasks, they’re not just looking at one student’s grades, but rather, they’re analyzing vast volumes of data from all students.
 
@@ -28,7 +28,7 @@ ClickHouse is like a powerful system used by university administrators. As a stu
 
 Did I mention ClickHouse loves big data? This [database system scales](https://roadmap.sh/guides/scaling-databases) beautifully across clusters, so your data can grow bigger than a reality TV star’s ego, and ClickHouse would still handle it without breaking a sweat. Need to add more nodes to your cluster? No problem. Want to keep your data replicated for higher availability? ClickHouse says, “Sure, why not?”
 
-![Diagram depicting ClickHouse’s scalability across clusters.](/images/blog/why-clickhouse-should-be-your-next-database/aacdf144-image2.webp)_Diagram depicting ClickHouse’s scalability across clusters._
+![ClickHouse scaling across a cluster: a load balancer spreads queries over shards 0, 1 through N. Each shard has two replicas, each a ClickHouse server on its own machine and cloud disk, and the replicas in a shard copy data to each other, with data backup underneath.](/images/blog/why-clickhouse-should-be-your-next-database/cluster.svg)
 
 ## What Makes ClickHouse Unique?
 

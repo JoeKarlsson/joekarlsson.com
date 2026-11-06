@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 490" width="360" height="490" role="img" aria-label="How a search query is parsed: the input string goes to the lexer, which breaks it into tokens; the PEG engine (Peggy) applies the grammar rules and operator precedence; that produces an abstract syntax tree; the planner walks the tree; and out comes a query plan, often SQL.">
+<defs><filter id="how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="530">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="490" fill="#000000"/>
+<g transform="rotate(-0.1 180 44)">
+<path class="d-paper" d="M31.1,16.2 L45.1,15 L61.3,15.3 L77.3,14.5 L93.1,14.9 L108.7,17.3 L125.8,16.8 L140.6,16.1 L158,14.6 L173.9,17.2 L188.8,16.8 L207.2,14.8 L221.8,15.1 L238.7,15.2 L255.4,15.3 L271,16.2 L286.2,14.7 L301.2,15.5 L318.3,17.1 L328.6,16.4 L331.2,33.2 L329.9,48.4 L330.3,64 L330.5,72.8 L312.9,72.5 L297.7,72.7 L280.8,71.7 L265.3,71.1 L250.1,71.3 L234.5,73.2 L218.6,72.4 L200.9,71.5 L184.8,71 L169.3,72.9 L152.7,71.8 L136.9,71.3 L122.6,73.2 L107.2,72.3 L89.6,72.2 L74.2,73.3 L57.2,71.6 L41.8,71.5 L31.1,71 L29.5,54.9 L28.5,39.5 L30.5,24.5 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="44" y="30" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" /></g></svg>
+<text x="201" y="35.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">INPUT STRING</text>
+<text x="201" y="55.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">you type a query</text>
+</g>
+<g transform="rotate(1.2 180 124)">
+<path class="d-paper" d="M30.5,96.7 L46.9,97.1 L61.8,96.3 L77.4,97.5 L93.8,96.6 L108.5,95 L126.4,95.3 L143.4,95.7 L158.2,95.2 L172.5,96.7 L189.7,97.5 L205.3,97.1 L220.7,97.5 L236.9,97.2 L253.6,95.4 L269.8,97.2 L287.2,94.4 L301.5,96.2 L317.3,95.2 L329.4,97.1 L331.5,111.8 L328.5,128.1 L331.2,145.3 L330,150.5 L314.6,153.2 L297.9,150.8 L281.8,150.9 L267.4,152.7 L250.8,153.3 L233.1,152.9 L216.5,153 L201.8,151.7 L186.8,153.4 L169.3,153.1 L155.1,150.7 L139.4,153.5 L120.4,152.2 L107.5,151.2 L91.5,150.6 L74.7,150.5 L58.6,152.5 L42.8,151.8 L29.6,151.1 L28.9,135.2 L29.2,121.5 L31,102.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="44" y="110" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5" />
+  <path d="M8 3H3v5" />
+  <path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" />
+  <path d="m15 9 6-6" /></g></svg>
+<text x="201" y="115.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">LEXER</text>
+<text x="201" y="135.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">splits it into tokens</text>
+</g>
+<g transform="rotate(0 180 204)">
+<path class="d-paper" d="M29.8,174.4 L45.7,175.3 L61,176 L76.5,176 L94.6,176.2 L108.5,176.5 L127.1,174.4 L141,177.1 L158.7,175.3 L173.9,176.6 L190.7,175.4 L205.4,177 L223,175.3 L237.4,175.3 L254.4,174.6 L269.1,176 L284.9,175.9 L300.7,175.2 L318.9,175.7 L331,175.6 L330.8,192.3 L329.2,209.1 L331.4,224.9 L329.9,231.8 L312.7,230.4 L296.5,231.1 L283.1,232.7 L265.1,231.7 L249.6,231.4 L234.9,232.7 L218.4,230.8 L200.9,232.4 L184.4,232.8 L171.5,233.1 L153.7,233.1 L139.3,232.4 L120.5,231.7 L105.9,231.4 L90.2,232.6 L72.7,233.3 L59.3,231.2 L43,231.8 L30.6,231.5 L31.4,217.6 L31.4,198.8 L30,185.3 Z" fill="#ff4fd8"/>
+<svg x="44" y="190" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1" />
+  <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" /></g></svg>
+<text x="201" y="195.5" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">PEG ENGINE</text>
+<text x="201" y="215.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Peggy applies the grammar</text>
+</g>
+<g transform="rotate(0.1 180 284)">
+<path class="d-paper" d="M31.4,254.7 L47.6,255.2 L62,256.8 L78.2,256.8 L93.9,257.5 L111.3,254.6 L125.4,256.3 L142.1,255.8 L159.4,256.8 L172.8,256.6 L188.7,255.3 L206.8,257.2 L221.4,255.8 L238.4,257.5 L254.7,256.7 L271.5,254.6 L285.6,255.1 L300.5,257.4 L317.6,257 L328.5,255.5 L329,271.2 L329.3,289.6 L329.8,304.7 L328.9,311.4 L313.5,313.3 L296.8,312.9 L281.9,313.2 L266,312.2 L251.1,313.4 L233,312 L218.9,311.3 L200.8,312.2 L187.4,312.5 L169.4,313.6 L155.2,312.6 L136.8,313 L123.2,311.4 L105.1,313.6 L90.9,310.6 L73.6,312.5 L56.8,311.7 L41.7,312 L28.9,312.9 L28.9,296 L30.8,278.6 L29.5,262.7 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="44" y="270" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="18" r="3" />
+  <circle cx="6" cy="6" r="3" />
+  <circle cx="18" cy="6" r="3" />
+  <path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9" />
+  <path d="M12 12v3" /></g></svg>
+<text x="201" y="275.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">AST</text>
+<text x="201" y="295.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">a tree of meaning</text>
+</g>
+<g transform="rotate(-0.6 180 364)">
+<path class="d-paper" d="M29.7,337.1 L46.1,335.7 L63.6,335.4 L76.7,336.7 L94.5,336.1 L109.8,334.8 L125.6,336.9 L143.4,334.9 L156.8,335.2 L174.7,336.5 L191.2,337.1 L205.6,334.8 L223.1,335.5 L238.1,336.5 L254.6,335.9 L270.5,335.2 L285.4,335.3 L300.8,337.1 L319.4,336.8 L329.5,335.3 L328.9,352.2 L331.3,367.1 L329.1,384.8 L329.9,392.5 L312.5,391 L296.6,391.7 L281,391.6 L265.7,390.8 L249.8,390.8 L234.8,391 L216.9,392.9 L203,393.3 L186.8,391.8 L171.3,392.5 L155.5,393.2 L138.5,390.7 L120.7,391.9 L106.3,391.6 L90.4,391.7 L74.1,391.1 L58,392.1 L42.9,390.6 L28.8,390.4 L29.7,376 L28.4,360.3 L31.4,343.7 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="44" y="350" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+  <circle cx="12" cy="12" r="3" /></g></svg>
+<text x="201" y="355.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">PLANNER</text>
+<text x="201" y="375.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">works out how to run it</text>
+</g>
+<g transform="rotate(1.1 180 444)">
+<path class="d-paper" d="M29.9,416.9 L47.3,416.5 L63,416.5 L78.2,416.9 L92.6,417.1 L108.7,417.2 L125.4,417.3 L140.6,416.1 L158.4,416.6 L175.2,416.6 L191.5,415 L206.4,415.1 L221.9,416.3 L238.2,415.3 L254.8,416.5 L271.1,417.5 L285.1,415 L301.6,416.7 L318.8,416 L331.1,417.4 L330.2,433.3 L328.7,448.8 L329.5,464.5 L330.8,472.4 L313.7,471 L298.3,471.5 L283.4,471.1 L267.2,473.1 L249.4,470.5 L232.8,472.1 L217.8,471.5 L202.2,471.4 L184.7,471.5 L169.8,470.9 L154.8,473.1 L139.6,472.3 L120.5,472.2 L106.6,472.8 L91.5,470.6 L75.1,473.3 L56.8,470.8 L41.1,471.6 L29.1,472.9 L30.4,455 L30.8,439.2 L28.7,424.8 Z" fill="#ece6da"/>
+<svg x="44" y="430" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" />
+  <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+  <path d="M3 12A9 3 0 0 0 21 12" /></g></svg>
+<text x="201" y="435.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">QUERY PLAN</text>
+<text x="201" y="455.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">often SQL</text>
+</g>
+<g class="d-flow">
+<path d="M181.4,74.9 Q179.1,83.3 179.1,94.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+<path d="M173.6,85 L180,94 L186.4,85" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.4,155.3 Q179.4,166.7 180.6,175.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+<path d="M173.6,165 L180,174 L186.4,165" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M181.3,233.1 Q180,243 181.2,254.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+<path d="M173.6,245 L180,254 L186.4,245" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M178.7,313.5 Q179,324.7 179.9,335.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+<path d="M173.6,325 L180,334 L186.4,325" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M180.1,395.4 Q180.9,406 179.8,415" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+<path d="M173.6,405 L180,414 L186.4,405" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-we-accidentally-invented-a-cloud-search-language-parsing-pipeline-phone-crayon)"/>
+</g>
+</svg>

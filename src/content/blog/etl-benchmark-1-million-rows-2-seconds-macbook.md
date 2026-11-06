@@ -136,7 +136,7 @@ CloudQuery leverages Go's goroutine model for lightweight concurrency. Each goro
 
 Apache Arrow's columnar memory format provides 10-100x performance improvements through SIMD vectorization. Instead of row-wise processing, we handle entire 64-byte buffers with single CPU instructions. Arrow's zero-copy data access eliminates serialization overhead between processes, creating genuine zero-copy data movement from source to destination.
 
-![Technical architecture diagram showing Go goroutines vs traditional threads, plus Apache Arrow columnar format benefits.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image6.webp)
+![Sequential versus parallel goroutines. Sequentially, one chain of four tasks finishes before the next chain starts. With goroutines, both chains run side by side from the start. Each goroutine needs about 2KB of stack versus megabytes for an OS thread, so thousands can run at once.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/goroutines.svg)
 
 ## Multi-cloud performance testing results
 

@@ -52,7 +52,7 @@ We made CloudQuery speak directly to any AI agent that supports MCP. Your existi
 
 No wrappers. No maintenance overhead. No stale data.
 
-![Diagram showing a feedback loop between a user, a large language model (LLM) call, and the CloudQuery MCP system. The user initiates a request to the LLM, which performs an action via the CloudQuery MCP. CloudQuery MCP returns feedback to the LLM. If necessary, the process stops based on the feedback loop.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image3.webp)
+![The agent loop: a user asks a question, and the LLM call takes an action through the CloudQuery MCP server, which queries the synced cloud asset inventory and returns feedback. The LLM keeps looping through action and feedback until it has the answer, then stops.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/agent-loop.svg)
 
 We already sync your entire multi-cloud asset inventory. Now your agents can query it directly using natural language.
 

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 760" width="360" height="760" role="img" aria-label="A 12-stage roadmap for building a Cloud Center of Excellence: 1 executive sponsorship and objectives, 2 charter and governance model, 3 cross-functional core team, 4 key workstreams and domains, 5 governance frameworks and tools, 6 self-service enablement (landing zone), 7 pilot projects and iteration, 8 communication and collaboration, 9 training and upskilling, 10 metrics and monitoring, 11 scale and evolve, 12 avoid common pitfalls.">
+<defs><filter id="cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="800">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="760" fill="#000000"/>
+<g transform="rotate(0.6 180 38)">
+<path class="d-paper" d="M15,15.6 L32.9,17.5 L47.4,14.9 L63.3,14.8 L81.4,14.8 L95.4,15.5 L112.7,15.2 L128.6,14.9 L143.4,17.5 L160,15 L175.1,17.4 L190.7,16 L206.7,15.6 L222.9,15.6 L240.6,16.7 L257.2,16.9 L271,15.1 L287.7,15.3 L305.5,16.9 L318.6,15.6 L337,14.5 L343.4,14.5 L344.4,32.8 L343.3,47.2 L342.9,61 L329.6,61 L312.2,59.4 L295.7,60.2 L281.5,61.1 L263,60.6 L247.3,60.4 L233.3,59.1 L215.1,59.3 L200.3,60.5 L183.6,59.8 L167.7,60.9 L153,59.6 L136.6,58.7 L121.2,59.1 L103,61.3 L87.6,61 L73.5,59.7 L55.1,61.5 L38.4,61 L22.5,60.5 L17.5,58.4 L15.2,45 L16.1,27.4 Z" fill="#ff4fd8"/>
+</g>
+<text x="36" y="38" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">1</text>
+<text x="70" y="38" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Executive sponsorship, objectives</text>
+<g transform="rotate(-0.3 180 100)">
+<path class="d-paper" d="M17.5,78.5 L31.3,79.4 L47.2,78.7 L65.4,78.8 L80.3,77.1 L95.3,77.2 L111.7,77.9 L128.4,78 L143.2,77.3 L161.4,78.9 L174.8,77.4 L191,79.1 L207.3,78.5 L223.7,78.6 L238.8,78.7 L257.1,78.6 L273,76.8 L287.6,78 L304.8,78.9 L321.4,77.6 L336.5,78.7 L344.2,76.5 L343.4,94.8 L343.3,108.9 L343,123.6 L327.2,122.5 L311.5,122.4 L295.4,120.8 L278.6,122.2 L264.3,121.9 L248.7,123.3 L230.6,122.5 L216.4,121.7 L200.8,122.7 L184,121.2 L169.3,122.4 L151,122.3 L137.1,123.4 L120.5,121.6 L102.9,123.3 L87.4,122.6 L72.5,122.7 L56.2,123.3 L40.2,122.8 L23.9,122.1 L14.8,122.7 L15.4,105.3 L15.3,89.4 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="100" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">2</text>
+<text x="70" y="100" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Charter and governance model</text>
+<g transform="rotate(-0.6 180 162)">
+<path class="d-paper" d="M15.1,139.1 L31.8,139.6 L49.6,138.7 L64.9,140.5 L79.5,140.4 L95,140.4 L112.9,139.3 L127.5,141.2 L143.2,138.8 L160.9,139.9 L175.6,141.3 L190.5,140.9 L207.3,140.4 L223.6,141 L240.9,138.5 L256.9,138.6 L270.5,140 L288.1,139.2 L304.1,139.7 L319.6,139.4 L336.4,139.7 L344,139 L344.6,156.1 L344.6,173.5 L343.5,184 L327.1,182.4 L312.7,183.9 L295.4,185.4 L281,185.5 L264.4,185.4 L248.8,183.8 L233.1,182.9 L214.6,184.5 L201.4,184.3 L183.6,183.5 L168.3,185.6 L152.4,183.3 L137.5,184.5 L118.8,185.6 L103.1,183.4 L88.9,185.3 L72.1,182.6 L56.1,182.7 L39.4,183.9 L25.1,184 L17.4,182.7 L16.1,167.5 L15.1,150.7 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="162" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">3</text>
+<text x="70" y="162" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Cross-functional core team</text>
+<g transform="rotate(0.9 180 224)">
+<path class="d-paper" d="M16.5,203 L31.3,201 L49.4,202.6 L65.1,202.5 L81.5,202.2 L95.8,201.1 L113.2,203.3 L129.6,201.1 L143,203.4 L158.8,202.8 L176.5,203.4 L191.9,202.8 L206.5,201.6 L223.3,203.1 L241.3,203.4 L256.9,202.7 L272.2,201.4 L288.6,200.5 L303.5,203 L321.3,201.3 L336.9,202.9 L342.5,202 L344.7,217.5 L343.7,233.4 L342.9,245.2 L326.6,247.1 L311.8,246.3 L294.9,246.5 L281.3,245.5 L262.9,245.3 L249.1,245.1 L231.4,246.2 L214.5,247.3 L198.8,246.3 L184.4,247.1 L168.2,247.3 L151.2,246.5 L136,245.6 L121,246.8 L104.5,246.8 L88.5,246.5 L73.1,245.1 L56.4,244.6 L39.4,246.9 L23.6,247.4 L16.6,247.6 L14.9,230.9 L15.9,215.3 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="224" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">4</text>
+<text x="70" y="224" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Key workstreams and domains</text>
+<g transform="rotate(0.5 180 286)">
+<path class="d-paper" d="M17.1,264.4 L32.3,263.7 L48.4,263.1 L63.7,262.8 L81.1,262.9 L96.4,263.5 L110.7,265.3 L129,263.9 L143.8,264.8 L161,264.5 L177.2,265 L191.7,264 L207.3,264.1 L224.2,263.2 L240.7,262.7 L256.6,265.4 L273.3,265.1 L286.7,263 L304.8,262.7 L321.5,263.6 L337.1,263.4 L343.2,264.8 L342.6,280 L343,296.5 L343.9,306.6 L329,308.5 L312.2,308.1 L295,308.5 L279,307.6 L263.5,309.1 L249.1,306.8 L232.4,307.5 L215.8,308 L200.9,306.8 L182.6,308 L168.1,309.2 L150.4,309.6 L135.3,308.3 L121.2,309.4 L103.7,308 L87,306.5 L73.3,306.8 L56,306.9 L40.4,307.4 L22.9,308 L16.7,307.2 L17.1,292.3 L17.1,276.3 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="286" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">5</text>
+<text x="70" y="286" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Governance frameworks and tools</text>
+<g transform="rotate(0.1 180 348)">
+<path class="d-paper" d="M15.5,326.6 L31.2,324.9 L48.7,326.4 L63.3,326.2 L79.3,326 L94.7,325.1 L111.4,327.3 L127.7,326.5 L145.2,327 L159.5,326.3 L176.9,325 L192.2,324.9 L209.4,327.2 L223.3,325.1 L240.2,325.4 L256.7,327.2 L272,324.8 L287.7,327.3 L303.6,326.5 L318.6,326.6 L336.9,326.9 L343.7,324.5 L343.2,342.6 L345.3,358.1 L345.2,370.5 L328.1,370.2 L313.6,370.1 L295.9,369.3 L279.2,368.5 L262.9,371.5 L248.8,370.5 L231.8,370.8 L214.7,370.7 L201.4,368.9 L185.6,370.2 L167.1,370.5 L151.6,371.3 L137,370.8 L121.3,370.4 L103.6,371.6 L89.2,369.3 L73.2,371.4 L57.1,371.3 L39.4,370.9 L25.5,369.1 L14.6,371.6 L15.6,352.5 L15.6,338.9 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="348" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">6</text>
+<text x="70" y="348" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Self-service enablement</text>
+<g transform="rotate(-0.8 180 410)">
+<path class="d-paper" d="M15.4,386.5 L31.4,389.1 L49.2,389.5 L63,387.5 L78.6,388.2 L95.5,387.8 L112.1,388.2 L128.1,387.9 L143,386.5 L159.3,386.8 L176.4,389.2 L192.2,387.5 L209.6,387.2 L224.7,389.4 L239.2,389.4 L256.5,389 L271.3,387.3 L289.3,388.8 L302.8,386.5 L320.4,387.5 L335.2,388.6 L343.8,387.8 L345.4,404.8 L345.4,420.7 L345.1,430.6 L328.7,431.1 L311.7,431.8 L294.8,430.8 L281,433 L265.1,431.8 L248.4,433.3 L231.7,431.7 L214.9,431.1 L198.8,432 L183.4,431.9 L169.6,433.4 L151.6,430.6 L134.9,431.5 L119.4,431.4 L105.2,431.8 L86.5,431.1 L71.9,433.2 L57.4,430.9 L39.8,431.8 L22.5,433 L16.2,431.2 L16.5,415 L14.6,400.7 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="410" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">7</text>
+<text x="70" y="410" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Pilot projects and iteration</text>
+<g transform="rotate(-1.1 180 472)">
+<path class="d-paper" d="M16,450.7 L32.3,449 L48.8,449.9 L63.9,449.8 L79.4,451.3 L95.1,451.5 L111.6,448.6 L129.2,451.1 L145.4,451.1 L159.8,449.4 L177.1,449.1 L193.5,450.1 L206.5,449.6 L224.4,451.2 L241.1,449.9 L255,449.5 L271.9,451.2 L287.2,449.1 L304.2,451 L321.1,451.2 L336.2,450 L343.5,449.1 L344.6,466.5 L343.5,482.3 L343.3,495.1 L329.6,494 L313.4,495.2 L296.7,492.6 L278.4,493.4 L263,495.1 L249.1,495 L231.7,493.1 L214.9,495.3 L198.7,495.3 L184.9,494 L167.2,495 L153.1,494.9 L136.1,494.8 L119.8,494.9 L102.6,494.3 L86.5,495.6 L72.9,494.2 L55.9,494.8 L39.1,492.6 L24.8,493.5 L16.6,493.6 L16.1,478.9 L17.1,462.9 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="472" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">8</text>
+<text x="70" y="472" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Communication, collaboration</text>
+<g transform="rotate(1.1 180 534)">
+<path class="d-paper" d="M14.5,511.3 L32.1,511.1 L48.1,510.4 L64.6,511.8 L80.3,512.8 L96.5,511.1 L113.4,511.9 L128.5,512.5 L143.3,513.1 L160,511 L176,511.5 L193.3,510.5 L209,510.5 L224.5,513.5 L238.5,512.8 L255.7,512.2 L272.6,511.8 L288.1,511.9 L302.7,511.9 L320.6,512.4 L334.6,513.1 L344.3,513.1 L342.9,527.4 L342.5,543.8 L344.6,555.6 L328.6,555 L312.8,556 L297.2,555.5 L281.6,556.4 L263.6,556 L249.4,556.3 L233.6,557.1 L214.9,555.3 L199.5,557.3 L184.1,556.3 L167.3,556.7 L151.2,557.1 L137.5,555.1 L120.5,556 L105.6,555.7 L88.2,556.8 L72.7,557.4 L55,557.1 L39.9,557.5 L24.6,557.4 L17.5,555.2 L15.6,538.8 L16.6,522.7 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="534" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">9</text>
+<text x="70" y="534" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Training and upskilling</text>
+<g transform="rotate(-0.9 180 596)">
+<path class="d-paper" d="M15.9,573 L30.7,573.3 L46.5,575.4 L64.7,573.1 L80.5,573.7 L97.6,573.3 L110.8,573.6 L129.4,574.5 L145.3,572.5 L158.6,573.8 L176.4,572.7 L191.5,574.9 L209,573.2 L223.7,573.5 L240.6,574.4 L256,575.3 L272.5,574.5 L289.4,573.9 L305.5,574.1 L321.2,572.8 L336.4,575.6 L343.8,575.6 L342.6,589.7 L342.7,606.1 L342.5,619.4 L326.5,616.9 L311,619.3 L296.3,617 L281.1,619.5 L262.5,617.1 L247,619.6 L231.4,618.3 L216.7,617 L200.6,619.1 L185.2,619.5 L166.8,618.6 L150.8,617.7 L137.6,617.3 L120.6,619.1 L103.4,617.3 L89.5,616.8 L73.4,619.2 L56.1,618.3 L39.4,618 L23.7,618.4 L17.3,617.2 L14.8,602.1 L17.3,585.2 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="596" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">10</text>
+<text x="70" y="596" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Metrics and monitoring</text>
+<g transform="rotate(0.7 180 658)">
+<path class="d-paper" d="M16.1,635.2 L33.4,637.3 L48.2,635.8 L65.1,635.1 L79.5,635.3 L97.6,636.8 L112.8,635.4 L129.4,634.9 L145.5,634.5 L161.3,635.6 L176.2,634.6 L193.2,636.2 L206.5,636.7 L223.8,637.1 L239.8,635.2 L256.3,635.7 L273.6,635.8 L287,637.5 L302.6,635.7 L318.5,635.2 L334.9,635.2 L344.9,635.5 L343.4,651.4 L344.9,666.5 L343.6,680.2 L328.9,679 L310.5,678.5 L294.9,679.4 L279.3,681 L262.8,680.4 L247.2,680.8 L233.4,680.5 L217.5,679.8 L201.5,679.6 L185.5,678.9 L168.1,680 L151.7,678.5 L135.9,680.5 L120.1,679.7 L105.5,681.6 L87.3,678.9 L71.9,679.8 L56.2,680.8 L38.5,681.1 L23.9,678.9 L16.6,678.5 L15.7,663.1 L15.7,648.1 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="658" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">11</text>
+<text x="70" y="658" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Scale and evolve</text>
+<g transform="rotate(-1.1 180 720)">
+<path class="d-paper" d="M16.7,699.3 L32.4,698.8 L48.1,698.6 L63.8,697.5 L79.6,699 L95.4,698.1 L113.2,699.1 L127.9,698.5 L144.1,697.1 L159.4,698.2 L174.8,697.1 L193.3,698.4 L206.8,697.8 L224.2,699.4 L239.4,699.4 L256.4,698.6 L271.9,698.2 L289.1,697 L304.7,698.1 L319.9,698.9 L336.4,698.8 L345.3,698.4 L344,714.2 L345.5,730.8 L343.9,741.3 L329.1,743.2 L313.4,741.5 L294.8,741 L280.9,743.6 L265.2,740.9 L248.1,742.8 L231.8,741.1 L217.3,741.9 L199.5,740.5 L185.5,740.9 L168,740.9 L151.8,742 L134.6,743.2 L121.3,740.9 L104.6,741.9 L87.9,742.1 L70.4,742 L55.7,743.1 L38.9,743 L22.6,741 L15.5,743.5 L15.8,726 L15.7,711 Z" fill="#ece6da"/>
+</g>
+<text x="36" y="720" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="start" dominant-baseline="central">12</text>
+<text x="70" y="720" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="central">Avoid common pitfalls</text>
+<g class="d-flow">
+<path d="M179.8,60.9 Q180.5,69 180.8,76.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,67 L180,76 L186.4,67" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M181.2,125.3 Q182.5,133.1 181.2,138.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,129 L180,138 L186.4,129" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.7,185 Q180.3,193.4 180,199.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,191 L180,200 L186.4,191" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M180.8,249.4 Q181.9,254.2 180.2,261.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,253 L180,262 L186.4,253" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.4,311.4 Q180.2,317 180.1,323.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,315 L180,324 L186.4,315" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M178.5,372.9 Q179.1,378.2 179.9,385.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,377 L180,386 L186.4,377" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.7,434.3 Q180.2,441.5 181.4,448.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,439 L180,448 L186.4,439" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M181.3,495.2 Q180.9,502.5 179.3,511.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,501 L180,510 L186.4,501" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M178.6,557.4 Q178.8,566.2 179.9,572.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,563 L180,572 L186.4,563" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M178.6,618.8 Q179.9,626.8 180.3,632.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,625 L180,634 L186.4,625" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M178.7,681.5 Q178.6,690.6 179.8,696.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+<path d="M173.6,687 L180,696 L186.4,687" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-phone-crayon)"/>
+</g>
+</svg>

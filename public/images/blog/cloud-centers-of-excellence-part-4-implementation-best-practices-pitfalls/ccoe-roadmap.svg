@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-label="A 12-stage roadmap for building a Cloud Center of Excellence: 1 executive sponsorship and objectives, 2 charter and governance model, 3 cross-functional core team, 4 key workstreams and domains, 5 governance frameworks and tools, 6 self-service enablement (landing zone), 7 pilot projects and iteration, 8 communication and collaboration, 9 training and upskilling, 10 metrics and monitoring, 11 scale and evolve, 12 avoid common pitfalls.">
+<defs><filter id="cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="460">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="420" fill="#000000"/>
+<g transform="rotate(0.8 80 66)">
+<path class="d-paper" d="M16.5,17.4 L31.7,15.6 L46.5,17.3 L63.1,15.6 L78.5,17.2 L97.1,16.2 L111.5,16.5 L129.4,16.8 L145.3,17 L145,32.5 L144.6,48 L145.1,63.7 L143.3,78.7 L142.5,96.4 L144.9,110.4 L145.2,115.5 L129.5,116 L111.9,116.9 L95.5,116.1 L81.5,117.1 L63.1,115.4 L48.9,117.5 L32.9,117.5 L15.8,115.6 L14.7,101.1 L15.5,83.6 L15.7,68.4 L16.3,53.2 L14.8,35.2 L16.6,19.2 Z" fill="#ff4fd8"/>
+<text x="80" y="40.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">1</text>
+<text x="80" y="63.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Executive</text>
+<text x="80" y="80.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">sponsorship,</text>
+<text x="80" y="97.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">objectives</text>
+</g>
+<g transform="rotate(-0.3 240 66)">
+<path class="d-paper" d="M175.5,14.8 L191.5,17.3 L208.2,16.5 L223.6,14.6 L238.6,17.4 L257,17.2 L270.9,17.6 L287.7,15 L304.5,16.5 L303.6,33.6 L304.1,48.7 L305.5,62.8 L305.6,80.2 L305.6,96.6 L303,112.6 L304,115.1 L288.1,115.1 L273.5,116.1 L255,115 L238.9,115.6 L225.1,116 L208,116.2 L192.4,116.3 L175.5,115.3 L177.5,99.7 L177,84.9 L177,66.5 L177.3,51.2 L176.1,34.9 L174.7,21.2 Z" fill="#ece6da"/>
+<text x="240" y="40.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">2</text>
+<text x="240" y="63.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Charter and</text>
+<text x="240" y="80.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">governance</text>
+<text x="240" y="97.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">model</text>
+</g>
+<g transform="rotate(-0.5 400 66)">
+<path class="d-paper" d="M335.3,16 L352.2,16.5 L367.2,16.2 L384.5,16.9 L400.2,16.3 L415.6,17.1 L432.2,17.2 L449.5,17 L463.7,14.6 L463.1,31.4 L464,48.9 L463.4,62.5 L464.5,78.7 L462.7,96.6 L463.3,111.1 L464.6,117.1 L447.9,115.6 L433.5,117.3 L415.5,116.4 L400.5,114.9 L384.1,116 L366.6,116 L352.2,116.2 L337.6,116.3 L334.7,101.4 L336.1,82.8 L337,68.7 L334.4,53.3 L335,37.3 L337,20 Z" fill="#ece6da"/>
+<text x="400" y="40.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">3</text>
+<text x="400" y="63.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Cross-</text>
+<text x="400" y="80.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">functional</text>
+<text x="400" y="97.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">core team</text>
+</g>
+<g transform="rotate(-0.3 560 66)">
+<path class="d-paper" d="M494.9,15.6 L513.2,17.6 L526.8,15.6 L544.1,16.3 L561.3,16.2 L575.6,14.7 L591.3,15.3 L609.4,15.8 L625.4,16.4 L624.6,30.5 L623,46.7 L625.5,63.1 L623,81.5 L623.6,96.2 L622.9,111.9 L624.2,115.5 L607.4,115.2 L591.3,115.5 L576.9,114.9 L561.1,114.8 L543.5,114.4 L529,116.1 L512.6,117.1 L496.9,116.4 L494.5,98.5 L496.5,83.6 L494.6,67.2 L495.8,52.4 L497.6,37.5 L497,21.3 Z" fill="#ece6da"/>
+<text x="560" y="49.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">4</text>
+<text x="560" y="71.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Key workstreams</text>
+<text x="560" y="88.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">and domains</text>
+</g>
+<g transform="rotate(-0.9 560 200)">
+<path class="d-paper" d="M494.5,148.7 L512.6,151.2 L528.7,150.9 L545.2,149.3 L558.5,149.1 L574.7,148.8 L591.5,149.2 L607.7,151.6 L623.5,149.4 L622.7,166.3 L623.9,183.3 L622.6,198.7 L624.5,213.1 L625.4,228.8 L623.5,247.1 L624.6,250.2 L607.5,251.2 L591.6,250.6 L575.8,251.4 L560.3,250 L543,249 L528.6,250.1 L512,250.7 L495.9,251.3 L495.7,233.3 L495.4,216.8 L495.6,202.5 L496.8,185.4 L495.7,168.6 L494.7,155 Z" fill="#ece6da"/>
+<text x="560" y="174.7" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">5</text>
+<text x="560" y="197.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Governance</text>
+<text x="560" y="214.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">frameworks</text>
+<text x="560" y="231.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">and tools</text>
+</g>
+<g transform="rotate(-0.8 400 200)">
+<path class="d-paper" d="M335.9,150.2 L352.3,149 L367.1,151.2 L383.4,148.8 L398.7,149.5 L415.4,148.8 L431.2,148.7 L446.9,148.7 L464.5,151.2 L464.1,165.7 L462.7,181.4 L464.8,197.3 L465.3,215.3 L465.3,231.5 L465.2,247.6 L463.7,248.5 L449.5,250 L433.1,249 L414.7,249.1 L398.4,250.6 L384,250.6 L368.1,250.9 L350.7,249.9 L336.7,249.4 L336.8,235.2 L336.2,218.7 L336.7,202.2 L335.6,187.5 L336.1,170.8 L336.1,153.1 Z" fill="#ece6da"/>
+<text x="400" y="174.7" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">6</text>
+<text x="400" y="197.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Self-service</text>
+<text x="400" y="214.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">enablement</text>
+<text x="400" y="231.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">(landing zone)</text>
+</g>
+<g transform="rotate(0 240 200)">
+<path class="d-paper" d="M176.4,150.1 L191.4,148.5 L208.7,149.8 L225,151.6 L241.3,150.8 L254.9,148.8 L273.6,151.3 L287.8,149.7 L302.6,149.1 L302.7,164.6 L302.9,183.5 L304,198.8 L302.9,214.1 L303.1,229.2 L303.2,244.9 L303.8,248.5 L289.4,248.5 L273.4,250.2 L256.7,251.3 L240.1,251.6 L225.5,249.1 L208.5,251.2 L191.6,248.8 L177,251.5 L174.6,235 L177.3,219.5 L176.1,201.4 L177.4,185.1 L176.3,170 L174.5,154.2 Z" fill="#ece6da"/>
+<text x="240" y="183.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">7</text>
+<text x="240" y="205.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Pilot projects</text>
+<text x="240" y="222.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">and iteration</text>
+</g>
+<g transform="rotate(-0.7 80 200)">
+<path class="d-paper" d="M16.8,149.1 L31.9,151.4 L49.2,149.9 L65.2,149.2 L79.2,150.5 L96.8,151.6 L112.9,150.2 L127.8,150.7 L145.2,151.5 L144.6,166.8 L145,183.4 L143,197 L144.2,212.4 L145.3,231.4 L143.3,246.2 L145.1,248.7 L127,250.4 L110.4,250.3 L95.3,248.9 L80.3,249.4 L65.1,249.5 L48.1,248.5 L32.1,249.2 L15.5,250.6 L17,233.8 L15.9,217.6 L17.1,203.5 L16.8,185.9 L14.8,170.2 L14.6,154.8 Z" fill="#ece6da"/>
+<text x="80" y="174.7" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">8</text>
+<text x="80" y="197.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Communication</text>
+<text x="80" y="214.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">and</text>
+<text x="80" y="231.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">collaboration</text>
+</g>
+<g transform="rotate(0 80 334)">
+<path class="d-paper" d="M14.6,283.2 L31,283.4 L46.6,285.2 L65.5,284.6 L81.1,284.6 L95.1,284.5 L112.7,282.8 L128.5,283.1 L143.5,285.2 L144.5,299.8 L142.6,315.5 L143.1,332.4 L143.7,346.5 L142.7,365.2 L143.8,380.2 L143,384.4 L129.4,385 L112.2,385.4 L95.7,383.7 L78.7,384.7 L62.5,383.7 L48,382.5 L32.7,385.4 L17.5,383.5 L16.3,367.2 L17.1,351.5 L14.7,335.8 L16.3,318.9 L15.6,304.7 L17.5,286.8 Z" fill="#ece6da"/>
+<text x="80" y="317.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">9</text>
+<text x="80" y="339.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Training and</text>
+<text x="80" y="356.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">upskilling</text>
+</g>
+<g transform="rotate(-0.5 240 334)">
+<path class="d-paper" d="M177,284.9 L192.5,284.7 L207.5,282.4 L225,284.9 L241.5,285.5 L254.9,285.3 L271.6,282.4 L288.7,283.2 L305.5,284.3 L302.8,301.1 L303.9,315 L305.4,331.1 L305.4,348.8 L304.4,364.2 L305,379.4 L304.6,384.5 L289,384.6 L271.8,382.9 L256.1,382.8 L240.4,385.1 L222.6,384.6 L206.6,383.1 L192.1,384.9 L174.5,382.5 L176.7,368.6 L175.6,350.7 L175.5,335.6 L176.7,319.8 L174.7,302.5 L175.6,287.5 Z" fill="#ece6da"/>
+<text x="240" y="317.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">10</text>
+<text x="240" y="339.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Metrics and</text>
+<text x="240" y="356.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">monitoring</text>
+</g>
+<g transform="rotate(0.4 400 334)">
+<path class="d-paper" d="M336.2,284.8 L350.4,283.1 L368.2,283.8 L382.4,285.2 L399.1,282.5 L416.3,283 L431.5,284.5 L447.8,282.8 L462.9,284.4 L464.9,299.6 L465.1,316.8 L464.1,332.2 L465.2,346.5 L463.2,363.1 L464.9,378.5 L464.7,385.5 L447.9,382.5 L432.7,382.9 L416.1,385.2 L399.3,384.5 L383.8,384.5 L367.5,382.5 L350.5,383.6 L336.3,384.7 L337,368.7 L337.5,352.4 L335.2,336.1 L335.7,320.2 L337.6,303.1 L335.7,288.9 Z" fill="#ece6da"/>
+<text x="400" y="317.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">11</text>
+<text x="400" y="339.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Scale and</text>
+<text x="400" y="356.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">evolve</text>
+</g>
+<g transform="rotate(-0.3 560 334)">
+<path class="d-paper" d="M495.4,283.3 L512.7,282.5 L528.5,285.5 L543.6,283.3 L560.3,282.7 L574.6,284.5 L590.7,285.4 L607.2,285.1 L625.2,283.7 L623.3,300.2 L625.3,314.5 L624.9,332.3 L624.7,347 L624.6,364.6 L624.3,378.9 L623.1,382.9 L607.3,383.7 L591.2,384 L575.2,385.3 L559.2,385.5 L543.2,384.7 L526.6,384 L513,384 L496.5,385.3 L497.4,367.1 L494.6,352.3 L495.1,335.5 L496.5,318.6 L494.5,303.8 L494.7,288.8 Z" fill="#ece6da"/>
+<text x="560" y="317.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">12</text>
+<text x="560" y="339.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Avoid common</text>
+<text x="560" y="356.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">pitfalls</text>
+</g>
+<g class="d-flow">
+<path d="M145.6,64.9 Q158,66.7 172.9,66.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M165,72.4 L174,66 L165,59.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M305.2,65.7 Q320.3,65.5 334.9,66.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M325,72.4 L334,66 L325,59.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M464.9,66 Q478.7,66.1 493.8,65.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M485,72.4 L494,66 L485,59.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M558.8,117.6 Q559.9,131.6 560.5,146.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M553.6,139 L560,148 L566.4,139" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M493.2,198.7 Q480.9,200.2 466.7,199.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M475,193.6 L466,200 L475,206.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M334.6,200.6 Q319.8,201.1 306.8,199.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M315,193.6 L306,200 L315,206.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M172.9,199.8 Q160.6,201.1 146.4,200.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M155,193.6 L146,200 L155,206.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M81.4,252.3 Q81.3,267.7 79.2,283.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M73.6,273 L80,282 L86.4,273" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M147.4,332.9 Q160.1,333.4 174.1,333.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M165,340.4 L174,334 L165,327.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M306.9,333.6 Q319.5,334.1 335.1,333.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M325,340.4 L334,334 L325,327.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M465.3,333.5 Q480.6,332.9 493.6,335" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+<path d="M485,340.4 L494,334 L485,327.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-roadmap-desktop-crayon)"/>
+</g>
+</svg>

@@ -25,7 +25,7 @@ Engineers face significant challenges in environments lacking visibility into cl
 
 A cloud asset inventory is a detailed record of all the resources and assets within an organization's cloud environment. It serves as a single source of truth, cataloging everything from virtual machines and storage buckets to databases and network configurations. By creating this inventory, organizations gain complete visibility into their cloud infrastructure, enabling them to manage and secure their resources effectively.
 
-![Diagram illustrating a multi-cloud asset inventory workflow powered by CloudQuery. The image shows data flow from various cloud sources (AWS, Google Cloud, and Microsoft Azure) through CloudQuery's ETL process into a PostgreSQL database. The data is then used for analytics and visualizations.](/images/blog/how-to-build-a-multi-cloud-asset-inventory/how-to-build-a-multi-cloud-asset-inventory.webp)
+![A multi-cloud asset inventory powered by CloudQuery: asset data from AWS, Google Cloud and Microsoft Azure goes through CloudQuery's ETL into a PostgreSQL database, which feeds analytics and visualizations.](/images/blog/getting-started-with-cloud-asset-inventory/multi-cloud-inventory.svg)
 
 ### Key Components of a Cloud Asset Inventory
 

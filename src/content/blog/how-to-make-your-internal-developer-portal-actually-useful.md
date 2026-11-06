@@ -144,9 +144,9 @@ While organizations can build inventory-driven developer portals using various t
 
 Organizations seeking to implement inventory-driven developer portals should follow proven implementation patterns that minimize risk while maximizing time-to-value.
 
-![Developer Portal Implementation Roadmap. A three-phase Gantt chart showing the journey from asset inventory foundation to platform maturity. Phase 1 Foundation (0-3 months) includes asset discovery, CloudQuery setup, and governance in purple. Phase 2 Deployment (3-12 months) covers Backstage portal, service catalog, and developer onboarding in blue. Phase 3 Maturity (12+ months) focuses on AI analytics and optimization in green.](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/image3.webp)
+![A developer portal roadmap in three phases. Phase 1, foundation (months 0 to 3): asset discovery, CloudQuery setup and governance, ending with a complete inventory. Phase 2, deployment (months 3 to 12): Backstage deployment, the service catalog and plugins, developer onboarding, then automation and compliance, ending with the portal live. Phase 3, maturity (12 months and on): advanced analytics and AI optimization, reaching platform maturity around month 18.](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/portal-roadmap.svg)
 
-**Figure 1:** Developer Portal Implementation Roadmap. A three-phase Gantt chart showing the journey from asset inventory foundation to platform maturity. Phase 1 Foundation (0-3 months) includes asset discovery, CloudQuery setup, and governance in purple. Phase 2 Deployment (3-12 months) covers Backstage portal, service catalog, and developer onboarding in blue. Phase 3 Maturity (12+ months) focuses on AI analytics and optimization in green.
+**Figure 1:** Developer Portal Implementation Roadmap. A three-phase Gantt chart showing the journey from asset inventory foundation to platform maturity. Phase 1 Foundation (0-3 months) includes asset discovery, CloudQuery setup, and governance. Phase 2 Deployment (3-12 months) covers Backstage portal, service catalog, and developer onboarding. Phase 3 Maturity (12+ months) focuses on AI analytics and optimization.
 
 ### Phase 1: Foundation
 

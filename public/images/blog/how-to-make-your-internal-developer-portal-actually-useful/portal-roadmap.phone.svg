@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 740" width="360" height="740" role="img" aria-label="A developer portal roadmap in three phases. Phase 1, foundation (months 0 to 3): asset discovery, CloudQuery setup and governance, ending with a complete inventory. Phase 2, deployment (months 3 to 12): Backstage deployment, the service catalog and plugins, developer onboarding, then automation and compliance, ending with the portal live. Phase 3, maturity (12 months and on): advanced analytics and AI optimization, reaching platform maturity around month 18.">
+<defs><filter id="how-to-make-your-internal-developer-portal-actually-useful-portal-roadmap-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="780">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="740" fill="#000000"/>
+<path class="d-paper" d="M8.6,77.3 L25.5,77.2 L40.6,75.3 L57.4,77.5 L72.3,76.1 L88.5,74.5 L103.5,75.6 L120.6,77 L137.1,75.5 L152.3,74.7 L166.9,75.6 L185.5,75.2 L200.2,75.4 L215.2,75.9 L232.7,76.5 L247.4,75.4 L262.5,75.4 L278.6,75.8 L295.4,77 L312.2,77.3 L328.9,77.2 L344.9,75.7 L350.6,74.7 L350.5,93.6 L351.6,109.1 L352.9,124.2 L351,140.8 L353.2,154.6 L351.8,173.4 L351.5,189.1 L351.5,205.5 L351.6,218.7 L353.5,222.7 L334.7,220.8 L321.5,223.2 L304.2,222.5 L287,223.3 L272.3,223.2 L256.8,221.5 L240.2,221.8 L222.6,220.9 L208.5,220.5 L190.7,221.3 L175.7,223.5 L159.5,222.5 L143.3,220.7 L128.6,221 L111.6,222.9 L94.5,222.9 L78.5,223 L63,221 L49.4,222.9 L32.9,221.2 L17.6,223 L9.2,220.4 L7.8,204.4 L7.7,189.6 L7.5,175.2 L7.5,158.9 L9.4,142.6 L7.3,127.1 L8,109.6 L7.7,94.4 L6.4,78.2 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M6.6,54.4 L24.7,55.4 L41.5,52.6 L57.4,54.2 L71.3,53.7 L87.7,54.3 L105.2,53 L119.8,54.9 L134.8,52.6 L153.2,52.9 L169.5,54.6 L185.5,54.7 L198.9,54.7 L216.8,55.2 L231.2,54.7 L248.6,52.5 L263,54.9 L281,54.2 L282.7,54.3 L282.9,69.3 L280.7,79.3 L265.9,78.8 L248.7,77 L232.1,77.2 L216.8,77.4 L200.7,77.7 L185.8,76.8 L168.6,77.9 L154,78 L137.1,79.3 L123,76.8 L105.4,76.6 L90.6,77.4 L75.2,77.4 L58.6,78.2 L41,79.4 L26.3,76.8 L10,79.1 L7.5,78.1 L7.2,61.1 Z" fill="#2a2a2a"/>
+<text x="20" y="67" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">PHASE 1: FOUNDATION, MONTHS 0–3</text>
+<path class="d-paper" d="M9.3,260.8 L24.7,261.6 L40.3,263.3 L55.6,260.5 L71.1,262 L87.5,263.3 L104.3,261 L119.3,261.2 L135.7,262.1 L151.6,261 L168.4,262.9 L183.2,262.5 L201,262.9 L216.7,261.8 L231.2,261.9 L248.9,262.2 L262.8,263.5 L281.2,261.3 L295.2,262.7 L311.3,260.7 L326.7,260.7 L345.5,261.8 L353,263.4 L352.7,277.7 L353.1,293.3 L351,310.1 L351.2,326.6 L353,340.7 L351.9,359.1 L351.4,375.2 L353.1,388.6 L350.5,405.7 L352.6,421.7 L353.6,438.3 L351.4,453.5 L336.7,453.4 L319.2,453.5 L304.4,451.4 L286.7,452.3 L272.3,453.5 L255.2,451.4 L240,452.2 L223.8,453.4 L207.4,450.8 L190.5,450.5 L175.1,451.9 L160.4,451.7 L145.5,453.5 L126.8,450.8 L111.4,451.6 L95.3,451.4 L78.5,452.9 L65.2,451.2 L48.2,452.6 L31.6,452.8 L15.7,451.1 L6.5,451.1 L6.7,436.1 L7.4,418.9 L7.1,403.4 L9,388.2 L7.3,372.7 L7.4,355.2 L7.8,338.8 L7.3,322.8 L8.2,308.2 L7.2,293.3 L6.8,277.4 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M9.5,240.7 L25.2,238.6 L40.8,241.5 L57.2,238.7 L73.5,241 L86.9,240.4 L103.7,239.9 L120.3,239.3 L134.4,239.6 L151.8,240.3 L168.7,240 L184,239.5 L199.4,240.4 L217.4,238.5 L233.3,239.5 L248.9,241.2 L263.6,238.5 L280.6,239.2 L289.1,241.3 L291.1,255 L288.4,263.3 L273.2,265.2 L256.1,264.3 L240.7,265.1 L226,263.1 L209.8,263.7 L194.8,265.4 L177.6,265 L162.5,262.7 L144.3,264 L129.7,265.2 L113.2,263.2 L98.3,264.1 L80.3,264.2 L65,262.7 L50.6,264.6 L35,265.4 L18.7,263 L9.3,264.5 L8.3,249.3 Z" fill="#2a2a2a"/>
+<text x="20" y="253" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">PHASE 2: DEPLOYMENT, MONTHS 3–12</text>
+<path class="d-paper" d="M6.7,490.8 L25.4,491.2 L39.4,493.3 L55.7,493.2 L71.2,493.2 L86.6,490.9 L102.8,492 L119.4,491.5 L135.7,492.3 L151.5,490.5 L166.5,490.6 L183.4,493.2 L200.4,492.8 L217.1,491.2 L233.4,492.4 L249.5,490.9 L264.3,491.3 L279.5,493.4 L296,491.2 L310.9,491.5 L329.5,493 L344.4,493 L353.5,493 L353.6,507.9 L351.1,523.3 L352.5,541.1 L351.4,556.3 L352.3,571.7 L352.2,587.5 L351.8,593.7 L336.6,593.2 L320.6,594.8 L303.6,595.6 L289.2,594.7 L271.2,594.1 L257.6,595.2 L241.3,593.3 L223,593.7 L206.7,593.8 L192,594.6 L174.6,592.6 L159.8,592.6 L144.6,592.4 L127.7,592.4 L113.4,594.3 L96,594.6 L80.7,594 L65.5,594 L47.4,594.3 L31.4,594.3 L17.1,594 L7.1,592.5 L8,576.5 L7.9,563.5 L7.1,544.6 L7.6,530.7 L8.6,512.8 L9.4,499 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M6.6,468.6 L22.9,470.3 L39.7,469.7 L56,470.3 L72.2,469.6 L88.8,470.5 L103.9,470.7 L121.4,469.8 L135,469.7 L153.2,470.1 L166.5,470.1 L182.8,471.2 L199.2,469.7 L215.7,471.3 L230.7,468.4 L249.4,468.8 L265,468.5 L267.2,469.1 L265.3,485.6 L266.8,495.4 L250.8,495.2 L232.5,492.7 L217.2,493.2 L201.6,495.5 L186.3,492.8 L170.2,493.3 L154,492.6 L138.8,495.4 L120.3,493.3 L105.9,493.1 L90.4,493.9 L74.1,495.6 L59.1,494.9 L42.3,492.7 L24.5,495.4 L11,495.4 L7.2,495.6 L7.7,477.7 Z" fill="#2a2a2a"/>
+<text x="20" y="483" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">PHASE 3: MATURITY, MONTHS 12+</text>
+<text x="24" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="76" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">3</text>
+<text x="128" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">6</text>
+<text x="180" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">9</text>
+<text x="232" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">12</text>
+<text x="284" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">15</text>
+<text x="336" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">18+</text>
+<text x="16" y="9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">month</text>
+<path d="M76,40 L76,46" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,52 L76,58" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,64 L76,70" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,76 L76,82" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,88 L76,94" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,100 L76,106" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,112 L76,118" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,124 L76,130" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,136 L76,142" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,148 L76,154" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,160 L76,166" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,172 L76,178" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,184 L76,190" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,196 L76,202" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,208 L76,214" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,220 L76,226" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,232 L76,238" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,244 L76,250" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,256 L76,262" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,268 L76,274" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,280 L76,286" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,292 L76,298" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,304 L76,310" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,316 L76,322" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,328 L76,334" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,340 L76,346" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,352 L76,358" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,364 L76,370" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,376 L76,382" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,388 L76,394" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,400 L76,406" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,412 L76,418" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,424 L76,430" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,436 L76,442" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,448 L76,454" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,460 L76,466" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,472 L76,478" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,484 L76,490" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,496 L76,502" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,508 L76,514" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,520 L76,526" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,532 L76,538" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,544 L76,550" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,556 L76,562" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,568 L76,574" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,580 L76,586" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M76,592 L76,598" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,40 L232,46" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,52 L232,58" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,64 L232,70" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,76 L232,82" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,88 L232,94" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,100 L232,106" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,112 L232,118" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,124 L232,130" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,136 L232,142" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,148 L232,154" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,160 L232,166" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,172 L232,178" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,184 L232,190" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,196 L232,202" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,208 L232,214" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,220 L232,226" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,232 L232,238" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,244 L232,250" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,256 L232,262" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,268 L232,274" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,280 L232,286" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,292 L232,298" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,304 L232,310" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,316 L232,322" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,328 L232,334" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,340 L232,346" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,352 L232,358" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,364 L232,370" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,376 L232,382" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,388 L232,394" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,400 L232,406" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,412 L232,418" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,424 L232,430" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,436 L232,442" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,448 L232,454" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,460 L232,466" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,472 L232,478" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,484 L232,490" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,496 L232,502" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,508 L232,514" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,520 L232,526" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,532 L232,538" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,544 L232,550" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,556 L232,562" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,568 L232,574" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,580 L232,586" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M232,592 L232,598" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,40 L336,46" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,52 L336,58" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,64 L336,70" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,76 L336,82" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,88 L336,94" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,100 L336,106" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,112 L336,118" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,124 L336,130" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,136 L336,142" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,148 L336,154" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,160 L336,166" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,172 L336,178" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,184 L336,190" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,196 L336,202" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,208 L336,214" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,220 L336,226" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,232 L336,238" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,244 L336,250" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,256 L336,262" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,268 L336,274" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,280 L336,286" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,292 L336,298" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,304 L336,310" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,316 L336,322" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,328 L336,334" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,340 L336,346" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,352 L336,358" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,364 L336,370" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,376 L336,382" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,388 L336,394" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,400 L336,406" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,412 L336,418" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,424 L336,430" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,436 L336,442" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,448 L336,454" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,460 L336,466" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,472 L336,478" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,484 L336,490" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,496 L336,502" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,508 L336,514" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,520 L336,526" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,532 L336,538" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,544 L336,550" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,556 L336,562" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,568 L336,574" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,580 L336,586" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M336,592 L336,598" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<text x="16" y="94" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Asset discovery</text>
+<g transform="rotate(1 45.7 112)">
+<path class="d-paper" d="M24.2,102.6 L41,102.6 L54.6,103.6 L66,105.4 L66.8,120.7 L52.4,118.9 L35.9,121 L25.1,119.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="16" y="138" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">CloudQuery setup</text>
+<g transform="rotate(0.4 58.7 156)">
+<path class="d-paper" d="M42,147.7 L57.2,147.8 L74.1,147.5 L77.2,147.9 L74.7,164.1 L61.1,165.3 L45.2,164.9 L42.2,164.9 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="16" y="182" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Governance</text>
+<g transform="rotate(-0.7 63 200)">
+<path class="d-paper" d="M48.7,190.7 L64.4,192 L76.2,191.6 L75.7,209.5 L58.8,208.8 L49.9,207.1 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="16" y="280" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Backstage deployment</text>
+<g transform="rotate(-0.3 102 298)">
+<path class="d-paper" d="M76.5,289.5 L93.2,290.3 L108,291 L123.2,289.8 L127.4,288.7 L128.3,307.1 L110.8,307.4 L96.8,305.7 L79.6,304.6 L76.5,307.5 Z" fill="#ece6da"/>
+</g>
+<text x="16" y="324" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Service catalog, plugins</text>
+<g transform="rotate(-0.7 128 342)">
+<path class="d-paper" d="M93.9,333.8 L108,333.9 L124,333.7 L141,333.5 L158.7,334.1 L164.2,335.2 L163,348.7 L145.4,348.5 L129.9,348.9 L114.7,349.5 L98.6,351 L92.8,349.4 Z" fill="#ece6da"/>
+</g>
+<text x="16" y="368" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Developer onboarding</text>
+<g transform="rotate(-0.4 145.3 386)">
+<path class="d-paper" d="M110.1,379.1 L126.6,378.4 L143,378.6 L159.8,377.1 L176.1,378.8 L180.8,377.1 L179.1,393.9 L165.4,392.8 L149.6,395.2 L133.5,392.4 L116.2,394 L110.5,394.5 Z" fill="#ece6da"/>
+</g>
+<text x="16" y="412" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Automation, compliance</text>
+<g transform="rotate(0 180 430)">
+<path class="d-paper" d="M127.9,421.7 L143.3,422.4 L161.5,420.9 L174.7,423.5 L190.9,422 L208.5,423 L225.3,422.7 L230.7,421.4 L231.3,439.5 L216.5,437.3 L200.5,436.6 L185,438.3 L167.7,438.8 L151.1,437 L134.4,438.5 L126.8,436.6 Z" fill="#ece6da"/>
+</g>
+<text x="16" y="510" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Advanced analytics</text>
+<g transform="rotate(0.5 275.3 528)">
+<path class="d-paper" d="M231.5,518.6 L249.1,519.7 L265.5,518.5 L279.4,518.9 L296.5,519 L311.3,520.3 L318.3,521.5 L318,535 L302.7,536.4 L285.8,534.4 L271,537 L254.7,536.8 L237.8,534.5 L231.2,536.2 Z" fill="#ff4fd8"/>
+</g>
+<text x="16" y="554" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">AI optimization</text>
+<g transform="rotate(0.6 292.7 572)">
+<path class="d-paper" d="M248.2,564.8 L265.8,563.8 L280.8,564.3 L298.8,564.7 L312.1,564.8 L329.1,562.7 L336.7,564.1 L337.5,580.1 L318.5,579.5 L304.2,580 L286.6,580.2 L270.9,579.7 L256.4,578.4 L248.3,579 Z" fill="#ff4fd8"/>
+</g>
+<circle cx="76" cy="610" r="6" fill="#ff4fd8"/>
+<text x="76" y="630" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">inventory complete</text>
+<circle cx="232" cy="610" r="6" fill="#ff4fd8"/>
+<text x="232" y="650" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">portal live</text>
+<circle cx="336" cy="610" r="6" fill="#ff4fd8"/>
+<text x="336" y="630" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="end" dominant-baseline="central">platform maturity</text>
+</svg>

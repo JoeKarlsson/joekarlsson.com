@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 610" width="640" height="610" role="img" aria-label="A developer portal roadmap in three phases. Phase 1, foundation (months 0 to 3): asset discovery, CloudQuery setup and governance, ending with a complete inventory. Phase 2, deployment (months 3 to 12): Backstage deployment, the service catalog and plugins, developer onboarding, then automation and compliance, ending with the portal live. Phase 3, maturity (12 months and on): advanced analytics and AI optimization, reaching platform maturity around month 18.">
+<defs><filter id="how-to-make-your-internal-developer-portal-actually-useful-portal-roadmap-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="650">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="610" fill="#000000"/>
+<path class="d-paper" d="M6.9,76.9 L24.3,75.3 L39.5,74.7 L57,74.9 L72,76.7 L88.6,75.2 L102.9,74.7 L121.4,75.9 L134.8,76.6 L151.7,77.5 L167,76.9 L183.8,77.2 L200.5,75 L216.6,76.4 L233.4,76.2 L248.8,76.3 L265,76.3 L279.2,75.7 L294.4,75.8 L310.9,76.1 L326.6,76.1 L344.7,74.6 L361.2,77.1 L374.8,75.7 L392.3,77.3 L408.7,74.5 L422.4,77.4 L440.4,76.2 L455.3,77.3 L473.4,76.3 L488.2,75.2 L504.5,76.8 L520.6,76.4 L535.8,76.8 L552.9,75.7 L568.5,76.6 L582.6,76.8 L601.6,76.9 L616.8,76 L623,75.2 L624.7,92.7 L623.2,109.2 L625.2,124 L623.7,141 L625.2,154.5 L623.4,171.6 L625.2,186.7 L625.2,202.6 L607.5,203.1 L590.8,205.3 L575.4,205.2 L559.3,205.2 L543.8,204.3 L526.5,203.2 L512.6,204.5 L495.3,204.9 L480.8,205 L463.6,203 L446.9,203.6 L431.2,204.1 L415.2,203.8 L398.7,202.6 L384.8,202.8 L367.6,202.8 L350.9,205.5 L336.1,205.5 L318.8,203.7 L304.2,202.6 L287,202.7 L271.1,203 L254.5,202.7 L240.4,205.4 L224.1,203.4 L208.5,202.4 L190.7,202.9 L175,203.1 L158.9,205.1 L143,204.2 L127.8,203.2 L110.7,204.8 L94.5,205.2 L78.9,204 L64.5,202.6 L48.2,205.4 L32,202.7 L16.6,203.5 L7.8,204.1 L7.9,189.2 L8.4,172.1 L9.6,157.1 L8.8,141.5 L9,123.1 L8.5,108.8 L7.7,93.2 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M8.2,54.3 L22.6,55.4 L40.2,53.1 L56.7,53.9 L70.9,54.1 L88.9,55.2 L104.6,53.4 L119.2,53.6 L134.4,55.3 L150.5,55.4 L166.8,53.2 L184,54.5 L198.8,53.9 L214.8,53.8 L233.1,54 L247.2,55.1 L263,53.4 L279.3,55.3 L280.1,54.4 L280.9,69.4 L282.9,79.6 L265.1,79.4 L248.6,77.2 L234.1,79.2 L216.9,76.8 L202,78.8 L187,77.7 L170,79.1 L152.6,79.5 L138.5,78.4 L123.3,77.3 L107.3,77.6 L90.4,78.4 L74.5,76.7 L56.7,76.5 L40.2,79.4 L26.9,77.4 L10.6,79.3 L8.1,77.2 L7.1,61.9 Z" fill="#2a2a2a"/>
+<text x="20" y="67" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">PHASE 1: FOUNDATION, MONTHS 0–3</text>
+<path class="d-paper" d="M6.9,243 L23,243.8 L41.2,243.4 L57.3,245.2 L70.8,245.5 L86.6,245.3 L105.2,245.4 L120.9,242.6 L134.5,244 L152.6,245.1 L167.2,245.1 L183.3,242.7 L200.6,242.6 L215.8,244.9 L232.1,242.4 L247.1,244.1 L264.2,244.6 L279.3,243.1 L297.4,244.3 L312.8,244.8 L329.3,243.9 L343.6,243.5 L358.4,243.1 L375.8,242.4 L391.1,243 L407,245.2 L422.5,244.6 L440.9,243.3 L455.1,244.7 L472.6,244.4 L486.8,243.7 L504.5,244 L520.1,242.5 L537.4,244.3 L551.3,243.5 L568.5,244.1 L584.2,243.5 L598.5,244.3 L615.1,243.7 L622.7,244.1 L624.9,260.1 L623.6,276.2 L625.2,292.3 L625.2,306.5 L622.7,323.5 L622.9,339.2 L625.4,356.2 L623.3,371.5 L625.3,389 L623,404.1 L622.7,410.8 L607.6,411.3 L593.6,410.9 L575,410.1 L558.5,409.3 L543.7,410.8 L527.3,409.3 L510.9,410.9 L495.6,408.5 L481.2,408.5 L463.4,409.5 L446.8,410.3 L431.2,410.5 L416.3,409.8 L400.4,409.5 L383.6,409.4 L369.3,411.6 L351.1,408.5 L337,411.5 L321.1,410.8 L305.6,411.5 L287,411 L272.4,411 L256.8,410.7 L240.3,409.3 L224.5,409.8 L208.4,409.4 L192.8,410 L175.4,409.4 L158.8,408.9 L145.3,410.2 L126.9,409.9 L113,408.6 L94.8,410.4 L79.4,409.5 L64.9,410.6 L48.2,408.7 L31.2,410.9 L16.9,408.6 L8.9,410.9 L6.8,394.3 L8.5,379.5 L7.7,363.5 L9.6,346 L7.4,330.2 L8.3,315.4 L6.8,296.4 L8,282.9 L7.2,267.1 L8.2,251.3 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M8,221.8 L24.5,222.1 L38.9,222.1 L56.3,223.3 L70.6,222.7 L86.9,222.3 L105.1,220.5 L121.2,223.3 L136.9,220.8 L152.6,223.2 L167.7,222.8 L184.5,220.9 L201.3,223.2 L216.9,221.4 L231.2,221 L248.3,222.3 L262.6,223.3 L281.3,220.9 L288.5,222.4 L288.8,237.4 L291,244.4 L272.3,244.8 L256.9,246.4 L243.1,247.3 L225.8,247 L209.4,246.6 L194.4,246.6 L176.6,245.2 L160.2,244.5 L145.9,245.7 L128.5,246.7 L114.7,247.5 L97.6,246.2 L82.8,245.5 L66.8,244.8 L48.7,245 L35,247.2 L16.3,246.4 L7.1,245.2 L6.5,229.3 Z" fill="#2a2a2a"/>
+<text x="20" y="235" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">PHASE 2: DEPLOYMENT, MONTHS 3–12</text>
+<path class="d-paper" d="M7.4,449.2 L23.6,450 L39.7,449 L56.7,449.4 L72.9,449.1 L88,449.9 L102.7,449.7 L119.7,451 L136.5,448.5 L151.6,450 L167.9,449.4 L183.4,450.2 L200.4,449.7 L216,450 L232.2,450.6 L247,451.4 L264.3,449.9 L280.9,451.3 L296.9,448.5 L310.9,449.3 L327.1,448.9 L342.7,448.6 L359.6,450.6 L375.1,448.7 L392.7,449.1 L408.6,449.2 L424.9,449.4 L440,451.1 L455.4,448.6 L471.1,448.9 L488.3,449 L503.6,449.1 L519.4,450.6 L534.7,449 L552.1,450.7 L568,448.9 L583.6,449.9 L601.4,451.3 L614.8,451.2 L623.1,449.1 L623,466.3 L623.8,482.3 L623.4,499.2 L624.2,514.7 L623.3,530.8 L624.5,540.7 L608.7,540.9 L590.8,539 L576,540.5 L560.2,540.5 L544.7,539 L528.4,540.8 L511.1,538.5 L496.7,539.4 L480.3,541.5 L464.5,539.9 L448.2,538.8 L431.8,541.3 L415,539.2 L400.2,538.8 L383.4,540.8 L367.5,540.9 L352,538.6 L337.5,540.3 L320.4,538.9 L302.5,539.2 L286.7,540.1 L271.4,540.4 L256.5,538.7 L239.2,540.3 L223.3,540.6 L209.5,539.9 L192.9,540.6 L174.6,538.6 L159.2,541 L143.7,541 L129.5,540.8 L113,541.2 L97.1,539.3 L81.1,539.7 L64.5,540.8 L49.4,539.5 L30.6,541.4 L14.8,539 L8.1,539.3 L7.7,522.8 L9.1,507.5 L6.6,490.7 L7.3,474.8 L7.3,460.1 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M6.6,426.9 L25.2,427.2 L41.3,429 L56.8,428.4 L72.7,427.4 L86.4,429.1 L105.4,429.3 L119.2,429.1 L137.1,429 L151.8,428.1 L168.6,428.3 L182.9,427.2 L199.1,429.3 L214.6,427.9 L233.4,426.6 L248.5,427 L265.1,429.3 L265.6,428.6 L266,443.8 L267,452.6 L249.4,452.7 L232.3,451.8 L217.2,450.5 L201.8,451.1 L184.8,452.4 L169.8,452.2 L155,451.8 L137.8,451.5 L121.5,453.4 L105.7,453.5 L88.2,450.8 L73,451.9 L57.9,453.4 L42,451 L25.9,451.8 L8.5,452.4 L7.4,452.5 L9.3,437.5 Z" fill="#2a2a2a"/>
+<text x="20" y="441" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">PHASE 3: MATURITY, MONTHS 12+</text>
+<text x="210" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="276.7" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">3</text>
+<text x="343.3" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">6</text>
+<text x="410" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">9</text>
+<text x="476.7" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">12</text>
+<text x="543.3" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">15</text>
+<text x="610" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">18+</text>
+<text x="22" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">month</text>
+<path d="M276.7,40 L276.7,46" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,52 L276.7,58" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,64 L276.7,70" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,76 L276.7,82" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,88 L276.7,94" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,100 L276.7,106" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,112 L276.7,118" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,124 L276.7,130" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,136 L276.7,142" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,148 L276.7,154" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,160 L276.7,166" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,172 L276.7,178" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,184 L276.7,190" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,196 L276.7,202" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,208 L276.7,214" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,220 L276.7,226" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,232 L276.7,238" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,244 L276.7,250" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,256 L276.7,262" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,268 L276.7,274" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,280 L276.7,286" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,292 L276.7,298" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,304 L276.7,310" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,316 L276.7,322" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,328 L276.7,334" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,340 L276.7,346" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,352 L276.7,358" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,364 L276.7,370" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,376 L276.7,382" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,388 L276.7,394" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,400 L276.7,406" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,412 L276.7,418" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,424 L276.7,430" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,436 L276.7,442" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,448 L276.7,454" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,460 L276.7,466" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,472 L276.7,478" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,484 L276.7,490" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,496 L276.7,502" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,508 L276.7,514" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,520 L276.7,526" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,532 L276.7,538" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M276.7,544 L276.7,550" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,40 L476.7,46" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,52 L476.7,58" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,64 L476.7,70" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,76 L476.7,82" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,88 L476.7,94" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,100 L476.7,106" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,112 L476.7,118" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,124 L476.7,130" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,136 L476.7,142" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,148 L476.7,154" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,160 L476.7,166" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,172 L476.7,178" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,184 L476.7,190" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,196 L476.7,202" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,208 L476.7,214" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,220 L476.7,226" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,232 L476.7,238" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,244 L476.7,250" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,256 L476.7,262" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,268 L476.7,274" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,280 L476.7,286" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,292 L476.7,298" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,304 L476.7,310" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,316 L476.7,322" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,328 L476.7,334" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,340 L476.7,346" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,352 L476.7,358" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,364 L476.7,370" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,376 L476.7,382" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,388 L476.7,394" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,400 L476.7,406" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,412 L476.7,418" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,424 L476.7,430" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,436 L476.7,442" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,448 L476.7,454" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,460 L476.7,466" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,472 L476.7,478" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,484 L476.7,490" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,496 L476.7,502" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,508 L476.7,514" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,520 L476.7,526" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,532 L476.7,538" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M476.7,544 L476.7,550" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,40 L610,46" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,52 L610,58" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,64 L610,70" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,76 L610,82" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,88 L610,94" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,100 L610,106" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,112 L610,118" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,124 L610,130" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,136 L610,142" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,148 L610,154" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,160 L610,166" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,172 L610,178" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,184 L610,190" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,196 L610,202" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,208 L610,214" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,220 L610,226" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,232 L610,238" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,244 L610,250" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,256 L610,262" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,268 L610,274" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,280 L610,286" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,292 L610,298" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,304 L610,310" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,316 L610,322" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,328 L610,334" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,340 L610,346" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,352 L610,358" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,364 L610,370" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,376 L610,382" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,388 L610,394" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,400 L610,406" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,412 L610,418" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,424 L610,430" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,436 L610,442" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,448 L610,454" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,460 L610,466" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,472 L610,478" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,484 L610,490" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,496 L610,502" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,508 L610,514" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,520 L610,526" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,532 L610,538" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M610,544 L610,550" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<text x="22" y="103" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Asset discovery</text>
+<g transform="rotate(1.2 237.8 103)">
+<path class="d-paper" d="M209.1,89.8 L224.5,89.5 L241.9,91.5 L257.5,90.3 L265,90.9 L264.4,106 L264.3,116.5 L248.7,117.5 L234.7,116 L216.2,116.4 L210.7,116.5 L210.6,98.9 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="22" y="141" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">CloudQuery setup</text>
+<g transform="rotate(1 254.4 141)">
+<path class="d-paper" d="M231.3,127.4 L248.4,127.9 L263.2,128.3 L276.8,127.4 L277.7,144.9 L276.8,152.5 L260.7,153.7 L243.5,155.5 L233.1,152.5 L233.6,139 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="22" y="179" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Governance</text>
+<g transform="rotate(-0.9 260 179)">
+<path class="d-paper" d="M242.2,165 L259.1,166.2 L276,165.9 L276,167.3 L276.3,182.2 L277.3,191.3 L259.9,190.6 L246,191.9 L244.4,192.1 L243.5,174.7 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="22" y="271" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Backstage deployment</text>
+<g transform="rotate(-0.7 310 271)">
+<path class="d-paper" d="M275.5,258.5 L293.6,257.3 L308.7,256.4 L325.2,258.1 L342.1,259.2 L343.7,259 L342,274.1 L344.1,285 L326.9,284.2 L311.4,284.3 L294.2,284.7 L280.1,282.4 L277.7,282.7 L276.7,266.5 Z" fill="#ece6da"/>
+</g>
+<text x="22" y="309" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Service catalog, plugins</text>
+<g transform="rotate(0.4 343.3 309)">
+<path class="d-paper" d="M300.1,296.8 L313.3,295.7 L331.5,297 L345.7,296.9 L361.7,297.2 L379.1,296.8 L386.2,297 L388,312.6 L387.7,321.2 L373.1,321.8 L354.2,323.3 L340.1,320.9 L322.3,321 L306.8,320.8 L298.3,322.1 L299,306.2 Z" fill="#ece6da"/>
+</g>
+<text x="22" y="347" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Developer onboarding</text>
+<g transform="rotate(0.8 365.6 347)">
+<path class="d-paper" d="M321.7,335.1 L335.7,334.4 L351.7,333 L369.1,334.3 L384.7,334.2 L400.1,334.2 L408.8,333 L411.5,348.5 L409.1,359.2 L395.5,361.6 L378.1,358.5 L360.7,360 L347,360.9 L330.2,359.4 L321.7,361.3 L321,345 Z" fill="#ece6da"/>
+</g>
+<text x="22" y="385" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Automation, compliance</text>
+<g transform="rotate(0.7 410 385)">
+<path class="d-paper" d="M342.9,372.3 L359,372.7 L374.9,373.4 L391.3,372.4 L406.2,372.6 L423.5,373.4 L440.5,370.7 L454.2,370.5 L470.1,371.7 L475.3,370.9 L475.3,387.1 L476.6,399 L459.6,398.3 L446.1,397.3 L430,399.1 L412.1,397.9 L398,398.7 L381.5,398.5 L365,399.2 L347.1,396.9 L342.2,397.3 L342.4,383.3 Z" fill="#ece6da"/>
+</g>
+<text x="22" y="477" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">Advanced analytics</text>
+<g transform="rotate(-0.8 532.2 477)">
+<path class="d-paper" d="M476.2,465.6 L492.3,464.9 L507.2,463.6 L526,465.1 L541.1,464.4 L557.6,465 L573.3,462.9 L587,463.4 L588.6,481.1 L587.4,491.2 L570.7,490 L555.8,489.2 L538.5,489.2 L522.7,488.8 L509.2,490.8 L491.7,488.8 L475.3,489.4 L477.8,474.9 Z" fill="#ff4fd8"/>
+</g>
+<text x="22" y="515" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="start" dominant-baseline="central">AI optimization</text>
+<g transform="rotate(0.9 554.4 515)">
+<path class="d-paper" d="M500.3,500.6 L514,501.7 L531.4,500.5 L548,500.6 L561.9,501.3 L577.6,501.3 L595.2,501.6 L608.9,502.7 L609.2,517.1 L608.6,526.6 L593.4,529.3 L578.5,526.5 L561.1,527.2 L545.8,527.1 L531.1,528.3 L513,529.5 L500.1,526.9 L499.4,511.2 Z" fill="#ff4fd8"/>
+</g>
+<circle cx="276.7" cy="556" r="6" fill="#ff4fd8"/>
+<text x="276.7" y="576" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">inventory complete</text>
+<circle cx="476.7" cy="556" r="6" fill="#ff4fd8"/>
+<text x="476.7" y="596" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">portal live</text>
+<circle cx="610" cy="556" r="6" fill="#ff4fd8"/>
+<text x="610" y="576" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="end" dominant-baseline="central">platform maturity</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 410" width="360" height="410" role="img" aria-label="The naive strategy: a search query splits into its search terms, each term is looked up on its own and returns its own result set, and the result sets are joined together at the end.">
+<defs><filter id="why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse-naive-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="450">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="410" fill="#000000"/>
+<g transform="rotate(0.1 95 64)">
+<path class="d-paper" d="M15.5,16.5 L31.9,16.6 L47.4,15.3 L64.8,16.1 L80.1,15.8 L95.2,16.4 L111.4,16.3 L127.5,17 L143.9,14.7 L160.5,15.5 L174.9,16.4 L174.5,32.5 L174.9,48 L175.6,63.8 L174.6,79.2 L175.3,97.4 L174.8,112.5 L158.4,112.3 L141.1,111.7 L125.6,113.1 L108.6,111.4 L93.2,111 L77.3,112.1 L62.5,110.5 L46.9,110.7 L30.7,111.3 L15.7,113.6 L15.6,97.4 L15.8,79.9 L15.3,65.4 L15.4,47.1 L16.3,31.9 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="82" y="24" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" /></g></svg>
+<text x="95" y="70" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">SEARCH</text>
+<text x="95" y="92.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">TERM 1</text>
+</g>
+<g transform="rotate(-1.2 265 64)">
+<path class="d-paper" d="M186.6,16 L202.9,17.5 L218.9,16.8 L232.7,14.7 L249.7,16.8 L264.5,15.6 L280.6,14.7 L296.7,14.6 L312.6,15 L330.2,16.2 L342.6,17 L343,31.5 L343.4,47.6 L344,64.4 L344.5,80.3 L344.1,96.5 L345.5,111.6 L327.1,112.9 L313.3,112.8 L297.6,112.2 L281.5,112 L263.2,112.5 L247,110.7 L232.4,112.6 L214.7,111.9 L198.5,111.5 L187.2,110.6 L186.4,95.6 L185.9,79.9 L185.8,64.9 L185.3,48.8 L186.1,31.2 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="252" y="24" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" /></g></svg>
+<text x="265" y="70" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">SEARCH</text>
+<text x="265" y="92.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">TERM 2</text>
+</g>
+<g transform="rotate(0.8 95 170)">
+<path class="d-paper" d="M16,143.4 L33.2,143.9 L48.4,145.2 L62.6,145.5 L78.9,142.5 L97.4,142.7 L112.9,145 L129,144.9 L143.8,145.6 L159.6,143 L175,142.9 L174.4,158.9 L175.2,175.3 L174.3,192.1 L174.6,195.4 L159.1,197.4 L142.2,194.4 L124.4,196.5 L109.3,196.4 L93.5,195.3 L79.5,197 L63.3,194.5 L46.7,196.1 L29.6,197 L15.3,196 L16.3,180.2 L15,163 L15.5,148.6 Z" fill="#ece6da"/>
+<svg x="30" y="157" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" />
+  <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+  <path d="M3 12A9 3 0 0 0 21 12" /></g></svg>
+<text x="115" y="170" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">RESULTS</text>
+</g>
+<g transform="rotate(-0.5 265 170)">
+<path class="d-paper" d="M187.4,144 L202.5,143.8 L217.9,144.6 L233.6,145.3 L250.2,143.7 L265.6,145 L280.8,142.5 L297,143.4 L315.4,144.6 L330.9,145.1 L343.4,142.5 L345.3,159.6 L344.6,176 L342.8,191.4 L344,196 L329.1,197.4 L312.8,195.6 L296.6,194.6 L280.4,196.5 L265.3,196.2 L249.4,195.9 L231.8,194.9 L216.1,195.3 L200.4,197.1 L187.4,195.1 L186.4,181 L186.8,165.5 L186.6,146.9 Z" fill="#ece6da"/>
+<svg x="200" y="157" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" />
+  <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+  <path d="M3 12A9 3 0 0 0 21 12" /></g></svg>
+<text x="285" y="170" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">RESULTS</text>
+</g>
+<g transform="rotate(0.3 180 270)">
+<path class="d-paper" d="M39.8,243.1 L55.6,242.6 L71.3,242 L86.6,242.6 L102.9,241.7 L121.1,241.6 L134.5,241.4 L151.4,241.4 L167,242.6 L184.7,242.2 L201.1,240.8 L216.8,243.3 L232.6,240.6 L248.7,241.6 L265,241.1 L280.7,242.3 L294.6,242.8 L312.4,242.7 L320.8,240.7 L321.2,258.1 L320.9,274.8 L319.9,290.7 L319.5,299.3 L303.2,298.7 L287.8,297.4 L273.1,296.9 L255.5,298.9 L241,299.2 L224.9,298 L207.6,298.4 L193.3,299.2 L176.2,296.9 L160.8,297.6 L145.4,298.6 L126.5,297 L111.8,297.2 L96.5,296.4 L79.6,298 L65.3,297.9 L47.2,299.5 L39.8,297.8 L41,282.2 L39.9,266.3 L41.1,248.6 Z" fill="#ff4fd8"/>
+<svg x="54" y="256" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3" />
+  <circle cx="6" cy="6" r="3" />
+  <path d="M6 21V9a9 9 0 0 0 9 9" /></g></svg>
+<text x="201" y="270" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">JOIN</text>
+</g>
+<text x="16" y="326" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Scans everything each term matches,</text>
+<text x="16" y="346" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">then joins: slow at scale.</text>
+<g class="d-flow">
+<path d="M96.3,113.4 Q96.3,126.2 93.9,140.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse-naive-phone-crayon)"/>
+<path d="M88.6,133 L95,142 L101.4,133" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse-naive-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M265.8,114.8 Q265.6,129.6 263.8,141.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse-naive-phone-crayon)"/>
+<path d="M258.6,133 L265,142 L271.4,133" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse-naive-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M94.5,198.8 Q94.7,209 93.8,218.7 M94.9,217.1 Q137,216.5 179.3,218.5 M178.5,218.2 Q178,230 179.5,241.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse-naive-phone-crayon)"/>
+<path d="M173.6,231 L180,240 L186.4,231" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse-naive-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M266.5,199.2 Q266.6,207.5 264.4,217.8 M266.2,219.3 Q222.2,217.9 180.1,217.9 M180.2,218.1 Q181,230.1 179.3,241.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse-naive-phone-crayon)"/>
+<path d="M173.6,231 L180,240 L186.4,231" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse-naive-phone-crayon)"/>
+</g>
+</svg>

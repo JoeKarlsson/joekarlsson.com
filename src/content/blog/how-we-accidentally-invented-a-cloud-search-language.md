@@ -119,7 +119,7 @@ ComparisonExpression = identifier:Identifier _ op:ComparisonOperator _ value:Val
 
 This rule matches expressions like `region="us-west-2"` and builds a structured object with the field, operator, and value. It also tracks position information for syntax highlighting and validation, as well as completeness for conversion to a chip in the filter bar.
 
-![Flowchart diagram showing a query parsing pipeline. It starts with "input string" at the top, followed by arrows pointing downward to each step: "lexer," "PEG engine," "AST," "planner," and finally "query plan."](/images/blog/we-built-a-search-language-for-cloudquery/peggy.webp)
+![How a search query is parsed: the input string goes to the lexer, which breaks it into tokens; the PEG engine (Peggy) applies the grammar rules and operator precedence; that produces an abstract syntax tree; the planner walks the tree; and out comes a query plan, often SQL.](/images/blog/how-we-accidentally-invented-a-cloud-search-language/parsing-pipeline.svg)
 
 1. **Input String** - You type your query
 2. **Lexer** - Breaks the string into tokens - identifiers, operators, parentheses, quoted strings
@@ -143,7 +143,7 @@ It turns out our journey from regex to formal grammar has deep theoretical roots
 
 We jumped from Type 3 (regex) to Type 2 (PEG.js) so we could support nested parentheses, operator precedence, and clean error handling without hand-written hacks.
 
-![Concentric-circle diagram of Chomsky's grammar hierarchy. Innermost Type 3 "Regular," then Type 2 "Context-Free," Type 1 "Context-Sensitive," and outermost Type 0 "Unrestricted", with an arrow showing CloudQuery's jump from Type 3 (regex) to Type 2 (PEG.js).](/images/blog/we-built-a-search-language-for-cloudquery/image2.webp)
+![Chomsky's grammar hierarchy as nested sets: Type 3, regular, sits inside Type 2, context-free, inside Type 1, context-sensitive, inside Type 0, unrestricted. CloudQuery's search language moved from Type 3 (regex) to Type 2 (PEG.js) to support nested parentheses and operator precedence.](/images/blog/how-we-accidentally-invented-a-cloud-search-language/chomsky.svg)
 
 Our first approach with regex operated at Type 3 (Regular Grammar) level, which worked fine for simple `field:value` matching. But as soon as our users needed nested parentheses and logical operators with precedence rules, we hit a wall.
 

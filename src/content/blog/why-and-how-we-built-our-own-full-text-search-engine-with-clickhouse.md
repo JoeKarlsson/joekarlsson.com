@@ -168,7 +168,7 @@ Our testing compared four different approaches to executing full-text search que
 
 The first approach, which we called "naive," was straightforward, but inefficient. It looked up each search term individually and then joined the results together. While simple to implement, it scanned excessive amounts of data and performed poorly at scale, especially for search terms matching large numbers of resources.
 
-![Diagram of a "SEARCH QUERY" breaking into two parallel result sets, each labeled "Results," joined together via a "JOIN" block. Depicts the naive strategy that performs separate term lookups followed by a join.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image2.webp)
+![The naive strategy: a search query splits into its search terms, each term is looked up on its own and returns its own result set, and the result sets are joined together at the end.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/naive.svg)
 
 We then developed an "ungrouped" strategy that unions all term lookups first before aggregating results. This reduced join overhead but still required reading all data matching any search term.
 
@@ -189,7 +189,7 @@ The key here is that for single search conditions, we can significantly reduce q
 
 For example, in a search for `a AND b` where the only resources matching both terms appear in the last quarter of the dataset, limiting results too early would miss these valid matches entirely. Additionally, this approach doesn't sum weights across multiple matching properties, instead choosing a single arbitrary weight, which sacrifices some precision in relevance ranking.
 
-![Diagram that shows multiple search terms flowing through a single "STR MATCH → UNION ALL → AGGREGATE" path, reflecting that the strategy supports any number of sub-conditions, not just one.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/ungrouped.webp)
+![The ungrouped strategy: any number of search terms run through one string-match step, their matches are combined with UNION ALL, and a single aggregate step scores the results.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/ungrouped.svg)
 
 Finally, we developed what became our default strategy: the `sumIf` approach. This method sums match weights across all terms in a single pass using a materialized score column:
 
@@ -210,7 +210,7 @@ LIMIT <limit>
 
 While this approach doesn't benefit from the early termination that made ungrouped-limited fast for simple queries, it scales almost linearly with result size and query complexity. Crucially, it correctly handles arbitrarily complex filter conditions and intersection logic, making it our most reliable and versatile strategy for production use. The `sumIf` approach produces the most accurate relevance scoring by properly accounting for all matching properties of each resource.
 
-![Flow diagram showing three "SEARCH TERM" boxes feeding into a single "UNION ALL" box, which then flows into an "AGGREGATE" box. Diagram showing the single-pass aggregation strategy: term lookups union before a single aggregate step.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image7.webp)
+![The sumIf strategy, the default: every search term's lookup is combined with UNION ALL, then one aggregate step sums the match weights across all terms in a single pass.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/sumif.svg)
 
 ### The Results
 

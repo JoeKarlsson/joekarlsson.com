@@ -25,7 +25,7 @@ Enter [ClickHouse](https://clickhouse.com/). After considering and even stress-t
 
 Before diving into those lessons, let's first take a quick look at the challenges we needed ClickHouse to solve and why we picked it in the first place.
 
-![High-level technical visual showing CloudQuery ingesting from cloud providers, then streaming into ClickHouse.](/images/blog/six-months-with-clickhouse-at-cloudquery/image2.webp)
+![CloudQuery's pipeline in five steps: sync cloud data from AWS, Azure and Google Cloud; sync and transform it with CloudQuery; persist it in ClickHouse; analyze it; and visualize it.](/images/blog/six-months-with-clickhouse-at-cloudquery/pipeline.svg)
 
 ## What We Actually Needed From Our Database
 
@@ -114,7 +114,7 @@ Initially, we considered using [ClickHouse Materialized Views (MVs)](https://cli
 
 A ClickHouse MV attaches to a source table and, on every insert into the source, it runs a specified query to transform and write data into a target table.
 
-![A diagram showing how a materialized view in CloudQuery aggregates and transforms data from a source table to a target table. The view uses SQL to calculate maximum and average values, mapping source columns to target columns.](/images/blog/six-months-with-clickhouse-at-cloudquery/image1.webp)
+![A ClickHouse materialized view: on every insert into the source table (columns A, B and C), it runs SELECT A, MAX(B) AS D, AVG(C) AS E FROM source GROUP BY A, and writes the result into the target table, whose columns are A, D and E.](/images/blog/six-months-with-clickhouse-at-cloudquery/materialized-view.svg)
 
 First, **MVs operate asynchronously** relative to the statement that creates or inserts data into them. This meant two significant operational headaches:
 

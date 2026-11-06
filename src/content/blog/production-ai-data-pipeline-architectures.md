@@ -84,7 +84,7 @@ CloudQuery supports both structured and unstructured data, from any source to an
 
 ### E-commerce Recommendations
 
-![AI-powered e-commerce data pipeline architecture using CloudQuery to process Shopify and analytics data through vector databases and feature stores for ML-driven product recommendations.](/images/blog/production-ai-data-pipeline-architectures/image4.webp)
+![E-commerce recommendations: CloudQuery streams fresh data from the Shopify and analytics APIs into a vector database and a feature store, which feed the recommendation engine behind the e-commerce app.](/images/blog/production-ai-data-pipeline-architectures/ecommerce-recommendations.svg)
 
 **Stream fresh product data into a vector DB for real-time recommendations.**
 
@@ -102,7 +102,7 @@ Transform customer support tickets, surveys, and reviews into training-ready dat
 
 ### Fresh RAG Pipelines
 
-![Enterprise RAG architecture using CloudQuery to sync Confluence, Notion, and Wiki data into PostgreSQL pgvector for AI-powered knowledge assistant with fresh, searchable embeddings.](/images/blog/production-ai-data-pipeline-architectures/image5.webp)
+![A fresh RAG pipeline: CloudQuery syncs Confluence, Notion and wiki pages daily into PostgreSQL with pgvector, which the RAG engine searches to answer questions in a knowledge assistant.](/images/blog/production-ai-data-pipeline-architectures/rag-pipeline.svg)
 
 **Keep RAG pipelines fresh with daily syncs from internal knowledge bases or wikis.**
 

@@ -106,7 +106,7 @@ For this project, I opted to work with a Raspberry Pi 3 Model B+ since it runs a
 
 - Send data from the Raspberry Pi to the outside world (i.e. turning a light on and off).
 
-![Raspberry Pi GPIO pin wiring diagram for IoT Kitty Litter Box](/images/blog/an-introduction-to-iot-internet-of-toilets/gpio_setup-1024x588.webp)_Raspberry Pi GPIO pin wiring diagram for IoT Kitty Litter Box_
+![How the litter box is wired to the Raspberry Pi's GPIO header. The HX711 load cell amplifier takes VCC from pin 2 (5V) and ground from pin 6, sends data (DT) to pin 29 (GPIO 5) and takes its clock (SCK) from pin 31 (GPIO 6). The four 50 kg load cells under the box connect to the HX711's E+, E-, A+ and A- inputs. The magnetic reed switch on the lid connects to pin 36 (GPIO 16) and ground on pin 34.](/images/blog/an-introduction-to-iot-internet-of-toilets/gpio-wiring.svg)
 
 I wired up the IoT Kitty Litter Box using the schema below. I want to note that I am not an electrical engineer and creating this involved lots of Googling, failing, and at least two blown circuit boards. It’s okay to make mistakes, especially when you are first starting out.
 

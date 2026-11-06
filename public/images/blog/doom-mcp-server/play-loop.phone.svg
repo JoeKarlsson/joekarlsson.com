@@ -13,7 +13,10 @@
 <text x="216.5" y="22" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">tool call to Doom</text>
 <rect x="186.5" y="15" width="22" height="14" rx="3" fill="#ff4fd8"/>
 <text x="231.5" y="46" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Connect AI step</text>
-<svg x="207.5" y="38" width="16" height="16" viewBox="0 0 1200 1200"><path fill="#ffe500" d="M581.8,226.81h618.2V0H0v1200h1200v-226.81h-618.2c-206.14,0-373.19-167.09-373.19-373.19s167.05-373.19,373.19-373.19Z"/></svg>
+<svg x="207.5" y="38" width="16" height="16" viewBox="0 0 1200 1200"><defs>
+    
+  </defs>
+  <path fill="#ffe500" d="M581.8,226.81h618.2V0H0v1200h1200v-226.81h-618.2c-206.14,0-373.19-167.09-373.19-373.19s167.05-373.19,373.19-373.19Z"/></svg>
 <path d="M225.6,71.7 L229.7,72.2 L234.4,73.8 L239.6,77.2 L242.8,81.7 L244.9,85.5 L245.8,90.1 L243.4,96.4 L242.4,101.2 L238.3,105.4 L236.2,108.2 L232,110 L225.6,108.9 L164.2,110.6 L158.4,110.4 L155.2,108.4 L151.8,103.8 L148.4,101.2 L146,95.6 L145.9,90.7 L145.7,86.7 L146.8,81.8 L151,76.5 L153.9,75.6 L159.8,71.9 L163.7,72.4 Z" fill="#ece6da"/>
 <text x="195" y="91" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20.4" fill="#000000" text-anchor="middle" dominant-baseline="central">START</text>
 <g transform="rotate(-1.1 195 165)">
@@ -52,7 +55,10 @@
 <text x="207" y="481" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">killed</text>
 <g transform="rotate(0.5 195 526)">
 <path class="d-paper" d="M49.4,494.8 L65,496.9 L81.2,497.2 L98,494.7 L115.1,496.2 L128.4,496.4 L145,496.6 L162.9,495.8 L178.7,497.5 L194.2,495.4 L208.7,496.2 L225.2,496.1 L242.4,496.4 L259.3,495.2 L275.4,495.4 L288.8,494.9 L307.3,496.2 L322.2,495.5 L338.8,495.1 L339.5,494.9 L339.3,512.9 L340.7,528.3 L339.1,542.8 L341,555 L324.4,556.6 L307.9,555.2 L291.7,556.1 L276.8,556.7 L259.8,555.5 L244,555.9 L226.8,556.3 L212.6,557.5 L195.2,557.4 L181.5,556.6 L163.2,556.5 L147.7,557.6 L132.3,555.3 L114.5,555.6 L100.2,555 L84.1,556.5 L66.7,556 L50.7,555.5 L51.2,555.8 L48.7,538.6 L49,523.8 L51.5,509.4 Z" fill="#ece6da"/>
-<svg x="64" y="512" width="28" height="28" viewBox="0 0 1200 1200"><path fill="#15151c" d="M581.8,226.81h618.2V0H0v1200h1200v-226.81h-618.2c-206.14,0-373.19-167.09-373.19-373.19s167.05-373.19,373.19-373.19Z"/></svg>
+<svg x="64" y="512" width="28" height="28" viewBox="0 0 1200 1200"><defs>
+    
+  </defs>
+  <path fill="#15151c" d="M581.8,226.81h618.2V0H0v1200h1200v-226.81h-618.2c-206.14,0-373.19-167.09-373.19-373.19s167.05-373.19,373.19-373.19Z"/></svg>
 <text x="216" y="516.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Connect AI reads the</text>
 <text x="216" y="535.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">record again, live</text>
 </g>
@@ -62,7 +68,10 @@
 <text x="207" y="678" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">yes</text>
 <g transform="rotate(1.1 195 724)">
 <path class="d-paper" d="M49.3,690.5 L64.8,691.3 L82.6,691.5 L99.5,691.9 L113.1,690.8 L129.7,691.7 L145.1,692.1 L161.8,690.7 L179.5,692.6 L195.5,692.1 L210.4,690.8 L226.3,690.7 L243,693.1 L258.2,691.7 L274.9,690.8 L289.7,690.7 L305.6,690.4 L322,693.2 L336.8,692 L339.4,691.4 L338.7,707.4 L340.6,723 L341.4,738.9 L340.4,756.5 L323.9,756.2 L308.6,755.3 L292.9,754.8 L277.2,756.7 L260.6,755.4 L245.2,757.1 L226.6,755.2 L211.4,755.5 L194.4,755.8 L180.4,754.9 L163.9,757.5 L147.4,755.3 L131.7,757.2 L116.7,757.1 L100.6,756.2 L82.5,755.9 L67,756.6 L52.2,755.4 L51.6,756.4 L51.4,739 L50.8,724.2 L50.3,709.6 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
-<svg x="64" y="710" width="28" height="28" viewBox="0 0 1200 1200"><path fill="#ffe500" d="M581.8,226.81h618.2V0H0v1200h1200v-226.81h-618.2c-206.14,0-373.19-167.09-373.19-373.19s167.05-373.19,373.19-373.19Z"/></svg>
+<svg x="64" y="710" width="28" height="28" viewBox="0 0 1200 1200"><defs>
+    
+  </defs>
+  <path fill="#ffe500" d="M581.8,226.81h618.2V0H0v1200h1200v-226.81h-618.2c-206.14,0-373.19-167.09-373.19-373.19s167.05-373.19,373.19-373.19Z"/></svg>
 <text x="216" y="714.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">sometimes, after a few kills:</text>
 <text x="216" y="733.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">one check in another app</text>
 </g>
@@ -79,7 +88,10 @@
 <text x="207" y="956" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">the red door</text>
 <g transform="rotate(-0.9 195 1002)">
 <path class="d-paper" d="M50.8,971.6 L65.1,971.2 L82.2,971.9 L98,972.2 L112.4,972 L131.1,971.6 L147.3,970.6 L162.9,971.5 L177.8,973.4 L194.6,971.8 L208.6,973.1 L225.2,972.1 L243.5,972.8 L258.1,971.5 L274.8,973.4 L291,972.2 L306.8,971.1 L321.6,972.4 L338.1,972.7 L341,973 L340.6,986.7 L340.4,1002.7 L339,1020.2 L341.6,1033.5 L324,1031.9 L306.9,1033.3 L292.1,1032.4 L277.4,1030.5 L259.8,1032.5 L244.9,1033.2 L228.8,1030.8 L210.6,1032.4 L195.7,1033 L179,1030.7 L164.6,1033 L147.4,1031.6 L133.4,1031.5 L116.6,1033.1 L98.5,1033.5 L82.8,1033.3 L67.3,1030.8 L51.5,1033.4 L51,1031 L49.3,1017.4 L50.1,1000.5 L50.5,983.1 Z" fill="#ece6da"/>
-<svg x="64" y="988" width="28" height="28" viewBox="0 0 1200 1200"><path fill="#15151c" d="M581.8,226.81h618.2V0H0v1200h1200v-226.81h-618.2c-206.14,0-373.19-167.09-373.19-373.19s167.05-373.19,373.19-373.19Z"/></svg>
+<svg x="64" y="988" width="28" height="28" viewBox="0 0 1200 1200"><defs>
+    
+  </defs>
+  <path fill="#15151c" d="M581.8,226.81h618.2V0H0v1200h1200v-226.81h-618.2c-206.14,0-373.19-167.09-373.19-373.19s167.05-373.19,373.19-373.19Z"/></svg>
 <text x="216" y="992.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Connect AI Data</text>
 <text x="216" y="1011.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Security refuses</text>
 </g>

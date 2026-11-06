@@ -37,7 +37,7 @@ The model context protocol (MCP) core maintainers published their updated roadma
 
 Not all five priorities are equally urgent, and the roadmap won't tell you which to move on first because giving that guidance isn't its job. Here's my read.
 
-![A 2-by-2 matrix plotting five MCP roadmap priorities by migration cost (x-axis, Low to High) and urgency (y-axis, Watch to Act now). Priority 3, Agent identity and security, sits in the high-cost, act-now quadrant and is highlighted in yellow as the most urgent item requiring immediate attention. Priorities 2 (Transport unification) and 4 (Improved primitives) are center-right and above the midline. Priority 1 (Agentic messaging) and Priority 5 (SDK developer experience) are low-cost items in the watch zone. A callout in the bottom-right notes that Stateless core, Tasks extension, and MRTR already shipped on 2026-07-28 and are not plotted as open priorities.](/images/blog/official-mcp-roadmap-explained/mcproadmap1.webp)
+![The five MCP roadmap priorities plotted by migration cost and urgency. Priority 3, agent identity and security, is high cost and the one to act on now. Priorities 2 (HTTP-native transport) and 4 (improved primitives) are medium cost and above the midline. Priorities 1 (agentic messaging) and 5 (SDK developer experience) are low cost and ones to watch. Already shipped in the 2026-07-28 release, and not plotted: the stateless core, the Tasks extension and multi round-trip requests.](/images/blog/official-mcp-roadmap-explained/priority-matrix.svg)
 
 <!-- vale JoeKarlsson.BannedWords = NO -->
 

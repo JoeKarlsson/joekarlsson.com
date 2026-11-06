@@ -98,7 +98,7 @@ This is just an example project. The specific use case is irrelevant. You can ta
 
 Here’s the flow of what we’re building today:
 
-![Architecture diagram showing Events to Tinybird to Next.js to Tremor to Visualization](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-1-1.webp)
+![The dashboard's stack: events stream into Tinybird, which processes them with SQL in real time and publishes the results as APIs. A Next.js app polls those APIs, and Tremor components turn the responses into the dashboard's charts.](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/tech-stack.svg)
 
 In this tutorial, we’ll use Tinybird to capture event streams, process them with SQL, and expose the transformations as real-time APIs. Then we’ll use Tremor components in a Next.js app to build a beautiful, responsive, real-time dashboard.
 

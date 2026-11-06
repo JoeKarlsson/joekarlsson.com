@@ -27,9 +27,9 @@ contentNotice: "This post was originally published on CloudQuery's blog."
 
 If you're thinking about establishing a CCOE (or improving an existing one), let me walk you through what actually works based on real-world implementations. Drawing from analysis of cloud providers (AWS, Azure, GCP), industry frameworks, and lessons learned from real-world case studies, here's a structured approach an organization can follow:
 
-![Diagram of a 12-step roadmap for building a Cloud Center of Excellence (CCOE)](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image5.webp)
+![A 12-stage roadmap for building a Cloud Center of Excellence: 1 executive sponsorship and objectives, 2 charter and governance model, 3 cross-functional core team, 4 key workstreams and domains, 5 governance frameworks and tools, 6 self-service enablement (landing zone), 7 pilot projects and iteration, 8 communication and collaboration, 9 training and upskilling, 10 metrics and monitoring, 11 scale and evolve, 12 avoid common pitfalls.](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/ccoe-roadmap.svg)
 
-**Figure 5:** Diagram of a 12-step roadmap for building a Cloud Center of Excellence (CCOE), arranged in a snaking vertical-horizontal flow with white arrows and text.
+**Figure 5:** A 12-stage roadmap for building a Cloud Center of Excellence (CCOE).
 
 ### Step 1: Establish Executive Sponsorship and Clear Objectives
 
@@ -211,7 +211,7 @@ A CoE that tries to solve every cloud issue at once can overwhelm itself and oth
 
 **Strategy:** Prioritize ruthlessly. Use a maturity model approach, focus on foundational capabilities first (security, identity, baseline automation), then gradually add advanced ones (like complex multi-cloud strategies or AI governance). Communicate these phases so management understands why some features are not there on day one. It's often useful to align with a known cloud adoption maturity model (AWS CAF or similar) so stakeholders see a roadmap. Deliver in small increments, e.g., roll out tagging enforcement this quarter, next quarter tackle DR/backup standards, etc. This agile approach also yields iterative value.
 
-![A five-level pyramid diagram from CloudQuery illustrating Cloud Center of Excellence (CCOE) maturity stages: 1. Ad hoc - Undocumented, unmanaged, individual effort 2. Reactive - siloed teams, inconsistent practices 3. Defined - Governance, policy, and repeatable processes 4. Integrated - Security, FinOps, and DevOps are aligned 5. Optimized CCOE - Cross-functional, automated, productive. Each ascending level represents increased maturity, alignment, and operational efficiency in cloud governance practices.](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image3.webp)
+![The Cloud Center of Excellence maturity pyramid, from the base up: 1 ad hoc (undocumented, unmanaged, individual effort), 2 reactive (siloed teams, inconsistent practices), 3 defined (governance, policy and repeatable processes), 4 integrated (security, FinOps and DevOps are aligned), and at the top 5 optimized CCOE (cross-functional, automated, productive).](/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/ccoe-maturity.svg)
 
 **Figure 6.** The Cloud Center of Excellence (CCOE) Maturity Pyramid. This model outlines the five stages organizations typically progress through, starting from ad-hoc, fragmented practices to a fully optimized, cross-functional governance model.
 

@@ -19,6 +19,8 @@ the phone layout under 640px. Clicking a diagram opens the lightbox.
 2. **Write one file per figure** in `scripts/diagrams/<slug>/<name>.mjs`, exporting
    `alt`, `desktop` and `phone`. Copy the shape of `scripts/diagrams/doom-mcp-server/`.
    A figure that holds two ideas (before/after, build/run) becomes two files.
+   Helpers shared by a post's figures go in a file starting with `_`, which the
+   render skips.
 3. **Preview before touching the post.** Joe reviews mockups before anything is
    built or changed:
    `npm run diagrams -- <slug> --preview <scratchpad>/<slug>.html`, publish it as an
@@ -57,7 +59,8 @@ unless he says otherwise for a specific figure.
    first, then the company's own site (the header SVG, `/brand`, `/press`, a media
    kit), then selfh.st icons and Dashboard Icons, then the repo's own copies
    (`public/images/logos/`, the CData brand kit). Record the source in the logos
-   README. A product's container can show its wordmark on the tab
+   README. A new logo can describe itself with a `<name>.json` sidecar
+   (`{"color": "#hex"}`, or `{}` for full colour) instead of an entry in `LOGOS`. A product's container can show its wordmark on the tab
    (`f.group({ ..., logo: 'tinybird' })`).
 4. **Every connection gets an arrow**, including one-to-many (fan the arrows out
    from one point to each target). One exception: when each line stands for a
