@@ -24,7 +24,9 @@ the phone layout under 640px. Clicking a diagram opens the lightbox.
    `npm run diagrams -- <slug> --preview <scratchpad>/<slug>.html`, publish it as an
    artifact, and open it in Firefox (`open -a Firefox <url>`). Iterate until he picks.
 4. **Render**: `npm run diagrams -- <slug>`. It fails on any text that overflows its
-   box or the canvas, naming the label. Fix layout, never the check.
+   box or the canvas, and on any arrow or callout that runs over text, runs
+   through a box or ends buried inside one, naming the part. Fix layout, never the
+   check.
 5. **Swap the post's images** for `![alt](/images/blog/<slug>/<name>.svg)`, one per
    figure, alt text written for the post. Delete the old image files in the same
    change once nothing else references them.
@@ -79,7 +81,13 @@ unless he says otherwise for a specific figure.
     in a 360-wide canvas, keep text at 14px or more, route loops along the left
     edge. Collapse side branches into a sub-line on the box when a branch would
     need its own column (`go_to(next room)` / `blocked? attack(closest_pids)`).
-12. **Say it once.** No subtitles restating the post's lead-in, no captions that
+12. **Arrows sit on top.** The kit draws containers, then boxes, then arrows,
+    then callouts, so an arrowhead is never hidden under a tilted box. End each
+    arrow at the box edge, clear of the box's label.
+13. **It boils, but the words don't.** On the site, arrows, callouts and paper
+    edges wobble through the same boil as the other scribbles (`motion.css`);
+    text, logos and icons hold still. Reduced motion and the pause button stop it.
+14. **Say it once.** No subtitles restating the post's lead-in, no captions that
     repeat a label. A figure heading inside the SVG only when the post shows two
     related figures in a row.
 

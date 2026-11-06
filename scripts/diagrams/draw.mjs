@@ -158,8 +158,20 @@ export function createFigure({ id, width, height }) {
 	};
 	const jitter = (amount) => (random() - 0.5) * 2 * amount;
 	const filter = `url(#${id}-crayon)`;
-	const parts = [];
+	// Drawn in this order, so arrows never sink under a box and callouts sit on top
+	const layers = { groups: [], boxes: [], lines: [], callouts: [] };
+	let target = layers.boxes;
+	const onLayer = (name, draw) => {
+		const previous = target;
+		target = layers[name];
+		draw();
+		target = previous;
+	};
 	const issues = [];
+	// What the collision check needs: where text and boxes are, and every line drawn
+	const textBoxes = [];
+	const boxRects = [];
+	const lines = [];
 
 	/** One hand-drawn stroke from a to b: bowed a little, overshooting its ends. */
 	function roughSegment(x1, y1, x2, y2, wobble, overshoot = 0.03) {
@@ -185,7 +197,7 @@ export function createFigure({ id, width, height }) {
 
 	/** A crayon stroke: arrows and callouts. */
 	function stroke(d, color, strokeWidth = 3, extra = '') {
-		parts.push(
+		target.push(
 			`<path d="${d}" fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round" filter="${filter}"${extra}/>`,
 		);
 	}
@@ -202,10 +214,17 @@ export function createFigure({ id, width, height }) {
 		const value = upper ? String(content).toUpperCase() : content;
 		const w = measure(value, size, font, weight);
 		const left = anchor === 'start' ? x : anchor === 'end' ? x - w : x - w / 2;
+		textBoxes.push({
+			label: String(value),
+			x0: left,
+			x1: left + w,
+			y0: y - size * 0.45,
+			y1: y + size * 0.45,
+		});
 		if (left < 0 || left + w > width || y - size / 2 < 0 || y + size / 2 > height) {
 			issues.push(`"${value}" runs off the ${width}x${height} canvas`);
 		}
-		parts.push(
+		target.push(
 			`<text x="${n(x)}" y="${n(y)}" font-family="${FONTS[font]}" font-size="${size}"${weight !== 400 ? ` font-weight="${weight}"` : ''} fill="${color}" text-anchor="${anchor}" dominant-baseline="central"${font === 'mono' ? ' xml:space="preserve"' : ''}>${escapeXml(value)}</text>`,
 		);
 	}
@@ -226,14 +245,16 @@ export function createFigure({ id, width, height }) {
 		const edgeAttrs = edge
 			? ` stroke="${edge}" stroke-width="2"${dashed ? ' stroke-dasharray="7 6"' : ''}`
 			: '';
-		parts.push(`<path d="${wobblyShape(points, 1.6)}" fill="${color}"${edgeAttrs}/>`);
+		target.push(
+			`<path class="d-paper" d="${wobblyShape(points, 1.6)}" fill="${color}"${edgeAttrs}/>`,
+		);
 	}
 
 	/** A logo with its left edge at x, centred on cy, for a surface (box kind). Returns its width. */
 	function logo(name, x, cy, logoHeight, surface = 'ink') {
 		const art = loadLogo(name, surface);
 		const w = logoHeight * art.aspect;
-		parts.push(
+		target.push(
 			`<svg x="${n(x)}" y="${n(cy - logoHeight / 2)}" width="${n(w)}" height="${n(logoHeight)}" viewBox="${art.viewBox}">${art.inner}</svg>`,
 		);
 		return w;
@@ -252,6 +273,7 @@ export function createFigure({ id, width, height }) {
 	 * logo: a product's logo before the label; icon: a Lucide icon there instead,
 	 * for anything without a logo; stack: put that mark above the label instead of
 	 * before it, for small boxes; wordmark: a logo that replaces the label.
+	 * @param {{ x: number, y: number, w: number, h: number, kind?: string, label?: string | string[], sub?: string | string[], font?: string, size?: number, subFont?: string, subSize?: number, logo?: string, icon?: string, stack?: boolean, wordmark?: string }} spec
 	 */
 	function box({
 		x,
@@ -270,7 +292,8 @@ export function createFigure({ id, width, height }) {
 		stack = false,
 		wordmark,
 	}) {
-		parts.push(
+		boxRects.push({ label: [label ?? wordmark ?? kind].flat().join(' '), x, y, w, h });
+		target.push(
 			`<g transform="rotate(${n(jitter(kind === 'ink' ? 1.5 : 1.2))} ${n(x + w / 2)} ${n(y + h / 2)})">`,
 		);
 		const fills = {
@@ -309,7 +332,7 @@ export function createFigure({ id, width, height }) {
 			subs.forEach((line, i) =>
 				text(cx, markY + markH / 2 + 18 + i * 20, line, { size: 15, color, weight: 600 }),
 			);
-			parts.push('</g>');
+			target.push('</g>');
 			return;
 		}
 		const mark = logoName ?? iconName;
@@ -359,11 +382,12 @@ export function createFigure({ id, width, height }) {
 			});
 			rowTop += r.size * 1.3;
 		});
-		parts.push('</g>');
+		target.push('</g>');
 	}
 
 	/** A rounded start/end marker. */
 	function pill({ x, y, w, h, label, size = 17 }) {
+		boxRects.push({ label, x, y, w, h });
 		const r = h / 2;
 		const points = [];
 		for (let i = 0; i <= 12; i++) {
@@ -374,7 +398,7 @@ export function createFigure({ id, width, height }) {
 			const a = Math.PI / 2 + (i / 12) * Math.PI;
 			points.push([x + r + Math.cos(a) * r, y + r + Math.sin(a) * r]);
 		}
-		parts.push(`<path d="${wobblyShape(points, 1.2)}" fill="${COLORS.chalk}"/>`);
+		target.push(`<path d="${wobblyShape(points, 1.2)}" fill="${COLORS.chalk}"/>`);
 		text(x + w / 2, y + h / 2, label, {
 			size: size * 1.2,
 			font: 'display',
@@ -385,13 +409,14 @@ export function createFigure({ id, width, height }) {
 
 	/** A decision diamond centred on cx, cy. */
 	function diamond({ cx, cy, w, h, label, size = 17 }) {
+		boxRects.push({ label, x: cx - w / 4, y: cy - h / 4, w: w / 2, h: h / 2 });
 		const corners = [
 			[cx, cy - h / 2],
 			[cx + w / 2, cy],
 			[cx, cy + h / 2],
 			[cx - w / 2, cy],
 		];
-		parts.push(`<path d="${wobblyShape(corners, 1.5)}" fill="${COLORS.chalk}"/>`);
+		target.push(`<path d="${wobblyShape(corners, 1.5)}" fill="${COLORS.chalk}"/>`);
 		if (measure(label, size * 1.2, 'display') > w * 0.62)
 			issues.push(`"${label}" is too wide for its ${w}px diamond`);
 		text(cx, cy, label, { size: size * 1.2, font: 'display', upper: true, color: COLORS.ink });
@@ -412,7 +437,14 @@ export function createFigure({ id, width, height }) {
 	 * dashed: sometimes. Pink is kept for crayonArrow, so a flow line never looks
 	 * like a callout.
 	 */
-	function arrow(points, { heads = 'end', dashed = false } = {}) {
+	function arrow(points, options) {
+		onLayer('lines', () => drawArrow(points, options));
+	}
+
+	function drawArrow(points, { heads = 'end', dashed = false } = {}) {
+		lines.push({ points, kind: 'arrow' });
+		// Wrapped so CSS can boil a whole arrow without replacing its crayon filter
+		target.push('<g class="d-flow">');
 		const d = [];
 		for (let i = 0; i < points.length - 1; i++)
 			d.push(roughSegment(...points[i], ...points[i + 1], 1.5, 0));
@@ -422,6 +454,7 @@ export function createFigure({ id, width, height }) {
 		if (heads === 'end' || heads === 'both')
 			head(...points[last], angleOf(points[last - 1], points[last]), COLORS.chalk);
 		if (heads === 'both') head(...points[0], angleOf(points[1], points[0]), COLORS.chalk);
+		target.push('</g>');
 	}
 
 	/** A short label beside a line: gray, smaller. */
@@ -445,7 +478,7 @@ export function createFigure({ id, width, height }) {
 				return;
 			}
 			x -= 30;
-			parts.push(
+			target.push(
 				`<rect x="${n(x)}" y="${n(y - 7)}" width="22" height="14" rx="3" fill="${COLORS[kind]}"/>`,
 			);
 			x -= 22;
@@ -456,7 +489,11 @@ export function createFigure({ id, width, height }) {
 	 * A container for parts that belong together: a darker sheet the boxes sit on,
 	 * with a name tab at its top-left. Draw it before its contents.
 	 */
-	function group({ x, y, w, h, label }) {
+	function group(spec) {
+		onLayer('groups', () => drawGroup(spec));
+	}
+
+	function drawGroup({ x, y, w, h, label }) {
 		const tabW = measure(label, 17, 'display') + 26;
 		scrap(x, y, w, h, '#2a2a2a');
 		scrap(x, y - 22, tabW, 24, '#2a2a2a');
@@ -470,10 +507,23 @@ export function createFigure({ id, width, height }) {
 	}
 
 	/** A pink crayon arrow on a curve, from a callout note to what it explains. */
-	function crayonArrow([x1, y1], [x2, y2], bend = 30) {
+	function crayonArrow(from, to, bend) {
+		onLayer('callouts', () => drawCrayonArrow(from, to, bend));
+	}
+
+	function drawCrayonArrow([x1, y1], [x2, y2], bend = 30) {
 		const length = Math.hypot(x2 - x1, y2 - y1);
 		const mx = (x1 + x2) / 2 - ((y2 - y1) / length) * bend;
 		const my = (y1 + y2) / 2 + ((x2 - x1) / length) * bend;
+		const curve = [];
+		for (let t = 0; t <= 1.0001; t += 0.05) {
+			curve.push([
+				(1 - t) ** 2 * x1 + 2 * (1 - t) * t * mx + t ** 2 * x2,
+				(1 - t) ** 2 * y1 + 2 * (1 - t) * t * my + t ** 2 * y2,
+			]);
+		}
+		lines.push({ points: curve, kind: 'callout' });
+		target.push('<g class="d-callout">');
 		stroke(`M${n(x1)},${n(y1)} Q${n(mx)},${n(my)} ${n(x2)},${n(y2)}`, COLORS.pink, 3.5);
 		const angle = Math.atan2(y2 - my, x2 - mx);
 		const size = 13;
@@ -482,6 +532,7 @@ export function createFigure({ id, width, height }) {
 			COLORS.pink,
 			3.5,
 		);
+		target.push('</g>');
 	}
 
 	/**
@@ -491,7 +542,8 @@ export function createFigure({ id, width, height }) {
 	function code({ x, y, w, lines, size = 15, highlight = [] }) {
 		const lineH = size * 1.55;
 		const h = lines.length * lineH + 24;
-		parts.push(`<g transform="rotate(${n(jitter(0.6))} ${n(x + w / 2)} ${n(y + h / 2)})">`);
+		boxRects.push({ label: 'code block', x, y, w, h });
+		target.push(`<g transform="rotate(${n(jitter(0.6))} ${n(x + w / 2)} ${n(y + h / 2)})">`);
 		scrap(x, y, w, h, COLORS.ink, COLORS.paper);
 		lines.forEach((line, i) => {
 			const lineY = y + 12 + lineH * (i + 0.5);
@@ -505,7 +557,7 @@ export function createFigure({ id, width, height }) {
 				weight: highlight.includes(i) ? 700 : 400,
 			});
 		});
-		parts.push('</g>');
+		target.push('</g>');
 		return h;
 	}
 
@@ -518,7 +570,8 @@ export function createFigure({ id, width, height }) {
 		const rowH = size * 2;
 		const w = columns.length * colW;
 		const h = 34 + rowH * (rows.length + 1) + 8;
-		parts.push(`<g transform="rotate(${n(jitter(0.8))} ${n(x + w / 2)} ${n(y + h / 2)})">`);
+		boxRects.push({ label: title, x: x - 8, y, w: w + 16, h });
+		target.push(`<g transform="rotate(${n(jitter(0.8))} ${n(x + w / 2)} ${n(y + h / 2)})">`);
 		scrap(x - 8, y, w + 16, h, COLORS.ink, COLORS.paper);
 		text(x + 2, y + 18, title, {
 			font: 'mono',
@@ -530,13 +583,13 @@ export function createFigure({ id, width, height }) {
 		const gridTop = y + 34;
 		for (let r = 0; r <= rows.length + 1; r++) {
 			const lineY = gridTop + r * rowH;
-			parts.push(
+			target.push(
 				`<path d="M${n(x)},${n(lineY)} L${n(x + w)},${n(lineY)}" stroke="${COLORS.muted}" stroke-width="1"/>`,
 			);
 		}
 		for (let c = 0; c <= columns.length; c++) {
 			const lineX = x + c * colW;
-			parts.push(
+			target.push(
 				`<path d="M${n(lineX)},${n(gridTop)} L${n(lineX)},${n(gridTop + rowH * (rows.length + 1))}" stroke="${COLORS.muted}" stroke-width="1"/>`,
 			);
 		}
@@ -555,7 +608,7 @@ export function createFigure({ id, width, height }) {
 				});
 			}),
 		);
-		parts.push('</g>');
+		target.push('</g>');
 		return h;
 	}
 
@@ -564,7 +617,54 @@ export function createFigure({ id, width, height }) {
 		text(x, y, content, { size: 28, font: 'display', anchor: 'start', upper: true, ...opts });
 	}
 
+	/**
+	 * Every arrow and callout must stay clear of text and run between boxes, not
+	 * through them: an arrow over a label hides it, and one that ends inside a box
+	 * looks buried. The ends of a line may touch the box it starts or stops at.
+	 */
+	function checkLines() {
+		const inside = (px, py, r, pad) =>
+			px > r.x + pad && px < r.x + r.w - pad && py > r.y + pad && py < r.y + r.h - pad;
+		const near = (px, py, t) => px > t.x0 - 1 && px < t.x1 + 1 && py > t.y0 - 1 && py < t.y1 + 1;
+		lines.forEach(({ points, kind }) => {
+			const what = kind === 'callout' ? 'A callout arrow' : 'An arrow';
+			const found = new Set();
+			const total = points
+				.slice(1)
+				.reduce((sum, p, i) => sum + Math.hypot(p[0] - points[i][0], p[1] - points[i][1]), 0);
+			let travelled = 0;
+			for (let i = 0; i < points.length - 1; i++) {
+				const [ax, ay] = points[i];
+				const [bx, by] = points[i + 1];
+				const length = Math.hypot(bx - ax, by - ay);
+				for (let d = 0; d <= length; d += 2) {
+					const px = ax + ((bx - ax) * d) / (length || 1);
+					const py = ay + ((by - ay) * d) / (length || 1);
+					const along = travelled + d;
+					// Skip the ends, where a line meets its box and the callout meets its target
+					const endRoom = kind === 'callout' ? 12 : 6;
+					if (along < endRoom || along > total - endRoom) continue;
+					textBoxes.forEach((t) => near(px, py, t) && found.add(`${what} runs over "${t.label}"`));
+					boxRects.forEach(
+						(r) => inside(px, py, r, 6) && found.add(`${what} runs through the "${r.label}" box`),
+					);
+				}
+				travelled += length;
+			}
+			if (kind === 'arrow') {
+				[points[0], points[points.length - 1]].forEach(([px, py]) =>
+					boxRects.forEach(
+						(r) =>
+							inside(px, py, r, 4) && found.add(`${what} ends buried inside the "${r.label}" box`),
+					),
+				);
+			}
+			found.forEach((issue) => issues.push(issue));
+		});
+	}
+
 	function toString(label) {
+		checkLines();
 		return [
 			`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeXml(label)}">`,
 			`<defs><filter id="${id}-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="${width + 40}" height="${height + 40}">`,
@@ -575,7 +675,10 @@ export function createFigure({ id, width, height }) {
 			'<feComposite in="d" in2="holes" operator="in"/>',
 			'</filter></defs>',
 			`<rect width="${width}" height="${height}" fill="${COLORS.ink}"/>`,
-			...parts,
+			...layers.groups,
+			...layers.boxes,
+			...layers.lines,
+			...layers.callouts,
 			'</svg>',
 			'',
 		].join('\n');

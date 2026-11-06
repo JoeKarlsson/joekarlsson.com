@@ -8,16 +8,14 @@
 </filter></defs>
 <rect width="640" height="420" fill="#000000"/>
 <g transform="rotate(0.5 96 100)">
-<path d="M16.6,69.4 L31.7,68.9 L47.2,71.5 L64.1,69.8 L80.8,69 L96.8,71.5 L113.5,69.2 L127,71.6 L144.3,68.5 L159.7,69 L175.6,71.3 L175.9,85.8 L175.2,101.4 L177.2,117.1 L177.5,131.3 L159.2,131.6 L145.2,130.7 L129.5,128.5 L113.2,129.2 L96.5,129.5 L79.9,130.2 L64.9,130.7 L47.3,129.3 L32.6,128.7 L14.8,129.3 L15.6,114.1 L16.5,98.9 L15.2,82.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<path class="d-paper" d="M16.6,69.4 L31.7,68.9 L47.2,71.5 L64.1,69.8 L80.8,69 L96.8,71.5 L113.5,69.2 L127,71.6 L144.3,68.5 L159.7,69 L175.6,71.3 L175.9,85.8 L175.2,101.4 L177.2,117.1 L177.5,131.3 L159.2,131.6 L145.2,130.7 L129.5,128.5 L113.2,129.2 L96.5,129.5 L79.9,130.2 L64.9,130.7 L47.3,129.3 L32.6,128.7 L14.8,129.3 L15.6,114.1 L16.5,98.9 L15.2,82.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
 <svg x="30" y="86" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
   <polyline points="12 6 12 12 16 14" /></g></svg>
 <text x="117" y="90.3" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="middle" dominant-baseline="central">SCHEDULE</text>
 <text x="117" y="114.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">or an event</text>
 </g>
-<path d="M179.4,100.8 Q192.3,101.9 207.3,101.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
-<path d="M197,106.4 L206,100 L197,93.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
 <g transform="rotate(1.1 295 100)">
-<path d="M210.5,69.9 L225.1,70.1 L242.4,71.3 L257.3,69.3 L274.9,70 L289.3,69.3 L306.9,71 L323.4,70.2 L337.2,70.6 L353.9,69.8 L370.9,71.4 L379.1,69 L380.1,87.1 L381.1,102.3 L379.9,116.5 L380.5,130.7 L365.5,129 L347.1,131 L330.7,129.9 L316.7,129.4 L299.3,128.5 L283.3,128.9 L267.4,131 L252.7,131.3 L237.1,128.9 L220.5,130.7 L211,130.4 L209.2,114.6 L211.1,97.7 L209.8,81.6 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<path class="d-paper" d="M210.5,69.9 L225.1,70.1 L242.4,71.3 L257.3,69.3 L274.9,70 L289.3,69.3 L306.9,71 L323.4,70.2 L337.2,70.6 L353.9,69.8 L370.9,71.4 L379.1,69 L380.1,87.1 L381.1,102.3 L379.9,116.5 L380.5,130.7 L365.5,129 L347.1,131 L330.7,129.9 L316.7,129.4 L299.3,128.5 L283.3,128.9 L267.4,131 L252.7,131.3 L237.1,128.9 L220.5,130.7 L211,130.4 L209.2,114.6 L211.1,97.7 L209.8,81.6 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
 <svg x="224" y="86" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8" />
   <rect width="16" height="12" x="4" y="8" rx="2" />
   <path d="M2 14h2" />
@@ -27,12 +25,9 @@
 <text x="316" y="87.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#ededed" text-anchor="middle" dominant-baseline="central">MONITORING</text>
 <text x="316" y="112.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#ededed" text-anchor="middle" dominant-baseline="central">AGENT</text>
 </g>
-<path d="M383.1,100 Q398.5,99.9 416.6,99.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
-<path d="M407,106.4 L416,100 L407,93.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
-<path d="M391,93.6 L382,100 L391,106.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
 <text x="399" y="82" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">MCP</text>
 <g transform="rotate(1 520 100)">
-<path d="M421.5,46.2 L437.1,45.9 L451.4,46.9 L468.3,47.2 L483,44.8 L498.4,47.1 L514.6,45.1 L530.7,46.9 L549,46.3 L563,44.5 L581.4,47.3 L596.2,47 L612.8,47.5 L620.8,46.7 L619.4,63 L620.4,78.3 L619.9,93.3 L619.1,110.1 L619.9,125.8 L621.2,143.1 L618.4,153.9 L604.7,153.2 L587.6,153.8 L573.2,155.3 L556.5,153 L538.8,152.5 L524.6,153.7 L507.8,154.9 L490.8,152.9 L476.3,153.2 L459.9,152.6 L444.3,153.8 L427.1,154.3 L421,153 L420.4,139.1 L421.2,121.8 L419,105.4 L420.8,90.1 L419.9,73.9 L420.5,59.1 Z" fill="#ece6da"/>
+<path class="d-paper" d="M421.5,46.2 L437.1,45.9 L451.4,46.9 L468.3,47.2 L483,44.8 L498.4,47.1 L514.6,45.1 L530.7,46.9 L549,46.3 L563,44.5 L581.4,47.3 L596.2,47 L612.8,47.5 L620.8,46.7 L619.4,63 L620.4,78.3 L619.9,93.3 L619.1,110.1 L619.9,125.8 L621.2,143.1 L618.4,153.9 L604.7,153.2 L587.6,153.8 L573.2,155.3 L556.5,153 L538.8,152.5 L524.6,153.7 L507.8,154.9 L490.8,152.9 L476.3,153.2 L459.9,152.6 L444.3,153.8 L427.1,154.3 L421,153 L420.4,139.1 L421.2,121.8 L419,105.4 L420.8,90.1 L419.9,73.9 L420.5,59.1 Z" fill="#ece6da"/>
 <svg x="451.8" y="64" width="136.4" height="24" viewBox="0 0 875 154"><path d="M0 0H153.658V29.3286H74.3053C48.0193 29.3286 26.7104 50.6376 26.7104 76.9236C26.7104 103.21 48.0194 124.519 74.3053 124.519H153.658V153.659H0V0Z" fill="#FFE500"/>
 <path d="M853.47 125.364V29.7897H869.854V125.364H853.47Z" fill="#15151C"/>
 <path d="M757.584 125.364L792.536 29.7897H810.832L845.785 125.364H828.445L801.548 48.9045L774.651 125.364H757.584ZM773.149 102.835L777.518 89.8647H824.622L828.991 102.835H773.149Z" fill="#15151C"/>
@@ -46,22 +41,15 @@
 <text x="520" y="106" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">workspace: metrics.*</text>
 <text x="520" y="126" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">read-only</text>
 </g>
-<path d="M520.3,156.6 Q520.3,178 521.3,200.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
-<path d="M513.6,191 L520,200 L526.4,191" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
-<path d="M526.4,165 L520,156 L513.6,165" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
 <g transform="rotate(-0.2 520 230)">
-<path d="M440.1,202.7 L455.6,201.5 L471.9,201.6 L487.7,200.9 L504.2,202.1 L521.4,203.3 L537.2,201.1 L553.1,203.4 L567.6,201.1 L582.9,201.6 L598.5,200.4 L598.6,217.5 L600.1,233.7 L599.4,248.7 L599.1,259.3 L584.9,256.8 L568.8,258.6 L550.9,259 L535.6,257.9 L519.3,259 L502.8,256.5 L488.8,258.8 L471.4,257.8 L456.4,258 L440.8,257.6 L438.5,242 L440.9,227 L441.1,210.1 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<path class="d-paper" d="M440.1,202.7 L455.6,201.5 L471.9,201.6 L487.7,200.9 L504.2,202.1 L521.4,203.3 L537.2,201.1 L553.1,203.4 L567.6,201.1 L582.9,201.6 L598.5,200.4 L598.6,217.5 L600.1,233.7 L599.4,248.7 L599.1,259.3 L584.9,256.8 L568.8,258.6 L550.9,259 L535.6,257.9 L519.3,259 L502.8,256.5 L488.8,258.8 L471.4,257.8 L456.4,258 L440.8,257.6 L438.5,242 L440.9,227 L441.1,210.1 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
 <svg x="454" y="216" width="28" height="28" viewBox="0 0 24 24"><g fill="#669DF6"><path d="M5.676 10.595h2.052v5.244a5.892 5.892 0 0 1-2.052-2.088v-3.156zm18.179 10.836a.504.504 0 0 1 0 .708l-1.716 1.716a.504.504 0 0 1-.708 0l-4.248-4.248a.206.206 0 0 1-.007-.007c-.02-.02-.028-.045-.043-.066a10.736 10.736 0 0 1-6.334 2.065C4.835 21.599 0 16.764 0 10.799S4.835 0 10.8 0s10.799 4.835 10.799 10.8c0 2.369-.772 4.553-2.066 6.333.025.017.052.028.074.05l4.248 4.248zm-5.028-10.632a8.015 8.015 0 1 0-8.028 8.028h.024a8.016 8.016 0 0 0 8.004-8.028zm-4.86 4.98a6.002 6.002 0 0 0 2.04-2.184v-1.764h-2.04v3.948zm-4.5.948c.442.057.887.08 1.332.072.4.025.8.025 1.2 0V7.692H9.468v9.035z"/></g></svg>
 <text x="541" y="230" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="middle" dominant-baseline="central">BIGQUERY</text>
 </g>
-<path d="M295.9,130.9 Q294.4,188.7 294.5,249 M295.2,249.9 Q203,248.9 110.1,248.7 M110.1,250 Q109.5,270.5 111.2,289.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
-<path d="M103.6,279 L110,288 L116.4,279" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
 <text x="122" y="234" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">first: alerts only</text>
-<path d="M295.4,250.4 Q313.2,250.7 329.6,251.4 M329,251.2 Q329.8,270.8 330.3,287.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)" stroke-dasharray="7 7"/>
-<path d="M323.6,279 L330,288 L336.4,279" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
 <text x="342" y="270" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">later</text>
 <g transform="rotate(-0.7 110 330)">
-<path d="M20.8,289.6 L35.4,288.7 L52.5,288.8 L67.3,290.2 L84.6,289.9 L100.8,289.8 L117.2,289.4 L131,289.7 L147.9,290.1 L163.5,289.1 L181.1,288.6 L195.1,288.5 L200.8,290.7 L201.3,304.6 L198.6,322.7 L199.7,337.7 L198.7,355.6 L201.2,368.5 L182.8,369.4 L167.6,368.6 L151.1,370.3 L136.3,371.3 L120.5,370.8 L104,370.5 L87.5,369.6 L71.9,369.1 L56.7,370.7 L39.3,370.7 L25.1,371.3 L19.8,369.3 L20.7,353.8 L20.1,338.1 L20.3,321.6 L18.6,306.4 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<path class="d-paper" d="M20.8,289.6 L35.4,288.7 L52.5,288.8 L67.3,290.2 L84.6,289.9 L100.8,289.8 L117.2,289.4 L131,289.7 L147.9,290.1 L163.5,289.1 L181.1,288.6 L195.1,288.5 L200.8,290.7 L201.3,304.6 L198.6,322.7 L199.7,337.7 L198.7,355.6 L201.2,368.5 L182.8,369.4 L167.6,368.6 L151.1,370.3 L136.3,371.3 L120.5,370.8 L104,370.5 L87.5,369.6 L71.9,369.1 L56.7,370.7 L39.3,370.7 L25.1,371.3 L19.8,369.3 L20.7,353.8 L20.1,338.1 L20.3,321.6 L18.6,306.4 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
 <svg x="34" y="316" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0" />
   <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></g></svg>
 <text x="131" y="310.5" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="middle" dominant-baseline="central">FINDING</text>
@@ -69,7 +57,7 @@
 <text x="131" y="354.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">an alert</text>
 </g>
 <g transform="rotate(-0.7 325 346)">
-<path d="M229.7,288.4 L246.4,290.7 L261.7,289.2 L279,290.5 L294.3,290 L309.8,288.8 L326.1,289.7 L341.8,290.2 L358.9,290.9 L373.2,289.2 L390.5,289.6 L406.3,289.5 L420.3,290.7 L419.9,307.5 L418.8,322.4 L420.1,337.7 L419.1,353.8 L419.1,369.2 L420.9,385.5 L420.4,401.2 L403.2,401.9 L387.4,400.9 L373.1,403 L356.8,402.8 L341.5,400.6 L324.1,403.2 L307.6,402 L293.5,401.5 L276.6,402 L261.5,402.6 L245,402.4 L229.5,401.6 L231.1,386 L228.5,371.5 L229,353.6 L229.4,337.5 L231.4,322.7 L230.6,306.3 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+<path class="d-paper" d="M229.7,288.4 L246.4,290.7 L261.7,289.2 L279,290.5 L294.3,290 L309.8,288.8 L326.1,289.7 L341.8,290.2 L358.9,290.9 L373.2,289.2 L390.5,289.6 L406.3,289.5 L420.3,290.7 L419.9,307.5 L418.8,322.4 L420.1,337.7 L419.1,353.8 L419.1,369.2 L420.9,385.5 L420.4,401.2 L403.2,401.9 L387.4,400.9 L373.1,403 L356.8,402.8 L341.5,400.6 L324.1,403.2 L307.6,402 L293.5,401.5 L276.6,402 L261.5,402.6 L245,402.4 L229.5,401.6 L231.1,386 L228.5,371.5 L229,353.6 L229.4,337.5 L231.4,322.7 L230.6,306.3 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
 <svg x="244" y="332" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
   <circle cx="9" cy="7" r="4" />
   <polyline points="16 11 18 13 22 9" /></g></svg>
@@ -81,6 +69,30 @@
 <text x="446" y="304" font-family="Fraunces, Georgia, serif" font-size="16" fill="#ededed" text-anchor="start" dominant-baseline="central">Every request is logged:</text>
 <text x="446" y="328" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">what the agent saw</text>
 <text x="446" y="348" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">and what it did</text>
+<g class="d-flow">
+<path d="M179.4,100.8 Q192.3,101.9 207.3,101.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+<path d="M197,106.4 L206,100 L197,93.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M383.1,100 Q398.5,99.9 416.6,99.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+<path d="M407,106.4 L416,100 L407,93.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+<path d="M391,93.6 L382,100 L391,106.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M520.3,156.6 Q520.3,178 521.3,200.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+<path d="M513.6,191 L520,200 L526.4,191" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+<path d="M526.4,165 L520,156 L513.6,165" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M295.9,130.9 Q294.4,188.7 294.5,249 M295.2,249.9 Q203,248.9 110.1,248.7 M110.1,250 Q109.5,270.5 111.2,289.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+<path d="M103.6,279 L110,288 L116.4,279" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M295.4,250.4 Q313.2,250.7 329.6,251.4 M329,251.2 Q329.8,270.8 330.3,287.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)" stroke-dasharray="7 7"/>
+<path d="M323.6,279 L330,288 L336.4,279" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+</g>
+<g class="d-callout">
 <path d="M436,296 Q413.1,224.7 418,150" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
 <path d="M424.1,161.5 L418,150 L410.5,160.6" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#ai-gateway-for-developers-autonomous-monitor-desktop-crayon)"/>
+</g>
 </svg>

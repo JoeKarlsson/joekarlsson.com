@@ -232,11 +232,13 @@
 }
 
 /* Every self-drawing scribble and hover mark boils: three wobble frames (#boil-N in BaseLayout),
-   held a beat each, so the marks feel hand-animated even while they hold. Off
-   under reduced motion; the pause button freezes it on one frame. */
+   held a beat each, so the marks feel hand-animated even while they hold. Post diagrams
+   boil their arrows, callouts and paper edges, never their words. Off under reduced
+   motion; the pause button freezes it on one frame. */
 @media (prefers-reduced-motion: no-preference) {
 	.redraw,
 	.redraw-strokes,
+	:is(.diagram, .diagram-enlarged) :is(.d-flow, .d-callout, .d-paper),
 	.ring-host:is(:hover, :focus-visible, :has(:focus-visible)) .hover-ring {
 		animation: boil 0.5s steps(1, end) infinite;
 	}
