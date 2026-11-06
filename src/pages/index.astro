@@ -236,6 +236,16 @@ const AROUND_THE_HOUSE = [
 								class="-inset-[8%] z-10 h-[116%] w-[116%]"
 							/>
 						)}
+						{i === 0 && (
+							<Scribble
+								{...MARKS.newTag}
+								color="#ff4fd8"
+								strokeWidth={16}
+								duration="10s"
+								delay="2.4s"
+								class="-right-[18%] -bottom-[20%] z-10 h-[40%] w-[48%] -rotate-[8deg] max-md:-right-[1%] max-md:-bottom-[14%] max-md:h-[24%] max-md:w-[30%]"
+							/>
+						)}
 						<img
 							src={post.data.heroImage || DEFAULT_HERO_IMAGE}
 							alt=""

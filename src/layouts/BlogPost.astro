@@ -136,6 +136,18 @@ const HERO_MARKS = [
 		color: '#ff4fd8',
 		class: '-right-[5%] -bottom-[10%] size-[20%] max-w-[150px]',
 	},
+	{ mark: MARKS.star, color: CHALK, class: '-top-[10%] -left-[4%] size-[20%] max-w-[150px]' },
+	{
+		mark: MARKS.spiral,
+		color: '#ff4fd8',
+		class: '-right-[4%] -bottom-[9%] size-[18%] max-w-[130px]',
+	},
+	{ mark: MARKS.bolt, color: CHALK, class: '-top-[12%] right-[5%] h-[24%] w-[14%] max-w-[110px]' },
+	{
+		mark: MARKS.flower,
+		color: '#ff4fd8',
+		class: '-bottom-[10%] -left-[3%] h-[28%] w-[20%] max-w-[150px]',
+	},
 ];
 const slugHash = [...slug].reduce((sum, char) => sum + char.charCodeAt(0), 0);
 const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];

@@ -62,6 +62,17 @@ const ECHO_TITLE = 'Works on my machine';
 		<p style="display:flex;align-items:center;gap:12px">
 			<Logo text="JK" style="--logo-fill:#000;font-size:24px" />
 			&copy; {year} Joe Karlsson
+			<!-- Signed in his own hand lettering -->
+			<span class="relative ml-2 hidden h-[26px] w-[156px] sm:inline-block">
+				<Scribble
+					{...MARKS.signature}
+					color="#000"
+					strokeWidth={14}
+					duration="10s"
+					delay="1s"
+					class="inset-0 size-full"
+				/>
+			</span>
 		</p>
 		<!-- Phones: each icon gets a 44px tap area (p-[11px] around 22px), pulled back to the edge by -mx -->
 		<div class="-mx-[11px] flex items-center md:mx-0 md:gap-[18px] [&>a]:p-[11px] md:[&>a]:p-0">

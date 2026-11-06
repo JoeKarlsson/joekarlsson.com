@@ -36,15 +36,24 @@ const PLACES = [
 			<h1 class="relative font-display text-[clamp(120px,24vw,300px)] leading-[0.82] font-normal text-pink uppercase">
 				404
 				<Scribble
-					{...MARKS.cross}
+					{...MARKS.cloud}
 					color={CHALK}
-					strokeWidth={10}
+					strokeWidth={5}
+					stretch
 					duration="7s"
 					delay="0.4s"
-					class="top-[8%] left-[2%] h-[84%] w-[96%]"
+					class="top-[4%] left-[2%] h-[92%] w-[96%]"
 				/>
 			</h1>
 			<div class="relative max-w-[34ch] pb-4">
+				<Scribble
+					{...MARKS.devil}
+					color="#ff4fd8"
+					strokeWidth={6}
+					duration="9s"
+					delay="1s"
+					class="top-0 -left-[130px] hidden h-[170px] w-[106px] md:block"
+				/>
 				<p class="text-[clamp(20px,2vw,28px)] leading-snug text-paper">
 					Nothing lives at this address. It may have moved.
 				</p>

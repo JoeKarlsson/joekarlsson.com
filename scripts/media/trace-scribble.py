@@ -2,7 +2,7 @@
 
 Usage:
     python3 scripts/media/trace-scribble.py photo.jpeg --crop X0 Y0 X1 Y1 --box W H \
-        [--rotate ccw] [--rays] [--retrace] [--preview out.png]
+        [--rotate ccw|cw|180] [--rays] [--retrace] [--preview out.png]
 
 Prints the SVG path for src/data/scribbles.ts. Needs numpy, scipy and scikit-image
 (pip install numpy scipy scikit-image pillow).
@@ -15,12 +15,14 @@ originals and the crop of every mark in use are listed in media-sources/README.m
 
 --crop      region of the photo, in its pixels (after EXIF rotation)
 --box       viewBox to fit the mark into, keeping its proportions
---rotate    ccw turns the crop a quarter left first (a coil drawn down the page)
+--rotate    turn the crop first: ccw a quarter left (a coil drawn down the page),
+            cw a quarter right, 180 for a page photographed upside down
 --rays      separate strokes, each drawn from the center out, in order round it
 --retrace   where two laps ran together the pen went over that stretch twice;
             without this the walk stops at the first such fork
 --fill      stretch to fill the whole box, for marks that trace a target (rings,
             boxes, underlines); the page stretches them again to fit
+--offset    shift the result, to set two traces side by side in one viewBox
 --preview   PNG of the result, shaded red to blue in drawing order
 """
 
@@ -40,6 +42,7 @@ MIN_INK_PIXELS = 400
 MIN_SPUR = 25
 # How far a simplified line may stray from the traced one, in photo pixels
 SIMPLIFY_TOLERANCE = 2.0
+ROTATIONS = {"ccw": Image.Transpose.ROTATE_90, "cw": Image.Transpose.ROTATE_270, "180": Image.Transpose.ROTATE_180}
 NEIGHBORS = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
 
 
@@ -292,23 +295,24 @@ def main():
     ap.add_argument("photo")
     ap.add_argument("--crop", nargs=4, type=int, required=True, metavar=("X0", "Y0", "X1", "Y1"))
     ap.add_argument("--box", nargs=2, type=float, required=True, metavar=("W", "H"))
-    ap.add_argument("--rotate", choices=["ccw"])
+    ap.add_argument("--rotate", choices=list(ROTATIONS))
     ap.add_argument("--rays", action="store_true")
     ap.add_argument("--retrace", action="store_true")
     ap.add_argument("--fill", action="store_true")
+    ap.add_argument("--offset", nargs=2, type=float, default=(0, 0), metavar=("DX", "DY"))
     ap.add_argument("--preview")
     args = ap.parse_args()
 
     photo = ImageOps.exif_transpose(Image.open(args.photo)).crop(tuple(args.crop))
-    if args.rotate == "ccw":
-        photo = photo.transpose(Image.Transpose.ROTATE_90)
+    if args.rotate:
+        photo = photo.transpose(ROTATIONS[args.rotate])
     strokes = CenterlineGraph(find_ink(photo)).walk(args.retrace)
     if not strokes:
         raise SystemExit("No mark found in that crop")
     strokes = [simplify(smooth(s), SIMPLIFY_TOLERANCE) for s in strokes]
     if args.rays:
         strokes = order_rays(strokes)
-    fitted = fit(strokes, *args.box, args.fill)
+    fitted = [[(x + args.offset[0], y + args.offset[1]) for x, y in s] for s in fit(strokes, *args.box, args.fill)]
     if args.preview:
         save_preview(fitted, *args.box, args.preview)
     print(" ".join(to_path(s) for s in fitted))
