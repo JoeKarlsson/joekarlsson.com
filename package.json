@@ -45,12 +45,12 @@
 		"prepare": "husky"
 	},
 	"dependencies": {
-		"@astrojs/markdown-remark": "^7.2.1",
-		"@astrojs/mdx": "^8.0.1",
+		"@astrojs/markdown-remark": "^7.3.5",
+		"@astrojs/mdx": "^8.1.2",
 		"@astrojs/rss": "^4.0.19",
 		"@astrojs/sitemap": "^3.7.3",
-		"@tailwindcss/vite": "^4.2.2",
-		"astro": "^7.0.7",
+		"@tailwindcss/vite": "^4.3.4",
+		"astro": "^7.4.5",
 		"rehype-autolink-headings": "^7.1.0",
 		"rehype-slug": "^6.0.0",
 		"sharp": "^0.35.3",
@@ -72,16 +72,16 @@
 	"devDependencies": {
 		"@astrojs/check": "^0.9.9",
 		"@eslint/js": "^10.0.1",
-		"@lhci/cli": "^0.15.1",
+		"@lhci/cli": "^0.16.0",
 		"@playwright/test": "^1.60.0",
 		"@types/jsdom": "^30.0.0",
-		"@typescript-eslint/parser": "^8.63.0",
+		"@typescript-eslint/parser": "^8.72.1",
 		"cspell": "^10.0.0",
-		"eslint": "^10.4.0",
+		"eslint": "^10.14.0",
 		"eslint-plugin-astro": "^3.0.1",
 		"husky": "^9.1.7",
 		"jsdom": "^30.0.1",
-		"knip": "^6.14.2",
+		"knip": "^6.44.1",
 		"lint-staged": "^17.0.5",
 		"markdownlint-cli2": "^0.24.0",
 		"pa11y-ci": "^5.0.0",
@@ -91,8 +91,8 @@
 		"turndown": "^7.2.4",
 		"turndown-plugin-gfm": "^1.0.2",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.60.0",
-		"vitest": "^5.0.0"
+		"typescript-eslint": "^8.72.1",
+		"vitest": "^5.1.0"
 	},
 	"lint-staged": {
 		"*.{js,mjs,ts,astro}": [
