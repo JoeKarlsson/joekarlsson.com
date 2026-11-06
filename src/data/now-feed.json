@@ -3,6 +3,18 @@
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
+			"name": "joekarlsson.com",
+			"description": "Personal website and blog: joekarlsson.com",
+			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
+			"language": "TypeScript",
+			"commitCount": 321,
+			"dailyCommitCounts": [
+				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
+				169, 31
+			],
+			"latestCommitMessage": "feat: Diagrams get icons for anything without a logo, and the AI..."
+		},
+		{
 			"name": "bechdel-test",
 			"description": "Does your favorite film pass the test?",
 			"url": "https://github.com/JoeKarlsson/bechdel-test",
@@ -12,18 +24,6 @@
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19
 			],
 			"latestCommitMessage": "feat: Show the shelf a page of 60 at a time, with Show more, ready for..."
-		},
-		{
-			"name": "joekarlsson.com",
-			"description": "Personal website and blog: joekarlsson.com",
-			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"language": "TypeScript",
-			"commitCount": 320,
-			"dailyCommitCounts": [
-				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 30
-			],
-			"latestCommitMessage": "feat: Joe's doodles across the site: a flower and face on the drawing..."
 		},
 		{
 			"name": "rose-hobart",
