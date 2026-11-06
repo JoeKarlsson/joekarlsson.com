@@ -7,23 +7,35 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 241,
+			"commitCount": 268,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				120
+				147
 			],
-			"latestCommitMessage": "fix: The bio and Keep reading under a post or issue line up with the..."
+			"latestCommitMessage": "fix: Decorative pictures in Read this next and the TEDx logo are..."
+		},
+		{
+			"name": "screencast-director",
+			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
+			"url": "https://github.com/JoeKarlsson/screencast-director",
+			"language": "Swift",
+			"commitCount": 248,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51,
+				3
+			],
+			"latestCommitMessage": "chore: The animate skill and the Claude box's edit prompt cover..."
 		},
 		{
 			"name": "dotfiles",
 			"description": "My dotfiles, managed with chezmoi",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
 			"language": "Shell",
-			"commitCount": 87,
+			"commitCount": 89,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 2
+				0, 0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4
 			],
-			"latestCommitMessage": "chore: Design notes record that homepage photos want captions and one..."
+			"latestCommitMessage": "chore: Design taste notes record the /uses pick, clear pink photos..."
 		},
 		{
 			"name": "punc",
@@ -35,17 +47,6 @@
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14
 			],
 			"latestCommitMessage": "fix: Plausible counts the page as joekarlsson.github.io/punc, the..."
-		},
-		{
-			"name": "pixelpane",
-			"description": "PixelPane: a 32x32 LED art pane for the Raspberry Pi. GIFs, live animated scenes, seasonal themes, Home Assistant and plugins",
-			"url": "https://github.com/JoeKarlsson/pixelpane",
-			"language": "Python",
-			"commitCount": 55,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 23, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
-			],
-			"latestCommitMessage": "fix: ON AIR and messages pinned without minutes clear themselves after..."
 		}
 	],
 	"films": [
@@ -84,6 +85,12 @@
 	],
 	"podcastEpisodes": [
 		{
+			"episodeTitle": "The Gene Hackman Hall of Fame",
+			"podcastTitle": "The Big Picture",
+			"url": "https://podcasts.apple.com/us/podcast/the-big-picture/id1439252196?uo=4",
+			"cover": "/images/now/podcast-22fc3916-1f4a-42a4-890f-ff8c09a6030c.webp"
+		},
+		{
 			"episodeTitle": "The Age of Innocence with Libby Watson",
 			"podcastTitle": "Blank Check",
 			"url": "https://podcasts.apple.com/us/podcast/blank-check-with-griffin-david/id981330533",
@@ -100,12 +107,6 @@
 			"podcastTitle": "The Rewatchables",
 			"url": "https://podcasts.apple.com/us/podcast/the-rewatchables/id1268527882?uo=4",
 			"cover": "/images/now/podcast-fe6ad4e7-88b4-46b7-ad7c-a4a2e1a19c68.webp"
-		},
-		{
-			"episodeTitle": "‘Wildwood,’ ‘Wicker,’ and 10 Movies We Missed! Plus: Travis Knight!",
-			"podcastTitle": "The Big Picture",
-			"url": "https://podcasts.apple.com/us/podcast/the-big-picture/id1439252196?uo=4",
-			"cover": "/images/now/podcast-22fc3916-1f4a-42a4-890f-ff8c09a6030c.webp"
 		}
 	],
 	"homelab": {
