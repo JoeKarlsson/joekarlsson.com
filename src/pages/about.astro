@@ -379,7 +379,9 @@ const cropArtPieces = [
 					</ul>
 				</div>
 
-				<h2 id="what-i-do" class={`${SECTION_HEADING} scroll-mt-24`}>
+				{/* What I do is off on phones (heading and list): the page reads straight from the
+				intro into Career */}
+				<h2 id="what-i-do" class={`${SECTION_HEADING} scroll-mt-24 max-md:hidden`}>
 					What I do
 					<Scribble
 						{...MARKS.rays}
@@ -389,7 +391,7 @@ const cropArtPieces = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
-				<div class="mb-16 grid md:grid-cols-[minmax(0,1fr)_220px_280px] md:gap-x-8">
+				<div class="what-i-do mb-16 grid max-md:hidden md:grid-cols-[minmax(0,1fr)_220px_280px] md:gap-x-8">
 					{whatIDo.map((area) => (
 						<a
 							href={area.href}

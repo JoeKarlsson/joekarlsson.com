@@ -169,27 +169,7 @@ const AROUND_THE_HOUSE = [
 				</div>
 			</div>
 			<div class="flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
-				<div>
-					<p class="mb-3.5 text-[clamp(26px,2.6vw,40px)] leading-[1.15] font-semibold text-paper">
-						I run developer marketing, from the docs and demos to the talks and videos.
-					</p>
-					<p class="max-w-[32em] text-[clamp(17px,1.4vw,21px)] text-paper">
-						15 years writing software at companies like MongoDB and Best Buy. Now I lead developer
-						marketing at CData. Outside of work I run a{' '}
-						<span class="relative whitespace-nowrap">
-							{`${runningContainers}-container`}
-							<Scribble
-								{...MARKS.oval}
-								color="#ff4fd8"
-								strokeWidth={11}
-								duration="10s"
-								delay="2.5s"
-								class="-top-[45%] -left-[12%] h-[190%] w-[124%]"
-							/>
-						</span>{' '}
-						homelab, build smart home projects, and watch a lot of movies.
-					</p>
-				</div>
+				<!-- My name first, then what I do underneath it -->
 				<div class="@container">
 					<h1 class="relative font-display text-[calc(100cqw/var(--name-ratio))] leading-[0.88] whitespace-nowrap text-paper uppercase [--name-ratio:3.8]">
 						<span class="block">Joe</span>
@@ -211,6 +191,9 @@ const AROUND_THE_HOUSE = [
 						/>
 					</h1>
 				</div>
+				<p class="text-[clamp(26px,2.6vw,40px)] leading-[1.15] font-semibold text-paper">
+					I run developer marketing, from the docs and demos to the talks and videos.
+				</p>
 			</div>
 		</div>
 	</div>

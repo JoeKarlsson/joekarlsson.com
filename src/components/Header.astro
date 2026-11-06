@@ -41,9 +41,32 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			data-nav-menu-toggle
 			aria-expanded="false"
 			aria-controls="nav-section-links"
-			class="sticker shrink-0 cursor-pointer rounded-[0.43em] px-[0.48em] py-[0.38em] text-ink uppercase hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
+			aria-label="Menu"
+			title="Menu"
+			class="group/menu sticker shrink-0 cursor-pointer rounded-[0.43em] p-[0.38em] text-ink hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
 		>
-			Menu
+			<!-- A hamburger while closed, an X while open -->
+			<svg
+				viewBox="0 0 16 16"
+				class="size-[1em] group-aria-expanded/menu:hidden"
+				fill="currentColor"
+				aria-hidden="true"
+			>
+				<rect x="1.5" y="2.5" width="13" height="2.4"></rect>
+				<rect x="1.5" y="6.8" width="13" height="2.4"></rect>
+				<rect x="1.5" y="11.1" width="13" height="2.4"></rect>
+			</svg>
+			<svg
+				viewBox="0 0 16 16"
+				class="hidden size-[1em] group-aria-expanded/menu:block"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2.6"
+				stroke-linecap="round"
+				aria-hidden="true"
+			>
+				<path d="M3 3 L13 13 M13 3 L3 13"></path>
+			</svg>
 		</button>
 		<!-- md and up: the links sit in the bar. Phones: a dropdown under the bar, shown while the menu is open -->
 		<div
@@ -63,14 +86,15 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 				</a>
 			))}
 		</div>
-		<!-- Pause bars while motion runs, a play triangle once paused (pause-motion.ts swaps the label) -->
+		<!-- Pause bars while motion runs, a play triangle once paused (pause-motion.ts swaps the
+		label). Phones float it in the bottom-right corner, out of the bar -->
 		<button
 			type="button"
 			data-pause-motion
 			aria-pressed="false"
 			aria-label="Pause motion"
 			title="Pause motion"
-			class="sticker group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink"
+			class="sticker group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink max-md:fixed max-md:right-4 max-md:bottom-4 max-md:flex max-md:size-11 max-md:items-center max-md:justify-center max-md:p-0 max-md:text-lg max-md:ring-2 max-md:ring-paper"
 		>
 			<svg
 				viewBox="0 0 16 16"

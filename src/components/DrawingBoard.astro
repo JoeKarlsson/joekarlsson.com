@@ -2,7 +2,8 @@
 // "Make a mark": a dark board with pre-drawn crayon marks that redraw on a loop,
 // where visitors scribble in pink or chalk and their strokes erase themselves.
 // Purely decorative, so it's hidden from assistive tech and keyboard focus.
-// A mouse draws whenever it moves over the board. On a touch screen a swipe across it
+// Off on phones, where it took a screen of scrolling for a toy. A mouse draws whenever
+// it moves over the board. On a touch screen (a tablet) a swipe across it
 // scrolls the page, until a crayon is tapped: that turns drawing on (data-drawing),
 // the board stops scrolling and strokes go any direction, and Done turns it off.
 import { BOARD_MARKS, CHALK, MARKS } from '../data/scribbles';
@@ -20,7 +21,10 @@ const PINK = '#ff4fd8';
 ---
 
 <div
-	class:list={['drawing-board relative cursor-crosshair rounded-xl bg-surface-1', className]}
+	class:list={[
+		'drawing-board relative cursor-crosshair rounded-xl bg-surface-1 max-md:hidden',
+		className,
+	]}
 	aria-hidden="true"
 >
 	<p class="absolute top-6 left-7 font-display text-[clamp(40px,5vw,72px)] leading-none text-paper uppercase">

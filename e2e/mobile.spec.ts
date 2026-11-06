@@ -120,6 +120,8 @@ test.describe('Phone layout', () => {
 	test('/about has no Hawaii photo, and its art swipes sideways', async ({ page }) => {
 		await page.goto('/about/');
 		await expect(page.locator('img[src*="joe-hawaii"]')).toHaveCount(0);
+		await expect(page.locator('#what-i-do')).toBeHidden();
+		await expect(page.locator('.what-i-do')).toBeHidden();
 		const gallery = page.locator('.art-gallery');
 		const { scrollWidth, clientWidth } = await gallery.evaluate((el) => ({
 			scrollWidth: el.scrollWidth,
@@ -233,16 +235,47 @@ test.describe('Phone layout', () => {
 		expect(pinHit).toBe(true);
 	});
 
-	test('the drawing board scrolls until a crayon is tapped, then draws in any direction', async ({
+	test('the pause button floats bottom right, and the menu is a hamburger', async ({ page }) => {
+		await page.goto('/blog/');
+		const pause = await box(page, 'button[data-pause-motion]');
+		expect(pause.x + pause.width).toBeGreaterThan(390 - 30);
+		expect(pause.y + pause.height).toBeGreaterThan(844 - 30);
+		expect(pause.height).toBeGreaterThanOrEqual(44);
+
+		const menu = page.getByRole('button', { name: 'Menu' });
+		await expect(menu).toHaveText('');
+		await expect(menu.locator('svg').first()).toBeVisible();
+		await menu.click();
+		await expect(menu.locator('svg').nth(1)).toBeVisible();
+	});
+
+	test('the footer follows close behind the last section', async ({ page }) => {
+		await page.goto('/work/');
+		const gap = await page.evaluate(() => {
+			const nav = document.querySelector('nav[aria-labelledby="keep-exploring"]')!;
+			const footer = document.querySelector('footer')!;
+			return footer.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+		});
+		expect(gap).toBeLessThanOrEqual(110);
+	});
+
+	test('phones skip the Make a mark board', async ({ page }) => {
+		for (const path of ['/', '/404-error/']) {
+			await page.goto(path);
+			await expect(page.locator('.drawing-board'), path).toBeHidden();
+		}
+	});
+
+	test('on a touch tablet the board scrolls until a crayon is tapped, then draws in any direction', async ({
 		page,
 		context,
 	}) => {
-		await page.goto('/');
+		await page.setViewportSize({ width: 820, height: 1180 });
 		const board = page.locator('.drawing-board').first();
-		await board.scrollIntoViewIfNeeded();
 		const cdp = await context.newCDPSession(page);
-		const area = await box(page, '.drawing-board');
-		const swipeUp = async () => {
+		// Swipe up from the board's middle
+		const swipeUpOnBoard = async () => {
+			const area = await box(page, '.drawing-board');
 			const x = area.x + area.width / 2;
 			const y = area.y + area.height / 2;
 			await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
@@ -261,19 +294,26 @@ test.describe('Phone layout', () => {
 				.evaluateAll((paths) =>
 					Math.max(0, ...paths.map((p) => (p.getAttribute('d') ?? '').split('Q').length - 1)),
 				);
+		const scrollY = () => page.evaluate(() => window.scrollY);
 
+		// Before a crayon is tapped, a swipe scrolls the page and draws nothing
+		await page.goto('/');
+		await board.scrollIntoViewIfNeeded();
 		await expect(page.locator('.board-hint').first()).toBeVisible();
-		const before = await page.evaluate(() => window.scrollY);
-		await swipeUp();
-		expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(before);
+		const before = await scrollY();
+		await swipeUpOnBoard();
+		expect(await scrollY()).toBeGreaterThan(before);
 		expect(await longestStroke()).toBe(0);
 
+		// After a crayon is tapped (on a fresh load), the same swipe draws and the page holds still
+		await page.goto('/');
+		await board.scrollIntoViewIfNeeded();
 		await board.locator('[data-crayon]').last().tap();
 		await expect(board).toHaveAttribute('data-drawing', '');
-		const held = await page.evaluate(() => window.scrollY);
-		Object.assign(area, await box(page, '.drawing-board'));
-		await swipeUp();
-		expect(await page.evaluate(() => window.scrollY)).toBe(held);
+		await page.waitForTimeout(500);
+		const held = await scrollY();
+		await swipeUpOnBoard();
+		expect(await scrollY()).toBe(held);
 		expect(await longestStroke()).toBeGreaterThan(3);
 
 		await board.locator('[data-board-done]').tap();
@@ -306,6 +346,7 @@ test.describe('Desktop keeps its layout', () => {
 		await page.goto('/about/');
 		await expect(page.locator('details.now-fold')).toHaveAttribute('open');
 		await expect(page.locator('.previously-at')).toBeVisible();
+		await expect(page.locator('.what-i-do')).toBeVisible();
 	});
 
 	test('project pages still embed their demos', async ({ page }) => {

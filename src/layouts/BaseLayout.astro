@@ -70,8 +70,9 @@ const {
 		back above it: Header's max-md:order-first) -->
 		<slot name="hero" />
 		<Header />
-		<!-- pb leaves room for the footer's coil to rise into without crossing text -->
-		<main id="main" tabindex="-1" class="flex-1 pb-28 focus:outline-none">
+		<!-- pb leaves a little room for the footer's coil to rise into without crossing text;
+		the coil keeps its shape now, so it draws mostly inside the footer -->
+		<main id="main" tabindex="-1" class="flex-1 pb-16 focus:outline-none md:pb-20">
 			<slot />
 		</main>
 		<Footer />

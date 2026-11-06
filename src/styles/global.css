@@ -297,7 +297,8 @@ pre.astro-code {
 @media (pointer: coarse) {
 	/* The nav bar's stickers stay 28px to look at; an invisible margin round each takes
 	   the tap. The MENU dropdown's links stack, so they get real height instead */
-	header nav > .sticker {
+	/* (not the pause button: phones float it in a corner with position: fixed) */
+	header nav > .sticker:not([data-pause-motion]) {
 		position: relative;
 	}
 	header nav > .sticker::after {

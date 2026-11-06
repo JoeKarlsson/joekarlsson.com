@@ -23,8 +23,18 @@ test.describe('Homepage', () => {
 		);
 	});
 
-	test('the bio carries the live container count', async ({ page }) => {
-		await expect(page.locator('body')).toContainText(/run a \d+-container homelab/);
+	test('the rack caption carries the live container count', async ({ page }) => {
+		await expect(page.locator('body')).toContainText(/The rack: \d+ containers running right now/);
+	});
+
+	test('the hero panel leads with my name, then one line on what I do', async ({ page }) => {
+		const panel = page
+			.locator('h1')
+			.locator('xpath=ancestor::div[contains(@class,"bg-surface-1")][1]');
+		const nameTop = (await page.locator('h1').boundingBox())!.y;
+		const lead = panel.getByText('I run developer marketing');
+		expect((await lead.boundingBox())!.y).toBeGreaterThan(nameTop);
+		await expect(page.locator('body')).not.toContainText('15 years writing software');
 	});
 
 	test('every section heading links to its section page', async ({ page }) => {
