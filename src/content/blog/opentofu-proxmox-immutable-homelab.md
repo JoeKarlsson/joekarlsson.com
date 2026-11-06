@@ -84,37 +84,7 @@ People ask if this is just Ansible with extra steps. It's not. They solve differ
 
 **[Ansible](https://www.ansible.com)** handles what OpenTofu doesn't: operational tasks across existing containers. Deploying Promtail config changes to all 62 hosts at once. Running health checks. Ad-hoc operations that don't fit the "single container state" model. Ansible doesn't track what exists - it just does things. That's fine when you're operating on containers OpenTofu already knows about.
 
-```
-Git repo (opentofu/)
-  ├── modules/proxmox-lxc/    <- reusable Debian 12 LXC baseline
-  └── services/{name}/        <- one directory per container
-      ├── provision.sh.tpl    <- everything the container needs (bash)
-      ├── main.tf             <- module call + provisioner
-      └── variables.tf / outputs.tf
-
-       OpenTofu reads/writes state
-              │
-              ▼
-       MinIO CT 202            <- S3 backend, versioned, self-hosted
-       192.168.0.202:9000
-       Bucket: opentofu-state
-
-       OpenTofu applies to
-              │
-              ▼
-       Proxmox API             <- creates LXC, runs provision.sh.tpl via pct exec
-              │
-              ▼
-       62 containers, each with:
-         - Prometheus node-exporter (port 9100)
-         - Promtail (ships logs to Loki)
-         - The service itself
-
-Ansible: operational layer
-  - Cross-container config deploys
-  - Health check rollouts
-  - Bulk operations
-```
+![The OpenTofu setup: a Git repo holds a reusable Debian 12 LXC baseline module and one directory per service (provision.sh.tpl, main.tf, variables and outputs). OpenTofu reads and writes its state in MinIO (CT 202 at 192.168.0.202:9000, bucket opentofu-state, a versioned, self-hosted S3 backend) and applies to the Proxmox API, which creates each LXC and runs provision.sh.tpl through pct exec. That gives 62 containers, each running Prometheus node-exporter on port 9100, Promtail shipping logs to Loki, and the service itself. Ansible handles the operational layer across them: config deploys, health-check rollouts and bulk operations.](/images/blog/opentofu-proxmox-immutable-homelab/tofu-flow.svg)
 
 ![Expanding Brain meme: 'SSH into containers and hope you remember what you did' / 'Ansible playbooks' / 'OpenTofu with MinIO state backend' / 'OpenTofu + Ansible + MinIO + 86 health checks + 50 git commits'](/images/blog/opentofu-proxmox-immutable-homelab/expanding-brain.webp)
 

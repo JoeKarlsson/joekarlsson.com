@@ -464,15 +464,7 @@ Full file: [`.vale.ini`](https://github.com/JoeKarlsson/joekarlsson.com/blob/mai
 
 `claude-dev` is a Debian container on my [Proxmox](https://www.proxmox.com/) cluster with Claude Code, my homelab repo, and the same `CLAUDE.md` as my laptops. On my iPhone I use [Termius](https://termius.com/), which supports [mosh](https://mosh.org/), over [Tailscale](https://tailscale.com/).
 
-```
-iPhone (Termius)
-   |  mosh over Tailscale
-   v
-claude-dev (Debian LXC on Proxmox)
-   |  on login: clean up stale sessions -> git pull -> claude
-   v
-Claude Code  --ssh-->  Plex, Home Assistant, Proxmox nodes, NAS ...
-```
+![Working from a phone: Termius on an iPhone connects with mosh over Tailscale to claude-dev, a Debian LXC on Proxmox. On login it cleans up stale sessions, runs git pull and starts Claude Code, which reaches Plex, Home Assistant, the Proxmox nodes and the NAS over SSH.](/images/blog/my-development-setup-2026/remote-claude.svg)
 
 I run a [Plex](https://www.plex.tv/) server for friends and family, which makes me their on-call support whether I like it or not. When someone texts me that Plex is broken and I'm out, I open Termius, tell Claude what they told me, and let it dig through logs and fix it while I keep doing whatever I was doing. A push notification tells me when it's done. Mosh is what makes it work on a phone: elevators, Wi-Fi to cell, a locked screen, and it picks right back up.
 

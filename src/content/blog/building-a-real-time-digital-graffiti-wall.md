@@ -29,29 +29,7 @@ The constraints shaped the design:
 
 ## Architecture
 
-```
-┌──────────────────────────┐
-│   Browser (Canvas UI)    │
-│   - 32x32 div grid       │
-│   - Pointer events        │
-│   - Optimistic updates    │
-└────────────┬─────────────┘
-             │
-    MongoDB Realm SDK
-    (Anonymous Auth)
-             │
-┌────────────▼─────────────┐
-│   MongoDB Atlas           │
-│   - 1,024 pixel docs      │
-│   - {color, coord: {x,y}} │
-└────────────┬─────────────┘
-             │
-┌────────────▼─────────────┐
-│   RGB LED Controller      │
-│   - Reads pixel state     │
-│   - Updates LED matrix    │
-└──────────────────────────┘
-```
+![The graffiti wall: a canvas UI in the browser (a 32 by 32 grid of divs, pointer events, optimistic updates) writes pixels through the MongoDB Realm SDK with anonymous auth to MongoDB Atlas, which holds 1,024 pixel documents, each with a color and an x, y coordinate. A microcontroller reads that pixel state and updates the WS2812B LED matrix on stage.](/images/blog/building-a-real-time-digital-graffiti-wall/architecture.svg)
 
 Each of the 1,024 pixels is stored as a document in MongoDB:
 

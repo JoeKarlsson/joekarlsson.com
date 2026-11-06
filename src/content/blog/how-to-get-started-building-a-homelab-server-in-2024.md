@@ -215,45 +215,7 @@ I use lightweight Debian images for all my containers. I was already comfortable
 
 The Synology NAS is the backbone of my media setup. Instead of storing media files on the Proxmox server itself, I mount the NAS as a network drive inside each container that needs access to media. This means Plex, Sonarr, Radarr, and qBittorrent all read and write to the same NAS storage. No data duplication, no wasted local disk space.
 
-```
-                    +-----------+
-                    |  Clients  |
-                    | (Desktop, |
-                    |  Mobile)  |
-                    +-----+-----+
-                          |
-                    +-----+-----+
-                    |   Nginx   |
-                    |  Reverse  |
-                    |   Proxy   |
-                    +-----+-----+
-                          |
-         +----------------+----------------+
-         |                                 |
-+--------+--------+             +---------+---------+
-|  Proxmox Server  |             |   Synology NAS    |
-|                  |    NFS     |                   |
-|  +------------+  |<---------->|  /volume1/data    |
-|  |    Plex    |  |   mount    |  (Movies, TV,     |
-|  +------------+  |            |   Music, Books)   |
-|  |  Jellyfin  |  |            +-------------------+
-|  +------------+  |
-|  |   Sonarr   |  |
-|  +------------+  |
-|  |   Radarr   |  |
-|  +------------+  |
-|  |   Seerr    |  |
-|  +------------+  |
-|  | qBittorrent|  |
-|  +------------+  |
-|  |  Pi-hole   |  |
-|  +------------+  |
-|  | Minecraft  |  |
-|  +------------+  |
-|  |   + more   |  |
-|  +------------+  |
-+------------------+
-```
+![The homelab media setup: clients on desktop and mobile reach everything through an Nginx reverse proxy. Behind it, the Proxmox server runs Plex, Jellyfin, Sonarr, Radarr, Seerr, qBittorrent, Pi-hole, Minecraft and more, and mounts the Synology NAS over NFS, where /volume1/data holds the movies, TV, music and books.](/images/blog/how-to-get-started-building-a-homelab-server-in-2024/media-setup.svg)
 
 ## How to mount a NAS inside Proxmox containers
 

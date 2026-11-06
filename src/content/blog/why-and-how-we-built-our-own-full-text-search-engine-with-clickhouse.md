@@ -104,15 +104,7 @@ The `ngrambf_v1` index works by:
 
 For example, with n=3, the word "search" would be split into the trigrams "sea", "ear", "arc", "rch".
 
-```bash
-Word: "search"
-Positions:   [s][e][a][r][c][h]
-             └──┴──┘
-                └──┴──┘
-                   └──┴──┘
-                      └──┴──┘
-Trigrams:    ["sea", "ear", "arc", "rch"]
-```
+![Splitting the word "search" into trigrams: a window three letters wide slides along s, e, a, r, c, h one letter at a time, giving sea, ear, arc and rch.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/trigrams.svg)
 
 When searching for "arc", the Bloom filter can quickly tell us which granules (blocks of text data) might contain this pattern, which allows ClickHouse's Bloom Filter to skip reading large portions of data that don't contain that block of text.
 

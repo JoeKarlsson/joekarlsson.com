@@ -108,31 +108,7 @@ Same parts, separate boxes, and I can swap any one of them without touching the 
 
 The rack layout:
 
-```
-StarTech 25U Rack
-+----------------------------------+
-|   StarTech PDU                   |  1U
-+----------------------------------+
-|   MikroTik CRS317 (10G Switch)  |  1U
-+----------------------------------+
-|   UniFi US24 (24-port 1G)       |  1U
-+----------------------------------+
-|   UniFi Cloud Gateway Ultra      |  shelf
-|   Synology NAS (4-bay)          |  shelf
-+----------------------------------+
-|          (empty - future NAS)    |
-+----------------------------------+
-|   Dell R730 - prxbox1            |  2U
-|   (Quadro RTX 4000, 8GB)        |
-+----------------------------------+
-|   Dell R730 - prxbox2            |  2U
-|   (RTX A4000, 16GB)             |
-+----------------------------------+
-|          UPS                     |  2U
-+----------------------------------+
-|          UPS                     |  2U
-+----------------------------------+
-```
+![The StarTech 25U rack, top to bottom: the StarTech PDU (1U), the MikroTik CRS317 10G switch (1U), the UniFi US24 24-port 1G switch (1U), a shelf with the UniFi Cloud Gateway Ultra and a 4-bay Synology NAS, an empty space for a future NAS, the Dell R730 prxbox1 with a Quadro RTX 4000 8GB (2U), the Dell R730 prxbox2 with an RTX A4000 16GB (2U), and two UPS units (2U each).](/images/blog/homelab-two-years-later/rack.svg)
 
 ![Close-up of the rack top section showing PDU, patch panel, UniFi switch, and Synology NAS with networking cables](/images/blog/homelab-two-years-later/rack-top-networking.webp)
 
@@ -175,35 +151,7 @@ My LED pixel art frame, [PixelPane](/blog/pixelpane-pixel-art-home-assistant/), 
 
 Here's how the network is structured:
 
-```
-Internet
-  |
-  v
-Fiber ONT (bridge mode)
-  |
-  v
-UniFi Cloud Gateway Ultra (Router / Firewall / DHCP / WiFi Controller)
-  |
-  v
-MikroTik CRS317 (10G switch)
-  |
-  +---> prxbox1 (2x 10G LACP = 20Gbps)
-  +---> prxbox2 (2x 10G LACP = 20Gbps)
-  |
-  +---> UniFi US24 (1G switch, 1G uplink to the MikroTik)
-          |
-          +---> Synology NAS (2x 1G)
-          +---> iDRAC1, iDRAC2, IoT devices, cameras
-          +---> UniFi U7 Pro AP (Upstairs)
-          +---> UniFi U7 Pro AP (Main Floor)
-          +---> UniFi U7 Pro XG AP (Basement)
-
-VLANs:
-  Default LAN (192.168.0.0/24)  - servers, workstation, trusted
-  Guest       (192.168.20.0/24) - internet, DNS, speakers
-  IoT         (192.168.30.0/24) - HA + DNS + music server + internet
-  Cameras     (192.168.40.0/24) - Frigate + HA + DNS
-```
+![The home network: the internet comes in through a fiber ONT in bridge mode to the UniFi Cloud Gateway Ultra (router, firewall, DHCP and WiFi controller), then to the MikroTik CRS317 10G switch. The MikroTik connects prxbox1 and prxbox2 over 2x10G LACP (20Gbps) and the UniFi US24 1G switch over a 1G uplink. The US24 connects the Synology NAS (2x1G), the iDRACs, IoT devices and cameras, and three UniFi U7 Pro access points (upstairs, main floor and basement). Four VLANs: default LAN 192.168.0.0/24 for servers, the workstation and trusted devices; guest 192.168.20.0/24 with internet, DNS and speakers; IoT 192.168.30.0/24 with Home Assistant, DNS, the music server and internet; and cameras 192.168.40.0/24 with Frigate, Home Assistant and DNS.](/images/blog/homelab-two-years-later/network.svg)
 
 ## What the 73 containers run
 

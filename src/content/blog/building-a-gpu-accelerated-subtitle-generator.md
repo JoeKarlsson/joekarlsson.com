@@ -56,26 +56,7 @@ The requirements:
 
 The system has four layers:
 
-```
-┌─────────────────────────────────────────┐
-│         Cron / Manual Trigger           │
-├─────────────────────────────────────────┤
-│    Scheduler (subtitle-scheduler.sh)    │
-│    - Starts/stops workers               │
-│    - Cleans stale locks                 │
-│    - Manages worker lifecycle           │
-├─────────────────────────────────────────┤
-│  Parallel Workers (parallel-worker.sh)  │
-│  - Folder-level claiming via mkdir      │
-│  - GPU availability wait loop           │
-│  - Progress tracking                    │
-├─────────────────────────────────────────┤
-│  Whisper Engine (generate-subtitles.py) │
-│  - faster-whisper with CUDA             │
-│  - Hallucination filtering              │
-│  - SRT file generation                  │
-└─────────────────────────────────────────┘
-```
+![The subtitle generator in four layers. A cron job or a manual trigger starts the scheduler (subtitle-scheduler.sh), which starts and stops workers, cleans stale locks and manages the worker lifecycle. Parallel workers (parallel-worker.sh) claim folders with mkdir, wait for a free GPU and track progress. The Whisper engine (generate-subtitles.py) runs faster-whisper on CUDA, filters hallucinations and writes SRT files.](/images/blog/building-a-gpu-accelerated-subtitle-generator/pipeline-layers.svg)
 
 ## The Whisper Engine
 

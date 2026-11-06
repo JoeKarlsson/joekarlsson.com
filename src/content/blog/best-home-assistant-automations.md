@@ -352,18 +352,7 @@ Package detection is rarely wrong. Frigate's person detection is spottier, espec
 
 Both change what happens next based on the answer. Here's the package flow:
 
-```text
-person at the front door 10-60 s, no ring   (doorbell person detection)
-        |
-        v
-snapshot -> ai_task.generate_data            (qwen3-vl:8b)
-        |      ...AI errors? keep going, assume there's a package
-        v
-package, or nobody home?  --yes-->  push with the snapshot
-        | no
-        v
-   stay quiet
-```
+![The doorbell automation: when the doorbell camera sees a person at the front door for 10 to 60 seconds without a ring, Home Assistant sends a snapshot to an AI task (ai_task.generate_data with qwen3-vl:8b on Ollama). If there's a package or nobody is home, it pushes an alert with the snapshot; otherwise it stays quiet. If the AI errors, it carries on as if there's a package.](/images/blog/best-home-assistant-automations/doorbell-ai.svg)
 
 When the model doesn't answer at all, the package check assumes there's a package, because I'd rather get a false alert than miss a delivery. The person check goes the other way: with no AI verdict, a Great Room detection stays a quiet note, because an unverified Frigate detection is wrong too often to wake me up.
 

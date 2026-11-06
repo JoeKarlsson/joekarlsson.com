@@ -50,27 +50,7 @@ Everything connects to Home Assistant through the [Wyoming protocol](https://www
 
 Here's the actual data path:
 
-```
-Wake word detected (Wyoming)
-          |
-          v
-Microphone audio
-          |
-          v
-faster-whisper GPU  (Wyoming STT service, separate host)
-(speech -> text)
-          |
-          v
-llama3.2:3b via Ollama  (LLM host, GPU server)
-(intent + response)
-          |
-          v
-Piper TTS
-(text -> audio)
-          |
-          v
-Speaker response
-```
+![The voice pipeline: the wake word is detected over Wyoming, the microphone audio goes to faster-whisper on a GPU (a Wyoming speech-to-text service on its own host) for speech to text, then to llama3.2:3b on Ollama on the GPU server for intent and a response, then to Piper for text to speech, and out of the speaker.](/images/blog/local-voice-ai-home-assistant-gpu/voice-pipeline.svg)
 
 ## How It's Deployed (The Proxmox Side)
 
