@@ -9,7 +9,7 @@ Phases 0–5 are shipped and live on joekarlsson.com (Phase 5 deployed 2026-11-0
 ### Handoff: how to work on this
 
 - **Run the dev server** (`npm run dev`, http://localhost:4321) and check every change in a browser at 375px and 1440px. Joe reviews there and sends notes mid-phase.
-- **Deploy once per phase, not per note.** Batch Joe's small notes as local commits and ship when the phase wraps (or when he asks): push (the pre-push hook runs the full `npm test`), `npm run deploy`, curl the live page for a changed sentence, then push the `chore: Refresh now-feed snapshot` commit the deploy makes.
+- **Deploy on judgment, without asking.** Ship when Joe is reviewing the live site or a batch of changes is ready to see; batch only while he's firing off quick notes on the dev server. To ship: push (the pre-push hook runs the full `npm test`), `npm run deploy`, curl the live page for a changed sentence, then push the `chore: Refresh now-feed snapshot` commit the deploy makes.
 - **Commit messages** must be `feat: …`, `fix: …` or `chore: …` with the summary starting in a capital letter; a hook rejects anything else.
 - **Design rules:** `~/.claude/knowledge/web-design-no-ai-slop.md` bans pills, ALL CAPS, dithering and so on, but this redesign is a named concept (poster type, halftone, crayon marks) that unlocks exactly those. A design-check hook flags them on every edit; for the concept's own patterns that's expected. Gradients, glows, glassmorphism and scroll-triggered animation stay banned.
 - **Copy rules:** first person, no em dashes, no AI vocabulary (`STYLE_GUIDE.md`). Joe rewrites taglines himself; propose options, don't ship new copy unasked.
