@@ -78,7 +78,7 @@ export const desktop = {
 };
 
 export const phone = {
-	height: 390,
+	height: 406,
 	draw(f) {
 		f.box({
 			x: 90,
@@ -100,6 +100,7 @@ export const phone = {
 			]),
 		);
 		SHARDS.forEach((name, i) => shard(f, { x: xs[i], y: 110, w: 104, name, phone: true }));
-		f.note(8, 380, 'Replicas in a shard copy each other; all backed up.', { size: 12 });
+		f.note(8, 372, 'Replicas in a shard copy each other;', { size: 13 });
+		f.note(8, 390, 'all are backed up.', { size: 13 });
 	},
 };

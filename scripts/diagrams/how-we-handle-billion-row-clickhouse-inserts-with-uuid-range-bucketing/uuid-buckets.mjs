@@ -69,7 +69,7 @@ export const phone = {
 				'  to',
 				'ffffffff-ffff-ffff-ffff-ffffffffffff',
 			],
-			size: 12,
+			size: 13,
 			highlight: [1],
 		});
 		f.arrow([

@@ -35,7 +35,7 @@ function grid(f, { x, y, labelW, colW, rowH, size }) {
 	THREATS.forEach(([name, sub], r) => {
 		const ry = y + 52 + r * rowH;
 		f.text(x, ry + rowH / 2 - 8, name, { size, anchor: 'start', weight: 700 });
-		f.note(x, ry + rowH / 2 + 10, sub, { size: 12 });
+		f.note(x, ry + rowH / 2 + 10, sub, { size: 13 });
 		STOPS[r].forEach((stops, c) => {
 			const bx = x + labelW + c * colW + 6;
 			f.box({

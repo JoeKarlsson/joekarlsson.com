@@ -123,18 +123,30 @@ Desktop canvases are 640 wide (1:1 with the post column), phone canvases 360.
 
 ## Doing the whole site
 
-Two kinds of old diagram get redrawn:
+Check both `src/content/blog` and `src/content/newsletter` (skip the TL;DR in Tech
+back issues: their figures belong to the articles they linked). Never trust an
+alt-text or filename search alone; it missed diagrams twice. Build a contact sheet
+of every candidate image and look at it, and list every unlabelled or `text` code
+block and read it. Four kinds of old figure get redrawn:
 
-1. **Images** that are diagrams. List them with
-   `grep -rlE '!\[[^]]*\]\([^)]*(diagram|flow|architecture|layers|loop)[^)]*\)' src/content/blog`
-   and check each by eye: screenshots, photos, charts and hero images (`heroImage`
-   in the frontmatter, which also serve as cards and social previews) stay as
-   they are.
-2. **ASCII diagrams** in code blocks: box-drawing characters (`┌─│└`), `+---+`
-   boxes, or `|`/`v`/`-->` arrows between lines. Replace the whole fenced block
-   with the figure's `![alt](...svg)` line. File and directory trees stay as text,
-   because readers copy them.
+1. **Diagrams as images.** Screenshots, photos, memes, GIF animations and hero
+   images (`heroImage`, which also serve as cards and social previews) stay.
+2. **ASCII diagrams** in code blocks: box-drawing characters, `+---+` boxes,
+   arrows between lines, and also column layouts and dot-leader legends
+   (`RED ....... garage open`). Replace the whole fenced block with the figure.
+   File trees, prompts and pseudocode stay as text, because readers copy them.
+3. **Charts as images** (bar, line, donut, scatter): redraw with `f.barChart` /
+   `f.lineChart`, using numbers from the post text or legible in the image, and
+   print every value on the chart. Credit third-party data in a note
+   ("Source: Artificial Analysis"). A chart too dense to read exact values from
+   (a daily traffic line, a scatter of 50 models) stays as the image: redrawing it
+   would invent precision. Screenshots of real tools (Ahrefs, Tinybird, a chat)
+   are evidence and stay.
+4. **Data tables as images** become Markdown tables in the post, not figures:
+   Google and screen readers read the numbers, and readers can copy them.
+
+Phone text is 13px or larger (the render enforces it). Newsletter figures render to
+`public/images/newsletter/<slug>/`.
 
 Redraw one post at a time through the workflow above, finishing every diagram in
-a post in the same batch so no post mixes old and new, with a preview for Joe
-each time.
+a post in the same batch so no post mixes old and new.

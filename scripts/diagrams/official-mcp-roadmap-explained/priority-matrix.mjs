@@ -37,11 +37,11 @@ function matrix(f, { x0, x1, y0, y1, bw, bh, size, shipped }) {
 	);
 	dashes(f, [(x0 + x1) / 2, y0], [(x0 + x1) / 2, y1]);
 	dashes(f, [x0, (y0 + y1) / 2], [x1, (y0 + y1) / 2]);
-	f.note(x0 - 8, y0 + 6, 'act now', { anchor: 'end', size: 12, weight: 700 });
-	f.note(x0 - 8, y1 - 6, 'watch', { anchor: 'end', size: 12, weight: 700 });
-	f.note(x0, y1 + 18, 'low cost', { size: 12, weight: 700 });
-	f.note(x1, y1 + 18, 'high cost', { anchor: 'end', size: 12, weight: 700 });
-	f.note((x0 + x1) / 2, y1 + 18, 'migration cost', { anchor: 'middle', size: 12 });
+	f.note(x0 - 8, y0 + 6, 'act now', { anchor: 'end', size: 13, weight: 700 });
+	f.note(x0 - 8, y1 - 6, 'watch', { anchor: 'end', size: 13, weight: 700 });
+	f.note(x0, y1 + 18, 'low cost', { size: 13, weight: 700 });
+	f.note(x1, y1 + 18, 'high cost', { anchor: 'end', size: 13, weight: 700 });
+	f.note((x0 + x1) / 2, y1 + 18, 'migration cost', { anchor: 'middle', size: 13 });
 	POINTS.forEach((p) => {
 		const cx = Math.min(x1 - bw / 2 - 4, Math.max(x0 + bw / 2 + 6, x0 + p.cost * (x1 - x0)));
 		const cy = y1 - p.urgency * (y1 - y0);

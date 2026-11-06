@@ -86,11 +86,11 @@
 <path d="M592,210 L598,210" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
 <path d="M604,210 L610,210" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
 <path d="M616,210 L622,210" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
-<text x="68" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" font-weight="700" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">act now</text>
-<text x="68" y="394" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" font-weight="700" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">watch</text>
-<text x="76" y="418" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" font-weight="700" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">low cost</text>
-<text x="624" y="418" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" font-weight="700" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">high cost</text>
-<text x="350" y="418" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">migration cost</text>
+<text x="68" y="26" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">act now</text>
+<text x="68" y="394" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">watch</text>
+<text x="76" y="418" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">low cost</text>
+<text x="624" y="418" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">high cost</text>
+<text x="350" y="418" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">migration cost</text>
 <g transform="rotate(1.2 530 58)">
 <path class="d-paper" d="M441,31.4 L456.2,33.2 L470.9,31.2 L487.1,33.5 L502.8,30.4 L521.3,32.7 L534.6,30.7 L552.6,31.8 L567.5,33.2 L584.9,32.5 L601.2,31 L615.2,31.9 L618.6,33.3 L619.8,47.5 L621,64.5 L620.6,81.4 L621.2,85.2 L604.6,84.6 L588.1,83.1 L572.7,83.9 L555.9,84.9 L540.4,82.9 L523.4,84.3 L506.6,83.6 L492.8,83.6 L476.2,84.5 L458.8,84.9 L444.2,83.3 L438.8,85.6 L441.4,67.7 L438.7,51.1 L439.6,36 Z" fill="#ff4fd8"/>
 </g>

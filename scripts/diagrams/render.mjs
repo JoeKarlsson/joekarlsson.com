@@ -7,7 +7,7 @@
 // A figure file exports `alt` (the post's alt text), and `desktop` and `phone`,
 // each { height, draw(f) }. Fails when any text overflows its box or the canvas.
 
-import { mkdirSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -56,7 +56,11 @@ for (const name of names) {
 			problems++;
 		}
 		if (!flag) {
-			const out = path.join(root, 'public/images/blog', slug, `${name}${suffix}.svg`);
+			// Newsletter issues keep their images under /images/newsletter, posts under /images/blog
+			const collection = existsSync(path.join(root, 'src/content/newsletter', `${slug}.md`))
+				? 'newsletter'
+				: 'blog';
+			const out = path.join(root, 'public/images', collection, slug, `${name}${suffix}.svg`);
 			mkdirSync(path.dirname(out), { recursive: true });
 			writeFileSync(out, svgs[layout]);
 		}
@@ -68,7 +72,7 @@ if (flag) {
 	writeFileSync(previewPath, previewPage(slug, rendered));
 	console.log(`Preview: ${previewPath}`);
 } else {
-	console.log(`Rendered ${rendered.length} figures to public/images/blog/${slug}/`);
+	console.log(`Rendered ${rendered.length} figures for ${slug}`);
 }
 if (problems) {
 	console.error(`${problems} layout problem(s): move or resize the parts named above.`);

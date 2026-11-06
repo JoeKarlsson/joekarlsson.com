@@ -1,19 +1,11 @@
 import rss from '@astrojs/rss';
+import { diagramsAsImages } from '../utils/feed-html';
 import { getFeedPosts } from '../utils/posts';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 // The newest posts carry their full text so feed readers can show them without a click.
 // Older items keep only the description to hold the feed to a reasonable size.
 const FULL_CONTENT_ITEMS = 20;
-
-// Feed readers strip inline SVG, so an inlined post diagram goes back to being its
-// desktop file as a plain image (src/plugins/rehype-inline-diagrams.mjs)
-function diagramsAsImages(html) {
-	return html.replace(
-		/<figure class="diagram" data-diagram-src="([^"]+)" data-diagram-alt="([^"]*)">[\s\S]*?<\/figure>/g,
-		'<p><img src="$1" alt="$2"></p>',
-	);
-}
 
 // Feed readers resolve relative URLs inconsistently, so make root-relative ones absolute
 function absolutizeUrls(html, site) {

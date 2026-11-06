@@ -12,7 +12,7 @@
 <text x="273" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">AT REST</text>
 <text x="331" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ff4fd8" text-anchor="middle" dominant-baseline="central">CSFLE</text>
 <text x="8" y="91" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Privilege abuse</text>
-<text x="8" y="109" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">stolen credentials</text>
+<text x="8" y="109" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">stolen credentials</text>
 <g transform="rotate(-0.1 157 99)">
 <path class="d-paper" d="M133.2,68.6 L150.7,69.3 L166,70.5 L179.1,70.6 L179.7,84.7 L180.5,103.5 L178.8,116.7 L180,129.1 L164.8,128.5 L148.2,129.6 L133.8,129.1 L133.9,113.3 L134.7,97 L135,79.1 Z" fill="#ece6da"/>
 <svg x="148" y="85" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
@@ -32,7 +32,7 @@
 <svg x="322" y="85" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
 </g>
 <text x="8" y="161" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Network snooping</text>
-<text x="8" y="179" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">packet sniffing</text>
+<text x="8" y="179" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">packet sniffing</text>
 <g transform="rotate(-0.7 157 169)">
 <path class="d-paper" d="M134.1,139.3 L149.7,139.2 L164.7,139.5 L179.1,141.3 L180.7,155.6 L180.5,170.9 L178.6,189.3 L179.3,197.9 L164.4,197.5 L147.7,197.5 L134.6,197.4 L134.8,182.7 L132.4,167.2 L135.1,150.1 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
 <svg x="148" y="155" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
@@ -52,7 +52,7 @@
 <svg x="322" y="155" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
 </g>
 <text x="8" y="231" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Data theft</text>
-<text x="8" y="249" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">stolen disks, files</text>
+<text x="8" y="249" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">stolen disks, files</text>
 <g transform="rotate(0.2 157 239)">
 <path class="d-paper" d="M133.5,210.3 L149.7,209.3 L166.4,210.7 L179.7,210.3 L180.8,226.3 L179.3,241.2 L179.9,258 L178.9,267.7 L165.1,269.3 L147.7,267.6 L133.5,268.1 L134.6,253.4 L135,236.7 L134.5,219.5 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
 <svg x="148" y="225" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
@@ -72,7 +72,7 @@
 <svg x="322" y="225" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
 </g>
 <text x="8" y="301" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Host memory</text>
-<text x="8" y="319" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">dumps, RAM scraping</text>
+<text x="8" y="319" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">dumps, RAM scraping</text>
 <g transform="rotate(-1 157 309)">
 <path class="d-paper" d="M134.8,280.5 L150.4,280 L166.1,279.4 L179.6,279.9 L179,294.4 L181.5,311.9 L181.4,326.5 L180.6,337.6 L162.6,338.2 L148.1,338.4 L135.3,337.2 L135.5,322.5 L135.3,305.9 L133.6,291 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
 <svg x="148" y="295" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />

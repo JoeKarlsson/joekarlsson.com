@@ -277,6 +277,9 @@ export function createFigure({ id, width, height }) {
 			upper = false,
 		} = opts;
 		const value = upper ? String(content).toUpperCase() : content;
+		// A phone figure shows at about 343 of its 360 units: 13 is the smallest that stays readable
+		if (width <= PHONE_WIDTH && size < 13)
+			issues.push(`"${value}" is ${size}px; phone text must be 13px or more`);
 		const w = measure(value, size, font, weight);
 		const left = anchor === 'start' ? x : anchor === 'end' ? x - w : x - w / 2;
 		textBoxes.push({
@@ -706,6 +709,131 @@ export function createFigure({ id, width, height }) {
 		target.push(`<circle cx="${n(cx)}" cy="${n(cy)}" r="${r}" fill="${color}"/>`);
 	}
 
+	/**
+	 * A bar chart with its value printed on every bar, so no gridlines are needed.
+	 * bars: [{ label, value, highlight? }]; highlight bars are pink, the rest chalk.
+	 * horizontal: bars run left to right with labels on the left (better on phones
+	 * and for long labels). format turns a value into its printed label. Scale
+	 * starts at zero.
+	 */
+	function barChart({
+		x,
+		y,
+		w,
+		h,
+		bars,
+		max,
+		format = (v) => String(v),
+		horizontal = false,
+		labelW = 120,
+		size = 14,
+	}) {
+		const top = max ?? Math.max(...bars.map((b) => b.value));
+		if (horizontal) {
+			const rowH = h / bars.length;
+			const barH = Math.min(36, rowH * 0.62);
+			const room = w - labelW - 64;
+			line(
+				[
+					[x + labelW, y],
+					[x + labelW, y + h],
+				],
+				{ color: COLORS.muted, width: 1.5 },
+			);
+			bars.forEach((b, i) => {
+				const cy = y + rowH * (i + 0.5);
+				const bw = Math.max(3, (b.value / top) * room);
+				text(x + labelW - 10, cy, b.label, { size, anchor: 'end', color: COLORS.paper });
+				scrap(x + labelW, cy - barH / 2, bw, barH, b.highlight ? COLORS.pink : COLORS.chalk);
+				text(x + labelW + bw + 8, cy, format(b.value), {
+					size,
+					anchor: 'start',
+					weight: 700,
+					color: b.highlight ? COLORS.pink : COLORS.paper,
+				});
+			});
+			return;
+		}
+		const colW = w / bars.length;
+		const barW = Math.min(64, colW * 0.6);
+		const plotTop = y + size + 10;
+		const base = y + h - size * 2.4;
+		line(
+			[
+				[x, base],
+				[x + w, base],
+			],
+			{ color: COLORS.muted, width: 1.5 },
+		);
+		bars.forEach((b, i) => {
+			const cx = x + colW * (i + 0.5);
+			const bh = Math.max(3, (b.value / top) * (base - plotTop));
+			scrap(cx - barW / 2, base - bh, barW, bh, b.highlight ? COLORS.pink : COLORS.chalk);
+			text(cx, base - bh - size * 0.8, format(b.value), {
+				size,
+				weight: 700,
+				color: b.highlight ? COLORS.pink : COLORS.paper,
+			});
+			[b.label]
+				.flat()
+				.forEach((l, j) =>
+					text(cx, base + size * 0.9 + j * size * 1.2, l, { size: size - 1, color: COLORS.paper }),
+				);
+		});
+	}
+
+	/**
+	 * A line chart. series: [{ name, points: [[xValue, yValue], ...], highlight? }],
+	 * all sharing one x and y scale. xTicks / yTicks: [[value, label], ...].
+	 * The highlighted series is pink crayon, others chalk; each is named at its end.
+	 */
+	function lineChart({
+		x,
+		y,
+		w,
+		h,
+		series,
+		xMin,
+		xMax,
+		yMin = 0,
+		yMax,
+		xTicks = [],
+		yTicks = [],
+		size = 13,
+		nameW = 90,
+	}) {
+		const plotW = w - 44 - nameW;
+		const px = (v) => x + 44 + ((v - xMin) / (xMax - xMin)) * plotW;
+		const py = (v) => y + h - 22 - ((v - yMin) / (yMax - yMin)) * (h - 34);
+		line(
+			[
+				[x + 44, y + h - 22],
+				[x + 44 + plotW, y + h - 22],
+			],
+			{ color: COLORS.muted, width: 1.5 },
+		);
+		yTicks.forEach(([v, l]) => {
+			line(
+				[
+					[x + 44, py(v)],
+					[x + 44 + plotW, py(v)],
+				],
+				{ color: '#2a2a2a', width: 1 },
+			);
+			text(x + 38, py(v), l, { size, anchor: 'end', color: COLORS.muted });
+		});
+		xTicks.forEach(([v, l]) => text(px(v), y + h - 6, l, { size, color: COLORS.muted }));
+		series.forEach((s) => {
+			const color = s.highlight ? COLORS.pink : COLORS.chalk;
+			const d = s.points.map(([a, b], i) => `${i ? 'L' : 'M'}${n(px(a))},${n(py(b))}`).join(' ');
+			target.push('<g class="d-flow">');
+			stroke(d, color, 3.5);
+			target.push('</g>');
+			const [lx, ly] = s.points[s.points.length - 1];
+			text(px(lx) + 8, py(ly), s.name, { size, anchor: 'start', weight: 700, color });
+		});
+	}
+
 	/** A section title inside a figure: Anton caps. */
 	function heading(x, y, content, opts = {}) {
 		text(x, y, content, { size: 28, font: 'display', anchor: 'start', upper: true, ...opts });
@@ -791,6 +919,8 @@ export function createFigure({ id, width, height }) {
 	return {
 		code,
 		table,
+		barChart,
+		lineChart,
 		line,
 		dot,
 		width,
