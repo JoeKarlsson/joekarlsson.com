@@ -53,3 +53,6 @@ src/pages/resume-fiveonefour-pdf.astro
 .vale/styles/.vale-config/
 .vale/styles/JoeKarlsson/
 .vale/styles/JoeVideo/
+
+# Original photos/footage for media work (kept local, never committed)
+media-sources/
