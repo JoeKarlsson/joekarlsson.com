@@ -3,27 +3,27 @@
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
-			"name": "joekarlsson.com",
-			"description": "Personal website and blog: joekarlsson.com",
-			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"language": "TypeScript",
-			"commitCount": 331,
-			"dailyCommitCounts": [
-				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 41
-			],
-			"latestCommitMessage": "chore: Redesign plan deploys on judgment instead of once per phase"
-		},
-		{
 			"name": "bechdel-test",
 			"description": "Does your favorite film pass the test?",
 			"url": "https://github.com/JoeKarlsson/bechdel-test",
 			"language": "JavaScript",
-			"commitCount": 23,
+			"commitCount": 24,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23
 			],
-			"latestCommitMessage": "chore: Remove the server, MongoDB, the old React app and Docker..."
+			"latestCommitMessage": "feat: Send the AI read through the homelab LiteLLM gateway..."
+		},
+		{
+			"name": "joekarlsson.com",
+			"description": "Personal website and blog: joekarlsson.com",
+			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
+			"language": "TypeScript",
+			"commitCount": 333,
+			"dailyCommitCounts": [
+				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
+				169, 43
+			],
+			"latestCommitMessage": "feat: The linked-list, MongoDB data lake and MCP extensions posts get..."
 		},
 		{
 			"name": "rose-hobart",
