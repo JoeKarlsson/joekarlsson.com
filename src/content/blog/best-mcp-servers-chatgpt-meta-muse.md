@@ -131,7 +131,7 @@ A gateway is the better fit when questions cross systems, or when IT wants the s
 | Warehouse MCP servers (Snowflake, BigQuery, Databricks)                   | Data already in the warehouse                    | Warehouse roles and permissions                                  | Documented (Snowflake, BigQuery) | Not documented                          |
 | CData Connect AI                                                          | Questions across many business systems           | Read or write per connection, signed-in user's access, query log | Documented                       | Documented                              |
 
-![Diagram: ChatGPT and Meta Muse connecting to four apps separately vs. through one governed CData Connect AI gateway](/images/blog/best-mcp-servers-chatgpt-meta-muse/per-app-vs-gateway.webp)
+![ChatGPT and Meta Muse connecting to Salesforce, Jira, NetSuite, and SharePoint two ways: one MCP server per app, with every assistant wired to every server, or one governed CData Connect AI gateway with one connection, one set of rules, and one log.](/images/blog/best-mcp-servers-chatgpt-meta-muse/per-app-vs-gateway.svg)
 
 ## Using MCP servers with ChatGPT dots
 

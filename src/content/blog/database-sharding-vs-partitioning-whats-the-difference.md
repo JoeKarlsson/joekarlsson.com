@@ -53,7 +53,7 @@ A table’s shard key determines in which partition a given row in the table is 
 
 For example, the table below has the shard key that contains only the first column. All people with the same first name will be stored on the same partition.
 
-![Shard key example distributing people table rows by first name column](/images/blog/database-sharding-vs-partitioning-whats-the-difference/diagram_shard-key-1024x567.webp)
+![A people table with shard key (first), its rows spread across four partitions by first name: people_0 holds the three alex rows and tom, people_1 the two johns, people_2 nancy, and people_3 amanda.](/images/blog/database-sharding-vs-partitioning-whats-the-difference/shard-key.svg)
 
 > **Note**: See the [Optimizing Table Data Structures](https://docs.singlestore.com/managed-service/en/create-a-database/physical-database-schema-design/procedures-for-physical-database-schema-design/optimizing-table-data-structures.html) guide for information on how to choose a shard key. 
 

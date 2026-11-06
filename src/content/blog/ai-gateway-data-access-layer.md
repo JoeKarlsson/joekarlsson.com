@@ -89,7 +89,7 @@ This is the N times M problem applied to enterprise data. With N AI agents and M
 
 At five agents and 10 data sources, that's 50 integrations. At 20 agents and 30 sources, that's 600. The engineering cost is proportional to the number of sources, and the number of sources only grows.
 
-![Three navy Agent boxes sit across the top; five white data-source boxes (Salesforce, Snowflake, SAP HANA, PostgreSQL, and NetSuite) stack down the left. Every agent connects to every source with a gray crossing line, producing 15 lines total. Caption: 3 agents times 5 sources equals 15 custom integrations; add more agents and it compounds fast.](/images/blog/ai-gateway-data-access-layer/ai-gateway-nm-problem.webp)
+![Three AI agents and five data sources (Salesforce, Snowflake, SAP HANA, PostgreSQL, and NetSuite), with every agent connected to every source: 15 crossing lines, each a hand-built custom integration that breaks when the source's API changes.](/images/blog/ai-gateway-data-access-layer/nm-problem.svg)
 
 _3 agents × 5 sources = 15 custom integrations. The number compounds with every agent and source you add._
 

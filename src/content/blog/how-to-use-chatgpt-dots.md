@@ -45,7 +45,7 @@ Why not install each app's own ChatGPT plugin? If you only need one app and it h
 
 **Governed access.** You get one place to set what your dot can read and one log of every request it makes, backed by Connect AI's [access policies and audit trails](https://www.cdata.com/ai/capabilities/governance/).
 
-![Diagram in three columns. Salesforce, Jira, Google Analytics, NetSuite, and hundreds more business apps, including on-premises ones, all connect into one CData Connect AI box that provides one sign-in, permissions, and a query log. A single plugin links it to your ChatGPT dot, which delivers answers in ChatGPT, answers in Slack and Teams, and scheduled checks.](/images/blog/how-to-use-chatgpt-dots/01-connect-once-flow.webp)
+![Salesforce, Jira, Google Analytics, NetSuite, and hundreds more business apps, including on-premises ones, connect once to CData Connect AI, which gives one sign-in, permissions, and a query log. One plugin links it to your ChatGPT dot, which answers in ChatGPT, in Slack and Teams, and on a schedule.](/images/blog/how-to-use-chatgpt-dots/connect-once-flow.svg)
 
 **At a glance**
 

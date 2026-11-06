@@ -25,6 +25,15 @@ const LOGOS = {
 	python: { color: '#3776AB' },
 	amazonwebservices: { color: '#FF9900' },
 	googlebigquery: { color: '#669DF6' },
+	openai: { color: '#412991' },
+	meta: { color: '#0467DF' },
+	jira: { color: '#0052CC' },
+	googleanalytics: { color: '#E37400' },
+	slack: { color: '#4A154B' },
+	snowflake: { color: '#29B5E8' },
+	sap: { color: '#0FAAFF' },
+	postgresql: { color: '#4169E1' },
+	apachekafka: { color: '#231F20' },
 	'connect-ai': {
 		dark: 'connect-ai-color-on-dark',
 		light: 'connect-ai-color-on-light',
@@ -197,7 +206,7 @@ export function createFigure({ id, width, height }) {
 			issues.push(`"${value}" runs off the ${width}x${height} canvas`);
 		}
 		parts.push(
-			`<text x="${n(x)}" y="${n(y)}" font-family="${FONTS[font]}" font-size="${size}"${weight !== 400 ? ` font-weight="${weight}"` : ''} fill="${color}" text-anchor="${anchor}" dominant-baseline="central">${escapeXml(value)}</text>`,
+			`<text x="${n(x)}" y="${n(y)}" font-family="${FONTS[font]}" font-size="${size}"${weight !== 400 ? ` font-weight="${weight}"` : ''} fill="${color}" text-anchor="${anchor}" dominant-baseline="central"${font === 'mono' ? ' xml:space="preserve"' : ''}>${escapeXml(value)}</text>`,
 		);
 	}
 
@@ -475,6 +484,81 @@ export function createFigure({ id, width, height }) {
 		);
 	}
 
+	/**
+	 * A code block on a black scrap: monospace lines, the ones in `highlight`
+	 * (indexes) in pink. For a schema, a query or a config the figure is about.
+	 */
+	function code({ x, y, w, lines, size = 15, highlight = [] }) {
+		const lineH = size * 1.55;
+		const h = lines.length * lineH + 24;
+		parts.push(`<g transform="rotate(${n(jitter(0.6))} ${n(x + w / 2)} ${n(y + h / 2)})">`);
+		scrap(x, y, w, h, COLORS.ink, COLORS.paper);
+		lines.forEach((line, i) => {
+			const lineY = y + 12 + lineH * (i + 0.5);
+			if (measure(line, size, 'mono') > w - 28)
+				issues.push(`code line "${line}" is wider than its ${w}px block`);
+			text(x + 14, lineY, line, {
+				font: 'mono',
+				size,
+				anchor: 'start',
+				color: highlight.includes(i) ? COLORS.pink : COLORS.paper,
+				weight: highlight.includes(i) ? 700 : 400,
+			});
+		});
+		parts.push('</g>');
+		return h;
+	}
+
+	/**
+	 * A small table on a black scrap: a title, column headers and rows in
+	 * monospace, with the column at `highlight` (an index) in pink. Empty strings
+	 * leave a row blank. Returns its height.
+	 */
+	function table({ x, y, title, columns, rows, colW, size = 14, highlight = -1 }) {
+		const rowH = size * 2;
+		const w = columns.length * colW;
+		const h = 34 + rowH * (rows.length + 1) + 8;
+		parts.push(`<g transform="rotate(${n(jitter(0.8))} ${n(x + w / 2)} ${n(y + h / 2)})">`);
+		scrap(x - 8, y, w + 16, h, COLORS.ink, COLORS.paper);
+		text(x + 2, y + 18, title, {
+			font: 'mono',
+			size: size + 1,
+			anchor: 'start',
+			weight: 700,
+			color: COLORS.paper,
+		});
+		const gridTop = y + 34;
+		for (let r = 0; r <= rows.length + 1; r++) {
+			const lineY = gridTop + r * rowH;
+			parts.push(
+				`<path d="M${n(x)},${n(lineY)} L${n(x + w)},${n(lineY)}" stroke="${COLORS.muted}" stroke-width="1"/>`,
+			);
+		}
+		for (let c = 0; c <= columns.length; c++) {
+			const lineX = x + c * colW;
+			parts.push(
+				`<path d="M${n(lineX)},${n(gridTop)} L${n(lineX)},${n(gridTop + rowH * (rows.length + 1))}" stroke="${COLORS.muted}" stroke-width="1"/>`,
+			);
+		}
+		[columns, ...rows].forEach((row, r) =>
+			row.forEach((cell, c) => {
+				if (!cell) return;
+				if (measure(cell, size, 'mono') > colW - 10)
+					issues.push(`table cell "${cell}" is wider than its ${colW}px column`);
+				const color = c === highlight ? COLORS.pink : r === 0 ? COLORS.muted : COLORS.paper;
+				text(x + c * colW + 6, gridTop + rowH * (r + 0.5), cell, {
+					font: 'mono',
+					size,
+					anchor: 'start',
+					color,
+					weight: c === highlight ? 700 : 400,
+				});
+			}),
+		);
+		parts.push('</g>');
+		return h;
+	}
+
 	/** A section title inside a figure: Anton caps. */
 	function heading(x, y, content, opts = {}) {
 		text(x, y, content, { size: 28, font: 'display', anchor: 'start', upper: true, ...opts });
@@ -498,6 +582,8 @@ export function createFigure({ id, width, height }) {
 	}
 
 	return {
+		code,
+		table,
 		width,
 		height,
 		issues,

@@ -19,7 +19,7 @@ There is another way, one that adds flexibility, traceability, repeatability, an
 
 In this blog post, you’ll learn how to implement event sourcing with Kafka and Tinybird, using Kafka’s event logs to track and replay events and Tinybird to calculate and store state snapshots to arrive at an eventually consistent state for your system.
 
-![Data flow diagram showing deposit, withdrawal, and transfer events flowing through Kafka topics to a consumer](/images/blog/event-sourcing-with-kafka-a-practical-example/image.webp)
+![Deposit, withdrawal, and transfer events each go to their own Kafka topic. A Kafka consumer reads all three and feeds event sourcing in Tinybird, which snapshots the events into each customer's final balance.](/images/blog/event-sourcing-with-kafka-a-practical-example/event-flow.svg)
 
 A basic example of the data flow for an event sourcing pattern with Kafka.
 

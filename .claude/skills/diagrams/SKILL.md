@@ -52,7 +52,10 @@ unless he says otherwise for a specific figure.
    `icon:` to a box; in a box too small for a mark beside the label, pass
    `stack: true` to put it on top. The kit colours each one for its surface.
 4. **Every connection gets an arrow**, including one-to-many (fan the arrows out
-   from one point to each target).
+   from one point to each target). One exception: when each line stands for a
+   thing rather than a flow ("every line is a custom integration"), draw plain
+   lines with `heads: 'none'` and say what a line means in a callout. On a phone,
+   many sources can sit in one container with a single arrow out of it.
 5. **Arrows show the real direction of data.** A request that gets an answer back
    (an MCP call, a query, a function call) is two-headed. Label what goes over a
    link when it isn't obvious, and label the answer too when it matters ("back:
@@ -63,7 +66,8 @@ unless he says otherwise for a specific figure.
    travels over a link and how often, a refusal, a surprise. Every callout is a
    note plus a crayon arrow pointing at exactly what it explains. No decorative
    rings, underlines or scribbles. Route the crayon arrow so it crosses no text or box;
-   the render check can't see that, so look at the preview.
+   the render check can't see that, so look at the preview. Draw callouts last,
+   so nothing covers them.
 8. **Containers group parts that belong together** ("The game", "Live data", "In
    each room"): a darker sheet with a name tab, drawn before its contents.
 9. **A colour key only when colour encodes two or more things the labels don't
@@ -93,6 +97,10 @@ unless he says otherwise for a specific figure.
   width; `f.logoWidth(name, h)`.
 - `f.crayonArrow(from, to, bend)`: the pink callout arrow.
 - `f.legend(items)`: `['pink', 'label']` or `['logo:cdata', 'label']`.
+- `f.code({ x, y, w, lines, highlight })`: a code block, highlighted lines pink;
+  returns its height.
+- `f.table({ x, y, title, columns, rows, colW, highlight })`: a small table,
+  the highlighted column pink; returns its height.
 
 Desktop canvases are 640 wide (1:1 with the post column), phone canvases 360.
 
@@ -100,5 +108,7 @@ Desktop canvases are 640 wide (1:1 with the post column), phone canvases 360.
 
 List posts with diagram-like images:
 `grep -rlE '!\[[^]]*\]\([^)]*(diagram|flow|architecture|layers|loop)[^)]*\)' src/content/blog`,
-then check each image by eye: screenshots and photos stay as they are. Redraw one
+then check each image by eye: screenshots and photos stay as they are, and so do
+hero images (`heroImage` in the frontmatter), which also serve as cards and
+social previews. Redraw one
 post at a time through the workflow above, with a preview for Joe each time.
