@@ -15,28 +15,41 @@ function isActive(href: string, also: string[] = []): boolean {
 
 <!--
 	One row, always. Spacing is in em, so the whole bar scales with its type: from md
-	up the type shrinks until the bar (about 33.5em wide) fits the window. On phones
-	the section links fold into a MENU sticker that drops them below the bar, and the
-	name, menu and pause stickers are each 44px tall to meet the site's tap size.
+	up the type shrinks until the bar (about 33.5em wide) fits the window.
+	Phones: the bar runs the full width, the name on the left and a pink MENU on the
+	right under the thumb, both 44px tall. MENU drops the section links below the bar,
+	with Pause motion as the last row. On a post, once its title scrolls under the bar,
+	the name shrinks to JK and the middle shows where you are (reading-context.ts).
 -->
 <!-- order-first: on phones the bar sits above a page's hero (BaseLayout's hero slot), so
 the menu is the first thing on screen; from md up the homepage hero comes first -->
-<header class="pointer-events-none sticky top-2 z-50 flex justify-center px-2 pt-2 max-md:order-first md:top-3.5">
+<header class="pointer-events-none sticky top-2 z-50 flex justify-center px-2 pt-2 max-md:order-first max-md:px-4 md:top-3.5">
 	<nav
 		aria-label="Main navigation"
-		class="group/nav pointer-events-auto relative flex max-w-full items-center gap-[0.19em] rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase md:text-[min(21px,calc((100vw-24px)/33.5))]"
+		class="group/nav pointer-events-auto relative flex max-w-full items-center gap-[0.19em] rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase max-md:w-full max-md:justify-between max-md:gap-2.5 md:text-[min(21px,calc((100vw-24px)/33.5))]"
 	>
 		<!-- The name is the home link; on the homepage it goes pink like any current page -->
 		<a
 			href="/"
 			aria-current={currentPath === '/' ? 'page' : undefined}
+			aria-label="Joe Karlsson"
 			class:list={[
-				'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline max-md:flex max-md:min-h-11 max-md:items-center',
+				'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline max-md:flex max-md:min-h-11 max-md:min-w-11 max-md:items-center max-md:justify-center',
 				currentPath === '/' ? 'bg-pink text-ink' : 'bg-ink text-paper hover:text-pink',
 			]}
 		>
-			Joe Karlsson
+			<span class="name-full">Joe Karlsson</span>
+			<span class="name-short hidden">JK</span>
 		</a>
+		<!-- Phones, on a post: the category, minutes left and title (reading-context.ts). It
+		repeats the page's own heading, so screen readers skip it -->
+		<div
+			aria-hidden="true"
+			class="reading-context hidden min-w-0 flex-1 flex-col gap-0.5 font-sans normal-case"
+		>
+			<span data-context-meta class="text-sm leading-tight text-surface-4"></span>
+			<span data-context-title class="truncate text-base leading-tight font-bold"></span>
+		</div>
 		<button
 			type="button"
 			data-nav-menu-toggle
@@ -44,12 +57,15 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			aria-controls="nav-section-links"
 			aria-label="Menu"
 			title="Menu"
-			class="group/menu sticker flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-[0.43em] text-ink hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
+			class="group/menu sticker flex h-11 shrink-0 cursor-pointer items-center gap-2 rounded-[0.43em] bg-pink px-3 text-lg text-ink uppercase hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
 		>
-			<!-- A hamburger while closed, an X while open -->
+			<!-- MENU and a hamburger while closed, CLOSE and an X while open (the script below) -->
+			<span aria-hidden="true" data-menu-label>
+				Menu
+			</span>
 			<svg
 				viewBox="0 0 16 16"
-				class="size-[1em] group-aria-expanded/menu:hidden"
+				class="size-4 group-aria-expanded/menu:hidden"
 				fill="currentColor"
 				aria-hidden="true"
 			>
@@ -59,7 +75,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			</svg>
 			<svg
 				viewBox="0 0 16 16"
-				class="hidden size-[1em] group-aria-expanded/menu:block"
+				class="hidden size-4 group-aria-expanded/menu:block"
 				fill="none"
 				stroke="currentColor"
 				stroke-width="2.6"
@@ -69,63 +85,126 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 				<path d="M3 3 L13 13 M13 3 L3 13"></path>
 			</svg>
 		</button>
-		<!-- md and up: the links sit in the bar. Phones: a dropdown under the bar, shown while the menu is open -->
+		<!-- md and up: the links and Pause sit in the bar. Phones: a full-width dropdown under
+		the bar while the menu is open, big links with Pause motion as the last row -->
 		<div
 			id="nav-section-links"
-			class="contents max-md:absolute max-md:top-full max-md:right-0 max-md:mt-[0.29em] max-md:hidden max-md:flex-col max-md:items-stretch max-md:gap-[0.19em] max-md:rounded-[0.67em] max-md:bg-paper max-md:p-[0.29em] max-md:group-data-[menu-open]/nav:flex"
+			class="contents max-md:absolute max-md:inset-x-0 max-md:top-full max-md:mt-[0.29em] max-md:hidden max-md:flex-col max-md:items-stretch max-md:gap-0.5 max-md:rounded-[0.67em] max-md:bg-paper max-md:p-[0.29em] max-md:group-data-[menu-open]/nav:flex"
 		>
 			{NAV_LINKS.map(({ href, label, also }) => (
 				<a
 					href={href}
 					aria-current={isActive(href, also) ? 'page' : undefined}
 					class:list={[
-						'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
+						'menu-link sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
 						isActive(href, also) ? 'bg-pink text-ink' : 'text-ink hover:bg-ink hover:text-pink',
 					]}
 				>
 					{label}
 				</a>
 			))}
+			<!-- Pause bars while motion runs, a play triangle once paused (pause-motion.ts swaps
+			the label). Phones spell the name out, since it's a row in the menu -->
+			<button
+				type="button"
+				data-pause-motion
+				aria-pressed="false"
+				aria-label="Pause motion"
+				title="Pause motion"
+				class="pause-button sticker group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink"
+			>
+				<svg
+					viewBox="0 0 16 16"
+					class="size-[1em] group-aria-pressed:hidden"
+					fill="currentColor"
+					aria-hidden="true"
+				>
+					<rect x="3" y="2" width="3.5" height="12"></rect>
+					<rect x="9.5" y="2" width="3.5" height="12"></rect>
+				</svg>
+				<svg
+					viewBox="0 0 16 16"
+					class="hidden size-[1em] group-aria-pressed:block"
+					fill="currentColor"
+					aria-hidden="true"
+				>
+					<path d="M4 2 L14 8 L4 14 Z"></path>
+				</svg>
+				<span aria-hidden="true" data-pause-label class="pause-label hidden">
+					Pause motion
+				</span>
+			</button>
 		</div>
-		<!-- Pause bars while motion runs, a play triangle once paused (pause-motion.ts swaps the
-		label). Phones keep it in the bar beside MENU, where it never covers the page -->
-		<button
-			type="button"
-			data-pause-motion
-			aria-pressed="false"
-			aria-label="Pause motion"
-			title="Pause motion"
-			class="sticker group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink max-md:flex max-md:size-11 max-md:items-center max-md:justify-center max-md:p-0"
-		>
-			<svg
-				viewBox="0 0 16 16"
-				class="size-[1em] group-aria-pressed:hidden"
-				fill="currentColor"
-				aria-hidden="true"
-			>
-				<rect x="3" y="2" width="3.5" height="12"></rect>
-				<rect x="9.5" y="2" width="3.5" height="12"></rect>
-			</svg>
-			<svg
-				viewBox="0 0 16 16"
-				class="hidden size-[1em] group-aria-pressed:block"
-				fill="currentColor"
-				aria-hidden="true"
-			>
-				<path d="M4 2 L14 8 L4 14 Z"></path>
-			</svg>
-		</button>
+		<!-- Phones, on a post: how far through it you are (reading-context.ts) -->
+		<div
+			aria-hidden="true"
+			data-read-progress
+			class="read-line absolute bottom-0 left-0 hidden h-1 w-0 rounded-[0.67em] bg-pink"
+		></div>
 	</nav>
 </header>
 
+<style is:global>
+	/* Phones only. One rule per element, rather than a max-md: utility per property, keeps
+	   the site's CSS under its 60KB budget (tests/bundle-size.test.ts); global, because
+	   scoping repeats a data-astro-cid attribute in every selector */
+	@media (width < 48rem) {
+		/* On a post, once its title is under the bar (reading-context.ts) */
+		nav[data-context-on] .name-full {
+			display: none;
+		}
+		nav[data-context-on] .name-short {
+			display: inline;
+		}
+		nav[data-context-on] .reading-context {
+			display: flex;
+		}
+		nav[data-context-on] .read-line {
+			display: block;
+		}
+		/* The menu's rows: big links, then Pause motion with its name spelled out */
+		.menu-link {
+			display: flex;
+			min-height: 52px;
+			align-items: center;
+			padding-inline: 12px;
+			font-size: 30px;
+		}
+		.pause-button {
+			margin-top: 12px;
+			display: flex;
+			min-height: 48px;
+			align-items: center;
+			gap: 10px;
+			border: 2px solid #000;
+			background: transparent;
+			padding-inline: 12px;
+			font-family: var(--font-hanken-grotesk);
+			font-weight: 600;
+			color: #000;
+			text-transform: none;
+		}
+		.pause-button[aria-pressed='true'] {
+			background: #ff4fd8; /* pink */
+		}
+		.pause-label {
+			display: inline;
+		}
+	}
+</style>
+
 <script>
+	import { initReadingContext } from '../scripts/reading-context';
+
 	// Phones: MENU opens the section links; Escape or a tap outside the bar closes them
 	const nav = document.querySelector<HTMLElement>('header nav[aria-label="Main navigation"]');
 	const menuToggle = nav?.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
+	if (nav) initReadingContext(nav);
 	if (nav && menuToggle) {
 		const setMenuOpen = (open: boolean) => {
 			nav.toggleAttribute('data-menu-open', open);
 			menuToggle.setAttribute('aria-expanded', String(open));
+			menuToggle.querySelector('[data-menu-label]')!.textContent = open ? 'Close' : 'Menu';
 		};
 		menuToggle.addEventListener('click', () => setMenuOpen(!nav.hasAttribute('data-menu-open')));
 		document.addEventListener('keydown', (event) => {

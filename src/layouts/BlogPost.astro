@@ -149,9 +149,10 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 	howToSteps={howToSteps}
 	canonicalUrl={canonicalUrl}
 >
+	{/* Phones show progress in the nav bar instead (reading-context.ts) */}
 	<div
 		id="reading-progress"
-		class="fixed top-0 left-0 z-50 h-1 w-0 bg-pink"
+		class="fixed top-0 left-0 z-50 h-1 w-0 bg-pink max-md:hidden"
 		aria-hidden="true"
 	></div>
 
@@ -160,7 +161,12 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 			{/* TOC sidebar */}
 			{showToc ? <TableOfContents headings={tocHeadings} /> : <div class="hidden xl:block" />}
 
-			<article class="min-w-0" data-post-title={title}>
+			<article
+				class="min-w-0"
+				data-post-title={title}
+				data-post-category={categories?.[0]}
+				data-reading-time={readingTime}
+			>
 				<BackLink href="/blog/" label="Blog" />
 				{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video;
 				in-view-play starts it, so a remembered pause or reduced motion keeps it still */}

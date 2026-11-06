@@ -274,27 +274,55 @@ test.describe('Phone layout', () => {
 		await expect(page.locator('a.uses-pin').first()).toBeHidden();
 	});
 
-	test('the name, menu and pause sit in the bar at 44px, and the menu is a hamburger', async ({
+	test('the bar runs the full width: name left, MENU right, Pause motion inside the menu', async ({
 		page,
 	}) => {
 		await page.goto('/blog/');
 		const nav = await box(page, 'header nav[aria-label="Main navigation"]');
-		for (const selector of [
-			'header nav > a[href="/"]',
-			'button[data-nav-menu-toggle]',
-			'button[data-pause-motion]',
-		]) {
-			const sticker = await box(page, selector);
-			expect(sticker.height).toBeGreaterThanOrEqual(44);
-			expect(sticker.y).toBeGreaterThanOrEqual(nav.y);
-			expect(sticker.y + sticker.height).toBeLessThanOrEqual(nav.y + nav.height);
-		}
+		expect(nav.x).toBe(16);
+		expect(nav.width).toBe(390 - 32);
 
+		const name = await box(page, 'header nav > a[href="/"]');
 		const menu = page.getByRole('button', { name: 'Menu' });
-		await expect(menu).toHaveText('');
-		await expect(menu.locator('svg').first()).toBeVisible();
+		const menuBox = (await menu.boundingBox())!;
+		expect(name.height).toBeGreaterThanOrEqual(44);
+		expect(menuBox.height).toBeGreaterThanOrEqual(44);
+		expect(menuBox.x + menuBox.width).toBeGreaterThan(390 - 30);
+
+		const pause = page.getByRole('button', { name: 'Pause motion' });
+		await expect(pause).toBeHidden();
+		await expect(menu.getByText('Menu', { exact: true })).toBeVisible();
 		await menu.click();
-		await expect(menu.locator('svg').nth(1)).toBeVisible();
+		await expect(menu.getByText('Close', { exact: true })).toBeVisible();
+		await expect(pause).toBeVisible();
+		await expect(pause.getByText('Pause motion')).toBeVisible();
+		expect((await pause.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+	});
+
+	test('on a post, the bar shows where you are once the title scrolls under it', async ({
+		page,
+	}) => {
+		await page.goto('/blog/homelab-two-years-later/');
+		const nav = page.locator('header nav[aria-label="Main navigation"]');
+		const home = page.locator('header nav > a[href="/"]');
+		await expect(nav).not.toHaveAttribute('data-context-on');
+		await expect(home.getByText('Joe Karlsson')).toBeVisible();
+
+		await page.evaluate(() => {
+			const body = document.querySelector('article .prose')!;
+			scrollTo(0, body.getBoundingClientRect().top + scrollY + body.clientHeight / 3);
+		});
+		await expect(nav).toHaveAttribute('data-context-on');
+		await expect(home.getByText('JK', { exact: true })).toBeVisible();
+		await expect(nav.locator('[data-context-title]')).toHaveText(
+			'My Homelab Two Years Later, Every Upgrade and What It Cost',
+		);
+		await expect(nav.locator('[data-context-meta]')).toHaveText(/^Homelab · \d+ min left$/);
+		const progress = await nav
+			.locator('[data-read-progress]')
+			.evaluate((line) => parseFloat((line as HTMLElement).style.width));
+		expect(progress).toBeGreaterThan(20);
+		expect(progress).toBeLessThan(50);
 	});
 
 	test('the footer follows close behind the last section', async ({ page }) => {

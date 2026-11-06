@@ -34,6 +34,9 @@ function showState(button: HTMLButtonElement, paused: boolean): void {
 	const label = paused ? 'Play motion' : 'Pause motion';
 	button.setAttribute('aria-label', label);
 	button.title = label;
+	// The words phones show beside the icon, in the menu (Header.astro)
+	const visibleLabel = button.querySelector('[data-pause-label]');
+	if (visibleLabel) visibleLabel.textContent = label;
 }
 
 export function initPauseMotion(button: HTMLButtonElement): void {
