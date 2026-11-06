@@ -485,6 +485,27 @@ describe('post suggestions', () => {
 	});
 });
 
+describe('scribbles keep their shape', () => {
+	// Only marks that trace a target (underlines, the three lines, boxes) and hover
+	// rings may stretch; coils, bursts, tallies and the rest keep their proportions
+	const STRETCHING_VIEWBOXES = ['0 0 600 60', '0 0 600 300', '0 0 900 200'];
+
+	it('every self-drawing mark keeps its proportions unless it traces a target', () => {
+		const squashable = ['index.html', 'about/index.html', 'blog/index.html'].flatMap((page) =>
+			[...readDist(page).matchAll(/<svg class="redraw[^>]*>/g)]
+				.map(([tag]) => ({
+					viewBox: tag.match(/viewBox="([^"]+)"/)![1],
+					fit: tag.match(/preserveAspectRatio="([^"]+)"/)![1],
+				}))
+				.filter(({ viewBox, fit }) =>
+					STRETCHING_VIEWBOXES.includes(viewBox) ? fit !== 'none' : fit !== 'xMidYMid meet',
+				)
+				.map((mark) => `${page}: ${mark.viewBox} ${mark.fit}`),
+		);
+		expect(squashable).toEqual([]);
+	});
+});
+
 describe('device and identity meta', () => {
 	const homepage = readDist('index.html');
 

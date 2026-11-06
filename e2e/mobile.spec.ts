@@ -27,6 +27,17 @@ test.describe('Phone layout', () => {
 		expect(nav.y).toBeLessThan(40);
 	});
 
+	test("the hero coil stays off Joe's face, down on the clip's bottom edge", async ({ page }) => {
+		await page.goto('/');
+		const hero = await box(page, 'video[aria-label*="Montage"]');
+		// The coil is the first scribble after the clip's rounded box
+		const coil = await page
+			.locator('video[aria-label*="Montage"]')
+			.locator('xpath=../following-sibling::*[name()="svg"][1]')
+			.boundingBox();
+		expect(coil!.y).toBeGreaterThan(hero.y + hero.height * 0.7);
+	});
+
 	test('no ticker bands show on phones', async ({ page }) => {
 		for (const path of ['/', '/blog/', '/about/', '/work/']) {
 			await page.goto(path);

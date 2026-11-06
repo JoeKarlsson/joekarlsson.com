@@ -12,6 +12,12 @@ interface Props {
 	viewBox?: string;
 	strokeWidth?: number;
 	ring?: boolean;
+	// Stretch the mark to fill its box. Only for marks that trace a target's size: an
+	// underline the width of a heading, a box round a picture (MARKS sets it for those,
+	// and hover rings always stretch). Every other mark keeps its own proportions and
+	// scales to fit its box, so a coil or burst never squashes when a phone changes the
+	// box's shape.
+	stretch?: boolean;
 	// Loop length and start delay, e.g. '10s'
 	duration?: string;
 	delay?: string;
@@ -24,6 +30,7 @@ const {
 	viewBox = '0 0 900 300',
 	strokeWidth = 8,
 	ring = false,
+	stretch = false,
 	duration = '7s',
 	delay = '0s',
 } = Astro.props;
@@ -48,7 +55,7 @@ const oneStrokeAtATime = !ring && strokes.length > 1;
 	]}
 	style={ring ? undefined : `--dur:${duration};--del:${delay}`}
 	viewBox={viewBox}
-	preserveAspectRatio="none"
+	preserveAspectRatio={ring || stretch ? 'none' : 'xMidYMid meet'}
 	aria-hidden="true"
 >
 	<g
