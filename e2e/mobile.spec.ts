@@ -38,6 +38,46 @@ test.describe('Phone layout', () => {
 		expect(coil!.y).toBeGreaterThan(hero.y + hero.height * 0.7);
 	});
 
+	test('pages start 16px under the nav and space sections on one scale', async ({ page }) => {
+		// 8: a heading to its one-line subtitle (TL;DR in Tech)
+		const SCALE = [8, 12, 16, 24, 32, 48];
+		for (const path of [
+			'/blog/',
+			'/work/',
+			'/about/',
+			'/newsletter/',
+			'/resume/',
+			'/talk-archive/',
+		]) {
+			await page.goto(path);
+			const { top, gaps } = await page.evaluate(() => {
+				const navBottom =
+					document.querySelector('header nav')!.getBoundingClientRect().bottom + scrollY;
+				const col = document.querySelector('main > div')!;
+				const inner = col.querySelector(':scope > div > div.min-w-0');
+				const blocks = [...col.children]
+					.flatMap((b) => (inner && b.contains(inner) ? [...inner.children] : [b]))
+					.filter((el) => {
+						const style = getComputedStyle(el);
+						return (
+							el.tagName !== 'SCRIPT' &&
+							el.tagName !== 'svg' &&
+							style.display !== 'none' &&
+							style.position !== 'absolute' &&
+							el.getBoundingClientRect().height > 0
+						);
+					})
+					.map((el) => el.getBoundingClientRect());
+				return {
+					top: Math.round(blocks[0].top + scrollY - navBottom),
+					gaps: blocks.slice(1).map((r, i) => Math.round(r.top - blocks[i].bottom)),
+				};
+			});
+			expect(top, path).toBe(16);
+			for (const gap of gaps) expect(SCALE, `${path} gap ${gap}`).toContain(gap);
+		}
+	});
+
 	test('no ticker bands show on phones', async ({ page }) => {
 		for (const path of ['/', '/blog/', '/about/', '/work/']) {
 			await page.goto(path);

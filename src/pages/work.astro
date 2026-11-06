@@ -146,7 +146,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 		<!-- Phones: one column of compact rows (ProjectCard), so the gap between them tightens -->
 		<div
 			id="projects-grid"
-			class="mb-14 grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
+			class="mb-12 md:mb-14 grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
 		>
 			{sortedProjects.map((project) => (
 				<div data-category={project.category}>
@@ -155,7 +155,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 			))}
 		</div>
 
-		<p class="mb-16">
+		<p class="mb-12 md:mb-16">
 			<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class={MORE_LINK}>
 				View all repos on GitHub →
 			</a>

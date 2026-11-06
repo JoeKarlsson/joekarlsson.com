@@ -34,8 +34,8 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 	schemaType="ProfilePage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- Clear of the crayon burst that sticks up off the hero picture -->
-		<div class="mb-10">
+		<!-- Clear of the crayon burst that sticks up off the hero picture (phones skip the picture) -->
+		<div class="mb-1 md:mb-10">
 			<BackLink href="/about/" label="About" />
 		</div>
 		<!-- My headshot in pink dots beside the companies I've worked for in the ticker, and
@@ -123,7 +123,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 			</div>
 		</PosterHero>
 
-		<p class="mb-16 font-serif text-[clamp(19px,1.6vw,23px)] leading-relaxed text-paper">
+		<p class="mb-12 md:mb-16 font-serif text-[clamp(19px,1.6vw,23px)] leading-relaxed text-paper">
 			I've spent 15 years making complex data systems click for developers - through talks, docs,
 			demos, and content. I build and run DevRel functions at data companies, with a track record in
 			organic growth, developer activation, and pipeline influence. So far that's 100+ conference
@@ -140,7 +140,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 			/>
 		</h2>
-		<div class="mb-16 space-y-8">
+		<div class="mb-12 md:mb-16 space-y-8">
 			{roles.map((role) => (
 				<div class={ROW}>
 					<p class="text-sm text-muted">
@@ -205,7 +205,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 			/>
 		</h2>
-		<dl class="mb-16 space-y-4">
+		<dl class="mb-12 md:mb-16 space-y-4">
 			{skills.map((group) => (
 				<div class={ROW}>
 					<dt class="font-semibold text-paper">{group.category}</dt>
@@ -224,7 +224,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
 			/>
 		</h2>
-		<ul class="mb-16 list-disc space-y-2 pl-5 text-paper marker:text-pink">
+		<ul class="mb-12 md:mb-16 list-disc space-y-2 pl-5 text-paper marker:text-pink">
 			{highlights.map((h) => (
 				<li>{h}</li>
 			))}
@@ -240,7 +240,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
 			/>
 		</h2>
-		<div class="mb-16 space-y-8">
+		<div class="mb-12 md:mb-16 space-y-8">
 			{writingSamples.map((group) => (
 				<div class={ROW}>
 					<h3 class="font-semibold text-paper">{group.category}</h3>
@@ -276,7 +276,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 			/>
 		</h2>
-		<ul class="mb-16 grid gap-x-8 gap-y-6 md:grid-cols-2">
+		<ul class="mb-12 md:mb-16 grid gap-x-8 gap-y-6 md:grid-cols-2">
 			{openSource.map((project) => (
 				<li class="border-t border-surface-4 pt-5">
 					<a
@@ -303,7 +303,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 			/>
 		</h2>
-		<div class:list={[ROW, 'mb-16']}>
+		<div class:list={[ROW, 'mb-12 md:mb-16']}>
 			<p class="text-sm text-muted">
 				{education.years}
 				{education.gpa && <span class="block">GPA: {education.gpa}</span>}

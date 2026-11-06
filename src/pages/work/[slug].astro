@@ -159,14 +159,14 @@ const inline = (text: string) =>
 					</h2>
 				)}
 				{/* The column's full width, not the 32em reading cap blog posts use */}
-				<div class="prose mb-16" style="max-width: none">
+				<div class="prose mb-12 md:mb-16" style="max-width: none">
 					{page.intro.map((p) => (
 						<p set:html={inline(p)} />
 					))}
 				</div>
 
 				{page.tour && (
-					<section class="mb-16" aria-labelledby="tour">
+					<section class="mb-12 md:mb-16" aria-labelledby="tour">
 						<h2 id="tour" class={ARTICLE_HEADING}>
 							Tour
 						</h2>
@@ -187,7 +187,7 @@ const inline = (text: string) =>
 				)}
 
 				{page.embedUrl && (
-					<section class="mb-16" aria-labelledby="play-it">
+					<section class="mb-12 md:mb-16" aria-labelledby="play-it">
 						<h2 id="play-it" class={ARTICLE_HEADING}>
 							{page.embedHeading ?? 'Play it'}
 						</h2>
@@ -253,7 +253,7 @@ const inline = (text: string) =>
 				)}
 
 				{page.steps && (
-					<section class="mb-16" aria-labelledby="how-it-works">
+					<section class="mb-12 md:mb-16" aria-labelledby="how-it-works">
 						<h2 id="how-it-works" class={ARTICLE_HEADING}>
 							How it works
 						</h2>
@@ -277,7 +277,7 @@ const inline = (text: string) =>
 				)}
 
 				{(page.install || page.example) && (
-					<section class="prose mb-16" aria-labelledby="try-it">
+					<section class="prose mb-12 md:mb-16" aria-labelledby="try-it">
 						<h2 id="try-it" class:list={['not-prose', ARTICLE_HEADING]}>
 							Try it
 						</h2>
@@ -292,7 +292,7 @@ const inline = (text: string) =>
 				)}
 
 				{page.gallery && (
-					<section class="mb-16" aria-labelledby="examples">
+					<section class="mb-12 md:mb-16" aria-labelledby="examples">
 						<h2 id="examples" class={ARTICLE_HEADING}>
 							{page.galleryTitle ?? 'Gallery'}
 						</h2>
@@ -340,7 +340,7 @@ const inline = (text: string) =>
 				)}
 
 				{page.screenshots && (
-					<section class="mb-16" aria-labelledby="screenshots">
+					<section class="mb-12 md:mb-16" aria-labelledby="screenshots">
 						<h2 id="screenshots" class={ARTICLE_HEADING}>
 							{page.screenshotsTitle ?? 'Screenshots'}
 						</h2>

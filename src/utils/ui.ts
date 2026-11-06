@@ -1,7 +1,7 @@
 // Class strings shared across pages, so the same element looks the same everywhere.
 
 /** Every page's column: the same width, gutters and top gap, so the left edge never jumps between pages. */
-export const PAGE_CONTAINER = 'relative mx-auto max-w-6xl px-4 pt-10 pb-10 sm:px-7';
+export const PAGE_CONTAINER = 'relative mx-auto max-w-6xl px-4 pt-6 pb-10 sm:px-7 md:pt-10';
 
 /** The "On this page" sidebar beside one column (About, Uses, posts, projects, newsletter issues). */
 export const SIDEBAR_GRID = 'xl:grid xl:grid-cols-[200px_1fr] xl:gap-10';

@@ -331,7 +331,7 @@ const cropArtPieces = [
 		<div class={SIDEBAR_GRID}>
 			<TableOfContents headings={aboutHeadings} />
 			<div class="min-w-0">
-				<div class="mb-16">
+				<div class="mb-12 md:mb-16">
 					<p class="mb-5 max-w-4xl font-display text-[clamp(40px,5vw,72px)] leading-[0.98] text-paper uppercase">
 						I build <span class="text-pink">weird things</span> and{' '}
 						<span class="text-pink">show my work</span>.
@@ -345,7 +345,7 @@ const cropArtPieces = [
 
 				{/* A box with a tilted pink label, like the stickers in the header. Off on phones,
 				where Career a screen later lists the same companies with the same logos */}
-				<div class="previously-at relative mb-16 rounded-xl bg-surface-1 px-5 pt-9 pb-5 max-md:hidden sm:px-7">
+				<div class="previously-at relative mb-12 md:mb-16 rounded-xl bg-surface-1 px-5 pt-9 pb-5 max-md:hidden sm:px-7">
 					<p class="absolute -top-5 left-5 -rotate-2 rounded-md bg-pink px-3 pt-1.5 pb-0.5 font-display text-2xl leading-none text-ink uppercase">
 						Previously at
 					</p>
@@ -391,7 +391,7 @@ const cropArtPieces = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
-				<div class="what-i-do mb-16 grid max-md:hidden md:grid-cols-[minmax(0,1fr)_220px_280px] md:gap-x-8">
+				<div class="what-i-do mb-12 md:mb-16 grid max-md:hidden md:grid-cols-[minmax(0,1fr)_220px_280px] md:gap-x-8">
 					{whatIDo.map((area) => (
 						<a
 							href={area.href}
@@ -483,7 +483,7 @@ const cropArtPieces = [
 					))}
 				</div>
 
-				<p class="mb-16">
+				<p class="mb-12 md:mb-16">
 					<a
 						href="/resume/"
 						class={`plausible-event-name=About+CTA+Click plausible-event-destination=resume-banner-top ${MORE_LINK}`}
@@ -503,7 +503,7 @@ const cropArtPieces = [
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<div class="mb-16 max-w-3xl space-y-5 leading-relaxed text-paper">
+				<div class="mb-12 md:mb-16 max-w-3xl space-y-5 leading-relaxed text-paper">
 					<p>
 						I got a computer science degree and went straight into Microsoft SharePoint consulting
 						during the Ballmer years. I was bad at coding, and SharePoint did not make it more fun.
@@ -534,7 +534,7 @@ const cropArtPieces = [
 				</h2>
 				{/* Bleeds to the page's own side padding (px-4 on phones, px-7 from sm), so the first
 				card lines up with the text above and is never cut off at the screen edge */}
-				<ul class="as-seen-on -mx-4 mb-16 flex snap-x scroll-px-4 gap-5 overflow-x-auto px-4 pt-6 pb-6 sm:-mx-7 sm:scroll-px-7 sm:px-7">
+				<ul class="as-seen-on -mx-4 mb-12 md:mb-16 flex snap-x scroll-px-4 gap-5 overflow-x-auto px-4 pt-6 pb-6 sm:-mx-7 sm:scroll-px-7 sm:px-7">
 					{featuredPodcasts.map((podcast) => (
 						<li class="w-56 shrink-0 snap-start">
 							<a
@@ -591,7 +591,7 @@ const cropArtPieces = [
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<div class="mb-16">
+				<div class="mb-12 md:mb-16">
 					<div class="grid gap-8 lg:grid-cols-[2fr_1fr]">
 						<div>
 							<div class="relative">
@@ -687,7 +687,7 @@ const cropArtPieces = [
 				</h2>
 				{/* Over three screens on a phone, so phones fold it behind the summary (the script
 				below closes it there); open everywhere else, and without JavaScript */}
-				<details open class="now-fold group/now mb-16">
+				<details open class="now-fold group/now mb-12 md:mb-16">
 					<summary class="mb-2 inline-flex min-h-11 cursor-pointer list-none items-center font-semibold text-pink md:hidden [&::-webkit-details-marker]:hidden">
 						<span class="group-open/now:hidden">Show what I'm up to&nbsp;↓</span>
 						<span class="hidden group-open/now:inline">Hide it ↑</span>
@@ -705,7 +705,7 @@ const cropArtPieces = [
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<div class="mb-16">
+				<div class="mb-12 md:mb-16">
 					<p class="mb-6 text-paper">
 						I make art. Lately that's crop art, pictures made by gluing seeds and grains to
 						cardboard. I had two pieces in the Seeds of Justice exhibit in 2025, then entered the
@@ -759,7 +759,7 @@ const cropArtPieces = [
 						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
 					/>
 				</h2>
-				<div class="mb-16 grid gap-x-10 md:grid-cols-2">
+				<div class="mb-12 md:mb-16 grid gap-x-10 md:grid-cols-2">
 					{followMe.map(({ label, meta, href, icon }, i) => (
 						<IndexRow
 							href={href}
