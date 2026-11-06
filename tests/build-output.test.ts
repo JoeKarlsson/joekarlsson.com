@@ -1,6 +1,8 @@
 import { readFileSync, existsSync, readdirSync } from 'fs';
 import { resolve } from 'path';
+import sharp from 'sharp';
 import { describe, expect, it } from 'vitest';
+import { halftoneMode } from '../src/utils/halftone';
 
 const dist = resolve(import.meta.dirname, '..', 'dist');
 
@@ -649,5 +651,56 @@ describe('every page', () => {
 			.filter(({ file, html }) => listed.has(file) && isNoindex(html))
 			.map(({ file }) => file);
 		expect({ missing, unindexed }).toEqual({ missing: [], unindexed: [] });
+	});
+});
+
+describe('performance guards', () => {
+	it('blog post heroes reserve their real size, so the title never jumps when they load', async () => {
+		const posts = readdirSync(resolve(dist, 'blog'), { withFileTypes: true })
+			.filter((entry) => entry.isDirectory())
+			.map((entry) => `blog/${entry.name}/index.html`)
+			.filter((page) => existsSync(resolve(dist, page)));
+		const wrong: string[] = [];
+		for (const page of posts) {
+			const article = readDist(page).split('<article')[1] ?? '';
+			const hero = article.match(/<img src="(\/images\/[^"]+)"[^>]*width="(\d+)" height="(\d+)"/);
+			if (!hero) continue;
+			const [, src, width, height] = hero;
+			const real = await sharp(resolve(dist, src.slice(1))).metadata();
+			if (Number(width) !== real.width || Number(height) !== real.height) {
+				wrong.push(`${page}: ${width}x${height}, file is ${real.width}x${real.height}`);
+			}
+		}
+		expect(wrong).toEqual([]);
+	});
+
+	it('hover rings draw a shared path instead of carrying their own copy', () => {
+		const html = readDist('uses/index.html');
+		const rings = [...html.matchAll(/<svg class="hover-ring[^]*?<\/svg>/g)].map(([svg]) => svg);
+		expect(rings.length).toBeGreaterThan(10);
+		const inline = rings.filter((svg) => svg.includes('<path'));
+		expect(inline).toEqual([]);
+		for (const [, id] of html.matchAll(/<use href="#(hover-ring-\d+)"/g)) {
+			expect(html).toContain(`id="${id}"`);
+		}
+	});
+
+	it('Around the house clips get the live halftone, flat where they show text', () => {
+		const clips = [
+			...readDist('index.html').matchAll(/<video[^>]*src="(\/images\/home\/[a-z-]+\.mp4)"[^>]*>/g),
+		];
+		expect(clips.length).toBeGreaterThanOrEqual(4);
+		for (const [tag, src] of clips) {
+			expect(tag, src).toContain(`data-halftone="${halftoneMode(src)}"`);
+		}
+		expect(halftoneMode('/images/home/kindle.mp4')).toBe('flat');
+	});
+
+	it("a project's light poster is what its video waits on, and its share image stays full size", () => {
+		const featured = readDist('work/index.html');
+		expect(featured).toContain('poster="/images/projects/connect-ai-doom-poster.webp"');
+		const page = readDist('work/connect-ai-doom/index.html');
+		expect(page).toContain('poster="/images/projects/connect-ai-doom-poster.webp"');
+		expect(page).toContain('og/images/projects/connect-ai-doom.jpg');
 	});
 });
