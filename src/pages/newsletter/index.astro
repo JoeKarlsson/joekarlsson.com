@@ -93,6 +93,23 @@ for (const issue of backIssues) {
 						delay="1.6s"
 						class="-top-[7%] -left-[7%] z-10 size-[22%]"
 					/>
+					<!-- The space under the caption gets a crayon arrow over to the signup form, and a tally -->
+					<Scribble
+						{...MARKS.arrow}
+						color="#ff4fd8"
+						strokeWidth={7}
+						duration="10s"
+						delay="2.4s"
+						class="right-[-6%] bottom-[7%] z-10 hidden h-[16%] w-[86%] md:block"
+					/>
+					<Scribble
+						{...MARKS.tally}
+						color={CHALK}
+						strokeWidth={6}
+						duration="9s"
+						delay="3.4s"
+						class="bottom-[22%] left-[6%] z-10 hidden h-[9%] w-[16%] md:block"
+					/>
 					<HoverBox featured />
 				</a>
 			)}
