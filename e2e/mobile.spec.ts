@@ -153,6 +153,96 @@ test.describe('Phone layout', () => {
 		await expect(page.getByRole('link', { name: 'open the full version' }).last()).toBeVisible();
 	});
 
+	test('tap targets are at least 44px', async ({ page }) => {
+		const tall = async (selector: string) => {
+			const heights = await page
+				.locator(selector)
+				.evaluateAll((all) =>
+					all
+						.filter((el) => (el as HTMLElement).offsetParent !== null)
+						.map((el) => el.getBoundingClientRect().height),
+				);
+			expect(heights.length, selector).toBeGreaterThan(0);
+			for (const height of heights) expect(height, selector).toBeGreaterThanOrEqual(44);
+		};
+
+		await page.goto('/blog/');
+		await tall('nav[aria-label="Blog categories"] a, .sort-btn');
+		await page.goto('/');
+		await tall('main a:text-matches("^All \\\\d+ posts")');
+		await page.goto('/work/');
+		await tall('.project-filter');
+		await page.goto('/blog/opentofu-proxmox-immutable-homelab/');
+		await tall('nav[aria-label="Breadcrumb"] a');
+		await expect(page.locator('.prose .heading-anchor').first()).toBeHidden();
+
+		// The nav stickers look 28px tall; 7px above one still lands on it
+		const sticker = await box(page, 'header nav > .sticker');
+		const hit = await page.evaluate(
+			({ x, y }) => document.elementFromPoint(x, y)?.closest('.sticker') !== null,
+			{ x: sticker.x + sticker.width / 2, y: sticker.y - 7 },
+		);
+		expect(hit).toBe(true);
+
+		// A /uses pin is about 15px wide; 18px beside its middle still lands on it
+		await page.goto('/uses/');
+		const pin = page.locator('a.uses-pin').first();
+		await pin.scrollIntoViewIfNeeded();
+		const pinBox = (await pin.boundingBox())!;
+		const pinHit = await page.evaluate(
+			({ x, y }) => document.elementFromPoint(x, y)?.closest('a.uses-pin') !== null,
+			{ x: pinBox.x + pinBox.width / 2 + 18, y: pinBox.y + pinBox.height / 2 },
+		);
+		expect(pinHit).toBe(true);
+	});
+
+	test('the drawing board scrolls until a crayon is tapped, then draws in any direction', async ({
+		page,
+		context,
+	}) => {
+		await page.goto('/');
+		const board = page.locator('.drawing-board').first();
+		await board.scrollIntoViewIfNeeded();
+		const cdp = await context.newCDPSession(page);
+		const area = await box(page, '.drawing-board');
+		const swipeUp = async () => {
+			const x = area.x + area.width / 2;
+			const y = area.y + area.height / 2;
+			await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+			for (let i = 1; i <= 12; i++) {
+				await cdp.send('Input.dispatchTouchEvent', {
+					type: 'touchMove',
+					touchPoints: [{ x, y: y - i * 15 }],
+				});
+			}
+			await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+			await page.waitForTimeout(300);
+		};
+		const longestStroke = () =>
+			page
+				.locator('.drawing-board-pad path')
+				.evaluateAll((paths) =>
+					Math.max(0, ...paths.map((p) => (p.getAttribute('d') ?? '').split('Q').length - 1)),
+				);
+
+		await expect(page.locator('.board-hint').first()).toBeVisible();
+		const before = await page.evaluate(() => window.scrollY);
+		await swipeUp();
+		expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(before);
+		expect(await longestStroke()).toBe(0);
+
+		await board.locator('[data-crayon]').last().tap();
+		await expect(board).toHaveAttribute('data-drawing', '');
+		const held = await page.evaluate(() => window.scrollY);
+		Object.assign(area, await box(page, '.drawing-board'));
+		await swipeUp();
+		expect(await page.evaluate(() => window.scrollY)).toBe(held);
+		expect(await longestStroke()).toBeGreaterThan(3);
+
+		await board.locator('[data-board-done]').tap();
+		await expect(board).not.toHaveAttribute('data-drawing');
+	});
+
 	test('post FAQs are questions that open on tap', async ({ page }) => {
 		await page.goto('/blog/opentofu-proxmox-immutable-homelab/');
 		const questions = page.locator('details.faq');

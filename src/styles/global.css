@@ -292,3 +292,31 @@ pre.astro-code {
 .prose td {
 	@apply p-2 border-b border-surface-3;
 }
+
+/* Touch screens: every tap target at least 44px, Apple's and WCAG AAA's minimum */
+@media (pointer: coarse) {
+	/* The nav bar's stickers stay 28px to look at; an invisible margin round each takes
+	   the tap. The MENU dropdown's links stack, so they get real height instead */
+	header nav > .sticker {
+		position: relative;
+	}
+	header nav > .sticker::after {
+		content: '';
+		position: absolute;
+		inset: -8px -4px;
+	}
+	@media (width < 48rem) {
+		#nav-section-links > a {
+			padding-block: 0.88em;
+		}
+	}
+	/* A heading's # only shows on hover, so on touch it's an invisible 10px target */
+	.prose .heading-anchor {
+		display: none;
+	}
+	.prose pre .copy-button {
+		@apply px-3 py-3 text-sm;
+		top: 0;
+		right: 0;
+	}
+}

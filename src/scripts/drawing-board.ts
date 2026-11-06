@@ -1,7 +1,9 @@
 // Visitor strokes on the "Make a mark" board (src/components/DrawingBoard.astro).
-// A mouse draws whenever it moves over the board; touch and pen draw only while
-// pressed, so a swipe still scrolls. Each stroke erases itself (.board-stroke in
-// motion.css) and is removed when that animation ends.
+// A mouse draws whenever it moves over the board; a pen draws while pressed. A finger
+// draws only once drawing is on (a crayon tapped on a touch screen sets data-drawing,
+// Done clears it), so until then a swipe across the board scrolls the page. Each
+// stroke erases itself (.board-stroke in motion.css) and is removed when that
+// animation ends.
 
 type Point = [number, number];
 
@@ -32,6 +34,8 @@ export function initDrawingBoard(board: HTMLElement): void {
 	let points: Point[] = [];
 	let pressed = false;
 
+	const isTouchScreen = window.matchMedia('(pointer: coarse)');
+
 	board.querySelectorAll<HTMLButtonElement>('[data-crayon]').forEach((button) => {
 		button.addEventListener('pointerdown', (event) => event.stopPropagation());
 		button.addEventListener('click', () => {
@@ -39,8 +43,13 @@ export function initDrawingBoard(board: HTMLElement): void {
 			board
 				.querySelectorAll('[data-crayon]')
 				.forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+			if (isTouchScreen.matches) board.setAttribute('data-drawing', '');
 		});
 	});
+
+	const done = board.querySelector<HTMLButtonElement>('[data-board-done]');
+	done?.addEventListener('pointerdown', (event) => event.stopPropagation());
+	done?.addEventListener('click', () => board.removeAttribute('data-drawing'));
 
 	function startStroke() {
 		points = [];
@@ -60,10 +69,16 @@ export function initDrawingBoard(board: HTMLElement): void {
 		pressed = false;
 		stroke = null;
 	});
+	// The browser took the touch over (a scroll, a pinch): end the stroke
+	window.addEventListener('pointercancel', () => {
+		pressed = false;
+		stroke = null;
+	});
 	board.addEventListener('pointerleave', () => {
 		stroke = null;
 	});
 	board.addEventListener('pointermove', (event) => {
+		if (event.pointerType === 'touch' && !board.hasAttribute('data-drawing')) return;
 		if (event.pointerType !== 'mouse' && !pressed) return;
 		const box = pad.getBoundingClientRect();
 		if (!stroke || points.length > MAX_POINTS_PER_STROKE) startStroke();

@@ -321,6 +321,16 @@ const sections = USES_SECTIONS.map((section) => {
 		paint-order: stroke fill;
 		text-decoration: none;
 	}
+	/* The number is about 15px wide; an invisible 44px square round it takes the tap */
+	.uses-pin::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 44px;
+		height: 44px;
+		transform: translate(-50%, -50%);
+	}
 	.uses-pin.is-lit,
 	.uses-item.is-lit p:first-child,
 	.uses-item.is-lit p:first-child a {

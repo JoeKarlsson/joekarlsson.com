@@ -2,7 +2,9 @@
 // "Make a mark": a dark board with pre-drawn crayon marks that redraw on a loop,
 // where visitors scribble in pink or chalk and their strokes erase themselves.
 // Purely decorative, so it's hidden from assistive tech and keyboard focus.
-// Touch only draws while pressed, so swiping across it still scrolls the page.
+// A mouse draws whenever it moves over the board. On a touch screen a swipe across it
+// scrolls the page, until a crayon is tapped: that turns drawing on (data-drawing),
+// the board stops scrolling and strokes go any direction, and Done turns it off.
 import { BOARD_MARKS, CHALK, MARKS } from '../data/scribbles';
 import Scribble from './Scribble.astro';
 
@@ -35,7 +37,17 @@ const PINK = '#ff4fd8';
 		</span>
 	</p>
 	<!-- z-10 lifts the crayons over the drawing pad below, which covers the whole board -->
-	<div class="absolute right-6 bottom-6 z-10 flex gap-2.5 sm:top-7 sm:bottom-auto">
+	<div class="absolute right-6 bottom-6 z-10 flex items-center gap-2.5 sm:top-7 sm:bottom-auto">
+		<!-- Touch screens only (styles below): a nudge until drawing is on, then a way out -->
+		<span class="board-hint font-semibold text-paper">Tap a crayon to draw</span>
+		<button
+			type="button"
+			tabindex="-1"
+			data-board-done
+			class="board-done min-h-11 cursor-pointer rounded-md bg-paper px-4 font-semibold text-ink"
+		>
+			Done
+		</button>
 		{[
 			{ color: PINK, label: 'Pink' },
 			{ color: CHALK, label: 'Chalk' },
@@ -46,7 +58,7 @@ const PINK = '#ff4fd8';
 				data-crayon={color}
 				aria-pressed={i === 0 ? 'true' : 'false'}
 				aria-label={label}
-				class="size-[34px] cursor-pointer rounded-full border-[3px] border-transparent aria-pressed:border-paper"
+				class="size-[34px] cursor-pointer rounded-full border-[3px] border-transparent aria-pressed:border-paper pointer-coarse:size-11"
 				style={`background:${color}`}
 			/>
 		))}
@@ -70,10 +82,30 @@ const PINK = '#ff4fd8';
 		delay="4s"
 		class="right-[4%] -bottom-[70px] z-10 h-[120px] w-[46%]"
 	/>
-	<svg class="drawing-board-pad absolute inset-0 size-full touch-pan-y">
+	<svg class="drawing-board-pad absolute inset-0 size-full">
 		<g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#crayon)"></g>
 	</svg>
 </div>
+
+<style>
+	.board-hint,
+	.board-done {
+		display: none;
+	}
+	@media (pointer: coarse) {
+		.drawing-board:not([data-drawing]) .board-hint {
+			display: inline;
+		}
+		.drawing-board[data-drawing] .board-done {
+			display: inline-flex;
+			align-items: center;
+		}
+	}
+	/* While drawing, a finger on the board draws instead of scrolling the page */
+	.drawing-board[data-drawing] .drawing-board-pad {
+		touch-action: none;
+	}
+</style>
 
 <script>
 	import { initDrawingBoard } from '../scripts/drawing-board';

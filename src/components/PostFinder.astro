@@ -49,8 +49,10 @@ const postsData = posts.map((p) => ({
 }));
 
 // The sort switch; the inline script swaps these as the choice changes
-const SORT_ACTIVE = 'sort-btn cursor-pointer rounded-md bg-pink px-3 py-1.5 font-semibold text-ink';
-const SORT_INACTIVE = 'sort-btn cursor-pointer rounded-md px-3 py-1.5 text-paper hover:text-pink';
+const SORT_ACTIVE =
+	'sort-btn cursor-pointer rounded-md bg-pink px-3 py-1.5 font-semibold text-ink max-md:min-h-11';
+const SORT_INACTIVE =
+	'sort-btn cursor-pointer rounded-md px-3 py-1.5 text-paper hover:text-pink max-md:min-h-11';
 ---
 
 <!-- One bar for finding posts: search and sort on top, then the categories,

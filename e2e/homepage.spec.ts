@@ -91,9 +91,14 @@ test.describe('Homepage - Mobile', () => {
 			.toMatch(/montage-phone/);
 	});
 
-	test('the drawing board lets touch scroll the page', async ({ page }) => {
+	test('the drawing board lets touch scroll the page until drawing is on', async ({ page }) => {
 		await page.goto('/');
-		await expect(page.locator('.drawing-board-pad')).toHaveCSS('touch-action', 'pan-y');
+		const pad = page.locator('.drawing-board-pad');
+		await expect(pad).toHaveCSS('touch-action', 'auto');
+		await page
+			.locator('.drawing-board')
+			.evaluate((board) => board.setAttribute('data-drawing', ''));
+		await expect(pad).toHaveCSS('touch-action', 'none');
 	});
 
 	test('the page does not scroll sideways', async ({ page }) => {

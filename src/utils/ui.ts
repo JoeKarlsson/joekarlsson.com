@@ -42,15 +42,18 @@ export const SECONDARY_BUTTON =
 /** A paper-white link with a pink underline, in lists and running text outside prose. */
 export const TEXT_LINK = 'text-paper underline decoration-pink underline-offset-4 hover:text-pink';
 
-/** A bold pink "more" link, such as "All 178 posts →". */
-export const MORE_LINK = 'font-semibold text-pink no-underline hover:text-paper';
+/** A bold pink "more" link, such as "All 178 posts →". It's an inline link, so py-3
+ * grows its tap area to 44px tall without moving anything around it. */
+export const MORE_LINK = 'py-3 font-semibold text-pink no-underline hover:text-paper';
 
-/** One option in a filter row (blog categories, who posts were written for, project categories). */
-export const FILTER_ACTIVE = 'cursor-pointer text-pink underline underline-offset-4';
-export const FILTER_INACTIVE = 'cursor-pointer text-paper no-underline hover:text-pink';
+/** One option in a filter row (blog categories, who posts were written for, project
+ * categories). On phones each option is a 44px-tall tap target. */
+export const FILTER_ACTIVE = 'cursor-pointer py-2.5 text-pink underline underline-offset-4 md:py-0';
+export const FILTER_INACTIVE =
+	'cursor-pointer py-2.5 text-paper no-underline hover:text-pink md:py-0';
 
-/** The row of filter options itself. */
-export const FILTER_ROW = 'flex flex-wrap gap-x-5 gap-y-2';
+/** The row of filter options itself. Phones space the rows with the options' own padding. */
+export const FILTER_ROW = 'flex flex-wrap gap-x-5 md:gap-y-2';
 
 /** "Nov 5, 2026": the one date format on the site. */
 export function formatDate(date: Date): string {
