@@ -709,8 +709,26 @@ const cropArtPieces = [
 					<p class="mb-6 text-paper">
 						I make art. Lately that's crop art, pictures made by gluing seeds and grains to
 						cardboard. I had two pieces in the Seeds of Justice exhibit in 2025, then entered the
-						Minnesota State Fair Crop Art competition for the first time.
+						Minnesota State Fair Crop Art competition for the first time. I also make color-field
+						scribble pieces: watercolor washes with oil pastel and pencil drawn over the top.
 					</p>
+					{/* Landscape, so it sits above the 4:5 crop-art tiles instead of being cropped into one */}
+					<figure class="mb-8 sm:w-2/3">
+						<img
+							src="/images/art/color-field-scribble-2026.webp"
+							alt="Color-field scribble painting: washes of pink, purple, coral and gold watercolor with dark grey-green shapes, covered in red oil-pastel starbursts, yellow and red scribbles, heavy navy horizontal bands, and small pencil and pen figures, signed Karlsson 26"
+							data-halftone="flat"
+							class="block aspect-4/3 w-full rounded-lg object-cover"
+							width="1200"
+							height="899"
+							sizes="(min-width: 1200px) 768px, (min-width: 640px) 66vw, 100vw"
+							loading="lazy"
+						/>
+						<figcaption class="mt-2">
+							<span class:list={[ITEM_TITLE, 'block']}>Untitled</span>
+							<span class:list={[META, 'block']}>2026</span>
+						</figcaption>
+					</figure>
 					{/* Phones: a sideways gallery like As seen on, so three tall pieces take one row
 					instead of three screens. From sm up, a grid of three */}
 					<ul class="art-gallery -mx-4 flex snap-x scroll-px-4 gap-5 overflow-x-auto px-4 pt-2 pb-4 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:p-0">
