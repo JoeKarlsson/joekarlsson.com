@@ -98,7 +98,7 @@ Now imagine running this across dozens of security policies, hundreds of cluster
 
 As Kubernetes adoption proliferates, organizations have developed sophisticated approaches to asset management. Before diving into specific solutions, let's explore the industry best practices that have emerged for tracking and managing Kubernetes resources at scale.
 
-![Infographic titled 'Best Practices for Kubernetes Asset Management' showing four quadrants: a computer monitor with graphs labeled 'Centralized Visibility'; three colored labels reading 'team', 'app', and 'ENV' labeled 'Consistent Labeling Strategy'; a document and gear icon labeled 'Automated Data Collection'; and a code snippet with a shield icon labeled 'Governance of Custom Resources'.](/images/blog/kubernetes-asset-tracking-at-scale/image4.webp)
+![Four best practices for Kubernetes asset management: centralized visibility across every cluster, a consistent labeling strategy (team, app, env), automated data collection, and governance of custom resources.](/images/blog/kubernetes-asset-tracking-at-scale/best-practices.svg)
 
 ### Centralized Visibility
 

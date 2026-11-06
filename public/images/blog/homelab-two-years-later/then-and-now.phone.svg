@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 820" width="360" height="820" role="img" aria-label="The homelab in 2023 versus 2026. Servers: 1 Lenovo ThinkServer, then 2 Dell R730s. CPU: a quad-core Xeon E3, then 80 cores and 160 threads at about 13% busy. RAM: 32GB, then 256GB with about 72GB used. GPU: none, then 2 NVIDIA GPUs with 24GB of VRAM. Workloads: about 15 containers, then 73 containers and 1 VM. Network: flat with no VLANs, then 4 VLANs with 10G between hosts. Monitoring: none, then Prometheus, Loki and 185 health checks. Config: by hand, then every container in OpenTofu. Power: about 80W estimated, then about 430W average metered. Hardware: $200, then about $7,400. Power cost: about $105 a year, then about $565 a year.">
+<defs><filter id="homelab-two-years-later-then-and-now-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="860">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="820" fill="#000000"/>
+<text x="16" y="30" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">SERVERS</text>
+<text x="16" y="54" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: 1 Lenovo ThinkServer</text>
+<text x="16" y="76" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: 2 Dell R730s</text>
+<text x="16" y="102" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">CPU</text>
+<text x="16" y="126" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: Xeon E3 quad-core</text>
+<text x="16" y="148" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: 80 cores, 160 threads, ~13% busy</text>
+<text x="16" y="174" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">RAM</text>
+<text x="16" y="198" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: 32GB</text>
+<text x="16" y="220" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: 256GB, ~72GB used</text>
+<text x="16" y="246" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">GPU</text>
+<text x="16" y="270" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: none</text>
+<text x="16" y="292" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: 2 NVIDIA GPUs, 24GB VRAM</text>
+<text x="16" y="318" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">WORKLOADS</text>
+<text x="16" y="342" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: ~15 containers</text>
+<text x="16" y="364" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: 73 containers + 1 VM</text>
+<text x="16" y="390" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">NETWORK</text>
+<text x="16" y="414" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: flat, no VLANs</text>
+<text x="16" y="436" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: 4 VLANs, 10G between hosts</text>
+<text x="16" y="462" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">MONITORING</text>
+<text x="16" y="486" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: none</text>
+<text x="16" y="508" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: Prometheus, Loki, 185 checks</text>
+<text x="16" y="534" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">CONFIG</text>
+<text x="16" y="558" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: by hand</text>
+<text x="16" y="580" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: every container in OpenTofu</text>
+<text x="16" y="606" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">POWER DRAW</text>
+<text x="16" y="630" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: ~80W (estimated)</text>
+<text x="16" y="652" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: ~430W average (metered)</text>
+<text x="16" y="678" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">HARDWARE</text>
+<text x="16" y="702" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: $200</text>
+<text x="16" y="724" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: ~$7,400</text>
+<text x="16" y="750" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">POWER COST</text>
+<text x="16" y="774" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: ~$105 a year</text>
+<text x="16" y="796" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">2026: ~$565 a year</text>
+</svg>

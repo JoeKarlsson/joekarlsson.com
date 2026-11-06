@@ -37,7 +37,7 @@ The frame is what makes it look like art. From the front it's a dark mirror. Beh
 
 _The real board, behind the two-way mirror._
 
-![Side view of the inside of the PixelPane shadow box: from the front, a two-way mirror, an optional diffuser, the 3D-printed light grid, the LED panel facing forward, then the Raspberry Pi with the RGB Matrix HAT and a 5 V 4 A power supply going to the wall](/images/blog/pixelpane-pixel-art-home-assistant/build-layers.svg)
+![Side view of the inside of the PixelPane shadow box, from the front: a two-way mirror, an optional diffuser, the 3D-printed light grid with one square cell per LED, and the 32x32 LED panel facing forward. Behind them, a ribbon cable runs to the Raspberry Pi 3B with an Adafruit RGB Matrix HAT, powered by a 5 V 4 A supply that plugs into the wall.](/images/blog/pixelpane-pixel-art-home-assistant/build-layers.svg)
 
 ## Why not just buy a Pixoo
 

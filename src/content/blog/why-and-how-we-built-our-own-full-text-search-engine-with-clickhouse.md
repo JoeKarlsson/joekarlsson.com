@@ -216,7 +216,7 @@ While this approach doesn't benefit from the early termination that made ungroup
 
 The performance improvements we achieved were substantial, especially for challenging query patterns where the condition matched a large portion of the dataset. For example, in our basic-frequent benchmark (which tests worst-case performance where the condition matched approximately 72% of all rows), we reduced median latency from ~3,800 milliseconds to just 385 milliseconds using the ungrouped-limited strategy. That's a **10x speedup** for these challenging cases.
 
-![Bar chart titled 'Basic-Frequent: Median Query Time by Variant' showing median query times (ms) for four strategies: ungrouped-limited ~390 ms, ungrouped ~2730 ms, naive ~3820 ms, and the single-pass strategy ~3810 ms, ungrouped-limited is markedly faster than the others.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image6.webp)
+![Median query time on the basic-frequent benchmark, where the search matched about 72% of rows: ungrouped-limited about 385 ms, ungrouped about 2,730 ms, naive about 3,820 ms and sumIf about 3,810 ms.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/frequent-median.svg)
 
 The ungrouped-limited strategy is a practical compromise for situations where a user queries something that would return millions of results. It's based on the assumption that users would prefer to get approximate results quickly rather than waiting a minute or more for exact results. The "\*-frequent" benchmarks represent worst-case scenarios for our system, not necessarily the most common user queries (as we don't yet have full data on actual search patterns).
 

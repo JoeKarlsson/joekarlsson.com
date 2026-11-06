@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="The share of enterprises with a Cloud Center of Excellence, 2018 to 2025: 30% in 2018, 45% in 2019, 60% in 2020, 75% in 2021, 80% in 2022, 85% in 2023, 88% in 2024 and 90% in 2025.">
+<defs><filter id="cloud-centers-of-excellence-part-1-building-effective-cloud-governance-ccoe-adoption-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="400">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="360" fill="#000000"/>
+<text x="16" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="start" dominant-baseline="central">ENTERPRISES WITH A CCOE</text>
+<text x="16" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Percent of enterprises, 2018 to 2025</text>
+<path d="M60,298 L608,298" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M60,298 L608,298" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="54" y="298" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">0%</text>
+<path d="M60,195 L608,195" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="54" y="195" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">50%</text>
+<path d="M60,92 L608,92" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="54" y="92" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">100%</text>
+<text x="60" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2018</text>
+<text x="138.3" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2019</text>
+<text x="216.6" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2020</text>
+<text x="294.9" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2021</text>
+<text x="373.1" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2022</text>
+<text x="451.4" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2023</text>
+<text x="529.7" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2024</text>
+<text x="608" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2025</text>
+<g class="d-flow">
+<path d="M60,236.2 L138.3,205.3 L216.6,174.4 L294.9,143.5 L373.1,133.2 L451.4,122.9 L529.7,116.7 L608,112.6" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-1-building-effective-cloud-governance-ccoe-adoption-desktop-crayon)"/>
+</g>
+<text x="616" y="112.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central"></text>
+<circle cx="60" cy="236.2" r="4" fill="#ff4fd8"/>
+<text x="60" y="220.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">30%</text>
+<circle cx="138.3" cy="205.3" r="4" fill="#ff4fd8"/>
+<text x="138.3" y="189.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">45%</text>
+<circle cx="216.6" cy="174.4" r="4" fill="#ff4fd8"/>
+<text x="216.6" y="158.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">60%</text>
+<circle cx="294.9" cy="143.5" r="4" fill="#ff4fd8"/>
+<text x="294.9" y="127.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">75%</text>
+<circle cx="373.1" cy="133.2" r="4" fill="#ff4fd8"/>
+<text x="373.1" y="117.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">80%</text>
+<circle cx="451.4" cy="122.9" r="4" fill="#ff4fd8"/>
+<text x="451.4" y="106.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">85%</text>
+<circle cx="529.7" cy="116.7" r="4" fill="#ff4fd8"/>
+<text x="529.7" y="100.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">88%</text>
+<circle cx="608" cy="112.6" r="4" fill="#ff4fd8"/>
+<text x="608" y="96.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">90%</text>
+<text x="16" y="344" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2021 (75%): Flexera State of the Cloud. Chart values as CloudQuery published them.</text>
+</svg>

@@ -22,7 +22,7 @@ The distinction matters because most discussions of ETL performance focus on har
 
 Compared to other open-source alternatives like [Airbyte](https://airbyte.com/resources/benchmark-of-data-pipeline-performance-cost), which typically processes data at 50-200 GB/hour depending on configuration complexity, CloudQuery's specialized cloud infrastructure focus enables superior performance across both consumer-grade and enterprise hardware configurations. Our testing methodology isolates these variables to provide actionable performance data for teams planning CloudQuery deployments across different scenarios.
 
-![Data Volume Throughput Comparison](/images/blog/cloudquery-performance-analysis-581gb/data-volume-throughput-comparison.webp)
+![Data volume throughput in GB per hour: CloudQuery processing file data at 581.6 on an Apple M4 Pro, Fivetran's published 500+ on a 16-core, 128GB GCP server, and Airbyte's published 50 to 200, shown at the top of that range.](/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/throughput-comparison.svg)
 
 ## Methodology and Testing Framework
 
@@ -36,7 +36,7 @@ The [File](https://www.cloudquery.io/hub/plugins/source/cloudquery/file/latest/d
 
 The following table presents raw performance measurements from our primary test configuration running CloudQuery on Apple M4 Pro hardware:
 
-![CloudQuery Performance Dashboard](/images/blog/cloudquery-performance-analysis-581gb/performance-dashboard.webp)
+![CloudQuery throughput by data source on an Apple M4 Pro, in GB per hour: file 581.6, Azure 91.2, GCP 49.7 and AWS 7.1. Cloud sources are held back by provider API rate limits.](/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/throughput-by-source.svg)
 
 | Data Source | Total Rows | Total MB | Duration (s) | GB/Hour | Average CPU | Max Memory (MB) |
 | ----------- | ---------- | -------- | ------------ | ------- | ----------- | --------------- |

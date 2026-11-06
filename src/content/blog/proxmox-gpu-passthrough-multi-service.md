@@ -51,15 +51,7 @@ Seven services do real work on the two cards:
 
 A couple of smaller things borrow a GPU too, like a [subtitle generator I built that waits for the GPU to be free](/blog/building-a-gpu-accelerated-subtitle-generator/).
 
-```
-prxbox1: Quadro RTX 4000, 8GB          prxbox2: RTX A4000, 16GB
-  Frigate (4 cameras)                    Ollama + llama.cpp
-  Whisper (voice)                        Plex
-  Tdarr worker                           Immich video
-                                         Tdarr server + worker
-        \                                  /
-         +------ 10G switch, NAS ---------+
-```
+![Which services run on which GPU. prxbox1 has a Quadro RTX 4000 with 8GB and runs Frigate for 4 cameras, Whisper for voice and a Tdarr worker. prxbox2 has an RTX A4000 with 16GB and runs Ollama and llama.cpp, Plex, Immich video and the Tdarr server plus a worker. Both connect to the 10G switch and the NAS.](/images/blog/proxmox-gpu-passthrough-multi-service/gpu-split.svg)
 
 ## The two cards
 

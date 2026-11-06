@@ -91,7 +91,7 @@ Atlas creates partitions first for the `username` field, followed by the `email`
 
 > **Note**: The value of a partition field can be up to a maximum of 700 characters. Documents with values exceeding 700 characters are not archived.
 
-![Figure showing how Atlas Online Archive partitions data and how it uses it to query documents quickly.](/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/Online_Archive_Partition_3466b335d6.webp)
+![How Online Archive uses its partitions. The customers collection is archived with the partition fields /username/email, so archived documents are stored in folders by username and then by email. A query on username and email goes straight to the matching folder, /TestUsername/test@mongodb.com, instead of scanning the whole archive.](/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/partitions.svg)
 
 For more information on how to partition data in your Online Archive, please [refer to the documentation](https://docs.atlas.mongodb.com/online-archive/configure-online-archive/).
 

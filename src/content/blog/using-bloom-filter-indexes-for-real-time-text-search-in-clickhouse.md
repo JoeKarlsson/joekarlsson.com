@@ -34,8 +34,6 @@ Undoubtedly, full scans are anything but efficient, causing undue strain on your
 
 The standard indexing techniques provided by ClickHouse, such as [Primary or Sorting Keys](https://clickhouse.com/docs/en/optimize/sparse-primary-indexes), aren’t particularly suitable for or flexible enough to handle text-based searches. The performance boosts they do offer are effectively relegated to specific text search use cases like exact matches or matching the beginning of the text-cases where you can use alphabetical sorting of the text you’re searching.
 
-![Bar chart showing scan size reduction across Bloom filter configurations](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-18.webp)
-
 If you need to achieve more complex use cases like substring matching, these indexing techniques won’t help. You need to use something different to avoid full scans.
 
 ### The solution
@@ -102,20 +100,7 @@ Tokenization can be useful in some cases, but it’s too limited for more comple
 
 The second (and more interesting) option is **n-grams**, which means that the text is split into groups of _n_ consecutive characters. Imagine a string of text flowing from left to right, with an ‘n-gram window’ of size 4 moving across the text, one character at a time. Here’s how that might look for your example text “Hello_world!”:
 
-```text
-[Hell]o_world!
-^
-H[ello]_world!
- ^
-He[llo_]world!
-  ^
-Hel[lo_w]world!
-   ^
-...
-
-Hello_wo[rld!]
-        ^
-```
+![A 4-gram window sliding across "Hello_world!" one character at a time: Hell, ello, llo_, lo_w, and so on through orld and rld!. Each 4-character piece becomes its own entry in the index.](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/ngram-window.svg)
 
 This means that for the text “Hello_world!”, the resulting 4-grams (n=4) would be:
 
@@ -181,7 +166,13 @@ And now what you’ve been waiting for since the first sentence of this post: **
 
 ### Settings used in testing:
 
-![Table of ngrambf_v1 Bloom filter test configurations and parameters](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-2.webp)
+| Configuration             | N-gram size | Filter size (bytes) | Hash functions | Granularity |
+| :------------------------ | ----------: | ------------------: | -------------: | ----------: |
+| No index                  |           0 |                   0 |              0 |           0 |
+| ngrambf_v1(4, 1024, 1, 0) |           4 |                1024 |              1 |           1 |
+| ngrambf_v1(4, 1024, 2, 0) |           4 |                1024 |              2 |           1 |
+| ngrambf_v1(4, 4096, 1, 0) |           4 |                4096 |              1 |           1 |
+| ngrambf_v1(4, 8192, 1, 0) |           4 |                8192 |              1 |           1 |
 
 ### The results:
 
@@ -189,9 +180,15 @@ And now what you’ve been waiting for since the first sentence of this post: **
 
 Here you can see the amount of time the query took to run for each Bloom filter configuration, compared to a non-indexed query time.
 
-![Table comparing query time and speedup for Bloom filter configurations](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-4.webp)
+| Configuration             | Query time | Speedup |
+| :------------------------ | ---------: | ------: |
+| No index                  |    11.11 s |      1x |
+| ngrambf_v1(4, 1024, 1, 0) |    0.127 s |   87.7x |
+| ngrambf_v1(4, 1024, 2, 0) |    0.139 s |   79.9x |
+| ngrambf_v1(4, 4096, 1, 0) |    0.240 s |   46.3x |
+| ngrambf_v1(4, 8192, 1, 0) |    0.447 s |   24.8x |
 
-![Bloom filter query time and scan size benchmark results](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-18.webp)
+![How many times faster each Bloom filter configuration made the query than no index (11.11 s): ngrambf_v1(4, 1024, 1, 0) 87.7x, (4, 1024, 2, 0) 79.9x, (4, 4096, 1, 0) 46.3x and (4, 8192, 1, 0) 24.8x.](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/speedup.svg)
 
 Various Bloom filter index configurations in ClickHouse can reduce text search query times by a factor of ~25-90x.
 
@@ -199,9 +196,15 @@ Various Bloom filter index configurations in ClickHouse can reduce text search q
 
 Here you can see the amount of data scanned for each Bloom filter configuration, compared to a non-indexed scan.
 
-![Table comparing data scanned and scan size reduction per configuration](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-5.webp)
+| Configuration             | Data scanned | Times less data |
+| :------------------------ | -----------: | --------------: |
+| No index                  |     129.8 GB |              1x |
+| ngrambf_v1(4, 1024, 1, 0) |     0.400 GB |          324.2x |
+| ngrambf_v1(4, 1024, 2, 0) |     0.408 GB |          318.0x |
+| ngrambf_v1(4, 4096, 1, 0) |     0.191 GB |          678.1x |
+| ngrambf_v1(4, 8192, 1, 0) |     0.183 GB |          710.7x |
 
-![Bloom filter query time and scan size benchmark results](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-18.webp)
+![How many times less data each Bloom filter configuration scans than no index: ngrambf_v1(4, 1024, 1, 0) 324.2x, (4, 1024, 2, 0) 318.0x, (4, 4096, 1, 0) 678.1x and (4, 8192, 1, 0) 710.7x.](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/scan-reduction.svg)
 
 Various Bloom filter index configurations in ClickHouse can reduce text search scan size by a factor of ~250-750x.
 
@@ -209,7 +212,13 @@ Various Bloom filter index configurations in ClickHouse can reduce text search s
 
 Here you can see the tradeoffs between query time and scan size for the different configurations.
 
-![Table of combined speedup and scan reduction results per configuration](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-3.webp)
+| Configuration             | Speedup | Times less data |
+| :------------------------ | ------: | --------------: |
+| No index                  |      1x |              1x |
+| ngrambf_v1(4, 1024, 1, 0) |   87.7x |          324.2x |
+| ngrambf_v1(4, 1024, 2, 0) |   79.9x |          318.0x |
+| ngrambf_v1(4, 4096, 1, 0) |   46.3x |          678.1x |
+| ngrambf_v1(4, 8192, 1, 0) |   24.8x |          710.7x |
 
 #### Storage used: Bloom filter index vs. actual data
 
@@ -217,7 +226,12 @@ To understand the tradeoff of storing the Bloom filter, this chart shows how muc
 
 > **Note**: Compressed size of the actual log data was ~4GB
 
-![Table of compressed Bloom filter index sizes versus column data size](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-1.webp)
+| Configuration             | Compressed index size | Share of column size |
+| :------------------------ | --------------------: | -------------------: |
+| ngrambf_v1(4, 1024, 1, 0) |              247.8 MB |               0.062x |
+| ngrambf_v1(4, 1024, 2, 0) |              253.2 MB |               0.064x |
+| ngrambf_v1(4, 4096, 1, 0) |              778.4 MB |               0.195x |
+| ngrambf_v1(4, 8192, 1, 0) |            1,280.0 MB |               0.321x |
 
 ### Our conclusions from this performance test
 

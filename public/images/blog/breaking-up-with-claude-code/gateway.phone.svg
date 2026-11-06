@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 470" width="360" height="470" role="img" aria-label="Every app in my house that talks to a model, OpenCode, Home Assistant, the doorbell camera and others, goes through one LiteLLM gateway, which handles model names, fallbacks and budgets. The gateway sends cloud requests to OpenRouter (DeepSeek, GLM, Qwen) and local requests to small Qwen models on my homelab GPUs.">
+<defs><filter id="breaking-up-with-claude-code-gateway-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="510">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="470" fill="#000000"/>
+<g transform="rotate(0.5 66 64)">
+<path class="d-paper" d="M11.4,14.9 L28.4,15.3 L45.5,14.8 L60.9,16.4 L75.5,16 L92.5,16.9 L107,16.9 L120.3,15.8 L121.3,31.9 L119.1,47 L119.3,65 L119.7,79 L119.6,97.2 L121.4,112.4 L102.9,110.8 L89.1,110.7 L72.2,111.1 L55.6,113.1 L40,112.8 L23.2,112.5 L10.5,112.7 L13.3,95.3 L10.9,79.3 L12.5,63.1 L12.8,46.9 L13,31 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="53" y="24" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5" />
+  <line x1="12" x2="20" y1="19" y2="19" /></g></svg>
+<text x="66" y="81" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">OPENCODE</text>
+</g>
+<g transform="rotate(-0.9 180 64)">
+<path class="d-paper" d="M125.9,16.2 L141.3,17.6 L156.6,17.1 L175.5,15.7 L190.2,16.8 L204.8,16.9 L222.3,17.5 L233.2,16.6 L233,31.9 L232.9,47.2 L235.4,63.9 L234.1,81.2 L234.8,97.6 L235,112.6 L216.9,111.5 L201.2,111.6 L185.7,111.6 L168.7,112.8 L155.2,110.8 L138,111.1 L126.4,112.6 L125.2,97.4 L124.9,80.9 L126.2,62.4 L125.4,47.3 L126.9,31.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="167" y="24" width="26" height="26" viewBox="0 0 24 24"><g fill="#18BCF2"><path d="M22.939 10.627 13.061.749a1.505 1.505 0 0 0-2.121 0l-9.879 9.878C.478 11.21 0 12.363 0 13.187v9c0 .826.675 1.5 1.5 1.5h9.227l-4.063-4.062a2.034 2.034 0 0 1-.664.113c-1.13 0-2.05-.92-2.05-2.05s.92-2.05 2.05-2.05 2.05.92 2.05 2.05c0 .233-.041.456-.113.665l3.163 3.163V9.928a2.05 2.05 0 0 1-1.15-1.84c0-1.13.92-2.05 2.05-2.05s2.05.92 2.05 2.05a2.05 2.05 0 0 1-1.15 1.84v8.127l3.146-3.146A2.051 2.051 0 0 1 18 12.239c1.13 0 2.05.92 2.05 2.05s-.92 2.05-2.05 2.05c-.25 0-.488-.047-.709-.13L12.9 20.602v3.088h9.6c.825 0 1.5-.675 1.5-1.5v-9c0-.825-.477-1.977-1.061-2.561z"/></g></svg>
+<text x="180" y="70" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">HOME</text>
+<text x="180" y="92.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">ASSISTANT</text>
+</g>
+<g transform="rotate(-0.3 294 64)">
+<path class="d-paper" d="M239.1,15.3 L256.3,15.9 L272.9,15 L287.4,15 L305.1,17.4 L320.8,15.9 L334.4,17.4 L349.3,16.2 L348.1,33.4 L347.7,48.9 L347.6,63.9 L348.6,81 L346.5,96 L349.4,111.5 L332.3,111 L315.2,112.8 L299.8,112.3 L282.8,112.3 L268.9,113 L253.1,113.6 L239.1,112.8 L241.3,97.1 L240.3,79.3 L241.4,62.4 L239.3,47 L238.8,31.5 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="281" y="24" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <circle cx="12" cy="12" r="1" />
+  <path d="M18.944 12.33a1 1 0 0 0 0-.66 7.5 7.5 0 0 0-13.888 0 1 1 0 0 0 0 .66 7.5 7.5 0 0 0 13.888 0" /></g></svg>
+<text x="294" y="70" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">DOORBELL</text>
+<text x="294" y="92.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">+ OTHERS</text>
+</g>
+<g transform="rotate(-1 180 200)">
+<path class="d-paper" d="M19.3,159.2 L34.9,158.7 L53.4,156.5 L66.8,157.9 L84.7,158.1 L100.9,158.1 L115.3,156.6 L132.8,159.6 L147.4,158.6 L165.1,159.4 L180.5,156.9 L195.4,158.1 L211.5,159.1 L228.1,156.9 L242.5,158.7 L259.9,157.1 L276.6,157.4 L292.2,157.9 L307.5,159.4 L325.6,158.9 L340.4,158.6 L338.9,173.1 L341.2,191.2 L340.2,207 L339.4,222.2 L339,238.8 L341.4,240.9 L324.4,242.5 L307.8,241.9 L290.6,240.6 L276.3,243.4 L259.1,241.5 L242.6,241.3 L227.1,240.8 L212,240.6 L194.5,240.7 L179.4,242.9 L162.9,241.5 L148,242.3 L132,242.8 L115.4,242.4 L100.9,241.9 L85.3,242.7 L68.6,240.7 L50.8,242.4 L37.4,242.7 L21.5,243.2 L20.4,227.5 L20.2,209.5 L20.5,193.1 L19.7,177.1 L20,163.2 Z" fill="#ff4fd8"/>
+<svg x="34" y="186" width="28" height="28" viewBox="0 0 512 512"><path d="M511.9 82.5c-.8-.1-1.4-.1-1.9-.1-81.6 0-163.2 0-244.8.1-8.5 0-16.6 2-24.4 5.4-15.7 6.9-27.4 18.8-39 30.7 10.8 0 21.6.1 32.4.1h126.3c1.5 0 2.9 0 4.9 1l-11.7 11.7c-18.7 18.6-37.5 37.1-56.1 55.8-3.4 3.4-6.8 4.9-11.7 4.9-50.7-.2-101.3-.1-152-.1-1.8 0-3.6-.1-5.5-.1-18.4 9.3-36.9 18.7-55.3 28 0 49.8 0 99.7-.1 149.5 0 1.8-.1 3.6-.2 5.5 36.8 0 73.5-.1 110.3-.1 12.5-12.5 24.9-25.1 37.4-37.6 10.7-10.7 21.5-21.4 32.1-32.2 2.3-2.4 4.7-3.4 8.1-3.4 81.6.1 163.2 0 244.7 0 2.1 0 4.2-.1 6.3-.1.1-.8.1-1.7.1-2.5V85c.2-.8.1-1.6.1-2.5" style="fill:#d2d3d4"/><path d="M183.2 374.8c12.5-12.5 24.9-25.1 37.4-37.6 10.7-10.7 21.5-21.4 32.1-32.2 2.3-2.4 4.7-3.4 8.1-3.4 81.6.1 163.2 0 244.7 0 2.1 0 4.2-.1 6.3-.1 0 24.4.1 48.8.1 73.2-1.8 0-3.6.1-5.5.1H296.7c-19.8 0-39.6 0-59.4.1-18 0-36.1-.1-54.1-.1M30.5 243.1C4.4 260.5-4 286.2 1.7 316.2c6.5 34.3 36.1 58 71.2 58.7.1-1.8.2-3.6.2-5.5 0-49.8.1-99.7.1-149.5-14.4 7.6-29.3 14.3-42.7 23.2m137.9-91.5c-13.4 13.4-26.6 26.8-40 40.2 1.8 0 3.6.1 5.5.1 50.7 0 101.3-.1 152 .1 4.9 0 8.3-1.4 11.7-4.9 17.2-17.4 34.7-34.6 52.1-51.9H184.8z" style="fill:#6da7da"/><path d="M511.8 411.3c0 6.1 0 12.2.1 18.3H24c-1.7 0-3.4-.1-5-.1 18-18.2 35.9-36.4 53.9-54.6 36.8 0 73.6-.1 110.4-.1 18.1.1 36.1.1 54.2.2 19.8 0 39.6-.1 59.4-.1h209.7c1.8 0 3.6-.1 5.5-.1-.2 12.1-.2 24.3-.3 36.5M365.4 119.6c-2-1-3.4-1-4.9-1H234.2c-10.8 0-21.6-.1-32.4-.1-5.6 5.6-11.3 11.2-17 16.8h164.8c1.3-1.3 2.7-2.6 4-4 4-3.8 7.9-7.8 11.8-11.7" style="fill:#306599"/></svg>
+<text x="201" y="190.3" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">LITELLM GATEWAY</text>
+<text x="201" y="214.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">names, fallbacks, budgets</text>
+</g>
+<g transform="rotate(-0.5 94 357)">
+<path class="d-paper" d="M12.2,293.4 L28.2,290.8 L44.9,292.9 L59.2,290.6 L76.8,293.3 L91.1,293.6 L109.2,291.6 L125.3,293 L138.6,291.6 L154.6,292.1 L171.9,293.1 L176.6,290.8 L175.6,306.6 L174.8,323.7 L177.1,340.8 L175.7,356 L176.5,372 L176.6,387.4 L177.2,404.7 L176.4,419.9 L176.3,420.9 L159.1,423.2 L142.8,422.3 L128,423.5 L112,420.6 L95.1,421.2 L78.7,422.5 L62.9,421.4 L48.3,423.5 L33.1,420.7 L17.2,423 L13.4,423 L11.7,405.4 L11.3,389 L10.7,375.5 L12.2,356.5 L13,341.3 L10.6,326.5 L10.9,309.9 L13.6,293.3 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="81" y="300" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" /></g></svg>
+<text x="94" y="365.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">OPENROUTER</text>
+<text x="94" y="385.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">DeepSeek, GLM, Qwen</text>
+</g>
+<g transform="rotate(-1.1 266 357)">
+<path class="d-paper" d="M182.6,290.7 L200.2,293.3 L215.4,290.7 L230.4,291.3 L249.5,292.1 L263.9,291.7 L281.2,291.3 L296.4,291.5 L312.8,291.6 L329.5,290.7 L343.6,292.8 L349.4,293.3 L346.5,306.8 L347.6,324.1 L348.3,340.5 L349.4,357 L348,373.5 L348.4,389.3 L347.6,402.6 L348.1,421.1 L348.5,423.4 L332.9,421.8 L316.2,423.1 L299.8,423 L282.7,423.1 L266.8,422.6 L252.8,420.5 L234.5,422.8 L219.4,420.6 L202.5,421.3 L186.8,421.9 L183.3,423.1 L183.1,407.3 L185.3,388.8 L183.9,375 L184.9,356.7 L185.1,341.3 L183,326.6 L182.7,310.6 L185.4,295.4 Z" fill="#ece6da"/>
+<svg x="253" y="300" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2" />
+  <rect width="6" height="6" x="9" y="9" rx="1" />
+  <path d="M15 2v2" />
+  <path d="M15 20v2" />
+  <path d="M2 15h2" />
+  <path d="M2 9h2" />
+  <path d="M20 15h2" />
+  <path d="M20 9h2" />
+  <path d="M9 2v2" />
+  <path d="M9 20v2" /></g></svg>
+<text x="266" y="354.5" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">HOMELAB</text>
+<text x="266" y="376.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">GPUS</text>
+<text x="266" y="396.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">small local Qwen</text>
+</g>
+<g class="d-flow">
+<path d="M64.7,113.1 Q66,123.4 65.6,132.6 M67,133.3 Q123.5,132.3 179.7,130.7 M180.6,132.8 Q179.7,144.4 180.3,155" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M173.6,147 L180,156 L186.4,147" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M72.4,123 L66,114 L59.6,123" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.4,114 Q179.1,122.4 178.9,133 M179.8,132.1 Q181.1,132.2 180.2,132.7 M178.8,132.4 Q178.3,142.8 180.4,155.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M173.6,147 L180,156 L186.4,147" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M186.4,123 L180,114 L173.6,123" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M295.2,113.7 Q294.6,120.9 292.8,130.9 M293.6,133.5 Q237.9,131.5 181.1,131.7 M178.9,131.2 Q178.2,143 179.3,156.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M173.6,147 L180,156 L186.4,147" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M300.4,123 L294,114 L287.6,123" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M180.2,245.2 Q179,255.9 180.8,266.7 M181.2,267.4 Q138,267.6 95.3,265.1 M93,264.7 Q94,277.1 92.9,289.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M87.6,281 L94,290 L100.4,281" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M186.4,253 L180,244 L173.6,253" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M180.6,244.3 Q181.5,254.6 180.9,265.5 M180.8,265 Q224.2,265.4 265.6,265.8 M267.2,264.8 Q266.3,279.3 264.7,290.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M259.6,281 L266,290 L272.4,281" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+<path d="M186.4,253 L180,244 L173.6,253" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#breaking-up-with-claude-code-gateway-phone-crayon)"/>
+</g>
+</svg>

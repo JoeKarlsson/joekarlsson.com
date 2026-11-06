@@ -67,16 +67,7 @@ Also, since February 2026, Anthropic [restricts Claude subscriptions to its own 
 
 Everything that talks to a model in my house goes through one [LiteLLM](https://docs.litellm.ai/) gateway on my Proxmox cluster: OpenCode on my Mac, Home Assistant, my doorbell camera. Apps ask for a name like `cloud-coder` or `local-fast`, and the gateway decides which model that is today.
 
-```
- OpenCode    Home Assistant    doorbell + other apps
-      \             |              /
-       +------ LiteLLM gateway ---+
-       |  names, fallbacks, budgets
-       +--------------------------+
-          /                     \
-    OpenRouter              my homelab GPUs
-  (DeepSeek, GLM, Qwen)     (small local Qwen models)
-```
+![Every app in my house that talks to a model, OpenCode, Home Assistant, the doorbell camera and others, goes through one LiteLLM gateway, which handles model names, fallbacks and budgets. The gateway sends cloud requests to OpenRouter (DeepSeek, GLM, Qwen) and local requests to small Qwen models on my homelab GPUs.](/images/blog/breaking-up-with-claude-code/gateway.svg)
 
 With the gateway, swapping a model is a one-line change, and no app notices. If my GPU box is down, local requests fall back to a cloud model, so the doorbell still describes whoever is at the door at 2 AM. And each app gets its own key and [budget](https://docs.litellm.ai/docs/proxy/users): OpenCode gets $20 a month, so a runaway agent loop hits a wall instead of my credit card.
 

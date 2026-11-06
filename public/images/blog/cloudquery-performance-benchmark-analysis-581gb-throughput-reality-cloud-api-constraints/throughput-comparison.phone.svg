@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 290" width="360" height="290" role="img" aria-label="Data volume throughput in GB per hour: CloudQuery processing file data at 581.6 on an Apple M4 Pro, Fivetran’s published 500+ on a 16-core, 128GB GCP server, and Airbyte’s published 50 to 200, shown at the top of that range.">
+<defs><filter id="cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints-throughput-comparison-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="330">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="290" fill="#000000"/>
+<text x="16" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#ededed" text-anchor="start" dominant-baseline="central">GB PER HOUR</text>
+<text x="16" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Data volume throughput, higher is better</text>
+<path d="M116,72 L116,228" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="106" y="98" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">CloudQuery</text>
+<path class="d-paper" d="M116.7,82.7 L131.4,81.1 L147.3,80.3 L164.6,81.6 L179.3,81.1 L194.4,83.5 L213.1,81.3 L227,81.6 L243,80.4 L258.4,83.3 L276.2,82 L286.6,81.6 L289.2,98 L286.8,113.8 L287.5,113.3 L270.8,113.2 L255.1,114.8 L239.9,113 L225.1,114.3 L206.5,114.9 L193,115 L176.5,114.7 L158.5,114.5 L142.6,112.7 L126.5,112.6 L116.7,112.5 L116.3,96.7 L116.4,81.4 Z" fill="#ff4fd8"/>
+<text x="296" y="98" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">581.6</text>
+<text x="106" y="150" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">Fivetran</text>
+<path class="d-paper" d="M116.3,133.2 L132.2,135.2 L148.9,132.4 L162.6,132.7 L181.2,132.6 L197.4,135 L213.6,132.9 L227.5,134.2 L243.8,132.4 L261.3,135.2 L263.8,133.9 L265.4,148.3 L263.6,166 L262.6,166.4 L246.9,167.3 L232.7,165.6 L215.2,166.2 L199.2,165 L184.7,165.9 L169.3,167.5 L151.8,165.4 L136.2,164.6 L119,167.2 L114.5,165.9 L117.5,150.1 L115.6,132.7 Z" fill="#ece6da"/>
+<text x="271.9" y="150" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">500+</text>
+<text x="106" y="202" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">Airbyte</text>
+<path class="d-paper" d="M115.3,185.1 L130.5,184.7 L147.3,186.1 L164.3,184.9 L174,185 L175,201.8 L174,218.5 L175.5,218.1 L160.1,217.6 L143.8,216.9 L127.2,218.3 L117,218.3 L114.6,202.5 L114.7,184.6 Z" fill="#ece6da"/>
+<text x="183.1" y="202" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">50–200</text>
+<text x="16" y="250" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Fivetran and Airbyte: their published</text>
+<text x="16" y="270" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">benchmarks. CloudQuery: file, M4 Pro.</text>
+</svg>

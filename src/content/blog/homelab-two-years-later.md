@@ -275,21 +275,7 @@ Yes, a couple of modern mini PCs would run most of these 73 containers at a frac
 
 ## 2023 vs. 2026
 
-```
-2023 (ThinkServer Era)          2026 (Server Rack Era)
-========================        ========================
-1x Lenovo ThinkServer           2x Dell R730 (ThinkServer retired)
-Xeon E3 quad-core               80 cores / 160 threads, ~13% busy
-32GB RAM                        256GB RAM, ~72GB used
-No GPU                          2x NVIDIA GPUs (24GB VRAM)
-~15 containers                  73 containers + 1 VM
-Flat network (no VLANs)         4 VLANs, 10G between hosts
-No monitoring                   Prometheus, Loki, 185 health checks
-Configured by hand              Every container in OpenTofu
-~80W power draw (estimated)     ~430W average (metered)
-$200 hardware cost              ~$7,400 total hardware
-~$105/yr power                  ~$565/yr power
-```
+![The homelab in 2023 versus 2026. Servers: 1 Lenovo ThinkServer, then 2 Dell R730s. CPU: a quad-core Xeon E3, then 80 cores and 160 threads at about 13% busy. RAM: 32GB, then 256GB with about 72GB used. GPU: none, then 2 NVIDIA GPUs with 24GB of VRAM. Workloads: about 15 containers, then 73 containers and 1 VM. Network: flat with no VLANs, then 4 VLANs with 10G between hosts. Monitoring: none, then Prometheus, Loki and 185 health checks. Config: by hand, then every container in OpenTofu. Power: about 80W estimated, then about 430W average metered. Hardware: $200, then about $7,400. Power cost: about $105 a year, then about $565 a year.](/images/blog/homelab-two-years-later/then-and-now.svg)
 
 ![That Escalated Quickly meme: Ron Burgundy saying 'that escalated quickly'](/images/blog/homelab-two-years-later/escalated-quickly.webp)
 

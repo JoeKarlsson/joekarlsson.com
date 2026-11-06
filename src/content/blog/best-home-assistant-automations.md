@@ -218,17 +218,7 @@ A guest never sees my push notifications, so the nightlight and the TV put the i
 
 There's a small Third Reality Zigbee nightlight in my Great Room. It glows when you walk by in the dark, and its color tells me what's going on:
 
-```text
-Great Room nightlight, decoded:
-
-  RED ............ garage open more than 1 hour
-                   a door left open late
-                   water leak or smoke
-                   my homelab is down
-  ORANGE ......... washer finished
-  BLUE (breathing) it just started raining
-  (normal) ....... everything is fine, go to bed
-```
+![The Great Room nightlight, decoded. Red: the garage has been open more than an hour, a door was left open late, there's a water leak or smoke, or the homelab is down. Orange: the washer finished. Blue, breathing: it just started raining. Its normal glow: everything is fine, go to bed.](/images/blog/best-home-assistant-automations/nightlight.svg)
 
 I look at it more than any dashboard. A guest walking to the kitchen at midnight just sees a nightlight, and I can see the garage is still open without unlocking my phone. I keep it to three colors so I never have to look up what one means.
 

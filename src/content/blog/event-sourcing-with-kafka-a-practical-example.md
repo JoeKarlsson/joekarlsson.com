@@ -69,7 +69,7 @@ To scale with event sourcing, you use periodic snapshots that store state. Depen
 
 With snapshots, retrieving the current state becomes much simpler: You start with the snapshot and process all events since it was calculated, perfectly reconstructing state in a much more efficient manner.
 
-![Timeline showing event sourcing with snapshots, replaying four balance events from $100 to $75](/images/blog/event-sourcing-with-kafka-a-practical-example/image-1.webp)
+![Reading state from a snapshot: start from the last snapshot, a balance of $100, then replay only the events since it: +$20, -$15, +$5 and -$35. The current balance is $75.](/images/blog/event-sourcing-with-kafka-a-practical-example/snapshot-replay.svg)
 
 To make event sourcing scale, you take occasional snapshots of the current state, then perform a final aggregation when state is requested by an application. This reduces computational load while still providing up-to-the-second state.
 

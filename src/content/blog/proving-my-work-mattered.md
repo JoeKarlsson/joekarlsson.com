@@ -34,11 +34,11 @@ I described what I wanted in plain language. An AI agent handled the query const
 
 The first month of actually measuring impact was disorienting.
 
-![Horizontal bar chart showing percentage change over four weeks: docs traffic up 440%, search impressions up 316%, estimated traffic value up 99%, weekly visitors up 76%, organic traffic up 57%](/images/blog/proving-my-work-mattered/analytics-four-weeks.webp)
+![Percentage change over four weeks after I changed what I measured, at my previous job: docs traffic up 440%, search impressions up 316%, estimated traffic value up 99%, weekly visitors up 76% and organic traffic up 57%.](/images/blog/proving-my-work-mattered/four-weeks.svg)
 
 Docs traffic was up 440% over four weeks. Search impressions up 316%. One week hit 4.9x my previous all-time record for impressions. I wrote up [how I diagnosed the decline and set up the weekly audit behind those numbers](/blog/reversing-seo-traffic-decline-ai-overviews) separately.
 
-![Indexed bar chart comparing the prior all-time high for search impressions at 1.0x to the peak week at 4.9x](/images/blog/proving-my-work-mattered/impressions-indexed.webp)
+![Search impressions at my previous job, indexed to the prior all-time high: the prior record week is 1.0x and the peak week is 4.9x.](/images/blog/proving-my-work-mattered/impressions-indexed.svg)
 
 The reporting didn't cause this. What it did was show me what was working so I could do more of it. The data changed where I aimed effort. That changed the results.
 

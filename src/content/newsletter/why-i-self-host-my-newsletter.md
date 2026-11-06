@@ -27,11 +27,17 @@ But I don't have any paid subscribers, and I didn't want a second blog. My posts
 
 So I went with [listmonk](https://listmonk.app/). It's a mailing list manager written in Go, backed by Postgres, and it sends through any SMTP relay you point it at, including Brevo.
 
-![Comparison of Ghost and listmonk. Ghost is a whole publishing platform with a second blog inside it, sends only through Mailgun when self-hosted, has paid subscriptions through Stripe, and has a social web feature for following from Bluesky, Mastodon and Threads. listmonk is just the mailing list and the sending, keeps posts on joekarlsson.com, works with any SMTP relay like Brevo, and has no paid subscriptions or discovery.](/images/newsletter/why-i-self-host-my-newsletter/ghost-vs-listmonk.webp)
+|            | Ghost                                                   | listmonk                              |
+| ---------- | ------------------------------------------------------- | ------------------------------------- |
+| What it is | A whole publishing platform: blog, members, newsletters | Just the mailing list and the sending |
+| Posts      | A second blog, inside Ghost                             | Stay on joekarlsson.com               |
+| Sending    | Self-hosted: Mailgun only                               | Any SMTP relay, so my Brevo account   |
+| Paid subs  | Built in, through Stripe                                | None, and I have no paid subscribers  |
+| Discovery  | Social web: follow from Bluesky, Mastodon, Threads      | None                                  |
 
 ## How it's built
 
-![Architecture diagram of how this newsletter is delivered. A signup on joekarlsson.com goes through a Cloudflare Tunnel with CrowdSec, then Nginx Proxy Manager, to listmonk and Postgres in one LXC container on Proxmox, built by OpenTofu and backed up to Proxmox Backup Server. Subscribers came from a Substack CSV export, and the admin UI is reachable only from the home network. listmonk sends over SMTP through Brevo's free plan, shared with Joe's critical alerts and Plex newsletter, to your inbox, and replies come back to Joe.](/images/newsletter/why-i-self-host-my-newsletter/architecture.webp)
+![How this newsletter is delivered. The signup form on joekarlsson.com talks over HTTPS to a Cloudflare Tunnel with CrowdSec, which opens no ports at home and makes only the subscriber pages public. Inside the homelab on Proxmox, Nginx Proxy Manager answers the admin side with a 404 from the internet, and listmonk and Postgres run in one LXC container built by OpenTofu and backed up to Proxmox Backup Server. The 141 subscribers came in from a Substack CSV export, and the admin UI works only from the home network. listmonk sends over SMTP through Brevo's free plan, 300 emails a day shared with critical alerts and a Plex newsletter, to your inbox, where a reply comes straight to Joe.](/images/newsletter/why-i-self-host-my-newsletter/architecture.svg)
 
 I try to reduce my homelab's exposure to the outside world as much as humanly possible, so the newsletter doesn't open any ports on my home network. The signup form on joekarlsson.com posts to listmonk through a Cloudflare Tunnel. I already use Cloudflare for the rest of my homelab, so it was easy to expand that out to the newsletter. CrowdSec sits in front of the tunnel to block known bad traffic. Only the subscriber-facing pages are public, like subscribe, confirm, unsubscribe and the links inside each email.
 
@@ -54,6 +60,6 @@ Brevo's free plan sends 300 emails a day for my whole account, and that's shared
 - **Brevo's paid Starter plan**, which [starts at $9 a month](https://www.brevo.com/pricing/) for 5,000 emails a month, with no daily sending limit. I wouldn't have to change anything in listmonk.
 - **[Amazon SES](https://aws.amazon.com/ses/pricing/)**, at $0.10 per 1,000 emails on pay-as-you-go, or 3 cents an issue at 300 subscribers. Switching means a new SMTP login in listmonk and new DKIM records, and new SES accounts start in a sandbox until you ask AWS to let you send to real people.
 
-![Diagram of where this newsletter goes next. It moved from Substack, where TL;DR in Tech lived, with 141 subscribers exported as a CSV, to listmonk in Joe's homelab sending through Brevo's free plan for $0 extra a month, 300 emails a day shared with critical alerts and a Plex newsletter. Once the list nears 300, the undecided next step is either Brevo Starter at $9 a month for 5,000 emails with no daily limit, or Amazon SES at $0.10 per 1,000 emails, about 3 cents an issue, which needs a new SMTP login, DKIM records and leaving the sandbox.](/images/newsletter/why-i-self-host-my-newsletter/path-forward.webp)
+![Where this newsletter goes next. It left Substack, where TL;DR in Tech lived, in October 2026, bringing 141 subscribers as a CSV. Today it runs on listmonk in Joe's homelab sending through Brevo's free plan: $0 extra a month, 300 emails a day for the whole account, shared with critical alerts and a Plex newsletter. Once the list nears 300, the undecided next step is either Brevo Starter, $9 a month for 5,000 emails with no daily limit and no change in listmonk, or Amazon SES, $0.10 per 1,000 emails, about 3 cents an issue at 300, which needs a new SMTP login, new DKIM records and a way out of the SES sandbox.](/images/newsletter/why-i-self-host-my-newsletter/path-forward.svg)
 
 SES is cheaper, and Brevo doesn't need any changes. I don't know which one I'll pick yet. If you've sent a small list through SES or Brevo's paid plan, I'd like to hear which one you'd pick.

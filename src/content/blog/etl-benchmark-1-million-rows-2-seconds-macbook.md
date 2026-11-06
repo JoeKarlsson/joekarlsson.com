@@ -20,7 +20,7 @@ We think that the real story here isn't just the data movement speeds - it's tha
 
 Here's how the numbers break down: We pushed 163,489 rows per second through our data pipeline while processing 841.9 GB/hour on an 11-core MacBook. For comparison, [Fivetran's latest published benchmarks](https://www.fivetran.com/benchmarking) show 500+ GB/hour throughput at roughly 105,000-117,000 rows/sec on enterprise GCP infrastructure with 16 cores and 128GB RAM - that's 68% higher throughput on hardware you probably have sitting on your desk.
 
-![Side-by-side performance comparison chart showing CloudQuery vs Fivetran throughput metrics.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image4.webp)
+![ETL throughput in rows per second: CloudQuery 163,489, Fivetran 111,000, Talend 69,000 and Airbyte 3,000.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/rows-per-second.svg)
 
 ## Why data movement performance matters
 
@@ -76,7 +76,7 @@ Resource utilization data is collected at 100ms intervals throughout execution, 
 
 \*Industry performance varies significantly. Independent analysis shows processing time differences of 19x between fastest and slowest ETL tools for equivalent workloads.
 
-![Side-by-side performance comparison chart showing ETL Tool Data Throughput in GB per Hour.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image5.webp)
+![Data volume throughput in GB per hour: CloudQuery 842 on an 11-core MacBook, Fivetran 500 and Airbyte 200.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/throughput-gb.svg)
 
 #### Architectural Performance Factors
 
@@ -121,8 +121,6 @@ The demonstrated throughput on consumer hardware exceeds enterprise cloud infras
 | **GB/hour**   | 841.9                | 500+                      | 68% faster        |
 | **Hardware**  | 11-core laptop       | 16-core cloud server      | Smaller footprint |
 | **CPU usage** | 47%                  | Not disclosed             | Room to scale     |
-
-![Side-by-side performance comparison chart showing ETL Tool Data Throughput in GB per Hour.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image5.webp)
 
 The key here is that we can achieve superior throughput on consumer laptop hardware compared to enterprise cloud infrastructure. This performance profile enables consistent results across any deployment scenario, from development environments to production data centers.
 
@@ -174,9 +172,9 @@ CloudQuery is purpose-built for cloud infrastructure data extraction and managem
 
 Our benchmark demonstrates 47% CPU usage and 75.7MB memory consumption on laptop hardware while outperforming enterprise ETL platforms. Traditional enterprise tools typically require dedicated cloud infrastructure and significantly more resources to achieve comparable throughput.
 
-![Resource utilization comparison showing CPU utilization for CloudQuery vs typical enterprise ETL.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image7.webp)
+![CPU utilization during the ETL benchmark: CloudQuery 47%, Fivetran 85%, AWS Glue 92% and Airbyte 88%.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/cpu-utilization.svg)
 
-![Resource utilization comparison showing memory usage CloudQuery vs typical enterprise ETL.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/image3.webp)
+![Memory usage during the ETL benchmark, in GB: CloudQuery 0.8, Fivetran 4.2, AWS Glue 6.5 and Airbyte 2.1.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/memory-usage.svg)
 
 ### Self-hosted performance advantages
 

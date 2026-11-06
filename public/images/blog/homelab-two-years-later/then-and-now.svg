@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470" role="img" aria-label="The homelab in 2023 versus 2026. Servers: 1 Lenovo ThinkServer, then 2 Dell R730s. CPU: a quad-core Xeon E3, then 80 cores and 160 threads at about 13% busy. RAM: 32GB, then 256GB with about 72GB used. GPU: none, then 2 NVIDIA GPUs with 24GB of VRAM. Workloads: about 15 containers, then 73 containers and 1 VM. Network: flat with no VLANs, then 4 VLANs with 10G between hosts. Monitoring: none, then Prometheus, Loki and 185 health checks. Config: by hand, then every container in OpenTofu. Power: about 80W estimated, then about 430W average metered. Hardware: $200, then about $7,400. Power cost: about $105 a year, then about $565 a year.">
+<defs><filter id="homelab-two-years-later-then-and-now-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="510">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="470" fill="#000000"/>
+<g transform="rotate(-0.1 226 43)">
+<path class="d-paper" d="M126.9,15.5 L144.6,15.7 L160,15.2 L176.9,15.1 L193.5,17 L207.8,15.8 L222.7,15 L238.8,15.2 L255.3,14.5 L272.9,16.2 L287.6,15.2 L304.9,16.4 L319.9,15.2 L324.2,16 L324.6,32.8 L323.4,48.1 L322.7,63 L325.2,69.4 L307.3,69.4 L292.5,70 L276.2,69.5 L258.5,71.4 L242.8,70.8 L229.1,70.9 L211,70.6 L196.2,69 L180.3,70.7 L164.6,70.7 L148.3,68.7 L133.6,70.2 L126.4,70.9 L126.7,53.2 L127.4,37 L127.4,21.9 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="142" y="29.5" width="27" height="27" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+  <line x1="6" x2="6.01" y1="6" y2="6" />
+  <line x1="6" x2="6.01" y1="18" y2="18" /></g></svg>
+<text x="246.5" y="34.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="middle" dominant-baseline="central">2023</text>
+<text x="246.5" y="57.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">ThinkServer era</text>
+</g>
+<g transform="rotate(1.1 476 43)">
+<path class="d-paper" d="M327.1,15.6 L343.5,17 L361.2,15.7 L377.2,15.8 L393.6,14.9 L408.3,16.7 L423.3,15.1 L441.2,16.9 L457.6,15.4 L470.5,16.2 L487.8,16.9 L503.9,15.8 L521.5,16 L535.9,16 L551.5,17.4 L566.7,15.9 L585.2,16.9 L600.6,16.6 L617.3,14.6 L624.6,14.8 L625.6,32.9 L625.3,48.9 L625.3,63.8 L623.4,70.8 L607.3,71 L590.4,70.8 L574.7,69.8 L559.2,68.8 L545.2,70.9 L526.9,68.9 L511.7,70.8 L497.1,71.4 L479.5,71.2 L462.7,69.9 L447.1,68.6 L432.6,71 L415.3,68.6 L398.4,71.6 L383.9,71.2 L368.3,69.5 L353.2,70.3 L337.2,71.3 L327.1,71.4 L329.5,54.8 L328.2,39.4 L327.9,22.5 Z" fill="#ff4fd8"/>
+<svg x="342" y="29.5" width="27" height="27" viewBox="0 0 24 24"><g fill="#000000"><path d="M17.963 14.6V9.324h1.222v4.204h2.14v1.07h-3.362zm-9.784-3.288l2.98-2.292c.281.228.56.458.841.687l-2.827 2.14.611.535 2.827-2.216c.281.228.56.458.841.688a295.83 295.83 0 0 1-2.827 2.216l.61.536 2.83-2.295-.001-1.986h1.223v4.204h2.216v1.07h-3.362v-1.987c-.995.763-1.987 1.529-2.981 2.292l-2.981-2.292c-.144.729-.653 1.36-1.312 1.694-.285.147-.597.24-.915.276-.183.022-.367.017-.551.017H3.516V9.325H5.69a2.544 2.544 0 0 1 1.563.557c.454.36.778.872.927 1.43m-3.516-.917v3.21l.953-.001a1.377 1.377 0 0 0 1.036-.523 1.74 1.74 0 0 0 .182-1.889 1.494 1.494 0 0 0-.976-.766c-.166-.04-.338-.03-.507-.032h-.688zM11.82 0h.337a11.94 11.94 0 0 1 5.405 1.373 12.101 12.101 0 0 1 4.126 3.557A11.93 11.93 0 0 1 24 11.82v.36a11.963 11.963 0 0 1-3.236 8.033A11.967 11.967 0 0 1 12.182 24h-.361a11.993 11.993 0 0 1-4.145-.806 12.04 12.04 0 0 1-4.274-2.836A12.057 12.057 0 0 1 .576 15.67 12.006 12.006 0 0 1 0 12.181v-.361a11.924 11.924 0 0 1 1.992-6.396 12.211 12.211 0 0 1 4.71-4.172A11.875 11.875 0 0 1 11.82 0m-.153 1.23a10.724 10.724 0 0 0-6.43 2.375 10.78 10.78 0 0 0-3.319 4.573 10.858 10.858 0 0 0 .193 8.12 10.788 10.788 0 0 0 3.546 4.421 10.698 10.698 0 0 0 4.786 1.946c1.456.209 2.955.124 4.376-.26a10.756 10.756 0 0 0 5.075-3.062 10.742 10.742 0 0 0 2.686-5.28 10.915 10.915 0 0 0-.122-4.682 10.77 10.77 0 0 0-7.098-7.626 10.78 10.78 0 0 0-3.693-.525z"/></g></svg>
+<text x="496.5" y="34.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">2026</text>
+<text x="496.5" y="57.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">server rack era</text>
+</g>
+<path d="M16,81 L624,81" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="16" y="98" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Servers</text>
+<text x="136" y="98" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">1 Lenovo ThinkServer</text>
+<text x="336" y="98" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">2 Dell R730s</text>
+<text x="16" y="132" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">CPU</text>
+<text x="136" y="132" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Xeon E3 quad-core</text>
+<text x="336" y="132" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">80 cores, 160 threads, ~13% busy</text>
+<path d="M16,149 L624,149" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="16" y="166" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">RAM</text>
+<text x="136" y="166" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">32GB</text>
+<text x="336" y="166" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">256GB, ~72GB used</text>
+<text x="16" y="200" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">GPU</text>
+<text x="136" y="200" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">none</text>
+<text x="336" y="200" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">2 NVIDIA GPUs, 24GB VRAM</text>
+<path d="M16,217 L624,217" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="16" y="234" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Workloads</text>
+<text x="136" y="234" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">~15 containers</text>
+<text x="336" y="234" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">73 containers + 1 VM</text>
+<text x="16" y="268" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Network</text>
+<text x="136" y="268" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">flat, no VLANs</text>
+<text x="336" y="268" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">4 VLANs, 10G between hosts</text>
+<path d="M16,285 L624,285" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="16" y="302" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Monitoring</text>
+<text x="136" y="302" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">none</text>
+<text x="336" y="302" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">Prometheus, Loki, 185 checks</text>
+<text x="16" y="336" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Config</text>
+<text x="136" y="336" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">by hand</text>
+<text x="336" y="336" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">every container in OpenTofu</text>
+<path d="M16,353 L624,353" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="16" y="370" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Power draw</text>
+<text x="136" y="370" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">~80W (estimated)</text>
+<text x="336" y="370" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">~430W average (metered)</text>
+<text x="16" y="404" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Hardware</text>
+<text x="136" y="404" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">$200</text>
+<text x="336" y="404" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">~$7,400</text>
+<path d="M16,421 L624,421" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="16" y="438" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Power cost</text>
+<text x="136" y="438" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">~$105 a year</text>
+<text x="336" y="438" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central">~$565 a year</text>
+</svg>

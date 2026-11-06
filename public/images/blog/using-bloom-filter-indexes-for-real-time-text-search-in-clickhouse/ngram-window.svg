@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" width="640" height="330" role="img" aria-label="A 4-gram window sliding across &quot;Hello_world!&quot; one character at a time: Hell, ello, llo_, lo_w, and so on through orld and rld!. Each 4-character piece becomes its own entry in the index.">
+<defs><filter id="using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="370">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="330" fill="#000000"/>
+<text x="16" y="40" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central" xml:space="preserve">Hell</text>
+<text x="73.6" y="40" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#a3a3a3" text-anchor="start" dominant-baseline="central" xml:space="preserve">o_world!</text>
+<path d="M16,58 L73.6,58" fill="none" stroke="#ff4fd8" stroke-width="3" stroke-linecap="round"/>
+<g transform="rotate(-0.7 290.8 40)">
+<path class="d-paper" d="M243.6,17.1 L258.4,15.2 L274.3,16.2 L291.2,15 L307.5,14.9 L322,15.5 L339.2,15.2 L338.8,32 L339.9,49.5 L337.7,63.9 L323.4,65.5 L306.2,64.9 L291.8,63.2 L276,63.1 L257.6,62.5 L242,63.5 L241.5,46.5 L242.2,32.5 Z" fill="#ece6da"/>
+<text x="290.8" y="40" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Hell</text>
+</g>
+<text x="16" y="96" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#a3a3a3" text-anchor="start" dominant-baseline="central" xml:space="preserve">H</text>
+<text x="30.4" y="96" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central" xml:space="preserve">ello</text>
+<text x="88" y="96" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#a3a3a3" text-anchor="start" dominant-baseline="central" xml:space="preserve">_world!</text>
+<path d="M30.4,114 L88,114" fill="none" stroke="#ff4fd8" stroke-width="3" stroke-linecap="round"/>
+<g transform="rotate(0.6 290.8 96)">
+<path class="d-paper" d="M242.7,70.5 L258.7,70.6 L275.9,71 L292.2,71.6 L308.1,73.4 L322.3,71.1 L339.1,71 L338.4,87.1 L340.3,104.8 L338.2,119.1 L324,121.2 L307.4,119.3 L290.6,119.5 L276.1,120.7 L257.9,121.4 L243.4,121.3 L241.8,104.5 L241.6,88.5 Z" fill="#ece6da"/>
+<text x="290.8" y="96" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ello</text>
+</g>
+<text x="16" y="152" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#a3a3a3" text-anchor="start" dominant-baseline="central" xml:space="preserve">He</text>
+<text x="44.8" y="152" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central" xml:space="preserve">llo_</text>
+<text x="102.4" y="152" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#a3a3a3" text-anchor="start" dominant-baseline="central" xml:space="preserve">world!</text>
+<path d="M44.8,170 L102.4,170" fill="none" stroke="#ff4fd8" stroke-width="3" stroke-linecap="round"/>
+<g transform="rotate(-0.1 290.8 152)">
+<path class="d-paper" d="M242.7,127.8 L259.9,128.4 L275.5,127.2 L289.3,129.5 L306.9,127.2 L321.2,127.4 L338.8,128 L338,144.6 L337.6,159.5 L337.9,177.1 L322.1,177.3 L307.8,177 L290.4,174.6 L274.5,176.3 L259.3,175 L242,174.7 L244,161.3 L241.7,143 Z" fill="#ece6da"/>
+<text x="290.8" y="152" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">llo_</text>
+</g>
+<text x="16" y="208" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#a3a3a3" text-anchor="start" dominant-baseline="central" xml:space="preserve">Hel</text>
+<text x="59.2" y="208" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central" xml:space="preserve">lo_w</text>
+<text x="116.8" y="208" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#a3a3a3" text-anchor="start" dominant-baseline="central" xml:space="preserve">orld!</text>
+<path d="M59.2,226 L116.8,226" fill="none" stroke="#ff4fd8" stroke-width="3" stroke-linecap="round"/>
+<g transform="rotate(1.2 290.8 208)">
+<path class="d-paper" d="M243.1,182.5 L258.8,184.7 L274.7,185.2 L289.3,184.3 L305.2,184.4 L322.1,183.2 L340.3,185.3 L338.2,201.2 L337.5,215.6 L339.8,231.1 L323,231.6 L307.3,233 L292,230.5 L275.3,231.5 L258.3,232.1 L243.8,230.7 L242.2,216.8 L244,199.7 Z" fill="#ece6da"/>
+<text x="290.8" y="208" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">lo_w</text>
+</g>
+<text x="16" y="236" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">…</text>
+<text x="16" y="264" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#a3a3a3" text-anchor="start" dominant-baseline="central" xml:space="preserve">Hello_wo</text>
+<text x="131.2" y="264" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central" xml:space="preserve">rld!</text>
+<path d="M131.2,282 L188.8,282" fill="none" stroke="#ff4fd8" stroke-width="3" stroke-linecap="round"/>
+<g transform="rotate(-0.7 290.8 264)">
+<path class="d-paper" d="M241.9,241.5 L258.9,238.7 L274.7,239.8 L292,241.4 L307.3,239.9 L324.2,239.7 L339.3,239 L339.5,255 L338,271.3 L337.9,287.9 L322.2,287.5 L306.4,289 L289.2,287.2 L274.3,289.2 L259.9,288.3 L242,289.3 L242.4,270.5 L241.6,255.8 Z" fill="#ece6da"/>
+<text x="290.8" y="264" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="24" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">rld!</text>
+</g>
+<text x="16" y="316" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Window of 4, moving one character at a time</text>
+<g class="d-flow">
+<path d="M203.6,38.8 Q221.8,37.9 238.6,39.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+<path d="M229.8,46.4 L238.8,40 L229.8,33.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M202.2,95.5 Q220.5,94.9 239,95.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+<path d="M229.8,102.4 L238.8,96 L229.8,89.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M204,152.7 Q221.9,152.1 239.9,152.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+<path d="M229.8,158.4 L238.8,152 L229.8,145.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M202,208.9 Q219.8,207.8 238.3,207.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+<path d="M229.8,214.4 L238.8,208 L229.8,201.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M202.7,263.1 Q219.9,262.5 239.6,264.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+<path d="M229.8,270.4 L238.8,264 L229.8,257.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse-ngram-window-desktop-crayon)"/>
+</g>
+</svg>
