@@ -72,7 +72,7 @@ Resource utilization data is collected at 100ms intervals throughout execution, 
 | **Rows/sec**  | 163,489              | 50,000-111,000        | 11-core M3 processor |
 | **GB/hour**   | 841.9                | 500+ (verified)       | Consumer hardware    |
 | **CPU usage** | 47%                  | Not disclosed         | Headroom available   |
-| **Memory**    | 12GB peak            | Unknown               | 33% of available     |
+| **Memory**    | 75.7MB peak          | Unknown               | CloudQuery process   |
 
 \*Industry performance varies significantly. Independent analysis shows processing time differences of 19x between fastest and slowest ETL tools for equivalent workloads.
 
@@ -171,10 +171,6 @@ CloudQuery is purpose-built for cloud infrastructure data extraction and managem
 ### Resource efficiency
 
 Our benchmark demonstrates 47% CPU usage and 75.7MB memory consumption on laptop hardware while outperforming enterprise ETL platforms. Traditional enterprise tools typically require dedicated cloud infrastructure and significantly more resources to achieve comparable throughput.
-
-![CPU utilization during the ETL benchmark: CloudQuery 47%, Fivetran 85%, AWS Glue 92% and Airbyte 88%.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/cpu-utilization.svg)
-
-![Memory usage during the ETL benchmark, in GB: CloudQuery 0.8, Fivetran 4.2, AWS Glue 6.5 and Airbyte 2.1.](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/memory-usage.svg)
 
 ### Self-hosted performance advantages
 

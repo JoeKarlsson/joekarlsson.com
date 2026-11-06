@@ -73,7 +73,7 @@ By evaluating databases based on these characteristics, you can better determine
 
 ## Can MongoDB be used for Real-Time Analytics?
 
-![MongoDB official website homepage in a browser window](/images/blog/real-time-databases-what-developers-need-to-know/image-17.webp)
+![MongoDB official website homepage in a browser window](/images/blog/real-time-databases-what-developers-need-to-know/mongodb-homepage.webp)
 
 MongoDB is a popular NoSQL database that has some usefulness for real-time applications.
 
@@ -107,7 +107,7 @@ While MongoDB has its advantages for real-time data processing, certain characte
 
 ## Can PostgreSQL be used for Real-Time Analytics?
 
-![PostgreSQL official website homepage in a browser window](/images/blog/real-time-databases-what-developers-need-to-know/image-17.webp)
+![PostgreSQL official website homepage in a browser window](/images/blog/real-time-databases-what-developers-need-to-know/postgresql-homepage.webp)
 
 PostgreSQL is a popular RDBMS that can be great for starters but is not suited for the scale of most real-time applications
 
@@ -139,7 +139,7 @@ Despite its advantages, PostgreSQL is limited as a real-time database:
 
 ## Can Tinybird be used for Real-Time Analytics?
 
-![Tinybird real-time data platform homepage in a browser window](/images/blog/real-time-databases-what-developers-need-to-know/image-17.webp)
+![Tinybird real-time data platform homepage in a browser window](/images/blog/real-time-databases-what-developers-need-to-know/tinybird-homepage.webp)
 
 Tinybird is a popular real-time data platform built on top of open source technology.
 
@@ -209,7 +209,17 @@ You can refer to the table below for a high-level comparison of various database
 
 > Note: This table is meant as a high-level reference to compare these databases. Actual feature coverage will depend on specific use case and implementation.
 
-![Comparison table of various real-time databases](/images/blog/real-time-databases-what-developers-need-to-know/image-17.webp)
+| Feature                                    | MongoDB | Tinybird | PostgreSQL | ClickHouse | Snowflake | Pinot | Druid |
+| ------------------------------------------ | ------- | -------- | ---------- | ---------- | --------- | ----- | ----- |
+| Scalability                                | Yes     | Yes      | No         | Yes        | Yes       | Yes   | Yes   |
+| Event-driven data ingestion and processing | Limited | Yes      | Limited    | Yes        | Yes       | Yes   | Yes   |
+| Support for complex analytics queries      | Limited | Yes      | Yes        | Yes        | Yes       | Yes   | Yes   |
+| Data warehousing and OLAP workloads        | No      | Yes      | No         | Yes        | Yes       | Yes   | Yes   |
+| Supports SQL                               | Limited | Yes      | Yes        | Yes        | Yes       | Yes   | Yes   |
+| Enables sharing of insights                | Limited | Yes      | No         | No         | No        | No    | No    |
+| Easy to set up                             | Yes     | Yes      | Yes        | No         | Yes       | No    | No    |
+| Easy to maintain                           | No      | Yes      | No         | No         | Yes       | Yes   | No    |
+| DBaaS free tier                            | Yes     | Yes      | No         | No         | No        | No    | No    |
 
 Comparing various real-time databases
 

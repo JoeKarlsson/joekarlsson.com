@@ -233,6 +233,8 @@ To understand the tradeoff of storing the Bloom filter, this chart shows how muc
 | ngrambf_v1(4, 4096, 1, 0) |              778.4 MB |               0.195x |
 | ngrambf_v1(4, 8192, 1, 0) |            1,280.0 MB |               0.321x |
 
+> Note: two numbers here differ from the original tables, which had typos. `ngrambf_v1(4, 4096, 1, 0)` speeds the query up 46.3x (11.11 s / 0.240 s), not 49.3x, and the `ngrambf_v1(4, 1024, 1, 0)` index is 247.8 MB, not 2477.5 MB, which matches its 0.062x share of the column.
+
 ### Our conclusions from this performance test
 
 _tl;dr: Bloom filters significantly boost ClickHouse’s search efficiency for uncommon terms, as shown in our tests of log data. While a Bloom filter speeds up query times and reduces the amount of data scanned, it also increases storage needs. We found that optimal configuration depends on balancing performance enhancement and storage cost for each use case._
