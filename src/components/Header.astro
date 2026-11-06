@@ -16,10 +16,10 @@ function isActive(href: string, also: string[] = []): boolean {
 <!--
 	One row, always. Spacing is in em, so the whole bar scales with its type: from md
 	up the type shrinks until the bar (about 33.5em wide) fits the window.
-	Phones: the bar runs the full width, the name on the left and a pink MENU on the
+	Phones: the bar runs the full width, the JK logo on the left and a pink MENU on the
 	right under the thumb, both 44px tall. MENU drops the section links below the bar,
 	with Pause motion as the last row. On a post, once its title scrolls under the bar,
-	the name shrinks to JK and the middle shows where you are (reading-context.ts).
+	the middle shows where you are (reading-context.ts).
 -->
 <!-- order-first: on phones the bar sits above a page's hero (BaseLayout's hero slot), so
 the menu is the first thing on screen; from md up the homepage hero comes first -->
@@ -35,11 +35,65 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			aria-label="Joe Karlsson"
 			class:list={[
 				'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline max-md:flex max-md:min-h-11 max-md:min-w-11 max-md:items-center max-md:justify-center',
-				currentPath === '/' ? 'bg-pink text-ink' : 'bg-ink text-paper hover:text-pink',
+				currentPath === '/'
+					? 'bg-pink text-ink [--logo-fill:#000]'
+					: 'bg-ink text-paper [--logo-fill:#ff4fd8]',
 			]}
 		>
-			<span class="name-full">Joe Karlsson</span>
-			<span class="name-short hidden">JK</span>
+			<!-- The off-register logo: pink letters, with a wobbling outline (currentColor)
+			knocked up and left like a misprint. Full name from md up, JK on phones -->
+			<svg
+				viewBox="0 0 580 110"
+				width="5.8em"
+				height="1.1em"
+				class="overflow-visible max-md:hidden"
+				aria-hidden="true"
+			>
+				<text x="290" y="98" text-anchor="middle" font-size="104" fill="var(--logo-fill)">
+					JOE KARLSSON
+				</text>
+				<text
+					x="290"
+					y="98"
+					text-anchor="middle"
+					font-size="104"
+					class="logo-outline"
+					filter="url(#warble-1)"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="4"
+					stroke-linejoin="round"
+					transform="translate(-5 -4)"
+				>
+					JOE KARLSSON
+				</text>
+			</svg>
+			<svg
+				viewBox="0 0 120 110"
+				width="1.75em"
+				height="1.6em"
+				class="overflow-visible md:hidden"
+				aria-hidden="true"
+			>
+				<text x="60" y="100" text-anchor="middle" font-size="104" fill="var(--logo-fill)">
+					JK
+				</text>
+				<text
+					x="60"
+					y="100"
+					text-anchor="middle"
+					font-size="104"
+					class="logo-outline"
+					filter="url(#warble-1)"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="3"
+					stroke-linejoin="round"
+					transform="translate(-5 -4)"
+				>
+					JK
+				</text>
+			</svg>
 		</a>
 		<!-- Phones, on a post: the category, minutes left and title (reading-context.ts). It
 		repeats the page's own heading, so screen readers skip it -->
@@ -150,12 +204,6 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 	   scoping repeats a data-astro-cid attribute in every selector */
 	@media (width < 48rem) {
 		/* On a post, once its title is under the bar (reading-context.ts) */
-		nav[data-context-on] .name-full {
-			display: none;
-		}
-		nav[data-context-on] .name-short {
-			display: inline;
-		}
 		nav[data-context-on] .reading-context {
 			display: flex;
 		}
