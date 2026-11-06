@@ -78,6 +78,20 @@ test.describe('Phone layout', () => {
 		}
 	});
 
+	test('short page titles are no bigger than ABOUT', async ({ page }) => {
+		const titleSize = async (path: string) => {
+			await page.goto(path);
+			return page
+				.locator('main header h1')
+				.evaluate((h1) => parseFloat(getComputedStyle(h1).fontSize));
+		};
+		const about = await titleSize('/about/');
+		for (const path of ['/uses/', '/blog/', '/talk-archive/', '/work/', '/newsletter/']) {
+			expect(await titleSize(path), path).toBeLessThanOrEqual(about + 0.5);
+		}
+		expect(await titleSize('/uses/')).toBeCloseTo(about, 0);
+	});
+
 	test('no ticker bands show on phones', async ({ page }) => {
 		for (const path of ['/', '/blog/', '/about/', '/work/']) {
 			await page.goto(path);

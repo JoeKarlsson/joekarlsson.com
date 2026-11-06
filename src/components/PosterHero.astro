@@ -58,9 +58,11 @@ const { title, wordRatio, tickerItems, decorativeMedia = false } = Astro.props;
 			<div class="relative z-10">
 				<slot />
 			</div>
+			<!-- The title fills the panel's width, but no title gets bigger than ABOUT's (ratio
+			2.4): short words like USES and BLOG would otherwise tower over every other page -->
 			<div class="@container">
 				<h1
-					class="relative font-display text-[calc(100cqw/var(--word-ratio))] leading-[0.84] font-normal whitespace-nowrap text-paper uppercase"
+					class="relative font-display text-[calc(100cqw/max(var(--word-ratio),2.4))] leading-[0.84] font-normal whitespace-nowrap text-paper uppercase"
 					style={`--word-ratio:${wordRatio}`}
 				>
 					{title}
