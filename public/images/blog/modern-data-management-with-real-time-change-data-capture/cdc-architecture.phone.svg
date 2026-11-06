@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 600" width="360" height="600" role="img" aria-label="Change data capture: users act through a backend API, which writes to the database. The database records every change in its transaction log, a CDC tool watches that log, and it writes each change as an event to a message queue like Kafka.">
+<defs><filter id="modern-data-management-with-real-time-change-data-capture-cdc-architecture-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="640">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="600" fill="#000000"/>
+<g transform="rotate(-0.7 180 44)">
+<path class="d-paper" d="M89.5,16.5 L104.6,16.5 L122,17 L137.9,17.4 L153.4,17.3 L170.1,17.4 L187.3,14.4 L203.3,16.8 L217.3,15.9 L234,16.7 L249.4,14.6 L265.1,14.6 L271.3,16.4 L269.8,32.7 L271.2,47.5 L271.1,63.9 L271,72.3 L253.5,72.7 L238.5,72.8 L220.6,70.9 L205.8,72.5 L189.6,71.5 L175.5,72.9 L157.4,70.7 L141.6,73.3 L126.6,73.4 L111.5,73.3 L94.3,71.6 L91.4,71.6 L90.7,55.1 L90.1,40.8 L89.7,24.4 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="104" y="30" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <circle cx="9" cy="7" r="4" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <path d="M16 3.13a4 4 0 0 1 0 7.75" /></g></svg>
+<text x="201" y="44" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">USERS</text>
+</g>
+<text x="194" y="91" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">actions</text>
+<g transform="rotate(0.9 180 138)">
+<path class="d-paper" d="M89.9,109.9 L106.3,110.2 L121.6,111.3 L139,108.9 L155.5,109.7 L169.5,108.7 L187.4,109.6 L201.2,109.4 L217.5,109.1 L235.1,109.5 L251.1,111.3 L267.3,109.6 L269.7,109.8 L270.1,125.3 L270.4,141.9 L269.9,158.4 L270.2,164.6 L253.3,167 L238.2,164.8 L220.9,165.9 L205.1,165.4 L191.4,167.5 L173.9,164.7 L157.3,165.4 L143.5,166.4 L126.9,166.8 L110.4,165.1 L92.9,164.9 L89,164.4 L88.8,151.5 L89.9,134.7 L88.4,119.1 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="104" y="124" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5" />
+  <path d="M9 8V2" />
+  <path d="M15 8V2" />
+  <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></g></svg>
+<text x="201" y="138" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">BACKEND API</text>
+</g>
+<text x="194" y="185" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">write</text>
+<g transform="rotate(0.9 180 239)">
+<path class="d-paper" d="M69.8,203.1 L85.4,205.5 L100.4,203.1 L117.2,204.2 L132.9,203.7 L150.8,204.4 L165.4,205.5 L183.1,205.1 L197.3,205.4 L213,204.7 L229.2,203.9 L246.2,203.6 L262.7,203.9 L279,205.6 L288.7,205.4 L291,218.6 L290.1,234.7 L288.5,250.7 L289.6,268.6 L290.2,273.5 L272.9,275.5 L256.8,274.4 L241.5,274.7 L225,273.4 L210.3,273.4 L192.4,273.4 L177.2,274.9 L162.8,273 L145,273.7 L129.7,272.5 L113.4,273.1 L98.3,275.2 L81.6,274.1 L69.6,273 L70.7,257.5 L69.4,241.2 L69.4,224.5 L68.6,211 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="84" y="225" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" />
+  <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+  <path d="M3 12A9 3 0 0 0 21 12" /></g></svg>
+<text x="201" y="230.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">DATABASE</text>
+<text x="201" y="250.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">transaction log</text>
+</g>
+<text x="194" y="330" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">reads the log</text>
+<g transform="rotate(0.7 180 420)">
+<path class="d-paper" d="M88.9,388.1 L106.1,388.3 L122.6,388.9 L137.3,388.1 L154.9,389.4 L168.5,387.6 L185.6,389 L203.2,388.3 L217.5,386.7 L233.9,387.5 L250,387.3 L265.2,388.6 L271.5,386.6 L270.5,402.5 L268.7,421 L270.7,435 L270.8,451 L255,450.5 L238.3,453.1 L221.9,453.5 L206.5,451.9 L191.2,450.4 L174.9,453.2 L156.8,451.3 L140.6,453.6 L125.4,450.8 L110.9,452.1 L93.3,453.4 L90.2,450.9 L89.9,436.9 L89,419.5 L89.1,403 Z" fill="#ff4fd8"/>
+<svg x="104" y="406" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+  <circle cx="12" cy="12" r="3" /></g></svg>
+<text x="201" y="420" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">CDC TOOL</text>
+</g>
+<text x="194" y="476" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">writes events</text>
+<g transform="rotate(0 180 532)">
+<path class="d-paper" d="M69.6,501 L85.3,500.7 L101.7,498.9 L119.1,501.3 L133.3,501.4 L149.7,501.5 L166.6,499.5 L180.9,501.6 L198.6,501.5 L214.5,501.3 L230.6,500.5 L245,499.4 L260.8,500.7 L279.5,499.4 L288.8,501.1 L288.8,514.7 L289.1,531.1 L290.9,549.2 L290.4,564.8 L272.8,564 L259.3,565.5 L242.9,563.7 L226.4,565.3 L211.4,563.6 L194,563.2 L178.4,564.6 L162.3,565.3 L144.9,565.1 L130.5,563.9 L113.9,562.5 L98,563 L81.8,562.6 L70.7,564.1 L69.4,546.7 L70.8,532.8 L69.6,516.9 Z" fill="#ece6da"/>
+<svg x="84" y="518" width="28" height="28" viewBox="0 0 24 24"><g fill="#231F20"><path d="M9.71 2.136a1.43 1.43 0 0 0-2.047 0h-.007a1.48 1.48 0 0 0-.421 1.042c0 .41.161.777.422 1.039l.007.007c.257.264.616.426 1.019.426.404 0 .766-.162 1.027-.426l.003-.007c.261-.262.421-.629.421-1.039 0-.408-.159-.777-.421-1.042H9.71zM8.683 22.295c.404 0 .766-.167 1.027-.429l.003-.008c.261-.261.421-.631.421-1.036 0-.41-.159-.778-.421-1.044H9.71a1.42 1.42 0 0 0-1.027-.432 1.4 1.4 0 0 0-1.02.432h-.007c-.26.266-.422.634-.422 1.044 0 .406.161.775.422 1.036l.007.008c.258.262.617.429 1.02.429zm7.89-4.462c.359-.096.683-.33.882-.684l.027-.052a1.47 1.47 0 0 0 .114-1.067 1.454 1.454 0 0 0-.675-.896l-.021-.014a1.425 1.425 0 0 0-1.078-.132c-.36.091-.684.335-.881.686-.2.349-.241.75-.146 1.119.099.363.33.691.675.896h.002c.346.203.737.239 1.101.144zm-6.405-7.342a2.083 2.083 0 0 0-1.485-.627c-.58 0-1.103.242-1.482.627-.378.385-.612.916-.612 1.507s.233 1.124.612 1.514a2.08 2.08 0 0 0 2.967 0c.379-.39.612-.923.612-1.514s-.233-1.122-.612-1.507zm-.835-2.51c.843.141 1.6.552 2.178 1.144h.004c.092.093.182.196.265.299l1.446-.851a3.176 3.176 0 0 1-.047-1.808 3.149 3.149 0 0 1 1.456-1.926l.025-.016a3.062 3.062 0 0 1 2.345-.306c.77.21 1.465.721 1.898 1.482v.002c.431.757.518 1.626.313 2.408a3.145 3.145 0 0 1-1.456 1.928l-.198.118h-.02a3.095 3.095 0 0 1-2.154.201 3.127 3.127 0 0 1-1.514-.944l-1.444.848a4.162 4.162 0 0 1 0 2.879l1.444.846c.413-.47.939-.789 1.514-.944a3.041 3.041 0 0 1 2.371.319l.048.023v.002a3.17 3.17 0 0 1 1.408 1.906 3.215 3.215 0 0 1-.313 2.405l-.026.053-.003-.005a3.147 3.147 0 0 1-1.867 1.436 3.096 3.096 0 0 1-2.371-.318v-.006a3.156 3.156 0 0 1-1.456-1.927 3.175 3.175 0 0 1 .047-1.805l-1.446-.848a3.905 3.905 0 0 1-.265.294l-.004.005a3.938 3.938 0 0 1-2.178 1.138v1.699a3.09 3.09 0 0 1 1.56.862l.002.004c.565.572.914 1.368.914 2.243 0 .873-.35 1.664-.914 2.239l-.002.009a3.1 3.1 0 0 1-2.21.931 3.1 3.1 0 0 1-2.206-.93h-.002v-.009a3.186 3.186 0 0 1-.916-2.239c0-.875.35-1.672.916-2.243v-.004h.002a3.1 3.1 0 0 1 1.558-.862v-1.699a3.926 3.926 0 0 1-2.176-1.138l-.006-.005a4.098 4.098 0 0 1-1.173-2.874c0-1.122.452-2.136 1.173-2.872h.006a3.947 3.947 0 0 1 2.176-1.144V6.289a3.137 3.137 0 0 1-1.558-.864h-.002v-.004a3.192 3.192 0 0 1-.916-2.243c0-.871.35-1.669.916-2.243l.002-.002A3.084 3.084 0 0 1 8.683 0c.861 0 1.641.355 2.21.932v.002h.002c.565.574.914 1.372.914 2.243 0 .876-.35 1.667-.914 2.243l-.002.005a3.142 3.142 0 0 1-1.56.864v1.692zm8.121-1.129l-.012-.019a1.452 1.452 0 0 0-.87-.668 1.43 1.43 0 0 0-1.103.146h.002c-.347.2-.58.529-.677.896-.095.365-.054.768.146 1.119l.007.009c.2.347.519.579.874.673.357.103.755.059 1.098-.144l.019-.009a1.47 1.47 0 0 0 .657-.885 1.493 1.493 0 0 0-.141-1.118"/></g></svg>
+<text x="201" y="532" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">MESSAGE QUEUE</text>
+</g>
+<g class="d-flow">
+<path d="M181,73 Q180.9,90.8 179.9,108" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#modern-data-management-with-real-time-change-data-capture-cdc-architecture-phone-crayon)"/>
+<path d="M173.6,99 L180,108 L186.4,99" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#modern-data-management-with-real-time-change-data-capture-cdc-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.2,168.7 Q180.3,185 178.6,202.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#modern-data-management-with-real-time-change-data-capture-cdc-architecture-phone-crayon)"/>
+<path d="M173.6,193 L180,202 L186.4,193" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#modern-data-management-with-real-time-change-data-capture-cdc-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.1,274.7 Q178.5,331.3 180.6,387.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#modern-data-management-with-real-time-change-data-capture-cdc-architecture-phone-crayon)"/>
+<path d="M173.6,377 L180,386 L186.4,377" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#modern-data-management-with-real-time-change-data-capture-cdc-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M181.3,454.6 Q179.2,476 179.9,498.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#modern-data-management-with-real-time-change-data-capture-cdc-architecture-phone-crayon)"/>
+<path d="M173.6,489 L180,498 L186.4,489" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#modern-data-management-with-real-time-change-data-capture-cdc-architecture-phone-crayon)"/>
+</g>
+</svg>

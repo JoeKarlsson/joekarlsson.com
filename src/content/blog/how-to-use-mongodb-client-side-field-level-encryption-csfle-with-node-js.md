@@ -25,7 +25,7 @@ In addition to CSFLE, there are some incredible security features that come pack
 
 This is a list of MongoDB security features offered and the potential security vulnerabilities that they address:
 
-![Diagram that describes MongoDB security features and the potential vulnerabilities that they address](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/6c4bc139ff54d83316e608db99294d294b35ac57-2-1024x588.webp)_Diagram that describes MongoDB security features and the potential vulnerabilities that they address_
+![Which MongoDB security feature stops which attack. Role-based access control stops database privilege abuse, such as stolen credentials. TLS/SSL transport encryption stops network snooping, such as packet sniffing. Encryption at rest stops data theft, such as stolen disks. Client-side field level encryption (CSFLE) stops all four, including reading the database host's memory, because sensitive fields stay encrypted on the host and in transit and only the client holds the keys.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/security-features.svg)
 
 Client-side Field Level Encryption allows the engineers to specify the fields of a document that should be kept encrypted. Sensitive data is transparently encrypted/decrypted by the client and only communicated to and from the server in encrypted form. This mechanism keeps the specified data fields secure in encrypted form on both the server and the network. While all clients have access to the non-sensitive data fields, only appropriately-configured CSFLE clients are able to read and write the sensitive data fields.
 
@@ -103,7 +103,7 @@ npm install -S mongodb mongodb-client-encryption node-gyp
 
 MongoDB Client-Side Field Level Encryption (CSFLE) uses an encryption strategy called envelope encryption in which keys used to encrypt/decrypt data (called data encryption keys) are encrypted with another key (called the master key). The following diagram shows how the **master key** is created and stored:
 
-![Diagram that describes creating the master key when using a local provider](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/a0c69a9e26ac00f04dbe40931477d1c9f80b7a8f-1.webp)_Diagram that describes creating the master key when using a local provider_
+![Setting up the master key with a local provider: the client application creates the master key and stores it in a local key provider, such as the local filesystem.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/master-key.svg)
 
 > Warning
 
@@ -364,7 +364,7 @@ We now have a CSFLE-enabled client and we can test that the client can perform q
 
 The following diagram shows the steps taken by the client application and driver to perform a write of field-level encrypted data:
 
-![Diagram that shows the data flow for a write of field-level encrypted data](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/04338bc6b3425fb70d9419040bec6e4602b0d447-1-1024x593.webp)_Diagram that shows the data flow for a write of field-level encrypted data_
+![Writing encrypted field data, in order: the client application reads the automatic encryption configuration (a JSON Schema), mongocryptd validates the encryption commands, the client fetches the data encryption keys from the key vault collection, the KMS provider decrypts those keys, and the client writes the encrypted document to the MongoDB data collection.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/write-encrypted.svg)
 
 We need to write a function in our clients.js to create a new patient record with the following **code snippet**:
 
@@ -444,7 +444,7 @@ main().catch(console.dir);
 
 The following diagram shows the steps taken by the client application and driver to query and decrypt field-level encrypted data:
 
-![Diagram showing how MongoDB queries encrypted fields.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/a5e5b95b1b5d085159e5b8451e119959da845696-1-1024x871.webp)_Diagram showing how MongoDB queries encrypted fields._
+![Reading encrypted fields, in order: mongocryptd validates the query against the automatic encryption configuration (a JSON Schema), the client queries the MongoDB data collection and gets back results with encrypted fields, fetches the data encryption keys from the key vault collection, has the KMS provider decrypt those keys, and then decrypts the fields itself with the data keys.](/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/read-encrypted.svg)
 
 We can run queries on documents with encrypted fields using standard MongoDB driver methods. When a doctor performs a query in the Medical Care Management System to search for a patient by their SSN, the driver decrypts the patient’s data before returning it:
 

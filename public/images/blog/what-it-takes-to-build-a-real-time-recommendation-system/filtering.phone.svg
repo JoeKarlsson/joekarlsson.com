@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 720" width="360" height="720" role="img" aria-label="Content-based versus collaborative filtering. Content-based: a user consumes content, the recommendation system finds similar content, and recommends it back to the same user. Collaborative: similar users consume content, the recommendation system sees what they enjoyed, and recommends that content to the user.">
+<defs><filter id="what-it-takes-to-build-a-real-time-recommendation-system-filtering-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="760">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="720" fill="#000000"/>
+<path class="d-paper" d="M9.1,35.9 L22.7,36.2 L39.9,35.6 L54.5,36.1 L71.4,37.4 L87.9,37.4 L104.3,35.6 L121.3,35.5 L135,34.8 L152.6,35.5 L169.5,36.8 L183.4,34.7 L201.2,34.7 L217.3,34.5 L231.4,34.8 L248.8,34.6 L264,34.6 L279.9,34.8 L296.1,35.7 L313.6,36.9 L328.2,36.1 L344.4,35.7 L350.4,35.4 L350.8,51.1 L351.6,69.6 L353.5,84.2 L353.3,98.5 L352.7,115.3 L352.8,133 L351.6,147.5 L352.3,164.1 L350.6,180.9 L352.5,195.3 L352.3,212.1 L350.6,228 L352.2,243.3 L350.5,259.8 L351.1,277.3 L352.3,292 L353.3,309.2 L352.2,324.3 L351.6,336 L335.1,336.3 L320.7,336.4 L304.2,336.9 L289.5,335.6 L271.8,337.2 L256.9,337.4 L241.1,337.2 L223.6,336.4 L209.4,337.3 L193.3,336.7 L177.1,336.8 L161.2,336.2 L143.5,337.2 L127.2,334.9 L112.4,334.5 L95.7,335.5 L78.8,336.3 L62.8,336.9 L49.5,336.7 L30.8,337.5 L15.9,335.4 L8.9,336.6 L8.6,320.9 L7.7,303.8 L7.1,287.3 L6.6,271.2 L8.5,255.2 L7.7,239.5 L9.5,223.2 L7.7,206.4 L7.6,192.1 L7,176.3 L6.8,160.6 L8.7,145.6 L7,126.5 L7.9,112.8 L6.5,97.2 L7.3,79.1 L8.9,62.7 L9.2,47.8 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M7.4,14.7 L25.5,14.6 L40.5,14 L56.8,12.6 L70.4,13.6 L86.9,13.7 L104.6,14.4 L120.1,12.6 L137.5,15.5 L136.6,12.7 L139,31 L138.8,37 L121.3,38.4 L104.3,39.1 L90.7,37.1 L74.3,37.4 L59.1,38.9 L41.7,37.6 L25.9,38.4 L11.3,37.7 L8.7,36.6 L8.3,21.7 Z" fill="#2a2a2a"/>
+<text x="20" y="27" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">CONTENT-BASED</text>
+<path class="d-paper" d="M8.2,376.4 L22.9,376.9 L39.6,376.5 L57.2,377.2 L72.4,375.9 L89.2,376.4 L105.3,376.3 L118.9,377.2 L136,376.4 L153.2,376.3 L168.4,375.5 L184.8,375.7 L200.7,375.4 L215.5,375 L233,374.9 L246.5,376.6 L264.7,376.9 L279.7,374.5 L297.2,375.2 L310.4,375.3 L328.1,376.3 L342.8,375.1 L350.5,375.5 L352.8,392.9 L352.1,409 L350.6,423 L352.4,438.5 L353,455.3 L351.8,472 L353,486.7 L351.9,504.2 L351.3,519.3 L353.1,534.6 L351.6,553.2 L353.5,568 L353.1,582.9 L353.4,600.4 L350.9,616.7 L353.4,632 L352.1,647.7 L351.8,664.5 L350.4,675 L335,674.4 L319.2,674.9 L302.7,676.4 L289.2,677.5 L271.6,675.3 L255.3,675.6 L239.1,676.1 L223.8,674.6 L209.4,675.1 L191.5,676.6 L176.9,676.5 L159.8,676 L143.8,675.9 L129.1,676.6 L112.4,675.7 L97.2,677 L79.9,675.6 L63.9,676.9 L46.7,674.9 L33.5,677.4 L15.9,675 L9.6,676.8 L9.3,658.5 L6.4,644.7 L6.8,627.2 L8.7,612.6 L7.9,594.6 L9.4,581.1 L6.5,562.9 L8.7,548.3 L7.5,530.6 L8.9,516.3 L8.2,499.1 L9.4,484 L7,469.1 L9.6,453.5 L7,436.7 L6.6,419.2 L8.8,403.2 L7.5,387.6 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M6.5,353.8 L23.4,354.4 L40.3,354 L57.4,355.5 L72.9,352.4 L89.3,353.6 L104.5,353.6 L120.8,354.1 L136.8,354.6 L137.6,353.7 L137.7,370.6 L137.2,379.3 L122.4,379.1 L107,379.1 L90.1,378 L74.7,379.3 L56.9,378.5 L42.7,378.3 L25,379 L9.2,379.3 L7.2,379.4 L9.3,361.4 Z" fill="#2a2a2a"/>
+<text x="20" y="367" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">COLLABORATIVE</text>
+<g transform="rotate(0 180 82)">
+<path class="d-paper" d="M29.5,57 L45.4,56.6 L61.4,57 L75.9,55 L93.1,57.3 L108.4,55 L124,57.5 L141.3,55.3 L156.4,55.1 L170.9,57 L188.1,55 L203.3,55.9 L220.2,55.2 L236.9,54.9 L253.4,54.9 L267.1,56.4 L284,54.8 L300.7,56.3 L316.5,55.1 L330.8,57.3 L332.6,73.4 L330.9,87.5 L331.7,104.4 L333,109.6 L314.8,108.6 L299.7,107.3 L283.7,109 L269.4,107.1 L253.3,109.6 L236.1,106.7 L220.7,109 L205.6,106.5 L187.3,107 L171,107.1 L156.1,108.4 L140.4,107.2 L124,109.6 L108.8,107.1 L91.3,109 L74.9,108.2 L60.4,109.1 L44.8,108.8 L27.5,108.9 L27.7,90.5 L26.5,76.5 L28.9,58.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="42" y="69" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+  <circle cx="12" cy="7" r="4" /></g></svg>
+<text x="200" y="82" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">YOU</text>
+</g>
+<text x="192" y="123" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">consumes</text>
+<g transform="rotate(0.1 180 164)">
+<path class="d-paper" d="M27.7,138 L43.2,136.7 L61.4,137.1 L75.8,137 L93.5,139.3 L108.8,137.9 L124.6,137.4 L138.8,137.2 L157.3,138.8 L172.1,137.7 L188.5,139.2 L205.4,137.9 L220.3,137.2 L237,139.2 L251.8,136.6 L267.9,137 L283.2,139.2 L298.9,137.3 L315.3,137.9 L332.6,136.8 L332.4,152.6 L330.5,169.8 L330.7,186 L332.2,189.5 L316.8,189.8 L299.4,188.9 L283.6,189 L268.1,189.5 L252.3,188.6 L237.2,191.1 L219.5,189.2 L203.4,191.4 L186.7,190 L171.5,189.7 L154.4,190.2 L139.5,191.6 L125.3,190 L108.6,191.1 L91.8,190.8 L77.1,190.6 L59.9,190.5 L43.3,190.1 L29.3,189.7 L27.7,172.7 L29.5,159.3 L27.8,141.9 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="42" y="151" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M7 3v18" />
+  <path d="M3 7.5h4" />
+  <path d="M3 12h18" />
+  <path d="M3 16.5h4" />
+  <path d="M17 3v18" />
+  <path d="M17 7.5h4" />
+  <path d="M17 16.5h4" /></g></svg>
+<text x="200" y="164" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">CONTENT</text>
+</g>
+<text x="192" y="205" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">events</text>
+<g transform="rotate(0.2 180 268)">
+<path class="d-paper" d="M27.8,219.8 L44.1,218.9 L58.6,219.3 L77.3,218.8 L91.9,220.1 L109.2,219.5 L123.5,220.3 L139.1,220.1 L157.3,220.5 L172.4,220.4 L186.7,219.7 L202.9,219.6 L219.8,219.7 L236.9,220.8 L252.7,220 L269.6,220.7 L284.8,219.6 L298.6,218.5 L315.7,218.6 L333.4,218.7 L331.3,234.6 L332.9,253.5 L332.7,269.3 L331.2,285.4 L331.3,299.6 L332.6,315.5 L316.4,315.2 L299,317.3 L283.8,316.2 L268.2,316.9 L253.5,314.9 L236.8,315.6 L219.8,315 L204.4,317.4 L189.6,315.2 L171,316.9 L155.1,317.1 L140.5,315.7 L123.8,315.8 L107.8,315.7 L91.2,315.7 L74.8,317.4 L60.9,316.6 L43.5,316.4 L27,317.2 L29.6,299.6 L29,285.1 L28,266.6 L26.6,252.4 L27.5,234.6 Z" fill="#ff4fd8"/>
+<text x="180" y="251.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">RECOMMENDER</text>
+<text x="180" y="270.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">finds content like</text>
+<text x="180" y="287.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">what you liked</text>
+</g>
+<g transform="rotate(-0.2 180 422)">
+<path class="d-paper" d="M29.2,396.8 L45.6,395.6 L61.2,397.1 L74.7,395.5 L93.5,396.4 L108.2,396.1 L125.4,395.7 L140.7,397.1 L154.4,395.9 L172.5,395 L189.1,397 L203.5,396.4 L218.9,395.3 L236.5,396.5 L251.8,397 L269.3,395.7 L285,396.9 L300.6,396.9 L317.5,395.6 L333.5,396.2 L331.2,411.3 L332.3,426.5 L330.5,443.9 L330.9,446.4 L316.5,448.4 L299.4,448.8 L285.1,448 L267.2,448 L250.5,448.4 L234.6,448.9 L219.9,448 L204.8,446.9 L187.3,448.6 L172.9,448 L154.8,447.5 L141.2,447 L123.4,449.5 L108,449.5 L92.3,448.1 L76.1,447.2 L58.8,447.5 L45.4,448.3 L28.5,446.4 L27.5,433 L26.6,416 L29,401.5 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="42" y="409" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <circle cx="9" cy="7" r="4" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <path d="M16 3.13a4 4 0 0 1 0 7.75" /></g></svg>
+<text x="200" y="411" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">SIMILAR</text>
+<text x="200" y="433.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">USERS</text>
+</g>
+<text x="192" y="463" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">consumes</text>
+<g transform="rotate(0.7 180 504)">
+<path class="d-paper" d="M26.6,478.1 L43.4,478 L60.3,477.3 L76.9,478.9 L92.8,478.4 L108.8,477.9 L124.3,479.3 L140.8,476.5 L156.4,476.9 L172.7,477.2 L189.2,477.1 L204.1,478.4 L218.9,478.3 L235.2,477.2 L250.9,479.2 L268.3,478.4 L282.7,477.5 L298.5,476.5 L316.1,477.8 L331.6,478.7 L331.4,494.3 L333.5,510.5 L333.4,525 L333.1,529.8 L316.7,529.4 L299.3,529.5 L283.3,530.8 L268.9,531.5 L253.1,529.1 L236,531.1 L220.6,531.2 L202.8,530.4 L187.5,531 L171.9,529.5 L154.5,529.7 L141,530.2 L123.1,530.3 L108.9,531.4 L93.5,531.5 L76.4,529.7 L61.3,528.8 L43.9,530 L26.6,528.7 L29.1,513.3 L26.7,497.8 L26.5,482 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="42" y="491" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M7 3v18" />
+  <path d="M3 7.5h4" />
+  <path d="M3 12h18" />
+  <path d="M3 16.5h4" />
+  <path d="M17 3v18" />
+  <path d="M17 7.5h4" />
+  <path d="M17 16.5h4" /></g></svg>
+<text x="200" y="504" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">CONTENT</text>
+</g>
+<text x="192" y="545" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">events</text>
+<g transform="rotate(0.6 180 608)">
+<path class="d-paper" d="M29.5,560 L42.6,560.2 L59.7,560.3 L74.8,559.9 L91.3,559 L109.5,558.4 L124.3,559.2 L140.2,559.3 L155.5,559.9 L170.6,560.5 L189.2,560.3 L204.9,559 L220.1,558.7 L234.5,561.6 L251.2,560.6 L268.5,559.3 L282.6,560.3 L300.1,560.5 L315.2,558.8 L331.2,561.5 L333.1,577.5 L332.8,593.3 L330.5,609.3 L332.4,625.6 L330.7,638.9 L332.4,656.6 L317.4,656.2 L299.4,654.6 L283.7,654.9 L268.5,656.2 L251.8,656.2 L236,656.3 L219.7,655.7 L203.2,655.9 L189.5,654.7 L172.3,657.6 L157.2,656 L140.2,654.9 L122.9,654.9 L107.4,657.5 L92.3,654.5 L74.8,657.1 L60.1,657.2 L44.5,655.8 L28.6,657.5 L28.4,638.6 L29.3,623.4 L26.5,607.9 L27.8,591.3 L29.2,577.2 Z" fill="#ff4fd8"/>
+<text x="180" y="591.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">RECOMMENDER</text>
+<text x="180" y="610.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">finds what similar</text>
+<text x="180" y="627.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">users liked</text>
+</g>
+<text x="180" y="704" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">Both send their pick back to you.</text>
+<g class="d-flow">
+<path d="M181.4,110.9 Q180.5,123.1 178.8,136.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-filtering-phone-crayon)"/>
+<path d="M173.6,127 L180,136 L186.4,127" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-filtering-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.4,190.9 Q179.3,205.6 178.8,219.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-filtering-phone-crayon)"/>
+<path d="M173.6,209 L180,218 L186.4,209" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-filtering-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M180.1,450.2 Q179,463.4 180.2,477.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-filtering-phone-crayon)"/>
+<path d="M173.6,467 L180,476 L186.4,467" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-filtering-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.8,531.4 Q180.5,543.7 180.6,557.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-filtering-phone-crayon)"/>
+<path d="M173.6,549 L180,558 L186.4,549" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-filtering-phone-crayon)"/>
+</g>
+</svg>

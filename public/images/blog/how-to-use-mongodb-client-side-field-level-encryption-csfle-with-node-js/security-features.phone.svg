@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 380" width="360" height="380" role="img" aria-label="Which MongoDB security feature stops which attack. Role-based access control stops database privilege abuse, such as stolen credentials. TLS/SSL transport encryption stops network snooping, such as packet sniffing. Encryption at rest stops data theft, such as stolen disks. Client-side field level encryption (CSFLE) stops all four, including reading the database host’s memory, because sensitive fields stay encrypted on the host and in transit and only the client holds the keys.">
+<defs><filter id="how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js-security-features-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="420">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="380" fill="#000000"/>
+<text x="157" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">RBAC</text>
+<text x="215" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">TLS/SSL</text>
+<text x="273" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">AT REST</text>
+<text x="331" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ff4fd8" text-anchor="middle" dominant-baseline="central">CSFLE</text>
+<text x="8" y="91" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Privilege abuse</text>
+<text x="8" y="109" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">stolen credentials</text>
+<g transform="rotate(-0.1 157 99)">
+<path class="d-paper" d="M133.2,68.6 L150.7,69.3 L166,70.5 L179.1,70.6 L179.7,84.7 L180.5,103.5 L178.8,116.7 L180,129.1 L164.8,128.5 L148.2,129.6 L133.8,129.1 L133.9,113.3 L134.7,97 L135,79.1 Z" fill="#ece6da"/>
+<svg x="148" y="85" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
+</g>
+<g transform="rotate(0 215 99)">
+<path class="d-paper" d="M192.1,69.5 L206.8,69.8 L224.8,71.3 L236.8,69.2 L236.5,87.3 L238,101.1 L238.2,116.9 L236.6,127 L221.8,127.9 L205.3,128.9 L192.3,129.3 L192.3,110.5 L191.5,96.2 L192.5,80.3 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="206" y="85" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+</g>
+<g transform="rotate(-0.3 273 99)">
+<path class="d-paper" d="M251.4,71.4 L266.9,71.2 L282.6,70 L296.7,69.4 L294.6,85.8 L294.5,101.4 L295.7,119.4 L296.3,128.2 L279.5,126.5 L265.2,126.7 L251.2,127.6 L250.4,112.7 L249.3,97.5 L250.1,80.2 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="264" y="85" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+</g>
+<g transform="rotate(0.1 331 99)">
+<path class="d-paper" d="M307.3,70.6 L322.8,70.5 L339.5,68.5 L353.1,69.3 L352.4,84.9 L354.2,101.6 L355.2,118 L353.8,128.6 L336.6,126.5 L322.3,128.8 L308.7,127.7 L309.1,113.3 L309.3,97 L307.7,79.1 Z" fill="#ff4fd8"/>
+<svg x="322" y="85" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
+</g>
+<text x="8" y="161" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Network snooping</text>
+<text x="8" y="179" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">packet sniffing</text>
+<g transform="rotate(-0.7 157 169)">
+<path class="d-paper" d="M134.1,139.3 L149.7,139.2 L164.7,139.5 L179.1,141.3 L180.7,155.6 L180.5,170.9 L178.6,189.3 L179.3,197.9 L164.4,197.5 L147.7,197.5 L134.6,197.4 L134.8,182.7 L132.4,167.2 L135.1,150.1 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="148" y="155" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+</g>
+<g transform="rotate(1.1 215 169)">
+<path class="d-paper" d="M192.5,140.4 L208.6,138.5 L222.7,141.1 L238.4,140.3 L238.1,156.3 L239.3,171.5 L237.8,187.6 L237.7,199.5 L221.9,198.2 L205.9,199.5 L193.2,198.5 L193.3,181.9 L192.3,166.2 L191.7,151.1 Z" fill="#ece6da"/>
+<svg x="206" y="155" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
+</g>
+<g transform="rotate(0.8 273 169)">
+<path class="d-paper" d="M248.8,141.6 L267.3,138.8 L282.6,138.5 L296,140 L297.5,157.5 L296.5,171.4 L296.5,187.4 L295.3,199.5 L278.8,197.3 L264.3,199.3 L249.6,197.6 L249.7,182.7 L249.1,165.3 L251.4,149.4 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="264" y="155" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+</g>
+<g transform="rotate(-0.8 331 169)">
+<path class="d-paper" d="M309.5,138.5 L324.4,138.8 L338.7,140.8 L352.8,141.5 L352.9,157.2 L355.2,172.4 L353.6,187.8 L353.9,196.7 L339.5,199 L323.3,198.4 L307.3,199.1 L308.6,180.9 L309.5,165.6 L307.7,149.7 Z" fill="#ff4fd8"/>
+<svg x="322" y="155" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
+</g>
+<text x="8" y="231" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Data theft</text>
+<text x="8" y="249" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">stolen disks, files</text>
+<g transform="rotate(0.2 157 239)">
+<path class="d-paper" d="M133.5,210.3 L149.7,209.3 L166.4,210.7 L179.7,210.3 L180.8,226.3 L179.3,241.2 L179.9,258 L178.9,267.7 L165.1,269.3 L147.7,267.6 L133.5,268.1 L134.6,253.4 L135,236.7 L134.5,219.5 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="148" y="225" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+</g>
+<g transform="rotate(0.5 215 239)">
+<path class="d-paper" d="M192,208.8 L207.6,210.7 L224.6,211.5 L236.6,210.6 L238.9,226.2 L237.3,241.7 L236.8,259.2 L238.6,267 L222.2,268 L205,267.8 L192.6,269.3 L193.1,250.5 L192.2,235.1 L193,221.2 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="206" y="225" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+</g>
+<g transform="rotate(0.5 273 239)">
+<path class="d-paper" d="M248.5,210.9 L266.6,209.3 L283,210.9 L296.8,211.3 L295.5,226.8 L294.9,240.5 L295.3,259.5 L295.6,269.2 L279.1,267.1 L263.2,266.8 L248.9,267.5 L250.2,253.5 L251,235.9 L248.8,218.7 Z" fill="#ece6da"/>
+<svg x="264" y="225" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
+</g>
+<g transform="rotate(-0.8 331 239)">
+<path class="d-paper" d="M307.9,210.1 L325.4,210.6 L341.2,208.8 L352.7,210.2 L353.8,226.9 L355,243.1 L354,259.6 L355.5,267.5 L337.9,268 L322.8,267 L309,267.8 L306.9,251.1 L309.6,234.9 L306.8,218.7 Z" fill="#ff4fd8"/>
+<svg x="322" y="225" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
+</g>
+<text x="8" y="301" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Host memory</text>
+<text x="8" y="319" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="12" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">dumps, RAM scraping</text>
+<g transform="rotate(-1 157 309)">
+<path class="d-paper" d="M134.8,280.5 L150.4,280 L166.1,279.4 L179.6,279.9 L179,294.4 L181.5,311.9 L181.4,326.5 L180.6,337.6 L162.6,338.2 L148.1,338.4 L135.3,337.2 L135.5,322.5 L135.3,305.9 L133.6,291 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="148" y="295" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+</g>
+<g transform="rotate(1 215 309)">
+<path class="d-paper" d="M192.3,280.2 L207.5,278.6 L222.7,280.5 L237.9,280.9 L237.7,295.1 L238.5,312.1 L236.8,327.3 L238.3,336.4 L221.6,338.9 L204.6,337.1 L190.8,339 L191.3,323.2 L192,304.6 L191.3,289.3 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="206" y="295" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+</g>
+<g transform="rotate(0.8 273 309)">
+<path class="d-paper" d="M251.2,281.6 L265.2,281.6 L283.2,280.2 L294.8,280.6 L296.1,297.6 L295.7,311.9 L296.3,329.1 L295.4,337.5 L279.2,339.4 L264,338.8 L248.4,336.6 L249.2,321.6 L249,305.4 L251.2,289.3 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="264" y="295" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+</g>
+<g transform="rotate(-0.5 331 309)">
+<path class="d-paper" d="M307.8,280.5 L325.1,280.1 L338.9,279.3 L352.7,280 L355.3,297.3 L352.7,311.9 L354.7,329 L353.4,337.3 L338.6,336.6 L322,337.3 L307.1,338.4 L307.2,323.5 L308.6,307.2 L307.8,290.6 Z" fill="#ff4fd8"/>
+<svg x="322" y="295" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></svg>
+</g>
+<text x="8" y="356" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Only CSFLE keeps data encrypted on the host.</text>
+</svg>

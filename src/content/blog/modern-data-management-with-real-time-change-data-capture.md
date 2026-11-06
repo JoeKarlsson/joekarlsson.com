@@ -33,7 +33,7 @@ The heart of CDC lies in the transaction log that most application databases pro
 
 CDC tools monitor this database transaction log file for new entries. Every operation is captured as an event and sent elsewhere. Often, these events are directed towards an append-only event streaming system such as Apache Kafka. The modification operations can then be dispatched into the preferred downstream system like a [real-time database](https://www.tinybird.co/blog-posts/real-time-databases-what-developers-need-to-know) or data warehouse.
 
-![CDC architecture diagram showing users, API, database, CDC tool, and message queue](/images/blog/modern-data-management-with-real-time-change-data-capture/image-12-2.webp)
+![Change data capture: users act through a backend API, which writes to the database. The database records every change in its transaction log, a CDC tool watches that log, and it writes each change as an event to a message queue like Kafka.](/images/blog/modern-data-management-with-real-time-change-data-capture/cdc-architecture.svg)
 
 Change data capture tools subscribe to updates in a database log file, and often write these change operations to a message queue like Kafka
 

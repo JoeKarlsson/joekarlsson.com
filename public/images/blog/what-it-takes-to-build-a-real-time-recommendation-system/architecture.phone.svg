@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="360" height="640" role="img" aria-label="A real-time recommendation system: users post activity to an API and get recommendations back from it. The API sends activity to an event streaming platform, which feeds the recommendation system. Real-time inference serves recommendations back to the API, while the recommendation system also writes to a data warehouse used for model training, and the trained model feeds real-time inference.">
+<defs><filter id="what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="680">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="640" fill="#000000"/>
+<g transform="rotate(0.2 86 44)">
+<path class="d-paper" d="M17.3,15 L33.1,14.5 L47.8,15 L63.8,17 L80.8,15.8 L95,16.6 L113.4,17.3 L127.8,15.3 L145.2,17.6 L157,14.5 L157.1,33.3 L154.9,49.5 L154.5,62.9 L155,73.2 L141.5,71.4 L124.8,73.4 L108.9,72.9 L92.3,71.9 L76.4,72 L61,72.4 L44.4,70.6 L26.6,73.1 L16.3,71.1 L17.2,55.9 L16.5,41.2 L16.4,25 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="30" y="30" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <circle cx="9" cy="7" r="4" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <path d="M16 3.13a4 4 0 0 1 0 7.75" /></g></svg>
+<text x="107" y="44" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">USERS</text>
+</g>
+<g transform="rotate(0.1 274 44)">
+<path class="d-paper" d="M204.8,17.3 L220.2,14.5 L236.1,14.9 L251.8,16.1 L267.8,15.4 L284.8,17.2 L298.4,15.1 L316.3,14.7 L331.9,16 L343.5,15.5 L344.4,30.7 L344.3,49.6 L344,64 L343.2,71.1 L328.1,71.4 L312.3,72.7 L296.1,73.1 L281.5,72.7 L264.2,70.7 L249.1,73.5 L232.7,72.5 L217.6,71.9 L204.6,73.6 L202.9,55.4 L202.5,38.8 L204.4,22.6 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="218" y="30" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5" />
+  <path d="M9 8V2" />
+  <path d="M15 8V2" />
+  <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></g></svg>
+<text x="295" y="44" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">API</text>
+</g>
+<text x="180" y="92" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">activity in, recommendations out</text>
+<g transform="rotate(1.2 234 160)">
+<path class="d-paper" d="M119.4,128.1 L136.6,128.6 L152.3,127.3 L168.1,127.9 L182.7,129.3 L201.1,127.9 L217.5,129.5 L230.7,127.7 L247.9,128.2 L265.6,127.2 L278.6,128.4 L297.5,126.6 L312.7,129 L328.4,128 L344.5,128.1 L347.5,129.6 L348.6,144.4 L347.1,161 L347.4,175.7 L348.1,192.4 L333.2,191 L316.7,192.3 L299.4,193.1 L284.2,191.1 L269.1,192.7 L253.4,192.6 L237.2,192.4 L219.2,191.2 L204.3,192.2 L189.4,192.9 L170.6,192.4 L154.6,192.9 L138.4,192.8 L124.4,192.6 L119.5,193.1 L119.6,175.9 L119.2,160.7 L119.2,143.4 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="134" y="146" width="28" height="28" viewBox="0 0 24 24"><g fill="#ededed"><path d="M9.71 2.136a1.43 1.43 0 0 0-2.047 0h-.007a1.48 1.48 0 0 0-.421 1.042c0 .41.161.777.422 1.039l.007.007c.257.264.616.426 1.019.426.404 0 .766-.162 1.027-.426l.003-.007c.261-.262.421-.629.421-1.039 0-.408-.159-.777-.421-1.042H9.71zM8.683 22.295c.404 0 .766-.167 1.027-.429l.003-.008c.261-.261.421-.631.421-1.036 0-.41-.159-.778-.421-1.044H9.71a1.42 1.42 0 0 0-1.027-.432 1.4 1.4 0 0 0-1.02.432h-.007c-.26.266-.422.634-.422 1.044 0 .406.161.775.422 1.036l.007.008c.258.262.617.429 1.02.429zm7.89-4.462c.359-.096.683-.33.882-.684l.027-.052a1.47 1.47 0 0 0 .114-1.067 1.454 1.454 0 0 0-.675-.896l-.021-.014a1.425 1.425 0 0 0-1.078-.132c-.36.091-.684.335-.881.686-.2.349-.241.75-.146 1.119.099.363.33.691.675.896h.002c.346.203.737.239 1.101.144zm-6.405-7.342a2.083 2.083 0 0 0-1.485-.627c-.58 0-1.103.242-1.482.627-.378.385-.612.916-.612 1.507s.233 1.124.612 1.514a2.08 2.08 0 0 0 2.967 0c.379-.39.612-.923.612-1.514s-.233-1.122-.612-1.507zm-.835-2.51c.843.141 1.6.552 2.178 1.144h.004c.092.093.182.196.265.299l1.446-.851a3.176 3.176 0 0 1-.047-1.808 3.149 3.149 0 0 1 1.456-1.926l.025-.016a3.062 3.062 0 0 1 2.345-.306c.77.21 1.465.721 1.898 1.482v.002c.431.757.518 1.626.313 2.408a3.145 3.145 0 0 1-1.456 1.928l-.198.118h-.02a3.095 3.095 0 0 1-2.154.201 3.127 3.127 0 0 1-1.514-.944l-1.444.848a4.162 4.162 0 0 1 0 2.879l1.444.846c.413-.47.939-.789 1.514-.944a3.041 3.041 0 0 1 2.371.319l.048.023v.002a3.17 3.17 0 0 1 1.408 1.906 3.215 3.215 0 0 1-.313 2.405l-.026.053-.003-.005a3.147 3.147 0 0 1-1.867 1.436 3.096 3.096 0 0 1-2.371-.318v-.006a3.156 3.156 0 0 1-1.456-1.927 3.175 3.175 0 0 1 .047-1.805l-1.446-.848a3.905 3.905 0 0 1-.265.294l-.004.005a3.938 3.938 0 0 1-2.178 1.138v1.699a3.09 3.09 0 0 1 1.56.862l.002.004c.565.572.914 1.368.914 2.243 0 .873-.35 1.664-.914 2.239l-.002.009a3.1 3.1 0 0 1-2.21.931 3.1 3.1 0 0 1-2.206-.93h-.002v-.009a3.186 3.186 0 0 1-.916-2.239c0-.875.35-1.672.916-2.243v-.004h.002a3.1 3.1 0 0 1 1.558-.862v-1.699a3.926 3.926 0 0 1-2.176-1.138l-.006-.005a4.098 4.098 0 0 1-1.173-2.874c0-1.122.452-2.136 1.173-2.872h.006a3.947 3.947 0 0 1 2.176-1.144V6.289a3.137 3.137 0 0 1-1.558-.864h-.002v-.004a3.192 3.192 0 0 1-.916-2.243c0-.871.35-1.669.916-2.243l.002-.002A3.084 3.084 0 0 1 8.683 0c.861 0 1.641.355 2.21.932v.002h.002c.565.574.914 1.372.914 2.243 0 .876-.35 1.667-.914 2.243l-.002.005a3.142 3.142 0 0 1-1.56.864v1.692zm8.121-1.129l-.012-.019a1.452 1.452 0 0 0-.87-.668 1.43 1.43 0 0 0-1.103.146h.002c-.347.2-.58.529-.677.896-.095.365-.054.768.146 1.119l.007.009c.2.347.519.579.874.673.357.103.755.059 1.098-.144l.019-.009a1.47 1.47 0 0 0 .657-.885 1.493 1.493 0 0 0-.141-1.118"/></g></svg>
+<text x="255" y="149" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">EVENT STREAMING</text>
+<text x="255" y="171.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">PLATFORM</text>
+</g>
+<g transform="rotate(-0.9 234 256)">
+<path class="d-paper" d="M120.4,224.2 L137.5,223 L151.4,223.7 L168.7,223.5 L182.6,223.2 L199.3,224 L217.4,225.5 L230.6,223.5 L247.6,223.7 L262.5,223.7 L280.7,222.5 L296.1,222.6 L312.5,222.8 L329.4,222.5 L343.5,223.6 L347.2,224.3 L348,239.1 L346.5,257.2 L349.4,271.8 L349.4,287.2 L333.5,286.8 L315.2,287.1 L299,287.2 L285.3,287.7 L267.3,287.9 L252.8,289.4 L236.4,287.9 L219.4,289.4 L203.4,289.6 L187,288.8 L171.9,287.9 L157.1,289.4 L138.9,287 L124.2,287.2 L119.8,287.8 L120,271.2 L121.3,255.8 L119.1,239.3 Z" fill="#ff4fd8"/>
+<svg x="134" y="242" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+  <path d="M20 3v4" />
+  <path d="M22 5h-4" />
+  <path d="M4 17v2" />
+  <path d="M5 18H3" /></g></svg>
+<text x="255" y="245" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">RECOMMENDATION</text>
+<text x="255" y="267.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">SYSTEM</text>
+</g>
+<g transform="rotate(1.2 96 364)">
+<path class="d-paper" d="M14.7,331 L33.5,332.6 L48.7,330.9 L63.8,332.7 L78.8,333.3 L95,332.6 L112.7,331.8 L126.9,331.1 L144.6,333.5 L158.6,333.2 L176.7,332.4 L174.7,349.1 L177,363.7 L177.6,379.5 L177.4,395.1 L160.5,394.6 L142.6,395.7 L127.9,396.4 L110.9,395.3 L97.5,396.4 L81.3,396.7 L63.9,394.9 L46.7,395.9 L32.9,397.5 L14.9,394.7 L15.5,378.7 L15.7,363.1 L17.5,349.4 Z" fill="#ece6da"/>
+<svg x="30" y="350" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2" />
+  <rect width="6" height="6" x="9" y="9" rx="1" />
+  <path d="M15 2v2" />
+  <path d="M15 20v2" />
+  <path d="M2 15h2" />
+  <path d="M2 9h2" />
+  <path d="M20 15h2" />
+  <path d="M20 9h2" />
+  <path d="M9 2v2" />
+  <path d="M9 20v2" /></g></svg>
+<text x="117" y="353" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">REAL-TIME</text>
+<text x="117" y="375.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">INFERENCE</text>
+</g>
+<g transform="rotate(0.6 274 468)">
+<path class="d-paper" d="M200,434.7 L216.5,436.6 L231,436.6 L249.1,437.3 L262.6,434.9 L278.6,437.2 L294.9,435.4 L313.1,435.7 L329,437.2 L342.5,435.7 L348.3,436.1 L347.2,451.1 L347.3,467.7 L347.4,485.3 L349,500.8 L332,500.2 L315.7,498.5 L301.4,501.1 L285.4,499.7 L267.6,501.4 L251.4,499.8 L235.4,500.4 L220.9,500 L203.1,499.9 L200.9,501.6 L199.1,483.4 L199.7,468.9 L200.1,450.5 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="214" y="454" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z" />
+  <path d="M6 18h12" />
+  <path d="M6 14h12" />
+  <rect width="12" height="12" x="6" y="10" /></g></svg>
+<text x="295" y="457.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">DATA</text>
+<text x="295" y="478.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">WAREHOUSE</text>
+</g>
+<g transform="rotate(-1 274 568)">
+<path class="d-paper" d="M200.3,536.5 L216.1,537.4 L230.8,534.5 L246.5,537.4 L264.4,534.6 L281.4,535.2 L297.5,535.7 L313.3,535.4 L327.9,536.5 L343.2,537 L348.5,535.3 L349.1,550.9 L349.5,568 L348,582.9 L349.3,600.8 L330.8,600.3 L317.4,599 L298.9,599.6 L283.8,598.4 L269.2,599.4 L252.8,601.2 L234.7,599.5 L219.3,600 L205.2,599.6 L198.9,599.2 L199.1,584 L199.1,567.1 L199.2,551.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="214" y="554" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+  <circle cx="12" cy="12" r="3" /></g></svg>
+<text x="295" y="557.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">MODEL</text>
+<text x="295" y="578.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">TRAINING</text>
+</g>
+<text x="108" y="588" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">trained model</text>
+<g class="d-flow">
+<path d="M156.8,43.5 Q180.9,43.1 202.6,45" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+<path d="M193,50.4 L202,44 L193,37.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+<path d="M167,37.6 L158,44 L167,50.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M300.2,72.7 Q298.8,98.6 299.8,126.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+<path d="M293.6,117 L300,126 L306.4,117" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M234.3,195.5 Q233.9,208.9 233.4,222.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+<path d="M227.6,213 L234,222 L240.4,213" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M117.1,256.2 Q97.8,257 81,256.2 M79.4,254.8 Q79,293 78.6,329.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+<path d="M73.6,321 L80,330 L86.4,321" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M29.5,329.4 Q28.7,201.2 30.1,74.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+<path d="M36.4,83 L30,74 L23.6,83" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M290.7,290.9 Q290.1,363.4 289.3,433" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)" stroke-dasharray="7 7"/>
+<path d="M283.6,425 L290,434 L296.4,425" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M273.6,500.9 Q274.1,517 274,535.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)" stroke-dasharray="7 7"/>
+<path d="M267.6,525 L274,534 L280.4,525" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+<path d="M280.4,511 L274,502 L267.6,511" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M199.3,567.6 Q147.2,568.3 95.4,569 M96,566.9 Q97.6,481.6 96.5,397" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+<path d="M102.4,407 L96,398 L89.6,407" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#what-it-takes-to-build-a-real-time-recommendation-system-architecture-phone-crayon)"/>
+</g>
+</svg>

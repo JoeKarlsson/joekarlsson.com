@@ -25,7 +25,7 @@ A real-time recommendation system is a class of [real-time data analytics](https
 
 Unlike traditional batch recommendation systems, which use long-running extract, transform, and load (ETL) workflows over static datasets, real-time recommendation systems dynamically adapt to user interactions as they happen, providing low-latency recommendations within a user session.
 
-![Diagram comparing batch versus real-time recommendation system architectures](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-11-1.webp)
+![Batch versus real-time recommendations. In a batch system, user events land in a data warehouse, a scheduled batch ETL job feeds the recommendation system, and the application gets recommendations minutes or hours later. In a real-time system, user events go straight into a streaming data platform, the real-time recommendation system reads them immediately, and the application gets recommendations in milliseconds.](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/batch-vs-real-time.svg)
 
 Unlike batch recommendation systems, real-time recommendation systems use streaming data platforms and real-time databases to make recommendations to users as they are browsing and based on the most up-to-date data.
 
@@ -47,7 +47,7 @@ One of the key features of real-time recommendation systems is their ability to 
 
 For example, when a user visits an e-commerce website, the real-time recommendation system can analyze their browsing behavior, purchase history, cohort analysis, and other relevant data to suggest products that they are most likely to buy at that moment.
 
-![Diagram comparing content-based and collaborative filtering approaches](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-15.webp)
+![A real-time recommender combines two inputs: streaming user activity events from Kafka, and historic data from a data warehouse like Snowflake or BigQuery. It uses both to send a recommendation back to the user within their session.](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/streams-and-history.svg)
 
 Real-time recommenders make recommendations based on streaming user activity events and historic data that is often stored in a data warehouse.
 
@@ -67,7 +67,7 @@ By lumping a user into a cohort of similar users, collaborative filtering helps 
 
 Of course, many successful real-time recommendation systems pair both content-based and collaborative filtering.
 
-![Content-based versus collaborative filtering recommendation system flowchart](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-11-1024x642.webp)
+![Content-based versus collaborative filtering. Content-based: a user consumes content, the recommendation system finds similar content, and recommends it back to the same user. Collaborative: similar users consume content, the recommendation system sees what they enjoyed, and recommends that content to the user.](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/filtering.svg)
 
 Content-based filtering makes recommendations for content that matches content a user has already consumed, while collaborative filtering recommends content that similar users have consumed and enjoyed.
 
@@ -153,7 +153,7 @@ Real-time recommendation systems must inject their analysis into a user-facing a
 
 Tinybird, for example, allows engineers to publish SQL queries and materializations performed in the pre-processing step as [high-concurrency, low-latency APIs](https://www.tinybird.co/docs/concepts/apis.html). These APIs can be utilized by frontend applications to return recommendations immediately when a user visits a page or performs an action within a product.
 
-![Architecture diagram of a real-time recommendation system with event streaming, database, and API layers](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/image-12-1.webp)
+![A real-time recommendation system: users post activity to an API and get recommendations back from it. The API sends activity to an event streaming platform, which feeds the recommendation system. Real-time inference serves recommendations back to the API, while the recommendation system also writes to a data warehouse used for model training, and the trained model feeds real-time inference.](/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/architecture.svg)
 
 Real-time recommendation systems use event streaming platforms, a real-time database, online machine learning or heuristic real-time analytics, and an API layer to both measure user data and make recommendations in real-time.
 
