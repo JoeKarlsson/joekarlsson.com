@@ -71,4 +71,19 @@ describe.skipIf(!hasDependencies)('trace-scribble', () => {
 			);
 		}
 	});
+
+	it('refuses a crop that cuts the mark off, unless the neighbour in it is erased', async () => {
+		// A line running off the right edge of the photo, so off the crop
+		await expect(trace('<path d="M300,200 L600,200"/>')).rejects.toThrow(/right edge/);
+		// The same ink blanked out with --erase leaves a clean mark beside it
+		const path = await trace(
+			'<path d="M100,200 L300,200"/><path d="M450,100 L600,100"/>',
+			'--erase',
+			'420',
+			'60',
+			'600',
+			'140',
+		);
+		expect(path.match(/M/g)).toHaveLength(1);
+	});
 });

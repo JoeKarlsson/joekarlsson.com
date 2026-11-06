@@ -22,6 +22,8 @@ originals and the crop of every mark in use are listed in media-sources/README.m
             without this the walk stops at the first such fork
 --fill      stretch to fill the whole box, for marks that trace a target (rings,
             boxes, underlines); the page stretches them again to fit
+--erase     blank a rectangle of the photo (its pixels) before cropping, to drop a
+            neighbouring drawing; repeatable. A crop whose ink touches its edge is refused.
 --offset    shift the result, to set two traces side by side in one viewBox
 --preview   PNG of the result, shaded red to blue in drawing order
 """
@@ -43,6 +45,14 @@ MIN_SPUR = 25
 # How far a simplified line may stray from the traced one, in photo pixels
 SIMPLIFY_TOLERANCE = 2.0
 ROTATIONS = {"ccw": Image.Transpose.ROTATE_90, "cw": Image.Transpose.ROTATE_270, "180": Image.Transpose.ROTATE_180}
+# Ink this close to a crop edge means the crop cut the mark off
+EDGE_MARGIN = 3
+EDGES = {
+    "top": lambda ink: ink[:EDGE_MARGIN],
+    "bottom": lambda ink: ink[-EDGE_MARGIN:],
+    "left": lambda ink: ink[:, :EDGE_MARGIN],
+    "right": lambda ink: ink[:, -EDGE_MARGIN:],
+}
 NEIGHBORS = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
 
 
@@ -300,13 +310,25 @@ def main():
     ap.add_argument("--retrace", action="store_true")
     ap.add_argument("--fill", action="store_true")
     ap.add_argument("--offset", nargs=2, type=float, default=(0, 0), metavar=("DX", "DY"))
+    ap.add_argument("--erase", nargs=4, type=int, action="append", default=[], metavar=("X0", "Y0", "X1", "Y1"))
     ap.add_argument("--preview")
     args = ap.parse_args()
 
-    photo = ImageOps.exif_transpose(Image.open(args.photo)).crop(tuple(args.crop))
+    photo = ImageOps.exif_transpose(Image.open(args.photo))
+    for box in args.erase:
+        # Blank out a neighbouring drawing that the crop can't avoid
+        ImageDraw.Draw(photo).rectangle(box, fill="white")
+    photo = photo.crop(tuple(args.crop))
     if args.rotate:
         photo = photo.transpose(ROTATIONS[args.rotate])
-    strokes = CenterlineGraph(find_ink(photo)).walk(args.retrace)
+    ink = find_ink(photo)
+    clipped = [name for name, edge in EDGES.items() if edge(ink).any()]
+    if clipped:
+        raise SystemExit(
+            f"Ink touches the {', '.join(clipped)} edge of the crop (after --rotate): the mark is cut off "
+            "or a neighbour is caught. Widen --crop, or --erase the neighbour."
+        )
+    strokes = CenterlineGraph(ink).walk(args.retrace)
     if not strokes:
         raise SystemExit("No mark found in that crop")
     strokes = [simplify(smooth(s), SIMPLIFY_TOLERANCE) for s in strokes]
