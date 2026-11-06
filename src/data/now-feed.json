@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 345,
+			"commitCount": 346,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 55
+				169, 56
 			],
-			"latestCommitMessage": "feat: The diagram sweep finishes: missed diagrams and ASCII art in 12..."
+			"latestCommitMessage": "fix: The real-time databases post gets its MongoDB, PostgreSQL and..."
 		},
 		{
 			"name": "bechdel-test",
 			"description": "Does your favorite film pass the test?",
 			"url": "https://github.com/JoeKarlsson/bechdel-test",
 			"language": "JavaScript",
-			"commitCount": 33,
+			"commitCount": 35,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34
 			],
-			"latestCommitMessage": "feat: Add \"The shelf in numbers\", the whole shelf counted"
+			"latestCommitMessage": "chore: Keep Jest out of .claude/, where other sessions' worktrees hold..."
 		},
 		{
 			"name": "rose-hobart",
