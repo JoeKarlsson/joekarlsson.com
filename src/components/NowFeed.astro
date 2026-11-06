@@ -42,9 +42,14 @@ function ratingStars(rating: number) {
 						rel="noopener noreferrer"
 						class="plausible-event-name=Now+Feed+Click plausible-event-source=github ring-host group flex flex-col no-underline"
 					>
-						{/* The repo name is the headline: what I'm building */}
-						<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-surface-4 pt-2">
-							<p class="relative inline-block w-fit font-display text-[clamp(34px,4vw,56px)] leading-[0.98] break-all text-paper uppercase group-hover:text-pink group-focus-visible:text-pink">
+						{/* The repo name is the headline: what I'm building. It stays on one line and
+						shrinks to fit the card when it's long, at about 0.5em per letter in Anton caps */}
+						<div class="@container flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-surface-4 pt-2">
+							<p
+								class="relative inline-block w-fit font-display leading-[0.98] whitespace-nowrap text-paper uppercase group-hover:text-pink group-focus-visible:text-pink"
+								style={`font-size:min(clamp(34px,4vw,56px),calc(100cqw / ${repo.name.length * 0.5}))`}
+								data-repo-name
+							>
 								{repo.name}
 								<Scribble
 									path={RINGS[i % RINGS.length]}

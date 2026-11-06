@@ -1,5 +1,37 @@
 import { test, expect } from '@playwright/test';
 
+// Every section page opens its header at the same height under the nav. Sub-pages
+// (Talks and Resume under About) sit lower on purpose, under their "← About" link.
+test.describe('Page header position', () => {
+	const sectionPages = [
+		'/blog/',
+		'/about/',
+		'/work/',
+		'/uses/',
+		'/contact/',
+		'/newsletter/',
+		'/blog/category/homelab/',
+		'/privacy-policy/',
+	];
+
+	for (const width of [1280, 390]) {
+		test(`section page headers start at the same height at ${width}px`, async ({ page }) => {
+			await page.setViewportSize({ width, height: 900 });
+			const tops = new Set<number>();
+			for (const path of sectionPages) {
+				await page.goto(path);
+				tops.add(
+					await page
+						.locator('main h1')
+						.first()
+						.evaluate((h1) => Math.round(h1.closest('header')!.getBoundingClientRect().top)),
+				);
+			}
+			expect([...tops]).toHaveLength(1);
+		});
+	}
+});
+
 test.describe('Uses Page', () => {
 	test('uses page loads with content', async ({ page }) => {
 		await page.goto('/uses');

@@ -9,6 +9,6 @@ Disallow: /page/*/?s=
 Sitemap: https://www.joekarlsson.com/sitemap-index.xml
 
 # LLM discovery
-# See https://llmstxt.org/ for spec
-LLMs-Txt: https://www.joekarlsson.com/llms.txt
-LLMs-Full-Txt: https://www.joekarlsson.com/llms-full.txt
+# See https://llmstxt.org/ for spec. Kept as comments: robots.txt has no such directive, and crawlers and Lighthouse flag unknown lines
+# LLMs-Txt: https://www.joekarlsson.com/llms.txt
+# LLMs-Full-Txt: https://www.joekarlsson.com/llms-full.txt

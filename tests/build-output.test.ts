@@ -30,8 +30,8 @@ describe('robots.txt', () => {
 	});
 
 	it('references llms.txt files', () => {
-		expect(content).toMatch(/LLMs-Txt:\s*https:\/\/www\.joekarlsson\.com\/llms\.txt/);
-		expect(content).toMatch(/LLMs-Full-Txt:\s*https:\/\/www\.joekarlsson\.com\/llms-full\.txt/);
+		expect(content).toMatch(/# LLMs-Txt:\s*https:\/\/www\.joekarlsson\.com\/llms\.txt/);
+		expect(content).toMatch(/# LLMs-Full-Txt:\s*https:\/\/www\.joekarlsson\.com\/llms-full\.txt/);
 	});
 
 	it('does not block critical paths', () => {
@@ -553,5 +553,92 @@ describe('security.txt', () => {
 		const expires = new Date(content.match(/^Expires: (.+)$/m)![1]);
 		const thirtyDaysOut = Date.now() + 30 * 24 * 60 * 60 * 1000;
 		expect(expires.getTime()).toBeGreaterThan(thirtyDaysOut);
+	});
+});
+
+// The launch checklist over every built page, not a sample: content pages break these
+// one at a time (a Markdown "# " heading adds a second h1, imported posts bring
+// 200-character descriptions, Markdown images arrive without sizes).
+describe('every page', () => {
+	const pages = builtPages
+		.map((file) => ({ file, html: readDist(file) }))
+		// Redirect stubs carry their own minimal head
+		.filter(({ html }) => !html.slice(0, 400).includes('http-equiv="refresh"'));
+	const isNoindex = (html: string) => /<meta name="robots" content="noindex/.test(html);
+	const indexable = pages.filter(({ html }) => !isNoindex(html));
+	// A recap whose canonical points at another page shares that page's title and stays out of the sitemap
+	const canonicalElsewhere = (file: string, html: string) => {
+		const path = html.match(
+			/<link rel="canonical" href="https:\/\/www\.joekarlsson\.com\/([^"]*)"/,
+		)?.[1];
+		return path !== undefined && `${path}index.html` !== file;
+	};
+
+	it('locks out Dark Reader and names the author', () => {
+		const missing = pages
+			.filter(({ file }) => file !== 'resume-pdf/index.html')
+			.filter(
+				({ html }) =>
+					!html.includes('<meta name="darkreader-lock">') ||
+					!html.includes('<meta name="author" content="Joe Karlsson">'),
+			)
+			.map(({ file }) => file);
+		expect(missing).toEqual([]);
+	});
+
+	it('keeps indexable descriptions to 160 characters', () => {
+		const long = indexable
+			.map(({ file, html }) => {
+				const description = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';
+				return { file, length: description.replace(/&(#\d+|\w+);/g, 'x').length };
+			})
+			.filter(({ length }) => length > 160);
+		expect(long).toEqual([]);
+	});
+
+	it('gives every indexable page its own title', () => {
+		const byTitle = new Map<string, string[]>();
+		for (const { file, html } of indexable) {
+			if (canonicalElsewhere(file, html)) continue;
+			const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+			byTitle.set(title, [...(byTitle.get(title) ?? []), file]);
+		}
+		expect([...byTitle].filter(([, files]) => files.length > 1)).toEqual([]);
+	});
+
+	it('has exactly one h1', () => {
+		const wrong = pages
+			.map(({ file, html }) => ({ file, h1s: (html.match(/<h1[\s>]/g) ?? []).length }))
+			.filter(({ h1s }) => h1s !== 1);
+		expect(wrong).toEqual([]);
+	});
+
+	it('sizes every image in a post body', () => {
+		const unsized = pages.flatMap(({ file, html }) =>
+			[...(html.match(/<div class="prose[\s\S]*?<\/article>/)?.[0] ?? '').matchAll(/<img\b[^>]*>/g)]
+				.map((m) => m[0])
+				.filter((img) => !/\bwidth=/.test(img) || !/\bheight=/.test(img))
+				.map((img) => `${file}: ${img.slice(0, 100)}`),
+		);
+		expect(unsized).toEqual([]);
+	});
+
+	it('lists exactly the indexable pages in the sitemap', () => {
+		const listed = new Set(
+			readdirSync(dist)
+				.filter((f) => /^sitemap-\d+\.xml$/.test(f))
+				.flatMap((f) => [
+					...readDist(f).matchAll(/<loc>https:\/\/www\.joekarlsson\.com\/([^<]*)<\/loc>/g),
+				])
+				.map((m) => `${m[1]}index.html`),
+		);
+		const missing = indexable
+			.filter(({ file, html }) => file !== '404.html' && !canonicalElsewhere(file, html))
+			.filter(({ file }) => !listed.has(file))
+			.map(({ file }) => file);
+		const unindexed = pages
+			.filter(({ file, html }) => listed.has(file) && isNoindex(html))
+			.map(({ file }) => file);
+		expect({ missing, unindexed }).toEqual({ missing: [], unindexed: [] });
 	});
 });

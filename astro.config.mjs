@@ -12,6 +12,7 @@ import rehypeCollapsibleToc from './src/plugins/rehype-collapsible-toc.mjs';
 import rehypeEmptyCornerCell from './src/plugins/rehype-empty-corner-cell.mjs';
 import rehypeFaqDetails from './src/plugins/rehype-faq-details.mjs';
 import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
+import rehypeImageDimensions from './src/plugins/rehype-image-dimensions.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 
@@ -62,7 +63,13 @@ export default defineConfig({
 	],
 	integrations: [
 		mdx(),
-		sitemap({ filter: (page) => !unindexedIssuePaths.has(new URL(page).pathname) }),
+		// /resume-pdf/ is the noindex source the resume PDF is printed from
+		sitemap({
+			filter: (page) => {
+				const { pathname } = new URL(page);
+				return pathname !== '/resume-pdf/' && !unindexedIssuePaths.has(pathname);
+			},
+		}),
 	],
 	vite: {
 		plugins: [/** @type {any} */ (tailwindcss())],
@@ -77,6 +84,7 @@ export default defineConfig({
 				// gif-video first: it removes <img> nodes that lazy-images would
 				// otherwise annotate for no reason
 				rehypeGifVideo,
+				rehypeImageDimensions,
 				rehypeLazyImages,
 				rehypeEmptyCornerCell,
 				rehypeCollapsibleToc,
@@ -105,7 +113,7 @@ export default defineConfig({
 		// WordPress date-based blog URLs → new /blog/slug pattern
 		// Specific redirects for known old URLs (strips month from path)
 		'/2023/09/how-to-get-started-building-a-homelab-server-in-2024':
-			'/blog/how-to-get-started-building-a-homelab-server-in-2024',
+			'/blog/how-to-get-started-building-a-homelab-server-in-2024/',
 
 		// Covers all /YYYY/MM/slug patterns from the old WordPress site
 		'/2015/[...slug]': '/blog/[...slug]',
@@ -122,12 +130,12 @@ export default defineConfig({
 		'/2026/[...slug]': '/blog/[...slug]',
 
 		// Newsletter posts renamed after publishing
-		'/newsletter/its-been-a-while': '/newsletter/taste-matters-more-with-ai',
+		'/newsletter/its-been-a-while': '/newsletter/taste-matters-more-with-ai/',
 
 		// Consolidated content redirects
-		'/blog/how-i-work': '/uses',
+		'/blog/how-i-work': '/uses/',
 		// The same CData article imported twice under two slugs (2026-11-05)
-		'/blog/connect-enterprise-data-meta-muse': '/blog/connect-business-apps-meta-muse',
+		'/blog/connect-enterprise-data-meta-muse': '/blog/connect-business-apps-meta-muse/',
 
 		// Old blog categories, folded into the six current ones (2026-11-05). Work was a
 		// catch-all for employer posts, now shown by /blog/written-for/.
@@ -144,13 +152,13 @@ export default defineConfig({
 		'/blog/category/travel': '/blog/category/life/',
 
 		// WordPress page redirects
-		'/speaking/joe-karlssons-talk-archive': '/talk-archive',
-		'/speaking': '/talk-archive',
-		'/all-work': '/work',
+		'/speaking/joe-karlssons-talk-archive': '/talk-archive/',
+		'/speaking': '/talk-archive/',
+		'/all-work': '/work/',
 		'/404-error': '/404',
 
 		// WordPress portfolio URLs
-		'/portfolio': '/work',
+		'/portfolio': '/work/',
 
 		// WordPress feed URLs
 		'/feed': '/rss.xml',

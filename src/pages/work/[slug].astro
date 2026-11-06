@@ -18,6 +18,7 @@ import TableOfContents from '../../components/TableOfContents.astro';
 import { projects, type Project, type ProjectPage } from '../../data/projects';
 import { CHALK, MARKS } from '../../data/scribbles';
 import { halftoneMode } from '../../utils/halftone';
+import { localImageSize } from '../../utils/image-size.mjs';
 
 export function getStaticPaths() {
 	return projects
@@ -31,6 +32,18 @@ interface Props {
 
 const { project } = Astro.props;
 const { page } = project;
+// Width and height for every local image, so nothing jumps as they load
+const imageSizes = new Map(
+	await Promise.all(
+		[
+			project.image,
+			...(page.gallery ?? []).filter((clip) => !clip.video).map((clip) => clip.poster),
+			...(page.screenshots ?? []).map((shot) => shot.poster),
+		]
+			.filter((src): src is string => typeof src === 'string' && src.startsWith('/'))
+			.map(async (src) => [src, await localImageSize(src)] as const),
+	),
+);
 const square = page.galleryAspect === 'square';
 // Inline styles for the square layout keep the shared CSS bundle under budget
 const clipStyle = square ? 'aspect-ratio: 1 / 1' : undefined;
@@ -111,6 +124,7 @@ const inline = (text: string) =>
 						<img
 							src={project.image}
 							alt={project.imageAlt}
+							{...imageSizes.get(project.image)}
 							data-halftone={halftoneMode(project.image)}
 							class="block max-h-[440px] w-full rounded-xl object-cover"
 							loading="eager"
@@ -322,6 +336,7 @@ const inline = (text: string) =>
 										<img
 											src={clip.poster}
 											alt={clip.alt}
+											{...imageSizes.get(clip.poster)}
 											loading="lazy"
 											data-halftone={halftoneMode(clip.poster)}
 											class={clipClass}
@@ -348,6 +363,7 @@ const inline = (text: string) =>
 									<img
 										src={shot.poster}
 										alt={shot.alt}
+										{...imageSizes.get(shot.poster)}
 										loading="lazy"
 										data-halftone={halftoneMode(shot.poster)}
 										class="mx-auto rounded-lg"

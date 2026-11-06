@@ -283,7 +283,7 @@ test.describe('Phone layout', () => {
 		expect(nav.width).toBe(390 - 32);
 
 		const name = await box(page, 'header nav > a[href="/"]');
-		const menu = page.getByRole('button', { name: 'Menu' });
+		const menu = page.locator('header').getByRole('button', { name: 'Menu' });
 		const menuBox = (await menu.boundingBox())!;
 		expect(name.height).toBeGreaterThanOrEqual(44);
 		expect(menuBox.height).toBeGreaterThanOrEqual(44);
@@ -306,14 +306,14 @@ test.describe('Phone layout', () => {
 		const nav = page.locator('header nav[aria-label="Main navigation"]');
 		const home = page.locator('header nav > a[href="/"]');
 		await expect(nav).not.toHaveAttribute('data-context-on');
-		await expect(home.getByText('Joe Karlsson')).toBeVisible();
+		// Phones always show the JK logo, drawn twice (fill and wobbling outline)
+		await expect(home.getByText('JK', { exact: true }).first()).toBeVisible();
 
 		await page.evaluate(() => {
 			const body = document.querySelector('article .prose')!;
 			scrollTo(0, body.getBoundingClientRect().top + scrollY + body.clientHeight / 3);
 		});
 		await expect(nav).toHaveAttribute('data-context-on');
-		await expect(home.getByText('JK', { exact: true })).toBeVisible();
 		await expect(nav.locator('[data-context-title]')).toHaveText(
 			'My Homelab Two Years Later, Every Upgrade and What It Cost',
 		);

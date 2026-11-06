@@ -93,6 +93,8 @@ public/favicon.ico has no tag: RSS readers and older clients fetch /favicon.ico 
 <meta name="theme-color" content="#000000" />
 <!-- The site is dark-only. Declaring it stops phone browsers (Samsung Internet, Chrome auto-dark) from inverting it when the phone is in dark mode -->
 <meta name="color-scheme" content="only dark" />
+<!-- Dark Reader (and the iOS browsers built on it, Firefox and Brave) ignores color-scheme and re-darkens the site anyway, turning paper boxes brown -->
+<meta name="darkreader-lock" />
 <!-- Home-screen bookmarks on iOS: the name under the icon, a black status bar in
 standalone mode, and no auto-linking of numbers like "72-container" as phone numbers -->
 <meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
@@ -123,7 +125,7 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 <link rel="canonical" href={canonicalURL} />
 <title>{title}</title>
 <meta name="description" content={description} />
-{type === 'article' && <meta name="author" content="Joe Karlsson" />}
+<meta name="author" content="Joe Karlsson" />
 
 <!-- Search engine verification (preserved from WordPress) -->
 <meta name="google-site-verification" content="QRPrUDjca6IhevyDBOqQCygKZqp45Xyrr2HZooS1LSE" />
@@ -338,5 +340,18 @@ color original never flashes; that script takes the class off again without WebG
 		s.src =
 			'https://plausible.joekarlsson.io/js/script.tagged-events.outbound-links.file-downloads.js';
 		document.head.appendChild(s);
+
+		// Report the first uncaught error on a page as a "JS Error" event, so breakage on
+		// the live site shows up in Plausible. One per page keeps a looping error from flooding it.
+		let reported = false;
+		const report = (message, source) => {
+			if (reported || typeof window.plausible !== 'function') return;
+			reported = true;
+			window.plausible('JS Error', {
+				props: { message: String(message).slice(0, 200), source, path: location.pathname },
+			});
+		};
+		addEventListener('error', (e) => report(e.message, `${e.filename}:${e.lineno}`));
+		addEventListener('unhandledrejection', (e) => report(e.reason, 'promise'));
 	})();
 </script>

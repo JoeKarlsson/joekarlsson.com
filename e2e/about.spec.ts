@@ -45,4 +45,22 @@ test.describe('About Page', () => {
 			await expect(link).toHaveAttribute('rel', /noopener/);
 		}
 	});
+
+	for (const width of [1000, 320]) {
+		test(`Recently shipped repo names stay on one line at ${width}px`, async ({ page }) => {
+			await page.setViewportSize({ width, height: 900 });
+			await page.goto('/about/');
+			const names = page.locator('p[data-repo-name]');
+			expect(await names.count()).toBeGreaterThan(0);
+			for (const name of await names.all()) {
+				const fit = await name.evaluate((p) => ({
+					lines: p.getBoundingClientRect().height / parseFloat(getComputedStyle(p).fontSize),
+					overflow:
+						p.getBoundingClientRect().width - p.parentElement!.getBoundingClientRect().width,
+				}));
+				expect(fit.lines).toBeLessThan(1.5);
+				expect(fit.overflow).toBeLessThanOrEqual(0);
+			}
+		});
+	}
 });

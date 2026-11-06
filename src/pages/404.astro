@@ -25,7 +25,7 @@ const PLACES = [
 ];
 ---
 
-<BaseLayout title="404 | Joe Karlsson" description="Page not found">
+<BaseLayout title="404 | Joe Karlsson" description="Page not found" noindex>
 	<script>
 		if (typeof window.plausible === 'function') {
 			window.plausible('404', { props: { path: window.location.pathname } });
