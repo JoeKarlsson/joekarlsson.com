@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 336,
+			"commitCount": 337,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 46
+				169, 47
 			],
-			"latestCommitMessage": "feat: Five more posts get cut-paper diagrams, and every diagram uses..."
+			"latestCommitMessage": "feat: Nine posts swap their ASCII diagrams for cut-paper figures with..."
 		},
 		{
 			"name": "bechdel-test",
