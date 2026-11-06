@@ -7,12 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 293,
+			"commitCount": 300,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 3
+				169, 10
 			],
-			"latestCommitMessage": "feat: The logo now signs the footer, the end of each post, every..."
+			"latestCommitMessage": "fix: Phones load the site faster: halftone sets up pictures only as..."
+		},
+		{
+			"name": "bechdel-test",
+			"description": "Does your favorite film pass the test?",
+			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"language": "JavaScript",
+			"commitCount": 1,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+			],
+			"latestCommitMessage": "chore: Remove the dead homelab deploy and document local Docker..."
 		},
 		{
 			"name": "punc",
@@ -36,17 +47,6 @@
 				0
 			],
 			"latestCommitMessage": "feat: Zine-look covers get joekarlsson.com's crayon marks: rays..."
-		},
-		{
-			"name": "dotfiles",
-			"description": "My dotfiles, managed with chezmoi",
-			"url": "https://github.com/JoeKarlsson/dotfiles",
-			"language": "Shell",
-			"commitCount": 89,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 0
-			],
-			"latestCommitMessage": "chore: Design taste notes record the /uses pick, clear pink photos..."
 		}
 	],
 	"films": [
