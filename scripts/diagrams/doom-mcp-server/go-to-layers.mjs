@@ -92,6 +92,7 @@ export const desktop = {
 			h: 160,
 			kind: 'pink',
 			name: 'psdoom-ng (C)',
+			logo: 'gamepad-2',
 			does: ['every tic: turn toward the next', 'point, walk, report arrived', 'within 16 units'],
 			job: ['steers, 35 times a second'],
 		});
@@ -155,6 +156,7 @@ export const phone = {
 			stacked: true,
 			kind: 'pink',
 			name: 'psdoom-ng (C)',
+			logo: 'gamepad-2',
 			job: ['steers, 35 times a second'],
 			does: ['every tic: turn toward the next', 'point, walk, report arrived', 'within 16 units'],
 		});

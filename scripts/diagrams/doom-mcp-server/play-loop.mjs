@@ -9,11 +9,12 @@ const LEGEND = [
 export const desktop = {
 	height: 1100,
 	draw(f) {
-		const call = (y, label, sub) =>
+		const call = (y, label, sub, icon) =>
 			f.box({
-				x: 120,
+				icon,
+				x: 105,
 				y,
-				w: 260,
+				w: 290,
 				h: sub ? 62 : 50,
 				kind: 'pink',
 				label,
@@ -29,29 +30,29 @@ export const desktop = {
 			[250, 92],
 			[250, 118],
 		]);
-		call(120, 'go_to("keycards")');
+		call(120, 'go_to("keycards")', undefined, 'key-round');
 		f.note(396, 145, 'pick up a keycard for each door');
 		f.arrow([
 			[250, 172],
 			[250, 208],
 		]);
-		call(210, 'go_to(next room)', 'blocked? attack(closest_pids)');
+		call(210, 'go_to(next room)', 'blocked? attack(closest_pids)', 'door-open');
 		f.arrow([
 			[250, 274],
 			[250, 326],
 		]);
 		f.note(262, 296, 'arrived');
-		call(328, 'look');
+		call(328, 'look', undefined, 'eye');
 		f.arrow([
 			[250, 380],
 			[250, 416],
 		]);
-		call(418, 'attack(urgent pid first)');
+		call(418, 'attack(urgent pid first)', undefined, 'crosshair');
 		f.arrow([
-			[382, 443],
+			[397, 443],
 			[418, 443],
 		]);
-		f.note(400, 424, 'killed', { anchor: 'middle' });
+		f.note(408, 424, 'killed', { anchor: 'middle' });
 		f.box({
 			x: 422,
 			y: 408,
@@ -71,7 +72,7 @@ export const desktop = {
 			[145, 558],
 			[90, 558],
 			[90, 353],
-			[116, 353],
+			[101, 353],
 		]);
 		f.note(100, 540, 'no');
 		f.arrow([
@@ -101,7 +102,7 @@ export const desktop = {
 			[145, 728],
 			[50, 728],
 			[50, 241],
-			[116, 241],
+			[101, 241],
 		]);
 		f.note(60, 710, 'yes');
 		f.arrow([
@@ -109,7 +110,7 @@ export const desktop = {
 			[250, 812],
 		]);
 		f.note(262, 791, 'no');
-		call(814, 'go_to("vault")');
+		call(814, 'go_to("vault")', undefined, 'lock');
 		f.arrow([
 			[250, 866],
 			[250, 902],
@@ -142,8 +143,9 @@ export const desktop = {
 export const phone = {
 	height: 1170,
 	draw(f) {
-		const call = (y, label, sub) =>
+		const call = (y, label, sub, icon) =>
 			f.box({
+				icon,
 				x: 50,
 				y,
 				w: 290,
@@ -163,23 +165,23 @@ export const phone = {
 			[195, 112],
 			[195, 132],
 		]);
-		call(134, 'go_to("keycards")', 'pick up a keycard per door');
+		call(134, 'go_to("keycards")', 'pick up a keycard per door', 'key-round');
 		f.arrow([
 			[195, 198],
 			[195, 222],
 		]);
-		call(224, 'go_to(next room)', 'blocked? attack(closest_pids)');
+		call(224, 'go_to(next room)', 'blocked? attack(closest_pids)', 'door-open');
 		f.arrow([
 			[195, 288],
 			[195, 340],
 		]);
 		f.note(207, 312, 'arrived');
-		call(342, 'look');
+		call(342, 'look', undefined, 'eye');
 		f.arrow([
 			[195, 392],
 			[195, 416],
 		]);
-		call(418, 'attack(urgent pid first)');
+		call(418, 'attack(urgent pid first)', undefined, 'crosshair');
 		f.arrow([
 			[195, 468],
 			[195, 494],
@@ -239,7 +241,7 @@ export const phone = {
 			[195, 890],
 		]);
 		f.note(207, 875, 'no');
-		call(892, 'go_to("vault")');
+		call(892, 'go_to("vault")', undefined, 'lock');
 		f.arrow([
 			[195, 942],
 			[195, 970],

@@ -2,6 +2,7 @@ export const alt =
 	'While you play: Claude Code calls the Doom MCP server tools look, go_to and attack over MCP. The server trades a command file and state.json with Doom, and Doom trades only local files with the bridge, an MCP client. Every 15 seconds the bridge asks the Connect AI MCP server again: it re-runs each room’s query, re-reads kills and re-asks at the red door.';
 
 const TOOLS = ['look', 'go_to', 'attack'];
+const TOOL_ICONS = { look: 'eye', go_to: 'footprints', attack: 'crosshair' };
 
 /** The server's own name sits at the top of its box, above the tool chips. */
 function serverName(f, x, y) {
@@ -41,6 +42,7 @@ export const desktop = {
 				label: tool,
 				font: 'mono',
 				size: 16,
+				icon: TOOL_ICONS[tool],
 			}),
 		);
 		f.arrow(
@@ -68,7 +70,16 @@ export const desktop = {
 			{ heads: 'both' },
 		);
 		f.note(201, 466, 'local files only');
-		f.box({ x: 40, y: 510, w: 290, h: 70, kind: 'chalk', label: 'bridge', sub: 'an MCP client' });
+		f.box({
+			x: 40,
+			y: 510,
+			w: 290,
+			h: 70,
+			kind: 'chalk',
+			label: 'bridge',
+			sub: 'an MCP client',
+			icon: 'cable',
+		});
 		f.arrow(
 			[
 				[334, 545],
@@ -117,13 +128,15 @@ export const phone = {
 		TOOLS.forEach((tool, i) =>
 			f.box({
 				x: 28 + i * 104,
-				y: 242,
+				y: 240,
 				w: 96,
-				h: 46,
+				h: 60,
 				kind: 'ink',
 				label: tool,
 				font: 'mono',
 				size: 15,
+				icon: TOOL_ICONS[tool],
+				stack: true,
 			}),
 		);
 		f.arrow(
@@ -152,7 +165,16 @@ export const phone = {
 			{ heads: 'both' },
 		);
 		f.note(194, 462, 'local files only');
-		f.box({ x: 16, y: 498, w: 328, h: 64, kind: 'chalk', label: 'bridge', sub: 'an MCP client' });
+		f.box({
+			x: 16,
+			y: 498,
+			w: 328,
+			h: 64,
+			kind: 'chalk',
+			label: 'bridge',
+			sub: 'an MCP client',
+			icon: 'cable',
+		});
 		f.arrow(
 			[
 				[60, 566],

@@ -24,6 +24,7 @@ const LOGOS = {
 	stripe: { color: '#635BFF' },
 	python: { color: '#3776AB' },
 	amazonwebservices: { color: '#FF9900' },
+	googlebigquery: { color: '#669DF6' },
 	'connect-ai': {
 		dark: 'connect-ai-color-on-dark',
 		light: 'connect-ai-color-on-light',
@@ -54,8 +55,11 @@ function contrast(a, b) {
 	return (hi + 0.05) / (lo + 0.05);
 }
 
-function readLogoFile(file) {
-	const raw = readFileSync(new URL(`./logos/${file}.svg`, import.meta.url), 'utf8');
+function readLogoFile(file, dir = 'logos') {
+	const raw = readFileSync(new URL(`./${dir}/${file}.svg`, import.meta.url), 'utf8').replace(
+		/<!--[\s\S]*?-->/g,
+		'',
+	);
 	const [, minX, minY, w, h] = raw
 		.match(/viewBox="([-\d.]+) ([-\d.]+) ([\d.]+) ([\d.]+)"/)
 		.map(Number);
@@ -72,11 +76,21 @@ function readLogoFile(file) {
 	return { viewBox: `${minX} ${minY} ${w} ${h}`, aspect: w / h, inner };
 }
 
-/** The version of a logo that reads on a surface (a box kind). */
+/**
+ * The version of a logo that reads on a surface (a box kind). A name that isn't a
+ * logo is a Lucide icon from scripts/diagrams/icons, drawn in the surface's text colour.
+ */
 function loadLogo(name, surface = 'ink') {
 	const entry = LOGOS[name];
-	if (!entry) throw new Error(`No logo named ${name} in scripts/diagrams/logos`);
 	const background = SURFACES[surface];
+	if (!entry) {
+		const icon = readLogoFile(name, 'icons');
+		const stroke = luminance(background) < 0.2 ? '#ededed' : '#000000';
+		return {
+			...icon,
+			inner: `<g fill="none" stroke="${stroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.inner}</g>`,
+		};
+	}
 	const isDark = luminance(background) < 0.2;
 	if (!entry.color) {
 		const file = surface === 'pink' ? entry.black : isDark ? entry.dark : entry.light;
@@ -226,7 +240,9 @@ export function createFigure({ id, width, height }) {
 	 * (sometimes or optional), ink (a chip inside another box, like a tool name).
 	 * label: a string or array of lines, set in Anton caps when short (a name) and
 	 * in Hanken when longer (a phrase); sub: smaller lines under it.
-	 * logo: a logo before the label; wordmark: a logo that replaces the label.
+	 * logo: a product's logo before the label; icon: a Lucide icon there instead,
+	 * for anything without a logo; stack: put that mark above the label instead of
+	 * before it, for small boxes; wordmark: a logo that replaces the label.
 	 */
 	function box({
 		x,
@@ -241,6 +257,8 @@ export function createFigure({ id, width, height }) {
 		subFont = 'sans',
 		subSize: subSizeOverride,
 		logo: logoName,
+		icon: iconName,
+		stack = false,
 		wordmark,
 	}) {
 		parts.push(
@@ -271,20 +289,36 @@ export function createFigure({ id, width, height }) {
 		let cx = x + w / 2;
 		let room = w - 20;
 		if (wordmark) {
+			// The product's own wordmark stands in for its name, with any sub-lines under it
+			const subs = [sub ?? []].flat();
 			const markH = Math.min(24, h * 0.3);
-			const markY = sub ? y + h * 0.38 : y + h / 2;
+			const block = markH + subs.length * 20 + (subs.length ? 8 : 0);
+			const markY = y + h / 2 - block / 2 + markH / 2;
 			const markW = logoWidth(wordmark, markH);
 			if (markW > room) issues.push(`the ${wordmark} wordmark is wider than its ${w}px box`);
 			logo(wordmark, cx - markW / 2, markY, markH, kind);
-			if (sub) text(cx, y + h * 0.76, sub, { size: 15, color, weight: 600 });
+			subs.forEach((line, i) =>
+				text(cx, markY + markH / 2 + 18 + i * 20, line, { size: 15, color, weight: 600 }),
+			);
 			parts.push('</g>');
 			return;
 		}
-		if (logoName) {
+		const mark = logoName ?? iconName;
+		// The label's area: the whole box, or what's left under a stacked mark
+		let areaTop = y;
+		let areaH = h;
+		if (mark && stack) {
+			const iconH = Math.min(26, h * 0.34);
+			logo(mark, cx - logoWidth(mark, iconH) / 2, y + 8 + iconH / 2, iconH, kind);
+			areaTop = y + iconH + 8;
+			areaH = h - iconH - 8;
+		} else if (mark) {
+			// A chip is small, so its mark sits closer to the edge
+			const pad = kind === 'ink' ? 10 : 14;
 			const iconH = Math.min(28, h * 0.5);
-			const iconW = logo(logoName, x + 14, y + h / 2, iconH, kind);
-			cx = x + 14 + iconW + (w - 14 - iconW) / 2;
-			room = w - 34 - iconW;
+			const iconW = logo(mark, x + pad, y + h / 2, iconH, kind);
+			cx = x + pad + iconW + (w - pad - iconW) / 2;
+			room = w - pad * 2 - 6 - iconW;
 		}
 		const asList = (v) => (v === undefined ? [] : Array.isArray(v) ? v : [v]);
 		const subSize =
@@ -297,9 +331,9 @@ export function createFigure({ id, width, height }) {
 			...asList(sub).map((t) => ({ t, size: subSize, font: subFont })),
 		];
 		const total = rows.reduce((sum, r) => sum + r.size * 1.3, 0);
-		if (total > h - 6)
+		if (total > areaH - 6)
 			issues.push(`"${rows.map((r) => r.t).join(' / ')}" is taller than its ${h}px box`);
-		let rowTop = y + h / 2 - total / 2;
+		let rowTop = areaTop + areaH / 2 - total / 2;
 		rows.forEach((r) => {
 			const upper = r.font === 'display';
 			const rowWidth = measure(r.t, r.size, r.font, r.font === 'sans' ? 600 : 400);

@@ -20,28 +20,42 @@
 <path d="M188.6,123 L195,132 L201.4,123" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
 <g transform="rotate(-1.1 195 165)">
 <path d="M48.7,135.2 L64.5,132.7 L82.6,134.8 L99.4,132.7 L114.1,133.9 L130.3,133.1 L144.7,133.5 L162.7,133.8 L178.1,135.3 L194.3,135.3 L209,134.6 L225.1,134.3 L240.5,134.2 L259.5,133.4 L274.6,135.6 L291.4,133.1 L305.9,133 L321.9,134.6 L339.6,134.3 L338.8,133.1 L340.9,148.5 L339.2,166.2 L341.3,181.2 L338.4,195 L322.9,196.7 L307.1,195.7 L292,195.9 L277.2,196.5 L260.6,195.7 L243.9,196.6 L227.6,197.2 L210.7,196.7 L196.6,197.5 L178.5,196.6 L163.1,196.3 L148.5,195.6 L130.9,195 L114.8,197 L101,197.1 L84.9,195.5 L67.9,194.6 L52,195.5 L48.7,195.8 L49.5,179.5 L50.3,162.7 L48.8,149.5 Z" fill="#ff4fd8"/>
-<text x="195" y="155.9" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">go_to(&quot;keycards&quot;)</text>
-<text x="195" y="174.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">pick up a keycard per door</text>
+<svg x="64" y="151" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
+  <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></g></svg>
+<text x="216" y="155.9" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">go_to(&quot;keycards&quot;)</text>
+<text x="216" y="174.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">pick up a keycard per door</text>
 </g>
 <path d="M195.6,197.8 Q195.6,210.3 196,221.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
 <path d="M188.6,213 L195,222 L201.4,213" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
 <g transform="rotate(-0.2 195 255)">
 <path d="M50.9,225.1 L67,224 L81.6,224.2 L96.4,223.9 L114.7,223.5 L129.2,225.5 L147.2,223.5 L162.4,224.9 L178.8,223.1 L195.3,225.5 L211.5,222.9 L224.7,223 L242.4,223.4 L257.5,224.6 L274.1,223 L291.5,223.4 L307.2,223.7 L321.5,225.3 L338.4,223.4 L341,222.4 L341.3,240.5 L338.8,254.8 L341.4,271.7 L341.4,285.9 L322.8,285.1 L307.2,285.6 L292.2,284.6 L274.7,285.4 L261.5,285.4 L244.6,287 L228.5,285.3 L212.4,285.3 L195.7,286.1 L179.3,285.4 L163.1,287.4 L147.2,287.2 L133.4,285.7 L116.4,286.2 L101.1,284.9 L82.9,287.4 L67.1,285.9 L52.8,285.3 L50.9,285.3 L48.8,270.6 L49.2,254 L49.1,236.9 Z" fill="#ff4fd8"/>
-<text x="195" y="245.9" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">go_to(next room)</text>
-<text x="195" y="264.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">blocked? attack(closest_pids)</text>
+<svg x="64" y="241" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h3a2 2 0 0 1 2 2v14" />
+  <path d="M2 20h3" />
+  <path d="M13 20h9" />
+  <path d="M10 12v.01" />
+  <path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z" /></g></svg>
+<text x="216" y="245.9" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">go_to(next room)</text>
+<text x="216" y="264.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">blocked? attack(closest_pids)</text>
 </g>
 <path d="M195.5,289.1 Q194.4,316.4 195.5,341.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
 <path d="M188.6,331 L195,340 L201.4,331" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
 <text x="207" y="312" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">arrived</text>
 <g transform="rotate(0.5 195 366)">
 <path d="M49.5,343.1 L65.7,341 L82.7,341.2 L99.3,341.8 L113.3,340.4 L131.3,341.6 L145.8,341.4 L162.1,343.1 L178.8,343.2 L192.8,341.9 L211.2,342.4 L224.9,340.6 L241.3,343.2 L259.3,342.6 L274.6,341 L289.5,342.8 L307.2,343.1 L323.4,342.8 L338.3,340.8 L338.6,342.8 L341.5,356.5 L341,373.4 L339.2,391.4 L325.4,391.2 L309.4,390.8 L291.4,390.3 L277.3,388.6 L259.1,391.5 L244,390.3 L227.1,388.8 L210.8,388.9 L196.7,390.3 L181.3,389.1 L162.8,389.6 L146.5,391.1 L131.2,389.2 L114.6,390.3 L100.9,390 L84,389 L67.5,389.3 L51.2,388.4 L51,389.5 L49.3,374 L48.9,356.8 Z" fill="#ff4fd8"/>
-<text x="195" y="366" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">look</text>
+<svg x="64" y="354" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+  <circle cx="12" cy="12" r="3" /></g></svg>
+<text x="214" y="366" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">look</text>
 </g>
 <path d="M195.9,391.8 Q195.7,404.8 194.8,415" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
 <path d="M188.6,407 L195,416 L201.4,407" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
 <g transform="rotate(1 195 442)">
 <path d="M49.6,418.7 L66.4,419.1 L82.7,419.5 L97.8,418.2 L113,418.4 L130.2,418.6 L145.4,417.8 L161.6,417.9 L177.9,417.2 L195.1,419.3 L210.8,419.6 L226.8,416.5 L241.2,419.5 L256.5,416.4 L274.6,418.2 L291.4,416.5 L305.2,418.7 L321.3,417.5 L338.8,419.2 L341.4,418.1 L339.4,434.1 L341.5,448.7 L340.8,464.7 L323.4,464.9 L309,466.9 L290.6,465.4 L274.9,465.7 L259.9,466 L244.4,465.4 L227.1,465.1 L211.9,465.3 L197,464.7 L179.8,466.3 L162.9,465 L148.4,466.3 L131.1,465.6 L117.1,465.2 L101.2,466 L84.5,466.1 L66.8,465.2 L53.1,467 L49,467.3 L48.8,449.6 L49.2,434.9 Z" fill="#ff4fd8"/>
-<text x="195" y="442" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">attack(urgent pid first)</text>
+<svg x="64" y="430" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <line x1="22" x2="18" y1="12" y2="12" />
+  <line x1="6" x2="2" y1="12" y2="12" />
+  <line x1="12" x2="12" y1="6" y2="2" />
+  <line x1="12" x2="12" y1="22" y2="18" /></g></svg>
+<text x="214" y="442" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">attack(urgent pid first)</text>
 </g>
 <path d="M196.4,466.6 Q197.6,478.6 196.3,493.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
 <path d="M188.6,485 L195,494 L201.4,485" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
@@ -80,7 +94,9 @@
 <text x="207" y="875" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">no</text>
 <g transform="rotate(0.7 195 916)">
 <path d="M49.2,892.9 L66.4,891.5 L83.2,892.1 L96.9,892.8 L113.9,893.1 L131.4,892.9 L146,891.6 L161.6,893.2 L177.9,891.3 L192.7,891.8 L209.5,893 L225.1,891.8 L240.6,892.7 L257.1,892.3 L274.2,892.4 L291.2,891.4 L305.7,891.8 L320.8,892.5 L339.1,891.3 L340.1,893.4 L340.5,906.4 L338.9,923.5 L340.3,941.4 L322.8,940.1 L309.5,939.9 L291.9,939.2 L276.4,939.7 L260.2,938.4 L244.4,938.4 L228.6,938.6 L210.6,938.9 L195,939.9 L178.5,939.7 L164.4,939.2 L148.8,939.4 L132.1,939.6 L115,940.7 L100.6,940 L84.4,938.5 L67.9,940.9 L51.5,941 L49.1,939.9 L51.4,923.5 L50.5,909.5 Z" fill="#ff4fd8"/>
-<text x="195" y="916" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">go_to(&quot;vault&quot;)</text>
+<svg x="64" y="904" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+  <path d="M7 11V7a5 5 0 0 1 10 0v4" /></g></svg>
+<text x="214" y="916" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central">go_to(&quot;vault&quot;)</text>
 </g>
 <path d="M194.4,941.5 Q193.2,956.4 194.6,969.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>
 <path d="M188.6,961 L195,970 L201.4,961" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#doom-mcp-server-play-loop-phone-crayon)"/>

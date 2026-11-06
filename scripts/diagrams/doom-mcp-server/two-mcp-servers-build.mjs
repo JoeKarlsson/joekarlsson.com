@@ -70,27 +70,35 @@ export const desktop = {
 			[290, 137],
 			[290, 262],
 			[135, 262],
-			[135, 286],
+			[125, 286],
 		]);
 		f.note(150, 246, 'then produces');
 		f.box({
 			x: 20,
 			y: 288,
-			w: 230,
+			w: 210,
 			h: 60,
 			label: ['rooms, records,', 'permissions, refusals'],
-			size: 16,
+			size: 15,
 		});
 		f.arrow([
-			[252, 318],
-			[288, 318],
+			[232, 318],
+			[260, 318],
 		]);
-		f.box({ x: 290, y: 293, w: 150, h: 50, label: 'map builder' });
+		f.box({ x: 264, y: 293, w: 176, h: 50, label: 'map builder', icon: 'map' });
 		f.arrow([
 			[442, 318],
 			[476, 318],
 		]);
-		f.box({ x: 480, y: 290, w: 140, h: 56, kind: 'pink', label: 'Doom level' });
+		f.box({
+			x: 476,
+			y: 285,
+			w: 144,
+			h: 66,
+			kind: 'pink',
+			label: ['Doom', 'level'],
+			icon: 'gamepad-2',
+		});
 	},
 };
 
@@ -150,11 +158,11 @@ export const phone = {
 			[190, 548],
 			[190, 576],
 		]);
-		f.box({ x: 100, y: 578, w: 180, h: 48, label: 'map builder' });
+		f.box({ x: 100, y: 578, w: 180, h: 48, label: 'map builder', icon: 'map' });
 		f.arrow([
 			[190, 628],
 			[190, 656],
 		]);
-		f.box({ x: 36, y: 658, w: 308, h: 56, kind: 'pink', label: 'Doom level' });
+		f.box({ x: 36, y: 658, w: 308, h: 56, kind: 'pink', label: 'Doom level', icon: 'gamepad-2' });
 	},
 };

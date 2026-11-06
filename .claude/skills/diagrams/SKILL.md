@@ -42,12 +42,15 @@ unless he says otherwise for a specific figure.
    people, prompts and plain steps, dashed for "sometimes". No tape.
 2. **Names in Anton caps, phrases in Hanken.** The kit switches automatically at 24
    characters. Code (tool names, file names, commands) is monospace.
-3. **Real logos, transparent.** Use the product's logo when the figure names it:
-   Claude for Claude and Claude Code, the Connect AI wordmark, the CData mark,
-   AWS, Salesforce, and so on. They live in `scripts/diagrams/logos/` (sources and
-   variants in its README); add new ones there. The kit picks the colour, black or
-   white version that reads on each surface. A product with no usable vector logo
-   gets its name only.
+3. **Logos and icons, lots of them, transparent.** A part that names a product
+   gets that product's logo: Claude for Claude and Claude Code, the Connect AI
+   wordmark, the CData mark, AWS, Salesforce, BigQuery, and so on
+   (`scripts/diagrams/logos/`, sources and variants in its README). Everything
+   else gets a Lucide icon (`scripts/diagrams/icons/`): `bot` for every AI agent,
+   `user` for people, `clock` for schedules, `bell` for alerts, `database` for a
+   database without a usable logo, and so on for tools and steps. Pass `logo:` or
+   `icon:` to a box; in a box too small for a mark beside the label, pass
+   `stack: true` to put it on top. The kit colours each one for its surface.
 4. **Every connection gets an arrow**, including one-to-many (fan the arrows out
    from one point to each target).
 5. **Arrows show the real direction of data.** A request that gets an answer back
@@ -59,7 +62,8 @@ unless he says otherwise for a specific figure.
 7. **Crayon callouts only when they add something** the boxes don't say: what
    travels over a link and how often, a refusal, a surprise. Every callout is a
    note plus a crayon arrow pointing at exactly what it explains. No decorative
-   rings, underlines or scribbles.
+   rings, underlines or scribbles. Route the crayon arrow so it crosses no text or box;
+   the render check can't see that, so look at the preview.
 8. **Containers group parts that belong together** ("The game", "Live data", "In
    each room"): a darker sheet with a name tab, drawn before its contents.
 9. **A colour key only when colour encodes two or more things the labels don't
@@ -79,13 +83,14 @@ unless he says otherwise for a specific figure.
 
 `createFigure` is called by render.mjs; figure files only use the methods on `f`:
 
-- `f.box({ x, y, w, h, kind, label, sub, font, size, logo, wordmark })`: kinds
+- `f.box({ x, y, w, h, kind, label, sub, font, size, logo, icon, stack, wordmark })`: kinds
   `pink`, `chalk`, `outline`, `dashed`, `ink` (a chip inside another box).
 - `f.arrow(points, { heads: 'end' | 'both' | 'none', dashed })`: right-angle
   polylines of `[x, y]` points.
 - `f.group({ x, y, w, h, label })`, `f.pill(...)` (start/end), `f.diamond(...)` (a
   decision), `f.note(x, y, text)` (gray label beside a line), `f.heading(...)`.
-- `f.logo(name, x, cy, height, surface)` returns its width; `f.logoWidth(name, h)`.
+- `f.logo(name, x, cy, height, surface)` draws a logo or icon and returns its
+  width; `f.logoWidth(name, h)`.
 - `f.crayonArrow(from, to, bend)`: the pink callout arrow.
 - `f.legend(items)`: `['pink', 'label']` or `['logo:cdata', 'label']`.
 

@@ -55,7 +55,7 @@ A sales rep asking "what's my pipeline this quarter" gets their Salesforce recor
 
 Teams build this first because it goes live in days and the return on investment (ROI) is obvious immediately. The questions that used to pile up as BI tickets get answered in seconds. [Natural-language data access opens a wider set of use cases](https://www.cdata.com/blog/ai-gateway-use-cases) than pipeline reporting alone, and this pattern is typically what builds the organizational confidence to go further.
 
-![Architecture diagram: an employee request flows through an AI agent to the CData Connect AI gateway, which passes the user's own credentials to Salesforce. The response includes only records that user has permission to see.](/images/blog/ai-gateway-for-developers/diagram-passthrough-identity.webp)
+![A sales rep and a regional manager ask an AI agent the same question. The agent calls the CData Connect AI gateway over MCP, which queries Salesforce with each employee's own credentials, so the rep gets their own deals and the manager gets the whole team's.](/images/blog/ai-gateway-for-developers/passthrough-identity.svg)
 
 ### Agents that watch live data and act on findings
 
@@ -65,7 +65,7 @@ The gateway logs every request and bounds each agent's access to the sources and
 
 Teams building this rarely start with autonomous action. They start with alerts only, run that for a few weeks, build confidence in how the agent arrives at its findings, then add guarded write paths where the agent proposes an action and a human approves before anything executes.
 
-![Architecture diagram: a scheduled trigger starts an agent that fetches data from BigQuery through a workspace-scoped Connect AI gateway. Results split into two paths: an automatic alert, and a write action that waits for human approval before executing.](/images/blog/ai-gateway-for-developers/diagram-autonomous-monitor.webp)
+![A schedule or an event starts a monitoring agent that queries BigQuery through a read-only Connect AI workspace. Teams start with findings sent as alerts and later add guarded writes that a human approves first, and Connect AI logs every request.](/images/blog/ai-gateway-for-developers/autonomous-monitor.svg)
 
 ### A shared data layer for all your AI agents
 
@@ -77,7 +77,7 @@ Each agent connects through its own scoped [MCP endpoint](https://docs.cloud.cda
 
 The [governance controls](https://www.cdata.com/ai/capabilities/governance/) that matter most at this scale: instant revocation, SCIM 2.0 lifecycle sync with Okta, Microsoft Entra ID, or Ping Identity (added [March 2026](https://www.prnewswire.com/news-releases/cdata-expands-connect-ai-platform-with-new-agent-tooling-and-enterprise-grade-security-to-power-production-ai-deployments-302707005.html)), and request-level audit logs exportable to your security information and event management (SIEM) system.
 
-![Hub-and-spoke diagram: three internal agents (HR assistant, finance tracker, sales analyst) each connect to one CData Connect AI gateway. Inside the gateway, each agent has its own scoped workspace. The gateway connects out to Salesforce, BigQuery, and SQL Server.](/images/blog/ai-gateway-for-developers/diagram-shared-data-layer.webp)
+![Three internal agents, an HR assistant, a finance monitor, and a sales analyst, each connect to one CData Connect AI gateway, where each has its own read-only workspace and toolkit, reaching SQL Server, BigQuery, and Salesforce.](/images/blog/ai-gateway-for-developers/shared-data-layer.svg)
 
 ## Start read-only, add writes once you trust what you're seeing
 

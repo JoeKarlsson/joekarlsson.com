@@ -45,7 +45,12 @@
 <g transform="rotate(-1.1 180 741)">
 <path d="M16,629.1 L30.7,630.2 L47.1,630.6 L65.2,629.3 L78.9,631.3 L94.4,629.9 L112.5,630.2 L129.5,629.9 L144.5,628.8 L161.5,631.6 L175.3,631.3 L191,631.2 L209.5,630.9 L222.5,628.4 L239.6,631.4 L254.5,630.7 L271.4,629.7 L288.1,628.5 L303.6,630.2 L318.6,628.8 L337,629.7 L344.1,629.9 L343.2,647.4 L344.3,660.8 L345.3,677.9 L345.6,692.6 L344.3,710.4 L343.4,727.2 L344.3,743.2 L345.2,756.5 L343.7,773.3 L344.5,790.3 L344,805.1 L344.9,822.7 L345.4,839.6 L343.1,850.4 L328.6,852.6 L313,850.4 L295.1,853.4 L280,852.1 L264.1,853.2 L248.7,853.2 L231.3,853.4 L214.5,852.4 L201.2,851.3 L184.2,850.6 L167.6,851.7 L153.2,851 L136.7,851.2 L119.6,852.7 L105.5,852.9 L87.1,850.4 L70.6,852.1 L55.6,851 L39.9,852.3 L24,851.7 L17.3,851.8 L15.7,837 L16.9,819.3 L16.7,804.5 L14.6,787.8 L16.5,772.9 L17.1,754.9 L14.9,741.2 L16.6,723.8 L17.1,706.8 L16.6,691.5 L15.5,675.9 L16.3,660.2 L15.7,644.6 Z" fill="#ff4fd8"/>
 </g>
-<text x="38" y="662" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="28" fill="#000000" text-anchor="start" dominant-baseline="central">PSDOOM-NG (C)</text>
+<svg x="38" y="649" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11" />
+  <line x1="8" x2="8" y1="9" y2="13" />
+  <line x1="15" x2="15.01" y1="12" y2="12" />
+  <line x1="18" x2="18.01" y1="10" y2="10" />
+  <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" /></g></svg>
+<text x="76" y="662" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="28" fill="#000000" text-anchor="start" dominant-baseline="central">PSDOOM-NG (C)</text>
 <text x="38" y="700" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#000000" text-anchor="start" dominant-baseline="central">Its job</text>
 <text x="38" y="726" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="17" fill="#000000" text-anchor="start" dominant-baseline="central">steers, 35 times a second</text>
 <text x="38" y="763" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#000000" text-anchor="start" dominant-baseline="central">What it does</text>
