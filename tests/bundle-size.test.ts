@@ -37,9 +37,12 @@ const THRESHOLDS = {
 	// when dist sat at 199MB. Those halftones are now drawn live in the browser
 	// (src/scripts/halftone.ts), which freed the space again. Raised to 225MB on
 	// 2026-11-06 when post-body images got 400/800/1200px copies for their srcset
-	// (dist went to 217MB; visitors download less). Still catches an unconverted
+	// (dist went to 217MB; visitors download less). Raised to 245MB on 2026-11-06
+	// when 113 work posts swapped flat employer stock art for photo thumbnails
+	// (scripts/generate-work-thumbnails.mjs): pictures, their srcset copies and their
+	// og:image JPEGs took dist from 224MB to 237MB. Still catches an unconverted
 	// GIF or a stray video.
-	maxTotalDist: 225 * 1024 * 1024,
+	maxTotalDist: 245 * 1024 * 1024,
 };
 
 function getFilesWithExtension(dir: string, ext: string): { name: string; size: number }[] {

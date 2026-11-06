@@ -137,7 +137,7 @@ function tone(grey, scale) {
 /** Pink dots on a 45-degree grid sized by brightness, over a half-strength pink tone (like src/scripts/halftone.ts) */
 function halftone(grey, width, height) {
 	const out = tone(grey, 0.5);
-	const cell = 7;
+	const cell = 9;
 	const cos = Math.SQRT1_2;
 	for (let y = 0; y < height; y++) {
 		for (let x = 0; x < width; x++) {
@@ -291,7 +291,7 @@ async function main() {
 			const png = await page.screenshot({ type: 'png' });
 			const out = join(ROOT, 'public', thumbPath(slug));
 			mkdirSync(join(out, '..'), { recursive: true });
-			writeFileSync(out, await sharp(png).webp({ quality: 80 }).toBuffer());
+			writeFileSync(out, await sharp(png).webp({ quality: 72 }).toBuffer());
 			const markdown = readFileSync(post, 'utf8');
 			writeFileSync(
 				post,
