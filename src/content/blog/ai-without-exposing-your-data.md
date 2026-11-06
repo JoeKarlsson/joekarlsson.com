@@ -11,6 +11,8 @@ categories: ['AI']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/ai-without-exposing-your-data
 contentNotice: "This post was originally published on CloudQuery's blog."
+heroImage: '/images/blog/ai-without-exposing-your-data/thumb.webp'
+heroAlt: 'A letter closed with a red wax seal'
 ---
 
 > **Note:** **TL;DR:**

@@ -7,8 +7,8 @@ description: "For most of my last job I couldn't say whether my work mattered. W
 categories: ['Cloud', 'Career']
 writtenFor: 'CData'
 tags: ['analytics', 'data', 'devrel', 'cdata']
-heroImage: '/images/blog/proving-my-work-mattered/hero-2.webp'
-heroAlt: 'Proving my work mattered - connect ai'
+heroImage: '/images/blog/proving-my-work-mattered/thumb.webp'
+heroAlt: 'An old wind-up tape measure'
 canonicalUrl: 'https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered).'
 tldr: 'I spent years producing content without knowing if any of it converted to actual business results. Getting read access to the CRM data - an afternoon of work I kept assuming would take weeks - changed how I understood my own impact.'

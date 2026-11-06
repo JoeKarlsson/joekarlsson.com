@@ -5,11 +5,12 @@ tags:
   - Tutorials
 date: 2025-09-01
 description: 'AI data pipeline architectures with CloudQuery, moving data from 50+ sources into vector databases and training pipelines on your own infrastructure.'
-heroImage: /images/blog/production-ai-data-pipeline-architectures/thumbnail.webp
+heroImage: '/images/blog/production-ai-data-pipeline-architectures/thumb.webp'
 categories: ['AI']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/production-ai-data-pipeline-architectures
 contentNotice: "This post was originally published on CloudQuery's blog."
+heroAlt: 'A fresh RAG pipeline: CloudQuery syncs Confluence, Notion and wiki pages daily into PostgreSQL with pgvector, which the RAG engine searches to answer questions in a knowledge assistant.'
 ---
 
 > **Note:** **TL;DR:**

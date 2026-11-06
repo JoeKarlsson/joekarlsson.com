@@ -6,8 +6,8 @@ slug: 'save-the-world-and-money-with-mongodb-atlas-data-lake'
 description: 'Slides and code from my MongoDB Atlas Data Lake talk on archiving cold data to AWS S3 with Serverless Triggers and querying it with zero downtime.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/save-the-world-and-money-with-mongodb-atlas-data-lake/Save-The-World-And-Money-With-MongoDB-Data-Lake.webp'
-heroAlt: 'Save the world and money with MongoDB Atlas Data Lake'
+heroImage: '/images/blog/save-the-world-and-money-with-mongodb-atlas-data-lake/thumb.webp'
+heroAlt: 'A mountain lake reflecting snowy peaks'
 contentNotice: false
 tldr: 'Data centers will generate 14% of global greenhouse emissions by 2040. I show how to archive cold MongoDB data to S3 with serverless triggers and keep querying it through MongoDB Data Lake.'
 ---

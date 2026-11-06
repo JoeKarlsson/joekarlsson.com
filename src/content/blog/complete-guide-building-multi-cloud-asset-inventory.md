@@ -8,9 +8,10 @@ description: 'Build a multi-cloud asset inventory for AWS and GCP with CloudQuer
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials']
-heroImage: '/images/blog/complete-guide-building-multi-cloud-asset-inventory/complete-guide-building-multi-cloud-asset-inventory.webp'
+heroImage: '/images/blog/complete-guide-building-multi-cloud-asset-inventory/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/complete-guide-building-multi-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'A rail yard full of tracks seen from above'
 ---
 
 Managing assets across multiple cloud providers like AWS and GCP can be challenging, especially when you are trying to keep track of everything in one place. What if you could centralize this data and make it easy to query? That's exactly what we'll be doing in this live coding session. Using **CloudQuery**, we'll demonstrate how to pull cloud asset data from [**AWS**](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs) and [**GCP**](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs) and store it in a [**PostgreSQL**](https://www.cloudquery.io/hub/plugins/destination/cloudquery/postgresql/latest/docs) database for easy access and analysis.

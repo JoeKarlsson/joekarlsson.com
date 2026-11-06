@@ -7,8 +7,8 @@ description: 'How to use ChatGPT dots with Salesforce, Jira, QuickBooks, and mor
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['chatgpt', 'ai-agents', 'mcp', 'tutorial', 'enterprise', 'cdata']
-heroImage: '/images/blog/how-to-use-chatgpt-dots/hero.webp'
-heroAlt: 'The OpenAI logo in a white circle at the center of looping orbit lines, with small brown, white, yellow, and navy dots on the orbits'
+heroImage: '/images/blog/how-to-use-chatgpt-dots/thumb.webp'
+heroAlt: 'Salesforce, Jira, Google Analytics, NetSuite, and hundreds more business apps, including on-premises ones, connect once to CData Connect AI, which gives one sign-in, permissions, and a query log. One plugin links it to your ChatGPT dot, which answers in ChatGPT, in Slack and Teams, and on a schedule.'
 canonicalUrl: 'https://www.cdata.com/blog/how-to-use-chatgpt-dots'
 faq:
   - question: 'What are ChatGPT dots?'

@@ -12,7 +12,7 @@ import { ARROW, CHALK, COIL, HERO_COIL, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts, isOwnPost } from '../utils/posts';
-import { halftoneMode } from '../utils/halftone';
+import { cardHalftone, halftoneMode } from '../utils/halftone';
 
 // Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
 const { runningContainers } = nowFeed.homelab;
@@ -252,7 +252,7 @@ const AROUND_THE_HOUSE = [
 						<img
 							src={post.data.heroImage || DEFAULT_HERO_IMAGE}
 							alt=""
-							data-halftone="flat"
+							data-halftone={cardHalftone(post.data.heroImage || DEFAULT_HERO_IMAGE)}
 							aria-hidden="true"
 							sizes={
 								i === 0 ? '(min-width: 768px) 300px, 100vw' : '(min-width: 768px) 300px, 112px'

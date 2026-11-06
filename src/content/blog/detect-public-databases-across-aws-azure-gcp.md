@@ -8,14 +8,12 @@ description: 'Detect publicly accessible databases across AWS RDS, Azure, and GC
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumbnail.webp'
-heroAlt: 'How to Detect Public Databases Across AWS, Azure, and GCP with CloudQuery Policies'
+heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumb.webp'
+heroAlt: 'A window left open in a bright yellow wall'
 canonicalUrl: 'https://www.cloudquery.io/blog/detect-public-databases-across-aws-azure-gcp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'This tutorial walks through building a CloudQuery Policy that detects publicly accessible databases across AWS, Azure, and GCP. You will get copy-paste ClickHouse SQL covering 9 database types across 3 cloud providers, screenshots of the full setup process, and a breakdown of how violation details and related resource views work.'
 ---
-
-![How to Detect Public Databases Across AWS, Azure, and GCP with CloudQuery Policies](/images/blog/detect-public-databases-across-aws-azure-gcp/header.webp)
 
 CloudQuery Policies let you write ClickHouse SQL queries that flag infrastructure violations across all your cloud providers. We [recently launched this feature](https://www.cloudquery.io/blog/introducing-cloudquery-platform-policies), and this post shows how to put it to work.
 

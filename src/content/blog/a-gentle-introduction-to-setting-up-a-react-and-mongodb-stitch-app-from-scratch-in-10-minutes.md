@@ -7,8 +7,8 @@ description: 'How to build a React and MongoDB app from scratch in 10 minutes - 
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
 tags: ['javascript', 'mongodb', 'react', 'reactJS', 'Stitch', 'tutorial']
-heroImage: '/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/A-Gentle-Introduction-To-Setting-Up-A-React-and-MongoDB-Stitch-App-From-Scratch-In-10-Minutes.webp'
-heroAlt: 'How to build a React and MongoDB Stitch app from scratch in 10 minutes'
+heroImage: '/images/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes/thumb.webp'
+heroAlt: 'A stopwatch resting on hand-drawn plans'
 contentNotice: 'MongoDB Stitch was replaced by Atlas App Services in 2020, and the Stitch SDK was deprecated. This tutorial will not work with current MongoDB services.'
 tldr: 'A quick tutorial for building a React to-do app backed by MongoDB Stitch, from Atlas setup to a working app in about 10 minutes.'
 ---

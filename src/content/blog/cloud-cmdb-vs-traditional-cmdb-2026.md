@@ -8,14 +8,13 @@ tags:
   - Best Practices
 date: 2025-10-20
 description: Cloud CMDB vs traditional CMDB in 2026 - Gartner says 70-80% of traditional CMDB projects fail. How agent-based scans compare to API-based discovery.
-heroImage: /images/blog/cloud-cmdb-vs-traditional-cmdb-2026/thumbnail.webp
+heroImage: '/images/blog/cloud-cmdb-vs-traditional-cmdb-2026/thumb.webp'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-cmdb-vs-traditional-cmdb-2026
 contentNotice: "This post was originally published on CloudQuery's blog."
+heroAlt: 'A wooden box of handwritten index cards'
 ---
-
-![Cloud CMDB vs Traditional CMDB header](/images/blog/cloud-cmdb-vs-traditional-cmdb-2026/header.webp)
 
 Traditional CMDBs were built for a world where servers had names. In 2026, your infrastructure doesn't even exist until someone invokes it.
 

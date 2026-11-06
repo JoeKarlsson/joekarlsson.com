@@ -9,9 +9,10 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: /images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumbnail.webp
+heroImage: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumb.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance
 contentNotice: "This post was originally published on CloudQuery's blog."
+heroAlt: 'A tiny carved wooden orchestra on a plate'
 ---
 
 **About This Series:** This is Part 1 of our full 5-part series on Cloud Centers of Excellence (CCOEs). Over the next few weeks, we'll dive deep into every aspect of building and managing effective cloud governance through CCOEs. Here's what's coming:

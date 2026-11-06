@@ -7,12 +7,11 @@ description: 'Why CloudQuery syncs slow down after a plugin upgrade, how to spot
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Best Practices']
-heroImage: '/images/blog/cloudquery-sync-performance-guide/thumbnail.webp'
+heroImage: '/images/blog/cloudquery-sync-performance-guide/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-sync-performance-guide'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'A 1940s traffic jam at an intersection'
 ---
-
-![CloudQuery Sync Performance: A Practical Troubleshooting Guide](/images/blog/cloudquery-sync-performance-guide/header.webp)
 
 > **TL;DR:** Slow syncs typically come from one of two places: cloud provider API rate limits (a hard ceiling you can work around but not eliminate) and syncing more tables than you need, which is what `tables: ["*"]` does by default. The one-liner below generates an explicit table list from your existing configuration, scoped to your plugin version and skip rules, so you can replace the wildcard safely.
 

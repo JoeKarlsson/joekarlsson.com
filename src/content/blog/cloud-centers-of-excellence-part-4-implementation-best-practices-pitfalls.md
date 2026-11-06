@@ -9,9 +9,10 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: /images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumbnail.webp
+heroImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumb.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls
 contentNotice: "This post was originally published on CloudQuery's blog."
+heroAlt: 'Meme image of a man tapping his temple and smiling knowingly (known as the "Roll Safe" meme). The overlaid text reads: "CAN''T ARGUE THE COE ISN''T VALUABLE... IF YOU MEASURE EVERYTHING."'
 ---
 
 **About This Series:** This is Part 4 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

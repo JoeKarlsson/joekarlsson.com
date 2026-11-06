@@ -8,12 +8,11 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Security']
-heroImage: /images/blog/cloud-operations-playbook-part-03-hidden-security-tax/thumbnail.webp
+heroImage: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/thumb.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-03-hidden-security-tax
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'A red fire alarm box on a brick wall'
 ---
-
-![Blog header for The Hidden Security Tax: Part 3 of the Cloud Operations Playbook series](/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/header.webp)
 
 > **Note:** **TL;DR:** Your security team spends more time gathering context than fixing problems. A single misconfiguration alert triggers a 45-minute investigation across five tools and four teams, and that's before anyone decides whether it's actually a problem. misconfigurations are the leading cause of cloud security incidents, organizations are spending billions on CSPM tooling, yet the bottleneck isn't detection. It's investigation. The fix isn't more tools. It's a unified data layer that gives your team the full picture in minutes instead of hours.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes the SQL queries that collapse this investigation to under five minutes.

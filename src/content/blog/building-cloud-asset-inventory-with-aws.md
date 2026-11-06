@@ -6,9 +6,10 @@ description: 'How to build an AWS cloud asset inventory with CloudQuery, Postgre
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Cloud Asset Inventory', 'AWS']
-heroImage: '/images/blog/building-cloud-asset-inventory-with-aws/thumbnail.webp'
+heroImage: '/images/blog/building-cloud-asset-inventory-with-aws/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/building-cloud-asset-inventory-with-aws'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'A forklift moving pallets in a warehouse'
 ---
 
 AWS is vast. Like, "wandering through a grocery store you've never been to before, with 87 aisles, and you're looking for _one_ specific brand of peanut butter" vast (Come on, you know what I'm talking about, right?). Well, in my opinion, keeping track of your AWS cloud assets? Even worse. If you've ever thought, "Do we actually need all these instances, or did someone just forget to turn them off in 2017?", then you probably need a Cloud Asset Management Tool. Welcome. You're in the right place.

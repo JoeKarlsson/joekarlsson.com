@@ -9,6 +9,8 @@ writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Security', 'SQL', 'Cloud Infrastructure']
 canonicalUrl: 'https://www.cloudquery.io/blog/integrate-abuseipdb-with-cloudquery'
 tldr: 'AbuseIPDB scores IPs for abuse history. By joining it with CloudQuery cloud inventory data, you can find which of your public cloud resources have flagged IPs - before attackers or blocklists do.'
+heroImage: '/images/blog/integrate-abuseipdb-with-cloudquery/thumb.webp'
+heroAlt: 'A row of old police cars outside the station'
 ---
 
 AbuseIPDB is a crowdsourced repository where users report IP addresses engaged in malicious behavior such as port scanning, brute force attempts, spam, and DDoS activity. Security professionals submit incident reports, which aggregate into confidence scores indicating abuse likelihood.

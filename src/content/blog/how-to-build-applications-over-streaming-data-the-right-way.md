@@ -6,8 +6,8 @@ slug: 'how-to-build-applications-over-streaming-data-the-right-way'
 description: 'In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination,...'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/how-to-build-applications-over-streaming-data-the-right-way/462e6fa8-traffic1-1024x683-1.webp'
-heroAlt: 'Building applications over streaming data architecture diagram'
+heroImage: '/images/blog/how-to-build-applications-over-streaming-data-the-right-way/thumb.webp'
+heroAlt: 'A simplified architecture: Kafka feeds Tinybird, a real-time data platform that does the work of the middle systems in one place, and Tinybird serves the frontend.'
 tldr: 'Building apps on streaming data the traditional way (Kafka + Flink + ClickHouse + custom backend) is painful to set up and maintain. A real-time data platform can collapse that stack into something way simpler, and I walk through a tutorial using Kafka and Tinybird.'
 ---
 

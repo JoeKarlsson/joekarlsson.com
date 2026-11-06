@@ -7,13 +7,11 @@ description: 'One year into DORA, 46% of institutions still struggle with ICT as
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'Cloud Asset Inventory', 'Governance']
-heroImage: /images/blog/dora-ict-asset-register/thumbnail.webp
-heroAlt: 'One Year Into DORA: What Actually Worked for ICT Asset Registers'
+heroImage: '/images/blog/dora-ict-asset-register/thumb.webp'
+heroAlt: 'An old handwritten register book'
 canonicalUrl: https://www.cloudquery.io/blog/dora-ict-asset-register
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
-
-![One Year Into DORA: What Actually Worked for ICT Asset Registers](/images/blog/dora-ict-asset-register/header.webp)
 
 > **Note:** One year into DORA enforcement, the April 2025 Register of Information submission revealed a clear divide: organizations with automated, queryable asset inventories submitted in hours, while those relying on spreadsheets scrambled for weeks. With BaFin signaling stricter enforcement for 2026, the playbook is clear: treat cloud infrastructure as queryable data, not documentation to maintain.
 

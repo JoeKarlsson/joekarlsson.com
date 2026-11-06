@@ -7,12 +7,11 @@ description: 'Five ways to get more value from a cloud asset inventory: tie it t
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Infrastructure', 'Best Practices']
-heroImage: '/images/blog/five-tips-maximum-value-cloud-asset-inventory/thumbnail.webp'
+heroImage: '/images/blog/five-tips-maximum-value-cloud-asset-inventory/thumb.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "Building a cloud asset inventory isn't just about collecting data - it's about creating a business capability that drives measurable outcomes. Learn the five core principles that separate successful cloud asset inventory programs from failed implementations: focusing on business outcomes over technical features, engaging stakeholders across teams, prioritizing high-impact use cases, providing actionable intelligence, and planning for continuous improvement at scale."
+heroAlt: 'Pliers hanging on a workshop tool wall'
 ---
-
-![Five Tips for Getting Maximum Value from a Cloud Asset Inventory header](/images/blog/five-tips-maximum-value-cloud-asset-inventory/header.webp)
 
 Most organizations treat cloud asset inventories as technical projects. They invest in powerful tools, sync every possible resource, and build dashboards. Then they wonder why adoption stays low and business value remains elusive.
 

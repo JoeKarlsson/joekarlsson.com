@@ -7,12 +7,11 @@ description: 'An internal developer portal is only as useful as its asset invent
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Cloud Asset Inventory']
-heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/thumbnail.webp'
+heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-make-your-internal-developer-portal-actually-useful'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'A busy railway station hall with its departure board'
 ---
-
-![How to Make Your Internal Developer Portal Actually Useful blog post header](/images/blog/how-to-make-your-internal-developer-portal-actually-useful/header.webp)
 
 > **TL;DR:**
 > Internal developer Platforms fail when they lack a fresh and accurate asset inventory. Organizations that make sure they have an up-to-date inventory portal can achieve:

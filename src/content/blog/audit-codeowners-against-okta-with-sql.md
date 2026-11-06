@@ -7,14 +7,12 @@ description: 'Find CODEOWNERS entries for employees who left the company by join
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/audit-codeowners-against-okta-with-sql/thumbnail.webp'
-heroAlt: 'Audit CODEOWNERS against Okta with SQL'
+heroImage: '/images/blog/audit-codeowners-against-okta-with-sql/thumb.webp'
+heroAlt: 'A wall of apartment mailboxes'
 canonicalUrl: 'https://www.cloudquery.io/blog/audit-codeowners-against-okta-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs CODEOWNERS files. Join with Okta and GitHub data to find orphaned code ownership - accounts that left the company but remain in CODEOWNERS.'
 ---
-
-![Blog header for auditing GitHub CODEOWNERS files against Okta user directory with SQL](/images/blog/audit-codeowners-against-okta-with-sql/header.webp)
 
 CODEOWNERS files assign code responsibility to specific GitHub users. When engineers leave the company, their GitHub handles remain in CODEOWNERS files. Pull requests still notify non-existent accounts. Code ownership documentation decays. Tracking this manually means comparing CODEOWNERS files across hundreds of repos against your identity provider, then creating tickets to update each stale entry.
 

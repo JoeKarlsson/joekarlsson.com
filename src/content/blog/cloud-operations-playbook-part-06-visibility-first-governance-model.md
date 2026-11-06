@@ -8,12 +8,11 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance', 'Cloud Infrastructure']
-heroImage: /images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/thumbnail.webp
+heroImage: '/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/thumb.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-06-visibility-first-governance-model
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'Soldiers aiming a searchlight into the night'
 ---
-
-![The Visibility-First Governance Model](/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/header.webp)
 
 > **Note:** **TL;DR:** Traditional governance starts with policies and tries to enforce them. This fails because you can't enforce rules about infrastructure you can't see. The Visibility-First Governance Model inverts the process: build a unified inventory first, write policies in SQL against that inventory, monitor continuously, then automate responses. The result is governance that actually works across multi-cloud environments because it's grounded in real infrastructure data, not assumptions about what should exist.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes the full implementation guide with 20+ SQL policy examples.

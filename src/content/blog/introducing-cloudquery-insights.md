@@ -9,6 +9,8 @@ writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Cloud Infrastructure', 'Security']
 canonicalUrl: 'https://www.cloudquery.io/blog/introducing-cloudquery-insights'
 tldr: 'CloudQuery Insights correlates security findings, cost data, policy violations, and audit events across your cloud inventory automatically - so you stop spending hours assembling context and start acting on it.'
+heroImage: '/images/blog/introducing-cloudquery-insights/thumb.webp'
+heroAlt: 'An observatory telescope pointed at the sky'
 ---
 
 Your cloud inventory is expanding faster than teams can manage it, driven by rapid development and AI-enabled engineering practices.

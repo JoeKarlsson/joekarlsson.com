@@ -5,8 +5,22 @@ import imagesWithText from '../data/images-with-text.json';
 
 const withText = new Set<string>(imagesWithText);
 
-export function halftoneMode(src: string): 'flat' | 'dots' {
+/**
+ * Work-post thumbnails (scripts/generate-work-thumbnails.mjs) come out already treated: pink, or a
+ * taped photo that keeps its own colors on purpose. The live pink pass leaves them alone.
+ */
+export function isPretreatedThumbnail(src: string): boolean {
+	return /^\/images\/blog\/[^/]+\/thumb\.webp$/.test(src);
+}
+
+export function halftoneMode(src: string): 'flat' | 'dots' | undefined {
+	if (isPretreatedThumbnail(src)) return undefined;
 	return withText.has(src) ? 'flat' : 'dots';
+}
+
+/** Post cards in lists draw every thumbnail flat, except the pretreated ones */
+export function cardHalftone(src: string): 'flat' | undefined {
+	return isPretreatedThumbnail(src) ? undefined : 'flat';
 }
 
 /** The card-size copy of a project clip (`npm run media:cards`): "/x/demo.mp4" -> "/x/demo-card.mp4" */

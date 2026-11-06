@@ -7,8 +7,8 @@ description: "Building internal AI agents on enterprise data without a custom pe
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'ai-agents', 'cdata']
-heroImage: '/images/blog/ai-gateway-for-developers/hero-2.webp'
-heroAlt: 'Illustration of stacked dashboard windows connected to a data layer below'
+heroImage: '/images/blog/ai-gateway-for-developers/thumb.webp'
+heroAlt: 'Three internal agents, an HR assistant, a finance monitor, and a sales analyst, each connect to one CData Connect AI gateway, where each has its own read-only workspace and toolkit, reaching SQL Server, BigQuery, and Salesforce.'
 canonicalUrl: 'https://www.cdata.com/blog/ai-gateway-for-developers'
 faq:
   - question: 'What is the passthrough identity model in Connect AI?'

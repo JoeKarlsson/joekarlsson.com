@@ -7,8 +7,8 @@ description: 'Connect enterprise data to Meta Muse with CData Connect AI. Add Sa
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai-agents', 'meta-muse', 'tutorial', 'enterprise', 'cdata']
-heroImage: '/images/blog/connect-business-apps-meta-muse/hero.webp'
-heroAlt: 'Diagram of a business app window feeding into a CData Connect AI box, which feeds into the Meta logo, on a light gray background'
+heroImage: '/images/blog/connect-business-apps-meta-muse/thumb.webp'
+heroAlt: 'Jigsaw puzzle pieces scattered on a table'
 canonicalUrl: 'https://www.cdata.com/blog/muse'
 faq:
   - question: 'Can Muse connect to Salesforce?'

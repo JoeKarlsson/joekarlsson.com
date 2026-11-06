@@ -5,8 +5,8 @@ slug: 'mongodb-schema-design-best-practices'
 description: 'Resources from my talk on MongoDB schema design best practices, covering how to model data for your app with real-world examples and common patterns.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/mongodb-schema-design-best-practices/2.webp'
-heroAlt: 'MongoDB schema design best practices'
+heroImage: '/images/blog/mongodb-schema-design-best-practices/thumb.webp'
+heroAlt: 'An old architectural blueprint'
 contentNotice: false
 tldr: 'How you model your MongoDB schema depends on your app. I walk through the basics of data modeling with real-world examples so you can stop guessing and start making informed schema decisions.'
 ---

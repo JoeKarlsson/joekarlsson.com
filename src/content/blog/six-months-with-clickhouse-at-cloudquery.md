@@ -7,8 +7,8 @@ description: "What six months of ClickHouse as CloudQuery's default backend taug
 categories: ['Cloud', 'Web Dev']
 writtenFor: 'CloudQuery'
 tags: ['ClickHouse', 'Engineering', 'Data Engineering']
-heroImage: '/images/blog/six-months-with-clickhouse-at-cloudquery/thumbnail.webp'
-heroAlt: 'Six Months with ClickHouse at CloudQuery - engineering lessons learned'
+heroImage: '/images/blog/six-months-with-clickhouse-at-cloudquery/thumb.webp'
+heroAlt: 'A ClickHouse materialized view: on every insert into the source table (columns A, B and C), it runs SELECT A, MAX(B) AS D, AVG(C) AS E FROM source GROUP BY A, and writes the result into the target table, whose columns are A, D and E.'
 canonicalUrl: 'https://www.cloudquery.io/blog/six-months-with-clickhouse-at-cloudquery'
 tldr: 'ClickHouse delivered on speed and scale, but JOINs need careful handling (use dictionaries), sorting keys are critical and unchangeable after the fact, materialized views were too unpredictable for us, and it works surprisingly well for logging/observability beyond just analytics.'
 ---

@@ -7,8 +7,8 @@ description: 'Best MCP servers for ChatGPT, dots, and Meta Muse in 2026, compare
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'chatgpt', 'meta-muse', 'ai-agents', 'enterprise', 'cdata']
-heroImage: '/images/blog/best-mcp-servers-chatgpt-meta-muse/hero.webp'
-heroAlt: 'The OpenAI logo in a navy circle and the Meta logo in a white circle, each with an arrow to a yellow circle holding the CData logo'
+heroImage: '/images/blog/best-mcp-servers-chatgpt-meta-muse/thumb.webp'
+heroAlt: 'ChatGPT and Meta Muse connecting to Salesforce, Jira, NetSuite, and SharePoint two ways: one MCP server per app, with every assistant wired to every server, or one governed CData Connect AI gateway with one connection, one set of rules, and one log.'
 canonicalUrl: 'https://www.cdata.com/blog/best-mcp-servers-chatgpt-meta-muse'
 faq:
   - question: 'What are the best MCP servers for ChatGPT?'

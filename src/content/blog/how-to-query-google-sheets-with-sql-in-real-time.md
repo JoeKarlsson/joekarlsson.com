@@ -6,8 +6,8 @@ slug: 'how-to-query-google-sheets-with-sql-in-real-time'
 description: 'How to query even large Google Sheets with SQL in real time using Tinybird, then publish the metrics as secure APIs. The demo code is on GitHub.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/How-to-analyze-Google-Sheets-data-in-real-time-BlogPost-He-1-scaled.webp'
-heroAlt: 'How to analyze Google Sheets data in real time with SQL'
+heroImage: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/thumb.webp'
+heroAlt: 'Mac Force Quit dialog meme about Google Sheets loading too many rows'
 tldr: 'Google Sheets chokes on anything past a few thousand rows. I show you how to sync your spreadsheet data to Tinybird with an Apps Script, query it with SQL, and publish the results as an API.'
 ---
 

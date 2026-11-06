@@ -7,12 +7,11 @@ description: 'CloudQuery Reports delivers actionable insights for multi-cloud se
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumbnail.webp'
+heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/visualize-govern-cloud-stack-cloudquery-reports'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'The dashboard of an old car'
 ---
-
-![Visualize & Govern Your Cloud Stack with CloudQuery Reports header image](/images/blog/visualize-govern-cloud-stack-cloudquery-reports/header.webp)
 
 > **TL;DR:**
 > CloudQuery Reports provides pre-built insights into your multi-cloud environment with ready-to-use dashboards for security, compliance, cost management, and operations. Access underlying SQL queries to customize reports and get actionable intelligence across all your cloud resources without specialized expertise.

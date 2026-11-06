@@ -7,9 +7,10 @@ description: 'Stop guessing what in your multi-cloud environment. Use CloudQuery
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/image2.webp'
+heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/eliminate-blind-spots-cloud-environment'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'A meme showing cowboys on horseback attempting to herd a massive clowder of cats. The text reads, "HOW IT FEELS TO KEEP YOUR CLOUD ASSETS UNDER CONTROL."'
 ---
 
 > **Note:** It's now even easier to monitor your assets across multiple cloud platforms using our [Multi-Cloud Asset Inventory Report](https://www.cloudquery.io/hub/reports/multi-cloud-asset-inventory). Want to see it in action? Try our [free online demo](https://www.cloudquery.io/contact-us) now.

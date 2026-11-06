@@ -6,13 +6,12 @@ description: 'Five design principles for a cloud asset inventory on AWS: freshne
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Cloud Infrastructure', 'Engineering']
-heroImage: '/images/blog/how-to-design-cloud-asset-inventory-aws/thumbnail.webp'
+heroImage: '/images/blog/how-to-design-cloud-asset-inventory-aws/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-design-cloud-asset-inventory-aws'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "Designing an effective cloud asset inventory isn't a technical problem - it's a decision-making problem. Learn the five design principles (freshness, completeness, normalization, queryability, extensibility) and maturity stages that separate systems delivering sub-five-minute response times from those taking days to answer critical security questions. The gap between containing a breach and watching it spread often comes down to inventory architecture."
+heroAlt: 'An old drafting room full of desks'
 ---
-
-![How to Design a Cloud Asset Inventory for AWS header](/images/blog/how-to-design-cloud-asset-inventory-aws/header.webp)
 
 Your security team discovers a critical vulnerability affecting unencrypted databases. How long does it take you to identify and remediate all affected systems?
 

@@ -7,14 +7,12 @@ description: 'Node 18 reached end-of-life. Find every Dockerfile using Node 18 b
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/query-dockerfiles-for-eol-base-images-with-sql/thumbnail.webp'
-heroAlt: 'Query Dockerfiles for EOL base images with SQL'
+heroImage: '/images/blog/query-dockerfiles-for-eol-base-images-with-sql/thumb.webp'
+heroAlt: 'Stacks of shipping containers at a port'
 canonicalUrl: 'https://www.cloudquery.io/blog/query-dockerfiles-for-eol-base-images-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs Dockerfile content into your database. Query FROM statements across all repos with SQL to find EOL base images like Node 18, Python 2.7, or Ubuntu 18.04 - no cloning required.'
 ---
-
-![Blog header for querying Dockerfiles to find end-of-life base images using SQL](/images/blog/query-dockerfiles-for-eol-base-images-with-sql/header.webp)
 
 [Node 18 reached end-of-life in April 2025](https://github.com/nodejs/release#release-schedule). You need to find which Dockerfiles across your organization still reference `node:18` base images. The manual approach: clone every repo, grep for Dockerfiles, parse the FROM lines, compile results, email teams, track remediation. Multiply that across hundreds of repos and multiple EOL versions.
 

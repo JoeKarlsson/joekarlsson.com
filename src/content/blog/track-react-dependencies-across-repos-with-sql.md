@@ -7,14 +7,12 @@ description: 'Find every package.json using React across all repositories. Query
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/track-react-dependencies-across-repos-with-sql/thumbnail.webp'
-heroAlt: 'Track React dependencies across repos with SQL'
+heroImage: '/images/blog/track-react-dependencies-across-repos-with-sql/thumb.webp'
+heroAlt: 'A tangle of cables on the back of an equipment rack'
 canonicalUrl: 'https://www.cloudquery.io/blog/track-react-dependencies-across-repos-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs package.json files into your database. Parse JSON with SQL to find React versions, track dependencies vs devDependencies, and identify repos needing upgrades.'
 ---
-
-![Track React dependencies header](/images/blog/track-react-dependencies-across-repos-with-sql/header.webp)
 
 You need to upgrade React across 50 repositories. Which repos use React? Which versions? Are they using React 16, 17, or 18? What about `devDependencies` vs `dependencies`? The manual approach: clone repos, grep package.json files, parse JSON, compile spreadsheets, track progress. And that spreadsheet is outdated the moment someone merges a dependency update.
 

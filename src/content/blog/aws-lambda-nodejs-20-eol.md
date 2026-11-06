@@ -7,12 +7,11 @@ description: 'AWS Lambda Node.js 20 hits end of life April 30, 2026. How to find
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
-heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumbnail.webp'
+heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-lambda-nodejs-20-eol'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'A rusted old car left in the woods'
 ---
-
-![Blog header for finding AWS Lambda functions running end-of-life Node.js 20 runtime](/images/blog/aws-lambda-nodejs-20-eol/header.webp)
 
 > **TL;DR:** AWS Lambda Node.js 20.x reaches end-of-life on April 30, 2026, after which security patches stop and you progressively lose the ability to create or update functions on this runtime. Upgrade to Node.js 22, test for import assertion syntax changes, native module ABI mismatches, and CA certificate configuration, and use CloudQuery Platform to find every affected function across all your AWS accounts with a single SQL query.
 

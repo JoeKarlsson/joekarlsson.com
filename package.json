@@ -10,6 +10,7 @@
 		"update:popular": "node scripts/update-popular-posts.mjs",
 		"update:now": "node scripts/update-now-feed.mjs",
 		"newsletter:cards": "node scripts/generate-issue-cards.mjs",
+		"thumbnails:work": "node scripts/generate-work-thumbnails.mjs",
 		"media:dither": "python3 scripts/media/halftone.py",
 		"media:dither:video": "bash scripts/media/dither-video.sh",
 		"media:loop": "bash scripts/media/loop.sh",

@@ -9,9 +9,10 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: /images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumbnail.webp
+heroImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumb.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance
 contentNotice: "This post was originally published on CloudQuery's blog."
+heroAlt: 'A crossing guard holding up a stop sign'
 ---
 
 **About This Series:** This is Part 2 of our 5-part series on Cloud Centers of Excellence (CCOEs). If you missed it, start with **Part 1: Introduction and Organizational Structure** to understand the foundational concepts.

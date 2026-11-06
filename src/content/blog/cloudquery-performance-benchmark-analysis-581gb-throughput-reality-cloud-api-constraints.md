@@ -8,9 +8,10 @@ description: 'CloudQuery performance benchmark - 581 GB/hour on consumer hardwar
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering']
-heroImage: '/images/blog/cloudquery-performance-analysis-581gb/header.webp'
+heroImage: '/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'Cars launching down a drag strip at dusk'
 ---
 
 > **Executive Summary:**

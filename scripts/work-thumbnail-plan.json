@@ -1,0 +1,1438 @@
+{
+	"best-mcp-servers-chatgpt-meta-muse": {
+		"picture": {
+			"diagram": "/images/blog/best-mcp-servers-chatgpt-meta-muse/per-app-vs-gateway.svg"
+		},
+		"look": "diagram",
+		"alt": "ChatGPT and Meta Muse connecting to Salesforce, Jira, NetSuite, and SharePoint two ways: one MCP server per app, with every assistant wired to every server, or one governed CData Connect AI gateway with one connection, one set of rules, and one log."
+	},
+	"how-to-use-chatgpt-dots": {
+		"picture": {
+			"diagram": "/images/blog/how-to-use-chatgpt-dots/connect-once-flow.svg"
+		},
+		"look": "diagram",
+		"alt": "Salesforce, Jira, Google Analytics, NetSuite, and hundreds more business apps, including on-premises ones, connect once to CData Connect AI, which gives one sign-in, permissions, and a query log. One plugin links it to your ChatGPT dot, which answers in ChatGPT, in Slack and Teams, and on a schedule."
+	},
+	"ai-gateway-data-access-layer": {
+		"picture": {
+			"diagram": "/images/blog/ai-gateway-data-access-layer/model-routing-layer.svg"
+		},
+		"look": "diagram",
+		"alt": "An application sends its requests to an AI gateway, which handles routes, rate limits, caching, and observability and passes each request on to OpenAI, Anthropic, or an open-source model."
+	},
+	"ai-gateway-for-developers": {
+		"picture": {
+			"diagram": "/images/blog/ai-gateway-for-developers/shared-data-layer.svg"
+		},
+		"look": "diagram",
+		"alt": "Three internal agents, an HR assistant, a finance monitor, and a sales analyst, each connect to one CData Connect AI gateway, where each has its own read-only workspace and toolkit, reaching SQL Server, BigQuery, and Salesforce."
+	},
+	"litellm-vs-cdata-connect-ai": {
+		"picture": {
+			"diagram": "/images/blog/litellm-vs-cdata-connect-ai/identity.svg"
+		},
+		"look": "diagram",
+		"alt": "MCP governance, credential-scoped versus passthrough identity. With the LiteLLM MCP proxy, the AI agent knows the user, but the LiteLLM gateway injects service-account credentials, so the user's identity is dropped: the MCP server and the data source see only the service account and can't enforce the user's access rules. With CData Connect AI, the user's SSO identity is resolved and a trust-level ceiling is enforced on every tool call (low: read, medium: create and update, high: delete), so the identity is preserved and the data source enforces the user's RBAC, row-level security and field permissions."
+	},
+	"connect-business-apps-meta-muse": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Red_jigsaw_puzzle_pieces_2.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Red_jigsaw_puzzle_pieces_2.jpg"
+		},
+		"alt": "Jigsaw puzzle pieces scattered on a table",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"official-mcp-roadmap-explained": {
+		"picture": {
+			"diagram": "/images/blog/official-mcp-roadmap-explained/priority-matrix.svg"
+		},
+		"look": "diagram",
+		"alt": "The five MCP roadmap priorities plotted by migration cost and urgency. Priority 3, agent identity and security, is high cost and the one to act on now. Priorities 2 (HTTP-native transport) and 4 (improved primitives) are medium cost and above the midline. Priorities 1 (agentic messaging) and 5 (SDK developer experience) are low cost and ones to watch. Already shipped in the 2026-07-28 release, and not plotted: the stateless core, the Tasks extension and multi round-trip requests."
+	},
+	"proving-my-work-mattered": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lufkin_Universal_50_ft_tape_measure.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Lufkin_Universal_50_ft_tape_measure.jpg"
+		},
+		"alt": "An old wind-up tape measure",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 2,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"mcp-2026-07-28-release-explained": {
+		"picture": {
+			"diagram": "/images/blog/mcp-2026-07-28-release-explained/extensions.svg"
+		},
+		"look": "diagram",
+		"alt": "MCP 2026-07-28 goes from one monolithic spec to a core plus extensions. Before, tool calls, discovery, sessions, UI and tasks were bundled into one spec. After, a small, stable, stateless protocol core keeps tool calls and discovery with no server-pinned session, and opt-in extensions plug into it: MCP Apps for sandboxed UI, Tasks for call-now, fetch-later work, and future extensions. Each extension is versioned on its own."
+	},
+	"aws-identity-center-guide": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bowery_Savings_Bank_Architecture_and_Building_1923_p_331_%28vault_door%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Bowery_Savings_Bank_Architecture_and_Building_1923_p_331_(vault_door).jpg"
+		},
+		"alt": "A round bank vault door, the one way in",
+		"focus": 0.5,
+		"look": "taped",
+		"ring": [52, 22, 36, 46],
+		"tilt": 3,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"cwpp-vs-cnapp": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Paulino_Uzcudun_v._Tom_Heeney_boxing_match_%28Apr_1%2C_1927_at_Madison_Square_Garden%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Paulino_Uzcudun_v._Tom_Heeney_boxing_match_(Apr_1,_1927_at_Madison_Square_Garden).jpg"
+		},
+		"alt": "Two boxers mid-swing in an old newspaper photo",
+		"focus": 0.55,
+		"look": "flat",
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"what-is-attack-surface-management": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Hakodate_-_Hakodate944.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Hakodate_-_Hakodate944.jpg"
+		},
+		"alt": "A star-shaped fort from above, built so no stretch of wall is out of sight",
+		"focus": 0.6,
+		"look": "taped",
+		"ring": [52, 46, 34, 40],
+		"tilt": -3,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"what-is-cloud-governance": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mission_Operations_Control_Room_during_Apollo_9.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Mission_Operations_Control_Room_during_Apollo_9.jpg"
+		},
+		"alt": "Apollo-era Mission Control, everyone watching the same screens",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"aws-pinpoint-deprecation-assessment": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Pruitt-Igoe-collapses.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Pruitt-Igoe-collapses.jpg"
+		},
+		"alt": "A tower block collapsing in a controlled demolition",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "cross",
+			"at": [55, 6, 26, 46],
+			"color": "chalk",
+			"width": 10
+		}
+	},
+	"cloudquery-sync-performance-guide": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Traffic_jam_as_workers_of_the_first_shift8d16182v.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Traffic_jam_as_workers_of_the_first_shift8d16182v.jpg"
+		},
+		"alt": "A 1940s traffic jam at an intersection",
+		"focus": 0.6,
+		"look": "flat",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"gcp-gemini-api-key-audit": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Door_lock_and_key_MET_DP109203.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Door_lock_and_key_MET_DP109203.jpg"
+		},
+		"alt": "An old key left sitting in an ornate gilded lock",
+		"focus": 0.5,
+		"look": "taped",
+		"ring": [10, 62, 40, 34],
+		"tilt": -2,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Floor_of_Toronto_Stock_Exchange_1956.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Floor_of_Toronto_Stock_Exchange_1956.jpg"
+		},
+		"alt": "A crowded stock exchange trading floor",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 2,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Highway_401_and_Highway_62_Interchange_in_Belleville%2C_ON.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Highway_401_and_Highway_62_Interchange_in_Belleville,_ON.jpg"
+		},
+		"alt": "A cloverleaf highway interchange from above",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "arrow",
+			"at": [20, 60, 52, 22],
+			"color": "chalk",
+			"width": 14
+		}
+	},
+	"cloud-operations-playbook-part-10-ai-ready-cloud-data-layer": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Wooden_Card_Catalog_Furniture.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Wooden_Card_Catalog_Furniture.jpg"
+		},
+		"alt": "Rows of wooden library card catalog drawers",
+		"focus": 0.5,
+		"look": "taped",
+		"ring": [36, 32, 30, 36],
+		"tilt": -3,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-operations-playbook-part-09-continuous-compliance-sql": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/ELECTRONIC_WIRING_IN_EQUIPMENT_CABINETS_-_NARA_-_17446437.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:ELECTRONIC_WIRING_IN_EQUIPMENT_CABINETS_-_NARA_-_17446437.jpg"
+		},
+		"alt": "The back of an equipment rack, every cable in place",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"cloud-operations-playbook-part-08-cloud-security-posture-sql": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Porta_caveau_banca_-_Bank_vault_door_-_1967.png?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Porta_caveau_banca_-_Bank_vault_door_-_1967.png"
+		},
+		"alt": "A woman checking papers in an open bank vault",
+		"focus": 0.55,
+		"look": "taped",
+		"ring": [58, 46, 30, 50],
+		"tilt": 3,
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-operations-playbook-part-07-continuous-cloud-governance": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lifeguard_tower_18_in_Venice_Beach_County_Park_%28July_2022%29.JPG?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Lifeguard_tower_18_in_Venice_Beach_County_Park_(July_2022).JPG"
+		},
+		"alt": "A lifeguard tower watching the beach",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"cloud-operations-playbook-part-06-visibility-first-governance-model": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Auxiliary_Territorial_Service_in_the_United_Kingdom_1939_-_1945_H36315.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:The_Auxiliary_Territorial_Service_in_the_United_Kingdom_1939_-_1945_H36315.jpg"
+		},
+		"alt": "Soldiers aiming a searchlight into the night",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-operations-playbook-part-05-cloud-waste-calculator": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_assembly_line_-_1913.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Ford_assembly_line_-_1913.jpg"
+		},
+		"alt": "Workers bent over a factory assembly line",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": -2,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"cloud-operations-playbook-part-04-cost-of-compliance-scrambles": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/HFCA_1607_NPS_Employees%2C_Women_354.jpg_%284a5e3e3f0c9743e29603a60f8cd4d049%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:HFCA_1607_NPS_Employees,_Women_354.jpg_(4a5e3e3f0c9743e29603a60f8cd4d049).jpg"
+		},
+		"alt": "Two women working through a desk of paperwork",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-operations-playbook-part-03-hidden-security-tax": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/GAMEWELL_Fire_Alarm_Call_Box.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:GAMEWELL_Fire_Alarm_Call_Box.jpg"
+		},
+		"alt": "A red fire alarm box on a brick wall",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"cloud-operations-playbook-part-01-cloud-operations-gap": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Manhattan_Bridge_Construction_1909.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Manhattan_Bridge_Construction_1909.jpg"
+		},
+		"alt": "The Manhattan Bridge under construction, its middle span still missing",
+		"focus": 0.4,
+		"look": "taped",
+		"tilt": 2,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-operations-playbook-part-02-cloud-operations-maturity-model": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Fort_Rucker_Health_Fair_teaches_good_habits_to_children%2C_parents_%285618933975%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Fort_Rucker_Health_Fair_teaches_good_habits_to_children,_parents_(5618933975).jpg"
+		},
+		"alt": "A man measuring a boy's height against a wall",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"detect-public-databases-across-aws-azure-gcp": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Restaurant_Amigos_de_Acapulco_%28window%29%2C_Chico.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Restaurant_Amigos_de_Acapulco_(window),_Chico.jpg"
+		},
+		"alt": "A window left open in a bright yellow wall",
+		"focus": 0.5,
+		"look": "taped",
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"tilt": 3
+	},
+	"python-39-lambda-deprecation": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Reticulated_python_MP1.JPG?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Reticulated_python_MP1.JPG"
+		},
+		"alt": "A python curled up asleep",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": -3,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"steampipe-vs-cloudquery": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/JA1271_crossing_the_Otaki_River.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:JA1271_crossing_the_Otaki_River.jpg"
+		},
+		"alt": "A steam locomotive pulling red cars across a bridge",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"dora-ict-asset-register": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Metrical_book_of_Krasnaya_Sloboda_State_Archive_of_Sumy_Oblast_microfilm_0042.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Metrical_book_of_Krasnaya_Sloboda_State_Archive_of_Sumy_Oblast_microfilm_0042.jpg"
+		},
+		"alt": "An old handwritten register book",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"codebreach-vulnerability-detection": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Padlock_Valimokatu_Oulu_20250307_02.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_02.jpg"
+		},
+		"alt": "A rusty padlock hanging on a barn door",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 3,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"aws-google-cloud-networking-partnership": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/JBER_telephone_operators_connect_calls%2C_people_120124-A-ZY202-001.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:JBER_telephone_operators_connect_calls,_people_120124-A-ZY202-001.jpg"
+		},
+		"alt": "Telephone switchboard operators patching calls",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"audit-codeowners-against-okta-with-sql": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Odum_Village_Mailboxes_UNCCH_20140912.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Odum_Village_Mailboxes_UNCCH_20140912.jpg"
+		},
+		"alt": "A wall of apartment mailboxes",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"find-commits-by-departed-employees-with-sql": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Empty_apartment_in_Berlin_with_white_desk%2C_chair_and_ladder_01.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Empty_apartment_in_Berlin_with_white_desk,_chair_and_ladder_01.jpg"
+		},
+		"alt": "An empty desk and chair in a bare office",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": -2,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"find-repos-missing-license-files-with-sql": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Floral_Swags_Framing_an_Empty_Oval_MET_DP812024.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Floral_Swags_Framing_an_Empty_Oval_MET_DP812024.jpg"
+		},
+		"alt": "An ornate frame with nothing inside it",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"introducing-the-git-source-plugin": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Magnifying_glass2.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Magnifying_glass2.jpg"
+		},
+		"alt": "A magnifying glass over a postage stamp",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"query-dockerfiles-for-eol-base-images-with-sql": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Shipping_containers_in_a_port_%28Unsplash%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Shipping_containers_in_a_port_(Unsplash).jpg"
+		},
+		"alt": "Stacks of shipping containers at a port",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 2,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"track-react-dependencies-across-repos-with-sql": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/ELECTRONIC_WIRING_IN_EQUIPMENT_CABINETS_-_NARA_-_17446440.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:ELECTRONIC_WIRING_IN_EQUIPMENT_CABINETS_-_NARA_-_17446440.jpg"
+		},
+		"alt": "A tangle of cables on the back of an equipment rack",
+		"focus": 0.5,
+		"look": "taped",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"tilt": -3
+	},
+	"unicorne-cloudquery-case-study": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Henry_Tomaszewski%2C_Carousel_Horse%2C_c._1939%2C_NGA_28505.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Henry_Tomaszewski,_Carousel_Horse,_c._1939,_NGA_28505.jpg"
+		},
+		"alt": "A painted carousel horse",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"aws-lambda-nodejs-20-eol": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Old_car_in_junkyard.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Old_car_in_junkyard.jpg"
+		},
+		"alt": "A rusted old car left in the woods",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": -3,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"cloud-cmdb-best-practices-platform-engineers": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/UIUC_Library_Main_Stacks.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:UIUC_Library_Main_Stacks.jpg"
+		},
+		"alt": "A long aisle of library stacks",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"death-of-agent-based-discovery": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Dinosaur_Egg_Museum%2C_Xixia_Dinosaur_Park-_Psittacosaurus_Skeleton_01.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Dinosaur_Egg_Museum,_Xixia_Dinosaur_Park-_Psittacosaurus_Skeleton_01.jpg"
+		},
+		"alt": "A dinosaur fossil in a museum case",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"real-time-cloud-cmdb-ephemeral-infrastructure": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Soap_Bubbles_LACMA_M.79.251.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Soap_Bubbles_LACMA_M.79.251.jpg"
+		},
+		"alt": "Chardin's painting of a boy blowing a soap bubble",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 3,
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-cmdb-vs-traditional-cmdb-2026": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Emilie_Haspels_index_card_file_WP_20170131_037.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Emilie_Haspels_index_card_file_WP_20170131_037.jpg"
+		},
+		"alt": "A wooden box of handwritten index cards",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"five-tips-maximum-value-cloud-asset-inventory": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Old_tools_on_personal_workshop_wall_3.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Old_tools_on_personal_workshop_wall_3.jpg"
+		},
+		"alt": "Pliers hanging on a workshop tool wall",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"how-to-design-cloud-asset-inventory-aws": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Architects_at_their_drafting_tables_at_the_Treasury_Department_Building_-_NARA_-_532294.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Architects_at_their_drafting_tables_at_the_Treasury_Department_Building_-_NARA_-_532294.jpg"
+		},
+		"alt": "An old drafting room full of desks",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": -2,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"introduction-to-cloudquery-aws": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Front_Door%2C_South_Side%2C_Pittsburgh%2C_2019-10-12%2C_06.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Front_Door,_South_Side,_Pittsburgh,_2019-10-12,_06.jpg"
+		},
+		"alt": "An ornate green front door",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"what-is-cloud-asset-inventory": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Enumeration%2C_Alaska_Too_Saw_the_Census_Enumerator_Arrive_in_His_Dog_Sled.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Enumeration,_Alaska_Too_Saw_the_Census_Enumerator_Arrive_in_His_Dog_Sled.jpg"
+		},
+		"alt": "A census taker traveling by dog sled",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"building-secure-ai-powered-cloud-security-data-pipeline-risk-detection": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Radar_operators_monitor_radar_scopes_at_a_Falcon_radar_site._The_operators_are_from_the_604th_Direct_Air_Support_Squadron%2C_involved_in_Exercise_Team_Spirit_%2781_-_DPLA_-_bcc9e8051a482187eabfd1002898f8b4.jpeg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Radar_operators_monitor_radar_scopes_at_a_Falcon_radar_site._The_operators_are_from_the_604th_Direct_Air_Support_Squadron,_involved_in_Exercise_Team_Spirit_%2781_-_DPLA_-_bcc9e8051a482187eabfd1002898f8b4.jpeg"
+		},
+		"alt": "A radar operator watching his scope",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 2,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Friday_Night_Drag_Racing_at_Cayuga.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Friday_Night_Drag_Racing_at_Cayuga.jpg"
+		},
+		"alt": "Cars launching down a drag strip at dusk",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"introducing-cloudquery-insights": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Observatory_Telescope_at_the_University_of_Saskatchewan.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Observatory_Telescope_at_the_University_of_Saskatchewan.jpg"
+		},
+		"alt": "An observatory telescope pointed at the sky",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"production-ai-data-pipeline-architectures": {
+		"picture": {
+			"diagram": "/images/blog/production-ai-data-pipeline-architectures/rag-pipeline.svg"
+		},
+		"look": "diagram",
+		"alt": "A fresh RAG pipeline: CloudQuery syncs Confluence, Notion and wiki pages daily into PostgreSQL with pgvector, which the RAG engine searches to answer questions in a knowledge assistant."
+	},
+	"etl-benchmark-1-million-rows-2-seconds-macbook": {
+		"picture": {
+			"diagram": "/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/goroutines.svg"
+		},
+		"look": "diagram",
+		"alt": "Sequential versus parallel goroutines. Sequentially, one chain of four tasks finishes before the next chain starts. With goroutines, both chains run side by side from the start. Each goroutine needs about 2KB of stack versus megabytes for an OS thread, so thousands can run at once."
+	},
+	"what-is-an-aws-cloud-asset-inventory": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Forklifts_load_crates_onto_trailer_trucks_at_the_warehouse_operated_by_the_1st_Logistical_Command_at_Cam_Ranh_Bay.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Forklifts_load_crates_onto_trailer_trucks_at_the_warehouse_operated_by_the_1st_Logistical_Command_at_Cam_Ranh_Bay.jpg"
+		},
+		"alt": "A forklift loading crates onto a truck",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": -3,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"how-we-made-our-ides-data-aware-with-a-go-mcp-server": {
+		"picture": {
+			"image": "/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/image6.webp"
+		},
+		"look": "taped",
+		"alt": "Epic Handshake meme. Left arm labeled 'Your Code,' right arm labeled 'Your Data,' and the handshake labeled 'MCP Server.'",
+		"whole": true,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"mcp-server-gotchas-we-learned-the-hard-way": {
+		"picture": {
+			"image": "/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image5.webp"
+		},
+		"look": "taped",
+		"alt": "Meme showing the 'This is fine' dog sitting calmly in a room on fire. Caption added: 'Your LLM trying to process 50,000 tokens of raw schema.' Dog says 'This is fine'.",
+		"whole": true,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"ai-for-analyzing-your-cloud-asset-inventory": {
+		"picture": {
+			"diagram": "/images/blog/ai-for-analyzing-your-cloud-asset-inventory/agent-loop.svg"
+		},
+		"look": "diagram",
+		"alt": "The agent loop: a user asks a question, and the LLM call takes an action through the CloudQuery MCP server, which queries the synced cloud asset inventory and returns feedback. The LLM keeps looping through action and feedback until it has the answer, then stops."
+	},
+	"how-to-make-your-internal-developer-portal-actually-useful": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Train_departure_board_in_the_concourse_of_Brighton_railway_station_2026-05-16.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Train_departure_board_in_the_concourse_of_Brighton_railway_station_2026-05-16.jpg"
+		},
+		"alt": "A busy railway station hall with its departure board",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-centers-of-excellence-part-1-building-effective-cloud-governance": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Angels%27_orchestra%2C_Ehrenbach%2C_conductor_right.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Angels%27_orchestra,_Ehrenbach,_conductor_right.jpg"
+		},
+		"alt": "A tiny carved wooden orchestra on a plate",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"cloud-centers-of-excellence-part-2-governance-security-compliance": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Walk_%26_Roll_to_School_Day_-_54841803483.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Walk_%26_Roll_to_School_Day_-_54841803483.jpg"
+		},
+		"alt": "A crossing guard holding up a stop sign",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 3,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-centers-of-excellence-part-3-finops-cost-management-case-studies": {
+		"picture": {
+			"image": "/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/image3.webp"
+		},
+		"look": "taped",
+		"alt": "Meme image of a determined-looking toddler clenching his fist in success (known as \"Success Kid\"). The background is a blue and purple radial burst. Text at the top reads: \"PUBLISHED QUARTERLY COE METRICS\". Text at the bottom reads: \"MANAGEMENT LOVED IT.\"",
+		"whole": true,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls": {
+		"picture": {
+			"image": "/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image1.webp"
+		},
+		"look": "taped",
+		"alt": "Meme image of a man tapping his temple and smiling knowingly (known as the \"Roll Safe\" meme). The overlaid text reads: \"CAN'T ARGUE THE COE ISN'T VALUABLE... IF YOU MEASURE EVERYTHING.\"",
+		"whole": true,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Greetings_from_Puerto_Rico%2C_U.S.A._-_World%27s_Fair_01.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Greetings_from_Puerto_Rico,_U.S.A._-_World%27s_Fair_01.jpg"
+		},
+		"alt": "A souvenir postcard from the 1939 World's Fair",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse": {
+		"picture": {
+			"image": "/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image3.webp"
+		},
+		"look": "taped",
+		"alt": "Drake meme with two panels. Top panel shows Drake gesturing disapprovingly at 'Dedicated full-text search engine'. Bottom panel shows Drake smiling approvingly at 'Abusing ClickHouse harder'",
+		"whole": true,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"how-we-accidentally-invented-a-cloud-search-language": {
+		"picture": {
+			"diagram": "/images/blog/how-we-accidentally-invented-a-cloud-search-language/chomsky.svg"
+		},
+		"look": "diagram",
+		"alt": "Chomsky's grammar hierarchy as nested sets: Type 3, regular, sits inside Type 2, context-free, inside Type 1, context-sensitive, inside Type 0, unrestricted. CloudQuery's search language moved from Type 3 (regex) to Type 2 (PEG.js) to support nested parentheses and operator precedence."
+	},
+	"how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing": {
+		"picture": {
+			"diagram": "/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/uuid-buckets.svg"
+		},
+		"look": "diagram",
+		"alt": "UUID range bucketing: the full UUID range, from 00000000-0000-0000-0000-000000000000 to ffffffff-ffff-ffff-ffff-ffffffffffff, goes into UUIDRanges(numOfBuckets), which splits it into even buckets 1 through n, each inserted on its own."
+	},
+	"integrate-abuseipdb-with-cloudquery": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Police_Department_%E2%80%93_Car_Lineup_%287537515370%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Police_Department_%E2%80%93_Car_Lineup_(7537515370).jpg"
+		},
+		"alt": "A row of old police cars outside the station",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"kubernetes-asset-tracking-at-scale": {
+		"picture": {
+			"image": "/images/blog/kubernetes-asset-tracking-at-scale/image1.webp"
+		},
+		"look": "taped",
+		"alt": "Ralph Wiggum from The Simpsons saying, \"I'm in Danger,\" with the caption, \"When you realize your Kubernetes asset tracking is a mess\".",
+		"whole": true,
+		"mark": {
+			"name": "asterisk",
+			"at": [86, 4, 10, 18],
+			"color": "pink"
+		}
+	},
+	"query-ipinfo-with-cloudquery": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/N._Y._Post_Office_-_assorting_%28i.e.%2C_sorting%29_mail_LCCN2014697413.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:N._Y._Post_Office_-_assorting_(i.e.,_sorting)_mail_LCCN2014697413.jpg"
+		},
+		"alt": "Postal clerks sorting a cart of mail",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"visualize-govern-cloud-stack-cloudquery-reports": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Vintage_car_dashboard_%28Unsplash%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Vintage_car_dashboard_(Unsplash).jpg"
+		},
+		"alt": "The dashboard of an old car",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"six-months-with-clickhouse-at-cloudquery": {
+		"picture": {
+			"diagram": "/images/blog/six-months-with-clickhouse-at-cloudquery/materialized-view.svg"
+		},
+		"look": "diagram",
+		"alt": "A ClickHouse materialized view: on every insert into the source table (columns A, B and C), it runs SELECT A, MAX(B) AS D, AVG(C) AS E FROM source GROUP BY A, and writes the result into the target table, whose columns are A, D and E."
+	},
+	"what-we-learned-querying-cloud-infra-for-expired-dependencies": {
+		"picture": {
+			"image": "/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/image1.webp"
+		},
+		"look": "taped",
+		"alt": "Meme of a man confidently thinking the tech stack is modern (left), realizing half the dependencies are already out of support (right).",
+		"whole": true,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"best-way-keep-cloud-inventory-up-to-date": {
+		"picture": {
+			"image": "/images/blog/best-way-keep-cloud-inventory-up-to-date/image3.webp"
+		},
+		"look": "taped",
+		"alt": "Meme of the I Have No Idea What I Am Doing Dog, with text that says, \"Parsing AWS, GCP, and Azure logs like... Yep, looks good to me!\"",
+		"whole": true,
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"building-cloud-asset-inventory-with-aws": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Workers_drive_Forklifts_laden_with_USAID_goods_inside_a_large_warehouse_-_20110826-FS-LSC-0222_-_Flickr_-_USDAgov.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Workers_drive_Forklifts_laden_with_USAID_goods_inside_a_large_warehouse_-_20110826-FS-LSC-0222_-_Flickr_-_USDAgov.jpg"
+		},
+		"alt": "A forklift moving pallets in a warehouse",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"query-cloud-like-database-stop-wasting-time": {
+		"picture": {
+			"image": "/images/blog/query-cloud-like-database-stop-wasting-time/image1.webp"
+		},
+		"look": "taped",
+		"alt": "A meme featuring scenes of Pablo Escobar, from the TV show Narcos, looking bored and contemplative. It reads, \"Me, waiting for Excel to respond after applying a filter on a million-row dataset.\"",
+		"whole": true,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"eliminate-blind-spots-cloud-environment": {
+		"picture": {
+			"image": "/images/blog/eliminate-blind-spots-cloud-environment/image2.webp"
+		},
+		"look": "taped",
+		"alt": "A meme showing cowboys on horseback attempting to herd a massive clowder of cats. The text reads, \"HOW IT FEELS TO KEEP YOUR CLOUD ASSETS UNDER CONTROL.\"",
+		"whole": true,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"ai-without-exposing-your-data": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/UK_envelopes_with_cut-outs.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:UK_envelopes_with_cut-outs.jpg"
+		},
+		"alt": "A letter closed with a red wax seal",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"how-to-build-a-cloud-asset-inventory-for-azure": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Grocery_Store_display--02.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Grocery_Store_display--02.jpg"
+		},
+		"alt": "A 1950s grocery store aisle",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": -2,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"getting-started-with-cloud-asset-inventory": {
+		"picture": {
+			"diagram": "/images/blog/getting-started-with-cloud-asset-inventory/multi-cloud-inventory.svg"
+		},
+		"look": "diagram",
+		"alt": "A multi-cloud asset inventory powered by CloudQuery: asset data from AWS, Google Cloud and Microsoft Azure goes through CloudQuery's ETL into a PostgreSQL database, which feeds analytics and visualizations."
+	},
+	"soc2": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Sharpening_the_Focus-_Buckley_Implements_Standards_and_Readiness_Reviews_%288947405%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Sharpening_the_Focus-_Buckley_Implements_Standards_and_Readiness_Reviews_(8947405).jpg"
+		},
+		"alt": "A hand ticking boxes on a clipboard checklist",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"tempus-multi-cloud-asset-inventory": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Beehive_in_mountain.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Beehive_in_mountain.jpg"
+		},
+		"alt": "A trailer stacked with blue beehives",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"complete-guide-building-multi-cloud-asset-inventory": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Potomac_Yard_-_aerial_1980s.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Potomac_Yard_-_aerial_1980s.jpg"
+		},
+		"alt": "A rail yard full of tracks seen from above",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 2,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"how-to-build-a-multi-cloud-asset-inventory": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Map_with_colorful_pins_%28Unsplash%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Map_with_colorful_pins_(Unsplash).jpg"
+		},
+		"alt": "Colored pins stuck in a map",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 2,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"building-cloud-asset-inventory-with-gcp": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepidoptera_collections_drawers_and_specimen_preparation_area_in_the_Florida_Museum_of_Natural_History%2C_Gainesville%2C_Florida%2C_US%2C_13_March_2024_%2801%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Lepidoptera_collections_drawers_and_specimen_preparation_area_in_the_Florida_Museum_of_Natural_History,_Gainesville,_Florida,_US,_13_March_2024_(01).jpg"
+		},
+		"alt": "Museum storage cabinets full of specimen drawers",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"data-warehouses-are-terrible-application-backends": {
+		"picture": {
+			"diagram": "/images/blog/data-warehouses-are-terrible-application-backends/cache-over-warehouse.svg"
+		},
+		"look": "diagram",
+		"alt": "The first approach: event streams, APIs and databases still load into the data warehouse, and Tinybird syncs from it through a native connector, on a schedule or on ingestion, and serves the applications. It works like a cache over the warehouse with no custom ORM code, but the data is only as fresh as the last sync."
+	},
+	"how-to-build-applications-over-streaming-data-the-right-way": {
+		"picture": {
+			"diagram": "/images/blog/how-to-build-applications-over-streaming-data-the-right-way/simplified-architecture.svg"
+		},
+		"look": "diagram",
+		"alt": "A simplified architecture: Kafka feeds Tinybird, a real-time data platform that does the work of the middle systems in one place, and Tinybird serves the frontend."
+	},
+	"the-engineers-guide-to-enriching-streams-and-dimensions": {
+		"picture": {
+			"diagram": "/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/fraud-detection.svg"
+		},
+		"look": "diagram",
+		"alt": "Fraud detection: a live stream of transactions from Kafka and historical transactions from the data warehouse both go into Tinybird, which stores them for OLAP queries and, over SQL, serves a real-time API to the fraud detection application."
+	},
+	"why-clickhouse-should-be-your-next-database": {
+		"picture": {
+			"diagram": "/images/blog/why-clickhouse-should-be-your-next-database/cluster.svg"
+		},
+		"look": "diagram",
+		"alt": "ClickHouse scaling across a cluster: a load balancer spreads queries over shards 0, 1 through N. Each shard has two replicas, each a ClickHouse server on its own machine and cloud disk, and the replicas in a shard copy data to each other, with data backup underneath."
+	},
+	"a-step-by-step-guide-to-build-a-real-time-dashboard": {
+		"picture": {
+			"image": "/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-16.webp"
+		},
+		"look": "taped",
+		"alt": "Hide the Pain Harold meme about looking at a real-time dashboard instead of a spreadsheet",
+		"whole": true,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"how-to-build-a-real-time-fraud-detection-system": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Class_on_Counterfeit_Money_DVIDS274449.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Class_on_Counterfeit_Money_DVIDS274449.jpg"
+		},
+		"alt": "A soldier holding a banknote up to check it",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"modern-data-management-with-real-time-change-data-capture": {
+		"picture": {
+			"diagram": "/images/blog/modern-data-management-with-real-time-change-data-capture/cdc-architecture.svg"
+		},
+		"look": "diagram",
+		"alt": "Change data capture: users act through a backend API, which writes to the database. The database records every change in its transaction log, a CDC tool watches that log, and it writes each change as an event to a message queue like Kafka."
+	},
+	"real-time-databases-what-developers-need-to-know": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Wall_Street_bubbles_-_Always_the_same_-_Keppler_1901.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Wall_Street_bubbles_-_Always_the_same_-_Keppler_1901.jpg"
+		},
+		"alt": "An old Puck cartoon of a Wall Street bull blowing bubbles",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": 2,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse": {
+		"picture": {
+			"video": "/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-8.mp4",
+			"at": 2.82
+		},
+		"look": "taped",
+		"alt": "Animated needle in a haystack illustration",
+		"whole": true,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"what-it-takes-to-build-a-real-time-recommendation-system": {
+		"picture": {
+			"diagram": "/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/architecture.svg"
+		},
+		"look": "diagram",
+		"alt": "A real-time recommendation system: users post activity to an API and get recommendations back from it. The API sends activity to an event streaming platform, which feeds the recommendation system. Real-time inference serves recommendations back to the API, while the recommendation system also writes to a data warehouse used for model training, and the trained model feeds real-time inference."
+	},
+	"event-sourcing-with-kafka-a-practical-example": {
+		"picture": {
+			"diagram": "/images/blog/event-sourcing-with-kafka-a-practical-example/event-flow.svg"
+		},
+		"look": "diagram",
+		"alt": "Deposit, withdrawal, and transfer events each go to their own Kafka topic. A Kafka consumer reads all three and feeds event sourcing in Tinybird, which snapshots the events into each customer's final balance."
+	},
+	"how-to-query-google-sheets-with-sql-in-real-time": {
+		"picture": {
+			"image": "/images/blog/how-to-query-google-sheets-with-sql-in-real-time/D-WZo_Nh7oEuIoOwgCG_itm9UH7-5nJkQtmd2J1K8JkuDTXGCbPq58XQlutZ.webp"
+		},
+		"look": "taped",
+		"alt": "Mac Force Quit dialog meme about Google Sheets loading too many rows",
+		"whole": true,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"how-to-use-singlestore-as-a-key-value-store": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Safe_deposit_box_in_Japan_2025-01-15.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Safe_deposit_box_in_Japan_2025-01-15.jpg"
+		},
+		"alt": "An open safe deposit box",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"database-sharding-vs-partitioning-whats-the-difference": {
+		"picture": {
+			"diagram": "/images/blog/database-sharding-vs-partitioning-whats-the-difference/shard-key.svg"
+		},
+		"look": "diagram",
+		"alt": "A people table with shard key (first), its rows spread across four partitions by first name: people_0 holds the three alex rows and tom, people_1 the two johns, people_2 nancy, and people_3 amanda."
+	},
+	"how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb": {
+		"picture": {
+			"video": "/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/psychic-woman.mp4",
+			"at": 0.18
+		},
+		"look": "taped",
+		"alt": "Mind-reading prediction GIF",
+		"whole": true,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"how-to-get-started-with-singlestore": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Runners_forming_at_the_start_line_of_the_1904_Olympics_Marathon_Race.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Runners_forming_at_the_start_line_of_the_1904_Olympics_Marathon_Race.jpg"
+		},
+		"alt": "Runners at the start of an old race",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"how-to-use-singlestore-and-node-js": {
+		"picture": {
+			"video": "/images/blog/how-to-use-singlestore-and-node-js/moira-schitts-creek-im-busy.mp4",
+			"at": 0.55
+		},
+		"look": "taped",
+		"alt": "Waiting impatiently GIF while cluster deploys",
+		"whole": true,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"how-to-manage-mongodb-data-at-scale": {
+		"picture": {
+			"video": "/images/blog/how-to-manage-mongodb-data-at-scale/ad091ed6404c7a0a0c8954b19c262ac9cee25251.mp4",
+			"at": 4
+		},
+		"look": "taped",
+		"alt": "Gif of Matt Damon from Saving Private Ryan aging into an old man.",
+		"whole": true,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"how-to-query-from-multiple-mongodb-databases": {
+		"picture": {
+			"image": "/images/blog/how-to-query-from-multiple-mongodb-databases/atlas_data_lake_d52555700e-1-1024x682.webp"
+		},
+		"look": "taped",
+		"alt": "MongoDB Atlas Data Lake design graphic showing a lake with JSON brackets for waves and a sample data overlay.",
+		"whole": true,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"how-to-seed-a-mongodb-database-with-fake-data": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mannequins_on_Display_in_Short_North_-_DPLA_-_0ffeb7f2e8075b85474b4df6564b0242.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Mannequins_on_Display_in_Short_North_-_DPLA_-_0ffeb7f2e8075b85474b4df6564b0242.jpg"
+		},
+		"alt": "Mannequins standing in a shop window",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Collection_of_piano_rolls_in_their_original_boxes_in_Collections_of_the_Deutsches_Museum.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Collection_of_piano_rolls_in_their_original_boxes_in_Collections_of_the_Deutsches_Museum.jpg"
+		},
+		"alt": "Shelves of labeled archive boxes",
+		"focus": 0.5,
+		"look": "halftone",
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js": {
+		"picture": {
+			"diagram": "/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/security-features.svg"
+		},
+		"look": "diagram",
+		"alt": "Which MongoDB security feature stops which attack. Role-based access control stops database privilege abuse, such as stolen credentials. TLS/SSL transport encryption stops network snooping, such as packet sniffing. Encryption at rest stops data theft, such as stolen disks. Client-side field level encryption (CSFLE) stops all four, including reading the database host's memory, because sensitive fields stay encrypted on the host and in transit and only the client holds the keys."
+	},
+	"mongodb-aggregation-pipeline-queries-vs-sql-queries": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/PSM_V33_D307_Proper_arrangement_of_waste_water_pipes_19th_century.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:PSM_V33_D307_Proper_arrangement_of_waste_water_pipes_19th_century.jpg"
+		},
+		"alt": "A plumbing diagram of pipes running between fixtures",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": -2,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
+	},
+	"linked-lists-and-mongodb-a-gentle-introduction": {
+		"picture": {
+			"diagram": "/images/blog/linked-lists-and-mongodb-a-gentle-introduction/doubly-linked-list.svg"
+		},
+		"look": "diagram",
+		"alt": "A doubly linked list: each node holds a pointer to the previous node and one to the next. \"Cat\" points back to null and forward to \"Dog\", \"Dog\" points back to \"Cat\" and forward to \"Bird\", and \"Bird\" points back to \"Dog\" and forward to null."
+	},
+	"save-the-world-and-money-with-mongodb-atlas-data-lake": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Moraine_Lake_17092005.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Moraine_Lake_17092005.jpg"
+		},
+		"alt": "A mountain lake reflecting snowy peaks",
+		"focus": 0.5,
+		"look": "flat",
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	},
+	"mongodb-schema-design-best-practices": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/%28Three_elevations_of%29_ceiling_panel_A%2C_door_hall_to_kitchen_dept%2C_north%2C_east_%28elevations%29%2C_section_looking_north_%28GGUSC-BlackerR-5354%29.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:(Three_elevations_of)_ceiling_panel_A,_door_hall_to_kitchen_dept,_north,_east_(elevations),_section_looking_north_(GGUSC-BlackerR-5354).jpg"
+		},
+		"alt": "An old architectural blueprint",
+		"focus": 0.5,
+		"look": "taped",
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"tilt": -2
+	},
+	"a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Seiko_stopwatch_at_Suginami_Animation_Museum.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Seiko_stopwatch_at_Suginami_Animation_Museum.jpg"
+		},
+		"alt": "A stopwatch resting on hand-drawn plans",
+		"focus": 0.5,
+		"look": "taped",
+		"tilt": -2,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
+	}
+}

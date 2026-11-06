@@ -8,12 +8,11 @@ description: 'Track Kubernetes assets across clouds with a central configuration
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Governance']
-heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumbnail.webp'
+heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/kubernetes-asset-tracking-at-scale'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'Ralph Wiggum from The Simpsons saying, "I''m in Danger," with the caption, "When you realize your Kubernetes asset tracking is a mess".'
 ---
-
-![Kubernetes Asset Tracking blog header](/images/blog/kubernetes-asset-tracking-at-scale/header.webp)
 
 > **TL;DR:**
 > Managing Kubernetes assets across multiple cloud environments creates significant challenges for enterprises. According to CNCF research, 88% of enterprises run Kubernetes across multiple clouds, but 70% struggle with visibility and governance.
@@ -336,9 +335,7 @@ WITH
     FROM k8s_core_nodes
     WHERE spec_provider_id LIKE 'aws://%'
 
-
     UNION ALL
-
 
     SELECT
       'Azure' AS Provider,
@@ -346,9 +343,7 @@ WITH
     FROM k8s_core_nodes
     WHERE spec_provider_id LIKE 'azure://%'
 
-
     UNION ALL
-
 
     SELECT
       'GCP' AS Provider,

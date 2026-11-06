@@ -7,13 +7,11 @@ description: 'CWPP protects cloud workloads at runtime. CNAPP unifies CWPP, CSPM
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'Cloud Infrastructure']
-heroImage: /images/blog/cwpp-vs-cnapp/thumbnail.webp
-heroAlt: 'CWPP vs CNAPP header image'
+heroImage: '/images/blog/cwpp-vs-cnapp/thumb.webp'
+heroAlt: 'Two boxers mid-swing in an old newspaper photo'
 canonicalUrl: https://www.cloudquery.io/blog/cwpp-vs-cnapp
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
-
-![Header Image: CWPP vs CNAPP](/images/blog/cwpp-vs-cnapp/header.webp)
 
 > **Note:** CWPP protects what's running inside your cloud workloads at runtime, catching malware, unexpected process execution, and container escape attempts. CNAPP bundles CWPP with CSPM and CIEM into one platform and adds cross-domain correlation (attack path analysis) that no single point solution can see across the full attack chain. Whether to buy one or the other depends on whether you're filling a specific runtime gap or building a cloud security program from scratch.
 

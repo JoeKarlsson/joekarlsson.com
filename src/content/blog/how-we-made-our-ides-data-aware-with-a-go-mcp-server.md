@@ -7,15 +7,13 @@ description: 'How we built a Go-based MCP server to make AI Assistants data-awar
 categories: ['AI']
 writtenFor: 'CloudQuery'
 tags: ['MCP', 'LLM', 'AI', 'Engineering', 'Go']
-heroImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.webp'
-heroAlt: 'How we made our IDEs data-aware with a Go MCP Server'
+heroImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumb.webp'
+heroAlt: "Epic Handshake meme. Left arm labeled 'Your Code,' right arm labeled 'Your Data,' and the handshake labeled 'MCP Server.'"
 canonicalUrl: 'https://www.cloudquery.io/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server'
 tldr: 'We built a Go-based MCP server that bridges the gap between AI code assistants and our cloud infrastructure data. By exposing database schemas, queries, and insights directly to Claude, Cursor (or any client that supports MCP), our AI assistant now understands both our code and data. This eliminated context-switching, sped up workflows (from hours to minutes), and unlocked new ways to audit, analyze, and troubleshoot infrastructure.'
 ---
 
 _Co-authored with Mariano Gappa at CloudQuery._
-
-![How we made our IDEs data-aware with a Go MCP Server header](/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/header.webp)
 
 Most developers (and our own team) have been fully using AI code assistance to help with all aspects of building software. We have found that our AI-assisted IDEs know our functions, suggest completions, and help debug issues. However, their usefulness stopped dead at our database. AI assistants have zero understanding of what's actually in our tables, what queries make sense, or how your data connects together. This often results in hallucinations/bad data if you ever were to ask it a question about cloud infrastructure.
 

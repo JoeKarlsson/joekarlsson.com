@@ -7,8 +7,8 @@ description: 'The MCP 2026-07-28 release makes the protocol stateless, adds an e
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'protocol', 'cdata']
-heroImage: '/images/blog/mcp-2026-07-28-release-explained/hero-2.webp'
-heroAlt: 'The 2026-07-28 MCP Release Explained'
+heroImage: '/images/blog/mcp-2026-07-28-release-explained/thumb.webp'
+heroAlt: 'MCP 2026-07-28 goes from one monolithic spec to a core plus extensions. Before, tool calls, discovery, sessions, UI and tasks were bundled into one spec. After, a small, stable, stateless protocol core keeps tool calls and discovery with no server-pinned session, and opt-in extensions plug into it: MCP Apps for sandboxed UI, Tasks for call-now, fetch-later work, and future extensions. Each extension is versioned on its own.'
 canonicalUrl: 'https://www.cdata.com/blog/mcp-2026-07-28-release'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/mcp-2026-07-28-release).'
 tldr: 'Stateless protocol, formal extensions (MCP Apps + Tasks), stricter auth validation, full JSON Schema 2020-12. The big one is stateless - it finally makes MCP servers deployable like normal web services. Roots, Sampling, and Logging start deprecation with a ~12-month runway.'

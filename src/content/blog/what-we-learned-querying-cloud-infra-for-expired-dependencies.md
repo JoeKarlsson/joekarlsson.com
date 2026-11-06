@@ -7,9 +7,10 @@ description: 'Learn how to easily track and fix end-of-life cloud services acros
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Product News']
-heroImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/thumbnail.webp'
+heroImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'Meme of a man confidently thinking the tech stack is modern (left), realizing half the dependencies are already out of support (right).'
 ---
 
 Every cloud engineer has, at some point, found themselves frantically searching for unsupported software lurking in their environment. Maybe it's an _EKS cluster running an ancient Kubernetes version_, or a _Lambda function still clinging to Python 3.7_ like it's 2019. Whatever it is, finding it is always a pain, especially when you have multiple cloud providers in the mix.

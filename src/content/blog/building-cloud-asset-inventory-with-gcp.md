@@ -7,9 +7,10 @@ description: 'How to build a GCP cloud asset inventory with CloudQuery, PostgreS
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Asset Inventory', 'GCP', 'Tutorials']
-heroImage: '/images/blog/building-cloud-asset-inventory-with-gcp/image1.webp'
+heroImage: '/images/blog/building-cloud-asset-inventory-with-gcp/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/building-cloud-asset-inventory-with-gcp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'Museum storage cabinets full of specimen drawers'
 ---
 
 Are you experiencing challenges in managing your Google Cloud Platform (GCP) infrastructure? Do you need help keeping track of all your cloud assets, ensuring compliance, and maintaining security? If these issues sound familiar, then it's time to consider implementing a cloud asset inventory.

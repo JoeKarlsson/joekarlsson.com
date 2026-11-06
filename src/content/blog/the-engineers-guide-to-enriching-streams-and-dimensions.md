@@ -6,8 +6,8 @@ slug: 'the-engineers-guide-to-enriching-streams-and-dimensions'
 description: 'How to enrich real-time Kafka streams with Snowflake dimension tables, with use cases for fraud detection, e-commerce personalization and log analytics.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/ac050f67-data-stream1-1024x488-1.webp'
-heroAlt: 'Guide to enriching streams and dimensions for real-time data'
+heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/thumb.webp'
+heroAlt: 'Fraud detection: a live stream of transactions from Kafka and historical transactions from the data warehouse both go into Tinybird, which stores them for OLAP queries and, over SQL, serves a real-time API to the fraud detection application.'
 tldr: 'Joining real-time event streams from Kafka with dimension tables in a data warehouse unlocks powerful use cases like fraud detection, e-commerce personalization, and log analytics. I walk through three concrete examples with SQL showing how to enrich streaming data with historical context.'
 ---
 

@@ -7,9 +7,10 @@ description: 'Build an Azure cloud asset inventory with CloudQuery and PostgreSQ
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Cloud Asset Inventory', 'Azure']
-heroImage: '/images/blog/how-to-build-a-cloud-asset-inventory-for-azure/image1.webp'
+heroImage: '/images/blog/how-to-build-a-cloud-asset-inventory-for-azure/thumb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-build-a-cloud-asset-inventory-for-azure'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+heroAlt: 'A 1950s grocery store aisle'
 ---
 
 Are you experiencing challenges in managing your Azure infrastructure? Do you need help keeping track of all your cloud assets, ensuring compliance, and maintaining security? If these issues sound familiar, then it's time to consider implementing a cloud asset inventory.

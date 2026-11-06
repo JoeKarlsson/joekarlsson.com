@@ -9,9 +9,10 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: /images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/thumbnail.webp
+heroImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/thumb.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies
 contentNotice: "This post was originally published on CloudQuery's blog."
+heroAlt: 'Meme image of a determined-looking toddler clenching his fist in success (known as "Success Kid"). The background is a blue and purple radial burst. Text at the top reads: "PUBLISHED QUARTERLY COE METRICS". Text at the bottom reads: "MANAGEMENT LOVED IT."'
 ---
 
 **About This Series:** This is Part 3 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

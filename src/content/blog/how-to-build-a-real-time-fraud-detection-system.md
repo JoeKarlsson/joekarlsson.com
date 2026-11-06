@@ -6,8 +6,8 @@ slug: 'how-to-build-a-real-time-fraud-detection-system'
 description: 'How to build a real-time fraud detection system: ingest transaction streams, flag fraud with SQL, and publish the results as APIs with Tinybird and Retool.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/645935d81911cd8d715406a1_Fraud-prevention-Blog-4.webp'
-heroAlt: 'Building a real-time fraud detection system architecture diagram'
+heroImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/thumb.webp'
+heroAlt: 'A soldier holding a banknote up to check it'
 tldr: 'I break down how to build a real-time fraud detection system that ingests transaction streams, analyzes them with SQL for suspicious patterns, and exposes the results as APIs. Includes example queries for catching things like unusual locations, high-velocity transactions, and weird spending patterns.'
 ---
 

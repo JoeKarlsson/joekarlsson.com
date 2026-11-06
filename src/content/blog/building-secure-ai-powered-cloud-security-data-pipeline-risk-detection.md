@@ -7,13 +7,11 @@ description: Learn how AI-powered cloud security reduces investigation time by 5
 categories: ['AI']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'AI', 'Tutorials']
-heroImage: /images/blog/building-secure-ai-powered-cloud-security/thumbnail.webp
-heroAlt: 'Building Secure AI-Powered Cloud Security'
+heroImage: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/thumb.webp'
+heroAlt: 'A radar operator watching his scope'
 canonicalUrl: https://www.cloudquery.io/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
-
-![Building Secure AI-Powered Cloud Security](/images/blog/building-secure-ai-powered-cloud-security/header.webp)
 
 > **Note:** I built an open source demo that shows you how to build secure AI data pipelines for cloud infrastructure security. It processes your actual cloud data, applies machine learning to detect risks, and generates actionable remediation steps. Everything is on GitHub - you can have it running in 10 minutes. In this post, you will learn about data sanitization techniques that preserve security context, GDPR-compliant AI implementation, cross-cloud attack path detection, model governance patterns, production deployment architectures with zero-trust networking, and integration strategies for existing security tools. The complete working demo is available on [GitHub](https://github.com/cloudquery/secure-ai-data-pipelines-demo).
 
