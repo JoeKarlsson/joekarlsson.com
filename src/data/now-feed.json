@@ -3,27 +3,27 @@
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 24,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23
-			],
-			"latestCommitMessage": "feat: Send the AI read through the homelab LiteLLM gateway..."
-		},
-		{
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 333,
+			"commitCount": 335,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 43
+				169, 45
 			],
-			"latestCommitMessage": "feat: The linked-list, MongoDB data lake and MCP extensions posts get..."
+			"latestCommitMessage": "fix: The face on the drawing board is smaller"
+		},
+		{
+			"name": "bechdel-test",
+			"description": "Does your favorite film pass the test?",
+			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"language": "JavaScript",
+			"commitCount": 25,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24
+			],
+			"latestCommitMessage": "feat: Name the AI model that wrote each film's analysis, on its page..."
 		},
 		{
 			"name": "rose-hobart",
@@ -50,6 +50,14 @@
 	],
 	"films": [
 		{
+			"title": "The Age of Innocence",
+			"year": 1993,
+			"rating": 3,
+			"reviewExcerpt": "If I were rich in Gilded Age New York, I wouldn't be at this dinner. I'd be on an island watching movies. ALso - I need to say this up top. I really struggle...",
+			"url": "https://letterboxd.com/joekarlsson/film/the-age-of-innocence/",
+			"poster": "/images/now/film-10436.webp"
+		},
+		{
 			"title": "Mutiny",
 			"year": 2026,
 			"rating": 2,
@@ -72,14 +80,6 @@
 			"reviewExcerpt": "This movie was dumb and bad.",
 			"url": "https://letterboxd.com/joekarlsson/film/jason-goes-to-hell-the-final-friday/",
 			"poster": "/images/now/film-10285.webp"
-		},
-		{
-			"title": "Maximum Overdrive",
-			"year": 1986,
-			"rating": 2,
-			"reviewExcerpt": "Cocaine-era Stephen King fans, this is our Super Bowl. I have a special place in my heart for cocaine-fueled King. It's the era when it's clear he was losing...",
-			"url": "https://letterboxd.com/joekarlsson/film/maximum-overdrive/",
-			"poster": "/images/now/film-9980.webp"
 		}
 	],
 	"podcastEpisodes": [
