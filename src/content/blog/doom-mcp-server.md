@@ -18,7 +18,7 @@ tags:
     'cdata',
   ]
 heroImage: '/images/blog/doom-mcp-server/hero.webp'
-heroAlt: 'A black joystick icon linked to a yellow CData Connect AI logo with a padlock, which links out to Salesforce and a database server'
+heroAlt: 'Claude in Doom facing a pink demon beside a sign reading PII Vault, blocked by Connect AI, data security, with the urgent Salesforce record Desert Power Services named across the bottom of the screen'
 canonicalUrl: 'https://www.cdata.com/blog/doom-mcp-server'
 tldr: "Doom runs as an MCP server here, with three tools (look, go_to and attack) in about 30 lines of Python and no SDK, so Claude can play it. The level comes from a second MCP server, CData Connect AI: every app Claude pulls from becomes a room and every record a monster. I ran Claude Sonnet, Claude Haiku and Gemini Flash through the same level 32 times, scored from the game's state, and in three of its eight runs Gemini tried to get around the locked PII door. The server blocked every attempt."
 faq:
@@ -41,7 +41,7 @@ I wired Doom to two Model Context Protocol (MCP) servers. One is a Doom MCP serv
 
 **At a glance**
 
-1. **What it is:** Connect AI × DOOM, an open-source (MIT) project that wires Doom to two MCP servers: a Doom MCP server with three tools (look, go\_to, and attack) that Claude Code plays through, and the CData Connect AI MCP server, whose records become the level.
+1. **What it is:** [Connect AI × DOOM](/work/connect-ai-doom/), an open-source (MIT) project that wires Doom to two MCP servers: a Doom MCP server with three tools (look, go\_to, and attack) that Claude Code plays through, and the CData Connect AI MCP server, whose records become the level.
 2. **The level:** each app becomes a room, each record a monster, each connection's permissions a keycard, and each request the MCP server refused a locked red door.
 3. **What was tested:** 32 runs on Oct. 26, 2026, across Claude Sonnet 5.5, Claude Haiku 5.5, and Gemini 3.7 Flash, all scored from the game's state.
 4. **Try it:** a [browser version](https://cdatasoftware.github.io/connect-ai-doom/) plays a demo level with no install.
@@ -64,7 +64,7 @@ Here's how the two MCP servers fit together:
 
 ## How Claude plays Doom through the Doom MCP server
 
-When I ran this at the CData booth at [AGNTCon + MCPCon](https://events.linuxfoundation.org/agntcon-mcpcon-north-america/) in San Jose on Oct. 22–23, most of the questions were about the tool calls: how Claude moves the marine, and how you'd do the same thing with another game.
+When I ran this at the CData booth at [AGNTCon + MCPCon](https://events.linuxfoundation.org/agntcon-mcpcon-north-america/) in San Jose on Oct. 22–23, most of the questions were about the tool calls: how Claude moves the marine, and how you'd do the same thing with another game. I wrote up the original build and the booth story in [I put an MCP server inside DOOM](/blog/why-i-use-doom-to-visualize-mcp-data/).
 
 ![Joe Karlsson demos Connect AI × DOOM to a crowd at the CData booth at AGNTCon + MCPCon.](/images/blog/doom-mcp-server/booth-demo.webp)
 

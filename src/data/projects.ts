@@ -453,7 +453,7 @@ export const projects: Project[] = [
 				},
 				{
 					title: 'Refresh',
-					text: 'A small bridge re-runs each room every 15 seconds, so the monsters always match your data. With `--claude-plays`, Claude also gets a Doom MCP server so it can play the level.',
+					text: 'A small bridge re-runs each room every 15 seconds, so the monsters always match your data. With `--claude-plays`, Claude also gets a [Doom MCP server](/blog/doom-mcp-server/) so it can play the level.',
 				},
 			],
 			install:

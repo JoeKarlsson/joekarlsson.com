@@ -111,7 +111,7 @@ _The Zendesk room. Every monster is a support ticket._
 
 _The PII vault: data Connect AI refused to hand over, behind a door with no key._
 
-Shoot a monster and the game reads that record again from the source app, so what's on screen stays current. You can play it yourself, or let Claude play through a second MCP server that controls the marine, while the side panel shows every decision and tool call it makes. Nothing in your apps ever changes. I'm saving the full build story for the CData blog.
+Shoot a monster and the game reads that record again from the source app, so what's on screen stays current. You can play it yourself, or let Claude play through a second MCP server that controls the marine, while the side panel shows every decision and tool call it makes. Nothing in your apps ever changes. I'm saving the [full build story](/blog/doom-mcp-server/) for the CData blog.
 
 ## Taking it to AGNTCon + MCPCon
 

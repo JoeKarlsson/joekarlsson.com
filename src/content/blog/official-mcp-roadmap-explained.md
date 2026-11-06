@@ -131,7 +131,7 @@ The analysis I want to leave you with is the one I started with: the roadmap sol
 
 **Source credentials.** DPoP tells your MCP server which agent is calling it. It doesn't tell Salesforce, SQL Server, or your on-premises data warehouse to trust that agent's identity. The credential your server uses to open the source connection is yours to manage for each source, individually, per their own auth model.
 
-**Per-user authorization inside the source.** Whether the data an agent retrieves honors what the requesting user can actually see in the source system is a governance question that lives above the protocol. Source-system RBAC doesn't flow through an MCP server unless someone built that enforcement. The spec doesn't build it for you.
+**Per-user authorization inside the source.** Whether the data an agent retrieves honors what the requesting user can actually see in the source system is a governance question that lives above the protocol. Source-system RBAC doesn't flow through an MCP server unless [someone built that enforcement](/blog/doom-mcp-server/). The spec doesn't build it for you.
 
 **Audit logging.** Whether you can reconstruct what an agent queried, on whose behalf, and when. In practice, enterprise teams evaluate deployment model and data residency before they evaluate logging coverage. Logging becomes the question in the security review that follows first deployment. If you're doing that review now, query audit logging is the gap to close before the roadmap's identity work gives you a cleaner picture of who called what.
 

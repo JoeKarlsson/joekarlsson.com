@@ -1,4 +1,5 @@
 ---
+import { inlineMarkdown } from '../../utils/inline-markdown';
 import {
 	ARTICLE_HEADING,
 	ARTICLE_TITLE,
@@ -69,12 +70,6 @@ const sections = [
 
 // Page copy is plain text with `backticks` for inline code - escape first so
 // nothing in projects.ts can inject markup.
-const inline = (text: string) =>
-	text
-		.replace(/&/g, '&amp;')
-		.replace(/</g, '&lt;')
-		.replace(/>/g, '&gt;')
-		.replace(/`([^`]+)`/g, '<code>$1</code>');
 ---
 
 <BaseLayout
@@ -174,7 +169,7 @@ const inline = (text: string) =>
 				{/* The column's full width, not the 32em reading cap blog posts use */}
 				<div class="prose mb-12 md:mb-16" style="max-width: none">
 					{page.intro.map((p) => (
-						<p set:html={inline(p)} />
+						<p set:html={inlineMarkdown(p)} />
 					))}
 				</div>
 
@@ -281,7 +276,7 @@ const inline = (text: string) =>
 									</span>
 									<div>
 										<h3 class={`mb-1 ${ITEM_TITLE}`}>{step.title}</h3>
-										<p class="text-paper" set:html={inline(step.text)} />
+										<p class="text-paper" set:html={inlineMarkdown(step.text)} />
 									</div>
 								</li>
 							))}
@@ -297,7 +292,7 @@ const inline = (text: string) =>
 						{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
 						{page.example && (
 							<>
-								{page.example.intro && <p set:html={inline(page.example.intro)} />}
+								{page.example.intro && <p set:html={inlineMarkdown(page.example.intro)} />}
 								<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
 							</>
 						)}
@@ -310,7 +305,7 @@ const inline = (text: string) =>
 							{page.galleryTitle ?? 'Gallery'}
 						</h2>
 						{page.galleryNote && (
-							<p class="mb-5 max-w-[60ch] text-paper" set:html={inline(page.galleryNote)} />
+							<p class="mb-5 max-w-[60ch] text-paper" set:html={inlineMarkdown(page.galleryNote)} />
 						)}
 						<div
 							class={square ? 'grid gap-5' : 'grid gap-x-6 gap-y-8 sm:grid-cols-2'}
