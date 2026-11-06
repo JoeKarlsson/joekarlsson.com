@@ -25,7 +25,7 @@ Looking to build a Cloud Asset Inventory for your AWS data? Check our tutorial, 
 
 Let's break down the tech stack and architecture of this project, and I'll explain why we're using each component.
 
-![Diagram illustrating the workflow of building a cloud asset inventory. The process starts with source data from Azure, Google Cloud, and Azure, which is then processed by CloudQuery for ELT (Extract, Load, Transform). The data is stored in a PostgreSQL data warehouse. dbt is used for data transformations within the data warehouse.](/images/blog/how-to-build-a-cloud-asset-inventory-for-azure/image1.webp)
+![The stack for a Azure cloud asset inventory: CloudQuery extracts asset data from your Azure account and loads it into a PostgreSQL data warehouse, where dbt transforms it in place.](/images/blog/how-to-build-a-cloud-asset-inventory-for-azure/stack.svg)
 
 If you want to follow along with a video version of this post, you can check that out here:
 

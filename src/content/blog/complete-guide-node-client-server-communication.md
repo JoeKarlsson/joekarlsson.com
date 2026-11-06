@@ -186,7 +186,7 @@ XMLHttpRequest (XHR) is a browser-level API that enables the client to script da
 
 > XMLHTTP changed everything. It put the “D” in DHTML. It allowed us to asynchronously get data from the server and preserve document state on the client… The Outlook Web Access (OWA) team’s desire to build a rich Win32 like application in a browser pushed the technology into IE that allowed AJAX to become a reality. - Jim Van Eaton Outlook Web Access: A catalyst for web evolution
 
-![client-server model](/images/blog/complete-guide-node-client-server-communication/687474703a2f2f6f726d2d6368696d6572612d70726f642e73332e616d617a6f6e6177732e636f6d2f313233303030303030303534352f696d616765732f6870626e5f313530312e706e67-1-1024x559.webp)_client-server model_
+![Polling versus long polling. With polling, the client sends GET /poll on a fixed interval, so an update that lands on the server waits until the next poll to reach the client. With long polling (Comet), the client sends GET /comet and the server holds the request open until it has an update, answers right away, and the client immediately asks again.](/images/blog/complete-guide-node-client-server-communication/polling-vs-long-polling.svg)
 
 Here I am running a simple Express server with a simple route to send requested data to the Client.
 

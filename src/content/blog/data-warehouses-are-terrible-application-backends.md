@@ -65,7 +65,7 @@ Concurrency constraints in data warehouses like Snowflake present one of the mos
 
 OK, so nobody builds an application directly on top of a data warehouse, right? Obviously, you’d use a caching layer like [Redis](https://redis.com/?utm_content=inline+mention) or some other [real-time database](https://thenewstack.io/real-time-databases-who-is-using-them-and-why/) to make sure your API requests are fast and balanced even with many concurrent users.
 
-![This is a common approach when the data you need to support your application resides in a data warehouse. In theory, the approach seems workable. In reality, it carries some serious drawbacks, the most significant of which is data freshness.](/images/blog/data-warehouses-are-terrible-application-backends/d9f44aba-image3-e1689172194931.webp)_This is a common approach when the data you need to support your application resides in a data warehouse. In theory, the approach seems workable. In reality, it carries some serious drawbacks, the most significant of which is data freshness._
+![The common cache-layer approach: event streams, APIs and databases load into the data warehouse, an ETL job copies data into a cache like Redis, an ORM reads the cache, and an API serves the applications. Queries get fast, but the data is only as fresh as the last ETL run.](/images/blog/data-warehouses-are-terrible-application-backends/cache-layer.svg)
 
 Simply put, using a cache layer works great for shrinking query latency, but it still won’t work for applications built over streaming data that must always serve the most recent events.
 

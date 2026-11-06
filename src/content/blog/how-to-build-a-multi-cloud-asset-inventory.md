@@ -42,7 +42,7 @@ The transformed data needs to be stored in a centralized location where it can b
 
 While we're using PostgreSQL in this example, CloudQuery allows you to sync your data into any data store of your choice, whether it's another relational database, a data warehouse, or a data lake. This allows you to seamlessly integrate your cloud asset inventory into your existing data infrastructure.
 
-![Diagram illustrating a multi-cloud asset inventory workflow powered by CloudQuery. The image shows data flow from various cloud sources (AWS, Google Cloud, and Microsoft Azure) through CloudQuery's ETL process into a PostgreSQL database. The data is then used for analytics and visualizations.](/images/blog/how-to-build-a-multi-cloud-asset-inventory/how-to-build-a-multi-cloud-asset-inventory.webp)
+![A multi-cloud asset inventory powered by CloudQuery: asset data from AWS, Google Cloud and Microsoft Azure goes through CloudQuery's ETL into a PostgreSQL database, which feeds analytics and visualizations.](/images/blog/how-to-build-a-multi-cloud-asset-inventory/multi-cloud-inventory.svg)
 
 ## Building a Multi-cloud Asset Inventory
 

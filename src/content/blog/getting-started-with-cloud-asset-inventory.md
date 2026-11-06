@@ -38,7 +38,7 @@ A well-maintained cloud asset inventory typically includes:
 - **Network Configurations**: VPCs, subnets, IP addresses, DNS settings, and firewalls.
 - **IAM Policies**: User roles, permissions, and access levels across the environment.
 
-![Diagram titled 'Cloud Asset Inventory' illustrating categories of cloud resources: IAM Policies (User Roles, Permissions, Access Levels), Compute Instances (Containers, Virtual Machines, Serverless Functions), Storage Resources (Buckets, Block Storage Volumes, Archival Solutions), Databases (SQL Databases, NoSQL Databases, Data Warehouses), and Network Configurations (VPCs, Subnets, IP Addresses, Firewalls, DNS Settings). IAM Policies connect to all categories via dashed lines, symbolizing centralized governance.](/images/blog/getting-started-with-cloud-asset-inventory/components_of_a_cloud_assset_inventory.webp)
+![What a cloud asset inventory covers. IAM policies (user roles, permissions, access levels) govern four kinds of resources: compute instances (containers, virtual machines, serverless functions), storage resources (buckets, block storage volumes, archival storage), databases (SQL, NoSQL, data warehouses) and network configurations (VPCs, subnets, IP addresses, firewalls, DNS settings).](/images/blog/getting-started-with-cloud-asset-inventory/asset-categories.svg)
 
 These components form the foundation of a strong cloud management strategy, helping teams stay organized as their cloud usage scales.
 

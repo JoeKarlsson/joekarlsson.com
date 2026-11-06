@@ -25,7 +25,7 @@ Looking to build a Cloud Asset Inventory for your AWS data? Check our tutorial, 
 
 Let's break down the tech stack and architecture of this project, and I'll explain why we're using each component.
 
-![Diagram illustrating the workflow of building a cloud asset inventory. The process starts with source data from GCP, Google Cloud, and GCP, which is then processed by CloudQuery for ELT (Extract, Load, Transform). The data is stored in a PostgreSQL data warehouse. dbt is used for data transformations within the data warehouse.](/images/blog/building-cloud-asset-inventory-with-gcp/image1.webp)
+![The stack for a GCP cloud asset inventory: CloudQuery extracts asset data from your GCP account and loads it into a PostgreSQL data warehouse, where dbt transforms it in place.](/images/blog/building-cloud-asset-inventory-with-gcp/stack.svg)
 
 - **CloudQuery**
   - This tool helps us sync cloud asset data from GCP into any database, in this case, we are using PostgreSQL.

@@ -16,7 +16,7 @@ heroAlt: 'A rail yard full of tracks seen from above'
 
 Managing assets across multiple cloud providers like AWS and GCP can be challenging, especially when you are trying to keep track of everything in one place. What if you could centralize this data and make it easy to query? That's exactly what we'll be doing in this live coding session. Using **CloudQuery**, we'll demonstrate how to pull cloud asset data from [**AWS**](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs) and [**GCP**](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs) and store it in a [**PostgreSQL**](https://www.cloudquery.io/hub/plugins/destination/cloudquery/postgresql/latest/docs) database for easy access and analysis.
 
-![Diagram illustrating a multi-cloud asset inventory workflow powered by CloudQuery. The image shows data flow from various cloud sources (AWS, Google Cloud, and Microsoft Azure) through CloudQuery's ETL process into a PostgreSQL database. The data is then used for analytics and visualizations.](/images/blog/complete-guide-building-multi-cloud-asset-inventory/complete-guide-building-multi-cloud-asset-inventory.webp)
+![A multi-cloud asset inventory powered by CloudQuery: asset data from AWS, Google Cloud and Microsoft Azure goes through CloudQuery's ETL into a PostgreSQL database, which feeds analytics and visualizations.](/images/blog/complete-guide-building-multi-cloud-asset-inventory/multi-cloud-inventory.svg)
 
 We'll cover the entire process - from configuring CloudQuery for multi-cloud data ingestion to running queries that help you manage, secure and understand your cloud assets.
 

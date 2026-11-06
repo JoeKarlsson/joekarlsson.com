@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" width="640" height="340" role="img" aria-label="The common cache-layer approach: event streams, APIs and databases load into the data warehouse, an ETL job copies data into a cache like Redis, an ORM reads the cache, and an API serves the applications. Queries get fast, but the data is only as fresh as the last ETL run.">
+<defs><filter id="data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="380">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="340" fill="#000000"/>
+<g transform="rotate(0.4 86 72)">
+<path class="d-paper" d="M17.4,39.2 L32.5,40 L48.6,41.2 L63.6,39.6 L80.5,41 L95.3,40.4 L112.6,41.5 L128.9,40.7 L143.5,41 L156.3,38.9 L156.5,56.3 L156,71.2 L154.5,89.5 L157.6,103.9 L139.5,102.6 L123.4,103.6 L106.8,103 L91.6,105.1 L76.6,105.1 L60.6,104.1 L42.6,105.1 L27.9,104.3 L14.6,105.5 L15.5,87.2 L15.7,72.7 L15.6,56.4 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="30" y="58" width="28" height="28" viewBox="0 0 24 24"><g fill="#ededed"><path d="M9.71 2.136a1.43 1.43 0 0 0-2.047 0h-.007a1.48 1.48 0 0 0-.421 1.042c0 .41.161.777.422 1.039l.007.007c.257.264.616.426 1.019.426.404 0 .766-.162 1.027-.426l.003-.007c.261-.262.421-.629.421-1.039 0-.408-.159-.777-.421-1.042H9.71zM8.683 22.295c.404 0 .766-.167 1.027-.429l.003-.008c.261-.261.421-.631.421-1.036 0-.41-.159-.778-.421-1.044H9.71a1.42 1.42 0 0 0-1.027-.432 1.4 1.4 0 0 0-1.02.432h-.007c-.26.266-.422.634-.422 1.044 0 .406.161.775.422 1.036l.007.008c.258.262.617.429 1.02.429zm7.89-4.462c.359-.096.683-.33.882-.684l.027-.052a1.47 1.47 0 0 0 .114-1.067 1.454 1.454 0 0 0-.675-.896l-.021-.014a1.425 1.425 0 0 0-1.078-.132c-.36.091-.684.335-.881.686-.2.349-.241.75-.146 1.119.099.363.33.691.675.896h.002c.346.203.737.239 1.101.144zm-6.405-7.342a2.083 2.083 0 0 0-1.485-.627c-.58 0-1.103.242-1.482.627-.378.385-.612.916-.612 1.507s.233 1.124.612 1.514a2.08 2.08 0 0 0 2.967 0c.379-.39.612-.923.612-1.514s-.233-1.122-.612-1.507zm-.835-2.51c.843.141 1.6.552 2.178 1.144h.004c.092.093.182.196.265.299l1.446-.851a3.176 3.176 0 0 1-.047-1.808 3.149 3.149 0 0 1 1.456-1.926l.025-.016a3.062 3.062 0 0 1 2.345-.306c.77.21 1.465.721 1.898 1.482v.002c.431.757.518 1.626.313 2.408a3.145 3.145 0 0 1-1.456 1.928l-.198.118h-.02a3.095 3.095 0 0 1-2.154.201 3.127 3.127 0 0 1-1.514-.944l-1.444.848a4.162 4.162 0 0 1 0 2.879l1.444.846c.413-.47.939-.789 1.514-.944a3.041 3.041 0 0 1 2.371.319l.048.023v.002a3.17 3.17 0 0 1 1.408 1.906 3.215 3.215 0 0 1-.313 2.405l-.026.053-.003-.005a3.147 3.147 0 0 1-1.867 1.436 3.096 3.096 0 0 1-2.371-.318v-.006a3.156 3.156 0 0 1-1.456-1.927 3.175 3.175 0 0 1 .047-1.805l-1.446-.848a3.905 3.905 0 0 1-.265.294l-.004.005a3.938 3.938 0 0 1-2.178 1.138v1.699a3.09 3.09 0 0 1 1.56.862l.002.004c.565.572.914 1.368.914 2.243 0 .873-.35 1.664-.914 2.239l-.002.009a3.1 3.1 0 0 1-2.21.931 3.1 3.1 0 0 1-2.206-.93h-.002v-.009a3.186 3.186 0 0 1-.916-2.239c0-.875.35-1.672.916-2.243v-.004h.002a3.1 3.1 0 0 1 1.558-.862v-1.699a3.926 3.926 0 0 1-2.176-1.138l-.006-.005a4.098 4.098 0 0 1-1.173-2.874c0-1.122.452-2.136 1.173-2.872h.006a3.947 3.947 0 0 1 2.176-1.144V6.289a3.137 3.137 0 0 1-1.558-.864h-.002v-.004a3.192 3.192 0 0 1-.916-2.243c0-.871.35-1.669.916-2.243l.002-.002A3.084 3.084 0 0 1 8.683 0c.861 0 1.641.355 2.21.932v.002h.002c.565.574.914 1.372.914 2.243 0 .876-.35 1.667-.914 2.243l-.002.005a3.142 3.142 0 0 1-1.56.864v1.692zm8.121-1.129l-.012-.019a1.452 1.452 0 0 0-.87-.668 1.43 1.43 0 0 0-1.103.146h.002c-.347.2-.58.529-.677.896-.095.365-.054.768.146 1.119l.007.009c.2.347.519.579.874.673.357.103.755.059 1.098-.144l.019-.009a1.47 1.47 0 0 0 .657-.885 1.493 1.493 0 0 0-.141-1.118"/></g></svg>
+<text x="107" y="61" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">EVENT</text>
+<text x="107" y="83.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">STREAMS</text>
+</g>
+<g transform="rotate(-0.6 86 162)">
+<path class="d-paper" d="M16.9,129.5 L30.7,130 L47.7,130.1 L64.2,129.1 L80.4,129.7 L94.6,130.6 L111.7,131.4 L128,130.8 L144.8,130 L156.8,131.2 L156.4,146.4 L155.4,163.4 L157.6,179.2 L156.6,193.9 L140.2,194.5 L123.9,193.4 L109.4,193 L92.5,193.4 L74.5,192.8 L59.8,195.6 L44.3,193.1 L26.9,193.5 L15.6,194.9 L16.5,178.2 L17.1,162.6 L14.4,145.1 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="30" y="148" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5" />
+  <path d="M9 8V2" />
+  <path d="M15 8V2" />
+  <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></g></svg>
+<text x="107" y="162" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">APIS</text>
+</g>
+<g transform="rotate(-0.4 86 252)">
+<path class="d-paper" d="M16.5,218.6 L32.4,218.8 L47.8,220.9 L64.2,219.8 L79.6,219.3 L96,221.5 L113.4,219.8 L127,221.4 L143.6,218.6 L155.3,221.4 L154.9,234.8 L154.4,251.4 L156.8,268.9 L155.2,283.2 L140.6,285 L125,283.8 L107.3,285.4 L92,284.8 L74.9,283 L61.3,282.7 L44.7,285.1 L29.3,284.6 L14.4,283.8 L15.9,267.4 L16.3,250.8 L16.4,234.5 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="30" y="238" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" />
+  <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+  <path d="M3 12A9 3 0 0 0 21 12" /></g></svg>
+<text x="107" y="252" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">DATABASES</text>
+</g>
+<g transform="rotate(-0.8 224 162)">
+<path class="d-paper" d="M176.8,118.4 L195,119.4 L208.5,120.2 L225.5,119.3 L242.9,118.7 L258.6,118.5 L268.6,119.5 L269.6,136.4 L268.5,151.7 L269,167.9 L271,185.5 L270.6,199.4 L270.6,205.2 L254.1,203.2 L238.5,205 L222.5,203.8 L207.3,204.8 L190.9,202.7 L177.9,203.1 L178.9,187.8 L176.9,171.7 L178.7,156.9 L177.2,139.8 L177,123 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="211" y="128" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z" />
+  <path d="M6 18h12" />
+  <path d="M6 14h12" />
+  <rect width="12" height="12" x="6" y="10" /></g></svg>
+<text x="224" y="168.6" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">DATA</text>
+<text x="224" y="189.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">WAREHOUSE</text>
+</g>
+<g transform="rotate(0.9 335 162)">
+<path class="d-paper" d="M289.8,120 L307.2,121.6 L321.9,119.3 L339.3,119.5 L353,120 L369.3,120.1 L380.1,118.7 L381.4,136.4 L380,151 L380.9,168.4 L380.3,183 L379.4,200.5 L380.6,202.6 L362.6,204.9 L348.3,203.2 L330.6,202.5 L314.6,204.4 L301.4,204.2 L289.9,205.2 L289.9,187.8 L290.1,172.1 L291.4,155.9 L291.3,139.9 L291.6,124.2 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="322" y="128" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></g></svg>
+<text x="335" y="179" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#ededed" text-anchor="middle" dominant-baseline="central">CACHE</text>
+</g>
+<g transform="rotate(0.2 440 162)">
+<path class="d-paper" d="M398.4,119.3 L413.7,119.2 L428.8,118.9 L446.1,121 L461,118.6 L478.7,120.4 L482.2,118.7 L480.5,135.1 L480.9,152.3 L482.8,168.5 L481.1,182.5 L482.9,199.9 L481.7,204.5 L464.5,203 L449.3,203.8 L435.3,202.4 L417.1,202.9 L403.1,203.8 L399.4,203.2 L398.2,188.4 L398.6,170.5 L398.6,156.4 L397.9,140.4 L397,123.5 Z" fill="#ff4fd8"/>
+<svg x="427" y="128" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5" />
+  <path d="M9 8V2" />
+  <path d="M15 8V2" />
+  <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></g></svg>
+<text x="440" y="179" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central">API</text>
+</g>
+<text x="280" y="110" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">ETL</text>
+<text x="389" y="110" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">ORM</text>
+<g transform="rotate(-0.8 567 72)">
+<path class="d-paper" d="M510.2,40.7 L525.1,40.3 L542.7,38.8 L557.7,40.5 L575,41 L588.7,38.8 L606,41.4 L623.6,40.2 L623.6,41 L624.1,55.6 L623.4,72.5 L623.7,88.3 L622.4,102.7 L606.6,105.2 L591,104.1 L576.8,102.9 L558.7,105.4 L543.5,105.1 L529.4,104.4 L510.7,102.9 L511.5,104.9 L509.4,86.6 L509.3,71.9 L510.2,56.6 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="524" y="58" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" />
+  <path d="M10 4v4" />
+  <path d="M2 8h20" />
+  <path d="M6 4v4" /></g></svg>
+<text x="588" y="72" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">APP</text>
+</g>
+<g transform="rotate(0.1 567 162)">
+<path class="d-paper" d="M508.6,129.6 L527.1,131 L542,129.9 L559,129.2 L574.3,129.3 L588.9,131.4 L607,128.6 L621.7,129 L623.7,128.6 L624.6,146 L624.8,161.5 L622.5,179.2 L623.4,193.6 L606.8,193.1 L593,193.5 L577.4,195.1 L561.4,192.7 L543.3,195.3 L527.4,194.5 L510.9,192.8 L509.2,193.4 L510.3,178.6 L509.9,161.3 L509.9,146.1 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="524" y="148" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" />
+  <path d="M10 4v4" />
+  <path d="M2 8h20" />
+  <path d="M6 4v4" /></g></svg>
+<text x="588" y="162" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">APP</text>
+</g>
+<g transform="rotate(0.9 567 252)">
+<path class="d-paper" d="M510.3,219.2 L527.1,218.9 L543,220.5 L558.1,220.7 L573.9,221.2 L590,218.9 L607,220.7 L621.5,219.6 L623.9,221.2 L622.7,237.5 L625.1,250.7 L623.8,269 L622.9,282.5 L609.3,283.1 L591.3,282.6 L575,285.5 L560.9,283.1 L542.6,284.3 L529.4,283 L510.4,284.6 L511.4,285.5 L509.8,267.7 L510.7,252.5 L510.4,235 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="524" y="238" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" />
+  <path d="M10 4v4" />
+  <path d="M2 8h20" />
+  <path d="M6 4v4" /></g></svg>
+<text x="588" y="252" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">APP</text>
+</g>
+<text x="16" y="316" font-family="Fraunces, Georgia, serif" font-size="16" fill="#ededed" text-anchor="start" dominant-baseline="central">Fast, but only as fresh as the last ETL run.</text>
+<g class="d-flow">
+<path d="M158.3,71.6 Q163.9,71.2 166.8,70.5 M165.6,73.4 Q164.8,116.9 165.9,161 M167.5,162.9 Q171.4,163.1 176.8,162.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M167,168.4 L176,162 L167,155.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M156.5,163.2 Q159.8,163.5 165.3,161.4 M166,161.2 Q167.1,160.6 165.3,162.1 M165.9,162.3 Q171.6,163.2 174.6,161.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M167,168.4 L176,162 L167,155.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M159.2,250.5 Q162.4,252.3 164.6,253.4 M165.8,253.3 Q165.8,206.2 165,161.3 M164.6,162.9 Q171.5,161.6 176,163.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M167,168.4 L176,162 L167,155.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M271,162.3 Q280.8,162.4 289.4,162.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M279,168.4 L288,162 L279,155.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M381.9,162.7 Q389.3,162.8 397.2,160.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M387,168.4 L396,162 L387,155.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M485.2,161.3 Q491.1,163 496.3,162.3 M497.3,161.6 Q496.6,116.7 497.2,71.7 M495.1,71.3 Q500.4,72.1 508.6,71.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M499,78.4 L508,72 L499,65.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M493,155.6 L484,162 L493,168.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M485.2,163.3 Q489.2,161.8 494.7,162.1 M494.8,160.6 Q494.3,161 496.2,160.5 M496.7,160.9 Q501.4,161.5 507.4,162.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M499,168.4 L508,162 L499,155.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M493,155.6 L484,162 L493,168.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M484,162.4 Q490.2,162.3 495.3,161.7 M496.7,161.8 Q495.1,208 496,251.5 M495.4,252.8 Q501.9,251.5 509.3,251.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M499,258.4 L508,252 L499,245.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M493,155.6 L484,162 L493,168.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+</g>
+<g class="d-callout">
+<path d="M300,302 Q314.6,249.6 282,206" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+<path d="M294.1,210.8 L282,206 L283.2,218.9" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#data-warehouses-are-terrible-application-backends-cache-layer-desktop-crayon)"/>
+</g>
+</svg>
