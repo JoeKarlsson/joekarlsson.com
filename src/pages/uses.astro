@@ -12,12 +12,18 @@ import { GROUP_HEADING, HERO_LEAD, SECTION_HEADING, TEXT_LINK } from '../utils/u
 import nowFeed from '../data/now-feed.json';
 import { ARROW, CHALK, MARKS, RINGS } from '../data/scribbles';
 import { USES_SECTIONS } from '../data/uses';
+import {
+	AMAZON_DISCLOSURE,
+	isAmazonUrl,
+	tagAmazonLinksInHtml,
+	withAmazonTag,
+} from '../utils/affiliate';
 
 const PINK = '#ff4fd8';
 
-/** The data file's links get the site's link style, and the live container count fills in. */
+/** The data file's links get the site's link style and Amazon tag, and the live container count fills in. */
 const html = (s: string) =>
-	s
+	tagAmazonLinksInHtml(s)
 		.replaceAll('data-text-link', `class="${TEXT_LINK}"`)
 		.replaceAll('{runningContainers}', String(nowFeed.homelab.runningContainers));
 
@@ -159,6 +165,7 @@ const sections = USES_SECTIONS.map((section) => {
 				Hardware, software, and gear I use daily for development, content creation, and running my
 				homelab.
 			</p>
+			<p class="mt-3 text-sm text-muted">{AMAZON_DISCLOSURE}</p>
 		</PosterHero>
 
 		{sections.map((section, si) => {
@@ -263,9 +270,13 @@ const sections = USES_SECTIONS.map((section) => {
 													<p class="relative w-fit font-semibold">
 														{item.url ? (
 															<a
-																href={item.url}
+																href={withAmazonTag(item.url)}
 																target="_blank"
-																rel="noopener noreferrer"
+																rel={
+																	isAmazonUrl(item.url)
+																		? 'sponsored noopener noreferrer'
+																		: 'noopener noreferrer'
+																}
 																class={TEXT_LINK}
 															>
 																{item.name}
