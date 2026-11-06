@@ -269,9 +269,9 @@ test.describe('Phone layout', () => {
 		await tall('nav[aria-label="Breadcrumb"] a');
 		await expect(page.locator('.prose .heading-anchor').first()).toBeHidden();
 
-		// A /uses pin's number is about 15px wide, but the link is a 44px square
+		// /uses pins bunch up too close to tap apart at phone width, so phones skip them
 		await page.goto('/uses/');
-		await tall('a.uses-pin');
+		await expect(page.locator('a.uses-pin').first()).toBeHidden();
 	});
 
 	test('the name, menu and pause sit in the bar at 44px, and the menu is a hamburger', async ({

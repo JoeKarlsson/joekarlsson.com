@@ -15,12 +15,6 @@ function setOpen(section: HTMLElement, open: boolean) {
 	section.toggleAttribute('data-collapsed', !open);
 }
 
-/** Opens the folded section holding `el`, if any (a Uses pin points into one). */
-export function openCollapsedSectionOf(el: Element) {
-	const section = el.closest<HTMLElement>('[data-phone-collapse]');
-	if (section?.hasAttribute('data-collapsed')) setOpen(section, true);
-}
-
 export function initPhoneCollapse() {
 	if (!window.matchMedia(PHONE).matches) return;
 	document.querySelectorAll<HTMLElement>('[data-phone-collapse]').forEach((section, i) => {

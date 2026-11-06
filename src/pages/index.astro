@@ -82,7 +82,9 @@ const AROUND_THE_HOUSE = [
 	description={SITE_DESCRIPTION}
 	schemaType="WebSite"
 >
-	<div slot="hero" class="grid gap-4 p-4 md:grid-cols-2">
+	<!-- A section with a name is a landmark, so screen-reader landmark jumps reach the
+	hero, which sits above the nav and outside <main> -->
+	<section slot="hero" aria-label="Introduction" class="grid gap-4 p-4 md:grid-cols-2">
 		<!-- Phones: a 16:9 banner of Joe's face (montage-phone is that crop). Side by side: at least square, growing with a taller text panel so the
 		video never stops short. Only the video is clipped to the rounded box; the marks
 		sit above everything and spill across the text panel, the gutters and the nav. -->
@@ -196,7 +198,7 @@ const AROUND_THE_HOUSE = [
 				</p>
 			</div>
 		</div>
-	</div>
+	</section>
 
 	<!-- Phones: the hero's own bottom padding (p-4) plus pt-8 makes the usual 48 -->
 	<section class="relative px-4 pt-8 sm:px-7 md:pt-20">

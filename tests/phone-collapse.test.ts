@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, expect, it, vi } from 'vitest';
-import { initPhoneCollapse, openCollapsedSectionOf } from '../src/scripts/phone-collapse';
+import { initPhoneCollapse } from '../src/scripts/phone-collapse';
 
 const onPhone = (matches: boolean) =>
 	vi.stubGlobal('matchMedia', () => ({ matches }) as MediaQueryList);
@@ -9,7 +9,7 @@ function page() {
 	document.body.innerHTML = `
 		<section data-phone-collapse data-collapse-noun="talk">
 			<h2 data-collapse-heading>2021</h2>
-			<ul data-collapse-body><li id="only-talk">One</li></ul>
+			<ul data-collapse-body><li>One</li></ul>
 		</section>
 		<section data-phone-collapse="open">
 			<h2 data-collapse-heading>2026</h2>
@@ -32,15 +32,6 @@ describe('phone collapse', () => {
 
 		button.click();
 		expect(button.getAttribute('aria-expanded')).toBe('true');
-		expect(folded.querySelector('ul')!.hidden).toBe(false);
-	});
-
-	it('opens the folded section around an element (a Uses pin target)', () => {
-		onPhone(true);
-		const [folded] = page();
-		initPhoneCollapse();
-
-		openCollapsedSectionOf(document.getElementById('only-talk')!);
 		expect(folded.querySelector('ul')!.hidden).toBe(false);
 	});
 

@@ -1,7 +1,8 @@
 ---
 // /uses: each section is built around one real photo of the gear, marked up in crayon.
 // Numbered pins on the photo match the numbers in the list beside it; hovering either
-// circles both, and clicking a pin brings its entry up beside the photo. Content lives
+// circles both, and clicking a pin brings its entry up beside the photo (wider screens
+// only: phones skip the pins and fold the list, phone-collapse.ts). Content lives
 // in src/data/uses.ts.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import KeepExploring from '../components/KeepExploring.astro';
@@ -316,10 +317,15 @@ const sections = USES_SECTIONS.map((section) => {
 	.uses-group + .uses-group {
 		margin-top: 40px;
 	}
-	/* Phones fold each group to its heading (phone-collapse.ts); folded ones sit closer */
+	/* Phones fold each group to its heading (phone-collapse.ts); folded ones sit closer.
+	   The pins go: at phone width they bunch up too close to tap apart, and the
+	   numbered list says the same thing */
 	@media (width < 48rem) {
 		.uses-group + .uses-group {
 			margin-top: 24px;
+		}
+		.uses-shot .uses-pin {
+			display: none;
 		}
 	}
 	/* A pin: a big chalk number with a black outline so it reads on any part of the photo.
@@ -357,7 +363,7 @@ const sections = USES_SECTIONS.map((section) => {
 </style>
 
 <script>
-	import { initPhoneCollapse, openCollapsedSectionOf } from '../scripts/phone-collapse';
+	import { initPhoneCollapse } from '../scripts/phone-collapse';
 
 	initPhoneCollapse();
 
@@ -381,7 +387,6 @@ const sections = USES_SECTIONS.map((section) => {
 			const shot = pin.closest<HTMLElement>('.uses-shot');
 			if (!entry || !shot) return;
 			event.preventDefault();
-			openCollapsedSectionOf(entry);
 			const wanted = scrollY + entry.getBoundingClientRect().top - STICKY_TOP;
 			const photoStillFits =
 				scrollY +

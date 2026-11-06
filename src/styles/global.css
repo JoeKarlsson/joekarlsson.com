@@ -265,6 +265,12 @@ pre.astro-code {
 .prose pre .code-lang-label {
 	@apply absolute top-2 right-20 text-muted font-mono text-xs select-none;
 }
+/* 12px is too small to read on a phone */
+@media (width < 48rem) {
+	.prose pre .code-lang-label {
+		font-size: 0.875rem;
+	}
+}
 .prose pre .copy-button {
 	@apply absolute top-1 right-2 z-10 bg-transparent border-none text-muted hover:text-paper cursor-pointer text-xs px-2 py-1 rounded-sm transition-colors;
 }
