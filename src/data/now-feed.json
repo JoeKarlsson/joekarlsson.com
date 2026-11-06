@@ -7,24 +7,24 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 268,
+			"commitCount": 289,
 			"dailyCommitCounts": [
 				6, 4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				147
+				168
 			],
-			"latestCommitMessage": "fix: Decorative pictures in Read this next and the TEDx logo are..."
+			"latestCommitMessage": "feat: Phones fold a post's In this article list, every filter option..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 248,
+			"commitCount": 256,
 			"dailyCommitCounts": [
 				0, 0, 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51,
-				3
+				11
 			],
-			"latestCommitMessage": "chore: The animate skill and the Claude box's edit prompt cover..."
+			"latestCommitMessage": "feat: Zine-look covers get joekarlsson.com's crayon marks: rays..."
 		},
 		{
 			"name": "dotfiles",
