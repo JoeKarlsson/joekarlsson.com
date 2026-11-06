@@ -25,6 +25,8 @@ const DOODLES = [
 // Room for the longest pages; the ones past the end are dropped
 const SLOTS = 60;
 const FIRST_TOP = 180;
+// Smallest gap in px between a doodle and the window edge or the text column
+const MARGIN_INSET = 24;
 // Clear space kept between the last doodle and the end of the content
 const BOTTOM_CLEARANCE = 40;
 
@@ -80,29 +82,34 @@ if (layer && matchMedia('(min-width: 1600px)').matches) {
 		.sort((a, b) => a.key - b.key)
 		.map(({ d }) => d);
 
-	let top = FIRST_TOP + random() * 160;
-	let side: 'left' | 'right' = random() < 0.5 ? 'left' : 'right';
+	// A cursor walks down the page in uneven steps; each doodle picks a side at random
+	// and lands at the cursor or, if that side is still busy, just below its last one.
+	// Across, it can sit anywhere in its margin, from near the window edge to near the
+	// text, so the two margins never line up into columns.
+	let cursor = FIRST_TOP + random() * 160;
+	const nextFree = { left: 0, right: 0 };
 	for (let i = 0; i < SLOTS; i++) {
 		const { mark, width } = order[i % order.length];
 		const [, , vbWidth, vbHeight] = mark.viewBox.split(' ').map(Number);
 		// Sizes swing either way, so a repeat never matches its first showing
-		const w = Math.round(width * (0.85 + random() * 0.65));
+		const w = Math.round(width * (0.8 + random() * 0.8));
 		const h = Math.round((w * vbHeight) / vbWidth);
-		const tilt = Math.round((random() - 0.5) * 30);
-		// Off the gutter's middle by up to 50px
-		const nudge = Math.round((random() - 0.5) * 100);
+		const tilt = Math.round((random() - 0.5) * 34);
 		const color = random() < 0.55 ? CHALK : PINK;
+		const side = random() < 0.5 ? 'left' : 'right';
+		const top = Math.max(cursor, nextFree[side]);
+		// Fraction of the margin's free width, from the window edge (0) to the text (1)
+		const across = random().toFixed(3);
 
 		const doodle = document.createElement('div');
 		doodle.className = 'absolute';
 		doodle.dataset.bottom = String(Math.round(top + h));
-		doodle.style.cssText = `top:${Math.round(top)}px;${side}:calc((100% - 72rem) / 4 - ${w / 2}px + ${nudge}px);width:${w}px;height:${h}px;transform:rotate(${tilt}deg)`;
+		doodle.style.cssText = `top:${Math.round(top)}px;${side}:calc(${MARGIN_INSET}px + ((100% - 72rem) / 2 - ${w + 2 * MARGIN_INSET}px) * ${across});width:${w}px;height:${h}px;transform:rotate(${tilt}deg)`;
 		doodle.append(drawDoodle(mark, color));
 		layer.append(doodle);
 
-		top += h + 120 + random() * 340;
-		// Mostly alternate, sometimes two on one side
-		if (random() < 0.75) side = side === 'left' ? 'right' : 'left';
+		nextFree[side] = top + h + 60 + random() * 240;
+		cursor += 90 + random() * 330;
 	}
 
 	// Hold each one until it's on screen, so it draws in as it scrolls into view
