@@ -62,6 +62,11 @@ export const USES_SECTIONS: UsesSection[] = [
 						descHtml:
 							"14-in-1 Thunderbolt 5 dock. It replaced my Dell Universal Dock, and I use it at both my main desk and the recording station: one cable and the laptop is plugged into everything. It's amazing.",
 					},
+					{
+						name: 'ACASIS 16-port USB hub',
+						url: 'https://www.amazon.com/dp/B0G13RQ2SZ',
+						descHtml: 'powered 10 Gbps hub with 8 USB-A and 8 USB-C ports.',
+					},
 				],
 			},
 			{
@@ -193,6 +198,24 @@ export const USES_SECTIONS: UsesSection[] = [
 						descHtml:
 							'I swapped out all of my Amazon Alexas for these. Voice processing runs locally, not in Amazon\'s cloud. I wrote about <a href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/" data-text-link >what it\'s like replacing Alexa</a> if you want to learn more.',
 						pin: [31, 9],
+					},
+					{
+						name: 'Bamboo dual monitor stand',
+						url: 'https://www.amazon.com/dp/B07H8PXWRW',
+						descHtml:
+							'42" bamboo riser under the monitors. The shelf holds everything in the top half of this photo.',
+						pin: [90, 24],
+					},
+					{
+						name: 'PlayStation DualSense controller',
+						url: 'https://www.amazon.com/dp/B0CQKKHT5J',
+						descHtml: 'in Midnight Black.',
+						pin: [19, 18],
+					},
+					{
+						name: 'Mug warmer',
+						url: 'https://www.amazon.com/dp/B07S7DDY6S',
+						descHtml: 'a warming plate with a 14 oz ceramic mug.',
 					},
 				],
 			},
@@ -481,7 +504,7 @@ export const USES_SECTIONS: UsesSection[] = [
 				items: [
 					{
 						name: 'StarTech 25U rack',
-						url: '',
+						url: 'https://www.amazon.com/dp/B00O6GNLQE',
 						descHtml:
 							"the open-frame rack in my attic that holds all of it. I didn't know 19 inches was a standard width until I was measuring my R730s with a tape measure.",
 						pin: [83, 16],
@@ -523,6 +546,30 @@ export const USES_SECTIONS: UsesSection[] = [
 						descHtml:
 							'rack UPSes, monitored with NUT so the cluster shuts down cleanly when the power goes out.',
 						pin: [72, 78],
+					},
+					{
+						name: 'StarTech 2U sliding shelf',
+						url: 'https://www.amazon.com/dp/B003AVPV0U',
+						descHtml: 'the vented sliding shelf the Synology sits on.',
+						pin: [66, 41.5],
+					},
+					{
+						name: 'Pyle 1U vented shelves (x2)',
+						url: 'https://www.amazon.com/dp/B084CZCGFP',
+						descHtml: "vented cantilever shelves for the gear that isn't rack-mount.",
+						pin: [72, 46],
+					},
+					{
+						name: 'Tecmojo 1U cable management',
+						url: 'https://www.amazon.com/dp/B0DP471KGS',
+						descHtml: 'slotted wire duct with a cover, above the switches.',
+						pin: [40, 17.5],
+					},
+					{
+						name: 'DUO20 rack mount studs',
+						url: 'https://www.amazon.com/dp/B0CKB8MHMD',
+						descHtml:
+							'I love these. They replace the cage nuts and screws that come with the rack and are way easier to use. I recommend them.',
 					},
 				],
 			},
