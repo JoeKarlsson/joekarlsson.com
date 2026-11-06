@@ -325,7 +325,7 @@ const cropArtPieces = [
 		<div class={SIDEBAR_GRID}>
 			<TableOfContents headings={aboutHeadings} />
 			<div class="min-w-0">
-				<div class="mb-12">
+				<div class="mb-16">
 					<p class="mb-5 max-w-4xl font-display text-[clamp(40px,5vw,72px)] leading-[0.98] text-paper uppercase">
 						I build <span class="text-pink">weird things</span> and{' '}
 						<span class="text-pink">show my work</span>.
@@ -338,7 +338,7 @@ const cropArtPieces = [
 				</div>
 
 				{/* A box with a tilted pink label, like the stickers in the header */}
-				<div class="relative mt-4 mb-14 rounded-xl border border-surface-4 bg-surface-2 px-5 pt-9 pb-5">
+				<div class="relative mb-16 rounded-xl bg-surface-1 px-5 pt-9 pb-5 sm:px-7">
 					<p class="absolute -top-5 left-5 -rotate-2 rounded-md bg-pink px-3 pt-1.5 pb-0.5 font-display text-2xl leading-none text-ink uppercase">
 						Previously at
 					</p>
@@ -349,19 +349,23 @@ const cropArtPieces = [
 									href={company.url}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="relative flex items-center gap-2.5 font-semibold text-paper no-underline hover:text-pink"
+									class="ring-host group flex items-center gap-2.5 font-semibold text-paper no-underline"
 								>
-									<img
-										src={company.logo}
-										alt=""
-										aria-hidden="true"
-										data-halftone="flat"
-										class="size-12 rounded-md lg:size-9"
-										width="48"
-										height="48"
-										loading="eager"
-									/>
-									<span class="sr-only lg:not-sr-only">{company.name}</span>
+									<span class="relative block shrink-0">
+										<img
+											src={company.logo}
+											alt=""
+											aria-hidden="true"
+											data-halftone="flat"
+											data-halftone-no-invert
+											class="block size-12 rounded-sm object-contain lg:size-9"
+											width="48"
+											height="48"
+											loading="eager"
+										/>
+										<HoverBox />
+									</span>
+									<span class="sr-only group-hover:text-pink lg:not-sr-only">{company.name}</span>
 								</a>
 							</li>
 						))}
@@ -378,22 +382,14 @@ const cropArtPieces = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
-				<div class="mb-12 grid md:grid-cols-[minmax(0,1fr)_220px_280px] md:gap-x-8">
-					{whatIDo.map((area, i) => (
+				<div class="mb-16 grid md:grid-cols-[minmax(0,1fr)_220px_280px] md:gap-x-8">
+					{whatIDo.map((area) => (
 						<a
 							href={area.href}
 							class="ring-host group grid items-end gap-x-8 gap-y-3 border-t border-surface-4 py-4 text-paper no-underline md:col-span-3 md:grid-cols-subgrid"
 						>
-							<span class="relative inline-block w-fit font-display text-[clamp(40px,4.6vw,72px)] leading-[0.98] uppercase">
+							<span class="font-display text-[clamp(34px,4vw,56px)] leading-[0.98] uppercase group-hover:text-pink">
 								{area.title}
-								<Scribble
-									path={RINGS[i % RINGS.length]}
-									color={i % 2 ? CHALK : '#ff4fd8'}
-									viewBox="0 0 520 150"
-									strokeWidth={7}
-									ring
-									class="-top-[22%] -left-[35px] h-[150%] w-[calc(100%+70px)]"
-								/>
 							</span>
 							<span class="relative block aspect-video w-full max-w-md md:max-w-none">
 								{area.frames.map((frame, f) => (
@@ -406,15 +402,16 @@ const cropArtPieces = [
 											alt={f === 0 ? frame.alt : ''}
 											aria-hidden={f === 0 ? undefined : 'true'}
 											data-halftone={halftoneMode(frame.src)}
-											class="block size-full rounded-md object-cover"
+											class="block size-full rounded-lg object-cover"
 											width="220"
 											height="124"
 											loading="lazy"
 										/>
 									</span>
 								))}
+								<HoverBox />
 							</span>
-							<span class="text-sm text-muted group-hover:text-paper">{area.text}</span>
+							<span class="text-sm text-muted">{area.text}</span>
 						</a>
 					))}
 				</div>
@@ -444,7 +441,8 @@ const cropArtPieces = [
 											alt=""
 											aria-hidden="true"
 											data-halftone="flat"
-											class="block size-full rounded-md"
+											data-halftone-no-invert
+											class="block size-full rounded-sm object-contain"
 											width="48"
 											height="48"
 											loading="lazy"
@@ -467,7 +465,7 @@ const cropArtPieces = [
 							</button>
 							<div class="job-body">
 								<div>
-									<p class="max-w-3xl pt-1 pb-5 pl-[calc(clamp(34px,4vw,56px)*0.8+1rem)] text-lg leading-relaxed text-paper">
+									<p class="max-w-3xl pt-1 pb-5 pl-[calc(clamp(34px,4vw,56px)*0.8+1rem)] leading-relaxed text-paper">
 										{job.text}
 									</p>
 								</div>
@@ -476,7 +474,7 @@ const cropArtPieces = [
 					))}
 				</div>
 
-				<p class="mb-12">
+				<p class="mb-16">
 					<a
 						href="/resume/"
 						class={`plausible-event-name=About+CTA+Click plausible-event-destination=resume-banner-top ${MORE_LINK}`}
@@ -496,8 +494,8 @@ const cropArtPieces = [
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<div class="mb-12 grid gap-10 md:grid-cols-[minmax(0,1fr)_320px]">
-					<div class="space-y-5 text-[clamp(17px,1.4vw,21px)] leading-relaxed text-paper">
+				<div class="mb-16 grid gap-10 md:grid-cols-[minmax(0,1fr)_320px]">
+					<div class="space-y-5 leading-relaxed text-paper">
 						<p>
 							I got a computer science degree and went straight into Microsoft SharePoint consulting
 							during the Ballmer years. I was bad at coding, and SharePoint did not make it more
@@ -546,25 +544,27 @@ const cropArtPieces = [
 						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
 					/>
 				</h2>
-				<ul class="-mx-4 mb-12 flex snap-x gap-5 overflow-x-auto px-4 pt-4 pb-6">
+				<ul class="-mx-6 mb-16 flex snap-x gap-5 overflow-x-auto px-6 pt-6 pb-6">
 					{featuredPodcasts.map((podcast) => (
 						<li class="w-56 shrink-0 snap-start">
 							<a
 								href={podcast.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="group block text-paper no-underline"
+								class="ring-host group block text-paper no-underline"
 							>
 								<span class="relative mb-3 block aspect-square">
 									<img
 										src={podcast.image}
 										alt={podcast.alt}
 										data-halftone="flat"
-										class="block size-full rounded-md object-cover"
+										data-halftone-no-invert
+										class="block size-full rounded-lg object-cover"
 										width="224"
 										height="224"
 										loading="lazy"
 									/>
+									<HoverBox />
 								</span>
 								<span class:list={[ITEM_TITLE, 'block group-hover:text-pink']}>{podcast.name}</span>
 								<span class:list={[META, 'block']}>{podcast.episode}</span>
@@ -577,9 +577,10 @@ const cropArtPieces = [
 								href={appearance.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="group block text-paper no-underline"
+								class="ring-host group block text-paper no-underline"
 							>
-								<span class="mb-3 flex aspect-square items-end rounded-md bg-pink p-4 group-hover:bg-paper">
+								<span class="relative mb-3 flex aspect-square items-end rounded-lg bg-pink p-4">
+									<HoverBox />
 									<span class="font-display text-[40px] leading-[0.95] text-ink uppercase">
 										{appearance.name}
 									</span>
@@ -600,7 +601,7 @@ const cropArtPieces = [
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<div class="mb-12">
+				<div class="mb-16">
 					<div class="grid gap-8 lg:grid-cols-[2fr_1fr]">
 						<div>
 							<div class="relative">
@@ -628,7 +629,7 @@ const cropArtPieces = [
 									color={CHALK}
 									duration="10s"
 									delay="0.8s"
-									class="-inset-[3%] z-20 h-[106%] w-[106%]"
+									class="-inset-[4%] z-20 h-[108%] w-[108%]"
 								/>
 							</div>
 						</div>
@@ -650,7 +651,8 @@ const cropArtPieces = [
 													aria-hidden="true"
 													crossorigin="anonymous"
 													data-halftone="flat"
-													class="block aspect-video w-full rounded-md object-cover"
+													data-halftone-no-invert
+													class="block aspect-video w-full rounded-lg object-cover"
 													loading="lazy"
 												/>
 												<HoverBox />
@@ -666,10 +668,11 @@ const cropArtPieces = [
 										href={SOCIAL_LINKS.youtube}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="group grid grid-cols-[120px_1fr] items-center gap-4 text-paper no-underline"
+										class="ring-host group grid grid-cols-[120px_1fr] items-center gap-4 text-paper no-underline"
 									>
-										<span class="grid aspect-video place-items-center rounded-md bg-pink text-ink group-hover:bg-paper">
+										<span class="relative grid aspect-video place-items-center rounded-lg bg-pink text-ink">
 											<SocialIcon name="youtube" class="size-9" />
+											<HoverBox />
 										</span>
 										<span class="font-display text-3xl leading-none uppercase group-hover:text-pink">
 											All my videos &rarr;
@@ -691,7 +694,7 @@ const cropArtPieces = [
 						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
 					/>
 				</h2>
-				<div class="mb-12">
+				<div class="mb-16">
 					<NowFeed />
 				</div>
 
@@ -705,7 +708,7 @@ const cropArtPieces = [
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<div class="mb-12">
+				<div class="mb-16">
 					<p class="mb-6 text-paper">
 						I make art. Lately that's crop art, pictures made by gluing seeds and grains to
 						cardboard. I had two pieces in the Seeds of Justice exhibit in 2025, then entered the
@@ -725,17 +728,17 @@ const cropArtPieces = [
 											src={piece.image}
 											alt={piece.alt}
 											data-halftone="flat"
-											class="mb-2 block aspect-4/5 w-full rounded-lg object-cover"
+											class="block aspect-4/5 w-full rounded-lg object-cover"
 											width="300"
 											height="375"
 											loading="lazy"
 										/>
 										<HoverBox />
 									</span>
-									<span class="block font-semibold text-paper group-hover:text-pink">
+									<span class:list={[ITEM_TITLE, 'mt-2 block group-hover:text-pink']}>
 										{piece.title}
 									</span>
-									<span class="text-sm text-muted">2025</span>
+									<span class:list={[META, 'block']}>2025</span>
 								</a>
 							</li>
 						))}
@@ -757,7 +760,7 @@ const cropArtPieces = [
 						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
 					/>
 				</h2>
-				<div class="mb-12 grid gap-x-10 md:grid-cols-2">
+				<div class="mb-16 grid gap-x-10 md:grid-cols-2">
 					{followMe.map(({ label, meta, href, icon }, i) => (
 						<IndexRow
 							href={href}

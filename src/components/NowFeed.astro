@@ -1,7 +1,11 @@
 ---
+import HoverBox from './HoverBox.astro';
+import Scribble from './Scribble.astro';
+import { CHALK, RINGS } from '../data/scribbles';
 import { GROUP_HEADING } from '../utils/ui';
 // Recently shipped repos, watched films and podcast episodes, from the snapshot
-// that scripts/update-now-feed.mjs writes on every deploy.
+// that scripts/update-now-feed.mjs writes on every deploy. Posters and covers are
+// never diagrams, so the pink dots never invert them, however light they are.
 import nowFeed from '../data/now-feed.json';
 
 const { shippingWindowDays, shippedRepos, films, podcastEpisodes } = nowFeed;
@@ -31,17 +35,25 @@ function ratingStars(rating: number) {
 		<>
 			<h3 class={`mb-4 ${GROUP_HEADING}`}>Recently shipped</h3>
 			<div class="mb-10 grid gap-x-8 gap-y-8 sm:grid-cols-2">
-				{shippedRepos.map((repo) => (
+				{shippedRepos.map((repo, i) => (
 					<a
 						href={repo.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="plausible-event-name=Now+Feed+Click plausible-event-source=github group flex flex-col no-underline"
+						class="plausible-event-name=Now+Feed+Click plausible-event-source=github ring-host group flex flex-col no-underline"
 					>
 						{/* The repo name is the headline: what I'm building */}
 						<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-surface-4 pt-2">
-							<p class="font-display text-[clamp(34px,4vw,56px)] leading-[0.98] break-all text-paper uppercase group-hover:text-pink group-focus-visible:text-pink">
+							<p class="relative inline-block w-fit font-display text-[clamp(34px,4vw,56px)] leading-[0.98] break-all text-paper uppercase group-hover:text-pink group-focus-visible:text-pink">
 								{repo.name}
+								<Scribble
+									path={RINGS[i % RINGS.length]}
+									color={i % 2 ? CHALK : '#ff4fd8'}
+									viewBox="0 0 520 150"
+									strokeWidth={7}
+									ring
+									class="-top-[22%] -left-[35px] h-[150%] w-[calc(100%+70px)]"
+								/>
 							</p>
 							{repo.language && (
 								<p class="flex items-center gap-1 text-sm text-muted">
@@ -90,17 +102,21 @@ function ratingStars(rating: number) {
 					href={film.url}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="plausible-event-name=Now+Feed+Click plausible-event-source=letterboxd group relative block no-underline"
+					class="plausible-event-name=Now+Feed+Click plausible-event-source=letterboxd ring-host group block no-underline"
 				>
-					<img
-						src={film.poster}
-						alt={`Poster for ${film.title} (${film.year})`}
-						width="200"
-						height="300"
-						loading="lazy"
-						data-halftone="flat"
-						class="mb-2 block w-full rounded-lg"
-					/>
+					<span class="relative mb-2 block">
+						<img
+							src={film.poster}
+							alt={`Poster for ${film.title} (${film.year})`}
+							width="200"
+							height="300"
+							loading="lazy"
+							data-halftone="flat"
+							data-halftone-no-invert
+							class="block w-full rounded-lg"
+						/>
+						<HoverBox />
+					</span>
 					<p class="text-sm font-semibold">
 						<span class={LINK_TITLE}>{film.title}</span> <span class="text-muted">{film.year}</span>
 					</p>
@@ -127,6 +143,7 @@ function ratingStars(rating: number) {
 						height="48"
 						loading="lazy"
 						data-halftone="flat"
+						data-halftone-no-invert
 						class="h-12 w-12 shrink-0 rounded-lg object-cover"
 					/>
 					<div>
