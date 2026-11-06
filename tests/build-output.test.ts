@@ -226,6 +226,16 @@ describe('site.webmanifest', () => {
 		expect(manifest.background_color).toBeDefined();
 	});
 
+	it('pins its identity and start page, and offers a maskable icon for Android', () => {
+		const manifest = JSON.parse(readDist('site.webmanifest'));
+		expect(manifest.id).toBe('/');
+		expect(manifest.start_url).toBe('/');
+		expect(manifest.scope).toBe('/');
+		expect(manifest.description).toBeTruthy();
+		const purposes = manifest.icons.map((icon: { purpose?: string }) => icon.purpose);
+		expect(purposes).toContain('maskable');
+	});
+
 	it('icon files actually exist', () => {
 		const manifest = JSON.parse(readDist('site.webmanifest'));
 		for (const icon of manifest.icons) {
@@ -472,5 +482,55 @@ describe('post suggestions', () => {
 		const recent = homepage.slice(homepage.indexOf('Recent posts'), homepage.indexOf('posts →'));
 		expect(recent).toContain('href="/blog/');
 		expect(recent).not.toContain('Written for');
+	});
+});
+
+describe('device and identity meta', () => {
+	const homepage = readDist('index.html');
+
+	it('ships /favicon.ico for clients that skip the link tags', () => {
+		expect(existsSync(resolve(dist, 'favicon.ico'))).toBe(true);
+	});
+
+	it('declares the site dark-only and names the iOS home-screen bookmark', () => {
+		expect(homepage).toContain('<meta name="color-scheme" content="only dark">');
+		expect(homepage).toContain('<meta name="apple-mobile-web-app-title" content="Joe Karlsson">');
+		expect(homepage).toContain('<meta name="format-detection" content="telephone=no">');
+	});
+
+	it('links every profile with rel="me", matching the Person sameAs', () => {
+		const relMe = [...homepage.matchAll(/<link rel="me" href="([^"]+)"/g)].map((m) => m[1]);
+		expect(relMe.length).toBeGreaterThan(0);
+		const graph = JSON.parse(
+			homepage.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)![1],
+		)['@graph'];
+		const person = graph.find((node: { '@type': string }) => node['@type'] === 'Person');
+		expect(person.sameAs).toEqual(relMe);
+	});
+
+	it('leaves out tags no major browser or platform reads', () => {
+		expect(homepage).not.toMatch(/<meta name="title"/);
+		expect(homepage).not.toMatch(/<meta name="keywords"/);
+		expect(homepage).not.toMatch(/<meta name="twitter:url"/);
+	});
+
+	it('tags posts with their section and categories, and /about as a profile', () => {
+		const post = readDist('blog/opentofu-proxmox-immutable-homelab/index.html');
+		expect(post).toMatch(/<meta property="article:section" content="[^"]+">/);
+		expect(post).toMatch(/<meta property="article:tag" content="[^"]+">/);
+		const about = readDist('about/index.html');
+		expect(about).toContain('<meta property="og:type" content="profile">');
+		expect(about).toContain('<meta property="profile:last_name" content="Karlsson">');
+	});
+});
+
+describe('security.txt', () => {
+	const content = readDist('.well-known/security.txt');
+
+	it('has a contact and at least 30 days before it expires (RFC 9116: renew Expires yearly)', () => {
+		expect(content).toMatch(/^Contact: https:\/\//m);
+		const expires = new Date(content.match(/^Expires: (.+)$/m)![1]);
+		const thirtyDaysOut = Date.now() + 30 * 24 * 60 * 60 * 1000;
+		expect(expires.getTime()).toBeGreaterThan(thirtyDaysOut);
 	});
 });
