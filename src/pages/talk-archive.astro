@@ -65,6 +65,7 @@ const YEARS = ['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019'];
 			</p>
 		</PosterHero>
 
+		<!-- Phones open on 2026 and 2025; older years fold behind a + (phone-collapse.ts) -->
 		<!-- 2026 -->
 		<section
 			class="mb-12 md:mb-14 grid scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
@@ -205,13 +206,18 @@ const YEARS = ['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019'];
 
 		<!-- 2024 -->
 		<section
-			class="mb-12 md:mb-14 grid scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
+			class="mb-12 md:mb-14 grid max-md:data-collapsed:mb-3 scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
 			id="2024"
+			data-phone-collapse
+			data-collapse-noun="talk"
 		>
-			<h2 class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start">
+			<h2
+				data-collapse-heading
+				class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start"
+			>
 				2024
 			</h2>
-			<ul class="space-y-7">
+			<ul data-collapse-body class="space-y-7">
 				<li>
 					<h3 class={ITEM_TITLE}>
 						<a
@@ -280,13 +286,18 @@ const YEARS = ['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019'];
 
 		<!-- 2023 -->
 		<section
-			class="mb-12 md:mb-14 grid scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
+			class="mb-12 md:mb-14 grid max-md:data-collapsed:mb-3 scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
 			id="2023"
+			data-phone-collapse
+			data-collapse-noun="talk"
 		>
-			<h2 class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start">
+			<h2
+				data-collapse-heading
+				class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start"
+			>
 				2023
 			</h2>
-			<ul class="space-y-7">
+			<ul data-collapse-body class="space-y-7">
 				<li>
 					<h3 class={ITEM_TITLE}>From Kafka to APIs in Minutes</h3>
 					<p class="mt-1 text-sm text-muted">
@@ -329,13 +340,18 @@ const YEARS = ['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019'];
 
 		<!-- 2022 -->
 		<section
-			class="mb-12 md:mb-14 grid scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
+			class="mb-12 md:mb-14 grid max-md:data-collapsed:mb-3 scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
 			id="2022"
+			data-phone-collapse
+			data-collapse-noun="talk"
 		>
-			<h2 class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start">
+			<h2
+				data-collapse-heading
+				class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start"
+			>
 				2022
 			</h2>
-			<ul class="space-y-7">
+			<ul data-collapse-body class="space-y-7">
 				<li>
 					<h3 class={ITEM_TITLE}>
 						DoK Talks #120: A Gentle Introduction to Building Data Intensive Applications
@@ -360,13 +376,18 @@ const YEARS = ['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019'];
 
 		<!-- 2021 -->
 		<section
-			class="mb-12 md:mb-14 grid scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
+			class="mb-12 md:mb-14 grid max-md:data-collapsed:mb-3 scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
 			id="2021"
+			data-phone-collapse
+			data-collapse-noun="talk"
 		>
-			<h2 class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start">
+			<h2
+				data-collapse-heading
+				class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start"
+			>
 				2021
 			</h2>
-			<ul class="space-y-7">
+			<ul data-collapse-body class="space-y-7">
 				<li>
 					<h3 class={ITEM_TITLE}>
 						<a
@@ -391,13 +412,18 @@ const YEARS = ['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019'];
 
 		<!-- 2020 -->
 		<section
-			class="mb-12 md:mb-14 grid scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
+			class="mb-12 md:mb-14 grid max-md:data-collapsed:mb-3 scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
 			id="2020"
+			data-phone-collapse
+			data-collapse-noun="talk"
 		>
-			<h2 class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start">
+			<h2
+				data-collapse-heading
+				class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start"
+			>
 				2020
 			</h2>
-			<ul class="space-y-7">
+			<ul data-collapse-body class="space-y-7">
 				<li>
 					<h3 class={ITEM_TITLE}>
 						An Introduction to IoT / How I Built an IoT Kitty Litter Box Using JavaScript
@@ -617,13 +643,18 @@ const YEARS = ['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019'];
 
 		<!-- 2019 -->
 		<section
-			class="mb-12 md:mb-14 grid scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
+			class="mb-12 md:mb-14 grid max-md:data-collapsed:mb-3 scroll-mt-24 gap-x-10 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[clamp(140px,16vw,240px)_1fr]"
 			id="2019"
+			data-phone-collapse
+			data-collapse-noun="talk"
 		>
-			<h2 class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start">
+			<h2
+				data-collapse-heading
+				class="font-display text-[clamp(64px,9vw,140px)] leading-[0.85] font-normal text-pink md:sticky md:top-24 md:self-start"
+			>
 				2019
 			</h2>
-			<ul class="space-y-7">
+			<ul data-collapse-body class="space-y-7">
 				<li>
 					<h3 class={ITEM_TITLE}>
 						<a
@@ -747,3 +778,8 @@ const YEARS = ['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019'];
 		/>
 	</div>
 </BaseLayout>
+
+<script>
+	import { initPhoneCollapse } from '../scripts/phone-collapse';
+	initPhoneCollapse();
+</script>

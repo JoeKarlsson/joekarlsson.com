@@ -249,7 +249,7 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 						{tldr}
 					</p>
 				)}
-				<div class="prose">
+				<div class:list={['prose', (heroImage || heroVideo) && 'has-hero']}>
 					<slot />
 				</div>
 

@@ -19,7 +19,9 @@ import nowFeed from '../data/now-feed.json';
 			delay="1s"
 			class="top-[20px] right-[calc(50%-29rem)] hidden size-[70px] lg:block"
 		/>
-		<div class="man-content">
+		<h1 class="sr-only">man joe: the manual page for Joe Karlsson</h1>
+		<!-- tabindex: wider screens can scroll it sideways, and a keyboard has to reach it -->
+		<div class="man-content" tabindex="0" role="region" aria-label="Manual page">
 			<pre class="man-pre"><span class="man-header">JOE(1)                          User Commands                          JOE(1)</span>
 
 <span class="man-section">NAME</span>
@@ -166,9 +168,12 @@ import nowFeed from '../data/now-feed.json';
 			padding: 1rem;
 		}
 
+		/* Phones wrap the 78-column page at a readable size instead of shrinking it to
+		   11px and scrolling it sideways */
 		.man-pre {
-			font-size: 0.7rem;
+			font-size: 0.875rem;
 			line-height: 1.5;
+			white-space: pre-wrap;
 		}
 	}
 </style>

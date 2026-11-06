@@ -269,32 +269,26 @@ test.describe('Phone layout', () => {
 		await tall('nav[aria-label="Breadcrumb"] a');
 		await expect(page.locator('.prose .heading-anchor').first()).toBeHidden();
 
-		// The nav stickers look 28px tall; 7px above one still lands on it
-		const sticker = await box(page, 'header nav > .sticker');
-		const hit = await page.evaluate(
-			({ x, y }) => document.elementFromPoint(x, y)?.closest('.sticker') !== null,
-			{ x: sticker.x + sticker.width / 2, y: sticker.y - 7 },
-		);
-		expect(hit).toBe(true);
-
-		// A /uses pin is about 15px wide; 18px beside its middle still lands on it
+		// A /uses pin's number is about 15px wide, but the link is a 44px square
 		await page.goto('/uses/');
-		const pin = page.locator('a.uses-pin').first();
-		await pin.scrollIntoViewIfNeeded();
-		const pinBox = (await pin.boundingBox())!;
-		const pinHit = await page.evaluate(
-			({ x, y }) => document.elementFromPoint(x, y)?.closest('a.uses-pin') !== null,
-			{ x: pinBox.x + pinBox.width / 2 + 18, y: pinBox.y + pinBox.height / 2 },
-		);
-		expect(pinHit).toBe(true);
+		await tall('a.uses-pin');
 	});
 
-	test('the pause button floats bottom right, and the menu is a hamburger', async ({ page }) => {
+	test('the name, menu and pause sit in the bar at 44px, and the menu is a hamburger', async ({
+		page,
+	}) => {
 		await page.goto('/blog/');
-		const pause = await box(page, 'button[data-pause-motion]');
-		expect(pause.x + pause.width).toBeGreaterThan(390 - 30);
-		expect(pause.y + pause.height).toBeGreaterThan(844 - 30);
-		expect(pause.height).toBeGreaterThanOrEqual(44);
+		const nav = await box(page, 'header nav[aria-label="Main navigation"]');
+		for (const selector of [
+			'header nav > a[href="/"]',
+			'button[data-nav-menu-toggle]',
+			'button[data-pause-motion]',
+		]) {
+			const sticker = await box(page, selector);
+			expect(sticker.height).toBeGreaterThanOrEqual(44);
+			expect(sticker.y).toBeGreaterThanOrEqual(nav.y);
+			expect(sticker.y + sticker.height).toBeLessThanOrEqual(nav.y + nav.height);
+		}
 
 		const menu = page.getByRole('button', { name: 'Menu' });
 		await expect(menu).toHaveText('');

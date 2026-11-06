@@ -143,6 +143,8 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 			))}
 		</div>
 
+		<!-- The cards are h3s; this names their section so the outline doesn't skip from h1 -->
+		<h2 class="sr-only">All projects</h2>
 		<!-- Phones: one column of compact rows (ProjectCard), so the gap between them tightens -->
 		<div
 			id="projects-grid"

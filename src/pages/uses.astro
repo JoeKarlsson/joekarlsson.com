@@ -211,7 +211,7 @@ const sections = USES_SECTIONS.map((section) => {
 										color={PINK}
 										strokeWidth={4}
 										ring
-										class="-top-[20px] -left-[55px] h-[70px] w-[140px]"
+										class="-top-[13px] -left-[41px] h-[70px] w-[140px]"
 									/>
 								</a>
 							))}
@@ -224,8 +224,11 @@ const sections = USES_SECTIONS.map((section) => {
 								<Scribble {...m} />
 							))}
 							{section.groups.map((group, gi) => (
-								<div class="uses-group">
-									<h3 class:list={[GROUP_HEADING, 'relative mb-4 w-fit']}>
+								<div class="uses-group" data-phone-collapse={si === 0 && gi === 0 ? 'open' : ''}>
+									<h3
+										data-collapse-heading
+										class:list={[GROUP_HEADING, 'relative mb-4 w-fit max-md:w-full']}
+									>
 										{group.name}
 										<Scribble
 											{...MARKS[GROUP_UNDERLINES[(gi + si) % 3]]}
@@ -236,7 +239,7 @@ const sections = USES_SECTIONS.map((section) => {
 											class="-bottom-[0.38em] left-0 h-[0.3em] w-full"
 										/>
 									</h3>
-									<ul class="space-y-4">
+									<ul data-collapse-body class="space-y-4">
 										{group.items.map((item, ii) => (
 											<li
 												id={item.id}
@@ -313,10 +316,23 @@ const sections = USES_SECTIONS.map((section) => {
 	.uses-group + .uses-group {
 		margin-top: 40px;
 	}
-	/* A pin: a big chalk number with a black outline so it reads on any part of the photo */
+	/* Phones fold each group to its heading (phone-collapse.ts); folded ones sit closer */
+	@media (width < 48rem) {
+		.uses-group + .uses-group {
+			margin-top: 24px;
+		}
+	}
+	/* A pin: a big chalk number with a black outline so it reads on any part of the photo.
+	   The number is about 15px wide; the link itself is a 44px square round it, so the
+	   whole square takes the tap and counts as the target. */
 	.uses-pin {
 		position: absolute;
 		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
 		transform: translate(-50%, -50%);
 		font-family: var(--font-anton);
 		font-size: 30px;
@@ -325,16 +341,6 @@ const sections = USES_SECTIONS.map((section) => {
 		-webkit-text-stroke: 6px #000;
 		paint-order: stroke fill;
 		text-decoration: none;
-	}
-	/* The number is about 15px wide; an invisible 44px square round it takes the tap */
-	.uses-pin::before {
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 44px;
-		height: 44px;
-		transform: translate(-50%, -50%);
 	}
 	.uses-pin.is-lit,
 	.uses-item.is-lit p:first-child,
@@ -351,6 +357,10 @@ const sections = USES_SECTIONS.map((section) => {
 </style>
 
 <script>
+	import { initPhoneCollapse, openCollapsedSectionOf } from '../scripts/phone-collapse';
+
+	initPhoneCollapse();
+
 	// Pins and list entries light each other up on hover. Clicking a pin brings its entry
 	// up level with the photo's top, but never so far that the sticky photo runs out of
 	// section and scrolls away; the pair stays lit until another pin is clicked.
@@ -371,6 +381,7 @@ const sections = USES_SECTIONS.map((section) => {
 			const shot = pin.closest<HTMLElement>('.uses-shot');
 			if (!entry || !shot) return;
 			event.preventDefault();
+			openCollapsedSectionOf(entry);
 			const wanted = scrollY + entry.getBoundingClientRect().top - STICKY_TOP;
 			const photoStillFits =
 				scrollY +

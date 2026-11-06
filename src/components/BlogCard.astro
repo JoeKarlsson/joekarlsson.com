@@ -2,7 +2,9 @@
 // One post in a list (blog index, category pages, newsletter): the pink
 // thumbnail (src/scripts/halftone.ts) on the left, then date, reading time and categories, the title, and
 // the description, and which employer a professional post was written for. Same
-// row as the homepage's Recent posts.
+// row as the homepage's Recent posts, compact on phones too: a small thumbnail beside
+// the text instead of a full-width picture above it, so a screen holds about twice
+// as many posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
 import { formatDate } from '../utils/ui';
 import { CHALK, MARKS } from '../data/scribbles';
@@ -57,7 +59,7 @@ const image = heroImage || DEFAULT_HERO_IMAGE;
 const formattedDate = formatDate(date);
 ---
 
-<li class="ring-host group grid items-center gap-x-7 gap-y-3 border-t border-surface-4 py-[18px] sm:grid-cols-[clamp(140px,22vw,280px)_1fr]">
+<li class="ring-host group grid grid-cols-[112px_1fr] items-start gap-x-4 border-t border-surface-4 py-[18px] sm:grid-cols-[clamp(140px,22vw,280px)_1fr] sm:items-center sm:gap-x-7">
 	<!-- The thumbnail repeats the title link, so it's skipped by keyboard and screen readers -->
 	<a href={url} tabindex="-1" aria-hidden="true" class="relative block">
 		<img
@@ -103,7 +105,7 @@ const formattedDate = formatDate(date);
 		</span>
 		<a
 			href={url}
-			class="text-[clamp(20px,2.2vw,28px)] leading-tight font-semibold text-paper no-underline group-hover:text-pink"
+			class="text-lg leading-tight font-semibold text-paper no-underline group-hover:text-pink sm:text-[clamp(20px,2.2vw,28px)]"
 		>
 			{title}
 		</a>

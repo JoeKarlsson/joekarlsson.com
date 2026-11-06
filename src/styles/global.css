@@ -230,6 +230,21 @@
 .prose code {
 	@apply font-mono text-paper bg-surface-3 px-1.5 py-0.5 rounded-sm;
 	font-size: 0.8em;
+	/* A long identifier breaks instead of running off a phone's edge */
+	overflow-wrap: anywhere;
+}
+/* Cross-posted articles open their body with the original blog's header image, a
+   second copy of the hero right above it. Phones skip it so the text starts sooner */
+@media (width < 48rem) {
+	.prose.has-hero > p:first-child:has(> img[src*='/header.']:only-child) {
+		display: none;
+	}
+}
+/* Phones set prose at 17px, where 0.8em is a 13.6px squint */
+@media (width < 48rem) {
+	.prose :not(pre) > code {
+		font-size: 0.875em;
+	}
 }
 .prose pre {
 	@apply bg-surface-2 border border-surface-4 rounded-lg pt-9 pb-4 px-4 my-6 overflow-x-auto relative;
@@ -295,16 +310,18 @@ pre.astro-code {
 
 /* Touch screens: every tap target at least 44px, Apple's and WCAG AAA's minimum */
 @media (pointer: coarse) {
-	/* The nav bar's stickers stay 28px to look at; an invisible margin round each takes
-	   the tap. The MENU dropdown's links stack, so they get real height instead */
-	/* (not the pause button: phones float it in a corner with position: fixed) */
-	header nav > .sticker:not([data-pause-motion]) {
-		position: relative;
-	}
-	header nav > .sticker::after {
-		content: '';
-		position: absolute;
-		inset: -8px -4px;
+	/* Touch tablets: the nav bar's stickers stay 28px to look at, and an invisible
+	   margin round each takes the tap. Phones make the stickers 44px themselves
+	   (Header.astro), and the MENU dropdown's stacked links get real height */
+	@media (width >= 48rem) {
+		header nav > .sticker {
+			position: relative;
+		}
+		header nav > .sticker::after {
+			content: '';
+			position: absolute;
+			inset: -8px -4px;
+		}
 	}
 	@media (width < 48rem) {
 		#nav-section-links > a {

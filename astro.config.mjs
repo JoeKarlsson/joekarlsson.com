@@ -8,6 +8,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 import { readdirSync, readFileSync } from 'node:fs';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import rehypeEmptyCornerCell from './src/plugins/rehype-empty-corner-cell.mjs';
 import rehypeFaqDetails from './src/plugins/rehype-faq-details.mjs';
 import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
@@ -76,6 +77,7 @@ export default defineConfig({
 				// otherwise annotate for no reason
 				rehypeGifVideo,
 				rehypeLazyImages,
+				rehypeEmptyCornerCell,
 				rehypeFaqDetails,
 				rehypeSlug,
 				[

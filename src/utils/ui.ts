@@ -52,8 +52,10 @@ export const FILTER_ACTIVE = 'cursor-pointer py-2.5 text-pink underline underlin
 export const FILTER_INACTIVE =
 	'cursor-pointer py-2.5 text-paper no-underline hover:text-pink md:py-0';
 
-/** The row of filter options itself. Phones space the rows with the options' own padding. */
-export const FILTER_ROW = 'flex flex-wrap gap-x-5 md:gap-y-2';
+/** The row of filter options itself. Phones get one row that swipes sideways instead of
+ * wrapping to four lines; the cut-off last option shows there's more. */
+export const FILTER_ROW =
+	'flex gap-x-5 max-md:overflow-x-auto max-md:whitespace-nowrap md:flex-wrap md:gap-y-2';
 
 /** "Nov 5, 2026": the one date format on the site. */
 export function formatDate(date: Date): string {

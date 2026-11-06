@@ -16,7 +16,8 @@ function isActive(href: string, also: string[] = []): boolean {
 <!--
 	One row, always. Spacing is in em, so the whole bar scales with its type: from md
 	up the type shrinks until the bar (about 33.5em wide) fits the window. On phones
-	the section links fold into a MENU sticker that drops them below the bar.
+	the section links fold into a MENU sticker that drops them below the bar, and the
+	name, menu and pause stickers are each 44px tall to meet the site's tap size.
 -->
 <!-- order-first: on phones the bar sits above a page's hero (BaseLayout's hero slot), so
 the menu is the first thing on screen; from md up the homepage hero comes first -->
@@ -30,7 +31,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			href="/"
 			aria-current={currentPath === '/' ? 'page' : undefined}
 			class:list={[
-				'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
+				'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline max-md:flex max-md:min-h-11 max-md:items-center',
 				currentPath === '/' ? 'bg-pink text-ink' : 'bg-ink text-paper hover:text-pink',
 			]}
 		>
@@ -43,7 +44,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			aria-controls="nav-section-links"
 			aria-label="Menu"
 			title="Menu"
-			class="group/menu sticker shrink-0 cursor-pointer rounded-[0.43em] p-[0.38em] text-ink hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
+			class="group/menu sticker flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-[0.43em] text-ink hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
 		>
 			<!-- A hamburger while closed, an X while open -->
 			<svg
@@ -87,14 +88,14 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			))}
 		</div>
 		<!-- Pause bars while motion runs, a play triangle once paused (pause-motion.ts swaps the
-		label). Phones float it in the bottom-right corner, out of the bar -->
+		label). Phones keep it in the bar beside MENU, where it never covers the page -->
 		<button
 			type="button"
 			data-pause-motion
 			aria-pressed="false"
 			aria-label="Pause motion"
 			title="Pause motion"
-			class="sticker group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink max-md:fixed max-md:right-4 max-md:bottom-4 max-md:flex max-md:size-11 max-md:items-center max-md:justify-center max-md:p-0 max-md:text-lg max-md:ring-2 max-md:ring-paper"
+			class="sticker group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink max-md:flex max-md:size-11 max-md:items-center max-md:justify-center max-md:p-0"
 		>
 			<svg
 				viewBox="0 0 16 16"

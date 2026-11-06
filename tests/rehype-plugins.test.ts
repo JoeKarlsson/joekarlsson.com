@@ -5,6 +5,8 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const existsSync = vi.hoisted(() => vi.fn());
 vi.mock('node:fs', () => ({ default: { existsSync } }));
 
+const { default: rehypeEmptyCornerCell } =
+	await import('../src/plugins/rehype-empty-corner-cell.mjs');
 const { default: rehypeFaqDetails } = await import('../src/plugins/rehype-faq-details.mjs');
 const { default: rehypeGifVideo } = await import('../src/plugins/rehype-gif-video.mjs');
 const { default: rehypeLazyImages } = await import('../src/plugins/rehype-lazy-images.mjs');
@@ -275,5 +277,19 @@ describe('rehype-youtube-embed', () => {
 		const root = run(rehypeYouTubeEmbed, tree(link('https://vimeo.com/123456789')));
 
 		expect(root.children![0].tagName).toBe('p');
+	});
+});
+
+describe('rehype-empty-corner-cell', () => {
+	it('makes a blank header cell a plain cell and keeps named headers', () => {
+		const root = tree(el('th', '  '), el('th', 'IAM Users'), {
+			type: 'element',
+			tagName: 'th',
+			properties: {},
+			children: [],
+		});
+		run(rehypeEmptyCornerCell, root);
+
+		expect(paragraph(root).map((cell) => cell.tagName)).toEqual(['td', 'th', 'td']);
 	});
 });
