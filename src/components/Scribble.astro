@@ -14,6 +14,8 @@ interface Props {
 	viewBox?: string;
 	strokeWidth?: number;
 	ring?: boolean;
+	// Draw in once and stay drawn, instead of looping (Joe's doodles on the drawing board)
+	once?: boolean;
 	// Stretch the mark to fill its box. Only for marks that trace a target's size: an
 	// underline the width of a heading, a box round a picture (MARKS sets it for those,
 	// and hover rings always stretch). Every other mark keeps its own proportions and
@@ -32,6 +34,7 @@ const {
 	viewBox = '0 0 900 300',
 	strokeWidth = 8,
 	ring = false,
+	once = false,
 	stretch = false,
 	duration = '7s',
 	delay = '0s',
@@ -57,6 +60,7 @@ if (ring && ringIndex < 0) throw new Error('Scribble: a ring must be one of RING
 <svg
 	class:list={[
 		ring ? 'hover-ring' : oneStrokeAtATime ? 'redraw-strokes' : 'redraw',
+		once && 'draw-once',
 		'pointer-events-none absolute overflow-visible',
 		className,
 	]}

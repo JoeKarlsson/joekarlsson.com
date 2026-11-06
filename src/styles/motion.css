@@ -39,6 +39,40 @@
 		calc(var(--del, 0s) + var(--i, 0) * var(--dur, 7s) * min(0.045, 0.4 / var(--n, 1))) infinite;
 }
 
+/* A mark with `once` draws in like the rest, then stays: no hold-and-erase loop,
+   so it never sits half drawn. The reduced-motion rules below still win. */
+.redraw.draw-once path {
+	animation-name: draw-in;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+}
+.redraw-strokes.draw-once path {
+	animation-name: draw-stroke-in;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+}
+
+@keyframes draw-in {
+	0% {
+		stroke-dashoffset: 1;
+	}
+	35%,
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes draw-stroke-in {
+	0% {
+		stroke-dashoffset: 1;
+		animation-timing-function: cubic-bezier(0.3, 0.6, 0.4, 1);
+	}
+	4.5%,
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
 @keyframes redraw-stroke {
 	0% {
 		stroke-dashoffset: 1;
