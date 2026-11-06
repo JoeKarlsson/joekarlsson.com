@@ -65,13 +65,19 @@ for (const issue of backIssues) {
 								/>
 							</span>
 						)}
-						<span class="flex flex-1 flex-col justify-end px-6 pt-5 pb-6">
+						<span class="block px-6 pt-5 pb-6">
 							<span class="mb-1.5 block text-sm text-muted">
 								<span class="font-semibold text-pink">Latest issue</span>
 								{' · '}
 								<FormattedDate date={latest.data.date} />
 							</span>
-							<span class="block font-display text-[clamp(28px,2.8vw,44px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+							{/* The card already prints the title, so the text title is only for screen readers */}
+							<span
+								class:list={[
+									'block font-display text-[clamp(28px,2.8vw,44px)] leading-[0.95] text-paper uppercase group-hover:text-pink',
+									latest.data.heroImage && 'sr-only',
+								]}
+							>
 								{latest.data.title}
 							</span>
 							{latest.data.description && (
