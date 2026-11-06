@@ -12,8 +12,6 @@ canonicalUrl: https://www.cloudquery.io/blog/production-ai-data-pipeline-archite
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---
 
-![Blog header for production AI data pipeline architectures: feeding AI with real infrastructure data](/images/blog/production-ai-data-pipeline-architectures/thumbnail.webp)
-
 > **Note:** **TL;DR:**
 > AI applications need the right data at the right time, in the right format, in the right place. But data fragmentation across structured and unstructured sources forces teams to build complex ELT glue code that consumes months of engineering time. CloudQuery solves this by moving data from many different sources to where your AI needs it, at high speed, integrated into the code you're already writing for RAG, agents, and LLM fine-tuning.
 

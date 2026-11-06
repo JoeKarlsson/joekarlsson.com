@@ -13,8 +13,6 @@ canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-performance-benchmark-a
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![CloudQuery Performance Benchmark Analysis](/images/blog/cloudquery-performance-analysis-581gb/header.webp)
-
 > **Executive Summary:**
 > CloudQuery achieved 581 GB/hour processing throughput when handling file data on Apple M4 Pro hardware, demonstrating our engine's architectural capabilities when unconstrained by external rate limits. Production cloud data synchronization performance ranges from 7-91 GB/hour due to provider API rate limiting, with Azure achieving 91 GB/hour, GCP reaching 49 GB/hour, and AWS delivering 13 GB/hour - representing optimal throughput within documented API constraints. Complete benchmark methodology and reproducible test framework available via [open-source repository](https://github.com/cloudquery/benchmark).
 

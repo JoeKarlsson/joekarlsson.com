@@ -80,6 +80,20 @@ describe('blog post frontmatter', () => {
 					'remove the body TL;DR blockquote; frontmatter tldr is rendered by the layout',
 				).not.toMatch(/^>\s*\*\*TL;DR/im);
 			});
+
+			it('does not open the body with the hero image again', () => {
+				if (!fm.heroImage) return;
+				// The layout already shows the hero; a body copy right under it shows it
+				// twice and, being lazy-loaded, becomes a late-loading LCP image.
+				const hero = fm.heroImage.replace(/['"]/g, '');
+				const firstLine = content
+					.replace(/^---\n[\s\S]*?\n---/, '')
+					.split('\n')
+					.find((line) => line.trim() !== '');
+				expect(firstLine ?? '', 'remove the body copy of the hero image').not.toContain(
+					`](${hero})`,
+				);
+			});
 		});
 	}
 });

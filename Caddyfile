@@ -97,15 +97,18 @@
 		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.joekarlsson.io https://www.tiktok.com https://*.tiktokcdn-us.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.tiktokcdn-us.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.tiktok.com https://*.tiktok.com https://cdatasoftware.github.io https://joekarlsson.github.io https://linger.joekarlsson.com https://rosehobart.joekarlsson.com https://bechdel.joekarlsson.com; connect-src 'self' https://plausible.joekarlsson.io https://cloudflareinsights.com https://www.tiktok.com https://*.tiktok.com"
 	}
 
-	# Cache static assets with hashed filenames - immutable and long-lived
-	# Astro generates unique hashes for CSS/JS, so they can be cached forever
-	@static path *.css *.js *.svg *.png *.jpg *.jpeg *.webp *.woff2 *.woff *.ttf *.gif
-	header @static Cache-Control "public, max-age=31536000, immutable"
+	# Astro's build output carries a content hash in every filename, so it can be cached forever
+	@hashed path /_astro/*
+	header @hashed Cache-Control "public, max-age=31536000, immutable"
 
-	# Video and audio keep their names across edits, so cache them for 30 days, not forever.
-	# The deploy purges Cloudflare; a returning browser picks up a replaced clip within a month.
-	@media path *.mp4 *.webm *.mp3
-	header @media Cache-Control "public, max-age=2592000"
+	# Everything else in public/ (images, video, audio, icons) keeps its name across edits,
+	# so cache it for 30 days, not forever. The deploy purges Cloudflare; a returning
+	# browser picks up a replaced file within a month.
+	@static {
+		path *.css *.js *.svg *.png *.jpg *.jpeg *.webp *.woff2 *.woff *.ttf *.gif *.mp4 *.webm *.mp3
+		not path /_astro/*
+	}
+	header @static Cache-Control "public, max-age=2592000"
 
 	# HTML pages: always revalidate with origin to prevent stale cache
 	# This ensures users always get fresh HTML that references current CSS/JS hashes

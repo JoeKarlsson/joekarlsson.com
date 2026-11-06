@@ -1,6 +1,6 @@
 ---
-// A YouTube video that costs one thumbnail until it's clicked: the button swaps
-// itself for the youtube-nocookie player (already in the CSP frame-src), playing.
+// A YouTube video that costs one thumbnail until it's clicked: src/scripts/youtube-facade.ts
+// (loaded by BaseLayout) swaps the button for the youtube-nocookie player, playing.
 // Three real embeds put /about over the Lighthouse page-weight budget.
 import { halftoneMode } from '../utils/halftone';
 
@@ -59,20 +59,3 @@ const { id, title, poster, loop } = Astro.props;
 	<!-- Labels drawn over the still (a logo, a title); they go when the player loads -->
 	<slot />
 </button>
-
-<script>
-	for (const button of document.querySelectorAll<HTMLButtonElement>('button.youtube-facade')) {
-		button.addEventListener('click', () => {
-			const iframe = document.createElement('iframe');
-			iframe.src = `https://www.youtube-nocookie.com/embed/${button.dataset.youtubeId}?autoplay=1`;
-			iframe.title = button.dataset.youtubeTitle ?? '';
-			iframe.allow =
-				'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-			iframe.allowFullscreen = true;
-			iframe.className = 'block aspect-video w-full rounded-xl';
-			iframe.style.border = '0';
-			button.replaceWith(iframe);
-			iframe.focus();
-		});
-	}
-</script>

@@ -4,8 +4,8 @@
 // skip Astro's image pipeline, hence this pass over the built HTML.
 //
 // Copies are made once into node_modules/.cache/responsive-images and reused
-// until the original changes. A component opts in by setting `sizes`; images in
-// post bodies are left alone.
+// until the original changes. A component opts in by setting `sizes`; post-body
+// images get theirs from src/plugins/rehype-image-dimensions.mjs.
 import {
 	copyFileSync,
 	existsSync,

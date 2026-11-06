@@ -14,8 +14,6 @@ canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---
 
-![Designing a Cloud Center of Excellence blog post header](/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/thumbnail.webp)
-
 **About This Series:** This is Part 3 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:
 
 - [**Part 1**: Introduction and Organizational Structure](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance)

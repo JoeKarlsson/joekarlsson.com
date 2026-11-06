@@ -3,7 +3,9 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import sharp from 'sharp';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import rehypeImageDimensions from '../src/plugins/rehype-image-dimensions.mjs';
+import rehypeImageDimensions, {
+	POST_IMAGE_SIZES,
+} from '../src/plugins/rehype-image-dimensions.mjs';
 
 type HastNode = {
 	type: string;
@@ -40,13 +42,24 @@ describe('rehype-image-dimensions', () => {
 		expect(props).toMatchObject({ width: 640, height: 360 });
 	});
 
+	it('declares the column width so the build adds a srcset', async () => {
+		const [local, remote, own] = await run(
+			img({ src: '/photo%20one.webp' }),
+			img({ src: 'https://example.com/a.webp' }),
+			img({ src: '/photo%20one.webp', sizes: '200px' }),
+		);
+		expect(local.sizes).toBe(POST_IMAGE_SIZES);
+		expect(remote.sizes).toBeUndefined();
+		expect(own.sizes).toBe('200px');
+	});
+
 	it('leaves remote images and explicitly sized ones alone', async () => {
 		const [remote, sized] = await run(
 			img({ src: 'https://example.com/a.webp' }),
 			img({ src: '/photo%20one.webp', width: '300' }),
 		);
 		expect(remote.width).toBeUndefined();
-		expect(sized).toEqual({ src: '/photo%20one.webp', width: '300' });
+		expect(sized).toEqual({ src: '/photo%20one.webp', width: '300', sizes: POST_IMAGE_SIZES });
 	});
 
 	it('fails the build on a local image that does not exist', async () => {

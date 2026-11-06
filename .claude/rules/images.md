@@ -57,6 +57,6 @@ Check what the page actually renders at before picking a width. The crop-art gal
 
 ## Card images get a srcset
 
-`src/integrations/responsive-images.mjs` runs after the build: every `<img>` that sets `sizes` and points at a WebP under `/images/` gets `.400w.webp`, `.800w.webp` and `.1200w.webp` copies (each only when narrower than the original) (cached in `node_modules/.cache/responsive-images`) and a `srcset`. A component opts in by setting `sizes` to the slot's real width (BlogCard, ProjectCard, the homepage list, /about tiles, the featured heroes). Post-body images are left alone. It only runs in `astro build`, so check a srcset on the built site, not the dev server.
+`src/integrations/responsive-images.mjs` runs after the build: every `<img>` that sets `sizes` and points at a WebP under `/images/` gets `.400w.webp`, `.800w.webp` and `.1200w.webp` copies (each only when narrower than the original) (cached in `node_modules/.cache/responsive-images`) and a `srcset`. A component opts in by setting `sizes` to the slot's real width (BlogCard, ProjectCard, KeepExploring, the homepage list, /about tiles, the featured heroes, the post and issue heroes). Post-body images get `sizes` from `rehype-image-dimensions.mjs` (the 640px column), so they get a srcset too. It only runs in `astro build`, so check a srcset on the built site, not the dev server.
 
 Video posters download at load even on a hidden clip. A clip hidden on phones (ProjectCard) uses `data-poster`, which `src/scripts/in-view-play.ts` turns into `poster` as it nears the screen.

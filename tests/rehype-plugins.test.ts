@@ -89,21 +89,45 @@ describe('rehype-faq-details', () => {
 });
 
 describe('rehype-lazy-images', () => {
+	/** A body that opens with a text paragraph, so `children` sit below the fold. */
+	function belowIntro(...children: HastNode[]): HastNode {
+		const root = tree(...children);
+		root.children!.unshift({
+			type: 'element',
+			tagName: 'p',
+			properties: {},
+			children: [{ type: 'text', value: 'Intro.' }],
+		});
+		return root;
+	}
+
+	function secondParagraph(root: HastNode): HastNode[] {
+		return root.children![1].children!;
+	}
+
 	it('adds loading and decoding to a bare image', () => {
+		const root = run(rehypeLazyImages, belowIntro(img({ src: '/images/a.webp', alt: 'A' })));
+		const [node] = secondParagraph(root);
+
+		expect(node.properties?.loading).toBe('lazy');
+		expect(node.properties?.decoding).toBe('async');
+	});
+
+	it('leaves an image that opens the body eager, since it shows at load', () => {
 		const root = run(rehypeLazyImages, tree(img({ src: '/images/a.webp', alt: 'A' })));
 		const [node] = paragraph(root);
 
-		expect(node.properties?.loading).toBe('lazy');
+		expect(node.properties?.loading).toBeUndefined();
 		expect(node.properties?.decoding).toBe('async');
 	});
 
 	it('does not override an explicit loading value', () => {
 		const root = run(
 			rehypeLazyImages,
-			tree(img({ src: '/images/hero.webp', alt: 'Hero', loading: 'eager' })),
+			belowIntro(img({ src: '/images/hero.webp', alt: 'Hero', loading: 'eager' })),
 		);
 
-		expect(paragraph(root)[0].properties?.loading).toBe('eager');
+		expect(secondParagraph(root)[0].properties?.loading).toBe('eager');
 	});
 
 	it('leaves non-image elements untouched', () => {
@@ -119,10 +143,10 @@ describe('rehype-lazy-images', () => {
 	});
 
 	it('handles an image that has no properties at all', () => {
-		const root = tree({ type: 'element', tagName: 'img', children: [] });
+		const root = belowIntro({ type: 'element', tagName: 'img', children: [] });
 		run(rehypeLazyImages, root);
 
-		expect(paragraph(root)[0].properties?.loading).toBe('lazy');
+		expect(secondParagraph(root)[0].properties?.loading).toBe('lazy');
 	});
 });
 
@@ -239,23 +263,31 @@ describe('rehype-youtube-embed', () => {
 		};
 	}
 
-	function iframeIn(root: HastNode): HastNode | undefined {
-		const block = root.children![0];
-		return block.tagName === 'div' ? block.children![0] : undefined;
-	}
-
 	it.each([
 		'https://www.youtube.com/watch?v=GiNa2jen-lg',
 		'https://youtu.be/GiNa2jen-lg',
 		'https://www.youtube.com/embed/GiNa2jen-lg',
-	])('turns a link alone in its paragraph into a privacy-mode player: %s', (href) => {
+	])('turns a link alone in its paragraph into a click-to-play thumbnail: %s', (href) => {
 		const root = run(rehypeYouTubeEmbed, tree(link(href)));
 
-		const iframe = iframeIn(root);
-		expect(iframe?.tagName).toBe('iframe');
-		expect(iframe?.properties?.src).toBe('https://www.youtube-nocookie.com/embed/GiNa2jen-lg');
-		expect(iframe?.properties?.loading).toBe('lazy');
-		expect(iframe?.properties?.title).toBeTruthy();
+		const button = root.children![0];
+		expect(button.tagName).toBe('button');
+		expect(button.properties?.className).toContain('youtube-facade');
+		expect(button.properties?.dataYoutubeId).toBe('GiNa2jen-lg');
+		// A bare URL makes a poor accessible name
+		expect(button.properties?.dataYoutubeTitle).toBe('YouTube video');
+		const thumbnail = button.children![0];
+		expect(thumbnail.tagName).toBe('img');
+		expect(thumbnail.properties?.src).toBe('https://i.ytimg.com/vi/GiNa2jen-lg/hqdefault.jpg');
+		expect(thumbnail.properties?.loading).toBe('lazy');
+	});
+
+	it('names the video after the link text', () => {
+		const named = link('https://youtu.be/GiNa2jen-lg');
+		named.children = [{ type: 'text', value: 'Watch the talk on YouTube' }];
+		const root = run(rehypeYouTubeEmbed, tree(named));
+
+		expect(root.children![0].properties?.ariaLabel).toBe('Play Watch the talk on YouTube');
 	});
 
 	it('leaves a YouTube link inside a sentence as a link', () => {

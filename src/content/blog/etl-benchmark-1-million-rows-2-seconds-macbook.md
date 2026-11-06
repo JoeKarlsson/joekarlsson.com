@@ -11,8 +11,6 @@ heroImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumbnai
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-![We bench marked our ETL tool and synced 1 million rows in 2 seconds on a MacBook blog post header](/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumbnail.webp)
-
 > **TL;DR:**
 > CloudQuery achieved 163,489 rows/sec and 841.9 GB/hour data throughput on an 11-core MacBook - 68% faster than Fivetran's enterprise infrastructure benchmarks. Our Go-based architecture with Apache Arrow integration delivers multi-cloud extraction at 42 resources/sec across AWS, GCP, and Azure simultaneously, using just 47% CPU and 75MB memory. The complete benchmark methodology is [open-source](http://github.com/cloudquery/benchmark) and reproducible on any hardware, from laptops to enterprise clusters.
 

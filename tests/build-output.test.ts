@@ -663,7 +663,10 @@ describe('performance guards', () => {
 		const wrong: string[] = [];
 		for (const page of posts) {
 			const article = readDist(page).split('<article')[1] ?? '';
-			const hero = article.match(/<img src="(\/images\/[^"]+)"[^>]*width="(\d+)" height="(\d+)"/);
+			// \s before src: the hero's srcset comes first and must not match
+			const hero = article.match(
+				/<img\b[^>]*?\ssrc="(\/images\/[^"]+)"[^>]*width="(\d+)" height="(\d+)"/,
+			);
 			if (!hero) continue;
 			const [, src, width, height] = hero;
 			const real = await sharp(resolve(dist, src.slice(1))).metadata();

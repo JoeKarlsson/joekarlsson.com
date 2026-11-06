@@ -14,8 +14,6 @@ canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-
 contentNotice: "This post was originally published on CloudQuery's blog."
 ---
 
-![Designing a Cloud Center of Excellence blog post header](/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumbnail.webp)
-
 **About This Series:** This is Part 2 of our 5-part series on Cloud Centers of Excellence (CCOEs). If you missed it, start with **Part 1: Introduction and Organizational Structure** to understand the foundational concepts.
 
 - [**Part 1**: Introduction and Organizational Structure](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance)

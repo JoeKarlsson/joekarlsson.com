@@ -202,7 +202,9 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 								class="block w-full max-h-[440px] rounded-xl object-cover"
 								width={heroSize?.width}
 								height={heroSize?.height}
+								sizes="(min-width: 1280px) 856px, 100vw"
 								loading="eager"
+								fetchpriority="high"
 							/>
 							<Scribble
 								{...heroMark.mark}
