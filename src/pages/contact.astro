@@ -96,23 +96,27 @@ const SECTIONS = [
 					class="-bottom-[7%] -left-[4%] z-10 h-[14%] w-[70%]"
 				/>
 			</div>
-			<p class={HERO_LEAD}>
-				Want to talk homelabs, databases, or weird IoT projects, or book me for a speaking gig? Pick
-				a platform below.
-			</p>
-			<p class="mt-5 mb-3 text-sm text-muted">Best ways to reach me</p>
-			<div class="flex flex-wrap gap-3">
-				{BEST.map(({ label, meta, href }, i) => (
-					<a
-						href={href}
-						target="_blank"
-						rel="noopener noreferrer"
-						title={meta}
-						class:list={[track(label), i === 0 ? PRIMARY_BUTTON : SECONDARY_BUTTON]}
-					>
-						{label}
-					</a>
-				))}
+			<!-- Phones skip the pitch and the two buttons so the platform list starts right
+			under the title; on phones LinkedIn is reachable only from the footer icons -->
+			<div class="max-md:hidden">
+				<p class={HERO_LEAD}>
+					Want to talk homelabs, databases, or weird IoT projects, or book me for a speaking gig?
+					Pick a platform below.
+				</p>
+				<p class="mt-5 mb-3 text-sm text-muted">Best ways to reach me</p>
+				<div class="flex flex-wrap gap-3">
+					{BEST.map(({ label, meta, href }, i) => (
+						<a
+							href={href}
+							target="_blank"
+							rel="noopener noreferrer"
+							title={meta}
+							class:list={[track(label), i === 0 ? PRIMARY_BUTTON : SECONDARY_BUTTON]}
+						>
+							{label}
+						</a>
+					))}
+				</div>
 			</div>
 		</PosterHero>
 
