@@ -30,10 +30,15 @@ test.describe('Header Navigation', () => {
 test.describe('Mobile Navigation', () => {
 	test.use({ viewport: { width: 375, height: 667 } });
 
-	test('every nav link is visible without a menu button', async ({ page }) => {
+	test('the MENU sticker opens every section link', async ({ page }) => {
 		await page.goto('/');
 
 		const nav = page.locator('header nav');
+		await expect(nav.getByRole('link', { name: 'Joe Karlsson', exact: true })).toBeVisible();
+		await expect(nav.getByRole('link', { name: 'Blog', exact: true })).toBeHidden();
+		const menu = nav.getByRole('button', { name: 'Menu' });
+		await menu.click();
+		await expect(menu).toHaveAttribute('aria-expanded', 'true');
 		for (const name of [
 			'Joe Karlsson',
 			'Blog',

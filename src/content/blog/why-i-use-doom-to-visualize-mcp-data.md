@@ -30,7 +30,9 @@ So I put an MCP server inside Doom. **Connect AI × DOOM** turns an AI agent's M
 
 You can play it right here. Claude built this level from a demo company's Salesforce, Zendesk and Stripe through the Connect AI MCP server. Claude starts playing as soon as it loads. Click the game to take over. It needs a keyboard and mouse (WASD to move, click to fire, Esc frees the mouse). For Claude's play-by-play panel, [open the full version](https://cdatasoftware.github.io/connect-ai-doom/).
 
-<div class="@container overflow-hidden rounded-lg">
+<p class="md:hidden">The game needs a keyboard and mouse, so on a phone, <a href="https://cdatasoftware.github.io/connect-ai-doom/">open the full version</a> and watch Claude play.</p>
+
+<div class="@container overflow-hidden rounded-lg max-md:hidden">
   <iframe src="https://cdatasoftware.github.io/connect-ai-doom/embed.html" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-embed-project="Connect AI × DOOM" class="block w-full" style="border:0;height:calc(75cqw + 136px)" allow="fullscreen; gamepad; autoplay" allowfullscreen loading="lazy"></iframe>
 </div>
 

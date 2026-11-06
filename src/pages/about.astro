@@ -338,8 +338,9 @@ const cropArtPieces = [
 					</p>
 				</div>
 
-				{/* A box with a tilted pink label, like the stickers in the header */}
-				<div class="relative mb-16 rounded-xl bg-surface-1 px-5 pt-9 pb-5 sm:px-7">
+				{/* A box with a tilted pink label, like the stickers in the header. Off on phones,
+				where Career a screen later lists the same companies with the same logos */}
+				<div class="previously-at relative mb-16 rounded-xl bg-surface-1 px-5 pt-9 pb-5 max-md:hidden sm:px-7">
 					<p class="absolute -top-5 left-5 -rotate-2 rounded-md bg-pink px-3 pt-1.5 pb-0.5 font-display text-2xl leading-none text-ink uppercase">
 						Previously at
 					</p>
@@ -545,7 +546,9 @@ const cropArtPieces = [
 						class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
 					/>
 				</h2>
-				<ul class="-mx-6 mb-16 flex snap-x gap-5 overflow-x-auto px-6 pt-6 pb-6">
+				{/* Bleeds to the page's own side padding (px-4 on phones, px-7 from sm), so the first
+				card lines up with the text above and is never cut off at the screen edge */}
+				<ul class="as-seen-on -mx-4 mb-16 flex snap-x scroll-px-4 gap-5 overflow-x-auto px-4 pt-6 pb-6 sm:-mx-7 sm:scroll-px-7 sm:px-7">
 					{featuredPodcasts.map((podcast) => (
 						<li class="w-56 shrink-0 snap-start">
 							<a
@@ -696,9 +699,17 @@ const cropArtPieces = [
 						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
 					/>
 				</h2>
-				<div class="mb-16">
+				{/* Over three screens on a phone, so phones fold it behind the summary (the script
+				below closes it there); open everywhere else, and without JavaScript */}
+				<details open class="now-fold group/now mb-16">
+					<summary class="mb-2 inline-flex min-h-11 cursor-pointer list-none items-center font-semibold text-pink md:hidden [&::-webkit-details-marker]:hidden">
+						<span class="group-open/now:hidden">
+							Show what I'm shipping, watching and listening to&nbsp;↓
+						</span>
+						<span class="hidden group-open/now:inline">Hide it ↑</span>
+					</summary>
 					<NowFeed />
-				</div>
+				</details>
 
 				<h2 id="art" class={`${SECTION_HEADING} scroll-mt-24`}>
 					Art
@@ -800,6 +811,15 @@ const cropArtPieces = [
 			button.setAttribute('aria-expanded', String(isOpen));
 		});
 	}
+
+	// "Right now" starts folded on phones only; the summary that opens it is md:hidden,
+	// so from md up it has to stay open
+	const nowFold = document.querySelector<HTMLDetailsElement>('details.now-fold');
+	const isPhone = window.matchMedia('(width < 48rem)');
+	if (nowFold && isPhone.matches) nowFold.open = false;
+	isPhone.addEventListener('change', () => {
+		if (nowFold && !isPhone.matches) nowFold.open = true;
+	});
 </script>
 
 <style>

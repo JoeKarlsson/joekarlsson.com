@@ -155,7 +155,8 @@ const AROUND_THE_HOUSE = [
 			/>
 		</div>
 		<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
-			<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink" aria-hidden="true">
+			<!-- Off on phones: a phone shows a word and a half of it, cut off at both ends -->
+			<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink max-md:hidden" aria-hidden="true">
 				<div class="ticker-track font-display text-[clamp(52px,6.2vw,96px)] leading-none uppercase">
 					{[...TOP_TICKER, ...TOP_TICKER].map((item) => (
 						<>
@@ -227,7 +228,14 @@ const AROUND_THE_HOUSE = [
 		</h2>
 		<ul>
 			{recentPosts.map((post, i) => (
-				<li class="ring-host group grid items-center gap-7 border-t border-surface-4 py-[18px] md:grid-cols-[clamp(140px,22vw,300px)_1fr]">
+				// Phones: the newest post keeps its big picture; the rest are compact rows with a
+				// thumbnail beside the title, so the list is one screen instead of three
+				<li
+					class:list={[
+						'ring-host group grid items-center gap-7 border-t border-surface-4 py-[18px] md:grid-cols-[clamp(140px,22vw,300px)_1fr]',
+						i > 0 && 'recent-compact max-md:grid-cols-[112px_1fr] max-md:gap-4',
+					]}
+				>
 					<a href={post.href} tabindex="-1" aria-hidden="true" class="relative block">
 						{i === 0 && (
 							<Scribble
@@ -263,7 +271,10 @@ const AROUND_THE_HOUSE = [
 						</span>
 						<a
 							href={post.href}
-							class="text-[clamp(20px,2.2vw,30px)] leading-tight font-semibold text-paper no-underline group-hover:text-pink"
+							class:list={[
+								'text-[clamp(20px,2.2vw,30px)] leading-tight font-semibold text-paper no-underline group-hover:text-pink',
+								i > 0 && 'max-md:text-lg',
+							]}
 						>
 							{post.data.title}
 						</a>
@@ -433,9 +444,11 @@ const AROUND_THE_HOUSE = [
 			delay="1.2s"
 			class="-top-[30px] right-[12%] z-10 size-[140px]"
 		/>
-		<div class="house-strip mt-12 grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-4 md:gap-x-10">
+		<!-- Phones: one clip at a time, swiped sideways, the next one peeking in from the
+		edge. py keeps the tape and the tilted corners inside the scroller's clip. -->
+		<div class="house-strip -mx-4 mt-8 flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 py-6 sm:-mx-7 sm:scroll-px-7 sm:px-7 [scrollbar-width:none] md:mx-0 md:mt-12 md:grid md:grid-cols-4 md:gap-x-10 md:gap-y-14 md:overflow-visible md:p-0">
 			{AROUND_THE_HOUSE.map(({ name, alt, caption, href }, i) => (
-				<figure class="relative">
+				<figure class="relative w-[72%] shrink-0 snap-start md:w-auto">
 					<span class="tape" aria-hidden="true" />
 					<video
 						class="block aspect-[4/5] w-full object-cover"
@@ -468,7 +481,8 @@ const AROUND_THE_HOUSE = [
 		</div>
 	</section>
 
-	<div class="pt-[90px] pb-24">
+	<!-- The closing ticker, off on phones like the one up top -->
+	<div class="pt-[90px] pb-24 max-md:hidden">
 		<div
 			class="ticker scale-[1.04] -rotate-2 border-y-[3px] border-pink bg-ink pt-3 pb-1.5 ticker-reverse"
 			aria-hidden="true"

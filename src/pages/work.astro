@@ -143,7 +143,11 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 			))}
 		</div>
 
-		<div id="projects-grid" class="mb-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+		<!-- Phones: one column of compact rows (ProjectCard), so the gap between them tightens -->
+		<div
+			id="projects-grid"
+			class="mb-14 grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
+		>
 			{sortedProjects.map((project) => (
 				<div data-category={project.category}>
 					<ProjectCard project={project} />

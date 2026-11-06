@@ -5,6 +5,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const existsSync = vi.hoisted(() => vi.fn());
 vi.mock('node:fs', () => ({ default: { existsSync } }));
 
+const { default: rehypeFaqDetails } = await import('../src/plugins/rehype-faq-details.mjs');
 const { default: rehypeGifVideo } = await import('../src/plugins/rehype-gif-video.mjs');
 const { default: rehypeLazyImages } = await import('../src/plugins/rehype-lazy-images.mjs');
 const { default: rehypeYouTubeEmbed } = await import('../src/plugins/rehype-youtube-embed.mjs');
@@ -37,6 +38,52 @@ function run(plugin: () => (t: HastNode) => void, root: HastNode): HastNode {
 	plugin()(root);
 	return root;
 }
+
+function el(tagName: string, text: string): HastNode {
+	return { type: 'element', tagName, properties: {}, children: [{ type: 'text', value: text }] };
+}
+
+describe('rehype-faq-details', () => {
+	it('wraps each FAQ question and its answer in a details toggle, up to the next h2', () => {
+		const root = run(rehypeFaqDetails, {
+			type: 'root',
+			children: [
+				el('h2', 'Setup'),
+				el('h3', 'Not a question'),
+				el('h2', 'Frequently Asked Questions'),
+				el('h3', 'Is it free?'),
+				el('p', 'Yes.'),
+				el('p', 'Really.'),
+				el('h3', 'Does it scale?'),
+				el('p', 'Mostly.'),
+				el('h2', 'Next steps'),
+				el('p', 'Go.'),
+			],
+		});
+		const tags = root.children!.map((n) => n.tagName);
+		expect(tags).toEqual(['h2', 'h3', 'h2', 'details', 'details', 'h2', 'p']);
+
+		const [first, second] = root.children!.filter((n) => n.tagName === 'details');
+		expect(first.children!.map((n) => n.tagName)).toEqual(['summary', 'p', 'p']);
+		expect(first.children![0].children![0]).toMatchObject({ tagName: 'h3' });
+		expect(second.children!.map((n) => n.tagName)).toEqual(['summary', 'p']);
+	});
+
+	it('also recognises "FAQ" and "FAQs" headings, and leaves posts without one alone', () => {
+		for (const heading of ['FAQ', 'FAQs']) {
+			const root = run(rehypeFaqDetails, {
+				type: 'root',
+				children: [el('h2', heading), el('h3', 'Q?'), el('p', 'A.')],
+			});
+			expect(root.children!.map((n) => n.tagName)).toEqual(['h2', 'details']);
+		}
+		const plain = run(rehypeFaqDetails, {
+			type: 'root',
+			children: [el('h2', 'Intro'), el('h3', 'Part'), el('p', 'Text')],
+		});
+		expect(plain.children!.map((n) => n.tagName)).toEqual(['h2', 'h3', 'p']);
+	});
+});
 
 describe('rehype-lazy-images', () => {
 	it('adds loading and decoding to a bare image', () => {

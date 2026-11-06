@@ -18,7 +18,9 @@ function isActive(href: string, also: string[] = []): boolean {
 	up the type shrinks until the bar (about 33.5em wide) fits the window. On phones
 	the section links fold into a MENU sticker that drops them below the bar.
 -->
-<header class="pointer-events-none sticky top-2 z-50 flex justify-center px-2 pt-2 md:top-3.5">
+<!-- order-first: on phones the bar sits above a page's hero (BaseLayout's hero slot), so
+the menu is the first thing on screen; from md up the homepage hero comes first -->
+<header class="pointer-events-none sticky top-2 z-50 flex justify-center px-2 pt-2 max-md:order-first md:top-3.5">
 	<nav
 		aria-label="Main navigation"
 		class="group/nav pointer-events-auto relative flex max-w-full items-center gap-[0.19em] rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase md:text-[min(21px,calc((100vw-24px)/33.5))]"

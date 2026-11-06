@@ -24,14 +24,31 @@ const metaLine = [
 	.join(' · ');
 ---
 
-<article>
+<!--
+	Phones: a compact row, a small still beside the title, year and stack, so the 25
+	projects run about four screens instead of seventeen. The clip and the description
+	are for wider screens: at thumbnail size a clip's text can't be read.
+-->
+<article class="project-card">
 	<a
 		href={primaryUrl}
 		target={isExternal ? '_blank' : undefined}
 		rel={isExternal ? 'noopener noreferrer' : undefined}
-		class="plausible-event-name=Project+Click ring-host group block no-underline"
+		class="plausible-event-name=Project+Click ring-host group block no-underline max-md:grid max-md:grid-cols-[112px_1fr] max-md:items-start max-md:gap-x-4"
 	>
-		<span class="relative block">
+		<span class="relative block max-md:row-span-3">
+			{project.video && (
+				<img
+					src={project.image}
+					alt={project.imageAlt}
+					data-halftone="flat"
+					width="560"
+					height="315"
+					class="block aspect-video w-full rounded-lg object-cover md:hidden"
+					loading="lazy"
+					decoding="async"
+				/>
+			)}
 			{project.video ? (
 				<video
 					src={cardClip(project.video)}
@@ -44,7 +61,7 @@ const metaLine = [
 					aria-label={project.imageAlt}
 					data-autoplay-in-view
 					data-halftone="flat"
-					class="block aspect-video w-full rounded-lg object-cover"
+					class="block aspect-video w-full rounded-lg object-cover max-md:hidden"
 				/>
 			) : (
 				<img
@@ -60,14 +77,14 @@ const metaLine = [
 			)}
 			<HoverBox />
 		</span>
-		<h3 class="mt-4 font-display text-[clamp(28px,2.4vw,36px)] leading-none font-normal text-paper uppercase group-hover:text-pink">
+		<h3 class="mt-4 font-display text-[clamp(28px,2.4vw,36px)] leading-none font-normal text-paper uppercase group-hover:text-pink max-md:mt-0 max-md:text-2xl">
 			{project.title}
 		</h3>
-		<p class="mt-2 line-clamp-2 text-paper">{project.description}</p>
+		<p class="mt-2 line-clamp-2 text-paper max-md:hidden">{project.description}</p>
 		<p class="mt-1 text-sm text-muted">{metaLine}</p>
 	</a>
 	{(project.sourceUrl || project.demoUrl || project.blogUrl) && (
-		<div class="mt-3 flex items-center gap-4">
+		<div class="mt-3 flex items-center gap-4 max-md:mt-0 max-md:ml-[128px] max-md:[&>a]:min-h-11">
 			{project.sourceUrl && (
 				<a
 					href={project.sourceUrl}

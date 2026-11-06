@@ -173,6 +173,16 @@
 	}
 }
 
+/* Phones show one line of the echo (the rest are max-md:hidden), so that line stays
+   filled instead of blinking to an outline */
+@media (width < 48rem) {
+	.echo > span[aria-hidden='true'].echo-lead {
+		animation: none;
+		-webkit-text-fill-color: var(--echo-fill, #000);
+		-webkit-text-stroke: 0;
+	}
+}
+
 /* Tickers: the track holds its items twice, so sliding by half loops cleanly. */
 .ticker {
 	overflow: hidden;

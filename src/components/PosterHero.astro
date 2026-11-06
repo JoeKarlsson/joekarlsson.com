@@ -29,7 +29,8 @@ const { title, wordRatio, tickerItems } = Astro.props;
 			delay="0.6s"
 			class="-top-[6%] -right-[3%] z-10 hidden h-[12%] w-[18%] md:block"
 		/>
-		<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink" aria-hidden="true">
+		<!-- Off on phones: a phone shows a word and a half of it, cut off at both ends -->
+		<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink max-md:hidden" aria-hidden="true">
 			<div class="ticker-track font-display text-[clamp(52px,6.2vw,96px)] leading-none uppercase">
 				{[...tickerItems, ...tickerItems].map((item) => (
 					<>
