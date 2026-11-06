@@ -28,12 +28,15 @@
 
 /* Multi-stroke marks (tallies, rays, hatching, bursts) draw like one pen: each
    stroke takes 4.5% of the loop and starts as the one before it ends (Scribble
-   sets --i per stroke), all hold, then erase in the same order. */
+   sets --i per stroke and --n strokes in all), all hold, then erase in the same
+   order. A mark with more than nine strokes (Joe's flower has 13) starts each one
+   sooner, so the last is in by 40% of the loop and the whole mark holds until the
+   erase at 80%; at a fixed beat it would never show complete. */
 .redraw-strokes path {
 	stroke-dasharray: 1;
 	stroke-dashoffset: 1;
 	animation: redraw-stroke var(--dur, 7s)
-		calc(var(--del, 0s) + var(--i, 0) * var(--dur, 7s) * 0.045) infinite;
+		calc(var(--del, 0s) + var(--i, 0) * var(--dur, 7s) * min(0.045, 0.4 / var(--n, 1))) infinite;
 }
 
 @keyframes redraw-stroke {

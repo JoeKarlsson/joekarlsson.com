@@ -60,7 +60,7 @@ if (ring && ringIndex < 0) throw new Error('Scribble: a ring must be one of RING
 		'pointer-events-none absolute overflow-visible',
 		className,
 	]}
-	style={ring ? undefined : `--dur:${duration};--del:${delay}`}
+	style={ring ? undefined : `--dur:${duration};--del:${delay};--n:${strokes.length}`}
 	viewBox={viewBox}
 	preserveAspectRatio={ring || stretch ? 'none' : 'xMidYMid meet'}
 	aria-hidden="true"
