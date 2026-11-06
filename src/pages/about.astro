@@ -45,6 +45,12 @@ const newestPosts = (await getFeedPosts())
 	.filter((post) => isOwnPost(post) && post.data.heroImage)
 	.slice(0, FRAMES);
 
+// A long post title, cut at a word near 50 characters so the Share line stays short
+function shortTitle(title: string): string {
+	if (title.length <= 50) return `${title}.`;
+	return `${title.slice(0, 50).replace(/\s+\S*$/, '')}…`;
+}
+
 const whatIDo = [
 	{
 		title: 'Make stuff',
@@ -59,7 +65,7 @@ const whatIDo = [
 			src: post.data.heroImage as string,
 			alt: post.data.heroAlt ?? post.data.title,
 		})),
-		text: `Blog posts, videos and the Works on My Machine newsletter. Newest: ${newestPosts[0].data.title}.`,
+		text: `Blog posts, videos and the Works on My Machine newsletter. Newest: ${shortTitle(newestPosts[0].data.title)}`,
 	},
 	{
 		title: 'Developer marketing',
@@ -386,7 +392,7 @@ const cropArtPieces = [
 									class="-top-[22%] -left-[35px] h-[150%] w-[calc(100%+70px)]"
 								/>
 							</span>
-							<span class="relative hidden aspect-video md:block">
+							<span class="relative block aspect-video w-full max-w-md md:max-w-none">
 								{area.frames.map((frame, f) => (
 									<span
 										class:list={['absolute inset-0', area.frames.length > 1 && 'frame']}
@@ -487,23 +493,44 @@ const cropArtPieces = [
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<div class="prose mb-12 max-w-none!">
-					<p>
-						I got a computer science degree and went straight into Microsoft SharePoint consulting
-						during the Ballmer years. I was bad at coding, and SharePoint did not make it more fun.
-						It was a dark time.
-					</p>
-					<p>
-						I fell back in love with programming in Hawaii. I met a group of developers at the local
-						coding bootcamp who had so much joy building the things they wanted to build, and I
-						realized I was good at programming as long as I was making things I wanted to make. I've
-						been following that ever since.
-					</p>
-					<p>
-						These days I make weird art, I solve problems in my own life and other people's, and I
-						even like the drudgery of maintaining software day in and day out. The rest of this page
-						is what came out of that.
-					</p>
+				<div class="mb-12 grid items-start gap-10 md:grid-cols-[minmax(0,1fr)_300px]">
+					<div class="space-y-5 text-[clamp(17px,1.4vw,21px)] leading-relaxed text-paper">
+						<p>
+							I got a computer science degree and went straight into Microsoft SharePoint consulting
+							during the Ballmer years. I was bad at coding, and SharePoint did not make it more
+							fun. It was a dark time.
+						</p>
+						<p>
+							I fell back in love with programming in Hawaii. I met a group of developers at the
+							local coding bootcamp who had so much joy building the things they wanted to build,
+							and I realized I was good at programming as long as I was making things I wanted to
+							make. I've been following that ever since.
+						</p>
+						<p>
+							These days I make weird art, I solve problems in my own life and other people's, and I
+							even like the drudgery of maintaining software day in and day out. The rest of this
+							page is what came out of that.
+						</p>
+					</div>
+					<figure class="relative mx-auto w-full max-w-[300px] rotate-[1.5deg]">
+						<img
+							src="/images/about/joe-hawaii.webp"
+							alt="Joe on an orange beach cruiser under palm trees in Hawaii, throwing a peace sign"
+							data-halftone="dots"
+							class="block aspect-[3/4] w-full rounded-xl object-cover"
+							width="900"
+							height="1200"
+							loading="lazy"
+						/>
+						<Scribble
+							{...MARKS.burst}
+							color={CHALK}
+							duration="9s"
+							delay="0.6s"
+							class="-top-[6%] -right-[8%] z-10 size-[24%]"
+						/>
+						<figcaption class="mt-3 text-sm text-muted">Hawaii, where it clicked.</figcaption>
+					</figure>
 				</div>
 
 				<h2 id="as-seen-on" class={`${SECTION_HEADING} scroll-mt-24`}>
