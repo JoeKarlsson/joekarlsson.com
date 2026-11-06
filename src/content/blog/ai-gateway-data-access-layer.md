@@ -47,7 +47,7 @@ This post covers the difference between those two problems, why they have comple
 
 The model-routing layer has a clean definition: it sits between your application and your LLM providers and handles routing, fallback, rate limits, caching, observability, and key management. See [what an AI gateway does](https://www.cdata.com/blog/what-is-an-ai-gateway) for the full breakdown. What's worth examining here is how the category moved from a one-person script to [enterprise AI gateway design patterns](https://www.cdata.com/blog/enterprise-ai-gateway-trusted-data) in roughly 18 months.
 
-![An Application box sends requests to an AI Gateway with a deep navy header, a two-pixel yellow accent rule, and sublabels for routes, rate limits, caching, and observability. Three arrows fan out to provider boxes labeled OpenAI, Anthropic, and open-source models.](/images/blog/ai-gateway-data-access-layer/ai-gateway-model-routing-layer.webp)
+![An application sends its requests to an AI gateway, which handles routes, rate limits, caching, and observability and passes each request on to OpenAI, Anthropic, or an open-source model.](/images/blog/ai-gateway-data-access-layer/model-routing-layer.svg)
 
 _The model-routing layer. One endpoint for your application, multiple providers behind it._
 
@@ -67,7 +67,7 @@ For teams building AI agents today, buying or forking a routing gateway is the f
 
 When an AI agent needs live business data, routing it to the right model doesn't help. The model needs the data in the first place. For summarizing a pasted document, the routing layer is enough. For questions about business operations (pipeline coverage, accounts at risk, which feature is driving churn), the agent needs to reach the systems that hold the answer. For what goes wrong when it doesn't, see [why routing without context fails](https://www.cdata.com/blog/ai-gateway-context-layer) and [why enterprise AI needs more than a gateway](https://www.cdata.com/blog/enterprises-needs-more-than-gateways).
 
-![A connected top row shows Application, AI Gateway, and LLM Provider, annotated "gateway stops here". A dashed arrow descends labeled "needs data" toward a dashed question-mark box. Below sit five disconnected dashed boxes: Salesforce, Snowflake, SAP, PostgreSQL, and Jira. Footer reads: DATA LAYER: MISSING.](/images/blog/ai-gateway-data-access-layer/ai-gateway-missing-layer.webp)
+![An application talks to an AI gateway, which routes to an LLM provider, and the gateway stops there. When the model needs business data, nothing connects it to Salesforce, Snowflake, SAP, PostgreSQL, or Jira.](/images/blog/ai-gateway-data-access-layer/missing-layer.svg)
 
 _The routing gateway stops at the model boundary. Everything below it is unbuilt._
 
@@ -97,7 +97,7 @@ Call this the inverted cost curve. The model-routing layer gets cheaper as open-
 
 That asymmetry is the structural reason most organizations built one layer and not the other: the routing layer had an off-the-shelf answer. The data-access layer didn't. [MCP architecture patterns that address the governance side](https://www.cdata.com/blog/enterprise-mcp-architecture-patterns-for-data-integration) help centralize governance, but they don't remove the per-source integration cost.
 
-![Two-layer architecture diagram. Top row labeled MODEL ROUTING: Application box connects to an AI Gateway (navy, yellow accent) which fans to OpenAI, Anthropic, and open-source models. A horizontal gray line separates the layers. Bottom row labeled ENTERPRISE DATA ACCESS: AI Agent box connects to a Data Gateway labeled CData Connect AI (navy, yellow accent) which fans to Salesforce, SAP HANA, Snowflake, and PostgreSQL.](/images/blog/ai-gateway-data-access-layer/ai-gateway-two-layer-stack.webp)
+![Two layers. Model routing: an application talks to an AI gateway that routes to OpenAI, Anthropic, and open-source models. Enterprise data access: an AI agent talks to CData Connect AI, the data gateway, which handles auth, schema, and audit across connectors to Salesforce, SAP HANA, Snowflake, and PostgreSQL.](/images/blog/ai-gateway-data-access-layer/two-layer-stack.svg)
 
 _The complete two-layer stack. Model routing and enterprise data access operate at different boundaries, have different compliance owners, and have opposite cost curves._
 
@@ -111,7 +111,7 @@ Enterprise data doesn't arrive pre-labeled for an agent. StageName\_\_c = 'Propo
 
 I watched an agent report a pipeline number that was off by a full quarter because it read every opportunity with StageName\_\_c = 'Proposal' as committed pipeline. The sales team counted Proposal as pipeline only after a signed mutual action plan. The schema had no idea. A data-access layer that carries organizational context alongside schema structure returns data an agent can reason with. The same problem appears across [NetSuite](https://docs.cloud.cdata.com/en/Data-Sources/NetSuite) custom record types, [SAP HANA](https://docs.cloud.cdata.com/en/Data-Sources/SAPHANA) client codes, and any ERP where business logic lives in field values, not field names.
 
-![Two-column comparison. Left column "Raw Schema" shows raw Salesforce field data in monospace: cryptic IDs, StageName, Amount, CloseDate, boolean flags; navy footer reads "model has to guess what fields mean". Right column "Semantic Context" shows the same data with clear labels: Account Acme Corp, Deal stage Proposal, Amount $480,000, Expected close September 30 2026, Win probability 65%, Tier Enterprise; yellow footer reads "model answers accurately".](/images/blog/ai-gateway-data-access-layer/ai-gateway-schema-vs-semantic.webp)
+![What the model actually receives: raw Salesforce fields like StageName "Proposal/Price" and Amount 480000.0, which it has to guess at, next to the same deal as labeled context (account Acme Corp, deal stage Proposal, amount $480,000, expected close September 30, 2026, win probability 65%, tier Enterprise), which it can answer from.](/images/blog/ai-gateway-data-access-layer/schema-vs-semantic.svg)
 
 _Raw schema vs. semantic context. The data-access layer is what produces the right side._
 
@@ -149,7 +149,7 @@ Here's what the data-access layer handles in a live request.
 
 **The sales assistant scenario.** Consider a sales rep asking an AI assistant: "What's the status on the Acme account?" The agent makes an MCP tool call. The data-access layer runs a credentialed [Salesforce](https://docs.cloud.cdata.com/en/Data-Sources/Salesforce) query scoped to that rep's access level, resolves the relevant fields against the organization's pipeline definitions, and returns structured data the agent can use. The agent never sees raw schema. If the rep doesn't have access to a deal record, neither does the agent. The same pattern applies for a [HubSpot](https://docs.cloud.cdata.com/en/Data-Sources/HubSpot) contact, a [NetSuite](https://docs.cloud.cdata.com/en/Data-Sources/NetSuite) invoice, or a [Snowflake](https://docs.cloud.cdata.com/en/Data-Sources/Snowflake) analytics table: one MCP call, one governed response.
 
-![Left-to-right flow diagram. A Sales Rep asks "What's the status on Acme?" A request arrow leads to an AI Assistant (navy, yellow accent) labeled "understands intent, calls tool". An MCP tool call arrow goes to a Data Gateway labeled "translates intent, scoped credentials, audit log". A query arrow reaches Salesforce; records return. A composed answer flows back to the Sales Rep. A dashed annotation below the Data Gateway reads "rep's access level enforced, every access logged". Footer: answer in approximately 2 seconds, no raw schema exposure, full audit trail.](/images/blog/ai-gateway-data-access-layer/ai-gateway-sales-scenario-flow.webp)
+![A sales rep asks an AI assistant "What's the status on Acme?" The assistant makes an MCP tool call to CData Connect AI, which queries Salesforce with scoped credentials, enforces the rep's access level, logs every access, and returns structured data, so the agent never sees raw schema.](/images/blog/ai-gateway-data-access-layer/sales-scenario-flow.svg)
 
 _The full request flow. The data-access layer handles credential scoping, schema resolution, and audit logging. The agent sees structured data, not raw schema._
 

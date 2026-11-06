@@ -27,11 +27,11 @@ Partitioning is the database process where very large tables are divided into mu
 
 Vertical table partitioning is mostly used to increase SQL Server performance especially in cases where a query retrieves all columns from a table that contains a number of very wide text or BLOB columns. In this case to reduce access times the BLOB columns can be split into their own table. Another example is to restrict access to sensitive data e.g. passwords, salary information, etc. Vertical partitioning splits a table into two or more tables containing different columns:
 
-![Vertical partitioning splitting Employee table into Employee and EmployeePicture tables](/images/blog/database-sharding-vs-partitioning-whats-the-difference/diagram_employee-partition-1024x573.webp)
+![Vertical partitioning splits the Employee table by column into Employee (EmployeeID, FirstName, LastName) and EmployeePicture (EmployeeID and the wide Picture column).](/images/blog/database-sharding-vs-partitioning-whats-the-difference/vertical-partition.svg)
 
 On SingleStore, by default, When you run [`CREATE DATABASE`](https://docs.singlestore.com/managed-service/en/reference/sql-reference/data-definition-language-ddl/create-database.html), SingleStore splits the database into partitions, which are distributed evenly among available nodes. This allows SingleStore to be [highly available by default](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/high-availability.html). With `CREATE DATABASE`, you can specify the number of partitions with the `PARTITIONS=X` option. 
 
-![Load-balanced partition placement across nodes in two availability groups](/images/blog/database-sharding-vs-partitioning-whats-the-difference/diagram_load-balanced-partition-placement.webp)
+![Load-balanced partition placement across two availability groups: each node holds four master and four replica partitions, and each node's masters are copied to the replicas on its partner node in the other group.](/images/blog/database-sharding-vs-partitioning-whats-the-difference/partition-placement.svg)
 
 ### When to partition a table?
 

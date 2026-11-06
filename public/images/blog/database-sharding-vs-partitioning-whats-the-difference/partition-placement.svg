@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" width="640" height="500" role="img" aria-label="Load-balanced partition placement. Availability group 1 holds nodes 1 and 3, and availability group 2 holds nodes 2 and 4. Each node has four master partitions and four replica partitions. Node 1 and node 2 replicate their masters to each other’s replicas, and so do node 3 and node 4, so every partition has a copy in the other availability group.">
+<defs><filter id="database-sharding-vs-partitioning-whats-the-difference-partition-placement-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="540">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="500" fill="#000000"/>
+<path class="d-paper" d="M15.7,34.6 L31.4,33.1 L48.3,33.4 L65.2,33.9 L79.6,32.6 L97.1,32.6 L110.8,35 L129.2,32.5 L144.8,33.8 L160.2,35.4 L175.1,35.4 L191.7,32.7 L207.3,34.4 L225.6,33.3 L240.1,33.5 L254.7,35.4 L270.5,35.4 L286.5,35.5 L297.2,33.6 L296,48.6 L297.3,64.8 L296.2,81.4 L296.7,97 L297.3,114.9 L296.7,129.3 L297.5,144.6 L295.7,161.3 L294.9,179 L297.2,193.1 L296.7,209.1 L296.5,224.7 L295.8,243 L296,257 L297.6,273.7 L297.4,289.1 L295.6,305.7 L295.6,323.1 L295.9,337.7 L295.4,354.9 L297.1,369.6 L294.5,385.9 L294.5,401.3 L296.2,419.6 L295,433.6 L297.1,450.4 L296.5,465.5 L295.7,479.5 L279.3,480.7 L263.6,478.8 L247.7,478.4 L232.9,481 L216.5,480.6 L199.6,478.8 L183,479.6 L169.4,480.2 L153.5,481.2 L136.2,481.1 L121.5,480.7 L102.8,481 L89.6,479.5 L71.8,479 L57.2,480.3 L40.5,479 L23.4,479.7 L15.2,479 L14.9,462.8 L16.7,447 L16.2,431.6 L15.1,415.1 L16.5,400.4 L16.5,383 L17.5,366.9 L15.2,353.5 L17.4,335.8 L17.1,320.2 L17.5,304.1 L15.9,288 L16.5,271.6 L14.5,255.1 L17,239.2 L14.5,224.4 L14.4,206.6 L15.9,191.6 L15.1,174.8 L17,160.4 L14.8,142.4 L15.4,129 L14.8,112.7 L15.4,95.6 L16.8,80.1 L17.2,62.8 L16.3,49.3 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M15.8,12.3 L32.5,12.2 L46.8,12.6 L64.1,11.6 L80.4,12.4 L95.6,10.9 L110.8,12.4 L129.1,12.9 L144.5,11.3 L158.6,13.2 L176.6,11 L191.1,12.8 L203.2,11.3 L203.4,29.6 L202.7,35.8 L185.1,36.7 L169.7,36.7 L154.3,35.8 L137.6,35.7 L122.7,36.4 L104.7,34.6 L90,36.3 L73,34.9 L58.4,35.8 L40.2,35.6 L24.7,34.5 L15.9,36.5 L16,19 Z" fill="#2a2a2a"/>
+<text x="28" y="25" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">AVAILABILITY GROUP 1</text>
+<path class="d-paper" d="M344.4,35 L358.5,35 L376.1,34.3 L392.1,33.5 L407.4,34.1 L425,34.8 L439.3,34.6 L455.4,34.1 L473,34.9 L488,34.3 L504.6,33.3 L521.5,33.3 L536.5,33.9 L551.9,34.6 L567,32.8 L585,34.5 L601.2,35.4 L614.5,35.1 L623.8,34.5 L625.2,49.7 L623.6,67.5 L624.1,82.8 L625.4,98.2 L623.8,113.3 L622.5,129.5 L625.5,145.3 L624.8,161.8 L625.4,179.2 L622.8,193.8 L623.1,210.2 L623.3,224.7 L623.9,242 L623.7,257.6 L625.1,272.5 L623.3,291.2 L624.8,306.8 L624.7,321.5 L623.9,336.8 L624.1,354 L622.5,371 L623.4,384.9 L624.1,402.8 L622.7,416.7 L625.1,435 L624,449.9 L625.6,466.9 L622.7,480.3 L607.3,480.7 L590.5,480.8 L575,478.9 L558.8,479.9 L544.8,479.5 L526.5,479.2 L512,481.4 L494.7,480.4 L479.6,480.8 L463.3,480.1 L447.8,478.6 L432.9,481 L414.5,481.5 L400.1,478.6 L384.2,481.4 L369.2,479.5 L352.3,478.7 L344.9,480 L343.8,462.4 L344.1,449.1 L343.6,431.8 L344.3,416.4 L345,401 L344.2,384.4 L343.6,367.9 L344.9,352.1 L345,335.1 L343.4,319.3 L344.7,303.9 L344.4,286.8 L345.5,270.8 L344.7,256.1 L343.4,238.4 L344.8,225.1 L345,207.4 L343.5,191.6 L343.1,175.9 L343.8,160.8 L345.3,144.9 L344.9,128.8 L343.6,113.6 L344.8,94.7 L343.7,78.9 L344,62.9 L343.3,48.1 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M345.1,13 L360.3,13 L376.5,13.4 L392.9,12.5 L407,13.1 L423.3,12.7 L441.4,12.5 L457,10.6 L470.9,11.1 L487.8,11.3 L503.6,13.2 L519.3,10.5 L529,13.3 L531,29 L530.2,35.3 L512.3,36.5 L498.9,36.5 L480.3,37.5 L466,37.5 L451.2,37 L433.8,35.9 L418,37.3 L403.2,35 L386.6,34.4 L371.3,37.5 L353.5,35.3 L342.4,35.7 L343.9,18.6 Z" fill="#2a2a2a"/>
+<text x="356" y="25" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">AVAILABILITY GROUP 2</text>
+<g transform="rotate(0 156 136)">
+<path class="d-paper" d="M30.3,56.3 L44.5,55.2 L62.1,55.4 L78.2,57.4 L94,54.7 L108.4,55.2 L126.3,54.9 L140.7,55.2 L157.7,54.9 L173.8,55.8 L190.7,56.5 L205.7,57 L221.3,54.7 L236.9,54.8 L253.5,57.2 L269.1,57.2 L282,56.3 L282.3,71.8 L283.1,87.9 L280.7,102.6 L281.9,121.5 L282.9,135.6 L281.4,151.5 L282.6,166.7 L281.1,183.4 L283.2,201.2 L283.3,214.9 L265.8,214.9 L250.5,217.5 L234.8,214.9 L217.2,217.5 L201.6,217.2 L187.3,217.2 L169.5,216.3 L153.2,217.3 L137.5,217.3 L120.7,214.5 L106.4,216.1 L89.3,214.4 L74.3,217.2 L57.4,214.6 L42.6,214.9 L30.5,217.2 L30.2,199.1 L28.6,185.1 L29.6,167.3 L29.3,152.5 L28.6,134.8 L31.2,118.5 L31.4,104.1 L31.2,86.5 L30.3,72.4 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="44" y="78" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#ededed" text-anchor="start" dominant-baseline="central">NODE 1</text>
+<text x="44" y="117" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">masters</text>
+<g transform="rotate(-0.7 141 117)">
+<path class="d-paper" d="M127.3,101.4 L141,101 L154.6,101.9 L156.2,119.4 L155,131.4 L140.1,133 L125.8,131.8 L126.9,116.8 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(0.5 179 117)">
+<path class="d-paper" d="M164.8,102.7 L179,101.7 L194.1,101.9 L193.1,117.9 L192.6,131.8 L179.3,131 L163.7,130.8 L165.4,116.3 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(-1.1 217 117)">
+<path class="d-paper" d="M202.5,101.3 L219.6,102.5 L231.1,100.6 L231.2,117 L232.2,131.6 L216.1,133.3 L201.4,131.2 L203.3,114.8 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(0.1 255 117)">
+<path class="d-paper" d="M239.3,101.2 L256.8,102.8 L270.7,101.8 L269.6,119.2 L270.3,133.1 L253.7,133.4 L240.9,131 L240,115.1 Z" fill="#ece6da"/>
+</g>
+<text x="44" y="169" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">replicas</text>
+<g transform="rotate(-0.2 141 169)">
+<path class="d-paper" d="M127,153 L140.8,154.5 L156.2,154.5 L155.6,169.7 L157.1,182.5 L141.3,183.9 L124.5,182.6 L126.3,167.8 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(0.3 179 169)">
+<path class="d-paper" d="M163.7,152.7 L181.2,155.1 L193.7,155.1 L193.5,169.8 L194,183.1 L178.1,183.2 L165.1,182.4 L162.5,169.5 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(0.9 217 169)">
+<path class="d-paper" d="M202.5,153.5 L217,152.4 L231.4,152.5 L230.6,168.5 L231.4,184.5 L217.3,184.9 L203,182.8 L202.2,169.1 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(0.4 255 169)">
+<path class="d-paper" d="M238.7,153.7 L256.7,154.6 L270,153.8 L271.1,170.9 L269.5,183.7 L254.4,182.5 L238.8,184.2 L238.9,167.5 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(0.4 156 380)">
+<path class="d-paper" d="M28.5,300 L45.1,299.9 L63.3,299.6 L79.2,299.4 L94.4,300.8 L111.1,299.6 L126.4,298.8 L143.2,300 L158.4,301 L172.9,300.4 L189.3,300.7 L204.6,300.6 L222.7,301.3 L237,299.4 L252.6,299.2 L271.2,298.6 L282.6,299.6 L281.3,317.6 L280.7,332.7 L282.3,347.6 L282.1,362.5 L281.4,381.1 L283,394.6 L280.8,411.1 L282.8,426.7 L281.8,443.2 L281.9,460.4 L264.8,459.5 L249.7,458.9 L233.4,460.7 L218.2,461.5 L200.4,460.4 L186.1,460.9 L168.7,458.4 L153.6,461.5 L137,458.4 L121.5,458.6 L106.8,460.7 L90.7,458.6 L72.7,458.4 L59,461.5 L40.5,458.7 L30,459.3 L30.8,443.8 L28.4,427.4 L28.7,410.7 L30.3,397.3 L30.7,379.7 L30.6,365 L30.5,349.4 L30,330.8 L31.3,316.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="44" y="322" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#ededed" text-anchor="start" dominant-baseline="central">NODE 3</text>
+<text x="44" y="361" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">masters</text>
+<g transform="rotate(1 141 361)">
+<path class="d-paper" d="M127,346 L142.9,345.7 L155.6,346.2 L156.3,362.2 L156.9,377.1 L141.1,377.3 L126.4,375.3 L125.7,359.3 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(0.7 179 361)">
+<path class="d-paper" d="M162.8,346.9 L179.3,345.6 L192.8,345.3 L192.8,362.2 L193.4,375.4 L177.3,376 L164.6,376 L163.6,360.3 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(0.9 217 361)">
+<path class="d-paper" d="M201.6,345.9 L219.1,345.7 L232,346.2 L233.1,361.2 L231.5,375.1 L216.8,376.6 L200.6,375.4 L201.8,361.2 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(0.3 255 361)">
+<path class="d-paper" d="M239.1,345.5 L255.7,347.2 L270,344.7 L271.2,362.8 L269.9,376.2 L252.8,375.7 L239.2,375.3 L238.6,359.9 Z" fill="#ece6da"/>
+</g>
+<text x="44" y="413" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">replicas</text>
+<g transform="rotate(1.2 141 413)">
+<path class="d-paper" d="M124.6,398.6 L140.5,396.8 L155.6,399.4 L155.9,415.5 L154.4,428.5 L139.9,427.6 L126.2,428.7 L124.9,411.9 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(0 179 413)">
+<path class="d-paper" d="M165.5,398.7 L179.2,397.4 L193.8,399.3 L195.3,415.5 L193.7,426.5 L176.9,426.7 L162.7,428.2 L164.4,411.5 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(0.3 217 413)">
+<path class="d-paper" d="M201.5,397.4 L218.4,399.5 L231,398.8 L233.3,413.9 L230.7,426.7 L217.3,429.3 L201.7,428.8 L201.1,411.3 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(-0.9 255 413)">
+<path class="d-paper" d="M240.2,397 L256.2,398.2 L269.6,398.4 L269.8,413 L268.7,429.1 L255.5,428.7 L240.1,428.4 L239.9,411.9 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(1.2 484 136)">
+<path class="d-paper" d="M358.7,57.3 L374.3,54.7 L388.9,54.5 L406.5,55.3 L422.5,56.4 L439.6,54.8 L454.3,54.5 L469.2,55.9 L486.4,55 L502.2,56.8 L518.3,56.6 L532.6,55.3 L550.5,55.9 L566.4,55.4 L582.5,56.9 L597,56.9 L610.9,56.2 L610.8,72.5 L610.8,89.5 L609.4,102.7 L610.1,121.1 L608.9,135.4 L609.9,150.5 L608.7,168.6 L609.7,184.5 L610.9,201.1 L608.9,215.3 L592.9,215.2 L577,215.6 L562.2,214.9 L546.9,214.9 L529,214.4 L515.1,215.1 L499.3,214.4 L482.8,215.7 L465.7,217.2 L450.3,216.1 L434.5,215.9 L417.3,214.9 L401.8,216.6 L385.6,216.5 L369.2,216.2 L358.9,214.5 L357.4,200.7 L358.1,183.3 L357.4,168.8 L356.9,151.3 L359.3,137.1 L359.5,120.2 L357.4,104.9 L358.2,87.3 L358.8,71.2 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="372" y="78" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#ededed" text-anchor="start" dominant-baseline="central">NODE 2</text>
+<text x="372" y="117" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">masters</text>
+<g transform="rotate(-0.2 469 117)">
+<path class="d-paper" d="M454.1,103.1 L469.4,101.2 L484.1,103.5 L485,117.2 L483.4,130.6 L468.9,131.1 L453.5,132.6 L454.7,115.1 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(0.6 507 117)">
+<path class="d-paper" d="M491.4,101.4 L508.2,100.8 L522.6,101.1 L520.8,118.4 L521.6,132.4 L506.6,130.5 L491.7,131 L490.6,116 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(0.5 545 117)">
+<path class="d-paper" d="M531.6,101.4 L545.4,100.8 L558.6,102.7 L558.7,117.4 L559.6,131.5 L543.3,132.9 L530.3,131.3 L528.8,116 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(0.1 583 117)">
+<path class="d-paper" d="M568,102.7 L584.5,102.8 L597,103.1 L597.9,117 L599.2,133 L582.8,133 L569.6,130.7 L568.8,115.3 Z" fill="#ece6da"/>
+</g>
+<text x="372" y="169" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">replicas</text>
+<g transform="rotate(-1.1 469 169)">
+<path class="d-paper" d="M455.3,153.1 L469.1,153.9 L485.4,153.3 L483.4,169.1 L484.2,183.7 L469,182.8 L454.8,184 L454.6,167.1 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(-0.8 507 169)">
+<path class="d-paper" d="M492.8,155.4 L506.7,152.7 L521,153 L520.7,169.6 L522,184.3 L504.7,185 L490.7,183.8 L492.8,169 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(-0.3 545 169)">
+<path class="d-paper" d="M531.3,152.6 L544.7,153.1 L559.9,152.9 L560,170.6 L559.3,184.6 L545.1,183.8 L529.9,184.2 L531.2,168.9 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(1 583 169)">
+<path class="d-paper" d="M568.4,154.1 L582.7,153.2 L598,152.9 L598.8,169.2 L598.9,185.5 L581.6,182.9 L568,184.4 L568.1,167.8 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(-1 484 380)">
+<path class="d-paper" d="M357.1,300.2 L375.1,300.5 L388.7,298.7 L404.6,299.4 L421.7,301.5 L437,299 L453.1,299.5 L470.7,300.3 L487.1,301.1 L500.8,299.7 L517,301.3 L534.7,301.2 L551.3,301.1 L566.8,301.4 L580.9,299.9 L599.3,298.5 L609.7,300.9 L609.6,315.9 L611.5,331.9 L610,348.9 L609.9,363.9 L610.2,379.8 L611.1,397.3 L608.5,412.7 L611.5,427.1 L610,443.7 L609,460.4 L593.2,460.6 L578.8,459.7 L563.6,460.2 L545.3,461 L529,459.5 L512.7,459.6 L496.4,459.9 L481.7,461.4 L465.2,459.8 L451.1,460.8 L435.5,459.3 L418,460.8 L401.7,460.7 L385.5,458.5 L368.8,459.3 L357.9,458.4 L357.6,445.4 L358.3,427.7 L357,411.8 L356.7,394.4 L359.3,380 L356.7,365.5 L358.9,348.8 L357.2,333.3 L356.9,317.3 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+</g>
+<text x="372" y="322" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#ededed" text-anchor="start" dominant-baseline="central">NODE 4</text>
+<text x="372" y="361" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">masters</text>
+<g transform="rotate(-0.4 469 361)">
+<path class="d-paper" d="M453.4,344.9 L469.9,344.4 L485.5,344.6 L483,362.8 L483,376.9 L469.4,374.5 L453.6,377 L455,359.5 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(0.8 507 361)">
+<path class="d-paper" d="M491,345.7 L509,345.4 L521.9,347 L522.5,361.3 L522.7,376.6 L504.8,375 L491.6,375.8 L492.1,358.9 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(-0.1 545 361)">
+<path class="d-paper" d="M529.9,345.8 L545.9,344.5 L560.8,345.6 L560.7,361 L560.3,375.9 L543.9,376.5 L531.4,377.2 L529.4,359.2 Z" fill="#ece6da"/>
+</g>
+<g transform="rotate(-1.2 583 361)">
+<path class="d-paper" d="M568.7,347 L582.5,346.3 L597.7,344.7 L599,362.8 L597,377.4 L581.5,376.3 L566.4,377.2 L568.8,359.5 Z" fill="#ece6da"/>
+</g>
+<text x="372" y="413" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">replicas</text>
+<g transform="rotate(1 469 413)">
+<path class="d-paper" d="M452.5,396.8 L471.4,398.8 L484.4,396.9 L484.2,412.6 L483.3,426.9 L467.9,429.2 L455.5,427.4 L454,411.4 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(-0.2 507 413)">
+<path class="d-paper" d="M492.1,397 L507.6,397.2 L520.7,398.5 L521.1,414.1 L522.8,427.9 L505,428.7 L491.6,429.6 L492.9,411.1 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(1 545 413)">
+<path class="d-paper" d="M529.3,399.2 L544.7,398 L560,398.5 L559.1,415.3 L561.4,429.6 L544,428.6 L530.9,427.2 L531.3,412.5 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<g transform="rotate(0.6 583 413)">
+<path class="d-paper" d="M569.4,398.5 L584.4,397.6 L598.8,398.9 L598.1,414.3 L597.5,427.6 L581,429.3 L567.7,428 L568.7,411.1 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+</g>
+<text x="320" y="486" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">masters copy to the partner node’s replicas</text>
+<g class="d-flow">
+<path d="M282.6,116.4 Q297.7,117.3 310.5,115.8 M312.7,116.5 Q312,139.3 312.7,162.2 M311.2,164.1 Q335.4,163.2 357.2,163" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-partition-placement-desktop-crayon)"/>
+<path d="M347,169.4 L356,163 L347,156.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-partition-placement-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M356.1,118.4 Q344.8,119.5 331.1,117.8 M330.6,116.2 Q330.3,144.1 330.3,174.6 M330.5,174 Q306.6,174.4 282.7,175.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-partition-placement-desktop-crayon)"/>
+<path d="M293,168.6 L284,175 L293,181.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-partition-placement-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M284.9,360.6 Q298.7,358.9 312.7,359.8 M311.8,362.5 Q311.3,385.2 311.2,407.5 M311.8,406.9 Q333.9,408.7 357,408" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-partition-placement-desktop-crayon)"/>
+<path d="M347,413.4 L356,407 L347,400.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-partition-placement-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M355.6,362.5 Q342.6,360.6 329.6,360.1 M330.3,359.5 Q328.7,388.8 330.1,418.9 M331.1,419.2 Q306.7,419 283.5,420.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-partition-placement-desktop-crayon)"/>
+<path d="M293,412.6 L284,419 L293,425.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-partition-placement-desktop-crayon)"/>
+</g>
+</svg>

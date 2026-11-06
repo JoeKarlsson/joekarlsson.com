@@ -26,6 +26,7 @@ const LOGOS = {
 	amazonwebservices: { color: '#FF9900' },
 	googlebigquery: { color: '#669DF6' },
 	openai: { color: '#412991' },
+	anthropic: { color: '#191919' },
 	meta: { color: '#0467DF' },
 	jira: { color: '#0052CC' },
 	googleanalytics: { color: '#E37400' },
