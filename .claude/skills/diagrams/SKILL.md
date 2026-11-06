@@ -53,6 +53,12 @@ unless he says otherwise for a specific figure.
    database without a usable logo, and so on for tools and steps. Pass `logo:` or
    `icon:` to a box; in a box too small for a mark beside the label, pass
    `stack: true` to put it on top. The kit colours each one for its surface.
+   Go get any logo that's missing before using an icon in its place: Simple Icons
+   first, then the company's own site (the header SVG, `/brand`, `/press`, a media
+   kit), then selfh.st icons and Dashboard Icons, then the repo's own copies
+   (`public/images/logos/`, the CData brand kit). Record the source in the logos
+   README. A product's container can show its wordmark on the tab
+   (`f.group({ ..., logo: 'tinybird' })`).
 4. **Every connection gets an arrow**, including one-to-many (fan the arrows out
    from one point to each target). One exception: when each line stands for a
    thing rather than a flow ("every line is a custom integration"), draw plain
@@ -114,9 +120,18 @@ Desktop canvases are 640 wide (1:1 with the post column), phone canvases 360.
 
 ## Doing the whole site
 
-List posts with diagram-like images:
-`grep -rlE '!\[[^]]*\]\([^)]*(diagram|flow|architecture|layers|loop)[^)]*\)' src/content/blog`,
-then check each image by eye: screenshots and photos stay as they are, and so do
-hero images (`heroImage` in the frontmatter), which also serve as cards and
-social previews. Redraw one
-post at a time through the workflow above, with a preview for Joe each time.
+Two kinds of old diagram get redrawn:
+
+1. **Images** that are diagrams. List them with
+   `grep -rlE '!\[[^]]*\]\([^)]*(diagram|flow|architecture|layers|loop)[^)]*\)' src/content/blog`
+   and check each by eye: screenshots, photos, charts and hero images (`heroImage`
+   in the frontmatter, which also serve as cards and social previews) stay as
+   they are.
+2. **ASCII diagrams** in code blocks: box-drawing characters (`┌─│└`), `+---+`
+   boxes, or `|`/`v`/`-->` arrows between lines. Replace the whole fenced block
+   with the figure's `![alt](...svg)` line. File and directory trees stay as text,
+   because readers copy them.
+
+Redraw one post at a time through the workflow above, finishing every diagram in
+a post in the same batch so no post mixes old and new, with a preview for Joe
+each time.

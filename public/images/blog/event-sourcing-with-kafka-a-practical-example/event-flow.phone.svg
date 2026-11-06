@@ -58,9 +58,7 @@
 </g>
 <g transform="rotate(-0.3 180 446)">
 <path class="d-paper" d="M41.5,406.1 L54.6,405.3 L72.2,407.1 L86.8,405.2 L102.6,405.6 L120.7,406 L135.3,404.7 L152.2,406.2 L167.7,405.3 L184.6,405.4 L198.7,404.9 L215.9,404.9 L231,405.1 L247.2,406.4 L262.7,404.9 L281.5,405 L295.5,404.4 L311.7,406.6 L319.8,405.3 L320.2,421.5 L318.4,439.1 L320.8,455.6 L319.5,468.8 L319,486.9 L303.4,485.7 L288.7,486.8 L271.9,487 L254.5,484.8 L241.3,484.8 L224.5,486.3 L209.5,484.8 L191.8,486.9 L174.5,487 L159,486.2 L142.6,484.5 L126.5,486.6 L111,486.5 L95.8,486 L79,486.2 L65,485.5 L46.8,485.9 L40,486.7 L40.5,468.5 L39.3,455.3 L41,437.2 L40.9,423 Z" fill="#ff4fd8"/>
-<svg x="54" y="432" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-  <path d="M3 3v5h5" />
-  <path d="M12 7v5l4 2" /></g></svg>
+<svg x="54" y="432" width="28" height="28" viewBox="0 0 32 32"><g fill="#000000"><path d="m7.948 32 14.415-9.413-8.808-3.33z" opacity="0.6"></path><path d="m0 14.112 22.363 8.474 3.775-17.6z"></path><path d="M32 2.93 22.077 0l-3.345 7.566z" opacity="0.6"></path></g></svg>
 <text x="201" y="436.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">EVENT SOURCING</text>
 <text x="201" y="457.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">snapshots in Tinybird</text>
 </g>

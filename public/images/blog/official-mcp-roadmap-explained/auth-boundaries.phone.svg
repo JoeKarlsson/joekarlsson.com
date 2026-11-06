@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 880" width="360" height="880" role="img" aria-label="Two auth boundaries in an MCP deployment. Between the AI agent and the MCP server sits agent-to-server identity, which the roadmap covers with DPoP, workload identity federation and token exchange. Between the MCP server and enterprise data sources like Salesforce, SQL Server, an on-premises database and a REST API sits server-to-source credentials (OAuth tokens, service accounts, API keys), which the roadmap doesn’t cover, so it stays per connector.">
+<defs><filter id="official-mcp-roadmap-explained-auth-boundaries-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="920">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="880" fill="#000000"/>
+<path class="d-paper" d="M9,518.7 L25.5,520.4 L41.5,520.7 L56.8,520.2 L72.2,520.2 L88.1,518.5 L103.3,519.8 L121.2,519.2 L136,521.2 L152.2,518.9 L168.5,520.1 L184.7,521.1 L199.8,519.2 L215.1,521 L232.6,519.5 L248.2,519.4 L262.5,521.2 L280.7,520 L296.4,520.8 L310.5,521.5 L327.7,520.7 L343.3,519.5 L351.9,519.2 L350.9,534.5 L353.4,551.2 L353.6,569.2 L351.5,583.1 L352.1,599.1 L350.5,616.6 L352.9,632.8 L352.2,648.1 L352.4,665 L352.9,680.6 L351.8,695 L351.3,712.3 L350.6,729.4 L350.9,742.6 L352.9,758.5 L352.5,770 L334.7,769.9 L320.6,771.4 L304.7,768.6 L288.2,770.7 L273,770.1 L256.3,769.5 L239.9,770.4 L225.2,771 L209.3,769.3 L193.2,771.2 L177.5,770 L159.7,771 L142.6,768.6 L127.8,771.4 L110.8,769.4 L95.2,770.4 L80.6,770.6 L63.3,768.5 L46.9,770.9 L33,771.2 L16,769.2 L9.1,770 L7.2,752.5 L7.4,736.6 L7.7,720.5 L6.9,706.6 L9.2,689.2 L9.5,672.4 L7,656.7 L7.9,640.8 L8.4,626.7 L8.4,610.1 L7.8,594.1 L7.9,577.6 L8.3,560.8 L9.5,546.5 L8.2,531.3 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M6.6,499 L23.4,496.6 L39.6,499.2 L56.5,496.4 L72.5,496.7 L88.1,497.2 L103.2,499.4 L120.5,499.4 L128.6,498.4 L131.1,513.6 L131.3,523 L113.6,522.4 L96.5,522.5 L83.3,520.5 L65.1,520.4 L51.4,521.5 L32.9,521.1 L16.9,521.3 L7.9,521.2 L8.7,507.2 Z" fill="#2a2a2a"/>
+<text x="20" y="511" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">DATA SOURCES</text>
+<g transform="rotate(1.1 116 45)">
+<path class="d-paper" d="M16.9,14.6 L30.7,16.5 L46.9,17.1 L65.2,16.1 L80.3,15.9 L95.8,17.6 L112.1,15.5 L126.8,15.8 L144.2,16.2 L160,16.1 L176.6,16.9 L191.9,14.7 L207.3,14.5 L215.2,14.9 L217.3,33.3 L215,49 L216.2,64.8 L215.1,74.1 L200.5,73.5 L182.8,74 L168.9,74.9 L153.4,75.5 L134.4,73.7 L120.7,73.7 L104,73.7 L86.4,74 L72.3,73.5 L55.8,75 L39.9,73.4 L22.6,75.3 L15.7,73 L14.6,59.6 L16.8,42.2 L16.1,27 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="30" y="31" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" /></g></svg>
+<text x="137" y="45" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">AI AGENT</text>
+</g>
+<path d="M12,160 L19,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M26,160 L33,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M40,160 L47,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M54,160 L61,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M68,160 L75,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M82,160 L89,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M96,160 L103,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M110,160 L117,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M124,160 L131,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M138,160 L145,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M152,160 L159,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M166,160 L173,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M180,160 L187,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M194,160 L201,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M208,160 L215,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M222,160 L229,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M236,160 L243,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M250,160 L257,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M264,160 L271,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M278,160 L285,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M292,160 L299,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M306,160 L313,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M320,160 L327,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<path d="M334,160 L341,160" fill="none" stroke="#ece6da" stroke-width="2" stroke-linecap="round"/>
+<svg x="80" y="75" width="18" height="18" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="m9 12 2 2 4-4" /></g></svg>
+<text x="104" y="84" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">covered by the roadmap:</text>
+<text x="80" y="110" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">agent-to-server identity</text>
+<text x="80" y="190" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">DPoP, workload identity</text>
+<text x="80" y="208" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">federation, token exchange</text>
+<g transform="rotate(-0.7 116 285)">
+<path class="d-paper" d="M17.5,256 L32.9,257.3 L48.7,254.4 L65.4,256.4 L79.7,256.6 L97.2,254.9 L113.4,256.3 L127.5,255.1 L145.1,255.4 L159.8,257 L175.3,255.2 L192.1,256.1 L209.3,255.7 L217.5,255 L216.3,272.3 L214.6,288.6 L217.1,303.6 L217.2,313.5 L201.5,313.8 L183.3,313.6 L168.6,314.8 L152.3,314.8 L134.8,314.4 L118.8,312.4 L102.6,313.7 L88.6,314 L72.7,313.7 L56.1,313.3 L40.9,314.4 L25.4,314.5 L16.8,314.9 L15.9,299.4 L15.8,281.1 L17.2,264.4 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="30" y="271" width="28" height="28" viewBox="0 0 24 24"><g fill="#ededed"><path d="M13.85 0a4.16 4.16 0 0 0-2.95 1.217L1.456 10.66a.835.835 0 0 0 0 1.18.835.835 0 0 0 1.18 0l9.442-9.442a2.49 2.49 0 0 1 3.541 0 2.49 2.49 0 0 1 0 3.541L8.59 12.97l-.1.1a.835.835 0 0 0 0 1.18.835.835 0 0 0 1.18 0l.1-.098 7.03-7.034a2.49 2.49 0 0 1 3.542 0l.049.05a2.49 2.49 0 0 1 0 3.54l-8.54 8.54a1.96 1.96 0 0 0 0 2.755l1.753 1.753a.835.835 0 0 0 1.18 0 .835.835 0 0 0 0-1.18l-1.753-1.753a.266.266 0 0 1 0-.394l8.54-8.54a4.185 4.185 0 0 0 0-5.9l-.05-.05a4.16 4.16 0 0 0-2.95-1.218c-.2 0-.401.02-.6.048a4.17 4.17 0 0 0-1.17-3.552A4.16 4.16 0 0 0 13.85 0m0 3.333a.84.84 0 0 0-.59.245L6.275 10.56a4.186 4.186 0 0 0 0 5.902 4.186 4.186 0 0 0 5.902 0L19.16 9.48a.835.835 0 0 0 0-1.18.835.835 0 0 0-1.18 0l-6.985 6.984a2.49 2.49 0 0 1-3.54 0 2.49 2.49 0 0 1 0-3.54l6.983-6.985a.835.835 0 0 0 0-1.18.84.84 0 0 0-.59-.245"/></g></svg>
+<text x="137" y="285" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">MCP SERVER</text>
+</g>
+<path d="M12,400 L19,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M26,400 L33,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M40,400 L47,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M54,400 L61,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M68,400 L75,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M82,400 L89,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M96,400 L103,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M110,400 L117,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M124,400 L131,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M138,400 L145,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M152,400 L159,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M166,400 L173,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M180,400 L187,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M194,400 L201,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M208,400 L215,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M222,400 L229,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M236,400 L243,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M250,400 L257,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M264,400 L271,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M278,400 L285,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M292,400 L299,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M306,400 L313,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M320,400 L327,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<path d="M334,400 L341,400" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+<svg x="80" y="335" width="18" height="18" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+  <path d="M7 11V7a5 5 0 0 1 10 0v4" /></g></svg>
+<text x="104" y="344" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">not in the roadmap:</text>
+<text x="80" y="370" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">server-to-source credentials</text>
+<text x="80" y="430" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">OAuth tokens, service</text>
+<text x="80" y="448" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">accounts, API keys</text>
+<g transform="rotate(0.2 98 588)">
+<path class="d-paper" d="M21.5,536.5 L34.8,539.4 L51.5,538.7 L69,539.1 L85.2,538.9 L100.7,537.5 L116.2,536.9 L131.1,536.7 L147.7,536.4 L163.8,537.5 L174.6,538.7 L176.2,555.1 L174.5,570.4 L176.5,587.3 L177.3,600.7 L174.5,617 L174.5,633.2 L176.4,636.9 L158.9,638.3 L142.5,639.3 L128.1,637.9 L113,639.1 L96,638.6 L79.4,638.4 L65.6,637.3 L47.2,637.3 L33.4,638.9 L20.9,637.1 L21.2,622.4 L20.4,607.3 L18.5,591.3 L20.1,575.4 L20.9,559.2 L19.4,541.6 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="85" y="546" width="26" height="26" viewBox="0 0 24 24"><g fill="#00A1E0"><path d="M10.006 5.415a4.195 4.195 0 013.045-1.306c1.56 0 2.954.9 3.69 2.205.63-.3 1.35-.45 2.1-.45 2.85 0 5.159 2.34 5.159 5.22s-2.31 5.22-5.176 5.22c-.345 0-.69-.044-1.02-.104a3.75 3.75 0 01-3.3 1.95c-.6 0-1.155-.15-1.65-.375A4.314 4.314 0 018.88 20.4a4.302 4.302 0 01-4.05-2.82c-.27.062-.54.076-.825.076-2.204 0-4.005-1.8-4.005-4.05 0-1.5.811-2.805 2.01-3.51-.255-.57-.39-1.2-.39-1.846 0-2.58 2.1-4.65 4.65-4.65 1.53 0 2.85.705 3.72 1.8"/></g></svg>
+<text x="98" y="605" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">SALESFORCE</text>
+</g>
+<g transform="rotate(-0.5 262 588)">
+<path class="d-paper" d="M184.2,537.1 L198.5,538.5 L215.4,536.4 L231.4,539.3 L248.3,538.1 L265.5,538.2 L278.6,537.3 L295.9,539.3 L311,537.8 L327,538.7 L340,536.7 L340.1,554 L340.6,568.9 L339.8,586.2 L339.3,602.9 L339.9,618.8 L341.2,632.7 L340.6,638.3 L322.5,637 L308.2,638.4 L290.4,637.3 L276.1,637 L259.6,637.7 L244.8,637.2 L229.5,636.8 L211.3,638.9 L196.8,637.8 L184.8,638.6 L184.2,621.7 L183.8,606.1 L184.5,590.2 L184.6,574.6 L185.2,558.4 L185.4,540.5 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="249" y="546" width="26" height="26" viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" transform="rotate(-45 32.002 31.994)" fill="#be4040"/><path d="M53.92 10.08a31 31 0 010 43.84L10.08 10.08a31 31 0 0143.84 0z" fill="#b72b2b"/><path d="M11.65 37.33a6.35 6.35 0 001 .62 8.12 8.12 0 002.29.74 6.83 6.83 0 001.12.1 5 5 0 003.1-.8 2.74 2.74 0 001-2.3 2.85 2.85 0 00-1-2.27 7.81 7.81 0 00-1.28-.93q-.77-.46-1.83-1t-2-1.2a7.27 7.27 0 01-1.36-1.16A3.91 3.91 0 0112 27.8a4.6 4.6 0 01-.25-1.56 4.12 4.12 0 01.47-2 4.62 4.62 0 011.27-1.49 5.86 5.86 0 011.87-.95 7.73 7.73 0 012.29-.33 9.45 9.45 0 013.59.6V24a7.46 7.46 0 00-3.81-1 5.78 5.78 0 00-1.53.2 4 4 0 00-1.26.58 2.79 2.79 0 00-.85.95 2.69 2.69 0 00-.31 1.31 3.26 3.26 0 00.21 1.22 2.93 2.93 0 00.67 1 6.37 6.37 0 001.22.91q.75.45 1.85 1a22.1 22.1 0 012 1.19 7.79 7.79 0 011.42 1.21 4.46 4.46 0 01.84 1.33 4.24 4.24 0 01.31 1.59 4.72 4.72 0 01-.44 2.1 4.09 4.09 0 01-1.24 1.5 5.68 5.68 0 01-1.9.9 9.1 9.1 0 01-2.42.3 9 9 0 01-1-.07 11.91 11.91 0 01-1.21-.2 11.32 11.32 0 01-1.16-.32 4.23 4.23 0 01-.89-.4zM33 40.3a8.79 8.79 0 01-3.5-.67 7.7 7.7 0 01-2.68-1.89 8.42 8.42 0 01-1.71-2.91 11.08 11.08 0 01-.6-3.74 12 12 0 01.62-4 8.66 8.66 0 011.76-3 7.69 7.69 0 012.77-1.94 9.46 9.46 0 013.66-.68 8.38 8.38 0 013.38.67A7.61 7.61 0 0139.34 24 8.56 8.56 0 0141 26.93a10.93 10.93 0 01.6 3.71 11.58 11.58 0 01-1 5.08A7.82 7.82 0 0137.72 39l5 3.42h-3.04L36 39.83a9.09 9.09 0 01-1.43.35 9.84 9.84 0 01-1.57.12zm.15-17.3a6.59 6.59 0 00-2.77.58 6.35 6.35 0 00-2.17 1.62 7.5 7.5 0 00-1.42 2.49 9.68 9.68 0 00-.51 3.22 10.14 10.14 0 00.48 3.22 7.33 7.33 0 001.36 2.48 6 6 0 002.11 1.59 6.64 6.64 0 002.76.56 7.32 7.32 0 002.86-.53A5.89 5.89 0 0038 36.7a7 7 0 001.38-2.48 10.58 10.58 0 00.48-3.32 10.87 10.87 0 00-.47-3.33 7 7 0 00-1.35-2.47 5.79 5.79 0 00-2.12-1.54 7 7 0 00-2.77-.56zm12.01 17V21.79h1.69v16.67h7.31V40z" fill="#fff"/></svg>
+<text x="262" y="605" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">SQL SERVER</text>
+</g>
+<g transform="rotate(0 98 702)">
+<path class="d-paper" d="M20.6,651.1 L34.7,652 L52.5,653.2 L68.4,650.5 L83.4,651.3 L99.7,651 L116.5,652.3 L132.7,651.2 L147.7,651.8 L164.2,650.9 L175.9,652.8 L176.7,669.5 L174.8,684.6 L175.2,701 L174.5,716 L174.5,733.6 L175.3,749.2 L175.5,751.1 L159.9,752.5 L144.3,752.4 L128.7,752.7 L112.9,753.3 L94.7,753.5 L79.8,750.5 L63.3,751.7 L48.5,752.3 L31.1,751.7 L21.4,753.3 L21.2,736.1 L20.6,718.5 L20.5,704.8 L21.3,689.3 L19.1,673.5 L21.4,656.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="85" y="660" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+  <line x1="6" x2="6.01" y1="6" y2="6" />
+  <line x1="6" x2="6.01" y1="18" y2="18" /></g></svg>
+<text x="98" y="707.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">ON-PREM</text>
+<text x="98" y="730.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">DATABASE</text>
+</g>
+<g transform="rotate(-0.8 262 702)">
+<path class="d-paper" d="M184.7,652.2 L199.9,651.3 L214.5,653.5 L231,652.5 L248.9,651.2 L263.9,652.9 L279.1,650.9 L296.1,651.2 L312.3,653.1 L329.4,651.2 L340.4,651.6 L341.2,666.7 L340.5,683.5 L341.6,698.9 L341.2,714.7 L339.4,733.5 L338.5,749.2 L340.8,752.4 L324.3,752.4 L306.8,752.9 L290.9,752.5 L275,750.5 L259.9,752.8 L242.7,753.2 L228.2,753.3 L211.5,752.1 L197,752.7 L184.6,750.8 L185.2,735.5 L183.2,719.2 L185,704.1 L184.1,688.8 L184.7,672.4 L183.2,655.3 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="249" y="660" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5" />
+  <path d="M9 8V2" />
+  <path d="M15 8V2" />
+  <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></g></svg>
+<text x="262" y="719" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">REST API</text>
+</g>
+<text x="16" y="806" font-family="Fraunces, Georgia, serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">The roadmap closes the agent-to-server</text>
+<text x="16" y="828" font-family="Fraunces, Georgia, serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">gap. Credentials to each data source</text>
+<text x="16" y="850" font-family="Fraunces, Georgia, serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">stay per connector.</text>
+<g class="d-flow">
+<path d="M60.1,75.8 Q60.2,164.6 61.3,255.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#official-mcp-roadmap-explained-auth-boundaries-phone-crayon)"/>
+<path d="M53.6,245 L60,254 L66.4,245" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#official-mcp-roadmap-explained-auth-boundaries-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M58.8,316.4 Q58.7,406 60.2,497.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#official-mcp-roadmap-explained-auth-boundaries-phone-crayon)"/>
+<path d="M53.6,487 L60,496 L66.4,487" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#official-mcp-roadmap-explained-auth-boundaries-phone-crayon)"/>
+</g>
+</svg>

@@ -138,7 +138,7 @@ Organizations have developed several distinct approaches to Kubernetes governanc
 
 ### The Script-Based Approach
 
-![Diagram titled 'Script-Based Approach' showing cron Jobs and Custom Scripts feeding into kubectl, which queries multiple Kubernetes clusters. Issues highlighted include authentication and rate limit problems, maintenance overhead, and performance slowdowns at scale.](/images/blog/kubernetes-asset-tracking-at-scale/image2.webp)
+![The script-based approach: cron jobs and custom scripts run kubectl against each Kubernetes cluster. It falls short on maintenance, breaks when cluster configurations change, struggles with authentication and rate limits, and slows down at scale.](/images/blog/kubernetes-asset-tracking-at-scale/script-based.svg)
 
 Many organizations begin with a collection of custom scripts and cron jobs that execute kubectl commands against their clusters. This approach is simple to implement initially but comes with significant drawbacks at scale. Scripts are difficult to maintain, prone to breaking when cluster configurations change, and struggle with authentication and rate limiting in multi-cluster environments.
 
@@ -146,7 +146,7 @@ Google's Site Reliability Engineering team has documented how their initial scri
 
 ### The Agent-Based Approach
 
-![Diagram titled 'Agent-Based Approach' showing three Kubernetes clusters each running an agent that sends data to a Central Platform. Listed issues include resource overhead, management complexity, and a focus on metrics over configuration data.](/images/blog/kubernetes-asset-tracking-at-scale/image5.webp)
+![The agent-based approach: an agent runs inside each Kubernetes cluster and reports to a central platform. It gives near real-time visibility, but the agents use resources in every cluster, get harder to manage as clusters grow, and focus on metrics over configuration.](/images/blog/kubernetes-asset-tracking-at-scale/agent-based.svg)
 
 Some organizations deploy monitoring agents within each Kubernetes cluster that report metrics and configuration data back to a central platform. This approach, used by tools like Datadog and New Relic, provides near real-time visibility but typically focuses more on performance metrics than configuration governance.
 
@@ -154,7 +154,7 @@ The primary limitation is that agents require cluster access and consume resourc
 
 ### The Snapshot-Based Approach
 
-![Diagram titled 'Snapshot-Based Approach' showing three labeled snapshots pointing to a storage system. Drawbacks listed include historical audit use, stale data, and lack of real-time query capabilities.](/images/blog/kubernetes-asset-tracking-at-scale/image3.webp)
+![The snapshot-based approach: periodic snapshots of cluster configuration go to object storage like S3 or GCS. They make a good historical record for audits, but the data goes stale between snapshots and there's no real-time querying.](/images/blog/kubernetes-asset-tracking-at-scale/snapshot-based.svg)
 
 Another common pattern is periodic snapshots of cluster configuration, often stored in object storage like S3 or GCS. This approach provides a historical record of cluster state but typically lacks real-time querying capabilities. Teams must process these snapshots with custom tools to extract meaningful insights.
 

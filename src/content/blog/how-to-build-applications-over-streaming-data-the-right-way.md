@@ -39,7 +39,7 @@ The practical uses for streaming data are numerous and span many industries. Her
 
 A typical [real-time data architecture](https://www.tinybird.co/blog-posts/real-time-streaming-data-architectures-that-scale?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data) for applications built over streaming data might resemble something like this:
 
-![Typical real-time streaming data architecture diagram](/images/blog/how-to-build-applications-over-streaming-data-the-right-way/98f17df0-image1.webp)
+![A typical architecture for an app over streaming data: Kafka feeds Flink, which feeds ClickHouse, which feeds a backend and ORM, which serves APIs to the frontend. Six systems to build and run.](/images/blog/how-to-build-applications-over-streaming-data-the-right-way/typical-architecture.svg)
 
 - **Kafka:** Apache Kafka functions as the entry point for real-time data, offering reliable data ingestion capabilities. It manages the capture, buffering and ordering of continuous data streams, making the data ready for downstream processing.
 
@@ -69,7 +69,7 @@ While this architecture serves its purpose, it presents several challenges:
 
 Real-time data platforms like Tinybird aim to simplify building applications over streaming data by addressing many of these challenges. The result is a simplified streaming data architecture that consolidates many components into a single system:
 
-![Simplified streaming architecture using a real-time data platform](/images/blog/how-to-build-applications-over-streaming-data-the-right-way/5a39a252-image2.webp)
+![A simplified architecture: Kafka feeds Tinybird, a real-time data platform that does the work of the middle systems in one place, and Tinybird serves the frontend.](/images/blog/how-to-build-applications-over-streaming-data-the-right-way/simplified-architecture.svg)
 
 With real-time data platforms, you need only focus on your data source (such as Kafka) and your frontend. Within Tinybird, several functionalities get abstracted away, including:
 

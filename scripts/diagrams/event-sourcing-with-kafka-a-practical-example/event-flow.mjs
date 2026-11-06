@@ -60,7 +60,7 @@ export const desktop = {
 			sub: ['snapshots in Tinybird'],
 			subSize: 14,
 			size: 15,
-			icon: 'history',
+			logo: 'tinybird-mark',
 		});
 		f.arrow([
 			[390, 312],
@@ -122,7 +122,7 @@ export const phone = {
 			sub: ['snapshots in Tinybird'],
 			subSize: 14,
 			size: 15,
-			icon: 'history',
+			logo: 'tinybird-mark',
 		});
 		f.arrow([
 			[180, 488],

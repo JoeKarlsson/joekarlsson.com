@@ -37,7 +37,7 @@ On the other hand, you’ve got historical transaction data stored in your data 
 
 You can use a real-time data platform as an [online feature store](https://www.tinybird.co/blog-posts/using-tinybird-as-a-serverless-online-feature-store?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses), using historical data in your data warehouse to model fraudulent behavior while computing features on the fly via event streams.
 
-![Fraud detection architecture combining Kafka streams with Snowflake warehouse data](/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/1615e62b-image3-e1690299751174.webp)
+![Fraud detection: a live stream of transactions from Kafka and historical transactions from the data warehouse both go into Tinybird, which stores them for OLAP queries and, over SQL, serves a real-time API to the fraud detection application.](/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/fraud-detection.svg)
 
 For example, let’s assume you have historical transaction data stored in Snowflake, where each transaction is associated with a customer and has fields such as `transaction_amount`, `transaction_location`, etc. Also, let’s assume that there is a historical pattern of fraud where fraudulent transactions are typically significantly larger than a customer’s average transaction amount.
 
@@ -72,7 +72,7 @@ Having a [real-time analytics e-commerce dashboard](https://www.tinybird.co/blog
 
 A real-time data platform makes this possible. It can connect to your Kafka stream and data warehouse, pulling in live transaction data and product dimensions respectively. The advantage? You can write SQL queries to extract real-time insights such as top-selling products, shopper transaction history, sales trends and inventory status.
 
-![E-commerce personalization architecture joining Kafka transactions with product data](/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/e59ad9e7-image2-e1690300048853.webp)
+![E-commerce personalization: a live stream of shopping events from Kafka and product dimensions from the data warehouse both go into Tinybird, which stores them for OLAP queries and, over SQL, serves a real-time API for personalization.](/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/personalization.svg)
 
 Here’s an example SQL query that combines transaction data from Kafka and hydrates the stream data with product data from Snowflake to get a complete list of the 100 most recent orders on the system. The beauty of real-time data is that it gives you an instant snapshot of your business, enabling data-driven decision-making on the fly.
 
@@ -97,7 +97,7 @@ In this scenario, you’re dealing with two types of data: streaming log events 
 
 Yes, you want to monitor and analyze these log events in real time, but you also want to compare them with historical data to spot any trends or anomalies. That’s where you use a [real-time data platform](https://www.tinybird.co/product?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses) to bring together your streaming log events and historical data, and then use a SQL query to analyze this data in real time.
 
-![Log analytics architecture comparing streaming events with historical data](/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/74a7b57b-image1-e1690300220768.webp)
+![Log analytics: live log events from Kafka and historical logs from the data warehouse both go into Tinybird, which stores them for OLAP queries and, over SQL, serves a real-time API for anomaly detection.](/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/log-analytics.svg)
 
 For example, suppose each log event has a `log_type` (such as “ERROR,” “WARNING,” “INFO”) and a `timestamp`. You want to know, in real time, how the count of each log type in the last hour compares to its average hourly count over the last 30 days.
 

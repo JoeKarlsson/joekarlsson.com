@@ -3,22 +3,27 @@
 Real logos for post diagrams, all transparent SVG. `draw.mjs` lists each one in
 `LOGOS` and picks the version that reads on the surface it sits on.
 
-| File                                                            | Source                                          | Use                                   |
-| --------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------- |
-| `claude.svg`                                                    | [Simple Icons](https://simpleicons.org) 13.21.0 | Claude, Claude Code                   |
-| `salesforce.svg`, `zendesk.svg`, `stripe.svg`                   | Simple Icons 13.21.0                            | Those apps                            |
-| `python.svg`                                                    | Simple Icons 13.21.0                            | Python code (play.py)                 |
-| `amazonwebservices.svg`                                         | Simple Icons 13.21.0                            | AWS                                   |
-| `googlebigquery.svg`                                            | Simple Icons 13.21.0                            | BigQuery                              |
-| `openai.svg`, `anthropic.svg`, `meta.svg`                       | Simple Icons 13.21.0                            | OpenAI and ChatGPT, Anthropic, Meta   |
-| `jira.svg`, `slack.svg`, `googleanalytics.svg`                  | Simple Icons 13.21.0                            | Those apps                            |
-| `snowflake.svg`, `sap.svg`, `postgresql.svg`, `apachekafka.svg` | Simple Icons 13.21.0                            | Those data sources                    |
-| `mongodb.svg`, `googlecloud.svg`                                | Simple Icons 13.21.0                            | MongoDB, Google Cloud                 |
-| `modelcontextprotocol.svg`                                      | Simple Icons 15.10.0 (not in 13.21.0)           | MCP                                   |
-| `connect-ai-color-on-dark.svg`                                  | CData brand kit, Connect AI agility-clarity     | Connect AI on black                   |
-| `connect-ai-color-on-light.svg`                                 | CData brand kit, Connect AI agility-depth       | Connect AI on chalk or white          |
-| `connect-ai-black.svg`, `connect-ai-white.svg`                  | CData brand kit, depth and clarity              | One-colour Connect AI (black on pink) |
-| `cdata-color.svg`, `cdata-black.svg`, `cdata-white.svg`         | CData brand kit monograms                       | The CData mark                        |
+| File                                                            | Source                                                                              | Use                                   |
+| --------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------- |
+| `claude.svg`                                                    | [Simple Icons](https://simpleicons.org) 13.21.0                                     | Claude, Claude Code                   |
+| `salesforce.svg`, `zendesk.svg`, `stripe.svg`                   | Simple Icons 13.21.0                                                                | Those apps                            |
+| `python.svg`                                                    | Simple Icons 13.21.0                                                                | Python code (play.py)                 |
+| `amazonwebservices.svg`                                         | Simple Icons 13.21.0                                                                | AWS                                   |
+| `googlebigquery.svg`                                            | Simple Icons 13.21.0                                                                | BigQuery                              |
+| `openai.svg`, `anthropic.svg`, `meta.svg`                       | Simple Icons 13.21.0                                                                | OpenAI and ChatGPT, Anthropic, Meta   |
+| `jira.svg`, `slack.svg`, `googleanalytics.svg`                  | Simple Icons 13.21.0                                                                | Those apps                            |
+| `snowflake.svg`, `sap.svg`, `postgresql.svg`, `apachekafka.svg` | Simple Icons 13.21.0                                                                | Those data sources                    |
+| `mongodb.svg`, `googlecloud.svg`                                | Simple Icons 13.21.0                                                                | MongoDB, Google Cloud                 |
+| `modelcontextprotocol.svg`                                      | Simple Icons 15.10.0 (not in 13.21.0)                                               | MCP                                   |
+| `kubernetes.svg`, `apacheflink.svg`, `clickhouse.svg`           | Simple Icons 13.21.0                                                                | Kubernetes, Flink, ClickHouse         |
+| `tinybird.svg`, `tinybird-mark.svg`                             | The header logo on tinybird.co (Nov 2026); the mark is its bird alone               | Tinybird                              |
+| `litellm.svg`, `microsoftteams.svg`, `sharepoint.svg`           | [selfh.st icons](https://selfh.st/icons/) (CC BY 4.0)                               | LiteLLM, Microsoft Teams, SharePoint  |
+| `sqlserver.svg`                                                 | Microsoft Learn product logo (`learn.microsoft.com/en-us/media/logos/logo_sql.svg`) | SQL Server                            |
+| `netsuite.svg`                                                  | [Dashboard Icons](https://github.com/homarr-labs/dashboard-icons)                   | NetSuite                              |
+| `connect-ai-color-on-dark.svg`                                  | CData brand kit, Connect AI agility-clarity                                         | Connect AI on black                   |
+| `connect-ai-color-on-light.svg`                                 | CData brand kit, Connect AI agility-depth                                           | Connect AI on chalk or white          |
+| `connect-ai-black.svg`, `connect-ai-white.svg`                  | CData brand kit, depth and clarity                                                  | One-colour Connect AI (black on pink) |
+| `cdata-color.svg`, `cdata-black.svg`, `cdata-white.svg`         | CData brand kit monograms                                                           | The CData mark                        |
 
 Simple Icons files are a single black path: `draw.mjs` fills them with the
 brand colour from `LOGOS`, or white or black when that colour falls under 3:1
@@ -28,5 +33,4 @@ contrast against the surface. The CData brand kit lives in
 To add a logo: download the Simple Icons SVG (`https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/<name>.svg`)
 or copy the company's own transparent SVG here, then add an entry to `LOGOS`.
 
-Not available as a usable vector: Microsoft SQL Server (Microsoft had it removed
-from Simple Icons), NetSuite, SharePoint, Microsoft Teams, Tinybird and Doom. Figures name those without a logo.
+Still without a usable vector logo: Doom. Before falling back to an icon, check Simple Icons, the company's own site (the header SVG, /brand, /press), selfh.st icons and Dashboard Icons.

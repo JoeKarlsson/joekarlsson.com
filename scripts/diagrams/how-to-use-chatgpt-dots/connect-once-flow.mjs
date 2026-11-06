@@ -5,7 +5,7 @@ const APPS = [
 	{ mark: 'salesforce', name: ['Salesforce'] },
 	{ mark: 'jira', name: ['Jira'] },
 	{ mark: 'googleanalytics', name: ['Google', 'Analytics'] },
-	{ mark: 'building-2', name: ['NetSuite'] },
+	{ mark: 'netsuite', name: ['NetSuite'] },
 	{ mark: 'boxes', name: ['Hundreds more', 'incl. on-premises'] },
 ];
 

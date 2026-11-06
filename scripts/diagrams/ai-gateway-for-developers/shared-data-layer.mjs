@@ -12,7 +12,7 @@ const WORKSPACES = [
 	['Sales', 'opps.*'],
 ];
 const SOURCES = [
-	['SQL Server', 'database'],
+	['SQL Server', 'sqlserver'],
 	['BigQuery', 'googlebigquery'],
 	['Salesforce', 'salesforce'],
 ];

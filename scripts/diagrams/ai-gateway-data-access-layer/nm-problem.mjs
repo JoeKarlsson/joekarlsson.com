@@ -6,7 +6,7 @@ const SOURCES = [
 	{ label: 'Snowflake', logo: 'snowflake' },
 	{ label: 'SAP HANA', logo: 'sap' },
 	{ label: 'PostgreSQL', logo: 'postgresql' },
-	{ label: 'NetSuite', icon: 'building-2' },
+	{ label: 'NetSuite', logo: 'netsuite' },
 ];
 
 /** A point part of the way along a straight line, for aiming a callout at it. */

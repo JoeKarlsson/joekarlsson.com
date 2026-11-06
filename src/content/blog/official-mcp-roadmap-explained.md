@@ -71,7 +71,7 @@ DPoP binds a token to a specific cryptographic key. If someone extracts the toke
 
 This is worth doing. It addresses real risks: the access control gaps and token security weaknesses that the [NSA's advisory on enterprise MCP security](https://media.defense.gov/2026/Jun/02/2003943289/-1/-1/0/CSI_MCP_SECURITY.PDF) catalogued earlier this year.
 
-![Diagram showing two auth boundaries in an MCP deployment. On the left, a navy dashed line marks the agent-to-server identity boundary, labeled "Covered by roadmap," with DPoP, Workload Identity Federation, and token exchange listed below. On the right, a gray dashed line with a lock icon marks the server-to-source credentials boundary, labeled "Not in roadmap," with OAuth tokens, service accounts, and API keys listed below. An AI Agent box connects through the first boundary to an MCP Server, which fans out through the second boundary to Salesforce, SQL Server, an on-premises database, and a REST API.](/images/blog/official-mcp-roadmap-explained/mcproadmap2.webp)
+![Two auth boundaries in an MCP deployment. Between the AI agent and the MCP server sits agent-to-server identity, which the roadmap covers with DPoP, workload identity federation and token exchange. Between the MCP server and enterprise data sources like Salesforce, SQL Server, an on-premises database and a REST API sits server-to-source credentials (OAuth tokens, service accounts, API keys), which the roadmap doesn't cover, so it stays per connector.](/images/blog/official-mcp-roadmap-explained/auth-boundaries.svg)
 
 ### What the priority doesn't address
 

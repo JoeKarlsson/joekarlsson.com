@@ -8,8 +8,8 @@ const CLIENTS = [
 const APPS = [
 	['salesforce', 'Salesforce'],
 	['jira', 'Jira'],
-	['building-2', 'NetSuite'],
-	['file-text', 'SharePoint'],
+	['netsuite', 'NetSuite'],
+	['sharepoint', 'SharePoint'],
 ];
 
 /** An app as its logo or icon with its name under it. */

@@ -26,6 +26,22 @@ const LOGOS = {
 	amazonwebservices: { color: '#FF9900' },
 	googlebigquery: { color: '#669DF6' },
 	mongodb: { color: '#47A248' },
+	tinybird: { color: '#000000' },
+	'tinybird-mark': { color: '#000000' },
+	// Full-colour logos read on any surface, so every version is the same file
+	litellm: { dark: 'litellm', light: 'litellm', black: 'litellm', white: 'litellm' },
+	microsoftteams: {
+		dark: 'microsoftteams',
+		light: 'microsoftteams',
+		black: 'microsoftteams',
+		white: 'microsoftteams',
+	},
+	sharepoint: { dark: 'sharepoint', light: 'sharepoint', black: 'sharepoint', white: 'sharepoint' },
+	sqlserver: { dark: 'sqlserver', light: 'sqlserver', black: 'sqlserver', white: 'sqlserver' },
+	netsuite: { dark: 'netsuite', light: 'netsuite', black: 'netsuite', white: 'netsuite' },
+	kubernetes: { color: '#326CE5' },
+	apacheflink: { color: '#E6526F' },
+	clickhouse: { color: '#FFCC01' },
 	googlecloud: { color: '#4285F4' },
 	modelcontextprotocol: { color: '#000000' },
 	openai: { color: '#412991' },
@@ -76,15 +92,17 @@ function readLogoFile(file, dir = 'logos') {
 	const [, minX, minY, w, h] = raw
 		.match(/viewBox="([-\d.]+) ([-\d.]+) ([\d.]+) ([\d.]+)"/)
 		.map(Number);
+	// Class-based fills (.cls-1 { fill: ... } in a <style> block) become fill attributes,
+	// because a <style> inside an inlined SVG would leak into the whole page
 	const classFill = Object.fromEntries(
-		[...raw.matchAll(/\.(cls-\d+)\s*{\s*fill:\s*([^;]+);/g)].map((m) => [m[1], m[2]]),
+		[...raw.matchAll(/\.([\w-]+)\s*{[^}]*?fill:\s*([^;}]+)/g)].map((m) => [m[1], m[2].trim()]),
 	);
 	const inner = raw
 		.replace(/^[\s\S]*?<svg[^>]*>/, '')
 		.replace(/<\/svg>\s*$/, '')
-		.replace(/<defs>[\s\S]*?<\/defs>/, '')
+		.replace(/<style[\s\S]*?<\/style>/g, '')
 		.replace(/<title>[\s\S]*?<\/title>/, '')
-		.replace(/class="(cls-\d+)"/g, (_, c) => `fill="${classFill[c]}"`)
+		.replace(/class="([\w-]+)"/g, (whole, c) => (classFill[c] ? `fill="${classFill[c]}"` : ''))
 		.trim();
 	return { viewBox: `${minX} ${minY} ${w} ${h}`, aspect: w / h, inner };
 }
@@ -498,10 +516,15 @@ export function createFigure({ id, width, height }) {
 		onLayer('groups', () => drawGroup(spec));
 	}
 
-	function drawGroup({ x, y, w, h, label }) {
-		const tabW = measure(label, 17, 'display') + 26;
+	function drawGroup({ x, y, w, h, label, logo: tabLogo }) {
+		// A product's container shows the product's own wordmark on its tab
+		const tabW = tabLogo ? logoWidth(tabLogo, 15) + 24 : measure(label, 17, 'display') + 26;
 		scrap(x, y, w, h, '#2a2a2a');
 		scrap(x, y - 22, tabW, 24, '#2a2a2a');
+		if (tabLogo) {
+			logo(tabLogo, x + 12, y - 10, 15);
+			return;
+		}
 		text(x + 12, y - 9, label, {
 			font: 'display',
 			size: 17,
