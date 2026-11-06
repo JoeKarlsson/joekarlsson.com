@@ -3,6 +3,29 @@
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
+			"name": "joekarlsson.com",
+			"description": "Personal website and blog: joekarlsson.com",
+			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
+			"language": "JavaScript",
+			"commitCount": 351,
+			"dailyCommitCounts": [
+				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
+				169, 61
+			],
+			"latestCommitMessage": "feat: The last 9 image diagrams become cut-paper figures: the cloud..."
+		},
+		{
+			"name": "punc",
+			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
+			"url": "https://github.com/JoeKarlsson/punc",
+			"language": "TypeScript",
+			"commitCount": 24,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 9
+			],
+			"latestCommitMessage": "feat: The shelf turns pages, 24 books at a time on every screen, with..."
+		},
+		{
 			"name": "bechdel-test",
 			"description": "Does your favorite film pass the test?",
 			"url": "https://github.com/JoeKarlsson/bechdel-test",
@@ -12,29 +35,6 @@
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35
 			],
 			"latestCommitMessage": "feat: Keep downloaded scripts out of the repo, and OCR scanned Script..."
-		},
-		{
-			"name": "punc",
-			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
-			"url": "https://github.com/JoeKarlsson/punc",
-			"language": "TypeScript",
-			"commitCount": 23,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 8
-			],
-			"latestCommitMessage": "fix: CI passes with 490 books: offscreen shelf cards skip layout and..."
-		},
-		{
-			"name": "joekarlsson.com",
-			"description": "Personal website and blog: joekarlsson.com",
-			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"language": "JavaScript",
-			"commitCount": 349,
-			"dailyCommitCounts": [
-				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 59
-			],
-			"latestCommitMessage": "fix: Taped work-post thumbnails and memes are graded pink like the..."
 		},
 		{
 			"name": "rose-hobart",
