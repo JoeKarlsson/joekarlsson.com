@@ -1,10 +1,10 @@
 ---
-import { GROUP_HEADING, formatDate } from '../utils/ui';
+import { GROUP_HEADING } from '../utils/ui';
 // Recently shipped repos, watched films and podcast episodes, from the snapshot
 // that scripts/update-now-feed.mjs writes on every deploy.
 import nowFeed from '../data/now-feed.json';
 
-const { updatedAt, shippingWindowDays, shippedRepos, films, podcastEpisodes } = nowFeed;
+const { shippingWindowDays, shippedRepos, films, podcastEpisodes } = nowFeed;
 
 // 10px cells with a 2px gap
 const ACTIVITY_CELL_STEP = 12;
@@ -24,8 +24,6 @@ function activityColor(commitCount: number) {
 function ratingStars(rating: number) {
 	return '★'.repeat(Math.floor(rating)) + (rating % 1 ? '½' : '');
 }
-
-const formattedUpdatedAt = formatDate(new Date(`${updatedAt}T00:00:00Z`));
 ---
 
 <div class="mt-6">
@@ -157,16 +155,4 @@ const formattedUpdatedAt = formatDate(new Date(`${updatedAt}T00:00:00Z`));
 			);
 		})}
 	</div>
-
-	<p class="mt-6 text-sm text-muted">
-		As of {formattedUpdatedAt}. Commits via{' '}
-		<a href="https://github.com/JoeKarlsson" target="_blank" rel="noopener noreferrer">
-			GitHub
-		</a>
-		, films via{' '}
-		<a href="https://letterboxd.com/joekarlsson/" target="_blank" rel="noopener noreferrer">
-			Letterboxd
-		</a>
-		, podcasts from my self-hosted Audiobookshelf.
-	</p>
 </div>
