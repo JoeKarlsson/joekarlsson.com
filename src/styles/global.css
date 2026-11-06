@@ -95,6 +95,7 @@
    Fraunces a line. The bio and Keep reading under a post use the same width, so
    the end of a post lines up with its text. */
 :root {
+	color-scheme: only dark;
 	--prose-font-size: clamp(1.0625rem, 0.95rem + 0.45vw, 1.25rem);
 	--reading-width: calc(32 * var(--prose-font-size));
 }
