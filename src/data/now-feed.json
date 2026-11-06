@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 330,
+			"commitCount": 331,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 40
+				169, 41
 			],
-			"latestCommitMessage": "feat: Blog posts with Amazon links tag them with the Associates ID and..."
+			"latestCommitMessage": "chore: Redesign plan deploys on judgment instead of once per phase"
 		},
 		{
 			"name": "bechdel-test",
