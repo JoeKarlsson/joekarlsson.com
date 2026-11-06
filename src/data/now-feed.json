@@ -6,24 +6,24 @@
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"language": "TypeScript",
-			"commitCount": 343,
+			"language": "JavaScript",
+			"commitCount": 345,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 53
+				169, 55
 			],
-			"latestCommitMessage": "feat: The last 25 diagrams across 16 posts are redrawn in cut paper..."
+			"latestCommitMessage": "feat: The diagram sweep finishes: missed diagrams and ASCII art in 12..."
 		},
 		{
 			"name": "bechdel-test",
 			"description": "Does your favorite film pass the test?",
 			"url": "https://github.com/JoeKarlsson/bechdel-test",
 			"language": "JavaScript",
-			"commitCount": 26,
+			"commitCount": 33,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32
 			],
-			"latestCommitMessage": "feat: Rebuild the static Bechdel analysis: one screenplay parser, real..."
+			"latestCommitMessage": "feat: Add \"The shelf in numbers\", the whole shelf counted"
 		},
 		{
 			"name": "rose-hobart",
