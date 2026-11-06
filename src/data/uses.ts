@@ -57,10 +57,10 @@ export const USES_SECTIONS: UsesSection[] = [
 						pin: [52, 55],
 					},
 					{
-						name: 'Dell Universal Dock D6000',
-						url: 'https://www.amazon.com/Dell-452-BCYT-D6000-Universal-Black/dp/B071YTQBXM',
+						name: 'Anker Prime TB5 Dock',
+						url: 'https://www.amazon.com/dp/B0DSVVJXK5',
 						descHtml:
-							'bought used on eBay for under $100. Single USB-C cable for power, monitors, and all USB accessories.',
+							"14-in-1 Thunderbolt 5 dock. It replaced my Dell Universal Dock, and I use it at both my main desk and the recording station: one cable and the laptop is plugged into everything. It's amazing.",
 					},
 				],
 			},
@@ -263,12 +263,6 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'HON Ignition 2.0',
 						url: 'https://www.amazon.com/dp/B0FPXPQJBT',
 						descHtml: 'ergonomic mesh chair with lumbar support.',
-					},
-					{
-						name: 'Anker Prime TB5 Dock',
-						url: 'https://www.amazon.com/dp/B0DSVVJXK5',
-						descHtml:
-							'14-in-1 Thunderbolt 5 dock. One cable and the laptop is plugged into everything in the studio.',
 					},
 					{
 						name: 'Original Prusa i3 MK3S',
@@ -497,6 +491,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						url: '',
 						descHtml:
 							'the 1U power strip at the top of the rack, model RKPW081915, with surge and ground lights on the front.',
+						pin: [50, 14],
 					},
 					{
 						name: 'prxbox1 - Dell PowerEdge R730',
