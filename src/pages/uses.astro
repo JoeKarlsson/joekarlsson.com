@@ -1,27 +1,108 @@
 ---
-import KeepExploring from '../components/KeepExploring.astro';
-import {
-	GROUP_HEADING,
-	HERO_LEAD,
-	PAGE_CONTAINER,
-	SECTION_HEADING,
-	SIDEBAR_GRID,
-	TEXT_LINK,
-} from '../utils/ui';
+// /uses: each section is built around one real photo of the gear, marked up in crayon.
+// Numbered pins on the photo match the numbers in the list beside it; hovering either
+// circles both, and clicking a pin brings its entry up beside the photo. Content lives
+// in src/data/uses.ts.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import nowFeed from '../data/now-feed.json';
-import Scribble from '../components/Scribble.astro';
-import TableOfContents from '../components/TableOfContents.astro';
-import { CHALK, MARKS } from '../data/scribbles';
+import KeepExploring from '../components/KeepExploring.astro';
 import PosterHero from '../components/PosterHero.astro';
+import Scribble from '../components/Scribble.astro';
+import { GROUP_HEADING, HERO_LEAD, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
+import nowFeed from '../data/now-feed.json';
+import { ARROW, CHALK, MARKS } from '../data/scribbles';
+import { USES_SECTIONS } from '../data/uses';
 
-const usesHeadings = [
-	{ slug: 'hardware', text: 'Hardware' },
-	{ slug: 'recording', text: 'Recording' },
-	{ slug: 'dev-tools', text: 'Dev tools' },
-	{ slug: 'homelab', text: 'Homelab' },
-	{ slug: 'smart-home', text: 'Smart home' },
+const PINK = '#ff4fd8';
+
+/** The data file's links get the site's link style, and the live container count fills in. */
+const html = (s: string) =>
+	s
+		.replaceAll('data-text-link', `class="${TEXT_LINK}"`)
+		.replaceAll('{runningContainers}', String(nowFeed.homelab.runningContainers));
+
+const slugify = (s: string) =>
+	s
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-|-$/g, '');
+
+// A few small marks per section, placed by hand: on the photo's corners (`shot`), beside
+// the heading (`head`) and above the list (`list`). They bleed past their boxes on purpose.
+type Mark = {
+	path: string;
+	viewBox?: string;
+	color: string;
+	strokeWidth: number;
+	class: string;
+	duration: string;
+	delay: string;
+};
+const mark = (
+	name: keyof typeof MARKS,
+	color: string,
+	strokeWidth: number,
+	className: string,
+	duration: string,
+	delay = '0s',
+): Mark => ({ ...MARKS[name], color, strokeWidth, class: className, duration, delay });
+
+const SECTION_MARKS: { shot: Mark[]; head: Mark[]; list: Mark[] }[] = [
+	{
+		shot: [
+			mark('burst', CHALK, 6, '-top-[9%] -left-[4%] h-[24%] w-[15%]', '8s', '1.2s'),
+			mark('hatch', CHALK, 5, '-right-[5%] -bottom-[10%] h-[16%] w-[18%]', '10s', '2s'),
+		],
+		head: [],
+		list: [
+			{
+				path: ARROW,
+				viewBox: '0 0 260 140',
+				color: PINK,
+				strokeWidth: 6,
+				class: '-top-[60px] -left-[120px] h-[80px] w-[150px] -scale-x-100',
+				duration: '9s',
+				delay: '1s',
+			},
+		],
+	},
+	{
+		shot: [mark('asterisk', PINK, 7, '-top-[10%] right-[4%] h-[16%] w-[9%]', '7s', '1.6s')],
+		head: [mark('burstDense', PINK, 5, '-top-[30px] -right-[80px] size-[64px]', '9s')],
+		list: [mark('tally', CHALK, 6, '-top-[70px] right-0 h-[56px] w-[110px]', '10s', '0.6s')],
+	},
+	{
+		shot: [mark('rays', CHALK, 7, '-top-[14%] -right-[4%] h-[16%] w-[14%]', '8s', '1s')],
+		head: [],
+		list: [mark('pointer', PINK, 6, '-top-[56px] -left-[40px] h-[48px] w-[120px]', '9s', '1.4s')],
+	},
+	{
+		shot: [mark('burst', PINK, 6, 'top-[52%] -right-[14%] h-[14%] w-[24%]', '8s', '1.4s')],
+		head: [mark('rays', PINK, 7, '-top-[44px] -right-[72px] h-[56px] w-[70px]', '8s')],
+		list: [mark('hatch', PINK, 5, '-top-[74px] right-0 h-[60px] w-[120px]', '10s', '0.8s')],
+	},
+	{
+		shot: [mark('check', CHALK, 8, '-bottom-[14%] -left-[6%] h-[18%] w-[16%]', '7s', '2s')],
+		head: [mark('asterisk', CHALK, 7, '-top-[30px] -right-[60px] size-[46px]', '7s')],
+		list: [mark('tally', PINK, 6, '-top-[70px] right-0 h-[56px] w-[110px]', '10s', '0.6s')],
+	},
 ];
+const GROUP_UNDERLINES = ['underline', 'double', 'lines'] as const;
+
+// Number the pinned items in list order, per section
+const sections = USES_SECTIONS.map((section) => {
+	let n = 0;
+	return {
+		...section,
+		groups: section.groups.map((group) => ({
+			...group,
+			items: group.items.map((item) => ({
+				...item,
+				id: `${section.slug}-${slugify(item.name)}`,
+				number: item.pin ? ++n : undefined,
+			})),
+		})),
+	};
+});
 ---
 
 <BaseLayout
@@ -31,20 +112,23 @@ const usesHeadings = [
 	imageAlt="Joe Karlsson's standing desk with two monitors, a laptop on a stand, a mic on a boom arm, a key light above the monitors, and warm LED backlighting"
 	schemaType="WebPage"
 >
-	<div class={PAGE_CONTAINER}>
-		<!-- Built like the homepage, About and blog heroes: the desk in pink dots beside a
-		pink ticker of the sections and a dark panel whose USES fills it -->
-		<PosterHero title="Uses" wordRatio={1.86} tickerItems={usesHeadings.map(({ text }) => text)}>
-			<div slot="media" class="relative z-10 aspect-video md:aspect-auto">
-				<img
-					src="/images/uses/desk-2026.webp"
-					alt="Joe Karlsson's standing desk with two monitors, a laptop on a stand, a mic on a boom arm, a key light above the monitors, and warm LED backlighting"
+	<!-- Wider than PAGE_CONTAINER (max-w-6xl) on purpose: the photos need the room -->
+	<div class="relative mx-auto max-w-[90rem] px-4 pt-10 pb-10 sm:px-7">
+		<PosterHero title="Uses" wordRatio={1.86} tickerItems={USES_SECTIONS.map(({ name }) => name)}>
+			<div slot="media" class="relative z-10 aspect-[5/4] md:aspect-auto">
+				<video
+					src="/images/uses/joe-uses.mp4"
+					poster="/images/uses/joe-uses-poster.webp"
 					data-halftone="flat"
-					class="block size-full rounded-xl object-cover"
-					width="1200"
-					height="675"
-					loading="eager"
-				/>
+					data-autoplay-in-view
+					muted
+					loop
+					playsinline
+					preload="metadata"
+					role="img"
+					aria-label="Joe Karlsson talking at his desk in pink light, pointing back at his monitors and waving"
+					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-center"
+				></video>
 				<Scribble
 					{...MARKS.burst}
 					color={CHALK}
@@ -70,1722 +154,217 @@ const usesHeadings = [
 			</p>
 		</PosterHero>
 
-		<!-- Grid: TOC sidebar + sections -->
-		<div class={SIDEBAR_GRID}>
-			<TableOfContents headings={usesHeadings} />
-			<div>
-				<!-- ═══════════════════════════════════════════ -->
-				<!-- 1. Desk & Hardware                         -->
-				<!-- ═══════════════════════════════════════════ -->
-				<section class="mb-16 scroll-mt-24" id="hardware">
+		{sections.map((section, si) => {
+			const marks = SECTION_MARKS[si];
+			const pinned = section.groups.flatMap((g) => g.items).filter((item) => item.pin);
+			return (
+				<section id={section.slug} class="relative scroll-mt-24 pt-16 first-of-type:pt-0">
 					<h2 class={SECTION_HEADING}>
-						Hardware
+						{section.name}
 						<Scribble
-							{...MARKS.underline}
-							color={CHALK}
-							duration="7s"
-							delay="0.0s"
-							class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+							{...MARKS[si % 2 ? 'underline' : 'double']}
+							color={si % 2 ? CHALK : PINK}
+							duration={`${9 + si}s`}
+							class="-bottom-[0.34em] left-0 h-[0.3em] w-full"
 						/>
+						{marks.head.map((m) => (
+							<Scribble {...m} />
+						))}
 					</h2>
-
-					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Computer & monitors</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.apple.com/macbook-pro/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										14" MacBook Pro M5 Max
-									</a>
-								</strong>{' '}
-								- my work laptop. 18-core CPU, 32-core GPU, 36 GB of memory, 2 TB SSD. Plenty of
-								headroom for Docker, multiple IDEs, and running local AI models.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.apple.com/macbook-pro/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										14" MacBook Pro M5 Pro
-									</a>
-								</strong>{' '}
-								- my personal laptop, with 24 GB of memory. Having two machines means I can move
-								between my desk and the recording studio without unplugging anything.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Monitors</strong> -{' '}
+					{section.introHtml && (
+						<p class="mb-6 max-w-[46em] text-paper" set:html={html(section.introHtml)} />
+					)}
+					<div
+						class:list={[
+							'grid items-start gap-12 md:grid',
+							section.photo.tall
+								? 'md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]'
+								: 'md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]',
+						]}
+					>
+						<div class="uses-shot relative md:sticky md:top-[100px]">
+							<img
+								src={section.photo.src}
+								alt={section.photo.alt}
+								data-halftone="flat"
+								class="block w-full rounded-xl"
+								width={section.photo.width}
+								height={section.photo.height}
+								loading={si === 0 ? 'eager' : 'lazy'}
+							/>
+							{pinned.map((item) => (
 								<a
-									href="https://www.amazon.com/Lenovo-ThinkVision-P27h-10-LED-Monitor/dp/B071DK1TW8"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
+									href={`#${item.id}`}
+									class="uses-pin ring-host"
+									data-pin={item.id}
+									style={`left:${item.pin![0]}%;top:${item.pin![1]}%`}
+									aria-label={`${item.number}: ${item.name}`}
 								>
-									ThinkVision P27h-10
-								</a>{' '}
-								27" QHD (right) +{' '}
-								<a
-									href="https://www.amazon.com/Dell-U2723QE-UltraSharp-USB-C-Monitor/dp/B09TQZP9CL"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Dell U3417W
-								</a>{' '}
-								34" 4K (left). If I were buying today, I'd go ultrawide.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.ergotron.com/en-us/products/product-details/45-245"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Ergotron LX Dual Monitor Arm
-									</a>
-								</strong>{' '}
-								- lets me reposition monitors based on what I'm working on and frees up desk space
-								for hardware projects.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/Dell-452-BCYT-D6000-Universal-Black/dp/B071YTQBXM"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Dell Universal Dock D6000
-									</a>
-								</strong>{' '}
-								- bought used on eBay for under $100. Single USB-C cable for power, monitors, and
-								all USB accessories.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Input & peripherals</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.razer.com/pc/gaming-mice/deathadder-line"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Razer DeathAdder Chroma
-									</a>
-								</strong>{' '}
-								- gaming mouse.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.apple.com/shop/product/MK2C3LL/A/magic-trackpad"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Apple Magic Trackpad 2
-									</a>
-								</strong>{' '}
-								- for swipe and pinch controls.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.razer.com/gaming-mouse-mats/razer-goliathus-extended-chroma"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Razer Goliathus Extended Chroma
-									</a>
-								</strong>{' '}
-								- mousepad with RGB backlighting.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.elgato.com/en/gaming/stream-deck"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Elgato Stream Deck
-									</a>
-								</strong>{' '}
-								- I use this more for productivity shortcuts than streaming. Muting/unmuting in
-								Zoom, launching common workflows, and triggering Home Assistant scenes from my desk.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Keyboards</h3>
-					<img
-						src="/images/blog/how-i-work/5422ABA8-496F-41FD-83A0-E04FD7807046-1024x823.webp"
-						data-halftone="flat"
-						alt="Joe's mechanical keyboards"
-						class="block mb-4 w-full rounded-xl"
-						width="1024"
-						height="823"
-						loading="lazy"
-					/>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/gp/product/B072LZ2YRM"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Vortexgear Race 3
-									</a>
-								</strong>{' '}
-								- with Cherry MX Clear switches.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://vortexgear.store/products/the-new-pok3r-rgb"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Custom Vortex POK3R
-									</a>
-								</strong>{' '}
-								- wood case, Cherry MX Blue switches, custom keycap set from WASD Keyboards. I like
-								clicky switches - Blues are the loudest and clickiest. I'd recommend Clears as a
-								good starter switch.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Desk & audio</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Standing Desk</strong> - custom-built IKEA desktop on
-								industrial black steel legs, with a Luna Standing Desk Stool.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/Sony-MDR7506-Professional-Diaphragm-Headphone/dp/B000AJIF4E"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Sony MDR7506
-									</a>
-								</strong>{' '}
-								- professional headphones with upgraded velvet pads. Affordable, comfortable, and
-								sound great.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.bestbuy.com/site/philips-hue-play-white-color-ambiance-smart-led-bar-light-2-pack-multicolor/6298635.p"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Philips Hue Play
-									</a>
-								</strong>{' '}
-								- White & Color Ambiance LED Bar Lights (2-Pack) for desk backlighting.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/dp/B07YY7BH2W"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Aranet4
-									</a>
-								</strong>{' '}
-								- CO2 monitor on my desk. When the number climbs, I start getting foggy, so it's my
-								cue to open a window or take a break.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/dp/B0BJDY6D1W"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										WiiM Pro
-									</a>
-								</strong>{' '}
-								- plays music in my office. It's cheaper than Sonos or Bose multi-room systems, and
-								in my opinion better integrated. I love it.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.home-assistant.io/voice-pe/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Home Assistant Voice Preview Edition
-									</a>
-								</strong>{' '}
-								- I swapped out all of my Amazon Alexas for these. Voice processing runs locally,
-								not in Amazon's cloud. I wrote about{' '}
-								<a
-									href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/"
-									class={TEXT_LINK}
-								>
-									what it's like replacing Alexa
-								</a>{' '}
-								if you want to learn more.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Camera, mic & lighting</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.obsbot.com/obsbot-tiny-2"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										OBSBOT Tiny 2
-									</a>
-								</strong>{' '}
-								- 4K AI-powered webcam with gesture control and auto-tracking. Replaced my Sony
-								A6600 - much simpler setup for Zoom calls and recordings.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.elgato.com/us/en/p/wave-3-black"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Elgato Wave:3
-									</a>
-								</strong>{' '}
-								- USB condenser mic, managed through{' '}
-								<a
-									href="https://www.elgato.com/us/en/s/wave-link"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Wave Link
-								</a>{' '}
-								for mixing. Replaced the Blue Yeti - much better sound and integrates with the
-								Elgato ecosystem.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/gp/product/B07L755X9G"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Elgato Key Lights
-									</a>{' '}
-									(x2)
-								</strong>{' '}
-								- key and fill light for calls at my desk.
-							</p>
-						</div>
-					</div>
-
-					<img
-						src="/images/uses/desk-2026-closeup.webp"
-						data-halftone="flat"
-						alt="Close-up front view of Joe's desk: two monitors on a riser with warm LED backlighting, a Stream Deck, an Aranet4 CO2 monitor, a mechanical keyboard with a wood wrist rest, and an RGB mousepad"
-						class="block mt-6 w-full rounded-xl"
-						width="1200"
-						height="675"
-						loading="lazy"
-					/>
-				</section>
-
-				<!-- ═══════════════════════════════════════════ -->
-				<!-- 2. Recording & Content                     -->
-				<!-- ═══════════════════════════════════════════ -->
-				<section class="mb-16 scroll-mt-24" id="recording">
-					<h2 class={SECTION_HEADING}>
-						Recording
-						<Scribble
-							{...MARKS.rays}
-							color="#ff4fd8"
-							duration="8s"
-							delay="0.6s"
-							class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
-						/>
-					</h2>
-
-					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Recording studio</h3>
-					<p class="mb-4 text-paper">
-						I built a mini recording studio in a corner of my office. It's a second, fully separate
-						setup from my main desk, so I can walk over, plug in one cable, and start recording
-						without tearing anything down.
-					</p>
-					<div class="mb-4 grid gap-4 md:grid-cols-2">
-						<img
-							src="/images/uses/recording-studio.webp"
-							data-halftone="flat"
-							alt="Overhead view of Joe's recording studio: an acacia standing desk with a green cutting mat, a softbox light, a mic and camera on boom arms, a chair, a shelf with a 3D printer, and a palm plant"
-							class="block w-full rounded-xl"
-							width="1920"
-							height="1080"
-							loading="lazy"
-						/>
-						<img
-							src="/images/uses/recording-studio-camera-view.webp"
-							data-halftone="flat"
-							alt="What the camera sees in the recording studio: Joe in a green t-shirt in front of a palm plant and a shelf lit with purple ambient light"
-							class="block w-full rounded-xl"
-							width="552"
-							height="310"
-							loading="lazy"
-						/>
-					</div>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/dp/B0CRZBWVRN"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Sony ZV-E10
-									</a>
-								</strong>{' '}
-								- mirrorless camera with the 16-50mm kit lens, and the main camera in the studio. It
-								feeds the Mac through an{' '}
-								<a
-									href="https://www.amazon.com/dp/B07K3FN5MR"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Elgato Cam Link 4K
-								</a>{' '}
-								and runs on wall power through a{' '}
-								<a
-									href="https://www.amazon.com/dp/B08BCRSV4H"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Kimaru dummy battery
+									{item.number}
+									<Scribble
+										{...MARKS.oval}
+										color={PINK}
+										strokeWidth={4}
+										ring
+										class="-top-[20px] -left-[55px] h-[70px] w-[140px]"
+									/>
 								</a>
-								, so it never dies halfway through a take.
-							</p>
+							))}
+							{marks.shot.map((m) => (
+								<Scribble {...m} />
+							))}
 						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/dp/B0CH3P9K1X"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Elgato Prompter
-									</a>
-								</strong>{' '}
-								- teleprompter with a built-in screen. The camera sits behind the glass, so I can
-								read a script and still look into the lens.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/dp/B097376LKF"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Elgato Wave Low Profile Mic Arm
-									</a>{' '}
-									(x2)
-								</strong>{' '}
-								- one holds the mic in an{' '}
-								<a
-									href="https://www.amazon.com/dp/B088P2WK3B"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Elgato Wave Shock Mount
-								</a>
-								, the other holds the camera and prompter. Both clamp to the desk, so the whole rig
-								moves as one unit when I shuffle the room around for a better shot.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/dp/B0CJM6G7JR"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										NEEWER NS4S Softboxes
-									</a>{' '}
-									+{' '}
-									<a
-										href="https://www.amazon.com/dp/B0FMKF8PXJ"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										SMALLRIG Light Stands
-									</a>
-								</strong>{' '}
-								- softboxes over my LED panels for soft key and fill light. The stands fold down
-								small and are easy to move when I reposition the camera. An{' '}
-								<a
-									href="https://www.amazon.com/dp/B0FBGYRDLW"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									orange mushroom floor lamp
-								</a>{' '}
-								sits in the background because it looks good on camera.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/dp/B0HCNVWH1D"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										FLEXISPOT E6 MAX
-									</a>{' '}
-									+{' '}
-									<a
-										href="https://www.amazon.com/dp/B0FPXPQJBT"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										HON Ignition 2.0
-									</a>
-								</strong>{' '}
-								- 48x24 acacia dual-motor standing desk and an ergonomic mesh chair. A{' '}
-								<a
-									href="https://www.amazon.com/dp/B08Y5R5K5J"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									WORKLION cutting mat
-								</a>{' '}
-								covers the desk and doubles as a work surface for crafts and hardware projects.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.amazon.com/dp/B0DSVVJXK5"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Anker Prime TB5 Dock
-									</a>
-								</strong>{' '}
-								- 14-in-1 Thunderbolt 5 dock. One cable and the laptop is plugged into everything in
-								the studio.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Recording software</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.techsmith.com/camtasia.html"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Camtasia
-									</a>
-								</strong>{' '}
-								- my go-to for editing tutorial videos. Not as powerful as Premiere, but way faster
-								for the record-edit-export workflow I need for tech content.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.screen.studio/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Screen Studio
-									</a>
-								</strong>{' '}
-								- makes screen recordings look polished with auto-zoom and smooth cursor following.
-								I use this for short social media clips and demo GIFs.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://xnipapp.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Xnip
-									</a>
-								</strong>{' '}
-								- screenshot tool with annotations and scrolling capture. The scrolling capture is
-								the killer feature - great for grabbing full terminal output or long web pages for
-								blog posts.
-							</p>
+						<div class="relative">
+							{marks.list.map((m) => (
+								<Scribble {...m} />
+							))}
+							{section.groups.map((group, gi) => (
+								<div class="uses-group">
+									<h3 class:list={[GROUP_HEADING, 'relative mb-4 w-fit']}>
+										{group.name}
+										<Scribble
+											{...MARKS[GROUP_UNDERLINES[(gi + si) % 3]]}
+											color={(gi + si) % 2 ? CHALK : PINK}
+											strokeWidth={5}
+											duration={`${9 + gi}s`}
+											delay={`${gi * 0.4}s`}
+											class="-bottom-[0.38em] left-0 h-[0.3em] w-full"
+										/>
+									</h3>
+									<ul class="space-y-4">
+										{group.items.map((item, ii) => (
+											<li
+												id={item.id}
+												data-pin={item.number ? item.id : undefined}
+												class="uses-item grid scroll-mt-[100px] grid-cols-[34px_1fr] gap-2"
+											>
+												<span
+													class="font-display text-[22px] leading-tight text-pink"
+													aria-hidden="true"
+												>
+													{item.number}
+												</span>
+												<div class="text-paper">
+													<p class="relative w-fit font-semibold">
+														{item.url ? (
+															<a
+																href={item.url}
+																target="_blank"
+																rel="noopener noreferrer"
+																class={TEXT_LINK}
+															>
+																{item.name}
+															</a>
+														) : item.nameHtml ? (
+															<span set:html={html(item.nameHtml)} />
+														) : (
+															item.name
+														)}
+														{/* The odd name gets a crayon circle that stays */}
+														{(ii + gi + si) % 7 === 3 && (
+															<Scribble
+																{...MARKS.oval}
+																color={CHALK}
+																strokeWidth={4}
+																duration="10s"
+																delay={`${ii * 0.3}s`}
+																class="-top-[30%] -left-[10%] h-[160%] w-[120%]"
+															/>
+														)}
+													</p>
+													<p set:html={html(item.descHtml)} />
+												</div>
+											</li>
+										))}
+									</ul>
+								</div>
+							))}
 						</div>
 					</div>
 				</section>
+			);
+		})}
 
-				<!-- ═══════════════════════════════════════════ -->
-				<!-- 3. Dev Tools & Software                    -->
-				<!-- ═══════════════════════════════════════════ -->
-				<section class="mb-16 scroll-mt-24" id="dev-tools">
-					<h2 class={SECTION_HEADING}>
-						Dev tools
-						<Scribble
-							{...MARKS.asterisk}
-							color={CHALK}
-							duration="9s"
-							delay="1.2s"
-							class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
-						/>
-					</h2>
-
-					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Editors</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://code.visualstudio.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Visual Studio Code
-									</a>
-								</strong>{' '}
-								- still my primary editor. Monokai theme +{' '}
-								<a
-									href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									vscode-icons
-								</a>
-								.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Key extensions</strong> -{' '}
-								<a
-									href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									GitLens
-								</a>
-								,{' '}
-								<a
-									href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Prettier
-								</a>{' '}
-								+{' '}
-								<a
-									href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									ESLint
-								</a>
-								, Docker, Remote SSH, Go/Python/Svelte support.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>AI tools</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://docs.anthropic.com/en/docs/claude-code"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Claude Code
-									</a>{' '}
-									(CLI)
-								</strong>{' '}
-								- my primary coding companion. I use it in the terminal for everything from
-								infrastructure automation to building this website. It manages my homelab, writes
-								deployment scripts, and helps debug across {nowFeed.homelab.runningContainers}{' '}
-								containers. I wrote about{' '}
-								<a
-									href="/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/"
-									class={TEXT_LINK}
-								>
-									building a Claude Code blog skill
-								</a>{' '}
-								for this site.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://claude.ai/download"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Claude
-									</a>{' '}
-									desktop app
-								</strong>{' '}
-								- writing, research, and brainstorming.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://superwhisper.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										superwhisper
-									</a>
-								</strong>{' '}
-								- local speech-to-text, great for dictating docs and messages.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Terminal</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://iterm2.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										iTerm2
-									</a>
-								</strong>{' '}
-								- with{' '}
-								<a
-									href="https://ohmyz.sh/"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Oh My Zsh
-								</a>{' '}
-								and{' '}
-								<a
-									href="https://github.com/romkatv/powerlevel10k"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Powerlevel10k
-								</a>{' '}
-								theme. Plugins: git, z, zsh-autosuggestions, zsh-syntax-highlighting.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://github.com/JoeKarlsson/dotfiles"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Dotfiles
-									</a>
-								</strong>{' '}
-								- config files managed with chezmoi.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Productivity</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.raycast.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Raycast
-									</a>
-								</strong>{' '}
-								- replaced Spotlight and Alfred. I use it for clipboard history, snippet expansion,
-								window management scripts, and quick calculations. The extensions ecosystem is what
-								sold me.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://vorssaint.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Vorssaint
-									</a>
-								</strong>{' '}
-								- free, open-source menu bar app that bundles a pile of small macOS utilities into
-								one. I'm all in on it across every Mac I own - it makes macOS cleaner and better for
-								me, and I only install the modules I actually use.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://apps.apple.com/us/app/magnet/id441258766?mt=12"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Magnet
-									</a>
-								</strong>{' '}
-								- keyboard-driven window snapping. I use thirds layout constantly with the dual
-								monitor setup - editor left, terminal right, browser on the second screen.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.notion.so/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Notion
-									</a>
-								</strong>{' '}
-								- personal knowledge base, talk prep, and blog drafts. I tried Obsidian but kept
-								coming back to Notion for the database views and sharing.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://github.com/languagetool-org/languagetool"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										LanguageTool
-									</a>{' '}
-									(self-hosted)
-								</strong>{' '}
-								- grammar and spell checking that runs on my homelab instead of someone else's
-								servers. Catches the typos in blog posts and emails without shipping my drafts to
-								the cloud.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Communication & media</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://rambox.pro/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Rambox
-									</a>
-								</strong>{' '}
-								- all messaging clients in one app.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://github.com/gitroomhq/postiz-app"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Postiz
-									</a>
-								</strong>{' '}
-								- self-hosted social media scheduling (replaced Buffer).
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.plex.tv/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Plex
-									</a>
-								</strong>{' '}
-								- self-hosted media streaming.{' '}
-								<strong class="text-paper">
-									<a
-										href="https://www.videolan.org/vlc/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										VLC
-									</a>
-								</strong>{' '}
-								for everything else.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Security & utilities</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://1password.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										1Password
-									</a>
-								</strong>{' '}
-								- password manager (+ self-hosted{' '}
-								<a
-									href="https://github.com/dani-garcia/vaultwarden"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Vaultwarden
-								</a>{' '}
-								as backup).
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://tailscale.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Tailscale
-									</a>
-								</strong>{' '}
-								- mesh VPN for accessing homelab remotely.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.privateinternetaccess.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Private Internet Access
-									</a>
-								</strong>{' '}
-								- commercial VPN for privacy on public networks.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.docker.com/products/docker-desktop/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Docker Desktop
-									</a>
-								</strong>{' '}
-								- local container development. I test homelab configs here before deploying to
-								Proxmox.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://github.com/dwarvesf/hidden"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Hidden Bar
-									</a>
-								</strong>{' '}
-								- hides menu bar clutter. With Docker, Tailscale, 1Password, and a dozen others up
-								there, I'd go insane without it.
-							</p>
-						</div>
-					</div>
-				</section>
-
-				<!-- ═══════════════════════════════════════════ -->
-				<!-- 4. Homelab                                 -->
-				<!-- ═══════════════════════════════════════════ -->
-				<section class="mb-16 scroll-mt-24" id="homelab">
-					<h2 class={SECTION_HEADING}>
-						Homelab
-						<Scribble
-							{...MARKS.double}
-							color="#ff4fd8"
-							duration="10s"
-							delay="0.0s"
-							class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
-						/>
-					</h2>
-					<p class="mb-4 text-paper">
-						I run a two-node{' '}
-						<a
-							href="https://www.proxmox.com/en/proxmox-virtual-environment"
-							target="_blank"
-							rel="noopener noreferrer"
-							class={TEXT_LINK}
-						>
-							Proxmox VE
-						</a>{' '}
-						cluster with about 70 self-hosted services. Nearly all of them are immutable LXC
-						containers defined in OpenTofu, so every change goes through <code>tofu apply</code>{' '}
-						instead of SSH. The full story is in{' '}
-						<a href="/blog/homelab-two-years-later/" class={TEXT_LINK}>
-							my homelab two years later
-						</a>{' '}
-						and{' '}
-						<a href="/blog/opentofu-proxmox-immutable-homelab/" class={TEXT_LINK}>
-							how I made it immutable with OpenTofu
-						</a>
-						. If you're just starting out, read my{' '}
-						<a href="/blog/how-to-get-started-building-a-homelab-server-in-2024/" class={TEXT_LINK}>
-							guide to getting started with a homelab
-						</a>
-						.
-					</p>
-					<img
-						src="/images/blog/homelab-two-years-later/rack-full-front.webp"
-						alt="Full 25U server rack in the attic showing both Dell R730 servers, MikroTik and UniFi networking, Synology NAS, and dual UPS units"
-						data-halftone="flat"
-						class="mx-auto mb-6 block w-full max-w-sm rounded-xl"
-						width="1000"
-						height="1777"
-						loading="lazy"
-					/>
-
-					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Server hardware</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									prxbox1 -{' '}
-									<a
-										href="https://www.dell.com/support/manuals/en-us/poweredge-r730/r730_ompublication/technical-specifications?guid=guid-c32a42e1-fbc4-4dfe-983d-df4d34ff1e17&lang=en-us"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Dell PowerEdge R730
-									</a>
-								</strong>{' '}
-								- 2x Intel Xeon E5-2698 v4 (80 threads), 128 GB DDR4 ECC,{' '}
-								<a
-									href="https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									NVIDIA Quadro RTX 4000
-								</a>{' '}
-								(8 GB). The infrastructure node - Home Assistant, networking, monitoring, and the
-								media automation stack.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									prxbox2 -{' '}
-									<a
-										href="https://www.dell.com/support/manuals/en-us/poweredge-r730/r730_ompublication/technical-specifications?guid=guid-c32a42e1-fbc4-4dfe-983d-df4d34ff1e17&lang=en-us"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Dell PowerEdge R730
-									</a>
-								</strong>{' '}
-								- 126 GB RAM,{' '}
-								<a
-									href="https://www.nvidia.com/en-us/design-visualization/rtx-a4000/"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									NVIDIA RTX A4000
-								</a>{' '}
-								(16 GB). The GPU node - Plex, Immich, transcoding, and local LLMs.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Networking between them</strong> -{' '}
-								<a
-									href="https://www.intel.com/content/www/us/en/products/sku/83964/intel-ethernet-converged-network-adapter-x710da2/specifications.html"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Intel X710
-								</a>{' '}
-								10 Gb SFP+ NICs in 2x10G LACP bonds on each host, and a Raspberry Pi as the QDevice
-								tiebreaker vote for the cluster.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.cyberpowersystems.com/product/ups/pfc-sinewave/or1500pfcrt2u/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										2x CyberPower OR1500PFCRT2U
-									</a>
-								</strong>{' '}
-								- rack UPSes, monitored with NUT so the cluster shuts down cleanly when the power
-								goes out.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>GPU workloads</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">RTX A4000 (16 GB)</strong> - Plex hardware transcoding,
-								Immich face and object detection, Tdarr, and local LLMs through Ollama and
-								llama.cpp. I wrote about{' '}
-								<a href="/blog/proxmox-gpu-passthrough-multi-service/" class={TEXT_LINK}>
-									sharing one GPU across multiple services
-								</a>
-								.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Quadro RTX 4000 (8 GB)</strong> - Frigate object
-								detection for the security cameras, a Tdarr node, and Wyoming Whisper for local
-								speech-to-text.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Storage & backup</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.synology.com/en-global/products/DS418play"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Synology DS418play
-									</a>
-								</strong>{' '}
-								- 4-bay NAS serving NFS to the containers for media, photos, documents, and backups.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.proxmox.com/en/proxmox-backup-server"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Proxmox Backup Server
-									</a>
-								</strong>{' '}
-								- daily snapshots of every container and VM, stored on the NAS and synced offsite to{' '}
-								<a
-									href="https://www.backblaze.com/cloud-storage"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Backblaze B2
-								</a>{' '}
-								with rclone.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Networking</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://store.ui.com/us/en/products/ucg-ultra"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										UniFi Cloud Gateway Ultra
-									</a>
-								</strong>{' '}
-								- router and firewall across 4 VLANs (Default, Guest, IoT, Cameras). IoT and cameras
-								stay isolated.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://mikrotik.com/product/crs317_1g_16s_rm"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										MikroTik CRS317
-									</a>
-								</strong>{' '}
-								- 10G backbone switch, 20 Gbps to each server. A UniFi US-24 handles the 1G devices.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									2x{' '}
-									<a
-										href="https://ui.com/us/wifi/u7-pro"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										UniFi U7 Pro
-									</a>{' '}
-									+{' '}
-									<a
-										href="https://store.ui.com/us/en/products/u7-pro-xg"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										U7 Pro XG
-									</a>
-								</strong>{' '}
-								- WiFi 7 access points.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://adguard.com/en/adguard-home/overview.html"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										AdGuard Home
-									</a>
-								</strong>{' '}
-								- DNS-level ad blocking, with a primary container and a replica on a Pi kept in
-								sync.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://nginxproxymanager.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Nginx Proxy Manager
-									</a>{' '}
-									+{' '}
-									<a
-										href="https://www.crowdsec.net/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										CrowdSec
-									</a>
-								</strong>{' '}
-								- reverse proxy with SSL, so every service gets a clean local domain.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Services (about 70)</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Media</strong> - Plex, Tautulli, the Arr stack (Sonarr,
-								Radarr, Lidarr, Prowlarr, Bazarr), Tdarr, Kometa, Audiobookshelf, and Lyrion Music
-								Server for the WiiM speakers.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Photos & documents</strong> - Immich (replaced Google
-								Photos), Paperless-ngx + Paperless-AI, and Syncthing for file sync.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Local AI</strong> - Ollama, llama.cpp, LiteLLM as a
-								single API gateway, and Wyoming Whisper for the voice assistant.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Home</strong> - Home Assistant, Frigate NVR, and
-								Zigbee2MQTT - more on that below.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Security & access</strong> - Authentik for SSO,
-								Vaultwarden, Tailscale, and Cloudflare DDNS.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Monitoring</strong> - Grafana, Prometheus, Loki,
-								Alertmanager, Uptime Kuma, Healthchecks, and Scrutiny for disk health.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Everything else</strong> - Plausible Analytics,
-								LanguageTool, Postiz, and the server that hosts this site.
-							</p>
-						</div>
-					</div>
-				</section>
-
-				<!-- ═══════════════════════════════════════════ -->
-				<!-- 5. Smart Home                              -->
-				<!-- ═══════════════════════════════════════════ -->
-				<section class="mb-16 scroll-mt-24" id="smart-home">
-					<h2 class={SECTION_HEADING}>
-						Smart home
-						<Scribble
-							{...MARKS.underline}
-							color={CHALK}
-							duration="11s"
-							delay="0.6s"
-							class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
-						/>
-					</h2>
-					<p class="mb-6 text-paper">
-						My smart home runs on{' '}
-						<a
-							href="https://www.home-assistant.io/"
-							target="_blank"
-							rel="noopener noreferrer"
-							class={TEXT_LINK}
-						>
-							Home Assistant
-						</a>{' '}
-						with 128 automations, all processed locally on my homelab. I've been running it since
-						2016, and I wrote up{' '}
-						<a href="/blog/best-home-assistant-automations/" class={TEXT_LINK}>
-							my favorite Home Assistant automations
-						</a>
-						, basic to advanced, plus how I keep them from breaking. If you're new, start with{' '}
-						<a href="/blog/how-to-get-started-with-home-assistant-in-2026/" class={TEXT_LINK}>
-							getting started with Home Assistant
-						</a>
-						. I also wrote about how I{' '}
-						<a
-							href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/"
-							class={TEXT_LINK}
-						>
-							replaced Alexa with local voice control
-						</a>
-						.
-					</p>
-
-					<h3 class:list={[GROUP_HEADING, 'mb-4']}>Core platform</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.home-assistant.io/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Home Assistant OS
-									</a>
-								</strong>{' '}
-								- running as a VM on Proxmox with a dedicated MariaDB database.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://github.com/Koenkk/zigbee2mqtt"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Zigbee2MQTT
-									</a>
-								</strong>{' '}
-								- 29 Zigbee devices on a ConBee II, no proprietary hubs. I'm staying on Zigbee
-								rather than moving to Matter.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://frigate.video/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Frigate
-									</a>
-								</strong>{' '}
-								- local NVR with person detection and face recognition on a GPU. It drives motion
-								lighting and package detection.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">Local voice and AI</strong> - Wyoming faster-whisper on a
-								GPU, Piper for text-to-speech, and Ollama through the AI Task integration, with 4{' '}
-								<a
-									href="https://www.home-assistant.io/voice-pe/"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Home Assistant Voice Preview Edition
-								</a>{' '}
-								satellites.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://hacs.xyz/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										HACS
-									</a>
-								</strong>{' '}
-								- kept to the few custom integrations that earn it, like{' '}
-								<a
-									href="https://github.com/nielsfaber/alarmo"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Alarmo
-								</a>{' '}
-								and{' '}
-								<a
-									href="https://github.com/slashback100/presence_simulation"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Presence Simulation
-								</a>
-								.
-							</p>
-						</div>
-						<div>
-							<p class="text-paper">
-								<strong class="text-paper">
-									<a
-										href="https://www.home-assistant.io/integrations/homekit/"
-										target="_blank"
-										rel="noopener noreferrer"
-										class={TEXT_LINK}
-									>
-										Apple HomeKit bridge
-									</a>
-								</strong>{' '}
-								- exposes key entities to Siri.
-							</p>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Dashboards</h3>
-					<div class="space-y-4">
-						<div>
-							<p class="mb-2 text-paper">
-								Custom Lovelace dashboards for different form factors - desktop overview, phone, and
-								tablet views. Built with community cards:
-							</p>
-							<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-paper">
-								<a
-									href="https://github.com/piitaya/lovelace-mushroom"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Mushroom Cards
-								</a>
-								<a
-									href="https://github.com/Clooos/Bubble-Card"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Bubble Card
-								</a>
-								<a
-									href="https://github.com/RomRider/apexcharts-card"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									ApexCharts Card
-								</a>
-								<a
-									href="https://github.com/kalkih/mini-media-player"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Mini Media Player
-								</a>
-								<a
-									href="https://github.com/kalkih/mini-graph-card"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Mini Graph Card
-								</a>
-								<a
-									href="https://github.com/custom-cards/button-card"
-									target="_blank"
-									rel="noopener noreferrer"
-									class={TEXT_LINK}
-								>
-									Button Card
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<h3 class:list={[GROUP_HEADING, 'mt-10 mb-4']}>Devices</h3>
-					<div>
-						<div class="grid gap-3 sm:grid-cols-2">
-							<div>
-								<h4 class="mb-1 text-lg font-semibold text-paper">Lighting & climate</h4>
-								<ul class="list-disc space-y-1 pl-5 text-paper marker:text-pink">
-									<li>
-										Philips Hue lights on a Hue Bridge Pro, with Hue motion sensors and dimmers
-									</li>
-									<li>Lutron Aurora dimmers and Zigbee buttons</li>
-									<li>2x ecobee3 lite thermostats with room sensors</li>
-									<li>Levoit humidifier (winter only)</li>
-								</ul>
-							</div>
-							<div>
-								<h4 class="mb-1 text-lg font-semibold text-paper">Security & safety</h4>
-								<ul class="list-disc space-y-1 pl-5 text-paper marker:text-pink">
-									<li>Reolink video doorbell and floodlight camera</li>
-									<li>Tapo C210 indoor camera</li>
-									<li>4x Aqara leak sensors and a Heiman smoke detector</li>
-									<li>
-										Zigbee door contacts, an Aqara FP2 presence sensor, and an Aranet4 CO2 monitor
-									</li>
-								</ul>
-							</div>
-							<div>
-								<h4 class="mb-1 text-lg font-semibold text-paper">Audio</h4>
-								<ul class="list-disc space-y-1 pl-5 text-paper marker:text-pink">
-									<li>4x Audio Pro A10 MkII speakers running WiiM firmware</li>
-									<li>WiiM Pro and WiiM Mini</li>
-									<li>
-										Multi-room audio through{' '}
-										<a
-											href="https://github.com/LMS-Community/slimserver"
-											target="_blank"
-											rel="noopener noreferrer"
-											class={TEXT_LINK}
-										>
-											Lyrion Music Server
-										</a>{' '}
-										and Music Assistant
-									</li>
-								</ul>
-							</div>
-							<div>
-								<h4 class="mb-1 text-lg font-semibold text-paper">Other</h4>
-								<ul class="list-disc space-y-1 pl-5 text-paper marker:text-pink">
-									<li>2x Roomba vacuums</li>
-									<li>Meross garage door opener</li>
-									<li>Sengled and Securifi Zigbee plugs (energy monitoring)</li>
-									<li>Prusa MK3 3D printer through OctoPrint</li>
-									<li>Hue Play HDMI Sync Box and a Broadlink IR blaster</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!-- Inspired by -->
-				<p class="text-paper">
-					Inspired by{' '}
-					<a href="https://uses.tech" target="_blank" rel="noopener noreferrer" class={TEXT_LINK}>
-						uses.tech
-					</a>{' '}
-					- a list of developer /uses pages.
-				</p>
-				<KeepExploring
-					heading="Read this next"
-					from="/uses/"
-					posts={[
-						'my-development-setup-2026',
-						'homelab-two-years-later',
-						'opentofu-proxmox-immutable-homelab',
-					]}
-				/>
-			</div>
-			{/* end grid content column */}
-		</div>
-		{/* end grid */}
+		<p class="mt-16 text-paper">
+			Inspired by{' '}
+			<a href="https://uses.tech" target="_blank" rel="noopener noreferrer" class={TEXT_LINK}>
+				uses.tech
+			</a>{' '}
+			- a list of developer /uses pages.
+		</p>
+		<KeepExploring
+			heading="Read this next"
+			from="/uses/"
+			posts={[
+				'my-development-setup-2026',
+				'homelab-two-years-later',
+				'opentofu-proxmox-immutable-homelab',
+			]}
+		/>
 	</div>
 </BaseLayout>
+
+<style>
+	.uses-group + .uses-group {
+		margin-top: 40px;
+	}
+	/* A pin: a big chalk number with a black outline so it reads on any part of the photo */
+	.uses-pin {
+		position: absolute;
+		z-index: 2;
+		transform: translate(-50%, -50%);
+		font-family: var(--font-anton);
+		font-size: 30px;
+		line-height: 1;
+		color: #ece6da; /* CHALK */
+		-webkit-text-stroke: 6px #000;
+		paint-order: stroke fill;
+		text-decoration: none;
+	}
+	.uses-pin.is-lit,
+	.uses-item.is-lit p:first-child,
+	.uses-item.is-lit p:first-child a {
+		color: #ff4fd8;
+	}
+	/* A lit pin keeps its ring drawn, like a hovered one */
+	:global(.ring-host.is-lit .hover-ring) {
+		visibility: visible;
+	}
+	:global(.ring-host.is-lit .hover-ring path) {
+		stroke-dashoffset: 0;
+	}
+</style>
+
+<script>
+	// Pins and list entries light each other up on hover. Clicking a pin brings its entry
+	// up level with the photo's top, but never so far that the sticky photo runs out of
+	// section and scrolls away; the pair stays lit until another pin is clicked.
+	const STICKY_TOP = 100;
+	const pairOf = (id: string) => document.querySelectorAll<HTMLElement>(`[data-pin="${id}"]`);
+
+	document.querySelectorAll<HTMLElement>('[data-pin]').forEach((el) => {
+		const id = el.dataset.pin!;
+		el.addEventListener('mouseenter', () => pairOf(id).forEach((x) => x.classList.add('is-lit')));
+		el.addEventListener('mouseleave', () =>
+			pairOf(id).forEach((x) => x.classList.contains('is-held') || x.classList.remove('is-lit')),
+		);
+	});
+
+	document.querySelectorAll<HTMLAnchorElement>('a.uses-pin').forEach((pin) => {
+		pin.addEventListener('click', (event) => {
+			const entry = document.getElementById(pin.dataset.pin!);
+			const shot = pin.closest<HTMLElement>('.uses-shot');
+			if (!entry || !shot) return;
+			event.preventDefault();
+			const wanted = scrollY + entry.getBoundingClientRect().top - STICKY_TOP;
+			const photoStillFits =
+				scrollY +
+				shot.parentElement!.getBoundingClientRect().bottom -
+				shot.offsetHeight -
+				STICKY_TOP;
+			scrollTo({ top: Math.min(wanted, photoStillFits), behavior: 'smooth' });
+			document.querySelectorAll('.is-held').forEach((x) => x.classList.remove('is-held', 'is-lit'));
+			pairOf(pin.dataset.pin!).forEach((x) => x.classList.add('is-held', 'is-lit'));
+		});
+	});
+</script>
