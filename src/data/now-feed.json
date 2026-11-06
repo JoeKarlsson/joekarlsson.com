@@ -7,12 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 303,
+			"commitCount": 307,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 13
+				169, 17
 			],
-			"latestCommitMessage": "fix: The featured project's video gets a 40KB poster instead of its..."
+			"latestCommitMessage": "feat: The Doom MCP crosspost gets a gameplay thumbnail at the PII..."
+		},
+		{
+			"name": "bechdel-test",
+			"description": "Does your favorite film pass the test?",
+			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"language": "JavaScript",
+			"commitCount": 6,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5
+			],
+			"latestCommitMessage": "fix: Pin npm 12 for the site, since npm 10 reads its lockfile as out..."
 		},
 		{
 			"name": "rose-hobart",
@@ -27,7 +38,7 @@
 		},
 		{
 			"name": "dotfiles",
-			"description": "My dotfiles, managed with chezmoi",
+			"description": "My dotfiles",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
 			"language": "TypeScript",
 			"commitCount": 91,
@@ -35,17 +46,6 @@
 				0, 0, 0, 0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2
 			],
 			"latestCommitMessage": "chore: Record bechdel.io redesign reactions in the web design..."
-		},
-		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 1,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-			],
-			"latestCommitMessage": "chore: Remove the dead homelab deploy and document local Docker..."
 		}
 	],
 	"films": [
