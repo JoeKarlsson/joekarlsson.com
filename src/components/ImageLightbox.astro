@@ -1,5 +1,5 @@
 ---
-// Click (or Enter on) a picture in a post to see its full-size file filling the
+// Click (or Enter on) a picture or diagram in a post to see it filling the
 // screen. Click anywhere, the Close button or Escape to go back.
 import { SECONDARY_BUTTON } from '../utils/ui';
 ---
@@ -13,14 +13,21 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 		Close
 	</button>
 	<img alt="" class="size-full object-contain" />
+	<div class="diagram-enlarged hidden size-full"></div>
 </dialog>
 
 <script>
 	const dialog = document.getElementById('image-lightbox') as HTMLDialogElement | null;
 	const enlarged = dialog?.querySelector('img');
-	if (dialog && enlarged) {
+	const enlargedDiagram = dialog?.querySelector<HTMLElement>('.diagram-enlarged');
+	if (dialog && enlarged && enlargedDiagram) {
 		dialog.addEventListener('click', () => dialog.close());
-		dialog.addEventListener('close', () => enlarged.removeAttribute('src'));
+		dialog.addEventListener('close', () => {
+			enlarged.removeAttribute('src');
+			enlarged.hidden = false;
+			enlargedDiagram.replaceChildren();
+			enlargedDiagram.classList.add('hidden');
+		});
 
 		const open = (img: HTMLImageElement) => {
 			// The original file: the srcset copies stop at 1200px
@@ -28,6 +35,33 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 			enlarged.alt = img.alt;
 			dialog.showModal();
 		};
+
+		// A diagram is inline SVG (rehype-inline-diagrams): enlarge a copy of whichever
+		// version is showing, desktop or phone
+		const openDiagram = (figure: HTMLElement) => {
+			const shown = [...figure.querySelectorAll<SVGSVGElement>('svg')].find(
+				(svg) => svg.getClientRects().length,
+			);
+			if (!shown) return;
+			const copy = shown.cloneNode(true) as SVGSVGElement;
+			copy.setAttribute('width', '100%');
+			copy.setAttribute('height', '100%');
+			enlargedDiagram.replaceChildren(copy);
+			enlargedDiagram.classList.remove('hidden');
+			enlarged.hidden = true;
+			dialog.showModal();
+		};
+		document.querySelectorAll<HTMLElement>('.prose .diagram').forEach((figure) => {
+			figure.tabIndex = 0;
+			figure.setAttribute('role', 'button');
+			figure.setAttribute('aria-label', `Enlarge diagram: ${figure.dataset.diagramAlt ?? ''}`);
+			figure.addEventListener('click', () => openDiagram(figure));
+			figure.addEventListener('keydown', (event) => {
+				if (event.key !== 'Enter' && event.key !== ' ') return;
+				event.preventDefault();
+				openDiagram(figure);
+			});
+		});
 
 		// Only pictures whose file is bigger than they're shown, and not ones that are
 		// links or part of an embed

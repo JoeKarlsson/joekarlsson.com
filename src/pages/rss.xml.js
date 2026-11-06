@@ -6,6 +6,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 // Older items keep only the description to hold the feed to a reasonable size.
 const FULL_CONTENT_ITEMS = 20;
 
+// Feed readers strip inline SVG, so an inlined post diagram goes back to being its
+// desktop file as a plain image (src/plugins/rehype-inline-diagrams.mjs)
+function diagramsAsImages(html) {
+	return html.replace(
+		/<figure class="diagram" data-diagram-src="([^"]+)" data-diagram-alt="([^"]*)">[\s\S]*?<\/figure>/g,
+		'<p><img src="$1" alt="$2"></p>',
+	);
+}
+
 // Feed readers resolve relative URLs inconsistently, so make root-relative ones absolute
 function absolutizeUrls(html, site) {
 	return html.replace(/\b(src|href|poster)="\/(?!\/)/g, `$1="${new URL('/', site).href}`);
@@ -26,7 +35,9 @@ export async function GET(context) {
 			description: post.data.description,
 			link: post.href,
 			content:
-				i < FULL_CONTENT_ITEMS && post.html ? absolutizeUrls(post.html, context.site) : undefined,
+				i < FULL_CONTENT_ITEMS && post.html
+					? absolutizeUrls(diagramsAsImages(post.html), context.site)
+					: undefined,
 		})),
 	});
 }

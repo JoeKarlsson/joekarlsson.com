@@ -320,6 +320,27 @@ pre.astro-code {
 	@apply my-6;
 }
 
+/* Post diagrams (src/plugins/rehype-inline-diagrams.mjs): the desktop drawing, or
+   on phones its phone layout when it has one. Click to enlarge (ImageLightbox). */
+.prose .diagram {
+	@apply my-8 cursor-zoom-in;
+}
+.prose .diagram svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.prose .diagram-phone {
+	display: none;
+}
+@media (max-width: 639px) {
+	.prose .diagram:has(.diagram-phone) .diagram-wide {
+		display: none;
+	}
+	.prose .diagram-phone {
+		display: block;
+	}
+}
 .prose figcaption {
 	@apply text-center font-sans text-sm text-muted mt-2;
 }

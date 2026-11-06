@@ -60,7 +60,9 @@ You can [play a level Claude built from demo Salesforce, Zendesk, and Stripe MCP
 
 Here's how the two MCP servers fit together:
 
-![Claude Code uses Connect AI to build the Doom level from Salesforce, Zendesk, and Stripe, and a Doom MCP server to play it.](/images/blog/doom-mcp-server/two-mcp-servers.webp)
+![Before the game: Claude Code reads Salesforce, Zendesk, and Stripe through the Connect AI MCP server, then turns rooms, records, permissions, and refusals into the Doom level through the map builder.](/images/blog/doom-mcp-server/two-mcp-servers-build.svg)
+
+![While you play: Claude Code calls look, go_to, and attack on the Doom MCP server, Doom trades only local files with the bridge, and every 15 seconds the bridge asks Connect AI again for each room's records, the kills, and the red door.](/images/blog/doom-mcp-server/two-mcp-servers-play.svg)
 
 ## How Claude plays Doom through the Doom MCP server
 
@@ -100,7 +102,7 @@ This is the whole tool list, from play.py.
 
 Claude never gets the game loop as code. The loop is the prompt, and every step in it is Claude's call:
 
-![Claude's play loop: keycards, next room, look, attack urgent records first, and the vault once no rooms are left.](/images/blog/doom-mcp-server/play-loop.webp)
+![Claude's play loop: keycards, next room, look, attack urgent records first, and the vault once no rooms are left, where Connect AI Data Security refuses the red door.](/images/blog/doom-mcp-server/play-loop.svg)
 
 ### The tool calls from a real run
 
@@ -156,7 +158,7 @@ The second MCP server shows up mid-fight. The prompt allows one check in another
 
 From Claude's side, this is closer to StarCraft than to Doom. It never sees a pixel, a coordinate, or the map. It names a place or a monster, the way you'd click a destination in a real-time strategy (RTS) game, and two layers of code underneath do the walking, [tool\_go\_to](https://github.com/CDataSoftware/connect-ai-doom/blob/81c4895afb75b226aa80c534b12bb43566bafef2/play.py#L210-L276) in play.py and [the MOVE handler in the engine patch](https://github.com/CDataSoftware/connect-ai-doom/blob/81c4895afb75b226aa80c534b12bb43566bafef2/patches/psdoom-ng-connect-doom.patch#L1347):
 
-![go\_to's three layers: Claude names a room, play.py plans the waypoints, and the engine steers 35 times a second.](/images/blog/doom-mcp-server/go-to-layers.webp)
+![go\_to's three layers: Claude names a room, play.py plans the waypoints, and the engine steers 35 times a second.](/images/blog/doom-mcp-server/go-to-layers.svg)
 
 The planning layer doesn't need pathfinding, because we build the level from scratch, so play.py already knows the coordinates of every room and door. Claude never sees them. It says "Salesforce," and [go\_to](https://github.com/CDataSoftware/connect-ai-doom/blob/81c4895afb75b226aa80c534b12bb43566bafef2/play.py#L210-L276) looks up where that room's door is and turns it into a list of waypoints: back out of the room you're in, walk the hall, stop just short of the door, turn to face it, press use, wait about a second for it to open, and walk in. Each waypoint is one MOVE command to the engine.
 

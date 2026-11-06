@@ -13,6 +13,7 @@ import rehypeEmptyCornerCell from './src/plugins/rehype-empty-corner-cell.mjs';
 import rehypeFaqDetails from './src/plugins/rehype-faq-details.mjs';
 import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
 import rehypeImageDimensions from './src/plugins/rehype-image-dimensions.mjs';
+import rehypeInlineDiagrams from './src/plugins/rehype-inline-diagrams.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 import responsiveImages from './src/integrations/responsive-images.mjs';
@@ -89,6 +90,8 @@ export default defineConfig({
 				// gif-video first: it removes <img> nodes that lazy-images would
 				// otherwise annotate for no reason
 				rehypeGifVideo,
+				// Before image-dimensions: diagrams stop being <img> here
+				rehypeInlineDiagrams,
 				rehypeImageDimensions,
 				rehypeLazyImages,
 				rehypeEmptyCornerCell,

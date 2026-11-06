@@ -41,6 +41,7 @@
 		"brand": "node scripts/generate-brand.mjs",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
+		"diagrams": "node scripts/diagrams/render.mjs",
 		"test": "npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:voice && npm run test:unit",
 		"prepare": "husky"
 	},
