@@ -2,7 +2,7 @@
 title: 'How To Find a Technical Co-founder'
 date: 2015-07-10
 slug: 'how-to-find-a-technical-co-founder'
-description: 'Okay, so you have an idea for a new company, and you just know that Facebook for cats is the next billion-dollar idea. The only issue is that you have no idea how to code. You heard from your aunt...'
+description: "How to find a technical co-founder when you have an idea but can't code. Meet developers, sell your value, prove the idea, and have money to pay them."
 categories: ['Career']
 heroImage: '/images/blog/how-to-find-a-technical-co-founder/9675018730_f3ab9ab065_b.webp'
 heroAlt: 'Finding a technical co-founder for your startup'

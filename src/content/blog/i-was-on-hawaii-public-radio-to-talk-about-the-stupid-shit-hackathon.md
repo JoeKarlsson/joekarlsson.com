@@ -3,7 +3,7 @@ title: 'I was on Hawaii Public Radio to talk about our Stupid Hackathon Hawaii'
 seoTitle: 'Stupid Hackathon Hawaii on Public Radio'
 date: 2017-01-12
 slug: 'i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon'
-description: 'Thanks again to Burt Lum and Ryan Ozawa for having me and my buddy Ray on their radio show, Bytemark’s Cafe, to talk about the Stupid Shit and Terrible Ideas That No One in Hawaii Needs “Hackathon”....'
+description: "My buddy Ray and I went on Hawaii Public Radio's Bytemark's Cafe to talk about Stupid Hackathon Hawaii and why we run it with no sponsors, just for fun."
 categories: ['Life']
 heroImage: '/images/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/Stupid-Shit-FB-Event.webp'
 heroAlt: 'Hawaii Public Radio interview about the Stupid Hackathon'

@@ -3,7 +3,7 @@ title: 'My Personal Claude Code Skills Repo Accidentally Became Internal Tooling
 seoTitle: 'My Claude Code Skills Repo Became Tooling'
 date: 2026-04-07T15:42:53Z
 slug: 'my-personal-claude-code-skills-repo-accidentally-became-internal-tooling'
-description: 'I built a few Claude Code skills for myself because I was tired of copy-pasting the same prompts. Then my coworkers started asking questions. Here is what happened when a personal productivity tool became team infrastructure.'
+description: 'I built Claude Code skills to stop copy-pasting the same prompts. Then coworkers started asking about them, and my repo became team infrastructure.'
 categories: ['AI', 'Career']
 tags: ['Claude Code', 'AI', 'devrel', 'automation', 'internal tooling', 'marketing']
 heroImage: '/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/claude-code-skills-repo-internal-tooling.webp'

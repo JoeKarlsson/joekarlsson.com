@@ -4,7 +4,7 @@ seoTitle: 'Treat Open Source Content Like Code'
 shareTitle: "Treat Your Open Source Project's Content Like Your Open Source Project"
 date: 2023-02-28
 slug: 'treat-content-development-for-your-open-source-project-like-your-open-source-project'
-description: ‘Hello nerds! Let’s talk about how you should treat content development for your open source project like your open-source project. I know, it sounds meta, but bear with me. As a developer advocate, I’ve...’
+description: 'Treat content for your open source project like the project itself. Involve your community and share your content timeline in the open, like a roadmap.'
 categories: ['Career']
 heroImage: '/images/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/Treat-Content-Development-for-Your-Open-Source-Project-Like-Your-Open-Source-Project.webp'
 heroAlt: 'Treat content development for your open source project like your open source project'

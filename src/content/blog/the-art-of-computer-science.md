@@ -2,7 +2,7 @@
 title: 'The Art of Computer Science'
 date: 2020-09-10
 slug: 'the-art-of-computer-science'
-description: 'First, thank you so much for coming to my keynote, The Art of Computer Science. Here you will find all the resources discussed during the talk. About Do you feel like you have struggled to find your...'
+description: 'Resources from my keynote The Art of Computer Science, about feeling like an imposter in tech and finding my place through art and a little humor.'
 categories: ['Career']
 heroImage: '/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp'
 heroAlt: 'The Art of Computer Science talk'

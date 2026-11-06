@@ -3,7 +3,7 @@ title: 'The Engineer’s Guide to Enriching Streams and Dimensions'
 seoTitle: 'Enriching Streams and Dimensions'
 date: 2024-04-05
 slug: 'the-engineers-guide-to-enriching-streams-and-dimensions'
-description: 'Data - it’s the new oil, the new gold, the new …  you get the idea. There’s a whole lot of it, and it’s valuable. But unless you’re into data hoarding, the point isn’t just to collect it; you want …...'
+description: 'How to enrich real-time Kafka streams with Snowflake dimension tables, with use cases for fraud detection, e-commerce personalization and log analytics.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
 heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/ac050f67-data-stream1-1024x488-1.webp'

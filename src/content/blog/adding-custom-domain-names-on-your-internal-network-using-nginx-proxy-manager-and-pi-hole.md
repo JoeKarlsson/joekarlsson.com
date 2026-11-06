@@ -4,7 +4,7 @@ seoTitle: 'Local Domains with Nginx Proxy Manager'
 shareTitle: 'Custom Domain Names on Your Home Network with Nginx Proxy Manager and Pi-Hole'
 date: 2024-01-17
 slug: 'adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole'
-description: 'How I set up custom domain names on my internal network using Pi-Hole for DNS and Nginx Proxy Manager for traffic control and SSL - including what actually works for SSL on local-only domains.'
+description: 'How I set up custom domain names on my internal network with Pi-Hole for DNS and Nginx Proxy Manager, plus what works for SSL on local-only domains.'
 categories: ['Homelab']
 heroImage: '/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/d4994649-ee18-4d47-aaa7-567b58bb9f39.webp'
 heroAlt: 'Setting up custom domain names on a home network with Nginx Proxy Manager and Pi-hole'

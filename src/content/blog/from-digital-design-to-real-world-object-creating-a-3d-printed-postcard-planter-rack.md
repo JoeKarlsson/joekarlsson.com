@@ -4,7 +4,7 @@ seoTitle: 'A 3D-Printed Planter for a Postcard Rack'
 shareTitle: 'How I 3D-Printed a Planter for a Recycled Postcard Rack'
 date: 2023-02-27
 slug: 'from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack'
-description: 'You might not have thought much about using your technical skills to create physical objects. However, with the rise of 3D printing technology, it’s becoming easier than ever to turn digital designs...'
+description: 'How I designed and 3D printed a planter insert that turns a recycled postcard rack into a planter, plus tips for taking a digital design to a real object.'
 categories: ['Homelab']
 heroImage: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/Postcard-Rack-Planter.webp'
 heroAlt: '3D printed postcard planter rack with succulents'

@@ -2,7 +2,7 @@
 title: 'How to Pass A Coding Interview'
 date: 2020-05-13
 slug: 'how-to-pass-coding-interview'
-description: 'The question I most frequently get from developers is how to pass a coding interview. What follows is what I think will be sufficient for a person to be well prepared.'
+description: 'Developers ask me how to pass a coding interview more than anything else, so I wrote down what I think it takes to walk in well prepared.'
 categories: ['Career']
 heroImage: '/images/blog/how-to-pass-coding-interview/How-to-Pass-Coding-Interview.webp'
 heroAlt: 'Tips for passing a coding interview'

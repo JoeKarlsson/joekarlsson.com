@@ -2,7 +2,7 @@
 title: 'Developer Advocacy in 2023'
 date: 2023-03-29
 slug: 'developer-advocacy-in-2023'
-description: 'Adapting to Techpocalypse - Remember when we thought 2020 was a wild ride? Fast forward to 2023, and here we are, in the midst of a tech market downturn and a tsunami of tech layoffs. Developer...'
+description: 'How developer advocacy can adapt to the 2023 tech downturn and layoffs by working closer with engineering and marketing and proving its ROI.'
 categories: ['Career']
 tags: ['Developer Advocacy']
 heroImage: '/images/blog/developer-advocacy-in-2023/Developer-Advocacy-in-2023.webp'

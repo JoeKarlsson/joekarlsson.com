@@ -4,7 +4,7 @@ seoTitle: 'MongoDB Atlas Online Archive: Custom Rules'
 shareTitle: 'Custom Archival Rules and Partitioning on MongoDB Atlas Online Archive'
 date: 2021-06-30
 slug: 'how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive'
-description: 'Okay, so you’ve set up a simple MongoDB Atlas Online Archive, and now you might be wondering, “What’s next?” In this post, we will cover some more advanced Online Archive use cases, including setting...'
+description: 'How to set up custom archival rules on MongoDB Atlas Online Archive and partition your archived data to speed up queries against it.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
 heroImage: '/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/og-sql-to-mdb.webp'

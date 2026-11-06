@@ -3,7 +3,7 @@ title: 'What I Learned When I Could Finally Prove My Work Mattered'
 seoTitle: 'When I Could Finally Prove My Work Mattered'
 date: 2026-08-04
 slug: 'proving-my-work-mattered'
-description: "For most of my last job I couldn't say whether my work mattered. What I learned getting the data that finally answered it - and what it did to my influence."
+description: "For most of my last job I couldn't say whether my work mattered. What the data taught me once I had it, and what it did to my influence."
 categories: ['Cloud', 'Career']
 writtenFor: 'CData'
 tags: ['analytics', 'data', 'devrel', 'cdata']

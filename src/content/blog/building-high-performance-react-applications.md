@@ -2,7 +2,7 @@
 title: 'Building High Performance React Applications'
 date: 2018-11-14
 slug: 'building-high-performance-react-applications'
-description: 'Okay, we all know that React was built with performance in mind, but when is React slow? I want to break down for you, dear reader, common bottlenecks in React and when you might be making your...'
+description: 'How to build high performance React applications - find the bottlenecks, then fix them with keys, PureComponent, immutable data and production builds.'
 categories: ['Web Dev']
 heroImage: '/images/blog/building-high-performance-react-applications/1_4Lrdmxs5FVMlqK3b8cwcTA.webp'
 heroAlt: 'React performance profiling in Chrome DevTools'

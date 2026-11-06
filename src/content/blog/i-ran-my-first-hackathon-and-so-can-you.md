@@ -2,7 +2,7 @@
 title: 'I Ran My First Hackathon, and So Can You!'
 date: 2017-01-30
 slug: 'i-ran-my-first-hackathon-and-so-can-you'
-description: 'I Ran My First Hackathon, and So Can You! Here are the lessons I learned from planning, organizing, and executing my first hackathon. The hackathon I ran was the Stupid Shit and Terrible Ideas...'
+description: 'Lessons I learned planning and running my first hackathon, the Stupid Shit and Terrible Ideas Hackathon in Honolulu, and how you can run one too.'
 categories: ['Career']
 heroImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/11.16.2019.webp'
 heroAlt: 'I ran my first hackathon and so can you'

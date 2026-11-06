@@ -3,7 +3,7 @@ title: 'How to Build a React and MongoDB App From Scratch In 10 Minutes'
 seoTitle: 'Build a React and MongoDB App in 10 Minutes'
 date: 2019-04-02
 slug: 'a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes'
-description: 'Are you interested in learning how to build a React and MongoDB App? Like many of you, I have been interested in learning more about MongoDB’s cloud offerings and also not spending a dime. This guide...'
+description: 'How to build a React and MongoDB app from scratch in 10 minutes - a to-do app on MongoDB Stitch and Atlas with authentication, without spending a dime.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
 tags: ['javascript', 'mongodb', 'react', 'reactJS', 'Stitch', 'tutorial']

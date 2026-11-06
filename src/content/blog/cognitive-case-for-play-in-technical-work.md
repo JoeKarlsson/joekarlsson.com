@@ -2,7 +2,7 @@
 title: 'The Cognitive Case for Play in Technical Work'
 date: 2026-08-31
 slug: 'cognitive-case-for-play-in-technical-work'
-description: 'What research on creativity, flow states, and psychological safety says about the conditions that make your best iterative work possible - and how to build them.'
+description: 'What research on creativity, flow and psychological safety says about the conditions behind your best iterative technical work, and how to build them.'
 categories: ['Career']
 heroImage: '/images/blog/cognitive-case-for-play-in-technical-work/hero.webp'
 heroAlt: 'Abstract 3D render of cartoon hands gripping a cylindrical object, with organic blob shapes floating on a dark blue background'
@@ -27,7 +27,7 @@ The problem isn't review. It's that planning-first changes the cognitive frame b
 
 > "People will be most creative when they're motivated primarily by the interest, enjoyment, satisfaction, and personal challenge of the work itself, and not by external pressures or external motivators."
 >
-> — [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one)
+> From [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one)
 
 People who expect external evaluation before creative work produce less creative output. Not from lack of effort. From the wrong kind of attention.
 
@@ -45,7 +45,7 @@ To be clear: this isn't about carving out a separate "play time" alongside real 
 
 > "Play isn't the enemy of learning, it's learning's partner. Play is like fertilizer for brain growth. It's crazy not to use it."
 >
-> — [Stuart Brown, _Play_](https://parentotheca.com/2022/11/18/play-stuart-brown-book-summary/)
+> From [Stuart Brown, _Play_](https://parentotheca.com/2022/11/18/play-stuart-brown-book-summary/)
 
 Environments that eliminate the conditions for play don't produce safer, more predictable output. They produce worse output, more slowly.
 
@@ -65,13 +65,13 @@ I've watched this exact dynamic play out. Teams that had been genuinely creative
 
 > "A shared belief held by members of a team that the team is safe for interpersonal risk taking."
 >
-> — [Amy Edmondson](https://en.wikipedia.org/wiki/Psychological_safety)
+> From [Amy Edmondson](https://en.wikipedia.org/wiki/Psychological_safety)
 
 That's the other half of what play requires: believing errors won't be penalized. Edmondson's work, [later validated by Google's Project Aristotle](https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness), showed psychological safety is the single most important factor in team performance. In practice, it means teams where:
 
 > "No one on the team will embarrass or punish anyone else for admitting a mistake, asking a question, or offering a new idea."
 >
-> — [Google re:Work, Project Aristotle](https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness)
+> From [Google re:Work, Project Aristotle](https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness)
 
 Teams with it experiment more, learn faster, produce better work.
 
@@ -109,7 +109,7 @@ The [SEO work I described here](https://www.joekarlsson.com/blog/reversing-seo-t
 
 > "Flow is a state of transient downregulation of the highest cognitive hierarchical component, the prefrontal cortices." People in flow "become so absorbed in the activity that they do not have any attention to spare to become distracted by anything else."
 >
-> — [Frontiers in Psychology, flow states research](https://pmc.ncbi.nlm.nih.gov/articles/PMC7551835/)
+> From [Frontiers in Psychology, flow states research](https://pmc.ncbi.nlm.nih.gov/articles/PMC7551835/)
 
 Anything that triggers self-evaluation re-activates exactly the circuitry the flow state had quieted. You don't just lose time. You lose the state. Protect blocks of uninterrupted work the way you'd protect a production deployment.
 
@@ -123,7 +123,7 @@ The concern is fair. But accountability and play aren't in conflict - the sequen
 
 > "By putting people under conditions where they expected external evaluation of what they were doing... all each of those conditions and related conditions led to a decrease in creativity."
 >
-> — [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one)
+> From [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one)
 
 The first kills creative output. The second can enhance it. The argument isn't to remove accountability. It's to move it to where it's useful: after the experiment, not before it.
 

@@ -2,7 +2,7 @@
 title: 'DevRel as Dev Zero'
 date: 2023-03-03
 slug: 'devrel-as-dev-zero'
-description: 'As a developer advocate, I often ponder DevRel’s role in catching bugs and tricky issues before they escalate. I’m sharing my thoughts in this blog post. DevRel as Dev Zero DevRel can serve as the...'
+description: 'DevRel as Dev Zero: developer advocates use the product as a new user would and catch bugs, like a missing Create Account button, before customers do.'
 categories: ['Career']
 heroImage: '/images/blog/devrel-as-dev-zero/DevRel-as-Dev-Zero.webp'
 heroAlt: 'DevRel as Dev Zero concept illustration'

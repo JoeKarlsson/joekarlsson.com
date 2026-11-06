@@ -3,7 +3,7 @@ title: 'How to Build a Cloud Asset Inventory for Azure'
 seoTitle: 'Build a Cloud Asset Inventory for Azure'
 date: 2024-11-25
 slug: 'how-to-build-a-cloud-asset-inventory-for-azure'
-description: 'Learn how to build an Azure cloud asset inventory with CloudQuery and PostgreSQL. Covers setup, dbt transformations, and visualizing assets for security and compliance.'
+description: 'Build an Azure cloud asset inventory with CloudQuery and PostgreSQL. Covers setup, dbt transformations, and visualizing assets for security and compliance.'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Cloud Asset Inventory', 'Azure']

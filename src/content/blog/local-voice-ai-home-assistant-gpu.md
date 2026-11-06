@@ -5,7 +5,7 @@ shareTitle: 'I Built a Fully Local Voice Assistant for Home Assistant (GPU, No C
 date: 2026-04-13T10:51:02Z
 slug: 'local-voice-ai-home-assistant-gpu'
 updatedDate: 2026-10-15
-description: 'How I built a GPU-accelerated local voice pipeline for Home Assistant using faster-whisper, Piper TTS, and Ollama - zero cloud required, and the failures that got me here.'
+description: 'How I built a fully local, GPU-accelerated voice pipeline for Home Assistant with faster-whisper, Piper and Ollama, and what failed along the way.'
 categories: ['Homelab']
 heroImage: '/images/blog/local-voice-ai-home-assistant-gpu/hero.webp'
 heroAlt: 'Home Assistant local voice pipeline architecture showing Whisper GPU, Piper TTS, and Ollama components connected via Wyoming protocol'

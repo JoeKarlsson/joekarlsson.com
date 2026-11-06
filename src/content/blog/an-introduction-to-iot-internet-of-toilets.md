@@ -2,7 +2,7 @@
 title: 'An Introduction to IoT (Internet of Toilets)'
 date: 2020-11-03
 slug: 'an-introduction-to-iot-internet-of-toilets'
-description: 'My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet...'
+description: 'An intro to IoT with JavaScript through the Internet of Toilets - why Node.js fits IoT, IoT data best practices, and the litter box I built for my cat.'
 categories: ['Homelab']
 heroImage: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp'
 heroAlt: 'IoT Kitty Litter Box project overview diagram'

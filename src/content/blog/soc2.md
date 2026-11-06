@@ -3,7 +3,7 @@ title: What is SOC2 Compliance?
 date: 2024-11-05
 slug: soc2
 description: >-
-  Learn SOC2 compliance essentials: protect data, build trust, and meet regulatory standards with security, availability, integrity, confidentiality, and privacy.
+  SOC2 compliance is the AICPA audit standard for how a company protects customer data across security, availability, integrity, confidentiality and privacy.
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering']

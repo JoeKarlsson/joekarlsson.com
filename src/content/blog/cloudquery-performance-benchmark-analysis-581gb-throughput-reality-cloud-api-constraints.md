@@ -4,7 +4,7 @@ seoTitle: 'CloudQuery Benchmark: 581 GB/Hour'
 shareTitle: 'CloudQuery Benchmark: 581 GB/Hour Throughput and the Limits of Cloud APIs'
 date: 2025-09-15
 slug: 'cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints'
-description: 'Performance analysis of CloudQuery across multiple platforms and data sources, achieving 581 GB/hour throughput on consumer grade hardware when processing local data, with detailed analysis of cloud provider API rate limiting impacts.'
+description: 'CloudQuery performance benchmark - 581 GB/hour on consumer hardware with local data, and how cloud provider API rate limits change the real numbers.'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering']

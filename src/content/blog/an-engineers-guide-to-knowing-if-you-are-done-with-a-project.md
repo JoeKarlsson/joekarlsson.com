@@ -3,7 +3,7 @@ title: 'An Engineers Guide to Knowing if You Are Done With a Project'
 seoTitle: 'How Engineers Know a Project Is Done'
 date: 2018-11-14
 slug: 'an-engineers-guide-to-knowing-if-you-are-done-with-a-project'
-description: 'Have you ever started a project and thought to yourself, “When can I call this done?” Then this listicle is for you! This guide is intended to be a general list of things your personal or...'
+description: "An engineer's checklist for knowing when a project is done - the list I give my team, from working code and tests to QA, accessibility and performance."
 categories: ['Career']
 heroImage: '/images/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/1_FShMf6oFa8kkaj6q_e9vWQ.webp'
 heroAlt: 'Checklist for determining when an engineering project is complete'

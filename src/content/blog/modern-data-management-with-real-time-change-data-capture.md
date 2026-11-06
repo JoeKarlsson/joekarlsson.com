@@ -3,7 +3,7 @@ title: 'Modern data management with real-time Change Data Capture'
 seoTitle: 'Real-Time Change Data Capture'
 date: 2024-03-30
 slug: 'modern-data-management-with-real-time-change-data-capture'
-description: 'Data engineers are grappling with surging data volumes while stakeholders increasingly demand real-time decision-making and user-facing features powered by data. This raises a fundamental question:...'
+description: 'Real-time Change Data Capture (CDC) tracks database changes as they happen and sends them downstream. Why it matters for event-driven data architectures.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
 heroImage: '/images/blog/modern-data-management-with-real-time-change-data-capture/64d25c705289244c4387c2e9_Real-time-change-data-capture-Blo-1.webp'

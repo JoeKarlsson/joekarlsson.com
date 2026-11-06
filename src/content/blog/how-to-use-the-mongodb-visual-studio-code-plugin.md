@@ -3,7 +3,7 @@ title: 'How To Use The MongoDB Visual Studio Code Plugin'
 seoTitle: 'The MongoDB VS Code Plugin'
 date: 2020-11-03
 slug: 'how-to-use-the-mongodb-visual-studio-code-plugin'
-description: 'To make developers more productive when working with MongoDB, we built MongoDB for Visual Studio Code, an extension that allows you to quickly connect to MongoDB and MongoDB Atlas and work with your...'
+description: 'How to use the MongoDB Visual Studio Code plugin to connect to Atlas, browse your collections and prototype queries in Playgrounds inside your editor.'
 categories: ['Web Dev']
 heroImage: '/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/og-vs-code-plugin.webp'
 heroAlt: 'MongoDB Visual Studio Code plugin tutorial'

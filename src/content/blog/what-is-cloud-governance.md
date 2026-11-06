@@ -3,7 +3,7 @@ title: 'What Is Cloud Governance? The Complete Guide for Platform Engineering Te
 seoTitle: 'What Is Cloud Governance? A Complete Guide'
 date: 2026-04-06
 slug: what-is-cloud-governance
-description: 'The policies and controls that keep cloud infrastructure secure, compliant, and cost-efficient. Learn the 6 pillars of cloud governance and how to implement them.'
+description: 'Cloud governance is the policies and controls that keep cloud infrastructure secure, compliant and cost-efficient. The 6 pillars and how to implement them.'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Governance', 'Cloud Infrastructure']

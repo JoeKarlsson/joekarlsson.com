@@ -2,7 +2,7 @@
 title: 'My Top 50 All-Time Favorite Records'
 date: 2019-06-11
 slug: 'my-top-50-records'
-description: 'Every couple of years, I like to compile a list of my 50 all-time favorite records. These tend to be the records that I listen to the most or that have had the greatest impact on me. The order...'
+description: 'My top 50 all-time favorite records, the ones I play most or that hit me hardest, from Loveless to Kind of Blue. I redo the list every couple of years.'
 categories: ['Life']
 heroImage: '/images/blog/my-top-50-records/Joe-Karlssons-top-50-Records-of-all-Time.webp'
 heroAlt: 'Joe Karlsson top 50 records of all time'

@@ -3,7 +3,7 @@ title: 'AWS Lambda Node.js 20 End of Life: Upgrade to Node.js 22 Before April 20
 seoTitle: 'AWS Lambda Node.js 20 End of Life'
 date: 2025-11-24
 slug: 'aws-lambda-nodejs-20-eol'
-description: 'Node.js 20 on AWS Lambda hits EOL April 30, 2026. Find every affected function across all accounts, fix breaking changes, and upgrade with this step-by-step guide.'
+description: 'AWS Lambda Node.js 20 hits end of life April 30, 2026. How to find every affected function across accounts, fix breaking changes and upgrade to Node.js 22.'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']

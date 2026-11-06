@@ -3,7 +3,7 @@ title: 'Save The World And Money With MongoDB Atlas Data Lake'
 seoTitle: 'Save Money with MongoDB Atlas Data Lake'
 date: 2020-10-16
 slug: 'save-the-world-and-money-with-mongodb-atlas-data-lake'
-description: 'Thanks for coming to my talk, Save The World And Money With MongoDB Atlas Data Lake. About Data centers are expensive. It turns out that this is not great for the environment. By 2040, storing...'
+description: 'Slides and code from my MongoDB Atlas Data Lake talk on archiving cold data to AWS S3 with Serverless Triggers and querying it with zero downtime.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
 heroImage: '/images/blog/save-the-world-and-money-with-mongodb-atlas-data-lake/Save-The-World-And-Money-With-MongoDB-Data-Lake.webp'

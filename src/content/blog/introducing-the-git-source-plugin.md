@@ -4,7 +4,7 @@ seoTitle: 'Query Thousands of Git Repos with SQL'
 shareTitle: 'Find EOL Docker Images, Missing Licenses, and Stale CODEOWNERS with SQL'
 date: 2026-01-04
 slug: 'introducing-the-git-source-plugin'
-description: 'Query your Dockerfiles, CODEOWNERS, and package.json files across all repos with SQL. No cloning, no custom scripts - just SQL queries that find EOL images, missing licenses, and outdated dependencies in seconds.'
+description: 'Query Dockerfiles, CODEOWNERS and package.json across all your repos with SQL to find EOL Docker images, missing licenses and stale CODEOWNERS, no cloning.'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']

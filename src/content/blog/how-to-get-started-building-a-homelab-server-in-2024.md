@@ -4,7 +4,7 @@ seoTitle: 'How to Build a Homelab Server in 2026'
 date: 2023-09-27
 updatedDate: 2026-03-11
 slug: 'how-to-get-started-building-a-homelab-server-in-2024'
-description: 'I built my first Homelab server for under $200 using a used Lenovo ThinkServer from Facebook Marketplace and Proxmox. Here is everything I learned about picking hardware, choosing an OS, setting up containers, and mounting NAS storage.'
+description: "I built my first Homelab server for under $200 with a used Lenovo ThinkServer and Proxmox. Here's how I picked hardware, ran containers and mounted NAS."
 categories: ['Homelab']
 heroImage: '/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp'
 heroAlt: 'Vaporwave style illustration of a homelab server'

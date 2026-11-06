@@ -3,7 +3,7 @@ title: 'Six Months with ClickHouse at CloudQuery: The Good, The Bad, and the Une
 seoTitle: 'Six Months with ClickHouse at CloudQuery'
 date: 2025-04-08
 slug: 'six-months-with-clickhouse-at-cloudquery'
-description: "After six months using ClickHouse as CloudQuery's default backend, here's what we learned about performance, JOIN limits, sorting keys, materialized views, and benchmarking."
+description: "What six months of ClickHouse as CloudQuery's default backend taught us about performance, JOIN limits, sorting keys, materialized views and benchmarking."
 categories: ['Cloud', 'Web Dev']
 writtenFor: 'CloudQuery'
 tags: ['ClickHouse', 'Engineering', 'Data Engineering']

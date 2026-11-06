@@ -3,7 +3,7 @@ title: 'Data Warehouses Are Terrible Application Backends'
 seoTitle: 'Data Warehouses Are Terrible App Backends'
 date: 2024-04-05
 slug: 'data-warehouses-are-terrible-application-backends'
-description: ‘The ever-increasing tide of data has become a paradox of plenty for today’’s developers. According to a report from Seagate, by 2025 worldwide data will grow to a staggering 163 zettabytes, over 10...'
+description: "Data warehouses can't handle the freshness, latency and concurrency user-facing apps need. Why real-time data platforms make better application backends."
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
 heroImage: '/images/blog/data-warehouses-are-terrible-application-backends/add14bab-data-warehouse-1-1024x505-1.webp'

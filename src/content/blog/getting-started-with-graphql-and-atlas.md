@@ -2,7 +2,7 @@
 title: 'Building Your First GraphQL Client in JS'
 date: 2020-01-16
 slug: 'getting-started-with-graphql-and-atlas'
-description: 'Thanks for coming to my talk, Building Your First GraphQL Client in JS. Here you will find all the resources discussed during the talk. About RESTful APIs have been around for a while now, but they...'
+description: 'Building your first GraphQL client in JS: slides, video and code from my talk on where REST APIs fall short and how to design a scalable GraphQL schema.'
 categories: ['Web Dev']
 heroImage: '/images/blog/getting-started-with-graphql-and-atlas/From-SQL-to-NoSQL-Blog-Cover1.webp'
 heroAlt: 'Getting Started with GraphQL and MongoDB Atlas presentation title slide'

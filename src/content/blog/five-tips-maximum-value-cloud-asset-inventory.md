@@ -3,7 +3,7 @@ title: 'Five Tips for Getting Maximum Value from a Cloud Asset Inventory'
 seoTitle: '5 Tips for a Better Cloud Asset Inventory'
 date: 2025-10-03
 slug: 'five-tips-maximum-value-cloud-asset-inventory'
-description: 'Discover five essential principles for building cloud asset inventories that deliver real business value. Learn how successful organizations transform cloud infrastructure visibility into measurable outcomes through business-focused implementation, cross-functional collaboration, and actionable intelligence.'
+description: 'Five ways to get more value from a cloud asset inventory: tie it to business outcomes, involve stakeholders, start with high-impact use cases.'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Infrastructure', 'Best Practices']

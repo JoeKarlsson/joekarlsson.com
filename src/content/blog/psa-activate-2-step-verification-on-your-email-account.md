@@ -3,7 +3,7 @@ title: 'PSA: Activate 2-Step Verification on your Email Account'
 seoTitle: 'PSA: Turn On 2-Step Verification for Email'
 date: 2015-05-18
 slug: 'psa-activate-2-step-verification-on-your-email-account'
-description: 'You all should activate 2-Step Verification on all of your most important accounts. Making a new long password is no longer enough to protect your accounts. It’s easier than you think for someone to...'
+description: "Turn on 2-Step Verification for your email and other important accounts. A long password isn't enough anymore, and setup takes five minutes at most."
 categories: ['Life']
 heroImage: '/images/blog/placeholder/placeholder-personal.webp'
 heroAlt: 'Lock icon representing two-step verification security'

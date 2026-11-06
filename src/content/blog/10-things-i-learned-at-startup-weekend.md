@@ -2,7 +2,7 @@
 title: '10 Things I learned at Startup Weekend'
 date: 2015-07-04
 slug: '10-things-i-learned-at-startup-weekend'
-description: 'What Is Startup Weekend? Are you interested in starting your own business someday?  Do you have an idea for a business? Want to meet some smart people? Startup Weekend is for you! Startup...'
+description: 'What I learned at my first Startup Weekend in Honolulu - pitch the idea you think is stupid, keep it simple, trust your team and get some sleep.'
 categories: ['Career']
 heroImage: '/images/blog/10-things-i-learned-at-startup-weekend/tumblr_nqx8chHbKD1tubinno1_1280-min.webp'
 heroAlt: 'Bubble tea from Startup Weekend event'

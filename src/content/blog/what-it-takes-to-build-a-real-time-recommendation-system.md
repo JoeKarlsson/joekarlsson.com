@@ -3,7 +3,7 @@ title: 'What it takes to build a real-time recommendation system'
 seoTitle: 'Building a Real-Time Recommendation System'
 date: 2024-03-30
 slug: 'what-it-takes-to-build-a-real-time-recommendation-system'
-description: 'Real-time, personalized recommendations have become a foundational part of our online experiences. From streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering...'
+description: 'What goes into a real-time recommendation system: content-based and collaborative filtering, data storage, and starting with SQL before reaching for ML.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
 heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/64be9b1121ab250bbca26d13_Confluent-ConnectorWhat-it-takes-to.webp'

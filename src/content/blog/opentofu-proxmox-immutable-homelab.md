@@ -3,7 +3,7 @@ title: 'I Finally Stopped Managing My Homelab by Hand (Everything Just Kept Brea
 seoTitle: 'An Immutable Homelab with OpenTofu'
 date: 2026-05-27
 slug: 'opentofu-proxmox-immutable-homelab'
-description: 'How I migrated 62 Proxmox containers to OpenTofu with a self-hosted MinIO state backend - the audit, the wave migration, the stack, and whether immutable infrastructure is actually worth it.'
+description: 'How I migrated 62 Proxmox containers to OpenTofu with a self-hosted MinIO state backend, and whether immutable infrastructure was worth it for a homelab.'
 categories: ['Homelab']
 heroImage: '/images/blog/opentofu-proxmox-immutable-homelab/hero.webp'
 heroAlt: 'Terminal output showing OpenTofu provisioning Proxmox LXC containers with MinIO as the self-hosted state backend'

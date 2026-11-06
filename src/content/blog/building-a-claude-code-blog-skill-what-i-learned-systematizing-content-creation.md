@@ -3,7 +3,7 @@ title: 'Building a Claude Code Blog Skill: What I Learned Systematizing Content 
 seoTitle: 'Building a Claude Code Blog Skill'
 date: 2025-10-24
 slug: 'building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation'
-description: 'I live in the terminal. Like, genuinely live there. As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code...'
+description: 'Building a Claude Code blog skill - how I turned my own blog workflow, from banned words to Vale linting and PRs, into a skill our marketing team can run.'
 categories: ['AI']
 heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/Building-a-Claude-Code-Blog-Skill.webp'
 heroAlt: 'Building a Claude Code blog skill for systematizing content creation'

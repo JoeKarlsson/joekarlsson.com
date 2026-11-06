@@ -3,7 +3,7 @@ title: "Implementing MikroTik's Binary API Protocol in Python from Scratch"
 seoTitle: "MikroTik's Binary API Protocol in Python"
 date: 2026-03-05
 slug: 'implementing-mikrotik-binary-api-protocol-in-python'
-description: "A deep dive into implementing MikroTik's proprietary RouterOS binary API protocol in Python - variable-length encoding, sentence-based messaging, and programmatic network infrastructure control. Zero dependencies, 137 lines."
+description: "How I implemented MikroTik's RouterOS binary API protocol in Python from scratch, with variable-length encoding and sentence-based messages, in 137 lines."
 categories: ['Homelab']
 heroImage: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp'
 heroAlt: 'MikroTik binary API protocol implementation'

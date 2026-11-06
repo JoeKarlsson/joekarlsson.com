@@ -2,7 +2,7 @@
 title: 'Cloud Centers of Excellence (Part 3): FinOps, Cost Management, and Real-World Case Studies'
 seoTitle: 'CCoE FinOps and Cost Management (Part 3)'
 shareTitle: 'Cloud Centers of Excellence (Part 3): FinOps, Cost Management, and Case Studies'
-description: Cloud costs aren't just a budgeting issue, they're a systems problem. In Part 3, we unpack how mature CCOEs adopt FinOps practices to track every dollar, cut waste by up to 40%, and drive shared accountability across teams. Real examples from banks and enterprises show how this actually plays out.
+description: How mature Cloud Centers of Excellence use FinOps to track cloud costs, cut waste by up to 40% and share accountability, with case studies from banks.
 date: 2025-06-03
 slug: cloud-centers-of-excellence-part-3-finops-cost-management-case-studies
 tags:

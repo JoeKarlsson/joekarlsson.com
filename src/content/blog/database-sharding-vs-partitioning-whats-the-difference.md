@@ -3,7 +3,7 @@ title: 'Database Sharding vs. Partitioning: What’s the Difference?'
 seoTitle: 'Database Sharding vs. Partitioning'
 date: 2021-11-04
 slug: 'database-sharding-vs-partitioning-whats-the-difference'
-description: 'In this post, I explain the differences between database sharding vs. partitioning and explore when to use each - or even to combine them for data-intensive applications.'
+description: 'The difference between database sharding and partitioning, when to use each, and when to combine them for data-intensive applications.'
 categories: ['Web Dev']
 writtenFor: 'SingleStore'
 heroImage: '/images/blog/database-sharding-vs-partitioning-whats-the-difference/img_blog_post_featured_database-sharding-vs-partitioning-whats-the-difference.webp'
@@ -14,8 +14,6 @@ tldr: 'Partitioning splits a big table into smaller pieces on the same machine. 
 ---
 
 In this post, I'm going to break down the differences between database sharding vs. partitioning. Both are methods of breaking a large dataset into smaller subsets - but there are differences. This article explores when to use each - or even to combine them for data-intensive applications.
-
-# Database Sharding vs. Partitioning: What’s the Difference?
 
 ## Introduction:
 

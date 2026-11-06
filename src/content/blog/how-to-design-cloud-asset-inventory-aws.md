@@ -2,7 +2,7 @@
 title: 'How to Design a Cloud Asset Inventory for AWS'
 date: 2025-10-03
 slug: 'how-to-design-cloud-asset-inventory-aws'
-description: 'Learn the five essential design principles for building cloud asset inventories that deliver results - freshness, completeness, normalization, queryability, and extensibility. Discover the maturity stages from ad-hoc scripts to optimized systems with predictive analytics and real-time decision making.'
+description: 'Five design principles for a cloud asset inventory on AWS: freshness, completeness, normalization, queryability and extensibility, plus maturity stages.'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Cloud Infrastructure', 'Engineering']
