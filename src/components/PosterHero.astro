@@ -13,13 +13,18 @@ interface Props {
 	wordRatio: number;
 	// Scrolls in the pink ticker, separated by dots
 	tickerItems: string[];
+	// The media is a picture or clip of Joe rather than content (a featured post or
+	// project), so phones skip it and open on the title panel
+	decorativeMedia?: boolean;
 }
 
-const { title, wordRatio, tickerItems } = Astro.props;
+const { title, wordRatio, tickerItems, decorativeMedia = false } = Astro.props;
 ---
 
-<header class="relative mb-14 grid gap-4 md:grid-cols-2">
-	<slot name="media" />
+<header class="relative mb-10 grid gap-4 md:mb-14 md:grid-cols-2">
+	<div class:list={['contents', decorativeMedia && 'poster-media-decorative max-md:hidden']}>
+		<slot name="media" />
+	</div>
 	<!-- First on phones, so the page's name shows before its picture -->
 	<div class="relative grid min-w-0 grid-rows-[auto_1fr] gap-4 max-md:order-first">
 		<Scribble
@@ -40,7 +45,7 @@ const { title, wordRatio, tickerItems } = Astro.props;
 				))}
 			</div>
 		</div>
-		<div class="relative flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
+		<div class="relative flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-5 md:p-7">
 			<Scribble
 				{...MARKS.hatch}
 				color="#ff4fd8"

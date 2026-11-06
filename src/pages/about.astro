@@ -259,7 +259,12 @@ const cropArtPieces = [
 		desktop column only trims the sides, never his head. Pink
 		dots are drawn live (src/scripts/halftone.ts); in-view-play stops it with
 		pause-motion and reduced motion. -->
-		<PosterHero title="About" wordRatio={2.4} tickerItems={aboutHeadings.map(({ text }) => text)}>
+		<PosterHero
+			decorativeMedia
+			title="About"
+			wordRatio={2.4}
+			tickerItems={aboutHeadings.map(({ text }) => text)}
+		>
 			<div
 				slot="media"
 				class="relative z-10 aspect-[4/3] md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']"
@@ -496,44 +501,23 @@ const cropArtPieces = [
 						class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 					/>
 				</h2>
-				<div class="mb-16 grid gap-10 md:grid-cols-[minmax(0,1fr)_320px]">
-					<div class="space-y-5 leading-relaxed text-paper">
-						<p>
-							I got a computer science degree and went straight into Microsoft SharePoint consulting
-							during the Ballmer years. I was bad at coding, and SharePoint did not make it more
-							fun. It was a dark time.
-						</p>
-						<p>
-							I fell back in love with programming in Hawaii. I met a group of developers at the
-							local coding bootcamp who had so much joy building the things they wanted to build,
-							and I realized I was good at programming as long as I was making things I wanted to
-							make. I've been following that ever since.
-						</p>
-						<p>
-							These days I make weird art, I solve problems in my own life and other people's, and I
-							even like the drudgery of maintaining software day in and day out. The rest of this
-							page is what came out of that.
-						</p>
-					</div>
-					<figure class="relative mx-auto w-full max-w-[320px] rotate-[1.5deg] md:h-full md:max-w-none">
-						<img
-							src="/images/about/joe-hawaii.webp"
-							alt="Joe on an orange beach cruiser under palm trees in Hawaii, throwing a peace sign"
-							data-halftone="dots"
-							data-halftone-no-invert
-							class="block aspect-[3/4] w-full rounded-xl object-cover object-[65%_center] md:aspect-auto md:h-full"
-							width="900"
-							height="1200"
-							loading="lazy"
-						/>
-						<Scribble
-							{...MARKS.burst}
-							color={CHALK}
-							duration="9s"
-							delay="0.6s"
-							class="-top-[6%] -right-[8%] z-10 size-[24%]"
-						/>
-					</figure>
+				<div class="mb-16 max-w-3xl space-y-5 leading-relaxed text-paper">
+					<p>
+						I got a computer science degree and went straight into Microsoft SharePoint consulting
+						during the Ballmer years. I was bad at coding, and SharePoint did not make it more fun.
+						It was a dark time.
+					</p>
+					<p>
+						I fell back in love with programming in Hawaii. I met a group of developers at the local
+						coding bootcamp who had so much joy building the things they wanted to build, and I
+						realized I was good at programming as long as I was making things I wanted to make. I've
+						been following that ever since.
+					</p>
+					<p>
+						These days I make weird art, I solve problems in my own life and other people's, and I
+						even like the drudgery of maintaining software day in and day out. The rest of this page
+						is what came out of that.
+					</p>
 				</div>
 
 				<h2 id="as-seen-on" class={`${SECTION_HEADING} scroll-mt-24`}>
@@ -703,9 +687,7 @@ const cropArtPieces = [
 				below closes it there); open everywhere else, and without JavaScript */}
 				<details open class="now-fold group/now mb-16">
 					<summary class="mb-2 inline-flex min-h-11 cursor-pointer list-none items-center font-semibold text-pink md:hidden [&::-webkit-details-marker]:hidden">
-						<span class="group-open/now:hidden">
-							Show what I'm shipping, watching and listening to&nbsp;↓
-						</span>
+						<span class="group-open/now:hidden">Show what I'm up to&nbsp;↓</span>
 						<span class="hidden group-open/now:inline">Hide it ↑</span>
 					</summary>
 					<NowFeed />
@@ -727,9 +709,11 @@ const cropArtPieces = [
 						cardboard. I had two pieces in the Seeds of Justice exhibit in 2025, then entered the
 						Minnesota State Fair Crop Art competition for the first time.
 					</p>
-					<ul class="grid gap-6 sm:grid-cols-3">
+					{/* Phones: a sideways gallery like As seen on, so three tall pieces take one row
+					instead of three screens. From sm up, a grid of three */}
+					<ul class="art-gallery -mx-4 flex snap-x scroll-px-4 gap-5 overflow-x-auto px-4 pt-2 pb-4 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:p-0">
 						{cropArtPieces.map((piece) => (
-							<li>
+							<li class="w-56 shrink-0 snap-start sm:w-auto">
 								<a
 									href={cropArtUrl}
 									target="_blank"

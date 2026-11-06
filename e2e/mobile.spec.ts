@@ -117,6 +117,43 @@ test.describe('Phone layout', () => {
 		await expect(fold).toHaveAttribute('open');
 	});
 
+	test('/about has no Hawaii photo, and its art swipes sideways', async ({ page }) => {
+		await page.goto('/about/');
+		await expect(page.locator('img[src*="joe-hawaii"]')).toHaveCount(0);
+		const gallery = page.locator('.art-gallery');
+		const { scrollWidth, clientWidth } = await gallery.evaluate((el) => ({
+			scrollWidth: el.scrollWidth,
+			clientWidth: el.clientWidth,
+		}));
+		expect(scrollWidth).toBeGreaterThan(clientWidth);
+	});
+
+	test('pages open on their title, skipping decorative pictures of Joe, but keep featured content', async ({
+		page,
+	}) => {
+		for (const path of ['/about/', '/uses/', '/resume/', '/contact/', '/talk-archive/']) {
+			await page.goto(path);
+			await expect(page.locator('.poster-media-decorative > *').first(), path).toBeHidden();
+		}
+		for (const path of ['/blog/', '/work/', '/newsletter/']) {
+			await page.goto(path);
+			await expect(
+				page.locator('header [slot="media"], header > div > a').first(),
+				path,
+			).toBeVisible();
+		}
+	});
+
+	test('Where to next keeps one big card and lists the rest as compact rows', async ({ page }) => {
+		await page.goto('/work/');
+		const widths = await page
+			.locator('#keep-exploring ~ ul img')
+			.evaluateAll((imgs) => imgs.map((img) => img.getBoundingClientRect().width));
+		expect(widths.length).toBeGreaterThan(1);
+		expect(widths[0]).toBeGreaterThan(300);
+		for (const width of widths.slice(1)) expect(width).toBeLessThanOrEqual(112);
+	});
+
 	test('the TL;DR in Tech archive opens only its newest year', async ({ page }) => {
 		await page.goto('/newsletter/');
 		const years = page.locator('details.tldr-year');

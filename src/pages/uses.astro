@@ -114,7 +114,12 @@ const sections = USES_SECTIONS.map((section) => {
 >
 	<!-- Wider than PAGE_CONTAINER (max-w-6xl) on purpose: the photos need the room -->
 	<div class="relative mx-auto max-w-[90rem] px-4 pt-10 pb-10 sm:px-7">
-		<PosterHero title="Uses" wordRatio={1.86} tickerItems={USES_SECTIONS.map(({ name }) => name)}>
+		<PosterHero
+			decorativeMedia
+			title="Uses"
+			wordRatio={1.86}
+			tickerItems={USES_SECTIONS.map(({ name }) => name)}
+		>
 			<div slot="media" class="relative z-10 aspect-[5/4] md:aspect-auto">
 				<video
 					src="/images/uses/joe-uses.mp4"

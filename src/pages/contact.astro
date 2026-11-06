@@ -61,6 +61,7 @@ const SECTIONS = [
 		platform in the ticker and the best two ways to reach me. Pink dots are drawn live
 		(src/scripts/halftone.ts); in-view-play stops it with pause-motion and reduced motion. -->
 		<PosterHero
+			decorativeMedia
 			title="Contact"
 			wordRatio={3.2}
 			tickerItems={[...BEST, ...SECTIONS.flatMap(({ links }) => links)].map(({ label }) => label)}

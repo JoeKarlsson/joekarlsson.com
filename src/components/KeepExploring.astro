@@ -59,7 +59,7 @@ const randomPool = pickRandom
 const firstRandom = randomPool[0];
 ---
 
-<nav class="mt-20 mb-12" aria-labelledby="keep-exploring">
+<nav class="mt-14 mb-12 sm:mt-20" aria-labelledby="keep-exploring">
 	<h2 id="keep-exploring" class={SECTION_HEADING}>
 		{heading}
 	</h2>
@@ -73,8 +73,10 @@ const firstRandom = randomPool[0];
 		/>
 	</div>
 
+	<!-- Phones: the lead card keeps its big picture; the rest are compact rows with a
+	thumbnail beside the title, like the homepage's Recent posts -->
 	{cards.length > 0 && (
-		<ul class="grid gap-9 sm:grid-cols-[1fr_1.35fr]">
+		<ul class="grid gap-5 sm:grid-cols-[1fr_1.35fr] sm:gap-9">
 			{cards.map((post, index) => {
 				const image = post.data.heroImage || DEFAULT_HERO_IMAGE;
 				const lead = index === 0;
@@ -86,6 +88,8 @@ const firstRandom = randomPool[0];
 							href={`/blog/${post.data.slug}/`}
 							class:list={[
 								'grid gap-3.5 text-paper no-underline',
+								!lead &&
+									'keep-compact max-sm:grid-cols-[112px_1fr] max-sm:items-center max-sm:gap-4',
 								track(post.data.slug, index + 1),
 							]}
 						>
@@ -106,7 +110,9 @@ const firstRandom = randomPool[0];
 							<span
 								class:list={[
 									'font-display leading-none text-balance uppercase group-hover:text-pink',
-									lead ? 'text-[clamp(32px,4.2vw,52px)]' : 'text-[clamp(24px,2.6vw,34px)]',
+									lead
+										? 'text-[clamp(32px,4.2vw,52px)]'
+										: 'text-[clamp(24px,2.6vw,34px)] max-sm:text-xl',
 								]}
 							>
 								{post.data.title}
