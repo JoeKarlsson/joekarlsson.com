@@ -83,6 +83,8 @@ const AROUND_THE_HOUSE = [
 	title="Joe Karlsson | Developer Marketing Engineer"
 	description={SITE_DESCRIPTION}
 	schemaType="WebSite"
+
+	marginDoodles={false}
 >
 	<!-- A section with a name is a landmark, so screen-reader landmark jumps reach the
 	hero, which sits above the nav and outside <main> -->
@@ -239,6 +241,7 @@ const AROUND_THE_HOUSE = [
 						{i === 0 && (
 							<Scribble
 								{...MARKS.newTag}
+								once
 								color="#ff4fd8"
 								strokeWidth={16}
 								duration="10s"
