@@ -19,7 +19,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
-export const VARIANT_WIDTHS = [400, 800];
+// 1200 for full-width photos on a phone: 390px at 2.6x needs about 1000px
+export const VARIANT_WIDTHS = [400, 800, 1200];
 
 /** `/images/a/b.webp` at 400px -> `/images/a/b.400w.webp` */
 export function variantPath(src, width) {

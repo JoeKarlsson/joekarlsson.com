@@ -37,16 +37,9 @@ const topPostHrefs = new Set(
 		.map((p) => p.href),
 );
 
-// Serialize post data for client-side search/sort/pagination
-const postsData = posts.map((p) => ({
-	title: p.data.title,
-	description: p.data.description,
-	slug: p.data.slug,
-	date: p.data.date.toISOString(),
-	categories: p.data.categories || [],
-	readingTime: getReadingTime(p.body || ''),
-	visitors: visitorsByPath[p.href] || 0,
-}));
+// Visitors per card, in card order, for the Popular sort. Search reads each card's
+// own text and the date its <time>: shipping them again as JSON was 70KB of /blog/
+const visitors = posts.map((p) => visitorsByPath[p.href] || 0);
 
 // The sort switch; the inline script swaps these as the choice changes
 const SORT_ACTIVE =
@@ -147,7 +140,7 @@ const SORT_INACTIVE =
 <!-- Infinite scroll sentinel -->
 <div id="load-more-sentinel" class="mt-8 h-4"></div>
 
-<script is:inline define:vars={{ postsData, POSTS_PER_PAGE, SORT_ACTIVE, SORT_INACTIVE }}>
+<script is:inline define:vars={{ visitors, POSTS_PER_PAGE, SORT_ACTIVE, SORT_INACTIVE }}>
 	(function () {
 		const grid = document.getElementById('posts-grid');
 		const cards = Array.from(grid.children);
@@ -164,26 +157,21 @@ const SORT_INACTIVE =
 		// Map cards to their data
 		const cardData = cards.map((card, i) => ({
 			el: card,
-			data: postsData[i],
+			text: card.textContent.replace(/\s+/g, ' ').toLowerCase(),
+			date: new Date(card.querySelector('time').dateTime).getTime(),
+			visitors: visitors[i],
 		}));
 
 		function getFiltered() {
 			const q = searchQuery.toLowerCase();
 			let filtered = cardData;
 			if (q) {
-				filtered = cardData.filter(
-					({ data }) =>
-						data.title.toLowerCase().includes(q) ||
-						data.description.toLowerCase().includes(q) ||
-						data.categories.some((c) => c.toLowerCase().includes(q)),
-				);
+				filtered = cardData.filter(({ text }) => text.includes(q));
 			}
 			// Sort
 			filtered.sort((a, b) => {
-				const da = new Date(a.data.date).getTime();
-				const db = new Date(b.data.date).getTime();
-				if (currentSort === 'popular') return b.data.visitors - a.data.visitors || db - da;
-				return db - da;
+				if (currentSort === 'popular') return b.visitors - a.visitors || b.date - a.date;
+				return b.date - a.date;
 			});
 			return filtered;
 		}

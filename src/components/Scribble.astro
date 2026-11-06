@@ -5,6 +5,8 @@
 // (index rows, and cards through src/components/HoverBox.astro). The
 // crayon texture is the #crayon filter defined once in BaseLayout. Decorative,
 // so hidden from assistive tech.
+import { RINGS } from '../data/scribbles';
+import { compactPath } from '../utils/compact-path';
 interface Props {
 	path: string;
 	color: string;
@@ -41,10 +43,15 @@ const {
 const strokes = path
 	.split(/(?=M)/)
 	.map((stroke) => stroke.trim())
-	.filter(Boolean);
+	.filter(Boolean)
+	.map(compactPath);
 const oneStrokeAtATime = !ring && strokes.length > 1;
+// Hover rings are defined once in BaseLayout (#hover-ring-N) and drawn with <use>:
+// a full copy per row was a fifth of /uses' HTML
+const ringIndex = ring ? RINGS.indexOf(path) : -1;
+if (ring && ringIndex < 0) throw new Error('Scribble: a ring must be one of RINGS');
 // A hover mark stretches over boxes of any shape, so its line keeps strokeWidth in
-// screen pixels instead of thickening on tall cards (vector-effect below)
+// screen pixels instead of thickening on tall cards (vector-effect on its BaseLayout path)
 ---
 
 <svg
@@ -66,13 +73,12 @@ const oneStrokeAtATime = !ring && strokes.length > 1;
 		stroke-linejoin="round"
 		filter="url(#crayon)"
 	>
-		{strokes.map((d, i) => (
-			<path
-				pathLength="1"
-				d={d}
-				style={oneStrokeAtATime ? `--i:${i}` : undefined}
-				vector-effect={ring ? 'non-scaling-stroke' : undefined}
-			/>
-		))}
+		{ring ? (
+			<use href={`#hover-ring-${ringIndex}`} />
+		) : (
+			strokes.map((d, i) => (
+				<path pathLength="1" d={d} style={oneStrokeAtATime ? `--i:${i}` : undefined} />
+			))
+		)}
 	</g>
 </svg>

@@ -195,6 +195,7 @@ const sections = USES_SECTIONS.map((section) => {
 								class="block w-full rounded-xl"
 								width={section.photo.width}
 								height={section.photo.height}
+								sizes="(min-width: 768px) 50vw, 100vw"
 								loading={si === 0 ? 'eager' : 'lazy'}
 							/>
 							{pinned.map((item, pi) => (

@@ -2,7 +2,8 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { BOXES, CHALK } from '../data/scribbles';
+import { BOXES, CHALK, RINGS } from '../data/scribbles';
+import { compactPath } from '../utils/compact-path';
 
 interface Props {
 	title: string;
@@ -139,8 +140,18 @@ const {
 					stroke-linejoin="round"
 					filter="url(#crayon)"
 				>
-					<path pathLength="1" d={path} vector-effect="non-scaling-stroke"></path>
+					<path pathLength="1" d={compactPath(path)} vector-effect="non-scaling-stroke"></path>
 				</g>
+			))}
+			<!-- The rings index rows and pins draw on hover (Scribble with ring), path only:
+			each <use> sets its own color and width -->
+			{RINGS.map((path, i) => (
+				<path
+					id={`hover-ring-${i}`}
+					pathLength="1"
+					d={compactPath(path)}
+					vector-effect="non-scaling-stroke"
+				></path>
 			))}
 		</svg>
 		<script>

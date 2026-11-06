@@ -14,6 +14,7 @@ import KeepExploring from '../components/KeepExploring.astro';
 import Logo from '../components/Logo.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
+import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
 import { ARTICLE_TITLE, META, PAGE_CONTAINER, SIDEBAR_GRID } from '../utils/ui';
@@ -63,6 +64,9 @@ const {
 	headings,
 	canonicalUrl,
 } = Astro.props;
+// The hero's real size, so a phone reserves the right height before it loads:
+// the old fixed 1120x440 made square heroes jump the title down (CLS 0.15)
+const heroSize = heroImage ? await localImageSize(heroImage) : undefined;
 
 const tocHeadings = (headings || [])
 	.filter((h) => h.depth === 2 || h.depth === 3)
@@ -184,8 +188,8 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 						preload="metadata"
 						aria-label={heroAlt || title}
 						class="mb-10 w-full max-h-[440px] rounded-xl object-cover"
-						width="768"
-						height="440"
+						width={heroSize?.width ?? 768}
+						height={heroSize?.height ?? 440}
 					/>
 				) : (
 					heroImage && (
@@ -196,8 +200,8 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 								data-halftone={halftoneMode(heroImage)}
 								alt={heroAlt || title}
 								class="block w-full max-h-[440px] rounded-xl object-cover"
-								width="1120"
-								height="440"
+								width={heroSize?.width}
+								height={heroSize?.height}
 								loading="eager"
 							/>
 							<Scribble
