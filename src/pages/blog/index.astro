@@ -88,7 +88,8 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					<HoverBox featured />
 				</a>
 			)}
-			<p class={HERO_LEAD}>
+			<!-- Phones skip the count: the title panel is just BLOG -->
+			<p class={`${HERO_LEAD} max-md:hidden`}>
 				{allPosts.length} posts since {firstPostYear}
 			</p>
 		</PosterHero>
