@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import { hasAmazonLink } from '../../utils/affiliate';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -31,6 +32,7 @@ const readingTime = Math.max(1, Math.ceil(words / 250));
 	writtenFor={post.data.writtenFor}
 	slug={post.data.slug}
 	contentNotice={post.data.contentNotice}
+	hasAffiliateLinks={hasAmazonLink(post.body || '')}
 	tldr={post.data.tldr}
 	readingTime={readingTime}
 	wordCount={words}

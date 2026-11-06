@@ -8,6 +8,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 import { readdirSync, readFileSync } from 'node:fs';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import rehypeAmazonAffiliate from './src/plugins/rehype-amazon-affiliate.mjs';
 import rehypeCollapsibleToc from './src/plugins/rehype-collapsible-toc.mjs';
 import rehypeEmptyCornerCell from './src/plugins/rehype-empty-corner-cell.mjs';
 import rehypeFaqDetails from './src/plugins/rehype-faq-details.mjs';
@@ -97,6 +98,7 @@ export default defineConfig({
 				rehypeEmptyCornerCell,
 				rehypeCollapsibleToc,
 				rehypeFaqDetails,
+				rehypeAmazonAffiliate,
 				rehypeSlug,
 				[
 					rehypeAutolinkHeadings,

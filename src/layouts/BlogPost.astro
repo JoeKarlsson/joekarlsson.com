@@ -5,6 +5,7 @@ import BaseLayout from './BaseLayout.astro';
 import BackLink from '../components/BackLink.astro';
 import { categorySlug } from '../utils/categories';
 import { isOwnPost } from '../utils/posts';
+import { AMAZON_DISCLOSURE } from '../utils/affiliate';
 import AuthorBio from '../components/AuthorBio.astro';
 import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -34,6 +35,8 @@ interface Props {
 	writtenFor?: string;
 	slug: string;
 	contentNotice?: string | boolean;
+	/** The post links to Amazon, so it shows the affiliate disclosure up top */
+	hasAffiliateLinks?: boolean;
 	tldr?: string;
 	readingTime?: number;
 	wordCount?: number;
@@ -57,6 +60,7 @@ const {
 	writtenFor,
 	slug,
 	contentNotice,
+	hasAffiliateLinks,
 	tldr,
 	readingTime,
 	wordCount,
@@ -268,6 +272,11 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 					{noticeMessage && (
 						<p class="mb-6 text-sm text-muted" role="note">
 							<Fragment set:html={noticeHtml} />
+						</p>
+					)}
+					{hasAffiliateLinks && (
+						<p class="mb-6 text-sm text-muted" role="note">
+							{AMAZON_DISCLOSURE}
 						</p>
 					)}
 					{tldr && (
