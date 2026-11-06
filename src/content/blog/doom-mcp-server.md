@@ -1,5 +1,6 @@
 ---
 title: 'I Wired Doom to Two MCP Servers and Let Claude Play It'
+seoTitle: 'Claude Plays Doom Over Two MCP Servers'
 date: 2026-11-05
 slug: 'doom-mcp-server'
 description: 'A Doom MCP server lets Claude Code play a level built from live MCP data. See what AI agents did when the MCP server refused a request.'
