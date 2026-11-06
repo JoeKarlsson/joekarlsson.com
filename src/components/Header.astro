@@ -15,13 +15,13 @@ function isActive(href: string, also: string[] = []): boolean {
 
 <!--
 	One row, always. Spacing is in em, so the whole bar scales with its type: from md
-	up the type shrinks until the bar (about 33.5em wide) fits the window; on phones
-	it stays readable and the row scrolls sideways instead.
+	up the type shrinks until the bar (about 33.5em wide) fits the window. On phones
+	the section links fold into a MENU sticker that drops them below the bar.
 -->
 <header class="pointer-events-none sticky top-2 z-50 flex justify-center px-2 pt-2 md:top-3.5">
 	<nav
 		aria-label="Main navigation"
-		class="pointer-events-auto flex max-w-full items-center gap-[0.19em] overflow-x-auto rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase [scrollbar-width:none] md:text-[min(21px,calc((100vw-24px)/33.5))]"
+		class="group/nav pointer-events-auto relative flex max-w-full items-center gap-[0.19em] rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase md:text-[min(21px,calc((100vw-24px)/33.5))]"
 	>
 		<!-- The name is the home link; on the homepage it goes pink like any current page -->
 		<a
@@ -34,18 +34,33 @@ function isActive(href: string, also: string[] = []): boolean {
 		>
 			Joe Karlsson
 		</a>
-		{NAV_LINKS.map(({ href, label, also }) => (
-			<a
-				href={href}
-				aria-current={isActive(href, also) ? 'page' : undefined}
-				class:list={[
-					'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
-					isActive(href, also) ? 'bg-pink text-ink' : 'text-ink hover:bg-ink hover:text-pink',
-				]}
-			>
-				{label}
-			</a>
-		))}
+		<button
+			type="button"
+			data-nav-menu-toggle
+			aria-expanded="false"
+			aria-controls="nav-section-links"
+			class="sticker shrink-0 cursor-pointer rounded-[0.43em] px-[0.48em] py-[0.38em] text-ink uppercase hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
+		>
+			Menu
+		</button>
+		<!-- md and up: the links sit in the bar. Phones: a dropdown under the bar, shown while the menu is open -->
+		<div
+			id="nav-section-links"
+			class="contents max-md:absolute max-md:top-full max-md:right-0 max-md:mt-[0.29em] max-md:hidden max-md:flex-col max-md:items-stretch max-md:gap-[0.19em] max-md:rounded-[0.67em] max-md:bg-paper max-md:p-[0.29em] max-md:group-data-[menu-open]/nav:flex"
+		>
+			{NAV_LINKS.map(({ href, label, also }) => (
+				<a
+					href={href}
+					aria-current={isActive(href, also) ? 'page' : undefined}
+					class:list={[
+						'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
+						isActive(href, also) ? 'bg-pink text-ink' : 'text-ink hover:bg-ink hover:text-pink',
+					]}
+				>
+					{label}
+				</a>
+			))}
+		</div>
 		<!-- Pause bars while motion runs, a play triangle once paused (pause-motion.ts swaps the label) -->
 		<button
 			type="button"
@@ -77,10 +92,23 @@ function isActive(href: string, also: string[] = []): boolean {
 </header>
 
 <script>
-	// On phones the bar scrolls sideways; start it with the current page's link centered
+	// Phones: MENU opens the section links; Escape or a tap outside the bar closes them
 	const nav = document.querySelector<HTMLElement>('header nav[aria-label="Main navigation"]');
-	const current = nav?.querySelector<HTMLElement>('[aria-current="page"]');
-	if (nav && current && nav.scrollWidth > nav.clientWidth) {
-		nav.scrollLeft = current.offsetLeft - (nav.clientWidth - current.offsetWidth) / 2;
+	const menuToggle = nav?.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
+	if (nav && menuToggle) {
+		const setMenuOpen = (open: boolean) => {
+			nav.toggleAttribute('data-menu-open', open);
+			menuToggle.setAttribute('aria-expanded', String(open));
+		};
+		menuToggle.addEventListener('click', () => setMenuOpen(!nav.hasAttribute('data-menu-open')));
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && nav.hasAttribute('data-menu-open')) {
+				setMenuOpen(false);
+				menuToggle.focus();
+			}
+		});
+		document.addEventListener('click', (event) => {
+			if (!nav.contains(event.target as Node)) setMenuOpen(false);
+		});
 	}
 </script>
