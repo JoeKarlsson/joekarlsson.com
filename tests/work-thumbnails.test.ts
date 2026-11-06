@@ -3,11 +3,11 @@ import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 import plan from '../scripts/work-thumbnail-plan.json';
 
-const LOOKS = ['halftone', 'flat', 'taped', 'diagram'];
+const LOOKS = ['halftone', 'flat', 'taped'];
 interface PlanEntry {
 	look: string;
 	alt?: string;
-	picture: { photo?: string; credit?: string; image?: string; video?: string; diagram?: string };
+	picture: { photo?: string; credit?: string; image?: string; video?: string };
 }
 const entries = Object.entries(plan) as [string, PlanEntry][];
 
@@ -31,10 +31,10 @@ describe('work-post thumbnails (scripts/work-thumbnail-plan.json)', () => {
 			const out: string[] = [];
 			if (!LOOKS.includes(e.look)) out.push(`${slug}: look ${e.look}`);
 			if (!e.alt) out.push(`${slug}: no alt`);
-			const { photo, credit, image, video, diagram } = e.picture;
+			const { photo, credit, image, video } = e.picture;
 			if (photo && !credit?.startsWith('https://commons.wikimedia.org/'))
 				out.push(`${slug}: photo with no Commons credit`);
-			const local = image ?? video ?? diagram;
+			const local = image ?? video;
 			if (local && !existsSync(join('public', local))) out.push(`${slug}: ${local} is missing`);
 			if (!photo && !local) out.push(`${slug}: no picture`);
 			return out;

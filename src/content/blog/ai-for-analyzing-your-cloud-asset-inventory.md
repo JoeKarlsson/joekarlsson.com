@@ -6,12 +6,12 @@ tags:
   - AI
 date: 2025-07-01
 description: CloudQuery's MCP server lets AI agents query your cloud asset inventory in plain English, with dashboards and reports built from AWS, GCP and Azure data.
-heroImage: '/images/blog/ai-for-analyzing-your-cloud-asset-inventory/thumb-745ec876.webp'
+heroImage: '/images/blog/ai-for-analyzing-your-cloud-asset-inventory/thumb-d3a04e97.webp'
 categories: ['AI']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/ai-for-analyzing-your-cloud-asset-inventory
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroAlt: 'The agent loop: a user asks a question, and the LLM call takes an action through the CloudQuery MCP server, which queries the synced cloud asset inventory and returns feedback. The LLM keeps looping through action and feedback until it has the answer, then stops.'
+heroAlt: "Caravaggio's painting of a fortune teller reading a young man's palm"
 ---
 
 > **Note:** **TL;DR:**

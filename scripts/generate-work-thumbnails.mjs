@@ -9,13 +9,10 @@
  *     { "photo": "<Wikimedia Commons file URL>", "credit": "<Commons page URL>" }  public domain only
  *     { "image": "/images/blog/..." }    a meme or photo already in the post
  *     { "video": "/images/blog/....mp4", "at": 1.2 }   a frame from a reaction GIF (shipped as MP4)
- *     { "diagram": "/images/blog/....svg" }   one of the post's cut-paper diagrams
  * - look: "halftone" (pink dots), "flat" (pink and black), "taped" (flat pink, printed and taped onto
- *   black at a tilt) or "diagram" (the diagram full bleed, as it is)
+ *   black at a tilt)
  * - focus: where to crop a tall picture to 16:9, 0 (top) to 1 (bottom), default 0.5
  * - whole: true keeps a taped picture uncropped (memes, so the caption survives); the print takes its shape
- * - zoom: how far to zoom into a diagram (default 1), around zoomAt: [x, y] in % (default the centre);
- *   fill: true crops a diagram to fill the card instead of showing it whole
  * - ring: [left, top, width, height] in % of the picture, a crayon ring around the detail
  * - mark: { "name": <MARKS key>, "at": [left, top, width, height] in % of the card, "color": "pink"|"chalk" }
  * - tilt: degrees for a taped print
@@ -45,7 +42,7 @@ const PINK = [255, 0x4f, 0xd8];
 const COLORS = { pink: '#ff4fd8', chalk: '#ece6da' };
 // The largest a taped print's picture gets, inside the card
 const PRINT_BOX = [880, 520];
-const LOOKS = new Set(['halftone', 'flat', 'taped', 'diagram']);
+const LOOKS = new Set(['halftone', 'flat', 'taped']);
 // Images are cached for 30 days, so a redrawn card needs a new URL: the name carries a hash of its bytes
 const thumbPath = (slug, webp) =>
 	`/images/blog/${slug}/thumb-${createHash('sha256').update(webp).digest('hex').slice(0, 8)}.webp`;
@@ -65,7 +62,7 @@ async function download(url, file) {
 	writeFileSync(file, Buffer.from(await response.arrayBuffer()));
 }
 
-/** The picture as an image buffer, or null for a diagram (inlined as SVG instead) */
+/** The picture as an image buffer */
 async function pictureBuffer(slug, picture) {
 	if (picture.photo) {
 		const file = join(CACHE, `${slug}.jpg`);
@@ -96,8 +93,7 @@ async function pictureBuffer(slug, picture) {
 		if (!frame.length) throw new Error(`${slug}: no frame at ${picture.at}s in ${picture.video}`);
 		return frame;
 	}
-	if (picture.diagram) return null;
-	throw new Error(`${slug}: picture needs photo, image, video or diagram`);
+	throw new Error(`${slug}: picture needs photo, image or video`);
 }
 
 /** Crops to 16:9 around the focus line and scales to the card */
@@ -170,7 +166,6 @@ function halftone(grey, width, height) {
 
 async function pictureDataUri(sharp, slug, entry) {
 	const buffer = await pictureBuffer(slug, entry.picture);
-	if (!buffer) return null;
 	// A meme stays whole so its caption survives; everything else is cropped to the card's shape.
 	// A taped print sits inside the card, so it needs fewer pixels
 	let fitted;
@@ -208,17 +203,9 @@ function ringSvg(RINGS, ring) {
 	return `<svg class="m" viewBox="0 0 900 300" preserveAspectRatio="none" style="left:${left}%;top:${top}%;width:${width}%;height:${height}%"><path d="${RINGS[0]}" stroke="${COLORS.chalk}" stroke-width="16"/></svg>`;
 }
 
-function cardHtml(entry, picture, diagramSvg, { MARKS, RINGS }) {
+function cardHtml(entry, picture, { MARKS, RINGS }) {
 	let body;
-	if (entry.look === 'diagram') {
-		const [x, y] = entry.zoomAt ?? [50, 50];
-		// The whole diagram, centred on black; zoom crops into it when it reads too small
-		const svg = diagramSvg.replace(
-			'<svg ',
-			`<svg preserveAspectRatio="xMidYMid ${entry.fill ? 'slice' : 'meet'}" `,
-		);
-		body = `<div class="diagram" style="transform:scale(${entry.zoom ?? 1});transform-origin:${x}% ${y}%">${svg}</div>`;
-	} else if (entry.look === 'taped') {
+	if (entry.look === 'taped') {
 		// The print is the picture plus a 16px white border, centred on the card
 		const left = (WIDTH - picture.width - 32) / 2;
 		const top = (HEIGHT - picture.height - 32) / 2;
@@ -227,7 +214,6 @@ function cardHtml(entry, picture, diagramSvg, { MARKS, RINGS }) {
 		body = `<img class="full" src="${picture.uri}" alt="">`;
 	}
 	return `<!doctype html><html><head><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces&family=Hanken+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=block">
 <style>
 * { box-sizing: border-box; margin: 0; }
 body { width: ${WIDTH}px; height: ${HEIGHT}px; background: #000; overflow: hidden; }
@@ -240,8 +226,6 @@ body { width: ${WIDTH}px; height: ${HEIGHT}px; background: #000; overflow: hidde
 .tape { position: absolute; width: 170px; height: 50px; background: rgba(236, 230, 218, 0.85); transform: rotate(-32deg); }
 .t1 { left: -50px; top: -8px; }
 .t2 { right: -50px; bottom: -8px; }
-.diagram { position: absolute; inset: 24px; }
-.diagram svg { width: 100%; height: 100%; }
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter></svg>
 <div class="card">${body}${entry.mark ? markSvg(MARKS, entry.mark) : ''}</div>
@@ -251,10 +235,6 @@ body { width: ${WIDTH}px; height: ${HEIGHT}px; background: #000; overflow: hidde
 function validate(slug, entry) {
 	if (!LOOKS.has(entry.look)) throw new Error(`${slug}: unknown look ${entry.look}`);
 	if (!entry.alt) throw new Error(`${slug}: needs alt`);
-	if (entry.look === 'diagram' && !entry.picture.diagram)
-		throw new Error(`${slug}: the diagram look needs a diagram picture`);
-	if (entry.picture.diagram && entry.look !== 'diagram')
-		throw new Error(`${slug}: a diagram picture only takes the diagram look`);
 }
 
 async function main() {
@@ -278,20 +258,9 @@ async function main() {
 			const post = join(ROOT, 'src/content/blog', `${slug}.md`);
 			if (!existsSync(post)) throw new Error(`${slug}: no post at ${post}`);
 			const picture = await pictureDataUri(sharp, slug, entry);
-			const diagramSvg = entry.picture.diagram
-				? readFileSync(join(ROOT, 'public', entry.picture.diagram), 'utf8')
-				: '';
-			await page.setContent(cardHtml(entry, picture, diagramSvg, scribbles), {
+			await page.setContent(cardHtml(entry, picture, scribbles), {
 				waitUntil: 'networkidle',
 			});
-			if (diagramSvg) {
-				const fontsLoaded = await page.evaluate(async () => {
-					const faces = ['40px Anton', '20px "Hanken Grotesk"'];
-					await Promise.all(faces.map((face) => document.fonts.load(face)));
-					return faces.every((face) => document.fonts.check(face));
-				});
-				if (!fontsLoaded) throw new Error('Diagram fonts did not load from Google Fonts');
-			}
 			const png = await page.screenshot({ type: 'png' });
 			const webp = await sharp(png).webp({ quality: 72 }).toBuffer();
 			const hero = thumbPath(slug, webp);

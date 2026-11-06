@@ -6,8 +6,8 @@ slug: 'event-sourcing-with-kafka-a-practical-example'
 description: "Event sourcing with Kafka through a banking example: calculate each customer's balance from account events with Kafka topics and Tinybird snapshots."
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/thumb-11da33b7.webp'
-heroAlt: "Deposit, withdrawal, and transfer events each go to their own Kafka topic. A Kafka consumer reads all three and feeds event sourcing in Tinybird, which snapshots the events into each customer's final balance."
+heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/thumb-dad033fa.webp'
+heroAlt: 'A chimpanzee typing at an old typewriter'
 tldr: 'I walk through event sourcing with Kafka using a banking app example, where you reconstruct account balances from a log of deposit and withdrawal events instead of storing state directly. Includes a practical tutorial with Kafka and Tinybird for snapshotting and serving state as an API.'
 ---
 

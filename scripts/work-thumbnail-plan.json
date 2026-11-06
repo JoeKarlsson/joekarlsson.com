@@ -1,38 +1,74 @@
 {
 	"best-mcp-servers-chatgpt-meta-muse": {
 		"picture": {
-			"diagram": "/images/blog/best-mcp-servers-chatgpt-meta-muse/per-app-vs-gateway.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/WAAF_telephone_operators_at_work_at_No._11_Group_HQ_at_Uxbridge_in_Middlesex%2C_1942._CH7705.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:WAAF_telephone_operators_at_work_at_No._11_Group_HQ_at_Uxbridge_in_Middlesex,_1942._CH7705.jpg"
 		},
-		"look": "diagram",
-		"alt": "ChatGPT and Meta Muse connecting to Salesforce, Jira, NetSuite, and SharePoint two ways: one MCP server per app, with every assistant wired to every server, or one governed CData Connect AI gateway with one connection, one set of rules, and one log."
+		"look": "halftone",
+		"alt": "Switchboard operators plugging in calls",
+		"focus": 0.5,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"how-to-use-chatgpt-dots": {
 		"picture": {
-			"diagram": "/images/blog/how-to-use-chatgpt-dots/connect-once-flow.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Telegraph_key%2C_unidentified_-_National_Electronics_Museum_-_DSC00223.JPG?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Telegraph_key,_unidentified_-_National_Electronics_Museum_-_DSC00223.JPG"
 		},
-		"look": "diagram",
-		"alt": "Salesforce, Jira, Google Analytics, NetSuite, and hundreds more business apps, including on-premises ones, connect once to CData Connect AI, which gives one sign-in, permissions, and a query log. One plugin links it to your ChatGPT dot, which answers in ChatGPT, in Slack and Teams, and on a schedule."
+		"look": "flat",
+		"alt": "A brass Morse code key",
+		"focus": 0.5,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
 	},
 	"ai-gateway-data-access-layer": {
 		"picture": {
-			"diagram": "/images/blog/ai-gateway-data-access-layer/model-routing-layer.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/America%27s_Highways_1776%E2%80%931976_-_page_116b.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:America%27s_Highways_1776%E2%80%931976_-_page_116b.jpg"
 		},
-		"look": "diagram",
-		"alt": "An application sends its requests to an AI gateway, which handles routes, rate limits, caching, and observability and passes each request on to OpenAI, Anthropic, or an open-source model."
+		"look": "taped",
+		"alt": "An old toll gate on a country road",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"tilt": -2
 	},
 	"ai-gateway-for-developers": {
 		"picture": {
-			"diagram": "/images/blog/ai-gateway-for-developers/shared-data-layer.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Air_traffic_control_binoculars.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Air_traffic_control_binoculars.jpg"
 		},
-		"look": "diagram",
-		"alt": "Three internal agents, an HR assistant, a finance monitor, and a sales analyst, each connect to one CData Connect AI gateway, where each has its own read-only workspace and toolkit, reaching SQL Server, BigQuery, and Salesforce."
+		"look": "halftone",
+		"alt": "A lookout with binoculars in a control tower",
+		"focus": 0.5,
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
 	},
 	"litellm-vs-cdata-connect-ai": {
 		"picture": {
-			"diagram": "/images/blog/litellm-vs-cdata-connect-ai/identity.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Dream_Theater%2C_Chehalis_01.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Dream_Theater,_Chehalis_01.jpg"
 		},
-		"look": "diagram",
-		"alt": "MCP governance, credential-scoped versus passthrough identity. With the LiteLLM MCP proxy, the AI agent knows the user, but the LiteLLM gateway injects service-account credentials, so the user's identity is dropped: the MCP server and the data source see only the service account and can't enforce the user's access rules. With CData Connect AI, the user's SSO identity is resolved and a trust-level ceiling is enforced on every tool call (low: read, medium: create and update, high: delete), so the identity is preserved and the data source enforces the user's RBAC, row-level security and field permissions."
+		"look": "flat",
+		"alt": "A doorman outside an old theater",
+		"focus": 0.5,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"connect-business-apps-meta-muse": {
 		"picture": {
@@ -50,10 +86,17 @@
 	},
 	"official-mcp-roadmap-explained": {
 		"picture": {
-			"diagram": "/images/blog/official-mcp-roadmap-explained/priority-matrix.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Old_Bridgeport_Road_map.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Old_Bridgeport_Road_map.jpg"
 		},
-		"look": "diagram",
-		"alt": "The five MCP roadmap priorities plotted by migration cost and urgency. Priority 3, agent identity and security, is high cost and the one to act on now. Priorities 2 (HTTP-native transport) and 4 (improved primitives) are medium cost and above the midline. Priorities 1 (agentic messaging) and 5 (SDK developer experience) are low cost and ones to watch. Already shipped in the 2026-07-28 release, and not plotted: the stateless core, the Tasks extension and multi round-trip requests."
+		"look": "flat",
+		"alt": "A close-up of an old road map",
+		"focus": 0.5,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"proving-my-work-mattered": {
 		"picture": {
@@ -72,10 +115,17 @@
 	},
 	"mcp-2026-07-28-release-explained": {
 		"picture": {
-			"diagram": "/images/blog/mcp-2026-07-28-release-explained/extensions.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Brazilian_battleship_Minas_Geraes_being_launched_1.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Brazilian_battleship_Minas_Geraes_being_launched_1.jpg"
 		},
-		"look": "diagram",
-		"alt": "MCP 2026-07-28 goes from one monolithic spec to a core plus extensions. Before, tool calls, discovery, sessions, UI and tasks were bundled into one spec. After, a small, stable, stateless protocol core keeps tool calls and discovery with no server-pinned session, and opt-in extensions plug into it: MCP Apps for sandboxed UI, Tasks for call-now, fetch-later work, and future extensions. Each extension is versioned on its own."
+		"look": "halftone",
+		"alt": "A ship sliding down the slipway at its launch",
+		"focus": 0.5,
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"aws-identity-center-guide": {
 		"picture": {
@@ -720,17 +770,32 @@
 	},
 	"production-ai-data-pipeline-architectures": {
 		"picture": {
-			"diagram": "/images/blog/production-ai-data-pipeline-architectures/rag-pipeline.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/OIL_PIPELINE_ON_THE_BEACH_-_NARA_-_546402.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:OIL_PIPELINE_ON_THE_BEACH_-_NARA_-_546402.jpg"
 		},
-		"look": "diagram",
-		"alt": "A fresh RAG pipeline: CloudQuery syncs Confluence, Notion and wiki pages daily into PostgreSQL with pgvector, which the RAG engine searches to answer questions in a knowledge assistant."
+		"look": "taped",
+		"alt": "A pipeline running past a danger sign",
+		"focus": 0.5,
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"tilt": 2
 	},
 	"etl-benchmark-1-million-rows-2-seconds-macbook": {
 		"picture": {
-			"diagram": "/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/goroutines.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Whit-Monday_Meeting_of_the_B.A.R.C.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Whit-Monday_Meeting_of_the_B.A.R.C.jpg"
 		},
-		"look": "diagram",
-		"alt": "Sequential versus parallel goroutines. Sequentially, one chain of four tasks finishes before the next chain starts. With goroutines, both chains run side by side from the start. Each goroutine needs about 2KB of stack versus megabytes for an OS thread, so thousands can run at once."
+		"look": "halftone",
+		"alt": "Early race cars tearing around a banked track",
+		"focus": 0.5,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"what-is-an-aws-cloud-asset-inventory": {
 		"picture": {
@@ -775,10 +840,17 @@
 	},
 	"ai-for-analyzing-your-cloud-asset-inventory": {
 		"picture": {
-			"diagram": "/images/blog/ai-for-analyzing-your-cloud-asset-inventory/agent-loop.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Fortune_Teller_by_Michelangelo_Merisi_da_Caravaggio_%281571-1610%29%2C_oil_on_canvas%2C_1595.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:The_Fortune_Teller_by_Michelangelo_Merisi_da_Caravaggio_(1571-1610),_oil_on_canvas,_1595.jpg"
 		},
-		"look": "diagram",
-		"alt": "The agent loop: a user asks a question, and the LLM call takes an action through the CloudQuery MCP server, which queries the synced cloud asset inventory and returns feedback. The LLM keeps looping through action and feedback until it has the answer, then stops."
+		"look": "halftone",
+		"alt": "Caravaggio's painting of a fortune teller reading a young man's palm",
+		"focus": 0.4,
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"how-to-make-your-internal-developer-portal-actually-useful": {
 		"picture": {
@@ -878,17 +950,31 @@
 	},
 	"how-we-accidentally-invented-a-cloud-search-language": {
 		"picture": {
-			"diagram": "/images/blog/how-we-accidentally-invented-a-cloud-search-language/chomsky.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta-stone-display-in-1985.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Rosetta-stone-display-in-1985.jpg"
 		},
-		"look": "diagram",
-		"alt": "Chomsky's grammar hierarchy as nested sets: Type 3, regular, sits inside Type 2, context-free, inside Type 1, context-sensitive, inside Type 0, unrestricted. CloudQuery's search language moved from Type 3 (regex) to Type 2 (PEG.js) to support nested parentheses and operator precedence."
+		"look": "halftone",
+		"alt": "Visitors looking at a cast of the Rosetta Stone",
+		"focus": 0.5,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing": {
 		"picture": {
-			"diagram": "/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/uuid-buckets.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Man_posting_an_advertisement_for_La_publicit%C3%A9_en_France_par_Emile_Mermet.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Man_posting_an_advertisement_for_La_publicit%C3%A9_en_France_par_Emile_Mermet.jpg"
 		},
-		"look": "diagram",
-		"alt": "UUID range bucketing: the full UUID range, from 00000000-0000-0000-0000-000000000000 to ffffffff-ffff-ffff-ffff-ffffffffffff, goes into UUIDRanges(numOfBuckets), which splits it into even buckets 1 through n, each inserted on its own."
+		"look": "flat",
+		"alt": "An old poster of a bill sticker with his paste bucket",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
 	},
 	"integrate-abuseipdb-with-cloudquery": {
 		"picture": {
@@ -947,10 +1033,17 @@
 	},
 	"six-months-with-clickhouse-at-cloudquery": {
 		"picture": {
-			"diagram": "/images/blog/six-months-with-clickhouse-at-cloudquery/materialized-view.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Moscow%2C_MCC_Streshnevo%2C_station_clock%2C_Oct_2026_01.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Moscow,_MCC_Streshnevo,_station_clock,_Oct_2026_01.jpg"
 		},
-		"look": "diagram",
-		"alt": "A ClickHouse materialized view: on every insert into the source table (columns A, B and C), it runs SELECT A, MAX(B) AS D, AVG(C) AS E FROM source GROUP BY A, and writes the result into the target table, whose columns are A, D and E."
+		"look": "flat",
+		"alt": "A clock on a station wall",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"what-we-learned-querying-cloud-infra-for-expired-dependencies": {
 		"picture": {
@@ -1049,10 +1142,17 @@
 	},
 	"getting-started-with-cloud-asset-inventory": {
 		"picture": {
-			"diagram": "/images/blog/getting-started-with-cloud-asset-inventory/multi-cloud-inventory.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/General_store_interior_Alabama_Walker_Evans.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:General_store_interior_Alabama_Walker_Evans.jpg"
 		},
-		"look": "diagram",
-		"alt": "A multi-cloud asset inventory powered by CloudQuery: asset data from AWS, Google Cloud and Microsoft Azure goes through CloudQuery's ETL into a PostgreSQL database, which feeds analytics and visualizations."
+		"look": "halftone",
+		"alt": "An old general store with every shelf stocked",
+		"focus": 0.5,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"soc2": {
 		"picture": {
@@ -1128,31 +1228,60 @@
 	},
 	"data-warehouses-are-terrible-application-backends": {
 		"picture": {
-			"diagram": "/images/blog/data-warehouses-are-terrible-application-backends/cache-over-warehouse.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Warehouse_in_Hokkaido.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Warehouse_in_Hokkaido.jpg"
 		},
-		"look": "diagram",
-		"alt": "The first approach: event streams, APIs and databases still load into the data warehouse, and Tinybird syncs from it through a native connector, on a schedule or on ingestion, and serves the applications. It works like a cache over the warehouse with no custom ORM code, but the data is only as fresh as the last sync."
+		"look": "taped",
+		"alt": "A long, plain old warehouse",
+		"focus": 0.5,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"tilt": -2
 	},
 	"how-to-build-applications-over-streaming-data-the-right-way": {
 		"picture": {
-			"diagram": "/images/blog/how-to-build-applications-over-streaming-data-the-right-way/simplified-architecture.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9F%D0%BE%D1%80%D0%BE%D0%B3_%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B9_%D0%BD%D0%B0_%D1%80%D0%B5%D0%BA%D0%B5_%D0%9F%D0%BE%D0%BD%D1%8C%D0%B3%D0%BE%D0%BC%D0%B0.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BE%D1%80%D0%BE%D0%B3_%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B9_%D0%BD%D0%B0_%D1%80%D0%B5%D0%BA%D0%B5_%D0%9F%D0%BE%D0%BD%D1%8C%D0%B3%D0%BE%D0%BC%D0%B0.jpg"
 		},
-		"look": "diagram",
-		"alt": "A simplified architecture: Kafka feeds Tinybird, a real-time data platform that does the work of the middle systems in one place, and Tinybird serves the frontend."
+		"look": "halftone",
+		"alt": "River rapids rushing over rocks",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
 	},
 	"the-engineers-guide-to-enriching-streams-and-dimensions": {
 		"picture": {
-			"diagram": "/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/fraud-detection.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mountain_Stream_MET_DT1544.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Mountain_Stream_MET_DT1544.jpg"
 		},
-		"look": "diagram",
-		"alt": "Fraud detection: a live stream of transactions from Kafka and historical transactions from the data warehouse both go into Tinybird, which stores them for OLAP queries and, over SQL, serves a real-time API to the fraud detection application."
+		"look": "flat",
+		"alt": "A painting of a rocky mountain stream",
+		"focus": 0.5,
+		"mark": {
+			"name": "tally",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"why-clickhouse-should-be-your-next-database": {
 		"picture": {
-			"diagram": "/images/blog/why-clickhouse-should-be-your-next-database/cluster.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Evening_columns_Zeus_temple_Athens.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Evening_columns_Zeus_temple_Athens.jpg"
 		},
-		"look": "diagram",
-		"alt": "ClickHouse scaling across a cluster: a load balancer spreads queries over shards 0, 1 through N. Each shard has two replicas, each a ClickHouse server on its own machine and cloud disk, and the replicas in a shard copy data to each other, with data backup underneath."
+		"look": "halftone",
+		"alt": "Ancient Greek columns at sunset",
+		"focus": 0.5,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
 	},
 	"a-step-by-step-guide-to-build-a-real-time-dashboard": {
 		"picture": {
@@ -1183,10 +1312,17 @@
 	},
 	"modern-data-management-with-real-time-change-data-capture": {
 		"picture": {
-			"diagram": "/images/blog/modern-data-management-with-real-time-change-data-capture/cdc-architecture.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Seismometer_%28vertical%29%2C_made_for_the_World_Wide_Standard_Seismological_Network_by_Spregnether_Instrument_Company%2C_St._Louis%2C_MO%2C_1961-1962_-_National_Museum_of_American_History_-_DSC00023.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Seismometer_(vertical),_made_for_the_World_Wide_Standard_Seismological_Network_by_Spregnether_Instrument_Company,_St._Louis,_MO,_1961-1962_-_National_Museum_of_American_History_-_DSC00023.jpg"
 		},
-		"look": "diagram",
-		"alt": "Change data capture: users act through a backend API, which writes to the database. The database records every change in its transaction log, a CDC tool watches that log, and it writes each change as an event to a message queue like Kafka."
+		"look": "flat",
+		"alt": "An old seismograph",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"real-time-databases-what-developers-need-to-know": {
 		"picture": {
@@ -1219,17 +1355,31 @@
 	},
 	"what-it-takes-to-build-a-real-time-recommendation-system": {
 		"picture": {
-			"diagram": "/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/architecture.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Museo_del_disco_d_epoca%2C_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Museo_del_disco_d_epoca,_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg"
 		},
-		"look": "diagram",
-		"alt": "A real-time recommendation system: users post activity to an API and get recommendations back from it. The API sends activity to an event streaming platform, which feeds the recommendation system. Real-time inference serves recommendations back to the API, while the recommendation system also writes to a data warehouse used for model training, and the trained model feeds real-time inference."
+		"look": "halftone",
+		"alt": "A glowing jukebox",
+		"focus": 0.5,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
 	},
 	"event-sourcing-with-kafka-a-practical-example": {
 		"picture": {
-			"diagram": "/images/blog/event-sourcing-with-kafka-a-practical-example/event-flow.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Chimpanzee_seated_at_typewriter.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Chimpanzee_seated_at_typewriter.jpg"
 		},
-		"look": "diagram",
-		"alt": "Deposit, withdrawal, and transfer events each go to their own Kafka topic. A Kafka consumer reads all three and feeds event sourcing in Tinybird, which snapshots the events into each customer's final balance."
+		"look": "flat",
+		"alt": "A chimpanzee typing at an old typewriter",
+		"focus": 0.4,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		}
 	},
 	"how-to-query-google-sheets-with-sql-in-real-time": {
 		"picture": {
@@ -1260,10 +1410,17 @@
 	},
 	"database-sharding-vs-partitioning-whats-the-difference": {
 		"picture": {
-			"diagram": "/images/blog/database-sharding-vs-partitioning-whats-the-difference/shard-key.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bread_slices.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Bread_slices.jpg"
 		},
-		"look": "diagram",
-		"alt": "A people table with shard key (first), its rows spread across four partitions by first name: people_0 holds the three alex rows and tom, people_1 the two johns, people_2 nancy, and people_3 amanda."
+		"look": "halftone",
+		"alt": "Slices of bread on a plate",
+		"focus": 0.5,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
 	},
 	"how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb": {
 		"picture": {
@@ -1364,10 +1521,17 @@
 	},
 	"how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js": {
 		"picture": {
-			"diagram": "/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/security-features.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Machine_enigma_du_collectioneur_Edmond_Kern.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Machine_enigma_du_collectioneur_Edmond_Kern.jpg"
 		},
-		"look": "diagram",
-		"alt": "Which MongoDB security feature stops which attack. Role-based access control stops database privilege abuse, such as stolen credentials. TLS/SSL transport encryption stops network snooping, such as packet sniffing. Encryption at rest stops data theft, such as stolen disks. Client-side field level encryption (CSFLE) stops all four, including reading the database host's memory, because sensitive fields stay encrypted on the host and in transit and only the client holds the keys."
+		"look": "flat",
+		"alt": "A man studying an Enigma cipher machine",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
 	},
 	"mongodb-aggregation-pipeline-queries-vs-sql-queries": {
 		"picture": {
@@ -1386,10 +1550,17 @@
 	},
 	"linked-lists-and-mongodb-a-gentle-introduction": {
 		"picture": {
-			"diagram": "/images/blog/linked-lists-and-mongodb-a-gentle-introduction/doubly-linked-list.svg"
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Very_rusty_chain_in_rain_4.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Very_rusty_chain_in_rain_4.jpg"
 		},
-		"look": "diagram",
-		"alt": "A doubly linked list: each node holds a pointer to the previous node and one to the next. \"Cat\" points back to null and forward to \"Dog\", \"Dog\" points back to \"Cat\" and forward to \"Bird\", and \"Bird\" points back to \"Dog\" and forward to null."
+		"look": "halftone",
+		"alt": "Heavy rusted chain links",
+		"focus": 0.5,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		}
 	},
 	"save-the-world-and-money-with-mongodb-atlas-data-lake": {
 		"picture": {

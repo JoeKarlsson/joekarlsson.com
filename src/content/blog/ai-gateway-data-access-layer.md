@@ -7,8 +7,8 @@ description: "Enterprise data access for AI agents is the part of the AI gateway
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'ai-agents', 'cdata']
-heroImage: '/images/blog/ai-gateway-data-access-layer/thumb-5cc0f7cc.webp'
-heroAlt: 'An application sends its requests to an AI gateway, which handles routes, rate limits, caching, and observability and passes each request on to OpenAI, Anthropic, or an open-source model.'
+heroImage: '/images/blog/ai-gateway-data-access-layer/thumb-d44f152e.webp'
+heroAlt: 'An old toll gate on a country road'
 canonicalUrl: 'https://www.cdata.com/blog/ai-gateway-data-access-layer'
 faq:
   - question: 'Is an AI data gateway the same as an AI gateway?'

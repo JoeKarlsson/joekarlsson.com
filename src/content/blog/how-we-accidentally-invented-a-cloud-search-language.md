@@ -7,8 +7,8 @@ description: 'How we turned our search bar into a domain-specific language using
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Parsing', 'DSL', 'Engineering', 'JavaScript']
-heroImage: '/images/blog/how-we-accidentally-invented-a-cloud-search-language/thumb-fd58fbdb.webp'
-heroAlt: "Chomsky's grammar hierarchy as nested sets: Type 3, regular, sits inside Type 2, context-free, inside Type 1, context-sensitive, inside Type 0, unrestricted. CloudQuery's search language moved from Type 3 (regex) to Type 2 (PEG.js) to support nested parentheses and operator precedence."
+heroImage: '/images/blog/how-we-accidentally-invented-a-cloud-search-language/thumb-e25a2fcc.webp'
+heroAlt: 'Visitors looking at a cast of the Rosetta Stone'
 canonicalUrl: 'https://www.cloudquery.io/blog/we-built-a-search-language-for-cloudquery'
 tldr: 'A "simple" search bar turned into a full domain-specific language (DSL) for cloud queries. Regex melted. Peggy rescued us. Along the way we learned more about Chomsky, compilers, and a few surprises about UX.'
 ---
