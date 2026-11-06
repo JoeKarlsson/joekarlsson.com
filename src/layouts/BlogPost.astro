@@ -175,7 +175,6 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 						playsinline
 						controls
 						preload="metadata"
-						role="img"
 						aria-label={heroAlt || title}
 						class="mb-10 w-full max-h-[440px] rounded-xl object-cover"
 						width="768"
@@ -371,3 +370,9 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 		</div>
 	</div>
 </BaseLayout>
+
+<script>
+	// Phones fold a written-in "In this article" list (rehype-collapsible-toc.mjs)
+	import { initPhoneCollapse } from '../scripts/phone-collapse';
+	initPhoneCollapse();
+</script>

@@ -62,6 +62,6 @@ test.describe('Halftone', () => {
 		// Hidden with opacity, so screen readers still get the alt text and labels
 		await expect(video).toHaveCSS('opacity', '0');
 		const label = (await video.getAttribute('aria-label'))!;
-		await expect(page.getByRole('img', { name: label })).toBeAttached();
+		await expect(page.getByLabel(label, { exact: true })).toBeAttached();
 	});
 });

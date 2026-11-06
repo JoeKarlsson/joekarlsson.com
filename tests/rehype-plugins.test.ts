@@ -5,6 +5,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const existsSync = vi.hoisted(() => vi.fn());
 vi.mock('node:fs', () => ({ default: { existsSync } }));
 
+const { default: rehypeCollapsibleToc } = await import('../src/plugins/rehype-collapsible-toc.mjs');
 const { default: rehypeEmptyCornerCell } =
 	await import('../src/plugins/rehype-empty-corner-cell.mjs');
 const { default: rehypeFaqDetails } = await import('../src/plugins/rehype-faq-details.mjs');
@@ -165,16 +166,8 @@ describe('rehype-gif-video', () => {
 		const [node] = paragraph(root);
 
 		expect(node.properties?.['aria-label']).toBe('Terminal recording');
+		expect(node.properties?.role).toBeUndefined();
 		expect(node.children?.[0].value).toBe('Terminal recording');
-	});
-
-	it('marks the video as an image for assistive tech', () => {
-		// These are silent screen recordings. role=img keeps axe's video-caption
-		// rule, which assumes spoken audio, from demanding a captions track.
-		existsSync.mockReturnValue(true);
-		const root = run(rehypeGifVideo, tree(img({ src: '/a.gif', alt: 'x' })));
-
-		expect(paragraph(root)[0].properties?.role).toBe('img');
 	});
 
 	it('uses a -poster.webp sibling as the poster when there is one', () => {
@@ -291,5 +284,40 @@ describe('rehype-empty-corner-cell', () => {
 		run(rehypeEmptyCornerCell, root);
 
 		expect(paragraph(root).map((cell) => cell.tagName)).toEqual(['td', 'th', 'td']);
+	});
+});
+
+describe('rehype-collapsible-toc', () => {
+	const label = (text: string): HastNode => ({
+		type: 'element',
+		tagName: 'p',
+		properties: {},
+		children: [el('strong', text)],
+	});
+	const list: HastNode = { type: 'element', tagName: 'ul', properties: {}, children: [] };
+
+	it('wraps an "In this article:" line and its list for phone-collapse', () => {
+		const root: HastNode = {
+			type: 'root',
+			children: [label('In this article:'), { type: 'text', value: '\n' }, list],
+		};
+		run(rehypeCollapsibleToc, root);
+
+		const [wrapper] = root.children!;
+		expect(wrapper.properties).toEqual({ dataPhoneCollapse: '' });
+		expect(wrapper.children!.map((c) => Object.keys(c.properties!))).toEqual([
+			['dataCollapseHeading'],
+			['dataCollapseBody'],
+		]);
+	});
+
+	it('leaves other bold lines and a label with no list alone', () => {
+		const root: HastNode = {
+			type: 'root',
+			children: [label('Note:'), list, label('Table of Contents'), el('p', 'text')],
+		};
+		run(rehypeCollapsibleToc, root);
+
+		expect(root.children!.map((c) => c.tagName)).toEqual(['p', 'ul', 'p', 'p']);
 	});
 });

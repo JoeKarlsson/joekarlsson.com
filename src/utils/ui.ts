@@ -47,10 +47,12 @@ export const TEXT_LINK = 'text-paper underline decoration-pink underline-offset-
 export const MORE_LINK = 'py-3 font-semibold text-pink no-underline hover:text-paper';
 
 /** One option in a filter row (blog categories, who posts were written for, project
- * categories). On phones each option is a 44px-tall tap target. */
-export const FILTER_ACTIVE = 'cursor-pointer py-2.5 text-pink underline underline-offset-4 md:py-0';
+ * categories). On phones each option is a tap target at least 44px tall and wide
+ * ("All" alone is 19px wide). */
+export const FILTER_ACTIVE =
+	'min-w-11 shrink-0 cursor-pointer py-2.5 text-center text-pink underline underline-offset-4 md:min-w-0 md:py-0';
 export const FILTER_INACTIVE =
-	'cursor-pointer py-2.5 text-paper no-underline hover:text-pink md:py-0';
+	'min-w-11 shrink-0 cursor-pointer py-2.5 text-center text-paper no-underline hover:text-pink md:min-w-0 md:py-0';
 
 /** The row of filter options itself. Phones get one row that swipes sideways instead of
  * wrapping to four lines; the cut-off last option shows there's more. */

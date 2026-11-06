@@ -60,11 +60,9 @@ export default function rehypeGifVideo() {
 					controls: true,
 					preload: 'none',
 					...(hasPoster ? { poster: posterSrc } : {}),
-					// These are silent screen recordings standing in for GIFs, so
-					// they are animated images rather than media. role=img says that
-					// to assistive tech and keeps axe's video-caption rule - which
-					// assumes spoken audio - from demanding a captions track.
-					role: 'img',
+					// The GIF's alt text names the clip. No role="img": axe flags it
+					// on a <video>, and it never stopped axe asking for a manual
+					// captions review either (these clips have no sound).
 					'aria-label': alt,
 					className: ['gif-video'],
 				},
