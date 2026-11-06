@@ -7,6 +7,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
 import KeepExploring from '../../components/KeepExploring.astro';
+import ImageLightbox from '../../components/ImageLightbox.astro';
 import popularPosts from '../../data/popular-posts.json';
 import { isOwnPost } from '../../utils/posts';
 import { rankRelatedPosts } from '../../utils/related-posts';
@@ -70,7 +71,10 @@ const relatedSlugs = rankRelatedPosts(
 			) : (
 				<div class="hidden xl:block" />
 			)}
-			<article class="min-w-0" data-post-title={title} data-post-category="Newsletter">
+			{/* The title lines up with the hero under it; below the hero, the text is
+			centered like a blog post's, with wide pictures and code at the hero's width
+			(the article is their @container) */}
+			<article class="@container min-w-0" data-post-title={title} data-post-category="Newsletter">
 				<div class="mb-8">
 					<BackLink href="/newsletter/" label="Newsletter" />
 					<h1 class={ARTICLE_TITLE}>{title}</h1>
@@ -98,33 +102,33 @@ const relatedSlugs = rankRelatedPosts(
 						fetchpriority="high"
 					/>
 				)}
-				<div class="prose">
-					<Content />
-				</div>
-				<ShareLinks
-					url={canonicalUrl || new URL(`/newsletter/${issue.data.slug}/`, Astro.site).href}
-					title={shareTitle || title}
-					noun="issue"
-					class="mt-10"
-				/>
-				<nav
-					class="mt-12 flex justify-between gap-4 border-t border-surface-4 pt-5"
-					aria-label="Newsletter issues"
-				>
-					{prev ? (
-						<a href={`/newsletter/${prev.data.slug}/`} class={MORE_LINK}>
-							&larr; {prev.data.title}
-						</a>
-					) : (
-						<span />
-					)}
-					{next && (
-						<a href={`/newsletter/${next.data.slug}/`} class={`${MORE_LINK} text-right`}>
-							{next.data.title} &rarr;
-						</a>
-					)}
-				</nav>
-				<div class="max-w-(--reading-width)">
+				<div class="mx-auto max-w-(--reading-width)">
+					<div class="prose wide-media">
+						<Content />
+					</div>
+					<ShareLinks
+						url={canonicalUrl || new URL(`/newsletter/${issue.data.slug}/`, Astro.site).href}
+						title={shareTitle || title}
+						noun="issue"
+						class="mt-10"
+					/>
+					<nav
+						class="mt-12 flex justify-between gap-4 border-t border-surface-4 pt-5"
+						aria-label="Newsletter issues"
+					>
+						{prev ? (
+							<a href={`/newsletter/${prev.data.slug}/`} class={MORE_LINK}>
+								&larr; {prev.data.title}
+							</a>
+						) : (
+							<span />
+						)}
+						{next && (
+							<a href={`/newsletter/${next.data.slug}/`} class={`${MORE_LINK} text-right`}>
+								{next.data.title} &rarr;
+							</a>
+						)}
+					</nav>
 					{relatedSlugs.length > 0 && (
 						<KeepExploring
 							heading="Keep reading"
@@ -136,6 +140,7 @@ const relatedSlugs = rankRelatedPosts(
 			</article>
 		</div>
 	</div>
+	<ImageLightbox />
 </BaseLayout>
 
 <script>

@@ -288,6 +288,26 @@ pre.astro-code {
 	object-fit: contain;
 }
 
+/* Blog posts: the text keeps its 32em measure, centered under the hero, while
+   code, embeds, video and wide pictures (class "wide", from
+   rehype-image-dimensions.mjs) fill the hero's width; the article is the
+   @container. Other pictures stay at the text width or their own size. A picture
+   centers itself rather than widening its paragraph, so a caption written in the
+   same paragraph stays in the text column */
+.prose.wide-media > :is(pre, figure, table, .\@container) {
+	width: 100cqw;
+	max-width: none;
+	margin-inline: calc((100% - 100cqw) / 2);
+}
+.prose.wide-media > :is(p, p > a) > img.wide,
+.prose.wide-media > video {
+	position: relative;
+	left: 50%;
+	translate: -50% 0;
+	max-width: 100cqw;
+	margin-inline: 0;
+}
+
 .prose video {
 	@apply rounded-lg my-6 mx-auto;
 	display: block;

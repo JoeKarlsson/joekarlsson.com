@@ -88,4 +88,16 @@ test.describe('Individual Blog Post', () => {
 		const textContent = await mainContent.textContent();
 		expect(textContent?.trim().length).toBeGreaterThan(200);
 	});
+
+	test('a picture opens full size in a lightbox and Escape closes it', async ({ page }) => {
+		await page.goto('/blog/why-clickhouse-should-be-your-next-database/');
+		const picture = page.getByRole('button', { name: /^Enlarge image:/ }).first();
+		const lightbox = page.locator('#image-lightbox');
+		await picture.click();
+		await expect(lightbox).toBeVisible();
+		await expect(lightbox.locator('img')).toHaveAttribute('src', /\.webp$/);
+		await page.keyboard.press('Escape');
+		await expect(lightbox).toBeHidden();
+		await expect(picture).toBeFocused();
+	});
 });

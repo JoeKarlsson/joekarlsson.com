@@ -11,6 +11,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
 import KeepExploring from '../components/KeepExploring.astro';
+import ImageLightbox from '../components/ImageLightbox.astro';
 import Logo from '../components/Logo.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
@@ -166,8 +167,9 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 			{/* TOC sidebar */}
 			{showToc ? <TableOfContents headings={tocHeadings} /> : <div class="hidden xl:block" />}
 
+			{/* @container: wide pictures and code in the post size themselves to this column */}
 			<article
-				class="min-w-0"
+				class="@container min-w-0"
 				data-post-title={title}
 				data-post-category={categories?.[0]}
 				data-reading-time={readingTime}
@@ -217,159 +219,163 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 						</div>
 					)
 				)}
-				<div class="mb-8">
-					<h1 class={ARTICLE_TITLE}>{title}</h1>
-					<p class={META}>
-						<FormattedDate date={date} />
-						{updatedDate && (
-							<>
-								{' '}
-								(Updated <FormattedDate date={updatedDate} />)
-							</>
-						)}
-						{readingTime && <> · {readingTime} min read</>}
-						{categories &&
-							categories.map((cat) => (
+				{/* Title, text and everything under it share one column centered under the
+				hero, so the text doesn't hug the hero's left edge and leave a dead strip right */}
+				<div class="mx-auto max-w-(--reading-width)">
+					<div class="mb-8">
+						<h1 class={ARTICLE_TITLE}>{title}</h1>
+						<p class={META}>
+							<FormattedDate date={date} />
+							{updatedDate && (
+								<>
+									{' '}
+									(Updated <FormattedDate date={updatedDate} />)
+								</>
+							)}
+							{readingTime && <> · {readingTime} min read</>}
+							{categories &&
+								categories.map((cat) => (
+									<>
+										{' · '}
+										<a
+											href={`/blog/category/${categorySlug(cat)}/`}
+											class="text-pink underline decoration-1 underline-offset-[0.2em] hover:text-paper"
+										>
+											{cat}
+										</a>
+									</>
+								))}
+							{writtenFor && (
 								<>
 									{' · '}
-									<a
-										href={`/blog/category/${categorySlug(cat)}/`}
-										class="text-pink underline decoration-1 underline-offset-[0.2em] hover:text-paper"
-									>
-										{cat}
-									</a>
+									<WrittenFor employer={writtenFor} />
 								</>
-							))}
-						{writtenFor && (
-							<>
-								{' · '}
-								<WrittenFor employer={writtenFor} />
-							</>
-						)}
-					</p>
-				</div>
-				{noticeMessage && (
-					<p class="mb-6 max-w-[40rem] text-sm text-muted" role="note">
-						<Fragment set:html={noticeHtml} />
-					</p>
-				)}
-				{tldr && (
-					<p class="mb-10 max-w-[40rem] border-l-4 border-pink pl-5 text-lg leading-relaxed text-paper">
-						<strong class="font-display text-xl font-normal tracking-wide text-pink uppercase">
-							TL;DR
-						</strong>{' '}
-						{tldr}
-					</p>
-				)}
-				<div class:list={['prose', (heroImage || heroVideo) && 'has-hero']}>
-					<slot />
-				</div>
-				<!-- End mark: the post is over -->
-				<Logo text="JK" class="text-paper" style="display:block;margin-top:2rem;font-size:20px" />
+							)}
+						</p>
+					</div>
+					{noticeMessage && (
+						<p class="mb-6 text-sm text-muted" role="note">
+							<Fragment set:html={noticeHtml} />
+						</p>
+					)}
+					{tldr && (
+						<p class="mb-10 border-l-4 border-pink pl-5 text-lg leading-relaxed text-paper">
+							<strong class="font-display text-xl font-normal tracking-wide text-pink uppercase">
+								TL;DR
+							</strong>{' '}
+							{tldr}
+						</p>
+					)}
+					<div class:list={['prose wide-media', (heroImage || heroVideo) && 'has-hero']}>
+						<slot />
+					</div>
+					<!-- End mark: the post is over -->
+					<Logo text="JK" class="text-paper" style="display:block;margin-top:2rem;font-size:20px" />
 
-				<script>
-					function copyToClipboard(text: string): Promise<void> {
-						return navigator.clipboard.writeText(text);
-					}
-
-					document.querySelectorAll('.prose pre').forEach((pre) => {
-						const code = pre.querySelector('code');
-
-						// Add language label
-						const lang = pre.getAttribute('data-language');
-						if (lang) {
-							const label = document.createElement('span');
-							label.className = 'code-lang-label';
-							label.textContent = lang;
-							pre.appendChild(label);
+					<script>
+						function copyToClipboard(text: string): Promise<void> {
+							return navigator.clipboard.writeText(text);
 						}
 
-						// Add copy button
-						const button = document.createElement('button');
-						button.className = 'copy-button';
-						button.textContent = 'Copy';
-						button.addEventListener('click', async () => {
-							if (!code) return;
-							try {
-								await copyToClipboard(code.textContent || '');
-								button.textContent = 'Copied!';
-								if (typeof window.plausible === 'function') {
-									window.plausible('Code Copy', { props: { language: lang || 'unknown' } });
-								}
-							} catch {
-								button.textContent = 'Failed';
+						document.querySelectorAll('.prose pre').forEach((pre) => {
+							const code = pre.querySelector('code');
+
+							// Add language label
+							const lang = pre.getAttribute('data-language');
+							if (lang) {
+								const label = document.createElement('span');
+								label.className = 'code-lang-label';
+								label.textContent = lang;
+								pre.appendChild(label);
 							}
-							setTimeout(() => {
-								button.textContent = 'Copy';
-							}, 2000);
-						});
-						pre.appendChild(button);
-					});
-				</script>
 
-				<script>
-					(() => {
-						const progressEl = document.getElementById('reading-progress');
-						const article = document.querySelector('article');
-						if (!progressEl || !article) return;
-
-						// Scroll depth tracking milestones
-						const depthMilestones = new Set<number>();
-						const postTitle = article.dataset.postTitle || 'Unknown';
-
-						function trackScrollDepth(pct: number) {
-							const plausible = window.plausible;
-							if (typeof plausible !== 'function') return;
-							[25, 50, 75, 100].forEach((milestone) => {
-								if (pct >= milestone && !depthMilestones.has(milestone)) {
-									depthMilestones.add(milestone);
-									plausible('Scroll Depth', { props: { depth: `${milestone}%`, post: postTitle } });
-									if (milestone === 100) {
-										plausible('Reading Complete', { props: { post: postTitle } });
+							// Add copy button
+							const button = document.createElement('button');
+							button.className = 'copy-button';
+							button.textContent = 'Copy';
+							button.addEventListener('click', async () => {
+								if (!code) return;
+								try {
+									await copyToClipboard(code.textContent || '');
+									button.textContent = 'Copied!';
+									if (typeof window.plausible === 'function') {
+										window.plausible('Code Copy', { props: { language: lang || 'unknown' } });
 									}
+								} catch {
+									button.textContent = 'Failed';
 								}
+								setTimeout(() => {
+									button.textContent = 'Copy';
+								}, 2000);
 							});
-						}
+							pre.appendChild(button);
+						});
+					</script>
 
-						function update() {
-							const rect = article!.getBoundingClientRect();
-							const articleTop = rect.top + window.scrollY;
-							const total = rect.height - window.innerHeight;
-							const scrolled = window.scrollY - articleTop;
-							let pct = total > 0 ? Math.round((scrolled / total) * 100) : 0;
-							pct = Math.max(0, Math.min(100, pct));
+					<script>
+						(() => {
+							const progressEl = document.getElementById('reading-progress');
+							const article = document.querySelector('article');
+							if (!progressEl || !article) return;
 
-							trackScrollDepth(pct);
-							progressEl!.style.width = pct + '%';
-						}
+							// Scroll depth tracking milestones
+							const depthMilestones = new Set<number>();
+							const postTitle = article.dataset.postTitle || 'Unknown';
 
-						let ticking = false;
-						window.addEventListener(
-							'scroll',
-							() => {
-								if (!ticking) {
-									requestAnimationFrame(() => {
-										update();
-										ticking = false;
-									});
-									ticking = true;
-								}
-							},
-							{ passive: true },
-						);
+							function trackScrollDepth(pct: number) {
+								const plausible = window.plausible;
+								if (typeof plausible !== 'function') return;
+								[25, 50, 75, 100].forEach((milestone) => {
+									if (pct >= milestone && !depthMilestones.has(milestone)) {
+										depthMilestones.add(milestone);
+										plausible('Scroll Depth', {
+											props: { depth: `${milestone}%`, post: postTitle },
+										});
+										if (milestone === 100) {
+											plausible('Reading Complete', { props: { post: postTitle } });
+										}
+									}
+								});
+							}
 
-						update();
-					})();
-				</script>
+							function update() {
+								const rect = article!.getBoundingClientRect();
+								const articleTop = rect.top + window.scrollY;
+								const total = rect.height - window.innerHeight;
+								const scrolled = window.scrollY - articleTop;
+								let pct = total > 0 ? Math.round((scrolled / total) * 100) : 0;
+								pct = Math.max(0, Math.min(100, pct));
 
-				<ShareLinks
-					url={canonicalUrl || new URL(`/blog/${slug}/`, Astro.site).href}
-					title={shareTitle || title}
-					noun="post"
-					class="mt-10"
-				/>
+								trackScrollDepth(pct);
+								progressEl!.style.width = pct + '%';
+							}
 
-				<div class="max-w-(--reading-width)">
+							let ticking = false;
+							window.addEventListener(
+								'scroll',
+								() => {
+									if (!ticking) {
+										requestAnimationFrame(() => {
+											update();
+											ticking = false;
+										});
+										ticking = true;
+									}
+								},
+								{ passive: true },
+							);
+
+							update();
+						})();
+					</script>
+
+					<ShareLinks
+						url={canonicalUrl || new URL(`/blog/${slug}/`, Astro.site).href}
+						title={shareTitle || title}
+						noun="post"
+						class="mt-10"
+					/>
+
 					<AuthorBio />
 
 					{relatedSlugs.length > 0 && (
@@ -384,6 +390,7 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 			</article>
 		</div>
 	</div>
+	<ImageLightbox />
 </BaseLayout>
 
 <script>
