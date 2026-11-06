@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "TypeScript",
-			"commitCount": 291,
+			"commitCount": 293,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 1
+				169, 3
 			],
-			"latestCommitMessage": "feat: Phones get a full-width nav bar with MENU on the right and Pause..."
+			"latestCommitMessage": "feat: The logo now signs the footer, the end of each post, every..."
 		},
 		{
 			"name": "punc",
 			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
 			"url": "https://github.com/JoeKarlsson/punc",
 			"language": "TypeScript",
-			"commitCount": 19,
+			"commitCount": 20,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 4
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 5
 			],
-			"latestCommitMessage": "fix: Phone browsers with their own dark mode leave the site alone: it..."
+			"latestCommitMessage": "feat: Security policy, self-hosted fonts and a build-time book head..."
 		},
 		{
 			"name": "screencast-director",
