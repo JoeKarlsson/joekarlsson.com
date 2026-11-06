@@ -11,6 +11,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
 import KeepExploring from '../components/KeepExploring.astro';
+import Logo from '../components/Logo.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
 import { rankRelatedPosts } from '../utils/related-posts';
@@ -257,6 +258,8 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 				<div class:list={['prose', (heroImage || heroVideo) && 'has-hero']}>
 					<slot />
 				</div>
+				<!-- End mark: the post is over -->
+				<Logo text="JK" class="text-paper" style="display:block;margin-top:2rem;font-size:20px" />
 
 				<script>
 					function copyToClipboard(text: string): Promise<void> {

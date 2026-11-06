@@ -1,0 +1,42 @@
+---
+// The off-register logo as live Anton text: letters in --logo-fill (pink unless set), with an
+// outline in currentColor knocked up and left like a misprint. The outline boils through the
+// #warble-N frames (.logo-outline in motion.css). brand/ has the same logo as files.
+interface Props {
+	text: 'JK' | 'JOE KARLSSON';
+	class?: string;
+	style?: string;
+}
+
+const { text, class: className, style } = Astro.props;
+const wide = text !== 'JK';
+const [width, x, y] = wide ? [580, 290, 98] : [120, 60, 100];
+---
+
+<svg
+	viewBox={`0 0 ${width} 110`}
+	width={wide ? '5.8em' : '1.75em'}
+	height={wide ? '1.1em' : '1.6em'}
+	class:list={['overflow-visible font-display', className]}
+	style={style}
+	aria-hidden="true"
+>
+	<text x={x} y={y} text-anchor="middle" font-size="104" fill="var(--logo-fill, #ff4fd8)">
+		{text}
+	</text>
+	<text
+		x={x}
+		y={y}
+		text-anchor="middle"
+		font-size="104"
+		class="logo-outline"
+		filter="url(#warble-1)"
+		fill="none"
+		stroke="currentColor"
+		stroke-width={wide ? 4 : 3}
+		stroke-linejoin="round"
+		transform="translate(-5 -4)"
+	>
+		{text}
+	</text>
+</svg>

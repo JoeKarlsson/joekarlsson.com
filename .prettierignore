@@ -6,3 +6,5 @@ public/
 package-lock.json
 .claude/
 .vale/styles/.vale-config/
+brand/index.html
+brand/explorations/

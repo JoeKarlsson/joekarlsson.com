@@ -1,5 +1,6 @@
 ---
 import { NAV_LINKS } from '../consts';
+import Logo from './Logo.astro';
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.replace(/\/$/, '') || '/';
@@ -35,65 +36,12 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			aria-label="Joe Karlsson"
 			class:list={[
 				'sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline max-md:flex max-md:min-h-11 max-md:min-w-11 max-md:items-center max-md:justify-center',
-				currentPath === '/'
-					? 'bg-pink text-ink [--logo-fill:#000]'
-					: 'bg-ink text-paper [--logo-fill:#ff4fd8]',
+				currentPath === '/' ? 'bg-pink text-ink [--logo-fill:#000]' : 'bg-ink text-paper',
 			]}
 		>
-			<!-- The off-register logo: pink letters, with a wobbling outline (currentColor)
-			knocked up and left like a misprint. Full name from md up, JK on phones -->
-			<svg
-				viewBox="0 0 580 110"
-				width="5.8em"
-				height="1.1em"
-				class="overflow-visible max-md:hidden"
-				aria-hidden="true"
-			>
-				<text x="290" y="98" text-anchor="middle" font-size="104" fill="var(--logo-fill)">
-					JOE KARLSSON
-				</text>
-				<text
-					x="290"
-					y="98"
-					text-anchor="middle"
-					font-size="104"
-					class="logo-outline"
-					filter="url(#warble-1)"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="4"
-					stroke-linejoin="round"
-					transform="translate(-5 -4)"
-				>
-					JOE KARLSSON
-				</text>
-			</svg>
-			<svg
-				viewBox="0 0 120 110"
-				width="1.75em"
-				height="1.6em"
-				class="overflow-visible md:hidden"
-				aria-hidden="true"
-			>
-				<text x="60" y="100" text-anchor="middle" font-size="104" fill="var(--logo-fill)">
-					JK
-				</text>
-				<text
-					x="60"
-					y="100"
-					text-anchor="middle"
-					font-size="104"
-					class="logo-outline"
-					filter="url(#warble-1)"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="3"
-					stroke-linejoin="round"
-					transform="translate(-5 -4)"
-				>
-					JK
-				</text>
-			</svg>
+			<!-- Full name from md up, JK on phones -->
+			<Logo text="JOE KARLSSON" class="max-md:hidden" />
+			<Logo text="JK" class="md:hidden" />
 		</a>
 		<!-- Phones, on a post: the category, minutes left and title (reading-context.ts). It
 		repeats the page's own heading, so screen readers skip it -->

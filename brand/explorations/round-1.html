@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;900&family=JetBrains+Mono:wght@500;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  :root { --pink: #ff4fd8; --ink: #000; --chrome: #141414; --line: #2a2a2a; --muted: #9a9a9a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0a0a0a; color: #fff; font: 16px/1.5 "Hanken Grotesk", system-ui, sans-serif; padding: 40px 16px 80px; }
+  header, main { max-width: 1180px; margin: 0 auto; }
+  header h1 { font: 400 clamp(40px, 7vw, 72px)/1 Anton, sans-serif; text-transform: uppercase; margin: 0 0 8px; }
+  header h1 b { color: var(--pink); font-weight: 400; }
+  header p { color: var(--muted); max-width: 60ch; margin: 0 0 32px; }
+  main { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 24px; }
+
+  .card { background: var(--chrome); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .card h2 { font: 900 15px/1 "Hanken Grotesk", sans-serif; letter-spacing: .04em; text-transform: uppercase; margin: 0; padding: 16px 18px 6px; }
+  .card h2 span { color: var(--pink); margin-right: 8px; }
+  .card p { margin: 0; padding: 0 18px 14px; color: var(--muted); font-size: 14px; }
+  .stage { display: grid; grid-template-columns: 2fr 1fr; }
+  .panel { display: grid; place-items: center; min-height: 210px; padding: 20px; overflow: hidden; }
+  .panel.big { font-size: 56px; }
+  .panel.small { font-size: 30px; }
+  .tabs { display: flex; align-items: center; gap: 18px; padding: 12px 18px; background: #222; border-top: 1px solid var(--line); font: 400 12px "Hanken Grotesk", sans-serif; color: var(--muted); }
+  .tab { display: flex; align-items: center; gap: 8px; background: #333; color: #ddd; border-radius: 8px 8px 0 0; padding: 6px 12px 6px 8px; }
+  .icon { display: grid; place-items: center; background: #000; border-radius: 18%; overflow: hidden; flex: none; }
+
+  /* Colour contexts: every logo reads these, so one markup works on black and on pink */
+  .dark  { --bg: #000; --fg: #fff; --accent: var(--pink); --on-accent: #000; background: var(--bg); color: var(--fg); }
+  .light { --bg: var(--pink); --fg: #000; --accent: #000; --on-accent: var(--pink); background: var(--bg); color: var(--fg); }
+  svg { display: block; }
+
+  /* 1 sticker */
+  .sticker { font: 400 1.6em/1 Anton, sans-serif; background: var(--accent); color: var(--on-accent); padding: .08em .22em .04em; border-radius: .14em; transform: rotate(-7deg); box-shadow: .07em .07em 0 var(--fg); display: inline-block; }
+
+  /* 3 terminal */
+  .term { font: 800 .48em/1 "JetBrains Mono", monospace; white-space: nowrap; }
+  .term .p { color: var(--accent); }
+  .cursor { display: inline-block; width: .6em; height: 1.05em; background: var(--accent); vertical-align: -.18em; animation: blink 1.05s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .term.solo { font-size: 1.1em; }
+
+  /* 4 crayon */
+  .crayon { font: 400 .8em/1 "Permanent Marker", cursive; color: var(--accent); white-space: nowrap; transform: rotate(-4deg); display: inline-block; }
+  .crayon svg { width: 100%; height: .35em; margin-top: -.05em; }
+
+  /* 5 brackets */
+  .brk { font: 800 1em/1 "JetBrains Mono", monospace; white-space: nowrap; }
+  .brk i { font-style: normal; color: var(--accent); }
+
+  /* 8 riso offset with halftone */
+  .riso { position: relative; font: 400 1.05em/.95 Anton, sans-serif; text-transform: uppercase; text-align: center; color: var(--fg); text-shadow: .045em .045em 0 var(--accent); padding: .25em .35em; }
+  .riso::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle, var(--accent) 32%, transparent 34%) 0 0 / .11em .11em; -webkit-mask: radial-gradient(circle at 70% 60%, #000 0 20%, transparent 62%); mask: radial-gradient(circle at 70% 60%, #000 0 20%, transparent 62%); z-index: 0; }
+  .riso span { position: relative; z-index: 1; display: block; }
+
+  /* 9 pixel */
+  .pixrow { display: flex; align-items: center; gap: .35em; }
+  .pixrow small { font: 800 .32em/1.15 "JetBrains Mono", monospace; text-transform: uppercase; }
+
+  /* 10 split block */
+  .split { width: 1.6em; height: 1.6em; border-radius: .12em; background: linear-gradient(135deg, var(--accent) 50%, var(--fg) 50%); position: relative; font: 400 .85em/1 Anton, sans-serif; flex: none; }
+  .split b { position: absolute; font-weight: 400; }
+  .split .j { left: .2em; top: .1em; color: var(--on-accent); font-size: 1.15em; }
+  .split .k { right: .2em; bottom: .05em; color: var(--bg); font-size: 1.15em; }
+  .splitrow { display: flex; align-items: center; gap: .3em; }
+  .splitrow span { font: 900 .62em/.95 "Hanken Grotesk", sans-serif; }
+  .splitrow span em { font-style: normal; color: var(--accent); }
+
+  @media (max-width: 560px) { .stage { grid-template-columns: 1fr; } .panel.big { font-size: 44px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Joe Karlsson <b>logo</b> options</h1>
+  <p>Ten directions, all in the site's black and #ff4fd8 pink. Each card shows the mark on black, on pink, and at favicon size in a browser tab. Tell me the numbers you like and what to push.</p>
+</header>
+<main id="grid"></main>
+
+<script>
+const pixelJ = ["..###","...#.","...#.","...#.","#..#.","#..#.",".##.."];
+const pixelK = ["#...#","#..#.","#.#..","##...","#.#..","#..#.","#...#"];
+function pixelMark(withPinkK = true) {
+  let rects = "";
+  [[pixelJ, 0, "var(--fg)"], [pixelK, 6, withPinkK ? "var(--accent)" : "var(--fg)"]].forEach(([rows, dx, fill]) =>
+    rows.forEach((row, y) => [...row].forEach((c, x) => {
+      if (c === "#") rects += `<rect x="${x + dx + 1}" y="${y + 1}" width="1" height="1" fill="${fill}"/>`;
+    })));
+  return `<svg viewBox="0 0 13 9" width="2.2em" shape-rendering="crispEdges">${rects}</svg>`;
+}
+
+const interlock = `<svg viewBox="0 0 100 100" width="1.9em" fill="none" stroke-width="13">
+  <path d="M46 12 V62 Q46 86 26 86 Q14 86 10 76" stroke="var(--fg)" stroke-linecap="square"/>
+  <path d="M52 56 L86 14 M60 46 L88 88" stroke="var(--accent)" stroke-linecap="square"/>
+</svg>`;
+
+const badge = (withRing = true) => `<svg viewBox="0 0 100 100" width="2.6em">
+  <defs><path id="ring" d="M50 50 m-37 0 a37 37 0 1 1 74 0 a37 37 0 1 1 -74 0"/></defs>
+  <circle cx="50" cy="50" r="48" fill="var(--accent)"/>
+  ${withRing ? `<text font-family="Anton" font-size="10.5" fill="var(--on-accent)" letter-spacing="1"><textPath href="#ring" textLength="228" lengthAdjust="spacing">JOE KARLSSON ✦ JOE KARLSSON ✦</textPath></text>
+  <circle cx="50" cy="50" r="27" fill="var(--on-accent)"/>
+  <text x="50" y="63" text-anchor="middle" font-family="Anton" font-size="34" fill="var(--accent)">JK</text>`
+  : `<text x="50" y="72" text-anchor="middle" font-family="Anton" font-size="60" fill="var(--on-accent)">JK</text>`}
+</svg>`;
+
+const stacked = `<svg viewBox="0 0 200 128" width="3.6em">
+  <text x="100" y="66" text-anchor="middle" font-family="Anton" font-size="78" textLength="196" lengthAdjust="spacingAndGlyphs" fill="var(--fg)">JOE</text>
+  <text x="100" y="122" text-anchor="middle" font-family="Anton" font-size="52" textLength="196" lengthAdjust="spacingAndGlyphs" fill="var(--accent)">KARLSSON</text>
+</svg>`;
+const stackedIcon = `<svg viewBox="0 0 100 100" width="1.6em">
+  <text x="50" y="52" text-anchor="middle" font-family="Anton" font-size="56" textLength="70" lengthAdjust="spacingAndGlyphs" fill="var(--fg)">J</text>
+  <text x="50" y="96" text-anchor="middle" font-family="Anton" font-size="46" textLength="70" lengthAdjust="spacingAndGlyphs" fill="var(--accent)">K</text>
+</svg>`;
+
+const scribble = `<svg viewBox="0 0 300 30" preserveAspectRatio="none"><path d="M6 18 C 70 6, 150 26, 290 10 M40 24 C 120 16, 200 22, 260 18" stroke="var(--fg)" stroke-width="5" fill="none" stroke-linecap="round"/></svg>`;
+
+const options = [
+  { name: "Sticker", note: "Anton JK slapped on as a tilted sticker, same language as the nav's MENU sticker.",
+    mark: `<span class="sticker">JK</span>`, icon: `<span class="sticker">JK</span>`, iconScale: .34 },
+  { name: "Stacked wordmark", note: "JOE over KARLSSON forced to the same width. Loud, poster-like, good for a header.",
+    mark: stacked, icon: stackedIcon, iconScale: .6 },
+  { name: "Prompt", note: "Your name as a shell prompt with a blinking pink cursor. The icon shrinks to jk_.",
+    mark: `<span class="term"><span class="p">joe@karlsson</span>:~$ <span class="cursor"></span></span>`,
+    icon: `<span class="term solo">jk<span class="cursor" style="width:.5em;height:.12em;vertical-align:0"></span></span>`, iconScale: .55 },
+  { name: "Crayon signature", note: "Hand-scrawled name with a scribble underline, matching the crayon arrow on the newsletter page.",
+    mark: `<span class="crayon">Joe Karlsson${scribble}</span>`, icon: `<span class="crayon" style="font-size:1.3em">jk</span>`, iconScale: .5 },
+  { name: "Tag", note: "A self-closing &lt;jk/&gt; element. Reads instantly to developers, a bit of a wink to everyone else.",
+    mark: `<span class="brk"><i>&lt;</i>jk<i>/&gt;</i></span>`, icon: `<span class="brk" style="font-size:.95em"><i>&lt;</i>jk<i>&gt;</i></span>`, iconScale: .38 },
+  { name: "Shared stem", note: "Custom J and K sharing one stroke. The most 'real logo' of the set, and it holds up at 16px.",
+    mark: interlock, icon: interlock, iconScale: .5 },
+  { name: "Badge", note: "Name runs around a pink seal with JK in the middle. Works as a stamp on photos and slides.",
+    mark: badge(true), icon: badge(false), iconScale: .37 },
+  { name: "Riso misprint", note: "Name with an off-register pink layer and a halftone patch, like a cheap zine print.",
+    mark: `<div class="riso"><span>Joe</span><span>Karlsson</span></div>`, icon: `<div class="riso" style="font-size:1.6em;padding:.1em"><span>JK</span></div>`, iconScale: .5 },
+  { name: "Pixel", note: "JK on a 5x7 pixel grid, a nod to the drawing board. Crisp at every favicon size by design.",
+    mark: `<div class="pixrow">${pixelMark()}<small>Joe<br>Karlsson</small></div>`, icon: pixelMark(), iconScale: .42 },
+  { name: "Split block", note: "A diagonal pink/white square with J and K in opposite corners, plus a heavy grotesk name.",
+    mark: `<div class="splitrow"><div class="split"><b class="j">J</b><b class="k">K</b></div><span>joe<br>karlsson<em>.</em></span></div>`,
+    icon: `<div class="split"><b class="j">J</b><b class="k">K</b></div>`, iconScale: .6 },
+];
+
+const grid = document.getElementById("grid");
+options.forEach((o, i) => {
+  const n = String(i + 1).padStart(2, "0");
+  const icons = [64, 32, 16].map(s =>
+    `<div class="icon dark" style="width:${s}px;height:${s}px;font-size:${s * o.iconScale}px">${o.icon}</div>`).join("");
+  grid.insertAdjacentHTML("beforeend", `
+    <section class="card">
+      <h2><span>${n}</span>${o.name}</h2>
+      <p>${o.note}</p>
+      <div class="stage">
+        <div class="panel big dark">${o.mark}</div>
+        <div class="panel small light">${o.mark}</div>
+      </div>
+      <div class="tabs">${icons}
+        <div class="tab"><div class="icon dark" style="width:16px;height:16px;font-size:${16 * o.iconScale}px">${o.icon}</div>Joe Karlsson</div>
+      </div>
+    </section>`);
+});
+</script>
+</body>
+</html>

@@ -1,13 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
-  <!-- The off-register JK: pink Anton letters, with a hand-wobbled white outline knocked up and left -->
-  <defs>
-    <g id="jk"><path transform="translate(10.47 85.21) scale(0.04038 -0.04038)" d="M468 -16Q349 -16 251.0 30.0Q153 76 95.5 166.5Q38 257 38 389V830H386V410Q386 364 404.5 336.0Q423 308 464 308Q543 308 543 405V1760H898V440Q898 300 843.0 197.5Q788 95 691.0 39.5Q594 -16 468 -16Z"/><path transform="translate(48.22 85.21) scale(0.04038 -0.04038)" d="M78 0V1760H426V1055L590 1760H944L747 954L985 0H620L428 852V0Z"/></g>
-    <filter id="wobble" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="2" seed="7"/>
-      <feDisplacementMap in="SourceGraphic" scale="3"/>
-    </filter>
-  </defs>
-  <rect width="100" height="100" fill="#000"/>
-  <use href="#jk" xlink:href="#jk" fill="#ff4fd8"/>
-  <use href="#jk" xlink:href="#jk" transform="translate(-4 -3)" fill="none" stroke="#fff" stroke-width="74" stroke-linejoin="round" filter="url(#wobble)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 137.2 137.2" width="137" height="137">
+<title>Joe Karlsson</title>
+<defs><filter id="wobble" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.031" numOctaves="2" seed="1"/><feDisplacementMap in="SourceGraphic" scale="4.5"/></filter></defs>
+<rect width="100%" height="100%" fill="#000"/><g transform="translate(14 18.6)">
+<path d="M26.59 100.91 Q19.83 100.91 14.26 98.3 Q8.69 95.68 5.43 90.54 Q2.16 85.4 2.16 77.9 L2.16 52.84 L21.93 52.84 L21.93 76.7 Q21.93 79.32 22.98 80.91 Q24.03 82.5 26.36 82.5 Q30.85 82.5 30.85 76.99 L30.85 0 L51.02 0 L51.02 75 Q51.02 82.95 47.9 88.78 Q44.77 94.6 39.26 97.76 Q33.75 100.91 26.59 100.91 Z M58.69 100 L58.69 0 L78.47 0 L78.47 40.06 L87.78 0 L107.9 0 L96.7 45.8 L110.23 100 L89.49 100 L78.58 51.59 L78.58 100 Z" fill="#ff4fd8"/>
+<path d="M26.59 100.91 Q19.83 100.91 14.26 98.3 Q8.69 95.68 5.43 90.54 Q2.16 85.4 2.16 77.9 L2.16 52.84 L21.93 52.84 L21.93 76.7 Q21.93 79.32 22.98 80.91 Q24.03 82.5 26.36 82.5 Q30.85 82.5 30.85 76.99 L30.85 0 L51.02 0 L51.02 75 Q51.02 82.95 47.9 88.78 Q44.77 94.6 39.26 97.76 Q33.75 100.91 26.59 100.91 Z M58.69 100 L58.69 0 L78.47 0 L78.47 40.06 L87.78 0 L107.9 0 L96.7 45.8 L110.23 100 L89.49 100 L78.58 51.59 L78.58 100 Z" fill="none" stroke="#fff" stroke-width="4.2" stroke-linejoin="round" transform="translate(-5.6 -4.5)" filter="url(#wobble)"/>
+</g>
 </svg>

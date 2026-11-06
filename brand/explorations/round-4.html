@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo Options Four</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;900&display=swap" rel="stylesheet">
+<style>
+  :root { --pink: #ff4fd8; --chrome: #141414; --line: #2a2a2a; --muted: #9a9a9a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0a0a0a; color: #fff; font: 16px/1.5 "Hanken Grotesk", system-ui, sans-serif; padding: 40px 16px 80px; }
+  header, main { max-width: 1180px; margin: 0 auto; }
+  header h1 { font: 400 clamp(40px, 7vw, 72px)/1 Anton, sans-serif; text-transform: uppercase; margin: 0 0 8px; }
+  header h1 b { color: var(--pink); font-weight: 400; }
+  header p { color: var(--muted); max-width: 62ch; margin: 0 0 32px; }
+  main { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 24px; }
+
+  .card { background: var(--chrome); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .card h2 { font: 900 15px/1 "Hanken Grotesk", sans-serif; letter-spacing: .04em; text-transform: uppercase; margin: 0; padding: 16px 18px 6px; }
+  .card h2 span { color: var(--pink); margin-right: 8px; }
+  .card h2 em { font-style: normal; font-weight: 400; color: var(--muted); text-transform: none; letter-spacing: 0; margin-left: 8px; }
+  .card p { margin: 0; padding: 0 18px 14px; color: var(--muted); font-size: 14px; }
+  .stage { display: grid; grid-template-columns: 2fr 1fr; }
+  .panel { display: grid; place-items: center; min-height: 220px; padding: 20px; overflow: hidden; }
+  .panel.big { font-size: 56px; }
+  .panel.small { font-size: 26px; }
+  .tabs { display: flex; align-items: center; gap: 18px; padding: 12px 18px; background: #222; border-top: 1px solid var(--line); font: 400 12px "Hanken Grotesk", sans-serif; color: var(--muted); }
+  .tab { display: flex; align-items: center; gap: 8px; background: #333; color: #ddd; border-radius: 6px 6px 0 0; padding: 6px 12px 6px 8px; }
+  .icon { display: grid; place-items: center; background: #000; border-radius: 18%; overflow: hidden; flex: none; }
+
+  .dark  { --bg: #000; --fg: #fff; --accent: var(--pink); --on-accent: #000; background: var(--bg); color: var(--fg); }
+  .light { --bg: var(--pink); --fg: #000; --accent: #000; --on-accent: var(--pink); background: var(--bg); color: var(--fg); }
+  svg { display: block; overflow: visible; }
+
+  /* Site header replica (Header.astro): paper bar, Anton stickers, logo in the home slot */
+  .headrow { background: #000; padding: 22px 12px; display: flex; justify-content: center; overflow: hidden; border-top: 1px solid var(--line); }
+  .bar { display: flex; align-items: center; gap: .19em; background: #ededed; color: #000; border-radius: .67em; padding: .29em; font: 400 14px/1 Anton, sans-serif; text-transform: uppercase; white-space: nowrap; }
+  .bar > span { padding: .38em .48em; border-radius: .43em; }
+  .bar > .on { background: var(--pink); }
+  .bar > .pause { background: #000; color: #ededed; padding: .38em; display: grid; }
+  .bar > .logo { padding: .32em .5em; display: grid; place-items: center; line-height: 1; }
+
+  .twk { transform-box: fill-box; transform-origin: center; animation: twinkle 1.8s ease-in-out infinite; fill: var(--accent); }
+  @keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0); } 50% { transform: scale(.5) rotate(40deg); } }
+
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+  @media (max-width: 560px) { .stage { grid-template-columns: 1fr; } .panel.big { font-size: 44px; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- 22's boil -->
+  <filter id="boil" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="1">
+      <animate attributeName="seed" values="1;4;8" dur="0.36s" calcMode="discrete" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" scale="4"/>
+  </filter>
+  <!-- Wobblier: lower frequency, bigger displacement -->
+  <filter id="wobble" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="2" seed="2">
+      <animate attributeName="seed" values="2;6;9" dur="0.4s" calcMode="discrete" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" scale="9"/>
+  </filter>
+</svg>
+
+<header>
+  <h1>Logo options, <b>batch four</b></h1>
+  <p>All riffs on 22: solid pink letters with a boiling outline knocked off-register. Thicker, wobblier, other shifts, sparkles, and your full name in the same style (38 to 40).</p>
+</header>
+<main id="grid"></main>
+
+<script>
+const SPARKLE = "M10 0 C11 7 13 9 20 10 C13 11 11 13 10 20 C9 13 7 11 0 10 C7 9 9 7 10 0Z";
+const sp = ([cx, cy, r], i) =>
+  `<g transform="translate(${cx - r} ${cy - r}) scale(${r / 10})"><path class="twk" style="animation-delay:${i * .6}s" d="${SPARKLE}"/></g>`;
+
+// Layouts: the letters, drawn once as fill and once as the shifted outline
+const LAYOUTS = {
+  jk: { box: "0 0 120 110", width: 1.9,
+    text: a => `<text x="60" y="100" text-anchor="middle" font-family="Anton" font-size="104" ${a}>JK</text>`,
+    sparkles: [[2, 8, 11], [116, 6, 8], [118, 104, 6]] },
+  line: { box: "0 0 580 110", width: 5.8,
+    text: a => `<text x="290" y="98" text-anchor="middle" font-family="Anton" font-size="104" ${a}>JOE KARLSSON</text>`,
+    sparkles: [[-4, 6, 12], [584, 10, 9], [572, 108, 7]] },
+  stack: { box: "0 0 200 130", width: 3.4,
+    text: a => `<text x="100" y="66" text-anchor="middle" font-family="Anton" font-size="78" textLength="194" lengthAdjust="spacingAndGlyphs" ${a}>JOE</text>
+               <text x="100" y="124" text-anchor="middle" font-family="Anton" font-size="52" textLength="194" lengthAdjust="spacingAndGlyphs" ${a}>KARLSSON</text>`,
+    sparkles: [[-4, 6, 10], [204, 4, 8], [204, 128, 6]] },
+};
+
+function offRegister({ layout = "jk", stroke = 3, shift = [-5, -4], filter = "boil", sparkles = false, iconStroke }) {
+  const L = LAYOUTS[layout];
+  const outline = w => L.text(`fill="none" stroke="var(--fg)" stroke-width="${w}" stroke-linejoin="round" transform="translate(${shift[0]} ${shift[1]})" filter="url(#${filter})"`);
+  const svg = (w, sw, withSparkles) => `<svg viewBox="${L.box}" width="${w}em">${L.text('fill="var(--accent)"')}${outline(sw)}${withSparkles ? L.sparkles.map(sp).join("") : ""}</svg>`;
+  // Favicons always use the JK layout with a stroke heavy enough to survive 16px
+  const J = LAYOUTS.jk;
+  const icon = `<svg viewBox="${J.box}" width="1em">${J.text('fill="var(--accent)"')}${J.text(`fill="none" stroke="var(--fg)" stroke-width="${iconStroke ?? Math.max(stroke, 5)}" stroke-linejoin="round" transform="translate(${shift[0]} ${shift[1]})" filter="url(#${filter})"`)}</svg>`;
+  return { mark: svg(L.width, stroke, sparkles), icon, iconScale: 1, headSize: layout === "line" ? 15 : layout === "stack" ? 13 : 14 };
+}
+
+const options = [
+  { n: "22", tag: "batch three", name: "Off-register", note: "Reference. 3-unit outline, nudged up and left, light boil.", ...offRegister({}) },
+  { n: "31", tag: "thicker", name: "Heavy line", note: "Outline doubled to 6. Reads more like a marker than a pen.", ...offRegister({ stroke: 6 }) },
+  { n: "32", tag: "wobblier", name: "Wobbly", note: "Same weight as 22 but the line wanders a lot more, like it was traced by hand on a bumpy bus.", ...offRegister({ filter: "wobble" }) },
+  { n: "33", tag: "thicker + wobblier", name: "Heavy wobble", note: "Both at once: thick and loose. The most cartoon of the set.", ...offRegister({ stroke: 6, filter: "wobble" }) },
+  { n: "34", tag: "shift", name: "Down-right", note: "Outline slips the other way, down and right, so the pink peeks out top-left.", ...offRegister({ shift: [6, 5] }) },
+  { n: "35", tag: "shift", name: "Way off", note: "A big misprint: the outline barely overlaps the fill. More riso, less logo.", ...offRegister({ stroke: 4, shift: [-11, -8] }) },
+  { n: "36", tag: "sparkles", name: "With sparkles", note: "22 exactly, plus three sparkles twinkling at the corners.", ...offRegister({ sparkles: true }) },
+  { n: "37", tag: "everything", name: "Heavy wobble + sparkles", note: "33 with sparkles. Maximum fun, maybe too much.", ...offRegister({ stroke: 6, filter: "wobble", sparkles: true }) },
+  { n: "38", tag: "full name", name: "Full name, one line", note: "JOE KARLSSON on one line in 22's style. Drops straight into the current home sticker.", ...offRegister({ layout: "line", stroke: 4 }) },
+  { n: "39", tag: "full name", name: "Full name, stacked", note: "JOE over KARLSSON at the same width, like the round-one stacked wordmark.", ...offRegister({ layout: "stack", stroke: 3 }) },
+  { n: "40", tag: "full name", name: "Stacked + sparkles", note: "39 with a heavier wobbly outline and sparkles.", ...offRegister({ layout: "stack", stroke: 4.5, filter: "wobble", sparkles: true }) },
+];
+
+const grid = document.getElementById("grid");
+for (const o of options) {
+  const icons = [64, 32, 16].map(s =>
+    `<div class="icon dark" style="width:${s}px;height:${s}px;font-size:${s * o.iconScale}px">${o.icon}</div>`).join("");
+  grid.insertAdjacentHTML("beforeend", `
+    <section class="card">
+      <h2><span>${o.n}</span>${o.name}<em>${o.tag}</em></h2>
+      <p>${o.note}</p>
+      <div class="stage">
+        <div class="panel big dark">${o.mark}</div>
+        <div class="panel small light">${o.mark}</div>
+      </div>
+      <div class="headrow"><nav class="bar">
+        <span class="logo dark" style="font-size:${o.headSize}px">${o.mark}</span>
+        <span class="on">Blog</span><span>About</span><span>Projects</span><span>Newsletter</span><span>Uses</span><span>Contact</span>
+        <span class="pause"><svg viewBox="0 0 16 16" width="1em" fill="currentColor"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg></span>
+      </nav></div>
+      <div class="tabs">${icons}
+        <div class="tab"><div class="icon dark" style="width:16px;height:16px;font-size:16px">${o.icon}</div>Joe Karlsson</div>
+      </div>
+    </section>`);
+}
+
+// The boil runs on SVG <animate>, which CSS can't stop, so drop it for reduced-motion visitors
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.querySelectorAll("animate").forEach(a => a.remove());
+</script>
+</body>
+</html>

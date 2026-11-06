@@ -26,6 +26,8 @@ const ROOT = resolve(import.meta.dirname, '..');
 const ISSUES_DIR = join(ROOT, 'src/content/newsletter');
 const PINK = '#ff4fd8';
 const cardPath = (slug) => `/images/newsletter/${slug}/card.webp`;
+// The JK logo that signs off the card's bottom row, from brand/ (npm run brand draws it)
+const LOGO_SVG = readFileSync(join(ROOT, 'brand/logo/svg/off-register/jk-for-dark.svg'), 'utf8');
 
 function loadIssues() {
 	return readdirSync(ISSUES_DIR)
@@ -143,12 +145,14 @@ body { width: 1200px; height: 630px; background: #000; overflow: hidden; }
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .numbox { position: absolute; right: 110px; top: 190px; width: 330px; height: 230px; display: grid; place-items: center; }
 .num { font: 400 200px/1 Anton, sans-serif; color: ${PINK}; white-space: nowrap; width: 100%; text-align: center; overflow: hidden; }
+.logo { margin-left: auto; height: 62px; }
+.logo svg { height: 100%; width: auto; display: block; }
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter></svg>
 <div class="card">
 	<div class="left">
 		<div class="tbox"><div class="twrap">${markSvg(MARKS, 'rays', '', 6).replace('class="m"', 'class="m rays"')}${content.kicker ? `<span class="kick">${esc(content.kicker)}</span>` : ''}<div class="t" data-fit="120,48">${esc(content.title)}${content.also ? `<span class="also">${esc(content.also)}</span>` : ''}</div></div></div>
-		<div class="foot"><span class="echo">${echo}</span><span class="date">${date}</span></div>
+		<div class="foot"><span class="echo">${echo}</span><span class="date">${date}</span><div class="logo">${LOGO_SVG}</div></div>
 	</div>
 	${right}
 </div></body></html>`;

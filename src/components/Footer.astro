@@ -1,6 +1,7 @@
 ---
 import { FOOTER_LINKS, SOCIAL_LINKS } from '../consts';
 import { CHALK, COIL, MARKS } from '../data/scribbles';
+import Logo from './Logo.astro';
 import NewsletterCTA from './NewsletterCTA.astro';
 import Scribble from './Scribble.astro';
 const year = new Date().getFullYear();
@@ -57,7 +58,11 @@ const ECHO_TITLE = 'Works on my machine';
 		))}
 	</nav>
 	<div class="mt-7 flex flex-col justify-between gap-4 border-t-2 border-ink pt-[18px] font-semibold sm:flex-row sm:items-center">
-		<p>&copy; {year} Joe Karlsson</p>
+		<!-- Signed with the logo, black on the pink like the nav's homepage link -->
+		<p style="display:flex;align-items:center;gap:12px">
+			<Logo text="JK" style="--logo-fill:#000;font-size:24px" />
+			&copy; {year} Joe Karlsson
+		</p>
 		<!-- Phones: each icon gets a 44px tap area (p-[11px] around 22px), pulled back to the edge by -mx -->
 		<div class="-mx-[11px] flex items-center md:mx-0 md:gap-[18px] [&>a]:p-[11px] md:[&>a]:p-0">
 			<a
