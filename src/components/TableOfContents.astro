@@ -8,7 +8,7 @@ const { headings } = Astro.props;
 <div class="hidden xl:block">
 	<nav class="sticky top-20 text-sm" id="toc-nav" aria-label="Table of contents">
 		<p class="mb-3 font-display text-xl text-paper uppercase">On this page</p>
-		<ul class="space-y-0.5 border-l border-surface-3">
+		<ul class="border-l border-surface-3">
 			{headings.map((h) => (
 				<li class="-ml-px border-l-2 border-transparent pl-3 transition-colors duration-150">
 					<a

@@ -26,6 +26,8 @@ export default defineConfig({
 		// detects a coding agent, and Playwright would see the command exit
 		command: `npm run dev -- --port ${port} --ignore-lock`,
 		url: `http://localhost:${port}`,
+		// The dev toolbar adds its own h1s and buttons, which tests would count as the page's
+		env: { ASTRO_E2E: '1' },
 		reuseExistingServer: !process.env.CI,
 		timeout: 120 * 1000,
 	},

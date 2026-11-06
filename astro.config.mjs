@@ -33,6 +33,8 @@ const unindexedIssuePaths = new Set(
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.joekarlsson.com',
+	// Off for the Playwright run (playwright.config.ts sets ASTRO_E2E)
+	devToolbar: { enabled: process.env.ASTRO_E2E !== '1' },
 	// Self-hosted at build time, each with a fallback sized to its metrics, so text
 	// doesn't reflow when the font arrives (that shift cost /work/ and /uses/ their
 	// Lighthouse score). Fraunces stays on Google Fonts in BaseHead: Astro can't
