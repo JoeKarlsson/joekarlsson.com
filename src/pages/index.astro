@@ -12,6 +12,7 @@ import { ARROW, CHALK, COIL, HERO_COIL, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts, isOwnPost } from '../utils/posts';
+import { halftoneMode } from '../utils/halftone';
 
 // Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
 const { runningContainers } = nowFeed.homelab;
@@ -49,7 +50,8 @@ const BOTTOM_TICKER = [
 const SLOT_WORDS = ['ugly pot', 'bad idea', 'ugly demo', 'weird idea', 'homelab', 'ugly pot'];
 
 // Around the house: one clip per thing, each with a caption that links to it.
-// Every clip is the same flat pink-and-black photocopy look at 4:5.
+// Every clip is plain color; the live pink dots (src/scripts/halftone.ts)
+// give them the same look as the montage, cropped to 4:5 on the page.
 const AROUND_THE_HOUSE = [
 	{
 		name: 'cat-wide',
@@ -65,7 +67,7 @@ const AROUND_THE_HOUSE = [
 	},
 	{
 		name: 'rackfront',
-		alt: "Photocopied video of Joe's server rack",
+		alt: "Photocopied video of Joe's hand pointing out the servers in his rack",
 		caption: `The rack: ${runningContainers} containers running right now`,
 		href: '/blog/how-to-get-started-building-a-homelab-server-in-2024/',
 	},
@@ -446,6 +448,7 @@ const AROUND_THE_HOUSE = [
 						class="block aspect-[4/5] w-full object-cover"
 						src={`/images/home/${name}.mp4`}
 						poster={`/images/home/${name}-poster.webp`}
+						data-halftone={halftoneMode(`/images/home/${name}.mp4`)}
 						data-autoplay-in-view
 						muted
 						loop

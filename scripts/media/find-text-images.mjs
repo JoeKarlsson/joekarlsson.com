@@ -1,4 +1,5 @@
-// Finds which post hero images and videos, project images and project clips have text in them,
+// Finds which post hero images and videos, project images and project clips, and the
+// homepage's Around the house clips have text in them,
 // with macOS Vision (count-text.swift), and writes them to
 // src/data/images-with-text.json. The live halftone (src/scripts/halftone.ts) draws
 // those as a flat pink-and-black tone instead of dots, which make text unreadable.
@@ -42,7 +43,14 @@ function projectMedia() {
 	]);
 }
 
-const sources = [...new Set([...postHeroes(), ...projectMedia()].filter(Boolean))];
+// Around the house on the homepage (the montage is a face, never text)
+function homeClips() {
+	return readdirSync('public/images/home')
+		.filter((f) => f.endsWith('.mp4') && !f.startsWith('montage'))
+		.map((f) => `/images/home/${f}`);
+}
+
+const sources = [...new Set([...postHeroes(), ...projectMedia(), ...homeClips()].filter(Boolean))];
 const work = mkdtempSync(join(tmpdir(), 'find-text-'));
 try {
 	const counter = join(work, 'count-text');
