@@ -15,6 +15,24 @@ function setOpen(section: HTMLElement, open: boolean) {
 	section.toggleAttribute('data-collapsed', !open);
 }
 
+/** Opens the folded section holding `el`, if any. Folds are set once at load, so a page
+ * loaded narrow and then widened (a phone turned sideways) keeps them. Returns whether
+ * it opened one. */
+export function openFoldAround(el: Element): boolean {
+	const section = el.closest<HTMLElement>('[data-phone-collapse][data-collapsed]');
+	if (!section) return false;
+	setOpen(section, true);
+	return true;
+}
+
+/** While a mouse is over a folded section (or something pointing into it), show its body
+ * without opening it; `on: false` folds it back. A section opened meanwhile is left open. */
+export function previewFoldAround(el: Element, on: boolean) {
+	if (!window.matchMedia('(hover: hover)').matches) return;
+	const section = el.closest<HTMLElement>('[data-phone-collapse][data-collapsed]');
+	section?.querySelector<HTMLElement>('[data-collapse-body]')?.toggleAttribute('hidden', !on);
+}
+
 export function initPhoneCollapse() {
 	if (!window.matchMedia(PHONE).matches) return;
 	document.querySelectorAll<HTMLElement>('[data-phone-collapse]').forEach((section, i) => {
@@ -52,6 +70,8 @@ export function initPhoneCollapse() {
 		button.addEventListener('click', () =>
 			setOpen(section, button.getAttribute('aria-expanded') !== 'true'),
 		);
+		section.addEventListener('mouseenter', () => previewFoldAround(section, true));
+		section.addEventListener('mouseleave', () => previewFoldAround(section, false));
 		setOpen(section, section.dataset.phoneCollapse === 'open');
 	});
 
@@ -59,11 +79,7 @@ export function initPhoneCollapse() {
 	const openHashTarget = () => {
 		const target =
 			location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
-		if (!target) return;
-		const section = target.closest<HTMLElement>('[data-phone-collapse][data-collapsed]');
-		if (!section) return;
-		setOpen(section, true);
-		target.scrollIntoView();
+		if (target && openFoldAround(target)) target.scrollIntoView();
 	};
 	openHashTarget();
 	window.addEventListener('hashchange', openHashTarget);

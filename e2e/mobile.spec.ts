@@ -274,6 +274,51 @@ test.describe('Phone layout', () => {
 		await expect(page.locator('a.uses-pin').first()).toBeHidden();
 	});
 
+	test('/uses opens the first group of each section, and a pin opens a folded group', async ({
+		page,
+	}) => {
+		await page.goto('/uses/');
+		const sections = await page.locator('section:has(.uses-group)').all();
+		expect(sections.length).toBeGreaterThan(3);
+		for (const section of sections) {
+			await expect(section.locator('.uses-group [data-collapse-body]').first()).toBeVisible();
+		}
+		// Turned sideways the pins come back, but the folds were set at load and stay
+		await page.setViewportSize({ width: 900, height: 700 });
+		const keyboard = page.locator('#on-the-desk-custom-vortex-pok3r');
+		await expect(keyboard).toBeHidden();
+		await page.locator('#on-the-desk a.uses-pin[aria-label^="5:"]').click();
+		await expect(keyboard).toBeVisible();
+		// and circles the name it points at
+		await expect(keyboard.locator('svg.hover-ring')).toBeVisible();
+	});
+
+	test('/uses previews a folded group while the mouse is over its pin or heading', async ({
+		browser,
+	}) => {
+		// A mouse this time: load at phone width so the groups fold, then widen
+		const page = await browser.newPage({
+			viewport: { width: 390, height: 844 },
+			isMobile: false,
+			hasTouch: false,
+			deviceScaleFactor: 1,
+		});
+		await page.goto('/uses/');
+		await page.setViewportSize({ width: 1100, height: 800 });
+		const keyboard = page.locator('#on-the-desk-custom-vortex-pok3r');
+		const pin = page.locator('#on-the-desk a.uses-pin[aria-label^="5:"]');
+		await pin.hover();
+		await expect(keyboard).toBeVisible();
+		await page.mouse.move(0, 0);
+		await expect(keyboard).toBeHidden();
+		const group = page.locator('#on-the-desk .uses-group', { has: keyboard });
+		await group.locator('[data-collapse-toggle]').hover();
+		await expect(keyboard).toBeVisible();
+		await page.mouse.move(0, 0);
+		await expect(keyboard).toBeHidden();
+		await page.close();
+	});
+
 	test('the bar runs the full width: name left, MENU right, Pause motion inside the menu', async ({
 		page,
 	}) => {

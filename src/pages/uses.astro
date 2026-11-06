@@ -231,7 +231,7 @@ const sections = USES_SECTIONS.map((section) => {
 								<Scribble {...m} />
 							))}
 							{section.groups.map((group, gi) => (
-								<div class="uses-group" data-phone-collapse={si === 0 && gi === 0 ? 'open' : ''}>
+								<div class="uses-group" data-phone-collapse={gi === 0 ? 'open' : ''}>
 									<h3
 										data-collapse-heading
 										class:list={[GROUP_HEADING, 'relative mb-4 w-fit max-md:w-full']}
@@ -285,6 +285,17 @@ const sections = USES_SECTIONS.map((section) => {
 																strokeWidth={4}
 																duration="10s"
 																delay={`${ii * 0.3}s`}
+																class="-top-[30%] -left-[10%] h-[160%] w-[120%]"
+															/>
+														)}
+														{/* Clicking its pin circles the name in pink, with the pin's own ring */}
+														{item.number && (
+															<Scribble
+																path={RINGS[(item.number - 1) % RINGS.length]}
+																viewBox="0 0 520 150"
+																color={PINK}
+																strokeWidth={4}
+																ring
 																class="-top-[30%] -left-[10%] h-[160%] w-[120%]"
 															/>
 														)}
@@ -366,10 +377,19 @@ const sections = USES_SECTIONS.map((section) => {
 		visibility: visible;
 		stroke-dashoffset: 0;
 	}
+	/* The entry a clicked pin points at gets the same ring round its name; a chalk
+	   circle already on that name steps aside so there's one ring, not two */
+	.uses-item.is-held :global(.hover-ring) {
+		visibility: visible;
+		stroke-dashoffset: 0;
+	}
+	.uses-item.is-held :global(svg.redraw) {
+		visibility: hidden;
+	}
 </style>
 
 <script>
-	import { initPhoneCollapse } from '../scripts/phone-collapse';
+	import { initPhoneCollapse, openFoldAround, previewFoldAround } from '../scripts/phone-collapse';
 
 	initPhoneCollapse();
 
@@ -388,11 +408,16 @@ const sections = USES_SECTIONS.map((section) => {
 	});
 
 	document.querySelectorAll<HTMLAnchorElement>('a.uses-pin').forEach((pin) => {
+		const entry = document.getElementById(pin.dataset.pin!);
+		const shot = pin.closest<HTMLElement>('.uses-shot');
+		if (!entry || !shot) throw new Error(`/uses pin ${pin.dataset.pin} has no entry or photo`);
+		// A folded group (page loaded narrow, then widened) shows while its pin is hovered
+		pin.addEventListener('mouseenter', () => previewFoldAround(entry, true));
+		pin.addEventListener('mouseleave', () => previewFoldAround(entry, false));
 		pin.addEventListener('click', (event) => {
-			const entry = document.getElementById(pin.dataset.pin!);
-			const shot = pin.closest<HTMLElement>('.uses-shot');
-			if (!entry || !shot) return;
 			event.preventDefault();
+			// Open the entry's group first if it's folded, so the scroll lands on it
+			openFoldAround(entry);
 			const wanted = scrollY + entry.getBoundingClientRect().top - STICKY_TOP;
 			const photoStillFits =
 				scrollY +
