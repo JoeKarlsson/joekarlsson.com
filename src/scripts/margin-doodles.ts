@@ -25,6 +25,9 @@ const DOODLES = [
 // Room for the longest pages; the ones past the end are dropped
 const SLOTS = 60;
 const FIRST_TOP = 180;
+// Doodle widths stay between these, so a big one fits a 224px margin
+const MIN_WIDTH = 26;
+const MAX_WIDTH = 172;
 // Smallest gap in px between a doodle and the window edge or the text column
 const MARGIN_INSET = 24;
 // Clear space kept between the last doodle and the end of the content
@@ -91,8 +94,16 @@ if (layer && matchMedia('(min-width: 1600px)').matches) {
 	for (let i = 0; i < SLOTS; i++) {
 		const { mark, width } = order[i % order.length];
 		const [, , vbWidth, vbHeight] = mark.viewBox.split(' ').map(Number);
-		// Sizes swing either way, so a repeat never matches its first showing
-		const w = Math.round(width * (0.8 + random() * 0.8));
+		// Three sizes, like a margin filled over time: about a third small, half medium, the
+		// rest big. Capped to fit the narrowest margin (224px at 1600px, less the insets).
+		const size = random();
+		const scale =
+			size < 0.35
+				? 0.45 + random() * 0.3
+				: size < 0.85
+					? 0.85 + random() * 0.45
+					: 1.6 + random() * 0.6;
+		const w = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, Math.round(width * scale)));
 		const h = Math.round((w * vbHeight) / vbWidth);
 		const tilt = Math.round((random() - 0.5) * 34);
 		const color = random() < 0.55 ? CHALK : PINK;
