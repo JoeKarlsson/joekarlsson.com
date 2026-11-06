@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Draws the thumbnail for each post I wrote for an employer: public/images/blog/{slug}/thumb.webp,
+ * Draws the thumbnail for each post I wrote for an employer: public/images/blog/{slug}/thumb-<hash>.webp,
  * set as the post's heroImage (so it is also the post's header and og:image).
  *
  * Every card is a picture, never text. scripts/work-thumbnail-plan.json says, per post, which
@@ -22,7 +22,7 @@
  * - alt: what the picture shows, used as heroAlt
  *
  * The cards are already pink, so the site's live pink pass skips them:
- * see isPretreatedThumbnail() in src/utils/halftone.ts, which keys on the thumb.webp name.
+ * see isPretreatedThumbnail() in src/utils/halftone.ts, which keys on the thumb-<hash>.webp name.
  *
  * Commons photos are downloaded once into media-sources/work-thumbnails/ (git-ignored).
  *
@@ -31,7 +31,8 @@
  *   node scripts/generate-work-thumbnails.mjs <slug...>  # these posts
  */
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { setFrontmatterFields } from './issue-card-content.mjs';
 
@@ -45,7 +46,9 @@ const COLORS = { pink: '#ff4fd8', chalk: '#ece6da' };
 // The largest a taped print's picture gets, inside the card
 const PRINT_BOX = [880, 520];
 const LOOKS = new Set(['halftone', 'flat', 'taped', 'diagram']);
-const thumbPath = (slug) => `/images/blog/${slug}/thumb.webp`;
+// Images are cached for 30 days, so a redrawn card needs a new URL: the name carries a hash of its bytes
+const thumbPath = (slug, webp) =>
+	`/images/blog/${slug}/thumb-${createHash('sha256').update(webp).digest('hex').slice(0, 8)}.webp`;
 
 const esc = (s) =>
 	String(s).replace(
@@ -290,14 +293,16 @@ async function main() {
 				if (!fontsLoaded) throw new Error('Diagram fonts did not load from Google Fonts');
 			}
 			const png = await page.screenshot({ type: 'png' });
-			const out = join(ROOT, 'public', thumbPath(slug));
-			mkdirSync(join(out, '..'), { recursive: true });
-			writeFileSync(out, await sharp(png).webp({ quality: 72 }).toBuffer());
+			const webp = await sharp(png).webp({ quality: 72 }).toBuffer();
+			const hero = thumbPath(slug, webp);
+			const dir = join(ROOT, 'public/images/blog', slug);
+			mkdirSync(dir, { recursive: true });
+			// The card this one replaces
+			for (const file of readdirSync(dir))
+				if (/^thumb(-[0-9a-f]{8})?\.webp$/.test(file)) rmSync(join(dir, file));
+			writeFileSync(join(ROOT, 'public', hero), webp);
 			const markdown = readFileSync(post, 'utf8');
-			writeFileSync(
-				post,
-				setFrontmatterFields(markdown, { heroImage: thumbPath(slug), heroAlt: entry.alt }),
-			);
+			writeFileSync(post, setFrontmatterFields(markdown, { heroImage: hero, heroAlt: entry.alt }));
 			console.log(`thumbnail: ${slug}`);
 		}
 	} finally {

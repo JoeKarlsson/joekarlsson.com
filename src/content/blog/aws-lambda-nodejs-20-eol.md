@@ -7,7 +7,7 @@ description: 'AWS Lambda Node.js 20 hits end of life April 30, 2026. How to find
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
-heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumb.webp'
+heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumb-732a8dc0.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-lambda-nodejs-20-eol'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A rusted old car left in the woods'

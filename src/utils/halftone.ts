@@ -10,7 +10,7 @@ const withText = new Set<string>(imagesWithText);
  * white border and tape of a taped print kept, so the live pink pass leaves them alone.
  */
 export function isPretreatedThumbnail(src: string): boolean {
-	return /^\/images\/blog\/[^/]+\/thumb\.webp$/.test(src);
+	return /^\/images\/blog\/[^/]+\/thumb-[0-9a-f]{8}\.webp$/.test(src);
 }
 
 export function halftoneMode(src: string): 'flat' | 'dots' | undefined {

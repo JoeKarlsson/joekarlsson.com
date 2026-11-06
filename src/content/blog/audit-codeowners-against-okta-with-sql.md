@@ -7,7 +7,7 @@ description: 'Find CODEOWNERS entries for employees who left the company by join
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/audit-codeowners-against-okta-with-sql/thumb.webp'
+heroImage: '/images/blog/audit-codeowners-against-okta-with-sql/thumb-47759f47.webp'
 heroAlt: 'A wall of apartment mailboxes'
 canonicalUrl: 'https://www.cloudquery.io/blog/audit-codeowners-against-okta-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'

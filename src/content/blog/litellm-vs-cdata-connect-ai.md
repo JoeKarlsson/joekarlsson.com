@@ -7,7 +7,7 @@ description: 'LiteLLM vs enterprise AI gateway, 2026 comparison: MCP governance,
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'litellm', 'cdata']
-heroImage: '/images/blog/litellm-vs-cdata-connect-ai/thumb.webp'
+heroImage: '/images/blog/litellm-vs-cdata-connect-ai/thumb-5f1ef19f.webp'
 heroAlt: "MCP governance, credential-scoped versus passthrough identity. With the LiteLLM MCP proxy, the AI agent knows the user, but the LiteLLM gateway injects service-account credentials, so the user's identity is dropped: the MCP server and the data source see only the service account and can't enforce the user's access rules. With CData Connect AI, the user's SSO identity is resolved and a trust-level ceiling is enforced on every tool call (low: read, medium: create and update, high: delete), so the identity is preserved and the data source enforces the user's RBAC, row-level security and field permissions."
 canonicalUrl: 'https://www.cdata.com/blog/litellm-vs-cdata-connect-ai'
 faq:

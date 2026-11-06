@@ -7,7 +7,7 @@ description: "The official MCP roadmap (Aug 22, 2026) maps five priorities. Here
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'protocol', 'cdata']
-heroImage: '/images/blog/official-mcp-roadmap-explained/thumb.webp'
+heroImage: '/images/blog/official-mcp-roadmap-explained/thumb-86538ff5.webp'
 heroAlt: 'The five MCP roadmap priorities plotted by migration cost and urgency. Priority 3, agent identity and security, is high cost and the one to act on now. Priorities 2 (HTTP-native transport) and 4 (improved primitives) are medium cost and above the midline. Priorities 1 (agentic messaging) and 5 (SDK developer experience) are low cost and ones to watch. Already shipped in the 2026-07-28 release, and not plotted: the stateless core, the Tasks extension and multi round-trip requests.'
 canonicalUrl: 'https://www.cdata.com/blog/official-mcp-roadmap-explained'
 faq:

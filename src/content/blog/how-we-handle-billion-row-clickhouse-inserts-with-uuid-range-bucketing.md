@@ -7,7 +7,7 @@ description: 'How we stopped ClickHouse memory blowups on billion-row inserts of
 categories: ['Cloud', 'Web Dev']
 writtenFor: 'CloudQuery'
 tags: ['ClickHouse', 'Engineering', 'Data Engineering', 'Performance']
-heroImage: '/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/thumb.webp'
+heroImage: '/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/thumb-69094fc9.webp'
 heroAlt: 'UUID range bucketing: the full UUID range, from 00000000-0000-0000-0000-000000000000 to ffffffff-ffff-ffff-ffff-ffffffffffff, goes into UUIDRanges(numOfBuckets), which splits it into even buckets 1 through n, each inserted on its own.'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing'
 tldr: "ClickHouse loads entire working sets into memory before spilling to disk, and when you're inserting billions of rows, that means OvercommitTracker starts killing queries. Our solution? An algorithm we call Insert-Splitter with UUID range bucketing. It breaks big inserts into smaller, evenly distributed chunks that play nicely with ClickHouse's memory model, reducing peak memory usage by ~75%."

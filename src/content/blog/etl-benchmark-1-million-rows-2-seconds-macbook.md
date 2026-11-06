@@ -7,7 +7,7 @@ description: 'We benchmarked our ETL tool and synced 1 million rows in 2 seconds
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering']
-heroImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumb.webp'
+heroImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumb-97a3dbba.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Sequential versus parallel goroutines. Sequentially, one chain of four tasks finishes before the next chain starts. With goroutines, both chains run side by side from the start. Each goroutine needs about 2KB of stack versus megabytes for an OS thread, so thousands can run at once.'
 ---

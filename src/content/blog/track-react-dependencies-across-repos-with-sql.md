@@ -7,7 +7,7 @@ description: 'Find every package.json using React across all repositories. Query
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/track-react-dependencies-across-repos-with-sql/thumb.webp'
+heroImage: '/images/blog/track-react-dependencies-across-repos-with-sql/thumb-5d3eab07.webp'
 heroAlt: 'A tangle of cables on the back of an equipment rack'
 canonicalUrl: 'https://www.cloudquery.io/blog/track-react-dependencies-across-repos-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'

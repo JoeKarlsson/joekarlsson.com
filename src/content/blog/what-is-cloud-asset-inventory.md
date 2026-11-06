@@ -7,7 +7,7 @@ description: 'Why and when you need a cloud asset inventory for AWS, and how it 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Infrastructure', 'AWS', 'Best Practices']
-heroImage: '/images/blog/what-is-cloud-asset-inventory/thumb.webp'
+heroImage: '/images/blog/what-is-cloud-asset-inventory/thumb-07f5ede1.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-is-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "You need a cloud asset inventory when you can't answer basic questions about your AWS resources - what exists, where it is, who owns it, and what it costs. Organizations need inventories to solve three critical challenges: security governance (you can't secure what you can't see), cost optimization (you can't optimize spending on resources you don't know exist), and operational excellence (you can't adapt to change without understanding your current state). When resource counts exceed manual tracking, when multi-account complexity increases, or when compliance requirements demand visibility - that's when you need a cloud asset inventory."

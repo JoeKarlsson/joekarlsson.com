@@ -6,7 +6,7 @@ slug: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
 description: 'MongoDB aggregation pipeline queries vs SQL queries, side by side. I came to MongoDB from SQL, so I map pipeline stages to SQL clauses you already know.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/thumb.webp'
+heroImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/thumb-c960efaa.webp'
 heroAlt: 'A plumbing diagram of pipes running between fixtures'
 contentNotice: false
 tldr: 'A side-by-side cheat sheet translating common SQL queries (GROUP BY, SUM, JOIN, etc.) into MongoDB Aggregation Pipeline stages. If you know SQL and are learning MongoDB, this is the Rosetta Stone you need.'

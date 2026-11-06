@@ -16,11 +16,12 @@ describe('work-post thumbnails (scripts/work-thumbnail-plan.json)', () => {
 		const problems = entries.flatMap(([slug]) => {
 			const post = join('src/content/blog', `${slug}.md`);
 			if (!existsSync(post)) return [`${slug}: no post`];
-			const thumb = `/images/blog/${slug}/thumb.webp`;
-			if (!existsSync(join('public', thumb)))
-				return [`${slug}: run npm run thumbnails:work -- ${slug}`];
-			const hero = readFileSync(post, 'utf8').match(/^heroImage:\s*['"]?([^'"\n]+)/m)?.[1];
-			return hero === thumb ? [] : [`${slug}: heroImage is ${hero}`];
+			const hero = readFileSync(post, 'utf8').match(/^heroImage:\s*['"]?([^'"\n]+)/m)?.[1] ?? '';
+			if (!new RegExp(`^/images/blog/${slug}/thumb-[0-9a-f]{8}\\.webp$`).test(hero))
+				return [`${slug}: heroImage is ${hero}, not its drawn thumbnail`];
+			return existsSync(join('public', hero))
+				? []
+				: [`${slug}: run npm run thumbnails:work -- ${slug}`];
 		});
 		expect(problems).toEqual([]);
 	});

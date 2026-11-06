@@ -7,7 +7,7 @@ description: 'How to build and maintain a cloud asset inventory in 2026: set the
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Asset Inventory']
-heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/thumb.webp'
+heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/thumb-93d24ca3.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: "A multi-cloud asset inventory powered by CloudQuery: asset data from AWS, Google Cloud and Microsoft Azure goes through CloudQuery's ETL into a PostgreSQL database, which feeds analytics and visualizations."
 ---

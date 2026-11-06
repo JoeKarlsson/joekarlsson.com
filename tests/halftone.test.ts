@@ -15,10 +15,10 @@ describe('halftoneMode', () => {
 	});
 
 	it('leaves generated work-post thumbnails alone, everywhere', () => {
-		expect(halftoneMode('/images/blog/soc2/thumb.webp')).toBeUndefined();
-		expect(cardHalftone('/images/blog/soc2/thumb.webp')).toBeUndefined();
+		expect(halftoneMode('/images/blog/soc2/thumb-0a1b2c3d.webp')).toBeUndefined();
+		expect(cardHalftone('/images/blog/soc2/thumb-0a1b2c3d.webp')).toBeUndefined();
 		expect(cardHalftone('/images/blog/soc2/thumbnail.webp')).toBe('flat');
-		expect(halftoneMode('/images/blog/soc2/nested/thumb.webp')).toBe('dots');
+		expect(halftoneMode('/images/blog/soc2/nested/thumb-0a1b2c3d.webp')).toBe('dots');
 	});
 
 	it('lists only files that exist (re-run npm run media:text after moving one)', () => {

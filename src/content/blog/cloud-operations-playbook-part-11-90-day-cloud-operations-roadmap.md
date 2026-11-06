@@ -7,7 +7,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Platform Engineering', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/thumb.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/thumb-9752d208.webp'
 heroAlt: 'A cloverleaf highway interchange from above'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap'
 contentNotice: 'This post was originally published on CloudQuery blog.'

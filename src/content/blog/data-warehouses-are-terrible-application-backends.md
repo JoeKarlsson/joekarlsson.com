@@ -6,7 +6,7 @@ slug: 'data-warehouses-are-terrible-application-backends'
 description: "Data warehouses can't handle the freshness, latency and concurrency user-facing apps need. Why real-time data platforms make better application backends."
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/data-warehouses-are-terrible-application-backends/thumb.webp'
+heroImage: '/images/blog/data-warehouses-are-terrible-application-backends/thumb-6b18026f.webp'
 heroAlt: 'The first approach: event streams, APIs and databases still load into the data warehouse, and Tinybird syncs from it through a native connector, on a schedule or on ingestion, and serves the applications. It works like a cache over the warehouse with no custom ORM code, but the data is only as fresh as the last sync.'
 tldr: 'Data warehouses like Snowflake and BigQuery are great for BI dashboards but terrible for user-facing apps. Job pool queuing creates unpredictable latency, concurrency is expensive to scale, and cache layers sacrifice data freshness. Use a real-time data platform instead.'
 ---

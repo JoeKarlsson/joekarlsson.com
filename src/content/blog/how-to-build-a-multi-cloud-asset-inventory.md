@@ -6,7 +6,7 @@ description: 'A step-by-step guide to a multi-cloud asset inventory for AWS, GCP
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'AWS', 'GCP', 'Azure', 'Cloud Asset Inventory']
-heroImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/thumb.webp'
+heroImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/thumb-78463135.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-build-a-multi-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Colored pins stuck in a map'
