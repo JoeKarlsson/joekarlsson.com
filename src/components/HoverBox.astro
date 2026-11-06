@@ -4,9 +4,10 @@
 // picture; the nearest ancestor with the `ring-host` class is what triggers it
 // (.ring-host in src/styles/motion.css). `index` picks one of the BOXES, so
 // cards in a list pass their position and neighbours draw different boxes.
-// `featured` sits it tighter around a big hero card.
-import { BOXES, CHALK } from '../data/scribbles';
-import Scribble from './Scribble.astro';
+// `featured` sits it tighter around a big hero card. Each box is defined once in
+// BaseLayout (#hover-box-N) and drawn here with <use>: a full copy per card was
+// half of /blog/'s HTML.
+import { BOXES } from '../data/scribbles';
 
 interface Props {
 	featured?: boolean;
@@ -16,11 +17,14 @@ interface Props {
 const { featured = false, index = 0 } = Astro.props;
 ---
 
-<Scribble
-	path={BOXES[index % BOXES.length]}
+<svg
+	class:list={[
+		'hover-ring pointer-events-none absolute overflow-visible',
+		featured ? '-inset-[4%] z-10 h-[108%] w-[108%]' : '-inset-[8%] z-10 h-[116%] w-[116%]',
+	]}
 	viewBox="0 0 600 300"
-	color={CHALK}
-	strokeWidth={5}
-	ring
-	class={featured ? '-inset-[4%] z-10 h-[108%] w-[108%]' : '-inset-[8%] z-10 h-[116%] w-[116%]'}
-/>
+	preserveAspectRatio="none"
+	aria-hidden="true"
+>
+	<use href={`#hover-box-${index % BOXES.length}`}></use>
+</svg>

@@ -507,9 +507,10 @@ describe('scribbles keep their shape', () => {
 
 	it('neighbouring cards draw different hover boxes', () => {
 		const grid = readDist('work/index.html').split('id="projects-grid"')[1];
-		const boxes = [...grid.matchAll(/<svg class="hover-ring[^]*?<path[^>]* d="([^"]+)"/g)]
+		// Each card draws its box from a shared definition (#hover-box-N in BaseLayout)
+		const boxes = [...grid.matchAll(/<svg class="hover-ring[^]*?<use href="#(hover-box-\d+)"/g)]
 			.slice(0, 6)
-			.map(([, path]) => path);
+			.map(([, id]) => id);
 		expect(new Set(boxes).size).toBe(6);
 	});
 });

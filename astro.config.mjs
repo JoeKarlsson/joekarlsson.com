@@ -15,6 +15,7 @@ import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
 import rehypeImageDimensions from './src/plugins/rehype-image-dimensions.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
+import responsiveImages from './src/integrations/responsive-images.mjs';
 
 // TL;DR in Tech back issues (imported from Substack, marked by substackUrl) are
 // noindex on the page, and recaps of a blog post (recapOf) point their canonical at
@@ -65,6 +66,8 @@ export default defineConfig({
 	],
 	integrations: [
 		mdx(),
+		// srcset for card images in public/ (components opt in with `sizes`)
+		responsiveImages(),
 		// /resume-pdf/ is the noindex source the resume PDF is printed from
 		sitemap({
 			filter: (page) => {

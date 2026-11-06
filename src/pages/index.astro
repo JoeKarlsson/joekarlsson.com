@@ -239,6 +239,9 @@ const AROUND_THE_HOUSE = [
 							alt=""
 							data-halftone="flat"
 							aria-hidden="true"
+							sizes={
+								i === 0 ? '(min-width: 768px) 300px, 100vw' : '(min-width: 768px) 300px, 112px'
+							}
 							loading="lazy"
 							decoding="async"
 							class="block aspect-video w-full rounded-lg object-cover"

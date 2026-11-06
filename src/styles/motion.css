@@ -65,13 +65,15 @@
 	visibility: visible;
 }
 
-.hover-ring path {
+/* On the svg, not its path: the dash properties inherit, which reaches a HoverBox's
+   path inside its <use> (where selectors can't) */
+.hover-ring {
 	stroke-dasharray: 1;
 	stroke-dashoffset: 1;
 	transition: stroke-dashoffset 0.6s cubic-bezier(0.3, 0.7, 0.2, 1);
 }
 
-.ring-host:is(:hover, :focus-visible, :has(:focus-visible)) .hover-ring path {
+.ring-host:is(:hover, :focus-visible, :has(:focus-visible)) .hover-ring {
 	stroke-dashoffset: 0;
 }
 
@@ -232,7 +234,7 @@
 @media (prefers-reduced-motion: no-preference) {
 	.redraw,
 	.redraw-strokes,
-	.hover-ring {
+	.ring-host:is(:hover, :focus-visible, :has(:focus-visible)) .hover-ring {
 		animation: boil 0.5s steps(1, end) infinite;
 	}
 }
@@ -294,7 +296,6 @@
 .motion-paused * {
 	animation-play-state: paused !important;
 }
-
 @media (prefers-reduced-motion: reduce) {
 	.redraw path,
 	.redraw-strokes path,

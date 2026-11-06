@@ -29,7 +29,10 @@ const metaLine = [
 <!--
 	Phones: a compact row, a small still beside the title, year and stack, so the 25
 	projects run about four screens instead of seventeen. The clip and the description
-	are for wider screens: at thumbnail size a clip's text can't be read.
+	are for wider screens: at thumbnail size a clip's text can't be read. The clip's
+	poster is data-poster, set as it nears the screen (src/scripts/in-view-play.ts):
+	a poster attribute downloads at load even on a hidden clip, so every phone pulled
+	all of them.
 -->
 <article class="project-card">
 	<a
@@ -46,6 +49,7 @@ const metaLine = [
 					data-halftone="flat"
 					width="560"
 					height="315"
+					sizes="112px"
 					class="block aspect-video w-full rounded-lg object-cover md:hidden"
 					loading="lazy"
 					decoding="async"
@@ -54,7 +58,7 @@ const metaLine = [
 			{project.video ? (
 				<video
 					src={cardClip(project.video)}
-					poster={project.image}
+					data-poster={project.image}
 					loop
 					muted
 					playsinline
@@ -71,6 +75,7 @@ const metaLine = [
 					data-halftone="flat"
 					width="560"
 					height="315"
+					sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 112px"
 					class="block aspect-video w-full rounded-lg object-cover"
 					loading="lazy"
 					decoding="async"

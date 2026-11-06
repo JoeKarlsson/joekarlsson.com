@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { BOXES, CHALK } from '../data/scribbles';
 
 interface Props {
 	title: string;
@@ -126,12 +127,28 @@ const {
 				></feColorMatrix>
 				<feComposite in="d" in2="holes" operator="in"></feComposite>
 			</filter>
+			<!-- The boxes cards draw on hover (src/components/HoverBox.astro), each defined
+			once here and drawn with <use>: a copy per card was half of /blog/'s HTML -->
+			{BOXES.map((path, i) => (
+				<g
+					id={`hover-box-${i}`}
+					fill="none"
+					stroke={CHALK}
+					stroke-width="5"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					filter="url(#crayon)"
+				>
+					<path pathLength="1" d={path} vector-effect="non-scaling-stroke"></path>
+				</g>
+			))}
 		</svg>
 		<script>
 			import { hasCursorTrail, initCursorTrail } from '../scripts/cursor-trail';
 			import '../scripts/halftone';
 			import '../scripts/in-view-play';
 			import { initPauseMotion } from '../scripts/pause-motion';
+			import '../scripts/pause-offscreen-scribbles';
 			import '../scripts/scale-to-fit-embed';
 			import { initScribbleNotice } from '../scripts/scribble-notice';
 			import '../scripts/track-embed-play';

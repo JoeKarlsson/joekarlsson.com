@@ -243,7 +243,7 @@ function attach(element: Source, draw: Draw): void {
 	const still =
 		element instanceof HTMLImageElement
 			? element
-			: Object.assign(new Image(), { src: element.poster });
+			: Object.assign(new Image(), { src: element.poster || element.dataset.poster || '' });
 	let stillReady = false;
 
 	const fit = (): boolean => {
@@ -328,6 +328,21 @@ if (elements.length) {
 		showOriginals();
 		throw error;
 	}
-	if (draw) elements.forEach((element) => attach(element, draw));
-	else showOriginals();
+	if (draw) {
+		// Set up each picture only as it nears the screen: doing all of them at load
+		// (a canvas, a pixel sample and a forced layout each) cost a phone 1-2s of main
+		// thread on /work/ and held back the first screen. A hidden one (a filtered-out
+		// row) never intersects, so it waits until it's shown.
+		const attachWhenNear = new IntersectionObserver(
+			(entries) => {
+				for (const { target, isIntersecting } of entries) {
+					if (!isIntersecting) continue;
+					attachWhenNear.unobserve(target);
+					attach(target as Source, draw);
+				}
+			},
+			{ rootMargin: '400px 0px' },
+		);
+		elements.forEach((element) => attachWhenNear.observe(element));
+	} else showOriginals();
 }

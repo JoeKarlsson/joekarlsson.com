@@ -72,9 +72,10 @@ const PROFILE_URLS = [
 />
 
 <!-- Fonts: Anton, Hanken Grotesk and JetBrains Mono are self-hosted (astro.config.mjs);
-the display and body faces are preloaded since nearly every page opens with both -->
-<Font cssVariable="--font-anton" preload />
-<Font cssVariable="--font-hanken-grotesk" preload />
+the display and body faces are preloaded since nearly every page opens with both.
+Only the latin files: latin-ext still loads when a page has those characters. -->
+<Font cssVariable="--font-anton" preload={[{ subset: 'latin' }]} />
+<Font cssVariable="--font-hanken-grotesk" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-jetbrains-mono" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
