@@ -12,6 +12,8 @@
 //   (src/data/images-with-text.json), which dots make unreadable.
 // Both lift dark footage and invert mostly white images (diagrams), so the
 // ground stays black.
+// A bright photo (a sunny sky) can trip the invert too; data-halftone-no-invert
+// keeps it the right way round.
 //
 // One shared WebGL context renders and each element gets a 2D canvas copy, so a
 // long blog list doesn't hit the browser's limit of about 16 WebGL contexts.
@@ -281,7 +283,8 @@ function attach(element: Source, draw: Draw): void {
 	// Not img.decode(): a lazy image starting to load cancels a pending decode
 	const onStill = () => {
 		const { mean, low, high } = measure(still);
-		Object.assign(look, { invert: mean > LIGHT_IMAGE_MEAN, low, high });
+		const invert = mean > LIGHT_IMAGE_MEAN && element.dataset.halftoneNoInvert === undefined;
+		Object.assign(look, { invert, low, high });
 		stillReady = true;
 		redraw();
 	};
