@@ -40,3 +40,32 @@ describe('diagram kit line check', () => {
 		);
 	});
 });
+
+describe('npm run diagrams', () => {
+	it('fails when an arrow runs over text, not just when the kit is called directly', async () => {
+		const { mkdirSync, rmSync, writeFileSync } = await import('node:fs');
+		const { spawnSync } = await import('node:child_process');
+		const path = await import('node:path');
+		const slug = `test-collision-${process.pid}`;
+		const dir = path.resolve('scripts/diagrams', slug);
+		mkdirSync(dir, { recursive: true });
+		const draw = `{ height: 200, draw(f) { f.text(100, 100, 'label'); f.arrow([[20, 100], [200, 100]]); } }`;
+		writeFileSync(
+			path.join(dir, 'bad.mjs'),
+			`export const alt = 'x';\nexport const desktop = ${draw};\nexport const phone = ${draw};\n`,
+		);
+		try {
+			const result = spawnSync(
+				'node',
+				['scripts/diagrams/render.mjs', slug, '--preview', path.join(dir, 'p.html')],
+				{
+					encoding: 'utf8',
+				},
+			);
+			expect(result.status).toBe(1);
+			expect(result.stderr).toContain('An arrow runs over "label"');
+		} finally {
+			rmSync(dir, { recursive: true, force: true });
+		}
+	});
+});

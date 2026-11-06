@@ -52,7 +52,7 @@ export const desktop = {
 			[397, 443],
 			[418, 443],
 		]);
-		f.note(408, 424, 'killed', { anchor: 'middle' });
+		f.note(408, 398, 'killed', { anchor: 'middle' });
 		f.box({
 			x: 422,
 			y: 408,

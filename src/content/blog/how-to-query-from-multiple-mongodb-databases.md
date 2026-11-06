@@ -18,7 +18,7 @@ In this post, I will guide you through the process of how to query from multiple
 
 **MongoDB Federated Query** allows you to perform queries across many MongoDB systems, including Clusters, Databases, and even AWS S3 buckets. Here’s how MongoDB federated query works in practice.
 
-![Diagram showing how MongoDB Atlas Data Lake uses a compute plane to distribute and perform queries across multiple MongoDB Databases.](/images/blog/how-to-query-from-multiple-mongodb-databases/data_lake_diagram_421db09adb-2-1024x574.webp)
+![MongoDB Atlas Data Lake: a user sends a standard query to an application, which sends one federated query to the Data Lake compute plane. The compute plane spreads the work across MongoDB nodes in two clusters, three on AWS in US East and three on Google Cloud in US West, each running mongod with an agent.](/images/blog/how-to-query-from-multiple-mongodb-databases/data-lake.svg)
 
 Note: In this post, we will be demoing how to query from two separate databases. However, if you want to query data from two separate [collections](https://docs.mongodb.com/manual/reference/glossary/#term-collection) that are in the same database, I would personally recommend that you use the [$lookup (aggregation pipeline)](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/index.html) query. $lookup performs a left outer join to an unsharded collection in the same database to filter documents from the “joined” collection for processing. In this scenario, using a data lake is not necessary.
 

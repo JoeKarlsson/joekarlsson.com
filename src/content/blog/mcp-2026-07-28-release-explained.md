@@ -32,7 +32,7 @@ If you've been holding back on MCP for production because of the session-pinning
 
 The original MCP spec bundled everything together: tool calls, sessions, UI primitives, task management, discovery - one monolithic spec. This release breaks that apart.
 
-![Diagram showing MCP's 2026-07-28 restructuring: a single monolithic spec splits into a stateless protocol core with independently versioned, opt-in extension modules including MCP Apps and Tasks](/images/blog/mcp-2026-07-28-release-explained/mcp-extension-diagram.webp)
+![MCP 2026-07-28 goes from one monolithic spec to a core plus extensions. Before, tool calls, discovery, sessions, UI and tasks were bundled into one spec. After, a small, stable, stateless protocol core keeps tool calls and discovery with no server-pinned session, and opt-in extensions plug into it: MCP Apps for sandboxed UI, Tasks for call-now, fetch-later work, and future extensions. Each extension is versioned on its own.](/images/blog/mcp-2026-07-28-release-explained/extensions.svg)
 
 The new model has a small stateless core (tool calls + discovery, no server-pinned sessions) and independently versioned opt-in extension modules. The first two official extensions:
 

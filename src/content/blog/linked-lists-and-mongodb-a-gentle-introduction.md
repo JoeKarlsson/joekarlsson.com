@@ -20,7 +20,7 @@ Are you new to data structures and algorithms? In this post, you will learn abou
 
 Did you know that linked lists are one of the foundational data structures in Computer Science? If you are like many devs that are self-taught or you graduated from a developer boot camp, then you might need a little lesson in how this data structure works. Or, if you’re like me, you might need a refresher if it’s been a couple of years since your last Computer Science lecture on data structures and algorithms. In this post, I will be walking through how to implement a linked list from scratch using Node.js and MongoDB. This is also a great place to start for getting a handle on the basics of MongoDB CRUD operations and this legendary data structure. Let’s get started with the basics.
 
-![Diagram of a singly linked list](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-diagram-1024x316.webp)_Diagram of a singly linked list_
+![A singly linked list: "Cat" points to "Dog", "Dog" points to "Bird", and "Bird" points to null. "Cat" is the head and "Bird" is the tail.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/singly-linked-list.svg)
 
 A linked list is a data structure that contains a list of nodes that are connected using references or pointers. A node is an object in memory. It usually contains at most two pieces of information, a data value, and a pointer to next node in the linked list. Linked lists also have separate pointer references to the head and the tail of the linked list. The head is the first node in the list, while the tail is the last object in the list.
 
@@ -54,7 +54,7 @@ There are a lot of reasons why linked lists are used, as opposed to other data s
 
 Linked lists are just objects in memory. One object holds a reference to another object, or one node holds a pointer to the next node. In memory, a linked list looks like this:
 
-![Diagram that demonstrates how linked lists allocate use pointers to link data in memory](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-memory-space-1-1024x679.webp)_Diagram that demonstrates how linked lists allocate use pointers to link data in memory_
+![A linked list in computer memory: three nodes sit wherever there was room, not side by side. The head node holds a reference to the next node, which holds a reference to the tail.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-memory.svg)
 
 ### Advantages of Linked Lists
 
@@ -90,9 +90,9 @@ Now, you might be thinking that linked lists feel an awful lot like arrays, and 
 
 - Arrays have a fixed size. If the preallocated memory block is filled to capacity, the code compiler will allocate an even larger memory block, and it will need to copy the old array over to the new array memory block before new array operations can be performed. This can be expensive with both time and space.
 
-![A diagram that demonstrates how arrays allocate contiguous blocks of memory space](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/array-memory-space-1-1024x534.webp)_A diagram that demonstrates how arrays allocate contiguous blocks of memory space_
+![Growing a full array: the array of 1 million items fills its block of memory, so adding one more item means allocating a bigger block and copying all 1 million items into it.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/array-memory.svg)
 
-![A diagram that demonstrates how linked lists allocate memory for new linked list nodes](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-memory-space-2-1024x535.webp)_A diagram that demonstrates how linked lists allocate memory for new linked list nodes_
+![Growing a linked list: the existing nodes stay scattered where they are in old memory, and adding one item allocates room for just one new node, with nothing copied.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/linked-list-new-node.svg)
 
 - To insert an element at a given position, operation is complex. We may need to shift the existing elements to create vacancy to insert the new element at desired position.
 
@@ -102,13 +102,13 @@ Now, you might be thinking that linked lists feel an awful lot like arrays, and 
 
 A doubly linked list is the same as a singly linked list with the exception that each node also points to the previous node as well as the next node.
 
-![Diagram of a doubly-linked list](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/doubley-linked-list-diagram-1024x182.webp)_Diagram of a doubly-linked list_
+![A doubly linked list: each node holds a pointer to the previous node and one to the next. "Cat" points back to null and forward to "Dog", "Dog" points back to "Cat" and forward to "Bird", and "Bird" points back to "Dog" and forward to null.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/doubly-linked-list.svg)
 
 ### Circular Linked List
 
 A circular linked list is the same as a singly linked list with the exception that there is no concept of a head or tail. All nodes point to the next node circularly. There is no true start to the circular linked list.
 
-![Diagram of a circular linked list](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/circular-linked-list-diagram-1024x247.webp)_Diagram of a circular linked list_
+![A circular linked list: "Cat" points to "Dog", "Dog" points to "Bird", and "Bird" points back to "Cat", so the list has no end.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/circular-linked-list.svg)
 
 ## Let’s Code A Linked List with MongoDB!
 
@@ -356,7 +356,7 @@ Now, let’s say we want to remove a node from our linked list. In order to do t
 
 - Delete the found node from memory.
 
-![A diagram that demonstrates how linked lists remove a node from a linked list by moving pointer references](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/remove-node-1024x497.webp)_A diagram that demonstrates how linked lists remove a node from a linked list by moving pointer references_
+![Removing a node. Before: "Cat" points to "Dog", which points to "Bird". After: "Cat" points straight to "Bird", skipping "Dog". Nothing points to "Dog" any more, so it is removed from the list.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/remove-node.svg)
 
 ```javascript
 // reads through our list and removes desired node in the linked list
@@ -408,7 +408,7 @@ The following code inserts a node after an existing node in a singly linked list
 
 - Update the next property of the node you want to insert after to point to the new node.
 
-![Diagram that demonstrates how a linked list inserts a new node by moving pointer references](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/insert-a-new-node-1024x1024.webp)_Diagram that demonstrates how a linked list inserts a new node by moving pointer references_
+![Inserting a node. Before: "Cat" points to "Bird", and a new node "Dog" waits on its own. After: "Cat" points to the new "Dog", and "Dog" points to "Bird". Only two pointers change; nothing else moves.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/insert-node.svg)
 
 ```javascript
 // Inserts a new node at the desired index in the linked list

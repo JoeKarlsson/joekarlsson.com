@@ -38,7 +38,8 @@ export const desktop = {
 			[300, 330],
 			[398, 330],
 		]);
-		f.note(240, 192, 'split by column', { size: 14 });
+		f.note(234, 178, 'split by', { size: 14 });
+		f.note(234, 196, 'column', { size: 14 });
 		table(f, {
 			x: 400,
 			y: 16,

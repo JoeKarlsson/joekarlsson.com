@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" width="360" height="520" role="img" aria-label="A doubly linked list: each node holds a pointer to the previous node and one to the next. &quot;Cat&quot; points back to null and forward to &quot;Dog&quot;, &quot;Dog&quot; points back to &quot;Cat&quot; and forward to &quot;Bird&quot;, and &quot;Bird&quot; points back to &quot;Dog&quot; and forward to null.">
+<defs><filter id="linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="560">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="520" fill="#000000"/>
+<g transform="rotate(-1.2 100 36)">
+<path class="d-paper" d="M70.1,17.4 L86.2,14.5 L101.6,16.4 L119.5,16.8 L130.7,15.5 L130.8,31.8 L130.4,47.4 L130.8,55.2 L113.7,57.3 L97.7,56 L80.9,57.5 L69.6,57 L70.4,40 L71.4,25.3 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<text x="100" y="36" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#ededed" text-anchor="middle" dominant-baseline="central" xml:space="preserve">null</text>
+</g>
+<g transform="rotate(0.2 180 128)">
+<path class="d-paper" d="M79.2,98.4 L95.1,101.2 L111,98.8 L129.4,100.7 L145,99.8 L160.3,99.2 L174.8,99.2 L192.9,98.9 L209,101 L223.5,98.7 L241.4,99.4 L255.9,101 L273.1,98.5 L278.6,100.7 L281,116.8 L279.6,130.8 L280.3,146.9 L280.2,157.4 L263,155.5 L247.6,155.2 L230.4,155.5 L214.6,154.4 L201.1,155.9 L183.1,157.2 L169.2,157.5 L151.3,157.6 L136.5,156.8 L118.5,157.3 L103,154.7 L88.4,155.9 L81.4,156.9 L81.3,138.7 L81.4,123.4 L80.3,107.2 Z" fill="#ece6da"/>
+</g>
+<text x="180" y="128" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">&quot;Cat&quot;</text>
+<path d="M240,106 L240,150" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<circle cx="260" cy="128" r="5" fill="#000000"/>
+<path d="M120,106 L120,150" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<circle cx="100" cy="128" r="5" fill="#000000"/>
+<g transform="rotate(-0.7 180 248)">
+<path class="d-paper" d="M79.9,219.1 L95.4,220.2 L113.2,221.3 L129.3,220.6 L144.2,219.9 L160.6,221.1 L177.5,219.1 L193.6,219.4 L207.3,221.2 L224.4,219.7 L240.2,219.2 L255.1,219.1 L272.6,219.1 L280,221.2 L279.8,236.4 L279.9,253.1 L281.4,267.8 L279.6,275.9 L263.9,275.3 L247.4,276.6 L231.1,277.1 L215.1,275 L199.8,274.8 L185.1,275.9 L168.4,276.7 L151.4,276.3 L137.1,277.3 L121.1,277.4 L104.8,276.2 L86.7,275.1 L79.2,277 L78.4,259.2 L79.1,242.5 L78.9,227.5 Z" fill="#ece6da"/>
+</g>
+<text x="180" y="248" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">&quot;Dog&quot;</text>
+<path d="M240,226 L240,270" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<circle cx="260" cy="248" r="5" fill="#000000"/>
+<path d="M120,226 L120,270" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<circle cx="100" cy="248" r="5" fill="#000000"/>
+<g transform="rotate(1.1 180 368)">
+<path class="d-paper" d="M79.9,338.5 L97.3,340.8 L110.7,341 L127.9,341.2 L144.9,339.4 L159,340.1 L175.2,340 L191.8,340.5 L209,340.2 L223.3,341 L240.8,339.2 L257.2,339.8 L270.4,339.6 L281,341 L281.3,356.2 L279.8,371.9 L278.9,387.4 L278.7,394.5 L264.1,395.8 L247.9,396 L232.4,394.6 L217,397 L199.1,397.6 L183.2,394.6 L167.9,395 L151.3,395.3 L134.7,394.8 L121.2,395.6 L105,394.4 L87.7,395.5 L78.8,396.7 L80.5,379.8 L79.1,365.3 L78.7,348 Z" fill="#ece6da"/>
+</g>
+<text x="180" y="368" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">&quot;Bird&quot;</text>
+<path d="M240,346 L240,390" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<circle cx="260" cy="368" r="5" fill="#000000"/>
+<path d="M120,346 L120,390" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<circle cx="100" cy="368" r="5" fill="#000000"/>
+<g transform="rotate(1.1 260 480)">
+<path class="d-paper" d="M231.1,458.4 L245.7,461.5 L262.8,458.9 L277.7,459.7 L290.8,458.4 L289.6,476.5 L291.2,493.3 L288.8,499.7 L274.1,499.9 L257.6,500.5 L241.2,499.3 L230.1,500.5 L231.4,484.3 L230.5,468.9 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<text x="260" y="480" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#ededed" text-anchor="middle" dominant-baseline="central" xml:space="preserve">null</text>
+</g>
+<path d="M100,128 L100,100" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<path d="M260,128 L260,156" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<path d="M100,248 L100,220" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<path d="M260,248 L260,276" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<path d="M100,368 L100,340" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<path d="M260,368 L260,396" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<text x="150" y="28" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">left arrows: previous</text>
+<text x="150" y="48" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">right arrows: next</text>
+<g class="d-flow">
+<path d="M101.4,98 Q100.2,77.3 99.1,58.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+<path d="M106.4,67 L100,58 L93.6,67" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M260.3,159 Q260,188.4 261.3,217.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+<path d="M253.6,209 L260,218 L266.4,209" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M101.2,217.5 Q99.7,189 99.6,157.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+<path d="M106.4,167 L100,158 L93.6,167" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M261.2,279.5 Q259.9,310 258.6,339.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+<path d="M253.6,329 L260,338 L266.4,329" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M99.7,339.5 Q100,308.4 99,278.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+<path d="M106.4,287 L100,278 L93.6,287" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M259.3,397.3 Q259.7,428.4 258.8,459.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+<path d="M253.6,449 L260,458 L266.4,449" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-doubly-linked-list-phone-crayon)"/>
+</g>
+</svg>

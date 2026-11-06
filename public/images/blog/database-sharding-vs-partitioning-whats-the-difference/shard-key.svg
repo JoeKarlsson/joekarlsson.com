@@ -107,7 +107,7 @@
 <text x="510" y="512" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">monson</text>
 </g>
 <g class="d-callout">
-<path d="M420,120 Q345.3,209.5 236,250" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-shard-key-desktop-crayon)"/>
-<path d="M244,239.8 L236,250 L248.8,252.5" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-shard-key-desktop-crayon)"/>
+<path d="M420,120 Q343.4,200.7 236,230" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-shard-key-desktop-crayon)"/>
+<path d="M244.9,220.5 L236,230 L248.5,233.6" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#database-sharding-vs-partitioning-whats-the-difference-shard-key-desktop-crayon)"/>
 </g>
 </svg>

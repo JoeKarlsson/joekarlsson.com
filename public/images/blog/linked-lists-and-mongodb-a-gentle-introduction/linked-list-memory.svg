@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" role="img" aria-label="A linked list in computer memory: three nodes sit wherever there was room, not side by side. The head node holds a reference to the next node, which holds a reference to the tail.">
+<defs><filter id="linked-lists-and-mongodb-a-gentle-introduction-linked-list-memory-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="420">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="380" fill="#000000"/>
+<path class="d-paper" d="M16.6,41.1 L32.4,39.2 L47.9,39.3 L65.6,41.2 L79.3,38.6 L96.8,40 L112.4,39.4 L127.7,40.4 L144.6,40.6 L161,39.6 L175.4,39.1 L191,39 L208,41.2 L224.7,39.3 L239.5,39.2 L255.9,40.6 L270.8,40 L288.6,40.8 L304.6,40 L320.6,39.2 L337.2,39.5 L351.2,40.9 L368.8,38.6 L383.2,41.5 L398.8,39 L415,39.6 L433.4,40 L449,40 L464.1,40.6 L480.7,39.5 L497.6,40.1 L510.7,41 L527.5,38.6 L543.8,40.5 L560.6,39.4 L575.4,39.3 L592.8,40.1 L608.3,41 L623.6,40.4 L622.6,54.8 L623.1,72.7 L623.1,88.8 L624.9,104.8 L625.4,118.8 L622.5,136.4 L624.6,153.5 L624.4,167.4 L624,184.4 L625,200.8 L624.5,217.4 L624.1,233.1 L625.5,246.6 L622.8,264.5 L625.5,281.2 L625.1,295.3 L624,311.4 L622.6,328.5 L624.6,345 L624.5,361.6 L609,361.6 L590.8,358.8 L577.6,358.5 L560.4,361.3 L544.3,360.2 L528.8,360.5 L512.2,360.7 L495.5,359.8 L479.8,361.5 L463.9,358.8 L447.9,361.3 L430.7,361.5 L415.2,360.4 L400.2,359.8 L384.5,361.4 L367.6,359.7 L351,360 L334.8,358.8 L321.4,358.4 L305.4,359.8 L287.8,361 L270.9,361.4 L256.7,358.9 L239,360.4 L222.7,361 L208.1,361.1 L190.8,359.7 L176.1,359.4 L159,361.4 L143.3,359.3 L128.6,360.3 L113.1,359.6 L96.3,359.3 L80.6,361.5 L64.6,361.4 L49.4,360.2 L30.9,359.9 L16.8,360.2 L14.7,343.9 L15,326.8 L17.5,312.5 L15.4,294.8 L16.8,280 L14.7,264.7 L15.3,249.6 L16.4,232.1 L16.6,215.3 L17.3,199.9 L14.6,183.6 L16.8,168 L15.6,151.7 L16.4,137 L14.9,119.7 L14.7,104.2 L14.4,86.5 L16.1,73.2 L16.8,57.3 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M14.8,18.9 L30.9,18.8 L47.1,17 L64.7,17.5 L80.8,17.5 L97.4,18.5 L112,18.1 L127.7,16.6 L143.7,19.4 L161.2,18.4 L161.6,17.3 L162.9,33.6 L161.8,43.1 L145,41.1 L129.2,40.6 L114.5,41.3 L97.7,40.6 L83.4,41.9 L67,41.9 L50.7,41.6 L34.2,43.5 L16.8,41.6 L15.9,42 L17.4,24.4 Z" fill="#2a2a2a"/>
+<text x="28" y="31" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">COMPUTER MEMORY</text>
+<g transform="rotate(-1 120 100)">
+<path class="d-paper" d="M48.6,68.7 L65.6,69.4 L83.1,71 L99.2,71.4 L113.6,71.4 L130,70.6 L147.6,71 L163.3,68.9 L178.5,70.8 L189.8,70.2 L188.6,87.1 L189.4,103.2 L189.8,117.7 L189.1,131 L174.4,130.7 L157.1,130.1 L140.5,130.9 L124.4,130.9 L108.7,131.1 L93.5,129.4 L79.5,130.3 L61.9,131.3 L49.2,130.5 L48.8,113.4 L50.7,99.5 L48.6,81.3 Z" fill="#ece6da"/>
+<svg x="64" y="86" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19v-3" />
+  <path d="M10 19v-3" />
+  <path d="M14 19v-3" />
+  <path d="M18 19v-3" />
+  <path d="M8 11V9" />
+  <path d="M16 11V9" />
+  <path d="M12 11V9" />
+  <path d="M2 15h20" />
+  <path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z" /></g></svg>
+<text x="141" y="100" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">NODE</text>
+</g>
+<text x="204" y="100" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">head</text>
+<g transform="rotate(-0.9 320 290)">
+<path class="d-paper" d="M250.1,258.9 L267.5,261.3 L281,258.5 L297.7,259.3 L313.8,261.5 L330.6,259.8 L346.2,259.8 L363,259.3 L379.1,261.3 L389,259.7 L389,276.7 L388.7,292.1 L389.9,308.5 L389.1,321.2 L375.2,319.3 L358.1,320 L342.1,321 L324.9,319.7 L309.5,320.7 L293.1,318.6 L277.4,321.3 L262.7,319.8 L251.4,319 L251.6,303.6 L250.9,288.5 L251.2,272 Z" fill="#ece6da"/>
+<svg x="264" y="276" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19v-3" />
+  <path d="M10 19v-3" />
+  <path d="M14 19v-3" />
+  <path d="M18 19v-3" />
+  <path d="M8 11V9" />
+  <path d="M16 11V9" />
+  <path d="M12 11V9" />
+  <path d="M2 15h20" />
+  <path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z" /></g></svg>
+<text x="341" y="290" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">NODE</text>
+</g>
+<g transform="rotate(1.1 510 130)">
+<path class="d-paper" d="M441.5,100 L457.1,98.9 L472.3,100 L486.9,100.9 L504.5,99.5 L521,100.5 L537.5,99.6 L553.2,98.9 L567.4,99.2 L580.9,99.6 L578.5,115 L580,131.4 L579.4,147.4 L578.4,161.1 L563.8,160.2 L549.4,160.5 L530.5,159.5 L515.5,159 L499.4,158.5 L482.8,160.8 L467.3,159.2 L451.2,161.5 L438.9,159.7 L439.3,143.1 L441.3,127.8 L439.9,111 Z" fill="#ece6da"/>
+<svg x="454" y="116" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19v-3" />
+  <path d="M10 19v-3" />
+  <path d="M14 19v-3" />
+  <path d="M18 19v-3" />
+  <path d="M8 11V9" />
+  <path d="M16 11V9" />
+  <path d="M12 11V9" />
+  <path d="M2 15h20" />
+  <path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z" /></g></svg>
+<text x="531" y="130" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">NODE</text>
+</g>
+<text x="510" y="82" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">tail</text>
+<text x="132" y="210" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">reference</text>
+<text x="522" y="230" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">reference</text>
+<g class="d-flow">
+<path d="M120.3,132.9 Q120.4,210.3 120.5,288.7 M120.3,289.5 Q184.5,288.6 249.3,288.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-linked-list-memory-desktop-crayon)"/>
+<path d="M239,296.4 L248,290 L239,283.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-linked-list-memory-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M392.8,291.2 Q451.1,292.4 509.7,290.8 M510.6,290.8 Q512,226.2 511.3,161.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-linked-list-memory-desktop-crayon)"/>
+<path d="M516.4,171 L510,162 L503.6,171" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#linked-lists-and-mongodb-a-gentle-introduction-linked-list-memory-desktop-crayon)"/>
+</g>
+</svg>

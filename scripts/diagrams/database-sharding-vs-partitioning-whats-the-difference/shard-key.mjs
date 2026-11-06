@@ -57,7 +57,7 @@ export const desktop = {
 			}),
 		);
 		// Callout last, so it sits on top of the tables
-		f.crayonArrow([420, 120], [236, 250], -30);
+		f.crayonArrow([420, 120], [236, 230], -30);
 	},
 };
 

@@ -49,7 +49,7 @@
   <line x1="12" x2="12" y1="22" y2="18" /></g></svg>
 <text x="269.5" y="443" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">attack(urgent pid first)</text>
 </g>
-<text x="408" y="424" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">killed</text>
+<text x="408" y="398" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">killed</text>
 <g transform="rotate(1.2 521 443)">
 <path class="d-paper" d="M421.2,409.4 L438.9,408.3 L453.1,408.1 L470.8,408.2 L485.7,407.3 L502.2,407.2 L518.3,407.7 L533.5,407.9 L551,408.7 L566.4,409 L583.2,408.9 L598.4,407.3 L613.6,406.7 L620.5,408.2 L619.2,423 L618.9,438.6 L620.7,454.6 L621.3,472.8 L621.6,477.1 L604,476.6 L588.5,476.5 L570.8,479.1 L557.5,477.5 L539.9,476.5 L524.4,478.1 L508.5,479.2 L491.1,478.2 L476.1,479.5 L460.7,476.8 L444.7,478.7 L427.3,476.7 L422.7,479.2 L423,463.2 L421.2,447 L421.4,428.8 L422.9,413.6 Z" fill="#ece6da"/>
 <svg x="436" y="429" width="28" height="28" viewBox="0 0 1200 1200"><path fill="#15151c" d="M581.8,226.81h618.2V0H0v1200h1200v-226.81h-618.2c-206.14,0-373.19-167.09-373.19-373.19s167.05-373.19,373.19-373.19Z"/></svg>

@@ -25,6 +25,9 @@ const LOGOS = {
 	python: { color: '#3776AB' },
 	amazonwebservices: { color: '#FF9900' },
 	googlebigquery: { color: '#669DF6' },
+	mongodb: { color: '#47A248' },
+	googlecloud: { color: '#4285F4' },
+	modelcontextprotocol: { color: '#000000' },
 	openai: { color: '#412991' },
 	anthropic: { color: '#191919' },
 	meta: { color: '#0467DF' },
@@ -410,7 +413,8 @@ export function createFigure({ id, width, height }) {
 
 	/** A decision diamond centred on cx, cy. */
 	function diamond({ cx, cy, w, h, label, size = 17 }) {
-		boxRects.push({ label, x: cx - w / 4, y: cy - h / 4, w: w / 2, h: h / 2 });
+		// The part of a diamond wide enough to hold its label
+		boxRects.push({ label, x: cx - w * 0.35, y: cy - h / 4, w: w * 0.7, h: h / 2 });
 		const corners = [
 			[cx, cy - h / 2],
 			[cx + w / 2, cy],
@@ -613,6 +617,21 @@ export function createFigure({ id, width, height }) {
 		return h;
 	}
 
+	/**
+	 * A plain line that belongs to a shape, not the flow: a cell divider, a cross-out.
+	 * Drawn with the boxes and left out of the arrow check.
+	 */
+	function line(points, { color = COLORS.ink, width: strokeWidth = 2 } = {}) {
+		target.push(
+			`<path d="M${points.map(([px, py]) => `${n(px)},${n(py)}`).join(' L')}" fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round"/>`,
+		);
+	}
+
+	/** A filled dot, like a pointer in a list node. */
+	function dot(cx, cy, r = 5, color = COLORS.ink) {
+		target.push(`<circle cx="${n(cx)}" cy="${n(cy)}" r="${r}" fill="${color}"/>`);
+	}
+
 	/** A section title inside a figure: Anton caps. */
 	function heading(x, y, content, opts = {}) {
 		text(x, y, content, { size: 28, font: 'display', anchor: 'start', upper: true, ...opts });
@@ -662,6 +681,16 @@ export function createFigure({ id, width, height }) {
 			}
 			found.forEach((issue) => issues.push(issue));
 		});
+		// Text either sits inside a box or clear of it: half on, half off covers the edge
+		textBoxes.forEach((t) =>
+			boxRects.forEach((r) => {
+				const overlaps = t.x0 < r.x + r.w && t.x1 > r.x && t.y0 < r.y + r.h && t.y1 > r.y;
+				const inside =
+					t.x0 >= r.x - 2 && t.x1 <= r.x + r.w + 2 && t.y0 >= r.y - 2 && t.y1 <= r.y + r.h + 2;
+				if (overlaps && !inside)
+					issues.push(`"${t.label}" runs into the edge of the "${r.label}" box`);
+			}),
+		);
 	}
 
 	function toString(label) {
@@ -688,6 +717,8 @@ export function createFigure({ id, width, height }) {
 	return {
 		code,
 		table,
+		line,
+		dot,
 		width,
 		height,
 		issues,

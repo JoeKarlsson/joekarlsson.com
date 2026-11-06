@@ -13,6 +13,8 @@ Real logos for post diagrams, all transparent SVG. `draw.mjs` lists each one in
 | `openai.svg`, `anthropic.svg`, `meta.svg`                       | Simple Icons 13.21.0                            | OpenAI and ChatGPT, Anthropic, Meta   |
 | `jira.svg`, `slack.svg`, `googleanalytics.svg`                  | Simple Icons 13.21.0                            | Those apps                            |
 | `snowflake.svg`, `sap.svg`, `postgresql.svg`, `apachekafka.svg` | Simple Icons 13.21.0                            | Those data sources                    |
+| `mongodb.svg`, `googlecloud.svg`                                | Simple Icons 13.21.0                            | MongoDB, Google Cloud                 |
+| `modelcontextprotocol.svg`                                      | Simple Icons 15.10.0 (not in 13.21.0)           | MCP                                   |
 | `connect-ai-color-on-dark.svg`                                  | CData brand kit, Connect AI agility-clarity     | Connect AI on black                   |
 | `connect-ai-color-on-light.svg`                                 | CData brand kit, Connect AI agility-depth       | Connect AI on chalk or white          |
 | `connect-ai-black.svg`, `connect-ai-white.svg`                  | CData brand kit, depth and clarity              | One-colour Connect AI (black on pink) |

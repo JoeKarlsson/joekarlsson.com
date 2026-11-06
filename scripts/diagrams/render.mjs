@@ -24,7 +24,8 @@ if (!slug || (flag && (flag !== '--preview' || !previewPath))) {
 
 const figureDir = path.join(here, slug);
 const names = readdirSync(figureDir)
-	.filter((file) => file.endsWith('.mjs'))
+	// Files starting with _ are helpers shared by a post's figures, not figures
+	.filter((file) => file.endsWith('.mjs') && !file.startsWith('_'))
 	.map((file) => file.replace(/\.mjs$/, ''))
 	.sort();
 
@@ -48,11 +49,12 @@ for (const name of names) {
 			height: figure[layout].height,
 		});
 		figure[layout].draw(f);
+		// Build the SVG first: the arrow and callout checks run as it's assembled
+		svgs[layout] = f.toString(figure.alt);
 		for (const issue of f.issues) {
 			console.error(`${slug}/${name} ${layout}: ${issue}`);
 			problems++;
 		}
-		svgs[layout] = f.toString(figure.alt);
 		if (!flag) {
 			const out = path.join(root, 'public/images/blog', slug, `${name}${suffix}.svg`);
 			mkdirSync(path.dirname(out), { recursive: true });
