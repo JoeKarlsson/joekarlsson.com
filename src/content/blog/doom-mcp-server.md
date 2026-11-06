@@ -17,8 +17,8 @@ tags:
     'cdata-connect-ai',
     'cdata',
   ]
-heroImage: '/images/blog/doom-mcp-server/hero.webp'
-heroAlt: 'Claude in Doom facing a pink demon beside a sign reading PII Vault, blocked by Connect AI, data security, with the urgent Salesforce record Desert Power Services named across the bottom of the screen'
+heroImage: '/images/blog/doom-mcp-server/hero-2.webp'
+heroAlt: 'Gig-flyer cover in hot pink and black: Claude plays Doom in cut-paper letters over a Doom frame of the PII vault sign blocked by Connect AI, with a taped photo of Joe demoing it to a crowd at the CData booth'
 canonicalUrl: 'https://www.cdata.com/blog/doom-mcp-server'
 tldr: "Doom runs as an MCP server here, with three tools (look, go_to and attack) in about 30 lines of Python and no SDK, so Claude can play it. The level comes from a second MCP server, CData Connect AI: every app Claude pulls from becomes a room and every record a monster. I ran Claude Sonnet, Claude Haiku and Gemini Flash through the same level 32 times, scored from the game's state, and in three of its eight runs Gemini tried to get around the locked PII door. The server blocked every attempt."
 faq:
