@@ -39,13 +39,16 @@ describe('compactPath', () => {
 	});
 
 	it('draws through exactly the rounded points of every scribble', () => {
-		const paths = Object.values(scribbles)
-			.flatMap((value) => (Array.isArray(value) ? value : [value]))
-			.flatMap((value) => (typeof value === 'string' ? [value] : Object.values(value ?? {})))
-			.flatMap((value) =>
-				typeof value === 'object' && value !== null ? Object.values(value) : [value],
-			)
-			.filter((value): value is string => typeof value === 'string' && value.startsWith('M'));
+		// Every path string anywhere in the module, however deep it's nested
+		const pathsIn = (value: unknown): string[] =>
+			typeof value === 'string'
+				? value.startsWith('M')
+					? [value]
+					: []
+				: typeof value === 'object' && value !== null
+					? Object.values(value).flatMap(pathsIn)
+					: [];
+		const paths = pathsIn(scribbles);
 		expect(paths.length).toBeGreaterThan(20);
 		let before = 0;
 		let after = 0;
