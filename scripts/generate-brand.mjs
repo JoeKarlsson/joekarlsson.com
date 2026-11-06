@@ -12,7 +12,7 @@
  *   brand/logo/png/{style}/{mark}-{theme}.png             static
  *   brand/logo/animated/{style}/{mark}-{theme}.webp       animated, for slides, READMEs, chat
  *   brand/logo/animated/{style}/{mark}-on-{black,pink}.gif  the same as GIF, solid backgrounds only
- * And public/favicon.svg, favicon-{16,32,192,512}.png, apple-touch-icon.png.
+ * And public/favicon.svg, favicon.ico, favicon-{16,32,192,512}.png, apple-touch-icon.png.
  *
  * Rasters are drawn in headless Chromium, not sharp: librsvg works the wobble out in output
  * pixels, so a big PNG came out spiky. Chromium wobbles in the logo's own units, like the site.
@@ -184,6 +184,27 @@ ${sparkles}</g>
 `;
 }
 
+// An .ico holding PNG images (Vista onward and every browser read PNG entries): a 6-byte
+// header, a 16-byte directory entry per image, then the images back to back
+export function toIco(pngs, sizes) {
+	const header = Buffer.alloc(6 + 16 * pngs.length);
+	header.writeUInt16LE(0, 0);
+	header.writeUInt16LE(1, 2); // 1 = icon
+	header.writeUInt16LE(pngs.length, 4);
+	let offset = header.length;
+	pngs.forEach((png, i) => {
+		const entry = 6 + 16 * i;
+		header.writeUInt8(sizes[i] >= 256 ? 0 : sizes[i], entry); // 0 means 256
+		header.writeUInt8(sizes[i] >= 256 ? 0 : sizes[i], entry + 1);
+		header.writeUInt16LE(1, entry + 4); // colour planes
+		header.writeUInt16LE(32, entry + 6); // bits per pixel
+		header.writeUInt32LE(png.length, entry + 8);
+		header.writeUInt32LE(offset, entry + 12);
+		offset += png.length;
+	});
+	return Buffer.concat([header, ...pngs]);
+}
+
 // PNG widths per mark: big enough for slides and print-ish use
 const PNG_WIDTH = { jk: 1024, name: 2000, stacked: 1200 };
 const ANIMATED_WIDTH = { jk: 400, name: 900, stacked: 600 };
@@ -323,6 +344,11 @@ async function main() {
 	]) {
 		await sharp(await rasterize(favicon, size)).toFile(join(ROOT, 'public', `${file}.png`));
 	}
+	// /favicon.ico, for RSS readers and clients that fetch it without reading the link tags
+	const icoSizes = [16, 32, 48];
+	const icoPngs = [];
+	for (const size of icoSizes) icoPngs.push(await rasterize(favicon, size));
+	writeFileSync(join(ROOT, 'public/favicon.ico'), toIco(icoPngs, icoSizes));
 	await browser.close();
 	writeFileSync(join(ROOT, 'brand/index.html'), galleryHtml());
 	console.log(`Wrote ${count} logo files to brand/logo/ and the favicons to public/`);
