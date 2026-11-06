@@ -10,7 +10,7 @@
  *     { "image": "/images/blog/..." }    a meme or photo already in the post
  *     { "video": "/images/blog/....mp4", "at": 1.2 }   a frame from a reaction GIF (shipped as MP4)
  *     { "diagram": "/images/blog/....svg" }   one of the post's cut-paper diagrams
- * - look: "halftone" (pink dots), "flat" (pink and black), "taped" (its own colors, taped onto
+ * - look: "halftone" (pink dots), "flat" (pink and black), "taped" (flat pink, printed and taped onto
  *   black at a tilt) or "diagram" (the diagram full bleed, as it is)
  * - focus: where to crop a tall picture to 16:9, 0 (top) to 1 (bottom), default 0.5
  * - whole: true keeps a taped picture uncropped (memes, so the caption survives); the print takes its shape
@@ -21,7 +21,7 @@
  * - tilt: degrees for a taped print
  * - alt: what the picture shows, used as heroAlt
  *
- * The cards are already pink (or deliberately in color), so the site's live pink pass skips them:
+ * The cards are already pink, so the site's live pink pass skips them:
  * see isPretreatedThumbnail() in src/utils/halftone.ts, which keys on the thumb.webp name.
  *
  * Commons photos are downloaded once into media-sources/work-thumbnails/ (git-ignored).
@@ -168,27 +168,28 @@ function halftone(grey, width, height) {
 async function pictureDataUri(sharp, slug, entry) {
 	const buffer = await pictureBuffer(slug, entry.picture);
 	if (!buffer) return null;
-	if (entry.whole) {
-		const image = sharp(buffer).rotate().resize(PRINT_BOX[0], PRINT_BOX[1], { fit: 'inside' });
-		const png = await image.png().toBuffer();
-		const { width, height } = await sharp(png).metadata();
-		return { uri: `data:image/png;base64,${png.toString('base64')}`, width, height };
-	}
-	const taped = entry.look === 'taped';
+	// A meme stays whole so its caption survives; everything else is cropped to the card's shape.
 	// A taped print sits inside the card, so it needs fewer pixels
-	const [w, h] = taped ? [880, 495] : [WIDTH, HEIGHT];
-	const cropped = await cropToCard(sharp, buffer, entry.focus, w, h);
-	let png;
-	if (entry.look === 'halftone' || entry.look === 'flat') {
-		const grey = await greyLevels(sharp, cropped, w, h);
-		const rgb = entry.look === 'halftone' ? halftone(grey, w, h) : tone(grey, 1);
-		png = await sharp(rgb, { raw: { width: w, height: h, channels: 3 } })
+	let fitted;
+	if (entry.whole) {
+		fitted = await sharp(buffer)
+			.rotate()
+			.resize(PRINT_BOX[0], PRINT_BOX[1], { fit: 'inside' })
 			.png()
 			.toBuffer();
 	} else {
-		png = await cropped.png().toBuffer();
+		const [w, h] = entry.look === 'taped' ? [880, 495] : [WIDTH, HEIGHT];
+		fitted = await (await cropToCard(sharp, buffer, entry.focus, w, h)).png().toBuffer();
 	}
-	return { uri: `data:image/png;base64,${png.toString('base64')}`, width: w, height: h };
+	const { width, height } = await sharp(fitted).metadata();
+	// Every picture is graded pink like the rest of the site; a taped print takes the flat tone,
+	// which keeps meme captions readable
+	const grey = await greyLevels(sharp, sharp(fitted), width, height);
+	const rgb = entry.look === 'halftone' ? halftone(grey, width, height) : tone(grey, 1);
+	const png = await sharp(rgb, { raw: { width, height, channels: 3 } })
+		.png()
+		.toBuffer();
+	return { uri: `data:image/png;base64,${png.toString('base64')}`, width, height };
 }
 
 function markSvg(MARKS, mark) {
@@ -201,7 +202,7 @@ function markSvg(MARKS, mark) {
 
 function ringSvg(RINGS, ring) {
 	const [left, top, width, height] = ring;
-	return `<svg class="m" viewBox="0 0 900 300" preserveAspectRatio="none" style="left:${left}%;top:${top}%;width:${width}%;height:${height}%"><path d="${RINGS[0]}" stroke="${COLORS.pink}" stroke-width="16"/></svg>`;
+	return `<svg class="m" viewBox="0 0 900 300" preserveAspectRatio="none" style="left:${left}%;top:${top}%;width:${width}%;height:${height}%"><path d="${RINGS[0]}" stroke="${COLORS.chalk}" stroke-width="16"/></svg>`;
 }
 
 function cardHtml(entry, picture, diagramSvg, { MARKS, RINGS }) {

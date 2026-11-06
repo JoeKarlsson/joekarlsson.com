@@ -6,8 +6,8 @@ import imagesWithText from '../data/images-with-text.json';
 const withText = new Set<string>(imagesWithText);
 
 /**
- * Work-post thumbnails (scripts/generate-work-thumbnails.mjs) come out already treated: pink, or a
- * taped photo that keeps its own colors on purpose. The live pink pass leaves them alone.
+ * Work-post thumbnails (scripts/generate-work-thumbnails.mjs) come out already graded pink, with the
+ * white border and tape of a taped print kept, so the live pink pass leaves them alone.
  */
 export function isPretreatedThumbnail(src: string): boolean {
 	return /^\/images\/blog\/[^/]+\/thumb\.webp$/.test(src);
