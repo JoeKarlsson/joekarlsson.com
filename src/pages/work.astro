@@ -64,7 +64,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 						{featuredProject.video ? (
 							<video
 								src={cardClip(featuredProject.video)}
-								poster={featuredProject.image}
+								poster={featuredProject.poster ?? featuredProject.image}
 								loop
 								muted
 								playsinline

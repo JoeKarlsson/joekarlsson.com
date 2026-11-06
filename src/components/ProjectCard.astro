@@ -58,7 +58,7 @@ const metaLine = [
 			{project.video ? (
 				<video
 					src={cardClip(project.video)}
-					data-poster={project.image}
+					data-poster={project.poster ?? project.image}
 					loop
 					muted
 					playsinline

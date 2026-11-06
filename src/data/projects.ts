@@ -53,6 +53,9 @@ export interface Project {
 	imageAlt: string;
 	// Plays over `image` (its poster) while the card is hovered or focused
 	video?: string;
+	// A lighter still for the video when `image` (also the share card) is too heavy
+	// to wait on: the featured hero's 96KB poster held its pink back 0.8s on a phone
+	poster?: string;
 	category: 'iot' | 'web' | 'art' | 'dev-tools' | 'homelab';
 	// YYYY-MM the project was built (first commit or launch post); /work/ sorts newest first
 	date: string;
@@ -417,6 +420,7 @@ export const projects: Project[] = [
 			"Ask Claude a business question and it builds a Doom level from the answer. Every monster is a live record from your apps, pulled through the CData Connect AI MCP server. I built it in one night as a side project, and it's now the foundation of my team's developer marketing campaign and event strategy.",
 		image: '/images/projects/connect-ai-doom.webp',
 		video: '/images/projects/connect-ai-doom.mp4',
+		poster: '/images/projects/connect-ai-doom-poster.webp',
 		imageAlt:
 			'Claude playing a Doom level built from live Connect AI data, shooting a pink demon labeled with an urgent Salesforce deal while a side panel logs every kill',
 		category: 'dev-tools',
