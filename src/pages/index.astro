@@ -244,7 +244,7 @@ const AROUND_THE_HOUSE = [
 							class="block aspect-video w-full rounded-lg object-cover"
 						/>
 						{/* The newest post's box is always drawn; the rest draw it on hover */}
-						{i > 0 && <HoverBox />}
+						{i > 0 && <HoverBox index={i} />}
 					</a>
 					<div>
 						<span class="mb-1.5 block text-sm text-muted">

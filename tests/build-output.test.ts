@@ -504,6 +504,14 @@ describe('scribbles keep their shape', () => {
 		);
 		expect(squashable).toEqual([]);
 	});
+
+	it('neighbouring cards draw different hover boxes', () => {
+		const grid = readDist('work/index.html').split('id="projects-grid"')[1];
+		const boxes = [...grid.matchAll(/<svg class="hover-ring[^]*?<path[^>]* d="([^"]+)"/g)]
+			.slice(0, 6)
+			.map(([, path]) => path);
+		expect(new Set(boxes).size).toBe(6);
+	});
 });
 
 describe('device and identity meta', () => {

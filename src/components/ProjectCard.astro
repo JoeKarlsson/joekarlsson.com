@@ -5,9 +5,11 @@ import HoverBox from './HoverBox.astro';
 
 interface Props {
 	project: Project;
+	// Position in its list: picks the hover box, so neighbours draw different ones
+	index?: number;
 }
 
-const { project } = Astro.props;
+const { project, index } = Astro.props;
 const primaryUrl =
 	(project.page && `/work/${project.page.slug}/`) ||
 	project.sourceUrl ||
@@ -74,7 +76,7 @@ const metaLine = [
 					decoding="async"
 				/>
 			)}
-			<HoverBox />
+			<HoverBox index={index} />
 		</span>
 		<h3 class="mt-4 font-display text-[clamp(28px,2.4vw,36px)] leading-none font-normal text-paper uppercase group-hover:text-pink max-md:mt-0 max-md:text-2xl">
 			{project.title}

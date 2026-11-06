@@ -110,7 +110,7 @@ for (const issue of backIssues) {
 						delay="3.4s"
 						class="bottom-[22%] left-[6%] z-10 hidden h-[9%] w-[16%] md:block"
 					/>
-					<HoverBox featured />
+					<HoverBox featured index={2} />
 				</a>
 			)}
 			<p class="font-display text-[clamp(36px,3.6vw,56px)] leading-none text-paper uppercase">
@@ -137,7 +137,7 @@ for (const issue of backIssues) {
 
 		<h2 class={SECTION_HEADING}>Every issue</h2>
 		<ul class="mb-12 md:mb-20">
-			{olderPosts.map((post) => (
+			{olderPosts.map((post, i) => (
 				<BlogCard
 					title={post.data.title}
 					description={post.data.description}
@@ -145,6 +145,7 @@ for (const issue of backIssues) {
 					slug={post.data.slug}
 					heroImage={post.data.heroImage}
 					href={`/newsletter/${post.data.slug}/`}
+					index={i}
 				/>
 			))}
 		</ul>

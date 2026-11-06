@@ -139,6 +139,7 @@ const SORT_INACTIVE =
 			href={post.href}
 			popular={topPostHrefs.has(post.href)}
 			markIndex={i % 5 === 2 ? Math.floor(i / 5) : undefined}
+			index={i}
 		/>
 	))}
 </ul>

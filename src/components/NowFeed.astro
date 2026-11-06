@@ -101,7 +101,7 @@ function ratingStars(rating: number) {
 
 	<h3 class={`mb-4 ${GROUP_HEADING}`}>Recently watched</h3>
 	<div class="grid gap-6 grid-cols-2 sm:grid-cols-4">
-		{films.map((film) => (
+		{films.map((film, i) => (
 			<div>
 				<a
 					href={film.url}
@@ -120,7 +120,7 @@ function ratingStars(rating: number) {
 							data-halftone-no-invert
 							class="block w-full rounded-lg"
 						/>
-						<HoverBox />
+						<HoverBox index={i} />
 					</span>
 					<p class="text-sm font-semibold">
 						<span class={LINK_TITLE}>{film.title}</span> <span class="text-muted">{film.year}</span>

@@ -27,6 +27,8 @@ interface Props {
 	// Draws a crayon mark on the thumbnail's corner; the number picks which, so
 	// neighboring marked rows differ
 	markIndex?: number;
+	// Position in its list: picks the hover box, so neighbours draw different ones
+	index?: number;
 }
 
 // Marks for thumbnails, cycled by markIndex, alternating chalk and pink
@@ -51,6 +53,7 @@ const {
 	href,
 	popular = false,
 	markIndex,
+	index,
 } = Astro.props;
 const mark =
 	markIndex === undefined ? undefined : THUMBNAIL_MARKS[markIndex % THUMBNAIL_MARKS.length];
@@ -82,7 +85,7 @@ const formattedDate = formatDate(date);
 				class="-top-[20%] -right-[8%] z-10 size-[40%]"
 			/>
 		)}
-		<HoverBox />
+		<HoverBox index={index} />
 	</a>
 	<div>
 		<span class="mb-1.5 block text-sm text-muted">

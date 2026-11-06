@@ -1,22 +1,24 @@
 ---
 // The loose crayon box every hoverable card draws around its picture on hover
-// or keyboard focus: the same box and placement as the one around the
-// homepage's newest post. Put it inside the positioned element that holds the
+// or keyboard focus. Put it inside the positioned element that holds the
 // picture; the nearest ancestor with the `ring-host` class is what triggers it
-// (.ring-host in src/styles/motion.css). `featured` sits it tighter around a
-// big hero card.
-import { CHALK, MARKS } from '../data/scribbles';
+// (.ring-host in src/styles/motion.css). `index` picks one of the BOXES, so
+// cards in a list pass their position and neighbours draw different boxes.
+// `featured` sits it tighter around a big hero card.
+import { BOXES, CHALK } from '../data/scribbles';
 import Scribble from './Scribble.astro';
 
 interface Props {
 	featured?: boolean;
+	index?: number;
 }
 
-const { featured = false } = Astro.props;
+const { featured = false, index = 0 } = Astro.props;
 ---
 
 <Scribble
-	{...MARKS.box}
+	path={BOXES[index % BOXES.length]}
+	viewBox="0 0 600 300"
 	color={CHALK}
 	strokeWidth={5}
 	ring

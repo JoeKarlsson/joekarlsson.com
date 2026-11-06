@@ -111,7 +111,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 						delay="1s"
 						class="-bottom-[7%] -left-[6%] z-10 h-[12%] w-[70%]"
 					/>
-					<HoverBox featured />
+					<HoverBox featured index={3} />
 				</a>
 			)}
 			<p class={HERO_LEAD}>Software, hardware, and IoT projects I've built over the years.</p>
@@ -149,9 +149,9 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 			id="projects-grid"
 			class="mb-12 md:mb-14 grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
 		>
-			{sortedProjects.map((project) => (
+			{sortedProjects.map((project, i) => (
 				<div data-category={project.category}>
-					<ProjectCard project={project} />
+					<ProjectCard project={project} index={i} />
 				</div>
 			))}
 		</div>
