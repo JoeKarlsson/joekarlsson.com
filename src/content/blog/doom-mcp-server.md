@@ -34,7 +34,7 @@ faq:
     answer: "Map each part of the MCP server's answer to something people can see. In Connect AI × DOOM, each connection becomes a room, each record a monster, the connection's permissions set the keycard colors, and a refused request becomes a locked door, so you can see what an agent found, what it may touch, and what it was refused."
   - question: 'Is Connect AI × DOOM open source?'
     answer: "Yes. It's MIT licensed on GitHub, runs on a Mac, plays offline with made-up data, and has a version you can play in the browser."
-contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/doom-mcp-server).'
+contentNotice: 'I work at CData, which makes Connect AI. This post first ran on the [CData blog](https://www.cdata.com/blog/doom-mcp-server).'
 ---
 
 I wired Doom to two Model Context Protocol (MCP) servers. One is a Doom MCP server inside the game, so Claude can play it. The other is an MCP data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app from the MCP server becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests, and Slack threads. It's the world's first Doom level built out of MCP data. I've been calling it DooMCP. This post covers how Claude plays Doom with three tools, how the level gets built from the MCP server's data, and what other models did at a door the MCP server won't open.
@@ -48,7 +48,7 @@ I wired Doom to two Model Context Protocol (MCP) servers. One is a Doom MCP serv
 
 ## Why I built a Doom level out of MCP data
 
-I work with MCP servers every day at CData, and the MCP data source in this post is [CData Connect AI](https://docs.cloud.cdata.com/en). I wanted to see how an agent would handle them. Like actually see, which is hard, because MCP data is boring. An agent calls a tool, gets JSON back, and the best anyone does with it is a table that looks like a spreadsheet. I wanted to walk around in it, and [KubeDOOM](https://github.com/storax/kubedoom), which turns Kubernetes pods into monsters, gave me the idea.
+I work at CData, which makes [CData Connect AI](https://docs.cloud.cdata.com/en), the MCP data source in this post, and I work with MCP servers every day. I wanted to see how an agent would handle them. Like actually see, which is hard, because MCP data is boring. An agent calls a tool, gets JSON back, and the best anyone does with it is a table that looks like a spreadsheet. I wanted to walk around in it, and [KubeDOOM](https://github.com/storax/kubedoom), which turns Kubernetes pods into monsters, gave me the idea.
 
 You can [play a level Claude built from demo Salesforce, Zendesk, and Stripe MCP data](https://cdatasoftware.github.io/connect-ai-doom/) in your browser, or hit **Watch Claude Play** and let it drive.
 
