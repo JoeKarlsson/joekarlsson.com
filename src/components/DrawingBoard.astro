@@ -78,23 +78,23 @@ const PINK = '#ff4fd8';
 			class="inset-0 size-full"
 		/>
 	))}
-	<!-- Two of Joe's sketchbook doodles, in the clear strip along the bottom -->
-	<Scribble
-		{...MARKS.face}
-		color={CHALK}
-		strokeWidth={5}
-		duration="11s"
-		delay="2.6s"
-		class="bottom-[3%] left-[34%] h-[24%] w-[10%]"
-	/>
-	<Scribble
-		{...MARKS.flower}
-		color={PINK}
-		strokeWidth={5}
-		duration="11s"
-		delay="5.2s"
-		class="bottom-[3%] left-[22%] h-[24%] w-[10%]"
-	/>
+	<!-- Joe's sketchbook doodles, scattered across the board like a page of his book -->
+	{[
+		{ mark: MARKS.face, color: CHALK, class: 'top-[26%] left-[5%] h-[48%] w-[18%]' },
+		{ mark: MARKS.star, color: PINK, class: 'top-[18%] left-[26%] h-[40%] w-[18%]' },
+		{ mark: MARKS.flower, color: PINK, class: 'top-[36%] left-[44%] h-[50%] w-[19%]' },
+		{ mark: MARKS.spiral, color: CHALK, class: 'top-[18%] left-[60%] h-[40%] w-[18%]' },
+		{ mark: MARKS.cloud, color: CHALK, class: 'top-[28%] left-[80%] h-[44%] w-[19%]' },
+	].map(({ mark, color, class: placement }, i) => (
+		<Scribble
+			{...mark}
+			color={color}
+			strokeWidth={5}
+			duration="11s"
+			delay={`${(1 + i * 1.3).toFixed(1)}s`}
+			class={placement}
+		/>
+	))}
 	<!-- Runs off the board's bottom edge into the next section -->
 	<Scribble
 		{...MARKS.lines}
