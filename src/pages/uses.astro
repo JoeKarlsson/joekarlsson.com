@@ -10,7 +10,7 @@ import PosterHero from '../components/PosterHero.astro';
 import Scribble from '../components/Scribble.astro';
 import { GROUP_HEADING, HERO_LEAD, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
 import nowFeed from '../data/now-feed.json';
-import { ARROW, CHALK, MARKS } from '../data/scribbles';
+import { ARROW, CHALK, MARKS, RINGS } from '../data/scribbles';
 import { USES_SECTIONS } from '../data/uses';
 
 const PINK = '#ff4fd8';
@@ -197,7 +197,7 @@ const sections = USES_SECTIONS.map((section) => {
 								height={section.photo.height}
 								loading={si === 0 ? 'eager' : 'lazy'}
 							/>
-							{pinned.map((item) => (
+							{pinned.map((item, pi) => (
 								<a
 									href={`#${item.id}`}
 									class="uses-pin ring-host"
@@ -207,7 +207,8 @@ const sections = USES_SECTIONS.map((section) => {
 								>
 									{item.number}
 									<Scribble
-										{...MARKS.oval}
+										path={RINGS[pi % RINGS.length]}
+										viewBox="0 0 520 150"
 										color={PINK}
 										strokeWidth={4}
 										ring
@@ -271,7 +272,9 @@ const sections = USES_SECTIONS.map((section) => {
 														{/* The odd name gets a crayon circle that stays */}
 														{(ii + gi + si) % 7 === 3 && (
 															<Scribble
-																{...MARKS.oval}
+																path={RINGS[(ii + gi + si) % RINGS.length]}
+																viewBox="0 0 520 150"
+																stretch
 																color={CHALK}
 																strokeWidth={4}
 																duration="10s"
