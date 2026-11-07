@@ -47,12 +47,6 @@ const LOOKS = new Set(['halftone', 'flat', 'taped']);
 const thumbPath = (slug, webp) =>
 	`/images/blog/${slug}/thumb-${createHash('sha256').update(webp).digest('hex').slice(0, 8)}.webp`;
 
-const esc = (s) =>
-	String(s).replace(
-		/[&<>"]/g,
-		(c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c],
-	);
-
 async function download(url, file) {
 	const response = await fetch(url, {
 		headers: { 'User-Agent': 'joekarlsson.com thumbnail generator' },
@@ -112,7 +106,7 @@ async function cropToCard(sharp, buffer, focus = 0.5, width = WIDTH, height = HE
 }
 
 /** Black-to-pink tone, stretched to the picture's own darkest and brightest */
-async function greyLevels(sharp, pipeline, width, height) {
+async function greyLevels(pipeline, width, height) {
 	const { data } = await pipeline
 		.greyscale()
 		.normalise()
@@ -182,7 +176,7 @@ async function pictureDataUri(sharp, slug, entry) {
 	const { width, height } = await sharp(fitted).metadata();
 	// Every picture is graded pink like the rest of the site; a taped print takes the flat tone,
 	// which keeps meme captions readable
-	const grey = await greyLevels(sharp, sharp(fitted), width, height);
+	const grey = await greyLevels(sharp(fitted), width, height);
 	const rgb = entry.look === 'halftone' ? halftone(grey, width, height) : tone(grey, 1);
 	const png = await sharp(rgb, { raw: { width, height, channels: 3 } })
 		.png()

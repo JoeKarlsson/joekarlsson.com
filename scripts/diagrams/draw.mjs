@@ -132,7 +132,7 @@ function readLogoFile(file, dir = 'logos') {
 		.replace(/<\/svg>\s*$/, '')
 		.replace(/<style[\s\S]*?<\/style>/g, '')
 		.replace(/<title>[\s\S]*?<\/title>/, '')
-		.replace(/class="([\w-]+)"/g, (whole, c) => (classFill[c] ? `fill="${classFill[c]}"` : ''))
+		.replace(/class="([\w-]+)"/g, (_whole, c) => (classFill[c] ? `fill="${classFill[c]}"` : ''))
 		.trim();
 	return { viewBox: `${minX} ${minY} ${w} ${h}`, aspect: w / h, inner };
 }
