@@ -25,6 +25,9 @@ export interface ProjectPage {
 	// Defaults to "Play it" and "Click the game to play."
 	embedHeading?: string;
 	embedNote?: string;
+	// Loads the embed on phones too, in place of the poster. Only for light builds that
+	// read at phone size: a hidden heavy embed (Connect AI × DOOM) crashed an iPhone
+	embedOnPhones?: boolean;
 	// A narrated video with sound, under the intro. Portrait (9:16) phone video
 	tour?: { video: string; poster: string; captions: string; alt: string };
 	steps?: { title: string; text: string }[];
@@ -357,6 +360,7 @@ export const projects: Project[] = [
 				'Someone else owns poststream.io now. The archived copy at poststream.joekarlsson.com has no server: it runs in your browser, signs you in as a sample visitor, and a few made-up people keep posting while you look around. Anything you post stays in your browser. The full app, with Node and PostgreSQL, is on GitHub.',
 			],
 			embedUrl: 'https://poststream.joekarlsson.com/',
+			embedOnPhones: true,
 			embedHeight: '640px',
 			embedHeading: 'Try it',
 			embedNote:
@@ -390,6 +394,7 @@ export const projects: Project[] = [
 				"It's also useless on purpose. I've been making things nobody needs for a long time, from co-organizing the Stupid Shit No One In Hawaii Needs hackathon in 2016 to gluing seeds to cardboard one at a time to make pictures. Both took a lot of work for something with no use, and I liked doing them.",
 			],
 			embedUrl: 'https://joekarlsson.github.io/nothing-but-corners/',
+			embedOnPhones: true,
 			embedHeading: 'Watch it',
 			embedNote: 'Click inside to add another logo.',
 		},

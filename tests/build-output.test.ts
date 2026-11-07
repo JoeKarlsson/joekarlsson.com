@@ -363,12 +363,17 @@ describe('iframe embeds', () => {
 	// the Connect AI × DOOM embed crashed an iPhone that way. Anything but a video
 	// player uses data-desktop-src, which src/scripts/load-desktop-embeds.ts turns
 	// into src only on wide screens.
-	it('only video embeds load on phones; everything else uses data-desktop-src', () => {
+	// A light embed checked at phone size opts in with embedOnPhones, which marks it
+	// data-phone-ok.
+	it('only video and data-phone-ok embeds load on phones; the rest use data-desktop-src', () => {
 		const loadsOnPhones: string[] = [];
 		for (const page of builtPages) {
-			for (const [, src] of readDist(page).matchAll(/<iframe\b[^>]*?\ssrc="([^"]+)"/g)) {
+			for (const [tag, src] of readDist(page).matchAll(/<iframe\b[^>]*?\ssrc="([^"]+)"[^>]*>/g)) {
 				const { hostname } = new URL(src, 'https://www.joekarlsson.com');
-				if (!/(^|\.)(youtube(-nocookie)?|tiktok)\.com$/.test(hostname)) {
+				if (
+					!/\sdata-phone-ok\b/.test(tag) &&
+					!/(^|\.)(youtube(-nocookie)?|tiktok)\.com$/.test(hostname)
+				) {
 					loadsOnPhones.push(`${page}: ${src}`);
 				}
 			}

@@ -46,6 +46,11 @@ const imageSizes = new Map(
 	),
 );
 const square = page.galleryAspect === 'square';
+// Embeds load only on desktop (src/scripts/load-desktop-embeds.ts) unless the project
+// opts in with embedOnPhones; data-phone-ok tells the build test that was deliberate
+const embedSource = page.embedOnPhones
+	? { src: page.embedUrl, 'data-phone-ok': '' }
+	: { 'data-desktop-src': page.embedUrl };
 // Inline styles for the square layout keep the shared CSS bundle under budget
 const clipStyle = square ? 'aspect-ratio: 1 / 1' : undefined;
 const gridStyle = square
@@ -211,28 +216,36 @@ const sections = [
 							</a>
 						</p>
 						{/* Phones get the still, linking to the full-screen version: scaled to a phone's
-						width an embed's text can't be read, and the games want a keyboard and mouse */}
-						<a
-							href={project.demoUrl ?? page.embedUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="embed-phone-poster block md:hidden"
-						>
-							<img
-								src={project.image}
-								alt={project.imageAlt}
-								data-halftone="flat"
-								width="560"
-								height="315"
-								class="block aspect-video w-full rounded-lg object-cover"
-								loading="lazy"
-								decoding="async"
-							/>
-						</a>
+						width an embed's text can't be read, and the games want a keyboard and mouse.
+						A light embed that reads at phone size sets embedOnPhones and plays there too */}
+						{!page.embedOnPhones && (
+							<a
+								href={project.demoUrl ?? page.embedUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="embed-phone-poster block md:hidden"
+							>
+								<img
+									src={project.image}
+									alt={project.imageAlt}
+									data-halftone="flat"
+									width="560"
+									height="315"
+									class="block aspect-video w-full rounded-lg object-cover"
+									loading="lazy"
+									decoding="async"
+								/>
+							</a>
+						)}
 						{page.embedHeight ? (
-							<div class="@container overflow-hidden rounded-lg max-md:hidden">
+							<div
+								class:list={[
+									'@container overflow-hidden rounded-lg',
+									{ 'max-md:hidden': !page.embedOnPhones },
+								]}
+							>
 								<iframe
-									data-desktop-src={page.embedUrl}
+									{...embedSource}
 									title={`${project.title}, playable in the browser`}
 									data-embed-project={project.title}
 									class="block w-full"
@@ -243,9 +256,14 @@ const sections = [
 								></iframe>
 							</div>
 						) : (
-							<div class="aspect-video overflow-hidden rounded-lg max-md:hidden">
+							<div
+								class:list={[
+									'aspect-video overflow-hidden rounded-lg',
+									{ 'max-md:hidden': !page.embedOnPhones },
+								]}
+							>
 								<iframe
-									data-desktop-src={page.embedUrl}
+									{...embedSource}
 									title={`${project.title}, playable in the browser`}
 									data-embed-project={project.title}
 									data-native-width="1280"
