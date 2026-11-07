@@ -7,7 +7,7 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 394,
+			"commitCount": 398,
 			"dailyCommitCounts": [
 				0,
 				0,
@@ -38,16 +38,16 @@
 				13,
 				169,
 				74,
-				37
+				44
 			],
-			"latestCommitMessage": "fix: Portrait tour videos in posts float right beside the text instead..."
+			"latestCommitMessage": "feat: Deploys purge only the files that changed from Cloudflare, so..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 259,
+			"commitCount": 261,
 			"dailyCommitCounts": [
 				0,
 				0,
@@ -78,9 +78,49 @@
 				51,
 				11,
 				2,
+				3
+			],
+			"latestCommitMessage": "feat: Vertical covers put a sharp B-roll frame on the top half, you..."
+		},
+		{
+			"name": "python-sudoku-generator-solver",
+			"description": "Python based sudoku generator that can create unique Sudoku board based on 4 difficulty levels. This code also includes a brute force sudoku solver that is capable of solving even the most difficult sudoku puzzles!",
+			"url": "https://github.com/JoeKarlsson/python-sudoku-generator-solver",
+			"language": "Python",
+			"commitCount": 1,
+			"dailyCommitCounts": [
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
 				1
 			],
-			"latestCommitMessage": "feat: The home screen lists Recent Projects: your recordings plus any..."
+			"latestCommitMessage": "feat: The README opens with an animation of a board solving itself"
 		},
 		{
 			"name": "bechdel-test",
@@ -121,46 +161,6 @@
 				20
 			],
 			"latestCommitMessage": "chore: Check sideways scrolling on every non-film page plus about 80..."
-		},
-		{
-			"name": "wave-jump",
-			"description": "Wave Jump is a 80's arcade inspired multiplayer game where you've got to be lightening fast to beat your friend to the finish.",
-			"url": "https://github.com/JoeKarlsson/wave-jump",
-			"language": "JavaScript",
-			"commitCount": 9,
-			"dailyCommitCounts": [
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				1,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				2,
-				6
-			],
-			"latestCommitMessage": "feat: Wave Jump starts muted when embedded, with a sound button"
 		}
 	],
 	"films": [
