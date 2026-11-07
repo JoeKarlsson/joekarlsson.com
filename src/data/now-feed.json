@@ -7,7 +7,7 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 392,
+			"commitCount": 394,
 			"dailyCommitCounts": [
 				0,
 				0,
@@ -38,9 +38,49 @@
 				13,
 				169,
 				74,
-				35
+				37
 			],
-			"latestCommitMessage": "feat: The postcard rack planter post links the Thingiverse download..."
+			"latestCommitMessage": "fix: Portrait tour videos in posts float right beside the text instead..."
+		},
+		{
+			"name": "screencast-director",
+			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
+			"url": "https://github.com/JoeKarlsson/screencast-director",
+			"language": "Swift",
+			"commitCount": 259,
+			"dailyCommitCounts": [
+				0,
+				0,
+				0,
+				67,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				10,
+				0,
+				0,
+				94,
+				23,
+				51,
+				11,
+				2,
+				1
+			],
+			"latestCommitMessage": "feat: The home screen lists Recent Projects: your recordings plus any..."
 		},
 		{
 			"name": "bechdel-test",
@@ -121,46 +161,6 @@
 				6
 			],
 			"latestCommitMessage": "feat: Wave Jump starts muted when embedded, with a sound button"
-		},
-		{
-			"name": "go-home-tanuki",
-			"description": "A phaser.js game based on the ritual of drinking",
-			"url": "https://github.com/JoeKarlsson/go-home-tanuki",
-			"language": "JavaScript",
-			"commitCount": 9,
-			"dailyCommitCounts": [
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				1,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				2,
-				6
-			],
-			"latestCommitMessage": "feat: Go Home Tanuki starts muted when embedded, with a sound button"
 		}
 	],
 	"films": [
