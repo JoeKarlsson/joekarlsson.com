@@ -565,6 +565,16 @@ export const projects: Project[] = [
 				'The Heroku app went down years ago, and AT&T shut M2X down in 2021. In November 2026 I moved the checkpoint logic into the browser and put it back up at gaptcha.joekarlsson.com. Near the original spot in Honolulu you hunt the hackathon checkpoint. Anywhere else, it hides a demo checkpoint 100 to 300 meters from you. A scan only counts when the camera sees a printed marker, your scans stay in your browser instead of going to M2X, and a live feed shows simulated hunters playing alongside you.',
 				'The photos below are from that weekend.',
 			],
+			// The demo plays itself when framed (no location, no camera) and fills its frame without
+			// growing. Its fixed parts need 730px with its columns side by side and up to ~970px
+			// stacked on the narrowest phone; the rest goes to the hunters feed. GAPTCHA's
+			// tests/e2e/embed-frame.spec.js checks these sizes, so change both together.
+			embedUrl: 'https://gaptcha.joekarlsson.com/?embed',
+			embedOnPhones: true,
+			embedHeight: 'max(880px, min(1070px, 1440px - 130cqw))',
+			embedHeading: 'Watch it',
+			embedNote:
+				'This demo plays itself. To hunt for real, open gaptcha.joekarlsson.com on your phone with a printed marker.',
 			screenshots: [
 				{
 					poster: '/images/projects/gaptcha-home.webp',
