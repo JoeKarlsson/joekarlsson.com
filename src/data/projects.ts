@@ -430,10 +430,10 @@ export const projects: Project[] = [
 		shareTitle: "Rose Hobart: Joseph Cornell's 1936 film, remastered for the web",
 		description:
 			"Joseph Cornell's 1936 collage film, with the tint, the speed and the music back in your hands while it plays. Made with my sister Laurel.",
-		image: '/images/projects/rose-hobart-poster.webp',
-		video: '/images/projects/rose-hobart.mp4',
+		image: '/images/projects/rose-hobart-2026-poster.webp',
+		video: '/images/projects/rose-hobart-2026.mp4',
 		imageAlt:
-			"Joseph Cornell's Rose Hobart playing on the site while the color tint switches from Prussian blue to rose, violet, amber and jade",
+			"Joseph Cornell's Rose Hobart playing between red theater curtains while the projector presets change it: Cornell 1936 blue, a pink filter, nitrate decay, a broken projector and digital decay, then amber, green and pink gels",
 		category: 'art',
 		date: '2017-10',
 		tech: ['React', 'Vite', 'WebGL', 'CSS filters'],
@@ -455,17 +455,24 @@ export const projects: Project[] = [
 			],
 			embedUrl: 'https://rosehobart.joekarlsson.com/',
 			embedHeading: 'Watch it',
-			embedNote: 'Press play, then change the tint, the speed and the music.',
+			embedNote: 'Press play, then pick a projector, a gel, the speed and the music.',
+			screenshots: [
+				{
+					poster: '/images/projects/rose-hobart-2026-pink-filter.webp',
+					alt: 'The Rose Hobart site: the film between red theater curtains with the Pink filter preset on, and the projector panel beside it with presets, an age slider, gel colors and gel density',
+					caption: 'The Pink filter preset, one of the colors Cornell may have used',
+				},
+			],
 		},
 	},
 	{
 		title: 'Bechdel.io',
 		shareTitle: 'Bechdel.io: Checking movie scripts against the Bechdel Test',
 		description: 'Does your favorite movie pass the Bechdel Test? Made with my sister Laurel.',
-		image: '/images/projects/bechdel-io-poster.webp',
-		video: '/images/projects/bechdel-io.mp4',
+		image: '/images/projects/bechdel-io-2026-poster.webp',
+		video: '/images/projects/bechdel-io-2026.mp4',
 		imageAlt:
-			'Bechdel.io: a grid of movie posters, then the Gone Girl page showing Bechdel Pass: TRUE with charts of female and male characters and dialogue',
+			'Bechdel.io: the headline "Do two women talk to each other about something other than a man?", the shelf of movie posters marked passes or fails, filtering to films that pass, then the Gone Girl page scoring 3 of 3 and its cast sized by lines spoken',
 		category: 'art',
 		date: '2015-11',
 		tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
@@ -489,6 +496,18 @@ export const projects: Project[] = [
 			embedUrl: 'https://bechdel.joekarlsson.com/',
 			embedHeading: 'Try it',
 			embedNote: 'Pick a movie to see whether it passes.',
+			screenshots: [
+				{
+					poster: '/images/projects/bechdel-io-2026-shelf.webp',
+					alt: 'The Bechdel.io shelf: search, show and sort controls over a grid of movie posters, each tagged passes or fails with its year and how many of the three rules it meets',
+					caption: 'The shelf: 218 films, 111 of them pass',
+				},
+				{
+					poster: '/images/projects/bechdel-io-2026-lines.webp',
+					alt: 'The Gone Girl page: release details, then the cast sized by lines spoken, with Nick at 496 lines in white and Amy at 287 and Boney at 196 in pink for women',
+					caption: 'Each film page sizes the cast by how many lines they speak',
+				},
+			],
 		},
 	},
 
