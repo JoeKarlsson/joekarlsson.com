@@ -1,7 +1,7 @@
 ---
 // The off-register logo as live Anton text: letters in --logo-fill (pink unless set), with an
 // outline in currentColor knocked up and left like a misprint. The outline boils through the
-// #warble-N frames (.logo-outline in motion.css). brand/ has the same logo as files.
+// #warble filter (.logo-outline in motion.css); #warble-still holds it when motion is off. brand/ has the same logo as files.
 interface Props {
 	text: 'JK' | 'JOE KARLSSON';
 	class?: string;
@@ -30,7 +30,7 @@ const [width, x, y] = wide ? [580, 290, 98] : [120, 60, 100];
 		text-anchor="middle"
 		font-size="104"
 		class="logo-outline"
-		filter="url(#warble-1)"
+		filter="url(#warble-still)"
 		fill="none"
 		stroke="currentColor"
 		stroke-width={wide ? 4 : 3}

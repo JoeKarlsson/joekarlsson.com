@@ -740,6 +740,32 @@ describe('performance guards', () => {
 		expect(tooMuch).toEqual([]);
 	});
 
+	// iPhone Safari never repaints when an element switches to a different filter, so a
+	// CSS animation that swaps filter: url(#a) for url(#b) froze every wobble on the
+	// phone. Wobbles animate the noise inside one filter instead (BaseLayout).
+	it('no animation swaps between SVG filters, and the boil and warble filters animate themselves', () => {
+		const css = readdirSync(resolve(dist, '_astro'))
+			.filter((file) => file.endsWith('.css'))
+			.map((file) => readDist(`_astro/${file}`))
+			.join('\n');
+		const keyframes = [
+			...css.matchAll(/@keyframes\s*([\w-]+)\s*\{((?:[^{}]*\{[^{}]*\})*[^{}]*)\}/g),
+		];
+		expect(keyframes.length).toBeGreaterThan(5);
+		const swapping = keyframes
+			.filter(([, , body]) => /filter:\s*url\(/.test(body))
+			.map(([, name]) => name);
+		expect(swapping).toEqual([]);
+		const home = readDist('index.html');
+		for (const id of ['boil', 'warble']) {
+			expect(home, id).toMatch(
+				new RegExp(
+					`<filter id="${id}"[^>]*>\\s*<feTurbulence[^>]*>\\s*<animate attributeName="seed"`,
+				),
+			);
+		}
+	});
+
 	it('project screenshots and gallery stills keep their own colors', () => {
 		for (const page of ['work/pixelpane/index.html', 'work/followspot/index.html']) {
 			const html = readDist(page);

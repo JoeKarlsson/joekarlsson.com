@@ -254,47 +254,36 @@
 	}
 }
 
-/* Hovered text links boil through three slightly different wobbles (the #warble-N
-   filters in BaseLayout), so they feel alive. Links around a picture or clip are
-   left alone: they're big, and the halftone canvas is already moving. Steps hold
-   each frame, since a filter URL can't tween. Off under reduced motion and while
-   motion is paused, where a frozen wobble would just look blurry. */
+/* The boil and warble filters (BaseLayout) animate their own noise, so these rules only
+   point at them. Never animate filter: url() between filters instead: iPhone Safari
+   doesn't repaint on that change, and every wobble froze there. */
+
+/* Hovered text links warble, so they feel alive. Links around a picture or clip are
+   left alone: they're big, and the halftone canvas is already moving. Off under
+   reduced motion and while motion is paused, where a frozen wobble would just look blurry. */
 @media (prefers-reduced-motion: no-preference) {
 	html:not(.motion-paused) a:hover:not(:has(img, video, canvas)) {
-		animation: warble 0.36s steps(1, end) infinite;
+		filter: url(#warble);
 	}
 }
 
-/* Every self-drawing scribble and hover mark boils: three wobble frames (#boil-N in BaseLayout),
-   held a beat each, so the marks feel hand-animated even while they hold. Post diagrams
-   boil their arrows, callouts and paper edges, never their words. Off under reduced
-   motion; the pause button freezes it on one frame. */
+/* Every self-drawing scribble and hover mark boils, so the marks feel hand-animated even
+   while they hold. Post diagrams boil their arrows, callouts and paper edges, never their
+   words. Off under reduced motion; the pause button freezes it on one frame. */
 @media (prefers-reduced-motion: no-preference) {
 	.redraw,
 	.redraw-strokes,
 	:is(.diagram, .diagram-enlarged) :is(.d-flow, .d-callout, .d-paper),
 	.ring-host:is(:hover, :focus-visible, :has(:focus-visible)) .hover-ring {
-		animation: boil 0.5s steps(1, end) infinite;
+		filter: url(#boil);
 	}
 }
 
-/* The logo's outline (wobbled by its own filter attribute) boils through the warble
-   frames like a hovered link. Reduced motion and the pause button hold it on one frame. */
+/* The logo's outline warbles like a hovered link; its own filter attribute
+   (#warble-still) holds it under reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
 	.logo-outline {
-		animation: warble 0.36s steps(1, end) infinite;
-	}
-}
-
-@keyframes boil {
-	0% {
-		filter: url(#boil-1);
-	}
-	33.333% {
-		filter: url(#boil-2);
-	}
-	66.666% {
-		filter: url(#boil-3);
+		filter: url(#warble);
 	}
 }
 
@@ -317,18 +306,6 @@
 	.sticker:active {
 		transform: scale(1.06, 0.88);
 		transition-duration: 0.06s;
-	}
-}
-
-@keyframes warble {
-	0% {
-		filter: url(#warble-1);
-	}
-	33.333% {
-		filter: url(#warble-2);
-	}
-	66.666% {
-		filter: url(#warble-3);
 	}
 }
 

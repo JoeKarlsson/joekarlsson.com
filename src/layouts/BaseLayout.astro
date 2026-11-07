@@ -85,37 +85,51 @@ const {
 		</main>
 		<Footer />
 
-		<!-- The crayon texture every Scribble draws with, and the three warble frames a
-		hovered link boils through (.warble in motion.css): the same gentle wobble with
-		a different seed each, like a hand-drawn line redrawn every frame -->
-		<svg width="0" height="0" class="absolute" aria-hidden="true">
-			{[1, 2, 3].map((seed) => (
-				<filter id={`warble-${seed}`} x="-5%" y="-10%" width="110%" height="120%">
-					<feTurbulence
-						type="turbulence"
-						baseFrequency="0.035"
-						numOctaves="2"
-						seed={seed * 7}
-						result="w"
-					></feTurbulence>
-					<feDisplacementMap in="SourceGraphic" in2="w" scale="4"></feDisplacementMap>
-				</filter>
-			))}
-			<!-- Every self-drawing scribble boils through these (.redraw in motion.css): a
-			slow, wide wobble, so a mark never sits perfectly still, like a line redrawn
-			by hand each frame. A wide region, because marks stroke past their boxes. -->
-			{[1, 2, 3].map((seed) => (
-				<filter id={`boil-${seed}`} x="-25%" y="-25%" width="150%" height="150%">
-					<feTurbulence
-						type="turbulence"
-						baseFrequency="0.02"
-						numOctaves="1"
-						seed={seed * 11}
-						result="w"
-					></feTurbulence>
-					<feDisplacementMap in="SourceGraphic" in2="w" scale="5"></feDisplacementMap>
-				</filter>
-			))}
+		<!-- The crayon texture every Scribble draws with, and the wobbles that make lines
+		boil (motion.css). Each wobble is one filter whose noise seed steps through three
+		values, like a hand-drawn line redrawn every frame. It can't be three filters that
+		CSS swaps between: iPhone Safari never repaints when an element's filter URL
+		changes, so everything froze on the first frame there. The pause button and
+		reduced motion pause these (src/scripts/filter-animations.ts). -->
+		<svg width="0" height="0" class="absolute" aria-hidden="true" data-motion-filters>
+			<!-- Hovered text links and the logo outline: a fine, quick warble -->
+			<filter id="warble" x="-5%" y="-10%" width="110%" height="120%">
+				<feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="2" seed="7" result="w">
+					<animate
+						attributeName="seed"
+						values="7;14;21"
+						dur="0.36s"
+						calcMode="discrete"
+						repeatCount="indefinite"
+					></animate>
+				</feTurbulence>
+				<feDisplacementMap in="SourceGraphic" in2="w" scale="4"></feDisplacementMap>
+			</filter>
+			<!-- The same warble held still: the logo outline's shape when motion is off -->
+			<filter id="warble-still" x="-5%" y="-10%" width="110%" height="120%">
+				<feTurbulence
+					type="turbulence"
+					baseFrequency="0.035"
+					numOctaves="2"
+					seed="7"
+					result="w"
+				></feTurbulence>
+				<feDisplacementMap in="SourceGraphic" in2="w" scale="4"></feDisplacementMap>
+			</filter>
+			<!-- Scribbles, hover rings and diagram arrows: a slow, wide wobble, so a mark never
+			sits perfectly still. A wide region, because marks stroke past their boxes. -->
+			<filter id="boil" x="-25%" y="-25%" width="150%" height="150%">
+				<feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" seed="11" result="w">
+					<animate
+						attributeName="seed"
+						values="11;22;33"
+						dur="0.5s"
+						calcMode="discrete"
+						repeatCount="indefinite"
+					></animate>
+				</feTurbulence>
+				<feDisplacementMap in="SourceGraphic" in2="w" scale="5"></feDisplacementMap>
+			</filter>
 			<filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
 				<feTurbulence
 					type="fractalNoise"
@@ -162,6 +176,7 @@ const {
 		</svg>
 		<script>
 			import { hasCursorTrail, initCursorTrail } from '../scripts/cursor-trail';
+			import { initFilterAnimations } from '../scripts/filter-animations';
 			import '../scripts/halftone';
 			import '../scripts/in-view-play';
 			import '../scripts/load-desktop-embeds';
@@ -175,6 +190,7 @@ const {
 			document
 				.querySelectorAll<HTMLButtonElement>('button[data-pause-motion]')
 				.forEach(initPauseMotion);
+			initFilterAnimations();
 			if (hasCursorTrail(window.location.pathname)) initCursorTrail();
 			initScribbleNotice();
 		</script>

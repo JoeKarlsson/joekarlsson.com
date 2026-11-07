@@ -108,17 +108,11 @@ figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
 svg { display: block; width: 100%; height: auto; }
 figcaption { font: 14px 'Hanken Grotesk', sans-serif; color: #a3a3a3; }
 /* The same boil as the site (motion.css), so a preview moves like the post will */
-@keyframes boil { 0% { filter: url(#boil-1); } 33.333% { filter: url(#boil-2); } 66.666% { filter: url(#boil-3); } }
 @media (prefers-reduced-motion: no-preference) {
-	figure :is(.d-flow, .d-callout, .d-paper) { animation: boil 0.5s steps(1, end) infinite; }
+	figure :is(.d-flow, .d-callout, .d-paper) { filter: url(#boil); }
 }
 </style>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>${[1, 2, 3]
-		.map(
-			(seed) =>
-				`<filter id="boil-${seed}" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" seed="${seed * 11}" result="w"/><feDisplacementMap in="SourceGraphic" in2="w" scale="5"/></filter>`,
-		)
-		.join('')}</defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="boil" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" seed="11" result="w"><animate attributeName="seed" values="11;22;33" dur="0.5s" calcMode="discrete" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="w" scale="5"/></filter></defs></svg>
 <main><h1>${title}</h1>
 ${sections}
 </main>`;
