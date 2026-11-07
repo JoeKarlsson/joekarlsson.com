@@ -6,7 +6,7 @@ slug: 'how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb'
 description: 'Have you ever needed to set a machine learning model on your data before?'
 categories: ['Web Dev']
 writtenFor: 'SingleStore'
-heroImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/thumb-3c3f5b1d.webp'
+heroImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/thumb-1761fe39.webp'
 heroAlt: 'Mind-reading prediction GIF'
 contentNotice: 'MindsDB has changed significantly since this was written. Refer to current MindsDB documentation for up-to-date integration patterns.'
 tldr: 'I connect SingleStore to MindsDB to run machine learning predictions on health insurance data using just SQL. No separate ML pipeline needed - MindsDB trains the model directly on your existing tables.'

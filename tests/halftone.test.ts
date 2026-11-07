@@ -3,7 +3,7 @@ import { existsSync, statSync } from 'fs';
 import { join } from 'path';
 import { projects } from '../src/data/projects';
 import imagesWithText from '../src/data/images-with-text.json';
-import { cardClip, halftoneMode } from '../src/utils/halftone';
+import { cardClip, cardHalftone, halftoneMode } from '../src/utils/halftone';
 
 // /work autoplays every card clip in view; together they must fit its 1.5MB page budget
 const MAX_CARD_CLIP_BYTES = 450 * 1024;
@@ -16,6 +16,8 @@ describe('halftoneMode', () => {
 
 	it('leaves generated work-post thumbnails alone, everywhere', () => {
 		expect(halftoneMode('/images/blog/soc2/thumb-0a1b2c3d.webp')).toBeUndefined();
+		expect(cardHalftone('/images/blog/soc2/thumb-0a1b2c3d.webp')).toBeUndefined();
+		expect(cardHalftone('/images/blog/soc2/thumbnail.webp')).toBe('flat');
 		expect(halftoneMode('/images/blog/soc2/nested/thumb-0a1b2c3d.webp')).toBe('dots');
 	});
 

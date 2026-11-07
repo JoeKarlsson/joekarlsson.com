@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/thumb-5323b870.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/thumb-a009eef5.webp'
 heroAlt: 'The back of an equipment rack, every cable in place'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-09-continuous-compliance-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'

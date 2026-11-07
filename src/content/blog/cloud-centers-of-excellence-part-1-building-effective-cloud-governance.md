@@ -9,7 +9,7 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumb-7aac9c8c.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumb-d14a31a5.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A tiny carved wooden orchestra on a plate'

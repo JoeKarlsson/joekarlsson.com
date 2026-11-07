@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 import plan from '../scripts/work-thumbnail-plan.json';
 
-const LOOKS = ['full', 'taped'];
+const LOOKS = ['halftone', 'flat', 'taped'];
 interface PlanEntry {
 	look: string;
 	alt?: string;

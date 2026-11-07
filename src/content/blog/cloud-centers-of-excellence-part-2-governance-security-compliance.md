@@ -9,7 +9,7 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumb-93fef214.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumb-e27b3d17.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A crossing guard holding up a stop sign'

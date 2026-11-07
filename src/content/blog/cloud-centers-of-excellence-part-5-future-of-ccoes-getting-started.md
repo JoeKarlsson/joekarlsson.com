@@ -8,7 +8,7 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/thumb-c1809003.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/thumb-8ec9c8ae.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: "A souvenir postcard from the 1939 World's Fair"

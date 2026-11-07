@@ -6,9 +6,8 @@ import imagesWithText from '../data/images-with-text.json';
 const withText = new Set<string>(imagesWithText);
 
 /**
- * Work-post thumbnails (scripts/generate-work-thumbnails.mjs) are drawn as finished cards in the
- * picture's own colors, with the white border and tape of a taped print, so the live pink pass
- * leaves them alone.
+ * Work-post thumbnails (scripts/generate-work-thumbnails.mjs) come out already graded pink, with the
+ * white border and tape of a taped print kept, so the live pink pass leaves them alone.
  */
 export function isPretreatedThumbnail(src: string): boolean {
 	return /^\/images\/blog\/[^/]+\/thumb-[0-9a-f]{8}\.webp$/.test(src);
@@ -17,6 +16,11 @@ export function isPretreatedThumbnail(src: string): boolean {
 export function halftoneMode(src: string): 'flat' | 'dots' | undefined {
 	if (isPretreatedThumbnail(src)) return undefined;
 	return withText.has(src) ? 'flat' : 'dots';
+}
+
+/** Post cards in lists draw every thumbnail flat, except the pretreated ones */
+export function cardHalftone(src: string): 'flat' | undefined {
+	return isPretreatedThumbnail(src) ? undefined : 'flat';
 }
 
 /** The card-size copy of a project clip (`npm run media:cards`): "/x/demo.mp4" -> "/x/demo-card.mp4" */

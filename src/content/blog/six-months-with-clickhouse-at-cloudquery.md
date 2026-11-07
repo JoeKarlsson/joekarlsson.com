@@ -7,7 +7,7 @@ description: "What six months of ClickHouse as CloudQuery's default backend taug
 categories: ['Cloud', 'Web Dev']
 writtenFor: 'CloudQuery'
 tags: ['ClickHouse', 'Engineering', 'Data Engineering']
-heroImage: '/images/blog/six-months-with-clickhouse-at-cloudquery/thumb-8ccb9e37.webp'
+heroImage: '/images/blog/six-months-with-clickhouse-at-cloudquery/thumb-4a8cefac.webp'
 heroAlt: 'A clock on a station wall'
 canonicalUrl: 'https://www.cloudquery.io/blog/six-months-with-clickhouse-at-cloudquery'
 tldr: 'ClickHouse delivered on speed and scale, but JOINs need careful handling (use dictionaries), sorting keys are critical and unchangeable after the fact, materialized views were too unpredictable for us, and it works surprisingly well for logging/observability beyond just analytics.'

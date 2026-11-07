@@ -7,7 +7,7 @@ description: 'Stop guessing what in your multi-cloud environment. Use CloudQuery
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/thumb-14d7427d.webp'
+heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/thumb-083b10aa.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/eliminate-blind-spots-cloud-environment'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A meme showing cowboys on horseback attempting to herd a massive clowder of cats. The text reads, "HOW IT FEELS TO KEEP YOUR CLOUD ASSETS UNDER CONTROL."'

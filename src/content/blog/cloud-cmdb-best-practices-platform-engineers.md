@@ -8,7 +8,7 @@ tags:
   - Platform Engineering
 date: 2025-10-29
 description: Cloud CMDB best practices for multi-account environments - automated discovery, tiered sync, SQL queries, and historical retention for compliance.
-heroImage: '/images/blog/cloud-cmdb-best-practices-platform-engineers/thumb-2f2a593c.webp'
+heroImage: '/images/blog/cloud-cmdb-best-practices-platform-engineers/thumb-bafe9eaf.webp'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-cmdb-best-practices-platform-engineers

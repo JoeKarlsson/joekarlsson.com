@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/thumb-78284148.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/thumb-bce1f4ad.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Two women working through a desk of paperwork'

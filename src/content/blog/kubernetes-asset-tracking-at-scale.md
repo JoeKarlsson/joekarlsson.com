@@ -8,7 +8,7 @@ description: 'Track Kubernetes assets across clouds with a central configuration
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Governance']
-heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumb-f555ace5.webp'
+heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumb-52054d43.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/kubernetes-asset-tracking-at-scale'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Ralph Wiggum from The Simpsons saying, "I''m in Danger," with the caption, "When you realize your Kubernetes asset tracking is a mess".'

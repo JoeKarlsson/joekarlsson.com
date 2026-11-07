@@ -4,7 +4,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/WAAF_telephone_operators_at_work_at_No._11_Group_HQ_at_Uxbridge_in_Middlesex%2C_1942._CH7705.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:WAAF_telephone_operators_at_work_at_No._11_Group_HQ_at_Uxbridge_in_Middlesex,_1942._CH7705.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "Switchboard operators plugging in calls",
 		"focus": 0.5,
 		"mark": {
@@ -18,7 +18,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Telegraph_key%2C_unidentified_-_National_Electronics_Museum_-_DSC00223.JPG?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Telegraph_key,_unidentified_-_National_Electronics_Museum_-_DSC00223.JPG"
 		},
-		"look": "full",
+		"look": "flat",
 		"alt": "A brass Morse code key",
 		"focus": 0.5,
 		"mark": {
@@ -47,7 +47,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Air_traffic_control_binoculars.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Air_traffic_control_binoculars.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "A lookout with binoculars in a control tower",
 		"focus": 0.5,
 		"mark": {
@@ -61,7 +61,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Dream_Theater%2C_Chehalis_01.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Dream_Theater,_Chehalis_01.jpg"
 		},
-		"look": "full",
+		"look": "flat",
 		"alt": "A doorman outside an old theater",
 		"focus": 0.5,
 		"mark": {
@@ -77,7 +77,7 @@
 		},
 		"alt": "Jigsaw puzzle pieces scattered on a table",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -89,7 +89,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Old_Bridgeport_Road_map.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Old_Bridgeport_Road_map.jpg"
 		},
-		"look": "full",
+		"look": "flat",
 		"alt": "A close-up of an old road map",
 		"focus": 0.5,
 		"mark": {
@@ -118,7 +118,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Brazilian_battleship_Minas_Geraes_being_launched_1.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Brazilian_battleship_Minas_Geraes_being_launched_1.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "A ship sliding down the slipway at its launch",
 		"focus": 0.5,
 		"mark": {
@@ -150,7 +150,7 @@
 		},
 		"alt": "Two boxers mid-swing in an old newspaper photo",
 		"focus": 0.55,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -180,7 +180,7 @@
 		},
 		"alt": "Apollo-era Mission Control, everyone watching the same screens",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -194,7 +194,7 @@
 		},
 		"alt": "A tower block collapsing in a controlled demolition",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "cross",
 			"at": [55, 6, 26, 46],
@@ -209,7 +209,7 @@
 		},
 		"alt": "A 1940s traffic jam at an intersection",
 		"focus": 0.6,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -254,7 +254,7 @@
 		},
 		"alt": "A cloverleaf highway interchange from above",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "arrow",
 			"at": [20, 60, 52, 22],
@@ -285,7 +285,7 @@
 		},
 		"alt": "The back of an equipment rack, every cable in place",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -315,7 +315,7 @@
 		},
 		"alt": "A lifeguard tower watching the beach",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -329,7 +329,7 @@
 		},
 		"alt": "Soldiers aiming a searchlight into the night",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -358,7 +358,7 @@
 		},
 		"alt": "Two women working through a desk of paperwork",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -372,7 +372,7 @@
 		},
 		"alt": "A red fire alarm box on a brick wall",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -401,7 +401,7 @@
 		},
 		"alt": "A man measuring a boy's height against a wall",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -445,7 +445,7 @@
 		},
 		"alt": "A steam locomotive pulling red cars across a bridge",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -459,7 +459,7 @@
 		},
 		"alt": "An old handwritten register book",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -488,7 +488,7 @@
 		},
 		"alt": "Telephone switchboard operators patching calls",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -502,7 +502,7 @@
 		},
 		"alt": "A wall of apartment mailboxes",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -531,7 +531,7 @@
 		},
 		"alt": "An ornate frame with nothing inside it",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -545,7 +545,7 @@
 		},
 		"alt": "A magnifying glass over a postage stamp",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -589,7 +589,7 @@
 		},
 		"alt": "A painted carousel horse",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -618,7 +618,7 @@
 		},
 		"alt": "A long aisle of library stacks",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -632,7 +632,7 @@
 		},
 		"alt": "A dinosaur fossil in a museum case",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -661,7 +661,7 @@
 		},
 		"alt": "A wooden box of handwritten index cards",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -675,7 +675,7 @@
 		},
 		"alt": "Pliers hanging on a workshop tool wall",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -704,7 +704,7 @@
 		},
 		"alt": "An ornate green front door",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -718,7 +718,7 @@
 		},
 		"alt": "A census taker traveling by dog sled",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -747,7 +747,7 @@
 		},
 		"alt": "Cars launching down a drag strip at dusk",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -761,7 +761,7 @@
 		},
 		"alt": "An observatory telescope pointed at the sky",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -788,7 +788,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Whit-Monday_Meeting_of_the_B.A.R.C.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Whit-Monday_Meeting_of_the_B.A.R.C.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "Early race cars tearing around a banked track",
 		"focus": 0.5,
 		"mark": {
@@ -843,7 +843,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Fortune_Teller_by_Michelangelo_Merisi_da_Caravaggio_%281571-1610%29%2C_oil_on_canvas%2C_1595.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:The_Fortune_Teller_by_Michelangelo_Merisi_da_Caravaggio_(1571-1610),_oil_on_canvas,_1595.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "Caravaggio's painting of a fortune teller reading a young man's palm",
 		"focus": 0.4,
 		"mark": {
@@ -859,7 +859,7 @@
 		},
 		"alt": "A busy railway station hall with its departure board",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -873,7 +873,7 @@
 		},
 		"alt": "A tiny carved wooden orchestra on a plate",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -928,7 +928,7 @@
 		},
 		"alt": "A souvenir postcard from the 1939 World's Fair",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -953,7 +953,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta-stone-display-in-1985.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Rosetta-stone-display-in-1985.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "Visitors looking at a cast of the Rosetta Stone",
 		"focus": 0.5,
 		"mark": {
@@ -967,7 +967,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Man_posting_an_advertisement_for_La_publicit%C3%A9_en_France_par_Emile_Mermet.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Man_posting_an_advertisement_for_La_publicit%C3%A9_en_France_par_Emile_Mermet.jpg"
 		},
-		"look": "full",
+		"look": "flat",
 		"alt": "An old poster of a bill sticker with his paste bucket",
 		"focus": 0.5,
 		"mark": {
@@ -983,7 +983,7 @@
 		},
 		"alt": "A row of old police cars outside the station",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -1010,7 +1010,7 @@
 		},
 		"alt": "Postal clerks sorting a cart of mail",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -1024,7 +1024,7 @@
 		},
 		"alt": "The dashboard of an old car",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -1036,7 +1036,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Moscow%2C_MCC_Streshnevo%2C_station_clock%2C_Oct_2026_01.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Moscow,_MCC_Streshnevo,_station_clock,_Oct_2026_01.jpg"
 		},
-		"look": "full",
+		"look": "flat",
 		"alt": "A clock on a station wall",
 		"focus": 0.5,
 		"mark": {
@@ -1078,7 +1078,7 @@
 		},
 		"alt": "A forklift moving pallets in a warehouse",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -1118,7 +1118,7 @@
 		},
 		"alt": "A letter closed with a red wax seal",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1145,7 +1145,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/General_store_interior_Alabama_Walker_Evans.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:General_store_interior_Alabama_Walker_Evans.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "An old general store with every shelf stocked",
 		"focus": 0.5,
 		"mark": {
@@ -1161,7 +1161,7 @@
 		},
 		"alt": "A hand ticking boxes on a clipboard checklist",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -1175,7 +1175,7 @@
 		},
 		"alt": "A trailer stacked with blue beehives",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1219,7 +1219,7 @@
 		},
 		"alt": "Museum storage cabinets full of specimen drawers",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -1246,7 +1246,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9F%D0%BE%D1%80%D0%BE%D0%B3_%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B9_%D0%BD%D0%B0_%D1%80%D0%B5%D0%BA%D0%B5_%D0%9F%D0%BE%D0%BD%D1%8C%D0%B3%D0%BE%D0%BC%D0%B0.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BE%D1%80%D0%BE%D0%B3_%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B9_%D0%BD%D0%B0_%D1%80%D0%B5%D0%BA%D0%B5_%D0%9F%D0%BE%D0%BD%D1%8C%D0%B3%D0%BE%D0%BC%D0%B0.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "River rapids rushing over rocks",
 		"focus": 0.5,
 		"mark": {
@@ -1260,7 +1260,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mountain_Stream_MET_DT1544.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Mountain_Stream_MET_DT1544.jpg"
 		},
-		"look": "full",
+		"look": "flat",
 		"alt": "A painting of a rocky mountain stream",
 		"focus": 0.5,
 		"mark": {
@@ -1274,7 +1274,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Evening_columns_Zeus_temple_Athens.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Evening_columns_Zeus_temple_Athens.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "Ancient Greek columns at sunset",
 		"focus": 0.5,
 		"mark": {
@@ -1303,7 +1303,7 @@
 		},
 		"alt": "A soldier holding a banknote up to check it",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -1315,7 +1315,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Seismometer_%28vertical%29%2C_made_for_the_World_Wide_Standard_Seismological_Network_by_Spregnether_Instrument_Company%2C_St._Louis%2C_MO%2C_1961-1962_-_National_Museum_of_American_History_-_DSC00023.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Seismometer_(vertical),_made_for_the_World_Wide_Standard_Seismological_Network_by_Spregnether_Instrument_Company,_St._Louis,_MO,_1961-1962_-_National_Museum_of_American_History_-_DSC00023.jpg"
 		},
-		"look": "full",
+		"look": "flat",
 		"alt": "An old seismograph",
 		"focus": 0.5,
 		"mark": {
@@ -1358,7 +1358,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Museo_del_disco_d_epoca%2C_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Museo_del_disco_d_epoca,_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "A glowing jukebox",
 		"focus": 0.5,
 		"mark": {
@@ -1372,7 +1372,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Chimpanzee_seated_at_typewriter.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Chimpanzee_seated_at_typewriter.jpg"
 		},
-		"look": "full",
+		"look": "flat",
 		"alt": "A chimpanzee typing at an old typewriter",
 		"focus": 0.4,
 		"mark": {
@@ -1401,7 +1401,7 @@
 		},
 		"alt": "An open safe deposit box",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -1413,7 +1413,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bread_slices.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Bread_slices.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "Slices of bread on a plate",
 		"focus": 0.5,
 		"mark": {
@@ -1443,7 +1443,7 @@
 		},
 		"alt": "Runners at the start of an old race",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -1498,7 +1498,7 @@
 		},
 		"alt": "Mannequins standing in a shop window",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1512,7 +1512,7 @@
 		},
 		"alt": "Shelves of labeled archive boxes",
 		"focus": 0.5,
-		"look": "full",
+		"look": "halftone",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -1524,7 +1524,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Machine_enigma_du_collectioneur_Edmond_Kern.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Machine_enigma_du_collectioneur_Edmond_Kern.jpg"
 		},
-		"look": "full",
+		"look": "flat",
 		"alt": "A man studying an Enigma cipher machine",
 		"focus": 0.5,
 		"mark": {
@@ -1553,7 +1553,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Very_rusty_chain_in_rain_4.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Very_rusty_chain_in_rain_4.jpg"
 		},
-		"look": "full",
+		"look": "halftone",
 		"alt": "Heavy rusted chain links",
 		"focus": 0.5,
 		"mark": {
@@ -1569,7 +1569,7 @@
 		},
 		"alt": "A mountain lake reflecting snowy peaks",
 		"focus": 0.5,
-		"look": "full",
+		"look": "flat",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],

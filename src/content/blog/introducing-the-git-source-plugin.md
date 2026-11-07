@@ -8,7 +8,7 @@ description: 'Query Dockerfiles, CODEOWNERS and package.json across all your rep
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/introducing-the-git-source-plugin/thumb-a2784509.webp'
+heroImage: '/images/blog/introducing-the-git-source-plugin/thumb-f586d7b9.webp'
 heroAlt: 'A magnifying glass over a postage stamp'
 canonicalUrl: 'https://www.cloudquery.io/blog/introducing-the-git-source-plugin'
 contentNotice: 'This post was originally published on CloudQuery blog.'

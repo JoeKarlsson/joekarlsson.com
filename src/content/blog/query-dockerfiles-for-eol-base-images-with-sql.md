@@ -7,7 +7,7 @@ description: 'Node 18 reached end-of-life. Find every Dockerfile using Node 18 b
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/query-dockerfiles-for-eol-base-images-with-sql/thumb-63753e1a.webp'
+heroImage: '/images/blog/query-dockerfiles-for-eol-base-images-with-sql/thumb-579911f5.webp'
 heroAlt: 'Stacks of shipping containers at a port'
 canonicalUrl: 'https://www.cloudquery.io/blog/query-dockerfiles-for-eol-base-images-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'

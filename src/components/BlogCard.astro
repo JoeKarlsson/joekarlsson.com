@@ -1,12 +1,14 @@
 ---
-// One post in a list (blog index, category pages, newsletter): the thumbnail, the
-// photo as it is, on the left, then date, reading time and categories, the title, and
+// One post in a list (blog index, category pages, newsletter): the thumbnail on the
+// left (pink from src/scripts/halftone.ts unless clearThumbnail; generated work-post
+// thumbnails come pretreated), then date, reading time and categories, the title, and
 // the description, and which employer a professional post was written for. Same
 // row as the homepage's Recent posts, compact on phones too: a small thumbnail beside
 // the text instead of a full-width picture above it, so a screen holds about twice
 // as many posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
 import { formatDate } from '../utils/ui';
+import { cardHalftone } from '../utils/halftone';
 import { CHALK, MARKS } from '../data/scribbles';
 import HoverBox from './HoverBox.astro';
 import Scribble from './Scribble.astro';
@@ -29,6 +31,8 @@ interface Props {
 	markIndex?: number;
 	// Position in its list: picks the hover box, so neighbours draw different ones
 	index?: number;
+	// The blog lists show the photo as it is, without the live pink tone
+	clearThumbnail?: boolean;
 }
 
 // Marks for thumbnails, cycled by markIndex, alternating chalk and pink
@@ -54,6 +58,7 @@ const {
 	popular = false,
 	markIndex,
 	index,
+	clearThumbnail = false,
 } = Astro.props;
 const mark =
 	markIndex === undefined ? undefined : THUMBNAIL_MARKS[markIndex % THUMBNAIL_MARKS.length];
@@ -69,6 +74,7 @@ const formattedDate = formatDate(date);
 			src={image}
 			alt=""
 			aria-hidden="true"
+			data-halftone={clearThumbnail ? undefined : cardHalftone(image)}
 			width="560"
 			height="315"
 			sizes="(min-width: 640px) 280px, 112px"

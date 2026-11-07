@@ -7,7 +7,7 @@ description: 'An internal developer portal is only as useful as its asset invent
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Cloud Asset Inventory']
-heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/thumb-015f6817.webp'
+heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/thumb-1b60eacd.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-make-your-internal-developer-portal-actually-useful'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A busy railway station hall with its departure board'

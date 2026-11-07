@@ -6,7 +6,7 @@ slug: 'the-engineers-guide-to-enriching-streams-and-dimensions'
 description: 'How to enrich real-time Kafka streams with Snowflake dimension tables, with use cases for fraud detection, e-commerce personalization and log analytics.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/thumb-5f0b5312.webp'
+heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/thumb-4993c4e3.webp'
 heroAlt: 'A painting of a rocky mountain stream'
 tldr: 'Joining real-time event streams from Kafka with dimension tables in a data warehouse unlocks powerful use cases like fraud detection, e-commerce personalization, and log analytics. I walk through three concrete examples with SQL showing how to enrich streaming data with historical context.'
 ---

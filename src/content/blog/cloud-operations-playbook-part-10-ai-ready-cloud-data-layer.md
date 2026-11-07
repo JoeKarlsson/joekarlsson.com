@@ -7,7 +7,7 @@ description: >-
 categories: ['AI']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'AI', 'Cloud Infrastructure']
-heroImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/thumb-1d7443bb.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/thumb-73ca9f7e.webp'
 heroAlt: 'Rows of wooden library card catalog drawers'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer'
 contentNotice: 'This post was originally published on CloudQuery blog.'

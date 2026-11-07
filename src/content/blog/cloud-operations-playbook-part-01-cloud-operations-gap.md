@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Platform Engineering', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/thumb-98e82ed0.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/thumb-e3f29c07.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'The Manhattan Bridge under construction, its middle span still missing'

@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Platform Engineering']
-heroImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/thumb-5c344df7.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/thumb-c6ff6398.webp'
 heroAlt: 'A crowded stock exchange trading floor'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard'
 contentNotice: 'This post was originally published on CloudQuery blog.'

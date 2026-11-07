@@ -9,7 +9,7 @@ writtenFor: 'CloudQuery'
 tags: ['Engineering']
 canonicalUrl: https://www.cloudquery.io/blog/soc2
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroImage: '/images/blog/soc2/thumb-f10a2523.webp'
+heroImage: '/images/blog/soc2/thumb-b5b9090a.webp'
 heroAlt: 'A hand ticking boxes on a clipboard checklist'
 ---
 

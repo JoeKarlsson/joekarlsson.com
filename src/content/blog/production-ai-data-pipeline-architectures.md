@@ -5,7 +5,7 @@ tags:
   - Tutorials
 date: 2025-09-01
 description: 'AI data pipeline architectures with CloudQuery, moving data from 50+ sources into vector databases and training pipelines on your own infrastructure.'
-heroImage: '/images/blog/production-ai-data-pipeline-architectures/thumb-394f5eb4.webp'
+heroImage: '/images/blog/production-ai-data-pipeline-architectures/thumb-205e1953.webp'
 categories: ['AI']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/production-ai-data-pipeline-architectures

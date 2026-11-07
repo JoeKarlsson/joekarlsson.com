@@ -7,7 +7,7 @@ description: 'AWS Lambda Python 3.9 security patches stopped Dec 15, 2025. Find 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
-heroImage: '/images/blog/python-39-lambda-deprecation/thumb-ddf0d6bc.webp'
+heroImage: '/images/blog/python-39-lambda-deprecation/thumb-72b58e49.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/python-39-lambda-deprecation'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A python curled up asleep'

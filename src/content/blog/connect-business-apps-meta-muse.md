@@ -7,7 +7,7 @@ description: 'Connect enterprise data to Meta Muse with CData Connect AI. Add Sa
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai-agents', 'meta-muse', 'tutorial', 'enterprise', 'cdata']
-heroImage: '/images/blog/connect-business-apps-meta-muse/thumb-4913d186.webp'
+heroImage: '/images/blog/connect-business-apps-meta-muse/thumb-a0e6240a.webp'
 heroAlt: 'Jigsaw puzzle pieces scattered on a table'
 canonicalUrl: 'https://www.cdata.com/blog/muse'
 faq:

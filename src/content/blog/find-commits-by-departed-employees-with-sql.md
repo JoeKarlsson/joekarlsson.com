@@ -7,7 +7,7 @@ description: 'Find code changes by employees who left your organization by match
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/find-commits-by-departed-employees-with-sql/thumb-c92fe7a6.webp'
+heroImage: '/images/blog/find-commits-by-departed-employees-with-sql/thumb-c2cc73cf.webp'
 heroAlt: 'An empty desk and chair in a bare office'
 canonicalUrl: 'https://www.cloudquery.io/blog/find-commits-by-departed-employees-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'

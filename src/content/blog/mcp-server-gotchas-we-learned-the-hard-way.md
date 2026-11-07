@@ -7,7 +7,7 @@ description: 'What we learned building an MCP server for cloud infrastructure da
 categories: ['AI']
 writtenFor: 'CloudQuery'
 tags: ['MCP', 'LLM', 'AI', 'Engineering', 'Go']
-heroImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/thumb-5263591a.webp'
+heroImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/thumb-74ac09cb.webp'
 heroAlt: "Meme showing the 'This is fine' dog sitting calmly in a room on fire. Caption added: 'Your LLM trying to process 50,000 tokens of raw schema.' Dog says 'This is fine'."
 canonicalUrl: 'https://www.cloudquery.io/blog/mcp-server-gotchas-we-learned-the-hard-way'
 tldr: 'We built an MCP server in Go to let Claude and Cursor query our cloud infrastructure database directly. Short, vague tool descriptions confused the model - longer, domain-specific ones fixed it. Ambiguous tool names kept tools unused - renaming them to match intent made them indispensable. Raw schemas overwhelmed the context window - we filtered them down to high-signal columns. Even at temperature=0, LLMs showed non-determinism and selective attention.'

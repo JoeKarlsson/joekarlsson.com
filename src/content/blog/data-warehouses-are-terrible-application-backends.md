@@ -6,7 +6,7 @@ slug: 'data-warehouses-are-terrible-application-backends'
 description: "Data warehouses can't handle the freshness, latency and concurrency user-facing apps need. Why real-time data platforms make better application backends."
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/data-warehouses-are-terrible-application-backends/thumb-895d7d74.webp'
+heroImage: '/images/blog/data-warehouses-are-terrible-application-backends/thumb-fc87ba02.webp'
 heroAlt: 'A long, plain old warehouse'
 tldr: 'Data warehouses like Snowflake and BigQuery are great for BI dashboards but terrible for user-facing apps. Job pool queuing creates unpredictable latency, concurrency is expensive to scale, and cache layers sacrifice data freshness. Use a real-time data platform instead.'
 ---

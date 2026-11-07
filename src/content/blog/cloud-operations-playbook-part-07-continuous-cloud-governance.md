@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/thumb-b963c4b2.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/thumb-d84fc409.webp'
 heroAlt: 'A lifeguard tower watching the beach'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-07-continuous-cloud-governance'
 contentNotice: 'This post was originally published on CloudQuery blog.'

@@ -9,6 +9,7 @@
 import { getCollection } from 'astro:content';
 import { DEFAULT_HERO_IMAGE } from '../consts';
 import { MARKS } from '../data/scribbles';
+import { halftoneMode } from '../utils/halftone';
 import { isOwnPost } from '../utils/posts';
 import { SECTION_HEADING } from '../utils/ui';
 import HoverBox from './HoverBox.astro';
@@ -97,6 +98,7 @@ const firstRandom = randomPool[0];
 									src={image}
 									alt=""
 									aria-hidden="true"
+									data-halftone={halftoneMode(image)}
 									width="560"
 									height="315"
 									sizes={
