@@ -310,25 +310,27 @@ export const projects: Project[] = [
 		image: '/images/projects/poststream-poster.webp',
 		video: '/images/projects/poststream.mp4',
 		imageAlt:
-			'PostStream: typing a post into a plain text box, the post showing up at the top of the stream in pink monospace, scrolling past other posts in different colors, then the about page listing what PostStream leaves out',
+			'PostStream: typing a post into a plain text box while a character counter fills in, the post showing up at the top of the feed under an IRC-style log line, replying to someone with "agree, because it is always the third one" picked from a list, scrolling past posts colored by author, then the about page laid out like a man page',
 		category: 'web',
 		date: '2016-07',
 		tech: ['React', 'Node.js', 'Express', 'PostgreSQL'],
 		sourceUrl: 'https://github.com/JoeKarlsson/post-stream',
+		demoUrl: 'https://poststream.joekarlsson.com/',
 		page: {
 			slug: 'poststream',
 			tagline: 'A social network with the metrics taken out.',
 			intro: [
 				'PostStream is a social network that only does text. Ray Farias, Jacoby Young and I built it in 2016 as a response to the social media we were all using, and we called it undesigned.',
 				"Most of the work was deciding what to leave out. It shows no like counts and no follower counts, so you can't see how popular anyone is. There's no global feed, no trending topics and no news to browse, and you can't post images, video or GIFs. The stream shows the first 256 characters of each post, with a read more that goes up to 2,048.",
-				'Someone else owns poststream.io now, so there is no live version anymore. The code is on GitHub and still runs locally with Node and PostgreSQL.',
+				"Replies work the same way. You don't write them, you pick one: agree, disagree, agree or disagree because of something, tell me more about something, thank you for sharing, or brilliant. Most of those never got built in 2016. I finished them in November 2026, along with the feed that only shows people you follow.",
+				'Someone else owns poststream.io now. The archived copy at poststream.joekarlsson.com has no server: it runs in your browser, signs you in as a sample visitor, and a few made-up people keep posting while you look around. Anything you post stays in your browser. The full app, with Node and PostgreSQL, is on GitHub.',
 			],
 			screenshotsTitle: 'Screenshots',
 			screenshots: [
 				{
 					poster: '/images/projects/poststream-about.webp',
-					alt: "PostStream's about page: what is PostStream, then a list of important concepts including no public metrics, no visible follower or like numbers, no global feed, no trending topics, a character limit, and no video, images or GIFs",
-					caption: 'The about page lists everything PostStream leaves out',
+					alt: "PostStream's about page laid out like a Unix man page, with NAME, DESCRIPTION and CONCEPTS sections. The concepts include no public metrics, no visible follower or like numbers, no global public feed, no trending topics, 256 characters in the stream with read more up to 2048, no video, images or GIFs, and contextual responses",
+					caption: 'The about page is a man page that lists everything PostStream leaves out',
 				},
 			],
 		},
