@@ -33,34 +33,48 @@ const PAGES = [
 ];
 
 const browser = await webkit.launch();
+
+/** Loads one page as a phone, scrolls it through, and returns what went wrong */
+async function checkPage(path, device) {
+	const context = await browser.newContext(device);
+	const page = await context.newPage();
+	const problems = [];
+	let loads = 0;
+	page.on('crash', () => problems.push('the page crashed'));
+	page.on('pageerror', (error) => problems.push(`script error: ${error.message}`));
+	page.on('load', () => loads++);
+	try {
+		await page.goto(site + path, { waitUntil: 'load', timeout: 45_000 });
+		const height = await page.evaluate(() => document.body.scrollHeight);
+		for (let y = 0; y < height; y += 600) {
+			await page.evaluate((top) => window.scrollTo(0, top), y);
+			await page.waitForTimeout(100);
+		}
+		await page.waitForTimeout(1500);
+		if (loads > 1) problems.push(`reloaded ${loads - 1} time(s) on its own`);
+		const gameLoaded = await page.evaluate(() =>
+			Boolean(document.querySelector('iframe[data-desktop-src][src]')),
+		);
+		if (gameLoaded) problems.push('loaded a desktop-only embed on a phone');
+	} catch (error) {
+		problems.push(error.message.split('\n')[0]);
+	}
+	await context.close();
+	return problems;
+}
+
 const failures = [];
 try {
 	for (const [path, device] of PAGES) {
 		const label = `${path} (${device === SIDEWAYS ? 'sideways' : 'upright'})`;
-		const context = await browser.newContext(device);
-		const page = await context.newPage();
-		const problems = [];
-		let loads = 0;
-		page.on('crash', () => problems.push('the page crashed'));
-		page.on('pageerror', (error) => problems.push(`script error: ${error.message}`));
-		page.on('load', () => loads++);
-		try {
-			await page.goto(site + path, { waitUntil: 'load', timeout: 45_000 });
-			const height = await page.evaluate(() => document.body.scrollHeight);
-			for (let y = 0; y < height; y += 600) {
-				await page.evaluate((top) => window.scrollTo(0, top), y);
-				await page.waitForTimeout(100);
-			}
-			await page.waitForTimeout(1500);
-			if (loads > 1) problems.push(`reloaded ${loads - 1} time(s) on its own`);
-			const gameLoaded = await page.evaluate(() =>
-				Boolean(document.querySelector('iframe[data-desktop-src][src]')),
-			);
-			if (gameLoaded) problems.push('loaded a desktop-only embed on a phone');
-		} catch (error) {
-			problems.push(error.message.split('\n')[0]);
+		let problems = await checkPage(path, device);
+		// Right after a deploy, Cloudflare can briefly fail a file the new build added
+		// (seen 2026-11-07). A real crash or broken page fails again; a hiccup doesn't.
+		if (problems.length) {
+			console.log(`  retrying ${label}: ${problems.join('; ')}`);
+			await new Promise((resolve) => setTimeout(resolve, 20_000));
+			problems = await checkPage(path, device);
 		}
-		await context.close();
 		if (problems.length) failures.push(`${label}: ${problems.join('; ')}`);
 		else console.log(`  ok  ${label}`);
 	}
