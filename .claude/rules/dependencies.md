@@ -26,8 +26,10 @@ Don't try to force-fix these:
 
 - `esbuild` CVE - Windows-only dev server issue, needs Astro v8+.
 - `brace-expansion` GHSA-mh99-v99m-4gvg (dev-only, via `pa11y-ci` and `serve` through `minimatch@3`). Overriding to `^5` silently breaks brace patterns: v5's CJS entry exports an object, so minimatch 3 throws `expand is not a function`. `npm test` never exercises pa11y-ci or serve, so it won't catch the break.
-- `extract-zip` <=2.0.1 (dev-only via `@lhci/cli` > `lighthouse@12.6.1` > `@puppeteer/browsers@2`), only unzips Chrome from Google's CDN. The real fix is `@puppeteer/browsers` 3.x, but don't override it in: Lighthouse isn't exercised by `npm test` either. Dismissed as tolerable risk 2026-10-28; recheck when `@lhci/cli` moves past lighthouse 12.6.1.
+- `extract-zip` <=2.0.1 (dev-only via `@lhci/cli` > `lighthouse@12.6.1` > `@puppeteer/browsers@2`), only unzips Chrome from Google's CDN. The real fix is `@puppeteer/browsers` 3.x, but don't override it in: Lighthouse isn't exercised by `npm test` either. Dismissed as tolerable risk 2026-10-28. The `zod` <4.6.6 advisory rides the same chain (`lighthouse@12.6.1` > `puppeteer-core` > `chromium-bidi` > `zod@3`). `@lhci/cli` 0.16.0 (2026-11-02) moves to lighthouse 13.6 and clears both, but it's a Lighthouse major: check `.lighthouserc.json` assertions still run before adopting it.
 - `typescript` 7 - blocked by `@astrojs/check`, which peers on `^5 || ^6`, so `typescript` stays pinned at `^6`.
+
+Two overrides patch dev-only DoS advisories ahead of their parents (2026-11-07): `minimatch@^10` > `^11.0.5` for eslint and typescript-eslint (they only use `new Minimatch`, `.match()` and `.pattern`, which 11 kept; eslint linted the same files with the same results), and `re2js` > `^2.9.1` for markdownlint, which pins 2.8.6 until markdownlint-cli2 takes markdownlint 0.42.1. Drop each once the parent's own range includes the fix.
 
 Prefer `overrides` in `package.json` over `npm audit fix` when audit fix would downgrade a package (it once tried to take `@lhci/cli` from 0.15 to 0.6).
 
