@@ -1,4 +1,7 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { filteredAreaRatio, MAX_FILTERED_AREA_PER_FIGURE } from './svg-filter-area';
 
 import { createFigure } from '../scripts/diagrams/draw.mjs';
 
@@ -67,5 +70,30 @@ describe('npm run diagrams', () => {
 		} finally {
 			rmSync(dir, { recursive: true, force: true });
 		}
+	});
+});
+
+describe('diagram filters stay small enough for iPhone Safari', () => {
+	it('every drawn figure filters at most a few figures worth of area', () => {
+		const figures = readdirSync('public/images/blog', { recursive: true, encoding: 'utf8' })
+			.filter((file) => file.endsWith('.svg'))
+			.map((file) => join('public/images/blog', file))
+			.filter((file) => readFileSync(file, 'utf8').includes('-crayon-'));
+		expect(figures.length).toBeGreaterThan(100);
+		const tooMuch = figures
+			.map((file) => [file, filteredAreaRatio(readFileSync(file, 'utf8'))] as const)
+			.filter(([, ratio]) => ratio > MAX_FILTERED_AREA_PER_FIGURE)
+			.map(([file, ratio]) => `${file}: ${ratio.toFixed(1)}x its own area`);
+		expect(tooMuch).toEqual([]);
+	});
+
+	it('the kit sizes each stroke filter to that stroke, not the figure', () => {
+		const f = createFigure({ id: 'one-arrow', width: 600, height: 900 });
+		f.arrow([
+			[100, 100],
+			[100, 160],
+		]);
+		const svg = f.toString('one arrow');
+		expect(filteredAreaRatio(svg)).toBeLessThan(0.05);
 	});
 });

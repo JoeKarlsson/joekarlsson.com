@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" width="640" height="390" role="img" aria-label="ETL throughput in rows per second: CloudQuery 163,489, Fivetran 111,000, Talend 69,000 and Airbyte 3,000.">
-<defs><filter id="etl-benchmark-1-million-rows-2-seconds-macbook-rows-per-second-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="430">
-<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
-<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
-<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
-<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
-<feComposite in="d" in2="holes" operator="in"/>
-</filter></defs>
+<defs></defs>
 <rect width="640" height="390" fill="#000000"/>
 <text x="16" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="24" fill="#ededed" text-anchor="start" dominant-baseline="central">ROWS PER SECOND</text>
 <text x="16" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">ETL throughput, higher is better</text>

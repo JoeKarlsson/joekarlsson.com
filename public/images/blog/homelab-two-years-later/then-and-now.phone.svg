@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 820" width="360" height="820" role="img" aria-label="The homelab in 2023 versus 2026. Servers: 1 Lenovo ThinkServer, then 2 Dell R730s. CPU: a quad-core Xeon E3, then 80 cores and 160 threads at about 13% busy. RAM: 32GB, then 256GB with about 72GB used. GPU: none, then 2 NVIDIA GPUs with 24GB of VRAM. Workloads: about 15 containers, then 73 containers and 1 VM. Network: flat with no VLANs, then 4 VLANs with 10G between hosts. Monitoring: none, then Prometheus, Loki and 185 health checks. Config: by hand, then every container in OpenTofu. Power: about 80W estimated, then about 430W average metered. Hardware: $200, then about $7,400. Power cost: about $105 a year, then about $565 a year.">
-<defs><filter id="homelab-two-years-later-then-and-now-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="860">
-<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
-<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
-<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
-<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
-<feComposite in="d" in2="holes" operator="in"/>
-</filter></defs>
+<defs></defs>
 <rect width="360" height="820" fill="#000000"/>
 <text x="16" y="30" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="start" dominant-baseline="central">SERVERS</text>
 <text x="16" y="54" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2023: 1 Lenovo ThinkServer</text>

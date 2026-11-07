@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="What the model actually receives. Raw schema: Salesforce fields like Id 0061E00001BnKLVQA3, StageName &quot;Proposal/Price&quot;, Amount 480000.0 and IsWon false, so the model has to guess what they mean. Semantic context: the same deal as account Acme Corp, deal stage Proposal, amount $480,000, expected close September 30, 2026, win probability 65% and tier Enterprise, so the model answers accurately.">
-<defs><filter id="ai-gateway-data-access-layer-schema-vs-semantic-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="440">
-<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
-<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
-<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
-<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
-<feComposite in="d" in2="holes" operator="in"/>
-</filter></defs>
+<defs></defs>
 <rect width="640" height="400" fill="#000000"/>
 <text x="16" y="26" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="24" fill="#ededed" text-anchor="start" dominant-baseline="central">RAW SCHEMA</text>
 <text x="336" y="26" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="24" fill="#ededed" text-anchor="start" dominant-baseline="central">SEMANTIC CONTEXT</text>

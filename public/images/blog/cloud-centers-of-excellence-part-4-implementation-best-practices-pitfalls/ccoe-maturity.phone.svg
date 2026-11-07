@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440" width="360" height="440" role="img" aria-label="The Cloud Center of Excellence maturity pyramid, from the base up: 1 ad hoc (undocumented, unmanaged, individual effort), 2 reactive (siloed teams, inconsistent practices), 3 defined (governance, policy and repeatable processes), 4 integrated (security, FinOps and DevOps are aligned), and at the top 5 optimized CCOE (cross-functional, automated, productive).">
-<defs><filter id="cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls-ccoe-maturity-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="480">
-<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
-<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
-<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
-<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
-<feComposite in="d" in2="holes" operator="in"/>
-</filter></defs>
+<defs></defs>
 <rect width="360" height="440" fill="#000000"/>
 <g transform="rotate(0.1 180 54)">
 <path class="d-paper" d="M71.5,14.9 L87,17.1 L104.7,15.5 L119,17.4 L136.3,15 L153.2,16.5 L168.8,15.1 L185.6,16.8 L198.6,17.5 L216.2,15.1 L231.7,16.1 L247.8,14.7 L265.3,15.2 L279.9,16.1 L287,16.4 L289.1,32.8 L287.9,48.8 L288.6,65.4 L288.3,79.4 L287.9,91 L270.4,91.7 L256.5,91.8 L239.9,90.6 L223.2,92.4 L208.1,93.6 L193,91.9 L177.2,91.2 L160.3,93.5 L142.5,92.3 L129.6,91.2 L110.9,92.4 L96.9,91.4 L81.2,91.5 L71.7,93.3 L71.5,76.1 L71.5,61 L73.1,42.5 L72.7,28.9 Z" fill="#ff4fd8"/>

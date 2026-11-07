@@ -1,4 +1,5 @@
 import { readFileSync, existsSync, readdirSync } from 'fs';
+import { filteredAreaRatio, MAX_FILTERED_AREA_PER_FIGURE } from './svg-filter-area';
 import { resolve } from 'path';
 import sharp from 'sharp';
 import { describe, expect, it } from 'vitest';
@@ -720,6 +721,23 @@ describe('performance guards', () => {
 		for (const [, id] of html.matchAll(/<use href="#(hover-ring-\d+)"/g)) {
 			expect(html).toContain(`id="${id}"`);
 		}
+	});
+
+	// Astro caches rendered markdown without tracking the inlined SVG files, so a stale
+	// cache can ship diagrams the source no longer has (see tests/svg-filter-area.ts)
+	it('diagrams inlined in built posts keep their filters small enough for iPhone Safari', () => {
+		const tooMuch: string[] = [];
+		let figures = 0;
+		for (const page of builtPages.filter((p) => /^(blog|newsletter)\//.test(p))) {
+			for (const [svg] of readDist(page).matchAll(/<svg\b[^>]*viewBox="0 0 [^"]+"[^]*?<\/svg>/g)) {
+				if (!svg.includes('-crayon')) continue;
+				figures++;
+				const ratio = filteredAreaRatio(svg);
+				if (ratio > MAX_FILTERED_AREA_PER_FIGURE) tooMuch.push(`${page}: ${ratio.toFixed(1)}x`);
+			}
+		}
+		expect(figures).toBeGreaterThan(100);
+		expect(tooMuch).toEqual([]);
 	});
 
 	it('project screenshots and gallery stills keep their own colors', () => {

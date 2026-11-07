@@ -214,6 +214,19 @@ export function measure(content, size, font = 'sans', weight = 400) {
  * filter is looked up by id), so render.mjs passes slug-name-layout.
  * `issues` collects text that overflows its box or the canvas; render.mjs fails on any.
  */
+/** The crayon look for one stroke: wobbled edges and waxy gaps, over the given region */
+function crayonFilter(filterId, { x, y, width, height }) {
+	return [
+		`<filter id="${filterId}" filterUnits="userSpaceOnUse" x="${n(x)}" y="${n(y)}" width="${n(width)}" height="${n(height)}">`,
+		'<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>',
+		'<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>',
+		'<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>',
+		'<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>',
+		'<feComposite in="d" in2="holes" operator="in"/>',
+		'</filter>',
+	].join('');
+}
+
 export function createFigure({ id, width, height }) {
 	let seed = [...id].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
 	const random = () => {
@@ -221,7 +234,11 @@ export function createFigure({ id, width, height }) {
 		return seed / 4294967296;
 	};
 	const jitter = (amount) => (random() - 0.5) * 2 * amount;
-	const filter = `url(#${id}-crayon)`;
+	// One crayon filter per stroke, sized to that stroke. A filter sized to the whole
+	// figure made Safari on iPhone keep a full-figure buffer (3x the pixels) for every
+	// arrow, and the boil animation redrew them all; long posts ran out of memory and
+	// the tab reloaded over and over. Noise is in user space, so the look is the same.
+	const crayonFilters = [];
 	// Drawn in this order, so arrows never sink under a box and callouts sit on top
 	const layers = { groups: [], boxes: [], lines: [], callouts: [] };
 	let target = layers.boxes;
@@ -262,8 +279,23 @@ export function createFigure({ id, width, height }) {
 
 	/** A crayon stroke: arrows and callouts. */
 	function stroke(d, color, strokeWidth = 3, extra = '') {
+		// Paths here are absolute M/L/Q coordinate pairs, so every other number is an x
+		const numbers = d.match(/-?\d+(\.\d+)?/g).map(Number);
+		const xs = numbers.filter((_, i) => i % 2 === 0);
+		const ys = numbers.filter((_, i) => i % 2 === 1);
+		// Room for the stroke's width and the displacement
+		const pad = strokeWidth + 8;
+		const filterId = `${id}-crayon-${crayonFilters.length + 1}`;
+		crayonFilters.push(
+			crayonFilter(filterId, {
+				x: Math.min(...xs) - pad,
+				y: Math.min(...ys) - pad,
+				width: Math.max(...xs) - Math.min(...xs) + pad * 2,
+				height: Math.max(...ys) - Math.min(...ys) + pad * 2,
+			}),
+		);
 		target.push(
-			`<path d="${d}" fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round" filter="${filter}"${extra}/>`,
+			`<path d="${d}" fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round" filter="url(#${filterId})"${extra}/>`,
 		);
 	}
 
@@ -899,13 +931,7 @@ export function createFigure({ id, width, height }) {
 		checkLines();
 		return [
 			`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeXml(label)}">`,
-			`<defs><filter id="${id}-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="${width + 40}" height="${height + 40}">`,
-			'<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>',
-			'<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>',
-			'<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>',
-			'<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>',
-			'<feComposite in="d" in2="holes" operator="in"/>',
-			'</filter></defs>',
+			`<defs>${crayonFilters.join('')}</defs>`,
 			`<rect width="${width}" height="${height}" fill="${COLORS.ink}"/>`,
 			...layers.groups,
 			...layers.boxes,

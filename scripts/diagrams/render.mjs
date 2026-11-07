@@ -7,7 +7,7 @@
 // A figure file exports `alt` (the post's alt text), and `desktop` and `phone`,
 // each { height, draw(f) }. Fails when any text overflows its box or the canvas.
 
-import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -73,6 +73,10 @@ if (flag) {
 	console.log(`Preview: ${previewPath}`);
 } else {
 	console.log(`Rendered ${rendered.length} figures for ${slug}`);
+	// Posts inline their diagrams at build time (rehype-inline-diagrams), but Astro caches
+	// rendered markdown without tracking the SVG files, so the next build would ship the old ones
+	rmSync(path.join(root, 'node_modules/.astro'), { recursive: true, force: true });
+	console.log('Cleared node_modules/.astro so the next build inlines the new figures.');
 }
 if (problems) {
 	console.error(`${problems} layout problem(s): move or resize the parts named above.`);

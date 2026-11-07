@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-label="Chomsky’s grammar hierarchy as nested sets: Type 3, regular, sits inside Type 2, context-free, inside Type 1, context-sensitive, inside Type 0, unrestricted. CloudQuery’s search language moved from Type 3 (regex) to Type 2 (PEG.js) to support nested parentheses and operator precedence.">
-<defs><filter id="how-we-accidentally-invented-a-cloud-search-language-chomsky-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="460">
-<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
-<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
-<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
-<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
-<feComposite in="d" in2="holes" operator="in"/>
-</filter></defs>
+<defs></defs>
 <rect width="640" height="420" fill="#000000"/>
 <g transform="rotate(0.7 216 220)">
 <path class="d-paper" d="M16.6,38.6 L33.5,38.9 L47.9,41.1 L64.6,39.4 L79.1,41.3 L96.1,40.2 L112,40.4 L127.4,39 L144.8,39.3 L160.1,41.3 L174.6,41.3 L190.6,40.4 L208,41.1 L223.2,40.8 L241.1,39.2 L257.5,41.2 L271.2,41.1 L289.5,39 L303.6,41.5 L321.2,40.3 L336.4,39.8 L351.7,38.8 L369.5,40.4 L383.8,41.1 L398.7,39.3 L417.5,40.8 L415.4,55.9 L417,71.2 L417.2,89 L417.6,102.6 L414.8,119 L415.3,136.2 L416.3,151.3 L416.5,167.9 L415.8,183.4 L415.7,200.7 L416.9,217.4 L416.5,231.3 L416.9,246.8 L416.2,263.5 L415.1,279.2 L417.4,296.3 L414.4,311.3 L415.8,327.3 L414.5,343.2 L417.2,361.1 L415.3,376.9 L415.4,390.7 L416.4,401.2 L400.8,400.8 L384.1,400.7 L367,400.2 L351.5,399.5 L335.8,398.9 L321.3,399.8 L304.4,400.2 L287.1,400.6 L271.9,398.4 L257.2,399 L240.7,400.1 L223,399.4 L208.2,399.1 L191.7,400.5 L175.1,399.7 L159.1,400.3 L142.8,401.3 L128.8,400.8 L111.5,399.8 L96.2,400.1 L79.6,399.8 L62.6,398.5 L48,398.8 L31.2,399.9 L16.7,400.3 L17.1,384.9 L16.7,366.7 L17.4,350.5 L15,337.2 L15.3,320.3 L14.5,303.2 L15.2,288.7 L16.4,273 L15.6,255.9 L15.6,240.9 L14.5,223 L16.8,207.2 L16.4,192.1 L17,175.6 L15.5,161.2 L17.1,145.5 L14.5,127.4 L17.2,111.6 L15.9,95.4 L16.4,78.4 L15.8,64.2 L16.1,46.9 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
