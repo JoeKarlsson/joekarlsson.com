@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 354,
+			"commitCount": 355,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 70
+				169, 71
 			],
-			"latestCommitMessage": "feat: PostStream's page links its archived demo and shows the new..."
+			"latestCommitMessage": "feat: PostStream's page embeds the live demo and has a sharp new video"
 		},
 		{
 			"name": "post-stream",
