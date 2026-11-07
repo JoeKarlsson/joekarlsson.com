@@ -380,6 +380,16 @@ describe('iframe embeds', () => {
 		}
 		expect(loadsOnPhones).toEqual([]);
 	});
+
+	// Screenshots of a site embedded right above them look like a second player, so
+	// they show only on phones, where a desktop-only embed doesn't load
+	it('a project page with a desktop-only embed shows its screenshots only on phones', () => {
+		const html = readDist('work/rose-hobart/index.html');
+		expect(html).toMatch(
+			/<section[^>]*class="[^"]*\bmd:hidden\b[^"]*"[^>]*aria-labelledby="screenshots"/,
+		);
+		expect(html).not.toContain('href="#screenshots"');
+	});
 });
 
 describe('in-page anchor links', () => {

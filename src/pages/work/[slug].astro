@@ -62,6 +62,11 @@ const clipClass = square
 
 // The live version gets the button when there is one; GitHub falls back to a link
 
+// Where the embed loads (desktop, unless embedOnPhones), screenshots of the same site
+// sat right under it and looked like a second player. They show only where the embed
+// doesn't load, as its stand-in.
+const screenshotsOnlyOnPhones = Boolean(page.embedUrl && !page.embedOnPhones);
+
 // The sidebar lists the sections this page has, in page order; ids match the h2s below
 const sections = [
 	page.introHeading && { slug: 'statement', text: page.introHeading },
@@ -70,7 +75,11 @@ const sections = [
 	page.steps && { slug: 'how-it-works', text: 'How it works' },
 	(page.install || page.example) && { slug: 'try-it', text: 'Try it' },
 	page.gallery && { slug: 'examples', text: page.galleryTitle ?? 'Gallery' },
-	page.screenshots && { slug: 'screenshots', text: page.screenshotsTitle ?? 'Screenshots' },
+	page.screenshots &&
+		!screenshotsOnlyOnPhones && {
+			slug: 'screenshots',
+			text: page.screenshotsTitle ?? 'Screenshots',
+		},
 ].filter((section): section is { slug: string; text: string } => Boolean(section));
 
 // Page copy is plain text with `backticks` for inline code - escape first so
@@ -366,7 +375,10 @@ const sections = [
 
 				{/* Screenshots and gallery stills stay in their own colors, so the interface reads as it really looks */}
 				{page.screenshots && (
-					<section class="mb-12 md:mb-16" aria-labelledby="screenshots">
+					<section
+						class:list={['mb-12 md:mb-16', { 'md:hidden': screenshotsOnlyOnPhones }]}
+						aria-labelledby="screenshots"
+					>
 						<h2 id="screenshots" class={ARTICLE_HEADING}>
 							{page.screenshotsTitle ?? 'Screenshots'}
 						</h2>
