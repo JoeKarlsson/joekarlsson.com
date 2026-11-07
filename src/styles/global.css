@@ -322,6 +322,31 @@ pre.astro-code {
 	margin-inline: 0;
 }
 
+/* A portrait (9:16) video in a post floats against the right edge of the hero's
+   width and the text runs down its left side, instead of a narrow video centered
+   over two empty gutters. Below 44rem of article there's no room beside it, so it
+   sits centered at up to 24rem */
+.prose.wide-media > figure.portrait-video {
+	float: right;
+	width: 18rem;
+	max-width: none;
+	margin: 0.5rem calc((100% - 100cqw) / 2) 1.5rem 2rem;
+}
+.prose figure.portrait-video video {
+	aspect-ratio: 9 / 16;
+	width: 100%;
+	max-height: none;
+	margin: 0;
+}
+@container (max-width: 44rem) {
+	.prose.wide-media > figure.portrait-video {
+		float: none;
+		width: auto;
+		max-width: 24rem;
+		margin: 1.5rem auto;
+	}
+}
+
 .prose video {
 	@apply rounded-lg my-6 mx-auto;
 	display: block;
