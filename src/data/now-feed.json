@@ -3,27 +3,27 @@
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 50,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 2
-			],
-			"latestCommitMessage": "feat: Film pages show only what's counted from the script and credits..."
-		},
-		{
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 363,
+			"commitCount": 364,
 			"dailyCommitCounts": [
 				0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169,
-				74, 5
+				74, 6
 			],
-			"latestCommitMessage": "feat: Rose Hobart's clip is the film itself, a close-up of her face..."
+			"latestCommitMessage": "fix: Project pages with a desktop-only embed show their screenshots..."
+		},
+		{
+			"name": "bechdel-test",
+			"description": "Does your favorite film pass the test?",
+			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"language": "JavaScript",
+			"commitCount": 51,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 3
+			],
+			"latestCommitMessage": "chore: Drop the README line about the site's display flag"
 		},
 		{
 			"name": "post-stream",
