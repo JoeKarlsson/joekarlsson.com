@@ -722,6 +722,20 @@ describe('performance guards', () => {
 		}
 	});
 
+	it('blog list thumbnails show the photo as it is, with no live pink tone', () => {
+		for (const page of ['blog/index.html', 'blog/category/homelab/index.html']) {
+			const html = readDist(page);
+			const thumbs = [...html.matchAll(/<img[^>]*src="\/images\/[^"]+"[^>]*>/g)].map(
+				([tag]) => tag,
+			);
+			expect(thumbs.length, page).toBeGreaterThan(5);
+			expect(
+				thumbs.filter((tag) => tag.includes('data-halftone')),
+				page,
+			).toEqual([]);
+		}
+	});
+
 	it('project screenshots and gallery stills keep their own colors', () => {
 		for (const page of ['work/pixelpane/index.html', 'work/followspot/index.html']) {
 			const html = readDist(page);
