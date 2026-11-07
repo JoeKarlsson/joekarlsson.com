@@ -68,8 +68,10 @@ try {
 	for (const [path, device] of PAGES) {
 		const label = `${path} (${device === SIDEWAYS ? 'sideways' : 'upright'})`;
 		let problems = await checkPage(path, device);
-		// Right after a deploy, Cloudflare can briefly fail a file the new build added
-		// (seen 2026-11-07). A real crash or broken page fails again; a hiccup doesn't.
+		// One retry for a passing network blip. The repeated "Halftone: ... failed to
+		// load" retries on 2026-11-07 were not blips: Nginx Proxy Manager answered 429
+		// to a cold-cache /work/ (a WordPress-era limit_req on proxy host 15, since
+		// removed). A real crash or broken page fails again.
 		if (problems.length) {
 			console.log(`  retrying ${label}: ${problems.join('; ')}`);
 			await new Promise((resolve) => setTimeout(resolve, 20_000));
