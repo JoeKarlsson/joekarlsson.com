@@ -7,7 +7,7 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 391,
+			"commitCount": 392,
 			"dailyCommitCounts": [
 				0,
 				0,
@@ -38,9 +38,9 @@
 				13,
 				169,
 				74,
-				34
+				35
 			],
-			"latestCommitMessage": "feat: Project pages put How it works beside a portrait tour, with a..."
+			"latestCommitMessage": "feat: The postcard rack planter post links the Thingiverse download..."
 		},
 		{
 			"name": "bechdel-test",
