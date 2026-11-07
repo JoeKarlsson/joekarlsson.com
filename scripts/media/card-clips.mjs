@@ -63,7 +63,9 @@ for (const { source, out } of todo) {
 		await encodeCard(source, out, crf);
 	}
 	if (statSync(out).size > MAX_CARD_BYTES) {
-		throw new Error(`${out} is still over ${MAX_CARD_BYTES / 1024}KB at CRF ${MAX_CRF}: shorten the clip`);
+		throw new Error(
+			`${out} is still over ${MAX_CARD_BYTES / 1024}KB at CRF ${MAX_CRF}: shorten the clip`,
+		);
 	}
 	// An already small source (Doom is 640px) can come out bigger: keep the original
 	if (statSync(out).size >= statSync(source).size) copyFileSync(source, out);
