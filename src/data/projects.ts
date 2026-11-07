@@ -546,6 +546,12 @@ export const projects: Project[] = [
 				'In November 2026 I rebuilt it. Now you pick a photo from your phone or computer, and it never leaves your device. Each block is the exact average of the pixels under it, so edges land where they should, and Save PNG downloads the result.',
 				"The pictures here are a frame from one of my own videos. It's the oldest of my pixel projects, before the Digital Graffiti Wall and PixelPane.",
 			],
+			embedUrl: 'https://pixelate.joekarlsson.com/',
+			embedOnPhones: true,
+			embedHeight: '1000px',
+			embedHeading: 'Try it',
+			embedNote:
+				'This is the live site, running right here. Pick a photo and it stays in your browser; Save PNG downloads the result.',
 			screenshots: [
 				{
 					poster: '/images/projects/pixelate-2026-app.webp',
@@ -577,6 +583,12 @@ export const projects: Project[] = [
 				"The Heroku app died years ago. In November 2026 I rebuilt it as a static site at night-out.joekarlsson.com. Bars now come from OpenStreetMap, and there's no server, so the whole plan and its votes live in the link. When you vote, the link on your screen updates and you send the new one back to the group. Two people voting on the same old link at once each end up with only their own vote, which is the trade for not running a server.",
 				"If you're not near any bars, or you don't want to share your location, Try it with demo bars fills the map with made-up bars in Honolulu, where it started.",
 			],
+			embedUrl: 'https://night-out.joekarlsson.com/',
+			embedOnPhones: true,
+			embedHeight: '1100px',
+			embedHeading: 'Try it',
+			embedNote:
+				"This page doesn't share your location with embeds, so here it runs on the demo bars. Open the live site to find bars near you.",
 			screenshots: [
 				{
 					poster: '/images/projects/night-out-2026-vote.webp',
@@ -976,6 +988,19 @@ export const projects: Project[] = [
 		sourceUrl: 'https://github.com/JoeKarlsson/complete-guide-to-client-server-communication',
 		blogUrl: '/blog/complete-guide-node-client-server-communication/',
 		stars: 43,
+	},
+	{
+		title: 'Movie Script Scraper',
+		description:
+			"A Node CLI and npm package that downloads movie scripts by genre from the Internet Movie Script Database. Tim Kendall started it in 2014; I rewrote it and published it to npm in 2018, and it's where Bechdel.io's scripts came from.",
+		image: '/images/projects/movie-script-scraper.webp',
+		imageAlt:
+			'The Movie Script Scraper banner: "Movie Script Scraper" in white on red and teal stripes, with a film reel in the corner',
+		category: 'dev-tools',
+		date: '2018-01',
+		tech: ['Node.js', 'Cheerio', 'npm', 'CLI'],
+		sourceUrl: 'https://github.com/JoeKarlsson/movie-script-scraper',
+		stars: 14,
 	},
 	{
 		title: 'Python Sudoku Generator & Solver',
