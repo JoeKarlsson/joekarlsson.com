@@ -283,11 +283,13 @@ export const projects: Project[] = [
 			intro: [
 				'Wave Jump is a race for two people sharing one keyboard. You each ride a white wave across a sunset grid, and the wave keeps rolling under you the whole time. A checkered gate sits somewhere below it, and whoever dives through first gets the point.',
 				'Cal Carlson, Daniel Olson, Lisa Mabley and I built it at Global Game Jam 2018, over the weekend of January 26 to 28, with Phaser. The wave is hundreds of small sprites, each one pushed up and down along a sine curve with a new height every frame, so you never get the same wave twice.',
-				"In 2025 I moved it to a modern build so it still runs in a browser. It needs two players and a keyboard, so it won't work on a phone.",
+				"In 2025 I moved it to a modern build so it still runs in a browser, and in November 2026 I tuned it again: it plays the same in any size window, the wave holds you up even on a slow computer, and it goes full screen. It needs two players and a keyboard, so it won't work on a phone.",
 			],
 			embedUrl: 'https://wavejump.joekarlsson.com/',
+			// The game scales its 1920x1080 world to fit, so it runs at the box's real size
+			embedHeight: '56.25cqw',
 			embedNote:
-				'Click the game, then press the spacebar to start. Player 1 uses W A S D, player 2 the arrow keys.',
+				'Click the game to start. Player 1 uses W A S D, player 2 the arrow keys. The button in the corner goes full screen.',
 			steps: [
 				{
 					title: 'Player 1',
@@ -299,7 +301,7 @@ export const projects: Project[] = [
 				},
 				{
 					title: 'Score',
-					text: 'First one through the gate gets the point. Press the spacebar for the next round.',
+					text: 'First one through the gate gets the point. Click or press the spacebar for the next round.',
 				},
 			],
 		},
@@ -324,11 +326,14 @@ export const projects: Project[] = [
 			tagline: 'Get a drunk tanuki home, at least for tonight.',
 			intro: [
 				'Go Home Tanuki (You\'re Drunk) was our game for Global Game Jam 2016, where the theme was "Ritual." We based ours on the long hours that are common in Japanese office jobs: work late, go drinking with coworkers, get home somehow, and do it again tomorrow. Our worker is a tanuki, the raccoon dog from Japanese folklore.',
-				'You click or tap the spacebar to fly him home through the night, past clouds and rocks. Sake raises his drunkness, and your score is his drunkness times how long he lasts. Once he gets to 10, the lamps and clouds come at you a lot faster.',
-				'I made it over one weekend with Kent Salcedo, Sarah Kurisu and Corina. In 2025 I moved it to a modern build so it still runs in a browser.',
+				'You click, tap or press the spacebar to fly him home through the night, past clouds and rocks. Sake raises his drunkness, and your score is his drunkness times how long he lasts, plus a bonus for distance and sake combos. Once he gets to 10, the lamps and clouds come at you a lot faster.',
+				'I made it over one weekend with Kent Salcedo, Sarah Kurisu and Corina. In 2025 I moved it to a modern build so it still runs in a browser, and in November 2026 I tuned it again: it fits any screen, plays on phones, keeps your high score and goes full screen.',
 			],
 			embedUrl: 'https://tanuki.joekarlsson.com/',
-			embedNote: 'Click the game to start, then click or press the spacebar to fly.',
+			// The game is 4:3 and scales to fit, so the box matches it and it runs at real size
+			embedHeight: '75cqw',
+			embedNote:
+				'Click the game to start, then click or press the spacebar to fly. The button in the corner goes full screen.',
 		},
 	},
 	{
