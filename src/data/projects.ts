@@ -30,6 +30,8 @@ export interface ProjectPage {
 	embedOnPhones?: boolean;
 	// A narrated video with sound, under the intro. Portrait (9:16) phone video
 	tour?: { video: string; poster: string; captions: string; alt: string };
+	// Files to make it yourself (a 3D model on Thingiverse), as the page's main button
+	download?: { url: string; label: string };
 	steps?: { title: string; text: string }[];
 	install?: string;
 	example?: {
@@ -210,6 +212,10 @@ export const projects: Project[] = [
 		page: {
 			slug: 'postcard-rack-planter',
 			tagline: 'A used postcard rack, turned into a planter tower with 3D-printed pots.',
+			download: {
+				url: 'https://www.thingiverse.com/thing:5867063',
+				label: 'Download it on Thingiverse',
+			},
 			intro: [
 				"I bought a wire postcard rack secondhand with no plan for it. It sat around until I figured out the pockets were the right shape for plant pots, so I designed pots that hang where the postcards used to go and printed a rack's worth of them.",
 				"Each pot has drainage holes over the pot below it, so I water the top and the water works its way down the tower. I've had it for three or four years now. It started with a few succulents and is mostly spider plants these days, and the ABS is holding up better than I expected.",
@@ -227,7 +233,7 @@ export const projects: Project[] = [
 				},
 				{
 					title: 'Pots that fit the pockets',
-					text: 'I drew a pot to fit the pockets in Tinkercad and printed it in black ABS on my Prusa MK3. The file is free on Thingiverse, linked in the post.',
+					text: 'I drew a pot to fit the pockets in Tinkercad and printed it in black ABS on my Prusa MK3. The file is free on Thingiverse.',
 				},
 				{
 					title: 'Water the top',

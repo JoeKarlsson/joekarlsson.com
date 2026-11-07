@@ -148,6 +148,16 @@ const sections = [
 				</header>
 
 				<div class="mb-12 flex flex-wrap items-center gap-x-6 gap-y-3">
+					{page.download && (
+						<a
+							href={page.download.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={`plausible-event-name=Project+Download+Click ${PRIMARY_BUTTON}`}
+						>
+							{page.download.label} &rarr;
+						</a>
+					)}
 					{project.demoUrl && (
 						<a
 							href={project.demoUrl}
@@ -186,27 +196,6 @@ const sections = [
 						<p set:html={inlineMarkdown(p)} />
 					))}
 				</div>
-
-				{page.tour && (
-					<section class="mb-12 md:mb-16" aria-labelledby="tour">
-						<h2 id="tour" class={ARTICLE_HEADING}>
-							Tour
-						</h2>
-						{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
-						<video
-							src={page.tour.video}
-							poster={page.tour.poster}
-							controls
-							playsinline
-							preload="none"
-							aria-label={page.tour.alt}
-							class="mx-auto block w-full rounded-lg bg-ink object-contain"
-							style="aspect-ratio: 9 / 16; max-width: 18rem"
-						>
-							<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
-						</video>
-					</section>
-				)}
 
 				{page.embedUrl && (
 					<section class="mb-12 md:mb-16" aria-labelledby="play-it">
@@ -287,29 +276,59 @@ const sections = [
 					</section>
 				)}
 
-				{page.steps && (
-					<section class="mb-12 md:mb-16" aria-labelledby="how-it-works">
-						<h2 id="how-it-works" class={ARTICLE_HEADING}>
-							How it works
-						</h2>
-						<ol class="grid max-w-[46rem] gap-y-7">
-							{page.steps.map((step, i) => (
-								<li class="grid grid-cols-[3.2rem_1fr] gap-x-4 border-t border-surface-4 pt-4">
-									<span
-										aria-hidden="true"
-										class="font-display text-[clamp(40px,4vw,56px)] leading-[0.9] text-pink"
-									>
-										{i + 1}
-									</span>
-									<div>
-										<h3 class={`mb-1 ${ITEM_TITLE}`}>{step.title}</h3>
-										<p class="text-paper" set:html={inlineMarkdown(step.text)} />
-									</div>
-								</li>
-							))}
-						</ol>
-					</section>
-				)}
+				{/* A portrait tour leaves most of the column empty, so How it works sits beside it from md up */}
+				<div
+					class={
+						page.tour && page.steps
+							? 'md:grid md:grid-cols-[22rem_minmax(0,1fr)] md:items-start md:gap-x-10'
+							: undefined
+					}
+				>
+					{page.tour && (
+						<section class="mb-12 md:mb-16" aria-labelledby="tour">
+							<h2 id="tour" class={ARTICLE_HEADING}>
+								Tour
+							</h2>
+							{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
+							<video
+								src={page.tour.video}
+								poster={page.tour.poster}
+								controls
+								playsinline
+								preload="none"
+								aria-label={page.tour.alt}
+								class="mx-auto block w-full rounded-lg bg-ink object-contain"
+								style="aspect-ratio: 9 / 16; max-width: 22rem"
+							>
+								<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
+							</video>
+						</section>
+					)}
+
+					{page.steps && (
+						<section class="mb-12 md:mb-16" aria-labelledby="how-it-works">
+							<h2 id="how-it-works" class={ARTICLE_HEADING}>
+								How it works
+							</h2>
+							<ol class="grid max-w-[46rem] gap-y-7">
+								{page.steps.map((step, i) => (
+									<li class="grid grid-cols-[3.2rem_1fr] gap-x-4 border-t border-surface-4 pt-4">
+										<span
+											aria-hidden="true"
+											class="font-display text-[clamp(40px,4vw,56px)] leading-[0.9] text-pink"
+										>
+											{i + 1}
+										</span>
+										<div>
+											<h3 class={`mb-1 ${ITEM_TITLE}`}>{step.title}</h3>
+											<p class="text-paper" set:html={inlineMarkdown(step.text)} />
+										</div>
+									</li>
+								))}
+							</ol>
+						</section>
+					)}
+				</div>
 
 				{(page.install || page.example) && (
 					<section class="prose mb-12 md:mb-16" aria-labelledby="try-it">
@@ -402,8 +421,18 @@ const sections = [
 					</section>
 				)}
 
-				{(project.demoUrl || project.sourceUrl) && (
+				{(project.demoUrl || project.sourceUrl || page.download) && (
 					<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+						{page.download && (
+							<a
+								href={page.download.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class={`plausible-event-name=Project+Download+Click ${PRIMARY_BUTTON}`}
+							>
+								{page.download.label} &rarr;
+							</a>
+						)}
 						{project.demoUrl && (
 							<a
 								href={project.demoUrl}
