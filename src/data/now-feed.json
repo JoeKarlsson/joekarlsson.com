@@ -7,45 +7,45 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 370,
+			"commitCount": 383,
 			"dailyCommitCounts": [
 				0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169,
-				74, 12
+				74, 25
 			],
-			"latestCommitMessage": "fix: The hackathon's card clip is the first 10 seconds of its scroll..."
+			"latestCommitMessage": "fix: The now-feed refresh runs from a worktree, using the .env..."
 		},
 		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"name": "wave-jump",
+			"description": "Wave Jump is a 80's arcade inspired multiplayer game where you've got to be lightening fast to beat your friend to the finish.",
+			"url": "https://github.com/JoeKarlsson/wave-jump",
 			"language": "JavaScript",
-			"commitCount": 56,
+			"commitCount": 7,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 8
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4
 			],
-			"latestCommitMessage": "chore: The tape screenshot waits for its own poster, which is..."
+			"latestCommitMessage": "feat: Wave Jump works embedded and full screen, and starts on a click"
 		},
 		{
-			"name": "pixelpane",
-			"description": "PixelPane: a 32x32 LED art pane for the Raspberry Pi. GIFs, live animated scenes, seasonal themes, Home Assistant and plugins",
-			"url": "https://github.com/JoeKarlsson/pixelpane",
-			"language": "Python",
-			"commitCount": 58,
+			"name": "go-home-tanuki",
+			"description": "A phaser.js game based on the ritual of drinking",
+			"url": "https://github.com/JoeKarlsson/go-home-tanuki",
+			"language": "JavaScript",
+			"commitCount": 7,
 			"dailyCommitCounts": [
-				0, 0, 0, 23, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4
 			],
-			"latestCommitMessage": "feat: The board's user can run apt-get update, apt-get -y full-upgrade..."
+			"latestCommitMessage": "feat: Go Home Tanuki works embedded and full screen, keeps its high..."
 		},
 		{
-			"name": "post-stream",
-			"description": "PostStream is an undesigned social network. It is a text-based response to the majority of modern social media platforms.",
-			"url": "https://github.com/JoeKarlsson/post-stream",
-			"language": "TypeScript",
-			"commitCount": 10,
+			"name": "night-out",
+			"description": "Pick a few bars near you, send your friends the link, and let everyone vote on where you're going tonight.",
+			"url": "https://github.com/JoeKarlsson/night-out",
+			"language": "JavaScript",
+			"commitCount": 5,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5
 			],
-			"latestCommitMessage": "feat: Re-record the README video from the static demo"
+			"latestCommitMessage": "feat: Ship the autoplay demo, location fallback and vote merging"
 		}
 	],
 	"films": [
