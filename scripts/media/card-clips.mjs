@@ -17,6 +17,10 @@ const WIDTH = 640;
 // Muted screen recordings and loops: 15 frames a second and a higher CRF don't show
 const FPS = 15;
 const CRF = 32;
+// tests/halftone.test.ts fails any card over 450KB. A busy clip (moving foliage) runs
+// over at CRF 32, so it steps up the CRF until it fits; drawn in pink, it doesn't show
+const MAX_CARD_BYTES = 450 * 1024;
+const MAX_CRF = 44;
 
 const cardClip = (video) => video.replace(/\.mp4$/, '-card.mp4');
 
@@ -28,8 +32,8 @@ const todo = projects
 		return !existsSync(out) || statSync(out).mtimeMs < statSync(source).mtimeMs;
 	});
 
-for (const { source, out } of todo) {
-	await run('ffmpeg', [
+const encodeCard = (source, out, crf) =>
+	run('ffmpeg', [
 		'-v',
 		'error',
 		'-y',
@@ -40,7 +44,7 @@ for (const { source, out } of todo) {
 		'-c:v',
 		'libx264',
 		'-crf',
-		String(CRF),
+		String(crf),
 		'-preset',
 		'slow',
 		'-pix_fmt',
@@ -50,6 +54,17 @@ for (const { source, out } of todo) {
 		'+faststart',
 		out,
 	]);
+
+for (const { source, out } of todo) {
+	let crf = CRF;
+	await encodeCard(source, out, crf);
+	while (statSync(out).size > MAX_CARD_BYTES && crf < MAX_CRF) {
+		crf += 2;
+		await encodeCard(source, out, crf);
+	}
+	if (statSync(out).size > MAX_CARD_BYTES) {
+		throw new Error(`${out} is still over ${MAX_CARD_BYTES / 1024}KB at CRF ${MAX_CRF}: shorten the clip`);
+	}
 	// An already small source (Doom is 640px) can come out bigger: keep the original
 	if (statSync(out).size >= statSync(source).size) copyFileSync(source, out);
 }
