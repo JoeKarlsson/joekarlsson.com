@@ -1,6 +1,20 @@
 @import 'tailwindcss';
 @import './motion.css';
 
+/* Where desktop-only embeds load (src/scripts/load-desktop-embeds.ts, same query): wide AND
+   tall. A big phone turned sideways is over 48rem wide but only ~27rem tall, and loading a
+   game there is what crashed an iPhone. embed-small is everywhere else: phones either way up. */
+@custom-variant embed-large (@media (width >= 48rem) and (height >= 32rem));
+/* Two rules, not one comma list: Tailwind keeps only the first query of a list */
+@custom-variant embed-small {
+	@media (width < 48rem) {
+		@slot;
+	}
+	@media (height < 32rem) {
+		@slot;
+	}
+}
+
 @config '../../tailwind.config.mjs';
 
 /* The newsletter archive is imported prose with no Tailwind classes; scanning its

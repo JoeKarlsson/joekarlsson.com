@@ -214,7 +214,7 @@ const sections = [
 							{page.embedHeading ?? 'Play it'}
 						</h2>
 						<p class="mb-4 text-paper">
-							<span class="max-md:hidden">{page.embedNote ?? 'Click the game to play.'}</span>{' '}
+							<span class="embed-small:hidden">{page.embedNote ?? 'Click the game to play.'}</span>{' '}
 							<a
 								href={project.demoUrl ?? page.embedUrl}
 								target="_blank"
@@ -232,7 +232,7 @@ const sections = [
 								href={project.demoUrl ?? page.embedUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="embed-phone-poster block md:hidden"
+								class="embed-phone-poster block embed-large:hidden"
 							>
 								<img
 									src={project.image}
@@ -250,7 +250,7 @@ const sections = [
 							<div
 								class:list={[
 									'@container overflow-hidden rounded-lg',
-									{ 'max-md:hidden': !page.embedOnPhones },
+									{ 'embed-small:hidden': !page.embedOnPhones },
 								]}
 							>
 								<iframe
@@ -268,7 +268,7 @@ const sections = [
 							<div
 								class:list={[
 									'aspect-video overflow-hidden rounded-lg',
-									{ 'max-md:hidden': !page.embedOnPhones },
+									{ 'embed-small:hidden': !page.embedOnPhones },
 								]}
 							>
 								<iframe
@@ -376,7 +376,7 @@ const sections = [
 				{/* Screenshots and gallery stills stay in their own colors, so the interface reads as it really looks */}
 				{page.screenshots && (
 					<section
-						class:list={['mb-12 md:mb-16', { 'md:hidden': screenshotsOnlyOnPhones }]}
+						class:list={['mb-12 md:mb-16', { 'embed-large:hidden': screenshotsOnlyOnPhones }]}
 						aria-labelledby="screenshots"
 					>
 						<h2 id="screenshots" class={ARTICLE_HEADING}>

@@ -387,7 +387,7 @@ describe('iframe embeds', () => {
 	it('a project page with a desktop-only embed shows its screenshots only on phones', () => {
 		const html = readDist('work/rose-hobart/index.html');
 		expect(html).toMatch(
-			/<section[^>]*class="[^"]*\bmd:hidden\b[^"]*"[^>]*aria-labelledby="screenshots"/,
+			/<section[^>]*class="[^"]*\bembed-large:hidden\b[^"]*"[^>]*aria-labelledby="screenshots"/,
 		);
 		expect(html).not.toContain('href="#screenshots"');
 	});
