@@ -800,6 +800,25 @@ describe('performance guards', () => {
 		}
 	});
 
+	// Cards load the .400w/.800w copies, and sharp reads only an animated WebP's first
+	// frame unless told otherwise, which froze the boiling diagram thumbnail
+	it('resized copies of an animated thumbnail stay animated', () => {
+		const hero = 'images/blog/complete-guide-node-client-server-communication';
+		const animated = readdirSync(resolve(dist, hero)).filter((file) =>
+			/^thumb-[0-9a-f]{8}\.(400w|800w)\.webp$/.test(file),
+		);
+		expect(animated.length).toBe(2);
+		for (const file of animated) {
+			// An animated WebP carries an ANIM chunk in its RIFF header
+			expect(
+				readFileSync(resolve(dist, hero, file))
+					.subarray(0, 64)
+					.includes('ANIM'),
+				file,
+			).toBe(true);
+		}
+	});
+
 	it('project screenshots and gallery stills keep their own colors', () => {
 		for (const page of ['work/pixelpane/index.html', 'work/followspot/index.html']) {
 			const html = readDist(page);

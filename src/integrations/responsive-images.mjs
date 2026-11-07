@@ -91,7 +91,12 @@ export default function responsiveImages() {
 							statSync(cached).mtimeMs < statSync(join(publicDir, src)).mtimeMs
 						) {
 							mkdirSync(dirname(cached), { recursive: true });
-							await sharp(original).resize({ width: w }).webp({ quality: 80 }).toFile(cached);
+							// animated: an animated WebP (a boiling diagram thumbnail) keeps every frame;
+							// without it sharp reads only the first and the card freezes
+							await sharp(original, { animated: true })
+								.resize({ width: w })
+								.webp({ quality: 80 })
+								.toFile(cached);
 						}
 						copyFileSync(cached, join(distDir, variantPath(src, w)));
 					}
