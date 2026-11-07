@@ -187,11 +187,6 @@ export const projects: Project[] = [
 					alt: 'Side view of the inside of the shadow box: from the front, a two-way mirror, an optional diffuser, the 3D-printed light grid, the LED panel facing forward, then the Raspberry Pi with the RGB Matrix HAT and a 5 V 4 A power supply going to the wall',
 					caption: 'Inside the shadow box',
 				},
-				{
-					poster: `${PIXELPANE_DIR}/live-control.webp`,
-					alt: 'The PixelPane control page: a live preview of the panel, power and brightness, what is playing now and next, the active Autumn and Halloween themes, and Play now buttons for every scene',
-					caption: 'The control page, with a live preview of the panel',
-				},
 			],
 		},
 	},

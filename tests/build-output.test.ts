@@ -726,7 +726,7 @@ describe('performance guards', () => {
 		for (const page of ['work/pixelpane/index.html', 'work/followspot/index.html']) {
 			const html = readDist(page);
 			const stills = [...html.matchAll(/<img[^>]*src="(\/images\/[^"]+)"[^>]*>/g)].filter(
-				([, src]) => /live-control|column-(wide|narrow)/.test(src),
+				([, src]) => /build-layers|column-(wide|narrow)/.test(src),
 			);
 			expect(stills.length, page).toBeGreaterThan(0);
 			for (const [tag, src] of stills) expect(tag, src).not.toContain('data-halftone');
