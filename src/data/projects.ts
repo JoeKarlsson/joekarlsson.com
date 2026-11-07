@@ -465,10 +465,10 @@ export const projects: Project[] = [
 		shareTitle: "Rose Hobart: Joseph Cornell's 1936 film, remastered for the web",
 		description:
 			"Joseph Cornell's 1936 collage film, with the tint, the speed and the music back in your hands while it plays. Made with my sister Laurel.",
-		image: '/images/projects/rose-hobart-2026-poster.webp',
-		video: '/images/projects/rose-hobart-2026.mp4',
+		image: '/images/projects/rose-hobart-2026-film-poster.webp',
+		video: '/images/projects/rose-hobart-2026-film.mp4',
 		imageAlt:
-			"Joseph Cornell's Rose Hobart playing between red theater curtains while the projector presets change it: Cornell 1936 blue, a pink filter, nitrate decay, a broken projector and digital decay, then amber, green and pink gels",
+			"Rose Hobart in close-up from Joseph Cornell's 1936 film while the projector presets change it: Cornell blue, a pink filter, nitrate decay, a broken projector and digital decay, then amber and green gels",
 		category: 'art',
 		date: '2017-10',
 		tech: ['React', 'Vite', 'WebGL', 'CSS filters'],
