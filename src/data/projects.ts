@@ -81,6 +81,9 @@ const bumperClip = (name: string, alt: string): ProjectClip => ({
 
 const PIXELPANE_DIR = '/images/blog/pixelpane-pixel-art-home-assistant';
 
+const PLANTER_DIR =
+	'/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack';
+
 const STREAMROLL_DIR = '/images/projects/streamroll';
 
 const SD_DIR = '/images/blog/screencast-director-screen-recorder';
@@ -192,16 +195,64 @@ export const projects: Project[] = [
 	},
 	{
 		title: '3D-Printed Postcard Rack Planter',
+		shareTitle: 'Postcard Rack Planter: A used postcard rack full of 3D-printed pots',
 		description:
-			'Custom 3D-printed planter insert designed in Fusion 360 for a recycled postcard rack. Printed on my Prusa MK3.',
-		image:
-			'/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/Postcard-Rack-Planter.webp',
-		imageAlt: '3D Printed Planter',
+			'A used wire postcard rack, refit with 3D-printed pots I designed in Tinkercad. Each pot drains into the one below, so I water the top and the whole tower gets it. Printed in ABS, and still holding up after three-plus years.',
+		image: '/images/projects/postcard-rack-planter-poster.webp',
+		video: '/images/projects/postcard-rack-planter.mp4',
+		imageAlt:
+			'Me and my postcard rack planter: the rack by the window packed with spider plants, my hand on one of the black 3D-printed pots, the pots hanging in the gold wire frame, and me pointing up the tower',
 		category: 'iot',
 		date: '2023-02',
-		tech: ['Fusion 360', 'Prusa MK3', '3D Printing'],
+		tech: ['Tinkercad', 'Prusa MK3', 'ABS', '3D Printing'],
 		blogUrl:
 			'/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/',
+		page: {
+			slug: 'postcard-rack-planter',
+			tagline: 'A used postcard rack, turned into a planter tower with 3D-printed pots.',
+			intro: [
+				"I bought a wire postcard rack secondhand with no plan for it. It sat around until I figured out the pockets were the right shape for plant pots, so I designed pots that hang where the postcards used to go and printed a rack's worth of them.",
+				"Each pot has drainage holes over the pot below it, so I water the top and the water works its way down the tower. I've had it for three or four years now. It started with a few succulents and is mostly spider plants these days, and the ABS is holding up better than I expected.",
+			],
+			tour: {
+				video: `${PLANTER_DIR}/tour.mp4`,
+				poster: `${PLANTER_DIR}/tour-poster.webp`,
+				captions: `${PLANTER_DIR}/tour.vtt`,
+				alt: 'A quick tour of my postcard rack planter: me in front of it, the 3D-printed pots in the wire frame, how water drains from pot to pot, and the whole rack by the window',
+			},
+			steps: [
+				{
+					title: 'A secondhand rack',
+					text: 'A wire postcard rack, bought used. The wire pockets that held postcards hold the pots.',
+				},
+				{
+					title: 'Pots that fit the pockets',
+					text: 'I drew a pot to fit the pockets in Tinkercad and printed it in black ABS on my Prusa MK3. The file is free on Thingiverse, linked in the post.',
+				},
+				{
+					title: 'Water the top',
+					text: 'Holes in the bottom of each pot drip into the pot below, so one watering at the top reaches the whole tower.',
+				},
+			],
+			screenshotsTitle: 'When it was new',
+			screenshots: [
+				{
+					poster: `${PLANTER_DIR}/IMG_2833-Medium.webp`,
+					alt: 'The postcard rack planter in 2023, standing by a window: the gold wire rack with rows of black 3D-printed pots, each with a small succulent',
+					caption: 'February 2023, freshly planted',
+				},
+				{
+					poster: `${PLANTER_DIR}/IMG_2834-Medium.webp`,
+					alt: 'Close-up of the black 3D-printed pots hanging in the gold wire pockets, planted with succulents',
+					caption: 'The pots in the wire pockets',
+				},
+				{
+					poster: `${PLANTER_DIR}/IMG_2853-Medium.webp`,
+					alt: 'Looking up at the bottoms of the black pots in the wire frame, where the drainage holes sit over the pot below',
+					caption: 'From below',
+				},
+			],
+		},
 	},
 
 	// Web & Software

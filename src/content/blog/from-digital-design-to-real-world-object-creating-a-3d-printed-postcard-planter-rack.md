@@ -1,72 +1,49 @@
 ---
-title: 'From Digital Design to Real-World Object: How I Created a 3D-Printed Planter for a Recycled Postcard Rack Planter'
+title: 'I turned a used postcard rack into a 3D-printed planter tower'
 seoTitle: 'A 3D-Printed Planter for a Postcard Rack'
 shareTitle: 'How I 3D-Printed a Planter for a Recycled Postcard Rack'
 date: 2023-02-27
+updatedDate: 2026-11-07
 slug: 'from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack'
-description: 'How I designed and 3D printed a planter insert that turns a recycled postcard rack into a planter, plus tips for taking a digital design to a real object.'
+description: 'I bought a wire postcard rack secondhand and designed 3D-printed pots that hang in its pockets and drain into each other. Here it is three-plus years later.'
 categories: ['Homelab']
 heroImage: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/Postcard-Rack-Planter.webp'
 heroAlt: '3D printed postcard planter rack with succulents'
-tldr: 'I designed a 3D-printed planter insert in Tinkercad to turn a thrift store postcard rack into a succulent planter. Here is how I did it and tips for getting started with 3D printing your own stuff.'
+tldr: 'I filled a secondhand wire postcard rack with 3D-printed pots I designed in Tinkercad. Each pot drains into the one below, so I water the top and the whole tower gets it. Three-plus years in, the ABS is holding up and the succulents gave way to spider plants. The STL is free on Thingiverse.'
 ---
 
-You might not have thought much about using your technical skills to create physical objects. However, with the rise of 3D printing technology, it’s becoming easier than ever to turn digital designs into real-world objects. Recently, I played around with a custom 3D-printed design I created. It’s a planter insert for a recycled Postcard Rack Planter.
+I bought a wire postcard rack secondhand with no idea what to do with it. It's a gold wire tower of little pockets, each one sized for a stack of postcards, and it sat around my house for a while.
 
-_Note: Originally this post included a spinning video of the planter, which is no longer available._
+I love using vertical space for plants, and the pockets turned out to be about the right shape for a small pot. So I designed one that hangs where the postcards used to go and printed enough to fill the rack. That was early 2023. Here's what it looks like now, me included.
 
-## Using Technical Skills to Create Physical Objects with 3D Printing
+<video controls playsinline preload="none" poster="/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/tour-poster.webp" src="/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/tour.mp4" style="aspect-ratio: 9 / 16; max-width: 24rem; margin-inline: auto; display: block" aria-label="A quick tour of my postcard rack planter: me in front of it, the 3D-printed pots in the wire frame, how water drains from pot to pot, and the whole rack by the window">
+  <track kind="captions" srclang="en" label="English" src="/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/tour.vtt" />
+</video>
 
-You may not have considered using technical skills to create physical objects. However, 3D printing makes turning digital designs into real-world objects easier than ever. I recently created a custom 3D-printed planter insert for a recycled Postcard Rack.
+_A quick tour of the rack, November 2026._
 
-### Postcard Rack Transformation
+## The pots
 
-This project is cool for several reasons:
+I designed the pot in Tinkercad, which is about as simple as 3D modeling gets: you drag boxes and cylinders around and subtract one from the other. That was plenty for this. The pot is an angled box that sits in a wire pocket the way a stack of postcards would.
 
-- **Repurposing old furniture:** This prevents it from ending up in a landfill and gives it new life.
+I printed them in black ABS on my Prusa MK3. If you want to print your own, the file is free on Thingiverse: [Postcard Rack Planter](https://www.thingiverse.com/thing:5867063). Your rack's pockets probably aren't the same size as mine, so measure one and scale the model before you print a whole set.
 
-- **Creating functional beauty:** A functional, attractive planter brightens up any space.
+## Watering from the top
 
-- **Using Tinkercad:** This free online tool allows you to create 3D models without prior experience or technical knowledge.
+**Every pot has drainage holes in the bottom, and each one sits over the pot below it.** So I water the top row, and the water runs down through the tower and waters everything on the way.
 
-### Building the Planter
+I think that's the best part. A tower of small pots would be a chore to water one at a time.
 
-Here are the steps to create the planter:
+## Three-plus years later
 
-- **Find a postcard rack:** Search thrift stores, garage sales, or online marketplaces. Choose one that’s sturdy with enough compartments for plants.
+The ABS is holding up better than I expected. After three or four years of wet soil next to a sunny window, the pots look about the same as the day I printed them.
 
-- **Measure the rack:** Determine the dimensions using a tape measure or calipers. Sketch your design.
+When I first planted it, every pocket had a small succulent in it:
 
-- **Design in Tinkercad:** Learn the basics through online tutorials, create your design, and download it as an STL file for 3D printers.
+![The postcard rack planter in February 2023, standing by a window: the gold wire rack with rows of black 3D-printed pots, each with a small succulent](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2833-Medium.webp)_February 2023, freshly planted_
 
-Learning through trial and error is powerful for developing new skills. Start small, gradually build skills and confidence, and don’t be afraid to make mistakes.
+![Close-up of the black 3D-printed pots hanging in the gold wire pockets, planted with succulents](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2834-Medium.webp)_The pots in the wire pockets_
 
-- **Print your planter:** Use local maker spaces, libraries, or online services like Craftcloud, PCBWay, or Sculpteo for 3D printing. (Shapeways, once a popular option, shut down in 2024.)
+![Looking up at the bottoms of the black pots in the wire frame, where the drainage holes sit over the pot below](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2853-Medium.webp)_From below_
 
-### Tips for Success
-
-Keep these tips in mind:
-
-- **Start small:** Begin with a simple design and progress as you gain experience.
-
-- **Use reference images:** Guide your design with images of similar objects.
-
-- **Consider functionality:** Ensure your design can hold plants and has drainage holes.
-
-- **Experiment with materials:** Try wood, plastic, or metal for a unique look.
-
-## The Final Result
-
-Creating a recycled postcard rack planter using Tinkercad is a fun, rewarding project for software engineers. With creativity and the right tools, you can turn digital designs into physical objects to be proud of.
-
-You can download this project from Thingiverse: [Postcard Rack Planter on Thingiverse](https://www.thingiverse.com/thing:5867063)
-
-![Front view of the 3D printed planter insert sitting in the postcard rack](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2833-Medium.webp)_Front view of the planter insert in the rack_
-
-![Close-up of the 3D printed planter showing the drainage holes](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2834-Medium.webp)_Close-up of the planter with drainage holes_
-
-![Side angle of the postcard rack planter with succulents planted](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2839-Medium.webp)_Side angle with succulents planted_
-
-![Full postcard rack planter on display with multiple plants](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2850-Medium.webp)_Full rack on display with multiple plants_
-
-![Detail shot of the finished postcard rack planter project](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2853-Medium.webp)_Detail shot of the finished project_
+These days it's mostly spider plants, and you can barely see the rack. I think it looks best in winter, when everything outside is dead and there's a green tower next to my window.
