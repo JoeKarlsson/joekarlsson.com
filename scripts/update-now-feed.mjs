@@ -4,13 +4,15 @@
 // site reads the snapshot at build time, so visitors never reach Audiobookshelf or
 // Prometheus. deploy.sh runs this before every build:
 //   npm run update:now
-import { mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { loadEnvFile } from 'node:process';
 import sharp from 'sharp';
 import { parseLetterboxdFilms, truncateAtWord } from './now-feed-parsing.mjs';
 
-loadEnvFile('.env');
+// deploy.sh exports the main checkout's .env before running this, including from a
+// worktree, which has none; run on its own, it reads .env here. Missing values fail below.
+if (existsSync('.env')) loadEnvFile('.env');
 
 const { AUDIOBOOKSHELF_URL, AUDIOBOOKSHELF_API_TOKEN, PROMETHEUS_URL } = process.env;
 for (const [name, value] of Object.entries({
