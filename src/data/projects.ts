@@ -78,6 +78,8 @@ const bumperClip = (name: string, alt: string): ProjectClip => ({
 
 const PIXELPANE_DIR = '/images/blog/pixelpane-pixel-art-home-assistant';
 
+const STREAMROLL_DIR = '/images/projects/streamroll';
+
 const SD_DIR = '/images/blog/screencast-director-screen-recorder';
 
 const DOOM_DIR = '/images/blog/why-i-use-doom-to-visualize-mcp-data';
@@ -850,14 +852,68 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Streamroll',
+		shareTitle: 'Streamroll: Netflix-style intros for your own Plex, made by AI',
 		description:
 			'AI-generated custom pre-roll intros for Plex. Give it a theme and it chains Runway gen4_image to create a still, then gen4_turbo to animate it into a full video intro - VHS glitch, cinematic nature, neon outrun, whatever you want playing before your movie starts.',
 		image: '/images/projects/streamroll.webp',
-		imageAlt: 'Streamroll - AI Generated Pre-Roll Intros logo on a VHS-style distorted screen',
+		video: `${STREAMROLL_DIR}/streamroll-outrun.mp4`,
+		poster: `${STREAMROLL_DIR}/streamroll-outrun-poster.webp`,
+		imageAlt:
+			'A Streamroll intro in the neon outrun style: STREAMROLL in glowing pink and blue chrome letters over a dark grid, with "AI-generated pre-roll intros" underneath',
 		category: 'homelab',
 		date: '2026-05',
 		tech: ['TypeScript', 'Runway ML', 'Plex', 'AI Video Generation'],
 		sourceUrl: 'https://github.com/JoeKarlsson/streamroll',
+		demoUrl: 'https://streamroll.vercel.app/',
+		page: {
+			slug: 'streamroll',
+			tagline: 'Netflix-style intros for your own media server.',
+			intro: [
+				'Streamroll makes the short intro that plays before every movie on a home media server, like the Netflix "tudum" but for your own Plex. You type a name like Joeflix, pick a style, and about 30 seconds later you have an .mp4 to drop into Plex, Jellyfin or Emby as a pre-roll.',
+				'It chains two Runway API calls. The first turns a prompt tuned to the style into a 1920x1080 title card, and the second animates that still into a 4 or 5 second clip. Each style picks its own image model, video model and length.',
+				'There are no server-side keys: you bring your own Runway API key, so anyone can run it. You approve the logo before spending video credits, you can mix in your own audio right in the browser, and `Copy as script` gives you the Node.js code that made your clip.',
+			],
+			galleryTitle: 'Intros it made',
+			galleryNote: 'Six styles, all from the name STREAMROLL. Hover to play.',
+			gallery: [
+				{
+					video: `${STREAMROLL_DIR}/streamroll-outrun.mp4`,
+					poster: `${STREAMROLL_DIR}/streamroll-outrun-poster.webp`,
+					alt: 'STREAMROLL in glowing pink and blue chrome letters over a dark neon grid, with smoke drifting behind it',
+					caption: 'Neon outrun',
+				},
+				{
+					video: `${STREAMROLL_DIR}/streamroll-nature.mp4`,
+					poster: `${STREAMROLL_DIR}/streamroll-nature-poster.webp`,
+					alt: 'A gold film-reel-and-leaf logo above STREAMROLL in white, framed by ferns and leaves that sway',
+					caption: 'Nature',
+				},
+				{
+					video: `${STREAMROLL_DIR}/streamroll-prestige.mp4`,
+					poster: `${STREAMROLL_DIR}/streamroll-prestige-poster.webp`,
+					alt: 'STREAMROLL in red over vertical stripes of red and orange light on a dark background',
+					caption: 'Prestige',
+				},
+				{
+					video: `${STREAMROLL_DIR}/streamroll-streaming.mp4`,
+					poster: `${STREAMROLL_DIR}/streamroll-streaming-poster.webp`,
+					alt: 'STREAMROLL in bold red capitals glowing on black, like a streaming service logo sting',
+					caption: 'Streaming service',
+				},
+				{
+					video: `${STREAMROLL_DIR}/streamroll-vhs.mp4`,
+					poster: `${STREAMROLL_DIR}/streamroll-vhs-poster.webp`,
+					alt: 'STREAMROLL in blue and white on a pale blue VHS screen with tracking lines and a timecode in the corner',
+					caption: 'VHS',
+				},
+				{
+					video: `${STREAMROLL_DIR}/streamroll-adult-swim.mp4`,
+					poster: `${STREAMROLL_DIR}/streamroll-adult-swim-poster.webp`,
+					alt: 'White text on black reading [streamroll] and "ai generated pre-roll intros", in the style of an Adult Swim bumper',
+					caption: 'Adult Swim bumper',
+				},
+			],
+		},
 	},
 	{
 		title: 'GPU-Accelerated Subtitle Generator',
