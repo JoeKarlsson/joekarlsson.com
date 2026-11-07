@@ -7,12 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 364,
+			"commitCount": 365,
 			"dailyCommitCounts": [
 				0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169,
-				74, 6
+				74, 7
 			],
-			"latestCommitMessage": "fix: Project pages with a desktop-only embed show their screenshots..."
+			"latestCommitMessage": "feat: PixelPane's hero is a montage of the frame itself, cut from the..."
+		},
+		{
+			"name": "pixelpane",
+			"description": "PixelPane: a 32x32 LED art pane for the Raspberry Pi. GIFs, live animated scenes, seasonal themes, Home Assistant and plugins",
+			"url": "https://github.com/JoeKarlsson/pixelpane",
+			"language": "Python",
+			"commitCount": 58,
+			"dailyCommitCounts": [
+				0, 0, 0, 23, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1
+			],
+			"latestCommitMessage": "feat: The board's user can run apt-get update, apt-get -y full-upgrade..."
 		},
 		{
 			"name": "bechdel-test",
@@ -35,17 +46,6 @@
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0
 			],
 			"latestCommitMessage": "feat: Re-record the README video from the static demo"
-		},
-		{
-			"name": "adult-swim-bumper",
-			"description": "Adult Swim-style pre-roll bumper video generator CLI",
-			"url": "https://github.com/JoeKarlsson/adult-swim-bumper",
-			"language": "Python",
-			"commitCount": 3,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0
-			],
-			"latestCommitMessage": "fix: The README's full-quality recording link works, since the MP4 is..."
 		}
 	],
 	"films": [
