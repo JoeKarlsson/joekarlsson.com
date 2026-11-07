@@ -103,6 +103,8 @@ The short version, without getting into the build:
 - **Keycards are your permissions**: blue for apps you can only read, yellow for read and write.
 - **The red door is data Connect AI blocked**, like a lookup by Social Security number. There's no key. Try the door and it asks Connect AI again, live, and gets refused again.
 
+![How Connect AI × DOOM works. You ask a question. Claude explores your apps through the Connect AI MCP server, with read-only tools only, and picks the three apps that answer it, here Salesforce, Zendesk and Stripe. What it finds becomes the level: each app becomes a room; each record becomes a monster, urgent ones are pink demons, and shooting one reads the record again, live; your permissions become keycards, blue for read only and yellow for read and write; and data Connect AI blocked, like a lookup by Social Security number, sits behind the red door, which has no key and gets refused again every time you try it.](/images/blog/why-i-use-doom-to-visualize-mcp-data/how-it-works.svg)
+
 ![The Zendesk room: Claude walking into a hall of monsters labeled with support tickets like API endpoint returning 500 errors and phone service slow, with the urgent ticket named across the bottom of the screen](/images/blog/why-i-use-doom-to-visualize-mcp-data/zendesk-room.gif)
 
 _The Zendesk room. Every monster is a support ticket._

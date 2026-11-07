@@ -94,7 +94,7 @@ Open up the project in your favorite text editor and then let’s get our app au
 
 [Implicit grant flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow) is for clients (Like ours) that are implemented entirely using JavaScript and running in the resource owner’s browser. Implicit Grant flow is carried out client-side and does not involve secret keys. The access tokens that are issued are short-lived and there are no refresh tokens to extend them when they expire.
 
-![Source: [https://developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow)](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/spotify-auth-flow.webp)_Source: [https://developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow)_
+![The implicit grant flow for this player. The Login with Spotify link in the React app sends you to Spotify Accounts at /authorize with the client_id, scopes and response_type=token. You log in and approve the scopes. Spotify Accounts redirects you back to localhost:3000 with the access token in the URL hash. The app reads the token from window.location.hash; it is short-lived and has no refresh token. Then the app calls the Spotify Web API at /v1/me/player with the token as a Bearer header and gets back JSON about what is playing.](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/implicit-grant.svg)
 
 We need to write some code that performs a couple of actions:
 

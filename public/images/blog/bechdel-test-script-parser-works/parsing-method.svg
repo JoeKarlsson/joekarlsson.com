@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 850" width="640" height="850" role="img" aria-label="How the Bechdel Test Visualizer reads a screenplay. It takes the title from the first line of the text file and asks myapifilms.com for the cast, their characters and each one’s gender. Then it splits the script into scenes using 10 to 12 keywords like int. and ext., and collects each character’s dialogue. A scene fails if fewer than two women are in it. If two or more are, it checks their dialogue for words about a man, like he, him, father or king: if it finds one, the scene fails, and if not, the scene passes.">
+<defs><filter id="bechdel-test-script-parser-works-parsing-method-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="890">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="850" fill="#000000"/>
+<g transform="rotate(-0.8 190 45)">
+<path class="d-paper" d="M70.5,14.8 L85.3,14.9 L101.7,16.2 L118.2,16.6 L135.2,17 L150.6,16.9 L166.1,16.6 L182.6,14.9 L199.3,16.5 L214.1,15.5 L228.7,15.8 L245.7,16.4 L261.7,15.5 L279.3,14.7 L292.5,16.1 L309.7,14.7 L308.8,30.6 L310.5,47.4 L310,64.2 L309.6,73.3 L295.2,74.1 L278.6,73.3 L261.5,72.8 L244.7,74.4 L230.5,72.9 L212.6,75.6 L197.7,73.8 L183.4,73.7 L164.6,73.2 L150.9,74.5 L134.3,74.6 L118.2,74.1 L100.9,73.3 L86.2,73.5 L71.5,74.9 L69.1,56.8 L70.1,41.6 L69.4,26.2 Z" fill="#ece6da"/>
+<svg x="84" y="31" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+  <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></g></svg>
+<text x="211" y="35.3" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#000000" text-anchor="middle" dominant-baseline="central">SCREENPLAY</text>
+<text x="211" y="59.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">a plain text file</text>
+</g>
+<g transform="rotate(-0.4 190 170)">
+<path class="d-paper" d="M58.7,139 L76.5,141.6 L92.4,138.7 L106.6,140.2 L124.8,139.5 L139,141 L156,140.1 L172.1,139.9 L187.2,138.5 L204,139.7 L220.2,138.8 L236.8,140.9 L250.7,139.2 L267.1,139.5 L285.1,140.6 L301.4,138.6 L316.4,141.5 L319,141 L320.8,156.9 L319,173.6 L318.5,187.9 L320.4,200.8 L303,201.4 L287.1,200.8 L271.9,198.6 L254.7,200.2 L240.3,199.6 L223.8,201 L207.1,198.8 L192.6,201.1 L175.6,201 L160.5,201 L145.5,199.7 L126.9,201.1 L113,200.6 L94.9,199.1 L78.5,200.4 L63.1,200.6 L61,201.2 L60.4,184.8 L61.1,167.8 L61.3,151.9 Z" fill="#ff4fd8"/>
+<svg x="74" y="156" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" /></g></svg>
+<text x="211" y="160.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">READ THE TITLE</text>
+<text x="211" y="182.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">from the first line</text>
+</g>
+<text x="338" y="160" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">title</text>
+<g transform="rotate(0.7 514 170)">
+<path class="d-paper" d="M403.3,129.4 L419.1,128 L435,129.3 L451,128.4 L468.7,128.3 L484.8,129.3 L501.2,127.1 L514.7,128.5 L532.2,129.1 L548.4,128.9 L564.7,128.3 L580.5,127.4 L594.7,128.6 L610.9,129.4 L623.9,126.8 L623.8,144.9 L623,161 L625.4,174.8 L624.6,192.2 L622.8,208.8 L623.2,211.6 L607.1,212.2 L590.4,213.2 L577,210.7 L558.9,213.2 L543.5,211.8 L529.4,211.3 L511.5,212.5 L496.5,213.4 L480.6,212.1 L464.7,210.5 L446.6,211.4 L433.3,211.7 L416.7,213.3 L404.9,212.1 L402.5,196.6 L404.1,179 L404.5,164.1 L402.8,147.1 L402.8,131.2 Z" fill="#ece6da"/>
+<svg x="418" y="156" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M7 3v18" />
+  <path d="M3 7.5h4" />
+  <path d="M3 12h18" />
+  <path d="M3 16.5h4" />
+  <path d="M17 3v18" />
+  <path d="M17 7.5h4" />
+  <path d="M17 16.5h4" /></g></svg>
+<text x="535" y="151.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">MYAPIFILMS.COM</text>
+<text x="535" y="173.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">cast, characters</text>
+<text x="535" y="191.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">and their genders</text>
+</g>
+<g transform="rotate(-1 190 271)">
+<path class="d-paper" d="M59.7,234.2 L75,235.2 L90.5,235 L109,233 L124.4,233.7 L139,233.2 L154.5,235.3 L172.7,235.2 L188.2,234.8 L204.5,235.6 L220,233.2 L235.6,232.8 L251.5,234.7 L269.2,233.5 L282.9,235.2 L301.5,234.4 L317.4,233.5 L320.5,235.6 L319.8,250.5 L319.3,267 L319.8,281.8 L321.3,299.5 L319.9,307.7 L303.9,308.5 L288.1,307.7 L270.5,307.7 L255.6,308.8 L239.4,307.7 L222.8,308.4 L208.6,306.7 L192.3,309 L174.7,308.9 L160.5,309.1 L142.9,308.6 L126.7,308.5 L110.8,308.4 L97.5,307.7 L79.5,307 L65.2,308.4 L60,308.1 L61.1,290.8 L59.2,276 L59.8,260.2 L61.3,242.8 Z" fill="#ff4fd8"/>
+<svg x="74" y="257" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5" />
+  <path d="M8 3H3v5" />
+  <path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" />
+  <path d="m15 9 6-6" /></g></svg>
+<text x="211" y="252.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">SPLIT INTO SCENES</text>
+<text x="211" y="274.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">10-12 keywords</text>
+<text x="211" y="292.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">like int. and ext.</text>
+</g>
+<g transform="rotate(0.1 190 368)">
+<path class="d-paper" d="M59.9,336.6 L74.7,337 L93.5,338.3 L108.6,339.3 L124.9,336.5 L139.8,337.8 L157.6,338.7 L173.2,339.5 L188.3,338.6 L204.8,339.2 L218.9,336.7 L237.5,339.5 L250.5,337.3 L267,338.4 L283.3,339.1 L301.5,339.1 L316.3,338.3 L319.2,339.3 L318.8,355 L318.5,368.8 L318.8,387.3 L319.4,397.4 L303.5,397.3 L287.6,397.4 L270.9,397.2 L255.6,396.6 L240.2,396.7 L225,396.8 L207.9,398.8 L190.5,397.9 L174.8,398.4 L158.8,399.5 L143.2,398.8 L128.7,396.5 L112.9,399.1 L95.9,396.8 L78.4,397.5 L64.3,397 L61.6,398.1 L59.4,382 L60,367 L59.2,350.6 Z" fill="#ff4fd8"/>
+<svg x="74" y="354" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z" />
+  <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" /></g></svg>
+<text x="211" y="358.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">COLLECT DIALOGUE</text>
+<text x="211" y="380.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">by character</text>
+</g>
+<path d="M189,427.2 L323.8,470.7 L191.3,511.2 L55,471.4 Z" fill="#ece6da"/>
+<text x="190" y="470" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">TWO+ WOMEN?</text>
+<text x="338" y="458" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">no</text>
+<text x="202" y="530" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">yes</text>
+<g transform="rotate(-0.7 190 583)">
+<path class="d-paper" d="M59.9,544.7 L77.4,545.1 L91.5,547.3 L108.4,547.5 L122.8,545.2 L139.6,546.3 L157.1,545.6 L173,546.8 L186.9,547.5 L203.4,547 L220.9,547.4 L236.5,546 L253.3,547.6 L268.9,545.5 L285.1,546.8 L300.8,546 L316.4,545.6 L319.5,544.6 L320.6,561.4 L319.9,577.6 L319.7,595.3 L320.1,610.9 L321,619.5 L303,621.5 L286.6,621.1 L272.7,619.5 L257.3,620.2 L239.7,618.6 L225.2,621.2 L208.5,621.3 L193.3,621.4 L174.5,620.6 L160.7,620.9 L143.8,620.2 L127.4,618.7 L112.9,620.6 L94.5,620.5 L79,619.8 L63.9,619.5 L59.9,619.9 L61.3,603.5 L59.2,588.7 L61.5,572.7 L60.1,555.4 Z" fill="#ff4fd8"/>
+<svg x="74" y="569" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" /></g></svg>
+<text x="211" y="564.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">CHECK THEIR DIALOGUE</text>
+<text x="211" y="586.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">for he, him,</text>
+<text x="211" y="604.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">father, king...</text>
+</g>
+<path d="M190,648.5 L326.1,689.4 L189.5,733.4 L53.9,690.5 Z" fill="#ece6da"/>
+<text x="190" y="690" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">ABOUT A MAN?</text>
+<text x="338" y="678" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">yes</text>
+<g transform="rotate(0.5 516 590)">
+<path class="d-paper" d="M454.9,544.5 L471.7,546.5 L486.9,545.6 L504.9,543.8 L519.8,545.2 L536.1,543.9 L552.3,544.6 L567.8,543.5 L574.5,545 L575.2,560.6 L577.3,578.3 L575.4,591.7 L577.3,607.7 L575.2,624 L577,635.1 L558.4,636.1 L544.1,636.2 L527.7,635.9 L511.5,636.4 L496.6,636 L481.5,636 L464.7,635.7 L457.6,636.1 L455.1,618.8 L454.9,602.3 L456.4,586.4 L457,572 L456.1,554.3 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="503" y="553" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></g></svg>
+<text x="516" y="594.7" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#ededed" text-anchor="middle" dominant-baseline="central">SCENE</text>
+<text x="516" y="619.4" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#ededed" text-anchor="middle" dominant-baseline="central">FAILS</text>
+</g>
+<text x="202" y="754" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">no</text>
+<path d="M259.1,771.3 L263.9,771.6 L268.6,774.1 L273.8,777.8 L278.4,782.5 L280,786.7 L280.3,792.9 L279.8,797.6 L278.3,803.1 L273.4,809 L269.1,810.1 L264.7,813.1 L259,815.1 L120.8,813.5 L116.6,813.1 L111.3,812.1 L106.4,807.3 L102.4,803.9 L101.3,798.7 L101,794.2 L100.9,787 L103.7,783.5 L105.5,777.9 L111.4,774.6 L115.9,772.5 L119.9,771.8 Z" fill="#ece6da"/>
+<text x="190" y="793" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20.4" fill="#000000" text-anchor="middle" dominant-baseline="central">SCENE PASSES</text>
+<g class="d-flow">
+<path d="M189.7,76.8 Q191.1,107 190.9,137.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M183.6,129 L190,138 L196.4,129" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M323.1,169.3 Q361.5,170.4 401.7,170" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M393,176.4 L402,170 L393,163.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M331,163.6 L322,170 L331,176.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M191,202.3 Q191.6,217.9 191.4,230.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M183.6,223 L190,232 L196.4,223" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M191.1,308.6 Q189.4,322.5 189.1,336.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M183.6,327 L190,336 L196.4,327" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M189.3,399.9 Q189,415.1 189.3,427.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M183.6,417 L190,426 L196.4,417" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M324,471.4 Q419.8,469 517.2,468.7 M515.7,470.6 Q516.1,505.9 516,542.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M509.6,534 L516,543 L522.4,534" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M190.9,514.8 Q190.8,528.6 188.7,544.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M183.6,535 L190,544 L196.4,535" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M189.1,622 Q188.6,633.6 190.9,645.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M183.6,637 L190,646 L196.4,637" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M325.5,689 Q419.7,690.5 515.2,689.1 M515.6,690.8 Q514.9,664.3 516.3,637.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M522.4,646 L516,637 L509.6,646" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M191,733.1 Q189.6,750.1 190.4,770" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+<path d="M183.6,761 L190,770 L196.4,761" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#bechdel-test-script-parser-works-parsing-method-desktop-crayon)"/>
+</g>
+</svg>

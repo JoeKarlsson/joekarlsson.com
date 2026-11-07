@@ -17,6 +17,8 @@ tldr: 'I got tired of typing IP addresses to access my homelab services, so I se
 
 I got tired of typing IP addresses to access services on my homelab, so I set up custom domain names on my internal network. If you don't have a homelab yet, check out my guide on [how to get started building a homelab server](/blog/how-to-get-started-building-a-homelab-server-in-2024/) first. I'm going to walk through how I set up custom domain names using [Pi-Hole](https://pi-hole.net/) for DNS management and [Nginx Proxy Manager](https://nginxproxymanager.com/) for web traffic control and SSL encryption.
 
+![How a custom local domain resolves. The browser asks Pi-hole where magic.mirror is, and Pi-hole’s local DNS record answers with Nginx Proxy Manager’s IP. The browser sends its request for magic.mirror to Nginx Proxy Manager, whose proxy host forwards it to the IP of the server running Magic Mirror, and the page comes back the same way.](/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/request-flow.svg)
+
 ## Step 1: Configuring Pi Hole for Custom Domain
 
 Pi-Hole, primarily known for ad-blocking, also serves as a local DNS server. To set a custom domain:
@@ -44,6 +46,8 @@ Next, I configured my NGINX Proxy Manager to recognize and forward requests for 
 This is the part I got wrong originally. Let’s Encrypt can’t issue a certificate for a made-up TLD like `.mirror` - it validates against the public suffix list, and `magic.mirror` isn’t on it. You’ll get a hard error before any challenge is even attempted. Skipping the reachability test doesn’t fix this.
 
 There are two real approaches depending on whether you own a public domain:
+
+![Two ways to get a certificate browsers trust on a local domain. If you own a public domain: Nginx Proxy Manager uses a Cloudflare API token to add a TXT record, Let’s Encrypt checks that record with the DNS-01 challenge and issues a wildcard certificate for *.home.yourdomain.com, which renews itself and is trusted by every browser. With no public domain: mkcert -install creates a local certificate authority in your trust store, mkcert magic.mirror signs a cert and key for that name, and the CA has to be installed by hand on every phone, tablet and laptop. Let’s Encrypt won’t sign magic.mirror because .mirror isn’t a public suffix.](/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/certificates.svg)
 
 ### Option A: You own a public domain (recommended)
 

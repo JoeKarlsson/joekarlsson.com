@@ -53,6 +53,10 @@ The next time I’m home and fire up my music app, “Midnight City” is just t
 
 Compare this to the current reality: I hear a song, I have to remember it, go home, fire up Lidarr’s web interface, search for the artist (hope I remembered the name correctly), browse through their discography to find the right album, add the entire album to monitoring, wait for it to download, manually import it, then separately fire up Navidrome or whatever music server I’m using, find the specific track I wanted from the 12 tracks that got downloaded, and manually add it to a playlist.
 
+![The workflow I want. All I do: Shazam names the song, and I search for it in my music app and tap Add to Library, maybe picking a playlist. Everything else happens on my home server: the request goes into a queue, the server gets the album or a single, whichever is best, extracts the one track, tags it, adds it to my library and the playlist, and pings me when it’s ready. No tool does this yet.](/images/blog/self-hosted-music-still-sucks-in-2026/dream.svg)
+
+![Getting one song into a playlist today, every step by hand. Hear a song, remember it, and go home. In Lidarr: search for the artist, browse the discography, add the whole album, wait for the download, and import it. Twelve tracks land on disk. Then in Navidrome: find the one track you wanted and add it to a playlist.](/images/blog/self-hosted-music-still-sucks-in-2026/today.svg)
+
 It's 2026. This workflow is barbaric for track-level music discovery and curation.
 
 **The missing piece is a smooth request flow**. Overseerr nailed this for video content, beautiful search interface, one-click requests, automatic processing, notifications when ready. Music needs exactly the same pattern, but every current solution treats requesting music like you’re filing paperwork with the Department of Motor Vehicles.

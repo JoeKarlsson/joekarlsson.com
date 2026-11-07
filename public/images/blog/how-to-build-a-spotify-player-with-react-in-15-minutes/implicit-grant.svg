@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 600" width="640" height="600" role="img" aria-label="The implicit grant flow for this player. The Login with Spotify link in the React app sends you to Spotify Accounts at /authorize with the client_id, scopes and response_type=token. You log in and approve the scopes. Spotify Accounts redirects you back to localhost:3000 with the access token in the URL hash. The app reads the token from window.location.hash; it is short-lived and has no refresh token. Then the app calls the Spotify Web API at /v1/me/player with the token as a Bearer header and gets back JSON about what is playing.">
+<defs><filter id="how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="640">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="600" fill="#000000"/>
+<path class="d-paper" d="M15.3,39.1 L31.7,41.6 L48.3,38.8 L62.9,39.3 L78.6,39.8 L96.6,40.4 L113.3,39.2 L128.7,39 L145.4,39.5 L160.5,39.4 L175.2,38.6 L192.8,41.3 L208.2,38.8 L222.5,41.4 L239,41.5 L244.9,40.7 L243.4,55.2 L243.6,70.7 L244.2,88.2 L245.2,102.8 L243.8,120.8 L244.8,135.4 L242.8,151.3 L243.2,168.5 L242.7,183 L245,198.9 L243.7,214.7 L242.9,233.1 L242.6,246.8 L242.7,263.5 L242.4,279.8 L242.7,294.9 L243.9,311 L244,326.6 L245.5,344.7 L243.6,358.5 L242.7,376.4 L244.2,391.1 L244.9,408.3 L245.5,425.5 L244.8,440.2 L243.5,457.3 L243.7,472 L244.5,488.7 L243.3,504.4 L243.5,520.9 L245.1,534.8 L244.3,551.8 L243.6,567.8 L242.8,580.2 L228.9,578.8 L213.4,578.5 L195.4,579.3 L180.3,580.5 L165.1,579.8 L146.8,579.9 L132,580.1 L116.3,580.7 L101,579.9 L83,579.1 L68.5,580.9 L52.4,579.4 L36.2,579.6 L19.9,580.7 L14.6,579.5 L14.6,565 L16.8,547.2 L16.8,533.2 L15.5,515.3 L15.8,498.6 L16.2,485 L15.9,468.4 L15.6,450.8 L15.8,435.4 L14.4,419.8 L16.3,404.9 L16.7,386.9 L17,370.8 L15,355 L15.5,339.8 L14.7,322.8 L16.9,308.1 L15.1,293.3 L16.7,274.7 L15.6,260.6 L16.8,245 L15.2,227 L17.5,211.3 L17.2,195.3 L15.6,181.2 L17.4,165.4 L15.9,148 L17.2,132.5 L16.9,115.6 L17.5,99 L14.7,83.2 L15.7,69.1 L15.3,53.2 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M15.6,19.2 L32.7,16.5 L48.3,19.1 L63.2,17.4 L80.3,19.1 L97.3,17.9 L113.5,19 L127.9,17 L143.4,18.3 L153.2,17.6 L153.9,34.5 L154.2,41.1 L137.4,42.5 L123.4,40.7 L105.7,42.1 L88.9,42.6 L75.3,41 L57.2,42.8 L40.4,42.2 L26.7,40.4 L15.4,42.2 L17.4,26 Z" fill="#2a2a2a"/>
+<text x="28" y="31" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">YOUR REACT APP</text>
+<g transform="rotate(-1.1 130 104)">
+<path class="d-paper" d="M29.5,59.5 L46,60.3 L61.3,59.5 L76.7,61.3 L95.1,59.6 L111.2,58.5 L125.9,60.1 L141,58.7 L156.6,60.6 L172.8,60.1 L191.4,61.5 L204.5,61.1 L223.6,58.9 L229.5,59.9 L231.2,74.6 L231.5,93.4 L230,107.2 L230.1,125.2 L231.4,140.9 L228.7,147.7 L213.6,147.1 L198,148.9 L181.2,148.4 L167.6,148.6 L149,148.1 L132.5,147.3 L117.9,149.5 L102.2,149.4 L86.6,147.6 L71,147.1 L55.2,148.2 L38.8,146.4 L30.8,149.4 L30.2,133.4 L30.5,116 L30.5,99.1 L30.6,83.8 L29.5,68.8 Z" fill="#ff4fd8"/>
+<svg x="117" y="68" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+  <polyline points="10 17 15 12 10 7" />
+  <line x1="15" x2="3" y1="12" y2="12" /></g></svg>
+<text x="130" y="111.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">LOGIN WITH SPOTIFY</text>
+<text x="130" y="132.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">link in App.js</text>
+</g>
+<g transform="rotate(-0.9 517 104)">
+<path class="d-paper" d="M410.1,59.2 L424.4,60.3 L440.4,60.5 L456.9,58.9 L473.8,60.4 L489.5,60.4 L506,61 L520.5,59.4 L536.6,61.5 L555.6,59.8 L571,59.8 L585.5,60.6 L601.4,60.8 L618.1,60.8 L623.5,60.5 L622.8,77.6 L624.7,93.5 L623.3,109 L622.7,125 L624.9,140.2 L623.4,147.7 L609.4,146.7 L592.5,149.4 L575.9,148.5 L560.1,149.6 L542.7,149 L529,147.7 L511.5,147.6 L496.9,146.9 L480,149.1 L463.5,148.5 L447.8,147.3 L430.8,147.8 L415.1,147.5 L409.2,149 L409.8,131.7 L409.5,117 L410.4,101.2 L411.6,84.4 L409.6,69.3 Z" fill="#ece6da"/>
+<svg x="504" y="68" width="26" height="26" viewBox="0 0 24 24"><g fill="#000000"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></g></svg>
+<text x="517" y="111.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">SPOTIFY ACCOUNTS</text>
+<text x="517" y="132.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">/authorize</text>
+</g>
+<text x="320" y="90" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">client_id, scopes,</text>
+<text x="320" y="124" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central" xml:space="preserve">response_type=token</text>
+<g transform="rotate(1.1 517 232)">
+<path class="d-paper" d="M410.4,187.3 L424.8,189.4 L440.8,189.5 L458,188.1 L474,187.1 L490,186.9 L505.9,187.1 L520.7,189 L537.8,188.8 L554.8,189.1 L569.5,189.1 L584.7,189.2 L602.3,187.7 L616.4,187.4 L625,188.6 L622.7,204.6 L625.2,220.3 L623.2,236.4 L625.3,250.8 L623.9,268.4 L623.1,277 L609,274.8 L593,275.9 L575.1,275.9 L561.3,277.1 L544,275.2 L528.8,274.9 L513.5,276.9 L497.6,275.9 L479.7,276.7 L463.6,277.5 L448.9,275.1 L432.5,275.7 L414.8,274.8 L411,276.8 L409.7,260.7 L411,244.6 L410,228.1 L408.6,210.8 L409,195.7 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="504" y="196" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+  <circle cx="12" cy="7" r="4" /></g></svg>
+<text x="517" y="239.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">YOU</text>
+<text x="517" y="260.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">log in, approve scopes</text>
+</g>
+<text x="529" y="297" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">approved</text>
+<g transform="rotate(-0.1 517 360)">
+<path class="d-paper" d="M409.6,317.3 L424.5,315.7 L442,317.6 L456.5,316.2 L473.3,315.5 L488.4,316.7 L506.2,315 L521.4,315.5 L538.4,316.7 L555.5,317 L569.9,314.9 L587.1,315.3 L600.8,314.5 L616.4,315.5 L625.1,315.6 L625.3,331.2 L624.1,347.1 L625,362.7 L623.6,379.1 L624.7,396.4 L624.5,403 L609.2,404.7 L592,404.4 L577,402.8 L560.7,404.9 L544,402.8 L528.9,405 L511.4,403 L495.1,405.2 L480.2,403.2 L464.3,403.2 L448.7,405.5 L432.6,403.6 L415.4,404.5 L411.5,403.8 L411.3,388.4 L409.1,372.4 L410.7,356 L410.8,341.5 L410.5,324.2 Z" fill="#ece6da"/>
+<svg x="504" y="324" width="26" height="26" viewBox="0 0 24 24"><g fill="#000000"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></g></svg>
+<text x="517" y="367.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">SPOTIFY ACCOUNTS</text>
+<text x="517" y="388.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">back to localhost:3000</text>
+</g>
+<text x="320" y="346" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central" xml:space="preserve">#access_token=...</text>
+<text x="320" y="380" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">in the URL hash</text>
+<g transform="rotate(-1 130 360)">
+<path class="d-paper" d="M31.6,305.5 L46.5,306.7 L63,305.1 L76.7,307.2 L92.6,307 L109.2,306.4 L126,306.3 L142.8,305.8 L158.2,307.3 L175.4,305.6 L191.5,305.9 L205.7,306.6 L221.6,307.5 L230.4,305 L228.9,322 L230.5,338.5 L228.9,353.1 L228.6,370.8 L230.2,385.2 L229.6,401 L231.3,413.9 L213.4,414.4 L196.7,414.2 L180.6,412.6 L167.1,415 L150.1,415.6 L134.7,412.9 L117.2,413.1 L100.6,414.8 L86.9,414.2 L69.5,415 L52.7,414.3 L38.1,414.7 L30.6,412.7 L30.4,398.5 L31.4,383.6 L30.9,367.2 L29.9,351.2 L28.8,335.2 L28.5,318.1 Z" fill="#ff4fd8"/>
+<svg x="117" y="314" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
+  <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></g></svg>
+<text x="130" y="358.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">READ THE TOKEN</text>
+<text x="130" y="379.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">window.location.hash</text>
+<text x="130" y="397.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">short-lived, no refresh</text>
+</g>
+<g transform="rotate(-0.7 130 500)">
+<path class="d-paper" d="M28.6,454.9 L44.5,457 L62.3,456.3 L77.8,456.5 L93.4,455.5 L110.8,455 L125.6,457.2 L142.5,456.9 L156.4,457.2 L174.7,455.2 L190.4,455.4 L205.8,454.7 L221.9,454.8 L230.5,455 L229.5,472.9 L228.7,487.1 L229.6,505.5 L228.7,519.3 L230.4,537.5 L229.9,545.4 L213.1,543.2 L197.1,543.2 L181.8,544.7 L166.9,543.1 L149.8,543 L133.4,544.3 L119,544.5 L103.5,543.6 L86.1,545.2 L68.6,542.6 L53.4,543.9 L39.6,543.8 L31.3,544.8 L30.9,526.7 L30.8,512.7 L30.7,495.1 L30.6,479.4 L29.2,464.1 Z" fill="#ff4fd8"/>
+<svg x="117" y="464" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" />
+  <path d="M12 6h.01" />
+  <circle cx="12" cy="14" r="4" />
+  <path d="M12 14h.01" /></g></svg>
+<text x="130" y="507.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">WHAT'S PLAYING?</text>
+<text x="130" y="528.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">getCurrentlyPlaying()</text>
+</g>
+<g transform="rotate(-0.3 517 500)">
+<path class="d-paper" d="M409.2,457.5 L427,457.4 L442.6,456.1 L456.4,454.8 L472.9,457.6 L491.3,455.3 L506.1,456.3 L523.2,456.3 L537.2,454.8 L553.5,456.9 L570.4,456.1 L587.1,456.6 L601.1,457.4 L618.4,457.5 L625.3,457.5 L624.7,471.6 L623.1,487.8 L623.8,504.4 L623,521.2 L624,537.4 L622.5,545.2 L607.6,543.2 L591.9,544.4 L574.8,543.3 L561.5,544.5 L544.6,544.1 L528.5,543.4 L511.9,545.5 L494.6,544.5 L481.5,543.6 L465.1,544.2 L448.2,545.4 L430.4,544.8 L414.9,542.6 L409.7,543.7 L410.4,527.4 L410.6,513.1 L409.2,497.5 L409.8,480.6 L409.1,464.7 Z" fill="#ece6da"/>
+<svg x="504" y="464" width="26" height="26" viewBox="0 0 24 24"><g fill="#000000"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></g></svg>
+<text x="517" y="507.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">SPOTIFY WEB API</text>
+<text x="517" y="528.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">/v1/me/player</text>
+</g>
+<text x="320" y="486" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">Bearer token</text>
+<text x="320" y="520" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">back: JSON</text>
+<g class="d-flow">
+<path d="M233.3,103.9 Q318.8,102.8 404.5,102.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+<path d="M397,110.4 L406,104 L397,97.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M517.9,149.3 Q516.4,166.8 516.6,183.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+<path d="M510.6,175 L517,184 L523.4,175" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+<path d="M523.4,159 L517,150 L510.6,159" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M517.2,276.6 Q515.7,293.2 516,312.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+<path d="M510.6,303 L517,312 L523.4,303" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M404.5,359.9 Q319.1,359.4 234.9,358.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+<path d="M243,353.6 L234,360 L243,366.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M129.5,417.5 Q128.8,435.7 130.9,452.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+<path d="M123.6,443 L130,452 L136.4,443" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M232.6,498.6 Q319.8,499.7 405.7,499.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+<path d="M397,506.4 L406,500 L397,493.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+<path d="M243,493.6 L234,500 L243,506.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#how-to-build-a-spotify-player-with-react-in-15-minutes-implicit-grant-desktop-crayon)"/>
+</g>
+</svg>

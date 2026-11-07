@@ -41,11 +41,15 @@ A mod is a small program that plugs into Claude Code itself. It sees what Claude
 
 Hooks could already stop Claude from doing things. What they couldn't do was show me anything, or remember anything from one step to the next.
 
+![What a Claude Code mod does. Inside Claude Code, Claude is about to run a command, edit a file or answer. A mod sees it first and can stop it, change it, or let it through. The mod can also put things on your screen: a status line, a side panel, a pop-up and its own slash commands. Hooks could already stop Claude; they couldn’t show you anything.](/images/blog/claude-code-mods-first-impressions/what-a-mod-does.svg)
+
 ## Why Claude Code mods beat hooks
 
 I was cleaning up my homelab repo and found four hooks that were supposed to hand Claude my notes on Home Assistant, my NAS and Proxmox whenever I mentioned them. None of them had ever worked. One small formatting mistake meant Claude Code threw away everything they sent, and it never said a word about it. The Home Assistant one had been in place since January.
 
 To check, I wrote a test hook that tells Claude a secret word and then asked Claude for the word. With my old format, it had no idea. With the fixed format, it answered right away. In both cases, nothing on my screen told me which one I had.
+
+![The same job done by a hook and by a mod: when I mention Home Assistant, hand Claude my notes on it. The hook sent the notes, but one formatting mistake meant Claude Code dropped them, so Claude never saw them, and nothing on my screen said so, broken or fixed. The mod hands Claude the notes and pops up a message on my screen saying it did.](/images/blog/claude-code-mods-first-impressions/context-hook-vs-mod.svg)
 
 I found a second broken hook while I was at it. Claude and Word documents don't get along on my Mac. Claude would edit a doc in my OneDrive folder, and then Word or OneDrive would save their own copy right over its changes, or the file would come out corrupted. So I wrote a hook to stop Claude from writing into that folder at all. It prints "BLOCKED" and then lets the write go through anyway, because it reports the failure the wrong way. As far as I can tell, that hook has never blocked a write.
 

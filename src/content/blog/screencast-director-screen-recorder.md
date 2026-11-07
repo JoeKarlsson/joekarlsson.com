@@ -53,6 +53,8 @@ The draft comes from one rule, which I call the talking rule:
 
 When you stop recording, the app transcribes you on your Mac with [whisper.cpp](https://github.com/ggml-org/whisper.cpp), lines that up with a log of when you clicked and typed (never what you typed), and drafts the edit from it. It adds zooms where you clicked and turns what you said into captions. On one of my demos, a 3:36 recording came out at 2:56.
 
+![How Screencast Director drafts the edit. When you stop recording, whisper.cpp transcribes your voice on your Mac, and the app lines that transcript up with a log of when you clicked and typed, never what you typed. Then the talking rule decides every stretch: talking plays in real time, typing without talking fast-forwards, and nothing happening gets cut. The draft edit is a timeline of real-time clips, sped-up clips and cuts, with zooms where you clicked and captions from what you said. On one demo, a 3:36 recording came out at 2:56.](/images/blog/screencast-director-screen-recorder/talking-rule.svg)
+
 ![Hovering across the timeline, clicking a dashed cut and pressing Restore in the inspector so it becomes a restored clip, selecting a clip and setting it to 2x so it turns striped, then pressing Command-slash to open the keyboard shortcuts](/images/blog/screencast-director-screen-recorder/sd-timeline.gif)
 
 _Restoring a cut, then setting a clip to 2x._

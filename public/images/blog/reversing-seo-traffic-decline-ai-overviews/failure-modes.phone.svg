@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 800" width="360" height="800" role="img" aria-label="Two failure modes behind falling clicks, told apart by position. Failure mode 1: position and impressions up, clicks flat or down, the AI Overview signature. The fix is GEO and CTR work: FAQ schema, quotable definitions, structured data, and title and meta rewrites. Failure mode 2: position and clicks both down, a quality or authority problem. The fix is content quality, internal links, redirect cleanup and backlinks. Most SEO recovery advice only covers failure mode 2.">
+<defs><filter id="reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="400" height="840">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="360" height="800" fill="#000000"/>
+<path d="M244.8,23.1 L249.4,25.4 L253.9,27.6 L260,30.6 L263.1,34.4 L263.6,37.8 L265.9,43.5 L265.2,49.2 L261.4,52.9 L258.1,58.9 L255.1,61 L249.7,62.4 L245,65 L114.5,64.1 L110,63.5 L104.9,61.1 L101.6,58 L96.9,53.2 L96,48.3 L95.5,43.2 L96.5,38.8 L96.8,33.2 L100.6,28.8 L105.1,25.9 L110.5,24.1 L114.2,22.8 Z" fill="#ece6da"/>
+<text x="180" y="44" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20.4" fill="#000000" text-anchor="middle" dominant-baseline="central">CLICKS DOWN</text>
+<path d="M179.6,91 L281,131.9 L181.4,173.5 L80.9,131.6 Z" fill="#ece6da"/>
+<text x="180" y="132" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20.4" fill="#000000" text-anchor="middle" dominant-baseline="central">POSITION?</text>
+<text x="192" y="194" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">up</text>
+<g transform="rotate(0.7 180 251)">
+<path class="d-paper" d="M21.3,209.6 L37.4,210.2 L51.9,210.9 L66.6,211.3 L85.2,208.8 L101,210.6 L116.2,209.2 L132.1,208.7 L147.2,209.6 L163.9,211.4 L179,209.2 L194.7,211.4 L211.8,209.4 L228.4,208.8 L242.6,210.5 L260.3,210.5 L276.9,210.1 L292.6,210.8 L307.5,211.5 L324.3,208.6 L340.6,211.6 L339.2,227.3 L340,241.3 L340.6,258 L339,275.5 L341.3,290.2 L340.7,293.1 L325.1,291.3 L307.6,291 L291.2,291.9 L275.8,290.6 L259.2,291.6 L244.3,293.2 L227.8,292 L211.4,291.3 L195,290.8 L180.7,293.5 L164.3,293.2 L147.8,293 L132.4,291 L116.8,291.8 L99.1,292.3 L85.1,290.6 L68.7,290.9 L53.1,292 L35.2,292.3 L19.6,291.8 L21.4,276.8 L19.7,258.7 L21.1,244 L21.1,228.4 L19.1,212 Z" fill="#ece6da"/>
+<text x="180" y="232.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">FAILURE MODE 1</text>
+<text x="180" y="254.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">impressions up, clicks flat</text>
+<text x="180" y="272.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">AI Overviews take the click</text>
+</g>
+<g transform="rotate(0.7 180 377)">
+<path class="d-paper" d="M18.9,322.3 L35.9,321.1 L53.6,321 L69.5,323.1 L83.7,322.5 L100.6,321.6 L115.6,322 L130.7,320.8 L147.8,323.3 L163.9,321.7 L180.2,321.2 L196.8,320.6 L213.2,321.8 L229.4,323.4 L244.8,322.2 L260,320.5 L275.1,323.2 L291.6,321.8 L309.3,321.1 L323.7,321.3 L338.9,322.7 L339,338.5 L339.2,355.1 L340.4,370.4 L338.6,385.2 L340.9,401 L340.4,418.3 L338.7,433.4 L323.5,431.7 L307.4,431.9 L290.9,431 L275.4,432.7 L259,431.4 L245.1,430.6 L228.4,431.1 L213.4,430.5 L197.5,430.4 L179.9,431.4 L163.7,432.5 L149.1,432.8 L130.5,431.2 L115.2,433.6 L100.9,433.1 L85.3,430.8 L67.8,430.7 L52.2,433.3 L35,432.7 L21.6,432.3 L20.8,415.4 L19.2,398.6 L20.1,383.3 L21.6,366.6 L20.9,352.1 L18.4,336.7 Z" fill="#ff4fd8"/>
+<text x="180" y="349.7" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">GEO + CTR WORK</text>
+<text x="180" y="371.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">FAQ schema, structured data,</text>
+<text x="180" y="389.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">quotable definitions,</text>
+<text x="180" y="407.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">title + meta rewrites</text>
+</g>
+<text x="292" y="120" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">down</text>
+<g transform="rotate(-0.6 180 531)">
+<path class="d-paper" d="M19.5,490.5 L35.3,491.6 L51.7,489.3 L68,488.7 L84.3,489.3 L99.8,490 L115.5,490 L132.2,490.2 L146.5,490.6 L162.8,490 L178.5,490.7 L196.9,489.3 L213.2,489.3 L227.7,490.7 L242.8,489.9 L259.2,489.6 L275,491.1 L292.2,489.3 L309.2,491.1 L323.9,488.8 L341.5,489.9 L341.2,505.5 L341.3,521.7 L340,536.6 L341.5,555.5 L338.9,569.6 L338.9,570.9 L323.4,573.4 L308.4,572.5 L290.9,573.2 L276,571.8 L261.1,573.1 L243.7,571.2 L228.7,572.9 L211,570.9 L196.5,571.3 L179.4,572 L164.7,571.6 L146.6,572.8 L132.9,571.8 L117.3,571.3 L101.5,573.1 L85,572 L66.6,571.7 L51.7,572.2 L37,571 L20,572.4 L20,556.3 L19.7,539.2 L20.1,522.4 L20.6,509 L19.3,493.3 Z" fill="#ece6da"/>
+<text x="180" y="512.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">FAILURE MODE 2</text>
+<text x="180" y="534.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">position and clicks both down</text>
+<text x="180" y="552.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">a quality or authority problem</text>
+</g>
+<g transform="rotate(0.6 180 657)">
+<path class="d-paper" d="M20.2,603.2 L36.8,602.2 L51.3,602.4 L66.6,600.5 L82.9,600.6 L101.6,601.8 L116.9,601.7 L133.2,602.4 L148.8,601.9 L162.6,602.7 L181.2,603 L195.5,602.8 L213.6,600.5 L229.4,601.6 L244,602.5 L261,601.8 L275.3,603.1 L290.9,603.2 L308.3,601.3 L322.9,602.1 L339,603 L339.4,617.9 L340.4,635.5 L340.2,649.8 L340.2,666.4 L340.5,683.6 L340.5,696.7 L339.5,712.8 L322.8,711.2 L308,712.7 L290.8,710.9 L276.9,712.4 L260.8,712.1 L242.7,713.1 L226.4,712.5 L210.9,710.5 L195,710.7 L178.8,713.3 L164.4,712.3 L148.4,712.7 L131.8,713 L116.8,713.5 L98.6,710.7 L83.6,710.5 L68.2,711 L51.1,711.9 L37.5,711.9 L20.8,712.7 L18.9,696 L21.4,679.4 L18.9,664.2 L19.6,647.1 L20,633.1 L19.3,615 Z" fill="#ff4fd8"/>
+<text x="180" y="638.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">QUALITY + AUTHORITY WORK</text>
+<text x="180" y="660.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">content quality, internal links,</text>
+<text x="180" y="678.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">redirect cleanup, backlinks</text>
+</g>
+<text x="20" y="740" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Most recovery advice only</text>
+<text x="20" y="762" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">covers this one.</text>
+<g class="d-flow">
+<path d="M180.2,66.6 Q180.4,78.2 178.7,87" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+<path d="M173.6,79 L180,88 L186.4,79" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M179.8,174.7 Q178.6,189.8 179.6,207.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+<path d="M173.6,197 L180,206 L186.4,197" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M181.3,293.1 Q180.6,307.1 179.3,319.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+<path d="M173.6,309 L180,318 L186.4,309" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M280.1,132.3 Q316.6,131.2 351.3,131.4 M350.7,131.7 Q349.2,293.2 349.5,452.9 M348.7,453 Q265.8,453 181.4,452.1 M180.2,453.3 Q179.5,468.5 179.8,486.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+<path d="M173.6,477 L180,486 L186.4,477" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M180.2,574 Q180.4,585.8 180.1,598" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+<path d="M173.6,589 L180,598 L186.4,589" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+</g>
+<g class="d-callout">
+<path d="M214,744 Q228.5,713.4 262,718" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+<path d="M250.1,723.2 L262,718 L251.9,709.8" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#reversing-seo-traffic-decline-ai-overviews-failure-modes-phone-crayon)"/>
+</g>
+</svg>

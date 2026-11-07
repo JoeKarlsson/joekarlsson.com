@@ -83,6 +83,8 @@ I spent the first couple of weeks of this project confused. Our overall numbers 
 
 We had both at once. Failure mode 2 fixes on failure mode 1 pages would have done nothing. Most of the posts I found about "reversing SEO decline" were about content E-E-A-T and authority building, which is failure mode 2 advice. If you have failure mode 1, it won't help and might distract you.
 
+![Two failure modes behind falling clicks, told apart by position. Failure mode 1: position and impressions up, clicks flat or down, the AI Overview signature. The fix is GEO and CTR work: FAQ schema, quotable definitions, structured data, and title and meta rewrites. Failure mode 2: position and clicks both down, a quality or authority problem. The fix is content quality, internal links, redirect cleanup and backlinks. Most SEO recovery advice only covers failure mode 2.](/images/blog/reversing-seo-traffic-decline-ai-overviews/failure-modes.svg)
+
 [The same Seer Interactive study](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update) also found that AI Overviews tend to appear on queries that were already generating fewer clicks, so the causation is murkier than "AI killed my CTR." Sometimes AI Overviews correlate with low CTR rather than causing it. Pulling data from more sources than GSC, and checking whether a query's CTR was already low before an AI Overview showed up on it, helps you tell those apart.
 
 ![Meme: Gru's plan - traffic declining, diagnose the problem, realize there are two different problems, fix both differently](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-grus-plan.webp)
@@ -120,6 +122,8 @@ What I underestimated is how fast a passing thought turns into work now. "I wond
 ---
 
 ## The weekly SEO audit
+
+![The weekly SEO audit loop. The /seo-analysis Claude Code skill pulls a snapshot from Google Search Console, Plausible, Ahrefs, GA4, HubSpot and PageSpeed. Then: diagnose which failure mode each page is in, pick the highest-ROI fixes (low-CTR pages, redirects and 404s, orphan pages, cannibalization, content gaps), ship them as a PR tagged SEO, content, docs, performance or fix, and 2-4 weeks later measure what each PR did to its URLs. Then it starts again the next week. That measurement is how I know one title and meta batch got +397 clicks.](/images/blog/reversing-seo-traffic-decline-ai-overviews/weekly-audit.svg)
 
 **Step 1: Pull a multi-source snapshot.**
 

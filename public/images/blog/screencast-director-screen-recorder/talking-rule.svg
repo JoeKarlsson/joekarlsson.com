@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 630" width="640" height="630" role="img" aria-label="How Screencast Director drafts the edit. When you stop recording, whisper.cpp transcribes your voice on your Mac, and the app lines that transcript up with a log of when you clicked and typed, never what you typed. Then the talking rule decides every stretch: talking plays in real time, typing without talking fast-forwards, and nothing happening gets cut. The draft edit is a timeline of real-time clips, sped-up clips and cuts, with zooms where you clicked and captions from what you said. On one demo, a 3:36 recording came out at 2:56.">
+<defs><filter id="screencast-director-screen-recorder-talking-rule-desktop-crayon" filterUnits="userSpaceOnUse" x="-20" y="-20" width="680" height="670">
+<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/>
+<feComposite in="d" in2="holes" operator="in"/>
+</filter></defs>
+<rect width="640" height="630" fill="#000000"/>
+<path class="d-paper" d="M16.5,177.2 L30.8,178.8 L48.3,178.7 L65.5,176.7 L79.3,177.8 L96.1,178.2 L112.7,178 L128.5,177.3 L142.7,176.7 L159.4,177 L175.4,178.4 L190.5,176.8 L208.3,178.2 L224.2,176.5 L240.1,179.1 L255.2,177.3 L273.2,178.6 L288.6,177.8 L305.5,178.3 L320.1,178.1 L336.2,177.9 L351.6,179.1 L367.8,176.7 L383.6,179.5 L398.7,176.7 L416.2,178.4 L431.1,177.9 L448.5,178.8 L463.2,178.7 L478.9,177.1 L495.9,176.6 L512.1,177.4 L526.7,178.5 L544.2,176.7 L558.5,178.4 L574.7,177.5 L590.9,176.8 L609.5,179.5 L624.2,178.9 L624.8,192.8 L625.2,211.2 L624,227.2 L625.2,241.1 L624.7,258.3 L624.1,275 L623.4,290.7 L625,305.8 L622.5,322.9 L623.5,338.8 L622.9,353.2 L622.8,368.6 L624.1,382.6 L608.9,383.2 L590.9,384.9 L577.3,384.1 L560.1,384.6 L544.2,384.2 L526.7,383.5 L511.3,384.8 L495.6,382.9 L480.2,383.7 L464.6,383.9 L447.4,385.1 L433.6,385.2 L415.2,382.8 L400.1,384.3 L383.6,385 L368.9,384.5 L351.4,384.6 L334.6,385 L320.5,384.2 L305.2,384.1 L289.1,385 L270.6,383.9 L255.1,384.6 L240.9,383.4 L223.8,382.8 L207.2,382.5 L190.6,383.6 L174.5,384.3 L158.5,384 L144.1,385.2 L128.8,384.6 L112.6,383.7 L96.6,383.3 L81.4,383 L63.5,383.8 L47.9,383.5 L33.4,384.9 L16.9,385.1 L15.6,367.5 L17.5,351.4 L15.6,336.1 L14.9,320.4 L15.9,303.8 L15.3,289.2 L16,273.5 L16.3,254.5 L14.8,239 L17.6,222.6 L17.2,209.3 L15.3,192.5 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M16.9,157 L31.7,156.9 L48.6,154.9 L63.6,155.2 L79.1,157.3 L97.4,157.2 L112.5,155.3 L128.8,154.7 L143.4,156.5 L159.5,156.2 L171.4,155.3 L171.3,170.8 L168.6,180.1 L153.8,180.7 L139.2,179.8 L122.8,180.6 L104.7,181 L88.8,179.6 L73.9,179 L58.2,180.3 L40.4,179.3 L26.5,181.5 L16.4,178.5 L16.1,165.3 Z" fill="#2a2a2a"/>
+<text x="28" y="169" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">THE TALKING RULE</text>
+<path class="d-paper" d="M15.9,440.5 L33.1,442.6 L48.8,441.1 L65,442.5 L78.8,441.6 L96.3,442.5 L110.5,440.7 L128.5,443.5 L142.9,442.8 L160.2,441.4 L175.5,443.2 L191.7,441.4 L207.3,443.6 L224.8,441.2 L241,440.8 L257.2,442.8 L272.4,440.5 L289.4,443.1 L304.3,442.8 L320.1,441.3 L334.8,442 L351.2,441.8 L367.3,441.5 L383,440.5 L399.4,443 L417.4,441.4 L431.5,442.2 L448.1,442.6 L464.2,443.6 L480.6,443.2 L497.5,443 L511.8,443.3 L528.1,443 L542.4,443.2 L558.7,441.9 L574.5,443.2 L593.1,442.6 L606.5,442.8 L625.4,443 L625.1,458.9 L623.6,472.9 L624.3,491.2 L624.4,505.9 L623.3,522 L623.6,538.3 L624.8,555.6 L623.8,569.3 L623.8,585.2 L624.1,603.6 L623.5,610.9 L609.3,608.6 L591.4,609.9 L576.2,611.2 L558.9,609.1 L544.9,609.9 L527.2,609.7 L510.6,611.5 L495.4,609.5 L481,611.1 L464.2,609.1 L448.4,610.1 L433,611.1 L415.1,609.7 L400.8,610.7 L383.2,611.3 L368.1,610.7 L350.7,608.5 L337.2,610.2 L319.3,611.6 L304.6,608.9 L288.3,610.3 L270.8,608.9 L255.5,608.9 L238.8,609.5 L225.5,611.4 L209.5,611.2 L193,610.4 L176.2,609.6 L159.4,609.7 L143.8,609.2 L127.9,609.9 L112.4,609 L95,610.9 L80.8,609 L64.5,609.3 L47.7,610.6 L30.6,611.2 L15.1,609.1 L15.6,593.2 L15.7,578.7 L16.4,563.3 L16.3,544.6 L15.3,531.2 L16.2,513.5 L16.6,499.5 L16.2,483.2 L15.2,465.4 L17.1,451.5 Z" fill="#2a2a2a"/>
+<path class="d-paper" d="M15.1,420.4 L32.5,421.3 L46.6,418.4 L62.6,420.7 L81.3,419.8 L95.9,421.2 L112.2,419.5 L129.1,420.5 L144.7,420.5 L152.8,421 L155.4,435.8 L152.6,443.4 L136.9,442.8 L121.1,444.3 L106.8,444.4 L91,442.7 L74.1,444.8 L58.8,444.9 L42,444.5 L24.8,445.2 L16.5,444.8 L16.9,427.5 Z" fill="#2a2a2a"/>
+<text x="28" y="433" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ece6da" text-anchor="start" dominant-baseline="central">THE DRAFT EDIT</text>
+<g transform="rotate(0.1 101 75)">
+<path class="d-paper" d="M15.6,41.5 L30.9,39 L48.7,39.1 L64.5,41.6 L79.6,40.5 L95.4,41.5 L111.4,41.2 L127.8,38.8 L142.7,41.3 L159.7,38.8 L177.2,38.9 L184.8,40.6 L186.4,56.6 L184.7,70.9 L185.3,88.6 L185.5,103 L186.1,110.2 L170.3,110.2 L152.4,109.7 L139.3,111.2 L121.3,109.4 L104.8,111.3 L88.5,109.9 L74.7,109.3 L59.6,109.4 L43.2,109.7 L27.4,111.2 L16.3,109.2 L15.7,92.7 L17.5,79.2 L15.4,61.2 L17.1,46.2 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="30" y="61" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2" />
+  <line x1="8" x2="16" y1="21" y2="21" />
+  <line x1="12" x2="12" y1="17" y2="21" /></g></svg>
+<text x="122" y="65.3" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="middle" dominant-baseline="central">RECORDING</text>
+<text x="122" y="89.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">screen + mic</text>
+</g>
+<g transform="rotate(0.2 307 75)">
+<path class="d-paper" d="M211.1,39 L227.8,41.5 L244.3,39.3 L259.7,38.8 L275,38.9 L291.7,40.8 L309.6,40.9 L322.8,41.1 L340.6,39.4 L356,39.1 L373.4,40.8 L389.1,38.6 L400.7,39.4 L400.9,56.8 L401,72.7 L400.5,88.8 L401.7,103.3 L401.9,109.4 L386.8,110.2 L368.7,111.4 L353.4,108.6 L336.8,108.9 L323.1,108.6 L306,111.5 L290.6,110.6 L274,108.8 L258,111.2 L241.1,110.6 L226.9,109.6 L212.6,108.5 L212.9,95 L210.6,77 L213.3,62.2 L212.7,46.5 Z" fill="#ece6da"/>
+<svg x="226" y="61" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10v3" />
+  <path d="M6 6v11" />
+  <path d="M10 3v18" />
+  <path d="M14 8v7" />
+  <path d="M18 5v13" />
+  <path d="M22 10v3" /></g></svg>
+<text x="328" y="65.9" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="16" fill="#000000" text-anchor="middle" dominant-baseline="central" xml:space="preserve">whisper.cpp</text>
+<text x="328" y="85.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">on your Mac</text>
+</g>
+<g transform="rotate(0.2 521 75)">
+<path class="d-paper" d="M417.8,38.5 L434.5,40.7 L449.8,41 L466.1,40.8 L483.1,38.4 L499.3,38.5 L514.7,39.9 L531,38.9 L544.4,38.7 L562.1,39.3 L578.7,38.7 L594.3,41.3 L608.8,39.8 L623.5,39.4 L625.3,55 L623.4,72.2 L624.2,88.8 L622.5,102.8 L623.9,111.3 L609.1,109.8 L593.5,109.1 L575,110.6 L559.7,110.3 L543.7,111.3 L528.5,109.2 L512.8,111.2 L497.3,109.4 L479.5,111.6 L463.8,109.2 L447.7,109.8 L433.6,110.4 L418.6,110.4 L418.6,94.8 L419.5,79.2 L418.2,61.2 L417.9,45.8 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="432" y="61" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></g></svg>
+<text x="542" y="65.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="middle" dominant-baseline="central">INPUT LOG</text>
+<text x="542" y="89.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">when, never what</text>
+</g>
+<text x="319" y="140" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">what you said, when</text>
+<text x="533" y="140" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">clicks, keys</text>
+<g transform="rotate(-1.2 171 221)">
+<path class="d-paper" d="M36.9,197.6 L51.4,199.2 L68.5,199 L83.9,197.5 L100.1,196.5 L117.2,199.6 L130.8,196.9 L146.8,198.8 L163.8,197.2 L179.2,199.2 L196,197.4 L213.1,197.7 L228.8,199.4 L243.1,198.3 L261,198.6 L275.8,197.6 L293.1,196.7 L305.2,199.1 L307.5,214.8 L305.8,231 L305.8,245 L289.3,242.5 L275.3,242.9 L256.8,244.1 L240.8,245.2 L227.1,244.7 L210.7,244.5 L194.2,245.5 L179.2,243.9 L160.5,244.1 L144.7,244.6 L130.4,243.4 L114.3,243.3 L99.1,243 L82.1,245.3 L65.8,245.6 L50.6,245.3 L34.8,245.4 L36.9,228.3 L35,212.2 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<text x="171" y="221" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">TALKING</text>
+</g>
+<g transform="rotate(0.8 479 221)">
+<path class="d-paper" d="M355,198.8 L368.8,198 L387.4,196.4 L401.4,197 L417.1,199.3 L433.8,196.6 L449.6,197.8 L466.5,198.1 L482.5,198 L499.3,199.2 L513.5,198.7 L529,199.4 L546.1,197.2 L562.6,196.8 L579.2,197.5 L595.3,199.5 L603,198.5 L604.4,213.7 L604.2,230.5 L602.9,242.8 L588.1,245 L571.1,244.1 L555,242.5 L540.8,244.7 L522.6,244.5 L506.8,242.8 L492.6,244 L476.7,243.6 L459,242.8 L444.8,244.3 L427.3,245.4 L413.5,242.8 L397.4,243.7 L379.8,244.5 L362.5,245.3 L354.5,245.3 L355,227.3 L354.3,212.1 Z" fill="#ff4fd8"/>
+<text x="479" y="221" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">REAL TIME</text>
+</g>
+<g transform="rotate(0.7 171 281)">
+<path class="d-paper" d="M37.5,258.1 L53.1,256.7 L67.9,258.4 L84.4,257.2 L100.4,259.2 L117.4,257.5 L130.8,258.2 L149,258 L164.5,257.9 L179.6,257.9 L195.2,258.5 L211.4,258.9 L227.7,257 L243.6,258.6 L259.3,258.5 L277.4,258.3 L290.8,258.4 L306.5,257 L306.9,272.7 L305.1,288.8 L305.3,303.2 L289.5,305.4 L272.6,302.6 L258.9,305.4 L241.2,304.3 L226.4,304.8 L208.5,302.7 L194.2,302.7 L178.1,303 L162.9,305.1 L147,304.7 L129.4,303.8 L114.4,303.3 L99,303.7 L83.1,305.5 L67.4,303.2 L50.3,304 L37.1,305.4 L36.7,287.7 L34.7,271.3 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<text x="171" y="281" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">TYPING, NOT TALKING</text>
+</g>
+<g transform="rotate(0.6 479 281)">
+<path class="d-paper" d="M352.6,257.8 L371.3,258.6 L384.5,259.4 L401.4,259.2 L417.6,259.4 L432.7,259 L449.5,258.2 L465.7,259.4 L481.6,257.4 L496.8,259.4 L513.7,259 L528.4,256.6 L546.2,257.9 L563,258 L578.1,257.3 L593.9,257.6 L604.3,256.6 L604.5,273 L602.9,290.6 L602.9,303.7 L589.3,304.6 L570.8,302.8 L555,303.3 L539.1,304.1 L522.7,302.4 L508.5,304.4 L492,303 L475.7,304 L458.8,305.5 L444.2,303.7 L429.2,305.4 L412.4,302.5 L395.8,302.8 L380.6,304.3 L362.8,302.8 L352.9,303.6 L354.9,289.2 L355.4,270.5 Z" fill="#ff4fd8"/>
+<text x="479" y="281" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">FAST-FORWARD</text>
+</g>
+<g transform="rotate(0.5 171 341)">
+<path class="d-paper" d="M37.1,319.4 L51,318.9 L66.4,318.2 L83.1,317.8 L100.4,317.6 L114.5,318.5 L130.7,317.2 L146.6,318.7 L165.5,317.4 L180,317 L194.6,316.8 L212.9,319.4 L227.3,317.9 L245.4,316.7 L260.6,317.9 L276.7,317.1 L292.6,319 L305.8,318.8 L305.7,333 L306,350 L304.4,365.4 L290.8,363 L275.4,363.5 L259,365.5 L242.9,365.5 L226.6,363.1 L208.7,362.9 L195.3,364.6 L177.3,363.6 L162.9,363.2 L146.3,363 L129.5,364.5 L114.5,364.9 L99.6,362.5 L80.6,365.5 L66.2,362.7 L48.9,363.1 L36.2,362.5 L37.1,348.8 L37.6,330.7 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<text x="171" y="341" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">NOTHING HAPPENING</text>
+</g>
+<g transform="rotate(0.1 479 341)">
+<path class="d-paper" d="M354.2,317.1 L369.9,317.5 L384.5,317.6 L403.5,319.1 L418.1,317.1 L434.1,318.9 L450.1,318.3 L464.9,319.5 L482.5,319.3 L498.5,319.1 L515.2,317.9 L531,318.8 L544.7,319.2 L563.1,317.8 L579.6,317.1 L593.1,318.5 L604.9,317.2 L603.9,334.5 L604.1,348.5 L602.9,362.7 L589.3,363.4 L571.6,364.8 L557.6,363.7 L538.6,364.3 L524.7,362.9 L509,364.9 L492.6,364.6 L475.7,363 L460.3,364 L443.5,364.1 L428.6,364.4 L411.4,364.3 L396.6,363.8 L379.4,363.5 L362.8,365.1 L354.1,365.2 L353.9,347.5 L353.5,330.6 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="479" y="341" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#ededed" text-anchor="middle" dominant-baseline="central">CUT</text>
+</g>
+<g transform="rotate(-0.3 111 484)">
+<path class="d-paper" d="M35.4,462 L52,462.6 L66.9,463.4 L84.6,462.2 L100.1,461.7 L116,462.7 L131.3,463 L147.6,461.9 L163.3,462.3 L181,461 L185.3,460.5 L185.6,479.3 L186.9,492.5 L186.2,507.5 L170.5,505.1 L155.4,506.6 L138,506.7 L123.4,505.6 L105,507 L90.9,505.8 L74.3,506 L59.5,504.5 L41.3,505.9 L35.4,507.5 L36.9,489.5 L36.6,473.7 Z" fill="#ff4fd8"/>
+<text x="111" y="484" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">REAL TIME</text>
+</g>
+<g transform="rotate(-0.8 239 484)">
+<path class="d-paper" d="M194.7,463.1 L210.5,460.8 L227.2,463.6 L241.5,461.9 L259.1,463.4 L273.7,460.6 L283.1,463.3 L282.9,477.6 L282.9,494.7 L284.6,504.9 L266.9,506.1 L253.3,505.3 L236.6,505.7 L218.6,505.3 L204.6,506.1 L192.5,505.3 L195.1,490.9 L195.4,474.2 Z" fill="#ff4fd8"/>
+<text x="239" y="484" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">3X</text>
+</g>
+<g transform="rotate(0.4 330 484)">
+<path class="d-paper" d="M290.7,461.1 L309,463.1 L324.4,462.8 L340.6,463.6 L356.3,462.9 L367.4,460.5 L368.4,476.7 L369.4,492.7 L369,504.5 L353.4,507.2 L336.9,507 L320.3,506.2 L303.7,505.4 L291.6,507.5 L291.3,490.6 L290.8,473.1 Z" fill="#000000" stroke="#ece6da" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="330" y="484" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#ededed" text-anchor="middle" dominant-baseline="central">CUT</text>
+</g>
+<g transform="rotate(0.2 490 484)">
+<path class="d-paper" d="M374.6,462.8 L391.9,461.6 L406.6,462.8 L423.7,462 L439.9,461.8 L454.5,460.8 L470.9,462.8 L489,460.7 L502.5,461.1 L520.5,461.8 L535.8,460.7 L551.3,462.7 L569.4,460.7 L583.1,460.5 L599.9,463.3 L603.1,463.3 L603.3,478.6 L602.8,493.9 L605.3,505.1 L586.8,505.4 L573.4,504.8 L555.4,505.6 L538.6,506.2 L524.3,506.1 L508.3,506 L492.3,506.1 L475.5,507.3 L459.6,504.5 L442.8,504.4 L427.3,505 L412.3,505.2 L394.9,505.6 L378.9,505.9 L374.9,505.4 L374.8,490.8 L375,472.6 Z" fill="#ff4fd8"/>
+<text x="490" y="484" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="17" fill="#000000" text-anchor="middle" dominant-baseline="central">REAL TIME</text>
+</g>
+<g transform="rotate(-0.4 171 558)">
+<path class="d-paper" d="M36.2,528.4 L50.6,528.7 L68,528.3 L85.5,527.1 L100.2,527.8 L114.9,527 L132.7,528.9 L147.2,527.8 L164,528 L179.7,526.5 L196.2,527.4 L213.3,526.4 L227.4,526.6 L243.1,528.6 L260.4,529.2 L274.4,527 L293.4,527.3 L305.5,528.7 L307,544.9 L304.5,559.9 L306.1,577.4 L305.8,589 L291.2,588.8 L274,589.4 L259.4,588.6 L243.3,588 L225.8,589.1 L209.5,586.7 L195,587.9 L178.4,588.8 L162.9,589.2 L146.5,588.2 L129.1,587.1 L115.4,587.6 L99.3,586.4 L81,588.9 L64.4,589.6 L50.1,587.3 L35.5,589.2 L35,571 L36.1,555.5 L35.6,539.8 Z" fill="#ece6da"/>
+<svg x="50" y="544" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <circle cx="12" cy="12" r="1" />
+  <path d="M18.944 12.33a1 1 0 0 0 0-.66 7.5 7.5 0 0 0-13.888 0 1 1 0 0 0 0 .66 7.5 7.5 0 0 0 13.888 0" /></g></svg>
+<text x="192" y="548.3" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">ZOOMS</text>
+<text x="192" y="569.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">where you clicked</text>
+</g>
+<g transform="rotate(0.2 469 558)">
+<path class="d-paper" d="M334.8,527.1 L350.3,529.5 L367.6,529.3 L382.8,528.8 L396.9,529 L412.4,527.5 L431.3,526.6 L446.6,527.3 L463.2,528.2 L478.3,529.3 L494,528.2 L511,529 L524.5,526.5 L540.8,527.5 L557.7,526.5 L575.3,529.1 L590.9,529 L604.5,526.9 L603.5,543.9 L603.2,560.8 L602.6,576 L603.8,586.6 L587.6,587.8 L571.6,588.4 L557.1,586.7 L539.2,588.3 L524,588.8 L509.1,588.1 L491.9,589.4 L475.1,587.7 L460.2,588.5 L444.8,587 L428.3,587 L411.6,587 L395.6,588.8 L378.7,588.3 L363.2,586.8 L347.2,586.8 L333.4,587.5 L335.1,572.9 L333,556 L332.9,540.8 Z" fill="#ece6da"/>
+<svg x="348" y="544" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></g></svg>
+<text x="490" y="548.3" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">CAPTIONS</text>
+<text x="490" y="569.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">from what you said</text>
+</g>
+<text x="404" y="402" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">One demo: 3:36 recorded,</text>
+<text x="404" y="422" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">2:56 in the draft</text>
+<g class="d-flow">
+<path d="M187.5,76.2 Q198.9,76.9 209.4,75.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+<path d="M201,81.4 L210,75 L201,68.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M307.4,113.4 Q306.6,143.9 306.1,173.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+<path d="M300.6,165 L307,174 L313.4,165" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M521.1,111.7 Q521.6,144.5 520,174.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+<path d="M514.6,165 L521,174 L527.4,165" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M309,221.2 Q329.5,221 350.9,220.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+<path d="M343,227.4 L352,221 L343,214.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M308.7,279.5 Q329.5,279.5 352.8,280.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+<path d="M343,287.4 L352,281 L343,274.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M307.3,341.1 Q329,342.6 352.3,341.9" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+<path d="M343,347.4 L352,341 L343,334.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+</g>
+<g class="d-flow">
+<path d="M321.3,386.4 Q322.4,413.5 321.2,438.7" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+<path d="M313.6,429 L320,438 L326.4,429" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+</g>
+<g class="d-callout">
+<path d="M398,418 Q361.9,426.6 342,458" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+<path d="M342.2,445 L342,458 L353.7,452.3" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#screencast-director-screen-recorder-talking-rule-desktop-crayon)"/>
+</g>
+</svg>
