@@ -209,6 +209,7 @@ export const projects: Project[] = [
 	// Web & Software
 	{
 		title: 'React Spotify Player',
+		shareTitle: 'React Spotify Player: A now-playing Spotify widget from a 15-minute tutorial',
 		description:
 			'A real-time Spotify player built with React. My most starred open source project. Integrates with the Spotify Web API for custom playback. Accompanied a popular tutorial.',
 		image:
@@ -223,6 +224,31 @@ export const projects: Project[] = [
 		sourceUrl: 'https://github.com/JoeKarlsson/react-spotify-player',
 		blogUrl: '/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/',
 		stars: 131,
+		page: {
+			slug: 'react-spotify-player',
+			tagline: "Shows what you're playing on Spotify, in a few small React files.",
+			intro: [
+				"React Spotify Player shows what you're listening to on Spotify: the album art, the track and artist, and a progress bar that moves along with the song. I built it in 2019 for a tutorial on building a Spotify player with React in 15 minutes, and it's still my most-starred open source project.",
+				"I'd been using the Spotify API for my MagicMirror, and I wanted the shortest path from nothing to a working player for front-end developers: log in with Spotify, call one endpoint, show the result. It's still small on purpose. The current version is just React and Vite, and the whole app fits in a handful of files.",
+				"If you're following the tutorial today, one warning: it logs in with Spotify's Implicit Grant flow, which Spotify deprecated in November 2025. New apps should use the Authorization Code flow with PKCE instead.",
+			],
+			steps: [
+				{
+					title: 'Log in',
+					text: "The login button sends you to Spotify's authorization page, and Spotify sends you back with an access token in the URL fragment.",
+				},
+				{
+					title: "Ask what's playing",
+					text: "The app calls the Web API's `/me/player` endpoint with that token and gets the track, the artist, the album art and how far into the song you are.",
+				},
+				{
+					title: 'Keep it current',
+					text: 'It asks again every 5 seconds, so the track, the play state and the progress bar keep up with Spotify.',
+				},
+			],
+			install:
+				'git clone https://github.com/JoeKarlsson/react-spotify-player.git\ncd react-spotify-player\n# add http://localhost:3000/redirect as a Redirect URI on your Spotify app,\n# and put its Client ID in src/config/spotify.js\nnpm install\nnpm run dev',
+		},
 	},
 
 	// Web - Digital Graffiti Wall

@@ -45,9 +45,13 @@ const THRESHOLDS = {
 	// pages with gameplay clips (1MB, already encoded at CRF 31). Raised to 255MB on
 	// 2026-11-06 when PostStream (a sharp 1600px recording of its text UI), Streamroll
 	// (six generated intros at 960px) and React Spotify Player (its README demo, 5.2MB
-	// as a GIF, 0.4MB as video) got clips, taking dist to 250.3MB. Still catches an
-	// unconverted GIF or a stray video.
-	maxTotalDist: 255 * 1024 * 1024,
+	// as a GIF, 0.4MB as video) got clips, taking dist to 250.3MB. Raised to 400MB the
+	// same day: the total isn't what visitors download (they fetch one page; the
+	// homepage media budget below, Lighthouse and validate-images.sh's per-file limits
+	// guard that), it only costs deploy time and disk. Sitting a few MB under the line
+	// meant every new project clip tripped it. This is now a tripwire for something
+	// gone badly wrong (a folder of unconverted GIFs, raw footage), not a running tax.
+	maxTotalDist: 400 * 1024 * 1024,
 };
 
 function getFilesWithExtension(dir: string, ext: string): { name: string; size: number }[] {
