@@ -302,6 +302,37 @@ export const projects: Project[] = [
 			embedNote: 'Click the game to start, then click or press the spacebar to fly.',
 		},
 	},
+	{
+		title: 'PostStream',
+		shareTitle: 'PostStream: A text-only social network with the metrics taken out',
+		description:
+			'A text-only social network from 2016 with the usual levers taken out: no like counts, no follower counts, no trending topics and no images. Made with Ray Farias and Jacoby Young.',
+		image: '/images/projects/poststream-poster.webp',
+		video: '/images/projects/poststream.mp4',
+		imageAlt:
+			'PostStream: typing a post into a plain text box, the post showing up at the top of the stream in pink monospace, scrolling past other posts in different colors, then the about page listing what PostStream leaves out',
+		category: 'web',
+		date: '2016-07',
+		tech: ['React', 'Node.js', 'Express', 'PostgreSQL'],
+		sourceUrl: 'https://github.com/JoeKarlsson/post-stream',
+		page: {
+			slug: 'poststream',
+			tagline: 'A social network with the metrics taken out.',
+			intro: [
+				'PostStream is a social network that only does text. Ray Farias, Jacoby Young and I built it in 2016 as a response to the social media we were all using, and we called it undesigned.',
+				"Most of the work was deciding what to leave out. It shows no like counts and no follower counts, so you can't see how popular anyone is. There's no global feed, no trending topics and no news to browse, and you can't post images, video or GIFs. The stream shows the first 256 characters of each post, with a read more that goes up to 2,048.",
+				'Someone else owns poststream.io now, so there is no live version anymore. The code is on GitHub and still runs locally with Node and PostgreSQL.',
+			],
+			screenshotsTitle: 'Screenshots',
+			screenshots: [
+				{
+					poster: '/images/projects/poststream-about.webp',
+					alt: "PostStream's about page: what is PostStream, then a list of important concepts including no public metrics, no visible follower or like numbers, no global feed, no trending topics, a character limit, and no video, images or GIFs",
+					caption: 'The about page lists everything PostStream leaves out',
+				},
+			],
+		},
+	},
 
 	// Art & Digital Humanities
 	{
