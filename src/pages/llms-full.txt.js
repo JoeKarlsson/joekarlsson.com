@@ -53,11 +53,7 @@ Joe runs production-grade self-hosted infrastructure: Proxmox clusters, LXC cont
 ### IoT & Smart Home
 
 - **IoT Kitty Litter Box**: Arduino-based smart pet monitoring system with weight sensors, Home Assistant integration, and automated health tracking. Conference talk topic. [GitHub](https://github.com/JoeKarlsson/iot-kitty-litter-box) (25+ stars)
-- **MagicMirror**: Modular smart mirror display running on Raspberry Pi, showing weather, calendar, news, and custom modules.
-- **Moodlite**: DIY Nanoleaf-style lighting system using programmable LED strips and custom firmware for ambient lighting control.
 - **3D-Printed Planter**: Designed and printed custom postcard planter racks using CAD and FDM printing.
-- **Proxmox Homelab Cluster**: Two Dell PowerEdge R730 servers with NVIDIA GPUs (RTX A4000 16GB + Quadro RTX 4000 8GB), 40+ LXC containers for media management, monitoring, databases, and smart home automation. 10G networking via MikroTik backbone with LACP bonds.
-- **AI-Powered Smart Home**: Home Assistant with 90+ automations including local LLM doorbell vision, voice camera queries, infrastructure alert translation, laundry detection, weather-aware routines, and presence simulation. Zero cloud dependencies.
 
 ### Web & Applications
 

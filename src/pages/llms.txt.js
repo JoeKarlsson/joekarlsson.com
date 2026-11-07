@@ -31,13 +31,9 @@ This file offers a summary. For full details, see [llms-full.txt](https://www.jo
 ## Featured Projects
 
 - IoT Kitty Litter Box: Smart pet monitoring system with Home Assistant integration
-- MagicMirror: Raspberry Pi smart mirror display system
-- Moodlite: DIY Nanoleaf lighting system clone
 - Bechdel.io: Movie script analysis tool for the Bechdel Test
 - [Data Structures](https://github.com/JoeKarlsson/data-structures): Educational repo with 185+ GitHub stars
 - [React Spotify Player](https://github.com/JoeKarlsson/react-spotify-player): Real-time Spotify player built with React (130+ stars)
-- Proxmox Homelab Cluster: Two Dell R730 servers, ${nowFeed.homelab.runningContainers} containers, dual GPUs, 10G networking
-- AI-Powered Smart Home: 90+ Home Assistant automations with local LLM vision and voice control
 
 ## Notable Talks
 

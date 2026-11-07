@@ -191,26 +191,6 @@ export const projects: Project[] = [
 		},
 	},
 	{
-		title: 'MagicMirror\u00B2 - Smart IoT Mirror',
-		description:
-			'A smart mirror built with a Raspberry Pi running MagicMirror\u00B2 software behind a two-way mirror. Displays weather, calendar, news, and Home Assistant integrations. Still running in my house today.',
-		image: '/images/projects/magic-mirror.webp',
-		imageAlt: 'MagicMirror Smart Mirror',
-		category: 'iot',
-		date: '2022-01',
-		tech: ['Raspberry Pi', 'MagicMirror\u00B2', 'Home Assistant'],
-	},
-	{
-		title: 'Moodlite - Smart IoT Light Panels',
-		description:
-			'DIY smart light panels inspired by Nanoleaf, built with 3D-printed housings, WS2812B LED strips, and an ESP8266. Controllable via MQTT and Home Assistant.',
-		image: '/images/projects/moodlite.webp',
-		imageAlt: 'Moodlite Smart Light Panels',
-		category: 'iot',
-		date: '2022-01',
-		tech: ['ESP8266', 'MQTT', 'Home Assistant', '3D Printing'],
-	},
-	{
 		title: '3D-Printed Postcard Rack Planter',
 		description:
 			'Custom 3D-printed planter insert designed in Fusion 360 for a recycled postcard rack. Printed on my Prusa MK3.',
@@ -700,38 +680,6 @@ export const projects: Project[] = [
 		},
 	},
 	{
-		title: 'Secure AI Data Pipelines Demo',
-		description:
-			'A full-stack open source demo showing how to build AI-powered cloud security analysis across AWS, GCP, and Azure. Ingests multi-cloud data via CloudQuery, sanitizes PII with differential privacy, and uses GPT-4 to detect cross-cloud attack paths and generate Terraform remediation steps. Includes a React dashboard and a companion YouTube walkthrough.',
-		image: '/images/blog/building-secure-ai-powered-cloud-security/thumbnail.webp',
-		imageAlt: 'Secure AI Data Pipelines Demo dashboard showing multi-cloud security risk analysis',
-		category: 'dev-tools',
-		date: '2025-09',
-		tech: [
-			'Python',
-			'React',
-			'Next.js',
-			'TypeScript',
-			'PostgreSQL',
-			'OpenAI',
-			'CloudQuery',
-			'Docker',
-		],
-		sourceUrl: 'https://github.com/cloudquery/secure-ai-data-pipelines-demo',
-		blogUrl: '/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/',
-	},
-	{
-		title: 'CloudQuery Go MCP Server',
-		description:
-			"Built a Go MCP server before Anthropic released an official Go SDK, bridging Claude and Cursor directly to CloudQuery's cloud infrastructure database. AI assistants went from zero database awareness to querying live cloud data mid-conversation - no copy-pasting schemas. Co-authored two posts: the build walkthrough and a hard-won gotchas guide on tool descriptions, naming, and context window limits.",
-		image: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumbnail.webp',
-		imageAlt: 'CloudQuery Go MCP Server architecture diagram',
-		category: 'dev-tools',
-		date: '2025-07',
-		tech: ['Go', 'MCP', 'Claude', 'Cursor', 'PostgreSQL', 'CloudQuery'],
-		blogUrl: '/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/',
-	},
-	{
 		title: 'Data Structures & Algorithms in JS',
 		description:
 			'Common data structures and algorithms implemented in JavaScript. Created as teaching material when I was an instructor at DevLeague. Covers linked lists, trees, graphs, sorting, and more.',
@@ -883,29 +831,5 @@ export const projects: Project[] = [
 		date: '2026-03',
 		tech: ['Python', 'Binary Protocol', 'MikroTik', 'Networking'],
 		blogUrl: '/blog/implementing-mikrotik-binary-api-protocol-in-python/',
-	},
-	{
-		title: 'Proxmox Homelab Cluster',
-		description:
-			'A 2-node Proxmox cluster running 30+ LXC containers and VMs. Self-hosted services include Plex, Home Assistant, Frigate NVR, Grafana, and more. 20Gbps LACP backbone. I wrote the guide.',
-		image:
-			'/images/blog/how-to-get-started-building-a-homelab-server-in-2024/Homelab-Archiecture-1024x473.webp',
-		imageAlt: 'Homelab Architecture',
-		category: 'homelab',
-		date: '2023-09',
-		tech: ['Proxmox', 'Docker', 'LXC', 'Networking'],
-		blogUrl: '/blog/how-to-get-started-building-a-homelab-server-in-2024/',
-	},
-	{
-		title: 'Private Smart Home',
-		description:
-			'Replaced Alexa with Home Assistant Voice. Local speech processing via Wyoming Whisper on GPU. Zigbee devices, Frigate camera AI, and zero cloud dependencies.',
-		image:
-			'/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/I-Replaced-My-Smart-Home-with-a-Dumber-Home-But-at-Least-Its-Private.webp',
-		imageAlt: 'Private Smart Home Setup',
-		category: 'homelab',
-		date: '2025-06',
-		tech: ['Home Assistant', 'Zigbee', 'Frigate', 'Whisper'],
-		blogUrl: '/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/',
 	},
 ];
