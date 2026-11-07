@@ -307,10 +307,10 @@ export const projects: Project[] = [
 		shareTitle: 'PostStream: A text-only social network with the metrics taken out',
 		description:
 			'A text-only social network from 2016 with the usual levers taken out: no like counts, no follower counts, no trending topics and no images. Made with Ray Farias and Jacoby Young.',
-		image: '/images/projects/poststream-poster.webp',
-		video: '/images/projects/poststream.mp4',
+		image: '/images/projects/poststream-2026-11-poster.webp',
+		video: '/images/projects/poststream-2026-11.mp4',
 		imageAlt:
-			'PostStream: typing a post into a plain text box while a character counter fills in, the post showing up at the top of the feed under an IRC-style log line, replying to someone with "agree, because it is always the third one" picked from a list, scrolling past posts colored by author, then the about page laid out like a man page',
+			"PostStream: writing a post that shows up at the top of the feed under an IRC-style log line, scrolling past other people's posts colored by author, opening a thread of replies picked from a list, then a profile laid out like Unix finger output",
 		category: 'web',
 		date: '2016-07',
 		tech: ['React', 'Node.js', 'Express', 'PostgreSQL'],
@@ -325,14 +325,11 @@ export const projects: Project[] = [
 				"Replies work the same way. You don't write them, you pick one: agree, disagree, agree or disagree because of something, tell me more about something, thank you for sharing, or brilliant. Most of those never got built in 2016. I finished them in November 2026, along with the feed that only shows people you follow.",
 				'Someone else owns poststream.io now. The archived copy at poststream.joekarlsson.com has no server: it runs in your browser, signs you in as a sample visitor, and a few made-up people keep posting while you look around. Anything you post stays in your browser. The full app, with Node and PostgreSQL, is on GitHub.',
 			],
-			screenshotsTitle: 'Screenshots',
-			screenshots: [
-				{
-					poster: '/images/projects/poststream-about.webp',
-					alt: "PostStream's about page laid out like a Unix man page, with NAME, DESCRIPTION and CONCEPTS sections. The concepts include no public metrics, no visible follower or like numbers, no global public feed, no trending topics, 256 characters in the stream with read more up to 2048, no video, images or GIFs, and contextual responses",
-					caption: 'The about page is a man page that lists everything PostStream leaves out',
-				},
-			],
+			embedUrl: 'https://poststream.joekarlsson.com/',
+			embedHeight: '640px',
+			embedHeading: 'Try it',
+			embedNote:
+				"This is the archived demo, running right here. You're signed in as a sample visitor and the other people are simulated, so write a post and someone will answer.",
 		},
 	},
 
