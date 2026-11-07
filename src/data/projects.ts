@@ -289,7 +289,7 @@ export const projects: Project[] = [
 			// The game scales its 1920x1080 world to fit, so it runs at the box's real size
 			embedHeight: '56.25cqw',
 			embedNote:
-				'Click the game to start. Player 1 uses W A S D, player 2 the arrow keys. The button in the corner goes full screen.',
+				'Click the game to start. Player 1 uses W A S D, player 2 the arrow keys. It starts muted here; the buttons in the corner turn sound on and go full screen.',
 			steps: [
 				{
 					title: 'Player 1',
@@ -333,7 +333,7 @@ export const projects: Project[] = [
 			// The game is 4:3 and scales to fit, so the box matches it and it runs at real size
 			embedHeight: '75cqw',
 			embedNote:
-				'Click the game to start, then click or press the spacebar to fly. The button in the corner goes full screen.',
+				'Click the game to start, then click or press the spacebar to fly. It starts muted here; the buttons in the corner turn sound on and go full screen.',
 		},
 	},
 	{
