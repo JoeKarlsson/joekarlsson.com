@@ -253,6 +253,70 @@ export const projects: Project[] = [
 		blogUrl: '/blog/building-a-real-time-digital-graffiti-wall/',
 		sourceUrl: 'https://github.com/JoeKarlsson/digital-graffiti-wall',
 	},
+	{
+		title: 'Wave Jump',
+		shareTitle: 'Wave Jump: A two-player race on a wave that never holds still',
+		description:
+			'A race for two people on one keyboard, set on an 80s sunset grid. You both ride a white wave that never stops rolling, and the first one to dive through the checkered gate scores. I made it over one weekend in January 2018 with Cal Carlson, Daniel Olson and Lisa Mabley.',
+		image: '/images/projects/wave-jump-poster.webp',
+		video: '/images/projects/wave-jump.mp4',
+		imageAlt:
+			'Wave Jump: the sunset title screen, then two players riding a rolling white wave over a blue grid, and a big "Player 1 Wins" screen each time one reaches the checkered gate',
+		category: 'web',
+		date: '2018-01',
+		tech: ['JavaScript', 'Phaser', 'Arcade physics', 'Vite'],
+		sourceUrl: 'https://github.com/JoeKarlsson/wave-jump',
+		demoUrl: 'https://wavejump.joekarlsson.com/',
+		stars: 5,
+		page: {
+			slug: 'wave-jump',
+			tagline: "Two players, one keyboard, and a wave that won't hold still.",
+			intro: [
+				'Wave Jump is a race for two people sharing one keyboard. You each ride a white wave across a sunset grid, and the wave keeps rolling under you the whole time. A checkered gate sits somewhere below it, and whoever dives through first gets the point.',
+				'Cal Carlson, Daniel Olson, Lisa Mabley and I built it in one weekend in January 2018 with Phaser. The wave is hundreds of small sprites, each one pushed up and down along a sine curve with a new height every frame, so you never get the same wave twice.',
+				"In 2025 I moved it to a modern build so it still runs in a browser. It needs two players and a keyboard, so it won't work on a phone.",
+			],
+			steps: [
+				{
+					title: 'Player 1',
+					text: '`W` jumps, `A` and `D` steer, and `S` dives through the wave.',
+				},
+				{
+					title: 'Player 2',
+					text: 'The arrow keys do the same on the other side of the keyboard.',
+				},
+				{
+					title: 'Score',
+					text: 'First one through the gate gets the point. Press the spacebar for the next round.',
+				},
+			],
+		},
+	},
+	{
+		title: 'Go Home Tanuki',
+		shareTitle: "Go Home Tanuki (You're Drunk): A Global Game Jam game about the ride home",
+		description:
+			'Our Global Game Jam 2016 game, on the theme "Ritual": a tanuki who works, drinks and goes home, every night. Fly him home through the dark and grab sake on the way. The drunker he gets, the higher you score, and the faster everything comes at you. Made with Kent Salcedo, Sarah Kurisu and Corina.',
+		image: '/images/projects/go-home-tanuki-poster.webp',
+		video: '/images/projects/go-home-tanuki.mp4',
+		imageAlt:
+			"Go Home Tanuki: a loading card listing Tanuki's daily ritual (work, drink, go home), the title screen of a sleepy tanuki slumped over a bar with a phone saying come home, then the tanuki flying through the night past clouds and sake bottles",
+		category: 'web',
+		date: '2016-01',
+		tech: ['JavaScript', 'Phaser', 'Arcade physics', 'Vite'],
+		sourceUrl: 'https://github.com/JoeKarlsson/go-home-tanuki',
+		demoUrl: 'https://tanuki.joekarlsson.com/',
+		stars: 2,
+		page: {
+			slug: 'go-home-tanuki',
+			tagline: 'Get a drunk tanuki home, at least for tonight.',
+			intro: [
+				'Go Home Tanuki (You\'re Drunk) was our game for Global Game Jam 2016, where the theme was "Ritual." We based ours on the long hours that are common in Japanese office jobs: work late, go drinking with coworkers, get home somehow, and do it again tomorrow. Our worker is a tanuki, the raccoon dog from Japanese folklore.',
+				'You click or tap the spacebar to fly him home through the night, past clouds and rocks. Sake raises his drunkness, and your score is his drunkness times how long he lasts. Once he gets to 10, the lamps and clouds come at you a lot faster.',
+				'I made it over one weekend with Kent Salcedo, Sarah Kurisu and Corina. In 2025 I moved it to a modern build so it still runs in a browser.',
+			],
+		},
+	},
 
 	// Art & Digital Humanities
 	{
