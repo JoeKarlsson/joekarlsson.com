@@ -7,34 +7,34 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 351,
+			"commitCount": 353,
 			"dailyCommitCounts": [
 				4, 0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13,
-				169, 61
+				169, 63
 			],
-			"latestCommitMessage": "feat: The last 9 image diagrams become cut-paper figures: the cloud..."
+			"latestCommitMessage": "feat: Eight personal posts get cut-paper diagrams: the Pi-hole request..."
 		},
 		{
 			"name": "punc",
 			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
 			"url": "https://github.com/JoeKarlsson/punc",
 			"language": "TypeScript",
-			"commitCount": 24,
+			"commitCount": 31,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 9
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 16
 			],
-			"latestCommitMessage": "feat: The shelf turns pages, 24 books at a time on every screen, with..."
+			"latestCommitMessage": "fix: The numbers page arrives in 154 KB instead of 1.3 MB: the build..."
 		},
 		{
 			"name": "bechdel-test",
 			"description": "Does your favorite film pass the test?",
 			"url": "https://github.com/JoeKarlsson/bechdel-test",
 			"language": "JavaScript",
-			"commitCount": 36,
+			"commitCount": 44,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43
 			],
-			"latestCommitMessage": "feat: Keep downloaded scripts out of the repo, and OCR scanned Script..."
+			"latestCommitMessage": "fix: Put the 404 page's FAIL label under the title, so the title sits..."
 		},
 		{
 			"name": "rose-hobart",
