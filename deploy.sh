@@ -181,6 +181,11 @@ echo "  all smoke checks passed"
 
 # Load the heaviest pages as an iPhone in WebKit: catches crashes, reload loops,
 # script errors and desktop-only games loading on a phone (scripts/smoke-phone.mjs)
+# A burst of simultaneous origin requests, as a cold-cache /work/ makes: fails if a
+# rate limit in front of the site comes back (scripts/smoke-burst.mjs)
+echo "Checking the site takes a burst of requests..."
+node scripts/smoke-burst.mjs "$SITE_URL"
+
 echo "Checking the site on an iPhone..."
 node scripts/smoke-phone.mjs "$SITE_URL"
 

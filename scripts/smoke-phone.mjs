@@ -32,6 +32,9 @@ const PAGES = [
 	['/work/connect-ai-doom/', SIDEWAYS],
 ];
 
+const RATE_LIMITED = 429;
+const RATE_LIMITED_LABEL = 'HTTP 429 (rate limited) on';
+
 const browser = await webkit.launch();
 
 /** Loads one page as a phone, scrolls it through, and returns what went wrong */
@@ -43,6 +46,11 @@ async function checkPage(path, device) {
 	page.on('crash', () => problems.push('the page crashed'));
 	page.on('pageerror', (error) => problems.push(`script error: ${error.message}`));
 	page.on('load', () => loads++);
+	page.on('response', (response) => {
+		if (response.status() === RATE_LIMITED) {
+			problems.push(`${RATE_LIMITED_LABEL} ${new URL(response.url()).pathname}`);
+		}
+	});
 	try {
 		await page.goto(site + path, { waitUntil: 'load', timeout: 45_000 });
 		const height = await page.evaluate(() => document.body.scrollHeight);
@@ -68,11 +76,13 @@ try {
 	for (const [path, device] of PAGES) {
 		const label = `${path} (${device === SIDEWAYS ? 'sideways' : 'upright'})`;
 		let problems = await checkPage(path, device);
-		// One retry for a passing network blip. The repeated "Halftone: ... failed to
-		// load" retries on 2026-11-07 were not blips: Nginx Proxy Manager answered 429
-		// to a cold-cache /work/ (a WordPress-era limit_req on proxy host 15, since
-		// removed). A real crash or broken page fails again.
-		if (problems.length) {
+		// One retry for a passing network blip. A 429 is never a blip, so it fails at
+		// once: retried 20s later against a warm cache it would pass and hide the limit.
+		// On 2026-11-07 Nginx Proxy Manager answered 429 to a cold-cache /work/ (a
+		// WordPress-era limit_req on proxy host 15, since removed), and the retry hid it
+		// for a day. A real crash or broken page fails again.
+		const rateLimited = problems.some((problem) => problem.startsWith(RATE_LIMITED_LABEL));
+		if (problems.length && !rateLimited) {
 			console.log(`  retrying ${label}: ${problems.join('; ')}`);
 			await new Promise((resolve) => setTimeout(resolve, 20_000));
 			problems = await checkPage(path, device);
