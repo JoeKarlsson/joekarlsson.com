@@ -257,7 +257,7 @@ export const projects: Project[] = [
 		title: 'Wave Jump',
 		shareTitle: 'Wave Jump: A two-player race on a wave that never holds still',
 		description:
-			'A race for two people on one keyboard, set on an 80s sunset grid. You both ride a white wave that never stops rolling, and the first one to dive through the checkered gate scores. I made it over one weekend in January 2018 with Cal Carlson, Daniel Olson and Lisa Mabley.',
+			'A race for two people on one keyboard, set on an 80s sunset grid. You both ride a white wave that never stops rolling, and the first one to dive through the checkered gate scores. I made it at Global Game Jam 2018 with Cal Carlson, Daniel Olson and Lisa Mabley.',
 		image: '/images/projects/wave-jump-poster.webp',
 		video: '/images/projects/wave-jump.mp4',
 		imageAlt:
@@ -273,9 +273,12 @@ export const projects: Project[] = [
 			tagline: "Two players, one keyboard, and a wave that won't hold still.",
 			intro: [
 				'Wave Jump is a race for two people sharing one keyboard. You each ride a white wave across a sunset grid, and the wave keeps rolling under you the whole time. A checkered gate sits somewhere below it, and whoever dives through first gets the point.',
-				'Cal Carlson, Daniel Olson, Lisa Mabley and I built it in one weekend in January 2018 with Phaser. The wave is hundreds of small sprites, each one pushed up and down along a sine curve with a new height every frame, so you never get the same wave twice.',
+				'Cal Carlson, Daniel Olson, Lisa Mabley and I built it at Global Game Jam 2018, over the weekend of January 26 to 28, with Phaser. The wave is hundreds of small sprites, each one pushed up and down along a sine curve with a new height every frame, so you never get the same wave twice.',
 				"In 2025 I moved it to a modern build so it still runs in a browser. It needs two players and a keyboard, so it won't work on a phone.",
 			],
+			embedUrl: 'https://wavejump.joekarlsson.com/',
+			embedNote:
+				'Click the game, then press the spacebar to start. Player 1 uses W A S D, player 2 the arrow keys.',
 			steps: [
 				{
 					title: 'Player 1',
@@ -315,6 +318,8 @@ export const projects: Project[] = [
 				'You click or tap the spacebar to fly him home through the night, past clouds and rocks. Sake raises his drunkness, and your score is his drunkness times how long he lasts. Once he gets to 10, the lamps and clouds come at you a lot faster.',
 				'I made it over one weekend with Kent Salcedo, Sarah Kurisu and Corina. In 2025 I moved it to a modern build so it still runs in a browser.',
 			],
+			embedUrl: 'https://tanuki.joekarlsson.com/',
+			embedNote: 'Click the game to start, then click or press the spacebar to fly.',
 		},
 	},
 
