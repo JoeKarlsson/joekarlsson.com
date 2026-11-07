@@ -7,7 +7,7 @@ description: "Building internal AI agents on enterprise data without a custom pe
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'ai-agents', 'cdata']
-heroImage: '/images/blog/ai-gateway-for-developers/thumb-c777bb79.webp'
+heroImage: '/images/blog/ai-gateway-for-developers/thumb-efb0beac.webp'
 heroAlt: 'A lookout with binoculars in a control tower'
 canonicalUrl: 'https://www.cdata.com/blog/ai-gateway-for-developers'
 faq:

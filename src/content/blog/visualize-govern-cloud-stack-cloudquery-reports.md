@@ -7,7 +7,7 @@ description: 'CloudQuery Reports delivers actionable insights for multi-cloud se
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumb-18afe6d9.webp'
+heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumb-67eb002a.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/visualize-govern-cloud-stack-cloudquery-reports'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'The dashboard of an old car'

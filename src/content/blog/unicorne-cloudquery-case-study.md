@@ -9,7 +9,7 @@ writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Cloud Infrastructure', 'Case Study', 'AWS']
 canonicalUrl: 'https://www.cloudquery.io/blog/unicorne-cloudquery-case-study'
 tldr: 'Unicorne cut WAFR engagement time from 50 hours to 20 by automating data collection with CloudQuery, then used the same infrastructure to build Stable, a FinOps SaaS product - without building a data layer from scratch.'
-heroImage: '/images/blog/unicorne-cloudquery-case-study/thumb-a08cf154.webp'
+heroImage: '/images/blog/unicorne-cloudquery-case-study/thumb-d8a25d3c.webp'
 heroAlt: 'A painted carousel horse'
 ---
 

@@ -7,7 +7,7 @@ description: 'One year into DORA, 46% of institutions still struggle with ICT as
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'Cloud Asset Inventory', 'Governance']
-heroImage: '/images/blog/dora-ict-asset-register/thumb-601b678d.webp'
+heroImage: '/images/blog/dora-ict-asset-register/thumb-6ea2acde.webp'
 heroAlt: 'An old handwritten register book'
 canonicalUrl: https://www.cloudquery.io/blog/dora-ict-asset-register
 contentNotice: 'This post was originally published on CloudQuery blog.'

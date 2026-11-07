@@ -7,7 +7,7 @@ description: 'AWS Pinpoint reaches end of support October 2026. Query your Pinpo
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'AWS']
-heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumb-af419c7a.webp'
+heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumb-91d0c6f0.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-pinpoint-deprecation-assessment'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A tower block collapsing in a controlled demolition'

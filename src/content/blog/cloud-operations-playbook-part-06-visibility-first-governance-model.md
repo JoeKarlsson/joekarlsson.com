@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance', 'Cloud Infrastructure']
-heroImage: '/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/thumb-25fe0851.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/thumb-024fb3e1.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-06-visibility-first-governance-model
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Soldiers aiming a searchlight into the night'
