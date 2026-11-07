@@ -76,6 +76,21 @@ if [[ ! -f "$TOFU_DIR/terraform.tfvars" ]]; then
     exit 1
 fi
 
+# A hash of every built file, so the next deploy purges only what changed
+# (scripts/purge-urls.mjs). Written before the content hash, which then covers it.
+SITE_URL="https://www.joekarlsson.com"
+node scripts/purge-urls.mjs write-manifest dist
+
+# What to purge after the push: compare with the manifest the live site serves. A
+# query string sends the request past Cloudflare's cache to the origin, so this is
+# the build actually deployed. No live manifest (the first deploy with one, or the
+# fetch failed) means the list says EVERYTHING.
+PURGE_LIST="$BUILD_DIR/purge-list.txt"
+LIVE_MANIFEST="$BUILD_DIR/live-manifest.json"
+curl -sf --max-time 20 "$SITE_URL/deploy-manifest.json?deploy=$(date +%s)" -o "$LIVE_MANIFEST" || rm -f "$LIVE_MANIFEST"
+node scripts/purge-urls.mjs urls "$SITE_URL" dist "$LIVE_MANIFEST" > "$PURGE_LIST"
+echo "Files to purge after the push: $(grep -c . "$PURGE_LIST" || true) URL(s) ($(head -1 "$PURGE_LIST"))"
+
 # Update site_content_hash in terraform.tfvars so tofu detects the new build.
 # Hash every built file so any change (pages, images, video) triggers a push.
 # Without this, tofu sees no trigger change and skips push_content entirely;
@@ -91,19 +106,19 @@ fi
 echo "Content hash updated: $NEW_HASH"
 
 echo "Deploying to CT 165 via OpenTofu..."
+# This script purges just the changed files below; tell tofu's purge_cache step
+# (cloudflare-purge.sh) not to purge the whole zone first
+export CF_PURGE_HANDLED_BY_DEPLOY=1
 tofu -chdir="$TOFU_DIR" apply -var-file=terraform.tfvars -var "site_dist_path=$BUILD_DIR/dist" -auto-approve
 
 echo "Deployed to origin server"
 
-# Purge Cloudflare cache to ensure HTML and CSS are in sync
+# Purge what this deploy changed from Cloudflare, so HTML and CSS stay in sync
+# while unchanged images keep their cache (scripts/purge-urls.mjs)
 # Requires CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN environment variables
 purge_cloudflare_cache() {
     echo "Purging Cloudflare cache..."
-    curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache" \
-        -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
-        -H "Content-Type: application/json" \
-        --data '{"purge_everything":true}' \
-        | jq -r '.success // "failed"' | xargs -I {} echo "Cache purge: {}"
+    node scripts/purge-urls.mjs purge "$PURGE_LIST"
 }
 CAN_PURGE=0
 if [[ -n "${CLOUDFLARE_ZONE_ID:-}" && -n "${CLOUDFLARE_API_TOKEN:-}" ]]; then
@@ -130,7 +145,6 @@ fi
 #     old homepage right after the purge, and the deploy reported success)
 # Only <body> is compared because Cloudflare Fonts rewrites <head>. The homepage
 # is used because it has no email addresses, which Cloudflare also rewrites.
-SITE_URL="https://www.joekarlsson.com"
 page_body_hash() {
     tr '\n' ' ' | sed -E 's/.*(<body[ >].*<\/body>).*/\1/' | shasum -a 256 | cut -d' ' -f1
 }
