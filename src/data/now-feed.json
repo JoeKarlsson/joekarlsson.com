@@ -7,7 +7,7 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 390,
+			"commitCount": 391,
 			"dailyCommitCounts": [
 				0,
 				0,
@@ -38,9 +38,49 @@
 				13,
 				169,
 				74,
-				33
+				34
 			],
-			"latestCommitMessage": "feat: The postcard rack planter gets its own project page with a..."
+			"latestCommitMessage": "feat: Project pages put How it works beside a portrait tour, with a..."
+		},
+		{
+			"name": "bechdel-test",
+			"description": "Does your favorite film pass the test?",
+			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"language": "JavaScript",
+			"commitCount": 68,
+			"dailyCommitCounts": [
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				1,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				47,
+				20
+			],
+			"latestCommitMessage": "chore: Check sideways scrolling on every non-film page plus about 80..."
 		},
 		{
 			"name": "wave-jump",
@@ -121,46 +161,6 @@
 				6
 			],
 			"latestCommitMessage": "feat: Go Home Tanuki starts muted when embedded, with a sound button"
-		},
-		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 67,
-			"dailyCommitCounts": [
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				1,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				47,
-				19
-			],
-			"latestCommitMessage": "fix: Drop running page headers like \"ANTHROPOID V20: 3\" and read any..."
 		}
 	],
 	"films": [
