@@ -688,6 +688,17 @@ describe('performance guards', () => {
 		}
 	});
 
+	it('project screenshots and gallery stills keep their own colors', () => {
+		for (const page of ['work/pixelpane/index.html', 'work/followspot/index.html']) {
+			const html = readDist(page);
+			const stills = [...html.matchAll(/<img[^>]*src="(\/images\/[^"]+)"[^>]*>/g)].filter(
+				([, src]) => /live-control|column-(wide|narrow)/.test(src),
+			);
+			expect(stills.length, page).toBeGreaterThan(0);
+			for (const [tag, src] of stills) expect(tag, src).not.toContain('data-halftone');
+		}
+	});
+
 	it('Around the house clips get the live halftone, flat where they show text', () => {
 		const clips = [
 			...readDist('index.html').matchAll(/<video[^>]*src="(\/images\/home\/[a-z-]+\.mp4)"[^>]*>/g),

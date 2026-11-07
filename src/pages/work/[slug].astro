@@ -333,7 +333,6 @@ const sections = [
 											alt={clip.alt}
 											{...imageSizes.get(clip.poster)}
 											loading="lazy"
-											data-halftone={halftoneMode(clip.poster)}
 											class={clipClass}
 											style={clipStyle}
 										/>
@@ -347,6 +346,7 @@ const sections = [
 					</section>
 				)}
 
+				{/* Screenshots and gallery stills stay in their own colors, so the interface reads as it really looks */}
 				{page.screenshots && (
 					<section class="mb-12 md:mb-16" aria-labelledby="screenshots">
 						<h2 id="screenshots" class={ARTICLE_HEADING}>
@@ -360,7 +360,6 @@ const sections = [
 										alt={shot.alt}
 										{...imageSizes.get(shot.poster)}
 										loading="lazy"
-										data-halftone={halftoneMode(shot.poster)}
 										class="mx-auto rounded-lg"
 										style="max-height: 720px; max-width: 100%"
 									/>
