@@ -500,12 +500,12 @@ export const projects: Project[] = [
 		demoUrl: 'https://gaptcha.joekarlsson.com/',
 		page: {
 			slug: 'gaptcha',
-			tagline: 'Find. Scan. Win.',
+			tagline: 'Find, scan, win',
 			intro: [
 				"GAPTCHA was an augmented reality scavenger hunt that four of us from DevLeague built at AT&T's hackathon in Honolulu in March 2017: Sean Nakamura, Tony Gaskell, Brandon Baris and me. The name stands for Geo-Augmented Place That Checks Authenticity.",
 				"We printed square markers and left them around for people to find. Scan one with the web app and a green 3D arrow shows up over your camera view, pointing at a hidden checkpoint. An arrow gives you a direction but not a distance, so the idea was to collect bearings from a few markers and walk to where they cross. When you think you're standing on it, you tap Did I Win.",
 				"My part was the server, the direction math and the homepage. I stubbed out the Express server and wrote the route that takes your phone's latitude and longitude and works out the bearing to the checkpoint with the Vincenty formula. I also got the live map pulling from AT&T M2X, which tracked everyone playing. The checkpoint's location came from an M2X device, so it could move during the game. Get within 20 meters of it and the app tells you how many tries everyone took since the last win.",
-				'The Heroku app went down years ago, and AT&T shut M2X down in 2021. In November 2026 I moved the checkpoint logic into the browser and put it back up at gaptcha.joekarlsson.com. Near the original spot in Honolulu you hunt the hackathon checkpoint. Anywhere else, it hides a demo checkpoint 100 to 300 meters from you, and your scans stay in your browser instead of going to M2X.',
+				'The Heroku app went down years ago, and AT&T shut M2X down in 2021. In November 2026 I moved the checkpoint logic into the browser and put it back up at gaptcha.joekarlsson.com. Near the original spot in Honolulu you hunt the hackathon checkpoint. Anywhere else, it hides a demo checkpoint 100 to 300 meters from you. A scan only counts when the camera sees a printed marker, your scans stay in your browser instead of going to M2X, and a live feed shows simulated hunters playing alongside you.',
 				'The photos below are from that weekend.',
 			],
 			screenshots: [
@@ -977,8 +977,9 @@ export const projects: Project[] = [
 		title: 'Data Structures & Algorithms in JS',
 		description:
 			'Common data structures and algorithms implemented in JavaScript. Created as teaching material when I was an instructor at DevLeague. Covers linked lists, trees, graphs, sorting, and more.',
-		image: '/images/projects/data-structures.webp',
-		imageAlt: 'Data Structures',
+		image: '/images/projects/data-structures/thumb-aafbf722.webp',
+		imageAlt:
+			'Three data structures drawn in chalk: a linked list of 3, 7 and 1 ending in null, a binary search tree with 8 at the root, and a stack with 5 being pushed on top',
 		category: 'dev-tools',
 		date: '2016-06',
 		tech: ['JavaScript', 'Algorithms'],
@@ -989,9 +990,9 @@ export const projects: Project[] = [
 		title: 'Guide to Client-Server Communication',
 		description:
 			'Every way a client and server communicate - HTTP, WebSockets, SSE, GraphQL, gRPC, and more. A complete reference guide with examples.',
-		image:
-			'/images/blog/complete-guide-node-client-server-communication/687474703a2f2f6f726d2d6368696d6572612d70726f642e73332e616d617a6f6e6177732e636f6d2f313233303030303030303534352f696d616765732f6870626e5f313530312e706e67-1-1024x559.webp',
-		imageAlt: 'Client-Server Communication Guide',
+		image: '/images/blog/complete-guide-node-client-server-communication/thumb-8aa6bb2d.webp',
+		imageAlt:
+			'Three browser transports side by side, XHR polling, server-sent events and WebSocket, each a client and a server with hand-drawn arrows between them',
 		category: 'dev-tools',
 		date: '2016-07',
 		tech: ['Node.js', 'HTTP', 'WebSockets', 'GraphQL', 'gRPC'],

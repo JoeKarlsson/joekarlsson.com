@@ -1,6 +1,6 @@
 ---
 import type { Project } from '../data/projects';
-import { cardClip } from '../utils/halftone';
+import { cardClip, cardHalftone } from '../utils/halftone';
 import HoverBox from './HoverBox.astro';
 
 interface Props {
@@ -72,7 +72,7 @@ const metaLine = [
 				<img
 					src={project.image}
 					alt={project.imageAlt}
-					data-halftone="flat"
+					data-halftone={cardHalftone(project.image)}
 					width="560"
 					height="315"
 					sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 112px"

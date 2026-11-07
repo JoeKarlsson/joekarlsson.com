@@ -6,11 +6,13 @@ import imagesWithText from '../data/images-with-text.json';
 const withText = new Set<string>(imagesWithText);
 
 /**
- * Work-post thumbnails (scripts/generate-work-thumbnails.mjs) come out already graded pink, with the
- * white border and tape of a taped print kept, so the live pink pass leaves them alone.
+ * Finished thumbnails named thumb-<hash>.webp, for posts and projects, already carry their look, so the
+ * live pink pass leaves them alone: work-post cards (scripts/generate-work-thumbnails.mjs) come out
+ * graded pink with a taped print's border and tape kept, and boiling diagram cards
+ * (scripts/boiling-thumbnail.mjs) are animated, which a live canvas copy would freeze.
  */
 export function isPretreatedThumbnail(src: string): boolean {
-	return /^\/images\/blog\/[^/]+\/thumb-[0-9a-f]{8}\.webp$/.test(src);
+	return /^\/images\/(blog|projects)\/[^/]+\/thumb-[0-9a-f]{8}\.webp$/.test(src);
 }
 
 export function halftoneMode(src: string): 'flat' | 'dots' | undefined {

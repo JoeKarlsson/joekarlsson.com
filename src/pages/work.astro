@@ -16,7 +16,7 @@ import {
 } from '../utils/ui';
 import { SOCIAL_LINKS } from '../consts';
 import { CHALK, MARKS } from '../data/scribbles';
-import { cardClip } from '../utils/halftone';
+import { cardClip, cardHalftone } from '../utils/halftone';
 
 const featuredProject = projects.find((p) => p.featured);
 const nonFeatured = projects.filter((p) => !p.featured);
@@ -78,7 +78,7 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 							<img
 								src={featuredProject.image}
 								alt={featuredProject.imageAlt}
-								data-halftone="flat"
+								data-halftone={cardHalftone(featuredProject.image)}
 								width="1120"
 								height="630"
 								sizes="(min-width: 768px) 50vw, 100vw"
