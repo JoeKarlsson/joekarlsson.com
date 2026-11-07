@@ -740,6 +740,40 @@ describe('performance guards', () => {
 		expect(tooMuch).toEqual([]);
 	});
 
+	// What a phone pays for on one page: each data-halftone image or clip is a live WebGL
+	// canvas copy, autoplaying clips decode at once, and every filtered or boiling SVG
+	// element keeps an offscreen buffer that redraws each frame. Posts that blew past this
+	// (2026-11-07) ran iPhone Safari out of memory and reloaded forever. Limits sit about
+	// 1.5x above the heaviest page at the time, so a page that suddenly doubles fails here
+	// before it crashes a phone. Raise one only after loading that page on an iPhone.
+	const PHONE_BUDGET = {
+		'live pink images and clips': 100, // blog index: 65
+		'autoplaying clips': 25, // /work: 17
+		'filtered SVG elements': 250, // the AI gateway post: 169 (desktop and phone diagrams)
+		'boiling SVG elements': 250, // the linked lists post: 161
+	};
+	it('no page goes over the phone budget', () => {
+		const over: string[] = [];
+		for (const page of builtPages) {
+			const html = readDist(page);
+			const cost = {
+				'live pink images and clips':
+					html.match(/<(?:img|video)\b[^>]*data-halftone/g)?.length ?? 0,
+				'autoplaying clips':
+					html.match(/<video\b[^>]*(?:\sautoplay|data-autoplay-in-view)/g)?.length ?? 0,
+				'filtered SVG elements': html.match(/filter="url\(/g)?.length ?? 0,
+				'boiling SVG elements':
+					html.match(/class="[^"]*\b(?:d-flow|d-callout|d-paper|redraw|redraw-strokes)\b/g)
+						?.length ?? 0,
+			};
+			for (const [what, count] of Object.entries(cost)) {
+				const limit = PHONE_BUDGET[what as keyof typeof PHONE_BUDGET];
+				if (count > limit) over.push(`${page}: ${count} ${what} (limit ${limit})`);
+			}
+		}
+		expect(over).toEqual([]);
+	});
+
 	// iPhone Safari never repaints when an element switches to a different filter, so a
 	// CSS animation that swaps filter: url(#a) for url(#b) froze every wobble on the
 	// phone. Wobbles animate the noise inside one filter instead (BaseLayout).

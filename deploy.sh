@@ -5,10 +5,13 @@ set -euo pipefail
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+# The main checkout, even when this runs from a worktree: .env and node_modules live there
+MAIN_DIR=$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")
+
 # Load environment variables from .env if present
-if [[ -f .env ]]; then
+if [[ -f "$MAIN_DIR/.env" ]]; then
     set -a
-    source .env
+    source "$MAIN_DIR/.env"
     set +a
 fi
 
@@ -30,7 +33,28 @@ else
     fi
 fi
 
-echo "Building site..."
+# Build from a clean copy of HEAD, never from the working tree. Other sessions share
+# this checkout, and building it shipped whatever they had half-finished on disk
+# (2026-11-07). Anything not committed doesn't ship; anything committed but not
+# pushed stops the deploy, so the live site never runs ahead of origin. The
+# now-feed snapshot commit above is the one exception: it's never pushed.
+git fetch --quiet origin main
+UNPUSHED=$(git log origin/main..HEAD --format='%h %s' | grep -v ' chore: Refresh now-feed snapshot$' || true)
+if [[ -n "$UNPUSHED" ]]; then
+    echo "ERROR: these commits aren't on origin/main yet. Push them, then deploy:" >&2
+    echo "$UNPUSHED" >&2
+    exit 1
+fi
+BUILD_DIR=$(mktemp -d "${TMPDIR:-/tmp}/joekarlsson-deploy.XXXXXX")
+git worktree add --quiet --detach "$BUILD_DIR" HEAD
+trap 'cd "$MAIN_DIR" && git worktree remove --force "$BUILD_DIR"' EXIT
+ln -s "$MAIN_DIR/node_modules" "$BUILD_DIR/node_modules"
+if [[ -f "$MAIN_DIR/.env" ]]; then cp "$MAIN_DIR/.env" "$BUILD_DIR/.env"; fi
+# Astro caches rendered markdown without tracking the diagram SVGs it inlines, so a
+# warm cache can ship old diagrams: build cold
+rm -rf "$MAIN_DIR/node_modules/.astro"
+cd "$BUILD_DIR"
+echo "Building a clean copy of $(git rev-parse --short HEAD)..."
 npm run build
 
 # The pre-push hook runs the full npm test, but deploying does not have to go
@@ -67,7 +91,7 @@ fi
 echo "Content hash updated: $NEW_HASH"
 
 echo "Deploying to CT 165 via OpenTofu..."
-tofu -chdir="$TOFU_DIR" apply -var-file=terraform.tfvars -auto-approve
+tofu -chdir="$TOFU_DIR" apply -var-file=terraform.tfvars -var "site_dist_path=$BUILD_DIR/dist" -auto-approve
 
 echo "Deployed to origin server"
 
@@ -154,5 +178,10 @@ if [[ "$FAILED" -ne 0 ]]; then
     exit 1
 fi
 echo "  all smoke checks passed"
+
+# Load the heaviest pages as an iPhone in WebKit: catches crashes, reload loops,
+# script errors and desktop-only games loading on a phone (scripts/smoke-phone.mjs)
+echo "Checking the site on an iPhone..."
+node scripts/smoke-phone.mjs "$SITE_URL"
 
 echo "Done! Site available at $SITE_URL"
