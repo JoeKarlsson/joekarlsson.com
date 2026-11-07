@@ -22,11 +22,17 @@ I love using vertical space for plants, and the pockets turned out to be about t
 
 _A quick tour of the rack, November 2026._
 
+<div class="callout">
+
+**Want to print your own?** The file is free on Thingiverse: [download the Postcard Rack Planter](https://www.thingiverse.com/thing:5867063). There's also a [project page](/work/postcard-rack-planter/) with the build in three steps.
+
+</div>
+
 ## The pots
 
 I designed the pot in Tinkercad, which is about as simple as 3D modeling gets: you drag boxes and cylinders around and subtract one from the other. That was plenty for this. The pot is an angled box that sits in a wire pocket the way a stack of postcards would.
 
-I printed them in black ABS on my Prusa MK3. If you want to print your own, the file is free on Thingiverse: [Postcard Rack Planter](https://www.thingiverse.com/thing:5867063). Your rack's pockets probably aren't the same size as mine, so measure one and scale the model before you print a whole set.
+I printed them in black ABS on my Prusa MK3. If you print your own from the [Thingiverse file](https://www.thingiverse.com/thing:5867063), keep in mind your rack's pockets probably aren't the same size as mine, so measure one and scale the model before you print a whole set.
 
 ## Watering from the top
 
