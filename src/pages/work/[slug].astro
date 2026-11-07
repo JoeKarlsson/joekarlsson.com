@@ -232,7 +232,7 @@ const sections = [
 						{page.embedHeight ? (
 							<div class="@container overflow-hidden rounded-lg max-md:hidden">
 								<iframe
-									src={page.embedUrl}
+									data-desktop-src={page.embedUrl}
 									title={`${project.title}, playable in the browser`}
 									data-embed-project={project.title}
 									class="block w-full"
@@ -245,7 +245,7 @@ const sections = [
 						) : (
 							<div class="aspect-video overflow-hidden rounded-lg max-md:hidden">
 								<iframe
-									src={page.embedUrl}
+									data-desktop-src={page.embedUrl}
 									title={`${project.title}, playable in the browser`}
 									data-embed-project={project.title}
 									data-native-width="1280"

@@ -349,12 +349,31 @@ describe('iframe embeds', () => {
 	it('every built iframe loads from an origin frame-src allows', () => {
 		const blocked: string[] = [];
 		for (const page of builtPages) {
-			for (const [, src] of readDist(page).matchAll(/<iframe\b[^>]*?\ssrc="([^"]+)"/g)) {
+			for (const [, src] of readDist(page).matchAll(
+				/<iframe\b[^>]*?\s(?:data-desktop-)?src="([^"]+)"/g,
+			)) {
 				const origin = new URL(src, 'https://www.joekarlsson.com').origin;
 				if (!isAllowedByFrameSrc(origin)) blocked.push(`${page}: ${src}`);
 			}
 		}
 		expect(blocked).toEqual([]);
+	});
+
+	// A CSS-hidden iframe still loads, so a game hidden on phones still runs there:
+	// the Connect AI × DOOM embed crashed an iPhone that way. Anything but a video
+	// player uses data-desktop-src, which src/scripts/load-desktop-embeds.ts turns
+	// into src only on wide screens.
+	it('only video embeds load on phones; everything else uses data-desktop-src', () => {
+		const loadsOnPhones: string[] = [];
+		for (const page of builtPages) {
+			for (const [, src] of readDist(page).matchAll(/<iframe\b[^>]*?\ssrc="([^"]+)"/g)) {
+				const { hostname } = new URL(src, 'https://www.joekarlsson.com');
+				if (!/(^|\.)(youtube(-nocookie)?|tiktok)\.com$/.test(hostname)) {
+					loadsOnPhones.push(`${page}: ${src}`);
+				}
+			}
+		}
+		expect(loadsOnPhones).toEqual([]);
 	});
 });
 
