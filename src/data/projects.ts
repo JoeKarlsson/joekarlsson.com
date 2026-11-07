@@ -213,7 +213,10 @@ export const projects: Project[] = [
 			'A real-time Spotify player built with React. My most starred open source project. Integrates with the Spotify Web API for custom playback. Accompanied a popular tutorial.',
 		image:
 			'/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/1_KGOTMV8KD120TApnijDauQ.webp',
-		imageAlt: 'React Spotify Player',
+		video: '/images/projects/react-spotify-player.mp4',
+		poster: '/images/projects/react-spotify-player-poster.webp',
+		imageAlt:
+			"React Spotify Player: clicking Login with Spotify, approving the app on Spotify's permission screen, then the player showing the song that's playing, with album art, a progress bar and a Logout button",
 		category: 'web',
 		date: '2019-03',
 		tech: ['React', 'Spotify API', 'JavaScript'],

@@ -42,9 +42,12 @@ const THRESHOLDS = {
 	// (scripts/generate-work-thumbnails.mjs): pictures, their srcset copies and their
 	// og:image JPEGs took dist from 224MB to 237MB. Raised to 250MB on 2026-11-06
 	// when dist had grown to 244.6MB and Wave Jump and Go Home Tanuki got project
-	// pages with gameplay clips (1MB, already encoded at CRF 31). Still catches an
+	// pages with gameplay clips (1MB, already encoded at CRF 31). Raised to 255MB on
+	// 2026-11-06 when PostStream (a sharp 1600px recording of its text UI), Streamroll
+	// (six generated intros at 960px) and React Spotify Player (its README demo, 5.2MB
+	// as a GIF, 0.4MB as video) got clips, taking dist to 250.3MB. Still catches an
 	// unconverted GIF or a stray video.
-	maxTotalDist: 250 * 1024 * 1024,
+	maxTotalDist: 255 * 1024 * 1024,
 };
 
 function getFilesWithExtension(dir: string, ext: string): { name: string; size: number }[] {
