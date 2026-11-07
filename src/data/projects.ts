@@ -400,9 +400,9 @@ export const projects: Project[] = [
 		description:
 			'A one-day hackathon in Honolulu for projects with no value whatsoever. I co-organized it with Ray Farias.',
 		image: '/images/projects/stupid-hackathon-poster.webp',
-		video: '/images/projects/stupid-hackathon.mp4',
+		video: '/images/projects/stupid-hackathon-montage.mp4',
 		imageAlt:
-			'The hackathon\'s site: "Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon" in red brush letters on lime green, scrolling down through the about section and the 2017 entries, from Naked Nudeles to a cardboard laptop and a 3D-printed rubber duck keycap',
+			'The hackathon\'s site: "Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon" in red brush letters on lime green, then quick cuts through the 2017 entries as the page breaks, its fonts turning to Comic Sans, everything tilting and flashing, until it all falls down the screen on "Thanks Y\'all!"',
 		category: 'art',
 		date: '2017-01',
 		tech: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
