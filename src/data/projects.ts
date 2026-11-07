@@ -501,13 +501,18 @@ export const projects: Project[] = [
 				"We printed square markers and left them around for people to find. Scan one with the web app and a green 3D arrow shows up over your camera view, pointing at a hidden checkpoint. An arrow gives you a direction but not a distance, so the idea was to collect bearings from a few markers and walk to where they cross. When you think you're standing on it, you tap Did I Win.",
 				"My part was the server, the direction math and the homepage. I stubbed out the Express server and wrote the route that takes your phone's latitude and longitude and works out the bearing to the checkpoint with the Vincenty formula. I also got the live map pulling from AT&T M2X, which tracked everyone playing. The checkpoint's location came from an M2X device, so it could move during the game. Get within 20 meters of it and the app tells you how many tries everyone took since the last win.",
 				'The Heroku app went down years ago, and AT&T shut M2X down in 2021. In November 2026 I moved the checkpoint logic into the browser and put it back up at gaptcha.joekarlsson.com. Near the original spot in Honolulu you hunt the hackathon checkpoint. Anywhere else, it hides a demo checkpoint 100 to 300 meters from you, and your scans stay in your browser instead of going to M2X.',
-				'The photos below are the ones we took for the homepage that weekend.',
+				'The photos below are from that weekend.',
 			],
 			screenshots: [
 				{
 					poster: '/images/projects/gaptcha-home.webp',
 					alt: 'The GAPTCHA homepage: "GAPTCHA, Find. Scan. Win." and a Scan a Marker button over a green-tinted brick wall, next to an iPhone showing a GAPTCHA marker',
 					caption: 'The homepage',
+				},
+				{
+					poster: '/images/projects/gaptcha-hackathon-testing.webp',
+					alt: 'Testing GAPTCHA at a hackathon table: Brandon Baris, grinning in a red shirt, holds out a phone showing the camera view while a teammate behind him holds up a phone with a GAPTCHA marker and another phone running the AR view, with laptops and other teams all around the cafeteria',
+					caption: 'Testing the AR at the hackathon',
 				},
 				{
 					poster: '/images/projects/gaptcha-find.webp',
