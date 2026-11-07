@@ -491,7 +491,8 @@ export const projects: Project[] = [
 		category: 'web',
 		date: '2017-03',
 		tech: ['Node.js', 'Express', 'A-Frame', 'AR.js', 'Leaflet', 'AT&T M2X'],
-		sourceUrl: 'https://github.com/thgaskell/GAPTCHA',
+		sourceUrl: 'https://github.com/JoeKarlsson/GAPTCHA',
+		demoUrl: 'https://gaptcha.joekarlsson.com/',
 		page: {
 			slug: 'gaptcha',
 			tagline: 'Find. Scan. Win.',
@@ -499,7 +500,8 @@ export const projects: Project[] = [
 				"GAPTCHA was an augmented reality scavenger hunt that four of us from DevLeague built at AT&T's hackathon in Honolulu in March 2017: Sean Nakamura, Tony Gaskell, Brandon Baris and me. The name stands for Geo-Augmented Place That Checks Authenticity.",
 				"We printed square markers and left them around for people to find. Scan one with the web app and a green 3D arrow shows up over your camera view, pointing at a hidden checkpoint. An arrow gives you a direction but not a distance, so the idea was to collect bearings from a few markers and walk to where they cross. When you think you're standing on it, you tap Did I Win.",
 				"My part was the server, the direction math and the homepage. I stubbed out the Express server and wrote the route that takes your phone's latitude and longitude and works out the bearing to the checkpoint with the Vincenty formula. I also got the live map pulling from AT&T M2X, which tracked everyone playing. The checkpoint's location came from an M2X device, so it could move during the game. Get within 20 meters of it and the app tells you how many tries everyone took since the last win.",
-				"The Heroku app is gone, so the photos we took for the homepage that weekend are what's left.",
+				'The Heroku app went down years ago, and AT&T shut M2X down in 2021. In November 2026 I moved the checkpoint logic into the browser and put it back up at gaptcha.joekarlsson.com. Near the original spot in Honolulu you hunt the hackathon checkpoint. Anywhere else, it hides a demo checkpoint 100 to 300 meters from you, and your scans stay in your browser instead of going to M2X.',
+				'The photos below are the ones we took for the homepage that weekend.',
 			],
 			screenshots: [
 				{
@@ -524,8 +526,8 @@ export const projects: Project[] = [
 		title: 'Pixelate',
 		shareTitle: 'Pixelate: Turn any image into blocks in the browser',
 		description:
-			'A small web app that pixelates any image you point it at. Paste an image URL and drag the slider to set how big the blocks get.',
-		image: '/images/projects/pixelate-before-after.webp',
+			'A small web app that turns any photo into big square pixels. Pick a photo, drag the slider to set the block size, and save it as a PNG. Nothing gets uploaded.',
+		image: '/images/projects/pixelate-2026-before-after.webp',
 		imageAlt:
 			'A selfie of me in sunglasses holding a pink soft-serve cone at a fair, and next to it the same photo run through Pixelate, turned into blocks of color',
 		category: 'web',
@@ -533,20 +535,22 @@ export const projects: Project[] = [
 		tech: ['JavaScript', 'HTML5 Canvas'],
 		sourceUrl: 'https://github.com/JoeKarlsson/Pixelate',
 		demoUrl: 'https://pixelate.joekarlsson.com/',
+		blogUrl: '/blog/how-to-pixelate-images-with-html5-and-javascript/',
 		stars: 15,
 		page: {
 			slug: 'pixelate',
-			tagline: 'Paste an image, drag the slider.',
+			tagline: 'Pick a photo, drag the slider.',
 			intro: [
-				'I wrote Pixelate over two days in April 2015. Paste in the URL of an image, click Submit, and it redraws the picture as blocks. The slider sets how big they get.',
-				"There's no pixel math in it. It draws the image onto a canvas at a few percent of its size, turns off image smoothing, and stretches that tiny copy back up to full size. The browser does the rest, and the blur you'd normally get from scaling up comes out as hard squares instead.",
-				"It still runs at pixelate.joekarlsson.com, with a pixelated Darth Vader as the demo image. The pictures here are a frame from one of my own videos, run through the same code. It's the oldest of my pixel projects, before the Digital Graffiti Wall and PixelPane.",
+				'I wrote the first Pixelate over two days in April 2015. You pasted in the URL of an image, clicked Submit, and it redrew the picture as blocks, with a slider for how big they got.',
+				"That version had no pixel math in it. It drew the image onto a canvas at a few percent of its size, turned off image smoothing, and stretched the tiny copy back up. The browser did the rest, and the blur you'd normally get from scaling up came out as hard squares.",
+				'In November 2026 I rebuilt it. Now you pick a photo from your phone or computer, and it never leaves your device. Each block is the exact average of the pixels under it, so edges land where they should, and Save PNG downloads the result.',
+				"The pictures here are a frame from one of my own videos. It's the oldest of my pixel projects, before the Digital Graffiti Wall and PixelPane.",
 			],
 			screenshots: [
 				{
-					poster: '/images/projects/pixelate-app.webp',
-					alt: 'The Pixelate page: the title Pixelate.js over a canvas showing the fair selfie in medium-sized blocks, with the block-size slider, an Image URL box and a Submit button under it',
-					caption: 'Medium blocks',
+					poster: '/images/projects/pixelate-2026-app.webp',
+					alt: 'The Pixelate page in pink on black: a Choose File button, a block size slider set to 24px and a Save PNG button, over the fair selfie turned into square blocks',
+					caption: 'Block size 24px',
 				},
 			],
 		},
@@ -555,21 +559,30 @@ export const projects: Project[] = [
 		title: 'Night Out',
 		shareTitle: 'Night Out: Vote with your friends on where to go tonight',
 		description:
-			'Vote with your friends on where to go tonight. It finds the bars near you, you pick the ones in the running, and everyone votes from a shared link in real time.',
-		image: '/images/projects/night-out-logo.webp',
+			'Vote with your friends on where to go tonight. It finds the bars near you, you pick the ones in the running, and everyone votes from a shared link.',
+		image: '/images/projects/night-out-2026-pick.webp',
 		imageAlt:
-			'The Night Out logo: a yellow crescent moon behind four black bars like a bar chart, on purple',
+			'Night Out on "Where are we going tonight?": a dark map of downtown Honolulu with bars marked in pink, next to a list where The Last Call, Moonlight Tap Room and Pink Flamingo Lounge are checked',
 		category: 'web',
 		date: '2015-10',
-		tech: ['Meteor', 'MongoDB', 'Google Maps API', 'Materialize'],
+		tech: ['Meteor', 'MongoDB', 'Vite', 'Leaflet', 'OpenStreetMap'],
 		sourceUrl: 'https://github.com/JoeKarlsson/night-out',
+		demoUrl: 'https://night-out.joekarlsson.com/',
 		page: {
 			slug: 'night-out',
 			tagline: 'Where are we going tonight?',
 			intro: [
-				'Night Out is for the part of the evening where the group text goes in circles about where to go. I built it in Meteor over about a week at the end of October 2015.',
-				"It finds your location and asks Google Places for the bars and breweries nearby. You check off the ones you'd actually go to and click Start your night out, which gives you a link to send everyone. Your friends open it, see the picks on a map and in a list, and vote. Meteor pushes each vote to everyone with the link, so the counts change while you watch.",
-				"The logo is a moon behind a bar chart. The Heroku app is gone, and I didn't keep any screenshots of it running, so the logo is all there is to show.",
+				'Night Out is for the part of the evening where the group text goes in circles about where to go. I built the first version in Meteor at the end of October 2015 with Jessie Copeland, Alex Anich, Brian "Boots" and Nolan "Skinny Fatman".',
+				"That version found your location, asked Google Places for the bars and breweries nearby, and let you check off the ones you'd actually go to. Clicking Start your night out gave you a link to send everyone, and Meteor pushed each vote to everyone with the link as it came in.",
+				"The Heroku app died years ago. In November 2026 I rebuilt it as a static site at night-out.joekarlsson.com. Bars now come from OpenStreetMap, and there's no server, so the whole plan and its votes live in the link. When you vote, the link on your screen updates and you send the new one back to the group. Two people voting on the same old link at once each end up with only their own vote, which is the trade for not running a server.",
+				"If you're not near any bars, or you don't want to share your location, Try it with demo bars fills the map with made-up bars in Honolulu, where it started.",
+			],
+			screenshots: [
+				{
+					poster: '/images/projects/night-out-2026-vote.webp',
+					alt: 'The Night Out vote page: "Vote on tonight, 3 bars, no votes yet", a share link with a Copy link button, a map of downtown Honolulu, and The Last Call, Moonlight Tap Room and Pink Flamingo Lounge each at 0 votes',
+					caption: 'The vote page and its share link',
+				},
 			],
 		},
 	},
