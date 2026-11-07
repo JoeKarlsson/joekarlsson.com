@@ -7,7 +7,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/thumb-28d4bf78.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/thumb-3a801bd4.webp'
 heroAlt: 'A woman checking papers in an open bank vault'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'

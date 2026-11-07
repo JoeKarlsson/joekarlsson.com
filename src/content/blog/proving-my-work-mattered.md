@@ -7,7 +7,7 @@ description: "For most of my last job I couldn't say whether my work mattered. W
 categories: ['Cloud', 'Career']
 writtenFor: 'CData'
 tags: ['analytics', 'data', 'devrel', 'cdata']
-heroImage: '/images/blog/proving-my-work-mattered/thumb-b16c2124.webp'
+heroImage: '/images/blog/proving-my-work-mattered/thumb-5371e90b.webp'
 heroAlt: 'An old wind-up tape measure'
 canonicalUrl: 'https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered).'

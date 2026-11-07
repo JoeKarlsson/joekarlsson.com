@@ -6,7 +6,7 @@ slug: 'what-it-takes-to-build-a-real-time-recommendation-system'
 description: 'What goes into a real-time recommendation system: content-based and collaborative filtering, data storage, and starting with SQL before reaching for ML.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/thumb-e00c18fe.webp'
+heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/thumb-cb24ec2f.webp'
 heroAlt: 'A glowing jukebox'
 tldr: 'I break down the key components of real-time recommendation systems, from content-based and collaborative filtering to data storage and ML model selection. You can start with simple SQL heuristics and scale up to machine learning later.'
 ---

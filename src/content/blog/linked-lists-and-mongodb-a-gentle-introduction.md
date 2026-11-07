@@ -6,7 +6,7 @@ slug: 'linked-lists-and-mongodb-a-gentle-introduction'
 description: 'New to data structures? Learn how linked lists work, how they differ from arrays and when to use one, with a MongoDB twist in Node.js.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/thumb-c64fd02e.webp'
+heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/thumb-0dfe4503.webp'
 heroAlt: 'Heavy rusted chain links'
 contentNotice: 'This tutorial uses MongoDB Node.js driver v3.x. The current driver (v6+) has different connection and CRUD APIs.'
 tldr: 'I implement a linked list from scratch using Node.js and MongoDB, covering add, find, insert, and delete operations. It is a good way to learn both data structures and MongoDB CRUD basics at the same time.'

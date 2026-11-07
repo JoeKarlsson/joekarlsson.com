@@ -7,7 +7,7 @@ description: Learn how AI-powered cloud security reduces investigation time by 5
 categories: ['AI']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'AI', 'Tutorials']
-heroImage: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/thumb-afec6fd3.webp'
+heroImage: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/thumb-163f2276.webp'
 heroAlt: 'A radar operator watching his scope'
 canonicalUrl: https://www.cloudquery.io/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection
 contentNotice: 'This post was originally published on CloudQuery blog.'

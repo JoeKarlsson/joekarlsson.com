@@ -7,7 +7,7 @@ description: 'The MCP 2026-07-28 release makes the protocol stateless, adds an e
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'protocol', 'cdata']
-heroImage: '/images/blog/mcp-2026-07-28-release-explained/thumb-296f989b.webp'
+heroImage: '/images/blog/mcp-2026-07-28-release-explained/thumb-1ab0dcd6.webp'
 heroAlt: 'A ship sliding down the slipway at its launch'
 canonicalUrl: 'https://www.cdata.com/blog/mcp-2026-07-28-release'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/mcp-2026-07-28-release).'

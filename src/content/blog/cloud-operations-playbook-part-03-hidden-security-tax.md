@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/thumb-258700e7.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/thumb-6a399567.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-03-hidden-security-tax
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A red fire alarm box on a brick wall'

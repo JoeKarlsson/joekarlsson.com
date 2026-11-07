@@ -6,7 +6,7 @@ description: 'How to build an AWS cloud asset inventory with CloudQuery, Postgre
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Cloud Asset Inventory', 'AWS']
-heroImage: '/images/blog/building-cloud-asset-inventory-with-aws/thumb-9b4c29e1.webp'
+heroImage: '/images/blog/building-cloud-asset-inventory-with-aws/thumb-a7074d1b.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/building-cloud-asset-inventory-with-aws'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A forklift moving pallets in a warehouse'

@@ -7,7 +7,7 @@ description: 'LiteLLM vs enterprise AI gateway, 2026 comparison: MCP governance,
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'litellm', 'cdata']
-heroImage: '/images/blog/litellm-vs-cdata-connect-ai/thumb-5d2da1df.webp'
+heroImage: '/images/blog/litellm-vs-cdata-connect-ai/thumb-80cde253.webp'
 heroAlt: 'A doorman outside an old theater'
 canonicalUrl: 'https://www.cdata.com/blog/litellm-vs-cdata-connect-ai'
 faq:

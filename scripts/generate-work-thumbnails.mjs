@@ -9,8 +9,7 @@
  *     { "photo": "<Wikimedia Commons file URL>", "credit": "<Commons page URL>" }  public domain only
  *     { "image": "/images/blog/..." }    a meme or photo already in the post
  *     { "video": "/images/blog/....mp4", "at": 1.2 }   a frame from a reaction GIF (shipped as MP4)
- * - look: "halftone" (pink dots), "flat" (pink and black), "taped" (flat pink, printed and taped onto
- *   black at a tilt)
+ * - look: "full" (the picture fills the card) or "taped" (printed and taped onto black at a tilt)
  * - focus: where to crop a tall picture to 16:9, 0 (top) to 1 (bottom), default 0.5
  * - whole: true keeps a taped picture uncropped (memes, so the caption survives); the print takes its shape
  * - ring: [left, top, width, height] in % of the picture, a crayon ring around the detail
@@ -18,7 +17,7 @@
  * - tilt: degrees for a taped print
  * - alt: what the picture shows, used as heroAlt
  *
- * The cards are already pink, so the site's live pink pass skips them:
+ * Pictures keep their own colors. The site's live pink pass skips the cards:
  * see isPretreatedThumbnail() in src/utils/halftone.ts, which keys on the thumb-<hash>.webp name.
  *
  * Commons photos are downloaded once into media-sources/work-thumbnails/ (git-ignored).
@@ -38,11 +37,10 @@ const PLAN = JSON.parse(readFileSync(join(ROOT, 'scripts/work-thumbnail-plan.jso
 const CACHE = join(ROOT, 'media-sources/work-thumbnails');
 const WIDTH = 1200;
 const HEIGHT = 675;
-const PINK = [255, 0x4f, 0xd8];
 const COLORS = { pink: '#ff4fd8', chalk: '#ece6da' };
 // The largest a taped print's picture gets, inside the card
 const PRINT_BOX = [880, 520];
-const LOOKS = new Set(['halftone', 'flat', 'taped']);
+const LOOKS = new Set(['full', 'taped']);
 // Images are cached for 30 days, so a redrawn card needs a new URL: the name carries a hash of its bytes
 const thumbPath = (slug, webp) =>
 	`/images/blog/${slug}/thumb-${createHash('sha256').update(webp).digest('hex').slice(0, 8)}.webp`;
@@ -105,59 +103,6 @@ async function cropToCard(sharp, buffer, focus = 0.5, width = WIDTH, height = HE
 	return sharp(buffer).rotate().extract(region).resize(width, height);
 }
 
-/** Black-to-pink tone, stretched to the picture's own darkest and brightest */
-async function greyLevels(pipeline, width, height) {
-	const { data } = await pipeline
-		.greyscale()
-		.normalise()
-		.raw()
-		.toBuffer({ resolveWithObject: true });
-	if (data.length !== width * height) throw new Error('unexpected channel count');
-	return data;
-}
-
-function tone(grey, scale) {
-	const out = Buffer.alloc(grey.length * 3);
-	for (let i = 0; i < grey.length; i++) {
-		const v = (grey[i] / 255) * scale;
-		out[i * 3] = PINK[0] * v;
-		out[i * 3 + 1] = PINK[1] * v;
-		out[i * 3 + 2] = PINK[2] * v;
-	}
-	return out;
-}
-
-/** Pink dots on a 45-degree grid sized by brightness, over a half-strength pink tone (like src/scripts/halftone.ts) */
-function halftone(grey, width, height) {
-	const out = tone(grey, 0.5);
-	const cell = 9;
-	const cos = Math.SQRT1_2;
-	for (let y = 0; y < height; y++) {
-		for (let x = 0; x < width; x++) {
-			// Position in the rotated grid, and the centre of its cell back in pixels
-			const u = (x * cos + y * cos) / cell;
-			const v = (-x * cos + y * cos) / cell;
-			const cu = Math.floor(u) + 0.5;
-			const cv = Math.floor(v) + 0.5;
-			const cx = Math.round((cu - cv) * cos * cell);
-			const cy = Math.round((cu + cv) * cos * cell);
-			const sample =
-				cx >= 0 && cx < width && cy >= 0 && cy < height ? grey[cy * width + cx] / 255 : 0;
-			const radius = 0.72 * sample ** 0.8;
-			const du = u - cu;
-			const dv = v - cv;
-			const distance = Math.sqrt(du * du + dv * dv);
-			// One pixel of soft edge
-			const cover = Math.min(1, Math.max(0, (radius - distance) * cell + 0.5));
-			if (cover > 0) {
-				const i = (y * width + x) * 3;
-				for (let c = 0; c < 3; c++) out[i + c] = out[i + c] * (1 - cover) + PINK[c] * cover;
-			}
-		}
-	}
-	return out;
-}
-
 async function pictureDataUri(sharp, slug, entry) {
 	const buffer = await pictureBuffer(slug, entry.picture);
 	// A meme stays whole so its caption survives; everything else is cropped to the card's shape.
@@ -174,14 +119,7 @@ async function pictureDataUri(sharp, slug, entry) {
 		fitted = await (await cropToCard(sharp, buffer, entry.focus, w, h)).png().toBuffer();
 	}
 	const { width, height } = await sharp(fitted).metadata();
-	// Every picture is graded pink like the rest of the site; a taped print takes the flat tone,
-	// which keeps meme captions readable
-	const grey = await greyLevels(sharp(fitted), width, height);
-	const rgb = entry.look === 'halftone' ? halftone(grey, width, height) : tone(grey, 1);
-	const png = await sharp(rgb, { raw: { width, height, channels: 3 } })
-		.png()
-		.toBuffer();
-	return { uri: `data:image/png;base64,${png.toString('base64')}`, width, height };
+	return { uri: `data:image/png;base64,${fitted.toString('base64')}`, width, height };
 }
 
 function markSvg(MARKS, mark) {

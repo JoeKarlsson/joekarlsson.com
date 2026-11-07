@@ -5,7 +5,7 @@ slug: 'how-to-use-singlestore-and-node-js'
 description: 'Do you need to get a basic SingleStore application setup quickly using Node.js?'
 categories: ['Web Dev']
 writtenFor: 'SingleStore'
-heroImage: '/images/blog/how-to-use-singlestore-and-node-js/thumb-04b12b10.webp'
+heroImage: '/images/blog/how-to-use-singlestore-and-node-js/thumb-b17d3942.webp'
 heroAlt: 'Waiting impatiently GIF while cluster deploys'
 tldr: 'A step-by-step guide to connecting a Node.js app to SingleStore using the mysql2 package (since SingleStore is MySQL wire-compatible) and running basic CRUD operations.'
 ---

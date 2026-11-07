@@ -7,7 +7,7 @@ description: 'CloudQuery SQL Console lets you query your cloud like a database. 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/thumb-a08c1118.webp'
+heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/thumb-4387a7c8.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/query-cloud-like-database-stop-wasting-time'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A meme featuring scenes of Pablo Escobar, from the TV show Narcos, looking bored and contemplative. It reads, "Me, waiting for Excel to respond after applying a filter on a million-row dataset."'

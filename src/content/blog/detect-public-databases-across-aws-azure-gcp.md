@@ -8,7 +8,7 @@ description: 'Detect publicly accessible databases across AWS RDS, Azure, and GC
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumb-374c5853.webp'
+heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumb-706fb667.webp'
 heroAlt: 'A window left open in a bright yellow wall'
 canonicalUrl: 'https://www.cloudquery.io/blog/detect-public-databases-across-aws-azure-gcp'
 contentNotice: 'This post was originally published on CloudQuery blog.'

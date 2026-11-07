@@ -7,7 +7,7 @@ description: 'Find every repository missing a LICENSE file across your organizat
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/find-repos-missing-license-files-with-sql/thumb-fbc7f51c.webp'
+heroImage: '/images/blog/find-repos-missing-license-files-with-sql/thumb-ec6e168f.webp'
 heroAlt: 'An ornate frame with nothing inside it'
 canonicalUrl: 'https://www.cloudquery.io/blog/find-repos-missing-license-files-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'

@@ -5,7 +5,7 @@ slug: 'how-to-manage-mongodb-data-at-scale'
 description: 'How to manage MongoDB data at scale with Atlas Online Archive, moving aging data like IoT readings to cheaper storage while you can still query it.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/how-to-manage-mongodb-data-at-scale/thumb-6e7a552f.webp'
+heroImage: '/images/blog/how-to-manage-mongodb-data-at-scale/thumb-e424bfdb.webp'
 heroAlt: 'Gif of Matt Damon from Saving Private Ryan aging into an old man.'
 contentNotice: false
 tldr: 'I show how to use MongoDB Atlas Online Archive to automatically move old, infrequently accessed data to cheap cloud storage while still querying everything through a single endpoint. Saves money without losing access to your data.'

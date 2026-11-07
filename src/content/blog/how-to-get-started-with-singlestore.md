@@ -5,7 +5,7 @@ slug: 'how-to-get-started-with-singlestore'
 description: 'Are you looking for the fastest possible way to get a new SingleStore Cluster up and running while testing out sample datasets to experiment with and use?'
 categories: ['Web Dev']
 writtenFor: 'SingleStore'
-heroImage: '/images/blog/how-to-get-started-with-singlestore/thumb-2278b405.webp'
+heroImage: '/images/blog/how-to-get-started-with-singlestore/thumb-d97dfacc.webp'
 heroAlt: 'Runners at the start of an old race'
 tldr: 'A 5-minute quickstart for SingleStore: spin up a cluster, import 20 million rows of eCommerce data from S3 via a pipeline, and run analytics queries that return in seconds.'
 ---

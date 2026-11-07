@@ -8,7 +8,7 @@ description: 'AWS and Google Cloud partnered on multicloud networking, with conn
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Infrastructure', 'AWS', 'GCP']
-heroImage: '/images/blog/aws-google-cloud-networking-partnership/thumb-4fb25f68.webp'
+heroImage: '/images/blog/aws-google-cloud-networking-partnership/thumb-857ca9c2.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-google-cloud-networking-partnership'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Telephone switchboard operators patching calls'

@@ -7,7 +7,7 @@ description: 'How to build and maintain a cloud asset inventory in 2026: set the
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Asset Inventory']
-heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/thumb-8dc5643a.webp'
+heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/thumb-82956119.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'An old general store with every shelf stocked'
 ---

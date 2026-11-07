@@ -722,8 +722,12 @@ describe('performance guards', () => {
 		}
 	});
 
-	it('blog list thumbnails show the photo as it is, with no live pink tone', () => {
-		for (const page of ['blog/index.html', 'blog/category/homelab/index.html']) {
+	it('post list thumbnails show the photo as it is, with no live pink tone', () => {
+		for (const page of [
+			'blog/index.html',
+			'blog/category/homelab/index.html',
+			'newsletter/index.html',
+		]) {
 			const html = readDist(page);
 			const thumbs = [...html.matchAll(/<img[^>]*src="\/images\/[^"]+"[^>]*>/g)].map(
 				([tag]) => tag,

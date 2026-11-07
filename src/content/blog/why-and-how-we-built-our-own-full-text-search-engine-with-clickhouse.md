@@ -7,7 +7,7 @@ description: 'How we built a full-text search for CloudQuery using ClickHouse, a
 categories: ['Cloud', 'Web Dev']
 writtenFor: 'CloudQuery'
 tags: ['ClickHouse', 'Engineering', 'Data Engineering', 'Full-Text Search']
-heroImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/thumb-a137833f.webp'
+heroImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/thumb-bc5f7d86.webp'
 heroAlt: "Drake meme with two panels. Top panel shows Drake gesturing disapprovingly at 'Dedicated full-text search engine'. Bottom panel shows Drake smiling approvingly at 'Abusing ClickHouse harder'"
 canonicalUrl: 'https://www.cloudquery.io/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
 tldr: 'We built a full text search index directly in ClickHouse using ngrambf_v1 Bloom filter indices instead of adding Elasticsearch or Meilisearch. Our custom key-value flattening approach achieved sub-400ms queries across hundreds of millions of rows, with 10x faster performance on complex searches compared to naive JOIN approaches, without requiring additional infrastructure.'

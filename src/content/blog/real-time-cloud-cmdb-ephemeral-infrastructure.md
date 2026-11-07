@@ -8,7 +8,7 @@ tags:
   - Engineering
 date: 2025-10-24
 description: 'Traditional CMDBs miss ephemeral resources because containers live minutes. How cloud CMDBs use tiered sync, from 15 minutes to daily, and what it costs.'
-heroImage: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/thumb-065712e9.webp'
+heroImage: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/thumb-50183f23.webp'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/real-time-cloud-cmdb-ephemeral-infrastructure
