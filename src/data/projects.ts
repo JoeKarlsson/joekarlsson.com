@@ -481,6 +481,99 @@ export const projects: Project[] = [
 		},
 	},
 	{
+		title: 'GAPTCHA',
+		shareTitle: 'GAPTCHA: An augmented reality scavenger hunt from a 2017 hackathon',
+		description:
+			'An augmented reality scavenger hunt built at the 2017 AT&T hackathon in Honolulu. Scan a printed marker and a 3D arrow points you toward a hidden checkpoint.',
+		image: '/images/projects/gaptcha-scan.webp',
+		imageAlt:
+			'Hands holding a Samsung phone over a printed GAPTCHA marker on a concrete floor, with a green 3D arrow drawn over the camera view in the browser',
+		category: 'web',
+		date: '2017-03',
+		tech: ['Node.js', 'Express', 'A-Frame', 'AR.js', 'Leaflet', 'AT&T M2X'],
+		sourceUrl: 'https://github.com/thgaskell/GAPTCHA',
+		page: {
+			slug: 'gaptcha',
+			tagline: 'Find. Scan. Win.',
+			intro: [
+				"GAPTCHA was an augmented reality scavenger hunt that four of us from DevLeague built at AT&T's hackathon in Honolulu in March 2017: Sean Nakamura, Tony Gaskell, Brandon Baris and me. The name stands for Geo-Augmented Place That Checks Authenticity.",
+				"We printed square markers and left them around for people to find. Scan one with the web app and a green 3D arrow shows up over your camera view, pointing at a hidden checkpoint. An arrow gives you a direction but not a distance, so the idea was to collect bearings from a few markers and walk to where they cross. When you think you're standing on it, you tap Did I Win.",
+				"My part was the server, the direction math and the homepage. I stubbed out the Express server and wrote the route that takes your phone's latitude and longitude and works out the bearing to the checkpoint with the Vincenty formula. I also got the live map pulling from AT&T M2X, which tracked everyone playing. The checkpoint's location came from an M2X device, so it could move during the game. Get within 20 meters of it and the app tells you how many tries everyone took since the last win.",
+				"The Heroku app is gone, so the photos we took for the homepage that weekend are what's left.",
+			],
+			screenshots: [
+				{
+					poster: '/images/projects/gaptcha-home.webp',
+					alt: 'The GAPTCHA homepage: "GAPTCHA, Find. Scan. Win." and a Scan a Marker button over a green-tinted brick wall, next to an iPhone showing a GAPTCHA marker',
+					caption: 'The homepage',
+				},
+				{
+					poster: '/images/projects/gaptcha-find.webp',
+					alt: 'A finger pointing at a printed GAPTCHA marker on a concrete floor: a black square with a black triangle in the corner and gaptcha.herokuapp.com printed underneath',
+					caption: 'Find a marker',
+				},
+				{
+					poster: '/images/projects/gaptcha-win.webp',
+					alt: 'Two people jumping in the air with confetti falling in a school cafeteria full of hackathon tables, an AT&T "Mobilizing Your World" banner behind them',
+					caption: 'Win',
+				},
+			],
+		},
+	},
+	{
+		title: 'Pixelate',
+		shareTitle: 'Pixelate: Turn any image into blocks in the browser',
+		description:
+			'A small web app that pixelates any image you point it at. Paste an image URL and drag the slider to set how big the blocks get.',
+		image: '/images/projects/pixelate-before-after.webp',
+		imageAlt:
+			'A selfie of me in sunglasses holding a pink soft-serve cone at a fair, and next to it the same photo run through Pixelate, turned into blocks of color',
+		category: 'web',
+		date: '2015-04',
+		tech: ['JavaScript', 'HTML5 Canvas'],
+		sourceUrl: 'https://github.com/JoeKarlsson/Pixelate',
+		demoUrl: 'https://pixelate.joekarlsson.com/',
+		stars: 15,
+		page: {
+			slug: 'pixelate',
+			tagline: 'Paste an image, drag the slider.',
+			intro: [
+				'I wrote Pixelate over two days in April 2015. Paste in the URL of an image, click Submit, and it redraws the picture as blocks. The slider sets how big they get.',
+				"There's no pixel math in it. It draws the image onto a canvas at a few percent of its size, turns off image smoothing, and stretches that tiny copy back up to full size. The browser does the rest, and the blur you'd normally get from scaling up comes out as hard squares instead.",
+				"It still runs at pixelate.joekarlsson.com, with a pixelated Darth Vader as the demo image. The pictures here are a frame from one of my own videos, run through the same code. It's the oldest of my pixel projects, before the Digital Graffiti Wall and PixelPane.",
+			],
+			screenshots: [
+				{
+					poster: '/images/projects/pixelate-app.webp',
+					alt: 'The Pixelate page: the title Pixelate.js over a canvas showing the fair selfie in medium-sized blocks, with the block-size slider, an Image URL box and a Submit button under it',
+					caption: 'Medium blocks',
+				},
+			],
+		},
+	},
+	{
+		title: 'Night Out',
+		shareTitle: 'Night Out: Vote with your friends on where to go tonight',
+		description:
+			'Vote with your friends on where to go tonight. It finds the bars near you, you pick the ones in the running, and everyone votes from a shared link in real time.',
+		image: '/images/projects/night-out-logo.webp',
+		imageAlt:
+			'The Night Out logo: a yellow crescent moon behind four black bars like a bar chart, on purple',
+		category: 'web',
+		date: '2015-10',
+		tech: ['Meteor', 'MongoDB', 'Google Maps API', 'Materialize'],
+		sourceUrl: 'https://github.com/JoeKarlsson/night-out',
+		page: {
+			slug: 'night-out',
+			tagline: 'Where are we going tonight?',
+			intro: [
+				'Night Out is for the part of the evening where the group text goes in circles about where to go. I built it in Meteor over about a week at the end of October 2015.',
+				"It finds your location and asks Google Places for the bars and breweries nearby. You check off the ones you'd actually go to and click Start your night out, which gives you a link to send everyone. Your friends open it, see the picks on a map and in a list, and vote. Meteor pushes each vote to everyone with the link, so the counts change while you watch.",
+				"The logo is a moon behind a bar chart. The Heroku app is gone, and I didn't keep any screenshots of it running, so the logo is all there is to show.",
+			],
+		},
+	},
+	{
 		title: 'linger',
 		shareTitle: 'linger: Poems that only finish if you read them slowly',
 		description:
