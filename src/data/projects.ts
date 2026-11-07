@@ -386,12 +386,98 @@ export const projects: Project[] = [
 				'I called my version Nothing But Corners, because that\'s all it does. I aim every bounce, so the logo lands in a corner every single time. That took a lot more math than a joke should need. I unfold the screen into a grid so a bouncing path becomes a straight line, aim at a corner in that grid, and throw out any path that bounces off a wall too close to a corner. Most of that work went into getting rid of the near miss, and the near miss was why people watched the original. Click and you get another logo, then another, until the screen fills up with logos landing in corners. Turn the sound on and every corner gets a thump and a cheer, kids yelling "yay" or a round of applause.',
 				'You were waiting for something else when you watched the real one, a movie to start or someone to find the remote, and it happened to be on. The near misses kept people watching. Mine hits every time, so after about a minute I get bored of it.',
 				"Cory Arcangel's Super Mario Clouds hacked a Mario cartridge until only the scrolling sky was left. Both pieces take software everybody already knows and remove part of it.",
-				"It's also useless on purpose. I've been making things nobody needs for a long time, from co-organizing the Stupid Shit No One In Hawaii Needs hackathon in 2016 to gluing seeds to cardboard one at a time to make pictures. Both took a lot of work for something with no use, and I liked doing them.",
+				"It's also useless on purpose. I've been making things nobody needs for a long time, from co-organizing the Stupid Shit No One In Hawaii Needs hackathon in 2017 to gluing seeds to cardboard one at a time to make pictures. Both took a lot of work for something with no use, and I liked doing them.",
 			],
 			embedUrl: 'https://joekarlsson.github.io/nothing-but-corners/',
 			embedOnPhones: true,
 			embedHeading: 'Watch it',
 			embedNote: 'Click inside to add another logo.',
+		},
+	},
+	{
+		title: 'Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon',
+		shareTitle: 'Stupid Shit No One In Hawaii Needs Hackathon: Building things nobody needs',
+		description:
+			'A one-day hackathon in Honolulu for projects with no value whatsoever. I co-organized it with Ray Farias.',
+		image: '/images/projects/stupid-hackathon-poster.webp',
+		video: '/images/projects/stupid-hackathon.mp4',
+		imageAlt:
+			'The hackathon\'s site: "Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon" in red brush letters on lime green, scrolling down through the about section and the 2017 entries, from Naked Nudeles to a cardboard laptop and a 3D-printed rubber duck keycap',
+		category: 'art',
+		date: '2017-01',
+		tech: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+		sourceUrl:
+			'https://github.com/STUPIDSHITNOONEINHAWAIINEEDSHACKATHON/STUPIDSHITNOONEINHAWAIINEEDSHACKATHON.github.io',
+		demoUrl: 'https://stupidshitnooneinhawaiineedshackathon.github.io/',
+		page: {
+			slug: 'stupid-hackathon-hawaii',
+			tagline: "Let's build something we will all regret.",
+			intro: [
+				'Ray Farias and I put on the Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon in Honolulu in January 2017, hosted by DevLeague, the coding bootcamp where I taught. It was one day of building projects with no value whatsoever, open to programmers, hardware hackers, artists, musicians and, according to the site, space whales.',
+				"It's a local edition of the Stupid Shit No One Needs and Terrible Ideas Hackathon, which started in New York, and the site links out to the other ones around the world.",
+				"People built a Chrome extension that switches every font to Comic Sans and breaks every link, an Alexa that has had enough of your shit, a cardboard laptop and smartphone, a 3D-printed rubber duck keycap to talk to when you're stuck, and an official survey with the worst UX we could manage that never ends. Naked Nudeles took the people's choice award. My entry was App-All-O-Gizer, which emails apologies for you.",
+				'Ray started the site and I styled it. After the event I filled in the entries, the winners and the names of everyone who built them, so it also works as the record of that day.',
+				'Most hackathons judge you on whether your idea could turn into a company. This one gave prizes for the stupidest idea, and people still worked all day on theirs.',
+			],
+		},
+	},
+	{
+		title: 'App-All-O-Gizer',
+		shareTitle: "App-All-O-Gizer: Never be sorry you weren't sorry again",
+		description:
+			"Schedule apologies to go out once a month, once a week or every day. Never be sorry you weren't sorry again.",
+		image: '/images/projects/app-all-o-gizer-poster.webp',
+		video: '/images/projects/app-all-o-gizer.mp4',
+		imageAlt:
+			'App-All-O-Gizer\'s page, "Pronounced Apologizer", with an email address typed in and Send Email clicked, then a Gmail inbox opening an email from app.all.o.gizer titled "Sorry about the murder"',
+		category: 'web',
+		date: '2017-01',
+		tech: ['Node.js', 'Express', 'Nodemailer', 'Gmail'],
+		sourceUrl: 'https://github.com/STUPIDSHITNOONEINHAWAIINEEDSHACKATHON/app-all-o-gizer',
+		page: {
+			slug: 'app-all-o-gizer',
+			tagline: "Never be sorry you weren't sorry again.",
+			intro: [
+				"I built App-All-O-Gizer in a day at the Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon in January 2017. Sometimes you hurt people and don't even know it, so the pitch was to apologize on a schedule, once a month, once a week or every day, and cover yourself either way.",
+				'You type in someone\'s email address and click Send Email. The app picks one of 13 apologies at random and sends it from a Gmail account. They range from missing an anniversary to peeing the bed to murder, and every one signs off with "Email sent by appallogizer.com".',
+				'The schedule never got built. I installed node-cron and ran out of day, so every click sends one apology right away. An apology app that never followed through seemed right for this hackathon.',
+				"The site is offline now, so the clip is the demo GIF from the project's README.",
+			],
+			screenshots: [
+				{
+					poster: '/images/projects/app-all-o-gizer-form.webp',
+					alt: 'The App-All-O-Gizer page on pale pink: the title, "Pronounced Apologizer", the pitch, "Never be sorry you weren\'t sorry again!", an email box and a Send Email button, signed "Site by Joe Karlsson for the Stupid Hackathon HNL 2017"',
+					caption: 'Type an address, click once',
+				},
+				{
+					poster: '/images/projects/app-all-o-gizer-poster.webp',
+					alt: 'A Gmail inbox showing an email from app.all.o.gizer@gmail.com titled "Sorry about the murder": "It was a total freak accident that I murdered that guy last week. I hope that you will find it in your heart to forgive me for my heinous crime against humanity."',
+					caption: 'One of the 13 apologies it picks from',
+				},
+			],
+		},
+	},
+	{
+		title: 'Best Buy Product Locator',
+		shareTitle: 'Best Buy Product Locator: Is the thing on Amazon at a Best Buy near you?',
+		description:
+			"Two-day shipping too slow for you? A Chrome extension that tells you if the product you're browsing on Amazon, Walmart or Target is at a Best Buy near you for pickup today.",
+		image: '/images/projects/best-buy-product-locator.webp',
+		imageAlt:
+			'A Sony 48-inch TV on Amazon with the extension running: a blue Best Buy banner across the top reads "Want it faster? Pick it up now for $449.99" at the Best Buy in Richfield, MN, and the toolbar popup shows the same TV with a Buy on BestBuy.com button',
+		category: 'web',
+		date: '2018-09',
+		tech: ['React', 'styled-components', 'Chrome Extension', 'Best Buy API'],
+		sourceUrl: 'https://github.com/JoeKarlsson/best-buy-product-locator-chrome-extension',
+		page: {
+			slug: 'best-buy-product-locator',
+			tagline: 'Two-day shipping too slow for you?',
+			intro: [
+				"The Best Buy Product Locator is a Chrome extension for when you're shopping on Amazon, Walmart or Target and want the thing today. It looks up the product you're browsing in Best Buy's catalog and tells you whether the Best Buy nearest you has it for pickup.",
+				"It reads the model number out of the product's spec table, or falls back to searching by the product's title, and checks the Best Buy API for a match and for stores near your location. If there's a match, a banner drops across the top of the page with Best Buy's price, the store, its hours that day and a button to buy it on BestBuy.com. The toolbar popup shows the same thing.",
+				'I built it with Eric Moore in 2018, in React with styled-components. Best Buy never had anything to do with it.',
+				"It's gone from the Chrome Web Store now, and I built it on Manifest V2, which current Chrome won't load, so this screenshot from 2018 is the only look at it working.",
+			],
 		},
 	},
 	{
