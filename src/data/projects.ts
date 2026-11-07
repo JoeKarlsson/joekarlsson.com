@@ -116,10 +116,10 @@ export const projects: Project[] = [
 		shareTitle: 'PixelPane: A 32x32 LED pixel art frame driven by a Raspberry Pi',
 		description:
 			"A 32x32 LED pixel art frame behind a two-way mirror, driven by a Raspberry Pi. It plays seasonal pixel art, and Home Assistant pushes to it: ON AIR when my camera turns on, the doorbell, the weather. It's open source, and every scene is a plugin.",
-		image: `${PIXELPANE_DIR}/project-hero.webp`,
-		video: `${PIXELPANE_DIR}/pp-playnow.mp4`,
+		image: `${PIXELPANE_DIR}/pixelpane-montage-poster.webp`,
+		video: `${PIXELPANE_DIR}/pixelpane-montage.mp4`,
 		imageAlt:
-			'The PixelPane control page: pressing Play now on moon, fire, clock and Halloween, with the live preview of the panel switching to each scene',
+			'PixelPane on my desk: the LED frame showing my homelab status, Proxmox stats and my next meeting, the control page switching scenes, the two-way mirror over the grid, and a drawing from the GIF generator appearing on the panel',
 		category: 'iot',
 		date: '2026-10',
 		tech: ['Python', 'Raspberry Pi', 'LED matrix', 'Home Assistant', '3D Printing'],
