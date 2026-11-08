@@ -887,28 +887,33 @@ export const projects: Project[] = [
 		page: {
 			slug: 'connect-ai-doom',
 			tagline: 'Doom built from live business data, where every monster is a real record.',
+			introHeading: 'Artist statement',
 			intro: [
-				'You ask Claude a business question, like "Which customers are at risk right now?" Claude answers it through the CData Connect AI MCP server, and the answer becomes a Doom level. Each room is an app that holds part of the answer, like Salesforce, Zendesk or Stripe. Each monster is a record from that app, and the urgent ones are pink demons. Keycards match your permissions, and anything Connect AI refused to hand over, like a lookup by Social Security number, sits behind a red door with no key.',
-				"You can play it yourself, or let Claude play while a side panel shows every decision and tool call it makes. Shoot a record and the game re-reads it live from the source app. Everything goes through Connect AI's read-only tools, so nothing in your apps changes. The full version runs on a Mac, and setup takes about ten minutes.",
-				"Or play it right here: the web version below is a level Claude built from a demo company's Salesforce, Zendesk and Stripe. No install or account needed. It needs a keyboard and mouse.",
+				'Data is hard to look at. A database hands back rows, an AI agent hands back text, and the interesting parts, like which app the agent picked and where the system said no, happen in steps nobody sees.',
+				"Connect AI × DOOM turns that into a level. Each app the agent searched becomes a room, every record it found is a monster, the urgent ones are pink demons, and the data it wasn't allowed to touch sits behind a red door with no key. Nobody needs a legend for any of it. Everyone already knows a monster is a problem and a locked door means no. I call that borrowed literacy: the game taught you how to read it decades ago.",
+				"Doom has been a hacker's canvas since id Software released its source code in 1997, and people have run it on everything from a John Deere tractor to a conference badge. In 1999 [Dennis Chao turned Unix processes into Doom monsters](https://www.cs.unm.edu/~dlchao/flake/doom/), so shooting one killed the process. Connect AI × DOOM comes out of that tradition, where the joke gets you to look and a real system is underneath.",
+				'I showed it on a big screen at a conference about AI agents, where most of the floor was chat windows and architecture diagrams. You can walk up to the red door as many times as you want, and every time it asks again, live, and gets told no.',
 			],
+			credit: 'made at CData',
 			// The game alone, built for blog posts: it fits the width and doesn't take focus
 			embedUrl: 'https://cdatasoftware.github.io/connect-ai-doom/embed.html',
 			// Its 4:3 game plus the logo strip above (52px) and the question below (84px)
 			embedHeight: 'calc(75cqw + 136px)',
-			steps: [
-				{
-					title: 'Query',
-					text: 'Claude Code runs headless with Connect AI as its only MCP server. It finds the three apps that answer your question and writes one SQL query for each.',
+			embedNote:
+				"Claude built this level from a demo company's Salesforce, Zendesk and Stripe. Click the game to take over.",
+			made: {
+				text: [
+					'Claude Code runs headless with Connect AI as its only MCP server, picks the three apps that answer your question and writes one SQL query for each. Every query returns the same four columns, `Id`, `Label`, `Detail` and `Hot`, so any connector can become a room.',
+					'A small bridge re-runs each room every 15 seconds, so the monsters match your data, and every call is read-only, so nothing in your apps changes. With `--claude-plays`, Claude also gets a [Doom MCP server](/blog/doom-mcp-server/) so it can play the level. [The full story](/blog/why-i-use-doom-to-visualize-mcp-data/) covers the booth and the build.',
+				],
+				diagram: {
+					src: '/images/blog/why-i-use-doom-to-visualize-mcp-data/how-it-works.svg',
+					alt: 'How Connect AI × DOOM works. You ask a question. Claude explores your apps through the Connect AI MCP server, with read-only tools only, and picks the three apps that answer it, here Salesforce, Zendesk and Stripe. What it finds becomes the level: each app becomes a room; each record becomes a monster, urgent ones are pink demons, and shooting one reads the record again, live; your permissions become keycards, blue for read only and yellow for read and write; and data Connect AI blocked, like a lookup by Social Security number, sits behind the red door, which has no key and gets refused again every time you try it.',
 				},
-				{
-					title: 'Build',
-					text: 'Every query returns the same four columns: `Id`, `Label`, `Detail`, `Hot`, so any connector can become a room.',
-				},
-				{
-					title: 'Refresh',
-					text: 'A small bridge re-runs each room every 15 seconds, so the monsters always match your data. With `--claude-plays`, Claude also gets a [Doom MCP server](/blog/doom-mcp-server/) so it can play the level.',
-				},
+			},
+			lineage: [
+				{ label: 'Before it', title: 'IoT Kitty Litter Box' },
+				{ label: 'Also built for a crowd', title: 'Digital Graffiti Wall' },
 			],
 			install:
 				'git clone https://github.com/CDataSoftware/connect-ai-doom.git\ncd connect-ai-doom\n./setup.sh\n./raid.sh offline   # made-up data, no account needed',
