@@ -543,7 +543,7 @@ describe('scribbles keep their shape', () => {
 	});
 
 	it('neighbouring cards draw different hover boxes', () => {
-		const grid = readDist('work/index.html').split('id="projects-grid"')[1];
+		const grid = readDist('work/index.html').split('id="era-2026"')[1];
 		// Each card draws its box from a shared definition (#hover-box-N in BaseLayout)
 		const boxes = [...grid.matchAll(/<svg class="hover-ring[^]*?<use href="#(hover-box-\d+)"/g)]
 			.slice(0, 6)

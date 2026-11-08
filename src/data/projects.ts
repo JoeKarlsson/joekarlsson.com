@@ -59,9 +59,8 @@ export interface Project {
 	// Plays over `image` (its poster) while the card is hovered or focused
 	video?: string;
 	// A lighter still for the video when `image` (also the share card) is too heavy
-	// to wait on: the featured hero's 96KB poster held its pink back 0.8s on a phone
+	// to wait on: the old featured hero's 96KB poster held its pink back 0.8s on a phone
 	poster?: string;
-	category: 'iot' | 'web' | 'art' | 'dev-tools' | 'homelab';
 	// YYYY-MM the project was built (first commit or launch post); /work/ sorts newest first
 	date: string;
 	tech: string[];
@@ -69,7 +68,6 @@ export interface Project {
 	demoUrl?: string;
 	blogUrl?: string;
 	stars?: number;
-	featured?: boolean;
 	page?: ProjectPage;
 }
 
@@ -92,23 +90,57 @@ const SD_DIR = '/images/blog/screencast-director-screen-recorder';
 
 const DOOM_DIR = '/images/blog/why-i-use-doom-to-visualize-mcp-data';
 
-export const CATEGORY_META: Record<Project['category'], { label: string }> = {
-	iot: { label: 'IoT & Hardware' },
-	web: { label: 'Web & Software' },
-	art: { label: 'Art & Digital Humanities' },
-	'dev-tools': { label: 'Developer Tools & Education' },
-	homelab: { label: 'Homelab' },
-};
+// /work/ groups everything into eras, newest first, by each project's `date` year.
+// The last era runs open into next year so it doesn't go stale on January 1
+export const ERAS: {
+	slug: string;
+	years: string;
+	from: number;
+	to: number;
+	label: string;
+	note?: string;
+}[] = [
+	{
+		slug: 'era-2026',
+		years: '2026–2027',
+		from: 2026,
+		to: 2027,
+		label: 'Data, objects and the homelab',
+	},
+	{
+		slug: 'era-2021',
+		years: '2021–2025',
+		from: 2021,
+		to: 2025,
+		label: 'The video years',
+		note: 'I spent most of these years making short videos on TikTok, so not much got built.',
+	},
+	{
+		slug: 'era-2018',
+		years: '2018–2020',
+		from: 2018,
+		to: 2020,
+		label: 'Conference talks and the internet of toilets',
+	},
+	{
+		slug: 'era-2015',
+		years: '2015–2017',
+		from: 2015,
+		to: 2017,
+		label: 'Humanities questions, answered in code',
+	},
+];
+
+// The pieces /work/ shows big at the top, in this order; they're left out of their eras
+export const SELECTED_WORKS = ['PixelPane', 'linger', 'Connect AI × DOOM', 'Punc', 'Bechdel.io'];
 
 export const projects: Project[] = [
-	// IoT & Hardware
 	{
 		title: 'IoT Kitty Litter Box',
 		description:
 			'Welcome to the Internet of Toilets. An IoT-connected cat litter box built with a Raspberry Pi, weight sensors, and Node.js. Monitors usage patterns and sends notifications. Became one of my most popular conference talks - presented at 20+ events worldwide.',
 		image: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp',
 		imageAlt: 'IoT Kitty Litter Box',
-		category: 'iot',
 		date: '2019-09',
 		tech: ['Raspberry Pi', 'Node.js', 'MongoDB', 'HX711'],
 		sourceUrl: 'https://github.com/JoeKarlsson/iot-kitty-litter-box',
@@ -125,7 +157,6 @@ export const projects: Project[] = [
 		video: `${PIXELPANE_DIR}/pixelpane-montage.mp4`,
 		imageAlt:
 			'PixelPane on my desk: the LED frame showing my homelab status, Proxmox stats and my next meeting, the control page switching scenes, the two-way mirror over the grid, and a drawing from the GIF generator appearing on the panel',
-		category: 'iot',
 		date: '2026-10',
 		tech: ['Python', 'Raspberry Pi', 'LED matrix', 'Home Assistant', '3D Printing'],
 		sourceUrl: 'https://github.com/JoeKarlsson/pixelpane',
@@ -204,7 +235,6 @@ export const projects: Project[] = [
 		video: '/images/projects/postcard-rack-planter.mp4',
 		imageAlt:
 			'Me and my postcard rack planter: the rack by the window packed with spider plants, my hand on one of the black 3D-printed pots, the pots hanging in the gold wire frame, and me pointing up the tower',
-		category: 'iot',
 		date: '2023-02',
 		tech: ['Tinkercad', 'Prusa MK3', 'ABS', '3D Printing'],
 		blogUrl:
@@ -261,7 +291,6 @@ export const projects: Project[] = [
 		},
 	},
 
-	// Web & Software
 	{
 		title: 'React Spotify Player',
 		shareTitle: 'React Spotify Player: A now-playing Spotify widget from a 15-minute tutorial',
@@ -273,7 +302,6 @@ export const projects: Project[] = [
 		poster: '/images/projects/react-spotify-player-poster.webp',
 		imageAlt:
 			"React Spotify Player: clicking Login with Spotify, approving the app on Spotify's permission screen, then the player showing the song that's playing, with album art, a progress bar and a Logout button",
-		category: 'web',
 		date: '2019-03',
 		tech: ['React', 'Spotify API', 'JavaScript'],
 		sourceUrl: 'https://github.com/JoeKarlsson/react-spotify-player',
@@ -313,7 +341,6 @@ export const projects: Project[] = [
 			'An interactive art installation where audience members draw on a shared digital canvas that displays their creations in real-time on a physical RGB LED grid. Uses MongoDB Realm for instant cross-client data sync. Since retired and replaced by PixelPane.',
 		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
 		imageAlt: 'Digital Graffiti Wall',
-		category: 'web',
 		date: '2020-10',
 		tech: ['JavaScript', 'MongoDB Realm', 'RGB LEDs', 'Real-Time Sync'],
 		blogUrl: '/blog/building-a-real-time-digital-graffiti-wall/',
@@ -328,7 +355,6 @@ export const projects: Project[] = [
 		video: '/images/projects/wave-jump.mp4',
 		imageAlt:
 			'Wave Jump: the sunset title screen, then two players riding a rolling white wave over a blue grid, and a big "Player 1 Wins" screen each time one reaches the checkered gate',
-		category: 'web',
 		date: '2018-01',
 		tech: ['JavaScript', 'Phaser', 'Arcade physics', 'Vite'],
 		sourceUrl: 'https://github.com/JoeKarlsson/wave-jump',
@@ -372,7 +398,6 @@ export const projects: Project[] = [
 		video: '/images/projects/go-home-tanuki.mp4',
 		imageAlt:
 			"Go Home Tanuki: a loading card listing Tanuki's daily ritual (work, drink, go home), the title screen of a sleepy tanuki slumped over a bar with a phone saying come home, then the tanuki flying through the night past clouds and sake bottles",
-		category: 'web',
 		date: '2016-01',
 		tech: ['JavaScript', 'Phaser', 'Arcade physics', 'Vite'],
 		sourceUrl: 'https://github.com/JoeKarlsson/go-home-tanuki',
@@ -402,7 +427,6 @@ export const projects: Project[] = [
 		video: '/images/projects/poststream-2026-11.mp4',
 		imageAlt:
 			"PostStream: writing a post that shows up at the top of the feed under an IRC-style log line, scrolling past other people's posts colored by author, opening a thread of replies picked from a list, then a profile laid out like Unix finger output",
-		category: 'web',
 		date: '2016-07',
 		tech: ['React', 'Node.js', 'Express', 'PostgreSQL'],
 		sourceUrl: 'https://github.com/JoeKarlsson/post-stream',
@@ -425,7 +449,6 @@ export const projects: Project[] = [
 		},
 	},
 
-	// Art & Digital Humanities
 	{
 		title: 'DVD Screensaver',
 		shareTitle: 'The DVD screensaver with the boring parts taken out',
@@ -434,7 +457,6 @@ export const projects: Project[] = [
 		video: '/images/projects/nothing-but-corners.mp4',
 		imageAlt:
 			'Colored DVD logos bouncing around a black screen, and each time one lands in a corner the screen flashes and confetti bursts out of it',
-		category: 'art',
 		date: '2026-11',
 		tech: ['JavaScript', 'Canvas', 'Web Audio', 'Playwright'],
 		sourceUrl: 'https://github.com/JoeKarlsson/nothing-but-corners',
@@ -465,7 +487,6 @@ export const projects: Project[] = [
 		video: '/images/projects/stupid-hackathon-montage.mp4',
 		imageAlt:
 			'The hackathon\'s site: "Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon" in red brush letters on lime green, then quick cuts through the 2017 entries as the page breaks, its fonts turning to Comic Sans, everything tilting and flashing, until it all falls down the screen on "Thanks Y\'all!"',
-		category: 'art',
 		date: '2017-01',
 		tech: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
 		sourceUrl:
@@ -492,7 +513,6 @@ export const projects: Project[] = [
 		video: '/images/projects/app-all-o-gizer.mp4',
 		imageAlt:
 			'App-All-O-Gizer\'s page, "Pronounced Apologizer", with an email address typed in and Send Email clicked, then a Gmail inbox opening an email from app.all.o.gizer titled "Sorry about the murder"',
-		category: 'web',
 		date: '2017-01',
 		tech: ['Node.js', 'Express', 'Nodemailer', 'Gmail'],
 		sourceUrl: 'https://github.com/STUPIDSHITNOONEINHAWAIINEEDSHACKATHON/app-all-o-gizer',
@@ -527,7 +547,6 @@ export const projects: Project[] = [
 		image: '/images/projects/best-buy-product-locator.webp',
 		imageAlt:
 			'A Sony 48-inch TV on Amazon with the extension running: a blue Best Buy banner across the top reads "Want it faster? Pick it up now for $449.99" at the Best Buy in Richfield, MN, and the toolbar popup shows the same TV with a Buy on BestBuy.com button',
-		category: 'web',
 		date: '2018-09',
 		tech: ['React', 'styled-components', 'Chrome Extension', 'Best Buy API'],
 		sourceUrl: 'https://github.com/JoeKarlsson/best-buy-product-locator-chrome-extension',
@@ -550,7 +569,6 @@ export const projects: Project[] = [
 		image: '/images/projects/gaptcha-scan.webp',
 		imageAlt:
 			'Hands holding a Samsung phone over a printed GAPTCHA marker on a concrete floor, with a green 3D arrow drawn over the camera view in the browser',
-		category: 'web',
 		date: '2017-03',
 		tech: ['Node.js', 'Express', 'A-Frame', 'AR.js', 'Leaflet', 'AT&T M2X'],
 		sourceUrl: 'https://github.com/JoeKarlsson/GAPTCHA',
@@ -607,7 +625,6 @@ export const projects: Project[] = [
 		image: '/images/projects/pixelate-2026-before-after.webp',
 		imageAlt:
 			'A selfie of me in sunglasses holding a pink soft-serve cone at a fair, and next to it the same photo run through Pixelate, turned into blocks of color',
-		category: 'web',
 		date: '2015-04',
 		tech: ['JavaScript', 'HTML5 Canvas'],
 		sourceUrl: 'https://github.com/JoeKarlsson/Pixelate',
@@ -646,7 +663,6 @@ export const projects: Project[] = [
 		image: '/images/projects/night-out-2026-pick.webp',
 		imageAlt:
 			'Night Out on "Where are we going tonight?": a dark map of downtown Honolulu with bars marked in pink, next to a list where The Last Call, Moonlight Tap Room and Pink Flamingo Lounge are checked',
-		category: 'web',
 		date: '2015-10',
 		tech: ['Meteor', 'MongoDB', 'Vite', 'Leaflet', 'OpenStreetMap'],
 		sourceUrl: 'https://github.com/JoeKarlsson/night-out',
@@ -684,7 +700,6 @@ export const projects: Project[] = [
 		video: '/images/projects/linger.mp4',
 		imageAlt:
 			'The linger poem "the lake" scrolling slowly: each line starts as a few scattered words, and the missing words fade in while the page holds still',
-		category: 'art',
 		date: '2026-10',
 		tech: ['HTML', 'CSS', 'JavaScript'],
 		sourceUrl: 'https://github.com/JoeKarlsson/linger',
@@ -715,7 +730,6 @@ export const projects: Project[] = [
 		video: '/images/projects/punc.mp4',
 		imageAlt:
 			"Punc's site: the shelf of books shown as punctuation, then Alice's Adventures in Wonderland with 26,777 words removed and 8,076 marks left, and the book's punctuation laid out in reading order",
-		category: 'art',
 		date: '2016-02',
 		tech: ['TypeScript', 'NLP', 'PDF Generation'],
 		sourceUrl: 'https://github.com/JoeKarlsson/punc',
@@ -745,7 +759,6 @@ export const projects: Project[] = [
 		video: '/images/projects/rose-hobart-2026-film.mp4',
 		imageAlt:
 			"Rose Hobart in close-up from Joseph Cornell's 1936 film while the projector presets change it: Cornell blue, a pink filter, nitrate decay, a broken projector and digital decay, then amber and green gels",
-		category: 'art',
 		date: '2017-10',
 		tech: ['React', 'Vite', 'WebGL', 'CSS filters'],
 		sourceUrl: 'https://github.com/JoeKarlsson/rose-hobart',
@@ -784,7 +797,6 @@ export const projects: Project[] = [
 		video: '/images/projects/bechdel-io-2026.mp4',
 		imageAlt:
 			'Bechdel.io: the headline "Do two women talk to each other about something other than a man?", the shelf of movie posters marked passes or fails, filtering to films that pass, then the Gone Girl page scoring 3 of 3 and its cast sized by lines spoken',
-		category: 'art',
 		date: '2015-11',
 		tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
 		sourceUrl: 'https://github.com/JoeKarlsson/bechdel-test',
@@ -822,7 +834,6 @@ export const projects: Project[] = [
 		},
 	},
 
-	// Developer Tools & Education
 	{
 		title: 'Connect AI × DOOM',
 		shareTitle: 'Connect AI × DOOM: Doom levels built from live business data',
@@ -833,13 +844,11 @@ export const projects: Project[] = [
 		poster: '/images/projects/connect-ai-doom-poster.webp',
 		imageAlt:
 			'Claude playing a Doom level built from live Connect AI data, shooting a pink demon labeled with an urgent Salesforce deal while a side panel logs every kill',
-		category: 'dev-tools',
 		date: '2026-10',
 		tech: ['Python', 'Claude Code', 'MCP', 'CData Connect AI', 'psdoom-ng', 'SQL'],
 		sourceUrl: 'https://github.com/CDataSoftware/connect-ai-doom',
 		demoUrl: 'https://cdatasoftware.github.io/connect-ai-doom/',
 		blogUrl: '/blog/why-i-use-doom-to-visualize-mcp-data/',
-		featured: true,
 		page: {
 			slug: 'connect-ai-doom',
 			tagline: 'Doom built from live business data, where every monster is a real record.',
@@ -903,7 +912,6 @@ export const projects: Project[] = [
 		video: '/images/blog/followspot-local-whisper-teleprompter/demo.mp4',
 		imageAlt:
 			'FollowSpot highlighting the current word of a bread recipe script as it scrolls, with dimmed words already read',
-		category: 'dev-tools',
 		date: '2026-09',
 		tech: ['JavaScript', 'whisper.cpp', 'Whisper', 'Web Audio', 'Bash'],
 		sourceUrl: 'https://github.com/JoeKarlsson/followspot',
@@ -964,7 +972,6 @@ export const projects: Project[] = [
 		video: `${SD_DIR}/sd-tour.mp4`,
 		imageAlt:
 			'The Screencast Director editor with my face filling the preview under a Joe Karlsson lower third, the camera framing and color inspector, and a timeline of clips, layouts and titles',
-		category: 'dev-tools',
 		date: '2026-10',
 		tech: ['Swift', 'macOS', 'ScreenCaptureKit', 'whisper.cpp', 'Claude'],
 		sourceUrl: 'https://github.com/JoeKarlsson/screencast-director',
@@ -1047,7 +1054,6 @@ export const projects: Project[] = [
 		image: '/images/projects/data-structures/thumb-aafbf722.webp',
 		imageAlt:
 			'Three data structures drawn in chalk: a linked list of 3, 7 and 1 ending in null, a binary search tree with 8 at the root, and a stack with 5 being pushed on top',
-		category: 'dev-tools',
 		date: '2016-06',
 		tech: ['JavaScript', 'Algorithms'],
 		sourceUrl: 'https://github.com/JoeKarlsson/data-structures',
@@ -1060,7 +1066,6 @@ export const projects: Project[] = [
 		image: '/images/blog/complete-guide-node-client-server-communication/thumb-8aa6bb2d.webp',
 		imageAlt:
 			'Three browser transports side by side, XHR polling, server-sent events and WebSocket, each a client and a server with hand-drawn arrows between them',
-		category: 'dev-tools',
 		date: '2016-07',
 		tech: ['Node.js', 'HTTP', 'WebSockets', 'GraphQL', 'gRPC'],
 		sourceUrl: 'https://github.com/JoeKarlsson/complete-guide-to-client-server-communication',
@@ -1074,7 +1079,6 @@ export const projects: Project[] = [
 		image: '/images/projects/movie-script-scraper.webp',
 		imageAlt:
 			'The Movie Script Scraper banner: "Movie Script Scraper" in white on red and teal stripes, with a film reel in the corner',
-		category: 'dev-tools',
 		date: '2018-01',
 		tech: ['Node.js', 'Cheerio', 'npm', 'CLI'],
 		sourceUrl: 'https://github.com/JoeKarlsson/movie-script-scraper',
@@ -1087,14 +1091,12 @@ export const projects: Project[] = [
 		image: '/images/projects/sudoku-generator/thumb-8186e4ea.webp',
 		imageAlt:
 			'A Sudoku board drawn in chalk solving itself: the solver fills the blank cells in pink, a few at a time, as the count climbs from 30 to 81 and the board reads Solved',
-		category: 'dev-tools',
 		date: '2015-04',
 		tech: ['Python', 'Algorithms', 'Backtracking'],
 		sourceUrl: 'https://github.com/JoeKarlsson/python-sudoku-generator-solver',
 		stars: 90,
 	},
 
-	// Homelab
 	{
 		title: 'Adult Swim Bumper',
 		shareTitle: 'Adult Swim Bumper: Adult Swim-style bumpers for your Plex server',
@@ -1104,7 +1106,6 @@ export const projects: Project[] = [
 		video: '/images/blog/adult-swim-bumpers-plex-pre-rolls/hero.mp4',
 		imageAlt:
 			'A jellyfish drifting in dark blue water with white text reading "no idea what you should watch."',
-		category: 'homelab',
 		date: '2026-05',
 		tech: ['Python', 'ffmpeg', 'Plex', 'NeXroll', 'CLI', 'YAML'],
 		sourceUrl: 'https://github.com/JoeKarlsson/adult-swim-bumper',
@@ -1185,7 +1186,6 @@ export const projects: Project[] = [
 		poster: `${STREAMROLL_DIR}/streamroll-outrun-poster.webp`,
 		imageAlt:
 			'A Streamroll intro in the neon outrun style: STREAMROLL in glowing pink and blue chrome letters over a dark grid, with "AI-generated pre-roll intros" underneath',
-		category: 'homelab',
 		date: '2026-05',
 		tech: ['TypeScript', 'Runway ML', 'Plex', 'AI Video Generation'],
 		sourceUrl: 'https://github.com/JoeKarlsson/streamroll',
@@ -1246,7 +1246,6 @@ export const projects: Project[] = [
 			'A production subtitle generation pipeline using GPU-accelerated Whisper (faster-whisper) with NVIDIA CUDA. Features parallel workers, automatic language detection and translation, VRAM-aware scheduling, and time-of-day worker scaling to share GPU resources across services.',
 		image: '/images/blog/building-a-gpu-accelerated-subtitle-generator/hero.webp',
 		imageAlt: 'GPU Subtitle Generator Architecture',
-		category: 'homelab',
 		date: '2026-02',
 		tech: ['Python', 'Whisper AI', 'CUDA', 'NVIDIA GPU', 'Bash'],
 		blogUrl: '/blog/building-a-gpu-accelerated-subtitle-generator/',
@@ -1257,7 +1256,6 @@ export const projects: Project[] = [
 			"A from-scratch Python implementation of MikroTik's proprietary binary API protocol. Handles variable-length encoding, authentication, and sentence-based messaging for programmatic control of network infrastructure - bonding, DHCP, firewall rules, and more.",
 		image: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp',
 		imageAlt: 'MikroTik API Client',
-		category: 'homelab',
 		date: '2026-03',
 		tech: ['Python', 'Binary Protocol', 'MikroTik', 'Networking'],
 		blogUrl: '/blog/implementing-mikrotik-binary-api-protocol-in-python/',

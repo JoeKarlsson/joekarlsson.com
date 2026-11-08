@@ -1,161 +1,223 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import KeepExploring from '../components/KeepExploring.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { projects, CATEGORY_META } from '../data/projects';
 import HoverBox from '../components/HoverBox.astro';
-import Scribble from '../components/Scribble.astro';
+import IndexRow from '../components/IndexRow.astro';
+import KeepExploring from '../components/KeepExploring.astro';
 import PosterHero from '../components/PosterHero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Scribble from '../components/Scribble.astro';
+import { ERAS, SELECTED_WORKS, projects } from '../data/projects';
+import { CHALK, MARKS } from '../data/scribbles';
 import {
-	FILTER_ACTIVE,
-	FILTER_INACTIVE,
-	FILTER_ROW,
 	HERO_LEAD,
+	META,
 	MORE_LINK,
 	PAGE_CONTAINER,
+	SECTION_HEADING,
+	TEXT_LINK,
 } from '../utils/ui';
 import { SOCIAL_LINKS } from '../consts';
-import { CHALK, MARKS } from '../data/scribbles';
 import { cardClip, cardHalftone } from '../utils/halftone';
 
-const featuredProject = projects.find((p) => p.featured);
-const nonFeatured = projects.filter((p) => !p.featured);
-const featuredUrl =
-	(featuredProject?.page && `/work/${featuredProject.page.slug}/`) ||
-	featuredProject?.sourceUrl ||
-	featuredProject?.blogUrl ||
-	'#';
-const featuredExternal = featuredUrl.startsWith('http');
-
-const sortedProjects = [...nonFeatured].sort((a, b) => b.date.localeCompare(a.date));
-
-const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_META)[])
-	.map((catKey) => ({
-		key: catKey,
-		label: CATEGORY_META[catKey].label,
-		count: nonFeatured.filter((p) => p.category === catKey).length,
-	}))
-	.filter((c) => c.count > 0);
+const selected = SELECTED_WORKS.map((title) => {
+	const project = projects.find((p) => p.title === title);
+	if (!project) throw new Error(`SELECTED_WORKS names "${title}", which isn't in projects.ts`);
+	return project;
+});
+const eras = ERAS.map((era) => ({
+	...era,
+	projects: projects
+		.filter((p) => !SELECTED_WORKS.includes(p.title))
+		.filter((p) => Number(p.date.slice(0, 4)) >= era.from && Number(p.date.slice(0, 4)) <= era.to)
+		.sort((a, b) => b.date.localeCompare(a.date)),
+}));
+const workUrl = (p: (typeof projects)[number]) =>
+	(p.page && `/work/${p.page.slug}/`) || p.sourceUrl || p.blogUrl || p.demoUrl || '#';
+const pieces = (n: number) => `${n} ${n === 1 ? 'piece' : 'pieces'}`;
+const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 ---
 
 <BaseLayout
-	title="Projects | Joe Karlsson"
-	description="Joe Karlsson's projects, demos, open source work, and portfolio."
+	title="Work | Joe Karlsson"
+	description="Joe Karlsson's art, software and hardware: an artist statement, selected works, and ten years of projects by era."
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- Built like the blog's hero: the featured project's clip (its title on a dark
-		strip) beside a pink ticker of the project categories and a dark panel whose
-		PROJECTS fills it. On phones the clip is a 16:9 banner with the title under it. -->
+		<!-- The site's standard page top, with the eras as an index where other pages have a picture -->
 		<PosterHero
-			title="Projects"
-			wordRatio={3.65}
-			tickerItems={categoryFilters.map(({ label }) => label)}
+			title="Work"
+			wordRatio={2.2}
+			tickerItems={['Selected works', ...ERAS.map((era) => era.years)]}
 		>
-			{featuredProject && (
-				<a
-					slot="media"
-					href={featuredUrl}
-					target={featuredExternal ? '_blank' : undefined}
-					rel={featuredExternal ? 'noopener noreferrer' : undefined}
-					class="plausible-event-name=Featured+Project+Click ring-host group relative z-10 block no-underline"
-				>
-					<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
-						{featuredProject.video ? (
-							<video
-								src={cardClip(featuredProject.video)}
-								poster={featuredProject.poster ?? featuredProject.image}
-								loop
-								muted
-								playsinline
-								preload="none"
-								aria-label={featuredProject.imageAlt}
-								data-autoplay-in-view
-								data-halftone="flat"
-								class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
-							/>
-						) : (
-							<img
-								src={featuredProject.image}
-								alt={featuredProject.imageAlt}
-								data-halftone={cardHalftone(featuredProject.image)}
-								width="1120"
-								height="630"
-								sizes="(min-width: 768px) 50vw, 100vw"
-								class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
-								loading="eager"
-							/>
-						)}
-						<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
-							<span class="mb-1.5 block text-sm text-muted">
-								<span class="font-semibold text-pink">Featured</span>
-								{' · '}
-								{featuredProject.tech.join(' · ')}
-							</span>
-							<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
-								{featuredProject.title}
-							</span>
-						</span>
-					</span>
-					<Scribble
-						{...MARKS.burst}
-						color={CHALK}
-						strokeWidth={6}
-						duration="8s"
-						delay="1.6s"
-						class="-top-[7%] -left-[7%] z-10 size-[22%]"
+			<nav
+				slot="media"
+				aria-label="Sections"
+				class="relative z-10 flex flex-col justify-center rounded-xl bg-surface-1 p-5 md:p-7"
+			>
+				<IndexRow
+					href="#selected"
+					label="Selected"
+					meta={pieces(selected.length)}
+					index={4}
+					compact
+				/>
+				{eras.map((era, i) => (
+					<IndexRow
+						href={`#${era.slug}`}
+						label={era.years}
+						meta={pieces(era.projects.length)}
+						index={i}
+						compact
 					/>
-					<Scribble
-						{...MARKS.lines}
-						color={CHALK}
-						duration="11s"
-						delay="1s"
-						class="-bottom-[7%] -left-[6%] z-10 h-[12%] w-[70%]"
-					/>
-					<HoverBox featured index={3} />
-				</a>
-			)}
-			<p class={HERO_LEAD}>Software, hardware, and IoT projects I've built over the years.</p>
+				))}
+			</nav>
+			<p class={HERO_LEAD}>
+				I make art with code, paint and hardware, for the space between artists and engineers.
+			</p>
 		</PosterHero>
 
-		<div
-			class={`mb-12 rounded-xl bg-surface-1 p-5 sm:p-7 ${FILTER_ROW}`}
-			role="group"
-			aria-label="Filter projects by category"
-		>
-			<button
-				type="button"
-				class={`project-filter ${FILTER_ACTIVE}`}
-				data-filter="all"
-				aria-pressed="true"
-			>
-				All <span class="text-muted">{nonFeatured.length}</span>
-			</button>
-			{categoryFilters.map((c) => (
-				<button
-					type="button"
-					class={`project-filter ${FILTER_INACTIVE}`}
-					data-filter={c.key}
-					aria-pressed="false"
-				>
-					{c.label} <span class="text-muted">{c.count}</span>
-				</button>
-			))}
-		</div>
+		<section id="statement" class={SECTION}>
+			<h2 class={SECTION_HEADING}>
+				Artist statement
+				<Scribble
+					{...MARKS.underline}
+					color={CHALK}
+					duration="8s"
+					class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+				/>
+			</h2>
+			<!-- The container's full width in two columns, so each line stays a reading length -->
+			<div class="prose md:columns-2 md:gap-12 [&>p]:break-inside-avoid" style="max-width: none">
+				<p>
+					The early web was full of people who hosted their own sites, linked to each other and gave
+					away what they knew.{' '}
+					<a class={TEXT_LINK} href="https://art.teleportacia.org/observation/vernacular/">
+						Olia Lialina called it the vernacular web
+					</a>
+					: homemade pages, built by amateurs for each other. I think money crushed most of it, and
+					what people picture when they hear "tech" now is what came after: startups, crypto and AI,
+					each with a plan to make money.
+				</p>
+				<p>
+					I host this site myself, on my own hardware, because that early web is still what I love
+					about the medium. Code is easy to share, it bends into almost any shape, and almost
+					nothing made with it lasts. I love that, even though I just rebuilt three of my old apps
+					after they died on Heroku. Some ideas only work on the web.{' '}
+					<a class={TEXT_LINK} href="/work/linger/">
+						linger
+					</a>{' '}
+					is a set of poems that fill in only if you scroll slowly, because a page knows how fast
+					you're reading and paper doesn't.
+				</p>
+				<p>
+					A lot of my work isn't code at all. I've started painting, mostly subconscious scribbling
+					and color field work, and it's where I chase what I'm drawn to most: the strange, the
+					surreal and the unexplained. Every scribble on this site started as one of those drawings.
+					Now that AI can generate almost anything, I think a person's hand and taste are the most
+					important things they have to offer.
+				</p>
+				<p>
+					In 1959,{' '}
+					<a class={TEXT_LINK} href="https://en.wikipedia.org/wiki/The_Two_Cultures">
+						C. P. Snow warned
+					</a>{' '}
+					that scientists and literary intellectuals had split into two cultures that could barely
+					talk to each other. Plenty of artists still find code and math scary, and plenty of
+					engineers think the humanities are a waste of time. I want each of them to see what's on
+					the other side, and to come away wanting to make something, whether it's a painting, a web
+					page or a piece of hardware. Most of all, I want people to leave a little freer of the
+					idea that everything they make has to earn money.
+				</p>
+			</div>
+		</section>
 
-		<!-- The cards are h3s; this names their section so the outline doesn't skip from h1 -->
-		<h2 class="sr-only">All projects</h2>
-		<!-- Phones: one column of compact rows (ProjectCard), so the gap between them tightens -->
-		<div
-			id="projects-grid"
-			class="mb-12 md:mb-14 grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
-		>
-			{sortedProjects.map((project, i) => (
-				<div data-category={project.category}>
-					<ProjectCard project={project} index={i} />
+		<section id="selected" class={SECTION}>
+			<h2 class={SECTION_HEADING}>
+				Selected works
+				<Scribble
+					{...MARKS.rays}
+					color="#ff4fd8"
+					duration="8s"
+					class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+				/>
+			</h2>
+			<!-- Big rows, the clip alternating sides from md up -->
+			<div class="grid gap-y-12 md:gap-y-16">
+				{selected.map((project, i) => (
+					<a
+						href={workUrl(project)}
+						class:list={[
+							'plausible-event-name=Selected+Work+Click ring-host group grid items-center gap-6 no-underline md:gap-10',
+							i % 2
+								? 'md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]'
+								: 'md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]',
+						]}
+					>
+						<span class:list={['relative block', i % 2 && 'md:order-2']}>
+							<span class="block overflow-hidden rounded-xl bg-ink">
+								{project.video ? (
+									<video
+										src={cardClip(project.video)}
+										poster={project.poster ?? project.image}
+										loop
+										muted
+										playsinline
+										preload="none"
+										aria-label={project.imageAlt}
+										data-autoplay-in-view
+										data-halftone="flat"
+										class="block aspect-video w-full object-cover"
+									/>
+								) : (
+									<img
+										src={project.image}
+										alt={project.imageAlt}
+										data-halftone={cardHalftone(project.image)}
+										width="1120"
+										height="630"
+										class="block aspect-video w-full object-cover"
+										loading="lazy"
+									/>
+								)}
+							</span>
+							<HoverBox index={i} />
+						</span>
+						<span class="block">
+							<span class={`mb-2 block ${META}`}>{project.date.slice(0, 4)}</span>
+							<span class="mb-3 block font-display text-[clamp(2.4rem,1.6rem+3.2vw,4.25rem)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+								{project.title}
+							</span>
+							<span class="block font-serif text-xl leading-snug text-paper">
+								{project.page?.tagline ?? project.description}
+							</span>
+						</span>
+					</a>
+				))}
+			</div>
+		</section>
+
+		{eras.map((era, i) => (
+			<section id={era.slug} class={SECTION}>
+				<h2 class={SECTION_HEADING}>
+					{era.years}
+					<Scribble
+						{...MARKS.rays}
+						color={i % 2 ? '#ff4fd8' : CHALK}
+						duration="8s"
+						delay={`${i * 0.4}s`}
+						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+					/>
+				</h2>
+				<p class={`mb-8 ${HERO_LEAD}`}>{era.label}</p>
+				{era.note && <p class={`mb-8 max-w-[40em] ${META}`}>{era.note}</p>}
+				{/* Phones: one column of compact rows (ProjectCard), so the gap between them tightens */}
+				<div class="era-grid grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3">
+					{era.projects.map((project, j) => (
+						<ProjectCard project={project} index={j} />
+					))}
 				</div>
-			))}
-		</div>
+			</section>
+		))}
 
 		<p class="mb-12 md:mb-16">
 			<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class={MORE_LINK}>
@@ -173,38 +235,4 @@ const categoryFilters = (Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_ME
 			]}
 		/>
 	</div>
-
-	<script>
-		import { FILTER_ACTIVE, FILTER_INACTIVE } from '../utils/ui';
-
-		// The chosen category lives in the URL hash (/work/#hardware), so a filtered view
-		// can be linked to and survives a reload
-		const filterButtons = document.querySelectorAll<HTMLButtonElement>('.project-filter');
-		const projectCells = document.querySelectorAll<HTMLElement>('#projects-grid > [data-category]');
-
-		function showCategory(filter: string) {
-			filterButtons.forEach((b) => {
-				const isActive = b.dataset.filter === filter;
-				b.setAttribute('aria-pressed', String(isActive));
-				b.className = `project-filter ${isActive ? FILTER_ACTIVE : FILTER_INACTIVE}`;
-			});
-			projectCells.forEach((cell) => {
-				cell.hidden = filter !== 'all' && cell.dataset.category !== filter;
-			});
-		}
-
-		filterButtons.forEach((button) => {
-			button.addEventListener('click', () => {
-				const filter = button.dataset.filter || 'all';
-				showCategory(filter);
-				history.replaceState(null, '', filter === 'all' ? location.pathname : `#${filter}`);
-				if (typeof window.plausible === 'function') {
-					window.plausible('Project Filter', { props: { category: filter } });
-				}
-			});
-		});
-
-		const fromHash = location.hash.slice(1);
-		if ([...filterButtons].some((b) => b.dataset.filter === fromHash)) showCategory(fromHash);
-	</script>
 </BaseLayout>
