@@ -17,12 +17,11 @@ export interface ProjectPage {
 	introHeading?: string;
 	// Follows the year in the page's byline: a collaborator ("with Laurel Karlsson")
 	credit?: string;
-	// The technical half of an art piece, after the piece itself: a line or two, an
-	// optional diagram and numbered steps. A page with it lists the stack here, not up top
+	// The technical half of an art piece, after the piece itself: a line or two and a
+	// diagram (scripts/diagrams). A page with it lists the stack here, not up top
 	made?: {
 		text: string[];
 		diagram?: { src: string; alt: string };
-		steps?: { title: string; text: string }[];
 	};
 	// Projects this one grew out of or led to, as cards at the end of its page
 	lineage?: { label: string; title: string }[];
@@ -757,26 +756,12 @@ export const projects: Project[] = [
 			],
 			made: {
 				text: [
-					'Punc is a website and a TypeScript library with a command line, and both count with the same code, so their numbers match. [The code is on GitHub](https://github.com/JoeKarlsson/punc).',
+					'The website and the TypeScript library count with the same code, so their numbers match. [The code is on GitHub](https://github.com/JoeKarlsson/punc).',
 				],
-				steps: [
-					{
-						title: 'Fill the shelf',
-						text: "The shelf is Project Gutenberg's most-read English books. I refresh it by hand, and each refresh stays in git.",
-					},
-					{
-						title: 'Count the marks',
-						text: 'The library counts every mark and treats curly quotes, long dashes and ellipses as their plain versions.',
-					},
-					{
-						title: 'Draw the book',
-						text: "Each book gets four views: every mark in reading order, a spiral of the whole book, its pages with the letters erased, and how each mark's share changes from start to finish.",
-					},
-					{
-						title: 'Bring your own',
-						text: 'Open any plain text file and Punc reads it in your browser. Nothing gets uploaded.',
-					},
-				],
+				diagram: {
+					src: '/images/projects/punc/how-punc-reads-a-book.svg',
+					alt: "How Punc reads a book: a Project Gutenberg book with its license cut off, or your own text file read in your browser; the typography folded to plain quotes, hyphens and periods; every mark counted with its place, so Alice's Adventures in Wonderland drops 26,777 words and keeps 8,076 marks; then four views, Score, Spiral, Pages and Counts",
+				},
 			},
 			lineage: [
 				{ label: 'Before it', title: 'Bechdel.io' },
@@ -855,29 +840,12 @@ export const projects: Project[] = [
 			made: {
 				text: [
 					'The scripts came from [Movie Script Scraper](https://github.com/JoeKarlsson/movie-script-scraper), and the cast from a film database API. [The 2015 write-up](/blog/bechdel-test-script-parser-works/) goes deeper.',
+					"The weak spot is the word list. Words about men run all through English, and a keyword can't tell what a sentence is about.",
 				],
 				diagram: {
 					src: '/images/blog/bechdel-test-script-parser-works/parsing-method.svg',
 					alt: 'How Bechdel.io reads a screenplay: it gets the cast and each credited gender from a film database, splits the script into scenes, and checks every scene with two or more women for words about a man',
 				},
-				steps: [
-					{
-						title: 'Find the cast',
-						text: "It reads the film's title off the first line of the script and asks a film database for the cast, their characters and how each one is credited: actor or actress.",
-					},
-					{
-						title: 'Cut it into scenes',
-						text: "It splits the script on 10 to 12 keywords like INT. and EXT., then collects each character's lines in every scene.",
-					},
-					{
-						title: 'Test each scene',
-						text: 'A scene passes if two women talk in it and their lines never mention a man: he, him, father, king.',
-					},
-					{
-						title: 'Where it breaks',
-						text: "That word list is crude. Words about men run all through English, and a keyword can't tell what a sentence is about.",
-					},
-				],
 			},
 			lineage: [
 				{ label: 'Led to', title: 'Movie Script Scraper' },
