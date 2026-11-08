@@ -30,27 +30,34 @@ export default function rehypeInlineDiagrams({ publicDir = 'public' } = {}) {
 
 			const src = String(img.properties?.src ?? '');
 			if (!/^\/images\/.+\.svg$/.test(src) || src.endsWith('.phone.svg')) return;
-			const desktopPath = path.join(publicDir, src.slice(1));
-			if (!fs.existsSync(desktopPath)) return;
-			const phonePath = desktopPath.replace(/\.svg$/, '.phone.svg');
-
-			const alt = String(img.properties.alt ?? '');
-			const svg = (file) => withLabel(fs.readFileSync(file, 'utf8'), alt);
-			const versions = [{ className: 'diagram-wide', file: desktopPath }];
-			if (fs.existsSync(phonePath)) versions.push({ className: 'diagram-phone', file: phonePath });
-
-			parent.children[index] = {
-				type: 'element',
-				tagName: 'figure',
-				properties: { className: ['diagram'], dataDiagramSrc: src, dataDiagramAlt: alt },
-				children: versions.map(({ className, file }) => ({
-					type: 'element',
-					tagName: 'div',
-					properties: { className: [className] },
-					children: [{ type: 'raw', value: svg(file) }],
-				})),
-			};
+			const figure = inlineDiagram(src, String(img.properties.alt ?? ''), publicDir);
+			if (figure) parent.children[index] = figure;
 		});
+	};
+}
+
+/**
+ * One diagram as a hast <figure class="diagram">: the desktop SVG and, when it
+ * exists, its .phone.svg sibling. Null when the file isn't in public/. Project
+ * pages (src/pages/work/[slug].astro) use it for their How it's made diagram.
+ */
+export function inlineDiagram(src, alt, publicDir = 'public') {
+	const desktopPath = path.join(publicDir, src.slice(1));
+	if (!fs.existsSync(desktopPath)) return null;
+	const phonePath = desktopPath.replace(/\.svg$/, '.phone.svg');
+	const svg = (file) => withLabel(fs.readFileSync(file, 'utf8'), alt);
+	const versions = [{ className: 'diagram-wide', file: desktopPath }];
+	if (fs.existsSync(phonePath)) versions.push({ className: 'diagram-phone', file: phonePath });
+	return {
+		type: 'element',
+		tagName: 'figure',
+		properties: { className: ['diagram'], dataDiagramSrc: src, dataDiagramAlt: alt },
+		children: versions.map(({ className, file }) => ({
+			type: 'element',
+			tagName: 'div',
+			properties: { className: [className] },
+			children: [{ type: 'raw', value: svg(file) }],
+		})),
 	};
 }
 

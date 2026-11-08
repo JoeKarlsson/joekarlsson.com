@@ -36,7 +36,7 @@ export const NEWSLETTER = {
 export const NAV_LINKS: { href: string; label: string; also?: string[] }[] = [
 	{ href: '/blog/', label: 'Blog' },
 	{ href: '/about/', label: 'About', also: ['/resume/', '/talk-archive/'] },
-	{ href: '/work/', label: 'Projects' },
+	{ href: '/work/', label: 'Works' },
 	{ href: '/newsletter/', label: 'Newsletter' },
 	{ href: '/uses/', label: 'Uses' },
 	{ href: '/contact/', label: 'Contact' },
@@ -46,7 +46,7 @@ export const FOOTER_LINKS = [
 	{ href: '/blog/', label: 'Blog' },
 	{ href: '/about/', label: 'About' },
 	{ href: '/resume/', label: 'Resume' },
-	{ href: '/work/', label: 'Projects' },
+	{ href: '/work/', label: 'Works' },
 	{ href: '/talk-archive/', label: 'Talks' },
 	{ href: '/newsletter/', label: 'Newsletter' },
 	{ href: '/uses/', label: 'Uses' },

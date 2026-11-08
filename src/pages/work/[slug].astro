@@ -21,6 +21,8 @@ import { projects, type Project, type ProjectPage } from '../../data/projects';
 import { CHALK, MARKS } from '../../data/scribbles';
 import { halftoneMode } from '../../utils/halftone';
 import { localImageSize } from '../../utils/image-size.mjs';
+import { inlineDiagram } from '../../plugins/rehype-inline-diagrams.mjs';
+import ImageLightbox from '../../components/ImageLightbox.astro';
 
 export function getStaticPaths() {
 	return projects
@@ -41,7 +43,6 @@ const imageSizes = new Map(
 			project.image,
 			...(page.gallery ?? []).filter((clip) => !clip.video).map((clip) => clip.poster),
 			...(page.screenshots ?? []).map((shot) => shot.poster),
-			page.made?.diagram?.src,
 		]
 			.filter((src): src is string => typeof src === 'string' && src.startsWith('/'))
 			.map(async (src) => [src, await localImageSize(src)] as const),
@@ -76,6 +77,12 @@ const lineage = (page.lineage ?? []).map(({ label, title }) => {
 		throw new Error(`${project.title}'s lineage names "${title}", which isn't in projects.ts`);
 	return { label, project: linked };
 });
+
+// How it's made's diagram, inlined like a post's (rehype-inline-diagrams) so it boils
+const madeDiagram = page.made?.diagram;
+const diagram = madeDiagram && inlineDiagram(madeDiagram.src, madeDiagram.alt);
+if (madeDiagram && !diagram)
+	throw new Error(`${project.title}'s diagram ${madeDiagram.src} isn't in public/`);
 
 // Like a blog post (BlogPost.astro), text keeps to one centered reading column and
 // pictures, embeds and grids break out to the article's full width (prose wide-media)
@@ -125,7 +132,7 @@ const sections = [
 
 			{/* @container: the wide blocks below size themselves to this column */}
 			<article class="@container min-w-0">
-				<BackLink href="/work/" label="Work" />
+				<BackLink href="/work/" label="Works" />
 
 				{/* Muted loops play while on screen (in-view-play) and stop with the pause-motion
 				button, which covers WCAG 2.2.2; no player controls, as the pink canvas covers them */}
@@ -445,16 +452,22 @@ const sections = [
 									<p set:html={inlineMarkdown(p)} />
 								))}
 							</div>
-							{page.made.diagram && (
-								<figure class="m-0 mb-10">
-									<img
-										src={page.made.diagram.src}
-										alt={page.made.diagram.alt}
-										{...imageSizes.get(page.made.diagram.src)}
-										class="mx-auto block w-full"
-										loading="lazy"
-									/>
-								</figure>
+							{/* Inline SVG inside .prose, as in a post, so it boils and opens in the lightbox */}
+							{diagram && (
+								<div class="prose mb-10">
+									<figure
+										class="diagram"
+										data-diagram-src={diagram.properties.dataDiagramSrc}
+										data-diagram-alt={diagram.properties.dataDiagramAlt}
+									>
+										{diagram.children.map((version) => (
+											<div
+												class={version.properties.className[0]}
+												set:html={version.children[0].value}
+											/>
+										))}
+									</figure>
+								</div>
 							)}
 							{page.made.steps && <Steps steps={page.made.steps} />}
 						</section>
@@ -524,10 +537,11 @@ const sections = [
 					/>
 
 					<a href="/work/" class={MORE_LINK}>
-						&larr; All work
+						&larr; All works
 					</a>
 				</div>
 			</article>
 		</div>
 	</div>
+	<ImageLightbox />
 </BaseLayout>
