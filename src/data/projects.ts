@@ -742,7 +742,7 @@ export const projects: Project[] = [
 		imageAlt:
 			"Punc's site: the shelf of books shown as punctuation, then Alice's Adventures in Wonderland with 26,777 words removed and 8,076 marks left, and the book's punctuation laid out in reading order",
 		date: '2016-02',
-		tech: ['TypeScript', 'NLP', 'PDF Generation'],
+		tech: ['TypeScript', 'Canvas', 'SVG', 'PDF'],
 		sourceUrl: 'https://github.com/JoeKarlsson/punc',
 		demoUrl: 'https://joekarlsson.github.io/punc/',
 		page: {
@@ -754,7 +754,33 @@ export const projects: Project[] = [
 				"Punc takes the words away and leaves the instructions. Without the words, punctuation stops being invisible, and you can see a book's rhythm on its own: where a writer keeps you going without a breath, where the dialogue gets crowded and everyone talks over each other, and where it goes quiet for a while. Alice's Adventures in Wonderland comes out loud and nervous, full of exclamation points and questions, which is how the book feels to read.",
 				"I think a lot of what we call a writer's voice lives in those marks. Two writers can use the same words and sound nothing alike, because one of them never lets a sentence end and the other stops every few words. Punc takes the meaning out of a book, and a lot of the voice is still there.",
 				"It's an erasure, like the blackout poems I make on paper, except a blackout poem keeps a few words and Punc keeps none.",
-				"Like most of what I make, it isn't useful. It won't make you a better writer, and it can't tell you whether a book is any good.",
+			],
+			made: {
+				text: [
+					'Punc is a website and a TypeScript library with a command line, and both count with the same code, so their numbers match. [The code is on GitHub](https://github.com/JoeKarlsson/punc).',
+				],
+				steps: [
+					{
+						title: 'Fill the shelf',
+						text: "The shelf is Project Gutenberg's most-read English books. I refresh it by hand, and each refresh stays in git.",
+					},
+					{
+						title: 'Count the marks',
+						text: 'The library counts every mark and treats curly quotes, long dashes and ellipses as their plain versions.',
+					},
+					{
+						title: 'Draw the book',
+						text: "Each book gets four views: every mark in reading order, a spiral of the whole book, its pages with the letters erased, and how each mark's share changes from start to finish.",
+					},
+					{
+						title: 'Bring your own',
+						text: 'Open any plain text file and Punc reads it in your browser. Nothing gets uploaded.',
+					},
+				],
+			},
+			lineage: [
+				{ label: 'Before it', title: 'Bechdel.io' },
+				{ label: 'After it', title: 'linger' },
 			],
 			embedUrl: 'https://joekarlsson.github.io/punc/',
 			embedHeading: 'Read it',
