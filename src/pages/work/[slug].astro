@@ -13,7 +13,6 @@ import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BackLink from '../../components/BackLink.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import Steps from '../../components/ProjectSteps.astro';
 import Scribble from '../../components/Scribble.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
@@ -98,7 +97,6 @@ const sections = [
 	page.introHeading && { slug: 'statement', text: page.introHeading },
 	page.tour && { slug: 'tour', text: 'Tour' },
 	page.embedUrl && { slug: 'play-it', text: page.embedHeading ?? 'Play it' },
-	page.steps && { slug: 'how-it-works', text: 'How it works' },
 	(page.install || page.example) && { slug: 'try-it', text: 'Try it' },
 	page.gallery && { slug: 'examples', text: page.galleryTitle ?? 'Gallery' },
 	page.screenshots &&
@@ -106,6 +104,7 @@ const sections = [
 			slug: 'screenshots',
 			text: page.screenshotsTitle ?? 'Screenshots',
 		},
+	page.supporting && { slug: 'supporting', text: page.supporting.heading },
 	page.made && { slug: 'how-its-made', text: "How it's made" },
 	lineage.length > 0 && { slug: 'lineage', text: 'Lineage' },
 ].filter((section): section is { slug: string; text: string } => Boolean(section));
@@ -310,45 +309,26 @@ const sections = [
 						</section>
 					)}
 
-					{/* A portrait tour leaves most of the column empty, so How it works sits beside it from md up */}
-					<div
-						class={
-							page.tour && page.steps
-								? 'md:grid md:grid-cols-[22rem_minmax(0,1fr)] md:items-start md:gap-x-10'
-								: undefined
-						}
-						style={page.tour && page.steps ? WIDE : undefined}
-					>
-						{page.tour && (
-							<section class="mb-12 md:mb-16" aria-labelledby="tour">
-								<h2 id="tour" class={ARTICLE_HEADING}>
-									Tour
-								</h2>
-								{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
-								<video
-									src={page.tour.video}
-									poster={page.tour.poster}
-									controls
-									playsinline
-									preload="none"
-									aria-label={page.tour.alt}
-									class="mx-auto block w-full rounded-lg bg-ink object-contain"
-									style="aspect-ratio: 9 / 16; max-width: 22rem"
-								>
-									<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
-								</video>
-							</section>
-						)}
-
-						{page.steps && (
-							<section class="mb-12 md:mb-16" aria-labelledby="how-it-works">
-								<h2 id="how-it-works" class={ARTICLE_HEADING}>
-									How it works
-								</h2>
-								<Steps steps={page.steps} />
-							</section>
-						)}
-					</div>
+					{page.tour && (
+						<section class="mb-12 md:mb-16" aria-labelledby="tour">
+							<h2 id="tour" class={ARTICLE_HEADING}>
+								Tour
+							</h2>
+							{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
+							<video
+								src={page.tour.video}
+								poster={page.tour.poster}
+								controls
+								playsinline
+								preload="none"
+								aria-label={page.tour.alt}
+								class="mx-auto block w-full rounded-lg bg-ink object-contain"
+								style="aspect-ratio: 9 / 16; max-width: 22rem"
+							>
+								<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
+							</video>
+						</section>
+					)}
 
 					{(page.install || page.example) && (
 						<section class="prose mb-12 md:mb-16" aria-labelledby="try-it">
@@ -436,6 +416,19 @@ const sections = [
 											<figcaption class="mt-2 text-sm text-muted">{shot.caption}</figcaption>
 										)}
 									</figure>
+								))}
+							</div>
+						</section>
+					)}
+
+					{page.supporting && (
+						<section class="mb-12 md:mb-16" aria-labelledby="supporting">
+							<h2 id="supporting" class={ARTICLE_HEADING}>
+								{page.supporting.heading}
+							</h2>
+							<div class="prose">
+								{page.supporting.text.map((p) => (
+									<p set:html={inlineMarkdown(p)} />
 								))}
 							</div>
 						</section>

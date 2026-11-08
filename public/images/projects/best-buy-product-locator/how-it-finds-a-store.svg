@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470" role="img" aria-label="How the Best Buy Product Locator finds a store. On a product page on Amazon, Walmart or Target, it reads the model number out of the spec table, or the UPC on Target, and if it finds no code within 3 seconds it searches by the product's title instead. It asks the Best Buy API for that product and takes the first match. Then it takes your location, asks the Best Buy API for stores within 15 miles, and picks the nearest Big Box store. A banner drops onto the page with the price, the store, its hours today and a button to buy it on BestBuy.com, and the toolbar icon gets a badge and a popup that shows the same.">
+<defs><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-1" filterUnits="userSpaceOnUse" x="201" y="50.8" width="59.1" height="23.4"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-2" filterUnits="userSpaceOnUse" x="228" y="44.6" width="31" height="34.8"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-3" filterUnits="userSpaceOnUse" x="441.4" y="49.6" width="56.8" height="23.2"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-4" filterUnits="userSpaceOnUse" x="468" y="44.6" width="31" height="34.8"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-5" filterUnits="userSpaceOnUse" x="441" y="44.6" width="31" height="34.8"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-6" filterUnits="userSpaceOnUse" x="338.2" y="94.3" width="23.3" height="81.3"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-7" filterUnits="userSpaceOnUse" x="332.6" y="146" width="34.8" height="31"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-8" filterUnits="userSpaceOnUse" x="440" y="199.1" width="57.5" height="22.9"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-9" filterUnits="userSpaceOnUse" x="468" y="192.6" width="31" height="34.8"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-10" filterUnits="userSpaceOnUse" x="441" y="192.6" width="31" height="34.8"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-11" filterUnits="userSpaceOnUse" x="148.4" y="244" width="212.6" height="112"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-12" filterUnits="userSpaceOnUse" x="142.6" y="326" width="34.8" height="31"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-13" filterUnits="userSpaceOnUse" x="338.9" y="299.7" width="153.4" height="55.8"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="best-buy-product-locator-how-it-finds-a-store-desktop-crayon-14" filterUnits="userSpaceOnUse" x="462.6" y="326" width="34.8" height="31"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter></defs>
+<rect width="640" height="470" fill="#000000"/>
+<g transform="rotate(-0.8 115 62)">
+<path class="d-paper" d="M21.1,20.3 L36.1,19 L52.4,20.8 L69.3,20.9 L84,19.7 L101.5,18.8 L114.6,18.7 L132.4,21.1 L148.2,20.5 L165.5,19.2 L178.5,20.4 L195.8,21.2 L209.4,19.1 L211,36.2 L209.5,51 L208.8,69.5 L209,84.1 L209,100.6 L208.9,103.2 L194.3,104.6 L178,104.9 L163.6,103.4 L145.9,105.5 L130.5,103 L113.4,104.4 L98.9,105.2 L80.5,104.3 L66.9,103.1 L50.3,104.7 L33,102.4 L19.1,104.7 L20.5,88 L20.6,71.1 L21.5,55.8 L20.7,40.9 L19.3,24.7 Z" fill="#ece6da"/>
+<svg x="34" y="48" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1" />
+  <circle cx="19" cy="21" r="1" />
+  <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></g></svg>
+<text x="136" y="43.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="middle" dominant-baseline="central">PRODUCT PAGE</text>
+<text x="136" y="65.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Amazon, Walmart</text>
+<text x="136" y="84.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">or Target</text>
+</g>
+<g transform="rotate(-0.5 350 62)">
+<path class="d-paper" d="M250.4,18.8 L266.5,18.7 L281.8,19.4 L296.5,19.8 L313.6,20 L330.8,20.9 L344.9,21.2 L361.1,21.6 L379.1,19.9 L393.4,20.3 L411.1,19.2 L425.6,19.7 L440.6,19.5 L449.9,19.3 L449.6,36.5 L448.7,53.2 L450.7,68.2 L450.6,84.2 L450,99.5 L449.3,104 L433.1,104.5 L417,103.7 L401.9,105.5 L386.1,103.4 L370.3,103 L354.5,104.1 L339.3,104.1 L320.8,105.5 L307.1,103.8 L291.3,104.2 L275.1,103 L257.4,103.2 L251.2,104.4 L250.8,89.5 L249.9,72.9 L250.3,56.5 L251.6,39.8 L250.6,25 Z" fill="#ff4fd8"/>
+<svg x="264" y="48" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" /></g></svg>
+<text x="371" y="43.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="middle" dominant-baseline="central">READ THE SPECS</text>
+<text x="371" y="65.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">model number,</text>
+<text x="371" y="84.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">or UPC on Target</text>
+</g>
+<g transform="rotate(-0.2 555 62)">
+<path class="d-paper" d="M489.7,12.9 L505.6,12.6 L520.7,15.2 L538.2,14.5 L554.3,12.9 L570,15.4 L584.5,12.6 L600.9,14.6 L617.7,13.7 L620.3,15.2 L621.3,30.7 L620.4,47.4 L619,62.5 L620.4,76.7 L621.1,95.1 L620.9,110.8 L603.6,110 L586.9,109.2 L570.6,109.8 L555.6,111.6 L541.5,111 L525,109 L508.8,109.7 L491.9,109.4 L490.8,110.5 L488.8,94 L489,76.8 L489.1,62.6 L490.2,47.3 L490.7,29.5 Z" fill="#ece6da"/>
+<svg x="536.1" y="22" width="37.7" height="26" viewBox="0 0 806.988 556.074"><g>
+	<g>
+		<polygon fill="#010101" points="18.975,132.462 188.516,0 806.988,59.08 760.152,556.074 140.646,498.025 0,333.508 		"/>
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#F6EB16" points="29.154,137.616 192.541,11.274 795.682,69.196 
+			751.031,544.768 145.831,486.848 10.244,329.482 		"/>
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#010101" points="308.221,115.195 445.131,128.275 441.199,169.282 
+			379.542,163.387 378.286,176.595 434.532,181.975 430.924,219.57 375.001,214.254 373.584,229.167 436.625,235.193 
+			432.889,274.169 294.982,260.963 		"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#010101" d="M465.553,225.98l-25.9,38.206c0,0,32.536,17.491,77.67,21.419
+			c45.066,3.997,78.118-8.923,88.717-30.504c10.629-21.519-2.096-46.003-22.969-52.798c-20.906-6.766-57.148-13.981-53.379-21.167
+			c3.77-7.15,26.514-5.669,40.332,0.098c13.82,5.767,17.59,9.213,17.59,9.213l23.774-33.984c0,0-25.257-18.49-72.517-21.293
+			c-47.288-2.803-82.047,20.874-84.463,42.875c-2.447,22.003,11.693,34.985,33.181,42.847c0,0,18.232,5.862,31.987,8.858
+			c13.723,3.029,22.453,12.08,6.057,15.301C509.234,248.27,475.506,236.16,465.553,225.98z"/>
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#010101" points="653.715,196.409 613.414,192.576 617.926,145.124 
+			773.133,159.941 768.621,207.393 728.289,203.527 718.883,302.131 645.309,295.113 		"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#010101" d="M319.658,281.806l71.224,6.443l-7.571,82.725
+			c0,0-7.022,19.844,16.687,22.131c23.743,2.256,22.682-19.069,22.682-19.069l7.793-81.663l71.514,6.829l-9.18,96.255
+			c0,0-8.44,52.541-95.898,44.197c-87.43-8.346-86.238-63.621-86.238-63.621L319.658,281.806z"/>
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#010101" points="584.005,307.063 604.428,347.297 630.779,311.541 
+			713.793,319.431 636.352,396.167 630.359,458.853 557.525,451.894 563.387,390.237 501.277,299.492 		"/>
+		<g>
+			<path fill-rule="evenodd" clip-rule="evenodd" fill="#010101" d="M273.688,349.294c0,0,29.993-5.896,29.219-36.531
+				c-0.771-30.666-61.98-38.269-61.98-38.269l-101.021-10.02l-13.788,146.284c0,0,80.631,8.472,104.113,10.371
+				c23.485,1.87,70.806-0.129,75.478-30.379C310.348,360.474,273.688,349.294,273.688,349.294z M204.719,307.417
+				c0,0,31.023-2.867,29.315,11.691c-1.741,14.529-31.216,7.957-31.216,7.957L204.719,307.417z M198.244,382.021l1.61-23.771
+				c0,0,38.784-1.45,37.528,15.205C236.126,390.11,198.244,382.021,198.244,382.021z"/>
+		</g>
+		<g>
+			<path fill="#010101" d="M258.934,181.686c0,0,29.993-5.895,29.219-36.531c-0.773-30.633-61.98-38.303-61.98-38.303
+				l-101.055-9.984l-13.754,146.282c0,0,80.631,8.472,104.082,10.342c23.483,1.932,70.806-0.098,75.478-30.347
+				C295.593,192.865,258.934,181.686,258.934,181.686z M190.577,140.195c0,0,31.055-2.835,29.347,11.693
+				c-1.738,14.528-31.216,7.956-31.216,7.956L190.577,140.195z M184.134,214.834l1.61-23.807c0,0,38.754-1.416,37.531,15.238
+				C222.019,222.888,184.134,214.834,184.134,214.834z"/>
+		</g>
+	</g>
+	<path fill="#010101" d="M89.813,244.373c-1.418,15.111-14.818,26.16-29.895,24.741c-15.107-1.448-26.158-14.851-24.741-29.958
+		c1.451-15.077,14.851-26.125,29.96-24.708C80.213,215.896,91.262,229.298,89.813,244.373z"/>
+	<path fill="#FFFFFF" d="M79.792,243.44c-0.899,9.535-9.371,16.526-18.94,15.623c-9.536-0.902-16.525-9.406-15.624-18.94
+		c0.934-9.536,9.408-16.526,18.942-15.624C73.705,225.4,80.695,233.874,79.792,243.44z"/>
+	<g>
+		<path fill="#010101" d="M714.342,333.798c0.613-6.475,6.379-11.24,12.854-10.629c6.475,0.612,11.275,6.408,10.662,12.885
+			c-0.61,6.475-6.411,11.243-12.886,10.631C718.497,346.041,713.729,340.273,714.342,333.798z M734.957,335.764
+			c0.549-5.508-3.059-9.858-7.957-10.308c-4.929-0.483-9.277,3.125-9.792,8.602c-0.547,5.508,3.062,9.855,7.956,10.339
+			C730.094,344.849,734.441,341.275,734.957,335.764z M722.201,327.776l4.929,0.481c3.223,0.29,4.831,1.579,4.575,4.382
+			c-0.225,2.288-1.643,3.255-3.833,3.255l3.027,6.152l-2.578-0.228l-2.866-6.087l-1.514-0.129l-0.549,5.734l-2.479-0.227
+			L722.201,327.776z M724.135,333.701l2.158,0.228c1.481,0.13,2.768,0.063,2.932-1.741c0.161-1.545-1.226-1.931-2.515-2.061
+			l-2.222-0.225L724.135,333.701z"/>
+	</g>
+</g></svg>
+<text x="555" y="69.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">BEST BUY API</text>
+<text x="555" y="90.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">/products</text>
+</g>
+<text x="340" y="132" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">no code in 3 s?</text>
+<text x="340" y="150" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">search the title</text>
+<text x="492" y="130" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">first match</text>
+<g transform="rotate(0.7 350 210)">
+<path class="d-paper" d="M250.9,168.5 L267.1,166.9 L282.5,167.8 L296.8,168.9 L315.2,167.7 L331,169 L345.1,168.7 L361.6,168 L376.8,168.4 L395.2,169.3 L409,169.5 L426.4,167 L442.5,169.4 L450.5,168.6 L449.6,182.6 L448.4,198.8 L451.5,216 L448.7,230.6 L448.7,249.2 L450.2,252.5 L435,252.3 L418.4,251.5 L402.3,252.3 L386.6,253.2 L369.6,250.8 L354.6,250.9 L336.8,252.9 L321.6,251.5 L305,253.3 L291.3,252.6 L274.3,251.2 L259.2,251.7 L249.9,252.1 L251.4,235.4 L250.8,221.1 L251.3,204 L249,188 L250.1,171.7 Z" fill="#ff4fd8"/>
+<svg x="264" y="196" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" />
+  <path d="M15 5.764v15" />
+  <path d="M9 3.236v15" /></g></svg>
+<text x="371" y="191.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="middle" dominant-baseline="central">YOUR LOCATION</text>
+<text x="371" y="213.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">stores within</text>
+<text x="371" y="232.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">15 miles</text>
+</g>
+<g transform="rotate(0.9 555 210)">
+<path class="d-paper" d="M491,162.2 L504.7,161.8 L522.4,162.7 L538.3,161 L553.7,162.9 L570.7,163 L587,163.5 L601.3,162.5 L618.7,160.6 L619.6,162.6 L618.6,177.1 L619.6,194 L621.4,209.1 L619.4,227 L621.4,242.4 L620.1,256.5 L605.3,257.5 L586.5,259 L570.7,257.5 L556.2,258.1 L540.9,257.9 L524.5,258.8 L507.8,258.1 L490.8,259.6 L490.1,258.8 L490.2,242.9 L489.4,225.5 L491.4,209 L491.5,193.3 L489.7,179.3 Z" fill="#ece6da"/>
+<svg x="536.1" y="170" width="37.7" height="26" viewBox="0 0 806.988 556.074"><g>
+	<g>
+		<polygon fill="#010101" points="18.975,132.462 188.516,0 806.988,59.08 760.152,556.074 140.646,498.025 0,333.508 		"/>
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#F6EB16" points="29.154,137.616 192.541,11.274 795.682,69.196 
+			751.031,544.768 145.831,486.848 10.244,329.482 		"/>
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#010101" points="308.221,115.195 445.131,128.275 441.199,169.282 
+			379.542,163.387 378.286,176.595 434.532,181.975 430.924,219.57 375.001,214.254 373.584,229.167 436.625,235.193 
+			432.889,274.169 294.982,260.963 		"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#010101" d="M465.553,225.98l-25.9,38.206c0,0,32.536,17.491,77.67,21.419
+			c45.066,3.997,78.118-8.923,88.717-30.504c10.629-21.519-2.096-46.003-22.969-52.798c-20.906-6.766-57.148-13.981-53.379-21.167
+			c3.77-7.15,26.514-5.669,40.332,0.098c13.82,5.767,17.59,9.213,17.59,9.213l23.774-33.984c0,0-25.257-18.49-72.517-21.293
+			c-47.288-2.803-82.047,20.874-84.463,42.875c-2.447,22.003,11.693,34.985,33.181,42.847c0,0,18.232,5.862,31.987,8.858
+			c13.723,3.029,22.453,12.08,6.057,15.301C509.234,248.27,475.506,236.16,465.553,225.98z"/>
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#010101" points="653.715,196.409 613.414,192.576 617.926,145.124 
+			773.133,159.941 768.621,207.393 728.289,203.527 718.883,302.131 645.309,295.113 		"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#010101" d="M319.658,281.806l71.224,6.443l-7.571,82.725
+			c0,0-7.022,19.844,16.687,22.131c23.743,2.256,22.682-19.069,22.682-19.069l7.793-81.663l71.514,6.829l-9.18,96.255
+			c0,0-8.44,52.541-95.898,44.197c-87.43-8.346-86.238-63.621-86.238-63.621L319.658,281.806z"/>
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#010101" points="584.005,307.063 604.428,347.297 630.779,311.541 
+			713.793,319.431 636.352,396.167 630.359,458.853 557.525,451.894 563.387,390.237 501.277,299.492 		"/>
+		<g>
+			<path fill-rule="evenodd" clip-rule="evenodd" fill="#010101" d="M273.688,349.294c0,0,29.993-5.896,29.219-36.531
+				c-0.771-30.666-61.98-38.269-61.98-38.269l-101.021-10.02l-13.788,146.284c0,0,80.631,8.472,104.113,10.371
+				c23.485,1.87,70.806-0.129,75.478-30.379C310.348,360.474,273.688,349.294,273.688,349.294z M204.719,307.417
+				c0,0,31.023-2.867,29.315,11.691c-1.741,14.529-31.216,7.957-31.216,7.957L204.719,307.417z M198.244,382.021l1.61-23.771
+				c0,0,38.784-1.45,37.528,15.205C236.126,390.11,198.244,382.021,198.244,382.021z"/>
+		</g>
+		<g>
+			<path fill="#010101" d="M258.934,181.686c0,0,29.993-5.895,29.219-36.531c-0.773-30.633-61.98-38.303-61.98-38.303
+				l-101.055-9.984l-13.754,146.282c0,0,80.631,8.472,104.082,10.342c23.483,1.932,70.806-0.098,75.478-30.347
+				C295.593,192.865,258.934,181.686,258.934,181.686z M190.577,140.195c0,0,31.055-2.835,29.347,11.693
+				c-1.738,14.528-31.216,7.956-31.216,7.956L190.577,140.195z M184.134,214.834l1.61-23.807c0,0,38.754-1.416,37.531,15.238
+				C222.019,222.888,184.134,214.834,184.134,214.834z"/>
+		</g>
+	</g>
+	<path fill="#010101" d="M89.813,244.373c-1.418,15.111-14.818,26.16-29.895,24.741c-15.107-1.448-26.158-14.851-24.741-29.958
+		c1.451-15.077,14.851-26.125,29.96-24.708C80.213,215.896,91.262,229.298,89.813,244.373z"/>
+	<path fill="#FFFFFF" d="M79.792,243.44c-0.899,9.535-9.371,16.526-18.94,15.623c-9.536-0.902-16.525-9.406-15.624-18.94
+		c0.934-9.536,9.408-16.526,18.942-15.624C73.705,225.4,80.695,233.874,79.792,243.44z"/>
+	<g>
+		<path fill="#010101" d="M714.342,333.798c0.613-6.475,6.379-11.24,12.854-10.629c6.475,0.612,11.275,6.408,10.662,12.885
+			c-0.61,6.475-6.411,11.243-12.886,10.631C718.497,346.041,713.729,340.273,714.342,333.798z M734.957,335.764
+			c0.549-5.508-3.059-9.858-7.957-10.308c-4.929-0.483-9.277,3.125-9.792,8.602c-0.547,5.508,3.062,9.855,7.956,10.339
+			C730.094,344.849,734.441,341.275,734.957,335.764z M722.201,327.776l4.929,0.481c3.223,0.29,4.831,1.579,4.575,4.382
+			c-0.225,2.288-1.643,3.255-3.833,3.255l3.027,6.152l-2.578-0.228l-2.866-6.087l-1.514-0.129l-0.549,5.734l-2.479-0.227
+			L722.201,327.776z M724.135,333.701l2.158,0.228c1.481,0.13,2.768,0.063,2.932-1.741c0.161-1.545-1.226-1.931-2.515-2.061
+			l-2.222-0.225L724.135,333.701z"/>
+	</g>
+</g></svg>
+<text x="555" y="217.9" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="18" fill="#000000" text-anchor="middle" dominant-baseline="central">BEST BUY API</text>
+<text x="555" y="238.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">/stores</text>
+</g>
+<text x="492" y="272" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">nearest Big Box</text>
+<g transform="rotate(0.8 165 393)">
+<path class="d-paper" d="M20.1,348.9 L36,348.8 L52.8,348.9 L68.3,348.3 L84.1,348.2 L98.7,347.6 L117,346.9 L133.3,349 L148.9,349.5 L162.5,348.3 L178.6,347.3 L194.7,346.5 L213,347.7 L227.9,347.8 L245.4,348 L261.3,346.9 L275.3,348 L292.5,348.6 L307.1,346.6 L310.6,349.4 L310,362.5 L309.7,380.1 L310,396 L311.5,413.4 L308.9,427.8 L309.5,439.1 L293.2,438.6 L277,438.4 L263.4,438.4 L246.1,437.2 L229,439.1 L213.3,436.9 L198.5,438.9 L183.3,436.7 L166.2,439.4 L150.7,439 L135.1,439.5 L119,436.8 L102.7,438.1 L85.3,438.4 L71.5,438.5 L55,437.1 L37.5,439 L23.5,437.6 L18.9,438.6 L19.6,422 L19.5,404.5 L21.6,390.9 L20.4,374.6 L20.2,358.8 Z" fill="#ff4fd8"/>
+<svg x="34" y="379" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" />
+  <path d="M10 4v4" />
+  <path d="M2 8h20" />
+  <path d="M6 4v4" /></g></svg>
+<text x="186" y="374.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="middle" dominant-baseline="central">BANNER ON THE PAGE</text>
+<text x="186" y="396.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">price, store, today's hours,</text>
+<text x="186" y="415.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">Buy on BestBuy.com</text>
+</g>
+<g transform="rotate(-0.8 480 393)">
+<path class="d-paper" d="M338.8,349.4 L355.1,347.8 L372,349.3 L387.2,348.5 L404.8,349.2 L419.8,346.7 L435.3,347.8 L452.6,348.3 L468.4,347.7 L482.6,347.8 L500.3,347.9 L516.6,349 L530.9,346.6 L548.7,347.6 L562.5,348.9 L579.5,348.6 L595.7,348.2 L611.3,348.9 L621.5,348.4 L619.6,363.7 L619.4,379.3 L620.6,396 L621.2,413.4 L619.1,428.5 L619.1,437.9 L604.6,437.6 L588.5,438.2 L573.1,439.2 L557.3,436.5 L539.5,437 L524.1,437.7 L508.3,437.2 L492.6,439.1 L475.6,436.6 L458.7,436.6 L444,436.5 L429.3,438.2 L411.4,437.5 L396.8,439.1 L380.5,438.1 L364.8,437.1 L348,436.9 L339.8,438.5 L339.7,422.8 L340.1,407.5 L340.8,390.2 L340.6,372.9 L338.7,357.4 Z" fill="#ff4fd8"/>
+<svg x="354" y="379" width="28" height="28" viewBox="0 0 24 24"><g fill="#000000"><path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-5.344 9.257c.206.01.413.016.621.016 6.627 0 12-5.373 12-12 0-1.54-.29-3.011-.818-4.364zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728Z"/></g></svg>
+<text x="501" y="374.8" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#000000" text-anchor="middle" dominant-baseline="central">TOOLBAR POPUP</text>
+<text x="501" y="396.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">the same, with a badge</text>
+<text x="501" y="415.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">on the icon</text>
+</g>
+<g class="d-flow">
+<path d="M212,61.8 Q229.3,62.1 249.1,63.2" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-1)"/>
+<path d="M239,68.4 L248,62 L239,55.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-2)"/>
+</g>
+<g class="d-flow">
+<path d="M452.4,61.3 Q468.7,60.6 487.2,61.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-3)"/>
+<path d="M479,68.4 L488,62 L479,55.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-4)"/>
+<path d="M461,55.6 L452,62 L461,68.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-5)"/>
+</g>
+<g class="d-flow">
+<path d="M350.3,105.3 Q350.5,134.9 349.2,164.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-6)"/>
+<path d="M343.6,157 L350,166 L356.4,157" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-7)"/>
+</g>
+<g class="d-flow">
+<path d="M451,211 Q470.1,210.4 486.5,210.1" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-8)"/>
+<path d="M479,216.4 L488,210 L479,203.6" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-9)"/>
+<path d="M461,203.6 L452,210 L461,216.4" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-10)"/>
+</g>
+<g class="d-flow">
+<path d="M349.7,255 Q349.8,281.5 350,309.5 M348.7,310.7 Q253.7,309.9 161.2,310.2 M160,310.3 Q159.4,328.1 159.7,345" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-11)"/>
+<path d="M153.6,337 L160,346 L166.4,337" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-12)"/>
+</g>
+<g class="d-flow">
+<path d="M349.9,311.3 Q416.5,310.9 480.4,310.7 M479.8,311.2 Q480.7,327.3 481.3,344.5" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-13)"/>
+<path d="M473.6,337 L480,346 L486.4,337" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#best-buy-product-locator-how-it-finds-a-store-desktop-crayon-14)"/>
+</g>
+</svg>

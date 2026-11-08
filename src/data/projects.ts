@@ -17,6 +17,9 @@ export interface ProjectPage {
 	introHeading?: string;
 	// Follows the year in the page's byline: a collaborator ("with Laurel Karlsson")
 	credit?: string;
+	// A second, longer statement after the piece (Rose Hobart's 2017 joint statement),
+	// kept as written while the intro carries Joe's own
+	supporting?: { heading: string; text: string[] };
 	// The technical half of an art piece, after the piece itself: a line or two and a
 	// diagram (scripts/diagrams). A page with it lists the stack here, not up top
 	made?: {
@@ -42,7 +45,6 @@ export interface ProjectPage {
 	tour?: { video: string; poster: string; captions: string; alt: string };
 	// Files to make it yourself (a 3D model on Thingiverse), as the page's main button
 	download?: { url: string; label: string };
-	steps?: { title: string; text: string }[];
 	install?: string;
 	example?: {
 		lang: 'yaml' | 'json' | 'toml' | 'bash' | 'python' | 'markdown';
@@ -362,22 +364,17 @@ export const projects: Project[] = [
 				"I'd been using the Spotify API for my MagicMirror, and I wanted the shortest path from nothing to a working player for front-end developers: log in with Spotify, call one endpoint, show the result. It's still small on purpose. The current version is just React and Vite, and the whole app fits in a handful of files.",
 				"If you're following the tutorial today, one warning: it logs in with Spotify's Implicit Grant flow, which Spotify deprecated in November 2025. New apps should use the Authorization Code flow with PKCE instead.",
 			],
-			steps: [
-				{
-					title: 'Log in',
-					text: "The login button sends you to Spotify's authorization page, and Spotify sends you back with an access token in the URL fragment.",
-				},
-				{
-					title: "Ask what's playing",
-					text: "The app calls the Web API's `/me/player` endpoint with that token and gets the track, the artist, the album art and how far into the song you are.",
-				},
-				{
-					title: 'Keep it current',
-					text: 'It asks again every 5 seconds, so the track, the play state and the progress bar keep up with Spotify.',
-				},
-			],
 			install:
-				'git clone https://github.com/JoeKarlsson/react-spotify-player.git\ncd react-spotify-player\n# add http://localhost:3000/redirect as a Redirect URI on your Spotify app,\n# and put its Client ID in src/config/spotify.js\nnpm install\nnpm run dev',
+				'git clone https://github.com/JoeKarlsson/react-spotify-player.git\ncd react-spotify-player\n# add http://localhost:3001 as a Redirect URI on your Spotify app,\n# and put its Client ID in src/config/spotify.js\nnpm install\nnpm run dev',
+			made: {
+				text: [
+					"The login link sends you to Spotify, and Spotify sends you back with an access token in the URL, which the app keeps in your browser. Every 5 seconds it asks the Web API's `/me/player` endpoint what's playing, and when the token expires it asks you to log in again.",
+				],
+				diagram: {
+					src: '/images/projects/react-spotify-player/how-the-player-keeps-up.svg',
+					alt: "How React Spotify Player keeps up with what you're playing: the Login with Spotify link sends you to Spotify Accounts to approve three scopes, Spotify sends you back with a token that the player keeps in your browser, and every 5 seconds the player asks the Web API's /v1/me/player what's playing, until a 401 sends you back to log in",
+				},
+			},
 		},
 	},
 
@@ -528,6 +525,15 @@ export const projects: Project[] = [
 			embedHeading: 'Try it',
 			embedNote:
 				"This is the archived demo, running right here. You're signed in as a sample visitor and the other people are simulated, so write a post and someone will answer.",
+			made: {
+				text: [
+					'The full app is React on a Node and Express server with PostgreSQL. The archive is the same React app with a stand-in that answers its requests inside your browser and keeps everything in `localStorage`. The sample people post or reply every 12 to 25 seconds, and someone answers your post within 6 to 14 seconds.',
+				],
+				diagram: {
+					src: '/images/projects/poststream/two-backends.svg',
+					alt: "How PostStream runs two ways: the same React app asks /post and /auth either of two ways, the full app's Express server answers from PostgreSQL, and the archived demo's stand-in answers inside the page from your browser's localStorage, signs you in, and has a sample cast post or reply every 12 to 25 seconds",
+				},
+			},
 		},
 	},
 
@@ -670,10 +676,19 @@ export const projects: Project[] = [
 			tagline: 'Two-day shipping too slow for you?',
 			intro: [
 				"The Best Buy Product Locator is a Chrome extension for when you're shopping on Amazon, Walmart or Target and want the thing today. It looks up the product you're browsing in Best Buy's catalog and tells you whether the Best Buy nearest you has it for pickup.",
-				"It reads the model number out of the product's spec table, or falls back to searching by the product's title, and checks the Best Buy API for a match and for stores near your location. If there's a match, a banner drops across the top of the page with Best Buy's price, the store, its hours that day and a button to buy it on BestBuy.com. The toolbar popup shows the same thing.",
+				"It reads the model number out of the product's spec table (the UPC on Target), or falls back to searching by the product's title, and checks the Best Buy API for a match and for stores near your location. If there's a match, a banner drops across the top of the page with Best Buy's price, the store, its hours that day and a button to buy it on BestBuy.com. The toolbar popup shows the same thing.",
 				'I built it with Eric Moore in 2018, in React with styled-components. Best Buy never had anything to do with it.',
 				"It's gone from the Chrome Web Store now, and I built it on Manifest V2, which current Chrome won't load, so this screenshot from 2018 is the only look at it working.",
 			],
+			made: {
+				text: [
+					"It's a Chrome extension written in React. It looks for a model number or UPC for 3 seconds before falling back to the title, then asks the Best Buy API for that product and for stores within 15 miles of you, and picks the nearest Big Box store. I last touched it in January 2019, so it still expects those sites' 2019 page layouts.",
+				],
+				diagram: {
+					src: '/images/projects/best-buy-product-locator/how-it-finds-a-store.svg',
+					alt: 'How the Best Buy Product Locator finds a store: on Amazon, Walmart or Target it reads the model number from the spec table, or the UPC on Target, and searches by title if it finds no code in 3 seconds; it asks the Best Buy API for the product, then for stores within 15 miles of you, picks the nearest Big Box store, and shows a banner on the page and the same in the toolbar popup with a badge',
+				},
+			},
 		},
 	},
 	{
@@ -730,6 +745,15 @@ export const projects: Project[] = [
 					caption: 'Win',
 				},
 			],
+			made: {
+				text: [
+					"AR.js finds the printed marker in the camera, and the browser works out the compass bearing from your GPS position to the checkpoint and turns the arrow toward it. Everything runs in your browser now: the checkpoint, your tries and your last 50 scans live in local storage, and Did I Win checks whether you're within 20 meters.",
+				],
+				diagram: {
+					src: '/images/projects/gaptcha/how-a-hunt-works.svg',
+					alt: "How a GAPTCHA hunt works: you scan a printed marker facing north, your phone's location and the checkpoint give a compass bearing, a green 3D arrow on the marker turns to it, and after scanning a few markers you walk to where the arrows cross and tap Did I Win, which wins within 20 meters",
+				},
+			},
 		},
 	},
 	{
@@ -768,6 +792,15 @@ export const projects: Project[] = [
 					caption: 'Block size 24px',
 				},
 			],
+			made: {
+				text: [
+					"Each block is one color, the exact average of the pixels under it, worked out on a copy of your photo no bigger than 2,000 pixels a side so the slider stays quick. I stretch that small grid back up with smoothing turned off, and Save PNG writes it at your photo's full size.",
+				],
+				diagram: {
+					src: '/images/projects/pixelate/how-pixelate-blocks-a-photo.svg',
+					alt: "How Pixelate turns a photo into blocks: your photo stays on your device, Pixelate works on a copy no bigger than 2,000 pixels on its longest side, the slider sets the block size from 1 to 120 pixels, each block becomes the average color of the pixels under it, the grid is stretched back up with smoothing off so the blocks stay square, and Save PNG writes it at the photo's full size",
+				},
+			},
 		},
 	},
 	{
@@ -788,7 +821,7 @@ export const projects: Project[] = [
 			intro: [
 				'Night Out is for the part of the evening where the group text goes in circles about where to go. I built the first version in Meteor at the end of October 2015 with Jessie Copeland, Alex Anich, Brian "Boots" and Nolan "Skinny Fatman".',
 				"That version found your location, asked Google Places for the bars and breweries nearby, and let you check off the ones you'd actually go to. Clicking Start your night out gave you a link to send everyone, and Meteor pushed each vote to everyone with the link as it came in.",
-				"The Heroku app died years ago. In November 2026 I rebuilt it as a static site at night-out.joekarlsson.com. Bars now come from OpenStreetMap, and there's no server, so the whole plan and its votes live in the link. When you vote, the link on your screen updates and you send the new one back to the group. Two people voting on the same old link at once each end up with only their own vote, which is the trade for not running a server.",
+				"The Heroku app died years ago. In November 2026 I rebuilt it as a static site at night-out.joekarlsson.com. Bars now come from OpenStreetMap, and there's no server, so the whole plan and its votes live in the link. When you vote, the link on your screen updates and you send the new one back to the group. If two people vote on the same old link at once, the plan splits in two. A phone that opens both links merges them, but a bar they both voted for only counts once, which is the trade for not running a server.",
 				"If you're not near any bars, or you don't want to share your location, Try it with demo bars fills the map with made-up bars in Honolulu, where it started.",
 			],
 			embedUrl: 'https://night-out.joekarlsson.com/',
@@ -804,6 +837,15 @@ export const projects: Project[] = [
 					caption: 'The vote page and its share link',
 				},
 			],
+			made: {
+				text: [
+					'Bars come from OpenStreetMap within 2.6 kilometers of you. The bars you pick and every vote are packed into the link after the #, so the link is the whole plan, and each vote page ranks the bars by votes.',
+				],
+				diagram: {
+					src: '/images/projects/night-out/how-the-link-carries-the-vote.svg',
+					alt: 'How Night Out runs a vote with no server: it finds bars on OpenStreetMap within 2.6 kilometers, you pick 2 to 12, the link itself holds the bars and the votes, each friend votes and sends the updated link back to the group, and every vote page ranks the bars by votes',
+				},
+			},
 		},
 	},
 	{
@@ -904,17 +946,25 @@ export const projects: Project[] = [
 		page: {
 			slug: 'rose-hobart',
 			tagline: "Joseph Cornell's Rose Hobart, remastered for the web.",
-			introHeading: 'Supporting statement',
+			introHeading: 'Artist statement',
 			credit: 'with Laurel Karlsson',
 			intro: [
-				"The first showing of Joseph Cornell's short film Rose Hobart is the stuff of legend. Famously, the film's 1936 premier ended with Salvador Dalí storming out, claiming that the film had been stolen directly from his subconscious (Pigott 5). Very little else is known about this original showing; Cornell would not show the film again for nearly thirty years. Currently, only one version of Rose Hobart continues to be circulated; this version comes from Cornell's 1960s showings, leaving the performative details of the premier shrouded in mystery (Pigott 21).",
-				'Screenings of Rose Hobart were originally highly performative. In contrast to the currently available digital version which is “frozen” in time, several aspects of Cornell’s screenings were subject to change. First, the film was shown with a tinted filter. While the current version shows a deep blue tint being used, any number of colors could have been used in the other showings, with some evidence pointing to the use of a pink filter (Pigott 20). Second, the film was shown either at the standard 24 frames per second or 16 frames per second, also known as “silent speed” (Pigott 21). Today’s surviving version shows the film in the slightly slower “silent speed,” giving the short film a dreamier quality that is practically undetectable to the untrained eye. Lastly, due to the silence of the film itself, different music was paired with the film as it was shown. The version that remains today is paired with two jaunty tracks by Nestor Amaral and His Continentals, from their 1957 album Holiday in Brazil (Pigott 24). Because these songs were not released until 1957, it’s clear that different music was used in the original 1936 screening, and likely in other screenings as well. Unfortunately, there is no documentation of what that music might have been.',
-				'This collaborative digital humanities project is an exploration of the lack of performativity in the current version available of Joseph Cornell’s Rose Hobart. It is an attempt to bring the performative aspects of screening Rose Hobart back to the film by allowing viewers to change the soundtrack, filter, speed, and other options as they view the film. Due to the digital nature of this project, it is by no means an attempt to perfectly imitate Cornell’s original screenings. Rather, it is an attempt to “unfreeze” the currently available version of Rose Hobart from its place in time.',
-				'This project also emphasizes the digital nature of the film today. While there are physical copies of Rose Hobart available for viewing, the film is widely circulated online, which suggests that most viewers are accessing the film via the internet rather than through physical media. Due to the film’s transfer from physical to digital, signs of physical degradation of the film have been “frozen” or stopped in their tracks, bringing the film from the material film archive to the immaterial film archive (Baron 481). Jaimie Baron argues that both types of archive present viewers with a different experience of mediation: either bearing traces of the physical world or of digital technologies, both of which signal a relationship with the past (481). In order to simulate digital degradation, this project provides an option for viewers to blur and glitch the video, simulating the digital archival process that occurs when a digital video is damaged and continually copied.',
-				'By bringing the performative aspects of screening Rose Hobart into the digital realm, we collapse the distinction between presenter and viewer. When the physical film was screened historically, viewers were in a strictly passive position, spectating at the mercy of the performative choices made by the presenter of the film. With this project, that distinction ceases to exist. The presenter of the film – the person responsible for making performative choices like tint color, music, and speed – is also the viewer.',
-				'Rose Hobart cannot be discussed without addressing its primary subject matter: the actress Rose Hobart herself. Due to the film’s nearly obsessive focus on a female body that has been rendered silent, the film lends itself to feminist critique. It seems plainly obvious, as Janet Harbord argues, that “Cornell’s film plays on the beauty and emotional intensity of the star, Rose Hobart, given shape through rhythmic repetition of certain sequences” (69). Thus, does the film ask its viewers to admire the physical beauty of Rose Hobart? Critic Jodi Hauptman writes that through his film, Cornell “forces Hobart’s body to act as a voice . . . Such a collapse of distance between feelings and expression, body and mind, is another indicator of [the hysterical body of the woman]” (qtd. in Lowenstein). Is Rose Hobart the subject of the film, or is her body the subject of the film? By presenting a project that not only recognizes the degradation of the filmic image but also emphasizes it, we ask our viewers to consider how this changes the representation of Hobart’s feminine beauty as well as how this changes the film as a whole.',
-				'Written with Laurel Karlsson. The full list of works consulted is on the supporting statement page of the project site.',
+				'Every time Joseph Cornell screened Rose Hobart, it could come out a little different. He tinted it with a colored filter, ran it at the standard 24 frames a second or the slower 16, and paired it with whatever music he chose. At the 1936 premiere, Salvador Dalí stormed out, claiming Cornell had stolen the film from his subconscious.',
+				"The version almost everyone watches now is one of those screenings, frozen. It's tinted blue, it runs at silent speed, and it plays two songs from a 1957 album, so nobody at the premiere heard that soundtrack.",
+				"My sister Laurel and I wanted to give the projector back to whoever is watching. You pick the gel, the speed and the music while the film plays, and you can age it like old nitrate or glitch it like a file copied too many times. Nobody knows what the first screening looked like, so this doesn't try to recreate it.",
 			],
+			supporting: {
+				heading: 'Supporting statement',
+				text: [
+					"The first showing of Joseph Cornell's short film Rose Hobart is the stuff of legend. Famously, the film's 1936 premier ended with Salvador Dalí storming out, claiming that the film had been stolen directly from his subconscious (Pigott 5). Very little else is known about this original showing; Cornell would not show the film again for nearly thirty years. Currently, only one version of Rose Hobart continues to be circulated; this version comes from Cornell's 1960s showings, leaving the performative details of the premier shrouded in mystery (Pigott 21).",
+					'Screenings of Rose Hobart were originally highly performative. In contrast to the currently available digital version which is “frozen” in time, several aspects of Cornell’s screenings were subject to change. First, the film was shown with a tinted filter. While the current version shows a deep blue tint being used, any number of colors could have been used in the other showings, with some evidence pointing to the use of a pink filter (Pigott 20). Second, the film was shown either at the standard 24 frames per second or 16 frames per second, also known as “silent speed” (Pigott 21). Today’s surviving version shows the film in the slightly slower “silent speed,” giving the short film a dreamier quality that is practically undetectable to the untrained eye. Lastly, due to the silence of the film itself, different music was paired with the film as it was shown. The version that remains today is paired with two jaunty tracks by Nestor Amaral and His Continentals, from their 1957 album Holiday in Brazil (Pigott 24). Because these songs were not released until 1957, it’s clear that different music was used in the original 1936 screening, and likely in other screenings as well. Unfortunately, there is no documentation of what that music might have been.',
+					'This collaborative digital humanities project is an exploration of the lack of performativity in the current version available of Joseph Cornell’s Rose Hobart. It is an attempt to bring the performative aspects of screening Rose Hobart back to the film by allowing viewers to change the soundtrack, filter, speed, and other options as they view the film. Due to the digital nature of this project, it is by no means an attempt to perfectly imitate Cornell’s original screenings. Rather, it is an attempt to “unfreeze” the currently available version of Rose Hobart from its place in time.',
+					'This project also emphasizes the digital nature of the film today. While there are physical copies of Rose Hobart available for viewing, the film is widely circulated online, which suggests that most viewers are accessing the film via the internet rather than through physical media. Due to the film’s transfer from physical to digital, signs of physical degradation of the film have been “frozen” or stopped in their tracks, bringing the film from the material film archive to the immaterial film archive (Baron 481). Jaimie Baron argues that both types of archive present viewers with a different experience of mediation: either bearing traces of the physical world or of digital technologies, both of which signal a relationship with the past (481). In order to simulate digital degradation, this project provides an option for viewers to blur and glitch the video, simulating the digital archival process that occurs when a digital video is damaged and continually copied.',
+					'By bringing the performative aspects of screening Rose Hobart into the digital realm, we collapse the distinction between presenter and viewer. When the physical film was screened historically, viewers were in a strictly passive position, spectating at the mercy of the performative choices made by the presenter of the film. With this project, that distinction ceases to exist. The presenter of the film – the person responsible for making performative choices like tint color, music, and speed – is also the viewer.',
+					'Rose Hobart cannot be discussed without addressing its primary subject matter: the actress Rose Hobart herself. Due to the film’s nearly obsessive focus on a female body that has been rendered silent, the film lends itself to feminist critique. It seems plainly obvious, as Janet Harbord argues, that “Cornell’s film plays on the beauty and emotional intensity of the star, Rose Hobart, given shape through rhythmic repetition of certain sequences” (69). Thus, does the film ask its viewers to admire the physical beauty of Rose Hobart? Critic Jodi Hauptman writes that through his film, Cornell “forces Hobart’s body to act as a voice . . . Such a collapse of distance between feelings and expression, body and mind, is another indicator of [the hysterical body of the woman]” (qtd. in Lowenstein). Is Rose Hobart the subject of the film, or is her body the subject of the film? By presenting a project that not only recognizes the degradation of the filmic image but also emphasizes it, we ask our viewers to consider how this changes the representation of Hobart’s feminine beauty as well as how this changes the film as a whole.',
+					'Written with Laurel Karlsson. The full list of works consulted is on the supporting statement page of the project site.',
+				],
+			},
 			embedUrl: 'https://rosehobart.joekarlsson.com/',
 			embedHeading: 'Watch it',
 			embedNote: 'Press play, then pick a projector, a gel, the speed and the music.',
@@ -1089,20 +1139,6 @@ export const projects: Project[] = [
 				"The listening is a whisper.cpp model you choose, served on `127.0.0.1`, so your audio never leaves your laptop. I built it because I have the energy of a theater kid and can't memorize lines, and the prompter apps I had didn't let me pick the model or set up the screen the way I wanted.",
 				'If you record with Screencast Director while FollowSpot is open, the draft edit keeps only your last take of each script line.',
 			],
-			steps: [
-				{
-					title: 'Listen',
-					text: "Every quarter second, while you're talking, the page sends the last 3.5 seconds of audio to a local `whisper-server`.",
-				},
-				{
-					title: 'Match',
-					text: "The transcript gets fuzzy-matched against the script around your place, so misheard words and ad-libs don't lose it.",
-				},
-				{
-					title: 'Follow',
-					text: 'The highlight moves and the page scrolls to keep your line at lens height. Click any word to jump there for a retake.',
-				},
-			],
 			install:
 				'brew install whisper-cpp\ngit clone https://github.com/JoeKarlsson/followspot.git && cd followspot\n./followspot download small.en\n./followspot download vad\n./followspot your-script.md',
 			example: {
@@ -1126,6 +1162,15 @@ export const projects: Project[] = [
 					caption: 'How I run it: 30% column over the lens',
 				},
 			],
+			made: {
+				text: [
+					"Every quarter second, as long as you're talking, the page sends the last 3.5 seconds of audio to a whisper.cpp server on your own machine, with the last 30 words of the script as a hint for names. It matches the newest words it hears against the script around your place, and it only jumps back for a retake when at least 4 words match.",
+				],
+				diagram: {
+					src: '/images/projects/followspot/how-followspot-listens.svg',
+					alt: "How FollowSpot follows you: every quarter second, if your mic isn't quiet, it sends the last 3.5 seconds of audio and the last 30 script words to a local whisper.cpp server, matches the newest words it hears against the script near your place, moves the highlight to the last match and scrolls your line to lens height, backs up only on 4 or more matched words, drifts ahead slowly after 1.5 seconds without a match, and stops when you stop",
+				},
+			},
 		},
 	},
 	{
@@ -1147,20 +1192,6 @@ export const projects: Project[] = [
 			intro: [
 				"Screencast Director records your screen, mic and camera, then drafts the edit from one rule: while you're talking it plays in real time, typing without talking gets sped up, and silence gets cut. It zooms in where you click, captions what you said, and drops the retakes you mark.",
 				"It's a native Swift app for Apple silicon Macs, and transcription runs on your machine with whisper.cpp. It's open source, and you can download the app from the latest GitHub release.",
-			],
-			steps: [
-				{
-					title: 'Record',
-					text: 'Press ⌃⌥⌘R in any app and talk through your demo. If you flub a line, press ⌃⌥⌘M and say it again.',
-				},
-				{
-					title: 'Draft',
-					text: 'It transcribes you on your Mac and lines that up with when you clicked and typed, which decides what plays at real time, what speeds up and what gets cut.',
-				},
-				{
-					title: 'Adjust or ask',
-					text: 'Fix it on the timeline, or type "cut my retakes and zoom in when I mention the config".',
-				},
 			],
 			galleryTitle: 'Clips',
 			galleryNote: 'Recorded in the app. Hover to play.',
@@ -1210,6 +1241,15 @@ export const projects: Project[] = [
 					caption: 'The editor, with the Camera inspector open',
 				},
 			],
+			made: {
+				text: [
+					'It records with ScreenCaptureKit and keeps a log of when you clicked and typed, never what you typed. When you stop, whisper.cpp transcribes you on your Mac, and the draft becomes one plan file you can change on the timeline or by asking Claude Code, the Anthropic API or any OpenAI-compatible model.',
+				],
+				diagram: {
+					src: '/images/blog/screencast-director-screen-recorder/record-to-edit.svg',
+					alt: 'How Screencast Director goes from recording to edit: a shortcut in any app records your screen, mic and camera plus a log of when you clicked and typed; when you stop, whisper.cpp transcribes you on your Mac and the draft edit plays talking in real time, speeds up typing and cuts silence, filler words and retakes; the result is one plan file of clips, zooms and captions that you change on the timeline or by asking an AI model',
+				},
+			},
 		},
 	},
 	{
