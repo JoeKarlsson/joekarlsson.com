@@ -147,6 +147,7 @@ export const SELECTED_WORKS = ['PixelPane', 'linger', 'Connect AI × DOOM', 'Pun
 export const projects: Project[] = [
 	{
 		title: 'IoT Kitty Litter Box',
+		shareTitle: 'IoT Kitty Litter Box: A litter box that weighs my cat every visit',
 		description:
 			'Welcome to the Internet of Toilets. An IoT-connected cat litter box built with a Raspberry Pi, weight sensors, and Node.js. Monitors usage patterns and sends notifications. Became one of my most popular conference talks - presented at 20+ events worldwide.',
 		image: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp',
@@ -383,6 +384,7 @@ export const projects: Project[] = [
 	// Web - Digital Graffiti Wall
 	{
 		title: 'Digital Graffiti Wall',
+		shareTitle: 'Digital Graffiti Wall: A canvas a whole room paints at once, on real LEDs',
 		description:
 			'An interactive art installation where audience members draw on a shared digital canvas that displays their creations in real-time on a physical RGB LED grid. Uses MongoDB Realm for instant cross-client data sync. Since retired and replaced by PixelPane.',
 		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
@@ -1237,6 +1239,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Movie Script Scraper',
+		shareTitle: 'Movie Script Scraper: Movie scripts by genre, as text files you can count',
 		description:
 			"A Node CLI and npm package that downloads movie scripts by genre from the Internet Movie Script Database. Tim Kendall started it in 2014; I rewrote it and published it to npm in 2018, and it's where Bechdel.io's scripts came from.",
 		image: '/images/projects/movie-script-scraper.webp',
