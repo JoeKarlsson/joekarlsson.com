@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 816" width="360" height="816" role="img" aria-label="How Wave Jump's wave works. The wave is 964 small sprites, one every 2 pixels across the 1920-pixel world. Every frame the game rolls a new amplitude between 100 and 200 and sets each sprite's vertical speed to the sine of 0.3 times the sprite's place in line times 0.1 plus the frame count, times the amplitude, times 2, so the wave never settles into one shape. Both players ride it: W or the up arrow jumps, A and D or the left and right arrows steer, and holding S or the down arrow dives through the wave. A checkered gate sits somewhere in the middle third of the screen, and the first player through it gets a point and the next round starts.">
+<defs><filter id="wave-jump-how-the-wave-moves-phone-crayon-1" filterUnits="userSpaceOnUse" x="168.3" y="273" width="22.6" height="51.3"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="wave-jump-how-the-wave-moves-phone-crayon-2" filterUnits="userSpaceOnUse" x="162.6" y="292" width="34.8" height="31"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="wave-jump-how-the-wave-moves-phone-crayon-3" filterUnits="userSpaceOnUse" x="168.5" y="405.9" width="23.8" height="44.4"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="wave-jump-how-the-wave-moves-phone-crayon-4" filterUnits="userSpaceOnUse" x="162.6" y="420" width="34.8" height="31"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="wave-jump-how-the-wave-moves-phone-crayon-5" filterUnits="userSpaceOnUse" x="167.6" y="533.9" width="23.9" height="44.1"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="wave-jump-how-the-wave-moves-phone-crayon-6" filterUnits="userSpaceOnUse" x="162.6" y="548" width="34.8" height="31"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="wave-jump-how-the-wave-moves-phone-crayon-7" filterUnits="userSpaceOnUse" x="168.3" y="660.8" width="22.7" height="45"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="wave-jump-how-the-wave-moves-phone-crayon-8" filterUnits="userSpaceOnUse" x="162.6" y="676" width="34.8" height="31"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter></defs>
+<rect width="360" height="816" fill="#000000"/>
+<circle cx="24" cy="60" r="3.5" fill="#ece6da"/>
+<circle cx="32" cy="66.7" r="3.5" fill="#ece6da"/>
+<circle cx="40" cy="73" r="3.5" fill="#ece6da"/>
+<circle cx="48" cy="78.6" r="3.5" fill="#ece6da"/>
+<circle cx="56" cy="83" r="3.5" fill="#ece6da"/>
+<circle cx="64" cy="86.2" r="3.5" fill="#ece6da"/>
+<circle cx="72" cy="87.8" r="3.5" fill="#ece6da"/>
+<circle cx="80" cy="87.8" r="3.5" fill="#ece6da"/>
+<circle cx="88" cy="86.2" r="3.5" fill="#ece6da"/>
+<circle cx="96" cy="83" r="3.5" fill="#ece6da"/>
+<circle cx="104" cy="78.6" r="3.5" fill="#ece6da"/>
+<circle cx="112" cy="73" r="3.5" fill="#ece6da"/>
+<circle cx="120" cy="66.7" r="3.5" fill="#ece6da"/>
+<circle cx="128" cy="60" r="3.5" fill="#ece6da"/>
+<circle cx="136" cy="53.3" r="3.5" fill="#ece6da"/>
+<circle cx="144" cy="47" r="3.5" fill="#ece6da"/>
+<circle cx="152" cy="41.4" r="3.5" fill="#ece6da"/>
+<circle cx="160" cy="37" r="3.5" fill="#ece6da"/>
+<circle cx="168" cy="33.8" r="3.5" fill="#ece6da"/>
+<circle cx="176" cy="32.2" r="3.5" fill="#ece6da"/>
+<circle cx="184" cy="32.2" r="3.5" fill="#ece6da"/>
+<circle cx="192" cy="33.8" r="3.5" fill="#ece6da"/>
+<circle cx="200" cy="37" r="3.5" fill="#ece6da"/>
+<circle cx="208" cy="41.4" r="3.5" fill="#ece6da"/>
+<circle cx="216" cy="47" r="3.5" fill="#ece6da"/>
+<circle cx="224" cy="53.3" r="3.5" fill="#ece6da"/>
+<circle cx="232" cy="60" r="3.5" fill="#ece6da"/>
+<circle cx="240" cy="66.7" r="3.5" fill="#ece6da"/>
+<circle cx="248" cy="73" r="3.5" fill="#ece6da"/>
+<circle cx="256" cy="78.6" r="3.5" fill="#ece6da"/>
+<circle cx="264" cy="83" r="3.5" fill="#ece6da"/>
+<circle cx="272" cy="86.2" r="3.5" fill="#ece6da"/>
+<circle cx="280" cy="87.8" r="3.5" fill="#ece6da"/>
+<circle cx="288" cy="87.8" r="3.5" fill="#ece6da"/>
+<circle cx="296" cy="86.2" r="3.5" fill="#ece6da"/>
+<circle cx="304" cy="83" r="3.5" fill="#ece6da"/>
+<circle cx="312" cy="78.6" r="3.5" fill="#ece6da"/>
+<circle cx="320" cy="73" r="3.5" fill="#ece6da"/>
+<circle cx="328" cy="66.7" r="3.5" fill="#ece6da"/>
+<circle cx="336" cy="60" r="3.5" fill="#ece6da"/>
+<text x="24" y="116" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">964 sprites, 2 px apart</text>
+<g transform="rotate(-0.2 180 206.3)">
+<path class="d-paper" d="M11,141.4 L28.9,139.3 L44.5,140.4 L58.8,141.6 L76.4,141.1 L91.9,139.1 L107.6,139.2 L124.9,139.5 L139.1,140.1 L157.3,139.9 L170.4,140.1 L189,140.4 L204.3,140.5 L219.4,139.5 L237,139 L251.1,141.1 L267.5,139.3 L283,139.7 L301.3,139.4 L314.6,139.6 L330.8,138.6 L347.1,140 L346.6,155.9 L348.2,173.6 L348.9,188.8 L347.6,204.2 L349.3,221.3 L347.5,236.8 L349.4,252.1 L347.8,269 L347.9,273 L330.9,271.6 L317.6,272.9 L300.4,272.8 L285,273.9 L268.3,272 L250.8,273.3 L237.3,273.4 L219.4,272.3 L204.4,273.8 L186.6,273.8 L171,273.3 L157.5,273.1 L141.3,272.5 L124.3,273.5 L107.1,273.8 L90.7,272.9 L77,270.9 L61.6,273.9 L43.6,273 L28.2,271.3 L12,273.5 L11.2,255.3 L11.3,239.7 L13.1,224.3 L12,208.3 L10.4,192.5 L11.1,177.2 L13.6,159.1 L11.8,145.2 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<text x="26" y="162.9" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">// every frame:</text>
+<text x="26" y="184.6" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central" xml:space="preserve">amp = random(100, 200)</text>
+<text x="26" y="206.3" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">// for each sprite i:</text>
+<text x="26" y="228" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">vy = sin(0.3 × (i × 0.1 + frame))</text>
+<text x="26" y="249.7" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">     × amp × 2</text>
+</g>
+<text x="192" y="298" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">the players land on it</text>
+<g transform="rotate(-0.5 180 364)">
+<path class="d-paper" d="M30.8,315.2 L47,313.7 L62.6,312.9 L76.9,314.1 L92.7,313.1 L109.5,313.4 L126.9,314.7 L140.8,313.3 L158.8,313 L174.3,312.5 L189.4,314.7 L204.5,315.6 L222.6,314.1 L238.2,313.7 L255.1,313.3 L268.9,312.7 L287.2,314.7 L301.1,313.7 L319,313.9 L329.1,313.7 L331.2,330.9 L330.6,344.9 L331.3,361.3 L329.4,377.9 L331.5,394.6 L330.7,411.3 L330.1,414.5 L313.5,414 L296.5,415.3 L283.5,414.5 L265,412.6 L251.6,413.2 L234.6,413 L218.8,414.7 L201.6,413.1 L184.9,415.1 L169.2,415.1 L153.6,413 L138.9,413.3 L121.1,412.6 L104.9,413.3 L91.3,415 L74,412.9 L58.1,415 L43,414.8 L30.7,413 L29.2,397.5 L30.9,381 L29.7,366 L29.9,349.9 L30.9,335.2 L30.3,317.6 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<svg x="167" y="322" width="26" height="26" viewBox="0 0 24 24"><g fill="none" stroke="#ededed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <circle cx="9" cy="7" r="4" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <path d="M16 3.13a4 4 0 0 1 0 7.75" /></g></svg>
+<text x="180" y="364.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#ededed" text-anchor="middle" dominant-baseline="central">RIDE</text>
+<text x="180" y="384.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">W or ↑ jumps,</text>
+<text x="180" y="401.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">A D or ← → steer</text>
+</g>
+<g transform="rotate(0.6 180 492)">
+<path class="d-paper" d="M29.5,442.6 L47.4,441.1 L62.7,441 L77.8,440.8 L92.9,442.8 L109.7,441.9 L125.7,443.1 L143,441.8 L157.2,443.2 L173.8,443.2 L188.8,443 L207,440.6 L222.1,443.5 L237.6,442.5 L255,440.4 L270.4,440.9 L285.4,443.2 L301,442.4 L319.5,443.3 L329.9,442.6 L329.2,457.6 L328.7,475.2 L329.7,489.5 L329.4,506.7 L330.9,521.7 L328.5,538.2 L330.4,542.5 L313.9,542.5 L298.5,541.4 L283.5,542.6 L265,542.1 L248.8,543 L235.1,541.1 L219.4,540.7 L202.7,541.3 L186,542 L171.5,541.5 L155.5,541.2 L136.5,543.1 L120.4,543.1 L106.7,541.6 L91,541.9 L74,540.8 L59.4,540.6 L43,540.9 L29.8,542.9 L28.5,524.9 L29.4,509.5 L28.8,492.6 L29.5,477.5 L28.5,462.2 L29.5,444.9 Z" fill="#000000" stroke="#ededed" stroke-width="2"/>
+<text x="180" y="475.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#ededed" text-anchor="middle" dominant-baseline="central">DIVE</text>
+<text x="180" y="495.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">hold S or ↓ to</text>
+<text x="180" y="512.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ededed" text-anchor="middle" dominant-baseline="central">drop through</text>
+</g>
+<g transform="rotate(0.3 180 620)">
+<path class="d-paper" d="M29.9,570.1 L47.2,570.9 L61.5,570.5 L77.3,570 L92.6,570.3 L110.3,570.4 L127.4,568.8 L142.1,570.5 L158.9,569.8 L174.7,570.9 L190.7,569 L205,568.9 L220.8,571.3 L237.6,568.8 L255,569.9 L271.5,571.2 L286.2,570.8 L303.5,569 L318.6,569.5 L330,571.1 L329.3,584.8 L329.4,600.9 L329.4,616.9 L328.9,634.1 L330.2,648.7 L330,667 L329.1,671.3 L315.2,670.6 L298.6,671.2 L281.1,668.6 L267,668.9 L248.4,669.4 L233.9,668.5 L218.8,669.8 L202,669 L185.6,668.9 L169.2,668.7 L153.8,669.5 L137,670.3 L121.4,669.2 L106,670.1 L90.9,669.3 L74,669 L58.4,668.5 L40.8,668.5 L28.4,670.2 L29.7,652.6 L31.5,638 L31.6,620.6 L29.5,604.9 L30.1,588.7 L31,572.6 Z" fill="#ece6da"/>
+<text x="180" y="603.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">GATE</text>
+<text x="180" y="623.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">somewhere in</text>
+<text x="180" y="640.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">the middle third</text>
+</g>
+<g transform="rotate(1.1 180 748)">
+<path class="d-paper" d="M28.8,699.2 L45,699.4 L60.8,699.1 L77.6,698.8 L95,698.2 L110.4,699.4 L125.1,699 L140.9,697.9 L159.5,697.3 L174.5,699.2 L189.2,696.8 L205.3,699.4 L222.2,696.6 L236.8,697 L253.4,697.5 L271.1,699.2 L285.8,697.1 L302.7,697.5 L318.1,696.8 L328.7,698.6 L328.6,715.6 L330.4,730.7 L329.5,745.8 L329.2,763.4 L329.1,779.3 L330.4,793.9 L330.6,797.2 L313.6,796.9 L297.2,797.9 L282,798.7 L265.1,799.3 L250.7,798.5 L233.4,798.2 L218.7,797.7 L203.4,799.6 L185.5,797.4 L169.2,797.5 L153.9,798.1 L139.3,799.1 L123.5,798 L106.4,799 L91.4,797.4 L74.9,798.2 L57.2,796.8 L40.6,798.7 L31.4,797.9 L31.6,782.1 L29.2,766.1 L31.4,749.3 L31.4,734.1 L31.3,718.2 L29.9,702.4 Z" fill="#ff4fd8"/>
+<text x="180" y="731.1" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="19" fill="#000000" text-anchor="middle" dominant-baseline="central">+1 POINT</text>
+<text x="180" y="751.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">first through it,</text>
+<text x="180" y="768.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#000000" text-anchor="middle" dominant-baseline="central">then a new round</text>
+</g>
+<g class="d-flow">
+<path d="M179.9,284 Q179.3,298.1 179.3,313.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#wave-jump-how-the-wave-moves-phone-crayon-1)"/>
+<path d="M173.6,303 L180,312 L186.4,303" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#wave-jump-how-the-wave-moves-phone-crayon-2)"/>
+</g>
+<g class="d-flow">
+<path d="M179.5,416.9 Q181.3,429.4 180.9,439.3" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#wave-jump-how-the-wave-moves-phone-crayon-3)"/>
+<path d="M173.6,431 L180,440 L186.4,431" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#wave-jump-how-the-wave-moves-phone-crayon-4)"/>
+</g>
+<g class="d-flow">
+<path d="M179.7,544.9 Q178.6,556.8 180.5,567" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#wave-jump-how-the-wave-moves-phone-crayon-5)"/>
+<path d="M173.6,559 L180,568 L186.4,559" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#wave-jump-how-the-wave-moves-phone-crayon-6)"/>
+</g>
+<g class="d-flow">
+<path d="M179.7,671.8 Q180,683.9 179.3,694.8" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#wave-jump-how-the-wave-moves-phone-crayon-7)"/>
+<path d="M173.6,687 L180,696 L186.4,687" fill="none" stroke="#ece6da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#wave-jump-how-the-wave-moves-phone-crayon-8)"/>
+</g>
+</svg>

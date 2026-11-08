@@ -157,6 +157,52 @@ export const projects: Project[] = [
 		demoUrl: 'https://kittylitter.joekarlsson.com/',
 		blogUrl: '/blog/an-introduction-to-iot-internet-of-toilets/',
 		stars: 25,
+		page: {
+			slug: 'iot-kitty-litter-box',
+			tagline: 'An internet-connected litter box that weighs my cat every time he uses it.',
+			introHeading: 'Artist statement',
+			intro: [
+				'My favorite things in life are cats, computers and crappy ideas, so I built an internet-connected litter box.',
+				"Every time my cat steps in, the box weighs him, and the weight goes into a database, so I can follow his health and his bathroom habits over time without doing anything. Take the lid off to clean it and the box knows it's being cleaned, waits for the litter to settle and starts over. I like that it sits right on the border between completely ridiculous and kinda genius.",
+				'I\'m not an electrical engineer, and it took a lot of Googling and at least two blown circuit boards. It turned into one of my most popular conference talks, the Internet of Toilets, which I gave at more than 20 events. The post about it ends with "I hereby give you permission to make stupid stuff just for you."',
+			],
+			gallery: [
+				{
+					video:
+						'/images/blog/an-introduction-to-iot-internet-of-toilets/stop_motion_intro-1024x683.mp4',
+					poster:
+						'/images/blog/an-introduction-to-iot-internet-of-toilets/stop_motion_intro-1024x683-poster.webp',
+					alt: 'Stop motion of the finished litter box: a dark wooden cabinet on angled legs against a white wall',
+					caption: 'The finished box',
+				},
+				{
+					video: '/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo.mp4',
+					poster:
+						'/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo-poster.webp',
+					alt: 'The box open with its white floor plate, and a laptop in front of it printing the load cell readings as weight is pressed onto the plate',
+					caption: 'The load cells reading weight',
+				},
+				{
+					video: '/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project.mp4',
+					poster:
+						'/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project-poster.webp',
+					alt: 'My black cat chewing on the wires of the load cells and breadboard spread out on a table',
+					caption: 'My cat, helping',
+				},
+			],
+			galleryTitle: 'Clips',
+			galleryNote: 'From the post. Hover to play.',
+			made: {
+				text: [
+					"A Raspberry Pi reads four 50 kg load cells through an HX711 amplifier and a magnetic switch on the lid, and Node.js with Johnny-Five turns those into events. Each visit's weight goes to MongoDB Atlas. [The post](/blog/an-introduction-to-iot-internet-of-toilets/) walks through the wiring and the code.",
+				],
+				diagram: {
+					src: '/images/blog/an-introduction-to-iot-internet-of-toilets/how-the-box-works.svg',
+					alt: "How the litter box works: the scale under the box averages its last 20 readings, and when that passes the empty box plus a cat-sized weight it waits 10 seconds for the cat to settle, saves the cat's weight to MongoDB and recalibrates; lifting the lid trips a magnetic switch that logs a cleaning, and putting it back waits 10 seconds and recalibrates",
+				},
+			},
+			lineage: [{ label: 'After it', title: 'Digital Graffiti Wall' }],
+		},
 	},
 	{
 		title: 'PixelPane',
@@ -247,9 +293,11 @@ export const projects: Project[] = [
 				url: 'https://www.thingiverse.com/thing:5867063',
 				label: 'Download it on Thingiverse',
 			},
+			introHeading: 'Artist statement',
 			intro: [
-				"I bought a wire postcard rack secondhand with no plan for it. It sat around until I figured out the pockets were the right shape for plant pots, so I designed pots that hang where the postcards used to go and printed a rack's worth of them.",
-				"Each pot has drainage holes over the pot below it, so I water the top and the water works its way down the tower. I've had it for three or four years now. It started with a few succulents and is mostly spider plants these days, and the ABS is holding up better than I expected.",
+				'A postcard rack is a gold wire tower of little pockets, each one sized for a stack of postcards. I bought one secondhand with no idea what to do with it, and it sat around my house for a while. I love using vertical space for plants, and the pockets turned out to be about the right shape for a small pot.',
+				"So I drew a pot that hangs where the postcards used to go and printed enough to fill the rack. Each one drains into the pot below it, so I water the top and the water works its way down the tower. That's my favorite part, because a tower of small pots would be a chore to water one at a time.",
+				"It started with a small succulent in every pocket. Three or four years later it's mostly spider plants, and you can barely see the rack. It looks best in winter, when everything outside is dead and there's a green tower next to my window.",
 			],
 			tour: {
 				video: `${PLANTER_DIR}/tour.mp4`,
@@ -257,20 +305,6 @@ export const projects: Project[] = [
 				captions: `${PLANTER_DIR}/tour.vtt`,
 				alt: 'A quick tour of my postcard rack planter: me in front of it, the 3D-printed pots in the wire frame, how water drains from pot to pot, and the whole rack by the window',
 			},
-			steps: [
-				{
-					title: 'A secondhand rack',
-					text: 'A wire postcard rack, bought used. The wire pockets that held postcards hold the pots.',
-				},
-				{
-					title: 'Pots that fit the pockets',
-					text: 'I drew a pot to fit the pockets in Tinkercad and printed it in black ABS on my Prusa MK3. The file is free on Thingiverse.',
-				},
-				{
-					title: 'Water the top',
-					text: 'Holes in the bottom of each pot drip into the pot below, so one watering at the top reaches the whole tower.',
-				},
-			],
 			screenshotsTitle: 'When it was new',
 			screenshots: [
 				{
@@ -289,6 +323,17 @@ export const projects: Project[] = [
 					caption: 'From below',
 				},
 			],
+			made: {
+				text: [
+					'I drew the pot in Tinkercad, which is about as simple as 3D modeling gets: an angled box that sits in a wire pocket the way a stack of postcards would. I printed them in black ABS on my Prusa MK3, and after years of wet soil next to a sunny window they look about the same as the day I printed them.',
+					"The file is free on Thingiverse. Your rack's pockets probably aren't the same size as mine, so measure one and scale the model before you print a whole set.",
+				],
+				diagram: {
+					src: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/how-the-tower-waters.svg',
+					alt: 'How the planter tower waters itself: pots drawn in Tinkercad and printed in black ABS on a Prusa MK3 hang one above the other in a secondhand wire postcard rack, and water poured into the top pot drips through holes in each pot into the one below, all the way down the tower',
+				},
+			},
+			lineage: [{ label: 'Also 3D-printed', title: 'PixelPane' }],
 		},
 	},
 
@@ -346,6 +391,30 @@ export const projects: Project[] = [
 		tech: ['JavaScript', 'MongoDB Realm', 'RGB LEDs', 'Real-Time Sync'],
 		blogUrl: '/blog/building-a-real-time-digital-graffiti-wall/',
 		sourceUrl: 'https://github.com/JoeKarlsson/digital-graffiti-wall',
+		page: {
+			slug: 'digital-graffiti-wall',
+			tagline:
+				'A shared 32x32 canvas that everyone in the room paints at once, shown on a real LED grid.',
+			introHeading: 'Artist statement',
+			intro: [
+				'At a tech talk, the audience mostly sits there and types questions into a chat. I wanted everyone in the room to make something together instead, so I built a wall they could all paint on at once.',
+				"You open a link on your phone, pick a color and draw on a small grid, and every pixel shows up on everyone else's screen and on a real LED grid. There are no accounts, and if two people paint the same pixel, the last one wins. The best part was watching a room organize itself: someone starts drawing a shape and others join in, or groups fight over the corners. A 32x32 grid forces creativity in a way a blank whiteboard never would.",
+				"I've retired the wall, but the LED panel still sits on the shelf next to my desk. In 2026 it became PixelPane.",
+			],
+			made: {
+				text: [
+					'The canvas is a 32x32 grid of plain HTML divs in eight colors, and each pixel is one document in MongoDB with a color and an x, y coordinate. You sign in anonymously through MongoDB Realm, your pixel changes color right away and the write goes out behind it, and every screen and the LED grid read the whole grid again every 5 seconds. [The post](/blog/building-a-real-time-digital-graffiti-wall/) has the code.',
+				],
+				diagram: {
+					src: '/images/blog/building-a-real-time-digital-graffiti-wall/architecture.svg',
+					alt: 'How the wall works: the canvas in the browser writes pixels through the MongoDB Realm SDK with anonymous sign-in to MongoDB Atlas, which holds 1,024 pixel documents, and a microcontroller reads that state and lights the LED matrix',
+				},
+			},
+			lineage: [
+				{ label: 'Before it', title: 'IoT Kitty Litter Box' },
+				{ label: 'Led to', title: 'PixelPane' },
+			],
+		},
 	},
 	{
 		title: 'Wave Jump',
@@ -364,30 +433,28 @@ export const projects: Project[] = [
 		page: {
 			slug: 'wave-jump',
 			tagline: "Two players, one keyboard, and a wave that won't hold still.",
+			introHeading: 'Artist statement',
+			credit: 'with Cal Carlson, Daniel Olson and Lisa Mabley',
 			intro: [
-				'Wave Jump is a race for two people sharing one keyboard. You each ride a white wave across a sunset grid, and the wave keeps rolling under you the whole time. A checkered gate sits somewhere below it, and whoever dives through first gets the point.',
-				'Cal Carlson, Daniel Olson, Lisa Mabley and I built it at Global Game Jam 2018, over the weekend of January 26 to 28, with Phaser. The wave is hundreds of small sprites, each one pushed up and down along a sine curve with a new height every frame, so you never get the same wave twice.',
-				"In 2025 I moved it to a modern build so it still runs in a browser, and in November 2026 I tuned it again: it plays the same in any size window, the wave holds you up even on a slow computer, and it goes full screen. It needs two players and a keyboard, so it won't work on a phone.",
+				"Cal Carlson, Daniel Olson, Lisa Mabley and I made Wave Jump at Global Game Jam 2018. It's a race for two people sharing one keyboard, one on W A S D and the other on the arrow keys. You each ride a white wave across an 80s sunset grid, and whoever dives through the checkered gate first gets the point.",
+				'The wave never holds still, and you never get the same one twice, so nobody gets to learn the course.',
+				"It needs two people at one keyboard, so it won't work on a phone, and it won't work alone.",
 			],
 			embedUrl: 'https://wavejump.joekarlsson.com/',
 			// The game scales its 1920x1080 world to fit, so it runs at the box's real size
 			embedHeight: '56.25cqw',
 			embedNote:
 				'Click the game to start. Player 1 uses W A S D, player 2 the arrow keys. It starts muted here; the buttons in the corner turn sound on and go full screen.',
-			steps: [
-				{
-					title: 'Player 1',
-					text: '`W` jumps, `A` and `D` steer, and `S` dives through the wave.',
+			made: {
+				text: [
+					'The wave is 964 small sprites, and every frame each one gets a new up-and-down speed from a sine curve, with a random strength rolled for the whole wave. We built it in Phaser over the weekend of January 26 to 28, 2018. In 2025 I moved it to a modern build so it still runs in a browser, and in November 2026 I tuned it again: it plays the same in any size window, the wave holds you up even on a slow computer, and it goes full screen.',
+				],
+				diagram: {
+					src: '/images/projects/wave-jump/how-the-wave-moves.svg',
+					alt: "How Wave Jump's wave works: 964 small sprites across the screen, each given a new up-and-down speed every frame from a sine curve with a random strength, which both players ride, dive through and race to the gate for a point",
 				},
-				{
-					title: 'Player 2',
-					text: 'The arrow keys do the same on the other side of the keyboard.',
-				},
-				{
-					title: 'Score',
-					text: 'First one through the gate gets the point. Click or press the spacebar for the next round.',
-				},
-			],
+			},
+			lineage: [{ label: 'Before it', title: 'Go Home Tanuki' }],
 		},
 	},
 	{
@@ -407,16 +474,28 @@ export const projects: Project[] = [
 		page: {
 			slug: 'go-home-tanuki',
 			tagline: 'Get a drunk tanuki home, at least for tonight.',
+			introHeading: 'Artist statement',
+			credit: 'with Kent Salcedo, Sarah Kurisu and Corina',
 			intro: [
-				'Go Home Tanuki (You\'re Drunk) was our game for Global Game Jam 2016, where the theme was "Ritual." We based ours on the long hours that are common in Japanese office jobs: work late, go drinking with coworkers, get home somehow, and do it again tomorrow. Our worker is a tanuki, the raccoon dog from Japanese folklore.',
-				'You click, tap or press the spacebar to fly him home through the night, past clouds and rocks. Sake raises his drunkness, and your score is his drunkness times how long he lasts, plus a bonus for distance and sake combos. Once he gets to 10, the lamps and clouds come at you a lot faster.',
-				'I made it over one weekend with Kent Salcedo, Sarah Kurisu and Corina. In 2025 I moved it to a modern build so it still runs in a browser, and in November 2026 I tuned it again: it fits any screen, plays on phones, keeps your high score and goes full screen.',
+				'The theme for Global Game Jam 2016 was "Ritual," and we picked one a lot of office workers know: work late, go drinking with your coworkers, get home somehow, and do it again tomorrow. We based it on the long hours that are common in Japanese office jobs. Our worker is a tanuki, the raccoon dog from Japanese folklore.',
+				'You fly him home through the night past clouds and rocks. Sake makes him drunker, and the drunker he gets, the higher you score, so the game pays you for the part of the night that wrecks him. Once he gets to 10, the lamps and clouds come at you a lot faster.',
+				'He never gets home. A run ends when he hits a cloud or a rock, and the title screen puts him back at the bar, slumped over while his phone rings to tell him to come home.',
 			],
 			embedUrl: 'https://tanuki.joekarlsson.com/',
 			// The game is 4:3 and scales to fit, so the box matches it and it runs at real size
 			embedHeight: '75cqw',
 			embedNote:
 				'Click the game to start, then click or press the spacebar to fly. It starts muted here; the buttons in the corner turn sound on and go full screen.',
+			made: {
+				text: [
+					'We made it over one weekend in Phaser. In 2025 I moved it to a modern build so it still runs in a browser, and in November 2026 I tuned it again: it fits any screen, plays on phones, keeps your high score and goes full screen.',
+				],
+				diagram: {
+					src: '/images/projects/go-home-tanuki/how-a-run-scores.svg',
+					alt: 'How a run of Go Home Tanuki scores: drunkness starts at 5, sake adds 1 or 3, he sobers up by 1 every 3 seconds, at 10 the lamps and clouds speed up for the rest of the run, and when he hits a cloud or rock the score is drunkness times seconds, plus 10 per meter, plus a combo bonus',
+				},
+			},
+			lineage: [{ label: 'Next game jam', title: 'Wave Jump' }],
 		},
 	},
 	{
@@ -468,15 +547,24 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			intro: [
 				'Everybody has watched the DVD screensaver, and nobody made it for anyone to watch. It existed to keep a TV left on from burning the logo into the screen. Somehow whole rooms of people ended up watching it drift toward a corner and groaning when it missed by a few pixels, which was almost every time.',
-				'I called my version Nothing But Corners, because that\'s all it does. I aim every bounce, so the logo lands in a corner every single time. That took a lot more math than a joke should need. I unfold the screen into a grid so a bouncing path becomes a straight line, aim at a corner in that grid, and throw out any path that bounces off a wall too close to a corner. Most of that work went into getting rid of the near miss, and the near miss was why people watched the original. Click and you get another logo, then another, until the screen fills up with logos landing in corners. Turn the sound on and every corner gets a thump and a cheer, kids yelling "yay" or a round of applause.',
-				'You were waiting for something else when you watched the real one, a movie to start or someone to find the remote, and it happened to be on. The near misses kept people watching. Mine hits every time, so after about a minute I get bored of it.',
+				'I called my version Nothing But Corners, because that\'s all it does. I aim every bounce, so the logo lands in a corner every single time. Most of the work went into getting rid of the near miss, and the near miss was why people watched the original. Click and you get another logo, then another, until the screen fills up with logos landing in corners. Turn the sound on and every corner gets a thump and a cheer, kids yelling "yay" or a round of applause.',
 				"Cory Arcangel's Super Mario Clouds hacked a Mario cartridge until only the scrolling sky was left. Both pieces take software everybody already knows and remove part of it.",
-				"It's also useless on purpose. I've been making things nobody needs for a long time, from co-organizing the Stupid Shit No One In Hawaii Needs hackathon in 2017 to gluing seeds to cardboard one at a time to make pictures. Both took a lot of work for something with no use, and I liked doing them.",
+				'You were waiting for something else when you watched the real one, a movie to start or someone to find the remote, and it happened to be on. The near misses kept people watching. Mine hits every time, so after about a minute I get bored of it.',
 			],
 			embedUrl: 'https://joekarlsson.github.io/nothing-but-corners/',
 			embedOnPhones: true,
 			embedHeading: 'Watch it',
 			embedNote: 'Click inside to add another logo.',
+			made: {
+				text: [
+					'Aiming a bounce took a lot more math than a joke should need. I unfold the screen into a grid of mirrored copies, so a path that bounces off the walls becomes a straight line, then aim that line at a corner in the grid and throw out any path that touches a wall too close to a corner. [The code is on GitHub](https://github.com/JoeKarlsson/nothing-but-corners).',
+				],
+				diagram: {
+					src: '/images/projects/nothing-but-corners/how-it-aims.svg',
+					alt: 'How Nothing But Corners aims the logo: the screen mirrored into a grid where one straight line, three screens across and two up, folds back into three bounces that end in a corner, and any bounce within a quarter of the screen of a corner is thrown out',
+				},
+			},
+			lineage: [{ label: 'Also takes something away', title: 'Punc' }],
 		},
 	},
 	{
@@ -496,12 +584,21 @@ export const projects: Project[] = [
 		page: {
 			slug: 'stupid-hackathon-hawaii',
 			tagline: "Let's build something we will all regret.",
+			introHeading: 'Artist statement',
+			credit: 'with Ray Farias',
 			intro: [
-				'Ray Farias and I put on the Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon in Honolulu in January 2017, hosted by DevLeague, the coding bootcamp where I taught. It was one day of building projects with no value whatsoever, open to programmers, hardware hackers, artists, musicians and, according to the site, space whales.',
-				"It's a local edition of the Stupid Shit No One Needs and Terrible Ideas Hackathon, which started in New York, and the site links out to the other ones around the world.",
-				"People built a Chrome extension that switches every font to Comic Sans and breaks every link, an Alexa that has had enough of your shit, a cardboard laptop and smartphone, a 3D-printed rubber duck keycap to talk to when you're stuck, and an official survey with the worst UX we could manage that never ends. Naked Nudeles took the people's choice award. My entry was App-All-O-Gizer, which emails apologies for you.",
-				'Ray started the site and I styled it. After the event I filled in the entries, the winners and the names of everyone who built them, so it also works as the record of that day.',
-				'Most hackathons judge you on whether your idea could turn into a company. This one gave prizes for the stupidest idea, and people still worked all day on theirs.',
+				'In 2016 Ray and I went to a new hackathon about once or twice a month, and most of them were sponsored by a company that wanted something back: free development work, developers using its product, or new hires. A lot of them also ran on the idea that four hackers and 48 hours could fix climate change or homelessness.',
+				'Ray Farias and I put on the Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon to do the opposite. It was one day in January 2017 at DevLeague, the coding bootcamp where I taught, for projects with no value whatsoever, open to programmers, hardware hackers, artists, musicians and, according to the site, space whales. We stole the idea from the Stupid Hackathon in New York because we wanted to bring that hacker anarchist fun down to Hawaii. We had no corporate sponsors, and the prizes went to the stupidest ideas.',
+				"About 60 people came and built a Chrome extension that switches every font to Comic Sans and breaks every link, an Alexa that has had enough of your shit, a cardboard laptop and smartphone, a 3D-printed rubber duck keycap to talk to when you're stuck, and an official survey with the worst UX we could manage that never ends. Naked Nudeles took the people's choice award. My entry was App-All-O-Gizer, which emails apologies for you. Everyone there was building for the joy of making something, not for profit or glory.",
+			],
+			made: {
+				text: [
+					"Ray started the site and I styled it. It's plain HTML on GitHub Pages, and it links out to the other Stupid Hackathons around the world. Hackathon projects usually disappear the Monday after, so once it was over I filled in every entry, the winners and the names of everyone who built them, and the site is also the record of that day.",
+				],
+			},
+			lineage: [
+				{ label: 'Made there', title: 'App-All-O-Gizer' },
+				{ label: 'Also with Ray', title: 'PostStream' },
 			],
 		},
 	},
@@ -520,11 +617,11 @@ export const projects: Project[] = [
 		page: {
 			slug: 'app-all-o-gizer',
 			tagline: "Never be sorry you weren't sorry again.",
+			introHeading: 'Artist statement',
 			intro: [
-				"I built App-All-O-Gizer in a day at the Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon in January 2017. Sometimes you hurt people and don't even know it, so the pitch was to apologize on a schedule, once a month, once a week or every day, and cover yourself either way.",
-				'You type in someone\'s email address and click Send Email. The app picks one of 13 apologies at random and sends it from a Gmail account. They range from missing an anniversary to peeing the bed to murder, and every one signs off with "Email sent by appallogizer.com".',
+				"I built App-All-O-Gizer in a day at the Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon in January 2017. The pitch was that sometimes you hurt people and don't even know it, so you should apologize on a schedule, once a month, once a week or every day, and cover yourself either way.",
+				'You type in someone\'s email address and click Send Email, and they get one of 13 apologies picked at random. They range from missing an anniversary to peeing the bed to murder, and every one signs off with "Email sent by appallogizer.com".',
 				'The schedule never got built. I installed node-cron and ran out of day, so every click sends one apology right away. An apology app that never followed through seemed right for this hackathon.',
-				"The site is offline now, so the clip is the demo GIF from the project's README.",
 			],
 			screenshots: [
 				{
@@ -536,6 +633,21 @@ export const projects: Project[] = [
 					poster: '/images/projects/app-all-o-gizer-poster.webp',
 					alt: 'A Gmail inbox showing an email from app.all.o.gizer@gmail.com titled "Sorry about the murder": "It was a total freak accident that I murdered that guy last week. I hope that you will find it in your heart to forgive me for my heinous crime against humanity."',
 					caption: 'One of the 13 apologies it picks from',
+				},
+			],
+			made: {
+				text: [
+					"It's a small Express app that sends the email through Gmail with Nodemailer. The site is offline now, so the clip is the demo GIF from the project's README.",
+				],
+				diagram: {
+					src: '/images/projects/app-all-o-gizer/how-it-sends-an-apology.svg',
+					alt: "How App-All-O-Gizer sends an apology: you type someone's email address and click Send Email, the Express server picks one of 13 apologies at random and sends it through Gmail with Nodemailer straight to their inbox, and the monthly, weekly or daily schedule with node-cron was never built",
+				},
+			},
+			lineage: [
+				{
+					label: 'Made at',
+					title: 'Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon',
 				},
 			],
 		},
@@ -783,7 +895,7 @@ export const projects: Project[] = [
 		imageAlt:
 			"Rose Hobart in close-up from Joseph Cornell's 1936 film while the projector presets change it: Cornell blue, a pink filter, nitrate decay, a broken projector and digital decay, then amber and green gels",
 		date: '2017-10',
-		tech: ['React', 'Vite', 'WebGL', 'CSS filters'],
+		tech: ['Astro', 'TypeScript', 'WebGL2'],
 		sourceUrl: 'https://github.com/JoeKarlsson/rose-hobart',
 		demoUrl: 'https://rosehobart.joekarlsson.com/',
 		stars: 2,
@@ -791,6 +903,7 @@ export const projects: Project[] = [
 			slug: 'rose-hobart',
 			tagline: "Joseph Cornell's Rose Hobart, remastered for the web.",
 			introHeading: 'Supporting statement',
+			credit: 'with Laurel Karlsson',
 			intro: [
 				"The first showing of Joseph Cornell's short film Rose Hobart is the stuff of legend. Famously, the film's 1936 premier ended with Salvador Dalí storming out, claiming that the film had been stolen directly from his subconscious (Pigott 5). Very little else is known about this original showing; Cornell would not show the film again for nearly thirty years. Currently, only one version of Rose Hobart continues to be circulated; this version comes from Cornell's 1960s showings, leaving the performative details of the premier shrouded in mystery (Pigott 21).",
 				'Screenings of Rose Hobart were originally highly performative. In contrast to the currently available digital version which is “frozen” in time, several aspects of Cornell’s screenings were subject to change. First, the film was shown with a tinted filter. While the current version shows a deep blue tint being used, any number of colors could have been used in the other showings, with some evidence pointing to the use of a pink filter (Pigott 20). Second, the film was shown either at the standard 24 frames per second or 16 frames per second, also known as “silent speed” (Pigott 21). Today’s surviving version shows the film in the slightly slower “silent speed,” giving the short film a dreamier quality that is practically undetectable to the untrained eye. Lastly, due to the silence of the film itself, different music was paired with the film as it was shown. The version that remains today is paired with two jaunty tracks by Nestor Amaral and His Continentals, from their 1957 album Holiday in Brazil (Pigott 24). Because these songs were not released until 1957, it’s clear that different music was used in the original 1936 screening, and likely in other screenings as well. Unfortunately, there is no documentation of what that music might have been.',
@@ -810,6 +923,16 @@ export const projects: Project[] = [
 					caption: 'The Pink filter preset, one of the colors Cornell may have used',
 				},
 			],
+			made: {
+				text: [
+					'Viewers run the projector. Six presets, the gels, an Age dial from fresh print to nitrate rot and a Glitch dial from clean to datamoshed all feed one WebGL2 shader that repaints every frame. Speed switches between 16 frames a second, the silent speed of the surviving version, and 24, and the pitch drops with it. The music can be the film\'s 1957 records, eight public-domain 78s from 1919 to 1924, My Bloody Valentine\'s "Soon" or silence.',
+				],
+				diagram: {
+					src: '/images/projects/rose-hobart/the-booth.svg',
+					alt: "How the Rose Hobart booth works: you run the projector, and the presets, gels, Age dial and Glitch dial all feed one WebGL2 shader that repaints every frame, speed sets the playback rate at 16 or 24 frames a second with the pitch moving too, and music swaps in the film's 1957 records, eight 78s, one 1990 song or silence",
+				},
+			},
+			lineage: [{ label: 'Also with Laurel', title: 'Bechdel.io' }],
 		},
 	},
 	{
@@ -1123,6 +1246,25 @@ export const projects: Project[] = [
 		tech: ['Node.js', 'Cheerio', 'npm', 'CLI'],
 		sourceUrl: 'https://github.com/JoeKarlsson/movie-script-scraper',
 		stars: 14,
+		page: {
+			slug: 'movie-script-scraper',
+			tagline: 'Downloads movie scripts by genre, as text files you can count.',
+			introHeading: 'Artist statement',
+			intro: [
+				'To check movies against the Bechdel Test, Bechdel.io needed a lot of movie scripts as plain text. The Internet Movie Script Database has plenty of them, but one web page at a time, laid out for people to read.',
+				'Movie Script Scraper turns that into files. You name a genre and how many scripts you want, and it saves each one as a text file you can search and count. Tim Kendall started it in 2014, and I rewrote it and put it on npm in 2018.',
+			],
+			made: {
+				text: [
+					"It's a Node.js CLI and npm package. It fetches five scripts at a time, retries the ones that fail, and saves one text file per movie in a folder named for the genre. [The code is on GitHub](https://github.com/JoeKarlsson/movie-script-scraper).",
+				],
+				diagram: {
+					src: '/images/projects/movie-script-scraper/how-it-gets-scripts.svg',
+					alt: "How Movie Script Scraper gets scripts: you give it a genre, it loads that genre's page on IMSDB and finds every script link, fetches five scripts at a time with up to three retries, keeps each script's text if it has at least 500 characters, and saves one .txt per movie in a folder named for the genre, which is where Bechdel.io's scripts came from",
+				},
+			},
+			lineage: [{ label: 'Written for', title: 'Bechdel.io' }],
+		},
 	},
 	{
 		title: 'Python Sudoku Generator & Solver',
@@ -1153,23 +1295,11 @@ export const projects: Project[] = [
 		page: {
 			slug: 'adult-swim-bumper',
 			tagline: 'Adult Swim-style bumpers for your Plex server.',
+			introHeading: 'Artist statement',
 			intro: [
-				'A small Python CLI that turns a few lines of YAML into ten-second bumpers: plain white text over a background clip, some music underneath, and your server name in brackets at the end. Exactly like the ones I stayed up way too late watching on Adult Swim.',
-				'I built it for Joeflix, the Plex server I run for friends and family. 121 of these play in rotation before movies now, and people who join the server bring them up all the time.',
-			],
-			steps: [
-				{
-					title: 'Write the jokes',
-					text: 'Each bumper in `bumpers.yaml` gets a name, two to four text cards, a background clip, and a music track.',
-				},
-				{
-					title: 'Render',
-					text: '`bumper render` builds an MP4 for every new bumper with ffmpeg and adds `[yourserver]` as the last card.',
-				},
-				{
-					title: 'Play them before movies',
-					text: 'Drop the output folder into NeXroll, or any pre-roll manager, and it shuffles them before every movie.',
-				},
+				"Adult Swim's bumpers were a black screen and plain white text, one card at a time, then [adult swim] and you were back in the show. Sometimes they were a joke and sometimes they were weirdly sincere. I stayed up way too late watching them, and they stuck with me longer than most of the shows did. It was the first TV I watched that seemed like weirdos made it for other weirdos.",
+				"I run a Plex server called Joeflix for my friends and family, and Plex has no personality. You hit play and it could be anyone's server. The one place it lets you say something is the short video before a movie, so every movie on Joeflix now opens with a personal message from me to my friends. There are 121 in rotation, mostly about Minnesota or how much I spend on hard drives, and some of them are just dumb.",
+				"One bumper tells you that somewhere, someone is paying $22 a month, and not you. The ones people bring up are like that, a jellyfish telling them there's no algorithm. Nobody has ever said a word about my transcoding settings.",
 			],
 			install:
 				'pipx install git+https://github.com/joekarlsson/adult-swim-bumper.git\nbumper init\nbumper render',
@@ -1214,6 +1344,16 @@ export const projects: Project[] = [
 					'A plain black screen with white text cards reading "This server has seen things." then "Mostly Nicolas Cage." then "And regret." and finally "[joeflix]"',
 				),
 			],
+			made: {
+				text: [
+					"It's a small Python CLI on top of ffmpeg. Each bumper is a few lines of YAML, and `bumper render` turns it into a ten-second MP4 with the cards fading through one at a time, music underneath and the server name in brackets at the end. [NeXroll](https://github.com/JFLXCLOUD/NeXroll) shuffles them before every movie. Plex only plays pre-rolls before movies, so TV episodes still start cold.",
+				],
+				diagram: {
+					src: '/images/blog/adult-swim-bumpers-plex-pre-rolls/how-a-bumper-gets-made.svg',
+					alt: 'How a bumper gets made: each bumper is a few lines in bumpers.yaml with two to four text cards, a background clip and a music track; bumper render uses ffmpeg to write a ten-second MP4 ending on a [yourserver] card; NeXroll shuffles the MP4s, and Plex plays one before every movie on Joeflix, while TV episodes start cold',
+				},
+			},
+			lineage: [{ label: 'Same server', title: 'Streamroll' }],
 		},
 	},
 	{
@@ -1233,10 +1373,11 @@ export const projects: Project[] = [
 		page: {
 			slug: 'streamroll',
 			tagline: 'Netflix-style intros for your own media server.',
+			introHeading: 'Artist statement',
 			intro: [
-				'Streamroll makes the short intro that plays before every movie on a home media server, like the Netflix "tudum" but for your own Plex. You type a name like Joeflix, pick a style, and about 30 seconds later you have an .mp4 to drop into Plex, Jellyfin or Emby as a pre-roll.',
-				'It chains two Runway API calls. The first turns a prompt tuned to the style into a 1920x1080 title card, and the second animates that still into a 4 or 5 second clip. Each style picks its own image model, video model and length.',
-				'There are no server-side keys: you bring your own Runway API key, so anyone can run it. You approve the logo before spending video credits, you can mix in your own audio right in the browser, and `Copy as script` gives you the Node.js code that made your clip.',
+				'Plex, Jellyfin and Emby will all play a short video before every movie, the way Netflix plays its sting, but most people who run their own server skip it or spend hours finding one.',
+				"Streamroll makes one from your server's name. You type a name like Joeflix, pick a style, and about 30 seconds later you have a title card that moves, ready to drop in. You approve the still before it turns into video, and you can mix in your own audio right in the browser.",
+				"It runs on your own Runway API key, so there's no account and nothing to pay me. `Copy as script` gives you the Node.js code that made your clip, so you can make the next one without my site.",
 			],
 			galleryTitle: 'Intros it made',
 			galleryNote: 'Six styles, all from the name STREAMROLL. Hover to play.',
@@ -1278,6 +1419,16 @@ export const projects: Project[] = [
 					caption: 'Adult Swim bumper',
 				},
 			],
+			made: {
+				text: [
+					'It chains two Runway API calls. The first turns a prompt tuned to the style into a 1920x1080 title card, and the second animates that still into a clip of 2 to 5 seconds. Each style picks its own image model, video model and length. Your Runway key stays in your browser and goes along with each request, and the server never stores it.',
+				],
+				diagram: {
+					src: '/images/projects/streamroll/how-streamroll-makes-an-intro.svg',
+					alt: 'How Streamroll makes an intro: you give it a name, a style and your own Runway key, the style picks the image model, video model and length, Runway turns a prompt into a title card that you approve or redo, Runway animates it into a 2 to 5 second clip, your own audio can be mixed in your browser with FFmpeg.wasm, and the .mp4 becomes a pre-roll in Plex, Jellyfin or Emby',
+				},
+			},
+			lineage: [{ label: 'Same server', title: 'Adult Swim Bumper' }],
 		},
 	},
 	{
