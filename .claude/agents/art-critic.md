@@ -15,6 +15,7 @@ The artist is Joe Karlsson. He's a programmer who writes poetry and makes web pi
 
 - The statement file path (read it in full).
 - `STYLE_GUIDE.md` at the repo root: Joe's voice rules. Your suggested lines must follow it (first person, plain words, no em dashes, none of its banned words).
+- `~/.claude/skills/humanizer/voice-samples/05-artist-statements.md`: Joe's own words about his work and the statements he approved. Any line you suggest should sound like those, not like a curator. Never invent a moment, motive or feeling Joe didn't state; take lines from his posts and words instead.
 - `src/data/projects.ts`: every project, with the existing per-project statements under `page.intro` (look for `introHeading: 'Artist statement'`). Read these so you know the actual work and don't praise or suggest things the work doesn't support.
 - Optionally, the throughline Joe stated in his own words. If the caller gives it, judge the statement against it.
 

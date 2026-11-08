@@ -174,9 +174,11 @@ export const projects: Project[] = [
 		page: {
 			slug: 'pixelpane',
 			tagline: 'A 32x32 LED pixel art frame on my shelf, driven by a Raspberry Pi.',
+			introHeading: 'Artist statement',
 			intro: [
-				"PixelPane plays pixel art GIFs mixed with live, animated scenes: the clock, the weather, what's playing, my next meeting, and decorations that change with the seasons. From the front it's a dark mirror until the LEDs light up behind it.",
-				"It's open source and plugin-based, like MagicMirror. Home Assistant, or anything that can send an HTTP request, pushes notifications and data to it, and it has its own control page, with a live preview of the panel, for everything else.",
+				"PixelPane is a dark mirror on the shelf next to my desk until its lights come on, and most of the time it just shows pixel art: a pumpkin in October, a snowman in December, tonight's moon in its real phase. It's an art project first, born from the 8-bit and 16-bit games I've been playing on emulators.",
+				'What I love about that art is how much it does with almost nothing. A 32x32 grid is 1,024 pixels, enough for a pumpkin with a face or a rain cloud, and not enough to look like a phone. Only a few things get to interrupt it, like ON AIR when my camera turns on or a yellow flash for the doorbell, and I keep that list short on purpose so a flash still means something. Then the art comes back.',
+				"The board is mine, but almost none of the art on it is. Most of it comes from pixel artists who give their work away on OpenGameArt, itch.io and Kenney, and I've been collecting it since 2020. I pick what goes on it, and I only keep art someone drew at this size, because a video shrunk down to 32x32 turns to mush.",
 			],
 			tour: {
 				video: `${PIXELPANE_DIR}/tour.mp4`,
@@ -184,20 +186,6 @@ export const projects: Project[] = [
 				captions: `${PIXELPANE_DIR}/tour.vtt`,
 				alt: 'A quick tour of PixelPane: me at my desk showing the web UI, the homelab stats, music and calendar scenes, the shadow box build, the GIF animator and live drawing',
 			},
-			steps: [
-				{
-					title: 'Behind a mirror',
-					text: 'A 32x32 LED panel sits behind a 3D-printed grid and a two-way mirror in a shadow box, so every LED reads as a square pixel.',
-				},
-				{
-					title: 'Scenes are plugins',
-					text: 'A playlist mixes GIFs with animated scenes. Each scene comes from a plugin, and a plugin is one Python file.',
-				},
-				{
-					title: 'Home Assistant pushes to it',
-					text: "Home Assistant sends ON AIR, doorbell and laundry alerts, the weather and what's playing. It only receives, so it never needs a Home Assistant token.",
-				},
-			],
 			galleryTitle: 'Clips',
 			galleryNote: 'Recorded from the control page. Hover to play.',
 			gallery: [
@@ -226,14 +214,17 @@ export const projects: Project[] = [
 					caption: 'The GIF library',
 				},
 			],
-			screenshotsTitle: 'Inside',
-			screenshots: [
-				{
-					poster: `${PIXELPANE_DIR}/build-layers.svg`,
-					alt: 'Side view of the inside of the shadow box: from the front, a two-way mirror, an optional diffuser, the 3D-printed light grid, the LED panel facing forward, then the Raspberry Pi with the RGB Matrix HAT and a 5 V 4 A power supply going to the wall',
-					caption: 'Inside the shadow box',
+			made: {
+				text: [
+					'A 32x32 LED panel sits behind a 3D-printed grid and a two-way mirror in a shadow box, so every LED reads as a square pixel. A Raspberry Pi plays a Python playlist of GIFs and animated scenes, and every scene is a plugin, one Python file.',
+					'Home Assistant pushes alerts and data to the board, and the board never reads back, so it needs no Home Assistant token. [The repo](https://github.com/JoeKarlsson/pixelpane) has the parts list, the printable grid and the installer.',
+				],
+				diagram: {
+					src: `${PIXELPANE_DIR}/build-layers.svg`,
+					alt: 'Side view of the inside of the shadow box: from the front, a two-way mirror, an optional diffuser, the 3D-printed light grid, the LED panel facing forward, then the Raspberry Pi with the RGB Matrix HAT and a 5 V 4 A power supply',
 				},
-			],
+			},
+			lineage: [{ label: 'Grew out of', title: 'Digital Graffiti Wall' }],
 		},
 	},
 	{
@@ -726,6 +717,16 @@ export const projects: Project[] = [
 				"The Deletionist was a big inspiration. It's a bookmarklet by Amaranth Borsuk, Nick Montfort and Jesper Juul that erases most of the text on any web page you run it on and leaves a poem behind. linger goes the other direction. It starts with the erased version, a few words left on the page, and gives the rest back if you stay.",
 				"The page only measures how fast you're scrolling, and it doesn't save that anywhere. It has no analytics, no cookies and no share button, so I have no idea whether anyone has read one all the way through.",
 			],
+			made: {
+				text: [
+					'linger is plain HTML, CSS and about a hundred lines of JavaScript. Each poem lives in one file, where a plain word is always there, a word marked `^` comes when you pause, and a word marked `~` comes only if you stay. [The code is on GitHub](https://github.com/JoeKarlsson/linger).',
+				],
+				diagram: {
+					src: '/images/projects/linger/how-linger-reads-you.svg',
+					alt: 'How linger decides which words you get: it measures how fast you scroll; under 60 pixels a second every line on screen gathers time, between 60 and 700 nothing changes, and over 700 the lines lose time four times faster and go back to their plain words, and over 2,100 the page whispers slower; after 1.2 seconds the words marked with a caret fill in, and after 3.6 seconds the words marked with a tilde',
+				},
+			},
+			lineage: [{ label: 'Before it', title: 'Punc' }],
 			embedUrl: 'https://linger.joekarlsson.com/poem.html',
 			embedHeading: 'Read it',
 			embedNote: 'Scroll inside the poem, slowly.',
@@ -833,7 +834,6 @@ export const projects: Project[] = [
 				'Bechdel.io checks movie scripts against the Bechdel Test. The test comes from a 1985 Alison Bechdel comic strip, and it asks three things: are there at least two women, do they talk to each other, and do they talk about something other than a man.',
 				'A wall of movies most people have already seen, sorted into pass and fail, makes you look at them again. About half of the 218 films on the shelf fail, and a lot of them are favorites.',
 				"The counting is also where it goes wrong. To count women, the tool has to decide who is one, and it takes that answer from a film database that credits everyone as an actor or an actress. It can't see a trans character, a character whose gender changes during the film, or anyone who isn't a man or a woman. That two-box answer runs back through casting, award categories and the fan-run sites the data comes from, and the Bechdel Test has the same blind spot: it never says who the women are.",
-				'Data with room for only two answers loses most of what makes people interesting, and this project shows exactly where it happens.',
 				'My sister Laurel and I made it in 2015 and used it to study the Best Picture nominees at the 2015 Oscars. We released it as open source because we saw it as feminist activism.',
 			],
 			credit: 'with Laurel Karlsson',
