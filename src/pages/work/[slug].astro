@@ -3,7 +3,6 @@ import { inlineMarkdown } from '../../utils/inline-markdown';
 import {
 	ARTICLE_HEADING,
 	ARTICLE_TITLE,
-	ITEM_TITLE,
 	META,
 	MORE_LINK,
 	PAGE_CONTAINER,
@@ -13,6 +12,8 @@ import {
 import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BackLink from '../../components/BackLink.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Steps from '../../components/ProjectSteps.astro';
 import Scribble from '../../components/Scribble.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
@@ -40,6 +41,7 @@ const imageSizes = new Map(
 			project.image,
 			...(page.gallery ?? []).filter((clip) => !clip.video).map((clip) => clip.poster),
 			...(page.screenshots ?? []).map((shot) => shot.poster),
+			page.made?.diagram?.src,
 		]
 			.filter((src): src is string => typeof src === 'string' && src.startsWith('/'))
 			.map(async (src) => [src, await localImageSize(src)] as const),
@@ -67,6 +69,23 @@ const clipClass = square
 // doesn't load, as its stand-in.
 const screenshotsOnlyOnPhones = Boolean(page.embedUrl && !page.embedOnPhones);
 
+// Lineage names other projects by title; a typo fails the build instead of dropping a card
+const lineage = (page.lineage ?? []).map(({ label, title }) => {
+	const linked = projects.find((p) => p.title === title);
+	if (!linked)
+		throw new Error(`${project.title}'s lineage names "${title}", which isn't in projects.ts`);
+	return { label, project: linked };
+});
+
+// Like a blog post (BlogPost.astro), text keeps to one centered reading column and
+// pictures, embeds and grids break out to the article's full width (prose wide-media)
+const WIDE = 'width: 100cqw; margin-inline: calc((100% - 100cqw) / 2)';
+
+// The year and any collaborator; a page with a How it's made section lists its stack there
+const byline = [project.date.slice(0, 4), page.credit, !page.made && project.tech.join(' · ')]
+	.filter(Boolean)
+	.join(' · ');
+
 // The sidebar lists the sections this page has, in page order; ids match the h2s below
 const sections = [
 	page.introHeading && { slug: 'statement', text: page.introHeading },
@@ -80,6 +99,8 @@ const sections = [
 			slug: 'screenshots',
 			text: page.screenshotsTitle ?? 'Screenshots',
 		},
+	page.made && { slug: 'how-its-made', text: "How it's made" },
+	lineage.length > 0 && { slug: 'lineage', text: 'Lineage' },
 ].filter((section): section is { slug: string; text: string } => Boolean(section));
 
 // Page copy is plain text with `backticks` for inline code - escape first so
@@ -93,7 +114,7 @@ const sections = [
 	imageAlt={project.imageAlt}
 	schemaType="SoftwareSourceCode"
 >
-	{/* Same frame as a blog post (BlogPost.astro): an "On this page" sidebar beside a single column */}
+	{/* The blog post's frame (BlogPost.astro): an "On this page" sidebar beside the article */}
 	<div class={PAGE_CONTAINER}>
 		<div class={SIDEBAR_GRID}>
 			{sections.length > 1 ? (
@@ -102,11 +123,12 @@ const sections = [
 				<div class="hidden xl:block" />
 			)}
 
-			<article class="min-w-0">
-				<BackLink href="/work/" label="Projects" />
+			{/* @container: the wide blocks below size themselves to this column */}
+			<article class="@container min-w-0">
+				<BackLink href="/work/" label="Work" />
 
 				{/* Muted loops play while on screen (in-view-play) and stop with the pause-motion
-		button, which covers WCAG 2.2.2; no player controls, as the pink canvas covers them */}
+				button, which covers WCAG 2.2.2; no player controls, as the pink canvas covers them */}
 				<div class="relative mb-10">
 					{/* Off the corner, not over the picture: most project media has text in it */}
 					<Scribble
@@ -141,288 +163,15 @@ const sections = [
 					)}
 				</div>
 
-				<header class="mb-8">
-					<h1 class={ARTICLE_TITLE}>{project.title}</h1>
-					<p class="mb-3 font-serif text-xl leading-snug text-paper">{page.tagline}</p>
-					<p class={META}>{project.tech.join(' · ')}</p>
-				</header>
+				{/* Everything from here shares one column centered under the hero, as in a post */}
+				<div class="mx-auto max-w-(--reading-width)">
+					<header class="mb-8">
+						<h1 class={ARTICLE_TITLE}>{project.title}</h1>
+						<p class="mb-3 font-serif text-xl leading-snug text-paper">{page.tagline}</p>
+						<p class={META}>{byline}</p>
+					</header>
 
-				<div class="mb-12 flex flex-wrap items-center gap-x-6 gap-y-3">
-					{page.download && (
-						<a
-							href={page.download.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class={`plausible-event-name=Project+Download+Click ${PRIMARY_BUTTON}`}
-						>
-							{page.download.label} &rarr;
-						</a>
-					)}
-					{project.demoUrl && (
-						<a
-							href={project.demoUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
-						>
-							See it live &rarr;
-						</a>
-					)}
-					{project.sourceUrl && (
-						<a
-							href={project.sourceUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? MORE_LINK : PRIMARY_BUTTON}`}
-						>
-							View on GitHub &rarr;
-						</a>
-					)}
-					{project.blogUrl && (
-						<a href={project.blogUrl} class={MORE_LINK}>
-							Read why I built it
-						</a>
-					)}
-				</div>
-
-				{page.introHeading && (
-					<h2 id="statement" class={ARTICLE_HEADING}>
-						{page.introHeading}
-					</h2>
-				)}
-				{/* The column's full width, not the 32em reading cap blog posts use */}
-				<div class="prose mb-12 md:mb-16" style="max-width: none">
-					{page.intro.map((p) => (
-						<p set:html={inlineMarkdown(p)} />
-					))}
-				</div>
-
-				{page.embedUrl && (
-					<section class="mb-12 md:mb-16" aria-labelledby="play-it">
-						<h2 id="play-it" class={ARTICLE_HEADING}>
-							{page.embedHeading ?? 'Play it'}
-						</h2>
-						<p class="mb-4 text-paper">
-							<span class="embed-small:hidden">{page.embedNote ?? 'Click the game to play.'}</span>{' '}
-							<a
-								href={project.demoUrl ?? page.embedUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								class={MORE_LINK}
-							>
-								Open it full screen &rarr;
-							</a>
-						</p>
-						{/* Phones get the still, linking to the full-screen version: scaled to a phone's
-						width an embed's text can't be read, and the games want a keyboard and mouse.
-						A light embed that reads at phone size sets embedOnPhones and plays there too */}
-						{!page.embedOnPhones && (
-							<a
-								href={project.demoUrl ?? page.embedUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="embed-phone-poster block embed-large:hidden"
-							>
-								<img
-									src={project.image}
-									alt={project.imageAlt}
-									data-halftone="flat"
-									width="560"
-									height="315"
-									class="block aspect-video w-full rounded-lg object-cover"
-									loading="lazy"
-									decoding="async"
-								/>
-							</a>
-						)}
-						{page.embedHeight ? (
-							<div
-								class:list={[
-									'@container overflow-hidden rounded-lg',
-									{ 'embed-small:hidden': !page.embedOnPhones },
-								]}
-							>
-								<iframe
-									{...embedSource}
-									title={`${project.title}, playable in the browser`}
-									data-embed-project={project.title}
-									class="block w-full"
-									style={`border:0;height:${page.embedHeight}`}
-									allow="fullscreen; gamepad; autoplay"
-									allowfullscreen
-									loading="lazy"
-								></iframe>
-							</div>
-						) : (
-							<div
-								class:list={[
-									'aspect-video overflow-hidden rounded-lg',
-									{ 'embed-small:hidden': !page.embedOnPhones },
-								]}
-							>
-								<iframe
-									{...embedSource}
-									title={`${project.title}, playable in the browser`}
-									data-embed-project={project.title}
-									data-native-width="1280"
-									data-native-height="720"
-									style="border:0"
-									allow="fullscreen; gamepad; autoplay"
-									allowfullscreen
-									loading="lazy"
-								></iframe>
-							</div>
-						)}
-					</section>
-				)}
-
-				{/* A portrait tour leaves most of the column empty, so How it works sits beside it from md up */}
-				<div
-					class={
-						page.tour && page.steps
-							? 'md:grid md:grid-cols-[22rem_minmax(0,1fr)] md:items-start md:gap-x-10'
-							: undefined
-					}
-				>
-					{page.tour && (
-						<section class="mb-12 md:mb-16" aria-labelledby="tour">
-							<h2 id="tour" class={ARTICLE_HEADING}>
-								Tour
-							</h2>
-							{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
-							<video
-								src={page.tour.video}
-								poster={page.tour.poster}
-								controls
-								playsinline
-								preload="none"
-								aria-label={page.tour.alt}
-								class="mx-auto block w-full rounded-lg bg-ink object-contain"
-								style="aspect-ratio: 9 / 16; max-width: 22rem"
-							>
-								<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
-							</video>
-						</section>
-					)}
-
-					{page.steps && (
-						<section class="mb-12 md:mb-16" aria-labelledby="how-it-works">
-							<h2 id="how-it-works" class={ARTICLE_HEADING}>
-								How it works
-							</h2>
-							<ol class="grid max-w-[46rem] gap-y-7">
-								{page.steps.map((step, i) => (
-									<li class="grid grid-cols-[3.2rem_1fr] gap-x-4 border-t border-surface-4 pt-4">
-										<span
-											aria-hidden="true"
-											class="font-display text-[clamp(40px,4vw,56px)] leading-[0.9] text-pink"
-										>
-											{i + 1}
-										</span>
-										<div>
-											<h3 class={`mb-1 ${ITEM_TITLE}`}>{step.title}</h3>
-											<p class="text-paper" set:html={inlineMarkdown(step.text)} />
-										</div>
-									</li>
-								))}
-							</ol>
-						</section>
-					)}
-				</div>
-
-				{(page.install || page.example) && (
-					<section class="prose mb-12 md:mb-16" aria-labelledby="try-it">
-						<h2 id="try-it" class:list={['not-prose', ARTICLE_HEADING]}>
-							Try it
-						</h2>
-						{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
-						{page.example && (
-							<>
-								{page.example.intro && <p set:html={inlineMarkdown(page.example.intro)} />}
-								<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
-							</>
-						)}
-					</section>
-				)}
-
-				{page.gallery && (
-					<section class="mb-12 md:mb-16" aria-labelledby="examples">
-						<h2 id="examples" class={ARTICLE_HEADING}>
-							{page.galleryTitle ?? 'Gallery'}
-						</h2>
-						{page.galleryNote && (
-							<p class="mb-5 max-w-[60ch] text-paper" set:html={inlineMarkdown(page.galleryNote)} />
-						)}
-						<div
-							class={square ? 'grid gap-5' : 'grid gap-x-6 gap-y-8 sm:grid-cols-2'}
-							style={gridStyle}
-						>
-							{page.gallery.map((clip) => (
-								<figure class="m-0">
-									{clip.video ? (
-										<video
-											src={clip.video}
-											poster={clip.poster}
-											loop
-											muted
-											playsinline
-											preload="none"
-											aria-label={clip.alt}
-											data-autoplay-in-view
-											data-halftone={halftoneMode(clip.video)}
-											class={clipClass}
-											style={clipStyle}
-										/>
-									) : (
-										<img
-											src={clip.poster}
-											alt={clip.alt}
-											{...imageSizes.get(clip.poster)}
-											loading="lazy"
-											class={clipClass}
-											style={clipStyle}
-										/>
-									)}
-									{clip.caption && (
-										<figcaption class="mt-2 text-sm text-muted">{clip.caption}</figcaption>
-									)}
-								</figure>
-							))}
-						</div>
-					</section>
-				)}
-
-				{/* Screenshots and gallery stills stay in their own colors, so the interface reads as it really looks */}
-				{page.screenshots && (
-					<section
-						class:list={['mb-12 md:mb-16', { 'embed-large:hidden': screenshotsOnlyOnPhones }]}
-						aria-labelledby="screenshots"
-					>
-						<h2 id="screenshots" class={ARTICLE_HEADING}>
-							{page.screenshotsTitle ?? 'Screenshots'}
-						</h2>
-						<div class="grid gap-4">
-							{page.screenshots.map((shot) => (
-								<figure class="m-0">
-									<img
-										src={shot.poster}
-										alt={shot.alt}
-										{...imageSizes.get(shot.poster)}
-										loading="lazy"
-										class="mx-auto rounded-lg"
-										style="max-height: 720px; max-width: 100%"
-									/>
-									{shot.caption && (
-										<figcaption class="mt-2 text-sm text-muted">{shot.caption}</figcaption>
-									)}
-								</figure>
-							))}
-						</div>
-					</section>
-				)}
-
-				{(project.demoUrl || project.sourceUrl || page.download) && (
-					<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+					<div class="mb-12 flex flex-wrap items-center gap-x-6 gap-y-3">
 						{page.download && (
 							<a
 								href={page.download.url}
@@ -450,7 +199,7 @@ const sections = [
 								rel="noopener noreferrer"
 								class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? MORE_LINK : PRIMARY_BUTTON}`}
 							>
-								Get the code on GitHub &rarr;
+								View on GitHub &rarr;
 							</a>
 						)}
 						{project.blogUrl && (
@@ -459,18 +208,325 @@ const sections = [
 							</a>
 						)}
 					</div>
-				)}
 
-				<ShareLinks
-					url={new URL(`/work/${page.slug}/`, Astro.site).href}
-					title={project.shareTitle || project.title}
-					noun="project"
-					class="mb-6"
-				/>
+					{page.introHeading && (
+						<h2 id="statement" class={ARTICLE_HEADING}>
+							{page.introHeading}
+						</h2>
+					)}
+					<div class="prose mb-12 md:mb-16">
+						{page.intro.map((p) => (
+							<p set:html={inlineMarkdown(p)} />
+						))}
+					</div>
 
-				<a href="/work/" class={MORE_LINK}>
-					&larr; All projects
-				</a>
+					{page.embedUrl && (
+						<section class="mb-12 md:mb-16" aria-labelledby="play-it">
+							<h2 id="play-it" class={ARTICLE_HEADING}>
+								{page.embedHeading ?? 'Play it'}
+							</h2>
+							<p class="mb-4 text-paper">
+								<span class="embed-small:hidden">
+									{page.embedNote ?? 'Click the game to play.'}
+								</span>{' '}
+								<a
+									href={project.demoUrl ?? page.embedUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class={MORE_LINK}
+								>
+									Open it full screen &rarr;
+								</a>
+							</p>
+							<div style={WIDE}>
+								{/* Phones get the still, linking to the full-screen version: scaled to a phone's
+								width an embed's text can't be read, and the games want a keyboard and mouse.
+								A light embed that reads at phone size sets embedOnPhones and plays there too */}
+								{!page.embedOnPhones && (
+									<a
+										href={project.demoUrl ?? page.embedUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="embed-phone-poster block embed-large:hidden"
+									>
+										<img
+											src={project.image}
+											alt={project.imageAlt}
+											data-halftone="flat"
+											width="560"
+											height="315"
+											class="block aspect-video w-full rounded-lg object-cover"
+											loading="lazy"
+											decoding="async"
+										/>
+									</a>
+								)}
+								{page.embedHeight ? (
+									<div
+										class:list={[
+											'@container overflow-hidden rounded-lg',
+											{ 'embed-small:hidden': !page.embedOnPhones },
+										]}
+									>
+										<iframe
+											{...embedSource}
+											title={`${project.title}, playable in the browser`}
+											data-embed-project={project.title}
+											class="block w-full"
+											style={`border:0;height:${page.embedHeight}`}
+											allow="fullscreen; gamepad; autoplay"
+											allowfullscreen
+											loading="lazy"
+										></iframe>
+									</div>
+								) : (
+									<div
+										class:list={[
+											'aspect-video overflow-hidden rounded-lg',
+											{ 'embed-small:hidden': !page.embedOnPhones },
+										]}
+									>
+										<iframe
+											{...embedSource}
+											title={`${project.title}, playable in the browser`}
+											data-embed-project={project.title}
+											data-native-width="1280"
+											data-native-height="720"
+											style="border:0"
+											allow="fullscreen; gamepad; autoplay"
+											allowfullscreen
+											loading="lazy"
+										></iframe>
+									</div>
+								)}
+							</div>
+						</section>
+					)}
+
+					{/* A portrait tour leaves most of the column empty, so How it works sits beside it from md up */}
+					<div
+						class={
+							page.tour && page.steps
+								? 'md:grid md:grid-cols-[22rem_minmax(0,1fr)] md:items-start md:gap-x-10'
+								: undefined
+						}
+						style={page.tour && page.steps ? WIDE : undefined}
+					>
+						{page.tour && (
+							<section class="mb-12 md:mb-16" aria-labelledby="tour">
+								<h2 id="tour" class={ARTICLE_HEADING}>
+									Tour
+								</h2>
+								{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
+								<video
+									src={page.tour.video}
+									poster={page.tour.poster}
+									controls
+									playsinline
+									preload="none"
+									aria-label={page.tour.alt}
+									class="mx-auto block w-full rounded-lg bg-ink object-contain"
+									style="aspect-ratio: 9 / 16; max-width: 22rem"
+								>
+									<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
+								</video>
+							</section>
+						)}
+
+						{page.steps && (
+							<section class="mb-12 md:mb-16" aria-labelledby="how-it-works">
+								<h2 id="how-it-works" class={ARTICLE_HEADING}>
+									How it works
+								</h2>
+								<Steps steps={page.steps} />
+							</section>
+						)}
+					</div>
+
+					{(page.install || page.example) && (
+						<section class="prose mb-12 md:mb-16" aria-labelledby="try-it">
+							<h2 id="try-it" class:list={['not-prose', ARTICLE_HEADING]}>
+								Try it
+							</h2>
+							{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
+							{page.example && (
+								<>
+									{page.example.intro && <p set:html={inlineMarkdown(page.example.intro)} />}
+									<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
+								</>
+							)}
+						</section>
+					)}
+
+					{page.gallery && (
+						<section class="mb-12 md:mb-16" aria-labelledby="examples">
+							<h2 id="examples" class={ARTICLE_HEADING}>
+								{page.galleryTitle ?? 'Gallery'}
+							</h2>
+							{page.galleryNote && (
+								<p class="mb-5 text-paper" set:html={inlineMarkdown(page.galleryNote)} />
+							)}
+							<div
+								class={square ? 'grid gap-5' : 'grid gap-x-6 gap-y-8 sm:grid-cols-2'}
+								style={`${WIDE}${gridStyle ? `; ${gridStyle}` : ''}`}
+							>
+								{page.gallery.map((clip) => (
+									<figure class="m-0">
+										{clip.video ? (
+											<video
+												src={clip.video}
+												poster={clip.poster}
+												loop
+												muted
+												playsinline
+												preload="none"
+												aria-label={clip.alt}
+												data-autoplay-in-view
+												data-halftone={halftoneMode(clip.video)}
+												class={clipClass}
+												style={clipStyle}
+											/>
+										) : (
+											<img
+												src={clip.poster}
+												alt={clip.alt}
+												{...imageSizes.get(clip.poster)}
+												loading="lazy"
+												class={clipClass}
+												style={clipStyle}
+											/>
+										)}
+										{clip.caption && (
+											<figcaption class="mt-2 text-sm text-muted">{clip.caption}</figcaption>
+										)}
+									</figure>
+								))}
+							</div>
+						</section>
+					)}
+
+					{/* Screenshots and gallery stills stay in their own colors, so the interface reads as it really looks */}
+					{page.screenshots && (
+						<section
+							class:list={['mb-12 md:mb-16', { 'embed-large:hidden': screenshotsOnlyOnPhones }]}
+							aria-labelledby="screenshots"
+						>
+							<h2 id="screenshots" class={ARTICLE_HEADING}>
+								{page.screenshotsTitle ?? 'Screenshots'}
+							</h2>
+							<div class="grid gap-4" style={WIDE}>
+								{page.screenshots.map((shot) => (
+									<figure class="m-0">
+										<img
+											src={shot.poster}
+											alt={shot.alt}
+											{...imageSizes.get(shot.poster)}
+											loading="lazy"
+											class="mx-auto rounded-lg"
+											style="max-height: 720px; max-width: 100%"
+										/>
+										{shot.caption && (
+											<figcaption class="mt-2 text-sm text-muted">{shot.caption}</figcaption>
+										)}
+									</figure>
+								))}
+							</div>
+						</section>
+					)}
+
+					{page.made && (
+						<section class="mb-12 md:mb-16" aria-labelledby="how-its-made">
+							<h2 id="how-its-made" class={ARTICLE_HEADING}>
+								How it's made
+							</h2>
+							<p class={`mb-4 ${META}`}>{project.tech.join(' · ')}</p>
+							<div class="prose mb-8">
+								{page.made.text.map((p) => (
+									<p set:html={inlineMarkdown(p)} />
+								))}
+							</div>
+							{page.made.diagram && (
+								<figure class="m-0 mb-10">
+									<img
+										src={page.made.diagram.src}
+										alt={page.made.diagram.alt}
+										{...imageSizes.get(page.made.diagram.src)}
+										class="mx-auto block w-full"
+										loading="lazy"
+									/>
+								</figure>
+							)}
+							{page.made.steps && <Steps steps={page.made.steps} />}
+						</section>
+					)}
+
+					{lineage.length > 0 && (
+						<section class="mb-12 md:mb-16" aria-labelledby="lineage">
+							<h2 id="lineage" class={ARTICLE_HEADING}>
+								Lineage
+							</h2>
+							<div class="grid gap-8 sm:grid-cols-2">
+								{lineage.map(({ label, project: linked }, i) => (
+									<div>
+										<p class="mb-3 font-semibold text-pink">{label}</p>
+										<ProjectCard project={linked} index={i + 1} />
+									</div>
+								))}
+							</div>
+						</section>
+					)}
+
+					{(project.demoUrl || project.sourceUrl || page.download) && (
+						<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+							{page.download && (
+								<a
+									href={page.download.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class={`plausible-event-name=Project+Download+Click ${PRIMARY_BUTTON}`}
+								>
+									{page.download.label} &rarr;
+								</a>
+							)}
+							{project.demoUrl && (
+								<a
+									href={project.demoUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
+								>
+									See it live &rarr;
+								</a>
+							)}
+							{project.sourceUrl && (
+								<a
+									href={project.sourceUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? MORE_LINK : PRIMARY_BUTTON}`}
+								>
+									Get the code on GitHub &rarr;
+								</a>
+							)}
+							{project.blogUrl && (
+								<a href={project.blogUrl} class={MORE_LINK}>
+									Read why I built it
+								</a>
+							)}
+						</div>
+					)}
+
+					<ShareLinks
+						url={new URL(`/work/${page.slug}/`, Astro.site).href}
+						title={project.shareTitle || project.title}
+						noun="project"
+						class="mb-6"
+					/>
+
+					<a href="/work/" class={MORE_LINK}>
+						&larr; All work
+					</a>
+				</div>
 			</article>
 		</div>
 	</div>

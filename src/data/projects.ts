@@ -15,6 +15,17 @@ export interface ProjectPage {
 	intro: string[];
 	// A heading over the intro, for art pieces whose intro is an artist statement
 	introHeading?: string;
+	// Follows the year in the page's byline: a collaborator ("with Laurel Karlsson")
+	credit?: string;
+	// The technical half of an art piece, after the piece itself: a line or two, an
+	// optional diagram and numbered steps. A page with it lists the stack here, not up top
+	made?: {
+		text: string[];
+		diagram?: { src: string; alt: string };
+		steps?: { title: string; text: string }[];
+	};
+	// Projects this one grew out of or led to, as cards at the end of its page
+	lineage?: { label: string; title: string }[];
 	// A web-playable build, embedded under the intro at 1280x720 and scaled to fit
 	// (src/scripts/scale-to-fit-embed.ts). Its origin must be in the CSP frame-src
 	// (Caddyfile and the OpenTofu provision template)
@@ -808,13 +819,43 @@ export const projects: Project[] = [
 			tagline: 'Does your favorite movie pass the Bechdel Test?',
 			introHeading: 'Artist statement',
 			intro: [
-				'Bechdel.io checks movie scripts against the Bechdel Test, and the hardest part of building it was deciding who counts as a woman. The test comes from a 1985 Alison Bechdel comic strip, and it asks three things: are there at least two women, do they talk to each other, and do they talk about something other than a man.',
-				"My sister Laurel and I started it in 2015. She wanted to do feminist film analysis across a lot of movies at once and couldn't find a tool that would do it, so I built one.",
-				"The tool decides who counts as a woman by checking whether a film database credits each person as an actor or an actress, so gender comes down to one field with two possible values. It can't tell a trans character from the actor who plays her. It has nowhere to put a character whose gender changes during the film, or anyone who isn't a man or a woman.",
-				"It's easy to blame whoever maintains the database, but that field is the end of a long line. A production and its crew decide how a film is cast and credited, awards split performers into best actor and best actress, fans and volunteers fill in sites like IMDb, and every database after that sorts people into the same two boxes. Each of those steps has room for only two answers, and the tool inherits all of them, which sucks. I still chose to build it on a database, though. That's one of the limits of doing data analysis with data from the internet: it's messy, and it carries a bias against trans people that a tool like this passes straight through. The Bechdel Test has the same blind spot: it never says who the women are.",
-				"Code needs a yes or a no for every character before it can count anything, and that yes or no is exactly what gender studies questions. The hardest problem in this project was a humanities problem, and the tech industry mostly doesn't take the humanities or the arts seriously.",
-				"Bechdel.io is art, and it's research too. Data representation in art is the angle that interests me: a wall of movies most people have already seen, sorted into pass and fail, makes you look at them again.",
-				'Laurel and I used it to study the Best Picture nominees at the 2015 Oscars, and we released it as open source because we saw it as feminist activism.',
+				'Bechdel.io checks movie scripts against the Bechdel Test. The test comes from a 1985 Alison Bechdel comic strip, and it asks three things: are there at least two women, do they talk to each other, and do they talk about something other than a man.',
+				'A wall of movies most people have already seen, sorted into pass and fail, makes you look at them again. About half of the 218 films on the shelf fail, and a lot of them are favorites.',
+				"The counting is also where it goes wrong. To count women, the tool has to decide who is one, and it takes that answer from a film database that credits everyone as an actor or an actress. It can't see a trans character, a character whose gender changes during the film, or anyone who isn't a man or a woman. That two-box answer runs back through casting, award categories and the fan-run sites the data comes from, and the Bechdel Test has the same blind spot: it never says who the women are.",
+				'Data with room for only two answers loses most of what makes people interesting, and this project shows exactly where it happens.',
+				'My sister Laurel and I made it in 2015 and used it to study the Best Picture nominees at the 2015 Oscars. We released it as open source because we saw it as feminist activism.',
+			],
+			credit: 'with Laurel Karlsson',
+			made: {
+				text: [
+					'The scripts came from [Movie Script Scraper](https://github.com/JoeKarlsson/movie-script-scraper), and the cast from a film database API. [The 2015 write-up](/blog/bechdel-test-script-parser-works/) goes deeper.',
+				],
+				diagram: {
+					src: '/images/blog/bechdel-test-script-parser-works/parsing-method.svg',
+					alt: 'How Bechdel.io reads a screenplay: it gets the cast and each credited gender from a film database, splits the script into scenes, and checks every scene with two or more women for words about a man',
+				},
+				steps: [
+					{
+						title: 'Find the cast',
+						text: "It reads the film's title off the first line of the script and asks a film database for the cast, their characters and how each one is credited: actor or actress.",
+					},
+					{
+						title: 'Cut it into scenes',
+						text: "It splits the script on 10 to 12 keywords like INT. and EXT., then collects each character's lines in every scene.",
+					},
+					{
+						title: 'Test each scene',
+						text: 'A scene passes if two women talk in it and their lines never mention a man: he, him, father, king.',
+					},
+					{
+						title: 'Where it breaks',
+						text: "That word list is crude. Words about men run all through English, and a keyword can't tell what a sentence is about.",
+					},
+				],
+			},
+			lineage: [
+				{ label: 'Led to', title: 'Movie Script Scraper' },
+				{ label: 'Next in the same vein', title: 'Rose Hobart' },
 			],
 			embedUrl: 'https://bechdel.joekarlsson.com/',
 			embedHeading: 'Try it',
