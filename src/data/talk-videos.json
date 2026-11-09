@@ -40,6 +40,46 @@
 		"backup": "Talks/2018/2018-11-05 - node.js - Building High Performance React Applications - Joe Karlsson, Best Buy [xJYOipHkwNM].mkv"
 	},
 	{
+		"id": "97KErHwCd7w",
+		"title": "How to Setup jshint on Sublime Text",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "video",
+		"date": "2018-12-26",
+		"durationSeconds": 214,
+		"backup": "Tutorials & Demos/Personal/2018-12-26 - Joe Carlson - How to Setup jshint on Sublime Text [97KErHwCd7w].mkv"
+	},
+	{
+		"id": "js7kt0LBlWA",
+		"title": "How to Setup Sublime Text Package Control",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "video",
+		"date": "2018-12-26",
+		"durationSeconds": 169,
+		"backup": "Tutorials & Demos/Personal/2018-12-26 - Joe Carlson - How to Setup Sublime Text Package Control [js7kt0LBlWA].mkv"
+	},
+	{
+		"id": "p4Jhf729jgg",
+		"title": "Generating a new SSH Key and Adding it to the SSH-Agent",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "video",
+		"date": "2018-12-26",
+		"durationSeconds": 165,
+		"backup": "Tutorials & Demos/Personal/2018-12-26 - Joe Carlson - Generating a new SSH Key and Adding it to the SSH-Agent [p4Jhf729jgg].mkv"
+	},
+	{
+		"id": "ZYToLReowzs",
+		"title": "How to Setup Git",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "video",
+		"date": "2018-12-26",
+		"durationSeconds": 107,
+		"backup": "Tutorials & Demos/Personal/2018-12-26 - Joe Carlson - How to Setup Git [ZYToLReowzs].mkv"
+	},
+	{
 		"id": "Z6vz07R2m0Y",
 		"title": "GraphQL Tutorial and Live Coding",
 		"channel": "Joe Carlson",
@@ -88,6 +128,26 @@
 		"date": "2019-03-05",
 		"durationSeconds": 2706,
 		"backup": "Talks/2019/2019-03-05 - Full Stack Toronto - Building High Performance React Applications [6z4g27TSO5I].mkv"
+	},
+	{
+		"id": "Eje1EPiiI5M",
+		"title": "Moodlite Demo - Joe Karlsson",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "video",
+		"date": "2019-04-03",
+		"durationSeconds": 36,
+		"backup": "Tutorials & Demos/Personal/2019-04-03 - Joe Carlson - Moodlite Demo - Joe Karlsson [Eje1EPiiI5M].mkv"
+	},
+	{
+		"id": "I2yMKgKkKvk",
+		"title": "Moodlite",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "video",
+		"date": "2019-04-03",
+		"durationSeconds": 5,
+		"backup": "Tutorials & Demos/Personal/2019-04-03 - Joe Carlson - Moodlite [I2yMKgKkKvk].mkv"
 	},
 	{
 		"id": "jB5CtGIADJ0",
@@ -150,6 +210,16 @@
 		"backup": "Livestreams/2019/2019-09-04 - Joe Carlson - Updating my Dotfiles ｜ Twitch Live Coding [_cmG4z_S9AM].mkv"
 	},
 	{
+		"id": "24JYU-l5uQc",
+		"title": "From SQL to NoSQL: Changing Your Mindset - MadHacks Carbon  Fall 2019",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2019-10-19",
+		"durationSeconds": 3022,
+		"backup": "Talks/2019/2019-10-19 - Joe Carlson - From SQL to NoSQL： Changing Your Mindset - MadHacks Carbon  Fall 2019 [24JYU-l5uQc].mkv"
+	},
+	{
 		"id": "7u9S0nTCwbQ",
 		"title": "Building an IoT Kitty Litter Box | Twitch Live Coding",
 		"channel": "Joe Carlson",
@@ -158,6 +228,16 @@
 		"date": "2019-11-25",
 		"durationSeconds": 4533,
 		"backup": "Livestreams/2019/2019-11-25 - Joe Carlson - Building an IoT Kitty Litter Box ｜ Twitch Live Coding [7u9S0nTCwbQ].mkv"
+	},
+	{
+		"id": "FxeQ5eck3tw",
+		"title": "How To Redeem A MongoDB Atlas Credit",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "video",
+		"date": "2019-11-27",
+		"durationSeconds": 84,
+		"backup": "Tutorials & Demos/MongoDB/2019-11-27 - Joe Carlson - How To Redeem A MongoDB Atlas Credit [FxeQ5eck3tw].mkv"
 	},
 	{
 		"id": "711Sb55fzdg",
@@ -440,6 +520,36 @@
 		"backup": "Podcasts/2021/2021-02-10 - Microsoft Developer - 8-Bits with Joe Karlsson! Hosted by Chloe Condon and Brandon Minnick [6bHYDUzY9j0].mkv"
 	},
 	{
+		"id": "QAqK-R9HUhc",
+		"title": "MongoDB Schema Design Best Practices",
+		"channel": "MongoDB",
+		"owner": "organizer",
+		"kind": "video",
+		"date": "2021-04-18",
+		"durationSeconds": 598,
+		"backup": "Tutorials & Demos/MongoDB/2021-04-18 - MongoDB - MongoDB Schema Design Best Practices [QAqK-R9HUhc].mkv"
+	},
+	{
+		"id": "g1EjixJht6g",
+		"title": "[DEPRECATED] MongoDB VS Code Plugin: Tips and Tricks",
+		"channel": "MongoDB",
+		"owner": "organizer",
+		"kind": "video",
+		"date": "2021-04-24",
+		"durationSeconds": 494,
+		"backup": "Tutorials & Demos/MongoDB/2021-04-24 - MongoDB - [DEPRECATED] MongoDB VS Code Plugin： Tips and Tricks [g1EjixJht6g].mkv"
+	},
+	{
+		"id": "UuNVpLIOHW8",
+		"title": "Mapping SQL Terms and Concepts to MongoDB",
+		"channel": "MongoDB",
+		"owner": "organizer",
+		"kind": "video",
+		"date": "2021-05-08",
+		"durationSeconds": 506,
+		"backup": "Tutorials & Demos/MongoDB/2021-05-08 - MongoDB - Mapping SQL Terms and Concepts to MongoDB [UuNVpLIOHW8].mkv"
+	},
+	{
 		"id": "I8N9KR73LhU",
 		"title": "Confoo 2021 - Lauren Schaefer & Joe Karlsson - MongoDB Patterns et Anti-Patterns",
 		"channel": "Bracket Show",
@@ -478,6 +588,16 @@
 		"date": "2021-06-28",
 		"durationSeconds": 1354,
 		"backup": "Talks/2021/2021-06-28 - CITYJS CONFERENCE - JOE KARLSSON - Things I've learned about maintaining large codebases - #CITYJS2021 [YEBroAHFSd0].mkv"
+	},
+	{
+		"id": "bIFrJJkUftA",
+		"title": "Getting Started with SingleStore",
+		"channel": "SingleStore",
+		"owner": "organizer",
+		"kind": "video",
+		"date": "2021-08-30",
+		"durationSeconds": 407,
+		"backup": "Tutorials & Demos/SingleStore/2021-08-30 - SingleStore - Getting Started with SingleStore [bIFrJJkUftA].mkv"
 	},
 	{
 		"id": "EDQjy_BMSyQ",
@@ -650,6 +770,16 @@
 		"backup": "Podcasts/2023/2023-05-04 - The Hacking Open Source Business Podcast - DevRel in Open Source - Strategies, Challenges, and Growth w⧸ Joe Karlsson - EP. 27 [D7Ir_iY61LY].mkv"
 	},
 	{
+		"id": "pFb91G14Clk",
+		"title": "Build your own infrastructure monitoring application",
+		"channel": "Tinybird",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2023-05-18",
+		"durationSeconds": 3679,
+		"backup": "Talks/2023/2023-05-18 - Tinybird - Build your own infrastructure monitoring application [pFb91G14Clk].mkv"
+	},
+	{
 		"id": "FyNSOh8JQB8",
 		"title": "Ryan Serhant Weighs In: Should You Buy a Home Without Seeing It? | Chase #BeginnerToBuyer | S2 E3",
 		"channel": "Chase",
@@ -700,6 +830,16 @@
 		"backup": "Podcasts/2020/2024-01-10 - Scott Hanselman - Document Databases and Mongo with Engineer Joe Karlsson [mUv4K8hRYRw].mkv"
 	},
 	{
+		"id": "hVW7kflCyIQ",
+		"title": "What is Apache Arrow?",
+		"channel": "CloudQuery",
+		"owner": "organizer",
+		"kind": "video",
+		"date": "2024-06-21",
+		"durationSeconds": 769,
+		"backup": "Tutorials & Demos/CloudQuery/2024-06-21 - CloudQuery - What is Apache Arrow？ [hVW7kflCyIQ].mkv"
+	},
+	{
 		"id": "FlE1WI10aIo",
 		"title": "Governance Isn’t a Dirty Word: Making Policy Part of the Dev Flow with Joe Karlsson",
 		"channel": "Testkube",
@@ -718,6 +858,36 @@
 		"date": "2026-01-08",
 		"durationSeconds": 1307,
 		"backup": "Podcasts/2025/2026-01-08 - Phil Burgess - 360： Nurture Your Network Before You Leverage It with Joe Karlsson [q-nUn0ygC-I].mkv"
+	},
+	{
+		"id": "679ms5EIgz8",
+		"title": "What Is an AI Gateway? A 60-Second Breakdown.",
+		"channel": "CData Software",
+		"owner": "organizer",
+		"kind": "video",
+		"date": "2026-09-25",
+		"durationSeconds": 77,
+		"backup": "Tutorials & Demos/CData/2026-09-25 - CData Software - What Is an AI Gateway？ A 60-Second Breakdown. [679ms5EIgz8].mkv"
+	},
+	{
+		"id": "RxXiOeSHrBA",
+		"title": "How to Connect Your Business Apps to Meta Muse",
+		"channel": "CData Software",
+		"owner": "organizer",
+		"kind": "video",
+		"date": "2026-10-13",
+		"durationSeconds": 144,
+		"backup": "Tutorials & Demos/CData/2026-10-13 - CData Software - How to Connect Your Business Apps to Meta Muse [RxXiOeSHrBA].mkv"
+	},
+	{
+		"id": "KYX-x-Ljwzo",
+		"title": "How to Use ChatGPT Dots with Salesforce, Jira, and More",
+		"channel": "CData Software",
+		"owner": "organizer",
+		"kind": "video",
+		"date": "2026-11-03",
+		"durationSeconds": 379,
+		"backup": "Tutorials & Demos/CData/2026-11-03 - CData Software - How to Use ChatGPT Dots with Salesforce, Jira, and More [KYX-x-Ljwzo].mkv"
 	},
 	{
 		"id": "bzuIHRypcsQ",

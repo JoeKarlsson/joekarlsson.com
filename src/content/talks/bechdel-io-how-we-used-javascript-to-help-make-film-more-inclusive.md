@@ -8,6 +8,22 @@ categories: ['Web Dev']
 heroImage: '/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/thumb-13e27d52.webp'
 heroAlt: 'A packed movie theater audience watching the screen'
 tldr: "The Social Network, Harry Potter and Citizen Kane all fail the Bechdel Test. bechdel.io splits a film script into scenes, looks up each character's gender on IMDb and checks whether two women talk about something other than a man. The hard part is that patriarchal words are deeply ingrained in our vocabulary."
+videos:
+  - id: '4W5fJTyfj1Q'
+  - id: '7az78FYgwx4'
+    chapters:
+      - { at: '0:00', name: 'What do these films have in common?' }
+      - { at: '1:06', name: 'Agenda' }
+      - { at: '1:29', name: "What's the Bechdel Test?" }
+      - { at: '3:24', name: 'Return of the Jedi and feminist film criticism' }
+      - { at: '4:27', name: 'What the Bechdel Test misses' }
+      - { at: '5:45', name: 'Bechdel.io' }
+      - { at: '7:07', name: 'How it reads a film script' }
+      - { at: '9:17', name: 'Did they talk about a man?' }
+      - { at: '10:46', name: 'Lessons learned' }
+      - { at: '11:40', name: 'Digital humanities needs developers' }
+      - { at: '12:48', name: 'A Bechdel Test for code' }
+      - { at: '13:35', name: 'Links and questions' }
 ---
 
 What do The Social Network, Lord of the Rings, Harry Potter and Citizen Kane have in common? They're some of the most beloved films of all time, and none of them pass the Bechdel Test. My sister Laurel Karlsson and I built bechdel.io to check film scripts for it automatically, and this talk is how it works and what we learned. Laurel is an American Studies scholar and has used the code in her research. This recording is the two of us at MongoDB World 2020.

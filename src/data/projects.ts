@@ -1037,7 +1037,7 @@ export const projects: Project[] = [
 		tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
 		sourceUrl: 'https://github.com/JoeKarlsson/bechdel-test',
 		demoUrl: 'https://bechdel.joekarlsson.com/',
-		blogUrl: '/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
+		blogUrl: '/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
 		stars: 30,
 		page: {
 			slug: 'bechdel-io',

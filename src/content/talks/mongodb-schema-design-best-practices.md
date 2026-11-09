@@ -9,6 +9,22 @@ heroImage: '/images/blog/mongodb-schema-design-best-practices/thumb-b1a8ce46.web
 heroAlt: 'An old architectural blueprint'
 contentNotice: false
 tldr: 'MongoDB has no rules, no process and no algorithm for splitting up your data: you design around how your app uses it. Favor embedding unless there is a compelling reason not to, and never let an array grow without bound.'
+videos:
+  - id: 'leNCfU5SYR8'
+  - id: 'tYNaXn2wJJo'
+    chapters:
+      - { at: '0:14', name: 'Why schema design matters' }
+      - { at: '1:33', name: "What we're talking about today" }
+      - { at: '2:11', name: 'Relational vs. MongoDB schema design' }
+      - { at: '4:46', name: "MongoDB schema design: there's no rules" }
+      - { at: '8:59', name: 'Embedding vs. referencing' }
+      - { at: '14:53', name: 'Types of relationships: one-to-one' }
+      - { at: '16:02', name: 'One-to-few' }
+      - { at: '17:58', name: 'One-to-many' }
+      - { at: '20:58', name: 'One-to-squillions' }
+      - { at: '24:06', name: 'Many-to-many' }
+      - { at: '26:23', name: 'Recap' }
+      - { at: '33:11', name: "Questions and what's next" }
 ---
 
 "How do I model my schema for my application?" It's one of the most common questions developers ask about MongoDB, and the answer is: it depends. This talk is how I think about that answer, with real examples, for anyone coming to document databases from SQL.
@@ -46,7 +62,7 @@ MidwestPHP (Minneapolis, April 2020), Data Architecture Day (May 2020) and Conf4
 - [Data Architecture Day](https://www.youtube.com/watch?v=ay31FKx4maM)
 - [A 10-minute version for MongoDB](https://www.youtube.com/watch?v=QAqK-R9HUhc)
 
-If you're coming from SQL, my talk [From SQL to NoSQL](/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/) covers how to shift your thinking first.
+If you're coming from SQL, my talk [From SQL to NoSQL](/talks/from-sql-to-nosql-a-gentle-introduction-for-devs/) covers how to shift your thinking first.
 
 ## Slides and resources
 

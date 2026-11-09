@@ -1,4 +1,4 @@
-// /talks/' filter row: All, Talks, Podcasts, Livestreams or Has video. It hides the cards
+// /talks/' filter row: All, Talks, Podcasts, Livestreams, Demos or Has video. It hides the cards
 // that don't match, and an era (with its index link) left with none. The row stays hidden
 // without JavaScript, so everything shows.
 import { FILTER_ACTIVE, FILTER_INACTIVE } from '../utils/ui';

@@ -7,6 +7,7 @@ import {
 	listFeaturedWork,
 	listPopularPosts,
 	listSitePages,
+	listTalkPages,
 	listExperience,
 	listSocialSections,
 } from '../utils/llms';
@@ -16,6 +17,7 @@ import {
 export async function GET() {
 	const posts = await getBlogPosts();
 	const newsletter = await getNewsletter();
+	const talkPages = await listTalkPages();
 	const { github } = nowFeed;
 
 	const body = `# Joe Karlsson
@@ -59,6 +61,12 @@ ${listFeaturedWork().join('\n')}
 ## Most-Starred Open Source
 
 ${github.topRepos.map((repo) => `- [${repo.name}](${repo.url}): ${repo.description} (${repo.stars} stars)`).join('\n')}
+
+## Talk Write-ups
+
+The talks I wrote up in full, each with its recording:
+
+${talkPages.join('\n')}
 
 ## Notable Talks
 

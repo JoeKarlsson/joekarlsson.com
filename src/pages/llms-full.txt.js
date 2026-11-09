@@ -8,6 +8,7 @@ import {
 	listFeaturedWork,
 	listPopularPosts,
 	listSitePages,
+	listTalkPages,
 	postLine,
 	listExperience,
 	listSocialSections,
@@ -18,6 +19,7 @@ import {
 export async function GET() {
 	const posts = await getBlogPosts();
 	const newsletter = await getNewsletter();
+	const talkPages = await listTalkPages();
 	const { github } = nowFeed;
 
 	const body = `# Joe Karlsson - Full Site Guide
@@ -127,8 +129,14 @@ Joe replaces SaaS dependencies with self-hosted alternatives that integrate with
 
 - **TEDx Speaker**: "The Art of Computer Science" - [Watch on TED.com](https://www.ted.com/talks/joe_karlsson_the_art_of_computer_science)
 - **100+ Conference Talks**: Worldwide conferences on databases, IoT, data engineering, DevRel, and web development
-- **Talks**: Every talk, podcast and livestream, with recordings, at [/talks](https://www.joekarlsson.com/talks/)
+- **Talks**: Every talk, podcast, livestream and demo video, with recordings, at [/talks](https://www.joekarlsson.com/talks/)
 - **YouTube**: Recorded talks and tutorials at [youtube.com/joekarlsson](https://www.youtube.com/joekarlsson)
+
+### Talk Write-ups
+
+The talks I wrote up in full, each with its recording:
+
+${talkPages.join('\n')}
 
 ### Notable Talk Titles
 

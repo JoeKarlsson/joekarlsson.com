@@ -14,34 +14,54 @@ const shareTitle = z.string().max(SHARE_TITLE_MAX).optional();
 export const SEO_TITLE_MAX = 45;
 const seoTitle = z.string().max(SEO_TITLE_MAX).optional();
 
+const postSchema = z.object({
+	title: z.string(),
+	shareTitle,
+	seoTitle,
+	date: z.coerce.date(),
+	slug: z.string(),
+	description: z.string().optional().default(''),
+	// One or two of the fixed list; a typo or an old category fails the build
+	categories: z.array(z.enum(BLOG_CATEGORIES)).min(1).max(2),
+	// The employer a post was written for (a crosspost of their blog); none means personal
+	writtenFor: z.enum(EMPLOYERS).optional(),
+	tags: z.array(z.string()).optional().default([]),
+	heroImage: z.string().optional(),
+	heroAlt: z.string().optional(),
+	// Looping MP4 shown in place of heroImage on the post page. heroImage is
+	// still required as its poster and for og:image and blog cards.
+	heroVideo: z.string().optional(),
+	updatedDate: z.coerce.date().optional(),
+	// What a refresh changed, shown in a banner at the top of the post with the updatedDate
+	// ("Updated November 2026: ..."). Needs updatedDate (tests/content-schema.test.ts).
+	updateNote: z.string().optional(),
+	canonicalUrl: z.url().optional(),
+	contentNotice: z.union([z.string(), z.boolean()]).optional(),
+	tldr: z.string().optional(),
+	faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
+	howToSteps: z.array(z.object({ name: z.string(), text: z.string() })).optional(),
+});
+
 const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
-	schema: z.object({
-		title: z.string(),
-		shareTitle,
-		seoTitle,
-		date: z.coerce.date(),
-		slug: z.string(),
-		description: z.string().optional().default(''),
-		// One or two of the fixed list; a typo or an old category fails the build
-		categories: z.array(z.enum(BLOG_CATEGORIES)).min(1).max(2),
-		// The employer a post was written for (a crosspost of their blog); none means personal
-		writtenFor: z.enum(EMPLOYERS).optional(),
-		tags: z.array(z.string()).optional().default([]),
-		heroImage: z.string().optional(),
-		heroAlt: z.string().optional(),
-		// Looping MP4 shown in place of heroImage on the post page. heroImage is
-		// still required as its poster and for og:image and blog cards.
-		heroVideo: z.string().optional(),
-		updatedDate: z.coerce.date().optional(),
-		// What a refresh changed, shown in a banner at the top of the post with the updatedDate
-		// ("Updated November 2026: ..."). Needs updatedDate (tests/content-schema.test.ts).
-		updateNote: z.string().optional(),
-		canonicalUrl: z.url().optional(),
-		contentNotice: z.union([z.string(), z.boolean()]).optional(),
-		tldr: z.string().optional(),
-		faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
-		howToSteps: z.array(z.object({ name: z.string(), text: z.string() })).optional(),
+	schema: postSchema,
+});
+
+// Talk write-ups, served at /talks/<slug>/ (src/pages/talks/[slug].astro) with the blog's
+// post layout. Each lists the videos on its page for the VideoObject JSON-LD, the talk's
+// own recording first; chapters (from the YouTube package READMEs on the NAS) are timed to
+// that video, so a recording with an intro bumper gets its own offsets.
+const talks = defineCollection({
+	loader: glob({ base: './src/content/talks', pattern: '**/*.md' }),
+	schema: postSchema.extend({
+		videos: z
+			.array(
+				z.object({
+					id: z.string().regex(/^[\w-]{11}$/),
+					chapters: z.array(z.object({ at: z.string(), name: z.string() })).optional(),
+				}),
+			)
+			.min(1),
 	}),
 });
 
@@ -71,4 +91,4 @@ const newsletter = defineCollection({
 	}),
 });
 
-export const collections = { blog, newsletter };
+export const collections = { blog, talks, newsletter };

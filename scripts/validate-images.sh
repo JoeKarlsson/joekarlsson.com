@@ -194,7 +194,7 @@ while IFS= read -r md_file; do
       ERRORS=$((ERRORS + 1))
     fi
   fi
-done < <(find src/content/blog -name "*.md" 2>/dev/null)
+done < <(find src/content/blog src/content/talks -name "*.md" 2>/dev/null)
 
 if [ "$MISSING_HEROES" -gt 0 ]; then
   echo "WARNING: $MISSING_HEROES heroImage reference(s) point to missing files (WebP migration in progress)"

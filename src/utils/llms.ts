@@ -59,6 +59,19 @@ export async function getBlogPosts() {
 
 type BlogPost = Awaited<ReturnType<typeof getBlogPosts>>[number];
 
+/** The talk write-ups at /talks/<slug>/, each with its video, newest first */
+export async function listTalkPages(): Promise<string[]> {
+	return (await getCollection('talks'))
+		.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+		.map((talk) =>
+			link(
+				talk.data.title,
+				`/talks/${talk.data.slug}/`,
+				`${talk.data.description} (${isoDate(talk.data.date)})`,
+			),
+		);
+}
+
 export function postLine(post: BlogPost): string {
 	const by = post.data.writtenFor ? `, written for ${post.data.writtenFor}` : '';
 	return link(

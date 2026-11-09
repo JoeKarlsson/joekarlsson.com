@@ -32,6 +32,12 @@ describe('toTalkVideo', () => {
 		});
 	});
 
+	it('maps Tutorials & Demos to the video kind', () => {
+		expect(toTalkVideo(info, 'Tutorials & Demos/CData/x.info.json')).toMatchObject({
+			kind: 'video',
+		});
+	});
+
 	it('skips playlists and folders the page does not embed', () => {
 		expect(toTalkVideo({ ...info, _type: 'playlist' }, 'Talks/2021/x.info.json')).toBeNull();
 		expect(toTalkVideo(info, 'TikTok/x.info.json')).toBeNull();

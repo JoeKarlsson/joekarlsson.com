@@ -17,7 +17,7 @@ git cat-file -e "${BASE}^{commit}" 2>/dev/null || { echo "Base commit $BASE not 
 prose_changed() {
   git diff -U0 "$BASE" -- "$1" | grep -E '^[+-]' | grep -vE '^(\+\+\+|---) ' | grep -qvE '^[+-](date|updatedDate):'
 }
-CHANGED=$( { git diff --name-only "$BASE" -- 'src/content/blog/*.md' | while read -r f; do [ -f "$f" ] && prose_changed "$f" && echo "$f"; done; git ls-files --others --exclude-standard -- 'src/content/blog/*.md'; } | sort -u)
+CHANGED=$( { git diff --name-only "$BASE" -- 'src/content/blog/*.md' 'src/content/talks/*.md' | while read -r f; do [ -f "$f" ] && prose_changed "$f" && echo "$f"; done; git ls-files --others --exclude-standard -- 'src/content/blog/*.md' 'src/content/talks/*.md'; } | sort -u)
 if [ -z "$CHANGED" ]; then
   echo "No changed blog posts; skipping voice lint"
   exit 0

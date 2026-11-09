@@ -25,7 +25,7 @@ const eras = TALK_ERAS.filter((era) => era.talks.length > 0);
 
 // The totals: how much, all in, without a per-year comparison
 const firstYear = Math.min(...talks.map((t) => Number(t.date.slice(0, 4))));
-const GROUP_NAMES = ['Talks', 'Podcasts', 'Livestreams'];
+const GROUP_NAMES = ['Talks', 'Podcasts', 'Livestreams', 'Demos'];
 const totals = [
 	...TALK_GROUPS.map((group, g) => ({
 		n: talks.filter((t) => groupOf(t) === group).length,
@@ -35,18 +35,21 @@ const totals = [
 	{ n: firstYear, label: 'Since' },
 ];
 
-// The three talks I wrote up in full, shown first
+// Three talks I wrote up in full, shown first: two have their own /talks/ page, the IoT
+// write-up is still a blog post
 const FEATURED = [
-	'the-art-of-computer-science',
-	'mongodb-schema-design-best-practices',
-	'an-introduction-to-iot-internet-of-toilets',
+	'/talks/the-art-of-computer-science/',
+	'/talks/mongodb-schema-design-best-practices/',
+	'/blog/an-introduction-to-iot-internet-of-toilets/',
 ];
-const posts = await getCollection('blog');
-const featured = FEATURED.map((slug) => {
-	const post = posts.find((p) => p.id === slug);
-	if (!post?.data.heroImage)
-		throw new Error(`/talks/ features "${slug}", which has no post or heroImage`);
-	return { ...post.data, slug };
+const posts = [
+	...(await getCollection('talks')).map((p) => ({ ...p.data, href: `/talks/${p.data.slug}/` })),
+	...(await getCollection('blog')).map((p) => ({ ...p.data, href: `/blog/${p.data.slug}/` })),
+];
+const featured = FEATURED.map((href) => {
+	const post = posts.find((p) => p.href === href);
+	if (!post?.heroImage) throw new Error(`/talks/ features ${href}, which has no post or heroImage`);
+	return post;
 });
 
 const FILTERS = [
@@ -54,13 +57,14 @@ const FILTERS = [
 	{ value: 'talk', label: 'Talks' },
 	{ value: 'podcast', label: 'Podcasts' },
 	{ value: 'livestream', label: 'Livestreams' },
+	{ value: 'demo', label: 'Demos' },
 	{ value: 'video', label: 'Has video' },
 ];
 ---
 
 <BaseLayout
 	title="Talks | Joe Karlsson"
-	description="Every conference talk, podcast and livestream Joe Karlsson has done, with recordings, sorted by the job he had at the time."
+	description="Every conference talk, podcast, livestream and demo video Joe Karlsson has done, with recordings, sorted by the job he had at the time."
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
@@ -101,8 +105,8 @@ const FILTERS = [
 				/>
 			</div>
 			<p class={HERO_LEAD}>
-				Every talk, podcast and livestream I've done, recorded or not, sorted by the job I had at
-				the time. More of my recordings are on my{' '}
+				Every talk, podcast, livestream and demo video I've done, recorded or not, sorted by the job
+				I had at the time. More of my recordings are on my{' '}
 				<a
 					href="https://www.youtube.com/joekarlsson"
 					target="_blank"
@@ -116,7 +120,7 @@ const FILTERS = [
 		</PosterHero>
 
 		<!-- The totals, all in: big numbers, no per-year comparison -->
-		<dl class="mb-12 grid grid-cols-3 gap-x-6 gap-y-6 md:mb-16 md:grid-cols-5">
+		<dl class="mb-12 grid grid-cols-3 gap-x-6 gap-y-6 md:mb-16 md:grid-cols-6">
 			{totals.map((t) => (
 				<div class="border-t border-surface-4 pt-3">
 					<dt class={META}>{t.label}</dt>
@@ -137,7 +141,7 @@ const FILTERS = [
 			</h2>
 			<div class="grid gap-x-8 gap-y-10 md:grid-cols-3">
 				{featured.map((post, i) => (
-					<a href={`/blog/${post.slug}/`} class="ring-host group block no-underline">
+					<a href={post.href} class="ring-host group block no-underline">
 						<span class="relative block">
 							<img
 								src={post.heroImage}
