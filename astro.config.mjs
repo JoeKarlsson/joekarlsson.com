@@ -194,8 +194,8 @@ export default defineConfig({
 		'/blog/a-brief-cuba-travel-guide': '/blog/category/life/',
 		'/blog/save-the-world-and-money-with-mongodb-atlas-data-lake':
 			'/blog/how-to-manage-mongodb-data-at-scale/',
-		'/blog/getting-started-with-graphql-and-atlas': '/talk-archive/',
-		'/blog/a-gentle-introduction-to-building-serverless-apps': '/talk-archive/',
+		'/blog/getting-started-with-graphql-and-atlas': '/talks/',
+		'/blog/a-gentle-introduction-to-building-serverless-apps': '/talks/',
 		'/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes':
 			'/blog/',
 		'/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things':
@@ -222,8 +222,9 @@ export default defineConfig({
 		'/blog/category/travel': '/blog/category/life/',
 
 		// WordPress page redirects
-		'/speaking/joe-karlssons-talk-archive': '/talk-archive/',
-		'/speaking': '/talk-archive/',
+		'/speaking/joe-karlssons-talk-archive': '/talks/',
+		'/speaking': '/talks/',
+		'/talk-archive': '/talks/',
 		'/all-work': '/work/',
 		'/404-error': '/404',
 

@@ -24,7 +24,7 @@ Only upload recordings Joe owns: his own recordings, pre-recorded conference ver
 Before writing anything, collect and write down:
 
 - **What it is**: title as given (slide 1, the organizer's upload title, or the file name), length (`ffprobe`), date (file name, `.info.json` `upload_date`, or file mtime for a pre-recorded version).
-- **The event**: `src/pages/talk-archive.astro` lists every event Joe gave each talk at. For a pre-recorded version, match the recording date and running time against the organizer uploads in `My Videos/Talks/<year>/*.info.json` (a 14-minute recording made three weeks before a conference whose upload runs 14 minutes is that conference's). Only claim what the talk page or an upload proves; "I gave this talk at X and Y in 2020" is safe, "this is the recording X played" needs the match.
+- **The event**: `src/data/talks.ts` lists every event Joe gave each talk at. For a pre-recorded version, match the recording date and running time against the organizer uploads in `My Videos/Talks/<year>/*.info.json` (a 14-minute recording made three weeks before a conference whose upload runs 14 minutes is that conference's). Only claim what the talk page or an upload proves; "I gave this talk at X and Y in 2020" is safe, "this is the recording X played" needs the match.
 - **People**: co-speakers from the title slide (bechdel.io is Joe and his sister Laurel Karlsson). Credit them by name.
 - **Links the talk references**: read the resources and "about me" slides (step 2 frames). Resolve every short link (`curl -s -o /dev/null -w '%{redirect_url}' https://bit.ly/...`), follow old `joekarlsson.com/YYYY/MM/<slug>/` URLs to their current `/blog/<slug>/` page, and drop dead links, promo codes and expired hiring/credit offers. Link Joe's own post about the talk when there is one (`ls src/content/blog | grep <topic>`). Point to joekarlsson.com, not old `joekarlsson.dev` short links.
 - **The organizer's copy**, if one exists on YouTube: link it in the description.
@@ -91,7 +91,7 @@ Chapters
 0:00 <first section>
 ...
 
-More of my talks: https://www.joekarlsson.com/talk-archive/
+More of my talks: https://www.joekarlsson.com/talks/
 <Organizer's upload, if any: "<Event> also posted this talk: <url>">
 
 #<Topic> #<Topic>

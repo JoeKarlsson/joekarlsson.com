@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { findStandaloneVideoIds } from '../scripts/fetch-youtube-thumbnails.mjs';
+import { findStandaloneVideoIds, findTalkVideoIds } from '../scripts/fetch-youtube-thumbnails.mjs';
 
 describe('findStandaloneVideoIds', () => {
 	it('finds bare, angle-bracketed and markdown links alone on a line', () => {
@@ -23,5 +23,13 @@ describe('findStandaloneVideoIds', () => {
 		expect(findStandaloneVideoIds('Watch [my talk](https://youtu.be/GiNa2jen-lg) first.')).toEqual(
 			[],
 		);
+	});
+});
+
+describe('findTalkVideoIds', () => {
+	it("finds every ID in talks.ts's videos lists", () => {
+		const source =
+			"videos: ['GiNa2jen-lg'],\n\t\tlink: 'x',\n\t\tvideos: ['t26nBe43gwQ', 'Yl5DSL1cB-Q'],";
+		expect(findTalkVideoIds(source)).toEqual(['GiNa2jen-lg', 't26nBe43gwQ', 'Yl5DSL1cB-Q']);
 	});
 });

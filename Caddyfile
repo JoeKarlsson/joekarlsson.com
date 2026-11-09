@@ -49,7 +49,7 @@
 
 	# 301 redirects: WordPress page URLs
 	@speaking path_regexp ^/speaking(/.*)?$
-	redir @speaking /talk-archive/ 301
+	redir @speaking /talks/ 301
 
 	@speaker-rider path /speaker-rider /speaker-rider/
 	redir @speaker-rider /about/ 301

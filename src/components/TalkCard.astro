@@ -1,0 +1,104 @@
+---
+// One talk, podcast or livestream on /talks/. A recorded one shows its video as the
+// click-to-play player (YouTubeFacade, thumbnail saved locally by npm run
+// youtube:thumbnails); an audio-only podcast gets a pink paper scrap with the show's name,
+// and a talk with no recording a chalk one with the event's name. Phones get a compact
+// row, a small picture beside the words like /work's cards; there the video's picture
+// links out to YouTube, since a player 112px wide is no use.
+import type { Talk } from '../data/talks';
+import { formatTalkDate, groupOf } from '../data/talks';
+import { CHALK } from '../data/scribbles';
+import { META, TEXT_LINK } from '../utils/ui';
+import YouTubeFacade from './YouTubeFacade.astro';
+
+interface Props {
+	talk: Talk;
+	// Position in its list, to tilt neighboring paper scraps different ways
+	index: number;
+}
+
+const { talk, index } = Astro.props;
+const [video, ...moreVideos] = talk.videos ?? [];
+const KIND_LABELS = { talk: 'Talk', panel: 'Panel', podcast: 'Podcast', livestream: 'Livestream' };
+const poster = video && `/images/youtube/${video}.webp`;
+const watch = (id: string) => `https://www.youtube.com/watch?v=${id}`;
+const where = [talk.event, talk.place].filter(Boolean).join(' · ');
+const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
+const LINK =
+	'text-sm text-pink no-underline hover:text-paper max-md:inline-flex max-md:min-h-11 max-md:items-center';
+---
+
+<article
+	class="talk-card max-md:grid max-md:grid-cols-[112px_1fr] max-md:items-start max-md:gap-x-4"
+	data-talk-group={groupOf(talk)}
+	data-talk-video={video ? '' : undefined}
+>
+	<div class="relative max-md:row-span-4 max-md:[&_.youtube-facade>span]:size-9 max-md:[&_.youtube-facade>span>svg]:size-4">
+		{video ? (
+			<>
+				<YouTubeFacade id={video} title={talk.title} poster={poster} />
+				{/* One picture for both sizes (each is a live pink canvas): on phones a link to
+				YouTube sits over the player, and the play button shrinks to fit */}
+				<a
+					href={watch(video)}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="absolute inset-0 z-20 md:hidden"
+					aria-label={`Watch ${talk.title} on YouTube`}
+				/>
+			</>
+		) : (
+			<div
+				class:list={[
+					'@container grid aspect-video place-items-center rounded-lg p-[6%] text-ink',
+					TILTS[index % TILTS.length],
+					talk.kind === 'podcast' ? 'bg-pink' : '',
+				]}
+				style={talk.kind === 'podcast' ? undefined : `background:${CHALK}`}
+				aria-hidden="true"
+			>
+				<span class="line-clamp-3 text-center font-display text-[12cqw] leading-[0.95] uppercase">
+					{talk.event}
+				</span>
+			</div>
+		)}
+	</div>
+	<p class="mt-4 text-sm font-semibold text-pink max-md:mt-0">
+		{KIND_LABELS[talk.kind]} · {formatTalkDate(talk)}
+	</p>
+	<h3 class="mt-1 font-sans text-xl leading-snug font-semibold text-paper max-md:text-base">
+		{talk.link ? (
+			<a href={talk.link} target="_blank" rel="noopener noreferrer" class={TEXT_LINK}>
+				{talk.title}
+			</a>
+		) : (
+			talk.title
+		)}
+	</h3>
+	<p class={`mt-1 ${META}`}>{where}</p>
+	{talk.description && <p class="mt-2 line-clamp-2 text-paper max-md:hidden">{talk.description}</p>}
+	{(talk.writeup || talk.listen || talk.slides || moreVideos.length > 0) && (
+		<p class="mt-2 flex flex-wrap gap-x-4 max-md:col-start-2">
+			{talk.writeup && (
+				<a href={talk.writeup} class={LINK}>
+					Read the talk
+				</a>
+			)}
+			{talk.listen && (
+				<a href={talk.listen} target="_blank" rel="noopener noreferrer" class={LINK}>
+					Listen
+				</a>
+			)}
+			{talk.slides && (
+				<a href={talk.slides} target="_blank" rel="noopener noreferrer" class={LINK}>
+					Slides
+				</a>
+			)}
+			{moreVideos.map((id, i) => (
+				<a href={watch(id)} target="_blank" rel="noopener noreferrer" class={LINK}>
+					{moreVideos.length === 1 ? 'Other recording' : `Recording ${i + 2}`}
+				</a>
+			))}
+		</p>
+	)}
+</article>
