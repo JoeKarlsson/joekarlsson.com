@@ -91,7 +91,7 @@ Now that we have created the table, let’s go ahead and start adding data, and 
 
 I am going to be connecting to our cluster with Node.js, but feel free to use any programming language or tool you want to connect to SingleStore. The awesome thing about SingleStore is that it’s MySQL wire compatible, so you can use any MySQL driver to [connect to your cluster](https://docs.singlestore.com/managed-service/en/connect-to-your-cluster.html).
 
-For this project, we will be using [node-mysql2](https://github.com/sidorares/node-mysql2). The MySQL2 project is a continuation of [MySQL-Native](https://github.com/sidorares/nodejs-mysql-native). We’re using it because it makes working with MySQL-compatible databases and queries easy. If you want a complete tutorial on how to connect ​​to your application​​ using Node.js, be sure to check out my post on h[ow to use SingleStore and Node.js](https://www.singlestore.com/blog/how-to-use-singlestore-and-node-js/).
+For this project, we will be using [node-mysql2](https://github.com/sidorares/node-mysql2). The MySQL2 project is a continuation of [MySQL-Native](https://github.com/sidorares/nodejs-mysql-native). We’re using it because it makes working with MySQL-compatible databases and queries easy. If you want a complete tutorial on how to connect ​​to your application​​ using Node.js, be sure to check out my post on [how to use SingleStore and Node.js](https://www.singlestore.com/blog/how-to-use-singlestore-and-node-js/).
 
 To install mysql2, run the following in your terminal:
 

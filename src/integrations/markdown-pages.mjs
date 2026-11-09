@@ -24,6 +24,10 @@ const REMOVED = [
 	'[aria-hidden="true"]',
 	'[hidden]',
 	'[data-share-links]',
+	'input',
+	'label',
+	'select',
+	'textarea',
 ].join(',');
 
 function listPages(dir) {
@@ -92,6 +96,54 @@ function textPieces(element) {
 
 const spacedText = (element) => textPieces(element).join(' ');
 
+// Tags that format words inside a sentence. Anything else (span, div, li, time) is a
+// box the layout places apart, so its text needs a space from the next box's.
+const INLINE_FORMATTING = new Set([
+	'A',
+	'ABBR',
+	'B',
+	'CITE',
+	'CODE',
+	'EM',
+	'I',
+	'KBD',
+	'MARK',
+	'Q',
+	'S',
+	'SMALL',
+	'STRONG',
+	'SUB',
+	'SUP',
+	'U',
+]);
+
+function containerOf(node) {
+	let top = node;
+	let parent = node.parentNode;
+	while (parent && INLINE_FORMATTING.has(parent.nodeName)) {
+		top = parent;
+		parent = parent.parentNode;
+	}
+	return { container: parent, top };
+}
+
+// "Mar 5, 2026" in one span and "My Homelab" in the next render apart in a browser but
+// run together as text ("2026My Homelab"): put a space between text in different boxes
+function spaceApartBoxes(root) {
+	const walker = root.ownerDocument.createTreeWalker(root, 4 /* NodeFilter.SHOW_TEXT */);
+	let previous;
+	while (walker.nextNode()) {
+		const current = walker.currentNode;
+		if (!current.textContent.trim() || current.parentNode.closest('pre')) continue;
+		if (previous && /\S$/.test(previous.textContent) && /^\S/.test(current.textContent)) {
+			const before = containerOf(previous);
+			const after = containerOf(current);
+			if (before.container !== after.container) after.top.before(' ');
+		}
+		previous = current;
+	}
+}
+
 function convertDocument(document, url) {
 	const main = document.querySelector('main');
 	if (!main) return null;
@@ -104,9 +156,24 @@ function convertDocument(document, url) {
 		button.replaceWith(heading);
 	});
 	main.querySelectorAll(REMOVED).forEach((el) => el.remove());
+	// Hidden until a script shows it, like the post search's empty message; "hidden
+	// md:block" is only hidden on phones, so it stays
+	main.querySelectorAll('.hidden').forEach((el) => {
+		if (
+			![...el.classList].some((c) =>
+				/:(block|flex|grid|inline|inline-block|inline-flex|table|contents)$/.test(c),
+			)
+		)
+			el.remove();
+	});
 	// A card is one big link around a picture, a title and a blurb: "[Title](url): blurb"
 	main.querySelectorAll('a[href]').forEach((a) => {
-		if (!a.querySelector('img, picture, h1, h2, h3, h4, h5, h6, p, div, figure')) return;
+		const hasBlocks = a.querySelector('img, picture, h1, h2, h3, h4, h5, h6, p, div, figure');
+		// Or a name and a description in sibling spans, like the accounts on /contact/
+		const hasTextParts =
+			[...a.children].filter((child) => child.textContent.trim()).length > 1 &&
+			![...a.childNodes].some((node) => node.nodeType === 3 && node.textContent.trim());
+		if (!hasBlocks && !hasTextParts) return;
 		const [title, ...blurb] = textPieces(a);
 		if (!title) return;
 		const link = document.createElement('a');
@@ -145,6 +212,8 @@ function convertDocument(document, url) {
 		if (!a.textContent.trim() && !a.querySelector('img')) a.remove();
 		else a.setAttribute('href', a.href);
 	});
+
+	spaceApartBoxes(main);
 
 	const title = document.title.replace(/ \| Joe Karlsson$/, '');
 	const description =

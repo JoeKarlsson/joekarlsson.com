@@ -234,6 +234,20 @@ describe('Markdown copies for agents', () => {
 		expect(post).not.toMatch(/\[\]\(/);
 	});
 
+	// Boxes the layout places apart (a date, then a title) have no space between them in
+	// the HTML, so the copies used to read "2026My Homelab" or "LinkedInProfessional"
+	it('keeps text from separate boxes apart', () => {
+		expect(readDist('contact.md')).toContain(
+			'[LinkedIn](https://www.linkedin.com/in/joekarlsson/): Professional inquiries & speaking',
+		);
+		expect(readDist('resume.md')).toMatch(/2024 - 2026 Remote/);
+		for (const page of ['blog.md', 'work.md', 'newsletter.md', 'index.md', 'about.md']) {
+			const text = readDist(page);
+			expect(text.match(/[\w.,:]\[(?!\])|\)\[/g), page).toBeNull();
+			expect(text, page).not.toMatch(/\b\d{4}[A-Z][a-z]/);
+		}
+	});
+
 	it('links every indexed page to a Markdown copy that exists, and skips noindex pages', () => {
 		for (const page of [
 			'index.html',
