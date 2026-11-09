@@ -9,7 +9,7 @@ description: "I built my first Homelab server for under $200 with a used Lenovo 
 categories: ['Homelab']
 heroImage: '/images/blog/how-to-get-started-building-a-homelab-server/thumb-52866fdd.webp'
 heroAlt: 'Is this a server? meme: me looking at any used PC on Facebook Marketplace'
-tldr: 'I built my first Homelab server for under $200 using a used Lenovo ThinkServer from Facebook Marketplace and Proxmox. Here is everything I learned about picking hardware, choosing an OS, setting up containers, and mounting NAS storage.'
+tldr: 'Buy a used office PC or a mini PC with at least 16GB of RAM, install Proxmox VE 9.2 (free), and start with four services: Pi-hole, Jellyfin, a Homepage dashboard and Uptime Kuma. Keep your files on a NAS and mount it into the containers. My first server was a $150 used Lenovo ThinkServer, though RAM prices make that hard to match now.'
 faq:
   - question: 'How much does a homelab cost to run?'
     answer: 'Hardware is a one-time cost, and it went up in 2026 because of the RAM shortage. Electricity is the ongoing cost. At $0.15/kWh, a mini PC idles at 10-25W and costs about $1-3 a month, a used office tower costs about $4-9 a month, and a full rack server costs $11-22 or more a month.'

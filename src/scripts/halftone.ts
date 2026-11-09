@@ -25,6 +25,9 @@
 // always, under reduced motion). With no WebGL, or only a software one, the
 // originals show in color.
 
+import { retryImageLoadOnce } from './retry-image';
+
+
 const CELL_CSS_PX = 3;
 const INK = [1, 0x4f / 255, 0xd8 / 255]; // #ff4fd8
 // Mean brightness (0-1) above which an image is inverted, like halftone.py's --invert-light
@@ -291,13 +294,9 @@ function attach(element: Source, draw: Draw): void {
 	if (still.complete && still.naturalWidth) onStill();
 	else if (still.src) {
 		still.addEventListener('load', onStill, { once: true });
-		still.addEventListener(
-			'error',
-			() => {
-				throw new Error(`Halftone: ${still.currentSrc || still.src} failed to load`);
-			},
-			{ once: true },
-		);
+		retryImageLoadOnce(still, () => {
+			throw new Error(`Halftone: ${still.currentSrc || still.src} failed to load twice`);
+		});
 	}
 	// Redraw when the element is resized or shown (a filtered list unhides rows)
 	new ResizeObserver(redraw).observe(element);

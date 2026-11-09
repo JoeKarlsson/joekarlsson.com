@@ -166,6 +166,10 @@ export default defineConfig({
 		// Newsletter posts renamed after publishing
 		'/newsletter/its-been-a-while': '/newsletter/taste-matters-more-with-ai/',
 
+		// Old WordPress "why I joined" posts that never moved over (404s in Plausible, 2026-11-09)
+		'/blog/why-i-joined-singlestore': '/about/',
+		'/blog/why-i-joined-viam-🤖': '/about/',
+
 		// Consolidated content redirects
 		'/blog/how-i-work': '/uses/',
 		// The same CData article imported twice under two slugs (2026-11-05)

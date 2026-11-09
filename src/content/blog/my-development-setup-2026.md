@@ -588,3 +588,5 @@ Still broken or missing:
 - **Local models aren't good enough for coding yet**, at least not on a 16 GB card shared with Plex and photo processing.
 
 Next on my list: testing one of the bigger Qwen3.8 models on real coding work, and getting these dotfiles running cleanly on more than macOS and Debian.
+
+If you want to see how far open models get today, I tried swapping Claude Code for OpenCode in [Breaking up with Claude Code](/blog/breaking-up-with-claude-code/). The rest of my hardware and apps are on my [uses page](/uses/).
