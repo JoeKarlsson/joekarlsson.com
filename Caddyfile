@@ -15,7 +15,7 @@
 
 	# 301 redirects: WordPress date-based blog URLs → /blog/slug
 	# Matches /YYYY/MM/slug/ or /YYYY/MM/slug
-	@wp-blog path_regexp wp ^/(\d{4})/(\d{2})/([a-z0-9-]+)/?$
+	@wp-blog path_regexp wp ^/(\d{4})/(\d{2})/([^/]+)/?$
 	redir @wp-blog /blog/{re.wp.3}/ 301
 
 	# 301 redirects: Astro legacy year-based blog URLs → /blog/slug
