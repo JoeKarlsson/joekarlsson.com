@@ -11,6 +11,14 @@ contentNotice: false
 tldr: 'I show how to use MongoDB Atlas Online Archive to automatically move old, infrequently accessed data to cheap cloud storage while still querying everything through a single endpoint. Saves money without losing access to your data.'
 ---
 
+This post grew out of my talk Save the World (and Money) with MongoDB Data Lakes, which I gave at Conf42 Cloud Native 2021. Data centers are expensive, and they're not very good for the environment.
+
+[Watch Save the World and Money with MongoDB Data Lakes at Conf42 Cloud Native 2021 on YouTube](https://www.youtube.com/watch?v=fAvVxQknDL0)
+
+The talk starts with the difference between hot and cold data: the closer data sits to the CPU, the faster and more expensive it is. IoT time series data is a good fit for cold storage. I don't need to pay for a hot database full of my cat's bathroom habits from a year ago, but I might still want to query them. In the demo I fill a cluster with fake IoT data from a Python script, archive the older readings to an S3 bucket with Atlas Data Lake and check that they're gone from the hot cluster. I finish with Online Archive, which does the archiving for you from a rule, and that's what the rest of this post walks through. MongoDB has since renamed Atlas Data Lake to [Atlas Data Federation](https://www.mongodb.com/docs/atlas/data-federation/).
+
+---
+
 Let’s face it: Your data can get stale and old quickly. But just because the data isn’t being used as often as it once was doesn’t mean that it’s not still valuable or that it won’t be valuable again in the future. I think this is especially true for data sets like internet of things (IoT) data or user-generated content like comments or posts. (When was the last time you looked at your tweets from 10 years ago?). In this post, we will cover how to manage your data at scale with MongoDB Atlas Online Archive.
 
 ![Gif of Matt Damon from Saving Private Ryan aging into an old man.](/images/blog/how-to-manage-mongodb-data-at-scale/ad091ed6404c7a0a0c8954b19c262ac9cee25251.gif)

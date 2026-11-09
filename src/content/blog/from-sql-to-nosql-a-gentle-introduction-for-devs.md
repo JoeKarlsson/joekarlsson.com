@@ -3,64 +3,63 @@ title: 'From SQL to NoSQL: A Gentle Introduction For Devs'
 seoTitle: 'From SQL to NoSQL: An Intro for Devs'
 date: 2020-02-27
 slug: 'from-sql-to-nosql-a-gentle-introduction-for-devs'
-description: 'Slides, video and resources from my talk From SQL to NoSQL: what NoSQL databases are, how they differ from SQL databases, and how JS devs can use them.'
+description: 'My talk on moving from SQL to NoSQL with MongoDB: how SQL terms map to documents, four advantages of a document database, and three habits SQL developers need to unlearn.'
 categories: ['Web Dev']
 heroImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/thumb-b05809df.webp'
 heroAlt: 'A clerk in a room lined floor to ceiling with filing drawers'
 contentNotice: false
-tldr: 'I map SQL concepts to MongoDB equivalents, cover four big advantages of document databases, and explain the three mindset shifts you need to make when moving from SQL to NoSQL.'
+tldr: 'Most SQL concepts have a MongoDB twin with a different name. Documents let you program faster, pivot easier, query faster and scale cheaper, but only once you stop splitting your data into tables out of habit.'
 ---
 
-Thanks for coming to my talk, From SQL to NoSQL: A Gentle Introduction For Devs. Here you will find all the resources discussed during the talk.
+When you need to model data, is your first instinct to start breaking it down into rows and columns? Mine used to be too. This is my gentle introduction to NoSQL for developers who already know some SQL, using MongoDB as the example, recorded at ConFoo Montreal in February 2020.
 
-## About
+[Watch From SQL to NoSQL at ConFoo 2020 on YouTube](https://www.youtube.com/watch?v=12IppjSDVCQ)
 
-“I have heard about NoSQL databases, but don’t know what they are. What’s the difference between NoSQL and relational databases like SQL?” Does this sound like you? In this talk, you will learn about the current NoSQL landscape and how you as a JS developer can take advantage of NoSQL databases.
+## What the talk covers
 
-## Slides
+**Why the database matters.** A web app has two main bottlenecks: network speed and database execution speed. Nobody has broken the speed of light yet, so the database is the one you can do something about.
 
-[View the slides on SpeakerDeck](https://speakerdeck.com/joekarlsson)
+**SQL terms in MongoDB.** MongoDB stores data in documents. They're JSON-like (BSON), you read them by key, and they hold real data types: strings, integers, arrays, nested objects and geolocation data. The same user data in SQL gets normalized into a users table, a professions table linked by foreign keys, and another table for the nested data. Most of the concepts carry over with a different name:
 
-## Video
+- Row → document
+- Column → field
+- Table → collection
+- Database → database
+- Index → index, with the same B-tree structure
+- JOIN → embedding, or `$lookup` when you need it
+- Multi-record ACID transaction → multi-document ACID transaction
 
-[Watch the talk on YouTube](https://www.youtube.com/watch?v=24JYU-l5uQc)
+People often call MongoDB schemaless. I'd call it a flexible schema database: you can enforce schema validation at the database level, as strictly or as loosely as you want.
 
-## Talk Outline:
+**Four advantages of a document database:**
 
-- Map terms & concepts from SQL to MongoDB
-  - MongoDB stores data in Documents
-  - Modelling data in MongoDB v SQL
-  - Schemaless database
-  - Document -> Row
-  - Field -> Column
-  - Collection -> Table
-  - Database -> Database
-  - Index -> Index
-  - Embedding -> JOIN
-  - $lookup (Aggregation pipeline) -> Left Outer JOIN
-  - Multi-record ACID Transaction -> Multi-record ACID Transaction
-- Discover the 4 humongous advantages of MongoDB
-  - Scale cheaper
-  - Program faster
-  - Query Faster
-  - Pivot Easier
-- Change your mindset in 3 key ways
-  - Not all documents in a collection need to have the same fields
-    - Polymorphic Pattern
-    - Outlier Pattern
-  - Data that is accessed together should be stored together (I go deeper on this in my [MongoDB schema design best practices](/blog/mongodb-schema-design-best-practices/) talk)
-  - Stop using transactions regularly
-- Recap/Overview/Questions
+1. **Program faster.** Documents map straight onto the objects and dictionaries your language already has. Rows and columns don't, so with SQL you map rows into objects and back again. In my Python example, querying and updating a user profile took 30 lines of code with MongoDB and 73 with MySQL.
+2. **Pivot easier.** Adding a field doesn't mean altering tables and dealing with the old data. When I added a new sensor to my IoT litter box, I started saving its readings right away, and I didn't care about the old data anyway.
+3. **Query faster.** Joins are expensive in time and in memory, and they get worse with lots of users hitting them at once. If everything you need is in one document, it's one query and no join.
+4. **Scale cheaper.** An SQL database scales vertically: when you run out of space, you buy a bigger hard drive, which gets expensive fast, and you migrate with downtime. MongoDB scales horizontally with sharding. You add smaller, cheaper servers with no downtime, and you can shard by geolocation so your users' data sits close to them.
 
-You can view a complete list of my past and upcoming talks with video on my website [joekarlsson.com/talk-archive](/talk-archive/)
+**Three habits to unlearn.** I started in PostgreSQL, and splitting data into tables was a hard habit to break.
 
-## Related Links
+- **Not every document in a collection needs the same fields.** With the polymorphic pattern, documents in one collection can take different shapes. My cat's user profile is tiny, because he doesn't have a job or a cell phone. The outlier pattern handles the few documents that break your design. A regular Twitter user can keep their followers in an array, but Justin Bieber can't, so his document gets flagged and the extra followers go into overflow documents.
+- **Data that's accessed together should be stored together.** Hard drives used to be expensive. Now the biggest cost in development is developers. Repeating data costs some storage and makes your queries faster, so embed as much as you can. I go deeper on this in [MongoDB Schema Design Best Practices](/blog/mongodb-schema-design-best-practices/).
+- **Don't reach for a transaction every time.** ACID transactions aren't bad, and if I were building a banking app I'd use them. I think a lot of us lean on them more than we need to.
 
-- [MongoDB University](https://joekarlsson.dev/MongoDBUniversity)
-- [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity)
-- [Advanced Schema Design Patterns (webinar)](https://www.mongodb.com/presentations/advanced-schema-design-patterns)
-- [Building with Patterns: A Summary (blog series)](https://www.mongodb.com/blog/post/building-with-patterns-a-summary)
-- [The MongoDB Docs](https://docs.mongodb.com/)
-- [JSON Schema Validation – Locking down your model the smart way](https://www.mongodb.com/blog/post/json-schema-validation--locking-down-your-model-the-smart-way)
-- [JSON Schema Validation – Checking Your Arrays](https://www.mongodb.com/blog/post/json-schema-validation--checking-your-arrays)
-- [M121: The MongoDB Aggregation Framework](https://learn.mongodb.com)
+**What to do next.** The best way I learn a new technology is to use it. Try a new database on your next side project, and if you want a guided start, MongoDB University's courses are free.
+
+## Where I've given it
+
+ConFoo Montreal (February 2020), the JavaMN meetup in Minneapolis (March 2020), JS VidCon and the Node.js Global Summit (May 2020), and Conf42 JavaScript (2020). Other recordings:
+
+- [Conf42 JavaScript 2020](https://www.youtube.com/watch?v=Y9qSp8kd1u4), a shorter 17-minute version
+
+## Slides and resources
+
+- [Slides on Speaker Deck](https://speakerdeck.com/joekarlsson/from-sql-to-nosql-a-gentle-introduction-for-developers)
+- [MongoDB University](https://learn.mongodb.com/)
+- [Building with Patterns: A Summary](https://www.mongodb.com/company/blog/building-with-patterns-a-summary)
+- [Schema validation in the MongoDB docs](https://www.mongodb.com/docs/manual/core/schema-validation/)
+- [JSON Schema Validation: Locking Down Your Model the Smart Way](https://www.mongodb.com/company/blog/json-schema-validation--locking-down-your-model-the-smart-way)
+- [JSON Schema Validation: Checking Your Arrays](https://www.mongodb.com/company/blog/json-schema-validation--checking-your-arrays)
+- [Transactions in the MongoDB docs](https://www.mongodb.com/docs/manual/core/transactions/)
+- [Sharding in the MongoDB docs](https://www.mongodb.com/docs/manual/sharding/)
+- [MongoDB Community Forums](https://www.mongodb.com/community/forums/)

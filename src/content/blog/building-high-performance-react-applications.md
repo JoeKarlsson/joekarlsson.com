@@ -13,6 +13,36 @@ tldr: 'I walk through practical ways to speed up React apps, from using keys cor
 
 Okay, we all know that React was built with performance in mind, but when is React slow? I want to break down for you, dear reader, common bottlenecks in React and when you might be making your program work harder than it should. In this post, I will show you how you can start building high performance React Applications.
 
+[Watch Building High Performance React Applications at Web Rebels 2018 on YouTube](https://www.youtube.com/watch?v=JNs1ZvRzOYM)
+
+## The talk
+
+This post is the write-up of a talk I gave in 2018 and 2019, when I was a tech lead at Best Buy working in React every day. I only got into React performance out of necessity. We built a chatbot for the site, and once the chat log got long enough, performance tanked and we had no idea why. That's how I found the React performance tools.
+
+I open with why speed matters. Amazon added 100 milliseconds of latency to its homepage in an A/B test and lost 1% of sales, which is over a billion dollars a year. I focus on the client because front-end fixes are usually simpler than back-end ones, you see the results the second you ship them, and they're cheaper.
+
+The short answer is the same one this post gives: only render to the DOM when you need to. Then I take a demo app written to be "the worst React application humanly possible" and profile it after each fix:
+
+- **Use keys correctly:** 34 ms per update down to about 17. No `Math.random()`, no array index. Use the ID from your API, or hash a unique part of the object if there isn't one.
+- **`shouldComponentUpdate()`:** down to 9 ms.
+- **PureComponent:** about the same as `shouldComponentUpdate()`, with almost no code.
+- **Immutable data,** so React can compare the old and new versions instead of walking the whole set.
+- **A production build:** about 5.9 ms.
+- **Analyze your Webpack bundle** with Webpack Bundle Analyzer, and profile often.
+
+The talk gives the order I work in: don't optimize until you see a problem, then try PureComponent, and fall back to a regular component with `shouldComponentUpdate()` when the props or state are deeply nested. On stateless components, the talk says there's no performance gain yet, because React wraps them in a regular component behind the scenes. Write them anyway, since they're easier to test and maintain.
+
+In the Q&A someone asked which fix gives the most for the least refactoring. Keys and the production build. PureComponent and `shouldComponentUpdate()` can bite you later, when a new developer nests the props deeper, the component stops updating, and they spend hours trying to figure out why.
+
+## Where I've given it
+
+Web Rebels (2018), Full Stack Toronto, and the Kansas City Developer Conference (July 2019). Other recordings:
+
+- [Building High Performance React Applications on the Node.js channel (2018)](https://www.youtube.com/watch?v=xJYOipHkwNM)
+- [Full Stack Toronto](https://www.youtube.com/watch?v=6z4g27TSO5I)
+
+## The write-up
+
 First of all, we need to set a baseline. How the heck do we measure performance in a React Application? Well, I am glad you asked! As of React 16, [React has a performance monitoring tool baked into the vanilla development mode of React](https://react.dev/reference/react/memo#profiling-components-with-the-chrome-performance-tab)!
 
 Okay, let’s check it out. When you are in a **development** build, you can now perform a performance audit and see how your React components are spending their time. This feature can be used to fine-tune your app and find expensive components and methods. This is also the tool we will be using to measure the performance of our app.

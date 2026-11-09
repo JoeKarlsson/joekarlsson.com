@@ -10,7 +10,35 @@ contentNotice: false
 tldr: "I built an internet-connected cat litter box with a Raspberry Pi, load cells, and Node.js to track my cat's weight and bathroom habits. This post walks through the hardware, the code, and IoT data best practices."
 ---
 
-My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet of Toilets or AKA, IoT) device for my feline friend at home. If you’re reading this, you have probably heard about how hot internet-connected devices are, and you are probably interested in learning how to get into IoT development as a JavaScript developer. I also gave a talk on this topic: [watch it on YouTube](https://www.youtube.com/watch?v=711Sb55fzdg), and the code is on [GitHub](https://github.com/JoeKarlsson/iot-kitty-litter-box). I'm going to walk through why you should consider JavaScript for your next IoT project, talk about IoT data best practices, and show off my latest creation, the IoT Kitty Litter Box.
+My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet of Toilets or AKA, IoT) device for my feline friend at home. If you’re reading this, you have probably heard about how hot internet-connected devices are, and you are probably interested in learning how to get into IoT development as a JavaScript developer. I also gave a talk on this topic (the video is right below), and the code is on [GitHub](https://github.com/JoeKarlsson/iot-kitty-litter-box). I'm going to walk through why you should consider JavaScript for your next IoT project, talk about IoT data best practices, and show off my latest creation, the IoT Kitty Litter Box.
+
+[Watch An Introduction To IoT at CodeLand 2020 on YouTube](https://www.youtube.com/watch?v=zHvrtt5raA4)
+
+## The talk
+
+The talk is a gentle introduction to the Internet of Things, or how to get started programming hardware with JavaScript and Node, with this litter box as the example. It runs about 20 minutes:
+
+- **What IoT is.** Anything you put a chip in. My favorite part is the stupid side of it: the weird little projects that straddle the line between totally ridiculous and totally smart.
+- **Why JavaScript.** 58% of IoT developers self-identify as Node.js developers. The garbage collector means you don't manage memory yourself, you update a device with a `git pull` and `npm install` instead of reflashing it, and Node's event-driven core matches how sensors work.
+- **What the box does.** A switch on the lid puts it in maintenance mode while I clean it. Load cells under the box work like an internet-connected bathroom scale: when a cat-sized object steps in, it records his weight and a timestamp.
+- **The code.** Blinking an LED with Johnny-Five as the hello world, then the magnetic lid switch, then the load cells. I couldn't find a Node package for my load cells, so Node spawns a Python script as a child process that reads the weight every tenth of a second.
+- **The data.** One MongoDB document per day with an array of events. When I added the door sensor, I just changed the schema and didn't have to touch the old data.
+- **Wild speculations.** Smaller, more powerful hardware doing more compute on the edge, JavaScript tuned for hardware, more hardware support, and batteries, not compute power, staying the bottleneck.
+
+The advice I close with: pick a dumb project, buy a Raspberry Pi for about $35 and make an LED blink. Every time you get stuck, Google it.
+
+### Where I've given it
+
+In 2020: ConFoo Montreal, Prime Digital Academy, (mini) Minnebar, HalfStack Online, the Live Coders Conference, CodeLand:Distributed, DevNation Day, IoT Innovation Latam, Conf42 JavaScript and Nerdearla. Earlier versions ran at Grizzhacks and NYC Code Camp in 2019, and at Node+JS Interactive 2019 as Bringing JavaScript to the IoT Edge. Other recordings:
+
+- [Conf42 JavaScript 2020](https://www.youtube.com/watch?v=hVpgThAukUY)
+- [DevNation Day 2020](https://www.youtube.com/watch?v=chs89ujm1Cs)
+- [HalfStack Online, May 2020](https://www.youtube.com/watch?v=r2U5RXLr5Po)
+- [Live Coders Conference 2020](https://www.youtube.com/watch?v=CPyS9pwIBGg)
+- [Nerdearla 2020](https://www.youtube.com/watch?v=Vki0F0N_mEg)
+- [Bringing JavaScript to the IoT Edge, Node+JS Interactive 2019](https://www.youtube.com/watch?v=711Sb55fzdg)
+
+The [slides are on Speaker Deck](https://speakerdeck.com/joekarlsson/an-introduction-to-iot-internet-of-toilets-or-how-i-built-an-iot-kitty-litter-box-using-javascript-20-mins). The rest of this post is the full write-up.
 
 ![Final assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process.gif)
 
@@ -34,7 +62,7 @@ Now, consider how an IoT device in the wild is built to run. In this thought exp
 
 ### Mature IoT Community
 
-Lastly, it’s important to note that there is a mature community of IoT developers actively working on IoT libraries for Node.js. My favorites are [Johnny-Five](http://johnny-five.io/) and [CylonJS](https://cylonjs.com/). Let’s take a look at the “Hello World” on IoT devices: making an LED bulb blink. Here’s what it looks like when I first got my IoT “Hello World” code working.
+Lastly, it’s important to note that there is a mature community of IoT developers actively working on IoT libraries for Node.js. My favorites are [Johnny-Five](https://johnny-five.io/) and [CylonJS](https://github.com/hybridgroup/cylon). Let’s take a look at the “Hello World” on IoT devices: making an LED bulb blink. Here’s what it looks like when I first got my IoT “Hello World” code working.
 
 Just be careful that your cat doesn’t try to eat your project while you are getting your Hello World app up and running.
 
@@ -42,7 +70,7 @@ Just be careful that your cat doesn’t try to eat your project while you are ge
 
 ## IoT (AKA: Internet of Toilets) Kitty Litter Box
 
-This leads me to my personal IoT project, the IoT Kitty Litter Box. For this project, I opted to use [Johnny-Five](http://johnny-five.io/). So, what the heck is this IoT Kitty Litter Box, and why would anyone want to build such a thing? Well, the goal of building an internet-connected litter box was to:
+This leads me to my personal IoT project, the IoT Kitty Litter Box. For this project, I opted to use [Johnny-Five](https://johnny-five.io/). So, what the heck is this IoT Kitty Litter Box, and why would anyone want to build such a thing? Well, the goal of building an internet-connected litter box was to:
 
 - Help track my feline friend’s health by passively measuring my cat’s weight every time he sets foot in the litter tray.
 
@@ -167,7 +195,7 @@ You can see the event and asynchronous nature of IoT plays nicely with Node’s 
 
 Okay, now let’s talk about my favorite component, the load cells. The load cells work like any bathroom scale you may have at home. The load cells are responsible for converting the pressure placed on them into a digital weight measurement I can read on the Raspberry Pi. I start by taking the base weight of the litter box. Then, I wait for the weight of something that is approximately cat-sized to be added to the base weight of the box and take the cat’s weight. Once the cat leaves the box, I then recalibrate the base weight of the box. I also recalibrate the base weight after every time the lid is taken off in order to account for events like the box being cleaned or having more litter added to the box.
 
-In regards to the code for reading data from the load cells, things were kind of tricky. This is because the load cells are not directly compatible with [Johnny-Five](http://johnny-five.io/). I was, however, able to find a [Python library that can interact with the HX711 load cells](https://github.com/tatobari/hx711py).
+In regards to the code for reading data from the load cells, things were kind of tricky. This is because the load cells are not directly compatible with [Johnny-Five](https://johnny-five.io/). I was, however, able to find a [Python library that can interact with the HX711 load cells](https://github.com/tatobari/hx711py).
 
 ```python
 #! /usr/bin/python2
@@ -294,7 +322,7 @@ Lastly, you will want to select a database that natively handles time-series dat
 
 ## Summary
 
-Alright, let’s wrap this party up. In this post, I covered why you should consider using Node for your next IoT (Internet of Toilets) project: It’s easy to update over a network, the internet already speaks JavaScript, there are tons of existing libraries/plugins/APIs (including [CylonJS](https://cylonjs.com/) and [Johnny-Five](http://johnny-five.io/)), and JavaScript is great at handling event-driven apps. I walked through a real-life Node-based IoT project, my IoT Kitty Litter Box, and dug into the code base. I also discussed what to look for when selecting a database for IoT projects: It should be able to concurrently write data quickly, have a flexible schema, and be able to handle time-series data.
+Alright, let’s wrap this party up. In this post, I covered why you should consider using Node for your next IoT (Internet of Toilets) project: It’s easy to update over a network, the internet already speaks JavaScript, there are tons of existing libraries/plugins/APIs (including [CylonJS](https://github.com/hybridgroup/cylon) and [Johnny-Five](https://johnny-five.io/)), and JavaScript is great at handling event-driven apps. I walked through a real-life Node-based IoT project, my IoT Kitty Litter Box, and dug into the code base. I also discussed what to look for when selecting a database for IoT projects: It should be able to concurrently write data quickly, have a flexible schema, and be able to handle time-series data.
 
 ![Final IoT Kitty Litter Box Assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process-1.gif)_Final IoT Kitty Litter Box Assembly process_
 
