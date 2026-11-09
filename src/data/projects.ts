@@ -1028,14 +1028,13 @@ export const projects: Project[] = [
 			intro: [
 				'Bechdel.io checks movie scripts against the Bechdel Test. The test comes from a 1985 Alison Bechdel comic strip, and it asks three things: are there at least two women, do they talk to each other, and do they talk about something other than a man.',
 				'A wall of movies most people have already seen, sorted into pass and fail, makes you look at them again. About half of the 218 films on the shelf fail, and a lot of them are favorites.',
-				"The counting is also where it goes wrong. To count women, the tool has to decide who is one, and it takes that answer from a film database that credits everyone as an actor or an actress. It can't see a trans character, a character whose gender changes during the film, or anyone who isn't a man or a woman. That two-box answer runs back through casting, award categories and the fan-run sites the data comes from, and the Bechdel Test has the same blind spot: it never says who the women are.",
 				'My sister Laurel and I made it in 2015 and used it to study the Best Picture nominees at the 2015 Oscars. We released it as open source because we saw it as feminist activism.',
 			],
 			credit: 'with Laurel Karlsson',
 			made: {
 				text: [
 					'The scripts came from [Movie Script Scraper](https://github.com/JoeKarlsson/movie-script-scraper), and the cast from a film database API. [The 2015 write-up](/blog/bechdel-test-script-parser-works/) goes deeper.',
-					"The weak spot is the word list. Words about men run all through English, and a keyword can't tell what a sentence is about.",
+					"It has two weak spots. Words about men run all through English, and a keyword can't tell what a sentence is about. And it takes each character's gender from the film database, which credits everyone as an actor or an actress, so it can't see a trans or nonbinary character.",
 				],
 				diagram: {
 					src: '/images/blog/bechdel-test-script-parser-works/parsing-method.svg',
