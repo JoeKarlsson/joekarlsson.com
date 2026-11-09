@@ -1,55 +1,78 @@
 {
-	"updatedAt": "2026-11-07",
+	"updatedAt": "2026-11-08",
 	"shippingWindowDays": 30,
 	"shippedRepos": [
+		{
+			"name": "rose-hobart",
+			"description": "A digital humanities project to explore the (lack of) performativity in the current version available of Joseph Cornell’s short film Rose Hobart.",
+			"url": "https://github.com/JoeKarlsson/rose-hobart",
+			"language": "TypeScript",
+			"commitCount": 12,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 4
+			],
+			"latestCommitMessage": "chore: README opens with a short statement of what Rose Hobart is..."
+		},
 		{
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 398,
+			"commitCount": 420,
 			"dailyCommitCounts": [
-				0, 0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169,
-				74, 44
+				0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74,
+				44, 22
 			],
-			"latestCommitMessage": "feat: Deploys purge only the files that changed from Cloudflare, so..."
-		},
-		{
-			"name": "screencast-director",
-			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
-			"url": "https://github.com/JoeKarlsson/screencast-director",
-			"language": "Swift",
-			"commitCount": 261,
-			"dailyCommitCounts": [
-				0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2,
-				3
-			],
-			"latestCommitMessage": "feat: Vertical covers put a sharp B-roll frame on the top half, you..."
-		},
-		{
-			"name": "python-sudoku-generator-solver",
-			"description": "Python based sudoku generator that can create unique Sudoku board based on 4 difficulty levels. This code also includes a brute force sudoku solver that is capable of solving even the most difficult sudoku puzzles!",
-			"url": "https://github.com/JoeKarlsson/python-sudoku-generator-solver",
-			"language": "Python",
-			"commitCount": 1,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
-			],
-			"latestCommitMessage": "feat: The README opens with an animation of a board solving itself"
+			"latestCommitMessage": "fix: E2E tests follow the Works redesign, and a long project title on..."
 		},
 		{
 			"name": "bechdel-test",
 			"description": "Does your favorite film pass the test?",
 			"url": "https://github.com/JoeKarlsson/bechdel-test",
 			"language": "JavaScript",
-			"commitCount": 68,
+			"commitCount": 78,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 10
 			],
-			"latestCommitMessage": "chore: Check sideways scrolling on every non-film page plus about 80..."
+			"latestCommitMessage": "fix: The artist statement on the about page and README is about what..."
+		},
+		{
+			"name": "react-spotify-player",
+			"description": "Realtime Spotify Player built with React.",
+			"url": "https://github.com/JoeKarlsson/react-spotify-player",
+			"language": "JavaScript",
+			"commitCount": 2,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+			],
+			"latestCommitMessage": "chore: README gets a developer straight to running the player, with no..."
 		}
 	],
 	"films": [
+		{
+			"title": "Working Girl",
+			"year": 1988,
+			"rating": 3.5,
+			"reviewExcerpt": "Working Girl is a cute 80s romance with a supremely hot Harrison Ford, and its \"happy ending\" ends with Melanie Griffith alone in an office. On paper it is one...",
+			"url": "https://letterboxd.com/joekarlsson/film/working-girl/",
+			"poster": "/images/now/film-3525.webp"
+		},
+		{
+			"title": "Dragon Ball Z: Fusion Reborn",
+			"year": 1995,
+			"rating": 3,
+			"reviewExcerpt": "Antifa Trunks and Goten confirmed.",
+			"url": "https://letterboxd.com/joekarlsson/film/dragon-ball-z-fusion-reborn/",
+			"poster": "/images/now/film-39107.webp"
+		},
+		{
+			"title": "The History of Concrete",
+			"year": 2026,
+			"rating": 4.5,
+			"reviewExcerpt": "This is Pilgrim at Tinker Creek if Annie Dillard were stuck on a New York City sidewalk. I mean that as the highest praise. I'm a sucker for sprawling...",
+			"url": "https://letterboxd.com/joekarlsson/film/the-history-of-concrete/",
+			"poster": "/images/now/film-1596296.webp"
+		},
 		{
 			"title": "The Age of Innocence",
 			"year": 1993,
@@ -57,33 +80,15 @@
 			"reviewExcerpt": "If I were rich in Gilded Age New York, I wouldn't be at this dinner. I'd be on an island watching movies. ALso - I need to say this up top. I really struggle...",
 			"url": "https://letterboxd.com/joekarlsson/film/the-age-of-innocence/",
 			"poster": "/images/now/film-10436.webp"
-		},
-		{
-			"title": "Mutiny",
-			"year": 2026,
-			"rating": 2,
-			"reviewExcerpt": "Mutiny is Under Siege with somehow more boring, worse writing, and it's uglier to look at. I don't put on a Jason Statham movie for the writing, though. I've...",
-			"url": "https://letterboxd.com/joekarlsson/film/mutiny-2026/",
-			"poster": "/images/now/film-1288445.webp"
-		},
-		{
-			"title": "The Royal Tenenbaums",
-			"year": 2001,
-			"rating": 5,
-			"reviewExcerpt": "This is the Wes Anderson movie that gets me every time. This time it got me through Chas. I first saw The Royal Tenenbaums at a foundational age, and it's been...",
-			"url": "https://letterboxd.com/joekarlsson/film/the-royal-tenenbaums/",
-			"poster": "/images/now/film-9428.webp"
-		},
-		{
-			"title": "Jason Goes to Hell: The Final Friday",
-			"year": 1993,
-			"rating": 1,
-			"reviewExcerpt": "This movie was dumb and bad.",
-			"url": "https://letterboxd.com/joekarlsson/film/jason-goes-to-hell-the-final-friday/",
-			"poster": "/images/now/film-10285.webp"
 		}
 	],
 	"podcastEpisodes": [
+		{
+			"episodeTitle": "Casino with Emily Yoshida",
+			"podcastTitle": "Blank Check",
+			"url": "https://podcasts.apple.com/us/podcast/blank-check-with-griffin-david/id981330533",
+			"cover": "/images/now/podcast-ab4a04d4-3b5e-4bdc-b6ba-af9a721e2351.webp"
+		},
 		{
 			"episodeTitle": "The Gene Hackman Hall of Fame",
 			"podcastTitle": "The Big Picture",
@@ -101,12 +106,6 @@
 			"podcastTitle": "Blank Check with Griffin & David",
 			"url": "https://podcasts.apple.com/us/podcast/blank-check-with-griffin-david/id981330533?uo=4",
 			"cover": "/images/now/podcast-8c1b36c3-8647-4553-94c3-17031a478ff5.webp"
-		},
-		{
-			"episodeTitle": "‘A Nightmare on Elm Street’ With Bill Simmons, Chris Ryan, and Van Lathan",
-			"podcastTitle": "The Rewatchables",
-			"url": "https://podcasts.apple.com/us/podcast/the-rewatchables/id1268527882?uo=4",
-			"cover": "/images/now/podcast-fe6ad4e7-88b4-46b7-ad7c-a4a2e1a19c68.webp"
 		}
 	],
 	"homelab": {
