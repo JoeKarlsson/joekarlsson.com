@@ -3,7 +3,9 @@ title: 'I Finally Stopped Managing My Homelab by Hand (Everything Just Kept Brea
 seoTitle: 'An Immutable Homelab with OpenTofu'
 date: 2026-05-27
 slug: 'opentofu-proxmox-immutable-homelab'
-description: 'How I migrated 62 Proxmox containers to OpenTofu with a self-hosted MinIO state backend, and whether immutable infrastructure was worth it for a homelab.'
+updatedDate: 2026-11-09
+updateNote: 'MinIO archived its repo and stopped shipping binaries, so my state backend now runs Silo, a maintained MinIO fork. The new section on the state backend covers why and how the cutover went.'
+description: 'How I moved 62 Proxmox containers to OpenTofu with a self-hosted state backend (MinIO, now its fork Silo), and whether immutable infrastructure was worth it.'
 categories: ['Homelab']
 heroImage: '/images/blog/opentofu-proxmox-immutable-homelab/hero.webp'
 heroAlt: 'Terminal output showing OpenTofu provisioning Proxmox LXC containers with MinIO as the self-hosted state backend'
@@ -12,7 +14,7 @@ faq:
   - question: 'How long does it take to migrate an existing Proxmox homelab to OpenTofu?'
     answer: 'It depends on how many containers you have and how documented they are. I migrated 62 containers across 6 intensive days of active work after months of auditing with health checks. Stateless services take 30-60 minutes each. Stateful services with databases or media libraries take 2-4 hours including verification time.'
   - question: 'Do I need Terraform Cloud or a paid service to use OpenTofu with Proxmox?'
-    answer: 'No. I use MinIO - a self-hosted S3-compatible object store running as a Proxmox LXC container - as the state backend. It costs nothing, versioning is enabled for rollback, and it runs entirely on my own hardware.'
+    answer: 'No. I use a self-hosted S3-compatible object store running as a Proxmox LXC container as the state backend. It started as MinIO and runs Silo, a maintained MinIO fork, since MinIO archived its repo in 2026. It costs nothing, versioning is enabled for rollback, and it runs entirely on my own hardware.'
   - question: 'Can I use OpenTofu with Proxmox containers that are already running?'
     answer: 'Yes, but with care. For stateless services, provision the new container alongside the old one, verify it works, then retire the old one. For stateful services with databases or persistent data, run both in parallel for 24-48 hours before shutting down the original. Never destroy the old container first.'
   - question: 'What is the difference between OpenTofu and Terraform for Proxmox?'
@@ -22,8 +24,8 @@ faq:
 howToSteps:
   - name: 'Audit your existing containers first'
     text: 'Before writing any OpenTofu code, build health check scripts for each container. Document what each one does, what ports it exposes, and what it depends on. The gaps you find will change your migration order.'
-  - name: 'Set up MinIO as your state backend'
-    text: 'Deploy MinIO as an LXC container and create an S3 bucket for OpenTofu state with versioning enabled. This gives you rollback capability without needing Terraform Cloud or any paid service.'
+  - name: 'Set up a self-hosted S3 state backend'
+    text: 'Deploy an S3-compatible object store as an LXC container (I run Silo, the maintained MinIO fork) and create a bucket for OpenTofu state with versioning enabled. Pin the binary by checksum. This gives you rollback capability without needing Terraform Cloud or any paid service.'
   - name: 'Build a reusable LXC module'
     text: 'Create a modules/proxmox-lxc/ directory with a standard Debian 12 LXC baseline. Bake in Prometheus node-exporter and Promtail so every container gets observability automatically.'
   - name: 'Migrate stateless services first'
@@ -80,7 +82,7 @@ People ask if this is just Ansible with extra steps. It's not. They solve differ
 
 **[OpenTofu](https://opentofu.org)** manages what _exists_. It talks to the Proxmox API, creates LXC containers, assigns resources, and runs the provision script. It knows what should be there and what actually is there. `tofu plan` shows the diff. `tofu apply` reconciles them. State drift becomes detectable instead of invisible.
 
-**[MinIO](https://min.io)** is the state backend. It runs as CT 202 on my own hardware, S3-compatible and versioned. Every `tofu apply` writes state there. No Terraform Cloud. No recurring cost. No data leaving my network.
+**[MinIO](https://min.io)** is the state backend. It runs as CT 202 on my own hardware, S3-compatible and versioned. (Since October 2026 that container runs [Silo](https://github.com/pgsty/silo), a MinIO fork; [more on why below](#five-months-later-minio-went-away).) Every `tofu apply` writes state there. No Terraform Cloud. No recurring cost. No data leaving my network.
 
 **[Ansible](https://www.ansible.com)** handles what OpenTofu doesn't: operational tasks across existing containers. Deploying Promtail config changes to all 62 hosts at once. Running health checks. Ad-hoc operations that don't fit the "single container state" model. Ansible doesn't track what exists - it just does things. That's fine when you're operating on containers OpenTofu already knows about.
 
@@ -236,6 +238,21 @@ Fifty commits. Every infrastructure change, dated, described, reversible. That's
 
 I'm still finding gaps from the initial audit. Services with configuration that got lost during the migration, which I'm reconstructing piece by piece as things break. I expect that to continue. The alternative was never having it written down at all.
 
+## Five months later: MinIO went away
+
+Every other container's state lives in CT 202, and in October 2026 I found out I couldn't rebuild CT 202 from its provision script anymore.
+
+MinIO's company put the community edition into maintenance mode at the end of 2025 and later [archived the repo](https://github.com/minio/minio). My provision script downloads the MinIO binary, and `dl.min.io` now answers `410 Gone`. So if CT 202 died, `tofu apply` would have failed to rebuild the thing that stores every other container's state. No new binaries also means no security fixes, on the box that holds that state.
+
+I moved it to [Silo](https://github.com/pgsty/silo), a MinIO fork maintained by PGSTY. Garage and SeaweedFS are the usual suggestions, but both meant migrating the data into a new format. Silo reads MinIO's on-disk format as it is and takes the same `MINIO_*` settings, ports and health routes, so the cutover was a binary swap: the data, the bucket and every service's `backend.hcl` stayed exactly the same. The systemd unit is even still called `minio.service`, so none of my health checks had to change.
+
+Two things are different now:
+
+- **I pin the binaries.** The old script downloaded whatever sat at an unversioned `dl.min.io` URL. Now it names a Silo release and the sha256 of the binary itself, and installs nothing unless the download matches. A health check tells me when a newer release ships, and warns if the container runs anything other than the pin.
+- **Rolling back means restoring a backup.** Silo can write metadata an old MinIO binary can't read, so I kept an offline tarball of the data from right before the cutover (4.3 MB of state) and the last MinIO binary. Going back means restoring that tarball, not just pointing the service at the old binary.
+
+I did break one apply during the cutover: I stopped the backend while another session was in the middle of a `tofu apply`, and that apply couldn't save its state. OpenTofu writes the state it couldn't save to `errored.tfstate`, and I recovered it from there, so I lost nothing. Now, before anything restarts CT 202, I check that no `tofu plan` or `apply` is running anywhere and that the bucket has no `.tflock` files.
+
 ## Is This Right for You?
 
 Honest answer: it depends. Here's the checklist I wish I'd had before I started.
@@ -295,7 +312,7 @@ It depends on how many containers you have and how documented they are. I migrat
 
 ### Do I need Terraform Cloud or a paid service to use OpenTofu with Proxmox?
 
-No. I use [MinIO](https://min.io) (a self-hosted S3-compatible object store running as a Proxmox LXC container) as the state backend. It costs nothing, versioning is enabled for rollback, and it runs entirely on my own hardware.
+No. I use a self-hosted S3-compatible object store running as a Proxmox LXC container as the state backend: [MinIO](https://min.io) at first, and [Silo](https://github.com/pgsty/silo), a maintained MinIO fork, since MinIO archived its repo. It costs nothing, versioning is enabled for rollback, and it runs entirely on my own hardware.
 
 ### Can I use OpenTofu with Proxmox containers that are already running?
 

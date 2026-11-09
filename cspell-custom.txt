@@ -636,3 +636,5 @@ Zima
 Jellyseerr
 Seerr
 Servarr
+tfstate
+tflock
