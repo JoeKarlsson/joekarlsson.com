@@ -232,7 +232,7 @@ export const USES_SECTIONS: UsesSection[] = [
 		slug: 'recording',
 		name: 'Recording',
 		introHtml:
-			"I built a mini recording studio in a corner of my office. It's a second, fully separate setup from my main desk, so I can walk over, plug in one cable, and start recording without tearing anything down.",
+			'I built a mini recording studio in a corner of my office. It\'s a second, fully separate setup from my main desk, so I can walk over, plug in one cable, and start recording without tearing anything down. The <a href="/blog/recording-setup-tour/" data-text-link>full tour</a> covers the lighting, the Home Assistant recording mode and what it all cost.',
 		groups: [
 			{
 				name: 'Recording studio',
@@ -261,13 +261,25 @@ export const USES_SECTIONS: UsesSection[] = [
 						pin: [28, 59],
 					},
 					{
-						name: 'NEEWER NS4S Softboxes + SMALLRIG Light Stands',
+						name: 'NEEWER NS4S Softbox + SMALLRIG Light Stand',
 						url: '',
 						descHtml:
-							'a softbox for a soft key light on my face. The stands fold down small and are easy to move when I reposition the camera. An <a href="https://www.amazon.com/dp/B0FBGYRDLW" target="_blank" rel="noopener noreferrer" data-text-link >orange mushroom floor lamp</a> sits in the background because it looks good on camera.',
+							'my key light, soft and even on my face. The stand folds down small and is easy to move when I reposition the camera. An <a href="https://www.amazon.com/dp/B0FBGYRDLW" target="_blank" rel="noopener noreferrer" data-text-link >orange mushroom floor lamp</a> sits in the background because it looks good on camera.',
 						nameHtml:
-							'<a href="https://www.amazon.com/dp/B0CJM6G7JR" target="_blank" rel="noopener noreferrer" data-text-link >NEEWER NS4S Softboxes</a> + <a href="https://www.amazon.com/dp/B0FMKF8PXJ" target="_blank" rel="noopener noreferrer" data-text-link >SMALLRIG Light Stands</a>',
+							'<a href="https://www.amazon.com/dp/B0CJM6G7JR" target="_blank" rel="noopener noreferrer" data-text-link >NEEWER NS4S Softbox</a> + <a href="https://www.amazon.com/dp/B0FMKF8PXJ" target="_blank" rel="noopener noreferrer" data-text-link >SMALLRIG Light Stand</a>',
 						pin: [14, 36],
+					},
+					{
+						name: 'NEEWER FL20 Spotlight',
+						url: 'https://www.amazon.com/dp/B0H38M1N96',
+						descHtml:
+							'a zoomable LED spotlight on a lightweight tripod. With a colored gel on it, I move it around to throw a hard pool of orange on the wall behind me.',
+					},
+					{
+						name: 'Elgato Wave:3 MK.2',
+						url: 'https://www.elgato.com/us/en/p/wave-3',
+						descHtml:
+							'the recording desk&#39;s mic. It shows up in the same Wave Link setup as the Wave:3 at my main desk, so the audio chain is the same at either one.',
 					},
 					{
 						name: 'FLEXISPOT E6 MAX',
@@ -297,7 +309,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Original Prusa i3 MK3S',
 						url: 'https://www.prusa3d.com/',
 						descHtml:
-							'my 3D printer. It lives on a shelf in the recording corner and runs through OctoPrint, so it shows up in Home Assistant like everything else.',
+							'my 3D printer. It lives on a shelf in the recording corner and runs through OctoPrint, so it shows up in Home Assistant like everything else. Recording mode turns it on for its LEDs, which look good glowing behind me on camera.',
 					},
 				],
 			},

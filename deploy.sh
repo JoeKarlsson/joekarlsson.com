@@ -149,27 +149,33 @@ page_body_hash() {
     tr '\n' ' ' | sed -E 's/.*(<body[ >].*<\/body>).*/\1/' | shasum -a 256 | cut -d' ' -f1
 }
 EXPECTED_BODY=$(page_body_hash < dist/index.html)
+# Cloudflare caches phones separately (cache by device type), so check the copy an
+# iPhone gets too: on 2026-11-09 desktops got the new build while phones kept one
+# from hours earlier, because the purge only cleared the desktop copy.
+IPHONE_UA='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1'
 
-echo "Verifying the homepage visitors get matches this build..."
+echo "Verifying the homepage desktops and phones get matches this build..."
 VERIFIED=0
 for attempt in $(seq 1 12); do
     LIVE_BODY=$(curl -s --max-time 20 "$SITE_URL/" | page_body_hash || true)
-    if [[ "$LIVE_BODY" == "$EXPECTED_BODY" ]]; then
-        echo "  new build is live (after ${attempt} attempt(s))"
+    PHONE_BODY=$(curl -s --max-time 20 -A "$IPHONE_UA" "$SITE_URL/" | page_body_hash || true)
+    if [[ "$LIVE_BODY" == "$EXPECTED_BODY" && "$PHONE_BODY" == "$EXPECTED_BODY" ]]; then
+        echo "  new build is live on desktop and phone (after ${attempt} attempt(s))"
         VERIFIED=1
         break
     fi
     # A stale copy can be re-cached after the purge, and it then stays until
     # its TTL, so waiting alone would not clear it: purge again.
     if [[ "$CAN_PURGE" -eq 1 && $((attempt % 3)) -eq 0 ]]; then
-        echo "  still stale after ${attempt} attempt(s)"
+        [[ "$LIVE_BODY" != "$EXPECTED_BODY" ]] && echo "  desktop copy still stale after ${attempt} attempt(s)"
+        [[ "$PHONE_BODY" != "$EXPECTED_BODY" ]] && echo "  phone copy still stale after ${attempt} attempt(s)"
         purge_cloudflare_cache
     fi
     sleep 5
 done
 
 if [[ "$VERIFIED" -ne 1 ]]; then
-    echo "ERROR: $SITE_URL/ is not serving the build just deployed." >&2
+    echo "ERROR: $SITE_URL/ is not serving the build just deployed to both desktops and phones." >&2
     echo "  The origin may have failed to update, or the CDN is still stale." >&2
     echo "  If the homepage gained an email address, Cloudflare's email obfuscation" >&2
     echo "  rewrites it in <body> and this comparison needs a different page." >&2
