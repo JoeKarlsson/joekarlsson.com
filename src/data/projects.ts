@@ -125,7 +125,7 @@ export const ERAS: {
 		from: 2021,
 		to: 2025,
 		label: 'The video years',
-		note: 'I spent most of these years making short videos on TikTok, so not much got built.',
+		note: 'I spent most of these years making short videos on TikTok.',
 	},
 	{
 		slug: 'era-2018',
@@ -151,7 +151,7 @@ export const projects: Project[] = [
 		title: 'IoT Kitty Litter Box',
 		shareTitle: 'IoT Kitty Litter Box: A litter box that weighs my cat every visit',
 		description:
-			'Welcome to the Internet of Toilets. An IoT-connected cat litter box built with a Raspberry Pi, weight sensors, and Node.js. Monitors usage patterns and sends notifications. Became one of my most popular conference talks - presented at 20+ events worldwide.',
+			'Welcome to the Internet of Toilets. An IoT-connected cat litter box built with a Raspberry Pi, weight sensors, and Node.js. Monitors usage patterns and sends notifications.',
 		image: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp',
 		imageAlt:
 			'Clips of the IoT Kitty Litter Box from 2019: the finished wooden cabinet on angled legs, my black cat sitting on top of it, me fitting the side panel with the wiring, a laptop printing load cell readings as weight is pressed onto the plate, and my cat chewing on the load cells and breadboard',
@@ -169,8 +169,8 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			intro: [
 				'My favorite things in life are cats, computers and crappy ideas, so I built an internet-connected litter box.',
-				"Every time my cat steps in, the box weighs him, and the weight goes into a database, so I can follow his health and his bathroom habits over time without doing anything. Take the lid off to clean it and the box knows it's being cleaned, waits for the litter to settle and starts over. I like that it sits right on the border between completely ridiculous and kinda genius.",
-				'I\'m not an electrical engineer, and it took a lot of Googling and at least two blown circuit boards. It turned into one of my most popular conference talks, the Internet of Toilets, which I gave at more than 20 events. The post about it ends with "I hereby give you permission to make stupid stuff just for you."',
+				'Every time my cat steps in, the box weighs him, and the weight goes into a database, so I can follow his health and his bathroom habits over time without doing anything. I like that it sits right on the border between completely ridiculous and kinda genius.',
+				'The post about it ends with "I hereby give you permission to make stupid stuff just for you."',
 			],
 			gallery: [
 				{
@@ -229,8 +229,8 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			intro: [
 				"PixelPane is a dark mirror on the shelf next to my desk until its lights come on, and most of the time it just shows pixel art: a pumpkin in October, a snowman in December, tonight's moon in its real phase. It's an art project first, born from the 8-bit and 16-bit games I've been playing on emulators.",
-				'What I love about that art is how much it does with almost nothing. A 32x32 grid is 1,024 pixels, enough for a pumpkin with a face or a rain cloud, and not enough to look like a phone. Only a few things get to interrupt it, like ON AIR when my camera turns on or a yellow flash for the doorbell, and I keep that list short on purpose so a flash still means something. Then the art comes back.',
-				"The board is mine, but almost none of the art on it is. Most of it comes from pixel artists who give their work away on OpenGameArt, itch.io and Kenney, and I've been collecting it since 2020. I pick what goes on it, and I only keep art someone drew at this size, because a video shrunk down to 32x32 turns to mush.",
+				"What I love about that art is how much it does with almost nothing. There's enough room for a pumpkin with a face or a rain cloud, and not enough to look like a phone. Only a few things get to interrupt it, like ON AIR when my camera turns on or a yellow flash for the doorbell, and I keep that list short on purpose so a flash still means something. Then the art comes back.",
+				'I pick everything that goes on it, and I only keep art someone drew at this size, because a video shrunk down to 32x32 turns to mush. Most of it comes from pixel artists who give their work away on OpenGameArt, itch.io and Kenney.',
 			],
 			tour: {
 				video: `${PIXELPANE_DIR}/tour.mp4`,
@@ -301,8 +301,8 @@ export const projects: Project[] = [
 			},
 			introHeading: 'Artist statement',
 			intro: [
-				'A postcard rack is a gold wire tower of little pockets, each one sized for a stack of postcards. I bought one secondhand with no idea what to do with it, and it sat around my house for a while. I love using vertical space for plants, and the pockets turned out to be about the right shape for a small pot.',
-				"So I drew a pot that hangs where the postcards used to go and printed enough to fill the rack. Each one drains into the pot below it, so I water the top and the water works its way down the tower. That's my favorite part, because a tower of small pots would be a chore to water one at a time.",
+				'A postcard rack is a gold wire tower of little pockets, each one sized for a stack of postcards. I bought one secondhand. I love using vertical space for plants, and the pockets turned out to be about the right shape for a small pot.',
+				"So I drew a pot that hangs where the postcards used to go and printed enough to fill the rack. Each one drains into the pot below it, so I water the top pot and the whole tower gets it. That's my favorite part.",
 				"It started with a small succulent in every pocket. Three or four years later it's mostly spider plants, and you can barely see the rack. It looks best in winter, when everything outside is dead and there's a green tower next to my window.",
 			],
 			tour: {
@@ -401,7 +401,6 @@ export const projects: Project[] = [
 			intro: [
 				'At a tech talk, the audience mostly sits there and types questions into a chat. I wanted everyone in the room to make something together instead, so I built a wall they could all paint on at once.',
 				"You open a link on your phone, pick a color and draw on a small grid, and every pixel shows up on everyone else's screen and on a real LED grid. There are no accounts, and if two people paint the same pixel, the last one wins. The best part was watching a room organize itself: someone starts drawing a shape and others join in, or groups fight over the corners. A 32x32 grid forces creativity in a way a blank whiteboard never would.",
-				"I've retired the wall, but the LED panel still sits on the shelf next to my desk. In 2026 it became PixelPane.",
 			],
 			made: {
 				text: [
@@ -422,7 +421,7 @@ export const projects: Project[] = [
 		title: 'Wave Jump',
 		shareTitle: 'Wave Jump: A two-player race on a wave that never holds still',
 		description:
-			'A race for two people on one keyboard, set on an 80s sunset grid. You both ride a white wave that never stops rolling, and the first one to dive through the checkered gate scores. I made it at Global Game Jam 2018 with Cal Carlson, Daniel Olson and Lisa Mabley.',
+			'A race for two people on one keyboard, set on an 80s sunset grid. You both ride a white wave that never stops rolling, and the first one to dive through the checkered gate scores.',
 		image: '/images/projects/wave-jump-poster.webp',
 		video: '/images/projects/wave-jump.mp4',
 		imageAlt:
@@ -438,9 +437,8 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			credit: 'with Cal Carlson, Daniel Olson and Lisa Mabley',
 			intro: [
-				"Cal Carlson, Daniel Olson, Lisa Mabley and I made Wave Jump at Global Game Jam 2018. It's a race for two people sharing one keyboard, one on W A S D and the other on the arrow keys. You each ride a white wave across an 80s sunset grid, and whoever dives through the checkered gate first gets the point.",
+				'Wave Jump is a race for two people sharing one keyboard. You each ride a white wave across an 80s sunset grid, and whoever dives through the checkered gate first gets the point.',
 				'The wave never holds still, and you never get the same one twice, so nobody gets to learn the course.',
-				"It needs two people at one keyboard, so it won't work on a phone, and it won't work alone.",
 			],
 			embedUrl: 'https://wavejump.joekarlsson.com/',
 			// The game scales its 1920x1080 world to fit, so it runs at the box's real size
@@ -463,7 +461,7 @@ export const projects: Project[] = [
 		title: 'Go Home Tanuki',
 		shareTitle: "Go Home Tanuki (You're Drunk): A Global Game Jam game about the ride home",
 		description:
-			'Our Global Game Jam 2016 game, on the theme "Ritual": a tanuki who works, drinks and goes home, every night. Fly him home through the dark and grab sake on the way. The drunker he gets, the higher you score, and the faster everything comes at you. Made with Kent Salcedo, Sarah Kurisu and Corina.',
+			'A tanuki who works, drinks and goes home, every night. Fly him home through the dark and grab sake on the way. The drunker he gets, the higher you score, and the faster everything comes at you.',
 		image: '/images/projects/go-home-tanuki-poster.webp',
 		video: '/images/projects/go-home-tanuki.mp4',
 		imageAlt:
@@ -479,8 +477,8 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			credit: 'with Kent Salcedo, Sarah Kurisu and Corina',
 			intro: [
-				'The theme for Global Game Jam 2016 was "Ritual," and we picked one a lot of office workers know: work late, go drinking with your coworkers, get home somehow, and do it again tomorrow. We based it on the long hours that are common in Japanese office jobs. Our worker is a tanuki, the raccoon dog from Japanese folklore.',
-				'You fly him home through the night past clouds and rocks. Sake makes him drunker, and the drunker he gets, the higher you score, so the game pays you for the part of the night that wrecks him. Once he gets to 10, the lamps and clouds come at you a lot faster.',
+				'A lot of office workers know this ritual: work late, go drinking with your coworkers, get home somehow, and do it again tomorrow. Go Home Tanuki is based on the long hours that are common in Japanese office jobs, and its worker is a tanuki, the raccoon dog from Japanese folklore.',
+				'You fly him home through the night past clouds and rocks. Sake makes him drunker, and the drunker he gets, the higher you score, so the game pays you for the part of the night that wrecks him. Get him drunk enough and the night starts coming at you faster.',
 				'He never gets home. A run ends when he hits a cloud or a rock, and the title screen puts him back at the bar, slumped over while his phone rings to tell him to come home.',
 			],
 			embedUrl: 'https://tanuki.joekarlsson.com/',
@@ -504,7 +502,7 @@ export const projects: Project[] = [
 		title: 'PostStream',
 		shareTitle: 'PostStream: A text-only social network with the metrics taken out',
 		description:
-			'A text-only social network from 2016 with the usual levers taken out: no like counts, no follower counts, no trending topics and no images. Made with Ray Farias and Jacoby Young.',
+			'A text-only social network with the usual levers taken out: no like counts, no follower counts, no trending topics and no images.',
 		image: '/images/projects/poststream-2026-11-poster.webp',
 		video: '/images/projects/poststream-2026-11.mp4',
 		imageAlt:
@@ -519,10 +517,10 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			credit: 'with Ray Farias and Jacoby Young',
 			intro: [
-				"Every social network puts a number on everything you post: likes, followers, shares, what's trending. Ray Farias, Jacoby Young and I built PostStream in 2016 as a response to the social media we were all using, and we called it undesigned.",
+				"Every social network puts a number on everything you post: likes, followers, shares, what's trending. PostStream is an undesigned social network, built without any of them.",
 				"Most of the work was deciding what to leave out. It shows no like counts and no follower counts, so you can't see how popular anyone is. There's no global feed, no trending topics and no news to browse, and you can't post images, video or GIFs.",
-				"Replies work the same way. You don't write them, you pick one: agree, disagree, agree or disagree because of something, tell me more about something, thank you for sharing, or brilliant.",
 				"Ben Grosser's Facebook Demetricator, a browser extension from 2012, hides the like and friend counts on Facebook, and PostStream was built without them in the first place.",
+				"Replies work the same way. You don't write them, you pick one: agree, disagree, agree or disagree because of something, tell me more about something, thank you for sharing, or brilliant.",
 			],
 			embedUrl: 'https://poststream.joekarlsson.com/',
 			embedOnPhones: true,
@@ -568,9 +566,9 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			intro: [
 				'Everybody has watched the DVD screensaver, and nobody made it for anyone to watch. It existed to keep a TV left on from burning the logo into the screen. Somehow whole rooms of people ended up watching it drift toward a corner and groaning when it missed by a few pixels, which was almost every time.',
-				'I called my version Nothing But Corners, because that\'s all it does. I aim every bounce, so the logo lands in a corner every single time. Most of the work went into getting rid of the near miss, and the near miss was why people watched the original. Click and you get another logo, then another, until the screen fills up with logos landing in corners. Turn the sound on and every corner gets a thump and a cheer, kids yelling "yay" or a round of applause.',
+				'I called my version Nothing But Corners, because that\'s all it does. I aim every bounce, so the logo lands in a corner every single time. Click and you get another logo, then another, until the screen fills up with logos landing in corners. Turn the sound on and every corner gets a thump and a cheer, kids yelling "yay" or a round of applause.',
 				"Cory Arcangel's Super Mario Clouds hacked a Mario cartridge until only the scrolling sky was left. Both pieces take software everybody already knows and remove part of it.",
-				'You were waiting for something else when you watched the real one, a movie to start or someone to find the remote, and it happened to be on. The near misses kept people watching. Mine hits every time, so after about a minute I get bored of it.',
+				'You were waiting for something else when you watched the real one, a movie to start or someone to find the remote, and it happened to be on. Mine has nothing to wait for, and every logo hits.',
 			],
 			embedUrl: 'https://joekarlsson.github.io/nothing-but-corners/',
 			embedOnPhones: true,
@@ -591,8 +589,7 @@ export const projects: Project[] = [
 	{
 		title: 'Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon',
 		shareTitle: 'Stupid Shit No One In Hawaii Needs Hackathon: Building things nobody needs',
-		description:
-			'A one-day hackathon in Honolulu for projects with no value whatsoever. I co-organized it with Ray Farias.',
+		description: 'A one-day hackathon in Honolulu for projects with no value whatsoever.',
 		image: '/images/projects/stupid-hackathon-poster.webp',
 		video: '/images/projects/stupid-hackathon-montage.mp4',
 		imageAlt:
@@ -608,9 +605,9 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			credit: 'with Ray Farias',
 			intro: [
-				'In 2016 Ray and I went to a new hackathon about once or twice a month, and most of them were sponsored by a company that wanted something back: free development work, developers using its product, or new hires. A lot of them also ran on the idea that four hackers and 48 hours could fix climate change or homelessness.',
-				'Ray Farias and I put on the Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon to do the opposite. It was one day in January 2017 at DevLeague, the coding bootcamp where I taught, for projects with no value whatsoever, open to programmers, hardware hackers, artists, musicians and, according to the site, space whales. We stole the idea from the Stupid Hackathon in New York because we wanted to bring that hacker anarchist fun down to Hawaii. We had no corporate sponsors, and the prizes went to the stupidest ideas.',
-				"About 60 people came and built a Chrome extension that switches every font to Comic Sans and breaks every link, an Alexa that has had enough of your shit, a cardboard laptop and smartphone, a 3D-printed rubber duck keycap to talk to when you're stuck, and an official survey with the worst UX we could manage that never ends. Naked Nudeles took the people's choice award. My entry was App-All-O-Gizer, which emails apologies for you. Everyone there was building for the joy of making something, not for profit or glory.",
+				'Most hackathons are sponsored by a company that wants something back: free development work, developers using its product, or new hires. A lot of them also run on the idea that four hackers and 48 hours can fix climate change or homelessness.',
+				'The Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon did the opposite. It was one day in Honolulu for projects with no value whatsoever, open to programmers, hardware hackers, artists, musicians and, according to the site, space whales. We stole the idea from the Stupid Hackathon in New York because we wanted to bring that hacker anarchist fun down to Hawaii. There were no corporate sponsors, and the prizes went to the stupidest ideas.',
+				"People built a Chrome extension that switches every font to Comic Sans and breaks every link, an Alexa that has had enough of your shit, a cardboard laptop and smartphone, a 3D-printed rubber duck keycap to talk to when you're stuck, and an official survey with the worst UX we could manage that never ends. Everyone there was building for the joy of making something, not for profit or glory.",
 			],
 			made: {
 				text: [
@@ -640,9 +637,9 @@ export const projects: Project[] = [
 			tagline: "Never be sorry you weren't sorry again.",
 			introHeading: 'Artist statement',
 			intro: [
-				"I built App-All-O-Gizer in a day at the Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon in January 2017. The pitch was that sometimes you hurt people and don't even know it, so you should apologize on a schedule, once a month, once a week or every day, and cover yourself either way.",
+				"Sometimes you hurt people and don't even know it, so the pitch for App-All-O-Gizer is to apologize on a schedule, once a month, once a week or every day, and cover yourself either way.",
 				'You type in someone\'s email address and click Send Email, and they get one of 13 apologies picked at random. They range from missing an anniversary to peeing the bed to murder, and every one signs off with "Email sent by appallogizer.com".',
-				'The schedule never got built. I installed node-cron and ran out of day, so every click sends one apology right away. An apology app that never followed through seemed right for this hackathon.',
+				'One of them reads: "It was a total freak accident that I murdered that guy last week. I hope that you will find it in your heart to forgive me for my heinous crime against humanity."',
 			],
 			screenshots: [
 				{
@@ -687,14 +684,14 @@ export const projects: Project[] = [
 		page: {
 			slug: 'best-buy-product-locator',
 			tagline: 'Two-day shipping too slow for you?',
+			credit: 'with Eric Moore',
 			intro: [
 				"The Best Buy Product Locator is a Chrome extension for when you're shopping on Amazon, Walmart or Target and want the thing today. It looks up the product you're browsing in Best Buy's catalog and tells you whether the Best Buy nearest you has it for pickup.",
-				"It reads the model number out of the product's spec table (the UPC on Target), or falls back to searching by the product's title, and checks the Best Buy API for a match and for stores near your location. If there's a match, a banner drops across the top of the page with Best Buy's price, the store, its hours that day and a button to buy it on BestBuy.com. The toolbar popup shows the same thing.",
-				'I built it with Eric Moore in 2018, in React with styled-components. Best Buy never had anything to do with it.',
-				"It's gone from the Chrome Web Store now, and I built it on Manifest V2, which current Chrome won't load, so this screenshot from 2018 is the only look at it working.",
+				"If there's a match, a banner drops across the top of the page with Best Buy's price, the store, its hours that day and a button to buy it on BestBuy.com. The toolbar popup shows the same thing.",
 			],
 			made: {
 				text: [
+					"I built it in 2018, in React with styled-components, and Best Buy never had anything to do with it. It's gone from the Chrome Web Store now, and it's built on Manifest V2, which current Chrome won't load, so the screenshot from 2018 is the only look at it working.",
 					"It's a Chrome extension written in React. It looks for a model number or UPC for 3 seconds before falling back to the title, then asks the Best Buy API for that product and for stores within 15 miles of you, and picks the nearest Big Box store. I last touched it in January 2019, so it still expects those sites' 2019 page layouts.",
 				],
 				diagram: {
@@ -708,7 +705,7 @@ export const projects: Project[] = [
 		title: 'GAPTCHA',
 		shareTitle: 'GAPTCHA: An augmented reality scavenger hunt from a 2017 hackathon',
 		description:
-			'An augmented reality scavenger hunt built at the 2017 AT&T hackathon in Honolulu. Scan a printed marker and a 3D arrow points you toward a hidden checkpoint.',
+			'An augmented reality scavenger hunt. Scan a printed marker and a 3D arrow points you toward a hidden checkpoint.',
 		image: '/images/projects/gaptcha-scan.webp',
 		imageAlt:
 			"GAPTCHA's demo playing itself: a hunter near the Honolulu checkpoint scans three markers, dashed lines from each marker cross on the map, the hunter heads to where they cross and the page says GOT 'EM, while a feed lists the simulated hunters' scans",
@@ -721,11 +718,10 @@ export const projects: Project[] = [
 		page: {
 			slug: 'gaptcha',
 			tagline: 'Find, scan, win',
+			credit: 'with Sean Nakamura, Tony Gaskell, Brandon Baris and Joelle Torneros',
 			intro: [
-				"GAPTCHA was an augmented reality scavenger hunt that five of us from DevLeague built at AT&T's hackathon in Honolulu in March 2017: Sean Nakamura, Tony Gaskell, Brandon Baris, Joelle Torneros and me. The name stands for Geo-Augmented Place That Checks Authenticity.",
-				"We printed square markers and left them around for people to find. Scan one with the web app and a green 3D arrow shows up over your camera view, pointing at a hidden checkpoint. An arrow gives you a direction but not a distance, so the idea was to collect bearings from a few markers and walk to where they cross. When you think you're standing on it, you tap Did I Win.",
-				"My part was the server, the direction math and the homepage. I stubbed out the Express server and wrote the route that takes your phone's latitude and longitude and works out the bearing to the checkpoint with the Vincenty formula. I also got the live map pulling from AT&T M2X, which tracked everyone playing. The checkpoint's location came from an M2X device, so it could move during the game. Get within 20 meters of it and the app tells you how many tries everyone took since the last win.",
-				'The Heroku app went down years ago, and AT&T shut M2X down in 2021. In November 2026 I moved the checkpoint logic into the browser and put it back up at gaptcha.joekarlsson.com. Near the original spot in Honolulu you hunt the hackathon checkpoint. Anywhere else, it hides a demo checkpoint 100 to 300 meters from you. A scan only counts when the camera sees a printed marker, your scans stay in your browser instead of going to M2X, and a live feed shows simulated hunters playing alongside you.',
+				"GAPTCHA (Geo-Augmented Place That Checks Authenticity) is an augmented reality scavenger hunt. We printed square markers and left them around for people to find. Scan one with the web app and a green 3D arrow shows up over your camera view, pointing at a hidden checkpoint. An arrow gives you a direction but not a distance, so the idea is to collect bearings from a few markers and walk to where they cross. When you think you're standing on it, you tap Did I Win.",
+				'Near the original spot in Honolulu you hunt the hackathon checkpoint. Anywhere else, it hides a demo checkpoint 100 to 300 meters from you, and a live feed shows simulated hunters playing alongside you.',
 				'The photos below are from that weekend.',
 			],
 			// The demo plays itself when framed (no location, no camera) and fills its frame without
@@ -762,6 +758,7 @@ export const projects: Project[] = [
 			],
 			made: {
 				text: [
+					"We built it at AT&T's hackathon in Honolulu in March 2017. My part was the server, the direction math and the homepage: an Express route that took your phone's position and worked out the bearing to the checkpoint with the Vincenty formula, and a live map from AT&T M2X, which also held the checkpoint so it could move during the game. Heroku and M2X are long gone, so in November 2026 I moved the checkpoint logic into the browser.",
 					"AR.js finds the printed marker in the camera, and the browser works out the compass bearing from your GPS position to the checkpoint and turns the arrow toward it. Everything runs in your browser now: the checkpoint, your tries and your last 50 scans live in local storage, and Did I Win checks whether you're within 20 meters.",
 				],
 				diagram: {
@@ -793,7 +790,6 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			intro: [
 				"Pixelate turns any photo into big square blocks, and the photo never leaves your phone or computer. Drag the slider and the picture gives up its detail a little at a time, until it's a grid of colors.",
-				"I wrote the first version over two days in April 2015. I spun it off from Instamosaic, an app I was building that made photo mosaics out of Instagram color hashtags. It's the oldest of my pixel projects, before the Digital Graffiti Wall and PixelPane.",
 			],
 			embedUrl: 'https://pixelate.joekarlsson.com/',
 			embedOnPhones: true,
@@ -838,10 +834,9 @@ export const projects: Project[] = [
 		page: {
 			slug: 'night-out',
 			tagline: 'Where are we going tonight?',
+			credit: 'with Jessie Copeland, Alex Anich, Brian "Boots" and Nolan "Skinny Fatman"',
 			intro: [
-				'Night Out is for the part of the evening where the group text goes in circles about where to go. I built the first version in Meteor at the end of October 2015 with Jessie Copeland, Alex Anich, Brian "Boots" and Nolan "Skinny Fatman".',
-				"That version found your location, asked Google Places for the bars and breweries nearby, and let you check off the ones you'd actually go to. Clicking Start your night out gave you a link to send everyone, and Meteor pushed each vote to everyone with the link as it came in.",
-				"The Heroku app died years ago. In November 2026 I rebuilt it as a static site at night-out.joekarlsson.com. Bars now come from OpenStreetMap, and there's no server, so the whole plan and its votes live in the link. When you vote, the link on your screen updates and you send the new one back to the group. If two people vote on the same old link at once, the plan splits in two. A phone that opens both links merges them, but a bar they both voted for only counts once, which is the trade for not running a server.",
+				'Night Out is for the part of the evening where the group text goes in circles about where to go. Pick a few bars near you, send everyone the link, and let the group vote. When you vote, the link on your screen updates and you send the new one back to the group.',
 				"If you're not near any bars, or you don't want to share your location, Try it with demo bars fills the map with made-up bars in Honolulu, where it started.",
 			],
 			embedUrl: 'https://night-out.joekarlsson.com/',
@@ -859,6 +854,7 @@ export const projects: Project[] = [
 			],
 			made: {
 				text: [
+					'The first version, in Meteor in 2015, asked Google Places for bars and pushed each vote to everyone live. In November 2026 I rebuilt it as a static site with no server. If two people vote on the same old link at once, the plan splits in two. A phone that opens both links merges them, but a bar they both voted for only counts once.',
 					'Bars come from OpenStreetMap within 2.6 kilometers of you. The bars you pick and every vote are packed into the link after the #, so the link is the whole plan, and each vote page ranks the bars by votes.',
 				],
 				diagram: {
@@ -953,7 +949,7 @@ export const projects: Project[] = [
 		title: 'Rose Hobart',
 		shareTitle: "Rose Hobart: Joseph Cornell's 1936 film, remastered for the web",
 		description:
-			"Joseph Cornell's 1936 collage film, with the tint, the speed and the music back in your hands while it plays. Made with my sister Laurel.",
+			"Joseph Cornell's 1936 collage film, with the tint, the speed and the music back in your hands while it plays.",
 		image: '/images/projects/rose-hobart-2026-film-poster.webp',
 		video: '/images/projects/rose-hobart-2026-film.mp4',
 		imageAlt:
@@ -971,7 +967,7 @@ export const projects: Project[] = [
 			intro: [
 				'Every time Joseph Cornell screened Rose Hobart, it could come out a little different. He tinted it with a colored filter, ran it at the standard 24 frames a second or the slower 16, and paired it with whatever music he chose. At the 1936 premiere, Salvador Dalí stormed out, claiming Cornell had stolen the film from his subconscious.',
 				"The version almost everyone watches now is one of those screenings, frozen. It's tinted blue, it runs at silent speed, and it plays two songs from a 1957 album, so nobody at the premiere heard that soundtrack.",
-				"My sister Laurel and I wanted to give the projector back to whoever is watching. You pick the gel, the speed and the music while the film plays, and you can age it like old nitrate or glitch it like a file copied too many times. Nobody knows what the first screening looked like, so this doesn't try to recreate it.",
+				'This gives the projector back to whoever is watching. You pick the gel, the speed and the music while the film plays, and you can age it like old nitrate or glitch it like a file copied too many times.',
 			],
 			supporting: {
 				heading: 'Supporting statement',
@@ -1010,7 +1006,7 @@ export const projects: Project[] = [
 	{
 		title: 'Bechdel.io',
 		shareTitle: 'Bechdel.io: Checking movie scripts against the Bechdel Test',
-		description: 'Does your favorite movie pass the Bechdel Test? Made with my sister Laurel.',
+		description: 'Does your favorite movie pass the Bechdel Test?',
 		image: '/images/projects/bechdel-io-2026-poster.webp',
 		video: '/images/projects/bechdel-io-2026.mp4',
 		imageAlt:
@@ -1027,8 +1023,8 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			intro: [
 				'Bechdel.io checks movie scripts against the Bechdel Test. The test comes from a 1985 Alison Bechdel comic strip, and it asks three things: are there at least two women, do they talk to each other, and do they talk about something other than a man.',
-				'A wall of movies most people have already seen, sorted into pass and fail, makes you look at them again. About half of the 218 films on the shelf fail, and a lot of them are favorites.',
-				'My sister Laurel and I made it in 2015 and used it to study the Best Picture nominees at the 2015 Oscars. We released it as open source because we saw it as feminist activism.',
+				'It sorts a wall of movies most people have already seen into pass and fail. About half of the 218 films on the shelf fail, and a lot of them are favorites.',
+				'We released it as open source because we saw it as feminist activism.',
 			],
 			credit: 'with Laurel Karlsson',
 			made: {
@@ -1067,7 +1063,7 @@ export const projects: Project[] = [
 		title: 'Connect AI × DOOM',
 		shareTitle: 'Connect AI × DOOM: Doom levels built from live business data',
 		description:
-			"Ask Claude a business question and it builds a Doom level from the answer. Every monster is a live record from your apps, pulled through the CData Connect AI MCP server. I built it in one night as a side project, and it's now the foundation of my team's developer marketing campaign and event strategy.",
+			'Ask Claude a business question and it builds a Doom level from the answer. Every monster is a live record from your apps, pulled through the CData Connect AI MCP server.',
 		image: '/images/projects/connect-ai-doom.webp',
 		video: '/images/projects/connect-ai-doom.mp4',
 		poster: '/images/projects/connect-ai-doom-poster.webp',
@@ -1086,7 +1082,7 @@ export const projects: Project[] = [
 				'Data is hard to look at. A database hands back rows, an AI agent hands back text, and the interesting parts, like which app the agent picked and where the system said no, happen in steps nobody sees.',
 				"Connect AI × DOOM turns that into a level. Each app the agent searched becomes a room, every record it found is a monster, the urgent ones are pink demons, and the data it wasn't allowed to touch sits behind a red door with no key. Nobody needs a legend for any of it. Everyone already knows a monster is a problem and a locked door means no. I call that borrowed literacy: the game taught you how to read it decades ago.",
 				"Doom has been a hacker's canvas since id Software released its source code in 1997, and people have run it on everything from a John Deere tractor to a conference badge. In 1999 [Dennis Chao turned Unix processes into Doom monsters](https://www.cs.unm.edu/~dlchao/flake/doom/), so shooting one killed the process. Connect AI × DOOM comes out of that tradition, where the joke gets you to look and a real system is underneath.",
-				'I showed it on a big screen at a conference about AI agents, where most of the floor was chat windows and architecture diagrams. You can walk up to the red door as many times as you want, and every time it asks again, live, and gets told no.',
+				'You can walk up to the red door as many times as you want, and every time it asks again, live, and gets told no.',
 			],
 			credit: 'made at CData',
 			// The game alone, built for blog posts: it fits the width and doesn't take focus
@@ -1311,10 +1307,9 @@ export const projects: Project[] = [
 		page: {
 			slug: 'movie-script-scraper',
 			tagline: 'Downloads movie scripts by genre, as text files you can count.',
-			introHeading: 'Artist statement',
+			credit: 'started by Tim Kendall',
 			intro: [
-				'To check movies against the Bechdel Test, Bechdel.io needed a lot of movie scripts as plain text. The Internet Movie Script Database has plenty of them, but one web page at a time, laid out for people to read.',
-				'Movie Script Scraper turns that into files. You name a genre and how many scripts you want, and it saves each one as a text file you can search and count. Tim Kendall started it in 2014, and I rewrote it and put it on npm in 2018.',
+				"Movie Script Scraper downloads movie scripts by genre from the Internet Movie Script Database and saves each one as a plain text file you can search and count. It's where Bechdel.io got its scripts.",
 			],
 			made: {
 				text: [
@@ -1360,7 +1355,7 @@ export const projects: Project[] = [
 			introHeading: 'Artist statement',
 			intro: [
 				"Adult Swim's bumpers were a black screen and plain white text, one card at a time, then [adult swim] and you were back in the show. Sometimes they were a joke and sometimes they were weirdly sincere. I stayed up way too late watching them, and they stuck with me longer than most of the shows did. It was the first TV I watched that seemed like weirdos made it for other weirdos.",
-				"I run a Plex server called Joeflix for my friends and family, and Plex has no personality. You hit play and it could be anyone's server. The one place it lets you say something is the short video before a movie, so every movie on Joeflix now opens with a personal message from me to my friends. There are 121 in rotation, mostly about Minnesota or how much I spend on hard drives, and some of them are just dumb.",
+				"I run a Plex server called Joeflix for my friends and family, and Plex has no personality. You hit play and it could be anyone's server. The one place it lets you say something is the short video before a movie, so every movie on Joeflix now opens with a personal message from me to my friends. Most of them are about Minnesota or how much I spend on hard drives.",
 				"One bumper tells you that somewhere, someone is paying $22 a month, and not you. The ones people bring up are like that, a jellyfish telling them there's no algorithm. Nobody has ever said a word about my transcoding settings.",
 			],
 			install:
@@ -1422,7 +1417,7 @@ export const projects: Project[] = [
 		title: 'Streamroll',
 		shareTitle: 'Streamroll: Netflix-style intros for your own Plex, made by AI',
 		description:
-			'AI-generated custom pre-roll intros for Plex. Give it a theme and it chains Runway gen4_image to create a still, then gen4_turbo to animate it into a full video intro - VHS glitch, cinematic nature, neon outrun, whatever you want playing before your movie starts.',
+			'A Netflix-style intro for your own Plex, Jellyfin or Emby server, made from its name: pick a style, and you get a title card that moves, ready to play before every movie.',
 		image: '/images/projects/streamroll.webp',
 		video: `${STREAMROLL_DIR}/streamroll-outrun.mp4`,
 		poster: `${STREAMROLL_DIR}/streamroll-outrun-poster.webp`,
@@ -1437,9 +1432,9 @@ export const projects: Project[] = [
 			tagline: 'Netflix-style intros for your own media server.',
 			introHeading: 'Artist statement',
 			intro: [
-				'Plex, Jellyfin and Emby will all play a short video before every movie, the way Netflix plays its sting, but most people who run their own server skip it or spend hours finding one.',
-				"Streamroll makes one from your server's name. You type a name like Joeflix, pick a style, and about 30 seconds later you have a title card that moves, ready to drop in. You approve the still before it turns into video, and you can mix in your own audio right in the browser.",
-				"It runs on your own Runway API key, so there's no account and nothing to pay me. `Copy as script` gives you the Node.js code that made your clip, so you can make the next one without my site.",
+				"Netflix plays its sting before every show. Plex, Jellyfin and Emby will play a short video before every movie too, but you hit play on a home server and it could be anyone's.",
+				"Streamroll makes one from your server's name. You type a name like Joeflix, pick a style, and get back a title card that moves, ready to play before every movie.",
+				"There's no account and nothing to pay me, and it hands you the code that made your clip, so you can make the next one without my site.",
 			],
 			galleryTitle: 'Intros it made',
 			galleryNote: 'Six styles, all from the name STREAMROLL. Hover to play.',
