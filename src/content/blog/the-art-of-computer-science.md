@@ -2,7 +2,7 @@
 title: 'The Art of Computer Science'
 date: 2020-09-10
 slug: 'the-art-of-computer-science'
-description: 'My TEDx talk about finding my place in tech: choosing computer science out of fear, nearly quitting to surf in Hawaii, and falling in love with programming through art, stupid side projects and friends.'
+description: 'My TEDx talk about finding my place in tech, and falling in love with programming through art, stupid side projects and friends.'
 categories: ['Career']
 heroImage: '/images/blog/the-art-of-computer-science/thumb-89672fd2.webp'
 heroAlt: "Signac's pointillist painting of a woman at her easel"

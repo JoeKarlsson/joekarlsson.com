@@ -3,7 +3,7 @@ title: 'From SQL to NoSQL: A Gentle Introduction For Devs'
 seoTitle: 'From SQL to NoSQL: An Intro for Devs'
 date: 2020-02-27
 slug: 'from-sql-to-nosql-a-gentle-introduction-for-devs'
-description: 'My talk on moving from SQL to NoSQL with MongoDB: how SQL terms map to documents, four advantages of a document database, and three habits SQL developers need to unlearn.'
+description: 'My talk on moving from SQL to NoSQL with MongoDB: how SQL terms map to documents, and three habits SQL developers need to unlearn.'
 categories: ['Web Dev']
 heroImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/thumb-b05809df.webp'
 heroAlt: 'A clerk in a room lined floor to ceiling with filing drawers'

@@ -2,7 +2,7 @@
 title: 'MongoDB Schema Design Best Practices'
 date: 2020-04-02
 slug: 'mongodb-schema-design-best-practices'
-description: 'My talk on MongoDB schema design: why it works differently from SQL, embedding vs. referencing, how to model each kind of relationship, and the four rules of thumb I use.'
+description: 'My talk on MongoDB schema design: embedding vs. referencing, how to model each kind of relationship, and my four rules of thumb.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
 heroImage: '/images/blog/mongodb-schema-design-best-practices/thumb-b1a8ce46.webp'
