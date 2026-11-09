@@ -48,7 +48,8 @@
 		"test": "npm run test:workflows && npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:voice && npm run test:unit",
 		"prepare": "husky",
 		"test:workflows": "node scripts/validate-workflows.mjs",
-		"talks:videos": "node scripts/sync-talk-videos.mjs"
+		"talks:videos": "node scripts/sync-talk-videos.mjs",
+		"youtube:thumbnail": "node scripts/youtube-thumbnail.mjs"
 	},
 	"dependencies": {
 		"@astrojs/markdown-remark": "^7.3.6",
