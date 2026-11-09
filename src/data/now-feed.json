@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 446,
+			"commitCount": 447,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 23
+				25, 24
 			],
-			"latestCommitMessage": "feat: Every page has a Markdown copy for AI agents at its URL with .md..."
+			"latestCommitMessage": "fix: About, resume and llms.txt read jobs from one list, so About's..."
 		},
 		{
 			"name": "bechdel-test",
