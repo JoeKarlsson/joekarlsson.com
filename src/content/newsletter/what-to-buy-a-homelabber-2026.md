@@ -1,6 +1,6 @@
 ---
 title: 'What to Buy a Homelabber in 2026'
-date: 2026-11-09T10:34:07Z
+date: 2026-11-12T08:00:00Z
 slug: 'what-to-buy-a-homelabber-2026'
 description: "A preview of my 2026 homelab gift guide: why the best gifts don't have to agree with the lab, four picks I own, and the full list on the blog."
 recapOf: 'homelab-gift-ideas-2026'
