@@ -8,6 +8,7 @@ categories: ['Homelab', 'Web Dev']
 heroImage: '/images/blog/building-a-real-time-digital-graffiti-wall/thumb-b8387025.webp'
 heroAlt: 'A 32 by 32 LED wall lighting up pixel by pixel as people draw a heart, a smiley face and the word HI'
 tldr: 'The Digital Graffiti Wall is an interactive art installation where audiences draw on a shared 32x32 pixel canvas in their browsers, and their artwork appears in real-time on a physical RGB LED grid. MongoDB Realm handles the real-time synchronization between all connected clients with anonymous authentication and atomic pixel updates.'
+contentNotice: 'MongoDB ended support for the Realm Web SDK (later Atlas Device SDK) on September 30, 2025, so the sync code here shows how the wall worked, not code you can run today.'
 ---
 
 <!-- vale JoeKarlsson.BannedWords = NO -->
@@ -69,7 +70,7 @@ This means the UI feels instant even though the database round-trip takes a few 
 
 ## Real-Time Sync with MongoDB Realm
 
-[MongoDB Realm](https://www.mongodb.com/docs/atlas/device-sdks/) (now Atlas Device SDK) handles the heavy lifting. Users authenticate anonymously - no sign-up, no passwords:
+MongoDB Realm (later Atlas Device SDK, since shut down) handled the heavy lifting. Users authenticate anonymously - no sign-up, no passwords:
 
 ```javascript
 const app = new Realm.App({ id: CONFIG.appID });
@@ -77,7 +78,7 @@ const credentials = Realm.Credentials.anonymous();
 await app.logIn(credentials);
 ```
 
-> **Note:** MongoDB Realm Web SDK has since been rebranded to [Atlas Device SDK](https://www.mongodb.com/docs/atlas/device-sdks/). The concepts are the same, but import paths and package names have changed if you're building this today.
+> **Note:** The Realm Web SDK became the Atlas Device SDK, and MongoDB deprecated it in September 2024 and shut it down on September 30, 2025. To build this today you'd need another real-time layer, like a small server that watches a MongoDB change stream and pushes pixels over WebSockets.
 
 Every 5 seconds, each client polls for the current grid state:
 

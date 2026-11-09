@@ -13,7 +13,7 @@ tldr: 'Skills are just markdown files you can share via git. CLAUDE.md is the pa
 
 I'm a developer on the marketing team at CloudQuery - a cloud asset management platform - where I also lead DevRel. That's a slightly unusual combination - technical enough to be dangerous, embedded in a non-technical team that has real content needs every week. Which is probably why I ended up here.
 
-I didn't set out to build internal tooling. I built a few Claude Code skills for myself because I was tired of copy-pasting the same prompts over and over, and repeating myself endlessly is the particular kind of pain that eventually makes you do something about it.
+I didn't set out to build internal tooling. I built a few Claude Code skills for myself (the first was a [blog-writing skill](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/)) because I was tired of copy-pasting the same prompts over and over, and repeating myself endlessly is the particular kind of pain that eventually makes you do something about it.
 
 Then my coworkers started asking questions.
 

@@ -69,7 +69,7 @@ Fields with mid to high cardinality will partition the data better leading to be
 
 Fields with extremely high cardinality like `_id` will lead to poor query performance for everything but “point queries” that query on \_id, and will lead to terrible archival performance due to writing many partitions.
 
-> Note: Online Archive is powered by MongoDB Atlas Data Lake. To learn more about how partitions improve your query performance in Data Lake, see [Data Structure in S3](https://docs.mongodb.com/datalake/admin/optimize-query-performance#data-structure-in-s3).
+> Note: Online Archive is powered by Atlas Data Federation (called Atlas Data Lake when I wrote this). To learn more about how partitions improve query performance, see [Data Structure in S3](https://docs.mongodb.com/datalake/admin/optimize-query-performance#data-structure-in-s3).
 
 The specified fields are used to partition your archived data for optimal query performance. Partitions are similar to folders. You can move whichever field to the first position of the partition if you frequently query by that field.
 
@@ -100,6 +100,8 @@ For more information on how to partition data in your Online Archive, please [re
 In this post, we covered some advanced use cases for Online Archive. This should help you take advantage of this MongoDB Atlas feature. We then initialized a demo to show you how to set up custom archival rules for MongoDB with Atlas Online Archive. And finally, we covered how to improve query performance through partitioning your archived data.
 
 If you have questions about custom archival rules for MongoDB, please head to our [developer community website](https://community.mongodb.com/). That is where the MongoDB engineers and the MongoDB community will help you build your next big idea with MongoDB.
+
+If you haven't set up Online Archive yet, start with part one: [how to manage MongoDB data at scale](/blog/how-to-manage-mongodb-data-at-scale/).
 
 ## More Technical Posts
 

@@ -9,7 +9,7 @@ writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'AWS']
 heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumb-91d0c6f0.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-pinpoint-deprecation-assessment'
-contentNotice: 'This post was originally published on CloudQuery blog.'
+contentNotice: 'This post was originally published on CloudQuery blog. Amazon Pinpoint reached end of support on October 30, 2026, after this was written, so read the dates as history. The steps for finding what used Pinpoint still apply.'
 heroAlt: 'A tower block collapsing in a controlled demolition'
 ---
 

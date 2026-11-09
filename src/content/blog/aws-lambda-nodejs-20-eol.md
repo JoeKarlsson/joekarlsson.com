@@ -9,7 +9,7 @@ writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
 heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumb-732a8dc0.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-lambda-nodejs-20-eol'
-contentNotice: 'This post was originally published on CloudQuery blog.'
+contentNotice: 'This post was originally published on CloudQuery blog. All three Node.js 20 deadlines below have passed: Lambda now blocks creating and updating nodejs20.x functions. The next one is Node.js 22, which reaches end of support on April 30, 2027, and the same queries find it.'
 heroAlt: 'A rusted old car left in the woods'
 ---
 

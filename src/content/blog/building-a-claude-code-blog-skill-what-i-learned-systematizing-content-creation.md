@@ -69,7 +69,7 @@ What used to require me reviewing every piece of content now happens automatical
 
 ## **The Part I Didn’t Expect**
 
-We rolled this out to the marketing team a week ago.
+We rolled this out to the marketing team a week ago. (A few months later it had grown into a whole repo of skills the team runs; I wrote up [how my personal skills repo became internal tooling](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/).)
 
 They adopted it fast. Genuinely fast.
 
@@ -99,4 +99,4 @@ The terminal has always been where I do my best work. Claude Code is one of seve
 
 Now it’s where I build tools that let the whole team do theirs.
 
-If you’re in DevRel or developer marketing: start small, build workflows, share what you learn. I wrote previously about [treating content development for your open source project like your open source project](/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/), and this skill is the next evolution of that idea. We’re all defining what this looks like together.
+If you’re in DevRel or developer marketing: start small, build workflows, share what you learn. I've argued before that you should treat your project's content like code, and this skill is the next step of that idea. We’re all defining what this looks like together.

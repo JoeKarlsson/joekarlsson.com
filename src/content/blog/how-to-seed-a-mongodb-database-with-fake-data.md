@@ -7,6 +7,8 @@ categories: ['Web Dev']
 writtenFor: 'MongoDB'
 heroImage: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/thumb-c3adc5f4.webp'
 heroAlt: 'Mannequins standing in a shop window'
+updatedDate: 2026-11-09
+updateNote: 'The script now uses @faker-js/faker (the original faker package was deleted in 2022) and the current MongoDB driver, and it waits for the insert to finish before closing the connection.'
 tldr: 'A quick Node.js script using faker.js to generate thousands of fake documents and insert them into a MongoDB Atlas database. Copy it, tweak the document shape, and you have seed data in seconds.'
 ---
 
@@ -24,12 +26,13 @@ I am saving my data into a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) 
 
 Alright, now that we have got the setup out of the way, let’s jump into the code!
 
-```javascript
-/* mySeedScript.js */
+Install the two packages first: `npm install @faker-js/faker mongodb`. The original faker package was deleted by its author in January 2022; `@faker-js/faker` is the community fork everyone moved to, and its API is a little different.
 
-// require the necessary libraries
-const faker = require('faker');
-const MongoClient = require('mongodb').MongoClient;
+```javascript
+/* mySeedScript.mjs */
+
+import { faker } from '@faker-js/faker';
+import { MongoClient } from 'mongodb';
 
 function randomIntFromInterval(min, max) {
 	// min and max included
@@ -39,11 +42,7 @@ function randomIntFromInterval(min, max) {
 async function seedDB() {
 	// Connection URL
 	const uri = 'YOUR MONGODB ATLAS URI';
-
-	const client = new MongoClient(uri, {
-		useNewUrlParser: true,
-		// useUnifiedTopology: true,
-	});
+	const client = new MongoClient(uri);
 
 	try {
 		await client.connect();
@@ -51,21 +50,21 @@ async function seedDB() {
 
 		const collection = client.db('iot').collection('kitty-litter-time-series');
 
-		// The drop() command destroys all data from a collection.
-		// Make sure you run it against proper database and collection.
-		collection.drop();
+		// deleteMany({}) destroys all data in the collection.
+		// Make sure you run it against the right database and collection.
+		await collection.deleteMany({});
 
 		// make a bunch of time series data
-		let timeSeriesData = [];
+		const timeSeriesData = [];
 
 		for (let i = 0; i < 5000; i++) {
-			const firstName = faker.name.firstName();
-			const lastName = faker.name.lastName();
-			let newDay = {
+			const firstName = faker.person.firstName();
+			const lastName = faker.person.lastName();
+			const newDay = {
 				timestamp_day: faker.date.past(),
-				cat: faker.random.word(),
+				cat: faker.animal.cat(),
 				owner: {
-					email: faker.internet.email(firstName, lastName),
+					email: faker.internet.email({ firstName, lastName }),
 					firstName,
 					lastName,
 				},
@@ -73,25 +72,27 @@ async function seedDB() {
 			};
 
 			for (let j = 0; j < randomIntFromInterval(1, 6); j++) {
-				let newEvent = {
+				newDay.events.push({
 					timestamp_event: faker.date.past(),
 					weight: randomIntFromInterval(14, 16),
-				};
-				newDay.events.push(newEvent);
+				});
 			}
 			timeSeriesData.push(newDay);
 		}
-		collection.insertMany(timeSeriesData);
+		await collection.insertMany(timeSeriesData);
 
 		console.log('Database seeded! :)');
-		client.close();
 	} catch (err) {
 		console.log(err.stack);
+	} finally {
+		await client.close();
 	}
 }
 
 seedDB();
 ```
+
+Run it with `node mySeedScript.mjs`.
 
 After running the script above, be sure to check out your database to ensure that your data has been properly seeded. This is what my database looks like after running the script above.
 

@@ -9,7 +9,7 @@ writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
 heroImage: '/images/blog/python-39-lambda-deprecation/thumb-72b58e49.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/python-39-lambda-deprecation'
-contentNotice: 'This post was originally published on CloudQuery blog.'
+contentNotice: 'This post was originally published on CloudQuery blog. The Python 3.9 deadlines below passed in 2026, so Lambda now blocks creating and updating python3.9 functions. The same queries find the next runtime on its way out.'
 heroAlt: 'A python curled up asleep'
 ---
 

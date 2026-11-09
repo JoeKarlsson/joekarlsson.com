@@ -9,6 +9,7 @@ writtenFor: 'Tinybird'
 heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/thumb-dad033fa.webp'
 heroAlt: 'A chimpanzee typing at an old typewriter'
 tldr: 'I walk through event sourcing with Kafka using a banking app example, where you reconstruct account balances from a log of deposit and withdrawal events instead of storing state directly. Includes a practical tutorial with Kafka and Tinybird for snapshotting and serving state as an API.'
+contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."
 ---
 
 Imagine you’re building banking software, and you’ve been asked to figure out one of the most fundamental tasks in fintech: determining the current balance of every customer in your system. Traditionally, you might store the balance in a transactional database, a single source of truth, such that the current balance for each user is just an SQL query away. But what happens if that value gets accidentally (or nefariously) changed, and there’s no transaction history to back it up?

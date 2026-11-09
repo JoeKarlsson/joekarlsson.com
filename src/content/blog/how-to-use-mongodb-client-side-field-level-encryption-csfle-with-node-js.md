@@ -554,6 +554,6 @@ For more information on MongoDB Client-Side Field Level Encryption (CSFLE) with 
 ## More Technical Posts
 
 - [Building a Claude Code Blog Skill: What I Learned Systematizing Content Creation](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/)
-- [Self-Hosted Music Still Sucks in 2026](/blog/self-hosted-music-still-sucks-in-2026/)
+- [How to Seed a MongoDB Database with Fake Data](/blog/how-to-seed-a-mongodb-database-with-fake-data/)
 - [I Replaced Alexa with a Dumber Voice Assistant (But at Least It’s Private)](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/)
 - [Why ClickHouse Should Be Your Next Database](/blog/why-clickhouse-should-be-your-next-database/)

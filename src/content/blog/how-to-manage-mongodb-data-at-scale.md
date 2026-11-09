@@ -97,6 +97,8 @@ There you have it! In this post, we explored how to manage your MongoDB data at 
 
 - [Archive Cluster Data](https://web.archive.org/web/20220116194200/https://docs.atlas.mongodb.com/online-archive/manage-online-archive/)
 
+Part two covers [custom archival rules and partitioning for Online Archive](/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/).
+
 ## Want to check out more of my technical posts?
 
 - [How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js](/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/)
