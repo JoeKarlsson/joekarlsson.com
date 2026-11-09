@@ -1,5 +1,6 @@
 // After the build, writes a Markdown copy of every indexed page next to it for AI agents:
-// /about/ -> /about.md, /blog/<slug>/ -> /blog/<slug>.md, / -> /index.md. It converts the
+// /about/ -> /about.md, /blog/<slug>/ -> /blog/<slug>.md, / -> /index.md, and the
+// llms.txt spec's /about/index.html.md. It converts the
 // page's <main>, so it covers every page type without a template of its own, and drops
 // what only works in a browser: scripts, forms, buttons, navigation, decorative icons
 // and video. Diagrams become their alt text; the phone copy of a diagram is skipped.
@@ -250,6 +251,8 @@ export default function markdownPages() {
 					const markdown = pageToMarkdown(readFileSync(file, 'utf8'), `${SITE_URL}${urlPath}`);
 					if (!markdown) continue;
 					writeFileSync(join(distDir, markdownPathFor(htmlPath)), markdown);
+					// The llms.txt spec's own convention, which some agents try first
+					writeFileSync(`${file}.md`, markdown);
 					written += 1;
 					// A closed jsdom window is only freed once the event loop turns
 					await new Promise((resolve) => setImmediate(resolve));

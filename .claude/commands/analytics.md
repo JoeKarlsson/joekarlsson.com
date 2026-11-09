@@ -1,6 +1,6 @@
 ---
 allowed-tools: Read, Bash, WebFetch, Grep, Glob, Edit
-description: Analyze Plausible analytics for SEO issues, bounce rates, 404s, and actionable improvements
+description: Analyze Plausible analytics plus AI-agent traffic from Cloudflare for SEO issues, bounce rates, 404s, and actionable improvements
 ---
 
 # Site Analytics & SEO Health Check
@@ -191,6 +191,27 @@ Analyze:
 - **High-bounce sources**: Some referrers may send low-quality traffic
 - **Best-converting sources**: Which sources have lowest bounce and longest duration?
 
+### 3d. AI agents (Cloudflare, not Plausible)
+
+Plausible never sees AI agents: they don't run its script, and it drops bot traffic anyway. Cloudflare sees every request, so pull them from there (needs `CLOUDFLARE_ANALYTICS_TOKEN` in `.env`):
+
+```bash
+npm run analytics:agents -- 7
+npm run analytics:agents -- 30
+```
+
+It reports three things:
+
+- **AI bots by why they come**: *Asked by a person* (ChatGPT-User, Claude-User, Perplexity-User: someone asked an assistant and it opened the page), *AI search* (OAI-SearchBot, PerplexityBot, Applebot, DuckAssistBot, Claude-SearchBot: indexing for AI answers), *Training* (GPTBot, ClaudeBot, CCBot, Amazonbot, meta-externalagent, Bytespider). Only pages that loaded count; scanners borrow AI user agents to probe for `/.env`.
+- **Pages AI assistants opened while answering someone**: the closest thing to "what people ask AI about me". Compare it with the Plausible top pages: a post assistants open often but people rarely visit is being answered in the chat instead of clicked.
+- **Markdown copy reads** (`/<page>.md`, `/<page>/index.html.md`): which agents use them, and any `.md` 404s worth a fix.
+
+Analyze:
+
+- **Asked-by-a-person trend**: is it growing week over week? It is the AEO number that matters most.
+- **Answer-engine gaps**: top Plausible pages missing from the assistant list may lack a clear, quotable answer near the top.
+- **Training share**: if training crawlers dwarf everything else and that bothers Joe, `robots.txt` is the lever; don't change it without asking.
+
 ---
 
 ## Phase 4: Problem Detection
@@ -370,6 +391,16 @@ TRAFFIC SOURCES
 ---------------
 1. [source] - [X] visitors ([X]% of total)
 2. ...
+
+AI AGENTS (Cloudflare, last 7d)
+-------------------------------
+Asked by a person:  [X] ([trend] vs last run)
+AI search:          [X]
+Training:           [X]
+Top pages assistants opened:
+1. [page] - [X]
+2. ...
+Markdown copy reads: [X], top agents [list]
 
 ISSUES FOUND
 ------------

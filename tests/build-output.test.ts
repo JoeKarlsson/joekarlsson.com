@@ -223,6 +223,7 @@ describe('Markdown copies for agents', () => {
 		expect(about).not.toMatch(/<script|<svg|<button/);
 		expect(existsSync(resolve(dist, 'index.md'))).toBe(true);
 		expect(existsSync(resolve(dist, 'work/mikrotik-api-client.md'))).toBe(true);
+		expect(readDist('about/index.html.md')).toBe(about);
 	});
 
 	it('turns each diagram into its label once, not once per desktop and phone drawing', () => {
