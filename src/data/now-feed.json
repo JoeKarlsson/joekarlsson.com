@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 477,
+			"commitCount": 478,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 54
+				25, 55
 			],
-			"latestCommitMessage": "feat: The gift guide's mug warmer gets my own photo, the red Le..."
+			"latestCommitMessage": "fix: The homelab gift guide newsletter issue is dated Thursday..."
 		},
 		{
 			"name": "punc",
 			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
 			"url": "https://github.com/JoeKarlsson/punc",
 			"language": "TypeScript",
-			"commitCount": 50,
+			"commitCount": 51,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 2
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 3
 			],
-			"latestCommitMessage": "fix: The shelf and the numbers page fetch their data after the first..."
+			"latestCommitMessage": "feat: A book's score scrolls at a fixed mark size, so a long book is a..."
 		},
 		{
 			"name": "bechdel-test",
