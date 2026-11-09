@@ -231,7 +231,11 @@ test.describe('Phone layout', () => {
 			.locator('.era-grid .project-card')
 			.evaluateAll((cards) => cards.map((c) => c.getBoundingClientRect().height));
 		expect(heights.length).toBeGreaterThan(10);
-		for (const height of heights) expect(height).toBeLessThan(160);
+		// Worst case by design: a title clamped to three lines plus the link row wrapped
+		// to two, since cards with their own /work page show four links (Project page,
+		// Source, Demo, Blog Post). That measured 208px (the Hawaii hackathon card,
+		// 2026-11-09); the big selected-work rows aren't in .era-grid.
+		for (const height of heights) expect(height).toBeLessThan(220);
 		const visibleClips = await page
 			.locator('.era-grid video')
 			.evaluateAll((videos) => videos.filter((v) => (v as HTMLElement).offsetParent !== null));
