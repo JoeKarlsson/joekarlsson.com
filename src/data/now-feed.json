@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 502,
+			"commitCount": 518,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 79
+				25, 95
 			],
-			"latestCommitMessage": "fix: Deploys check that phones get the new homepage too, and /uses..."
+			"latestCommitMessage": "fix: The recording setup issue opens with the before-and-after and who..."
 		},
 		{
 			"name": "screencast-director",
@@ -85,6 +85,12 @@
 	],
 	"podcastEpisodes": [
 		{
+			"episodeTitle": "‘Wild Horse Nine’ Is a Hilarious American Tragedy. Plus: ‘Possible Love’ and ‘Once Upon a Time in Harlem’.",
+			"podcastTitle": "The Big Picture",
+			"url": "https://podcasts.apple.com/us/podcast/the-big-picture/id1439252196?uo=4",
+			"cover": "/images/now/podcast-22fc3916-1f4a-42a4-890f-ff8c09a6030c.webp"
+		},
+		{
 			"episodeTitle": "Casino with Emily Yoshida",
 			"podcastTitle": "Blank Check",
 			"url": "https://podcasts.apple.com/us/podcast/blank-check-with-griffin-david/id981330533",
@@ -101,12 +107,6 @@
 			"podcastTitle": "Blank Check",
 			"url": "https://podcasts.apple.com/us/podcast/blank-check-with-griffin-david/id981330533",
 			"cover": "/images/now/podcast-ab4a04d4-3b5e-4bdc-b6ba-af9a721e2351.webp"
-		},
-		{
-			"episodeTitle": "Resident Evil: Welcome to Raccoon City",
-			"podcastTitle": "Blank Check with Griffin & David",
-			"url": "https://podcasts.apple.com/us/podcast/blank-check-with-griffin-david/id981330533?uo=4",
-			"cover": "/images/now/podcast-8c1b36c3-8647-4553-94c3-17031a478ff5.webp"
 		}
 	],
 	"homelab": { "runningContainers": 72, "proxmoxNodes": 2, "cpuThreads": 160, "memoryGB": 252 },
