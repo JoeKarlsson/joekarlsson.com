@@ -481,7 +481,7 @@ describe('share links', () => {
 				it(`links to ${network} with a tracked Share Click event`, () => {
 					const link = html.match(
 						new RegExp(
-							`<a href="([^"]+)"[^>]*plausible-event-name=Share\\+Click plausible-event-network=${network.replace('+', '\\+')} `,
+							`<a href="([^"]+)"[^>]*plausible-event-name=Share\\+Click plausible-event-network=${network.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} `,
 						),
 					);
 					expect(link).toBeTruthy();
