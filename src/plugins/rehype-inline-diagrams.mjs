@@ -68,8 +68,10 @@ const escapeAttribute = (s) =>
 function withLabel(svg, alt) {
 	const markup = svg.replace(/^<\?xml[^>]*>\s*/, '').trim();
 	if (!alt) return markup;
+	// A function, not a replacement string: alt text like "$105 a year" would otherwise
+	// read "$1" as the captured group and paste the <svg> attributes into the label
 	return markup.replace(
 		/<svg\b([^>]*?)\saria-label="[^"]*"/,
-		`<svg$1 aria-label="${escapeAttribute(alt)}"`,
+		(_, attributes) => `<svg${attributes} aria-label="${escapeAttribute(alt)}"`,
 	);
 }

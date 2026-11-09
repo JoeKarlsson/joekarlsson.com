@@ -64,6 +64,15 @@ describe('rehype-inline-diagrams', () => {
 		expect(phone.children![0].value).not.toContain('old phone');
 	});
 
+	it('keeps dollar amounts in the alt as written', () => {
+		const dir = publicDirWith({ 'images/blog/post/cost.svg': SVG('x') });
+		const alt = 'Power cost: about $105 a year, then $565, and $& stays too';
+		const figure = run(dir, paragraphWithImage('/images/blog/post/cost.svg', alt));
+		const svg = figure.children![0].children![0].value!;
+		expect(svg).toContain(`aria-label="${alt.replace('&', '&amp;')}"`);
+		expect(svg.match(/xmlns=/g)).toHaveLength(1);
+	});
+
 	it('inlines only the desktop SVG when there is no phone version', () => {
 		const dir = publicDirWith({ 'images/blog/post/flow.svg': SVG('x') });
 		const figure = run(dir, paragraphWithImage('/images/blog/post/flow.svg', 'Flow'));

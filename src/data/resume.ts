@@ -1,3 +1,5 @@
+import nowFeed from './now-feed.json';
+
 export interface BulletLink {
 	label: string;
 	url: string;
@@ -181,9 +183,8 @@ export const openSource = [
 	},
 	{
 		name: 'Homelab',
-		description:
-			'20+ self-hosted services running on bare metal and VMs: Proxmox, Unraid, TrueNAS, Jellyfin, Home Assistant, Authentik, Immich, and more.',
-		tech: ['Proxmox', 'Docker', 'Tailscale', 'Caddy', 'Home Assistant'],
+		description: `${nowFeed.homelab.runningContainers} LXC containers on a ${nowFeed.homelab.proxmoxNodes}-node Proxmox cluster with two NVIDIA GPUs, every one managed in OpenTofu: Home Assistant, Plex, Frigate, Immich, and Prometheus and Loki monitoring.`,
+		tech: ['Proxmox', 'LXC', 'OpenTofu', 'Prometheus', 'Home Assistant'],
 		url: '/blog/how-to-get-started-building-a-homelab-server/',
 	},
 ];
