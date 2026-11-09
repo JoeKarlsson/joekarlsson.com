@@ -2,7 +2,7 @@
 title: 'My Whole Recording Setup Is One Desk on Wheels'
 date: 2026-11-19T08:00:00Z
 slug: 'my-recording-setup-is-one-desk-on-wheels'
-description: 'How I record video at home: a camera, teleprompter and mic on one rolling desk, one cable to my laptop, a voice command that sets up the room, and lighting I got wrong twice.'
+description: 'One cable to plug in, one sentence to set up the room, and the lighting I got wrong twice.'
 recapOf: 'recording-setup-tour'
 cardPhoto: '/images/blog/recording-setup-tour/nook-wide.webp'
 cardPhotoAlt: "Joe's recording nook: the rolling desk with its green cutting mat and mic arm, an orange chair, an LED panel on a stand, and a 3D printer glowing on the shelf"
