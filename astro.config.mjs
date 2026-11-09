@@ -17,6 +17,7 @@ import rehypeImageDimensions from './src/plugins/rehype-image-dimensions.mjs';
 import rehypeInlineDiagrams from './src/plugins/rehype-inline-diagrams.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
+import externalLinks from './src/integrations/external-links.mjs';
 import markdownPages from './src/integrations/markdown-pages.mjs';
 import responsiveImages from './src/integrations/responsive-images.mjs';
 
@@ -82,6 +83,8 @@ export default defineConfig({
 		mdx(),
 		// srcset for card images in public/ (components opt in with `sizes`)
 		responsiveImages(),
+		// Every link off the site opens in a new tab
+		externalLinks(),
 		// A Markdown copy of every indexed page for AI agents: /about/ -> /about.md
 		markdownPages(),
 		// /resume-pdf/ is the noindex source the resume PDF is printed from
