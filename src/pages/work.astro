@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HoverBox from '../components/HoverBox.astro';
+import IndexRow from '../components/IndexRow.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import PosterHero from '../components/PosterHero.astro';
 import ProjectCard from '../components/ProjectCard.astro';
@@ -23,12 +24,6 @@ const selected = SELECTED_WORKS.map((title) => {
 	if (!project) throw new Error(`SELECTED_WORKS names "${title}", which isn't in projects.ts`);
 	return project;
 });
-const featured = selected[0];
-const featuredClip = featured.heroClip ?? {
-	video: featured.video && cardClip(featured.video),
-	poster: featured.poster ?? featured.image,
-	alt: featured.imageAlt,
-};
 const eras = ERAS.map((era) => ({
 	...era,
 	projects: projects
@@ -48,68 +43,38 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- The site's standard page top, like /blog/'s: the first selected work plays where
-		other pages have a picture, so the first screen shows the work, not a list of years -->
+		<!-- The site's standard page top, with the eras as an index where other pages have a picture -->
 		<PosterHero
 			title="Works"
 			wordRatio={2.2}
 			tickerItems={['Selected works', ...ERAS.map((era) => era.years)]}
 		>
-			<!-- The clip keeps its whole frame (contain, never cropped) with the caption under it,
-			so the piece reads at a glance -->
-			<a
+			<nav
 				slot="media"
-				href={workUrl(featured)}
-				class="ring-host group relative z-10 flex flex-col overflow-hidden rounded-xl bg-surface-1 no-underline"
+				aria-label="Sections"
+				class="relative z-10 flex flex-col justify-center rounded-xl bg-surface-1 p-5 md:p-7"
 			>
-				<span class="relative block aspect-square max-h-[70vh] w-full md:aspect-auto md:min-h-0 md:flex-1">
-					<video
-						src={featuredClip.video}
-						poster={featuredClip.poster}
-						loop
-						muted
-						playsinline
-						preload="none"
-						aria-label={featuredClip.alt}
-						data-autoplay-in-view
-						data-halftone="flat"
-						class="absolute inset-0 block size-full object-contain"
+				<IndexRow
+					href="#selected"
+					label="Selected"
+					meta={pieces(selected.length)}
+					index={4}
+					compact
+				/>
+				{eras.map((era, i) => (
+					<IndexRow
+						href={`#${era.slug}`}
+						label={era.years}
+						meta={pieces(era.projects.length)}
+						index={i}
+						compact
 					/>
-				</span>
-				<span class="block px-6 pt-4 pb-5">
-					<span class="mb-1.5 block text-sm text-muted">
-						<span class="font-semibold text-pink">Featured</span>
-						{' · '}
-						{featured.date.slice(0, 4)}
-					</span>
-					<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
-						{featured.title}
-					</span>
-				</span>
-				<HoverBox featured />
-			</a>
+				))}
+			</nav>
 			<p class={HERO_LEAD}>
 				I make art with code, paint and hardware, for the space between artists and engineers.
 			</p>
 		</PosterHero>
-
-		<nav aria-label="Sections" class="mb-12 flex flex-wrap gap-2 md:mb-16">
-			{[
-				{ href: '#selected', label: 'Selected', count: selected.length },
-				...eras.map((era) => ({
-					href: `#${era.slug}`,
-					label: era.years,
-					count: era.projects.length,
-				})),
-			].map(({ href, label, count }) => (
-				<a
-					href={href}
-					class="rounded-full border border-paper/30 px-4 py-1.5 font-display text-xl text-paper uppercase no-underline hover:border-pink hover:bg-pink hover:text-ink"
-				>
-					{label} <span class="font-sans text-sm normal-case opacity-70">{pieces(count)}</span>
-				</a>
-			))}
-		</nav>
 
 		<section id="statement" class={SECTION}>
 			<h2 class={SECTION_HEADING}>

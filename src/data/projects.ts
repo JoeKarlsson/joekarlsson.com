@@ -73,9 +73,6 @@ export interface Project {
 	card?: { src: string; alt: string };
 	// Plays over `image` (its poster) while the card is hovered or focused
 	video?: string;
-	// A steadier clip for the /work/ hero when this is the featured (first selected) work and
-	// `video` is a fast montage that reads as a blur at hero size
-	heroClip?: ProjectClip;
 	// A lighter still for the video when `image` (also the share card) is too heavy
 	// to wait on: the old featured hero's 96KB poster held its pink back 0.8s on a phone
 	poster?: string;
@@ -223,11 +220,6 @@ export const projects: Project[] = [
 			"A 32x32 LED pixel art frame behind a two-way mirror, driven by a Raspberry Pi. It plays seasonal pixel art, and Home Assistant pushes to it: ON AIR when my camera turns on, the doorbell, the weather. It's open source, and every scene is a plugin.",
 		image: `${PIXELPANE_DIR}/pixelpane-montage-poster.webp`,
 		video: `${PIXELPANE_DIR}/pixelpane-montage.mp4`,
-		heroClip: {
-			video: `${PIXELPANE_DIR}/board-demo.mp4`,
-			poster: `${PIXELPANE_DIR}/board-demo-poster.webp`,
-			alt: 'PixelPane on a shelf cycling through scenes: the time, date and weather, a spinning globe, then a moon over a jack-o-lantern',
-		},
 		imageAlt:
 			'PixelPane on my desk: the LED frame showing my homelab status, Proxmox stats and my next meeting, the control page switching scenes, the two-way mirror over the grid, and a drawing from the GIF generator appearing on the panel',
 		date: '2026-10',
