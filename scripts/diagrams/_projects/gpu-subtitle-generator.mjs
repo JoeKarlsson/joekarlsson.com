@@ -1,6 +1,7 @@
 // The GPU-Accelerated Subtitle Generator's card (src/data/projects.ts): Whisper's playhead runs
 // along a film's audio and each line of speech it passes lands in the SRT file as a cue.
 //   node scripts/diagrams/_projects/gpu-subtitle-generator.mjs <output dir>
+//   node scripts/boiling-thumbnail.mjs <output dir> public/images/projects/gpu-subtitle-generator --step 1400
 import { COLORS, createFigure } from '../draw.mjs';
 import { CARD, finish, outDirFromArgs, writeFrames } from './write-frames.mjs';
 

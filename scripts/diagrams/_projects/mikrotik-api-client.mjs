@@ -1,6 +1,7 @@
 // The MikroTik Native API Client's card (src/data/projects.ts): a /login sentence built on the
 // wire one word at a time, each with its length byte, then the router's !done.
 //   node scripts/diagrams/_projects/mikrotik-api-client.mjs <output dir>
+//   node scripts/boiling-thumbnail.mjs <output dir> public/images/projects/mikrotik-api-client --step 1000
 import { COLORS, createFigure } from '../draw.mjs';
 import { CARD, finish, outDirFromArgs, writeFrames } from './write-frames.mjs';
 

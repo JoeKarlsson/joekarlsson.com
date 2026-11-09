@@ -184,12 +184,14 @@ const {
 			import '../scripts/pause-offscreen-scribbles';
 			import '../scripts/scale-to-fit-embed';
 			import { initScribbleNotice } from '../scripts/scribble-notice';
+			import { initStillImages } from '../scripts/still-images';
 			import '../scripts/track-embed-play';
 			import '../scripts/youtube-facade';
 
 			document
 				.querySelectorAll<HTMLButtonElement>('button[data-pause-motion]')
 				.forEach(initPauseMotion);
+			initStillImages();
 			initFilterAnimations();
 			if (hasCursorTrail(window.location.pathname)) initCursorTrail();
 			initScribbleNotice();

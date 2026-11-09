@@ -1,6 +1,7 @@
 // The Movie Script Scraper's card (src/data/projects.ts): the CLI pulling ten Horror scripts
 // from IMSDb, five downloads in flight at a time, each landing as a .txt in the genre folder.
 //   node scripts/diagrams/_projects/movie-script-scraper.mjs <output dir>
+//   node scripts/boiling-thumbnail.mjs <output dir> public/images/projects/movie-script-scraper --step 450
 import { COLORS, createFigure } from '../draw.mjs';
 import { CARD, finish, outDirFromArgs, writeFrames } from './write-frames.mjs';
 

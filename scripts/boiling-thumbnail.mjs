@@ -6,13 +6,15 @@
 // pass skips it, each frame is graded black-to-pink here, the same tone as the site's flat
 // filter, so it sits with the other cards.
 //
-//   node scripts/boiling-thumbnail.mjs <diagram.svg | frames dir> <output dir> [--view x,y,w,h]
+//   node scripts/boiling-thumbnail.mjs <diagram.svg | frames dir> <output dir> [--view x,y,w,h] [--step ms]
 //
 // One SVG: the boil's three frames on the site's 0.5s loop. A directory of SVGs (an
 // animation, like the self-solving Sudoku): one frame each, in name order, each with the
 // next boil seed, the first and last held so the start and the finished state read.
 // --view crops the diagram to a 16:9 window of its own coordinates, so a taller
-// diagram can fill the card. Prints the new file's path.
+// diagram can fill the card. --step sets how long each middle frame of an animation shows
+// (220ms by default): a few frames that each need reading want longer. Prints the new
+// file's path.
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import {
@@ -26,6 +28,7 @@ import {
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { parseArgs } from 'node:util';
 import { chromium } from 'playwright';
 import sharp from 'sharp';
 
@@ -36,7 +39,7 @@ const HEIGHT = 540;
 const SEEDS = [11, 22, 33];
 const FRAME_MS = 167;
 // An animation's frames: quick enough to read as motion, with a pause at each end
-const STEP_MS = 220;
+const DEFAULT_STEP_MS = 220;
 const FIRST_MS = 900;
 const LAST_MS = 2400;
 // The site's pink (src/scripts/halftone.ts INK)
@@ -64,11 +67,18 @@ async function gradePink(file) {
 	return file.replace(/\.png$/, '-pink.png');
 }
 
-const [input, outDir, flag, view] = process.argv.slice(2);
-if (!input || !outDir || (flag && flag !== '--view')) {
-	console.error(
-		'Usage: node scripts/boiling-thumbnail.mjs <diagram.svg | frames dir> <output dir> [--view x,y,w,h]',
-	);
+const USAGE =
+	'Usage: node scripts/boiling-thumbnail.mjs <diagram.svg | frames dir> <output dir> [--view x,y,w,h] [--step ms]';
+const {
+	positionals: [input, outDir],
+	values: { view, step },
+} = parseArgs({
+	allowPositionals: true,
+	options: { view: { type: 'string' }, step: { type: 'string' } },
+});
+const STEP_MS = step === undefined ? DEFAULT_STEP_MS : Number(step);
+if (!input || !outDir || !(STEP_MS > 0)) {
+	console.error(USAGE);
 	process.exit(2);
 }
 

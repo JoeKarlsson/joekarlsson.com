@@ -1,6 +1,7 @@
 // The Digital Graffiti Wall's card (src/data/projects.ts): the 32x32 LED wall lighting up
 // as people in the audience draw on their phones.
 //   node scripts/diagrams/_projects/digital-graffiti-wall.mjs <output dir>
+//   node scripts/boiling-thumbnail.mjs <output dir> public/images/projects/digital-graffiti-wall --step 350
 import { COLORS, createFigure } from '../draw.mjs';
 import { CARD, finish, outDirFromArgs, writeFrames } from './write-frames.mjs';
 

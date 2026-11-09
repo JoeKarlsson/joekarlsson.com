@@ -13,6 +13,8 @@ export const PAUSED_CLASS = 'motion-paused';
 export const PAUSED_STORAGE_KEY = 'motion-paused';
 // Fired on document when motion resumes, for in-view-play
 export const MOTION_RESUMED_EVENT = 'motion-resumed';
+// Fired on document when the button pauses motion, for still-images
+export const MOTION_PAUSED_EVENT = 'motion-paused';
 
 export function isMotionPaused(): boolean {
 	return document.documentElement.classList.contains(PAUSED_CLASS);
@@ -57,6 +59,7 @@ export function initPauseMotion(button: HTMLButtonElement): void {
 				video.pause();
 				pausedByButton.add(video);
 			});
+			document.dispatchEvent(new Event(MOTION_PAUSED_EVENT));
 		} else {
 			pausedByButton.forEach((video) => video.play().catch(() => {}));
 			pausedByButton.clear();

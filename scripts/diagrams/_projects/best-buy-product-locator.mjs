@@ -2,6 +2,7 @@
 // product page, finds the Best Buy stores within 15 miles, picks the nearest and drops a
 // pick-it-up-today banner.
 //   node scripts/diagrams/_projects/best-buy-product-locator.mjs <output dir>
+//   node scripts/boiling-thumbnail.mjs <output dir> public/images/projects/best-buy-product-locator --step 900
 import { COLORS, createFigure } from '../draw.mjs';
 import { CARD, finish, outDirFromArgs, writeFrames } from './write-frames.mjs';
 

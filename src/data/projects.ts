@@ -393,7 +393,7 @@ export const projects: Project[] = [
 		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
 		imageAlt: 'Digital Graffiti Wall',
 		card: {
-			src: '/images/projects/digital-graffiti-wall/thumb-0aac9abe.webp',
+			src: '/images/projects/digital-graffiti-wall/thumb-b8387025.webp',
 			alt: 'A 32 by 32 LED wall lighting up pixel by pixel as people draw a heart, a smiley face and the word HI, with a live count of pixels drawn',
 		},
 		date: '2020-10',
@@ -686,7 +686,7 @@ export const projects: Project[] = [
 		imageAlt:
 			'A Sony 48-inch TV on Amazon with the extension running: a blue Best Buy banner across the top reads "Want it faster? Pick it up now for $449.99" at the Best Buy in Richfield, MN, and the toolbar popup shows the same TV with a Buy on BestBuy.com button',
 		card: {
-			src: '/images/projects/best-buy-product-locator/thumb-79270aa7.webp',
+			src: '/images/projects/best-buy-product-locator/thumb-e2af6242.webp',
 			alt: 'A product page for a Sony 48-inch TV has its model number read, Best Buy stores within 15 miles appear on a map, the nearest in Richfield is picked, and a banner reads Pick it up today at Best Buy Richfield, $449.99',
 		},
 		date: '2018-09',
@@ -1313,7 +1313,7 @@ export const projects: Project[] = [
 		imageAlt:
 			'The Movie Script Scraper banner: "Movie Script Scraper" in white on red and teal stripes, with a film reel in the corner',
 		card: {
-			src: '/images/projects/movie-script-scraper/thumb-0db4b745.webp',
+			src: '/images/projects/movie-script-scraper/thumb-321bc530.webp',
 			alt: 'The command movie-script-scraper --genre Horror --total 10 pulling scripts from IMSDb five at a time, each landing as a text file in scripts/Horror/ until 10 of 10 are saved',
 		},
 		date: '2018-01',
@@ -1511,7 +1511,7 @@ export const projects: Project[] = [
 		image: '/images/blog/building-a-gpu-accelerated-subtitle-generator/hero.webp',
 		imageAlt: 'GPU Subtitle Generator Architecture',
 		card: {
-			src: '/images/projects/gpu-subtitle-generator/thumb-ec225d21.webp',
+			src: '/images/projects/gpu-subtitle-generator/thumb-08106819.webp',
 			alt: "A playhead runs along a film's audio waveform as Whisper, on an NVIDIA GPU, writes each line of speech into an SRT file: They're coming to get you, Barbara",
 		},
 		date: '2026-02',
@@ -1525,7 +1525,7 @@ export const projects: Project[] = [
 		image: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp',
 		imageAlt: 'MikroTik API Client',
 		card: {
-			src: '/images/projects/mikrotik-api-client/thumb-07444a23.webp',
+			src: '/images/projects/mikrotik-api-client/thumb-6cc55f0c.webp',
 			alt: 'A MikroTik API login sentence written to the wire one word at a time, /login, =name=admin and =password=secret, each with its length byte, then a zero byte, and RouterOS answering !done',
 		},
 		date: '2026-03',
