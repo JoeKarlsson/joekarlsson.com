@@ -153,7 +153,10 @@ export const projects: Project[] = [
 		description:
 			'Welcome to the Internet of Toilets. An IoT-connected cat litter box built with a Raspberry Pi, weight sensors, and Node.js. Monitors usage patterns and sends notifications. Became one of my most popular conference talks - presented at 20+ events worldwide.',
 		image: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp',
-		imageAlt: 'IoT Kitty Litter Box',
+		imageAlt:
+			'Clips of the IoT Kitty Litter Box from 2019: the finished wooden cabinet on angled legs, my black cat sitting on top of it, me fitting the side panel with the wiring, a laptop printing load cell readings as weight is pressed onto the plate, and my cat chewing on the load cells and breadboard',
+		video: '/images/projects/iot-kitty-litter-box-2026-11.mp4',
+		poster: '/images/projects/iot-kitty-litter-box-2026-11-poster.webp',
 		date: '2019-09',
 		tech: ['Raspberry Pi', 'Node.js', 'MongoDB', 'HX711'],
 		sourceUrl: 'https://github.com/JoeKarlsson/iot-kitty-litter-box',
@@ -708,7 +711,9 @@ export const projects: Project[] = [
 			'An augmented reality scavenger hunt built at the 2017 AT&T hackathon in Honolulu. Scan a printed marker and a 3D arrow points you toward a hidden checkpoint.',
 		image: '/images/projects/gaptcha-scan.webp',
 		imageAlt:
-			'Hands holding a Samsung phone over a printed GAPTCHA marker on a concrete floor, with a green 3D arrow drawn over the camera view in the browser',
+			"GAPTCHA's demo playing itself: a hunter near the Honolulu checkpoint scans three markers, dashed lines from each marker cross on the map, the hunter heads to where they cross and the page says GOT 'EM, while a feed lists the simulated hunters' scans",
+		video: '/images/projects/gaptcha-2026-11.mp4',
+		poster: '/images/projects/gaptcha-2026-11-poster.webp',
 		date: '2017-03',
 		tech: ['Node.js', 'Express', 'A-Frame', 'AR.js', 'Leaflet', 'AT&T M2X'],
 		sourceUrl: 'https://github.com/JoeKarlsson/GAPTCHA',
@@ -773,7 +778,9 @@ export const projects: Project[] = [
 			'A small web app that turns any photo into big square pixels. Pick a photo, drag the slider to set the block size, and save it as a PNG. Nothing gets uploaded.',
 		image: '/images/projects/pixelate-2026-before-after.webp',
 		imageAlt:
-			'A selfie of me in sunglasses holding a pink soft-serve cone at a fair, and next to it the same photo run through Pixelate, turned into blocks of color',
+			'Pixelate: picking a selfie of me in sunglasses holding a pink soft-serve cone at a fair, then dragging the block size slider from 2px up to 90px and back down to 30px as the photo goes from sharp to big blocks of color',
+		video: '/images/projects/pixelate-2026-11.mp4',
+		poster: '/images/projects/pixelate-2026-11-poster.webp',
 		date: '2015-04',
 		tech: ['JavaScript', 'HTML5 Canvas'],
 		sourceUrl: 'https://github.com/JoeKarlsson/Pixelate',
@@ -821,7 +828,9 @@ export const projects: Project[] = [
 			'Vote with your friends on where to go tonight. It finds the bars near you, you pick the ones in the running, and everyone votes from a shared link.',
 		image: '/images/projects/night-out-2026-pick.webp',
 		imageAlt:
-			'Night Out on "Where are we going tonight?": a dark map of downtown Honolulu with bars marked in pink, next to a list where The Last Call, Moonlight Tap Room and Pink Flamingo Lounge are checked',
+			"Night Out's demo playing itself: three real bars in Honolulu's Chinatown get picked on a dark map, the vote opens with a share link, and made-up friends vote until Black Shamrock Tavern is winning",
+		video: '/images/projects/night-out-2026-11.mp4',
+		poster: '/images/projects/night-out-2026-11-poster.webp',
 		date: '2015-10',
 		tech: ['Meteor', 'MongoDB', 'Vite', 'Leaflet', 'OpenStreetMap'],
 		sourceUrl: 'https://github.com/JoeKarlsson/night-out',
