@@ -25,6 +25,15 @@ test.describe('Blog Index Page', () => {
 		expect(await rows.count()).toBeLessThanOrEqual(POSTS_PER_PAGE);
 	});
 
+	test('search forgives spacing and typos', async ({ page }) => {
+		const search = page.getByPlaceholder(/search/i);
+		const firstRow = page.locator(SHOWN_ROWS).first();
+		for (const query of ['open tofu', 'opne tofu', 'opentofu proxmx']) {
+			await search.fill(query);
+			await expect(firstRow).toContainText(/opentofu/i);
+		}
+	});
+
 	test('search shows no results message for invalid query', async ({ page }) => {
 		await page.getByPlaceholder(/search/i).fill('xyznonexistentpost123');
 		await expect(page.getByText(/no posts found/i)).toBeVisible();

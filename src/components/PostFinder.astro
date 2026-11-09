@@ -154,22 +154,95 @@ const SORT_INACTIVE =
 		let searchQuery = '';
 		let visibleCount = POSTS_PER_PAGE;
 
+		// Lowercase, drop accents, and turn punctuation into spaces, so "Open-Tofu",
+		// "opentofu's" and "Open Tofu" all read the same
+		function normalizeForSearch(s) {
+			return s
+				.normalize('NFKD')
+				.replace(/[\u0300-\u036f]/g, '')
+				.toLowerCase()
+				.replace(/[^a-z0-9]+/g, ' ')
+				.trim();
+		}
+
+		// Typos allowed: none under 4 letters, 1 up to 7, 2 from 8. A swap of two
+		// neighbouring letters counts as one typo
+		function typosAllowed(word) {
+			return word.length < 4 ? 0 : word.length < 8 ? 1 : 2;
+		}
+
+		function isWithinTypos(a, b, max) {
+			if (Math.abs(a.length - b.length) > max) return false;
+			let prev2 = [];
+			let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+			for (let i = 1; i <= a.length; i++) {
+				const row = [i];
+				let rowMin = i;
+				for (let j = 1; j <= b.length; j++) {
+					const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+					let d = Math.min(prev[j] + 1, row[j - 1] + 1, prev[j - 1] + cost);
+					if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+						d = Math.min(d, prev2[j - 2] + 1);
+					}
+					row.push(d);
+					rowMin = Math.min(rowMin, d);
+				}
+				if (rowMin > max) return false;
+				prev2 = prev;
+				prev = row;
+			}
+			return prev[b.length] <= max;
+		}
+
+		// 3: the query matches with spaces ignored ("open tofu" finds OpenTofu,
+		// "homelab" finds "home lab"). 2: every query word is in the card. 1: every
+		// word is in the card or one or two typos off a card word (or the start of
+		// one, while it's still being typed). 0: no match
+		function searchScore(query, card) {
+			const queryWords = query.split(' ').filter(Boolean);
+			if (card.squashed.includes(queryWords.join(''))) return 3;
+			let score = 2;
+			for (const queryWord of queryWords) {
+				if (card.text.includes(queryWord)) continue;
+				const max = typosAllowed(queryWord);
+				if (max === 0) return 0;
+				const nearWord = card.words.some(
+					(word) =>
+						isWithinTypos(queryWord, word, max) ||
+						(word.length > queryWord.length &&
+							isWithinTypos(queryWord, word.slice(0, queryWord.length), max)),
+				);
+				if (!nearWord) return 0;
+				score = 1;
+			}
+			return score;
+		}
+
 		// Map cards to their data
-		const cardData = cards.map((card, i) => ({
-			el: card,
-			text: card.textContent.replace(/\s+/g, ' ').toLowerCase(),
-			date: new Date(card.querySelector('time').dateTime).getTime(),
-			visitors: visitors[i],
-		}));
+		const cardData = cards.map((card, i) => {
+			const text = normalizeForSearch(card.textContent);
+			const words = [...new Set(text.split(' '))];
+			return {
+				el: card,
+				text,
+				words,
+				squashed: words.join(''),
+				date: new Date(card.querySelector('time').dateTime).getTime(),
+				visitors: visitors[i],
+				score: 0,
+			};
+		});
 
 		function getFiltered() {
-			const q = searchQuery.toLowerCase();
+			const q = normalizeForSearch(searchQuery);
 			let filtered = cardData;
 			if (q) {
-				filtered = cardData.filter(({ text }) => text.includes(q));
+				cardData.forEach((card) => (card.score = searchScore(q, card)));
+				filtered = cardData.filter((card) => card.score > 0);
 			}
-			// Sort
+			// Closest matches first, then the chosen sort
 			filtered.sort((a, b) => {
+				if (q && a.score !== b.score) return b.score - a.score;
 				if (currentSort === 'popular') return b.visitors - a.visitors || b.date - a.date;
 				return b.date - a.date;
 			});
