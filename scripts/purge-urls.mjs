@@ -86,14 +86,28 @@ async function callPurge(body) {
 	if (!result.success) throw new Error(`Cloudflare purge failed: ${JSON.stringify(result.errors)}`);
 }
 
+// The zone caches by device type: phones and tablets get their own copy of each URL,
+// and a plain URL purge only clears the desktop one. Phones kept serving a post from
+// before the day's deploys until each copy aged out (2026-11-09).
+const DEVICE_TYPES = ['mobile', 'tablet'];
+
+/** The purge entries for some URLs: each URL plain, then once per device type */
+export function purgeEntries(urls) {
+	return urls.flatMap((url) => [
+		url,
+		...DEVICE_TYPES.map((type) => ({ url, headers: { 'CF-Device-Type': type } })),
+	]);
+}
+
 async function purge(list) {
 	if (list.length === 1 && list[0] === PURGE_EVERYTHING) {
 		await callPurge({ purge_everything: true });
 		console.log('Cache purge: everything');
 		return;
 	}
-	for (let i = 0; i < list.length; i += URLS_PER_CALL) {
-		await callPurge({ files: list.slice(i, i + URLS_PER_CALL) });
+	const entries = purgeEntries(list);
+	for (let i = 0; i < entries.length; i += URLS_PER_CALL) {
+		await callPurge({ files: entries.slice(i, i + URLS_PER_CALL) });
 	}
 	console.log(`Cache purge: ${list.length} changed URL(s), everything else stays cached`);
 }

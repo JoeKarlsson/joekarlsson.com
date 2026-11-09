@@ -3,6 +3,7 @@ import {
 	changedPaths,
 	MAX_URLS,
 	PURGE_EVERYTHING,
+	purgeEntries,
 	purgeList,
 	urlsForPath,
 } from '../scripts/purge-urls.mjs';
@@ -10,6 +11,15 @@ import {
 const SITE = 'https://www.joekarlsson.com';
 
 describe('purge-urls', () => {
+	it('purges every URL for desktop, phones and tablets', () => {
+		const url = `${SITE}/blog/x/`;
+		expect(purgeEntries([url])).toEqual([
+			url,
+			{ url, headers: { 'CF-Device-Type': 'mobile' } },
+			{ url, headers: { 'CF-Device-Type': 'tablet' } },
+		]);
+	});
+
 	it('lists added, changed and removed files, not unchanged ones', () => {
 		const old = { 'a.webp': '1', 'b.webp': '2', 'gone.mp4': '3' };
 		const next = { 'a.webp': '1', 'b.webp': 'changed', 'new.webp': '4' };
