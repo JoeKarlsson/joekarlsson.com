@@ -69,7 +69,7 @@ describe('rehype-inline-diagrams', () => {
 		const alt = 'Power cost: about $105 a year, then $565, and $& stays too';
 		const figure = run(dir, paragraphWithImage('/images/blog/post/cost.svg', alt));
 		const svg = figure.children![0].children![0].value!;
-		expect(svg).toContain(`aria-label="${alt.replace('&', '&amp;')}"`);
+		expect(svg).toContain(`aria-label="${alt.replaceAll('&', '&amp;')}"`);
 		expect(svg.match(/xmlns=/g)).toHaveLength(1);
 	});
 
