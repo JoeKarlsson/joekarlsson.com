@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 493,
+			"commitCount": 496,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 70
+				25, 73
 			],
-			"latestCommitMessage": "feat: The works page opens on a reel of the five selected works whose..."
+			"latestCommitMessage": "feat: The recording setup tour adds what the video says: FollowSpot's..."
 		},
 		{
 			"name": "screencast-director",
