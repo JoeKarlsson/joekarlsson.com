@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 474,
+			"commitCount": 477,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 51
+				25, 54
 			],
-			"latestCommitMessage": "feat: The recording setup tour draws its wiring as a cut-paper..."
+			"latestCommitMessage": "feat: The gift guide's mug warmer gets my own photo, the red Le..."
 		},
 		{
 			"name": "punc",
