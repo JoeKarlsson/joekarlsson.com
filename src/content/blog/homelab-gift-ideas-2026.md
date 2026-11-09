@@ -94,6 +94,8 @@ A 24x36 [WORKLION cutting mat](https://www.amazon.com/dp/B08Y5R5K5J) covers my s
 
 ### Mug warmer
 
+![My mug warmer on the corner of my desk, a round black plate holding a red Le Creuset mug, with my pixel art display glowing in the background](/images/blog/homelab-gift-ideas-2026/mug-warmer.webp)
+
 A [warming plate](https://www.amazon.com/dp/B07S7DDY6S) with a 14 oz ceramic mug. It's the least technical thing on my desk.
 
 ## $50 to $150
