@@ -41,7 +41,13 @@ function listPages(dir) {
 function tableToMarkdown(table) {
 	const rows = [...table.querySelectorAll('tr')].map((row) =>
 		[...row.children].map((cell) =>
-			cell.textContent.replace(/\s+/g, ' ').replace(/\|/g, '\\|').trim(),
+			cell.textContent
+				.replace(/\s+/g, ' ')
+				// Backslashes first, or a cell's own `\|` would become `\\|`: an escaped
+				// backslash followed by a real column break
+				.replace(/\\/g, '\\\\')
+				.replace(/\|/g, '\\|')
+				.trim(),
 		),
 	);
 	if (rows.length === 0) return '';
