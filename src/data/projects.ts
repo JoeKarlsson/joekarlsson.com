@@ -1559,6 +1559,10 @@ export const projects: Project[] = [
 				text: [
 					'It uses only `socket` and `struct`: it logs in, sends each command as a sentence, and reads `!re` replies until `!done`, or `!trap` for an error. Any RouterOS command works from the command line with no code changes. [How it works, byte by byte](/blog/implementing-mikrotik-binary-api-protocol-in-python/).',
 				],
+				diagram: {
+					src: '/images/projects/mikrotik-api-client/how-it-talks-to-routeros.svg',
+					alt: 'How the MikroTik API client talks to RouterOS. The Python script, using only socket and struct, opens a raw TCP connection to RouterOS on port 8728. It sends a /login sentence with =name= and =password= words, and RouterOS answers !done. Then it sends a command such as /interface/bonding/print, and RouterOS answers with one !re sentence per record, then !done, or !trap on an error. On the wire, each word goes out as its length and then its bytes: 06 and the six bytes of /login, 0b and the eleven bytes of =name=admin, and a 00 byte ends the sentence. The length byte works like UTF-8: its high bits say how many more length bytes follow.',
+				},
 			},
 			lineage: [{ label: 'Also about the wire', title: 'Guide to Client-Server Communication' }],
 		},
