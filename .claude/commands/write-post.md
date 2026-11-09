@@ -384,7 +384,7 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 
 **Memes:** see the Meme generation step below. Never pick templates from memory.
 
-**ASCII diagrams:** Use code blocks for architecture diagrams, network topologies, before/after comparisons, and flow charts. These render well in the terminal-aesthetic site and don't require external tools.
+**Diagrams:** Never draw a diagram as ASCII in a code block. Architecture maps, wiring, network topologies, before/after comparisons and flow charts all go through the project `diagrams` skill (Skill tool), which draws them as cut-paper SVGs with real logos, a phone layout and the site's boil on arrows and paper edges. Preview the figure with Joe before it goes in the post. Why: the recording-setup-tour post shipped with an ASCII wiring diagram, and Joe asked for it to be replaced with an animated, boiling one (2026-11-09).
 
 **Placement:** Alternate between photos, memes, and diagrams throughout the post. Place them at natural section breaks. Never have more than 3-4 paragraphs of prose without a visual element.
 

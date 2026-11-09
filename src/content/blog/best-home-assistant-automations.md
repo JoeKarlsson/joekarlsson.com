@@ -237,7 +237,7 @@ Vacation Mode also sends a daily report, and I use it on every trip. At 9 AM eve
 
 ### Meeting Mode from your Mac camera
 
-This is my favorite automation, and it has no button. When my work MacBook's camera turns on, Meeting Mode starts, and it ends when the camera turns off. It turns on the office lights and pauses the office speaker. A second automation turns on my Elgato Key Light when the camera goes live and turns it off 30 seconds after it stops.
+This is my favorite automation, and it has no button. When my work MacBook's camera turns on, Meeting Mode starts, and it ends when the camera turns off. It turns on the office lights and pauses the office speaker. A second automation turns on my Elgato Key Light when the camera goes live and turns it off 30 seconds after it stops. For recorded videos I use a separate, [voice-triggered recording mode on my rolling desk](/blog/recording-setup-tour/).
 
 The trigger is a `camera_in_use` binary sensor from the [Home Assistant companion app](https://companion.home-assistant.io/docs/core/sensors/) on the Mac. If you have a Mac, install the companion app for this sensor alone.
 

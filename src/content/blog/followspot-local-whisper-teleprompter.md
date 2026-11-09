@@ -34,7 +34,7 @@ Day to day I run `medium`, and I didn't even download it. [Screen Studio](https:
 
 ## Put the words over the lens, or everyone can tell you're reading
 
-Keep the text narrow and centered right over the camera lens. I wish someone had told me that years ago. With a wide column, your eyes sweep left to right on every line, and viewers notice that little side-to-side scan. [StudioKitGuide's eye-line guide](https://studiokitguide.com/teleprompter-eye-line-setup/) gives the same advice.
+Keep the text narrow and centered right over the camera lens. I wish someone had told me that years ago. With a wide column, your eyes sweep left to right on every line, and viewers notice that little side-to-side scan. [StudioKitGuide's eye-line guide](https://studiokitguide.com/teleprompter-eye-line-setup/) gives the same advice. Here's [how the prompter is mounted in front of my camera](/blog/recording-setup-tour/).
 
 This is what a default wide column looks like:
 

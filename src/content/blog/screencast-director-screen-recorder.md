@@ -81,7 +81,7 @@ After the edit, there's still making the thing look like it belongs to you, expo
 
 _Swatches, padding and corners, saved in a profile._
 
-**The camera** can be a bubble, side by side or full frame, and you can switch it for any stretch of the video. It centers on your face and has basic color grading.
+**The camera** can be a bubble, side by side or full frame, and you can switch it for any stretch of the video. It centers on your face and has basic color grading, and [the camera and lighting rig I record on](/blog/recording-setup-tour/) has its own post.
 
 ![The Camera inspector: dragging the camera zoom, clicking Center on My Face, trying the Warm, Punchy, Cool and Natural color presets, then switching the layout between Camera only, Side by side and Screen only](/images/blog/screencast-director-screen-recorder/sd-camera.gif)
 

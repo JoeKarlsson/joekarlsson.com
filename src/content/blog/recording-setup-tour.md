@@ -73,6 +73,22 @@ I'm not an audio guy, so this part has been a learning curve. What I wanted was 
 - **EQ:** +3.25 dB around 227 Hz for warmth, -3 dB around 860 Hz to take out the boxy sound, and +1.75 dB around 10 kHz for a little clarity.
 - **Bettermaker all the way up, and Voice Focus on.** The compressor is set up but switched off.
 
+Both clips below are set to the same loudness. The first is a TikTok from my phone days, recorded on my iPhone with a small clip-on mic:
+
+<audio controls preload="none" src="/images/blog/recording-setup-tour/audio-before-phone.m4a" aria-label="Audio from a phone-era TikTok, recorded on an iPhone with a clip-on mic"></audio>
+
+<!-- vale JoeKarlsson.FillerWords = NO -->
+
+_"Yes, I totally agree. Your stack can really affect the programming languages you use. No language is better than another. It depends on the project and what you're trying to solve and what your needs are."_
+
+<!-- vale JoeKarlsson.FillerWords = YES -->
+
+The second is the Wave:3 MK.2 on the recording desk, from the ChatGPT dots video, before any editing:
+
+<audio controls preload="none" src="/images/blog/recording-setup-tour/audio-after-wave3.m4a" aria-label="Audio from the ChatGPT dots video, recorded on the Wave:3 MK.2 at the recording desk"></audio>
+
+_"The apps your job runs on, and right now, it can't see any of them. Let's fix that now. Today, I'm going to connect a dot to hundreds of apps with a single plugin."_
+
 ## Light your face first
 
 I figured lighting would be easy: buy a light, point it at my face, done.
@@ -81,17 +97,17 @@ I started with a ring light, and it blew my face out, with everything flat and e
 
 What I wanted was the opposite: a dark, moody room full of colored LEDs, with my face sharp in the middle of it. So I turned everything down, and the image went to hell. When I recorded too dark, the camera had less light to work with, the picture got noisy and soft, and the compression turned my face to mush.
 
-These are ungraded frames from each stage:
+These are ungraded clips from each stage:
 
-![Late August, the webcam era: me in a hat and headphones in my bright living room, lit flat by daylight from a window](/images/blog/recording-setup-tour/lighting-1-webcam-aug.webp)
+<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/lighting-1-webcam-aug.webp" src="/images/blog/recording-setup-tour/lighting-1-webcam-aug.mp4" aria-label="Late August, the webcam era: me in a hat and headphones in my bright living room, lit flat by daylight from a window"></video>
 
 _August: a webcam in the living room, with lots of light and no mood._
 
-![Mid-October, my first take on the new desk: the room is deep blue, an orange spotlight hits the wall, and my face is dark and soft](/images/blog/recording-setup-tour/lighting-2-first-studio-oct.webp)
+<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/lighting-2-first-studio-oct.webp" src="/images/blog/recording-setup-tour/lighting-2-first-studio-oct.mp4" aria-label="Mid-October, my first take on the new desk: the room is deep blue, an orange spotlight hits the wall, and my face is dark and soft"></video>
 
 _October 15: plenty of mood, and my face is the darkest thing in the frame._
 
-![Late October, the ChatGPT dots video: a softbox lights my face warm and even, with the dark blue room and an orange spotlight on the wall behind me](/images/blog/recording-setup-tour/lighting-3-dots-oct.webp)
+<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/lighting-3-dots-oct.webp" src="/images/blog/recording-setup-tour/lighting-3-dots-oct.mp4" aria-label="Late October, the ChatGPT dots video: a softbox lights my face warm and even, with the dark blue room and an orange spotlight on the wall behind me"></video>
 
 _October 30: the softbox on my face, and the mood behind me._
 
@@ -113,17 +129,7 @@ The laptop side is one cable. An [Anker Prime TB5 dock](https://www.amazon.com/d
 
 The power side is one switch. Everything on the desk plugs into a single [Sengled smart plug](https://www.amazon.com/dp/B092DBFFBY), an energy-monitoring plug that Home Assistant controls. With everything on, the plug has never read more than about 112W, well under its 1800W rating.
 
-```
-wall outlet
-  └─ Sengled smart plug (Home Assistant)
-       ├─ Anker Prime TB5 dock ── Cam Link 4K ── Sony ZV-E10 (HDMI)
-       │                        ├─ Wave:3
-       │                        └─ Elgato Prompter
-       ├─ ZV-E10 dummy battery
-       └─ softbox + spotlight
-
-laptop ── one Thunderbolt 5 cable ── dock
-```
+![How the recording desk is wired: my laptop connects to an Anker Prime TB5 dock with one Thunderbolt 5 cable. The Cam Link 4K and the Wave:3 MK.2 send video and audio into the dock, and the dock drives the Elgato Prompter. The Sony ZV-E10 feeds the Cam Link over HDMI. The dock, the camera, the softbox and the spotlight all sit on one smart plug that Home Assistant switches.](/images/blog/recording-setup-tour/one-cable-one-plug.svg)
 
 ## Recording mode in Home Assistant
 
