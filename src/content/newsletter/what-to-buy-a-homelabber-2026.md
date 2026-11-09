@@ -16,10 +16,29 @@ The rule I landed on is that the best gifts **don't have to agree with the lab.*
 
 A few from the list:
 
-- **[Rackstuds](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#rackstuds)** (under $50). Tool-free replacements for the cage nuts that come with a server rack. I love these. Ask first: "Does your rack have square holes?"
-- **[Home Assistant Voice Preview Edition](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#home-assistant-voice-preview-edition)** (about $69). I replaced every Alexa in my house with these. Ask first: "Do you run Home Assistant?"
-- **[Aranet4 Home](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#aranet4-home)** ($150+). The CO2 monitor on my desk that tells me to open a window before I get foggy.
-- **[A rack UPS](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#a-rack-ups)** (the splurge). Mine ride through the power blips every summer when my air conditioners kick on.
+### [Rackstuds](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#rackstuds) (under $50)
+
+![Rackstuds DUO in their retail box, black plastic studs that push into square rack holes in place of cage nuts](/images/blog/homelab-gift-ideas-2026/rackstuds.webp)
+
+Tool-free replacements for the cage nuts that come with a server rack. I love these. Ask first: "Does your rack have square holes?"
+
+### [Home Assistant Voice Preview Edition](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#home-assistant-voice-preview-edition) (about $69)
+
+![The Home Assistant Voice Preview Edition, a small square gray speaker with a glowing LED ring on top](/images/blog/homelab-gift-ideas-2026/ha-voice-pe.webp)
+
+I replaced every Alexa in my house with these. Ask first: "Do you run Home Assistant?"
+
+### [Aranet4 Home](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#aranet4-home) ($150+)
+
+![The Aranet4 Home CO2 monitor, a white square with an e-ink screen reading 560 ppm](/images/blog/homelab-gift-ideas-2026/aranet4-home.webp)
+
+The CO2 monitor on my desk that tells me to open a window before I get foggy.
+
+### [A rack UPS](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#a-rack-ups) (the splurge)
+
+![My two CyberPower rack UPSes stacked on the living room rug, just out of the box](/images/blog/homelab-gift-ideas-2026/ups-unboxed.webp)
+
+Mine ride through the power blips every summer when my air conditioners kick on.
 
 The full guide has 13 picks I own, a short list of what not to buy (please don't buy them a server), the four things on my own wishlist, and a few gifts that aren't hardware at all.
 

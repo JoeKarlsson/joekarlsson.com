@@ -638,3 +638,5 @@ Seerr
 Servarr
 tfstate
 tflock
+Fixit
+Pinecil
