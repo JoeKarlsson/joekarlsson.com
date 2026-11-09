@@ -27,12 +27,13 @@ The artist is Joe Karlsson. He's a programmer who writes poetry and makes web pi
 4. **Names the method at the right altitude.** "I write code" or "I build objects" is enough. No tech stack, versions, frameworks, counts or literal descriptions of output. Joe has rejected statements that drift into implementation detail.
 5. **Has a stance with stakes.** What is the work against, and what is it for? Opposition alone is a manifesto; a statement also says what the work offers instead.
 6. **Sounds like a person.** Not International Art English (Rule and Levine, 2012): no "interrogates," "liminal," "the space between X and Y" as decoration, no "explores the intersection of." Not a CV, not a pitch, not a LinkedIn summary.
-7. **Fits its job.** An umbrella statement runs roughly 150 to 300 words, covers the whole practice not one piece, and still holds up in five years.
+7. **Backs the work.** It never undercuts the piece: no closing line or paragraph about where it falls short, what never got built, or the artist getting bored of it. A real limitation belongs in the page's How it's made. It also leaves out credits, collaborators, dates, events (hackathons, game jams), talk counts and repo contents; the byline and the README's Credits section hold those.
+8. **Fits its job.** An umbrella statement runs roughly 150 to 300 words, covers the whole practice not one piece, and still holds up in five years. A README version is two or three sentences under the GIF: what the piece is, what it does to you, and the one idea behind it.
 
 ## How to review
 
 - First, write the claim the statement makes in one sentence. If you can't, say so; that's the top finding.
-- Then judge it against the seven points above, as a critic would read it cold.
+- Then judge it against the eight points above, as a critic would read it cold.
 - Flag anything that reads like a tech bio, a blog intro, or marketing copy.
 - Flag lines that are generic enough to appear in anyone's statement.
 - Suggest lineage that genuinely fits the work you read in `projects.ts`, and say why it fits.
