@@ -14,3 +14,16 @@ describe('pageToMarkdown tables', () => {
 		expect(md).toContain('| a\\|b | c\\\\\\|d |');
 	});
 });
+
+describe('pageToMarkdown phone copies', () => {
+	it('drops a short phone version and keeps the full text it shortens', () => {
+		const md = pageToMarkdown(
+			page(
+				'<div class="md:hidden" data-phone-copy><p>Short.</p></div><div><p>The full text.</p></div>',
+			),
+			'https://joekarlsson.com/t/',
+		);
+		expect(md).not.toContain('Short.');
+		expect(md).toContain('The full text.');
+	});
+});

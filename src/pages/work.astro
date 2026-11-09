@@ -163,8 +163,23 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 					class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
 				/>
 			</h2>
+			<!-- Phones get one short paragraph of the same argument; the Markdown copy skips it
+			(data-phone-copy) since the full statement is there -->
+			<div class="prose md:hidden" data-phone-copy>
+				<p>
+					The early web was homemade pages, built by amateurs for each other, and I think money
+					crushed most of it. I still work in that spirit, on a site I host myself. I paint too, and
+					every scribble here started as one of those drawings. Plenty of artists still find code
+					scary, and plenty of engineers think the humanities are a waste of time. I want each of
+					them to see the other side, to come away wanting to make something, and to feel a little
+					freer of the idea that everything they make has to earn money.
+				</p>
+			</div>
 			<!-- The container's full width in two columns, so each line stays a reading length -->
-			<div class="prose md:columns-2 md:gap-12 [&>p]:break-inside-avoid" style="max-width: none">
+			<div
+				class="prose max-md:hidden md:columns-2 md:gap-12 [&>p]:break-inside-avoid"
+				style="max-width: none"
+			>
 				<p>
 					The early web was full of people who hosted their own sites, linked to each other and gave
 					away what they knew.{' '}

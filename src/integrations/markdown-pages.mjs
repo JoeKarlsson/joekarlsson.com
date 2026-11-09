@@ -25,6 +25,8 @@ const REMOVED = [
 	'[aria-hidden="true"]',
 	'[hidden]',
 	'[data-share-links]',
+	// A short phone version of text the page also has in full
+	'[data-phone-copy]',
 	'input',
 	'label',
 	'select',
