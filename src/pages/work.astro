@@ -24,6 +24,11 @@ const selected = SELECTED_WORKS.map((title) => {
 	return project;
 });
 const featured = selected[0];
+const featuredClip = featured.heroClip ?? {
+	video: featured.video && cardClip(featured.video),
+	poster: featured.poster ?? featured.image,
+	alt: featured.imageAlt,
+};
 const eras = ERAS.map((era) => ({
 	...era,
 	projects: projects
@@ -50,45 +55,35 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 			wordRatio={2.2}
 			tickerItems={['Selected works', ...ERAS.map((era) => era.years)]}
 		>
+			<!-- The clip keeps its whole frame (contain, never cropped) with the caption under it,
+			so the piece reads at a glance -->
 			<a
 				slot="media"
 				href={workUrl(featured)}
-				class="ring-host group relative z-10 block no-underline"
+				class="ring-host group relative z-10 flex flex-col overflow-hidden rounded-xl bg-surface-1 no-underline"
 			>
-				<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
-					{featured.video ? (
-						<video
-							src={cardClip(featured.video)}
-							poster={featured.poster ?? featured.image}
-							loop
-							muted
-							playsinline
-							preload="none"
-							aria-label={featured.imageAlt}
-							data-autoplay-in-view
-							data-halftone="flat"
-							class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
-						/>
-					) : (
-						<img
-							src={featured.card?.src ?? featured.image}
-							alt={featured.card?.alt ?? featured.imageAlt}
-							data-halftone={cardHalftone(featured.card?.src ?? featured.image)}
-							width="1120"
-							height="630"
-							class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
-							loading="eager"
-						/>
-					)}
-					<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
-						<span class="mb-1.5 block text-sm text-muted">
-							<span class="font-semibold text-pink">Featured</span>
-							{' · '}
-							{featured.date.slice(0, 4)}
-						</span>
-						<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
-							{featured.title}
-						</span>
+				<span class="relative block aspect-square max-h-[70vh] w-full md:aspect-auto md:min-h-0 md:flex-1">
+					<video
+						src={featuredClip.video}
+						poster={featuredClip.poster}
+						loop
+						muted
+						playsinline
+						preload="none"
+						aria-label={featuredClip.alt}
+						data-autoplay-in-view
+						data-halftone="flat"
+						class="absolute inset-0 block size-full object-contain"
+					/>
+				</span>
+				<span class="block px-6 pt-4 pb-5">
+					<span class="mb-1.5 block text-sm text-muted">
+						<span class="font-semibold text-pink">Featured</span>
+						{' · '}
+						{featured.date.slice(0, 4)}
+					</span>
+					<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+						{featured.title}
 					</span>
 				</span>
 				<HoverBox featured />
