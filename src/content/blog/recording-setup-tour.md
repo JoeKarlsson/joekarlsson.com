@@ -28,6 +28,10 @@ heroAlt: "Roger Fenton's 1855 photographic van, a horse-drawn darkroom wagon wit
 
 My whole recording setup lives on one standing desk that rolls. A camera, a teleprompter and a mic ride on it, the lights follow on stands, one Thunderbolt cable connects my laptop to everything, and when I tell Home Assistant "I'm recording," the room sets itself up. When I'm done, I push the desk into the corner. Most of the gear went together without much trouble, but lighting took weeks of experimenting, and I'm still working on it.
 
+Here's a quick tour:
+
+<video controls playsinline preload="none" poster="/images/blog/recording-setup-tour/tour-poster.webp" src="/images/blog/recording-setup-tour/tour.mp4" aria-label="A one-minute tour of my recording desk, with burned-in captions: I show the single cable into my laptop, the camera behind the teleprompter, the mic, the lights I reposition, and how the whole desk moves around my small recording nook"></video>
+
 For years my videos were selfies on my iPhone or a webcam in the living room. I'd talk, trim the ends on my phone, and post it the same day. That's fine for a quick take. Then I started recording a lot more video for work at CData, and those needed to look and sound professional. Here's one from October 30, a walkthrough of [ChatGPT dots](/blog/how-to-use-chatgpt-dots/):
 
 <video controls playsinline preload="none" poster="/images/blog/recording-setup-tour/dots-clip-poster.webp" src="/images/blog/recording-setup-tour/dots-clip.mp4" aria-label="A clip from my ChatGPT dots video: me on camera in a dark blue room, lit warm from the front with an orange spotlight on the wall behind me, talking about the 48 apps connected to my Connect AI account">
