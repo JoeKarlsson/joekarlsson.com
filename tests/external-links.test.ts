@@ -35,8 +35,8 @@ describe('openExternalLinksInNewTab', () => {
 		expect(openExternalLinksInNewTab(html)).toBe(html);
 	});
 
-	it('leaves a script block alone when its end tag has trailing whitespace', () => {
-		const html = '<script>el.innerHTML = \'<a href="https://x.com">\'</script >';
+	it('leaves a script block alone when its end tag has whitespace or junk, as browsers allow', () => {
+		const html = '<script>el.innerHTML = \'<a href="https://x.com">\'</script\t\n bar>';
 		expect(openExternalLinksInNewTab(html)).toBe(html);
 	});
 });

@@ -35,7 +35,7 @@ function openInNewTab(tag) {
 /** Adds target="_blank" and rel="noopener" to every external <a>, leaving <script> blocks alone. */
 export function openExternalLinksInNewTab(html) {
 	return html
-		.split(/(<script\b[\s\S]*?<\/script\s*>)/i)
+		.split(/(<script\b[\s\S]*?<\/script[^>]*>)/i)
 		.map((part, i) => (i % 2 ? part : part.replace(/<a\b[^>]*>/g, openInNewTab)))
 		.join('');
 }
