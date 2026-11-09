@@ -9,7 +9,7 @@ test.describe('Header Navigation', () => {
 		await expect(nav.getByRole('link', { name: 'Joe Karlsson' })).toHaveAttribute('href', '/');
 		await expect(nav.getByRole('link', { name: 'Blog' })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'About' })).toBeVisible();
-		await expect(nav.getByRole('link', { name: 'Projects' })).toBeVisible();
+		await expect(nav.getByRole('link', { name: 'Works' })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'Uses' })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'Contact' })).toBeVisible();
 
@@ -43,7 +43,7 @@ test.describe('Mobile Navigation', () => {
 			'Joe Karlsson',
 			'Blog',
 			'About',
-			'Projects',
+			'Works',
 			'Newsletter',
 			'Uses',
 			'Contact',
@@ -153,7 +153,7 @@ test.describe('Page Navigation', () => {
 			{ path: '/', title: /joe karlsson/i },
 			{ path: '/blog', title: /blog/i },
 			{ path: '/about', title: /about/i },
-			{ path: '/work', title: /projects/i },
+			{ path: '/work', title: /works/i },
 			{ path: '/uses', title: /uses/i },
 			{ path: '/contact', title: /contact/i },
 		];

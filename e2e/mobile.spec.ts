@@ -53,7 +53,8 @@ test.describe('Phone layout', () => {
 			const { top, gaps } = await page.evaluate(() => {
 				const navBottom =
 					document.querySelector('header nav')!.getBoundingClientRect().bottom + scrollY;
-				const col = document.querySelector('main > div')!;
+				// The page column, not the margin-doodle layer that comes first in main
+				const col = document.querySelector('main > div:not(.margin-doodles)')!;
 				const inner = col.querySelector(':scope > div > div.min-w-0');
 				const blocks = [...col.children]
 					.flatMap((b) => (inner && b.contains(inner) ? [...inner.children] : [b]))
@@ -191,13 +192,16 @@ test.describe('Phone layout', () => {
 			await page.goto(path);
 			await expect(page.locator('.poster-media-decorative > *').first(), path).toBeHidden();
 		}
-		for (const path of ['/blog/', '/work/', '/newsletter/']) {
+		for (const path of ['/blog/', '/newsletter/']) {
 			await page.goto(path);
 			await expect(
 				page.locator('header [slot="media"], header > div > a').first(),
 				path,
 			).toBeVisible();
 		}
+		// /work has no featured project; its hero media is the index of its sections
+		await page.goto('/work/');
+		await expect(page.locator('header nav[aria-label="Sections"]')).toBeVisible();
 	});
 
 	test('Where to next keeps one big card and lists the rest as compact rows', async ({ page }) => {
@@ -222,13 +226,14 @@ test.describe('Phone layout', () => {
 
 	test('/work lists projects as compact rows with stills, no clips', async ({ page }) => {
 		await page.goto('/work/');
+		// Every era's projects; the five selected works above them are big rows on purpose
 		const heights = await page
-			.locator('#projects-grid .project-card')
+			.locator('.era-grid .project-card')
 			.evaluateAll((cards) => cards.map((c) => c.getBoundingClientRect().height));
 		expect(heights.length).toBeGreaterThan(10);
 		for (const height of heights) expect(height).toBeLessThan(160);
 		const visibleClips = await page
-			.locator('#projects-grid video')
+			.locator('.era-grid video')
 			.evaluateAll((videos) => videos.filter((v) => (v as HTMLElement).offsetParent !== null));
 		expect(visibleClips).toHaveLength(0);
 	});
@@ -264,7 +269,9 @@ test.describe('Phone layout', () => {
 		await page.goto('/');
 		await tall('main a:text-matches("^All \\\\d+ posts")');
 		await page.goto('/work/');
-		await tall('.project-filter');
+		// The filter chips are gone; the era index and each project's Source/Demo/Blog links remain
+		await tall('nav[aria-label="Sections"] a');
+		await tall('.project-card > div > a');
 		await page.goto('/blog/opentofu-proxmox-immutable-homelab/');
 		await tall('nav[aria-label="Breadcrumb"] a');
 		await expect(page.locator('.prose .heading-anchor').first()).toBeHidden();

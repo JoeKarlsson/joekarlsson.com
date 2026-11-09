@@ -17,31 +17,31 @@ test.describe('Work Page', () => {
 		}
 	});
 
-	test('a category filter shows only that category and is kept in the URL', async ({ page }) => {
-		const cells = page.locator('#projects-grid > [data-category]');
-		const total = await cells.count();
-		const filter = page.locator('.project-filter:not([data-filter="all"])').first();
-		const category = await filter.getAttribute('data-filter');
-
-		await filter.click();
-		await expect(filter).toHaveAttribute('aria-pressed', 'true');
-		await expect(page).toHaveURL(new RegExp(`#${category}$`));
-		const visible = cells.locator('visible=true');
-		expect(await visible.count()).toBeGreaterThan(0);
-		expect(await visible.count()).toBeLessThan(total);
-		for (const cell of await visible.all()) {
-			await expect(cell).toHaveAttribute('data-category', category!);
+	// The category filters were removed (f97b903d): projects are grouped by era instead, and
+	// the hero indexes those sections
+	test('the hero index jumps to each era, and its counts match the section', async ({ page }) => {
+		const index = page.locator('header nav[aria-label="Sections"] a');
+		const eraLinks = index.filter({ hasNot: page.locator('[href="#selected"]') });
+		expect(await eraLinks.count()).toBeGreaterThan(1);
+		let listed = 0;
+		for (const link of await index.all()) {
+			const id = (await link.getAttribute('href'))!.slice(1);
+			const count = Number(
+				(await link.locator('span').last().textContent())!.match(/^(\d+) pieces?$/)![1],
+			);
+			const section = page.locator(`section[id="${id}"]`);
+			const cards =
+				id === 'selected' ? section.locator(':scope > div > a') : section.locator('.project-card');
+			await expect(cards, id).toHaveCount(count);
+			listed += count;
 		}
+		expect(listed).toBe(projects.length);
 
-		// The hash survives a reload
-		await page.reload();
-		await expect(page.locator(`.project-filter[data-filter="${category}"]`)).toHaveAttribute(
-			'aria-pressed',
-			'true',
-		);
-
-		await page.locator('.project-filter[data-filter="all"]').click();
-		await expect(cells.locator('visible=true')).toHaveCount(total);
+		const last = index.last();
+		const id = (await last.getAttribute('href'))!.slice(1);
+		await last.click();
+		await expect(page).toHaveURL(new RegExp(`#${id}$`));
+		await expect(page.locator(`section[id="${id}"] h2`)).toBeInViewport();
 	});
 
 	test('the GitHub link opens in a new tab', async ({ page }) => {
@@ -63,10 +63,13 @@ test.describe('Project page', () => {
 			await page.goto(`/work/${project.page!.slug}/`);
 			await expect(page.locator('main h1')).toContainText(project.title, { ignoreCase: true });
 
-			const lastLink = page
-				.getByRole('navigation', { name: 'Table of contents' })
-				.getByRole('link')
-				.last();
+			// A page with a single section gets no "On this page" list (work/[slug].astro)
+			const toc = page.getByRole('navigation', { name: 'Table of contents' });
+			if ((await page.locator('article h2[id]').count()) < 2) {
+				await expect(toc).toHaveCount(0);
+				return;
+			}
+			const lastLink = toc.getByRole('link').last();
 			const id = (await lastLink.getAttribute('href'))!.slice(1);
 			await lastLink.click();
 			await expect(page.locator(`[id="${id}"]`)).toBeInViewport();
