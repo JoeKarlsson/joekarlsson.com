@@ -75,7 +75,7 @@ export function initPhoneCollapse() {
 		setOpen(section, section.dataset.phoneCollapse === 'open');
 	});
 
-	// A link straight to something inside a folded section (/talk-archive/#2021) opens it
+	// A link straight to something inside a folded section (/talks/#era-2021) opens it
 	const openHashTarget = () => {
 		const target =
 			location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));

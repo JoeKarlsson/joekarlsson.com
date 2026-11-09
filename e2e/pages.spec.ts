@@ -52,15 +52,15 @@ test.describe('Uses Page', () => {
 	});
 });
 
-test.describe('Talk Archive', () => {
-	test('talk archive page loads', async ({ page }) => {
-		await page.goto('/talk-archive');
+test.describe('Talks', () => {
+	test('talks page loads', async ({ page }) => {
+		await page.goto('/talks/');
 
 		await expect(page.locator('main').first()).toBeVisible();
 	});
 
-	test('talk archive has talks listed', async ({ page }) => {
-		await page.goto('/talk-archive');
+	test('talks page lists talks', async ({ page }) => {
+		await page.goto('/talks/');
 
 		const content = await page.locator('main').textContent();
 		expect(content?.length).toBeGreaterThan(200);

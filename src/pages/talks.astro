@@ -1,0 +1,286 @@
+---
+import { getCollection } from 'astro:content';
+import BackLink from '../components/BackLink.astro';
+import HoverBox from '../components/HoverBox.astro';
+import IndexRow from '../components/IndexRow.astro';
+import KeepExploring from '../components/KeepExploring.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PosterHero from '../components/PosterHero.astro';
+import Scribble from '../components/Scribble.astro';
+import TalkCard from '../components/TalkCard.astro';
+import { CHALK, MARKS } from '../data/scribbles';
+import { TALK_ERAS, TALK_GROUPS, countByGroup, groupOf, talks } from '../data/talks';
+import {
+	FILTER_ACTIVE,
+	FILTER_INACTIVE,
+	FILTER_ROW,
+	HERO_LEAD,
+	META,
+	PAGE_CONTAINER,
+	SECTION_HEADING,
+	TEXT_LINK,
+} from '../utils/ui';
+
+const eras = TALK_ERAS.filter((era) => era.talks.length > 0);
+
+// The count strip: one bar a year, split by kind
+const yearOf = (date: string) => Number(date.slice(0, 4));
+const firstYear = Math.min(...talks.map((t) => yearOf(t.date)));
+const lastYear = Math.max(...talks.map((t) => yearOf(t.date)));
+const years = Array.from({ length: lastYear - firstYear + 1 }, (_, i) => firstYear + i).map(
+	(year) => {
+		const inYear = talks.filter((t) => yearOf(t.date) === year);
+		return {
+			year,
+			total: inYear.length,
+			groups: TALK_GROUPS.map((group) => inYear.filter((t) => groupOf(t) === group).length),
+		};
+	},
+);
+const busiest = Math.max(...years.map((y) => y.total));
+// Talks pink, podcasts chalk, livestreams gray, in the legend and the bars
+const GROUP_COLORS = ['#ff4fd8', CHALK, '#a3a3a3'];
+const GROUP_NAMES = ['Talks', 'Podcasts', 'Livestreams'];
+
+// The three talks I wrote up in full, shown first
+const FEATURED = [
+	'the-art-of-computer-science',
+	'mongodb-schema-design-best-practices',
+	'an-introduction-to-iot-internet-of-toilets',
+];
+const posts = await getCollection('blog');
+const featured = FEATURED.map((slug) => {
+	const post = posts.find((p) => p.id === slug);
+	if (!post?.data.heroImage)
+		throw new Error(`/talks/ features "${slug}", which has no post or heroImage`);
+	return { slug, ...post.data };
+});
+
+const FILTERS = [
+	{ value: 'all', label: 'All' },
+	{ value: 'talk', label: 'Talks' },
+	{ value: 'podcast', label: 'Podcasts' },
+	{ value: 'livestream', label: 'Livestreams' },
+	{ value: 'video', label: 'Has video' },
+];
+---
+
+<BaseLayout
+	title="Talks | Joe Karlsson"
+	description="Every conference talk, podcast and livestream Joe Karlsson has done, with recordings, sorted by the job he had at the time."
+	schemaType="CollectionPage"
+>
+	<div class={PAGE_CONTAINER}>
+		<!-- Clear of the crayon burst that sticks up off the hero picture (phones skip the picture) -->
+		<div class="mb-1 md:mb-10">
+			<BackLink href="/about/" label="About" />
+		</div>
+		<PosterHero
+			decorativeMedia
+			title="Talks"
+			wordRatio={2.2}
+			tickerItems={eras.map((era) => era.years)}
+		>
+			<div slot="media" class="relative z-10 aspect-video md:aspect-auto">
+				<img
+					src="/images/talks/tedx-art-of-computer-science-still.webp"
+					alt="Joe Karlsson laughing with both hands up in front of shelves of plants, from his TEDx talk The Art of Computer Science"
+					data-halftone="dots"
+					class="block size-full rounded-xl bg-ink object-cover"
+					width="1280"
+					height="720"
+					loading="eager"
+				/>
+				<Scribble
+					{...MARKS.burst}
+					color={CHALK}
+					strokeWidth={6}
+					duration="8s"
+					delay="1.6s"
+					class="-top-[7%] -left-[5%] z-10 size-[20%]"
+				/>
+				<Scribble
+					{...MARKS.lines}
+					color={CHALK}
+					duration="11s"
+					delay="1s"
+					class="-bottom-[9%] -left-[4%] z-10 h-[14%] w-[70%]"
+				/>
+			</div>
+			<p class={HERO_LEAD}>
+				Every talk, podcast and livestream I've done, recorded or not, sorted by the job I had at
+				the time. More of my recordings are on my{' '}
+				<a
+					href="https://www.youtube.com/joekarlsson"
+					target="_blank"
+					rel="noopener noreferrer"
+					class={TEXT_LINK}
+				>
+					YouTube channel
+				</a>
+				.
+			</p>
+		</PosterHero>
+
+		<!-- How much I spoke each year: one bar a year, pink talks under chalk podcasts under
+		gray livestreams -->
+		<figure class="mb-12 md:mb-16">
+			<div class="flex h-40 items-end gap-1.5 md:h-56 md:gap-3" aria-hidden="true">
+				{years.map((y) => (
+					<div class="flex h-full min-w-0 flex-1 flex-col justify-end">
+						<span class={`mb-1 text-center ${META}`}>{y.total || ''}</span>
+						<div
+							class="flex flex-col-reverse overflow-hidden rounded-t-md"
+							style={`height:${(y.total / busiest) * 100}%`}
+						>
+							{y.groups.map((n, g) => (
+								<div
+									style={`height:${(n / Math.max(y.total, 1)) * 100}%;background:${GROUP_COLORS[g]}`}
+								/>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+			<div class="mt-2 flex gap-1.5 md:gap-3" aria-hidden="true">
+				{years.map((y) => (
+					<span class="min-w-0 flex-1 text-center text-xs text-muted md:text-sm">
+						<span class="max-md:hidden">{y.year}</span>
+						<span class="md:hidden">'{String(y.year).slice(2)}</span>
+					</span>
+				))}
+			</div>
+			<figcaption class="mt-5 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
+				<span class={HERO_LEAD}>
+					{talks.length} talks, podcasts and livestreams since {firstYear}
+					<span class="sr-only">({years.map((y) => `${y.total} in ${y.year}`).join(', ')})</span>
+				</span>
+				<span class={`flex flex-wrap gap-x-5 ${META}`}>
+					{GROUP_NAMES.map((name, g) => (
+						<span class="inline-flex items-center gap-2">
+							<span
+								class="inline-block size-3 rounded-sm"
+								style={`background:${GROUP_COLORS[g]}`}
+							/>
+							{name}
+						</span>
+					))}
+				</span>
+			</figcaption>
+		</figure>
+
+		<section id="featured" class="relative mb-12 scroll-mt-24 md:mb-16">
+			<h2 class={SECTION_HEADING}>
+				Start here
+				<Scribble
+					{...MARKS.underline}
+					color={CHALK}
+					duration="8s"
+					class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+				/>
+			</h2>
+			<div class="grid gap-x-8 gap-y-10 md:grid-cols-3">
+				{featured.map((post, i) => (
+					<a href={`/blog/${post.slug}/`} class="ring-host group block no-underline">
+						<span class="relative block">
+							<img
+								src={post.heroImage}
+								alt={post.heroAlt ?? ''}
+								width="1120"
+								height="630"
+								class="block aspect-video w-full rounded-lg object-cover"
+								loading="lazy"
+								decoding="async"
+							/>
+							<HoverBox index={i} />
+						</span>
+						<span class="mt-4 block font-display text-[clamp(28px,2.4vw,36px)] leading-none text-paper uppercase group-hover:text-pink">
+							{post.title}
+						</span>
+						<span class="mt-2 block text-paper">{post.description}</span>
+						<span class="mt-2 block font-semibold text-pink group-hover:text-paper">
+							Watch + read the talk →
+						</span>
+					</a>
+				))}
+			</div>
+		</section>
+
+		<!-- A quick index of the eras below, two columns like /work/'s -->
+		<nav aria-label="Eras" class="mb-12 grid gap-x-10 md:mb-16 md:grid-cols-2">
+			{eras.map((era, i) => (
+				<IndexRow
+					href={`#${era.slug}`}
+					label={era.years}
+					meta={`${era.label} · ${countByGroup(era.talks)}`}
+					index={i}
+					compact
+					class="talk-era-link"
+				/>
+			))}
+		</nav>
+
+		<!-- Hidden until talk-filter's script runs: without JavaScript everything shows -->
+		<div class={`mb-10 ${FILTER_ROW}`} role="group" aria-label="Show" data-talk-filters hidden>
+			{FILTERS.map((filter, i) => (
+				<button
+					type="button"
+					class={i === 0 ? FILTER_ACTIVE : FILTER_INACTIVE}
+					aria-pressed={i === 0 ? 'true' : 'false'}
+					data-talk-filter={filter.value}
+				>
+					{filter.label}
+				</button>
+			))}
+		</div>
+
+		<!-- Phones open on the two newest eras; older ones fold behind a + (phone-collapse.ts) -->
+		{eras.map((era, i) => (
+			<section
+				id={era.slug}
+				class="talk-era relative mb-12 scroll-mt-24 md:mb-16 max-md:data-collapsed:mb-6"
+				data-phone-collapse={i < 2 ? 'open' : ''}
+			>
+				<h2 data-collapse-heading class={`${SECTION_HEADING} max-md:w-full`}>
+					{era.years}
+					<Scribble
+						{...MARKS.rays}
+						color={i % 2 ? '#ff4fd8' : CHALK}
+						duration="8s"
+						delay={`${i * 0.4}s`}
+						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+					/>
+				</h2>
+				<p class={`mb-8 ${HERO_LEAD}`}>
+					{era.label} <span class="text-muted">· {countByGroup(era.talks)}</span>
+				</p>
+				<div
+					data-collapse-body
+					class="grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
+				>
+					{era.talks.map((talk, j) => (
+						<TalkCard talk={talk} index={j} />
+					))}
+				</div>
+			</section>
+		))}
+
+		<KeepExploring
+			heading="Book me"
+			from="/talks/"
+			door={{
+				href: '/contact/',
+				label: 'Get in touch',
+				blurb:
+					'If something here is close to what your event needs, these are the fastest ways to reach me.',
+			}}
+		/>
+	</div>
+</BaseLayout>
+
+<script>
+	import { initPhoneCollapse } from '../scripts/phone-collapse';
+	import { initTalkFilters } from '../scripts/talk-filters';
+	initPhoneCollapse();
+	initTalkFilters();
+</script>

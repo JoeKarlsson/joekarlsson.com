@@ -41,14 +41,7 @@ test.describe('Phone layout', () => {
 	test('pages start 16px under the nav and space sections on one scale', async ({ page }) => {
 		// 8: a heading to its one-line subtitle (TL;DR in Tech)
 		const SCALE = [8, 12, 16, 24, 32, 48];
-		for (const path of [
-			'/blog/',
-			'/work/',
-			'/about/',
-			'/newsletter/',
-			'/resume/',
-			'/talk-archive/',
-		]) {
+		for (const path of ['/blog/', '/work/', '/about/', '/newsletter/', '/resume/', '/talks/']) {
 			await page.goto(path);
 			const { top, gaps } = await page.evaluate(() => {
 				const navBottom =
@@ -87,7 +80,7 @@ test.describe('Phone layout', () => {
 				.evaluate((h1) => parseFloat(getComputedStyle(h1).fontSize));
 		};
 		const about = await titleSize('/about/');
-		for (const path of ['/uses/', '/blog/', '/talk-archive/', '/work/', '/newsletter/']) {
+		for (const path of ['/uses/', '/blog/', '/talks/', '/work/', '/newsletter/']) {
 			expect(await titleSize(path), path).toBeLessThanOrEqual(about + 0.5);
 		}
 		expect(await titleSize('/uses/')).toBeCloseTo(about, 0);
@@ -188,7 +181,7 @@ test.describe('Phone layout', () => {
 	test('pages open on their title, skipping decorative pictures of Joe, but keep featured content', async ({
 		page,
 	}) => {
-		for (const path of ['/about/', '/uses/', '/resume/', '/contact/', '/talk-archive/']) {
+		for (const path of ['/about/', '/uses/', '/resume/', '/contact/', '/talks/']) {
 			await page.goto(path);
 			await expect(page.locator('.poster-media-decorative > *').first(), path).toBeHidden();
 		}

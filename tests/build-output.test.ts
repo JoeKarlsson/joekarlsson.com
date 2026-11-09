@@ -276,7 +276,7 @@ describe('critical pages exist', () => {
 		'work/followspot/index.html',
 		'uses/index.html',
 		'contact/index.html',
-		'talk-archive/index.html',
+		'talks/index.html',
 		'privacy-policy/index.html',
 		'404.html',
 	];

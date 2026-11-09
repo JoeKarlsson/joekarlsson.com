@@ -35,7 +35,7 @@ export const NEWSLETTER = {
 // shows as current there, and they link back to it)
 export const NAV_LINKS: { href: string; label: string; also?: string[] }[] = [
 	{ href: '/blog/', label: 'Blog' },
-	{ href: '/about/', label: 'About', also: ['/resume/', '/talk-archive/'] },
+	{ href: '/about/', label: 'About', also: ['/resume/', '/talks/'] },
 	{ href: '/work/', label: 'Works' },
 	{ href: '/newsletter/', label: 'Newsletter' },
 	{ href: '/uses/', label: 'Uses' },
@@ -47,7 +47,7 @@ export const FOOTER_LINKS = [
 	{ href: '/about/', label: 'About' },
 	{ href: '/resume/', label: 'Resume' },
 	{ href: '/work/', label: 'Works' },
-	{ href: '/talk-archive/', label: 'Talks' },
+	{ href: '/talks/', label: 'Talks' },
 	{ href: '/newsletter/', label: 'Newsletter' },
 	{ href: '/uses/', label: 'Uses' },
 	{ href: '/contact/', label: 'Contact' },
