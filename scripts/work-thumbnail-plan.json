@@ -1949,5 +1949,20 @@
 		},
 		"motion": "boil",
 		"inset": 4
+	},
+	"recording-setup-tour": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Roger_Fenton%27s_waggon.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Roger_Fenton%27s_waggon.jpg"
+		},
+		"look": "taped",
+		"alt": "Roger Fenton's 1855 photographic van, a horse-drawn darkroom wagon with PHOTOGRAPHIC VAN painted on the side and his assistant sitting on the driver's seat",
+		"focus": 0.55,
+		"mark": {
+			"name": "rays",
+			"at": [86, 4, 11, 18],
+			"color": "chalk"
+		},
+		"motion": "boil"
 	}
 }

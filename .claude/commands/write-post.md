@@ -444,6 +444,8 @@ Box text color flips to white with an outline on dark backgrounds. **Open every 
 
 Write the draft to `src/content/blog/{slug}.md` so subsequent phases can grep and edit the file directly.
 
+**Run the full `humanizer` skill (Skill tool) on the draft before Joe sees it, and again after every round of edits, before each time you show or ship it.** That means the whole process: fact ledger, Joe's voice samples, rewrite, rubric loop with the quotable-line cap, fact diff. The `ai_tells.py` hits from the post-edit hook, Vale and `blog-voice-reviewer` don't count as the humanizer. In the summary, say which humanizer steps ran. Why: on the recording-setup-tour post (2026-11-09) only the scanner and the voice reviewer ran, and the draft reached Joe with a joke and an opinion he never said. He asked "Wait, why did that not run? That needs to happen every time for these blog posts."
+
 Open the draft in VS Code for Joe to review (`code src/content/blog/{slug}.md`) - do this every time, without asking, and again after any round of changes he requests. Don't paste the full draft inline; give a short summary (word count, sections, memes, anything he needs to confirm) and use AskUserQuestion:
 
 - Approve draft

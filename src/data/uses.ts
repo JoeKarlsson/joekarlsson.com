@@ -264,7 +264,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'NEEWER NS4S Softboxes + SMALLRIG Light Stands',
 						url: '',
 						descHtml:
-							'softboxes over my LED panels for soft key and fill light. The stands fold down small and are easy to move when I reposition the camera. An <a href="https://www.amazon.com/dp/B0FBGYRDLW" target="_blank" rel="noopener noreferrer" data-text-link >orange mushroom floor lamp</a> sits in the background because it looks good on camera.',
+							'a softbox for a soft key light on my face. The stands fold down small and are easy to move when I reposition the camera. An <a href="https://www.amazon.com/dp/B0FBGYRDLW" target="_blank" rel="noopener noreferrer" data-text-link >orange mushroom floor lamp</a> sits in the background because it looks good on camera.',
 						nameHtml:
 							'<a href="https://www.amazon.com/dp/B0CJM6G7JR" target="_blank" rel="noopener noreferrer" data-text-link >NEEWER NS4S Softboxes</a> + <a href="https://www.amazon.com/dp/B0FMKF8PXJ" target="_blank" rel="noopener noreferrer" data-text-link >SMALLRIG Light Stands</a>',
 						pin: [14, 36],
@@ -274,6 +274,12 @@ export const USES_SECTIONS: UsesSection[] = [
 						url: 'https://www.amazon.com/dp/B0HCNVWH1D',
 						descHtml: '48x24 acacia dual-motor standing desk.',
 						pin: [21, 84],
+					},
+					{
+						name: 'Sengled Smart Plugs',
+						url: 'https://www.amazon.com/dp/B092DBFFBY',
+						descHtml:
+							'smart plugs with energy monitoring. Everything on the recording desk runs off one of them, so Home Assistant powers the whole rig on and off with recording mode.',
 					},
 					{
 						name: 'WORKLION cutting mat',

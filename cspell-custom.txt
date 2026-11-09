@@ -640,3 +640,17 @@ tfstate
 tflock
 Fixit
 Pinecil
+unclamping
+Flexi
+softbox
+XAVC
+Mbps
+subwoofer
+Kimaru
+NEEWER
+SMALLRIG
+Sengled
+Clipguard
+Bettermaker
+stuttery
+NTSC
