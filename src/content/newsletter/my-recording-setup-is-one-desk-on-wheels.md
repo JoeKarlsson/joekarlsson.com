@@ -11,17 +11,21 @@ heroImage: '/images/newsletter/my-recording-setup-is-one-desk-on-wheels/card.web
 heroAlt: "Works on My Machine card for My Whole Recording Setup Is One Desk on Wheels, with Joe's recording nook: the rolling desk with its green cutting mat and mic arm, an orange chair, an LED panel on a stand, and a 3D printer glowing on the shelf framed in a pink crayon box"
 ---
 
-My recording setup lives on one standing desk that rolls, in the small nook off my office. The camera, a teleprompter and the mic all ride on it. Most of the gear went together without much trouble. Lighting took weeks, and I'm still working on it.
+In August my work videos were webcam selfies in the living room. Now I roll a desk out of the corner, say "I'm recording," and the camera, lights and teleprompter come on by themselves. It cost about $2,700, and the lighting took three tries.
 
-For years my videos were selfies on my iPhone or a webcam in the living room. I'd talk, trim the ends on my phone, and post it the same day. Then I started recording a lot more video for work at CData, like [this walkthrough of ChatGPT dots](https://www.joekarlsson.com/blog/how-to-use-chatgpt-dots/), and those needed to look and sound professional.
+![Three ungraded stills of me on camera flipping by: August, a webcam in my bright living room lit flat by the window; October 15, a deep blue room with my face dark and soft; October 30, a softbox lighting my face warm and even with the blue room and an orange spotlight behind me](/images/newsletter/my-recording-setup-is-one-desk-on-wheels/lighting.gif)
 
-[The full post](https://www.joekarlsson.com/blog/recording-setup-tour/) has a one-minute video tour, before-and-after audio, my mic and camera settings, the Home Assistant YAML and the parts list with prices.
+_Ungraded, three months apart: a webcam in August, my first try at a moody room on October 15, and the fix on October 30._
+
+If you record demos, talks or explainers for work, two things are worth copying: light your face before you light the room, and put the rig on wheels so setting up means plugging in one cable.
+
+I started recording a lot more for my job at CData, like [this walkthrough of ChatGPT dots](https://www.joekarlsson.com/blog/how-to-use-chatgpt-dots/), and phone videos stopped cutting it. [The full post](https://www.joekarlsson.com/blog/recording-setup-tour/) has a one-minute video tour, before-and-after audio, my mic and camera settings, the Home Assistant YAML and the parts list with prices.
 
 ## Why it's on wheels
 
 I wanted recording to be as easy as walking over and plugging in. I also wanted to move the whole rig to find a better shot without unclamping anything, and to have a normal desk the rest of the time. What I didn't want was a camera on a tripod that I'd have to reframe every time it got bumped.
 
-So the camera, prompter and mic clamp to a [FlexiSpot standing desk](https://www.amazon.com/dp/B0HCNVWH1D) on casters. When I roll the desk two feet to the left, the shot comes with it, and the lights on their stands are easy to drag along after it. When I'm done, I push it back into the corner.
+So the camera, prompter and mic clamp to a [FlexiSpot standing desk](https://www.amazon.com/dp/B0HCNVWH1D) on casters. When I roll the desk two feet to the left, the shot comes with it, and the lights on their stands are easy to drag along after it. When I'm done, I push it back into the corner of the nook off my office.
 
 ![My recording desk from the front: an acacia standing desk under kitchen cabinets with a green cutting mat, a gridded softbox on a stand at the left, a mic on a low-profile arm, and a camera behind a teleprompter on a second arm at the right](/images/uses/recording-studio-front.webp)
 
@@ -37,11 +41,7 @@ The camera and Prompter hang off an Elgato Wave Low Profile arm, which is asking
 
 I figured lighting would be easy: buy a light, point it at my face, done.
 
-I started with a ring light, and it blew my face out, everything flat and evenly bright. What I wanted was the opposite: a dark, moody room full of colored LEDs, with my face sharp in the middle of it. So I turned everything down, and the image went to hell. I shoot in aperture priority, which is part of why that went so badly: when there wasn't enough light, the camera made up the difference with gain. The picture got noisy and soft, and the compression turned my face to mush.
-
-![Three ungraded stills of me on camera flipping by: August, a webcam in my bright living room lit flat by the window; October 15, a deep blue room with my face dark and soft; October 30, a softbox lighting my face warm and even with the blue room and an orange spotlight behind me](/images/newsletter/my-recording-setup-is-one-desk-on-wheels/lighting.gif)
-
-_August, October 15 and October 30, ungraded. In the middle one, my face is the darkest thing in the frame._
+I started with a ring light, and it blew my face out, everything flat and evenly bright. What I wanted was the opposite: a dark, moody room full of colored LEDs, with my face sharp in the middle of it. So I turned everything down, and the image went to hell. That's the October 15 frame up top, where my face is the darkest thing in the shot. I shoot in aperture priority, which is part of why that went so badly: when there wasn't enough light, the camera made up the difference with gain. The picture got noisy and soft, and the compression turned my face to mush.
 
 The fix was to stop treating my face and the mood as one problem. A [softbox](https://www.amazon.com/dp/B0CJM6G7JR) lights my face well enough that the camera is happy, and the mood comes from everything behind me: colored LEDs, my 3D printer's lights, and a cheap spotlight with a colored gel that throws a pool of orange on the wall.
 
