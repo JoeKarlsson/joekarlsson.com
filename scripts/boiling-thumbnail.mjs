@@ -2,7 +2,9 @@
 // Turns a cut-paper diagram (scripts/diagrams) into a boiling 16:9 card thumbnail: an
 // animated WebP named thumb-<hash>.webp so the live pink pass leaves it alone
 // (isPretreatedThumbnail) and a redraw gets a new URL past the 30-day image cache. An
-// animated image plays in every card and on iPhone with no card changes.
+// animated image plays in every card and on iPhone with no card changes. Since the live
+// pass skips it, each frame is graded black-to-pink here, the same tone as the site's flat
+// filter, so it sits with the other cards.
 //
 //   node scripts/boiling-thumbnail.mjs <diagram.svg | frames dir> <output dir> [--view x,y,w,h]
 //
@@ -25,6 +27,7 @@ import {
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
+import sharp from 'sharp';
 
 // Cards show at most about 700px wide, and every pixel counts in a many-frame animation
 const WIDTH = 960;
@@ -36,6 +39,30 @@ const FRAME_MS = 167;
 const STEP_MS = 220;
 const FIRST_MS = 900;
 const LAST_MS = 2400;
+// The site's pink (src/scripts/halftone.ts INK)
+const PINK = [0xff, 0x4f, 0xd8];
+// Brightness that maps to full pink: the diagrams' chalk, the brightest thing they draw
+const CHALK_LUMA = 0.299 * 0xec + 0.587 * 0xe6 + 0.114 * 0xda;
+
+/** Black-to-pink, by brightness. Fixed levels, not per frame, so an animation doesn't flicker */
+async function gradePink(file) {
+	const { data, info } = await sharp(file)
+		.removeAlpha()
+		.greyscale()
+		.raw()
+		.toBuffer({ resolveWithObject: true });
+	const out = Buffer.alloc(info.width * info.height * 3);
+	for (let i = 0; i < data.length; i++) {
+		const v = Math.min(1, data[i] / CHALK_LUMA);
+		out[i * 3] = PINK[0] * v;
+		out[i * 3 + 1] = PINK[1] * v;
+		out[i * 3 + 2] = PINK[2] * v;
+	}
+	await sharp(out, { raw: { width: info.width, height: info.height, channels: 3 } })
+		.png()
+		.toFile(file.replace(/\.png$/, '-pink.png'));
+	return file.replace(/\.png$/, '-pink.png');
+}
 
 const [input, outDir, flag, view] = process.argv.slice(2);
 if (!input || !outDir || (flag && flag !== '--view')) {
@@ -106,7 +133,7 @@ try {
 		await tab.waitForTimeout(150);
 		const frame = join(work, `${String(i).padStart(3, '0')}.png`);
 		await tab.screenshot({ path: frame });
-		frameArgs.push('-d', String(ms), frame);
+		frameArgs.push('-d', String(ms), await gradePink(frame));
 	}
 	const animated = join(work, 'thumb.webp');
 	execFileSync(

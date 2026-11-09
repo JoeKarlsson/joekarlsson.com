@@ -17,6 +17,7 @@ const primaryUrl =
 	project.demoUrl ||
 	'#';
 const isExternal = primaryUrl.startsWith('http');
+const still = project.card ?? { src: project.image, alt: project.imageAlt };
 const metaLine = [
 	project.date.slice(0, 4),
 	project.stars && `${project.stars} stars`,
@@ -70,9 +71,9 @@ const metaLine = [
 				/>
 			) : (
 				<img
-					src={project.image}
-					alt={project.imageAlt}
-					data-halftone={cardHalftone(project.image)}
+					src={still.src}
+					alt={still.alt}
+					data-halftone={cardHalftone(still.src)}
 					width="560"
 					height="315"
 					sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 112px"

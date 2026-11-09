@@ -2,9 +2,8 @@
 // in the cut-paper diagram style as one SVG per frame, which scripts/boiling-thumbnail.mjs turns
 // into a boiling, animated 16:9 thumbnail.
 //   node scripts/diagrams/_projects/sudoku-generator.mjs <output dir>
-import { mkdirSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { COLORS, createFigure } from '../draw.mjs';
+import { finish, outDirFromArgs, writeFrames } from './write-frames.mjs';
 
 const WIDTH = 640;
 const HEIGHT = 360;
@@ -124,21 +123,15 @@ function drawFrame(filled, latest) {
 	f.note(372, 196, 'cells filled');
 	f.note(372, 300, 'Backtracking, in Python');
 	f.note(372, 324, 'Four difficulty levels');
-	const svg = f.toString(
+	return finish(
+		f,
 		done
 			? 'A Sudoku board, solved: every cell filled, the solver’s digits in pink'
 			: `A Sudoku board being solved: ${count} of 81 cells filled`,
 	);
-	if (f.issues.length) throw new Error(f.issues.join('\n'));
-	return svg;
 }
 
-const outDir = process.argv[2];
-if (!outDir) {
-	console.error('Usage: node scripts/diagrams/_projects/sudoku-generator.mjs <output dir>');
-	process.exit(2);
-}
-mkdirSync(outDir, { recursive: true });
+const outDir = outDirFromArgs('scripts/diagrams/_projects/sudoku-generator.mjs');
 const frames = [];
 const filled = new Set();
 frames.push(drawFrame(filled, new Set()));
@@ -148,7 +141,4 @@ for (let i = 0; i < blanks.length; i += PER_FRAME) {
 	frames.push(drawFrame(filled, step));
 }
 frames.push(drawFrame(filled, new Set()));
-frames.forEach((svg, i) =>
-	writeFileSync(join(outDir, `frame-${String(i).padStart(3, '0')}.svg`), svg),
-);
-console.log(`Wrote ${frames.length} frames to ${outDir}`);
+writeFrames(outDir, frames);

@@ -170,9 +170,9 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 									/>
 								) : (
 									<img
-										src={project.image}
-										alt={project.imageAlt}
-										data-halftone={cardHalftone(project.image)}
+										src={project.card?.src ?? project.image}
+										alt={project.card?.alt ?? project.imageAlt}
+										data-halftone={cardHalftone(project.card?.src ?? project.image)}
 										width="1120"
 										height="630"
 										class="block aspect-video w-full object-cover"

@@ -68,6 +68,9 @@ export interface Project {
 	description: string;
 	image: string;
 	imageAlt: string;
+	// An animated diagram for the card on /work/ when there's no clip, in place of `image`,
+	// which stays the project page's hero and share card (an animated WebP is neither)
+	card?: { src: string; alt: string };
 	// Plays over `image` (its poster) while the card is hovered or focused
 	video?: string;
 	// A lighter still for the video when `image` (also the share card) is too heavy
@@ -389,6 +392,10 @@ export const projects: Project[] = [
 			'An interactive art installation where audience members draw on a shared digital canvas that displays their creations in real-time on a physical RGB LED grid. Uses MongoDB Realm for instant cross-client data sync. Since retired and replaced by PixelPane.',
 		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
 		imageAlt: 'Digital Graffiti Wall',
+		card: {
+			src: '/images/projects/digital-graffiti-wall/thumb-0aac9abe.webp',
+			alt: 'A 32 by 32 LED wall lighting up pixel by pixel as people draw a heart, a smiley face and the word HI, with a live count of pixels drawn',
+		},
 		date: '2020-10',
 		tech: ['JavaScript', 'MongoDB Realm', 'RGB LEDs', 'Real-Time Sync'],
 		blogUrl: '/blog/building-a-real-time-digital-graffiti-wall/',
@@ -678,6 +685,10 @@ export const projects: Project[] = [
 		image: '/images/projects/best-buy-product-locator.webp',
 		imageAlt:
 			'A Sony 48-inch TV on Amazon with the extension running: a blue Best Buy banner across the top reads "Want it faster? Pick it up now for $449.99" at the Best Buy in Richfield, MN, and the toolbar popup shows the same TV with a Buy on BestBuy.com button',
+		card: {
+			src: '/images/projects/best-buy-product-locator/thumb-79270aa7.webp',
+			alt: 'A product page for a Sony 48-inch TV has its model number read, Best Buy stores within 15 miles appear on a map, the nearest in Richfield is picked, and a banner reads Pick it up today at Best Buy Richfield, $449.99',
+		},
 		date: '2018-09',
 		tech: ['React', 'styled-components', 'Chrome Extension', 'Best Buy API'],
 		sourceUrl: 'https://github.com/JoeKarlsson/best-buy-product-locator-chrome-extension',
@@ -1272,7 +1283,7 @@ export const projects: Project[] = [
 		title: 'Data Structures & Algorithms in JS',
 		description:
 			'Common data structures and algorithms implemented in JavaScript. Created as teaching material when I was an instructor at DevLeague. Covers linked lists, trees, graphs, sorting, and more.',
-		image: '/images/projects/data-structures/thumb-aafbf722.webp',
+		image: '/images/projects/data-structures/thumb-bb1d89ad.webp',
 		imageAlt:
 			'Three data structures drawn in chalk: a linked list of 3, 7 and 1 ending in null, a binary search tree with 8 at the root, and a stack with 5 being pushed on top',
 		date: '2016-06',
@@ -1284,7 +1295,7 @@ export const projects: Project[] = [
 		title: 'Guide to Client-Server Communication',
 		description:
 			'Every way a client and server communicate - HTTP, WebSockets, SSE, GraphQL, gRPC, and more. A complete reference guide with examples.',
-		image: '/images/blog/complete-guide-node-client-server-communication/thumb-8aa6bb2d.webp',
+		image: '/images/blog/complete-guide-node-client-server-communication/thumb-1d6d8b03.webp',
 		imageAlt:
 			'Three browser transports side by side, XHR polling, server-sent events and WebSocket, each a client and a server with hand-drawn arrows between them',
 		date: '2016-07',
@@ -1301,6 +1312,10 @@ export const projects: Project[] = [
 		image: '/images/projects/movie-script-scraper.webp',
 		imageAlt:
 			'The Movie Script Scraper banner: "Movie Script Scraper" in white on red and teal stripes, with a film reel in the corner',
+		card: {
+			src: '/images/projects/movie-script-scraper/thumb-0db4b745.webp',
+			alt: 'The command movie-script-scraper --genre Horror --total 10 pulling scripts from IMSDb five at a time, each landing as a text file in scripts/Horror/ until 10 of 10 are saved',
+		},
 		date: '2018-01',
 		tech: ['Node.js', 'Cheerio', 'npm', 'CLI'],
 		sourceUrl: 'https://github.com/JoeKarlsson/movie-script-scraper',
@@ -1328,7 +1343,7 @@ export const projects: Project[] = [
 		title: 'Python Sudoku Generator & Solver',
 		description:
 			'Generates unique Sudoku boards across 4 difficulty levels with a built-in solver using backtracking.',
-		image: '/images/projects/sudoku-generator/thumb-8186e4ea.webp',
+		image: '/images/projects/sudoku-generator/thumb-d515f26f.webp',
 		imageAlt:
 			'A Sudoku board drawn in chalk solving itself: the solver fills the blank cells in pink, a few at a time, as the count climbs from 30 to 81 and the board reads Solved',
 		date: '2015-04',
@@ -1495,6 +1510,10 @@ export const projects: Project[] = [
 			'A production subtitle generation pipeline using GPU-accelerated Whisper (faster-whisper) with NVIDIA CUDA. Features parallel workers, automatic language detection and translation, VRAM-aware scheduling, and time-of-day worker scaling to share GPU resources across services.',
 		image: '/images/blog/building-a-gpu-accelerated-subtitle-generator/hero.webp',
 		imageAlt: 'GPU Subtitle Generator Architecture',
+		card: {
+			src: '/images/projects/gpu-subtitle-generator/thumb-ec225d21.webp',
+			alt: "A playhead runs along a film's audio waveform as Whisper, on an NVIDIA GPU, writes each line of speech into an SRT file: They're coming to get you, Barbara",
+		},
 		date: '2026-02',
 		tech: ['Python', 'Whisper AI', 'CUDA', 'NVIDIA GPU', 'Bash'],
 		blogUrl: '/blog/building-a-gpu-accelerated-subtitle-generator/',
@@ -1505,6 +1524,10 @@ export const projects: Project[] = [
 			"A from-scratch Python implementation of MikroTik's proprietary binary API protocol. Handles variable-length encoding, authentication, and sentence-based messaging for programmatic control of network infrastructure - bonding, DHCP, firewall rules, and more.",
 		image: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp',
 		imageAlt: 'MikroTik API Client',
+		card: {
+			src: '/images/projects/mikrotik-api-client/thumb-07444a23.webp',
+			alt: 'A MikroTik API login sentence written to the wire one word at a time, /login, =name=admin and =password=secret, each with its length byte, then a zero byte, and RouterOS answering !done',
+		},
 		date: '2026-03',
 		tech: ['Python', 'Binary Protocol', 'MikroTik', 'Networking'],
 		blogUrl: '/blog/implementing-mikrotik-binary-api-protocol-in-python/',
