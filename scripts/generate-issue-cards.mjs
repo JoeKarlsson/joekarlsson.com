@@ -8,6 +8,10 @@
  * scripts/issue-card-content.mjs. An essay can name a photo with `cardPhoto` (a path under
  * public/) and must describe it in `cardPhotoAlt`; without one, the card circles the issue number.
  *
+ * Each card also gets an animated copy (timeline in scripts/issue-card-motion.mjs): card.gif,
+ * 600px wide, for the top of the email, and card.mp4 for attaching to social posts. Both loop
+ * from the still card. Needs ffmpeg.
+ *
  * Usage:
  *   node scripts/generate-issue-cards.mjs              # every issue that has no card yet
  *   node scripts/generate-issue-cards.mjs <slug...>    # these issues, redrawn
@@ -18,9 +22,19 @@
  * rather than draw a card in a fallback face.
  */
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import {
+	existsSync,
+	mkdirSync,
+	mkdtempSync,
+	readFileSync,
+	readdirSync,
+	rmSync,
+	writeFileSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { cardAlt, cardContent, setFrontmatterFields, splitIssue } from './issue-card-content.mjs';
+import { FPS, cardPose, frameCount } from './issue-card-motion.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const ISSUES_DIR = join(ROOT, 'src/content/newsletter');
@@ -182,6 +196,72 @@ function fitText() {
 	return { titleFits: title.parentElement.offsetHeight <= box.clientHeight };
 }
 
+// Puts the card in one frame's pose (from cardPose); runs in the page
+function applyPose(pose) {
+	document.querySelector('#crayon feTurbulence').setAttribute('seed', String(pose.seed));
+	const photo = document.querySelector('.photo img');
+	if (photo) {
+		photo.style.transformOrigin = '55% 40%';
+		photo.style.transform = `scale(${pose.photoScale})`;
+	}
+	document.querySelectorAll('.card svg.m path').forEach((path, i) => {
+		path.setAttribute('pathLength', '1');
+		path.style.strokeDasharray = '1 2';
+		path.style.strokeDashoffset = String(1 - pose.marks[i].drawn);
+		path.style.opacity = String(pose.marks[i].opacity);
+	});
+}
+
+const ffmpeg = (args) => execFileSync('ffmpeg', ['-nostdin', '-loglevel', 'error', '-y', ...args]);
+
+async function screenshotFrames(page, kind, markCount, options) {
+	const dir = mkdtempSync(join(tmpdir(), 'issue-card-'));
+	for (let frame = 0; frame < frameCount(kind); frame++) {
+		await page.evaluate(applyPose, cardPose(kind, frame, markCount, options));
+		await page.screenshot({
+			type: 'png',
+			path: join(dir, `${String(frame).padStart(3, '0')}.png`),
+		});
+	}
+	return dir;
+}
+
+// Screenshots every frame of the loop, then encodes the email GIF and the social MP4
+async function recordAnimation(page, kind, gifOut, mp4Out) {
+	const markCount = await page.evaluate(() => document.querySelectorAll('.card svg.m path').length);
+	const mp4Frames = await screenshotFrames(page, kind, markCount);
+	const gifFrames =
+		kind === 'photo'
+			? await screenshotFrames(page, kind, markCount, { stillPhoto: true })
+			: mp4Frames;
+	const input = (dir) => ['-framerate', String(FPS), '-i', join(dir, '%03d.png')];
+	try {
+		ffmpeg([
+			...input(gifFrames),
+			'-vf',
+			'scale=600:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=64:stats_mode=diff[p];[b][p]paletteuse=dither=none:diff_mode=rectangle',
+			'-loop',
+			'0',
+			gifOut,
+		]);
+		ffmpeg([
+			...input(mp4Frames),
+			'-c:v',
+			'libx264',
+			'-pix_fmt',
+			'yuv420p',
+			'-crf',
+			'20',
+			'-movflags',
+			'+faststart',
+			mp4Out,
+		]);
+	} finally {
+		for (const dir of new Set([mp4Frames, gifFrames]))
+			rmSync(dir, { recursive: true, force: true });
+	}
+}
+
 async function main() {
 	const args = process.argv.slice(2);
 	const targets = pickTargets(loadIssues(), args);
@@ -203,6 +283,12 @@ async function main() {
 				`These issues need a card but have unstaged edits; stage them or run the generator by hand:\n${dirty.map((i) => `  ${i.path}`).join('\n')}`,
 			);
 		}
+	}
+
+	try {
+		execFileSync('ffmpeg', ['-version'], { stdio: 'ignore' });
+	} catch {
+		throw new Error('ffmpeg is needed for the animated cards (brew install ffmpeg)');
 	}
 
 	const [{ chromium }, { default: sharp }, { MARKS }] = await Promise.all([
@@ -237,11 +323,14 @@ async function main() {
 			const out = join(ROOT, 'public', cardPath(slug));
 			mkdirSync(join(out, '..'), { recursive: true });
 			writeFileSync(out, await sharp(png).webp({ quality: 82 }).toBuffer());
+			const gifOut = out.replace(/\.webp$/, '.gif');
+			const mp4Out = out.replace(/\.webp$/, '.mp4');
+			await recordAnimation(page, content.photo ? 'photo' : 'number', gifOut, mp4Out);
 			writeFileSync(
 				issue.path,
 				setFrontmatterFields(issue.markdown, { heroImage: cardPath(slug), heroAlt: alt }),
 			);
-			written.push(out, issue.path);
+			written.push(out, gifOut, mp4Out, issue.path);
 			console.log(`card: ${slug}`);
 		}
 	} finally {

@@ -17,7 +17,7 @@ Stills are WebP; animations are MP4. A raw GIF or animated WebP over 256KB fails
 Drop the raw PNG/JPG/GIF in `public/images/blog/{slug}/`, reference it normally, and commit. The pre-commit hook runs `scripts/convert-staged-images.sh`, which converts anything staged under `public/images`:
 
 - **PNG/JPG** -> WebP via `scripts/convert-images-to-webp.mjs`, which also repoints every reference across `src/`. Rewritten files are staged for you, unless they already had unstaged edits - then the commit stops so you can review.
-- **GIF at/over 256KB** -> gains an `.mp4` sibling via `scripts/convert-gifs-to-video.sh` (requires `ffmpeg`; without it you get a warning and pre-push fails instead). Markdown keeps referencing the `.gif`; `src/plugins/rehype-gif-video.mjs` swaps in a `<video>` at build time. Smaller GIFs are left alone.
+- **GIF at/over 256KB** -> gains an `.mp4` sibling via `scripts/convert-gifs-to-video.sh` (requires `ffmpeg`; without it you get a warning and pre-push fails instead). Markdown keeps referencing the `.gif`; `src/plugins/rehype-gif-video.mjs` swaps in a `<video>` at build time. Smaller GIFs are left alone. Exception: `public/images/newsletter/*/card.gif` is the email header and is never converted or dropped, even beside its `card.mp4`.
 - **Animated WebP at/over 256KB** -> same treatment via `scripts/convert-animated-webp-to-video.mjs`. Still WebP is left alone; the two are told apart by the `ANIM` chunk in the RIFF header. ffmpeg cannot decode animated WebP at all ("image data not found"), so frames come out through sharp and go into ffmpeg as a concat list carrying each frame's delay.
 
 Only an `.mp4` sibling makes the plugin swap an `<img>` for a `<video>`, which is what keeps the site's ~770 still WebPs untouched.

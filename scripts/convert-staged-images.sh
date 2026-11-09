@@ -29,6 +29,8 @@ while IFS= read -r f; do
 	[ -f "$f" ] || continue
 	case "$(printf '%s' "$f" | tr '[:upper:]' '[:lower:]')" in
 	*.png | *.jpg | *.jpeg) PNGS+=("$f") ;;
+	# A newsletter card.gif is the email's header, so it has to stay a GIF beside its card.mp4
+	public/images/newsletter/*/card.gif) ;;
 	*.gif) GIFS+=("$f") ;;
 	# Animated WebP belongs in an MP4 just as much as a GIF does; still WebP is
 	# already the target format and wants leaving alone. The ANIM chunk in the
