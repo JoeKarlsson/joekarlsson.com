@@ -45,7 +45,7 @@ Read `src/content/blog/<slug>.md` in full, and look at every image, clip and dia
 - Never add something Joe only said in chat. For example, "no affiliate links" stayed out until he asked for it.
 - No sign-off and no title heading in the body. The email template adds both.
 
-**Title:** the newsletter skill says a recap reuses its blog post's title. A long or SEO-shaped blog title can get a plainer email title. If the titles differ, ask Joe.
+**Title:** the newsletter skill says a recap reuses its blog post's title. That's the default, but give the issue its own title when the blog title doesn't work in an inbox: it's long or SEO-shaped, it has a year that reads wrong on the send date, or it promises something the email can't deliver ("tour" when the video can't play). Joe approved this for the recording setup (2026-11-09): "A tour of my recording setup in 2027..." became "My Whole Recording Setup Is One Desk on Wheels". Keep the subject short, because phones cut it off after the "Works on My Machine:" prefix.
 
 ## 3. Make every picture work in email
 
