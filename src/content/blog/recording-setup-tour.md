@@ -45,6 +45,10 @@ I had four goals for this setup:
 - **Keep it a usable desk** when I'm not recording.
 - **Get it out of the way** when I'm done.
 
+<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/working-at-desk.webp" src="/images/blog/recording-setup-tour/working-at-desk.mp4" aria-label="Me working on my laptop at the recording desk, shot from a tripod in the corner, with the spotlight in the foreground and the LED panel lit behind the desk"></video>
+
+_When I'm not recording, it's a normal desk._
+
 The space is a small nook off my office, so the whole thing had to be compact. I didn't want a studio that took over the room, or a camera on a tripod that I'd have to reframe every time it got bumped.
 
 So the camera, teleprompter and mic clamp to one desk: a [FlexiSpot E6 MAX](https://www.amazon.com/dp/B0HCNVWH1D), 48 by 24 inches, on FlexiSpot's W1 casters. The camera and teleprompter sit on one arm and the mic sits on the other, so when I roll the desk two feet to the left, the shot comes with it. The lights don't clamp. The softbox is on a light stand and the spotlight is on a lightweight tripod, so they're easy to drag along after the desk.
@@ -55,6 +59,10 @@ _Pushed back into its corner of the nook, with a painting drying on the mat._
 ## Camera, prompter and mic
 
 The camera is a **Sony ZV-E10** with the 16-50mm kit lens. It sits behind an [Elgato Prompter](https://www.elgato.com/us/en/p/prompter), so I can read a script while looking straight into the lens. I run the script in [FollowSpot, the teleprompter app I wrote that follows my voice](/blog/followspot-local-whisper-teleprompter/).
+
+![The Sony ZV-E10 seen from behind, mounted behind the Elgato Prompter's hood on the arm, over the green cutting mat](/images/blog/recording-setup-tour/camera-behind-prompter.webp)
+
+_The ZV-E10 from behind, tucked into the Prompter's hood._
 
 Two cheap accessories made the camera usable for this:
 
@@ -112,6 +120,10 @@ _October 15: plenty of mood, and my face is the darkest thing in the frame._
 _October 30: the softbox on my face, and the mood behind me._
 
 The fix was to stop treating the face and the mood as one problem. The ring light is gone. A [NEEWER softbox](https://www.amazon.com/dp/B0CJM6G7JR) is my key light now, and it's there to light my face well enough that the camera is happy. The mood comes from everything behind me: colored LEDs, the 3D printer's lights, and a [NEEWER FL20 spotlight](https://www.amazon.com/dp/B0H38M1N96) with a colored gel that I move around to throw a hard pool of orange on the wall.
+
+![Wide shot of the recording nook from the corner: the spotlight on its tripod in the foreground, the orange chair, the desk with the LED panel and the Prompter, plants and a striped rug](/images/blog/recording-setup-tour/nook-wide.webp)
+
+_The nook from the corner, with the spotlight on its tripod in front._
 
 On the camera, I'm still experimenting, but right now it's in aperture priority, recording XAVC S 4K at 25p and 60 Mbps, with SteadyShot on. Aperture priority lets the camera pick the shutter speed and ISO, which is part of why underexposing went so badly: when there wasn't enough light, the camera made up the difference with gain.
 
