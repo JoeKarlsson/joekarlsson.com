@@ -25,10 +25,18 @@ jobs:
         id: outdated
         run: |
           set +e
-          npm outdated --long > /tmp/outdated-raw.txt 2>&1
-          EXIT_CODE=$?
-          cat /tmp/outdated-raw.txt
-          if [ $EXIT_CODE -ne 0 ]; then
+          npm outdated --long > /tmp/outdated-all.txt 2>&1
+          set -e
+          cat /tmp/outdated-all.txt
+          # Majors we can't take yet because a dependency's peer range stops short of
+          # them. A row is hidden only while Current == Wanted, so a patch or minor
+          # for the same package still shows. Listing them kept the issue open with
+          # nothing anyone could do.
+          #   typescript 7: @astrojs/check and typescript-eslint peer-depend on <= 6 (2026-11-09)
+          HELD_BACK="typescript"
+          awk -v held=" $HELD_BACK " 'NR == 1 || !(index(held, " " $1 " ") && $2 == $3)' \
+            /tmp/outdated-all.txt > /tmp/outdated-raw.txt
+          if [ "$(wc -l < /tmp/outdated-raw.txt)" -gt 1 ]; then
             echo "has_outdated=true" >> "$GITHUB_OUTPUT"
             cat > /tmp/outdated.md <<'HEADER'
           ## Outdated Dependencies
