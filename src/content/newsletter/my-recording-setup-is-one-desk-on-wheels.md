@@ -60,8 +60,8 @@ Then I say "I'm recording" to my Home Assistant voice assistant, and the room se
 
 The whole setup was about $2,700 at November 2026 prices. The desk and the dock are the two costs most people could skip, as long as you don't mind plugging in four things and leaving the rig where it is.
 
-The first thing I'd change is the camera arm. I'm looking at Elgato's Wave Mic Arm Pro, which has real headroom for a camera and Prompter, so the low-profile arm can go back to holding only the mic. Then a better softbox, so the light wraps around my face a bit more instead of coming from one side.
+The first thing I'd change is the camera arm. I'm looking at Elgato's Wave Mic Arm Pro, which retailers list at 3 kg against my roughly 1.1 kg of camera and Prompter, so the low-profile arm can go back to holding only the mic. Then a better softbox, so the light wraps around my face a bit more instead of coming from one side.
 
-For now it works great for what I need, and I can't recommend a rolling, one-cable setup enough.
+For now it works great for what I need, and the desk and the dock are the last things I'd give up.
 
 <a class="button" href="https://www.joekarlsson.com/blog/recording-setup-tour/">Read the full tour</a>
