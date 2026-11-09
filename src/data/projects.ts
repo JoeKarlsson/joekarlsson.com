@@ -513,11 +513,13 @@ export const projects: Project[] = [
 		page: {
 			slug: 'poststream',
 			tagline: 'A social network with the metrics taken out.',
+			introHeading: 'Artist statement',
+			credit: 'with Ray Farias and Jacoby Young',
 			intro: [
-				'PostStream is a social network that only does text. Ray Farias, Jacoby Young and I built it in 2016 as a response to the social media we were all using, and we called it undesigned.',
-				"Most of the work was deciding what to leave out. It shows no like counts and no follower counts, so you can't see how popular anyone is. There's no global feed, no trending topics and no news to browse, and you can't post images, video or GIFs. The stream shows the first 256 characters of each post, with a read more that goes up to 2,048.",
-				"Replies work the same way. You don't write them, you pick one: agree, disagree, agree or disagree because of something, tell me more about something, thank you for sharing, or brilliant. Most of those never got built in 2016. I finished them in November 2026, along with the feed that only shows people you follow.",
-				'Someone else owns poststream.io now. The archived copy at poststream.joekarlsson.com has no server: it runs in your browser, signs you in as a sample visitor, and a few made-up people keep posting while you look around. Anything you post stays in your browser. The full app, with Node and PostgreSQL, is on GitHub.',
+				"Every social network puts a number on everything you post: likes, followers, shares, what's trending. Ray Farias, Jacoby Young and I built PostStream in 2016 as a response to the social media we were all using, and we called it undesigned.",
+				"Most of the work was deciding what to leave out. It shows no like counts and no follower counts, so you can't see how popular anyone is. There's no global feed, no trending topics and no news to browse, and you can't post images, video or GIFs.",
+				"Replies work the same way. You don't write them, you pick one: agree, disagree, agree or disagree because of something, tell me more about something, thank you for sharing, or brilliant.",
+				"Ben Grosser's Facebook Demetricator, a browser extension from 2012, hides the like and friend counts on Facebook, and PostStream was built without them in the first place.",
 			],
 			embedUrl: 'https://poststream.joekarlsson.com/',
 			embedOnPhones: true,
@@ -527,6 +529,8 @@ export const projects: Project[] = [
 				"This is the archived demo, running right here. You're signed in as a sample visitor and the other people are simulated, so write a post and someone will answer.",
 			made: {
 				text: [
+					'The stream shows the first 256 characters of each post, with a read more that goes up to 2,048. Most of the reply choices never got built in 2016. I finished them in November 2026, along with the feed that only shows people you follow.',
+					'Someone else owns poststream.io now. The archived copy at poststream.joekarlsson.com has no server: it runs in your browser, signs you in as a sample visitor, and a few made-up people keep posting while you look around. Anything you post stays in your browser.',
 					'The full app is React on a Node and Express server with PostgreSQL. The archive is the same React app with a stand-in that answers its requests inside your browser and keeps everything in `localStorage`. The sample people post or reply every 12 to 25 seconds, and someone answers your post within 6 to 14 seconds.',
 				],
 				diagram: {
@@ -534,6 +538,12 @@ export const projects: Project[] = [
 					alt: "How PostStream runs two ways: the same React app asks /post and /auth either of two ways, the full app's Express server answers from PostgreSQL, and the archived demo's stand-in answers inside the page from your browser's localStorage, signs you in, and has a sample cast post or reply every 12 to 25 seconds",
 				},
 			},
+			lineage: [
+				{
+					label: 'Also with Ray',
+					title: 'Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon',
+				},
+			],
 		},
 	},
 
@@ -773,11 +783,10 @@ export const projects: Project[] = [
 		page: {
 			slug: 'pixelate',
 			tagline: 'Pick a photo, drag the slider.',
+			introHeading: 'Artist statement',
 			intro: [
-				'I wrote the first Pixelate over two days in April 2015. You pasted in the URL of an image, clicked Submit, and it redrew the picture as blocks, with a slider for how big they got.',
-				"That version had no pixel math in it. It drew the image onto a canvas at a few percent of its size, turned off image smoothing, and stretched the tiny copy back up. The browser did the rest, and the blur you'd normally get from scaling up came out as hard squares.",
-				'In November 2026 I rebuilt it. Now you pick a photo from your phone or computer, and it never leaves your device. Each block is the exact average of the pixels under it, so edges land where they should, and Save PNG downloads the result.',
-				"The pictures here are a frame from one of my own videos. It's the oldest of my pixel projects, before the Digital Graffiti Wall and PixelPane.",
+				"Pixelate turns any photo into big square blocks, and the photo never leaves your phone or computer. Drag the slider and the picture gives up its detail a little at a time, until it's a grid of colors.",
+				"I wrote the first version over two days in April 2015. I spun it off from Instamosaic, an app I was building that made photo mosaics out of Instagram color hashtags. It's the oldest of my pixel projects, before the Digital Graffiti Wall and PixelPane.",
 			],
 			embedUrl: 'https://pixelate.joekarlsson.com/',
 			embedOnPhones: true,
@@ -794,6 +803,7 @@ export const projects: Project[] = [
 			],
 			made: {
 				text: [
+					"The 2015 version had no pixel math in it. You pasted in an image's URL, it drew the picture at a few percent of its size, and it stretched the tiny copy back up with image smoothing turned off, so the blur you'd normally get came out as hard squares. In November 2026 I rebuilt it to work on your own photo, with each block the exact average of the pixels under it.",
 					"Each block is one color, the exact average of the pixels under it, worked out on a copy of your photo no bigger than 2,000 pixels a side so the slider stays quick. I stretch that small grid back up with smoothing turned off, and Save PNG writes it at your photo's full size.",
 				],
 				diagram: {
@@ -801,6 +811,7 @@ export const projects: Project[] = [
 					alt: "How Pixelate turns a photo into blocks: your photo stays on your device, Pixelate works on a copy no bigger than 2,000 pixels on its longest side, the slider sets the block size from 1 to 120 pixels, each block becomes the average color of the pixels under it, the grid is stretched back up with smoothing off so the blocks stay square, and Save PNG writes it at the photo's full size",
 				},
 			},
+			lineage: [{ label: 'Next pixel project', title: 'Digital Graffiti Wall' }],
 		},
 	},
 	{
