@@ -1,54 +1,62 @@
 {
-	"updatedAt": "2026-11-08",
+	"updatedAt": "2026-11-09",
 	"shippingWindowDays": 30,
 	"shippedRepos": [
-		{
-			"name": "rose-hobart",
-			"description": "A digital humanities project to explore the (lack of) performativity in the current version available of Joseph Cornell’s short film Rose Hobart.",
-			"url": "https://github.com/JoeKarlsson/rose-hobart",
-			"language": "TypeScript",
-			"commitCount": 12,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 4
-			],
-			"latestCommitMessage": "chore: README opens with a short statement of what Rose Hobart is..."
-		},
 		{
 			"name": "joekarlsson.com",
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 420,
+			"commitCount": 424,
 			"dailyCommitCounts": [
-				0, 0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74,
-				44, 22
+				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
+				25, 1
 			],
-			"latestCommitMessage": "fix: E2E tests follow the Works redesign, and a long project title on..."
+			"latestCommitMessage": "fix: Bechdel.io statement argues that a count across many films is..."
 		},
 		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 78,
+			"name": "nothing-but-corners",
+			"description": "The DVD screensaver with the boring parts taken out. It hits the corner every time.",
+			"url": "https://github.com/JoeKarlsson/nothing-but-corners",
+			"language": "HTML",
+			"commitCount": 26,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 10
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 2, 0, 9, 0
 			],
-			"latestCommitMessage": "fix: The artist statement on the about page and README is about what..."
+			"latestCommitMessage": "feat: Move Nothing But Corners to corners.joekarlsson.com"
 		},
 		{
-			"name": "react-spotify-player",
-			"description": "Realtime Spotify Player built with React.",
-			"url": "https://github.com/JoeKarlsson/react-spotify-player",
-			"language": "JavaScript",
-			"commitCount": 2,
+			"name": "punc",
+			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
+			"url": "https://github.com/JoeKarlsson/punc",
+			"language": "TypeScript",
+			"commitCount": 48,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 0
 			],
-			"latestCommitMessage": "chore: README gets a developer straight to running the player, with no..."
+			"latestCommitMessage": "feat: Move Punc to punc.joekarlsson.com, serving from the root instead..."
+		},
+		{
+			"name": "iot-kitty-litter-box-frontend",
+			"description": "Frontend for data and analytics for the open source IoT Kitty Litter Box",
+			"url": "https://github.com/JoeKarlsson/iot-kitty-litter-box-frontend",
+			"language": "HTML",
+			"commitCount": 3,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0
+			],
+			"latestCommitMessage": "fix: About page carries the current artist statement"
 		}
 	],
 	"films": [
+		{
+			"title": "Zodiac",
+			"year": 2007,
+			"rating": 4.5,
+			"reviewExcerpt": "The first time I watched Zodiac, the ending made me furious. Furious, because I'd spent two and a half hours watching the evidence line up against Arthur Leigh...",
+			"url": "https://letterboxd.com/joekarlsson/film/zodiac/",
+			"poster": "/images/now/film-1949.webp"
+		},
 		{
 			"title": "Working Girl",
 			"year": 1988,
@@ -72,14 +80,6 @@
 			"reviewExcerpt": "This is Pilgrim at Tinker Creek if Annie Dillard were stuck on a New York City sidewalk. I mean that as the highest praise. I'm a sucker for sprawling...",
 			"url": "https://letterboxd.com/joekarlsson/film/the-history-of-concrete/",
 			"poster": "/images/now/film-1596296.webp"
-		},
-		{
-			"title": "The Age of Innocence",
-			"year": 1993,
-			"rating": 3,
-			"reviewExcerpt": "If I were rich in Gilded Age New York, I wouldn't be at this dinner. I'd be on an island watching movies. ALso - I need to say this up top. I really struggle...",
-			"url": "https://letterboxd.com/joekarlsson/film/the-age-of-innocence/",
-			"poster": "/images/now/film-10436.webp"
 		}
 	],
 	"podcastEpisodes": [
