@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 491,
+			"commitCount": 492,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 68
+				25, 69
 			],
-			"latestCommitMessage": "fix: The works page goes back to its eras index in the hero while a..."
+			"latestCommitMessage": "fix: The homelab gift guide and its newsletter issue say who the guide..."
 		},
 		{
 			"name": "screencast-director",
