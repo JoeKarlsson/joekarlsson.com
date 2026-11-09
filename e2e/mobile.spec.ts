@@ -199,9 +199,9 @@ test.describe('Phone layout', () => {
 				path,
 			).toBeVisible();
 		}
-		// /work has no featured project; its hero media is the index of its sections
+		// /work's hero media is the reel of selected works
 		await page.goto('/work/');
-		await expect(page.locator('header nav[aria-label="Sections"]')).toBeVisible();
+		await expect(page.locator('header a[data-reel-pieces]')).toBeVisible();
 	});
 
 	test('Where to next keeps one big card and lists the rest as compact rows', async ({ page }) => {
@@ -274,7 +274,7 @@ test.describe('Phone layout', () => {
 		await tall('main a:text-matches("^All \\\\d+ posts")');
 		await page.goto('/work/');
 		// The filter chips are gone; the era index and each project's Source/Demo/Blog links remain
-		await tall('nav[aria-label="Sections"] a');
+		await tall('nav[aria-label="Eras"] a');
 		await tall('.project-card > div > a');
 		await page.goto('/blog/opentofu-proxmox-immutable-homelab/');
 		await tall('nav[aria-label="Breadcrumb"] a');
