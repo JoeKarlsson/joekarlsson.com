@@ -225,6 +225,13 @@ export default defineConfig({
 		'/speaking/joe-karlssons-talk-archive': '/talks/',
 		'/speaking': '/talks/',
 		'/talk-archive': '/talks/',
+		// Talk write-ups moved out of the blog to their own pages (2026-11-09)
+		'/blog/mongodb-schema-design-best-practices': '/talks/mongodb-schema-design-best-practices/',
+		'/blog/from-sql-to-nosql-a-gentle-introduction-for-devs':
+			'/talks/from-sql-to-nosql-a-gentle-introduction-for-devs/',
+		'/blog/the-art-of-computer-science': '/talks/the-art-of-computer-science/',
+		'/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive':
+			'/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
 		'/all-work': '/work/',
 		'/404-error': '/404',
 

@@ -23,8 +23,8 @@
 		"astro": "astro",
 		"check": "astro check",
 		"test:images": "bash scripts/validate-images.sh",
-		"test:spelling": "cspell \"src/content/blog/**/*.md\" --no-progress",
-		"test:markdown": "markdownlint-cli2 \"src/content/blog/**/*.md\"",
+		"test:spelling": "cspell \"src/content/blog/**/*.md\" \"src/content/talks/**/*.md\" --no-progress",
+		"test:markdown": "markdownlint-cli2 \"src/content/blog/**/*.md\" \"src/content/talks/**/*.md\"",
 		"test:feeds": "bash scripts/validate-feeds.sh",
 		"test:caddyfile": "bash scripts/validate-caddyfile.sh",
 		"test:a11y": "pa11y-ci --config .pa11yci.json",
@@ -37,7 +37,7 @@
 		"generate:resume": "node scripts/generate-resume-pdf.mjs",
 		"generate:resume:webflow": "node scripts/generate-resume-pdf.mjs --page resume-webflow-pdf --out joe-karlsson-resume-webflow.pdf",
 		"import:cdata": "node scripts/import-cdata-posts.mjs",
-		"vale": "vale --minAlertLevel error src/content/blog/",
+		"vale": "vale --minAlertLevel error src/content/blog/ src/content/talks/",
 		"test:voice": "bash scripts/vale-changed.sh",
 		"test:outdated": "npm outdated || true",
 		"lint": "eslint .",
@@ -50,6 +50,7 @@
 		"prepare": "husky",
 		"test:workflows": "node scripts/validate-workflows.mjs",
 		"talks:videos": "node scripts/sync-talk-videos.mjs",
+		"talks:covers": "node scripts/fetch-talk-event-covers.mjs",
 		"youtube:thumbnail": "node scripts/youtube-thumbnail.mjs"
 	},
 	"dependencies": {

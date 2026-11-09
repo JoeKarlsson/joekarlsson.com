@@ -353,8 +353,11 @@ async function main() {
 	try {
 		for (const slug of targets) {
 			const entry = PLAN[slug];
-			const post = join(ROOT, 'src/content/blog', `${slug}.md`);
-			if (!existsSync(post)) throw new Error(`${slug}: no post at ${post}`);
+			// A post, or a talk write-up (src/content/talks/)
+			const post = ['blog', 'talks']
+				.map((dir) => join(ROOT, 'src/content', dir, `${slug}.md`))
+				.find((file) => existsSync(file));
+			if (!post) throw new Error(`${slug}: no post in src/content/blog or src/content/talks`);
 			const frames = await cardFrames(page, sharp, slug, entry, scribbles);
 			const webp =
 				frames.length === 1

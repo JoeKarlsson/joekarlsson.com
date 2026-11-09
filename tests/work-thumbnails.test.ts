@@ -14,8 +14,10 @@ const entries = Object.entries(plan) as [string, PlanEntry][];
 describe('work-post thumbnails (scripts/work-thumbnail-plan.json)', () => {
 	it('every planned post exists and points its heroImage at its drawn thumbnail', () => {
 		const problems = entries.flatMap(([slug]) => {
-			const post = join('src/content/blog', `${slug}.md`);
-			if (!existsSync(post)) return [`${slug}: no post`];
+			const post = ['blog', 'talks']
+				.map((dir) => join('src/content', dir, `${slug}.md`))
+				.find((file) => existsSync(file));
+			if (!post) return [`${slug}: no post`];
 			const hero = readFileSync(post, 'utf8').match(/^heroImage:\s*['"]?([^'"\n]+)/m)?.[1] ?? '';
 			if (!new RegExp(`^/images/blog/${slug}/thumb-[0-9a-f]{8}\\.webp$`).test(hero))
 				return [`${slug}: heroImage is ${hero}, not its drawn thumbnail`];

@@ -1,0 +1,51 @@
+---
+// A talk write-up at /talks/<slug>/: the blog's post layout, plus VideoObject JSON-LD for
+// each recording on the page (chapters as Clip parts). These four moved here from /blog/
+// (astro.config.mjs redirects the old URLs).
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import { videoObject } from '../../utils/video-schema';
+
+export async function getStaticPaths() {
+	const talks = await getCollection('talks');
+	return talks.map((talk) => ({ params: { slug: talk.data.slug }, props: talk }));
+}
+type Props = CollectionEntry<'talks'>;
+
+const talk = Astro.props;
+const { Content, headings } = await render(talk);
+const words = (talk.body || '').trim().split(/\s+/).length;
+const readingTime = Math.max(1, Math.ceil(words / 250));
+const videoObjects = talk.data.videos.map(({ id, chapters }) =>
+	videoObject(id, { description: talk.data.description, chapters }),
+);
+---
+
+<BlogPost
+	section="talks"
+	body={talk.body}
+	videoObjects={videoObjects}
+	title={talk.data.title}
+	shareTitle={talk.data.shareTitle}
+	seoTitle={talk.data.seoTitle}
+	description={talk.data.description}
+	date={talk.data.date}
+	updatedDate={talk.data.updatedDate}
+	updateNote={talk.data.updateNote}
+	heroImage={talk.data.heroImage}
+	heroAlt={talk.data.heroAlt}
+	heroVideo={talk.data.heroVideo}
+	categories={talk.data.categories}
+	writtenFor={talk.data.writtenFor}
+	slug={talk.data.slug}
+	contentNotice={talk.data.contentNotice}
+	tldr={talk.data.tldr}
+	readingTime={readingTime}
+	wordCount={words}
+	faq={talk.data.faq}
+	howToSteps={talk.data.howToSteps}
+	headings={headings}
+	canonicalUrl={talk.data.canonicalUrl}
+>
+	<Content />
+</BlogPost>

@@ -1,0 +1,26 @@
+{
+	"devopscon-amsterdam-2026": "https://devopscon.io/platform-engineering-summit/internal-developers-platform-best-practice/",
+	"cloudquery-events": "https://www.cloudquery.io/events/five-questions-cloud-team",
+	"tinybird-live-coding": "https://www.tinybird.co/live-coding-sessions",
+	"singlestore": "https://www.singlestore.com/",
+	"confoo-2020": {
+		"page": "https://confoo.ca/en/yul2020",
+		"image": "https://confoo.ca/images/content/carousel/1.jpg"
+	},
+	"softwareplaza-it-podcast": "https://podcasts.apple.com/us/podcast/from-chaos-to-control-how-cloudquery-makes-cloud-data/id1790169619?i=1000722489800",
+	"screaming-in-the-cloud": "https://podcasts.apple.com/us/podcast/when-data-is-your-brand-and-your-job-with-joe-karlsson/id1361244178?i=1000631070586",
+	"art-of-communicating-data": "https://podcasts.apple.com/us/podcast/building-interactive-dashboards-with-real-time-data/id1603953771?i=1000616984317",
+	"codenewbie": "https://podcasts.apple.com/us/podcast/s19-e6-how-to-make-learning-databases-fun-and/id919219256?i=1000553930444",
+	"community-pulse-64": "https://podcasts.apple.com/us/podcast/end-of-year-wrap-up-2021-ep-64/id1218368182?i=1000544870853",
+	"devops-state-of-mind": "https://podcasts.apple.com/us/podcast/devrel-and-devops-two-peas-in-a-pod/id1594456604?i=1000543501113",
+	"salute-your-skorts": "https://podcasts.apple.com/us/podcast/are-you-afraid-of-the-dark-featuring-joe-karlsson/id1590064038?i=1000539930690",
+	"guidance-counselor-80": "https://podcasts.apple.com/us/podcast/episode-80-joe-karlsson-sr-developer-advocate-mongodb/id1256154656?i=1000535979257",
+	"community-pulse-devrel-channels": "https://podcasts.apple.com/us/podcast/devrel-content-channels-whats-hip-whats-cool-whats/id1218368182?i=1000513704689",
+	"refactor": "https://podcasts.apple.com/us/podcast/devrel-and-professional-craziness-with-joe/id1558440491?i=1000513048303",
+	"mongodb-podcast-29": "https://podcasts.apple.com/us/podcast/ep-29-code-editor-landscape-and-mongodb-for-vs-code/id1500452446?i=1000500201536",
+	"coding-over-cocktails": "https://podcasts.apple.com/us/podcast/coding-over-cocktails/id1531450276",
+	"mongodb-podcast-update-2020-11-09": "https://podcasts.apple.com/us/podcast/mongodb-update-for-november-9-2020/id1500452446?i=1000497762602",
+	"grizztech-talks": "https://podcasts.apple.com/us/podcast/an-interview-with-joe-karlsson-developer-advocate/id1513642189?i=1000494942738",
+	"javascript-jabber-448": "https://podcasts.apple.com/us/podcast/jsj-448-mongodb-schema-fundamentals-with-joe-karlsson/id496893300?i=1000490443472",
+	"pit-show": "https://podcasts.apple.com/us/podcast/the-pit-show/id1448707006"
+}

@@ -21,6 +21,10 @@ interface Props {
 	canonicalUrl?: string;
 	// Keep the page reachable but out of search results (e.g. the TL;DR in Tech back issues)
 	noindex?: boolean;
+	// The section an article sits in, for its breadcrumb: the blog unless it says otherwise
+	section?: { name: string; path: string };
+	// VideoObject nodes for the videos on the page (src/utils/video-schema.ts)
+	videoObjects?: Record<string, unknown>[];
 }
 
 const {
@@ -38,6 +42,8 @@ const {
 	howToSteps,
 	canonicalUrl,
 	noindex = false,
+	section = { name: 'Blog', path: '/blog/' },
+	videoObjects = [],
 } = Astro.props;
 
 // Use provided canonical URL for syndicated content, otherwise generate from current path
@@ -251,8 +257,8 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 								{
 									'@type': 'ListItem',
 									position: 2,
-									name: 'Blog',
-									item: `${SITE_URL}/blog/`,
+									name: section.name,
+									item: `${SITE_URL}${section.path}`,
 								},
 								{
 									'@type': 'ListItem',
@@ -307,6 +313,7 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 						},
 					]
 				: []),
+			...videoObjects,
 		],
 	})}
 />

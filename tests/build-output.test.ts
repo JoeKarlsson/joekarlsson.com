@@ -398,6 +398,70 @@ describe('build output structure', () => {
 	});
 });
 
+describe('talk pages', () => {
+	const MOVED = [
+		'mongodb-schema-design-best-practices',
+		'from-sql-to-nosql-a-gentle-introduction-for-devs',
+		'the-art-of-computer-science',
+		'bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive',
+	];
+	const talkPages = readdirSync(resolve(dist, 'talks'), { withFileTypes: true })
+		.filter((entry) => entry.isDirectory())
+		.map((entry) => entry.name);
+
+	it('builds the four talk write-ups at /talks/<slug>/', () => {
+		expect(talkPages.sort()).toEqual([...MOVED].sort());
+	});
+
+	it('redirects each old /blog/ URL to its /talks/ page', () => {
+		for (const slug of MOVED) {
+			expect(readDist(`blog/${slug}/index.html`)).toContain(`url=/talks/${slug}/`);
+		}
+	});
+
+	it('gives every talk page valid VideoObject JSON-LD, with chapters as Clips', () => {
+		let clips = 0;
+		for (const slug of talkPages) {
+			const html = readDist(`talks/${slug}/index.html`);
+			const graph = [
+				...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g),
+			].flatMap((m) => JSON.parse(m[1])['@graph'] ?? []);
+			const videos = graph.filter((node: { '@type': string }) => node['@type'] === 'VideoObject');
+			expect(videos.length, slug).toBeGreaterThan(0);
+			for (const video of videos) {
+				for (const field of ['name', 'description', 'thumbnailUrl', 'uploadDate', 'embedUrl']) {
+					expect(video[field], `${slug} ${field}`).toBeTruthy();
+				}
+				expect(video.duration, slug).toMatch(/^PT(\d+H)?(\d+M)?(\d+S)?$/);
+				expect(video.uploadDate, slug).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+				expect(existsSync(resolve(dist, new URL(video.thumbnailUrl).pathname.slice(1))), slug).toBe(
+					true,
+				);
+				for (const clip of video.hasPart ?? []) {
+					expect(clip['@type']).toBe('Clip');
+					expect(clip.endOffset).toBeGreaterThan(clip.startOffset);
+					expect(clip.url).toContain(`&t=${clip.startOffset}s`);
+					clips++;
+				}
+			}
+			const crumbs = graph.find((node: { '@type': string }) => node['@type'] === 'BreadcrumbList');
+			expect(crumbs.itemListElement[1].item).toBe('https://www.joekarlsson.com/talks/');
+		}
+		expect(clips).toBeGreaterThan(0);
+	});
+
+	it('leaves no link to a moved post at its old /blog/ URL', () => {
+		const old = new RegExp(`href="/blog/(${MOVED.join('|')})/"`);
+		const stubs = new Set(MOVED.map((slug) => `blog/${slug}/index.html`));
+		const linking = builtPages.filter((page) => !stubs.has(page) && old.test(readDist(page)));
+		expect(linking).toEqual([]);
+	});
+
+	it('shows no blank paper scrap on /talks/', () => {
+		expect(readDist('talks/index.html')).not.toContain('data-talk-cover="scrap"');
+	});
+});
+
 const builtPages = (readdirSync(dist, { recursive: true, encoding: 'utf-8' }) as string[]).filter(
 	(file) => file.endsWith('.html'),
 );

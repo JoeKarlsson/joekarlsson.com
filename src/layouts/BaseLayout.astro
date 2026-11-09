@@ -21,6 +21,8 @@ interface Props {
 	howToSteps?: { name: string; text: string }[];
 	canonicalUrl?: string;
 	noindex?: boolean;
+	section?: { name: string; path: string };
+	videoObjects?: Record<string, unknown>[];
 	// Joe's doodles down the side margins on wide screens; off where full-width
 	// sections already run through the margins (the homepage)
 	marginDoodles?: boolean;
@@ -41,6 +43,8 @@ const {
 	howToSteps,
 	canonicalUrl,
 	noindex,
+	section,
+	videoObjects,
 	marginDoodles = true,
 } = Astro.props;
 ---
@@ -63,6 +67,8 @@ const {
 			howToSteps={howToSteps}
 			canonicalUrl={canonicalUrl}
 			noindex={noindex}
+			section={section}
+			videoObjects={videoObjects}
 		/>
 	</head>
 	<body class="flex min-h-screen flex-col">

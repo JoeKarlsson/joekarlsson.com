@@ -8,6 +8,9 @@ heroImage: '/images/blog/the-art-of-computer-science/thumb-89672fd2.webp'
 heroAlt: "Signac's pointillist painting of a woman at her easel"
 contentNotice: false
 tldr: 'I switched to computer science because I was afraid of not finding a job, and it took me six or seven more years to fall in love with programming. Art, stupid projects and a community of friends got me there. Find your community, find your joy, and build stuff for fun.'
+videos:
+  - id: 'GiNa2jen-lg'
+  - id: 'EtduE9IHDS0'
 ---
 
 Have you ever watched a tech talk where the speaker says they've been programming since they were four? That isn't my story, and I think it's harmful for any of us to believe you have to be a prodigy to belong in tech. This is my TEDx talk about how I finally found my love of programming through art, comedy and friends.
@@ -24,7 +27,7 @@ Have you ever watched a tech talk where the speaker says they've been programmin
 
 **Hawaii.** I moved to Honolulu with the clear intention of giving up programming forever and becoming a surf bum. Instead I started hanging out with the local surfer, hacker and punk community, and we made stuff together. It turns out I'm not a very good surfer, and I ended up inside programming a lot more than I'd planned. That was the first time I'd built something I cared about, and I'd never had friends who could show me that was possible.
 
-**Art and tech.** I think computers and the internet are the artistic medium of our generation, and that space is still wide open. Even more than art and tech, I love stupid stuff and tech: putting computer chips in things they don't belong in. I co-organized the [Stupid Shit and Terrible Ideas Hackathon](/blog/i-ran-my-first-hackathon-and-so-can-you/), where a group of us built things that shouldn't be built, with no purpose and no goal. I also built [bechdel.io](/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/) with my sister Laurel. It analyzes movie scripts in bulk to see whether they pass the Bechdel test.
+**Art and tech.** I think computers and the internet are the artistic medium of our generation, and that space is still wide open. Even more than art and tech, I love stupid stuff and tech: putting computer chips in things they don't belong in. I co-organized the [Stupid Shit and Terrible Ideas Hackathon](/blog/i-ran-my-first-hackathon-and-so-can-you/), where a group of us built things that shouldn't be built, with no purpose and no goal. I also built [bechdel.io](/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/) with my sister Laurel. It analyzes movie scripts in bulk to see whether they pass the Bechdel test.
 
 **Find your joy and your community.** Art is how I found joy in programming. It doesn't have to be yours. If you aren't finding any joy in it, find or create a community of people that helps you find it. It can center on an interest or on an identity: queer groups, nationality, race, whatever it is. In an industry dominated by people who look like me, a space where you feel safe and accepted matters a lot. Hackathons are a good way to start, and a lot of them focus on specific groups and niches.
 
@@ -48,6 +51,6 @@ I first gave this as the keynote at PennApps XXI in September 2020, then recorde
 
 - [Slides from the keynote on Speaker Deck](https://speakerdeck.com/joekarlsson/keynote-the-art-of-computer-science)
 - [bechdel.io](https://bechdel.joekarlsson.com/)
-- [How bechdel.io works](/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/)
+- [How bechdel.io works](/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/)
 - [I Ran My First Hackathon, and So Can You!](/blog/i-ran-my-first-hackathon-and-so-can-you/)
 - [My top resources for learning how to code](/blog/my-top-resources-for-learning-how-to-code/)

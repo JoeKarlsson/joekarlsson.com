@@ -10,11 +10,12 @@ import { DEFAULT_OG_IMAGE, ogJpegPath } from '../../utils/og-image';
 export async function getStaticPaths() {
 	const blog = await getCollection('blog');
 	const newsletter = await getCollection('newsletter');
+	const talks = await getCollection('talks');
 	const images = new Set<string>([
 		DEFAULT_OG_IMAGE,
 		'/images/uses/desk-2026.webp',
 		...projects.map((p) => p.image),
-		...[...blog, ...newsletter].flatMap((entry) => entry.data.heroImage ?? []),
+		...[...blog, ...talks, ...newsletter].flatMap((entry) => entry.data.heroImage ?? []),
 	]);
 	return [...images]
 		.filter((image) => !/^https?:\/\//.test(image))

@@ -1,5 +1,5 @@
 // Builds src/data/talk-videos.json, the YouTube videos the talk archive embeds, from the
-// yt-dlp .info.json files in the NAS archive (Talks/, Podcasts/, Livestreams/ of
+// yt-dlp .info.json files in the NAS archive (Talks/, Podcasts/, Livestreams/, Tutorials & Demos/ of
 // "My Videos"). The talk-videos health check reads this file from GitHub and emails when
 // one of these videos goes private or is deleted; the NAS copy in `backup` is what gets
 // re-uploaded (unlisted) to Joe's channel in its place.
@@ -10,7 +10,12 @@ import path from 'node:path';
 const DEFAULT_ROOT = '/Volumes/data/media/My Videos';
 const OUT_FILE = 'src/data/talk-videos.json';
 const JOE_CHANNEL_ID = 'UCWUGSN8Bb_c2QwPUfYmHwNA';
-const KIND_BY_FOLDER = { Talks: 'talk', Podcasts: 'podcast', Livestreams: 'livestream' };
+const KIND_BY_FOLDER = {
+	Talks: 'talk',
+	Podcasts: 'podcast',
+	Livestreams: 'livestream',
+	'Tutorials & Demos': 'video',
+};
 
 /** One info.json (path relative to the archive root) to a talk-videos.json entry, or null. */
 export function toTalkVideo(info, relativePath) {

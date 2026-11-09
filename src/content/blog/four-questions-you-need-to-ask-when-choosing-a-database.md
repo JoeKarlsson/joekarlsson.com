@@ -43,7 +43,7 @@ The first question you need to ask yourself is, “Does this database actually s
 
 - What is the natural “shape” of your data?
 
-- Does your application need online transaction processing (OLTP), analytic queries (OLAP), or both? For OLAP workloads, I've been impressed by [ClickHouse](/blog/why-clickhouse-should-be-your-next-database/). For document-oriented workloads, it's worth understanding [MongoDB schema design best practices](/blog/mongodb-schema-design-best-practices/). And if you need sub-second query latency on fresh data, take a look at my breakdown of [real-time databases](/blog/real-time-databases-what-developers-need-to-know/).
+- Does your application need online transaction processing (OLTP), analytic queries (OLAP), or both? For OLAP workloads, I've been impressed by [ClickHouse](/blog/why-clickhouse-should-be-your-next-database/). For document-oriented workloads, it's worth understanding [MongoDB schema design best practices](/talks/mongodb-schema-design-best-practices/). And if you need sub-second query latency on fresh data, take a look at my breakdown of [real-time databases](/blog/real-time-databases-what-developers-need-to-know/).
 
 - What ratio of reads to writes do you expect in production?
 

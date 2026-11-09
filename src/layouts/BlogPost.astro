@@ -48,6 +48,12 @@ interface Props {
 	howToSteps?: { name: string; text: string }[];
 	headings?: { depth: number; slug: string; text: string }[];
 	canonicalUrl?: string;
+	/** Where the post lives: /blog/ by default, /talks/ for a talk write-up */
+	section?: 'blog' | 'talks';
+	/** A post outside the blog collection brings its own text, to find related blog posts */
+	body?: string;
+	/** VideoObject JSON-LD for the videos on the page (src/utils/video-schema.ts) */
+	videoObjects?: Record<string, unknown>[];
 }
 
 const {
@@ -73,7 +79,15 @@ const {
 	howToSteps,
 	headings,
 	canonicalUrl,
+	section = 'blog',
+	body,
+	videoObjects,
 } = Astro.props;
+const SECTIONS = {
+	blog: { name: 'Blog', path: '/blog/' },
+	talks: { name: 'Talks', path: '/talks/' },
+};
+const home = SECTIONS[section];
 // The hero's real size, so a phone reserves the right height before it loads:
 // the old fixed 1120x440 made square heroes jump the title down (CLS 0.15)
 const heroSize = heroImage ? await localImageSize(heroImage) : undefined;
@@ -128,7 +142,12 @@ const relatablePosts = publishedPosts.map((post) => ({
 	body: post.body,
 }));
 const relatedSlugs = rankRelatedPosts(
-	relatablePosts.find((post) => post.slug === slug)!,
+	relatablePosts.find((post) => post.slug === slug) ?? {
+		slug: `${section}/${slug}`,
+		title,
+		description,
+		body,
+	},
 	relatablePosts,
 	popularPosts.visitorsByPath,
 );
@@ -163,6 +182,8 @@ const heroIsTaped =
 	faq={faq}
 	howToSteps={howToSteps}
 	canonicalUrl={canonicalUrl}
+	section={home}
+	videoObjects={videoObjects}
 >
 	{/* Phones show progress in the nav bar instead (reading-context.ts) */}
 	<div
@@ -183,7 +204,7 @@ const heroIsTaped =
 				data-post-category={categories?.[0]}
 				data-reading-time={readingTime}
 			>
-				<BackLink href="/blog/" label="Blog" />
+				<BackLink href={home.path} label={home.name} />
 				{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video;
 				in-view-play starts it, so a remembered pause or reduced motion keeps it still */}
 				{heroVideo ? (
@@ -390,7 +411,7 @@ const heroIsTaped =
 					</script>
 
 					<ShareLinks
-						url={canonicalUrl || new URL(`/blog/${slug}/`, Astro.site).href}
+						url={canonicalUrl || new URL(`${home.path}${slug}/`, Astro.site).href}
 						title={shareTitle || title}
 						noun="post"
 						class="mt-10"

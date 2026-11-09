@@ -1,12 +1,16 @@
 ---
-// One talk, podcast or livestream on /talks/. A recorded one shows its video as the
-// click-to-play player (YouTubeFacade, thumbnail saved locally by npm run
-// youtube:thumbnails); an audio-only podcast gets a pink paper scrap with the show's name,
-// and a talk with no recording a chalk one with the event's name. Phones get a compact
-// row, a small picture beside the words like /work's cards; there the video's picture
-// links out to YouTube, since a player 112px wide is no use.
+// One talk, podcast, livestream or demo on /talks/. Its picture, best first:
+// - its own video, as the click-to-play player (YouTubeFacade, thumbnail saved locally by
+//   npm run youtube:thumbnails), live pink like every other video on the site
+// - a recording of the same talk from another event (`otherRecording`), labeled with that
+//   event, its poster graded ahead of time by npm run talks:covers
+// - the event's own picture (`cover`), graded the same way
+// - a paper scrap with the event's name, only for a talk flagged `paperScrap` (nothing exists)
+// Every card with a video also gets a plain YouTube link. Phones get a compact row, a small
+// picture beside the words like /work's cards; there the video's picture links out to
+// YouTube, since a player 112px wide is no use.
 import type { Talk } from '../data/talks';
-import { formatTalkDate, groupOf } from '../data/talks';
+import { formatTalkDate, groupOf, talks } from '../data/talks';
 import { CHALK } from '../data/scribbles';
 import { META, TEXT_LINK } from '../utils/ui';
 import YouTubeFacade from './YouTubeFacade.astro';
@@ -18,9 +22,27 @@ interface Props {
 }
 
 const { talk, index } = Astro.props;
-const [video, ...moreVideos] = talk.videos ?? [];
-const KIND_LABELS = { talk: 'Talk', panel: 'Panel', podcast: 'Podcast', livestream: 'Livestream' };
-const poster = video && `/images/youtube/${video}.webp`;
+const [ownVideo, ...moreVideos] = talk.videos ?? [];
+const video = ownVideo ?? talk.otherRecording;
+// Where the other recording is from: the talk whose videos hold it
+const recordedAt =
+	!ownVideo && talk.otherRecording
+		? talks.find((t) => t.videos?.includes(talk.otherRecording!))
+		: undefined;
+if (talk.otherRecording && !ownVideo && !recordedAt)
+	throw new Error(`"${talk.title}": otherRecording ${talk.otherRecording} is in no talk's videos`);
+if (!video && !talk.cover && !talk.paperScrap)
+	throw new Error(`"${talk.title}" at ${talk.event} has no video, otherRecording or cover`);
+const poster = ownVideo
+	? `/images/youtube/${ownVideo}.webp`
+	: video && `/images/talks/recorded/${video}.webp`;
+const KIND_LABELS = {
+	talk: 'Talk',
+	panel: 'Panel',
+	podcast: 'Podcast',
+	livestream: 'Livestream',
+	demo: 'Demo',
+};
 const watch = (id: string) => `https://www.youtube.com/watch?v=${id}`;
 const where = [talk.event, talk.place].filter(Boolean).join(' · ');
 const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
@@ -32,13 +54,14 @@ const LINK =
 	class="talk-card max-md:grid max-md:grid-cols-[112px_1fr] max-md:items-start max-md:gap-x-4"
 	data-talk-group={groupOf(talk)}
 	data-talk-video={video ? '' : undefined}
+	data-talk-cover={ownVideo ? 'video' : video ? 'other' : talk.cover ? 'event' : 'scrap'}
 >
 	<div class="relative max-md:row-span-4 max-md:[&_.youtube-facade>span]:size-9 max-md:[&_.youtube-facade>span>svg]:size-4">
 		{video ? (
 			<>
 				<YouTubeFacade id={video} title={talk.title} poster={poster} />
-				{/* One picture for both sizes (each is a live pink canvas): on phones a link to
-				YouTube sits over the player, and the play button shrinks to fit */}
+				{/* One picture for both sizes: on phones a link to YouTube sits over the player,
+				and the play button shrinks to fit */}
 				<a
 					href={watch(video)}
 					target="_blank"
@@ -47,6 +70,16 @@ const LINK =
 					aria-label={`Watch ${talk.title} on YouTube`}
 				/>
 			</>
+		) : talk.cover ? (
+			<img
+				src={talk.cover}
+				alt=""
+				width="640"
+				height="360"
+				loading="lazy"
+				decoding="async"
+				class="block aspect-video w-full rounded-lg bg-ink object-cover"
+			/>
 		) : (
 			<div
 				class:list={[
@@ -76,9 +109,15 @@ const LINK =
 		)}
 	</h3>
 	<p class={`mt-1 ${META}`}>{where}</p>
+	{recordedAt && <p class={`mt-1 ${META}`}>Recorded at {recordedAt.event}</p>}
 	{talk.description && <p class="mt-2 line-clamp-2 text-paper max-md:hidden">{talk.description}</p>}
-	{(talk.writeup || talk.listen || talk.slides || moreVideos.length > 0) && (
+	{(video || talk.writeup || talk.listen || talk.slides) && (
 		<p class="mt-2 flex flex-wrap gap-x-4 max-md:col-start-2">
+			{video && (
+				<a href={watch(video)} target="_blank" rel="noopener noreferrer" class={LINK}>
+					YouTube
+				</a>
+			)}
 			{talk.writeup && (
 				<a href={talk.writeup} class={LINK}>
 					Read the talk

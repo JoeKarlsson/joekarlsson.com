@@ -10,9 +10,14 @@ const withText = new Set<string>(imagesWithText);
  * live pink pass leaves them alone: work-post cards (scripts/generate-work-thumbnails.mjs) come out
  * graded pink with a taped print's border and tape kept, and boiling diagram cards
  * (scripts/boiling-thumbnail.mjs) are animated, which a live canvas copy would freeze.
+ * /talks/' covers for cards with no video of their own (scripts/fetch-talk-event-covers.mjs)
+ * come graded too, so a page with over a hundred cards stays inside a phone's budget.
  */
 export function isPretreatedThumbnail(src: string): boolean {
-	return /^\/images\/(blog|projects)\/[^/]+\/thumb-[0-9a-f]{8}\.webp$/.test(src);
+	return (
+		/^\/images\/(blog|projects)\/[^/]+\/thumb-[0-9a-f]{8}\.webp$/.test(src) ||
+		/^\/images\/talks\/(events|recorded)\/[\w-]+\.webp$/.test(src)
+	);
 }
 
 export function halftoneMode(src: string): 'flat' | 'dots' | undefined {

@@ -238,7 +238,7 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 
 ## Books
 
-If you want to hear more about my thoughts on CS fundamentals and finding your place in tech, check out my talk [The Art of Computer Science](/blog/the-art-of-computer-science/).
+If you want to hear more about my thoughts on CS fundamentals and finding your place in tech, check out my talk [The Art of Computer Science](/talks/the-art-of-computer-science/).
 
 - [Introduction to Algorithms](http://mitpress.mit.edu/books/introduction-algorithms) by Cormen, Leiserson, Rivest & Stein
 
