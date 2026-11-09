@@ -24,7 +24,7 @@ This is the technical follow-up to [that initial experiment](/blog/i-replaced-my
 
 ![Drake meme - rejecting Alexa sending every command to Amazon, approving llama3.2:3b running on my own server and never leaving my network](/images/blog/local-voice-ai-home-assistant-gpu/drake-local-vs-cloud.webp)
 
-If you're brand new to Home Assistant, [start here first](/blog/how-to-get-started-with-home-assistant-in-2026/).
+If you're brand new to Home Assistant, [start here first](/blog/how-to-get-started-with-home-assistant/).
 
 ## What I Was Actually Optimizing For
 
@@ -327,4 +327,4 @@ With all three components running locally, no. HA itself can run fully offline. 
 
 ---
 
-_If you're setting up the hardware foundation, the [homelab getting started guide](/blog/how-to-get-started-building-a-homelab-server-in-2024/) covers what you need before any of this makes sense._
+_If you're setting up the hardware foundation, the [homelab getting started guide](/blog/how-to-get-started-building-a-homelab-server/) covers what you need before any of this makes sense._

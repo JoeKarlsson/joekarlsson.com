@@ -144,7 +144,7 @@ export default defineConfig({
 		// WordPress date-based blog URLs → new /blog/slug pattern
 		// Specific redirects for known old URLs (strips month from path)
 		'/2023/09/how-to-get-started-building-a-homelab-server-in-2024':
-			'/blog/how-to-get-started-building-a-homelab-server-in-2024/',
+			'/blog/how-to-get-started-building-a-homelab-server/',
 
 		// Covers all /YYYY/MM/slug patterns from the old WordPress site
 		'/2015/[...slug]': '/blog/[...slug]',
@@ -167,6 +167,38 @@ export default defineConfig({
 		'/blog/how-i-work': '/uses/',
 		// The same CData article imported twice under two slugs (2026-11-05)
 		'/blog/connect-enterprise-data-meta-muse': '/blog/connect-business-apps-meta-muse/',
+
+		// Evergreen guides lost the year in their URL so a yearly refresh only changes the title
+		// (2026-11-09)
+		'/blog/how-to-get-started-with-home-assistant-in-2026':
+			'/blog/how-to-get-started-with-home-assistant/',
+		'/blog/how-to-get-started-building-a-homelab-server-in-2024':
+			'/blog/how-to-get-started-building-a-homelab-server/',
+		'/blog/running-devrel-2026': '/blog/running-devrel/',
+
+		// Thin, off-topic or dead-product posts cut in the 2027 content audit (2026-11-09)
+		'/blog/overwhelmed-by-the-web': '/blog/category/life/',
+		'/blog/my-relationship-with-the-internet': '/blog/category/life/',
+		'/blog/how-to-explain-to-your-dad-why-snapchat-is-so-awesome': '/blog/category/life/',
+		'/blog/10-things-i-learned-at-startup-weekend': '/blog/category/career/',
+		'/blog/how-to-find-a-technical-co-founder': '/blog/category/career/',
+		'/blog/psa-activate-2-step-verification-on-your-email-account': '/blog/',
+		'/blog/one-week-in-oahu-a-tourists-travel-itinerary': '/blog/category/life/',
+		'/blog/a-brief-cuba-travel-guide': '/blog/category/life/',
+		'/blog/save-the-world-and-money-with-mongodb-atlas-data-lake':
+			'/blog/how-to-manage-mongodb-data-at-scale/',
+		'/blog/getting-started-with-graphql-and-atlas': '/talk-archive/',
+		'/blog/a-gentle-introduction-to-building-serverless-apps': '/talk-archive/',
+		'/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes':
+			'/blog/',
+		'/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things':
+			'/blog/an-introduction-to-iot-internet-of-toilets/',
+		'/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon':
+			'/blog/i-ran-my-first-hackathon-and-so-can-you/',
+		'/blog/devrel-as-dev-zero': '/blog/running-devrel/',
+		'/blog/developer-advocacy-in-2023': '/blog/running-devrel/',
+		'/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project':
+			'/blog/running-devrel/',
 
 		// Old blog categories, folded into the six current ones (2026-11-05). Work was a
 		// catch-all for employer posts, now shown by /blog/written-for/.

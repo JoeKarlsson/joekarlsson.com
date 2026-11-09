@@ -211,6 +211,8 @@ Here is some great examples of good swag for your event:
 
 This last one is huge, but be sure to get the word out about your hackathon with your mouth. Tell everybody you know, talk about it all the time. Get comfortable with asking your friends and acquaintances to come to your event. Lots of the traffic at my event was due to word of mouth. Never underestimate the power of asking someone to come to your event in person.
 
+Local media is word of mouth with a bigger mouth. Ray and I went on Hawaii Public Radio's [Bytemarks Cafe](http://www.bytemarkscafe.org/2016/12/14/episode-433-maui-groundwater-study-dec-14-2016/) a few weeks before the event to explain why anyone would run a hackathon for stupid ideas (I'm on at the 11-minute mark). If your city has a tech radio show or podcast, ask to go on.
+
 ---
 
 ## How To Get Sponsors

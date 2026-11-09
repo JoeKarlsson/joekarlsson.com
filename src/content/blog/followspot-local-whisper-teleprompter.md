@@ -14,7 +14,7 @@ tldr: "I can't memorize lines, so I built FollowSpot, a browser teleprompter tha
 
 I have the energy of a theater kid and I can't memorize lines. I'm pretty sure something is wrong with my brain. (If anyone knows if this is a real medical disorder, please let me know). I can write a paragraph, read it twice, and lose it by the time the camera is rolling. It's the reason I never had the guts to do theater.
 
-Public speaking worked out anyway. In [DevRel](/blog/running-devrel-2026/) I mostly talk about things I built, so there's nothing to memorize. I just explain the cool thing I'm working on.
+Public speaking worked out anyway. In [DevRel](/blog/running-devrel/) I mostly talk about things I built, so there's nothing to memorize. I just explain the cool thing I'm working on.
 
 Lately I've been making more videos, though, and some of them need tight monologues where every sentence has a job. Winging it doesn't work there. So I built [FollowSpot](https://github.com/JoeKarlsson/followspot), a browser teleprompter that listens while I read and follows along. The speech recognition is a [whisper.cpp](https://github.com/ggml-org/whisper.cpp) model running on my own laptop, and my audio never leaves it.
 

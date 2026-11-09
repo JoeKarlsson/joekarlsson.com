@@ -15,7 +15,7 @@ tldr: 'I got tired of typing IP addresses to access my homelab services, so I se
 
 ---
 
-I got tired of typing IP addresses to access services on my homelab, so I set up custom domain names on my internal network. If you don't have a homelab yet, check out my guide on [how to get started building a homelab server](/blog/how-to-get-started-building-a-homelab-server-in-2024/) first. I'm going to walk through how I set up custom domain names using [Pi-Hole](https://pi-hole.net/) for DNS management and [Nginx Proxy Manager](https://nginxproxymanager.com/) for web traffic control and SSL encryption.
+I got tired of typing IP addresses to access services on my homelab, so I set up custom domain names on my internal network. If you don't have a homelab yet, check out my guide on [how to get started building a homelab server](/blog/how-to-get-started-building-a-homelab-server/) first. I'm going to walk through how I set up custom domain names using [Pi-Hole](https://pi-hole.net/) for DNS management and [Nginx Proxy Manager](https://nginxproxymanager.com/) for web traffic control and SSL encryption.
 
 ![How a custom local domain resolves. The browser asks Pi-hole where magic.mirror is, and Pi-hole’s local DNS record answers with Nginx Proxy Manager’s IP. The browser sends its request for magic.mirror to Nginx Proxy Manager, whose proxy host forwards it to the IP of the server running Magic Mirror, and the page comes back the same way.](/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/request-flow.svg)
 

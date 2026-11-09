@@ -184,7 +184,7 @@ export const openSource = [
 		description:
 			'20+ self-hosted services running on bare metal and VMs: Proxmox, Unraid, TrueNAS, Jellyfin, Home Assistant, Authentik, Immich, and more.',
 		tech: ['Proxmox', 'Docker', 'Tailscale', 'Caddy', 'Home Assistant'],
-		url: '/blog/how-to-get-started-building-a-homelab-server-in-2024/',
+		url: '/blog/how-to-get-started-building-a-homelab-server/',
 	},
 ];
 
@@ -310,7 +310,7 @@ export const writingSamples: WritingSampleGroup[] = [
 		items: [
 			{
 				title: 'What I Learned Running DevRel in 2026',
-				url: 'https://joekarlsson.com/blog/running-devrel-2026/',
+				url: 'https://joekarlsson.com/blog/running-devrel/',
 				publisher: 'joekarlsson.com',
 			},
 		],

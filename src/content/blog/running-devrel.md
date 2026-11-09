@@ -1,10 +1,11 @@
 ---
-title: 'Running DevRel in 2026 Means Owning Three Discovery Surfaces'
-seoTitle: 'Running DevRel in 2026'
+title: 'Running DevRel in 2027 Means Owning Three Discovery Surfaces'
+seoTitle: 'Running DevRel in 2027'
 date: 2026-04-21
-updatedDate: 2026-10-12
-slug: 'running-devrel-2026'
-description: 'Running DevRel in 2026: developers find you through people, search, and LLMs. What breaks on each surface, how I measure it, and my first 90 days.'
+updatedDate: 2026-11-09
+updateNote: "Refreshed for 2027. The LLM surface now has a second half you can ship into (plugin marketplaces, docs MCP servers, the MCP Registry), and I added Seer Interactive's AI Overviews click data and Google's own guidance on AI files."
+slug: 'running-devrel'
+description: 'Running DevRel in 2027: developers find you through people, search, and LLMs. What breaks on each surface, how I measure it, and my first 90 days.'
 categories: ['Career']
 tags:
   [
@@ -17,18 +18,20 @@ tags:
     'OSS',
     'Claude Code',
   ]
-heroImage: '/images/blog/running-devrel-2026/hero.webp'
+heroImage: '/images/blog/running-devrel/hero.webp'
 heroAlt: 'Halftone illustration of hands typing on a laptop with a terminal screen, on an orange background'
-tldr: 'Developers find tools through three surfaces in 2026: other people, search crawlers, and LLM coding assistants like Claude Code and Cursor. Most DevRel programs only work the first. I spend my first 30 days auditing all three (site health, LLM presence, developer UX) before shipping any content, and I track leading indicators like star velocity, issue response time, and quarterly LLM mention rank, because downloads lag the work by months.'
+tldr: 'Developers find tools through three surfaces going into 2027: other people, search crawlers, and LLM coding assistants like Claude Code and Cursor. Most DevRel programs only work the first, and the LLM surface now has a half you can ship into directly: plugins, skills, and docs MCP servers that agents install. I spend my first 30 days auditing all three (site health, LLM presence, developer UX) before shipping any content, and I track leading indicators like star velocity, issue response time, and quarterly LLM mention rank, because downloads lag the work by months.'
 faq:
   - question: 'What are the three discovery surfaces for developer tools?'
-    answer: 'Human developers, search crawlers, and LLMs. Developers find you through community, content, and events. Search rewards technical site health: Core Web Vitals, clean redirects, internal linking. LLMs, especially IDE-native assistants like Claude Code and Cursor, often write code from what they learned in training, so your README, examples directory, and API reference are your marketing there. Most DevRel programs only work the first surface.'
+    answer: 'Human developers, search crawlers, and LLMs. Developers find you through community, content, and events. Search rewards technical site health: Core Web Vitals, clean redirects, internal linking. LLMs, especially IDE-native assistants like Claude Code and Cursor, often write code from what they learned in training, so your README, examples directory, and API reference are your marketing there. Agents also install plugins, skills, and MCP servers now, which gives DevRel a second way in. Most DevRel programs only work the first surface.'
   - question: 'What is the biggest mistake DevRel programs make in year one?'
     answer: "Skipping the audit. The instinct is to ship: start content, launch a community channel, go to a conference. Without a baseline of what's broken, you're optimizing blind. I spend the first 30 days on evidence (technical site health, LLM presence, developer UX) before deciding where to invest."
   - question: 'How do I get LLMs to recommend my developer tool?'
     answer: "You can't guarantee it, but you can improve your odds. Put well-structured, specific information where models learn from and look things up: your README, examples directory, API reference, Stack Overflow answers, dev.to posts, and HN threads. Specific claims get cited (benchmark numbers, concrete use cases, working examples) and marketing copy doesn't. Keep docs current and put a one-sentence definition of what your product does at the top of every key page."
   - question: 'Does llms.txt help developer tools show up in AI answers?'
-    answer: 'Not reliably. As of October 2026 none of the major AI platforms have said they read llms.txt in their answer products, and server-log studies show their crawlers rarely request it. Some coding tools and docs platforms do use it. It takes about 10 minutes to add, so I treat it as cheap insurance, not a strategy.'
+    answer: "Not reliably. As of November 2026, no major AI platform has documented reading llms.txt for its answer products, and Google says you don't need AI text files to appear in AI Overviews or AI Mode. Agent tooling is where it gets used: docs sites like the MCP and Claude Code docs point agents at their llms.txt index first. It takes about 10 minutes to add, so I treat it as cheap insurance, not a strategy."
+  - question: 'How do I get my developer tool into Claude Code or Cursor?'
+    answer: 'Ship something an agent can install. Cursor has a manually reviewed Marketplace for plugins, Claude Code installs plugins from marketplaces that are Git repos, and the official MCP Registry (still in preview) lists MCP servers for downstream marketplaces. A docs MCP server or a skill that runs your quickstart lets the agent read your docs instead of guessing from training data.'
   - question: 'What should I do in my first 30 days as the DevRel hire?'
     answer: "Run a Developer Discoverability Audit across all three surfaces: technical SEO and site health, LLM presence, and developer UX. Go through the product as a stranger and time how long it takes to get a working result. Interview product, engineering, sales, and customer success. Build a baseline metrics snapshot. Don't ship content yet."
   - question: 'How do I show DevRel ROI before downloads start moving?'
@@ -39,17 +42,17 @@ faq:
 
 Most DevRel plans for the first 90 days come down to community, content, and events, with "developer experience" added if the author is sharp. That plan covers one of the three places developers find your tool. The other two are search crawlers and LLMs like Claude Code and Cursor, and in my experience that's where the damage is. I spend my first month auditing all three before I ship anything, and I measure each one differently.
 
-I wrote about [developer advocacy in 2023](/blog/developer-advocacy-in-2023/) when layoffs made everyone ask what DevRel was for. Since then the job has picked up two surfaces the standard playbook still doesn't mention.
+I started writing about DevRel in 2023, when layoffs made everyone ask what it was for. Since then the job has picked up two surfaces the standard playbook still doesn't mention.
 
 ## Three discovery surfaces
 
 For a long time I treated developer discoverability as one problem: write content, build community, go to conferences, and hope word spreads. Now I split it three ways, because each surface breaks differently and needs a different fix.
 
-| Surface          | How discovery happens                           | What breaks                                                         | How to measure it                                        |
-| ---------------- | ----------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------- |
-| Human developers | Word of mouth, community, events                | Usually least broken                                                | Community activity, time to first value (TTFV) benchmark |
-| Search crawlers  | Google indexing, technical SEO                  | Docs siloed from root domain, crawl errors, keyword cannibalization | Ahrefs organic, keyword positions, Core Web Vitals       |
-| LLMs             | Training data, web lookups by coding assistants | Stale README, thin examples, no third-party presence                | Quarterly manual benchmark, AI referral traffic          |
+| Surface          | How discovery happens                         | What breaks                                                         | How to measure it                                        |
+| ---------------- | --------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------- |
+| Human developers | Word of mouth, community, events              | Usually least broken                                                | Community activity, time to first value (TTFV) benchmark |
+| Search crawlers  | Google indexing, technical SEO                | Docs siloed from root domain, crawl errors, keyword cannibalization | Ahrefs organic, keyword positions, Core Web Vitals       |
+| LLMs             | Training data, web lookups, installed plugins | Stale README, thin examples, nothing for an agent to install        | Quarterly manual benchmark, AI referral traffic          |
 
 DevRel has always owned the first one. The second usually belongs to marketing, who treat it as a content problem when it's mostly plumbing. Nobody owns the third.
 
@@ -65,11 +68,11 @@ The audience question matters too. Executives sign the contracts, so it's tempti
 
 Once the quickstart works, comparison posts are the first format I reach for. Not "us vs. them" marketing, but honest comparisons with numbers a developer can reproduce and share when they're right. I've had one comparison post stay in a company's top 10 for over a year with zero updates.
 
-For community, I pick one or two channels and go deep. A Discord where someone answers within an hour beats five channels where nothing happens.
+For community, I pick one or two channels and go deep. A Discord where someone answers within an hour beats five channels where nothing happens. On an open source project I run content the way the project runs code: a public list of what's coming next, and community-written tutorials reviewed like pull requests.
 
 ## Dev Zero and docs
 
-The highest-impact thing I've done in DevRel, at every company, is showing up to roadmap discussions before decisions get made. I call it being [Dev Zero](/blog/devrel-as-dev-zero/): going through new features as a stranger before launch and finding the friction before developers in the wild do. Most companies don't set this up until they've shipped something that confused developers publicly, like an error message that makes no sense without internal context or an API that changed behavior with no deprecation notice. The public complaints are the visible part. The bigger cost is the developers who quietly churned and never came back.
+The highest-impact thing I've done in DevRel, at every company, is showing up to roadmap discussions before decisions get made. I call it being Dev Zero: going through new features as a stranger before launch and finding the friction before developers in the wild do. Once, testing a product, I found the sign-up page had no Create Account button, and nobody on the team had caught it. Most companies don't set this up until they've shipped something that confused developers publicly, like an error message that makes no sense without internal context or an API that changed behavior with no deprecation notice. The public complaints are the visible part. The bigger cost is the developers who quietly churned and never came back.
 
 Docs are where this matters most, and the work is fighting for how they get made, not writing them. The default at most companies is that docs happen after the feature ships, written by whoever has five minutes during a sprint where everyone is already on the next thing. Nobody files a ticket for documentation debt, so it piles up. I push for docs to be part of the feature spec and reviewed before launch. I also run Plausible on docs the same way I track a blog. A page with a high exit rate and short time on page is usually broken or confusing in a way nobody has named yet.
 
@@ -87,9 +90,15 @@ Then this came in from a customer on a first sales call:
 
 That quote did more for the content budget than any dashboard I'd built, but I needed the dashboard to get the meeting.
 
-One pattern to watch for in Google Search Console is impressions up, position up, and clicks flat. That's AI Overviews answering informational queries on the results page. The SEO work is fine; fewer people click through. Explain that distinction to leadership before you show them the numbers, or it looks like the program is stalling.
+One pattern to watch for in Google Search Console is impressions up, position up, and clicks flat. That's AI Overviews answering informational queries on the results page. The SEO work is fine; fewer people click through. [Seer Interactive tracked 53 brands](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-2026-update) from January 2025 through February 2026: organic click-through on queries that showed an AI Overview bottomed out at 1.31% in December 2025 and climbed back to 2.36% by February, against 3.82% on queries without one. Explain that distinction to leadership before you show them the numbers, or it looks like the program is stalling.
+
+[Google's own guidance](https://developers.google.com/search/docs/appearance/ai-features) says you don't need new machine-readable files, AI text files, or markup to show up in AI Overviews or AI Mode, so the site-health work above covers those too.
 
 ## Surface three: LLMs
+
+This surface has two halves now: what the model already learned, which you influence slowly and can barely measure, and what the agent can install, which you can ship directly.
+
+### What the model already knows
 
 When a developer opens Claude Code or Cursor and asks it to "add a real-time analytics layer to this application," the assistant usually doesn't go shopping for tools. It writes code, using whatever packages and APIs it learned about. If your SDK isn't well represented there, with accurate docs and clear usage patterns, it either skips you or uses you wrong, and the developer never knows there was a choice. When the assistant does look things up on the web, it lands on your docs and README, which is the same argument from the other direction.
 
@@ -97,15 +106,21 @@ So your README, examples directory, API reference, and SDK docs are your LLM mar
 
 LLMs also use content differently than people or crawlers do. Specific claims get cited. Something like "ingestion latency under 50ms at 10M events per second on a 3-node cluster" (a made-up example) is a sentence a model can extract and repeat, and "our platform handles high-throughput streaming data" isn't. Every important page should have a few sentences that specific, plus a one-sentence definition of what the product does near the top. Third-party presence counts too: Stack Overflow answers, dev.to posts, and HN threads all end up in training data. Answering a developer's question well in public is community work and corpus work at the same time. I built [a blog skill that bakes these checks into my writing workflow](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/) so I don't skip them.
 
-Measuring this surface is mostly unsolved. I still have no reliable way to see how often a product shows up in AI answers or in what context. My best proxy is a quarterly manual benchmark: prompt ChatGPT, Claude, Gemini, and Perplexity with the queries your target users would type, and write down where you appear, how you're described, and who shows up instead.
+### What the agent can install
+
+Coding agents install things now. [Cursor has a Marketplace](https://cursor.com/docs/plugins) where every plugin is manually reviewed, and plugins can bundle skills and MCP servers. [Claude Code installs plugins from marketplaces](https://code.claude.com/docs/en/plugin-marketplaces) that are just Git repos. The [official MCP Registry](https://modelcontextprotocol.io/registry/about) lists MCP servers for those marketplaces to pick up, though it's still labeled preview and warns about breaking changes before general availability.
+
+This is the half DevRel controls. If a developer's agent can install your docs as an MCP server, or a skill that runs your quickstart, it reads your docs instead of guessing from training data. So "make the README good" has a second line going into 2027: ship a docs MCP server or at least clean Markdown docs, publish a skill or plugin that sets up your product, and list it where agents look.
+
+Measuring this surface is still immature. I still have no reliable way to see how often a product shows up in AI answers or in what context. Installs and docs MCP server requests are countable, so the agent-tooling half is easier. For the training-data half, my best proxy is a quarterly manual benchmark: prompt ChatGPT, Claude, Gemini, and Perplexity with the queries your target users would type, and write down where you appear, how you're described, and who shows up instead.
 
 AI referral traffic is measurable, though the counts run low. Plausible groups ChatGPT, Perplexity, Claude, and others into an AI channel, and in GA4 you'll want a custom channel group on those referrer domains. Some assistants often send no referrer at all, so treat the number as a floor. In my own reporting it's been 1-2% of total traffic, but at companies with well-structured docs I've seen AI-sourced visits grow 50-60% month over month. Set up the tracking now so you have a baseline before it gets big.
 
-As for `llms.txt`: as of October 2026, none of the major AI platforms have said they read it in their answer products, and server-log studies show their crawlers rarely request it. Some coding tools and docs platforms do use it. It takes 10 minutes, so I add it, but accurate docs for it to point at matter far more.
+As for `llms.txt`: as of November 2026, no major AI platform has documented reading it for its answer products, and Google's guidance above covers it for search. Where it does get used is agent tooling. The MCP and Claude Code docs both tell agents, at the top of every page, to start from their llms.txt index. It takes 10 minutes, so I add it, but accurate docs for it to point at matter far more.
 
 ## Metrics that predict downloads
 
-When DevRel struggles to get headcount or leadership attention, it's almost never because the work is bad. It's because the work isn't connected to anything leadership already cares about. In the [State of Developer Relations 2024 report](https://www.stateofdeveloperrelations.com/2024devrelreport), 60.7% of respondents named proving impact with data and metrics as their top challenge, so most people in this role know the problem already.
+When DevRel struggles to get headcount or leadership attention, it's almost never because the work is bad. It's because the work isn't connected to anything leadership already cares about. In the [State of Developer Relations 2024 report](https://www.stateofdeveloperrelations.com/2024devrelreport), the latest edition I could find, 60.7% of respondents named proving impact with data and metrics as their top challenge, so most people in this role know the problem already.
 
 The first time I brought a dashboard to a leadership review instead of a list of things I'd done, the conversation changed. A dashboard forces you to make claims that can be checked, and checked claims build credibility faster than storytelling. Later I [got CRM access and tied my content to conversions](/blog/proving-my-work-mattered/), which changed my 1:1s more than anything else I've done.
 
@@ -133,7 +148,7 @@ I spend the first 30 days auditing, and the audit has one part per surface.
 
 **Developer UX (humans).** Go through the product as a stranger, with no internal Slack and no engineer sitting next to you. Time the quickstart. Does it work on an M-series Mac? On Windows? In Docker? Can every code snippet be copied and run without changes? When something goes wrong, are the errors searchable, and do they tell you what to do next?
 
-**Technical site health (search).** Check every subdomain: docs, blog, app, changelog, API reference. Look at Core Web Vitals, robots.txt, internal links, redirect chains, keyword cannibalization between blog and docs, and missing structured data. I use [Ahrefs](https://ahrefs.com/pricing) (Lite starts at $129/month), and one indexing bug found pays for a year of it. If budget is tight, [Screaming Frog's free tier](https://www.screamingfrog.co.uk/seo-spider/pricing/) crawls up to 500 URLs. Run a content gap analysis against two or three competitors; what they rank for and you don't becomes your content list.
+**Technical site health (search).** Check every subdomain: docs, blog, app, changelog, API reference. Look at Core Web Vitals, robots.txt, internal links, redirect chains, keyword cannibalization between blog and docs, and missing structured data. I use [Ahrefs](https://ahrefs.com/pricing) (the Lite plan is enough to start), and one indexing bug found pays for a year of it. If budget is tight, [Screaming Frog's free tier](https://www.screamingfrog.co.uk/seo-spider/pricing/) crawls up to 500 URLs. Run a content gap analysis against two or three competitors; what they rank for and you don't becomes your content list.
 
 **LLM presence.** Run the first quarterly benchmark described above. Type in your target users' real queries, like "best tool for real-time analytics on streaming data" or "compare [your product] vs [competitor]." Document where you appear, what the model gets wrong about you, and where competitors show up instead. Then read your README and examples directory the way a model would.
 
@@ -159,7 +174,7 @@ Attribution is the second version. A developer who was active in your community 
 
 The third one creeps up on you, and it usually happens because you're succeeding. Custom demo requests, architecture calls for prospects, "can you just jump on this one call." Fine once, fine twice. Six months later you're doing pre-sales for individual deals instead of building things that help a thousand developers at once, and the community has gone quiet while you were in deal cycles.
 
-![Mother Ignoring Kid Drowning In A Pool meme: a mother labeled "DevRel" happily plays with a child labeled "Custom demo for one prospect" while a kid labeled "The community" struggles in the water; in the bottom panel, a skeleton at the bottom of the pool is labeled "The community, six months later"](/images/blog/running-devrel-2026/meme-mother-ignoring.webp)
+![Mother Ignoring Kid Drowning In A Pool meme: a mother labeled "DevRel" happily plays with a child labeled "Custom demo for one prospect" while a kid labeled "The community" struggles in the water; in the bottom panel, a skeleton at the bottom of the pool is labeled "The community, six months later"](/images/blog/running-devrel/meme-mother-ignoring.webp)
 
 What works for me is owning the signal-passing on my own terms. Instead of waiting for sales to ask for a list, I flag enterprise signals with context when I see them: "Three engineers from Acme Corp have been asking about HA configuration this week," or someone asking how the product handles 50 billion events per day. Sales gets the company name, what they're asking, and why it sounds like a buying conversation. Nobody in the community feels surveilled.
 
@@ -173,7 +188,7 @@ This is the most common one. You spend the first 90 days writing content, going 
 
 ### Wrong problem diagnosis
 
-![Woman Yelling At Cat meme: the yelling woman is captioned "Leadership: why isn't DevRel fixing our awareness problem?!" and the unbothered cat at the dinner table is captioned "The quickstart that fails on Windows"](/images/blog/running-devrel-2026/meme-yelling-cat.webp)
+![Woman Yelling At Cat meme: the yelling woman is captioned "Leadership: why isn't DevRel fixing our awareness problem?!" and the unbothered cat at the dinner table is captioned "The quickstart that fails on Windows"](/images/blog/running-devrel/meme-yelling-cat.webp)
 
 A company has a developer experience problem. The quickstart fails on half the platforms their developers use, the APIs are confusing, and the error messages are useless without internal context. They hire DevRel to fix "awareness," and the job description asks for someone to ship tutorials and grow a Discord. You write great content about a product that frustrates developers, nothing converts, and six months later you get the blame for flat adoption. The first hire should be someone who can run the diagnosis: read crawl data, time the quickstart as a stranger, and earn enough credibility with engineering to get the findings fixed. This failure is hard to see from outside before you join, which is what the question at the end of this post is for.
 
@@ -198,7 +213,10 @@ The answer tells you most of what you need to know. If it's clearly a product pr
 - [The builtfor.dev DevRel Playbook](https://www.builtfor.dev/blog/devrel-playbook) by Tessa Kriesel - the Discover/Evaluate/Learn/Build/Scale framework and the "DevRel is a revenue function" thesis
 - [DevRel Metrics and Why They Matter](https://thefalc.com/2020/12/devrel-metrics-and-why-they-matter/) by Sean Falconer - North Star metrics and how to connect DevRel activity to business outcomes
 - [Developer Relations at GitLab: What We've Learned](https://web.archive.org/web/20250614065339/https://about.gitlab.com/blog/2024/03/13/developer-relations-at-gitlab-what-weve-learned-since-our-start/) by John Coghlan - five years of evolving a DevRel program through attention, active users, and revenue phases
-- [The Future of DevRel: Six Shifts Reshaping Developer Engagement in 2026](https://blog.stateshift.com/future-of-devrel-2026/) by Mindy Faieta at Stateshift - where the industry is heading, especially LLM discovery and time to value
-- [State of Developer Relations 2024](https://www.stateofdeveloperrelations.com/2024devrelreport) - source of the 60.7% "proving impact with data" figure
+- [The Future of DevRel: Six Shifts Reshaping Developer Engagement in 2026](https://blog.stateshift.com/future-of-devrel-2026/) by Mindy Faieta at Stateshift - the 2026 forecast, especially on LLM discovery and time to value
+- [State of Developer Relations 2024](https://www.stateofdeveloperrelations.com/2024devrelreport) - source of the 60.7% "proving impact with data" figure; the latest edition I could find
+- [AIO Impact on Google CTR: 2026 Update](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-2026-update) by Seer Interactive - click-through with and without AI Overviews, January 2025 to February 2026
+- [AI features and your website](https://developers.google.com/search/docs/appearance/ai-features) from Google Search Central - no special files or markup needed for AI Overviews
+- [The MCP Registry](https://modelcontextprotocol.io/registry/about) - what it is, who it's for, and why it's still in preview
 
 If you're running a DevRel program, or making the case for one to skeptical leadership, I'm always up for comparing notes. The LLM surface especially is early, and the most useful conversations I have are with people running the experiment. Find me on [Bluesky](https://bsky.app/profile/joekarlsson.com) or [LinkedIn](https://www.linkedin.com/in/joekarlsson/).

@@ -44,7 +44,7 @@ Three weeks. Nobody noticed. I hadn't noticed. The container showed green in Pro
 
 ## How bad was it, actually?
 
-I'd been running a [Proxmox homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) for years - growing it into the [dual R730 rack setup I wrote about earlier this year](/blog/homelab-two-years-later/). The hardware was solid. The monitoring stack was solid. The management of individual containers was a mess.
+I'd been running a [Proxmox homelab](/blog/how-to-get-started-building-a-homelab-server/) for years - growing it into the [dual R730 rack setup I wrote about earlier this year](/blog/homelab-two-years-later/). The hardware was solid. The monitoring stack was solid. The management of individual containers was a mess.
 
 Not a spectacular mess. The slow kind.
 

@@ -11,7 +11,7 @@ heroAlt: 'Server rack with two Dell R730 servers, 10G networking, and cable mana
 tldr: 'Two years after my first homelab post, I went from a $200 ThinkServer with 15 containers to a server rack with two Dell R730s (80 cores, 256GB RAM), two NVIDIA GPUs, 10G networking, VLANs, and 73 containers managed in OpenTofu. Hardware cost about $7,400. The rack averages about 430W, roughly $47/month at $0.15/kWh. On paper it pays for itself in about 4.6 years, but that leans on one $80/month line item - take it out and break-even is over a decade. I also bought a lot more than I use.'
 ---
 
-Two years ago I bought a $200 ThinkServer off Facebook Marketplace, put Proxmox on it, ran about 15 containers, and wrote an [original homelab post](/blog/how-to-get-started-building-a-homelab-server-in-2024/) telling everyone that was all a homelab needed.
+Two years ago I bought a $200 ThinkServer off Facebook Marketplace, put Proxmox on it, ran about 15 containers, and wrote an [original homelab post](/blog/how-to-get-started-building-a-homelab-server/) telling everyone that was all a homelab needed.
 
 Today I have two Dell R730s in a rack in my attic, 73 containers, two NVIDIA GPUs, and 10G networking. The rack averages about 430W, or about $47 a month in electricity, and I've spent about $7,400 on hardware.
 
@@ -360,4 +360,4 @@ If I were starting over tomorrow with everything I know now:
 - A second way into the iDRACs that doesn't depend on prxbox1 being up
 - Fixing things remotely - I've since started [driving the homelab from my phone with Claude Code](/blog/my-development-setup-2026/)
 
-If you read my [original homelab post](/blog/how-to-get-started-building-a-homelab-server-in-2024/) and you're wondering what comes next, this is one version of it.
+If you read my [original homelab post](/blog/how-to-get-started-building-a-homelab-server/) and you're wondering what comes next, this is one version of it.

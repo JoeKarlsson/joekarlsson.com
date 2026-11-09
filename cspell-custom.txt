@@ -631,3 +631,8 @@ merch
 unmutes
 Treedix
 hosters
+ASUS
+Zima
+Jellyseerr
+Seerr
+Servarr

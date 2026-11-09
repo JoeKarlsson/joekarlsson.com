@@ -37,7 +37,7 @@ AI moves fast and there are a lot of shiny things out there, so we have to be sm
 
 Flack also made me notice that taste at work has to be shared. When I paint, I'm the only one deciding, but on a team my instincts only matter if other people pick them up. He calls that _scenius_, Brian Eno's word for the genius of a whole scene.
 
-At my last job, people had picked mine up. I wrote in [What I Learned Running DevRel in 2026](https://www.joekarlsson.com/blog/running-devrel-2026/) about how my DevRel work there pushed our organic traffic to an all-time high, and by the end I had buy-in from the CEO, marketing, engineering and sales. At CData I'm starting over from scratch. So I'm saying what I think in meetings even when I'm nervous, and I'm writing about it more, because the influence I build outside the company is how I'll get eyeballs and trust on the work I do inside it. Everything I'm doing right now is about driving trust and buy-in for my vision.
+At my last job, people had picked mine up. I wrote in [What I Learned Running DevRel in 2026](https://www.joekarlsson.com/blog/running-devrel/) about how my DevRel work there pushed our organic traffic to an all-time high, and by the end I had buy-in from the CEO, marketing, engineering and sales. At CData I'm starting over from scratch. So I'm saying what I think in meetings even when I'm nervous, and I'm writing about it more, because the influence I build outside the company is how I'll get eyeballs and trust on the work I do inside it. Everything I'm doing right now is about driving trust and buy-in for my vision.
 
 ## Why I left Substack for my homelab
 

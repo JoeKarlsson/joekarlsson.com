@@ -497,7 +497,7 @@ export const USES_SECTIONS: UsesSection[] = [
 		slug: 'homelab',
 		name: 'Homelab',
 		introHtml:
-			'I run a two-node <a href="https://www.proxmox.com/en/proxmox-virtual-environment" target="_blank" rel="noopener noreferrer" data-text-link >Proxmox VE</a> cluster with about 70 self-hosted services. Nearly all of them are immutable LXC containers defined in OpenTofu, so every change goes through <code>tofu apply</code> instead of SSH. The full story is in <a href="/blog/homelab-two-years-later/" data-text-link>my homelab two years later</a> and <a href="/blog/opentofu-proxmox-immutable-homelab/" data-text-link>how I made it immutable with OpenTofu</a>. If you\'re just starting out, read my <a href="/blog/how-to-get-started-building-a-homelab-server-in-2024/" data-text-link>guide to getting started with a homelab</a>.',
+			'I run a two-node <a href="https://www.proxmox.com/en/proxmox-virtual-environment" target="_blank" rel="noopener noreferrer" data-text-link >Proxmox VE</a> cluster with about 70 self-hosted services. Nearly all of them are immutable LXC containers defined in OpenTofu, so every change goes through <code>tofu apply</code> instead of SSH. The full story is in <a href="/blog/homelab-two-years-later/" data-text-link>my homelab two years later</a> and <a href="/blog/opentofu-proxmox-immutable-homelab/" data-text-link>how I made it immutable with OpenTofu</a>. If you\'re just starting out, read my <a href="/blog/how-to-get-started-building-a-homelab-server/" data-text-link>guide to getting started with a homelab</a>.',
 		groups: [
 			{
 				name: 'Server hardware',
@@ -717,7 +717,7 @@ export const USES_SECTIONS: UsesSection[] = [
 		slug: 'smart-home',
 		name: 'Smart home',
 		introHtml:
-			'My smart home runs on <a href="https://www.home-assistant.io/" target="_blank" rel="noopener noreferrer" data-text-link >Home Assistant</a> with 128 automations, all processed locally on my homelab. I\'ve been running it since 2016, and I wrote up <a href="/blog/best-home-assistant-automations/" data-text-link>my favorite Home Assistant automations</a>, basic to advanced, plus how I keep them from breaking. If you\'re new, start with <a href="/blog/how-to-get-started-with-home-assistant-in-2026/" data-text-link>getting started with Home Assistant</a>. I also wrote about how I <a href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/" data-text-link >replaced Alexa with local voice control</a>.',
+			'My smart home runs on <a href="https://www.home-assistant.io/" target="_blank" rel="noopener noreferrer" data-text-link >Home Assistant</a> with 128 automations, all processed locally on my homelab. I\'ve been running it since 2016, and I wrote up <a href="/blog/best-home-assistant-automations/" data-text-link>my favorite Home Assistant automations</a>, basic to advanced, plus how I keep them from breaking. If you\'re new, start with <a href="/blog/how-to-get-started-with-home-assistant/" data-text-link>getting started with Home Assistant</a>. I also wrote about how I <a href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/" data-text-link >replaced Alexa with local voice control</a>.',
 		groups: [
 			{
 				name: 'Core platform',

@@ -17,7 +17,7 @@ I've run the same work inside heavier structures - briefs approved before anythi
 
 The variable wasn't review. It was play.
 
-I've written about what that process looked like - the [SEO work](https://www.joekarlsson.com/blog/reversing-seo-traffic-decline-ai-overviews/) and the [DevRel sprint](https://www.joekarlsson.com/blog/running-devrel-2026/) - if you want the tactics. This post is about why the conditions that made those tactics possible were the harder problem.
+I've written about what that process looked like - the [SEO work](https://www.joekarlsson.com/blog/reversing-seo-traffic-decline-ai-overviews/) and the [DevRel sprint](https://www.joekarlsson.com/blog/running-devrel/) - if you want the tactics. This post is about why the conditions that made those tactics possible were the harder problem.
 
 ## The planning trap
 
@@ -103,7 +103,7 @@ The [SEO work I described here](https://www.joekarlsson.com/blog/reversing-seo-t
 
 **Make experiments small and reversible.** The reason upfront planning feels necessary is that big bets require justification. Small, reversible experiments don't. Version control exists. Rollback is one command. The perceived risk of trying something is usually much higher than the actual risk.
 
-**Log what you tried, not what you planned.** A record of experiments: what you shipped, what you learned, what changed. This gives you accountability without pre-specifying outcomes, and makes the value of iteration visible to people skeptical of the approach. Over the three-month sprint I [wrote about here](https://www.joekarlsson.com/blog/running-devrel-2026/), I tracked 200 PRs against URL-level performance changes post-deployment. That record did two things: it showed me what was working faster than intuition would have, and it gave skeptical stakeholders something concrete to look at instead of a plan I'd written before I knew anything.
+**Log what you tried, not what you planned.** A record of experiments: what you shipped, what you learned, what changed. This gives you accountability without pre-specifying outcomes, and makes the value of iteration visible to people skeptical of the approach. Over the three-month sprint I [wrote about here](https://www.joekarlsson.com/blog/running-devrel/), I tracked 200 PRs against URL-level performance changes post-deployment. That record did two things: it showed me what was working faster than intuition would have, and it gave skeptical stakeholders something concrete to look at instead of a plan I'd written before I knew anything.
 
 **Protect continuity.** Complex iterative work requires holding a coherent mental model of the system in your head. Status updates and check-ins mid-experiment don't just waste time. There's a neurological reason they're so damaging. Researchers describe what happens to the brain during flow:
 

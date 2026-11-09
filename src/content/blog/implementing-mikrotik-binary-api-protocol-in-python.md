@@ -10,7 +10,7 @@ heroAlt: 'A MikroTik API login sentence written to the wire one word at a time, 
 tldr: "I implemented MikroTik's proprietary binary API protocol from scratch in Python to programmatically manage my network infrastructure. The protocol uses variable-length encoding (similar to UTF-8), sentence-based messaging over raw TCP, and plain-text authentication. In ~137 lines of Python, you get full control over bonding, DHCP, firewall rules, and anything else exposed by the RouterOS API."
 ---
 
-My [homelab](/blog/how-to-get-started-building-a-homelab-server-in-2024/) runs a MikroTik CRS317 as the 10G backbone switch, handling LACP bonds to two Proxmox hosts and a failover bond to a UniFi switch. When I started managing bonding configurations, DHCP settings, and firewall rules, I wanted to do it programmatically - not by SSHing in and typing commands interactively.
+My [homelab](/blog/how-to-get-started-building-a-homelab-server/) runs a MikroTik CRS317 as the 10G backbone switch, handling LACP bonds to two Proxmox hosts and a failover bond to a UniFi switch. When I started managing bonding configurations, DHCP settings, and firewall rules, I wanted to do it programmatically - not by SSHing in and typing commands interactively.
 
 [MikroTik routers expose an API](https://help.mikrotik.com/docs/spaces/ROS/pages/47579160/API) on port 8728, but it's not REST. It's not even HTTP. It's a proprietary binary protocol with its own encoding scheme. Most people use existing libraries or just stick with SSH. I decided to implement the protocol from scratch.
 

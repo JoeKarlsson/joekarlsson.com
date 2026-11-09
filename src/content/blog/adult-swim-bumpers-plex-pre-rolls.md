@@ -73,7 +73,7 @@ One catch: Plex only plays pre-rolls before movies, so TV episodes still start c
 
 I get compliments on the bumpers all the time from people who join the server. Nobody has ever said a word about my transcoding settings. But a jellyfish telling them there's no algorithm? That gets brought up.
 
-If you run a server for your own people, [steal the code](https://github.com/JoeKarlsson/adult-swim-bumper). Set your server name and write some bad jokes. Building the rest of the setup? Start with my [homelab starter guide](/blog/how-to-get-started-building-a-homelab-server-in-2024/). [Two years later](/blog/homelab-two-years-later/) is what it turned into.
+If you run a server for your own people, [steal the code](https://github.com/JoeKarlsson/adult-swim-bumper). Set your server name and write some bad jokes. Building the rest of the setup? Start with my [homelab starter guide](/blog/how-to-get-started-building-a-homelab-server/). [Two years later](/blog/homelab-two-years-later/) is what it turned into.
 
 sit back. breathe. it's just a movie.
 

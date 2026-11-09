@@ -320,7 +320,7 @@ The top of the funnel has moved. More and more people start their research by as
 
 What makes content good hasn't changed: be accurate, answer the question people are asking, and back up your claims with real data and first-person experience. What's different is that you're writing for people _and_ for the AI systems that summarize content for them, and those systems have no use for vague claims or sales language.
 
-I think technical DevRels are well-positioned for this. It's not that we're better at marketing. The content we naturally produce - tutorials, technical opinions, first-person accounts of building things, docs written from real usage - is exactly what AI systems cite. We write for developer trust rather than conversion rates, and writing for developer trust turns out to be what gets you into AI answers. I wrote more about [how I run DevRel in 2026](/blog/running-devrel-2026) separately.
+I think technical DevRels are well-positioned for this. It's not that we're better at marketing. The content we naturally produce - tutorials, technical opinions, first-person accounts of building things, docs written from real usage - is exactly what AI systems cite. We write for developer trust rather than conversion rates, and writing for developer trust turns out to be what gets you into AI answers. I wrote more about [how I run DevRel in 2026](/blog/running-devrel) separately.
 
 ---
 

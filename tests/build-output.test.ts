@@ -356,7 +356,10 @@ describe('SEO meta tags', () => {
 		const blogDir = resolve(dist, 'blog');
 		const posts = readdirSync(blogDir, { withFileTypes: true })
 			.filter((e) => e.isDirectory() && e.name !== 'category')
-			.map((e) => e.name);
+			.map((e) => e.name)
+			// Redirect stubs for retired slugs (astro.config.mjs redirects) aren't posts
+			.filter((post) => existsSync(resolve(blogDir, post, 'index.html')))
+			.filter((post) => !readDist(`blog/${post}/index.html`).includes('<title>Redirecting to:'));
 		// Spot-check first 5 blog posts
 		for (const post of posts.slice(0, 5)) {
 			const postHtml = readDist(`blog/${post}/index.html`);
@@ -515,7 +518,7 @@ describe('in-page anchor links', () => {
 
 describe('share links', () => {
 	const pages = {
-		'blog post': 'blog/how-to-get-started-building-a-homelab-server-in-2024/index.html',
+		'blog post': 'blog/how-to-get-started-building-a-homelab-server/index.html',
 		'project page': 'work/pixelpane/index.html',
 		'newsletter issue':
 			'newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/index.html',

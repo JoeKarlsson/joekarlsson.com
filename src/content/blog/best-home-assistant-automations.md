@@ -1,8 +1,9 @@
 ---
-title: 'The Best Home Assistant Automations of 2026 (10 Years In)'
-seoTitle: 'The Best Home Assistant Automations of 2026'
+title: 'The Best Home Assistant Automations of 2027 (10 Years In)'
+seoTitle: 'The Best Home Assistant Automations of 2027'
 date: 2026-09-29
-updatedDate: 2026-10-12
+updatedDate: 2026-11-09
+updateNote: 'Checked against Home Assistant 2026.11: HACS is now the Marketplace, automations can exclude targets, and Frigate 0.18.2 has security fixes worth installing.'
 slug: 'best-home-assistant-automations'
 description: 'The best Home Assistant automations after 10 years and 134 running: start with the basics, layer on context, go advanced, and keep them working.'
 categories: ['Homelab']
@@ -13,12 +14,12 @@ tldr: "As of October 2026 (Home Assistant 2026.10), after 10 years and 134 runni
 faq:
   - question: 'What are the best Home Assistant automations for beginners?'
     answer: 'Motion lighting where a physical switch always wins, arriving and leaving routines, and safety alerts for any leak, smoke, or CO2 sensor you own. They pay off every day, and they work for guests without needing the app.'
-  - question: 'Should I use YAML or the visual editor for Home Assistant automations in 2026?'
+  - question: 'Should I use YAML or the visual editor for Home Assistant automations?'
     answer: 'Both, in that order. Draft in the visual editor, especially now that purpose-specific triggers are the default since Home Assistant 2026.7, then keep the resulting YAML in git so you can diff it, review it, and scan it for broken references.'
   - question: 'How do I find broken automations and dead entities in Home Assistant?'
     answer: "Use a health check. In my setup the Repairs page didn't flag any of the 12 dead references my health check found, because as far as I can tell it doesn't look inside templates, dashboards, or notify targets. Use the Watchman integration or a scheduled script that checks every entity, device, and service your automations reference against Home Assistant's registries."
   - question: 'How many automations is too many in Home Assistant?'
-    answer: 'There is no hard limit. I run 134 on Home Assistant 2026.10. The practical limit is maintenance: my rule of thumb is that past about 30 automations, you add a health check such as Watchman or a scheduled script so broken references get caught before they bite.'
+    answer: 'There is no hard limit. I ran 134 as of October 2026. The practical limit is maintenance: my rule of thumb is that past about 30 automations, you add a health check such as Watchman or a scheduled script so broken references get caught before they bite.'
   - question: 'What are good Home Assistant automation ideas beyond lights?'
     answer: 'Four I would build again: laundry alerts from a door contact and a vibration sensor, Meeting Mode triggered by the camera_in_use sensor on your Mac, a color-coded nightlight that shows garage, leak, and rain status, and the doorbell camera popping up picture-in-picture on the TV.'
   - question: 'Should I use continue_on_error on every action?'
@@ -33,7 +34,7 @@ I've been running Home Assistant since 2016. Today I have 134 automations, and t
 
 This post is the order I'd build them in if I started over. Basics first, the boring ones everybody in the house uses every day. Then you add context to those basics so they stop doing dumb things. Then, where it pays off, you rebuild one from scratch with better sensors and some probability math. I'll use lighting as the example of that whole climb, but the same pattern runs through every room. After 10 years, I also spend more of my time on automations that broke without telling me than on building new ones.
 
-Quick context on the setup: Home Assistant 2026.10 runs as a VM on my [Proxmox cluster](/blog/homelab-two-years-later/), with 29 Zigbee devices on Zigbee2MQTT, [Frigate and local LLMs on GPUs](/blog/proxmox-gpu-passthrough-multi-service/), and [Ollama](https://ollama.com/) for the AI side. If you're brand new, start with my [Home Assistant getting-started guide](/blog/how-to-get-started-with-home-assistant-in-2026/) and come back. Every device I mention is listed in the [smart home section of my uses page](/uses/#smart-home).
+Quick context on the setup: Home Assistant runs as a VM on my [Proxmox cluster](/blog/homelab-two-years-later/), with 29 Zigbee devices on Zigbee2MQTT, [Frigate and local LLMs on GPUs](/blog/proxmox-gpu-passthrough-multi-service/), and [Ollama](https://ollama.com/) for the AI side. If you're brand new, start with my [Home Assistant getting-started guide](/blog/how-to-get-started-with-home-assistant/) and come back. Every device I mention is listed in the [smart home section of my uses page](/uses/#smart-home).
 
 ## The guest test
 
@@ -82,7 +83,7 @@ I have motion lighting in 10 rooms. My first attempts had a habit of turning the
 
 **A human always beats the sensor.** When someone turns the lights off, motion waits 3 minutes before it's allowed to turn them back on (30 minutes in the bedroom overnight). And motion only picks a scene when the lights are off, so if you dim the kitchen by hand, it stays dimmed. Before a room turns off on its own, the lights drop to 40% for 45 seconds as a warning, and any movement brings them back.
 
-If you're starting today, Home Assistant 2026.7 made [purpose-specific triggers](https://www.home-assistant.io/blog/2026/07/01/release-20267/) the default in the visual editor, so you can pick an area-based motion trigger instead of a specific sensor, and it handles unavailable sensors for you. Use them for new automations. I draft in the visual editor, then keep the YAML in git so I can see what changed.
+If you're starting today, Home Assistant 2026.7 made [purpose-specific triggers](https://www.home-assistant.io/blog/2026/07/01/release-20267/) the default in the visual editor, so you can pick an area-based motion trigger instead of a specific sensor, and it handles unavailable sensors for you. Use them for new automations. Since 2026.11 you can also exclude things from a target, so "every light in the living room except the nightlight" is one trigger instead of a list you have to keep up to date. I draft in the visual editor, then keep the YAML in git so I can see what changed.
 
 If you run long off-timers, one gotcha took me way too long to find. If a `for: minutes: 30` timer is counting down and Home Assistant restarts, the timer is gone and the lights stay on until someone notices. My fix is a template trigger that asks "are the lights on, is nobody moving, and has nothing changed in 30 minutes?" That question has the same answer before and after a restart.
 
@@ -230,7 +231,7 @@ Party Mode turns on guest mode and disables the automations that would be annoyi
 
 Both expire on their own: Party Mode at 4 AM, Guest Mode after 24 hours. I made them expire because I'd forget to turn them off, and Party Mode left on means the motion lights never turn off.
 
-When I turn on Vacation Mode, the [Presence Simulation](https://github.com/slashback100/presence_simulation) integration (from HACS, like Alarmo) replays realistic light patterns so the house looks lived in, and [Alarmo](https://github.com/nielsfaber/alarmo) arms in vacation mode. If the alarm fails to arm, I get a critical push, because otherwise I'd assume the house is armed when it isn't.
+When I turn on Vacation Mode, the [Presence Simulation](https://github.com/slashback100/presence_simulation) integration (a community add-on, like Alarmo) replays realistic light patterns so the house looks lived in, and [Alarmo](https://github.com/nielsfaber/alarmo) arms in vacation mode. If the alarm fails to arm, I get a critical push, because otherwise I'd assume the house is armed when it isn't.
 
 Vacation Mode also sends a daily report, and I use it on every trip. At 9 AM every morning I'm away, one notification tells me the indoor temperature, the alarm state, any leaks, how many times the doorbell rang, packages detected, doors opened, when the pet sitter came by, and any National Weather Service alerts.
 
@@ -331,7 +332,7 @@ Tuning it took a few rounds. Before "no other room is occupied" was an observati
 
 The basic version of local AI writes text that nothing depends on. The advanced version lets the answer change what the house does, and I think **that's where local AI is worth it: when it answers a yes-or-no question**.
 
-[Frigate 0.18](https://github.com/blakeblackshear/frigate/releases/tag/v0.18.0) runs object detection and face recognition on a Quadro RTX 4000. Ollama runs [`qwen3-vl:8b`](https://ollama.com/library/qwen3-vl) for vision on an RTX A4000. Home Assistant calls it through the [AI Task integration](https://www.home-assistant.io/integrations/ai_task/), which sends a camera snapshot to the model and gets structured data back. The AI automations talk to Ollama directly with no cloud fallback, so camera snapshots never leave my network. I wrote up the voice side of this stack in my post on a [fully local voice assistant on a GPU](/blog/local-voice-ai-home-assistant-gpu/), which I built after [replacing Alexa with Voice Preview Edition](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
+[Frigate 0.18](https://github.com/blakeblackshear/frigate/releases) runs object detection and face recognition on a Quadro RTX 4000. If you run Frigate, get on 0.18.2 or later: 0.18.1 and 0.18.2 fixed security bugs that let a viewer run commands as root. Ollama runs [`qwen3-vl:8b`](https://ollama.com/library/qwen3-vl) for vision on an RTX A4000. Home Assistant calls it through the [AI Task integration](https://www.home-assistant.io/integrations/ai_task/), which sends a camera snapshot to the model and gets structured data back. The AI automations talk to Ollama directly with no cloud fallback, so camera snapshots never leave my network. I wrote up the voice side of this stack in my post on a [fully local voice assistant on a GPU](/blog/local-voice-ai-home-assistant-gpu/), which I built after [replacing Alexa with Voice Preview Edition](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
 
 These two earn their keep:
 
@@ -380,7 +381,7 @@ A few from September 2026 alone:
 
 Every 6 hours, a health check script pulls all my automations, scripts, and dashboards off the Home Assistant server and checks every entity, device, service, and notify target they reference. It also flags devices that are offline or unavailable, and automation runs that failed. Anything it finds shows up in a report and on my dashboard (that "Health checks 138/141" tile above), and that's how I caught the failed runs in September. A separate check flags safety sensors that haven't reported in too long, which is how the smoke detector got caught. It's the same approach I use across the rest of my homelab, where [86 health check scripts](/blog/opentofu-proxmox-immutable-homelab/) watch every container. The script is specific to my setup and isn't public.
 
-The first time I ran it, it found 12 dead references, and Home Assistant's Repairs page hadn't flagged any of them. As far as I can tell, Repairs doesn't look inside templates, dashboards, or notify targets, which is where most of the breakage hides. If you don't want to write your own script, the [Watchman](https://github.com/dummylabs/thewatchman) integration does a lighter version of the same job (it scans your config files for missing entities and actions), and it's a great place to start once you're past about 30 automations.
+The first time I ran it, it found 12 dead references, and Home Assistant's Repairs page hadn't flagged any of them. As far as I can tell, Repairs doesn't look inside templates, dashboards, or notify targets, which is where most of the breakage hides. If you don't want to write your own script, the [Watchman](https://github.com/dummylabs/thewatchman) integration does a lighter version of the same job (it scans your config files for missing entities and actions), and it's a good place to start once you're past about 30 automations. It still works, but it has been quiet since early 2026, so I wouldn't count on new features.
 
 ![Scooby Doo Mask Reveal meme: Fred, labeled "My health check," pulls the mask off a ghost labeled "Repairs page: no issues found" to reveal a villain labeled "12 dead references"](/images/blog/best-home-assistant-automations/scooby-doo-health-check-dead-references.webp)
 
@@ -406,11 +407,13 @@ I use Claude a lot for Home Assistant, mostly the way I'd use a friend who's goo
 
 Then I read every line. I don't ship an automation I can't explain well enough to debug when it misfires. Claude is great at getting something off the ground and at tedious work like repointing 60 notification targets. It only sees my config, though, so I still decide what the house should do.
 
+Home Assistant 2026.10 added a built-in MCP server you can turn on with one click, so an AI app can talk to the house directly. Be careful with it: a new setup exposes every entity by default, so trim what it can see before you connect anything.
+
 It's also a decent auditor. Claude went through my setup and found three problems, which I've since fixed: the missing webhook behind the alert translator's eight months of silence, AI steps that would crash instead of carrying on when the model was offline, and a watchdog that only alerted inside Home Assistant.
 
 ## What's next: fewer custom components and fewer batteries
 
-Lately I care more about reliability than about adding automations, so I use things out of the box whenever I can, and I'm a lot less likely to reach for third-party custom components or custom code than I used to be. Every custom piece is one more thing that can break on an update. The ones that survived, like Alarmo, Presence Simulation, and my health check script, stayed because nothing built in does their job, and the health checks tell me when one of them breaks.
+Lately I care more about reliability than about adding automations, so I use things out of the box whenever I can, and I'm a lot less likely to reach for third-party custom components or custom code than I used to be. Every custom piece is one more thing that can break on an update. The ones that survived, like Alarmo, Presence Simulation, and my health check script, stayed because nothing built in does their job, and the health checks tell me when one of them breaks. Community add-ons used to come through HACS. Home Assistant 2026.11 replaced it with a built-in Marketplace, and existing HACS installs move over automatically.
 
 I'm also trying to make the house more sustainable, and part of that is avoiding batteries wherever I can. Keeping batteries fresh across a house full of sensors sucks, and the battery-powered devices are usually the finicky ones. Most of the sensors in this post still run on batteries, which is why my health checks watch for the ones that go quiet.
 
