@@ -63,7 +63,7 @@ The short version of what changed:
 
 "Last year" means 2025. Versions as of September 2026: Ghostty 1.3.1, Starship 1.26, Claude Code 2.1, chezmoi 2.73, and Handy 0.9.7, on macOS and Debian 13.
 
-The full inventory of hardware and apps lives on my [uses page](/uses). This post is about why I changed things. Where it helps, I've tucked the actual config into collapsible blocks so you can copy it, and each one links to the full file in [my dotfiles repo](https://github.com/JoeKarlsson/dotfiles).
+The full inventory of hardware and apps lives on my [uses page](/uses), and the gear I'd recommend as gifts is in my [homelab gift guide](/blog/homelab-gift-ideas-2026/). This post is about why I changed things. Where it helps, I've tucked the actual config into collapsible blocks so you can copy it, and each one links to the full file in [my dotfiles repo](https://github.com/JoeKarlsson/dotfiles).
 
 ## Terminal and shell
 
