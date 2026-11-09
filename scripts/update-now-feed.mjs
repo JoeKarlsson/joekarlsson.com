@@ -1,5 +1,6 @@
 // Snapshot what I've recently shipped (merged GitHub PRs), watched (Letterboxd) and
-// listened to (Audiobookshelf podcasts), plus live homelab stats (Prometheus), into
+// listened to (Audiobookshelf podcasts), plus live homelab stats (Prometheus) and
+// GitHub profile counts for llms.txt, into
 // src/data/now-feed.json, with covers saved as WebP under public/images/now/. The
 // site reads the snapshot at build time, so visitors never reach Audiobookshelf or
 // Prometheus. deploy.sh runs this before every build:
@@ -8,7 +9,11 @@ import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:
 import { execFileSync } from 'node:child_process';
 import { loadEnvFile } from 'node:process';
 import sharp from 'sharp';
-import { parseLetterboxdFilms, truncateAtWord } from './now-feed-parsing.mjs';
+import {
+	parseLetterboxdFilms,
+	summarizeGitHubProfile,
+	truncateAtWord,
+} from './now-feed-parsing.mjs';
 
 // deploy.sh exports the main checkout's .env before running this, including from a
 // worktree, which has none; run on its own, it reads .env here. Missing values fail below.
@@ -30,6 +35,9 @@ const SHIPPING_MAX_REPOS = 4;
 // passed 500 commits in a month (November 2026), so leave plenty of room.
 const MAX_COMMIT_PAGES_PER_REPO = 20;
 const LATEST_COMMIT_MESSAGE_MAX_CHARS = 70;
+const GITHUB_TOP_REPO_COUNT = 3;
+// Same kind of cap for the owned-repo list, at 100 a page
+const MAX_REPO_PAGES = 5;
 const LETTERBOXD_RSS_URL = 'https://letterboxd.com/joekarlsson/rss/';
 const ITEMS_PER_FEED = 4;
 const REVIEW_EXCERPT_MAX_CHARS = 160;
@@ -186,6 +194,22 @@ async function fetchRecentlyShippedRepos() {
 	return shippedRepos;
 }
 
+async function fetchGitHubProfile() {
+	const user = await (
+		await fetchOrThrow(`https://api.github.com/users/${GITHUB_USERNAME}`, GITHUB_REQUEST_OPTIONS)
+	).json();
+	const repos = [];
+	let url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?type=owner&per_page=100`;
+	for (let page = 1; url; page += 1) {
+		if (page > MAX_REPO_PAGES)
+			throw new Error(`${GITHUB_USERNAME} has over ${MAX_REPO_PAGES * 100} repos`);
+		const response = await fetchOrThrow(url, GITHUB_REQUEST_OPTIONS);
+		repos.push(...(await response.json()));
+		url = response.headers.get('link')?.match(/<([^>]+)>; rel="next"/)?.[1];
+	}
+	return summarizeGitHubProfile(user, repos, { topRepoCount: GITHUB_TOP_REPO_COUNT });
+}
+
 async function queryPrometheusScalar(promql) {
 	const response = await fetchOrThrow(
 		`${PROMETHEUS_URL}/api/v1/query?query=${encodeURIComponent(promql)}`,
@@ -212,11 +236,12 @@ async function fetchHomelabStats() {
 }
 
 mkdirSync(COVER_DIR, { recursive: true });
-const [shippedRepos, films, podcastEpisodes, homelab] = await Promise.all([
+const [shippedRepos, films, podcastEpisodes, homelab, github] = await Promise.all([
 	fetchRecentlyShippedRepos(),
 	fetchRecentFilms(),
 	fetchRecentPodcastEpisodes(),
 	fetchHomelabStats(),
+	fetchGitHubProfile(),
 ]);
 // Delete covers the new snapshot no longer uses, only after every feed succeeded.
 const coversInUse = new Set(
@@ -237,11 +262,12 @@ writeFileSync(
 			films,
 			podcastEpisodes,
 			homelab,
+			github,
 		},
 		null,
 		'\t',
 	) + '\n',
 );
 console.log(
-	`Wrote ${shippedRepos.length} shipped repos, ${films.length} films, ${podcastEpisodes.length} podcast episodes and homelab stats to ${OUTPUT_PATH}`,
+	`Wrote ${shippedRepos.length} shipped repos, ${films.length} films, ${podcastEpisodes.length} podcast episodes, homelab stats and GitHub counts to ${OUTPUT_PATH}`,
 );

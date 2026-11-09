@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { parseLetterboxdFilms, truncateAtWord } from '../scripts/now-feed-parsing.mjs';
+import {
+	parseLetterboxdFilms,
+	summarizeGitHubProfile,
+	truncateAtWord,
+} from '../scripts/now-feed-parsing.mjs';
 
 const POSTER = 'https://a.ltrbxd.com/resized/film-poster/1/2/3-0-600-0-900-crop.jpg';
 
@@ -83,5 +87,34 @@ describe('truncateAtWord', () => {
 
 	it('cuts one long word at the limit', () => {
 		expect(truncateAtWord('a'.repeat(100), 10)).toBe(`${'a'.repeat(10)}...`);
+	});
+});
+
+describe('summarizeGitHubProfile', () => {
+	const repo = (name: string, stars: number, extra: Record<string, unknown> = {}) => ({
+		name,
+		html_url: `https://github.com/JoeKarlsson/${name}`,
+		description: `${name} repo`,
+		stargazers_count: stars,
+		forks_count: 2,
+		fork: false,
+		private: false,
+		...extra,
+	});
+
+	it('counts own public repos only and ranks the top ones by stars', () => {
+		const summary = summarizeGitHubProfile(
+			{ followers: 540 },
+			[
+				repo('small', 5),
+				repo('big', 185),
+				repo('forked', 900, { fork: true }),
+				repo('secret', 700, { private: true }),
+				repo('mid', 90),
+			],
+			{ topRepoCount: 2 },
+		);
+		expect(summary).toMatchObject({ followers: 540, publicRepos: 3, stars: 280, forks: 6 });
+		expect(summary.topRepos.map((r: { name: string }) => r.name)).toEqual(['big', 'mid']);
 	});
 });

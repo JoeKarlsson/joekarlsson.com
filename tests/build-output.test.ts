@@ -147,7 +147,8 @@ describe('llms.txt', () => {
 	it('contains key sections', () => {
 		expect(content).toContain('## Pages');
 		expect(content).toContain('## Areas of Expertise');
-		expect(content).toContain('## Featured Projects');
+		expect(content).toContain('## Selected Works');
+		expect(content).toContain('## Newsletter');
 	});
 
 	it('references all main pages', () => {
@@ -160,6 +161,14 @@ describe('llms.txt', () => {
 
 	it('links to llms-full.txt', () => {
 		expect(content).toContain('llms-full.txt');
+	});
+	it('lists every indexed top-level page', () => {
+		const pages = readdirSync(dist, { withFileTypes: true })
+			.filter((d) => d.isDirectory() && existsSync(resolve(dist, d.name, 'index.html')))
+			.filter((d) => !readDist(`${d.name}/index.html`).includes('noindex'))
+			.map((d) => `joekarlsson.com/${d.name}/)`);
+		expect(pages.length).toBeGreaterThan(5);
+		expect(pages.filter((page) => !content.includes(page))).toEqual([]);
 	});
 });
 
@@ -179,14 +188,28 @@ describe('llms-full.txt', () => {
 		expect(content).toContain('## About Joe Karlsson');
 		expect(content).toContain('## Professional Experience');
 		expect(content).toContain('## Blog Topics');
-		expect(content).toContain('## Recent Posts');
+		expect(content).toContain('### Most Read');
+		expect(content).toContain('### All Posts');
 	});
 
-	it('lists recent blog posts dynamically', () => {
-		// Recent posts section should have markdown links
-		const recentSection = content.split('### Recent Posts')[1]?.split('###')[0] || '';
-		const links = recentSection.match(/- \[/g) || [];
-		expect(links.length).toBeGreaterThan(0);
+	// Built from the site, so a new post, issue or page shows up without a hand edit
+	it('links every blog post and newsletter issue', () => {
+		const slugsIn = (dir: string) =>
+			readdirSync(resolve(dist, dir), { withFileTypes: true })
+				.filter((d) => d.isDirectory() && existsSync(resolve(dist, dir, d.name, 'index.html')))
+				.map((d) => `/${dir}/${d.name}/`);
+		const missing = [...slugsIn('blog'), ...slugsIn('newsletter')]
+			.filter((path) => !/\/(category|written-for)\//.test(path))
+			.filter((path) => !content.includes(`joekarlsson.com${path})`));
+		// TL;DR in Tech back issues are noindex and only counted
+		const unlisted = missing.filter(
+			(path) => !readDist(`${path.slice(1)}index.html`).includes('noindex'),
+		);
+		expect(unlisted).toEqual([]);
+	});
+
+	it('names no GitHub or container count by hand', () => {
+		expect(content).not.toMatch(/\d+\+ (stars|containers|followers on GitHub)/);
 	});
 });
 

@@ -1,26 +1,46 @@
-import { getCollection } from 'astro:content';
 import nowFeed from '../data/now-feed.json';
+import {
+	absoluteUrl,
+	getBlogPosts,
+	getNewsletter,
+	listBlogSections,
+	listFeaturedWork,
+	listPopularPosts,
+	listSitePages,
+} from '../utils/llms';
 
+// The lists below build from the site itself (src/utils/llms.ts); only the bio is
+// written by hand.
 export async function GET() {
-	const posts = await getCollection('blog');
-	const postCount = posts.length;
+	const posts = await getBlogPosts();
+	const newsletter = await getNewsletter();
+	const { github } = nowFeed;
 
 	const body = `# Joe Karlsson
 
 > Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker, 100+ conference talks, 100,000+ social media followers. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations. CS degree from Gustavus Adolphus College. Writing about databases, data pipelines, smart homes, developer tools, and the things I build.
 
-This file offers a summary. For full details, see [llms-full.txt](https://www.joekarlsson.com/llms-full.txt).
+This file offers a summary. For full details, every post and every project, see [llms-full.txt](https://www.joekarlsson.com/llms-full.txt).
 
 ## Pages
 
-- [Home](https://www.joekarlsson.com/): Latest content and featured projects
-- [Blog](https://www.joekarlsson.com/blog): ${postCount} posts covering databases, data engineering, smart homes, dev tools, IoT, and DevRel
-- [About](https://www.joekarlsson.com/about): Biography and background
-- [Work](https://www.joekarlsson.com/work): Portfolio of projects and technical work
-- [Uses](https://www.joekarlsson.com/uses): Hardware, software, homelab, and smart home setup
-- [Contact](https://www.joekarlsson.com/contact): Social links and ways to connect
-- [Talk Archive](https://www.joekarlsson.com/talk-archive): Conference talks and presentations
-- [Privacy Policy](https://www.joekarlsson.com/privacy-policy): Privacy and data policy
+${listSitePages().join('\n')}
+
+## Blog
+
+${posts.length} posts. Every post with its date is in [llms-full.txt](${absoluteUrl('/llms-full.txt')}).
+
+${listBlogSections(posts).join('\n')}
+
+### Most Read
+
+${listPopularPosts(posts, 10).join('\n')}
+
+## Newsletter
+
+[Works on My Machine](${absoluteUrl('/newsletter/')}): ${newsletter.count} issues on tech writing, AI, homelab builds and open source, plus ${newsletter.backIssueCount} back issues of TL;DR in Tech.
+
+${newsletter.lines.slice(0, 5).join('\n')}
 
 ## Areas of Expertise
 
@@ -28,12 +48,13 @@ This file offers a summary. For full details, see [llms-full.txt](https://www.jo
 - **Developer Marketing & Experience**: Developer marketing, developer advocacy, developer tools, API design, documentation, SEO/AEO, community building
 - **Infrastructure & Self-Hosting**: Proxmox, LXC containers, Home Assistant, 10G networking, GPU passthrough, local AI inference
 
-## Featured Projects
+## Selected Works
 
-- IoT Kitty Litter Box: Smart pet monitoring system with Home Assistant integration
-- Bechdel.io: Movie script analysis tool for the Bechdel Test
-- [Data Structures](https://github.com/JoeKarlsson/data-structures): Educational repo with 185+ GitHub stars
-- [React Spotify Player](https://github.com/JoeKarlsson/react-spotify-player): Real-time Spotify player built with React (130+ stars)
+${listFeaturedWork().join('\n')}
+
+## Most-Starred Open Source
+
+${github.topRepos.map((repo) => `- [${repo.name}](${repo.url}): ${repo.description} (${repo.stars} stars)`).join('\n')}
 
 ## Notable Talks
 
@@ -60,9 +81,9 @@ This file offers a summary. For full details, see [llms-full.txt](https://www.jo
 ## What Makes Joe Interesting
 
 - Runs AI vision on doorbell cameras using local LLMs - no cloud APIs
-- Built an IoT cat litter box and gave a TEDx talk about it
+- Built an IoT cat litter box and gave a conference talk about it
 - 100,000+ followers across social media (TikTok, Twitter/X, YouTube, LinkedIn)
-- 630+ GitHub stars across 60+ public repositories
+- ${github.stars} GitHub stars across ${github.publicRepos} public repositories
 - Self-hosts everything: photos (Immich), documents (Paperless-ngx), passwords (Vaultwarden), analytics (Plausible), calendar (Nextcloud CalDAV)
 - Film obsessive who tracks everything on Letterboxd
 - Mechanical keyboard builder (custom wood-case POK3R with Cherry MX Blues)
@@ -73,14 +94,13 @@ Joe is available for conference talks, podcast guest spots, webinars, and techni
 
 ## Social & Contact
 
-- [GitHub](https://github.com/JoeKarlsson): 537 followers, 630+ stars, 60+ public repos
+- [GitHub](https://github.com/JoeKarlsson): ${github.followers} followers, ${github.stars} stars, ${github.publicRepos} public repos
 - [LinkedIn](https://www.linkedin.com/in/joekarlsson/)
 - [Bluesky](https://bsky.app/profile/joekarlsson.com)
 - [YouTube](https://www.youtube.com/joekarlsson)
 - [TikTok](https://www.tiktok.com/@joekarlsson)
 - [Threads](https://www.threads.net/@joekarlsson)
 - [Letterboxd](https://letterboxd.com/joekarlsson/)
-- [Newsletter](https://www.joekarlsson.com/newsletter/)
 
 ## Education
 

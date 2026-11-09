@@ -113,5 +113,31 @@
 		"proxmoxNodes": 2,
 		"cpuThreads": 160,
 		"memoryGB": 252
+	},
+	"github": {
+		"followers": 548,
+		"publicRepos": 60,
+		"stars": 659,
+		"forks": 225,
+		"topRepos": [
+			{
+				"name": "data-structures",
+				"url": "https://github.com/JoeKarlsson/data-structures",
+				"description": "Common data structures and algorithms implemented in JavaScript",
+				"stars": 184
+			},
+			{
+				"name": "react-spotify-player",
+				"url": "https://github.com/JoeKarlsson/react-spotify-player",
+				"description": "Realtime Spotify Player built with React.",
+				"stars": 134
+			},
+			{
+				"name": "python-sudoku-generator-solver",
+				"url": "https://github.com/JoeKarlsson/python-sudoku-generator-solver",
+				"description": "Python based sudoku generator that can create unique Sudoku board based on 4 difficulty levels. This code also includes a brute force sudoku solver that is capable of solving even the most difficult sudoku puzzles!",
+				"stars": 95
+			}
+		]
 	}
 }

@@ -1,16 +1,22 @@
-import { getCollection } from 'astro:content';
 import nowFeed from '../data/now-feed.json';
+import {
+	absoluteUrl,
+	getBlogPosts,
+	getNewsletter,
+	listAllWork,
+	listBlogSections,
+	listFeaturedWork,
+	listPopularPosts,
+	listSitePages,
+	postLine,
+} from '../utils/llms';
 
+// The lists below build from the site itself (src/utils/llms.ts); only the bio and
+// the talks, podcasts and press sections are written by hand.
 export async function GET() {
-	const posts = await getCollection('blog');
-	const postCount = posts.length;
-
-	const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-	const recentPosts = sortedPosts.slice(0, 10).map((post) => {
-		const date = post.data.date.toISOString().split('T')[0];
-		return `- [${post.data.title}](https://www.joekarlsson.com/blog/${post.data.slug}/): ${post.data.description || ''} (${date})`;
-	});
+	const posts = await getBlogPosts();
+	const newsletter = await getNewsletter();
+	const { github } = nowFeed;
 
 	const body = `# Joe Karlsson - Full Site Guide
 
@@ -37,45 +43,24 @@ With 7+ years in DevRel roles, Joe specializes in developer content creation, co
 ### Infrastructure & Self-Hosting
 Joe runs production-grade self-hosted infrastructure: Proxmox clusters, LXC containers, Home Assistant, 10G networking, GPU passthrough for AI inference, and a full media/productivity stack replacing cloud services.
 
-## Main Pages
+## Pages
 
-- [Home](https://www.joekarlsson.com/): Latest blog posts, featured projects, and current updates
-- [Blog](https://www.joekarlsson.com/blog): ${postCount} published posts organized by topic
-- [About](https://www.joekarlsson.com/about): Biography, interests, and work history
-- [Work](https://www.joekarlsson.com/work): Portfolio showcasing projects organized by category
-- [Uses](https://www.joekarlsson.com/uses): Hardware, software, homelab infrastructure, and smart home setup
-- [Contact](https://www.joekarlsson.com/contact): Social links organized by platform type
-- [Talk Archive](https://www.joekarlsson.com/talk-archive): Conference talks, webinars, and presentations
-- [Privacy Policy](https://www.joekarlsson.com/privacy-policy): Privacy statement and data handling practices
+${listSitePages().join('\n')}
 
-## Featured Projects
+## Selected Works
 
-### IoT & Smart Home
+${listFeaturedWork().join('\n')}
 
-- **IoT Kitty Litter Box**: Arduino-based smart pet monitoring system with weight sensors, Home Assistant integration, and automated health tracking. Conference talk topic. [GitHub](https://github.com/JoeKarlsson/iot-kitty-litter-box) (25+ stars)
-- **3D-Printed Planter**: Designed and printed custom postcard planter racks using CAD and FDM printing.
+### All Projects
 
-### Web & Applications
-
-- **[React Spotify Player](https://github.com/JoeKarlsson/react-spotify-player)**: Web-based Spotify player built with React, demonstrating Spotify API integration. 130+ GitHub stars.
-- **Bechdel.io**: Movie script analysis tool that tests films against the Bechdel Test criteria. [Live site](https://bechdel.joekarlsson.com/) · [GitHub](https://github.com/JoeKarlsson/bechdel-test) (30+ stars)
-- **Pixelate**: HTML5 Canvas image pixelation tool built with vanilla JavaScript. [Live demo](https://pixelate.joekarlsson.com/) · [GitHub](https://github.com/JoeKarlsson/Pixelate) (15+ stars)
-- **Launch Target**: Web-based spaceship game.
-
-### Education & Open Source
-
-- **[Data Structures](https://github.com/JoeKarlsson/data-structures)**: JavaScript implementation of common data structures and algorithms. 185+ GitHub stars - Joe's most popular open-source project.
-- **[Client-Server Communication Guide](https://github.com/JoeKarlsson/complete-guide-to-client-server-communication)**: Complete guide to Node.js client-server patterns. 43+ stars.
-- **[Python Sudoku Generator/Solver](https://github.com/JoeKarlsson/python-sudoku-generator-solver)**: Python sudoku generator with 4 difficulty levels and brute force solver. 90+ stars.
-- **MongoDB GraphQL Demo**: Example integration of MongoDB with GraphQL.
-- **MongoDB CSFLE Demo**: Client-side field level encryption demonstration.
+${listAllWork().join('\n')}
 
 ## GitHub Stats
 
-- **537 followers** on GitHub
-- **630+ total stars** across 60+ public repositories
-- **223+ forks** of Joe's projects
-- **Top repos**: data-structures (185 stars), react-spotify-player (131 stars), python-sudoku-generator-solver (90 stars)
+- **${github.followers} followers** on GitHub
+- **${github.stars} total stars** across ${github.publicRepos} public repositories
+- **${github.forks} forks** of Joe's projects
+- **Top repos**: ${github.topRepos.map((repo) => `[${repo.name}](${repo.url}) (${repo.stars} stars)`).join(', ')}
 - Profile: [github.com/JoeKarlsson](https://github.com/JoeKarlsson)
 
 ## Blog Topics
@@ -89,23 +74,27 @@ Joe writes regularly about:
 - **Developer Relations**: Community building, content strategy, DevRel career advice
 - **Personal**: Travel guides (Cuba, Oahu), music (Top 50 records), film
 
-### Recent Posts
+### Blog Sections
 
-${recentPosts.join('\n')}
+${listBlogSections(posts).join('\n')}
 
-### Notable Posts
+### Most Read
 
-- "My Homelab Two Years Later: From Desktop Tower to Server Rack" - evolution from $200 ThinkServer to dual R730 rack with 60+ containers, 10G networking, and GPU-accelerated AI
-- "How to Get Started Building a Homelab Server in 2026" - beginner homelab guide: picking hardware, choosing an OS, setting up containers, and mounting NAS storage
-- "Self-Hosted Music Still Sucks in 2025" - why the *arr ecosystem nailed video but music self-hosting remains broken
-- "I Replaced Alexa with a Dumber Voice Assistant (But at Least It's Private)" - migrating from Alexa to Home Assistant Voice for privacy-focused home automation
-- "Building a GPU-Accelerated Subtitle Generator" - self-hosted Whisper AI pipeline with parallel workers and hallucination filtering
-- "An Introduction to IoT (Internet of Toilets)" - the IoT litter box story
-- "The Art of Computer Science" - TEDx talk companion piece
-- "MongoDB Schema Design Best Practices" - database architecture guide
-- "Why ClickHouse Should Be Your Next Database" - real-time analytics
-- "How to Build a Real-Time Fraud Detection System" - streaming data patterns
-- "Event Sourcing with Kafka: A Practical Example" - event-driven architecture
+${listPopularPosts(posts, 10).join('\n')}
+
+### All Posts
+
+All ${posts.length} posts, newest first.
+
+${posts.map(postLine).join('\n')}
+
+## Newsletter
+
+[Works on My Machine](${absoluteUrl('/newsletter/')}) is Joe's newsletter on tech writing, AI, homelab builds and open source. Every issue, newest first:
+
+${newsletter.lines.join('\n')}
+
+The archive also holds ${newsletter.backIssueCount} back issues of TL;DR in Tech, an earlier link roundup.
 
 ## Homelab & Self-Hosting Philosophy
 
@@ -191,7 +180,7 @@ Contact via [joekarlsson.com/contact](https://www.joekarlsson.com/contact/) or c
 Joe has 100,000+ followers across social media platforms.
 
 ### Primary
-- [GitHub](https://github.com/JoeKarlsson): 537 followers, 630+ stars across 60+ repos
+- [GitHub](https://github.com/JoeKarlsson): ${github.followers} followers, ${github.stars} stars across ${github.publicRepos} repos
 - [LinkedIn](https://www.linkedin.com/in/joekarlsson/): Professional network
 - [Bluesky](https://bsky.app/profile/joekarlsson.com): Primary social platform
 

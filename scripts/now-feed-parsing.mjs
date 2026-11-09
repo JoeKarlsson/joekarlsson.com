@@ -56,3 +56,27 @@ export function parseLetterboxdFilms(rss, { limit, reviewExcerptMaxChars }) {
 		};
 	});
 }
+
+/**
+ * Follower, repo, star and fork counts for llms.txt, from the GitHub user and their
+ * owned repos. Forks and private repos don't count: they aren't my public work.
+ */
+export function summarizeGitHubProfile(user, repos, { topRepoCount }) {
+	const ownPublicRepos = repos.filter((repo) => !repo.fork && !repo.private);
+	const sum = (field) => ownPublicRepos.reduce((total, repo) => total + repo[field], 0);
+	return {
+		followers: user.followers,
+		publicRepos: ownPublicRepos.length,
+		stars: sum('stargazers_count'),
+		forks: sum('forks_count'),
+		topRepos: [...ownPublicRepos]
+			.sort((a, b) => b.stargazers_count - a.stargazers_count)
+			.slice(0, topRepoCount)
+			.map((repo) => ({
+				name: repo.name,
+				url: repo.html_url,
+				description: repo.description,
+				stars: repo.stargazers_count,
+			})),
+	};
+}
