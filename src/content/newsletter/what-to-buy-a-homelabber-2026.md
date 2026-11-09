@@ -2,7 +2,7 @@
 title: 'What to Buy a Homelabber in 2026'
 date: 2026-11-12T08:00:00Z
 slug: 'what-to-buy-a-homelabber-2026'
-description: "A preview of my 2026 homelab gift guide: why the best gifts don't have to agree with the lab, four picks I own, and the full list on the blog."
+description: 'A preview of my 2026 homelab gift guide: four picks I own, and the full list on the blog.'
 recapOf: 'homelab-gift-ideas-2026'
 cardPhoto: '/images/blog/homelab-two-years-later/rack-full-front.webp'
 cardPhotoAlt: "Joe's homelab rack in the attic (two Dell R730 servers, networking gear, a Synology NAS and two UPS units)"
@@ -12,7 +12,7 @@ heroAlt: "Works on My Machine card for What to Buy a Homelabber in 2026, with Jo
 
 This week I published [a homelab gift guide](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/) built from the gear in my rack and on my desk, sorted by price.
 
-The rule I landed on is that the best gifts **don't have to agree with the lab.** A homelab is a stack of decisions you can't see from outside: which servers, which network gear, which smart home protocol. Anything that has to fit those decisions is a guess. So every pick that depends on their setup comes with one yes/no question to text them before you buy.
+It's for software engineers, homelabbers and anyone who works at a computer all day. When a pick depends on someone's setup, the guide has one yes/no question to text them before you buy.
 
 A few from the list:
 

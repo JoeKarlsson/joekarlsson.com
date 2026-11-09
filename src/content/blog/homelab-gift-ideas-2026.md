@@ -6,7 +6,7 @@ slug: 'homelab-gift-ideas-2026'
 description: 'Homelab gift ideas for 2026 from gear I run every day, sorted by price, with one question to ask before you buy and a list of what not to buy.'
 categories: ['Homelab']
 tags: ['gift guide', 'homelab', 'Home Assistant', 'self-hosting', 'Raspberry Pi']
-tldr: "Buy a homelabber something that doesn't have to agree with their lab. Their servers, network and smart home are a stack of decisions you can't see, so anything that has to fit those decisions is a gamble. Everything below is in my house right now, except a labeled wishlist. My picks: Rackstuds for anyone with a rack (under $50), a Home Assistant Voice Preview Edition for anyone on Home Assistant, an Aranet4 CO2 monitor for the desk, and a rack UPS if you're spending real money. Don't buy them a server, a switch or a hard drive."
+tldr: "My 2026 gift guide for software engineers, homelabbers and anyone who works at a computer all day, built from the gear I use every day. Everything below is in my house right now, except a labeled wishlist, and any pick that depends on their setup comes with one yes/no question to ask first. My picks: Rackstuds for anyone with a rack (under $50), a Home Assistant Voice Preview Edition for anyone on Home Assistant, an Aranet4 CO2 monitor for the desk, and a rack UPS if you're spending real money. Don't buy them a server, a switch or a hard drive."
 faq:
   - question: 'What do you buy someone who has a homelab?'
     answer: "Buy something that works no matter what they run: desk gear, tools, sensors, or rack accessories like Rackstuds and a UPS. Skip servers, switches, Wi-Fi gear and hard drives. Those depend on choices they've already made, and a wrong brand or size becomes a return. If a gift depends on their setup, text them one yes/no question first."
@@ -24,9 +24,9 @@ heroImage: '/images/blog/homelab-gift-ideas-2026/thumb-3d629eff.webp'
 heroAlt: 'A boy in a cap and overcoat studying the Christmas toys in a shop window, a drum and a toy wagon behind the glass'
 ---
 
-The best homelab gift ideas **don't have to agree with the lab.** A homelab is a stack of decisions you can't see from the outside: which servers, which network gear, which smart home protocol, which brand of everything. Buy something that has to fit all of that and you're guessing. The easy wins sit on the desk or the workbench, where they work no matter what they run.
+These are my homelab gift ideas for 2026, for software engineers, homelabbers and anyone who works at a computer all day. It's the gear I use every day and would recommend, sorted by price.
 
-A few picks do depend on their setup, like rack accessories and smart home gear. For those, I've written the one yes/no question to text them before you buy.
+A few picks depend on their setup, like rack accessories and smart home gear. For those, I've written the one yes/no question to text them before you buy.
 
 Everything below is in my house right now. I run two Dell R730 servers in my attic with about 70 self-hosted services, and a Home Assistant setup with fully local voice control. The full inventory lives on my [uses page](/uses). The stuff I don't own yet is in its own [wishlist section](#on-my-wishlist-i-dont-own-these-yet), clearly labeled. Prices are rough bands, checked in November 2026.
 
