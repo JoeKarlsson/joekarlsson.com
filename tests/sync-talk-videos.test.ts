@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { toTalkVideo } from '../scripts/sync-talk-videos.mjs';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { findBackup, toTalkVideo } from '../scripts/sync-talk-videos.mjs';
 
 const info = {
 	id: 'GiNa2jen-lg',
@@ -41,5 +44,29 @@ describe('toTalkVideo', () => {
 	it('skips playlists and folders the page does not embed', () => {
 		expect(toTalkVideo({ ...info, _type: 'playlist' }, 'Talks/2021/x.info.json')).toBeNull();
 		expect(toTalkVideo(info, 'TikTok/x.info.json')).toBeNull();
+	});
+});
+
+describe('findBackup', () => {
+	const root = fs.mkdtempSync(path.join(os.tmpdir(), 'my-videos-'));
+	const folder = 'Talks/2019/2019-03-16 - Byteconf JavaScript 2019 - IoT and JS';
+	fs.mkdirSync(path.join(root, folder), { recursive: true });
+	fs.writeFileSync(path.join(root, folder, 'x [AAAAAAAAAAA].mkv'), '');
+	fs.writeFileSync(path.join(root, folder, 'x (original).flv'), '');
+
+	it('keeps the downloaded .mkv when it exists', () => {
+		const backup = `${folder}/x [AAAAAAAAAAA].mkv`;
+		expect(findBackup(root, { id: 'AAAAAAAAAAA', backup })).toBe(backup);
+	});
+
+	it('falls back to my original recording for a video I uploaded', () => {
+		const video = { id: 'BBBBBBBBBBB', backup: `${folder}/x [BBBBBBBBBBB].mkv` };
+		expect(findBackup(root, video)).toBe(`${folder}/x (original).flv`);
+	});
+
+	it('throws when the folder has neither', () => {
+		const video = { id: 'CCCCCCCCCCC', backup: 'Talks/2019/x [CCCCCCCCCCC].mkv' };
+		fs.mkdirSync(path.join(root, 'Talks/2019'), { recursive: true });
+		expect(() => findBackup(root, video)).toThrow(/No backup video/);
 	});
 });

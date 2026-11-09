@@ -1,7 +1,7 @@
 // Builds src/data/talk-videos.json, the YouTube videos the talk archive embeds, from the
 // yt-dlp .info.json files in the NAS archive (Talks/, Podcasts/, Livestreams/, Tutorials & Demos/ of
-// "My Videos"). The talk-videos health check reads this file from GitHub and emails when
-// one of these videos goes private or is deleted; the NAS copy in `backup` is what gets
+// "My Videos"; one folder per talk, see the README there). The talk-videos health check
+// reads this file from GitHub and emails when one of these videos goes private or is deleted; the NAS copy in `backup` is what gets
 // re-uploaded (unlisted) to Joe's channel in its place.
 // Usage: npm run talks:videos [-- <My Videos root>]
 import fs from 'node:fs';
@@ -34,6 +34,18 @@ export function toTalkVideo(info, relativePath) {
 	};
 }
 
+/** The NAS file to re-upload: the downloaded .mkv, or for a video I uploaded myself (no
+ * .mkv), my original recording in the same talk folder. */
+export function findBackup(root, video) {
+	if (fs.existsSync(path.join(root, video.backup))) return video.backup;
+	const folder = path.dirname(video.backup);
+	const original = fs
+		.readdirSync(path.join(root, folder))
+		.find((name) => /\(original\)\.(mp4|mkv|mov|flv|webm)$/.test(name));
+	if (!original) throw new Error(`No backup video for ${video.id}: ${video.backup}`);
+	return path.join(folder, original);
+}
+
 function infoFiles(dir, root) {
 	return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
 		const full = path.join(dir, entry.name);
@@ -49,11 +61,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		.map((file) => toTalkVideo(JSON.parse(fs.readFileSync(path.join(root, file), 'utf8')), file))
 		.filter(Boolean)
 		.sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
-	for (const video of videos) {
-		if (!fs.existsSync(path.join(root, video.backup))) {
-			throw new Error(`No backup video for ${video.id}: ${video.backup}`);
-		}
-	}
+	for (const video of videos) video.backup = findBackup(root, video);
 	fs.writeFileSync(OUT_FILE, `${JSON.stringify(videos, null, '\t')}\n`);
 	console.log(`${videos.length} videos -> ${OUT_FILE}`);
 }

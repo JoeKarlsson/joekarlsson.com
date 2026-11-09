@@ -5,14 +5,13 @@ description: Package one of Joe's talk, podcast or demo recordings for YouTube w
 
 # YouTube upload package
 
-Every recording Joe puts on YouTube goes up fully featured: nothing left at YouTube's defaults. The masters live on the NAS (`/Volumes/data/media/My Videos/`, organized type then year; SMB mount of the Synology). The package sits beside the video:
+Every recording Joe puts on YouTube goes up fully featured: nothing left at YouTube's defaults. The masters live on the NAS (`/Volumes/data/media/My Videos/`, SMB mount of the Synology), one folder per talk named like its /talks/ card: `<Type>/<YYYY>/<date> - <event> - <title>/`. `My Videos/README.md` has the naming rules. Joe's own recording in it is `<folder name> (original).<ext>`, and the package sits beside it:
 
 ```
-<video stem>.youtube.json   title, description, tags, settings, thumbnail crop, youtubeId once uploaded
-<video stem>.youtube.srt    cleaned captions (upload these)
-<video stem>.youtube.txt    cleaned plain transcript (for Joe's talk page later)
-<video stem>.youtube.png    1280x720 thumbnail
-<video stem>.youtube.frame.png   the still the thumbnail was cut from
+<folder name> (original).youtube.README.md   title, description, tags, settings, Upload section with the YouTube id
+<folder name> (original).youtube.srt         cleaned captions (upload these)
+<folder name> (original).youtube.txt         cleaned plain transcript (for Joe's talk page later)
+<folder name> (original).youtube.png         1280x720 thumbnail
 ```
 
 Uploads are **unlisted**: they don't notify subscribers or sit on the channel page, but they embed on joekarlsson.com. Never private (private can't embed) and never public unless Joe says so.
@@ -103,16 +102,17 @@ Limits: 5,000 bytes, no `<` or `>`. At most 3 hashtags, on the last line. No em 
 
 - **Title** (max 100 chars, no `<` `>`): the talk's own title, then the event and year: `IoT and JS: A Gentle Introduction to IoT | Byteconf JavaScript 2019`. A pre-recorded version with no single event gets its length instead: `(20 min)`.
 - **Tags**: 5-10, mostly product and topic names people search or misspell ("MongoDB", "Mongo DB", "Raspberry Pi", "Joe Karlsson", the event). 500 characters total.
-- **Settings** in the package: `"categoryId": 28` (Science & Technology), `"language": "en"`, `"captionsLanguage": "en"`, `"recordingDate"`, `"location"` (city, or omit for a home recording), `"license": "youtube"`, `"madeForKids": false`, `"alteredContent": false`, `"embeddable": true`, `"visibility": "unlisted"`, `"captionCertificate": "never aired on US TV"`, `"playlist": "Talk Archive"` (the playlist is unlisted too).
+- **Settings** in the package: `"categoryId": 28` (Science & Technology), `"language": "en"`, `"captionsLanguage": "en"`, `"recordingDate"`, `"location"` (city, or omit for a home recording), `"license": "youtube"`, `"madeForKids": false`, `"alteredContent": false`, `"embeddable": true`, `"visibility": "unlisted"`, `"captionCertificate": "never aired on US TV"`, `"playlist": "My Talks"`.
 
 ## 7. Upload
 
 YouTube Studio in Chrome (the claude-in-chrome skill), as Joe, who's signed in. The Data API is not an option: uploads from an unverified API project are locked private, which can't embed.
 
-1. studio.youtube.com, Create, Upload videos, pick the video from the NAS mount.
-2. Details: title, description, thumbnail (`.youtube.png`), playlist, not made for kids; Show more: altered content No, tags, language, caption certification, recording date and location, license, category, allow embedding, chapters on.
-3. Subtitles: upload `.youtube.srt` as "With timing".
-4. Visibility: Unlisted. Save.
-5. Copy the video ID into the package as `youtubeId`, and add the video to `src/data/talk-videos.json` (`owner: "joe"`) so the talk page can embed it and the `talk-videos` health check watches it.
+1. studio.youtube.com, Create, Upload videos. Joe drops the files in (Chrome can't open the NAS picker itself); copies of the thumbnails and `.srt` files in `~/Downloads/youtube-uploads/` make them reachable for `file_upload`.
+2. Details: the channel's upload defaults fill in a short footer and Unlisted; replace the description, and fill the title and description with `document.execCommand('insertText')` on `ytcp-uploads-dialog #textbox[contenteditable="true"]` (typing is slow and drops newlines). Thumbnail through the dialog's `input[type=file]`, playlist My Talks, not made for kids. Show more: paid promotion No, AI use No, tags (type them with a trailing comma), caption certification "never aired", recording date, Shorts remixing "Don't allow", category, embedding on, "Publish to subscriptions feed and notify subscribers" off.
+3. Visibility: Unlisted, then Save. Check the content list says Unlisted: on the video's edit page, the visibility menu needs Done and then the page's Save button (use its ref; clicking by position missed it twice and the video stayed private).
+4. After processing (the upload dialog greys out Subtitles until then): Languages, Upload manual, With timing, the `.youtube.srt`. It lands as a draft: open Edit subtitles and Publish.
+5. End screen: Details, End screen, Import from video, pick bechdel.io (EWYc7FKCKWY), which has subscribe + best-for-viewer video + the My Talks playlist over the last 20 seconds. Save.
+6. Write the YouTube id into the package README's Upload section. Fetch the upload's metadata into the talk folder (`yt-dlp --skip-download --write-info-json --write-description --write-thumbnail --convert-thumbnails jpg -o "<folder>/<folder name> [%(id)s].%(ext)s" https://youtu.be/<id>`) and add `youtube <id>` to `My Videos/_metadata/downloaded.txt` so channel sweeps skip it. Add the id to the talk's `videos` in `src/data/talks.ts` (after the organizer's copy), run `npm run talks:videos` (its `backup` falls back to the folder's `(original)` file), `npm run youtube:thumbnails`, and ship. If the SMB mount returns ENOENT for files that exist after big renames, mirror the `.info.json` files over SSH (`tar` over `ssh -p 24`) and pass that folder to the sync script.
 
 Check the watch page loads, the captions show, and the chapters appear on the progress bar before moving to the next video. If YouTube shows a copyright claim, stop and tell Joe; don't dispute it on his behalf.

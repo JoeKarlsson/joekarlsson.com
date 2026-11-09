@@ -544,7 +544,7 @@ export const talks: Talk[] = [
 		date: '2021-04-29',
 		description:
 			"Using MongoDB's Data Lake service to auto-archive cold data to AWS S3 while maintaining query capabilities - reducing data center power consumption and costs.",
-		videos: ['fAvVxQknDL0'],
+		videos: ['fAvVxQknDL0', '8KskhLOEbYI'],
 		link: 'https://www.conf42.com/Cloud_Native_2021_Joe_Karlsson_save_the_world_data_lakes',
 	},
 	{
@@ -552,7 +552,7 @@ export const talks: Talk[] = [
 		kind: 'talk',
 		event: 'TEDxYouth@LakeManalapan',
 		date: '2021-03',
-		videos: ['GiNa2jen-lg'],
+		videos: ['GiNa2jen-lg', 'CGb_6vkYws4'],
 		...ART_OF_CS,
 	},
 	{
@@ -652,7 +652,7 @@ export const talks: Talk[] = [
 		event: 'Conf42 JavaScript 2020',
 		place: 'Online',
 		date: '2020-10-21',
-		videos: ['hVpgThAukUY'],
+		videos: ['hVpgThAukUY', 'O7e_MQFA0tY'],
 		...IOT,
 	},
 	{
@@ -661,7 +661,7 @@ export const talks: Talk[] = [
 		event: 'Conf42 JavaScript 2020',
 		place: 'Online',
 		date: '2020-10-21',
-		videos: ['tYNaXn2wJJo'],
+		videos: ['tYNaXn2wJJo', 'NvYNPzpXF8g'],
 		...SCHEMA,
 	},
 	{
@@ -670,7 +670,7 @@ export const talks: Talk[] = [
 		event: 'Conf42 JavaScript 2020',
 		place: 'Online',
 		date: '2020-10-21',
-		videos: ['Y9qSp8kd1u4'],
+		videos: ['Y9qSp8kd1u4', 'cClWDAFE0K0'],
 		...SQL_TO_NOSQL,
 	},
 	{
@@ -768,7 +768,7 @@ export const talks: Talk[] = [
 		event: 'CascadiaJS 2020 August Meetup',
 		place: 'Online',
 		date: '2020-08-14',
-		videos: ['KDH4esqOezA'],
+		videos: ['KDH4esqOezA', 'EWYc7FKCKWY'],
 		...BECHDEL,
 	},
 	{
@@ -789,7 +789,7 @@ export const talks: Talk[] = [
 		date: '2020-07-23',
 		description:
 			'Combining cats, computers, and crappy ideas into an IoT litter box using a Raspberry Pi and Node.js.',
-		videos: ['zHvrtt5raA4'],
+		videos: ['zHvrtt5raA4', 'P_G5b6ArWVY'],
 		...IOT,
 	},
 	{
@@ -854,7 +854,7 @@ export const talks: Talk[] = [
 		date: '2020-05-18',
 		description:
 			'Data modeling basics using real-world examples - common methodologies for designing MongoDB schemas.',
-		videos: ['ay31FKx4maM'],
+		videos: ['ay31FKx4maM', 'loLZ1zdq0gI'],
 		...SCHEMA,
 	},
 	{
@@ -1061,7 +1061,7 @@ export const talks: Talk[] = [
 		title: 'IoT with JS: A Gentle Introduction to IoT',
 		kind: 'talk',
 		event: 'NYC Code Camp 2019',
-		otherRecording: 'zHvrtt5raA4',
+		otherRecording: 'ur3H2yZ8XHE',
 		place: 'New York, NY',
 		date: '2019-09-28',
 		description:
@@ -1072,7 +1072,7 @@ export const talks: Talk[] = [
 		title: 'IoT with JS: A Gentle Introduction to IoT',
 		kind: 'talk',
 		event: 'Grizzhacks',
-		otherRecording: 'zHvrtt5raA4',
+		otherRecording: 'ur3H2yZ8XHE',
 		place: 'Rochester, MI',
 		date: '2019-09',
 		description: 'Getting started with IoT using JavaScript, Raspberry Pi, and Node.js.',
@@ -1193,6 +1193,17 @@ export const talks: Talk[] = [
 		description:
 			'Moodlite: open source, 3D-printable light triangles with addressable RGB LEDs, run by a NodeMCU controller you change from any browser.',
 		videos: ['Eje1EPiiI5M', 'I2yMKgKkKvk'],
+	},
+	{
+		title: 'IoT and JS(?!): A Gentle Introduction to the Internet of Things',
+		kind: 'talk',
+		event: 'Byteconf JavaScript 2019',
+		place: 'Online',
+		date: '2019-03-16',
+		description:
+			'IoT for web developers: why JavaScript is a good place to start with hardware, and a Morse code machine built on a Raspberry Pi with Express and the onoff package.',
+		videos: ['ur3H2yZ8XHE'],
+		...IOT,
 	},
 	{
 		title: 'Building High Performance React Applications',
