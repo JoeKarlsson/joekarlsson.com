@@ -43,6 +43,11 @@ const {
 // Use provided canonical URL for syndicated content, otherwise generate from current path
 const canonicalURL = canonicalUrl ? new URL(canonicalUrl) : new URL(Astro.url.pathname, Astro.site);
 
+// The Markdown copy src/integrations/markdown-pages.mjs writes for agents: /about/ -> /about.md
+const markdownURL = new URL(
+	Astro.url.pathname === '/' ? '/index.md' : Astro.url.pathname.replace(/\/$/, '.md'),
+	Astro.site,
+);
 const ogImageURL = new URL(ogJpegPath(image), Astro.site);
 // Link previews already show the site name, so drop the " | Joe Karlsson" suffix there
 const socialTitle = title.replace(` | ${SITE_TITLE}`, '');
@@ -119,6 +124,7 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 
 <!-- SEO -->
 <link rel="canonical" href={canonicalURL} />
+{!noindex && <link rel="alternate" type="text/markdown" href={markdownURL} />}
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="author" content="Joe Karlsson" />

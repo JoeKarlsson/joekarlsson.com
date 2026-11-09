@@ -22,6 +22,8 @@ export async function GET() {
 
 This file offers a summary. For full details, every post and every project, see [llms-full.txt](https://www.joekarlsson.com/llms-full.txt).
 
+Every page also comes as Markdown: swap the trailing slash for .md (https://www.joekarlsson.com/about/ is https://www.joekarlsson.com/about.md, and the homepage is /index.md).
+
 ## Pages
 
 ${listSitePages().join('\n')}

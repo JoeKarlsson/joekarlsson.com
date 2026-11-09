@@ -45,6 +45,8 @@ Joe runs production-grade self-hosted infrastructure: Proxmox clusters, LXC cont
 
 ## Pages
 
+Every page also comes as Markdown: swap the trailing slash for .md (https://www.joekarlsson.com/about/ is https://www.joekarlsson.com/about.md, and the homepage is /index.md).
+
 ${listSitePages().join('\n')}
 
 ## Selected Works

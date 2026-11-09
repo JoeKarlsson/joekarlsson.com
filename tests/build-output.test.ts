@@ -213,6 +213,44 @@ describe('llms-full.txt', () => {
 	});
 });
 
+describe('Markdown copies for agents', () => {
+	it('writes the page as Markdown with its title, description and URL', () => {
+		const about = readDist('about.md');
+		expect(about).toMatch(
+			/^---\ntitle: "About"\ndescription: ".+"\nurl: https:\/\/www\.joekarlsson\.com\/about\/\n---/,
+		);
+		expect(about).toContain('# About');
+		expect(about).not.toMatch(/<script|<svg|<button/);
+		expect(existsSync(resolve(dist, 'index.md'))).toBe(true);
+		expect(existsSync(resolve(dist, 'work/mikrotik-api-client.md'))).toBe(true);
+	});
+
+	it('turns each diagram into its label once, not once per desktop and phone drawing', () => {
+		const post = readDist('blog/homelab-two-years-later.md');
+		const labels = post.match(/^_Diagram: .{40}/gm) ?? [];
+		expect(labels.length).toBeGreaterThan(0);
+		expect(new Set(labels).size).toBe(labels.length);
+		expect(post).toMatch(/^\| .+ \|$/m);
+		expect(post).not.toMatch(/\[\]\(/);
+	});
+
+	it('links every indexed page to a Markdown copy that exists, and skips noindex pages', () => {
+		for (const page of [
+			'index.html',
+			'about/index.html',
+			'blog/homelab-two-years-later/index.html',
+		]) {
+			const href = readDist(page).match(
+				/<link rel="alternate" type="text\/markdown" href="([^"]+)"/,
+			)?.[1];
+			expect(href, page).toBeDefined();
+			expect(existsSync(resolve(dist, new URL(href!).pathname.slice(1))), href).toBe(true);
+		}
+		expect(readDist('404.html')).not.toContain('text/markdown');
+		expect(existsSync(resolve(dist, '404.md'))).toBe(false);
+	});
+});
+
 describe('critical pages exist', () => {
 	const requiredPages = [
 		'index.html',
@@ -302,7 +340,9 @@ describe('SEO meta tags', () => {
 
 	it('blog posts have meta descriptions', () => {
 		const blogDir = resolve(dist, 'blog');
-		const posts = readdirSync(blogDir).filter((e) => e !== 'index.html' && e !== 'category');
+		const posts = readdirSync(blogDir, { withFileTypes: true })
+			.filter((e) => e.isDirectory() && e.name !== 'category')
+			.map((e) => e.name);
 		// Spot-check first 5 blog posts
 		for (const post of posts.slice(0, 5)) {
 			const postHtml = readDist(`blog/${post}/index.html`);
