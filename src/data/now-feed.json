@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 492,
+			"commitCount": 493,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 69
+				25, 70
 			],
-			"latestCommitMessage": "fix: The homelab gift guide and its newsletter issue say who the guide..."
+			"latestCommitMessage": "feat: The works page opens on a reel of the five selected works whose..."
 		},
 		{
 			"name": "screencast-director",
