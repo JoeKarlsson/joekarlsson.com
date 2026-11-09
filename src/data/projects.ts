@@ -1022,9 +1022,10 @@ export const projects: Project[] = [
 			tagline: 'Does your favorite movie pass the Bechdel Test?',
 			introHeading: 'Artist statement',
 			intro: [
-				'Bechdel.io checks movie scripts against the Bechdel Test. The test comes from a 1985 Alison Bechdel comic strip, and it asks three things: are there at least two women, do they talk to each other, and do they talk about something other than a man.',
-				'It sorts a wall of movies most people have already seen into pass and fail. About half of the 218 films on the shelf fail, and a lot of them are favorites.',
-				'We released it as open source because we saw it as feminist activism.',
+				"Most people who hear about the Bechdel Test go looking for a movie they love that fails it, and a lot of them find one. The test comes from a 1985 strip in Alison Bechdel's comic Dykes to Watch Out For. A character says she'll only see a movie if it has two women in it, they talk to each other, and they talk about something besides a man, and the joke is that the last one she saw was Alien.",
+				'Bechdel.io reads the screenplay and asks those three questions the same way for every film, including the ones you love. The whole original Star Wars trilogy fails, and so do The Godfather, Back to the Future and The Shawshank Redemption. They sit on the same shelf as the films that pass, under the same pass or fail tag.',
+				'Counting has been a feminist tool for a long time. In 1989 the Guerrilla Girls counted the art at the Met and put the numbers on a poster: fewer than 5% of the artists in the modern art sections were women, but 85% of the nudes were female. Anyone can sit through one movie with a notebook and check it, and one failing movie is easy to wave off. Bechdel.io runs the same check across a director\'s career or a year of releases, where it gets a lot harder to call any one film an exception.',
+				'We made it open source as feminist activism, so anyone can run the count on the movies they care about.',
 			],
 			credit: 'with Laurel Karlsson',
 			made: {
