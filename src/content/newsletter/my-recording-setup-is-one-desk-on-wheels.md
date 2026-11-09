@@ -1,5 +1,6 @@
 ---
 title: 'My Whole Recording Setup Is One Desk on Wheels'
+seoTitle: 'My Recording Setup Is One Desk on Wheels'
 date: 2026-11-19T08:00:00Z
 slug: 'my-recording-setup-is-one-desk-on-wheels'
 description: 'One cable to plug in, one sentence to set up the room, and the lighting I got wrong twice.'

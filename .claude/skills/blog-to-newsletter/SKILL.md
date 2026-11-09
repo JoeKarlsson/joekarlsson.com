@@ -75,6 +75,7 @@ Read every image you make before using it. Alt text is required on all of them.
 - `date`: the send day.
 - `cardPhoto` / `cardPhotoAlt`: a photo whose subject survives a tall crop. Run `npm run newsletter:cards -- <slug>` and Read `card.webp`. For the recording setup, the front desk photo cropped down to a painting on the mat. The wide nook shot showed the rig.
 - `cardPhotoAlt` is written into `heroAlt` after "with", so start it with "Joe's ...", not "My ...".
+- A title over 45 characters needs a short `seoTitle` (a site test caps tab titles), like the OKF issue.
 - Images use site paths (`/images/...`). Diagrams can stay as the post's SVG.
 
 **Email draft:** `~/newsletter-drafts/<send date>-<slug>.md`. Use the same body, with each image swapped for its `https://www.joekarlsson.com/email/<slug>/...` copy. Front matter is `subject` ("Works on My Machine: <Title>"), `description` (the dek), `send_at`, and `recap_of`. Before you pick a send date, check the drafts folder for issues already scheduled. Sends go Tuesday to Friday at 9:00, one issue per day. Joe's issues have gone out on Thursdays, a week apart.
