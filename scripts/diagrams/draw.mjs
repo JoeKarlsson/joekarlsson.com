@@ -114,10 +114,21 @@ function contrast(a, b) {
 	return (hi + 0.05) / (lo + 0.05);
 }
 
+// Repeat a removal until nothing changes, so a nested fragment like `<!<!-- -->-- -->`
+// can't leave a new match behind after one pass
+function removeAll(text, pattern) {
+	let previous;
+	do {
+		previous = text;
+		text = text.replace(pattern, '');
+	} while (text !== previous);
+	return text;
+}
+
 function readLogoFile(file, dir = 'logos') {
-	const raw = readFileSync(new URL(`./${dir}/${file}.svg`, import.meta.url), 'utf8').replace(
+	const raw = removeAll(
+		readFileSync(new URL(`./${dir}/${file}.svg`, import.meta.url), 'utf8'),
 		/<!--[\s\S]*?-->/g,
-		'',
 	);
 	const [, minX, minY, w, h] = raw
 		.match(/viewBox="([-\d.]+) ([-\d.]+) ([\d.]+) ([\d.]+)"/)
@@ -127,10 +138,10 @@ function readLogoFile(file, dir = 'logos') {
 	const classFill = Object.fromEntries(
 		[...raw.matchAll(/\.([\w-]+)\s*{[^}]*?fill:\s*([^;}]+)/g)].map((m) => [m[1], m[2].trim()]),
 	);
-	const inner = raw
-		.replace(/^[\s\S]*?<svg[^>]*>/, '')
-		.replace(/<\/svg>\s*$/, '')
-		.replace(/<style[\s\S]*?<\/style>/g, '')
+	const inner = removeAll(
+		raw.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, ''),
+		/<style[\s\S]*?<\/style>/g,
+	)
 		.replace(/<title>[\s\S]*?<\/title>/, '')
 		.replace(/class="([\w-]+)"/g, (_whole, c) => (classFill[c] ? `fill="${classFill[c]}"` : ''))
 		.trim();

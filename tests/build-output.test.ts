@@ -448,11 +448,12 @@ describe('share links', () => {
 		describe(kind, () => {
 			const html = readDist(path);
 
-			for (const [network, prefix] of [
-				['Hacker+News', 'https://news.ycombinator.com/submitlink?u='],
-				['Bluesky', 'https://bsky.app/intent/compose?text='],
-				['LinkedIn', 'https://www.linkedin.com/sharing/share-offsite/?url='],
-				['X', 'https://x.com/intent/post?text='],
+			// [network, share endpoint, query parameter that carries the post]
+			for (const [network, endpoint, param] of [
+				['Hacker+News', 'https://news.ycombinator.com/submitlink', 'u'],
+				['Bluesky', 'https://bsky.app/intent/compose', 'text'],
+				['LinkedIn', 'https://www.linkedin.com/sharing/share-offsite/', 'url'],
+				['X', 'https://x.com/intent/post', 'text'],
 			]) {
 				it(`links to ${network} with a tracked Share Click event`, () => {
 					const link = html.match(
@@ -460,7 +461,10 @@ describe('share links', () => {
 							`<a href="([^"]+)"[^>]*plausible-event-name=Share\\+Click plausible-event-network=${network.replace('+', '\\+')} `,
 						),
 					);
-					expect(link?.[1].startsWith(prefix)).toBe(true);
+					expect(link).toBeTruthy();
+					const url = new URL(link![1].replace(/&amp;/g, '&'));
+					expect(url.origin + url.pathname).toBe(endpoint);
+					expect(url.searchParams.has(param)).toBe(true);
 				});
 			}
 		});
