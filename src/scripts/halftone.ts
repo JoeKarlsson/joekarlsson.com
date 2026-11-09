@@ -27,7 +27,6 @@
 
 import { retryImageLoadOnce } from './retry-image';
 
-
 const CELL_CSS_PX = 3;
 const INK = [1, 0x4f / 255, 0xd8 / 255]; // #ff4fd8
 // Mean brightness (0-1) above which an image is inverted, like halftone.py's --invert-light
