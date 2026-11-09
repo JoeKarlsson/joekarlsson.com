@@ -8,6 +8,7 @@
 import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { loadEnvFile } from 'node:process';
+import { format, resolveConfig } from 'prettier';
 import sharp from 'sharp';
 import {
 	parseLetterboxdFilms,
@@ -252,10 +253,13 @@ const coversInUse = new Set(
 for (const file of readdirSync(COVER_DIR)) {
 	if (!coversInUse.has(file)) rmSync(`${COVER_DIR}/${file}`);
 }
+// Through Prettier, because deploy.sh commits this file by path, which skips the pre-commit
+// formatter, and JSON.stringify puts each number of an array on its own line: an unformatted
+// snapshot on main fails format:check in everyone's pre-push hook
 writeFileSync(
 	OUTPUT_PATH,
-	JSON.stringify(
-		{
+	await format(
+		JSON.stringify({
 			updatedAt: new Date().toLocaleDateString('en-CA'),
 			shippingWindowDays: SHIPPING_WINDOW_DAYS,
 			shippedRepos,
@@ -263,10 +267,9 @@ writeFileSync(
 			podcastEpisodes,
 			homelab,
 			github,
-		},
-		null,
-		'\t',
-	) + '\n',
+		}),
+		{ ...(await resolveConfig(OUTPUT_PATH)), filepath: OUTPUT_PATH },
+	),
 );
 console.log(
 	`Wrote ${shippedRepos.length} shipped repos, ${films.length} films, ${podcastEpisodes.length} podcast episodes, homelab stats and GitHub counts to ${OUTPUT_PATH}`,
