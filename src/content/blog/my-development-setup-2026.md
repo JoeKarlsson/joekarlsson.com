@@ -359,7 +359,7 @@ A .docx edit is not done until I can see it in Word. A correct file on disk
 proves nothing: Word and OneDrive can silently replace it.
 ```
 
-Full file: [`CLAUDE.md`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_claude/CLAUDE.md).
+Full file: [`CLAUDE.md`](https://github.com/JoeKarlsson/dotfiles/blob/main/home/dot_claude/private_CLAUDE.md).
 </details>
 
 Workflows bake the same idea in. My homelab health check reports every finding, proposes a fix, and waits for my go-ahead. My [blog pipeline](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/) fact-checks every claim and link before I see a draft. I wrote more about project-level `CLAUDE.md` files in [how my Claude Code skills repo accidentally became internal tooling](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/).

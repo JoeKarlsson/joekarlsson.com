@@ -27,6 +27,9 @@ exclude = [
   "cyberpowersystems\\.com",
   "cdata\\.com/ai/signup",
   "analytics\\.google\\.com",
+  # Connect AI's MCP endpoint: an API that always answers 401 without a token, not a
+  # page (verified 2026-11-09)
+  "mcp\\.cloud\\.cdata\\.com/mcp",
   # Verified alive 2026-10-25 (browser or recent Wayback capture) but 405 or
   # time out for GitHub runners
   "ayende\\.com",
