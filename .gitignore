@@ -45,6 +45,9 @@ src/pages/resume-fiveonefour-pdf.astro
 .claude/settings.json
 
 # Vale downloaded packages (all installed via vale sync, incl. JoeKarlsson from vale-styles)
+# Everything under .vale is downloaded, so ignore the path itself too: a worktree's
+# symlink to the main checkout's .vale got committed once and broke CI (2026-11-09)
+/.vale
 .vale/styles/ai-tells/
 .vale/styles/Slop/
 .vale/styles/STE/
