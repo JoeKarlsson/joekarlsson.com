@@ -104,6 +104,13 @@ export default defineConfig({
 					rehypeAutolinkHeadings,
 					{
 						behavior: 'append',
+						// An FAQ question's h3 sits in a <summary>, which is itself a control, so a
+						// permalink there is a nested interactive element. Its id still deep-links.
+						test: (
+							/** @type {unknown} */ _heading,
+							/** @type {number | undefined} */ _index,
+							/** @type {{ tagName?: string } | undefined} */ parent,
+						) => parent?.tagName !== 'summary',
 						properties: {
 							className: ['heading-anchor'],
 							ariaLabel: 'Link to section',

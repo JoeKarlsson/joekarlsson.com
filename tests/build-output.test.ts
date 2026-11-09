@@ -427,6 +427,13 @@ describe('in-page anchor links', () => {
 		}
 		expect(broken).toEqual([]);
 	});
+
+	it('no FAQ <summary> holds a link (axe nested-interactive)', () => {
+		const nested = builtPages.filter((page) =>
+			/<summary>(?:(?!<\/summary>).)*<a\s/s.test(readDist(page)),
+		);
+		expect(nested).toEqual([]);
+	});
 });
 
 describe('share links', () => {
