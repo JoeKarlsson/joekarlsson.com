@@ -62,7 +62,7 @@ _Pushed back into its corner of the nook, with a painting drying on the mat._
 
 ## Camera, prompter and mic
 
-The camera is a **Sony ZV-E10** with the 16-50mm kit lens. It sits behind an [Elgato Prompter](https://www.elgato.com/us/en/p/prompter), so I can read a script while looking straight into the lens. I run the script in [FollowSpot, the teleprompter app I wrote that follows my voice](/blog/followspot-local-whisper-teleprompter/).
+The camera is a **Sony ZV-E10** with the 16-50mm kit lens. It sits behind an [Elgato Prompter](https://www.elgato.com/us/en/p/prompter), so I can read a script while looking straight into the lens. I run the script in [FollowSpot, the teleprompter app I wrote that follows my voice](/blog/followspot-local-whisper-teleprompter/), with a live camera feed on the Prompter so I can see myself while I read.
 
 ![The Sony ZV-E10 seen from behind, mounted behind the Elgato Prompter's hood on the arm, over the green cutting mat](/images/blog/recording-setup-tour/camera-behind-prompter.webp)
 
@@ -135,7 +135,7 @@ My footage also looks a little stuttery, and I think 25p is why. 25 frames a sec
 
 In editing, I grade the camera track with a soft film LUT in [Screencast Director, the screen recorder I built that drafts the edit for me](/blog/screencast-director-screen-recorder/), but a LUT can't bring back detail the camera never captured.
 
-If you're starting out, light your face first, until the camera gets a clean image at a low ISO, and only then add color and shadows around it.
+If you're starting out, light your face first, until the camera gets a clean image at a low ISO, and only then add color and shadows around it. I do a quick light check before I record, to make sure everything looks good.
 
 ![Buff Doge vs. Cheems meme: a muscular Buff Doge labeled 'Me shooting a video on my iPhone in 5 minutes' next to a small crying Cheems labeled 'Me with a teleprompter, a softbox and a 4K camera, still adjusting the lights'](/images/blog/recording-setup-tour/meme-buff-doge-cheems.webp)
 
@@ -205,4 +205,4 @@ The first thing I'd change is the camera arm. A Low Profile arm holding a camera
 
 The second is the lighting, which isn't finished. Next I want a better softbox in front of my face, so the light wraps around a bit more instead of coming from one side.
 
-The rest of my gear, from the main desk to the keyboard, is on [my uses page](/uses/).
+Someday I might need to record in a bigger space, or grow out of the nook. For now it works great for what I need, and I can't recommend a rolling, one-cable setup enough. The rest of my gear, from the main desk to the keyboard, is on [my uses page](/uses/).
