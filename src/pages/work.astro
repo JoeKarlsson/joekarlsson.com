@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HoverBox from '../components/HoverBox.astro';
+import IndexRow from '../components/IndexRow.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import PosterHero from '../components/PosterHero.astro';
 import ProjectCard from '../components/ProjectCard.astro';
@@ -32,6 +33,7 @@ const eras = ERAS.map((era) => ({
 }));
 const workUrl = (p: (typeof projects)[number]) =>
 	(p.page && `/work/${p.page.slug}/`) || p.sourceUrl || p.blogUrl || p.demoUrl || '#';
+const pieces = (n: number) => `${n} ${n === 1 ? 'piece' : 'pieces'}`;
 const reelPieces = selected.map((p) => ({ title: p.title, href: workUrl(p) }));
 const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 ---
@@ -205,6 +207,19 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 				</p>
 			</div>
 		</section>
+
+		<!-- A quick index of the eras below, two columns like /about/'s Follow me -->
+		<nav aria-label="Eras" class="mb-12 grid gap-x-10 md:mb-16 md:grid-cols-2">
+			{eras.map((era, i) => (
+				<IndexRow
+					href={`#${era.slug}`}
+					label={era.years}
+					meta={pieces(era.projects.length)}
+					index={i}
+					compact
+				/>
+			))}
+		</nav>
 
 		{eras.map((era, i) => (
 			<section id={era.slug} class={SECTION}>

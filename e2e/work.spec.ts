@@ -26,6 +26,23 @@ test.describe('Work Page', () => {
 		expect(ids.slice(0, 2)).toEqual(['selected', 'statement']);
 	});
 
+	// The index above the eras jumps to each one, and its counts match the section
+	test('the eras index jumps to each era with the right count', async ({ page }) => {
+		const links = page.locator('nav[aria-label="Eras"] a');
+		expect(await links.count()).toBeGreaterThan(1);
+		for (const link of await links.all()) {
+			const id = (await link.getAttribute('href'))!.slice(1);
+			const count = Number(
+				(await link.locator('span').last().textContent())!.match(/^(\d+) pieces?$/)![1],
+			);
+			await expect(page.locator(`section[id="${id}"] .project-card`), id).toHaveCount(count);
+		}
+		const last = links.last();
+		const id = (await last.getAttribute('href'))!.slice(1);
+		await last.click();
+		await expect(page.locator(`section[id="${id}"] h2`)).toBeInViewport();
+	});
+
 	// The hero reel plays each selected work in turn; its caption and link follow the one on screen
 	test('the hero reel links to the selected work on screen', async ({ page }) => {
 		const reel = page.locator('header a[data-reel-pieces]');

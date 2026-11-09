@@ -153,9 +153,10 @@ export const ERAS: {
 // Each selected work's slice of the /work/ hero reel, in seconds; src/scripts/work-reel.ts
 // names the piece on screen from it
 export const REEL_SLICE_SECONDS = 2.4;
-export const REEL_VIDEO = '/images/projects/selected-works-reel.mp4';
+// Images cache for 30 days: a new cut needs a new name, or returning visitors see the old one
+export const REEL_VIDEO = '/images/projects/selected-works-reel-2.mp4';
 
-export const SELECTED_WORKS = ['PixelPane', 'linger', 'Connect AI × DOOM', 'Punc', 'Bechdel.io'];
+export const SELECTED_WORKS = ['Punc', 'Bechdel.io', 'Connect AI × DOOM'];
 
 export const projects: Project[] = [
 	{
@@ -228,7 +229,6 @@ export const projects: Project[] = [
 			"A 32x32 LED pixel art frame behind a two-way mirror, driven by a Raspberry Pi. It plays seasonal pixel art, and Home Assistant pushes to it: ON AIR when my camera turns on, the doorbell, the weather. It's open source, and every scene is a plugin.",
 		image: `${PIXELPANE_DIR}/pixelpane-montage-poster.webp`,
 		video: `${PIXELPANE_DIR}/pixelpane-montage.mp4`,
-		reelStart: 2.5,
 		imageAlt:
 			'PixelPane on my desk: the LED frame showing my homelab status, Proxmox stats and my next meeting, the control page switching scenes, the two-way mirror over the grid, and a drawing from the GIF generator appearing on the panel',
 		date: '2026-10',
@@ -891,7 +891,6 @@ export const projects: Project[] = [
 			'A small collection of poems that only finish for readers who slow down. Each line starts as a few words floating in white space. Hold still and the blanks fill in. Scroll fast and they drain away again. Plain HTML, CSS, and about a hundred lines of JavaScript, with no analytics and no share button.',
 		image: '/images/projects/linger.webp',
 		video: '/images/projects/linger.mp4',
-		reelStart: 3,
 		imageAlt:
 			'The linger poem "the lake" scrolling slowly: each line starts as a few scattered words, and the missing words fade in while the page holds still',
 		date: '2026-10',
