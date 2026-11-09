@@ -29,6 +29,8 @@ interface Props {
 	description?: string;
 	date: Date;
 	updatedDate?: Date;
+	/** What the last refresh changed, shown in a banner under the title */
+	updateNote?: string;
 	heroImage?: string;
 	heroAlt?: string;
 	heroVideo?: string;
@@ -55,6 +57,7 @@ const {
 	description,
 	date,
 	updatedDate,
+	updateNote,
 	heroImage,
 	heroAlt,
 	heroVideo,
@@ -257,6 +260,14 @@ const heroIsTaped =
 							)}
 						</p>
 					</div>
+					{updateNote && updatedDate && (
+						<p class="mb-6 border border-pink px-4 py-3 text-sm text-paper" role="note">
+							<strong class="text-pink">
+								Updated <FormattedDate date={updatedDate} />:
+							</strong>{' '}
+							{updateNote}
+						</p>
+					)}
 					{noticeMessage && (
 						<p class="mb-6 text-sm text-muted" role="note">
 							<Fragment set:html={noticeHtml} />

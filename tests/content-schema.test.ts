@@ -62,6 +62,13 @@ describe('blog post frontmatter', () => {
 				expect(stat.size, `heroImage is empty (0 bytes): ${heroImage}`).toBeGreaterThan(0);
 			});
 
+			it('dates its update banner', () => {
+				// BlogPost.astro shows updateNote as "Updated <updatedDate>: ...", so a note
+				// without a date would never render
+				if (!fm.updateNote) return;
+				expect(fm.updatedDate, 'updateNote needs an updatedDate').toBeDefined();
+			});
+
 			it('has description', () => {
 				const desc = fm.description?.replace(/['"]/g, '') || '';
 				if (desc.length > 0) {

@@ -34,6 +34,9 @@ const blog = defineCollection({
 		// still required as its poster and for og:image and blog cards.
 		heroVideo: z.string().optional(),
 		updatedDate: z.coerce.date().optional(),
+		// What a refresh changed, shown in a banner at the top of the post with the updatedDate
+		// ("Updated November 2026: ..."). Needs updatedDate (tests/content-schema.test.ts).
+		updateNote: z.string().optional(),
 		canonicalUrl: z.url().optional(),
 		contentNotice: z.union([z.string(), z.boolean()]).optional(),
 		tldr: z.string().optional(),
