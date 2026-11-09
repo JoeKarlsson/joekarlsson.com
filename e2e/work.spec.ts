@@ -18,9 +18,14 @@ test.describe('Work Page', () => {
 	});
 
 	// The category filters were removed (f97b903d): projects are grouped by era instead, and
-	// the hero indexes those sections
-	test('the hero index jumps to each era, and its counts match the section', async ({ page }) => {
-		const index = page.locator('header nav[aria-label="Sections"] a');
+	// a row of links under the hero (where the first selected work plays) indexes those sections
+	test('the section index jumps to each era, and its counts match the section', async ({
+		page,
+	}) => {
+		await expect(
+			page.locator('header a[href^="/work/"] video, header a[href^="/work/"] img'),
+		).toHaveCount(1);
+		const index = page.locator('nav[aria-label="Sections"] a');
 		const eraLinks = index.filter({ hasNot: page.locator('[href="#selected"]') });
 		expect(await eraLinks.count()).toBeGreaterThan(1);
 		let listed = 0;
