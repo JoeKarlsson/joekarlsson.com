@@ -2,73 +2,52 @@
 title: 'The Art of Computer Science'
 date: 2020-09-10
 slug: 'the-art-of-computer-science'
-description: 'Resources from my keynote The Art of Computer Science, about feeling like an imposter in tech and finding my place through art and a little humor.'
+description: 'My TEDx talk about finding my place in tech, and falling in love with programming through art, stupid side projects and friends.'
 categories: ['Career']
 heroImage: '/images/blog/the-art-of-computer-science/thumb-89672fd2.webp'
 heroAlt: "Signac's pointillist painting of a woman at her easel"
 contentNotice: false
-tldr: 'I switched my major three times, hated my first dev job, and moved to Hawaii to quit coding. Then I found my way back through art and stupid side projects. This talk is about finding your own joy in tech.'
+tldr: 'I switched to computer science because I was afraid of not finding a job, and it took me six or seven more years to fall in love with programming. Art, stupid projects and a community of friends got me there. Find your community, find your joy, and build stuff for fun.'
 ---
 
-First, thank you so much for coming to my keynote, The Art of Computer Science. Here you will find all the resources discussed during the talk.
+Have you ever watched a tech talk where the speaker says they've been programming since they were four? That isn't my story, and I think it's harmful for any of us to believe you have to be a prodigy to belong in tech. This is my TEDx talk about how I finally found my love of programming through art, comedy and friends.
 
-## About
+[Watch The Art of Computer Science at TEDxYouth@LakeManalapan on YouTube](https://www.youtube.com/watch?v=GiNa2jen-lg)
 
-Do you feel like you have struggled to find your place in the tech industry? Do you feel like coding is a slog? Perhaps you feel dumb or like an imposter? I know exactly how you feel, because I have and currently have all of those feelings bubbling up inside me, and that’s okay! It took me a long time to feel comfortable in this industry, and in this talk, I will tell you about my journey to find a place in tech through my art and a dash of humor. This talk is for anyone looking to feel inspired to find their joy in the technical industrial complex.
+## What the talk covers
 
-## Video
+**Getting the obvious out of the way.** Yes, I'm another cis white man in tech, and I have a lot of privilege in this industry. Your experience may not look like mine, and I still want this talk to show you that you can succeed in tech.
 
-[Watch the talk on YouTube](https://www.youtube.com/watch?v=GiNa2jen-lg)
+**College.** I started school in 2008, right as the economy crashed, and studied physics, sociology, art history and a little math. I didn't switch to computer science until my junior year, and I did it out of fear: I was afraid I wouldn't get a job after I graduated. I wasn't good at it and didn't particularly care about it. I felt a lot of shame about that for a while. I don't anymore, because you don't have to start out in love with programming to end up loving it.
 
-## Slides
+**Early career.** My first programming job was Microsoft consulting during the Ballmer years, back when that wasn't cool. I was making money and paying off my student loans, but I felt like I was going through the motions. Without a community or any motivation to get good at it, I didn't grow much.
 
-[View slides on SpeakerDeck](https://speakerdeck.com/joekarlsson)
+**Hawaii.** I moved to Honolulu with the clear intention of giving up programming forever and becoming a surf bum. Instead I started hanging out with the local surfer, hacker and punk community, and we made stuff together. It turns out I'm not a very good surfer, and I ended up inside programming a lot more than I'd planned. That was the first time I'd built something I cared about, and I'd never had friends who could show me that was possible.
 
-## Talk Outline
+**Art and tech.** I think computers and the internet are the artistic medium of our generation, and that space is still wide open. Even more than art and tech, I love stupid stuff and tech: putting computer chips in things they don't belong in. I co-organized the [Stupid Shit and Terrible Ideas Hackathon](/blog/i-ran-my-first-hackathon-and-so-can-you/), where a group of us built things that shouldn't be built, with no purpose and no goal. I also built [bechdel.io](/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/) with my sister Laurel. It analyzes movie scripts in bulk to see whether they pass the Bechdel test.
 
-- Stop me if you've heard this one before
-  - I've been programming since I was 4 years old, when I built a functioning protocol droid and Podracer from scratch.
-  - Well, that's not me.
-  - In fact, if my CS Profs knew I was here talking to you all to give an inspiring speech about tech, they would
-- Before we get started, let's go over how this is going to work:
-  - All resources, video, slides, and a transcription of this talk can be found here:
-  - Ask any questions in the chat. I'll answer questions at the end too.
-  - Thank YOU
-- Let's get the obvious out of the way – yes, I am another White Dude in tech mansplaining about his career journey.
-  - I want to acknowledge that I do in fact have a lot of privilege in this industry as a CIS White Man and you may not have the same experience that I have had or will continue to have.
-  - My goal is to inspire you to find what makes you love tech.
-- Who the heck is this guy?
-  - My name is Joe Karlsson
-  - I'm a Developer Advocate (Fancy title for someone who has the honor of talking to devs and making cool things for them).
-  - I've been a Full stack JS instructor and Lead Technical Engineer at one of the largest e-commerce companies in the world.
-  - And now, I'm some dude that gets the honor to talk to you all.
-- Let's start in college…
-  - Started school in 2008 at the start of one of our MANY depressions.
-  - I was scared of making money when I graduated from college, so I switched my major to Computer Science.
-    - Switch majors three times – Art History, Physics, then Computer Science
-    - It wasn't my passion
-  - Fear – was my motivator, not passion (and that's okay!)
-  - I graduated, but wasn't special
-- Early Career
-  - I did MS Development during the Balmer years (before MS got cool again).
-  - Hated my work, because I found no joy in programming. I was constantly looking for a way out.
-  - Ended up moving to…
-- Hawaii
-  - Moved to be a surf bum and give up on code.
-  - Ended up hanging with punk coders and local Software Engineers
-  - They were all building and making stuff for fun – just because they liked it
-  - That's when I started to explore…
-- Art and Tech
-  - All of us watching this has a unique set of skills to explore the artistic medium of our generation – the web.
-- I'm not saying you need to make art to find joy in programming – what I am saying is that you should explore and learn and grow to find what YOU are interested in. If you're looking for places to start, I put together [my top resources for learning how to code](/blog/my-top-resources-for-learning-how-to-code/).
-- Continue to go to hackathons and collaborate with new friends.
-- Find what make YOU love to code.
-- Speed Round:
-  - Programming gets easier over time
-- Tl;dr:
-  - Own your career
-  - Find your joy
-  - Build shit you like
-- Questions?
-- Thank you!
-- End!
+**Find your joy and your community.** Art is how I found joy in programming. It doesn't have to be yours. If you aren't finding any joy in it, find or create a community of people that helps you find it. It can center on an interest or on an identity: queer groups, nationality, race, whatever it is. In an industry dominated by people who look like me, a space where you feel safe and accepted matters a lot. Hackathons are a good way to start, and a lot of them focus on specific groups and niches.
+
+## The speed round
+
+The talk ends with quick advice for people who are new to tech:
+
+1. **Own your career.** You probably won't land your dream job right away, and that's fine. Once you're in, decide where you want to be promoted, which companies you want to work for and which tech stacks you want to use. If you don't own that conversation, someone else will make those decisions for you.
+2. **Programming is hard.** When I started, I felt like an idiot daily, and I still do sometimes. Most of it isn't hard math. Understanding how all the pieces fit together is the hard part, and it takes time. You'll get it.
+3. **The best programming language doesn't matter.** Devs love to fight about the stupidest stuff: PC vs. Mac, cloud vs. on-prem, JavaScript vs. Python. The best tools are the ones that solve your problem and the ones you know best.
+4. **There's no secret to being an amazing engineer.** You work hard, keep learning and get used to feeling uncomfortable. Frameworks are hot, then they're not, and everything changes every couple of years.
+5. **Build stuff and have fun.** I need fun projects, or I don't care enough to finish them. You don't have to monetize every side project, and it doesn't have to be perfect or shippable.
+
+## Where I've given it
+
+I first gave this as the keynote at PennApps XXI in September 2020, then recorded it for TEDxYouth@LakeManalapan in March 2021. TEDx posted that version in October 2021. Other recordings:
+
+- [The 2020 keynote version](https://www.youtube.com/watch?v=EtduE9IHDS0)
+
+## Slides and resources
+
+- [Slides from the keynote on Speaker Deck](https://speakerdeck.com/joekarlsson/keynote-the-art-of-computer-science)
+- [bechdel.io](https://bechdel.joekarlsson.com/)
+- [How bechdel.io works](/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/)
+- [I Ran My First Hackathon, and So Can You!](/blog/i-ran-my-first-hackathon-and-so-can-you/)
+- [My top resources for learning how to code](/blog/my-top-resources-for-learning-how-to-code/)

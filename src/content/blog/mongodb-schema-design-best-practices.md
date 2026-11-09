@@ -2,38 +2,57 @@
 title: 'MongoDB Schema Design Best Practices'
 date: 2020-04-02
 slug: 'mongodb-schema-design-best-practices'
-description: 'Resources from my talk on MongoDB schema design best practices, covering how to model data for your app with real-world examples and common patterns.'
+description: 'My talk on MongoDB schema design: embedding vs. referencing, how to model each kind of relationship, and my four rules of thumb.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
 heroImage: '/images/blog/mongodb-schema-design-best-practices/thumb-b1a8ce46.webp'
 heroAlt: 'An old architectural blueprint'
 contentNotice: false
-tldr: 'How you model your MongoDB schema depends on your app. I walk through the basics of data modeling with real-world examples so you can stop guessing and start making informed schema decisions.'
+tldr: 'MongoDB has no rules, no process and no algorithm for splitting up your data: you design around how your app uses it. Favor embedding unless there is a compelling reason not to, and never let an array grow without bound.'
 ---
 
-Thanks for coming to my talk, MongoDB Schema Design Best Practices. Here you will find all the resources discussed during the talk.
+"How do I model my schema for my application?" It's one of the most common questions developers ask about MongoDB, and the answer is: it depends. This talk is how I think about that answer, with real examples, for anyone coming to document databases from SQL.
 
-## About
+[Watch MongoDB Schema Design Best Practices on YouTube](https://www.youtube.com/watch?v=leNCfU5SYR8)
 
-“How do I model my schema for my application?” It’s one of the most common questions devs have pertaining to MongoDB. And the answer is, it depends. This is because document databases have a rich vocabulary that is capable of expressing data relationships in more nuanced ways than SQL. There are many things to consider when picking a schema. is your app read or write-heavy? What data is frequently accessed together? What are your performance considerations? How will your data set grow and scale? If you're coming from a SQL background, I wrote a separate post on [moving from SQL to NoSQL](/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/) that covers how to shift your thinking about data modeling.
+## What the talk covers
 
-In this talk, we will discuss the basics of data modeling using real-world examples. You will learn common methodologies and vocabulary you can use when designing your database schema on your application.
+**Relational vs. MongoDB schema design.** In SQL, you model your data independently of your queries. You normalize to third normal form, split everything into tables, and join it back together with foreign keys. MongoDB has no rules, no process and no algorithm for that. You design around how your app actually reads and writes the data: what the app reads together, whether the app is read-heavy or write-heavy, and how the data set will grow.
 
-## Video
+**Embedding vs. referencing.** Those are the two tools you have. Embedding puts related data right in the document, so you get everything back in a single query and update it in one atomic operation, as long as the document stays under the 16 MB limit. Referencing keeps documents small and avoids duplicating data, but you pay for it with a second query or a `$lookup`.
 
-[Watch the talk on YouTube](https://www.youtube.com/watch?v=leNCfU5SYR8)
+**Every kind of relationship, with an example:**
 
-If you are having trouble with the embedded link, you can check out the video here: [https://www.youtube.com/watch?v=leNCfU5SYR8](https://www.youtube.com/watch?v=leNCfU5SYR8)
+- **One-to-one:** embed it. Key-value pairs right in the document.
+- **One-to-few:** embed it in a small array that isn't going to grow much.
+- **One-to-many:** a product made of thousands of parts. Reference the parts by ID from the product.
+- **One-to-squillions:** the logs from a burning server farm. Too many for any array, so it's a reverse reference: each log message keeps track of its host's ID.
+- **Many-to-many:** a shared to-do list, where users have many tasks and tasks have many owners. Keep an array of references on each side.
 
-## Slides
+## My rules of thumb
 
-[View slides on SpeakerDeck](https://speakerdeck.com/joekarlsson/mongodb-schema-design-best-practices)
+1. **Favor embedding** unless there is a compelling reason not to. It's your default.
+2. **Needing to access an object on its own is a compelling reason not to embed it.**
+3. **Avoid joins and `$lookup` if you can,** but they're not an anti-pattern. Most people coming from SQL split their data up by default, out of habit. Use a join when you have a real reason to.
+4. **Arrays shouldn't grow without bound.** An unbounded array anywhere in your data set is a huge code smell.
 
-## Related Links
+Above everything else, how you model your data depends entirely on the needs of your application.
 
-- [MongoDB University](https://joekarlsson.dev/MongoDBUniversity)
-- [MongoDB Community Forums](https://joekarlsson.dev/MongoDBCommunity)
-- [MongoDB University: Data Modeling (M320)](https://university.mongodb.com/courses/M320/about)
-- [6 Rules of Thumb for MongoDB Schema Design: Part 1](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)
-- [Data Model Design](https://www.mongodb.com/docs/current/data-modeling/)
-- [Building with Patterns: A Summary](https://www.mongodb.com/blog/post/building-with-patterns-a-summary)
+## Where I've given it
+
+MidwestPHP (Minneapolis, April 2020), Data Architecture Day (May 2020) and Conf42 JavaScript (2020). Other recordings:
+
+- [Conf42 JavaScript 2020](https://www.youtube.com/watch?v=tYNaXn2wJJo)
+- [Data Architecture Day](https://www.youtube.com/watch?v=ay31FKx4maM)
+- [A 10-minute version for MongoDB](https://www.youtube.com/watch?v=QAqK-R9HUhc)
+
+If you're coming from SQL, my talk [From SQL to NoSQL](/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/) covers how to shift your thinking first.
+
+## Slides and resources
+
+- [Slides on Speaker Deck](https://speakerdeck.com/joekarlsson/mongodb-schema-design-best-practices)
+- [6 Rules of Thumb for MongoDB Schema Design](https://www.mongodb.com/company/blog/mongodb/6-rules-of-thumb-for-mongodb-schema-design)
+- [Building with Patterns: A Summary](https://www.mongodb.com/company/blog/building-with-patterns-a-summary)
+- [Data modeling in the MongoDB docs](https://www.mongodb.com/docs/manual/data-modeling/)
+- [MongoDB University: Introduction to Data Modeling](https://learn.mongodb.com/courses/introduction-to-data-modeling)
+- [MongoDB Community Forums](https://www.mongodb.com/community/forums/)

@@ -1466,17 +1466,18 @@
 	},
 	"how-to-manage-mongodb-data-at-scale": {
 		"picture": {
-			"video": "/images/blog/how-to-manage-mongodb-data-at-scale/ad091ed6404c7a0a0c8954b19c262ac9cee25251.mp4",
-			"at": 4
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/NSRW_Ice_Harvesting_-_ice_elevator.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:NSRW_Ice_Harvesting_-_ice_elevator.jpg"
 		},
 		"look": "taped",
-		"alt": "Gif of Matt Damon from Saving Private Ryan aging into an old man.",
-		"whole": true,
+		"alt": "Workers on a frozen lake in 1914 feed blocks of ice onto a conveyor that carries them up into a huge icehouse for cold storage",
+		"focus": 0.5,
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
-			"color": "pink"
-		}
+			"color": "chalk"
+		},
+		"motion": "boil"
 	},
 	"how-to-query-from-multiple-mongodb-databases": {
 		"picture": {
