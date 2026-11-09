@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 488,
+			"commitCount": 490,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 65
+				25, 67
 			],
-			"latestCommitMessage": "feat: The works page opens on its first selected work playing in the..."
+			"latestCommitMessage": "fix: The works page hero shows PixelPane's steady board demo whole..."
 		},
 		{
 			"name": "screencast-director",
