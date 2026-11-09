@@ -19,7 +19,7 @@ tldr: 'MongoDB has no rules, no process and no algorithm for splitting up your d
 
 **Relational vs. MongoDB schema design.** In SQL, you model your data independently of your queries. You normalize to third normal form, split everything into tables, and join it back together with foreign keys. MongoDB has no rules, no process and no algorithm for that. You design around how your app actually reads and writes the data: what the app reads together, whether the app is read-heavy or write-heavy, and how the data set will grow.
 
-**Embedding vs. referencing.** Those are the two tools you have. Embedding puts related data right in the document, so you get everything back in a single query and update it in one atomic operation, as long as the document stays under the 16 MB limit. Referencing keeps documents small and data unduplicated, but you pay for it with a second query or a `$lookup`.
+**Embedding vs. referencing.** Those are the two tools you have. Embedding puts related data right in the document, so you get everything back in a single query and update it in one atomic operation, as long as the document stays under the 16 MB limit. Referencing keeps documents small and avoids duplicating data, but you pay for it with a second query or a `$lookup`.
 
 **Every kind of relationship, with an example:**
 
