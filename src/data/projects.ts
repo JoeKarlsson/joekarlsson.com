@@ -73,6 +73,9 @@ export interface Project {
 	card?: { src: string; alt: string };
 	// Plays over `image` (its poster) while the card is hovered or focused
 	video?: string;
+	// For a selected work: the second of `video` its slice of the /work/ hero reel starts at
+	// (npm run media:reel)
+	reelStart?: number;
 	// A lighter still for the video when `image` (also the share card) is too heavy
 	// to wait on: the old featured hero's 96KB poster held its pink back 0.8s on a phone
 	poster?: string;
@@ -147,6 +150,11 @@ export const ERAS: {
 ];
 
 // The pieces /work/ shows big at the top, in this order; they're left out of their eras
+// Each selected work's slice of the /work/ hero reel, in seconds; src/scripts/work-reel.ts
+// names the piece on screen from it
+export const REEL_SLICE_SECONDS = 2.4;
+export const REEL_VIDEO = '/images/projects/selected-works-reel.mp4';
+
 export const SELECTED_WORKS = ['PixelPane', 'linger', 'Connect AI × DOOM', 'Punc', 'Bechdel.io'];
 
 export const projects: Project[] = [
@@ -220,6 +228,7 @@ export const projects: Project[] = [
 			"A 32x32 LED pixel art frame behind a two-way mirror, driven by a Raspberry Pi. It plays seasonal pixel art, and Home Assistant pushes to it: ON AIR when my camera turns on, the doorbell, the weather. It's open source, and every scene is a plugin.",
 		image: `${PIXELPANE_DIR}/pixelpane-montage-poster.webp`,
 		video: `${PIXELPANE_DIR}/pixelpane-montage.mp4`,
+		reelStart: 2.5,
 		imageAlt:
 			'PixelPane on my desk: the LED frame showing my homelab status, Proxmox stats and my next meeting, the control page switching scenes, the two-way mirror over the grid, and a drawing from the GIF generator appearing on the panel',
 		date: '2026-10',
@@ -882,6 +891,7 @@ export const projects: Project[] = [
 			'A small collection of poems that only finish for readers who slow down. Each line starts as a few words floating in white space. Hold still and the blanks fill in. Scroll fast and they drain away again. Plain HTML, CSS, and about a hundred lines of JavaScript, with no analytics and no share button.',
 		image: '/images/projects/linger.webp',
 		video: '/images/projects/linger.mp4',
+		reelStart: 3,
 		imageAlt:
 			'The linger poem "the lake" scrolling slowly: each line starts as a few scattered words, and the missing words fade in while the page holds still',
 		date: '2026-10',
@@ -922,6 +932,7 @@ export const projects: Project[] = [
 			'Punc takes the words out of a book and leaves the punctuation where it was. Pick one off the shelf or bring your own.',
 		image: '/images/projects/punc-poster.webp',
 		video: '/images/projects/punc.mp4',
+		reelStart: 3,
 		imageAlt:
 			"Punc's site: the shelf of books shown as punctuation, then Alice's Adventures in Wonderland with 26,777 words removed and 8,076 marks left, and the book's punctuation laid out in reading order",
 		date: '2016-02',
@@ -1020,6 +1031,7 @@ export const projects: Project[] = [
 		description: 'Does your favorite movie pass the Bechdel Test?',
 		image: '/images/projects/bechdel-io-2026-poster.webp',
 		video: '/images/projects/bechdel-io-2026.mp4',
+		reelStart: 3,
 		imageAlt:
 			'Bechdel.io: the headline "Do two women talk to each other about something other than a man?", the shelf of movie posters marked passes or fails, filtering to films that pass, then the Gone Girl page scoring 3 of 3 and its cast sized by lines spoken',
 		date: '2015-11',
@@ -1078,6 +1090,7 @@ export const projects: Project[] = [
 			'Ask Claude a business question and it builds a Doom level from the answer. Every monster is a live record from your apps, pulled through the CData Connect AI MCP server.',
 		image: '/images/projects/connect-ai-doom.webp',
 		video: '/images/projects/connect-ai-doom.mp4',
+		reelStart: 5,
 		poster: '/images/projects/connect-ai-doom-poster.webp',
 		imageAlt:
 			'Claude playing a Doom level built from live Connect AI data, shooting a pink demon labeled with an urgent Salesforce deal while a side panel logs every kill',

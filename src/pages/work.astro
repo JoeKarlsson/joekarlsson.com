@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HoverBox from '../components/HoverBox.astro';
-import IndexRow from '../components/IndexRow.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import PosterHero from '../components/PosterHero.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Scribble from '../components/Scribble.astro';
-import { ERAS, SELECTED_WORKS, projects } from '../data/projects';
+import { ERAS, REEL_SLICE_SECONDS, REEL_VIDEO, SELECTED_WORKS, projects } from '../data/projects';
 import { CHALK, MARKS } from '../data/scribbles';
 import {
 	HERO_LEAD,
@@ -33,103 +32,59 @@ const eras = ERAS.map((era) => ({
 }));
 const workUrl = (p: (typeof projects)[number]) =>
 	(p.page && `/work/${p.page.slug}/`) || p.sourceUrl || p.blogUrl || p.demoUrl || '#';
-const pieces = (n: number) => `${n} ${n === 1 ? 'piece' : 'pieces'}`;
+const reelPieces = selected.map((p) => ({ title: p.title, href: workUrl(p) }));
 const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 ---
 
 <BaseLayout
 	title="Works | Joe Karlsson"
-	description="Joe Karlsson's art, software and hardware: an artist statement, selected works, and ten years of projects by era."
+	description="Joe Karlsson's art, software and hardware: selected works, an artist statement and ten years of projects by era."
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- The site's standard page top, with the eras as an index where other pages have a picture -->
+		<!-- The site's standard page top: a reel of the selected works plays where other pages
+		have a picture, 16:9 like every clip in it so nothing is cropped. Its caption and link
+		follow the piece on screen (src/scripts/work-reel.ts) -->
 		<PosterHero
 			title="Works"
 			wordRatio={2.2}
 			tickerItems={['Selected works', ...ERAS.map((era) => era.years)]}
 		>
-			<nav
+			<a
 				slot="media"
-				aria-label="Sections"
-				class="relative z-10 flex flex-col justify-center rounded-xl bg-surface-1 p-5 md:p-7"
+				href={reelPieces[0].href}
+				data-reel-pieces={JSON.stringify(reelPieces)}
+				data-reel-slice={REEL_SLICE_SECONDS}
+				class="plausible-event-name=Reel+Click ring-host group relative z-10 flex flex-col overflow-hidden rounded-xl bg-surface-1 no-underline"
 			>
-				<IndexRow
-					href="#selected"
-					label="Selected"
-					meta={pieces(selected.length)}
-					index={4}
-					compact
+				<video
+					src={REEL_VIDEO}
+					poster={REEL_VIDEO.replace(/\.mp4$/, '-poster.webp')}
+					loop
+					muted
+					playsinline
+					preload="none"
+					aria-label={`Clips of my selected works: ${SELECTED_WORKS.join(', ')}`}
+					data-autoplay-in-view
+					data-halftone="flat"
+					class="block aspect-video w-full object-cover"
 				/>
-				{eras.map((era, i) => (
-					<IndexRow
-						href={`#${era.slug}`}
-						label={era.years}
-						meta={pieces(era.projects.length)}
-						index={i}
-						compact
-					/>
-				))}
-			</nav>
+				<span class="flex flex-1 flex-col justify-end px-6 pt-4 pb-5">
+					<span class="mb-1.5 block text-sm text-muted">
+						<span class="font-semibold text-pink">Selected works</span>
+						{' · '}
+						<span data-reel-position>1</span> of {reelPieces.length}
+					</span>
+					<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+						<span data-reel-title>{reelPieces[0].title}</span> →
+					</span>
+				</span>
+				<HoverBox featured />
+			</a>
 			<p class={HERO_LEAD}>
 				I make art with code, paint and hardware, for the space between artists and engineers.
 			</p>
 		</PosterHero>
-
-		<section id="statement" class={SECTION}>
-			<h2 class={SECTION_HEADING}>
-				Artist statement
-				<Scribble
-					{...MARKS.underline}
-					color={CHALK}
-					duration="8s"
-					class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
-				/>
-			</h2>
-			<!-- The container's full width in two columns, so each line stays a reading length -->
-			<div class="prose md:columns-2 md:gap-12 [&>p]:break-inside-avoid" style="max-width: none">
-				<p>
-					The early web was full of people who hosted their own sites, linked to each other and gave
-					away what they knew.{' '}
-					<a class={TEXT_LINK} href="https://art.teleportacia.org/observation/vernacular/">
-						Olia Lialina called it the vernacular web
-					</a>
-					: homemade pages, built by amateurs for each other. I think money crushed most of it, and
-					what people picture when they hear "tech" now is what came after: startups, crypto and AI,
-					each with a plan to make money.
-				</p>
-				<p>
-					I host this site myself, on my own hardware, because that early web is still what I love
-					about the medium. Code is easy to share, it bends into almost any shape, and almost
-					nothing made with it lasts. I love that, even though I just rebuilt three of my old apps
-					after they died on Heroku. Some ideas only work on the web.{' '}
-					<a class={TEXT_LINK} href="/work/linger/">
-						linger
-					</a>{' '}
-					is a set of poems that fill in only if you scroll slowly, because a page knows how fast
-					you're reading and paper doesn't.
-				</p>
-				<p>
-					A lot of my work isn't code at all. I've started painting, mostly subconscious scribbling
-					and color field work, and it's where I chase what I'm drawn to most: the strange, the
-					surreal and the unexplained. Every scribble on this site started as one of those drawings.
-					Now that AI can generate almost anything, I think a person's hand and taste are the most
-					important things they have to offer.
-				</p>
-				<p>
-					In 1959,{' '}
-					<a class={TEXT_LINK} href="https://en.wikipedia.org/wiki/The_Two_Cultures">
-						C. P. Snow warned
-					</a>{' '}
-					that scientists and literary intellectuals had split into two cultures that could barely
-					talk to each other. Plenty of artists still find code and math scary, and plenty of
-					engineers think the humanities are a waste of time. I want each of them to see what's on
-					the other side, and to come away wanting to make something, whether it's a painting, a web
-					page or a piece of hardware. Most of all, I want people to leave a little freer of the
-					idea that everything they make has to earn money.
-				</p>
-			</div>
-		</section>
 
 		<section id="selected" class={SECTION}>
 			<h2 class={SECTION_HEADING}>
@@ -196,6 +151,61 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 			</div>
 		</section>
 
+		<section id="statement" class={SECTION}>
+			<h2 class={SECTION_HEADING}>
+				Artist statement
+				<Scribble
+					{...MARKS.underline}
+					color={CHALK}
+					duration="8s"
+					class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+				/>
+			</h2>
+			<!-- The container's full width in two columns, so each line stays a reading length -->
+			<div class="prose md:columns-2 md:gap-12 [&>p]:break-inside-avoid" style="max-width: none">
+				<p>
+					The early web was full of people who hosted their own sites, linked to each other and gave
+					away what they knew.{' '}
+					<a class={TEXT_LINK} href="https://art.teleportacia.org/observation/vernacular/">
+						Olia Lialina called it the vernacular web
+					</a>
+					: homemade pages, built by amateurs for each other. I think money crushed most of it, and
+					what people picture when they hear "tech" now is what came after: startups, crypto and AI,
+					each with a plan to make money.
+				</p>
+				<p>
+					I host this site myself, on my own hardware, because that early web is still what I love
+					about the medium. Code is easy to share, it bends into almost any shape, and almost
+					nothing made with it lasts. I love that, even though I just rebuilt three of my old apps
+					after they died on Heroku. Some ideas only work on the web.{' '}
+					<a class={TEXT_LINK} href="/work/linger/">
+						linger
+					</a>{' '}
+					is a set of poems that fill in only if you scroll slowly, because a page knows how fast
+					you're reading and paper doesn't.
+				</p>
+				<p>
+					A lot of my work isn't code at all. I've started painting, mostly subconscious scribbling
+					and color field work, and it's where I chase what I'm drawn to most: the strange, the
+					surreal and the unexplained. Every scribble on this site started as one of those drawings.
+					Now that AI can generate almost anything, I think a person's hand and taste are the most
+					important things they have to offer.
+				</p>
+				<p>
+					In 1959,{' '}
+					<a class={TEXT_LINK} href="https://en.wikipedia.org/wiki/The_Two_Cultures">
+						C. P. Snow warned
+					</a>{' '}
+					that scientists and literary intellectuals had split into two cultures that could barely
+					talk to each other. Plenty of artists still find code and math scary, and plenty of
+					engineers think the humanities are a waste of time. I want each of them to see what's on
+					the other side, and to come away wanting to make something, whether it's a painting, a web
+					page or a piece of hardware. Most of all, I want people to leave a little freer of the
+					idea that everything they make has to earn money.
+				</p>
+			</div>
+		</section>
+
 		{eras.map((era, i) => (
 			<section id={era.slug} class={SECTION}>
 				<h2 class={SECTION_HEADING}>
@@ -236,3 +246,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 		/>
 	</div>
 </BaseLayout>
+
+<script>
+	import '../scripts/work-reel';
+</script>

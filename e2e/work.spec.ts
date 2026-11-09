@@ -17,31 +17,32 @@ test.describe('Work Page', () => {
 		}
 	});
 
-	// The category filters were removed (f97b903d): projects are grouped by era instead, and
-	// the hero indexes those sections
-	test('the hero index jumps to each era, and its counts match the section', async ({ page }) => {
-		const index = page.locator('header nav[aria-label="Sections"] a');
-		const eraLinks = index.filter({ hasNot: page.locator('[href="#selected"]') });
-		expect(await eraLinks.count()).toBeGreaterThan(1);
-		let listed = 0;
-		for (const link of await index.all()) {
-			const id = (await link.getAttribute('href'))!.slice(1);
-			const count = Number(
-				(await link.locator('span').last().textContent())!.match(/^(\d+) pieces?$/)![1],
-			);
-			const section = page.locator(`section[id="${id}"]`);
-			const cards =
-				id === 'selected' ? section.locator(':scope > div > a') : section.locator('.project-card');
-			await expect(cards, id).toHaveCount(count);
-			listed += count;
-		}
-		expect(listed).toBe(projects.length);
+	// Every project shows once: the selected works in their section, the rest in their era
+	test('lists every project once, selected works first', async ({ page }) => {
+		const selected = page.locator('section#selected > div > a');
+		const eraCards = page.locator('section .project-card');
+		expect((await selected.count()) + (await eraCards.count())).toBe(projects.length);
+		const ids = await page.locator('main section[id]').evaluateAll((s) => s.map((el) => el.id));
+		expect(ids.slice(0, 2)).toEqual(['selected', 'statement']);
+	});
 
-		const last = index.last();
-		const id = (await last.getAttribute('href'))!.slice(1);
-		await last.click();
-		await expect(page).toHaveURL(new RegExp(`#${id}$`));
-		await expect(page.locator(`section[id="${id}"] h2`)).toBeInViewport();
+	// The hero reel plays each selected work in turn; its caption and link follow the one on screen
+	test('the hero reel links to the selected work on screen', async ({ page }) => {
+		const reel = page.locator('header a[data-reel-pieces]');
+		const pieces: { title: string; href: string }[] = JSON.parse(
+			(await reel.getAttribute('data-reel-pieces'))!,
+		);
+		const slice = Number(await reel.getAttribute('data-reel-slice'));
+		await expect(reel).toHaveAttribute('href', pieces[0].href);
+		await reel.locator('video').evaluate(
+			(v: HTMLVideoElement, t) => {
+				Object.defineProperty(v, 'currentTime', { value: t, configurable: true });
+				v.dispatchEvent(new Event('timeupdate'));
+			},
+			slice * 2 + 0.1,
+		);
+		await expect(reel).toHaveAttribute('href', pieces[2].href);
+		await expect(reel.locator('[data-reel-title]')).toHaveText(pieces[2].title);
 	});
 
 	test('the GitHub link opens in a new tab', async ({ page }) => {
