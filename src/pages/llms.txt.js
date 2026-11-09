@@ -7,6 +7,8 @@ import {
 	listFeaturedWork,
 	listPopularPosts,
 	listSitePages,
+	listExperience,
+	listSocialSections,
 } from '../utils/llms';
 
 // The lists below build from the site itself (src/utils/llms.ts); only the bio is
@@ -80,7 +82,7 @@ ${github.topRepos.map((repo) => `- [${repo.name}](${repo.url}): ${repo.descripti
 - Featured on Hawaii Public Radio (Bytemarks Cafe)
 - Published author on MongoDB Developer Hub and Tinybird blog
 
-## What Makes Joe Interesting
+## Quick Facts
 
 - Runs AI vision on doorbell cameras using local LLMs - no cloud APIs
 - Built an IoT cat litter box and gave a conference talk about it
@@ -97,12 +99,9 @@ Joe is available for conference talks, podcast guest spots, webinars, and techni
 ## Social & Contact
 
 - [GitHub](https://github.com/JoeKarlsson): ${github.followers} followers, ${github.stars} stars, ${github.publicRepos} public repos
-- [LinkedIn](https://www.linkedin.com/in/joekarlsson/)
-- [Bluesky](https://bsky.app/profile/joekarlsson.com)
-- [YouTube](https://www.youtube.com/joekarlsson)
-- [TikTok](https://www.tiktok.com/@joekarlsson)
-- [Threads](https://www.threads.net/@joekarlsson)
-- [Letterboxd](https://letterboxd.com/joekarlsson/)
+- [Newsletter](${absoluteUrl('/newsletter/')}): Works on My Machine
+
+${listSocialSections()}
 
 ## Education
 
@@ -110,13 +109,7 @@ Joe is available for conference talks, podcast guest spots, webinars, and techni
 
 ## Experience
 
-- **CData** (2026-Present): Principal Developer Marketing Manager - leading developer growth for the managed MCP platform that connects AI agents to live enterprise data
-- **CloudQuery** (2024-2026): Head of Developer Relations - built the DevRel function from scratch for the open-source ELT framework for data pipelines and cloud infrastructure
-- **Tinybird** (2023-2024): Senior Developer Advocate - real-time analytics and data APIs
-- **SingleStore** (2021-2023): Senior Developer Advocate - distributed SQL database
-- **MongoDB** (2019-2021): Senior Developer Advocate - NoSQL databases and developer community
-- **Best Buy** (2017-2019): Front-end Technical Lead - one of the largest eCommerce sites in North America
-- **DevLeague** (2015-2017): Full-Stack JavaScript Instructor - one of the most highly-rated coding bootcamps
+${listExperience().join('\n')}
 `;
 
 	return new Response(body, {

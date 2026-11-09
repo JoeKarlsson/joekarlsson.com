@@ -9,6 +9,8 @@ import {
 	listPopularPosts,
 	listSitePages,
 	postLine,
+	listExperience,
+	listSocialSections,
 } from '../utils/llms';
 
 // The lists below build from the site itself (src/utils/llms.ts); only the bio and
@@ -28,7 +30,7 @@ Joe Karlsson is a Developer Marketing Engineer who helps developers build better
 
 He's a TEDx speaker ("The Art of Computer Science") with 100+ conference talks worldwide on databases, IoT, data engineering, and developer tools. He has 100,000+ followers across social media platforms including TikTok, Twitter/X, YouTube, and LinkedIn.
 
-He's an avid homelab enthusiast running a Proxmox cluster with ${nowFeed.homelab.runningContainers} containers across two Dell PowerEdge R730 servers with dual NVIDIA GPUs. His smart home runs 90+ Home Assistant automations with local AI vision - his doorbell captures camera snapshots and describes visitors using a local LLM, entirely without cloud APIs.
+He's an avid homelab enthusiast running a Proxmox cluster with ${nowFeed.homelab.runningContainers} containers across ${nowFeed.homelab.proxmoxNodes} Dell PowerEdge R730 servers with dual NVIDIA GPUs. His smart home runs 90+ Home Assistant automations with local AI vision - his doorbell captures camera snapshots and describes visitors using a local LLM, entirely without cloud APIs.
 
 He's a film buff who tracks everything on Letterboxd, a mechanical keyboard builder, and built an IoT-connected cat litter box and gave a conference talk about it.
 
@@ -169,38 +171,16 @@ Contact via [joekarlsson.com/contact](https://www.joekarlsson.com/contact/) or c
 
 ## Professional Experience
 
-- **CData** (2026-Present): Principal Developer Marketing Manager - lead developer marketing for the managed MCP platform that connects AI agents to live enterprise data. Own the developer growth engine: docs, content, SEO and AEO, and platform positioning, shipping alongside the team.
-- **CloudQuery** (2024-2026): Head of Developer Relations - built the DevRel function from scratch for the open-source ELT framework: content, community, docs, events, and video. Grew organic traffic 4x in under 3 months and MQLs to 239% of target.
-- **Tinybird** (2023-2024): Senior Developer Advocate - helped developers build real-time analytics applications. Created documentation, demos, blog posts, webinars, and workshops for real-time data APIs.
-- **SingleStore** (2021-2023): Senior Developer Advocate - led community engagement around scaling SQL workloads. Built demos and content for the distributed SQL database.
-- **MongoDB** (2019-2021): Senior Developer Advocate - built developer community, created tutorials, demos, and educational content. Subject matter expert for developer experience.
-- **Best Buy** (2017-2019): Front-end Technical Lead - engineered high-performance solutions for one of the top 10 eCommerce sites in North America. Scaled production apps handling thousands of requests per second.
-- **DevLeague** (2015-2017): Full-Stack JavaScript Instructor - taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created curriculum and prepared students for software engineering careers in Honolulu, Hawaii.
+${listExperience().join('\n')}
 
 ## Social Media & Audience
 
 Joe has 100,000+ followers across social media platforms.
 
-### Primary
 - [GitHub](https://github.com/JoeKarlsson): ${github.followers} followers, ${github.stars} stars across ${github.publicRepos} repos
-- [LinkedIn](https://www.linkedin.com/in/joekarlsson/): Professional network
-- [Bluesky](https://bsky.app/profile/joekarlsson.com): Primary social platform
+- [Newsletter](${absoluteUrl('/newsletter/')}): Works on My Machine, plus the TL;DR in Tech archive
 
-### Video & Audio
-- [YouTube](https://www.youtube.com/joekarlsson): Talks, tutorials, and demos
-- [TikTok](https://www.tiktok.com/@joekarlsson): Short-form tech content
-- [Twitch](https://www.twitch.tv/joe_karlsson): Live coding and hangouts
-- [Spotify](https://open.spotify.com/user/125084446): Playlists and listening
-
-### Other
-- [Twitter/X](https://twitter.com/JoeKarlsson1): Tech commentary
-- [Threads](https://www.threads.net/@joekarlsson)
-- [Instagram](https://www.instagram.com/joekarlsson/)
-- [Letterboxd](https://letterboxd.com/joekarlsson/): Film reviews and ratings
-- [Newsletter](https://www.joekarlsson.com/newsletter/): Subscribe, plus the TL;DR in Tech archive
-- [Reddit](https://www.reddit.com/user/joekarlsson)
-- [Medium](https://medium.com/@joekarlsson)
-- [npm](https://www.npmjs.com/~joekarlsson)
+${listSocialSections()}
 
 ## Key Interests & Expertise
 

@@ -21,6 +21,7 @@ import Scribble from '../components/Scribble.astro';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import { SOCIAL_LINKS } from '../consts';
+import { roles } from '../data/resume';
 import { CHALK, MARKS, RINGS } from '../data/scribbles';
 import { projects } from '../data/projects';
 import { getFeedPosts, isOwnPost } from '../utils/posts';
@@ -102,57 +103,15 @@ const previousCompanies = [
 	{ name: 'DevLeague', logo: '/images/logos/devleague.webp', url: 'https://devleague.com/' },
 ];
 
-const career = [
-	{
-		company: 'CData',
-		role: 'Principal Developer Marketing Manager',
-		logo: '/images/logos/cdata.webp',
-		years: '2026 - present',
-		text: 'Lead developer marketing for the managed MCP platform that connects AI agents to live enterprise data. Own the developer growth engine: docs, content, SEO and AEO, and platform positioning.',
-	},
-	{
-		company: 'CloudQuery',
-		role: 'Head of Developer Relations (now env0)',
-		logo: '/images/logos/cloudquery.webp',
-		years: '2024 - 2026',
-		text: 'Built and ran the full DevRel function from scratch: content, community, docs, events, and video. 4x organic traffic in 3 months; docs traffic up 302%; MQLs at 239% of target. Replicated the playbook post-acquisition at env0: +106% organic traffic in 3 weeks.',
-	},
-	{
-		company: 'Tinybird',
-		role: 'Developer Advocate',
-		logo: '/images/logos/tinybird.webp',
-		years: '2023 - 2025',
-		text: 'Helped developers building real-time analytics applications. Created documentation, demos, blog posts, webinars, and workshops.',
-	},
-	{
-		company: 'SingleStore',
-		role: 'Senior Developer Advocate',
-		logo: '/images/logos/singlestore.webp',
-		years: '2021 - 2023',
-		text: 'Led community conversations around scaling SQL workloads. Built demos and content for the distributed SQL database.',
-	},
-	{
-		company: 'MongoDB',
-		role: 'Senior Developer Advocate',
-		logo: '/images/logos/mongodb.webp',
-		years: '2019 - 2021',
-		text: 'Built developer community, created tutorials, demos, and educational content. Subject matter expert for developer experience.',
-	},
-	{
-		company: 'Best Buy',
-		role: 'Front-end Technical Lead',
-		logo: '/images/logos/bestbuy.webp',
-		years: '2017 - 2019',
-		text: 'Engineered high-performance solutions for one of the top 10 eCommerce sites in North America. Scaled production apps handling thousands of requests per second.',
-	},
-	{
-		company: 'DevLeague',
-		role: 'Full-Stack JavaScript Instructor',
-		logo: '/images/logos/devleague.webp',
-		years: '2015 - 2017',
-		text: 'Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created curriculum and prepared students for software engineering careers in Honolulu.',
-	},
-];
+// Company, title, years and summary come from the resume, so /about, /resume and
+// llms.txt can't disagree
+const career = roles.map((role) => ({
+	company: role.company,
+	role: role.title,
+	logo: role.logo,
+	years: `${role.startYear} - ${role.endYear ?? 'present'}`,
+	text: role.summary,
+}));
 
 const featuredPodcasts = [
 	{

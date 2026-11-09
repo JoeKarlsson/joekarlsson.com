@@ -1,13 +1,16 @@
 // The lists in llms.txt and llms-full.txt, built from the site's own sources at build
 // time so they never need hand edits: pages from src/pages, posts and issues from the
 // content collections, popular posts from Plausible's snapshot, featured work from
-// projects.ts. GitHub counts come from the now-feed snapshot.
+// projects.ts, jobs from resume.ts and accounts from /contact/'s list. GitHub counts
+// come from the now-feed snapshot.
 import { getCollection } from 'astro:content';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { SITE_DESCRIPTION, SITE_URL } from '../consts';
+import { SECTIONS } from '../data/contact-links';
 import popularPosts from '../data/popular-posts.json';
 import { SELECTED_WORKS, projects } from '../data/projects';
+import { roles } from '../data/resume';
 import { PERSONAL, getCategoryCounts, getWrittenForCounts } from './categories';
 
 export const absoluteUrl = (path: string) => `${SITE_URL}${path}`;
@@ -135,4 +138,20 @@ export function listAllWork(): string[] {
 		.map((project) => {
 			return `- [${project.title}](${projectUrl(project)}): ${project.description} (${project.date.slice(0, 4)})`;
 		});
+}
+
+/** Every job, newest first, from the resume. */
+export function listExperience(): string[] {
+	return roles.map(
+		(role) =>
+			`- **${role.company}** (${role.startYear}-${role.endYear ?? 'present'}): ${role.title} - ${role.summary}`,
+	);
+}
+
+/** The accounts /contact/ lists, under its own headings. */
+export function listSocialSections(): string {
+	return SECTIONS.map(
+		({ heading, links }) =>
+			`### ${heading}\n\n${links.map(({ label, meta, href }) => `- [${label}](${href}): ${meta}`).join('\n')}`,
+	).join('\n\n');
 }

@@ -83,12 +83,14 @@ export function pageToMarkdown(html, url) {
 
 // The text of an element with its pieces spaced: "Hanselminutes Document Databases",
 // where textContent would run a card's title and subtitle together
-function spacedText(element) {
+function textPieces(element) {
 	const walker = element.ownerDocument.createTreeWalker(element, 4 /* NodeFilter.SHOW_TEXT */);
 	const pieces = [];
-	while (walker.nextNode()) pieces.push(walker.currentNode.textContent.trim());
-	return pieces.filter(Boolean).join(' ').replace(/\s+/g, ' ');
+	while (walker.nextNode()) pieces.push(walker.currentNode.textContent.replace(/\s+/g, ' ').trim());
+	return pieces.filter(Boolean);
 }
+
+const spacedText = (element) => textPieces(element).join(' ');
 
 function convertDocument(document, url) {
 	const main = document.querySelector('main');
@@ -102,17 +104,22 @@ function convertDocument(document, url) {
 		button.replaceWith(heading);
 	});
 	main.querySelectorAll(REMOVED).forEach((el) => el.remove());
-	// A card is one big link around a picture, a title and a blurb: one plain link reads better
+	// A card is one big link around a picture, a title and a blurb: "[Title](url): blurb"
 	main.querySelectorAll('a[href]').forEach((a) => {
 		if (!a.querySelector('img, picture, h1, h2, h3, h4, h5, h6, p, div, figure')) return;
-		const text = spacedText(a);
-		if (!text) return;
+		const [title, ...blurb] = textPieces(a);
+		if (!title) return;
 		const link = document.createElement('a');
 		link.setAttribute('href', a.getAttribute('href'));
-		link.textContent = text;
+		link.textContent = title;
 		const line = document.createElement('p');
 		line.append(link);
+		if (blurb.length) line.append(`: ${blurb.join(' ')}`);
 		a.replaceWith(line);
+	});
+	// Links set side by side with no text between ("Source", "Blog Post") get a separator
+	main.querySelectorAll('a[href]').forEach((a) => {
+		if (a.previousSibling?.nodeName === 'A') a.before(' · ');
 	});
 
 	// Diagrams ship a desktop and a phone drawing with the same label: keep one, as text
