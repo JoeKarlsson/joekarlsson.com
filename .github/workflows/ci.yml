@@ -166,20 +166,6 @@ jobs:
 
           npx pa11y-ci --config .pa11yci.json
 
-  e2e:
-    name: End to End (Playwright)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      # The config starts its own dev server (playwright.config.ts webServer)
-      - run: npx playwright test --reporter=line
-
   lighthouse:
     name: Lighthouse CI
     needs: build
@@ -270,7 +256,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npx playwright install chromium
+      - run: npx playwright install --with-deps chromium
+      # The config starts its own dev server (playwright.config.ts webServer)
       - run: npm run test:e2e
       - uses: actions/upload-artifact@v7
         if: failure()

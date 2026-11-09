@@ -43,8 +43,9 @@
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"diagrams": "node scripts/diagrams/render.mjs",
-		"test": "npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:voice && npm run test:unit",
-		"prepare": "husky"
+		"test": "npm run test:workflows && npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:voice && npm run test:unit",
+		"prepare": "husky",
+		"test:workflows": "node scripts/validate-workflows.mjs"
 	},
 	"dependencies": {
 		"@astrojs/markdown-remark": "^7.3.5",
@@ -71,7 +72,7 @@
 		"smol-toml": "^1.6.1",
 		"tmp": "^0.2.4",
 		"uuid": "^11.1.1",
-		"yaml": "^2.8.3"
+		"yaml": "$yaml"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.9",
@@ -83,12 +84,14 @@
 		"cspell": "^10.0.0",
 		"eslint": "^10.14.0",
 		"eslint-plugin-astro": "^3.0.1",
+		"fontkitten": "^1.0.3",
 		"husky": "^9.1.7",
 		"jsdom": "^30.0.1",
 		"knip": "^6.44.1",
 		"lint-staged": "^17.0.5",
 		"markdownlint-cli2": "^0.24.0",
 		"pa11y-ci": "^5.0.0",
+		"playwright": "^1.60.0",
 		"prettier": "^3.8.1",
 		"prettier-plugin-astro": "^1.1.2",
 		"serve": "^14.2.4",
@@ -96,7 +99,8 @@
 		"turndown-plugin-gfm": "^1.0.2",
 		"typescript": "^6.0.3",
 		"typescript-eslint": "^8.60.0",
-		"vitest": "^5.1.0"
+		"vitest": "^5.1.0",
+		"yaml": "^2.8.3"
 	},
 	"lint-staged": {
 		"*.{js,mjs,ts,astro}": [

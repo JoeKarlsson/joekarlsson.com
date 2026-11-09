@@ -12,6 +12,8 @@ const config: KnipConfig = {
 		// media tests and scripts shell out to the system ffmpeg, which CI installs with apt
 		'ffmpeg',
 		'ffprobe',
+		// boiling-thumbnail.mjs, run by hand, shells out to img2webp from libwebp (brew install webp)
+		'img2webp',
 	],
 	ignoreExportsUsedInFile: true,
 };
