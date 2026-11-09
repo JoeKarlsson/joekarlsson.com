@@ -1,5 +1,5 @@
 export const alt =
-	'The OpenTofu setup: a Git repo holds a reusable Debian 12 LXC baseline module and one directory per service (provision.sh.tpl, main.tf, variables and outputs). OpenTofu reads and writes its state in MinIO (CT 202 at 192.168.0.202:9000, bucket opentofu-state, a versioned, self-hosted S3 backend) and applies to the Proxmox API, which creates each LXC and runs provision.sh.tpl through pct exec. That gives 62 containers, each running Prometheus node-exporter on port 9100, Promtail shipping logs to Loki, and the service itself. Ansible handles the operational layer across them: config deploys, health-check rollouts and bulk operations.';
+	'The OpenTofu setup: a Git repo holds a reusable Debian 13 LXC baseline module and one directory per service (provision.sh.tpl, main.tf, variables and outputs). OpenTofu reads and writes its state in Silo, the maintained MinIO fork (CT 202 at 192.168.0.202:9000, bucket opentofu-state, a versioned, self-hosted S3 backend) and applies to the Proxmox API, which creates each LXC and runs provision.sh.tpl through pct exec. That gives 62 containers, each running Prometheus node-exporter on port 9100, Grafana Alloy shipping logs to Loki, and the service itself. Ansible handles the operational layer across them: config deploys, health-check rollouts and bulk operations.';
 
 const REPO = [
 	'opentofu/',
@@ -16,7 +16,7 @@ function containers(f, { x, y, w, chipW, phone }) {
 	f.group({ x, y, w, h, label: '62 containers, each with' });
 	const chips = [
 		{ label: ['node-', 'exporter'], sub: ':9100', logo: 'prometheus' },
-		{ label: 'Promtail', sub: 'logs to Loki', logo: 'loki' },
+		{ label: 'Alloy', sub: 'logs to Loki', logo: 'alloy' },
 		{ label: ['The', 'service'], icon: 'package' },
 	];
 	chips.forEach((c, i) => {
@@ -31,7 +31,7 @@ export const desktop = {
 	height: 640,
 	draw(f) {
 		f.code({ x: 16, y: 16, w: 300, lines: REPO, size: 14 });
-		f.note(332, 40, 'a reusable Debian 12', { size: 13 });
+		f.note(332, 40, 'a reusable Debian 13', { size: 13 });
 		f.note(332, 58, 'LXC baseline module, and', { size: 13 });
 		f.note(332, 76, 'one directory per service', { size: 13 });
 		f.arrow([
@@ -53,9 +53,9 @@ export const desktop = {
 			w: 252,
 			h: 80,
 			kind: 'chalk',
-			label: 'MinIO, CT 202',
+			label: 'Silo, CT 202',
 			sub: ['S3 backend, versioned', 'bucket: opentofu-state'],
-			logo: 'minio',
+			logo: 'silo',
 			size: 15,
 			subSize: 13,
 		});
@@ -121,9 +121,9 @@ export const phone = {
 			w: 328,
 			h: 80,
 			kind: 'chalk',
-			label: 'MinIO, CT 202',
+			label: 'Silo, CT 202',
 			sub: ['S3 backend, versioned', 'bucket: opentofu-state'],
-			logo: 'minio',
+			logo: 'silo',
 			size: 15,
 			subSize: 13,
 		});

@@ -89,7 +89,7 @@ CPU-only is also an option - Whisper runs fine without a GPU - but transcription
 
 In Home Assistant, voice pipelines live at Settings → Voice Assistants. I have three configured:
 
-1. **Home Assistant Cloud** - fallback of last resort. Cloud-backed, works when the homelab is on fire.
+1. **Home Assistant Cloud** (renamed Home Assistant Link in December 2026) - fallback of last resort. Cloud-backed, works when the homelab is on fire.
 2. **Ollama Local** - CPU Whisper + Ollama. Slower, GPU-independent.
 3. **Local Voice** - GPU Whisper + Piper + Ollama. Marked as preferred.
 

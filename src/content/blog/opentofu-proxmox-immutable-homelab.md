@@ -4,11 +4,11 @@ seoTitle: 'An Immutable Homelab with OpenTofu'
 date: 2026-05-27
 slug: 'opentofu-proxmox-immutable-homelab'
 updatedDate: 2026-11-09
-updateNote: 'MinIO archived its repo and stopped shipping binaries, so my state backend now runs Silo, a maintained MinIO fork. The new section on the state backend covers why and how the cutover went.'
+updateNote: 'MinIO archived its repo and stopped shipping binaries, so my state backend now runs Silo, a maintained MinIO fork. The new section on the state backend covers why and how the cutover went. Logs now ship with Grafana Alloy, and the baseline is Debian 13.'
 description: 'How I moved 62 Proxmox containers to OpenTofu with a self-hosted state backend (MinIO, now its fork Silo), and whether immutable infrastructure was worth it.'
 categories: ['Homelab']
 heroImage: '/images/blog/opentofu-proxmox-immutable-homelab/hero.webp'
-heroAlt: 'Terminal output showing OpenTofu provisioning Proxmox LXC containers with MinIO as the self-hosted state backend'
+heroAlt: 'A blue bowl full of pale purple tofu cubes with a pair of chopsticks, on an orange background'
 tldr: 'I spent months building 86 health check scripts across 40+ Proxmox containers, discovered things were more broken than I thought, then migrated all 62 to OpenTofu in six intensive days using a wave-based approach with MinIO as a self-hosted state backend. That is 21,135 lines of provision script code, 50 git commits, and an honest take on whether it is actually worth it.'
 faq:
   - question: 'How long does it take to migrate an existing Proxmox homelab to OpenTofu?'
@@ -27,7 +27,7 @@ howToSteps:
   - name: 'Set up a self-hosted S3 state backend'
     text: 'Deploy an S3-compatible object store as an LXC container (I run Silo, the maintained MinIO fork) and create a bucket for OpenTofu state with versioning enabled. Pin the binary by checksum. This gives you rollback capability without needing Terraform Cloud or any paid service.'
   - name: 'Build a reusable LXC module'
-    text: 'Create a modules/proxmox-lxc/ directory with a standard Debian 12 LXC baseline. Bake in Prometheus node-exporter and Promtail so every container gets observability automatically.'
+    text: 'Create a modules/proxmox-lxc/ directory with a standard Debian 13 LXC baseline. Bake in Prometheus node-exporter and a log shipper (I use Grafana Alloy) so every container gets observability automatically.'
   - name: 'Migrate stateless services first'
     text: 'Start with services that have no persistent data - DNS configs, monitoring exporters, reverse proxy setups. These are safe to iterate on if the provision script needs fixing.'
   - name: 'Migrate stateful services with a parallel run'
@@ -76,35 +76,35 @@ Trying to document what I had made it obvious why it couldn't stay that way. Tha
 
 ![Gru's Plan meme: 'Write 86 health checks to document what I have' / 'Discover which containers are silently failing' / 'Half of them are silently failing' / 'Half of them are silently failing'](/images/blog/opentofu-proxmox-immutable-homelab/grus-plan.webp)
 
-## OpenTofu, MinIO, and Ansible: what each one actually does
+## OpenTofu, Silo, and Ansible: what each one actually does
 
 People ask if this is just Ansible with extra steps. It's not. They solve different problems and I use all three.
 
 **[OpenTofu](https://opentofu.org)** manages what _exists_. It talks to the Proxmox API, creates LXC containers, assigns resources, and runs the provision script. It knows what should be there and what actually is there. `tofu plan` shows the diff. `tofu apply` reconciles them. State drift becomes detectable instead of invisible.
 
-**[MinIO](https://min.io)** is the state backend. It runs as CT 202 on my own hardware, S3-compatible and versioned. (Since October 2026 that container runs [Silo](https://github.com/pgsty/silo), a MinIO fork; [more on why below](#five-months-later-minio-went-away).) Every `tofu apply` writes state there. No Terraform Cloud. No recurring cost. No data leaving my network.
+**[Silo](https://github.com/pgsty/silo)** is the state backend. It runs as CT 202 on my own hardware, S3-compatible and versioned. It started as MinIO and moved to Silo, a maintained MinIO fork, in October 2026 ([more on why below](#five-months-later-minio-went-away)). Every `tofu apply` writes state there. No Terraform Cloud. No recurring cost. No data leaving my network.
 
-**[Ansible](https://www.ansible.com)** handles what OpenTofu doesn't: operational tasks across existing containers. Deploying Promtail config changes to all 62 hosts at once. Running health checks. Ad-hoc operations that don't fit the "single container state" model. Ansible doesn't track what exists - it just does things. That's fine when you're operating on containers OpenTofu already knows about.
+**[Ansible](https://www.ansible.com)** handles what OpenTofu doesn't: operational tasks across existing containers. Deploying log-shipping config changes to every host at once. Running health checks. Ad-hoc operations that don't fit the "single container state" model. Ansible doesn't track what exists - it just does things. That's fine when you're operating on containers OpenTofu already knows about.
 
-![The OpenTofu setup: a Git repo holds a reusable Debian 12 LXC baseline module and one directory per service (provision.sh.tpl, main.tf, variables and outputs). OpenTofu reads and writes its state in MinIO (CT 202 at 192.168.0.202:9000, bucket opentofu-state, a versioned, self-hosted S3 backend) and applies to the Proxmox API, which creates each LXC and runs provision.sh.tpl through pct exec. That gives 62 containers, each running Prometheus node-exporter on port 9100, Promtail shipping logs to Loki, and the service itself. Ansible handles the operational layer across them: config deploys, health-check rollouts and bulk operations.](/images/blog/opentofu-proxmox-immutable-homelab/tofu-flow.svg)
+![The OpenTofu setup: a Git repo holds a reusable Debian 13 LXC baseline module and one directory per service (provision.sh.tpl, main.tf, variables and outputs). OpenTofu reads and writes its state in Silo, the maintained MinIO fork (CT 202 at 192.168.0.202:9000, bucket opentofu-state, a versioned, self-hosted S3 backend) and applies to the Proxmox API, which creates each LXC and runs provision.sh.tpl through pct exec. That gives 62 containers, each running Prometheus node-exporter on port 9100, Grafana Alloy shipping logs to Loki, and the service itself. Ansible handles the operational layer across them: config deploys, health-check rollouts and bulk operations.](/images/blog/opentofu-proxmox-immutable-homelab/tofu-flow.svg)
 
-![Expanding Brain meme: 'SSH into containers and hope you remember what you did' / 'Ansible playbooks' / 'OpenTofu with MinIO state backend' / 'OpenTofu + Ansible + MinIO + 86 health checks + 50 git commits'](/images/blog/opentofu-proxmox-immutable-homelab/expanding-brain.webp)
+![Expanding Brain meme: 'SSH in and hope you remember what you did' / 'Ansible playbooks' / 'OpenTofu with a self-hosted state backend' / 'OpenTofu + Ansible + Silo + 86 health checks + git history'](/images/blog/opentofu-proxmox-immutable-homelab/expanding-brain-silo.webp)
 
-> **The key insight:** OpenTofu is for "what exists." Ansible is for "what runs on what exists." MinIO is what makes OpenTofu's state durable.
+> **The key insight:** OpenTofu is for "what exists." Ansible is for "what runs on what exists." The state backend is what makes OpenTofu's state durable.
 
 ## Write One Script, Call It 62 Times
 
 The design decision that made this manageable: a single reusable module.
 
-`modules/proxmox-lxc/` defines a standard Debian 12 LXC baseline - networking, DNS, resource limits, disk, optional Docker support, optional GPU passthrough (here are [the LXC GPU passthrough details](/blog/proxmox-gpu-passthrough-multi-service/)), optional NAS bind-mounts. Every service calls this module. The differences between containers live in variables: VMID, IP, hostname, resource allocation, what to install.
+`modules/proxmox-lxc/` defines a standard Debian 13 LXC baseline - networking, DNS, resource limits, disk, optional Docker support, optional GPU passthrough (here are [the LXC GPU passthrough details](/blog/proxmox-gpu-passthrough-multi-service/)), optional NAS bind-mounts. Every service calls this module. The differences between containers live in variables: VMID, IP, hostname, resource allocation, what to install.
 
-The other half is `provision.sh.tpl`. This bash script runs inside the container after OpenTofu creates it. It installs packages, writes config files, creates systemd units, enables services, sets up Promtail, and sets up Prometheus node-exporter. One script per service. Idempotent: running it twice produces the same result as running it once.
+The other half is `provision.sh.tpl`. This bash script runs inside the container after OpenTofu creates it. It installs packages, writes config files, creates systemd units, enables services, sets up the log shipper, and sets up Prometheus node-exporter. One script per service. Idempotent: running it twice produces the same result as running it once.
 
 Here's what a typical one looks like (Sonarr, condensed):
 
 ```bash
 #!/bin/bash
-# Runs inside a bare Debian 12 LXC. Idempotent — safe to re-run.
+# Runs inside a bare Debian 13 LXC. Idempotent — safe to re-run.
 set -euo pipefail
 
 log() { echo "[provision] $*"; }
@@ -145,7 +145,7 @@ log "Provision complete."
 
 The `$${hostname}` and `$${container_ip}` are OpenTofu template variables, substituted at apply time. Everything else is plain bash. The `if [ ! -f ... ]` guard is the idempotency pattern: only install if missing, safe to re-run.
 
-Every container gets observability by default. Prometheus node-exporter and Promtail are in the module, not in each provision script. You get metrics and log shipping whether you think to add them or not.
+Every container gets observability by default. Prometheus node-exporter and the log shipper (Grafana Alloy) are in the module, not in each provision script. You get metrics and log shipping whether you think to add them or not.
 
 The numbers: 62 service directories, 21,135 total lines of provision script code. Average is about 340 lines per service. The outliers are the services that build from source instead of installing a package - those run into the thousands of lines and have a lot of moving parts. The smallest are simple services like Ollama at around 140 lines.
 
@@ -253,6 +253,8 @@ Two things are different now:
 
 I did break one apply during the cutover: I stopped the backend while another session was in the middle of a `tofu apply`, and that apply couldn't save its state. OpenTofu writes the state it couldn't save to `errored.tfstate`, and I recovered it from there, so I lost nothing. Now, before anything restarts CT 202, I check that no `tofu plan` or `apply` is running anywhere and that the bucket has no `.tflock` files.
 
+Two smaller changes landed the same month: every container now ships its logs with [Grafana Alloy](https://grafana.com/docs/alloy/latest/) instead of Promtail, and the baseline module builds on Debian 13 instead of Debian 12. The diagram and the setup notes above show the current versions.
+
 ## Is This Right for You?
 
 Honest answer: it depends. Here's the checklist I wish I'd had before I started.
@@ -291,7 +293,7 @@ The setup cost is real. The payoff is real. Where that lands is different for ev
 | Category      | Steps                                                                                                     |
 | ------------- | --------------------------------------------------------------------------------------------------------- |
 | Provisioning  | `tofu apply` clean; CT running; all systemd services active; service responds on port; drift check passes |
-| Observability | Promtail shipping logs to Loki; Prometheus scraping node-exporter                                         |
+| Observability | Grafana Alloy shipping logs to Loki; Prometheus scraping node-exporter                                    |
 | Access        | DHCP reservation confirmed; NPM reverse proxy updated; Authentik SSO configured                           |
 | Monitoring    | Uptime Kuma monitor green; health check script written, deployed, exits 0                                 |
 | Documentation | Ansible inventory, CLAUDE.md ×2, VMID registry, migration plan, all updated; old CT retired after 24h+    |
