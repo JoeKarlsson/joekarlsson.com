@@ -26,8 +26,9 @@ for (const [name, value] of Object.entries({
 const GITHUB_USERNAME = 'JoeKarlsson';
 const SHIPPING_WINDOW_DAYS = 30;
 const SHIPPING_MAX_REPOS = 4;
-// A sanity cap on paging: a month with more commits than this is a bug, not a busy month.
-const MAX_COMMIT_PAGES_PER_REPO = 5;
+// A sanity cap on paging so a broken `next` link can't loop forever. This site alone
+// passed 500 commits in a month (November 2026), so leave plenty of room.
+const MAX_COMMIT_PAGES_PER_REPO = 20;
 const LATEST_COMMIT_MESSAGE_MAX_CHARS = 70;
 const LETTERBOXD_RSS_URL = 'https://letterboxd.com/joekarlsson/rss/';
 const ITEMS_PER_FEED = 4;
