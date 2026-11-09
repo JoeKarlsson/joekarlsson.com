@@ -15,7 +15,7 @@ faq:
   - question: 'Is a gift card a lame gift for a homelabber?'
     answer: "No. Homelabbers are picky because their gear has to fit what they already run, and a gift card to a store that sells parts, like Micro Center or Amazon, lets them buy the exact model they've been staring at. Put a note with it that says what it's for. A gift card for 'that drive you keep talking about' feels personal."
   - question: 'What is a good homelab gift under $50?'
-    answer: 'Rackstuds, the tool-free replacement for cage nuts, if they have a rack with square holes. Aqara leak sensors if they run Zigbee. A label maker, a self-healing cutting mat for the workbench, or a mug warmer for the desk. All of these are under $50 as of November 2026 and none of them have to match a brand they already picked.'
+    answer: 'Rackstuds, the tool-free replacement for cage nuts, if they have a rack with square holes. Aqara leak sensors if they run Zigbee. A self-healing cutting mat for the workbench, or a mug warmer for the desk. All of these are under $50 as of November 2026 and none of them have to match a brand they already picked.'
   - question: 'What is a good gift for someone just starting a homelab?'
     answer: "A Raspberry Pi 5 with 4GB or 8GB, or a small mini PC like the Beelink EQ14 (Intel N150), which I haven't used myself. Someone without a lab hasn't made the decisions a gift could clash with, so this is the one case where buying the server works. Skip the 16GB Pi 5: 2026 RAM prices pushed it to about $385."
   - question: 'What smart home gifts work with Home Assistant?'
@@ -42,10 +42,10 @@ Everything below is in my house right now. I run two Dell R730 servers in my att
 | ------------------------------------ | --------- | ------------------------------------ |
 | Rackstuds                            | Under $50 | "Does your rack have square holes?"  |
 | Aqara leak sensors                   | Under $50 | "Do you run Zigbee?"                 |
-| Brother P-touch label maker          | Under $50 | -                                    |
 | Self-healing cutting mat             | Under $50 | -                                    |
 | Mug warmer                           | Under $50 | -                                    |
 | Home Assistant Voice Preview Edition | $50-150   | "Do you run Home Assistant?"         |
+| Brother P-touch CUBE Plus            | $50-150   | -                                    |
 | Elgato Stream Deck                   | $50-150   | -                                    |
 | WiiM Pro                             | $50-150   | "Are you all-in on Sonos?"           |
 | Raspberry Pi 5 (4GB or 8GB)          | $50-150   | -                                    |
@@ -82,12 +82,6 @@ They talk Zigbee, and mine pair straight to [Zigbee2MQTT](https://www.zigbee2mqt
 
 **Ask first:** "Do you run Zigbee?" If they say yes, buy a few. If they say no, pick something else. Without Zigbee they'd need Aqara's own hub and app.
 
-### Brother P-touch label maker
-
-Every cable in my rack is labeled, and a Brother P-touch did it. It's the best, I love it.
-
-This one's safe even if they already have one, since label tape runs out. Most desktop P-touch models take Brother's TZe tape, so check their model before you buy refills.
-
 ### Self-healing cutting mat
 
 A 24x36 [WORKLION cutting mat](https://www.amazon.com/dp/B08Y5R5K5J) covers my studio desk. It's my surface for crafts and hardware projects.
@@ -103,6 +97,12 @@ A [warming plate](https://www.amazon.com/dp/B07S7DDY6S) with a 14 oz ceramic mug
 I swapped every Amazon Alexa in my house for the [Home Assistant Voice Preview Edition](https://www.home-assistant.io/voice-pe/). There are four of them now. It's made by the Home Assistant team, it costs about $69, and the voice processing can run on hardware in the house instead of Amazon's cloud. Mine answers in 2-3 seconds from wake word to spoken reply, because the speech and language models run on a GPU in my rack. On a Raspberry Pi or a small mini PC, expect slower replies; I haven't timed that setup. I wrote up [a fully local voice assistant for Home Assistant](/blog/local-voice-ai-home-assistant-gpu/) if you want the details.
 
 **Ask first:** "Do you run Home Assistant?" Without it this is a speaker that does nothing.
+
+### Brother P-touch CUBE Plus
+
+Every cable in my rack is labeled, and my [Brother P-touch CUBE Plus](https://www.amazon.com/dp/B07HB8LNSY) did it. It's the best, I love it. It's a Bluetooth label printer you run from a phone app, and it prints on Brother's TZe tape up to 24mm wide.
+
+If they already have a P-touch, a few rolls of TZe tape make a cheap stocking stuffer. Check which tape width their model takes first.
 
 ### Elgato Stream Deck
 
@@ -136,7 +136,9 @@ Buy the **Home** version. The Pro has the same sensors and adds support for busi
 
 ### A rack UPS
 
-I run two [CyberPower OR1500PFCRT2U](https://www.cyberpowersystems.com/product/ups/pfc-sinewave/or1500pfcrt2u/) rack UPSes, battery backups that keep the servers alive through a short outage. In a long one, NUT (Network UPS Tools) watches the UPS and shuts the cluster down cleanly. The UPS doesn't do that part on its own. A server that loses power mid-write can corrupt the data on it. I go through what the rest of the rack cost in [my homelab two years later](/blog/homelab-two-years-later/).
+I run two [CyberPower OR1500PFCRT2U](https://www.cyberpowersystems.com/product/ups/pfc-sinewave/or1500pfcrt2u/) rack UPSes, battery backups that sit between the wall and the servers. In the summer, the power in my office blips when my air conditioners click on, and the servers ride straight through it. That has saved my ass more times than I can count.
+
+I've never had a long outage drain the battery. If one does, NUT (Network UPS Tools) is set up to watch the UPS and shut the cluster down cleanly, since the UPS doesn't do that part on its own. So far I've always been home to flip the breaker or shut the air conditioners off first. A server that loses power mid-write can corrupt the data on it. I go through what the rest of the rack cost in [my homelab two years later](/blog/homelab-two-years-later/).
 
 **Ask first:** "Is your rack on a UPS yet?" If they say no, have them pick the model. A rack UPS is sized to the power the gear pulls, and they know that number.
 
@@ -185,7 +187,7 @@ No. Homelabbers are picky because their gear has to fit what they already run, a
 
 ### What is a good homelab gift under $50?
 
-Rackstuds, the tool-free replacement for cage nuts, if they have a rack with square holes. Aqara leak sensors if they run Zigbee. A label maker, a self-healing cutting mat for the workbench, or a mug warmer for the desk. All of these are under $50 as of November 2026 and none of them have to match a brand they already picked.
+Rackstuds, the tool-free replacement for cage nuts, if they have a rack with square holes. Aqara leak sensors if they run Zigbee. A self-healing cutting mat for the workbench, or a mug warmer for the desk. All of these are under $50 as of November 2026 and none of them have to match a brand they already picked.
 
 ### What is a good gift for someone just starting a homelab?
 

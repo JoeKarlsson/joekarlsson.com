@@ -571,6 +571,12 @@ export const USES_SECTIONS: UsesSection[] = [
 						descHtml:
 							'I love these. They replace the cage nuts and screws that come with the rack and are way easier to use. I recommend them.',
 					},
+					{
+						name: 'Brother P-touch CUBE Plus',
+						url: 'https://www.amazon.com/dp/B07HB8LNSY',
+						descHtml:
+							"Bluetooth label printer (PT-P710BT) that I run from my phone. Every cable in my rack is labeled with it. It's the best, I love it.",
+					},
 				],
 			},
 			{

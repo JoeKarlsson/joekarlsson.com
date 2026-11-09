@@ -1,0 +1,24 @@
+---
+title: 'What to Buy a Homelabber in 2026'
+date: 2026-11-09T10:34:07Z
+slug: 'what-to-buy-a-homelabber-2026'
+description: "A preview of my 2026 homelab gift guide: why the best gifts don't have to agree with the lab, four picks I own, and the full list on the blog."
+recapOf: 'homelab-gift-ideas-2026'
+cardPhoto: '/images/blog/homelab-two-years-later/rack-full-front.webp'
+cardPhotoAlt: "Joe's homelab rack in the attic (two Dell R730 servers, networking gear, a Synology NAS and two UPS units)"
+---
+
+This week I published [a homelab gift guide](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/) built from the gear in my rack and on my desk, sorted by price.
+
+The rule I landed on is that the best gifts **don't have to agree with the lab.** A homelab is a stack of decisions you can't see from outside: which servers, which network gear, which smart home protocol. Anything that has to fit those decisions is a guess. So every pick that depends on their setup comes with one yes/no question to text them before you buy.
+
+A few from the list:
+
+- **[Rackstuds](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#rackstuds)** (under $50). Tool-free replacements for the cage nuts that come with a server rack. I love these. Ask first: "Does your rack have square holes?"
+- **[Home Assistant Voice Preview Edition](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#home-assistant-voice-preview-edition)** (about $69). I replaced every Alexa in my house with these. Ask first: "Do you run Home Assistant?"
+- **[Aranet4 Home](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#aranet4-home)** ($150+). The CO2 monitor on my desk that tells me to open a window before I get foggy.
+- **[A rack UPS](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/#a-rack-ups)** (the splurge). Mine ride through the power blips every summer when my air conditioners kick on.
+
+The full guide has 13 picks I own, a short list of what not to buy (please don't buy them a server), the four things on my own wishlist, and a few gifts that aren't hardware at all.
+
+<a class="button" href="https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/">Read the full gift guide</a>
