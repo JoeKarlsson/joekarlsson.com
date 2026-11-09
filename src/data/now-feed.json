@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 426,
+			"commitCount": 429,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 3
+				25, 6
 			],
-			"latestCommitMessage": "chore: Prettier formats the Bechdel.io statement"
+			"latestCommitMessage": "feat: Five projects without a clip get animated diagram cards on..."
 		},
 		{
 			"name": "nothing-but-corners",
