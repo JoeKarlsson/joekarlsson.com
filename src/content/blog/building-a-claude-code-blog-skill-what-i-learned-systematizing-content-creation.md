@@ -5,8 +5,8 @@ date: 2025-10-24
 slug: 'building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation'
 description: 'Building a Claude Code blog skill - how I turned my own blog workflow, from banned words to Vale linting and PRs, into a skill our marketing team can run.'
 categories: ['AI']
-heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/Building-a-Claude-Code-Blog-Skill.webp'
-heroAlt: 'Building a Claude Code blog skill for systematizing content creation'
+heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/thumb-3595dc72.webp'
+heroAlt: 'Compositors setting type at wooden type cases'
 tldr: 'I built a Claude Code slash command that turns blog post creation into a repeatable, enforceable workflow with brand voice checks, Vale linting, image generation, and automatic PR submission. It unblocked our marketing team from depending on me as the content quality bottleneck.'
 ---
 

@@ -6,8 +6,8 @@ updatedDate: 2026-03-11
 slug: 'how-to-get-started-building-a-homelab-server-in-2024'
 description: "I built my first Homelab server for under $200 with a used Lenovo ThinkServer and Proxmox. Here's how I picked hardware, ran containers and mounted NAS."
 categories: ['Homelab']
-heroImage: '/images/blog/how-to-get-started-building-a-homelab-server-in-2024/homelab-vaporwave.webp'
-heroAlt: 'Vaporwave style illustration of a homelab server'
+heroImage: '/images/blog/how-to-get-started-building-a-homelab-server-in-2024/thumb-52866fdd.webp'
+heroAlt: 'Is this a server? meme: me looking at any used PC on Facebook Marketplace'
 tldr: 'I built my first Homelab server for under $200 using a used Lenovo ThinkServer from Facebook Marketplace and Proxmox. Here is everything I learned about picking hardware, choosing an OS, setting up containers, and mounting NAS storage.'
 faq:
   - question: 'How much does a homelab cost to run?'

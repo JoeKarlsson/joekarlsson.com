@@ -4,8 +4,8 @@ date: 2018-11-14
 slug: 'building-high-performance-react-applications'
 description: 'How to build high performance React applications - find the bottlenecks, then fix them with keys, PureComponent, immutable data and production builds.'
 categories: ['Web Dev']
-heroImage: '/images/blog/building-high-performance-react-applications/1_4Lrdmxs5FVMlqK3b8cwcTA.webp'
-heroAlt: 'React performance profiling in Chrome DevTools'
+heroImage: '/images/blog/building-high-performance-react-applications/thumb-b9e788fc.webp'
+heroAlt: 'Sonic says: Do not abuse the key!'
 tldr: 'I walk through practical ways to speed up React apps, from using keys correctly to PureComponent to production builds, with before-and-after benchmarks for each trick.'
 ---
 

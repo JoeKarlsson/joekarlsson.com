@@ -5,8 +5,8 @@ date: 2020-04-18
 slug: 'a-gentle-introduction-to-building-serverless-apps'
 description: 'Resources from my talk A Gentle Introduction to Building Serverless Apps - video, slides and outline for building a serverless app on MongoDB Stitch.'
 categories: ['Web Dev']
-heroImage: '/images/blog/a-gentle-introduction-to-building-serverless-apps/A-Gentle-Introduction-to-Building-Serverless-Apps-with-MongoDB-Stitch-_-Serverless-MN.webp'
-heroAlt: 'Title slide for A Gentle Introduction to Building Serverless Apps with MongoDB Stitch'
+heroImage: '/images/blog/a-gentle-introduction-to-building-serverless-apps/thumb-63063e1a.webp'
+heroAlt: 'A man taking a pie from the wall of coin windows at a Horn & Hardart automat'
 contentNotice: 'MongoDB Stitch was rebranded to Atlas App Services and fully discontinued in September 2024. This tutorial will not work with current MongoDB services.'
 tldr: 'A beginner-friendly intro to serverless computing using MongoDB Stitch. The platform is now discontinued, but the serverless concepts still hold up.'
 ---

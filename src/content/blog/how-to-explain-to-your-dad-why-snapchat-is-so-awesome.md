@@ -5,8 +5,8 @@ date: 2015-05-09
 slug: 'how-to-explain-to-your-dad-why-snapchat-is-so-awesome'
 description: 'How I tried to explain Snapchat to my anti-Snapchat Dad in 2015: quick, imperfect photos carry the emotion and context that texts and emails lose.'
 categories: ['Life']
-heroImage: '/images/blog/how-to-explain-to-your-dad-why-snapchat-is-so-awesome/snapchat21.webp'
-heroAlt: 'Snapchat logo on a yellow background'
+heroImage: '/images/blog/how-to-explain-to-your-dad-why-snapchat-is-so-awesome/thumb-3c2df1fe.webp'
+heroAlt: 'A row of striped photo booths at a fair'
 contentNotice: false
 tldr: 'Snapchat works because it brings back the facial and verbal cues we lose in texting. Simplicity and visual communication are what make it stick.'
 ---

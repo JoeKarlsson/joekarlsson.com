@@ -5,8 +5,8 @@ updatedDate: 2026-03-22
 slug: 'self-hosted-music-still-sucks-in-2026'
 description: 'The *arr stack perfected video automation, but self-hosted music is stuck on albums. Lidarr makes you grab a whole album when you want one track.'
 categories: ['Homelab']
-heroImage: '/images/blog/self-hosted-music-still-sucks-in-2025/image-1.webp'
-heroAlt: 'Self-hosted music still sucks in 2026'
+heroImage: '/images/blog/self-hosted-music-still-sucks-in-2026/thumb-c91afed9.webp'
+heroAlt: 'Two cassette tapes side by side'
 contentNotice: false
 tldr: 'The *arr ecosystem nailed video automation, but self-hosted music is still stuck in album-centric workflows that ignore how we actually listen to music. I lay out why the problem is so hard and what a track-first tool like Songarr would need to look like. Navidrome 0.60 added some nice features like Instant Mix and a plugin system, but the core problem remains unsolved.'
 ---

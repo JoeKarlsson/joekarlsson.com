@@ -6,8 +6,8 @@ slug: 'the-tech-talks-that-have-had-the-biggest-impact-on-my-career'
 description: 'The tech talks that changed how I think about programming, most of them language-agnostic, starting with The Myth of the Genius Programmer.'
 categories: ['Career']
 tags: ['tech talks']
-heroImage: '/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/The-Tech-Talks-That-Have-Had-The-Biggest-Impact-On-My-Career.webp'
-heroAlt: 'The tech talks that have had the biggest impact on my career'
+heroImage: '/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/thumb-6819118c.webp'
+heroAlt: 'A speaker standing before a packed auditorium'
 contentNotice: false
 tldr: 'My personal list of the tech talks that changed how I think about programming, teamwork, and career growth, with links to every one of them.'
 ---

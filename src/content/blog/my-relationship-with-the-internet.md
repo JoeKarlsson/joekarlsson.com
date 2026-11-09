@@ -4,8 +4,8 @@ date: 2015-05-09
 slug: 'my-relationship-with-the-internet'
 description: "People say the internet and smartphones are killing real human connection. I think that's a knee-jerk reaction. Online relationships are just new."
 categories: ['Life']
-heroImage: '/images/blog/my-relationship-with-the-internet/IMG_1947-e1437203870387.webp'
-heroAlt: 'Thoughts on my relationship with the internet'
+heroImage: '/images/blog/my-relationship-with-the-internet/thumb-c36164e3.webp'
+heroAlt: 'Two women reading a letter together in an old framed photograph'
 contentNotice: false
 tldr: "I think the internet has brought me closer to the people I care about, even if the relationships look different than they used to. Virtual connections aren't a replacement for real ones - they're just a new kind."
 ---

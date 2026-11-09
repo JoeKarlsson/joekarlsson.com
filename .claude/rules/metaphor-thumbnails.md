@@ -53,7 +53,8 @@ Add an entry to `scripts/work-thumbnail-plan.json` (fields are documented at the
 	"look": "taped",
 	"alt": "What the photo shows, plainly",
 	"focus": 0.5,
-	"mark": { "name": "asterisk", "at": [87, 3, 10, 17], "color": "chalk" }
+	"mark": { "name": "asterisk", "at": [87, 3, 10, 17], "color": "chalk" },
+	"motion": "boil"
 }
 ```
 
@@ -62,5 +63,7 @@ npm run thumbnails:work -- <slug>
 ```
 
 The script downloads the photo into `media-sources/work-thumbnails/`, writes `thumb-<hash>.webp`, and sets `heroImage` and `heroAlt`. Read the card. If the subject is cut off, change `focus` (0 top, 1 bottom) and redraw. If it reads as mud, pick another photo. Delete any old `hero.webp` the post no longer references.
+
+Every card boils (`"motion": "boil"`): the photo holds still while the mark and tape boil on the site's 0.5s loop, an animated WebP of about 35-120 KB. A post whose point is a short clip of its own (a reaction GIF, a demo) can play it instead: `"picture": { "video": "...", "at": 2.8, "until": 4.3 }, "motion": "clip"`, at most about 2 seconds since a clip is ~200 KB. Use a chalk mark on bright photos; pink marks vanish into the pink. The build gives every animated card a still for reduced motion and the pause button, and post pages show that still inside the live boiling-paper frame.
 
 Show Joe the card, the metaphor in one line ("a toll gate: every request pays at one gate"), and the Commons link.

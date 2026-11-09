@@ -5,8 +5,8 @@ date: 2026-02-05
 slug: 'building-a-real-time-digital-graffiti-wall'
 description: 'How I built a real-time digital graffiti wall - a shared drawing canvas that shows up live on an RGB LED grid, synced with MongoDB Realm.'
 categories: ['Homelab', 'Web Dev']
-heroImage: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp'
-heroAlt: 'Digital graffiti wall interactive art installation'
+heroImage: '/images/blog/building-a-real-time-digital-graffiti-wall/thumb-b8387025.webp'
+heroAlt: 'A 32 by 32 LED wall lighting up pixel by pixel as people draw a heart, a smiley face and the word HI'
 tldr: 'The Digital Graffiti Wall is an interactive art installation where audiences draw on a shared 32x32 pixel canvas in their browsers, and their artwork appears in real-time on a physical RGB LED grid. MongoDB Realm handles the real-time synchronization between all connected clients with anonymous authentication and atomic pixel updates.'
 ---
 

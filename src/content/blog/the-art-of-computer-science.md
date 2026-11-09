@@ -4,8 +4,8 @@ date: 2020-09-10
 slug: 'the-art-of-computer-science'
 description: 'Resources from my keynote The Art of Computer Science, about feeling like an imposter in tech and finding my place through art and a little humor.'
 categories: ['Career']
-heroImage: '/images/blog/the-art-of-computer-science/The-Art-of-Computer-Science.webp'
-heroAlt: 'The Art of Computer Science talk'
+heroImage: '/images/blog/the-art-of-computer-science/thumb-89672fd2.webp'
+heroAlt: "Signac's pointillist painting of a woman at her easel"
 contentNotice: false
 tldr: 'I switched my major three times, hated my first dev job, and moved to Hawaii to quit coding. Then I found my way back through art and stupid side projects. This talk is about finding your own joy in tech.'
 ---

@@ -4,8 +4,8 @@ date: 2015-07-04
 slug: '10-things-i-learned-at-startup-weekend'
 description: 'What I learned at my first Startup Weekend in Honolulu - pitch the idea you think is stupid, keep it simple, trust your team and get some sleep.'
 categories: ['Career']
-heroImage: '/images/blog/10-things-i-learned-at-startup-weekend/tumblr_nqx8chHbKD1tubinno1_1280-min.webp'
-heroAlt: 'Bubble tea from Startup Weekend event'
+heroImage: '/images/blog/10-things-i-learned-at-startup-weekend/thumb-df27a6f9.webp'
+heroAlt: 'A kid running a roadside stand selling squash, cucumbers and lemonade'
 contentNotice: 'Startup Weekend was absorbed into Techstars in 2017. Some references and links may no longer be current.'
 tldr: 'I went to my first Startup Weekend in Honolulu and came back with ten lessons, from "pitch your stupid idea" to "get some sleep" to "trust your team and get shit done."'
 ---

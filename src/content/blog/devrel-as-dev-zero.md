@@ -4,8 +4,8 @@ date: 2023-03-03
 slug: 'devrel-as-dev-zero'
 description: 'DevRel as Dev Zero: developer advocates use the product as a new user would and catch bugs, like a missing Create Account button, before customers do.'
 categories: ['Career']
-heroImage: '/images/blog/devrel-as-dev-zero/DevRel-as-Dev-Zero.webp'
-heroAlt: 'DevRel as Dev Zero concept illustration'
+heroImage: '/images/blog/devrel-as-dev-zero/thumb-86d48438.webp'
+heroAlt: 'A family of crash-test dummies lined up in a lab'
 tldr: 'DevRel should be the first user of your product before it ships. I call this "Dev Zero" - we catch bugs, missing buttons, and confusing flows that developers miss, and then turn those findings into targeted docs and content.'
 ---
 

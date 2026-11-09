@@ -6,8 +6,8 @@ slug: 'one-week-in-oahu-a-tourists-travel-itinerary'
 description: 'This itinerary contains the list of spots I would bring friends and family one week in Oahu. I tried to avoid the usual tourist spots.'
 categories: ['Life']
 tags: ['Hawaii', 'Itinerary', 'Travel']
-heroImage: '/images/blog/placeholder/placeholder-travel.webp'
-heroAlt: 'Sunset over a Hawaiian beach'
+heroImage: '/images/blog/one-week-in-oahu-a-tourists-travel-itinerary/thumb-baa90e06.webp'
+heroAlt: "D. Howard Hitchcock's 1928 painting of Waikiki Beach and Diamond Head"
 contentNotice: 'Aloha Stadium closed in 2023 and the swap meet relocated. Some restaurants and attractions mentioned may have changed - verify before visiting.'
 tldr: 'My day-by-day Oahu itinerary for when friends visit, hitting Lanikai Beach, Hanauma Bay, Koko Head, the North Shore, and the local spots tourists usually miss.'
 ---

@@ -4,8 +4,8 @@ date: 2020-11-03
 slug: 'an-introduction-to-iot-internet-of-toilets'
 description: 'An intro to IoT with JavaScript through the Internet of Toilets - why Node.js fits IoT, IoT data best practices, and the litter box I built for my cat.'
 categories: ['Homelab']
-heroImage: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp'
-heroAlt: 'IoT Kitty Litter Box project overview diagram'
+heroImage: '/images/blog/an-introduction-to-iot-internet-of-toilets/thumb-ec97a203.webp'
+heroAlt: 'Stop-motion of the IoT kitty litter box being put together'
 contentNotice: false
 tldr: "I built an internet-connected cat litter box with a Raspberry Pi, load cells, and Node.js to track my cat's weight and bathroom habits. This post walks through the hardware, the code, and IoT data best practices."
 ---

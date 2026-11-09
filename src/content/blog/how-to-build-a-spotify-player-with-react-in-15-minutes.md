@@ -5,8 +5,8 @@ date: 2019-04-02
 slug: 'how-to-build-a-spotify-player-with-react-in-15-minutes'
 description: "Build a Spotify player in React in 15 minutes. Register an app, authenticate a user, and show the track they're playing with the Spotify Web API."
 categories: ['Web Dev']
-heroImage: '/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/1_KGOTMV8KD120TApnijDauQ.webp'
-heroAlt: 'How to build a Spotify player with React in 15 minutes'
+heroImage: '/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/thumb-8daa80c0.webp'
+heroAlt: 'My MagicMirror showing the song playing on Spotify'
 contentNotice: 'The Implicit Grant Flow used in this tutorial was deprecated by Spotify in November 2025. Use Authorization Code Flow with PKCE instead.'
 tldr: 'Step-by-step tutorial for building a "now playing" Spotify web player in React using the Spotify API and implicit auth flow.'
 howToSteps:

@@ -4,8 +4,8 @@ date: 2015-12-19
 slug: 'bechdel-test-script-parser-works'
 description: 'How the Bechdel Test Script Parser works - the digital humanities tool my sister Laurel and I built to check whether film scripts pass the Bechdel Test.'
 categories: ['Web Dev']
-heroImage: '/images/blog/bechdel-test-script-parser-works/bechdel-test-rectangle.webp'
-heroAlt: 'Bechdel Test Script Parser project banner'
+heroImage: '/images/blog/bechdel-test-script-parser-works/thumb-e6b013c5.webp'
+heroAlt: 'A film editing room with reels, splicers and shelves of cans'
 contentNotice: false
 tldr: "My sister and I built a tool that parses movie screenplays and tests them against the Bechdel Test using JavaScript and Node.js. Here's how the script parsing actually works under the hood."
 ---

@@ -5,8 +5,8 @@ slug: 'developer-advocacy-in-2023'
 description: 'How developer advocacy can adapt to the 2023 tech downturn and layoffs by working closer with engineering and marketing and proving its ROI.'
 categories: ['Career']
 tags: ['Developer Advocacy']
-heroImage: '/images/blog/developer-advocacy-in-2023/Developer-Advocacy-in-2023.webp'
-heroAlt: 'Clip art illustration of internal collaboration for developer advocacy'
+heroImage: '/images/blog/developer-advocacy-in-2023/thumb-26974365.webp'
+heroAlt: "A ship's crew in foul-weather gear hauling on a line together"
 tldr: 'Tech layoffs hit DevRel hard, and the way forward is proving your value. That means getting serious about internal collaboration with engineering and marketing, and tracking real metrics that tie your work to business outcomes.'
 ---
 

@@ -5,8 +5,8 @@ date: 2015-05-16
 slug: 'how-to-pixelate-images-with-html5-and-javascript'
 description: 'How to pixelate images with HTML5 canvas and JavaScript, step by step through the code I wrote for Pixelate.js, a spin-off of my Instagram mosaic app.'
 categories: ['Web Dev']
-heroImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/pixelate-demo.webp'
-heroAlt: 'Demo of pixelating an image using HTML5 canvas and JavaScript'
+heroImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/thumb-0a074be5.webp'
+heroAlt: 'A Roman floor mosaic of gladiators built from tiny tiles'
 contentNotice: 'This post uses outdated JavaScript patterns (var, window.onload, browser-prefixed APIs). The pixelation technique still works, but refer to modern JavaScript documentation for current best practices.'
 tldr: 'I walk through how I built Pixelate.js, a small web app that turns images into dynamic pixel art using HTML5 canvas and a clever trick with image smoothing.'
 ---

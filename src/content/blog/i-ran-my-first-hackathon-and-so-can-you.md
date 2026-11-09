@@ -4,8 +4,8 @@ date: 2017-01-30
 slug: 'i-ran-my-first-hackathon-and-so-can-you'
 description: 'Lessons I learned planning and running my first hackathon, the Stupid Shit and Terrible Ideas Hackathon in Honolulu, and how you can run one too.'
 categories: ['Career']
-heroImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/11.16.2019.webp'
-heroAlt: 'I ran my first hackathon and so can you'
+heroImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/thumb-70a56749.webp'
+heroAlt: 'A Rube Goldberg cartoon of a ridiculous sausage-making contraption'
 contentNotice: false
 tldr: 'Everything I learned organizing my first hackathon from scratch - venue, food, sponsors, marketing, code of conduct, and all the mistakes I made along the way.'
 ---

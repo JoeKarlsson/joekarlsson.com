@@ -5,8 +5,8 @@ slug: 'a-brief-cuba-travel-guide'
 description: 'A brief Cuba travel guide for Americans from my 2019 trip - visas, money, customs, food, cigars, WiFi, Havana and Vinales.'
 categories: ['Life']
 tags: ['cuba']
-heroImage: '/images/blog/a-brief-cuba-travel-guide/A-Brief-Cuba-Travel-Guide.webp'
-heroAlt: 'Scenic view of Cuba for travel guide'
+heroImage: '/images/blog/a-brief-cuba-travel-guide/thumb-bc597f94.webp'
+heroAlt: 'An old postcard of the Malecón seawall drive in Havana, with 1950s cars'
 tldr: 'Tips I picked up visiting Cuba in 2019, covering visas, money, food, rum, cigars, and what to expect in Havana and Vinales.'
 ---
 

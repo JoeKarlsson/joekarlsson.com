@@ -3,14 +3,16 @@ import { existsSync, statSync } from 'fs';
 import { join } from 'path';
 import { projects } from '../src/data/projects';
 import imagesWithText from '../src/data/images-with-text.json';
-import { cardClip, cardHalftone, halftoneMode } from '../src/utils/halftone';
+import { cardClip, cardHalftone, halftoneMode, isPretreatedThumbnail } from '../src/utils/halftone';
 
 // /work autoplays every card clip in view; together they must fit its 1.5MB page budget
 const MAX_CARD_CLIP_BYTES = 450 * 1024;
 
 describe('halftoneMode', () => {
 	it('draws images with text flat, everything else in dots', () => {
-		expect(halftoneMode(imagesWithText[0])).toBe('flat');
+		// A pretreated card on the list is skipped (undefined), so test with one that isn't
+		const textImage = imagesWithText.find((src) => !isPretreatedThumbnail(src))!;
+		expect(halftoneMode(textImage)).toBe('flat');
 		expect(halftoneMode('/images/not-in-the-list.webp')).toBe('dots');
 	});
 

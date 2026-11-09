@@ -6,8 +6,8 @@ date: 2023-02-28
 slug: 'treat-content-development-for-your-open-source-project-like-your-open-source-project'
 description: 'Treat content for your open source project like the project itself. Involve your community and share your content timeline in the open, like a roadmap.'
 categories: ['Career']
-heroImage: '/images/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/Treat-Content-Development-for-Your-Open-Source-Project-Like-Your-Open-Source-Project.webp'
-heroAlt: 'Treat content development for your open source project like your open source project'
+heroImage: '/images/blog/treat-content-development-for-your-open-source-project-like-your-open-source-project/thumb-4a4caed2.webp'
+heroAlt: 'A crowd raising the frame of a barn together'
 tldr: 'Your open source project deserves the same open, community-driven approach for its content as it does for its code. Triage content requests, be transparent about timelines, and accept contributions like pull requests.'
 ---
 

@@ -7,8 +7,8 @@ updatedDate: 2026-11-07
 slug: 'from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack'
 description: 'I bought a wire postcard rack secondhand and designed 3D-printed pots that hang in its pockets and drain into each other. Here it is three-plus years later.'
 categories: ['Homelab']
-heroImage: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/Postcard-Rack-Planter.webp'
-heroAlt: '3D printed postcard planter rack with succulents'
+heroImage: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/thumb-af923799.webp'
+heroAlt: 'The postcard rack planter, its pockets full of 3D-printed pots and plants'
 tldr: 'I filled a secondhand wire postcard rack with 3D-printed pots I designed in Tinkercad. Each pot drains into the one below, so I water the top and the whole tower gets it. Three-plus years in, the ABS is holding up and the succulents gave way to spider plants. The STL is free on Thingiverse.'
 ---
 

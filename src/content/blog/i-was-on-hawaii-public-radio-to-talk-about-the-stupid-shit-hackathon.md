@@ -5,8 +5,8 @@ date: 2017-01-12
 slug: 'i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon'
 description: "My buddy Ray and I went on Hawaii Public Radio's Bytemark's Cafe to talk about Stupid Hackathon Hawaii and why we run it with no sponsors, just for fun."
 categories: ['Life']
-heroImage: '/images/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/Stupid-Shit-FB-Event.webp'
-heroAlt: 'Hawaii Public Radio interview about the Stupid Hackathon'
+heroImage: '/images/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/thumb-8eeb1d77.webp'
+heroAlt: "Me at the microphone on Hawaii Public Radio's Bytemarks Cafe"
 contentNotice: false
 tldr: 'I went on Hawaii Public Radio to talk about the Stupid Shit Hackathon my buddy Ray and I organized in Honolulu - a hackathon with no sponsors, no corporate agenda, just building dumb stuff with friends.'
 ---

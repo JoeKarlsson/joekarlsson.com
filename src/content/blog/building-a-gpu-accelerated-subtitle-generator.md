@@ -5,8 +5,8 @@ date: 2026-02-05
 slug: 'building-a-gpu-accelerated-subtitle-generator'
 description: 'How I built a GPU-accelerated subtitle generator for my video library with faster-whisper on my homelab, with parallel workers and a hallucination filter.'
 categories: ['Homelab', 'AI']
-heroImage: '/images/blog/building-a-gpu-accelerated-subtitle-generator/hero.webp'
-heroAlt: 'GPU-accelerated subtitle generation pipeline architecture'
+heroImage: '/images/blog/building-a-gpu-accelerated-subtitle-generator/thumb-08106819.webp'
+heroAlt: "A playhead runs along a film's audio waveform as Whisper writes each line of speech into an SRT file"
 tldr: 'I built a multi-worker subtitle generation system using faster-whisper on NVIDIA GPUs. It features parallel folder-level processing with atomic locking, VRAM-aware scheduling that gracefully yields to other GPU workloads, automatic language detection with English translation, and a multi-layer hallucination filter. The whole thing runs on my Proxmox homelab alongside Plex and other GPU-hungry services.'
 howToSteps:
   - name: 'Install Prerequisites'

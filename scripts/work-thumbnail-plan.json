@@ -1605,5 +1605,587 @@
 			"at": [87, 3, 10, 17],
 			"color": "pink"
 		}
+	},
+	"how-to-get-started-with-home-assistant-in-2026": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Percy_Grainger_with_another_man_at_player_piano_LCCN2002709431.tif?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Percy_Grainger_with_another_man_at_player_piano_LCCN2002709431.tif"
+		},
+		"look": "taped",
+		"alt": "Two men marking up a player piano roll by hand",
+		"focus": 0.3,
+		"mark": {
+			"name": "star",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil",
+		"inset": 4
+	},
+	"how-to-pass-coding-interview": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Killie_Rick_and_Colin_McCabe.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Killie_Rick_and_Colin_McCabe.jpg"
+		},
+		"look": "flat",
+		"alt": "A student at a desk while a teacher works a math problem on the chalkboard behind her",
+		"focus": 0.4,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"an-introduction-to-iot-internet-of-toilets": {
+		"picture": {
+			"video": "/images/blog/an-introduction-to-iot-internet-of-toilets/stop_motion_intro-1024x683.mp4"
+		},
+		"look": "flat",
+		"alt": "Stop-motion of the IoT kitty litter box being put together",
+		"focus": 0.5,
+		"mark": {
+			"name": "spiral",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "clip"
+	},
+	"my-relationship-with-the-internet": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Two_unidentified_women_reading_letters_LCCN2010648375.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Two_unidentified_women_reading_letters_LCCN2010648375.jpg"
+		},
+		"look": "flat",
+		"alt": "Two women reading a letter together in an old framed photograph",
+		"focus": 0.5,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"overwhelmed-by-the-web": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Newsstand,_32nd_Street_and_Third_Avenue,_Manhattan_(NYPL_b13668355-482798).jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Newsstand,_32nd_Street_and_Third_Avenue,_Manhattan_(NYPL_b13668355-482798).jpg"
+		},
+		"look": "taped",
+		"alt": "A newsstand buried in magazines and newspapers",
+		"focus": 0.5,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"how-to-explain-to-your-dad-why-snapchat-is-so-awesome": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/2024_Sonoma-Marin_Fair_-_Sarah_Stierch_39.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:2024_Sonoma-Marin_Fair_-_Sarah_Stierch_39.jpg"
+		},
+		"look": "flat",
+		"alt": "A row of striped photo booths at a fair",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"how-to-pixelate-images-with-html5-and-javascript": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Gladiators_from_the_Zliten_mosaic_4.JPG?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Gladiators_from_the_Zliten_mosaic_4.JPG"
+		},
+		"look": "taped",
+		"alt": "A Roman floor mosaic of gladiators built from tiny tiles",
+		"focus": 0.5,
+		"mark": {
+			"name": "star",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"psa-activate-2-step-verification-on-your-email-account": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Porta_caveau_banca_-_Bank_vault_door_-_1967.png?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Porta_caveau_banca_-_Bank_vault_door_-_1967.png"
+		},
+		"look": "flat",
+		"alt": "A woman standing in the open doorway of a bank vault",
+		"focus": 0.5,
+		"mark": {
+			"name": "spiral",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"10-things-i-learned-at-startup-weekend": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/YOUNGSTER_MANS_A_ROADSIDE_STAND_SELLING_SQUASH,_CUCUMBERS_AND_LEMONADE_ON_SIMS_ROAD_AND_GEORGIA_HIGHWAY_356_AT..._-_NARA_-_557757.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:YOUNGSTER_MANS_A_ROADSIDE_STAND_SELLING_SQUASH,_CUCUMBERS_AND_LEMONADE_ON_SIMS_ROAD_AND_GEORGIA_HIGHWAY_356_AT..._-_NARA_-_557757.jpg"
+		},
+		"look": "taped",
+		"alt": "A kid running a roadside stand selling squash, cucumbers and lemonade",
+		"focus": 0.5,
+		"mark": {
+			"name": "bolt",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"how-to-find-a-technical-co-founder": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Tandem_2024_A.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Tandem_2024_A.jpg"
+		},
+		"look": "taped",
+		"alt": "A tandem bicycle leaning against a wooden fence",
+		"focus": 0.5,
+		"mark": {
+			"name": "flower",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil"
+	},
+	"one-week-in-oahu-a-tourists-travel-itinerary": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Waikiki_Beach,_Diamond_Head,_Oahu_by_D._Howard_Hitchcock,_Hawaii,_1928.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Waikiki_Beach,_Diamond_Head,_Oahu_by_D._Howard_Hitchcock,_Hawaii,_1928.jpg"
+		},
+		"look": "flat",
+		"alt": "D. Howard Hitchcock's 1928 painting of Waikiki Beach and Diamond Head",
+		"focus": 0.5,
+		"mark": {
+			"name": "cloud",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"bechdel-test-script-parser-works": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Home_theater_projection_and_film_editing_room,_Los_Angeles_California_-_house_in_probate_2026_04.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Home_theater_projection_and_film_editing_room,_Los_Angeles_California_-_house_in_probate_2026_04.jpg"
+		},
+		"look": "taped",
+		"alt": "A film editing room with reels, splicers and shelves of cans",
+		"focus": 0.5,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil"
+	},
+	"i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon": {
+		"picture": {
+			"image": "/images/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/IMG_1450-1024x768.webp"
+		},
+		"look": "taped",
+		"alt": "Me at the microphone on Hawaii Public Radio's Bytemarks Cafe",
+		"focus": 0.5,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil"
+	},
+	"i-ran-my-first-hackathon-and-so-can-you": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/%22No_More_Sausages%22_by_Rube_Goldberg_in_Motion_Picture_News_(weekly,_July_3,_1926_to_August_28,_1926)_(page_371_crop)_(cropped).jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:%22No_More_Sausages%22_by_Rube_Goldberg_in_Motion_Picture_News_(weekly,_July_3,_1926_to_August_28,_1926)_(page_371_crop)_(cropped).jpg"
+		},
+		"look": "flat",
+		"alt": "A Rube Goldberg cartoon of a ridiculous sausage-making contraption",
+		"focus": 0.5,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"my-top-resources-for-learning-how-to-code": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Two_women_operating_ENIAC_(full_resolution).jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Two_women_operating_ENIAC_(full_resolution).jpg"
+		},
+		"look": "taped",
+		"alt": "Programmers setting up the ENIAC at its control panels",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil"
+	},
+	"an-engineers-guide-to-knowing-if-you-are-done-with-a-project": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/US_Navy_090910-N-6651N-051_Chief_Warrant_Officer_Kevin_Holland_goes_over_the_pre-flight_checklist_while_sitting_in_the_SH-60B_Sea_Hawk_helicopter.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:US_Navy_090910-N-6651N-051_Chief_Warrant_Officer_Kevin_Holland_goes_over_the_pre-flight_checklist_while_sitting_in_the_SH-60B_Sea_Hawk_helicopter.jpg"
+		},
+		"look": "flat",
+		"alt": "A pilot in the cockpit working through a checklist before takeoff",
+		"focus": 0.5,
+		"mark": {
+			"name": "star",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"building-high-performance-react-applications": {
+		"picture": {
+			"video": "/images/blog/building-high-performance-react-applications/Kj5C5bwv7XC0DLpllhX9zg.gif"
+		},
+		"look": "taped",
+		"alt": "Sonic says: Do not abuse the key!",
+		"focus": 0.5,
+		"mark": {
+			"name": "spiral",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "clip",
+		"whole": true
+	},
+	"the-tech-talks-that-have-had-the-biggest-impact-on-my-career": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Booker_T._Washington_at_Carnegie_Hall_in_1906.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Booker_T._Washington_at_Carnegie_Hall_in_1906.jpg"
+		},
+		"look": "flat",
+		"alt": "A speaker standing before a packed auditorium",
+		"focus": 0.5,
+		"mark": {
+			"name": "bolt",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"a-brief-cuba-travel-guide": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Havana_-_Malecon_Avenue.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Havana_-_Malecon_Avenue.jpg"
+		},
+		"look": "taped",
+		"alt": "An old postcard of the Malecón seawall drive in Havana, with 1950s cars",
+		"focus": 0.5,
+		"mark": {
+			"name": "flower",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil"
+	},
+	"how-to-build-a-spotify-player-with-react-in-15-minutes": {
+		"picture": {
+			"image": "/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/magic-mirror-spotify.webp"
+		},
+		"look": "flat",
+		"alt": "My MagicMirror showing the song playing on Spotify",
+		"focus": 0.5,
+		"mark": {
+			"name": "cloud",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"my-top-50-records": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Museo_del_disco_d_epoca,_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Museo_del_disco_d_epoca,_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg"
+		},
+		"look": "taped",
+		"alt": "A 1938 Wurlitzer jukebox lit up, its stack of records behind the glass",
+		"focus": 0.5,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil"
+	},
+	"iot-and-js-a-gentle-introduction-to-the-internet-of-things": {
+		"picture": {
+			"video": "/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project.mp4",
+			"at": 2.8,
+			"until": 4.3
+		},
+		"look": "flat",
+		"alt": "My cat chewing on the wires of the IoT litter box project",
+		"focus": 0.5,
+		"mark": {
+			"name": "arrow",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "clip"
+	},
+	"getting-started-with-graphql-and-atlas": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Liebman%27s_Deli_Counter_1.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Liebman%27s_Deli_Counter_1.jpg"
+		},
+		"look": "flat",
+		"alt": "A deli counter full of trays to order from",
+		"focus": 0.5,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"from-sql-to-nosql-a-gentle-introduction-for-devs": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Files_in_the_Department_of_Justice,_1892.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Files_in_the_Department_of_Justice,_1892.jpg"
+		},
+		"look": "taped",
+		"alt": "A clerk in a room lined floor to ceiling with filing drawers",
+		"focus": 0.5,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"a-gentle-introduction-to-building-serverless-apps": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Automat,_977_Eighth_Avenue,_Manhattan_(NYPL_b13668355-482752).jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Automat,_977_Eighth_Avenue,_Manhattan_(NYPL_b13668355-482752).jpg"
+		},
+		"look": "flat",
+		"alt": "A man taking a pie from the wall of coin windows at a Horn & Hardart automat",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Sharon_Cinema_Herzliya_1958_Beit_HaRishonim_10210.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Sharon_Cinema_Herzliya_1958_Beit_HaRishonim_10210.jpg"
+		},
+		"look": "taped",
+		"alt": "A packed movie theater audience watching the screen",
+		"focus": 0.5,
+		"mark": {
+			"name": "star",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"the-art-of-computer-science": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Hippolyte_petitjean_la_femme_de_lartiste_a_son_chevalet_d6358347124001).jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Hippolyte_petitjean_la_femme_de_lartiste_a_son_chevalet_d6358347124001).jpg"
+		},
+		"look": "flat",
+		"alt": "Signac's pointillist painting of a woman at her easel",
+		"focus": 0.5,
+		"mark": {
+			"name": "spiral",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"how-to-use-the-mongodb-visual-studio-code-plugin": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Workbench_and_tools_(Unsplash).jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Workbench_and_tools_(Unsplash).jpg"
+		},
+		"look": "taped",
+		"alt": "A workbench with a compass, leather and tools laid out within reach",
+		"focus": 0.5,
+		"mark": {
+			"name": "bolt",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"four-questions-you-need-to-ask-when-choosing-a-database": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Wooden_Card_Catalog_Furniture.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Wooden_Card_Catalog_Furniture.jpg"
+		},
+		"look": "taped",
+		"alt": "Rows of wooden library card catalog drawers",
+		"focus": 0.5,
+		"mark": {
+			"name": "flower",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil"
+	},
+	"databases-and-devops-how-to-usesinglestore-with-github-actions": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_assembly_line_-_1913.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Ford_assembly_line_-_1913.jpg"
+		},
+		"look": "taped",
+		"alt": "Workers along an early Ford assembly line",
+		"focus": 0.5,
+		"mark": {
+			"name": "cloud",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack": {
+		"picture": {
+			"image": "/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2833-Medium.webp"
+		},
+		"look": "flat",
+		"alt": "The postcard rack planter, its pockets full of 3D-printed pots and plants",
+		"focus": 0.5,
+		"mark": {
+			"name": "check",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"treat-content-development-for-your-open-source-project-like-your-open-source-project": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Barn_raising_in_Lansing.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Barn_raising_in_Lansing.jpg"
+		},
+		"look": "taped",
+		"alt": "A crowd raising the frame of a barn together",
+		"focus": 0.5,
+		"mark": {
+			"name": "arrow",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"devrel-as-dev-zero": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Crash_test_dummies.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Crash_test_dummies.jpg"
+		},
+		"look": "flat",
+		"alt": "A family of crash-test dummies lined up in a lab",
+		"focus": 0.5,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"developer-advocacy-in-2023": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Storm_hits_Coast_Guard_Cutter_Eagle_110509-G-KH396-018.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Storm_hits_Coast_Guard_Cutter_Eagle_110509-G-KH396-018.jpg"
+		},
+		"look": "taped",
+		"alt": "A ship's crew in foul-weather gear hauling on a line together",
+		"focus": 0.5,
+		"mark": {
+			"name": "rays",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"how-to-get-started-building-a-homelab-server-in-2024": {
+		"picture": {
+			"image": "/images/blog/how-to-get-started-building-a-homelab-server-in-2024/is-this-a-server.webp"
+		},
+		"look": "taped",
+		"alt": "Is this a server? meme: me looking at any used PC on Facebook Marketplace",
+		"focus": 0.5,
+		"mark": {
+			"name": "burst",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil",
+		"whole": true
+	},
+	"adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/N._Y._Post_Office_-_assorting_(i.e.,_sorting)_mail_LCCN2014697413.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:N._Y._Post_Office_-_assorting_(i.e.,_sorting)_mail_LCCN2014697413.jpg"
+		},
+		"look": "flat",
+		"alt": "Postal workers sorting a cart of mail sacks",
+		"focus": 0.5,
+		"mark": {
+			"name": "star",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private": {
+		"picture": {
+			"image": "/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/IMG_2349-1024x576.webp"
+		},
+		"look": "taped",
+		"alt": "A hand holding the Home Assistant Voice Preview Edition",
+		"focus": 0.5,
+		"mark": {
+			"name": "spiral",
+			"at": [87, 3, 10, 17],
+			"color": "pink"
+		},
+		"motion": "boil"
+	},
+	"building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Case_department_at_SvD.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Case_department_at_SvD.jpg"
+		},
+		"look": "flat",
+		"alt": "Compositors setting type at wooden type cases",
+		"focus": 0.5,
+		"mark": {
+			"name": "bolt",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"self-hosted-music-still-sucks-in-2026": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Digital8_%26_Compact_Cassette_hor.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Digital8_%26_Compact_Cassette_hor.jpg"
+		},
+		"look": "flat",
+		"alt": "Two cassette tapes side by side",
+		"focus": 0.5,
+		"mark": {
+			"name": "flower",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
 	}
 }

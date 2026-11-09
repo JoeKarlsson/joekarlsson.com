@@ -5,8 +5,8 @@ date: 2019-11-20
 slug: 'iot-and-js-a-gentle-introduction-to-the-internet-of-things'
 description: 'Resources from my talk An Introduction To IoT (Internet of Toilets), where I built an IoT kitty litter box with a Raspberry Pi and JavaScript.'
 categories: ['Homelab']
-heroImage: '/images/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things/socialimg.webp'
-heroAlt: 'IoT and JavaScript - a gentle introduction to the Internet of Things'
+heroImage: '/images/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things/thumb-ac472502.webp'
+heroAlt: 'My cat chewing on the wires of the IoT litter box project'
 tldr: "Talk resources and outline-solid for my IoT Kitty Litter Box project, where I used a Raspberry Pi and JavaScript to track my cat's weight and bathroom habits."
 ---
 

@@ -4,8 +4,8 @@ date: 2015-05-09
 slug: 'overwhelmed-by-the-web'
 description: "Why are we surprised when someone hasn't seen the show or read the article? There's more media than anyone has time for, and missing most of it is okay."
 categories: ['Life']
-heroImage: '/images/blog/placeholder/placeholder-personal.webp'
-heroAlt: 'Overwhelmed by the web - thoughts on media consumption'
+heroImage: '/images/blog/overwhelmed-by-the-web/thumb-c302ca19.webp'
+heroAlt: 'A newsstand buried in magazines and newspapers'
 contentNotice: false
 tldr: "There are too many masterworks out there for any one person to consume, and that's okay. Be intentional about what you invest your time in."
 ---

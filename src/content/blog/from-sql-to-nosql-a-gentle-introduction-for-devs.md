@@ -5,8 +5,8 @@ date: 2020-02-27
 slug: 'from-sql-to-nosql-a-gentle-introduction-for-devs'
 description: 'Slides, video and resources from my talk From SQL to NoSQL: what NoSQL databases are, how they differ from SQL databases, and how JS devs can use them.'
 categories: ['Web Dev']
-heroImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/From-SQL-to-NoSQL-Blog-Cover.webp'
-heroAlt: 'From SQL to NoSQL - a gentle introduction for developers'
+heroImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/thumb-b05809df.webp'
+heroAlt: 'A clerk in a room lined floor to ceiling with filing drawers'
 contentNotice: false
 tldr: 'I map SQL concepts to MongoDB equivalents, cover four big advantages of document databases, and explain the three mindset shifts you need to make when moving from SQL to NoSQL.'
 ---

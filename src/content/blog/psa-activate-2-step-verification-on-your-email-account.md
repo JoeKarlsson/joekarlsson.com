@@ -5,8 +5,8 @@ date: 2015-05-18
 slug: 'psa-activate-2-step-verification-on-your-email-account'
 description: "Turn on 2-Step Verification for your email and other important accounts. A long password isn't enough anymore, and setup takes five minutes at most."
 categories: ['Life']
-heroImage: '/images/blog/placeholder/placeholder-personal.webp'
-heroAlt: 'Lock icon representing two-step verification security'
+heroImage: '/images/blog/psa-activate-2-step-verification-on-your-email-account/thumb-07d0e9ff.webp'
+heroAlt: 'A woman standing in the open doorway of a bank vault'
 contentNotice: 'This post recommends SMS-based 2FA. Modern best practice is to use authenticator apps or hardware security keys instead, and passkeys where available.'
 tldr: "Turn on 2-step verification on your accounts right now. It takes five minutes and it's the single best thing you can do to protect yourself online."
 ---

@@ -4,8 +4,8 @@ date: 2015-07-10
 slug: 'how-to-find-a-technical-co-founder'
 description: "How to find a technical co-founder when you have an idea but can't code. Meet developers, sell your value, prove the idea, and have money to pay them."
 categories: ['Career']
-heroImage: '/images/blog/how-to-find-a-technical-co-founder/9675018730_f3ab9ab065_b.webp'
-heroAlt: 'Finding a technical co-founder for your startup'
+heroImage: '/images/blog/how-to-find-a-technical-co-founder/thumb-d05204a8.webp'
+heroAlt: 'A tandem bicycle leaning against a wooden fence'
 contentNotice: false
 tldr: 'If you want a developer to help build your startup, you need to bring more than an idea and a case of beer. I share what actually works to get a technical co-founder on board.'
 ---

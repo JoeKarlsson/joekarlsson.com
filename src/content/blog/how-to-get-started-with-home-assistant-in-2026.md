@@ -7,8 +7,8 @@ slug: 'how-to-get-started-with-home-assistant-in-2026'
 description: 'Are you looking to turn your home into a smart home? With the help of Home Assistant, you can easily automate tasks and make your home more efficient.'
 categories: ['Homelab']
 tags: ['Home Assistant', 'Smart Home']
-heroImage: '/images/blog/how-to-get-started-with-home-assistant-in-2023/How-to-get-started-with-Home-Assistant.webp'
-heroAlt: 'Getting started with Home Assistant for smart home automation in 2026'
+heroImage: '/images/blog/how-to-get-started-with-home-assistant-in-2026/thumb-85b24e1e.webp'
+heroAlt: 'Two men marking up a player piano roll by hand'
 contentNotice: false
 tldr: 'I started with Alexa and Google Home but eventually landed on Home Assistant for the customization and local control. Here is how I got started and a bunch of automation ideas to try, from simple motion-triggered lights to full security setups. Updated for 2026 with the latest features like human-friendly triggers, vacuum area cleaning, and Android wake word detection.'
 ---

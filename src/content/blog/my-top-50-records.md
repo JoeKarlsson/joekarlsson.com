@@ -4,8 +4,8 @@ date: 2019-06-11
 slug: 'my-top-50-records'
 description: 'My top 50 all-time favorite records, the ones I play most or that hit me hardest, from Loveless to Kind of Blue. I redo the list every couple of years.'
 categories: ['Life']
-heroImage: '/images/blog/my-top-50-records/Joe-Karlssons-top-50-Records-of-all-Time.webp'
-heroAlt: 'Joe Karlsson top 50 records of all time'
+heroImage: '/images/blog/my-top-50-records/thumb-1c6b1a25.webp'
+heroAlt: 'A 1938 Wurlitzer jukebox lit up, its stack of records behind the glass'
 contentNotice: false
 tldr: 'My top 50 records of all time, with a Spotify playlist.'
 ---
