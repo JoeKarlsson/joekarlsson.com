@@ -6,6 +6,8 @@ description: "A preview of my 2026 homelab gift guide: why the best gifts don't 
 recapOf: 'homelab-gift-ideas-2026'
 cardPhoto: '/images/blog/homelab-two-years-later/rack-full-front.webp'
 cardPhotoAlt: "Joe's homelab rack in the attic (two Dell R730 servers, networking gear, a Synology NAS and two UPS units)"
+heroImage: "/images/newsletter/what-to-buy-a-homelabber-2026/card.webp"
+heroAlt: "Works on My Machine card for What to Buy a Homelabber in 2026, with Joe's homelab rack in the attic (two Dell R730 servers, networking gear, a Synology NAS and two UPS units) framed in a pink crayon box"
 ---
 
 This week I published [a homelab gift guide](https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/) built from the gear in my rack and on my desk, sorted by price.
