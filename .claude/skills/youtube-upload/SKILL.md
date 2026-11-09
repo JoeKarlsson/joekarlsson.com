@@ -1,6 +1,6 @@
 ---
 name: youtube-upload
-description: Package one of Joe's talk, podcast or demo recordings for YouTube with everything filled in - title, description in Joe's voice with event, links and chapters, tags, category, recording date and place, cleaned Whisper subtitles and transcript, and a taped-photo thumbnail - then upload it unlisted in YouTube Studio and add it to src/data/talk-videos.json. Use when Joe asks to upload, re-upload or back up a recording to YouTube, or to write a YouTube description, chapters or subtitles for one of his videos.
+description: Package one of Joe's talk, podcast or demo recordings for YouTube with everything filled in - title, description in Joe's voice with event, links and chapters, tags, category, recording date and place, cleaned Whisper subtitles and transcript, and a full-screen photo thumbnail - then upload it unlisted in YouTube Studio and add it to src/data/talk-videos.json. Use when Joe asks to upload, re-upload or back up a recording to YouTube, or to write a YouTube description, chapters or subtitles for one of his videos.
 ---
 
 # YouTube upload package
@@ -37,13 +37,22 @@ Pull candidate stills from the first and last minute (greetings and thank-yous h
 for t in 5 10 15 20 30 40 50 60; do ffmpeg -v error -ss $t -i "$VIDEO" -frames:v 1 -y /tmp/f$t.png; done
 ```
 
-Read them and pick a frame where Joe's eyes are open and he's smiling or mid-gesture, never mid-blink or mid-word. Webcam corners are small: crop tight and check the crop at thumbnail size. If no frame works, use the headshot from the deck's about-me slide. Copy the still to `<stem>.youtube.frame.png`, set `thumbnail` in the package (`kicker` = "Event · Year", `title` = a short form of the talk title, `box` = crop), and draw it:
+Read them and pick a frame where Joe's eyes are open and he's smiling or mid-gesture, never mid-blink or mid-word. Sample the first 15 seconds at 2 fps when the first pass has no good face.
+
+The thumbnail is the look Joe picked on 2026-11-09: the photo fills the whole 1280x720 card in the site pink (never a small print), a dark fade on the title side, the event on a tilted pink label, the title in Anton with the crayon underline, and one chalk mark from `src/data/scribbles.ts` in the corner by his head (vary it between neighbors: burst, spiral, star, asterisk, bolt, flower, burstDense).
+
+- `box` is a 16:9 crop of the frame (w and h as fractions; equal fractions on a 16:9 frame). Put Joe's face in the outer third, opposite the title, with its center in the top half so the title never covers his mouth.
+- A webcam corner is small (often ~400px wide); crop to the webcam only and accept some softness. Below ~300px wide it turns to mush: use the deck's about-me headshot or illustrated portrait instead.
+- If Joe faces the title side, set `"side": "right"` so the title goes on the side he's looking away from.
+- Keep slide text, window chrome and handles out of the crop.
+
+Copy the still to `<stem>.youtube.frame.png`, set `thumbnail` in the package (`kicker` = "Event · Year", `title` = a short form of the talk title, `box`, `side`, `mark`), and draw it:
 
 ```bash
 npm run youtube:thumbnail -- "<stem>.youtube.json"
 ```
 
-Read the PNG. No slide text in the print's corners, no cut-off head. Joe approves the batch's thumbnails before upload.
+Read the PNG. No slide text in the corners, no chin or forehead cut off, no title over his face. Joe approves the batch's thumbnails before upload.
 
 ## 3. Transcript and captions
 
