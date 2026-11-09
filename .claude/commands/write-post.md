@@ -314,7 +314,7 @@ date: YYYY-MM-DDTHH:MM:SSZ
 slug: 'url-friendly-slug'
 description: 'One-sentence description for SEO/social cards (under 160 chars, include target keyword)'
 categories: ['Category']
-heroImage: '/images/blog/{slug}/hero.webp'
+heroImage: '/images/blog/{slug}/thumb-<hash>.webp' # set by npm run thumbnails:work (Phase 7)
 heroAlt: 'Descriptive alt text for the hero image'
 tldr: 'TL;DR summary for the frontmatter field'
 ---
@@ -598,46 +598,9 @@ Add any new technical terms to `cspell-custom.txt` so spell check won't flag the
 
 ## Phase 7: Hero Image
 
-Create the hero image for the blog post. The primary method is a manual Canva step; a Python fallback exists for quick-and-dirty generation.
+The hero (also the feed thumbnail and og:image) is a public-domain photo that works as a metaphor for the post, drawn in the site's pink-and-black look. Follow `.claude/rules/metaphor-thumbnails.md`: pick the metaphor from the post's one idea, search Wikimedia Commons for a Public domain or CC0 photo, add it to `scripts/work-thumbnail-plan.json`, and run `npm run thumbnails:work -- {slug}`. The script sets `heroImage` and `heroAlt`.
 
-### 7a. Canva (Primary)
-
-Present the user with an image brief:
-
-```
-HERO IMAGE BRIEF
-================
-Title:    {title}
-Subtitle: {one-line summary of the post}
-Category: {category}
-Slug:     {slug}
-
-Canva template: https://www.canva.com/design/DAHDFzjoHz0/edit
-Dimensions: 1280x720 (YouTube thumbnail)
-
-Instructions:
-1. Open the Canva template link above
-2. Duplicate the template (File > Make a copy)
-3. Update the title text and subtitle
-4. Swap the image on the right if desired
-5. Export as WebP or PNG
-6. Save to: public/images/blog/{slug}/hero.webp
-```
-
-Use AskUserQuestion to pause and wait for the user to confirm the image is ready.
-Once confirmed, verify the file exists at `public/images/blog/{slug}/hero.webp` (or `.png`). A PNG is fine: the pre-commit hook converts it to WebP and repoints `heroImage`.
-
-### 7b. Python Script (Fallback)
-
-If the user wants to skip Canva, generate a programmatic image instead:
-
-```bash
-python3 scripts/generate-hero-image.py "{title}" public/images/blog/{slug}/hero.webp {category}
-```
-
-The script creates a 1280x720 brutalist/terminal-aesthetic image with category-themed colors and code fragments. Categories: homelab, smart-home, databases, dev-tools, devrel, iot, career, personal, travel, film.
-
-After either method, verify the image exists and the frontmatter heroImage path is correct.
+Show Joe the card, the metaphor in one line, and the Commons link. If he has his own photo for the hero, use it instead (`"picture": { "image": "/images/blog/{slug}/<photo>.webp" }` in the plan, same command).
 
 ---
 
@@ -649,7 +612,7 @@ Confirm `src/content/blog/{slug}.md` exists and has the final content (written d
 
 ### 8b. Verify image directory
 
-Confirm `public/images/blog/{slug}/` exists with the hero image.
+Confirm `public/images/blog/{slug}/` exists with the `thumb-<hash>.webp` hero that `heroImage` points at.
 
 ### 8c. Run local checks
 

@@ -24,7 +24,7 @@ npm run import:cdata              # imports them all
 
 - It gets past cdata.com's Cloudflare challenge with headless **system Chrome** (curl and WebFetch get a 403 or a paraphrase). If Chrome isn't installed or the challenge changes, it fails loudly. Don't fall back to WebFetch for the body text, because it paraphrases.
 - It writes `src/content/blog/{cdata-slug}.md` with `canonicalUrl`, `contentNotice`, and `faq` (from the `<details>` accordions), with dates from the byline.
-- It downloads every image, hero included, to `public/images/blog/{slug}/` as WebP (1920px cap, quality 82). CData heroes are 300x245 transparent line art that disappears on this site's black cards, so the hero is centered at 2x on a 1200x675 off-white (`#f4f4f5`) canvas. That also stops the 16:9 card crop from cutting it off.
+- It downloads every image, hero included, to `public/images/blog/{slug}/` as WebP (1920px cap, quality 82). CData heroes are 300x245 transparent line art that disappears on this site's black cards, so the hero is centered at 2x on a 1200x675 off-white (`#f4f4f5`) canvas. That's only a placeholder: step 2 replaces it with a metaphor photo.
 - It cleans up CMS markup: header-less tables, loose lists, link titles, zoom links around images, and alt text left as a stub with the real description pasted as a paragraph underneath.
 
 **Never overwrite an existing crosspost casually.** Existing ones carry hand edits. `--force` only works with explicit URLs, and it replaces the file wholesale:
@@ -44,15 +44,7 @@ Read each post in full, then set:
 - **`tags`**: replace CData's taxonomy slugs (`industry-insights`, `solutions-and-use-cases`, `data-management`, `cdata-connect-ai`) with topical tags. Examples: `mcp`, `ai`, `enterprise`, `ai-agents`, `tutorial`, `protocol`, plus a product tag when it's the subject (`litellm`, `meta-muse`). Keep `cdata` last.
 - **`categories`**: the script defaults to `['AI']`, which fits most AI/MCP posts. Use `Cloud` for cloud infrastructure or security, or `Career` for posts about the job itself (see `proving-my-work-mattered.md`). Only the six in `BLOG_CATEGORIES` (`src/utils/categories.ts`) build.
 - **`writtenFor`**: the script sets `'CData'`, which labels the post "Written for CData" and lists it on `/blog/written-for/cdata/`.
-- **Hero background (required)**: every CData hero must end up as a 1200x675 opaque WebP on the off-white `#f4f4f5` canvas. The raw ones are transparent black line art that is unreadable on this site's black cards. The importer does this, but check it for every post:
-
-  ```bash
-  node -e "require('sharp')('public/images/blog/<slug>/hero.webp').metadata().then(m=>console.log(m.width,m.height,'alpha',m.hasAlpha))"
-  # must print: 1200 675 alpha false
-  ```
-
-  If a hero ever comes through transparent or the wrong size, rebuild it with the same treatment as `heroCanvas()` in the script: fit inside 720x506, centered on 1200x675 `#f4f4f5`, WebP quality 82. Don't pick a different color; sky and teal were tried and wash out the pale-gray details.
-- **`heroAlt`**: CData's hero alt is just the title. Look at `hero.webp` (convert it to PNG with sharp and Read it) and describe the graphic.
+- **Thumbnail (required)**: CData's hero art never ships here. Replace it with a metaphor photo by following `.claude/rules/metaphor-thumbnails.md`: find a public-domain photo on Wikimedia Commons, add it to `scripts/work-thumbnail-plan.json`, and run `npm run thumbnails:work -- <slug>`, which sets `heroImage` and `heroAlt`. If the post has its own meme, use that instead (`"picture": { "image": "/images/blog/<slug>/meme-....webp" }`). If you rename the slug (below), rename first, then draw.
 - **Slug**: the file takes CData's slug. If it's too vague to stand alone on this site (2026-10-26: `muse` became `connect-business-apps-meta-muse`), rename the file, its image dir, and the `slug` and image paths in it. `canonicalUrl` keeps CData's URL.
 - **`tldr`**: 2-4 plain sentences in Joe's voice (read STYLE_GUIDE.md): the post's actual claims, specific, with no em dashes and no hype words. If the body opens with CData's own `**TL;DR:**` paragraph, move that text into `tldr` and delete it from the body, or the page shows two.
 - **Image alt text**: `grep -o '!\[[^]]*' <file>` and fix any that are still stubs by looking at the image. Also grep for `cms.cdata.com`. Any hit is an image the importer failed to download.
@@ -96,8 +88,8 @@ Then check the rendered pages in `dist/blog/{slug}/index.html`: canonical link, 
 Commit only your paths (the posts, their image dirs, `cspell-custom.txt`) as `feat: Crosspost N CData blog posts`, then push, then `npm run deploy`. Then verify live:
 
 - curl each post URL and check for a 200 and the canonical tag.
-- Fetch each hero on its **plain URL** (no `?query`, which skips caches and proves nothing) and confirm `1200 675 alpha false`.
+- Fetch each `thumb-<hash>.webp` hero on its **plain URL** (no `?query`, which skips caches and proves nothing) and confirm a 200 and `1200 675`.
 
-**Never replace an image in place under a URL that has already been published.** Browsers cache images for about 4 hours, and on 2026-09-30 Cloudflare kept serving the old heroes on their plain URLs even after a successful purge-everything. When an already-live image changes, give it a new filename (`hero-2.webp`, `hero-3.webp`, ...) and update the frontmatter. New imports can use `hero.webp`, since nothing has cached those URLs yet.
+**Never replace an image in place under a URL that has already been published.** Browsers cache images for about 4 hours, and on 2026-09-30 Cloudflare kept serving the old heroes on their plain URLs even after a successful purge-everything. When an already-live image changes, give it a new filename and update the frontmatter. Thumbnails already handle this: `npm run thumbnails:work` names each card after a hash of its bytes.
 
 In the report, list what was imported and skipped, plus any content problems on CData's side that Joe may want to fix at the source (typos, broken formatting, factual oddities).
