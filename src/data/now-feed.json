@@ -7,12 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 429,
+			"commitCount": 432,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 6
+				25, 9
 			],
-			"latestCommitMessage": "feat: Five projects without a clip get animated diagram cards on..."
+			"latestCommitMessage": "fix: Animated diagram cards hold still on their finished frame while..."
+		},
+		{
+			"name": "bechdel-test",
+			"description": "Does your favorite film pass the test?",
+			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"language": "JavaScript",
+			"commitCount": 83,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 2
+			],
+			"latestCommitMessage": "fix: Add share cards for the 190 new films (the shelf is 2,354, not..."
 		},
 		{
 			"name": "nothing-but-corners",
@@ -35,17 +46,6 @@
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 0
 			],
 			"latestCommitMessage": "feat: Move Punc to punc.joekarlsson.com, serving from the root instead..."
-		},
-		{
-			"name": "iot-kitty-litter-box-frontend",
-			"description": "Frontend for data and analytics for the open source IoT Kitty Litter Box",
-			"url": "https://github.com/JoeKarlsson/iot-kitty-litter-box-frontend",
-			"language": "HTML",
-			"commitCount": 3,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0
-			],
-			"latestCommitMessage": "fix: About page carries the current artist statement"
 		}
 	],
 	"films": [
