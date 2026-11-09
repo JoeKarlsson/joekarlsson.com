@@ -29,7 +29,10 @@ export async function getStaticPaths() {
 }
 
 export const GET: APIRoute = async ({ props }) => {
-	const jpeg = await sharp(props.source)
+	// An animated card (a boiling diagram thumbnail) shares its last frame, where the
+	// animation ends on its finished state; sharp reads the first unless told
+	const { pages = 1 } = await sharp(props.source).metadata();
+	const jpeg = await sharp(props.source, { page: pages - 1 })
 		.resize(1200, 630, { fit: 'cover' })
 		.flatten({ background: '#000000' })
 		.jpeg({ quality: 82, mozjpeg: true })

@@ -1506,30 +1506,61 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'GPU-Accelerated Subtitle Generator',
+		shareTitle: 'GPU Subtitle Generator: Whisper subtitles for a whole library, on shared GPUs',
 		description:
 			'A production subtitle generation pipeline using GPU-accelerated Whisper (faster-whisper) with NVIDIA CUDA. Features parallel workers, automatic language detection and translation, VRAM-aware scheduling, and time-of-day worker scaling to share GPU resources across services.',
-		image: '/images/blog/building-a-gpu-accelerated-subtitle-generator/hero.webp',
-		imageAlt: 'GPU Subtitle Generator Architecture',
-		card: {
-			src: '/images/projects/gpu-subtitle-generator/thumb-08106819.webp',
-			alt: "A playhead runs along a film's audio waveform as Whisper, on an NVIDIA GPU, writes each line of speech into an SRT file: They're coming to get you, Barbara",
-		},
+		image: '/images/projects/gpu-subtitle-generator/thumb-08106819.webp',
+		imageAlt:
+			"A playhead runs along a film's audio waveform as Whisper, on an NVIDIA GPU, writes each line of speech into an SRT file: They're coming to get you, Barbara",
 		date: '2026-02',
 		tech: ['Python', 'Whisper AI', 'CUDA', 'NVIDIA GPU', 'Bash'],
 		blogUrl: '/blog/building-a-gpu-accelerated-subtitle-generator/',
+		page: {
+			slug: 'gpu-subtitle-generator',
+			tagline: 'Subtitles for a whole video library, on GPUs the house is already using.',
+			intro: [
+				'My video library has thousands of files in dozens of languages, and most had no subtitles. This writes them with faster-whisper on the two NVIDIA cards in my homelab. It detects the language, translates to English and saves a `.en.srt` next to each video, so Plex, Jellyfin and VLC find it on their own.',
+				'The same GPUs run Plex transcoding, Tdarr and my house\'s voice assistant, so the workers wait their turn: each checks for free VRAM before a file and backs off when something else needs the card. Two run from midnight to 4 PM and one in the evening, when Plex is busiest. Whisper also invents lines over silence ("Thank you for watching!"), so a filter of more than 200 patterns throws those out.',
+			],
+			made: {
+				text: [
+					'Bash scripts schedule the workers and hand out folders with directory locks, no queue or database. A Python script runs faster-whisper on CUDA and writes the SRT files. [How I built it](/blog/building-a-gpu-accelerated-subtitle-generator/).',
+				],
+				diagram: {
+					src: '/images/blog/building-a-gpu-accelerated-subtitle-generator/pipeline-layers.svg',
+					alt: 'The subtitle generator in four layers. A cron job or a manual trigger starts the scheduler (subtitle-scheduler.sh), which starts and stops workers, cleans stale locks and manages the worker lifecycle. Parallel workers (parallel-worker.sh) claim folders with mkdir, wait for a free GPU and track progress. The Whisper engine (generate-subtitles.py) runs faster-whisper on CUDA, filters hallucinations and writes SRT files.',
+				},
+			},
+			lineage: [
+				{ label: 'Also runs Whisper', title: 'FollowSpot' },
+				{ label: 'Also transcribes locally', title: 'Screencast Director' },
+			],
+		},
 	},
 	{
 		title: 'MikroTik Native API Client',
+		shareTitle: "MikroTik's binary router API in 137 lines of standard-library Python",
 		description:
 			"A from-scratch Python implementation of MikroTik's proprietary binary API protocol. Handles variable-length encoding, authentication, and sentence-based messaging for programmatic control of network infrastructure - bonding, DHCP, firewall rules, and more.",
-		image: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/hero.webp',
-		imageAlt: 'MikroTik API Client',
-		card: {
-			src: '/images/projects/mikrotik-api-client/thumb-6cc55f0c.webp',
-			alt: 'A MikroTik API login sentence written to the wire one word at a time, /login, =name=admin and =password=secret, each with its length byte, then a zero byte, and RouterOS answering !done',
-		},
+		image: '/images/projects/mikrotik-api-client/thumb-6cc55f0c.webp',
+		imageAlt:
+			'A MikroTik API login sentence written to the wire one word at a time, /login, =name=admin and =password=secret, each with its length byte, then a zero byte, and RouterOS answering !done',
 		date: '2026-03',
 		tech: ['Python', 'Binary Protocol', 'MikroTik', 'Networking'],
 		blogUrl: '/blog/implementing-mikrotik-binary-api-protocol-in-python/',
+		page: {
+			slug: 'mikrotik-api-client',
+			tagline: "MikroTik's binary router API, in 137 lines of standard-library Python.",
+			intro: [
+				"My homelab's 10G backbone is a MikroTik CRS317 switch, and I wanted to change its bonds, DHCP and firewall rules from scripts instead of typing into SSH. RouterOS has an API on port 8728 that speaks its own binary protocol over raw TCP: sentences made of words, each word led by its length, each sentence ended by a zero byte.",
+				"I wrote the protocol myself instead of using a library. The Python ones are heavy, and I only understand a byte-level format once I've built it. The length encoding turned out to be the trick UTF-8 uses, where the first byte's high bits say how many more bytes follow. The client came out at 137 lines with no dependencies, small enough to call from a cron job.",
+			],
+			made: {
+				text: [
+					'It uses only `socket` and `struct`: it logs in, sends each command as a sentence, and reads `!re` replies until `!done`, or `!trap` for an error. Any RouterOS command works from the command line with no code changes. [How it works, byte by byte](/blog/implementing-mikrotik-binary-api-protocol-in-python/).',
+				],
+			},
+			lineage: [{ label: 'Also about the wire', title: 'Guide to Client-Server Communication' }],
+		},
 	},
 ];
