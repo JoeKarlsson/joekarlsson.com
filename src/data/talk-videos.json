@@ -1,0 +1,732 @@
+[
+	{
+		"id": "JNs1ZvRzOYM",
+		"title": "Joe Karlsson: Building High Performance React Applications | Web Rebels 2018",
+		"channel": "Web Rebels",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2018-06-12",
+		"durationSeconds": 1709,
+		"backup": "Talks/2018/2018-06-12 - Web Rebels - Joe Karlsson： Building High Performance React Applications ｜ Web Rebels 2018 [JNs1ZvRzOYM].mkv"
+	},
+	{
+		"id": "t26nBe43gwQ",
+		"title": "Functional Programming for People Who Hate Math Part 1 - Joe Karlsson - MPLS Jr Devs 2018",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2018-06-12",
+		"durationSeconds": 722,
+		"backup": "Talks/2018/2018-06-12 - Joe Carlson - Functional Programming for People Who Hate Math Part 1 - Joe Karlsson - MPLS Jr Devs 2018 [t26nBe43gwQ].mkv"
+	},
+	{
+		"id": "Yl5DSL1cB-Q",
+		"title": "Functional Programming for People Who Hate Math Part 2 - Joe Karlsson - MPLS Jr Devs 2018",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2018-06-12",
+		"durationSeconds": 1539,
+		"backup": "Talks/2018/2018-06-12 - Joe Carlson - Functional Programming for People Who Hate Math Part 2 - Joe Karlsson - MPLS Jr Devs 2018 [Yl5DSL1cB-Q].mkv"
+	},
+	{
+		"id": "xJYOipHkwNM",
+		"title": "Building High Performance React Applications - Joe Karlsson, Best Buy",
+		"channel": "node.js",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2018-11-05",
+		"durationSeconds": 1630,
+		"backup": "Talks/2018/2018-11-05 - node.js - Building High Performance React Applications - Joe Karlsson, Best Buy [xJYOipHkwNM].mkv"
+	},
+	{
+		"id": "Z6vz07R2m0Y",
+		"title": "GraphQL Tutorial and Live Coding",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "livestream",
+		"date": "2018-12-30",
+		"durationSeconds": 6939,
+		"backup": "Livestreams/2018/2018-12-30 - Joe Carlson - GraphQL Tutorial and Live Coding [Z6vz07R2m0Y].mkv"
+	},
+	{
+		"id": "ySVXOnLMFdc",
+		"title": "UX + Engineering: How to Collaborate Together Better",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2019-01-09",
+		"durationSeconds": 5154,
+		"backup": "Talks/2019/2019-01-09 - Joe Carlson - UX + Engineering： How to Collaborate Together Better [ySVXOnLMFdc].mkv"
+	},
+	{
+		"id": "FB4JQPUS9Bs",
+		"title": "A Gentle Introduction to Async-Await",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2019-03-01",
+		"durationSeconds": 2852,
+		"backup": "Talks/2019/2019-03-01 - Joe Carlson - A Gentle Introduction to Async-Await [FB4JQPUS9Bs].mkv"
+	},
+	{
+		"id": "pX0F4eJb4lM",
+		"title": "A Gentle Introduction to Async Await",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2019-03-01",
+		"durationSeconds": 2845,
+		"backup": "Talks/2019/2019-03-01 - Joe Carlson - A Gentle Introduction to Async Await [pX0F4eJb4lM].mkv"
+	},
+	{
+		"id": "6z4g27TSO5I",
+		"title": "Building High Performance React Applications",
+		"channel": "Full Stack Toronto",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2019-03-05",
+		"durationSeconds": 2706,
+		"backup": "Talks/2019/2019-03-05 - Full Stack Toronto - Building High Performance React Applications [6z4g27TSO5I].mkv"
+	},
+	{
+		"id": "jB5CtGIADJ0",
+		"title": "JS and Parallel Processing (!?) | Minnebar",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2019-04-28",
+		"durationSeconds": 2411,
+		"backup": "Talks/2019/2019-04-28 - Joe Carlson - JS and Parallel Processing (!？) ｜ Minnebar [jB5CtGIADJ0].mkv"
+	},
+	{
+		"id": "nNhL5UluNtA",
+		"title": "UX + Engineering: A Tale of Two Cities - Edward Ecker & Joe Karlsson",
+		"channel": "NDC Conferences",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2019-05-22",
+		"durationSeconds": 3029,
+		"backup": "Talks/2019/2019-05-22 - NDC Conferences - UX + Engineering： A Tale of Two Cities - Edward Ecker & Joe Karlsson [nNhL5UluNtA].mkv"
+	},
+	{
+		"id": "CmhWzoo2IuE",
+		"title": "JS + Parallel Processing(?!) | Prairie Dev Con Winnipeg 2019",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2019-06-07",
+		"durationSeconds": 2732,
+		"backup": "Talks/2019/2019-06-07 - Joe Carlson - JS + Parallel Processing(？!) ｜ Prairie Dev Con Winnipeg 2019 [CmhWzoo2IuE].mkv"
+	},
+	{
+		"id": "m0GWc5qw32w",
+		"title": "Bechdel io: Future of Film and Feminism | Joe and Laurel Karlsson | ACH 2019",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2019-07-26",
+		"durationSeconds": 1018,
+		"backup": "Talks/2019/2019-07-26 - Joe Carlson - Bechdel io： Future of Film and Feminism ｜ Joe and Laurel Karlsson ｜ ACH 2019 [m0GWc5qw32w].mkv"
+	},
+	{
+		"id": "GZPQdzzj4n8",
+		"title": "A Gentle Introduction to Building Serverless Apps with MongoDB Stitch | Serverless MN",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2019-08-27",
+		"durationSeconds": 3291,
+		"backup": "Talks/2019/2019-08-27 - Joe Carlson - A Gentle Introduction to Building Serverless Apps with MongoDB Stitch ｜ Serverless MN [GZPQdzzj4n8].mkv"
+	},
+	{
+		"id": "_cmG4z_S9AM",
+		"title": "Updating my Dotfiles | Twitch Live Coding",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "livestream",
+		"date": "2019-09-04",
+		"durationSeconds": 5079,
+		"backup": "Livestreams/2019/2019-09-04 - Joe Carlson - Updating my Dotfiles ｜ Twitch Live Coding [_cmG4z_S9AM].mkv"
+	},
+	{
+		"id": "7u9S0nTCwbQ",
+		"title": "Building an IoT Kitty Litter Box | Twitch Live Coding",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "livestream",
+		"date": "2019-11-25",
+		"durationSeconds": 4533,
+		"backup": "Livestreams/2019/2019-11-25 - Joe Carlson - Building an IoT Kitty Litter Box ｜ Twitch Live Coding [7u9S0nTCwbQ].mkv"
+	},
+	{
+		"id": "711Sb55fzdg",
+		"title": "Bringing JavaScript to the IoT Edge - Joe Karlsson, Mongo",
+		"channel": "node.js",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2019-12-19",
+		"durationSeconds": 2430,
+		"backup": "Talks/2019/2019-12-19 - node.js - Bringing JavaScript to the IoT Edge - Joe Karlsson, Mongo [711Sb55fzdg].mkv"
+	},
+	{
+		"id": "xjd8NPs-yKI",
+		"title": "Building an App with MongoDB and GraphQL | 01/09/2020 | Twitch Live  Coding",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "livestream",
+		"date": "2020-01-10",
+		"durationSeconds": 4436,
+		"backup": "Livestreams/2020/2020-01-10 - Joe Carlson - Building an App with MongoDB and GraphQL ｜ 01⧸09⧸2020 ｜ Twitch Live  Coding [xjd8NPs-yKI].mkv"
+	},
+	{
+		"id": "XsD2ZKqMbgo",
+		"title": "Building Your First GraphQL Client in JS | MongoDB .Local San Francisco 2020",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2020-01-24",
+		"durationSeconds": 2197,
+		"backup": "Talks/2020/2020-01-24 - Joe Carlson - Building Your First GraphQL Client in JS ｜ MongoDB .Local San Francisco 2020 [XsD2ZKqMbgo].mkv"
+	},
+	{
+		"id": "12IppjSDVCQ",
+		"title": "From SQL to NoSQL: A Gentle Introduction For Developers |  Confoo CA | 02/28/2020",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2020-03-12",
+		"durationSeconds": 2149,
+		"backup": "Talks/2020/2020-03-12 - Joe Carlson - From SQL to NoSQL： A Gentle Introduction For Developers ｜  Confoo CA ｜ 02⧸28⧸2020 [12IppjSDVCQ].mkv"
+	},
+	{
+		"id": "chL4FqQlMaY",
+		"title": "Ep. 2 Developing with GraphQL and MongoDB",
+		"channel": "MongoDB",
+		"owner": "organizer",
+		"kind": "livestream",
+		"date": "2020-03-12",
+		"durationSeconds": 1885,
+		"backup": "Livestreams/2020/2020-03-12 - MongoDB - Ep. 2 Developing with GraphQL and MongoDB [chL4FqQlMaY].mkv"
+	},
+	{
+		"id": "1m8cCuig4hc",
+		"title": "Building An eCommerce Web App /w guest Nader Dabit | Twitch Live Coding | 3/27/20",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "livestream",
+		"date": "2020-03-27",
+		"durationSeconds": 4676,
+		"backup": "Livestreams/2020/2020-03-27 - Joe Carlson - Building An eCommerce Web App ⧸w guest Nader Dabit ｜ Twitch Live Coding ｜ 3⧸27⧸20 [1m8cCuig4hc].mkv"
+	},
+	{
+		"id": "leNCfU5SYR8",
+		"title": "MongoDB Schema Design Best Practices",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2020-04-16",
+		"durationSeconds": 3039,
+		"backup": "Talks/2020/2020-04-16 - Joe Carlson - MongoDB Schema Design Best Practices [leNCfU5SYR8].mkv"
+	},
+	{
+		"id": "MEeZLM1XVLI",
+		"title": "#Byteconf React 2020 - free, two-day remote React conference - Day One",
+		"channel": "Kristian Freeman",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-05-01",
+		"durationSeconds": 18055,
+		"backup": "Talks/2020/2020-05-01 - Kristian Freeman - #Byteconf React 2020 - free, two-day remote React conference - Day One [MEeZLM1XVLI].mkv"
+	},
+	{
+		"id": "ay31FKx4maM",
+		"title": "Data Architecture Day - Joe Karlsson - MongoDB Schema Design Best Practices",
+		"channel": "Kevin Feasel",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-05-18",
+		"durationSeconds": 3226,
+		"backup": "Talks/2020/2020-05-18 - Kevin Feasel - Data Architecture Day - Joe Karlsson - MongoDB Schema Design Best Practices [ay31FKx4maM].mkv"
+	},
+	{
+		"id": "4W5fJTyfj1Q",
+		"title": "Bechdel.io: How We Used MongoDB To Help Make Film More Inclusive",
+		"channel": "MongoDB",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-06-10",
+		"durationSeconds": 2799,
+		"backup": "Talks/2020/2020-06-10 - MongoDB - Bechdel.io： How We Used MongoDB To Help Make Film More Inclusive [4W5fJTyfj1Q].mkv"
+	},
+	{
+		"id": "7HczsHW7JA0",
+		"title": "Building Your First GraphQL Client in JS",
+		"channel": "MongoDB",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-06-10",
+		"durationSeconds": 2869,
+		"backup": "Talks/2020/2020-06-10 - MongoDB - Building Your First GraphQL Client in JS [7HczsHW7JA0].mkv"
+	},
+	{
+		"id": "CPyS9pwIBGg",
+		"title": "How I Built an IoT Kitty Litter Box Using JavaScript - Joe Karlsson",
+		"channel": "The Live Coders",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-07-01",
+		"durationSeconds": 1401,
+		"backup": "Talks/2020/2020-07-01 - The Live Coders - How I Built an IoT Kitty Litter Box Using JavaScript - Joe Karlsson [CPyS9pwIBGg].mkv"
+	},
+	{
+		"id": "KDH4esqOezA",
+		"title": "Joe Karlsson // Making Film More Inclusive with JavaScript // CascadiaJS 2020 August Meetup",
+		"channel": "CascadiaJS",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-08-14",
+		"durationSeconds": 866,
+		"backup": "Talks/2020/2020-08-14 - CascadiaJS - Joe Karlsson ⧸⧸ Making Film More Inclusive with JavaScript ⧸⧸ CascadiaJS 2020 August Meetup [KDH4esqOezA].mkv"
+	},
+	{
+		"id": "JrvW-akBXzU",
+		"title": "Fall Guys on Steam with Joe Karlsson, Adrienne Tacke, and Ado Kukic! [08/28 @ 4PM PT]",
+		"channel": "Nic Raboy",
+		"owner": "organizer",
+		"kind": "livestream",
+		"date": "2020-08-30",
+		"durationSeconds": 2555,
+		"backup": "Livestreams/2020/2020-08-30 - Nic Raboy - Fall Guys on Steam with Joe Karlsson, Adrienne Tacke, and Ado Kukic! [08⧸28 @ 4PM PT] [JrvW-akBXzU].mkv"
+	},
+	{
+		"id": "EtduE9IHDS0",
+		"title": "The Art of Computer Science [Keynote]",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2020-09-13",
+		"durationSeconds": 1328,
+		"backup": "Talks/2020/2020-09-13 - Joe Carlson - The Art of Computer Science [Keynote] [EtduE9IHDS0].mkv"
+	},
+	{
+		"id": "87bPNnd6M7A",
+		"title": "Building Your First GraphQL Client in JavaScript",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2020-09-16",
+		"durationSeconds": 2289,
+		"backup": "Talks/2020/2020-09-16 - Joe Carlson - Building Your First GraphQL Client in JavaScript [87bPNnd6M7A].mkv"
+	},
+	{
+		"id": "chs89ujm1Cs",
+		"title": "An introduction to IoT- Or How I built an IoT kitty litter box using JavaScript | DevNation Day 2020",
+		"channel": "Red Hat Developer",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-09-16",
+		"durationSeconds": 1615,
+		"backup": "Talks/2020/2020-09-16 - Red Hat Developer - An introduction to IoT- Or How I built an IoT kitty litter box using JavaScript ｜ DevNation Day 2020 [chs89ujm1Cs].mkv"
+	},
+	{
+		"id": "LT181gBLST8",
+		"title": "Fall Guys with Adrienne Tacke and Joe Karlsson from MongoDB [09/11 @ 4PM PT]",
+		"channel": "Nic Raboy",
+		"owner": "organizer",
+		"kind": "livestream",
+		"date": "2020-09-23",
+		"durationSeconds": 2942,
+		"backup": "Livestreams/2020/2020-09-23 - Nic Raboy - Fall Guys with Adrienne Tacke and Joe Karlsson from MongoDB [09⧸11 @ 4PM PT] [LT181gBLST8].mkv"
+	},
+	{
+		"id": "r2U5RXLr5Po",
+		"title": "An Introduction to the Internet of Toilets - Joe Karlsson - HalfStack Online May 2020",
+		"channel": "HalfStack Events",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-09-29",
+		"durationSeconds": 1712,
+		"backup": "Talks/2020/2020-09-29 - HalfStack Events - An Introduction to the Internet of Toilets - Joe Karlsson - HalfStack Online May 2020 [r2U5RXLr5Po].mkv"
+	},
+	{
+		"id": "cqCirMTuic8",
+		"title": "A Gentle Introduction to Building Serverless Apps by Joe Karlsson || React Virtual Conference",
+		"channel": "CSharpCorner",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-10-11",
+		"durationSeconds": 2144,
+		"backup": "Talks/2020/2020-10-11 - CSharpCorner - A Gentle Introduction to Building Serverless Apps by Joe Karlsson ｜｜ React Virtual Conference [cqCirMTuic8].mkv"
+	},
+	{
+		"id": "hVpgThAukUY",
+		"title": "Internet of Toilets 🚽🐈💩 how I built a Kitty Litter using JS | Joe Karlsson | Conf42 JavaScript 2020",
+		"channel": "Conf42",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-10-21",
+		"durationSeconds": 1122,
+		"backup": "Talks/2020/2020-10-21 - Conf42 - Internet of Toilets 🚽🐈💩 how I built a Kitty Litter using JS ｜ Joe Karlsson ｜ Conf42 JavaScr [hVpgThAukUY].mkv"
+	},
+	{
+		"id": "tYNaXn2wJJo",
+		"title": "MongoDB Schema Design - best practices | Joe Karlsson | Conf42 JavaScript 2020",
+		"channel": "Conf42",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-10-21",
+		"durationSeconds": 2144,
+		"backup": "Talks/2020/2020-10-21 - Conf42 - MongoDB Schema Design - best practices ｜ Joe Karlsson ｜ Conf42 JavaScript 2020 [tYNaXn2wJJo].mkv"
+	},
+	{
+		"id": "Y9qSp8kd1u4",
+		"title": "From SQL to NOSQL - a gentle intro for Devs | Joe Karlsson | Conf42 JavaScript 2020",
+		"channel": "Conf42",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-10-21",
+		"durationSeconds": 1052,
+		"backup": "Talks/2020/2020-10-21 - Conf42 - From SQL to NOSQL - a gentle intro for Devs ｜ Joe Karlsson ｜ Conf42 JavaScript 2020 [Y9qSp8kd1u4].mkv"
+	},
+	{
+		"id": "7az78FYgwx4",
+		"title": "Bechdel.io: How We Used JavaScript To Help Make Film More Inclusive - Joe Karlsson - DevFest WI 2020",
+		"channel": "GDG Madison",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-10-24",
+		"durationSeconds": 877,
+		"backup": "Talks/2020/2020-10-24 - GDG Madison - Bechdel.io： How We Used JavaScript To Help Make Film More Inclusive - Joe Karlsson - DevFest WI 2020 [7az78FYgwx4].mkv"
+	},
+	{
+		"id": "4jaS_7vCi9g",
+		"title": "#React Wednesdays: MongoDB and GraphQL",
+		"channel": "Kendo UI",
+		"owner": "organizer",
+		"kind": "livestream",
+		"date": "2020-12-10",
+		"durationSeconds": 5623,
+		"backup": "Livestreams/2020/2020-12-10 - Kendo UI - #React Wednesdays： MongoDB and GraphQL [4jaS_7vCi9g].mkv"
+	},
+	{
+		"id": "Vki0F0N_mEg",
+		"title": "An Intro To IoT (Internet of Toilets 🚽); Or How I Built an IoT Kitty Litter Box with JavaScript",
+		"channel": "Nerdearla",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2020-12-11",
+		"durationSeconds": 1898,
+		"backup": "Talks/2020/2020-12-11 - Nerdearla - An Intro To IoT (Internet of Toilets 🚽); Or How I Built an IoT Kitty Litter Box with JavaScript [Vki0F0N_mEg].mkv"
+	},
+	{
+		"id": "zHvrtt5raA4",
+		"title": "Joe Karlsson - An Introduction To IoT  - Codeland 2020",
+		"channel": "CodeNewbie",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2021-01-14",
+		"durationSeconds": 844,
+		"backup": "Talks/2020/2021-01-14 - CodeNewbie - Joe Karlsson - An Introduction To IoT  - Codeland 2020 [zHvrtt5raA4].mkv"
+	},
+	{
+		"id": "6bHYDUzY9j0",
+		"title": "8-Bits with Joe Karlsson! Hosted by Chloe Condon and Brandon Minnick",
+		"channel": "Microsoft Developer",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2021-02-10",
+		"durationSeconds": 3600,
+		"backup": "Podcasts/2021/2021-02-10 - Microsoft Developer - 8-Bits with Joe Karlsson! Hosted by Chloe Condon and Brandon Minnick [6bHYDUzY9j0].mkv"
+	},
+	{
+		"id": "I8N9KR73LhU",
+		"title": "Confoo 2021 - Lauren Schaefer & Joe Karlsson - MongoDB Patterns et Anti-Patterns",
+		"channel": "Bracket Show",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2021-05-12",
+		"durationSeconds": 1657,
+		"backup": "Talks/2021/2021-05-12 - Bracket Show - Confoo 2021 - Lauren Schaefer & Joe Karlsson - MongoDB Patterns et Anti-Patterns [I8N9KR73LhU].mkv"
+	},
+	{
+		"id": "hXy9xKKd3Gw",
+		"title": "Joe Karlsson of MongoDB | Uncaught Exceptions Podcast (Ep. 10)",
+		"channel": "Uncaught Exceptions",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2021-05-26",
+		"durationSeconds": 3841,
+		"backup": "Podcasts/2021/2021-05-26 - Uncaught Exceptions - Joe Karlsson of MongoDB ｜ Uncaught Exceptions Podcast (Ep. 10) [hXy9xKKd3Gw].mkv"
+	},
+	{
+		"id": "fAvVxQknDL0",
+		"title": "Save The World And Money with MongoDB Data Lakes | Joe Karlsson | Conf42 Cloud Native 2021",
+		"channel": "Conf42",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2021-06-02",
+		"durationSeconds": 893,
+		"backup": "Talks/2021/2021-06-02 - Conf42 - Save The World And Money with MongoDB Data Lakes ｜ Joe Karlsson ｜ Conf42 Cloud Native 2021 [fAvVxQknDL0].mkv"
+	},
+	{
+		"id": "YEBroAHFSd0",
+		"title": "JOE KARLSSON - Things I've learned about maintaining large codebases - #CITYJS2021",
+		"channel": "CITYJS CONFERENCE",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2021-06-28",
+		"durationSeconds": 1354,
+		"backup": "Talks/2021/2021-06-28 - CITYJS CONFERENCE - JOE KARLSSON - Things I've learned about maintaining large codebases - #CITYJS2021 [YEBroAHFSd0].mkv"
+	},
+	{
+		"id": "EDQjy_BMSyQ",
+		"title": "Scaling Data-Intensive Applications with SingleStore and Redpanda Data",
+		"channel": "SingleStore",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2021-09-15",
+		"durationSeconds": 3783,
+		"backup": "Talks/2021/2021-09-15 - SingleStore - Scaling Data-Intensive Applications with SingleStore and Redpanda Data [EDQjy_BMSyQ].mkv"
+	},
+	{
+		"id": "EXChh6b9bcM",
+		"title": "Aftercamp - The Past, Present, and Future of Databases - ft. Joe Karlsson @ SingleStore",
+		"channel": "Aftercamp",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2021-10-06",
+		"durationSeconds": 3553,
+		"backup": "Podcasts/2021/2021-10-06 - Aftercamp - Aftercamp - The Past, Present, and Future of Databases - ft. Joe Karlsson @ SingleStore [EXChh6b9bcM].mkv"
+	},
+	{
+		"id": "L819UVzPkYo",
+		"title": "Web Day",
+		"channel": "Appwrite",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2021-10-21",
+		"durationSeconds": 5953,
+		"backup": "Talks/2021/2021-10-21 - Appwrite - Web Day [L819UVzPkYo].mkv"
+	},
+	{
+		"id": "fcKb4ivzmh4",
+		"title": "Expert Panel: How to Hire and Develop the Best Spatial Data Talent Out There",
+		"channel": "CARTO",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2021-10-28",
+		"durationSeconds": 1694,
+		"backup": "Talks/2021/2021-10-28 - CARTO - Expert Panel： How to Hire and Develop the Best Spatial Data Talent Out There [fcKb4ivzmh4].mkv"
+	},
+	{
+		"id": "GiNa2jen-lg",
+		"title": "The Art of Computer Science | Joe Karlsson | TEDxYouth@LakeManalapan",
+		"channel": "TEDx Talks",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2021-10-29",
+		"durationSeconds": 920,
+		"backup": "Talks/2021/2021-10-29 - TEDx Talks - The Art of Computer Science ｜ Joe Karlsson ｜ TEDxYouth@LakeManalapan [GiNa2jen-lg].mkv"
+	},
+	{
+		"id": "W-KBXeJjFWQ",
+		"title": "96: Advocating for Junior Developers with Joe Karlsson of SingleStore",
+		"channel": "Constant Variables",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2021-11-16",
+		"durationSeconds": 3421,
+		"backup": "Podcasts/2021/2021-11-16 - Constant Variables - 96： Advocating for Junior Developers with Joe Karlsson of SingleStore [W-KBXeJjFWQ].mkv"
+	},
+	{
+		"id": "YRUGd6UaYyA",
+		"title": "Getting Started with SingleStore w/ Joe Karlsson [Live stream]",
+		"channel": "SingleStore",
+		"owner": "organizer",
+		"kind": "livestream",
+		"date": "2021-11-17",
+		"durationSeconds": 2842,
+		"backup": "Livestreams/2021/2021-11-17 - SingleStore - Getting Started with SingleStore w⧸ Joe Karlsson [Live stream] [YRUGd6UaYyA].mkv"
+	},
+	{
+		"id": "Sklb_UKyCm8",
+		"title": "5 Step Approach To Passing Any Technical Interview!",
+		"channel": "Kunal Kushwaha",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2021-11-28",
+		"durationSeconds": 1699,
+		"backup": "Podcasts/2021/2021-11-28 - Kunal Kushwaha - 5 Step Approach To Passing Any Technical Interview! [Sklb_UKyCm8].mkv"
+	},
+	{
+		"id": "JrQyfY69vLM",
+		"title": "Diversion { init() } | Diverse into Open Source | @Joe Karlsson | @Praveen Kumar Purushothaman ✨",
+		"channel": "ACM IEM",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2022-02-01",
+		"durationSeconds": 9450,
+		"backup": "Talks/2022/2022-02-01 - ACM IEM - Diversion { init() } ｜ Diverse into Open Source ｜ @Joe Karlsson ｜ @Praveen Kumar Purushothaman ✨ [JrQyfY69vLM].mkv"
+	},
+	{
+		"id": "N9aGu8MJops",
+		"title": "Diversion { init () } | Joe Karlsson | Exclusive Podcast",
+		"channel": "ACM IEM",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2022-02-01",
+		"durationSeconds": 2944,
+		"backup": "Podcasts/2022/2022-02-01 - ACM IEM - Diversion { init () } ｜ Joe Karlsson ｜ Exclusive Podcast [N9aGu8MJops].mkv"
+	},
+	{
+		"id": "v9GUB1A0T1k",
+		"title": "A Gentle Introduction to Building Data Intensive Applications - DoK Talks #120",
+		"channel": "Data on Kubernetes Community (DoKC)",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2022-03-09",
+		"durationSeconds": 3710,
+		"backup": "Talks/2022/2022-03-09 - Data on Kubernetes Community (DoKC) - A Gentle Introduction to Building Data Intensive Applications - DoK Talks #120 [v9GUB1A0T1k].mkv"
+	},
+	{
+		"id": "fhb4N11Q8wo",
+		"title": "Why run data on k8s? Joe Karlsson says...",
+		"channel": "Data on Kubernetes Community (DoKC)",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2022-03-17",
+		"durationSeconds": 56,
+		"backup": "Talks/2022/2022-03-17 - Data on Kubernetes Community (DoKC) - Why run data on k8s？ Joe Karlsson says... [fhb4N11Q8wo].mkv"
+	},
+	{
+		"id": "jllPMWL5rK8",
+		"title": "A Gentle Introduction to Building Data-Intensive Applications | Joe Karlsson | Conf42 Golang 2022",
+		"channel": "Conf42",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2022-05-03",
+		"durationSeconds": 1427,
+		"backup": "Talks/2022/2022-05-03 - Conf42 - A Gentle Introduction to Building Data-Intensive Applications ｜ Joe Karlsson ｜ Conf42 Golang 2022 [jllPMWL5rK8].mkv"
+	},
+	{
+		"id": "DMdfyoqKGyE",
+		"title": "React Q&A Session with Ladislav Navratil, Joe Karlsson, and Colby Fayock",
+		"channel": "React secret channel",
+		"owner": "organizer",
+		"kind": "livestream",
+		"date": "2022-05-26",
+		"durationSeconds": 3002,
+		"backup": "Livestreams/2022/2022-05-26 - React secret channel - React Q&A Session with Ladislav Navratil, Joe Karlsson, and Colby Fayock [DMdfyoqKGyE].mkv"
+	},
+	{
+		"id": "XrRnElPo-lU",
+		"title": "Launch Week #2 Release Round-up",
+		"channel": "Tinybird",
+		"owner": "organizer",
+		"kind": "livestream",
+		"date": "2023-04-22",
+		"durationSeconds": 3609,
+		"backup": "Livestreams/2023/2023-04-22 - Tinybird - Launch Week #2 Release Round-up [XrRnElPo-lU].mkv"
+	},
+	{
+		"id": "IOuXREaJj5Q",
+		"title": "Building a real-time API speed layer on top of Snowflake",
+		"channel": "Tinybird",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2023-04-27",
+		"durationSeconds": 2887,
+		"backup": "Talks/2023/2023-04-27 - Tinybird - Building a real-time API speed layer on top of Snowflake [IOuXREaJj5Q].mkv"
+	},
+	{
+		"id": "D7Ir_iY61LY",
+		"title": "DevRel in Open Source - Strategies, Challenges, and Growth w/ Joe Karlsson - EP. 27",
+		"channel": "The Hacking Open Source Business Podcast",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2023-05-04",
+		"durationSeconds": 3158,
+		"backup": "Podcasts/2023/2023-05-04 - The Hacking Open Source Business Podcast - DevRel in Open Source - Strategies, Challenges, and Growth w⧸ Joe Karlsson - EP. 27 [D7Ir_iY61LY].mkv"
+	},
+	{
+		"id": "FyNSOh8JQB8",
+		"title": "Ryan Serhant Weighs In: Should You Buy a Home Without Seeing It? | Chase #BeginnerToBuyer | S2 E3",
+		"channel": "Chase",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2023-05-30",
+		"durationSeconds": 1732,
+		"backup": "Podcasts/2023/2023-05-30 - Chase - Ryan Serhant Weighs In： Should You Buy a Home Without Seeing It？ ｜ Chase #BeginnerToBuyer ｜ S2 E3 [FyNSOh8JQB8].mkv"
+	},
+	{
+		"id": "8UseTYKBx0U",
+		"title": "JSJ 436: MongoDB Basics with Joe Karlsson",
+		"channel": "Top End Devs",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2023-05-31",
+		"durationSeconds": 3542,
+		"backup": "Podcasts/2020/2023-05-31 - Top End Devs - JSJ 436： MongoDB Basics with Joe Karlsson [8UseTYKBx0U].mkv"
+	},
+	{
+		"id": "MyuC5VdECA8",
+		"title": "JSJ 432: Internet of Things (IoT) with Joe Karlsson",
+		"channel": "Top End Devs",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2023-06-01",
+		"durationSeconds": 3523,
+		"backup": "Podcasts/2020/2023-06-01 - Top End Devs - JSJ 432： Internet of Things (IoT) with Joe Karlsson [MyuC5VdECA8].mkv"
+	},
+	{
+		"id": "jQ7ZcwyikvU",
+		"title": "REACT 126: A Gentle Introduction to Serverless Apps With React with Joe Karlsson",
+		"channel": "Top End Devs",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2023-08-23",
+		"durationSeconds": 3533,
+		"backup": "Podcasts/2020/2023-08-23 - Top End Devs - REACT 126： A Gentle Introduction to Serverless Apps With React with Joe Karlsson [jQ7ZcwyikvU].mkv"
+	},
+	{
+		"id": "mUv4K8hRYRw",
+		"title": "Document Databases and Mongo with Engineer Joe Karlsson",
+		"channel": "Scott Hanselman",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2024-01-10",
+		"durationSeconds": 1967,
+		"backup": "Podcasts/2020/2024-01-10 - Scott Hanselman - Document Databases and Mongo with Engineer Joe Karlsson [mUv4K8hRYRw].mkv"
+	},
+	{
+		"id": "FlE1WI10aIo",
+		"title": "Governance Isn’t a Dirty Word: Making Policy Part of the Dev Flow with Joe Karlsson",
+		"channel": "Testkube",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2025-06-04",
+		"durationSeconds": 1526,
+		"backup": "Podcasts/2025/2025-06-04 - Testkube - Governance Isn’t a Dirty Word： Making Policy Part of the Dev Flow with Joe Karlsson [FlE1WI10aIo].mkv"
+	},
+	{
+		"id": "q-nUn0ygC-I",
+		"title": "360: Nurture Your Network Before You Leverage It with Joe Karlsson",
+		"channel": "Phil Burgess",
+		"owner": "organizer",
+		"kind": "podcast",
+		"date": "2026-01-08",
+		"durationSeconds": 1307,
+		"backup": "Podcasts/2025/2026-01-08 - Phil Burgess - 360： Nurture Your Network Before You Leverage It with Joe Karlsson [q-nUn0ygC-I].mkv"
+	},
+	{
+		"id": "bzuIHRypcsQ",
+		"title": "The Developer View: One Platform From MCP to Gateway",
+		"channel": "CData Software",
+		"owner": "organizer",
+		"kind": "talk",
+		"date": "2026-11-05",
+		"durationSeconds": 596,
+		"backup": "Talks/2026/2026-11-05 - CData Software - The Developer View： One Platform From MCP to Gateway [bzuIHRypcsQ].mkv"
+	}
+]
