@@ -2187,5 +2187,21 @@
 			"color": "chalk"
 		},
 		"motion": "boil"
+	},
+	"homelab-gift-ideas-2026": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Boy_looking_at_Xmas_toys_in_shop_window_LCCN2014684428.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Boy_looking_at_Xmas_toys_in_shop_window_LCCN2014684428.jpg"
+		},
+		"look": "taped",
+		"alt": "A boy in a cap and overcoat studying the Christmas toys in a shop window, a drum and a toy wagon behind the glass",
+		"focus": 0.45,
+		"mark": {
+			"name": "star",
+			"at": [86, 4, 11, 19],
+			"color": "chalk"
+		},
+		"motion": "boil",
+		"inset": 4
 	}
 }
