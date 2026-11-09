@@ -6,6 +6,12 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    ignore:
+      # TypeScript 7 (the Go rewrite) breaks the toolchain: typescript-eslint and
+      # @astrojs/check (via @volar) cap their peer range below 7, so npm ci fails.
+      # Drop this once both support 7.
+      - dependency-name: 'typescript'
+        update-types: ['version-update:semver-major']
     groups:
       npm-minor-and-patch:
         update-types: ['minor', 'patch']
