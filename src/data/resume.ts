@@ -103,7 +103,7 @@ export const roles: Role[] = [
 	},
 	{
 		company: 'MongoDB',
-		title: 'Developer Advocate',
+		title: 'Senior Developer Advocate',
 		startYear: 2019,
 		endYear: 2021,
 		location: 'Remote',
