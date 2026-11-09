@@ -8,7 +8,7 @@ export default {
 				mono: ['var(--font-jetbrains-mono)'],
 				sans: ['var(--font-hanken-grotesk)'],
 				display: ['var(--font-anton)'],
-				serif: ['"Fraunces"', 'Georgia', 'serif'],
+				serif: ['var(--font-fraunces)'],
 			},
 			colors: {
 				// Redesign tokens: black ink, paper-white text, gray metadata, one hot pink accent.

@@ -268,6 +268,7 @@ describe('rehype-youtube-embed', () => {
 		'https://youtu.be/GiNa2jen-lg',
 		'https://www.youtube.com/embed/GiNa2jen-lg',
 	])('turns a link alone in its paragraph into a click-to-play thumbnail: %s', (href) => {
+		existsSync.mockReturnValue(true);
 		const root = run(rehypeYouTubeEmbed, tree(link(href)));
 
 		const button = root.children![0];
@@ -278,11 +279,21 @@ describe('rehype-youtube-embed', () => {
 		expect(button.properties?.dataYoutubeTitle).toBe('YouTube video');
 		const thumbnail = button.children![0];
 		expect(thumbnail.tagName).toBe('img');
-		expect(thumbnail.properties?.src).toBe('https://i.ytimg.com/vi/GiNa2jen-lg/hqdefault.jpg');
+		// Served from this site, so no visitor IP reaches YouTube before play
+		expect(thumbnail.properties?.src).toBe('/images/youtube/GiNa2jen-lg.webp');
+		expect(existsSync).toHaveBeenCalledWith('public/images/youtube/GiNa2jen-lg.webp');
 		expect(thumbnail.properties?.loading).toBe('lazy');
 	});
 
+	it('stops the build when the local thumbnail is missing', () => {
+		existsSync.mockReturnValue(false);
+		expect(() => run(rehypeYouTubeEmbed, tree(link('https://youtu.be/GiNa2jen-lg')))).toThrow(
+			'npm run youtube:thumbnails',
+		);
+	});
+
 	it('names the video after the link text', () => {
+		existsSync.mockReturnValue(true);
 		const named = link('https://youtu.be/GiNa2jen-lg');
 		named.children = [{ type: 'text', value: 'Watch the talk on YouTube' }];
 		const root = run(rehypeYouTubeEmbed, tree(named));

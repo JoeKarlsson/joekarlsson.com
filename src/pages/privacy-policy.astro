@@ -8,7 +8,7 @@ import { CHALK, MARKS } from '../data/scribbles';
 
 <BaseLayout
 	title="Privacy Policy | Joe Karlsson"
-	description="Privacy policy for joekarlsson.com covering analytics, cookies, and how your data is handled on this site."
+	description="What joekarlsson.com collects: cookieless self-hosted analytics, newsletter email addresses, and nothing loaded from Google."
 	schemaType="WebPage"
 >
 	<div class={PAGE_CONTAINER}>
@@ -22,28 +22,97 @@ import { CHALK, MARKS } from '../data/scribbles';
 			/>
 		</PageTitle>
 		<div class="prose">
-			<p>This website is a static site that collects minimal data.</p>
+			<p>
+				<em>Last updated November 9, 2026</em>
+			</p>
+			<p>
+				This is a personal site that runs on a server in my house. It doesn't set cookies, and I
+				don't sell or share anything about you. This page lists everything it collects and where it
+				goes.
+			</p>
 
 			<h2>Analytics</h2>
 			<p>
-				This site uses{' '}
-				<a href="https://plausible.io" target="_blank" rel="noopener noreferrer">
-					Plausible Analytics
+				I count visits with{' '}
+				<a href="https://plausible.io/data-policy" target="_blank" rel="noopener noreferrer">
+					Plausible
 				</a>
-				, a privacy-friendly, self-hosted analytics tool. Plausible does not use cookies and does
-				not collect any personal data. All data is aggregated and no individual visitors can be
-				identified.
+				, which I run myself at plausible.joekarlsson.io, so the numbers never leave my hardware. It
+				records the page you viewed, the site that sent you, your browser, operating system, device
+				type and country. It also counts clicks on outbound links, file downloads and a few buttons,
+				plus JavaScript errors so I can fix them. Plausible doesn't use cookies or store your IP
+				address: it mixes your IP and browser into a hash with a salt that's thrown away every 24
+				hours, so I can tell visits apart within a day and never across days.
 			</p>
 
-			<h2>Cookies</h2>
-			<p>This website does not use cookies.</p>
+			<h2>Newsletter</h2>
+			<p>
+				If you subscribe, I keep your email address in listmonk, a newsletter app I run on my own
+				server. Before anything else you get an email asking you to confirm. I only use the address
+				to send the newsletter. The emails go out through{' '}
+				<a
+					href="https://www.brevo.com/legal/privacypolicy/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Brevo
+				</a>
+				, a mail delivery service, which handles your address only to deliver them. Every email has
+				an unsubscribe link. If you want your address deleted outright, not just unsubscribed, ask
+				me and I'll delete it.
+			</p>
 
-			<h2>Third-Party Services</h2>
-			<p>This site is self-hosted on my own hardware. Google Fonts are loaded for typography.</p>
+			<h2>Hosting and Cloudflare</h2>
+			<p>
+				Every request goes through{' '}
+				<a
+					href="https://www.cloudflare.com/privacypolicy/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Cloudflare
+				</a>
+				, which caches the site and blocks attacks. That means Cloudflare sees your IP address and
+				the pages you request, the same as any web host would. Fonts and images all come from my own
+				server: nothing on a page loads from Google.
+			</p>
+
+			<h2>Videos and embeds</h2>
+			<ul>
+				<li>
+					<strong>YouTube.</strong> A video shows a thumbnail saved on this site. Nothing loads from
+					YouTube until you press play. Then the player comes from youtube-nocookie.com, and
+					Google's privacy policy applies to what you watch.
+				</li>
+				<li>
+					<strong>Playable projects.</strong> Some pages on /work and a couple of posts embed
+					projects hosted on GitHub Pages. They only load on a desktop-sized screen, and GitHub sees
+					your IP address when they do.
+				</li>
+				<li>
+					<strong>Amazon links.</strong> Some posts have Amazon affiliate links. If you click one,
+					Amazon sets its own cookies to credit me with the sale.
+				</li>
+			</ul>
+
+			<h2>Cookies and browser storage</h2>
+			<p>
+				This site sets no cookies. If you press the button that pauses animations, your browser
+				remembers that choice in local storage. It stays on your device and never reaches me.
+			</p>
+
+			<h2>Your rights</h2>
+			<p>
+				You can ask what I have on you (at most, your email address), ask me to correct it, or ask
+				me to delete it. That applies wherever you live, including the EU, UK and California, and
+				I'll handle a request within 30 days. The legal basis for the newsletter is your consent,
+				which you can take back at any time by unsubscribing.
+			</p>
 
 			<h2>Contact</h2>
 			<p>
-				If you have questions about this privacy policy, please <a href="/contact/">contact me</a>.
+				Questions or requests go through the <a href="/contact/">contact page</a>. If this policy
+				changes, I'll update the date at the top.
 			</p>
 		</div>
 	</div>

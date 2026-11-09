@@ -65,6 +65,17 @@ export default defineConfig({
 			styles: ['normal'],
 			fallbacks: ['monospace'],
 		},
+		{
+			provider: fontProviders.google(),
+			name: 'Fraunces',
+			cssVariable: '--font-fraunces',
+			weights: ['400 700'],
+			styles: ['normal'],
+			subsets: ['latin', 'latin-ext'],
+			fallbacks: ['Georgia', 'serif'],
+			// Keeps the optical-size axis, so big serif lines get Fraunces's display cut
+			options: { experimental: { variableAxis: { opsz: ['9..144'] } } },
+		},
 	],
 	integrations: [
 		mdx(),

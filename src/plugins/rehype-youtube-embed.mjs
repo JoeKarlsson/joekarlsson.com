@@ -1,4 +1,9 @@
+import fs from 'node:fs';
 import { visit } from 'unist-util-visit';
+
+// Thumbnails are saved locally by scripts/fetch-youtube-thumbnails.mjs, so a page
+// with a video sends no visitor IP to YouTube until someone presses play.
+export const youtubeThumbnailSrc = (videoId) => `/images/youtube/${videoId}.webp`;
 
 const YOUTUBE_RE =
 	/(?:youtube\.com\/watch\?v=|youtube\.com\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
@@ -33,6 +38,13 @@ export default function rehypeYouTubeEmbed() {
 			if (!videoId) return;
 			if (!isStandaloneLink(node, parent)) return;
 
+			const thumbnailSrc = youtubeThumbnailSrc(videoId);
+			if (!fs.existsSync(`public${thumbnailSrc}`)) {
+				throw new Error(
+					`No local thumbnail for YouTube video ${videoId}: run npm run youtube:thumbnails`,
+				);
+			}
+
 			const text = linkText(node);
 			const title = text && !/^https?:\/\//.test(text) ? text : 'YouTube video';
 
@@ -64,7 +76,7 @@ export default function rehypeYouTubeEmbed() {
 						type: 'element',
 						tagName: 'img',
 						properties: {
-							src: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+							src: thumbnailSrc,
 							width: 480,
 							height: 360,
 							// Beats .prose img's margin, auto sizing and object-fit:contain, so the
@@ -72,7 +84,6 @@ export default function rehypeYouTubeEmbed() {
 							style: 'margin:0;width:100%;height:100%;object-fit:cover',
 							alt: '',
 							ariaHidden: 'true',
-							crossOrigin: 'anonymous',
 							loading: 'lazy',
 							decoding: 'async',
 							dataHalftone: 'flat',

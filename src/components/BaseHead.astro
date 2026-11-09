@@ -71,18 +71,13 @@ const PROFILE_URLS = [
 	}
 />
 
-<!-- Fonts: Anton, Hanken Grotesk and JetBrains Mono are self-hosted (astro.config.mjs);
+<!-- Fonts: all four are self-hosted (astro.config.mjs), so no visitor IP goes to Google;
 the display and body faces are preloaded since nearly every page opens with both.
 Only the latin files: latin-ext still loads when a page has those characters. -->
 <Font cssVariable="--font-anton" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-hanken-grotesk" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-jetbrains-mono" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-	rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap"
-/>
+<Font cssVariable="--font-fraunces" />
 
 <!-- Favicon. Bump ?v= when the icons change: browsers and Cloudflare hold on to old favicons.
 public/favicon.ico has no tag: RSS readers and older clients fetch /favicon.ico directly -->
