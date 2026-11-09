@@ -1,0 +1,215 @@
+---
+// A post's hero as a cut-paper collage that boils: the picture on a torn chalk print,
+// taped at two corners, with the post's topic on a pink scrap and its month on a chalk
+// chip. The paper edges wobble through the site's #boil filter and every scrap twitches a
+// fraction of a degree in stepped frames, like hand-drawn animation; the picture and the
+// words never distort. A work thumbnail with the taped look already has its print and tape
+// in the image, so it only twitches and gets the tag and chip. An animated thumbnail shows
+// its still here (data-still-only, src/integrations/responsive-images.mjs), since the
+// paper around it already boils. Still under reduced motion,
+// and frozen by the pause-motion button (.motion-paused).
+import { CHALK } from '../data/scribbles';
+
+interface Props {
+	src: string;
+	alt: string;
+	width?: number;
+	height?: number;
+	halftone?: 'flat' | 'dots';
+	// The thumbnail already shows a taped print, so no print or tape gets drawn around it
+	taped: boolean;
+	topic?: string;
+	date: Date;
+	// Picks this post's tear, so it keeps the same edges between builds
+	seed: number;
+}
+
+const { src, alt, width, height, halftone, taped, topic, date, seed } = Astro.props;
+
+// A torn edge as a clip-path polygon in percentages: a point every few percent along each
+// side, pulled inward by a random sliver
+function tornEdge(tearSeed: number, depth: number): string {
+	let state = tearSeed;
+	const random = () => {
+		state = (state * 9301 + 49297) % 233280;
+		return state / 233280;
+	};
+	const points: string[] = [];
+	const side = (count: number, at: (t: number, sliver: number) => [number, number]) => {
+		for (let i = 0; i < count; i++) {
+			const [x, y] = at(i / count, random() * depth);
+			points.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+		}
+	};
+	side(28, (t, d) => [t * 100, d]);
+	side(16, (t, d) => [100 - d / 1.8, t * 100]);
+	side(28, (t, d) => [100 - t * 100, 100 - d]);
+	side(16, (t, d) => [d / 1.8, 100 - t * 100]);
+	return `polygon(${points.join(',')})`;
+}
+
+const month = date.toLocaleDateString('en-US', {
+	month: 'short',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+---
+
+<div class="paper-hero">
+	<div class:list={['ph-print', taped && 'ph-taped']}>
+		{!taped && (
+			<span class="ph-scrap" style={`background:${CHALK};clip-path:${tornEdge(seed, 1.4)}`} />
+		)}
+		{/* Drawn in pink by src/scripts/halftone.ts */}
+		<img
+			src={src}
+			data-still-only
+			data-halftone={halftone}
+			alt={alt}
+			class="ph-picture"
+			width={width}
+			height={height}
+			sizes="(min-width: 1280px) 856px, 100vw"
+			loading="eager"
+			fetchpriority="high"
+		/>
+	</div>
+	{!taped && (
+		<>
+			<span class="ph-tape ph-tape-top" aria-hidden="true" />
+			<span class="ph-tape ph-tape-bottom" aria-hidden="true" />
+		</>
+	)}
+	{topic && (
+		<span class="ph-tag" aria-hidden="true">
+			<span class="ph-scrap" style={`clip-path:${tornEdge(seed + 7, 9)}`} />
+			<span class="ph-words">{topic}</span>
+		</span>
+	)}
+	<span class="ph-chip" aria-hidden="true">
+		<span class="ph-scrap" style={`background:${CHALK};clip-path:${tornEdge(seed + 13, 10)}`} />
+		<span class="ph-words">{month}</span>
+	</span>
+	<slot />
+</div>
+
+<script>
+	import '../scripts/paper-hero-boil';
+</script>
+
+<style>
+	.paper-hero {
+		position: relative;
+		margin-bottom: 2.5rem;
+		padding: 1.5% 2% 3.5%;
+	}
+	.ph-print {
+		--tilt: -1.1deg;
+		position: relative;
+		padding: clamp(6px, 1.4cqi, 14px);
+		transform: rotate(var(--tilt));
+	}
+	/* The baked print is already tilted inside its picture */
+	.ph-print.ph-taped {
+		--tilt: 0deg;
+		padding: 0;
+	}
+	.ph-scrap {
+		position: absolute;
+		inset: 0;
+	}
+	.ph-picture {
+		position: relative;
+		display: block;
+		width: 100%;
+		max-height: 440px;
+		object-fit: cover;
+	}
+	.ph-tape {
+		position: absolute;
+		width: 15%;
+		height: 6.5%;
+		min-height: 14px;
+		background: #d6cebe;
+	}
+	.ph-tape-top {
+		--tilt: -32deg;
+		left: -0.5%;
+		top: 1%;
+		transform: rotate(var(--tilt));
+	}
+	.ph-tape-bottom {
+		--tilt: -30deg;
+		right: 0;
+		bottom: 4.5%;
+		transform: rotate(var(--tilt));
+	}
+	.ph-tag,
+	.ph-chip {
+		position: absolute;
+		display: grid;
+		color: #000;
+	}
+	.ph-tag {
+		--tilt: 3deg;
+		right: 4%;
+		bottom: 0;
+		transform: rotate(var(--tilt));
+	}
+	.ph-tag .ph-scrap {
+		background: #ff4fd8;
+	}
+	.ph-tag .ph-words {
+		font-family: Anton, Impact, sans-serif;
+		font-size: clamp(18px, 4.4cqi, 44px);
+		line-height: 1;
+		text-transform: uppercase;
+		letter-spacing: 0.01em;
+		padding: 0.35em 0.6em 0.3em;
+	}
+	.ph-chip {
+		--tilt: -3.5deg;
+		left: 3%;
+		bottom: 0.5%;
+		transform: rotate(var(--tilt));
+	}
+	.ph-chip .ph-words {
+		font-weight: 700;
+		font-size: clamp(11px, 1.8cqi, 18px);
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		padding: 0.8em 1.2em;
+	}
+	.ph-words {
+		position: relative;
+		white-space: nowrap;
+	}
+
+	/* The boil: paper edges through #boil (as the diagrams' paper does), and each scrap
+	   twitching through three poses on the same half-second cycle. Words stay still. Only
+	   once src/scripts/paper-hero-boil.ts adds .is-boiling: never on a phone, a slow
+	   connection or a device that can't keep up, under reduced motion or while paused. */
+	.is-boiling :is(.ph-scrap, .ph-tape) {
+		filter: url(#boil);
+	}
+	.is-boiling :is(.ph-print, .ph-tape, .ph-tag, .ph-chip) {
+		animation: ph-twitch 0.5s steps(1, end) infinite;
+	}
+	.is-boiling :is(.ph-tape-top, .ph-chip) {
+		animation-delay: -0.17s;
+	}
+	.is-boiling .ph-tag {
+		animation-delay: -0.33s;
+	}
+	@keyframes ph-twitch {
+		0% {
+			transform: rotate(var(--tilt));
+		}
+		33.3% {
+			transform: rotate(calc(var(--tilt) + 0.3deg));
+		}
+		66.6% {
+			transform: rotate(calc(var(--tilt) - 0.25deg));
+		}
+	}
+</style>

@@ -13,6 +13,14 @@ describe('addStills', () => {
 			'<img data-still="/images/a/thumb-1234abcd.still.webp" src="/images/a/thumb-1234abcd.webp" alt="x"><img src="/images/a/photo.webp" alt="y">',
 		);
 	});
+
+	it('ships only the still to a paper hero, which boils around it instead', () => {
+		const html =
+			'<img src="/a/thumb.webp" data-still-only srcset="/a/thumb.400w.webp 400w, /a/thumb.webp 960w" alt="x">';
+		expect(addStills(html, (src: string) => stillPath(src))).toBe(
+			'<img src="/a/thumb.still.webp" data-still-only alt="x">',
+		);
+	});
 });
 
 describe('showStills', () => {

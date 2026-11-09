@@ -11,11 +11,13 @@ import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
+import PaperHero from '../components/PaperHero.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import ImageLightbox from '../components/ImageLightbox.astro';
 import Logo from '../components/Logo.astro';
 import { CHALK, MARKS } from '../data/scribbles';
-import { halftoneMode } from '../utils/halftone';
+import { halftoneMode, isPretreatedThumbnail } from '../utils/halftone';
+import workThumbnailPlan from '../../scripts/work-thumbnail-plan.json';
 import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
@@ -128,33 +130,21 @@ const relatedSlugs = rankRelatedPosts(
 	popularPosts.visitorsByPath,
 );
 
-// One crayon mark spills off each post's hero; the slug picks which, so a post
-// keeps the same one between builds
+// One crayon mark spills off the top of each post's hero (the topic tag and month chip
+// sit along its bottom edge); the slug picks which, so a post keeps the same one between builds
 const HERO_MARKS = [
 	{ mark: MARKS.burst, color: CHALK, class: '-top-[9%] -right-[4%] size-[22%] max-w-[170px]' },
 	{ mark: MARKS.rays, color: '#ff4fd8', class: '-top-[12%] -left-[3%] h-[20%] w-[18%]' },
-	{ mark: MARKS.tally, color: CHALK, class: '-right-[5%] -bottom-[7%] h-[14%] w-[26%]' },
-	{ mark: MARKS.hatch, color: '#ff4fd8', class: '-bottom-[8%] -left-[4%] h-[14%] w-[24%]' },
-	{
-		mark: MARKS.burstDense,
-		color: '#ff4fd8',
-		class: '-right-[5%] -bottom-[10%] size-[20%] max-w-[150px]',
-	},
 	{ mark: MARKS.star, color: CHALK, class: '-top-[10%] -left-[4%] size-[20%] max-w-[150px]' },
-	{
-		mark: MARKS.spiral,
-		color: '#ff4fd8',
-		class: '-right-[4%] -bottom-[9%] size-[18%] max-w-[130px]',
-	},
 	{ mark: MARKS.bolt, color: CHALK, class: '-top-[12%] right-[5%] h-[24%] w-[14%] max-w-[110px]' },
-	{
-		mark: MARKS.flower,
-		color: '#ff4fd8',
-		class: '-bottom-[10%] -left-[3%] h-[28%] w-[20%] max-w-[150px]',
-	},
 ];
 const slugHash = [...slug].reduce((sum, char) => sum + char.charCodeAt(0), 0);
 const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
+// A work thumbnail drawn with the taped look already shows its print and tape
+const heroIsTaped =
+	!!heroImage &&
+	isPretreatedThumbnail(heroImage) &&
+	(workThumbnailPlan as Record<string, { look?: string }>)[slug]?.look === 'taped';
 ---
 
 <BaseLayout
@@ -211,19 +201,17 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 					/>
 				) : (
 					heroImage && (
-						<div class="relative mb-10">
-							{/* Drawn in pink by src/scripts/halftone.ts */}
-							<img
-								src={heroImage}
-								data-halftone={halftoneMode(heroImage)}
-								alt={heroAlt || title}
-								class="block w-full max-h-[440px] rounded-xl object-cover"
-								width={heroSize?.width}
-								height={heroSize?.height}
-								sizes="(min-width: 1280px) 856px, 100vw"
-								loading="eager"
-								fetchpriority="high"
-							/>
+						<PaperHero
+							src={heroImage}
+							alt={heroAlt || title}
+							width={heroSize?.width}
+							height={heroSize?.height}
+							halftone={halftoneMode(heroImage)}
+							taped={heroIsTaped}
+							topic={categories?.[0]}
+							date={date}
+							seed={slugHash}
+						>
 							<Scribble
 								{...heroMark.mark}
 								color={heroMark.color}
@@ -232,7 +220,7 @@ const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
 								delay="0.8s"
 								class={heroMark.class}
 							/>
-						</div>
+						</PaperHero>
 					)
 				)}
 				{/* Title, text and everything under it share one column centered under the
