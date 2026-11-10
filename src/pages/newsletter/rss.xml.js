@@ -1,12 +1,12 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getSentIssues } from '../../utils/posts';
 import { NEWSLETTER } from '../../consts';
 import { diagramsAsImages } from '../../utils/feed-html';
 
 // The newsletter for feed readers: every issue, newest first, with the full text so a
 // reader never has to click through (the TL;DR in Tech back issues included).
 export async function GET(context) {
-	const issues = await getCollection('newsletter');
+	const issues = await getSentIssues();
 	return rss({
 		stylesheet: '/rss-style.xsl',
 		title: `${NEWSLETTER.name} by Joe Karlsson`,

@@ -4,6 +4,7 @@
 // projects.ts, jobs from resume.ts and accounts from /contact/'s list. GitHub counts
 // come from the now-feed snapshot.
 import { getCollection } from 'astro:content';
+import { getSentIssues } from './posts';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { SITE_DESCRIPTION, SITE_URL } from '../consts';
@@ -113,7 +114,7 @@ export function listPopularPosts(posts: BlogPost[], limit: number): string[] {
  * (substackUrl) are noindex, so they're counted, not listed.
  */
 export async function getNewsletter() {
-	const issues = (await getCollection('newsletter')).sort(
+	const issues = (await getSentIssues()).sort(
 		(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 	);
 	const current = issues.filter((i) => !i.data.substackUrl);

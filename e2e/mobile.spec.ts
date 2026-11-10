@@ -472,7 +472,8 @@ test.describe('Desktop keeps its layout', () => {
 		const nav = await box(page, 'header nav[aria-label="Main navigation"]');
 		const hero = await box(page, 'video[aria-label*="Montage"]');
 		expect(hero.y).toBeLessThan(nav.y);
-		await expect(page.locator('.ticker').first()).toBeVisible();
+		// The pink ticker became the featured band (FeaturedBand.astro)
+		await expect(page.locator('[data-featured-band]').first()).toBeVisible();
 
 		await page.goto('/about/');
 		await expect(page.locator('details.now-fold')).toHaveAttribute('open');

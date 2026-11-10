@@ -23,13 +23,19 @@ import responsiveImages from './src/integrations/responsive-images.mjs';
 
 // TL;DR in Tech back issues (imported from Substack, marked by substackUrl) are
 // noindex on the page, and recaps of a blog post (recapOf) point their canonical at
-// that post; keep both out of the sitemap too. Other new issues stay in.
+// that post; keep both out of the sitemap too, and any issue dated after the build (a
+// scheduled send). Other new issues stay in.
 const NEWSLETTER_DIR = new URL('./src/content/newsletter/', import.meta.url);
 const unindexedIssuePaths = new Set(
 	readdirSync(NEWSLETTER_DIR)
 		.filter((f) => f.endsWith('.md'))
 		.map((f) => readFileSync(new URL(f, NEWSLETTER_DIR), 'utf8'))
-		.filter((md) => /^(substackUrl|recapOf):/m.test(md))
+		.filter(
+			(md) =>
+				/^(substackUrl|recapOf):/m.test(md) ||
+				// scheduled: dated after this build, so noindex until it's sent (src/utils/sent.ts)
+				new Date(md.match(/^date:\s*['"]?([^'"\n]+)/m)?.[1] ?? 0) > new Date(),
+		)
 		.map((md) => md.match(/^slug:\s*['"]?([^'"\n]+)/m)?.[1])
 		.filter(Boolean)
 		.map((slug) => `/newsletter/${slug}/`),

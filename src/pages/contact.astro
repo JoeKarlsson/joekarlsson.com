@@ -1,11 +1,11 @@
 ---
 import IndexRow from '../components/IndexRow.astro';
+import { getSentIssues } from '../utils/posts';
 import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { BEST, SECTIONS } from '../data/contact-links';
 import { CHALK, MARKS } from '../data/scribbles';
 import PosterHero from '../components/PosterHero.astro';
-import { getCollection } from 'astro:content';
 import {
 	HERO_LEAD,
 	PAGE_CONTAINER,
@@ -16,7 +16,7 @@ import {
 } from '../utils/ui';
 
 // The pink band pushes the newsletter's newest issue: a way to keep in touch without writing
-const [newestIssue] = (await getCollection('newsletter'))
+const [newestIssue] = (await getSentIssues())
 	.filter((issue) => !issue.data.substackUrl)
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 if (!newestIssue) throw new Error('No newsletter issue for the featured band');

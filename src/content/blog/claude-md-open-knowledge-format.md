@@ -16,8 +16,8 @@ tags:
     'AI coding agents',
     'Claude Code memory',
   ]
-heroImage: '/images/blog/claude-md-open-knowledge-format/hero.webp'
-heroAlt: 'Two featureless mannequin heads back to back in profile, each with a pink brain on top, the one on the right taller with a larger brain, against a red-to-purple gradient'
+heroImage: '/images/blog/claude-md-open-knowledge-format/thumb-1f0b822d.webp'
+heroAlt: "A printer's type cabinet with one shallow drawer pulled out, its small compartments full of metal type"
 tldr: "I converted the ~200 markdown files Claude Code reads for my homelab to Google's Open Knowledge Format and tested three versions on 44 questions. OKF metadata alone changed nothing. OKF's structure, one concept per file behind an index, halved startup context and cut cost per question by about 30% without losing accuracy."
 faq:
   - question: 'What is Open Knowledge Format (OKF)?'

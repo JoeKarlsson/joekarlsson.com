@@ -1974,7 +1974,56 @@
 		"look": "taped",
 		"alt": "A long row of order bins in the old Sears mail-order plant in Chicago",
 		"focus": 0.6,
-		"mark": { "name": "asterisk", "at": [87, 3, 10, 17], "color": "chalk" },
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"claude-md-open-knowledge-format": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Type_cases%2C_Hamilton_-_American_Bookbinders_Museum_-_San_Francisco%2C_CA_-_DSC08192.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Type_cases,_Hamilton_-_American_Bookbinders_Museum_-_San_Francisco,_CA_-_DSC08192.jpg"
+		},
+		"look": "taped",
+		"alt": "A printer's type cabinet with one shallow drawer pulled out, its small compartments full of metal type",
+		"focus": 0.6,
+		"mark": {
+			"name": "spiral",
+			"at": [86, 4, 11, 19],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"why-i-use-doom-to-visualize-mcp-data": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Plotting_Table.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Plotting_Table.jpg"
+		},
+		"look": "taped",
+		"alt": "A wartime operations room with a large map plotting table covered in markers, and the tote board on the wall behind it",
+		"focus": 0.55,
+		"mark": {
+			"name": "check",
+			"at": [86, 4, 11, 19],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
+	"claude-code-mods-first-impressions": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Model-T_with_snowmobile_attachment.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Ford_Model-T_with_snowmobile_attachment.jpg"
+		},
+		"look": "flat",
+		"alt": "A 1921 Ford Model T converted to run on snow, its front wheels swapped for skis and its rear wheels fitted with tracks",
+		"focus": 0.55,
+		"mark": {
+			"name": "burst",
+			"at": [86, 4, 11, 19],
+			"color": "chalk"
+		},
 		"motion": "boil"
 	}
 }

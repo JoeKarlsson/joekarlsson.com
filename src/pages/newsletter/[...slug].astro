@@ -10,6 +10,7 @@ import KeepExploring from '../../components/KeepExploring.astro';
 import ImageLightbox from '../../components/ImageLightbox.astro';
 import popularPosts from '../../data/popular-posts.json';
 import { isOwnPost } from '../../utils/posts';
+import { isSent } from '../../utils/sent';
 import { rankRelatedPosts } from '../../utils/related-posts';
 
 export async function getStaticPaths() {
@@ -61,7 +62,8 @@ const relatedSlugs = rankRelatedPosts(
 	publishedDate={date}
 	image={heroImage}
 	imageAlt={heroAlt}
-	noindex={Boolean(substackUrl)}
+	// A scheduled issue is built early for its email, but stays unindexed until its date
+	noindex={Boolean(substackUrl) || !isSent(date)}
 	canonicalUrl={canonicalUrl}
 >
 	<div class={PAGE_CONTAINER}>

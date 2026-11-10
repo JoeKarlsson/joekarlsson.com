@@ -1,4 +1,13 @@
 import { getCollection } from 'astro:content';
+import { isSent } from './sent';
+
+/**
+ * Newsletter issues already sent. A scheduled issue's page is built (its email may link to
+ * it), but it stays off /newsletter/, the feeds and the featured band until its date.
+ */
+export async function getSentIssues() {
+	return getCollection('newsletter', (issue) => isSent(issue.data.date));
+}
 
 // Joe's own posts, not ones written for an employer (`writtenFor`). Anywhere the site
 // suggests what to read next it suggests these; employer posts still appear in the
@@ -40,7 +49,7 @@ export async function getFeedPosts(): Promise<FeedPost[]> {
 		isNewsletter: false,
 		data: p.data,
 	}));
-	const newsletter = (await getCollection('newsletter'))
+	const newsletter = (await getSentIssues())
 		.filter((p) => !p.data.substackUrl && !p.data.recapOf)
 		.map((p) => ({
 			id: p.id,

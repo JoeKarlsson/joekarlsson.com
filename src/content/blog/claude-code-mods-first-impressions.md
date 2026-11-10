@@ -13,8 +13,8 @@ tags:
     'AI coding agents',
     'git worktrees',
   ]
-heroImage: '/images/blog/claude-code-mods-first-impressions/hero.webp'
-heroAlt: 'A 3D cluster of cream, blue, yellow and orange knobs, buttons and horns bolted together on a navy background, like a machine covered in add-ons'
+heroImage: '/images/blog/claude-code-mods-first-impressions/thumb-d381120f.webp'
+heroAlt: 'A 1921 Ford Model T converted to run on snow, its front wheels swapped for skis and its rear wheels fitted with tracks'
 tldr: "Claude Code mods, new in October 2026, are small programs that plug into Claude Code: they can stop or change what Claude is about to do, and put status lines, side panels and pop-ups on screen. After two days of building them, I think they're more useful than hooks. Most of my hooks and CLAUDE.md rules only worked if Claude remembered them, and five of my hooks never worked at all without me noticing. A mod enforces the rule itself and shows me it ran. Mods that crash get skipped, they have full access to your machine, and they're changing fast, so I kept my working blocking hooks as a backup."
 faq:
   - question: 'What are Claude Code mods?'
