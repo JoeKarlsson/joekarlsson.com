@@ -117,6 +117,9 @@ unless he says otherwise for a specific figure.
   width; `f.logoWidth(name, h)`.
 - `f.crayonArrow(from, to, bend)`: the pink callout arrow.
 - `f.legend(items)`: `['pink', 'label']` or `['logo:cdata', 'label']`.
+- `f.raw(markup)`: SVG markup on top of everything, for an animated figure's moving
+  pieces (`doom-mcp-server/go-to-walk.mjs`: SMIL stepped at 12 fps, with the
+  `.anim-live` / `.anim-still` layers `motion.css` swaps under reduced motion and pause).
 - `f.code({ x, y, w, lines, highlight })`: a code block, highlighted lines pink;
   returns its height.
 - `f.table({ x, y, title, columns, rows, colW, highlight })`: a small table,

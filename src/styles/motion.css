@@ -252,6 +252,24 @@
 	}
 }
 
+/* Animated diagrams (SMIL inside the SVG, scripts/diagrams/doom-mcp-server/go-to-walk.mjs) show
+   their finished frame under reduced motion and while motion is paused: CSS can't pause SMIL,
+   so the still layer swaps in for the live one. */
+@media (prefers-reduced-motion: reduce) {
+	:is(.diagram, .diagram-enlarged) .anim-live {
+		display: none;
+	}
+	:is(.diagram, .diagram-enlarged) .anim-still {
+		display: inline;
+	}
+}
+.motion-paused :is(.diagram, .diagram-enlarged) .anim-live {
+	display: none;
+}
+.motion-paused :is(.diagram, .diagram-enlarged) .anim-still {
+	display: inline;
+}
+
 /* The logo's outline warbles like a hovered link; its own filter attribute
    (#warble-still) holds it under reduced motion. */
 @media (prefers-reduced-motion: no-preference) {

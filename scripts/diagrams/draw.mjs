@@ -938,6 +938,11 @@ export function createFigure({ id, width, height }) {
 		);
 	}
 
+	/** SVG markup the kit has no part for, on top of everything: an animated figure's moving pieces. */
+	function raw(markup) {
+		layers.callouts.push(markup);
+	}
+
 	function toString(label) {
 		checkLines();
 		return [
@@ -976,6 +981,7 @@ export function createFigure({ id, width, height }) {
 		note,
 		legend,
 		heading,
+		raw,
 		toString,
 	};
 }
