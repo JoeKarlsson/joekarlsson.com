@@ -51,15 +51,22 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 			}}
 		>
 			<div slot="media" class="relative z-10 aspect-square md:aspect-auto">
-				<img
-					src="/images/joe-headshot.webp"
-					alt="Joe Karlsson in profile in a white tank top, looking right, against a warm wall in golden-hour light"
+				<!-- A 4s loop from the headshot shoot (media-sources/resume-headshot.sh). The
+				panel is hidden on phones, so the still waits in data-poster and nothing loads there. -->
+				<video
+					src="/images/joe-headshot.mp4"
+					data-poster="/images/joe-headshot-poster.webp"
 					data-halftone="flat"
+					data-autoplay-in-view
+					muted
+					loop
+					playsinline
+					preload="none"
+					aria-label="Joe Karlsson in profile in a white tank top, looking right, against a warm wall in golden-hour light"
 					class="block size-full rounded-xl bg-ink object-cover"
-					width="640"
-					height="640"
-					loading="eager"
-				/>
+					width="720"
+					height="720"
+				></video>
 				<Scribble
 					{...MARKS.burst}
 					color={CHALK}
