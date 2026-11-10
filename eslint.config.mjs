@@ -30,6 +30,8 @@ export default [
 			'.lighthouseci/',
 			'scripts/',
 			'.claude/worktrees/',
+			// Git-ignored originals and one-off render scripts (.gitignore); never shipped
+			'media-sources/',
 		],
 	},
 	{
