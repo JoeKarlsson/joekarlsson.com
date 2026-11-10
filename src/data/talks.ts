@@ -126,7 +126,8 @@ export const talks: Talk[] = [
 		date: '2026-04-08',
 		description:
 			'Exploring five critical infrastructure questions that typically require hours to resolve, treating cloud governance as a data problem, and strategies for cross-cloud visibility and compliance. Co-presented with Keegan Mirazee from AWS.',
-		link: 'https://www.cloudquery.io/events/five-questions-cloud-team',
+		// CloudQuery took its events pages down; this is the archived copy
+		link: 'https://web.archive.org/web/20260606080357/https://www.cloudquery.io/events/five-questions-cloud-team',
 		cover: '/images/talks/events/cloudquery-events.webp',
 	},
 
@@ -208,7 +209,8 @@ export const talks: Talk[] = [
 		date: '2024-12-19',
 		description:
 			'Creating a cloud asset inventory using CloudQuery to track resources across AWS and Azure, monitor changes, and query infrastructure with SQL. Co-presented with Yevgeny Pats (CloudQuery CEO).',
-		link: 'https://www.cloudquery.io/events/cloud-asset-inventory',
+		// CloudQuery took its events pages down; this is the archived copy
+		link: 'https://web.archive.org/web/20251213100334/https://www.cloudquery.io/events/cloud-asset-inventory',
 		cover: '/images/talks/events/cloudquery-events.webp',
 	},
 	{
@@ -219,7 +221,8 @@ export const talks: Talk[] = [
 		date: '2024-12-19',
 		description:
 			'Managing governance, security, and regulatory compliance across multi-cloud environments with security monitoring and automated remediation workflows.',
-		link: 'https://www.cloudquery.io/events/cloud-governance-security',
+		// CloudQuery took its events pages down; this is the archived copy
+		link: 'https://web.archive.org/web/20260414182210/https://www.cloudquery.io/events/cloud-governance-security',
 		cover: '/images/talks/events/cloudquery-events.webp',
 	},
 	{
@@ -230,7 +233,8 @@ export const talks: Talk[] = [
 		date: '2024-12-19',
 		description:
 			'Getting complete visibility into AWS infrastructure across all regions and accounts, with resource tracking, optimization, and SQL-based querying.',
-		link: 'https://www.cloudquery.io/events/improve-aws-visibility',
+		// CloudQuery took its events pages down; this is the archived copy
+		link: 'https://web.archive.org/web/20260606073749/https://www.cloudquery.io/events/improve-aws-visibility',
 		cover: '/images/talks/events/cloudquery-events.webp',
 	},
 	{
