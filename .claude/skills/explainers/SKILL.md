@@ -81,7 +81,8 @@ For each moment, one short block:
 6. **The label**: the fewest words that still carry the claim. Run the deletion test on every
    word.
 
-Two or three moments per post. Never one for decoration.
+Two or three moments per post. Never one for decoration. Tiny boiling icons for a post's
+key terms are a separate kind with their own rules (`craft.md`, "Model post: Ralph Ammer").
 
 ### 2. The elements
 

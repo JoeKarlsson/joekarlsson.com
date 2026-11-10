@@ -131,8 +131,14 @@ What to take from it:
 8. **One accent color for the whole post** (his orange appears once). That matches rule 7 of
    the art direction above: one piece in color is a punchline.
 
-The four boiling icons are decoration in our terms: they illustrate routine points, which
-gate 1 of the skill rules out. Don't make that kind unless Joe asks for it.
+**Tiny icons are a second kind, and Joe wants them** (2026-11-10, "I'd love to try out his
+format of using tiny icons"). Ammer's focus, time limit, format and skill icons are a few
+lines and one handwritten word, about 220x100, where nothing changes and only the line
+boils. They mark the key terms of a list or a run of short sections, so they may show a
+routine point, unlike a collage scene. Use them as a set (three to five in a post, one per
+term, the same size and stroke), each above the paragraph that bolds its word. The word
+holds still; only the lines boil (the site rule). The look is still being picked, and
+there is no tool to make them yet.
 
 ## Sequences (not built yet; for when scenes get cut together)
 
