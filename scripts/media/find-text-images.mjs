@@ -15,7 +15,7 @@ import { projects } from '../../src/data/projects.ts';
 
 const run = promisify(execFile);
 const CONTENT_DIRS = ['src/content/blog', 'src/content/newsletter'];
-const DEFAULT_HERO = '/images/og-default-golden-hour.webp'; // DEFAULT_HERO_IMAGE in src/consts.ts
+const DEFAULT_HERO = '/images/og-default-pink.webp'; // DEFAULT_HERO_IMAGE in src/consts.ts
 const OUTPUT = 'src/data/images-with-text.json';
 // Fewer characters than this is a stray watermark or a logo, not text to read
 const MIN_CHARACTERS = 10;

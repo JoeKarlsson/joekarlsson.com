@@ -1,4 +1,4 @@
-export const DEFAULT_OG_IMAGE = '/images/og-default-golden-hour.webp';
+export const DEFAULT_OG_IMAGE = '/images/og-default-pink.webp';
 
 // LinkedIn link previews don't render WebP, so every local share image also ships as a
 // 1200x630 JPEG under /og/ (src/pages/og/[...path].jpg.ts builds them).
