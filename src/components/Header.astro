@@ -61,31 +61,37 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			title="Menu"
 			class="group/menu sticker flex h-11 shrink-0 cursor-pointer items-center gap-2 rounded-[0.43em] bg-pink px-3 text-lg text-ink uppercase hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
 		>
-			<!-- MENU and a hamburger while closed, CLOSE and an X while open (the script below) -->
-			<span aria-hidden="true" data-menu-label>
-				Menu
+			<!-- MENU and a hamburger while closed, CLOSE and an X while open: each pair is
+			stacked in one cell and crossfades (.icon-swap, motion.css) -->
+			<span aria-hidden="true" class="icon-swap">
+				<span data-icon-off>Menu</span>
+				<span data-icon-on>Close</span>
 			</span>
-			<svg
-				viewBox="0 0 16 16"
-				class="size-4 group-aria-expanded/menu:hidden"
-				fill="currentColor"
-				aria-hidden="true"
-			>
-				<rect x="1.5" y="2.5" width="13" height="2.4"></rect>
-				<rect x="1.5" y="6.8" width="13" height="2.4"></rect>
-				<rect x="1.5" y="11.1" width="13" height="2.4"></rect>
-			</svg>
-			<svg
-				viewBox="0 0 16 16"
-				class="hidden size-4 group-aria-expanded/menu:block"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2.6"
-				stroke-linecap="round"
-				aria-hidden="true"
-			>
-				<path d="M3 3 L13 13 M13 3 L3 13"></path>
-			</svg>
+			<span aria-hidden="true" class="icon-swap">
+				<svg
+					data-icon-off
+					viewBox="0 0 16 16"
+					class="size-4"
+					fill="currentColor"
+					aria-hidden="true"
+				>
+					<rect x="1.5" y="2.5" width="13" height="2.4"></rect>
+					<rect x="1.5" y="6.8" width="13" height="2.4"></rect>
+					<rect x="1.5" y="11.1" width="13" height="2.4"></rect>
+				</svg>
+				<svg
+					data-icon-on
+					viewBox="0 0 16 16"
+					class="size-4"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.6"
+					stroke-linecap="round"
+					aria-hidden="true"
+				>
+					<path d="M3 3 L13 13 M13 3 L3 13"></path>
+				</svg>
+			</span>
 		</button>
 		<!-- md and up: the links and Pause sit in the bar. Phones: a full-width dropdown under
 		the bar while the menu is open, big links with Pause motion as the last row -->
@@ -117,23 +123,27 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 				title="Pause motion"
 				class="pause-button sticker group shrink-0 cursor-pointer rounded-[0.43em] bg-ink p-[0.38em] text-paper hover:text-pink aria-pressed:bg-pink aria-pressed:text-ink"
 			>
-				<svg
-					viewBox="0 0 16 16"
-					class="size-[1em] group-aria-pressed:hidden"
-					fill="currentColor"
-					aria-hidden="true"
-				>
-					<rect x="3" y="2" width="3.5" height="12"></rect>
-					<rect x="9.5" y="2" width="3.5" height="12"></rect>
-				</svg>
-				<svg
-					viewBox="0 0 16 16"
-					class="hidden size-[1em] group-aria-pressed:block"
-					fill="currentColor"
-					aria-hidden="true"
-				>
-					<path d="M4 2 L14 8 L4 14 Z"></path>
-				</svg>
+				<span aria-hidden="true" class="icon-swap">
+					<svg
+						data-icon-off
+						viewBox="0 0 16 16"
+						class="size-[1em]"
+						fill="currentColor"
+						aria-hidden="true"
+					>
+						<rect x="3" y="2" width="3.5" height="12"></rect>
+						<rect x="9.5" y="2" width="3.5" height="12"></rect>
+					</svg>
+					<svg
+						data-icon-on
+						viewBox="0 0 16 16"
+						class="size-[1em]"
+						fill="currentColor"
+						aria-hidden="true"
+					>
+						<path d="M4 2 L14 8 L4 14 Z"></path>
+					</svg>
+				</span>
 				<span aria-hidden="true" data-pause-label class="pause-label hidden">
 					Pause motion
 				</span>
@@ -143,7 +153,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 		<div
 			aria-hidden="true"
 			data-read-progress
-			class="read-line absolute bottom-0 left-0 hidden h-1 w-0 rounded-[0.67em] bg-pink"
+			class="read-line absolute bottom-0 left-0 hidden h-1 w-full origin-left rounded-[0.67em] bg-pink [scale:0_1]"
 		></div>
 	</nav>
 </header>
@@ -198,18 +208,10 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 	const nav = document.querySelector<HTMLElement>('header nav[aria-label="Main navigation"]');
 	const menuToggle = nav?.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
 	if (nav) initReadingContext(nav);
-	// After a first press, the menu and pause buttons blur their new icon in (motion.css).
-	// Not before, so the icons don't animate on every page load
-	nav
-		?.querySelectorAll('[data-nav-menu-toggle], [data-pause-motion]')
-		.forEach((button) =>
-			button.addEventListener('click', () => button.setAttribute('data-icon-swap', '')),
-		);
 	if (nav && menuToggle) {
 		const setMenuOpen = (open: boolean) => {
 			nav.toggleAttribute('data-menu-open', open);
 			menuToggle.setAttribute('aria-expanded', String(open));
-			menuToggle.querySelector('[data-menu-label]')!.textContent = open ? 'Close' : 'Menu';
 		};
 		menuToggle.addEventListener('click', () => setMenuOpen(!nav.hasAttribute('data-menu-open')));
 		document.addEventListener('keydown', (event) => {
