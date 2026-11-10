@@ -332,9 +332,7 @@ See [Run Aggregation Pipelines](https://docs.mongodb.com/mongodb-vscode/run-agg-
 
 If you use Terraform to manage your infrastructure, MongoDB for Visual Studio Code helps you get started with the [MongoDB Atlas Provider](https://www.terraform.io/docs/providers/mongodbatlas/index.html). We aren’t going to cover this feature today, but if you want to learn more, be sure to check out [Create an Atlas Cluster from a Template using Terraform](https://docs.mongodb.com/mongodb-vscode/create-cluster-terraform), from the MongoDB manual.
 
-## Summary
-
-There you have it! MongoDB for Visual Studio Code Extension allows you to connect to your MongoDB instance and enables you to interact in a way that fits into your native workflow and development tools. You can browse your MongoDB databases and collections, and prototype queries and aggregations for use in your applications.
+## Next steps
 
 If you are a Visual Studio Code user, getting started with MongoDB for Visual Studio Code is easy:
 

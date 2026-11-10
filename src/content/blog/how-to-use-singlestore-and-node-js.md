@@ -235,9 +235,9 @@ And of course, we will need to invoke this method in main().
 await delete_({ conn, id });
 ```
 
-## Summary
+## Next steps
 
-And that’s it! You’ve successfully connected your Node.js application to SingleStore and built a CRUD application. Now you can make a blog, an eCommerce store, or a massively fast, real-time analytics platform.
+Now that the CRUD calls work, you can make a blog, an eCommerce store, or a massively fast, real-time analytics platform.
 
 If you want to check out the complete code base, you can find it on [GitHub](https://github.com/singlestore-labs/start-with-singlestore-node).
 

@@ -119,9 +119,9 @@ Once you have done that, press “Run Query”. Your query results will show up 
 
 ![MindsDB prediction result showing BMI of 25.12 with 46% confidence](/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/img_predicted-bmi.webp)
 
-## Summary
+## Next steps
 
-In this post, we covered how you can now run your own queries and predictions using MindsDB and SingleStore. But this is just the beginning. I would encourage you to play with your other datasets and see if you can pull some interesting insights from your data.
+I would encourage you to play with your other datasets and see if you can pull some interesting insights from your data.
 
 If you want to play around with machine learning on your data, the best way is to spin up a database cluster on SingleStore and try it out for yourself! You can sign up for FREE here:
 

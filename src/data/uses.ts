@@ -115,7 +115,8 @@ export const USES_SECTIONS: UsesSection[] = [
 					{
 						name: 'Razer DeathAdder Chroma',
 						url: 'https://www.razer.com/pc/gaming-mice/deathadder-line',
-						descHtml: 'gaming mouse.',
+						descHtml:
+							"wired, so there are no batteries to replace, and it's been rock solid for years. I'm not a gamer, but I map the extra buttons to different functions.",
 						pin: [89, 62],
 					},
 					{
@@ -127,7 +128,8 @@ export const USES_SECTIONS: UsesSection[] = [
 					{
 						name: 'Razer Goliathus Extended Chroma',
 						url: 'https://www.razer.com/gaming-mouse-mats/razer-goliathus-extended-chroma',
-						descHtml: 'mousepad with RGB backlighting.',
+						descHtml:
+							"mousepad with RGB backlighting. It's a total luxury: I just like how the LEDs look. If it dies, I'll replace it with a regular mat.",
 						pin: [14, 72],
 					},
 					{
@@ -302,7 +304,8 @@ export const USES_SECTIONS: UsesSection[] = [
 					{
 						name: 'HON Ignition 2.0',
 						url: 'https://www.amazon.com/dp/B0FPXPQJBT',
-						descHtml: 'ergonomic mesh chair with lumbar support.',
+						descHtml:
+							"mesh chair, and it's serviceable. I mostly sit in it to record. I've worked at a standing desk for about 15 years and I'd rather lean on a stool, but sometimes it's nice to sit down.",
 					},
 					{
 						name: 'Original Prusa i3 MK3S',
@@ -747,7 +750,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Zigbee2MQTT',
 						url: 'https://github.com/Koenkk/zigbee2mqtt',
 						descHtml:
-							"29 Zigbee devices on a ConBee II, no proprietary hubs. I'm staying on Zigbee rather than moving to Matter.",
+							"29 Zigbee devices on a ConBee II, no proprietary hubs. Zigbee has been rock solid, and it stays up when other things go down. Thread and Matter are promising, but people in the community still find them flaky, so I'm not switching anytime soon.",
 					},
 					{
 						name: 'Frigate',

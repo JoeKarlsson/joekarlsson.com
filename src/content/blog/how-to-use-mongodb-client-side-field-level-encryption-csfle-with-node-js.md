@@ -511,27 +511,9 @@ $ node ./example.js
 
 Note: If you’re connecting to MongoDB Atlas, please make sure to [Configure Allowlist Entries](https://docs.atlas.mongodb.com/security-whitelist/).
 
-## Summary
-
-We wanted to develop a system that securely stores sensitive medical records for patients using MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js. We also wanted strong data access and security guarantees that do not rely on individual users. After researching the available options, we determined that MongoDB Client-Side Field Level Encryption satisfies their requirements and decided to implement it in their application. To implement CSFLE, we did the following:
-
-**1. Created a Locally-Managed Master Encryption Key**
+## Move to Production
 
 A locally-managed master key allowed us to rapidly develop the client application without external dependencies and avoid accidentally leaking sensitive production credentials.
-
-**2. Generated an Encrypted Data Key with the Master Key**
-
-CSFLE uses envelope encryption, so we generated a data key that encrypts and decrypts each field and then encrypted the data key using a master key. This allows us to store the encrypted data key in MongoDB so that it is shared with all clients while preventing access to clients that don’t have access to the master key.
-
-**3. Created a JSON Schema**
-
-CSFLE can automatically encrypt and decrypt fields based on a provided JSON Schema that specifies which fields to encrypt and how to encrypt them.
-
-**4. Tested and Validated Queries with the CSFLE Client**
-
-We tested their CSFLE implementation by inserting and querying documents with encrypted fields. We then validated that clients without CSFLE enabled could not read the encrypted data.
-
-## Move to Production
 
 In this guide, we stored the master key in your local file system. Since your data encryption keys would be readable by anyone that gains direct access to your master key, we **strongly recommend** that you use a more secure storage location such as a Key Management System (KMS).
 

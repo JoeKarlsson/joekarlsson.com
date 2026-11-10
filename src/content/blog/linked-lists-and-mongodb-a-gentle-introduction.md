@@ -454,10 +454,8 @@ async insert(value, index) {
 }
 ```
 
-## Summary
+## Next steps
 
-Many developers want to learn the fundamental Computer Science data structures and algorithms or get a refresher on them. In my opinion, the best way to learn data structures is by implementing them on your own. This exercise is a great way to learn data structures as well as learn the fundamentals of MongoDB CRUD operations. If you want to learn more about how to structure your data in MongoDB beyond linked lists, check out my talk on [MongoDB schema design best practices](/talks/mongodb-schema-design-best-practices/).
+In my opinion, the best way to learn data structures is by implementing them on your own. If you want to learn more about how to structure your data in MongoDB beyond linked lists, check out my talk on [MongoDB schema design best practices](/talks/mongodb-schema-design-best-practices/).
 
 > When you’re ready to implement your own linked list in MongoDB, check out [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), MongoDB’s fully managed database-as-a-service. Atlas is the easiest way to get started with MongoDB and has a generous, forever-free tier.
-
-If you want to learn more about linked lists and MongoDB, be sure to check out these resources.

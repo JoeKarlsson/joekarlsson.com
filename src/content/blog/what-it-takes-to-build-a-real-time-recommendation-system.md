@@ -236,12 +236,8 @@ This is one of the last steps, but it’s often the most challenging because rea
 
 Of course, as you collect real-world real-time data, your algorithm should be optimized based on your target metrics. This involves continual offline training on your algorithms or tweaking your heuristics to improve the real-time recommendation engine.
 
-## Wrapping up
+## Next steps
 
-Building a real-time recommendation system requires a combination of technical expertise, careful planning, and a deep understanding of user preferences. By successfully implementing and optimizing these systems, businesses can not only enhance user experiences but also gain a competitive edge in the digital landscape.
-
-> Real-time recommendation systems can be very complex or very simple. How you build it depends on the use case and its unique requirements.
-
-As the world continues to generate vast amounts of data, the importance of real-time recommendation systems will only grow. As a part of an intentional [real-time data strategy](https://www.tinybird.co/blog-posts/16-questions-real-time-data-strategy), these systems revolutionize the way we discover and engage with digital content, making our online experiences more relevant and rewarding than ever before.
+A real-time recommender works best as part of an intentional [real-time data strategy](https://www.tinybird.co/blog-posts/16-questions-real-time-data-strategy).
 
 Ready to start building a real-time recommendation system? Try [Tinybird](https://www.tinybird.co), the [real-time data platform](https://www.tinybird.co/product) that makes it possible to build a real-time recommender with nothing but SQL.

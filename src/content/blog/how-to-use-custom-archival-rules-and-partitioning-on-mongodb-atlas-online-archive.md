@@ -95,9 +95,7 @@ Atlas creates partitions first for the `username` field, followed by the `email`
 
 For more information on how to partition data in your Online Archive, please [refer to the documentation](https://docs.atlas.mongodb.com/online-archive/configure-online-archive/).
 
-## Summary
-
-In this post, we covered some advanced use cases for Online Archive. This should help you take advantage of this MongoDB Atlas feature. We then initialized a demo to show you how to set up custom archival rules for MongoDB with Atlas Online Archive. And finally, we covered how to improve query performance through partitioning your archived data.
+## Next steps
 
 If you have questions about custom archival rules for MongoDB, please head to our [developer community website](https://community.mongodb.com/). That is where the MongoDB engineers and the MongoDB community will help you build your next big idea with MongoDB.
 

@@ -1354,7 +1354,7 @@ export const projects: Project[] = [
 	{
 		title: 'Python Sudoku Generator & Solver',
 		description:
-			'Generates unique Sudoku boards across 4 difficulty levels with a built-in solver using backtracking.',
+			'A Python program that generates unique Sudoku boards at 4 difficulty levels, and solves them by backtracking.',
 		image: '/images/projects/sudoku-generator/thumb-d515f26f.webp',
 		imageAlt:
 			'A Sudoku board drawn in chalk solving itself: the solver fills the blank cells in pink, a few at a time, as the count climbs from 30 to 81 and the board reads Solved',
@@ -1553,7 +1553,7 @@ export const projects: Project[] = [
 		title: 'MikroTik Native API Client',
 		shareTitle: "MikroTik's binary router API in 137 lines of standard-library Python",
 		description:
-			"A from-scratch Python implementation of MikroTik's proprietary binary API protocol. Handles variable-length encoding, authentication, and sentence-based messaging for programmatic control of network infrastructure - bonding, DHCP, firewall rules, and more.",
+			"A Python client for MikroTik's binary router API, written from scratch so I could change my switch's bonds, DHCP and firewall rules from scripts instead of typing into SSH.",
 		image: '/images/projects/mikrotik-api-client/thumb-6cc55f0c.webp',
 		imageAlt:
 			'A MikroTik API login sentence written to the wire one word at a time, /login, =name=admin and =password=secret, each with its length byte, then a zero byte, and RouterOS answering !done',

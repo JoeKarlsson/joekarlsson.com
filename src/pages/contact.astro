@@ -75,15 +75,15 @@ const track = (platform: string) =>
 					class="-bottom-[7%] -left-[4%] z-10 h-[14%] w-[70%]"
 				/>
 			</div>
-			<!-- Phones skip the pitch and the two buttons so the platform list starts right
-			under the title, and LinkedIn opens that list instead -->
-			<div class="max-md:hidden">
+			<!-- Phones keep the one-line pitch, so visitors know what to message me about, but skip
+			the two buttons so the platform list starts right after it, and LinkedIn opens that list -->
+			<div>
 				<p class={HERO_LEAD}>
 					Message me on LinkedIn about work or a speaking gig, or on Bluesky to talk homelabs,
 					databases, or weird IoT projects.
 				</p>
-				<p class="mt-5 mb-3 text-sm text-muted">Best ways to reach me</p>
-				<div class="flex flex-wrap gap-3">
+				<p class="mt-5 mb-3 text-sm text-muted max-md:hidden">Best ways to reach me</p>
+				<div class="flex flex-wrap gap-3 max-md:hidden">
 					{BEST.map(({ label, meta, href }, i) => (
 						<a
 							href={href}

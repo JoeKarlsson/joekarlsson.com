@@ -297,9 +297,7 @@ HAVING
     * AVG(CAST(amount AS Float64))) < MAX(CAST(amount AS Float64))
 ```
 
-## Summary
-
-Congratulations, fraud-fighter! You’ve built a real-time fraud detection system using Tinybird, and now you’re ready to put those skills to work. Go forth and create your own fraud detection system, and remember, with great data comes great responsibility.
+## Next steps
 
 In the next part of this fraud-fighting adventure, I’ll explore how to build a dashboard using Retool components to visualize the fraud detection data in real-time. Stay tuned!
 

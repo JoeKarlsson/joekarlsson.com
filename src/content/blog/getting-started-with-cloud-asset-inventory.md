@@ -152,9 +152,7 @@ Maintaining a cloud asset inventory is an ongoing process that requires thoughtf
 - Cloud providers frequently release new features and services. Regularly review updates and adjust your inventory methods to include these changes.
 - Subscribe to provider blogs or updates to stay informed.
 
-## Summary
-
-A cloud asset inventory is an essential tool for maintaining security, ensuring compliance, and optimizing operations. By following best practices and addressing common challenges, platform, and security engineers can build and sustain a solid inventory that adapts to the complexities of modern cloud environments.
+## Learn more
 
 _Want to see CloudQuery in action?_ [Schedule a demo with our team](https://www.cloudquery.io/contact-us) or check out the [platform documentation](https://www.cloudquery.io/docs/platform/introduction) to learn more.
 

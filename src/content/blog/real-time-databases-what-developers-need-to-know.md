@@ -223,13 +223,7 @@ You can refer to the table below for a high-level comparison of various database
 
 Comparing various real-time databases
 
-## Conclusion
-
-Software and data engineers working with real-time data must [select the right database for real-time applications](https://www.tinybird.co/blog-posts/best-database-for-real-time-analytics), as the chosen database directly impacts the performance, scalability, and versatility of the entire system. MongoDB and PostgreSQL are popular application databases with features that may make them suitable for certain use cases, but they’re generally not the best choice for every real-time analytics scenario.
-
-[Tinybird](https://www.tinybird.co), on the other hand, stands out as a strong contender for software developers building real-time analytics applications. By building on the power of an alternative, open-source real-time database in ClickHouse, Tinybird offers high-frequency data ingestion, powerful SQL support, and real-time querying capabilities that are essential for real-time development. In addition to its real-time bonafides, Tinybird is easy to start with, requires zero infrastructure setup or maintenance, and makes data sharing and collaboration simple through its one-click API publication workflow.
-
-By meeting the outlined criteria for real-time analytics databases, such as data warehousing and OLAP workloads support, scalability, event-driven data ingestion and processing, support for complex analytics queries, and SQL support, Tinybird proves to be a compelling choice for developers. Its ability to simplify setup and maintenance while enabling efficient sharing of insights further underscores its suitability for real-time analytics applications.
+## Learn more
 
 To learn more about how to build real-time analytics APIs with Tinybird, check out these resources:
 

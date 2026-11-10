@@ -204,11 +204,9 @@ DROP TABLE holidays;
 DROP TABLE cosmeticshopfunnel;
 ```
 
-## Summary
+## Next steps
 
-And that’s all! You’ve successfully set up a brand new SingleStore cluster, imported over 20 million rows of sample eCommerce data from an AWS S3 Bucket, and then run some queries on the imported dataset. I want you to take note of how quickly SingleStore was able to upload and process this massive dataset. I bet it only took you a matter of seconds to run these queries, right?
-
-So, now that you’ve set up a project in SingleStore, now what’s next? Personally, I would recommend that you check out the [SingleStore Developers site](https://developers.singlestore.com). There are tons of great developer projects and demos for many languages, frameworks, and integrations.
+Personally, I would recommend that you check out the [SingleStore Developers site](https://developers.singlestore.com). There are tons of great developer projects and demos for many languages, frameworks, and integrations.
 
 The [SingleStore Training](https://www.singlestore.com/training/) page includes more self-paced courses like Schema Design, Data Ingestion, Optimizing Queries, and more.
 

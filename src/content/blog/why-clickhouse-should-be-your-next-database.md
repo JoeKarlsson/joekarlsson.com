@@ -116,9 +116,7 @@ This parameter refers to the space occupied by the data in the database.
 
 ClickHouse also proves to be more storage-efficient. The benchmark indicates that ClickHouse uses about 8.5 times less storage compared to PostgreSQL for the same dataset.
 
-## Conclusion
-
-Based on the ClickHouse benchmark, ClickHouse significantly outperforms PostgreSQL in data load time and storage size efficiency when optimized and deployed under the same conditions. These results pertain to a specific analytical scenario and real-world results might vary based on the specific use case and tuning of the systems.
+These results come from one analytical scenario, and real-world results might vary based on the use case and how each system is tuned.
 
 You can also check out how ClickHouse compares to other databases in the [benchmark report](https://benchmark.clickhouse.com).
 
