@@ -24,6 +24,8 @@ export const NOT_ON_TALKS = new Set([
 	'1OuDyDdTDFw', // Cloud Code demo
 	'pX0F4eJb4lM', // A Gentle Introduction to Async Await, deleted duplicate of FB4JQPUS9Bs
 	'I2yMKgKkKvk', // Moodlite, deleted duplicate of Eje1EPiiI5M
+	'CBkHaIm-K9I', // Meta Muse demo, deleted; CData's cut RxXiOeSHrBA stays
+	'FxeQ5eck3tw', // Atlas credit how-to, deleted (offer expired)
 ]);
 
 const KIND_BY_FOLDER = {

@@ -94,7 +94,7 @@ export const talks: Talk[] = [
 		date: '2026-10-13',
 		description:
 			'Connecting Meta Muse to Salesforce, NetSuite, ServiceNow and other work apps with CData Connect AI and one custom connector.',
-		videos: ['RxXiOeSHrBA', 'CBkHaIm-K9I'],
+		videos: ['RxXiOeSHrBA'],
 	},
 	{
 		title: 'What Is an AI Gateway? A 60-Second Breakdown',
@@ -715,7 +715,7 @@ export const talks: Talk[] = [
 		kind: 'talk',
 		event: 'PennApps XXI (keynote)',
 		place: 'Online',
-		date: '2020-09',
+		date: '2020-09-13',
 		videos: ['EtduE9IHDS0'],
 		...ART_OF_CS,
 	},
@@ -921,7 +921,7 @@ export const talks: Talk[] = [
 		title: 'MongoDB Schema Design Best Practices',
 		kind: 'talk',
 		event: 'YouTube',
-		date: '2020-04-16',
+		date: '2020-04-09',
 		videos: ['leNCfU5SYR8'],
 		...SCHEMA,
 	},
@@ -1017,7 +1017,7 @@ export const talks: Talk[] = [
 		kind: 'talk',
 		event: 'MongoDB.local San Francisco 2020',
 		place: 'San Francisco, CA',
-		date: '2020-01-24',
+		date: '2020-01-21',
 		videos: ['XsD2ZKqMbgo'],
 		slides:
 			'https://speakerdeck.com/joekarlsson/getting-started-with-graphql-and-atlas-mongodb-local-sf-2020',
@@ -1032,13 +1032,6 @@ export const talks: Talk[] = [
 	},
 
 	// 2019
-	{
-		title: 'How to Redeem a MongoDB Atlas Credit',
-		kind: 'demo',
-		event: 'YouTube',
-		date: '2019-11-27',
-		videos: ['FxeQ5eck3tw'],
-	},
 	{
 		title: 'From SQL to NoSQL: Changing Your Mindset',
 		kind: 'talk',
@@ -1177,7 +1170,7 @@ export const talks: Talk[] = [
 		kind: 'talk',
 		event: 'Prairie Dev Con Winnipeg 2019',
 		place: 'Winnipeg, Canada',
-		date: '2019-06-07',
+		date: '2019-06-05',
 		videos: ['CmhWzoo2IuE'],
 		slides: 'https://speakerdeck.com/joekarlsson/js-and-parallel-processing',
 	},

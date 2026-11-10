@@ -210,16 +210,6 @@
 		"backup": "Livestreams/2019/2019-11-25 - Twitch - Building an IoT Kitty Litter Box/2019-11-25 - Twitch - Building an IoT Kitty Litter Box [7u9S0nTCwbQ].mkv"
 	},
 	{
-		"id": "FxeQ5eck3tw",
-		"title": "How To Redeem A MongoDB Atlas Credit",
-		"channel": "Joe Carlson",
-		"owner": "joe",
-		"kind": "video",
-		"date": "2019-11-27",
-		"durationSeconds": 84,
-		"backup": "Tutorials & Demos/2019/2019-11-27 - YouTube - How to Redeem a MongoDB Atlas Credit/2019-11-27 - YouTube - How to Redeem a MongoDB Atlas Credit [FxeQ5eck3tw].mkv"
-	},
-	{
 		"id": "711Sb55fzdg",
 		"title": "Bringing JavaScript to the IoT Edge - Joe Karlsson, Mongo",
 		"channel": "node.js",
@@ -858,16 +848,6 @@
 		"date": "2026-09-25",
 		"durationSeconds": 77,
 		"backup": "Tutorials & Demos/2026/2026-09-25 - CData Software - What Is an AI Gateway - A 60-Second Breakdown/2026-09-25 - CData Software - What Is an AI Gateway - A 60-Second Breakdown [679ms5EIgz8].mkv"
-	},
-	{
-		"id": "CBkHaIm-K9I",
-		"title": "How to connect Meta Muse to Salesforce, NetSuite, ServiceNow, and more!",
-		"channel": "Joe Carlson",
-		"owner": "joe",
-		"kind": "video",
-		"date": "2026-10-08",
-		"durationSeconds": 178,
-		"backup": "Tutorials & Demos/2026/2026-10-08 - YouTube - How to Connect Meta Muse to Salesforce, NetSuite, ServiceNow, and More/2026-10-08 - YouTube - How to Connect Meta Muse to Salesforce, NetSuite, ServiceNow, and More [CBkHaIm-K9I].mkv"
 	},
 	{
 		"id": "RxXiOeSHrBA",
