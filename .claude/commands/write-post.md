@@ -289,6 +289,7 @@ AI writing has tells beyond word choice. Older models wrote uniform 15-25 word s
 #### Post-level rules
 
 - **DO NOT** transition smoothly between every section. Sometimes Joe just jumps to the next topic. Real writing has abrupt shifts.
+- **Say each finding once in the body.** The layout renders the TL;DR right above the intro, so the intro can't restate it: give the evidence or the stakes instead. Don't preview the sections in order, and don't end with a recap of the intro or a "Takeaways"/"Key takeaways" list of bold slogans. End on the last new thing. The frontmatter FAQ may restate answers for search, but don't add a second summary in the body. In Nov 2026 reviews of three recent posts, this repetition was the main reason they read as AI (humanizer pattern 46).
 - **Vary section lengths dramatically.** If your longest section is 8 paragraphs, your shortest should be 1-2. Never have all sections within 1-2 paragraphs of each other.
 - **Break the pattern.** If you've written 3 sections that each start with a narrative paragraph, make the 4th start with a list or a question or a code block.
 - **Include specific numbers and details** that only someone who actually did this would know (exact error messages, specific config values, dollar amounts, timestamps).
@@ -444,7 +445,7 @@ Box text color flips to white with an outline on dark backgrounds. **Open every 
 
 Write the draft to `src/content/blog/{slug}.md` so subsequent phases can grep and edit the file directly.
 
-**Run the full `humanizer` skill (Skill tool) on the draft before Joe sees it, and again after every round of edits, before each time you show or ship it.** That means the whole process: fact ledger, Joe's voice samples, rewrite, rubric loop with the quotable-line cap, fact diff. The `ai_tells.py` hits from the post-edit hook, Vale and `blog-voice-reviewer` don't count as the humanizer. In the summary, say which humanizer steps ran. Why: on the recording-setup-tour post (2026-11-09) only the scanner and the voice reviewer ran, and the draft reached Joe with a joke and an opinion he never said. He asked "Wait, why did that not run? That needs to happen every time for these blog posts."
+**Run the full `humanizer` skill (Skill tool) on the draft before Joe sees it, and again after every round of edits, before each time you show or ship it.** That means the whole process: fact ledger, Joe's voice samples, rewrite, rubric loop with the quotable-line cap, fact diff. The `ai_tells.py` hits from the post-edit hook, Vale and `blog-voice-reviewer` don't count as the humanizer. In the summary, say which humanizer steps ran. On later rounds it should fix only lines with a confirmed tell and copy the rest exactly, so a re-run never churns paragraphs Joe already approved. Why it runs every time: on the recording-setup-tour post (2026-11-09) only the scanner and the voice reviewer ran, and the draft reached Joe with a joke and an opinion he never said. He asked "Wait, why did that not run? That needs to happen every time for these blog posts."
 
 Open the draft in VS Code for Joe to review (`code src/content/blog/{slug}.md`) - do this every time, without asking, and again after any round of changes he requests. Don't paste the full draft inline; give a short summary (word count, sections, memes, anything he needs to confirm) and use AskUserQuestion:
 
@@ -473,7 +474,7 @@ Apply every **must-fix** edit before proceeding. Apply **should-fix** edits wher
 
 ### 4b. Voice Comparison
 
-Re-read the category-specific posts from Phase 0b. Compare the draft's tone, rhythm, and structure to Joe's actual writing. Identify the 3 weakest sections (the ones that sound least like Joe) and rewrite them.
+Re-read the category-specific posts from Phase 0b. Compare the draft's tone, rhythm, and structure to Joe's actual writing. Rewrite only sections where you can name what sounds unlike Joe, and only the sentences that cause it. If nothing does, change nothing. Rewriting sections that were fine is how drafts end up flat and even.
 
 ### 4c. Sentence craft
 
