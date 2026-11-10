@@ -159,6 +159,8 @@
 			ctx.font = `${label.weight ?? 400} ${label.size ?? 80}px ${label.font_family ?? 'sans-serif'}`;
 			ctx.letterSpacing = `${label.tracking ?? 0}px`;
 			ctx.textBaseline = 'top';
+			// align: 'center' sets the label centered on x
+			ctx.textAlign = label.align ?? 'left';
 			ctx.fillText(
 				label.text ?? '',
 				label.x ?? 80,

@@ -1,0 +1,23 @@
+[
+	{
+		"element": "elements/camera.png",
+		"source": "public/images/blog/recording-setup-tour/camera-behind-prompter.webp (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "The Sony ZV-E10 behind the Elgato Prompter's hood",
+		"derivative": "subject lifted with Apple Vision, largest piece kept, toned black and white, 6 px keyline (--largest --width 520)"
+	},
+	{
+		"element": "elements/spotlight.png",
+		"source": "public/images/blog/recording-setup-tour/nook-wide.webp (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "The NEEWER FL20 spotlight on its tripod",
+		"derivative": "cropped to the spotlight, lifted, largest piece kept, toned black and white (--crop 0,230,470,670 --largest --width 520)"
+	},
+	{
+		"element": "elements/prusa.png",
+		"source": "Immich, IMG_2648(3).HEIC, 2019-06-09 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "Joe's Prusa i3 MK3 on a desk",
+		"derivative": "lifted with Apple Vision, largest piece kept, left in color (--largest --width 620 --tone none)"
+	}
+]

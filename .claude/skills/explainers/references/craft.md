@@ -36,14 +36,24 @@ win any conflict; the rest fill in what pasteup doesn't cover.
    every piece at one depth; vary them only to say a piece floats higher.
 4. **Pieces sit on the field.** "Do not wrap every asset in another paper card." "Keep
    evidence larger and quieter than decoration." (`voxstylehub: visual-language.md`)
-5. **Frame it for a phone too.** "central subject within the middle 70 percent; generous clean
+5. **Balance the weight.** Joe judges a frame by visual weight first (2026-11-10, "the balance is
+   wrong, like weight-wise"). The hero piece anchors the center; supporting pieces carry matching
+   mass on either side at similar heights; a label spans the frame centered (`"align": "center"`,
+   with `x` as its center) instead of sitting in one corner. A color piece among mono ones is
+   heavy: put it in the middle.
+6. **Messy edges are fine.** Ragged cuts and stray bits of keyline read like the site's
+   scribbles; Joe said "it can look messy" (2026-11-10). Don't smooth them away. Fix what's
+   unbalanced or unclear, not what's handmade.
+7. **One piece in color is a punchline.** Keep the scene mono and leave only the thing the joke is
+   about in full color (the glowing Prusa in "It's a prop now").
+8. **Frame it for a phone too.** "central subject within the middle 70 percent; generous clean
    color-field negative space; 3–6 large separable paper groups" (`VOX-COLLAGE-BROLL`).
-6. **Depth needs a foreground.** "Every scene is three layers... A scene missing the foreground
+9. **Depth needs a foreground.** "Every scene is three layers... A scene missing the foreground
    looks like a slide." (`vox-editorial: vox-skill/SKILL.md`) A piece that overlaps another
    (the guest in front of the couch) is the cheapest depth there is.
-7. **Gauges and clocks get plain ticks**, "never Roman numerals or digits", and no "Zzz" marks
+10. **Gauges and clocks get plain ticks**, "never Roman numerals or digits", and no "Zzz" marks
    (`VOX-COLLAGE-BROLL`).
-8. **Halftone, if used, is a medium, not a filter.** "Shading is never a gradient: it is
+11. **Halftone, if used, is a medium, not a filter.** "Shading is never a gradient: it is
    halftone dots" (`lemo-opuscar: styles/halftone-dossier/STYLE.md`); keep the dots pinned to the
    object as it moves, or the texture swims (`riso-windowseat: docs/quality-bar.md`). Mono
    prints read as collage without it.
@@ -100,8 +110,8 @@ last, the label after everything, and the finished frame held at least 1.2 s.
    stamp" gets bigger (`voxstylehub: visual-qa.md`).
 4. **Not a slide**: would it read "as a slide deck with transitions removed"? Then it isn't
    telling the story with the pieces (`voxstylehub: visual-qa.md`).
-5. **Clean cuts**: no halo, no leftover background, no hair or glass matte pretending to be
-   fine.
+5. **Cuts that read as the object**: messy edges are fine, but the subject must be whole and
+   recognizable (a missing leg or a chair that came out as a shelf gets recut or dropped).
 6. **The deletion test** on every word in the label: what does the viewer lose without it?
    (adapted from `video-director-workflow: references/text-selection.md`)
 7. **The still holds the point** on its own: it's what phones, reduced motion, the pause button

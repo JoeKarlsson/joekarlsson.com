@@ -32,7 +32,8 @@ the merged rulebook. Read it before the first scene of a session.
 - `scripts/collage/collage.cjs` is pasteup's `assemble.py` ported to a canvas: same scene.json
   schema (`vendor/tmoody1973__pasteup/skills/pasteup/references/motion-recipes.md`), with one
   change: the label takes `font_family` (a Google Fonts family, Anton by default for the site)
-  instead of a TTF path. `tests/collage.test.ts` covers the motion math.
+  instead of a TTF path, and `"align": "center"` centers it on `x`. `tests/collage.test.ts`
+  covers the motion math and the cut-out clean-up.
 - `scripts/collage/render.mjs` draws each pose in headless Chromium and encodes with ffmpeg.
   `--post` writes `<name>.mp4` (1280 wide), `<name>.webp` and `<name>-poster.webp`; the post
   references `<name>.webp` and `src/plugins/rehype-gif-video.mjs` plays the clip in its place,
@@ -41,7 +42,8 @@ the merged rulebook. Read it before the first scene of a session.
 
 Scenes live in `scripts/collage/<slug>/<scene>/` (`scene.json`, `elements/`,
 `sources.json`); originals in `media-sources/collage/<slug>/` (git-ignored). Copy
-`scripts/collage/best-home-assistant-automations/landing-the-plane/`.
+`scripts/collage/recording-setup-tour/its-a-prop-now/` (the first scene Joe approved and
+shipped, 2026-11-10: his own photos, one piece in color, balanced around the center).
 
 ## The gates
 
@@ -105,7 +107,9 @@ it against `craft.md`'s QA list, and open them for Joe.
 ### 4. Build and ship
 
 `--post` into the post's image folder and reference the still in the markdown with real alt
-text, under the paragraph it shows. For a video, `--out` at full size; a vertical cut is the
+text, under the paragraph it shows, or, where the post already embeds clips with `<video
+data-autoplay-in-view data-phone-still ...>` tags, use the same tag with the `-poster.webp`
+(and delete the unused `.webp`). For a video, `--out` at full size; a vertical cut is the
 same scene with a 1080x1920 canvas and new positions. Build the post, run the
 `motion-reviewer` and `design-reviewer` agents on it, and fix High and Medium findings.
 
