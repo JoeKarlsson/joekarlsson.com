@@ -42,7 +42,15 @@
 		const duration = Math.max(spec.enter_duration ?? 0.5, 1e-6);
 		const tx = spec.x;
 		const ty = spec.y;
-		if (t < enterAt) return { visible: false, x: tx, y: ty, shadowScale: 1, progress: 0 };
+		if (t < enterAt)
+			return {
+				visible: false,
+				x: tx,
+				y: ty,
+				rotation: spec.rotation ?? 0,
+				shadowScale: 1,
+				progress: 0,
+			};
 		const p = clamp01((t - enterAt) / duration);
 		const e = easeOutBack(p);
 		let x;
@@ -61,7 +69,53 @@
 			x = sx + (tx - sx) * e;
 			y = sy + (ty - sy) * e;
 		}
-		return { visible: true, x, y, shadowScale: 1 + 0.6 * (1 - clamp01(p * 1.2)), progress: p };
+		const landed = { x, y, rotation: spec.rotation ?? 0 };
+		const moved = afterMoves(spec.moves, t, landed);
+		return {
+			visible: true,
+			x: moved.x,
+			y: moved.y,
+			rotation: moved.rotation,
+			shadowScale: Math.max(1 + 0.6 * (1 - clamp01(p * 1.2)), moved.lift),
+			progress: p,
+		};
+	}
+
+	const EASES = {
+		back: easeOutBack,
+		// a fall: starts slow, speeds up, no settle
+		in: (t) => t * t * t,
+		out: (t) => 1 - (1 - t) ** 3,
+	};
+
+	/**
+	 * moves: changes after a piece lands, in time order, each
+	 * { at, duration = 0.5, x?, y?, rotation?, ease = 'back' | 'in' | 'out' }. A move starts
+	 * from wherever the last one left the piece, so a split, a fall off the frame and a slide back
+	 * for the loop are just three moves. lift is the shadow scale while a move is under way.
+	 */
+	function afterMoves(moves, t, landed) {
+		let from = landed;
+		let lift = 1;
+		for (const move of moves ?? []) {
+			if (t < move.at) break;
+			const p = clamp01((t - move.at) / Math.max(move.duration ?? 0.5, 1e-6));
+			const e = (EASES[move.ease ?? 'back'] ?? easeOutBack)(p);
+			const to = {
+				x: move.x ?? from.x,
+				y: move.y ?? from.y,
+				rotation: move.rotation ?? from.rotation,
+			};
+			const pose = {
+				x: from.x + (to.x - from.x) * e,
+				y: from.y + (to.y - from.y) * e,
+				rotation: from.rotation + (to.rotation - from.rotation) * e,
+			};
+			lift = p < 1 ? 1.4 : 1;
+			if (p < 1) return { ...pose, lift };
+			from = to;
+		}
+		return { ...from, lift };
 	}
 
 	/** The time of the pose a frame shows: a new pose every hold_frames frames. */
@@ -132,7 +186,7 @@
 			if (!pose.visible) return;
 			const jx = (random() * 2 - 1) * jitterPx;
 			const jy = (random() * 2 - 1) * jitterPx;
-			let deg = (random() * 2 - 1) * jitterDeg + (spec.rotation ?? 0);
+			let deg = (random() * 2 - 1) * jitterDeg + pose.rotation;
 			// enter_spin: extra rotation that unwinds as the piece lands
 			deg += (spec.enter_spin ?? 0) * Math.max(0, 1 - pose.progress);
 			const shadow = spec.shadow;

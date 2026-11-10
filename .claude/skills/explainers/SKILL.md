@@ -32,7 +32,10 @@ the merged rulebook. Read it before the first scene of a session.
 - `scripts/collage/collage.cjs` is pasteup's `assemble.py` ported to a canvas: same scene.json
   schema (`vendor/tmoody1973__pasteup/skills/pasteup/references/motion-recipes.md`), with one
   change: the label takes `font_family` (a Google Fonts family, Anton by default for the site)
-  instead of a TTF path, and `"align": "center"` centers it on `x`. `tests/collage.test.ts`
+  instead of a TTF path, and `"align": "center"` centers it on `x`. A piece can also change
+  after it lands: `"moves": [{ "at", "x", "y", "rotation", "duration", "ease": "back"|"in"|"out" }]`,
+  each from where the last left it, so a split, a fall off the frame (`"in"`) and the slide
+  back for Ammer's loop are three moves. `tests/collage.test.ts`
   covers the motion math and the cut-out clean-up.
 - `scripts/collage/render.mjs` draws each pose in headless Chromium and encodes with ffmpeg
   for `--out` (videos only). `--post` writes the scene as an animated SVG instead

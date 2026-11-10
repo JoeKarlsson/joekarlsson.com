@@ -49,6 +49,23 @@ describe('collage compositor', () => {
 		expect(landed.y).toBeCloseTo(400);
 	});
 
+	it('moves a landed piece through its moves in order, each from where the last one left it', () => {
+		const split = {
+			...piece,
+			moves: [
+				{ at: 1.5, x: 560, duration: 0.4 },
+				{ at: 2.5, y: 1300, rotation: 30, ease: 'in', duration: 0.5 },
+				{ at: 4, x: 500, y: 400, rotation: 0, duration: 0.5 },
+			],
+		};
+		const at = (t: number) => Collage.elementPose(split, t, 1920, 1080, 200, 100);
+		expect([at(1.4).x, at(1.4).y]).toEqual([500, 400]);
+		expect([at(2).x, at(2).y, at(2).shadowScale]).toEqual([560, 400, 1]);
+		expect(at(2.6).shadowScale).toBeGreaterThan(1);
+		expect([at(3.2).x, at(3.2).y, at(3.2).rotation]).toEqual([560, 1300, 30]);
+		expect([at(5).x, at(5).y, at(5).rotation]).toEqual([500, 400, 0]);
+	});
+
 	it('gives the same jitter for the same seed, so renders repeat', () => {
 		const a = Collage.seeded(42);
 		const b = Collage.seeded(42);
