@@ -116,3 +116,22 @@ describe('animated go_to walk', () => {
 		},
 	);
 });
+
+describe('animated Hackers and Painters sketches', () => {
+	// Each loop restarts with a hard cut, so every animated value must end where it started:
+	// the paper empty, the pencil back at rest and right side up
+	it.each([
+		'pencil-not-a-pen.svg',
+		'pencil-not-a-pen.phone.svg',
+		'scaffolding-then-details.svg',
+		'scaffolding-then-details.phone.svg',
+	])('%s ends its loop on its first frame', (file) => {
+		const svg = readFileSync(
+			join('public/images/blog/hackers-and-painters-ai-agents', file),
+			'utf8',
+		);
+		const lists = [...svg.matchAll(/values="([^"]*)"/g)].map((m) => m[1].split(';'));
+		expect(lists.length).toBeGreaterThan(5);
+		for (const values of lists) expect(values.at(-1)).toBe(values[0]);
+	});
+});

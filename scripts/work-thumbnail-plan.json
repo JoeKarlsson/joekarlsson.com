@@ -2026,5 +2026,20 @@
 			"color": "chalk"
 		},
 		"motion": "boil"
+	},
+	"hackers-and-painters-ai-agents": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/A_Maid_Asleep_MET_SF_X-radiograph.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:A_Maid_Asleep_MET_SF_X-radiograph.jpg"
+		},
+		"look": "taped",
+		"alt": "An X-ray of Vermeer's A Maid Asleep, showing the sleeping maid, a jug on the table, and the shapes Vermeer painted over in the doorway behind her",
+		"focus": 0.45,
+		"mark": {
+			"name": "tangle",
+			"at": [86, 4, 11, 19],
+			"color": "chalk"
+		},
+		"motion": "boil"
 	}
 }
