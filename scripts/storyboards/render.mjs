@@ -6,7 +6,8 @@
 // Each board is scripts/storyboards/<slug>/<name>.mjs (files starting with _ are
 // shared helpers). A board exports:
 //   board   { title, section, form, claim, trigger, library, still, test }
-//   frames  [{ at, note, height?, draw(f) }]   keyframes, drawn at 640 wide
+//   frames  [{ at, note, height?, draw(f), drawB? }]   keyframes, drawn at 640 wide; a frame
+//           with drawB loops between its two drawings, to show how a look moves
 //   phone   { note, height, draw(f) }          the still phones and reduced motion get, at 360
 //   kit     'sketch' for scenes (scripts/storyboards/sketch.mjs: stick figures, props,
 //           Joe's scribbles), drawn in board.look or a frame's own look; leave it out for
@@ -61,6 +62,16 @@ for (const name of names) {
 		mod.kit === 'sketch' ? (frame.look ?? mod.board.look ?? 'crayon') : null;
 	const frames = mod.frames.map((frame, i) => ({
 		...frame,
+		svgB:
+			frame.drawB &&
+			draw(
+				`sb-${slug}-${name}-${i + 1}b`,
+				DESKTOP_WIDTH,
+				frame.height ?? FRAME_HEIGHT,
+				frame.drawB,
+				frame.note,
+				lookOf(frame),
+			),
 		svg: draw(
 			`sb-${slug}-${name}-${i + 1}`,
 			DESKTOP_WIDTH,
@@ -101,7 +112,7 @@ function page(title, list) {
 			const frames = b.frames
 				.map(
 					(fr, j) =>
-						`<figure><div class="at">${j + 1} · ${escapeHtml(fr.at)}</div>${fr.svg}<figcaption>${escapeHtml(fr.note)}</figcaption></figure>`,
+						`<figure><div class="at">${j + 1} · ${escapeHtml(fr.at)}</div>${fr.svgB ? `<div class="flip">${fr.svg}${fr.svgB}</div>` : fr.svg}<figcaption>${escapeHtml(fr.note)}</figcaption></figure>`,
 				)
 				.join('\n');
 			if (b.pick)
@@ -149,9 +160,14 @@ svg { display: block; width: 100%; height: auto; }
 .phone { flex: 0 1 300px; }
 dl { flex: 1 1 380px; margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; align-content: start; }
 dt { color: #a3a3a3; font-weight: 700; } dd { margin: 0; }
+/* A frame with two drawings swaps between them on a stepped loop, like stop-motion */
+.flip { display: grid; } .flip > svg { grid-area: 1 / 1; }
+.flip > svg + svg { visibility: hidden; }
 @media (prefers-reduced-motion: no-preference) {
 	figure :is(.d-flow, .d-callout, .d-paper) { filter: url(#boil); }
+	.flip > svg + svg { animation: flip 0.5s steps(1, end) infinite; }
 }
+@keyframes flip { 50% { visibility: visible; } }
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="boil" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" seed="11" result="w"><animate attributeName="seed" values="11;22;33" dur="0.5s" calcMode="discrete" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="w" scale="5"/></filter></defs></svg>
 <main><h1>${escapeHtml(title)} storyboards</h1>

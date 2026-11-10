@@ -158,7 +158,12 @@ export function createSketch({ id, width, height, look = 'crayon' }) {
 	}
 
 	/** A stick figure with its hip at x, y. facing -1 mirrors it. */
-	function figure(x, y, pose, { scale: s = 1, facing = 1, color = line, paddles = false } = {}) {
+	function figure(
+		x,
+		y,
+		pose,
+		{ scale: s = 1, facing = 1, color = line, paddles = false, silhouette = false } = {},
+	) {
 		const p = typeof pose === 'string' ? POSES[pose] : pose;
 		const flip = (a) => a * facing;
 		const at = ([ox, oy], deg, len) => {
@@ -208,13 +213,19 @@ export function createSketch({ id, width, height, look = 'crayon' }) {
 				scene.push(`<circle cx="${n(bx)}" cy="${n(by)}" r="${n(2.4 * s)}" fill="${INK}"/>`);
 			return { head, shoulder, hands: [parts[0][2], parts[1][2]] };
 		}
-		for (const pts of parts) stroke(pts, { color, width: 6 * s });
-		stroke(circle(head[0], head[1], 15 * s, 10), { color, width: 6 * s, close: true });
-		for (const dx of [2, 8])
-			scene.push(
-				`<circle cx="${n(head[0] + dx * s * facing)}" cy="${n(head[1] - 2 * s)}" r="${n(2.2 * s)}" fill="${color}"/>`,
-			);
-		// Marshalling wands: pink sticks carrying on from each forearm
+		if (silhouette) {
+			// A shadow puppet: thick limbs and a solid head, no face
+			for (const pts of parts) stroke(pts, { color, width: 15 * s });
+			torn(circle(head[0], head[1], 17 * s), color);
+		} else {
+			for (const pts of parts) stroke(pts, { color, width: 6 * s });
+			stroke(circle(head[0], head[1], 15 * s, 10), { color, width: 6 * s, close: true });
+			for (const dx of [2, 8])
+				scene.push(
+					`<circle cx="${n(head[0] + dx * s * facing)}" cy="${n(head[1] - 2 * s)}" r="${n(2.2 * s)}" fill="${color}"/>`,
+				);
+		}
+		// Marshalling wands: sticks carrying on from each forearm, pink unless a color is given
 		if (paddles)
 			for (const [, elbow, hand] of [parts[0], parts[1]]) {
 				const dx = hand[0] - elbow[0];
@@ -225,7 +236,7 @@ export function createSketch({ id, width, height, look = 'crayon' }) {
 						[hand[0] - (dx / len) * 4, hand[1] - (dy / len) * 4],
 						[hand[0] + (dx / len) * 26, hand[1] + (dy / len) * 26],
 					],
-					{ color: PINK, width: 9 },
+					{ color: paddles === true ? PINK : paddles, width: 9 },
 				);
 			}
 		return { head, shoulder, hands: [parts[0][2], parts[1][2]] };
@@ -381,6 +392,30 @@ export function createSketch({ id, width, height, look = 'crayon' }) {
 		);
 	}
 
+	/** A picture (a data URI) at x, y, w by h, cut to a torn edge and tilted. */
+	function image(uri, x, y, w, h, { tilt = 0 } = {}) {
+		const clip = `${id}-cut-${scene.length}`;
+		const edge = [];
+		torn(rect(x, y, w, h), 'none', edge);
+		const path = edge[0].replace(' fill="none"', '').replace('class="d-paper" ', '');
+		scene.push(
+			`<g transform="rotate(${tilt} ${n(x + w / 2)} ${n(y + h / 2)})"><clipPath id="${clip}">${path}</clipPath><image href="${uri}" x="${n(x)}" y="${n(y)}" width="${n(w)}" height="${n(h)}" preserveAspectRatio="xMidYMid slice" clip-path="url(#${clip})"/></g>`,
+		);
+	}
+
+	/** Pixel art: rows of characters, each a key into palette, as size-wide squares from x, y. */
+	function pixels(rows, x, y, size, palette) {
+		rows.forEach((row, r) =>
+			[...row].forEach((key, c) => {
+				const fill = palette[key];
+				if (fill)
+					scene.push(
+						`<rect x="${x + c * size}" y="${y + r * size}" width="${size - 1}" height="${size - 1}" fill="${fill}"/>`,
+					);
+			}),
+		);
+	}
+
 	function floor(y) {
 		stroke(
 			[
@@ -414,6 +449,8 @@ export function createSketch({ id, width, height, look = 'crayon' }) {
 	return {
 		issues,
 		look,
+		image,
+		pixels,
 		stroke,
 		torn,
 		mark,
