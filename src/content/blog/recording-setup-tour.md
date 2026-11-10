@@ -171,7 +171,7 @@ The script it runs does the rest:
 - **Turns off the office subwoofer.**
 - **Turns on the 3D printer**, though not to print anything. My Prusa has great LEDs, and it looks good glowing on the shelf behind me, so it's a prop now.
 
-<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/its-a-prop-now-poster.webp" src="/images/blog/recording-setup-tour/its-a-prop-now.mp4" aria-label="A paper-collage animation on a black field: black-and-white cut-outs of my camera behind its teleprompter and my spotlight land on either side, then my orange Prusa 3D printer swoops into the middle in full color, and the words It's a prop now set in above it"></video>
+![A paper-collage animation on a black field: black-and-white cut-outs of my camera behind its teleprompter and my spotlight land on either side, then my orange Prusa 3D printer swoops into the middle in full color, and the words It's a prop now set in above it](/images/blog/recording-setup-tour/its-a-prop-now.svg)
 
 With the voice assistant muted, I don't turn it off by voice. My Home Assistant dashboard is always open on my laptop, so when I'm done I flip the Recording toggle there, and a second script unmutes the voice assistant and cuts power to the desk. My [Meeting Mode](/blog/best-home-assistant-automations/) handles video calls on its own, triggered by the Mac's camera, so recording mode is only for the big setup.
 

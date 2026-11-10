@@ -34,11 +34,15 @@ the merged rulebook. Read it before the first scene of a session.
   change: the label takes `font_family` (a Google Fonts family, Anton by default for the site)
   instead of a TTF path, and `"align": "center"` centers it on `x`. `tests/collage.test.ts`
   covers the motion math and the cut-out clean-up.
-- `scripts/collage/render.mjs` draws each pose in headless Chromium and encodes with ffmpeg.
-  `--post` writes `<name>.mp4` (1280 wide), `<name>.webp` and `<name>-poster.webp`; the post
-  references `<name>.webp` and `src/plugins/rehype-gif-video.mjs` plays the clip in its place,
-  in view, muted, with controls, poster first. Reduced motion and the pause button get the
-  finished frame (`src/scripts/in-view-play.ts`). No new site code.
+- `scripts/collage/render.mjs` draws each pose in headless Chromium and encodes with ffmpeg
+  for `--out` (videos only). `--post` writes the scene as an animated SVG instead
+  (`scripts/collage/svg.mjs`): `<name>.svg` plus each cut-out as `<name>-<element>.webp`. A post
+  never gets an MP4: Joe doesn't want a play bar on a post's animation (2026-11-10), and wants
+  them inline like the diagrams. The post references `<name>.svg`,
+  `src/plugins/rehype-inline-diagrams.mjs` inlines it, and SMIL plays it on the scene's cadence
+  with the same jitter as the canvas. Reduced motion and the pause button get the finished
+  frame (`.anim-still` in `motion.css`). Labels must use a font the site serves (Anton,
+  Hanken Grotesk, JetBrains Mono); `tests/collage-svg.test.ts` covers it.
 
 Scenes live in `scripts/collage/<slug>/<scene>/` (`scene.json`, `elements/`,
 `sources.json`); originals in `media-sources/collage/<slug>/` (git-ignored). Copy
@@ -123,10 +127,10 @@ it against `craft.md`'s QA list, and open them for Joe.
 
 ### 4. Build and ship
 
-`--post` into the post's image folder and reference the still in the markdown with real alt
-text, under the paragraph it shows, or, where the post already embeds clips with `<video
-data-autoplay-in-view data-phone-still ...>` tags, use the same tag with the `-poster.webp`
-(and delete the unused `.webp`). For a video, `--out` at full size; a vertical cut is the
+`--post` into the post's image folder and reference `<name>.svg` in the markdown with real alt
+text (`![alt](/images/blog/<slug>/<name>.svg)`), under the paragraph it shows. Check it
+playing in the built post in Chromium and WebKit at 390px, and with reduced motion on. For a
+video, `--out` at full size; a vertical cut is the
 same scene with a 1080x1920 canvas and new positions. Build the post, run the
 `motion-reviewer` and `design-reviewer` agents on it, and fix High and Medium findings.
 

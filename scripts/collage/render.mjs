@@ -5,8 +5,8 @@
 //   node scripts/collage/render.mjs <scene.json> --out clip.mp4       the video (Playwright draws each pose, ffmpeg encodes)
 //   node scripts/collage/render.mjs <scene.json> --still out.png      the finished frame: the still for phones and reduced motion
 //   node scripts/collage/render.mjs <scene.json> --post public/images/blog/<slug>/<name>
-//       a post's copy: <name>.mp4 at 1280 wide, plus the finished frame as <name>.webp and <name>-poster.webp.
-//       The post references <name>.webp; src/plugins/rehype-gif-video.mjs plays the .mp4 in its place.
+//       a post's copy: <name>.svg, animated inline with no video player, and its cut-outs beside it
+//       as <name>-<element>.webp (scripts/collage/svg.mjs). The post references <name>.svg.
 //
 // Element images are paths relative to the scene file. Label fonts load from Google Fonts by
 // family name (label.font_family), the same families the site uses.
@@ -18,7 +18,8 @@ import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import { chromium } from 'playwright';
-import sharp from 'sharp';
+
+import { writePostSvg } from './svg.mjs';
 
 const { values, positionals } = parseArgs({
 	allowPositionals: true,
@@ -77,7 +78,17 @@ try {
 		fs.copyFileSync(pagePath, values.preview);
 		console.log(`preview -> ${values.preview}`);
 	}
-	if (values.out || values.still || values.post) await renderWithBrowser();
+	if (values.out || values.still) await renderWithBrowser();
+	if (values.post) {
+		// The post's markdown alt text replaces this label when the figure is inlined
+		const written = await writePostSvg(
+			scene,
+			scenePath,
+			values.post,
+			scene.label?.text ?? path.basename(values.post),
+		);
+		console.log(`post -> ${written.join(', ')}`);
+	}
 } finally {
 	fs.rmSync(pagePath, { force: true });
 }
@@ -97,7 +108,7 @@ async function renderWithBrowser() {
 			fs.writeFileSync(values.still, last);
 			console.log(`still -> ${values.still}`);
 		}
-		if (!values.out && !values.post) return;
+		if (!values.out) return;
 		const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'collage-frames-'));
 		const hold = Math.max(1, scene.cadence?.hold_frames ?? 2);
 		// One file per pose; ffmpeg reads them at the pose rate and repeats each to fill fps
@@ -112,14 +123,7 @@ async function renderWithBrowser() {
 			]);
 			console.log(`clip -> ${out} (${frames} frames at ${fps}fps, a new pose every ${hold})`);
 		};
-		if (values.out) encode(values.out, ['-crf', '18']);
-		if (values.post) {
-			fs.mkdirSync(path.dirname(values.post), { recursive: true });
-			encode(`${values.post}.mp4`, ['-vf', 'scale=1280:-2', '-crf', '24']);
-			const still = await sharp(last).resize(1280).webp({ quality: 82 }).toBuffer();
-			for (const suffix of ['', '-poster']) fs.writeFileSync(`${values.post}${suffix}.webp`, still);
-			console.log(`still -> ${values.post}.webp and ${values.post}-poster.webp`);
-		}
+		encode(values.out, ['-crf', '18']);
 		fs.rmSync(dir, { recursive: true, force: true });
 	} finally {
 		await browser.close();

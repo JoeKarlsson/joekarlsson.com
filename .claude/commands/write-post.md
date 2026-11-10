@@ -403,7 +403,7 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 
 **Diagrams:** Never draw a diagram as ASCII in a code block. Architecture maps, wiring, network topologies, before/after comparisons and flow charts all go through the project `diagrams` skill (Skill tool), which draws them as cut-paper SVGs with real logos, a phone layout and the site's boil on arrows and paper edges. Preview the figure with Joe before it goes in the post. Why: the recording-setup-tour post shipped with an ASCII wiring diagram, and Joe asked for it to be replaced with an animated, boiling one (2026-11-09).
 
-**Animated explainers:** the collage scenes approved in Phase 2c sit under the paragraph whose claim they show, referenced by their still (`![alt](/images/blog/{slug}/<scene>.webp)`); the `.mp4` beside it plays in its place. The still is what reduced motion and the pause button get.
+**Animated explainers:** the collage scenes approved in Phase 2c and any animated figures sit under the paragraph whose claim they show, as inline animated SVGs (`![alt](/images/blog/{slug}/<scene>.svg)`), never an MP4: Joe doesn't want a play bar on a post's animation (2026-11-10). Their finished frame is what reduced motion and the pause button get.
 
 **Placement:** Alternate between photos, memes, and diagrams throughout the post. Place them at natural section breaks. Never have more than 3-4 paragraphs of prose without a visual element.
 

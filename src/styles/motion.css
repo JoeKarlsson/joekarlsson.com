@@ -252,7 +252,8 @@
 	}
 }
 
-/* Animated diagrams (SMIL inside the SVG, scripts/diagrams/doom-mcp-server/go-to-walk.mjs) show
+/* Animated diagrams and collage scenes (SMIL inside the SVG: scripts/diagrams/doom-mcp-server/
+   go-to-walk.mjs, scripts/collage/svg.mjs) show
    their finished frame under reduced motion and while motion is paused: CSS can't pause SMIL,
    so the still layer swaps in for the live one. */
 @media (prefers-reduced-motion: reduce) {
