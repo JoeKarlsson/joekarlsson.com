@@ -7,24 +7,24 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 572,
+			"commitCount": 573,
 			"dailyCommitCounts": [
 				32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 119, 30
+				25, 119, 31
 			],
-			"latestCommitMessage": "fix: Imported and third-party text can no longer become live HTML..."
+			"latestCommitMessage": "fix: Deploy applies its saved plan with the same dist path the plan..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 267,
+			"commitCount": 268,
 			"dailyCommitCounts": [
 				67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2,
-				3
+				4
 			],
-			"latestCommitMessage": "feat: Animation stickers and cards pop in on a spring, overshooting..."
+			"latestCommitMessage": "feat: The zine look's animation lines are drawn in colored pencil with..."
 		},
 		{
 			"name": "pixelpane",
