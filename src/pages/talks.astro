@@ -80,15 +80,20 @@ const FILTERS = [
 			tickerItems={eras.map((era) => era.years)}
 		>
 			<div slot="media" class="relative z-10 aspect-video md:aspect-auto">
-				<img
-					src="/images/talks/tedx-art-of-computer-science-still.webp"
-					alt="Joe Karlsson laughing with both hands up in front of shelves of plants, from his TEDx talk The Art of Computer Science"
+				<!-- Four talks, oldest first: Web Rebels 2018 on stage, TEDxYouth 2021, the 8 Bits show
+				2021 and CData's Developer View 2026 (media-sources/talks-montage.sh builds it) -->
+				<video
+					src="/images/talks/joe-talks.mp4"
+					poster="/images/talks/joe-talks-poster.webp"
 					data-halftone="flat"
-					class="block size-full rounded-xl bg-ink object-cover"
-					width="1280"
-					height="720"
-					loading="eager"
-				/>
+					data-autoplay-in-view
+					muted
+					loop
+					playsinline
+					preload="metadata"
+					aria-label="Montage of Joe Karlsson giving talks: on stage at Web Rebels in 2018, his TEDx talk, the 8 Bits show, and CData's Developer View in 2026"
+					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-center"
+				></video>
 				<Scribble
 					{...MARKS.burst}
 					color={CHALK}
