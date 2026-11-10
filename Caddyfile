@@ -96,6 +96,12 @@
 	# Serve files, fall back to 404
 	file_server
 	handle_errors {
+		# A revalidation (Cloudflare refreshing its copy, or a browser that saw this 404
+		# before) carries If-None-Match / If-Modified-Since; file_server then answered with
+		# the 404 status and an empty body, so 1 in 6 visitors got a blank page. Serve the
+		# whole page every time
+		request_header -If-None-Match
+		request_header -If-Modified-Since
 		rewrite * /404.html
 		file_server
 	}
