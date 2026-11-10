@@ -536,6 +536,17 @@ const cropArtPieces = [
 							</a>
 						</li>
 					))}
+					<li class="w-56 shrink-0 snap-start">
+						<a href="/talks/" class="ring-host group block text-paper no-underline">
+							<span class="relative mb-3 flex aspect-square items-end rounded-lg bg-pink p-4">
+								<HoverBox index={moreAppearances.length + 2} />
+								<span class="font-display text-[40px] leading-[0.95] text-ink uppercase">
+									Every talk and podcast &rarr;
+								</span>
+							</span>
+							<span class:list={[META, 'block']}>All of them, back to 2016</span>
+						</a>
+					</li>
 				</ul>
 
 				<h2 id="videos" class={`${SECTION_HEADING} scroll-mt-24`}>
@@ -613,9 +624,7 @@ const cropArtPieces = [
 								))}
 								<li>
 									<a
-										href={SOCIAL_LINKS.youtube}
-										target="_blank"
-										rel="noopener noreferrer"
+										href="/talks/"
 										class="ring-host group grid grid-cols-[120px_1fr] items-center gap-4 text-paper no-underline"
 									>
 										<span class="relative grid aspect-video place-items-center rounded-lg bg-pink text-ink">
@@ -623,7 +632,7 @@ const cropArtPieces = [
 											<HoverBox index={moreVideos.length} />
 										</span>
 										<span class="font-display text-3xl leading-none uppercase group-hover:text-pink">
-											All my videos &rarr;
+											All my talks &rarr;
 										</span>
 									</a>
 								</li>
