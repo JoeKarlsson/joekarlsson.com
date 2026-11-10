@@ -24,6 +24,8 @@ originals and the crop of every mark in use are listed in media-sources/README.m
             boxes, underlines); the page stretches them again to fit
 --erase     blank a rectangle of the photo (its pixels) before cropping, to drop a
             neighbouring drawing; repeatable. A crop whose ink touches its edge is refused.
+--min-spur  line ends shorter than this (photo pixels, default 25) are noise and get cut;
+            lower it for marks made of short strokes, like a row of small X's
 --offset    shift the result, to set two traces side by side in one viewBox
 --preview   PNG of the result, shaded red to blue in drawing order
 """
@@ -71,7 +73,8 @@ def chain_length(chain):
 class CenterlineGraph:
     """The ink's one-pixel centerline as nodes (line ends, crossings) and edges (pixel chains)."""
 
-    def __init__(self, ink):
+    def __init__(self, ink, min_spur=MIN_SPUR):
+        self.min_spur = min_spur
         skeleton = skeletonize(ink)
         self.stroke_width = max(6.0, 2 * float(np.median(ndi.distance_transform_edt(ink)[skeleton])))
         self.pixels = set(zip(*np.nonzero(skeleton)))
@@ -160,7 +163,7 @@ class CenterlineGraph:
         for _ in range(3):
             degree = self.degrees()
             spurs = [
-                e for e in self.edges if (degree[e[0]] == 1) != (degree[e[1]] == 1) and chain_length(e[2]) < MIN_SPUR
+                e for e in self.edges if (degree[e[0]] == 1) != (degree[e[1]] == 1) and chain_length(e[2]) < self.min_spur
             ]
             if not spurs:
                 return
@@ -225,7 +228,7 @@ class CenterlineGraph:
                     break
                 i, backwards = next_edge
             strokes.append(stroke)
-        return [s for s in strokes if chain_length(s) > MIN_SPUR * 2]
+        return [s for s in strokes if chain_length(s) > self.min_spur * 2]
 
 
 def smooth(chain, window=7):
@@ -309,6 +312,7 @@ def main():
     ap.add_argument("--rays", action="store_true")
     ap.add_argument("--retrace", action="store_true")
     ap.add_argument("--fill", action="store_true")
+    ap.add_argument("--min-spur", type=float, default=MIN_SPUR)
     ap.add_argument("--offset", nargs=2, type=float, default=(0, 0), metavar=("DX", "DY"))
     ap.add_argument("--erase", nargs=4, type=int, action="append", default=[], metavar=("X0", "Y0", "X1", "Y1"))
     ap.add_argument("--preview")
@@ -328,7 +332,7 @@ def main():
             f"Ink touches the {', '.join(clipped)} edge of the crop (after --rotate): the mark is cut off "
             "or a neighbour is caught. Widen --crop, or --erase the neighbour."
         )
-    strokes = CenterlineGraph(ink).walk(args.retrace)
+    strokes = CenterlineGraph(ink, args.min_spur).walk(args.retrace)
     if not strokes:
         raise SystemExit("No mark found in that crop")
     strokes = [simplify(smooth(s), SIMPLIFY_TOLERANCE) for s in strokes]

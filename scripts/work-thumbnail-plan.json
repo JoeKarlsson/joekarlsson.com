@@ -1944,8 +1944,9 @@
 		"alt": "A boy in a cap and overcoat studying the Christmas toys in a shop window, a drum and a toy wagon behind the glass",
 		"focus": 0.45,
 		"mark": {
-			"name": "star",
-			"at": [86, 4, 11, 19],
+			"name": "bow",
+			"at": [85, 1, 13, 46],
+			"width": 5,
 			"color": "chalk"
 		},
 		"motion": "boil",

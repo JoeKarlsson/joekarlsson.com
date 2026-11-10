@@ -40,6 +40,9 @@ const THUMBNAIL_MARKS = [
 	MARKS.cross,
 	MARKS.rays,
 	MARKS.burst,
+	// Drawn as underlines elsewhere; here it keeps its own shape in the corner
+	{ ...MARKS.zigzag, stretch: false },
+	MARKS.sparkle,
 ];
 
 const {

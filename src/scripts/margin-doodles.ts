@@ -4,23 +4,44 @@
 // keeps it: uneven gaps, both sides, different sizes and tilts. Each draws in once
 // when it scrolls into view and stays (the .draw-once rules in motion.css). Doodles
 // that would run past the end of the page's content are dropped, not clipped.
-import { CHALK, MARKS } from '../data/scribbles';
+// Named imports, not MARKS: the bundle carries only these marks' paths
+import {
+	asterisk,
+	bolt,
+	burstDense,
+	CHALK,
+	cloud,
+	daisy,
+	devil,
+	face,
+	flower,
+	flowerBig,
+	sparkle,
+	spiral,
+	star,
+	tally,
+	tangle,
+} from '../data/scribbles';
 import { compactPath } from '../utils/compact-path';
 
 const PINK = '#ff4fd8';
 const SVG = 'http://www.w3.org/2000/svg';
 // Width in px of each doodle in the margin; height follows its viewBox
 const DOODLES = [
-	{ mark: MARKS.face, width: 118 },
-	{ mark: MARKS.spiral, width: 78 },
-	{ mark: MARKS.flower, width: 104 },
-	{ mark: MARKS.star, width: 70 },
-	{ mark: MARKS.cloud, width: 96 },
-	{ mark: MARKS.devil, width: 84 },
-	{ mark: MARKS.bolt, width: 46 },
-	{ mark: MARKS.asterisk, width: 42 },
-	{ mark: MARKS.burstDense, width: 62 },
-	{ mark: MARKS.tally, width: 96 },
+	{ mark: face, width: 118 },
+	{ mark: spiral, width: 78 },
+	{ mark: flower, width: 104 },
+	{ mark: star, width: 70 },
+	{ mark: cloud, width: 96 },
+	{ mark: devil, width: 84 },
+	{ mark: bolt, width: 46 },
+	{ mark: asterisk, width: 42 },
+	{ mark: burstDense, width: 62 },
+	{ mark: tally, width: 96 },
+	{ mark: flowerBig, width: 110 },
+	{ mark: daisy, width: 84 },
+	{ mark: sparkle, width: 80 },
+	{ mark: tangle, width: 92 },
 ];
 // Room for the longest pages; the ones past the end are dropped
 const SLOTS = 60;

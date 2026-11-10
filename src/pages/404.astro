@@ -87,14 +87,14 @@ const PLACES = [
 		</PosterHero>
 
 		<section class="mb-12 md:mb-16">
-			<h2 class={SECTION_HEADING}>
+			<h2 class={`${SECTION_HEADING} mb-[0.6em]!`}>
 				Try one of these
 				<Scribble
-					{...MARKS.underline}
+					{...MARKS.zigzag}
 					color={CHALK}
 					duration="8s"
 					delay="0.2s"
-					class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+					class="-bottom-[0.45em] left-0 h-[0.4em] w-full"
 				/>
 			</h2>
 			{PLACES.map(({ href, label, meta }, i) => (
