@@ -160,6 +160,8 @@ From Claude's side, this is closer to StarCraft than to Doom. It never sees a pi
 
 ![go\_to's three layers: Claude names a room, play.py plans the waypoints, and the engine steers 35 times a second.](/images/blog/doom-mcp-server/go-to-layers.svg)
 
+![A hand-drawn top-down map: Claude calls go_to with Salesforce, a dotted line of waypoints appears, and the marine walks out of its room and down the hall, stops short of the Salesforce door, presses use, waits for the door to open, and walks in among the monsters.](/images/blog/doom-mcp-server/go-to-walk.webp)
+
 The planning layer doesn't need pathfinding, because we build the level from scratch, so play.py already knows the coordinates of every room and door. Claude never sees them. It says "Salesforce," and [go\_to](https://github.com/CDataSoftware/connect-ai-doom/blob/81c4895afb75b226aa80c534b12bb43566bafef2/play.py#L210-L276) looks up where that room's door is and turns it into a list of waypoints: back out of the room you're in, walk the hall, stop just short of the door, turn to face it, press use, wait about a second for it to open, and walk in. Each waypoint is one MOVE command to the engine.
 
 The steering layer is in the [engine patch](https://github.com/CDataSoftware/connect-ai-doom/blob/81c4895afb75b226aa80c534b12bb43566bafef2/patches/psdoom-ng-connect-doom.patch). On every tic, MOVE x y turns the marine toward the point, walks once it's facing within 45 degrees, and reports arrived within 16 units, or blocked after about two seconds without getting closer. ATTACK pid does the same with a monster: turn to face it every tic, fire when the crosshair is within 6 degrees and there's a line of sight, close in if it's far away or hidden, and give up after 12 seconds.

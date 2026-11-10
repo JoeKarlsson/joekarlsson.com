@@ -138,8 +138,15 @@ the wood joints: the real thing the paragraph explains, drawn simply and shown w
 unlike a collage scene they can carry an ordinary point, as long as something real changes
 on screen. Never a static squiggle icon that only wobbles: Joe turned down a set of those
 (one job, time limit, rollback, alert) the same day: "Ralph's are different... they're
-explaining things in the post... not just like random squiggles." There is no tool to make
-them yet.
+explaining things in the post... not just like random squiggles."
+
+Make one as a page of hand-drawn SVG lines with the site's `#boil`, drawn at 12 fps, and
+render it with `node scripts/handmade/render.mjs <page.html> --post
+public/images/blog/<slug>/<name>` (the page's contract is in the script's header). Copy
+`scripts/handmade/doom-mcp-server/go-to-walk.html`, the first one Joe approved (2026-11-10):
+paper-white lines on black, the marine the only pink, the real call typed in mono, the plan
+as gray dots, then the walk, and a reset that clears back to the empty map. Text in it is at
+least 22px in a 600-wide viewBox, so it stays readable at phone width.
 
 ## Sequences (not built yet; for when scenes get cut together)
 
