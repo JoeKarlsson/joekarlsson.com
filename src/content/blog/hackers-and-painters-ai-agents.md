@@ -92,11 +92,17 @@ Graham's sketching argument came with a jab at static typing. He wanted "a langu
 
 In August 2025 TypeScript became the most-used language on GitHub by monthly contributors, and [GitHub's Octoverse report](https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/) tied that to agents: developers are "shifting toward typed languages that make agent-assisted coding more reliable in production." In the [2026 Python typing survey](https://engineering.fb.com/2026/10/27/developer-tools/python-typing-survey-2026-ai-tools-checker-landscape/), the share of respondents who said type hints make AI-generated code more accurate or reliable went from 18.5% to 38.4% in a year.
 
+![The function signature makeTape(template, film: any). A pencil scribbles out the word any and writes ShelfFilm above it, one letter at a time. Then it clears and starts again.](/images/blog/hackers-and-painters-ai-agents/any-becomes-a-type.svg)
+
 I'm using TypeScript more than I used to. It used to be kind of a pain in the ass, even after it got popular, but now it's an easy way to enforce a higher standard.
 
 ## Beautiful code nobody reads
 
 Graham's argument for beautiful code starts with a bush. When Leonardo painted the portrait of [Ginevra de' Benci](https://en.wikipedia.org/wiki/Ginevra_de%27_Benci), he put a juniper behind her head and painted every leaf, even though "No one will look that closely at it." Graham's point was that great software works the same way: "If you look inside good software, you find that parts no one is ever supposed to see are beautiful too."
+
+![Leonardo da Vinci's portrait of Ginevra de' Benci: a young woman with pale skin and curled hair, in front of a dark juniper bush painted needle by needle, with a lake and autumn trees to the right](/images/blog/hackers-and-painters-ai-agents/ginevra-de-benci.webp)
+
+_Leonardo da Vinci, Ginevra de' Benci, about 1474-78, National Gallery of Art ([Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ginevra_de%27_Benci_-_National_Gallery_of_Art.jpg))._
 
 That's the part I miss. With agents, code has become more of a black box to engineers, and having beautiful code is less important than it was, which is a bit of a loss.
 
@@ -106,7 +112,15 @@ Clean code still pays off in a practical way. It isn't always shorter, but my co
 
 ## How beginners get good
 
-Graham's line on learning is "hackers start original, and get good, and scientists start good, and get original." You learn to hack the way you learn to paint, by doing it. Most hackers, he wrote, "learn to hack by writing programs of their own at age thirteen."
+Graham's line on learning:
+
+<div class="pull-quote">
+
+Hackers start original, and get good, and scientists start good, and get original.
+
+</div>
+
+You learn to hack the way you learn to paint, by doing it. Most hackers, he wrote, "learn to hack by writing programs of their own at age thirteen."
 
 I think people vibe coding without understanding programming are going to have a hard time. I feel lucky that I understand what's going on, so I can use agents with confidence and securely, without being oblivious to what's happening.
 
@@ -116,4 +130,10 @@ I don't know how to get good besides going in deep on how things actually work, 
 
 Graham ended on a pattern he saw in painting, theater, engraving and the novel: a new medium appears, and people explore most of what it can do in the first couple of generations. He thought hacking was in that phase in 2003. His last line: "How cool hacking turns out to be will depend on what we can do with this new medium."
 
-Graham also has a footnote about photography: "The greatest damage that photography has done to painting may be the fact that it killed the best day job." Most of the great painters in history paid their bills with portraits. Photography didn't kill painting, though. I have painter friends, and it's still a viable career, or at least a hobby. I don't think AI is going to kill programming, or the art of making beautiful code, either.
+Graham also has a footnote about photography: "The greatest damage that photography has done to painting may be the fact that it killed the best day job." Most of the great painters in history paid their bills with portraits.
+
+![Robert Cornelius's 1839 self-portrait: a young man with messy hair and crossed arms, looking off to the side, on a scratched and spotted silver plate](/images/blog/hackers-and-painters-ai-agents/robert-cornelius-1839.webp)
+
+_Robert Cornelius's 1839 self-portrait, one of the earliest photographs of a person ([Wikimedia Commons](<https://commons.wikimedia.org/wiki/File:1839_Self-portrait_by_Robert_Cornelius_(cropped).jpg>))._
+
+Photography didn't kill painting, though. I have painter friends, and it's still a viable career, or at least a hobby. I don't think AI is going to kill programming, or the art of making beautiful code, either.

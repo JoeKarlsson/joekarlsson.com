@@ -121,6 +121,8 @@ describe('animated Hackers and Painters sketches', () => {
 	// Each loop restarts with a hard cut, so every animated value must end where it started:
 	// the paper empty, the pencil back at rest and right side up
 	it.each([
+		'any-becomes-a-type.svg',
+		'any-becomes-a-type.phone.svg',
 		'pencil-not-a-pen.svg',
 		'pencil-not-a-pen.phone.svg',
 		'scaffolding-then-details.svg',
