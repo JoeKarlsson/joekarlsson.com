@@ -50,6 +50,16 @@ never as paths.
 
 ### 1. The idea (nothing made yet)
 
+**An animation is a punctuation mark.** It goes where the post lands a punch: the reveal, the
+gut punch, the turn, the payoff, the number that hurts. It makes that moment land harder. It
+never illustrates a routine point that reads fine as text. Joe turned down two rounds of tidy
+visual metaphors for ordinary points (2026-11-10): "the animation should be like an impactful
+moment that needs a punctuation mark to land better... those just don't feel very
+interesting to me". Find the moments first: read the post for its sharpest lines (short
+standalone sentences, a twist, a reversal, a cost), rank them by how hard they hit, and pitch
+only the top two or three. Then make each pitch as bold as the moment: say what the viewer
+feels when it lands.
+
 For each moment, one short block:
 
 1. **The claim** in one sentence, from the post.

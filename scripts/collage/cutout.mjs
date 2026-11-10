@@ -5,6 +5,10 @@
 // its paid image model or rembg: any public-domain photo, or one of Joe's, works as the source.
 //
 //   node scripts/collage/cutout.mjs <in> <out.png> [--tone mono|pink|none] [--keyline 6] [--width 900] [--person]
+//       [--crop x,y,w,h] [--largest]
+//
+// --crop cuts the source to one subject first (source pixels), when Vision would lift several;
+// --largest keeps only the biggest connected piece, dropping stray specks of background.
 //
 // No shadow and no background go into the element: the compositor adds them, so they match
 // across every piece in a scene. Needs macOS (Vision) for the cut.
@@ -16,6 +20,8 @@ import { parseArgs } from 'node:util';
 
 import sharp from 'sharp';
 
+import { keepLargestPiece } from './mask.mjs';
+
 const { values, positionals } = parseArgs({
 	allowPositionals: true,
 	options: {
@@ -23,12 +29,14 @@ const { values, positionals } = parseArgs({
 		keyline: { type: 'string', default: '6' },
 		width: { type: 'string', default: '900' },
 		person: { type: 'boolean', default: false },
+		crop: { type: 'string' },
+		largest: { type: 'boolean', default: false },
 	},
 });
 const [input, output] = positionals;
 if (!input || !output || !['mono', 'pink', 'none'].includes(values.tone)) {
 	console.error(
-		'Usage: node scripts/collage/cutout.mjs <in> <out.png> [--tone mono|pink|none] [--keyline 6] [--width 900] [--person]',
+		'Usage: node scripts/collage/cutout.mjs <in> <out.png> [--tone mono|pink|none] [--keyline 6] [--width 900] [--person] [--crop x,y,w,h] [--largest]',
 	);
 	process.exit(2);
 }
@@ -45,25 +53,37 @@ if (
 }
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'collage-cut-'));
+let source = input;
+if (values.crop) {
+	const [left, top, width, height] = values.crop.split(',').map(Number);
+	source = path.join(tmp, 'crop.png');
+	await sharp(input).rotate().extract({ left, top, width, height }).toFile(source);
+}
 const lifted = path.join(tmp, 'lifted.png');
-execFileSync(CUTOUT_BIN, [input, lifted, ...(values.person ? [] : ['subject'])]);
-const liftedBuffer = fs.readFileSync(lifted);
+execFileSync(CUTOUT_BIN, [source, lifted, ...(values.person ? [] : ['subject'])]);
+const cut = await sharp(lifted).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
 fs.rmSync(tmp, { recursive: true, force: true });
+
+for (let i = 3; i < cut.data.length; i += 4) {
+	// A cut edge, not Vision's feathered mask: a soft edge reads as a glow, not paper
+	cut.data[i] = cut.data[i] > 127 ? 255 : 0;
+}
+if (values.largest) keepLargestPiece(cut.data, cut.info.width, cut.info.height);
 
 const PINK = [255, 79, 216];
 const keyline = Number(values.keyline);
-const piece = sharp(await sharp(liftedBuffer).trim({ threshold: 1 }).toBuffer()).resize({
+const piece = sharp(
+	await sharp(cut.data, { raw: cut.info }).trim({ threshold: 1 }).png().toBuffer(),
+).resize({
 	width: Number(values.width),
 	withoutEnlargement: true,
 });
 const { data, info } = await piece.ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+// Resizing softens the cut again; harden it once more at the final size
+for (let i = 3; i < data.length; i += 4) data[i] = data[i] > 127 ? 255 : 0;
 
 // Tone the pixels the way the site grades photos: mono is the pasteup black-and-white print,
 // pink scales grey onto the site pink (scripts/generate-work-thumbnails.mjs, tone())
-for (let i = 0; i < data.length; i += 4) {
-	// A cut edge, not Vision's feathered mask: a soft edge reads as a glow, not paper
-	data[i + 3] = data[i + 3] > 127 ? 255 : 0;
-}
 if (values.tone !== 'none') {
 	for (let i = 0; i < data.length; i += 4) {
 		const grey = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];

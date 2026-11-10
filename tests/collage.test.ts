@@ -2,6 +2,8 @@ import { createRequire } from 'node:module';
 
 import { describe, expect, it } from 'vitest';
 
+import { keepLargestPiece } from '../scripts/collage/mask.mjs';
+
 // A classic browser script with a CommonJS export (scripts/collage/collage.cjs)
 const Collage = createRequire(import.meta.url)('../scripts/collage/collage.cjs');
 
@@ -51,5 +53,24 @@ describe('collage compositor', () => {
 		const a = Collage.seeded(42);
 		const b = Collage.seeded(42);
 		expect([a(), a(), a()]).toEqual([b(), b(), b()]);
+	});
+});
+
+/** The alpha of each pixel after the clean-up, for a mask given as alpha values. */
+function cleaned(alpha: number[], width: number, height: number) {
+	const rgba = new Uint8Array(alpha.flatMap((a) => [0, 0, 0, a]));
+	keepLargestPiece(rgba, width, height);
+	return [...rgba].filter((_, i) => i % 4 === 3);
+}
+
+describe('cut-out clean-up', () => {
+	it('keeps the biggest piece and drops stray specks', () => {
+		// A one-pixel speck, a gap, then the three-pixel subject
+		expect(cleaned([255, 0, 255, 255, 255], 5, 1)).toEqual([0, 0, 255, 255, 255]);
+	});
+
+	it('does not join pieces across the end of a row', () => {
+		// Row 0 ends opaque and row 1 starts opaque: neighbours in memory, not in the picture
+		expect(cleaned([0, 0, 255, 255, 255, 0], 3, 2)).toEqual([0, 0, 0, 255, 255, 0]);
 	});
 });
