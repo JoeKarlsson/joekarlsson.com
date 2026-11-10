@@ -266,6 +266,8 @@ At work I've had five agents in one docs repo at once, each in its own worktree:
 
 More agents doesn't mean less review. Every repo has tests for everything, I read all the code before it merges, and on a collaborative project other people review and test it too.
 
+I wrote about what working this way feels like in [Rereading Hackers and Painters as a painter who codes with AI agents](/blog/hackers-and-painters-ai-agents/).
+
 ### Status line: which pane is which
 
 With five panes open, I need to know which is which at a glance. Claude Code runs a [status line script](https://code.claude.com/docs/en/statusline) at the bottom of every session. Mine shows the session title, directory, git branch (with a `*` if there are uncommitted changes), model, and how much context is used.

@@ -49,7 +49,7 @@ To be clear: this isn't about carving out a separate "play time" alongside real 
 
 Environments that eliminate the conditions for play don't produce safer, more predictable output. They produce worse output, more slowly.
 
-Every serious creative discipline has figured this out. Writing workshops separate generative drafting from editing: write without judgment first, revise later. Design thinking diverges before it converges. Julia Cameron's framework in [_The Artist's Way_](https://www.amazon.com/Artists-Way-25th-Anniversary/dp/0143129252) is about recovering the play state from years of accumulated external judgment. The morning pages work because there's no audience, no evaluation, no stakes. This isn't personal development philosophy. It's a structural feature of how creative work functions.
+Every serious creative discipline has figured this out. Writing workshops separate generative drafting from editing: write without judgment first, revise later. Design thinking diverges before it converges. Julia Cameron's framework in [_The Artist's Way_](https://www.amazon.com/Artists-Way-25th-Anniversary/dp/0143129252) is about recovering the play state from years of accumulated external judgment. The morning pages work because there's no audience, no evaluation, no stakes. This isn't personal development philosophy. It's a structural feature of how creative work functions. Paul Graham called the programming version sketching, and I [reread his essay against how I work with coding agents](/blog/hackers-and-painters-ai-agents/).
 
 ## Why organizations default to the opposite
 

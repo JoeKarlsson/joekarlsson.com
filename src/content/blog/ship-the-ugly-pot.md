@@ -102,7 +102,7 @@ Most software teams aren't in those domains. If you are, you already know this.
 
 I've been reading [_The Artist's Way_](https://www.amazon.com/Artists-Way-25th-Anniversary/dp/0143129252) lately, and the idea I keep coming back to is that making things and paying attention to how they turn out makes you better faster than planning to make them. That's held up for me. Everything I make has gone up since I started working this way: blog posts here and at work, art, writing, video. More of it ships, and each round is faster than the last, because I'm making a lot and looking hard at what came out instead of waiting until I feel ready.
 
-There's a lot we could take from the softer disciplines, and I think this is the most transferable thing.
+There's a lot we could take from the softer disciplines, and I think this is the most transferable thing. Paul Graham made a version of this case in 2003, and I [reread Hackers and Painters as a painter who codes with AI agents](/blog/hackers-and-painters-ai-agents/).
 
 It shows up outside art too. A [2010 study of 1,258 psychology professors](https://www.sciencedaily.com/releases/2010/11/101112094532.htm) in the _Canadian Journal of Behavioural Science_ found perfectionism went with fewer publications, fewer citations, and lower-impact journals. It's a correlation, but it points the same way.
 
