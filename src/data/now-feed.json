@@ -7,24 +7,35 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 602,
+			"commitCount": 607,
 			"dailyCommitCounts": [
 				32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 119, 60
+				25, 119, 65
 			],
-			"latestCommitMessage": "fix: Handmade animation renders stop when a web font fails to load..."
+			"latestCommitMessage": "feat: Collage scenes play in posts as inline animated SVGs with no..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 296,
+			"commitCount": 298,
 			"dailyCommitCounts": [
 				67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2,
-				32
+				34
 			],
-			"latestCommitMessage": "feat: A Lottie template plays Lottie animations frame-exact, and..."
+			"latestCommitMessage": "feat: Director capture pulls a website's logo into the video's..."
+		},
+		{
+			"name": "punc",
+			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
+			"url": "https://github.com/JoeKarlsson/punc",
+			"language": "TypeScript",
+			"commitCount": 55,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 2
+			],
+			"latestCommitMessage": "chore: The numbers page build finds its twin pairs once, for the twins..."
 		},
 		{
 			"name": "dotfiles",
@@ -36,17 +47,6 @@
 				2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15
 			],
 			"latestCommitMessage": "feat: The social opener readout shows the text above the 140-character..."
-		},
-		{
-			"name": "vale-styles",
-			"description": "Joe Karlsson's Vale prose-linting styles",
-			"url": "https://github.com/JoeKarlsson/vale-styles",
-			"language": "Shell",
-			"commitCount": 5,
-			"dailyCommitCounts": [
-				0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
-			],
-			"latestCommitMessage": "feat: Vale flags manufactured urgency, promise verbs like \"dive into\"..."
 		}
 	],
 	"films": [
