@@ -4,6 +4,7 @@
 import type { Talk } from '../data/talks';
 import { formatTalkDate, groupOf, posterPath } from '../data/talks';
 import { META, TEXT_LINK } from '../utils/ui';
+import TalkLinks from './TalkLinks.astro';
 import TalkSeriesRun from './TalkSeriesRun.astro';
 import YouTubeFacade from './YouTubeFacade.astro';
 
@@ -94,18 +95,10 @@ const LINK =
 			</ul>
 		</details>
 	)}
-	{(writeup || slides) && (
-		<p class="mt-2 flex flex-wrap gap-x-4 max-md:col-start-2">
-			{writeup && (
-				<a href={writeup} class={LINK}>
-					Read the talk
-				</a>
-			)}
-			{slides && (
-				<a href={slides} target="_blank" rel="noopener noreferrer" class={LINK}>
-					Slides
-				</a>
-			)}
-		</p>
-	)}
+	<TalkLinks
+		links={[
+			writeup && { label: 'Talk page', href: writeup },
+			slides && { label: 'Slides', href: slides },
+		].filter((link): link is { label: string; href: string } => !!link)}
+	/>
 </article>

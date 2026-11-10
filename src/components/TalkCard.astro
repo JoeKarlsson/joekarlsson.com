@@ -16,6 +16,7 @@ import type { Talk } from '../data/talks';
 import { formatTalkDate, groupOf, posterPath, talks } from '../data/talks';
 import { CHALK } from '../data/scribbles';
 import { META, TEXT_LINK } from '../utils/ui';
+import TalkLinks from './TalkLinks.astro';
 import YouTubeFacade from './YouTubeFacade.astro';
 
 interface Props {
@@ -54,8 +55,6 @@ const listenLink = talk.listen !== mainLink ? talk.listen : undefined;
 const eventLink = talk.link && talk.link !== mainLink ? talk.link : undefined;
 const where = [talk.event, talk.place].filter(Boolean).join(' · ');
 const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
-const LINK =
-	'text-sm text-pink no-underline hover:text-paper max-md:inline-flex max-md:min-h-11 max-md:items-center';
 ---
 
 <article
@@ -144,33 +143,16 @@ const LINK =
 	<p class={`mt-1 ${META}`}>{where}</p>
 	{recordedAt && <p class={`mt-1 ${META}`}>Recorded at {recordedAt.event}</p>}
 	{talk.description && <p class="mt-2 line-clamp-2 text-paper max-md:hidden">{talk.description}</p>}
-	{(talk.writeup || listenLink || eventLink || talk.slides || moreVideos.length > 0) && (
-		<p class="mt-2 flex flex-wrap gap-x-4 max-md:col-start-2">
-			{talk.writeup && (
-				<a href={talk.writeup} class={LINK}>
-					Read the talk
-				</a>
-			)}
-			{listenLink && (
-				<a href={listenLink} target="_blank" rel="noopener noreferrer" class={LINK}>
-					Listen
-				</a>
-			)}
-			{eventLink && (
-				<a href={eventLink} target="_blank" rel="noopener noreferrer" class={LINK}>
-					Event page
-				</a>
-			)}
-			{talk.slides && (
-				<a href={talk.slides} target="_blank" rel="noopener noreferrer" class={LINK}>
-					Slides
-				</a>
-			)}
-			{moreVideos.map((id, i) => (
-				<a href={watch(id)} target="_blank" rel="noopener noreferrer" class={LINK}>
-					{moreVideos.length === 1 ? 'Other recording' : `Recording ${i + 2}`}
-				</a>
-			))}
-		</p>
-	)}
+	<TalkLinks
+		links={[
+			talk.writeup && { label: 'Talk page', href: talk.writeup },
+			talk.slides && { label: 'Slides', href: talk.slides },
+			listenLink && { label: 'Listen', href: listenLink },
+			eventLink && { label: 'Event page', href: eventLink },
+			...moreVideos.map((id, i) => ({
+				label: moreVideos.length === 1 ? 'Other recording' : `Recording ${i + 2}`,
+				href: watch(id),
+			})),
+		].filter((link): link is { label: string; href: string } => !!link)}
+	/>
 </article>

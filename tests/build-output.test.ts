@@ -473,7 +473,7 @@ describe('talk pages', () => {
 			.map((card) => card.split('</article>')[0]);
 		const unlinked = cards.filter(
 			(card) =>
-				/data-talk-video|Read the talk|podcasts\.apple\.com/.test(card) &&
+				/data-talk-video|Talk page|podcasts\.apple\.com/.test(card) &&
 				!/<h3[^>]*>\s*<a /.test(card),
 		);
 		expect(unlinked).toEqual([]);
