@@ -14,6 +14,8 @@ const config: KnipConfig = {
 		'ffprobe',
 		// boiling-thumbnail.mjs, run by hand, shells out to img2webp from libwebp (brew install webp)
 		'img2webp',
+		// youtube-thumbnail.mjs, run by hand on a Mac, compiles its Vision cut-out helper with Xcode's swiftc
+		'swiftc',
 	],
 	ignoreExportsUsedInFile: true,
 };
