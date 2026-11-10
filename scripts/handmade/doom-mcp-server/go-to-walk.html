@@ -160,7 +160,6 @@
 			const SPEED = 130; // map units a second
 			const TURN = 400; // degrees a second
 
-			const svg = document.getElementById('walk');
 			const $ = (id) => document.getElementById(id);
 			const ns = 'http://www.w3.org/2000/svg';
 
@@ -267,7 +266,6 @@
 							if (st.kind === 'use') use = u < 1 ? 1 : 0;
 							if (st.kind === 'door') door = u;
 						}
-						if (st.kind === 'door' && u >= 1) door = 1;
 						if (tt <= st.d) break;
 						tt -= st.d;
 					}

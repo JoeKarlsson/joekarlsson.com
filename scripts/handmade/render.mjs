@@ -44,6 +44,18 @@ try {
 	tab.on('pageerror', (error) => errors.push(String(error)));
 	await tab.goto(`${pathToFileURL(pagePath).href}#frames`);
 	await tab.evaluate(() => document.fonts.ready);
+	// fonts.ready also resolves when the web fonts never arrived (offline), so check each family the
+	// drawing's text uses really loaded; a fallback font would ship silently otherwise
+	const missingFonts = await tab.evaluate(() => {
+		const families = [...document.querySelectorAll('svg[data-handmade] text')].map((text) =>
+			getComputedStyle(text).fontFamily.split(',')[0].replace(/['"]/g, '').trim(),
+		);
+		const loaded = [...document.fonts]
+			.filter((f) => f.status === 'loaded')
+			.map((f) => f.family.replace(/['"]/g, ''));
+		return [...new Set(families)].filter((family) => !loaded.includes(family));
+	});
+	if (missingFonts.length) throw new Error(`Fonts did not load: ${missingFonts.join(', ')}`);
 	// The boil re-seeds itself on a clock. Take the clock away and seed it from the moment
 	// drawn, so the clip wobbles at the site's rate (a new seed every 1/6 s) however slowly
 	// the frames are captured.
