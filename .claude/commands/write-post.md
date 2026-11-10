@@ -181,6 +181,10 @@ Display the full outline inline (with positioning improvements applied), then us
 
 Do NOT proceed without approval.
 
+### 2c. Storyboard the animations
+
+Once the outline is approved, run the project `explainers` skill (Skill tool) on it. Pick two or three sections whose claim is about change over time (a request flow, a race, a refusal, many things sorted into buckets) and storyboard each one as 4-6 cut-paper keyframes with `npm run storyboard`. Draw from the skill's full list of forms, not only diagrams: step-throughs, stop-motion, physics, transcript replays, toys, wipes. Open the boards for Joe and get an approve, change or cut on each, by number. Approved boards get their one-second test while you draft, and are built before Phase 6, so the reviewers see the real thing. If no section's claim changes over time, say so and skip this phase. Why: Joe wants posts to move as more than boiling diagrams, and to see every animation as a storyboard before it gets built (2026-11-10).
+
 ---
 
 ## Phase 3: Draft
@@ -386,6 +390,8 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 **Memes:** see the Meme generation step below. Never pick templates from memory.
 
 **Diagrams:** Never draw a diagram as ASCII in a code block. Architecture maps, wiring, network topologies, before/after comparisons and flow charts all go through the project `diagrams` skill (Skill tool), which draws them as cut-paper SVGs with real logos, a phone layout and the site's boil on arrows and paper edges. Preview the figure with Joe before it goes in the post. Why: the recording-setup-tour post shipped with an ASCII wiring diagram, and Joe asked for it to be replaced with an animated, boiling one (2026-11-09).
+
+**Animated explainers:** the boards approved in Phase 2c get built through the `explainers` skill and sit under the paragraph whose claim they show. Each has a still, which is what phones and reduced motion get.
 
 **Placement:** Alternate between photos, memes, and diagrams throughout the post. Place them at natural section breaks. Never have more than 3-4 paragraphs of prose without a visual element.
 
@@ -627,7 +633,7 @@ If format issues: `npm run format` then re-check.
 
 ### 8c-ii. Design review (posts with anything beyond text)
 
-If the post has a diagram, embed, interactive piece, wide table or custom component, run `npx astro build && npx astro preview` (note the port it prints) and launch **Agent: `design-reviewer`** on the post's preview URL with this repo. Fix its High and Medium findings (tap targets, phone overflow, unreadable diagrams on a phone, contrast). Skip this for a text-and-images post; the layout is already reviewed.
+If the post has a diagram, embed, interactive piece, wide table or custom component, run `npx astro build && npx astro preview` (note the port it prints) and launch **Agent: `design-reviewer`** on the post's preview URL with this repo. Fix its High and Medium findings (tap targets, phone overflow, unreadable diagrams on a phone, contrast). Skip this for a text-and-images post; the layout is already reviewed. A post with an animated explainer also gets **Agent: `motion-reviewer`** on the same URL.
 
 ### 8d. Run full test suite
 
