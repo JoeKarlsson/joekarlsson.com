@@ -18,9 +18,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts, isOwnPost } from '../utils/posts';
+import popularPosts from '../data/popular-posts.json';
 
 const posts = await getFeedPosts();
 const latestPosts = posts.filter(isOwnPost).slice(0, 5);
+// The pink band sends a lost visitor to the most-read post
+const [mostReadHref] = Object.entries(popularPosts.visitorsByPath)
+	.filter(([path]) => posts.some((post) => post.href === path))
+	.sort(([, a], [, b]) => b - a)
+	.map(([path]) => path);
+const mostRead = posts.find((post) => post.href === mostReadHref);
+if (!mostRead) throw new Error('popular-posts.json names no post for the featured band');
 const topics = getCategoryCounts(posts.filter((p) => !p.isNewsletter));
 // For the "Looking for...?" line (closest-post.ts)
 const postLinks = posts.map((post) => ({ href: post.href, title: post.data.title }));
@@ -62,7 +70,12 @@ const PLACES = [
 		<PosterHero
 			title="404"
 			wordRatio={1.6}
-			tickerItems={['Not found', 'Wrong turn', 'Moved', 'Lost', 'Try the blog']}
+			featured={{
+				label: 'Popular',
+				title: mostRead.data.title,
+				href: mostRead.href,
+				meta: 'The post most people come for',
+			}}
 		>
 			<DrawingBoard slot="media" title="Doodle while lost" class="z-10 md:min-h-[420px]" />
 			<p class={HERO_LEAD}>Nothing lives at this address. It may have moved.</p>
