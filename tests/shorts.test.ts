@@ -1,6 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-// @ts-expect-error - plain .mjs script, no types
 import { findShorts } from '../scripts/fetch-talk-event-covers.mjs';
 import { shortPosterPath, shorts } from '../src/data/shorts';
 
