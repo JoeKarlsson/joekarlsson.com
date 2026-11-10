@@ -1,4 +1,4 @@
-// "It should be a pencil, not a pen": a pencil draws a sun, rubs it out, draws a star over
+// "It should be a pencil, not a pen": a pencil draws a circle, rubs it out, draws a star over
 // the faint ghost, rubs that out, and draws a house. The erased drawings stay as ghosts, the
 // way an x-ray finds the limbs a painter moved. Then it all clears and the loop starts over.
 import { COLORS } from '../draw.mjs';
@@ -88,7 +88,7 @@ function figure(f, { cx, cy, s, rest, scale }) {
 			.join('');
 	const live = `<g opacity="1">${over((x) => n(x.all), { attr: 'opacity' })}${lines(states[0], true)}</g>${pencilLayer(states, over, scale)}`;
 	// The still: the house drawn over the two ghosts, pencil at rest
-	const done = { frac: [1, 1, 1], op: [GHOST, GHOST, 1], all: 1, tip: rest };
+	const done = { frac: [1, 1, 1], op: [GHOST, GHOST, 1] };
 	const still = `${lines(done, false)}<g transform="translate(${n(rest.x)} ${n(rest.y)})">${pencil(scale)}</g>`;
 	f.raw(`<g class="anim-live">${live}</g>`);
 	f.raw(`<g class="anim-still" display="none">${still}</g>`);
