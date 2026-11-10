@@ -27,7 +27,8 @@ describe('phone collapse', () => {
 		const button = folded.querySelector('button')!;
 		expect(button.getAttribute('aria-expanded')).toBe('false');
 		expect(folded.querySelector('ul')!.hidden).toBe(true);
-		expect(button.textContent).toBe('20211 talk+');
+		// both signs sit in the button; CSS shows + or – from aria-expanded, so they crossfade
+		expect(button.textContent).toBe('20211 talk+–');
 		expect(open.querySelector('ul')!.hidden).toBe(false);
 
 		button.click();
