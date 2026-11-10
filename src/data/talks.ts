@@ -1277,7 +1277,7 @@ export const talks: Talk[] = [
 			'Algorithm complexity and big O notation, so you notice before you write code that takes ten times longer than it needs to.',
 		slides:
 			'https://speakerdeck.com/joekarlsson/a-gentle-introduction-to-big-o-989d2f95-65e4-41b8-83a5-527eabc728f2',
-		paperScrap: true,
+		cover: '/images/talks/events/big-o-open-source-north-2019.webp',
 	},
 	{
 		title: 'Extreme Web Performance Optimizations',
@@ -1286,7 +1286,8 @@ export const talks: Talk[] = [
 		date: '2019-05-16',
 		description:
 			'Finding and fixing the most common web performance bottlenecks with Lighthouse and Chrome DevTools, and the browser APIs that give you more control over loading.',
-		paperScrap: true,
+		cover: '/images/talks/events/extreme-web-performance.webp',
+		slides: 'https://slides.com/joekarlsson/extreme-web-performance-optimization',
 	},
 
 	// 2018
@@ -1384,7 +1385,7 @@ export const talks: Talk[] = [
 		place: 'Minneapolis, MN',
 		date: '2018-09-15',
 		description: 'An answer to the old interview question, one layer at a time.',
-		paperScrap: true,
+		cover: '/images/talks/events/prime-digital-academy.webp',
 	},
 	{
 		title: 'Functional Programming for People Who Hate Math',
@@ -1431,7 +1432,7 @@ export const talks: Talk[] = [
 		description:
 			'Career advice for job seekers at every level, from developers who have been at it a while.',
 		slides: 'https://slides.com/joekarlsson/career',
-		paperScrap: true,
+		cover: '/images/talks/events/never-work-for-free.webp',
 	},
 	{
 		title: 'Building High Performance React Applications',
@@ -1486,7 +1487,7 @@ export const talks: Talk[] = [
 		description:
 			'Finding the hints in a question, breaking a problem into pieces, getting unstuck, and the computer science basics interviews still ask about.',
 		slides: 'https://slides.com/joekarlsson/coding-interview/',
-		paperScrap: true,
+		cover: '/images/talks/events/coding-interview.webp',
 	},
 	{
 		title: 'Bechdel.io (Lightning Talk)',
@@ -1496,6 +1497,7 @@ export const talks: Talk[] = [
 		date: '2018-01-31',
 		otherRecording: '4W5fJTyfj1Q',
 		link: 'https://www.meetup.com/JavaScriptMN/events/sthlplyxcbpc/',
+		slides: 'https://slides.com/joekarlsson/bechdel',
 	},
 
 	// 2017 and before
@@ -1507,7 +1509,7 @@ export const talks: Talk[] = [
 		description:
 			'Testing React for high-traffic apps with Jest and Enzyme: unit tests, behavior tests for interactive components, and integration tests for the whole app.',
 		slides: 'https://slides.com/joekarlsson/testing-react-apps',
-		paperScrap: true,
+		cover: '/images/talks/events/testing-react-apps.webp',
 	},
 	{
 		title: 'Connecting Hardware Up to the Internet',
@@ -1517,7 +1519,7 @@ export const talks: Talk[] = [
 		date: '2017-03',
 		description: 'How to connect IoT devices to the web.',
 		slides: 'https://slides.com/joekarlsson/iot-web-integration',
-		paperScrap: true,
+		cover: '/images/talks/events/iot-web-integration.webp',
 	},
 	{
 		title: 'Gamification and IoT',
@@ -1527,7 +1529,7 @@ export const talks: Talk[] = [
 		date: '2017-03',
 		description: 'Ways to add game mechanics to your apps to keep people coming back.',
 		slides: 'https://slides.com/joekarlsson/gamification/',
-		paperScrap: true,
+		cover: '/images/talks/events/gamification-and-iot.webp',
 	},
 	{
 		title: 'Master of Ceremonies',
@@ -1536,7 +1538,7 @@ export const talks: Talk[] = [
 		place: 'Honolulu, HI',
 		date: '2017-01',
 		writeup: '/blog/i-ran-my-first-hackathon-and-so-can-you/',
-		paperScrap: true,
+		cover: '/images/talks/events/stupid-hackathon-hawaii.webp',
 	},
 	{
 		title: 'Making Minecraft Mods',
@@ -1546,7 +1548,8 @@ export const talks: Talk[] = [
 		date: '2016-05-06',
 		description:
 			'Changing how the game plays with code, decompiling tools like the Minecraft Coder Pack, or a mod generator.',
-		paperScrap: true,
+		cover: '/images/talks/events/maui-stem-2016.webp',
+		link: 'https://web.archive.org/web/20161213230323/http://womenintech.com/HawaiiSTEMConference/',
 	},
 ];
 

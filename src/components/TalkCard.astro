@@ -46,7 +46,7 @@ const KIND_LABELS = {
 };
 const watch = (id: string) => `https://www.youtube.com/watch?v=${id}`;
 // A talk with its own page on this site opens that page (video, slides and resources together)
-const mainLink = talk.writeup ?? (video ? watch(video) : (talk.listen ?? talk.link));
+const mainLink = talk.writeup ?? (video ? watch(video) : (talk.listen ?? talk.link ?? talk.slides));
 const external = !talk.writeup;
 // The episode and the event's page, when the title links somewhere else
 const listenLink = talk.listen !== mainLink ? talk.listen : undefined;

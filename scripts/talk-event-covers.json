@@ -18,5 +18,24 @@
 	"mongodb-podcast-update-2020-11-09": "https://podcasts.apple.com/us/podcast/mongodb-update-for-november-9-2020/id1500452446?i=1000497762602",
 	"grizztech-talks": "https://podcasts.apple.com/us/podcast/an-interview-with-joe-karlsson-developer-advocate/id1513642189?i=1000494942738",
 	"javascript-jabber-448": "https://podcasts.apple.com/us/podcast/jsj-448-mongodb-schema-fundamentals-with-joe-karlsson/id496893300?i=1000490443472",
-	"pit-show": "https://podcasts.apple.com/us/podcast/the-pit-show/id1448707006"
+	"pit-show": "https://podcasts.apple.com/us/podcast/the-pit-show/id1448707006",
+	"big-o-open-source-north-2019": {
+		"page": "https://speakerdeck.com/joekarlsson/a-gentle-introduction-to-big-o-989d2f95-65e4-41b8-83a5-527eabc728f2",
+		"image": "https://files.speakerdeck.com/presentations/c03f3764b38d47fc88c092069cc4b8b4/slide_0.jpg"
+	},
+	"extreme-web-performance": "https://slides.com/joekarlsson/extreme-web-performance-optimization",
+	"prime-digital-academy": {
+		"page": "https://web.archive.org/web/20181122081101/https://primeacademy.io/",
+		"image": "https://web.archive.org/web/20181122081101im_/https://dewiskbohv5c1.cloudfront.net/assets/image-social-share-a3b7ae9ca49e2e9c73aa585fdf399e39.jpg"
+	},
+	"never-work-for-free": "https://slides.com/joekarlsson/career",
+	"coding-interview": "https://slides.com/joekarlsson/coding-interview",
+	"testing-react-apps": "https://slides.com/joekarlsson/testing-react-apps",
+	"iot-web-integration": "https://slides.com/joekarlsson/iot-web-integration",
+	"gamification-and-iot": "https://slides.com/joekarlsson/gamification",
+	"stupid-hackathon-hawaii": "https://www.joekarlsson.com/blog/i-ran-my-first-hackathon-and-so-can-you/",
+	"maui-stem-2016": {
+		"page": "https://web.archive.org/web/20161213230323/http://womenintech.com/HawaiiSTEMConference/",
+		"image": "https://web.archive.org/web/20161213230323im_/http://womenintech.com/HawaiiSTEMConference/wp-content/uploads/2013/12/stem-group-1-copy-1024x683.jpg"
+	}
 }
