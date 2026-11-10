@@ -96,6 +96,9 @@ unless he says otherwise for a specific figure.
 13. **It boils, but the words don't.** On the site, arrows, callouts and paper
     edges wobble through the same boil as the other scribbles (`motion.css`);
     text, logos and icons hold still. Reduced motion and the pause button stop it.
+    Opened in the lightbox, the diagram grows out of the post and its `.d-flow`
+    arrows redraw 30ms apart (ImageLightbox.astro), so keep every arrow and its
+    head in a `d-flow` group, and draw dashed lines with `stroke-dasharray`.
 14. **Say it once.** No subtitles restating the post's lead-in, no captions that
     repeat a label. A figure heading inside the SVG only when the post shows two
     related figures in a row.

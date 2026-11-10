@@ -426,3 +426,72 @@
 		}
 	}
 }
+
+/* An enlarged diagram's arrows redraw, 30ms apart, once the lightbox has landed
+   (ImageLightbox.astro sets --i and pathLength on the copy) */
+@keyframes flow-draw {
+	from {
+		stroke-dashoffset: 1;
+	}
+}
+/* The YouTube thumbnail sits over the player until it loads (youtube-facade.ts) */
+.youtube-facade-loading {
+	position: absolute;
+	inset: 0;
+}
+.youtube-facade-gone {
+	opacity: 0;
+	pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+	:root:not(.motion-paused) .diagram-enlarged .d-flow path[pathLength] {
+		stroke-dasharray: 1;
+		animation: flow-draw 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+		animation-delay: calc(0.25s + var(--i, 0) * 30ms);
+	}
+
+	.youtube-facade-gone {
+		transition: opacity 0.2s ease-out;
+	}
+
+	/* The lightbox's View Transition: the picture morphs, the page crossfades to ink.
+	   The dialog's own grow-from-0.95 stays off while it runs */
+	#image-lightbox[data-morph],
+	#image-lightbox[data-morph]::backdrop {
+		transition: none;
+	}
+	::view-transition-group(lightbox-morph) {
+		animation-duration: 0.25s;
+		animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 0.25s;
+	}
+	html.lightbox-closing::view-transition-group(*),
+	html.lightbox-closing::view-transition-old(*),
+	html.lightbox-closing::view-transition-new(*) {
+		animation-duration: 0.2s;
+	}
+
+	/* Disclosures (FAQ answers, talk runs, newsletter years, /about's now list) ease
+	   open and close 20% faster; browsers without ::details-content just toggle */
+	details {
+		interpolate-size: allow-keywords;
+	}
+	details::details-content {
+		block-size: 0;
+		overflow: clip;
+		opacity: 0;
+		transition:
+			block-size 0.2s ease-in,
+			opacity 0.16s ease-in,
+			content-visibility 0.2s allow-discrete;
+	}
+	details[open]::details-content {
+		block-size: auto;
+		opacity: 1;
+		transition-duration: 0.25s, 0.2s, 0.25s;
+		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease-out, linear;
+	}
+}

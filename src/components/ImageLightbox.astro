@@ -7,55 +7,145 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 <dialog
 	id="image-lightbox"
 	aria-label="Enlarged image"
-	class="m-0 h-dvh max-h-none w-dvw max-w-none cursor-zoom-out bg-ink p-4 backdrop:bg-ink sm:p-8"
+	class="m-0 h-dvh max-h-none w-dvw max-w-none cursor-zoom-out place-items-center bg-ink p-4 backdrop:bg-ink open:grid sm:p-8"
 >
 	<button type="button" class={`${SECONDARY_BUTTON} fixed top-4 right-4 z-10 bg-ink`}>
 		Close
 	</button>
-	<img alt="" class="size-full object-contain" />
-	<div class="diagram-enlarged hidden size-full"></div>
+	<!-- Sized to fit the screen by fitToScreen below, so its box has the picture's shape
+	and the view transition morphs one picture into the other -->
+	<img alt="" class="object-contain" />
+	<div class="diagram-enlarged hidden"></div>
 </dialog>
 
 <script>
+	// Opening, the picture or diagram itself grows out of the post into the screen (a View
+	// Transition, #20 in ~/.claude/knowledge/web-motion.md) and shrinks back on close.
+	// Without View Transitions, or under reduced motion, the dialog scales from 0.95 out
+	// of the picture instead (motion.css). An opened diagram then redraws its arrows.
 	const dialog = document.getElementById('image-lightbox') as HTMLDialogElement | null;
 	const enlarged = dialog?.querySelector('img');
 	const enlargedDiagram = dialog?.querySelector<HTMLElement>('.diagram-enlarged');
+	const MORPH = 'lightbox-morph';
+	const canMorph = () =>
+		'startViewTransition' in document &&
+		!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 	if (dialog && enlarged && enlargedDiagram) {
-		dialog.addEventListener('click', () => dialog.close());
-		// Grow out of the picture that was clicked, and shrink back into it on close
-		// (motion.css). The last picture stays in place until the next open, so it's
-		// still there while the close plays out
-		const showFrom = (source: Element) => {
-			const { left, top, width, height } = source.getBoundingClientRect();
-			dialog.style.transformOrigin = `${left + width / 2}px ${top + height / 2}px`;
-			dialog.showModal();
+		let source: Element | null = null;
+		let shown: HTMLElement | SVGSVGElement = enlarged;
+		let fileSize = { width: 1, height: 1 };
+
+		// The biggest box with the picture's shape that fits inside the dialog's padding
+		const fitToScreen = () => {
+			const style = getComputedStyle(dialog);
+			const room = {
+				width: dialog.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight),
+				height:
+					dialog.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom),
+			};
+			const scale = Math.min(room.width / fileSize.width, room.height / fileSize.height);
+			shown.style.width = `${Math.floor(fileSize.width * scale)}px`;
+			shown.style.height = `${Math.floor(fileSize.height * scale)}px`;
+		};
+		window.addEventListener('resize', () => dialog.open && fitToScreen());
+
+		const name = (element: Element | null, on: boolean) => {
+			if (element instanceof HTMLElement || element instanceof SVGElement)
+				element.style.viewTransitionName = on ? MORPH : '';
 		};
 
+		const morph = (update: () => void, closing: boolean) => {
+			if (!canMorph()) {
+				update();
+				return Promise.resolve();
+			}
+			const root = document.documentElement;
+			root.classList.toggle('lightbox-closing', closing);
+			dialog.toggleAttribute('data-morph', true);
+			name(closing ? shown : source, true);
+			const transition = document.startViewTransition(() => {
+				name(closing ? shown : source, false);
+				update();
+				name(closing ? source : shown, true);
+			});
+			return transition.finished.finally(() => {
+				name(source, false);
+				name(shown, false);
+				dialog.removeAttribute('data-morph');
+				root.classList.remove('lightbox-closing');
+			});
+		};
+
+		const show = (from: Element, prepare: () => void) => {
+			source = from;
+			// Without the morph, the dialog grows out of the picture (motion.css)
+			const { left, top, width, height } = from.getBoundingClientRect();
+			dialog.style.transformOrigin = `${left + width / 2}px ${top + height / 2}px`;
+			return morph(() => {
+				prepare();
+				dialog.showModal();
+				fitToScreen();
+			}, false);
+		};
+
+		const close = () => {
+			if (dialog.open) morph(() => dialog.close(), true);
+		};
+		dialog.addEventListener('click', close);
+		// Escape: close with the morph rather than the browser's instant close
+		dialog.addEventListener('cancel', (event) => {
+			event.preventDefault();
+			close();
+		});
+
 		const open = (img: HTMLImageElement) => {
-			enlargedDiagram.replaceChildren();
-			enlargedDiagram.classList.add('hidden');
-			enlarged.hidden = false;
-			// The original file: the srcset copies stop at 1200px
-			enlarged.src = img.getAttribute('src')!;
-			enlarged.alt = img.alt;
-			showFrom(img);
+			show(img, () => {
+				enlargedDiagram.replaceChildren();
+				enlargedDiagram.classList.add('hidden');
+				enlarged.hidden = false;
+				shown = enlarged;
+				fileSize = {
+					width: Number(img.getAttribute('width')) || img.naturalWidth,
+					height: Number(img.getAttribute('height')) || img.naturalHeight,
+				};
+				// The copy already on screen first, so the morph has a picture to grow
+				enlarged.src = img.currentSrc || img.src;
+				enlarged.alt = img.alt;
+			}).then(() => {
+				// then the original file: the srcset copies stop at 1200px
+				if (source === img) enlarged.src = img.getAttribute('src')!;
+			});
 		};
 
 		// A diagram is inline SVG (rehype-inline-diagrams): enlarge a copy of whichever
 		// version is showing, desktop or phone
 		const openDiagram = (figure: HTMLElement) => {
-			const shown = [...figure.querySelectorAll<SVGSVGElement>('svg')].find(
+			const visible = [...figure.querySelectorAll<SVGSVGElement>('svg')].find(
 				(svg) => svg.getClientRects().length,
 			);
-			if (!shown) return;
-			const copy = shown.cloneNode(true) as SVGSVGElement;
-			copy.setAttribute('width', '100%');
-			copy.setAttribute('height', '100%');
-			enlargedDiagram.replaceChildren(copy);
-			enlargedDiagram.classList.remove('hidden');
-			enlarged.removeAttribute('src');
-			enlarged.hidden = true;
-			showFrom(figure);
+			if (!visible) return;
+			show(visible, () => {
+				const copy = visible.cloneNode(true) as SVGSVGElement;
+				const { width, height } = copy.viewBox.baseVal;
+				fileSize = { width: width || 1, height: height || 1 };
+				copy.removeAttribute('width');
+				copy.removeAttribute('height');
+				copy.style.viewTransitionName = '';
+				// Each arrow redraws, 30ms after the one before (motion.css)
+				copy.querySelectorAll('.d-flow').forEach((flow, i) => {
+					(flow as SVGElement).style.setProperty('--i', String(Math.min(i, 12)));
+					// Dashed arrows keep their dashes: pathLength would rescale them
+					flow
+						.querySelectorAll('path:not([stroke-dasharray])')
+						.forEach((path) => path.setAttribute('pathLength', '1'));
+				});
+				enlargedDiagram.replaceChildren(copy);
+				enlargedDiagram.classList.remove('hidden');
+				enlarged.removeAttribute('src');
+				enlarged.hidden = true;
+				shown = copy;
+			});
 		};
 		document.querySelectorAll<HTMLElement>('.prose .diagram').forEach((figure) => {
 			figure.tabIndex = 0;
