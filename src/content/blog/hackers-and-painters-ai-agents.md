@@ -31,12 +31,6 @@ Lawson even guessed at what I'm describing, and doubted it: "maybe I'll be surpr
 
 So I reread Hackers and Painters against the way I work now.
 
-<div class="callout">
-
-The essay is from 2003, and Graham mentions AI only once, about the symbolic kind: "if you assume that knowledge can be represented as a list of predicate logic expressions whose arguments represent abstract concepts, you'll have a lot of papers to write about how to make this work."
-
-</div>
-
 ## Programming is sketching
 
 Graham was taught in college to work a program out completely on paper before going near a computer. He didn't work that way. He'd "spew out code that was hopelessly broken, and gradually beat it into shape," and he felt bad about it for years, until he noticed that painters and architects had a name for what he was doing: sketching.
