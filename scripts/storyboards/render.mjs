@@ -8,14 +8,18 @@
 //   board   { title, section, form, claim, trigger, library, still, test }
 //   frames  [{ at, note, height?, draw(f) }]   keyframes, drawn at 640 wide
 //   phone   { note, height, draw(f) }          the still phones and reduced motion get, at 360
-// Frames use the diagram kit (scripts/diagrams/draw.mjs), so they're cut paper and
-// fail on the same overflow and arrow checks as a diagram.
+//   kit     'sketch' for scenes (scripts/storyboards/sketch.mjs: stick figures, props,
+//           Joe's scribbles), drawn in board.look or a frame's own look; leave it out for
+//           a step-through diagram, drawn with the diagram kit (scripts/diagrams/draw.mjs)
+// A board with `pick: true` is a look sheet: one frame drawn several ways for Joe to
+// choose from, so it needs only a title, a claim and frames.
 
 import { readdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { createFigure, DESKTOP_WIDTH, PHONE_WIDTH } from '../diagrams/draw.mjs';
+import { createSketch } from './sketch.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const [slug, outPath] = process.argv.slice(2);
@@ -34,8 +38,8 @@ const BOARD_FIELDS = ['title', 'section', 'form', 'claim', 'trigger', 'library',
 const FRAME_HEIGHT = 360;
 
 let problems = 0;
-function draw(id, width, height, drawFrame, label) {
-	const f = createFigure({ id, width, height });
+function draw(id, width, height, drawFrame, label, look) {
+	const f = look ? createSketch({ id, width, height, look }) : createFigure({ id, width, height });
 	drawFrame(f);
 	const svg = f.toString(label);
 	for (const issue of f.issues) {
@@ -48,10 +52,13 @@ function draw(id, width, height, drawFrame, label) {
 const boards = [];
 for (const name of names) {
 	const mod = await import(pathToFileURL(path.join(boardDir, `${name}.mjs`)).href);
-	for (const key of ['board', 'frames', 'phone'])
+	const pick = mod.board?.pick;
+	for (const key of pick ? ['board', 'frames'] : ['board', 'frames', 'phone'])
 		if (!mod[key]) throw new Error(`${slug}/${name}.mjs exports no ${key}`);
-	for (const key of BOARD_FIELDS)
+	for (const key of pick ? ['title', 'claim'] : BOARD_FIELDS)
 		if (!mod.board[key]) throw new Error(`${slug}/${name}.mjs board has no ${key}`);
+	const lookOf = (frame) =>
+		mod.kit === 'sketch' ? (frame.look ?? mod.board.look ?? 'crayon') : null;
 	const frames = mod.frames.map((frame, i) => ({
 		...frame,
 		svg: draw(
@@ -60,9 +67,10 @@ for (const name of names) {
 			frame.height ?? FRAME_HEIGHT,
 			frame.draw,
 			frame.note,
+			lookOf(frame),
 		),
 	}));
-	const phone = {
+	const phone = mod.phone && {
 		...mod.phone,
 		svg: draw(
 			`sb-${slug}-${name}-phone`,
@@ -70,6 +78,7 @@ for (const name of names) {
 			mod.phone.height,
 			mod.phone.draw,
 			mod.phone.note,
+			lookOf(mod.phone),
 		),
 	};
 	boards.push({ name, ...mod.board, frames, phone });
@@ -88,15 +97,21 @@ function escapeHtml(s) {
 
 function page(title, list) {
 	const sections = list
-		.map((b, i) => {
+		.map((b) => {
 			const frames = b.frames
 				.map(
 					(fr, j) =>
 						`<figure><div class="at">${j + 1} · ${escapeHtml(fr.at)}</div>${fr.svg}<figcaption>${escapeHtml(fr.note)}</figcaption></figure>`,
 				)
 				.join('\n');
+			if (b.pick)
+				return `<section id="${b.name}">
+<p class="kicker">Pick a look</p>
+<h2>${escapeHtml(b.title)}</h2>
+<p class="claim">${escapeHtml(b.claim)}</p>
+<div class="strip">${frames}</div></section>`;
 			return `<section id="${b.name}">
-<p class="kicker">Board ${i + 1} · ${escapeHtml(b.form)} · under “${escapeHtml(b.section)}”</p>
+<p class="kicker">Board ${list.filter((x) => !x.pick).indexOf(b) + 1} · ${escapeHtml(b.form)} · under “${escapeHtml(b.section)}”</p>
 <h2>${escapeHtml(b.title)}</h2>
 <p class="claim">${escapeHtml(b.claim)}</p>
 <div class="strip">${frames}</div>
