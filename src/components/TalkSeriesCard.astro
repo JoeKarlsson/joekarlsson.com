@@ -72,7 +72,7 @@ const LINK =
 	{/* Every run on desktop; phones show the newest PHONE_RUNS and fold the rest behind "+ N more" */}
 	<ul class="mt-2 max-md:col-start-2">
 		{runs.map((t, i) => (
-			<li class:list={[`${META} flex gap-2`, i >= PHONE_RUNS && 'max-md:hidden']}>
+			<li class:list={[`${META} flex gap-2 md:min-h-6`, i >= PHONE_RUNS && 'max-md:hidden']}>
 				<span class="shrink-0" style="width:4.5rem;font-variant-numeric:tabular-nums">
 					{shortDate(t)}
 				</span>
@@ -85,7 +85,7 @@ const LINK =
 			<summary class={`${LINK} cursor-pointer`}>+ {runs.length - PHONE_RUNS} more</summary>
 			<ul>
 				{runs.slice(PHONE_RUNS).map((t) => (
-					<li class={`${META} flex gap-2`}>
+					<li class={`${META} flex gap-2 md:min-h-6`}>
 						<span class="shrink-0" style="width:4.5rem;font-variant-numeric:tabular-nums">
 							{shortDate(t)}
 						</span>

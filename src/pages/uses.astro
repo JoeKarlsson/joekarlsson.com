@@ -193,7 +193,7 @@ const sections = USES_SECTIONS.map((section) => {
 						))}
 					</h2>
 					{section.introHtml && (
-						<p class="mb-6 max-w-[46em] text-paper" set:html={html(section.introHtml)} />
+						<p class="mb-6 max-w-[65ch] text-paper" set:html={html(section.introHtml)} />
 					)}
 					<div
 						class:list={[
@@ -281,7 +281,7 @@ const sections = USES_SECTIONS.map((section) => {
 																		? 'sponsored noopener noreferrer'
 																		: 'noopener noreferrer'
 																}
-																class={TEXT_LINK}
+																class={`${TEXT_LINK} max-md:inline-block max-md:py-3 max-md:-my-3`}
 															>
 																{item.name}
 															</a>

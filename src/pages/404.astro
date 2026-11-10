@@ -1,13 +1,21 @@
 ---
-import { MORE_LINK, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK, formatDate } from '../utils/ui';
+import {
+	HERO_LEAD,
+	MORE_LINK,
+	PAGE_CONTAINER,
+	SECTION_HEADING,
+	TEXT_LINK,
+	formatDate,
+} from '../utils/ui';
 // The 404: a scribble board to play with (strokes fade on their own, nothing is
 // saved) and every way back into the site: the main sections, the newest posts
 // and the blog topics, all from real data.
 import DrawingBoard from '../components/DrawingBoard.astro';
 import IndexRow from '../components/IndexRow.astro';
+import PosterHero from '../components/PosterHero.astro';
 import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { ARROW, CHALK, MARKS } from '../data/scribbles';
+import { CHALK, MARKS } from '../data/scribbles';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts, isOwnPost } from '../utils/posts';
 
@@ -49,58 +57,21 @@ const PLACES = [
 		}
 	</script>
 	<div class={PAGE_CONTAINER}>
-		<header class="relative z-20 mb-8 flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
-			<h1 class="relative font-display text-[clamp(120px,24vw,300px)] leading-[0.82] font-normal text-pink uppercase">
-				404
-				<Scribble
-					{...MARKS.cloud}
-					once
-					color={CHALK}
-					strokeWidth={5}
-					stretch
-					duration="7s"
-					delay="0.4s"
-					class="top-[4%] left-[2%] h-[92%] w-[96%]"
-				/>
-			</h1>
-			<div class="relative max-w-[34ch] pb-4">
-				<Scribble
-					{...MARKS.devil}
-					once
-					color="#ff4fd8"
-					strokeWidth={6}
-					duration="9s"
-					delay="1s"
-					class="top-0 -left-[130px] hidden h-[170px] w-[106px] md:block"
-				/>
-				<p class="text-[clamp(20px,2vw,28px)] leading-snug text-paper">
-					Nothing lives at this address. It may have moved.
-				</p>
-				<p data-closest-post hidden class="mt-3 text-[clamp(18px,1.6vw,22px)] text-paper">
-					Looking for <a data-closest-post-link class={TEXT_LINK}></a>?
-				</p>
-				<p class="mt-3 text-muted">
-					Scribble on the board below while you're here, or pick a way back in further down.
-				</p>
-				<Scribble
-					path={ARROW}
-					color="#ff4fd8"
-					viewBox="0 0 260 140"
-					strokeWidth={7}
-					duration="6s"
-					delay="1.4s"
-					class="-bottom-[86px] left-[18%] z-20 hidden h-[70px] w-[110px] -rotate-[80deg] md:block"
-				/>
-			</div>
-		</header>
-	</div>
+		{/* The same poster header as every section page, with the scribble board where the
+		others put a picture (phones skip the board) */}
+		<PosterHero
+			title="404"
+			wordRatio={1.6}
+			tickerItems={['Not found', 'Wrong turn', 'Moved', 'Lost', 'Try the blog']}
+		>
+			<DrawingBoard slot="media" title="Doodle while lost" class="z-10 md:min-h-[420px]" />
+			<p class={HERO_LEAD}>Nothing lives at this address. It may have moved.</p>
+			<p data-closest-post hidden class:list={[HERO_LEAD, 'mt-3']}>
+				Looking for <a data-closest-post-link class={TEXT_LINK}></a>?
+			</p>
+			<p class="mt-3 text-muted">Pick a way back in below.</p>
+		</PosterHero>
 
-	<!-- The page's column, like everything else on it -->
-	<div class="mx-auto max-w-6xl px-4 sm:px-7">
-		<DrawingBoard title="Doodle while you're lost" class="min-h-[60vh]" />
-	</div>
-
-	<div class="relative mx-auto max-w-6xl px-4 pt-20 pb-10 sm:px-7">
 		<section class="mb-12 md:mb-16">
 			<h2 class={SECTION_HEADING}>
 				Try one of these

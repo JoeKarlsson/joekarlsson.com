@@ -75,20 +75,8 @@ const relatedSlugs = rankRelatedPosts(
 			centered like a blog post's, with wide pictures and code at the hero's width
 			(the article is their @container) */}
 			<article class="@container min-w-0" data-post-title={title} data-post-category="Newsletter">
-				<div class="mb-8">
-					<BackLink href="/newsletter/" label="Newsletter" />
-					<h1 class={ARTICLE_TITLE}>{title}</h1>
-					<p class={META}>
-						<FormattedDate date={date} />
-					</p>
-					{description && <p class="mt-4 text-lg text-paper">{description}</p>}
-				</div>
-				{substackUrl && (
-					<p class="mb-6 text-sm text-muted" role="note">
-						From the TL;DR in Tech archive, originally sent on Substack. Some links may have died
-						since.
-					</p>
-				)}
+				<BackLink href="/newsletter/" label="Newsletter" />
+				{/* The card first, as posts and talks put their picture before the title */}
 				{heroImage && (
 					<img
 						src={heroImage}
@@ -101,6 +89,19 @@ const relatedSlugs = rankRelatedPosts(
 						loading="eager"
 						fetchpriority="high"
 					/>
+				)}
+				<div class="mb-8">
+					<h1 class={ARTICLE_TITLE}>{title}</h1>
+					<p class={META}>
+						<FormattedDate date={date} />
+					</p>
+					{description && <p class="mt-4 text-lg text-paper">{description}</p>}
+				</div>
+				{substackUrl && (
+					<p class="mb-6 text-sm text-muted" role="note">
+						From the TL;DR in Tech archive, originally sent on Substack. Some links may have died
+						since.
+					</p>
 				)}
 				<div class="mx-auto max-w-(--reading-width)">
 					<div class="prose wide-media">

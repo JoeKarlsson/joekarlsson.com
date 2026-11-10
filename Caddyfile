@@ -15,6 +15,15 @@
 
 	# 301 redirects: WordPress date-based blog URLs → /blog/slug
 	# Matches /YYYY/MM/slug/ or /YYYY/MM/slug
+	# Old WordPress per-post feeds (/YYYY/MM/slug/feed/) → RSS
+	@wp-post-feed path_regexp ^/\d{4}/\d{2}/[^/]+/feed/?$
+	redir @wp-post-feed /rss.xml 301
+
+	# A WordPress post that is a newsletter issue now (its old slug ended in an emoji);
+	# before @wp-blog, which would send it to a /blog/ URL that doesn't exist
+	@wp-viam path_regexp ^/2022/06/why-i-joined-viam
+	redir @wp-viam /newsletter/why-i-joined-viam/ 301
+
 	@wp-blog path_regexp wp ^/(\d{4})/(\d{2})/([^/]+)/?$
 	redir @wp-blog /blog/{re.wp.3}/ 301
 
@@ -63,6 +72,10 @@
 
 	@music-2025 path /blog/self-hosted-music-still-sucks-in-2025 /blog/self-hosted-music-still-sucks-in-2025/
 	redir @music-2025 /blog/self-hosted-music-still-sucks-in-2026/ 301
+
+	# The homelab server post's original slug
+	@homelab-not-expensive path /blog/how-to-get-started-building-a-not-expensive-homelab-server /blog/how-to-get-started-building-a-not-expensive-homelab-server/
+	redir @homelab-not-expensive /blog/how-to-get-started-building-a-homelab-server-in-2024/ 301
 
 	# Homelab server post - people searching for 2026 version
 	@homelab-2026 path_regexp ^/blog/how-to-get-started-building-a-homelab-server-in-2026.*

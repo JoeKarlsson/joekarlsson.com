@@ -129,7 +129,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 			</div>
 		</PosterHero>
 
-		<p class="mb-12 md:mb-16 font-serif text-[clamp(19px,1.6vw,23px)] leading-relaxed text-paper">
+		<p class="mb-12 max-w-[65ch] md:mb-16 font-serif text-[clamp(19px,1.6vw,23px)] leading-relaxed text-paper">
 			I've spent 15 years making complex data systems click for developers - through talks, docs,
 			demos, and content. I build and run DevRel functions at data companies, with a track record in
 			organic growth, developer activation, and pipeline influence. So far that's 100+ conference
@@ -174,7 +174,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 								<p class="text-sm text-paper">{role.company}</p>
 							</div>
 						</div>
-						<ul class="mb-3 list-disc space-y-1.5 pl-5 text-paper marker:text-pink">
+						<ul class="mb-3 max-w-[65ch] list-disc space-y-1.5 pl-5 text-paper marker:text-pink">
 							{role.bullets.map((b) => (
 								<li>
 									{typeof b === 'string' ? (
@@ -257,7 +257,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 									href={item.url}
 									target="_blank"
 									rel="noopener noreferrer"
-									class={`plausible-event-name=Resume+Writing+Sample+Click leading-snug ${TEXT_LINK}`}
+									class={`plausible-event-name=Resume+Writing+Sample+Click leading-snug ${TEXT_LINK} max-md:inline-block max-md:py-3 max-md:-my-3`}
 								>
 									{item.title}
 								</a>

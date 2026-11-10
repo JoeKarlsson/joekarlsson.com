@@ -47,11 +47,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 		<!-- The site's standard page top: a reel of the selected works plays where other pages
 		have a picture, 16:9 like every clip in it so nothing is cropped. Its caption and link
 		follow the piece on screen (src/scripts/work-reel.ts) -->
-		<PosterHero
-			title="Works"
-			wordRatio={2.2}
-			tickerItems={['Selected works', ...ERAS.map((era) => era.years)]}
-		>
+		<PosterHero title="Works" wordRatio={2.6} tickerItems={ERAS.map((era) => era.years)}>
 			<a
 				slot="media"
 				href={reelPieces[0].href}

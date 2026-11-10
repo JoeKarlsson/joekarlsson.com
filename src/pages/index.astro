@@ -88,7 +88,13 @@ const AROUND_THE_HOUSE = [
 >
 	<!-- A section with a name is a landmark, so screen-reader landmark jumps reach the
 	hero, which sits above the nav and outside <main> -->
-	<section slot="hero" aria-label="Introduction" class="grid gap-4 p-4 md:grid-cols-2">
+	<!-- max-w-[90rem]: the hero and sections fill a laptop as before, but stop growing
+	past 1440px, so a 2560px screen keeps the nav on its first screen -->
+	<section
+		slot="hero"
+		aria-label="Introduction"
+		class="mx-auto grid w-full max-w-[90rem] gap-4 p-4 md:grid-cols-2"
+	>
 		<!-- Phones: a 16:9 banner of Joe's face (montage-phone is that crop). Side by side: at least square, growing with a taller text panel so the
 		video never stops short. Only the video is clipped to the rounded box; the marks
 		sit above everything and spill across the text panel, the gutters and the nav. -->
@@ -205,7 +211,7 @@ const AROUND_THE_HOUSE = [
 	</section>
 
 	<!-- Phones: the hero's own bottom padding (p-4) plus pt-8 makes the usual 48 -->
-	<section class="relative px-4 pt-8 sm:px-7 md:pt-20">
+	<section class="relative mx-auto max-w-[90rem] px-4 pt-8 sm:px-7 md:pt-20">
 		<h2 class={SECTION_HEADING}>
 			<a href="/blog/" class="relative text-pink no-underline hover:text-pink hover:underline">
 				Recent posts
@@ -357,7 +363,7 @@ const AROUND_THE_HOUSE = [
 		/>
 	</a>
 
-	<section class="relative px-4 pt-12 md:pt-20 sm:px-7">
+	<section class="relative mx-auto max-w-[90rem] px-4 pt-12 md:pt-20 sm:px-7">
 		<h2 class={SECTION_HEADING}>
 			<a href="/work/" class="text-pink no-underline hover:text-pink hover:underline">
 				Works
@@ -392,7 +398,7 @@ const AROUND_THE_HOUSE = [
 
 	<DrawingBoard />
 
-	<section class="relative px-4 pt-12 md:pt-20 sm:px-7">
+	<section class="relative mx-auto max-w-[90rem] px-4 pt-12 md:pt-20 sm:px-7">
 		<h2 class={SECTION_HEADING}>
 			<a href="/blog/" class="text-pink no-underline hover:text-pink hover:underline">
 				Writing by topic
@@ -440,7 +446,7 @@ const AROUND_THE_HOUSE = [
 		</p>
 	</section>
 
-	<section class="relative px-4 pt-12 md:pt-24 sm:px-7">
+	<section class="relative mx-auto max-w-[90rem] px-4 pt-12 md:pt-24 sm:px-7">
 		<h2 class={SECTION_HEADING}>Around the house</h2>
 		<!-- Straddles the topics list and the strip -->
 		<Scribble

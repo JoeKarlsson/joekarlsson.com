@@ -269,8 +269,13 @@ test.describe('Phone layout', () => {
 		// The filter chips are gone; the era index and each project's Source/Demo/Blog links remain
 		await tall('nav[aria-label="Eras"] a');
 		await tall('.project-card > div > a');
+		await page.goto('/404');
+		await tall('main section a');
 		await page.goto('/blog/opentofu-proxmox-immutable-homelab/');
 		await tall('nav[aria-label="Breadcrumb"] a');
+		// The folded contents list that stands in for the sidebar under 1280px
+		await page.locator('details.group\\/toc summary').click();
+		await tall('details.group\\/toc summary, details.group\\/toc a');
 		await expect(page.locator('.prose .heading-anchor').first()).toBeHidden();
 
 		// /uses pins bunch up too close to tap apart at phone width, so phones skip them

@@ -12,6 +12,7 @@ test.describe('Page header position', () => {
 		'/newsletter/',
 		'/blog/category/homelab/',
 		'/privacy-policy/',
+		'/404',
 	];
 
 	for (const width of [1280, 390]) {
