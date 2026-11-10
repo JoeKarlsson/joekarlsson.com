@@ -339,6 +339,9 @@ const heroIsTaped =
 								try {
 									await copyToClipboard(code.textContent || '');
 									button.textContent = 'Copied!';
+									button.classList.remove('copied');
+									void button.offsetWidth; // restart the pop on a second copy
+									button.classList.add('copied');
 									if (typeof window.plausible === 'function') {
 										window.plausible('Code Copy', { props: { language: lang || 'unknown' } });
 									}

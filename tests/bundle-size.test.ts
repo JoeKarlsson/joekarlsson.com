@@ -30,8 +30,9 @@ const THRESHOLDS = {
 	// from 55KB on 2026-11-05 for the phone layout (compact rows, swipe strip, FAQ
 	// and archive toggles), which took it to 57KB, about 12KB gzipped. Raised to 64KB
 	// on 2026-11-06, when the site sat at 59.97KB and the blog post's centered column
-	// with wide pictures and code went 200 bytes over.
-	maxTotalCss: 64 * 1024,
+	// with wide pictures and code went 200 bytes over. Raised to 68KB on 2026-11-10
+	// for the menu and lightbox open/close motion (motion.css), which took it to 65KB.
+	maxTotalCss: 68 * 1024,
 	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
 	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
 	// when dist sat at 199MB. Those halftones are now drawn live in the browser

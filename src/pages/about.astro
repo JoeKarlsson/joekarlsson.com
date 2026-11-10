@@ -776,15 +776,15 @@ const cropArtPieces = [
 </script>
 
 <style>
-	/* A career row eases open on hover; clicking keeps it open. Animating the grid
+	/* A career row eases open on hover and closes 20% faster; clicking keeps it open. Animating the grid
 	   row from 0fr to 1fr works in every current browser, unlike height: auto */
 	.job-body {
 		display: grid;
 		grid-template-rows: 0fr;
 		opacity: 0;
 		transition:
-			grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-			opacity 0.35s ease-out;
+			grid-template-rows 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+			opacity 0.28s ease-in;
 	}
 	.job-body > * {
 		overflow: hidden;
@@ -793,6 +793,8 @@ const cropArtPieces = [
 	.job.is-open .job-body {
 		grid-template-rows: 1fr;
 		opacity: 1;
+		transition-duration: 0.45s, 0.35s;
+		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease-out;
 	}
 	/* What I do thumbnails crossfade through four frames, three seconds each */
 	.frame {

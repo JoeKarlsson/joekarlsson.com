@@ -93,9 +93,10 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			id="nav-section-links"
 			class="contents max-md:absolute max-md:inset-x-0 max-md:top-full max-md:mt-[0.29em] max-md:hidden max-md:flex-col max-md:items-stretch max-md:gap-0.5 max-md:rounded-[0.67em] max-md:bg-paper max-md:p-[0.29em] max-md:group-data-[menu-open]/nav:flex"
 		>
-			{NAV_LINKS.map(({ href, label, also }) => (
+			{NAV_LINKS.map(({ href, label, also }, row) => (
 				<a
 					href={href}
+					style={`--row: ${row}`}
 					aria-current={isActive(href, also) ? 'page' : undefined}
 					class:list={[
 						'menu-link sticker shrink-0 rounded-[0.43em] px-[0.48em] py-[0.38em] no-underline',
@@ -110,6 +111,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			<button
 				type="button"
 				data-pause-motion
+				style={`--row: ${NAV_LINKS.length}`}
 				aria-pressed="false"
 				aria-label="Pause motion"
 				title="Pause motion"
@@ -196,6 +198,13 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 	const nav = document.querySelector<HTMLElement>('header nav[aria-label="Main navigation"]');
 	const menuToggle = nav?.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
 	if (nav) initReadingContext(nav);
+	// After a first press, the menu and pause buttons blur their new icon in (motion.css).
+	// Not before, so the icons don't animate on every page load
+	nav
+		?.querySelectorAll('[data-nav-menu-toggle], [data-pause-motion]')
+		.forEach((button) =>
+			button.addEventListener('click', () => button.setAttribute('data-icon-swap', '')),
+		);
 	if (nav && menuToggle) {
 		const setMenuOpen = (open: boolean) => {
 			nav.toggleAttribute('data-menu-open', open);

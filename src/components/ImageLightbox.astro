@@ -22,18 +22,23 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 	const enlargedDiagram = dialog?.querySelector<HTMLElement>('.diagram-enlarged');
 	if (dialog && enlarged && enlargedDiagram) {
 		dialog.addEventListener('click', () => dialog.close());
-		dialog.addEventListener('close', () => {
-			enlarged.removeAttribute('src');
-			enlarged.hidden = false;
-			enlargedDiagram.replaceChildren();
-			enlargedDiagram.classList.add('hidden');
-		});
+		// Grow out of the picture that was clicked, and shrink back into it on close
+		// (motion.css). The last picture stays in place until the next open, so it's
+		// still there while the close plays out
+		const showFrom = (source: Element) => {
+			const { left, top, width, height } = source.getBoundingClientRect();
+			dialog.style.transformOrigin = `${left + width / 2}px ${top + height / 2}px`;
+			dialog.showModal();
+		};
 
 		const open = (img: HTMLImageElement) => {
+			enlargedDiagram.replaceChildren();
+			enlargedDiagram.classList.add('hidden');
+			enlarged.hidden = false;
 			// The original file: the srcset copies stop at 1200px
 			enlarged.src = img.getAttribute('src')!;
 			enlarged.alt = img.alt;
-			dialog.showModal();
+			showFrom(img);
 		};
 
 		// A diagram is inline SVG (rehype-inline-diagrams): enlarge a copy of whichever
@@ -48,8 +53,9 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 			copy.setAttribute('height', '100%');
 			enlargedDiagram.replaceChildren(copy);
 			enlargedDiagram.classList.remove('hidden');
+			enlarged.removeAttribute('src');
 			enlarged.hidden = true;
-			dialog.showModal();
+			showFrom(figure);
 		};
 		document.querySelectorAll<HTMLElement>('.prose .diagram').forEach((figure) => {
 			figure.tabIndex = 0;
