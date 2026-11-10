@@ -6,6 +6,7 @@
 import { readFileSync, existsSync, readdirSync } from 'fs';
 import { resolve } from 'path';
 import { describe, expect, it } from 'vitest';
+import { isSent } from '../src/utils/sent';
 
 const dist = resolve(import.meta.dirname, '..', 'dist');
 const blogDir = resolve(import.meta.dirname, '..', 'src', 'content', 'blog');
@@ -173,7 +174,14 @@ describe('Category Pages', () => {
 describe('Newsletter RSS feed', () => {
 	const newsletterDir = resolve(import.meta.dirname, '..', 'src', 'content', 'newsletter');
 	const feed = readDist('newsletter/rss.xml');
-	const issueCount = readdirSync(newsletterDir).filter((f) => f.endsWith('.md')).length;
+	// Scheduled issues (dated after the build) stay out of the feed until they're sent
+	const issueCount = readdirSync(newsletterDir)
+		.filter((f) => f.endsWith('.md'))
+		.map(
+			(f) =>
+				readFileSync(resolve(newsletterDir, f), 'utf8').match(/^date:\s*['"]?([^'"\n]+)/m)?.[1],
+		)
+		.filter((date) => date && isSent(new Date(date))).length;
 
 	it('has one item per newsletter issue', () => {
 		expect((feed.match(/<item>/g) || []).length).toBe(issueCount);
