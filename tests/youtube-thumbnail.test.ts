@@ -1,28 +1,29 @@
-import os from 'node:os';
-import path from 'node:path';
-import sharp from 'sharp';
 import { describe, expect, it } from 'vitest';
-import { pinkPhoto } from '../scripts/youtube-thumbnail.mjs';
+import { fillHoles } from '../scripts/youtube-thumbnail.mjs';
 
-describe('pinkPhoto', () => {
-	it('fills the 16:9 card from the crop and grades dark to black and bright to the site pink', async () => {
-		// A 400x225 frame: black left half, white right half
-		const file = path.join(os.tmpdir(), 'youtube-thumbnail-test.png');
-		await sharp({ create: { width: 400, height: 225, channels: 3, background: '#000' } })
-			.composite([
-				{
-					input: { create: { width: 200, height: 225, channels: 3, background: '#fff' } },
-					left: 200,
-					top: 0,
-				},
-			])
-			.png()
-			.toFile(file);
-		const png = await pinkPhoto(file, [0, 0, 1, 1]);
-		const { data, info } = await sharp(png).raw().toBuffer({ resolveWithObject: true });
-		expect([info.width, info.height]).toEqual([1280, 720]);
-		const pixel = (x: number) => [...data.subarray(x * 3, x * 3 + 3)];
-		expect(pixel(10)).toEqual([0, 0, 0]);
-		expect(pixel(1270)).toEqual([255, 0x4f, 0xd8]);
+// A 200x200 mask: Joe is a solid square with a one-pixel hole (teeth) and a 10x10 gap
+// (background seen through him; holes up to 0.03% of the image, 12px here, count as teeth)
+function mask() {
+	const w = 200;
+	const alpha = new Uint8Array(w * w);
+	for (let y = 5; y < 195; y++) for (let x = 5; x < 195; x++) alpha[y * w + x] = 255;
+	alpha[10 * w + 10] = 0; // one-pixel hole, small enough to be teeth
+	for (let y = 20; y < 30; y++) for (let x = 20; x < 30; x++) alpha[y * w + x] = 0; // 100px gap
+	return { w, alpha };
+}
+
+describe('fillHoles', () => {
+	it('fills small enclosed holes and keeps big gaps and the outside clear', () => {
+		const { w, alpha } = mask();
+		const solid = fillHoles(alpha, w, w);
+		expect(solid[10 * w + 10]).toBe(255);
+		expect(solid[25 * w + 25]).toBe(0);
+		expect(solid[0]).toBe(0);
+	});
+
+	it('fills a big hole when it sits on his face', () => {
+		const { w, alpha } = mask();
+		const solid = fillHoles(alpha, w, w, [25, 25, 8, 8]);
+		expect(solid[25 * w + 25]).toBe(255);
 	});
 });

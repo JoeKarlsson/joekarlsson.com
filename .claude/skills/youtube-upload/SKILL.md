@@ -1,6 +1,6 @@
 ---
 name: youtube-upload
-description: Package one of Joe's talk, podcast or demo recordings for YouTube with everything filled in - title, description in Joe's voice with event, links and chapters, tags, category, recording date and place, cleaned Whisper subtitles and transcript, and a full-screen photo thumbnail - then upload it unlisted in YouTube Studio and add it to src/data/talk-videos.json. Use when Joe asks to upload, re-upload or back up a recording to YouTube, or to write a YouTube description, chapters or subtitles for one of his videos.
+description: Package one of Joe's talk, podcast or demo recordings for YouTube with everything filled in - title, description in Joe's voice with event, links and chapters, tags, category, recording date and place, cleaned Whisper subtitles and transcript, and a cut-out concept thumbnail - then upload it unlisted in YouTube Studio with subtitles and an end screen, and add it to /talks/. Use when Joe asks to upload, re-upload or back up a recording to YouTube, or to write a YouTube description, chapters or subtitles for one of his videos.
 ---
 
 # YouTube upload package
@@ -30,28 +30,23 @@ Before writing anything, collect and write down:
 
 ## 2. Frames and thumbnail
 
+The thumbnail is the "concept" look Joe picked on 2026-11-09: Joe cut out of a frame in natural color, a prop that shows the talk's idea taped on paper, a 2-4 word hook in Anton (one word in pink), a dark backdrop colored by era, and the event on a pink chip. Everything sits on a 1280x720 grid with 48px margins: a face column and a prop column, with a pink arrow from Joe to the prop.
+
 Pull candidate stills from the first and last minute (greetings and thank-yous have the best faces):
 
 ```bash
-for t in 5 10 15 20 30 40 50 60; do ffmpeg -v error -ss $t -i "$VIDEO" -frames:v 1 -y /tmp/f$t.png; done
+for t in 5 10 15 20 25 30 40 50 60; do ffmpeg -v error -ss $t -i "$VIDEO" -frames:v 1 -q:v 2 -y /tmp/f$t.jpg; done
 ```
 
-Read them and pick a frame where Joe's eyes are open and he's smiling or mid-gesture, never mid-blink or mid-word. Sample the first 15 seconds at 2 fps when the first pass has no good face.
+Read them and pick a frame where Joe's eyes are open and he's smiling or mid-gesture, never mid-blink or mid-word. Never pick between several frames of Joe for him to compare: pick one that clears these rules, or ask him to pick.
 
-The thumbnail is the look Joe picked on 2026-11-09: the photo fills the whole 1280x720 card in the site pink (never a small print), a dark fade on the title side, the event on a tilted pink label, the title in Anton with the crayon underline, and one chalk mark from `src/data/scribbles.ts` in the corner by his head (vary it between neighbors: burst, spiral, star, asterisk, bolt, flower, burstDense).
-
-- `box` is a 16:9 crop of the frame (w and h as fractions; equal fractions on a 16:9 frame). Put Joe's face in the outer third, opposite the title, with its center in the top half so the title never covers his mouth.
-- A webcam corner is small (often ~400px wide); crop to the webcam only and accept some softness. Below ~300px wide it turns to mush: use the deck's about-me headshot or illustrated portrait instead.
-- If Joe faces the title side, set `"side": "right"` so the title goes on the side he's looking away from.
-- Keep slide text, window chrome and handles out of the crop.
-
-Copy the still to `<stem>.youtube.frame.png`, set `thumbnail` in the package (`kicker` = "Event · Year", `title` = a short form of the talk title, `box`, `side`, `mark`), and draw it:
+Write a cards file (fields documented at the top of `scripts/youtube-thumbnail.mjs`): `face` and `clip` as fractions of the frame (clip to the webcam corner on a screen-share), `faceSide` so Joe looks toward the prop, `hook`, `bg` for the era, `stage` HTML for the prop (a photo or diagram from the talk on `.paper` with `.tape`, a logo `.sticker`), `chip` for the event. Then draw it (macOS only: the cutout uses Apple Vision):
 
 ```bash
-npm run youtube:thumbnail -- "<stem>.youtube.json"
+npm run youtube:thumbnail -- cards.json <out dir>
 ```
 
-Read the PNG. No slide text in the corners, no chin or forehead cut off, no title over his face. Joe approves the batch's thumbnails before upload.
+Read the PNG: no holes in Joe (teeth, headphones), nothing cut off at his chin or crown, the hook readable at phone size, the prop recognizable. Joe approves the batch's thumbnails before upload. Save each as `<folder name> (original).youtube.png`.
 
 ## 3. Transcript and captions
 
