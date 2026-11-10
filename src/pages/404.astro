@@ -18,6 +18,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts, isOwnPost } from '../utils/posts';
+import { jsonForScript } from '../utils/json-for-script';
 import popularPosts from '../data/popular-posts.json';
 
 const posts = await getFeedPosts();
@@ -49,7 +50,7 @@ const PLACES = [
 			window.plausible('404', { props: { path: window.location.pathname } });
 		}
 	</script>
-	<script type="application/json" id="post-links" set:html={JSON.stringify(postLinks)} />
+	<script type="application/json" id="post-links" set:html={jsonForScript(postLinks)} />
 	<script>
 		import { findClosestPost, type PostLink } from '../scripts/closest-post';
 		const posts: PostLink[] = JSON.parse(

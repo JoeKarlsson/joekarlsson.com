@@ -11,6 +11,9 @@ import { loadEnvFile } from 'node:process';
 import { format, resolveConfig } from 'prettier';
 import sharp from 'sharp';
 import {
+	coverFileName,
+	httpsUrlOn,
+	nextGitHubPage,
 	parseLetterboxdFilms,
 	summarizeGitHubProfile,
 	truncateAtWord,
@@ -68,7 +71,13 @@ async function fetchRecentFilms() {
 		limit: ITEMS_PER_FEED,
 		reviewExcerptMaxChars: REVIEW_EXCERPT_MAX_CHARS,
 	})) {
-		films.push({ ...film, poster: await saveCoverAsWebp(posterUrl, `film-${tmdbId}.webp`) });
+		films.push({
+			...film,
+			// No redirects: the poster host is pinned in parseLetterboxdFilms
+			poster: await saveCoverAsWebp(posterUrl, coverFileName('film', tmdbId), {
+				redirect: 'error',
+			}),
+		});
 	}
 	return films;
 }
@@ -93,17 +102,22 @@ async function fetchRecentPodcastEpisodes() {
 		// A session's mediaMetadata.title is the episode title; the show's own
 		// metadata lives on the library item.
 		const libraryItem = await (
-			await fetchOrThrow(`${AUDIOBOOKSHELF_URL}/api/items/${session.libraryItemId}`, authHeaders)
+			await fetchOrThrow(
+				`${AUDIOBOOKSHELF_URL}/api/items/${encodeURIComponent(session.libraryItemId)}`,
+				authHeaders,
+			)
 		).json();
 		const podcastMetadata = libraryItem.media.metadata;
 		episodes.push({
 			episodeTitle: session.displayTitle,
 			podcastTitle: podcastMetadata.title,
 			// Only public pages: never link to the Audiobookshelf server itself.
-			url: podcastMetadata.itunesPageUrl || null,
+			url: podcastMetadata.itunesPageUrl
+				? httpsUrlOn(podcastMetadata.itunesPageUrl, ['podcasts.apple.com'], 'Podcast page')
+				: null,
 			cover: await saveCoverAsWebp(
 				`${AUDIOBOOKSHELF_URL}/api/items/${session.libraryItemId}/cover`,
-				`podcast-${session.libraryItemId}.webp`,
+				coverFileName('podcast', session.libraryItemId),
 				authHeaders,
 			),
 		});
@@ -137,7 +151,7 @@ async function fetchAllCommitsSince(repoFullName, sinceIso) {
 		}
 		const response = await fetchOrThrow(url, GITHUB_REQUEST_OPTIONS);
 		commits.push(...(await response.json()));
-		url = response.headers.get('link')?.match(/<([^>]+)>; rel="next"/)?.[1];
+		url = nextGitHubPage(response.headers.get('link'));
 	}
 	return commits;
 }
@@ -181,7 +195,7 @@ async function fetchRecentlyShippedRepos() {
 		shippedRepos.push({
 			name: repo.name,
 			description: repo.description,
-			url: repo.html_url,
+			url: httpsUrlOn(repo.html_url, ['github.com'], 'Repo page'),
 			language: repo.language,
 			commitCount: commits.length,
 			dailyCommitCounts,
@@ -206,7 +220,7 @@ async function fetchGitHubProfile() {
 			throw new Error(`${GITHUB_USERNAME} has over ${MAX_REPO_PAGES * 100} repos`);
 		const response = await fetchOrThrow(url, GITHUB_REQUEST_OPTIONS);
 		repos.push(...(await response.json()));
-		url = response.headers.get('link')?.match(/<([^>]+)>; rel="next"/)?.[1];
+		url = nextGitHubPage(response.headers.get('link'));
 	}
 	return summarizeGitHubProfile(user, repos, { topRepoCount: GITHUB_TOP_REPO_COUNT });
 }

@@ -11,6 +11,14 @@ export function findWorkflowErrors(text) {
 	const doc = parseDocument(text, { uniqueKeys: true });
 	const errors = doc.errors.map((error) => error.message);
 	if (errors.length === 0 && !doc.get('jobs')) errors.push('no `jobs:` section');
+	// A tag like @v7 can be moved to new code by whoever controls the action's repo, and
+	// these jobs hold write tokens. Pin each action to a commit (security audit run-1);
+	// Dependabot keeps the SHAs and their # vX comments current.
+	for (const [, action] of text.matchAll(/^\s*-?\s*uses:\s*(\S+)/gm)) {
+		if (!action.startsWith('./') && !/@[0-9a-f]{40}$/.test(action)) {
+			errors.push(`${action} is not pinned to a commit SHA`);
+		}
+	}
 	return errors;
 }
 

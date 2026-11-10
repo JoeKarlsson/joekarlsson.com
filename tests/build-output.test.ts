@@ -554,6 +554,25 @@ describe('iframe embeds', () => {
 		expect(loadsOnPhones).toEqual([]);
 	});
 
+	// Security audit run-1: a game embed on another origin (GitHub Pages, another org)
+	// is sandboxed so a takeover of that origin can't navigate the visitor's tab.
+	it('every non-video embed is sandboxed without top navigation', () => {
+		const unsandboxed: string[] = [];
+		for (const page of builtPages) {
+			for (const [tag, src] of readDist(page).matchAll(
+				/<iframe\b[^>]*?\s(?:data-desktop-)?src="([^"]+)"[^>]*>/g,
+			)) {
+				const { hostname } = new URL(src, 'https://www.joekarlsson.com');
+				if (/(^|\.)(youtube(-nocookie)?|tiktok)\.com$/.test(hostname)) continue;
+				const sandbox = tag.match(/\ssandbox="([^"]*)"/)?.[1];
+				if (sandbox === undefined || /allow-top-navigation/.test(sandbox)) {
+					unsandboxed.push(`${page}: ${src}`);
+				}
+			}
+		}
+		expect(unsandboxed).toEqual([]);
+	});
+
 	// Screenshots of a site embedded right above them look like a second player, so
 	// they show only on phones, where a desktop-only embed doesn't load
 	it('a project page with a desktop-only embed shows its screenshots only on phones', () => {
@@ -1030,5 +1049,82 @@ describe('performance guards', () => {
 		const page = readDist('work/connect-ai-doom/index.html');
 		expect(page).toContain('poster="/images/projects/connect-ai-doom-poster.webp"');
 		expect(page).toContain('og/images/projects/connect-ai-doom.jpg');
+	});
+});
+
+// Security audit run-1: imported and third-party text reached built pages as live
+// HTML. Whatever the source, a built page never carries a script link or a JSON
+// data block that could close its own <script> element.
+describe('no injected script in built pages', () => {
+	const pages = builtPages.map((file) => ({ file, html: readDist(file) }));
+
+	it('has no javascript: or data: links', () => {
+		const hits = pages.flatMap(({ file, html }) =>
+			[
+				...html.matchAll(
+					/\s(?:href|src|action|formaction)\s*=\s*["']?\s*(?:javascript|data:text\/html|vbscript):/gi,
+				),
+			].map((m) => `${file}: ${html.slice(m.index, m.index + 60)}`),
+		);
+		expect(hits).toEqual([]);
+	});
+
+	it('every JSON <script> block parses and holds no raw <', () => {
+		const bad: string[] = [];
+		for (const { file, html } of pages) {
+			for (const [, type, body] of html.matchAll(
+				/<script\b[^>]*type="(application\/(?:ld\+)?json)"[^>]*>([\s\S]*?)<\/script>/g,
+			)) {
+				try {
+					JSON.parse(body);
+				} catch {
+					bad.push(`${file}: ${type} does not parse`);
+				}
+				if (body.includes('<')) bad.push(`${file}: ${type} holds a raw <`);
+			}
+		}
+		expect(bad).toEqual([]);
+	});
+});
+
+// Security audit run-1: the CSP keeps the directives that block a base-tag swap,
+// plugins, off-site form posts and framing, and every built form posts where
+// form-action allows. The empty-UA 403 is never cached at the edge.
+describe('Caddyfile security headers', () => {
+	const caddyfile = readFileSync(resolve(import.meta.dirname, '..', 'Caddyfile'), 'utf-8');
+	const csp = caddyfile.match(/Content-Security-Policy "([^"]+)"/)?.[1] ?? '';
+	const directive = (name: string) =>
+		csp
+			.split(';')
+			.map((d) => d.trim().split(/\s+/))
+			.find(([key]) => key === name)
+			?.slice(1) ?? [];
+
+	it('locks down base-uri, object-src and framing', () => {
+		expect(directive('base-uri')).toEqual(["'none'"]);
+		expect(directive('object-src')).toEqual(["'none'"]);
+		expect(directive('frame-ancestors')).toEqual(["'none'"]);
+	});
+
+	it('every built form posts to an origin form-action allows', () => {
+		const allowed = directive('form-action');
+		expect(allowed.length).toBeGreaterThan(0);
+		const blocked: string[] = [];
+		for (const page of builtPages) {
+			for (const [, action] of readDist(page).matchAll(/<form\b[^>]*\saction="([^"]+)"/g)) {
+				const origin = new URL(action, 'https://www.joekarlsson.com').origin;
+				const ok =
+					allowed.includes(origin) ||
+					(origin === 'https://www.joekarlsson.com' && allowed.includes("'self'"));
+				if (!ok) blocked.push(`${page}: ${action}`);
+			}
+		}
+		expect(blocked).toEqual([]);
+	});
+
+	it('never lets the edge cache the empty-User-Agent 403', () => {
+		expect(caddyfile).toMatch(
+			/header @empty_ua Cache-Control "no-store"\s*\n\s*respond @empty_ua 403/,
+		);
 	});
 });

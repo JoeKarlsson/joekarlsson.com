@@ -55,7 +55,7 @@ You can [play a level Claude built from demo Salesforce, Zendesk, and Stripe MCP
 <p class="md:hidden">The game needs a keyboard and mouse, so on a phone, <a href="https://cdatasoftware.github.io/connect-ai-doom/">open the full version</a> and watch Claude play.</p>
 
 <div class="@container overflow-hidden rounded-lg max-md:hidden">
-  <iframe data-desktop-src="https://cdatasoftware.github.io/connect-ai-doom/embed.html" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-embed-project="Connect AI × DOOM" class="block w-full" style="border:0;height:calc(75cqw + 136px)" allow="fullscreen; gamepad; autoplay" allowfullscreen loading="lazy"></iframe>
+  <iframe data-desktop-src="https://cdatasoftware.github.io/connect-ai-doom/embed.html" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-embed-project="Connect AI × DOOM" class="block w-full" style="border:0;height:calc(75cqw + 136px)" allow="fullscreen; gamepad; autoplay" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-forms allow-modals allow-downloads" loading="lazy"></iframe>
 </div>
 
 Here's how the two MCP servers fit together:

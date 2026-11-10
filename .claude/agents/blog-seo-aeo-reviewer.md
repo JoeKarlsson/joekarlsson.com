@@ -1,7 +1,7 @@
 ---
 name: blog-seo-aeo-reviewer
 description: Reviews a joekarlsson.com blog draft for SEO and answer-engine (AEO/GEO) readiness. Checks meta, keyword placement, heading structure, and internal links (with live HTTP checks), plus LLM-extractability signals (FAQ format, self-contained sections, specific dated claims). Returns findings and concrete fixes. Read-only.
-tools: Read, Grep, Glob, WebSearch, WebFetch, Bash
+tools: Read, Grep, Glob, WebSearch, WebFetch
 model: sonnet
 ---
 
@@ -28,15 +28,11 @@ You report findings and concrete fixes; you do **not** rewrite the post.
   distributed; headers follow STYLE_GUIDE.md **Headers** (mostly short plain labels, no teasers).
 - **Body:** primary keyword in the first ~150 words; secondary keywords appear naturally.
 - **Internal links:** 2-5 links to other joekarlsson.com posts. Verify each candidate slug
-  exists in `src/content/blog/`. External links should point to live pages:
-  ```bash
-  curl -sI --max-time 10 "<url>" | head -1
-  ```
+  exists in `src/content/blog/` (Glob). External links should point to live pages: open each
+  with WebFetch. No Bash: this agent reads attacker-writable web pages, so it gets no shell (security audit run-1; tests/agent-tools.test.ts checks it).
 - **Keyword cannibalization:** check whether another joekarlsson.com URL already targets the
   primary keyword:
-  ```bash
-  grep -rl "primary keyword" src/content/blog/*.md
-  ```
+  Grep `src/content/blog/` for the primary keyword.
   If a different post already targets it, flag: either re-target or cross-link with intent.
 
 ## AEO / GEO checks (LLM extractability)

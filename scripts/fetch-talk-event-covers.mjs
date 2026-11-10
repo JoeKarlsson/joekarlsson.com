@@ -24,6 +24,7 @@ import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node
 import { execFileSync } from 'node:child_process';
 import { join, resolve } from 'node:path';
 import sharp from 'sharp';
+import { fetchPublic } from './public-fetch.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const PLAN = JSON.parse(readFileSync(join(ROOT, 'scripts/talk-event-covers.json'), 'utf8'));
@@ -60,7 +61,11 @@ function findShareImage(html, pageUrl) {
 }
 
 async function get(url) {
-	const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+	const response = await fetchPublic(
+		url,
+		{ headers: { 'User-Agent': USER_AGENT } },
+		{ what: 'Event page or cover' },
+	);
 	if (!response.ok) throw new Error(`${response.status} fetching ${url}`);
 	return response;
 }
@@ -129,6 +134,8 @@ function shortBackup(id) {
 /** One frame of my NAS copy of a video (`backup`, under My Videos), `at` seconds in. The NAS's
  * ffmpeg can't write images, so it cuts a second of the stream and the frame is decoded here */
 function downloadFrame(id, at, backup) {
+	// `at` goes into the remote shell command unquoted, so it must be a plain number
+	if (!Number.isFinite(at) || at < 0) throw new Error(`Bad frame time for ${id}: ${at}`);
 	const quoted = `'${join(NAS_VIDEOS, backup).replace(/'/g, `'\\''`)}'`;
 	const clip = execFileSync(
 		'ssh',

@@ -9,6 +9,7 @@
 import { existsSync } from 'node:fs';
 import { loadEnvFile } from 'node:process';
 import { pathToFileURL } from 'node:url';
+import { inertLabel } from './untrusted-text.mjs';
 
 // Why each AI bot comes: a person asked an assistant something and it opened the page;
 // an AI search engine is indexing; or a crawler is gathering training data
@@ -46,13 +47,15 @@ export function agentName(userAgent) {
 	const ai = aiAgent(userAgent);
 	if (ai) return ai.name;
 	const bot = userAgent.match(/compatible;\s*([^;/)]+)/i)?.[1];
-	if (bot) return bot.trim();
+	// Visitor-chosen text: only a short token-like name gets through (security audit run-1)
+	if (bot) return inertLabel(bot.trim(), 40) || '(other)';
 	const tool = userAgent.match(
 		/\b(curl|python-requests|Python-urllib|node-fetch|undici|axios|Go-http-client|Wget)\b/i,
 	)?.[1];
 	if (tool) return tool;
 	if (/Mozilla\/5\.0/.test(userAgent)) return 'Browser';
-	return userAgent || '(none)';
+	// An unrecognized user agent is any visitor's free text, so it's never printed
+	return userAgent ? '(other)' : '(none)';
 }
 
 function tally(rows, keyOf) {
@@ -148,7 +151,7 @@ async function main() {
 	}
 
 	console.log('Pages AI assistants opened while answering someone');
-	printCounts(askedPages.map((r) => [r.clientRequestPath, r.count]));
+	printCounts(askedPages.map((r) => [inertLabel(r.clientRequestPath), r.count]));
 
 	const markdownTotal = markdownReads.reduce((sum, row) => sum + row.count, 0);
 	console.log(`\nMarkdown copies (.md): ${markdownTotal} requests\n  By agent`);
@@ -157,8 +160,8 @@ async function main() {
 	printCounts(
 		tally(markdownReads, (r) =>
 			r.edgeResponseStatus === 200
-				? r.clientRequestPath
-				: `${r.clientRequestPath} [${r.edgeResponseStatus}]`,
+				? inertLabel(r.clientRequestPath)
+				: `${inertLabel(r.clientRequestPath)} [${r.edgeResponseStatus}]`,
 		),
 		15,
 	);

@@ -40,6 +40,13 @@ fi
 # now-feed snapshot commit above is the one exception: it's never pushed.
 git fetch --quiet origin main
 UNPUSHED=$(git log origin/main..HEAD --format='%h %s' | grep -v ' chore: Refresh now-feed snapshot$' || true)
+# The exemption is for the snapshot only: a commit with that subject that touches
+# anything else still has to be pushed first (security audit run-1)
+for SNAPSHOT_SHA in $(git log origin/main..HEAD --format='%h %s' | grep ' chore: Refresh now-feed snapshot$' | cut -d' ' -f1); do
+    if git diff-tree --no-commit-id --name-only -r "$SNAPSHOT_SHA" | grep -qvE '^(src/data/now-feed\.json|public/images/now/)'; then
+        UNPUSHED+=$'\n'"$SNAPSHOT_SHA touches files outside the now-feed snapshot"
+    fi
+done
 if [[ -n "$UNPUSHED" ]]; then
     echo "ERROR: these commits aren't on origin/main yet. Push them, then deploy:" >&2
     echo "$UNPUSHED" >&2
@@ -48,6 +55,13 @@ fi
 BUILD_DIR=$(mktemp -d "${TMPDIR:-/tmp}/joekarlsson-deploy.XXXXXX")
 git worktree add --quiet --detach "$BUILD_DIR" HEAD
 trap 'cd "$MAIN_DIR" && git worktree remove --force "$BUILD_DIR"' EXIT
+# The build borrows the main checkout's node_modules, so it must have been installed
+# from the lockfile being built, not one another session changed (security audit run-1)
+if ! cmp -s "$MAIN_DIR/package-lock.json" "$BUILD_DIR/package-lock.json"; then
+    echo "ERROR: the main checkout's package-lock.json differs from HEAD's, so its node_modules may not match what HEAD locks." >&2
+    echo "Commit or discard the lockfile change there and run npm ci, then deploy." >&2
+    exit 1
+fi
 ln -s "$MAIN_DIR/node_modules" "$BUILD_DIR/node_modules"
 if [[ -f "$MAIN_DIR/.env" ]]; then cp "$MAIN_DIR/.env" "$BUILD_DIR/.env"; fi
 # Astro caches rendered markdown without tracking the diagram SVGs it inlines, so a
@@ -106,10 +120,32 @@ fi
 echo "Content hash updated: $NEW_HASH"
 
 echo "Deploying to CT 165 via OpenTofu..."
+# Without purge credentials, removed or retracted pages stay at the Cloudflare edge,
+# so the deploy stops here instead of warning after the fact (security audit run-1)
+if [[ -z "${CLOUDFLARE_ZONE_ID:-}" || -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then
+    echo "ERROR: CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN must be set (in .env) to purge after deploying." >&2
+    echo "  CLOUDFLARE_ZONE_ID: Cloudflare Dashboard → joekarlsson.com → Overview → Zone ID" >&2
+    echo "  CLOUDFLARE_API_TOKEN: My Profile → API Tokens, with Zone.Cache Purge permission" >&2
+    exit 1
+fi
 # This script purges just the changed files below; tell tofu's purge_cache step
 # (cloudflare-purge.sh) not to purge the whole zone first
 export CF_PURGE_HANDLED_BY_DEPLOY=1
-tofu -chdir="$TOFU_DIR" apply -var-file=terraform.tfvars -var "site_dist_path=$BUILD_DIR/dist" -auto-approve
+# A content deploy ships content only. Plan first, and stop if the plan would change
+# anything besides the content push and purge: provision.sh.tpl, the NPM proxy host
+# and the container are infra changes, applied on purpose from $TOFU_DIR, never
+# swept along unreviewed (security audit run-1)
+TOFU_PLAN="$BUILD_DIR/content.tfplan"
+tofu -chdir="$TOFU_DIR" plan -input=false -var-file=terraform.tfvars -var "site_dist_path=$BUILD_DIR/dist" -out="$TOFU_PLAN" >/dev/null
+INFRA_CHANGES=$(tofu -chdir="$TOFU_DIR" show -json "$TOFU_PLAN" |
+    jq -r '.resource_changes[]? | select(.mode == "managed" and .change.actions != ["no-op"]) | .address' |
+    grep -vxE 'null_resource\.(push_content|purge_cache)' || true)
+if [[ -n "$INFRA_CHANGES" ]]; then
+    echo "ERROR: this deploy would also change infrastructure. Review and apply it from $TOFU_DIR first:" >&2
+    echo "$INFRA_CHANGES" >&2
+    exit 1
+fi
+tofu -chdir="$TOFU_DIR" apply -input=false "$TOFU_PLAN"
 
 echo "Deployed to origin server"
 
@@ -120,21 +156,10 @@ purge_cloudflare_cache() {
     echo "Purging Cloudflare cache..."
     node scripts/purge-urls.mjs purge "$PURGE_LIST"
 }
-CAN_PURGE=0
-if [[ -n "${CLOUDFLARE_ZONE_ID:-}" && -n "${CLOUDFLARE_API_TOKEN:-}" ]]; then
-    CAN_PURGE=1
-    purge_cloudflare_cache
-else
-    echo ""
-    echo "WARNING: Cloudflare cache not purged!"
-    echo "Set CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN to enable automatic cache purging."
-    echo "Without this, users may see unstyled pages until the CDN cache expires."
-    echo ""
-    echo "To get these values:"
-    echo "  1. CLOUDFLARE_ZONE_ID: Cloudflare Dashboard → joekarlsson.com → Overview → Zone ID"
-    echo "  2. CLOUDFLARE_API_TOKEN: Cloudflare Dashboard → My Profile → API Tokens → Create Token"
-    echo "     Use template: 'Edit zone DNS' or create custom with 'Zone.Cache Purge' permission"
-fi
+# Checked before the apply, so the credentials are there. A failed purge exits here
+# (set -e), loudly, rather than leaving stale pages cached.
+CAN_PURGE=1
+purge_cloudflare_cache
 
 # Verify the deploy actually landed rather than just reporting success: the
 # homepage visitors get must carry exactly the <body> just built. Two earlier

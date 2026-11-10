@@ -24,6 +24,44 @@ export function readTag(itemXml, tag) {
 }
 
 /** The newest films in a Letterboxd RSS feed, with the poster URL still remote. */
+/**
+ * A feed URL that ends up as an href, an image fetch or a token-carrying request:
+ * https only, on one of the expected hosts (or their subdomains). Anything else
+ * throws, so a strange feed stops the refresh instead of shipping (security audit run-1).
+ */
+export function httpsUrlOn(url, hosts, what) {
+	let parsed;
+	try {
+		parsed = new URL(url);
+	} catch {
+		throw new Error(`${what} is not a URL: ${String(url).slice(0, 80)}`);
+	}
+	const hostOk = hosts.some(
+		(host) => parsed.hostname === host || parsed.hostname.endsWith(`.${host}`),
+	);
+	if (parsed.protocol !== 'https:' || !hostOk) {
+		throw new Error(`${what} must be https on ${hosts.join(' or ')}: ${String(url).slice(0, 80)}`);
+	}
+	return url;
+}
+
+/** The rel="next" page from a GitHub Link header, only ever on api.github.com. */
+export function nextGitHubPage(linkHeader) {
+	const next = linkHeader?.match(/<([^>]+)>; rel="next"/)?.[1];
+	if (!next) return undefined;
+	if (new URL(next).origin !== 'https://api.github.com') {
+		throw new Error(`GitHub pagination points off api.github.com: ${next.slice(0, 80)}`);
+	}
+	return next;
+}
+
+/** Cover file names come from feed ids; only plain ids may become a path. */
+export function coverFileName(prefix, id) {
+	if (!/^[A-Za-z0-9-]{1,64}$/.test(String(id)))
+		throw new Error(`Unexpected ${prefix} id: ${String(id).slice(0, 80)}`);
+	return `${prefix}-${id}.webp`;
+}
+
 export function parseLetterboxdFilms(rss, { limit, reviewExcerptMaxChars }) {
 	const items = [...rss.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((match) => match[1]);
 	// The feed also carries lists, which have no film title.
@@ -50,9 +88,9 @@ export function parseLetterboxdFilms(rss, { limit, reviewExcerptMaxChars }) {
 			year: Number(readTag(item, 'letterboxd:filmYear')),
 			rating: rating ? Number(rating) : null,
 			reviewExcerpt: isReview ? truncateAtWord(reviewText, reviewExcerptMaxChars) : null,
-			url: readTag(item, 'link'),
+			url: httpsUrlOn(readTag(item, 'link'), ['letterboxd.com'], 'Letterboxd link'),
 			tmdbId: readTag(item, 'tmdb:movieId'),
-			posterUrl,
+			posterUrl: httpsUrlOn(posterUrl, ['ltrbxd.com'], 'Letterboxd poster'),
 		};
 	});
 }
@@ -74,7 +112,7 @@ export function summarizeGitHubProfile(user, repos, { topRepoCount }) {
 			.slice(0, topRepoCount)
 			.map((repo) => ({
 				name: repo.name,
-				url: repo.html_url,
+				url: httpsUrlOn(repo.html_url, ['github.com'], 'Repo page'),
 				description: repo.description,
 				stars: repo.stargazers_count,
 			})),

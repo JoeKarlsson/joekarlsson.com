@@ -11,6 +11,7 @@ import { DEFAULT_HERO_IMAGE } from '../consts';
 import { MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
 import { isOwnPost } from '../utils/posts';
+import { jsonForScript } from '../utils/json-for-script';
 import { SECTION_HEADING } from '../utils/ui';
 import HoverBox from './HoverBox.astro';
 import Scribble from './Scribble.astro';
@@ -165,7 +166,7 @@ const firstRandom = randomPool[0];
 			>
 				Pick another
 			</button>
-			<script type="application/json" data-random-pool set:html={JSON.stringify(randomPool)} />
+			<script type="application/json" data-random-pool set:html={jsonForScript(randomPool)} />
 		</div>
 	)}
 </nav>

@@ -15,8 +15,10 @@ jobs:
     permissions:
       issues: write
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: 22
           cache: npm
@@ -82,7 +84,7 @@ jobs:
           # Anything beyond the oldest is a duplicate from before this fix
           echo "$NUMBERS" | tail -n +2 | xargs -r -I{} \
             gh issue close {} --comment "Duplicate of #$KEEP, which this workflow now updates in place."
-      - uses: peter-evans/create-issue-from-file@v6
+      - uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6
         if: steps.outdated.outputs.has_outdated == 'true'
         with:
           title: 'Outdated npm dependencies detected'
@@ -104,8 +106,10 @@ jobs:
     permissions:
       issues: write
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: 22
           cache: npm
@@ -146,7 +150,7 @@ jobs:
           echo "number=$KEEP" >> "$GITHUB_OUTPUT"
           echo "$NUMBERS" | tail -n +2 | xargs -r -I{} \
             gh issue close {} --comment "Duplicate of #$KEEP, which this workflow now updates in place."
-      - uses: peter-evans/create-issue-from-file@v6
+      - uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6
         if: steps.audit.outputs.has_vulns == 'true'
         with:
           title: 'npm security vulnerabilities detected'

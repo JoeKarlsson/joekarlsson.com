@@ -50,6 +50,11 @@ const imageSizes = new Map(
 const square = page.galleryAspect === 'square';
 // Embeds load only on desktop (src/scripts/load-desktop-embeds.ts) unless the project
 // opts in with embedOnPhones; data-phone-ok tells the build test that was deliberate
+// Everything a game needs except navigating this page's tab: an embed on another
+// origin (a GitHub Pages repo, another org's site) could otherwise send visitors
+// anywhere after a takeover (security audit run-1). tests/build-output.test.ts checks it.
+const EMBED_SANDBOX =
+	'allow-scripts allow-same-origin allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-forms allow-modals allow-downloads';
 const embedSource = page.embedOnPhones
 	? { src: page.embedUrl, 'data-phone-ok': '' }
 	: { 'data-desktop-src': page.embedUrl };
@@ -281,6 +286,7 @@ const sections = [
 											class="block w-full"
 											style={`border:0;height:${page.embedHeight}`}
 											allow="fullscreen; gamepad; autoplay"
+											sandbox={EMBED_SANDBOX}
 											allowfullscreen
 											loading="lazy"
 										></iframe>
@@ -300,6 +306,7 @@ const sections = [
 											data-native-height="720"
 											style="border:0"
 											allow="fullscreen; gamepad; autoplay"
+											sandbox={EMBED_SANDBOX}
 											allowfullscreen
 											loading="lazy"
 										></iframe>

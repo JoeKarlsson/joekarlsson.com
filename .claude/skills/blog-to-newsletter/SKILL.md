@@ -53,7 +53,7 @@ Inboxes don't play video or audio. Gmail and Outlook don't show SVG, and Outlook
 
 | In the post | In the email |
 | --- | --- |
-| Photo or meme (WebP) | JPEG, 1056px wide (or the original width if smaller): `ffmpeg -i in.webp -vf "scale='min(1056,iw)':-2" -q:v 4 out.jpg` |
+| Photo or meme (WebP) | JPEG, 1056px wide (or the original width if smaller): `ffmpeg -i in.webp -vf "scale='min(1056,iw)':-2" -map_metadata -1 -q:v 4 out.jpg` (`-map_metadata -1` drops camera and time metadata; `tests/image-metadata.test.ts` fails on any public image that keeps it) |
 | Diagram (SVG) | `node .claude/skills/blog-to-newsletter/scripts/svg-to-email.mjs <desktop.svg> <out.jpg>` (use the desktop SVG, not `.phone.svg`) |
 | Video clips that tell a story (before/after, stages, picks) | A flipbook GIF built from their posters: `node .claude/skills/blog-to-newsletter/scripts/flipbook.mjs <out.gif> 2 'poster.webp\|Label\|Note' ...` |
 | A video tour or demo | Mention it and link to the post. If it's the heart of the post, add the poster as a JPEG linked to the post |

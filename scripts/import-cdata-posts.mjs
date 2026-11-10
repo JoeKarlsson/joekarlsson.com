@@ -24,8 +24,8 @@ import { chromium } from '@playwright/test';
 import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
-import TurndownService from 'turndown';
-import { tables } from 'turndown-plugin-gfm';
+import { toMarkdown } from './cdata-markdown.mjs';
+import { fetchPublic } from './public-fetch.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const BLOG_DIR = path.join(ROOT, 'src/content/blog');
@@ -196,60 +196,6 @@ async function scrapePost(page, url) {
 	});
 }
 
-function toMarkdown(html) {
-	const td = new TurndownService({
-		headingStyle: 'atx',
-		codeBlockStyle: 'fenced',
-		bulletListMarker: '-',
-		emDelimiter: '_',
-	});
-	td.use(tables);
-	// Turndown pads markers ("1.  x") and indents by 4; markdownlint wants "1. x"
-	td.addRule('listItem', {
-		filter: 'li',
-		replacement: (content, node) => {
-			const parent = node.parentNode;
-			const marker =
-				parent.nodeName === 'OL'
-					? `${Number(parent.getAttribute('start') ?? 1) + [...parent.childNodes].filter((n) => n.nodeName === 'LI').indexOf(node)}.`
-					: '-';
-			const indent = ' '.repeat(marker.length + 1);
-			const body = content.replace(/^\n+/, '').replace(/\n+$/, '').replace(/\n/g, `\n${indent}`);
-			return `${marker} ${body}${node.nextSibling ? '\n' : ''}`;
-		},
-	});
-	// CMS wraps code in <pre><code class="language-x"> or bare <pre>
-	td.addRule('pre', {
-		filter: 'pre',
-		replacement: (_c, node) => {
-			const code = node.querySelector('code') ?? node;
-			const lang = (code.getAttribute('class') ?? '').match(/language-([\w-]+)/)?.[1] ?? '';
-			return `\n\n\`\`\`${lang}\n${code.textContent.replace(/\n$/, '')}\n\`\`\`\n\n`;
-		},
-	});
-	let md = td.turndown(html);
-
-	// Shift headings so the shallowest one is h2 (the page title is the h1)
-	const levels = [...md.matchAll(/^(#{1,6}) /gm)].map((m) => m[1].length);
-	const shift = levels.length ? Math.min(...levels) - 2 : 0;
-	if (shift !== 0) {
-		md = md.replace(/^(#{1,6}) /gm, (_m, h) => '#'.repeat(Math.max(2, h.length - shift)) + ' ');
-	}
-
-	return (
-		md
-			// STYLE_GUIDE: no em dashes
-			.replace(/\s*—\s*/g, ' - ')
-			.replace(/[‘’]/g, "'")
-			.replace(/[“”]/g, '"')
-			.replace(/ /g, ' ')
-			// Relative CData links -> absolute
-			.replace(/\]\(\/(?!\/)/g, `](${ORIGIN}/`)
-			.replace(/\n{3,}/g, '\n\n')
-			.trim() + '\n'
-	);
-}
-
 function imageName(src, used) {
 	const base =
 		path
@@ -265,7 +211,7 @@ function imageName(src, used) {
 }
 
 async function downloadWebp(src, dest, { hero = false } = {}) {
-	const res = await fetch(src, { headers: { 'User-Agent': UA } });
+	const res = await fetchPublic(src, { headers: { 'User-Agent': UA } }, { what: 'Post image' });
 	if (!res.ok) throw new Error(`${res.status} fetching ${src}`);
 	const buf = Buffer.from(await res.arrayBuffer());
 	if (hero) return heroCanvas(buf).then((img) => img.toFile(dest));
@@ -313,7 +259,7 @@ async function importPost(page, url, existingFile) {
 	}
 	const imgDir = path.join(IMG_DIR, slug);
 	const webPath = (f) => `/images/blog/${slug}/${f}`;
-	let md = toMarkdown(post.html);
+	let md = toMarkdown(post.html, ORIGIN);
 
 	// Body images: download, then repoint. Links whose target is the image itself
 	// (CMS click-to-zoom) are unwrapped so they don't point at cms.cdata.com.

@@ -42,8 +42,10 @@ export default function rehypeInlineDiagrams({ publicDir = 'public' } = {}) {
  * pages (src/pages/work/[slug].astro) use it for their How it's made diagram.
  */
 export function inlineDiagram(src, alt, publicDir = 'public') {
-	const desktopPath = path.join(publicDir, src.slice(1));
-	if (!fs.existsSync(desktopPath)) return null;
+	const root = path.resolve(publicDir);
+	const desktopPath = path.resolve(root, src.slice(1));
+	// Only files under public/: an `..` in the src must not inline any SVG on disk
+	if (!desktopPath.startsWith(root + path.sep) || !fs.existsSync(desktopPath)) return null;
 	const phonePath = desktopPath.replace(/\.svg$/, '.phone.svg');
 	const svg = (file) => withLabel(fs.readFileSync(file, 'utf8'), alt);
 	const versions = [{ className: 'diagram-wide', file: desktopPath }];

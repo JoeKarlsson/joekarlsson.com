@@ -3,6 +3,7 @@ import { Font } from 'astro:assets';
 import '../styles/global.css';
 import { SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '../consts';
 import { DEFAULT_OG_IMAGE, ogJpegPath } from '../utils/og-image';
+import { jsonForScript } from '../utils/json-for-script';
 
 interface Props {
 	title: string;
@@ -185,7 +186,7 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 <script
 	is:inline
 	type="application/ld+json"
-	set:html={JSON.stringify({
+	set:html={jsonForScript({
 		'@context': 'https://schema.org',
 		'@graph': [
 			{

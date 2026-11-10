@@ -19,4 +19,19 @@ describe('inlineMarkdown', () => {
 	it('leaves brackets that are not links alone', () => {
 		expect(inlineMarkdown('[draft] (soon)')).toBe('[draft] (soon)');
 	});
+
+	// Security audit run-1: only http(s), root-relative and #fragment links become anchors
+	it('leaves script-scheme and protocol-relative links as plain text', () => {
+		for (const href of [
+			'javascript:alert(1)',
+			'JavaScript:x',
+			'data:text/html,x',
+			'//evil.example/x',
+		]) {
+			expect(inlineMarkdown(`[x](${href})`)).not.toContain('<a ');
+		}
+		expect(inlineMarkdown('[x](https://a.example/) [y](#top)')).toMatch(
+			/<a href="https:\/\/a\.example\/".*<a href="#top"/,
+		);
+	});
 });

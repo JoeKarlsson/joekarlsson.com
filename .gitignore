@@ -15,7 +15,12 @@ pnpm-debug.log*
 
 # environment variables
 .env
-.env.production
+.env.*
+!.env.example
+# Keys and certificates never belong in this public repo (security audit run-1)
+*.pem
+*.key
+*.p12
 
 # MCP server config (contains API credentials)
 .mcp.json

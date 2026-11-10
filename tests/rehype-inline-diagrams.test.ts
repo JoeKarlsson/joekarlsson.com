@@ -86,4 +86,13 @@ describe('rehype-inline-diagrams', () => {
 		);
 		expect(run(dir, paragraphWithImage('/images/blog/post/missing.svg', 'Gone')).tagName).toBe('p');
 	});
+
+	// Security audit run-1: the src regex allows `..`, so the path must stay in public/
+	it('never inlines an SVG from outside public/', () => {
+		const dir = publicDirWith({ 'public/images/a.svg': SVG('Inside') });
+		writeFileSync(path.join(dir, 'secret.svg'), SVG('Outside'));
+		const publicDir = path.join(dir, 'public');
+		expect(run(publicDir, paragraphWithImage('/images/../../secret.svg', 'x')).tagName).toBe('p');
+		expect(run(publicDir, paragraphWithImage('/images/a.svg', 'x')).tagName).toBe('figure');
+	});
 });

@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+	coverFileName,
+	httpsUrlOn,
+	nextGitHubPage,
 	parseLetterboxdFilms,
 	summarizeGitHubProfile,
 	truncateAtWord,
@@ -116,5 +119,52 @@ describe('summarizeGitHubProfile', () => {
 		);
 		expect(summary).toMatchObject({ followers: 540, publicRepos: 3, stars: 280, forks: 6 });
 		expect(summary.topRepos.map((r: { name: string }) => r.name)).toEqual(['big', 'mid']);
+	});
+});
+
+// Security audit run-1: feed URLs become hrefs, image fetches and token-carrying
+// requests, so each is pinned to https on its expected host.
+describe('now-feed URL and id guards', () => {
+	it('accepts https on the expected host and its subdomains', () => {
+		expect(
+			httpsUrlOn('https://podcasts.apple.com/us/podcast/x/id1?uo=4', ['podcasts.apple.com'], 'p'),
+		).toContain('apple');
+		expect(httpsUrlOn(POSTER, ['ltrbxd.com'], 'poster')).toBe(POSTER);
+	});
+
+	it('rejects other schemes and hosts', () => {
+		for (const url of [
+			'javascript:alert(1)',
+			'http://podcasts.apple.com/x',
+			'https://podcasts.apple.com.evil.example/x',
+			'https://192.168.0.1/x',
+			'not a url',
+		]) {
+			expect(() => httpsUrlOn(url, ['podcasts.apple.com'], 'p')).toThrow();
+		}
+	});
+
+	it('fails the parse when a Letterboxd item links or loads off Letterboxd', () => {
+		const rss = item({ guid: 'letterboxd-watch-1', title: 'X' }).replace(
+			POSTER,
+			'http://192.168.0.5/admin.png',
+		);
+		expect(() => parseLetterboxdFilms(rss, options)).toThrow(/poster/);
+	});
+
+	it('follows GitHub pagination only on api.github.com', () => {
+		expect(nextGitHubPage('<https://api.github.com/x?page=2>; rel="next"')).toBe(
+			'https://api.github.com/x?page=2',
+		);
+		expect(nextGitHubPage(undefined)).toBeUndefined();
+		expect(() => nextGitHubPage('<https://evil.example/x>; rel="next"')).toThrow();
+	});
+
+	it('only turns plain ids into cover file names', () => {
+		expect(coverFileName('podcast', '22fc3916-1f4a-42a4-890f-ff8c09a6030c')).toBe(
+			'podcast-22fc3916-1f4a-42a4-890f-ff8c09a6030c.webp',
+		);
+		for (const id of ['../../x', 'a/b', '', 'undefined/..'])
+			expect(() => coverFileName('film', id)).toThrow();
 	});
 });

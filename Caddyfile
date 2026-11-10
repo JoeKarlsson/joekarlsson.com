@@ -11,6 +11,9 @@
 	@empty_ua {
 		header User-Agent ""
 	}
+	# no-store: the status depends on a header outside Cloudflare's cache key, so a
+	# cached 403 would be served to every visitor of that URL (security audit run-1)
+	header @empty_ua Cache-Control "no-store"
 	respond @empty_ua 403
 
 	# 301 redirects: WordPress date-based blog URLs → /blog/slug

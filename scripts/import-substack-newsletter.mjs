@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
 import TurndownService from 'turndown';
+import { fetchPublic } from './public-fetch.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const OUT_DIR = path.join(ROOT, 'src/content/newsletter');
@@ -222,7 +223,7 @@ function originalUrl(src) {
 }
 
 async function download(src, dest, gif) {
-	const res = await fetch(src, { headers: { 'User-Agent': UA } });
+	const res = await fetchPublic(src, { headers: { 'User-Agent': UA } }, { what: 'Issue image' });
 	if (!res.ok) throw new Error(`${res.status} fetching ${src}`);
 	const buf = Buffer.from(await res.arrayBuffer());
 	if (gif) {
