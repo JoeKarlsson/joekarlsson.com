@@ -7,24 +7,24 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 594,
+			"commitCount": 596,
 			"dailyCommitCounts": [
 				32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 119, 52
+				25, 119, 54
 			],
-			"latestCommitMessage": "feat: Seven more sketchbook marks join the site: a zigzag and a row of..."
+			"latestCommitMessage": "fix: The new About and homepage montages get new filenames, so..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 284,
+			"commitCount": 285,
 			"dailyCommitCounts": [
 				67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2,
-				20
+				21
 			],
-			"latestCommitMessage": "feat: Secrets on screen are found and blurred (director secrets reads..."
+			"latestCommitMessage": "fix: Found secrets are masked to two characters and their length (four..."
 		},
 		{
 			"name": "dotfiles",
