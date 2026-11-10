@@ -8,8 +8,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PosterHero from '../components/PosterHero.astro';
 import Scribble from '../components/Scribble.astro';
 import TalkCard from '../components/TalkCard.astro';
+import TalkSeriesCard from '../components/TalkSeriesCard.astro';
 import { CHALK, MARKS } from '../data/scribbles';
-import { TALK_ERAS, TALK_GROUPS, countByGroup, groupOf, talks } from '../data/talks';
+import { TALK_ERAS, TALK_GROUPS, countByGroup, foldSeries, groupOf, talks } from '../data/talks';
 import {
 	FILTER_ACTIVE,
 	FILTER_INACTIVE,
@@ -218,9 +219,13 @@ const FILTERS = [
 					data-collapse-body
 					class="grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
 				>
-					{era.talks.map((talk, j) => (
-						<TalkCard talk={talk} index={j} />
-					))}
+					{foldSeries(era.talks).map((item, j) =>
+						'talk' in item ? (
+							<TalkCard talk={item.talk} index={j} />
+						) : (
+							<TalkSeriesCard title={item.series} runs={item.runs} />
+						),
+					)}
 				</div>
 			</section>
 		))}

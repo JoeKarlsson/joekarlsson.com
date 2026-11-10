@@ -1,0 +1,22 @@
+---
+// One run on a TalkSeriesCard: the event and city, linked to that run's own recording if any
+import type { Talk } from '../data/talks';
+import { TEXT_LINK } from '../utils/ui';
+
+const { talk } = Astro.props as { talk: Talk };
+const own = talk.videos?.[0];
+const label = [talk.event, talk.place !== 'Online' && talk.place].filter(Boolean).join(', ');
+---
+
+{own ? (
+	<a
+		href={`https://www.youtube.com/watch?v=${own}`}
+		target="_blank"
+		rel="noopener noreferrer"
+		class={TEXT_LINK}
+	>
+		{label}
+	</a>
+) : (
+	<span>{label}</span>
+)}

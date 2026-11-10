@@ -1,7 +1,15 @@
 import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import talkVideos from '../src/data/talk-videos.json';
-import { TALK_ERAS, countByGroup, eraIndexFor, formatTalkDate, talks } from '../src/data/talks';
+import type { Talk } from '../src/data/talks';
+import {
+	TALK_ERAS,
+	countByGroup,
+	eraIndexFor,
+	foldSeries,
+	formatTalkDate,
+	talks,
+} from '../src/data/talks';
 
 describe('talks.ts', () => {
 	it('has every video the health check watches, once', () => {
@@ -61,5 +69,29 @@ describe('talks.ts', () => {
 				{ title: 'd', kind: 'demo', event: 'x', date: '2021' },
 			]),
 		).toBe('2 talks, 1 podcast, 1 demo');
+	});
+});
+
+describe('foldSeries', () => {
+	const run = (title: string, event: string, kind: Talk['kind'] = 'talk'): Talk => ({
+		title,
+		event,
+		kind,
+		date: '2020-01-01',
+	});
+
+	it('folds repeat runs of a talk into one item where the newest sits, and keeps the rest', () => {
+		const list = [
+			run('IoT and JS(?!)', 'Conf42'),
+			run('Schema Design Best Practices', 'MidwestPHP'),
+			run('An Introduction to IoT', 'CodeLand'),
+			run('Building an IoT Kitty Litter Box', 'Twitch', 'livestream'),
+		];
+		const items = foldSeries(list);
+		expect(items).toHaveLength(3);
+		expect(items[0]).toMatchObject({ runs: [list[0], list[2]] });
+		// One schema run in this era stays an ordinary card, and the livestream doesn't fold in
+		expect(items[1]).toEqual({ talk: list[1] });
+		expect(items[2]).toEqual({ talk: list[3] });
 	});
 });

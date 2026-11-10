@@ -1,0 +1,111 @@
+---
+// One talk I gave several times in the same era: one card that plays the best recording and
+// lists every time I gave it, each event linked to its own recording when there is one.
+import type { Talk } from '../data/talks';
+import { formatTalkDate, groupOf } from '../data/talks';
+import { META, TEXT_LINK } from '../utils/ui';
+import TalkSeriesRun from './TalkSeriesRun.astro';
+import YouTubeFacade from './YouTubeFacade.astro';
+
+interface Props {
+	title: string;
+	// Newest first
+	runs: Talk[];
+}
+
+const { title, runs } = Astro.props;
+// The recording to play: the first run with its own video, else one that borrows one
+const lead = runs.find((t) => t.videos?.length) ?? runs.find((t) => t.otherRecording) ?? runs[0];
+const video = lead.videos?.[0] ?? lead.otherRecording;
+const watch = (id: string) => `https://www.youtube.com/watch?v=${id}`;
+const writeup = runs.find((t) => t.writeup)?.writeup;
+const slides = runs.find((t) => t.slides)?.slides;
+const years = [...new Set(runs.map((t) => t.date.slice(0, 4)))].sort();
+const span = years.length > 1 ? `${years[0]}–${years.at(-1)}` : years[0];
+const PHONE_RUNS = 5;
+const shortDate = (t: Talk) => formatTalkDate(t).replace(/, \d{4}$/, '');
+const LINK =
+	'text-sm text-pink no-underline hover:text-paper max-md:inline-flex max-md:min-h-11 max-md:items-center';
+---
+
+<article
+	class="talk-card max-md:grid max-md:grid-cols-[112px_1fr] max-md:items-start max-md:gap-x-4"
+	data-talk-group={groupOf(runs[0])}
+	data-talk-video={video ? '' : undefined}
+>
+	<div class="relative max-md:row-span-4 max-md:[&_.youtube-facade>span]:size-9 max-md:[&_.youtube-facade>span>svg]:size-4">
+		{video && (
+			<>
+				<YouTubeFacade id={video} title={title} poster={`/images/talks/posters/${video}.webp`} />
+				<a
+					href={watch(video)}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="absolute inset-0 z-20 md:hidden"
+					tabindex="-1"
+					aria-hidden="true"
+				/>
+			</>
+		)}
+	</div>
+	<p class="mt-4 text-sm font-semibold text-pink max-md:mt-0">
+		{groupOf(runs[0]) === 'demo'
+			? `Demo · ${runs.length} videos`
+			: `Talk · Given ${runs.length} times`}{' '}
+		· {span}
+	</p>
+	<h3 class="mt-1 font-sans text-xl leading-snug font-semibold text-paper max-md:text-base">
+		{video ? (
+			<a
+				href={watch(video)}
+				target="_blank"
+				rel="noopener noreferrer"
+				class={`${TEXT_LINK} block max-md:-my-3 max-md:py-3`}
+			>
+				{title}
+			</a>
+		) : (
+			title
+		)}
+	</h3>
+	{/* Every run on desktop; phones show the newest PHONE_RUNS and fold the rest behind "+ N more" */}
+	<ul class="mt-2 max-md:col-start-2">
+		{runs.map((t, i) => (
+			<li class:list={[`${META} flex gap-2`, i >= PHONE_RUNS && 'max-md:hidden']}>
+				<span class="shrink-0" style="width:4.5rem;font-variant-numeric:tabular-nums">
+					{shortDate(t)}
+				</span>
+				<TalkSeriesRun talk={t} />
+			</li>
+		))}
+	</ul>
+	{runs.length > PHONE_RUNS && (
+		<details class="md:hidden max-md:col-start-2">
+			<summary class={`${LINK} cursor-pointer`}>+ {runs.length - PHONE_RUNS} more</summary>
+			<ul>
+				{runs.slice(PHONE_RUNS).map((t) => (
+					<li class={`${META} flex gap-2`}>
+						<span class="shrink-0" style="width:4.5rem;font-variant-numeric:tabular-nums">
+							{shortDate(t)}
+						</span>
+						<TalkSeriesRun talk={t} />
+					</li>
+				))}
+			</ul>
+		</details>
+	)}
+	{(writeup || slides) && (
+		<p class="mt-2 flex flex-wrap gap-x-4 max-md:col-start-2">
+			{writeup && (
+				<a href={writeup} class={LINK}>
+					Read the talk
+				</a>
+			)}
+			{slides && (
+				<a href={slides} target="_blank" rel="noopener noreferrer" class={LINK}>
+					Slides
+				</a>
+			)}
+		</p>
+	)}
+</article>

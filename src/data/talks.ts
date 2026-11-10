@@ -1295,6 +1295,49 @@ export const talks: Talk[] = [
 // Talks, podcasts, livestreams and demos (tutorial and demo videos), the four kinds the page
 // counts and filters by. A panel counts as a talk.
 export type TalkGroup = 'talk' | 'podcast' | 'livestream' | 'demo';
+// Talks I gave over and over: inside one era, each folds into one card that plays the best
+// recording and lists every run (TalkSeriesCard). Matched by title; the name is the card's title.
+const TALK_SERIES: [string, RegExp][] = [
+	[
+		'An Introduction to IoT: How I Built an IoT Kitty Litter Box Using JavaScript',
+		/iot|internet of (toilets|things)|litter/i,
+	],
+	['From SQL to NoSQL: A Gentle Introduction for Developers', /sql to nosql/i],
+	['MongoDB Schema Design Best Practices', /schema design/i],
+	['Building Your First GraphQL Client in JavaScript', /graphql client/i],
+	['A Gentle Introduction to Building Serverless Apps', /serverless/i],
+	['Bechdel.io: How We Used JavaScript To Help Make Film More Inclusive', /bechdel/i],
+	['JS and Parallel Processing(?!)', /parallel processing/i],
+	['Building High Performance React Applications', /high performance react/i],
+	['A Gentle Introduction to Building Data-Intensive Applications', /data.intensive/i],
+	['The Art of Computer Science', /art of computer science/i],
+	['Dev setup tutorials', /^(how to setup|generating a new ssh)/i],
+];
+
+export type TalkItem = { talk: Talk } | { series: string; runs: Talk[] };
+
+/** One era's list with repeat runs of a series folded into one item where the newest run sits.
+ * Only the same kind folds together (the litter-box livestream stays apart from the talk), and
+ * a series with one run in the era stays an ordinary card. */
+export function foldSeries(list: Talk[]): TalkItem[] {
+	const keyOf = (t: Talk) => {
+		const name = TALK_SERIES.find(([, re]) => re.test(t.title))?.[0];
+		return name && `${name}|${groupOf(t)}`;
+	};
+	const items: TalkItem[] = [];
+	const done = new Set<string>();
+	for (const talk of list) {
+		const key = keyOf(talk);
+		const runs = key ? list.filter((t) => keyOf(t) === key) : [];
+		if (!key || runs.length < 2) items.push({ talk });
+		else if (!done.has(key)) {
+			done.add(key);
+			items.push({ series: key.split('|')[0], runs });
+		}
+	}
+	return items;
+}
+
 export const TALK_GROUPS: TalkGroup[] = ['talk', 'podcast', 'livestream', 'demo'];
 export const groupOf = (talk: Talk): TalkGroup => (talk.kind === 'panel' ? 'talk' : talk.kind);
 
