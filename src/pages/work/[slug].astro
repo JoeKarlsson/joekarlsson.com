@@ -85,6 +85,9 @@ const lineage = (page.lineage ?? []).map(({ label, title }) => {
 // How it's made's diagram, inlined like a post's (rehype-inline-diagrams) so it boils
 const madeDiagram = page.made?.diagram;
 const diagram = madeDiagram && inlineDiagram(madeDiagram.src, madeDiagram.alt);
+const introFigure = page.introFigure && inlineDiagram(page.introFigure.src, page.introFigure.alt);
+if (page.introFigure && !introFigure)
+	throw new Error(`${project.title}'s statement figure ${page.introFigure.src} isn't in public/`);
 if (madeDiagram && !diagram)
 	throw new Error(`${project.title}'s diagram ${madeDiagram.src} isn't in public/`);
 
@@ -226,8 +229,24 @@ const sections = [
 						</h2>
 					)}
 					<div class="prose mb-12 md:mb-16">
-						{page.intro.map((p) => (
-							<p set:html={inlineMarkdown(p)} />
+						{page.intro.map((p, i) => (
+							<>
+								<p set:html={inlineMarkdown(p)} />
+								{introFigure && i + 1 === page.introFigure?.after && (
+									<figure
+										class="diagram"
+										data-diagram-src={introFigure.properties.dataDiagramSrc}
+										data-diagram-alt={introFigure.properties.dataDiagramAlt}
+									>
+										{introFigure.children.map((version) => (
+											<div
+												class={version.properties.className[0]}
+												set:html={version.children[0].value}
+											/>
+										))}
+									</figure>
+								)}
+							</>
 						))}
 					</div>
 

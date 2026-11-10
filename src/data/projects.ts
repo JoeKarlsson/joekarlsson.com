@@ -15,6 +15,9 @@ export interface ProjectPage {
 	intro: string[];
 	// A heading over the intro, for art pieces whose intro is an artist statement
 	introHeading?: string;
+	// An animated figure (a post's collage or diagram SVG) inside the statement, after
+	// paragraph `after` (1-based), inlined like a post's so it plays and opens in the lightbox
+	introFigure?: { src: string; alt: string; after: number };
 	// Follows the year in the page's byline: a collaborator ("with Laurel Karlsson")
 	credit?: string;
 	// A second, longer statement after the piece (Rose Hobart's 2017 joint statement),
@@ -961,6 +964,11 @@ export const projects: Project[] = [
 				{ label: 'Before it', title: 'Bechdel.io' },
 				{ label: 'After it', title: 'linger' },
 			],
+			introFigure: {
+				src: '/images/blog/sentence-length-semicolons-punctuation/words-leave.svg',
+				alt: "Paper collage on black: a printed page from Alice's Adventures in Wonderland lands, its punctuation turns pink, the words tear away in clumps and fly off, the blank paper drops out, and only the pink quotation marks, commas, exclamation marks and parentheses are left where they were. The label reads: Only the instructions.",
+				after: 2,
+			},
 			embedUrl: 'https://punc.joekarlsson.com/',
 			embedHeading: 'Read it',
 			embedNote: 'Pick a book off the shelf, or bring your own.',

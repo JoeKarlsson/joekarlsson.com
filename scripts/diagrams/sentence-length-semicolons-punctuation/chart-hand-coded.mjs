@@ -8,7 +8,7 @@ const EACH = 0.035;
 const FLIP = 4 / 12; // four drawings: edge-on at the middle two
 
 export const alt =
-	'One hundred paper slips, one for each semicolon and colon pulled at random from 1700s English prose and coded by hand. Each turns over to pink if the mark glues two clauses that could each stand as a sentence, or dark if it separates a list, introduces a quotation, or sits in a heading or footnote. 43 of 60 semicolons glue two clauses (72%), and 23 of 40 colons do (58%).';
+	'One hundred paper slips, one for each semicolon and colon pulled at random from 1700s English prose and coded twice, by two separate Claude agents that agreed on 95 of 100. Each turns over to pink if the mark glues two clauses that could each stand as a sentence, or dark if it separates a list, introduces a quotation, or sits in a heading or footnote. 43 of 60 semicolons glue two clauses (72%), and 23 of 40 colons do (58%).';
 
 function chart(f, { W, H, phone }) {
 	const cols = phone ? 10 : 20;
@@ -20,7 +20,7 @@ function chart(f, { W, H, phone }) {
 	f.text(
 		phone ? 20 : 16,
 		phone ? 18 : 20,
-		phone ? 'Does it glue two clauses?' : 'Does the mark glue two clauses? 100 coded by hand',
+		phone ? 'Does it glue two clauses?' : 'Does the mark glue two clauses? 100 marks, coded twice',
 		{
 			font: 'display',
 			size: phone ? 19 : 22,
@@ -29,7 +29,11 @@ function chart(f, { W, H, phone }) {
 		},
 	);
 	if (phone)
-		f.text(12, 37, '100 marks, coded by hand', { size: 14, anchor: 'start', color: COLORS.muted });
+		f.text(12, 37, '100 marks, two coders agree on 95', {
+			size: 14,
+			anchor: 'start',
+			color: COLORS.muted,
+		});
 
 	const groups = [
 		{
