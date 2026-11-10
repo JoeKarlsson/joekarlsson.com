@@ -11,16 +11,22 @@ interface Props {
 	poster?: string;
 	// A short muted loop played over the poster until the player loads
 	loop?: string;
+	// A YouTube Short: an upright 9:16 frame, for the still and the player
+	vertical?: boolean;
 }
 
-const { id, title, poster, loop } = Astro.props;
+const { id, title, poster, loop, vertical } = Astro.props;
 ---
 
 <button
 	type="button"
-	class="youtube-facade group relative block aspect-video w-full cursor-pointer overflow-hidden rounded-xl bg-ink"
+	class:list={[
+		'youtube-facade group relative block w-full cursor-pointer overflow-hidden rounded-xl bg-ink',
+		vertical ? 'aspect-[9/16]' : 'aspect-video',
+	]}
 	data-youtube-id={id}
 	data-youtube-title={title}
+	data-youtube-vertical={vertical ? '' : undefined}
 	aria-label={`Play ${title}`}
 >
 	{loop ? (

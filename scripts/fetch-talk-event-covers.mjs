@@ -14,6 +14,8 @@
  *   A video in src/data/talk-posters.json uses a frame of my NAS copy of it (`at` seconds in,
  *   cut over SSH, so drawing a new one needs the home LAN) or an event picture (`image`)
  *   instead of YouTube's thumbnail, at a file name of its own (posterPath in talks.ts).
+ * - public/images/talks/posters/<id>-t<at>.webp: an upright poster for each YouTube Short in
+ *   src/data/shorts.ts, a frame of my NAS copy (My Videos/Shorts), `posterAt` seconds in.
  *
  * Square podcast art is letterboxed on black instead of cropped, so the show's name survives.
  * Skips covers already drawn. Usage: npm run talks:covers
@@ -32,6 +34,9 @@ const HEIGHT = 360;
 // Video posters fill a desktop card about 380px wide, so twice that on a 2x screen
 const POSTER_WIDTH = 800;
 const POSTER_HEIGHT = 450;
+// A Short's poster fills a card about 180px wide on desktop and 170px on a phone
+const SHORT_WIDTH = 540;
+const SHORT_HEIGHT = 960;
 // YouTube's thumbnails, biggest first: not every video has the 1280px one
 const POSTER_SIZES = ['maxresdefault', 'sddefault', 'hqdefault'];
 // The site's pink (#ff4fd8), as a share of white: black stays black, white turns pink
@@ -69,6 +74,20 @@ export function findCardVideoIds(source) {
 	];
 }
 
+/** Each Short in src/data/shorts.ts and the second its poster frame is taken at. Throws when
+ * an entry has no `posterAt`, so a Short can't be added without a poster */
+export function findShorts(source) {
+	const shorts = [
+		...source.matchAll(/\{\s*id: '([\w-]{11})',[^}]*?posterAt: (\d+(?:\.\d+)?)/g),
+	].map((match) => ({ id: match[1], posterAt: Number(match[2]) }));
+	const ids = source.match(/id: '[\w-]{11}'/g) ?? [];
+	if (shorts.length !== ids.length)
+		throw new Error(
+			`src/data/shorts.ts: ${ids.length} Shorts but ${shorts.length} with a posterAt`,
+		);
+	return shorts;
+}
+
 /** The biggest thumbnail YouTube has for a video */
 async function downloadPoster(id) {
 	for (const size of POSTER_SIZES) {
@@ -88,14 +107,29 @@ function posterName(id) {
 	return `${id}${suffix}`;
 }
 
-/** One frame of my NAS copy of a video, `at` seconds in. The NAS's ffmpeg can't write images,
- * so it cuts a second of the stream and the frame is decoded here */
-function downloadFrame(id, at) {
+/** Where my NAS copy of a talk video is, from talk-videos.json */
+function talkBackup(id) {
 	const video = JSON.parse(readFileSync(join(ROOT, 'src/data/talk-videos.json'), 'utf8')).find(
 		(v) => v.id === id,
 	);
 	if (!video?.backup) throw new Error(`${id} has no NAS backup in talk-videos.json`);
-	const quoted = `'${join(NAS_VIDEOS, video.backup).replace(/'/g, `'\\''`)}'`;
+	return video.backup;
+}
+
+/** Where my NAS copy of a YouTube Short is: My Videos/Shorts names each file with its ID */
+function shortBackup(id) {
+	const names = execFileSync('ssh', [...NAS, `ls '${NAS_VIDEOS}/Shorts'`], { encoding: 'utf8' })
+		.split('\n')
+		.filter((name) => name.endsWith(`[${id}].mp4`));
+	if (names.length !== 1)
+		throw new Error(`Short ${id}: ${names.length} NAS copies in My Videos/Shorts`);
+	return `Shorts/${names[0]}`;
+}
+
+/** One frame of my NAS copy of a video (`backup`, under My Videos), `at` seconds in. The NAS's
+ * ffmpeg can't write images, so it cuts a second of the stream and the frame is decoded here */
+function downloadFrame(id, at, backup) {
+	const quoted = `'${join(NAS_VIDEOS, backup).replace(/'/g, `'\\''`)}'`;
 	const clip = execFileSync(
 		'ssh',
 		[
@@ -133,13 +167,19 @@ function downloadFrame(id, at) {
 
 /** Pink and black at card size, no dots. An event picture is cropped when it's near 16:9 and
  * letterboxed when it's not; a YouTube poster (4:3 with the video's bars) is always cropped */
-async function gradePink(input, { poster = false, youtube = poster } = {}) {
+async function gradePink(input, { poster = false, youtube = poster, upright = false } = {}) {
 	const { width, height } = await sharp(input).metadata();
 	// Only YouTube's own thumbnails are always cropped (their bars); a frame I picked is
-	// letterboxed when it isn't 16:9, so a Short or a square show logo stays whole
-	const fit = youtube || Math.abs(width / height - 16 / 9) < 0.25 ? 'cover' : 'contain';
+	// letterboxed when it isn't 16:9, so a Short or a square show logo stays whole. An upright
+	// poster is a Short's own 9:16 frame, so it fills
+	const fit = upright || youtube || Math.abs(width / height - 16 / 9) < 0.25 ? 'cover' : 'contain';
+	const [w, h] = upright
+		? [SHORT_WIDTH, SHORT_HEIGHT]
+		: poster
+			? [POSTER_WIDTH, POSTER_HEIGHT]
+			: [WIDTH, HEIGHT];
 	return sharp(input)
-		.resize(poster ? POSTER_WIDTH : WIDTH, poster ? POSTER_HEIGHT : HEIGHT, {
+		.resize(w, h, {
 			fit,
 			background: '#000000',
 		})
@@ -192,12 +232,24 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 			writeFileSync(
 				cached,
 				override?.at !== undefined
-					? downloadFrame(id, override.at)
+					? downloadFrame(id, override.at, talkBackup(id))
 					: override
 						? Buffer.from(await (await get(override.image)).arrayBuffer())
 						: await downloadPoster(id),
 			);
 		writeFileSync(out, await gradePink(readFileSync(cached), { poster: true, youtube: !override }));
+		drawn++;
+	}
+
+	for (const { id, posterAt } of findShorts(
+		readFileSync(join(ROOT, 'src/data/shorts.ts'), 'utf8'),
+	)) {
+		const name = `${id}-t${posterAt}`;
+		const out = join(postersDir, `${name}.webp`);
+		if (existsSync(out)) continue;
+		const cached = join(POSTER_CACHE, name);
+		if (!existsSync(cached)) writeFileSync(cached, downloadFrame(id, posterAt, shortBackup(id)));
+		writeFileSync(out, await gradePink(readFileSync(cached), { upright: true }));
 		drawn++;
 	}
 	console.log(`Drew ${drawn} talk covers`);

@@ -6,6 +6,7 @@ import KeepExploring from '../components/KeepExploring.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PosterHero from '../components/PosterHero.astro';
 import Scribble from '../components/Scribble.astro';
+import ShortVideos from '../components/ShortVideos.astro';
 import TalkCard from '../components/TalkCard.astro';
 import TalkSeriesCard from '../components/TalkSeriesCard.astro';
 import { CHALK, MARKS } from '../data/scribbles';
@@ -182,6 +183,8 @@ const FILTERS = [
 				))}
 			</div>
 		</section>
+
+		<ShortVideos />
 
 		<!-- A quick index of the eras below, two columns like /work/'s -->
 		<nav aria-label="Eras" class="mb-12 grid gap-x-10 md:mb-16 md:grid-cols-2">

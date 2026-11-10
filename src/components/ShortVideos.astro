@@ -1,0 +1,65 @@
+---
+// A handful of my YouTube Shorts on /talks/, under the featured talks: the explainers and
+// builds, not the memes. Each is a click-to-play upright player (YouTubeFacade `vertical`)
+// with a pink poster from my NAS copy (npm run talks:covers), newest first. Wide screens show
+// all six in a row; narrower ones swipe sideways, the next one peeking in from the edge.
+import { CHALK, MARKS } from '../data/scribbles';
+import {
+	SHORTS_TOTAL_VIEWS,
+	TIKTOK_URL,
+	YOUTUBE_SHORTS_URL,
+	shortPosterPath,
+	shorts,
+} from '../data/shorts';
+import { HERO_LEAD, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
+import Scribble from './Scribble.astro';
+import YouTubeFacade from './YouTubeFacade.astro';
+
+const month = (date: string) =>
+	new Date(`${date}T12:00:00`).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+const watch = (id: string) => `https://www.youtube.com/shorts/${id}`;
+---
+
+<section id="short-videos" class="relative mb-12 scroll-mt-24 md:mb-16">
+	<h2 class={SECTION_HEADING}>
+		Short videos
+		<Scribble
+			{...MARKS.underline}
+			color={CHALK}
+			duration="8s"
+			class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
+		/>
+	</h2>
+	<p class={`mb-8 max-w-3xl ${HERO_LEAD}`}>
+		<span class="font-semibold text-pink">{SHORTS_TOTAL_VIEWS} views</span> on TikTok and YouTube
+		Shorts, mostly tech explained in under a minute. The rest are on{' '}
+		<a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" class={TEXT_LINK}>
+			TikTok
+		</a>{' '}
+		and{' '}
+		<a href={YOUTUBE_SHORTS_URL} target="_blank" rel="noopener noreferrer" class={TEXT_LINK}>
+			YouTube
+		</a>
+		.
+	</p>
+	<div class="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-5 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:-mx-7 sm:scroll-px-7 sm:px-7 lg:mx-0 lg:grid lg:grid-cols-6 lg:gap-x-6 lg:overflow-visible lg:p-0">
+		{[...shorts]
+			.sort((a, b) => b.date.localeCompare(a.date))
+			.map((s) => (
+				<article class="w-[40%] shrink-0 snap-start sm:w-[30%] md:w-[22%] lg:w-auto">
+					<YouTubeFacade id={s.id} title={s.title} poster={shortPosterPath(s)} vertical />
+					<p class="mt-3 text-sm font-semibold text-pink">Short · {month(s.date)}</p>
+					<h3 class="mt-1 text-base leading-snug font-semibold text-paper">
+						<a
+							href={watch(s.id)}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={`${TEXT_LINK} block`}
+						>
+							{s.title}
+						</a>
+					</h3>
+				</article>
+			))}
+	</div>
+</section>

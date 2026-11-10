@@ -11,7 +11,8 @@ for (const button of document.querySelectorAll<HTMLButtonElement>('button.youtub
 		iframe.allow =
 			'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
 		iframe.allowFullscreen = true;
-		iframe.className = 'block aspect-video w-full rounded-xl';
+		// A Short plays in its own upright frame (YouTubeFacade's `vertical`)
+		iframe.className = `block w-full rounded-xl ${'youtubeVertical' in button.dataset ? 'aspect-[9/16]' : 'aspect-video'}`;
 		iframe.style.border = '0';
 		const holder = document.createElement('div');
 		holder.className = 'relative';
