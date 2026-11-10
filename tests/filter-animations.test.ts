@@ -1,6 +1,10 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { syncFilterAnimations, visibleDiagrams } from '../src/scripts/filter-animations';
+import {
+	mostlyInView,
+	syncFilterAnimations,
+	visibleDiagrams,
+} from '../src/scripts/filter-animations';
 import { PAUSED_CLASS } from '../src/scripts/pause-motion';
 
 function motionFilters() {
@@ -53,5 +57,20 @@ describe('syncFilterAnimations', () => {
 		syncFilterAnimations(true);
 		expect(onScreen.pause).toHaveBeenCalled();
 		visibleDiagrams.clear();
+	});
+
+	it('starts a figure only once most of it shows, or it fills most of a short screen', () => {
+		const box = (height: number) => ({ height }) as DOMRectReadOnly;
+		const screen = box(800);
+		expect(
+			mostlyInView({ intersectionRatio: 0.2, intersectionRect: box(80), rootBounds: screen }),
+		).toBe(false);
+		expect(
+			mostlyInView({ intersectionRatio: 0.65, intersectionRect: box(260), rootBounds: screen }),
+		).toBe(true);
+		// A tall figure on a phone held sideways never reaches 60% of itself
+		expect(
+			mostlyInView({ intersectionRatio: 0.4, intersectionRect: box(500), rootBounds: screen }),
+		).toBe(true);
 	});
 });

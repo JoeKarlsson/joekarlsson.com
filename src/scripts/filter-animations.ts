@@ -9,6 +9,13 @@ import { PAUSED_CLASS } from './pause-motion';
 // animations (charts, collages) run only while on screen and motion is allowed.
 export const visibleDiagrams = new Set<Element>();
 
+/** Most of a figure is on screen, or it fills most of the screen when it's taller than that. */
+export const mostlyInView = (
+	entry: Pick<IntersectionObserverEntry, 'intersectionRatio' | 'intersectionRect' | 'rootBounds'>,
+): boolean =>
+	entry.intersectionRatio >= 0.6 ||
+	(entry.rootBounds !== null && entry.intersectionRect.height >= 0.6 * entry.rootBounds.height);
+
 export const motionStill = (): boolean =>
 	matchMedia('(prefers-reduced-motion: reduce)').matches ||
 	document.documentElement.classList.contains(PAUSED_CLASS);
