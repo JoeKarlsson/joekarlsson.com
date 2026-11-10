@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import BackLink from '../components/BackLink.astro';
 import HoverBox from '../components/HoverBox.astro';
 import IndexRow from '../components/IndexRow.astro';
 import KeepExploring from '../components/KeepExploring.astro';
@@ -68,10 +67,6 @@ const FILTERS = [
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- Clear of the crayon burst that sticks up off the hero picture (phones skip the picture) -->
-		<div class="mb-1 md:mb-10">
-			<BackLink href="/about/" label="About" />
-		</div>
 		<PosterHero
 			decorativeMedia
 			title="Talks"

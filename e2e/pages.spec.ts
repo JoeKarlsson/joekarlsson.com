@@ -1,13 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-// Every section page opens its header at the same height under the nav. Sub-pages
-// (Talks and Resume under About) sit lower on purpose, under their "← About" link.
+// Every section page opens its header at the same height under the nav, Talks and
+// Resume included (they light up About in the nav instead of a back link).
 test.describe('Page header position', () => {
 	const sectionPages = [
 		'/blog/',
 		'/about/',
 		'/work/',
 		'/uses/',
+		'/talks/',
+		'/resume/',
 		'/contact/',
 		'/newsletter/',
 		'/blog/category/homelab/',
