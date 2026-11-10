@@ -18,7 +18,7 @@ tags:
   ]
 heroImage: '/images/blog/claude-md-open-knowledge-format/hero.webp'
 heroAlt: 'Two featureless mannequin heads back to back in profile, each with a pink brain on top, the one on the right taller with a larger brain, against a red-to-purple gradient'
-tldr: "I converted the ~200 markdown files Claude Code reads for my homelab (CLAUDE.md files, rules and auto-memory) to Google's Open Knowledge Format and tested three versions on 44 questions. Adding OKF metadata to the existing files changed nothing measurable. Adopting OKF's structure, one concept per file behind an index with thin CLAUDE.md stubs, cut the notes Claude loads every session from about 16,000 tokens to 8,500 and cost per question by about 30%, and accuracy held (97% to 99%, within noise). I switched over the same day."
+tldr: "I converted the ~200 markdown files Claude Code reads for my homelab to Google's Open Knowledge Format and tested three versions on 44 questions. OKF metadata alone changed nothing. OKF's structure, one concept per file behind an index, halved startup context and cut cost per question by about 30% without losing accuracy."
 faq:
   - question: 'What is Open Knowledge Format (OKF)?'
     answer: 'An open spec from Google Cloud for agent knowledge: a folder of markdown files, one concept per file, each with YAML frontmatter where only `type` is required. `index.md` and `log.md` are reserved names. The idea is progressive disclosure: the agent reads an index, then opens only the concept it needs.'
@@ -32,7 +32,7 @@ faq:
     answer: 'No. Claude Code loads CLAUDE.md files, rules and MEMORY.md as usual. OKF helps because each CLAUDE.md becomes a short stub that points to an index.md, and Claude opens only the concept files it needs.'
 ---
 
-I'd been hearing about Google's [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) (OKF) and wanted to know whether it could do anything for my Claude Code second brain. That's the pile of CLAUDE.md files, rules and auto-memory that teaches Claude how my homelab works. My question going in was simple: would converting it to OKF make Claude more accurate, or cheaper to run, or neither?
+I'd been hearing about Google's [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) (OKF) and wanted to try it on my Claude Code second brain. That's the pile of CLAUDE.md files, rules and auto-memory that teaches Claude how my homelab works. Would converting it to OKF make Claude more accurate, or cheaper to run, or neither?
 
 So I designed a test. I made three copies of Claude's markdown brain: one as-is, one with OKF metadata added to every file, and one fully restructured the way OKF lays knowledge out, with one concept per file behind an index. Then I asked all three the same 44 questions, three times each.
 
@@ -86,13 +86,13 @@ I assumed the problem was duplication, but hardly anything was repeated. It was 
 
 ## Adding the metadata
 
-The copy with OKF metadata got frontmatter on every file and nothing else. It performed the same as the original on everything I measured. That's what metadata should do: the content didn't change, and Claude still loaded the same 16,000 tokens.
+The copy with OKF metadata got frontmatter on every file and nothing else. It performed the same as the original on everything I measured. The content didn't change, and Claude still loaded the same 16,000 tokens.
 
 The metadata is free, at least. Claude Code [strips frontmatter from rules files](https://code.claude.com/docs/en/memory) before loading them, and in my measurement CLAUDE.md and MEMORY.md didn't cost a single extra token either. So add it if it's useful to you. Just write the descriptions yourself, because the ones my script generated were mostly junk.
 
 ## Splitting into concepts
 
-The restructured copy is where OKF's structure came in. I had subagents split the big docs into small concept files with an index per folder, and every CLAUDE.md shrank to a stub: the few rules that must apply every session, plus a pointer to the right index. They moved text word for word and never rewrote it, and a script checked that every original line still existed somewhere.
+For the restructured copy, I had subagents split the big docs into small concept files with an index per folder, and every CLAUDE.md shrank to a stub: the few rules that must apply every session, plus a pointer to the right index. They moved text word for word and never rewrote it, and a script checked that every original line still existed somewhere.
 
 ![Before and after splitting into concepts. Before: home-assistant/CLAUDE.md was 65 KB and loaded in every session. After: home-assistant/CLAUDE.md is a 2 KB stub of rules plus a pointer, and knowledge/home-assistant/ holds an index with one line per concept and small concept files like voice-agent.md, dashboards.md and alerting.md, 1 to 2 KB each, opened on demand.](/images/blog/claude-md-open-knowledge-format/before-after.svg)
 
@@ -100,11 +100,11 @@ That halved what loads at startup, and every question got a little cheaper becau
 
 ![Pawn Stars Best I Can Do meme: Rick Harrison behind the pawn shop counter, captioned "Me: read the file I pointed you to" and "Claude: best I can do is answer from vibes"](/images/blog/claude-md-open-knowledge-format/meme-pawn-stars.webp)
 
-## Preloading made Sonnet lazy
+## Sonnet skipped the doc when everything was preloaded
 
 One of my 44 questions asked Claude to trace a critical alert from Home Assistant all the way to my phone. With everything preloaded, Sonnet answered in one turn from what was already in context, never opened the actual doc, and got a key detail wrong every single time. With only a pointer, it went and read the file, and got it right every time. Opus looked it up even with everything preloaded.
 
-That's one question, so I'm not building a theory on it. But it lines up with [Anthropic's own advice](https://code.claude.com/docs/en/best-practices) that every line in CLAUDE.md takes a little of Claude's attention on every task. When the context looked like it already had the answer, Sonnet didn't go check.
+That's one question, so I'm not building a theory on it. But it lines up with [Anthropic's own advice](https://code.claude.com/docs/en/best-practices) that every line in CLAUDE.md takes a little of Claude's attention on every task.
 
 ![Futurama Fry meme: Fry squinting suspiciously, captioned "Not sure if Claude read the docs or just remembered them confidently"](/images/blog/claude-md-open-knowledge-format/meme-futurama-fry.webp)
 
@@ -113,7 +113,7 @@ That's one question, so I'm not building a theory on it. But it lines up with [A
 The experiment took a morning. Switching my real setup over is where I found the problems:
 
 1. **Claude Code's memory writer and OKF both want a `type` key.** Minutes after I added OKF frontmatter to my memories, another Claude session saved a memory and rewrote my frontmatter, moving my `type` into the slot Claude Code uses for its own memory categories. The fix was making the OKF `type` the same value as Claude's category, so a rewrite changes nothing. Nothing I tested offline would have caught this one.
-2. **Splitting surfaced a stale fact.** Two docs disagreed about where one of my services lived, and I never noticed until they were small files side by side.
+2. **Splitting surfaced a stale fact.** Two docs disagreed about where one of my services lived, and I never noticed until they were small files side by side. OKF has a `stale_after` field for facts like this, so something reminds you to check them.
 
 ## How to set up your own
 
@@ -151,13 +151,13 @@ Then:
     listed in its index.
 ```
 
-Read the list of what it kept always-on before you commit. That's where your judgment matters most.
+Read the list of what it kept always-on before you commit. That's where my conversion went too far: tables I look up constantly ended up behind pointers, and I had to put them back.
 
 Once your docs are already lean, this buys you little. I split my global `~/.claude/CLAUDE.md` the same way afterward and saved 312 tokens, because nearly all of it is rules that apply everywhere. Most of an empty session is Claude Code's own system prompt and tool list.
 
 ## How I write a CLAUDE.md now
 
-Short, and only what Claude needs on nearly every task. Anthropic's [own guidance](https://code.claude.com/docs/en/memory) is to keep each CLAUDE.md under 200 lines, and after this experiment I'd go further. Every line rides along on every turn, whether the task needs it or not.
+Short, and only what Claude needs on nearly every task. Anthropic's [own guidance](https://code.claude.com/docs/en/memory) is to keep each CLAUDE.md under 200 lines. Every line rides along on every turn, whether the task needs it or not.
 
 What goes in mine:
 
@@ -165,22 +165,28 @@ What goes in mine:
 - **Rules, not essays.** One or two sentences per rule. If the reason changes how Claude should act, I keep it; otherwise it goes.
 - **A pointer to everything else.** Situational stuff lives in a knowledge folder, and the last line tells Claude where the index is.
 
-What stays out: anything about one project or one service, long examples, anything Claude can figure out by reading the code, and anything a hook can enforce instead.
+What stays out: anything about one project or one service, long examples, anything Claude can figure out by reading the code, and anything a hook can enforce instead. If a rule must never break, I make it a hook, because the agent can argue its way past text.
 
-## Takeaways
-
-Most of what I learned doesn't depend on OKF or on Claude Code. If you keep any kind of notes for a coding agent:
-
-1. **Treat always-on context as a budget.** Every line loads on every turn of every session, whether the task needs it or not.
-2. **Point, don't preload.** Give the agent an index and let it open what it needs. Preload only what's small, used constantly, or a safety rule.
-3. **One idea per file, named for what's in it.** File names and index lines are how the agent decides what to open, so `critical-alerts-to-phone.md` beats `notes-3.md`.
-4. **Write the index descriptions yourself.** The generated ones were the weakest part of my conversion.
-5. **If a rule must never break, make it a hook.** Text is a suggestion the agent can talk itself out of.
-6. **Facts go stale.** Put a date on the ones that will (OKF has a `stale_after` field for this), so something reminds you to check them.
-
-What OKF gave me was a clear structure to follow and a spec I could lint against. The structure is what made the difference, and it's what I'd copy.
+What OKF gave me was a clear structure to follow and a spec I could lint against.
 
 ## How I tested
+
+I made three copies of my skills repo, each with the files at their real paths, so CLAUDE.md files and memory auto-loaded the way they do in the real thing:
+
+- **As-is:** the original files.
+- **Metadata:** OKF frontmatter added to every file, content unchanged.
+- **Restructured:** one concept per file behind an index, thin CLAUDE.md stubs.
+
+I wrote 44 questions from the docs, each with a known answer. Some were facts that were already always-on, some were buried deep in big docs, and some were safety rules where the right answer is "no." Each copy got every question three times through headless `claude -p` on Sonnet 5.5, plus a smaller Opus 5.5 spot check. A script and a cheap judge model graded the answers, and I read every failure myself. The whole thing cost about $21.
+
+|                                | As-is  | Metadata | Restructured |
+| ------------------------------ | ------ | -------- | ------------ |
+| Tokens loaded at session start | 16,237 | 16,237   | 8,505        |
+| Accuracy (Sonnet)              | 97%    | 98%      | 99%          |
+| Cost per question (Sonnet)     | $0.043 | $0.042   | $0.030       |
+| Cost per question (Opus)       | $0.201 | $0.203   | $0.133       |
+
+Forty-four questions is a small set, and the accuracy ranges overlap, so read accuracy as "held," not "improved." I overturned one grade by hand, where the judge misread a correct refusal. I measured whether Claude could find and use what's in the docs, not whether it follows instructions better. That's a separate question, and a [study of 1,650 Claude Code sessions](https://arxiv.org/abs/2605.10039) found no detectable effect from CLAUDE.md length or file structure.
 
 <details>
 <summary>More results and lessons from building the test</summary>
@@ -199,20 +205,3 @@ Accuracy and tokens per question by question type (Sonnet):
 The "already always-on" and "safety rules" rows are where splitting went too far: those questions cost more once their tables weren't preloaded. After the experiment I put those tables back in the always-on files, and both kinds of question went back to one turn.
 
 </details>
-
-I made three copies of my skills repo, each with the files at their real paths, so CLAUDE.md files and memory auto-loaded the way they do in the real thing:
-
-- **As-is:** the original files.
-- **Metadata:** OKF frontmatter added to every file, content unchanged.
-- **Restructured:** one concept per file behind an index, thin CLAUDE.md stubs.
-
-I wrote 44 questions from the docs, each with a known answer. Some were facts that were already always-on, some were buried deep in big docs, and some were safety rules where the right answer is "no." Each copy got every question three times through headless `claude -p` on Sonnet 5.5, plus a smaller Opus 5.5 spot check. A script and a cheap judge model graded the answers, and I read every failure myself. The whole thing cost about $21.
-
-|                                | As-is  | Metadata | Restructured |
-| ------------------------------ | ------ | -------- | ------------ |
-| Tokens loaded at session start | 16,237 | 16,237   | 8,505        |
-| Accuracy (Sonnet)              | 97%    | 98%      | 99%          |
-| Cost per question (Sonnet)     | $0.043 | $0.042   | $0.030       |
-| Cost per question (Opus)       | $0.201 | $0.203   | $0.133       |
-
-Some caveats. 44 questions is a small set, and the accuracy ranges overlap, so read accuracy as "held," not "improved." I overturned one grade by hand, where the judge misread a correct refusal. I measured whether Claude could find and use what's in the docs, not whether it follows instructions better. That's a separate question, and a [study of 1,650 Claude Code sessions](https://arxiv.org/abs/2605.10039) found no detectable effect from CLAUDE.md length or file structure.

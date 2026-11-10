@@ -1,6 +1,6 @@
 ---
-title: 'A tour of my recording setup in 2027, all on one standing desk that rolls'
-seoTitle: 'My Recording Setup Tour for 2027'
+title: 'A tour of my recording setup in 2026, all on one standing desk that rolls'
+seoTitle: 'My Recording Setup Tour for 2026'
 date: 2026-11-09T10:24:19Z
 slug: 'recording-setup-tour'
 description: 'A tour of my home recording setup: Sony ZV-E10, teleprompter and mic on one rolling desk, a Home Assistant recording mode, and lighting I got wrong twice.'
@@ -26,7 +26,7 @@ heroImage: '/images/blog/recording-setup-tour/thumb-a60218b7.webp'
 heroAlt: "Roger Fenton's 1855 photographic van, a horse-drawn darkroom wagon with PHOTOGRAPHIC VAN painted on the side and his assistant sitting on the driver's seat"
 ---
 
-My whole recording setup lives on one standing desk that rolls. A camera, a teleprompter and a mic ride on it, the lights follow on stands, one Thunderbolt cable connects my laptop to everything, and when I tell Home Assistant "I'm recording," the room sets itself up. When I'm done, I push the desk into the corner. Most of the gear went together without much trouble, but lighting took weeks of experimenting, and I'm still working on it.
+My whole recording setup lives on one standing desk that rolls. When I'm done, I push it into the corner. Most of the gear went together without much trouble, but lighting took weeks of experimenting, and I'm still working on it.
 
 Here's a quick tour:
 
@@ -68,7 +68,7 @@ Two cheap accessories made the camera usable for this:
 - **An [Elgato Cam Link 4K](https://www.elgato.com/us/en/p/cam-link-4k)** takes the camera's clean HDMI out and hands it to my Mac as a video source.
 - **A [Kimaru dummy battery](https://www.amazon.com/dp/B08BCRSV4H)** runs the camera off wall power. A real NP-FW50 doesn't last long, and I don't want to find that out halfway through a take.
 
-The camera and Prompter ride on an [Elgato Wave Low Profile arm](https://www.elgato.com/us/en/p/wave-mic-arm-lp), which is asking a lot of a mic arm. Elgato [rates it for 2 kg](https://www.elgato.com/us/en/p/wave-mic-arm-lp). The [Prompter](https://www.elgato.com/us/en/p/prompter) is 0.69 kg and the camera with its kit lens is about 0.45 kg, so it's inside the rating on paper, but the arm sags a little. I have to readjust it now and then, and it has held for a couple of months.
+The camera and Prompter ride on an [Elgato Wave Low Profile arm](https://www.elgato.com/us/en/p/wave-mic-arm-lp), which is asking a lot of a mic arm. Elgato rates it for 2 kg. The Prompter is 0.69 kg and the camera with its kit lens is about 0.45 kg, so it's inside the rating on paper, but the arm sags a little. I have to readjust it now and then, and it has held for a couple of months.
 
 The second Low Profile arm holds an [Elgato Wave:3](https://www.elgato.com/us/en/p/wave-3) (the MK.2) in Elgato's shock mount. I went with Elgato because I already had a Wave:3 at my main desk, and both mics show up in the same Wave Link software, so the audio chain is the same at either desk.
 
@@ -80,7 +80,7 @@ I'm not an audio guy, so this part has been a learning curve. What I wanted was 
 - **EQ:** +3.25 dB around 227 Hz for warmth, -3 dB around 860 Hz to take out the boxy sound, and +1.75 dB around 10 kHz for a little clarity.
 - **Bettermaker all the way up, and Voice Focus on.** The compressor is set up but switched off.
 
-Both clips below are set to the same loudness. The first is a TikTok from my phone days, recorded on my iPhone with a small clip-on mic:
+I set both clips below to the same loudness. The first is a TikTok from my phone days, recorded on my iPhone with a small clip-on mic:
 
 <audio controls preload="none" src="/images/blog/recording-setup-tour/audio-before-phone.m4a" aria-label="Audio from a phone-era TikTok, recorded on an iPhone with a clip-on mic"></audio>
 
@@ -104,7 +104,7 @@ I started with a ring light, and it blew my face out, with everything flat and e
 
 What I wanted was the opposite: a dark, moody room full of colored LEDs, with my face sharp in the middle of it. So I turned everything down, and the image went to hell. When I recorded too dark, the camera had less light to work with, the picture got noisy and soft, and the compression turned my face to mush.
 
-These are ungraded clips from each stage:
+Ungraded clips from August to October:
 
 <video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/lighting-1-webcam-aug.webp" src="/images/blog/recording-setup-tour/lighting-1-webcam-aug.mp4" aria-label="Late August, the webcam era: me in a hat and headphones in my bright living room, lit flat by daylight from a window"></video>
 
@@ -128,9 +128,9 @@ On the camera, I'm still experimenting, but right now it's in aperture priority,
 
 My footage also looks a little stuttery, and I think 25p is why. 25 frames a second doesn't divide evenly into the 30 and 60 fps that everything downstream of the camera runs at, so frames get repeated unevenly. At 25p the camera also tends to pick a 1/50 shutter, which can [flicker under 60Hz LED lighting](https://www.dvxuser.com/threads/25p-in-united-states-lighting-advice.340752/) here in the US. Next I'm switching the camera to NTSC and shooting 30p at 1/60, which I haven't tested yet.
 
-In editing, I grade the camera track with a soft film LUT in [Screencast Director, the screen recorder I built that drafts the edit for me](/blog/screencast-director-screen-recorder/), but a LUT can't bring back detail the camera never captured.
+In editing, I grade the camera track with a soft film LUT in [Screencast Director, the screen recorder I built that drafts the edit for me](/blog/screencast-director-screen-recorder/).
 
-If you're starting out, light your face first, until the camera gets a clean image at a low ISO, and only then add color and shadows around it. I do a quick light check before I record, to make sure everything looks good.
+Bright enough means the camera gets a clean image at a low ISO. Color and shadows go in after that.
 
 ![Buff Doge vs. Cheems meme: a muscular Buff Doge labeled 'Me shooting a video on my iPhone in 5 minutes' next to a small crying Cheems labeled 'Me with a teleprompter, a softbox and a 4K camera, still adjusting the lights'](/images/blog/recording-setup-tour/meme-buff-doge-cheems.webp)
 
@@ -196,8 +196,8 @@ The dock and the desk are the two costs most people could skip. A desk you alrea
 
 ## What I'd change
 
-The first thing I'd change is the camera arm. A Low Profile arm holding a camera and a Prompter is inside its rating, but it's a lot of weight hanging off the end of a mic arm, and it drifts. The upgrade I'm looking at is Elgato's [Wave Mic Arm Pro](https://www.markertek.com/product/ego-wavemicarmpr/elgato-wave-mic-arm-pro-360-degree-low-profile-microphone-boom-arm-with-gas-spring-suspension-black). Retailers list it at 3 kg with 75 cm of reach, which leaves real headroom for my roughly 1.1 kg of camera and Prompter, and it still swings out of the way like the arm it replaces. The Low Profile arm would go back to holding only the mic. Elgato's [Master Mount L](https://www.markertek.com/product/ego-10aab9901/elgato-master-mount-l-multi-stand-mount-modular-rigging-system-for-lights-cameras-and-elagato-prompter), a rigid desk-clamped pole, couldn't sag at all, but I'd lose the swing-away.
+The first thing I'd change is the camera arm, because it drifts. The upgrade I'm looking at is Elgato's [Wave Mic Arm Pro](https://www.markertek.com/product/ego-wavemicarmpr/elgato-wave-mic-arm-pro-360-degree-low-profile-microphone-boom-arm-with-gas-spring-suspension-black). Retailers list it at 3 kg with 75 cm of reach, which leaves real headroom for my roughly 1.1 kg of camera and Prompter, and it still swings out of the way like the arm it replaces. The Low Profile arm would go back to holding only the mic. Elgato's [Master Mount L](https://www.markertek.com/product/ego-10aab9901/elgato-master-mount-l-multi-stand-mount-modular-rigging-system-for-lights-cameras-and-elagato-prompter), a rigid desk-clamped pole, couldn't sag at all, but I'd lose the swing-away.
 
 The second is the lighting, which isn't finished. Next I want a better softbox in front of my face, so the light wraps around a bit more instead of coming from one side.
 
-Someday I might need to record in a bigger space, or grow out of the nook. For now it works great for what I need, and I can't recommend a rolling, one-cable setup enough. The rest of my gear, from the main desk to the keyboard, is on [my uses page](/uses/).
+It works for what I need right now. The rest of my gear, from the main desk to the keyboard, is on [my uses page](/uses/).
