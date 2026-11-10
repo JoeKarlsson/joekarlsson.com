@@ -10,7 +10,6 @@ function setOpen(section: HTMLElement, open: boolean) {
 	const body = section.querySelector<HTMLElement>('[data-collapse-body]');
 	if (!button || !body) return;
 	button.setAttribute('aria-expanded', String(open));
-	button.querySelector('[data-sign]')!.textContent = open ? '–' : '+';
 	body.hidden = !open;
 	section.toggleAttribute('data-collapsed', !open);
 }
@@ -56,7 +55,7 @@ export function initPhoneCollapse() {
 		const sign = document.createElement('span');
 		sign.className = 'flex shrink-0 items-baseline gap-2 font-sans text-sm text-muted';
 		sign.setAttribute('aria-hidden', 'true');
-		sign.innerHTML = `${countLabel}<span class="inline-block w-6 text-center font-display text-4xl leading-none text-pink" data-sign></span>`;
+		sign.innerHTML = `${countLabel}<span class="icon-swap w-6 font-display text-4xl leading-none text-pink" data-sign><span data-icon-off>+</span><span data-icon-on>–</span></span>`;
 
 		const button = document.createElement('button');
 		button.type = 'button';

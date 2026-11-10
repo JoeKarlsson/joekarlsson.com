@@ -192,7 +192,7 @@ const heroIsTaped =
 	{/* Phones show progress in the nav bar instead (reading-context.ts) */}
 	<div
 		id="reading-progress"
-		class="fixed top-0 left-0 z-50 h-1 w-0 bg-pink max-md:hidden"
+		class="fixed top-0 left-0 z-50 h-1 w-full origin-left bg-pink [scale:0_1] max-md:hidden"
 		aria-hidden="true"
 	></div>
 
@@ -361,13 +361,18 @@ const heroIsTaped =
 
 							// Add copy button
 							const button = document.createElement('button');
+							// Copy and Copied! stacked in one cell, crossfading on [data-copied] (motion.css)
 							button.className = 'copy-button';
-							button.textContent = 'Copy';
+							button.setAttribute('aria-label', 'Copy code');
+							button.innerHTML =
+								'<span class="icon-swap" aria-hidden="true"><span data-icon-off>Copy</span><span data-icon-on>Copied!</span></span>';
+							const idleLabel = button.querySelector('[data-icon-off]')!;
 							button.addEventListener('click', async () => {
 								if (!code) return;
 								try {
 									await copyToClipboard(code.textContent || '');
-									button.textContent = 'Copied!';
+									button.toggleAttribute('data-copied', true);
+									button.setAttribute('aria-label', 'Copied');
 									button.classList.remove('copied');
 									void button.offsetWidth; // restart the pop on a second copy
 									button.classList.add('copied');
@@ -375,10 +380,13 @@ const heroIsTaped =
 										window.plausible('Code Copy', { props: { language: lang || 'unknown' } });
 									}
 								} catch {
-									button.textContent = 'Failed';
+									idleLabel.textContent = 'Failed';
+									button.setAttribute('aria-label', 'Copy failed');
 								}
 								setTimeout(() => {
-									button.textContent = 'Copy';
+									button.removeAttribute('data-copied');
+									idleLabel.textContent = 'Copy';
+									button.setAttribute('aria-label', 'Copy code');
 								}, 2000);
 							});
 							pre.appendChild(button);
@@ -420,7 +428,7 @@ const heroIsTaped =
 								pct = Math.max(0, Math.min(100, pct));
 
 								trackScrollDepth(pct);
-								progressEl!.style.width = pct + '%';
+								progressEl!.style.scale = `${pct / 100} 1`; // scale, not width: no layout per scroll
 							}
 
 							let ticking = false;

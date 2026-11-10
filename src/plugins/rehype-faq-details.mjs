@@ -14,6 +14,21 @@ function textOf(node) {
 	return (node.children ?? []).map(textOf).join('');
 }
 
+// The pink plus that turns to a minus while the answer is open: both glyphs stacked
+// in one cell so they crossfade (.icon-swap, motion.css)
+const glyph = (attr, value) => ({
+	type: 'element',
+	tagName: 'span',
+	properties: { [attr]: '' },
+	children: [{ type: 'text', value }],
+});
+const faqSign = () => ({
+	type: 'element',
+	tagName: 'span',
+	properties: { className: ['faq-sign', 'icon-swap'], ariaHidden: 'true' },
+	children: [glyph('dataIconOff', '+'), glyph('dataIconOn', '–')],
+});
+
 const isHeading = (node, tagName) => node.type === 'element' && node.tagName === tagName;
 
 export default function rehypeFaqDetails() {
@@ -32,7 +47,9 @@ export default function rehypeFaqDetails() {
 					type: 'element',
 					tagName: 'details',
 					properties: { className: ['faq'] },
-					children: [{ type: 'element', tagName: 'summary', properties: {}, children: [node] }],
+					children: [
+						{ type: 'element', tagName: 'summary', properties: {}, children: [node, faqSign()] },
+					],
 				};
 				output.push(question);
 			} else if (question) {

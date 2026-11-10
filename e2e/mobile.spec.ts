@@ -374,7 +374,8 @@ test.describe('Phone layout', () => {
 		await expect(nav.locator('[data-context-meta]')).toHaveText(/^Homelab · \d+ min left$/);
 		const progress = await nav
 			.locator('[data-read-progress]')
-			.evaluate((line) => parseFloat((line as HTMLElement).style.width));
+			// a 0-1 scale on a full-width line, so scrolling never relays out the bar
+			.evaluate((line) => parseFloat((line as HTMLElement).style.scale) * 100);
 		expect(progress).toBeGreaterThan(20);
 		expect(progress).toBeLessThan(50);
 	});

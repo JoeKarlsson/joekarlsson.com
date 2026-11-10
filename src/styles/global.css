@@ -178,20 +178,19 @@
 .prose details.faq summary::-webkit-details-marker {
 	display: none;
 }
-.prose details.faq summary::after {
+.prose details.faq .faq-sign {
 	@apply font-display text-pink;
-	content: '+';
 	font-size: 2.75rem;
 	line-height: 1;
-}
-.prose details.faq[open] summary::after {
-	content: '–';
 }
 .prose details.faq summary h3 {
 	@apply m-0;
 }
-.prose details.faq[open] {
-	@apply pb-4;
+/* The answer's closing space is padding on its last block, inside the part that
+   eases open, so nothing snaps in when the height lands */
+.prose details.faq > :last-child {
+	margin-bottom: 0;
+	padding-bottom: 2.5rem;
 }
 .prose h4 {
 	@apply font-sans text-lg font-semibold text-paper mt-8 mb-2;

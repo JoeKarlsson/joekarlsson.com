@@ -790,7 +790,7 @@ const cropArtPieces = [
 		grid-template-rows: 0fr;
 		opacity: 0;
 		transition:
-			grid-template-rows 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+			grid-template-rows 0.36s ease-in,
 			opacity 0.28s ease-in;
 	}
 	.job-body > * {
@@ -803,10 +803,11 @@ const cropArtPieces = [
 		transition-duration: 0.45s, 0.35s;
 		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease-out;
 	}
-	/* What I do thumbnails crossfade through four frames, three seconds each */
+	/* What I do thumbnails cut through four frames, three seconds each: a hard cut,
+	   like the site's other stepped motion, not a smooth crossfade */
 	.frame {
 		opacity: 0;
-		animation: frame-cycle 12s infinite;
+		animation: frame-cycle 12s steps(1, end) infinite;
 		animation-delay: calc((var(--frame) - 4) * 3s);
 	}
 	@keyframes frame-cycle {

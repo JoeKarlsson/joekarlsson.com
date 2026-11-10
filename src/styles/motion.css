@@ -305,7 +305,7 @@
 	.redraw path,
 	.redraw-strokes path,
 	.slot-reel,
-	.echo > span {
+	.echo > span[aria-hidden='true'] {
 		animation: none;
 	}
 
@@ -345,8 +345,17 @@
 .icon-swap > * {
 	grid-area: 1 / 1;
 }
-:is([aria-expanded='true'], [aria-pressed='true']) > .icon-swap > [data-icon-off],
-:is([aria-expanded='false'], [aria-pressed='false']) > .icon-swap > [data-icon-on] {
+:is([aria-expanded='true'], [aria-pressed='true'], details[open] > summary, [data-copied])
+	.icon-swap
+	> [data-icon-off],
+:is(
+		[aria-expanded='false'],
+		[aria-pressed='false'],
+		details:not([open]) > summary,
+		.copy-button:not([data-copied])
+	)
+	.icon-swap
+	> [data-icon-on] {
 	opacity: 0;
 	scale: 0.85;
 	filter: blur(2px);
@@ -381,7 +390,7 @@
 		}
 		:root:not(.motion-paused) nav[data-menu-open] :is(.menu-link, .pause-button) {
 			animation: menu-row-in 0.2s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-			animation-delay: calc(var(--row, 0) * 30ms);
+			animation-delay: calc(40ms + var(--row, 0) * 30ms);
 		}
 	}
 
@@ -391,8 +400,17 @@
 			scale 0.18s ease-out,
 			filter 0.18s ease-out;
 	}
-	:is([aria-expanded='true'], [aria-pressed='true']) > .icon-swap > [data-icon-off],
-	:is([aria-expanded='false'], [aria-pressed='false']) > .icon-swap > [data-icon-on] {
+	:is([aria-expanded='true'], [aria-pressed='true'], details[open] > summary, [data-copied])
+		.icon-swap
+		> [data-icon-off],
+	:is(
+			[aria-expanded='false'],
+			[aria-pressed='false'],
+			details:not([open]) > summary,
+			.copy-button:not([data-copied])
+		)
+		.icon-swap
+		> [data-icon-on] {
 		transition-duration: 0.14s;
 		transition-timing-function: ease-in;
 	}
@@ -498,6 +516,33 @@
 	html.lightbox-closing::view-transition-old(*),
 	html.lightbox-closing::view-transition-new(*) {
 		animation-duration: 0.2s;
+	}
+
+	/* Phones: a folded Talks or Uses section eases open and shut 20% faster
+	   (phone-collapse.ts toggles [hidden]). Only where height can animate to auto;
+	   elsewhere it toggles, unclipped */
+	@supports (interpolate-size: allow-keywords) {
+		[data-collapse-body] {
+			interpolate-size: allow-keywords;
+			overflow: clip;
+			overflow-clip-margin: 1.5rem;
+			transition:
+				block-size 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+				opacity 0.2s ease-out,
+				display 0.25s allow-discrete;
+		}
+		[data-collapse-body][hidden] {
+			block-size: 0;
+			opacity: 0;
+			transition-duration: 0.2s, 0.16s, 0.2s;
+			transition-timing-function: ease-in, ease-in, linear;
+		}
+		@starting-style {
+			[data-collapse-body]:not([hidden]) {
+				block-size: 0;
+				opacity: 0;
+			}
+		}
 	}
 
 	/* Disclosures (FAQ answers, talk runs, newsletter years, /about's now list) ease
