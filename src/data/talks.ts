@@ -61,6 +61,8 @@ const SQL_TO_NOSQL = {
 	slides:
 		'https://speakerdeck.com/joekarlsson/from-sql-to-nosql-a-gentle-introduction-for-developers',
 };
+const REACT_PERF = { writeup: '/talks/building-high-performance-react-applications/' };
+const GRAPHQL = { writeup: '/talks/building-your-first-graphql-client-in-javascript/' };
 const ART_OF_CS = {
 	writeup: '/talks/the-art-of-computer-science/',
 	slides: 'https://speakerdeck.com/joekarlsson/keynote-the-art-of-computer-science',
@@ -699,6 +701,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building Your First GraphQL Client in JavaScript',
+		...GRAPHQL,
 		kind: 'talk',
 		event: 'YouTube',
 		date: '2020-09-16',
@@ -826,6 +829,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building Your First GraphQL Client in JS',
+		...GRAPHQL,
 		kind: 'talk',
 		event: 'MongoDB World 2020 (mongodb.live)',
 		place: 'Online',
@@ -1018,6 +1022,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building Your First GraphQL Client in JS',
+		...GRAPHQL,
 		kind: 'talk',
 		event: 'MongoDB.local San Francisco 2020',
 		place: 'San Francisco, CA',
@@ -1136,6 +1141,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building a GraphQL Client in JavaScript',
+		...GRAPHQL,
 		kind: 'talk',
 		event: 'Midwest JS',
 		otherRecording: 'XsD2ZKqMbgo',
@@ -1159,6 +1165,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'Kansas City Developer Conference',
 		otherRecording: '6z4g27TSO5I',
@@ -1171,6 +1178,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building a GraphQL Client in JavaScript',
+		...GRAPHQL,
 		kind: 'talk',
 		event: 'Kansas City Developer Conference',
 		otherRecording: 'XsD2ZKqMbgo',
@@ -1243,6 +1251,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'Full Stack Toronto',
 		place: 'Toronto, Canada',
@@ -1268,6 +1277,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'Prairie Dev Con Winnipeg 2019',
 		place: 'Winnipeg, Canada',
@@ -1340,6 +1350,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'JS Interactive 2018',
 		place: 'Vancouver, Canada',
@@ -1350,6 +1361,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'Web Rebels 2018',
 		date: '2018-06-12',
@@ -1368,6 +1380,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'Prairie Dev Con Regina 2018',
 		place: 'Regina, Canada',
@@ -1378,6 +1391,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building a GraphQL Client in JavaScript (Workshop)',
+		...GRAPHQL,
 		kind: 'talk',
 		event: 'Prairie Dev Con Regina 2018',
 		place: 'Regina, Canada',
@@ -1407,6 +1421,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building a GraphQL Client in JavaScript (Workshop)',
+		...GRAPHQL,
 		kind: 'talk',
 		event: 'MidwestJS 2018',
 		place: 'Minneapolis, MN',
@@ -1416,6 +1431,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'MidwestJS 2018',
 		place: 'Minneapolis, MN',
@@ -1425,6 +1441,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'Open Source North 2018',
 		place: 'Minneapolis, MN',
@@ -1445,6 +1462,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'Best Buy',
 		place: 'Minneapolis, MN',
@@ -1454,6 +1472,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'MXNow',
 		date: '2018-04-19',
@@ -1462,6 +1481,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building a GraphQL Client in JavaScript (Workshop)',
+		...GRAPHQL,
 		kind: 'talk',
 		event: 'MXNow',
 		date: '2018-04-19',
@@ -1470,6 +1490,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'Minnebar 2018',
 		place: 'Minneapolis, MN',
@@ -1479,6 +1500,7 @@ export const talks: Talk[] = [
 	},
 	{
 		title: 'Building High Performance React Applications',
+		...REACT_PERF,
 		kind: 'talk',
 		event: 'React Minneapolis',
 		place: 'Minneapolis, MN',

@@ -232,6 +232,8 @@ export default defineConfig({
 		'/blog/the-art-of-computer-science': '/talks/the-art-of-computer-science/',
 		'/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive':
 			'/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
+		'/blog/building-high-performance-react-applications':
+			'/talks/building-high-performance-react-applications/',
 		'/blog/an-introduction-to-iot-internet-of-toilets':
 			'/talks/an-introduction-to-iot-internet-of-toilets/',
 		'/all-work': '/work/',

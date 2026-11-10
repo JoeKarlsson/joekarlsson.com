@@ -2,26 +2,30 @@
 title: 'Building High Performance React Applications'
 date: 2018-11-14
 slug: 'building-high-performance-react-applications'
-description: 'How to build high performance React applications - find the bottlenecks, then fix them with keys, PureComponent, immutable data and production builds.'
+description: 'My talk on high performance React: find the bottlenecks, then fix them with keys, PureComponent, immutable data and production builds. Every event and deck.'
 categories: ['Web Dev']
 heroImage: '/images/blog/building-high-performance-react-applications/thumb-b9e788fc.webp'
 heroAlt: 'Sonic says: Do not abuse the key!'
-tldr: 'I walk through practical ways to speed up React apps, from using keys correctly to PureComponent to production builds, with before-and-after benchmarks for each trick.'
+tldr: 'A talk I gave 12 times in 2018 and 2019 on speeding up React apps, from using keys correctly to PureComponent to production builds, with before-and-after numbers for each fix. This page has the talk, every event, both decks and the full write-up.'
+videos:
+  - id: 'JNs1ZvRzOYM'
+  - id: 'xJYOipHkwNM'
+  - id: '6z4g27TSO5I'
 ---
 
-> **Note:** This post was written in 2018 for React 16 class components. Modern React uses function components with hooks (`React.memo`, `useMemo`, `useCallback`) for performance optimization. The concepts here are still useful background, but check the [current React docs](https://react.dev/reference/react/memo) for up-to-date guidance.
+> **Note:** I wrote this in 2018 for React 16 class components. Modern React uses function components with hooks (`React.memo`, `useMemo`, `useCallback`) for performance optimization. The concepts here are still useful background, but check the [current React docs](https://react.dev/reference/react/memo) for up-to-date guidance.
 
-Okay, we all know that React was built with performance in mind, but when is React slow? I want to break down for you, dear reader, common bottlenecks in React and when you might be making your program work harder than it should. In this post, I will show you how you can start building high performance React Applications.
+Okay, we all know that React was built with performance in mind, but when is React slow? I want to break down for you, dear reader, common bottlenecks in React and when you might be making your program work harder than it should. In this talk, I show you how you can start building high performance React Applications.
 
 [Watch Building High Performance React Applications at Web Rebels 2018 on YouTube](https://www.youtube.com/watch?v=JNs1ZvRzOYM)
 
-## The talk
+## What the talk covers
 
-This post is the write-up of a talk I gave in 2018 and 2019, when I was a tech lead at Best Buy working in React every day. I only got into React performance out of necessity. We built a chatbot for the site, and once the chat log got long enough, performance tanked and we had no idea why. That's how I found the React performance tools.
+I gave this talk 12 times in 2018 and 2019, when I was a tech lead at Best Buy working in React every day. I only got into React performance out of necessity. We built a chatbot for the site, and once the chat log got long enough, performance tanked and we had no idea why. That's how I found the React performance tools.
 
 I open with why speed matters. Amazon added 100 milliseconds of latency to its homepage in an A/B test and lost 1% of sales, which is over a billion dollars a year. I focus on the client because front-end fixes are usually simpler than back-end ones, you see the results the second you ship them, and they're cheaper.
 
-The short answer is the same one this post gives: only render to the DOM when you need to. Then I take a demo app written to be "the worst React application humanly possible" and profile it after each fix:
+The short answer: only render to the DOM when you need to. Then I take a demo app written to be "the worst React application humanly possible" and profile it after each fix:
 
 - **Use keys correctly:** 34 ms per update down to about 17. No `Math.random()`, no array index. Use the ID from your API, or hash a unique part of the object if there isn't one.
 - **`shouldComponentUpdate()`:** down to 9 ms.
@@ -36,10 +40,28 @@ In the Q&A someone asked which fix gives the most for the least refactoring. Key
 
 ## Where I've given it
 
-Web Rebels (2018), Full Stack Toronto, and the Kansas City Developer Conference (July 2019). Other recordings:
+I first gave it at the React Minneapolis meetup in February 2018 and last at the Kansas City Developer Conference in July 2019. Most of the 2018 runs used the 60-minute deck on Slides.com, and the rest used the one on Speaker Deck.
 
-- [Building High Performance React Applications on the Node.js channel (2018)](https://www.youtube.com/watch?v=xJYOipHkwNM)
-- [Full Stack Toronto](https://www.youtube.com/watch?v=6z4g27TSO5I)
+- **React Minneapolis**, February 2018: [meetup page](https://www.meetup.com/React-Minneapolis-Meetup/events/247090698/)
+- **Minnebar 2018**, Minneapolis, April 2018
+- **MXNow**, April 2018
+- **Best Buy**, Minneapolis, April 2018
+- **Web Rebels 2018**, Oslo, June 2018: [recording](https://www.youtube.com/watch?v=JNs1ZvRzOYM)
+- **Open Source North 2018**, Minneapolis, June 2018
+- **MidwestJS 2018**, Minneapolis, August 2018
+- **JS Interactive 2018**, Vancouver, October 2018: [recording](https://www.youtube.com/watch?v=xJYOipHkwNM)
+- **Prairie Dev Con Regina 2018**, October 2018
+- **Full Stack Toronto**, November 2018: [recording](https://www.youtube.com/watch?v=6z4g27TSO5I)
+- **Prairie Dev Con Winnipeg 2019**, June 2019
+- **Kansas City Developer Conference**, July 2019
+
+## Slides and resources
+
+- [The 60-minute deck on Slides.com](https://slides.com/joekarlsson/high-performance-react-long)
+- [The deck on Speaker Deck](https://speakerdeck.com/joekarlsson/building-high-performance-react-applications)
+- [The demo app](https://reactperf.joekarlsson.com/), written to be as slow as I could make it, and [its code on GitHub](https://github.com/JoeKarlsson/high-performance-react-demo)
+- [`memo` in the React docs](https://react.dev/reference/react/memo), the modern replacement for PureComponent
+- [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
 
 ## The write-up
 

@@ -405,13 +405,16 @@ describe('talk pages', () => {
 		'the-art-of-computer-science',
 		'bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive',
 		'an-introduction-to-iot-internet-of-toilets',
+		'building-high-performance-react-applications',
 	];
+	// Written straight onto /talks/, never a blog post
+	const NEW = ['building-your-first-graphql-client-in-javascript'];
 	const talkPages = readdirSync(resolve(dist, 'talks'), { withFileTypes: true })
 		.filter((entry) => entry.isDirectory())
 		.map((entry) => entry.name);
 
 	it('builds every talk write-up at /talks/<slug>/', () => {
-		expect(talkPages.sort()).toEqual([...MOVED].sort());
+		expect(talkPages.sort()).toEqual([...MOVED, ...NEW].sort());
 	});
 
 	it('redirects each old /blog/ URL to its /talks/ page', () => {

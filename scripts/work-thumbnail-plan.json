@@ -1965,5 +1965,16 @@
 			"color": "chalk"
 		},
 		"motion": "boil"
+	},
+	"building-your-first-graphql-client-in-javascript": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/CONTROL_DELIVERY_SERVICE_(CDS)_ORDER_BINS_-_Sears_Roebuck_and_Company_Mail_Order_Plant,_Merchandise_Building,_924_South_Homan_Avenue,_Chicago,_Cook_County,_IL_HABS_ILL,16-CHIG,110A-71.tif?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:CONTROL_DELIVERY_SERVICE_(CDS)_ORDER_BINS_-_Sears_Roebuck_and_Company_Mail_Order_Plant,_Merchandise_Building,_924_South_Homan_Avenue,_Chicago,_Cook_County,_IL_HABS_ILL,16-CHIG,110A-71.tif"
+		},
+		"look": "taped",
+		"alt": "A long row of order bins in the old Sears mail-order plant in Chicago",
+		"focus": 0.6,
+		"mark": { "name": "asterisk", "at": [87, 3, 10, 17], "color": "chalk" },
+		"motion": "boil"
 	}
 }

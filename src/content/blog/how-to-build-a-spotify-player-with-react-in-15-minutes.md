@@ -44,7 +44,7 @@ You can find all of the source code here:
 
 ![Our Spotify Web Player in Action](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/spotify-web-player-demo.gif)_Our Spotify Web Player in Action_
 
-Note: This article won't go deep into React, and it will require knowledge of the basics of JavaScript and React. If you want to learn more about making your React apps faster once you have them working, check out my post on [building high performance React applications](/blog/building-high-performance-react-applications/).
+Note: This article won't go deep into React, and it will require knowledge of the basics of JavaScript and React. If you want to learn more about making your React apps faster once you have them working, check out my post on [building high performance React applications](/talks/building-high-performance-react-applications/).
 
 ![Okay, now let’s jump in!](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/lets-jump-in.gif)_Okay, now let’s jump in!_
 
