@@ -5,14 +5,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { BEST, SECTIONS } from '../data/contact-links';
 import { CHALK, MARKS } from '../data/scribbles';
 import PosterHero from '../components/PosterHero.astro';
+import { getCollection } from 'astro:content';
 import {
 	HERO_LEAD,
 	PAGE_CONTAINER,
 	PRIMARY_BUTTON,
 	SECONDARY_BUTTON,
 	SECTION_HEADING,
+	formatDate,
 } from '../utils/ui';
 
+// The pink band pushes the newsletter's newest issue: a way to keep in touch without writing
+const [newestIssue] = (await getCollection('newsletter'))
+	.filter((issue) => !issue.data.substackUrl)
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+if (!newestIssue) throw new Error('No newsletter issue for the featured band');
 // Each link reports its platform to Plausible as a "Contact Social Click" event
 const track = (platform: string) =>
 	`plausible-event-name=Contact+Social+Click plausible-event-platform=${platform.replace(/[^A-Za-z0-9.]+/g, '+')}`;
@@ -26,13 +33,18 @@ const track = (platform: string) =>
 	<div class={PAGE_CONTAINER}>
 		<!-- A halftone montage that opens on Joe already at his homelab rack (no walk-in),
 		then cuts to the river wave, the desk and two homepage shots, beside every
-		platform in the ticker and the best two ways to reach me. Pink dots are drawn live
+		the newsletter's latest issue in the pink band and the best two ways to reach me. Pink dots are drawn live
 		(src/scripts/halftone.ts); in-view-play stops it with pause-motion and reduced motion. -->
 		<PosterHero
 			decorativeMedia
 			title="Contact"
 			wordRatio={3.2}
-			tickerItems={[...BEST, ...SECTIONS.flatMap(({ links }) => links)].map(({ label }) => label)}
+			featured={{
+				label: 'Newsletter',
+				title: newestIssue.data.title,
+				href: `/newsletter/${newestIssue.data.slug}/`,
+				meta: `Latest issue, ${formatDate(newestIssue.data.date)}`,
+			}}
 		>
 			<div slot="media" class="relative z-10 aspect-[4/3] md:aspect-auto md:min-h-[420px]">
 				<video

@@ -16,13 +16,17 @@ import KeepExploring from '../components/KeepExploring.astro';
 import { SOCIAL_LINKS } from '../consts';
 import { CHALK, MARKS } from '../data/scribbles';
 import { roles, education, skills, highlights, openSource, writingSamples } from '../data/resume';
+import { projects } from '../data/projects';
 
 function formatYearRange(start: number, end: number | null): string {
 	return end ? `${start} - ${end}` : `${start} - Present`;
 }
 
-// Each company once, newest first, for the hero ticker
-const companies = [...new Set(roles.map(({ company }) => company))];
+// The pink band pins one piece of real work, the one closest to the job
+const RESUME_PIECE = 'Connect AI × DOOM';
+const resumePiece = projects.find((p) => p.title === RESUME_PIECE);
+if (!resumePiece?.page)
+	throw new Error(`RESUME_PIECE "${RESUME_PIECE}" needs a /work/ page in projects.ts`);
 // Rows with a narrow left column (dates, labels) beside the content
 const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[11rem_1fr]';
 ---
@@ -33,9 +37,19 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 	schemaType="ProfilePage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- My headshot in pink dots beside the companies I've worked for in the ticker, and
+		<!-- My headshot in pink dots beside one piece of my work in the pink band, and
 		who I am, where to find me and the PDF in the dark panel -->
-		<PosterHero decorativeMedia title="Resume" wordRatio={3} tickerItems={companies}>
+		<PosterHero
+			decorativeMedia
+			title="Resume"
+			wordRatio={3}
+			featured={{
+				label: 'Selected work',
+				title: resumePiece.title,
+				href: `/work/${resumePiece.page.slug}/`,
+				meta: resumePiece.shareTitle?.split(': ')[1],
+			}}
+		>
 			<div slot="media" class="relative z-10 aspect-square md:aspect-auto">
 				<img
 					src="/images/joe-profile.webp"

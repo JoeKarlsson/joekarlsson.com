@@ -1,6 +1,6 @@
 /*
   Shared motion for the redesign (docs/redesign/PLAN.md): self-drawing scribbles,
-  the slot-machine phrase, stacked echo titles and tickers. Every animation stops
+  the slot-machine phrase and stacked echo titles. Every animation stops
   under prefers-reduced-motion, and the pause-motion button (src/scripts/pause-motion.ts)
   freezes them by setting .motion-paused on <html>.
 */
@@ -227,38 +227,6 @@
 	}
 }
 
-/* Tickers: the track holds its items twice, so sliding by half loops cleanly. */
-.ticker {
-	overflow: hidden;
-	white-space: nowrap;
-}
-
-.ticker-track {
-	display: inline-flex;
-	align-items: center;
-	gap: 26px;
-	animation: ticker-left var(--ticker-duration, 60s) linear infinite;
-}
-
-.ticker-reverse .ticker-track {
-	animation-name: ticker-right;
-}
-
-@keyframes ticker-left {
-	to {
-		transform: translateX(-50%);
-	}
-}
-
-@keyframes ticker-right {
-	from {
-		transform: translateX(-50%);
-	}
-	to {
-		transform: translateX(0);
-	}
-}
-
 /* The boil and warble filters (BaseLayout) animate their own noise, so these rules only
    point at them. Never animate filter: url() between filters instead: iPhone Safari
    doesn't repaint on that change, and every wobble froze there. */
@@ -337,8 +305,7 @@
 	.redraw path,
 	.redraw-strokes path,
 	.slot-reel,
-	.echo > span,
-	.ticker-track {
+	.echo > span {
 		animation: none;
 	}
 

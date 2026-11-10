@@ -52,3 +52,10 @@ export async function getFeedPosts(): Promise<FeedPost[]> {
 		}));
 	return [...blog, ...newsletter].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 }
+
+/** One feed post by slug, for a pinned spot (the pink band on the homepage and /uses) */
+export async function getPinnedPost(slug: string): Promise<FeedPost> {
+	const post = (await getFeedPosts()).find((p) => p.data.slug === slug);
+	if (!post) throw new Error(`Pinned post "${slug}" isn't in the blog or newsletter`);
+	return post;
+}

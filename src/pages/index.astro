@@ -1,6 +1,7 @@
 ---
 import { MORE_LINK, SECTION_HEADING, formatDate } from '../utils/ui';
 import DrawingBoard from '../components/DrawingBoard.astro';
+import FeaturedBand from '../components/FeaturedBand.astro';
 import HoverBox from '../components/HoverBox.astro';
 import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
@@ -11,7 +12,7 @@ import { projects } from '../data/projects';
 import { ARROW, CHALK, COIL, HERO_COIL, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 import { getCategoryCounts } from '../utils/categories';
-import { getFeedPosts, isOwnPost } from '../utils/posts';
+import { getFeedPosts, getPinnedPost, isOwnPost } from '../utils/posts';
 import { cardHalftone, halftoneMode } from '../utils/halftone';
 
 // Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
@@ -37,15 +38,9 @@ const homeProjects = HOME_PROJECTS.map((title) => {
 	return { title, href, meta: [project.date.slice(0, 4), ...project.tech.slice(0, 2)].join(' · ') };
 });
 
-const TOP_TICKER = ['Joe Karlsson', 'Developer marketing', 'Homelab', 'Databases'];
-const BOTTOM_TICKER = [
-	'Homelab',
-	'Databases',
-	'DevRel',
-	'AI tools',
-	'Talks',
-	`${runningContainers} containers`,
-];
+// The pink band in the hero pins the one piece I'm pushing; Recent posts below already
+// shows the newest
+const featuredPost = await getPinnedPost('doom-mcp-server');
 // The last repeats the first so the reel loops seamlessly (slot-roll in motion.css)
 const SLOT_WORDS = ['ugly pot', 'bad idea', 'ugly demo', 'weird idea', 'homelab', 'ugly pot'];
 
@@ -169,17 +164,14 @@ const AROUND_THE_HOUSE = [
 			/>
 		</div>
 		<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
-			<!-- Off on phones: a phone shows a word and a half of it, cut off at both ends -->
-			<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink max-md:hidden" aria-hidden="true">
-				<div class="ticker-track font-display text-[clamp(52px,6.2vw,96px)] leading-none uppercase">
-					{[...TOP_TICKER, ...TOP_TICKER].map((item) => (
-						<>
-							<span>{item}</span>
-							<span class="-translate-y-[0.15em] text-[0.38em]">●</span>
-						</>
-					))}
-				</div>
-			</div>
+			<!-- Phones show my name first, then the band -->
+			<FeaturedBand
+				label="Featured"
+				title={featuredPost.data.title}
+				href={featuredPost.href}
+				meta={formatDate(featuredPost.data.date)}
+				class="max-md:order-last"
+			/>
 			<div class="flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
 				<!-- My name first, then what I do underneath it -->
 				<div class="@container">
@@ -494,23 +486,6 @@ const AROUND_THE_HOUSE = [
 			))}
 		</div>
 	</section>
-
-	<!-- The closing ticker, off on phones like the one up top -->
-	<div class="pt-[90px] pb-24 max-md:hidden">
-		<div
-			class="ticker scale-[1.04] -rotate-2 border-y-[3px] border-pink bg-ink pt-3 pb-1.5 ticker-reverse"
-			aria-hidden="true"
-		>
-			<div class="ticker-track font-display text-[clamp(44px,5vw,80px)] leading-none text-pink uppercase [--ticker-duration:45s]">
-				{[...BOTTOM_TICKER, ...BOTTOM_TICKER].map((item) => (
-					<>
-						<span>{item}</span>
-						<span class="-translate-y-[0.15em] text-[0.38em] text-paper">●</span>
-					</>
-				))}
-			</div>
-		</div>
-	</div>
 </BaseLayout>
 
 <style>

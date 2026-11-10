@@ -1,6 +1,6 @@
 ---
 import KeepExploring from '../../components/KeepExploring.astro';
-import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../../utils/ui';
+import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK, formatDate } from '../../utils/ui';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -20,10 +20,10 @@ const issues = (await getCollection('newsletter')).sort(
 const posts = issues.filter((i) => !i.data.substackUrl);
 // The newest issue leads the page; the list below holds the rest
 const [latest, ...olderPosts] = posts;
+// The pink band pushes the issue before it
+const [lastIssue] = olderPosts;
+if (!lastIssue) throw new Error('No earlier issue for the featured band');
 const backIssues = issues.filter((i) => i.data.substackUrl);
-
-// What I write about, from the pitch below, for the hero ticker
-const TOPICS = ['Tech writing', 'AI', 'Homelab', 'Open source'];
 
 const byYear = new Map<number, typeof issues>();
 for (const issue of backIssues) {
@@ -39,10 +39,19 @@ for (const issue of backIssues) {
 >
 	<div class={PAGE_CONTAINER}>
 		<!-- The latest issue on the left (its image shown whole: issue images are title
-		cards, so they're never cropped), what I write about in the pink ticker, and the
+		cards, so they're never cropped), the issue before it in the pink band, and the
 		newsletter's name, pitch and signup in the dark panel above NEWSLETTER (the same
 		top as every main page) -->
-		<PosterHero title="Newsletter" wordRatio={4.7} tickerItems={TOPICS}>
+		<PosterHero
+			title="Newsletter"
+			wordRatio={4.7}
+			featured={{
+				label: 'Last issue',
+				title: lastIssue.data.title,
+				href: `/newsletter/${lastIssue.data.slug}/`,
+				meta: formatDate(lastIssue.data.date),
+			}}
+		>
 			{latest && (
 				<a
 					slot="media"

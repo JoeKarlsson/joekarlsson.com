@@ -13,7 +13,14 @@
 // small picture beside the words like /work's cards; there the video's picture links out to
 // YouTube too, since a player 112px wide is no use.
 import type { Talk } from '../data/talks';
-import { formatTalkDate, groupOf, posterPath, talks } from '../data/talks';
+import {
+	formatTalkDate,
+	groupOf,
+	posterPath,
+	talkMainLink,
+	talks,
+	youtubeWatchUrl,
+} from '../data/talks';
 import { CHALK } from '../data/scribbles';
 import { META, TEXT_LINK } from '../utils/ui';
 import TalkLinks from './TalkLinks.astro';
@@ -45,10 +52,9 @@ const KIND_LABELS = {
 	livestream: 'Livestream',
 	demo: 'Demo',
 };
-const watch = (id: string) => `https://www.youtube.com/watch?v=${id}`;
 // The title and picture open my own page for the talk (video, slides and resources together),
 // else the recording or the episode. Never an event's page or slides: those are links below
-const mainLink = talk.writeup ?? (video ? watch(video) : talk.listen);
+const mainLink = talkMainLink(talk);
 const external = !talk.writeup;
 // The episode and the event's page, when the title links somewhere else
 const listenLink = talk.listen !== mainLink ? talk.listen : undefined;
@@ -70,7 +76,7 @@ const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
 				{/* One picture for both sizes: on phones a link to YouTube sits over the player,
 				and the play button shrinks to fit */}
 				<a
-					href={watch(video)}
+					href={youtubeWatchUrl(video)}
 					target="_blank"
 					rel="noopener noreferrer"
 					class="absolute inset-0 z-20 md:hidden"
@@ -151,7 +157,7 @@ const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
 			eventLink && { label: 'Event page', href: eventLink },
 			...moreVideos.map((id, i) => ({
 				label: moreVideos.length === 1 ? 'Other recording' : `Recording ${i + 2}`,
-				href: watch(id),
+				href: youtubeWatchUrl(id),
 			})),
 		].filter((link): link is { label: string; href: string } => !!link)}
 	/>

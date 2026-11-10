@@ -8,7 +8,9 @@ import {
 	eraIndexFor,
 	foldSeries,
 	formatTalkDate,
+	newestLinkedTalk,
 	posterPath,
+	talkMainLink,
 	talks,
 } from '../src/data/talks';
 
@@ -94,5 +96,24 @@ describe('foldSeries', () => {
 		// One schema run in this era stays an ordinary card, and the livestream doesn't fold in
 		expect(items[1]).toEqual({ talk: list[1] });
 		expect(items[2]).toEqual({ talk: list[3] });
+	});
+
+	it('links a talk to my page for it, else its recording, else the episode', () => {
+		const base: Talk = { title: 'T', kind: 'talk', event: 'E', date: '2026-01-01' };
+		expect(talkMainLink({ ...base, writeup: '/talks/t/', videos: ['abc'] })).toBe('/talks/t/');
+		expect(talkMainLink({ ...base, otherRecording: 'xyz' })).toBe(
+			'https://www.youtube.com/watch?v=xyz',
+		);
+		expect(talkMainLink({ ...base, listen: 'https://pod.example/1' })).toBe(
+			'https://pod.example/1',
+		);
+		expect(talkMainLink(base)).toBeUndefined();
+	});
+
+	it('features the newest talk that has a link', () => {
+		const { talk, href } = newestLinkedTalk();
+		const newerWithLinks = talks.filter((t) => t.date > talk.date && talkMainLink(t));
+		expect(newerWithLinks).toEqual([]);
+		expect(href).toBe(talkMainLink(talk));
 	});
 });

@@ -26,6 +26,9 @@ const posts = allPosts.filter((p) => p.data.slug !== featuredSlug);
 // Blog posts only: newsletter posts have no category page
 const blogPosts = allPosts.filter((p) => !p.isNewsletter);
 const categories = getCategoryCounts(blogPosts);
+// The pink band pushes the newest blog post
+const newestPost = blogPosts.find((p) => p.data.slug !== featuredSlug);
+if (!newestPost) throw new Error('The blog has no post for the featured band');
 
 const firstPostYear = Math.min(...allPosts.map((p) => p.data.date.getUTCFullYear()));
 const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '') : 0;
@@ -38,10 +41,19 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 >
 	<div class={PAGE_CONTAINER}>
 		<!-- Mirrors the homepage hero: the featured post's picture (its title on a dark
-		strip) beside a pink ticker of the topics and a dark panel whose BLOG fills it.
+		strip) beside the pink band with the newest post and a dark panel whose BLOG fills it.
 		Only the picture is clipped; the marks sit in front. On phones the picture is a
 		16:9 banner with the title under it, so it doesn't fill the screen. -->
-		<PosterHero title="Blog" wordRatio={1.86} tickerItems={categories.map(({ name }) => name)}>
+		<PosterHero
+			title="Blog"
+			wordRatio={1.86}
+			featured={{
+				label: 'New',
+				title: newestPost.data.title,
+				href: newestPost.href,
+				meta: formatDate(newestPost.data.date),
+			}}
+		>
 			{featuredPost && (
 				<a
 					slot="media"

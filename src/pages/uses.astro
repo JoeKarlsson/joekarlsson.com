@@ -12,6 +12,7 @@ import { GROUP_HEADING, HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } 
 import nowFeed from '../data/now-feed.json';
 import { ARROW, CHALK, MARKS, RINGS } from '../data/scribbles';
 import { USES_SECTIONS } from '../data/uses';
+import { getPinnedPost } from '../utils/posts';
 import {
 	AMAZON_DISCLOSURE,
 	isAmazonUrl,
@@ -20,6 +21,8 @@ import {
 } from '../utils/affiliate';
 
 const PINK = '#ff4fd8';
+// The pink band pins the tour of the desk, /uses as a full post with photos
+const tour = await getPinnedPost('recording-setup-tour');
 
 /** The data file's links get the site's link style and Amazon tag, and the live container count fills in. */
 const html = (s: string) =>
@@ -129,7 +132,7 @@ const sections = USES_SECTIONS.map((section) => {
 			decorativeMedia
 			title="Uses"
 			wordRatio={1.86}
-			tickerItems={USES_SECTIONS.map(({ name }) => name)}
+			featured={{ label: 'The tour', title: tour.data.title, href: tour.href }}
 		>
 			<div slot="media" class="relative z-10 aspect-[5/4] md:aspect-auto">
 				<video

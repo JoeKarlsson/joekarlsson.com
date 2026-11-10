@@ -1,8 +1,10 @@
 ---
 // The top of a section page, built like the homepage hero: a picture or clip on the
-// left (the `media` slot, a grid cell the page builds itself), and on the right a pink
-// ticker over a dark panel with a line or two (the default slot) and the page's name
-// filling the panel's width. Used by Blog, Projects, Uses, Resume, Talks and Contact.
+// left (the `media` slot, a grid cell the page builds itself), and on the right the
+// pink featured band over a dark panel with a line or two (the default slot) and the
+// page's name filling the panel's width. Used by Blog, Work, Talks, Newsletter, About,
+// Resume, Uses and Contact.
+import FeaturedBand from './FeaturedBand.astro';
 import Scribble from './Scribble.astro';
 import { CHALK, HERO_COIL, MARKS } from '../data/scribbles';
 
@@ -11,14 +13,14 @@ interface Props {
 	// The title's width in ems at font-size 1, so it fills the panel: about 0.47 per
 	// letter in Anton caps ("BLOG" is 1.86)
 	wordRatio: number;
-	// Scrolls in the pink ticker, separated by dots
-	tickerItems: string[];
+	// The one thing this page pushes, in the pink band (FeaturedBand)
+	featured: { label: string; title: string; href: string; meta?: string };
 	// The media is a picture or clip of Joe rather than content (a featured post or
 	// project), so phones skip it and open on the title panel
 	decorativeMedia?: boolean;
 }
 
-const { title, wordRatio, tickerItems, decorativeMedia = false } = Astro.props;
+const { title, wordRatio, featured, decorativeMedia = false } = Astro.props;
 ---
 
 <header class="relative mb-8 grid gap-4 md:mb-14 md:grid-cols-2">
@@ -34,17 +36,8 @@ const { title, wordRatio, tickerItems, decorativeMedia = false } = Astro.props;
 			delay="0.6s"
 			class="-top-[6%] -right-[3%] z-10 hidden h-[12%] w-[18%] md:block"
 		/>
-		<!-- Off on phones: a phone shows a word and a half of it, cut off at both ends -->
-		<div class="ticker rounded-xl bg-pink pt-3.5 pb-2 text-ink max-md:hidden" aria-hidden="true">
-			<div class="ticker-track font-display text-[clamp(52px,6.2vw,96px)] leading-none uppercase">
-				{[...tickerItems, ...tickerItems].map((item) => (
-					<>
-						<span>{item}</span>
-						<span class="-translate-y-[0.15em] text-[0.38em]">●</span>
-					</>
-				))}
-			</div>
-		</div>
+		<!-- Phones show the page's name first, then the band -->
+		<FeaturedBand {...featured} class="max-md:order-last" />
 		<div class="relative flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-5 md:p-7">
 			<Scribble
 				{...MARKS.hatch}

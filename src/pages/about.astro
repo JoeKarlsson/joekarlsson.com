@@ -22,11 +22,14 @@ import YouTubeFacade from '../components/YouTubeFacade.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import { SOCIAL_LINKS } from '../consts';
 import { roles } from '../data/resume';
+import { formatTalkDate, newestLinkedTalk } from '../data/talks';
 import { CHALK, MARKS, RINGS } from '../data/scribbles';
 import { projects } from '../data/projects';
 import { getFeedPosts, isOwnPost } from '../utils/posts';
 import { halftoneMode } from '../utils/halftone';
 
+// The pink band pushes the latest talk, as proof of the work
+const latestTalk = newestLinkedTalk();
 const aboutHeadings = [
 	{ slug: 'what-i-do', text: 'What I do' },
 	{ slug: 'career', text: 'Career' },
@@ -210,7 +213,7 @@ const cropArtPieces = [
 	schemaType="AboutPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- A montage that opens on Joe at his desk, then cuts to the river wave, the homelab and two homepage shots, on the left, the page's sections in the pink ticker, and who I
+		<!-- A montage that opens on Joe at his desk, then cuts to the river wave, the homelab and two homepage shots, on the left, my latest talk in the pink band, and who I
 		am in the dark panel above ABOUT (the same top as every main page). The montage is
 		4:3 at the camera's full height with Joe's eyes on the top third, so the square
 		desktop column only trims the sides, never his head. Pink
@@ -220,7 +223,12 @@ const cropArtPieces = [
 			decorativeMedia
 			title="About"
 			wordRatio={2.4}
-			tickerItems={aboutHeadings.map(({ text }) => text)}
+			featured={{
+				label: 'Latest talk',
+				title: latestTalk.talk.title,
+				href: latestTalk.href,
+				meta: [latestTalk.talk.event, formatTalkDate(latestTalk.talk)].filter(Boolean).join(' · '),
+			}}
 		>
 			<div
 				slot="media"

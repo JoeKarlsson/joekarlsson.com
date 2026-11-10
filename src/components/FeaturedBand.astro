@@ -1,0 +1,35 @@
+---
+// The pink band at the top of the homepage and every section page: one link to the
+// thing that page pushes (the newest post, the next issue, a pinned piece), with a short
+// Anton label beside its title. Phones show it under the page's name.
+interface Props {
+	label: string;
+	title: string;
+	href: string;
+	// A short line under the title: a date, an event, a year
+	meta?: string;
+	class?: string;
+}
+
+const { label, title, href, meta, class: className } = Astro.props;
+---
+
+<a
+	href={href}
+	class:list={[
+		'group flex flex-wrap items-center gap-x-4 gap-y-1 rounded-xl bg-pink px-5 py-4 text-ink no-underline md:gap-x-5 md:px-6',
+		className,
+	]}
+>
+	<span class="shrink-0 font-display text-[clamp(40px,4.4vw,64px)] leading-none uppercase">
+		{label}
+	</span>
+	<!-- At least 12em wide: beside a long label it drops onto its own line rather than
+	stacking a word per line -->
+	<span class="min-w-[min(12em,100%)] flex-1 text-[clamp(17px,1.5vw,22px)] leading-tight font-extrabold text-balance">
+		<span class="decoration-2 underline-offset-4 group-hover:underline group-focus-visible:underline">
+			{title}
+		</span>
+		{meta && <span class="mt-1 block text-[15px] font-semibold">{meta}</span>}
+	</span>
+</a>

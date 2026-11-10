@@ -1712,3 +1712,22 @@ export function posterPath(video: string): string {
 	const suffix = !override ? '' : override.at !== undefined ? `-t${override.at}` : '-art';
 	return `/images/talks/posters/${video}${suffix}.webp`;
 }
+
+/** A recording's YouTube watch page */
+export const youtubeWatchUrl = (id: string) => `https://www.youtube.com/watch?v=${id}`;
+
+/** Where a talk's title opens: my own page for it, else the recording, else the episode */
+export function talkMainLink(talk: Talk): string | undefined {
+	const video = talk.videos?.[0] ?? talk.otherRecording;
+	return talk.writeup ?? (video ? youtubeWatchUrl(video) : talk.listen);
+}
+
+/** The newest talk, demo or episode with somewhere to send people (the pink band on /talks and /about) */
+export function newestLinkedTalk(): { talk: Talk; href: string } {
+	const newest = [...talks]
+		.sort((a, b) => b.date.localeCompare(a.date))
+		.map((talk) => ({ talk, href: talkMainLink(talk) }))
+		.find((item): item is { talk: Talk; href: string } => Boolean(item.href));
+	if (!newest) throw new Error('No talk has a link for the featured band');
+	return newest;
+}
