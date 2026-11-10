@@ -91,9 +91,9 @@ last, the label after everything, and the finished frame held at least 1.2 s.
 ## Model post: Ralph Ammer
 
 Joe holds up Ralph Ammer's [The Creative Playground](https://ralphammer.com/how-to-get-started/)
-as the way posts should use animation (2026-11-10). Its drawings are black line art. Our look
-stays pasteup collage, so take his motion grammar, not his drawing style. All 11 GIFs were
-pulled and read frame by frame on 2026-11-10:
+as the way posts should use animation (2026-11-10): "They're just small handmade
+animations." His are plain black line drawings, and each shows the thing the paragraph is
+explaining as it happens. All 11 GIFs were pulled and read frame by frame on 2026-11-10:
 
 | GIF | What moves | Length |
 |---|---|---|
@@ -131,14 +131,15 @@ What to take from it:
 8. **One accent color for the whole post** (his orange appears once). That matches rule 7 of
    the art direction above: one piece in color is a punchline.
 
-**Tiny icons are a second kind, and Joe wants them** (2026-11-10, "I'd love to try out his
-format of using tiny icons"). Ammer's focus, time limit, format and skill icons are a few
-lines and one handwritten word, about 220x100, where nothing changes and only the line
-boils. They mark the key terms of a list or a run of short sections, so they may show a
-routine point, unlike a collage scene. Use them as a set (three to five in a post, one per
-term, the same size and stroke), each above the paragraph that bolds its word. The word
-holds still; only the lines boil (the site rule). The look is still being picked, and
-there is no tool to make them yet.
+**Small handmade animations are a second kind, and Joe wants them** (2026-11-10). They sit
+beside the collage scenes, which still land the big moments. The model is the origami and
+the wood joints: the real thing the paragraph explains, drawn simply and shown working
+(paper folding, blocks slotting together, a court's lines being redrawn). They explain, so
+unlike a collage scene they can carry an ordinary point, as long as something real changes
+on screen. Never a static squiggle icon that only wobbles: Joe turned down a set of those
+(one job, time limit, rollback, alert) the same day: "Ralph's are different... they're
+explaining things in the post... not just like random squiggles." There is no tool to make
+them yet.
 
 ## Sequences (not built yet; for when scenes get cut together)
 
