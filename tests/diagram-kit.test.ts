@@ -97,3 +97,22 @@ describe('diagram filters stay small enough for iPhone Safari', () => {
 		expect(filteredAreaRatio(svg)).toBeLessThan(0.05);
 	});
 });
+
+describe('animated go_to walk', () => {
+	// The loop restarts with a hard cut, so its last drawing must already be the empty map:
+	// everything faded out and the door shut again (a seam the motion review caught once)
+	it.each(['go-to-walk.svg', 'go-to-walk.phone.svg'])(
+		'%s ends its loop on the empty map',
+		(file) => {
+			const svg = readFileSync(join('public/images/blog/doom-mcp-server', file), 'utf8');
+			const values = (re: RegExp) => svg.match(re)?.[1].split(';') ?? [];
+			const fade = values(
+				/<g class="anim-live"><g opacity="[^"]*"><animate attributeName="opacity"[^>]*values="([^"]*)"/,
+			);
+			const door = values(/<animate attributeName="y2"[^>]*values="([^"]*)"/);
+			expect(fade.at(-1)).toBe('0');
+			expect(door.length).toBeGreaterThan(2);
+			expect(door.at(-1)).toBe(door[0]);
+		},
+	);
+});
