@@ -7,35 +7,35 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 607,
+			"commitCount": 611,
 			"dailyCommitCounts": [
 				32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 119, 65
+				25, 119, 69
 			],
-			"latestCommitMessage": "feat: Collage scenes play in posts as inline animated SVGs with no..."
-		},
-		{
-			"name": "screencast-director",
-			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
-			"url": "https://github.com/JoeKarlsson/screencast-director",
-			"language": "Swift",
-			"commitCount": 298,
-			"dailyCommitCounts": [
-				67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2,
-				34
-			],
-			"latestCommitMessage": "feat: Director capture pulls a website's logo into the video's..."
+			"latestCommitMessage": "chore: The pencil figure's comment says circle, and its still frame..."
 		},
 		{
 			"name": "punc",
 			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
 			"url": "https://github.com/JoeKarlsson/punc",
 			"language": "TypeScript",
-			"commitCount": 55,
+			"commitCount": 61,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 2
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 8
 			],
-			"latestCommitMessage": "chore: The numbers page build finds its twin pairs once, for the twins..."
+			"latestCommitMessage": "fix: The second coder's prompt note says it couldn't see the..."
+		},
+		{
+			"name": "screencast-director",
+			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
+			"url": "https://github.com/JoeKarlsson/screencast-director",
+			"language": "Swift",
+			"commitCount": 301,
+			"dailyCommitCounts": [
+				67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2,
+				37
+			],
+			"latestCommitMessage": "feat: Each user pastes their own free KLIPY key in Settings > Stock..."
 		},
 		{
 			"name": "dotfiles",
