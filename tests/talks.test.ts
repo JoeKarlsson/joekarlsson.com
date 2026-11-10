@@ -8,6 +8,7 @@ import {
 	eraIndexFor,
 	foldSeries,
 	formatTalkDate,
+	posterPath,
 	talks,
 } from '../src/data/talks';
 
@@ -26,7 +27,7 @@ describe('talks.ts', () => {
 				return [`${name}: otherRecording ${t.otherRecording} is in no talk's videos`];
 			const video = t.videos?.[0] ?? t.otherRecording;
 			if (video)
-				return existsSync(`public/images/talks/posters/${video}.webp`)
+				return existsSync(`public${posterPath(video)}`)
 					? []
 					: [`${name}: no poster for ${video}, run npm run talks:covers`];
 			if (t.cover) return existsSync(`public${t.cover}`) ? [] : [`${name}: no file at ${t.cover}`];

@@ -17,7 +17,7 @@
 		"kind": "talk",
 		"date": "2018-06-12",
 		"durationSeconds": 722,
-		"backup": "Talks/2018/2018-06-12 - MPLS Jr Devs 2018 - Functional Programming for People Who Hate Math/2018-06-12 - MPLS Jr Devs 2018 - Functional Programming for People Who Hate Math [t26nBe43gwQ].mkv"
+		"backup": "Talks/2018/2018-05-08 - MPLS Jr Devs 2018 - Functional Programming for People Who Hate Math/2018-05-08 - MPLS Jr Devs 2018 - Functional Programming for People Who Hate Math [t26nBe43gwQ].mkv"
 	},
 	{
 		"id": "Yl5DSL1cB-Q",
@@ -27,7 +27,7 @@
 		"kind": "talk",
 		"date": "2018-06-12",
 		"durationSeconds": 1539,
-		"backup": "Talks/2018/2018-06-12 - MPLS Jr Devs 2018 - Functional Programming for People Who Hate Math/2018-06-12 - MPLS Jr Devs 2018 - Functional Programming for People Who Hate Math [Yl5DSL1cB-Q].mkv"
+		"backup": "Talks/2018/2018-05-08 - MPLS Jr Devs 2018 - Functional Programming for People Who Hate Math/2018-05-08 - MPLS Jr Devs 2018 - Functional Programming for People Who Hate Math [Yl5DSL1cB-Q].mkv"
 	},
 	{
 		"id": "xJYOipHkwNM",
@@ -37,7 +37,7 @@
 		"kind": "talk",
 		"date": "2018-11-05",
 		"durationSeconds": 1630,
-		"backup": "Talks/2018/2018-11-05 - Node.js - Building High Performance React Applications/2018-11-05 - Node.js - Building High Performance React Applications [xJYOipHkwNM].mkv"
+		"backup": "Talks/2018/2018-10-10 - JS Interactive 2018 - Building High Performance React Applications/2018-10-10 - JS Interactive 2018 - Building High Performance React Applications [xJYOipHkwNM].mkv"
 	},
 	{
 		"id": "97KErHwCd7w",
@@ -117,7 +117,7 @@
 		"kind": "talk",
 		"date": "2019-03-05",
 		"durationSeconds": 2706,
-		"backup": "Talks/2019/2019-03-05 - Full Stack Toronto - Building High Performance React Applications/2019-03-05 - Full Stack Toronto - Building High Performance React Applications [6z4g27TSO5I].mkv"
+		"backup": "Talks/2018/2018-11-29 - Full Stack Toronto - Building High Performance React Applications/2018-11-29 - Full Stack Toronto - Building High Performance React Applications [6z4g27TSO5I].mkv"
 	},
 	{
 		"id": "Eje1EPiiI5M",
@@ -248,6 +248,16 @@
 		"date": "2020-01-24",
 		"durationSeconds": 2197,
 		"backup": "Talks/2020/2020-01-24 - MongoDB.local San Francisco 2020 - Building Your First GraphQL Client in JS/2020-01-24 - MongoDB.local San Francisco 2020 - Building Your First GraphQL Client in JS [XsD2ZKqMbgo].mkv"
+	},
+	{
+		"id": "nm--AgfMMGY",
+		"title": "A Gentle Introduction to IoT | Confoo | 02/27/2020",
+		"channel": "Joe Karlsson",
+		"owner": "joe",
+		"kind": "talk",
+		"date": "2020-03-11",
+		"durationSeconds": 4132,
+		"backup": "Talks/2020/2020-02-26 - ConFoo Montreal - A Gentle Introduction to IoT/2020-02-26 - ConFoo Montreal - A Gentle Introduction to IoT [nm--AgfMMGY].mp4"
 	},
 	{
 		"id": "12IppjSDVCQ",

@@ -13,7 +13,7 @@
 // small picture beside the words like /work's cards; there the video's picture links out to
 // YouTube too, since a player 112px wide is no use.
 import type { Talk } from '../data/talks';
-import { formatTalkDate, groupOf, talks } from '../data/talks';
+import { formatTalkDate, groupOf, posterPath, talks } from '../data/talks';
 import { CHALK } from '../data/scribbles';
 import { META, TEXT_LINK } from '../utils/ui';
 import YouTubeFacade from './YouTubeFacade.astro';
@@ -36,7 +36,7 @@ if (talk.otherRecording && !ownVideo && !recordedAt)
 	throw new Error(`"${talk.title}": otherRecording ${talk.otherRecording} is in no talk's videos`);
 if (!video && !talk.cover && !talk.paperScrap)
 	throw new Error(`"${talk.title}" at ${talk.event} has no video, otherRecording or cover`);
-const poster = video && `/images/talks/posters/${video}.webp`;
+const poster = video && posterPath(video);
 const KIND_LABELS = {
 	talk: 'Talk',
 	panel: 'Panel',
@@ -45,7 +45,9 @@ const KIND_LABELS = {
 	demo: 'Demo',
 };
 const watch = (id: string) => `https://www.youtube.com/watch?v=${id}`;
-const mainLink = video ? watch(video) : (talk.listen ?? talk.link);
+// A talk with its own page on this site opens that page (video, slides and resources together)
+const mainLink = talk.writeup ?? (video ? watch(video) : (talk.listen ?? talk.link));
+const external = !talk.writeup;
 // The episode and the event's page, when the title links somewhere else
 const listenLink = talk.listen !== mainLink ? talk.listen : undefined;
 const eventLink = talk.link && talk.link !== mainLink ? talk.link : undefined;
@@ -118,8 +120,8 @@ const LINK =
 		{mainLink ? (
 			<a
 				href={mainLink}
-				target="_blank"
-				rel="noopener noreferrer"
+				target={external ? '_blank' : undefined}
+				rel={external ? 'noopener noreferrer' : undefined}
 				class={`${TEXT_LINK} block max-md:-my-3 max-md:py-3`}
 			>
 				{talk.title}

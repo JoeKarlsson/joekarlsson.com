@@ -3,10 +3,6 @@
 	"cloudquery-events": "https://www.cloudquery.io/events/five-questions-cloud-team",
 	"tinybird-live-coding": "https://www.tinybird.co/live-coding-sessions",
 	"singlestore": "https://www.singlestore.com/",
-	"confoo-2020": {
-		"page": "https://confoo.ca/en/yul2020",
-		"image": "https://confoo.ca/images/content/carousel/1.jpg"
-	},
 	"softwareplaza-it-podcast": "https://podcasts.apple.com/us/podcast/from-chaos-to-control-how-cloudquery-makes-cloud-data/id1790169619?i=1000722489800",
 	"screaming-in-the-cloud": "https://podcasts.apple.com/us/podcast/when-data-is-your-brand-and-your-job-with-joe-karlsson/id1361244178?i=1000631070586",
 	"art-of-communicating-data": "https://podcasts.apple.com/us/podcast/building-interactive-dashboards-with-real-time-data/id1603953771?i=1000616984317",

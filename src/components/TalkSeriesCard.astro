@@ -2,7 +2,7 @@
 // One talk I gave several times in the same era: one card that plays the best recording and
 // lists every time I gave it, each event linked to its own recording when there is one.
 import type { Talk } from '../data/talks';
-import { formatTalkDate, groupOf } from '../data/talks';
+import { formatTalkDate, groupOf, posterPath } from '../data/talks';
 import { META, TEXT_LINK } from '../utils/ui';
 import TalkSeriesRun from './TalkSeriesRun.astro';
 import YouTubeFacade from './YouTubeFacade.astro';
@@ -36,7 +36,7 @@ const LINK =
 	<div class="relative max-md:row-span-4 max-md:[&_.youtube-facade>span]:size-9 max-md:[&_.youtube-facade>span>svg]:size-4">
 		{video && (
 			<>
-				<YouTubeFacade id={video} title={title} poster={`/images/talks/posters/${video}.webp`} />
+				<YouTubeFacade id={video} title={title} poster={posterPath(video)} />
 				<a
 					href={watch(video)}
 					target="_blank"
@@ -55,11 +55,11 @@ const LINK =
 		· {span}
 	</p>
 	<h3 class="mt-1 font-sans text-xl leading-snug font-semibold text-paper max-md:text-base">
-		{video ? (
+		{writeup || video ? (
 			<a
-				href={watch(video)}
-				target="_blank"
-				rel="noopener noreferrer"
+				href={writeup ?? watch(video!)}
+				target={writeup ? undefined : '_blank'}
+				rel={writeup ? undefined : 'noopener noreferrer'}
 				class={`${TEXT_LINK} block max-md:-my-3 max-md:py-3`}
 			>
 				{title}

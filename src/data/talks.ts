@@ -7,6 +7,7 @@
 // plays; add more recordings of the same talk at the same event after it.
 import { roles } from './resume';
 import { formatDate } from '../utils/ui';
+import posterOverrides from './talk-posters.json';
 
 export type TalkKind = 'talk' | 'panel' | 'podcast' | 'livestream' | 'demo';
 
@@ -546,6 +547,8 @@ export const talks: Talk[] = [
 			"Using MongoDB's Data Lake service to auto-archive cold data to AWS S3 while maintaining query capabilities - reducing data center power consumption and costs.",
 		videos: ['fAvVxQknDL0', '8KskhLOEbYI'],
 		link: 'https://www.conf42.com/Cloud_Native_2021_Joe_Karlsson_save_the_world_data_lakes',
+		slides:
+			'https://speakerdeck.com/joekarlsson/save-the-world-and-money-with-mongodb-atlas-data-lake',
 	},
 	{
 		title: 'The Art of Computer Science',
@@ -688,6 +691,7 @@ export const talks: Talk[] = [
 		place: 'Online',
 		date: '2020-10-11',
 		videos: ['cqCirMTuic8'],
+		slides: 'https://speakerdeck.com/joekarlsson/a-gentle-introduction-to-building-serverless-apps',
 	},
 	{
 		title: 'Building Your First GraphQL Client in JavaScript',
@@ -695,6 +699,7 @@ export const talks: Talk[] = [
 		event: 'YouTube',
 		date: '2020-09-16',
 		videos: ['87bPNnd6M7A'],
+		slides: 'https://speakerdeck.com/joekarlsson/building-a-graphql-client-in-javascript',
 	},
 	{
 		title: 'An Introduction to IoT, or How I Built an IoT Kitty Litter Box Using JavaScript',
@@ -825,6 +830,7 @@ export const talks: Talk[] = [
 		description:
 			'Learn about GraphQL with MongoDB - schema architecture, query performance, error handling, and caching.',
 		videos: ['7HczsHW7JA0'],
+		slides: 'https://speakerdeck.com/joekarlsson/building-a-graphql-client-in-javascript',
 	},
 	{
 		title: 'An Introduction To IoT (Internet of Toilets)',
@@ -889,6 +895,7 @@ export const talks: Talk[] = [
 			'Beginner-friendly intro to serverless computing with MongoDB Stitch, including authentication and access rules.',
 		// The whole first day's stream
 		videos: ['MEeZLM1XVLI'],
+		slides: 'https://speakerdeck.com/joekarlsson/a-gentle-introduction-to-building-serverless-apps',
 	},
 	{
 		title: 'An Introduction to the Internet of Toilets',
@@ -972,7 +979,7 @@ export const talks: Talk[] = [
 		title: 'A Gentle Introduction to IoT',
 		kind: 'talk',
 		event: 'ConFoo Montreal',
-		otherRecording: 'zHvrtt5raA4',
+		videos: ['nm--AgfMMGY'],
 		place: 'Montreal, Canada',
 		date: '2020-02-26',
 		end: '2020-02-28',
@@ -996,12 +1003,14 @@ export const talks: Talk[] = [
 		title: 'Getting Started with GraphQL And Atlas',
 		kind: 'talk',
 		event: 'ConFoo Montreal',
-		cover: '/images/talks/events/confoo-2020.webp',
+		otherRecording: 'XsD2ZKqMbgo',
 		place: 'Montreal, Canada',
 		date: '2020-02-26',
 		end: '2020-02-28',
 		description:
 			'Step-by-step setup of GraphQL schemas and APIs on MongoDB Atlas for rapid application building.',
+		slides:
+			'https://speakerdeck.com/joekarlsson/getting-started-with-graphql-and-atlas-mongodb-local-sf-2020',
 	},
 	{
 		title: 'Building Your First GraphQL Client in JS',
@@ -1010,6 +1019,8 @@ export const talks: Talk[] = [
 		place: 'San Francisco, CA',
 		date: '2020-01-24',
 		videos: ['XsD2ZKqMbgo'],
+		slides:
+			'https://speakerdeck.com/joekarlsson/getting-started-with-graphql-and-atlas-mongodb-local-sf-2020',
 	},
 	{
 		title: 'Building an App with MongoDB and GraphQL',
@@ -1048,6 +1059,8 @@ export const talks: Talk[] = [
 			'Why JavaScript is positioned to power billions of IoT devices, the role of Node.js, and schema design patterns for sensor data in MongoDB.',
 		videos: ['711Sb55fzdg'],
 		...IOT,
+		slides:
+			'https://speakerdeck.com/joekarlsson/bringing-javascript-to-the-iot-edge-node-plus-js-interactive-2019',
 	},
 	{
 		title: 'Building an IoT Kitty Litter Box',
@@ -1067,6 +1080,7 @@ export const talks: Talk[] = [
 		description:
 			'Hands-on introduction to IoT with Raspberry Pi, Node.js, WebSockets, and sensor integration.',
 		...IOT,
+		slides: 'https://speakerdeck.com/joekarlsson/iot-and-js-code-camp-nyc-2019',
 	},
 	{
 		title: 'IoT with JS: A Gentle Introduction to IoT',
@@ -1077,6 +1091,7 @@ export const talks: Talk[] = [
 		date: '2019-09',
 		description: 'Getting started with IoT using JavaScript, Raspberry Pi, and Node.js.',
 		...IOT,
+		slides: 'https://speakerdeck.com/joekarlsson/iot-and-js-grizzhacks-2019',
 	},
 	{
 		title: 'Updating my Dotfiles',
@@ -1095,6 +1110,8 @@ export const talks: Talk[] = [
 		description:
 			'Beginner-friendly intro to serverless with MongoDB Stitch - authentication, access rules, and managed clusters.',
 		videos: ['GZPQdzzj4n8'],
+		slides:
+			'https://speakerdeck.com/joekarlsson/a-gentle-introduction-to-building-serverless-apps-with-mongodb-stitch',
 	},
 	{
 		title: 'JS and Parallel Processing(!?)',
@@ -1106,6 +1123,7 @@ export const talks: Talk[] = [
 		end: '2019-08-09',
 		description:
 			"Exploring JavaScript's evolution from single-threaded to supporting processing threads for serious computation.",
+		slides: 'https://speakerdeck.com/joekarlsson/js-and-parallel-processing',
 	},
 	{
 		title: 'Building a GraphQL Client in JavaScript',
@@ -1117,6 +1135,7 @@ export const talks: Talk[] = [
 		end: '2019-08-09',
 		description:
 			'Workshop: GraphQL fundamentals, schema architecture, query performance, error handling, and caching.',
+		slides: 'https://speakerdeck.com/joekarlsson/building-a-graphql-client-in-javascript',
 	},
 	{
 		title: 'Bechdel.io: The Future of Film and Feminism',
@@ -1139,6 +1158,7 @@ export const talks: Talk[] = [
 		end: '2019-07-19',
 		description:
 			'Common React performance bottlenecks and practical ways to speed up real-world applications.',
+		slides: 'https://speakerdeck.com/joekarlsson/building-high-performance-react-applications',
 	},
 	{
 		title: 'Building a GraphQL Client in JavaScript',
@@ -1150,6 +1170,7 @@ export const talks: Talk[] = [
 		end: '2019-07-19',
 		description:
 			'Workshop covering GraphQL philosophy, scalable schema design, performance optimization, and caching strategies.',
+		slides: 'https://speakerdeck.com/joekarlsson/building-a-graphql-client-in-javascript',
 	},
 	{
 		title: 'JS + Parallel Processing(?!)',
@@ -1158,6 +1179,7 @@ export const talks: Talk[] = [
 		place: 'Winnipeg, Canada',
 		date: '2019-06-07',
 		videos: ['CmhWzoo2IuE'],
+		slides: 'https://speakerdeck.com/joekarlsson/js-and-parallel-processing',
 	},
 	{
 		title: 'JS and Parallel Processing(!?)',
@@ -1168,6 +1190,7 @@ export const talks: Talk[] = [
 		end: '2019-06-05',
 		description:
 			"JavaScript's journey from single-threaded to supporting parallel processing for time-consuming calculations.",
+		slides: 'https://speakerdeck.com/joekarlsson/js-and-parallel-processing',
 	},
 	{
 		title: 'UX + Engineering: A Tale of Two Cities',
@@ -1176,6 +1199,7 @@ export const talks: Talk[] = [
 		date: '2019-05-22',
 		description: 'With Edward Ecker.',
 		videos: ['nNhL5UluNtA'],
+		slides: 'https://speakerdeck.com/joekarlsson/ux-plus-engineering-a-tale-of-two-cities',
 	},
 	{
 		title: 'JS and Parallel Processing (!?)',
@@ -1184,6 +1208,7 @@ export const talks: Talk[] = [
 		place: 'Minneapolis, MN',
 		date: '2019-04-28',
 		videos: ['jB5CtGIADJ0'],
+		slides: 'https://speakerdeck.com/joekarlsson/js-and-parallel-processing',
 	},
 	{
 		title: 'Moodlite Demo',
@@ -1204,14 +1229,18 @@ export const talks: Talk[] = [
 			'IoT for web developers: why JavaScript is a good place to start with hardware, and a Morse code machine built on a Raspberry Pi with Express and the onoff package.',
 		videos: ['ur3H2yZ8XHE'],
 		...IOT,
+		slides:
+			'https://speakerdeck.com/joekarlsson/iot-with-js-a-gentle-introduction-to-iot-joe-karlsson-byteconf-javascript-2019',
 	},
 	{
 		title: 'Building High Performance React Applications',
 		kind: 'talk',
 		event: 'Full Stack Toronto',
 		place: 'Toronto, Canada',
-		date: '2019-03-05',
+		date: '2018-11-29',
+		end: '2018-11-30',
 		videos: ['6z4g27TSO5I'],
+		slides: 'https://speakerdeck.com/joekarlsson/building-high-performance-react-applications',
 	},
 	{
 		title: 'A Gentle Introduction to Async-Await',
@@ -1226,6 +1255,38 @@ export const talks: Talk[] = [
 		event: 'YouTube',
 		date: '2019-01-09',
 		videos: ['ySVXOnLMFdc'],
+		slides: 'https://speakerdeck.com/joekarlsson/ux-plus-engineering',
+	},
+	{
+		title: 'Building High Performance React Applications',
+		kind: 'talk',
+		event: 'Prairie Dev Con Winnipeg 2019',
+		place: 'Winnipeg, Canada',
+		date: '2019-06-04',
+		end: '2019-06-05',
+		otherRecording: 'JNs1ZvRzOYM',
+		slides: 'https://speakerdeck.com/joekarlsson/building-high-performance-react-applications',
+	},
+	{
+		title: 'A Gentle Introduction to Big O',
+		kind: 'talk',
+		event: 'Open Source North 2019',
+		place: 'Minneapolis, MN',
+		date: '2019-05-22',
+		description:
+			'Algorithm complexity and big O notation, so you notice before you write code that takes ten times longer than it needs to.',
+		slides:
+			'https://speakerdeck.com/joekarlsson/a-gentle-introduction-to-big-o-989d2f95-65e4-41b8-83a5-527eabc728f2',
+		paperScrap: true,
+	},
+	{
+		title: 'Extreme Web Performance Optimizations',
+		kind: 'talk',
+		event: 'Best Buy',
+		date: '2019-05-16',
+		description:
+			'Finding and fixing the most common web performance bottlenecks with Lighthouse and Chrome DevTools, and the browser APIs that give you more control over loading.',
+		paperScrap: true,
 	},
 
 	// 2018
@@ -1270,9 +1331,12 @@ export const talks: Talk[] = [
 	{
 		title: 'Building High Performance React Applications',
 		kind: 'talk',
-		event: 'Node.js',
-		date: '2018-11-05',
+		event: 'JS Interactive 2018',
+		place: 'Vancouver, Canada',
+		date: '2018-10-10',
+		end: '2018-10-12',
 		videos: ['xJYOipHkwNM'],
+		slides: 'https://slides.com/joekarlsson/high-performance-react-long',
 	},
 	{
 		title: 'Building High Performance React Applications',
@@ -1280,15 +1344,209 @@ export const talks: Talk[] = [
 		event: 'Web Rebels 2018',
 		date: '2018-06-12',
 		videos: ['JNs1ZvRzOYM'],
+		slides: 'https://speakerdeck.com/joekarlsson/building-high-performance-react-applications',
 	},
 	{
 		title: 'Functional Programming for People Who Hate Math',
 		kind: 'talk',
 		event: 'MPLS Jr Devs 2018',
 		place: 'Minneapolis, MN',
-		date: '2018-06-12',
+		date: '2018-05-08',
 		description: 'In two parts.',
 		videos: ['t26nBe43gwQ', 'Yl5DSL1cB-Q'],
+		slides: 'https://slides.com/joekarlsson/functional',
+	},
+	{
+		title: 'Building High Performance React Applications',
+		kind: 'talk',
+		event: 'Prairie Dev Con Regina 2018',
+		place: 'Regina, Canada',
+		date: '2018-10-16',
+		end: '2018-10-17',
+		otherRecording: 'JNs1ZvRzOYM',
+		slides: 'https://slides.com/joekarlsson/high-performance-react-long',
+	},
+	{
+		title: 'Building a GraphQL Client in JavaScript (Workshop)',
+		kind: 'talk',
+		event: 'Prairie Dev Con Regina 2018',
+		place: 'Regina, Canada',
+		date: '2018-10-16',
+		end: '2018-10-17',
+		otherRecording: '87bPNnd6M7A',
+		slides:
+			'https://speakerdeck.com/joekarlsson/building-a-graphql-client-in-javascript-praire-dev-con',
+	},
+	{
+		title: "What Happens When You Type 'google.com' Into Your Browser and Press Enter?",
+		kind: 'talk',
+		event: 'Prime Digital Academy',
+		place: 'Minneapolis, MN',
+		date: '2018-09-15',
+		description: 'An answer to the old interview question, one layer at a time.',
+		paperScrap: true,
+	},
+	{
+		title: 'Functional Programming for People Who Hate Math',
+		kind: 'talk',
+		event: 'Best Buy',
+		place: 'Minneapolis, MN',
+		date: '2018-08-20',
+		otherRecording: 't26nBe43gwQ',
+		slides: 'https://slides.com/joekarlsson/functional',
+	},
+	{
+		title: 'Building a GraphQL Client in JavaScript (Workshop)',
+		kind: 'talk',
+		event: 'MidwestJS 2018',
+		place: 'Minneapolis, MN',
+		date: '2018-08-10',
+		otherRecording: '87bPNnd6M7A',
+		slides: 'https://slides.com/joekarlsson/graphql',
+	},
+	{
+		title: 'Building High Performance React Applications',
+		kind: 'talk',
+		event: 'MidwestJS 2018',
+		place: 'Minneapolis, MN',
+		date: '2018-08-09',
+		otherRecording: 'JNs1ZvRzOYM',
+		slides: 'https://slides.com/joekarlsson/high-performance-react-long',
+	},
+	{
+		title: 'Building High Performance React Applications',
+		kind: 'talk',
+		event: 'Open Source North 2018',
+		place: 'Minneapolis, MN',
+		date: '2018-06-14',
+		otherRecording: 'JNs1ZvRzOYM',
+		slides: 'https://slides.com/joekarlsson/high-performance-react-long',
+	},
+	{
+		title: 'Never Work for Free: Career Advice for New and Veteran Developers',
+		kind: 'talk',
+		event: 'Prime Digital Academy',
+		place: 'Minneapolis, MN',
+		date: '2018-05-22',
+		description:
+			'Career advice for job seekers at every level, from developers who have been at it a while.',
+		slides: 'https://slides.com/joekarlsson/career',
+		paperScrap: true,
+	},
+	{
+		title: 'Building High Performance React Applications',
+		kind: 'talk',
+		event: 'Best Buy',
+		place: 'Minneapolis, MN',
+		date: '2018-04-30',
+		otherRecording: 'JNs1ZvRzOYM',
+		slides: 'https://slides.com/joekarlsson/high-performance-react-long',
+	},
+	{
+		title: 'Building High Performance React Applications',
+		kind: 'talk',
+		event: 'MXNow',
+		date: '2018-04-19',
+		otherRecording: 'JNs1ZvRzOYM',
+		slides: 'https://slides.com/joekarlsson/high-performance-react-long',
+	},
+	{
+		title: 'Building a GraphQL Client in JavaScript (Workshop)',
+		kind: 'talk',
+		event: 'MXNow',
+		date: '2018-04-19',
+		otherRecording: '87bPNnd6M7A',
+		slides: 'https://slides.com/joekarlsson/graphql',
+	},
+	{
+		title: 'Building High Performance React Applications',
+		kind: 'talk',
+		event: 'Minnebar 2018',
+		place: 'Minneapolis, MN',
+		date: '2018-04-14',
+		otherRecording: 'JNs1ZvRzOYM',
+		slides: 'https://slides.com/joekarlsson/high-performance-react-long',
+	},
+	{
+		title: 'Building High Performance React Applications',
+		kind: 'talk',
+		event: 'React Minneapolis',
+		place: 'Minneapolis, MN',
+		date: '2018-02-15',
+		otherRecording: 'JNs1ZvRzOYM',
+		link: 'https://www.meetup.com/React-Minneapolis-Meetup/events/247090698/',
+		slides: 'https://slides.com/joekarlsson/high-performance-react-long',
+	},
+	{
+		title: 'How to Ace the Coding Interview',
+		kind: 'talk',
+		event: 'Prime Digital Academy',
+		place: 'Minneapolis, MN',
+		date: '2018-02-15',
+		description:
+			'Finding the hints in a question, breaking a problem into pieces, getting unstuck, and the computer science basics interviews still ask about.',
+		slides: 'https://slides.com/joekarlsson/coding-interview/',
+		paperScrap: true,
+	},
+	{
+		title: 'Bechdel.io (Lightning Talk)',
+		kind: 'talk',
+		event: 'JavaScriptMN',
+		place: 'Minneapolis, MN',
+		date: '2018-01-31',
+		otherRecording: '4W5fJTyfj1Q',
+		link: 'https://www.meetup.com/JavaScriptMN/events/sthlplyxcbpc/',
+	},
+
+	// 2017 and before
+	{
+		title: 'Mastering React: How to Test Your React Application',
+		kind: 'talk',
+		event: 'Best Buy',
+		date: '2017-12',
+		description:
+			'Testing React for high-traffic apps with Jest and Enzyme: unit tests, behavior tests for interactive components, and integration tests for the whole app.',
+		slides: 'https://slides.com/joekarlsson/testing-react-apps',
+		paperScrap: true,
+	},
+	{
+		title: 'Connecting Hardware Up to the Internet',
+		kind: 'talk',
+		event: 'DevLeague',
+		place: 'Honolulu, HI',
+		date: '2017-03',
+		description: 'How to connect IoT devices to the web.',
+		slides: 'https://slides.com/joekarlsson/iot-web-integration',
+		paperScrap: true,
+	},
+	{
+		title: 'Gamification and IoT',
+		kind: 'talk',
+		event: 'University of Hawaii at Manoa',
+		place: 'Honolulu, HI',
+		date: '2017-03',
+		description: 'Ways to add game mechanics to your apps to keep people coming back.',
+		slides: 'https://slides.com/joekarlsson/gamification/',
+		paperScrap: true,
+	},
+	{
+		title: 'Master of Ceremonies',
+		kind: 'talk',
+		event: 'Stupid Shit No One in Hawaii Needs and Terrible Ideas Hackathon',
+		place: 'Honolulu, HI',
+		date: '2017-01',
+		writeup: '/blog/i-ran-my-first-hackathon-and-so-can-you/',
+		paperScrap: true,
+	},
+	{
+		title: 'Making Minecraft Mods',
+		kind: 'talk',
+		event: 'Maui STEM Conference',
+		place: 'Maui, HI',
+		date: '2016-05-06',
+		description:
+			'Changing how the game plays with code, decompiling tools like the Minecraft Coder Pack, or a mod generator.',
+		paperScrap: true,
 	},
 ];
 
@@ -1300,7 +1558,8 @@ export type TalkGroup = 'talk' | 'podcast' | 'livestream' | 'demo';
 const TALK_SERIES: [string, RegExp][] = [
 	[
 		'An Introduction to IoT: How I Built an IoT Kitty Litter Box Using JavaScript',
-		/iot|internet of (toilets|things)|litter/i,
+		// Not Gamification and IoT (2017), a different talk
+		/^(?!gamification)(.*\biot\b|internet of (toilets|things)|.*litter)/i,
 	],
 	['From SQL to NoSQL: A Gentle Introduction for Developers', /sql to nosql/i],
 	['MongoDB Schema Design Best Practices', /schema design/i],
@@ -1311,6 +1570,7 @@ const TALK_SERIES: [string, RegExp][] = [
 	['Building High Performance React Applications', /high performance react/i],
 	['A Gentle Introduction to Building Data-Intensive Applications', /data.intensive/i],
 	['The Art of Computer Science', /art of computer science/i],
+	['Functional Programming for People Who Hate Math', /functional programming/i],
 	['Dev setup tutorials', /^(how to setup|generating a new ssh)/i],
 ];
 
@@ -1407,3 +1667,14 @@ export const TALK_ERAS: TalkEra[] = ERA_STARTS.map((era, i) => {
 			.sort((a, b) => b.date.localeCompare(a.date)),
 	};
 });
+
+// A video's card poster. Most are YouTube's own thumbnail; a video in talk-posters.json, whose
+// thumbnail was a logo, a dark frame or somebody else, uses a frame of the video (`at`, seconds
+// into the NAS copy) or another picture (`image`: the event's, or a custom thumbnail I uploaded
+// later), and gets its own file name so the 30-day image cache can't keep the old one. scripts/fetch-talk-event-covers.mjs draws them.
+const POSTER_OVERRIDES: Record<string, { at?: number; image?: string }> = posterOverrides;
+export function posterPath(video: string): string {
+	const override = POSTER_OVERRIDES[video];
+	const suffix = !override ? '' : override.at !== undefined ? `-t${override.at}` : '-art';
+	return `/images/talks/posters/${video}${suffix}.webp`;
+}
