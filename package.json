@@ -111,7 +111,7 @@
 		"yaml": "^2.8.3"
 	},
 	"lint-staged": {
-		"*.{js,mjs,ts,astro}": [
+		"*.{js,mjs,cjs,ts,astro}": [
 			"prettier --write",
 			"eslint --fix"
 		],

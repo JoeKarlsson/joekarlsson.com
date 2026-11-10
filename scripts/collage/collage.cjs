@@ -161,9 +161,13 @@
 		return { scene, images, grain: grain > 0 ? grainLayer(doc, width, height, grain) : null };
 	}
 
-	/** Draws the pose for `frame` onto a 2D context sized to the scene's canvas. */
-	function draw(ctx, loaded, frame) {
-		const { scene, images, grain } = loaded;
+	/**
+	 * Everything drawn at `frame`, for the canvas here and the post's animated SVG
+	 * (scripts/collage/svg.mjs) alike: each element's centre, angle (with its jitter and
+	 * enter_spin) and shadow, or null while it's off the frame, and the label's opacity and top.
+	 * sizes: each element's drawn [width, height].
+	 */
+	function framePose(scene, sizes, frame) {
 		const { width: W, height: H } = scene.canvas;
 		const cadence = scene.cadence ?? {};
 		const hold = Math.max(1, cadence.hold_frames ?? 2);
@@ -171,55 +175,78 @@
 		const random = seeded((cadence.seed ?? 7) * 100003 + Math.floor(frame / hold));
 		const jitterPx = cadence.jitter_px ?? 1.5;
 		const jitterDeg = cadence.jitter_deg ?? 0.4;
+		const elements = (scene.elements ?? []).map((spec, i) => {
+			const [w, h] = sizes[i];
+			const pose = elementPose(spec, t, W, H, w, h);
+			if (!pose.visible) return null;
+			const x = pose.x + (random() * 2 - 1) * jitterPx;
+			const y = pose.y + (random() * 2 - 1) * jitterPx;
+			let deg = (random() * 2 - 1) * jitterDeg + pose.rotation;
+			// enter_spin: extra rotation that unwinds as the piece lands
+			deg += (spec.enter_spin ?? 0) * Math.max(0, 1 - pose.progress);
+			const s = spec.shadow;
+			const shadow = s && {
+				opacity: s.opacity ?? 0.3,
+				// A Gaussian's standard deviation: the canvas blurs at twice this (Pillow's radius)
+				blur: (s.blur ?? 8) * pose.shadowScale,
+				dx: (s.dx ?? 6) * pose.shadowScale,
+				dy: (s.dy ?? 6) * pose.shadowScale,
+			};
+			return { x, y, deg, w, h, shadow };
+		});
+		const label = scene.label;
+		let labelPose = null;
+		if (label && t >= (label.enter_at ?? 0)) {
+			const p = clamp01((t - (label.enter_at ?? 0)) / 0.25);
+			labelPose = {
+				alpha: Math.min(1, p * 2),
+				top: (label.y ?? H - 200) + (1 - easeOutBack(p)) * 24,
+			};
+		}
+		return { elements, label: labelPose };
+	}
+
+	/** Draws the pose for `frame` onto a 2D context sized to the scene's canvas. */
+	function draw(ctx, loaded, frame) {
+		const { scene, images, grain } = loaded;
+		const { width: W, height: H } = scene.canvas;
+		const sizes = (scene.elements ?? []).map((spec, i) => [
+			images[i].naturalWidth * (spec.scale ?? 1),
+			images[i].naturalHeight * (spec.scale ?? 1),
+		]);
+		const pose = framePose(scene, sizes, frame);
 
 		ctx.save();
 		ctx.fillStyle = scene.canvas.background_hex ?? '#1F3FB0';
 		ctx.fillRect(0, 0, W, H);
 		if (grain) ctx.drawImage(grain, 0, 0);
 
-		(scene.elements ?? []).forEach((spec, i) => {
-			const img = images[i];
-			const scale = spec.scale ?? 1;
-			const w = img.naturalWidth * scale;
-			const h = img.naturalHeight * scale;
-			const pose = elementPose(spec, t, W, H, w, h);
-			if (!pose.visible) return;
-			const jx = (random() * 2 - 1) * jitterPx;
-			const jy = (random() * 2 - 1) * jitterPx;
-			let deg = (random() * 2 - 1) * jitterDeg + pose.rotation;
-			// enter_spin: extra rotation that unwinds as the piece lands
-			deg += (spec.enter_spin ?? 0) * Math.max(0, 1 - pose.progress);
-			const shadow = spec.shadow;
+		pose.elements.forEach((el, i) => {
+			if (!el) return;
 			ctx.save();
-			if (shadow) {
-				ctx.shadowColor = `rgba(0,0,0,${shadow.opacity ?? 0.3})`;
-				// Canvas blur is about twice Pillow's Gaussian radius
-				ctx.shadowBlur = (shadow.blur ?? 8) * 2 * pose.shadowScale;
-				ctx.shadowOffsetX = (shadow.dx ?? 6) * pose.shadowScale;
-				ctx.shadowOffsetY = (shadow.dy ?? 6) * pose.shadowScale;
+			if (el.shadow) {
+				ctx.shadowColor = `rgba(0,0,0,${el.shadow.opacity})`;
+				ctx.shadowBlur = el.shadow.blur * 2;
+				ctx.shadowOffsetX = el.shadow.dx;
+				ctx.shadowOffsetY = el.shadow.dy;
 			}
-			ctx.translate(pose.x + jx, pose.y + jy);
-			ctx.rotate((deg * Math.PI) / 180);
-			ctx.drawImage(img, -w / 2, -h / 2, w, h);
+			ctx.translate(el.x, el.y);
+			ctx.rotate((el.deg * Math.PI) / 180);
+			ctx.drawImage(images[i], -el.w / 2, -el.h / 2, el.w, el.h);
 			ctx.restore();
 		});
 
 		const label = scene.label;
-		if (label && t >= (label.enter_at ?? 0)) {
-			const p = clamp01((t - (label.enter_at ?? 0)) / 0.25);
+		if (pose.label) {
 			ctx.save();
-			ctx.globalAlpha = Math.min(1, p * 2);
+			ctx.globalAlpha = pose.label.alpha;
 			ctx.fillStyle = label.color ?? '#0A0A0A';
 			ctx.font = `${label.weight ?? 400} ${label.size ?? 80}px ${label.font_family ?? 'sans-serif'}`;
 			ctx.letterSpacing = `${label.tracking ?? 0}px`;
 			ctx.textBaseline = 'top';
 			// align: 'center' sets the label centered on x
 			ctx.textAlign = label.align ?? 'left';
-			ctx.fillText(
-				label.text ?? '',
-				label.x ?? 80,
-				(label.y ?? H - 200) + (1 - easeOutBack(p)) * 24,
-			);
+			ctx.fillText(label.text ?? '', label.x ?? 80, pose.label.top);
 			ctx.restore();
 		}
 		ctx.restore();
@@ -227,7 +254,17 @@
 
 	const frameCount = (scene) => Math.round(scene.duration * (scene.canvas.fps ?? 24));
 
-	const api = { easeOutBack, bezier, seeded, elementPose, poseTime, frameCount, load, draw };
+	const api = {
+		easeOutBack,
+		bezier,
+		seeded,
+		elementPose,
+		poseTime,
+		framePose,
+		frameCount,
+		load,
+		draw,
+	};
 	if (typeof module !== 'undefined') module.exports = api;
 	else root.Collage = api;
 })(typeof window !== 'undefined' ? window : globalThis);

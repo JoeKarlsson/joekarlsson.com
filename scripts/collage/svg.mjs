@@ -1,7 +1,7 @@
 // A collage scene as an animated SVG for a post, so it plays inline like the post's diagrams:
 // no <video>, so no play bar (Joe, 2026-11-10). The motion is SMIL stepped on the scene's own
-// cadence (a pose every hold_frames), sampled from collage.cjs's elementPose, so it moves like
-// the canvas and MP4 renders. Reduced motion and the pause button swap in the finished frame
+// cadence (a pose every hold_frames), sampled from collage.cjs's framePose, the same poses the
+// canvas and MP4 renders draw. Reduced motion and the pause button swap in the finished frame
 // (.anim-live and .anim-still in src/styles/motion.css). The cut-outs ship beside it as WebP.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,9 +9,7 @@ import { createRequire } from 'node:module';
 
 import sharp from 'sharp';
 
-const { elementPose, poseTime, seeded, easeOutBack, frameCount } = createRequire(import.meta.url)(
-	'./collage.cjs',
-);
+const { framePose, frameCount } = createRequire(import.meta.url)('./collage.cjs');
 
 // A post can't load Google Fonts (the CSP allows only the site's own), so a label must use one
 // the site already serves. baseline: the canvas's textBaseline 'top' (the em box's top) down to
@@ -32,52 +30,8 @@ const SITE_FONTS = {
 const STORED_WIDTH = 1600;
 
 const n = (v) => Math.round(v * 10) / 10;
-const clamp01 = (x) => Math.max(0, Math.min(1, x));
 const escapeXml = (s) =>
 	String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
-
-/**
- * Everything drawn at `frame`: each element's centre, angle and shadow (null while it's off the
- * frame), and the label's opacity and top. The same jitter sequence as collage.cjs's draw(), so
- * the SVG and the MP4 wobble alike. sizes: each element's drawn [width, height].
- */
-export function framePose(scene, sizes, frame) {
-	const { width: W, height: H } = scene.canvas;
-	const cadence = scene.cadence ?? {};
-	const hold = Math.max(1, cadence.hold_frames ?? 2);
-	const t = poseTime(frame, scene);
-	const random = seeded((cadence.seed ?? 7) * 100003 + Math.floor(frame / hold));
-	const jitterPx = cadence.jitter_px ?? 1.5;
-	const jitterDeg = cadence.jitter_deg ?? 0.4;
-	const elements = (scene.elements ?? []).map((spec, i) => {
-		const [w, h] = sizes[i];
-		const pose = elementPose(spec, t, W, H, w, h);
-		if (!pose.visible) return null;
-		const x = pose.x + (random() * 2 - 1) * jitterPx;
-		const y = pose.y + (random() * 2 - 1) * jitterPx;
-		let deg = (random() * 2 - 1) * jitterDeg + (pose.rotation ?? spec.rotation ?? 0);
-		deg += (spec.enter_spin ?? 0) * Math.max(0, 1 - pose.progress);
-		const s = spec.shadow;
-		const shadow = s && {
-			opacity: s.opacity ?? 0.3,
-			// Canvas blur (Pillow's radius doubled) is twice a Gaussian's standard deviation
-			blur: (s.blur ?? 8) * pose.shadowScale,
-			dx: (s.dx ?? 6) * pose.shadowScale,
-			dy: (s.dy ?? 6) * pose.shadowScale,
-		};
-		return { x, y, deg, shadow };
-	});
-	const label = scene.label;
-	let labelPose = null;
-	if (label && t >= (label.enter_at ?? 0)) {
-		const p = clamp01((t - (label.enter_at ?? 0)) / 0.25);
-		labelPose = {
-			alpha: Math.min(1, p * 2),
-			top: (label.y ?? H - 200) + (1 - easeOutBack(p)) * 24,
-		};
-	}
-	return { elements, label: labelPose };
-}
 
 /** One SMIL animation stepping through a value per frame; nothing when it never changes. */
 function stepped(values, dur, { attr, type }) {
