@@ -40,7 +40,7 @@ Run the full prohibited-language check:
 ## Layer 2: Analytical structure (Thompson / McKenzie)
 
 - Does the intro lead with the conclusion/insight, or does it warm up for two paragraphs?
-- Do section headers say what's in the section or state its answer (STYLE_GUIDE.md **Headers**)? Flag teasers that hold back the answer ("The GPU lesson nobody warned me about"), drama headers ("The uncomfortable truth"), vague setup headers ("The setup") and Title Case, and check the H3 rules (no lone H3 under an H2, H3s belong to their H2, key sections are H2s).
+- Do section headers say what's in the section or state its answer (STYLE_GUIDE.md **Headers**)? Flag teasers that hold back the answer ("The GPU lesson nobody warned me about"), drama headers ("The uncomfortable truth"), vague setup headers ("The setup", "Architecture"), headers where a tool acts like a person ("Your cache is lying to you"; humanizer pattern 53) and Title Case, and check the H3 rules (no lone H3 under an H2, H3s belong to their H2, key sections are H2s).
 - Is there a named frame for the key concept?
 - Are opinions stated plainly ("X is the wrong approach") or hedged ("some might argue")?
 - Does the post name what everyone's thinking but not saying?
@@ -70,8 +70,9 @@ Scan for these patterns and flag each with a before/after:
 - **Generic positive conclusions:** vague upbeat endings ("exciting times ahead," "the future looks bright")
 - **Rule of three overuse:** forcing ideas into groups of three that don't genuinely have three
 - **Smooth transitions between every section:** real writing sometimes just jumps
+- **Outline shape (humanizer pattern 46):** read the intro, the headers, and the last paragraph side by side. Flag an intro that previews each section in order, headers that repeat that preview, an ending that recaps the intro's words, and body paragraphs that mostly open on a connective ("However," "That said,") instead of their own point
 
-Read the `humanizer` skill at `/Users/joekarlsson/.claude/skills/humanizer/SKILL.md` (source: `/Users/joekarlsson/claude-skills/.claude/skills/humanizer`) and use it as the reference: patterns 41-52 for the structural tells above, its rubric with the quotable-line cap (any line an HN commenter could quote as proof of AI caps every score at 6), and its fact-diff rule (no suggested edit may drop or change a fact or number).
+Read the `humanizer` skill at `/Users/joekarlsson/.claude/skills/humanizer/SKILL.md` (source: `/Users/joekarlsson/claude-skills/.claude/skills/humanizer`) and use it as the reference: patterns 41-53 for the structural tells above, its rubric with the quotable-line cap (any line an HN commenter could quote as proof of AI caps every score at 6), and its fact-diff rule (no suggested edit may drop or change a fact or number).
 
 For voice, compare against `src/content/blog/an-introduction-to-iot-internet-of-toilets.md`, a post Joe wrote in 2020 before using AI. Match its rhythm, word choice, and plain paragraph endings. Don't suggest pasting its tics ("Okay, so", exclamation points) into new text; in blind testing that read as imitation.
 
@@ -125,5 +126,7 @@ Two-pass audit: answer "What makes this obviously AI-generated?" and "Which line
 ```
 
 Quote the smallest exact span that needs to change. Do not paraphrase the whole paragraph
-unless the whole paragraph must change. Be specific enough that the orchestrator can find
+unless the whole paragraph must change. Suggest an edit only where you can name the problem in
+that context; a line that's fine stays exactly as written, even if you'd have phrased it
+differently. A short list of real problems beats a long list that rewrites good sentences. Be specific enough that the orchestrator can find
 each span in the file and apply the edit precisely.
