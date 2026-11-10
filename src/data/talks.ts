@@ -43,7 +43,7 @@ export interface Talk {
 
 // The talks I wrote up, and their slides
 const IOT = {
-	writeup: '/blog/an-introduction-to-iot-internet-of-toilets/',
+	writeup: '/talks/an-introduction-to-iot-internet-of-toilets/',
 	slides:
 		'https://speakerdeck.com/joekarlsson/an-introduction-to-iot-internet-of-toilets-or-how-i-built-an-iot-kitty-litter-box-using-javascript-20-mins',
 };
@@ -1036,6 +1036,18 @@ export const talks: Talk[] = [
 	},
 
 	// 2019
+	{
+		title: 'From SQL to NoSQL: Changing Your Mindset',
+		kind: 'talk',
+		event: 'MongoDB.local Chicago 2019',
+		place: 'Chicago, IL',
+		date: '2019-10-29',
+		description:
+			'Comparing the terms and concepts in SQL databases and MongoDB, and the data modeling basics you need when you start using MongoDB.',
+		otherRecording: '24JYU-l5uQc',
+		slides:
+			'https://speakerdeck.com/joekarlsson/mdb-dot-local19-chicago-from-sql-to-nosql-changing-your-mindset',
+	},
 	{
 		title: 'From SQL to NoSQL: Changing Your Mindset',
 		kind: 'talk',

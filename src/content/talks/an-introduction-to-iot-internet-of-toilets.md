@@ -2,21 +2,59 @@
 title: 'An Introduction to IoT (Internet of Toilets)'
 date: 2020-11-03
 slug: 'an-introduction-to-iot-internet-of-toilets'
-description: 'An intro to IoT with JavaScript through the Internet of Toilets - why Node.js fits IoT, IoT data best practices, and the litter box I built for my cat.'
+description: 'My most-given talk: IoT with JavaScript through the litter box I built for my cat, with every event, recording and slide deck, plus the build write-up.'
 categories: ['Homelab']
 heroImage: '/images/blog/an-introduction-to-iot-internet-of-toilets/thumb-ec97a203.webp'
 heroAlt: 'Stop-motion of the IoT kitty litter box being put together'
 contentNotice: false
-tldr: "I built an internet-connected cat litter box with a Raspberry Pi, load cells, and Node.js to track my cat's weight and bathroom habits. This post walks through the hardware, the code, and IoT data best practices."
+tldr: "I built an internet-connected cat litter box with a Raspberry Pi, load cells and Node.js to track my cat's weight and bathroom habits, then gave a talk about it 14 times. This page has the talk, every event, the slides and the full write-up of the hardware, code and data."
+videos:
+  - id: 'zHvrtt5raA4'
+  - id: 'P_G5b6ArWVY'
+    chapters:
+      - { at: '0:00', name: 'Welcome to IoT and JavaScript' }
+      - { at: '0:54', name: 'What the heck is IoT?' }
+      - { at: '1:55', name: 'Why Node and JavaScript for IoT?' }
+      - { at: '5:03', name: 'My IoT kitty litter box' }
+      - { at: '5:37', name: 'How does it work?' }
+      - { at: '7:13', name: 'Hello world: blink an LED' }
+      - { at: '9:28', name: "Let's make a toilet: the lid switch" }
+      - { at: '10:25', name: 'Load cells' }
+      - { at: '11:35', name: 'IoT time series data' }
+      - { at: '12:38', name: 'Putting the box together' }
+      - { at: '12:56', name: 'Make something stupid just for you' }
+      - { at: '13:33', name: 'Thank you' }
+  - id: 'O7e_MQFA0tY'
+    chapters:
+      - { at: '0:00', name: 'Intro to IoT, the Internet of Toilets' }
+      - { at: '1:08', name: 'Agenda' }
+      - { at: '1:45', name: 'What the heck is IoT?' }
+      - { at: '2:51', name: 'Why JavaScript for your next IoT project?' }
+      - { at: '6:18', name: 'My internet-connected litter box' }
+      - { at: '7:01', name: 'What does the box actually do?' }
+      - { at: '8:34', name: 'Hello world: blink an LED' }
+      - { at: '10:18', name: "Let's make a toilet: the lid switch" }
+      - { at: '11:05', name: 'Load cells' }
+      - { at: '12:55', name: 'IoT time series data' }
+      - { at: '15:20', name: 'Wild speculations about the future of IoT' }
+      - { at: '17:00', name: 'How to get started' }
+  - id: 'ur3H2yZ8XHE'
+  - id: '711Sb55fzdg'
+  - id: 'nm--AgfMMGY'
+  - id: 'r2U5RXLr5Po'
+  - id: 'CPyS9pwIBGg'
+  - id: 'chs89ujm1Cs'
+  - id: 'Vki0F0N_mEg'
+  - id: '7u9S0nTCwbQ'
 ---
 
-My favorite things in life are cats, computers, and crappy ideas, so I decided to combine all three and explore what was possible with JavaScript by creating a brand-new Internet of Things (Internet of Toilets or AKA, IoT) device for my feline friend at home. If you’re reading this, you have probably heard about how hot internet-connected devices are, and you are probably interested in learning how to get into IoT development as a JavaScript developer. I also gave a talk on this topic (the video is right below), and the code is on [GitHub](https://github.com/JoeKarlsson/iot-kitty-litter-box). I'm going to walk through why you should consider JavaScript for your next IoT project, talk about IoT data best practices, and show off my latest creation, the IoT Kitty Litter Box.
+My favorite things in life are cats, computers and crappy ideas, so I combined all three and built an internet-connected litter box for my cat with a Raspberry Pi and Node.js. The talk about it is the one I've given more than any other: 14 times between March 2019 and December 2020, at conferences, meetups, a coding bootcamp and a hackathon. The code is on [GitHub](https://github.com/JoeKarlsson/iot-kitty-litter-box).
 
 [Watch An Introduction To IoT at CodeLand 2020 on YouTube](https://www.youtube.com/watch?v=zHvrtt5raA4)
 
-## The talk
+## What the talk covers
 
-The talk is a gentle introduction to the Internet of Things, or how to get started programming hardware with JavaScript and Node, with this litter box as the example. It runs about 20 minutes:
+It's a gentle introduction to the Internet of Things, or how to get started programming hardware with JavaScript and Node, with the litter box as the running example. The full version runs about 20 minutes, and I cut a 15-minute one for CodeLand:
 
 - **What IoT is.** Anything you put a chip in. My favorite part is the stupid side of it: the weird little projects that straddle the line between totally ridiculous and totally smart.
 - **Why JavaScript.** 58% of IoT developers self-identify as Node.js developers. The garbage collector means you don't manage memory yourself, you update a device with a `git pull` and `npm install` instead of reflashing it, and Node's event-driven core matches how sensors work.
@@ -27,18 +65,38 @@ The talk is a gentle introduction to the Internet of Things, or how to get start
 
 The advice I close with: pick a dumb project, buy a Raspberry Pi for about $35 and make an LED blink. Every time you get stuck, Google it.
 
-### Where I've given it
+## How the talk changed
 
-In 2020: ConFoo Montreal, Prime Digital Academy, (mini) Minnebar, HalfStack Online, the Live Coders Conference, CodeLand:Distributed, DevNation Day, IoT Innovation Latam, Conf42 JavaScript and Nerdearla. Earlier versions ran at Grizzhacks and NYC Code Camp in 2019, and at Node+JS Interactive 2019 as Bringing JavaScript to the IoT Edge. Other recordings:
+The 2019 versions, starting with IoT and JS(?!) at Byteconf JavaScript, were hands-on Raspberry Pi and Node intros built around smaller demo projects, with no litter box. At Node+JS Interactive 2019 I gave a bigger-picture version, Bringing JavaScript to the IoT Edge, about edge computing and how to model sensor data in MongoDB. I built the litter box live on Twitch in November 2019, and every run from ConFoo Montreal in February 2020 on used it as the demo.
 
-- [Conf42 JavaScript 2020](https://www.youtube.com/watch?v=hVpgThAukUY)
-- [DevNation Day 2020](https://www.youtube.com/watch?v=chs89ujm1Cs)
-- [HalfStack Online, May 2020](https://www.youtube.com/watch?v=r2U5RXLr5Po)
-- [Live Coders Conference 2020](https://www.youtube.com/watch?v=CPyS9pwIBGg)
-- [Nerdearla 2020](https://www.youtube.com/watch?v=Vki0F0N_mEg)
-- [Bringing JavaScript to the IoT Edge, Node+JS Interactive 2019](https://www.youtube.com/watch?v=711Sb55fzdg)
+## Where I've given it
 
-The [slides are on Speaker Deck](https://speakerdeck.com/joekarlsson/an-introduction-to-iot-internet-of-toilets-or-how-i-built-an-iot-kitty-litter-box-using-javascript-20-mins). The rest of this post is the full write-up.
+- **Byteconf JavaScript 2019**, online, March 2019, as IoT and JS(?!): [recording](https://www.youtube.com/watch?v=ur3H2yZ8XHE), [slides](https://speakerdeck.com/joekarlsson/iot-with-js-a-gentle-introduction-to-iot-joe-karlsson-byteconf-javascript-2019)
+- **Grizzhacks**, Rochester, Michigan, September 2019: [slides](https://speakerdeck.com/joekarlsson/iot-and-js-grizzhacks-2019)
+- **NYC Code Camp 2019**, New York, September 2019: [slides](https://speakerdeck.com/joekarlsson/iot-and-js-code-camp-nyc-2019)
+- **Node+JS Interactive 2019**, Montreal, December 2019, as Bringing JavaScript to the IoT Edge: [recording](https://www.youtube.com/watch?v=711Sb55fzdg), [slides](https://speakerdeck.com/joekarlsson/bringing-javascript-to-the-iot-edge-node-plus-js-interactive-2019)
+- **ConFoo Montreal**, February 2020: [recording](https://www.youtube.com/watch?v=nm--AgfMMGY)
+- **Prime Digital Academy**, Minneapolis, March 2020
+- **(mini) Minnebar**, Minneapolis, April 2020
+- **HalfStack Online**, May 2020: [recording](https://www.youtube.com/watch?v=r2U5RXLr5Po)
+- **Live Coders Conference**, online, June 2020: [recording](https://www.youtube.com/watch?v=CPyS9pwIBGg)
+- **CodeLand:Distributed**, online, July 2020, the 15-minute version: [recording](https://www.youtube.com/watch?v=zHvrtt5raA4), [my upload with chapters](https://www.youtube.com/watch?v=P_G5b6ArWVY)
+- **IoT Innovation Latam**, online, September 2020
+- **DevNation Day 2020**, online, September 2020: [recording](https://www.youtube.com/watch?v=chs89ujm1Cs)
+- **Conf42 JavaScript 2020**, online, October 2020: [recording with chapters](https://www.youtube.com/watch?v=O7e_MQFA0tY)
+- **Nerdearla**, online, December 2020: [recording](https://www.youtube.com/watch?v=Vki0F0N_mEg)
+
+I also talked IoT and JavaScript on [JavaScript Jabber episode 432](https://javascriptjabber.com/jsj-432-internet-of-things-iot-with-joe-karlsson) in May 2020, and the [Twitch stream where I built the box](https://www.youtube.com/watch?v=7u9S0nTCwbQ) is on YouTube.
+
+## Slides and resources
+
+- [Slides on Speaker Deck](https://speakerdeck.com/joekarlsson/an-introduction-to-iot-internet-of-toilets-or-how-i-built-an-iot-kitty-litter-box-using-javascript-20-mins), the 20-minute version
+- [The litter box code on GitHub](https://github.com/JoeKarlsson/iot-kitty-litter-box)
+- [Johnny-Five](https://johnny-five.io/), the JavaScript robotics and IoT library the code uses
+- [The Node.js Foundation IoT survey](https://nodejs.org/en/blog/announcements/nodejs-foundation-survey/) the 58% number comes from
+- [The litter box on my projects page](/work/)
+
+The rest of this page is the full write-up: the hardware, the code and how I store the data.
 
 ![Final assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process.gif)
 

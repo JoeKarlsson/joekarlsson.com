@@ -199,7 +199,7 @@ export default defineConfig({
 		'/blog/a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes':
 			'/blog/',
 		'/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things':
-			'/blog/an-introduction-to-iot-internet-of-toilets/',
+			'/talks/an-introduction-to-iot-internet-of-toilets/',
 		'/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon':
 			'/blog/i-ran-my-first-hackathon-and-so-can-you/',
 		'/blog/devrel-as-dev-zero': '/blog/running-devrel/',
@@ -232,6 +232,8 @@ export default defineConfig({
 		'/blog/the-art-of-computer-science': '/talks/the-art-of-computer-science/',
 		'/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive':
 			'/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
+		'/blog/an-introduction-to-iot-internet-of-toilets':
+			'/talks/an-introduction-to-iot-internet-of-toilets/',
 		'/all-work': '/work/',
 		'/404-error': '/404',
 

@@ -404,12 +404,13 @@ describe('talk pages', () => {
 		'from-sql-to-nosql-a-gentle-introduction-for-devs',
 		'the-art-of-computer-science',
 		'bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive',
+		'an-introduction-to-iot-internet-of-toilets',
 	];
 	const talkPages = readdirSync(resolve(dist, 'talks'), { withFileTypes: true })
 		.filter((entry) => entry.isDirectory())
 		.map((entry) => entry.name);
 
-	it('builds the four talk write-ups at /talks/<slug>/', () => {
+	it('builds every talk write-up at /talks/<slug>/', () => {
 		expect(talkPages.sort()).toEqual([...MOVED].sort());
 	});
 

@@ -15,7 +15,7 @@ contentNotice: 'MongoDB ended support for the Realm Web SDK (later Atlas Device 
 
 There's something magical about seeing your digital creation appear on a physical object in real-time. The Digital Graffiti Wall is an interactive art installation I built that lets multiple people draw simultaneously on a shared canvas - and then displays their collaborative artwork on a physical RGB LED grid, live.
 
-The idea came from wanting to make audience interaction with speakers at tech events more collaborative and visual. (If you like physical computing projects, check out my [IoT Kitty Litter Box](/blog/an-introduction-to-iot-internet-of-toilets/) too.) Instead of just typing questions in a chat, what if everyone in the room could paint on a shared wall together?
+The idea came from wanting to make audience interaction with speakers at tech events more collaborative and visual. (If you like physical computing projects, check out my [IoT Kitty Litter Box](/talks/an-introduction-to-iot-internet-of-toilets/) too.) Instead of just typing questions in a chat, what if everyone in the room could paint on a shared wall together?
 
 ## The Concept
 

@@ -113,7 +113,7 @@ Part two covers [custom archival rules and partitioning for Online Archive](/blo
 
 - [MongoDB Aggregation Pipeline Queries vs SQL Queries](/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/)
 
-- [An Introduction to IoT (Internet of Toilets)](/blog/an-introduction-to-iot-internet-of-toilets/)
+- [An Introduction to IoT (Internet of Toilets)](/talks/an-introduction-to-iot-internet-of-toilets/)
 
 - [How To Use The MongoDB Visual Studio Code Plugin](/blog/how-to-use-the-mongodb-visual-studio-code-plugin/)
 

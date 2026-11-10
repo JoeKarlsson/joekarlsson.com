@@ -173,7 +173,7 @@ export const projects: Project[] = [
 		tech: ['Raspberry Pi', 'Node.js', 'MongoDB', 'HX711'],
 		sourceUrl: 'https://github.com/JoeKarlsson/iot-kitty-litter-box',
 		demoUrl: 'https://kittylitter.joekarlsson.com/',
-		blogUrl: '/blog/an-introduction-to-iot-internet-of-toilets/',
+		blogUrl: '/talks/an-introduction-to-iot-internet-of-toilets/',
 		stars: 25,
 		page: {
 			slug: 'iot-kitty-litter-box',
@@ -212,7 +212,7 @@ export const projects: Project[] = [
 			galleryNote: 'From the post. Hover to play.',
 			made: {
 				text: [
-					"A Raspberry Pi reads four 50 kg load cells through an HX711 amplifier and a magnetic switch on the lid, and Node.js with Johnny-Five turns those into events. Each visit's weight goes to MongoDB Atlas. [The post](/blog/an-introduction-to-iot-internet-of-toilets/) walks through the wiring and the code.",
+					"A Raspberry Pi reads four 50 kg load cells through an HX711 amplifier and a magnetic switch on the lid, and Node.js with Johnny-Five turns those into events. Each visit's weight goes to MongoDB Atlas. [The post](/talks/an-introduction-to-iot-internet-of-toilets/) walks through the wiring and the code.",
 				],
 				diagram: {
 					src: '/images/blog/an-introduction-to-iot-internet-of-toilets/how-the-box-works.svg',

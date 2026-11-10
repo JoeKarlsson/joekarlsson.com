@@ -36,12 +36,11 @@ const totals = [
 	{ n: firstYear, label: 'Since' },
 ];
 
-// Three talks I wrote up in full, shown first: two have their own /talks/ page, the IoT
-// write-up is still a blog post
+// Three talks I wrote up in full, shown first, each on its own /talks/ page
 const FEATURED = [
 	'/talks/the-art-of-computer-science/',
 	'/talks/mongodb-schema-design-best-practices/',
-	'/blog/an-introduction-to-iot-internet-of-toilets/',
+	'/talks/an-introduction-to-iot-internet-of-toilets/',
 ];
 const posts = [
 	...(await getCollection('talks')).map((p) => ({ ...p.data, href: `/talks/${p.data.slug}/` })),
