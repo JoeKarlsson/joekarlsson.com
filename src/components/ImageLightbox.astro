@@ -90,7 +90,11 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 		};
 
 		const close = () => {
-			if (dialog.open) morph(() => dialog.close(), true);
+			if (!dialog.open) return;
+			// The enlarged copy stays in the DOM after closing: stop its animations ticking
+			morph(() => dialog.close(), true).then(() => {
+				if (!dialog.open) enlargedDiagram.querySelector('svg')?.pauseAnimations();
+			});
 		};
 		dialog.addEventListener('click', close);
 		// Escape: close with the morph rather than the browser's instant close
@@ -141,6 +145,8 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 						.forEach((path) => path.setAttribute('pathLength', '1'));
 				});
 				enlargedDiagram.replaceChildren(copy);
+				// A new SVG root starts at 0: pick up the frame the post copy is on
+				copy.setCurrentTime(visible.getCurrentTime());
 				enlargedDiagram.classList.remove('hidden');
 				enlarged.removeAttribute('src');
 				enlarged.hidden = true;

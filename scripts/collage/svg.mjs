@@ -53,7 +53,7 @@ function stepped(values, dur, { attr, type }) {
  * Both layers take their starting attributes from one frame: the live layer from the first
  * and then animates, the still layer holds the last.
  */
-export function collageSvg(scene, images, { id, alt }) {
+export function collageSvg(scene, images, { id, alt, still = false }) {
 	const { width: W, height: H, fps = 24, grain = 0 } = scene.canvas;
 	const sizes = images.map((img) => [img.w, img.h]);
 	const frames = Array.from({ length: frameCount(scene) }, (_, f) => framePose(scene, sizes, f));
@@ -70,6 +70,16 @@ export function collageSvg(scene, images, { id, alt }) {
 		const parts = images.map((img, i) => {
 			const el = pose.elements[i];
 			const at = el ?? { x: 0, y: 0, deg: 0, shadow: null };
+			// A still frame leaves out pieces that aren't on it (not entered yet, or moved off the canvas)
+			if (
+				!animate &&
+				(!el ||
+					at.x + img.w / 2 < 0 ||
+					at.x - img.w / 2 > W ||
+					at.y + img.h / 2 < 0 ||
+					at.y - img.h / 2 > H)
+			)
+				return '';
 			const a = (pick, opts) => (animate ? over((p) => pick(p.elements[i]), opts) : '');
 			const shadow = scene.elements[i].shadow
 				? (() => {
@@ -108,8 +118,13 @@ export function collageSvg(scene, images, { id, alt }) {
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXml(alt)}">`,
 		`<rect width="${W}" height="${H}" fill="${scene.canvas.background_hex ?? '#1F3FB0'}"/>`,
 		grainFilter,
-		`<g class="anim-live">${layer(frames[0], true)}</g>`,
-		`<g class="anim-still" display="none">${layer(frames[frames.length - 1], false)}</g>`,
+		// still: a phone's copy, the finished frame only, so phones never animate
+		...(still
+			? [`<g>${layer(frames[frames.length - 1], false)}</g>`]
+			: [
+					`<g class="anim-live">${layer(frames[0], true)}</g>`,
+					`<g class="anim-still" display="none">${layer(frames[frames.length - 1], false)}</g>`,
+				]),
 		'</svg>',
 		'',
 	].join('\n');
@@ -139,5 +154,10 @@ export async function writePostSvg(scene, scenePath, post, alt) {
 		}),
 	);
 	fs.writeFileSync(`${post}.svg`, collageSvg(scene, images, { id: `collage-${name}`, alt }));
-	return [`${post}.svg`, ...images.map((img) => `public${img.href}`)];
+	// rehype-inline-diagrams shows <name>.phone.svg under 640px; its own ids, since both are on the page
+	fs.writeFileSync(
+		`${post}.phone.svg`,
+		collageSvg(scene, images, { id: `collage-${name}-phone`, alt, still: true }),
+	);
+	return [`${post}.svg`, `${post}.phone.svg`, ...images.map((img) => `public${img.href}`)];
 }

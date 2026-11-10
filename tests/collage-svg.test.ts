@@ -26,6 +26,32 @@ describe('collage as an animated SVG', () => {
 		expect(still).not.toContain('<animate');
 	});
 
+	it("gives phones the finished frame only, with ids of its own, and drops pieces that aren't on it", () => {
+		const gone = {
+			...scene,
+			elements: [
+				...scene.elements,
+				{
+					image: 'b.png',
+					x: 960,
+					y: 540,
+					enter_at: 0.2,
+					moves: [{ at: 1, y: -3000, duration: 0.01 }],
+				},
+			],
+		};
+		const svg = collageSvg(gone, [...images, { href: '/images/blog/x/b.webp', w: 400, h: 300 }], {
+			id: 'c-phone',
+			alt: 'A prop',
+			still: true,
+		});
+		expect(svg).not.toContain('<animate');
+		expect(svg).not.toContain('anim-live');
+		expect(svg).toContain('url(#c-phone-s0)');
+		expect(svg).not.toContain('b.webp');
+		expect(svg).toMatch(/<text x="960" y="138.1" opacity="1"/);
+	});
+
 	it("refuses a label font the site doesn't serve, which its CSP would block", () => {
 		const lobster = { ...scene, label: { ...scene.label, font_family: 'Lobster' } };
 		expect(() => collageSvg(lobster, images, { id: 'c', alt: 'x' })).toThrow(/Lobster/);

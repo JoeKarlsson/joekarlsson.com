@@ -5,11 +5,23 @@
 // asks for reduced motion, and lets them run otherwise.
 import { PAUSED_CLASS } from './pause-motion';
 
+// Post diagrams on screen right now (pause-offscreen-scribbles keeps it). Their SVG
+// animations (charts, collages) run only while on screen and motion is allowed.
+export const visibleDiagrams = new Set<Element>();
+
+export const motionStill = (): boolean =>
+	matchMedia('(prefers-reduced-motion: reduce)').matches ||
+	document.documentElement.classList.contains(PAUSED_CLASS);
+
 export function syncFilterAnimations(reducedMotion: boolean): void {
 	const still = reducedMotion || document.documentElement.classList.contains(PAUSED_CLASS);
 	document.querySelectorAll<SVGSVGElement>('svg[data-motion-filters]').forEach((svg) => {
 		if (still) svg.pauseAnimations();
 		else svg.unpauseAnimations();
+	});
+	document.querySelectorAll<SVGSVGElement>('.diagram svg').forEach((svg) => {
+		if (still || !visibleDiagrams.has(svg)) svg.pauseAnimations?.();
+		else svg.unpauseAnimations?.();
 	});
 }
 
