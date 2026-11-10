@@ -114,7 +114,7 @@ const SORT_INACTIVE =
 <!-- No results message -->
 <div id="no-results" class="hidden py-12">
 	<p class="font-display text-[clamp(32px,4vw,56px)] leading-none text-paper uppercase">
-		No posts found matching your search.
+		No posts match that search
 	</p>
 </div>
 
@@ -270,6 +270,8 @@ const SORT_INACTIVE =
 			if (searchQuery) {
 				resultsCount.textContent = `${total} post${total !== 1 ? 's' : ''} found`;
 				resultsCount.classList.remove('hidden');
+				// With nothing found, the heading below says so; the count stays for screen readers
+				resultsCount.classList.toggle('sr-only', total === 0);
 			} else {
 				resultsCount.classList.add('hidden');
 			}

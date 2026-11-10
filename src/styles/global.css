@@ -140,13 +140,15 @@
 .prose h1:hover .heading-anchor,
 .prose h2:hover .heading-anchor,
 .prose h3:hover .heading-anchor,
-.prose h4:hover .heading-anchor {
+.prose h4:hover .heading-anchor,
+.prose .heading-anchor:focus-visible {
 	@apply opacity-100 text-pink;
 }
 .prose h1,
 .prose h2,
 .prose h3 {
 	@apply font-display font-normal uppercase text-paper;
+	text-wrap: balance;
 	line-height: 1;
 }
 .prose h1 {
@@ -195,6 +197,7 @@
 	@apply font-sans text-lg font-semibold text-paper mt-8 mb-2;
 }
 .prose p {
+	text-wrap: pretty; /* no one-word last lines */
 	@apply mb-6;
 }
 .prose a {
@@ -387,7 +390,7 @@ pre.astro-code {
 	@apply border-surface-3 my-8;
 }
 .prose table {
-	@apply w-full my-6 font-sans text-sm;
+	@apply w-full my-6 font-sans text-base;
 }
 .prose th {
 	@apply text-left text-paper font-semibold p-2 border-b border-surface-4;

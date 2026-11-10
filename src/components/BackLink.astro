@@ -13,7 +13,7 @@ const { href, label } = Astro.props;
 	<!-- A 44px-tall tap target; -my-3 hands back the extra height so the page doesn't move -->
 	<a
 		href={href}
-		class="-my-3 inline-flex min-h-11 items-center text-muted no-underline hover:text-pink"
+		class="relative z-10 -my-3 inline-flex min-h-11 items-center text-muted no-underline hover:text-pink"
 	>
 		← {label}
 	</a>

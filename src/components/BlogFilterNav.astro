@@ -27,7 +27,7 @@ const {
 } = Astro.props;
 ---
 
-<nav class:list={[FILTER_ROW, className]} aria-label={label}>
+<nav class:list={[FILTER_ROW, className]} aria-label={label} data-filter-row>
 	{heading && <span class="text-muted">{heading}</span>}
 	{allLink && (
 		<a
@@ -48,3 +48,14 @@ const {
 		</a>
 	))}
 </nav>
+
+<script>
+	// Phones scroll the row sideways; bring the current topic into view so the first
+	// screen shows where you are
+	for (const row of document.querySelectorAll<HTMLElement>('[data-filter-row]')) {
+		const current = row.querySelector<HTMLElement>('[aria-current]');
+		if (!current || row.scrollWidth <= row.clientWidth) continue;
+		const offset = current.getBoundingClientRect().left - row.getBoundingClientRect().left;
+		if (offset + current.offsetWidth > row.clientWidth) row.scrollLeft += offset - 16;
+	}
+</script>

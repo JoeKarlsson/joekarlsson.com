@@ -223,5 +223,10 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 		document.addEventListener('click', (event) => {
 			if (!nav.contains(event.target as Node)) setMenuOpen(false);
 		});
+		// Tabbing past the last row closes it, so focus never lands on links hidden behind it
+		nav.addEventListener('focusout', (event) => {
+			if (nav.hasAttribute('data-menu-open') && !nav.contains(event.relatedTarget as Node))
+				setMenuOpen(false);
+		});
 	}
 </script>

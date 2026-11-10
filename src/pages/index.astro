@@ -389,7 +389,10 @@ const AROUND_THE_HOUSE = [
 		</p>
 	</section>
 
-	<DrawingBoard />
+	<!-- In the 1440px column like the sections around it, so it doesn't run edge to edge at 2560 -->
+	<div class="mx-auto max-w-[90rem]">
+		<DrawingBoard />
+	</div>
 
 	<section class="relative mx-auto max-w-[90rem] px-4 pt-12 md:pt-20 sm:px-7">
 		<h2 class={SECTION_HEADING}>

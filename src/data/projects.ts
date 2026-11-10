@@ -209,7 +209,7 @@ export const projects: Project[] = [
 				},
 			],
 			galleryTitle: 'Clips',
-			galleryNote: 'From the post. Hover to play.',
+			galleryNote: 'From the post.',
 			made: {
 				text: [
 					"A Raspberry Pi reads four 50 kg load cells through an HX711 amplifier and a magnetic switch on the lid, and Node.js with Johnny-Five turns those into events. Each visit's weight goes to MongoDB Atlas. [The post](/talks/an-introduction-to-iot-internet-of-toilets/) walks through the wiring and the code.",
@@ -251,7 +251,7 @@ export const projects: Project[] = [
 				alt: 'A quick tour of PixelPane: me at my desk showing the web UI, the homelab stats, music and calendar scenes, the shadow box build, the GIF animator and live drawing',
 			},
 			galleryTitle: 'Clips',
-			galleryNote: 'Recorded from the control page. Hover to play.',
+			galleryNote: 'Recorded from the control page.',
 			gallery: [
 				{
 					video: `${PIXELPANE_DIR}/pp-playnow.mp4`,
@@ -1132,7 +1132,7 @@ export const projects: Project[] = [
 			install:
 				'git clone https://github.com/CDataSoftware/connect-ai-doom.git\ncd connect-ai-doom\n./setup.sh\n./raid.sh offline   # made-up data, no account needed',
 			galleryTitle: 'Clips',
-			galleryNote: 'Claude playing a level built from a demo Salesforce account. Hover to play.',
+			galleryNote: 'Claude playing a level built from a demo Salesforce account.',
 			gallery: [
 				{
 					video: `${DOOM_DIR}/salesforce-room.mp4`,
@@ -1233,7 +1233,7 @@ export const projects: Project[] = [
 				"It's a native Swift app for Apple silicon Macs, and transcription runs on your machine with whisper.cpp. It's open source, and you can download the app from the latest GitHub release.",
 			],
 			galleryTitle: 'Clips',
-			galleryNote: 'Recorded in the app. Hover to play.',
+			galleryNote: 'Recorded in the app.',
 			gallery: [
 				{
 					video: `${SD_DIR}/sd-tour.mp4`,
@@ -1394,7 +1394,7 @@ export const projects: Project[] = [
 				code: "- name: hotdish\n  cards:\n    - 'a hotdish'\n    - 'is just a casserole'\n    - 'made with more intention.'\n  video: videos/hotdish.mp4\n  music: music/ambient-01.mp3",
 			},
 			galleryTitle: 'Output',
-			galleryNote: 'A few from Joeflix. Hover to play, or use the controls.',
+			galleryNote: 'A few from Joeflix. Use the controls to play or pause.',
 			gallery: [
 				bumperClip(
 					'hotdish',
@@ -1465,7 +1465,7 @@ export const projects: Project[] = [
 				"There's no account and nothing to pay me, and it hands you the code that made your clip, so you can make the next one without my site.",
 			],
 			galleryTitle: 'Intros it made',
-			galleryNote: 'Six styles, all from the name STREAMROLL. Hover to play.',
+			galleryNote: 'Six styles, all from the name STREAMROLL.',
 			gallery: [
 				{
 					video: `${STREAMROLL_DIR}/streamroll-outrun.mp4`,

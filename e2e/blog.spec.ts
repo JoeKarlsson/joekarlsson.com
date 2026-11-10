@@ -36,7 +36,7 @@ test.describe('Blog Index Page', () => {
 
 	test('search shows no results message for invalid query', async ({ page }) => {
 		await page.getByPlaceholder(/search/i).fill('xyznonexistentpost123');
-		await expect(page.getByText(/no posts found/i)).toBeVisible();
+		await expect(page.getByText(/no posts match that search/i)).toBeVisible();
 		await expect(page.locator(SHOWN_ROWS)).toHaveCount(0);
 	});
 
