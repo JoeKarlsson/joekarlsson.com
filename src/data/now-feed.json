@@ -7,46 +7,46 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 563,
+			"commitCount": 572,
 			"dailyCommitCounts": [
 				32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 119, 21
+				25, 119, 30
 			],
-			"latestCommitMessage": "feat: New golden-hour headshot on the resume, in the Person schema and..."
+			"latestCommitMessage": "fix: Imported and third-party text can no longer become live HTML..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 265,
+			"commitCount": 267,
 			"dailyCommitCounts": [
 				67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2,
-				1
+				3
 			],
-			"latestCommitMessage": "feat: Animations get real motion blur (stickers and cards streak the..."
-		},
-		{
-			"name": "dotfiles",
-			"description": "My dotfiles",
-			"url": "https://github.com/JoeKarlsson/dotfiles",
-			"language": "TypeScript",
-			"commitCount": 96,
-			"dailyCommitCounts": [
-				2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 3
-			],
-			"latestCommitMessage": "feat: The design reviewer compares headers across pages, catches..."
+			"latestCommitMessage": "feat: Animation stickers and cards pop in on a spring, overshooting..."
 		},
 		{
 			"name": "pixelpane",
 			"description": "PixelPane: a 32x32 LED art pane for the Raspberry Pi. GIFs, live animated scenes, seasonal themes, Home Assistant and plugins",
 			"url": "https://github.com/JoeKarlsson/pixelpane",
 			"language": "Python",
-			"commitCount": 63,
+			"commitCount": 64,
 			"dailyCommitCounts": [
-				23, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 4, 0, 1
+				23, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 4, 0, 2
 			],
-			"latestCommitMessage": "fix: A small seasonal GIF folder no longer takes half the GIF slots"
+			"latestCommitMessage": "feat: Scene transitions ease in and out, fades stay bright through the..."
+		},
+		{
+			"name": "dotfiles",
+			"description": "My dotfiles",
+			"url": "https://github.com/JoeKarlsson/dotfiles",
+			"language": "TypeScript",
+			"commitCount": 98,
+			"dailyCommitCounts": [
+				2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 5
+			],
+			"latestCommitMessage": "feat: The launch checklist, motion rules, README rules and motion..."
 		}
 	],
 	"films": [
