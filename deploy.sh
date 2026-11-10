@@ -145,7 +145,8 @@ if [[ -n "$INFRA_CHANGES" ]]; then
     echo "$INFRA_CHANGES" >&2
     exit 1
 fi
-tofu -chdir="$TOFU_DIR" apply -input=false "$TOFU_PLAN"
+# terraform.tfvars loads again at apply time, so pass the same dist path the plan used
+tofu -chdir="$TOFU_DIR" apply -input=false -var-file=terraform.tfvars -var "site_dist_path=$BUILD_DIR/dist" "$TOFU_PLAN"
 
 echo "Deployed to origin server"
 
