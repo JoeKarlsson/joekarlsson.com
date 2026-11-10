@@ -72,7 +72,7 @@ What makes a meme earn its spot:
 - **It's about a real line in the post.** The Anakin/Padme one about config drift works because the post just showed 31 threads drifting back to `performance`. A generic "servers go brrr" meme could go in anyone's post, so it doesn't go in mine.
 - **It lands after the point, not instead of it.** The paragraph makes the claim with the numbers. The meme is the reaction. If the meme is the only place a fact shows up, the fact needs to be in the text too.
 - **It doesn't repeat the header right above it.** If the header already says "Cheap to buy, expensive to run," a meme that says the same thing is an echo, not a joke. Give it a different angle or move it.
-- **Rotate formats.** Run `python3 scripts/make-meme.py used` before picking. Anything I've used 3+ times or in the last 5 meme posts is off the table. Never repeat a format within a post.
+- **Rotate formats.** Run `python3 scripts/make-meme.py used` before picking, and pitch only formats from a fresh `make-meme.py templates` sample, never the same few favorites. Anything I've used 3+ times or in the last 5 meme posts is off the table. Never repeat a format within a post.
 - **Name the format in the alt text** ("Anakin Padme 4 Panel meme: ..."), so the rotation audit can count it.
 - **2-4 per long post, 1-2 per short one.** Spread them out at section breaks. Don't force one where nothing fits.
 

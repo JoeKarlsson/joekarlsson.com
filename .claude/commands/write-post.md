@@ -403,7 +403,7 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 
 Memes are a step, not an afterthought. Run this after the draft text exists, so the jokes point at real lines in the post, and before you show the draft.
 
-Past posts leaned on the same few formats over and over (Drake alone showed up ten times). The rules below exist to stop that.
+Past posts leaned on the same few formats over and over (Drake alone showed up six times), and pitches kept circling the same handful of favorites. The rules below exist to stop both.
 
 **1. Audit what the blog already uses.**
 
@@ -413,45 +413,56 @@ python3 scripts/make-meme.py used
 
 It prints how often each format appears across every post, which formats the 5 most recent meme posts used, and an "off the table" list.
 
-**2. Rotation rules. These are hard rules, not suggestions.**
-
-- **Never use a format on the off-the-table list.** That's any format used 3 or more times across the blog, or used in any of the 5 most recent posts with memes. As of September 2026 this covers Drake, This Is Fine, One Does Not Simply, Expanding/Galaxy Brain, Surprised Pikachu, Distracted Boyfriend, Gru's Plan, and Two Buttons, but the script's live output wins over this sentence.
-- **Never repeat a format within a post.**
-- **Make the joke generally funny.** Captions are about an experience any developer recognizes (agents, docs bloat, "I'll just add one more line"), not Joe's config details or his own numbers. Why: he rejected a set of pitches as "way too specific about my setup."
-- **Vary the joke structure, not only the template.** Two "reject this, pick that" comparisons in one post count as a repeat even with different templates.
-- **Don't pick from memory.** Pull fresh candidates with `python3 scripts/make-meme.py templates --exclude-overused --limit 100`, and look beyond ImgFlip's top 100 when a less common format fits the joke better.
-- **Match the format to the joke.** Examples, not a fixed menu (rotate these too):
-  - A choice or swerve: Left Exit 12 Off Ramp, Trade Offer, Buff Doge vs. Cheems
-  - Escalation or self-own: Clown Applying Makeup, Bike Fall
-  - Irony or a plan going wrong: Anakin Padme 4 Panel, Running Away Balloon
-  - Awkward reaction: Monkey Puppet, Squidward Window, Absolute Cinema
-  - Labeling or sameness: They're The Same Picture, X X Everywhere
-  - Persistence: Bernie Once Again Asking, UNO Draw 25 Cards
-
-**3. Pitch before you generate.** Offer at least 5 ideas, each with a different format, and use AskUserQuestion (multiSelect) to let Joe pick. For each idea give the section it goes in, the format, the exact caption text, and one line on why that format fits the joke.
-
-**4. Generate locally.** No ImgFlip credentials needed; the script downloads the blank template and captions it with Pillow.
+**2. Pull a fresh sample to pitch from.**
 
 ```bash
-# Caption in a white band above the image (works on any template)
-python3 scripts/make-meme.py make --template "Monkey Puppet" \
-  --caption "When Claude offers to run the full test suite to change a comment" \
-  --out public/images/blog/{slug}/meme-monkey-puppet.webp
+python3 scripts/make-meme.py templates
+```
 
-# Text placed inside panels, coordinates as fractions of the image (x0,y0,x1,y1)
-python3 scripts/make-meme.py make --template "Left Exit 12 Off Ramp" \
-  --box "0.28,0.1,0.5,0.3=Keep iTerm" --box "0.52,0.1,0.73,0.3=Ghostty" \
-  --box "0.35,0.72,0.72,0.92=Me" \
-  --out public/images/blog/{slug}/meme-exit-12.webp
+It prints 40 formats picked at random from about 275 (ImgFlip's top 100 plus memegen.link's catalog), different every run, with the off-the-table ones already left out. Each line has the id to pass to `make`, the number of text slots, `panels` when the script knows where its text goes, and a Know Your Meme link. Open the link for any format you don't know cold, so the joke uses the format the way people actually read it.
+
+**3. Rotation rules. These are hard rules, not suggestions.**
+
+- **Every format you pitch comes from this run's sample.** Never from memory, never from a past post, never from a list in this file. Why: Joe said the pitches kept recommending "the same five or six memes over and over" (2026-11-10). If nothing in the sample fits a joke, run `templates` again for a new sample instead of reaching for a favorite. `templates --all` is for looking up a format Joe names himself.
+- **Never use a format on the off-the-table list.** That's any format used 3 or more times across the blog, or used in any of the 5 most recent posts with memes. The script's live output is the list.
+- **Never repeat a format within a post.**
+- **Make the joke generally funny.** Captions are about an experience any developer recognizes (agents, docs bloat, "I'll just add one more line"), not Joe's config details or his own numbers. Why: he rejected a set of pitches as "way too specific about my setup."
+- **Vary the joke structure, not only the template.** Two "reject this, pick that" comparisons in one post count as a repeat even with different templates. A set of 5 pitches spans at least 4 structures (a choice, an escalation, a plan going wrong, a reaction, a sameness, persistence, a mislabel...).
+
+**4. Pitch before you generate.** Offer at least 5 ideas, each with a different format, and use AskUserQuestion (multiSelect) to let Joe pick. For each idea give the section it goes in, the format, the exact caption for every slot, and one line on why that format fits the joke.
+
+Write out the joke's mapping before you pitch it: "The joke is X. The slots are A, B, C. So A gets ..., B gets ..., C gets ...". If the mapping feels forced, the format is wrong; pick another from the sample. While mapping:
+
+- **One item per slot.** When the joke compares two things and the format shows them on separate panels, each goes on its own panel, never "A vs B" squeezed into one.
+- **Check for captions baked into the image.** Some formats already carry their punchline (They're The Same Picture's yellow subtitle). Look at the blank template first (the `image` the script downloads, or the format's Know Your Meme page) and leave that slot empty instead of writing the punchline twice.
+- **Short and concrete.** A few words per slot. A sentence-long caption kills the joke.
+
+**5. Generate locally.** No ImgFlip credentials needed; the script downloads the blank template and captions it with Pillow.
+
+```bash
+# Captions in the format's own panels, in slot order, tilt included (formats marked "panels")
+python3 scripts/make-meme.py make --template <id> --style panels \
+  --caption "First slot" --caption "Second slot" --caption "Third slot" \
+  --out public/images/blog/{slug}/meme-<format>.webp
+
+# Caption in a white band above the image (works on any template)
+python3 scripts/make-meme.py make --template <id> \
+  --caption "When Claude offers to run the full test suite to change a comment" \
+  --out public/images/blog/{slug}/meme-<format>.webp
+
+# Formats without panels: place text by hand, coordinates as fractions of the image (x0,y0,x1,y1)
+python3 scripts/make-meme.py make --template <id> \
+  --box "0.28,0.1,0.5,0.3=First panel" --box "0.52,0.1,0.73,0.3=Second panel" \
+  --out public/images/blog/{slug}/meme-<format>.webp
 
 # Classic white Impact top/bottom text
-python3 scripts/make-meme.py make --template "Bike Fall" --style impact \
+python3 scripts/make-meme.py make --template <id> --style impact \
   --caption "Top text" --caption "Bottom text" --out ...
 ```
 
-Box text color flips to white with an outline on dark backgrounds. **Open every generated meme with the Read tool and look at it** before placing it: fix boxes that land on the wrong panel, captions that wrap badly, or text that's hard to read, then regenerate.
+With `panels`, pass fewer captions than slots to leave the last ones empty (a baked-in punchline). Text color flips to white with an outline on dark backgrounds. **Open every generated meme with the Read tool and look at it** before placing it: fix text that lands on the wrong panel, captions that wrap badly, or text that's hard to read, then regenerate.
 
-**5. Name the format in the alt text**, e.g. `![Left Exit 12 Off Ramp meme: ...]`. The audit in step 1 only counts formats it can find in alt text, so an unnamed format never gets rotated out.
+**6. Name the format in the alt text**, e.g. `![Left Exit 12 Off Ramp meme: ...]`. The audit in step 1 only counts formats it can find in alt text, so an unnamed format never gets rotated out.
 
 Write the draft to `src/content/blog/{slug}.md` so subsequent phases can grep and edit the file directly.
 
