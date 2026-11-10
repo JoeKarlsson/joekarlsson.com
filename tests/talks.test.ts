@@ -14,17 +14,13 @@ describe('talks.ts', () => {
 		const ownVideos = new Set(talks.flatMap((t) => t.videos ?? []));
 		const problems = talks.flatMap((t) => {
 			const name = `${t.title} (${t.event})`;
-			if (t.videos?.length) {
-				const missing = t.videos.filter((id) => !existsSync(`public/images/youtube/${id}.webp`));
-				return missing.map((id) => `${name}: no poster for ${id}, run npm run youtube:thumbnails`);
-			}
-			if (t.otherRecording) {
-				if (!ownVideos.has(t.otherRecording))
-					return [`${name}: otherRecording ${t.otherRecording} is in no talk's videos`];
-				return existsSync(`public/images/talks/recorded/${t.otherRecording}.webp`)
+			if (t.otherRecording && !t.videos?.length && !ownVideos.has(t.otherRecording))
+				return [`${name}: otherRecording ${t.otherRecording} is in no talk's videos`];
+			const video = t.videos?.[0] ?? t.otherRecording;
+			if (video)
+				return existsSync(`public/images/talks/posters/${video}.webp`)
 					? []
-					: [`${name}: run npm run talks:covers`];
-			}
+					: [`${name}: no poster for ${video}, run npm run talks:covers`];
 			if (t.cover) return existsSync(`public${t.cover}`) ? [] : [`${name}: no file at ${t.cover}`];
 			return t.paperScrap ? [] : [`${name}: no video, otherRecording, cover or paperScrap flag`];
 		});

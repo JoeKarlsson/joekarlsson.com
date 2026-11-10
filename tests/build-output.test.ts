@@ -460,6 +460,22 @@ describe('talk pages', () => {
 	it('shows no blank paper scrap on /talks/', () => {
 		expect(readDist('talks/index.html')).not.toContain('data-talk-cover="scrap"');
 	});
+
+	it('draws /talks/ pink and black with no halftone dots', () => {
+		expect(readDist('talks/index.html')).not.toContain('data-halftone="dots"');
+	});
+
+	it("links every /talks/ card title that has somewhere to go, like a podcast's episode", () => {
+		const html = readDist('talks/index.html');
+		const cards = html.split('<article').slice(1);
+		const unlinked = cards.filter(
+			(card) => /href="http/.test(card) && !/<h3[^>]*>\s*<a /.test(card),
+		);
+		expect(unlinked).toEqual([]);
+		expect(html).toMatch(
+			/<h3[^>]*>\s*<a href="https:\/\/podcasts\.apple\.com\/[^"]*end-of-year-wrap-up-2021/,
+		);
+	});
 });
 
 const builtPages = (readdirSync(dist, { recursive: true, encoding: 'utf-8' }) as string[]).filter(

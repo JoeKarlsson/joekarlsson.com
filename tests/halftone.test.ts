@@ -26,9 +26,9 @@ describe('halftoneMode', () => {
 		expect(cardHalftone('/images/projects/data-structures.webp')).toBe('flat');
 	});
 
-	it("leaves /talks/' pre-graded covers alone, but not the live video posters", () => {
+	it("leaves /talks/' pre-graded covers and posters alone, but not other video posters", () => {
 		expect(halftoneMode('/images/talks/events/confoo-2020.webp')).toBeUndefined();
-		expect(halftoneMode('/images/talks/recorded/12IppjSDVCQ.webp')).toBeUndefined();
+		expect(halftoneMode('/images/talks/posters/12IppjSDVCQ.webp')).toBeUndefined();
 		expect(halftoneMode('/images/youtube/12IppjSDVCQ.webp')).toBe('dots');
 		expect(halftoneMode('/images/talks/tedx-art-of-computer-science-still.webp')).toBe('dots');
 	});
