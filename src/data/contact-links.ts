@@ -2,7 +2,7 @@
 import { SOCIAL_LINKS } from '../consts';
 
 export const BEST = [
-	{ label: 'LinkedIn', meta: 'Professional inquiries & speaking', href: SOCIAL_LINKS.linkedin },
+	{ label: 'LinkedIn', meta: 'Work & speaking', href: SOCIAL_LINKS.linkedin },
 	{ label: 'Bluesky', meta: '@joekarlsson.com', href: SOCIAL_LINKS.bluesky },
 ];
 
@@ -24,7 +24,7 @@ export const SECTIONS = [
 	{
 		heading: 'Everywhere else',
 		links: [
-			{ label: 'Letterboxd', meta: 'Movie reviews & lists', href: SOCIAL_LINKS.letterboxd },
+			{ label: 'Letterboxd', meta: 'Film reviews', href: SOCIAL_LINKS.letterboxd },
 			{ label: 'TikTok', meta: '@joekarlsson', href: SOCIAL_LINKS.tiktok },
 			{ label: 'Reddit', meta: 'Lurking & commenting', href: SOCIAL_LINKS.reddit },
 			{ label: 'Last.fm', meta: "What I'm listening to", href: SOCIAL_LINKS.lastfm },

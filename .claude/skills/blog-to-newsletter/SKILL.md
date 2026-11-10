@@ -87,7 +87,7 @@ Work in a worktree (other sessions share the checkout), commit with explicit pat
 1. Run the newsletter skill's step 3 gate on the email draft: the voice/humanizer, fact-checker, E-E-A-T and positioning reviewers, in parallel. Point the fact-checker at the blog post as the source for first-hand claims. Tell it not to curl `/email/` URLs before deploy, because Cloudflare caches the 404 for hours.
 2. Run `vale` with the main checkout's `.vale.ini`. In a worktree, run it from the main checkout, where `.vale/styles` exists.
 3. Count the words: `awk 'n>=2{print} /^---$/{n++}' <file> | sed -E 's/!\[[^]]*\]\([^)]*\)//g' | wc -w`.
-4. Run `npx astro build` and check that the issue page has its images, the button, and any section anchors you linked.
+4. Run `npx astro build` and check that the issue page has its images, the button, and any section anchors you linked. Then `npx astro preview` and launch the `design-reviewer` agent on the issue page's preview URL, asking it to focus on the first phone screen (hook plus an image above the fold) and the end of the issue (peak-end: the last thing a subscriber sees). Fix High and Medium findings.
 5. Open the email draft in VS Code (`code <draft>`). Give Joe a numbered summary: the shape, the word count, what was cut and linked, the send date, the reviewers' verdicts, and any questions.
 
 After Joe approves, follow the newsletter skill's steps 3b-6: deploy so the `/email/` images are live, push, preview, test send, schedule, publish.

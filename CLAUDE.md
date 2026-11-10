@@ -44,3 +44,5 @@ Every head tag, manifest field and well-known file, who reads it, and how to tes
 ## Checks
 
 The pre-commit hook formats and lints staged files; the pre-push hook runs the full `npm test`.
+
+A new page, or a change to a layout, component, nav, form or the 404, gets the `design-reviewer` agent (global, `~/.claude/agents/`) on the built page before it ships: start `npx astro preview` (it picks a free port and prints it; another session may hold 4391), give the agent those URLs and this repo, and fix its High and Medium findings. It checks the UX laws (`~/.claude/knowledge/ux-laws.md`), the AI-slop rules and the phone/big-screen/accessibility parts of the launch checklist. Plain post and newsletter text changes skip it.

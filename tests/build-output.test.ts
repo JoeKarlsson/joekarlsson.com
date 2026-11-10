@@ -239,7 +239,7 @@ describe('Markdown copies for agents', () => {
 	// the HTML, so the copies used to read "2026My Homelab" or "LinkedInProfessional"
 	it('keeps text from separate boxes apart', () => {
 		expect(readDist('contact.md')).toContain(
-			'[LinkedIn](https://www.linkedin.com/in/joekarlsson/): Professional inquiries & speaking',
+			'[LinkedIn](https://www.linkedin.com/in/joekarlsson/): Work & speaking',
 		);
 		expect(readDist('resume.md')).toMatch(/2024 - 2026 Remote/);
 		for (const page of ['blog.md', 'work.md', 'newsletter.md', 'index.md', 'about.md']) {

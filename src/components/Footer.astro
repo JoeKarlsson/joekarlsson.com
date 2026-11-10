@@ -78,8 +78,9 @@ const ECHO_TITLE = 'Works on my machine';
 				/>
 			</span>
 		</p>
-		<!-- Phones: each icon gets a 44px tap area (p-[11px] around 22px), pulled back to the edge by -mx -->
-		<div class="-mx-[11px] flex items-center md:mx-0 md:gap-[18px] [&>a]:p-[11px] md:[&>a]:p-0">
+		<!-- Phones: each icon gets a 44px tap area (p-[11px] around 22px), pulled back to the edge by -mx.
+		From md up: 28px (p-[3px]), over the 24px WCAG minimum, with the same 18px visual gap -->
+		<div class="-mx-[11px] flex items-center md:-mx-[3px] md:gap-[12px] [&>a]:p-[11px] md:[&>a]:p-[3px]">
 			<a
 				href={SOCIAL_LINKS.github}
 				target="_blank"

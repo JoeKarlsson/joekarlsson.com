@@ -96,6 +96,9 @@ const tocHeadings = (headings || [])
 	.filter((h) => h.depth === 2 || h.depth === 3)
 	.map((h) => ({ ...h, text: h.text.replace(/#$/, '').trim() }));
 const showToc = tocHeadings.length >= 2;
+// Under xl there's no sidebar, so long posts get a folded contents list above the text
+const inlineTocHeadings = tocHeadings.filter((h) => h.depth === 2);
+const showInlineToc = inlineTocHeadings.length >= 3;
 
 // Content age notice logic
 const AGE_THRESHOLD_YEARS = 4;
@@ -306,6 +309,31 @@ const heroIsTaped =
 							</strong>{' '}
 							{tldr}
 						</p>
+					)}
+					{showInlineToc && (
+						<details class="group/toc mb-10 xl:hidden">
+							<summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 font-display text-xl text-paper uppercase [&::-webkit-details-marker]:hidden">
+								On this page
+								<span
+									aria-hidden="true"
+									class="text-pink transition-transform duration-150 group-open/toc:rotate-90"
+								>
+									&rarr;
+								</span>
+							</summary>
+							<ol class="mt-1 border-l border-surface-3">
+								{inlineTocHeadings.map((h) => (
+									<li>
+										<a
+											href={`#${h.slug}`}
+											class="block py-2.5 pl-4 leading-snug text-paper no-underline hover:text-pink"
+										>
+											{h.text}
+										</a>
+									</li>
+								))}
+							</ol>
+						</details>
 					)}
 					<div class:list={['prose wide-media', (heroImage || heroVideo) && 'has-hero']}>
 						<slot />

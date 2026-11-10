@@ -624,6 +624,10 @@ npm run format:check && npm run lint
 
 If format issues: `npm run format` then re-check.
 
+### 8c-ii. Design review (posts with anything beyond text)
+
+If the post has a diagram, embed, interactive piece, wide table or custom component, run `npx astro build && npx astro preview` (note the port it prints) and launch **Agent: `design-reviewer`** on the post's preview URL with this repo. Fix its High and Medium findings (tap targets, phone overflow, unreadable diagrams on a phone, contrast). Skip this for a text-and-images post; the layout is already reviewed.
+
 ### 8d. Run full test suite
 
 ```bash
