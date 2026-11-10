@@ -80,6 +80,13 @@ These are REAL excerpts from Joe's writing. Match this energy, not a sanitized v
 
 > "Home Assistant - originally avoided it in the first post, now it's the orchestration hub for the entire lab. Sometimes your concerns change as you learn more."
 
+### 0c-ii. Posts Joe holds up as models
+
+Joe named these as blog posts he likes a lot (2026-11-10). Read the one that fits the post before outlining.
+
+- **Paul Graham, [Hackers and Painters](https://www.paulgraham.com/hp.html)**: the model for an essay or opinion post. The first paragraph overturns the reader's picture ("Both of these images are wrong."). The argument moves by concrete people and objects (Leonardo's juniper bush, a pencil versus a pen), never by abstractions. Each section leaves one line worth quoting ("It should be a pencil, not a pen."). First person, plain words, long sentences broken by very short ones, asides pushed into footnotes. It has no images at all: the prose carries everything. Its lack of headings is a choice for an essay; keep this skill's heading rules unless Joe asks for it "in the style of" the essay.
+- **Ralph Ammer, [The Creative Playground](https://ralphammer.com/how-to-get-started/)**: the model for how a post uses animation. About 1,000 words carry 11 small looping drawings, each sitting directly above the paragraph whose bolded term it shows. Every one of them shows something changing: a square folds into a crane, then a rabbit, then a plane, and back to a square. The frame-by-frame breakdown and the rules we take from it are in the `explainers` skill (`references/craft.md`, "Model post: Ralph Ammer"). Phase 2c applies them.
+
 ### 0d. Sync main
 
 Posts ship straight to main (global Git rule), so there's no post branch:
@@ -187,7 +194,7 @@ Do NOT proceed without approval.
 
 ### 2c. Plan the collage scenes
 
-Once the outline is approved, run the project `explainers` skill (Skill tool) on it. Pick two or three moments that are scenes someone can picture (a guest waving at the lights, an agent walking into a locked door) and take each through the skill's gates: the idea (claim, the everyday object that does it, 3-6 pieces, field color, assembly order, label), then the cut-out elements, then an approval still. Joe approves each gate by number. They are paper-collage stop motion in the pasteup look, never diagrams; boxes and arrows belong to the `diagrams` skill. Approved scenes are rendered into the post (`npm run collage -- <scene.json> --post ...`) before Phase 6, so the reviewers see the real thing. If no section has a scene in it, say so and skip this phase. Why: Joe wants posts to move as more than boiling diagrams, rejected diagram step-throughs, crayon stick figures and a slick serif-and-glass-card mock, and picked pasteup's collage look (2026-11-10).
+Once the outline is approved, run the project `explainers` skill (Skill tool) on it. Pick two or three moments that are scenes someone can picture (a guest waving at the lights, an agent walking into a locked door) and take each through the skill's gates: the idea (claim, the everyday object that does it, 3-6 pieces, field color, assembly order, label), then the cut-out elements, then an approval still. Joe approves each gate by number. They are paper-collage stop motion in the pasteup look, never diagrams; boxes and arrows belong to the `diagrams` skill. Approved scenes are rendered into the post (`npm run collage -- <scene.json> --post ...`) before Phase 6, so the reviewers see the real thing. Pitch each scene as a change (what the frame turns into), not a picture, the way Ralph Ammer's post does (`craft.md`, "Model post: Ralph Ammer"). If no section has a scene in it, say so and skip this phase. Why: Joe wants posts to move as more than boiling diagrams, rejected diagram step-throughs, crayon stick figures and a slick serif-and-glass-card mock, and picked pasteup's collage look (2026-11-10).
 
 ---
 

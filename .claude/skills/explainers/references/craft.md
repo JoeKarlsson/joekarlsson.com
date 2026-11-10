@@ -88,6 +88,52 @@ last, the label after everything, and the finished frame held at least 1.2 s.
 8. **Animate data by its own logic**: "bars grow from baseline, lines draw left to right"
    (`lottie: references/motion-taste.md`).
 
+## Model post: Ralph Ammer
+
+Joe holds up Ralph Ammer's [The Creative Playground](https://ralphammer.com/how-to-get-started/)
+as the way posts should use animation (2026-11-10). Its drawings are black line art. Our look
+stays pasteup collage, so take his motion grammar, not his drawing style. All 11 GIFs were
+pulled and read frame by frame on 2026-11-10:
+
+| GIF | What moves | Length |
+|---|---|---|
+| Basketball cage | The cage and the two players inside barely move; small figures walk past outside it | 5 s |
+| Game = Goal + Rules | "Game" is scribbled out and rewritten as "Fun" in orange, then back | 2.5 s |
+| Playing field | One rectangle's lines turn from one sport's court into another's and end on basketball | 14 s |
+| Oneliners | One unbroken line draws a bunny, then glasses, then a glass, at hand speed | 13 s |
+| Focus, time limit, format, skill | A 220x100 icon with a handwritten word; only the line boils | 2 s each |
+| Origami | One square folds into a crane, then a rabbit, then a paper plane, and back to the square | 21 s |
+| Japanese wood joints | Two plain blocks are cut and slot together into a different joint each time | 17 s |
+| Four tips | A still: four icons with labels, summing up the list | still |
+
+What to take from it:
+
+1. **Animate a change, never a picture.** Each of his loops shows something becoming
+   something else. If nothing in the scene changes state, it's a still.
+2. **Same material, different results, back to the start.** The origami, the joints and the
+   field all reset to the blank first frame, so the loop itself makes the argument: the
+   same limits, many results. When the claim is "one thing, many outcomes", build the loop
+   to land back on its first frame.
+3. **Show the process at its real speed.** Oneliners draws at hand speed instead of showing
+   the finished drawing. When the claim is about doing something, show it being done.
+4. **The idea holds still; life moves at the edges.** In the cage scene the cage and the
+   game barely move and only the passers-by walk. This is the same rule as "two to four
+   things move at once" above.
+5. **The cheapest punchline is a word that changes.** "Game" crossed out and rewritten as
+   "Fun" is one word in one accent color, used once in the whole post. A label that
+   rewrites itself can land a reveal without a full scene.
+6. **Small, silent, looping, no controls.** Most are under 400 px wide and the icons are
+   220x100, the size of a word. None is wider than the text column, none has sound, and
+   every loop is 2 to 21 s.
+7. **The picture comes first, then the words.** Each one sits directly above the paragraph
+   that bolds the term it shows. The text never says "as you can see"; the two say the same
+   thing on their own.
+8. **One accent color for the whole post** (his orange appears once). That matches rule 7 of
+   the art direction above: one piece in color is a punchline.
+
+The four boiling icons are decoration in our terms: they illustrate routine points, which
+gate 1 of the skill rules out. Don't make that kind unless Joe asks for it.
+
 ## Sequences (not built yet; for when scenes get cut together)
 
 1. "no two adjacent beats use the same camera move... reserve `static` for the payoff/quote

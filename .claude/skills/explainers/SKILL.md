@@ -62,6 +62,10 @@ standalone sentences, a twist, a reversal, a cost), rank them by how hard they h
 only the top two or three. Then make each pitch as bold as the moment: say what the viewer
 feels when it lands.
 
+Joe's model for animation in a post is Ralph Ammer's The Creative Playground (`craft.md`,
+"Model post: Ralph Ammer"). Pitch each moment as a change the viewer watches happen (a square
+folding into a crane, "Game" rewritten as "Fun"), never as a picture that just appears.
+
 For each moment, one short block:
 
 1. **The claim** in one sentence, from the post.
