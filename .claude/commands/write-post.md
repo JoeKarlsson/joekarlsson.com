@@ -96,10 +96,14 @@ git checkout main && git pull origin main
 
 If $ARGUMENTS is a file path, read it for notes/plans. Otherwise, use $ARGUMENTS as the topic.
 
+Before proposing, load the **`personal-marketing`** skill (Skill tool) and read its `references/ideas.md`: search the target query, read the top results and note the format that ranks. If the post launches something (a project, repo, series or talk), also read `references/launches.md` and pick the launch tier. Skip both for an employer crosspost (`writtenFor` set): that skill is personal brand only.
+
 Present the topic to the user with:
 
 - **Working title** (opinionated, Joe's voice - not generic)
 - **One-paragraph pitch** - what's the angle? What makes this worth reading?
+- **What it adds** - one sentence on what this post has that none of the top results do. No sentence: say so, and suggest dropping the idea or making it a share-only piece
+- **Launch tier** - only when the post launches something (from `launches.md`)
 - **Target audience** - who cares about this?
 - **Category** - one or two of: Homelab, Web Dev, Career, AI, Cloud, Life (`BLOG_CATEGORIES` in `src/utils/categories.ts`; anything else fails the build)
 - **Written for** - a post written for an employer (a crosspost) sets `writtenFor` to one of `EMPLOYERS` in the same file; personal posts leave it out
@@ -677,6 +681,10 @@ git commit -m "feat: Add blog post - {title}"
 ```
 
 Then push, run `npm run deploy`, and curl the live page to confirm (see CLAUDE.md Build & Deploy).
+
+Then promotion (personal posts only, never employer crossposts):
+- **A launch** (it had a launch tier in Phase 1a): hand the live URL and tier to the **`marketing-strategist`** subagent for the launch plan, show Joe the plan, then run `/social` for its posts.
+- **Anything else:** offer `/social` with the live URL.
 
 ---
 
