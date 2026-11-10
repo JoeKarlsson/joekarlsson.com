@@ -36,6 +36,7 @@ Then read, in this order:
 5. **Motion and fallbacks.** From the source: does each animation come from the paper kit, stop under reduced motion and the pause button, and stay still on phones where the site's rules say it should?
 6. **Cognitive load.** Any decision point with more than four equal options, things the visitor has to remember from one screen to the next, or visual noise with no job.
 7. **Peak and end.** What's the best moment on the page, and how does it end? A page that trails off into a footer with nothing to do next is a finding.
+8. **Stress: long titles and missing pictures.** Screenshots show today's content; the next post won't be so kind. From the source, find every place a title, name or label is sized to fit (Anton set by `wordRatio` or `cqw`, `whitespace-nowrap`, fixed-height cards, line clamps) and every picture or clip slot. Then work out, from the CSS and the real content lists in `src/content` and `src/data`, what happens with the longest real title in that slot plus one twice as long, a single unbroken word like a long product name, and a post or project with no image, a broken image URL or a poster that never loads. Name each slot that overflows, gets cut mid-word, collapses or leaves an empty black box, with the content that breaks it.
 
 ## Personas
 
