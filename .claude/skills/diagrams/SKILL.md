@@ -1,6 +1,6 @@
 ---
 name: diagrams
-description: Draw or redraw a joekarlsson.com post diagram (architecture map, flowchart, layer stack, request flow) in the site's cut-paper style as inline SVG, with desktop and phone layouts, real logos and the lightbox. Use when a post needs a diagram, when Joe asks to redraw or restyle a post's diagrams, or when converting an old diagram image (PNG/WebP/CData-style boxes) to the site style.
+description: Draw or redraw a joekarlsson.com post diagram (architecture map, flowchart, layer stack, request flow) in the site's cut-paper style as inline SVG, with desktop and phone layouts, real logos and the lightbox. Use when a post needs a diagram, when Joe asks to redraw or restyle a post's diagrams, or when converting an old diagram image (PNG/WebP/CData-style boxes) to the site style. Also the way to make a small animation that shows how something in a post works (an animated figure, never a video).
 ---
 
 # Post diagrams
@@ -102,6 +102,30 @@ unless he says otherwise for a specific figure.
 14. **Say it once.** No subtitles restating the post's lead-in, no captions that
     repeat a label. A figure heading inside the SVG only when the post shows two
     related figures in a row.
+
+## Animated figures (Joe's preferred way to make a post animation)
+
+A small animation that shows how something in a post works (Ralph Ammer's kind: see the
+`explainers` skill's `craft.md`, "Model post: Ralph Ammer") is an animated figure made with
+this kit, never a video. Joe's call on 2026-11-10, after seeing the same animation as an MP4:
+"I just don't like having the playbar on it when it scrolls into view. And it looks different
+than the other diagrams we have." Asked to record it: "this is how I prefer it to be generated."
+
+- **The kit's look.** Still parts are ordinary kit parts (groups with name tabs, boxes, logos,
+  Lucide icons) so the figure sits with the post's other diagrams. Pink stays for the one
+  thing that moves on its own (the marine).
+- **SMIL, stepped at 12 fps.** Work out the motion as a timeline in the figure file, sample
+  it once per drawing, and emit `calcMode="discrete"` animations through `f.raw`, the way the
+  site's boil filter animates. No script and no `<video>`.
+- **Two layers.** The moving pieces go in `<g class="anim-live">`, and a copy at the finished
+  frame in `<g class="anim-still" display="none">`; `motion.css` swaps them under reduced
+  motion and the pause button.
+- **A clean loop.** End on the empty starting frame, on the 12 fps grid, so the restart never
+  jumps (`tests/diagram-kit.test.ts` checks the go_to walk).
+- **Check it playing**: frames through `svg.setCurrentTime(t)` in Chromium, plus the built
+  post in WebKit at 390px and with reduced motion on.
+
+Copy `scripts/diagrams/doom-mcp-server/go-to-walk.mjs`, the first one Joe approved.
 
 ## Kit reference
 

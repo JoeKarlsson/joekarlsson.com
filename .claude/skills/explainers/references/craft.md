@@ -140,15 +140,8 @@ on screen. Never a static squiggle icon that only wobbles: Joe turned down a set
 (one job, time limit, rollback, alert) the same day: "Ralph's are different... they're
 explaining things in the post... not just like random squiggles."
 
-Make one as an animated post diagram with the `diagrams` skill's kit, so it looks like the
-post's other figures and plays inline: no video, so no play bar (Joe, 2026-11-10: "I just don't
-like having the playbar on it... and it looks different than the other diagrams"). Draw the
-still parts with the kit (groups, logos, icons) and the moving parts with `f.raw` as SMIL
-animations stepped at 12 fps, in an `.anim-live` layer, plus an `.anim-still` layer of the
-finished frame that `motion.css` swaps in under reduced motion and the pause button. Copy
-`scripts/diagrams/doom-mcp-server/go-to-walk.mjs`, the first one Joe approved: the rooms as
-sheets with name tabs, the marine the only pink, the real call typed in mono, the plan as gray
-dots, then the walk, and a reset back to the empty map.
+Joe prefers them made as animated figures with the `diagrams` skill's kit, never as a video:
+how, and his words, are in that skill's "Animated figures" section.
 
 ## Sequences (not built yet; for when scenes get cut together)
 

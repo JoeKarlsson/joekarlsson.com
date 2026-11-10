@@ -93,7 +93,8 @@ For each moment, one short block:
 
 Two or three moments per post. Never one for decoration. Small handmade animations that
 show how something in the post works (Ammer's origami fold) are a separate kind with their
-own rules (`craft.md`, "Model post: Ralph Ammer").
+own rules (`craft.md`, "Model post: Ralph Ammer"), and Joe wants them made as animated
+figures with the `diagrams` skill, never as a video ("Animated figures" there).
 
 ### 2. The elements
 
