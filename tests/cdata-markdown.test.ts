@@ -41,5 +41,8 @@ describe('toMarkdown keeps scraped content inert', () => {
 		expect(unsafeMarkdown('hi <img src=x onerror=1>')).toHaveLength(1);
 		expect(unsafeMarkdown('[x](javascript:alert(1))')).toHaveLength(1);
 		expect(unsafeMarkdown('`<b>` and\n\n```\n<script>\n```\n<!-- vale X = NO -->')).toEqual([]);
+		// A malformed comment can't hide a tag: browsers end `<!<!-- -->` at its first `>`
+		expect(unsafeMarkdown('<!<!-- -->-- <img src=x onerror=alert(1)> -->')).not.toEqual([]);
+		expect(unsafeMarkdown('<!-- <script>alert(1)</script> -->')).not.toEqual([]);
 	});
 });

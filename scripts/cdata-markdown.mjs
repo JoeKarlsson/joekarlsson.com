@@ -20,13 +20,15 @@ export function isSafeHref(href) {
 	return SAFE_HREF.test(String(href ?? '').trim());
 }
 
-// Raw HTML (a tag or doctype; comments are inert) left in markdown outside code, or a link
-// whose target isn't a safe scheme. Returns the problems found, empty when clean.
+// Raw HTML (a tag or doctype) left in markdown outside code, or a link whose target isn't
+// a safe scheme. Returns the problems found, empty when clean. Comments are checked like
+// any other text, not stripped first: a browser ends a malformed comment like
+// `<!<!-- -->--` at its first `>`, so stripping well-formed-looking comments out of it
+// would hide a live tag behind them. A plain `<!-- vale X = NO -->` has no tag and passes.
 export function unsafeMarkdown(md) {
 	const prose = md
 		.replace(/^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[ \t]*$/gm, '')
-		.replace(/(`+)[\s\S]*?\1/g, '')
-		.replace(/<!--[\s\S]*?-->/g, '');
+		.replace(/(`+)[\s\S]*?\1/g, '');
 	const problems = [];
 	for (const m of prose.matchAll(/<(?:[a-zA-Z][\w-]*[\s/>]|\/[a-zA-Z]|![a-zA-Z])/g)) {
 		problems.push(`raw HTML: ${prose.slice(m.index, m.index + 40)}`);

@@ -12,10 +12,15 @@ interface Props {
 }
 
 const { label, title, href, meta, class: className } = Astro.props;
+// An outside link (a talk on YouTube) opens in a new tab like every other one; the
+// external-links integration only adds that to the built HTML, not in dev
+const external = /^https?:\/\//.test(href) && !/joekarlsson\.com/.test(href);
 ---
 
 <a
 	href={href}
+	target={external ? '_blank' : undefined}
+	rel={external ? 'noopener' : undefined}
 	data-featured-band
 	class:list={[
 		'group flex flex-wrap items-center gap-x-4 gap-y-1 rounded-xl bg-pink px-5 py-4 text-ink no-underline md:gap-x-5 md:px-6',
