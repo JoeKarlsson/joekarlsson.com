@@ -465,16 +465,23 @@ describe('talk pages', () => {
 		expect(readDist('talks/index.html')).not.toContain('data-halftone="dots"');
 	});
 
-	it("links every /talks/ card title that has somewhere to go, like a podcast's episode", () => {
+	it('links every /talks/ card title that has a recording, an episode or my write-up', () => {
 		const html = readDist('talks/index.html');
-		const cards = html.split('<article').slice(1);
+		const cards = html
+			.split('<article')
+			.slice(1)
+			.map((card) => card.split('</article>')[0]);
 		const unlinked = cards.filter(
-			(card) => /href="http/.test(card) && !/<h3[^>]*>\s*<a /.test(card),
+			(card) =>
+				/data-talk-video|Read the talk|podcasts\.apple\.com/.test(card) &&
+				!/<h3[^>]*>\s*<a /.test(card),
 		);
 		expect(unlinked).toEqual([]);
 		expect(html).toMatch(
 			/<h3[^>]*>\s*<a href="https:\/\/podcasts\.apple\.com\/[^"]*end-of-year-wrap-up-2021/,
 		);
+		// An event's own page is a link under the card, never where its title goes
+		expect(html).not.toMatch(/<h3[^>]*>\s*<a href="https:\/\/www\.cloudquery\.io\//);
 	});
 });
 

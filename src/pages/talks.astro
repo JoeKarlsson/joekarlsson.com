@@ -36,11 +36,13 @@ const totals = [
 	{ n: firstYear, label: 'Since' },
 ];
 
-// Three talks I wrote up in full, shown first: two have their own /talks/ page, the IoT
-// write-up is still a blog post
+// Every talk I wrote up in full, shown first: each has its own /talks/ page, except the IoT
+// write-up, which is still a blog post
 const FEATURED = [
 	'/talks/the-art-of-computer-science/',
 	'/talks/mongodb-schema-design-best-practices/',
+	'/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
+	'/talks/from-sql-to-nosql-a-gentle-introduction-for-devs/',
 	'/blog/an-introduction-to-iot-internet-of-toilets/',
 ];
 const posts = [
@@ -138,7 +140,7 @@ const FILTERS = [
 
 		<section id="featured" class="relative mb-12 scroll-mt-24 md:mb-16">
 			<h2 class={SECTION_HEADING}>
-				Start here
+				Talk pages
 				<Scribble
 					{...MARKS.underline}
 					color={CHALK}

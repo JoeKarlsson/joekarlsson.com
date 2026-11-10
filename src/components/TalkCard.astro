@@ -45,8 +45,9 @@ const KIND_LABELS = {
 	demo: 'Demo',
 };
 const watch = (id: string) => `https://www.youtube.com/watch?v=${id}`;
-// A talk with its own page on this site opens that page (video, slides and resources together)
-const mainLink = talk.writeup ?? (video ? watch(video) : (talk.listen ?? talk.link ?? talk.slides));
+// The title and picture open my own page for the talk (video, slides and resources together),
+// else the recording or the episode. Never an event's page or slides: those are links below
+const mainLink = talk.writeup ?? (video ? watch(video) : talk.listen);
 const external = !talk.writeup;
 // The episode and the event's page, when the title links somewhere else
 const listenLink = talk.listen !== mainLink ? talk.listen : undefined;
@@ -78,7 +79,7 @@ const LINK =
 					aria-hidden="true"
 				/>
 			</>
-		) : talk.cover ? (
+		) : talk.cover && mainLink ? (
 			<a
 				href={mainLink}
 				target="_blank"
@@ -97,6 +98,16 @@ const LINK =
 					class="block aspect-video w-full rounded-lg bg-ink object-cover"
 				/>
 			</a>
+		) : talk.cover ? (
+			<img
+				src={talk.cover}
+				alt=""
+				width="640"
+				height="360"
+				loading="lazy"
+				decoding="async"
+				class="block aspect-video w-full rounded-lg bg-ink object-cover"
+			/>
 		) : (
 			<div
 				class:list={[
