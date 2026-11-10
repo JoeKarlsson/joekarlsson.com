@@ -44,12 +44,15 @@ if (
 	execFileSync('swiftc', ['-O', CUTOUT_SRC, '-o', CUTOUT_BIN]);
 }
 
-const lifted = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'collage-cut-')), 'lifted.png');
+const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'collage-cut-'));
+const lifted = path.join(tmp, 'lifted.png');
 execFileSync(CUTOUT_BIN, [input, lifted, ...(values.person ? [] : ['subject'])]);
+const liftedBuffer = fs.readFileSync(lifted);
+fs.rmSync(tmp, { recursive: true, force: true });
 
 const PINK = [255, 79, 216];
 const keyline = Number(values.keyline);
-let piece = sharp(await sharp(lifted).trim({ threshold: 1 }).toBuffer()).resize({
+const piece = sharp(await sharp(liftedBuffer).trim({ threshold: 1 }).toBuffer()).resize({
 	width: Number(values.width),
 	withoutEnlargement: true,
 });

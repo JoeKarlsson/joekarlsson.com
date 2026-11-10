@@ -51,7 +51,7 @@ const page = `<!doctype html><meta charset="utf-8"><meta name="viewport" content
 <canvas id="c" width="${scene.canvas.width}" height="${scene.canvas.height}"></canvas>
 <script>${engine}</script>
 <script>
-const scene = ${JSON.stringify(scene)};
+const scene = ${JSON.stringify(scene).replace(/</g, '\\u003c')};
 const ctx = document.getElementById('c').getContext('2d');
 window.ready = Collage.load(scene, ${JSON.stringify(pathToFileURL(scenePath).href)}).then((loaded) => {
 	window.renderFrame = (f) => { Collage.draw(ctx, loaded, f); return ctx.canvas.toDataURL('image/png'); };
@@ -87,9 +87,6 @@ async function renderWithBrowser() {
 	const browser = await chromium.launch({ args: ['--allow-file-access-from-files'] });
 	try {
 		const tab = await browser.newPage({ viewport: { width: 400, height: 400 } });
-		tab.on('pageerror', (error) => {
-			throw error;
-		});
 		await tab.goto(`${pathToFileURL(pagePath).href}#render`);
 		await tab.evaluate(() => window.ready);
 		const frames = Math.round(scene.duration * fps);
@@ -103,22 +100,13 @@ async function renderWithBrowser() {
 		if (!values.out && !values.post) return;
 		const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'collage-frames-'));
 		const hold = Math.max(1, scene.cadence?.hold_frames ?? 2);
-		let pose;
-		for (let f = 0; f < frames; f++) {
-			if (f % hold === 0) pose = await grab(f);
-			fs.writeFileSync(path.join(dir, `f${String(f).padStart(5, '0')}.png`), pose);
-		}
+		// One file per pose; ffmpeg reads them at the pose rate and repeats each to fill fps
+		for (let f = 0; f < frames; f += hold)
+			fs.writeFileSync(path.join(dir, `p${String(f / hold).padStart(5, '0')}.png`), await grab(f));
 		const encode = (out, extra) => {
 			execFileSync('ffmpeg', [
-				...[
-					'-y',
-					'-loglevel',
-					'error',
-					'-framerate',
-					String(fps),
-					'-i',
-					path.join(dir, 'f%05d.png'),
-				],
+				...['-y', '-loglevel', 'error', '-framerate', `${fps}/${hold}`],
+				...['-i', path.join(dir, 'p%05d.png'), '-r', String(fps), '-frames:v', String(frames)],
 				...extra,
 				...['-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out],
 			]);

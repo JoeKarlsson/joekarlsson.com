@@ -20,7 +20,9 @@
 	function bezier(points, t) {
 		let pts = points.map(([x, y]) => [x, y]);
 		while (pts.length > 1)
-			pts = pts.slice(1).map((b, i) => [pts[i][0] + (b[0] - pts[i][0]) * t, pts[i][1] + (b[1] - pts[i][1]) * t]);
+			pts = pts
+				.slice(1)
+				.map((b, i) => [pts[i][0] + (b[0] - pts[i][0]) * t, pts[i][1] + (b[1] - pts[i][1]) * t]);
 		return pts[0];
 	}
 
@@ -98,7 +100,10 @@
 			),
 		);
 		const { width, height, grain = 0 } = scene.canvas;
-		if (scene.label?.font_family) await doc.fonts.load(`${scene.label.size ?? 80}px ${scene.label.font_family}`);
+		const font =
+			scene.label?.font_family && `${scene.label.size ?? 80}px ${scene.label.font_family}`;
+		// fonts.load resolves even when the font never arrives; the label would ship in a fallback face
+		if (font && !(await doc.fonts.load(font)).length) throw new Error(`font did not load: ${font}`);
 		return { scene, images, grain: grain > 0 ? grainLayer(doc, width, height, grain) : null };
 	}
 
@@ -154,7 +159,11 @@
 			ctx.font = `${label.weight ?? 400} ${label.size ?? 80}px ${label.font_family ?? 'sans-serif'}`;
 			ctx.letterSpacing = `${label.tracking ?? 0}px`;
 			ctx.textBaseline = 'top';
-			ctx.fillText(label.text ?? '', label.x ?? 80, (label.y ?? H - 200) + (1 - easeOutBack(p)) * 24);
+			ctx.fillText(
+				label.text ?? '',
+				label.x ?? 80,
+				(label.y ?? H - 200) + (1 - easeOutBack(p)) * 24,
+			);
 			ctx.restore();
 		}
 		ctx.restore();
