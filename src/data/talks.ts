@@ -93,7 +93,7 @@ export const talks: Talk[] = [
 		date: '2026-10-13',
 		description:
 			'Connecting Meta Muse to Salesforce, NetSuite, ServiceNow and other work apps with CData Connect AI and one custom connector.',
-		videos: ['RxXiOeSHrBA'],
+		videos: ['RxXiOeSHrBA', 'CBkHaIm-K9I'],
 	},
 	{
 		title: 'What Is an AI Gateway? A 60-Second Breakdown',
@@ -1192,7 +1192,7 @@ export const talks: Talk[] = [
 		date: '2019-04-03',
 		description:
 			'Moodlite: open source, 3D-printable light triangles with addressable RGB LEDs, run by a NodeMCU controller you change from any browser.',
-		videos: ['Eje1EPiiI5M', 'I2yMKgKkKvk'],
+		videos: ['Eje1EPiiI5M'],
 	},
 	{
 		title: 'IoT and JS(?!): A Gentle Introduction to the Internet of Things',
@@ -1218,7 +1218,7 @@ export const talks: Talk[] = [
 		kind: 'talk',
 		event: 'YouTube',
 		date: '2019-03-01',
-		videos: ['FB4JQPUS9Bs', 'pX0F4eJb4lM'],
+		videos: ['FB4JQPUS9Bs'],
 	},
 	{
 		title: 'UX + Engineering: How to Collaborate Together Better',

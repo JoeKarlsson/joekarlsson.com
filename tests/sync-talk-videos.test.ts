@@ -44,6 +44,7 @@ describe('toTalkVideo', () => {
 	it('skips playlists and folders the page does not embed', () => {
 		expect(toTalkVideo({ ...info, _type: 'playlist' }, 'Talks/2021/x.info.json')).toBeNull();
 		expect(toTalkVideo(info, 'TikTok/x.info.json')).toBeNull();
+		expect(toTalkVideo({ ...info, id: 'UteuCkkTHvo' }, 'Talks/2019/x.info.json')).toBeNull();
 	});
 });
 

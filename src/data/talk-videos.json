@@ -110,16 +110,6 @@
 		"backup": "Talks/2019/2019-03-01 - YouTube - A Gentle Introduction to Async-Await/2019-03-01 - YouTube - A Gentle Introduction to Async-Await [FB4JQPUS9Bs].mkv"
 	},
 	{
-		"id": "pX0F4eJb4lM",
-		"title": "A Gentle Introduction to Async Await",
-		"channel": "Joe Carlson",
-		"owner": "joe",
-		"kind": "talk",
-		"date": "2019-03-01",
-		"durationSeconds": 2845,
-		"backup": "Talks/2019/2019-03-01 - YouTube - A Gentle Introduction to Async-Await/2019-03-01 - YouTube - A Gentle Introduction to Async-Await [pX0F4eJb4lM].mkv"
-	},
-	{
 		"id": "6z4g27TSO5I",
 		"title": "Building High Performance React Applications",
 		"channel": "Full Stack Toronto",
@@ -138,16 +128,6 @@
 		"date": "2019-04-03",
 		"durationSeconds": 36,
 		"backup": "Tutorials & Demos/2019/2019-04-03 - YouTube - Moodlite Demo/2019-04-03 - YouTube - Moodlite Demo [Eje1EPiiI5M].mkv"
-	},
-	{
-		"id": "I2yMKgKkKvk",
-		"title": "Moodlite",
-		"channel": "Joe Carlson",
-		"owner": "joe",
-		"kind": "video",
-		"date": "2019-04-03",
-		"durationSeconds": 5,
-		"backup": "Tutorials & Demos/2019/2019-04-03 - YouTube - Moodlite Demo/2019-04-03 - YouTube - Moodlite Demo [I2yMKgKkKvk].mkv"
 	},
 	{
 		"id": "jB5CtGIADJ0",
@@ -868,6 +848,16 @@
 		"date": "2026-09-25",
 		"durationSeconds": 77,
 		"backup": "Tutorials & Demos/2026/2026-09-25 - CData Software - What Is an AI Gateway - A 60-Second Breakdown/2026-09-25 - CData Software - What Is an AI Gateway - A 60-Second Breakdown [679ms5EIgz8].mkv"
+	},
+	{
+		"id": "CBkHaIm-K9I",
+		"title": "How to connect Meta Muse to Salesforce, NetSuite, ServiceNow, and more!",
+		"channel": "Joe Carlson",
+		"owner": "joe",
+		"kind": "video",
+		"date": "2026-10-08",
+		"durationSeconds": 178,
+		"backup": "Tutorials & Demos/2026/2026-10-08 - YouTube - How to Connect Meta Muse to Salesforce, NetSuite, ServiceNow, and More/2026-10-08 - YouTube - How to Connect Meta Muse to Salesforce, NetSuite, ServiceNow, and More [CBkHaIm-K9I].mkv"
 	},
 	{
 		"id": "RxXiOeSHrBA",

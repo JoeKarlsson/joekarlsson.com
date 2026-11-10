@@ -10,6 +10,22 @@ import path from 'node:path';
 const DEFAULT_ROOT = '/Volumes/data/media/My Videos';
 const OUT_FILE = 'src/data/talk-videos.json';
 const JOE_CHANNEL_ID = 'UCWUGSN8Bb_c2QwPUfYmHwNA';
+// Archived on the NAS but not talks: duplicate uploads of a talk already listed, CascadiaJS 2019
+// proposal pitches, and side-project demos Joe doesn't want on /talks/
+export const NOT_ON_TALKS = new Set([
+	'UteuCkkTHvo', // Byteconf JavaScript 2019, older copy of ur3H2yZ8XHE
+	'ZnVd3UCyVAU', // Web Rebels 2018, copy of JNs1ZvRzOYM
+	'SKF1XI12qMI', // Node.js 2018, copy of xJYOipHkwNM
+	'NWzxIF7h0mI', // CascadiaJS 2019 proposals
+	'WEB9BAB--BY',
+	'UBuouIu8zy0',
+	'LW4alOKZCC8',
+	'HVgx9DXKRkg', // StreamRoll
+	'1OuDyDdTDFw', // Cloud Code demo
+	'pX0F4eJb4lM', // A Gentle Introduction to Async Await, deleted duplicate of FB4JQPUS9Bs
+	'I2yMKgKkKvk', // Moodlite, deleted duplicate of Eje1EPiiI5M
+]);
+
 const KIND_BY_FOLDER = {
 	Talks: 'talk',
 	Podcasts: 'podcast',
@@ -21,6 +37,7 @@ const KIND_BY_FOLDER = {
 export function toTalkVideo(info, relativePath) {
 	const kind = KIND_BY_FOLDER[relativePath.split('/')[0]];
 	if (!kind || info._type === 'playlist' || !/^[\w-]{11}$/.test(info.id ?? '')) return null;
+	if (NOT_ON_TALKS.has(info.id)) return null;
 	const date = info.upload_date;
 	return {
 		id: info.id,
