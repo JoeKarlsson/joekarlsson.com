@@ -49,6 +49,10 @@ Pick any book off the shelf, or open the read page and drop in a .txt file of yo
 
 People have counted this by hand for a long time. In 1893 Lucius Sherman tallied words per sentence in English prose and got 41.4 for Richard Hooker (1590s) against 22.5 for Thomas Macaulay's _Essay on History_ (1828) [[Sherman 1893, p. 259]](https://archive.org/details/analyticsofliter00sheruoft). Lewis did the same and got roughly the same answer. The current headline version is Babbel's 2025 press release, built on Google Ngram data, which says British books went from one semicolon every 90 words in 1781 to one every 390 in 2022 [[Babbel 2025]](https://www.babbel.com/press/en-gb/releases/semicolon).
 
+![A page from Lucius Sherman's 1893 Analytics of Literature: a table of words per sentence in each of five hundred-sentence stretches, averaging 63.02 for Fabyan, 49.82 for Spenser, 41.40 for Hooker and 22.45 for Macaulay](/images/blog/sentence-length-semicolons-punctuation/sherman-1893-table.webp)
+
+_Lucius Sherman's hand count of words per sentence, Analytics of Literature, 1893, p. 259 ([Internet Archive](https://archive.org/details/analyticsofliter00sheruoft/page/259/mode/1up))._
+
 The punctuation objection has been around nearly as long. Douglas Biber and Susan Conrad point to "a much more extensive use of colons and semicolons in earlier historical periods" [[Biber and Conrad 2009, in Rudnicka 2018]](https://arxiv.org/abs/2502.04321). Karolina Rudnicka's 2018 chapter reviews both sides with data from the Corpus of Historical American English, and it's where I'd start if you want the literature.
 
 One detail in Rudnicka's review set up the test for me. Ingrid Westin, who studied 20th-century newspaper editorials, reported that counting sentences two ways, once ending them only at periods and once at semicolons and colons too, gave almost the same pattern over time (Westin 2002, as summarized by Rudnicka). That's what you'd expect if punctuation mattered once and then stopped mattering: by 1900 hardly anyone was using enough semicolons to change the count. So if sentences glued together with semicolons explain some of the decline, the two ways of counting should sit far apart before 1800 and meet once the semicolon dies out.
@@ -69,6 +73,10 @@ I measure from 1700-49, the peak, not from Lewis's Elizabethans. Nine of the she
 Here's what one of those glued sentences looks like, punctuated the way the first edition of Adam Smith's _The Wealth of Nations_ printed it in 1776 [[Smith 1776, vol. 2]](https://archive.org/details/inquiryintonatur02smit_0). Most writers today would make it three. Checking this example against the first edition is also how I found that Gutenberg's copy of the same book adds semicolons Smith never printed (more under Limitations).
 
 ![Paper collage on hot pink: a printed strip of Adam Smith's 1776 sentence "A shepherd has a great deal of leisure; a husbandman, in the rude state of husbandry, has some; an artificer or manufacturer has none at all" is cut by a pair of old iron shears at each semicolon. Each semicolon's top dot and tail fall away, leaving a period, and pasted-in words "A" and "An" start the new sentences. The label reads: Same words. Three sentences.](/images/blog/sentence-length-semicolons-punctuation/scissors-cut.svg)
+
+![A scan of the 1776 first edition of The Wealth of Nations, in its original long-s type: "A shepherd has a great deal of leisure; a husbandman, in the rude state of husbandry, has some; an artificer or manufacturer has none at all."](/images/blog/sentence-length-semicolons-punctuation/smith-1776-shepherd.webp)
+
+_The same sentence in the first edition of The Wealth of Nations, London, 1776, vol. 2 ([Internet Archive](https://archive.org/details/inquiryintonatur02smit_0))._
 
 That 47% assumes every semicolon and colon joins two clauses that could each stand alone as a sentence, and they don't. Plenty of semicolons separate items in a long list, and plenty of colons just introduce a quotation.
 
@@ -128,6 +136,10 @@ For comparison, Darmon and colleagues reached 62-72% across 651 authors using th
 
 Dickens goes 0 for 20. His books get taken for Robert E. Howard, the pulp writer who created Conan the Barbarian, seven times, plus Dumas three times and Dostoyevsky twice. _The Pickwick Papers_, _Nicholas Nickleby_, _The Old Curiosity Shop_ and _David Copperfield_ all go to Howard. My guess is range: Dickens wrote in so many registers that his average fits none of his books well, but I haven't tested that. Oscar Wilde, who wrote plays, essays, a novel and fairy tales, is 0 of 14.
 
+![Charles Dickens in his fifties, bearded, in a dark coat, photographed in profile](/images/blog/sentence-length-semicolons-punctuation/dickens-gurney.webp)
+
+_Charles Dickens, photographed by Jeremiah Gurney around 1867 ([Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dickens_Gurney_head.jpg))._
+
 ![Charles Dickens is 0 of 20: going by punctuation alone, none of his 20 books is matched to him. Each book flies from his shelf to the author it was taken for: Robert E. Howard 7, Alexandre Dumas 3, Fyodor Dostoyevsky 2, and one each to Jules Verne, Robert Louis Stevenson, Homer, Edgar Allan Poe, Jacob Grimm, Leo Tolstoy, John Milton and Bertrand Russell.](/images/blog/sentence-length-semicolons-punctuation/chart-dickens.svg)
 
 No single mark carries the signature. Leave any one mark out of the fingerprint and accuracy drops by about 3 points at most. The period matters most (30.9% without it), and double quotes matter least.
@@ -147,6 +159,10 @@ It's an erasure, like the blackout poems I make on paper, except a blackout poem
 I built it to make pictures. Once the shelf held 1,959 books, though, the pictures turned into a dataset, and the dataset could test a claim people have been making since the 1890s.
 
 Counting style is old. Lewis and Sherman counted sentences by hand. Frederick Mosteller and David Wallace used the rates of words like "upon" to argue that Madison wrote the disputed Federalist Papers [Mosteller and Wallace 1964]. John Burrows' Delta made comparing writers by their most common words a standard method [[Burrows 2002]](https://doi.org/10.1093/llc/17.3.267). The Stanford Literary Lab, Ted Underwood and many others took it to whole libraries. The Literary Lab's [pamphlet on style at the scale of the sentence](https://litlab.stanford.edu/LiteraryLabPamphlet5.pdf) opens with its authors disagreeing about whether their own measure captures style at all. In 2015 my sister and I built a [screenplay parser for the Bechdel test](/blog/bechdel-test-script-parser-works) in the same spirit.
+
+![Page 217 of a 1788 edition of The Federalist in long-s type, from the copy Thomas Jefferson owned: a passage arguing that taxes on land unite the interests of the wealthiest landlord and the poorest tenant, with semicolons all through it](/images/blog/sentence-length-semicolons-punctuation/jefferson-federalist.webp)
+
+_A page from Thomas Jefferson's copy of The Federalist, 1788, Library of Congress ([Wikimedia Commons](<https://commons.wikimedia.org/wiki/File:Page_217_from_Thomas_Jefferson%27s_copy_of_The_Federalist_(1788)_LCCN2004665672.jpg>))._
 
 I think art and data analysis together are good ground for this kind of research. Making a picture of a text makes you look at it in a way nobody planned, and that's where you find evidence you weren't looking for, which is the fun part.
 
