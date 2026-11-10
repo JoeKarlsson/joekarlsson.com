@@ -7,12 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 618,
+			"commitCount": 619,
 			"dailyCommitCounts": [
 				32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 119, 76
+				25, 119, 77
 			],
-			"latestCommitMessage": "feat: The sentence-length post shows the real things it cites: the..."
+			"latestCommitMessage": "feat: Punc's project page plays the words-leave collage inside its..."
+		},
+		{
+			"name": "punc",
+			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
+			"url": "https://github.com/JoeKarlsson/punc",
+			"language": "TypeScript",
+			"commitCount": 62,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 9
+			],
+			"latestCommitMessage": "feat: The About page plays the words-leave collage beside the artist..."
 		},
 		{
 			"name": "screencast-director",
@@ -25,17 +36,6 @@
 				42
 			],
 			"latestCommitMessage": "feat: Overlays warn when they reach into a vertical video's captions..."
-		},
-		{
-			"name": "punc",
-			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
-			"url": "https://github.com/JoeKarlsson/punc",
-			"language": "TypeScript",
-			"commitCount": 61,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 8
-			],
-			"latestCommitMessage": "fix: The second coder's prompt note says it couldn't see the..."
 		},
 		{
 			"name": "dotfiles",
