@@ -50,6 +50,16 @@ shipped, 2026-11-10: his own photos, one piece in color, balanced around the cen
 Joe approves at each gate before the next one starts. Show work as files opened on his screen,
 never as paths.
 
+**Every gate is an HTML page he reviews visually, never a markdown file** (2026-11-10: "I
+don't want in Markdown. I want you to make HTML pages for me to review visually"). Write it to
+`<scratchpad>/<slug>-scenes-gate<N>.html`, in the site's look (black ground, pink, chalk, Anton
+and Hanken), and open it in the browser yourself (`open <file>`). At gate 1 each idea is a
+numbered card with a storyboard strip: one small frame per beat (empty field, each piece
+landing, the change, the label, the loop back), drawn as inline SVG on the scene's field color,
+with the claim, the label and the pieces under it. Gate 2 shows the cut elements on the field,
+and gate 3 shows the still, the contact sheet and the preview, all on one page. Number every
+idea so he can answer by number.
+
 ### 1. The idea (nothing made yet)
 
 **An animation is a punctuation mark.** It goes where the post lands a punch: the reveal, the
