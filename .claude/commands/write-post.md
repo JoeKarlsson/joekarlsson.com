@@ -20,6 +20,7 @@ These come from posts Joe sent back. They override defaults elsewhere in this sk
 - **Employer stories stay vague on purpose.** Generic labels ("a docs team at a database company") are fine. Never ask for company, product, team or people names, don't flag the vagueness as an EEAT must-fix, and don't rewrite it as a composite. Get first-hand texture from process details instead. Why: they're real current and past employers, and naming them burns bridges.
 - **Run every phase** for a new post, or a post or project page whose copy changes a lot, even when Joe is iterating fast. Don't draft first and review afterwards. Vale runs as `npm run test:voice` (part of `npm test`). Why: two launch posts skipped the pipeline and shipped headings Joe called "AI-generated slop."
 - **Fix AI tells by cutting or saying it plainly**, never by adding jokes, fragments or feelings.
+- **Open it before asking for approval, at every gate.** Topic pitch, outline, draft, meme pitches, scenes, charts, hero card, final summary: write what Joe is approving to a file and open it on his screen yourself (`code <file>` for markdown, `open <png>` for images, the local page in a browser for anything rendered), then call AskUserQuestion. A chat summary or a question box is not something he can review. Topic and outline go to `<scratchpad>/{slug}-proposal.md` and `<scratchpad>/{slug}-outline.md`. Why: he was asked to approve a topic pitch that was never opened (2026-11-10): "How can I approve something you never opened?"
 
 ### Product posts and project pages
 
@@ -116,7 +117,7 @@ Present the topic to the user with:
 - **Written for** - a post written for an employer (a crosspost) sets `writtenFor` to one of `EMPLOYERS` in the same file; personal posts leave it out
 - **Estimated length** - short (800-1200 words), medium (1500-2500), long (3000+)
 
-Use AskUserQuestion to get approval before proceeding.
+Write the proposal to `<scratchpad>/{slug}-proposal.md`, open it with `code`, then use AskUserQuestion to get approval before proceeding.
 
 ### 1a-ii. Headline test
 
@@ -184,7 +185,7 @@ Use Part A findings to mark link placements in the outline. Save Part B for afte
 
 Before presenting the outline for approval, launch **Agent: `blog-positioning-reviewer`** in **OUTLINE mode** with the research brief and proposed outline. Incorporate its findings - making sure headers say what's in the section (not turning every header into a claim), adding the named frame if one is needed, and adjusting the intro so it leads with the conclusion.
 
-Display the full outline inline (with positioning improvements applied), then use AskUserQuestion:
+Write the full outline (with positioning improvements applied) to `<scratchpad>/{slug}-outline.md`, open it with `code`, then use AskUserQuestion:
 
 - Approve outline
 - Request changes (specify what)
