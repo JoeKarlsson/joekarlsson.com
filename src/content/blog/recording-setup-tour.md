@@ -120,6 +120,8 @@ _October 30: the softbox on my face, and the mood behind me._
 
 The fix was to stop treating the face and the mood as one problem. The ring light is gone. A [NEEWER softbox](https://www.amazon.com/dp/B0CJM6G7JR) is my key light now, and it's there to light my face well enough that the camera is happy. The mood comes from everything behind me: colored LEDs, the 3D printer's lights, and a [NEEWER FL20 spotlight](https://www.amazon.com/dp/B0H38M1N96) with a colored gel that I move around to throw a hard pool of orange on the wall.
 
+![Khaby Lame Shrug meme: Khaby Lame straight-faced next to 'Weeks of colored LEDs, gels and film LUTs to fix my muddy footage', then shrugging with open palms next to 'Turn on the softbox'](/images/blog/recording-setup-tour/meme-khaby-lame-shrug.webp)
+
 ![Wide shot of the recording nook from the corner: the spotlight on its tripod in the foreground, the orange chair, the desk with the LED panel and the Prompter, plants and a striped rug](/images/blog/recording-setup-tour/nook-wide.webp)
 
 _The nook from the corner, with the spotlight on its tripod in front._
