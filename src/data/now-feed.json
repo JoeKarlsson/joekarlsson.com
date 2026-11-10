@@ -7,24 +7,24 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 616,
+			"commitCount": 618,
 			"dailyCommitCounts": [
 				32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 119, 74
+				25, 119, 76
 			],
-			"latestCommitMessage": "docs: /write-post adds public-domain pictures of the paintings, photos..."
+			"latestCommitMessage": "feat: The sentence-length post shows the real things it cites: the..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 304,
+			"commitCount": 306,
 			"dailyCommitCounts": [
 				67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2,
-				40
+				42
 			],
-			"latestCommitMessage": "chore: The edit-screencast skill checks a reaction GIF for its own..."
+			"latestCommitMessage": "feat: Overlays warn when they reach into a vertical video's captions..."
 		},
 		{
 			"name": "punc",
