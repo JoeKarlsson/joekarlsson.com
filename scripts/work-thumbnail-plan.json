@@ -2041,5 +2041,20 @@
 			"color": "chalk"
 		},
 		"motion": "boil"
+	},
+	"sentence-length-semicolons-punctuation": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Hand_met_zethaak,_Bestanddeelnr_254-5235.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Hand_met_zethaak,_Bestanddeelnr_254-5235.jpg"
+		},
+		"look": "flat",
+		"alt": "A compositor's hand holding a composing stick with a line of metal type set in it, loose pieces of type scattered on the table below (Groningen, 1965)",
+		"focus": 0.55,
+		"mark": {
+			"name": "oval",
+			"at": [58, 40, 28, 18],
+			"color": "chalk"
+		},
+		"motion": "boil"
 	}
 }

@@ -1,0 +1,9 @@
+[
+	{
+		"element": "page-*.png, clump-*.png, marks.png",
+		"url": "https://www.gutenberg.org/ebooks/11",
+		"license": "Public domain text; IM Fell English (SIL OFL)",
+		"shows": "Lewis Carroll, Alice's Adventures in Wonderland, chapter 1",
+		"done": "set and torn in code by make-scene.py; marks in site pink"
+	}
+]

@@ -1,0 +1,23 @@
+[
+	{
+		"element": "shears-open.png",
+		"url": "https://commons.wikimedia.org/wiki/File:Scissors_-_public_domain_01.jpg",
+		"license": "CC0 (Oto Zapletal)",
+		"shows": "Shoemaker's shears, blades open",
+		"done": "cut out with collage:cutout, mono, 6px keyline"
+	},
+	{
+		"element": "shears-closed.png",
+		"url": "https://commons.wikimedia.org/wiki/File:Scissors_-_public_domain_03.jpg",
+		"license": "CC0 (Oto Zapletal)",
+		"shows": "The same shears, blades nearly closed",
+		"done": "cut out with collage:cutout, mono, 6px keyline"
+	},
+	{
+		"element": "slip-whole.png, strip-*.png, semicolon-*.png, cap-*.png",
+		"url": "https://archive.org/details/inquiryintonatur02smit_0",
+		"license": "Public domain text; IM Fell English (SIL OFL)",
+		"shows": "Adam Smith, The Wealth of Nations (London: Strahan and Cadell, 1776), vol. 2, book V, chapter 1: one sentence, checked against the first edition and the Project Gutenberg text",
+		"done": "set and torn in code by make-scene.py"
+	}
+]

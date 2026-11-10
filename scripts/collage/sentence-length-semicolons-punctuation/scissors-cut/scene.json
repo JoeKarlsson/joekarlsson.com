@@ -1,0 +1,309 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#FF4FD8",
+		"grain": 0.04
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 17
+	},
+	"duration": 9.5,
+	"elements": [
+		{
+			"image": "elements/slip-whole.png",
+			"x": 966,
+			"y": 461,
+			"enter_at": 0.3,
+			"enter_from": "left",
+			"enter_duration": 0.7,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.28
+			},
+			"moves": [
+				{
+					"at": 2.2,
+					"y": 2400,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/strip-1.png",
+			"x": 966,
+			"y": 371,
+			"enter_at": 2.2,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.28
+			},
+			"moves": [
+				{
+					"at": 2.35,
+					"y": 325.0,
+					"rotation": -1.6,
+					"duration": 0.45
+				}
+			]
+		},
+		{
+			"image": "elements/strip-2.png",
+			"x": 966,
+			"y": 461,
+			"enter_at": 2.2,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.28
+			},
+			"moves": [
+				{
+					"at": 2.35,
+					"y": 461.0,
+					"rotation": 0.8,
+					"duration": 0.45
+				}
+			]
+		},
+		{
+			"image": "elements/strip-3.png",
+			"x": 966,
+			"y": 551,
+			"enter_at": 2.2,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.28
+			},
+			"moves": [
+				{
+					"at": 3.55,
+					"y": 603.0,
+					"rotation": -1.2,
+					"duration": 0.45
+				}
+			]
+		},
+		{
+			"image": "elements/semicolon-top.png",
+			"x": 1182,
+			"y": 376,
+			"enter_at": 2.2,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"moves": [
+				{
+					"at": 2.25,
+					"y": 331.5,
+					"duration": 0.2,
+					"ease": "out"
+				},
+				{
+					"at": 2.45,
+					"x": 1175.953125,
+					"y": 1220,
+					"rotation": -25,
+					"duration": 0.8,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/semicolon-top.png",
+			"x": 1600,
+			"y": 466,
+			"enter_at": 2.2,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"moves": [
+				{
+					"at": 3.4499999999999997,
+					"y": 421.5,
+					"duration": 0.2,
+					"ease": "out"
+				},
+				{
+					"at": 3.65,
+					"x": 1594.34375,
+					"y": 1220,
+					"rotation": -25,
+					"duration": 0.8,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/semicolon-tail.png",
+			"x": 1181,
+			"y": 400,
+			"enter_at": 2.2,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"moves": [
+				{
+					"at": 2.25,
+					"y": 355.5,
+					"duration": 0.2,
+					"ease": "out"
+				},
+				{
+					"at": 2.45,
+					"x": 1189.453125,
+					"y": 1170,
+					"rotation": 40,
+					"duration": 0.8,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/semicolon-tail.png",
+			"x": 1600,
+			"y": 490,
+			"enter_at": 2.2,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"moves": [
+				{
+					"at": 3.4499999999999997,
+					"y": 445.5,
+					"duration": 0.2,
+					"ease": "out"
+				},
+				{
+					"at": 3.65,
+					"x": 1607.84375,
+					"y": 1170,
+					"rotation": 40,
+					"duration": 0.8,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/cap-A.png",
+			"x": 324,
+			"y": 461,
+			"rotation": -4,
+			"enter_at": 4.6,
+			"enter_from": "top",
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 3,
+				"dy": 4,
+				"blur": 4,
+				"opacity": 0.3
+			}
+		},
+		{
+			"image": "elements/cap-An.png",
+			"x": 339,
+			"y": 603,
+			"rotation": 3,
+			"enter_at": 5.05,
+			"enter_from": "top",
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 3,
+				"dy": 4,
+				"blur": 4,
+				"opacity": 0.3
+			}
+		},
+		{
+			"image": "elements/shears-open.png",
+			"x": 1687,
+			"y": 426,
+			"scale": 0.5,
+			"rotation": 180,
+			"enter_at": 1.2,
+			"enter_from": "right",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.28
+			},
+			"moves": [
+				{
+					"at": 2.2,
+					"y": -2400,
+					"duration": 0.01
+				},
+				{
+					"at": 2.9000000000000004,
+					"y": 516,
+					"duration": 0.01
+				},
+				{
+					"at": 3.4,
+					"y": -2400,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/shears-closed.png",
+			"x": 1687,
+			"y": 426,
+			"scale": 0.5,
+			"rotation": 180,
+			"enter_at": 2.2,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.28
+			},
+			"moves": [
+				{
+					"at": 2.9000000000000004,
+					"y": -2400,
+					"duration": 0.01
+				},
+				{
+					"at": 3.4,
+					"y": 516,
+					"duration": 0.01
+				},
+				{
+					"at": 4.0,
+					"x": 2620,
+					"duration": 0.6,
+					"ease": "in"
+				}
+			]
+		}
+	],
+	"label": {
+		"text": "SAME WORDS. THREE SENTENCES.",
+		"font_family": "Anton",
+		"size": 92,
+		"color": "#0B0B0B",
+		"tracking": 3,
+		"x": 960.0,
+		"align": "center",
+		"y": 800,
+		"enter_at": 5.3
+	}
+}

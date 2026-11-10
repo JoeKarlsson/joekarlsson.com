@@ -1,0 +1,513 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#0B0B0B",
+		"grain": 0.03
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 23
+	},
+	"duration": 9.5,
+	"elements": [
+		{
+			"image": "elements/page-whole.png",
+			"x": 966,
+			"y": 476,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.7,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 1.6,
+					"y": -3000,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/page-blank.png",
+			"x": 966,
+			"y": 476,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 4.4,
+					"y": 1980,
+					"rotation": 6,
+					"duration": 0.7,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-00.png",
+			"x": 554,
+			"y": 260,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 1.6755307631698744,
+					"x": 509.390947991375,
+					"y": -260,
+					"rotation": -26.871819093113054,
+					"duration": 0.634386405843276,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-01.png",
+			"x": 993,
+			"y": 260,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 1.7552688291149299,
+					"x": 899.5041377073051,
+					"y": -260,
+					"rotation": 22.823320012585732,
+					"duration": 0.6493058778676697,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-02.png",
+			"x": 1381,
+			"y": 260,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 1.9101989024283619,
+					"x": 1210.4239278631987,
+					"y": -260,
+					"rotation": -16.839535792251333,
+					"duration": 0.6561157446234965,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-03.png",
+			"x": 474,
+			"y": 344,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 2.027850226149553,
+					"x": 295.07812348038567,
+					"y": -260,
+					"rotation": 29.332810272713843,
+					"duration": 0.6116737998060756,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-04.png",
+			"x": 785,
+			"y": 344,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 2.1363401755660156,
+					"x": 850.8265831408517,
+					"y": -260,
+					"rotation": 18.944488092539196,
+					"duration": 0.6401904515037559,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-05.png",
+			"x": 1226,
+			"y": 344,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 2.2391846006044482,
+					"x": 1315.925554232747,
+					"y": -260,
+					"rotation": -5.3295327273543265,
+					"duration": 0.6349883081427292,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-06.png",
+			"x": 564,
+			"y": 428,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 2.337680888426433,
+					"x": 387.00691601983675,
+					"y": -260,
+					"rotation": 39.833191372209654,
+					"duration": 0.6815819856938657,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-07.png",
+			"x": 1008,
+			"y": 428,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 2.5157096325007458,
+					"x": 954.7201807386272,
+					"y": -260,
+					"rotation": -17.32802044409823,
+					"duration": 0.7603782741253583,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-08.png",
+			"x": 1373,
+			"y": 428,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 2.6266643416148447,
+					"x": 1250.6459992178836,
+					"y": -260,
+					"rotation": 38.54175218427186,
+					"duration": 0.6657439264290967,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-09.png",
+			"x": 518,
+			"y": 512,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 2.6976443068745555,
+					"x": 1032.762643311783,
+					"y": -260,
+					"rotation": -12.697087652886381,
+					"duration": 0.7860210867281515,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-10.png",
+			"x": 879,
+			"y": 512,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 2.8625953410795155,
+					"x": 1283.5911087762488,
+					"y": -260,
+					"rotation": -15.292804566664266,
+					"duration": 0.6898151725302931,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-11.png",
+			"x": 1294,
+			"y": 512,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 2.9862139407179495,
+					"x": 1584.2522497177251,
+					"y": -260,
+					"rotation": 14.623995527860131,
+					"duration": 0.788516371485205,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-12.png",
+			"x": 444,
+			"y": 596,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 3.0427439271765557,
+					"x": 475.83780804991096,
+					"y": -260,
+					"rotation": -16.346644366225274,
+					"duration": 0.7453823130924073,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-13.png",
+			"x": 708,
+			"y": 596,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 3.239591532192123,
+					"x": 1208.26150644979,
+					"y": -260,
+					"rotation": -19.697912364281382,
+					"duration": 0.7054573621850165,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-14.png",
+			"x": 994,
+			"y": 596,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 3.2981397086720032,
+					"x": 837.0563143406098,
+					"y": -260,
+					"rotation": -33.18439428407245,
+					"duration": 0.690122527156078,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-15.png",
+			"x": 1343,
+			"y": 596,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 3.451601785489911,
+					"x": 1846.2123079919268,
+					"y": -260,
+					"rotation": 27.162656933215573,
+					"duration": 0.7388039819282142,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-16.png",
+			"x": 445,
+			"y": 680,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 3.5732281211364874,
+					"x": 762.5439706178704,
+					"y": -260,
+					"rotation": 7.858862742530903,
+					"duration": 0.6950933379228517,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/clump-17.png",
+			"x": 718,
+			"y": 680,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 3.68909257026061,
+					"x": 857.029019330967,
+					"y": -260,
+					"rotation": 27.958675274458443,
+					"duration": 0.7171176876804214,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/marks.png",
+			"x": 932,
+			"y": 476,
+			"enter_at": 1.6,
+			"enter_from": "none",
+			"enter_duration": 0.01
+		}
+	],
+	"label": {
+		"text": "ONLY THE INSTRUCTIONS.",
+		"font_family": "Anton",
+		"size": 92,
+		"color": "#F2EEE6",
+		"tracking": 3,
+		"x": 960.0,
+		"align": "center",
+		"y": 852,
+		"enter_at": 5.2
+	}
+}

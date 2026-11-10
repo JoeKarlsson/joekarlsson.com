@@ -938,9 +938,12 @@ export function createFigure({ id, width, height }) {
 		);
 	}
 
-	/** SVG markup the kit has no part for, on top of everything: an animated figure's moving pieces. */
-	function raw(markup) {
-		layers.callouts.push(markup);
+	/**
+	 * SVG markup the kit has no part for: an animated figure's moving pieces, on top of
+	 * everything, or with layer 'groups' something that sits under the text (a chart's panel).
+	 */
+	function raw(markup, layer = 'callouts') {
+		layers[layer].push(markup);
 	}
 
 	function toString(label) {
