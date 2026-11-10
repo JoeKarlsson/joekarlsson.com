@@ -34,10 +34,8 @@ const { title, wordRatio, featured, decorativeMedia = false } = Astro.props;
 			color={CHALK}
 			duration="9s"
 			delay="0.6s"
-			class="-top-[6%] -right-[3%] z-10 hidden h-[12%] w-[18%] md:block"
+			class="-top-[9%] -right-[3%] z-10 hidden h-[9%] w-[18%] md:block"
 		/>
-		<!-- Phones show the page's name first, then the band -->
-		<FeaturedBand {...featured} class="max-md:order-last" />
 		<div class="relative flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-5 md:p-7">
 			<Scribble
 				{...MARKS.hatch}
@@ -70,5 +68,7 @@ const { title, wordRatio, featured, decorativeMedia = false } = Astro.props;
 				</h1>
 			</div>
 		</div>
+		<!-- After the panel, so the page's name is read first; wider screens show it on top -->
+		<FeaturedBand {...featured} class="md:order-first" />
 	</div>
 </header>

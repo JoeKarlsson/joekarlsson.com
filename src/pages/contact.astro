@@ -40,10 +40,10 @@ const track = (platform: string) =>
 			title="Contact"
 			wordRatio={3.2}
 			featured={{
-				label: 'Newsletter',
+				label: 'Latest',
 				title: newestIssue.data.title,
 				href: `/newsletter/${newestIssue.data.slug}/`,
-				meta: `Latest issue, ${formatDate(newestIssue.data.date)}`,
+				meta: `Newsletter, ${formatDate(newestIssue.data.date)}`,
 			}}
 		>
 			<div slot="media" class="relative z-10 aspect-[4/3] md:aspect-auto md:min-h-[420px]">

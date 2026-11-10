@@ -146,7 +146,7 @@ const AROUND_THE_HOUSE = [
 				color={CHALK}
 				duration="9s"
 				delay="0.6s"
-				class="top-[3%] -right-[12%] h-[12%] w-[26%]"
+				class="top-[3%] -right-[8%] h-[12%] w-[26%]"
 			/>
 			<Scribble
 				{...MARKS.lines}
@@ -164,14 +164,6 @@ const AROUND_THE_HOUSE = [
 			/>
 		</div>
 		<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
-			<!-- Phones show my name first, then the band -->
-			<FeaturedBand
-				label="Featured"
-				title={featuredPost.data.title}
-				href={featuredPost.href}
-				meta={formatDate(featuredPost.data.date)}
-				class="max-md:order-last"
-			/>
 			<div class="flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
 				<!-- My name first, then what I do underneath it -->
 				<div class="@container">
@@ -199,6 +191,14 @@ const AROUND_THE_HOUSE = [
 					I run developer marketing, from the docs and demos to the talks and videos.
 				</p>
 			</div>
+			<!-- After the panel, so my name is read first; wider screens show it on top -->
+			<FeaturedBand
+				label="Featured"
+				title={featuredPost.data.title}
+				href={featuredPost.href}
+				meta={formatDate(featuredPost.data.date)}
+				class="md:order-first"
+			/>
 		</div>
 	</section>
 

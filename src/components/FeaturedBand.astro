@@ -21,12 +21,12 @@ const { label, title, href, meta, class: className } = Astro.props;
 		className,
 	]}
 >
-	<span class="shrink-0 font-display text-[clamp(40px,4.4vw,64px)] leading-none uppercase">
+	<span class="shrink-0 font-display text-[clamp(40px,4vw,56px)] leading-none uppercase">
 		{label}
 	</span>
-	<!-- At least 12em wide: beside a long label it drops onto its own line rather than
+	<!-- At least 11em wide: beside a long label it drops onto its own line rather than
 	stacking a word per line -->
-	<span class="min-w-[min(12em,100%)] flex-1 text-[clamp(17px,1.5vw,22px)] leading-tight font-extrabold text-balance">
+	<span class="min-w-[min(11em,100%)] flex-1 text-[clamp(17px,1.5vw,22px)] leading-tight font-extrabold text-balance">
 		<span class="decoration-2 underline-offset-4 group-hover:underline group-focus-visible:underline">
 			{title}
 		</span>
