@@ -1,139 +1,109 @@
 ---
 name: explainers
-description: Storyboard, test and build animated scenes for joekarlsson.com posts and pages - stick figures, cut-paper puppets, props and Joe's own scribbles acting out a moment from the post, in the site's crayon-and-torn-paper look. Use in /write-post's storyboard phase, or when Joe asks for an animation, an animated explainer or "make this move".
+description: Make paper-collage stop-motion explainers for joekarlsson.com posts and Joe's videos, the pasteup look - a flat color field, black-and-white cut-out photos with a paper keyline and soft shadow, built from empty one piece at a time on twos, with a real-type label last. Use in /write-post's animation phase, or when Joe asks for an animation, an animated explainer, a collage, a Vox-style clip, b-roll for a video, or "make this move".
 ---
 
-# Animated explainers
+# Collage explainers
 
-An explainer is a moment in a post that lands better moving than still, acted out as a
-drawn scene: stick figures, cut-paper puppets, props and Joe's own scribbles doing the
-thing the post describes. It shares the site's design language (crayon, torn paper, tape,
-pink and black, the stepped boil), not the diagrams' look.
+The look is [pasteup](https://github.com/tmoody1973/pasteup)'s: one flat bold color field,
+black-and-white cut-outs with a clean cut and a thin white paper keyline, a soft drop shadow
+that lifts each piece off the field, one sharp idea per scene, and motion that builds the frame
+piece by piece instead of wobbling a finished image. Joe picked it on 2026-11-10 after
+rejecting diagrams played step by step, crayon stick figures, and a slick GSAP piece with
+serif headlines and glass cards. The wobble on twos is the point: it matches the site's paper.
 
-**An explainer is not a diagram.** Boxes, arrows, logos and labelled layers belong to the
-`diagrams` skill. Playing a diagram one step at a time is still a diagram, and Joe rejected
-exactly that for the Doom post: "You're just copying my diagrams. I want to think bigger
-than that." If a board's frames could pass for a figure from the diagrams skill, redraw it
-as a scene: who is in it, where are they, and what do they do?
+Everything is code and free: no image or video model. The rules come from 15 audited repos,
+vendored in `vendor/` (licenses and commits in `vendor/SOURCES.md`); `references/craft.md` is
+the merged rulebook. Read it before the first scene of a session.
 
-Each one goes
-through the same four gates: pick the moment, storyboard it, test its hardest second,
-build it. Joe approves the storyboard before any build work starts, and nothing ships
-without a still fallback.
+## The tools
 
-## 1. Pick the moments
+| Step | Command |
+|---|---|
+| Cut an element out of a photo | `npm run collage:cutout -- <in> <out.png> [--tone mono\|pink\|none] [--keyline 6] [--width 900] [--person]` |
+| Preview a scene in a browser | `npm run collage -- <scene.json> --preview <scratchpad>/x.html` |
+| The finished frame | `npm run collage -- <scene.json> --still <scratchpad>/x.png` |
+| A post's copy | `npm run collage -- <scene.json> --post public/images/blog/<slug>/<name>` |
+| A video (full size) | `npm run collage -- <scene.json> --out <file>.mp4` |
 
-Name each section's one claim in plain words, then find the scene in it: a person, an
-animal or a thing doing something the reader can picture. The best moments are already
-in Joe's own lines: "everyone learned to wave their arms like they were landing a plane",
-"nothing kills a movie like the kitchen lighting up because you went for popcorn". Posts
-about software still have scenes: the agent as a character walking into a locked door,
-the server as a bouncer, a request as a courier who arrives too late. Pick two or three
-per post at most, and never one for decoration.
+- `scripts/collage/cutout.mjs` lifts the subject with Apple Vision (the `subject` mode of
+  `scripts/youtube-thumbnail-cutout.swift`; `--person` for people only), hardens the edge,
+  tones it, and adds the keyline. No shadow and no background go into the element.
+- `scripts/collage/collage.cjs` is pasteup's `assemble.py` ported to a canvas: same scene.json
+  schema (`vendor/tmoody1973__pasteup/skills/pasteup/references/motion-recipes.md`), with one
+  change: the label takes `font_family` (a Google Fonts family, Anton by default for the site)
+  instead of a TTF path. `tests/collage.test.ts` covers the motion math.
+- `scripts/collage/render.mjs` draws each pose in headless Chromium and encodes with ffmpeg.
+  `--post` writes `<name>.mp4` (1280 wide), `<name>.webp` and `<name>-poster.webp`; the post
+  references `<name>.webp` and `src/plugins/rehype-gif-video.mjs` plays the clip in its place,
+  in view, muted, with controls, poster first. Reduced motion and the pause button get the
+  finished frame (`src/scripts/in-view-play.ts`). No new site code.
 
-Ways to stage it (vary them across a post):
+Scenes live in `scripts/collage/<slug>/<scene>/` (`scene.json`, `elements/`,
+`sources.json`); originals in `media-sources/collage/<slug>/` (git-ignored). Copy
+`scripts/collage/best-home-assistant-automations/landing-the-plane/`.
 
-1. **Stop-motion scene.** Characters and props acted out frame by frame, each frame its
-   own drawing on `steps()`. The default.
-2. **Then and now.** The same scene twice: how it went wrong, then the fix.
-3. **Physics.** Characters or props fall, pile up and collide. For overload and sorting
-   many things.
-4. **Toy.** The reader drags or slides something in the scene (the time of day, the number
-   of guests) and the characters react.
-5. **Wipe.** Before and after behind a `clip-path` reveal, for a redesign or refactor.
+## The gates
 
-## 2. Storyboard
+Joe approves at each gate before the next one starts. Show work as files opened on his screen,
+never as paths.
 
-One board per moment in `scripts/storyboards/<slug>/<nn-name>.mjs`. Copy the shape of
-`scripts/storyboards/best-home-assistant-automations/`. A board exports:
+### 1. The idea (nothing made yet)
 
-- `board`: `title`, `section` (the heading it sits under), `form`, `claim` (what the reader
-  should get, one or two sentences), `trigger`, `library`, `still`, `test`.
-- `frames`: 4-6 keyframes, each `{ at, note, draw(f) }`. `at` is a time (`0.5s`) or a step
-  (`Step 3`); `note` says in one line what moves. Drawn at 640 wide, 360 tall by default.
-- `phone`: `{ note, height, draw(f) }`, the still that phones, reduced motion and the pause
-  button get, drawn at 360 wide as its own layout.
-- `kit = 'sketch'`, and `board.look`: `crayon` (chalk crayon on black), `puppet` (cut-paper
-  strips pinned at the joints) or `sketchbook` (black crayon on a taped-in chalk page).
+For each moment, one short block:
 
-Frames draw with the scene kit, `scripts/storyboards/sketch.mjs`: `figure(x, y, pose)`
-(poses in `POSES`: stand, sit, walk, wave, carry...; `facing: -1` mirrors), props (`lamp`
-with a light level, `couch`, `tv`, `cat`, `sensor`, `counter`, `popcorn`), `chip` for a
-caption on a torn pink scrap, and `mark` for any of Joe's traced scribbles in
-`src/data/scribbles.ts` (face, devil, cloud, spiral, star...). Add a prop or pose to the
-kit when a scene needs one; keep it drawn the same crayon way. Pink marks what the reader
-should watch in that frame: the light, the sensor seeing, the thing that changed. Every
-fact in a frame (numbers, timings, what happens) comes from the post.
+1. **The claim** in one sentence, from the post.
+2. **The object that does it.** Find a made, everyday object or scene that performs the
+   claim, the way a turnstile does "one at a time" (`craft.md`, Story). Joe's own lines are
+   often already the picture: "everyone learned to wave their arms like they were landing a
+   plane".
+3. **The pieces**: 3-6 cut-outs, each with where it comes from.
+4. **Field and accent**: the background hex (site pink `#FF4FD8`, black, chalk, or one bold
+   color that means something) and at most one accent.
+5. **Assembly order**: structure first, then the figure or key piece, then what connects them,
+   then the action, then the result, label last.
+6. **The label**: the fewest words that still carry the claim. Run the deletion test on every
+   word.
 
-For a new post, or when the look is still open, start with a look sheet: a board with
-`pick: true` drawing one frame in each look (`look` per frame). Joe picks the look before
-the rest of the boards are drawn in it.
+Two or three moments per post. Never one for decoration.
 
-```bash
-npm run storyboard -- <slug> <scratchpad>/<slug>-storyboards.html
-```
+### 2. The elements
 
-It fails on text running off a frame or phone text under 13px. Fix the layout, never the
-check. Then look at it yourself before Joe does: screenshot the page with headless Chrome
-(`--headless=new --window-size=1300,9000 --screenshot=...`), crop it with ffmpeg, Read the
-crops, and fix anything sitting on a label. Then open it for Joe (`open -a Firefox <file>`)
-and ask, by board number, whether to approve, change a frame or cut it. Don't build
-anything a board hasn't been approved for. Check every board against the rule above: no
-frame should look like a diagram.
+Sources, in this order:
 
-Every board follows these rules:
+1. **Joe's own photos and footage** (Immich, `media-sources/`, the video archive on the NAS).
+   Joe picks any frame with his face in it.
+2. **Public-domain and CC0 archives**: the Met's open access (studio shots on plain grounds,
+   ideal to cut), NASA, the Library of Congress, Wikimedia Commons. Search Commons as in
+   `.claude/rules/metaphor-thumbnails.md` and confirm the license on the file page. Old photos
+   of whole scenes work: cut one subject out of each.
+3. An image model only if Joe asks and has set a key. Pasteup's Gemini route is vendored
+   (`generate_element.py`) but not wired in.
 
-1. **The reader starts it** with Play, Next or a control. It never starts on page load or
-   on scroll. (Decoration that draws itself once may start when scrolled into view, as in
-   `~/.claude/knowledge/web-motion.md`, but that isn't an explainer.)
-2. **The last frame holds the whole point by itself.** It's usually the still.
-3. **Stepped timing** (8-12fps, `steps()`) for anything that moves. Smooth easing is only
-   for the controls, per web-motion.md.
-4. **Words hold still:** captions don't wobble or slide while being read.
-5. **Every board has a still.** Phones, `prefers-reduced-motion`, the pause button, Save-Data
-   and 2g/3g connections all get it. A "then and now" pair stacked in two panels makes a
-   good still.
+Record every source in the scene's `sources.json` (url, license, what it shows, what was done
+to it). Cut each with `npm run collage:cutout`, then show Joe a contact sheet of the elements
+on the field color. Recut or swap any with a broken matte (hair, glass, smoke): don't ship one.
 
-## 3. One-second test
+### 3. The scene and its approval still
 
-For each approved board, build only the effect named in `test`, about one second of it,
-as a standalone page in the scratchpad: the real library, real kit SVG parts and the
-real timing. Check it at 1280 and 390 wide, and open it for Joe. Iterate on the motion
-here, where it's cheap, and not in the post.
+Write `scene.json` (pasteup's choreography defaults: one piece at a time 0.35-0.6 s apart,
+each slides in from its nearest edge and snaps with about 8% overshoot, on twos, the label
+last, then at least 1.2 s of the finished frame still breathing). Render `--still` and
+`--preview` and a contact sheet of the build (first frame, every landing, last frame), check
+it against `craft.md`'s QA list, and open them for Joe.
 
-## 4. Build
+### 4. Build and ship
 
-- **Library, in this order:** CSS `steps()` and the Web Animations API; then
-  [Anime.js](https://animejs.com/) for timelines you need to seek (a toy's slider,
-  Replay from the middle) and characters moving together; then [Matter.js](https://brm.io/matter-js/) for
-  physics. Install with npm under `.claude/rules/dependencies.md` and import it only from
-  the explainer's own module, so it's split out and loads on the post that uses it, and
-  not before the reader presses Play. Physics never loads on a phone.
-- **Markup:** every drawing comes from the same `sketch.mjs` code as the approved board,
-  rendered to SVG at build time: the still inline in the post, the other drawings beside
-  it. The animation module goes in `src/scripts/explainers/<slug>-<name>.ts` and swaps
-  drawings on `steps()`, so a failed script leaves the still. The first explainer built defines how a
-  post loads its module: write that convention into this section when it lands.
-- **Motion gates:** use `mayBoil()` from `src/utils/paper-hero-motion.ts` to decide whether
-  motion plays, and respect `isMotionPaused()` and `MOTION_RESUMED_EVENT` from
-  `src/scripts/pause-motion.ts`.
-- **Review:** build the post, run the `motion-reviewer` and `design-reviewer` agents on
-  it, and fix their High and Medium findings. `deploy.sh`'s phone smoke test
-  (`scripts/smoke-phone.mjs`) has to pass.
-- When the explainer ships, delete its board file. The explainer is now the record.
+`--post` into the post's image folder and reference the still in the markdown with real alt
+text, under the paragraph it shows. For a video, `--out` at full size; a vertical cut is the
+same scene with a 1080x1920 canvas and new positions. Build the post, run the
+`motion-reviewer` and `design-reviewer` agents on it, and fix High and Medium findings.
 
-## Libraries looked at (2026-11-10)
+## Not built yet
 
-From a "Claude Motion Tips" list of open-source effects:
+Ask before building any of these; each is a real gap, not a nice-to-have:
 
-| Library        | Verdict                                                                                  |
-| -------------- | ---------------------------------------------------------------------------------------- |
-| Anime.js       | Use for choreography: timelines that seek, staggers, SVG line draws.                     |
-| Matter.js      | Use for physics moments, desktop only, loaded on Play.                                   |
-| Rough.js       | Untested. Might add hatching to the kit at build time; compare one side by side first.   |
-| p5.brush       | Offline only, to make textures. Too heavy to run on the page.                            |
-| PixiJS filters | No. WebGL, heavy, generic glitch and glow, and it fights the site's own halftone.         |
-| thinking-orbs  | No. Glowing AI orbs are the stock look the site avoids.                                  |
-
-The same page's 400-video gallery of Claude-made motion is worth browsing for a reveal or
-a timing pattern. The one-second test above comes from its "test one second first" tip.
+- Several scenes cut together, with transitions carried by an object (`craft.md`, Sequences).
+- Camera push and parallax across depth layers (Vox does this; pasteup locks the field).
+- A halftone treatment for elements (optional: mono reads as print already).
+- Narration and sound, and timing scenes to them.

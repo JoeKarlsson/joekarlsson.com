@@ -30,6 +30,8 @@ export default [
 			'.lighthouseci/',
 			'scripts/',
 			'.claude/worktrees/',
+			// Third-party files copied unchanged, under their own licenses (SOURCES.md)
+			'.claude/skills/*/vendor/',
 			// Git-ignored originals and one-off render scripts (.gitignore); never shipped
 			'media-sources/',
 		],

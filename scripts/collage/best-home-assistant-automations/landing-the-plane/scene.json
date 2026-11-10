@@ -1,0 +1,59 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#FF4FD8",
+		"grain": 0.04
+	},
+	"cadence": { "hold_frames": 2, "jitter_px": 1.5, "jitter_deg": 0.4, "seed": 11 },
+	"duration": 5.5,
+	"elements": [
+		{
+			"image": "elements/couch.png",
+			"x": 620,
+			"y": 790,
+			"scale": 1.05,
+			"rotation": -1.5,
+			"enter_at": 0.5,
+			"enter_from": "left",
+			"enter_duration": 0.6,
+			"shadow": { "dx": 10, "dy": 12, "blur": 10, "opacity": 0.32 }
+		},
+		{
+			"image": "elements/lamp.png",
+			"x": 1480,
+			"y": 600,
+			"scale": 0.82,
+			"rotation": 2,
+			"enter_at": 1.05,
+			"enter_from": "top",
+			"enter_duration": 0.55,
+			"shadow": { "dx": 10, "dy": 12, "blur": 10, "opacity": 0.32 }
+		},
+		{
+			"image": "elements/guest.png",
+			"x": 1060,
+			"y": 640,
+			"scale": 1.1,
+			"enter_at": 1.65,
+			"enter_path": [
+				[1500, 1500],
+				[1180, 360]
+			],
+			"enter_spin": 25,
+			"enter_duration": 0.6,
+			"shadow": { "dx": 7, "dy": 8, "blur": 6, "opacity": 0.38 }
+		}
+	],
+	"label": {
+		"text": "LANDING THE PLANE",
+		"font_family": "Anton",
+		"size": 132,
+		"color": "#0A0A0A",
+		"tracking": 4,
+		"x": 110,
+		"y": 80,
+		"enter_at": 2.5
+	}
+}

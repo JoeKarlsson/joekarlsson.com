@@ -185,9 +185,9 @@ Display the full outline inline (with positioning improvements applied), then us
 
 Do NOT proceed without approval.
 
-### 2c. Storyboard the animations
+### 2c. Plan the collage scenes
 
-Once the outline is approved, run the project `explainers` skill (Skill tool) on it. Pick two or three moments that are scenes someone can picture (a guest waving at the lights, an agent walking into a locked door) and storyboard each as 4-6 keyframes with `npm run storyboard`: stick figures, cut-paper puppets and props in the site's crayon look. They are never diagrams; boxes and arrows belong to the `diagrams` skill. Open the boards for Joe and get an approve, change or cut on each, by number. Approved boards get their one-second test while you draft, and are built before Phase 6, so the reviewers see the real thing. If no section has a scene in it, say so and skip this phase. Why: Joe wants posts to move as more than boiling diagrams, to see every animation as a storyboard before it gets built, and rejected storyboards that were just his diagrams playing step by step (2026-11-10).
+Once the outline is approved, run the project `explainers` skill (Skill tool) on it. Pick two or three moments that are scenes someone can picture (a guest waving at the lights, an agent walking into a locked door) and take each through the skill's gates: the idea (claim, the everyday object that does it, 3-6 pieces, field color, assembly order, label), then the cut-out elements, then an approval still. Joe approves each gate by number. They are paper-collage stop motion in the pasteup look, never diagrams; boxes and arrows belong to the `diagrams` skill. Approved scenes are rendered into the post (`npm run collage -- <scene.json> --post ...`) before Phase 6, so the reviewers see the real thing. If no section has a scene in it, say so and skip this phase. Why: Joe wants posts to move as more than boiling diagrams, rejected diagram step-throughs, crayon stick figures and a slick serif-and-glass-card mock, and picked pasteup's collage look (2026-11-10).
 
 ---
 
@@ -395,7 +395,7 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 
 **Diagrams:** Never draw a diagram as ASCII in a code block. Architecture maps, wiring, network topologies, before/after comparisons and flow charts all go through the project `diagrams` skill (Skill tool), which draws them as cut-paper SVGs with real logos, a phone layout and the site's boil on arrows and paper edges. Preview the figure with Joe before it goes in the post. Why: the recording-setup-tour post shipped with an ASCII wiring diagram, and Joe asked for it to be replaced with an animated, boiling one (2026-11-09).
 
-**Animated explainers:** the boards approved in Phase 2c get built through the `explainers` skill and sit under the paragraph whose claim they show. Each has a still, which is what phones and reduced motion get.
+**Animated explainers:** the collage scenes approved in Phase 2c sit under the paragraph whose claim they show, referenced by their still (`![alt](/images/blog/{slug}/<scene>.webp)`); the `.mp4` beside it plays in its place. The still is what reduced motion and the pause button get.
 
 **Placement:** Alternate between photos, memes, and diagrams throughout the post. Place them at natural section breaks. Never have more than 3-4 paragraphs of prose without a visual element.
 

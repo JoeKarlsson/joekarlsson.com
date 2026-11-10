@@ -1,0 +1,23 @@
+[
+	{
+		"element": "elements/couch.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Couch_MET_DP171106.jpg",
+		"license": "CC0 (The Metropolitan Museum of Art, Open Access)",
+		"shows": "An American Empire couch, about 1830, photographed on a plain grey ground",
+		"derivative": "subject lifted with Apple Vision, toned black and white, 6 px paper keyline (npm run collage:cutout -- --width 820)"
+	},
+	{
+		"element": "elements/lamp.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Floor_Lamp_MET_DT8293.jpg",
+		"license": "CC0 (The Metropolitan Museum of Art, Open Access)",
+		"shows": "A Tiffany Studios peony floor lamp, early 1900s",
+		"derivative": "subject lifted with Apple Vision, toned black and white, 6 px paper keyline (--width 360)"
+	},
+	{
+		"element": "elements/guest.png",
+		"source": "https://commons.wikimedia.org/wiki/File:A_Polish_airman_marshals_a_U.S._Air_Force_C-130J_Super_Hercules_aircraft_March_13,_2014,_at_Lask_Air_Base,_Poland_140313-F-BH566-088.jpg",
+		"license": "Public domain (PD-USGov-Military-Air Force)",
+		"shows": "An airman marshalling a C-130J with two lit wands, seen from behind",
+		"derivative": "cropped to the airman, subject lifted with Apple Vision, toned black and white, 6 px paper keyline"
+	}
+]
