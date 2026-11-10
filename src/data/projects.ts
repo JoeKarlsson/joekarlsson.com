@@ -123,7 +123,7 @@ export const ERAS: {
 		years: '2026–2027',
 		from: 2026,
 		to: 2027,
-		label: 'Data, objects and the homelab',
+		label: 'PixelPane, FollowSpot and the homelab',
 	},
 	{
 		slug: 'era-2021',
@@ -131,7 +131,7 @@ export const ERAS: {
 		from: 2021,
 		to: 2025,
 		label: 'The video years',
-		note: 'I spent most of these years making short videos on TikTok.',
+		note: 'I spent most of these years making short videos on TikTok, so there are fewer pieces here.',
 	},
 	{
 		slug: 'era-2018',
@@ -163,7 +163,7 @@ export const projects: Project[] = [
 		title: 'IoT Kitty Litter Box',
 		shareTitle: 'IoT Kitty Litter Box: A litter box that weighs my cat every visit',
 		description:
-			'Welcome to the Internet of Toilets. An IoT-connected cat litter box built with a Raspberry Pi, weight sensors, and Node.js. Monitors usage patterns and sends notifications.',
+			'A litter box that weighs my cat every time he uses it and sends me a notification. A Raspberry Pi, load cells and Node.js.',
 		image: '/images/blog/an-introduction-to-iot-internet-of-toilets/og-iot-toilet.webp',
 		imageAlt:
 			'Clips of the IoT Kitty Litter Box from 2019: the finished wooden cabinet on angled legs, my black cat sitting on top of it, me fitting the side panel with the wiring, a laptop printing load cell readings as weight is pressed onto the plate, and my cat chewing on the load cells and breadboard',
@@ -359,7 +359,7 @@ export const projects: Project[] = [
 		title: 'React Spotify Player',
 		shareTitle: 'React Spotify Player: A now-playing Spotify widget from a 15-minute tutorial',
 		description:
-			'A real-time Spotify player built with React. My most starred open source project. Integrates with the Spotify Web API for custom playback. Accompanied a popular tutorial.',
+			"A real-time Spotify player I built in React on the Spotify Web API, for a tutorial that did well. It's still my most-starred open source project.",
 		image:
 			'/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/1_KGOTMV8KD120TApnijDauQ.webp',
 		video: '/images/projects/react-spotify-player.mp4',
@@ -398,7 +398,7 @@ export const projects: Project[] = [
 		title: 'Digital Graffiti Wall',
 		shareTitle: 'Digital Graffiti Wall: A canvas a whole room paints at once, on real LEDs',
 		description:
-			'An interactive art installation where audience members draw on a shared digital canvas that displays their creations in real-time on a physical RGB LED grid. Uses MongoDB Realm for instant cross-client data sync. Since retired and replaced by PixelPane.',
+			'An interactive art installation where people in the audience draw on a shared canvas and their drawings show up on an RGB LED grid as they draw. MongoDB Realm keeps every client in sync. Since retired and replaced by PixelPane.',
 		image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp',
 		imageAlt: 'Digital Graffiti Wall',
 		card: {
@@ -1294,7 +1294,7 @@ export const projects: Project[] = [
 	{
 		title: 'Data Structures & Algorithms in JS',
 		description:
-			'Common data structures and algorithms implemented in JavaScript. Created as teaching material when I was an instructor at DevLeague. Covers linked lists, trees, graphs, sorting, and more.',
+			'Common data structures and algorithms implemented in JavaScript. Created as teaching material when I was an instructor at DevLeague. It covers linked lists, trees, graphs and sorting.',
 		image: '/images/projects/data-structures/thumb-bb1d89ad.webp',
 		imageAlt:
 			'Three data structures drawn in chalk: a linked list of 3, 7 and 1 ending in null, a binary search tree with 8 at the root, and a stack with 5 being pushed on top',
@@ -1306,7 +1306,7 @@ export const projects: Project[] = [
 	{
 		title: 'Guide to Client-Server Communication',
 		description:
-			'Every way a client and server communicate - HTTP, WebSockets, SSE, GraphQL, gRPC, and more. A complete reference guide with examples.',
+			'Every way a client and server communicate - HTTP, WebSockets, SSE, GraphQL and gRPC, each with examples.',
 		image: '/images/blog/complete-guide-node-client-server-communication/thumb-1d6d8b03.webp',
 		imageAlt:
 			'Three browser transports side by side, XHR polling, server-sent events and WebSocket, each a client and a server with hand-drawn arrows between them',
@@ -1520,7 +1520,7 @@ export const projects: Project[] = [
 		title: 'GPU-Accelerated Subtitle Generator',
 		shareTitle: 'GPU Subtitle Generator: Whisper subtitles for a whole library, on shared GPUs',
 		description:
-			'A production subtitle generation pipeline using GPU-accelerated Whisper (faster-whisper) with NVIDIA CUDA. Features parallel workers, automatic language detection and translation, VRAM-aware scheduling, and time-of-day worker scaling to share GPU resources across services.',
+			'Subtitles for a whole video library, written by Whisper on the GPUs my house already uses. Workers detect the language and translate to English, and they wait for free VRAM before each file.',
 		image: '/images/projects/gpu-subtitle-generator/thumb-08106819.webp',
 		imageAlt:
 			"A playhead runs along a film's audio waveform as Whisper, on an NVIDIA GPU, writes each line of speech into an SRT file: They're coming to get you, Barbara",

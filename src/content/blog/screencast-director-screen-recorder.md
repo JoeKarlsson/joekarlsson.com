@@ -37,7 +37,7 @@ So I took my favorite parts of each and stitched them into a Frankenstein editor
 - **Transcribe with any whisper.cpp model I install**, so my audio never goes to anyone's cloud.
 - **See and change the prompts** the edits go through, including my own rules and taste, so every video gets edited the same way. They're plain files in the repo.
 
-By default the editing runs on your Claude Code login, so there's no API key to paste. Recordings and input logs stay on your Mac, and your video and audio never leave it. The model gets your instruction, the transcript and the edit plan, plus a few still frames if you use Claude Code, so if you want nothing to leave the machine, point it at a local model.
+By default the editing runs on your Claude Code login, so there's no API key to paste, but you can point it at any model you want. Recordings and input logs stay on your Mac. With Claude Code, the model gets your instruction, the transcript, the edit plan and a few still frames. Point it at a local model and nothing leaves the machine.
 
 ![Opening the AI provider menu in Screencast Director's settings and hovering Claude Code (your Claude login, no API key), Anthropic API, and OpenAI-compatible API (OpenRouter, OpenAI, gateways, Ollama)](/images/blog/screencast-director-screen-recorder/sd-ai-provider.gif)
 

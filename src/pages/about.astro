@@ -41,7 +41,7 @@ const aboutHeadings = [
 	{ slug: 'follow-me', text: 'Follow me' },
 ];
 
-// What I do. Make stuff and Share cycle through my newest projects and posts, so the
+// What I do. Make stuff and Writing and videos cycle through my newest projects and posts, so the
 // pictures and the "Newest" line change every time I ship something
 const FRAMES = 4;
 const newestProjects = [...projects].sort((a, b) => b.date.localeCompare(a.date)).slice(0, FRAMES);
@@ -49,7 +49,7 @@ const newestPosts = (await getFeedPosts())
 	.filter((post) => isOwnPost(post) && post.data.heroImage)
 	.slice(0, FRAMES);
 
-// A long post title, cut at a word near 50 characters so the Share line stays short
+// A long post title, cut at a word near 50 characters so the Writing and videos line stays short
 function shortTitle(title: string): string {
 	if (title.length <= 50) return `${title}.`;
 	return `${title.slice(0, 50).replace(/\s+\S*$/, '')}…`;
@@ -57,25 +57,25 @@ function shortTitle(title: string): string {
 
 const whatIDo = [
 	{
+		title: 'Developer marketing',
+		href: '/blog/running-devrel/',
+		frames: [{ src: '/images/blog/running-devrel/hero.webp', alt: 'Hands typing on a laptop' }],
+		text: "Docs, SEO, demos and talks that get developers to try a product. Right now that's CData's MCP platform.",
+	},
+	{
 		title: 'Make stuff',
 		href: '/work/',
 		frames: newestProjects.map((project) => ({ src: project.image, alt: project.imageAlt })),
 		text: `Side projects, hardware hacks and art. Newest: ${newestProjects[0].title}.`,
 	},
 	{
-		title: 'Share',
+		title: 'Writing and videos',
 		href: '/blog/',
 		frames: newestPosts.map((post) => ({
 			src: post.data.heroImage as string,
 			alt: post.data.heroAlt ?? post.data.title,
 		})),
 		text: `Blog posts, videos and the Works on My Machine newsletter. Newest: ${shortTitle(newestPosts[0].data.title)}`,
-	},
-	{
-		title: 'Developer marketing',
-		href: '/blog/running-devrel/',
-		frames: [{ src: '/images/blog/running-devrel/hero.webp', alt: 'Hands typing on a laptop' }],
-		text: 'Strategy for how developers find and trust a product. Right now that is the MCP platform at CData.',
 	},
 ];
 
@@ -209,7 +209,7 @@ const cropArtPieces = [
 <BaseLayout
 	title="About | Joe Karlsson"
 	type="profile"
-	description="Developer Marketing Engineer at CData, where I grow the developer side of its MCP platform. Before that, DevRel at CloudQuery, MongoDB and SingleStore."
+	description="Developer Marketing Engineer at CData, where I run developer marketing for its MCP platform. Before that, DevRel at CloudQuery, MongoDB and SingleStore."
 	schemaType="AboutPage"
 >
 	<div class={PAGE_CONTAINER}>
@@ -301,9 +301,9 @@ const cropArtPieces = [
 						<span class="text-pink">show my work</span>
 					</p>
 					<p class={`max-w-3xl ${HERO_LEAD}`}>
-						About 15 years of writing software, teaching it, and explaining it on stage and on
-						video. These days that includes running developer marketing at CData. Outside of work I
-						make crop art, tinker with my homelab, and watch a lot of movies.
+						I run developer marketing at CData, for its MCP platform. Before that I spent about 15
+						years writing software, teaching it in Honolulu, and explaining it in talks and videos.
+						Outside of work I make crop art, tinker with my homelab, and watch a lot of movies.
 					</p>
 				</div>
 
@@ -454,7 +454,7 @@ const cropArtPieces = [
 					>
 						View my full resume &rarr;
 					</a>{' '}
-					<span class="text-muted">Impact metrics, tech stack, and PDF download.</span>
+					<span class="text-muted">Numbers for every role, plus the PDF.</span>
 				</p>
 
 				<h2 id="how-i-got-here" class={`${SECTION_HEADING} scroll-mt-24`}>
@@ -475,14 +475,13 @@ const cropArtPieces = [
 					</p>
 					<p>
 						I fell back in love with programming in Hawaii. I met a group of developers at the local
-						coding bootcamp who had so much joy building the things they wanted to build, and I
-						realized I was good at programming as long as I was making things I wanted to make. I've
-						been following that ever since.
+						coding bootcamp who had so much joy building whatever they wanted, and I realized I was
+						good at programming as long as I was making things I wanted to make.
 					</p>
 					<p>
-						These days I make weird art, I solve problems in my own life and other people's, and I
-						even like the drudgery of maintaining software day in and day out. The rest of this page
-						is what came out of that.
+						Now I make crop art, I build fixes for small problems at home, like the old Kindle that
+						became the house dashboard, and I even like the drudgery of maintaining software day in
+						and day out.
 					</p>
 				</div>
 

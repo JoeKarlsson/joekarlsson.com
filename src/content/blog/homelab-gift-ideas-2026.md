@@ -208,7 +208,7 @@ Something like the Treedix with the color screen, about $40. USB-C cables all lo
 
 ![The JetKVM, a small black and white box with a screen showing its network address](/images/blog/homelab-gift-ideas-2026/jetkvm.webp)
 
-The [JetKVM](https://jetkvm.com/) or a GL.iNet Comet runs about $40-100, depending on model. It's a tiny box that lets you see a computer's screen and use its keyboard over the network, even when it won't boot.
+The [JetKVM](https://jetkvm.com/) or a GL.iNet Comet runs about $40-100, depending on model. It's a tiny box that lets you see a computer's screen and use its keyboard over the network, even when it won't boot. One would make it easier to work on my servers from my homelab office and to keep an eye on them remotely.
 
 ## Gifts for self-hosters that aren't hardware
 

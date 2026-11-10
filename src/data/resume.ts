@@ -30,7 +30,7 @@ export const roles: Role[] = [
 		logo: '/images/logos/cdata.webp',
 		tech: ['MCP', 'AI Agents', 'SQL', 'REST APIs', 'SEO', 'Python'],
 		summary:
-			'Lead developer marketing for the managed MCP platform that connects AI agents to live enterprise data. Own the developer growth engine: docs, content, SEO and AEO, and platform positioning.',
+			"Run developer marketing for CData's managed MCP platform, which connects AI agents to live enterprise data: docs, content, SEO and AEO, and how the platform is positioned.",
 		bullets: [
 			"Lead developer marketing for CData's managed MCP platform - the layer that connects AI agents to live enterprise data - owning developer growth end to end",
 			'Own the developer growth engine: technical docs, content, SEO and AEO, and how the platform gets positioned to the engineers actually building on it',
@@ -48,7 +48,7 @@ export const roles: Role[] = [
 		logo: '/images/logos/cloudquery.webp',
 		tech: ['GCP', 'AWS', 'Azure', 'ClickHouse', 'Python', 'SQL'],
 		summary:
-			'Built and ran the full DevRel function from scratch: content, community, docs, events, and video. 4x organic traffic in 3 months; docs traffic up 302%; MQLs at 239% of target. Replicated the playbook post-acquisition at env0: +106% organic traffic in 3 weeks.',
+			"Built DevRel from scratch and ran all of it: content, community, docs, events and video. Organic traffic grew 4x in 3 months. After the merger, the same content approach grew env0's organic traffic 106% in 3 weeks.",
 		bullets: [
 			'Built the Developer Relations function from scratch - sole owner of content, community, docs, events, and video',
 			'Rewrote docs end-to-end: Quickstart completions went from zero to 25/week, docs traffic grew 302%, and docs became a measurable activation channel',
@@ -78,7 +78,7 @@ export const roles: Role[] = [
 			'AWS',
 		],
 		summary:
-			'Helped developers building real-time analytics applications. Created documentation, demos, blog posts, webinars, and workshops.',
+			'Built real-time analytics demos and proofs of concept, like fraud detection on BigQuery and Kafka, plus technical content, webinars and workshops.',
 		bullets: [
 			"Partnered closely with the Sales team on pre-sales support and customer demos - integrated with prospects' existing tech stacks to build tailored demos that showed exactly how Tinybird fit their architecture",
 			'Built real-time technical integrations for demos and customer proof-of-concepts: fraud detection system on GCP/BigQuery/Kafka (33% reduction in fraudulent transactions); BigQuery IoT optimization for a trucking firm (40% compute cost reduction, 30% faster data retrieval)',
@@ -95,7 +95,7 @@ export const roles: Role[] = [
 		logo: '/images/logos/singlestore.webp',
 		tech: ['SQL', 'MySQL', 'Go', 'Node.js'],
 		summary:
-			'Led community conversations around scaling SQL workloads. Built demos and content for the distributed SQL database.',
+			"Made tutorials, talks and demos for developers moving from MySQL and PostgreSQL to SingleStore's distributed SQL database.",
 		bullets: [
 			"Led content and video production strategy for SingleStore's developer audience - technical tutorials, conference talks, and demos targeting developers migrating from MySQL and PostgreSQL",
 			'Built co-marketing partnerships with cloud providers and tooling partners, coordinating joint content, webinars, and conference activations with their marketing and DevRel teams',
@@ -112,7 +112,7 @@ export const roles: Role[] = [
 		logo: '/images/logos/mongodb.webp',
 		tech: ['JavaScript', 'Node.js', 'Python', 'React', 'MongoDB', 'AWS'],
 		summary:
-			'Built developer community, created tutorials, demos, and educational content. Subject matter expert for developer experience.',
+			'Keynoted MongoDB World, built demos like the IoT kitty litter box, and made the schema design guides and videos. When COVID hit, moved to Twitch, YouTube and TikTok (25K followers).',
 		bullets: [
 			"Keynoted at MongoDB World and led global conference event strategy; when COVID hit, pivoted to lead MongoDB's digital growth strategy across Twitch, YouTube, and social - driving developer awareness and product adoption through an entirely new channel mix",
 			'Built memorable technical demos to showcase MongoDB features in creative, engaging ways: IoT kitty litter box, IoT digital graffiti board, and dozens of other projects that drove community growth and product awareness',
@@ -135,7 +135,7 @@ export const roles: Role[] = [
 		logo: '/images/logos/bestbuy.webp',
 		tech: ['JavaScript', 'Node.js', 'React', 'Redux', 'Express', 'AWS'],
 		summary:
-			'Engineered high-performance solutions for one of the top 10 eCommerce sites in North America. Scaled production apps handling thousands of requests per second.',
+			'Led a team of 10 that owned Account Home on bestbuy.com, one of the top 3 eCommerce sites in North America, at thousands of requests per second.',
 		bullets: [
 			'Led a cross-functional team of 10 engineers, QA, and product on one of the top 3 largest eCommerce sites in North America - a platform handling millions of users and thousands of requests per second',
 			'Owned Account Home for bestbuy.com end-to-end: drove full redesign and implementation partnering closely with UX, product, and backend teams',
@@ -151,7 +151,7 @@ export const roles: Role[] = [
 		logo: '/images/logos/devleague.webp',
 		tech: ['ES6', 'JavaScript', 'Node.js', 'React', 'Angular', 'PostgreSQL', 'AWS'],
 		summary:
-			'Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide. Created curriculum and prepared students for software engineering careers in Honolulu.',
+			'Taught full-stack JavaScript in Honolulu, wrote the curriculum, and mentored students into engineering jobs at local and national companies.',
 		bullets: [
 			'Taught full-stack JavaScript at one of the top 10 coding bootcamps worldwide',
 			'Developed curriculum, led workshops, and mentored students into engineering roles at local and national companies',

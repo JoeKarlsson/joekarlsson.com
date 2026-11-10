@@ -5,7 +5,7 @@
 import nowFeed from '../data/now-feed.json';
 
 export const AMAZON_ASSOCIATES_TAG = 'joekarlsson13-20';
-export const AMAZON_DISCLOSURE = `Amazon links here are affiliate links, but they're genuine recommendations. Buying through one helps pay the power bill for my ${nowFeed.homelab.runningContainers}-container homelab. As an Amazon Associate I earn from qualifying purchases.`;
+export const AMAZON_DISCLOSURE = `Amazon links here are affiliate links. Buying through one helps pay the power bill for my ${nowFeed.homelab.runningContainers}-container homelab. As an Amazon Associate I earn from qualifying purchases.`;
 
 const AMAZON_URL = /^https?:\/\/(www\.)?amazon\.com\//;
 

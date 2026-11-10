@@ -23,7 +23,7 @@ export interface UsesSection {
 export const USES_SECTIONS: UsesSection[] = [
 	{
 		slug: 'hardware',
-		name: 'Hardware',
+		name: 'Computers, camera and mic',
 		introHtml: '',
 		groups: [
 			{
@@ -39,14 +39,13 @@ export const USES_SECTIONS: UsesSection[] = [
 					{
 						name: '14" MacBook Pro M5 Pro',
 						url: 'https://www.apple.com/macbook-pro/',
-						descHtml:
-							'my personal laptop, with 24 GB of memory. Having two machines means I can move between my desk and the recording studio without unplugging anything.',
+						descHtml: 'my personal laptop, with 24 GB of memory.',
 					},
 					{
 						name: 'Monitors',
 						url: '',
 						descHtml:
-							'<a href="https://www.amazon.com/Lenovo-ThinkVision-P27h-10-LED-Monitor/dp/B071DK1TW8" target="_blank" rel="noopener noreferrer" data-text-link >ThinkVision P27h-10</a> 27" QHD (right) + <a href="https://www.amazon.com/Dell-U2723QE-UltraSharp-USB-C-Monitor/dp/B09TQZP9CL" target="_blank" rel="noopener noreferrer" data-text-link >Dell U3417W</a> 34" 4K (left). If I were buying today, I\'d go ultrawide.',
+							'<a href="https://www.amazon.com/Lenovo-ThinkVision-P27h-10-LED-Monitor/dp/B071DK1TW8" target="_blank" rel="noopener noreferrer" data-text-link >ThinkVision P27h-10</a> 27" QHD (right) + an HP monitor (left). If I were buying today, I\'d go ultrawide.',
 						pin: [41, 43],
 					},
 					{
@@ -60,7 +59,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Anker Prime TB5 Dock',
 						url: 'https://www.amazon.com/dp/B0DSVVJXK5',
 						descHtml:
-							"14-in-1 Thunderbolt 5 dock. It replaced my Dell Universal Dock, and I use it at both my main desk and the recording station: one cable and the laptop is plugged into everything. It's amazing.",
+							'14-in-1 Thunderbolt 5 dock. It replaced my Dell Universal Dock, and I use it at both my main desk and the recording station: one cable and the laptop is plugged into everything.',
 					},
 					{
 						name: 'ACASIS 16-port USB hub',
@@ -76,14 +75,14 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'OBSBOT Tiny 2',
 						url: 'https://www.obsbot.com/obsbot-tiny-2',
 						descHtml:
-							'4K AI-powered webcam with gesture control and auto-tracking. Replaced my Sony A6600 - much simpler setup for Zoom calls and recordings.',
+							"4K webcam with gesture control and auto-tracking. It replaced my Sony A6600 for Zoom calls and recordings because it's a much simpler setup.",
 						pin: [52, 29],
 					},
 					{
 						name: 'Elgato Wave:3',
 						url: 'https://www.elgato.com/us/en/p/wave-3-black',
 						descHtml:
-							'USB condenser mic, managed through <a href="https://www.elgato.com/us/en/s/wave-link" target="_blank" rel="noopener noreferrer" data-text-link >Wave Link</a> for mixing. Replaced the Blue Yeti - much better sound and integrates with the Elgato ecosystem.',
+							'USB condenser mic, managed through <a href="https://www.elgato.com/us/en/s/wave-link" target="_blank" rel="noopener noreferrer" data-text-link >Wave Link</a> for mixing. It replaced my Blue Yeti and sounds much better.',
 						pin: [69, 58],
 					},
 					{
@@ -135,7 +134,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Elgato Stream Deck',
 						url: 'https://www.elgato.com/en/gaming/stream-deck',
 						descHtml:
-							'I use this more for productivity shortcuts than streaming. Muting/unmuting in Zoom, launching common workflows, and triggering Home Assistant scenes from my desk.',
+							'I use this more for productivity shortcuts than streaming. Muting and unmuting Zoom and triggering Home Assistant scenes from my desk.',
 						pin: [64, 15],
 					},
 				],
@@ -171,7 +170,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Sony MDR7506',
 						url: 'https://www.amazon.com/Sony-MDR7506-Professional-Diaphragm-Headphone/dp/B000AJIF4E',
 						descHtml:
-							'professional headphones with upgraded velvet pads. Affordable, comfortable, and sound great.',
+							"studio headphones with upgraded velvet pads. They're cheap, comfortable and sound great.",
 					},
 					{
 						name: 'Philips Hue Play',
@@ -189,14 +188,14 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'WiiM Pro',
 						url: 'https://www.amazon.com/dp/B0BJDY6D1W',
 						descHtml:
-							"plays music in my office. It's cheaper than Sonos or Bose multi-room systems, and in my opinion better integrated. I love it.",
+							"plays music in my office. It's cheaper than Sonos or Bose multi-room systems, and it plays through Lyrion Music Server with the rest of my speakers.",
 						pin: [34, 21],
 					},
 					{
 						name: 'Home Assistant Voice Preview Edition',
 						url: 'https://www.home-assistant.io/voice-pe/',
 						descHtml:
-							'I swapped out all of my Amazon Alexas for these. Voice processing runs locally, not in Amazon\'s cloud. I wrote about <a href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/" data-text-link >what it\'s like replacing Alexa</a> if you want to learn more.',
+							'I swapped out all of my Amazon Alexas for these. Voice processing runs on my own hardware. I wrote about <a href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/" data-text-link >what it\'s like replacing Alexa</a>.',
 						pin: [31, 9],
 					},
 					{
@@ -320,19 +319,19 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Camtasia',
 						url: 'https://www.techsmith.com/camtasia.html',
 						descHtml:
-							'my go-to for editing tutorial videos. Not as powerful as Premiere, but way faster for the record-edit-export workflow I need for tech content.',
+							'what I edit tutorial videos in. Premiere does more, but Camtasia is faster when all I need is record, edit, export.',
 					},
 					{
 						name: 'Screen Studio',
 						url: 'https://www.screen.studio/',
 						descHtml:
-							'makes screen recordings look polished with auto-zoom and smooth cursor following. I use this for short social media clips and demo GIFs.',
+							'screen recorder that zooms in where I click and smooths out the cursor. I use this for short social media clips and demo GIFs.',
 					},
 					{
 						name: 'Xnip',
 						url: 'https://xnipapp.com/',
 						descHtml:
-							'screenshot tool with annotations and scrolling capture. The scrolling capture is the killer feature - great for grabbing full terminal output or long web pages for blog posts.',
+							'screenshot tool with annotations and scrolling capture, which is how I grab full terminal output or long web pages for blog posts.',
 					},
 				],
 			},
@@ -374,7 +373,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Claude Code (CLI)',
 						url: '',
 						descHtml:
-							'my primary coding companion. I use it in the terminal for everything from infrastructure automation to building this website. It manages my homelab, writes deployment scripts, and helps debug across {runningContainers} containers. I wrote about <a href="/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/" data-text-link >building a Claude Code blog skill</a> for this site.',
+							'I use it in the terminal to build this website and run my homelab. It writes the deployment scripts and helps me debug across {runningContainers} containers. I wrote about <a href="/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/" data-text-link >building a Claude Code blog skill</a> for this site.',
 						nameHtml:
 							'<a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener noreferrer" data-text-link >Claude Code</a> (CLI)',
 						pin: [30, 45],
@@ -390,7 +389,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Handy',
 						url: 'https://handy.computer/',
 						descHtml:
-							'local speech-to-text that replaced superwhisper. It is open source and runs NVIDIA Parakeet locally, so nothing I say leaves hardware I own.',
+							"local speech-to-text that replaced superwhisper. It's open source and runs NVIDIA Parakeet locally, so nothing I say leaves hardware I own.",
 					},
 				],
 			},
@@ -424,7 +423,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Vorssaint',
 						url: 'https://vorssaint.com/',
 						descHtml:
-							"free, open-source menu bar app that bundles a pile of small macOS utilities into one. I'm all in on it across every Mac I own - it makes macOS cleaner and better for me, and I only install the modules I actually use.",
+							'free, open-source menu bar app that bundles a pile of small macOS utilities into one. I run it on every Mac I own, with only the modules I use.',
 					},
 					{
 						name: 'Magnet',
@@ -442,7 +441,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'LanguageTool (self-hosted)',
 						url: '',
 						descHtml:
-							"grammar and spell checking that runs on my homelab instead of someone else's servers. Catches the typos in blog posts and emails without shipping my drafts to the cloud.",
+							'grammar and spell checking that runs on my homelab, so my blog drafts and emails never leave my network.',
 						nameHtml:
 							'<a href="https://github.com/languagetool-org/languagetool" target="_blank" rel="noopener noreferrer" data-text-link >LanguageTool</a> (self-hosted)',
 					},
@@ -587,13 +586,13 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'DUO20 rack mount studs',
 						url: 'https://www.amazon.com/dp/B0CKB8MHMD',
 						descHtml:
-							'I love these. They replace the cage nuts and screws that come with the rack and are way easier to use. I recommend them.',
+							'replacements for the cage nuts and screws that came with the rack, and way easier to use.',
 					},
 					{
 						name: 'Brother P-touch CUBE Plus',
 						url: 'https://www.amazon.com/dp/B07HB8LNSY',
 						descHtml:
-							"Bluetooth label printer (PT-P710BT) that I run from my phone. Every cable in my rack is labeled with it. It's the best, I love it.",
+							'Bluetooth label printer (PT-P710BT) that I run from my phone. Every cable in my rack is labeled with it. I love it.',
 					},
 				],
 			},
@@ -645,8 +644,7 @@ export const USES_SECTIONS: UsesSection[] = [
 					{
 						name: 'MikroTik CRS317',
 						url: 'https://mikrotik.com/product/crs317_1g_16s_rm',
-						descHtml:
-							'10G backbone switch, 20 Gbps to each server. A UniFi US-24 handles the 1G devices.',
+						descHtml: '10G backbone switch, 20 Gbps to each server.',
 						pin: [72, 21],
 					},
 					{
@@ -701,7 +699,7 @@ export const USES_SECTIONS: UsesSection[] = [
 					{
 						name: 'Home',
 						url: '',
-						descHtml: 'Home Assistant, Frigate NVR, and Zigbee2MQTT - more on that below.',
+						descHtml: 'Home Assistant, Frigate NVR, and Zigbee2MQTT.',
 					},
 					{
 						name: 'Security & access',
@@ -735,7 +733,7 @@ export const USES_SECTIONS: UsesSection[] = [
 		slug: 'smart-home',
 		name: 'Smart home',
 		introHtml:
-			'My smart home runs on <a href="https://www.home-assistant.io/" target="_blank" rel="noopener noreferrer" data-text-link >Home Assistant</a> with 128 automations, all processed locally on my homelab. I\'ve been running it since 2016, and I wrote up <a href="/blog/best-home-assistant-automations/" data-text-link>my favorite Home Assistant automations</a>, basic to advanced, plus how I keep them from breaking. If you\'re new, start with <a href="/blog/how-to-get-started-with-home-assistant/" data-text-link>getting started with Home Assistant</a>. I also wrote about how I <a href="/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/" data-text-link >replaced Alexa with local voice control</a>.',
+			'My smart home runs on <a href="https://www.home-assistant.io/" target="_blank" rel="noopener noreferrer" data-text-link >Home Assistant</a> with 128 automations, all processed locally on my homelab. I\'ve been running it since 2016, and I wrote up <a href="/blog/best-home-assistant-automations/" data-text-link>my favorite Home Assistant automations</a>, basic to advanced, plus how I keep them from breaking. If you\'re new, start with <a href="/blog/how-to-get-started-with-home-assistant/" data-text-link>getting started with Home Assistant</a>.',
 		groups: [
 			{
 				name: 'Core platform',
@@ -783,7 +781,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Lovelace dashboards',
 						url: '',
 						descHtml:
-							'Custom Lovelace dashboards for different form factors - desktop overview, phone, and tablet views. Built with community cards: <a href="https://github.com/piitaya/lovelace-mushroom" target="_blank" rel="noopener noreferrer" data-text-link >Mushroom Cards</a>, <a href="https://github.com/Clooos/Bubble-Card" target="_blank" rel="noopener noreferrer" data-text-link >Bubble Card</a>, <a href="https://github.com/RomRider/apexcharts-card" target="_blank" rel="noopener noreferrer" data-text-link >ApexCharts Card</a>, <a href="https://github.com/kalkih/mini-media-player" target="_blank" rel="noopener noreferrer" data-text-link >Mini Media Player</a>, <a href="https://github.com/kalkih/mini-graph-card" target="_blank" rel="noopener noreferrer" data-text-link >Mini Graph Card</a>, <a href="https://github.com/custom-cards/button-card" target="_blank" rel="noopener noreferrer" data-text-link >Button Card</a>.',
+							'one each for desktop, phone and tablet, built with community cards: <a href="https://github.com/piitaya/lovelace-mushroom" target="_blank" rel="noopener noreferrer" data-text-link >Mushroom Cards</a>, <a href="https://github.com/Clooos/Bubble-Card" target="_blank" rel="noopener noreferrer" data-text-link >Bubble Card</a>, <a href="https://github.com/RomRider/apexcharts-card" target="_blank" rel="noopener noreferrer" data-text-link >ApexCharts Card</a>, <a href="https://github.com/kalkih/mini-media-player" target="_blank" rel="noopener noreferrer" data-text-link >Mini Media Player</a>, <a href="https://github.com/kalkih/mini-graph-card" target="_blank" rel="noopener noreferrer" data-text-link >Mini Graph Card</a>, <a href="https://github.com/custom-cards/button-card" target="_blank" rel="noopener noreferrer" data-text-link >Button Card</a>.',
 						pin: [50, 40],
 					},
 				],
@@ -807,7 +805,7 @@ export const USES_SECTIONS: UsesSection[] = [
 						name: 'Audio',
 						url: '',
 						descHtml:
-							'4x Audio Pro A10 MkII speakers running WiiM firmware; WiiM Pro and WiiM Mini; Multi-room audio through <a href="https://github.com/LMS-Community/slimserver" target="_blank" rel="noopener noreferrer" data-text-link >Lyrion Music Server</a> and Music Assistant.',
+							'4x Audio Pro A10 MkII speakers running WiiM firmware; WiiM Pro and WiiM Mini; multi-room audio through <a href="https://github.com/LMS-Community/slimserver" target="_blank" rel="noopener noreferrer" data-text-link >Lyrion Music Server</a> and Music Assistant.',
 					},
 					{
 						name: 'Other',
