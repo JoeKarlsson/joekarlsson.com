@@ -24,7 +24,7 @@ faq:
 
 I've been a database developer advocate for years, and the hard part of the job has never been explaining databases. It's making them look like anything. Data is rows and columns (like a boring Excel spreadsheet), and MCP servers, which is what I work with now, hand back JSON. Put a chat window on a projector at a conference booth and let an AI agent query five apps, and to everyone walking past, it looks like someone reading their email.
 
-So I put an MCP server inside Doom. **Connect AI × DOOM** turns an AI agent's MCP calls into a Doom level, and as far as I can find, it's the first Doom level built out of MCP data. You ask Claude a question, it pulls the answer out of your apps through the [CData Connect AI](https://www.cdata.com/ai/) MCP server (I work at CData, which makes it), and every monster in the level is a live record it found. I built the first version in one night, and on October 22-23, 2026, it was the centerpiece of our booth at [AGNTCon + MCPCon](#taking-it-to-agntcon--mcpcon) in San Jose. The code is [on GitHub](https://github.com/CDataSoftware/connect-ai-doom), and there's a short overview on the [project page](/work/connect-ai-doom/).
+So I put an MCP server inside Doom. In **Connect AI × DOOM**, every monster is a live record Claude pulled out of your apps through the [CData Connect AI](https://www.cdata.com/ai/) MCP server (I work at CData, which makes it). The code is [on GitHub](https://github.com/CDataSoftware/connect-ai-doom), and there's a short overview on the [project page](/work/connect-ai-doom/).
 
 ## Play it in your browser
 
@@ -138,7 +138,5 @@ I also wasn't the only one running Doom on the expo floor. Even at an AI confere
 ## Where it's at now
 
 My team built our developer marketing campaign and our event plans around Connect AI × DOOM, and after San Jose I'm sure that was the right call.
-
-For years I tried to make data interesting by explaining it better, and I'd tried pitching this idea with words too. Neither worked as well as showing people something they already knew how to read. If you're stuck explaining your data, look for a picture your audience already understands.
 
 To run it on your own data, the [repo](https://github.com/CDataSoftware/connect-ai-doom) sets everything up on a Mac in about ten minutes. Live data needs a Connect AI account, and `./raid.sh offline` plays with made-up data if you don't have one.

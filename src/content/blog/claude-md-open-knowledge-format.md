@@ -100,7 +100,7 @@ That halved what loads at startup, and every question got a little cheaper becau
 
 ![Pawn Stars Best I Can Do meme: Rick Harrison behind the pawn shop counter, captioned "Me: read the file I pointed you to" and "Claude: best I can do is answer from vibes"](/images/blog/claude-md-open-knowledge-format/meme-pawn-stars.webp)
 
-## Sonnet skipped the doc when everything was preloaded
+## Preloading vs. pointers
 
 One of my 44 questions asked Claude to trace a critical alert from Home Assistant all the way to my phone. With everything preloaded, Sonnet answered in one turn from what was already in context, never opened the actual doc, and got a key detail wrong every single time. With only a pointer, it went and read the file, and got it right every time. Opus looked it up even with everything preloaded.
 

@@ -31,9 +31,7 @@ faq:
     answer: "Not well. With 24GB of VRAM across two cards, the best coding model I can fit is a heavily quantized Qwen3-Coder 30B, which is stiff and weak in OpenCode. OpenCode's own instructions also take about 9,500 tokens, so small context windows drop the tools. I use my GPUs for Home Assistant voice and camera descriptions instead."
 ---
 
-I switched my default coding agent from Claude Code to [OpenCode](https://opencode.ai/) running open models. Most of my coding now goes to DeepSeek V4.1 Flash for about two cents a task, and it passes the tests I give it.
-
-But if you're used to Claude Code, **OpenCode with open models isn't a one-to-one swap.** Claude Code was doing work for me that I never noticed until it was gone, like passing the model's reasoning back between steps and checking its own work more often. The model itself was fine, but I had to fix a lot of what was around it.
+I switched my default coding agent from Claude Code to [OpenCode](https://opencode.ai/) running open models. Claude Code was doing work for me that I never noticed until it was gone, like passing the model's reasoning back between steps and checking its own work more often. The model itself was fine, but I had to fix a lot of what was around it.
 
 I'm early here. I've been at this for days, on two test tasks and a handful of models, so treat this as a field report and not a ranking. And "breaking up" is generous. Claude is the ex I still call when something is hard. I just don't call first anymore.
 

@@ -45,7 +45,7 @@ I started with a ring light, and it blew my face out, everything flat and evenly
 
 The fix was to stop treating my face and the mood as one problem. A [softbox](https://www.amazon.com/dp/B0CJM6G7JR) lights my face well enough that the camera is happy, and the mood comes from everything behind me: colored LEDs, my 3D printer's lights, and a cheap spotlight with a colored gel that throws a pool of orange on the wall.
 
-If you're starting out, light your face first, until the camera gets a clean image at a low ISO, and only then add color and shadows around it.
+Bright enough means the camera gets a clean image at a low ISO. Color and shadows go in after that.
 
 ![Buff Doge vs. Cheems meme: a muscular Buff Doge labeled 'Me shooting a video on my iPhone in 5 minutes' next to a small crying Cheems labeled 'Me with a teleprompter, a softbox and a 4K camera, still adjusting the lights'](/images/blog/recording-setup-tour/meme-buff-doge-cheems.webp)
 

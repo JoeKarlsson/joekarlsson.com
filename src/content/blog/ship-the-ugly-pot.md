@@ -22,7 +22,7 @@ faq:
 
 Ship the ugly pot. Ship it before it's good and before you're proud of it, because the way to good work runs through a pile of bad work, not around it.
 
-That sounds like an argument for volume, and it isn't. The pottery story everyone quotes from _Art & Fear_ is about feedback. Each finished pot taught the quantity group something about the next one. More pots without that feedback just means more bad pots. Artists have known this for a long time, and I think most of tech is still relearning it one DevOps report at a time.
+That sounds like an argument for volume, and it isn't. The pottery story everyone quotes from _Art & Fear_ is about feedback. Artists have known this for a long time, and I think most of tech is still relearning it one DevOps report at a time.
 
 Here's the story, from David Bayles and Ted Orland's [_Art & Fear_](https://www.amazon.com/Art-Fear-Observations-Rewards-Artmaking/dp/0961454733):
 
@@ -66,7 +66,7 @@ Case study: [How I built feedback discipline into an AI-assisted writing workflo
 
 </div>
 
-If you track deploy frequency, track change failure rate next to it. Frequency on its own is easy to game, and a team that ships a lot without a kiln is just making the debt pile faster. I wrote more about [measuring whether your work is converting](/blog/proving-my-work-mattered/) separately, and about a real version of this loop: [putting up SEO fixes the same afternoon and tracking what each one did](/blog/reversing-seo-traffic-decline-ai-overviews/).
+If you track deploy frequency, track change failure rate next to it. Frequency on its own is easy to game. I wrote more about [measuring whether your work is converting](/blog/proving-my-work-mattered/) separately, and about a real version of this loop: [putting up SEO fixes the same afternoon and tracking what each one did](/blog/reversing-seo-traffic-decline-ai-overviews/).
 
 ## Slow review comes from fragile infrastructure
 
@@ -102,7 +102,7 @@ Most software teams aren't in those domains. If you are, you already know this.
 
 I've been reading [_The Artist's Way_](https://www.amazon.com/Artists-Way-25th-Anniversary/dp/0143129252) lately, and the idea I keep coming back to is that making things and paying attention to how they turn out makes you better faster than planning to make them. That's held up for me. Everything I make has gone up since I started working this way: blog posts here and at work, art, writing, video. More of it ships, and each round is faster than the last, because I'm making a lot and looking hard at what came out instead of waiting until I feel ready.
 
-Art has always known you build voice and craft through volume and attention, not by waiting until you know enough to start. Tech mostly treats that as a DevOps finding. There's a lot we could take from the softer disciplines, and I think this is the most transferable thing.
+There's a lot we could take from the softer disciplines, and I think this is the most transferable thing.
 
 It shows up outside art too. A [2010 study of 1,258 psychology professors](https://www.sciencedaily.com/releases/2010/11/101112094532.htm) in the _Canadian Journal of Behavioural Science_ found perfectionism went with fewer publications, fewer citations, and lower-impact journals. It's a correlation, but it points the same way.
 
@@ -115,8 +115,6 @@ Sister Corita Kent taught at Immaculate Heart College in Los Angeles from 1947 t
 The "catch on" part is the kiln. You do the work, and you pay attention to what it teaches you.
 
 ![Bell Curve meme: the low end says 'just make stuff', the crying middle says 'I need to read 12 books on creativity and build a craft framework before I start', and the hooded monk at the high end says 'The only rule is work.'](/images/blog/ship-the-ugly-pot/meme-bell-curve.webp)
-
-The pottery story, the DORA data, _The Artist's Way_, and Corita Kent's rule 7 all point at the same thing: _you don't think your way to quality. You ship, look at what came out, and ship again._
 
 I've written about the other half of this, the psychological safety and conditions that make fast iteration possible, in [The Cognitive Case for Play in Technical Work](/blog/cognitive-case-for-play-in-technical-work/).
 

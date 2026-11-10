@@ -29,9 +29,9 @@ faq:
     answer: 'If the rule exists because something went wrong once, make it a mod. Keep CLAUDE.md for judgment calls like tone and taste, where there is nothing for code to check.'
 ---
 
-Anthropic shipped [mods](https://code.claude.com/docs/en/plugins/mods/overview) at the start of October 2026. I sat down to build one on October 14, and by the next afternoon I had two Claude Code mods running in every session and more in progress. My first impression: **mods are more useful than hooks**, and it isn't close.
+Anthropic shipped [mods](https://code.claude.com/docs/en/plugins/mods/overview) at the start of October 2026. I sat down to build one on October 14, and by the next afternoon I had two Claude Code mods running in every session and more in progress.
 
-Almost every rule I'd given Claude lived in a [CLAUDE.md file](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/) or in one of my Claude Code hooks that handed the model some text and hoped it would remember. That's the honor system. A mod moves the rule into code that Claude Code itself runs, and it can put the rule on screen, so I see it working instead of trusting the agent's memory.
+Almost every rule I'd given Claude lived in a [CLAUDE.md file](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/) or in one of my Claude Code hooks that handed the model some text and hoped it would remember. That's the honor system.
 
 Two weeks ago, in [my 2026 setup post](/blog/my-development-setup-2026/), I wrote "If you're letting an agent near real systems, learn hooks first." I'd still learn them, but I trust the ones I wrote a lot less now.
 
@@ -55,7 +55,7 @@ I found a second broken hook while I was at it. Claude and Word documents don't 
 
 ![Always Has Been meme: one astronaut looks at Earth and asks "Wait, my OneDrive guard hook never blocked anything?" while a second astronaut behind him holds a gun and says "Always has been"](/images/blog/claude-code-mods-first-impressions/meme-always-has-been.webp)
 
-Both are my mistakes, and [the docs](https://code.claude.com/docs/en/hooks) explain both. But that's my problem with hooks the way I was using them: when one broke, nothing told me. The rules in my CLAUDE.md file have their own version of that problem. They only work if Claude remembers them in every session. So there are two problems: rules in CLAUDE.md depend on Claude's memory, and hooks can break without telling me. Mods fix the first because the rule is code, and the second because they can show me they ran.
+Both are my mistakes, and [the docs](https://code.claude.com/docs/en/hooks) explain both. But that's my problem with hooks the way I was using them: when one broke, nothing told me. The rules in my CLAUDE.md file have their own version of that problem. They only work if Claude remembers them in every session. Mods fix the memory problem because the rule is code, and the silent breakage because they can show me they ran.
 
 ![Two guys on a bus meme: the sad man by the rock wall is labeled "Rules in CLAUDE.md the agent has to remember" and the happy man looking at the sunny mountains is labeled "Rules with a status line"](/images/blog/claude-code-mods-first-impressions/meme-two-guys-bus.webp)
 
@@ -86,7 +86,7 @@ It also replaced the dead hooks. When I mention a service, the mod hands Claude 
 
 ## Should you use them
 
-Yes. It's only been a few days and all I have is my own experience, but mods have been far more useful to me than hooks. Claude ignores them less often because they don't depend on it remembering anything, and they've already made my workflow better and made me trust my agents more.
+Yes. It's only been a few days and all I have is my own experience, but mods have already made my workflow better and made me trust my agents more.
 
 If you keep repeating the same rules to your agent, start with those. My rule of thumb: if a rule in CLAUDE.md exists because something went wrong on a specific day, make it a mod. Keep CLAUDE.md for judgment calls like tone and taste, where there's nothing for code to check. And keep it small. I wrote up [what I kept always-on in CLAUDE.md after splitting it](/blog/claude-md-open-knowledge-format/).
 

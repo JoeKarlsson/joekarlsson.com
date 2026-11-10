@@ -13,7 +13,7 @@ tldr: 'PixelPane is a 32x32 LED panel on a Raspberry Pi 3B, behind a two-way mir
 
 There's a black shadow box on the shelf next to my desk. Right now it's showing a pixel art pumpkin under a crescent moon, because it's October. When my camera turns on for a meeting it switches to a red ON AIR sign. When someone rings the doorbell it flashes yellow. Then it goes back to the pumpkin.
 
-It's called **PixelPane**: a 32x32 RGB LED panel and a Raspberry Pi behind a two-way mirror. It's an art project first, born from the 8-bit and 16-bit games I've been playing on emulators. It's also the only home dashboard I actually look at, because it shows my house's status as pixel art instead of a wall of numbers. I built it instead of buying one so I could customize every scene and wire it into my self-hosted setup. The software is [open source on GitHub](https://github.com/JoeKarlsson/pixelpane) and plugin-based, and you can see more of it on the [project page](/work/pixelpane/).
+It's called **PixelPane**: a 32x32 RGB LED panel and a Raspberry Pi behind a two-way mirror. It's an art project first, born from the 8-bit and 16-bit games I've been playing on emulators. It's also the only home dashboard I actually look at, because it shows my house's status as pixel art instead of a wall of numbers. The software is [open source on GitHub](https://github.com/JoeKarlsson/pixelpane) and plugin-based, and you can see more of it on the [project page](/work/pixelpane/).
 
 Here's a quick tour, me included.
 
@@ -115,6 +115,6 @@ A scene with nothing to show skips itself. If no music is playing, there's no no
 
 ## What's next
 
-Since I first wrote this, I've added the draw mode that was at the top of this list. The Draw page is a 32x32 canvas that paints the panel live as I draw, and the Animate page makes frame-by-frame loops that save to the GIF library. Next I'd like a Pomodoro scene, and a Siri sentence to show a message on the board.
+Since I first wrote this, I've added draw mode. The Draw page is a 32x32 canvas that paints the panel live as I draw, and the Animate page makes frame-by-frame loops that save to the GIF library. Next I'd like a Pomodoro scene, and a Siri sentence to show a message on the board.
 
 If you build one, [the repo](https://github.com/JoeKarlsson/pixelpane) has the parts list, the printable grid, the installer and the [Home Assistant setup](https://github.com/JoeKarlsson/pixelpane/blob/main/docs/HOME_ASSISTANT.md). Write a plugin and send me a PR.

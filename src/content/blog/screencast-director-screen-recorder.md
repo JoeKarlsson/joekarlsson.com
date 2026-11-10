@@ -13,7 +13,7 @@ tldr: "Editing is my least favorite part of making videos, so I built Screencast
 
 I don't mind writing a video. I don't even mind recording one. Editing is the part I hate. It means sitting there for hours after the fact, watching myself, scrubbing past every "um," every dead pause, every time I lost my cursor, and every take of a line I flubbed three times.
 
-So I built **Screencast Director**, an open source macOS screen recorder that records your screen and does the boring part of the edit for you. You talk through your demo once. It cuts the dead air, speeds up the typing, zooms in where you click and captions what you said. Then you fix what it got wrong by hand, or you tell an AI model what to change, using the model, the local Whisper model and the prompts you pick. It's [on GitHub](https://github.com/JoeKarlsson/screencast-director), and there's a short overview on the [project page](/work/screencast-director/).
+So I built **Screencast Director**, an open source macOS screen recorder that records your screen and does the boring part of the edit for you. It's [on GitHub](https://github.com/JoeKarlsson/screencast-director), and there's a short overview on the [project page](/work/screencast-director/).
 
 ![The Screencast Director editor: playing my intro on camera, then clicking a clip, a layout and a title on the timeline, with the inspector on the right switching to the settings for each one](/images/blog/screencast-director-screen-recorder/sd-tour.gif)
 

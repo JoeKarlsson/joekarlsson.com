@@ -47,12 +47,12 @@ Most of what I learned doesn't depend on OKF or on Claude Code. If you keep any 
 2. **Point, don't preload.** Give the agent an index and let it open what it needs. Preload only what's small, used constantly, or a safety rule.
 3. **One idea per file, named for what's in it.** File names and index lines are how the agent decides what to open, so `critical-alerts-to-phone.md` beats `notes-3.md`.
 4. **Write the index descriptions yourself.** The ones my script generated were the weakest part of my conversion.
-5. **If a rule must never break, make it a hook.** Text is a suggestion the agent can talk itself out of.
+5. **If a rule must never break, make it a hook.** The agent can argue its way past text.
 6. **Facts go stale.** Put a date on the ones that will (OKF has a `stale_after` field for this), so something reminds you to check them.
 
 ## How I write a CLAUDE.md now
 
-Short, and only what Claude needs on nearly every task. Anthropic's [own guidance](https://code.claude.com/docs/en/memory) is to keep each CLAUDE.md under 200 lines, and after this experiment I'd go further.
+Short, and only what Claude needs on nearly every task. Anthropic's [own guidance](https://code.claude.com/docs/en/memory) is to keep each CLAUDE.md under 200 lines.
 
 What goes in mine:
 
@@ -64,7 +64,7 @@ What stays out: anything about one project or one service, long examples, anythi
 
 ## Doing it yourself
 
-You can get most of this in an afternoon. [The full post](https://www.joekarlsson.com/blog/claude-md-open-knowledge-format/) has a prompt you can paste into Claude Code from the root of your repo, plus how I tested it. When it finishes, Claude lists what it kept always-on and why. Read that list before you commit. That's where your judgment matters most.
+You can get most of this in an afternoon. [The full post](https://www.joekarlsson.com/blog/claude-md-open-knowledge-format/) has a prompt you can paste into Claude Code from the root of your repo, plus how I tested it. When it finishes, Claude lists what it kept always-on and why. Read that list before you commit. That's where my conversion went too far: tables I look up constantly ended up behind pointers, and I had to put them back.
 
 Once your docs are already lean, this buys you little. I split my global `~/.claude/CLAUDE.md` the same way afterward and saved 312 tokens, because nearly all of it is rules that apply everywhere.
 

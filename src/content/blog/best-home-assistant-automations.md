@@ -32,8 +32,6 @@ faq:
 
 I've been running Home Assistant since 2016. Today I have 134 automations, and the best Home Assistant automations I've built share one trait: someone who has never been in my house can live with them without an app, instructions, or me saying "oh, don't touch that switch."
 
-This post is the order I'd build them in if I started over. Basics first, the boring ones everybody in the house uses every day. Then you add context to those basics so they stop doing dumb things. Then, where it pays off, you rebuild one from scratch with better sensors and some probability math. I'll use lighting as the example of that whole climb, but the same pattern runs through every room. After 10 years, I also spend more of my time on automations that broke without telling me than on building new ones.
-
 Quick context on the setup: Home Assistant runs as a VM on my [Proxmox cluster](/blog/homelab-two-years-later/), with 29 Zigbee devices on Zigbee2MQTT, [Frigate and local LLMs on GPUs](/blog/proxmox-gpu-passthrough-multi-service/), and [Ollama](https://ollama.com/) for the AI side. If you're brand new, start with my [Home Assistant getting-started guide](/blog/how-to-get-started-with-home-assistant/) and come back. Every device I mention is listed in the [smart home section of my uses page](/uses/#smart-home).
 
 ## The guest test
@@ -46,7 +44,7 @@ I live alone. I've lived with partners in this house before, and I have guests o
 
 That means a physical switch for everything, lights that turn on when you walk in and don't turn off while you're still sitting there, and no voice command to learn just to use the bathroom at night.
 
-## The whole list
+## All 16 automations
 
 ![My Home Assistant main dashboard with scene tiles, room tiles, infrastructure health, energy, and laundry status](/images/blog/best-home-assistant-automations/dashboard-overview.webp)
 
@@ -418,13 +416,3 @@ Lately I care more about reliability than about adding automations, so I use thi
 I'm also trying to make the house more sustainable, and part of that is avoiding batteries wherever I can. Keeping batteries fresh across a house full of sensors sucks, and the battery-powered devices are usually the finicky ones. Most of the sensors in this post still run on batteries, which is why my health checks watch for the ones that go quiet.
 
 I'm staying on Zigbee. Matter has been unstable for me so far, and I still have hope for it, but Zigbee is cheap and works great. I'm not moving my devices over until Matter settles down.
-
-## The best Home Assistant automations to build first
-
-1. **Motion lighting where a physical switch always wins.**
-2. **One loud alert per safety sensor,** plus a check that the sensor is still reporting.
-3. **Context on the basics you already have:** what's playing, what time it is, who's home.
-4. **Modes that turn themselves off.**
-5. **Rebuild one basic with better sensors,** like Bayesian presence, once the simple version annoys you.
-6. **Local AI for rewriting text first, and for yes-or-no calls once you trust it.**
-7. **Health checks and `continue_on_error` once you pass about 30 automations.**

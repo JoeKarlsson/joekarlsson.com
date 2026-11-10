@@ -75,11 +75,11 @@ That's the other half of what play requires: believing errors won't be penalized
 
 Teams with it experiment more, learn faster, produce better work.
 
-Review-heavy cultures erode this not through malice but through repetition. Every judgment cycle signals that getting it wrong is costly. Eventually people stop experimenting before they're told to. The play state disappears not because anyone banned it, but because the environment made it feel too risky. Same person, different environment, wildly different output. It's not talent that varies.
+Review-heavy cultures erode this not through malice but through repetition. Every judgment cycle signals that getting it wrong is costly. Eventually people stop experimenting before they're told to. The play state disappears not because anyone banned it, but because the environment made it feel too risky.
 
 ![Grim Reaper Knocking Door meme: the Grim Reaper, labeled 'Review cycle', has already left blood behind the doors labeled 'Weird idea' and 'Bold bet', and is now knocking on the door labeled 'Last original thought'.](/images/blog/cognitive-case-for-play-in-technical-work/meme-grim-reaper.webp)
 
-The most capable people I've worked with were also the most sensitive to the environment. Give them psychological safety and room to experiment, and the ceiling on what they produce is surprisingly high. The same person in a risk-averse environment produces process-compliant work instead.
+I've watched this pattern hold for fifteen years, across startups, scale-ups, and enterprise teams. The most capable people I've worked with were also the most sensitive to the environment. Give them psychological safety and room to experiment, and the ceiling on what they produce is surprisingly high. The same person in a risk-averse environment produces process-compliant work instead.
 
 ## Agile already solved this. Sort of.
 
@@ -91,11 +91,11 @@ That principle applies beyond software. It applies to content, design, marketing
 
 ## What to do instead
 
-This isn't an argument against review or accountability. It's about sequence and weight. If you're a manager, your role in this model is to protect the conditions: shield uninterrupted work time, review results rather than activity, and resist the urge to check in mid-experiment. The output is your accountability. The process is theirs.
+If you're a manager, your role in this model is to protect the conditions: shield uninterrupted work time, review results rather than activity, and resist the urge to check in mid-experiment. The output is your accountability. The process is theirs.
 
 ![Boardroom Meeting Suggestion meme: the boss asks 'How do we make the team more creative?' Two people suggest 'Innovation KPI' and 'Creativity review'. The third says 'Try things before reviewing them' and gets thrown out the window.](/images/blog/cognitive-case-for-play-in-technical-work/meme-boardroom.webp)
 
-**Separate creation from evaluation.** Don't let evaluation enter the room during generation. Timebox a period where you run experiments without a formal review gate. Review results, not process. Every creative discipline that produces good work does this.
+**Separate creation from evaluation.** Don't let evaluation enter the room during generation. Timebox a period where you run experiments without a formal review gate. Review results, not process.
 
 **Measure after, not before.** KPIs are learning tools after an experiment, not gatekeeping criteria before one. "What did we learn?" is a more useful question than "will this hit our number?" The 5x result I described wasn't planned. It was discovered, then measured.
 
@@ -117,8 +117,6 @@ Anything that triggers self-evaluation re-activates exactly the circuitry the fl
 
 ## Play and accountability aren't opposites
 
-The concern is fair. But accountability and play aren't in conflict - the sequence is.
-
 [Amabile's research](https://www.hbs.edu/ris/Publication%20Files/12-096.pdf) distinguishes between two kinds of measurement: controlling (you must do it this way, here's how it'll be judged) and informational (here's what happened, here's what we learned). She described the mechanism:
 
 > "By putting people under conditions where they expected external evaluation of what they were doing... all each of those conditions and related conditions led to a decrease in creativity."
@@ -127,23 +125,11 @@ The concern is fair. But accountability and play aren't in conflict - the sequen
 
 The first kills creative output. The second can enhance it. The argument isn't to remove accountability. It's to move it to where it's useful: after the experiment, not before it.
 
-I've had this called out directly: "sounds like you just want to ship without approval." That's not it. The distinction is whether measurement comes before or after you have information worth measuring. I made the practice side of this argument, with the DORA data and the pottery story, in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/).
+I've had this called out directly: "sounds like you just want to ship without approval." That's not it. I made the practice side of this argument, with the DORA data and the pottery story, in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/).
 
 Does this require experience? Yes. Play without enough context to hold a coherent model of what you're working in is just chaos. A junior contributor doing this without a more experienced collaborator reviewing work regularly isn't playing - they're guessing. The guardrails don't disappear; they shift. Instead of gatekeeping before the work, review happens after each small experiment. You still need someone who can tell you when you're heading in the wrong direction. This applies most directly to individual contributors and senior practitioners who know the territory well enough to recognize what they're finding.
 
----
-
-The project I described at the start wasn't special. The domain wasn't unusual. It worked because the conditions for play existed: enough autonomy to experiment, lightweight enough review that I could move between tests quickly, and enough uninterrupted time to keep a clear picture of what I was building in my head.
-
-When those conditions exist, work tends to produce something. When they don't - when every change needs a brief, every brief needs a review, and every review runs weeks - the work tends to produce process artifacts instead.
-
 ![Bike Fall meme: a cyclist labeled 'Manager with a creative team' jams a stick in his own front wheel, captioned 'Adds an approval gate to exploratory work', then lies on the ground asking 'Why doesn't my team experiment anymore?'](/images/blog/cognitive-case-for-play-in-technical-work/meme-bike-fall.webp)
-
-I've watched this pattern hold for fifteen years, across startups, scale-ups, and enterprise teams. The work that mattered wasn't the most planned. It was the work where there was enough room to find out what worked.
-
-_The Artist's Way_ is about recovering creative capacity that most adults have had conditioned out of them by years of evaluation. Cameron's prescription: create without an audience, protect the generative phase, separate creation from judgment. It sounds like self-help. It's also just accurate about how good work happens.
-
-Play isn't the opposite of rigor. It's the precondition for it. You can't refine something you never found. And you won't find it inside a planning doc.
 
 ---
 

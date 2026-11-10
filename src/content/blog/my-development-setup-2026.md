@@ -19,7 +19,7 @@ tags:
   ]
 heroImage: '/images/blog/my-development-setup-2026/hero.webp'
 heroAlt: 'A 3D illustration of an orange desk with two monitors, a laptop, a keyboard, a key light, and a microphone on a boom arm'
-tldr: 'My 2026 setup is built around speed, consistency, reliability, and reach, and it leans hard into running AI agents concurrently. I moved from iTerm2 and Oh My Zsh to Ghostty, plain zsh, and Starship, and cut shell startup by more than half. I talk to Claude Code through Handy, an open-source, local speech-to-text app. Several agents run at once in Ghostty splits and git worktrees, guided by version-controlled rules, hooks, and verification workflows that chezmoi deploys to every machine.'
+tldr: 'My 2026 setup leans hard into running AI agents concurrently. I moved from iTerm2 and Oh My Zsh to Ghostty, plain zsh, and Starship, and cut shell startup by more than half. I talk to Claude Code through Handy, an open-source, local speech-to-text app. Several agents run at once in Ghostty splits and git worktrees, guided by version-controlled rules, hooks, and verification workflows that chezmoi deploys to every machine.'
 faq:
   - question: 'What is in your development setup in 2026?'
     answer: 'As of September 2026: Ghostty as my terminal (replacing iTerm2), plain zsh with Starship (replacing Oh My Zsh and Powerlevel10k), Handy for local speech-to-text (replacing Superwhisper), several concurrent Claude Code agents in Ghostty splits and git worktrees, VS Code for reading and editing, Vale for prose linting, and chezmoi deploying one version-controlled dotfiles repo, including CLAUDE.md, to my Macs and a Linux dev container.'
@@ -322,8 +322,6 @@ Full file: [`statusline.sh`](https://github.com/JoeKarlsson/dotfiles/blob/main/h
 
 The biggest thing I learned this year is that **agents need a way to verify their own work.** Without one, a capable agent will confidently tell you it's done. With one, it runs the check, and when the check fails, it fixes the problem and runs it again.
 
-So anything I do more than twice gets written down as a rule, a skill, a hook, or a linter, and all of it lives in git.
-
 The rules live in `CLAUDE.md`, the file Claude reads at the start of every session. Mine is in my dotfiles, and [chezmoi](https://www.chezmoi.io/) deploys it to every machine, including the Linux container I reach from my phone. Change a rule once, push, and every Claude I talk to follows it. When my homelab notes got too big, I [split my CLAUDE.md files into one file per concept](/blog/claude-md-open-knowledge-format/) and measured what it saved.
 
 Each of these rules came from something going wrong. "Test the change you made" is a verification workflow in one sentence, and it's the one that changed the most. The "match the effort to the risk" line came after Claude ran my entire test suite to change a comment. The Word rule came from edits that passed validation and then vanished when Word reopened a stale OneDrive copy.
@@ -368,7 +366,7 @@ Workflows bake the same idea in. My homelab health check reports every finding, 
 
 A rule is a suggestion Claude usually follows. A hook is a script that runs before a tool call and can block it.
 
-Every container in my homelab is managed by [OpenTofu](https://opentofu.org/) and supposed to be immutable, so a hook blocks Claude from writing inside one and points it at the provision script. Read-only commands pass through. Another blocks restoring a Home Assistant backup without my OK. It's only a pattern list, but it catches the mistakes agents make in practice.
+Every container in my homelab is managed by [OpenTofu](https://opentofu.org/) and supposed to be immutable, so a hook blocks Claude from writing inside one and points it at the provision script. Read-only commands pass through. Another blocks restoring a Home Assistant backup without my OK. It's only a pattern list: it catches the mistakes agents make in practice, and anything the list doesn't anticipate gets through.
 
 <details>
 <summary>Show part of the immutable-infrastructure hook</summary>
@@ -456,7 +454,7 @@ write-good.Weasel = warning
 Full file: [`.vale.ini`](https://github.com/JoeKarlsson/joekarlsson.com/blob/main/.vale.ini), in this blog's repo.
 </details>
 
-## Reach and reliability
+## Phone, deploys and local models
 
 ### Remote: a dev container I drive from my iPhone
 
@@ -484,7 +482,9 @@ Handy's transcription runs locally, and [Home Assistant](https://www.home-assist
 
 For code, I tried [OpenCode](https://opencode.ai/) and [aider](https://aider.chat/) with [Qwen3-Coder](https://github.com/QwenLM/Qwen3-Coder). Neither was close to Claude Code on long, multi-step work, partly because [a GPU shared with Plex and photo processing](/blog/proxmox-gpu-passthrough-multi-service/) means small context windows. I keep hearing the new Qwen3.8 models are excellent, but I haven't tested one on real work yet.
 
-## Everything else
+If you want to see how far open models get today, I tried swapping Claude Code for OpenCode in [Breaking up with Claude Code](/blog/breaking-up-with-claude-code/).
+
+## Secrets, CLI tools and dotfiles
 
 ### Secrets and git: 1Password
 
@@ -577,16 +577,8 @@ Full file: [`.chezmoi.toml.tmpl`](https://github.com/JoeKarlsson/dotfiles/blob/m
 
 A new Mac is one clone and [`install.sh`](https://github.com/JoeKarlsson/dotfiles/blob/main/install.sh), which is now a short bootstrap: install Homebrew and chezmoi, then hand off to `chezmoi init`. [`bin/doctor`](https://github.com/JoeKarlsson/dotfiles/blob/main/bin/doctor) checks it afterward.
 
-## What I'd keep and what's still broken
+## What I'd set up first
 
-I'd keep all of it, but worktrees, the shared `CLAUDE.md`, and hooks are the three I'd set up first on a new machine. Those are what let me hand off more work and trust what comes back. The terminal and shell changes are nice to have, but those three are what keep six agents from making a mess.
-
-Still broken or missing:
-
-- **Worktrees have overhead.** Every one needs its own `npm install`, dev servers fight over ports, and merge conflicts still land on me.
-- **Hooks are pattern lists, not a sandbox.** They catch the mistakes agents make in practice, and anything the list doesn't anticipate gets through.
-- **Local models aren't good enough for coding yet**, at least not on a 16 GB card shared with Plex and photo processing.
+I'd keep all of it, but worktrees, the shared `CLAUDE.md`, and hooks are the three I'd set up first on a new machine. The terminal and shell changes are nice to have, but those three are what keep six agents from making a mess.
 
 Next on my list: testing one of the bigger Qwen3.8 models on real coding work, and getting these dotfiles running cleanly on more than macOS and Debian.
-
-If you want to see how far open models get today, I tried swapping Claude Code for OpenCode in [Breaking up with Claude Code](/blog/breaking-up-with-claude-code/). The rest of my hardware and apps are on my [uses page](/uses/).

@@ -8,7 +8,7 @@ tags: ['Plex', 'pre-roll', 'NeXroll', 'ffmpeg', 'Python']
 heroImage: '/images/blog/adult-swim-bumpers-plex-pre-rolls/hero.webp'
 heroVideo: '/images/blog/adult-swim-bumpers-plex-pre-rolls/hero.mp4'
 heroAlt: 'A jellyfish drifting in dark blue water while white text cards read "no ads." then "no algorithm." then "no idea what you should watch." and finally "[joeflix]"'
-tldr: 'I grew up on Toonami and Adult Swim, and the bumpers stuck with me more than most of the shows. So I built a small CLI that turns a few lines of YAML into Adult Swim-style bumpers, loaded 121 of them into NeXroll, and now every movie on my Plex server Joeflix opens with one.'
+tldr: 'I built a small CLI that turns a few lines of YAML into Adult Swim-style bumpers, loaded 121 of them into NeXroll, and now every movie on my Plex server Joeflix opens with one.'
 ---
 
 I grew up on Toonami after school, and later on staying up way too late for Adult Swim, which was the first TV I ever watched that seemed like weirdos made it for other weirdos. I loved it. The bumpers stuck with me longer than most of the shows did.
