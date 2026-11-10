@@ -7,46 +7,46 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 582,
+			"commitCount": 588,
 			"dailyCommitCounts": [
 				32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 119, 40
+				25, 119, 46
 			],
-			"latestCommitMessage": "fix: Resume hero gives its links and buttons the same room as the..."
+			"latestCommitMessage": "feat: Meme pitches draw from a random sample of ~275 formats and..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 269,
+			"commitCount": 275,
 			"dailyCommitCounts": [
 				67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2,
-				5
+				11
 			],
-			"latestCommitMessage": "feat: Storyboard diagrams come alive: headings rise a word at a time..."
+			"latestCommitMessage": "fix: The Openverse check reports a failed file write instead of..."
 		},
 		{
-			"name": "pixelpane",
-			"description": "PixelPane: a 32x32 LED art pane for the Raspberry Pi. GIFs, live animated scenes, seasonal themes, Home Assistant and plugins",
-			"url": "https://github.com/JoeKarlsson/pixelpane",
-			"language": "Python",
-			"commitCount": 68,
+			"name": "dotfiles",
+			"description": "My dotfiles",
+			"url": "https://github.com/JoeKarlsson/dotfiles",
+			"language": "TypeScript",
+			"commitCount": 108,
 			"dailyCommitCounts": [
-				23, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 4, 0, 6
+				2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15
 			],
-			"latestCommitMessage": "fix: The Draw and Animate canvas starts square, so the board preview..."
+			"latestCommitMessage": "feat: The social opener readout shows the text above the 140-character..."
 		},
 		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 86,
+			"name": "vale-styles",
+			"description": "Joe Karlsson's Vale prose-linting styles",
+			"url": "https://github.com/JoeKarlsson/vale-styles",
+			"language": "Shell",
+			"commitCount": 5,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 4, 1
+				0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
 			],
-			"latestCommitMessage": "feat: Design and motion pass: tapes lift when pointed at and wrap long..."
+			"latestCommitMessage": "feat: Vale flags manufactured urgency, promise verbs like \"dive into\"..."
 		}
 	],
 	"films": [
