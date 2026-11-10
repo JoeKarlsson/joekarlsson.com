@@ -40,7 +40,7 @@ Run the full prohibited-language check:
 ## Layer 2: Analytical structure (Thompson / McKenzie)
 
 - Does the intro lead with the conclusion/insight, or does it warm up for two paragraphs?
-- Do section headers say what's in the section or state its answer (STYLE_GUIDE.md **Headers**)? Flag teasers that hold back the answer ("The GPU lesson nobody warned me about"), drama headers ("The uncomfortable truth"), vague setup headers ("The setup", "Architecture"), headers where a tool acts like a person ("Your cache is lying to you"; humanizer pattern 53) and Title Case, and check the H3 rules (no lone H3 under an H2, H3s belong to their H2, key sections are H2s).
+- Do section headers say what's in the section or state its answer (STYLE_GUIDE.md **Headers**)? Flag teasers that hold back the answer ("The GPU lesson nobody warned me about"), drama headers ("The uncomfortable truth"), vague setup headers ("The setup", "Everything else"), headers where a tool acts like a person ("Your cache is lying to you"; humanizer pattern 53) and Title Case, and check the H3 rules (no lone H3 under an H2, H3s belong to their H2, key sections are H2s).
 - Is there a named frame for the key concept?
 - Are opinions stated plainly ("X is the wrong approach") or hedged ("some might argue")?
 - Does the post name what everyone's thinking but not saying?
