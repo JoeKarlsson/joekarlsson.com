@@ -7,12 +7,34 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 518,
+			"commitCount": 541,
 			"dailyCommitCounts": [
 				0, 32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 95
+				25, 118
 			],
-			"latestCommitMessage": "fix: The recording setup issue opens with the before-and-after and who..."
+			"latestCommitMessage": "feat: My IoT litter box talk gets its own /talks/ page with every..."
+		},
+		{
+			"name": "dotfiles",
+			"description": "My dotfiles",
+			"url": "https://github.com/JoeKarlsson/dotfiles",
+			"language": "TypeScript",
+			"commitCount": 93,
+			"dailyCommitCounts": [
+				0, 2, 15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1
+			],
+			"latestCommitMessage": "feat: Personal Claude Code login launches with claude-personal"
+		},
+		{
+			"name": "punc",
+			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
+			"url": "https://github.com/JoeKarlsson/punc",
+			"language": "TypeScript",
+			"commitCount": 53,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5
+			],
+			"latestCommitMessage": "fix: A book page builds its erased pages only when Pages opens and..."
 		},
 		{
 			"name": "screencast-director",
@@ -25,28 +47,6 @@
 				2
 			],
 			"latestCommitMessage": "fix: A layout that runs to the end of the video holds through the last..."
-		},
-		{
-			"name": "punc",
-			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
-			"url": "https://github.com/JoeKarlsson/punc",
-			"language": "TypeScript",
-			"commitCount": 52,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 4
-			],
-			"latestCommitMessage": "chore: AGENTS.md: the shelf import fetches the top 2000, and the built..."
-		},
-		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 85,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 4
-			],
-			"latestCommitMessage": "chore: Commit CI's house-rules baselines for the 2,354-film shelf"
 		}
 	],
 	"films": [
@@ -111,7 +111,7 @@
 	],
 	"homelab": { "runningContainers": 72, "proxmoxNodes": 2, "cpuThreads": 160, "memoryGB": 252 },
 	"github": {
-		"followers": 548,
+		"followers": 547,
 		"publicRepos": 60,
 		"stars": 659,
 		"forks": 225,
