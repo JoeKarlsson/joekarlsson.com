@@ -74,7 +74,7 @@ Scan for these patterns and flag each with a before/after:
 
 Read the `humanizer` skill at `/Users/joekarlsson/.claude/skills/humanizer/SKILL.md` (source: `/Users/joekarlsson/claude-skills/.claude/skills/humanizer`) and use it as the reference: patterns 41-53 for the structural tells above, its rubric with the quotable-line cap (any line an HN commenter could quote as proof of AI caps every score at 6), and its fact-diff rule (no suggested edit may drop or change a fact or number).
 
-For voice, compare against `src/content/blog/an-introduction-to-iot-internet-of-toilets.md`, a post Joe wrote in 2020 before using AI. Match its rhythm, word choice, and plain paragraph endings. Don't suggest pasting its tics ("Okay, so", exclamation points) into new text; in blind testing that read as imitation.
+For voice, compare against `src/content/talks/an-introduction-to-iot-internet-of-toilets.md`, a post Joe wrote in 2020 before using AI. Match its rhythm, word choice, and plain paragraph endings. Don't suggest pasting its tics ("Okay, so", exclamation points) into new text; in blind testing that read as imitation.
 
 Leave Joe's own jokes and metaphors alone unless they're a hard tell (fragment stack, staged reveal, performed candor, self-correction arc, quotable closer). List them under "Lines for Joe" instead of rewriting them.
 
