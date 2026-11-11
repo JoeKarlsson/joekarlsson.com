@@ -231,9 +231,7 @@ const FILTERS = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
-				<p class={`mb-8 ${HERO_LEAD}`}>
-					{era.label} <span class="text-muted">· {countByGroup(era.talks)}</span>
-				</p>
+				<p class={`mb-8 ${HERO_LEAD}`}>{era.label}</p>
 				<div
 					data-collapse-body
 					class="grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
@@ -255,8 +253,7 @@ const FILTERS = [
 			door={{
 				href: '/contact/',
 				label: 'Get in touch',
-				blurb:
-					'If you want one of these talks, or something close to it, at your event, the contact page has the fastest ways to reach me.',
+				blurb: 'Want one of these talks, or something close to it, at your event?',
 			}}
 		/>
 	</div>

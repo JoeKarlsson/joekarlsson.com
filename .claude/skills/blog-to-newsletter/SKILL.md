@@ -73,7 +73,7 @@ Read every image you make before using it. Alt text is required on all of them.
 
 - `recapOf: '<blog slug>'`. It keeps the issue off the blog list, homepage and RSS, and sets its canonical URL to the post. Google treats the canonical as a strong signal, so overlapping content doesn't hurt the post.
 - `date`: the send day.
-- `cardPhoto` / `cardPhotoAlt`: a photo whose subject survives a tall crop. Run `npm run newsletter:cards -- <slug>` and Read `card.webp`. For the recording setup, the front desk photo cropped down to a painting on the mat. The wide nook shot showed the rig.
+- `cardPhoto` / `cardPhotoAlt`: a photo whose subject survives a tall crop. Run `npm run newsletter:cards -- <slug>` and Read the `card-<hash>.webp` it writes. For the recording setup, the front desk photo cropped down to a painting on the mat. The wide nook shot showed the rig.
 - `cardPhotoAlt` is written into `heroAlt` after "with", so start it with "Joe's ...", not "My ...".
 - A title over 45 characters needs a short `seoTitle` (a site test caps tab titles), like the OKF issue.
 - Images use site paths (`/images/...`). Diagrams can stay as the post's SVG.

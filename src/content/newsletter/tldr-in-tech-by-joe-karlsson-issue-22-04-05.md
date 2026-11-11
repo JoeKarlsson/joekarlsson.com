@@ -4,7 +4,7 @@ date: 2022-04-05
 slug: 'tldr-in-tech-by-joe-karlsson-issue-22-04-05'
 issue: 17
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-issue-22-04-05'
-heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-04-05/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-04-05/card-d8032deb.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 17, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 

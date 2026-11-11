@@ -4,7 +4,7 @@ date: 2023-11-28
 slug: 'tldr-in-tech-issue-100'
 issue: 100
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-100'
-heroImage: '/images/newsletter/tldr-in-tech-issue-100/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-100/card-7c4e1221.webp'
 heroAlt: "Works on My Machine card for TL;DR in Tech issue 100, leading with Estimation Isn't For Everyone, with the issue number circled in pink crayon"
 ---
 

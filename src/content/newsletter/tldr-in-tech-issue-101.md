@@ -4,7 +4,7 @@ date: 2023-12-05
 slug: 'tldr-in-tech-issue-101'
 issue: 101
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-101'
-heroImage: '/images/newsletter/tldr-in-tech-issue-101/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-101/card-9a7eadb6.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 101, leading with Joins 13 Ways, with the issue number circled in pink crayon'
 ---
 

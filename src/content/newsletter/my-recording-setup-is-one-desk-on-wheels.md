@@ -7,7 +7,7 @@ description: 'One cable to plug in, one sentence to set up the room, and the lig
 recapOf: 'recording-setup-tour'
 cardPhoto: '/images/blog/recording-setup-tour/nook-wide.webp'
 cardPhotoAlt: "Joe's recording nook: the rolling desk with its green cutting mat and mic arm, an orange chair, an LED panel on a stand, and a 3D printer glowing on the shelf"
-heroImage: '/images/newsletter/my-recording-setup-is-one-desk-on-wheels/card.webp'
+heroImage: '/images/newsletter/my-recording-setup-is-one-desk-on-wheels/card-090d3bb6.webp'
 heroAlt: "Works on My Machine card for My Whole Recording Setup Is One Desk on Wheels, with Joe's recording nook: the rolling desk with its green cutting mat and mic arm, an orange chair, an LED panel on a stand, and a 3D printer glowing on the shelf framed in a pink crayon box"
 ---
 

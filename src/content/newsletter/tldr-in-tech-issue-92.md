@@ -4,7 +4,7 @@ date: 2023-08-29
 slug: 'tldr-in-tech-issue-92'
 issue: 92
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-92'
-heroImage: '/images/newsletter/tldr-in-tech-issue-92/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-92/card-7d009618.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 92, leading with Sources Of Complexity: Constraints, with the issue number circled in pink crayon'
 ---
 

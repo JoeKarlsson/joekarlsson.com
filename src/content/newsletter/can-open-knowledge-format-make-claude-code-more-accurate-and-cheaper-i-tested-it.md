@@ -6,7 +6,7 @@ date: 2026-10-30T15:09:37Z
 slug: 'can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it'
 description: "What I learned moving the notes Claude Code reads for my homelab into Open Knowledge Format, and what I'd copy even without OKF."
 recapOf: 'claude-md-open-knowledge-format'
-heroImage: '/images/newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/card.webp'
+heroImage: '/images/newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/card-56d11b21.webp'
 heroAlt: 'Works on My Machine card for Can Open Knowledge Format Make Claude Code More Accurate and Cheaper? I Tested It, with two featureless mannequin heads, each with a pink brain on top, the one on the right taller with a larger brain framed in a pink crayon box'
 cardPhoto: '/images/newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/card-photo.webp'
 cardPhotoAlt: 'two featureless mannequin heads, each with a pink brain on top, the one on the right taller with a larger brain'

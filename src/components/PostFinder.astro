@@ -10,6 +10,7 @@ import Scribble from './Scribble.astro';
 import { ARROW } from '../data/scribbles';
 import popularPosts from '../data/popular-posts.json';
 import type { FeedPost } from '../utils/posts';
+import { categorySlug } from '../utils/categories';
 
 interface Props {
 	posts: FeedPost[];
@@ -18,6 +19,10 @@ interface Props {
 }
 
 const { posts, filter } = Astro.props;
+
+// A category or written-for page doesn't repeat its own tag on every row
+const isPageTag = (name: string, basePath: typeof filter.basePath) =>
+	filter.basePath === basePath && categorySlug(name) === filter.currentSlug;
 
 function getReadingTime(body: string): number {
 	const words = body.trim().split(/\s+/).length;
@@ -126,8 +131,12 @@ const SORT_INACTIVE =
 			date={post.data.date}
 			slug={post.data.slug}
 			heroImage={post.data.heroImage}
-			categories={post.data.categories}
-			writtenFor={post.data.writtenFor}
+			categories={post.data.categories?.filter((c) => !isPageTag(c, '/blog/category/'))}
+			writtenFor={
+				post.data.writtenFor && !isPageTag(post.data.writtenFor, '/blog/written-for/')
+					? post.data.writtenFor
+					: undefined
+			}
 			readingTime={getReadingTime(post.body || '')}
 			href={post.href}
 			popular={topPostHrefs.has(post.href)}

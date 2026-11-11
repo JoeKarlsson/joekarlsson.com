@@ -73,14 +73,12 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 							loading="eager"
 						/>
 						<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
-							<span class="mb-1.5 block text-sm text-muted">
-								<span class="font-semibold text-pink">Featured</span>
-								{' · '}
-								{formatDate(featuredPost.data.date)}
-								{featuredReadingTime > 0 && <> · {featuredReadingTime} min read</>}
-							</span>
 							<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
 								{featuredPost.data.title}
+							</span>
+							<span class="mt-2 block text-sm text-muted">
+								{formatDate(featuredPost.data.date)}
+								{featuredReadingTime > 0 && <> · {featuredReadingTime} min read</>}
 							</span>
 						</span>
 					</span>

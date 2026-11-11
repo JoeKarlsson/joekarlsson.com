@@ -4,7 +4,7 @@ date: 2023-11-14
 slug: 'tldr-in-tech-issue-98'
 issue: 98
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-98'
-heroImage: '/images/newsletter/tldr-in-tech-issue-98/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-98/card-f95d9f43.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 98, leading with The Modern Way Of Serving Images, with the issue number circled in pink crayon'
 ---
 

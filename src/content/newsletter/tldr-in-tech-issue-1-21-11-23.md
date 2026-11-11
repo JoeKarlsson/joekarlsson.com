@@ -4,7 +4,7 @@ date: 2021-11-23
 slug: 'tldr-in-tech-issue-1-21-11-23'
 issue: 1
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-1-21-11-23'
-heroImage: '/images/newsletter/tldr-in-tech-issue-1-21-11-23/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-1-21-11-23/card-d62ffd6e.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 1, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 

@@ -4,7 +4,7 @@ date: 2023-04-25
 slug: 'tldr-in-tech-issue-74'
 issue: 74
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-74'
-heroImage: '/images/newsletter/tldr-in-tech-issue-74/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-74/card-5a366684.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 74, leading with Database Cryptography Fur The Rest Of Us, with the issue number circled in pink crayon'
 ---
 

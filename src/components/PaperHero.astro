@@ -1,10 +1,9 @@
 ---
 // A post's hero as a cut-paper collage that boils: the picture on a torn chalk print,
-// taped at two corners, with the post's topic on a pink scrap and its month on a chalk
-// chip. The paper edges wobble through the site's #boil filter and every scrap twitches a
+// taped at two corners, with the post's topic on a pink scrap. The paper edges wobble through the site's #boil filter and every scrap twitches a
 // fraction of a degree in stepped frames, like hand-drawn animation; the picture and the
 // words never distort. A work thumbnail with the taped look already has its print and tape
-// in the image, so it only twitches and gets the tag and chip. An animated thumbnail shows
+// in the image, so it only twitches and gets the tag. An animated thumbnail shows
 // its still here (data-still-only, src/integrations/responsive-images.mjs), since the
 // paper around it already boils. Still under reduced motion,
 // and frozen by the pause-motion button (.motion-paused).
@@ -19,12 +18,11 @@ interface Props {
 	// The thumbnail already shows a taped print, so no print or tape gets drawn around it
 	taped: boolean;
 	topic?: string;
-	date: Date;
 	// Picks this post's tear, so it keeps the same edges between builds
 	seed: number;
 }
 
-const { src, alt, width, height, halftone, taped, topic, date, seed } = Astro.props;
+const { src, alt, width, height, halftone, taped, topic, seed } = Astro.props;
 
 // A torn edge as a clip-path polygon in percentages: a point every few percent along each
 // side, pulled inward by a random sliver
@@ -47,12 +45,6 @@ function tornEdge(tearSeed: number, depth: number): string {
 	side(16, (t, d) => [d / 1.8, 100 - t * 100]);
 	return `polygon(${points.join(',')})`;
 }
-
-const month = date.toLocaleDateString('en-US', {
-	month: 'short',
-	year: 'numeric',
-	timeZone: 'UTC',
-});
 ---
 
 <div class="paper-hero">
@@ -86,10 +78,6 @@ const month = date.toLocaleDateString('en-US', {
 			<span class="ph-words">{topic}</span>
 		</span>
 	)}
-	<span class="ph-chip" aria-hidden="true">
-		<span class="ph-scrap" style={`background:${CHALK};clip-path:${tornEdge(seed + 13, 10)}`} />
-		<span class="ph-words">{month}</span>
-	</span>
 	<slot />
 </div>
 
@@ -144,13 +132,10 @@ const month = date.toLocaleDateString('en-US', {
 		bottom: 4.5%;
 		transform: rotate(var(--tilt));
 	}
-	.ph-tag,
-	.ph-chip {
+	.ph-tag {
 		position: absolute;
 		display: grid;
 		color: #000;
-	}
-	.ph-tag {
 		--tilt: 3deg;
 		right: 4%;
 		bottom: 0;
@@ -167,19 +152,6 @@ const month = date.toLocaleDateString('en-US', {
 		letter-spacing: 0.01em;
 		padding: 0.35em 0.6em 0.3em;
 	}
-	.ph-chip {
-		--tilt: -3.5deg;
-		left: 3%;
-		bottom: 0.5%;
-		transform: rotate(var(--tilt));
-	}
-	.ph-chip .ph-words {
-		font-weight: 700;
-		font-size: clamp(11px, 1.8cqi, 18px);
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		padding: 0.8em 1.2em;
-	}
 	.ph-words {
 		position: relative;
 		white-space: nowrap;
@@ -192,10 +164,10 @@ const month = date.toLocaleDateString('en-US', {
 	.is-boiling :is(.ph-scrap, .ph-tape) {
 		filter: url(#boil);
 	}
-	.is-boiling :is(.ph-print, .ph-tape, .ph-tag, .ph-chip) {
+	.is-boiling :is(.ph-print, .ph-tape, .ph-tag) {
 		animation: ph-twitch 0.5s steps(1, end) infinite;
 	}
-	.is-boiling :is(.ph-tape-top, .ph-chip) {
+	.is-boiling .ph-tape-top {
 		animation-delay: -0.17s;
 	}
 	.is-boiling .ph-tag {

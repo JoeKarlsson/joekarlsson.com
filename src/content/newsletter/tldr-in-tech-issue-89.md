@@ -4,7 +4,7 @@ date: 2023-08-08
 slug: 'tldr-in-tech-issue-89'
 issue: 89
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-89'
-heroImage: '/images/newsletter/tldr-in-tech-issue-89/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-89/card-6786c6f4.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 89, leading with Be A Thermostat, Not A Thermometer, with the issue number circled in pink crayon'
 ---
 

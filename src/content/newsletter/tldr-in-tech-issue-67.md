@@ -5,7 +5,7 @@ slug: 'tldr-in-tech-issue-67'
 description: 'By: Joe Karlsson'
 issue: 67
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-67'
-heroImage: '/images/newsletter/tldr-in-tech-issue-67/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-67/card-8147a62b.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 67, leading with AI Commits, with the issue number circled in pink crayon'
 ---
 

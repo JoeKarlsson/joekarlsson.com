@@ -20,6 +20,7 @@ import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts, isOwnPost } from '../utils/posts';
 import { jsonForScript } from '../utils/json-for-script';
 import popularPosts from '../data/popular-posts.json';
+import { projects } from '../data/projects';
 
 const posts = await getFeedPosts();
 const latestPosts = posts.filter(isOwnPost).slice(0, 5);
@@ -36,8 +37,8 @@ const postLinks = posts.map((post) => ({ href: post.href, title: post.data.title
 
 const PLACES = [
 	{ href: '/blog/', label: 'Blog', meta: `${posts.length} posts` },
-	{ href: '/work/', label: 'Works', meta: 'Things I made' },
-	{ href: '/about/', label: 'About', meta: 'Who I am' },
+	{ href: '/work/', label: 'Works', meta: `${projects.length} pieces` },
+	{ href: '/about/', label: 'About', meta: 'Career, talks and crop art' },
 	{ href: '/newsletter/', label: 'Newsletter', meta: 'Works on My Machine' },
 	{ href: '/uses/', label: 'Uses', meta: 'My gear and homelab' },
 	{ href: '/contact/', label: 'Contact', meta: 'Say hi' },
@@ -75,7 +76,9 @@ const PLACES = [
 				label: 'Popular',
 				title: mostRead.data.title,
 				href: mostRead.href,
-				meta: 'The post most people come for',
+				meta: mostRead.data.updatedDate
+					? `Updated ${formatDate(mostRead.data.updatedDate)}`
+					: formatDate(mostRead.data.date),
 			}}
 		>
 			<DrawingBoard slot="media" title="Doodle while lost" class="z-10 md:min-h-[420px]" />
@@ -83,7 +86,6 @@ const PLACES = [
 			<p data-closest-post hidden class:list={[HERO_LEAD, 'mt-3']}>
 				Looking for <a data-closest-post-link class={TEXT_LINK}></a>?
 			</p>
-			<p class="mt-3 text-muted">Pick a way back in below.</p>
 		</PosterHero>
 
 		<section class="mb-12 md:mb-16">

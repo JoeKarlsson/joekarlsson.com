@@ -3,7 +3,7 @@ title: 'Why I Joined Viam'
 date: 2022-06-15
 slug: 'why-i-joined-viam'
 substackUrl: 'https://joekarlsson.substack.com/p/why-i-joined-viam'
-heroImage: '/images/newsletter/why-i-joined-viam/card.webp'
+heroImage: '/images/newsletter/why-i-joined-viam/card-517fc656.webp'
 heroAlt: 'Works on My Machine card for Why I Joined Viam, with the year circled in pink crayon'
 ---
 

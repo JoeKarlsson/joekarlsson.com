@@ -3,7 +3,7 @@ title: 'tl;dr in tech - Best of 2021 Special Edition'
 date: 2022-01-06
 slug: 'tldr-in-tech-by-joe-karlsson-best-22-01-06'
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-by-joe-karlsson-best-22-01-06'
-heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-best-22-01-06/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-by-joe-karlsson-best-22-01-06/card-280cfadf.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 

@@ -70,6 +70,15 @@ test.describe('Blog Index Page', () => {
 		).toHaveAttribute('aria-current', 'page');
 		expect(await page.locator(SHOWN_ROWS).count()).toBeGreaterThan(0);
 	});
+
+	test("category and written-for pages don't repeat their own tag on every row", async ({
+		page,
+	}) => {
+		await page.goto('/blog/category/ai/');
+		await expect(page.locator('#posts-grid').getByText(/· AI\b/)).toHaveCount(0);
+		await page.goto('/blog/written-for/cdata/');
+		await expect(page.locator('#posts-grid').getByText('Written for CData')).toHaveCount(0);
+	});
 });
 
 test.describe('Individual Blog Post', () => {

@@ -5,7 +5,7 @@ slug: 'tldr-in-tech-issue-73'
 description: 'By: Joe Karlsson'
 issue: 73
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-73'
-heroImage: '/images/newsletter/tldr-in-tech-issue-73/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-73/card-b49ce4c2.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 73, leading with How to Get Started with Home Assistant in 2023 🏡 -, with the issue number circled in pink crayon'
 ---
 

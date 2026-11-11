@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Draws the Poster header card for newsletter issues: public/images/newsletter/{slug}/card.webp,
- * set as the issue's heroImage (which also makes its og:image via src/pages/og/).
+ * Draws the Poster header card for newsletter issues: public/images/newsletter/{slug}/card-{hash}.webp,
+ * named by its bytes so a redrawn card gets a new URL past the 30-day image cache, and set as the issue's heroImage (which also makes its og:image via src/pages/og/).
  *
  * The card is HTML drawn in headless Chromium with the site's fonts and crayon marks
  * (src/data/scribbles.ts), so it matches the pages it sits on. What it says comes from
@@ -22,6 +22,7 @@
  * rather than draw a card in a fallback face.
  */
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import {
 	existsSync,
 	mkdirSync,
@@ -39,7 +40,12 @@ import { FPS, cardPose, frameCount } from './issue-card-motion.mjs';
 const ROOT = resolve(import.meta.dirname, '..');
 const ISSUES_DIR = join(ROOT, 'src/content/newsletter');
 const PINK = '#ff4fd8';
-const cardPath = (slug) => `/images/newsletter/${slug}/card.webp`;
+const cardDir = (slug) => `/images/newsletter/${slug}`;
+// The still card, named by a hash of its bytes; any older still in the folder goes when it's redrawn
+const STILL_CARD = /^card(-[0-9a-f]{8})?\.webp$/;
+// Images the halftone leaves alone because they hold text (scripts/media/find-text-images.mjs);
+// a renamed card keeps its place in it
+const IMAGES_WITH_TEXT = join(ROOT, 'src/data/images-with-text.json');
 // The JK logo that signs off the card's bottom row, from brand/ (npm run brand draws it)
 const LOGO_SVG = readFileSync(join(ROOT, 'brand/logo/svg/off-register/jk-for-dark.svg'), 'utf8');
 
@@ -71,7 +77,9 @@ function stagedIssuePaths() {
 }
 
 function pickTargets(issues, args) {
-	const hasCard = (issue) => existsSync(join(ROOT, 'public', cardPath(issue.data.slug)));
+	const hasCard = ({ data }) =>
+		data.heroImage?.startsWith(`${cardDir(data.slug)}/card`) &&
+		existsSync(join(ROOT, 'public', data.heroImage));
 	if (args.includes('--all')) return issues;
 	if (args.includes('--staged')) {
 		const staged = stagedIssuePaths();
@@ -120,11 +128,6 @@ function photoDataUri(photo) {
 }
 
 function cardHtml(content, MARKS) {
-	const date = content.date.toLocaleDateString('en-US', {
-		month: 'long',
-		year: 'numeric',
-		timeZone: 'UTC',
-	});
 	let right;
 	if (content.photo) {
 		right = `<div class="photo"><img src="${photoDataUri(content.photo)}" alt=""></div>${markSvg(MARKS, 'box', 'right:50px;top:9px;width:410px;height:612px', 6, true)}`;
@@ -154,7 +157,6 @@ body { width: 1200px; height: 630px; background: #000; overflow: hidden; }
 .foot { display: flex; gap: 28px; align-items: flex-start; padding-top: 28px; }
 .echo { display: flex; flex-direction: column; font: 400 28px/.98 Anton, sans-serif; text-transform: uppercase; white-space: nowrap; }
 .echo span + span { -webkit-text-fill-color: transparent; -webkit-text-stroke: 1.5px ${PINK}; }
-.date { font: 600 20px/1 'Hanken Grotesk', sans-serif; color: #a3a3a3; padding-top: 4px; }
 .photo { position: absolute; right: 84px; top: 74px; width: 340px; height: 482px; border-radius: 3px; overflow: hidden; }
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .numbox { position: absolute; right: 110px; top: 190px; width: 330px; height: 230px; display: grid; place-items: center; }
@@ -166,7 +168,7 @@ body { width: 1200px; height: 630px; background: #000; overflow: hidden; }
 <div class="card">
 	<div class="left">
 		<div class="tbox"><div class="twrap">${markSvg(MARKS, 'rays', '', 6).replace('class="m"', 'class="m rays"')}${content.kicker ? `<span class="kick">${esc(content.kicker)}</span>` : ''}<div class="t" data-fit="120,48">${esc(content.title)}${content.also ? `<span class="also">${esc(content.also)}</span>` : ''}</div></div></div>
-		<div class="foot"><span class="echo">${echo}</span><span class="date">${date}</span><div class="logo">${LOGO_SVG}</div></div>
+		<div class="foot"><span class="echo">${echo}</span><div class="logo">${LOGO_SVG}</div></div>
 	</div>
 	${right}
 </div></body></html>`;
@@ -299,6 +301,7 @@ async function main() {
 	const browser = await chromium.launch();
 	const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
 	const written = [];
+	const renamed = new Map();
 	try {
 		for (const issue of targets) {
 			const { slug } = issue.data;
@@ -320,21 +323,35 @@ async function main() {
 				throw new Error(`${slug}: the title does not fit the card even at the smallest size`);
 
 			const png = await page.screenshot({ type: 'png' });
-			const out = join(ROOT, 'public', cardPath(slug));
-			mkdirSync(join(out, '..'), { recursive: true });
-			writeFileSync(out, await sharp(png).webp({ quality: 82 }).toBuffer());
-			const gifOut = out.replace(/\.webp$/, '.gif');
-			const mp4Out = out.replace(/\.webp$/, '.mp4');
+			const dir = join(ROOT, 'public', cardDir(slug));
+			mkdirSync(dir, { recursive: true });
+			const still = await sharp(png).webp({ quality: 82 }).toBuffer();
+			const stillName = `card-${createHash('sha256').update(still).digest('hex').slice(0, 8)}.webp`;
+			for (const old of readdirSync(dir).filter((f) => STILL_CARD.test(f) && f !== stillName)) {
+				rmSync(join(dir, old));
+				written.push(join(dir, old));
+				renamed.set(`${cardDir(slug)}/${old}`, `${cardDir(slug)}/${stillName}`);
+			}
+			writeFileSync(join(dir, stillName), still);
+			// The GIF keeps its name: sent emails point at it
+			const gifOut = join(dir, 'card.gif');
+			const mp4Out = join(dir, 'card.mp4');
 			await recordAnimation(page, content.photo ? 'photo' : 'number', gifOut, mp4Out);
-			writeFileSync(
-				issue.path,
-				setFrontmatterFields(issue.markdown, { heroImage: cardPath(slug), heroAlt: alt }),
-			);
-			written.push(out, gifOut, mp4Out, issue.path);
+			const heroImage = `${cardDir(slug)}/${stillName}`;
+			writeFileSync(issue.path, setFrontmatterFields(issue.markdown, { heroImage, heroAlt: alt }));
+			written.push(join(dir, stillName), gifOut, mp4Out, issue.path);
 			console.log(`card: ${slug}`);
 		}
 	} finally {
 		await browser.close();
+	}
+	if (renamed.size) {
+		const list = JSON.parse(readFileSync(IMAGES_WITH_TEXT, 'utf8'));
+		writeFileSync(
+			IMAGES_WITH_TEXT,
+			`${JSON.stringify(list.map((path) => renamed.get(path) ?? path).sort(), null, '\t')}\n`,
+		);
+		written.push(IMAGES_WITH_TEXT);
 	}
 	if (staged) execFileSync('git', ['add', '--', ...written], { cwd: ROOT });
 }

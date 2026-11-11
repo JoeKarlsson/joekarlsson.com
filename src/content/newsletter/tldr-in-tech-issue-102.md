@@ -4,7 +4,7 @@ date: 2024-01-02
 slug: 'tldr-in-tech-issue-102'
 issue: 102
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-102'
-heroImage: '/images/newsletter/tldr-in-tech-issue-102/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-102/card-43a9531f.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 102, leading with Writing Javascript Without A Build System, with the issue number circled in pink crayon'
 ---
 

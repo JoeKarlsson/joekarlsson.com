@@ -1403,7 +1403,7 @@ export const projects: Project[] = [
 				code: "- name: hotdish\n  cards:\n    - 'a hotdish'\n    - 'is just a casserole'\n    - 'made with more intention.'\n  video: videos/hotdish.mp4\n  music: music/ambient-01.mp3",
 			},
 			galleryTitle: 'Output',
-			galleryNote: 'A few from Joeflix. Use the controls to play or pause.',
+			galleryNote: 'A few from Joeflix.',
 			gallery: [
 				bumperClip(
 					'hotdish',

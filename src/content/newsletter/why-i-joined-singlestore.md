@@ -3,7 +3,7 @@ title: 'Why I joined SingleStore'
 date: 2021-08-04
 slug: 'why-i-joined-singlestore'
 substackUrl: 'https://joekarlsson.substack.com/p/why-i-joined-singlestore'
-heroImage: '/images/newsletter/why-i-joined-singlestore/card.webp'
+heroImage: '/images/newsletter/why-i-joined-singlestore/card-a71ef301.webp'
 heroAlt: 'Works on My Machine card for Why I joined SingleStore, with the year circled in pink crayon'
 ---
 

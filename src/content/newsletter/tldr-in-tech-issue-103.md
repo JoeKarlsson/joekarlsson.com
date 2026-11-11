@@ -4,7 +4,7 @@ date: 2024-01-09
 slug: 'tldr-in-tech-issue-103'
 issue: 103
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-103'
-heroImage: '/images/newsletter/tldr-in-tech-issue-103/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-103/card-f8a24ff6.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 103, leading with Fresh Work 80/15/5, with the issue number circled in pink crayon'
 ---
 

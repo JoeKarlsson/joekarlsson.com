@@ -4,7 +4,7 @@ date: 2023-06-27
 slug: 'tldr-in-tech-issue-83'
 issue: 83
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-83'
-heroImage: '/images/newsletter/tldr-in-tech-issue-83/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-83/card-dec440d0.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 83, leading with Running Your Engineering Onboarding Program, with the issue number circled in pink crayon'
 ---
 

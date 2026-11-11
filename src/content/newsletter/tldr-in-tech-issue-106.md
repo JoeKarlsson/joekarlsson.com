@@ -4,7 +4,7 @@ date: 2024-01-30
 slug: 'tldr-in-tech-issue-106'
 issue: 106
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-106'
-heroImage: '/images/newsletter/tldr-in-tech-issue-106/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-106/card-8198e968.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 106, leading with Unicode Is Harder Than You Think, with the issue number circled in pink crayon'
 ---
 

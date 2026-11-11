@@ -3,7 +3,7 @@ title: 'Taste Matters More with AI'
 date: 2026-10-12T22:45:47Z
 slug: 'taste-matters-more-with-ai'
 description: "The newsletter is back after almost three years, it runs in my homelab now, and it's going to be about what I actually think about. First up, taste."
-heroImage: '/images/newsletter/taste-matters-more-with-ai/card.webp'
+heroImage: '/images/newsletter/taste-matters-more-with-ai/card-e9c9f89f.webp'
 heroAlt: "Works on My Machine card for Taste Matters More with AI, with a photo of Joe gluing a jack-o'-lantern collage onto red paper framed in a pink crayon box"
 cardPhoto: '/images/newsletter/taste-matters-more-with-ai/card-photo.webp'
 cardPhotoAlt: "a photo of Joe gluing a jack-o'-lantern collage onto red paper"

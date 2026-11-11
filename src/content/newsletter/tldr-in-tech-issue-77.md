@@ -4,7 +4,7 @@ date: 2023-05-16
 slug: 'tldr-in-tech-issue-77'
 issue: 77
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-77'
-heroImage: '/images/newsletter/tldr-in-tech-issue-77/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-77/card-959ea7b0.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 77, leading with Setting Engineering Org Values, with the issue number circled in pink crayon'
 ---
 

@@ -5,7 +5,7 @@ slug: 'tldr-in-tech-issue-70'
 description: 'By: Joe Karlsson'
 issue: 70
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-70'
-heroImage: '/images/newsletter/tldr-in-tech-issue-70/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-70/card-e9e3a9ed.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 70, leading with Measuring An Engineering Organization, with the issue number circled in pink crayon'
 ---
 

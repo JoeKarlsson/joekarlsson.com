@@ -4,7 +4,7 @@ date: 2023-08-15
 slug: 'tldr-in-tech-issue-90'
 issue: 90
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-90'
-heroImage: '/images/newsletter/tldr-in-tech-issue-90/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-90/card-772e65c4.webp'
 heroAlt: "Works on My Machine card for TL;DR in Tech issue 90, leading with The Best Managers Don't Fix, They Coach - Four Tools To Add to Your Toolkit, with the issue number circled in pink crayon"
 ---
 

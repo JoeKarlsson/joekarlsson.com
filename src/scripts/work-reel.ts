@@ -1,4 +1,4 @@
-// The /work/ hero reel plays a slice of each selected work in turn. Its caption and link
+// The /work/ hero reel plays a slice of each selected work in turn. Its title and link
 // follow the piece on screen, so clicking the reel opens what you're looking at.
 
 /** Which slice of the reel is on screen at `seconds` (the last one holds to the end). */
@@ -11,13 +11,11 @@ export function initWorkReel(reel: HTMLAnchorElement): void {
 	const sliceSeconds = Number(reel.dataset.reelSlice);
 	const video = reel.querySelector('video')!;
 	const title = reel.querySelector('[data-reel-title]')!;
-	const position = reel.querySelector('[data-reel-position]')!;
 	video.addEventListener('timeupdate', () => {
 		const i = reelPieceAt(video.currentTime, sliceSeconds, pieces.length);
 		if (reel.getAttribute('href') === pieces[i].href) return;
 		reel.setAttribute('href', pieces[i].href);
 		title.textContent = pieces[i].title;
-		position.textContent = String(i + 1);
 	});
 }
 

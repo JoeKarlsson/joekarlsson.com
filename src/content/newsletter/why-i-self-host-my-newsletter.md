@@ -3,7 +3,7 @@ title: 'Why I Self-Host My Newsletter'
 date: 2026-10-13T00:01:00Z
 slug: 'why-i-self-host-my-newsletter'
 description: "Why my newsletter runs in my homelab, why I picked listmonk over Ghost, and what I haven't figured out about outgrowing a free email plan."
-heroImage: '/images/newsletter/why-i-self-host-my-newsletter/card.webp'
+heroImage: '/images/newsletter/why-i-self-host-my-newsletter/card-adf3867c.webp'
 heroAlt: "Works on My Machine card for Why I Self-Host My Newsletter, with Joe's homelab rack in the attic (two Dell R730 servers, networking gear, a Synology NAS and two UPS units) framed in a pink crayon box"
 cardPhoto: '/images/blog/homelab-two-years-later/rack-full-front.webp'
 cardPhotoAlt: "Joe's homelab rack in the attic (two Dell R730 servers, networking gear, a Synology NAS and two UPS units)"

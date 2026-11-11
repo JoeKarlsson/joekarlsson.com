@@ -4,7 +4,7 @@ date: 2023-11-07
 slug: 'tldr-in-tech-issue-97'
 issue: 97
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-97'
-heroImage: '/images/newsletter/tldr-in-tech-issue-97/card.webp'
+heroImage: '/images/newsletter/tldr-in-tech-issue-97/card-bbfa8668.webp'
 heroAlt: "Works on My Machine card for TL;DR in Tech issue 97, leading with You Don't Always Need Indexes, with the issue number circled in pink crayon"
 ---
 

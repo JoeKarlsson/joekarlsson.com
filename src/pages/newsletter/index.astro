@@ -18,10 +18,10 @@ const issues = (await getSentIssues()).sort(
 // Works on My Machine posts get cards with their header image, like the blog list; the
 // imported TL;DR in Tech link roundups (substackUrl) stay a compact list by year.
 const posts = issues.filter((i) => !i.data.substackUrl);
-// The newest issue leads the page; the list below holds the rest
-const [latest, ...olderPosts] = posts;
+// The newest issue leads the page, and the list below holds every issue, the newest too,
+// so it reads as the whole archive
+const [latest, lastIssue] = posts;
 // The pink band pushes the issue before it
-const [lastIssue] = olderPosts;
 if (!lastIssue) throw new Error('No earlier issue for the featured band');
 const backIssues = issues.filter((i) => i.data.substackUrl);
 
@@ -75,11 +75,6 @@ for (const issue of backIssues) {
 							</span>
 						)}
 						<span class="block px-6 pt-5 pb-6">
-							<span class="mb-1.5 block text-sm text-muted">
-								<span class="font-semibold text-pink">Latest issue</span>
-								{' · '}
-								<FormattedDate date={latest.data.date} />
-							</span>
 							{/* The card already prints the title, so the text title is only for screen readers */}
 							<span
 								class:list={[
@@ -90,8 +85,11 @@ for (const issue of backIssues) {
 								{latest.data.title}
 							</span>
 							{latest.data.description && (
-								<span class="mt-3 line-clamp-3 block text-muted">{latest.data.description}</span>
+								<span class="line-clamp-3 block text-muted">{latest.data.description}</span>
 							)}
+							<span class="mt-2 block text-sm text-muted">
+								<FormattedDate date={latest.data.date} />
+							</span>
 						</span>
 					</span>
 					<Scribble
@@ -126,9 +124,8 @@ for (const issue of backIssues) {
 				Works on <span class="text-pink">My Machine</span>
 			</p>
 			<p class={`mt-4 ${HERO_LEAD}`}>
-				Short write-ups on tech writing, AI, homelab builds and open source, like why I self-host
-				this newsletter and whether OKF makes Claude Code cheaper. It goes out when I have something
-				to say.
+				Short write-ups on tech writing, AI, homelab builds and open source. It goes out when I have
+				something to say.
 			</p>
 			<div class="mt-6">
 				<div id="subscribe" class="scroll-mt-24">
@@ -150,7 +147,7 @@ for (const issue of backIssues) {
 
 		<h2 class={SECTION_HEADING}>Past issues</h2>
 		<ul class="mb-12 md:mb-20">
-			{olderPosts.map((post, i) => (
+			{posts.map((post, i) => (
 				<BlogCard
 					title={post.data.title}
 					description={post.data.description}
