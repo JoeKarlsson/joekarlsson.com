@@ -1,6 +1,6 @@
 // The short videos /talks/ shows: a few explainers and builds from my YouTube Shorts and
 // TikTok, picked by hand. Every one of them, with its TikTok twin, is backed up on the NAS
-// under My Videos/Shorts and My Videos/TikTok. `posterAt` is the second of the NAS copy its
+// in My Videos/Shorts and TikToks. `posterAt` is the second of the NAS copy its
 // pink poster is taken from; npm run talks:covers draws it (posterPath below).
 export interface Short {
 	// YouTube Short ID

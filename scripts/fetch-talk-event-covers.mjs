@@ -15,7 +15,7 @@
  *   cut over SSH, so drawing a new one needs the home LAN) or an event picture (`image`)
  *   instead of YouTube's thumbnail, at a file name of its own (posterPath in talks.ts).
  * - public/images/talks/posters/<id>-t<at>.webp: an upright poster for each YouTube Short in
- *   src/data/shorts.ts, a frame of my NAS copy (My Videos/Shorts), `posterAt` seconds in.
+ *   src/data/shorts.ts, a frame of my NAS copy (My Videos/Shorts and TikToks), `posterAt` seconds in.
  *
  * Square podcast art is letterboxed on black instead of cropped, so the show's name survives.
  * Skips covers already drawn. Usage: npm run talks:covers
@@ -121,14 +121,16 @@ function talkBackup(id) {
 	return video.backup;
 }
 
-/** Where my NAS copy of a YouTube Short is: My Videos/Shorts names each file with its ID */
+/** Where my NAS copy of a YouTube Short is: My Videos/Shorts and TikToks names each file with its ID */
 function shortBackup(id) {
-	const names = execFileSync('ssh', [...NAS, `ls '${NAS_VIDEOS}/Shorts'`], { encoding: 'utf8' })
+	const names = execFileSync('ssh', [...NAS, `ls '${NAS_VIDEOS}/Shorts and TikToks'`], {
+		encoding: 'utf8',
+	})
 		.split('\n')
 		.filter((name) => name.endsWith(`[${id}].mp4`));
 	if (names.length !== 1)
-		throw new Error(`Short ${id}: ${names.length} NAS copies in My Videos/Shorts`);
-	return `Shorts/${names[0]}`;
+		throw new Error(`Short ${id}: ${names.length} NAS copies in My Videos/Shorts and TikToks`);
+	return `Shorts and TikToks/${names[0]}`;
 }
 
 /** One frame of my NAS copy of a video (`backup`, under My Videos), `at` seconds in. The NAS's
