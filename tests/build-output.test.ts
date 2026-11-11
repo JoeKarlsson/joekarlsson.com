@@ -493,6 +493,33 @@ const builtPages = (readdirSync(dist, { recursive: true, encoding: 'utf-8' }) as
 	(file) => file.endsWith('.html'),
 );
 
+describe('script policy and lazy media', () => {
+	// src/integrations/script-csp.mjs must run on every page and come before its first script,
+	// or that page silently loses its script policy (a meta CSP only covers what follows it)
+	it('every page with a script carries the script policy ahead of its first script', () => {
+		const uncovered = builtPages.filter((page) => {
+			const html = readDist(page);
+			const firstScript = html.search(/<script\b/i);
+			if (firstScript === -1) return false;
+			const policy = html.indexOf('<meta http-equiv="Content-Security-Policy"');
+			return policy === -1 || policy > firstScript;
+		});
+		expect(uncovered).toEqual([]);
+	});
+
+	// A poster attribute downloads at page load even far down a post, competing with the hero;
+	// post videos use data-poster plus width and height (in-view-play.ts sets the poster)
+	it('no post or issue video downloads its still at load', () => {
+		const contentDir = resolve(import.meta.dirname, '..', 'src', 'content');
+		const eager = (readdirSync(contentDir, { recursive: true, encoding: 'utf-8' }) as string[])
+			.filter((file) => /\.mdx?$/.test(file))
+			.filter((file) =>
+				/<video\b[^>]*\sposter=/.test(readFileSync(resolve(contentDir, file), 'utf-8')),
+			);
+		expect(eager).toEqual([]);
+	});
+});
+
 describe('iframe embeds', () => {
 	// Local dev and preview send no CSP, so an iframe whose origin is missing from
 	// frame-src looks fine everywhere except production. The deployed CSP lives in

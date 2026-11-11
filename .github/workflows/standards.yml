@@ -1,0 +1,62 @@
+name: Modern Web Guidance Check
+
+# Monthly, never blocking: Google's legacy-scan over src/ and a check for newer guides.
+# Anything to flag goes in one "Modern Web Guidance check" issue (label: maintenance),
+# updated in place and closed once there's nothing left. The full review is the
+# web-standards-reviewer agent (~/.claude/knowledge/modern-web-guidance.md).
+on:
+  schedule:
+    - cron: '0 6 1 * *' # The 1st of each month, 6am UTC
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # The guides version last reviewed against; the check says when Google publishes a newer one
+  MODERN_WEB_GUIDANCE: 1.0.0
+  # The scanner reports usage to Google unless this is set
+  DISABLE_TELEMETRY: 1
+
+jobs:
+  scan:
+    name: Scan for legacy web patterns
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22
+      - name: Scan src and check for new guides
+        id: scan
+        run: |
+          # Its exit code may mean "found something"; a scan that really failed leaves no
+          # JSON or an error field, and the report script stops on both
+          npx -y "modern-web-guidance@$MODERN_WEB_GUIDANCE" legacy-scan src --json > scan.json || true
+          LATEST=$(npm view modern-web-guidance version)
+          node scripts/modern-web-report.mjs scan.json "$MODERN_WEB_GUIDANCE" "$LATEST" > report.md
+          echo "flagged=$([ -s report.md ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          cat report.md
+      # Same lookup as links.yml: create-issue-from-file can only update an issue by number
+      - name: Find existing issue
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUMBER=$(gh issue list --state open --label maintenance --json number,title \
+            --jq '[.[] | select(.title == "Modern Web Guidance check") | .number] | sort | .[0] // empty')
+          echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
+      - uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6
+        if: steps.scan.outputs.flagged == 'true'
+        with:
+          title: 'Modern Web Guidance check'
+          content-filepath: ./report.md
+          labels: maintenance
+          issue-number: ${{ steps.existing.outputs.number }}
+      - name: Close the issue when there's nothing left
+        if: steps.scan.outputs.flagged == 'false' && steps.existing.outputs.number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue close "${{ steps.existing.outputs.number }}" --comment "Clean scan and current guides. Closing automatically."

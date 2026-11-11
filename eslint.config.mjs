@@ -37,6 +37,30 @@ export default [
 		],
 	},
 	{
+		// Code that runs in the browser. Pages enforce Trusted Types (src/integrations/script-csp.mjs),
+		// so an HTML string written into the DOM throws on the live site, while e2e, which runs
+		// on the dev server without that policy, passes. Build DOM with createElement and textContent.
+		files: ['src/scripts/**', 'src/components/**', 'src/layouts/**', 'src/pages/**'],
+		rules: {
+			'no-restricted-properties': [
+				'error',
+				...['innerHTML', 'outerHTML', 'insertAdjacentHTML'].map((property) => ({
+					property,
+					message:
+						'Trusted Types blocks HTML strings on the live site; use createElement and textContent.',
+				})),
+			],
+			'no-restricted-syntax': [
+				'error',
+				{
+					selector:
+						"CallExpression[callee.object.name='document'][callee.property.name=/^write(ln)?$/]",
+					message: 'Trusted Types blocks document.write on the live site.',
+				},
+			],
+		},
+	},
+	{
 		rules: {
 			// Relaxed for existing code
 			'@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],

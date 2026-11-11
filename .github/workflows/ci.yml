@@ -170,6 +170,40 @@ jobs:
 
           npx pa11y-ci --config .pa11yci.json
 
+  # e2e runs on the dev server, which sends no script policy, so this loads the built site
+  # the way visitors get it and fails on anything its script CSP or Trusted Types blocks
+  script-policy:
+    name: Script Policy (built site)
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: dist
+          path: dist/
+      - name: Serve dist and load each page type
+        run: |
+          npx serve dist -l 4321 > /tmp/serve.log 2>&1 &
+          SERVE_PID=$!
+          trap 'kill "$SERVE_PID" 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:4321/ > /dev/null 2>&1 && break
+            if [ "$i" -eq 30 ]; then
+              echo "server did not come up within 30s" >&2
+              cat /tmp/serve.log >&2
+              exit 1
+            fi
+            sleep 1
+          done
+          node scripts/check-script-policy.mjs http://localhost:4321
+
   lighthouse:
     name: Lighthouse CI
     needs: build
@@ -285,6 +319,7 @@ jobs:
       - feeds
       - accessibility
       - lighthouse
+      - script-policy
       - caddyfile
       - unit
       - unused
