@@ -10,43 +10,43 @@
 			"commitCount": 639,
 			"dailyCommitCounts": [
 				2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25,
-				119, 85, 12
+				119, 85, 14
 			],
-			"latestCommitMessage": "fix: CI goes green again: Tailwind stops scanning docs, .claude and..."
-		},
-		{
-			"name": "screencast-director",
-			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
-			"url": "https://github.com/JoeKarlsson/screencast-director",
-			"language": "Swift",
-			"commitCount": 316,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2, 46,
-				9
-			],
-			"latestCommitMessage": "fix: The Publish sheet offers Copy only on text files (captions..."
-		},
-		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 94,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 4, 1, 8
-			],
-			"latestCommitMessage": "fix: Starring's actor matches the character's gender, so MRS. KANE no..."
+			"latestCommitMessage": "fix: Review follow-ups: speculation rules go through jsonForScript, a..."
 		},
 		{
 			"name": "dotfiles",
 			"description": "My dotfiles",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
 			"language": "TypeScript",
-			"commitCount": 109,
+			"commitCount": 110,
 			"dailyCommitCounts": [
-				15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 3
+				15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4
 			],
-			"latestCommitMessage": "feat: Web standards reviewer agent and Modern Web Guidance standard"
+			"latestCommitMessage": "fix: Design review script measures pages with a strict script CSP..."
+		},
+		{
+			"name": "bechdel-test",
+			"description": "Does your favorite film pass the test?",
+			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"language": "JavaScript",
+			"commitCount": 96,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 4, 1, 10
+			],
+			"latestCommitMessage": "fix: Take Les Miserables (1978) off the shelf: its script was the 2012..."
+		},
+		{
+			"name": "screencast-director",
+			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
+			"url": "https://github.com/JoeKarlsson/screencast-director",
+			"language": "Swift",
+			"commitCount": 309,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2, 46,
+				9
+			],
+			"latestCommitMessage": "fix: The Publish sheet offers Copy only on text files (captions..."
 		}
 	],
 	"films": [
