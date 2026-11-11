@@ -136,6 +136,14 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 				copy.removeAttribute('width');
 				copy.removeAttribute('height');
 				copy.style.viewTransitionName = '';
+				// Ids the post's copy already uses make Chrome draw this copy's filters (a
+				// collage's shadows) from the wrong element. Diagrams refer to ids only by url(#…)
+				copy.querySelectorAll('[id]').forEach((element) => (element.id += '-enlarged'));
+				copy.querySelectorAll('*').forEach((element) => {
+					for (const attribute of element.attributes)
+						if (attribute.value.includes('url(#'))
+							attribute.value = attribute.value.replace(/url\(#([^)]+)\)/g, 'url(#$1-enlarged)');
+				});
 				// Each arrow redraws, 30ms after the one before (motion.css)
 				copy.querySelectorAll('.d-flow').forEach((flow, i) => {
 					(flow as SVGElement).style.setProperty('--i', String(Math.min(i, 12)));

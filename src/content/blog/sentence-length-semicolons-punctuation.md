@@ -196,7 +196,7 @@ Punc's counting code is the same TypeScript the site runs, [on GitHub](https://g
 ## Limitations
 
 - **Editors.** Gutenberg texts are often later editions, and editors change punctuation in both directions. Gutenberg's _Wealth of Nations_ has "hurtful to the landlord; it is frequently hurtful to the tenant; and it is always hurtful to the community," where Smith's 1776 first edition has a period after "landlord" and a comma after "tenant." That semicolon after "tenant" turned up as item 5 of my 100 hand-coded marks, so the problem reaches the sample too. Editors add semicolons as well as remove them, and I can't say which way the editions push the totals.
-- **Few early books, and almost no recent ones.** Before 1800 each 50-year period has 13 to 48 books, so the intervals are wide. At the other end, Gutenberg carries books that are public domain in the US, which mostly means books published before 1931 [[Duke CSPD 2026]](https://web.law.duke.edu/cspd/publicdomainday/2026/). Only 67 of the 1,073 dated books on the shelf came out after 1930, so the trend stops in the 1970s and says nothing about the last 50 years.
+- **Few early books, and almost no recent ones.** Before 1800 each 50-year period has 13 to 48 books, so the intervals are wide. At the other end, Gutenberg carries books that are public domain in the US, which mostly means books published before 1931 [[Duke CSPD 2026]](https://cspd.law.duke.edu/publicdomainday/2026). Only 67 of the 1,073 dated books on the shelf came out after 1930, so the trend stops in the 1970s and says nothing about the last 50 years.
 - **The hand-coding** was done by Claude, twice, not by a person: 100 marks from the 1700s coded by two separate agents, and 100 from 1900-49 coded by one. A linguist coding a few hundred more would tighten the 40%.
 - **Only about half the shelf has a date.** 1,073 of 1,959 books have a first-publication year (954 of them fall in the 1600-1974 trend charts). The undated ones are out of every over-time number, and I haven't checked whether they differ from the dated ones.
 - **Translations slip through.** I flag them from Gutenberg's catalog and from each book's title page, and some still get past both (_Candide_ does).
@@ -237,6 +237,6 @@ Go play with it.
 - Smith, A. (1776). [_An Inquiry into the Nature and Causes of the Wealth of Nations_](https://archive.org/details/inquiryintonatur02smit_0), vol. 2. Strahan and Cadell.
 - Underwood, T., Kiley, K., Shang, W. and Vaisey, S. (2022). [Cohort succession explains most change in literary culture](https://sociologicalscience.com/articles-v9-8-184/). _Sociological Science_ 9, 184-205.
 - Westin, I. (2002). _Language Change in English Newspaper Editorials_. Rodopi.
-- Duke Center for the Study of the Public Domain (2026). [Public Domain Day 2026](https://web.law.duke.edu/cspd/publicdomainday/2026/).
+- Duke Center for the Study of the Public Domain (2026). [Public Domain Day 2026](https://cspd.law.duke.edu/publicdomainday/2026).
 
 [^tunit]: Linguists will recognize words between stops as a crude version of the T-unit [Hunt 1965]: a main clause plus whatever hangs off it. It's crude because not every semicolon or colon starts a new main clause, which is the problem the hand-coded sample in the main results takes on.

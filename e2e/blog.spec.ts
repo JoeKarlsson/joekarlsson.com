@@ -109,4 +109,26 @@ test.describe('Individual Blog Post', () => {
 		await expect(lightbox).toBeHidden();
 		await expect(picture).toBeFocused();
 	});
+
+	test('an enlarged collage gets its own ids, so its shadows still point at its own filters', async ({
+		page,
+	}) => {
+		await page.goto('/blog/sentence-length-semicolons-punctuation/');
+		const collage = page.getByRole('button', { name: /^Enlarge diagram: Paper collage on black/ });
+		await collage.click();
+		const copy = page.locator('#image-lightbox .diagram-enlarged svg');
+		await expect(copy).toBeVisible();
+		const { repeated, broken } = await page.evaluate(() => {
+			const ids = [...document.querySelectorAll('[id]')].map((element) => element.id);
+			const refs = [...document.querySelectorAll('#image-lightbox svg [filter]')].map((element) =>
+				element.getAttribute('filter')!.slice(5, -1),
+			);
+			return {
+				repeated: ids.filter((id, i) => ids.indexOf(id) !== i),
+				broken: refs.filter((id) => !document.querySelector(`#image-lightbox #${CSS.escape(id)}`)),
+			};
+		});
+		expect(repeated).toEqual([]);
+		expect(broken).toEqual([]);
+	});
 });
