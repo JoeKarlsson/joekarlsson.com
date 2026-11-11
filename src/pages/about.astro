@@ -770,7 +770,7 @@ const cropArtPieces = [
 			const isOpen = job.classList.toggle('is-open');
 			button.setAttribute('aria-expanded', String(isOpen));
 			// Closed by a click under the pointer: hover mustn't hold it open until the pointer leaves
-			job.classList.toggle('is-shut', !isOpen);
+			job.classList.toggle('is-shut', !isOpen && job.matches(':hover'));
 		});
 		job.addEventListener('mouseleave', () => job.classList.remove('is-shut'));
 	}
