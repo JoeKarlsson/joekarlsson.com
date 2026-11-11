@@ -7,35 +7,35 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 619,
+			"commitCount": 621,
 			"dailyCommitCounts": [
 				32, 2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44,
-				25, 119, 77
+				25, 119, 79
 			],
-			"latestCommitMessage": "feat: Punc's project page plays the words-leave collage inside its..."
-		},
-		{
-			"name": "punc",
-			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
-			"url": "https://github.com/JoeKarlsson/punc",
-			"language": "TypeScript",
-			"commitCount": 62,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 9
-			],
-			"latestCommitMessage": "feat: The About page plays the words-leave collage beside the artist..."
+			"latestCommitMessage": "fix: CI goes green again (the montage test accepts the dated filename)..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 306,
+			"commitCount": 308,
 			"dailyCommitCounts": [
 				67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2,
-				42
+				44
 			],
-			"latestCommitMessage": "feat: Overlays warn when they reach into a vertical video's captions..."
+			"latestCommitMessage": "feat: Stickers move out of the captions' way, above them or below when..."
+		},
+		{
+			"name": "punc",
+			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
+			"url": "https://github.com/JoeKarlsson/punc",
+			"language": "TypeScript",
+			"commitCount": 63,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 10
+			],
+			"latestCommitMessage": "fix: Figure inlining can't misread a dollar sign in an SVG, and..."
 		},
 		{
 			"name": "dotfiles",
@@ -85,6 +85,12 @@
 	],
 	"podcastEpisodes": [
 		{
+			"episodeTitle": "The Terror of ‘Godzilla Minus Zero’ and Sean’s Favorite Godzilla Movies. Plus: The Joy of ‘Club Kid,’ With Jordan Firstman!",
+			"podcastTitle": "The Big Picture",
+			"url": "https://podcasts.apple.com/us/podcast/the-big-picture/id1439252196?uo=4",
+			"cover": "/images/now/podcast-22fc3916-1f4a-42a4-890f-ff8c09a6030c.webp"
+		},
+		{
 			"episodeTitle": "‘Wild Horse Nine’ Is a Hilarious American Tragedy. Plus: ‘Possible Love’ and ‘Once Upon a Time in Harlem’.",
 			"podcastTitle": "The Big Picture",
 			"url": "https://podcasts.apple.com/us/podcast/the-big-picture/id1439252196?uo=4",
@@ -101,12 +107,6 @@
 			"podcastTitle": "The Big Picture",
 			"url": "https://podcasts.apple.com/us/podcast/the-big-picture/id1439252196?uo=4",
 			"cover": "/images/now/podcast-22fc3916-1f4a-42a4-890f-ff8c09a6030c.webp"
-		},
-		{
-			"episodeTitle": "The Age of Innocence with Libby Watson",
-			"podcastTitle": "Blank Check",
-			"url": "https://podcasts.apple.com/us/podcast/blank-check-with-griffin-david/id981330533",
-			"cover": "/images/now/podcast-ab4a04d4-3b5e-4bdc-b6ba-af9a721e2351.webp"
 		}
 	],
 	"homelab": { "runningContainers": 72, "proxmoxNodes": 2, "cpuThreads": 160, "memoryGB": 252 },
