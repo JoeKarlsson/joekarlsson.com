@@ -207,6 +207,14 @@ very, really, quite, extremely, incredibly, absolutely (except when used for emp
 - **Structure**: Story-driven with takeaways woven in
 - **Example**: "Developer Advocacy in 2023"
 
+### Research Posts (Studies, Data, Experiments)
+
+- **Tone**: Curious and plain, still opinionated about where I land
+- **First-person**: Moderate - "I" for why I went digging and where I land; the sources carry the rest
+- **Hedging**: Matched to the evidence - flat where it's solid, "I suspect" where it isn't
+- **Structure**: Question, what I found, where I land, what's still open (see **Writing research posts** below)
+- **Example**: "Are English sentences getting shorter? About 40% of the drop is punctuation"
+
 ## Technical Writing Patterns
 
 ### Code Integration
@@ -241,6 +249,35 @@ This is what the technical posts that do well on Hacker News and Reddit have in 
 - **Link the primary source.** Vendor spec sheets, docs, changelogs, the forum thread where I found the fix.
 - **Keep private things private.** No public IPs, private domain names, serial numbers, bucket names, tokens, or anything that maps out my house. Private subnets and host nicknames are fine.
 - **End with a verdict and what's still missing.** What I'd keep, what's still broken, what's next. No moral, and don't restate the intro.
+
+### Writing research posts
+
+This is for posts where the substance is studies, data or an experiment rather than my own build. The model is Michael Nielsen ([michaelnotebook.com](https://michaelnotebook.com/)). His research essays work for the same reason my infrastructure posts do: he shows his work, and he's exact about what he knows versus what he suspects. How each of his essays is put together, with longer excerpts, is in `docs/writing-exemplars/michael-nielsen.md`.
+
+- **Say why I went digging.** One or two sentences of personal stake before the research. Nielsen admits his small-data experiment was partly "an excuse to experiment with the scikit-learn and pytorch libraries." In a post built from other people's findings, that's the first-hand part.
+- **One status line on what the post is.** "Status: Exploratory working notes. Intended as preliminary exploration to get familiar with the problem, not as a survey of prior literature." Say once, near the top, whether this is an experiment I ran, a read of the studies, or notes. Then a sentence of scope or assumptions ("For this discussion, we'll assume ASI has been achieved"). It's a label, not a confession: no "caveat emptor", no apology for what I left out.
+- **Thesis on the first screen.** His talk essays open with a summary paragraph that gives the answer and its two consequences. My `tldr:` does that job, and the intro still states the claim. A documented scene from a source can open the post (his memory essay opens on the psychologist Luria testing a Moscow reporter's memory in the 1920s) if it's short and real. Never an invented one.
+- **Ask the reader's question, then do the arithmetic in the open.** "How much more efficient?" Then: 8 seconds a card, reviewed weekly for 20 years, comes to "just over 2 hours for each card," against 4-7 minutes with Anki. Then a rule anyone can use: "if memorizing a fact seems worth 10 minutes of my time in the future, then I do it." Inputs go in a sentence, the full model goes in an appendix at the end. A question is fine when the answer takes work to reach. "The result? X." is still a staged reveal.
+- **Baseline, then the goal, then results.** His small-data post runs simple baselines first and says how little tuning they got ("I put minimal effort into configuring these"). It states the target as a number before any results ("above 95% for RMNIST/1"), then gives one plain-label section per attempt ("Baselines", "Transfer learning", "Concluding thoughts"). The ending reports the best numbers against the target, and he missed. Benchmarks and homelab tests take the same shape.
+- **Define shorthand once, where it first shows up.** "RMNIST/N will mean reduced MNIST with N examples for each digit class." After that, never vary the term.
+- **Keep what I saw apart from why I think it happened.** "I'm not sure what's responsible for this effect. I suspect it's partly about focus." When nobody has tested it: "As far as I know, the experiment has never been done." Results get stated flat. Explanations get "I suspect."
+- **A specific case, then the general rule.** His flashcard for `ln -s filename linkname` kept failing until he split it into two cards, and only then does he generalize to "atomic" questions. His own note on Carl Sagan: "too long at too high an altitude detaches both the author and readers from a sense of what is real." Every general claim gets a concrete case within a paragraph or two.
+- **Explain a system by building the naive version and fixing it.** He calls it discovery fiction: start from "an obviously flawed back-of-the-napkin idea," point out the obvious problem, make the obvious fix, and repeat until the real design falls out. He did Bitcoin and Bloom filters this way. It works for protocols, auth flows and data structures.
+- **Quote the best people on both sides by name, then say where I land.** His AI-risk essay quotes Hinton, Bengio and Altman against LeCun, Ng and Andreessen in their own words, throws out the cheap explanation as "too glib," and only then picks a side ("Others, myself included"). Objections come from real people (an HN comment, a forum post, a colleague), quoted and linked. Never invent a skeptic.
+- **Credit where an idea came from, and where my numbers differ.** "I first saw an analysis along these lines in Gwern Branwen's review... he arrives at a 5-minute rule of thumb, rather than 10 minutes."
+- **Disclose in one plain sentence.** "I've no affiliation at all with Anki." Same for any post that touches CData or a vendor I pay.
+- **Side paths go in footnotes, the full math in an appendix.** Credits, tangents and the extra caveat go in a footnote (`[^1]`, which the site renders). The main line stays readable on a phone.
+- **End on the next open question, and answer critics in a dated update.** The small-data post ends on whether a hand-picked handful of training images could beat his random ones, which he calls "super-trainers". When readers pushed back on his AI-risk essay, he added "Postscript: Critiquing this Essay (added June 3, 2025)" instead of quietly rewriting.
+
+What I don't copy from him, because my rules win:
+
+- **Long intros that preview each part in order** ("In the first part of the essay... The second part..."). That's the outline shape from humanizer pattern 46.
+- **"We" and "let's"** ("let's do some rough time estimates"). I write "I".
+- **"The punchline is that..." and "Spoiler: We won't get there."** Staged reveals. Say the thing.
+- **Stacked hedges.** "Caveat emptor", apologies for citations left out, "a more-than-you-ever-wanted-to-know guide". The one status line covers it.
+- **"Indeed", "In fact", "fundamental", "extremely" and en dashes.** Still banned here.
+- **150-word paragraphs doing three jobs, and 6,400 words with no headers.** One point per paragraph, and headers stay the skim layer.
+- **Length.** His optimism essay runs about 34,000 words, and he says "an ideal public-facing version would be much shorter and more focused." His notes are him thinking out loud. My post is the shorter version.
 
 ### Honesty About Limitations
 

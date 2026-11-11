@@ -31,7 +31,7 @@ These come from posts Joe sent back. They override defaults elsewhere in this sk
 
 ### 0a. Read style guide and project docs
 
-1. Read `STYLE_GUIDE.md` at the repo root before writing. Its hard rules (em dashes, banned words) fail CI via Vale.
+1. Read `STYLE_GUIDE.md` at the repo root before writing. Its hard rules (em dashes, banned words) fail CI via Vale. For a research post (studies, data or an experiment carry the substance), also read `docs/writing-exemplars/michael-nielsen.md` and follow STYLE_GUIDE.md **Writing research posts**.
 2. Posts live in `src/content/blog/{slug}.md` and images in `public/images/blog/{slug}/`. Stills are WebP and animations MP4; drop raw PNG/JPG/GIF in and the pre-commit hook converts them.
 3. Read `src/content.config.ts` for the frontmatter schema.
 

@@ -46,6 +46,7 @@ Run the full prohibited-language check:
 - Does the post name what everyone's thinking but not saying?
 - Where a section lays out a trade-off, does it say what Joe would actually do?
 - Are scenarios specific (named tools, exact configs) or generic (enterprise data sources, etc.)?
+- For a research post (studies, data or an experiment), check STYLE_GUIDE.md **Writing research posts**: a one-line status saying what kind of post it is, a goal stated before results, results stated flat but explanations marked "I suspect", named people quoted on both sides of a live argument, and an ending on a specific open question. Flag the Nielsen habits that section says not to copy ("we"/"let's", "Spoiler:", stacked hedges).
 
 ## Layer 3: AI-writing pattern audit
 
