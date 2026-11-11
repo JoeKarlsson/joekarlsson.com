@@ -102,6 +102,8 @@ _Leonardo da Vinci, Ginevra de' Benci, about 1474-78, National Gallery of Art ([
 
 That's the part I miss. With agents, code has become more of a black box to engineers, and having beautiful code is less important than it was, which is a bit of a loss.
 
+![Paper collage on pink: a black-and-white print of Leonardo's Ginevra de' Benci lands, and a magnifying glass slides over the juniper beside her face, its glass filling with the bush's needles in color. A printed page of JavaScript slides in beside her, a black box drops over it, and a second magnifying glass slides up over the box, where its glass shows only black. The label reads: No one will look.](/images/blog/hackers-and-painters-ai-agents/no-one-will-look.svg)
+
 I try to read as much of it as I can, but reading every line isn't feasible anymore, especially when you're working on a team or collaborating on code. I read for the big things, I rely on my agents to spot problems too, and I keep backups. What I want is to understand the flow: where things are, and how to solve a problem if something goes wrong.
 
 Clean code still pays off in a practical way. It isn't always shorter, but my coding style has changed to favor token efficiency, which usually means splitting things up, cutting duplication as much as possible and consolidating abstractions. Fewer tokens means a smaller bill, and price was the main reason I [switched my default coding agent](/blog/breaking-up-with-claude-code/).

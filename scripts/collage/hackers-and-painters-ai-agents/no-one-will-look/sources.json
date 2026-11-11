@@ -1,0 +1,30 @@
+[
+	{
+		"element": "elements/ginevra.png, elements/lens-needles.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Ginevra_de%27_Benci_-_National_Gallery_of_Art.jpg",
+		"license": "Public domain (PD-Art; National Gallery of Art open access)",
+		"shows": "Leonardo da Vinci, Ginevra de' Benci, about 1474-78",
+		"derivative": "3840 px download; the whole painting toned black and white with a 6 px paper keyline (ginevra.png); a 640 px square of the juniper beside her right cheek, brightened 1.9x and saturated 1.3x, inside the lens (make-scene.py)"
+	},
+	{
+		"element": "elements/lens.png, lens-glass.png, lens-needles.png, lens-dark.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Magnifying_Glass_MET_255262.jpg",
+		"license": "CC0 (The Met open access)",
+		"shows": "A silver magnifying glass with a pierced handle",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--tone mono --largest --width 520); the glass refilled with the needles or black (make-scene.py)"
+	},
+	{
+		"element": "elements/code.png",
+		"source": "poem.html in Joe's linger repository",
+		"license": "Joe's own",
+		"shows": "The top of linger's poem script: its tuning constants and the stanza loop",
+		"derivative": "set in JetBrains Mono on a paper page (make-scene.py); a few comments shortened to fit"
+	},
+	{
+		"element": "elements/box.png",
+		"source": "drawn in make-scene.py",
+		"license": "Joe's own",
+		"shows": "A black card box a little bigger than the code page",
+		"derivative": "none"
+	}
+]

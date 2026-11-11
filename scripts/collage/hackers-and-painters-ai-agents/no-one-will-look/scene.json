@@ -1,0 +1,134 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#FF4FD8",
+		"grain": 0.04
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 23
+	},
+	"duration": 9.6,
+	"elements": [
+		{
+			"image": "elements/ginevra.png",
+			"x": 620,
+			"y": 440,
+			"enter_at": 0.3,
+			"enter_from": "left",
+			"enter_duration": 0.7,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.28
+			},
+			"rotation": -1.5
+		},
+		{
+			"image": "elements/code.png",
+			"x": 1310,
+			"y": 440,
+			"enter_at": 3.1,
+			"enter_from": "right",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.28
+			},
+			"rotation": 1.2
+		},
+		{
+			"image": "elements/box.png",
+			"x": 1310,
+			"y": -380,
+			"enter_at": 4.6,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 6,
+				"dy": 7,
+				"blur": 9,
+				"opacity": 0.28
+			},
+			"rotation": 1.2,
+			"moves": [
+				{
+					"at": 4.6,
+					"y": 440,
+					"duration": 0.5,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/lens-glass.png",
+			"x": 452,
+			"y": 445,
+			"enter_at": 1.2,
+			"enter_from": "bottom",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 12,
+				"dy": 14,
+				"blur": 16,
+				"opacity": 0.3
+			},
+			"rotation": -8,
+			"moves": [
+				{
+					"at": 2.1,
+					"y": 2600,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/lens-needles.png",
+			"x": 452,
+			"y": 445,
+			"enter_at": 2.1,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 12,
+				"dy": 14,
+				"blur": 16,
+				"opacity": 0.3
+			},
+			"rotation": -8
+		},
+		{
+			"image": "elements/lens-dark.png",
+			"x": 1310,
+			"y": 561,
+			"enter_at": 5.6,
+			"enter_from": "bottom",
+			"enter_duration": 0.7,
+			"shadow": {
+				"dx": 12,
+				"dy": 14,
+				"blur": 16,
+				"opacity": 0.3
+			},
+			"rotation": 6
+		}
+	],
+	"label": {
+		"text": "NO ONE WILL LOOK.",
+		"font_family": "Anton",
+		"size": 92,
+		"color": "#0B0B0B",
+		"tracking": 3,
+		"x": 960.0,
+		"align": "center",
+		"y": 900,
+		"enter_at": 6.9
+	}
+}
