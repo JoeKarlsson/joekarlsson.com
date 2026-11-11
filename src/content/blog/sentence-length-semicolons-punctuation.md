@@ -158,13 +158,13 @@ It's an erasure, like the blackout poems I make on paper, except a blackout poem
 
 I built it to make pictures. Once the shelf held 1,959 books, though, the pictures turned into a dataset, and the dataset could test a claim people have been making since the 1890s.
 
-Counting style is old. Lewis and Sherman counted sentences by hand. Frederick Mosteller and David Wallace used the rates of words like "upon" to argue that Madison wrote the disputed Federalist Papers [Mosteller and Wallace 1964]. John Burrows' Delta made comparing writers by their most common words a standard method [[Burrows 2002]](https://doi.org/10.1093/llc/17.3.267). The Stanford Literary Lab, Ted Underwood and many others took it to whole libraries. The Literary Lab's [pamphlet on style at the scale of the sentence](https://litlab.stanford.edu/LiteraryLabPamphlet5.pdf) opens with its authors disagreeing about whether their own measure captures style at all. In 2015 my sister and I built a [screenplay parser for the Bechdel test](/blog/bechdel-test-script-parser-works) in the same spirit.
+Counting style is old. Lewis and Sherman counted sentences by hand. Frederick Mosteller and David Wallace used the rates of words like "upon" to argue that Madison wrote the disputed Federalist Papers [Mosteller and Wallace 1964]. John Burrows' Delta made comparing writers by their most common words a standard method [[Burrows 2002]](https://doi.org/10.1093/llc/17.3.267). The Stanford Literary Lab, Ted Underwood and many others took it to whole libraries. The Literary Lab's [pamphlet on style at the scale of the sentence](https://litlab.stanford.edu/LiteraryLabPamphlet5.pdf) opens with its authors disagreeing about whether their own measure captures style at all. In 2015 my sister and I built a [screenplay parser for the Bechdel test](/blog/bechdel-test-script-parser-works/) in the same spirit.
 
 ![Page 217 of a 1788 edition of The Federalist in long-s type, from the copy Thomas Jefferson owned: a passage arguing that taxes on land unite the interests of the wealthiest landlord and the poorest tenant, with semicolons all through it](/images/blog/sentence-length-semicolons-punctuation/jefferson-federalist.webp)
 
 _A page from Thomas Jefferson's copy of The Federalist, 1788, Library of Congress ([Wikimedia Commons](<https://commons.wikimedia.org/wiki/File:Page_217_from_Thomas_Jefferson%27s_copy_of_The_Federalist_(1788)_LCCN2004665672.jpg>))._
 
-I think art and data analysis together are good ground for this kind of research. Making a picture of a text makes you look at it in a way nobody planned, and that's where you find evidence you weren't looking for, which is the fun part.
+I think art and data analysis together are good ground for this kind of research. Making a picture of a text makes you look at it in a way nobody planned, and that's where you find evidence you weren't looking for, which is the fun part. I wrote more about making art with code in [Rereading Hackers and Painters as a painter who codes with AI agents](/blog/hackers-and-painters-ai-agents/).
 
 ## How I counted
 

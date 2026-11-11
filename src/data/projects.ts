@@ -954,6 +954,7 @@ export const projects: Project[] = [
 			made: {
 				text: [
 					'The website and the TypeScript library count with the same code, so their numbers match. [The code is on GitHub](https://github.com/JoeKarlsson/punc).',
+					'Once the shelf held 1,959 books, I used it to [test whether English sentences really got shorter](/blog/sentence-length-semicolons-punctuation/).',
 				],
 				diagram: {
 					src: '/images/projects/punc/how-punc-reads-a-book.svg',

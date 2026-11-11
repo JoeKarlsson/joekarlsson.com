@@ -68,6 +68,8 @@ This year I started it over. In one day it became a static site, and I deleted t
 
 Restructuring it and doing data analysis on it felt like painting, like seeing the project in a new light. Getting new data to play with was easier than ever, too, after the small set of films the original covered.
 
+[Punc](/work/punc/), my 2016 art project that strips the words out of books, got the same treatment. I filled its shelf with 1,959 Project Gutenberg books and used it to [test whether English sentences really got shorter](/blog/sentence-length-semicolons-punctuation/).
+
 ## Ceglowski's objection
 
 Not everyone bought Graham's analogy. In 2005 Maciej Ceglowski, who had painted oils full time and also wrote code, answered him with [Dabblers and Blowhards](https://idlewords.com/2005/04/dabblers_and_blowhards.htm): "So let me say it simply - hackers are nothing like painters." He went after the sketching story too. Fifteenth-century painting, he wrote, had "a superprecise underdrawing and underpainting that were covered with thin glazes of color." That's not spewing broken code and beating it into shape.
