@@ -82,9 +82,10 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 					aria-label={`Clips of my selected works: ${SELECTED_WORKS.join(', ')}`}
 					data-autoplay-in-view
 					data-halftone="flat"
-					class="block aspect-video w-full object-cover md:aspect-auto md:min-h-0 md:flex-1"
+					class="block aspect-video w-full object-cover"
 				/>
-				<span class="flex flex-none flex-col justify-end px-6 pt-4 pb-5">
+				{/* The title sits under the clip; the card's spare height goes below it */}
+				<span class="flex flex-1 flex-col px-6 pt-4 pb-5">
 					<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
 						<span data-reel-title>{reelPieces[0].title}</span> →
 					</span>
