@@ -22,6 +22,10 @@
 @source not '../content/newsletter';
 /* brand/ is logo files and option pages, not site markup */
 @source not '../../brand';
+/* Writing guides, plans and agent prompts are prose, not markup */
+@source not '../../docs';
+@source not '../../.claude';
+@source not '../../*.md';
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
