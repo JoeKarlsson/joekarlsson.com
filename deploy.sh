@@ -53,8 +53,13 @@ if [[ -n "$UNPUSHED" ]]; then
     exit 1
 fi
 # Everything but the local now-feed snapshot is on origin, so the merge base is the
-# commit CI tested. A red CI stops the deploy (scripts/wait-for-ci.sh).
-bash "$(dirname "$0")/scripts/wait-for-ci.sh" "$(git merge-base HEAD origin/main)"
+# commit CI tested. A red CI stops the deploy (scripts/wait-for-ci.sh). SKIP_CI=1 ships
+# without waiting, for when GitHub's runners are down; the pre-push hook still ran the tests.
+if [[ "${SKIP_CI:-}" == "1" ]]; then
+    echo "SKIP_CI=1: deploying without waiting for GitHub CI"
+else
+    bash "$(dirname "$0")/scripts/wait-for-ci.sh" "$(git merge-base HEAD origin/main)"
+fi
 BUILD_DIR=$(mktemp -d "${TMPDIR:-/tmp}/joekarlsson-deploy.XXXXXX")
 git worktree add --quiet --detach "$BUILD_DIR" HEAD
 trap 'cd "$MAIN_DIR" && git worktree remove --force "$BUILD_DIR"' EXIT
