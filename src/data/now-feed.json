@@ -7,46 +7,46 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 637,
+			"commitCount": 639,
 			"dailyCommitCounts": [
 				2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25,
-				119, 85, 10
+				119, 85, 12
 			],
-			"latestCommitMessage": "feat: SKIP_CI=1 deploys without waiting for GitHub CI, for when the..."
-		},
-		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 92,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 4, 1, 6
-			],
-			"latestCommitMessage": "fix: CI tests the site in Playwright's container, which ships the..."
+			"latestCommitMessage": "fix: CI goes green again: Tailwind stops scanning docs, .claude and..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 317,
+			"commitCount": 316,
 			"dailyCommitCounts": [
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2, 46,
-				7
+				9
 			],
-			"latestCommitMessage": "fix: Dragging the logo watermark saves only its corner and size, so a..."
+			"latestCommitMessage": "fix: The Publish sheet offers Copy only on text files (captions..."
+		},
+		{
+			"name": "bechdel-test",
+			"description": "Does your favorite film pass the test?",
+			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"language": "JavaScript",
+			"commitCount": 94,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 4, 1, 8
+			],
+			"latestCommitMessage": "fix: Starring's actor matches the character's gender, so MRS. KANE no..."
 		},
 		{
 			"name": "dotfiles",
 			"description": "My dotfiles",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
 			"language": "TypeScript",
-			"commitCount": 108,
+			"commitCount": 109,
 			"dailyCommitCounts": [
-				15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 2
+				15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 3
 			],
-			"latestCommitMessage": "docs: Motion rules learned from the joekarlsson.com review: folds..."
+			"latestCommitMessage": "feat: Web standards reviewer agent and Modern Web Guidance standard"
 		}
 	],
 	"films": [
@@ -111,7 +111,7 @@
 	],
 	"homelab": { "runningContainers": 72, "proxmoxNodes": 2, "cpuThreads": 160, "memoryGB": 252 },
 	"github": {
-		"followers": 547,
+		"followers": 548,
 		"publicRepos": 60,
 		"stars": 659,
 		"forks": 225,
