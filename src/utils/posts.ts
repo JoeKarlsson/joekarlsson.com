@@ -26,6 +26,7 @@ export interface FeedPost {
 	data: {
 		title: string;
 		date: Date;
+		updatedDate?: Date;
 		slug: string;
 		description: string;
 		categories: string[];
