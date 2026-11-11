@@ -5,6 +5,19 @@
   freezes them by setting .motion-paused on <html>.
 */
 
+/* UI motion tokens (~/.claude/knowledge/web-motion.md). Entrances decelerate into place;
+   exits start slowly and speed away, about 20% shorter, since a decelerating exit spends
+   its travel before the eye can follow it. Fades start at 0.001, not 0: Chromium skips
+   drawing a layer that starts its animation at exactly 0, so the first frames come up
+   empty, and 0.001 changes no pixel. Decorative paper motion keeps its own timing. */
+:root {
+	--ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+	--ease-exit: cubic-bezier(0.3, 0, 0.6, 0.6);
+	--duration-enter: 0.22s;
+	--duration-exit: 0.175s;
+	--fade-from: 0.001;
+}
+
 /* Scribbles: an SVG whose paths carry pathLength="1" draws itself in, holds,
    then erases, on a slow loop. Set --dur and --del per scribble. */
 .redraw path {
@@ -302,11 +315,11 @@
 
 	/* No bounce on everyday UI: in dialogs, forms and the phone menu the peel eases */
 	:is(dialog, form) .sticker {
-		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+		transition-timing-function: var(--ease-enter);
 	}
 	@media (width < 48rem) {
 		#nav-section-links .sticker {
-			transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+			transition-timing-function: var(--ease-enter);
 		}
 	}
 }
@@ -345,13 +358,15 @@
 }
 
 /* UI responses (~/.claude/knowledge/web-motion.md): the phone menu and the lightbox grow
-   from 0.95 out of whatever opened them and shrink back into it, closing about 20% faster
-   than they open. Menu rows stagger 30ms; swapped icons (MENU/CLOSE, pause/play) crossfade.
-   Off under reduced motion; the row stagger skips while motion is paused,
-   since .motion-paused would freeze them at their invisible first frame. */
+   from 0.95 out of whatever opened them. The lightbox shrinks back into it, about 20%
+   faster; the menu, a dropdown closed many times a visit, goes at once. Menu rows stagger
+   30ms; swapped icons (MENU/CLOSE, pause/play) crossfade. Under reduced motion a mouse
+   gets instant changes and a finger gets a short fade (end of this file); the row
+   stagger skips while motion is paused, since .motion-paused would freeze them at their
+   invisible first frame. */
 @keyframes menu-row-in {
 	from {
-		opacity: 0;
+		opacity: var(--fade-from);
 		translate: 0 -6px;
 	}
 }
@@ -390,25 +405,22 @@
 			transform-origin: top right;
 			opacity: 0;
 			scale: 0.95;
-			transition:
-				opacity 0.16s ease-in,
-				scale 0.16s ease-in,
-				display 0.16s allow-discrete;
 		}
 		nav[data-menu-open] #nav-section-links {
 			opacity: 1;
 			scale: 1;
-			transition-duration: 0.2s;
-			transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+			transition:
+				opacity var(--duration-enter) var(--ease-enter),
+				scale var(--duration-enter) var(--ease-enter);
 		}
 		@starting-style {
 			nav[data-menu-open] #nav-section-links {
-				opacity: 0;
+				opacity: var(--fade-from);
 				scale: 0.95;
 			}
 		}
 		:root:not(.motion-paused) nav[data-menu-open] :is(.menu-link, .pause-button) {
-			animation: menu-row-in 0.2s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+			animation: menu-row-in 0.2s var(--ease-enter) backwards;
 			animation-delay: calc(40ms + var(--row, 0) * 30ms);
 		}
 	}
@@ -431,7 +443,7 @@
 		.icon-swap
 		> [data-icon-on] {
 		transition-duration: 0.14s;
-		transition-timing-function: ease-in;
+		transition-timing-function: var(--ease-exit);
 	}
 
 	/* Phones: the post title and progress line fade into the bar as the title scrolls
@@ -441,17 +453,17 @@
 		.read-line {
 			opacity: 0;
 			transition:
-				opacity 0.16s ease-in,
-				display 0.16s allow-discrete;
+				opacity var(--duration-exit) var(--ease-exit),
+				display var(--duration-exit) allow-discrete;
 		}
 		nav[data-context-on] :is(.reading-context, .read-line) {
 			opacity: 1;
-			transition-duration: 0.2s;
+			transition-duration: var(--duration-enter);
 			transition-timing-function: ease-out;
 		}
 		@starting-style {
 			nav[data-context-on] :is(.reading-context, .read-line) {
-				opacity: 0;
+				opacity: var(--fade-from);
 			}
 		}
 	}
@@ -464,10 +476,10 @@
 	#image-lightbox::backdrop {
 		opacity: 0;
 		transition:
-			opacity 0.18s ease-in,
-			scale 0.18s ease-in,
-			overlay 0.18s allow-discrete,
-			display 0.18s allow-discrete;
+			opacity var(--duration-exit) var(--ease-exit),
+			scale var(--duration-exit) var(--ease-exit),
+			overlay var(--duration-exit) allow-discrete,
+			display var(--duration-exit) allow-discrete;
 	}
 	#image-lightbox {
 		scale: 0.95;
@@ -476,13 +488,13 @@
 	#image-lightbox[open]::backdrop {
 		opacity: 1;
 		scale: 1;
-		transition-duration: 0.22s;
-		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+		transition-duration: var(--duration-enter);
+		transition-timing-function: var(--ease-enter);
 	}
 	@starting-style {
 		#image-lightbox[open],
 		#image-lightbox[open]::backdrop {
-			opacity: 0;
+			opacity: var(--fade-from);
 		}
 		#image-lightbox[open] {
 			scale: 0.95;
@@ -509,7 +521,7 @@
 @media (prefers-reduced-motion: no-preference) {
 	:root:not(.motion-paused) .diagram-enlarged .d-flow path[pathLength] {
 		stroke-dasharray: 1;
-		animation: flow-draw 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+		animation: flow-draw 0.4s var(--ease-enter) backwards;
 		animation-delay: calc(0.25s + var(--i, 0) * 30ms);
 	}
 
@@ -525,7 +537,7 @@
 	}
 	::view-transition-group(lightbox-morph) {
 		animation-duration: 0.25s;
-		animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+		animation-timing-function: var(--ease-enter);
 	}
 	::view-transition-old(root),
 	::view-transition-new(root) {
@@ -538,26 +550,27 @@
 	}
 
 	/* Phones: a folded Talks or Uses section eases open and shut 20% faster
-	   (phone-collapse.ts toggles [hidden]). Only where height can animate to auto;
+	   (phone-collapse.ts toggles [hidden], and sets data-folds-ready once the folds are
+	   styled so none animates on load). Only where height can animate to auto;
 	   elsewhere it toggles, unclipped */
 	@supports (interpolate-size: allow-keywords) {
-		[data-collapse-body] {
+		[data-folds-ready] [data-collapse-body] {
 			interpolate-size: allow-keywords;
 			overflow: clip;
 			overflow-clip-margin: 1.5rem;
 			transition:
-				block-size 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+				block-size 0.25s var(--ease-enter),
 				opacity 0.2s ease-out,
 				display 0.25s allow-discrete;
 		}
-		[data-collapse-body][hidden] {
+		[data-folds-ready] [data-collapse-body][hidden] {
 			block-size: 0;
 			opacity: 0;
 			transition-duration: 0.2s, 0.16s, 0.2s;
-			transition-timing-function: ease-in, ease-in, linear;
+			transition-timing-function: var(--ease-exit), var(--ease-exit), linear;
 		}
 		@starting-style {
-			[data-collapse-body]:not([hidden]) {
+			[data-folds-ready] [data-collapse-body]:not([hidden]) {
 				block-size: 0;
 				opacity: 0;
 			}
@@ -574,14 +587,67 @@
 		overflow: clip;
 		opacity: 0;
 		transition:
-			block-size 0.2s ease-in,
-			opacity 0.16s ease-in,
+			block-size 0.2s var(--ease-exit),
+			opacity 0.16s var(--ease-exit),
 			content-visibility 0.2s allow-discrete;
 	}
 	details[open]::details-content {
 		block-size: auto;
 		opacity: 1;
 		transition-duration: 0.25s, 0.2s, 0.25s;
-		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease-out, linear;
+		transition-timing-function: var(--ease-enter), ease-out, linear;
+	}
+}
+
+/* Reduced motion under a finger: nothing moves, scales or grows, but what appears or goes
+   fades over 200ms, since a change that just happens under a thumb reads as a glitch.
+   Heights land at once while the content is transparent. With a mouse, reduced motion
+   gets instant changes (no rules), and the phone menu still closes at once. */
+@media (prefers-reduced-motion: reduce) and (pointer: coarse) {
+	#image-lightbox,
+	#image-lightbox::backdrop,
+	.reading-context,
+	.read-line,
+	details::details-content,
+	[data-folds-ready] [data-collapse-body] {
+		transition:
+			opacity 0.2s ease-out,
+			overlay 0.2s allow-discrete,
+			display 0.2s allow-discrete,
+			content-visibility 0.2s allow-discrete;
+	}
+	/* The menu opens on a fade but, with no display transition, still closes at once */
+	nav[data-menu-open] #nav-section-links,
+	.icon-swap > * {
+		transition: opacity 0.2s ease-out;
+	}
+	#image-lightbox,
+	#image-lightbox::backdrop,
+	details::details-content,
+	[data-folds-ready] [data-collapse-body][hidden] {
+		opacity: 0;
+	}
+	#image-lightbox[open],
+	#image-lightbox[open]::backdrop,
+	details[open]::details-content {
+		opacity: 1;
+	}
+	@media (width < 48rem) {
+		.reading-context,
+		.read-line {
+			opacity: 0;
+		}
+		nav[data-context-on] :is(.reading-context, .read-line) {
+			opacity: 1;
+		}
+	}
+	@starting-style {
+		#image-lightbox[open],
+		#image-lightbox[open]::backdrop,
+		nav[data-menu-open] #nav-section-links,
+		nav[data-context-on] :is(.reading-context, .read-line),
+		[data-folds-ready] [data-collapse-body]:not([hidden]) {
+			opacity: var(--fade-from);
+		}
 	}
 }

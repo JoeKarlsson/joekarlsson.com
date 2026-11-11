@@ -73,6 +73,9 @@ export function initPhoneCollapse() {
 		section.addEventListener('mouseleave', () => previewFoldAround(section, false));
 		setOpen(section, section.dataset.phoneCollapse === 'open');
 	});
+	// Folds animate only once their first state is styled, so nothing folds or grows on load
+	document.body.getBoundingClientRect();
+	document.documentElement.toggleAttribute('data-folds-ready', true);
 
 	// A link straight to something inside a folded section (/talks/#era-2021) opens it
 	const openHashTarget = () => {

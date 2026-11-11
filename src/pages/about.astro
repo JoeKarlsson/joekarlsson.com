@@ -783,24 +783,34 @@ const cropArtPieces = [
 
 <style>
 	/* A career row eases open on hover and closes 20% faster; clicking keeps it open. Animating the grid
-	   row from 0fr to 1fr works in every current browser, unlike height: auto */
+	   row from 0fr to 1fr works in every current browser, unlike height: auto. Hover opens a
+	   row only under a mouse (a tap's sticky :hover would hold a closed row open) and only
+	   after a 150ms rest, so a pointer sweeping down the list doesn't open every row. */
 	.job-body {
 		display: grid;
 		grid-template-rows: 0fr;
 		opacity: 0;
 		transition:
-			grid-template-rows 0.36s ease-in,
-			opacity 0.28s ease-in;
+			grid-template-rows 0.36s var(--ease-exit),
+			opacity 0.28s var(--ease-exit);
 	}
 	.job-body > * {
 		overflow: hidden;
 	}
-	.job:hover .job-body,
 	.job.is-open .job-body {
 		grid-template-rows: 1fr;
 		opacity: 1;
 		transition-duration: 0.45s, 0.35s;
-		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease-out;
+		transition-timing-function: var(--ease-enter), ease-out;
+	}
+	@media (hover: hover) {
+		.job:hover:not(.is-open) .job-body {
+			grid-template-rows: 1fr;
+			opacity: 1;
+			transition-duration: 0.45s, 0.35s;
+			transition-delay: 0.15s;
+			transition-timing-function: var(--ease-enter), ease-out;
+		}
 	}
 	/* What I do thumbnails cut through four frames, three seconds each: a hard cut,
 	   like the site's other stepped motion, not a smooth crossfade */

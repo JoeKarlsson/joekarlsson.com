@@ -302,6 +302,23 @@ test.describe('Phone layout', () => {
 		await expect(keyboard.locator('svg.hover-ring')).toBeVisible();
 	});
 
+	test('folds stay still while the page loads and ease open on tap', async ({ page }) => {
+		await page.addInitScript(() => {
+			(window as unknown as { foldRuns: number }).foldRuns = 0;
+			document.addEventListener('transitionrun', (event) => {
+				if ((event.target as Element).matches('[data-collapse-body]'))
+					(window as unknown as { foldRuns: number }).foldRuns++;
+			});
+		});
+		await page.goto('/talks/');
+		await page.waitForTimeout(400);
+		const foldRuns = () =>
+			page.evaluate(() => (window as unknown as { foldRuns: number }).foldRuns);
+		expect(await foldRuns()).toBe(0);
+		await page.locator('[data-collapsed] [data-collapse-toggle]').first().tap();
+		await expect.poll(foldRuns).toBeGreaterThan(0);
+	});
+
 	test('/uses previews a folded group while the mouse is over its pin or heading', async ({
 		browser,
 	}) => {
