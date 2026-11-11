@@ -317,6 +317,13 @@ test.describe('Phone layout', () => {
 		expect(await foldRuns()).toBe(0);
 		await page.locator('[data-collapsed] [data-collapse-toggle]').first().tap();
 		await expect.poll(foldRuns).toBeGreaterThan(0);
+		// A link into a folded era opens it without growing it (a fresh load: from /talks/
+		// itself, only the hash would change, and that open animates)
+		await page.goto('about:blank');
+		await page.goto('/talks/#era-2021');
+		await expect(page.locator('#era-2021 [data-collapse-body]')).toBeVisible();
+		await page.waitForTimeout(400);
+		expect(await foldRuns()).toBe(0);
 	});
 
 	test('/uses previews a folded group while the mouse is over its pin or heading', async ({

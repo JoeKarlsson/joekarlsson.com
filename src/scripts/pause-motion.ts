@@ -44,6 +44,8 @@ function showState(button: HTMLButtonElement, paused: boolean): void {
 export function initPauseMotion(button: HTMLButtonElement): void {
 	const pausedByButton = new Set<HTMLVideoElement>();
 	showState(button, isMotionPaused());
+	// A remembered pause shows its icon at once, not a crossfade on every page (jsdom has no getAnimations)
+	button.getAnimations?.({ subtree: true }).forEach((animation) => animation.finish());
 
 	button.addEventListener('click', () => {
 		const pausing = !isMotionPaused();

@@ -218,7 +218,7 @@ const FILTERS = [
 		{eras.map((era, i) => (
 			<section
 				id={era.slug}
-				class="talk-era relative mb-12 scroll-mt-24 md:mb-16 max-md:data-collapsed:mb-6"
+				class="talk-era relative mb-12 scroll-mt-24 max-md:mb-8 md:mb-16"
 				data-phone-collapse={i < 2 ? 'open' : ''}
 			>
 				<h2 data-collapse-heading class={`${SECTION_HEADING} max-md:w-full`}>
@@ -231,18 +231,19 @@ const FILTERS = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
-				<p class={`mb-8 ${HERO_LEAD}`}>{era.label}</p>
-				<div
-					data-collapse-body
-					class="grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
-				>
-					{foldSeries(era.talks).map((item, j) =>
-						'talk' in item ? (
-							<TalkCard talk={item.talk} index={j} />
-						) : (
-							<TalkSeriesCard title={item.series} runs={item.runs} />
-						),
-					)}
+				<p class={`mb-8 max-md:mb-0 ${HERO_LEAD}`}>{era.label}</p>
+				{/* Phones keep the gap above and below the cards inside the fold, so nothing
+				jumps as it opens or closes */}
+				<div data-collapse-body>
+					<div class="grid gap-x-8 gap-y-6 max-md:pt-8 max-md:pb-4 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3">
+						{foldSeries(era.talks).map((item, j) =>
+							'talk' in item ? (
+								<TalkCard talk={item.talk} index={j} />
+							) : (
+								<TalkSeriesCard title={item.series} runs={item.runs} />
+							),
+						)}
+					</div>
 				</div>
 			</section>
 		))}

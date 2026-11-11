@@ -765,10 +765,14 @@ const cropArtPieces = [
 
 <script>
 	for (const button of document.querySelectorAll<HTMLButtonElement>('.job > button')) {
+		const job = button.parentElement!;
 		button.addEventListener('click', () => {
-			const isOpen = button.parentElement!.classList.toggle('is-open');
+			const isOpen = job.classList.toggle('is-open');
 			button.setAttribute('aria-expanded', String(isOpen));
+			// Closed by a click under the pointer: hover mustn't hold it open until the pointer leaves
+			job.classList.toggle('is-shut', !isOpen);
 		});
+		job.addEventListener('mouseleave', () => job.classList.remove('is-shut'));
 	}
 
 	// "Right now" starts folded on phones only; the summary that opens it is md:hidden,
@@ -782,7 +786,8 @@ const cropArtPieces = [
 </script>
 
 <style>
-	/* A career row eases open on hover and closes 20% faster; clicking keeps it open. Animating the grid
+	/* A career row eases open on hover and closes 20% faster; clicking keeps it open, and a
+	   click closes it even under the pointer. Animating the grid
 	   row from 0fr to 1fr works in every current browser, unlike height: auto. Hover opens a
 	   row only under a mouse (a tap's sticky :hover would hold a closed row open) and only
 	   after a 150ms rest, so a pointer sweeping down the list doesn't open every row. */
@@ -791,8 +796,8 @@ const cropArtPieces = [
 		grid-template-rows: 0fr;
 		opacity: 0;
 		transition:
-			grid-template-rows 0.36s var(--ease-exit),
-			opacity 0.28s var(--ease-exit);
+			grid-template-rows 0.24s ease-in-out,
+			opacity 0.2s var(--ease-exit);
 	}
 	.job-body > * {
 		overflow: hidden;
@@ -800,14 +805,14 @@ const cropArtPieces = [
 	.job.is-open .job-body {
 		grid-template-rows: 1fr;
 		opacity: 1;
-		transition-duration: 0.45s, 0.35s;
+		transition-duration: 0.3s, 0.25s;
 		transition-timing-function: var(--ease-enter), ease-out;
 	}
 	@media (hover: hover) {
-		.job:hover:not(.is-open) .job-body {
+		.job:hover:not(.is-open, .is-shut) .job-body {
 			grid-template-rows: 1fr;
 			opacity: 1;
-			transition-duration: 0.45s, 0.35s;
+			transition-duration: 0.3s, 0.25s;
 			transition-delay: 0.15s;
 			transition-timing-function: var(--ease-enter), ease-out;
 		}
@@ -833,8 +838,10 @@ const cropArtPieces = [
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
+		/* 0s, not none: none also drops the hover rest, so a passing pointer would flash rows
+		   open. !important, since the open and hover rules are more specific */
 		.job-body {
-			transition: none;
+			transition-duration: 0s !important;
 		}
 		.frame {
 			animation: none;

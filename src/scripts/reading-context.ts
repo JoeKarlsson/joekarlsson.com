@@ -55,4 +55,8 @@ export function initReadingContext(nav: HTMLElement): void {
 	addEventListener('scroll', update, { passive: true });
 	addEventListener('resize', update);
 	update();
+	// A reload that restores the scroll mid-post shows the bar at once, without fading it in
+	nav
+		.querySelectorAll('.reading-context, .read-line')
+		.forEach((el) => el.getAnimations().forEach((animation) => animation.finish()));
 }

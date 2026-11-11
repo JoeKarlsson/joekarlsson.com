@@ -391,8 +391,6 @@
 	.icon-swap
 	> [data-icon-on] {
 	opacity: 0;
-	scale: 0.85;
-	filter: blur(2px);
 }
 @keyframes copied-pop {
 	40% {
@@ -442,6 +440,8 @@
 		)
 		.icon-swap
 		> [data-icon-on] {
+		scale: 0.85;
+		filter: blur(2px);
 		transition-duration: 0.14s;
 		transition-timing-function: var(--ease-exit);
 	}
@@ -567,7 +567,7 @@
 			block-size: 0;
 			opacity: 0;
 			transition-duration: 0.2s, 0.16s, 0.2s;
-			transition-timing-function: var(--ease-exit), var(--ease-exit), linear;
+			transition-timing-function: ease-in-out, var(--ease-exit), linear;
 		}
 		@starting-style {
 			[data-folds-ready] [data-collapse-body]:not([hidden]) {
@@ -587,7 +587,7 @@
 		overflow: clip;
 		opacity: 0;
 		transition:
-			block-size 0.2s var(--ease-exit),
+			block-size 0.2s ease-in-out,
 			opacity 0.16s var(--ease-exit),
 			content-visibility 0.2s allow-discrete;
 	}
