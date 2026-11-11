@@ -4,6 +4,7 @@
 //
 //   node scripts/modern-web-report.mjs scan.json <pinned version> <latest version>
 import { readFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 
 export function modernWebReport(scan, pinned, latest) {
 	if (scan.error) throw new Error(`legacy-scan failed: ${scan.error}`);
@@ -42,7 +43,9 @@ export function modernWebReport(scan, pinned, latest) {
 	return sections.join('\n');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+// pathToFileURL, not a hand-built file:// string: a path it encodes differently would
+// print nothing, which the workflow reads as a clean scan and closes the issue
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
 	const [scanPath, pinned, latest] = process.argv.slice(2);
 	process.stdout.write(modernWebReport(JSON.parse(readFileSync(scanPath, 'utf8')), pinned, latest));
 }
