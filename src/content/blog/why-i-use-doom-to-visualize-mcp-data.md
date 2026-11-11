@@ -85,7 +85,7 @@ That's been the biggest perk of coding agents for me. I know what software can d
 
 Then I recorded a quick demo and sent it around. Here's the unedited cut, me included. In it I call the whole thing "just an experiment."
 
-<video controls playsinline preload="none" poster="/images/blog/why-i-use-doom-to-visualize-mcp-data/demo-video-poster.webp" src="/images/blog/why-i-use-doom-to-visualize-mcp-data/demo-video.mp4" aria-label="My first Connect AI × DOOM demo: Claude playing a level built from a test Salesforce account while I explain the rooms, the monsters and the side panel on camera">
+<video controls playsinline preload="none" data-poster="/images/blog/why-i-use-doom-to-visualize-mcp-data/demo-video-poster.webp" width="1280" height="720" src="/images/blog/why-i-use-doom-to-visualize-mcp-data/demo-video.mp4" aria-label="My first Connect AI × DOOM demo: Claude playing a level built from a test Salesforce account while I explain the rooms, the monsters and the side panel on camera">
   <track kind="captions" srclang="en" label="English" src="/images/blog/why-i-use-doom-to-visualize-mcp-data/demo-video.vtt" />
 </video>
 

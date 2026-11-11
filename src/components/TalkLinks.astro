@@ -4,9 +4,11 @@
 // other sites the open-in-new icon.
 interface Props {
 	links: { label: string; href: string }[];
+	// Named into each link for screen readers, so a page of "Slides" links says whose
+	title: string;
 }
 
-const { links } = Astro.props;
+const { links, title } = Astro.props;
 const internal = (href: string) => href.startsWith('/');
 ---
 
@@ -38,6 +40,7 @@ const internal = (href: string) => href.startsWith('/');
 					/>
 				</svg>
 				{label}
+				<span class="sr-only"> for {title}</span>
 			</a>
 		))}
 	</div>

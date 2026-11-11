@@ -8,28 +8,28 @@ export const SIDEBAR_GRID = 'xl:grid xl:grid-cols-[200px_1fr] xl:gap-10';
 
 /** The title of a post, project or newsletter issue. */
 export const ARTICLE_TITLE =
-	'mb-4 font-display text-[clamp(2.4rem,1.6rem+3.2vw,4.25rem)] leading-[0.95] font-normal text-paper uppercase';
+	'mb-4 font-display text-[clamp(2.4rem,1.6rem+3.2vw,4.25rem)] leading-[0.95] font-normal text-balance text-paper uppercase';
 
 /** A heading inside an article, the size of a prose h2 (global.css). */
 export const ARTICLE_HEADING =
-	'mb-5 font-display text-[clamp(1.9rem,1.4rem+1.9vw,2.9rem)] leading-none font-normal text-paper uppercase';
+	'mb-5 font-display text-[clamp(1.9rem,1.4rem+1.9vw,2.9rem)] leading-none font-normal text-balance text-paper uppercase';
 
 /** A group heading under a section heading (Uses, About, the now feed). */
 export const GROUP_HEADING =
-	'font-display text-[clamp(24px,2vw,30px)] leading-none font-normal text-paper uppercase';
+	'font-display text-[clamp(1.5rem,2vw,1.875rem)] leading-none font-normal text-balance text-paper uppercase';
 
 /** The title of one item in a list: a job, a talk, a project step. */
-export const ITEM_TITLE = 'font-sans text-xl leading-snug font-semibold text-paper';
+export const ITEM_TITLE = 'font-sans text-xl leading-snug font-semibold text-balance text-paper';
 
 /** Dates, bylines, counts and other small gray metadata. */
 export const META = 'text-sm text-muted';
 
 /** The line or two in a PosterHero's dark panel, above the page's name. */
-export const HERO_LEAD = 'text-[clamp(18px,1.5vw,22px)] text-paper';
+export const HERO_LEAD = 'text-[clamp(1.125rem,1.5vw,1.375rem)] text-paper';
 
 /** A pink Anton section heading on a page (Home, About, Resume, Uses, Contact, Newsletter, 404). */
 export const SECTION_HEADING =
-	'relative mb-6 w-fit font-display text-[clamp(40px,4.6vw,64px)] leading-none font-normal text-pink uppercase';
+	'relative mb-6 w-fit font-display text-[clamp(2.5rem,4.6vw,4rem)] leading-none font-normal text-balance text-pink uppercase';
 
 /** The solid pink button. `sticker` tilts it on hover and squashes it when pressed (motion.css). */
 export const PRIMARY_BUTTON =

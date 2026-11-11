@@ -100,14 +100,10 @@
 		@apply bg-pink text-ink;
 	}
 
-	::-webkit-scrollbar {
-		@apply w-2;
-	}
-	::-webkit-scrollbar-track {
-		@apply bg-ink;
-	}
-	::-webkit-scrollbar-thumb {
-		@apply bg-surface-4 rounded-full;
+	/* Grey thumb on black, about 8:1 (the old surface-4 thumb was 1.85:1). Every current
+	   browser takes the standard property, so no -webkit-scrollbar rules */
+	:root {
+		scrollbar-color: #a3a3a3 #000; /* muted on ink */
 	}
 }
 
@@ -134,17 +130,22 @@
 	@apply relative;
 	scroll-margin-top: 6rem;
 }
-.prose h1 .heading-anchor,
-.prose h2 .heading-anchor,
-.prose h3 .heading-anchor,
-.prose h4 .heading-anchor {
-	@apply ml-2 opacity-0 text-muted no-underline transition-opacity;
-	font-size: 0.6em;
+/* A heading and its # permalink (astro.config.mjs). The # sits in the margin to the left of
+   the heading's first line, since it can't follow the text from outside the heading */
+.prose .heading-group {
+	@apply relative;
 }
-.prose h1:hover .heading-anchor,
-.prose h2:hover .heading-anchor,
-.prose h3:hover .heading-anchor,
-.prose h4:hover .heading-anchor,
+.prose .heading-anchor {
+	@apply absolute top-0 right-full mr-2 opacity-0 text-muted no-underline transition-opacity;
+	font-size: 1.5rem;
+}
+/* Under 48rem the column has no margin to sit in, so the # goes just above the heading */
+@media (width < 48rem) {
+	.prose .heading-anchor {
+		@apply top-auto right-auto bottom-full left-0 mr-0;
+	}
+}
+.prose .heading-group:hover .heading-anchor,
 .prose .heading-anchor:focus-visible {
 	@apply opacity-100 text-pink;
 }
@@ -199,8 +200,10 @@
 .prose h4 {
 	@apply font-sans text-lg font-semibold text-paper mt-8 mb-2;
 }
-.prose p {
+.prose :is(p, li, blockquote) {
 	text-wrap: pretty; /* no one-word last lines */
+}
+.prose p {
 	@apply mb-6;
 }
 .prose a {
@@ -426,4 +429,20 @@ pre.astro-code {
 		top: 0;
 		right: 0;
 	}
+}
+
+/* A blog card folded for find in page (PostFinder) keeps its box under
+   content-visibility: hidden, so drop its rule and padding until it's shown */
+#posts-grid > [hidden='until-found'] {
+	padding-block: 0;
+	border: 0;
+}
+
+/* A post picture's "Enlarge" button (ImageLightbox): out of sight until keyboard focus,
+   then a small button over the picture's top right corner */
+.lightbox-opener {
+	@apply absolute top-3 right-3 z-10 rounded-md border-2 border-pink bg-ink px-4 py-2.5 font-sans font-semibold text-pink;
+}
+.lightbox-opener:not(:focus-visible) {
+	@apply sr-only;
 }

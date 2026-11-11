@@ -18,7 +18,7 @@ It's called **PixelPane**: a 32x32 RGB LED panel and a Raspberry Pi behind a two
 Here's a quick tour, me included.
 
 <figure class="portrait-video">
-<video controls playsinline preload="none" poster="/images/blog/pixelpane-pixel-art-home-assistant/tour-poster.webp" src="/images/blog/pixelpane-pixel-art-home-assistant/tour.mp4" aria-label="A quick tour of PixelPane: me at my desk showing the web UI, the homelab stats, music and calendar scenes, the shadow box build, the GIF animator and live drawing">
+<video controls playsinline preload="none" data-poster="/images/blog/pixelpane-pixel-art-home-assistant/tour-poster.webp" width="720" height="1280" src="/images/blog/pixelpane-pixel-art-home-assistant/tour.mp4" aria-label="A quick tour of PixelPane: me at my desk showing the web UI, the homelab stats, music and calendar scenes, the shadow box build, the GIF animator and live drawing">
   <track kind="captions" srclang="en" label="English" src="/images/blog/pixelpane-pixel-art-home-assistant/tour.vtt" />
 </video>
 <figcaption>A quick tour of PixelPane.</figcaption>

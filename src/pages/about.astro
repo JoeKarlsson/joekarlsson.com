@@ -262,7 +262,7 @@ const cropArtPieces = [
 					class="-bottom-[7%] -left-[4%] z-10 h-[14%] w-[70%]"
 				/>
 			</div>
-			<p class="relative w-fit font-display text-[clamp(36px,3.6vw,56px)] leading-none text-paper uppercase">
+			<p class="relative w-fit font-display text-[clamp(2.25rem,3.6vw,3.5rem)] leading-none text-paper uppercase">
 				Joe Karlsson
 				<Scribble
 					{...MARKS.underline}
@@ -296,7 +296,7 @@ const cropArtPieces = [
 			<TableOfContents headings={aboutHeadings} />
 			<div class="min-w-0">
 				<div class="mb-12 md:mb-16">
-					<p class="mb-5 max-w-4xl font-display text-[clamp(40px,5vw,72px)] leading-[0.98] text-paper uppercase">
+					<p class="mb-5 max-w-4xl font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.98] text-paper uppercase">
 						I build <span class="text-pink">weird things</span> and{' '}
 						<span class="text-pink">show my work</span>
 					</p>
@@ -361,7 +361,7 @@ const cropArtPieces = [
 							href={area.href}
 							class="ring-host group grid items-end gap-x-8 gap-y-3 border-t border-surface-4 py-4 text-paper no-underline md:col-span-3 md:grid-cols-subgrid"
 						>
-							<span class="font-display text-[clamp(34px,4vw,56px)] leading-[0.98] uppercase group-hover:text-pink">
+							<span class="font-display text-[clamp(2.125rem,4vw,3.5rem)] leading-[0.98] uppercase group-hover:text-pink">
 								{area.title}
 							</span>
 							<span class="relative block aspect-video w-full max-w-md md:max-w-none">
@@ -407,7 +407,7 @@ const cropArtPieces = [
 								aria-expanded="false"
 								class="flex w-full cursor-pointer flex-wrap items-baseline justify-between gap-x-6 pt-1.5 pb-0.5 text-left text-paper"
 							>
-								<span class="relative inline-flex items-center font-display text-[clamp(34px,4vw,56px)] leading-[0.98] uppercase">
+								<span class="relative inline-flex items-center font-display text-[clamp(2.125rem,4vw,3.5rem)] leading-[0.98] uppercase">
 									<span class="relative mr-4 inline-block size-[0.8em]">
 										<img
 											src={job.logo}
@@ -534,7 +534,7 @@ const cropArtPieces = [
 							>
 								<span class="relative mb-3 flex aspect-square items-end rounded-lg bg-pink p-4">
 									<HoverBox index={i + 2} />
-									<span class="font-display text-[40px] leading-[0.95] text-ink uppercase">
+									<span class="font-display text-[2.5rem] leading-[0.95] text-ink uppercase">
 										{appearance.name}
 									</span>
 								</span>
@@ -546,7 +546,7 @@ const cropArtPieces = [
 						<a href="/talks/" class="ring-host group block text-paper no-underline">
 							<span class="relative mb-3 flex aspect-square items-end rounded-lg bg-pink p-4">
 								<HoverBox index={moreAppearances.length + 2} />
-								<span class="font-display text-[40px] leading-[0.95] text-ink uppercase">
+								<span class="font-display text-[2.5rem] leading-[0.95] text-ink uppercase">
 									Every talk and podcast &rarr;
 								</span>
 							</span>
@@ -585,7 +585,7 @@ const cropArtPieces = [
 											height="46"
 										/>
 									</span>
-									<span class="absolute bottom-4 left-4 z-30 rounded-md bg-ink px-3 pt-1.5 pb-0.5 text-left font-display text-[clamp(18px,2vw,30px)] leading-none whitespace-nowrap text-paper uppercase">
+									<span class="absolute bottom-4 left-4 z-30 rounded-md bg-ink px-3 pt-1.5 pb-0.5 text-left font-display text-[clamp(1.125rem,2vw,1.875rem)] leading-none whitespace-nowrap text-paper uppercase">
 										The Art of Computer Science
 									</span>
 								</YouTubeFacade>
@@ -791,13 +791,17 @@ const cropArtPieces = [
 	   row from 0fr to 1fr works in every current browser, unlike height: auto. Hover opens a
 	   row only under a mouse (a tap's sticky :hover would hold a closed row open) and only
 	   after a 150ms rest, so a pointer sweeping down the list doesn't open every row. */
+	/* visibility too, so a closed row's text is gone for screen readers and find in page,
+	   matching aria-expanded; it flips back only once the close has played */
 	.job-body {
 		display: grid;
 		grid-template-rows: 0fr;
 		opacity: 0;
+		visibility: hidden;
 		transition:
 			grid-template-rows 0.24s ease-in-out,
-			opacity 0.2s var(--ease-exit);
+			opacity 0.2s var(--ease-exit),
+			visibility 0.24s;
 	}
 	.job-body > * {
 		overflow: hidden;
@@ -805,14 +809,16 @@ const cropArtPieces = [
 	.job.is-open .job-body {
 		grid-template-rows: 1fr;
 		opacity: 1;
-		transition-duration: 0.3s, 0.25s;
+		visibility: visible;
+		transition-duration: 0.3s, 0.25s, 0s;
 		transition-timing-function: var(--ease-enter), ease-out;
 	}
 	@media (hover: hover) {
 		.job:hover:not(.is-open, .is-shut) .job-body {
 			grid-template-rows: 1fr;
 			opacity: 1;
-			transition-duration: 0.3s, 0.25s;
+			visibility: visible;
+			transition-duration: 0.3s, 0.25s, 0s;
 			transition-delay: 0.15s;
 			transition-timing-function: var(--ease-enter), ease-out;
 		}

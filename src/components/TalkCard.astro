@@ -150,6 +150,7 @@ const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
 	{recordedAt && <p class={`mt-1 ${META}`}>Recorded at {recordedAt.event}</p>}
 	{talk.description && <p class="mt-2 line-clamp-2 text-paper max-md:hidden">{talk.description}</p>}
 	<TalkLinks
+		title={talk.title}
 		links={[
 			talk.writeup && { label: 'Talk page', href: talk.writeup },
 			talk.slides && { label: 'Slides', href: talk.slides },

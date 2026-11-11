@@ -114,10 +114,19 @@
 		X-Content-Type-Options nosniff
 		X-Frame-Options DENY
 		Referrer-Policy strict-origin-when-cross-origin
-		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), hid=(), bluetooth=(), midi=(), display-capture=()"
+		# Opens other sites in their own window group; share links still open as popups
+		Cross-Origin-Opener-Policy same-origin-allow-popups
 		Strict-Transport-Security "max-age=31536000; includeSubDomains"
-		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.joekarlsson.io https://www.tiktok.com https://*.tiktokcdn-us.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://*.tiktokcdn-us.com; font-src 'self'; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.tiktok.com https://*.tiktok.com https://cdatasoftware.github.io https://linger.joekarlsson.com https://rosehobart.joekarlsson.com https://bechdel.joekarlsson.com https://wavejump.joekarlsson.com https://tanuki.joekarlsson.com https://poststream.joekarlsson.com https://pixelate.joekarlsson.com https://night-out.joekarlsson.com https://gaptcha.joekarlsson.com https://punc.joekarlsson.com https://corners.joekarlsson.com; connect-src 'self' https://plausible.joekarlsson.io https://cloudflareinsights.com https://www.tiktok.com https://*.tiktok.com; base-uri 'none'; object-src 'none'; form-action 'self' https://newsletter.joekarlsson.com; frame-ancestors 'none'"
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.joekarlsson.io; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; frame-src https://www.youtube-nocookie.com https://cdatasoftware.github.io https://linger.joekarlsson.com https://rosehobart.joekarlsson.com https://bechdel.joekarlsson.com https://wavejump.joekarlsson.com https://tanuki.joekarlsson.com https://poststream.joekarlsson.com https://pixelate.joekarlsson.com https://night-out.joekarlsson.com https://gaptcha.joekarlsson.com https://punc.joekarlsson.com https://corners.joekarlsson.com; connect-src 'self' https://plausible.joekarlsson.io; base-uri 'none'; object-src 'none'; form-action 'self' https://newsletter.joekarlsson.com; frame-ancestors 'none'"
 	}
+
+	# Who may load a file from another site: pictures, media and feeds anyone (feed readers
+	# and webmail show them), everything else only *.joekarlsson.com
+	@embeddable path *.svg *.png *.jpg *.jpeg *.webp *.gif *.ico *.mp4 *.webm *.mp3 *.m4a *.xml
+	header @embeddable Cross-Origin-Resource-Policy cross-origin
+	@not_embeddable not path *.svg *.png *.jpg *.jpeg *.webp *.gif *.ico *.mp4 *.webm *.mp3 *.m4a *.xml
+	header @not_embeddable Cross-Origin-Resource-Policy same-site
 
 	# Astro's build output carries a content hash in every filename, so it can be cached forever
 	@hashed path /_astro/*

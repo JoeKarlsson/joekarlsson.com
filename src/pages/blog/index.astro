@@ -71,9 +71,10 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 							sizes="(min-width: 768px) 50vw, 100vw"
 							class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
 							loading="eager"
+							fetchpriority="high"
 						/>
 						<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
-							<span class="block font-display text-[clamp(26px,2.6vw,40px)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+							<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-paper uppercase group-hover:text-pink">
 								{featuredPost.data.title}
 							</span>
 							<span class="mt-2 block text-sm text-muted">

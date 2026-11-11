@@ -346,6 +346,12 @@ const heroIsTaped =
 							return navigator.clipboard.writeText(text);
 						}
 
+						// One polite live region says "Copied" for every code block's button
+						const copyStatus = document.createElement('span');
+						copyStatus.setAttribute('role', 'status');
+						copyStatus.className = 'sr-only';
+						document.body.append(copyStatus);
+
 						document.querySelectorAll('.prose pre').forEach((pre) => {
 							const code = pre.querySelector('code');
 
@@ -358,20 +364,33 @@ const heroIsTaped =
 								pre.appendChild(label);
 							}
 
-							// Add copy button
+							// Add copy button: Copy and Copied! stacked in one cell, crossfading on
+							// [data-copied] (motion.css)
 							const button = document.createElement('button');
-							// Copy and Copied! stacked in one cell, crossfading on [data-copied] (motion.css)
+							button.type = 'button';
 							button.className = 'copy-button';
-							button.setAttribute('aria-label', 'Copy code');
-							button.innerHTML =
-								'<span class="icon-swap" aria-hidden="true"><span data-icon-off>Copy</span><span data-icon-on>Copied!</span></span>';
-							const idleLabel = button.querySelector('[data-icon-off]')!;
+							const idleName = lang ? `Copy ${lang} code` : 'Copy code';
+							button.setAttribute('aria-label', idleName);
+							const swap = document.createElement('span');
+							swap.className = 'icon-swap';
+							swap.setAttribute('aria-hidden', 'true');
+							const idleLabel = document.createElement('span');
+							idleLabel.toggleAttribute('data-icon-off', true);
+							idleLabel.textContent = 'Copy';
+							const doneLabel = document.createElement('span');
+							doneLabel.toggleAttribute('data-icon-on', true);
+							doneLabel.textContent = 'Copied!';
+							swap.append(idleLabel, doneLabel);
+							button.append(swap);
+							let resetTimer: ReturnType<typeof setTimeout> | undefined;
 							button.addEventListener('click', async () => {
 								if (!code) return;
+								clearTimeout(resetTimer);
+								copyStatus.textContent = '';
 								try {
 									await copyToClipboard(code.textContent || '');
 									button.toggleAttribute('data-copied', true);
-									button.setAttribute('aria-label', 'Copied');
+									copyStatus.textContent = 'Copied';
 									button.classList.remove('copied');
 									void button.offsetWidth; // restart the pop on a second copy
 									button.classList.add('copied');
@@ -380,12 +399,11 @@ const heroIsTaped =
 									}
 								} catch {
 									idleLabel.textContent = 'Failed';
-									button.setAttribute('aria-label', 'Copy failed');
+									copyStatus.textContent = 'Copy failed';
 								}
-								setTimeout(() => {
+								resetTimer = setTimeout(() => {
 									button.removeAttribute('data-copied');
 									idleLabel.textContent = 'Copy';
-									button.setAttribute('aria-label', 'Copy code');
 								}, 2000);
 							});
 							pre.appendChild(button);

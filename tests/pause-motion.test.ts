@@ -42,8 +42,9 @@ describe('pause motion button', () => {
 		button.click();
 		expect(isMotionPaused()).toBe(true);
 		expect(button.getAttribute('aria-pressed')).toBe('true');
-		expect(button.getAttribute('aria-label')).toBe('Play motion');
-		expect(button.textContent).toBe('Play motion');
+		// One name in both states; aria-pressed says which
+		expect(button.getAttribute('aria-label')).toBe('Pause motion');
+		expect(button.textContent).toBe('Pause motion');
 		expect(playing.pause).toHaveBeenCalled();
 
 		button.click();
@@ -69,7 +70,6 @@ describe('pause motion button', () => {
 		const next = document.querySelector('button')!;
 		initPauseMotion(next);
 		expect(next.getAttribute('aria-pressed')).toBe('true');
-		expect(next.getAttribute('aria-label')).toBe('Play motion');
 
 		const resumed = vi.fn();
 		document.addEventListener(MOTION_RESUMED_EVENT, resumed);

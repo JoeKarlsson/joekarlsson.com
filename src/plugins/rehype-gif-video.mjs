@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { visit } from 'unist-util-visit';
+import { localImageSize } from '../utils/image-size.mjs';
 
 const PUBLIC_DIR = 'public';
 
@@ -27,7 +28,8 @@ const PUBLIC_DIR = 'public';
  * WCAG 2.2.2, and these clips run well past five seconds.
  */
 export default function rehypeGifVideo() {
-	return (tree) => {
+	return async (tree) => {
+		const withPosters = [];
 		visit(tree, 'element', (node, index, parent) => {
 			if (node.tagName !== 'img' || !node.properties?.src) return;
 			if (!parent || index === null) return;
@@ -46,7 +48,7 @@ export default function rehypeGifVideo() {
 			const posterSrc = mp4Src.replace(/\.mp4$/, '-poster.webp');
 			const hasPoster = fs.existsSync(path.join(PUBLIC_DIR, posterSrc.replace(/^\//, '')));
 
-			parent.children[index] = {
+			const video = {
 				type: 'element',
 				tagName: 'video',
 				properties: {
@@ -59,7 +61,10 @@ export default function rehypeGifVideo() {
 					playsinline: true,
 					controls: true,
 					preload: 'none',
-					...(hasPoster ? { poster: posterSrc } : {}),
+					// data-poster, not poster: a poster downloads at load, so a page of clips
+					// fetched every still before its hero. in-view-play.ts sets it as the clip
+					// nears the screen; width and height hold its space until then.
+					...(hasPoster ? { dataPoster: posterSrc } : {}),
 					// The GIF's alt text names the clip. No role="img": axe flags it
 					// on a <video>, and it never stopped axe asking for a manual
 					// captions review either (these clips have no sound).
@@ -68,6 +73,12 @@ export default function rehypeGifVideo() {
 				},
 				children: [{ type: 'text', value: alt }],
 			};
+			parent.children[index] = video;
+			if (hasPoster) withPosters.push(video);
 		});
+		for (const video of withPosters) {
+			const { width, height } = await localImageSize(video.properties.dataPoster);
+			Object.assign(video.properties, { width, height });
+		}
 	};
 }

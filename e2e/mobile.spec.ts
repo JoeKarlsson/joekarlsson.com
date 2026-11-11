@@ -21,7 +21,7 @@ test.describe('Phone layout', () => {
 
 	test('the nav sits above the homepage hero', async ({ page }) => {
 		await page.goto('/');
-		const nav = await box(page, 'header nav[aria-label="Main navigation"]');
+		const nav = await box(page, 'header nav[aria-label="Main"]');
 		const hero = await box(page, 'video[aria-label*="Montage"]');
 		expect(nav.y).toBeLessThan(hero.y);
 		expect(nav.y).toBeLessThan(40);
@@ -356,12 +356,12 @@ test.describe('Phone layout', () => {
 		page,
 	}) => {
 		await page.goto('/blog/');
-		const nav = await box(page, 'header nav[aria-label="Main navigation"]');
+		const nav = await box(page, 'header nav[aria-label="Main"]');
 		expect(nav.x).toBe(16);
 		expect(nav.width).toBe(390 - 32);
 
 		const name = await box(page, 'header nav > a[href="/"]');
-		const menu = page.locator('header').getByRole('button', { name: 'Menu' });
+		const menu = page.locator('header [data-nav-menu-toggle]');
 		const menuBox = (await menu.boundingBox())!;
 		expect(name.height).toBeGreaterThanOrEqual(44);
 		expect(menuBox.height).toBeGreaterThanOrEqual(44);
@@ -381,7 +381,7 @@ test.describe('Phone layout', () => {
 		page,
 	}) => {
 		await page.goto('/blog/homelab-two-years-later/');
-		const nav = page.locator('header nav[aria-label="Main navigation"]');
+		const nav = page.locator('header nav[aria-label="Main"]');
 		const home = page.locator('header nav > a[href="/"]');
 		await expect(nav).not.toHaveAttribute('data-context-on');
 		// Phones always show the JK logo, drawn twice (fill and wobbling outline)
@@ -493,7 +493,7 @@ test.describe('Desktop keeps its layout', () => {
 		page,
 	}) => {
 		await page.goto('/');
-		const nav = await box(page, 'header nav[aria-label="Main navigation"]');
+		const nav = await box(page, 'header nav[aria-label="Main"]');
 		const hero = await box(page, 'video[aria-label*="Montage"]');
 		expect(hero.y).toBeLessThan(nav.y);
 		// The pink ticker became the featured band (FeaturedBand.astro)

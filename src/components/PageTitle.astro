@@ -18,7 +18,7 @@ const { title, back, summary } = Astro.props;
 
 <header class="relative mb-10">
 	{back && <BackLink href={back.href} label={back.label} />}
-	<h1 class="relative inline-block font-display text-[clamp(56px,11vw,170px)] leading-[0.88] font-normal text-paper uppercase">
+	<h1 class="relative inline-block font-display text-[clamp(3.5rem,11vw,10.625rem)] leading-[0.88] font-normal text-balance text-paper uppercase">
 		{title}
 		<Scribble
 			{...MARKS.underline}

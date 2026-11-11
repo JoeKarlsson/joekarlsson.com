@@ -36,9 +36,12 @@ test.describe('Mobile Navigation', () => {
 		const nav = page.locator('header nav');
 		await expect(nav.getByRole('link', { name: 'Joe Karlsson', exact: true })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'Blog', exact: true })).toBeHidden();
-		const menu = nav.getByRole('button', { name: 'Menu' });
+		const menu = nav.locator('[data-nav-menu-toggle]');
+		await expect(menu).toHaveAccessibleName('Menu');
 		await menu.click();
 		await expect(menu).toHaveAttribute('aria-expanded', 'true');
+		// Its name follows the word it shows (WCAG 2.5.3)
+		await expect(menu).toHaveAccessibleName('Close');
 		for (const name of [
 			'Joe Karlsson',
 			'Blog',
@@ -78,16 +81,13 @@ test.describe('Pause motion', () => {
 		await expect(echo).toHaveCSS('animation-play-state', 'running');
 
 		await button.click();
-		await expect(page.getByRole('button', { name: 'Play motion' })).toHaveAttribute(
-			'aria-pressed',
-			'true',
-		);
+		await expect(button).toHaveAttribute('aria-pressed', 'true');
 		await expect(echo).toHaveCSS('animation-play-state', 'paused');
 		expect(
 			await page.evaluate(() => (document.getElementById('test-video') as HTMLVideoElement).paused),
 		).toBe(true);
 
-		await page.getByRole('button', { name: 'Play motion' }).click();
+		await button.click();
 		await expect(echo).toHaveCSS('animation-play-state', 'running');
 		expect(
 			await page.evaluate(() => (document.getElementById('test-video') as HTMLVideoElement).paused),
@@ -99,7 +99,7 @@ test.describe('Pause motion', () => {
 		await page.getByRole('button', { name: 'Pause motion' }).click();
 
 		await page.goto('/about/');
-		const resume = page.getByRole('button', { name: 'Play motion' });
+		const resume = page.getByRole('button', { name: 'Pause motion' });
 		await expect(resume).toHaveAttribute('aria-pressed', 'true');
 		const echo = page.locator('footer .echo > span[aria-hidden="true"]').first();
 		await expect(echo).toHaveCSS('animation-play-state', 'paused');

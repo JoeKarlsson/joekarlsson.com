@@ -31,21 +31,15 @@ function rememberPaused(paused: boolean): void {
 	}
 }
 
+// A toggle keeps one name, "Pause motion", and aria-pressed carries the state; a name
+// that also flips to "Play motion" read as "Play motion, pressed"
 function showState(button: HTMLButtonElement, paused: boolean): void {
 	button.setAttribute('aria-pressed', String(paused));
-	const label = paused ? 'Play motion' : 'Pause motion';
-	button.setAttribute('aria-label', label);
-	button.title = label;
-	// The words phones show beside the icon, in the menu (Header.astro)
-	const visibleLabel = button.querySelector('[data-pause-label]');
-	if (visibleLabel) visibleLabel.textContent = label;
 }
 
 export function initPauseMotion(button: HTMLButtonElement): void {
 	const pausedByButton = new Set<HTMLVideoElement>();
 	showState(button, isMotionPaused());
-	// A remembered pause shows its icon at once, not a crossfade on every page (jsdom has no getAnimations)
-	button.getAnimations?.({ subtree: true }).forEach((animation) => animation.finish());
 
 	button.addEventListener('click', () => {
 		const pausing = !isMotionPaused();

@@ -6,3 +6,9 @@ export function diagramsAsImages(html) {
 		'<p><img src="$1" alt="$2"></p>',
 	);
 }
+
+// Feed readers run no scripts, so a lazy video still (data-poster, set by in-view-play.ts
+// on the site) becomes a plain poster, or the video shows as an empty box
+export function postersForFeeds(html) {
+	return html.replace(/\sdata-poster="/g, ' poster="');
+}

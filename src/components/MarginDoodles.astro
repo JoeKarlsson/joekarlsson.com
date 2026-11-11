@@ -12,5 +12,6 @@
 ></div>
 
 <script>
-	import '../scripts/margin-doodles';
+	// Its own chunk, fetched only where the doodles draw: phones and laptops never use it
+	if (matchMedia('(min-width: 1600px)').matches) import('../scripts/margin-doodles');
 </script>

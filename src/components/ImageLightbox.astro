@@ -161,16 +161,23 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 				shown = copy;
 			});
 		};
+		// A click on the picture itself opens it for a mouse; keyboards and screen readers
+		// get a real button after it, out of sight until it takes focus. The picture keeps
+		// its own role and alt text, read once.
+		// Focused, it sits over the picture's top right corner (global.css), so the page
+		// doesn't move; the parent becomes its positioning box
+		const opener = (label: string, parent: HTMLElement) => {
+			const button = document.createElement('button');
+			button.type = 'button';
+			button.className = 'lightbox-opener';
+			button.textContent = label;
+			parent.classList.add('relative');
+			return button;
+		};
 		document.querySelectorAll<HTMLElement>('.prose .diagram').forEach((figure) => {
-			figure.tabIndex = 0;
-			figure.setAttribute('role', 'button');
-			figure.setAttribute('aria-label', `Enlarge diagram: ${figure.dataset.diagramAlt ?? ''}`);
 			figure.addEventListener('click', () => openDiagram(figure));
-			figure.addEventListener('keydown', (event) => {
-				if (event.key !== 'Enter' && event.key !== ' ') return;
-				event.preventDefault();
-				openDiagram(figure);
-			});
+			// Inside the figure, so its click reaches the listener above
+			figure.append(opener('Enlarge diagram', figure));
 		});
 
 		// Only pictures whose file is bigger than they're shown, and not ones that are
@@ -179,15 +186,10 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 			const fileWidth = Number(img.getAttribute('width'));
 			if (img.closest('a, .prose .\\@container') || !(fileWidth > img.clientWidth + 40)) return;
 			img.classList.add('cursor-zoom-in');
-			img.tabIndex = 0;
-			img.setAttribute('role', 'button');
-			img.setAttribute('aria-label', `Enlarge image: ${img.alt}`);
 			img.addEventListener('click', () => open(img));
-			img.addEventListener('keydown', (event) => {
-				if (event.key !== 'Enter' && event.key !== ' ') return;
-				event.preventDefault();
-				open(img);
-			});
+			const button = opener('Enlarge image', img.parentElement!);
+			button.addEventListener('click', () => open(img));
+			img.after(button);
 		});
 	}
 </script>

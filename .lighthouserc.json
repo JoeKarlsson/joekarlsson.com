@@ -8,7 +8,9 @@
 				"http://localhost/about/",
 				"http://localhost/work/",
 				"http://localhost/uses/",
-				"http://localhost/blog/how-to-get-started-building-a-homelab-server-in-2024/"
+				"http://localhost/blog/how-to-get-started-building-a-homelab-server-in-2024/",
+				"http://localhost/blog/recording-setup-tour/",
+				"http://localhost/blog/sentence-length-semicolons-punctuation/"
 			],
 			"numberOfRuns": 3
 		},

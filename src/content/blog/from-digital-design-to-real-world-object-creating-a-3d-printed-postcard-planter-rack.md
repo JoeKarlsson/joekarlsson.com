@@ -17,7 +17,7 @@ I bought a wire postcard rack secondhand with no idea what to do with it. It's a
 I love using vertical space for plants, and the pockets turned out to be about the right shape for a small pot. So I designed one that hangs where the postcards used to go and printed enough to fill the rack. That was early 2023. Here's what it looks like now, me included.
 
 <figure class="portrait-video">
-<video controls playsinline preload="none" poster="/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/tour-poster.webp" src="/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/tour.mp4" aria-label="A quick tour of my postcard rack planter: me in front of it, the 3D-printed pots in the wire frame, how water drains from pot to pot, and the whole rack by the window">
+<video controls playsinline preload="none" data-poster="/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/tour-poster.webp" width="720" height="1280" src="/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/tour.mp4" aria-label="A quick tour of my postcard rack planter: me in front of it, the 3D-printed pots in the wire frame, how water drains from pot to pot, and the whole rack by the window">
   <track kind="captions" srclang="en" label="English" src="/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/tour.vtt" />
 </video>
 <figcaption>A quick tour of the rack, November 2026.</figcaption>

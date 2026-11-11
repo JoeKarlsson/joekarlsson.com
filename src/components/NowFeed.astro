@@ -127,8 +127,9 @@ function ratingStars(rating: number) {
 					</p>
 				</a>
 				{film.rating !== null && (
-					<p class="text-sm text-pink" aria-label={`Rated ${film.rating} out of 5`}>
-						{ratingStars(film.rating)}
+					<p class="text-sm text-pink">
+						<span aria-hidden="true">{ratingStars(film.rating)}</span>
+						<span class="sr-only">Rated {film.rating} out of 5</span>
 					</p>
 				)}
 				{film.reviewExcerpt && <p class="mt-1 text-sm text-muted">{film.reviewExcerpt}</p>}

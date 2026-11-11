@@ -66,9 +66,15 @@ export function inlineDiagram(src, alt, publicDir = 'public') {
 const escapeAttribute = (s) =>
 	s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
-/** The SVG with the post's alt text as its label, and no XML declaration. */
+/** The SVG with the post's alt text as its label, and no XML declaration. Its photos
+ * (a collage's cut-outs) load as it nears the screen: an <image href> in inline SVG
+ * fetches at load like any image, and a long post's collages took the bandwidth its
+ * hero needed. pause-offscreen-scribbles.ts puts href back from data-href. */
 function withLabel(svg, alt) {
-	const markup = svg.replace(/^<\?xml[^>]*>\s*/, '').trim();
+	const markup = svg
+		.replace(/^<\?xml[^>]*>\s*/, '')
+		.trim()
+		.replace(/<image href="\//g, '<image data-href="/');
 	if (!alt) return markup;
 	// A function, not a replacement string: alt text like "$105 a year" would otherwise
 	// read "$1" as the captured group and paste the <svg> attributes into the label

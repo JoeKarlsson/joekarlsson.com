@@ -27,7 +27,13 @@ function whenIdle(): Promise<void> {
 	);
 }
 
-function framesPerSecond(sampleMs = 1000): Promise<number> {
+async function framesPerSecond(sampleMs = 1000): Promise<number> {
+	// A page prerendered by the speculation rules (BaseHead) gets no frames until shown
+	const doc = document as Document & { prerendering?: boolean };
+	if (doc.prerendering)
+		await new Promise((shown) =>
+			document.addEventListener('prerenderingchange', shown, { once: true }),
+		);
 	return new Promise((resolve) => {
 		let frames = 0;
 		const start = performance.now();

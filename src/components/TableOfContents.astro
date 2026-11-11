@@ -64,6 +64,7 @@ const { headings } = Astro.props;
 				links[currentActive].classList.add(inactiveColors[currentActive]);
 				links[currentActive].parentElement?.classList.remove('border-pink');
 				links[currentActive].parentElement?.classList.add('border-transparent');
+				links[currentActive].removeAttribute('aria-current');
 			}
 
 			if (index >= 0 && index < links.length) {
@@ -71,6 +72,8 @@ const { headings } = Astro.props;
 				links[index].classList.add('text-pink');
 				links[index].parentElement?.classList.remove('border-transparent');
 				links[index].parentElement?.classList.add('border-pink');
+				// Screen readers get the "you are here" the pink shows
+				links[index].setAttribute('aria-current', 'location');
 			}
 
 			currentActive = index;

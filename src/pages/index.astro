@@ -187,7 +187,7 @@ const AROUND_THE_HOUSE = [
 						/>
 					</h1>
 				</div>
-				<p class="text-[clamp(26px,2.6vw,40px)] leading-[1.15] font-semibold text-paper">
+				<p class="text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[1.15] font-semibold text-paper">
 					I run developer marketing at CData, and before that DevRel at CloudQuery, Tinybird,
 					SingleStore and MongoDB.
 				</p>
@@ -277,14 +277,14 @@ const AROUND_THE_HOUSE = [
 						<a
 							href={post.href}
 							class:list={[
-								'text-[clamp(20px,2.2vw,30px)] leading-tight font-semibold text-paper no-underline group-hover:text-pink',
+								'text-[clamp(1.25rem,2.2vw,1.875rem)] leading-tight font-semibold text-paper no-underline group-hover:text-pink',
 								i > 0 && 'max-md:text-lg',
 							]}
 						>
 							{post.data.title}
 						</a>
 						{i === 0 && (
-							<span class="relative ml-2 inline-block size-[0.9em] align-[-0.1em] text-[clamp(20px,2.2vw,30px)]">
+							<span class="relative ml-2 inline-block size-[0.9em] align-[-0.1em] text-[clamp(1.25rem,2.2vw,1.875rem)]">
 								<Scribble
 									{...MARKS.asterisk}
 									color="#ff4fd8"
@@ -455,14 +455,14 @@ const AROUND_THE_HOUSE = [
 		/>
 		<!-- Phones: one clip at a time, swiped sideways, the next one peeking in from the
 		edge. py keeps the tape and the tilted corners inside the scroller's clip. -->
-		<div class="house-strip -mx-4 mt-8 flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 py-6 sm:-mx-7 sm:scroll-px-7 sm:px-7 [scrollbar-width:none] md:mx-0 md:mt-12 md:grid md:grid-cols-4 md:gap-x-10 md:gap-y-14 md:overflow-visible md:p-0">
+		<div class="house-strip -mx-4 mt-8 flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 py-6 sm:-mx-7 sm:scroll-px-7 sm:px-7 md:mx-0 md:mt-12 md:grid md:grid-cols-4 md:gap-x-10 md:gap-y-14 md:overflow-visible md:p-0">
 			{AROUND_THE_HOUSE.map(({ name, alt, caption, href }, i) => (
 				<figure class="relative w-[72%] shrink-0 snap-start md:w-auto">
 					<span class="tape" aria-hidden="true" />
 					<video
 						class="block aspect-[4/5] w-full object-cover"
 						src={`/images/home/${name}.mp4`}
-						poster={`/images/home/${name}-poster.webp`}
+						data-poster={`/images/home/${name}-poster.webp`}
 						data-halftone={halftoneMode(`/images/home/${name}.mp4`)}
 						data-autoplay-in-view
 						muted
@@ -471,8 +471,8 @@ const AROUND_THE_HOUSE = [
 						preload="none"
 						aria-label={alt}
 					/>
-					<figcaption class="mt-3 flex gap-2.5 text-[15px] leading-snug text-paper">
-						<span class="font-display text-[22px] leading-none text-pink" aria-hidden="true">
+					<figcaption class="mt-3 flex gap-2.5 text-[0.9375rem] leading-snug text-paper">
+						<span class="font-display text-[1.375rem] leading-none text-pink" aria-hidden="true">
 							{String(i + 1).padStart(2, '0')}
 						</span>
 						{href ? (

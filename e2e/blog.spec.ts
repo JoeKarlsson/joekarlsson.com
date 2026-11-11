@@ -109,22 +109,32 @@ test.describe('Individual Blog Post', () => {
 
 	test('a picture opens full size in a lightbox and Escape closes it', async ({ page }) => {
 		await page.goto('/blog/why-clickhouse-should-be-your-next-database/');
-		const picture = page.getByRole('button', { name: /^Enlarge image:/ }).first();
+		// A keyboard reaches a real button after the picture; a mouse clicks the picture
+		const opener = page.getByRole('button', { name: 'Enlarge image', exact: true }).first();
 		const lightbox = page.locator('#image-lightbox');
-		await picture.click();
+		await opener.focus();
+		await expect(opener).toBeInViewport();
+		await page.keyboard.press('Enter');
 		await expect(lightbox).toBeVisible();
 		await expect(lightbox.locator('img')).toHaveAttribute('src', /\.webp$/);
 		await page.keyboard.press('Escape');
 		await expect(lightbox).toBeHidden();
-		await expect(picture).toBeFocused();
+		await expect(opener).toBeFocused();
+		await page.locator('.prose img.cursor-zoom-in').first().click();
+		await expect(lightbox).toBeVisible();
 	});
 
 	test('an enlarged collage gets its own ids, so its shadows still point at its own filters', async ({
 		page,
 	}) => {
 		await page.goto('/blog/sentence-length-semicolons-punctuation/');
-		const collage = page.getByRole('button', { name: /^Enlarge diagram: Paper collage on black/ });
-		await collage.click();
+		const collage = page
+			.locator('.prose .diagram', {
+				has: page.getByRole('img', { name: /^Paper collage on black/ }),
+			})
+			.getByRole('button', { name: 'Enlarge diagram' });
+		await collage.focus();
+		await page.keyboard.press('Enter');
 		const copy = page.locator('#image-lightbox .diagram-enlarged svg');
 		await expect(copy).toBeVisible();
 		const { repeated, broken } = await page.evaluate(() => {

@@ -30,7 +30,7 @@ My whole recording setup lives on one standing desk that rolls. When I'm done, I
 
 Here's a quick tour:
 
-<video data-autoplay-in-view data-phone-still muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/tour-poster-wide.webp" src="/images/blog/recording-setup-tour/tour.mp4" aria-label="A one-minute tour of my recording desk, with burned-in captions: I show the single cable into my laptop, the camera behind the teleprompter, the mic, the lights I reposition, and how the whole desk moves around my small recording nook">
+<video data-autoplay-in-view data-phone-still muted playsinline controls preload="none" data-poster="/images/blog/recording-setup-tour/tour-poster-wide.webp" width="1920" height="1080" src="/images/blog/recording-setup-tour/tour.mp4" aria-label="A one-minute tour of my recording desk, with burned-in captions: I show the single cable into my laptop, the camera behind the teleprompter, the mic, the lights I reposition, and how the whole desk moves around my small recording nook">
 </video>
 
 For years my videos were selfies on my iPhone or a webcam in the living room. I'd talk, trim the ends on my phone, and post it the same day. That's fine for a quick take. Then I started recording a lot more video for work at CData, and those needed to look and sound professional. One of the first I made at this desk was a walkthrough of [ChatGPT dots](/blog/how-to-use-chatgpt-dots/) in October.
@@ -44,7 +44,7 @@ I had four goals for this setup:
 - **Keep it a usable desk** when I'm not recording.
 - **Get it out of the way** when I'm done.
 
-<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/working-at-desk.webp" src="/images/blog/recording-setup-tour/working-at-desk.mp4" aria-label="Me working on my laptop at the recording desk, shot from a tripod in the corner, with the spotlight in the foreground and the LED panel lit behind the desk"></video>
+<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" data-poster="/images/blog/recording-setup-tour/working-at-desk.webp" width="1280" height="720" src="/images/blog/recording-setup-tour/working-at-desk.mp4" aria-label="Me working on my laptop at the recording desk, shot from a tripod in the corner, with the spotlight in the foreground and the LED panel lit behind the desk"></video>
 
 _When I'm not recording, it's a normal desk._
 
@@ -106,15 +106,15 @@ What I wanted was the opposite: a dark, moody room full of colored LEDs, with my
 
 Ungraded clips from August to October:
 
-<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/lighting-1-webcam-aug.webp" src="/images/blog/recording-setup-tour/lighting-1-webcam-aug.mp4" aria-label="Late August, the webcam era: me in a hat and headphones in my bright living room, lit flat by daylight from a window"></video>
+<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" data-poster="/images/blog/recording-setup-tour/lighting-1-webcam-aug.webp" width="1280" height="720" src="/images/blog/recording-setup-tour/lighting-1-webcam-aug.mp4" aria-label="Late August, the webcam era: me in a hat and headphones in my bright living room, lit flat by daylight from a window"></video>
 
 _August: a webcam in the living room, with lots of light and no mood._
 
-<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/lighting-2-first-studio-oct.webp" src="/images/blog/recording-setup-tour/lighting-2-first-studio-oct.mp4" aria-label="Mid-October, my first take on the new desk: the room is deep blue, an orange spotlight hits the wall, and my face is dark and soft"></video>
+<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" data-poster="/images/blog/recording-setup-tour/lighting-2-first-studio-oct.webp" width="1280" height="720" src="/images/blog/recording-setup-tour/lighting-2-first-studio-oct.mp4" aria-label="Mid-October, my first take on the new desk: the room is deep blue, an orange spotlight hits the wall, and my face is dark and soft"></video>
 
 _October 15: plenty of mood, and my face is the darkest thing in the frame._
 
-<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" poster="/images/blog/recording-setup-tour/lighting-3-dots-oct.webp" src="/images/blog/recording-setup-tour/lighting-3-dots-oct.mp4" aria-label="Late October, the ChatGPT dots video: a softbox lights my face warm and even, with the dark blue room and an orange spotlight on the wall behind me"></video>
+<video data-autoplay-in-view data-phone-still loop muted playsinline controls preload="none" data-poster="/images/blog/recording-setup-tour/lighting-3-dots-oct.webp" width="1280" height="720" src="/images/blog/recording-setup-tour/lighting-3-dots-oct.mp4" aria-label="Late October, the ChatGPT dots video: a softbox lights my face warm and even, with the dark blue room and an orange spotlight on the wall behind me"></video>
 
 _October 30: the softbox on my face, and the mood behind me._
 

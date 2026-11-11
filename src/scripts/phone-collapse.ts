@@ -1,7 +1,15 @@
 // Phones fold long pages (Talks, Uses): each [data-phone-collapse] keeps its
 // [data-collapse-heading] on screen and hides its [data-collapse-body] behind a +/–
 // button. data-phone-collapse="open" starts a section open. Wider screens, and phones
-// without JavaScript, see everything.
+// without JavaScript, see everything. A folded body is hidden="until-found", so the
+// browser's find in page still reaches it and opens it (beforematch); Safari treats it as
+// plain hidden.
+
+/** Folds `body` the way find in page can still search, or unfolds it. */
+function foldBody(body: HTMLElement, folded: boolean) {
+	if (folded) body.setAttribute('hidden', 'until-found');
+	else body.removeAttribute('hidden');
+}
 
 const PHONE = '(width < 48rem)';
 
@@ -10,7 +18,7 @@ function setOpen(section: HTMLElement, open: boolean) {
 	const body = section.querySelector<HTMLElement>('[data-collapse-body]');
 	if (!button || !body) return;
 	button.setAttribute('aria-expanded', String(open));
-	body.hidden = !open;
+	foldBody(body, !open);
 	section.toggleAttribute('data-collapsed', !open);
 }
 
@@ -29,7 +37,8 @@ export function openFoldAround(el: Element): boolean {
 export function previewFoldAround(el: Element, on: boolean) {
 	if (!window.matchMedia('(hover: hover)').matches) return;
 	const section = el.closest<HTMLElement>('[data-phone-collapse][data-collapsed]');
-	section?.querySelector<HTMLElement>('[data-collapse-body]')?.toggleAttribute('hidden', !on);
+	const body = section?.querySelector<HTMLElement>('[data-collapse-body]');
+	if (body) foldBody(body, !on);
 }
 
 export function initPhoneCollapse() {
@@ -55,7 +64,17 @@ export function initPhoneCollapse() {
 		const sign = document.createElement('span');
 		sign.className = 'flex shrink-0 items-baseline gap-2 font-sans text-sm text-muted';
 		sign.setAttribute('aria-hidden', 'true');
-		sign.innerHTML = `${countLabel}<span class="icon-swap w-6 font-display text-4xl leading-none text-pink" data-sign><span data-icon-off>+</span><span data-icon-on>–</span></span>`;
+		const signSwap = document.createElement('span');
+		signSwap.className = 'icon-swap w-6 font-display text-4xl leading-none text-pink';
+		signSwap.dataset.sign = '';
+		const plus = document.createElement('span');
+		plus.dataset.iconOff = '';
+		plus.textContent = '+';
+		const minus = document.createElement('span');
+		minus.dataset.iconOn = '';
+		minus.textContent = '–';
+		signSwap.append(plus, minus);
+		sign.append(countLabel, signSwap);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -69,6 +88,8 @@ export function initPhoneCollapse() {
 		button.addEventListener('click', () =>
 			setOpen(section, button.getAttribute('aria-expanded') !== 'true'),
 		);
+		// Find in page unfolds a match itself; this keeps the button and data-collapsed in step
+		body.addEventListener('beforematch', () => setOpen(section, true));
 		section.addEventListener('mouseenter', () => previewFoldAround(section, true));
 		section.addEventListener('mouseleave', () => previewFoldAround(section, false));
 		setOpen(section, section.dataset.phoneCollapse === 'open');

@@ -16,7 +16,7 @@ interface Props {
 	class?: string;
 }
 
-const { title = 'Make a mark', class: className = 'mx-4 mt-20 min-h-[72vh]' } = Astro.props;
+const { title = 'Make a mark', class: className = 'mx-4 mt-20 min-h-[72svh]' } = Astro.props;
 const PINK = '#ff4fd8';
 ---
 
@@ -27,7 +27,7 @@ const PINK = '#ff4fd8';
 	]}
 	aria-hidden="true"
 >
-	<p class="absolute top-6 left-7 font-display text-[clamp(40px,5vw,72px)] leading-none text-paper uppercase">
+	<p class="absolute top-6 left-7 font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-none text-paper uppercase">
 		{title}
 		<span class="relative ml-2 inline-block size-[1em] align-top">
 			<Scribble

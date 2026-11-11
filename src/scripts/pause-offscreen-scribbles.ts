@@ -65,3 +65,23 @@ if (figures.length) {
 		observer.observe(svg);
 	});
 }
+
+// A diagram's photos wait in data-href until it's within a screen of view
+// (rehype-inline-diagrams.mjs). The hidden phone or desktop copy never loads its own.
+const lazyDiagrams = document.querySelectorAll<SVGSVGElement>('.diagram svg:has(image[data-href])');
+if (lazyDiagrams.length) {
+	const observer = new IntersectionObserver(
+		(entries) => {
+			for (const { target, isIntersecting } of entries) {
+				if (!isIntersecting) continue;
+				observer.unobserve(target);
+				target.querySelectorAll<SVGImageElement>('image[data-href]').forEach((image) => {
+					image.setAttribute('href', image.dataset.href!);
+					image.removeAttribute('data-href');
+				});
+			}
+		},
+		{ rootMargin: '100% 0px' },
+	);
+	lazyDiagrams.forEach((svg) => observer.observe(svg));
+}

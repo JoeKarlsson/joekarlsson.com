@@ -505,7 +505,7 @@ describe('iframe embeds', () => {
 			.trim()
 			.split(/\s+/) ?? [];
 
-	// Matches an exact origin, or a wildcard like https://*.tiktok.com by scheme and host suffix
+	// Matches an exact origin, or a wildcard like https://*.example.com by scheme and host suffix
 	function isAllowedByFrameSrc(origin: string): boolean {
 		const { protocol, hostname } = new URL(origin);
 		return frameSources.some((source) => {
@@ -543,10 +543,7 @@ describe('iframe embeds', () => {
 		for (const page of builtPages) {
 			for (const [tag, src] of readDist(page).matchAll(/<iframe\b[^>]*?\ssrc="([^"]+)"[^>]*>/g)) {
 				const { hostname } = new URL(src, 'https://www.joekarlsson.com');
-				if (
-					!/\sdata-phone-ok\b/.test(tag) &&
-					!/(^|\.)(youtube(-nocookie)?|tiktok)\.com$/.test(hostname)
-				) {
+				if (!/\sdata-phone-ok\b/.test(tag) && !/(^|\.)youtube(-nocookie)?\.com$/.test(hostname)) {
 					loadsOnPhones.push(`${page}: ${src}`);
 				}
 			}
@@ -563,7 +560,7 @@ describe('iframe embeds', () => {
 				/<iframe\b[^>]*?\s(?:data-desktop-)?src="([^"]+)"[^>]*>/g,
 			)) {
 				const { hostname } = new URL(src, 'https://www.joekarlsson.com');
-				if (/(^|\.)(youtube(-nocookie)?|tiktok)\.com$/.test(hostname)) continue;
+				if (/(^|\.)youtube(-nocookie)?\.com$/.test(hostname)) continue;
 				const sandbox = tag.match(/\ssandbox="([^"]*)"/)?.[1];
 				if (sandbox === undefined || /allow-top-navigation/.test(sandbox)) {
 					unsandboxed.push(`${page}: ${src}`);

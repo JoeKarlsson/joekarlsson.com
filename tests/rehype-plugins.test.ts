@@ -4,6 +4,10 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 // stay hermetic rather than coupled to whatever happens to be in public/.
 const existsSync = vi.hoisted(() => vi.fn());
 vi.mock('node:fs', () => ({ default: { existsSync } }));
+// rehype-gif-video sizes a clip from its poster with sharp
+vi.mock('../src/utils/image-size.mjs', () => ({
+	localImageSize: async () => ({ width: 640, height: 360 }),
+}));
 
 const { default: rehypeCollapsibleToc } = await import('../src/plugins/rehype-collapsible-toc.mjs');
 const { default: rehypeEmptyCornerCell } =
@@ -37,7 +41,7 @@ function paragraph(root: HastNode): HastNode[] {
 	return root.children![0].children!;
 }
 
-function run(plugin: () => (t: HastNode) => void, root: HastNode): HastNode {
+function run(plugin: () => (t: HastNode) => unknown, root: HastNode): HastNode {
 	plugin()(root);
 	return root;
 }
@@ -194,11 +198,16 @@ describe('rehype-gif-video', () => {
 		expect(node.children?.[0].value).toBe('Terminal recording');
 	});
 
-	it('uses a -poster.webp sibling as the poster when there is one', () => {
+	it('lazy-loads a -poster.webp sibling, sized so nothing jumps before it arrives', async () => {
 		existsSync.mockReturnValue(true);
-		const root = run(rehypeGifVideo, tree(img({ src: '/images/blog/post/demo.gif', alt: 'x' })));
+		const root = tree(img({ src: '/images/blog/post/demo.gif', alt: 'x' }));
+		await rehypeGifVideo()(root);
+		const { properties } = paragraph(root)[0];
 
-		expect(paragraph(root)[0].properties?.poster).toBe('/images/blog/post/demo-poster.webp');
+		// A poster attribute would download at load; in-view-play.ts sets it near the screen
+		expect(properties?.poster).toBeUndefined();
+		expect(properties?.dataPoster).toBe('/images/blog/post/demo-poster.webp');
+		expect(properties).toMatchObject({ width: 640, height: 360 });
 	});
 
 	it('keeps controls so the motion can be stopped (WCAG 2.2.2)', () => {

@@ -65,7 +65,7 @@ const SORT_INACTIVE =
 		delay="1.4s"
 		class="-right-[1%] -bottom-[70px] z-10 hidden h-[90px] w-[150px] rotate-[30deg] lg:block"
 	/>
-	<div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+	<search class="flex flex-col gap-4 sm:flex-row sm:items-center">
 		<div class="relative flex-1">
 			<label for="blog-search" class="sr-only">
 				Search posts
@@ -74,7 +74,11 @@ const SORT_INACTIVE =
 				type="search"
 				id="blog-search"
 				placeholder="Search posts"
-				class="w-full rounded-md border border-surface-4 bg-ink py-3 pr-4 pl-11 text-lg text-paper placeholder-muted outline-hidden transition-colors focus:border-pink"
+				autocapitalize="none"
+				autocorrect="off"
+				spellcheck="false"
+				enterkeyhint="search"
+				class="w-full rounded-md border border-surface-4 bg-ink py-3 pr-4 pl-11 text-lg text-paper placeholder-muted transition-colors focus:border-pink"
 			/>
 			<svg
 				class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted"
@@ -109,7 +113,7 @@ const SORT_INACTIVE =
 				Popular
 			</button>
 		</div>
-	</div>
+	</search>
 	<BlogFilterNav {...filter} class="mt-5 border-t border-surface-4 pt-5" />
 </div>
 
@@ -118,7 +122,7 @@ const SORT_INACTIVE =
 
 <!-- No results message -->
 <div id="no-results" class="hidden py-12">
-	<p class="font-display text-[clamp(32px,4vw,56px)] leading-none text-paper uppercase">
+	<p class="font-display text-[clamp(2rem,4vw,3.5rem)] leading-none text-paper uppercase">
 		No posts match that search
 	</p>
 </div>
@@ -157,11 +161,24 @@ const SORT_INACTIVE =
 		const sentinel = document.getElementById('load-more-sentinel');
 		const noResults = document.getElementById('no-results');
 		const resultsCount = document.getElementById('results-count');
+		let countTimer;
 		const sortBtns = document.querySelectorAll('.sort-btn');
 
 		let currentSort = 'newest';
 		let searchQuery = '';
 		let visibleCount = POSTS_PER_PAGE;
+		const canFindHidden = 'onbeforematch' in document.body;
+		// Find in page reached a folded card: show the list down to it
+		grid.addEventListener(
+			'beforematch',
+			(event) => {
+				const card = event.target.closest('#posts-grid > li');
+				if (!card) return;
+				visibleCount = Math.max(visibleCount, Number(card.style.order) + 1);
+				render();
+			},
+			{ capture: true },
+		);
 
 		// Lowercase, drop accents, and turn punctuation into spaces, so "Open-Tofu",
 		// "opentofu's" and "Open Tofu" all read the same
@@ -267,17 +284,28 @@ const SORT_INACTIVE =
 			cardData.forEach(({ el }) => {
 				el.style.display = 'none';
 				el.style.order = '';
+				el.removeAttribute('hidden');
 			});
 
-			// Show filtered cards up to visibleCount
+			// Show filtered cards up to visibleCount. The rest of the match are only folded
+			// (hidden="until-found"), so find in page still finds an older post's title and
+			// beforematch below shows it; Safari has no until-found, so there they're hidden
 			filtered.forEach(({ el }, i) => {
-				el.style.display = i < showing ? '' : 'none';
 				el.style.order = String(i);
+				if (i < showing) el.style.display = '';
+				else if (canFindHidden) {
+					el.style.display = '';
+					el.setAttribute('hidden', 'until-found');
+				}
 			});
 
 			// Results count
 			if (searchQuery) {
-				resultsCount.textContent = `${total} post${total !== 1 ? 's' : ''} found`;
+				// The count is a live region: update it once typing pauses, not on every key
+				clearTimeout(countTimer);
+				countTimer = setTimeout(() => {
+					resultsCount.textContent = `${total} post${total !== 1 ? 's' : ''} found`;
+				}, 400);
 				resultsCount.classList.remove('hidden');
 				// With nothing found, the heading below says so; the count stays for screen readers
 				resultsCount.classList.toggle('sr-only', total === 0);

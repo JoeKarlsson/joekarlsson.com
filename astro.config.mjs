@@ -20,11 +20,16 @@ import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 import externalLinks from './src/integrations/external-links.mjs';
 import markdownPages from './src/integrations/markdown-pages.mjs';
 import responsiveImages from './src/integrations/responsive-images.mjs';
+import scriptCsp from './src/integrations/script-csp.mjs';
 
 // TL;DR in Tech back issues (imported from Substack, marked by substackUrl) are
 // noindex on the page, and recaps of a blog post (recapOf) point their canonical at
 // that post; keep both out of the sitemap too, and any issue dated after the build (a
 // scheduled send). Other new issues stay in.
+/** @param {import('hast').Nodes} node @returns {string} */
+const textOf = (node) =>
+	node.type === 'text' ? node.value : 'children' in node ? node.children.map(textOf).join('') : '';
+
 const NEWSLETTER_DIR = new URL('./src/content/newsletter/', import.meta.url);
 const unindexedIssuePaths = new Set(
 	readdirSync(NEWSLETTER_DIR)
@@ -100,6 +105,8 @@ export default defineConfig({
 				return pathname !== '/resume-pdf/' && !unindexedIssuePaths.has(pathname);
 			},
 		}),
+		// Last: hashes each page's inline scripts as they ship (meta CSP + Trusted Types)
+		scriptCsp(),
 	],
 	vite: {
 		plugins: [/** @type {any} */ (tailwindcss())],
@@ -126,18 +133,32 @@ export default defineConfig({
 				[
 					rehypeAutolinkHeadings,
 					{
-						behavior: 'append',
+						// After the heading, not inside it: a link inside would add its name to the
+						// heading's, so every heading in a screen reader's list ended "Link to section".
+						// The wrapper lets the # sit in the margin beside it (global.css).
+						behavior: 'after',
+						group: {
+							type: 'element',
+							tagName: 'div',
+							properties: { className: ['heading-group'] },
+							children: [],
+						},
 						// An FAQ question's h3 sits in a <summary>, which is itself a control, so a
 						// permalink there is a nested interactive element. Its id still deep-links.
+						// A screen-reader-only heading (GFM's "Footnotes") gets none either: its # would
+						// show beside nothing.
 						test: (
-							/** @type {unknown} */ _heading,
+							/** @type {import('hast').Element} */ heading,
 							/** @type {number | undefined} */ _index,
 							/** @type {{ tagName?: string } | undefined} */ parent,
-						) => parent?.tagName !== 'summary',
-						properties: {
+						) =>
+							parent?.tagName !== 'summary' &&
+							!String(heading.properties?.className ?? '').includes('sr-only'),
+						// Each permalink is named for its section, so the links don't all share one name
+						properties: (/** @type {import('hast').Element} */ heading) => ({
 							className: ['heading-anchor'],
-							ariaLabel: 'Link to section',
-						},
+							ariaLabel: `Link to section: ${textOf(heading)}`,
+						}),
 						content: {
 							type: 'element',
 							tagName: 'span',
