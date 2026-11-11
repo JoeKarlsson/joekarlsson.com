@@ -31,6 +31,8 @@ Linguists have had a boring, sensible objection for decades. Maybe sentences did
 
 I had a tool that could. [Punc](/work/punc/), my art project that strips the words out of a book and keeps only the punctuation, now holds 1,959 Project Gutenberg books (mostly out of copyright, so the trend runs to the 1970s), and every one of them has a semicolon count. So I counted semicolons and colons as sentence ends and checked how much of the decline in sentence length survives. Both sides are partly right. Sentences did get shorter, but by closer to a third than to Lewis's half once semicolons and colons count, and about 40% of the famous drop is punctuation.
 
+This is an amateur measurement built on an art project's shelf. The code and every number in this post are in the repo, linked under How I counted.
+
 You can see it before you count anything. Here are 1,000 words from the middle of _Tom Jones_ (1749) and 1,000 from the middle of _A Farewell to Arms_ (1929), with only the punctuation left. They're two famous extremes, not averages:
 
 ![The punctuation from 1,000 words in the middle of two novels, side by side on black, with semicolons and colons in pink. Tom Jones (1749) has 24 semicolons and colons and 41 sentence ends, its pink marks scattered all through the block. A Farewell to Arms (1929) has 1 semicolon and 166 sentence ends, a long block of periods and quotation marks with a single pink mark.](/images/blog/sentence-length-semicolons-punctuation/side-by-side.webp)
@@ -44,6 +46,18 @@ You can see it before you count anything. Here are 1,000 words from the middle o
 </div>
 
 Pick any book off the shelf, or open the read page and drop in a .txt file of your own. It runs in your browser and nothing gets uploaded. The numbers below come from the same counting code, plus the Python checks described under How I counted.
+
+## Why I built Punc
+
+A lot of what steers you through a book isn't the words. A comma tells you to take a breath, a period tells you to stop, and an exclamation point tells you someone is yelling. You follow every one of those instructions while you read, and you almost never notice them. Punc takes the words away and leaves the instructions, so you can see a book's rhythm on its own. Alice's Adventures in Wonderland comes out loud and nervous, full of exclamation points and questions, which is how the book feels to read.
+
+![Paper collage on black: a printed page from Alice's Adventures in Wonderland, beginning "Well!" thought Alice to herself, lands on the field. Its punctuation turns pink, then the words tear away in clumps and fly off, the blank paper drops out, and only the pink quotation marks, commas, exclamation marks and parentheses are left floating where they were. The label reads: Only the instructions.](/images/blog/sentence-length-semicolons-punctuation/words-leave.svg)
+
+It's an erasure, like the blackout poems I make on paper, except a blackout poem keeps a few words and Punc keeps none. It's a sibling of [linger](/work/linger/), my other erasure piece. I started it in 2016 after reading Adam J. Calhoun's essay [Punctuation in novels](https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4), which was itself inspired by Nicholas Rougeux's posters [Between the Words](https://www.c82.net/work/between-the-words). Ray Farias wrote most of the original code. In 2026 I came back to it and filled the shelf with Gutenberg's most-downloaded books.
+
+I built it to make pictures. Once the shelf held 1,959 books, though, the pictures turned into a dataset, and the dataset could test a claim people have been making since the 1890s.
+
+I think art and data analysis together are good ground for this kind of research. Making a picture of a text makes you look at it in a way nobody planned, and that's where you find evidence you weren't looking for, which is the fun part. I wrote more about making art with code in [Rereading Hackers and Painters as a painter who codes with AI agents](/blog/hackers-and-painters-ai-agents/). In 2015 my sister and I built a [screenplay parser for the Bechdel test](/blog/bechdel-test-script-parser-works/) in the same spirit.
 
 ## Prior work
 
@@ -64,7 +78,7 @@ I'll use two measures for the rest of the post:
 
 ## About 40% of the sentence length drop is punctuation
 
-That's what the data shows, across the 954 books with a first-publication date between 1600 and 1974 (the other dated books are older or newer, and about 45% of the shelf has no date I could pin down). Words between periods rise to 30.3 in 1700-49 (just 18 books) and fall to 14.5 by 1900-49 (445 books). Words between stops fall from 21.6 to 13.3 over the same span. Taken at face value, 47% of the drop disappears once semicolons and colons count. By 1950-74 the two lines meet at 12.5 and 12.4, because modern books barely use either mark, which matches Westin's result.
+That's what the data shows, across the 954 books with a first-publication date between 1600 and 1974 (the other dated books are older or newer, and about 45% of the shelf has no date I could pin down). Words between periods rise to 30.3 in 1700-49 (just 18 books) and fall to 14.5 by 1900-49 (445 books). Words between stops fall from 21.6 to 13.3 over the same span. That's a drop of 15.8 words counting periods and 8.3 counting stops, so taken at face value, 7.5 of the 15.8 words, or 47% of the drop, disappear once semicolons and colons count. By 1950-74 the two lines meet at 12.5 and 12.4, because modern books barely use either mark, which matches Westin's result.
 
 I measure from 1700-49, the peak, not from Lewis's Elizabethans. Nine of the shelf's 21 books from 1600-49 are plays, which run about 8 words a sentence and drag that period's median down. The 11 prose books from those years have a median of 42 words, close to Sherman's 41 for Hooker, but 11 books is too few to measure from.
 
@@ -100,7 +114,7 @@ It's mostly not dialogue, though. I cut every quoted passage out of every book a
 
 ![Line chart of median words between stops (periods, question marks, exclamation marks, semicolons and colons), by 50-year period from 1700-49 to 1950-74. Narration alone, with every quoted word removed, falls from 21.9 words in 1700-49 to 14.5 in 1900-49 and 13.0 in 1950-74. All the text falls from 21.6 to 13.3 and 12.4. The two lines fall together, so sentences got shorter outside dialogue too. The 1700-49 period has only 18 books.](/images/blog/sentence-length-semicolons-punctuation/chart-narration.svg)
 
-## Semicolons fell from 10 to 2 per 1,000 words
+## The semicolon's decline
 
 Counting only 25-year periods with at least 20 books (the same rule Punc's Numbers page now uses), the median book has 10.1 semicolons per 1,000 words in 1775-99, 12.6 in 1800-24, 8.6 in 1850-74, 4.6 in 1900-24 and 1.8 in 1950-74. The steepest fall comes after 1825. That matches Rudnicka's finding in American English: "a dramatic decrease in the frequency of use of semicolons happening between 1810 and 1900." Commas fell too, from 86 to 63 per 1,000 words, but not nearly as far.
 
@@ -132,6 +146,12 @@ Genre could be doing the work. Plays punctuate like plays and mysteries punctuat
 
 Translators are a real caveat, though. Plato goes 12 of 18, and every one of those books is somebody's translation, so that's a translator's fingerprint as much as Plato's.
 
+Naming an author by counting is old too. Frederick Mosteller and David Wallace used the rates of words like "upon" to argue that Madison wrote the disputed Federalist Papers [Mosteller and Wallace 1964]. John Burrows' Delta made comparing writers by their most common words a standard method [[Burrows 2002]](https://doi.org/10.1093/llc/17.3.267). The Stanford Literary Lab, Ted Underwood and many others took it to whole libraries. The Literary Lab's [pamphlet on style at the scale of the sentence](https://litlab.stanford.edu/LiteraryLabPamphlet5.pdf) opens with its authors disagreeing about whether their own measure captures style at all.
+
+![Page 217 of a 1788 edition of The Federalist in long-s type, from the copy Thomas Jefferson owned: a passage arguing that taxes on land unite the interests of the wealthiest landlord and the poorest tenant, with semicolons all through it](/images/blog/sentence-length-semicolons-punctuation/jefferson-federalist.webp)
+
+_A page from Thomas Jefferson's copy of The Federalist, 1788, Library of Congress ([Wikimedia Commons](<https://commons.wikimedia.org/wiki/File:Page_217_from_Thomas_Jefferson%27s_copy_of_The_Federalist_(1788)_LCCN2004665672.jpg>))._
+
 For comparison, Darmon and colleagues reached 62-72% across 651 authors using the order of the marks and the spacing between them as well as their shares. Their setup differs (at least ten documents per author and an 80/20 train-and-test split, against my three works and leave one out), so the numbers aren't directly comparable. Punc's version only counts how often each mark shows up.
 
 Dickens goes 0 for 20. His books get taken for Robert E. Howard, the pulp writer who created Conan the Barbarian, seven times, plus Dumas three times and Dostoyevsky twice. _The Pickwick Papers_, _Nicholas Nickleby_, _The Old Curiosity Shop_ and _David Copperfield_ all go to Howard. My guess is range: Dickens wrote in so many registers that his average fits none of his books well, but I haven't tested that. Oscar Wilde, who wrote plays, essays, a novel and fairy tales, is 0 of 14.
@@ -148,24 +168,6 @@ No single mark carries the signature. Leave any one mark out of the fingerprint 
 
 Genres do have fingerprints of their own. Mystery and crime has the most dialogue on the shelf (42% of its words are in quotes), the most question marks of any prose genre and the fewest semicolons. Plays are the loudest, with 9.3 exclamation marks per 1,000 words and 8.5 words a sentence. History and philosophy are the quietest, at under one exclamation mark per 1,000 words.
 
-## Why I built Punc
-
-A lot of what steers you through a book isn't the words. A comma tells you to take a breath, a period tells you to stop, and an exclamation point tells you someone is yelling. You follow every one of those instructions while you read, and you almost never notice them. Punc takes the words away and leaves the instructions, so you can see a book's rhythm on its own. Alice's Adventures in Wonderland comes out loud and nervous, full of exclamation points and questions, which is how the book feels to read.
-
-![Paper collage on black: a printed page from Alice's Adventures in Wonderland, beginning "Well!" thought Alice to herself, lands on the field. Its punctuation turns pink, then the words tear away in clumps and fly off, the blank paper drops out, and only the pink quotation marks, commas, exclamation marks and parentheses are left floating where they were. The label reads: Only the instructions.](/images/blog/sentence-length-semicolons-punctuation/words-leave.svg)
-
-It's an erasure, like the blackout poems I make on paper, except a blackout poem keeps a few words and Punc keeps none. It's a sibling of [linger](/work/linger/), my other erasure piece. I started it in 2016 after reading Adam J. Calhoun's essay [Punctuation in novels](https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4), which was itself inspired by Nicholas Rougeux's posters [Between the Words](https://www.c82.net/work/between-the-words). Ray Farias wrote most of the original code. In 2026 I came back to it and filled the shelf with Gutenberg's most-downloaded books.
-
-I built it to make pictures. Once the shelf held 1,959 books, though, the pictures turned into a dataset, and the dataset could test a claim people have been making since the 1890s.
-
-Counting style is old. Lewis and Sherman counted sentences by hand. Frederick Mosteller and David Wallace used the rates of words like "upon" to argue that Madison wrote the disputed Federalist Papers [Mosteller and Wallace 1964]. John Burrows' Delta made comparing writers by their most common words a standard method [[Burrows 2002]](https://doi.org/10.1093/llc/17.3.267). The Stanford Literary Lab, Ted Underwood and many others took it to whole libraries. The Literary Lab's [pamphlet on style at the scale of the sentence](https://litlab.stanford.edu/LiteraryLabPamphlet5.pdf) opens with its authors disagreeing about whether their own measure captures style at all. In 2015 my sister and I built a [screenplay parser for the Bechdel test](/blog/bechdel-test-script-parser-works/) in the same spirit.
-
-![Page 217 of a 1788 edition of The Federalist in long-s type, from the copy Thomas Jefferson owned: a passage arguing that taxes on land unite the interests of the wealthiest landlord and the poorest tenant, with semicolons all through it](/images/blog/sentence-length-semicolons-punctuation/jefferson-federalist.webp)
-
-_A page from Thomas Jefferson's copy of The Federalist, 1788, Library of Congress ([Wikimedia Commons](<https://commons.wikimedia.org/wiki/File:Page_217_from_Thomas_Jefferson%27s_copy_of_The_Federalist_(1788)_LCCN2004665672.jpg>))._
-
-I think art and data analysis together are good ground for this kind of research. Making a picture of a text makes you look at it in a way nobody planned, and that's where you find evidence you weren't looking for, which is the fun part. I wrote more about making art with code in [Rereading Hackers and Painters as a painter who codes with AI agents](/blog/hackers-and-painters-ai-agents/).
-
 ## How I counted
 
 **Corpus.** Gutenberg's 2,000 most-downloaded English books as of November 2026, minus dictionaries, encyclopedias, repeat editions and the few without a plain text, plus a few favorites: 1,959 books, about 2.5% of [Gutenberg's](https://www.gutenberg.org/) roughly 80,000. Gutenberg's license header and footer are cut at the `*** START` and `*** END` lines.
@@ -176,7 +178,7 @@ I think art and data analysis together are good ground for this kind of research
 
 **Statistics.** Medians of per-book values, so one enormous book can't swing a period. Bootstrap intervals come from resampling books within each period, and for the generations model, from resampling authors, since one writer's books aren't independent. The generations test is a least-squares fit of semicolons per 1,000 words on publication year and author birth year, for authors aged 15 to 90 at publication. Attribution uses the Hellinger distance between the ten-mark fingerprints.
 
-**Hand-coding.** 100 marks drawn at random (seed 42) from 49 English-original prose books dated 1700-1799, coded first by Claude and then, without seeing those codes, by a separate Claude agent (Claude Opus 5.5), which agreed on 95 of 100. A second set of 100 from 382 books dated 1900-1949 was coded by the agent alone. The prompt and both sets of codes are in the repo.
+**Hand-coding.** 100 marks drawn at random (seed 42) from 49 English-original prose books dated 1700-1799, and 100 from 382 books dated 1900-1949, coded with Claude Opus 5.5 as described in the main results. The prompt and the codes are in the repo.
 
 The table behind the main result:
 
@@ -197,7 +199,7 @@ Punc's counting code is the same TypeScript the site runs, [on GitHub](https://g
 
 - **Editors.** Gutenberg texts are often later editions, and editors change punctuation in both directions. Gutenberg's _Wealth of Nations_ has "hurtful to the landlord; it is frequently hurtful to the tenant; and it is always hurtful to the community," where Smith's 1776 first edition has a period after "landlord" and a comma after "tenant." That semicolon after "tenant" turned up as item 5 of my 100 hand-coded marks, so the problem reaches the sample too. Editors add semicolons as well as remove them, and I can't say which way the editions push the totals.
 - **Few early books, and almost no recent ones.** Before 1800 each 50-year period has 13 to 48 books, so the intervals are wide. At the other end, Gutenberg carries books that are public domain in the US, which mostly means books published before 1931 [[Duke CSPD 2026]](https://cspd.law.duke.edu/publicdomainday/2026). Only 67 of the 1,073 dated books on the shelf came out after 1930, so the trend stops in the 1970s and says nothing about the last 50 years.
-- **The hand-coding** was done by Claude, twice, not by a person: 100 marks from the 1700s coded by two separate agents, and 100 from 1900-49 coded by one. A linguist coding a few hundred more would tighten the 40%.
+- **The hand-coding** was done by Claude. A linguist coding a few hundred more marks would tighten the 40%.
 - **Only about half the shelf has a date.** 1,073 of 1,959 books have a first-publication year (954 of them fall in the 1600-1974 trend charts). The undated ones are out of every over-time number, and I haven't checked whether they differ from the dated ones.
 - **Translations slip through.** I flag them from Gutenberg's catalog and from each book's title page, and some still get past both (_Candide_ does).
 - **The shelf is today's taste.** These are the books people download now, not a sample of what was printed then. For what it's worth, popularity barely tracks punctuation. The strongest link between download rank and any measure is question marks, at a rank correlation of -0.19.
@@ -214,7 +216,7 @@ A few experiments I'd love to see someone run:
 - Two translations of the same book. Does the translator's fingerprint beat the author's?
 - A novel published this year against the 1950-74 line.
 - Whether books start quiet. In my data, question and exclamation marks run about 3.5 per 1,000 words in a book's first tenth and 4.8 through the middle, even after cutting the front matter. I haven't checked it any harder than that.
-- Anything that breaks one of the results above. [Open an issue on Punc's repo](https://github.com/JoeKarlsson/punc/issues) and tell me.
+- Anything that breaks one of the results above. [Open an issue on Punc's repo](https://github.com/JoeKarlsson/punc/issues) and tell me. If it holds up, I'll fix the post and note the change in a dated update at the bottom.
 
 Go play with it.
 
