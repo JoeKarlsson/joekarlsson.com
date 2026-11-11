@@ -24,7 +24,7 @@ In the process of building this tool’s prototype, I have come to appreciate th
 
 Lev Manovich has suggested that one of the most valuable things that come from combining computational analysis and the visualization of vast amounts of information in a single image is that it defamiliarizes our understanding of the works that we study in the Humanities [[Manovich 2012]](https://manovich.net/index.php/projects/cultural-analytics). As I hope to demonstrate, the Bechdel Test Visualizer is a powerful tool for defamiliarization, provoking new questions and gender and film, and producing new answers through the combined strengths of the human analyst and the computer.
 
-Years later I came back to the same idea with Punc, which strips the words out of 1,959 books, and used it to [test whether English sentences really got shorter](/blog/sentence-length-semicolons-punctuation/).
+Years later I came back to the same idea with Punc, which strips the words out of 1,959 books, and used it to [test whether English sentences got shorter](/blog/sentence-length-semicolons-punctuation/).
 
 ## Parsing Method
 

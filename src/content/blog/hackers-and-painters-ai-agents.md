@@ -68,7 +68,7 @@ This year I started it over. In one day it became a static site, and I deleted t
 
 Restructuring it and doing data analysis on it felt like painting, like seeing the project in a new light. Getting new data to play with was easier than ever, too, after the small set of films the original covered.
 
-[Punc](/work/punc/), my 2016 art project that strips the words out of books, got the same treatment. I filled its shelf with 1,959 Project Gutenberg books and used it to [test whether English sentences really got shorter](/blog/sentence-length-semicolons-punctuation/).
+[Punc](/work/punc/), my 2016 art project that strips the words out of books, got the same treatment. I filled its shelf with 1,959 Project Gutenberg books and used it to [test whether English sentences got shorter](/blog/sentence-length-semicolons-punctuation/).
 
 ## Ceglowski's objection
 
