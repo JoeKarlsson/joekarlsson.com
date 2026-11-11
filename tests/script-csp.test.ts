@@ -19,6 +19,13 @@ describe('script-csp', () => {
 		expect(inlineScriptHashes(html)).toEqual([sha('a()'), sha('b()'), sha('{"prefetch":[]}')]);
 	});
 
+	it('ends a script at an end tag with spaces or junk in it, as browsers do', () => {
+		expect(inlineScriptHashes('<script>a()</script >x<script>b()</SCRIPT\t foo>')).toEqual([
+			sha('a()'),
+			sha('b()'),
+		]);
+	});
+
 	it('puts the policy right after <meta charset>, before any script runs', () => {
 		const out = withScriptPolicy(
 			'<html><head><meta charset="utf-8"><script>a()</script></head></html>',

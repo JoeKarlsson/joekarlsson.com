@@ -11,10 +11,13 @@ import { fileURLToPath } from 'node:url';
 
 const PLAUSIBLE_ORIGIN = 'https://plausible.joekarlsson.io';
 
-/** The CSP source for every inline script that runs (JSON-LD is data, not script). */
+/** The CSP source for every inline script that runs (JSON-LD is data, not script).
+ * The end tag can carry spaces or junk (`</script >`), which browsers still close on. */
 export function inlineScriptHashes(html) {
 	const hashes = new Set();
-	for (const [, attributes, body] of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
+	for (const [, attributes, body] of html.matchAll(
+		/<script\b([^>]*)>([\s\S]*?)<\/script\b[^>]*>/gi,
+	)) {
 		if (/\ssrc=/i.test(attributes) || /type="application\/(ld\+)?json"/i.test(attributes)) continue;
 		hashes.add(`'sha256-${createHash('sha256').update(body, 'utf8').digest('base64')}'`);
 	}
