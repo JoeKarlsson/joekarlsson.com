@@ -5,15 +5,15 @@ date: 2026-11-10T15:53:18Z
 slug: 'hackers-and-painters-ai-agents'
 description: "I reread Paul Graham's Hackers and Painters as a painter who codes with AI agents. The sketching idea held up. Beautiful code nobody reads is what I miss."
 categories: ['AI', 'Career']
-tldr: 'In Hackers and Painters (2003), Paul Graham argued that programming is sketching: you figure a program out while you write it, so a language should be "a pencil, not a pen." I paint and I write code, and since AI coding agents came along, programming feels more like painting to me, not less. I can explore ideas faster and more iteratively. What I miss is beauty in code nobody reads, though I don''t think AI will kill it any more than photography killed painting.'
+tldr: 'In "Hackers and Painters" (2003), Paul Graham argued that programming is sketching: you figure a program out while you write it, so a language should be "a pencil, not a pen." I paint and I write code, and since AI coding agents came along, programming feels more like painting to me, not less. I can explore ideas faster and more iteratively. What I miss is beauty in code nobody reads, though I don''t think AI will kill it any more than photography killed painting.'
 heroImage: '/images/blog/hackers-and-painters-ai-agents/thumb-17c4f83f.webp'
 faq:
   - question: "What is Paul Graham's Hackers and Painters about?"
-    answer: 'Hackers and Painters is a 2003 essay Paul Graham turned from a Harvard guest lecture. He argued that hackers and painters are both makers ("what hackers and painters are trying to do is make good things") and that programming is sketching: you figure a program out while you write it, so a programming language should be "a pencil, not a pen."'
+    answer: '"Hackers and Painters" is a 2003 essay Paul Graham turned from a Harvard guest lecture. He argued that hackers and painters are both makers ("what hackers and painters are trying to do is make good things") and that programming is sketching: you figure a program out while you write it, so a programming language should be "a pencil, not a pen."'
   - question: 'Do AI coding agents make programming less creative?'
     answer: "Not for me. Since AI coding agents came along, programming feels more like painting to me, not less, because it's easier to explore ideas quickly and iteratively. What I miss is beauty in code nobody reads: with agents, code has become more of a black box, and having beautiful code is less important than it was."
   - question: 'Will AI kill programming?'
-    answer: 'I don''t think so. In a footnote to Hackers and Painters, Paul Graham wrote that the greatest damage photography did to painting may be that "it killed the best day job," since most great painters paid their bills with portraits. Photography didn''t kill painting, and I don''t think AI is going to kill programming, or the art of making beautiful code, either.'
+    answer: 'I don''t think so. In a footnote to "Hackers and Painters," Paul Graham wrote that the greatest damage photography did to painting may be that "it killed the best day job," since most great painters paid their bills with portraits. Photography didn''t kill painting, and I don''t think AI is going to kill programming, or the art of making beautiful code, either.'
 heroAlt: "An X-ray of Vermeer's A Maid Asleep, showing the sleeping maid, a jug on the table, and the shapes Vermeer painted over in the doorway behind her"
 ---
 
@@ -29,7 +29,7 @@ That might be a hot take, because most of what I read this year went the other w
 
 Lawson even guessed at what I'm describing, and doubted it: "maybe I'll be surprised and there will be an artist-in-residence somewhere wielding agent orchestrators like a paintbrush! But I kind of doubt it."
 
-So I reread Hackers and Painters against the way I work now.
+So I reread "Hackers and Painters" against the way I work now.
 
 ## Programming is sketching
 
