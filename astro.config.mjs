@@ -26,9 +26,10 @@ import scriptCsp from './src/integrations/script-csp.mjs';
 // noindex on the page, and recaps of a blog post (recapOf) point their canonical at
 // that post; keep both out of the sitemap too, and any issue dated after the build (a
 // scheduled send). Other new issues stay in.
-/** @param {import('hast').Nodes} node @returns {string} */
+/** @typedef {{ type: string, value?: string, children?: HastNode[], properties?: Record<string, unknown> }} HastNode */
+/** @param {HastNode} node @returns {string} */
 const textOf = (node) =>
-	node.type === 'text' ? node.value : 'children' in node ? node.children.map(textOf).join('') : '';
+	node.type === 'text' ? (node.value ?? '') : (node.children ?? []).map(textOf).join('');
 
 const NEWSLETTER_DIR = new URL('./src/content/newsletter/', import.meta.url);
 const unindexedIssuePaths = new Set(
@@ -148,14 +149,14 @@ export default defineConfig({
 						// A screen-reader-only heading (GFM's "Footnotes") gets none either: its # would
 						// show beside nothing.
 						test: (
-							/** @type {import('hast').Element} */ heading,
+							/** @type {HastNode} */ heading,
 							/** @type {number | undefined} */ _index,
 							/** @type {{ tagName?: string } | undefined} */ parent,
 						) =>
 							parent?.tagName !== 'summary' &&
 							!String(heading.properties?.className ?? '').includes('sr-only'),
 						// Each permalink is named for its section, so the links don't all share one name
-						properties: (/** @type {import('hast').Element} */ heading) => ({
+						properties: (/** @type {HastNode} */ heading) => ({
 							className: ['heading-anchor'],
 							ariaLabel: `Link to section: ${textOf(heading)}`,
 						}),
