@@ -6,6 +6,8 @@ test.describe("Joe's margin doodles", () => {
 		await page.goto('/contact/');
 		const layer = page.locator('.margin-doodles');
 		await expect(layer).toBeVisible();
+		// The doodle script is its own chunk, fetched once the page sees a wide screen
+		await expect.poll(() => layer.evaluate((l) => l.children.length)).toBeGreaterThan(0);
 		// The hidden ones must stay hidden (a hidden doodle measures 0, which once flipped them back on)
 		await page.waitForTimeout(500);
 		const { shown, total, overflowing } = await layer.evaluate((l: HTMLElement) => {

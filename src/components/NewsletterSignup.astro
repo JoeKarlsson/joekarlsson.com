@@ -97,5 +97,9 @@ const isFooter = location === 'footer';
 			});
 			setTimeout(go, 1000);
 		});
+		// Back from listmonk restores this page as it was left (bfcache), sent flag and all
+		addEventListener('pageshow', (event) => {
+			if (event.persisted) delete form.dataset.sent;
+		});
 	}
 </script>

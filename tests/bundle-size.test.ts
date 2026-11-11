@@ -33,10 +33,7 @@ const THRESHOLDS = {
 	// with wide pictures and code went 200 bytes over. Raised to 68KB on 2026-11-10
 	// for the menu and lightbox open/close motion (motion.css), which took it to 65KB. Raised
 	// to 70KB later on 2026-11-10, when the site sat at 68.2KB after the day's page fixes.
-	// Raised to 72KB on 2026-11-11 for the Modern Web Guidance fixes: font sizes in rem
-	// (longer class names than px), forced-colors and current-page marks, the heading
-	// permalink layout and find-in-page folds took it to 70.4KB.
-	maxTotalCss: 72 * 1024,
+	maxTotalCss: 70 * 1024,
 	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
 	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
 	// when dist sat at 199MB. Those halftones are now drawn live in the browser

@@ -197,7 +197,7 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 <!-- Fetch the next page while the pointer rests on its link (about 200ms), and render it
 in the background on press, so a click lands on a page that's ready. Leaves out feeds, the
 Markdown copies for agents and downloads. -->
-<script is:inline type="speculationrules" set:html={JSON.stringify(SPECULATION_RULES)} />
+<script is:inline type="speculationrules" set:html={jsonForScript(SPECULATION_RULES)} />
 <!-- JSON-LD Structured Data -->
 <script
 	is:inline
