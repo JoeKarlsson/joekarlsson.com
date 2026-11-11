@@ -52,6 +52,9 @@ if [[ -n "$UNPUSHED" ]]; then
     echo "$UNPUSHED" >&2
     exit 1
 fi
+# Everything but the local now-feed snapshot is on origin, so the merge base is the
+# commit CI tested. A red CI stops the deploy (scripts/wait-for-ci.sh).
+bash "$(dirname "$0")/scripts/wait-for-ci.sh" "$(git merge-base HEAD origin/main)"
 BUILD_DIR=$(mktemp -d "${TMPDIR:-/tmp}/joekarlsson-deploy.XXXXXX")
 git worktree add --quiet --detach "$BUILD_DIR" HEAD
 trap 'cd "$MAIN_DIR" && git worktree remove --force "$BUILD_DIR"' EXIT

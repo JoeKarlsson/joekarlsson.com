@@ -17,9 +17,9 @@ test.describe('Homepage', () => {
 		await expect(video).toHaveAttribute('poster', /montage-poster/);
 		await expect(video.locator('source')).toHaveCount(4);
 		await expect(video.locator('source').first()).toHaveAttribute('type', 'video/webm');
-		// Desktop plays the full square cut
+		// Desktop plays the full square cut (dated filename busts the 30-day cache), not montage-phone
 		expect(await video.evaluate((v: HTMLVideoElement) => v.currentSrc)).toMatch(
-			/montage\.(webm|mp4)$/,
+			/\/montage(-\d{4}-\d{2}-\d{2})?\.(webm|mp4)$/,
 		);
 	});
 
