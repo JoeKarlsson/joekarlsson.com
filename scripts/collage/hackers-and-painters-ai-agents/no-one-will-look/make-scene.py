@@ -20,6 +20,8 @@ PAPER, KEY = (244, 241, 234), 6
 W, H = 1920, 1080
 
 ginevra = Image.open(sys.argv[1]).convert('RGB')
+# NEEDLES below is in this download's pixels
+assert ginevra.width == 3840, 'pass the 3840 px Commons download (sources.json)'
 mono_font = ImageFont.truetype(sys.argv[2], 21)
 
 
@@ -35,18 +37,19 @@ def print_of(img):
     return out
 
 
-# Ginevra as a print, 520 wide
+# Ginevra as a print, 620 wide
 PRINT_W = 620
 scale = PRINT_W / ginevra.width
 print_img = print_of(mono(ginevra.resize((PRINT_W, round(ginevra.height * scale)), Image.LANCZOS)))
 print_img.save(OUT / 'ginevra.png')
 
-# The magnifier, 300 wide; its glass is a white disc in the cut
+# The magnifier, 280 wide; its glass is a white disc in the cut
 lens = Image.open(OUT / 'lens.png').convert('RGBA')
 LENS_W = 280
 lens = lens.resize((LENS_W, round(lens.height * LENS_W / lens.width)), Image.LANCZOS)
-GLASS = (LENS_W / 2, 262 * LENS_W / 532)  # glass centre in the resized cut
-GLASS_R = round(232 * LENS_W / 532)
+# Measured on the cut as fractions of its width, so they hold at any --width
+GLASS = (LENS_W / 2, 262 / 532 * LENS_W)  # glass centre
+GLASS_R = round(232 / 532 * LENS_W)
 
 
 def lens_with(fill):
