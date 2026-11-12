@@ -11,21 +11,14 @@ Read the post and name its one idea in plain words, then find a physical, pre-di
 Commons is the only source: the test requires a `commons.wikimedia.org` credit, and only **Public domain** or **CC0** files qualify (no CC BY, no CC BY-SA). Search each candidate:
 
 ```bash
-q='telephone switchboard operator'   # one candidate per search
-curl -s -A 'joekarlsson.com thumbnail search' -G 'https://commons.wikimedia.org/w/api.php' \
-  --data-urlencode "gsrsearch=$q filetype:bitmap" \
-  -d 'action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiextmetadatafilter=LicenseShortName' |
-python3 -c "
-import json,sys
-for p in json.load(sys.stdin).get('query',{}).get('pages',{}).values():
-  i=p['imageinfo'][0]; lic=i['extmetadata'].get('LicenseShortName',{}).get('value','')
-  if ('Public domain' in lic or 'CC0' in lic) and i['width']>=1200:
-    print(lic,i['width'],i['height'],i['descriptionurl'])"
+node scripts/commons-search.mjs telephone switchboard operator   # one candidate per search; --min-width 1200 by default
 ```
+
+It keeps hits whose search metadata says public domain or CC0, then reads each file page and drops any without a public-domain or CC0 license template, since the search metadata alone can be wrong. Each line is the template, the size and the Commons page, with a download URL under it.
 
 Old photos (archives, museums, Library of Congress, NASA, US government) are usually public domain and take the pink filter well. Prefer one strong subject with clear contrast: busy scenes turn to mud at 300px.
 
-Download the best 3-4 into the scratchpad (`https://commons.wikimedia.org/wiki/Special:FilePath/<File_name>?width=1600`), Read them, and pick one. Then open its Commons page and confirm the license template says public domain or CC0; don't trust the search metadata alone.
+Download the best 3-4 into the scratchpad from their download URLs, Read them, and pick one.
 
 ## 3. Pick the look
 
