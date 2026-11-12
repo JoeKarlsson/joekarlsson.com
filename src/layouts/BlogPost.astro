@@ -22,7 +22,7 @@ import workThumbnailPlan from '../../scripts/work-thumbnail-plan.json';
 import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
-import { ARTICLE_TITLE, META, PAGE_CONTAINER, SIDEBAR_GRID, TEXT_LINK } from '../utils/ui';
+import { ARTICLE_TITLE, META, PAGE_CONTAINER, SIDEBAR_GRID } from '../utils/ui';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -483,12 +483,7 @@ const heroIsTaped =
 						</p>
 						<NewsletterSignup location="post-end" />
 						<p class="mt-3 text-sm text-muted">
-							It's free, and you can unsubscribe anytime. You'll get an email to confirm first. Each
-							issue records opens and clicks (
-							<a href="/privacy-policy/" class={TEXT_LINK}>
-								privacy
-							</a>
-							).
+							It's free, and you can unsubscribe anytime. You'll get an email to confirm first.
 						</p>
 					</section>
 

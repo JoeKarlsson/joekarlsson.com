@@ -22,11 +22,7 @@ const onNewsletterPage = Astro.url.pathname.replace(/\/$/, '') === '/newsletter'
 		<>
 			<NewsletterSignup location="footer" />
 			<p class="mt-2.5 text-sm">
-				Free, no spam, unsubscribe anytime. Each email records opens and clicks (
-				<a href="/privacy-policy/" class="font-semibold text-ink underline hover:decoration-2">
-					privacy
-				</a>
-				).{' '}
+				Free, and every issue has an unsubscribe link.{' '}
 				<a
 					href="/newsletter/"
 					class="plausible-event-name=Newsletter+CTA+Click font-semibold text-ink underline hover:text-ink hover:decoration-2"
