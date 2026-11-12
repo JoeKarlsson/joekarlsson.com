@@ -1,0 +1,51 @@
+[
+	{
+		"element": "elements/counter.png",
+		"source": "https://www.metmuseum.org/art/collection/search/3385 (original in media-sources/collage/reversing-seo-traffic-decline-ai-overviews/met-3385-double-counter-ca1825.jpg)",
+		"license": "Public domain (The Met Open Access, CC0)",
+		"shows": "Double Counter, ca. 1825: a pine shop counter with six drawers, studio shot",
+		"derivative": "lifted, toned black and white (--largest --width 900)"
+	},
+	{
+		"element": "elements/cash-register.png",
+		"source": "https://commons.wikimedia.org/wiki/File:National_cash_register,_Le_Cirio,_Brussels,_2014.jpg (original in media-sources/.../commons-national-cash-register-le-cirio-brussels.jpg)",
+		"license": "CC0 (self, by DimiTalen), Wikimedia Commons",
+		"shows": "An ornate brass cash register with its round topper, on a marble slab, in a Brussels cafe",
+		"derivative": "lifted, largest piece kept, toned black and white (--largest --width 620); in the scene the counter and the pink drawer sit in front of its lower front, so the maker's name cast on the drawer is hidden (no unbranded public-domain or CC0 register found)"
+	},
+	{
+		"element": "elements/shopper-fur-collar.png",
+		"source": "https://www.loc.gov/item/2017850415/ (TIFF 8d28158u.tif; JPEG copy in media-sources/.../loc-8d28158-window-shopping-los-angeles.jpg)",
+		"license": "No known restrictions (US Office of War Information, public domain), Library of Congress",
+		"shows": "A woman in a fur-collared coat and turban, back to the camera, window shopping, Los Angeles",
+		"derivative": "cropped to her, lifted with person segmentation, largest piece kept, toned black and white (--person --crop 1330,1700,680,2360 --largest --width 520)"
+	},
+	{
+		"element": "elements/shopper-overalls.png",
+		"source": "https://www.loc.gov/item/2017736208/ (TIFF 8a22447u.tif; JPEG copy in media-sources/.../loc-8a22447-window-shopping-williston.jpg)",
+		"license": "No known restrictions (US Farm Security Administration, public domain), Library of Congress",
+		"shows": "A boy in a cap, jacket and jeans, back to the camera, looking in a store window, Williston, North Dakota",
+		"derivative": "cropped to him, lifted with Apple Vision subject mode, largest piece kept, toned black and white (--crop 1870,1120,600,1530 --largest --width 520)"
+	},
+	{
+		"element": "elements/shopper-big-hat.png",
+		"source": "https://www.loc.gov/item/2014683052/ (TIFF 03058u.tif; JPEG copy in media-sources/.../loc-bain-03058-xmas-shoppers-1912.jpg)",
+		"license": "No known restrictions on publication (Bain News Service, 1912, public domain), Library of Congress",
+		"shows": "A woman in a long pale coat and big hat walking away along a shop front, New York, 1912",
+		"derivative": "cropped to her, lifted with Apple Vision subject mode, toned black and white (--crop 1290,2060,600,1450 --largest --width 520)"
+	},
+	{
+		"element": "elements/shopper-long-skirt.png",
+		"source": "https://www.loc.gov/item/2014683052/ (same photo as shopper-big-hat)",
+		"license": "No known restrictions on publication (Bain News Service, 1912, public domain), Library of Congress",
+		"shows": "An older woman in a dark jacket and long skirt standing side-on at the shop window",
+		"derivative": "cropped to her, lifted with Apple Vision subject mode, toned black and white (--crop 2100,2200,440,1020 --largest --width 520)"
+	},
+	{
+		"element": "elements/drawer-open.png",
+		"source": "https://commons.wikimedia.org/wiki/File:CASH_DRAWER_UNDER_REAR_COUNTER,_NOTE_BELL_MECHANISM_TO_BACK_OF_DRAWER_-_Coffren_House,_Store,_10007_Croom_Road,_Croom,_Prince_George%27s_County,_MD_HABS_MD,17-CROM,2A-8.tif (1920 px copy in media-sources/.../commons-habs-coffren-store-cash-drawer.jpg)",
+		"license": "Public domain (PD-USGov-NPS, Historic American Buildings Survey), Wikimedia Commons",
+		"shows": "A country store's wooden cash drawer pulled open, coin cups showing, Croom, Maryland",
+		"derivative": "cropped to the drawer, lifted, toned pink (the accent) (--crop 300,520,1150,780 --tone pink --largest --width 620)"
+	}
+]

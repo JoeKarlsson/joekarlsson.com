@@ -1,0 +1,51 @@
+[
+	{
+		"element": "elements/bust-fowler.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Lorenzo_Fowler_-_Phrenology_bust_-_Whipple_Wh.2744.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/fowler-phrenology-bust.jpg)",
+		"license": "CC0 (photographer's own work; the 19th-century bust is public domain)",
+		"shows": "L.N. Fowler's ceramic phrenology bust, Whipple Museum Wh.2744; it stands in for Joe's head",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--tone mono --largest --width 620)"
+	},
+	{
+		"element": "elements/index-card-1.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Index_Card_-_B_-_Bridges_-_DPLA_-_e57936c9b2c7140b9b362055fab4b6cf.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/index-card-bridges.jpg)",
+		"license": "Public domain (PD-US; National Archives via DPLA)",
+		"shows": "A typed National Park Service index card: Bridges. Close-up of Buffalo on Dumbarton Bridge",
+		"derivative": "the scan fills its frame, so it was padded with a 300 px grey border first for Vision to find it; then lifted, largest piece kept, toned black and white (--tone mono --largest --width 420)"
+	},
+	{
+		"element": "elements/index-card-2.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Index_Card_-_L_-_Langdon_Recreation_Center_-_DPLA_-_15f579d60d2aced85ad81ffe2d7f1c6e.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/index-card-langdon.jpg)",
+		"license": "Public domain (PD-US; National Archives via DPLA)",
+		"shows": "A typed index card from the same series: Langdon Recreation Center. Wading pool",
+		"derivative": "padded with a 300 px grey border, lifted, largest piece kept, toned black and white (--tone mono --largest --width 420)"
+	},
+	{
+		"element": "elements/drawer.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Copyright_Card_Catalog_Drawer.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/card-catalog-drawer.jpg)",
+		"license": "Public domain (PD-self, Michael Holley)",
+		"shows": "A drawer pulled from the Library of Congress copyright card catalog, full of cards",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned pink as the scene's one accent (--tone pink --largest --width 760)"
+	},
+	{
+		"element": "elements/hand-reaching.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Georgia_O%27Keeffe%E2%80%94Hand_and_Wheel_MET_DP233003.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/okeeffe-hand-and-wheel-met-dp233003.jpg)",
+		"license": "CC0 (The Met open access, object 271582)",
+		"shows": "Alfred Stieglitz, Georgia O'Keeffe - Hand and Wheel, 1933: an open hand, fingers spread",
+		"derivative": "cropped to the hand, lifted with Apple Vision, largest piece kept, toned black and white (--crop 473,331,1325,1514 --tone mono --largest --width 480); a thin sliver of the chrome wheel stays between thumb and fingers"
+	},
+	{
+		"element": "elements/hand-reaching-left.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Georgia_O%27Keeffe%E2%80%94Hand_and_Wheel_MET_DP233003.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/okeeffe-hand-and-wheel-met-dp233003.jpg)",
+		"license": "CC0 (The Met open access, object 271582)",
+		"shows": "Alfred Stieglitz, Georgia O'Keeffe - Hand and Wheel, 1933: an open hand, fingers spread; mirrored and turned so it reaches in from the right",
+		"derivative": "hand-reaching.png flipped left to right (sharp flop)"
+	},
+	{
+		"element": "elements/hand-pointing.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Georgia_O%27Keeffe%E2%80%94Hand_MET_DP232997.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/okeeffe-hand-met-dp232997.jpg)",
+		"license": "CC0 (The Met open access, object 271592)",
+		"shows": "Alfred Stieglitz, Georgia O'Keeffe - Hand, 1918: one hand held out flat, fingers forward",
+		"derivative": "1920 px download, lifted with Apple Vision, largest piece kept, toned black and white (--tone mono --largest --width 520)"
+	}
+]

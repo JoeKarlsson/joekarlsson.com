@@ -1,0 +1,37 @@
+[
+	{
+		"element": "elements/cliff-left.png",
+		"source": "https://commons.wikimedia.org/wiki/File:West_Mitten_Butte,_East_Mitten_Butte,_and_Merrick_Butte_(Unsplash).jpg (original in media-sources/collage/self-hosted-music-still-sucks-in-2026/)",
+		"license": "CC0 1.0 (Commons {{Unsplash}} template: posted to Unsplash before its June 2017 license change, Wayback copy 2017-05-05); photographer Jasper van der Meij",
+		"shows": "West Mitten Butte, Monument Valley, with its talus slope",
+		"derivative": "downloaded at 3840 px, cropped to the butte, lifted with Apple Vision, largest piece kept, toned black and white, 5 px keyline, cut small and scaled up in the scene to keep the webp light (--crop 420,530,1080,540 --largest --width 480 --keyline 5)"
+	},
+	{
+		"element": "elements/cliff-right.png",
+		"source": "https://commons.wikimedia.org/wiki/File:West_Mitten_Butte,_East_Mitten_Butte,_and_Merrick_Butte_(Unsplash).jpg (same photo as cliff-left)",
+		"license": "CC0 1.0 (Commons {{Unsplash}} template, as above)",
+		"shows": "Merrick Butte, Monument Valley",
+		"derivative": "cropped to the butte, lifted, largest piece kept, toned black and white, 5 px keyline, cut small and scaled up in the scene (--crop 2700,730,820,560 --largest --width 480 --keyline 5)"
+	},
+	{
+		"element": "elements/bridge-left.png",
+		"source": "https://www.loc.gov/item/az0251/ photo HAER AZ-28-1 (180278pu.tif), Navajo Bridge over Marble Canyon, AZ",
+		"license": "Public domain: HAER documentation, Clayton B. Fraser (Fraserdesign) for HAER/ADOT, July 1990; LoC: no known restrictions",
+		"shows": "The south half of the Navajo Bridge steel deck arch, rim to crown",
+		"derivative": "cropped to the left half of the span, lifted with Apple Vision, toned black and white; the dark canyon wall behind the web stays inside the cut (--crop 500,1400,2150,720 --width 900)"
+	},
+	{
+		"element": "elements/bridge-right.png",
+		"source": "https://www.loc.gov/item/mn0202/ photo HAER MN-45-1 (092172pu.tif), Kern bowstring truss bridge, Le Sueur River, Skyline, MN",
+		"license": "Public domain: HAER original photograph (US government work); LoC: no known restrictions",
+		"shows": "The right half of the Kern Bridge, a wrought-iron bowstring through-truss: a different bridge type from the left half",
+		"derivative": "cropped to the right half of the span, lifted with Apple Vision (the sky inside the truss comes out as white paper), toned black and white (--crop 2600,1300,1860,550 --width 900)"
+	},
+	{
+		"element": "elements/record.png",
+		"source": "Immich, IMG_5937(2).HEIC, 2019-09-24 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "Joe's Savoy LP (Midnight on Cloud 69) on carpet, label side A",
+		"derivative": "lifted with Apple Vision, largest piece kept, left in color: the punchline piece (--tone none --largest --width 600)"
+	}
+]

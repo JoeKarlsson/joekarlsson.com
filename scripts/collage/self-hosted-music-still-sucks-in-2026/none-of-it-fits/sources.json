@@ -1,0 +1,30 @@
+[
+	{
+		"element": "elements/piece-1.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Red_jigsaw_puzzle_pieces_2.jpg",
+		"license": "CC0 1.0 ({{self|cc-zero}}, Profpcde)",
+		"shows": "One loose jigsaw piece on a wooden table (right of center)",
+		"derivative": "downloaded at 1920 px; cropped (985,540,700,440), lifted with Apple Vision, touching pieces split off by eroding the mask 25 px and painted flat grey; then cut, largest piece kept, toned black and white (--largest --width 600)"
+	},
+	{
+		"element": "elements/piece-2.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Red_jigsaw_puzzle_pieces_2.jpg (same photo)",
+		"license": "CC0 1.0",
+		"shows": "One loose jigsaw piece (lower left)",
+		"derivative": "cropped (90,675,560,470), the piece below painted grey (150,425,410,45 in the crop), touching pieces split off (erode 14), then cut and toned black and white (--largest --width 520). A small nub of the piece underneath still shows at the bottom edge"
+	},
+	{
+		"element": "elements/piece-3.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Red_jigsaw_puzzle_pieces_2.jpg (same photo)",
+		"license": "CC0 1.0",
+		"shows": "One loose jigsaw piece with a dark printed patch (top center)",
+		"derivative": "cropped (995,20,705,330), the white neighbor painted grey (0,150,45,180 and 45,222,40,108 in the crop), split off (erode 12), then cut and toned black and white (--largest --width 600)"
+	},
+	{
+		"element": "elements/odd-piece.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Red_jigsaw_puzzle_pieces_2.jpg (same photo)",
+		"license": "CC0 1.0",
+		"shows": "One loose jigsaw piece (center), red",
+		"derivative": "cropped (470,430,700,370), neighbors painted grey (130,0,230,62; 0,300,170,70; 570,300,130,70 in the crop), split off (erode 14), then cut and left in color: the punchline piece (--tone none --largest --width 600)"
+	}
+]

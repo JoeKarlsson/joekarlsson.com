@@ -1,0 +1,156 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#1F7A3C",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 17
+	},
+	"duration": 6.3,
+	"elements": [
+		{
+			"image": "elements/rack.png",
+			"x": 1080,
+			"y": 650,
+			"scale": 0.58,
+			"rotation": 0.5,
+			"enter_from": "right",
+			"enter_duration": 0.65,
+			"moves": [
+				{
+					"at": 2.55,
+					"y": 1900,
+					"rotation": 6,
+					"duration": 0.5,
+					"ease": "in"
+				}
+			],
+			"enter_at": 0.35,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/adding-machine.png",
+			"x": 420,
+			"y": 650,
+			"scale": 0.55,
+			"rotation": -2,
+			"enter_from": "left",
+			"enter_duration": 0.6,
+			"enter_at": 0.95,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/tape.png",
+			"x": 650,
+			"y": 400,
+			"scale": 0.55,
+			"rotation": -78,
+			"enter_from": "left",
+			"enter_duration": 0.45,
+			"moves": [
+				{
+					"at": 2.7,
+					"y": 930,
+					"rotation": -100,
+					"duration": 0.55,
+					"ease": "in"
+				}
+			],
+			"enter_at": 1.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/tape.png",
+			"x": 850,
+			"y": 385,
+			"scale": 0.55,
+			"rotation": -96,
+			"enter_from": "left",
+			"enter_duration": 0.45,
+			"moves": [
+				{
+					"at": 2.75,
+					"y": 975,
+					"rotation": -70,
+					"duration": 0.55,
+					"ease": "in"
+				}
+			],
+			"enter_at": 1.95,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/golf-bag.png",
+			"x": 1070,
+			"y": 680,
+			"scale": 0.7,
+			"rotation": 2,
+			"enter_path": [
+				[1080, 1900],
+				[1040, 420]
+			],
+			"enter_duration": 0.7,
+			"enter_spin": -12,
+			"enter_at": 3.0,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/flag.png",
+			"x": 1560,
+			"y": 660,
+			"scale": 0.42,
+			"rotation": -3,
+			"enter_from": "right",
+			"enter_duration": 0.55,
+			"enter_at": 3.65,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		}
+	],
+	"label": {
+		"text": "HOBBIES COST MONEY",
+		"font_family": "Anton",
+		"size": 120,
+		"color": "#F2EDE4",
+		"tracking": 4,
+		"x": 960,
+		"y": 40,
+		"enter_at": 4.5,
+		"align": "center"
+	}
+}

@@ -1,0 +1,37 @@
+[
+	{
+		"element": "elements/film-cans-stack.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Photograph_of_Film_Depository_in_Suitland,_Maryland_-_DPLA_-_0be68250fabaa985e147bff794744ee4.jpg",
+		"license": "Public domain (PD-US; National Archives via DPLA)",
+		"shows": "Stacks of labeled film cans on steel shelves in the federal film depository at Suitland, Maryland",
+		"derivative": "one stack traced by hand onto white (Vision would lift the whole shelf), lifted, toned black and white (source commons-nara-film-cans-stack-handcut.jpg, --largest --width 420)"
+	},
+	{
+		"element": "elements/film-can.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Photograph_of_Film_Depository_in_Suitland,_Maryland_-_DPLA_-_0be68250fabaa985e147bff794744ee4.jpg",
+		"license": "Public domain (as 10a)",
+		"shows": "The top can of the same stack",
+		"derivative": "traced by hand onto white, lifted, toned black and white (source commons-nara-film-can-single-handcut.jpg, --largest --width 380)"
+	},
+	{
+		"element": "elements/film-can-pink.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Photograph_of_Film_Depository_in_Suitland,_Maryland_-_DPLA_-_0be68250fabaa985e147bff794744ee4.jpg",
+		"license": "Public domain (as 10a)",
+		"shows": "The top can of the same stack",
+		"derivative": "as 10b, toned pink (--tone pink)"
+	},
+	{
+		"element": "elements/quadro.png",
+		"source": "Immich, IMG_5237.HEIC, 2025-11-21 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "Joe's Quadro RTX 4000 in the R730's riser, from above",
+		"derivative": "hand-masked: the card traced as a polygon onto white (Vision lifted the whole open server), then lifted, largest piece kept, toned black and white, 6 px keyline, rotated 71 degrees to lie flat (source immich-IMG_5237-quadro-handcut.jpg, --largest --width 700)"
+	},
+	{
+		"element": "elements/card-a4000-standin.png",
+		"source": "https://commons.wikimedia.org/wiki/File:NVIDIA_P350_A00.jpg",
+		"license": "Public domain (PD-self, Hyins)",
+		"shows": "An OEM NVIDIA Quadro FX 5600 (P350 board) with no NVIDIA branding, on a dark ground",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 900)"
+	}
+]

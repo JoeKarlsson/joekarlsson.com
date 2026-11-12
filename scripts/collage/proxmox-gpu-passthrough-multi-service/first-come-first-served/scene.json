@@ -1,0 +1,176 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#1F6F7A",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 13
+	},
+	"duration": 7.2,
+	"elements": [
+		{
+			"image": "elements/camera.png",
+			"x": 1590,
+			"y": 400,
+			"scale": 0.72,
+			"rotation": 2,
+			"enter_at": 1.05,
+			"enter_from": "right",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/microphone.png",
+			"x": 340,
+			"y": 410,
+			"scale": 0.42,
+			"rotation": -3,
+			"enter_at": 2.6,
+			"enter_from": "left",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/plate.png",
+			"x": 969,
+			"y": 568,
+			"scale": 0.86,
+			"enter_at": 4.1,
+			"enter_from": "bottom",
+			"enter_duration": 0.75,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/pie.png",
+			"x": 960,
+			"y": 640,
+			"scale": 0.9,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.65,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			},
+			"moves": [
+				{
+					"at": 1.75,
+					"y": 2600,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/slice-left.png",
+			"x": 969,
+			"y": 528,
+			"scale": 0.9,
+			"enter_at": 1.75,
+			"enter_from": "none",
+			"enter_duration": 0.1,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/slice-reserve.png",
+			"x": 756,
+			"y": 612,
+			"scale": 0.9,
+			"enter_at": 1.75,
+			"enter_from": "none",
+			"enter_duration": 0.1,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/slice-frigate.png",
+			"x": 1163,
+			"y": 738,
+			"scale": 0.9,
+			"enter_at": 1.75,
+			"enter_from": "none",
+			"enter_duration": 0.1,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			},
+			"moves": [
+				{
+					"at": 1.9,
+					"x": 1590,
+					"y": 730,
+					"rotation": 4,
+					"duration": 0.6
+				}
+			]
+		},
+		{
+			"image": "elements/slice-whisper.png",
+			"x": 795,
+			"y": 738,
+			"scale": 0.9,
+			"enter_at": 1.75,
+			"enter_from": "none",
+			"enter_duration": 0.1,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			},
+			"moves": [
+				{
+					"at": 3.3,
+					"x": 360,
+					"y": 770,
+					"rotation": -4,
+					"duration": 0.6
+				}
+			]
+		}
+	],
+	"label": {
+		"text": "FIRST COME, FIRST SERVED",
+		"font_family": "Anton",
+		"size": 120,
+		"color": "#ECE6DA",
+		"tracking": 4,
+		"x": 960,
+		"y": 40,
+		"enter_at": 5.3,
+		"align": "center"
+	}
+}

@@ -27,6 +27,8 @@ Then there’s **Overseerr** (now [Seerr](https://github.com/seerr-team/seerr)):
 
 But here’s where everything breaks down: **Lidarr operates in the same technical universe but feels like it was designed by completely different engineering teams with incompatible requirements**.
 
+![A paper-collage animation on a blue field: two black-and-white desert buttes land on either side, a steel arch bridge builds out from the left butte and an iron truss bridge builds out from the right one, higher up, so the two halves pass each other without meeting. A vinyl record in color rolls along the higher bridge, drops off its end into the gap, and the words Same family set in above](/images/blog/self-hosted-music-still-sucks-in-2026/same-family.svg)
+
 ## My music workflow for the past 15 years
 
 Since 2011, my music consumption has been relentlessly focused on **track-level granular curation**. I’m the guy who loves carefully crafted seasonal playlists, “Winter 2024,” “Summer Road Trip Bangers”, all built from individual tracks.
@@ -121,6 +123,8 @@ Building the dream scenario faces legitimate technical barriers that go beyond s
 
 **Metadata Normalization**: Aggregating track information from multiple sources requires complex ETL pipelines to handle inconsistent data formats, different character encodings, and conflicting metadata. The same artist might be “Metallica,” “METALLICA,” or “Металлика” depending on the source.
 
+![A paper-collage animation on a yellow field: a black-and-white vinyl record lands, then three HELLO my name is stickers slap onto it one at a time, reading Metallica, METALLICA, and last, in red, Металлика, and the words Same band set in above](/images/blog/self-hosted-music-still-sucks-in-2026/same-band.svg)
+
 **Quality Consistency**: Maintaining library coherence when acquiring from multiple sources becomes an engineering nightmare. Different audio formats (FLAC, MP3, AAC), bitrates (128kbps to lossless), and encoding parameters create a matrix of compatibility issues that video content rarely faces.
 
 ## Potential technical solutions
@@ -187,6 +191,8 @@ CREATE TABLE track_sources (
 ## Wrap up
 
 Here’s what frustrates me most about this entire situation from a technical perspective: **we have all the architectural components needed to build amazing self-hosted music workflows, but we’re stuck with impedance mismatches between systems designed for different data models**.
+
+![A paper-collage animation on a purple field: three black-and-white jigsaw pieces land and sit together, then a red piece slides in from below, hits them at an angle and jams, and the words None of it fits set in above](/images/blog/self-hosted-music-still-sucks-in-2026/none-of-it-fits.svg)
 
 **2026 Update**: I originally wrote this post last year hoping it might spark some discussion. Navidrome's plugins and Instant Mix are useful. The core problem is still unsolved, and Lidarr's metadata outages made automated music grabs worse.
 

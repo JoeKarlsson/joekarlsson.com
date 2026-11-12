@@ -1,0 +1,99 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#F2EDE4",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 23
+	},
+	"duration": 5.2,
+	"elements": [
+		{
+			"image": "elements/trailer-shell.png",
+			"x": 1149,
+			"y": 560,
+			"scale": 1.2,
+			"enter_from": "right",
+			"enter_duration": 0.75,
+			"enter_at": 0.35,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/cab.png",
+			"x": 366,
+			"y": 635,
+			"scale": 0.661,
+			"enter_from": "left",
+			"enter_duration": 0.6,
+			"enter_at": 1.15,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/parcel.png",
+			"x": 1150,
+			"y": 532,
+			"scale": 0.3,
+			"rotation": -4,
+			"enter_path": [[1150, 532]],
+			"enter_duration": 0.01,
+			"enter_at": 1.9,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/trailer-panel.png",
+			"x": 1149,
+			"y": 560,
+			"scale": 1.2,
+			"enter_from": "right",
+			"enter_duration": 0.75,
+			"moves": [
+				{
+					"at": 2.3,
+					"y": 1700,
+					"rotation": 9,
+					"duration": 0.6,
+					"ease": "in"
+				}
+			],
+			"enter_at": 0.35,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.35
+			}
+		}
+	],
+	"label": {
+		"text": "13% BUSY",
+		"font_family": "Anton",
+		"size": 120,
+		"color": "#0A0A0A",
+		"tracking": 4,
+		"x": 960,
+		"y": 40,
+		"enter_at": 3.25,
+		"align": "center"
+	}
+}

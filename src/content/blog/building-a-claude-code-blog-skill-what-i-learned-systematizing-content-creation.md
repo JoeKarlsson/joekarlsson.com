@@ -18,6 +18,8 @@ That created a weird problem.
 
 I got good at using AI tools. But it was still a personal, one-off workflow. Every blog post started with me crafting the perfect prompt, tweaking the output, running linting checks, formatting everything manually. It worked. It didn’t scale. Our marketing team needed to produce more content, hit more keywords, maintain consistency… and they couldn’t all live in my head.
 
+![A paper-collage animation on a black field: index cards pile onto a black-and-white phrenology bust, a pink card-catalog drawer lands beside it, the cards fly from the head into the drawer, and two hands reach in for them under the words Out of my head](/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/out-of-my-head.svg)
+
 So I built a Claude Code skill to systematize it.
 
 ## Codifying What I Was Already Doing
@@ -74,6 +76,8 @@ We rolled this out to the marketing team a week ago. (A few months later it had 
 They adopted it fast. Genuinely fast.
 
 Giving this tool to the team replaced one of my primary functions: being the bottleneck for content quality and technical accuracy. And that’s freeing me up to do what I actually want to do: developer outreach, building relationships, experimenting with new approaches to advocacy.
+
+![A paper-collage animation on a black field: a black-and-white glass bottle lands in the middle, handwritten draft pages cram into it, a cork in full color plugs the narrow neck, then the cork pops off and the drafts spill out to both sides under the words I was the bottleneck](/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/i-was-the-bottleneck.svg)
 
 We’re covering more keywords, faster. Blog posts ship with consistent voice and style. SEO optimization, FAQ sections, internal links, quotable statistics - are baked into the workflow instead of being an afterthought. The team can focus on research and strategy rather than fighting with formatting and style checks.
 

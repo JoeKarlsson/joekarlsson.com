@@ -1,0 +1,212 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#F2EDE4",
+		"grain": 0.04
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 31
+	},
+	"duration": 6.6,
+	"elements": [
+		{
+			"image": "elements/switch.png",
+			"x": 980,
+			"y": 570,
+			"scale": 0.95,
+			"enter_at": 0.3,
+			"enter_from": "top",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.4
+			}
+		},
+		{
+			"image": "elements/label-maker.png",
+			"x": 500,
+			"y": 690,
+			"scale": 0.62,
+			"rotation": -10,
+			"enter_at": 0.85,
+			"enter_from": "left",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.4
+			}
+		},
+		{
+			"image": "elements/tape-1.png",
+			"x": 1020,
+			"y": 450,
+			"rotation": -6,
+			"enter_at": 1.5,
+			"enter_path": [
+				[660, 530],
+				[840, 290]
+			],
+			"enter_spin": 16,
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/tape-2.png",
+			"x": 1070,
+			"y": 620,
+			"rotation": 5,
+			"enter_at": 2.05,
+			"enter_path": [
+				[660, 530],
+				[865, 370]
+			],
+			"enter_spin": -8,
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/tape-3.png",
+			"x": 990,
+			"y": 740,
+			"rotation": -3,
+			"enter_at": 2.5,
+			"enter_path": [
+				[660, 530],
+				[825, 370]
+			],
+			"enter_spin": -8,
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/tape-4.png",
+			"x": 1170,
+			"y": 370,
+			"rotation": 8,
+			"enter_at": 2.88,
+			"enter_path": [
+				[660, 530],
+				[915, 210]
+			],
+			"enter_spin": 10,
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/tape-5.png",
+			"x": 900,
+			"y": 540,
+			"rotation": -11,
+			"enter_at": 3.2,
+			"enter_path": [
+				[660, 530],
+				[780, 370]
+			],
+			"enter_spin": 10,
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/tape-6.png",
+			"x": 1050,
+			"y": 830,
+			"rotation": 4,
+			"enter_at": 3.47,
+			"enter_path": [
+				[660, 530],
+				[855, 370]
+			],
+			"enter_spin": -14,
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/tape-7.png",
+			"x": 1200,
+			"y": 515,
+			"rotation": -8,
+			"enter_at": 3.7,
+			"enter_path": [
+				[660, 530],
+				[930, 355]
+			],
+			"enter_spin": -8,
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/tape-8.png",
+			"x": 870,
+			"y": 670,
+			"rotation": 12,
+			"enter_at": 3.9,
+			"enter_path": [
+				[660, 530],
+				[765, 370]
+			],
+			"enter_spin": 16,
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		}
+	],
+	"label": {
+		"text": "40 WAYS TO SAY OFF",
+		"font_family": "Anton",
+		"size": 116,
+		"color": "#0A0A0A",
+		"tracking": 4,
+		"x": 960.0,
+		"y": 40,
+		"enter_at": 4.6,
+		"align": "center"
+	}
+}

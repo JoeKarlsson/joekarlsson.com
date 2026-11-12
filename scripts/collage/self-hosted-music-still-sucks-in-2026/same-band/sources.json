@@ -1,0 +1,30 @@
+[
+	{
+		"element": "elements/record.png",
+		"source": "Immich, IMG_5938(2).HEIC, 2019-09-24 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "Joe's Savoy LP, side B, with an old 'MISC. DATE #215' sticker already on the label",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 700). Stands in for the plain record sleeve in the pitch: no plain public-domain sleeve was found"
+	},
+	{
+		"element": "elements/tag-metallica.png",
+		"source": "Drawn in code: media-sources/collage/self-hosted-music-still-sucks-in-2026/stickers.cjs rendered sticker-metallica.png (Playwright, transparent ground)",
+		"license": "Made for this post",
+		"shows": "A printed red-and-white HELLO my name is sticker reading Metallica (set in Hanken Grotesk bold)",
+		"derivative": "no Vision lift (a flat graphic has no subject to find): media-sources/collage/self-hosted-music-still-sucks-in-2026/paper.mjs applies cutout.mjs's hard alpha, tone and 6 px keyline, tone mono, width 520"
+	},
+	{
+		"element": "elements/tag-metallica-caps.png",
+		"source": "Drawn in code: media-sources/collage/self-hosted-music-still-sucks-in-2026/stickers.cjs rendered sticker-metallica-caps.png (Playwright, transparent ground)",
+		"license": "Made for this post",
+		"shows": "A printed red-and-white HELLO my name is sticker reading METALLICA (set in Hanken Grotesk bold)",
+		"derivative": "no Vision lift (a flat graphic has no subject to find): media-sources/collage/self-hosted-music-still-sucks-in-2026/paper.mjs applies cutout.mjs's hard alpha, tone and 6 px keyline, tone mono, width 520"
+	},
+	{
+		"element": "elements/tag-metallica-cyrillic.png",
+		"source": "Drawn in code: media-sources/collage/self-hosted-music-still-sucks-in-2026/stickers.cjs rendered sticker-metallica-cyrillic.png (Playwright, transparent ground)",
+		"license": "Made for this post",
+		"shows": "A printed red-and-white HELLO my name is sticker reading Металлика (set in JetBrains Mono bold: Hanken Grotesk has no basic Cyrillic)",
+		"derivative": "no Vision lift (a flat graphic has no subject to find): media-sources/collage/self-hosted-music-still-sucks-in-2026/paper.mjs applies cutout.mjs's hard alpha, tone and 6 px keyline, tone none, width 520; left in color: the punchline piece"
+	}
+]

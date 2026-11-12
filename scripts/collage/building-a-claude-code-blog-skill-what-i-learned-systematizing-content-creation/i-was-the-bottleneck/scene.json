@@ -1,0 +1,174 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#0A0A0A",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 11
+	},
+	"duration": 6.4,
+	"elements": [
+		{
+			"image": "elements/bottle.png",
+			"x": 960,
+			"y": 680,
+			"scale": 0.76,
+			"rotation": 0,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.7,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/drafts-fanned.png",
+			"x": 900,
+			"y": 740,
+			"scale": 0.55,
+			"rotation": -9,
+			"enter_at": 1.05,
+			"enter_from": "left",
+			"enter_duration": 0.5,
+			"moves": [
+				{
+					"at": 3.45,
+					"x": 400,
+					"y": 560,
+					"rotation": -14,
+					"duration": 0.55,
+					"ease": "out"
+				}
+			],
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/draft-balzac.png",
+			"x": 1030,
+			"y": 700,
+			"scale": 0.5,
+			"rotation": 8,
+			"enter_at": 1.45,
+			"enter_from": "right",
+			"enter_duration": 0.45,
+			"moves": [
+				{
+					"at": 3.55,
+					"x": 1520,
+					"y": 580,
+					"rotation": 12,
+					"duration": 0.55,
+					"ease": "out"
+				}
+			],
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/drafts-fanned.png",
+			"x": 1000,
+			"y": 840,
+			"scale": 0.45,
+			"rotation": 15,
+			"enter_at": 1.8,
+			"enter_from": "bottom",
+			"enter_duration": 0.45,
+			"moves": [
+				{
+					"at": 3.65,
+					"x": 1540,
+					"y": 900,
+					"rotation": -8,
+					"duration": 0.6,
+					"ease": "out"
+				}
+			],
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/draft-balzac.png",
+			"x": 920,
+			"y": 860,
+			"scale": 0.42,
+			"rotation": -6,
+			"enter_at": 2.15,
+			"enter_from": "bottom",
+			"enter_duration": 0.4,
+			"moves": [
+				{
+					"at": 3.6,
+					"x": 420,
+					"y": 900,
+					"rotation": -16,
+					"duration": 0.6,
+					"ease": "out"
+				}
+			],
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/cork-natural.png",
+			"x": 960,
+			"y": 310,
+			"scale": 0.36,
+			"enter_at": 2.6,
+			"enter_from": "top",
+			"enter_duration": 0.5,
+			"moves": [
+				{
+					"at": 3.35,
+					"x": 1190,
+					"y": 300,
+					"rotation": 36,
+					"duration": 0.3,
+					"ease": "out"
+				}
+			],
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.65
+			}
+		}
+	],
+	"label": {
+		"text": "I WAS THE BOTTLENECK.",
+		"font_family": "Anton",
+		"size": 120,
+		"color": "#ECE6DA",
+		"tracking": 4,
+		"x": 960,
+		"y": 50,
+		"enter_at": 4.45,
+		"align": "center"
+	}
+}

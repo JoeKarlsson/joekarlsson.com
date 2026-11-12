@@ -133,6 +133,8 @@ Picture this: you say "turn off the living room lights." The model starts thinki
 
 I disabled think mode. Still verbose. "Sure! I've turned on the lights for you in the living room! Let me know if there's anything else I can help with today!" when "Lights on" is the correct answer. Two words, Qwen. Two words.
 
+![A paper-collage animation on a cobalt field: a typed paper strip with the model's whole reply, Sure! I've turned on the lights for you in the living room! Let me know if there's anything else I can help with today!, gets snipped by tailor's shears and falls apart into scraps along the bottom, then a pink slip reading Lights on lands in the middle under the words Two words](/images/blog/local-voice-ai-home-assistant-gpu/two-words-qwen.svg)
+
 I rebuilt the system prompt. Dropped context from 8192 tokens to 2048. Cut max history from 20 messages to 5. Rewrote the prompt to enforce "under 10 words." Better. Not fixed.
 
 Eventually I switched to llama3.2:3b. No think mode to accidentally enable. Faster inference. Naturally terse. The full round-trip from wake word to audio response is 2-3 seconds on GPU. That's the threshold where voice control actually feels like voice control.

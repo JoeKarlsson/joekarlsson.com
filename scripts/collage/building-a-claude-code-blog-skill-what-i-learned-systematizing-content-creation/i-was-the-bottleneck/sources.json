@@ -1,0 +1,30 @@
+[
+	{
+		"element": "elements/bottle.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Glass_bottle_MET_DP108875.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/glass-bottle-met-dp108875.jpg)",
+		"license": "CC0 (The Met open access, object 239733)",
+		"shows": "A Roman glass bottle with a round body and a long narrow neck, 2nd-3rd century AD",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white, 6 px keyline (--tone mono --largest --width 700)"
+	},
+	{
+		"element": "elements/draft-balzac.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Balzac_autograph_manuscript_of_the_novel_Eug%C3%A9nie_Grandet_-_1833.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/balzac-eugenie-grandet-manuscript.jpg)",
+		"license": "Public domain (PD-old-70-1923; The Morgan Library)",
+		"shows": "One page of Balzac's Eugenie Grandet manuscript, crossed out and rewritten all over, 1833",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--tone mono --largest --width 520)"
+	},
+	{
+		"element": "elements/drafts-fanned.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Manuscrit_%C2%AB_Des_femmes_%C2%BB_de_Louise_Dupin_et_Jean-Jacques_Rousseau_(10A).jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/dupin-rousseau-manuscript-sheets.jpg)",
+		"license": "Public domain (PD-Art, PD-old-100-expired)",
+		"shows": "A fan of handwritten draft sheets from Louise Dupin and Jean-Jacques Rousseau's Des femmes, 1745-1751",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--tone mono --largest --width 620)"
+	},
+	{
+		"element": "elements/cork-natural.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Champagne_cork.jpg (media-sources/collage/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/champagne-cork.jpg)",
+		"license": "Public domain (PD-user, Commons user Julo)",
+		"shows": "A used champagne cork",
+		"derivative": "lifted with Apple Vision, largest piece kept, left in color: the one punchline piece (--tone none --largest --width 360)"
+	}
+]

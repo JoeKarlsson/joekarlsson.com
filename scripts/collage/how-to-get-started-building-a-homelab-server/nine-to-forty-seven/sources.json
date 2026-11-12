@@ -1,0 +1,65 @@
+[
+	{
+		"element": "elements/thinkserver.png",
+		"source": "media-sources/collage/how-to-get-started-building-a-homelab-server/immich-IMG_5058-thinkserver-ts140.heic (Joe's photo, Immich 3d881fd8-9b44-403c-b992-ed1f6d3b43aa, 2023-09-02)",
+		"license": "Joe's own",
+		"shows": "Joe's used Lenovo ThinkServer TS140, about 80W, about $9 a month",
+		"derivative": "lifted, largest piece kept, toned black and white, 6 px keyline (--largest --width 620)"
+	},
+	{
+		"element": "elements/rack.png",
+		"source": "media-sources/collage/how-to-get-started-building-a-homelab-server/immich-IMG_1492-rack.heic (Joe's photo, Immich c571b29c-3e5b-458a-908e-7243e6173b62, 2026-11-06)",
+		"license": "Joe's own",
+		"shows": "Joe's rack today: two Dell R730s, the switches, the Synology and two UPSes, about 430W, about $47 a month",
+		"derivative": "cropped to the rack (drops a tub of wipes on top and a loose cable), lifted, largest piece kept, toned black and white (--crop 340,425,1660,3400 --largest --width 700)"
+	},
+	{
+		"element": "elements/coins-1.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Stacks_of_Coins.jpg",
+		"license": "CC0 (Kevin Schneider via Pixabay, {{Pixabay|2180330|status=confirmed}})",
+		"shows": "The shortest stack of coins: the ThinkServer's $9",
+		"derivative": "cropped to stack 1 of 5, lifted, largest piece kept, toned black and white (--crop 70,1740,640,700 --largest --width 360)"
+	},
+	{
+		"element": "elements/coins-2.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Stacks_of_Coins.jpg",
+		"license": "CC0 (Kevin Schneider via Pixabay)",
+		"shows": "Stack 2 of 5, a step in the rack's growing stack",
+		"derivative": "cropped to stack 2, lifted, largest piece kept, toned pink (--crop 760,1500,640,940 --tone pink --largest --width 380)"
+	},
+	{
+		"element": "elements/coins-3.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Stacks_of_Coins.jpg",
+		"license": "CC0 (Kevin Schneider via Pixabay)",
+		"shows": "Stack 3 of 5",
+		"derivative": "cropped to stack 3, lifted, largest piece kept, toned pink, pinholes in the matte filled from neighboring pixels (--crop 1510,1150,680,1290 --tone pink --largest --width 400)"
+	},
+	{
+		"element": "elements/coins-4.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Stacks_of_Coins.jpg",
+		"license": "CC0 (Kevin Schneider via Pixabay)",
+		"shows": "Stack 4 of 5",
+		"derivative": "cropped to stack 4, lifted, largest piece kept, toned pink, pinholes filled (--crop 2240,820,660,1620 --tone pink --largest --width 400)"
+	},
+	{
+		"element": "elements/coins-5.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Stacks_of_Coins.jpg",
+		"license": "CC0 (Kevin Schneider via Pixabay)",
+		"shows": "The tallest stack: the rack's $47",
+		"derivative": "cropped to stack 5, lifted, largest piece kept, toned pink, pinholes filled (--crop 3000,420,760,2020 --tone pink --largest --width 420)"
+	},
+	{
+		"element": "elements/tag-9.png",
+		"source": "Typeset in code: Anton (brand/source/Anton-Regular.ttf, the site's font) on a paper tag shape (#f4f1ea), screenshotted in headless Chromium",
+		"license": "Joe's own (font: SIL Open Font License)",
+		"shows": "A paper price tag reading $9",
+		"derivative": "300x170 px, no photo; stands in for the paper tags no public-domain photo covered"
+	},
+	{
+		"element": "elements/tag-47.png",
+		"source": "Typeset in code: Anton (brand/source/Anton-Regular.ttf, the site's font) on a paper tag shape (#f4f1ea), screenshotted in headless Chromium",
+		"license": "Joe's own (font: SIL Open Font License)",
+		"shows": "A paper price tag reading $47",
+		"derivative": "300x170 px, no photo; stands in for the paper tags no public-domain photo covered"
+	}
+]

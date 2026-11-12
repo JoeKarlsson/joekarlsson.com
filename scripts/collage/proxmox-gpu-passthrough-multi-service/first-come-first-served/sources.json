@@ -1,0 +1,58 @@
+[
+	{
+		"element": "elements/pie.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Cherry-Pie-Whole.jpg",
+		"license": "Public domain (PD-self, Evan-Amos)",
+		"shows": "A whole store-bought cherry pie on a white ground",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 900)"
+	},
+	{
+		"element": "elements/slice-frigate.png",
+		"source": "Cut from 3a (pie.png)",
+		"license": "Public domain (as 3a)",
+		"shows": "A wedge of the pie sized to Frigate's 1.8GB",
+		"derivative": "wedge cut from pie.png by angle around the top-surface center (0 to 81 degrees), 6 px keyline added on the cut edges"
+	},
+	{
+		"element": "elements/slice-whisper.png",
+		"source": "Cut from 3a (pie.png)",
+		"license": "Public domain (as 3a)",
+		"shows": "A wedge of the pie sized to Whisper's 2.1GB",
+		"derivative": "wedge cut from pie.png (81 to 175.5 degrees), keyline on the cut edges"
+	},
+	{
+		"element": "elements/slice-reserve.png",
+		"source": "Cut from 3a (pie.png)",
+		"license": "Public domain (as 3a)",
+		"shows": "A thin sliver sized to the 0.4GB reserve",
+		"derivative": "wedge cut from pie.png (175.5 to 193.5 degrees), keyline on the cut edges"
+	},
+	{
+		"element": "elements/slice-left.png",
+		"source": "Cut from 3a (pie.png)",
+		"license": "Public domain (as 3a)",
+		"shows": "The back half of the pie, the 3.8GB the LLM gets",
+		"derivative": "wedge cut from pie.png (193.5 to 360 degrees), keyline on the cut edges"
+	},
+	{
+		"element": "elements/camera.png",
+		"source": "Immich, IMG_7890.HEIC, 2022-06-06 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "The floodlight camera mounted under Joe's garage eave",
+		"derivative": "cropped to the camera under the garage eave, lifted with Apple Vision, largest piece kept, toned black and white (--crop 1180,850,620,520 --largest --width 520)"
+	},
+	{
+		"element": "elements/microphone.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Elegant_steel_microphone_(Unsplash).jpg",
+		"license": "CC0 (Unsplash template, which carries Cc-zero; photo by Claus Grünstäudl, 2016)",
+		"shows": "A chrome Shure 55 style microphone on a dark ground",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white; one enclosed hole Vision left in the grille was refilled from the surrounding print (--largest --width 520)"
+	},
+	{
+		"element": "elements/plate.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Unknown_artist_-_Dinner_Plate_-_1955.121_-_Cleveland_Museum_of_Art.jpg",
+		"license": "CC0 (Cleveland Museum of Art open access)",
+		"shows": "A porcelain dinner plate with a gilt and blue border and a monogram, studio shot on gray",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned pink (--tone pink --largest --width 900)"
+	}
+]

@@ -1,0 +1,165 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#1F2E6E",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 23
+	},
+	"duration": 7.0,
+	"elements": [
+		{
+			"image": "elements/server.png",
+			"x": 960,
+			"y": 858,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			}
+		},
+		{
+			"image": "elements/lamp.png",
+			"x": 960,
+			"y": 462,
+			"scale": 0.4,
+			"enter_at": 0.9,
+			"enter_from": "top",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"moves": [
+				{
+					"at": 2.75,
+					"y": -2400,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/lamp-on.png",
+			"x": 960,
+			"y": 462,
+			"scale": 0.4,
+			"enter_at": 2.75,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			}
+		},
+		{
+			"image": "elements/cord-stub.png",
+			"x": 1113,
+			"y": 725,
+			"enter_at": 2.15,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"moves": [
+				{
+					"at": 3.9,
+					"y": 735,
+					"rotation": -3,
+					"duration": 0.25,
+					"ease": "out"
+				},
+				{
+					"at": 4.15,
+					"y": 731,
+					"rotation": -1.5,
+					"duration": 0.4
+				}
+			]
+		},
+		{
+			"image": "elements/cord-top.png",
+			"x": 1302,
+			"y": 506,
+			"enter_at": 2.15,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"moves": [
+				{
+					"at": 3.9,
+					"x": 1952,
+					"y": 1680,
+					"rotation": 35,
+					"duration": 0.8,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/cloud.png",
+			"x": 1480,
+			"y": 200,
+			"rotation": 2,
+			"enter_at": 1.5,
+			"enter_from": "right",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"moves": [
+				{
+					"at": 3.6,
+					"rotation": 16,
+					"y": 215,
+					"duration": 0.3,
+					"ease": "out"
+				},
+				{
+					"at": 3.9,
+					"x": 2420,
+					"y": 1580,
+					"rotation": 45,
+					"duration": 0.8,
+					"ease": "in"
+				}
+			]
+		}
+	],
+	"label": {
+		"text": "STILL ON.",
+		"font_family": "Anton",
+		"size": 116,
+		"color": "#F2EDE4",
+		"tracking": 4,
+		"x": 960.0,
+		"y": 34,
+		"enter_at": 4.9,
+		"align": "center"
+	}
+}

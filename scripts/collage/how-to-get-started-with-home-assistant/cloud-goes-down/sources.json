@@ -1,0 +1,23 @@
+[
+	{
+		"element": "elements/server.png",
+		"source": "Immich, IMG_5221.HEIC, 2025-11-16 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "One of Joe's Dell PowerEdge R730s, three-quarter view; his Home Assistant VM runs on this Proxmox cluster",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--tone mono --largest --width 760)"
+	},
+	{
+		"element": "elements/lamp.png, lamp-on.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Wooden_Antique_Table_Lamp.jpg",
+		"license": "CC0 (Amitbalani), checked on the file page 2026-11-12",
+		"shows": "Turned wooden table lamp with a fringed fabric shade",
+		"derivative": "lifted with Apple Vision from the 1280 px render, largest piece kept, toned (--tone mono --largest --width 520); lamp-on.png is the same cut with the shade (rows above the stem) toned yellow by make-scene.py"
+	},
+	{
+		"element": "elements/cloud.png, cord-top.png, cord-stub.png",
+		"source": "drawn in code",
+		"license": "Joe's own",
+		"shows": "A torn-paper cloud and a black cord that snaps in two",
+		"derivative": "drawn by make-scene.py; no cloud photo cut cleanly (Apple Vision finds no subject in a cloud)"
+	}
+]

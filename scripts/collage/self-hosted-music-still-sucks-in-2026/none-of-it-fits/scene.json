@@ -1,0 +1,105 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#5B3FB8",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 29
+	},
+	"duration": 5.2,
+	"elements": [
+		{
+			"image": "elements/piece-1.png",
+			"x": 660,
+			"y": 570,
+			"scale": 0.9,
+			"rotation": -3,
+			"enter_at": 0.3,
+			"enter_from": "left",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/piece-3.png",
+			"x": 965,
+			"y": 430,
+			"scale": 0.9,
+			"rotation": 2,
+			"enter_at": 0.85,
+			"enter_from": "top",
+			"enter_duration": 0.5,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/piece-2.png",
+			"x": 1265,
+			"y": 575,
+			"scale": 0.9,
+			"rotation": 3,
+			"enter_at": 1.3,
+			"enter_from": "right",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/odd-piece.png",
+			"x": 985,
+			"y": 800,
+			"scale": 0.95,
+			"rotation": -8,
+			"enter_at": 2.2,
+			"enter_duration": 0.6,
+			"enter_path": [
+				[1500, 1500],
+				[1200, 1000]
+			],
+			"moves": [
+				{
+					"at": 2.85,
+					"x": 965,
+					"y": 775,
+					"rotation": -16,
+					"duration": 0.25
+				}
+			],
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		}
+	],
+	"label": {
+		"text": "NONE OF IT FITS",
+		"font_family": "Anton",
+		"size": 120,
+		"color": "#ECE6DA",
+		"tracking": 4,
+		"x": 960,
+		"y": 50,
+		"enter_at": 3.5,
+		"align": "center"
+	}
+}

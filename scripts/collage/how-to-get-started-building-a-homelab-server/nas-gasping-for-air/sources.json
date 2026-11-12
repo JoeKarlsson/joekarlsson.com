@@ -1,0 +1,30 @@
+[
+	{
+		"element": "elements/synology.png",
+		"source": "media-sources/collage/how-to-get-started-building-a-homelab-server/immich-2021-05-24-synology-ds418play.heic (Joe's photo, Immich c63a4686-89a7-4d86-8dd8-e8776cf7109a, 2021-05-24)",
+		"license": "Joe's own",
+		"shows": "Joe's Synology DS418play, the 2GB NAS the post says was gasping for air",
+		"derivative": "Hue bridge on its lid painted out with a stretched patch of the lid (synology-ds418play-retouched.jpg), then cropped, lifted with Apple Vision, largest piece kept, toned black and white, 6 px keyline (--crop 0,1140,1010,930 --largest --width 620). A shelf leg crosses the left drive bay."
+	},
+	{
+		"element": "elements/container.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Blue_and_grey_shipping_containers.jpg",
+		"license": "CC0 (1250metersdeep, {{self|cc-zero}})",
+		"shows": "A grey 20 ft shipping container, doors facing the camera",
+		"derivative": "cropped to the grey container, lifted, largest piece kept, toned black and white (--crop 510,390,560,640 --largest --width 520). One piece, repeated for the stack."
+	},
+	{
+		"element": "elements/gauge.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure_-_DPLA_-_8e169e8024747381eac409ac7397b995_(page_1).jpg",
+		"license": "CC0 (Smithsonian Institution via DPLA)",
+		"shows": "A US Gauge Co. oil pressure gauge, circa 1920, needle near 80 of 120",
+		"derivative": "cropped above its foam stand, lifted, largest piece kept, toned black and white (--crop 640,820,700,560 --largest --width 460)"
+	},
+	{
+		"element": "elements/thinkserver.png",
+		"source": "media-sources/collage/how-to-get-started-building-a-homelab-server/immich-IMG_5058-thinkserver-ts140.heic (Joe's photo, Immich 3d881fd8-9b44-403c-b992-ed1f6d3b43aa, 2023-09-02)",
+		"license": "Joe's own",
+		"shows": "Joe's used Lenovo ThinkServer TS140, the $150 server",
+		"derivative": "lifted, largest piece kept, toned pink (the accent), 6 px keyline (--tone pink --largest --width 620)"
+	}
+]

@@ -1,0 +1,163 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#14213D",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 11
+	},
+	"duration": 7.3,
+	"elements": [
+		{
+			"image": "elements/quadro.png",
+			"x": 960,
+			"y": 893,
+			"scale": 0.85,
+			"rotation": -1,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.7,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/camera.png",
+			"x": 560,
+			"y": 628,
+			"scale": 0.78,
+			"rotation": -2,
+			"enter_at": 1.0,
+			"enter_from": "left",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/projector.png",
+			"x": 1370,
+			"y": 606,
+			"scale": 0.78,
+			"rotation": 1.5,
+			"enter_at": 3.2,
+			"enter_from": "right",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/man.png",
+			"x": 960,
+			"y": 425,
+			"scale": 0.42,
+			"enter_at": 1.6,
+			"enter_from": "left",
+			"enter_duration": 0.9,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"moves": [
+				{
+					"at": 4.1,
+					"x": 1720,
+					"duration": 0.9,
+					"ease": "out"
+				}
+			]
+		},
+		{
+			"image": "elements/box-corner.png",
+			"x": 900,
+			"y": 203,
+			"scale": 0.46,
+			"enter_at": 2.6,
+			"enter_duration": 0.08,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"enter_from": "none"
+		},
+		{
+			"image": "elements/box-corner.png",
+			"x": 1020,
+			"y": 203,
+			"scale": 0.46,
+			"rotation": 90,
+			"enter_at": 2.6,
+			"enter_duration": 0.08,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"enter_from": "none"
+		},
+		{
+			"image": "elements/box-corner.png",
+			"x": 1020,
+			"y": 647,
+			"scale": 0.46,
+			"rotation": 180,
+			"enter_at": 2.6,
+			"enter_duration": 0.08,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"enter_from": "none"
+		},
+		{
+			"image": "elements/box-corner.png",
+			"x": 900,
+			"y": 647,
+			"scale": 0.46,
+			"rotation": 270,
+			"enter_at": 2.6,
+			"enter_duration": 0.08,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"enter_from": "none"
+		}
+	],
+	"label": {
+		"text": "30 MS TO 2 SECONDS",
+		"font_family": "Anton",
+		"size": 120,
+		"color": "#ECE6DA",
+		"tracking": 4,
+		"x": 960,
+		"y": 40,
+		"enter_at": 5.4,
+		"align": "center"
+	}
+}

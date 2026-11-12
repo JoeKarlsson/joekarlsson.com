@@ -1,0 +1,256 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#0A0A0A",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 17
+	},
+	"duration": 7.1,
+	"elements": [
+		{
+			"image": "elements/film-cans-stack.png",
+			"x": 960,
+			"y": 650,
+			"scale": 0.8,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.65,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/quadro.png",
+			"x": 440,
+			"y": 790,
+			"scale": 0.68,
+			"rotation": -1,
+			"enter_at": 2.05,
+			"enter_from": "left",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/card-a4000-standin.png",
+			"x": 1480,
+			"y": 790,
+			"scale": 0.68,
+			"rotation": 1,
+			"enter_at": 2.45,
+			"enter_from": "right",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/film-can.png",
+			"x": 957,
+			"y": 366,
+			"scale": 0.8,
+			"enter_at": 0.95,
+			"enter_from": "top",
+			"enter_duration": 0.45,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"moves": [
+				{
+					"at": 4.5,
+					"y": 2600,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/film-can.png",
+			"x": 964,
+			"y": 273,
+			"scale": 0.8,
+			"enter_at": 1.2999999999999998,
+			"enter_from": "top",
+			"enter_duration": 0.45,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"moves": [
+				{
+					"at": 3.75,
+					"y": 2600,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/film-can.png",
+			"x": 958,
+			"y": 180,
+			"scale": 0.8,
+			"enter_at": 1.65,
+			"enter_from": "top",
+			"enter_duration": 0.45,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"moves": [
+				{
+					"at": 3.0,
+					"y": 2600,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/film-can-pink.png",
+			"x": 958,
+			"y": 180,
+			"scale": 0.8,
+			"enter_at": 3.0,
+			"enter_from": "none",
+			"enter_duration": 0.1,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"moves": [
+				{
+					"at": 3.0,
+					"x": 440,
+					"y": 588,
+					"rotation": -3,
+					"duration": 0.6
+				},
+				{
+					"at": 3.75,
+					"y": 2600,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/film-can.png",
+			"x": 440,
+			"y": 588,
+			"scale": 0.8,
+			"rotation": -3,
+			"enter_at": 3.75,
+			"enter_from": "none",
+			"enter_duration": 0.1,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			}
+		},
+		{
+			"image": "elements/film-can-pink.png",
+			"x": 964,
+			"y": 273,
+			"scale": 0.8,
+			"enter_at": 3.75,
+			"enter_from": "none",
+			"enter_duration": 0.1,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"moves": [
+				{
+					"at": 3.75,
+					"x": 1480,
+					"y": 600,
+					"rotation": 3,
+					"duration": 0.6
+				},
+				{
+					"at": 4.5,
+					"y": 2600,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/film-can.png",
+			"x": 1480,
+			"y": 600,
+			"scale": 0.8,
+			"rotation": 3,
+			"enter_at": 4.5,
+			"enter_from": "none",
+			"enter_duration": 0.1,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			}
+		},
+		{
+			"image": "elements/film-can-pink.png",
+			"x": 957,
+			"y": 366,
+			"scale": 0.8,
+			"enter_at": 4.5,
+			"enter_from": "none",
+			"enter_duration": 0.1,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.55
+			},
+			"moves": [
+				{
+					"at": 4.5,
+					"x": 446,
+					"y": 494,
+					"rotation": -3,
+					"duration": 0.6
+				}
+			]
+		}
+	],
+	"label": {
+		"text": "WHO GRABS THE NEXT FILE",
+		"font_family": "Anton",
+		"size": 120,
+		"color": "#ECE6DA",
+		"tracking": 4,
+		"x": 960,
+		"y": 40,
+		"enter_at": 5.4,
+		"align": "center"
+	}
+}

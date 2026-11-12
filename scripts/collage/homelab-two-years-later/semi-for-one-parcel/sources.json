@@ -1,0 +1,30 @@
+[
+	{
+		"element": "elements/cab.png",
+		"source": "https://www.loc.gov/item/2017779837/ (same photo)",
+		"license": "Public domain (US government work, no known restrictions)",
+		"shows": "The tractor cab with its front wheel; the driver is climbing in",
+		"derivative": "cropped to the cab, lifted, largest piece kept, toned black and white (--crop 120,1400,920,720 --largest --width 600)"
+	},
+	{
+		"element": "elements/trailer-shell.png",
+		"source": "https://www.loc.gov/item/2017779837/ (Arthur Rothstein, FSA, 1940, LC-USF346-029645-D)",
+		"license": "Public domain (US government work, no known restrictions)",
+		"shows": "The trailer with its box side cut away: roof rail, end posts, floor and wheels, the tractor's rear axles under its nose",
+		"derivative": "trailer cut from the photo (--crop 980,960,2760,1260 --largest --width 1000, mono), then split along the box side: polygon (58,55) (962,35) (964,282) (58,270) made transparent"
+	},
+	{
+		"element": "elements/trailer-panel.png",
+		"source": "https://www.loc.gov/item/2017779837/ (Arthur Rothstein, FSA, 1940, LC-USF346-029645-D)",
+		"license": "Public domain (US government work, no known restrictions)",
+		"shows": "The trailer's lettered box side as one panel, the piece that drops away",
+		"derivative": "trailer cut from the photo (--crop 980,960,2760,1260 --largest --width 1000, mono), then split along the box side: polygon (58,55) (962,35) (964,282) (58,270) kept, with a 6 px white keyline added"
+	},
+	{
+		"element": "elements/parcel.png",
+		"source": "https://www.loc.gov/item/2016865321/ (Harris & Ewing, 1914, LC-DIG-hec-03913)",
+		"license": "Public domain (no known restrictions on publication)",
+		"shows": "One brown-paper parcel tied with string, from a parcel post basket",
+		"derivative": "cropped to the front parcel above the basket rim, lifted, largest piece kept, toned pink (--crop 1660,2150,940,1170 --largest --width 500 --tone pink)"
+	}
+]

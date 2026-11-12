@@ -1,0 +1,95 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#F2C230",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 17
+	},
+	"duration": 5.0,
+	"elements": [
+		{
+			"image": "elements/record.png",
+			"x": 960,
+			"y": 620,
+			"scale": 0.9,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/tag-metallica.png",
+			"x": 690,
+			"y": 470,
+			"scale": 0.94,
+			"rotation": -8,
+			"enter_at": 1.0,
+			"enter_from": "left",
+			"enter_duration": 0.45,
+			"enter_spin": -25,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/tag-metallica-caps.png",
+			"x": 1300,
+			"y": 530,
+			"scale": 0.94,
+			"rotation": 7,
+			"enter_at": 1.5,
+			"enter_from": "right",
+			"enter_duration": 0.45,
+			"enter_spin": 25,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/tag-metallica-cyrillic.png",
+			"x": 880,
+			"y": 830,
+			"scale": 0.97,
+			"rotation": -3,
+			"enter_at": 2.15,
+			"enter_from": "top",
+			"enter_duration": 0.5,
+			"enter_spin": -15,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		}
+	],
+	"label": {
+		"text": "SAME BAND",
+		"font_family": "Anton",
+		"size": 130,
+		"color": "#0A0A0A",
+		"tracking": 4,
+		"x": 960,
+		"y": 50,
+		"enter_at": 2.9,
+		"align": "center"
+	}
+}

@@ -45,6 +45,8 @@ This is where my expectations collided with reality. I naively assumed that migr
 
 “Can’t you just copy the settings from Alexa?” my partner asked during week two of my automation development marathon. The answer, unfortunately, was no. Alexa’s natural language processing had spoiled us both. Commands like “turn on the living room lights” or “play some jazz music” worked reliably with minimal setup. Home Assistant’s voice system, by contrast, requires explicit automation creation for every interaction pattern you want to support.
 
+![A paper-collage animation on a cream field: my wall switch lands in pink next to an old label maker, then label strips shoot out one after another, kill the lights, shut off the lights, power down the lights, cut the lights, lights out, switch off the lights, darken the room, go dark, faster and faster until only a corner of the switch shows, and the words 40 ways to say off land on top](/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/forty-ways-to-say-off.svg)
+
 Here’s an example of what I had to build for basic light control. This automation handles dozens of different voice commands for a single room:
 
 ```yaml

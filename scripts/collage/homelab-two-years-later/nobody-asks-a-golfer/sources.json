@@ -1,0 +1,37 @@
+[
+	{
+		"element": "elements/rack.png",
+		"source": "Immich, IMG_1492.heic, 2026-11-06 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "Joe's full StarTech rack, front",
+		"derivative": "same cut as receipt-keeps-printing/elements/rack.png (--largest --width 700, mono)"
+	},
+	{
+		"element": "elements/adding-machine.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Sundstrand_Adding_Machine_-_Northeast_States_Civilian_Conservation_Corps_Museum_-_Shenipsit_State_Forest_-_Stafford_Springs,_Connecticut_-_DSC04298.jpg",
+		"license": "CC0",
+		"shows": "A Sundstrand adding machine with its paper roll on top",
+		"derivative": "cropped to drop a stapler at the left, lifted, largest piece kept, toned black and white (--crop 262,0,1658,2238 --largest --width 800)"
+	},
+	{
+		"element": "elements/tape.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Tesco_grocery_receipt_Finchley_1994.jpg",
+		"license": "Public domain (PD-ineligible)",
+		"shows": "The printed tape: item lines and totals from a 1994 till receipt",
+		"derivative": "same crop and padding as the pink receipt in receipt-keeps-printing, toned black and white (--largest --width 300)"
+	},
+	{
+		"element": "elements/golf-bag.png",
+		"source": "https://www.loc.gov/item/2014680456/ (Caddies for golf, Baltusrol, Bain News Service, early 1900s, LC-DIG-ggbain-00458)",
+		"license": "Public domain (Library of Congress: no known restrictions on publication)",
+		"shows": "One caddie's white canvas golf bag with its wooden club heads showing above the collar, no maker name",
+		"derivative": "bag and club heads traced by hand with a polygon (the caddie's hands left out) onto a flat ground, then lifted with Apple Vision and toned pink (--largest --width 500 --tone pink)"
+	},
+	{
+		"element": "elements/flag.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Golf_Flagstick_St._Andrews.jpg",
+		"license": "CC0",
+		"shows": "A flagstick in the hole, white flag, Old Course St Andrews; the Old Course crest on the flag stays, drawn small (scale 0.42)",
+		"derivative": "1280px Commons thumbnail, lifted, largest piece kept, toned black and white (--largest --width 500)"
+	}
+]

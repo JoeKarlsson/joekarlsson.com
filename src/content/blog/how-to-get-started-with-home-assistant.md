@@ -28,6 +28,8 @@ Home Assistant is a popular choice for home automation because of its versatilit
 
 - **Local control:** Unlike many other home automation platforms, Home Assistant allows for local control of your devices. This means that you can control your devices even if you don’t have an internet connection or if the cloud-based servers are down. If privacy is a big deal to you (it is for me), I eventually [replaced my Alexa setup entirely with Home Assistant voice control](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
 
+![A paper-collage animation on a navy field: my Dell server lands, a table lamp stands on top of it, and a paper cloud lands with a cord down to the lamp. The lamp's shade turns yellow, then the cloud tips over and falls out of the frame, snapping the cord, and the lamp stays lit under the words Still on](/images/blog/how-to-get-started-with-home-assistant/cloud-goes-down.svg)
+
 I’ve learned a lot from the community and given a few ideas back.
 
 ## What's new in Home Assistant for 2027

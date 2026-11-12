@@ -67,6 +67,8 @@ Google's AI-generated answer boxes now show up at the top of search results and 
 
 It's not just a publisher and e-commerce problem. [Semrush's AI Overviews study](https://www.semrush.com/blog/semrush-ai-overviews-study/) found them on nearly 18% of keywords in Computers & Electronics, the second-highest category it tracked, and that's our space. And clicks were already scarce before AI Overviews: [SparkToro's zero-click research](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/) found that for every 1,000 Google searches in the US, only **360 clicks** reach the open web at all.
 
+![A paper-collage animation on a yellow field: a black-and-white newspaper box lands with a pink front page in its window, a man in a fedora leans in to read it through the glass, and a tall stack of coins stands beside the box. He steps back without paying, the stack drops to a third of its height, and the words 61% fewer clicks set in above](/images/blog/reversing-seo-traffic-decline-ai-overviews/read-through-the-glass.svg)
+
 If AI Overviews are showing up on your queries, Google thinks your content is worth citing, and the Overview built from it is what keeps people from clicking through to you.
 
 That was part of what was happening to us. Some of our pages were ranking and getting summarized, and the clicks went nowhere. But we also had pages declining across the board, which is a different problem.
@@ -220,6 +222,8 @@ The Seer Interactive study found something that changed how I think about this: 
 
 What I didn't expect was our conversion rate going _up_. People arrive with a better understanding of what we do. The AI already did the research for them, they've seen our product mentioned in the answer, and they're coming to convert rather than browse. We're getting trial signups and sales inquiries from people who need less convincing, so the funnel is shorter and the win rate is higher.
 
+![A paper-collage animation on a purple field: a shop counter and an old cash register land, four window shoppers gather with their backs to us, two walk off the edges of the frame, the other two step up to the counter, and a pink cash drawer springs open as the words Fewer, but they buy set in above](/images/blog/reversing-seo-traffic-decline-ai-overviews/fewer-came-more-bought.svg)
+
 I don't know if that's permanent. Marketing happens in more places now: on Google, in AI Overviews, and in conversations people have with Claude and ChatGPT before they search for anything. Nobody knows where that lands. For now, the visitors who do click through are more likely to buy than they used to be.
 
 A [2023 academic paper from Princeton, Georgia Tech, and Allen AI](https://arxiv.org/abs/2311.09735) coined the term GEO (Generative Engine Optimization) and found that specific content optimizations could boost visibility in AI-generated responses by up to 40%. Its best performers were adding citations, quotations, and statistics. Here's what we put in place on our own pages:
@@ -355,6 +359,8 @@ Set up the PR tracker early too. The feedback loop only closes if you can look b
 **On prerequisites:** this workflow assumes you have some existing search presence - GSC data, some rankings, a site Google has been crawling for a while. If you're starting from zero, everything still applies, but give yourself 6-8 weeks of consistent snapshots before you expect the measurement layer to tell you anything useful.
 
 Be patient. A change merged today might not show up in ranking data for 2-4 weeks, and week three is when it's most tempting to give up, often right before results land. If you can hold the timeline, the fixes keep adding up.
+
+![A paper-collage animation on a green field: a cutaway of soil with grass on top lands beside a wooden stake, a bean seed drops in, and a pink seedling grows until its leaves sit just under the grass. Then a trowel swings in above it as the words Don't dig it up set in](/images/blog/reversing-seo-traffic-decline-ai-overviews/dont-dig-it-up.svg)
 
 Tie the work to revenue as closely as you can, because that's what gets you room to keep doing it. For us that meant connecting organic search to MQL creation in HubSpot. Being able to say "this blog post was the first touch for X leads this month" is a different conversation from "our impressions went up," and a deal in the pipeline with first-touch attribution to an organic Google click is what gets you more runway. Track it from day one.
 

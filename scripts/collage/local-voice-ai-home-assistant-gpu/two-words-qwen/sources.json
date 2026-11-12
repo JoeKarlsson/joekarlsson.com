@@ -1,0 +1,23 @@
+[
+	{
+		"element": "elements/shears-open.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Scissors_-_public_domain_01.jpg",
+		"license": "CC0 (Oto Zapletal), checked on the file page 2026-11-12",
+		"shows": "Shoemaker's shears, blades open (the same file as the sentence-length scissors scene)",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white, 6 px keyline (--tone mono --largest --width 620)"
+	},
+	{
+		"element": "elements/shears-closed.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Scissors_-_public_domain_03.jpg",
+		"license": "CC0 (Oto Zapletal), checked on the file page 2026-11-12",
+		"shows": "The same shears, blades nearly closed: the second pose of the snip",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white, 6 px keyline (--tone mono --largest --width 620)"
+	},
+	{
+		"element": "elements/strip.png, scrap-1..5.png, slip.png",
+		"source": "src/content/blog/local-voice-ai-home-assistant-gpu.md (the model's real reply, quoted in the post)",
+		"license": "Joe's own text; JetBrains Mono and Anton (SIL OFL)",
+		"shows": "\"Sure! I've turned on the lights for you in the living room! Let me know if there's anything else I can help with today!\" on paper, the same strip cut in five, and \"LIGHTS ON.\" on pink paper",
+		"derivative": "set and torn in code by make-scene.py"
+	}
+]

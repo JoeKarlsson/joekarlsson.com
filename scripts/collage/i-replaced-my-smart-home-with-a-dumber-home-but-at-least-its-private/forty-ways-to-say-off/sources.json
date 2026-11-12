@@ -1,0 +1,23 @@
+[
+	{
+		"element": "elements/switch.png",
+		"source": "Immich, IMG_5632.HEIC, 2022-02-11 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "A cream two-gang wall plate with three toggle switches at Joe's house",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned to the site pink as the accent (--tone pink --largest --width 600)"
+	},
+	{
+		"element": "elements/label-maker.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Dymo_embossing_label_maker_circa_1967.jpg",
+		"license": "CC0 (Junkyardsparkle), checked on the file page 2026-11-12",
+		"shows": "A Dymo Label-it embossing gun, about 1967",
+		"derivative": "lifted with Apple Vision from the 1280 px render, largest piece kept, toned (--tone mono --largest --width 620)"
+	},
+	{
+		"element": "elements/tape-1..8.png",
+		"source": "src/content/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private.md (the phrases in the post's YAML)",
+		"license": "Joe's own text; Hanken Grotesk (SIL OFL)",
+		"shows": "kill the lights, shut off the lights, power down the lights, cut the lights, lights out, switch off the lights, darken the room, go dark",
+		"derivative": "set in code by make-scene.py to match Joe's own label-printer tape (media-sources/collage/<slug>/IMG_8084.jpg): pale grey tape, black sans caps"
+	}
+]

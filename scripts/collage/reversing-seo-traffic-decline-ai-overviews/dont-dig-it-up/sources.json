@@ -1,0 +1,37 @@
+[
+	{
+		"element": "elements/soil.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Soil_profile._Missouri_-_NARA_-_286175.jpg (original in media-sources/collage/reversing-seo-traffic-decline-ai-overviews/commons-nara-286175-soil-profile-missouri.jpg)",
+		"license": "Public domain (PD-USGov, US National Archives 286175), Wikimedia Commons",
+		"shows": "A dug soil profile in Missouri: grass sod on top, black topsoil, then lighter subsoil",
+		"derivative": "cropped right of the horizon sign board and to the part that shows in frame (source rows 20-1780), softened with a 2 px Gaussian blur so the post's WebP stays small, set on a flat blue margin so Vision lifts the whole slab, lifted, toned black and white (--largest --width 700)"
+	},
+	{
+		"element": "elements/seed.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Cute_bean_seedling.jpg (original in media-sources/.../commons-cute-bean-seedling.jpg)",
+		"license": "CC0 (self, by Jidanni), Wikimedia Commons",
+		"shows": "The split bean seed and the stem below it, from the seedling photo",
+		"derivative": "cropped to the seed and lower stem, lifted, toned black and white (--crop 700,1290,520,640 --largest --width 300)"
+	},
+	{
+		"element": "elements/stake.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Model_stake,_wood_-_Museo_Egizio,_Turin_S_12464_p01.jpg (original in media-sources/.../commons-museo-egizio-model-stake-s12464.jpg)",
+		"license": "CC0 (Museo Egizio, Turin), Wikimedia Commons",
+		"shows": "A plain pointed wooden stake, museum studio shot on grey",
+		"derivative": "lifted, toned black and white (--largest --width 160); tally marks to be added at the scene stage"
+	},
+	{
+		"element": "elements/sprout.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Cute_bean_seedling.jpg (same photo as seed)",
+		"license": "CC0 (self, by Jidanni), Wikimedia Commons",
+		"shows": "A young bean seedling: seed still on the stem, first leaves open",
+		"derivative": "cropped to the seedling, lifted, toned pink (the accent) (--crop 150,200,1550,1750 --tone pink --largest --width 520)"
+	},
+	{
+		"element": "elements/trowel.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Trowel.jpg (original in media-sources/.../commons-trowel.jpg)",
+		"license": "CC0 (Unsplash upload, by Neslihan Gunaydin), Wikimedia Commons",
+		"shows": "A scoop trowel full of potting soil, seen from above",
+		"derivative": "lifted, toned black and white (--largest --width 620)"
+	}
+]

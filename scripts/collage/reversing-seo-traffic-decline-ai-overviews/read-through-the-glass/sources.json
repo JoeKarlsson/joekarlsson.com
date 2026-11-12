@@ -1,0 +1,37 @@
+[
+	{
+		"element": "elements/newspaper-box.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Grand_Island_Independent_vending_machine.JPG (original in media-sources/collage/reversing-seo-traffic-decline-ai-overviews/commons-grand-island-independent-vending-machine.jpg)",
+		"license": "Public domain (PD-self, by Ammodramus), Wikimedia Commons",
+		"shows": "A coin-operated newspaper honor box seen from the front: coin mechanism on top, the day's front page behind the glass, a magazine ad in the lower window",
+		"derivative": "cropped to the coin unit and upper window (drops the lower window's magazine ad), lifted with Apple Vision, largest piece kept, toned black and white, 6 px keyline (--crop 0,0,957,1440 --largest --width 632); its ragged bottom sits below the frame"
+	},
+	{
+		"element": "elements/front-page.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Above-Fold_Crop_of_%27The_Worcester_Spy%27_Front_Page_for_October_20th_1898.jpg (original in media-sources/.../commons-worcester-spy-front-page-1898-10-20.jpg)",
+		"license": "Public domain (PD-US-expired, 1898), Wikimedia Commons",
+		"shows": "The top half of The Worcester Spy's front page, 20 October 1898: masthead, headlines and a cartoon",
+		"derivative": "set on a flat blue margin so Vision lifts the whole sheet, lifted, toned pink (the accent), 6 px keyline (--tone pink --largest --width 620)"
+	},
+	{
+		"element": "elements/reader.png",
+		"source": "https://www.loc.gov/item/2017746690/ (TIFF 3c31233u.tif; JPEG copy in media-sources/.../loc-3c31233-window-shopping-chicago.jpg)",
+		"license": "No known restrictions (US Farm Security Administration/Office of War Information, public domain), Library of Congress",
+		"shows": "A man in a fedora and vest standing in profile, bent toward a shop window, Chicago, about 1941",
+		"derivative": "cropped to the man, lifted with Apple Vision (subject mode cut the hat cleaner than person mode), largest piece kept, toned black and white (--crop 2150,900,520,1680 --largest --width 520)"
+	},
+	{
+		"element": "elements/coins-full.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Stacks_of_Coins.jpg (original in media-sources/.../commons-stacks-of-coins.jpg)",
+		"license": "CC0 (Pixabay upload, by Kevin Schneider), Wikimedia Commons",
+		"shows": "The tallest of five coin stacks on a white table",
+		"derivative": "cropped to the tallest stack, lifted, toned black and white (--crop 1490,170,400,1060 --largest --width 300)"
+	},
+	{
+		"element": "elements/coins-third.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Stacks_of_Coins.jpg (same photo as coins-full)",
+		"license": "CC0 (Pixabay upload, by Kevin Schneider), Wikimedia Commons",
+		"shows": "The shortest stack from the same photo, about a third the height of the tall one",
+		"derivative": "cropped to the shortest stack, lifted, toned black and white (--crop 20,820,350,400 --largest --width 300); same coin scale as coins-full"
+	}
+]

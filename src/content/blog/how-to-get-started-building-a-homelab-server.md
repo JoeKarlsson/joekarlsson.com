@@ -33,6 +33,8 @@ It started with my Synology NAS choking. I kept adding Docker containers to it -
 
 I realized I had two options: buy an expensive new NAS with better specs, or get a proper server and let the NAS do what it's good at - storing files. The server won.
 
+![A paper-collage animation on a chalk field: my Synology NAS lands and shipping containers stack up on its roof until it tilts, an old pressure gauge beside it shakes, then my ThinkServer drops in, toned pink, the containers hop over onto it one by one, the NAS straightens, the gauge goes still, and the words The server won set in above it](/images/blog/how-to-get-started-building-a-homelab-server/nas-gasping-for-air.svg)
+
 ## What I actually wanted out of this thing
 
 Before I started browsing hardware, I wrote down what mattered to me:
@@ -104,6 +106,8 @@ Power is the other thing. Here's what different setups actually cost to run 24/7
 | My current rack (two R730s and network) | ~430W        | ~$47         | ~$565       |
 
 My ThinkServer probably idled around 80W, about $9 a month. That's not bad. My current rack with two Dell R730s averages about 430W on the smart plug, or about $47 a month. Rule of thumb: multiply your idle wattage by 0.11 to get your rough monthly cost at $0.15/kWh.
+
+![A paper-collage animation on a yellow field: my old ThinkServer lands on the left with a short stack of coins and a $9 tag, then my server rack lands on the right and a pink stack of coins beside it grows taller and taller until a $47 tag swings on, and the words $9 to $47 a month set in above it](/images/blog/how-to-get-started-building-a-homelab-server/nine-to-forty-seven.svg)
 
 ### Where to buy used hardware
 
@@ -215,6 +219,8 @@ For a much bigger list of self-hosted apps, check out [Awesome Self-Hosted](http
 ## How I architect containers
 
 My approach is simple: **one service per container.** Every app gets its own isolated LXC container in Proxmox. This sounds like overkill until the first time you update one service and it breaks another one's dependencies. Isolated containers keep one app's update from breaking another's packages.
+
+![A paper-collage animation on a pink field: a black-and-white egg carton holding six eggs lands, one egg in the front row wobbles and tips in its cup, then a cracked egg with its yolk in full color drops into that cup while the other five sit still, and the words Only one breaks set in above it](/images/blog/how-to-get-started-building-a-homelab-server/only-one-breaks.svg)
 
 The benefits are practical:
 

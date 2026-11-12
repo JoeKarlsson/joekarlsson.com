@@ -1,0 +1,44 @@
+[
+	{
+		"element": "elements/thinkserver.png",
+		"source": "Immich, IMG_5058.HEIC, 2023-09-02 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "Joe's Lenovo ThinkServer TS140, the first homelab box",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 620)"
+	},
+	{
+		"element": "elements/receipt.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Tesco_grocery_receipt_Finchley_1994.jpg",
+		"license": "Public domain (PD-ineligible)",
+		"shows": "A 1994 till receipt, item lines through CHANGE DUE",
+		"derivative": "cropped to y 560-1560 to drop the store logo and footer, padded with 200 px of black so Vision finds the paper, lifted, toned pink (--largest --width 360 --tone pink)"
+	},
+	{
+		"element": "elements/r730.png",
+		"source": "Immich, IMG_5221.HEIC, 2025-11-16 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "One of Joe's Dell PowerEdge R730s, three-quarter view; use it twice for the pair",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 900)"
+	},
+	{
+		"element": "elements/gpu.png",
+		"source": "https://commons.wikimedia.org/wiki/File:NVIDIA_GeForce_9800_GT.jpg",
+		"license": "Public domain (PD-self)",
+		"shows": "An ASUS NVIDIA GeForce 9800 GT card. Not Joe's Quadro RTX 4000 or RTX A4000: Immich has no photo of either",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 800)"
+	},
+	{
+		"element": "elements/switches.png",
+		"source": "public/images/blog/homelab-two-years-later/rack-top-networking.webp (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "The MikroTik CRS317 over the UniFi US-24, cables hanging in front",
+		"derivative": "cropped to the two switches, lifted, largest piece kept, toned black and white (--crop 60,200,1110,210 --largest --width 900)"
+	},
+	{
+		"element": "elements/rack.png",
+		"source": "Immich, IMG_1492.heic, 2026-11-06 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "Joe's full StarTech rack, front, servers and UPSes in",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 700)"
+	}
+]

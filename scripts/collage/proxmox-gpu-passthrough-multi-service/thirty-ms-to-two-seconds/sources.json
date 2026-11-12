@@ -1,0 +1,37 @@
+[
+	{
+		"element": "elements/quadro.png",
+		"source": "Immich, IMG_5237.HEIC, 2025-11-21 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "Joe's Quadro RTX 4000 in the R730's riser, from above. It's the Quadro, not the A4000: the board has no backplate",
+		"derivative": "hand-masked: the card traced as a polygon onto white (Vision lifted the whole open server), then lifted, largest piece kept, toned black and white, 6 px keyline, rotated 71 degrees to lie flat (source immich-IMG_5237-quadro-handcut.jpg, --largest --width 700)"
+	},
+	{
+		"element": "elements/camera.png",
+		"source": "Immich, IMG_7890.HEIC, 2022-06-06 (Joe's photo)",
+		"license": "Joe's own",
+		"shows": "The floodlight camera mounted under Joe's garage eave",
+		"derivative": "cropped to the camera under the garage eave, lifted with Apple Vision, largest piece kept, toned black and white (--crop 1180,850,620,520 --largest --width 520)"
+	},
+	{
+		"element": "elements/man.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Men_walking_near_U.S._Capitol,_Washington,_D.C._LCCN2016891112.jpg",
+		"license": "Public domain (PD-Harris-Ewing, PD-old-70-1923; Library of Congress)",
+		"shows": "The right-hand man of two walking past parked cars near the U.S. Capitol",
+		"derivative": "cropped to the right-hand man, lifted with Vision person mode, largest piece kept, toned black and white (--person --crop 880,1020,330,1150 --largest --width 420)"
+	},
+	{
+		"element": "elements/projector.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Bell_%26_Howell_film_projector_Recreation_Hall_The_Retreat_Hospital_Aug25_01.jpg",
+		"license": "CC0 (self, cc-zero)",
+		"shows": "A Bell & Howell 16mm projector with two reels in the Recreation Hall at the Retreat Hospital, York",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 700)"
+	},
+	{
+		"element": "elements/box-corner.png",
+		"source": "Made for this scene (no photo): a flat pink L with hand-cut wobble on its edges",
+		"license": "Made here",
+		"shows": "A pink paper corner bracket in site pink #FF4FD8 with a white keyline",
+		"derivative": "drawn with Pillow as a jittered L polygon, site pink, white keyline"
+	}
+]

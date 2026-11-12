@@ -33,6 +33,8 @@ The passthrough config is the easy part. What took me a year to figure out is **
 
 I learned that placement matters the obvious way. Back when everything ran on one card, I was watching Frigate's logs and saw object detection latency jump from about 30ms to over 2 seconds. Plex was transcoding a movie on the same GPU. Each service worked fine on its own, and I'd added them one at a time, so it never occurred to me they'd fight until a security camera started missing people.
 
+![A paper-collage animation on a night-blue field: my Quadro RTX 4000 lands as a shelf with a security camera on its left end, a man in a bowler hat walks in and four pink corners snap around him as a detection box, a film projector lands on the same card, then the man walks off the frame while the box stays behind framing empty air, and the words 30 ms to 2 seconds set in above it](/images/blog/proxmox-gpu-passthrough-multi-service/thirty-ms-to-two-seconds.svg)
+
 In October I benchmarked the local LLMs I run on both cards for speed and accuracy. The results are in [Local LLM speed and accuracy](#local-llm-speed-and-accuracy).
 
 The rest of the rack is in [the two-year homelab retrospective](/blog/homelab-two-years-later/).
@@ -100,11 +102,15 @@ Frigate and Whisper are the right-now services. A person walking past a camera i
 | Driver and CUDA reserve           | ~0.4GB     |
 | **Free for anything else**        | **~3.8GB** |
 
+![A paper-collage animation on a teal field: a black-and-white cherry pie lands in the middle, a security camera arrives and a slice of the pie slides over to it, a vintage microphone arrives and a second slice slides to it, then an oversized pink dinner plate slides in under the half that is left, and the words First come, first served set in above it](/images/blog/proxmox-gpu-passthrough-multi-service/first-come-first-served.svg)
+
 The Tdarr worker on this card only uses that free space, and only when there's a job in the queue.
 
 Everything bursty goes on the A4000. An LLM might want 5GB or 12GB depending on which model I just asked for. Plex and Tdarr want an encoder whenever someone presses play or a file lands in the queue. None of them is hurt by waiting half a second, and 16GB gives an 8B or 14B model room to load while Plex is transcoding.
 
 Tdarr is the one service that spans both cards. The server on prxbox2 hands out jobs, and a worker on each node grabs files from the shared NAS and encodes them with its own GPU. Each file is independent, so two cards chew through the queue with no coordination beyond "who grabs the next file."
+
+![A paper-collage animation on a black field: a stack of film cans lands between two graphics cards, then the cans come off the top one at a time, and the one a card takes turns pink, first the left card, then the right, then the left again, and the words Who grabs the next file set in above it](/images/blog/proxmox-gpu-passthrough-multi-service/who-grabs-the-next-file.svg)
 
 In October I broke the rule on purpose. I ran Ollama on the full Quadro, next to Frigate and Whisper, and watched Frigate's detector the whole time. It stayed at about 50ms, the same as before I started. (It was 30ms in April with two cameras. Four cameras put it at 50.)
 

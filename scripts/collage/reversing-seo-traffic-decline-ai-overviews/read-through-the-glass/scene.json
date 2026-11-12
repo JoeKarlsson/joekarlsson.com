@@ -1,0 +1,128 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#F2C230",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 11
+	},
+	"duration": 7.2,
+	"elements": [
+		{
+			"image": "elements/newspaper-box.png",
+			"x": 960,
+			"y": 800,
+			"scale": 0.62,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			}
+		},
+		{
+			"image": "elements/front-page.png",
+			"x": 978,
+			"y": 946,
+			"scale": 0.52,
+			"enter_at": 0.95,
+			"enter_from": "top",
+			"enter_duration": 0.5,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"rotation": -1.5
+		},
+		{
+			"image": "elements/reader.png",
+			"x": 680,
+			"y": 615,
+			"scale": 0.52,
+			"enter_at": 1.45,
+			"enter_from": "left",
+			"enter_duration": 0.7,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"moves": [
+				{
+					"at": 3.2,
+					"rotation": 5,
+					"duration": 0.4
+				},
+				{
+					"at": 4.1,
+					"x": 470,
+					"rotation": 0,
+					"duration": 0.8,
+					"ease": "out"
+				}
+			]
+		},
+		{
+			"image": "elements/coins-third.png",
+			"x": 1420,
+			"y": 904,
+			"scale": 0.85,
+			"enter_at": 2.5,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			}
+		},
+		{
+			"image": "elements/coins-full.png",
+			"x": 1420,
+			"y": 672,
+			"scale": 0.85,
+			"enter_at": 1.95,
+			"enter_from": "right",
+			"enter_duration": 0.5,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"moves": [
+				{
+					"at": 4.4,
+					"y": 1700,
+					"rotation": 8,
+					"duration": 0.5,
+					"ease": "in"
+				}
+			]
+		}
+	],
+	"label": {
+		"text": "61% FEWER CLICKS",
+		"font_family": "Anton",
+		"size": 130,
+		"color": "#0A0A0A",
+		"tracking": 4,
+		"x": 960,
+		"y": 50,
+		"enter_at": 5.1,
+		"align": "center"
+	}
+}

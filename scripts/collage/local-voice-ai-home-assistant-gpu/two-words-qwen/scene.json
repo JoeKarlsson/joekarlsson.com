@@ -1,0 +1,268 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#2B45E0",
+		"grain": 0.04
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 11
+	},
+	"duration": 6.4,
+	"elements": [
+		{
+			"image": "elements/strip.png",
+			"x": 960.0,
+			"y": 470,
+			"rotation": -1,
+			"enter_at": 0.3,
+			"enter_from": "left",
+			"enter_duration": 0.7,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.45
+			},
+			"moves": [
+				{
+					"at": 2.0,
+					"y": 2400,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/scrap-1.png",
+			"x": 340,
+			"y": 466,
+			"rotation": -1,
+			"enter_at": 2.0,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.45
+			},
+			"moves": [
+				{
+					"at": 2.18,
+					"y": 436,
+					"duration": 0.15,
+					"ease": "out"
+				},
+				{
+					"at": 2.33,
+					"x": 250,
+					"y": 1010,
+					"rotation": -14,
+					"duration": 0.6,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/scrap-2.png",
+			"x": 604,
+			"y": 466,
+			"rotation": -1,
+			"enter_at": 2.0,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.45
+			},
+			"moves": [
+				{
+					"at": 2.05,
+					"y": 436,
+					"duration": 0.15,
+					"ease": "out"
+				},
+				{
+					"at": 2.1999999999999997,
+					"x": 640,
+					"y": 1040,
+					"rotation": 9,
+					"duration": 0.6,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/scrap-3.png",
+			"x": 891,
+			"y": 466,
+			"rotation": -1,
+			"enter_at": 2.0,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.45
+			},
+			"moves": [
+				{
+					"at": 2.27,
+					"y": 436,
+					"duration": 0.15,
+					"ease": "out"
+				},
+				{
+					"at": 2.42,
+					"x": 1000,
+					"y": 1000,
+					"rotation": -5,
+					"duration": 0.6,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/scrap-4.png",
+			"x": 1186,
+			"y": 466,
+			"rotation": -1,
+			"enter_at": 2.0,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.45
+			},
+			"moves": [
+				{
+					"at": 2.12,
+					"y": 436,
+					"duration": 0.15,
+					"ease": "out"
+				},
+				{
+					"at": 2.27,
+					"x": 1370,
+					"y": 1045,
+					"rotation": 16,
+					"duration": 0.6,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/scrap-5.png",
+			"x": 1520,
+			"y": 466,
+			"rotation": -1,
+			"enter_at": 2.0,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.45
+			},
+			"moves": [
+				{
+					"at": 2.33,
+					"y": 436,
+					"duration": 0.15,
+					"ease": "out"
+				},
+				{
+					"at": 2.48,
+					"x": 1720,
+					"y": 1005,
+					"rotation": -9,
+					"duration": 0.6,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/shears-open.png",
+			"x": 1540,
+			"y": 490,
+			"scale": 0.95,
+			"rotation": 174,
+			"enter_at": 1.1,
+			"enter_from": "right",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.45
+			},
+			"moves": [
+				{
+					"at": 2.0,
+					"y": -2400,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/shears-closed.png",
+			"x": 1540,
+			"y": 490,
+			"scale": 0.95,
+			"rotation": 174,
+			"enter_at": 2.0,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.45
+			},
+			"moves": [
+				{
+					"at": 3.1,
+					"x": 2520,
+					"duration": 0.5,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/slip.png",
+			"x": 960.0,
+			"y": 520,
+			"rotation": -2.5,
+			"enter_at": 3.3,
+			"enter_from": "top",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.45
+			}
+		}
+	],
+	"label": {
+		"text": "TWO WORDS.",
+		"font_family": "Anton",
+		"size": 140,
+		"color": "#F2EDE4",
+		"tracking": 4,
+		"x": 960.0,
+		"y": 90,
+		"enter_at": 4.2,
+		"align": "center"
+	}
+}

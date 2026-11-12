@@ -1,0 +1,192 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#FFD23F",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 9
+	},
+	"duration": 7.2,
+	"elements": [
+		{
+			"image": "elements/thinkserver.png",
+			"x": 360,
+			"y": 778,
+			"scale": 0.62,
+			"enter_at": 0.3,
+			"enter_from": "left",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/coins-1.png",
+			"x": 640,
+			"y": 941,
+			"scale": 0.5,
+			"enter_at": 0.95,
+			"enter_from": "bottom",
+			"enter_duration": 0.45,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/tag-9.png",
+			"x": 650,
+			"y": 740,
+			"scale": 0.85,
+			"rotation": -6,
+			"enter_at": 1.4,
+			"enter_from": "top",
+			"enter_spin": 40,
+			"enter_duration": 0.45,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/rack.png",
+			"x": 1130,
+			"y": 640,
+			"scale": 0.58,
+			"enter_at": 2.0,
+			"enter_from": "right",
+			"enter_duration": 0.75,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/coins-2.png",
+			"x": 1520,
+			"y": 864,
+			"scale": 0.62,
+			"enter_at": 2.85,
+			"enter_from": "bottom",
+			"enter_duration": 0.4,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 3.25,
+					"y": 1700,
+					"duration": 0.01,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/coins-3.png",
+			"x": 1520,
+			"y": 794,
+			"scale": 0.62,
+			"enter_at": 3.25,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 3.63,
+					"y": 1700,
+					"duration": 0.01,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/coins-4.png",
+			"x": 1520,
+			"y": 737,
+			"scale": 0.62,
+			"enter_at": 3.63,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.35
+			},
+			"moves": [
+				{
+					"at": 4.01,
+					"y": 1700,
+					"duration": 0.01,
+					"ease": "in"
+				}
+			]
+		},
+		{
+			"image": "elements/coins-5.png",
+			"x": 1520,
+			"y": 665,
+			"scale": 0.62,
+			"enter_at": 4.01,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.35
+			}
+		},
+		{
+			"image": "elements/tag-47.png",
+			"x": 1775,
+			"y": 330,
+			"scale": 0.85,
+			"rotation": 5,
+			"enter_at": 4.55,
+			"enter_from": "top",
+			"enter_spin": -40,
+			"enter_duration": 0.45,
+			"shadow": {
+				"dx": 6,
+				"dy": 8,
+				"blur": 8,
+				"opacity": 0.35
+			}
+		}
+	],
+	"label": {
+		"text": "$9 TO $47 A MONTH",
+		"font_family": "Anton",
+		"size": 130,
+		"color": "#0A0A0A",
+		"tracking": 4,
+		"x": 960,
+		"y": 48,
+		"enter_at": 5.15,
+		"align": "center"
+	}
+}

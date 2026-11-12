@@ -15,6 +15,8 @@ Two years ago I bought a $200 ThinkServer off Facebook Marketplace, put Proxmox 
 
 Today I have two Dell R730s in a rack in my attic, 73 containers, two NVIDIA GPUs, and 10G networking. The rack averages about 430W, or about $47 a month in electricity, and I've spent about $7,400 on hardware.
 
+![A paper-collage animation on a black field: a black-and-white cut-out of my old ThinkServer tower lands, a pink till receipt starts printing beside it, and the receipt keeps getting longer as two Dell R730s, a graphics card, my network switches and the full server rack pile up around it, until it runs off the bottom of the frame and the words All a homelab needed set in above](/images/blog/homelab-two-years-later/receipt-keeps-printing.svg)
+
 None of it was planned. I'd get curious about something or annoyed by something, buy hardware for the rack to deal with it, and the electricity bill would go up again. It pays for itself more slowly than I first claimed, and I barely use some of what I bought.
 
 **Updated October 2026:** I first published this in March. Since then I've retired Open WebUI, Nextcloud, and Readarr and moved every container into OpenTofu. I also pulled 30 days of data out of Prometheus for this update, which turned up a few things I got wrong in March. The numbers below are current.
@@ -32,6 +34,8 @@ There was also [Home Assistant](https://www.home-assistant.io/). I'd been runnin
 I moved from consumer to enterprise hardware because I needed a GPU in my server, which meant real PCIe slots, proper power delivery, and a chassis that could get the heat out of a workstation graphics card without melting.
 
 The R730 I landed on has two Xeon E5-2698 v4 processors with 20 cores each, so 40 cores and 80 threads in one box. That's way more CPU than I need. Both hosts average about 13% busy.
+
+![A paper-collage animation on a cream field: a 1940 semi trailer rolls in and its cab hitches on, then the whole side of the trailer drops away to show one small pink parcel sitting alone in the empty trailer, and the words 13% busy set in above](/images/blog/homelab-two-years-later/semi-for-one-parcel.svg)
 
 They also use a lot more electricity. I never metered the ThinkServer, but it probably idled around 80W, about $9 a month. The rack now averages about 430W, roughly four to seven idle desktops running around the clock in my attic. The full numbers are in the [power section below](#power-about-430w-and-47-a-month).
 
@@ -336,6 +340,8 @@ That number depends a lot on one line: the $80 security monitoring plan is over 
 It may pay for itself eventually. Subscription prices keep going up - [1Password went from $2.99 to $3.99](https://www.macrumors.com/2026/02/24/1password-march-price-increase/) in March, and [Ring Protect from $10 to $12](https://ring.com/support/articles/7zvp5/Ring-Protect-Plus-1st-Gen-Information) in February - and I own my data and the hardware it runs on.
 
 It's a hobby, and hobbies cost money. Nobody asks a golfer to justify their club membership with a break-even analysis.
+
+![A paper-collage animation on a green field: my server rack lands in the middle, an old adding machine prints its tape toward it, then the rack drops out of the frame, the tape falls to the grass, a pink canvas golf bag rises in the middle, a golf flag lands beside it, and the words Hobbies cost money set in above](/images/blog/homelab-two-years-later/nobody-asks-a-golfer.svg)
 
 ### The real return was my day job
 

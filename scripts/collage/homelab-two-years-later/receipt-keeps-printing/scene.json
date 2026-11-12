@@ -1,0 +1,232 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#0A0A0A",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 11
+	},
+	"duration": 6.7,
+	"elements": [
+		{
+			"image": "elements/thinkserver.png",
+			"x": 250,
+			"y": 780,
+			"scale": 0.5,
+			"rotation": -2,
+			"enter_from": "left",
+			"enter_duration": 0.6,
+			"enter_at": 0.35,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/receipt.png",
+			"x": 960,
+			"y": 358,
+			"scale": 0.62,
+			"enter_from": "top",
+			"enter_duration": 0.4,
+			"moves": [
+				{
+					"at": 2.1,
+					"y": 680,
+					"duration": 0.4,
+					"ease": "out"
+				},
+				{
+					"at": 3.2,
+					"y": 1026,
+					"duration": 0.4,
+					"ease": "out"
+				},
+				{
+					"at": 4.1000000000000005,
+					"y": 1356,
+					"duration": 0.4,
+					"ease": "out"
+				}
+			],
+			"rotation": 0,
+			"enter_at": 0.95,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/r730.png",
+			"x": 590,
+			"y": 880,
+			"scale": 0.45,
+			"rotation": 1.5,
+			"enter_from": "left",
+			"enter_duration": 0.55,
+			"enter_at": 1.45,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/r730.png",
+			"x": 610,
+			"y": 735,
+			"scale": 0.45,
+			"rotation": -1.5,
+			"enter_from": "left",
+			"enter_duration": 0.5,
+			"enter_at": 1.8,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/receipt.png",
+			"x": 968,
+			"y": 358,
+			"scale": 0.62,
+			"enter_from": "top",
+			"enter_duration": 0.4,
+			"moves": [
+				{
+					"at": 3.2,
+					"y": 680,
+					"duration": 0.4,
+					"ease": "out"
+				},
+				{
+					"at": 4.1000000000000005,
+					"y": 1026,
+					"duration": 0.4,
+					"ease": "out"
+				}
+			],
+			"rotation": 0.8,
+			"enter_at": 2.15,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/gpu.png",
+			"x": 560,
+			"y": 470,
+			"scale": 0.44,
+			"rotation": -8,
+			"enter_from": "top",
+			"enter_duration": 0.5,
+			"enter_at": 2.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/receipt.png",
+			"x": 954,
+			"y": 358,
+			"scale": 0.62,
+			"enter_from": "top",
+			"enter_duration": 0.4,
+			"moves": [
+				{
+					"at": 4.1000000000000005,
+					"y": 680,
+					"duration": 0.4,
+					"ease": "out"
+				}
+			],
+			"rotation": -0.6,
+			"enter_at": 3.25,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/rack.png",
+			"x": 1450,
+			"y": 600,
+			"scale": 0.6,
+			"rotation": 1,
+			"enter_from": "right",
+			"enter_duration": 0.6,
+			"enter_at": 3.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/switches.png",
+			"x": 1700,
+			"y": 985,
+			"scale": 0.42,
+			"rotation": -4,
+			"enter_from": "right",
+			"enter_duration": 0.5,
+			"enter_at": 2.9,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/receipt.png",
+			"x": 963,
+			"y": 358,
+			"scale": 0.62,
+			"enter_from": "top",
+			"enter_duration": 0.4,
+			"moves": [],
+			"rotation": 0.5,
+			"enter_at": 4.15,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		}
+	],
+	"label": {
+		"text": "ALL A HOMELAB NEEDED",
+		"font_family": "Anton",
+		"size": 120,
+		"color": "#ECE6DA",
+		"tracking": 4,
+		"x": 960,
+		"y": 40,
+		"enter_at": 4.75,
+		"align": "center"
+	}
+}

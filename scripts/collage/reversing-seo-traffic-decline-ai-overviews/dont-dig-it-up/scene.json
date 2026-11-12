@@ -1,0 +1,132 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#3E8E41",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 17
+	},
+	"duration": 7.2,
+	"elements": [
+		{
+			"image": "elements/soil.png",
+			"x": 960,
+			"y": 726,
+			"scale": 0.75,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.65,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			}
+		},
+		{
+			"image": "elements/stake.png",
+			"x": 745,
+			"y": 690,
+			"scale": 0.38,
+			"enter_at": 0.85,
+			"enter_from": "top",
+			"enter_duration": 0.5,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"rotation": -3
+		},
+		{
+			"image": "elements/seed.png",
+			"x": 975,
+			"y": 1000,
+			"scale": 0.44,
+			"enter_at": 1.35,
+			"enter_from": "top",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"rotation": 8,
+			"moves": [
+				{
+					"at": 2.3,
+					"y": -3000,
+					"duration": 0.01
+				}
+			]
+		},
+		{
+			"image": "elements/sprout.png",
+			"x": 990,
+			"y": 920,
+			"scale": 0.55,
+			"enter_at": 2.3,
+			"enter_from": "none",
+			"enter_duration": 0.01,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"moves": [
+				{
+					"at": 3.0,
+					"y": 676,
+					"duration": 0.8,
+					"ease": "out"
+				}
+			]
+		},
+		{
+			"image": "elements/trowel.png",
+			"x": 1330,
+			"y": 390,
+			"scale": 0.44,
+			"enter_at": 4.0,
+			"enter_from": "right",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.5
+			},
+			"rotation": 245,
+			"enter_spin": 20,
+			"moves": [
+				{
+					"at": 4.75,
+					"x": 1270,
+					"y": 430,
+					"rotation": 238,
+					"duration": 0.35
+				}
+			]
+		}
+	],
+	"label": {
+		"text": "DON'T DIG IT UP",
+		"font_family": "Anton",
+		"size": 130,
+		"color": "#F2EDE4",
+		"tracking": 4,
+		"x": 960,
+		"y": 50,
+		"enter_at": 5.3,
+		"align": "center"
+	}
+}

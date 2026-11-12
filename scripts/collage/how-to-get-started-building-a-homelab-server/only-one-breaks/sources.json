@@ -1,0 +1,23 @@
+[
+	{
+		"element": "elements/carton.png",
+		"source": "https://commons.wikimedia.org/wiki/File:6-Pack-Chicken-Eggs.jpg",
+		"license": "Public domain (Evan-Amos, {{PD-self}})",
+		"shows": "An open six-egg paper carton with its six eggs in, white and brown",
+		"derivative": "lifted, largest piece kept, toned black and white (--largest --width 900). The eggs come with the carton: no public-domain empty carton turned up."
+	},
+	{
+		"element": "elements/egg.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Egg_upright.jpg",
+		"license": "Public domain (Paolo Neo, {{PD-author}})",
+		"shows": "One whole egg standing upright",
+		"derivative": "lifted, largest piece kept, toned black and white (--largest --width 300)"
+	},
+	{
+		"element": "elements/egg-cracked.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Egg_yolk-1460404.jpg",
+		"license": "CC0 (Aline Ponce via Pixabay, {{Pixabay|1460404|status=confirmed}})",
+		"shows": "A cracked egg: the half shell with the yolk in it",
+		"derivative": "lifted, largest piece kept (drops the empty half shell), left in color as the punchline (--tone none --largest --width 520)"
+	}
+]
