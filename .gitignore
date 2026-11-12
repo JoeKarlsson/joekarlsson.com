@@ -44,6 +44,8 @@ src/pages/resume-fiveonefour-pdf.astro
 
 # claude working files - local notes, not part of the site
 .claude/blog-notes/
+# design-review-gate.mjs state: reviews, waivers and block counts per worktree
+.claude/design-gate/
 
 # claude permissions - machine-specific, not shared config
 # (.claude/commands/ stays tracked - those are part of the project)
