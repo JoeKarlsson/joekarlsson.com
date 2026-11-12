@@ -100,19 +100,13 @@ The benchmark data has been obtained from the [ClickHouse Benchmark](https://ben
 
 This parameter refers to the time taken to load the dataset into the database.
 
-|                    | ClickHouse (tuned) | PostgreSQL (tuned) |
-| :----------------- | -----------------: | -----------------: |
-| Data load time     |              507 s |           11,800 s |
-| Relative load time |              1.00x |             23.28x |
+![Bar chart of the time to load the same dataset, both databases tuned: ClickHouse 507 seconds, PostgreSQL 11,800 seconds, 23 times longer.](/images/blog/why-clickhouse-should-be-your-next-database/load-time.svg)
 
 ### Storage Size
 
 This parameter refers to the space occupied by the data in the database.
 
-|               | ClickHouse (tuned) | PostgreSQL (tuned) |
-| :------------ | -----------------: | -----------------: |
-| Storage size  |          14.08 GiB |         120.02 GiB |
-| Relative size |              1.00x |              8.52x |
+![Bar chart of the disk space the same dataset takes, both databases tuned: ClickHouse 14.08 GiB, PostgreSQL 120.02 GiB, 8.5 times more.](/images/blog/why-clickhouse-should-be-your-next-database/storage-size.svg)
 
 ClickHouse also proves to be more storage-efficient. The benchmark indicates that ClickHouse uses about 8.5 times less storage compared to PostgreSQL for the same dataset.
 

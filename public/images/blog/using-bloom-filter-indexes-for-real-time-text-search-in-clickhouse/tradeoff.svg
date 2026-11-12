@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" width="640" height="200" role="img" aria-label="Three bar charts for the one-hash ngrambf_v1 filter at 1024, 4096 and 8192 bytes. Query time: 0.127, 0.240 and 0.447 seconds. Data scanned: 0.400, 0.191 and 0.183 GB. Index size: 247.8, 778.4 and 1,280 MB, against about 4 GB of compressed log data. Going from 1024 to 8192 bytes scans about 2.2 times less data but runs 3.5 times slower and stores 5 times the index.">
+<defs></defs>
+<rect width="640" height="200" fill="#000000"/>
+<text x="16" y="18" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Filter size in bytes, one hash function. Lower is better on all three.</text>
+<text x="16" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Query time</text>
+<path d="M60,66 L60,196" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="50" y="87.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">1024</text>
+<path class="d-paper" d="M61.2,73 L75.5,73.3 L76,74.3 L76.7,91.6 L75.3,99.6 L61.2,101.7 L58.7,102.7 L59.6,85.6 Z" fill="#ece6da"/>
+<text x="84.7" y="87.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">0.127 s</text>
+<text x="50" y="131" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">4096</text>
+<path class="d-paper" d="M61,116.8 L76.1,118.7 L91.5,116.7 L93,134.5 L92.9,144.7 L75,145 L59,145.1 L59.3,129.5 Z" fill="#ece6da"/>
+<text x="99.5" y="131" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">0.240 s</text>
+<text x="50" y="174.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">8192</text>
+<path class="d-paper" d="M60,161.4 L76.5,160.2 L91.4,159.7 L108.1,161.2 L117.6,159.9 L117.7,176.2 L119.7,189.1 L102,187 L88.1,189.1 L71.7,188.5 L58.8,187 L60.4,171.8 Z" fill="#ff4fd8"/>
+<text x="126.7" y="174.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">0.447 s</text>
+<text x="222" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Data scanned</text>
+<path d="M266,66 L266,196" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="256" y="87.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">1024</text>
+<path class="d-paper" d="M264.9,74.9 L280.4,74.1 L299.1,72.8 L314.8,75.4 L325.4,75.1 L324.6,89.4 L323.9,101.6 L309.4,102.2 L294,99.5 L276.1,100.2 L266.6,100 L267.1,85.3 Z" fill="#ece6da"/>
+<text x="332.7" y="87.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">0.400 GB</text>
+<text x="256" y="131" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">4096</text>
+<path class="d-paper" d="M265,116.3 L281,116.5 L293.7,117 L295.3,134.5 L294,143.4 L277,143.1 L266.7,145.4 L265.3,129.7 Z" fill="#ece6da"/>
+<text x="302" y="131" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">0.191 GB</text>
+<text x="256" y="174.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">8192</text>
+<path class="d-paper" d="M267.1,162.3 L282,161.3 L293.4,160.4 L293.8,178.2 L291.8,187.7 L275.4,188.6 L266.2,186.5 L265.5,171.9 Z" fill="#ff4fd8"/>
+<text x="300.8" y="174.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">0.183 GB</text>
+<text x="428" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Index size</text>
+<path d="M472,66 L472,196" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="462" y="87.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">1024</text>
+<path class="d-paper" d="M472.3,74.5 L484,73.4 L482.4,91.7 L483.1,101.4 L473.1,101.1 L472.1,85.4 Z" fill="#ece6da"/>
+<text x="491.4" y="87.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">247.8 MB</text>
+<text x="462" y="131" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">4096</text>
+<path class="d-paper" d="M471.5,118.9 L487.8,118.9 L502.9,117.9 L508.2,117.8 L507.1,133.9 L508.9,145.7 L491.2,143.2 L474.7,143.7 L470.8,145.3 L470.8,129 Z" fill="#ece6da"/>
+<text x="515.7" y="131" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">778.4 MB</text>
+<text x="462" y="174.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">8192</text>
+<path class="d-paper" d="M471.3,162.4 L488.4,161.6 L504.9,162.4 L519.3,161.7 L531.2,161.4 L530.4,176 L529.3,186.5 L515.5,187.1 L497.4,186.7 L481.3,189.1 L471.4,186.6 L472.1,172.9 Z" fill="#ff4fd8"/>
+<text x="538.7" y="174.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">1,280 MB</text>
+</svg>

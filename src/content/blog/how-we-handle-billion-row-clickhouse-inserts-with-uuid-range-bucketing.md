@@ -172,7 +172,9 @@ Elapsed: 5.556s
 Read: 6,548,458 rows (2.13 GB)
 ```
 
-We reduced peak memory usage by approximately 75% (from 8.47 GB to ~2.15 GB per operation) without sacrificing overall performance. The total processing time remained virtually the same (22.6s vs 23.2s if run sequentially), while gaining the ability to process the chunks in parallel if needed.
+![Bar chart of data read per insert. One insert read 8.47 GB in 22.6 seconds. Split into four by UUID range, each read about a quarter: 2.13 GB in 5.9 s, 2.14 GB in 6.0 s, 2.15 GB in 5.8 s and 2.13 GB in 5.6 s, 23.2 seconds in total run one after another.](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/insert-split.svg)
+
+Each insert now reads about 75% less data (from 8.47 GB to ~2.15 GB per operation), without sacrificing overall performance. The total processing time remained virtually the same (22.6s vs 23.2s if run sequentially), while gaining the ability to process the chunks in parallel if needed.
 
 This approach also eliminated the memory explosions and "OvercommitTracker killed query" errors that were previously impacting us during large syncs. The Insert-Splitter algorithm has proven to be both deterministic and reliable, with consistently even distribution across buckets just as our testing predicted.
 

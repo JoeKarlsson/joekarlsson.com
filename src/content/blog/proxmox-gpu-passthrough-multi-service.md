@@ -129,6 +129,8 @@ I ran the same prompt through every model I keep around (about 800 tokens in, 25
 | qwen3:14b   | 33 tok/s         | doesn't fit                  |
 | gpt-oss:20b | 64 tok/s         | doesn't fit                  |
 
+![Paired bars of tokens per second for each local model on the RTX A4000 (16 GB) and on the Quadro RTX 4000 with the 3.8 GB Frigate and Whisper leave free. llama3.2:3b: 83 on the A4000, 90 on the Quadro. qwen3:4b: 78 vs 22, partly on CPU. qwen3:8b: 55 vs 5.9, mostly on CPU. gemma3:12b (36), qwen3:14b (33) and gpt-oss:20b (64) do not fit on the Quadro at all.](/images/blog/proxmox-gpu-passthrough-multi-service/llm-speed.svg)
+
 When the model fits, the 2018 card keeps up with the 2021 one, which is what the bandwidth numbers predict, and when it doesn't, the speed falls off a cliff. I've seen the same thing on the A4000: back in September, qwen3:30b-a3b needed more than the card's 16GB, spilled into system RAM, and managed under one token per second.
 
 gpt-oss:20b surprised me. It's the biggest model on the list and the third fastest, because it's a [mixture-of-experts model](https://docs.nvidia.com/nemo/microservices/latest/customizer/models/gpt-oss.html) that only uses a few billion of its 20 billion parameters for each token. On a 16GB card it's the best deal I've found.

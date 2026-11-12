@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" width="360" height="180" role="img" aria-label="Bar chart of the disk space the same dataset takes, both databases tuned: ClickHouse 14.08 GiB, PostgreSQL 120.02 GiB, 8.5 times more.">
+<defs></defs>
+<rect width="360" height="180" fill="#000000"/>
+<text x="8" y="20" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Disk space for the same dataset, both</text>
+<text x="8" y="40" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">tuned. PostgreSQL uses 8.5x more.</text>
+<path d="M104,60 L104,170" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="94" y="87.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">ClickHouse</text>
+<path class="d-paper" d="M104.7,71 L120.4,69.4 L122.2,70.3 L123.4,86.1 L122.2,102.8 L121,103.7 L107.7,103.6 L104.2,103.1 L103.1,88.3 L104.1,73.8 Z" fill="#ff4fd8"/>
+<text x="130.5" y="87.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">14.08 GiB</text>
+<text x="94" y="142.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">PostgreSQL</text>
+<path class="d-paper" d="M103.3,126.3 L120.6,126.4 L135.7,124.7 L152.6,126.4 L169.4,126.6 L183.3,126.5 L201.1,126.1 L216.3,126.5 L231.8,125.8 L247.7,124.4 L261.8,126.4 L263.3,142.5 L262.7,158.8 L261.2,160.2 L245.6,158.2 L230.7,160.1 L213.5,160.3 L196.7,160.9 L182.8,160.4 L164.2,158 L151.2,159.9 L134.9,158.5 L117.8,158 L104.6,159.8 L102.5,142.4 L104,127.6 Z" fill="#ece6da"/>
+<text x="269.7" y="142.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">120.02 GiB</text>
+</svg>

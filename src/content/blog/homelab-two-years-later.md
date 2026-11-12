@@ -271,6 +271,8 @@ These machines were designed for data centers with commercial power contracts an
 
 Yes, a couple of modern mini PCs would run most of these 73 containers at a fraction of the power. My CPUs average 13% busy, I use 72GB of 256GB of RAM, and Frigate runs fine on a Coral, which plugs into anything. A mini PC can't hold a 16GB workstation GPU for local LLMs and transcoding, though, or give me iDRAC and ECC. If you don't want local AI or GPU video work, buy mini PCs and skip the rack.
 
+![Bar chart of how much of each part of the rack I use, from 30 days of Prometheus data. CPU: 13% busy on average. RAM: 28% in use (72 of 256 GB). Network: the busiest minute used 12% of one 10G link. Quadro RTX 4000: peaks at 59% of its VRAM (4.7 of 8 GB). RTX A4000: peaks at 94% (about 15 of 16 GB) when the 30B coding model loads, and sits close to empty the rest of the day.](/images/blog/homelab-two-years-later/utilization.svg)
+
 ## 2023 vs. 2026
 
 ![The homelab in 2023 versus 2026. Servers: 1 Lenovo ThinkServer, then 2 Dell R730s. CPU: a quad-core Xeon E3, then 80 cores and 160 threads at about 13% busy. RAM: 32GB, then 256GB with about 72GB used. GPU: none, then 2 NVIDIA GPUs with 24GB of VRAM. Workloads: about 15 containers, then 73 containers and 1 VM. Network: flat with no VLANs, then 4 VLANs with 10G between hosts. Monitoring: none, then Prometheus, Loki and 185 health checks. Config: by hand, then every container in OpenTofu. Power: about 80W estimated, then about 430W average metered. Hardware: $200, then about $7,400. Power cost: about $105 a year, then about $565 a year.](/images/blog/homelab-two-years-later/then-and-now.svg)
@@ -328,6 +330,8 @@ Subtract about $47/month of electricity and $9/month for the Backblaze B2 copy o
 **Break-even: ~4.6 years** ($7,200 in hardware, leaving out the ThinkServer I already owned, divided by $131/month).
 
 That number depends a lot on one line: the $80 security monitoring plan is over 40% of the gross savings, and without it break-even stretches to more than 11 years. None of this counts my time, either.
+
+![Line chart of what the homelab has saved over time against the $7,200 it cost in hardware. Netting about $131 a month (subscriptions killed, minus electricity and backups), savings cross the hardware line at about 4.6 years. Take out the $80-a-month security monitoring plan and it nets about $51 a month, crossing at about 11.8 years.](/images/blog/homelab-two-years-later/payback.svg)
 
 It may pay for itself eventually. Subscription prices keep going up - [1Password went from $2.99 to $3.99](https://www.macrumors.com/2026/02/24/1password-march-price-increase/) in March, and [Ring Protect from $10 to $12](https://ring.com/support/articles/7zvp5/Ring-Protect-Plus-1st-Gen-Information) in February - and I own my data and the hardware it runs on.
 

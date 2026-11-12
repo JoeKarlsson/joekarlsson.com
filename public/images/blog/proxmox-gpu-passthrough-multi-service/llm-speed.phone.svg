@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" width="360" height="520" role="img" aria-label="Paired bars of tokens per second for each local model on the RTX A4000 (16 GB) and on the Quadro RTX 4000 with the 3.8 GB Frigate and Whisper leave free. llama3.2:3b: 83 on the A4000, 90 on the Quadro. qwen3:4b: 78 vs 22, partly on CPU. qwen3:8b: 55 vs 5.9, mostly on CPU. gemma3:12b (36), qwen3:14b (33) and gpt-oss:20b (64) do not fit on the Quadro at all.">
+<defs></defs>
+<rect width="360" height="520" fill="#000000"/>
+<text x="16" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="20" fill="#ededed" text-anchor="start" dominant-baseline="central">FAST WHILE IT FITS</text>
+<text x="16" y="50" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Tokens per second. The Quadro</text>
+<text x="16" y="68" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">gets the 3.8 GB left free.</text>
+<text x="8" y="120" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">llama3.2:3b</text>
+<path d="M168,90 L168,150" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="158" y="105" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
+<path class="d-paper" d="M167.6,96.1 L183.7,96.4 L199.9,94.1 L216.5,95.1 L233.5,95.4 L247.9,95.6 L263.6,94.4 L277.2,97 L280.1,110.9 L278.5,114.5 L262.7,113.9 L245.3,113.8 L230.9,112.8 L215.1,114.8 L197.4,114.2 L182.6,115 L167.2,113.4 L167.8,98.4 Z" fill="#ece6da"/>
+<text x="286.7" y="105" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">83</text>
+<text x="158" y="135" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
+<path class="d-paper" d="M168,126 L183.1,126.3 L199,126.2 L216.4,126 L232.9,124.6 L246.8,127 L264.4,125.6 L280.6,125.3 L288.6,125.6 L286.9,142.6 L286.7,142.9 L272.9,143.2 L254.6,144.6 L240.6,145.1 L223,143.7 L208.2,144.6 L191.4,143 L175.9,143.6 L168,144.4 L169.2,127.5 Z" fill="#ff4fd8"/>
+<text x="296" y="135" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">90</text>
+<text x="8" y="190" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">qwen3:4b</text>
+<path d="M168,160 L168,220" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="158" y="175" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
+<path class="d-paper" d="M167.9,164.4 L183.7,165.3 L198.5,166.4 L215.1,166.6 L231.1,164.4 L247,165.9 L264.8,167 L273.6,165 L272.4,180.3 L272.8,184.4 L256.3,183.5 L240.1,184.3 L225.3,184.4 L208.1,183.8 L192.6,184.9 L174.9,184.7 L168.3,185.3 L167.7,166.8 Z" fill="#ece6da"/>
+<text x="280" y="175" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">78</text>
+<text x="158" y="205" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
+<path class="d-paper" d="M169.4,194.6 L184.8,195.7 L195.9,194.4 L198.1,210.5 L198.6,213.2 L180.8,214 L166.9,215.5 L169.4,197.7 Z" fill="#ff4fd8"/>
+<text x="205.3" y="205" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">22</text>
+<text x="8" y="260" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">qwen3:8b</text>
+<path d="M168,230 L168,290" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="158" y="245" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
+<path class="d-paper" d="M166.4,235.4 L183.7,235.9 L200.4,234.5 L217.5,237.2 L230.6,235.1 L240,237 L240.2,253 L241.9,252.9 L224,255.4 L208,255.4 L193,254.8 L178.6,255.3 L167.5,252.9 L167.9,237.2 Z" fill="#ece6da"/>
+<text x="249.3" y="245" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">55</text>
+<text x="158" y="275" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
+<path class="d-paper" d="M168.9,266.7 L175.8,266.3 L177.4,280.5 L175.2,284.9 L166.7,284.1 L169.1,267.3 Z" fill="#ff4fd8"/>
+<text x="183.9" y="275" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">5.9</text>
+<text x="8" y="330" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">gemma3:12b</text>
+<path d="M168,300 L168,360" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="158" y="315" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
+<path class="d-paper" d="M168.2,304.5 L185.3,305.8 L201.4,306.6 L216.5,304.1 L215.5,323.1 L215.2,325.5 L201,323.1 L183.1,325.3 L168.2,323.7 L169.1,307.4 Z" fill="#ece6da"/>
+<text x="224" y="315" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">36</text>
+<text x="158" y="345" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
+<path class="d-paper" d="M167.9,335.4 L171.3,336.2 L169.8,352.9 L171.4,354.1 L167.4,353.5 L168.4,339.7 Z" fill="#ff4fd8"/>
+<text x="179" y="345" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">doesn't fit</text>
+<text x="8" y="400" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">qwen3:14b</text>
+<path d="M168,370 L168,430" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="158" y="385" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
+<path class="d-paper" d="M168.4,375.2 L184.5,377.2 L200.2,376.2 L212.9,376.7 L212.6,392.1 L212,393.1 L195.2,393.4 L180.3,393.4 L168.3,393.1 L168.1,378.2 Z" fill="#ece6da"/>
+<text x="220" y="385" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">33</text>
+<text x="158" y="415" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
+<path class="d-paper" d="M169.6,407.3 L170.7,406 L170.1,420.1 L169.4,422.8 L168.4,424.6 L167.4,406.7 Z" fill="#ff4fd8"/>
+<text x="179" y="415" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">doesn't fit</text>
+<text x="8" y="470" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="14" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">gpt-oss:20b</text>
+<path d="M168,440 L168,500" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<text x="158" y="455" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
+<path class="d-paper" d="M167.5,446.2 L182.6,447.2 L200,445.5 L215.7,446.7 L230.7,444.3 L247.3,447.2 L254.7,446.9 L253.4,460.3 L251.7,463.5 L236.8,465.5 L219.8,464.6 L203.9,463.7 L188,465.9 L172.5,463.6 L168.5,465.4 L167.4,446.9 Z" fill="#ece6da"/>
+<text x="261.3" y="455" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">64</text>
+<text x="158" y="485" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
+<path class="d-paper" d="M167.5,475.3 L171.1,475.1 L169.5,492.7 L172.3,495 L168.6,494 L167.3,477.5 Z" fill="#ff4fd8"/>
+<text x="179" y="485" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">doesn't fit</text>
+</svg>

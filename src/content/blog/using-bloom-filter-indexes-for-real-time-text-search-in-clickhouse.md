@@ -210,15 +210,9 @@ Various Bloom filter index configurations in ClickHouse can reduce text search s
 
 #### Combined results: Query time and scan size
 
-Here you can see the tradeoffs between query time and scan size for the different configurations.
+Here you can see the tradeoffs between query time, scan size and index size for the one-hash configurations.
 
-| Configuration             | Speedup | Times less data |
-| :------------------------ | ------: | --------------: |
-| No index                  |      1x |              1x |
-| ngrambf_v1(4, 1024, 1, 0) |   87.7x |          324.2x |
-| ngrambf_v1(4, 1024, 2, 0) |   79.9x |          318.0x |
-| ngrambf_v1(4, 4096, 1, 0) |   46.3x |          678.1x |
-| ngrambf_v1(4, 8192, 1, 0) |   24.8x |          710.7x |
+![Three bar charts for the one-hash ngrambf_v1 filter at 1024, 4096 and 8192 bytes. Query time: 0.127, 0.240 and 0.447 seconds. Data scanned: 0.400, 0.191 and 0.183 GB. Index size: 247.8, 778.4 and 1,280 MB, against about 4 GB of compressed log data. Going from 1024 to 8192 bytes scans about 2.2 times less data but runs 3.5 times slower and stores 5 times the index.](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/tradeoff.svg)
 
 #### Storage used: Bloom filter index vs. actual data
 

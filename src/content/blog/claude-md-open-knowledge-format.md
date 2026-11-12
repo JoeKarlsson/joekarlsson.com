@@ -184,6 +184,8 @@ I wrote 44 questions from the docs, each with a known answer. Some were facts th
 | Cost per question (Sonnet)     | $0.043 | $0.042   | $0.030       |
 | Cost per question (Opus)       | $0.201 | $0.203   | $0.133       |
 
+![Three bar charts comparing the docs as-is, with metadata added, and restructured. Tokens loaded at session start: 16,237, 16,237 and 8,505. Cost per question on Sonnet: $0.043, $0.042 and $0.030. Cost per question on Opus: $0.201, $0.203 and $0.133. Accuracy on Sonnet held at 97%, 98% and 99%, within the noise of 44 questions.](/images/blog/claude-md-open-knowledge-format/test-results.svg)
+
 Forty-four questions is a small set, and the accuracy ranges overlap, so read accuracy as "held," not "improved." I overturned one grade by hand, where the judge misread a correct refusal. I measured whether Claude could find and use what's in the docs, not whether it follows instructions better. That's a separate question, and a [study of 1,650 Claude Code sessions](https://arxiv.org/abs/2605.10039) found no detectable effect from CLAUDE.md length or file structure.
 
 <details>

@@ -19,7 +19,7 @@ heroAlt: 'A busy railway station hall with its departure board'
 > - **224% ROI** in 6 months with $4.41M NPV over 3 years
 > - **67% reduction** in developer onboarding time
 > - **$10M+ cost savings** (From Toyota's Backstage implementation)
-> - **55% faster** developer productivity (Spotify)
+> - **60 days to under 20** for a new developer's 10th pull request (Spotify)
 >
 > **Bottom line:** Fresh asset inventory transforms developer portals from documentation graveyards into dynamic platforms that accelerate development while maintaining governance. The business case is proven, the question is implementation speed.
 
@@ -93,7 +93,7 @@ The business value of inventory-driven developer portals extends far beyond theo
 
 **Toyota Motor North America's detailed results** provide the most thorough financial analysis available. Their Backstage-based platform achieved total cost reduction exceeding $10 million in 2022, with $5 million in infrastructure savings annually. Individual development teams report saving 6 weeks of development time valued at $250,000 per project. Their developer portal platform makes delivery in weeks rather than quarterly cycles through automated provisioning and compliance checking.
 
-**Spotify's productivity metrics** demonstrate the developer experience improvements possible with mature portal implementations. Their complete Backstage adoption achieved 55% reduction in developer onboarding time, with new developers reaching their 10th pull request in 10 days versus 20 days previously. [High-frequency portal users show 2.3x more GitHub activity and 2x more frequent deployments](https://www.infoq.com/news/2023/04/spotify-success-backstage/), with deployed code staying in production 3x longer.
+**Spotify's productivity metrics** demonstrate the developer experience improvements possible with mature portal implementations. After they adopted Backstage, the time for a new developer to merge their 10th pull request [fell from 60 days to under 20](https://backstage.spotify.com/blog/measuring-backstage-success-at-spotify/). [High-frequency portal users show 2.3x more GitHub activity and 2x more frequent deployments](https://www.infoq.com/news/2023/04/spotify-success-backstage/), with deployed code staying in production 3x longer.
 
 **Expedia Group's enterprise-scale deployment** supports [5,000+ developers across 15+ brands with ~20,000 microservices](https://roadie.io/case-studies/expedia-group-backstage-mvp/). Their [expected ROI of 6x return on investment with a 40-day payback period](https://backstage.io/blog/2023/08/17/expedia-proof-of-value-metrics-2/) demonstrates the scalability of inventory-driven portal benefits. The platform consolidates 21+ brand-specific portals into a unified developer experience while managing 400 unique developer tools and 3,000 APIs.
 

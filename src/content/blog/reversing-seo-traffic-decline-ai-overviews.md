@@ -63,6 +63,8 @@ Google's AI-generated answer boxes now show up at the top of search results and 
 
 [Seer Interactive ran the most rigorous study I've found](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update) - 3,119 search terms, 42 client organizations, 25 million organic impressions tracked over 15 months. When an AI Overview appears on a query, organic CTR drops from 1.76% to 0.61%, which is **61% less**. [Ahrefs measured a 58% lower CTR](https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/) for the top-ranking page when an AI Overview shows up.
 
+![Bar chart of organic click-through rate from Seer Interactive's study of 3,119 search terms: 1.76% on queries with no AI Overview, 0.70% when an AI Overview cites you, 0.61% with an AI Overview overall, and 0.52% when it does not cite you.](/images/blog/reversing-seo-traffic-decline-ai-overviews/seer-ctr.svg)
+
 It's not just a publisher and e-commerce problem. [Semrush's AI Overviews study](https://www.semrush.com/blog/semrush-ai-overviews-study/) found them on nearly 18% of keywords in Computers & Electronics, the second-highest category it tracked, and that's our space. And clicks were already scarce before AI Overviews: [SparkToro's zero-click research](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/) found that for every 1,000 Google searches in the US, only **360 clicks** reach the open web at all.
 
 If AI Overviews are showing up on your queries, Google thinks your content is worth citing, and the Overview built from it is what keeps people from clicking through to you.
@@ -201,6 +203,8 @@ We hit position #1 for a couple of target keywords, and moved a high-volume quer
 _Organic positions across all ranking brackets, Jan-Apr 2026. Every band grew after the start date, which is what an improving average position looks like keyword by keyword._
 
 Clicks didn't keep pace. Impressions roughly quadrupled while organic traffic grew 57%, and that gap is the AI Overview effect showing up in our own data.
+
+![Bar chart of growth over the first four weeks: search impressions up 316%, organic traffic up 57%. Impressions grew more than five times as fast as clicks.](/images/blog/reversing-seo-traffic-decline-ai-overviews/impressions-vs-clicks.svg)
 
 ![Meme: Distracted Boyfriend - my organic traffic watching AI Overviews absorb all the clicks](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-distracted-boyfriend.webp)
 

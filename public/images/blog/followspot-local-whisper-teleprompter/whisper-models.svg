@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300" role="img" aria-label="Two line charts across five Whisper models, smallest to largest. Tech terms heard right, of 16: tiny.en 9, base.en 13, small.en 14, medium 14, large-v3-turbo 14, so accuracy stops improving at small.en. Median latency per request on an M5 Max: 28, 33, 66, 147 and 184 ms, rising with size but staying under the browser's 250 ms listen tick.">
+<defs><filter id="followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-1" filterUnits="userSpaceOnUse" x="40.5" y="64.8" width="255" height="93.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-2" filterUnits="userSpaceOnUse" x="362.5" y="102.6" width="255" height="158.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter></defs>
+<rect width="640" height="300" fill="#000000"/>
+<path d="M374,56.69230769230768 L606,56.69230769230768" stroke="#ff4fd8" stroke-width="2" stroke-dasharray="7 6" fill="none"/>
+<text x="8" y="20" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Tech terms heard right, of 16</text>
+<path d="M52,274 L284,274" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M52,274 L284,274" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="46" y="274" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">0</text>
+<path d="M52,161 L284,161" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="46" y="161" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">8</text>
+<path d="M52,48 L284,48" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="46" y="48" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">16</text>
+<text x="52" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">tiny</text>
+<text x="110" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">base</text>
+<text x="168" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">small</text>
+<text x="226" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">medium</text>
+<text x="284" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">turbo</text>
+<g class="d-flow">
+<path d="M52,146.9 L110,90.4 L168,76.3 L226,76.3 L284,76.3" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-1)"/>
+</g>
+<text x="292" y="76.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
+<circle cx="52" cy="146.9" r="5" fill="#ece6da"/>
+<text x="52" y="132.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">9</text>
+<circle cx="110" cy="90.4" r="5" fill="#ece6da"/>
+<text x="110" y="76.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">13</text>
+<circle cx="168" cy="76.3" r="5" fill="#ff4fd8"/>
+<text x="168" y="62.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="middle" dominant-baseline="central">14</text>
+<circle cx="226" cy="76.3" r="5" fill="#ece6da"/>
+<text x="226" y="62.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">14</text>
+<circle cx="284" cy="76.3" r="5" fill="#ece6da"/>
+<text x="284" y="62.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">14</text>
+<text x="330" y="20" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Median latency, M5 Max</text>
+<path d="M374,274 L606,274" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M374,274 L606,274" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="368" y="274" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">0</text>
+<path d="M374,187.1 L606,187.1" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="368" y="187.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">100</text>
+<path d="M374,100.2 L606,100.2" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-linecap="round"/>
+<text x="368" y="100.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="end" dominant-baseline="central">200</text>
+<text x="374" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">tiny</text>
+<text x="432" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">base</text>
+<text x="490" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">small</text>
+<text x="548" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">medium</text>
+<text x="606" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">turbo</text>
+<g class="d-flow">
+<path d="M374,249.7 L432,245.3 L490,216.6 L548,146.2 L606,114.1" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-2)"/>
+</g>
+<text x="614" y="114.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
+<text x="378" y="44.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">browser's 250 ms tick</text>
+<circle cx="374" cy="249.7" r="5" fill="#ece6da"/>
+<text x="374" y="235.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">28 ms</text>
+<circle cx="432" cy="245.3" r="5" fill="#ece6da"/>
+<text x="432" y="231.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">33 ms</text>
+<circle cx="490" cy="216.6" r="5" fill="#ff4fd8"/>
+<text x="490" y="202.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="middle" dominant-baseline="central">66 ms</text>
+<circle cx="548" cy="146.2" r="5" fill="#ece6da"/>
+<text x="548" y="132.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">147 ms</text>
+<circle cx="606" cy="114.1" r="5" fill="#ece6da"/>
+<text x="606" y="100.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">184 ms</text>
+</svg>

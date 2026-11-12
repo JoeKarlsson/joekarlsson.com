@@ -70,6 +70,8 @@ I wanted real numbers, so I read a paragraph from my [homelab post](/blog/homela
 
 Latency is one request to whisper.cpp. Highlight lag is how long after I finished saying a word it got marked as read. Every model followed 100% of the script and never lost my place.
 
+![Two line charts across five Whisper models, smallest to largest. Tech terms heard right, of 16: tiny.en 9, base.en 13, small.en 14, medium 14, large-v3-turbo 14, so accuracy stops improving at small.en. Median latency per request on an M5 Max: 28, 33, 66, 147 and 184 ms, rising with size but staying under the browser's 250 ms listen tick.](/images/blog/followspot-local-whisper-teleprompter/whisper-models.svg)
+
 Speed isn't the constraint on this laptop. Even `large-v3-turbo` answers in about 180 ms, which fits inside the browser's quarter-second tick. On an older Intel machine that would be a different story.
 
 The smallest model falls apart on jargon. `tiny.en` heard "Xeon E3-1226" as "Zion E3, 1, 2, 2, 6" and "ThinkServer" as "things server." `base.en` fixed the Xeon and still wrote "the thing server." Everything from `small.en` up got ThinkServer right. And every single model wrote "R stack" for the arr stack, which, fair.
