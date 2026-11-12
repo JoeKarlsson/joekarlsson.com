@@ -793,11 +793,17 @@ const cropArtPieces = [
 	   after a 150ms rest, so a pointer sweeping down the list doesn't open every row. */
 	/* visibility too, so a closed row's text is gone for screen readers and find in page,
 	   matching aria-expanded; it flips back only once the close has played */
+	/* Folded only when scripts run: without them the button can't open a row on a phone,
+	   so every row stays open */
+	@media (scripting: enabled) {
+		.job-body {
+			grid-template-rows: 0fr;
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
 	.job-body {
 		display: grid;
-		grid-template-rows: 0fr;
-		opacity: 0;
-		visibility: hidden;
 		transition:
 			grid-template-rows 0.24s ease-in-out,
 			opacity 0.2s var(--ease-exit),
