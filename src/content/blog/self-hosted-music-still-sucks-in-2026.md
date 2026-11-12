@@ -1,7 +1,8 @@
 ---
 title: 'Self-Hosted Music Still Sucks in 2026'
 date: 2026-03-22
-updatedDate: 2026-03-22
+updatedDate: 2026-11-12
+updateNote: 'Added the Lidarr alternatives that now handle single tracks: SoulSync, which I run with Deezer and Soulseek, DroppedNeedle (formerly MusicSeerr), Aurral and Soularr.'
 slug: 'self-hosted-music-still-sucks-in-2026'
 description: 'The *arr stack perfected video automation, but self-hosted music is stuck on albums. Lidarr makes you grab a whole album when you want one track.'
 categories: ['Homelab']
@@ -90,6 +91,17 @@ But **Navidrome is still architecturally a media server, not an automation syste
 **Lyrion Music Server (formerly Logitech Media Server)** offers sophisticated playlist management and a plugin ecosystem, but it’s built on Perl architecture from 2001 that predates modern container orchestration and API design patterns [[Lyrion](https://lyrion.org/)]. While functionally capable, the technical debt makes integration with modern self-hosted stacks painful. (I still run it for multi-room audio, and my house [pauses every player when someone's at the door](/blog/best-home-assistant-automations/).)
 
 **Every established solution has excellent technical execution within its domain, but the domains don’t overlap to solve the acquisition + automation + serving pipeline**.
+
+## Lidarr alternatives in 2026
+
+Since I wrote this in March, a few tools have started going after the track problem directly. If you searched for a Lidarr alternative, these are the ones I'd look at:
+
+- **[SoulSync](https://github.com/Nezreka/SoulSync)** syncs playlists from Spotify, Tidal, Qobuz, Deezer and YouTube into a local library one track at a time, and it replaces Lidarr. It's what I run now: it pulls FLAC from Deezer first and falls back to Soulseek through slskd when Deezer doesn't have a track. It can also use Tidal, YouTube, or torrents and Usenet through Prowlarr, but I don't.
+- **[DroppedNeedle](https://github.com/DroppedNeedle/DroppedNeedle)**, which used to be MusicSeerr, started as a Seerr-style request app on top of Lidarr. Version 2.0 in July dropped Lidarr for its own library, and you can request a single track. It downloads through slskd or Usenet.
+- **[Aurral](https://github.com/lklynet/aurral)** does discovery, playlists and requests, with Lidarr optional. It downloads through yt-dlp, slskd, Usenet, Tidarr and deemix.
+- **[Soularr](https://github.com/mrusse/soularr)** keeps Lidarr and feeds its wanted list to slskd. I ran it until SoulSync replaced it. It's still album-first, and every 15 minutes it fed slskd Lidarr's entire wanted list.
+
+Lidarr's own README still has a banner about its metadata server rebuilding its cache ([issue #5498](https://github.com/Lidarr/Lidarr/issues/5498), open since April 2025).
 
 ## Why music automation is harder
 
