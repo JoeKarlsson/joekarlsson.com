@@ -9,18 +9,18 @@ description: 'How I built a fully local, GPU-accelerated voice pipeline for Home
 categories: ['Homelab']
 heroImage: '/images/blog/local-voice-ai-home-assistant-gpu/hero.webp'
 heroAlt: 'Home Assistant local voice pipeline architecture showing Whisper GPU, Piper TTS, and Ollama components connected via Wyoming protocol'
-tldr: "I replaced all cloud AI in Home Assistant's voice pipeline with a fully local stack: GPU-accelerated faster-whisper for speech-to-text, Piper TTS, and Ollama as the conversation agent (llama3.2:3b at first, qwen3:8b since summer 2026). Zero audio leaves my network. The path to a working setup involved a qwen3 experiment that ended with the LLM narrating its own thought process for five minutes straight, a system prompt explicitly forbidding voice commands from killing my server rack, and a three-tier fallback chain I am genuinely glad I built."
+tldr: "I replaced all cloud AI in Home Assistant's voice pipeline with a fully local stack: GPU-accelerated faster-whisper for speech-to-text, Piper TTS, and Ollama as the conversation agent (llama3.2:3b at first, qwen3:8b since summer 2026). No audio leaves my network unless the cloud fallback kicks in. The path to a working setup involved a qwen3 experiment that ended with the LLM narrating its own thought process for five minutes straight, a system prompt explicitly forbidding voice commands from killing my server rack, and a three-tier fallback chain I am glad I built."
 ---
 
 **Updated October 2026:** The conversation agent is now qwen3:8b, not llama3.2:3b, so the six-month swap I predicted near the end came true. Thinking is switched off in the request, which avoids the think-mode problem described below. In a July test with Home Assistant's real prompt and all 171 tool definitions, qwen3:8b took about 1.3 seconds per call and got every request right. Whisper also moved up from the small model to medium-int8, which still transcribes a short command in about a third of a second on the Quadro RTX 4000. The rest of this post is the original April story.
 
 ---
 
-The honest reason I started this: Amazon. Specifically, the moment I actually read what Amazon's voice data policies let them do - and realized I had no real way to opt out. Every command to Alexa - lights, calendar, weather, whatever - was going to their servers, processed there, retained under terms I couldn't meaningfully negotiate. I'd been fine with that tradeoff for years without thinking hard about it. Then Amazon [removed the "Do Not Send Voice Recordings" option entirely](https://www.malwarebytes.com/blog/news/2025/03/amazon-disables-option-to-store-echo-voice-recordings-on-your-device), effective March 28, 2025. That was the end of it for me.
+I started this because of Amazon. Specifically, the moment I actually read what Amazon's voice data policies let them do - and realized I had no real way to opt out. Every command to Alexa - lights, calendar, weather, whatever - was going to their servers, processed there, retained under terms I couldn't meaningfully negotiate. I'd been fine with that tradeoff for years without thinking hard about it. Then Amazon [removed the "Do Not Send Voice Recordings" option entirely](https://www.malwarebytes.com/blog/news/2025/03/amazon-disables-option-to-store-echo-voice-recordings-on-your-device), effective March 28, 2025. That was the end of it for me.
 
 The timing was good. I already had a GPU server sitting in my attic. Two of them, actually - [dual R730s with NVIDIA cards](/blog/homelab-two-years-later/) I'd built out for Plex transcoding and local AI workloads. It felt absurd to have that compute available and still be shipping my living room conversations to Amazon. So I went all-in on local AI for voice and decided to see what was actually possible in 2025.
 
-This is the technical follow-up to [that initial experiment](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/) - the early chaos, the 50% wake word success rate, my partner learning to say "Okay Nabu" with diminishing patience. This post is the year-later accounting: what the pipeline actually looks like now, what failed spectacularly, and what I actually run today. It's still very much a work in progress. There's real room for improvement. But it's been one of the more genuinely fun projects I've taken on in the homelab.
+This is the technical follow-up to [that initial experiment](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/) - the early chaos, the 50% wake word success rate, my partner learning to say "Okay Nabu" with diminishing patience. This post is the year-later accounting: what the pipeline actually looks like now, what failed spectacularly, and what I actually run today. It's still very much a work in progress. There's real room for improvement. But it's been one of the more fun projects I've taken on in the homelab.
 
 ![Drake meme - rejecting Alexa sending every command to Amazon, approving llama3.2:3b running on my own server and never leaving my network](/images/blog/local-voice-ai-home-assistant-gpu/drake-local-vs-cloud.webp)
 
@@ -72,7 +72,7 @@ If you don't have Proxmox or want the simpler path: HA has official add-ons for 
 
 My [homelab](/blog/homelab-two-years-later/) runs two Dell R730 servers with NVIDIA GPUs - the bigger one has an RTX A4000 with 16GB of VRAM, which is where Ollama lives. The Whisper STT service runs on a separate host. Each component runs on whatever machine makes sense for that workload.
 
-The 16GB VRAM sounds like a lot, but it's shared. That GPU also handles Plex transcoding, Immich video transcoding, and Tdarr video encoding. VRAM gets contested, and I wrote up [how the VRAM gets divided between services](/blog/proxmox-gpu-passthrough-multi-service/). You need enough headroom that a Plex transcode doesn't evict the voice pipeline mid-sentence. If your GPU is dedicated or less loaded, you could run a larger model and get better results.
+The 16GB VRAM sounds like a lot, but it's shared. That GPU also handles Plex transcoding, Immich video transcoding, and Tdarr video encoding. VRAM gets contested, and I wrote up [how the VRAM gets divided between services](/blog/proxmox-gpu-passthrough-multi-service/). You need enough headroom that a Plex transcode doesn't leave too little VRAM for the voice model to load. If your GPU is dedicated or less loaded, you could run a larger model and get better results.
 
 You don't need 16GB for this to work. Here's a rough VRAM floor guide:
 
@@ -89,7 +89,7 @@ CPU-only is also an option - Whisper runs fine without a GPU - but transcription
 
 In Home Assistant, voice pipelines live at Settings → Voice Assistants. I have three configured:
 
-1. **Home Assistant Cloud** (renamed Home Assistant Link in December 2026) - fallback of last resort. Cloud-backed, works when the homelab is on fire.
+1. **Home Assistant Cloud** (becoming Home Assistant Link in the December 2026 release) - fallback of last resort. Cloud-backed, works when the homelab is on fire.
 2. **Ollama Local** - CPU Whisper + Ollama. Slower, GPU-independent.
 3. **Local Voice** - GPU Whisper + Piper + Ollama. Marked as preferred.
 
@@ -125,15 +125,13 @@ Where I still use automations: genuinely custom things that HA's intent system d
 
 ## The qwen3 Disaster
 
-Here's the part that makes the build interesting.
-
 Before landing on llama3.2:3b, I spent a month trying to make [qwen3:4b](https://huggingface.co/Qwen/Qwen3-4B) work. Alibaba's model, 4 billion parameters, supports a "think mode" where the model reasons internally before responding.
 
-Think mode is genuinely useful for coding and complex reasoning. For a voice assistant, it is a catastrophe.
+Think mode is useful for coding and complex reasoning. For a voice assistant, it is a catastrophe.
 
 Picture this: you say "turn off the living room lights." The model starts thinking. Five minutes later - I am not exaggerating - Piper is still reading out the LLM's internal monologue. Something like: "Let me consider the implications of this request. The user wants to control lighting in the living room area. There are multiple light entities registered in the great_room area. I should consider..." My partner came in from the kitchen to see what was happening.
 
-I disabled think mode. Still verbose. "Sure! I've turned on the lights for you in the living room! Let me know if there's anything else I can help with today!" when "Lights on" is the correct answer. Three words, Qwen. Three words.
+I disabled think mode. Still verbose. "Sure! I've turned on the lights for you in the living room! Let me know if there's anything else I can help with today!" when "Lights on" is the correct answer. Two words, Qwen. Two words.
 
 I rebuilt the system prompt. Dropped context from 8192 tokens to 2048. Cut max history from 20 messages to 5. Rewrote the prompt to enforce "under 10 words." Better. Not fixed.
 
@@ -147,7 +145,7 @@ The qwen3 optimization docs I wrote are still sitting in my notes as a cautionar
 
 After the qwen3 experience I kept testing models, because the problem wasn't just verbosity. It was **tool calling**.
 
-HA's LLM integration works by exposing your entities as callable tools. Turn off the lights? The model needs to output a structured function call - `light.turn_off` with the right entity ID - not a sentence describing what it would do. The catch: local models are inconsistent at this. They'll sometimes produce the right call, sometimes output a markdown description of what they'd do instead of actually doing it, sometimes produce a call in subtly wrong format that HA can't parse. Same model, same command, different result depending on phrasing.
+HA's LLM integration works by exposing your entities as callable tools. Turn off the lights? The model needs to output a structured function call - `light.turn_off` with the right entity ID - not a sentence describing what it would do. Local models are inconsistent at this. They'll sometimes produce the right call, sometimes output a markdown description of what they'd do instead of actually doing it, sometimes produce a call in subtly wrong format that HA can't parse. Same model, same command, different result depending on phrasing.
 
 I went through the models that fit in 16GB of VRAM:
 
@@ -161,7 +159,7 @@ I went through the models that fit in 16GB of VRAM:
 
 None of the local options are great at tool calling. The best I've seen is "reliable on simple single-device commands, inconsistent on anything more complex." Ask it to turn off one light: fine. Ask it to activate a scene while checking the calendar: you're rolling dice.
 
-My working theory is that sub-13B models just don't have the instruction-following consistency this requires. And 13B+ models are too slow for real-time voice on my hardware - you'd be waiting 5-6 seconds for a response, which kills the whole point. If anyone has found a local model that handles HA tool calling reliably, genuinely want to know.
+My working theory is that sub-13B models just don't have the instruction-following consistency this requires. And 13B+ models are too slow for real-time voice on my hardware - you'd be waiting 5-6 seconds for a response, which kills the whole point. If anyone has found a local model that handles HA tool calling reliably, I want to know.
 
 ![One Does Not Simply meme - one does not simply find a local LLM that's good at HA tool calling](/images/blog/local-voice-ai-home-assistant-gpu/one-does-not-simply-toolcalling.webp)
 
@@ -199,11 +197,11 @@ do NOT explain why or offer alternatives.
 
 It helps at the margins. Commands that failed 30% of the time now fail maybe 10-15% of the time. The floor went up. But the ceiling is still low - the model still breaks on edge cases, still occasionally outputs a description of a tool call instead of making it. For lights and switches it's good enough. For anything you care about getting right every time, it isn't.
 
-The honest version of where I've landed: voice prompt priming buys you reliability on simple commands, Claude handles the complex ones, and local-only is fine if you stick to basic device control and use HA's native intent recognition for everything it covers. That combination works. A fully capable local LLM for voice tool calling doesn't exist yet at the model sizes that fit my hardware.
+Where I've landed: voice prompt priming buys you reliability on simple commands, Claude handles the complex ones, and local-only is fine if you stick to basic device control and use HA's native intent recognition for everything it covers. That combination works. A fully capable local LLM for voice tool calling doesn't exist yet at the model sizes that fit my hardware.
 
 ## The System Prompt That Protects My Server
 
-Here's something nobody tells you about running an LLM in your smart home: you have to explicitly tell it what not to do.
+You have to tell an LLM in your smart home what not to do.
 
 The current system prompt includes a block I added after an incident:
 
@@ -222,7 +220,7 @@ What happened: "turn off the office." I meant the lights. The LLM, helpfully try
 
 Home Assistant's LLM integrations expose your entities to the model. All of them, by default. A model trying to "turn off the office" sees light entities, switch entities, media player entities - and makes a choice. Without explicit rules, it makes whatever choice seems most complete.
 
-Now: the server rack is protected by hard rules in the prompt. The model is told that "the office" means lights only. And if it's not sure, it should not act. Three lines of prompt engineering, but they matter enormously.
+Now: the server rack is protected by hard rules in the prompt. The model is told that "the office" means lights only. And if it's not sure, it should not act.
 
 ![This Is Fine meme - dog sitting in burning room captioned 'me after adding safety rules to prevent voice commands from touching the server rack'](/images/blog/local-voice-ai-home-assistant-gpu/this-is-fine-server.webp)
 
@@ -238,8 +236,6 @@ helpful housemate.
 One sentence. That constraint alone improved the day-to-day experience more than any model swap or hardware upgrade.
 
 ## What Works Well, What Doesn't
-
-After a year of running this, here's the honest accounting.
 
 **Works reliably:**
 
@@ -265,8 +261,6 @@ Ambiguous commands with lots of entity candidates. "Dim the lights" in the great
 
 ## The Fallback Chain
 
-Three pipelines sounds like overkill. It isn't.
-
 When faster-whisper's GPU host is down: the "Ollama Local" pipeline takes over automatically. CPU-only Whisper, same LLM. Slower, but the voice assistant still works while I fix whatever's broken.
 
 When Ollama is unavailable: Home Assistant Cloud.
@@ -279,7 +273,7 @@ One feature worth knowing about: HA now supports [two wake words mapped to two s
 
 ## Is It Worth It?
 
-If you have the homelab infrastructure already: yes. The privacy case is real - zero audio leaves my network. No data at a company I don't control. The faster-whisper GPU I use for voice is the [same one I use for subtitle generation](/blog/building-a-gpu-accelerated-subtitle-generator/) - voice AI is almost free on hardware you're already running.
+If you have the homelab infrastructure already: yes. The privacy case is real - no audio leaves my network unless the cloud fallback kicks in. Voice AI is almost free on hardware you're already running. The same two GPUs also handle my [subtitle generation](/blog/building-a-gpu-accelerated-subtitle-generator/).
 
 If you're building from scratch for voice specifically: run the numbers. You need a machine capable of running Ollama at reasonable speeds (realistically: something with a decent GPU). The RTX A4000 I use is overkill for voice - it's there for other reasons. An 8GB GPU can run llama3.2:3b while still handling other workloads, though VRAM management becomes trickier.
 
@@ -287,9 +281,7 @@ The part the tutorials don't cover: tuning. The initial setup - installing faste
 
 That's the gap between "it runs" and "we use it." For what it's worth, we use it every day.
 
-I want to be clear that this is still a work in progress. Recognition accuracy has plenty of room to improve. Model quality keeps getting better and I'll probably swap llama3.2:3b for something newer in six months. HA's voice intent coverage keeps expanding with every release. The whole space is moving fast enough that anything I write here will be partially out of date by the time you read it.
-
-But that's also what makes it interesting. This has been one of the more genuinely satisfying homelab projects I've taken on - not because it's finished, but because it's actually useful and I can see exactly how it works at every layer. No black boxes. No terms of service I agreed to without reading. Just my hardware, my models, my data.
+Recognition accuracy has plenty of room to improve. Model quality keeps getting better and I'll probably swap llama3.2:3b for something newer in six months. HA's voice intent coverage keeps expanding with every release. The whole space is moving fast enough that anything I write here will be partially out of date by the time you read it.
 
 ## FAQ
 

@@ -7,13 +7,13 @@ description: 'How I built a real-time digital graffiti wall - a shared drawing c
 categories: ['Homelab', 'Web Dev']
 heroImage: '/images/blog/building-a-real-time-digital-graffiti-wall/thumb-b8387025.webp'
 heroAlt: 'A 32 by 32 LED wall lighting up pixel by pixel as people draw a heart, a smiley face and the word HI'
-tldr: 'The Digital Graffiti Wall is an interactive art installation where audiences draw on a shared 32x32 pixel canvas in their browsers, and their artwork appears in real-time on a physical RGB LED grid. MongoDB Realm handles the real-time synchronization between all connected clients with anonymous authentication and atomic pixel updates.'
+tldr: 'The Digital Graffiti Wall is an interactive art installation where audiences draw on a shared 32x32 pixel canvas in their browsers, and their artwork appears in real-time on a physical RGB LED grid. MongoDB Realm stored the pixels, with anonymous auth and atomic updates, and every client polled the grid every 5 seconds.'
 contentNotice: 'MongoDB ended support for the Realm Web SDK (later Atlas Device SDK) on September 30, 2025, so the sync code here shows how the wall worked, not code you can run today.'
 ---
 
 <!-- vale JoeKarlsson.BannedWords = NO -->
 
-There's something magical about seeing your digital creation appear on a physical object in real-time. The Digital Graffiti Wall is an interactive art installation I built that lets multiple people draw simultaneously on a shared canvas - and then displays their collaborative artwork on a physical RGB LED grid, live.
+The Digital Graffiti Wall is an interactive art installation I built that lets multiple people draw simultaneously on a shared canvas - and then displays their collaborative artwork on a physical RGB LED grid, live.
 
 The idea came from wanting to make audience interaction with speakers at tech events more collaborative and visual. (If you like physical computing projects, check out my [IoT Kitty Litter Box](/talks/an-introduction-to-iot-internet-of-toilets/) too.) Instead of just typing questions in a chat, what if everyone in the room could paint on a shared wall together?
 
@@ -42,7 +42,7 @@ Each of the 1,024 pixels is stored as a document in MongoDB:
 }
 ```
 
-Simple, flat, queryable. No nested arrays, no complex schemas. Each pixel is independently addressable and atomically updateable.
+Each pixel is a flat document, so it can be updated on its own, atomically.
 
 ## The Drawing Interface
 
@@ -140,7 +140,7 @@ A "Clear" button resets all pixels to white using a bulk update. This is useful 
 
 ## Design Decisions
 
-**Polling vs. real-time subscriptions.** I went with 5-second polling instead of MongoDB change streams. It's simpler, uses less bandwidth with many concurrent clients, and the slight delay doesn't matter for collaborative pixel art. At an event, the wall is never "still" anyway.
+**Polling vs. real-time subscriptions.** I went with 5-second polling instead of MongoDB change streams. It's simpler, and a 5-second delay doesn't matter for collaborative pixel art.
 
 **Divs vs. Canvas API.** Individual divs are less performant than a Canvas element, but they're easier to make interactive. Each cell gets its own click handler, hover state, and color. For 1,024 elements, the performance is perfectly fine.
 
@@ -152,16 +152,16 @@ A "Clear" button resets all pixels to white using a bulk update. This is useful 
 
 The setup is minimal: point a projector at the LED grid (or just let people watch the physical display), share a URL or QR code, and let people draw. The [NES.css](https://nostalgic-css.github.io/NES.css/) styling gives it a retro 8-bit aesthetic that matches the pixel art constraints.
 
-The best moments are when the audience self-organizes - someone starts drawing a recognizable shape and others join in, or competing groups try to "claim" corners of the grid. The constraint of 32x32 pixels forces creativity in a way that a blank whiteboard never would.
+The best moments are when the audience self-organizes - someone starts drawing a recognizable shape and others join in, or competing groups try to "claim" corners of the grid.
 
 ## What I Learned
 
 **MongoDB as a pixel buffer works surprisingly well.** 1,024 documents with simple reads and writes is well within MongoDB's comfort zone, and the aggregation pipeline handles the sorting/querying cleanly.
 
-**Optimistic updates are essential for interactive UIs.** Nobody wants to click a pixel and wait 200ms for it to change color. Update locally first, sync to the database in the background.
+**Optimistic updates.** Nobody wants to click a pixel and wait 200ms for it to change color. Update locally first, sync to the database in the background.
 
-**Physical computing amplifies digital experiences.** The web canvas alone is fun. Seeing your pixels appear on a physical LED grid is _exciting_. The bridge between digital and physical is where the magic happens.
+**Physical computing amplifies digital experiences.** The web canvas alone is fun. Seeing your pixels appear on a physical LED grid is _exciting_.
 
-The [source code is on GitHub](https://github.com/JoeKarlsson/digital-graffiti-wall) if you want to run your own at an event. All you need is a MongoDB Atlas account and a dream.
+The [source code is on GitHub](https://github.com/JoeKarlsson/digital-graffiti-wall) if you want to run your own at an event. All you need is a MongoDB Atlas account, a replacement for Realm (see the note above), and a dream.
 
 The LED panel half of this project still lives on the shelf next to my desk. In 2026 I rebuilt it as [PixelPane, an open source pixel art frame that Home Assistant drives](/blog/pixelpane-pixel-art-home-assistant/).

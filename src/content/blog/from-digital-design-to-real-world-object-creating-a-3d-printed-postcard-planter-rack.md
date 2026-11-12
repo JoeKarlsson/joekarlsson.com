@@ -43,7 +43,7 @@ I think that's the best part. A tower of small pots would be a chore to water on
 
 ## Three-plus years later
 
-The ABS is holding up better than I expected. After three or four years of wet soil next to a sunny window, the pots look about the same as the day I printed them.
+The ABS is holding up better than I expected. After almost four years of wet soil next to a sunny window, the pots look about the same as the day I printed them.
 
 When I first planted it, every pocket had a small succulent in it:
 

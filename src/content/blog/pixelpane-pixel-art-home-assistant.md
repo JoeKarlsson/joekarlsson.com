@@ -3,7 +3,7 @@ title: 'I built a 32x32 pixel art frame that shows what my house is doing'
 seoTitle: 'A 32x32 Pixel Art Frame for Home Assistant'
 date: 2026-10-12T17:45:42Z
 slug: 'pixelpane-pixel-art-home-assistant'
-description: 'PixelPane is my open source 32x32 LED pixel art frame on a Raspberry Pi. Home Assistant turns it into an ON AIR sign, a doorbell, and seasonal decor.'
+description: 'PixelPane is my open source 32x32 LED pixel art frame. Its art changes with the seasons, and Home Assistant turns it into an ON AIR sign and a doorbell alert.'
 categories: ['Homelab']
 tags: ['Home Assistant', 'Raspberry Pi', 'LED matrix', 'pixel art', 'open source']
 heroImage: '/images/blog/pixelpane-pixel-art-home-assistant/hero-grid.webp'
@@ -46,7 +46,7 @@ I've owned a [Divoom Pixoo 64](https://divoom.com/products/pixoo-64), and it was
 
 Over the last couple of years I've gone all in on my [homelab](/blog/homelab-two-years-later/) and self-hosting, and I wanted the thing on my shelf to be part of that: something I could change whenever I wanted and wire into anything in the house. Off-the-shelf frames don't work that way. An [Ulanzi TC001 running AWTRIX](https://blueforcer.github.io/awtrix3/) has great Home Assistant support for about $45 (as of October 2026), but it's a 32x8 ticker, not a canvas. Tidbyt was the closest thing to what I wanted, and it paused manufacturing when the company [joined Modal](https://tidbyt.com/blogs/tidbyt/tidbyt-is-joining-modal).
 
-Building your own isn't cheaper. The parts come to about $180 as of October 2026 (a Pi 3B, an Adafruit RGB Matrix HAT, a 32x32 panel, a 5 V 4 A supply, an SD card, a shadow box and some two-way mirror acrylic), which is more than a Pixoo. You're paying for owning every pixel and every integration (and because it's a fun project).
+Building your own isn't cheaper. The parts come to about $180 as of October 2026 (a Pi 3B, an Adafruit RGB Matrix HAT, a 32x32 panel, a 5 V 4 A supply, an SD card, a shadow box and some two-way mirror acrylic), which is more than a Pixoo. You're paying for owning every pixel and every integration, and for a fun project.
 
 ## Rebuilding the 2020 board
 
@@ -105,7 +105,7 @@ These are the only things that interrupt it:
 
 ## Weather, music, meetings and the homelab
 
-Between the GIFs, the playlist has live scenes: a clock, the weather, what's playing in my office, a countdown to my next meeting, and a six-page homelab dashboard that cycles through host CPU, NAS space, network and the UPS. Each one is animated: the weather cloud rains, the calendar icon rings when a meeting is close, and the homelab gauges fill up. Home Assistant pushes the data for all of them every 10 minutes, and right away whenever something changes.
+Between the GIFs, the playlist has live scenes: a clock, the weather, what's playing in my office, a countdown to my next meeting, and a six-page homelab dashboard that cycles through host CPU, NAS space, network and the UPS. Each one is animated: the weather cloud rains, the calendar icon rings when a meeting is close, and the homelab gauges fill up. Home Assistant pushes the data for the weather, music, meeting and homelab scenes every 10 minutes, and right away whenever something changes.
 
 ![Pressing Play now on weather, now playing, calendar and homelab in PixelPane, with the preview drawing rain at 48 degrees, MGMT playing, a meeting in 18 minutes and the homelab checks](/images/blog/pixelpane-pixel-art-home-assistant/pp-data.gif)
 

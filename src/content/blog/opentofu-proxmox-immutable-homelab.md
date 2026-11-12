@@ -9,7 +9,7 @@ description: 'How I moved 62 Proxmox containers to OpenTofu with a self-hosted s
 categories: ['Homelab']
 heroImage: '/images/blog/opentofu-proxmox-immutable-homelab/hero.webp'
 heroAlt: 'A blue bowl full of pale purple tofu cubes with a pair of chopsticks, on an orange background'
-tldr: 'I spent months building 86 health check scripts across 40+ Proxmox containers, discovered things were more broken than I thought, then migrated all 62 to OpenTofu in six intensive days using a wave-based approach with MinIO as a self-hosted state backend. That is 21,135 lines of provision script code, 50 git commits, and an honest take on whether it is actually worth it.'
+tldr: "I spent months building 86 health check scripts across 40+ Proxmox containers, discovered things were more broken than I thought, then migrated all 62 to OpenTofu in six intensive days using a wave-based approach with a self-hosted S3 state backend (MinIO at first, now Silo, a maintained MinIO fork). That's 21,135 lines of provision script code and 50 git commits. The feedback loop is slower, and for me it was worth it."
 faq:
   - question: 'How long does it take to migrate an existing Proxmox homelab to OpenTofu?'
     answer: 'It depends on how many containers you have and how documented they are. I migrated 62 containers across 6 intensive days of active work after months of auditing with health checks. Stateless services take 30-60 minutes each. Stateful services with databases or media libraries take 2-4 hours including verification time.'
@@ -42,7 +42,7 @@ It returned 1. Service unreachable.
 
 I SSH'd in. The service wasn't running. Hadn't been running, based on the logs, for about three weeks.
 
-Three weeks. Nobody noticed. I hadn't noticed. The container showed green in Proxmox, the host was healthy, and somewhere in there the actual service had died and I'd just... moved on.
+Three weeks, and I hadn't noticed. The container showed green in Proxmox, the host was healthy, and somewhere in there the actual service had died and I'd just... moved on.
 
 ## How bad was it, actually?
 
@@ -56,11 +56,9 @@ Forty-plus containers, each configured by hand. Some had documentation. Most did
 
 For maybe a third of them? Probably. For the rest? I'd be digging through forum posts, my own commit history, and months of `journalctl` output trying to reconstruct what I'd actually done. Some configuration had been running so long the original setup was effectively gone - not failing today, just undocumented and unrecoverable the day it did.
 
-> That's maintenance fatigue. Not one big failure. The slow accumulation of things you no longer understand.
-
 The other cost was harder to name. Every time something broke, I had to reconstruct the context from memory: what was installed in that container, how it was configured, what it depended on, when I last touched it.
 
-For one container that's fine. For forty-plus, that's a real cognitive load, and I'd been carrying it for years without noticing. That's what I wanted to offload. Not the downtime. The overhead.
+For one container that's fine. For forty-plus, that's a real cognitive load, and I'd been carrying it for years without noticing. That overhead, more than the downtime, is what I wanted to offload.
 
 ## 86 health checks before I touched a config file
 
@@ -82,7 +80,7 @@ People ask if this is just Ansible with extra steps. It's not. They solve differ
 
 **[OpenTofu](https://opentofu.org)** manages what _exists_. It talks to the Proxmox API, creates LXC containers, assigns resources, and runs the provision script. It knows what should be there and what actually is there. `tofu plan` shows the diff. `tofu apply` reconciles them. State drift becomes detectable instead of invisible.
 
-**[Silo](https://github.com/pgsty/silo)** is the state backend. It runs as CT 202 on my own hardware, S3-compatible and versioned. It started as MinIO and moved to Silo, a maintained MinIO fork, in October 2026 ([more on why below](#five-months-later-minio-went-away)). Every `tofu apply` writes state there. No Terraform Cloud. No recurring cost. No data leaving my network.
+**[Silo](https://github.com/pgsty/silo)** is the state backend. It runs as CT 202 on my own hardware, S3-compatible and versioned. It started as MinIO and moved to Silo, a maintained MinIO fork, in October 2026 ([more on why below](#five-months-later-minio-went-away)). Every `tofu apply` writes state there. So there's no Terraform Cloud, no recurring cost, and no data leaving my network.
 
 **[Ansible](https://www.ansible.com)** handles what OpenTofu doesn't: operational tasks across existing containers. Deploying log-shipping config changes to every host at once. Running health checks. Ad-hoc operations that don't fit the "single container state" model. Ansible doesn't track what exists - it just does things. That's fine when you're operating on containers OpenTofu already knows about.
 
@@ -90,9 +88,7 @@ People ask if this is just Ansible with extra steps. It's not. They solve differ
 
 ![Expanding Brain meme: 'SSH in and hope you remember what you did' / 'Ansible playbooks' / 'OpenTofu with a self-hosted state backend' / 'OpenTofu + Ansible + Silo + 86 health checks + git history'](/images/blog/opentofu-proxmox-immutable-homelab/expanding-brain-silo.webp)
 
-> **The key insight:** OpenTofu is for "what exists." Ansible is for "what runs on what exists." The state backend is what makes OpenTofu's state durable.
-
-## Write One Script, Call It 62 Times
+## One module, called 62 times
 
 The design decision that made this manageable: a single reusable module.
 
@@ -104,7 +100,7 @@ Here's what a typical one looks like (Sonarr, condensed):
 
 ```bash
 #!/bin/bash
-# Runs inside a bare Debian 13 LXC. Idempotent — safe to re-run.
+# Runs inside a bare Debian 13 LXC. Idempotent - safe to re-run.
 set -euo pipefail
 
 log() { echo "[provision] $*"; }
@@ -114,7 +110,7 @@ log "Starting Sonarr provision ($${hostname} @ $${container_ip})"
 apt-get update -qq
 apt-get install -y -qq curl ca-certificates sqlite3 prometheus-node-exporter
 
-# Sonarr binary — only installed if missing
+# Sonarr binary - only installed if missing
 if [ ! -f /opt/Sonarr/Sonarr ]; then
   log "Installing Sonarr..."
   SONARR_URL=$(curl -s "https://api.github.com/repos/Sonarr/Sonarr/releases" \
@@ -124,7 +120,7 @@ if [ ! -f /opt/Sonarr/Sonarr ]; then
   tar -xzf /tmp/Sonarr.tar.gz -C /opt/
   chown -R sonarr:sonarr /opt/Sonarr
 else
-  log "Sonarr already installed — skipping"
+  log "Sonarr already installed - skipping"
 fi
 
 # Systemd service
@@ -188,13 +184,11 @@ Before vs. after:
 | Change audit trail            | Nothing                          | 50 git commits and counting         |
 | Adding a new service          | 30 min if documented             | 30 min to write a provision script  |
 | Making a change without fear  | Hard                             | Easier - you can see the diff first |
-| Feedback cycle for changes    | 2 minutes (SSH + edit)           | 20 minutes (edit + apply + verify)  |
+| Feedback cycle for changes    | 3 minutes (SSH + edit)           | 20 minutes (edit + apply + verify)  |
 
 ## What's actually worse now
 
-Nobody warns you about this before you start.
-
-The feedback cycle is longer. I'm not going to pretend otherwise.
+The feedback cycle is longer.
 
 Before: notice a problem, SSH in, edit the config, restart the service, done. Three minutes. Or: want to test a package, `apt-get install` it, see what happens. Five minutes.
 
@@ -212,11 +206,11 @@ One benefit I didn't anticipate: AI coding agents like Claude Code can read a pr
 
 ## One week later
 
-Troubleshooting is easier. Not dramatically. I'm not claiming this solved everything. But when something breaks now, I have a document that says what the container should be doing. Start there. Compare reality to the spec. The gap is usually where the problem is.
+Troubleshooting is easier, though not dramatically. When something breaks, I compare reality to the provision script, and the gap is usually the problem.
 
 Real example from last week: Lidarr was OOMing. Old me would have SSHed in, poked around, maybe found it. New me opened the provision script, checked the memory limit, pulled up the Prometheus graph showing it pegging the ceiling, bumped the limit in `main.tf`, ran `tofu apply`. Ten minutes. And now there's a commit that says exactly what changed and why.
 
-Less surprised by issues overall. The health checks give me a baseline expectation. The state files give me a spec. Together they make the gap between "what should be happening" and "what is happening" much smaller.
+Less surprised by issues overall. The health checks give me a baseline expectation. The provision scripts give me a spec. Together they make the gap between "what should be happening" and "what is happening" much smaller.
 
 Git history is the audit trail now. Here's what that actually looks like:
 
@@ -232,11 +226,11 @@ c860b71 2026-05-26 feat(opentofu): migrate joekarlsson.com (CT 165) to OpenTofu
 731151e 2026-05-26 chore(opentofu): add healthchecks auto-update cron to remaining Wave 5 services
 ```
 
-Fifty commits. Every infrastructure change, dated, described, reversible. That's the thing I wanted most and it works exactly as expected.
+That's fifty commits, each a dated, described change I can revert. It's the thing I wanted most, and it works exactly as expected.
 
 ![Jim Carrey celebrating 'yes it works' GIF](/images/blog/opentofu-proxmox-immutable-homelab/jim-carrey-it-works.gif)
 
-I'm still finding gaps from the initial audit. Services with configuration that got lost during the migration, which I'm reconstructing piece by piece as things break. I expect that to continue. The alternative was never having it written down at all.
+I'm still finding gaps from the initial audit. Services with configuration that got lost during the migration, which I'm reconstructing piece by piece as things break. I expect that to continue.
 
 ## Five months later: MinIO went away
 
@@ -255,9 +249,9 @@ I did break one apply during the cutover: I stopped the backend while another se
 
 Two smaller changes landed the same month: every container now ships its logs with [Grafana Alloy](https://grafana.com/docs/alloy/latest/) instead of Promtail, and the baseline module builds on Debian 13 instead of Debian 12. The diagram and the setup notes above show the current versions.
 
-## Is This Right for You?
+## Is this right for you?
 
-Honest answer: it depends. Here's the checklist I wish I'd had before I started.
+It depends. Here's the checklist I wish I'd had before I started.
 
 I build things when I start experiencing pain - not because I read a best practice somewhere. I wouldn't have touched IaC two months into running Proxmox. It took a couple years of managing this thing before the overhead got real enough to act on. If you're not feeling it yet, don't force it.
 
@@ -277,8 +271,6 @@ I build things when I start experiencing pain - not because I read a best practi
 - You have 3-5 containers that are already documented
 - The hands-on tinkering IS the hobby. You genuinely like SSHing in and making live changes.
 - You won't commit to keeping provision scripts current. Half-committed IaC is worse than none.
-
-The setup cost is real. The payoff is real. Where that lands is different for everyone.
 
 ## Things I wish I'd known
 
@@ -302,9 +294,9 @@ That's a lot of things that aren't `tofu apply`. Each one takes real time, which
 
 **The feedback cycle is longer. Accept it before you start.** You'll miss SSH + edit + done. You won't miss rebuilding a container from scratch because it died and you had no notes.
 
-**Some stuff will get lost.** Config that was never written down won't survive the migration intact. Find it when things break, write it in code. It's a process.
+**Some stuff will get lost.** Config that was never written down won't survive the migration intact. Find it when things break, write it in code.
 
-The homelab is never done. This is just what the current chapter looks like: 62 containers, 21,135 lines of provision script code, and a git log that shows every decision I've made since May 23rd. Worth it for me.
+It came to 62 containers, 21,135 lines of provision script code, and a git log that shows every decision I've made since May 23rd. Worth it for me.
 
 ## Frequently Asked Questions
 

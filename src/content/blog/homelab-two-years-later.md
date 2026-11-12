@@ -65,7 +65,7 @@ Single-slot workstation cards with blower coolers skip the size, connector-heigh
 
 This one caught me off guard. Enterprise DDR4 ECC RAM costs several times what it did when I started this project.
 
-The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of memory, and that demand is competing directly with the secondhand market that homelabbers depend on. Used DDR4 ECC sticks I could find for $40-80 a couple years ago now run $200-400 for 32GB RDIMMs - about 5x. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2025%E2%80%93present_global_memory_supply_shortage). The supply of used enterprise RAM dried up because the same companies that used to surplus it are now keeping their older servers running longer because they need the compute for AI.
+The AI boom did this. Every company building GPU clusters and inference servers needs massive amounts of memory, and that demand is competing directly with the secondhand market that homelabbers depend on. Used DDR4 ECC sticks I could find for $40-80 a couple years ago now run $200-400 for 32GB RDIMMs - about 5x. It's bad enough that it has [its own Wikipedia article](https://en.wikipedia.org/wiki/2025%E2%80%93present_global_memory_supply_shortage). My guess is the companies that used to surplus it are keeping old servers running longer for AI work.
 
 Each host has 128GB, and it came with the configured servers, so I never bought sticks on their own, and I'm glad. Filling those 256GB today would cost $1,600-3,200 - close to what I paid for one whole configured server.
 
@@ -130,7 +130,7 @@ I wanted to understand networking properly (VLANs, firewall rules, routing, subn
 
 The router is a [UniFi Cloud Gateway Ultra](https://store.ui.com/us/en/products/ucg-ultra), which is also the firewall, DHCP server, and WiFi controller. It does all the routing between VLANs and runs Suricata intrusion prevention inline. The MikroTik is just a 10G switch. There are three UniFi access points with 802.11r fast roaming: two [U7 Pros](https://ui.com/us/wifi/u7-pro), one upstairs and one on the main floor, plus a U7 Pro XG I added in the basement later. Devices hand off between APs as I walk through the house without dropping connections, and guests never notice.
 
-### Four VLANs keep the IoT junk away from my NAS
+### Four VLANs, and the IoT stragglers
 
 IoT devices are made by companies you've never heard of, run firmware that rarely gets security patches, and phone home to servers in countries you can't identify on a map. I don't want any of them to have network access to my NAS full of family photos and financial documents.
 
@@ -145,7 +145,7 @@ VLANs create separate virtual networks that can't talk to each other unless I wr
 
 A compromised smart plug on the IoT VLAN can't reach my NAS, and a guest can't scan my local network. The IoT VLAN still has internet access, because plenty of these devices stop working without their cloud.
 
-It's not airtight. Casting across VLANs needs mDNS, and right now the gateway reflects all mDNS traffic between networks instead of just AirPlay and Cast. And only 11 devices are on the IoT VLAN right now. A lot of my older smart stuff still lives on the main LAN, fenced in by a MikroTik firewall list I set up before the VLANs existed. I haven't moved them yet.
+It's not airtight. Casting across VLANs needs mDNS, and right now the gateway reflects all mDNS traffic between networks instead of just AirPlay and Cast. And only 11 devices are on the IoT VLAN right now. A lot of my older smart stuff still lives on the main LAN, where nothing keeps it away from the NAS. I haven't moved it yet.
 
 My LED pixel art frame, [PixelPane](/blog/pixelpane-pixel-art-home-assistant/), lives there now: it can reach Home Assistant and the internet and nothing else, and Home Assistant pushes to it instead of handing it a token.
 
@@ -265,9 +265,7 @@ The plug reads about 25W more than the two servers, which covers the switches, N
 
 ### Built for data center power prices, not my attic
 
-The R730 is cheap to buy: about $1,850 configured, against a five-figure price new, with ECC RAM, redundant power supplies, iDRAC, and expansion slots that consumer hardware doesn't have.
-
-But these machines were designed for data centers with commercial power contracts and industrial cooling. In my attic, on a residential plan, they're free heat in a Minnesota January and a problem in July.
+These machines were designed for data centers with commercial power contracts and industrial cooling. In my attic, on a residential plan, they're free heat in a Minnesota January and a problem in July.
 
 ![Change My Mind meme: 'Enterprise servers are cheap to buy and expensive to run'](/images/blog/homelab-two-years-later/change-my-mind-enterprise.webp)
 
@@ -285,23 +283,23 @@ Yes, a couple of modern mini PCs would run most of these 73 containers at a frac
 
 People always ask what this cost:
 
-| Item                                     | Cost        |
-| ---------------------------------------- | ----------- |
-| R730 #1 (Server Design Lab, configured)  | $1,857      |
-| R730 #2 (Server Design Lab, configured)  | $1,839      |
-| ThinkServer (original post, now retired) | $200        |
-| Quadro RTX 4000 8GB (eBay)               | $230        |
-| RTX A4000 16GB (eBay)                    | $895        |
-| UniFi Cloud Gateway Ultra                | $129        |
-| UniFi U7 Pro APs (x2)                    | $378        |
-| UniFi US-24 (renewed)                    | $225        |
-| StarTech rack + shelves                  | $375        |
-| MikroTik CRS317                          | $433        |
-| CyberPower UPS (x2)                      | $778        |
-| Cables, adapters, misc                   | ~$100       |
-| **Total hardware**                       | **~$7,400** |
-| Electricity (~$47/month x 24 months)     | ~$1,130     |
-| **Total cost of ownership (2 years)**    | **~$8,500** |
+| Item                                                 | Cost        |
+| ---------------------------------------------------- | ----------- |
+| R730 #1 (Server Design Lab, configured)              | $1,857      |
+| R730 #2 (Server Design Lab, configured)              | $1,839      |
+| ThinkServer (original post, now retired)             | $200        |
+| Quadro RTX 4000 8GB (eBay)                           | $230        |
+| RTX A4000 16GB (eBay)                                | $895        |
+| UniFi Cloud Gateway Ultra                            | $129        |
+| UniFi U7 Pro APs (x2)                                | $378        |
+| UniFi US-24 (renewed)                                | $225        |
+| StarTech rack + shelves                              | $375        |
+| MikroTik CRS317                                      | $433        |
+| CyberPower UPS (x2)                                  | $778        |
+| Cables, adapters, misc                               | ~$100       |
+| **Total hardware**                                   | **~$7,400** |
+| Electricity at today's draw (~$47/month x 24 months) | ~$1,130     |
+| **Total cost of ownership (2 years)**                | **~$8,500** |
 
 The table leaves out the NAS and its drives, which I've owned for years and haven't added to since the servers arrived, plus the basement AP I added later, the cameras, and small stuff like the Coral and the Zigbee stick.
 
@@ -350,8 +348,6 @@ If I were starting over tomorrow with everything I know now:
 - **Buy for the bottleneck.** I put 10G between two servers and left the NAS on 1G. Figure out what actually moves data before you buy the fast links.
 - **Monitoring before the first failure.** You don't need 185 checks on day one, but uptime checks and basic backup verification should be there from the start.
 - **An offsite copy before you need it.** Local backups cover your own mistakes, but mine are in the same attic as everything else.
-- **GPU form factor research.** A card that fits any desktop case can still fail in a 2U server on height, power connectors, or airflow.
-- **Budget for RAM upfront, but buy what you'll use.** The AI boom crushed the DDR4 ECC market, and I'm using about a quarter of what I bought.
 
 ## What's next
 

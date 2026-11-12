@@ -67,13 +67,13 @@ Run `bumper render` and you get a ten-second MP4 with the cards fading through o
 
 I didn't build the Plex side, and you shouldn't either. [NeXroll](https://github.com/JFLXCLOUD/NeXroll) is a self-hosted pre-roll manager that already does it well. I dumped the rendered bumpers into an "Adult Swim" category, and NeXroll shuffles through them before every movie, next to the seasonal ones it plays around Christmas and Halloween.
 
-One catch: Plex only plays pre-rolls before movies, so TV episodes still start cold. Half of Joeflix has no personality yet.
+Plex only plays pre-rolls before movies, so TV episodes still start cold. Half of Joeflix has no personality yet.
 
-## Nobody compliments my transcoding settings
+## Steal the code
 
 I get compliments on the bumpers all the time from people who join the server. Nobody has ever said a word about my transcoding settings. But a jellyfish telling them there's no algorithm? That gets brought up.
 
-If you run a server for your own people, [steal the code](https://github.com/JoeKarlsson/adult-swim-bumper). Set your server name and write some bad jokes. Building the rest of the setup? Start with my [homelab starter guide](/blog/how-to-get-started-building-a-homelab-server/). [Two years later](/blog/homelab-two-years-later/) is what it turned into.
+If you run a server for your own people, [steal the code](https://github.com/JoeKarlsson/adult-swim-bumper). Set your server name and write some bad jokes. If you're building the rest of the setup, start with my [homelab starter guide](/blog/how-to-get-started-building-a-homelab-server/); [my homelab two years later](/blog/homelab-two-years-later/) shows what mine turned into.
 
 sit back. breathe. it's just a movie.
 

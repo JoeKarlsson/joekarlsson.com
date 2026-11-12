@@ -22,7 +22,7 @@ heroAlt: '3D illustration of a woman labeled "Me" covering her face with her han
 tldr: "In October 2026 I moved my default coding agent from Claude Code to OpenCode running open-weight models through OpenRouter and my own LiteLLM gateway. DeepSeek V4.1 Flash passed every run of my own two-task test at about two cents a task. But OpenCode isn't a one-to-one swap for Claude Code: I had to test models on my own work instead of trusting leaderboards, make OpenCode send DeepSeek its reasoning back, force the agent to run its code before saying done, and accept that my homelab GPUs can't run a coding agent. Claude is still my escalation path for the hardest problems."
 faq:
   - question: 'Is OpenCode with open models a drop-in replacement for Claude Code?'
-    answer: 'No. Claude Code was passing reasoning back between steps, checking its own work, and keeping tools inside the context window. With OpenCode I had to turn on interleaved reasoning for DeepSeek, add a plugin that makes the agent run its code before saying done, and test models on my own tasks.'
+    answer: 'No. Claude Code was passing reasoning back between steps and checking its own work more often. With OpenCode I had to turn on interleaved reasoning for DeepSeek, add a plugin that makes the agent run its code before saying done, and test models on my own tasks.'
   - question: 'Which open model do you use for coding instead of Claude Code?'
     answer: 'DeepSeek V4.1 Flash. It passed every run of my two-task test in OpenCode at about two cents a task. DeepSeek V4 Pro handles harder work, and I still switch to Claude for the hardest problems.'
   - question: 'Why use OpenRouter and LiteLLM together?'
@@ -33,7 +33,7 @@ faq:
 
 I switched my default coding agent from Claude Code to [OpenCode](https://opencode.ai/) running open models. Claude Code was doing work for me that I never noticed until it was gone, like passing the model's reasoning back between steps and checking its own work more often. The model itself was fine, but I had to fix a lot of what was around it.
 
-I'm early here. I've been at this for days, on two test tasks and a handful of models, so treat this as a field report and not a ranking. And "breaking up" is generous. Claude is the ex I still call when something is hard. I just don't call first anymore.
+I'm early here. I've been at this for days, on two test tasks and nine models, so treat this as a field report and not a ranking. And "breaking up" is generous. Claude is the ex I still call when something is hard. I just don't call first anymore.
 
 [Last week](/blog/my-development-setup-2026/) I wrote that local coding agents couldn't touch Claude Code. That's still true. What changed is that the hosted open models got good enough, and cheap enough, that I ran out of excuses.
 
@@ -101,7 +101,7 @@ So I ran my own bake-off, inside OpenCode, on work that looks like mine. I teste
 
 On my two tasks:
 
-- **DeepSeek V4.1 Flash** passed every run, took about 53 seconds on the hard task, and cost about two cents a task. It's my default now. (It's also #2 on [OpenRouter's rankings](https://openrouter.ai/rankings) this week, so I'm not the only one.)
+- **DeepSeek V4.1 Flash** passed every run, took about 53 seconds on the hard task, and cost about two cents a task. It's my default now. (It was also #2 on [OpenRouter's rankings](https://openrouter.ai/rankings) in early October 2026, so I'm not the only one.)
 - **DeepSeek V4 Pro** and **Qwen 3.8 2.4T** also passed every run. Qwen took about 14 minutes and $0.37 to do it.
 - **MiniMax M3** failed the hard task both times. It made up a file path and then stopped without writing any code. [Vals.ai scores it at 75% on SWE-bench Verified.](https://www.vals.ai/models/minimax_MiniMax-M3)
 - **GLM 5.3** quit on one run right after reading the spec.
@@ -130,7 +130,7 @@ The fix is one setting per model in `opencode.json`:
 
 DeepSeek V4 Pro had the opposite problem. Through my setup, it didn't reason at all until I explicitly sent a reasoning effort. That's what the `reasoningEffort` line is for.
 
-What I'd do: before you trust any thinking model in any agent, read one logged request and make sure the reasoning goes back. It takes two minutes, and it's how I found this one.
+Before you trust any thinking model in any agent, read one logged request and make sure the reasoning goes back. It takes two minutes, and it's how I found this one.
 
 ## Verification
 

@@ -30,7 +30,7 @@ faq:
   - question: 'Why use Handy instead of Superwhisper for talking to Claude Code?'
     answer: 'Handy is open source, free, and runs any local speech model, including Whisper and NVIDIA Parakeet, so transcription never leaves my Mac. I also point its transcript cleanup pass at a local model on my homelab instead of a cloud API.'
   - question: 'Is Oh My Zsh worth replacing with plain zsh?'
-    answer: 'Yes, if you only use a few of its aliases. Oh My Zsh loaded thousands of lines of code on every new tab to provide a couple hundred git aliases, and my shell history showed I used two. Replacing it with about 50 lines of my own setup and Homebrew-installed plugins cut shell startup from about 108 ms to 46 ms.'
+    answer: 'Yes, if you only use a few of its aliases. Oh My Zsh provided a couple hundred git aliases, and my shell history showed I used two. Replacing it with about 50 lines of my own setup and Homebrew-installed plugins cut shell startup from about 108 ms to 46 ms.'
   - question: 'How do you keep CLAUDE.md consistent across machines?'
     answer: 'My global CLAUDE.md, settings.json, status line, and notification hook live in my dotfiles repo, and chezmoi deploys them to every Mac. A Linux dev container in my homelab pulls the same repo weekly, so every Claude Code session follows the same rules.'
   - question: 'Are local coding agents as good as Claude Code?'
@@ -105,7 +105,7 @@ Full file: [`config.ghostty`](https://github.com/JoeKarlsson/dotfiles/blob/main/
 
 ### Plain zsh: startup from 108 ms to 46 ms
 
-I noticed lag. Opening a new tab had a small but real delay, and I open a lot of tabs. So I audited it: startup was around 108 ms, mostly [Oh My Zsh](https://ohmyz.sh/) plus a handful of tools spawning a subprocess every time a shell started. After the cleanup it was 46 ms, and new tabs feel instant. That's warm-cache `.zshrc` load time in a real pty, timed with zprof and per-section timers under `env -i`, so my agent's environment didn't skew it. My first measurement was misleading, because a cold completion cache made `compinit` look like 460 ms. Warm, it takes 7 ms.
+I noticed lag. Opening a new tab had a small but real delay, and I open a lot of tabs. So I audited it: startup was around 108 ms, mostly [Oh My Zsh](https://ohmyz.sh/) plus a handful of tools spawning a subprocess every time a shell started. After the cleanup it was 46 ms, and new tabs feel instant. That's warm-cache `.zshrc` load time in a real pty, timed with zprof and per-section timers under `env -i`, so my agent's environment didn't skew it. A cold completion cache makes `compinit` look like 460 ms. Warm, it takes 7 ms.
 
 Measuring showed me that **aliases are free and subprocesses aren't.** Dozens of aliases didn't register at all, while every `eval "$(some-tool init)"` added real time.
 
@@ -244,7 +244,7 @@ Full file: [`starship.toml`](https://github.com/JoeKarlsson/dotfiles/blob/main/h
 
 I talk to my agents far more than I type to them. Hold a key, say what I want, let go, and the text lands in whichever Claude pane has focus. It feels a lot like having Jarvis: I narrate the problem the way I'd explain it to a coworker, and the agent goes and does it. Talking also makes me explain what I want instead of firing off half a thought.
 
-Superwhisper was good. Handy is [open source](https://github.com/cjpais/Handy), free, and runs any local model I want: Whisper, or NVIDIA's [Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3), which is what I use. Its cleanup pass (punctuation, misheard words) points at a local model on my homelab GPU, so nothing leaves hardware I own. Keeping my data on hardware I own isn't one of the four goals, but every tool in this post has to meet it.
+Superwhisper was good. Handy is [open source](https://github.com/cjpais/Handy), free, and runs any local model I want: Whisper, or NVIDIA's [Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3), which is what I use. Its cleanup pass (punctuation, misheard words) points at a local model on my homelab GPU, so nothing leaves hardware I own. Keeping my data on hardware I own isn't one of the four goals, but I pick the local option when there is one.
 
 The same rule applies to recording: I built an [open source screen recorder that edits the video for me](/blog/screencast-director-screen-recorder/), and its transcription runs locally.
 
@@ -264,7 +264,7 @@ git worktree remove ../docs-nav               # clean up after merging
 
 At work I've had five agents in one docs repo at once, each in its own worktree: one restructuring navigation, one fixing broken links, a few rewriting pages. The costs are small. Each worktree needs its own `npm install`, dev servers can fight over a port, and I still resolve conflicts at merge time.
 
-More agents doesn't mean less review. Every repo has tests for everything, I read all the code before it merges, and on a collaborative project other people review and test it too.
+More agents doesn't mean less review. My repos have tests, I read all the code before it merges, and on a collaborative project other people review and test it too.
 
 I wrote about what working this way feels like in [Rereading Hackers and Painters as a painter who codes with AI agents](/blog/hackers-and-painters-ai-agents/).
 
@@ -331,7 +331,7 @@ Each of these rules came from something going wrong. "Test the change you made" 
 ![UNO Draw 25 Cards meme: the card says "Run the tests before saying it's done" and the man holding a huge hand of cards is labeled "Claude, before I put it in CLAUDE.md"](/images/blog/my-development-setup-2026/uno-draw-25-run-the-tests.webp)
 
 <details>
-<summary>Show excerpts from my global CLAUDE.md</summary>
+<summary>Show excerpts from my global CLAUDE.md (September 2026)</summary>
 
 ```markdown
 ## Testing
@@ -399,7 +399,7 @@ WRITE_PATTERNS = [
 
 If you're letting an agent near real systems, learn hooks first.
 
-Update, October 2026: since writing this, I've moved most of these rules into mods, because a few of my hooks turned out to have never worked. More in [First impressions of Claude Code mods](/blog/claude-code-mods-first-impressions/).
+Update, October 2026: I've since moved most of my rules into mods, because a few of my context hooks had never worked. The blocking hooks above do work, and I kept them as a backup. More in [First impressions of Claude Code mods](/blog/claude-code-mods-first-impressions/).
 
 ## Editing and writing
 
@@ -554,7 +554,7 @@ Full file: [`topgrade.toml`](https://github.com/JoeKarlsson/dotfiles/blob/main/h
 
 The script worked for one Mac. It fell apart with several machines that were mostly the same, one of which wasn't a Mac at all. When I audited it, one laptop had months of uncommitted changes and another had pushed commits that conflicted with them. Having my dotfiles in git hadn't kept my machines matching them.
 
-chezmoi fixes that with machine profiles. Each Mac gets asked once whether it's work or personal; Linux is always a server, so provisioning a container never hangs on a prompt. The Linux container skips the Mac stuff but gets the same git config and the same `CLAUDE.md`. Everything that isn't a template is a symlink, so editing `~/.zshrc` edits the repo.
+chezmoi fixes that with machine profiles. Each Mac gets asked once whether it's work or personal; Linux is always a server, so provisioning a container never hangs on a prompt. The Linux container skips the Mac stuff but gets the same git config and the same `CLAUDE.md`. Most files that aren't templates are symlinks, so editing `~/.zshrc` edits the repo.
 
 <details>
 <summary>Show my chezmoi machine-type config</summary>

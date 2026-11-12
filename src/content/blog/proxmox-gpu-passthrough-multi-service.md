@@ -33,7 +33,7 @@ The passthrough config is the easy part. What took me a year to figure out is **
 
 I learned that placement matters the obvious way. Back when everything ran on one card, I was watching Frigate's logs and saw object detection latency jump from about 30ms to over 2 seconds. Plex was transcoding a movie on the same GPU. Each service worked fine on its own, and I'd added them one at a time, so it never occurred to me they'd fight until a security camera started missing people.
 
-In October I benchmarked the local LLMs I run on both cards, and the numbers back up the split: the older Quadro keeps up with the A4000 when a model fits in the VRAM that's left and slows to a crawl when it doesn't. I also checked whether the answers can be trusted, and every model except the weakest made up answers about things that don't exist.
+In October I benchmarked the local LLMs I run on both cards for speed and accuracy. The results are in [Local LLM speed and accuracy](#local-llm-speed-and-accuracy).
 
 The rest of the rack is in [the two-year homelab retrospective](/blog/homelab-two-years-later/).
 
@@ -45,7 +45,7 @@ Seven services do real work on the two cards:
 - **Wyoming Whisper** turns my voice into text for Home Assistant's [local voice assistant](/blog/local-voice-ai-home-assistant-gpu/). It sits idle until someone talks, then has to answer in well under a second.
 - **[Ollama](https://ollama.com/)** runs the local LLMs behind that voice assistant, plus a few document and tagging jobs.
 - **llama.cpp** serves a bigger coding model I experiment with.
-- **Plex** transcodes for anyone streaming outside the house. The busiest it got last month was three transcodes at once.
+- **Plex** transcodes for anyone streaming outside the house. The busiest it got in September was three transcodes at once.
 - **[Immich](https://immich.app/)** transcodes the videos I back up from my phone. Its face recognition runs on CPU on purpose, so it never competes with an LLM for VRAM.
 - **Tdarr** re-encodes my old video library in the background, on both cards at once.
 

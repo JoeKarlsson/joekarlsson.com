@@ -19,7 +19,7 @@ faq:
   - question: 'How do I find broken automations and dead entities in Home Assistant?'
     answer: "Use a health check. In my setup the Repairs page didn't flag any of the 12 dead references my health check found, because as far as I can tell it doesn't look inside templates, dashboards, or notify targets. Use the Watchman integration or a scheduled script that checks every entity, device, and service your automations reference against Home Assistant's registries."
   - question: 'How many automations is too many in Home Assistant?'
-    answer: 'There is no hard limit. I ran 134 as of October 2026. The practical limit is maintenance: my rule of thumb is that past about 30 automations, you add a health check such as Watchman or a scheduled script so broken references get caught before they bite.'
+    answer: 'There is no hard limit. I have 134 as of November 2026. The practical limit is maintenance: my rule of thumb is that past about 30 automations, you add a health check such as Watchman or a scheduled script so broken references get caught before they bite.'
   - question: 'What are good Home Assistant automation ideas beyond lights?'
     answer: 'Four I would build again: laundry alerts from a door contact and a vibration sensor, Meeting Mode triggered by the camera_in_use sensor on your Mac, a color-coded nightlight that shows garage, leak, and rain status, and the doorbell camera popping up picture-in-picture on the TV.'
   - question: 'Should I use continue_on_error on every action?'
@@ -44,7 +44,7 @@ I live alone. I've lived with partners in this house before, and I have guests o
 
 That means a physical switch for everything, lights that turn on when you walk in and don't turn off while you're still sitting there, and no voice command to learn just to use the bathroom at night.
 
-## All 16 automations
+## The 16 in this post
 
 ![My Home Assistant main dashboard with scene tiles, room tiles, infrastructure health, energy, and laundry status](/images/blog/best-home-assistant-automations/dashboard-overview.webp)
 
@@ -119,7 +119,7 @@ When the house goes from nobody home to someone home, an `im_home` script runs: 
 
 ### Water leak, smoke, and CO2 alerts
 
-If you own a leak sensor and it isn't wired to an automation, you own an expensive coaster. Every safety sensor I have sends a loud alert:
+If you own a leak sensor and it isn't wired to an automation, you own an expensive coaster. Every safety sensor I have triggers something:
 
 - **Water:** 4 Aqara leak sensors send a critical push that breaks through Do Not Disturb, plus a spoken announcement on the speakers.
 - **Smoke:** the kitchen smoke detector does the same.
@@ -229,7 +229,7 @@ Party Mode turns on guest mode and disables the automations that would be annoyi
 
 Both expire on their own: Party Mode at 4 AM, Guest Mode after 24 hours. I made them expire because I'd forget to turn them off, and Party Mode left on means the motion lights never turn off.
 
-When I turn on Vacation Mode, the [Presence Simulation](https://github.com/slashback100/presence_simulation) integration (a community add-on, like Alarmo) replays realistic light patterns so the house looks lived in, and [Alarmo](https://github.com/nielsfaber/alarmo) arms in vacation mode. If the alarm fails to arm, I get a critical push, because otherwise I'd assume the house is armed when it isn't.
+When I turn on Vacation Mode, the [Presence Simulation](https://github.com/slashback100/presence_simulation) integration (a community integration, like Alarmo) replays realistic light patterns so the house looks lived in, and [Alarmo](https://github.com/nielsfaber/alarmo) arms in vacation mode. If the alarm fails to arm, I get a critical push, because otherwise I'd assume the house is armed when it isn't.
 
 Vacation Mode also sends a daily report, and I use it on every trip. At 9 AM every morning I'm away, one notification tells me the indoor temperature, the alarm state, any leaks, how many times the doorbell rang, packages detected, doors opened, when the pet sitter came by, and any National Weather Service alerts.
 
@@ -405,13 +405,13 @@ I use Claude a lot for Home Assistant, mostly the way I'd use a friend who's goo
 
 Then I read every line. I don't ship an automation I can't explain well enough to debug when it misfires. Claude is great at getting something off the ground and at tedious work like repointing 60 notification targets. It only sees my config, though, so I still decide what the house should do.
 
-Home Assistant 2026.10 added a built-in MCP server you can turn on with one click, so an AI app can talk to the house directly. Be careful with it: a new setup exposes every entity by default, so trim what it can see before you connect anything.
+Home Assistant has worked as an MCP server since 2025.2, and 2026.10 made it a one-click switch in Settings > System > AI, so an AI app can talk to the house directly. Be careful with it: a new setup exposes every entity by default, so trim what it can see before you connect anything.
 
 It's also a decent auditor. Claude went through my setup and found three problems, which I've since fixed: the missing webhook behind the alert translator's eight months of silence, AI steps that would crash instead of carrying on when the model was offline, and a watchdog that only alerted inside Home Assistant.
 
 ## What's next: fewer custom components and fewer batteries
 
-Lately I care more about reliability than about adding automations, so I use things out of the box whenever I can, and I'm a lot less likely to reach for third-party custom components or custom code than I used to be. Every custom piece is one more thing that can break on an update. The ones that survived, like Alarmo, Presence Simulation, and my health check script, stayed because nothing built in does their job, and the health checks tell me when one of them breaks. Community add-ons used to come through HACS. Home Assistant 2026.11 replaced it with a built-in Marketplace, and existing HACS installs move over automatically.
+Lately I care more about reliability than about adding automations, so I use things out of the box whenever I can, and I'm a lot less likely to reach for third-party custom components or custom code than I used to be. Every custom piece is one more thing that can break on an update. The ones that survived, like Alarmo, Presence Simulation, and my health check script, stayed because nothing built in does their job, and the health checks tell me when one of them breaks. Community integrations used to come through HACS. Home Assistant 2026.11 replaced it with a built-in Marketplace, and existing HACS installs move over automatically.
 
 I'm also trying to make the house more sustainable, and part of that is avoiding batteries wherever I can. Keeping batteries fresh across a house full of sensors sucks, and the battery-powered devices are usually the finicky ones. Most of the sensors in this post still run on batteries, which is why my health checks watch for the ones that go quiet.
 
