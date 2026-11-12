@@ -46,6 +46,7 @@ Run the full prohibited-language check:
 - Does the post name what everyone's thinking but not saying?
 - Where a section lays out a trade-off, does it say what Joe would actually do?
 - Are scenarios specific (named tools, exact configs) or generic (enterprise data sources, etc.)?
+- **Rival's-name test:** put another DevRel, homelab or data writer's name in place of Joe's in the hook, any about-me or who-I-am lines, and the newsletter opener. A line that's still true for them says nothing about Joe: flag it as `[rival's name]` with a rewrite built from this post's own specifics (what Joe built, measured, broke or decided).
 - For a research post (studies, data or an experiment), check STYLE_GUIDE.md **Writing research posts**: a one-line status saying what kind of post it is, a goal stated before results, results stated flat but explanations marked "I suspect", named people quoted on both sides of a live argument, and an ending on a specific open question. Flag the Nielsen habits that section says not to copy ("we"/"let's", "Spoiler:", stacked hedges).
 
 ## Layer 3: AI-writing pattern audit
@@ -104,6 +105,7 @@ Two-pass audit: answer "What makes this obviously AI-generated?" and "Which line
 5. [teaser or label header] "<before>" → "<after: plain label or claim that states the answer>", location: <section>
 6. [hedged opinion] "<before>" → "<after>", take a stance
 7. [missing tactical call] <section> explains a trade-off without saying what Joe would do, suggest: <what>
+7b. [rival's name] "<before>" → "<after, from the post's own specifics>", still true with <writer> swapped in
 
 ### AI tells (should-fix)
 8. [significance inflation] "<before>" → "<after>"
