@@ -18,7 +18,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 ## Images of Joe
 
-- 2026-11-09: Thumbnails and stills: face centered and whole (both eyes, top of head), Joe looking good. Smiling or explaining is fine. Pick frames for that, not for "clarity".
+- 2026-11-09: Video thumbnails pulled from Joe's footage: face centered and whole (both eyes, top of head), Joe looking good. Smiling or explaining mid-sentence is fine there. Pick frames for that, not for "clarity". Profile photos and headshots are different: no smiling-at-camera shots (memory feedback-headshots-no-smiling-camera-shots).
 - Personal bios say what Joe makes and writes about. No employer or job title.
 
 ## Animation
