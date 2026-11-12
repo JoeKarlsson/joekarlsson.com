@@ -87,7 +87,7 @@ We had both at once. Failure mode 2 fixes on failure mode 1 pages would have don
 
 [The same Seer Interactive study](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update) also found that AI Overviews tend to appear on queries that were already generating fewer clicks, so the causation is murkier than "AI killed my CTR." Sometimes AI Overviews correlate with low CTR rather than causing it. Pulling data from more sources than GSC, and checking whether a query's CTR was already low before an AI Overview showed up on it, helps you tell those apart.
 
-![Meme: Gru's plan - traffic declining, diagnose the problem, realize there are two different problems, fix both differently](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-grus-plan.webp)
+![Skeptical Third World Kid meme: so my rankings went up and my clicks went down?](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-skeptical-kid-rankings-clicks.webp)
 
 ---
 
@@ -284,7 +284,7 @@ On content strategy, the Learning Center articles behind those 8 of 9 top gainer
 
 For GEO specifically, the highest-signal thing you can add is FAQ schema, especially on how-to and comparison pages. It's a traditional rich result signal, and it hands AI systems a clean question-and-answer pair to lift. I also use [a blog skill that bakes these SEO and LLM-citation checks into the writing workflow](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation).
 
-![Meme: Expanding brain - from knowing SEO problems exist, to weekly audits, to Claude Code automation, to being cited in AI Overviews while a cron job collects data](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-expanding-brain.webp)
+!["I'm Something of a Scientist Myself" meme: Willem Dafoe smiling. Top: adds FAQ schema to one page. Bottom: you know, I'm something of an SEO myself](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-something-of-an-seo.webp)
 
 One thing I haven't solved is Core Web Vitals. Our Total Blocking Time is poor across most pages, and it's a JavaScript bundle problem that needs real engineering involvement. A page with great content and bad CWV will underperform a page with great content and good CWV, so it caps everything else. I've filed the issue, and it's still open.
 

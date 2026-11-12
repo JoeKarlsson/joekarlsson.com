@@ -22,7 +22,7 @@ The timing was good. I already had a GPU server sitting in my attic. Two of them
 
 This is the technical follow-up to [that initial experiment](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/) - the early chaos, the 50% wake word success rate, my partner learning to say "Okay Nabu" with diminishing patience. This post is the year-later accounting: what the pipeline actually looks like now, what failed spectacularly, and what I actually run today. It's still very much a work in progress. There's real room for improvement. But it's been one of the more fun projects I've taken on in the homelab.
 
-![Drake meme - rejecting Alexa sending every command to Amazon, approving llama3.2:3b running on my own server and never leaving my network](/images/blog/local-voice-ai-home-assistant-gpu/drake-local-vs-cloud.webp)
+![Bilbo "Why Shouldn't I Keep It" meme: top panel, Amazon, holding every voice command I've ever said. Bottom panel, Bilbo clutching it: after all, why shouldn't I keep it?](/images/blog/local-voice-ai-home-assistant-gpu/meme-bilbo-keep-voice-recordings.webp)
 
 If you're brand new to Home Assistant, [start here first](/blog/how-to-get-started-with-home-assistant/).
 
@@ -139,7 +139,7 @@ Eventually I switched to llama3.2:3b. No think mode to accidentally enable. Fast
 
 The qwen3 optimization docs I wrote are still sitting in my notes as a cautionary artifact.
 
-![Panik/Kalm/Panik meme - top panel: enabling qwen3 think mode for a smart home voice assistant. Middle panel: the model starts reasoning before responding. Bottom panel: it has been five minutes and Piper is still talking](/images/blog/local-voice-ai-home-assistant-gpu/panik-qwen3.webp)
+![Panik Kalm Panik meme: Panik, give the voice assistant a reasoning model. Kalm, it thinks before it answers. Panik, five minutes later it's still reading its thoughts out loud](/images/blog/local-voice-ai-home-assistant-gpu/meme-panik-kalm-panik-think-mode.webp)
 
 ## The Model Hunt (Tool Calling Is the Hard Part)
 
@@ -161,7 +161,7 @@ None of the local options are great at tool calling. The best I've seen is "reli
 
 My working theory is that sub-13B models just don't have the instruction-following consistency this requires. And 13B+ models are too slow for real-time voice on my hardware - you'd be waiting 5-6 seconds for a response, which kills the whole point. If anyone has found a local model that handles HA tool calling reliably, I want to know.
 
-![One Does Not Simply meme - one does not simply find a local LLM that's good at HA tool calling](/images/blog/local-voice-ai-home-assistant-gpu/one-does-not-simply-toolcalling.webp)
+![Stop Trying to Make Fetch Happen meme: Regina George saying stop trying to make local tool calling happen](/images/blog/local-voice-ai-home-assistant-gpu/meme-stop-trying-fetch-tool-calling.webp)
 
 ## Claude as the Backup (Because Tool Calling Actually Works There)
 
@@ -222,7 +222,7 @@ Home Assistant's LLM integrations expose your entities to the model. All of them
 
 Now: the server rack is protected by hard rules in the prompt. The model is told that "the office" means lights only. And if it's not sure, it should not act.
 
-![This Is Fine meme - dog sitting in burning room captioned 'me after adding safety rules to prevent voice commands from touching the server rack'](/images/blog/local-voice-ai-home-assistant-gpu/this-is-fine-server.webp)
+![Disaster Girl meme: a house burns behind a smiling girl. Top: "Turn off the office." Bottom: the LLM, after it also cut power to the server rack](/images/blog/local-voice-ai-home-assistant-gpu/meme-disaster-girl-server-rack.webp)
 
 The rest of the system prompt:
 

@@ -40,7 +40,7 @@ I live alone. I've lived with partners in this house before, and I have guests o
 
 **Could someone who has never been here, and doesn't have my app, live in this house without noticing the automations or having to work around them?**
 
-![Soldier Protecting Sleeping Child meme: a soldier labeled "The physical light switch" shields a sleeping guest labeled "A guest at 2 AM" from flying weapons labeled "My motion automations"](/images/blog/best-home-assistant-automations/soldier-physical-switch-guest-test.webp)
+![Soldier Protecting Sleeping Child meme: a soldier labeled "The physical light switch" shields a sleeping guest labeled "A guest at 2 AM" from flying weapons labeled "My motion automations"](/images/blog/best-home-assistant-automations/meme-soldier-light-switch-guest.webp)
 
 That means a physical switch for everything, lights that turn on when you walk in and don't turn off while you're still sitting there, and no voice command to learn just to use the bathroom at night.
 

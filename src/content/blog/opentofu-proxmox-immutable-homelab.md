@@ -72,7 +72,7 @@ Writing a health check forces you to answer a question: _what should this contai
 
 Trying to document what I had made it obvious why it couldn't stay that way. That was the moment I committed to doing this properly.
 
-![Gru's Plan meme: 'Write 86 health checks to document what I have' / 'Discover which containers are silently failing' / 'Half of them are silently failing' / 'Half of them are silently failing'](/images/blog/opentofu-proxmox-immutable-homelab/grus-plan.webp)
+![Sudden Clarity Clarence meme: writes a health check for every container, finds out half of them have been broken for months](/images/blog/opentofu-proxmox-immutable-homelab/meme-sudden-clarity-health-checks.webp)
 
 ## OpenTofu, Silo, and Ansible: what each one actually does
 
@@ -173,7 +173,7 @@ Things broke during the migration. One service had an undocumented dependency on
 
 None were catastrophic, because I never destroyed the old container first.
 
-![Always Has Been astronaut meme: 'Wait, that service has been down for three weeks?' / 'Always has been'](/images/blog/opentofu-proxmox-immutable-homelab/always-has-been.webp)
+![Afraid to Ask Andy meme: I don't know what this container does, and at this point I'm too afraid to delete it](/images/blog/opentofu-proxmox-immutable-homelab/meme-afraid-to-ask-container.webp)
 
 Before vs. after:
 

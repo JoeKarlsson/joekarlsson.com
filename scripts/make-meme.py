@@ -285,14 +285,26 @@ def draw_in_box(draw, text, box, font_path, fill="black", stroke=0, max_size=120
     sys.exit(f"Caption too long to fit: {text!r}")
 
 
+BUSY_STDDEV = 40  # brightness spread above which a background counts as busy (camo, crowds, foliage)
+
+
+def caption_style(region):
+    """Black text only on a plain light background. Dark or busy backgrounds get white text
+    with a black outline: plain black text disappears into a mid-tone pattern like camo."""
+    from PIL import ImageStat
+
+    stat = ImageStat.Stat(region.convert("L"))
+    plain_light = stat.mean[0] >= 128 and stat.stddev[0] < BUSY_STDDEV
+    return ("black", False) if plain_light else ("white", True)
+
+
 def draw_area(img, text, box, angle):
     """Caption one area, colored for contrast with what's behind it, tilted to match the image."""
-    from PIL import Image, ImageDraw, ImageStat
+    from PIL import Image, ImageDraw
 
     w, h = img.size
-    region = img.crop(tuple(int(v) for v in box)).convert("L")
-    dark = ImageStat.Stat(region).mean[0] < 128
-    fill, stroke = ("white", max(2, w // 300)) if dark else ("black", 0)
+    color, outlined = caption_style(img.crop(tuple(int(v) for v in box)))
+    fill, stroke = (color, max(2, w // 300)) if outlined else (color, 0)
     if not angle:
         draw_in_box(ImageDraw.Draw(img), text, box, FONT_BOLD, fill, stroke, max_size=int(h / 8))
         return

@@ -276,7 +276,7 @@ That's not a flaw in the approach - it's the nature of it. This is infrastructur
 
 Getting people to contribute is a separate problem from getting people to use the thing. Making it easy helps - `/new-skill` scaffolds the structure so nobody has to remember the frontmatter format. But what's worked more than anything is being specific.
 
-![Two buttons meme: sweating over 'feel free to contribute if you want to' vs 'hey, could you write a skill for the discovery questions you use on sales calls?'](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-two-buttons-contribute.webp)
+![Kombucha Girl meme: grimacing at "Feel free to contribute if you want to," then intrigued by "Can you turn your sales-call questions into a skill?"](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-kombucha-specific-ask.webp)
 
 Specific ask, clear outcome, obvious value. That's what gets PRs opened. And the more people who feel ownership over it, the less it depends on you.
 
