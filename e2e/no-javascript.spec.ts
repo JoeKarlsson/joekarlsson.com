@@ -66,7 +66,7 @@ async function findHiddenContent(page: Page): Promise<Hidden[]> {
 				found.push({
 					path: domPath(el),
 					why,
-					text: (el.textContent ?? el.getAttribute('alt') ?? '').trim().slice(0, 60),
+					text: (el.textContent || el.getAttribute('alt') || '').trim().slice(0, 60),
 				});
 		}
 		return found;

@@ -37,10 +37,18 @@ export function decide(change, state) {
 }
 
 const git = (root, ...args) =>
-	execFileSync('git', ['-C', root, ...args], { encoding: 'utf8' }).trim();
+	execFileSync('git', ['-C', root, ...args], {
+		encoding: 'utf8',
+		stdio: ['ignore', 'pipe', 'pipe'],
+	}).trim();
 
 function currentChange(cwd) {
-	const root = git(cwd, 'rev-parse', '--show-toplevel');
+	let root;
+	try {
+		root = git(cwd, 'rev-parse', '--show-toplevel');
+	} catch {
+		return null; // the session's cwd moved out of the repo: nothing here to review
+	}
 	let base = 'HEAD';
 	try {
 		base = git(root, 'merge-base', 'HEAD', 'origin/main');
@@ -84,6 +92,7 @@ function main() {
 	const [command, ...rest] = process.argv.slice(2);
 	const input = command === 'waive' ? {} : readHookInput();
 	const change = currentChange(input.cwd ?? process.cwd());
+	if (!change) return;
 	const { file, state } = loadState(change.root);
 	const at = new Date().toISOString();
 
