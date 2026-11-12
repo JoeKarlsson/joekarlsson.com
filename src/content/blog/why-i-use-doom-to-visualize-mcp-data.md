@@ -8,7 +8,7 @@ categories: ['AI', 'Career']
 tags: ['MCP', 'Doom', 'CData Connect AI', 'Claude', 'developer marketing', 'demos']
 heroImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/thumb-7ce5ed20.webp'
 heroAlt: 'A wartime operations room with a large map plotting table covered in markers, and the tote board on the wall behind it'
-tldr: "I put an MCP server inside Doom. Connect AI × DOOM is, as far as I can find, the first Doom level built out of MCP data. You ask Claude a business question, it pulls the answer out of your apps through the CData Connect AI MCP server, and the answer becomes a Doom level where every monster is a live record. KubeDOOM turned pods into monsters and doom-mcp lets an agent play regular Doom. I built the first version in one night without asking anyone, and in October 2026 I ran it at the CData booth at AGNTCon + MCPCon North America in San Jose, where hundreds of people stopped by and a lot of them played it. It's open source, and you can play it in your browser."
+tldr: "I put an MCP server inside Doom. Connect AI × DOOM is, as far as I can find, the first Doom level built out of MCP data. You ask Claude a business question, it pulls the answer out of your apps through the CData Connect AI MCP server, and the answer becomes a Doom level where every monster is a live record. KubeDOOM turned pods into monsters and doom-mcp lets an agent play regular Doom. I built the first version in one night, and in October 2026 I ran it at the CData booth at AGNTCon + MCPCon North America in San Jose, where hundreds of people stopped by and a lot of them played it. It's open source, and you can play it in your browser."
 faq:
   - question: 'What is Connect AI × DOOM?'
     answer: 'A version of Doom built from live business data. Claude answers a question through the CData Connect AI MCP server, each app it uses becomes a room, each record becomes a monster, and data Connect AI blocked sits behind a red door with no key.'
@@ -75,9 +75,7 @@ doom-mcp gives the agent a game to play, but the level is still regular Doom. I 
 
 ## I built the MVP in one night
 
-I'd mentioned the idea offhand a couple of times before, and it didn't get much of a reaction. So I didn't ask anyone. I was sitting at home one evening after work, and I realized I could just build it and show people.
-
-![Waiting Skeleton meme: a skeleton slumped on a park bench, captioned Me if I'd waited for approval to build the Doom demo](/images/blog/why-i-use-doom-to-visualize-mcp-data/meme-waiting-skeleton.webp)
+I was sitting at home one evening after work, and I realized I could just build it and show people.
 
 The first version used unpaid invoices as the monsters. About twenty minutes later I'd swapped them for Salesforce deals. Coding agents did most of the setup, which is how one night was enough. I know what software can do, and now I can build almost anything I can picture quickly. That's changed my career.
 
@@ -89,7 +87,7 @@ Then I recorded a quick demo and sent it around. Here's the unedited cut, me inc
 
 _The first demo I sent around._
 
-The same idea that got shrugs as a sentence got a different reaction once people saw it running. I wrote about a version of this in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/): you learn what's good by finishing things and putting them in front of people.
+I wrote about why I build first in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/): you learn what's good by finishing things and putting them in front of people.
 
 ## How it works
 
