@@ -70,6 +70,24 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
   }' | node scripts/untrusted-text.mjs | jq '.results | map({date: .dimensions[0], visitors: .metrics[0], pageviews: .metrics[1]})'
 ```
 
+### 1c. Bot check (before trusting any number)
+
+Bots that fire scroll and engagement events count as visitors in Plausible. Signs: pageviews below visitors, a page with ~100% bounce and 0s duration, a big blank `visit:entry_page`. In Oct-Nov 2026 a Singapore bot was 51% of all visitors (2s visits, desktop Chrome or no device). Pull countries with duration, and if one country has a large share at a few seconds, add `["is_not", "visit:country", ["XX"]]` to every query below and say so in the report:
+
+```bash
+curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
+  -H "Authorization: Bearer ${PLAUSIBLE_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "site_id": "'"${PLAUSIBLE_SITE_ID}"'",
+    "metrics": ["visitors", "pageviews", "visit_duration"],
+    "date_range": "30d",
+    "dimensions": ["visit:country"],
+    "order_by": [["visitors", "desc"]],
+    "pagination": {"limit": 8}
+  }' | node scripts/untrusted-text.mjs | jq '.results | map({country: .dimensions[0], visitors: .metrics[0], pageviews: .metrics[1], duration: .metrics[2]})'
+```
+
 Present:
 
 - **Visitors**: 7d vs 30d average (trending up/down?)
@@ -93,7 +111,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
     "date_range": "30d",
     "dimensions": ["event:page"],
     "order_by": [["visitors", "desc"]],
-    "limit": 25
+    "pagination": {"limit": 25}
   }' | node scripts/untrusted-text.mjs | jq '.results | map({page: .dimensions[0], visitors: .metrics[0], pageviews: .metrics[1], bounce_rate: .metrics[2], duration: .metrics[3]})'
 ```
 
@@ -109,7 +127,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
     "date_range": "30d",
     "dimensions": ["visit:entry_page"],
     "order_by": [["visitors", "desc"]],
-    "limit": 20
+    "pagination": {"limit": 20}
   }' | node scripts/untrusted-text.mjs | jq '.results | map({entry_page: .dimensions[0], visitors: .metrics[0], bounce_rate: .metrics[1]})'
 ```
 
@@ -125,7 +143,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
     "date_range": "30d",
     "dimensions": ["visit:exit_page"],
     "order_by": [["visitors", "desc"]],
-    "limit": 20
+    "pagination": {"limit": 20}
   }' | node scripts/untrusted-text.mjs | jq '.results | map({exit_page: .dimensions[0], visitors: .metrics[0]})'
 ```
 
@@ -151,7 +169,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
     "date_range": "30d",
     "dimensions": ["visit:source"],
     "order_by": [["visitors", "desc"]],
-    "limit": 20
+    "pagination": {"limit": 20}
   }' | node scripts/untrusted-text.mjs | jq '.results | map({source: .dimensions[0], visitors: .metrics[0], bounce_rate: .metrics[1], duration: .metrics[2]})'
 ```
 
@@ -167,7 +185,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
     "date_range": "30d",
     "dimensions": ["visit:referrer"],
     "order_by": [["visitors", "desc"]],
-    "limit": 20
+    "pagination": {"limit": 20}
   }' | node scripts/untrusted-text.mjs | jq '.results | map({referrer: .dimensions[0], visitors: .metrics[0]})'
 ```
 
@@ -183,7 +201,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
     "date_range": "30d",
     "dimensions": ["visit:utm_source", "visit:utm_campaign"],
     "order_by": [["visitors", "desc"]],
-    "limit": 15
+    "pagination": {"limit": 15}
   }' | node scripts/untrusted-text.mjs | jq '.results | map({utm_source: .dimensions[0], utm_campaign: .dimensions[1], visitors: .metrics[0], bounce_rate: .metrics[1]})'
 ```
 
@@ -317,7 +335,7 @@ curl -s "${PLAUSIBLE_BASE_URL}/api/v2/query" \
     "date_range": "30d",
     "dimensions": ["visit:country"],
     "order_by": [["visitors", "desc"]],
-    "limit": 15
+    "pagination": {"limit": 15}
   }' | node scripts/untrusted-text.mjs | jq '.results | map({country: .dimensions[0], visitors: .metrics[0]})'
 ```
 
