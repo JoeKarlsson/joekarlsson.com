@@ -31,7 +31,7 @@ tldr: 'Most best-MCP-server lists rank tools for developers. This one sorts the 
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/best-mcp-servers-chatgpt-meta-muse).'
 ---
 
-ChatGPT and Meta Muse can both draft an email or summarize a meeting. Ask either one which renewals are at risk this quarter, though, and the answer depends on whether it can access the customer relationship management (CRM) system, the support desk, and the finance system that hold that information. Both assistants connect to those systems through model context protocol (MCP) servers, new ones show up every week, and they don't all solve the same problem. This guide sorts the best MCP servers for ChatGPT and Muse by what each one is good at, starting with the questions a business team should ask before approving one.
+ChatGPT and Meta Muse can both draft an email or summarize a meeting. Ask either one which renewals are at risk this quarter, though, and the answer depends on whether it can access the customer relationship management (CRM) system, the support desk, and the finance system that hold that information. Both assistants connect to those systems through Model Context Protocol (MCP) servers, new ones show up every week, and they don't all solve the same problem. This guide sorts the best MCP servers for ChatGPT and Muse by what each one is good at, starting with the questions a business team should ask before approving one.
 
 **At a glance (updated October 20, 2026)**
 
@@ -170,11 +170,11 @@ Many business questions span systems: pipeline in Salesforce against bookings in
 
 ### More accurate answers for fewer tokens
 
-Connect AI does the heavy lifting on its side: it joins and filters across sources and hands the assistant the answer, rather than raw tables for the model to sort through. CData Labs tested what that changes. Across 378 prompts against CRM, project management, warehouse, and ERP systems, Connect AI answered 98.5% correctly, against 65–75% for other ways of exposing the same data to an agent ([CData Labs](https://www.cdata.com/lp/ai-accuracy-whitepaper/)). Errors compound on multi-source questions: at 75% accuracy per step, fewer than a quarter of five-step workflows finish correctly. In a separate test, one multi-source question took 4,427 tokens and one tool call through Connect AI, against 183,541 tokens and 22 tool calls with raw table access ([CData Labs](https://www.cdata.com/blog/token-efficient-enterprise-claude-workflows)). Both are CData's internal tests on sandbox accounts, and the test harnesses and raw results are public, so you can rerun them on your own setup ([CData Labs](https://www.cdata.com/labs/)).
+Connect AI joins and filters across sources itself and hands the assistant the answer, rather than raw tables for the model to sort through. CData Labs tested what that changes. Across 378 prompts against CRM, project management, warehouse, and ERP systems, Connect AI answered 98.5% correctly, against 65–75% for other ways of exposing the same data to an agent ([CData Labs](https://www.cdata.com/lp/ai-accuracy-whitepaper/)). Errors compound on multi-source questions: at 75% accuracy per step, fewer than a quarter of five-step workflows finish correctly. In a separate test, one multi-source question took 4,427 tokens and one tool call through Connect AI, against 183,541 tokens and 22 tool calls with raw table access ([CData Labs](https://www.cdata.com/blog/token-efficient-enterprise-claude-workflows)). Both are CData's internal tests on sandbox accounts, and the test harnesses and raw results are public, so you can rerun them on your own setup ([CData Labs](https://www.cdata.com/labs/)).
 
 ### Works the same in ChatGPT, dots, and Muse
 
-The same Connect AI account worked as a ChatGPT plugin, inside a dot, and as a Muse custom connector, and neither assistant needed code. In ChatGPT, you install the plugin from the directory and sign in. In Muse, you ask for a custom connector in chat and paste a personal access token. If your team adds or switches assistants, nobody has to rebuild connections or re-approve access. Connect AI has published plans and a free trial ([CData pricing](https://www.cdata.com/ai/pricing/)).
+The same Connect AI account worked as a ChatGPT plugin, inside a dot, and as a Muse custom connector, and none of them needed code. In ChatGPT, you install the plugin from the directory and sign in. In Muse, you ask for a custom connector in chat and paste a personal access token. If your team adds or switches assistants, the connections and permissions in Connect AI stay as they are. Connect AI has published plans and a free trial ([CData pricing](https://www.cdata.com/ai/pricing/)).
 
 ### When Connect AI isn't the pick
 
@@ -182,7 +182,7 @@ If a built-in connector, a single vendor's server, or a warehouse with data fres
 
 ## Connect your business systems to ChatGPT and Muse
 
-Most teams start with built-in connectors and a vendor server or two, and those handle single apps well. When a team's questions cross Salesforce, Jira, NetSuite, and the rest, and IT wants the same permissions and query log in ChatGPT, dots, and Muse, [CData Connect AI](https://www.cdata.com/ai/) gives you one connection to hundreds of systems. Start a free trial and connect your first source in minutes.
+To try it on your own systems, [CData Connect AI](https://www.cdata.com/ai/) has a free trial.
 
 ## Frequently asked questions
 

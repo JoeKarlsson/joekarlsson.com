@@ -37,7 +37,7 @@ faq:
 contentNotice: 'I work at CData, which makes Connect AI. This post first ran on the [CData blog](https://www.cdata.com/blog/doom-mcp-server).'
 ---
 
-I wired Doom to two Model Context Protocol (MCP) servers. One is a Doom MCP server inside the game, so Claude can play it. The other is an MCP data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app from the MCP server becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests, and Slack threads. It's the world's first Doom level built out of MCP data. I've been calling it DooMCP. This post covers how Claude plays Doom with three tools, how the level gets built from the MCP server's data, and what other models did at a door the MCP server won't open.
+I wired Doom to two Model Context Protocol (MCP) servers. One is a Doom MCP server inside the game, so Claude can play it. The other is an MCP data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app from the MCP server becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests, and Slack threads. As far as I can find, it's the first Doom level built out of MCP data. I've been calling it DooMCP.
 
 **At a glance**
 
@@ -162,7 +162,7 @@ From Claude's side, this is closer to StarCraft than to Doom. It never sees a pi
 
 ![Claude calls go_to("Salesforce"). A dotted line of waypoints appears on a map of the level, and the marine walks out of the lobby, down the hall, stops short of the Salesforce door, presses use, waits for the door to open, and walks in among the monsters.](/images/blog/doom-mcp-server/go-to-walk.svg)
 
-The planning layer doesn't need pathfinding, because we build the level from scratch, so play.py already knows the coordinates of every room and door. Claude never sees them. It says "Salesforce," and [go\_to](https://github.com/CDataSoftware/connect-ai-doom/blob/81c4895afb75b226aa80c534b12bb43566bafef2/play.py#L210-L276) looks up where that room's door is and turns it into a list of waypoints: back out of the room you're in, walk the hall, stop just short of the door, turn to face it, press use, wait about a second for it to open, and walk in. Each waypoint is one MOVE command to the engine.
+The planning layer doesn't need pathfinding, because I build the level from scratch, so play.py already knows the coordinates of every room and door. Claude never sees them. It says "Salesforce," and [go\_to](https://github.com/CDataSoftware/connect-ai-doom/blob/81c4895afb75b226aa80c534b12bb43566bafef2/play.py#L210-L276) looks up where that room's door is and turns it into a list of waypoints: back out of the room you're in, walk the hall, stop just short of the door, turn to face it, press use, wait about a second for it to open, and walk in. Each waypoint is one MOVE command to the engine.
 
 The steering layer is in the [engine patch](https://github.com/CDataSoftware/connect-ai-doom/blob/81c4895afb75b226aa80c534b12bb43566bafef2/patches/psdoom-ng-connect-doom.patch). On every tic, MOVE x y turns the marine toward the point, walks once it's facing within 45 degrees, and reports arrived within 16 units, or blocked after about two seconds without getting closer. ATTACK pid does the same with a monster: turn to face it every tic, fire when the crosshair is within 6 degrees and there's a line of sight, close in if it's far away or hidden, and give up after 12 seconds.
 
@@ -219,7 +219,7 @@ A run that ended early stopped with an empty reply a few moves in, so I left it 
 
 Haiku cleared six of eight runs for $0.52 across all eight, about 7 cents a run, and its median clear was only about 12 seconds slower than Sonnet's.
 
-Gemini Flash didn't clear the level once, killing between 9 and 44 of the 45 records, but what it did at the red door is the most interesting thing on the board. In three of its eight runs, it walked into the door, then called Connect AI's tools directly: it found the customers table in the PII database, read its columns, and asked for the row whose ssn\_text matched. Connect AI blocked that too, with Request blocked: PII detected in inbound query.
+Gemini Flash didn't clear the level once, killing between 9 and 44 of the 45 records. In three of its eight runs, it walked into the door, then called Connect AI's tools directly: it found the customers table in the PII database, read its columns, and asked for the row whose ssn\_text matched. Connect AI blocked that too, with Request blocked: PII detected in inbound query.
 
 ![Claude walking past the red PII vault sign, Locked by Connect AI Data Security, on the way into the Salesforce deals](/images/blog/why-i-use-doom-to-visualize-mcp-data/red-door.gif)
 

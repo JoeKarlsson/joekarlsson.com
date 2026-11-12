@@ -36,7 +36,7 @@ I'd been hearing about Google's [Open Knowledge Format](https://github.com/Googl
 
 So I designed a test. I made three copies of Claude's markdown brain: one as-is, one with OKF metadata added to every file, and one fully restructured the way OKF lays knowledge out, with one concept per file behind an index. Then I asked all three the same 44 questions, three times each.
 
-Adding OKF's metadata on its own didn't move the numbers, which makes sense, since it's labels on the same files. Adopting OKF's structure, one concept per file behind an index, is what paid off:
+Adding OKF's metadata on its own didn't move the numbers, which makes sense, since it's labels on the same files. Restructuring is what paid off:
 
 - **Startup context dropped by about half**, from 16,000 tokens of my notes to 8,500.
 - **Cost per question fell about 30%**, from 4.3 cents to 3 cents on Sonnet, and by about a third on Opus.
@@ -165,9 +165,7 @@ What goes in mine:
 - **Rules, not essays.** One or two sentences per rule. If the reason changes how Claude should act, I keep it; otherwise it goes.
 - **A pointer to everything else.** Situational stuff lives in a knowledge folder, and the last line tells Claude where the index is.
 
-What stays out: anything about one project or one service, long examples, anything Claude can figure out by reading the code, and anything a hook can enforce instead. If a rule must never break, I make it a hook, because the agent can argue its way past text.
-
-What OKF gave me was a clear structure to follow and a spec I could lint against.
+What stays out: anything about one project or one service, long examples, anything Claude can figure out by reading the code, and anything a hook can enforce instead. If a rule must never break, I make it a hook, because the agent can argue its way past text. OKF gave me a structure to follow and a spec I can lint against.
 
 ## How I tested
 

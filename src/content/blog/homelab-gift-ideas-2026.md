@@ -15,7 +15,7 @@ faq:
   - question: 'Is a gift card a lame gift for a homelabber?'
     answer: "No. Homelabbers are picky because their gear has to fit what they already run, and a gift card to a store that sells parts, like Micro Center or Amazon, lets them buy the exact model they've been staring at. Put a note with it that says what it's for. A gift card for 'that drive you keep talking about' feels personal."
   - question: 'What is a good homelab gift under $50?'
-    answer: 'Rackstuds, the tool-free replacement for cage nuts, if they have a rack with square holes. Aqara leak sensors if they run Zigbee. A self-healing cutting mat for the workbench, or a mug warmer for the desk. All of these are under $50 as of November 2026 and none of them have to match a brand they already picked.'
+    answer: 'Rackstuds, the tool-free replacement for cage nuts, if they have a rack with square holes. Aqara leak sensors if they run Zigbee. A self-healing cutting mat for the desk, or a mug warmer for the desk. All of these are under $50 as of November 2026 and none of them have to match a brand they already picked.'
   - question: 'What is a good gift for someone just starting a homelab?'
     answer: "A Raspberry Pi 5 with 4GB or 8GB, or a small mini PC like the Beelink EQ14 (Intel N150), which I haven't used myself. Someone without a lab hasn't made the decisions a gift could clash with, so this is the one case where buying the server works. Skip the 16GB Pi 5: 2026 RAM prices pushed it to about $385."
   - question: 'What smart home gifts work with Home Assistant?'
@@ -24,7 +24,7 @@ heroImage: '/images/blog/homelab-gift-ideas-2026/thumb-132c6701.webp'
 heroAlt: 'A boy in a cap and overcoat studying the Christmas toys in a shop window, a drum and a toy wagon behind the glass'
 ---
 
-These are my homelab gift ideas for 2026, for software engineers, homelabbers and anyone who works at a computer all day. It's the gear I use every day and would recommend, sorted by price.
+These are my homelab gift ideas for 2026, for software engineers, homelabbers and anyone who works at a computer all day.
 
 Skip anything that has to match gear they already picked, like servers and switches. A few picks below do depend on their setup, like rack accessories and smart home gear, and for those I've written the one yes/no question to text them before you buy.
 
@@ -55,8 +55,6 @@ Everything in the price sections is in my house right now. I run two Dell R730 s
 | Anker Prime Thunderbolt 5 dock       | $150+     | "Does your laptop have Thunderbolt?" |
 
 ## Don't buy them a server
-
-These are the gifts I'd skip, even the tempting ones:
 
 - **Servers, switches, Wi-Fi access points and NAS drives.** They've already picked these. My network is a UniFi gateway, UniFi access points, and a MikroTik and a UniFi switch, picked so they work together. A surprise router from a different brand goes back in the box.
 - **Cloud-only smart home gadgets.** If it needs its own app and its own account to work, a homelabber will either stick it on an isolated network where it can't phone home, or leave it in a drawer.
@@ -128,7 +126,7 @@ A [Stream Deck](https://www.elgato.com/us/en/p/stream-deck) is a little keypad o
 
 ![The WiiM Pro, a small square black music streamer](/images/blog/homelab-gift-ideas-2026/wiim-pro.webp)
 
-The [WiiM Pro](https://www.amazon.com/dp/B0BJDY6D1W) plays music in my office. It's cheaper than Sonos or Bose multi-room systems, and better integrated with a self-hosted setup: it shows up in Home Assistant and plays from my own music server. I love it.
+The [WiiM Pro](https://www.amazon.com/dp/B0BJDY6D1W) plays music in my office. It's cheaper than Sonos or Bose multi-room systems, and better integrated with a self-hosted setup: it shows up in Home Assistant and plays from my own music server.
 
 **Ask first:** "Are you all-in on Sonos?" If they are, they don't want a second ecosystem.
 
@@ -164,7 +162,7 @@ Buy the **Home** version. The Pro has the same sensors and adds support for busi
 
 I run two [CyberPower OR1500PFCRT2U](https://www.cyberpowersystems.com/product/ups/pfc-sinewave/or1500pfcrt2u/) rack UPSes, battery backups that sit between the wall and the servers, because a server that loses power mid-write can corrupt the data on it. In the summer, the power in my office blips when my air conditioners click on, and the servers ride straight through it. That has saved my ass more times than I can count.
 
-I've never had a long outage drain the battery. If one does, I set up NUT (Network UPS Tools) to watch the UPS and shut the cluster down cleanly, since the UPS doesn't do that part on its own. So far I've always been home to flip the breaker or shut the air conditioners off first. I go through what the rest of the rack cost in [my homelab two years later](/blog/homelab-two-years-later/).
+I've never had a long outage drain the battery. If one does, NUT (Network UPS Tools) watches the UPS and shuts the cluster down cleanly, since the UPS doesn't do that part on its own. So far I've always been home to flip the breaker or shut the air conditioners off first. I go through what the rest of the rack cost in [my homelab two years later](/blog/homelab-two-years-later/).
 
 **Ask first:** "Is your rack on a UPS yet?" If they say no, have them pick the model. A rack UPS is sized to the power the gear pulls, and they know that number.
 
@@ -172,7 +170,7 @@ I've never had a long outage drain the battery. If one does, I set up NUT (Netwo
 
 ![The Anker Prime Thunderbolt 5 dock, a silver cube with a blue light ring and ports on the front, with two USB-C cables](/images/blog/homelab-gift-ideas-2026/anker-prime-tb5-dock.webp)
 
-The [Anker Prime Thunderbolt 5 dock](https://www.amazon.com/dp/B0DSVVJXK5) replaced my Dell dock. I have one at my main desk and one at my recording station: one cable and the laptop is plugged into everything. It's amazing. It lists at about $400 and goes on sale often. The rest of the desk is in [my development setup](/blog/my-development-setup-2026/).
+The [Anker Prime Thunderbolt 5 dock](https://www.amazon.com/dp/B0DSVVJXK5) replaced my Dell dock. I have one at my main desk and one at my recording station: one cable and the laptop is plugged into everything. It lists at about $400 and goes on sale often. The rest of the desk is in [my development setup](/blog/my-development-setup-2026/).
 
 **Ask first:** "Does your laptop have Thunderbolt?" Every Apple Silicon Mac does, but Macs without Thunderbolt 5 run the dock at Thunderbolt 4 or 3 speed.
 
@@ -183,8 +181,6 @@ The [Anker Prime Thunderbolt 5 dock](https://www.amazon.com/dp/B0DSVVJXK5) repla
 For someone on video calls all day, this is the rest of what's on my desk, at roughly $100-400 each: [Sony MDR7506](https://www.amazon.com/Sony-MDR7506-Professional-Diaphragm-Headphone/dp/B000AJIF4E) headphones, the [Elgato Wave:3](https://www.elgato.com/us/en/p/wave-3) mic, an [Elgato Key Light](https://www.amazon.com/gp/product/B07L755X9G), and an [Ergotron LX dual monitor arm](https://www.ergotron.com/en-us/products/product-details/45-245).
 
 ## On my wishlist (I don't own these yet)
-
-These are on my own list.
 
 ### iFixit Moray driver kit
 
@@ -236,7 +232,7 @@ No. Homelabbers are picky because their gear has to fit what they already run, a
 
 ### What is a good homelab gift under $50?
 
-Rackstuds, the tool-free replacement for cage nuts, if they have a rack with square holes. Aqara leak sensors if they run Zigbee. A self-healing cutting mat for the workbench, or a mug warmer for the desk. All of these are under $50 as of November 2026 and none of them have to match a brand they already picked.
+Rackstuds, the tool-free replacement for cage nuts, if they have a rack with square holes. Aqara leak sensors if they run Zigbee. A self-healing cutting mat for the desk, or a mug warmer for the desk. All of these are under $50 as of November 2026 and none of them have to match a brand they already picked.
 
 ### What is a good gift for someone just starting a homelab?
 

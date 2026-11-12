@@ -14,7 +14,7 @@ tags:
     'lighting',
     'Sony ZV-E10',
   ]
-tldr: 'My whole recording setup lives on one FlexiSpot standing desk on casters: a Sony ZV-E10 behind an Elgato Prompter on one Elgato arm, a Wave:3 mic on another, a softbox on a stand and a NEEWER spotlight on a tripod. One Thunderbolt 5 cable connects my laptop to all of it, one smart switch powers it, and telling Home Assistant "I''m recording" sets up the room. It cost about $2,700 at November 2026 prices. Lighting was the hard part: a ring light blew me out, and going dark and moody made the image fall apart. What worked was lighting my face first and adding the mood around it.'
+tldr: 'My whole recording setup lives on one FlexiSpot standing desk on casters: a Sony ZV-E10 behind an Elgato Prompter on one Elgato arm, a Wave:3 mic on another, a softbox on a stand and a NEEWER spotlight on a tripod. One Thunderbolt 5 cable connects my laptop to the camera, mic and prompter, one smart switch powers it, and telling Home Assistant "I''m recording" sets up the room. It cost about $2,700 at November 2026 prices. Lighting was the hard part: a ring light blew me out, and going dark and moody made the image fall apart. What worked was lighting my face first and adding the mood around it.'
 faq:
   - question: 'Should I light my face or the room first for video?'
     answer: 'Your face first. A ring light blew my face out, and a dark, moody room made the footage noisy and soft. What worked was a softbox on my face until the camera got a clean image, then colored lights and a gelled spotlight behind me for the mood.'
@@ -102,7 +102,7 @@ I figured lighting would be easy: buy a light, point it at my face, done.
 
 I started with a ring light, and it blew my face out, with everything flat and evenly bright.
 
-What I wanted was the opposite: a dark, moody room full of colored LEDs, with my face sharp in the middle of it. So I turned everything down, and the image went to hell. When I recorded too dark, the camera had less light to work with, the picture got noisy and soft, and the compression turned my face to mush.
+I wanted the opposite: a dark, moody room full of colored LEDs, with my face sharp in the middle of it. So I turned everything down, and the image went to hell. When I recorded too dark, the camera had less light to work with, the picture got noisy and soft, and the compression turned my face to mush.
 
 Ungraded clips from August to October:
 
@@ -131,8 +131,6 @@ On the camera, I'm still experimenting, but right now it's in aperture priority,
 My footage also looks a little stuttery, and I think 25p is why. 25 frames a second doesn't divide evenly into the 30 and 60 fps that everything downstream of the camera runs at, so frames get repeated unevenly. At 25p the camera also tends to pick a 1/50 shutter, which can [flicker under 60Hz LED lighting](https://www.dvxuser.com/threads/25p-in-united-states-lighting-advice.340752/) here in the US. Next I'm switching the camera to NTSC and shooting 30p at 1/60, which I haven't tested yet.
 
 In editing, I grade the camera track with a soft film LUT in [Screencast Director, the screen recorder I built that drafts the edit for me](/blog/screencast-director-screen-recorder/).
-
-Bright enough means the camera gets a clean image at a low ISO. Color and shadows go in after that.
 
 ![Buff Doge vs. Cheems meme: a muscular Buff Doge labeled 'Me shooting a video on my iPhone in 5 minutes' next to a small crying Cheems labeled 'Me with a teleprompter, a softbox and a 4K camera, still adjusting the lights'](/images/blog/recording-setup-tour/meme-buff-doge-cheems.webp)
 

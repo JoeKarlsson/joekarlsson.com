@@ -19,7 +19,7 @@ heroAlt: "An X-ray of Vermeer's A Maid Asleep, showing the sleeping maid, a jug 
 
 In 2003 Paul Graham turned a Harvard guest lecture into an essay called [Hackers and Painters](https://www.paulgraham.com/hp.html). He'd finished grad school in computer science and then gone to art school to study painting, and people kept acting surprised that one person would want both. His answer was that hackers and painters are both makers: "what hackers and painters are trying to do is make good things."
 
-I paint and I write code too. I do digital art, oil pastel, watercolor and large color field pieces, some of it subconscious, abstract expressionist work, and I wrote about why I care about both on [my Works page](/work/#statement) and talked about it in my TEDx talk, [The Art of Computer Science](/talks/the-art-of-computer-science/). Since AI coding agents came along, programming has started to feel more like painting to me, not less. It's easier to explore ideas quickly and iteratively, and it has creatively unlocked something big for me.
+I paint and I write code too. I do digital art, oil pastel, watercolor and large color field pieces, some of it subconscious, abstract expressionist work, and I wrote about why I care about both on [my Works page](/work/#statement) and talked about it in my TEDx talk, [The Art of Computer Science](/talks/the-art-of-computer-science/). Since AI coding agents came along, programming has started to feel more like painting to me, not less. It's easier to explore ideas quickly and iteratively.
 
 ![Two photos from above. Left: Joe gluing a collage of a jack-o'-lantern, a black cat and a wheat field onto red paper, surrounded by markers and glue jars. Right: Joe sketching in pink watercolor at a marble cafe table next to a paint palette and a plate of oysters.](/images/newsletter/taste-matters-more-with-ai/art.webp)
 
@@ -80,7 +80,7 @@ Some painting is process art, where how it was made is the artistic expression. 
 
 ![A scaffold of poles and planks appears in two quick beats. Then a pencil draws one window in a single bay, crooked, rubs it out, draws it crooked again, rubs it out, and finally draws it square with a cross in the middle. Then everything clears and it starts again.](/images/blog/hackers-and-painters-ai-agents/scaffolding-then-details.svg)
 
-I do plan when I start a new project, but usually at a high level. The devil's in the details, and that was true of infrastructure and code before agents and it's true today. Scaffolding is easy. The details are the tricky part, and that's where I think agents struggle, especially with anything visual.
+I do plan when I start a new project, but usually at a high level. Scaffolding is easy, and it was before agents too. The details are the tricky part, and that's where I think agents struggle, especially with anything visual.
 
 ## Static types came back
 
@@ -100,7 +100,7 @@ Graham's argument for beautiful code starts with a bush. When Leonardo painted t
 
 _Leonardo da Vinci, Ginevra de' Benci, about 1474-78, National Gallery of Art ([Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ginevra_de%27_Benci_-_National_Gallery_of_Art.jpg))._
 
-That's the part I miss. With agents, code has become more of a black box to engineers, and having beautiful code is less important than it was, which is a bit of a loss.
+That's the part I miss. With agents, code has become more of a black box to engineers, and having beautiful code is less important than it was.
 
 ![Paper collage on pink: a black-and-white print of Leonardo's Ginevra de' Benci lands, and a magnifying glass slides over the juniper beside her face, its glass filling with the bush's needles in color. A printed page of JavaScript slides in beside her, a black box drops over it, and a second magnifying glass slides up over the box, where its glass shows only black. The label reads: No one will look.](/images/blog/hackers-and-painters-ai-agents/no-one-will-look.svg)
 
@@ -120,7 +120,7 @@ Hackers start original, and get good, and scientists start good, and get origina
 
 You learn to hack the way you learn to paint, by doing it. Most hackers, he wrote, "learn to hack by writing programs of their own at age thirteen."
 
-I think people vibe coding without understanding programming are going to have a hard time. I feel lucky that I understand what's going on, so I can use agents with confidence and securely, without being oblivious to what's happening.
+I think people vibe coding without understanding programming are going to have a hard time. I feel lucky that I understand what's going on, so I can use agents confidently and securely.
 
 I don't know how to get good besides going in deep on how things actually work, and I don't think that's changed. It's the argument I made in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/): the way to good work runs through a pile of bad work. But I also don't know if I would be able to resist having an instant cheat button always available to me.
 
