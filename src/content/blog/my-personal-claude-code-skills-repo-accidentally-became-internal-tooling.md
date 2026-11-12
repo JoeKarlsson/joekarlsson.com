@@ -286,7 +286,7 @@ I built this for a marketing team, but the pattern generalizes. Any team with re
 
 ## The Cheat Sheet
 
-Everything distilled into one place. Bookmark this part.
+Everything from this post in one place.
 
 **Repo structure:**
 

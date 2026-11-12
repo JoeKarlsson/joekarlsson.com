@@ -304,7 +304,7 @@ def draw_area(img, text, box, angle):
 
     w, h = img.size
     color, outlined = caption_style(img.crop(tuple(int(v) for v in box)))
-    fill, stroke = (color, max(2, w // 300)) if outlined else (color, 0)
+    fill, stroke = color, (max(2, w // 300) if outlined else 0)
     if not angle:
         draw_in_box(ImageDraw.Draw(img), text, box, FONT_BOLD, fill, stroke, max_size=int(h / 8))
         return
