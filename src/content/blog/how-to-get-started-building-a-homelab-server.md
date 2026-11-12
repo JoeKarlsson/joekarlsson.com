@@ -2,7 +2,7 @@
 title: 'How to get started building a Homelab server in 2027'
 seoTitle: 'How to Build a Homelab Server in 2027'
 date: 2023-09-27
-updatedDate: 2026-11-09
+updatedDate: 2026-11-12
 updateNote: 'Refreshed for 2027 with higher hardware prices from the RAM shortage, Proxmox VE 9.2, current Unraid and Plex pricing, TrueNAS Community Edition, LazyLibrarian in place of the retired Readarr, and power costs at $0.15/kWh.'
 slug: 'how-to-get-started-building-a-homelab-server'
 description: "I built my first Homelab server for under $200 with a used Lenovo ThinkServer and Proxmox. Here's how I picked hardware, ran containers and mounted NAS."
@@ -64,7 +64,7 @@ Not everyone needs the same thing, and your living situation matters more than y
 
 ### Tier 1: An old laptop or a Raspberry Pi
 
-**Start with what you already own.** If you've got an old laptop collecting dust, install Ubuntu Server or Debian on it, throw Docker on top, and start playing. A Raspberry Pi 5 works too, but it's not the cheap option it used to be: the 8GB model went from $80 to about $125 in 2026, so check the current price. You won't run 20 containers on these, but you can run Pi-hole, a small media server, and a few other things. The point is to learn Linux, Docker, and networking basics without spending real money.
+**Start with what you already own.** If you've got an old laptop collecting dust, install Ubuntu Server or Debian on it, throw Docker on top, and start playing. A Raspberry Pi 5 works too, but it's not the cheap option it used to be: the 8GB model launched at $80 and cost about $175 after the April 2026 increase, so check the current price. You won't run 20 containers on these, but you can run Pi-hole, a small media server, and a few other things. The point is to learn Linux, Docker, and networking basics without spending real money.
 
 **Best for:** People who aren't sure they'll stick with it, apartment dwellers with zero space, students.
 
@@ -72,7 +72,7 @@ Not everyone needs the same thing, and your living situation matters more than y
 
 **Beelink, ASUS NUC, or Minisforum mini PCs.** This is the quiet homelab sweet spot. These things idle at 10-25W (your electricity bill won't even notice), they're dead silent, and they fit on a bookshelf. A used Intel NUC or a Beelink Mini S with 16GB RAM and a small SSD will run 10-15 containers comfortably. Intel left the NUC business in 2023, and ASUS makes the new ones now.
 
-Mini PCs that ship with RAM and an SSD got more expensive in 2026. A barebones unit plus RAM you already own can come out cheaper.
+Mini PCs that ship with RAM and an SSD have cost more since late 2025. A barebones unit plus RAM you already own can come out cheaper.
 
 **Best for:** Apartments, shared living spaces, anyone who values quiet over raw power.
 
@@ -332,6 +332,24 @@ When I was starting out, these communities and resources helped me most:
 - **[Proxmox community forums](https://forum.proxmox.com/)** - For Proxmox-specific troubleshooting.
 - **[TRaSH Guides](https://trash-guides.info/)** - If you're setting up a media stack, start with these guides.
 - **[Community Scripts for Proxmox](https://github.com/community-scripts/ProxmoxVE)** - One-liner install scripts that make Proxmox setup painless.
+
+## References
+
+- Raspberry Pi: [More memory-driven price rises](https://www.raspberrypi.com/news/more-memory-driven-price-rises/)
+- Raspberry Pi: [A new 3GB Raspberry Pi 4 for $83.75, and more memory-driven price increases](https://www.raspberrypi.com/news/a-new-3gb-raspberry-pi-4-for-83-75-and-more-memory-driven-price-increases/)
+- Tom's Hardware: [Memory shortages drive Raspberry Pi prices up by up to 23%](https://www.tomshardware.com/raspberry-pi/component-shortages-drive-raspberry-pi-prices-up-by-up-to-23-percent-escalating-lpddr4-lpddr5-costs-trigger-the-third-price-hike-of-the-year)
+- Minisforum: [Why are mini PCs getting more expensive?](https://store.minisforum.com/blogs/blog/understanding-minisforums-price-adjustment-why-are-minipcs-getting-more-expensive)
+- Proxmox: [Proxmox Virtual Environment 9.2 press release](https://www.proxmox.com/en/about/press-releases/proxmox-virtual-environment-9-2)
+- Proxmox forum: [When will PVE 8.x be EOL?](https://forum.proxmox.com/goto/post?id=786304)
+- Unraid: [Pricing](https://unraid.net/pricing)
+- TrueNAS: [Say hello to TrueNAS Community Edition](https://www.truenas.com/blog/truenas-community-edition-release-2504)
+- ZimaSpace community: [Has CasaOS been abandoned?](https://community.zimaspace.com/t/has-casaos-been-abandoned/4606)
+- Plex: [New Lifetime Plex Pass pricing](https://www.plex.tv/blog/new-lifetime-plex-pass-pricing/)
+- Android Authority: [Plex Remote Watch Pass price increase](https://www.androidauthority.com/plex-remote-watch-pass-price-increase-3663060/)
+- Jellyfin: [Jellyfin 12.0](https://jellyfin.org/posts/jellyfin-release-12.0/)
+- Seerr: [Seerr release: unifying Overseerr and Jellyseerr](https://docs.seerr.dev/blog/seerr-release/)
+- Servarr wiki: [Readarr](https://wiki.servarr.com/readarr)
+- Tailscale: [Free plans and discounts](https://tailscale.com/kb/1154/free-plans-discounts)
 
 ## Frequently asked questions
 
