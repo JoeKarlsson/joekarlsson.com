@@ -3,6 +3,18 @@
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
+			"name": "joekarlsson.com",
+			"description": "Personal website and blog: joekarlsson.com",
+			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
+			"language": "JavaScript",
+			"commitCount": 615,
+			"dailyCommitCounts": [
+				0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119,
+				85, 19, 3
+			],
+			"latestCommitMessage": "fix: Six recent posts lose their stock phrases, recap lines and..."
+		},
+		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
@@ -13,18 +25,6 @@
 				27, 2
 			],
 			"latestCommitMessage": "fix: Calmer motion and a flatter look: no springs in the editor, exits..."
-		},
-		{
-			"name": "joekarlsson.com",
-			"description": "Personal website and blog: joekarlsson.com",
-			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"language": "JavaScript",
-			"commitCount": 614,
-			"dailyCommitCounts": [
-				0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119,
-				85, 19, 2
-			],
-			"latestCommitMessage": "fix: The Doom post drops the didn't-ask-anyone story, the shrugs line..."
 		},
 		{
 			"name": "punc",
