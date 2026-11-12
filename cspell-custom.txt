@@ -703,3 +703,6 @@ Westin
 Whitt
 Ginevra
 Benci
+Qobuz
+Tidarr
+deemix
