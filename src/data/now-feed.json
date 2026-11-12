@@ -1,5 +1,5 @@
 {
-	"updatedAt": "2026-11-11",
+	"updatedAt": "2026-11-12",
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
@@ -7,46 +7,46 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 639,
+			"commitCount": 613,
 			"dailyCommitCounts": [
-				2, 0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25,
-				119, 85, 15
+				0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119,
+				85, 19, 1
 			],
-			"latestCommitMessage": "fix: CI goes green: the heading permalink config types hast nodes..."
-		},
-		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 97,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 4, 1, 11
-			],
-			"latestCommitMessage": "fix: Standards pass against the new motion, web-platform and launch..."
-		},
-		{
-			"name": "dotfiles",
-			"description": "My dotfiles",
-			"url": "https://github.com/JoeKarlsson/dotfiles",
-			"language": "TypeScript",
-			"commitCount": 110,
-			"dailyCommitCounts": [
-				15, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4
-			],
-			"latestCommitMessage": "fix: Design review script measures pages with a strict script CSP..."
+			"latestCommitMessage": "fix: The Doom post's JSON-legend line says what it means, the..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 309,
+			"commitCount": 271,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2, 46,
-				9
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2, 46,
+				27, 1
 			],
-			"latestCommitMessage": "fix: The Publish sheet offers Copy only on text files (captions..."
+			"latestCommitMessage": "fix: The animation test runs on CI again: the logo-probe step no..."
+		},
+		{
+			"name": "punc",
+			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
+			"url": "https://github.com/JoeKarlsson/punc",
+			"language": "TypeScript",
+			"commitCount": 69,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 11, 5, 0
+			],
+			"latestCommitMessage": "fix: The homepage shelf no longer jumps down when its search and sort..."
+		},
+		{
+			"name": "bechdel-test",
+			"description": "Does your favorite film pass the test?",
+			"url": "https://github.com/JoeKarlsson/bechdel-test",
+			"language": "JavaScript",
+			"commitCount": 98,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 4, 1, 12, 0
+			],
+			"latestCommitMessage": "fix: Exhibit titles are real headings again for screen readers: each..."
 		}
 	],
 	"films": [
@@ -114,7 +114,7 @@
 		"followers": 548,
 		"publicRepos": 60,
 		"stars": 659,
-		"forks": 225,
+		"forks": 226,
 		"topRepos": [
 			{
 				"name": "data-structures",
