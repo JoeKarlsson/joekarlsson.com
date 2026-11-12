@@ -8,7 +8,7 @@ categories: ['AI', 'Career']
 tags: ['MCP', 'Doom', 'CData Connect AI', 'Claude', 'developer marketing', 'demos']
 heroImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/thumb-7ce5ed20.webp'
 heroAlt: 'A wartime operations room with a large map plotting table covered in markers, and the tote board on the wall behind it'
-tldr: "I put an MCP server inside Doom. Connect AI × DOOM is, as far as I can find, the first Doom level built out of MCP data. You ask Claude a business question, it pulls the answer out of your apps through the CData Connect AI MCP server, and the answer becomes a Doom level where every monster is a live record. KubeDOOM turned pods into monsters and doom-mcp lets an agent play Doom, but I couldn't find anyone who had built the level out of MCP data. I built the first version in one night without asking anyone, and in October 2026 I ran it at the CData booth at AGNTCon + MCPCon North America in San Jose, where hundreds of people stopped by to play it. It's open source, and you can play it in your browser."
+tldr: "I put an MCP server inside Doom. Connect AI × DOOM is, as far as I can find, the first Doom level built out of MCP data. You ask Claude a business question, it pulls the answer out of your apps through the CData Connect AI MCP server, and the answer becomes a Doom level where every monster is a live record. KubeDOOM turned pods into monsters and doom-mcp lets an agent play regular Doom. I built the first version in one night without asking anyone, and in October 2026 I ran it at the CData booth at AGNTCon + MCPCon North America in San Jose, where hundreds of people stopped by and a lot of them played it. It's open source, and you can play it in your browser."
 faq:
   - question: 'What is Connect AI × DOOM?'
     answer: 'A version of Doom built from live business data. Claude answers a question through the CData Connect AI MCP server, each app it uses becomes a room, each record becomes a monster, and data Connect AI blocked sits behind a red door with no key.'
@@ -59,11 +59,11 @@ And here's the same row in Doom:
 
 I wanted something you could follow from across a room: which sources the agent can reach, what came back, what the agent did with it, and what it wasn't allowed to touch.
 
-## Why DOOM
+## Why Doom
 
 Doom came out in 1993, and ever since id Software [released the source code](https://doomwiki.org/wiki/Doom_source_code) in 1997, people have been porting it to things that shouldn't run Doom: a [pregnancy test](https://www.ubergizmo.com/2020/09/doom-running-on-pregnancy-test/) (Foone swapped in a new screen and chip, but still), a [John Deere tractor](https://mezha.ua/en/2022/08/16/the-hacker-ran-doom-on-a-john-deere-tractor-and-showed-how-the-game-works/) at DEF CON, and enough others to fill a whole subreddit, [r/itrunsdoom](https://www.reddit.com/r/itrunsdoom/). "But can it run Doom?" is the oldest joke in computing that still gets a laugh, and when I first showed this off, the opening line was "But can it run Connect AI?"
 
-The joke gets people to look. What makes Doom work for data is that everyone already knows how to read it. I've started calling this **borrowed literacy**, because I don't have to explain anything. A monster is a problem you have to deal with, and a pink demon is a worse one. A keycard means you're allowed in. A locked door means you're not. Nobody walking past needs a legend for that, and a chat window full of JSON doesn't.
+The joke gets people to look. What makes Doom work for data is that everyone already knows how to read it. I've started calling this **borrowed literacy**, because I don't have to explain anything. A monster is a problem you have to deal with, and a pink demon is a worse one. A keycard means you're allowed in. A locked door means you're not. Nobody walking past needs a legend for that. A chat window full of JSON needs one for every line.
 
 ![Trade Offer meme: the trade offer guy in a suit, with i receive: 30 seconds of your attention at the booth, and you receive: shooting a Salesforce deal in the face](/images/blog/why-i-use-doom-to-visualize-mcp-data/meme-trade-offer.webp)
 
@@ -71,7 +71,7 @@ The joke gets people to look. What makes Doom work for data is that everyone alr
 
 I'm not the first person to wire a real system into Doom, and they deserve credit. [psDooM](https://psdoom.sourceforge.net/), from the late '90s, turned your Unix processes into monsters, and shooting one killed the process. [KubeDOOM](https://github.com/storax/kubedoom) did the same for Kubernetes pods in 2019. I'd heard of KubeDOOM from [an article about using it for chaos engineering](https://k8s.co.il/infrastructure/deploying-kubedoom-for-chaos-engineering-in-kubernetes/). Then in March 2026, Gunnar Grosch released [doom-mcp](https://github.com/gunnargrosch/doom-mcp), an MCP server that lets an AI agent play Doom.
 
-What I hadn't seen was a level built out of what the agent found. doom-mcp gives the agent a game to play, but the level is still regular Doom. I couldn't find anyone who had built one from MCP data.
+doom-mcp gives the agent a game to play, but the level is still regular Doom. I couldn't find anyone who had built a level out of what the agent found over MCP.
 
 ## I built the MVP in one night
 
@@ -79,9 +79,7 @@ I'd mentioned the idea offhand a couple of times before, and it didn't get much 
 
 ![Waiting Skeleton meme: a skeleton slumped on a park bench, captioned Me if I'd waited for approval to build the Doom demo](/images/blog/why-i-use-doom-to-visualize-mcp-data/meme-waiting-skeleton.webp)
 
-The first version used unpaid invoices as the monsters. About twenty minutes later I'd swapped them for Salesforce deals. Coding agents did most of the setup, which is how one night was enough.
-
-That's been the biggest perk of coding agents for me. I know what software can do, and now almost anything I can picture, I can build quickly. That makes them great for prototyping, and even better for getting people on board with an idea, and it's changed my career.
+The first version used unpaid invoices as the monsters. About twenty minutes later I'd swapped them for Salesforce deals. Coding agents did most of the setup, which is how one night was enough. I know what software can do, and now I can build almost anything I can picture quickly. That's changed my career.
 
 Then I recorded a quick demo and sent it around. Here's the unedited cut, me included. In it I call the whole thing "just an experiment."
 
@@ -91,11 +89,9 @@ Then I recorded a quick demo and sent it around. Here's the unedited cut, me inc
 
 _The first demo I sent around._
 
-The same idea that got shrugs as a sentence got a different reaction once people saw it running, and they fell in love with it. I wrote about a version of this in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/): you learn what's good by finishing things and putting them in front of people.
+The same idea that got shrugs as a sentence got a different reaction once people saw it running. I wrote about a version of this in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/): you learn what's good by finishing things and putting them in front of people.
 
 ## How it works
-
-The short version, without getting into the build:
 
 - **You ask a question**, like "Which customers are at risk right now?"
 - **Claude explores your apps** through the Connect AI MCP server, with read-only tools only, and picks the three apps that answer it.
@@ -113,7 +109,7 @@ _The Zendesk room. Every monster is a support ticket._
 
 _The PII vault: data Connect AI refused to hand over, behind a door with no key._
 
-Shoot a monster and the game reads that record again from the source app, so what's on screen stays current. You can play it yourself, or let Claude play through a second MCP server that controls the marine, while the side panel shows every decision and tool call it makes. Nothing in your apps ever changes. I'm saving the [full build story](/blog/doom-mcp-server/) for the CData blog.
+Shoot a monster and the game reads that record again from the source app, so what's on screen stays current. You can play it yourself, or let Claude play through a second MCP server that controls the marine, while the side panel shows every decision and tool call it makes. Nothing in your apps ever changes. The [full build story](/blog/doom-mcp-server/) is on the CData blog.
 
 ## Taking it to AGNTCon + MCPCon
 
@@ -121,7 +117,7 @@ On October 22-23, 2026, I took Connect AI × DOOM to [AGNTCon + MCPCon North Ame
 
 ![Me at the CData booth explaining Connect AI × DOOM to a small crowd while someone films the screen on their phone, with the Doom level and the side panel of MCP tool calls on a big TV behind me](/images/blog/why-i-use-doom-to-visualize-mcp-data/booth-demo.webp)
 
-At an MCP conference, everyone walking the expo floor is looking at chat windows and architecture diagrams all day. A Doom level on a big screen stopped people from across the hall, and once they stopped, I could show them the real thing: an agent hitting an MCP server, getting data back, and getting refused.
+At an MCP conference, everyone walking the expo floor is looking at chat windows and architecture diagrams all day. A Doom level on a big screen stopped people from across the hall, and once they stopped, I could show them what the agent pulled and what Connect AI refused.
 
 ![The CData booth from the aisle, with a crowd gathered in front of the Doom demo on the big screen while I talk someone through it](/images/blog/why-i-use-doom-to-visualize-mcp-data/booth-crowd.webp)
 
@@ -131,7 +127,7 @@ We made shirts for it, too: CDATA in the Doom logo lettering, and the whole team
 
 ![The CData team posing at the booth in matching CDATA Doom shirts, with the Doom demo running on the screen to the right](/images/blog/why-i-use-doom-to-visualize-mcp-data/team-shirts.webp)
 
-I also wasn't the only one running Doom on the expo floor. Even at an AI conference, "can it run Doom?" still works: I spotted an Arm developer badge with a small screen on it, running Doom.
+I wasn't the only one running Doom on the expo floor: an Arm developer badge had a small screen running it.
 
 ![An Arm Create developer badge held in someone's hand, with a small built-in screen running Doom](/images/blog/why-i-use-doom-to-visualize-mcp-data/arm-badge-doom.webp)
 
