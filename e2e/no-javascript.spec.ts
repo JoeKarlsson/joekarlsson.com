@@ -53,6 +53,12 @@ async function findHiddenContent(page: Page): Promise<Hidden[]> {
 			let why = '';
 			for (let node: Element | null = el; node && !why; node = node.parentElement) {
 				const style = getComputedStyle(node);
+				// A CSS loop (the /about frames cut on a timer) shows each frame in turn without
+				// scripts, so whichever frame is between cuts when we look isn't hidden content
+				const cycles = node
+					.getAnimations()
+					.some((a) => a.effect?.getTiming().iterations === Infinity);
+				if (cycles) continue;
 				if (Number(style.opacity) === 0)
 					why = `opacity 0 on ${node.tagName.toLowerCase()}.${node.className}`;
 				else if (style.visibility === 'hidden')

@@ -404,7 +404,6 @@ const cropArtPieces = [
 						<div class="job ring-host border-t border-surface-4">
 							<button
 								type="button"
-								aria-expanded="false"
 								class="flex w-full cursor-pointer flex-wrap items-baseline justify-between gap-x-6 pt-1.5 pb-0.5 text-left text-paper"
 							>
 								<span class="relative inline-flex items-center font-display text-[clamp(2.125rem,4vw,3.5rem)] leading-[0.98] uppercase">
@@ -766,6 +765,8 @@ const cropArtPieces = [
 <script>
 	for (const button of document.querySelectorAll<HTMLButtonElement>('.job > button')) {
 		const job = button.parentElement!;
+		// Set here, not in the markup: without scripts the rows stay open and the button does nothing
+		button.setAttribute('aria-expanded', 'false');
 		button.addEventListener('click', () => {
 			const isOpen = job.classList.toggle('is-open');
 			button.setAttribute('aria-expanded', String(isOpen));

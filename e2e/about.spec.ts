@@ -23,6 +23,19 @@ test.describe('About Page', () => {
 		await expect(toggle).toHaveAttribute('aria-expanded', 'false');
 	});
 
+	test('career rows never claim to be collapsed when scripts are off', async ({ browser }) => {
+		// Without scripts every row is open, so aria-expanded="false" would lie to screen readers
+		const scriptsOff = await browser.newContext({ javaScriptEnabled: false });
+		try {
+			const offPage = await scriptsOff.newPage();
+			await offPage.goto('/about');
+			await expect(offPage.locator('main .job > button').first()).toBeVisible();
+			await expect(offPage.locator('main .job > button[aria-expanded="false"]')).toHaveCount(0);
+		} finally {
+			await scriptsOff.close();
+		}
+	});
+
 	test('videos load the YouTube player only when clicked', async ({ page }) => {
 		// Click-to-load (YouTubeFacade): no player until asked, which keeps the page under its weight budget
 		await expect(page.locator('iframe[src*="youtube"]')).toHaveCount(0);
