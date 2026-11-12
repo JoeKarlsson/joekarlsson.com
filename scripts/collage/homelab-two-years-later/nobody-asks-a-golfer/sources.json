@@ -28,10 +28,10 @@
 		"derivative": "bag and club heads traced by hand with a polygon (the caddie's hands left out) onto a flat ground, then lifted with Apple Vision and toned pink (--largest --width 500 --tone pink)"
 	},
 	{
-		"element": "elements/flag.png",
+		"element": "elements/flag-plain.png",
 		"source": "https://commons.wikimedia.org/wiki/File:Golf_Flagstick_St._Andrews.jpg",
 		"license": "CC0",
-		"shows": "A flagstick in the hole, white flag, Old Course St Andrews; the Old Course crest on the flag stays, drawn small (scale 0.42)",
-		"derivative": "1280px Commons thumbnail, lifted, largest piece kept, toned black and white (--largest --width 500)"
+		"shows": "A flagstick with a plain pale paper flag; the photo's pole is real, the flag cloth (which carried the Old Course crest) is painted over in code",
+		"derivative": "1280px Commons thumbnail, lifted, largest piece kept, toned black and white (--largest --width 500); then the cloth inside the 6 px keyline was filled with a flat off-white paper tone, a soft diagonal shade and light grain (crest removed)"
 	}
 ]

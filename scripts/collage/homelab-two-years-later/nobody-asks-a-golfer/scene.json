@@ -126,7 +126,7 @@
 			}
 		},
 		{
-			"image": "elements/flag.png",
+			"image": "elements/flag-plain.png",
 			"x": 1560,
 			"y": 660,
 			"scale": 0.42,

@@ -31,7 +31,7 @@
 		"element": "elements/record.png",
 		"source": "Immich, IMG_5937(2).HEIC, 2019-09-24 (Joe's photo)",
 		"license": "Joe's own",
-		"shows": "Joe's Savoy LP (Midnight on Cloud 69) on carpet, label side A",
-		"derivative": "lifted with Apple Vision, largest piece kept, left in color: the punchline piece (--tone none --largest --width 600)"
+		"shows": "Joe's LP (Midnight on Cloud 69) on carpet, label side A; the printed label is covered with a plain paper label so no maker name reads",
+		"derivative": "lifted with Apple Vision, largest piece kept, left in color: the punchline piece (--tone none --largest --width 600). Then the printed label covered with a plain paper label drawn in code: media-sources/collage/self-hosted-music-still-sucks-in-2026/plainlabel.mjs (cx 305, cy 307, r 120, fill #efe7d6): a pale circle, thin keyline, spindle hole, no text"
 	}
 ]

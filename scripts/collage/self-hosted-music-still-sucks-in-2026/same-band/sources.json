@@ -3,8 +3,8 @@
 		"element": "elements/record.png",
 		"source": "Immich, IMG_5938(2).HEIC, 2019-09-24 (Joe's photo)",
 		"license": "Joe's own",
-		"shows": "Joe's Savoy LP, side B, with an old 'MISC. DATE #215' sticker already on the label",
-		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 700). Stands in for the plain record sleeve in the pitch: no plain public-domain sleeve was found"
+		"shows": "Joe's LP, side B, with an old 'MISC. DATE #215' sticker already on the label; the printed label is covered with a plain paper label so no maker name reads",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--largest --width 700). Stands in for the plain record sleeve in the pitch: no plain public-domain sleeve was found. Then the printed label covered with a plain paper label drawn in code: media-sources/collage/self-hosted-music-still-sucks-in-2026/plainlabel.mjs (cx 355, cy 349, r 138, fill #e9e9e9): a pale circle, thin keyline, spindle hole, no text"
 	},
 	{
 		"element": "elements/tag-metallica.png",

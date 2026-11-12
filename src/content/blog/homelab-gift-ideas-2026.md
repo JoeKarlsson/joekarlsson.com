@@ -162,7 +162,7 @@ Buy the **Home** version. The Pro has the same sensors and adds support for busi
 
 I run two [CyberPower OR1500PFCRT2U](https://www.cyberpowersystems.com/product/ups/pfc-sinewave/or1500pfcrt2u/) rack UPSes, battery backups that sit between the wall and the servers, because a server that loses power mid-write can corrupt the data on it. In the summer, the power in my office blips when my air conditioners click on, and the servers ride straight through it. That has saved my ass more times than I can count.
 
-I've never had a long outage drain the battery. If one does, NUT (Network UPS Tools) watches the UPS and shuts the cluster down cleanly, since the UPS doesn't do that part on its own. So far I've always been home to flip the breaker or shut the air conditioners off first. I go through what the rest of the rack cost in [my homelab two years later](/blog/homelab-two-years-later/).
+I've never had a long outage drain the battery. If one does, NUT (Network UPS Tools) watches the UPS and shuts the cluster down cleanly, since the UPS doesn't do that part on its own. So far I've always been home when the power cut out, so I could flip the breaker back on or shut the air conditioners off before the battery ran low. I go through what the rest of the rack cost in [my homelab two years later](/blog/homelab-two-years-later/).
 
 **Ask first:** "Is your rack on a UPS yet?" If they say no, have them pick the model. A rack UPS is sized to the power the gear pulls, and they know that number.
 

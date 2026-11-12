@@ -2,6 +2,7 @@
 title: 'Best MCP Servers for ChatGPT, Dots, and Meta Muse'
 seoTitle: 'Best MCP Servers for ChatGPT and Meta Muse'
 date: 2026-10-26
+updatedDate: 2026-11-12
 slug: 'best-mcp-servers-chatgpt-meta-muse'
 description: 'Best MCP servers for ChatGPT, dots, and Meta Muse in 2026, compared by use case, with the criteria business and IT teams use to approve one.'
 categories: ['AI']
@@ -20,9 +21,9 @@ faq:
   - question: 'Does Meta Muse support MCP servers?'
     answer: "Yes, through custom connectors, which you create by asking Muse in chat. They can point at a remote MCP server such as Connect AI (CData KB). Meta doesn't review custom connectors, so choose servers with their own permission controls (Meta Help Center)."
   - question: 'Does Meta Muse have admin controls for business use?'
-    answer: 'Not that Meta has published as of October 20, 2026. Meta announced an enterprise platform that includes Muse on September 28, 2026, without dates or admin features (CIO). Until then, set permissions in the servers Muse connects to.'
+    answer: 'Not that Meta has published as of November 12, 2026. Meta announced an enterprise platform that includes Muse on September 28, 2026, without dates or admin features (CIO). Until then, set permissions in the servers Muse connects to.'
   - question: 'Which ChatGPT plan do I need for dots and MCP servers?'
-    answer: "Dots are available on Pro and Business Premium, and as a beta on Enterprise once an admin turns it on (OpenAI). Pro dots aren't available in the European Economic Area, the UK, or Switzerland. Plugins from the directory are available more widely than dots, and admins on business plans control which ones employees can use."
+    answer: "Dots are available on Pro and Business Premium, and on Enterprise, Edu, and Healthcare workspaces, where admins control access. They turn on by default for those workspaces on November 18, 2026, unless an admin opts out (OpenAI). Pro dots aren't available in the European Economic Area, the UK, or Switzerland. Plugins from the directory are available more widely than dots, and admins on business plans control which ones employees can use."
   - question: 'Are MCP servers safe for company data?'
     answer: "Yes, when the server applies the user's own permissions, supports read-only access, and logs every request. Those controls belong to the server rather than the assistant, so the criteria above focus on them. Start read-only and review the log before allowing writes."
   - question: 'How many MCP servers should a business connect?'
@@ -33,13 +34,13 @@ contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/b
 
 ChatGPT and Meta Muse can both draft an email or summarize a meeting. Ask either one which renewals are at risk this quarter, though, and the answer depends on whether it can access the customer relationship management (CRM) system, the support desk, and the finance system that hold that information. Both assistants connect to those systems through Model Context Protocol (MCP) servers, new ones show up every week, and they don't all solve the same problem. This guide sorts the best MCP servers for ChatGPT and Muse by what each one is good at, starting with the questions a business team should ask before approving one.
 
-**At a glance (updated October 20, 2026)**
+**At a glance (updated November 12, 2026)**
 
 - **MCP server:** a connector that lets an AI assistant read from, and sometimes act in, a business system such as Salesforce or Jira, within limits an admin sets. MCP is the open standard both ChatGPT and Muse use for this ([MCP specification](https://modelcontextprotocol.io/specification/latest)).
 - **ChatGPT:** MCP servers show up as plugins. In Enterprise workspaces, admins decide who can install them and whether they can make changes ([OpenAI plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors)).
-- **ChatGPT dots:** always-on personal agents that use the plugins already installed on your account. Available on Pro and Business Premium, and as an admin-enabled beta on Enterprise ([OpenAI dots docs](https://learn.chatgpt.com/docs/dots)).
+- **ChatGPT dots:** always-on personal agents that use the plugins already installed on your account. Available on Pro and Business Premium, and on Enterprise, Edu, and Healthcare, where admins control access and dots turn on by default from November 18, 2026 ([OpenAI dots docs](https://learn.chatgpt.com/docs/dots)).
 - **Meta Muse:** Meta's personal AI agent, launched September 8, 2026 ([Meta](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)). Meta Muse connectors come built in for common apps, and you can add custom ones, which Meta doesn't review ([Meta Help Center](https://www.meta.com/help/artificial-intelligence/1687253048996149/)).
-- **How this guide was tested:** product capabilities come from each vendor's documentation, checked October 20, 2026. I tested CData Connect AI in ChatGPT, a ChatGPT dot, and Muse, and Atlassian's plugin in ChatGPT.
+- **How this guide was tested:** product capabilities come from each vendor's documentation, checked November 12, 2026. I tested CData Connect AI in ChatGPT, a ChatGPT dot, and Muse, and Atlassian's plugin in ChatGPT.
 
 ## Quick picks by need
 
@@ -111,7 +112,7 @@ Both are good at doing things across a long tail of SaaS apps, like creating a t
 
 ### Data warehouse servers
 
-If your data is already consolidated in a warehouse, the warehouse's own MCP server may be enough. Snowflake, Google BigQuery, and Databricks each run managed MCP servers that follow the warehouse's own permissions ([Snowflake docs](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp), [Google Cloud](https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp), [Databricks docs](https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services)). Snowflake and BigQuery document ChatGPT as a supported client, and the Databricks server is in beta as of October 2026.
+If your data is already consolidated in a warehouse, the warehouse's own MCP server may be enough. Snowflake, Google BigQuery, and Databricks each run managed MCP servers that follow the warehouse's own permissions ([Snowflake docs](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp), [Google Cloud](https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp), [Databricks docs](https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services)). Snowflake and BigQuery document ChatGPT as a supported client. Databricks' Genie One MCP server has been generally available since September 2026, and its SQL server is still in beta as of November 2026.
 
 These servers see only the data your pipelines have loaded, as of the last refresh. If someone asks about this morning's support tickets, or about a system nobody loads into the warehouse, the warehouse server can't help.
 
@@ -135,7 +136,7 @@ A gateway is the better fit when questions cross systems, or when IT wants the s
 
 ## Using MCP servers with ChatGPT dots
 
-A dot keeps working between conversations: it runs scheduled checks and does background research with read-only tools ([OpenAI dots admin guide](https://learn.chatgpt.com/docs/enterprise/dots-admin-guide)). It uses the plugins already installed on your ChatGPT account, with the permissions you've already set ([OpenAI](https://learn.chatgpt.com/docs/dots/computers-and-apps)).
+A dot keeps working between conversations: it runs scheduled checks and does background research with read-only tools ([OpenAI dots docs](https://learn.chatgpt.com/docs/dots)). It uses the plugins already installed on your ChatGPT account, with the permissions you've already set ([OpenAI](https://learn.chatgpt.com/docs/dots/computers-and-apps)).
 
 In my test, the CData Connect AI plugin installed from the directory in about two minutes, and the dot used it right away. A question that combined my five largest open Salesforce deals with their open Jira issues took 4–7 minutes, so dots suit analysis more than quick lookups. With the plugin set to "Allow read-only tools," the dot still created an Asana task I asked for, without an approval prompt, likely because OpenAI's auto-review treats an explicit request as approved ([OpenAI](https://learn.chatgpt.com/docs/enterprise/dots-admin-guide)). When I tried the same kind of write against a connection that's read-only in Connect AI, Connect AI blocked it ([Connect AI docs](https://docs.cloud.cdata.com/en/Permissions)). If a dot must never change a system, set read-only at the connection layer. The full walkthrough is in [how to use ChatGPT dots](/blog/how-to-use-chatgpt-dots).
 
@@ -204,11 +205,11 @@ Yes, through custom connectors, which you create by asking Muse in chat. They ca
 
 **Does Meta Muse have admin controls for business use?**
 
-Not that Meta has published as of October 20, 2026. Meta announced an enterprise platform that includes Muse on September 28, 2026, without dates or admin features ([CIO](https://www.cio.com/article/4228508/metas-next-big-ai-bet-is-enterprise-its-biggest-hurdle-may-be-trust.html)). Until then, set permissions in the servers Muse connects to.
+Not that Meta has published as of November 12, 2026. Meta announced an enterprise platform that includes Muse on September 28, 2026, without dates or admin features ([CIO](https://www.cio.com/article/4228508/metas-next-big-ai-bet-is-enterprise-its-biggest-hurdle-may-be-trust.html)). Until then, set permissions in the servers Muse connects to.
 
 **Which ChatGPT plan do I need for dots and MCP servers?**
 
-Dots are available on Pro and Business Premium, and as a beta on Enterprise once an admin turns it on ([OpenAI](https://learn.chatgpt.com/docs/dots)). Pro dots aren't available in the European Economic Area, the UK, or Switzerland. Plugins from the directory are available more widely than dots, and admins on business plans control which ones employees can use.
+Dots are available on Pro and Business Premium, and on Enterprise, Edu, and Healthcare workspaces, where admins control access. They turn on by default for those workspaces on November 18, 2026, unless an admin opts out ([OpenAI](https://help.openai.com/en/articles/20001554-managing-dots-in-chatgpt-workspaces)). Pro dots aren't available in the European Economic Area, the UK, or Switzerland. Plugins from the directory are available more widely than dots, and admins on business plans control which ones employees can use.
 
 **Are MCP servers safe for company data?**
 

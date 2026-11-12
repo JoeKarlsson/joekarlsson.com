@@ -341,7 +341,7 @@ It may pay for itself eventually. Subscription prices keep going up - [1Password
 
 It's a hobby, and hobbies cost money. Nobody asks a golfer to justify their club membership with a break-even analysis.
 
-![A paper-collage animation on a green field: my server rack lands in the middle, an old adding machine prints its tape toward it, then the rack drops out of the frame, the tape falls to the grass, a pink canvas golf bag rises in the middle, a golf flag lands beside it, and the words Hobbies cost money set in above](/images/blog/homelab-two-years-later/nobody-asks-a-golfer.svg)
+![A paper-collage animation on a green field: my server rack lands in the middle, an old adding machine prints its tape toward it, then the rack drops out of the frame, the tape falls to the grass, a pink canvas golf bag rises in the middle, a golf flag lands beside it, and the words Hobbies cost money set in above](/images/blog/homelab-two-years-later/nobody-asks-a-golfer-plain.svg)
 
 ### The real return was my day job
 

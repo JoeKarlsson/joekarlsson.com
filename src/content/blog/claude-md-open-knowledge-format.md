@@ -94,7 +94,7 @@ The metadata is free, at least. Claude Code [strips frontmatter from rules files
 
 For the restructured copy, I had subagents split the big docs into small concept files with an index per folder, and every CLAUDE.md shrank to a stub: the few rules that must apply every session, plus a pointer to the right index. They moved text word for word and never rewrote it, and a script checked that every original line still existed somewhere.
 
-![Before and after splitting into concepts. Before: home-assistant/CLAUDE.md was 65 KB and loaded in every session. After: home-assistant/CLAUDE.md is a 2 KB stub of rules plus a pointer, and knowledge/home-assistant/ holds an index with one line per concept and small concept files like voice-agent.md, dashboards.md and alerting.md, 1 to 2 KB each, opened on demand.](/images/blog/claude-md-open-knowledge-format/before-after.svg)
+![Before and after splitting into concepts. Before: home-assistant/CLAUDE.md was 65 KB and loaded in every session. After: home-assistant/CLAUDE.md is a 2 KB stub of rules plus a pointer, and knowledge/home-assistant/ holds an index with one line per concept and small concept files like critical-alerts-to-phone.md, dashboard-conventions.md and voice-assistant-setup.md, 1 to 2 KB each, opened on demand.](/images/blog/claude-md-open-knowledge-format/split-into-concepts.svg)
 
 That halved what loads at startup, and every question got a little cheaper because there was less context to carry on each turn. The biggest wins were facts buried in huge docs. Instead of reading a 36 KB file to find one setting, the agent opened a 1 KB file, and my most expensive question dropped to about a third of its old cost.
 
