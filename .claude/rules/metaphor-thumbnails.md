@@ -1,6 +1,6 @@
 # Metaphor photo thumbnails
 
-A new post's thumbnail (its `heroImage`, so also its header and og:image) is a public-domain photo that works as a metaphor for the post, drawn in the site's pink-and-black look by `scripts/generate-work-thumbnails.mjs`. `/write-post` (Phase 7) and `/import-cdata-posts` (step 2) both use this. The script and plan file say "work" because employer posts came first; they draw any post.
+A new post's thumbnail (its `heroImage`, so also its header and og:image) is a public-domain photo that works as a metaphor for the post, drawn in the site's pink-and-black look by `scripts/generate-work-thumbnails.mjs`. `/write-post` (Phase 7) and `/import-cdata-posts` (step 7) both use this. The script and plan file say "work" because employer posts came first; they draw any post.
 
 ## 1. Pick the metaphor
 
