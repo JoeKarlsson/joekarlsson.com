@@ -179,7 +179,7 @@ To do this with another game, you need:
 1. **A way in.** A command file, a socket, a mod API, or a console, anything the game reads every frame.
 2. **A way out.** A state dump with a stable ID on every entity the model might care about.
 3. **Names for places.** "room 1" and "vault," so the model never does geometry.
-4. **Tools that wait for an outcome.** Each one says what to do next, instead of pressing a key.
+4. **Tools that wait for an outcome.** Each one runs a whole action and returns a result that says what to do next.
 
 ## Visualizing MCP data as a Doom level
 
@@ -198,7 +198,7 @@ Other Doom MCP servers, like [doom-mcp](https://github.com/gunnargrosch/doom-mcp
 
 ![The Zendesk room: Claude walking into a hall of monsters labeled with support tickets like API endpoint returning 500 errors and phone service slow, with the urgent ticket named across the bottom of the screen](/images/blog/why-i-use-doom-to-visualize-mcp-data/zendesk-room.gif)
 
-A side panel streams every tool call Claude makes as it happens, plus each kill and the live read that follows it, so you watch the agent work instead of reading its transcript afterward.
+A side panel streams every tool call Claude makes as it happens, plus each kill and the live read that follows it.
 
 A level built once from a query goes stale, so the game is also an MCP client. [A small bridge](https://github.com/CDataSoftware/connect-ai-doom/blob/81c4895afb75b226aa80c534b12bb43566bafef2/connect_doom.py) talks to Connect AI while you play. It re-runs each room's query every 15 seconds. A ticket someone closes in Zendesk drops out of the query and leaves the room on the next refresh, and a newly opened one walks in. It reads a record again when you kill it, and it re-sends the refused request when someone walks into the red door, so the no you get is live, too. Doom's game loop can't wait on any of that, so it all runs in the background and the game only ever reads local files.
 

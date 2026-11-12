@@ -74,7 +74,7 @@ Restructuring it and doing data analysis on it felt like painting, like seeing t
 
 Not everyone bought Graham's analogy. In 2005 Maciej Ceglowski, who had painted oils full time and also wrote code, answered him with [Dabblers and Blowhards](https://idlewords.com/2005/04/dabblers_and_blowhards.htm): "So let me say it simply - hackers are nothing like painters." He went after the sketching story too. Fifteenth-century painting, he wrote, had "a superprecise underdrawing and underpainting that were covered with thin glazes of color." That's not spewing broken code and beating it into shape.
 
-Ceglowski is describing how fifteenth-century painters worked. That isn't how I paint. As I wrote in [my newsletter](/newsletter/taste-matters-more-with-ai/), I paint mostly by feel, going by what feels right and looks right, and a lot of the time I keep going until I overwork a piece, just to find out where the limit is.
+Ceglowski is describing how fifteenth-century painters worked, and that isn't how I paint. As I wrote in [my newsletter](/newsletter/taste-matters-more-with-ai/), I paint mostly by feel, going by what feels right and looks right, and a lot of the time I keep going until I overwork a piece, just to find out where the limit is.
 
 Some painting is process art, where how it was made is the artistic expression. I don't know if code can be that in the AI era, unless the point you're making is about AI itself.
 

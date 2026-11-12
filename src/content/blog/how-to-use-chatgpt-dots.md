@@ -39,7 +39,7 @@ Why not install each app's own ChatGPT plugin? If you only need one app and it h
 
 **Live data.** Connect AI reads from each app in place when your dot asks, so answers come from current records, not last week's export.
 
-**Fewer tokens per question.** Connect AI filters and combines data at the source and hands the model only what the question needs, instead of every field from every tool. CData measured up to 97.6% fewer tokens per request in its [token optimization analysis](https://www.cdata.com/ai/use-cases/token-optimization/).
+**Fewer tokens per question.** Connect AI filters and combines data at the source and hands the model only what the question needs. CData measured up to 97.6% fewer tokens per request in its [token optimization analysis](https://www.cdata.com/ai/use-cases/token-optimization/).
 
 **More accurate answers.** In a CData benchmark of five Model Context Protocol (MCP) providers, the services that connect AI agents to business apps, across customer relationship management (CRM), project management, data warehouse, and ERP platforms, Connect AI returned correct results 98.5% of the time, while the others ranged from 65% to 75% ([read the full report](https://www.cdata.com/media/vlrmac2x/cdata-executive-summary-25-accuracy-gap.pdf)).
 

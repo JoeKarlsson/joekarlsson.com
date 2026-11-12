@@ -55,7 +55,7 @@ I found a second broken hook while I was at it. Claude and Word documents don't 
 
 ![Always Has Been meme: one astronaut looks at Earth and asks "Wait, my OneDrive guard hook never blocked anything?" while a second astronaut behind him holds a gun and says "Always has been"](/images/blog/claude-code-mods-first-impressions/meme-always-has-been.webp)
 
-Both are my mistakes, and [the docs](https://code.claude.com/docs/en/hooks) explain both. But that's my problem with hooks the way I was using them: when one broke, nothing told me. The rules in my CLAUDE.md file have their own version of that problem. They only work if Claude remembers them in every session. Mods fix the memory problem because the rule is code, and the silent breakage because they can show me they ran.
+Both are my mistakes, and [the docs](https://code.claude.com/docs/en/hooks) explain both. But my problem with hooks, the way I was using them, is that nothing told me when one broke. The rules in my CLAUDE.md file have their own version of that problem. They only work if Claude remembers them in every session. Mods fix the memory problem because the rule is code, and the silent breakage because they can show me they ran.
 
 ![Two guys on a bus meme: the sad man by the rock wall is labeled "Rules in CLAUDE.md the agent has to remember" and the happy man looking at the sunny mountains is labeled "Rules with a status line"](/images/blog/claude-code-mods-first-impressions/meme-two-guys-bus.webp)
 
@@ -76,7 +76,7 @@ It also replaced the dead hooks. When I mention a service, the mod hands Claude 
 
 ## What I don't like
 
-**They fail open.** If a mod crashes, Claude Code skips it and keeps going. That makes sense, since one buggy mod shouldn't freeze every session, but it means a broken guard stops guarding while the session keeps going. My mods load straight from a folder, so when one crashes, Claude Code leaves a one-line note in the chat saying which one. That's more than my hooks ever gave me. For mods installed from a marketplace, the note only goes to a [debug log](https://code.claude.com/docs/en/plugins/mods/troubleshoot#find-out-why-a-mod-does-nothing). I kept my homelab's old blocking hooks, which do work, running as a backup anyway. So the visibility argument holds for mods I load myself. Install one from a marketplace and you're closer to hoping it ran.
+**They fail open.** If a mod crashes, Claude Code skips it and keeps going. That makes sense, since one buggy mod shouldn't freeze every session, but it means a broken guard stops guarding while the session keeps going. My mods load straight from a folder, so when one crashes, Claude Code leaves a one-line note in the chat saying which one. That's more than my hooks ever gave me. For mods installed from a marketplace, the note only goes to a [debug log](https://code.claude.com/docs/en/plugins/mods/troubleshoot#find-out-why-a-mod-does-nothing). So the visibility argument holds for mods I load myself. I kept my homelab's old blocking hooks, which do work, running as a backup anyway.
 
 **They can do anything I can.** A mod runs with [full access to my machine](https://code.claude.com/docs/en/plugins/mods/overview). I wrote mine with Claude, so I'm reviewing code I didn't type before letting it decide which commands run. I wouldn't install a stranger's mod without reading every line.
 
