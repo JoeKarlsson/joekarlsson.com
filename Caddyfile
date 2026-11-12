@@ -70,19 +70,21 @@
 	redir @all-work /work/ 301
 
 	# Blog post renames - year updates
-	@ha-2023 path /blog/how-to-get-started-with-home-assistant-in-2023 /blog/how-to-get-started-with-home-assistant-in-2023/
-	redir @ha-2023 /blog/how-to-get-started-with-home-assistant-in-2026/ 301
+	# Evergreen guides lost the year in their URL (2026-11-09). Caddy answers every old
+	# slug with one real 301; Astro's own redirect for them is a 200 meta-refresh page.
+	@ha-old path_regexp ^/blog/how-to-get-started-with-home-assistant-in-20\d\d/?$
+	redir @ha-old /blog/how-to-get-started-with-home-assistant/ 301
+
+	@devrel-2026 path /blog/running-devrel-2026 /blog/running-devrel-2026/
+	redir @devrel-2026 /blog/running-devrel/ 301
 
 	@music-2025 path /blog/self-hosted-music-still-sucks-in-2025 /blog/self-hosted-music-still-sucks-in-2025/
 	redir @music-2025 /blog/self-hosted-music-still-sucks-in-2026/ 301
 
-	# The homelab server post's original slug
-	@homelab-not-expensive path /blog/how-to-get-started-building-a-not-expensive-homelab-server /blog/how-to-get-started-building-a-not-expensive-homelab-server/
-	redir @homelab-not-expensive /blog/how-to-get-started-building-a-homelab-server-in-2024/ 301
-
-	# Homelab server post - people searching for 2026 version
-	@homelab-2026 path_regexp ^/blog/how-to-get-started-building-a-homelab-server-in-2026.*
-	redir @homelab-2026 /blog/how-to-get-started-building-a-homelab-server-in-2024/ 301
+	# The homelab server post's original slug and every yearly one (-in-2024 was its
+	# top Google landing page when it moved)
+	@homelab-old path_regexp ^/blog/how-to-get-started-building-a-(not-expensive-homelab-server|homelab-server-in-20\d\d).*$
+	redir @homelab-old /blog/how-to-get-started-building-a-homelab-server/ 301
 
 	# Outdated MongoDB post - redirect to blog
 	@mongodb-credits path /blog/how-to-activate-your-mongodb-atlas-credits /blog/how-to-activate-your-mongodb-atlas-credits/
