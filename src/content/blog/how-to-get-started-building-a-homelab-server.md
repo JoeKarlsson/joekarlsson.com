@@ -1,11 +1,11 @@
 ---
 title: 'How to get started building a Homelab server in 2027'
-seoTitle: 'How to Build a Homelab Server in 2027'
+seoTitle: 'Homelab Setup: Build a Home Server in 2027'
 date: 2023-09-27
 updatedDate: 2026-11-12
 updateNote: 'Refreshed for 2027 with higher hardware prices from the RAM shortage, Proxmox VE 9.2, current Unraid and Plex pricing, TrueNAS Community Edition, LazyLibrarian in place of the retired Readarr, and power costs at $0.15/kWh.'
 slug: 'how-to-get-started-building-a-homelab-server'
-description: "I built my first Homelab server for under $200 with a used Lenovo ThinkServer and Proxmox. Here's how I picked hardware, ran containers and mounted NAS."
+description: "A beginner's homelab setup: pick a used office PC or mini PC, install Proxmox for free, and run your first four services, with 2027 prices and power costs."
 categories: ['Homelab']
 heroImage: '/images/blog/how-to-get-started-building-a-homelab-server/thumb-52866fdd.webp'
 heroAlt: 'Is this a server? meme: me looking at any used PC on Facebook Marketplace'
