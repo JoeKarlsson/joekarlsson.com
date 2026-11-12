@@ -145,6 +145,17 @@ test.describe('Footer', () => {
 		await expect(form.locator('input[name="l"]')).toHaveValue(/^[0-9a-f-]{36}$/);
 		await expect(form.getByRole('button', { name: /subscribe/i })).toBeVisible();
 	});
+
+	test('posts ask for the newsletter where the reader finishes', async ({ page }) => {
+		await page.goto('/blog/how-to-get-started-building-a-homelab-server/');
+
+		const form = page.locator('form.newsletter-signup[data-location="post-end"]');
+		await expect(form).toHaveAttribute(
+			'action',
+			'https://newsletter.joekarlsson.com/subscription/form',
+		);
+		await expect(form.getByLabel('Email address')).toBeVisible();
+	});
 });
 
 test.describe('Page Navigation', () => {
