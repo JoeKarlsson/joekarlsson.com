@@ -27,3 +27,17 @@ describe('pageToMarkdown phone copies', () => {
 		expect(md).toContain('The full text.');
 	});
 });
+
+describe('pageToMarkdown metadata lines', () => {
+	it('puts a bar between the pieces the page separates with CSS', () => {
+		const md = pageToMarkdown(
+			page(
+				'<p class="meta-parts"><time>Nov 10, 2026</time> <span>22 min read</span> <a href="/blog/category/web-dev/">Web Dev</a></p>',
+			),
+			'https://joekarlsson.com/t/',
+		);
+		expect(md).toContain(
+			'Nov 10, 2026 | 22 min read | [Web Dev](https://joekarlsson.com/blog/category/web-dev/)',
+		);
+	});
+});

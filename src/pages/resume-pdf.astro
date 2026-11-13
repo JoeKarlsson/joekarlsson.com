@@ -250,9 +250,9 @@ function formatYearRange(start: number, end: number | null): string {
 					<span class="role-dates">{formatYearRange(role.startYear, role.endYear)}</span>
 				</div>
 				<div class="role-meta">
-					{role.company} <span class="role-location">&middot; {role.location}</span>
+					{role.company} <span class="role-location">| {role.location}</span>
 				</div>
-				<div class="role-tech">{role.tech.join(' · ')}</div>
+				<div class="role-tech">{role.tech.join(', ')}</div>
 				<ul>
 					{role.bullets.map((b) => (
 						<li>{typeof b === 'string' ? b : b.text}</li>
@@ -278,7 +278,7 @@ function formatYearRange(start: number, end: number | null): string {
 		</div>
 		<div class="edu-school">{education.school}</div>
 		<div class="edu-detail">
-			GPA: {education.gpa} &middot; Minors: {education.minors?.join(', ')}
+			GPA: {education.gpa} | Minors: {education.minors?.join(', ')}
 		</div>
 	</body>
 </html>

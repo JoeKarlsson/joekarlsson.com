@@ -175,6 +175,10 @@ function convertDocument(document, url) {
 		)
 			el.remove();
 	});
+	// A metadata line (MetaParts) draws its separators in CSS, which the copy can't see
+	main.querySelectorAll('.meta-parts').forEach((line) => {
+		[...line.children].slice(1).forEach((piece) => piece.before(' | '));
+	});
 	// A card is one big link around a picture, a title and a blurb: "[Title](url): blurb"
 	main.querySelectorAll('a[href]').forEach((a) => {
 		const hasBlocks = a.querySelector('img, picture, h1, h2, h3, h4, h5, h6, p, div, figure');
@@ -193,9 +197,10 @@ function convertDocument(document, url) {
 		if (blurb.length) line.append(`: ${blurb.join(' ')}`);
 		a.replaceWith(line);
 	});
-	// Links set side by side with no text between ("Source", "Blog Post") get a separator
+	// Links set side by side with no text between ("Source", "Blog Post") get the same
+	// bar as a metadata line
 	main.querySelectorAll('a[href]').forEach((a) => {
-		if (a.previousSibling?.nodeName === 'A') a.before(' · ');
+		if (a.previousSibling?.nodeName === 'A') a.before(' | ');
 	});
 
 	// Diagrams ship a desktop and a phone drawing with the same label: keep one, as text
