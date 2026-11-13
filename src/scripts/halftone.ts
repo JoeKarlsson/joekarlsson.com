@@ -110,6 +110,9 @@ interface Look {
 
 type Draw = (source: Source, target: HTMLCanvasElement, look: Look) => void;
 
+// Every attached picture's redraw, for when a lost WebGL context comes back
+const redrawAll = new Set<() => void>();
+
 function compile(gl: WebGLRenderingContext, type: number, source: string): WebGLShader {
 	const shader = gl.createShader(type)!;
 	gl.shaderSource(shader, source);
@@ -137,36 +140,55 @@ function createRenderer(): Draw | null {
 	const renderer = debugInfo ? String(gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)) : '';
 	if (SOFTWARE_RENDERER.test(renderer)) return null;
 
-	const program = gl.createProgram()!;
-	gl.attachShader(program, compile(gl, gl.VERTEX_SHADER, VERTEX_SHADER));
-	gl.attachShader(program, compile(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER));
-	gl.linkProgram(program);
-	gl.useProgram(program);
+	// Everything the GPU holds; built again when a lost context comes back
+	const setUp = () => {
+		const program = gl.createProgram()!;
+		gl.attachShader(program, compile(gl, gl.VERTEX_SHADER, VERTEX_SHADER));
+		gl.attachShader(program, compile(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER));
+		gl.linkProgram(program);
+		gl.useProgram(program);
 
-	// One triangle pair covering the canvas
-	gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
-	const position = gl.getAttribLocation(program, 'position');
-	gl.enableVertexAttribArray(position);
-	gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+		// One triangle pair covering the canvas
+		gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+		const position = gl.getAttribLocation(program, 'position');
+		gl.enableVertexAttribArray(position);
+		gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
 
-	gl.bindTexture(gl.TEXTURE_2D, gl.createTexture());
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-	gl.uniform3fv(gl.getUniformLocation(program, 'ink'), INK);
-	const uniform = (name: string) => gl.getUniformLocation(program, name);
-	const [canvasSize, fitScale, fitOffset, cell, invert, noDots, levels] = [
-		'canvasSize',
-		'fitScale',
-		'fitOffset',
-		'cell',
-		'invert',
-		'noDots',
-		'levels',
-	].map(uniform);
+		gl.bindTexture(gl.TEXTURE_2D, gl.createTexture());
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+		gl.uniform3fv(gl.getUniformLocation(program, 'ink'), INK);
+		const uniform = (name: string) => gl.getUniformLocation(program, name);
+		return {
+			canvasSize: uniform('canvasSize'),
+			fitScale: uniform('fitScale'),
+			fitOffset: uniform('fitOffset'),
+			cell: uniform('cell'),
+			invert: uniform('invert'),
+			noDots: uniform('noDots'),
+			levels: uniform('levels'),
+		};
+	};
+	let uniforms = setUp();
+
+	// iOS Safari drops a page's WebGL context to free GPU memory (often after a switch to
+	// another app). Drawing with the lost context painted every picture solid black, so
+	// show the originals until it comes back, then draw everything in pink again.
+	glCanvas.addEventListener('webglcontextlost', (event) => {
+		event.preventDefault();
+		showOriginals();
+	});
+	glCanvas.addEventListener('webglcontextrestored', () => {
+		uniforms = setUp();
+		document.documentElement.classList.add('halftone-on');
+		redrawAll.forEach((redraw) => redraw());
+	});
 
 	return (source, target, look) => {
+		if (gl.isContextLost()) return;
+		const { canvasSize, fitScale, fitOffset, cell, invert, noDots, levels } = uniforms;
 		const { width, height } = target;
 		const sourceAspect =
 			source instanceof HTMLVideoElement
@@ -277,6 +299,8 @@ function attach(element: Source, draw: Draw): void {
 		if (hasFrame) draw(video, canvas, look);
 		else if (stillReady) draw(still, canvas, look);
 	};
+
+	redrawAll.add(redraw);
 
 	// Place the canvas now: left where it lands in the flow until the still loads,
 	// it jumped into place later, a layout shift

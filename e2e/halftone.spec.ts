@@ -64,4 +64,38 @@ test.describe('Halftone', () => {
 		const label = (await video.getAttribute('aria-label'))!;
 		await expect(page.getByLabel(label, { exact: true })).toBeAttached();
 	});
+	test('a lost WebGL context shows the originals, and pink comes back with it', async ({
+		page,
+	}) => {
+		// iOS Safari drops the context to free GPU memory; drawing on with it painted black
+		await stubRenderer(page, 'ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)');
+		await page.addInitScript(() => {
+			const getContext = HTMLCanvasElement.prototype.getContext;
+			// @ts-expect-error narrowing the overloads isn't worth it in a stub
+			HTMLCanvasElement.prototype.getContext = function (type: string, ...rest: unknown[]) {
+				const context = getContext.call(this, type, ...rest);
+				if (type === 'webgl' && context) Object.assign(window, { halftoneGl: context });
+				return context;
+			};
+		});
+		await page.goto('/about/');
+		await expect(page.locator('html')).toHaveClass(/halftone-on/);
+
+		const loseContext = () =>
+			page.evaluate(() => {
+				const gl = (window as unknown as { halftoneGl: WebGLRenderingContext }).halftoneGl;
+				const extension = gl.getExtension('WEBGL_lose_context')!;
+				Object.assign(window, { halftoneLoseContext: extension });
+				extension.loseContext();
+			});
+		await loseContext();
+		await expect(page.locator('html')).not.toHaveClass(/halftone-on/);
+
+		await page.evaluate(() =>
+			(
+				window as unknown as { halftoneLoseContext: WEBGL_lose_context }
+			).halftoneLoseContext.restoreContext(),
+		);
+		await expect(page.locator('html')).toHaveClass(/halftone-on/);
+	});
 });
