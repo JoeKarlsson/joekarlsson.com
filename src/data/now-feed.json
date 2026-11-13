@@ -1,5 +1,5 @@
 {
-	"updatedAt": "2026-11-12",
+	"updatedAt": "2026-11-13",
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 654,
+			"commitCount": 660,
 			"dailyCommitCounts": [
-				0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119,
-				85, 19, 42
+				2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119, 85,
+				19, 45, 3
 			],
-			"latestCommitMessage": "fix: Meta lines put a thin gray bar between pieces, so it's clear..."
+			"latestCommitMessage": "chore: The reduced-motion envelope test watches for the envelope as..."
 		},
 		{
 			"name": "dotfiles",
 			"description": "My dotfiles",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
 			"language": "TypeScript",
-			"commitCount": 114,
+			"commitCount": 106,
 			"dailyCommitCounts": [
-				5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 10
+				0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 10, 1
 			],
-			"latestCommitMessage": "feat: Claude can run npm run deploy"
+			"latestCommitMessage": "feat: Web motion rules add Disney's animation principles, frequency of..."
 		},
 		{
 			"name": "client-side-field-level-encryption-csfle-mongodb-node-demo",
@@ -32,7 +32,7 @@
 			"language": "JavaScript",
 			"commitCount": 1,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 			],
 			"latestCommitMessage": "fix: The demo runs on MongoDB driver 7 (ClientEncryption from mongodb..."
 		},
@@ -43,7 +43,7 @@
 			"language": "HTML",
 			"commitCount": 5,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1, 0
 			],
 			"latestCommitMessage": "fix: The box runs on today's Node, MongoDB driver 7 and Python 3, logs..."
 		}
@@ -110,7 +110,7 @@
 	],
 	"homelab": { "runningContainers": 72, "proxmoxNodes": 2, "cpuThreads": 160, "memoryGB": 252 },
 	"github": {
-		"followers": 548,
+		"followers": 549,
 		"publicRepos": 60,
 		"stars": 659,
 		"forks": 226,
