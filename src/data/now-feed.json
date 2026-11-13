@@ -7,50 +7,57 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 639,
+			"commitCount": 641,
 			"dailyCommitCounts": [
 				0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119,
-				85, 19, 27
+				85, 19, 29
 			],
-			"latestCommitMessage": "chore: Spell check knows Qobuz, Tidarr and deemix"
-		},
-		{
-			"name": "bechdel-test",
-			"description": "Does your favorite film pass the test?",
-			"url": "https://github.com/JoeKarlsson/bechdel-test",
-			"language": "JavaScript",
-			"commitCount": 121,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20, 13, 4, 1, 12,
-				23
-			],
-			"latestCommitMessage": "chore: Drop the related class from film pages; the shared poster grid..."
+			"latestCommitMessage": "fix: Four older CloudQuery posts drop the 'bookmark this', 'deep dive..."
 		},
 		{
 			"name": "screencast-director",
 			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
 			"url": "https://github.com/JoeKarlsson/screencast-director",
 			"language": "Swift",
-			"commitCount": 285,
+			"commitCount": 286,
 			"dailyCommitCounts": [
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2, 46,
-				27, 15
+				27, 16
 			],
-			"latestCommitMessage": "feat: Arrange an animation's text by hand: Arrange Text in the..."
+			"latestCommitMessage": "fix: A text piece dragged in a diagram the camera has pushed in on..."
+		},
+		{
+			"name": "punc",
+			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
+			"url": "https://github.com/JoeKarlsson/punc",
+			"language": "TypeScript",
+			"commitCount": 73,
+			"dailyCommitCounts": [
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 11, 5, 4
+			],
+			"latestCommitMessage": "chore: The phone page-turn test allows WebKit's sub-pixel scroll..."
 		},
 		{
 			"name": "dotfiles",
 			"description": "My dotfiles",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
 			"language": "TypeScript",
-			"commitCount": 113,
+			"commitCount": 115,
 			"dailyCommitCounts": [
-				5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 7
+				5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 9
 			],
-			"latestCommitMessage": "fix: Marketing pointers skip finished-subagent reports, the global..."
+			"latestCommitMessage": "chore: Site registry: bechdel.io keeps its black too, an exception to..."
 		}
 	],
 	"films": [
+		{
+			"title": "Making Marie Antoinette",
+			"year": 2026,
+			"rating": 4,
+			"reviewExcerpt": "Yes, Sofia Coppola is a nepo baby. Have you met her family? So yes, nepo baby. But goddamn it, she comes from a talented family. Something is brewing in that...",
+			"url": "https://letterboxd.com/joekarlsson/film/making-marie-antoinette/",
+			"poster": "/images/now/film-1754364.webp"
+		},
 		{
 			"title": "Zodiac",
 			"year": 2007,
@@ -74,14 +81,6 @@
 			"reviewExcerpt": "Antifa Trunks and Goten confirmed.",
 			"url": "https://letterboxd.com/joekarlsson/film/dragon-ball-z-fusion-reborn/",
 			"poster": "/images/now/film-39107.webp"
-		},
-		{
-			"title": "The History of Concrete",
-			"year": 2026,
-			"rating": 4.5,
-			"reviewExcerpt": "This is Pilgrim at Tinker Creek if Annie Dillard were stuck on a New York City sidewalk. I mean that as the highest praise. I'm a sucker for sprawling...",
-			"url": "https://letterboxd.com/joekarlsson/film/the-history-of-concrete/",
-			"poster": "/images/now/film-1596296.webp"
 		}
 	],
 	"podcastEpisodes": [
