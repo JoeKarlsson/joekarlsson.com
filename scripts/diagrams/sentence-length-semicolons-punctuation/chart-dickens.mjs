@@ -1,17 +1,6 @@
 // Dickens, 0 of 20: each of his books flies from his shelf to the author its punctuation was
 // taken for. Seven land on Robert E. Howard.
-import {
-	COLORS,
-	DATA,
-	MUTED,
-	PANEL,
-	easeOutBack,
-	label,
-	layers,
-	n,
-	panel,
-	prog,
-} from './_chart.mjs';
+import { COLORS, DATA, MUTED, PANEL, easeOut, label, layers, n, panel, prog } from './_chart.mjs';
 
 const D = DATA.dickens;
 const WHO = Object.entries(D.mistaken_for); // largest first, as the data lists them
@@ -100,7 +89,7 @@ function chart(f, { W, H, phone }) {
 		books.forEach(({ k, to, row, last }) => {
 			const from = src(k);
 			const at = T0 + k * EACH;
-			const p = (t) => easeOutBack(prog(t, at, 0.5));
+			const p = (t) => easeOut(prog(t, at, 0.5));
 			out.push(
 				el(
 					'rect',

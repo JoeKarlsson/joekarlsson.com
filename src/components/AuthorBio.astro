@@ -39,11 +39,12 @@ const SOCIALS = [
 		<p class="text-lg">
 			I write about my homelab, AI tools, databases, and the weird stuff I build on the side.
 		</p>
-		<!-- py-3 with matching negative margins: 44px tap targets that take no extra room -->
+		<!-- py-3 with matching negative margins: 44px tap targets that take no extra room. The
+			socials sit 10px lower so their targets don't overlap the About link's on phones -->
 		<a href="/about/" class="-my-3 w-fit py-3 font-extrabold text-ink hover:text-paper">
 			More about me →
 		</a>
-		<p class="-my-3 flex flex-wrap gap-x-4 font-extrabold">
+		<p class="-mt-0.5 -mb-3 flex flex-wrap gap-x-4 font-extrabold">
 			{SOCIALS.map(({ label, href }) => (
 				<a
 					href={href}

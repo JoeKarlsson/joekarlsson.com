@@ -564,11 +564,16 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 	::view-transition-old(root),
 	::view-transition-new(root) {
 		animation-duration: 0.25s;
+		animation-timing-function: var(--ease-enter);
 	}
 	html.lightbox-closing::view-transition-group(*),
 	html.lightbox-closing::view-transition-old(*),
 	html.lightbox-closing::view-transition-new(*) {
 		animation-duration: 0.2s;
+	}
+	/* Closing, the picture moves back into the page and stays: a move, so ease-in-out */
+	html.lightbox-closing::view-transition-group(lightbox-morph) {
+		animation-timing-function: ease-in-out;
 	}
 
 	/* Phones: a folded Talks or Uses section eases open and shut 20% faster

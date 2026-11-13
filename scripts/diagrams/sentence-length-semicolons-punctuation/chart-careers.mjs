@@ -152,7 +152,7 @@ function chart(f, { W, H, phone }) {
 	const quoted = SHELF.map((p) => [Number(p.period.slice(0, 4)) + 12, p.semicolon, p.quoted]);
 	const firstQuoted = quoted.findIndex((q) => q[2]);
 
-	layers(f, phone, (el) => {
+	layers(f, true, (el) => {
 		if (phone) return phoneRows(el).join('');
 		const out = [
 			// The shelf's median book: dotted while periods have fewer than 20 books, solid after

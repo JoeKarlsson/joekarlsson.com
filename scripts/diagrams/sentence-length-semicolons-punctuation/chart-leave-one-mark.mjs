@@ -84,7 +84,7 @@ function chart(f, { W, H, phone }) {
 		});
 	});
 
-	layers(f, phone, (el) => {
+	layers(f, true, (el) => {
 		const out = [];
 		ROWS.forEach(([mark, v], i) => {
 			const cy = top + i * rowH + rowH / 2;

@@ -2,7 +2,8 @@
 // (.redraw / .redraw-strokes from Scribble.astro), the mark starts drawing itself
 // again from its first stroke. It fires once per approach, with a cooldown, so a
 // cursor resting beside a mark doesn't keep restarting it. Under reduced motion or
-// the pause button the marks aren't animating, so there's nothing to restart.
+// the pause button the marks aren't animating, so there's nothing to restart. A mark
+// beside controls (.ignores-mouse) skips this: reaching for a button would redraw it.
 import { isMotionPaused } from './pause-motion';
 
 const NOTICE_DISTANCE_PX = 70;
@@ -38,7 +39,11 @@ function redrawNow(mark: SVGSVGElement) {
 }
 
 export function initScribbleNotice(): void {
-	const marks = [...document.querySelectorAll<SVGSVGElement>('svg.redraw, svg.redraw-strokes')];
+	const marks = [
+		...document.querySelectorAll<SVGSVGElement>(
+			'svg:is(.redraw, .redraw-strokes):not(.ignores-mouse)',
+		),
+	];
 	if (!marks.length) return;
 	const near = new Set<SVGSVGElement>();
 	const lastNoticed = new WeakMap<SVGSVGElement, number>();

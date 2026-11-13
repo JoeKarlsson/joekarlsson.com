@@ -136,6 +136,24 @@ test.describe('Individual Blog Post', () => {
 		await expect(lightbox).toBeVisible();
 	});
 
+	test('between two clips fully on screen, the one nearer the middle plays', async ({ page }) => {
+		await page.setViewportSize({ width: 1440, height: 1100 });
+		await page.goto('/blog/recording-setup-tour/');
+		const lighting = (name: string) => page.locator(`.prose video[src*="${name}"]`);
+		// Both lighting-2 and lighting-3 fully on screen, lighting-3 a little nearer the middle
+		await page.evaluate(() => {
+			const [two, three] = ['lighting-2', 'lighting-3'].map((name) =>
+				document.querySelector(`.prose video[src*="${name}"]`)!.getBoundingClientRect(),
+			);
+			const centers = (two.top + two.bottom + three.top + three.bottom) / 4 + scrollY;
+			scrollTo(0, centers + 60 - innerHeight / 2);
+		});
+		await expect
+			.poll(() => lighting('lighting-3').evaluate((v: HTMLVideoElement) => !v.paused))
+			.toBe(true);
+		expect(await lighting('lighting-2').evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+	});
+
 	test('closing the lightbox while it opens still shrinks the picture back', async ({ page }) => {
 		await page.goto('/blog/why-clickhouse-should-be-your-next-database/');
 		const picture = page.locator('.prose img.cursor-zoom-in').first();

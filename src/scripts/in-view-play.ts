@@ -79,29 +79,53 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 	// A post's clips: two loops side by side split the reader's attention, and a 200px
 	// head start plays the opening of a one-off clip before anyone can see it. So the
 	// clip most in view plays, once it's mostly on screen, and the rest wait.
-	const visibleHeight = new Map<HTMLVideoElement, number>();
+	const mostlyVisible = new Set<HTMLVideoElement>();
+	// Most of it on screen wins; between two fully on screen, the one nearer the middle
+	const rank = (video: HTMLVideoElement) => {
+		const { top, bottom } = video.getBoundingClientRect();
+		const shown = Math.min(bottom, innerHeight) - Math.max(top, 0);
+		return shown - Math.abs((top + bottom) / 2 - innerHeight / 2) / innerHeight;
+	};
+	const pickLeader = () => {
+		const [leader] = [...mostlyVisible].sort((a, b) => rank(b) - rank(a));
+		onScreen.forEach((video) => {
+			if (video.closest('.prose') && video !== leader) {
+				onScreen.delete(video);
+				autoPause(video);
+			}
+		});
+		if (leader && !onScreen.has(leader)) {
+			onScreen.add(leader);
+			play(leader);
+		}
+	};
 	const postObserver = new IntersectionObserver(
 		(entries) => {
 			for (const entry of entries) {
 				const video = entry.target as HTMLVideoElement;
-				if (mostlyInView(entry)) visibleHeight.set(video, entry.intersectionRect.height);
-				else visibleHeight.delete(video);
+				if (mostlyInView(entry)) mostlyVisible.add(video);
+				else mostlyVisible.delete(video);
 				// A clip started from its controls still stops once it's off screen
 				if (!entry.isIntersecting) autoPause(video);
 			}
-			const [leader] = [...visibleHeight].sort((a, b) => b[1] - a[1])[0] ?? [];
-			onScreen.forEach((video) => {
-				if (video.closest('.prose') && video !== leader) {
-					onScreen.delete(video);
-					autoPause(video);
-				}
-			});
-			if (leader && !onScreen.has(leader)) {
-				onScreen.add(leader);
-				play(leader);
-			}
+			pickLeader();
 		},
 		{ threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] },
+	);
+	// Two clips both fully on screen cross no threshold as the page scrolls, so the
+	// middle of the screen is checked on scroll while more than one is in view
+	let pickQueued = false;
+	addEventListener(
+		'scroll',
+		() => {
+			if (mostlyVisible.size < 2 || pickQueued) return;
+			pickQueued = true;
+			requestAnimationFrame(() => {
+				pickQueued = false;
+				pickLeader();
+			});
+		},
+		{ passive: true },
 	);
 	videos.forEach((video) => {
 		video.addEventListener('pause', () => {

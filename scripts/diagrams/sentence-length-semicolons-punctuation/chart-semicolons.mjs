@@ -101,7 +101,7 @@ function chart(f, { W, H, phone }) {
 		},
 	);
 
-	layers(f, phone, (el) => {
+	layers(f, true, (el) => {
 		const out = [];
 		bands.forEach((b, bi) => {
 			const land = (i) => (t) => easeOutBack(prog(t, T0 + bi * 0.25 + i * 0.13, 0.5));
