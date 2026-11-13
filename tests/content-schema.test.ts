@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync, statSync } from 'fs';
 import { resolve, basename } from 'path';
 import { describe, expect, it } from 'vitest';
+import { parse } from 'yaml';
 
 const blogDir = resolve(import.meta.dirname, '..', 'src', 'content', 'blog');
 
@@ -67,6 +68,18 @@ describe('blog post frontmatter', () => {
 				// without a date would never render
 				if (!fm.updateNote) return;
 				expect(fm.updatedDate, 'updateNote needs an updatedDate').toBeDefined();
+			});
+
+			it('dates its corrections no later than updatedDate', () => {
+				// A fix newer than updatedDate would leave dateModified (and feeds) stale
+				const { corrections, updatedDate } = parse(content.split('---')[1]) ?? {};
+				if (!corrections) return;
+				expect(updatedDate, 'corrections need an updatedDate').toBeDefined();
+				for (const { date } of corrections)
+					expect(
+						new Date(date).valueOf(),
+						`correction ${date} is after updatedDate`,
+					).toBeLessThanOrEqual(new Date(updatedDate).valueOf());
 			});
 
 			it('has description', () => {

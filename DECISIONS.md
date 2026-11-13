@@ -14,6 +14,11 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-11: No date in the corner of blog post or newsletter thumbnails.
 - 2026-11-12: Metadata lines (date, reading time, category) keep a visible separator between pieces; with no separator it wasn't clear where pieces start and stop. Of a pink slash, a gray bar and a pink dash, Joe picked the thin gray bar (MetaParts). No middle dots.
 
+## Playful details
+
+- 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
+- 2026-11-13: The terminal card lives at its own address (`curl -L joekarlsson.com/hi`), not on the homepage by user agent.
+
 ## Consistency
 
 - 2026-11-05: Consistency across the site comes first. Same column width for a post's text, the footer and the about/keep-reading blocks. Same hero treatment and video formatting on every page. The 404 page matches the rest (2026-11-10).
@@ -25,6 +30,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - Personal bios say what Joe makes and writes about. No employer or job title.
 
 ## Animation
+
+- 2026-11-13: Subscribing plays a cut-paper envelope that seals with the crayon asterisk (picked over a rubber "SENT" stamp).
 
 - 2026-11-10: Animations should think bigger than redrawing the post's diagrams: stick figures, drawings, the scribbly pink crayon style.
 
