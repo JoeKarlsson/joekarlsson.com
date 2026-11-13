@@ -3,27 +3,27 @@
 	"shippingWindowDays": 30,
 	"shippedRepos": [
 		{
-			"name": "joekarlsson.com",
-			"description": "Personal website and blog: joekarlsson.com",
-			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
-			"language": "JavaScript",
-			"commitCount": 666,
-			"dailyCommitCounts": [
-				2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119, 85,
-				19, 45, 9
-			],
-			"latestCommitMessage": "fix: The subscribe envelope moves to listmonk's check-your-inbox page..."
-		},
-		{
 			"name": "dotfiles",
 			"description": "My dotfiles",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
 			"language": "TypeScript",
-			"commitCount": 108,
+			"commitCount": 109,
 			"dailyCommitCounts": [
-				0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 10, 3
+				0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 10, 4
 			],
-			"latestCommitMessage": "feat: Mockups are local HTML pages opened in the default browser every..."
+			"latestCommitMessage": "feat: The sensitive-shell guard no longer asks before ssh, scp or..."
+		},
+		{
+			"name": "joekarlsson.com",
+			"description": "Personal website and blog: joekarlsson.com",
+			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
+			"language": "JavaScript",
+			"commitCount": 670,
+			"dailyCommitCounts": [
+				2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119, 85,
+				19, 45, 13
+			],
+			"latestCommitMessage": "fix: Corrections front matter uses the quote style Prettier expects..."
 		},
 		{
 			"name": "client-side-field-level-encryption-csfle-mongodb-node-demo",
