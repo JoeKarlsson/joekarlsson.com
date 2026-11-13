@@ -6,7 +6,7 @@ rating: 2
 director: 'James L. Brooks'
 genres: ['Comedy', 'Drama']
 slug: 'ella-mccay'
-description: 'This is a nearly four hour long neoliberal fever dream that asks us to find the good in a terrible system. You can tell this is written by a well-meaning 85 year old billionaire.'
+description: 'This is a nearly four hour long neoliberal fever dream that asks us to find the good in a terrible system. You can tell this is written by a well-meaning 85...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ella-mccay/'
 poster: '/images/reviews/ella-mccay/poster.webp'
 heroImage: '/images/reviews/ella-mccay/backdrop.webp'

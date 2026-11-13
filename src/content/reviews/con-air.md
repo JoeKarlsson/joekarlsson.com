@@ -6,7 +6,7 @@ rating: 4
 director: 'Simon West'
 genres: ['Action', 'Crime', 'Thriller']
 slug: 'con-air'
-description: "I've been on an absolute Jerry Bruckheimer tear the last couple weeks, and after binging his entire catalog consecutively, the formula is crystal clear: you need a kind, weird, misunderstood white guy who gets prosecuted and becomes the underdog. But he's also secretly a terminator who's incredibly "
+description: "I've been on an absolute Jerry Bruckheimer tear the last couple weeks, and after binging his entire catalog consecutively, the formula is crystal clear: you..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/con-air/'
 poster: '/images/reviews/con-air/poster.webp'
 heroImage: '/images/reviews/con-air/backdrop.webp'

@@ -9,6 +9,8 @@
 // film's own page for its poster, backdrop and director.
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import sharp from 'sharp';
+// 157 + the "..." truncateAtWord adds = the 160 characters search results show
+import { truncateAtWord } from './now-feed-parsing.mjs';
 
 const USER = 'joekarlsson';
 const CONTENT = 'src/content/reviews';
@@ -86,12 +88,27 @@ export async function filmDetails(filmSlug) {
 	};
 }
 
-async function saveImage(url, path, width) {
+// The site's pink (#ff4fd8) as a share of white: black stays black, white turns pink
+const PINK = [1, 0x4f / 0xff, 0xd8 / 0xff];
+
+/** A poster is graded pink and black here, like the talk cards (scripts/fetch-talk-event-covers.mjs),
+ * so a wall of hundreds doesn't each cost a phone a live WebGL canvas (isPretreatedThumbnail) */
+export function gradePink(image) {
+	return image
+		.greyscale()
+		.normalise()
+		.toColourspace('srgb')
+		.recomb([
+			[PINK[0], 0, 0],
+			[PINK[1], 0, 0],
+			[PINK[2], 0, 0],
+		]);
+}
+
+async function saveImage(url, path, width, { pink = false } = {}) {
 	const buffer = Buffer.from(await (await get(url)).arrayBuffer());
-	await sharp(buffer)
-		.resize({ width, withoutEnlargement: true })
-		.webp({ quality: 72 })
-		.toFile(path);
+	const image = sharp(buffer).resize({ width, withoutEnlargement: true });
+	await (pink ? gradePink(image) : image).webp({ quality: 72 }).toFile(path);
 }
 
 const yamlString = (s) => `'${String(s).replace(/'/g, "''")}'`;
@@ -115,11 +132,11 @@ async function importReview(r) {
 		film.director ? `director: ${yamlString(film.director)}` : null,
 		film.genres.length ? `genres: [${film.genres.map(yamlString).join(', ')}]` : null,
 		`slug: ${yamlString(slug)}`,
-		`description: ${yamlString(body.split('\n\n')[0].replace(/[*]/g, '').replace(/\s+/g, ' ').slice(0, 300))}`,
+		`description: ${yamlString(truncateAtWord(body.split('\n\n')[0].replace(/[*]/g, '').replace(/\s+/g, ' '), 157))}`,
 		`letterboxdUrl: ${yamlString(r.url)}`,
 	];
 	if (film.poster) {
-		await saveImage(film.poster, `${IMAGES}/${slug}/poster.webp`, 400);
+		await saveImage(film.poster, `${IMAGES}/${slug}/poster.webp`, 400, { pink: true });
 		front.push(`poster: '/images/reviews/${slug}/poster.webp'`);
 	}
 	if (film.backdrop) {

@@ -36,6 +36,18 @@ const {
 	letterboxdUrl,
 } = review.data;
 const words = (review.body || '').trim().split(/\s+/).length;
+// A rewatch shares its film's title, so its browser tab and search result name the rewatch
+const watched = date.toLocaleDateString('en-US', {
+	month: 'short',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+const plainTitle = `${title} (${year}) review`;
+const seoTitle = parseReviewUrl(letterboxdUrl).index
+	? `${title} (${year}), rewatched ${watched}`
+	: plainTitle.length <= 45
+		? plainTitle
+		: undefined;
 
 const film = (r: CollectionEntry<'reviews'>) => parseReviewUrl(r.data.letterboxdUrl).film;
 const others = (await getCollection('reviews')).filter((r) => r.data.slug !== slug);
@@ -70,7 +82,7 @@ const mentions =
 <BlogPost
 	section="reviews"
 	title={`${title} (${year})`}
-	seoTitle={`${title} (${year}) review`.length <= 45 ? `${title} (${year}) review` : undefined}
+	seoTitle={seoTitle}
 	description={description}
 	date={date}
 	slug={slug}

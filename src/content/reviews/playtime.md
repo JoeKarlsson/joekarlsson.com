@@ -6,7 +6,7 @@ rating: 3.5
 director: 'Jacques Tati'
 genres: ['Comedy']
 slug: 'playtime'
-description: 'Spent the first 20 minutes convinced my speakers were broken, only to realize Tati intentionally mixed all dialogue to sound like it’s coming from three rooms away through a fish tank. Bold choice.'
+description: 'Spent the first 20 minutes convinced my speakers were broken, only to realize Tati intentionally mixed all dialogue to sound like it’s coming from three...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/playtime/'
 poster: '/images/reviews/playtime/poster.webp'
 heroImage: '/images/reviews/playtime/backdrop.webp'

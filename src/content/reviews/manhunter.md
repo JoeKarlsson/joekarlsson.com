@@ -6,7 +6,7 @@ rating: 2.5
 director: 'Michael Mann'
 genres: ['Horror', 'Thriller', 'Crime']
 slug: 'manhunter'
-description: "Manhunter feels like an aquarium trapped in time from 1986. It's slick and cool and undeniably aesthetic, really capturing the essence of an era - but I don't think I want it in my house."
+description: "Manhunter feels like an aquarium trapped in time from 1986. It's slick and cool and undeniably aesthetic, really capturing the essence of an era - but I..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/manhunter/'
 poster: '/images/reviews/manhunter/poster.webp'
 heroImage: '/images/reviews/manhunter/backdrop.webp'

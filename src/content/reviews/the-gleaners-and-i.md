@@ -6,7 +6,7 @@ rating: 3.5
 director: 'Agnès Varda'
 genres: ['Documentary']
 slug: 'the-gleaners-and-i'
-description: 'I have such a soft spot for early digital documentaries, and The Gleaners and I completely scratches that itch. That lo-fi digital aesthetic - the ad hoc, homemade feeling paired with sharp editing and a wonderful soundtrack - just works for me in a way that’s hard to articulate.'
+description: 'I have such a soft spot for early digital documentaries, and The Gleaners and I completely scratches that itch. That lo-fi digital aesthetic - the ad hoc...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-gleaners-and-i/'
 poster: '/images/reviews/the-gleaners-and-i/poster.webp'
 heroImage: '/images/reviews/the-gleaners-and-i/backdrop.webp'

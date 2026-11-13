@@ -6,7 +6,7 @@ rating: 3
 director: 'John Huston'
 genres: ['Romance', 'War', 'Drama', 'Adventure']
 slug: 'the-african-queen'
-description: 'Just finished The African Queen. I was kinda bored at first, but I was ultimately charmed by Humphrey Bogart and Katherine Hepburn''s dynamite chemistry. Overall, I think it''s a great, albiet overrated film ¯\_(ツ)_/¯'
+description: "Just finished The African Queen. I was kinda bored at first, but I was ultimately charmed by Humphrey Bogart and Katherine Hepburn's dynamite chemistry..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-african-queen/'
 poster: '/images/reviews/the-african-queen/poster.webp'
 heroImage: '/images/reviews/the-african-queen/backdrop.webp'

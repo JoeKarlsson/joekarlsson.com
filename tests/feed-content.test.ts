@@ -112,9 +112,11 @@ describe('Sitemap Content', () => {
 	});
 
 	it('sitemap does not include draft or private pages', () => {
-		expect(sitemap).not.toContain('/draft');
-		expect(sitemap).not.toContain('/private');
-		expect(sitemap).not.toContain('/test');
+		// Film titles aren't page states: /reviews/draft-day/ is the film Draft Day
+		const pages = sitemap.replace(/<loc>[^<]*\/reviews\/[^<]*<\/loc>/g, '');
+		expect(pages).not.toContain('/draft');
+		expect(pages).not.toContain('/private');
+		expect(pages).not.toContain('/test');
 	});
 });
 

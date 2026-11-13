@@ -6,7 +6,7 @@ rating: 4
 director: 'Peter Harris, Eric Till'
 genres: ['Comedy', 'TV Movie', 'Family', 'Music']
 slug: 'a-muppet-family-christmas'
-description: 'This is single-handedly the best and biggest Muppets crossover event of all time. And might be the most Swedish chef forward adventure in their entire repertoire.'
+description: 'This is single-handedly the best and biggest Muppets crossover event of all time. And might be the most Swedish chef forward adventure in their entire...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/a-muppet-family-christmas/'
 poster: '/images/reviews/a-muppet-family-christmas/poster.webp'
 heroImage: '/images/reviews/a-muppet-family-christmas/backdrop.webp'

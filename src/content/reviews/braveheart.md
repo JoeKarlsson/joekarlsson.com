@@ -6,7 +6,7 @@ rating: 2
 director: 'Mel Gibson'
 genres: ['History', 'Drama', 'War']
 slug: 'braveheart'
-description: "I thought Braveheart was stupid and bad, packed with so many things I hate about films.It's overly violent and overly masculine in the worst possible ways. It uses rape as the inciting incident, which is lazy and exploitative. The British are comically evil - and look, the British actually are evil,"
+description: "I thought Braveheart was stupid and bad, packed with so many things I hate about films.It's overly violent and overly masculine in the worst possible ways..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/braveheart/'
 poster: '/images/reviews/braveheart/poster.webp'
 heroImage: '/images/reviews/braveheart/backdrop.webp'

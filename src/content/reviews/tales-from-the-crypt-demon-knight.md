@@ -6,7 +6,7 @@ rating: 4
 director: 'Ernest R. Dickerson'
 genres: ['Horror', 'Comedy', 'Thriller']
 slug: 'tales-from-the-crypt-demon-knight'
-description: 'Never in a million years would I have guessed the blood of Christ and the literal crucifixion would be such a core part of this movie. Tales from the Crypt: Demon Knight surprised me.'
+description: 'Never in a million years would I have guessed the blood of Christ and the literal crucifixion would be such a core part of this movie. Tales from the Crypt...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tales-from-the-crypt-demon-knight/'
 poster: '/images/reviews/tales-from-the-crypt-demon-knight/poster.webp'
 heroImage: '/images/reviews/tales-from-the-crypt-demon-knight/backdrop.webp'

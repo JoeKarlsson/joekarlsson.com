@@ -6,7 +6,7 @@ rating: 4
 director: 'Joseph Sargent'
 genres: ['Action', 'Thriller', 'Comedy', 'Crime']
 slug: 'the-taking-of-pelham-one-two-three'
-description: "I was shocked at how well-paced The Taking of Pelham One Two Three is. But honestly, I shouldn't be surprised - this came on the heels of The French Connection and shares that same propulsive, action-heavy energy."
+description: "I was shocked at how well-paced The Taking of Pelham One Two Three is. But honestly, I shouldn't be surprised - this came on the heels of The French..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-taking-of-pelham-one-two-three/'
 poster: '/images/reviews/the-taking-of-pelham-one-two-three/poster.webp'
 heroImage: '/images/reviews/the-taking-of-pelham-one-two-three/backdrop.webp'

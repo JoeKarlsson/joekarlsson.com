@@ -11,9 +11,11 @@ import { antonWidthInEm } from '../utils/anton-width';
 import nowFeed from '../data/now-feed.json';
 import { getCollection } from 'astro:content';
 import { truncateAtWord } from '../../scripts/now-feed-parsing.mjs';
+import { cardHalftone } from '../utils/halftone';
 
 const { shippingWindowDays, shippedRepos, podcastEpisodes } = nowFeed;
 const films = (await getCollection('reviews'))
+	.filter((r) => r.data.poster)
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 	.slice(0, 4)
 	.map(({ data }) => ({
@@ -22,7 +24,7 @@ const films = (await getCollection('reviews'))
 		rating: data.rating ?? null,
 		reviewExcerpt: truncateAtWord(data.description, 160),
 		url: `/reviews/${data.slug}/`,
-		poster: data.poster,
+		poster: data.poster!,
 	}));
 
 // 10px cells with a 2px gap
@@ -131,8 +133,7 @@ function ratingStars(rating: number) {
 							width="200"
 							height="300"
 							loading="lazy"
-							data-halftone="flat"
-							data-halftone-no-invert
+							data-halftone={cardHalftone(film.poster)}
 							class="block w-full rounded-lg"
 						/>
 						<HoverBox index={i} />

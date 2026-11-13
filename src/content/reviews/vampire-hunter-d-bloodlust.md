@@ -6,7 +6,7 @@ rating: 4
 director: 'Yoshiaki Kawajiri'
 genres: ['Fantasy', 'Animation', 'Drama', 'Horror', 'Action']
 slug: 'vampire-hunter-d-bloodlust'
-description: "Boy, they sure don't make them like they used to. This film is simply gorgeous. Gothic, bloody violent, dark, elegant, and well animated. I gotta say, I love the cyberpunk goth aesthetic."
+description: "Boy, they sure don't make them like they used to. This film is simply gorgeous. Gothic, bloody violent, dark, elegant, and well animated. I gotta say, I love..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/vampire-hunter-d-bloodlust/'
 poster: '/images/reviews/vampire-hunter-d-bloodlust/poster.webp'
 heroImage: '/images/reviews/vampire-hunter-d-bloodlust/backdrop.webp'

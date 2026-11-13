@@ -6,7 +6,7 @@ rating: 4
 director: 'Mike Flanagan'
 genres: ['Drama', 'Mystery', 'Horror']
 slug: 'midnight-mass-2021'
-description: 'This was my first time revisiting Midnight Mass since it dropped in 2021. I initially loved the show and it’s still one of my favorites, but I definitely picked up on some things on this rewatch that drove me slightly nuts.'
+description: 'This was my first time revisiting Midnight Mass since it dropped in 2021. I initially loved the show and it’s still one of my favorites, but I definitely...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/midnight-mass-2021/'
 poster: '/images/reviews/midnight-mass-2021/poster.webp'
 heroImage: '/images/reviews/midnight-mass-2021/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 4
 director: 'Roman Polanski'
 genres: ['Horror', 'Drama', 'Thriller']
 slug: 'repulsion'
-description: 'I did a “women be crazy” double feature with Possession, watching both back-to-back in my living room. Except calling it that feels wrong after actually watching these films, because both are really about why women should be terrified of men.'
+description: 'I did a “women be crazy” double feature with Possession, watching both back-to-back in my living room. Except calling it that feels wrong after actually...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/repulsion/'
 poster: '/images/reviews/repulsion/poster.webp'
 heroImage: '/images/reviews/repulsion/backdrop.webp'

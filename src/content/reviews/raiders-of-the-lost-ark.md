@@ -6,7 +6,7 @@ rating: 5
 director: 'Steven Spielberg'
 genres: ['Adventure', 'Action']
 slug: 'raiders-of-the-lost-ark'
-description: "I'm sorry this is a banger. Amazing performance amazing screenplay amazing direction amazing lead performance amazing supporting performances amazing soundtrack. I loved it all and I've seen it 500 billion times."
+description: "I'm sorry this is a banger. Amazing performance amazing screenplay amazing direction amazing lead performance amazing supporting performances amazing..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/raiders-of-the-lost-ark/'
 poster: '/images/reviews/raiders-of-the-lost-ark/poster.webp'
 heroImage: '/images/reviews/raiders-of-the-lost-ark/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 4
 director: 'Chris Sanders'
 genres: ['Adventure', 'Animation', 'Family', 'Science Fiction']
 slug: 'the-wild-robot'
-description: 'This is joining the pantheon of some of my favorite animated movies of all time, including Puss in boots: Last Wish, into the spider verse, and the first two Paddington films.'
+description: 'This is joining the pantheon of some of my favorite animated movies of all time, including Puss in boots: Last Wish, into the spider verse, and the first two...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-wild-robot/'
 poster: '/images/reviews/the-wild-robot/poster.webp'
 heroImage: '/images/reviews/the-wild-robot/backdrop.webp'

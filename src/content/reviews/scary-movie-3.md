@@ -6,7 +6,7 @@ rating: 2.5
 director: 'David Zucker'
 genres: ['Comedy']
 slug: 'scary-movie-3'
-description: "I hate to say it, but this is still genuinely funny. Revisiting this after writing it off for the last 20 years, and I'm shocked at how much I laughed. It's 2025 and this thing still lands."
+description: "I hate to say it, but this is still genuinely funny. Revisiting this after writing it off for the last 20 years, and I'm shocked at how much I laughed. It's..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scary-movie-3/'
 poster: '/images/reviews/scary-movie-3/poster.webp'
 heroImage: '/images/reviews/scary-movie-3/backdrop.webp'

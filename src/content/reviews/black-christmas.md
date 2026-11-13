@@ -6,7 +6,7 @@ rating: 4
 director: 'Bob Clark'
 genres: ['Horror', 'Mystery', 'Crime']
 slug: 'black-christmas'
-description: 'The same guy who directed A Christmas Story directed this. Bob Clark made a cozy holiday classic about a kid and a BB gun, and he also made one of the most influential slasher films ever. Cinema is genuinely insane.'
+description: 'The same guy who directed A Christmas Story directed this. Bob Clark made a cozy holiday classic about a kid and a BB gun, and he also made one of the most...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/black-christmas/'
 poster: '/images/reviews/black-christmas/poster.webp'
 heroImage: '/images/reviews/black-christmas/backdrop.webp'

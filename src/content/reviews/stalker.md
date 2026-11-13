@@ -6,7 +6,7 @@ rating: 4.5
 director: 'Andrei Tarkovsky'
 genres: ['Drama', 'Science Fiction']
 slug: 'stalker'
-description: 'This took me three days to watch. Not because I wasn’t engaged, but because Tarkovsky demands you sit with each moment, each lingering shot of industrial decay and overgrown ruins. The pacing is glacial and completely intentional—this isn’t a film you consume, it’s one you endure and absorb.'
+description: 'This took me three days to watch. Not because I wasn’t engaged, but because Tarkovsky demands you sit with each moment, each lingering shot of industrial...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/stalker/'
 poster: '/images/reviews/stalker/poster.webp'
 heroImage: '/images/reviews/stalker/backdrop.webp'

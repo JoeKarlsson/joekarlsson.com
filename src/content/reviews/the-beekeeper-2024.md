@@ -6,7 +6,7 @@ rating: 2.5
 director: 'David Ayer'
 genres: ['Action', 'Thriller', 'Crime']
 slug: 'the-beekeeper-2024'
-description: 'A blatant John Wick rip-off with worse choreo and a somehow more incomprehensible plot - which is genuinely impressive, because I already hate the worldbuilding of the John Wick universe.'
+description: 'A blatant John Wick rip-off with worse choreo and a somehow more incomprehensible plot - which is genuinely impressive, because I already hate the...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-beekeeper-2024/'
 poster: '/images/reviews/the-beekeeper-2024/poster.webp'
 heroImage: '/images/reviews/the-beekeeper-2024/backdrop.webp'

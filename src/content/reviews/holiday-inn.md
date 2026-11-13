@@ -6,7 +6,7 @@ rating: 3
 director: 'Mark Sandrich'
 genres: ['Comedy', 'Drama', 'Romance']
 slug: 'holiday-inn'
-description: "A Christmas movie about every holiday, including one particularly memorable one we don't celebrate anymore... Cough cough, Abraham Lincoln's birthday, cough cough."
+description: "A Christmas movie about every holiday, including one particularly memorable one we don't celebrate anymore... Cough cough, Abraham Lincoln's birthday, cough..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/holiday-inn/'
 poster: '/images/reviews/holiday-inn/poster.webp'
 heroImage: '/images/reviews/holiday-inn/backdrop.webp'

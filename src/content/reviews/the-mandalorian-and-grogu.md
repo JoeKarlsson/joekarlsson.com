@@ -6,7 +6,7 @@ rating: 1.5
 director: 'Jon Favreau'
 genres: ['Science Fiction', 'Action', 'Adventure']
 slug: 'the-mandalorian-and-grogu'
-description: 'The only character growth in this movie is that Mando let Grogu push the hyperspace button. Who cares??? This felt like the Seinfeld of Star Wars movies - nothing happens, nobody changes.'
+description: 'The only character growth in this movie is that Mando let Grogu push the hyperspace button. Who cares??? This felt like the Seinfeld of Star Wars movies...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mandalorian-and-grogu/'
 poster: '/images/reviews/the-mandalorian-and-grogu/poster.webp'
 heroImage: '/images/reviews/the-mandalorian-and-grogu/backdrop.webp'

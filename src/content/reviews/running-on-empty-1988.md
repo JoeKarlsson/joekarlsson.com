@@ -6,7 +6,7 @@ rating: 3
 director: 'Sidney Lumet'
 genres: ['Drama', 'Crime']
 slug: 'running-on-empty-1988'
-description: 'Running on Empty is a surprisingly gentle film given its radical setup. I watched this shortly after One Battle After Another and honestly expected something a little more propulsive - but what I got was interesting in a different way.'
+description: 'Running on Empty is a surprisingly gentle film given its radical setup. I watched this shortly after One Battle After Another and honestly expected something...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/running-on-empty-1988/'
 poster: '/images/reviews/running-on-empty-1988/poster.webp'
 heroImage: '/images/reviews/running-on-empty-1988/backdrop.webp'

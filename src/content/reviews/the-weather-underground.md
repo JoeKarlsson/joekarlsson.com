@@ -6,7 +6,7 @@ rating: 3.5
 director: 'Bill Siegel, Sam Green'
 genres: ['Documentary']
 slug: 'the-weather-underground'
-description: 'I’m treading carefully with this one given today’s political climate, but I really loved The Weather Underground. I found this after watching and loving One Battle After Another, and it covers the real-life events of radical Vietnam War-era political activists and the aftermath of their work.'
+description: 'I’m treading carefully with this one given today’s political climate, but I really loved The Weather Underground. I found this after watching and loving One...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-weather-underground/'
 poster: '/images/reviews/the-weather-underground/poster.webp'
 ---

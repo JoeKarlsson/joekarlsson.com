@@ -6,7 +6,7 @@ rating: 4.5
 director: 'Christopher Nolan'
 genres: ['Adventure', 'Action', 'Fantasy']
 slug: 'the-odyssey-2026'
-description: 'Odysseus is a war criminal, a murderer, easily distracted by pussy. Unfortunately, he’s played by a ripped and charming Matt Damon, so idiots will idolize him.'
+description: 'Odysseus is a war criminal, a murderer, easily distracted by pussy. Unfortunately, he’s played by a ripped and charming Matt Damon, so idiots will idolize...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-odyssey-2026/'
 poster: '/images/reviews/the-odyssey-2026/poster.webp'
 heroImage: '/images/reviews/the-odyssey-2026/backdrop.webp'

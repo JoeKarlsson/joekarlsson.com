@@ -6,7 +6,7 @@ rating: 4
 director: 'Jonathan Frakes'
 genres: ['Action', 'Adventure', 'Science Fiction', 'Thriller']
 slug: 'star-trek-first-contact'
-description: 'Frakes really directed the shit out of this movie. It looks incredible, and I’d even go so far to say that the aesthetics of the Borg in this film directly influenced the look of the real world in the matrix.'
+description: 'Frakes really directed the shit out of this movie. It looks incredible, and I’d even go so far to say that the aesthetics of the Borg in this film directly...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/star-trek-first-contact/'
 poster: '/images/reviews/star-trek-first-contact/poster.webp'
 heroImage: '/images/reviews/star-trek-first-contact/backdrop.webp'

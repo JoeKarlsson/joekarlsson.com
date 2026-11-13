@@ -6,7 +6,7 @@ rating: 2
 director: 'Edgar Wright'
 genres: ['Thriller', 'Science Fiction', 'Action']
 slug: 'the-running-man-2025'
-description: 'Edgar tried waaaay too hard to sell that Glen Powellis the “angriest person in the  world” and I never bought it.'
+description: 'Edgar tried waaaay too hard to sell that Glen Powellis the “angriest person in the world” and I never bought it.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-running-man-2025/'
 poster: '/images/reviews/the-running-man-2025/poster.webp'
 heroImage: '/images/reviews/the-running-man-2025/backdrop.webp'

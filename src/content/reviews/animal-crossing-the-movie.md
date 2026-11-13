@@ -6,7 +6,7 @@ rating: 2.5
 director: 'Joji Shimura'
 genres: ['Animation', 'Drama', 'Family']
 slug: 'animal-crossing-the-movie'
-description: "How did I not know this movie existed, even at the peak of my Animal Crossing New Horizons obsession? The 2006 Animal Crossing film is beautifully animated, looks adorably cute, and is surprisingly funny - though it's definitely aimed at a much younger crowd than I expected."
+description: 'How did I not know this movie existed, even at the peak of my Animal Crossing New Horizons obsession? The 2006 Animal Crossing film is beautifully animated...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/animal-crossing-the-movie/'
 poster: '/images/reviews/animal-crossing-the-movie/poster.webp'
 heroImage: '/images/reviews/animal-crossing-the-movie/backdrop.webp'

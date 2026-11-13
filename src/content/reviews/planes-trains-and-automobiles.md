@@ -6,7 +6,7 @@ rating: 4
 director: 'John Hughes'
 genres: ['Comedy']
 slug: 'planes-trains-and-automobiles'
-description: "A screwball comedy with heart. John Candy is a treasure in this - warm, funny, and quietly devastating. Steve Martin plays exasperation perfectly, but Candy is the soul of the film. It's chaotic and silly and then it turns and becomes something beautiful."
+description: 'A screwball comedy with heart. John Candy is a treasure in this - warm, funny, and quietly devastating. Steve Martin plays exasperation perfectly, but Candy...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/planes-trains-and-automobiles/'
 poster: '/images/reviews/planes-trains-and-automobiles/poster.webp'
 heroImage: '/images/reviews/planes-trains-and-automobiles/backdrop.webp'

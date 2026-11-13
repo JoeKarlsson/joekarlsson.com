@@ -6,7 +6,7 @@ rating: 2.5
 director: 'Ray Mendoza, Alex Garland'
 genres: ['Action', 'War']
 slug: 'warfare'
-description: 'I went into Warfare knowing nothing about the context, which left me with one nagging question through the entire runtime: why the hell did Alex Garland - a British filmmaker - decide to make an American war epic?'
+description: 'I went into Warfare knowing nothing about the context, which left me with one nagging question through the entire runtime: why the hell did Alex Garland - a...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/warfare/'
 poster: '/images/reviews/warfare/poster.webp'
 heroImage: '/images/reviews/warfare/backdrop.webp'

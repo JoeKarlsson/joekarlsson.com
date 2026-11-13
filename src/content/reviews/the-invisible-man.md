@@ -6,7 +6,7 @@ rating: 4
 director: 'James Whale'
 genres: ['Science Fiction', 'Horror']
 slug: 'the-invisible-man'
-description: "The central question of The Invisible Man is: what would you do if you had the power of invisibility? And more specifically, what would a man do with that power? I can think of some pretty terrible things, and I'm sure most men would do them - the film definitely hints at this. I'd actually seen th"
+description: 'The central question of The Invisible Man is: what would you do if you had the power of invisibility? And more specifically, what would a man do with that...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-invisible-man/'
 poster: '/images/reviews/the-invisible-man/poster.webp'
 heroImage: '/images/reviews/the-invisible-man/backdrop.webp'

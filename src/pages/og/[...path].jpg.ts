@@ -11,11 +11,14 @@ export async function getStaticPaths() {
 	const blog = await getCollection('blog');
 	const newsletter = await getCollection('newsletter');
 	const talks = await getCollection('talks');
+	const reviews = await getCollection('reviews');
 	const images = new Set<string>([
 		DEFAULT_OG_IMAGE,
 		'/images/uses/desk-2026.webp',
 		...projects.map((p) => p.image),
-		...[...blog, ...talks, ...newsletter].flatMap((entry) => entry.data.heroImage ?? []),
+		...[...blog, ...talks, ...newsletter, ...reviews].flatMap(
+			(entry) => entry.data.heroImage ?? [],
+		),
 	]);
 	return [...images]
 		.filter((image) => !/^https?:\/\//.test(image))

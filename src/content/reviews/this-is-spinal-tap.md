@@ -6,7 +6,7 @@ rating: 4
 director: 'Rob Reiner'
 genres: ['Comedy', 'Music']
 slug: 'this-is-spinal-tap'
-description: 'Been rewatching a ton of Christopher Guest movies recently. I LOVED this movie when i was in HS and today i see the influence on the Guitar Hero franchise. 🎸'
+description: 'Been rewatching a ton of Christopher Guest movies recently. I LOVED this movie when i was in HS and today i see the influence on the Guitar Hero franchise...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/this-is-spinal-tap/'
 poster: '/images/reviews/this-is-spinal-tap/poster.webp'
 heroImage: '/images/reviews/this-is-spinal-tap/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 3
 director: 'Rob Marshall'
 genres: ['Comedy', 'Crime', 'Drama']
 slug: 'chicago'
-description: 'This movie is trying to say something about how the modern judicial system is just a series of smoke and mirrors meant to entertain the masses. I think along the way it kind of just says, “forget it let’s just have fun,” and honestly, it was fun.'
+description: 'This movie is trying to say something about how the modern judicial system is just a series of smoke and mirrors meant to entertain the masses. I think along...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/chicago/'
 poster: '/images/reviews/chicago/poster.webp'
 heroImage: '/images/reviews/chicago/backdrop.webp'

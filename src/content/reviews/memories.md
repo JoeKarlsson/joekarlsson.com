@@ -6,7 +6,7 @@ rating: 3.5
 director: 'Katsuhiro Otomo, Koji Morimoto, Tensai Okamura'
 genres: ['Animation', 'Fantasy', 'Science Fiction']
 slug: 'memories'
-description: "I finished Memories a couple hours ago and I'm still noodling on it. This was much deeper than I ever expected, and the subjects it touched on feel like they need more time to process than a quick 90-minute runtime allows."
+description: "I finished Memories a couple hours ago and I'm still noodling on it. This was much deeper than I ever expected, and the subjects it touched on feel like they..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/memories/'
 poster: '/images/reviews/memories/poster.webp'
 heroImage: '/images/reviews/memories/backdrop.webp'

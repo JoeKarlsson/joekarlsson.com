@@ -6,7 +6,7 @@ rating: 3
 director: 'James L. Brooks'
 genres: ['Comedy', 'Romance']
 slug: 'broadcast-news'
-description: "I feel like I'm missing something with this movie. I know it one best picture. I know everyone loves it, but I just couldn't get on the same wavelength as this movie. It feels like a boomer movie, but I get how it's ahead of its time, and I still relate to the vulnerabilities of these hard-working, "
+description: "I feel like I'm missing something with this movie. I know it one best picture. I know everyone loves it, but I just couldn't get on the same wavelength as..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/broadcast-news/'
 poster: '/images/reviews/broadcast-news/poster.webp'
 heroImage: '/images/reviews/broadcast-news/backdrop.webp'

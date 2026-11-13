@@ -6,7 +6,7 @@ rating: 2.5
 director: 'Maggie Gyllenhaal'
 genres: ['Horror', 'Science Fiction', 'Fantasy']
 slug: 'the-bride-2026'
-description: "This reminded me of Joker: Folie Deux. Lots of singing and dancing, the Bride's violence inspiring masked vigilantes to follow her lead, heavy face makeup, insane protagonist, shaggy plot. The comparisons are hard to avoid."
+description: "This reminded me of Joker: Folie Deux. Lots of singing and dancing, the Bride's violence inspiring masked vigilantes to follow her lead, heavy face makeup..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-bride-2026/'
 poster: '/images/reviews/the-bride-2026/poster.webp'
 heroImage: '/images/reviews/the-bride-2026/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 4
 director: 'Ivan Dixon'
 genres: ['Drama', 'Crime', 'War', 'Action']
 slug: 'the-spook-who-sat-by-the-door'
-description: "Watched this as prep for One Battle After Another and haven't gotten there yet, but The Spook Who Sat by the Door got me completely energized. It's astonishing how revolutionary this still feels, and crystal clear why it was suppressed for decades."
+description: "Watched this as prep for One Battle After Another and haven't gotten there yet, but The Spook Who Sat by the Door got me completely energized. It's..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-spook-who-sat-by-the-door/'
 poster: '/images/reviews/the-spook-who-sat-by-the-door/poster.webp'
 heroImage: '/images/reviews/the-spook-who-sat-by-the-door/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 3.5
 director: 'Russell Mulcahy'
 genres: ['Action', 'Adventure', 'Fantasy']
 slug: 'highlander'
-description: "This was my first time ever watching Highlander, which honestly shocks me. I've known about it my entire life and just had zero interest until now. Initial thoughts: this is a beautiful movie with some really fun special effects and one of the most batshit insane plots I've ever personally experien"
+description: "This was my first time ever watching Highlander, which honestly shocks me. I've known about it my entire life and just had zero interest until now. Initial..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/highlander/'
 poster: '/images/reviews/highlander/poster.webp'
 heroImage: '/images/reviews/highlander/backdrop.webp'

@@ -51,7 +51,9 @@ const THRESHOLDS = {
 	// guard that), it only costs deploy time and disk. Sitting a few MB under the line
 	// meant every new project clip tripped it. This is now a tripwire for something
 	// gone badly wrong (a folder of unconverted GIFs, raw footage), not a running tax.
-	maxTotalDist: 400 * 1024 * 1024,
+	// Raised to 600MB on 2026-11-13 for /reviews/: 547 film review pages, their posters
+	// and backdrops (with srcset copies) and an og:image JPEG each took dist to about 490MB.
+	maxTotalDist: 600 * 1024 * 1024,
 };
 
 function getFilesWithExtension(dir: string, ext: string): { name: string; size: number }[] {

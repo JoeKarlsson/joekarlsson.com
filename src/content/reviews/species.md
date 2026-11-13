@@ -6,7 +6,7 @@ rating: 2
 director: 'Roger Donaldson'
 genres: ['Horror', 'Action', 'Science Fiction']
 slug: 'species'
-description: 'Okay, so I just watched Species (1995) with my girlfriend, and we had a great time watching this. There’s some wild performances, some very unsexy boobs, and wonderful creature designed from HR Geiger (but a very bad rubber suit).'
+description: 'Okay, so I just watched Species (1995) with my girlfriend, and we had a great time watching this. There’s some wild performances, some very unsexy boobs, and...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/species/'
 poster: '/images/reviews/species/poster.webp'
 heroImage: '/images/reviews/species/backdrop.webp'

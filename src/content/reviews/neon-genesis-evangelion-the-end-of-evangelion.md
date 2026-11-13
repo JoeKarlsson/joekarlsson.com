@@ -6,7 +6,7 @@ rating: 4
 director: 'Hideaki Anno, Kazuya Tsurumaki'
 genres: ['Fantasy', 'Animation', 'Action', 'Science Fiction', 'Drama']
 slug: 'neon-genesis-evangelion-the-end-of-evangelion'
-description: 'I think I’m gonna need a couple months to wrap my mind around what just happened in that movie. The movie made some bold choices for an animated film about Mecha robots wild nihilistic and I think the ending is post apocalyptic. I’m not sure where it goes from here.'
+description: 'I think I’m gonna need a couple months to wrap my mind around what just happened in that movie. The movie made some bold choices for an animated film about...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/neon-genesis-evangelion-the-end-of-evangelion/'
 poster: '/images/reviews/neon-genesis-evangelion-the-end-of-evangelion/poster.webp'
 heroImage: '/images/reviews/neon-genesis-evangelion-the-end-of-evangelion/backdrop.webp'

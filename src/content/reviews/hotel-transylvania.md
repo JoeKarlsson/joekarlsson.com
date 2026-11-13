@@ -6,7 +6,7 @@ rating: 3
 director: 'Genndy Tartakovsky'
 genres: ['Comedy', 'Animation', 'Fantasy', 'Family']
 slug: 'hotel-transylvania'
-description: 'Watch this to be a Gendry completionist (and also because of Blank Check). I had rock bottom expectations for this movie, and it ended up being moderately funny. Dialogue not so much, but visual sight gags??? very much so.'
+description: 'Watch this to be a Gendry completionist (and also because of Blank Check). I had rock bottom expectations for this movie, and it ended up being moderately...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hotel-transylvania/'
 poster: '/images/reviews/hotel-transylvania/poster.webp'
 heroImage: '/images/reviews/hotel-transylvania/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 4.5
 director: 'Chloé Zhao'
 genres: ['Drama', 'Romance']
 slug: 'hamnet'
-description: 'I’m writing this fresh out of the theater, tears still wet. This is a raw reaction. The whole theater was sniffling - we basically cried together for two hours straight.'
+description: 'I’m writing this fresh out of the theater, tears still wet. This is a raw reaction. The whole theater was sniffling - we basically cried together for two...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hamnet/'
 poster: '/images/reviews/hamnet/poster.webp'
 heroImage: '/images/reviews/hamnet/backdrop.webp'

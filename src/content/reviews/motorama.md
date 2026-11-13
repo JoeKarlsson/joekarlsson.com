@@ -6,7 +6,7 @@ rating: 4
 director: 'Barry Shils'
 genres: ['Comedy', 'Adventure']
 slug: 'motorama'
-description: "Answers the age-old question of what would happen if you combined The Adventures of Pete and Pete and Pee-wee's Big Adventure and made it rated R. The answer is, you'd get Motorama. What a crazy movie. I loved it."
+description: "Answers the age-old question of what would happen if you combined The Adventures of Pete and Pete and Pee-wee's Big Adventure and made it rated R. The answer..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/motorama/'
 poster: '/images/reviews/motorama/poster.webp'
 heroImage: '/images/reviews/motorama/backdrop.webp'

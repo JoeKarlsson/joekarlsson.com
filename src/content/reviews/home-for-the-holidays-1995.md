@@ -6,7 +6,7 @@ rating: 3
 director: 'Jodie Foster'
 genres: ['Comedy', 'Romance', 'Drama']
 slug: 'home-for-the-holidays-1995'
-description: 'I’ve been wearing with this movie for days. I thought it was cute and I have a big crush on Holly Hunter and an extremely intoxicated RDJ - but it’s a messy movie and I’m not sure what it’s attempting to say about the American idea of the patriarchal nuclear family. The romance also felt perfunctory'
+description: 'I’ve been wearing with this movie for days. I thought it was cute and I have a big crush on Holly Hunter and an extremely intoxicated RDJ - but it’s a messy...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/home-for-the-holidays-1995/'
 poster: '/images/reviews/home-for-the-holidays-1995/poster.webp'
 heroImage: '/images/reviews/home-for-the-holidays-1995/backdrop.webp'

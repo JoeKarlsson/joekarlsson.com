@@ -6,7 +6,7 @@ rating: 4
 director: 'Fred Wolf'
 genres: ['Romance', 'Comedy']
 slug: 'the-house-bunny'
-description: 'Anna Faris is so funny. They need to start making more 90-minute Hollywood comedies just to give Anna Faris more films to do. She’s so funny and this movie is a perfect showcase for her talents.'
+description: 'Anna Faris is so funny. They need to start making more 90-minute Hollywood comedies just to give Anna Faris more films to do. She’s so funny and this movie...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-house-bunny/'
 poster: '/images/reviews/the-house-bunny/poster.webp'
 heroImage: '/images/reviews/the-house-bunny/backdrop.webp'

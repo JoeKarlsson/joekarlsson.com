@@ -6,7 +6,7 @@ rating: 2
 director: 'Christopher McQuarrie'
 genres: ['Action', 'Adventure', 'Thriller']
 slug: 'mission-impossible-the-final-reckoning'
-description: 'I’m sorry. But this shit was so boring. Why’d it have to take THREE FUCKING HOURS to get to the bi-plane sequence?!?!'
+description: 'I’m sorry. But this shit was so boring. Why’d it have to take THREE FUCKING HOURS to get to the bi-plane sequence?!?!'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-the-final-reckoning/'
 poster: '/images/reviews/mission-impossible-the-final-reckoning/poster.webp'
 heroImage: '/images/reviews/mission-impossible-the-final-reckoning/backdrop.webp'

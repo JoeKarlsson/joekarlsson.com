@@ -6,7 +6,7 @@ rating: 3.5
 director: 'Molly Gordon, Nick Lieberman'
 genres: ['Comedy']
 slug: 'theater-camp-2023'
-description: 'How do you say, this movie really snuck up on me. I had super low expectations going in, but I honestly cried during the final song. It’s impossible not compare this to a certain Christopher guest documentary, but I thought it held its own.'
+description: 'How do you say, this movie really snuck up on me. I had super low expectations going in, but I honestly cried during the final song. It’s impossible not...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/theater-camp-2023/'
 poster: '/images/reviews/theater-camp-2023/poster.webp'
 heroImage: '/images/reviews/theater-camp-2023/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 2
 director: 'Philip Kaufman'
 genres: ['Drama', 'Western']
 slug: 'the-great-northfield-minnesota-raid'
-description: "I put this on because I'm a native Minnesotan who's been to Northfield many times, even for Jesse James Days, which are documented in this film. But honestly? I just don't love 70s auteur filmmaking, and this might be a perfect example of the insane amount of freedom these directors were given in th"
+description: "I put this on because I'm a native Minnesotan who's been to Northfield many times, even for Jesse James Days, which are documented in this film. But..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-great-northfield-minnesota-raid/'
 poster: '/images/reviews/the-great-northfield-minnesota-raid/poster.webp'
 heroImage: '/images/reviews/the-great-northfield-minnesota-raid/backdrop.webp'

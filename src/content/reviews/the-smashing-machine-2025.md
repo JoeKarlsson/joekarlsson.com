@@ -6,7 +6,7 @@ rating: 2.5
 director: 'Benny Safdie'
 genres: ['Drama', 'Action', 'History']
 slug: 'the-smashing-machine-2025'
-description: 'I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock finally tried to be a serious actor and bombed so hard the movie became a meta-commentary on failure.'
+description: 'I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine-2025/'
 poster: '/images/reviews/the-smashing-machine-2025/poster.webp'
 heroImage: '/images/reviews/the-smashing-machine-2025/backdrop.webp'

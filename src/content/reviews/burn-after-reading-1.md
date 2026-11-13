@@ -7,7 +7,7 @@ rewatch: true
 director: 'Ethan Coen, Joel Coen'
 genres: ['Comedy', 'Drama']
 slug: 'burn-after-reading-1'
-description: 'I saw Burn After Reading in theaters back in 2008 with friends because we were running high off No Country for Old Men. I loved it at the time and have loved it all these years since. This was my first rewatch since that theatrical experience, and I have to say - it’s gotten dinged a bit for me.'
+description: 'I saw Burn After Reading in theaters back in 2008 with friends because we were running high off No Country for Old Men. I loved it at the time and have loved...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/burn-after-reading/1/'
 poster: '/images/reviews/burn-after-reading-1/poster.webp'
 heroImage: '/images/reviews/burn-after-reading-1/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 4.5
 director: 'Michael Haneke'
 genres: ['Romance', 'Drama']
 slug: 'the-piano-teacher'
-description: "The Piano Teacher is Michael Haneke's cruelest film and, improbably, his most tender, a study of repression so complete that it curdles into self-destruction."
+description: "The Piano Teacher is Michael Haneke's cruelest film and, improbably, his most tender, a study of repression so complete that it curdles into..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-piano-teacher/'
 poster: '/images/reviews/the-piano-teacher/poster.webp'
 heroImage: '/images/reviews/the-piano-teacher/backdrop.webp'

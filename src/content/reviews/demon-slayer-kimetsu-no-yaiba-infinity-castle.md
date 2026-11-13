@@ -6,7 +6,7 @@ rating: 2
 director: 'Haruo Sotozaki'
 genres: ['Action', 'Fantasy', 'Animation']
 slug: 'demon-slayer-kimetsu-no-yaiba-infinity-castle'
-description: "I've seen two seasons of Demon slayer, and I mistakenly thought I would be able to catch up with the lore in order to watch and comprehend, what was happening in this movie. I was wrong."
+description: "I've seen two seasons of Demon slayer, and I mistakenly thought I would be able to catch up with the lore in order to watch and comprehend, what was..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/demon-slayer-kimetsu-no-yaiba-infinity-castle/'
 poster: '/images/reviews/demon-slayer-kimetsu-no-yaiba-infinity-castle/poster.webp'
 heroImage: '/images/reviews/demon-slayer-kimetsu-no-yaiba-infinity-castle/backdrop.webp'

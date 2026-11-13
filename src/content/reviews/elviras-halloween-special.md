@@ -6,7 +6,7 @@ rating: 3.5
 director: 'Mark Pierson'
 genres: ['Comedy', 'Music', 'Horror']
 slug: 'elviras-halloween-special'
-description: "If you love, Elvira postpunk new wave or golf music you're gonna have a good time with this. I didn't know what to expect and it was mostly music videos, which makes sense for an MTV Halloween special, duh."
+description: "If you love, Elvira postpunk new wave or golf music you're gonna have a good time with this. I didn't know what to expect and it was mostly music videos..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/elviras-halloween-special/'
 poster: '/images/reviews/elviras-halloween-special/poster.webp'
 ---

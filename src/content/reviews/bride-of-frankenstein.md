@@ -6,7 +6,7 @@ rating: 4.5
 director: 'James Whale'
 genres: ['Science Fiction', 'Horror']
 slug: 'bride-of-frankenstein'
-description: 'After decades of revisiting the original Frankenstein, I finally caught up with Bride of Frankenstein - and honestly, what took me so long? This film is significantly more beautiful than its predecessor, with cinematography that transforms every frame into something genuinely gorgeous to look at.'
+description: 'After decades of revisiting the original Frankenstein, I finally caught up with Bride of Frankenstein - and honestly, what took me so long? This film is...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bride-of-frankenstein/'
 poster: '/images/reviews/bride-of-frankenstein/poster.webp'
 heroImage: '/images/reviews/bride-of-frankenstein/backdrop.webp'

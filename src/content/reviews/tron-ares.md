@@ -6,7 +6,7 @@ rating: 1.5
 director: 'Joachim Rønning'
 genres: ['Science Fiction', 'Adventure', 'Action']
 slug: 'tron-ares'
-description: 'Listen, I am reluctantly a cyberpunk Tron guy. As a millennial who came of age during an optimistic time in tech, the aesthetics of Tron Legacy hit hard when that came out in 2010. I was too stoned to remember the plot, but I played that Daft Punk soundtrack endlessly. Tron Legacy remains one of the'
+description: 'Listen, I am reluctantly a cyberpunk Tron guy. As a millennial who came of age during an optimistic time in tech, the aesthetics of Tron Legacy hit hard when...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tron-ares/'
 poster: '/images/reviews/tron-ares/poster.webp'
 heroImage: '/images/reviews/tron-ares/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 2.5
 director: 'Tommy Lee Wallace'
 genres: ['Thriller', 'Horror', 'Science Fiction', 'Mystery']
 slug: 'halloween-iii-season-of-the-witch'
-description: "I should love Halloween III more since it's about techno-corporate witchcraft, which is a genuinely fun concept. But this is not a good movie and I don't think it's aged particularly well."
+description: "I should love Halloween III more since it's about techno-corporate witchcraft, which is a genuinely fun concept. But this is not a good movie and I don't..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/halloween-iii-season-of-the-witch/'
 poster: '/images/reviews/halloween-iii-season-of-the-witch/poster.webp'
 heroImage: '/images/reviews/halloween-iii-season-of-the-witch/backdrop.webp'

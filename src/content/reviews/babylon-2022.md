@@ -6,7 +6,7 @@ rating: 4
 director: 'Damien Chazelle'
 genres: ['Comedy', 'Drama']
 slug: 'babylon-2022'
-description: 'I initially avoided Babylon when it came out because I heard terrible things about it. But having finally watched it for the first time, I deeply regret not seeing this in IMAX.'
+description: 'I initially avoided Babylon when it came out because I heard terrible things about it. But having finally watched it for the first time, I deeply regret not...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/babylon-2022/'
 poster: '/images/reviews/babylon-2022/poster.webp'
 heroImage: '/images/reviews/babylon-2022/backdrop.webp'

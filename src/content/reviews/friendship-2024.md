@@ -6,7 +6,7 @@ rating: 2
 director: 'Andrew DeYoung'
 genres: ['Comedy', 'Drama']
 slug: 'friendship-2024'
-description: 'I so don’t really know what I think about this movie yet. On the one hand, I love that they made a comedy and I love Tim Robinson. On the other I don’t really know what its about 🤣 I did laugh a lot though'
+description: 'I so don’t really know what I think about this movie yet. On the one hand, I love that they made a comedy and I love Tim Robinson. On the other I don’t...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/friendship-2024/'
 poster: '/images/reviews/friendship-2024/poster.webp'
 heroImage: '/images/reviews/friendship-2024/backdrop.webp'

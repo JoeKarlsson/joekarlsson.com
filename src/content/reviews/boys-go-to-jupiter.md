@@ -6,7 +6,7 @@ rating: 2
 director: 'Julian Glander'
 genres: ['Drama', 'Science Fiction', 'Animation', 'Comedy']
 slug: 'boys-go-to-jupiter'
-description: 'Cute surrealists comedy about surviving in late stage capitalist gig economy. It also stars all of my favorite modern old comics on one place, which is incredible.'
+description: 'Cute surrealists comedy about surviving in late stage capitalist gig economy. It also stars all of my favorite modern old comics on one place, which is...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/boys-go-to-jupiter/'
 poster: '/images/reviews/boys-go-to-jupiter/poster.webp'
 heroImage: '/images/reviews/boys-go-to-jupiter/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 3
 director: 'Brian Kirk'
 genres: ['Thriller', 'Action']
 slug: 'dead-of-winter-2025'
-description: "As a Minnesotan, I was legally required to see Dead of Winter in theaters with some other Minnesotan friends. I didn't know it was actually filmed in Finland until the credits rolled and the insane Norwegian and Scandinavian names just kept coming. It really did look like northern Minnesota, which m"
+description: "As a Minnesotan, I was legally required to see Dead of Winter in theaters with some other Minnesotan friends. I didn't know it was actually filmed in Finland..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dead-of-winter-2025/'
 poster: '/images/reviews/dead-of-winter-2025/poster.webp'
 heroImage: '/images/reviews/dead-of-winter-2025/backdrop.webp'

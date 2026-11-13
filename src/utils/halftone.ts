@@ -16,7 +16,9 @@ const withText = new Set<string>(imagesWithText);
 export function isPretreatedThumbnail(src: string): boolean {
 	return (
 		/^\/images\/(blog|projects)\/[^/]+\/thumb-[0-9a-f]{8}\.webp$/.test(src) ||
-		/^\/images\/talks\/(events|posters)\/[\w-]+\.webp$/.test(src)
+		/^\/images\/talks\/(events|posters)\/[\w-]+\.webp$/.test(src) ||
+		// Film posters, graded pink when imported (scripts/update-reviews.mjs)
+		/^\/images\/reviews\/[^/]+\/poster\.webp$/.test(src)
 	);
 }
 

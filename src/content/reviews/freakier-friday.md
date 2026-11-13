@@ -6,7 +6,7 @@ rating: 2.5
 director: 'Nisha Ganatra'
 genres: ['Family', 'Fantasy', 'Comedy']
 slug: 'freakier-friday'
-description: 'Freakier Friday definitely feels like a Disney+ movie production-wise, which is wild considering it stars an Oscar winner. I’m just gonna say it: this was very mid. Slightly below mid, even. But I did laugh and was charmed by moments.'
+description: 'Freakier Friday definitely feels like a Disney+ movie production-wise, which is wild considering it stars an Oscar winner. I’m just gonna say it: this was...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/freakier-friday/'
 poster: '/images/reviews/freakier-friday/poster.webp'
 heroImage: '/images/reviews/freakier-friday/backdrop.webp'

@@ -6,7 +6,7 @@ rating: 2.5
 director: 'Danny Boyle'
 genres: ['Drama', 'History']
 slug: 'steve-jobs'
-description: 'It’s funny how little Soren cares about jobs. And honestly, it feels like it’s more of a play about being a father. Boyle definitely got some touches in there.'
+description: 'It’s funny how little Soren cares about jobs. And honestly, it feels like it’s more of a play about being a father. Boyle definitely got some touches in...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/steve-jobs/'
 poster: '/images/reviews/steve-jobs/poster.webp'
 heroImage: '/images/reviews/steve-jobs/backdrop.webp'

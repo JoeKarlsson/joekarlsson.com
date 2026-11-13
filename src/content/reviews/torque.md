@@ -6,7 +6,7 @@ rating: 3.5
 director: 'Joseph Kahn'
 genres: ['Action', 'Crime', 'Comedy']
 slug: 'torque'
-description: 'Wild that this movie dunks on Fast and Furious while being the same thing but with motorcycles. I wanted to absolutely love this movie. It kind of worked for me - just not as well as I hoped.'
+description: 'Wild that this movie dunks on Fast and Furious while being the same thing but with motorcycles. I wanted to absolutely love this movie. It kind of worked for...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/torque/'
 poster: '/images/reviews/torque/poster.webp'
 heroImage: '/images/reviews/torque/backdrop.webp'
