@@ -84,7 +84,7 @@ tl;dr: JonLuca explores iMessage's local SQLite database and builds an alternate
 
 _By: Sam Rose_
 
-tl;dr: Sam dives into the ways a single load balancer might distribute HTTP requests to a set of servers, starting from basic methods and moving up to modern load balancing algorithms.
+tl;dr: Sam walks through the ways a single load balancer might distribute HTTP requests to a set of servers, starting from basic methods and moving up to modern load balancing algorithms.
 
 ## [A List Of Programming Playgrounds](https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/)
 

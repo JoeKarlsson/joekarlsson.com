@@ -13,9 +13,9 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A 1950s grocery store aisle'
 ---
 
-Are you experiencing challenges in managing your Azure infrastructure? Do you need help keeping track of all your cloud assets, ensuring compliance, and maintaining security? If these issues sound familiar, then it's time to consider implementing a cloud asset inventory.
+If you're struggling to keep track of your Azure assets, stay compliant, and keep things secure, a cloud asset inventory can help.
 
-Managing assets in cloud environments such as Azure is growing increasingly complex. As organizations expand their cloud infrastructure, tracking resources, ensuring compliance, and maintaining strong security measures become more challenging. The dynamic nature of cloud environments, with frequent changes and additions, complicates asset management further. Therefore, a complete cloud asset inventory is essential. It offers a clear and organized view of all cloud resources, streamlining operations and mitigating potential risks.
+Managing assets in cloud environments such as Azure is growing increasingly complex. As organizations expand their cloud infrastructure, tracking resources, ensuring compliance, and maintaining strong security measures become more challenging. The dynamic nature of cloud environments, with frequent changes and additions, complicates asset management further. A complete cloud asset inventory gives you a clear, organized view of all your cloud resources, which makes operations simpler and cuts risk.
 
 In this tutorial, you will build a cloud asset manager for Azure using CloudQuery. You'll connect to your Azure account, collect data on all your cloud assets, and store it in a PostgreSQL database for analysis and reporting. However, with CloudQuery, you can extract data from [ANY data source](https://www.cloudquery.io/hub/plugins/source) ([AWS](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs), [GCP](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs), [etc](https://www.cloudquery.io/hub/plugins/source).) and load it into [ANY data destination](https://www.cloudquery.io/hub/plugins/destination) ([Snowflake](https://www.cloudquery.io/hub/plugins/destination/cloudquery/snowflake/latest/docs), [BigQuery](https://www.cloudquery.io/hub/plugins/destination/cloudquery/bigquery/latest/docs), [Databricks](https://www.cloudquery.io/hub/plugins/destination/cloudquery/databricks/latest/docs), [DuckDB](https://www.cloudquery.io/hub/plugins/destination/cloudquery/duckdb/latest/docs), [ClickHouse](https://www.cloudquery.io/hub/plugins/destination/cloudquery/clickhouse/latest/docs), etc.).
 
@@ -121,7 +121,7 @@ spec:
     connection_string: '${POSTGRESQL_CONNECTION_STRING}'
 ```
 
-This CloudQuery configuration file sets up a data source from Azure to extract information from various Azure services, such as API Gateway, IAM, and RDS, using specific tables. The extracted data is then directed to a PostgreSQL database for storage. This setup allows for efficient data extraction, transformation, and storage, enabling easier analysis and visualization of Azure data.
+This CloudQuery configuration file sets up a data source from Azure to extract information from various Azure services, such as API Gateway, IAM, and RDS, using specific tables. The extracted data is then directed to a PostgreSQL database for storage.
 
 For the `spec>tables` - be sure to include all the assets you want to sync with your Cloud Asset Inventory.
 
@@ -145,7 +145,7 @@ With our configuration in place, we're ready to start syncing data. To sync Azur
 cloudquery sync azure_to_postgresql.yaml
 ```
 
-Now you can connect to PostgreSQL and explore the data. For example, you can use this is an example query you can use to ensure your data has been correctly synced. This query finds all the storage accounts that are allowing non-HTTPS traffic:
+Now you can connect to PostgreSQL and explore the data. For example, here's a query to check that your data synced correctly. This query finds all the storage accounts that are allowing non-HTTPS traffic:
 
 ```bash
 docker exec -it postgres_container psql -U postgres -c "
@@ -225,7 +225,7 @@ In this tutorial, you walked through the process of building a cloud asset inven
 - **Storing Data in PostgreSQL**: You set up a PostgreSQL database to store the collected asset data, enabling efficient querying and analysis.
 - **Transforming Data with dbt**: You utilized dbt to apply data transformations, enhancing the quality and usability of your cloud asset inventory.
 
-By using CloudQuery, you can ensure that your asset inventory is complete, adaptable, and integrated with your broader data strategy. This empowers your team to gain better insights and make informed decisions, driving more value from your cloud infrastructure.
+By using CloudQuery, you can ensure that your asset inventory is complete, adaptable, and integrated with your broader data strategy.
 
 _Want to see CloudQuery in action?_ [Schedule a demo with our team](https://www.cloudquery.io/contact-us) or check out the [platform documentation](https://www.cloudquery.io/docs/platform/introduction) to learn more.
 

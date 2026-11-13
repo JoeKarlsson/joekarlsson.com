@@ -34,7 +34,7 @@ Most teams can't answer fundamental questions about their cloud infrastructure:
 - Which teams own which infrastructure?
 - Where are our security risks and cost optimization opportunities?
 
-This isn't a technical failure - it's a structural problem. Cloud visibility is fragmented across:
+The problem is structural. Cloud visibility is fragmented across:
 
 - AWS Console dashboards (siloed by service)
 - Security monitoring tools (focused only on threats)
@@ -120,7 +120,7 @@ CloudQuery is **completely read-only** with your AWS environment:
 
 ### 2. Multi-Source Data Collection
 
-CloudQuery doesn't just connect to AWS - it integrates multiple data sources:
+CloudQuery integrates data sources beyond AWS:
 
 **AWS accounts** (all regions, all services):
 
@@ -142,8 +142,6 @@ CloudQuery doesn't just connect to AWS - it integrates multiple data sources:
 
 ### 3. Data Transformation and Normalization
 
-**This is where the magic happens.**
-
 CloudQuery takes data from disparate sources - AWS APIs, SaaS platforms, monitoring tools - and transforms them into a **unified schema**.
 
 **What normalization means:**
@@ -160,7 +158,7 @@ CloudQuery takes data from disparate sources - AWS APIs, SaaS platforms, monitor
 - Unified timestamps and data types
 - Predictable schemas that make querying simple
 
-This isn't just data collection - it's data transformation into a format designed for analysis, not just storage.
+The point is to get the data into a format designed for analysis.
 
 ### 4. Flexible Data Storage
 
@@ -178,7 +176,7 @@ Instead of jumping between AWS Console, security dashboards, cost management too
 
 ### Enables Intelligent Decision Making
 
-CloudQuery isn't just about collecting data - it's about **making data actionable**:
+The goal is **making data actionable**:
 
 - Security teams identify and remediate vulnerabilities immediately
 - FinOps teams discover cost optimization opportunities across accounts

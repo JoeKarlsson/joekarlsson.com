@@ -18,9 +18,9 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 ## Plans Beat Intentions Every Time
 
-We've spent ten posts describing the cloud operations gap, how to measure it, and the tools and patterns that close it. But here's what we've seen repeatedly: teams that agree with every word of the strategy still stall at implementation.
+We've spent ten posts describing the cloud operations gap, how to measure it, and the tools and patterns that close it. But we've seen it repeatedly: teams that agree with every word of the strategy still stall at implementation.
 
-The problem isn't knowledge. It's sequencing. When you can see a hundred things to fix, it's hard to know which one to do on Monday morning.
+The problem is sequencing. When you can see a hundred things to fix, it's hard to know which one to do on Monday morning.
 
 This post solves that. We're laying out a 90-day roadmap, week by week, that takes you from fragmented visibility to automated governance. It's organized into three phases, each building on the previous one. If you've been reading this series and wondering "where do I actually start?", this is the answer.
 
@@ -120,11 +120,11 @@ We've watched enough teams attempt this roadmap to know where things go wrong.
 
 **Boiling the ocean.** Trying to cover every resource type from day one. You don't need to inventory every Lambda function, SNS topic, and CloudWatch alarm in week one. Start with the resource types that matter most: compute, storage, networking, IAM. Expand coverage after the foundation is solid.
 
-**Skipping the baseline.** Without measuring where you start, you can't show improvement. And without showing improvement, you can't justify continued investment. Take the maturity assessment. Record the numbers. You'll thank yourself in 90 days.
+**Skipping the baseline.** Without measuring where you start, you can't show improvement. And without showing improvement, you can't justify continued investment. Take the maturity assessment and record the numbers before you change anything.
 
 **Policy without enforcement.** Writing policies nobody checks is worse than having no policies at all. It creates a false sense of security. If a policy exists, it should run on a schedule, and violations should route to someone accountable.
 
-**Automation without visibility.** Trying to auto-remediate before you understand your estate is dangerous. You need to know what's running and why before you start automatically changing things. Phase 1 before Phase 3. Always.
+**Automation without visibility.** Trying to auto-remediate before you understand your estate is dangerous. You need to know what's running and why before you start automatically changing things, so finish Phase 1 before you start Phase 3.
 
 ## Making the Case to Leadership
 
@@ -132,7 +132,7 @@ If you need to pitch this roadmap internally, here's the structure that works:
 
 **The problem.** [Only 8% of organizations qualify as highly cloud-mature](https://www.hashicorp.com/en/state-of-the-cloud). The gap between what we think we know and what's actually running costs us time, money, and risk exposure.
 
-**The plan.** A 90-day roadmap with clear phases, weekly milestones, and measurable outcomes. Not a multi-year initiative. Three months.
+**The plan.** A 90-day roadmap with clear phases, weekly milestones, and measurable outcomes.
 
 **The investment.** One [platform engineering](https://www.cloudquery.io/solutions/platform-engineering) engineer's time for 90 days, plus tooling costs. Compare that to the cost of a single compliance audit overrun, a single security incident from a misconfigured resource, or a single quarter of unattributed cloud spend.
 

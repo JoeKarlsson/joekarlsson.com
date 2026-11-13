@@ -34,7 +34,7 @@ If you're thinking about establishing a CCOE (or improving an existing one), let
 
 ### Step 1: Establish Executive Sponsorship and Clear Objectives
 
-Here's the honest truth: **executive sponsorship isn't just helpful, it's essential**. I've seen too many CCOEs struggle because they lacked the authority to actually enforce their recommendations. [The foundation of a successful CCOE is strong executive backing and a well-defined mission. Secure a C-level sponsor (e.g., CIO, CTO) who will champion the CCOEs cause and allocate necessary resources](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/summary.html).
+**Executive sponsorship is essential**. I've seen too many CCOEs struggle because they lacked the authority to actually enforce their recommendations. [The foundation of a successful CCOE is strong executive backing and a well-defined mission. Secure a C-level sponsor (e.g., CIO, CTO) who will champion the CCOEs cause and allocate necessary resources](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/summary.html).
 
 Work with this sponsor and key stakeholders to **define the CCOEs objectives and scope**. [Common objectives include: improving cloud security and compliance, optimizing cloud costs, accelerating cloud adoption for business agility, and fostering innovation](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/summary.html). Articulate how the CCOEs success will be measured (KPIs), for example, reduction in time to provision infrastructure, percentage of workloads compliant, cost savings achieved, number of staff trained, etc.
 
@@ -78,7 +78,7 @@ Within the CCOE, establish **sub-teams or work streams** for major focus areas. 
 
 ### Step 5: Implement Cloud Governance Frameworks and Tools
 
-Early in the CCOEs life, **establish the governance frameworks**. This means developing concrete policies and technical controls. But here's where many CCOEs get stuck: you can't govern what you can't see. Before you can implement any governance framework effectively, you need full visibility into your actual cloud environment.
+Early in the CCOEs life, **establish the governance frameworks**. This means developing concrete policies and technical controls. Many CCOEs get stuck here, because you can't govern what you can't see. Before you can implement any governance framework effectively, you need full visibility into your actual cloud environment.
 
 This is where a tool like [**CloudQuery**](https://www.cloudquery.io/) becomes invaluable for your CCOE implementation. CloudQuery provides the foundational visibility layer that makes everything else possible, automatically discovering and cataloging every resource across your [AWS](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs), [Azure](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/docs), [GCP](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs), and [other cloud accounts](https://www.cloudquery.io/hub/plugins/source). Instead of spending months manually inventorying your cloud assets or relying on incomplete spreadsheets, your CCOE can have real-time cloud asset inventory from day one.
 
@@ -151,9 +151,9 @@ That last one deserves special attention. [Capital One tracked AWS certification
 
 Review these metrics in CoE leadership meetings and with the executive sponsor. Use them to identify areas for improvement. For instance, if "time to cloud account setup" is still long, invest in automating it further. If cost overruns are still occurring frequently, maybe enhance FinOps processes or accountability.
 
-Additionally, [enforce a practice of continuous improvement (echoing AWS's point to "continuously improve processes, policies, and practices")](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/summary.html). This might involve quarterly retrospectives within the CoE to adjust policies that aren't working well, drop outdated controls, or add new ones as the cloud landscape evolves (integrating new cloud services, adjusting for new regulations).
+Also [enforce a practice of continuous improvement (echoing AWS's point to "continuously improve processes, policies, and practices")](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/summary.html). This might involve quarterly retrospectives within the CoE to adjust policies that aren't working well, drop outdated controls, or add new ones as the cloud landscape evolves (integrating new cloud services, adjusting for new regulations).
 
-The goal isn't to optimize these metrics in isolation, it's to create a **flywheel effect** where better governance leads to more confidence, which leads to faster adoption, which leads to more learning, which leads to even better governance.
+The goal is a **flywheel effect** where better governance leads to more confidence, which leads to faster adoption, which leads to more learning, which leads to even better governance.
 
 ### Step 11: Scale and Evolve the CCOE
 
@@ -178,7 +178,7 @@ Following these implementation steps and practices, an organization can greatly 
 
 ## Common Pitfalls and Strategies for Replication
 
-While the above best practices serve as a guide, it's equally important to recognize the **common pitfalls** that organizations encounter when building a CCOE and discuss strategies to avoid or overcome them. Additionally, for those looking to replicate others' success, understanding the contextual factors and prerequisites is key.
+While the above best practices serve as a guide, it's equally important to recognize the **common pitfalls** that organizations encounter when building a CCOE and discuss strategies to avoid or overcome them. For those looking to replicate others' success, understanding the contextual factors and prerequisites is also key.
 
 ### Pitfall 1: Treating CCOE as an "IT-Only" Initiative
 
@@ -250,7 +250,7 @@ By anticipating these pitfalls and proactively addressing them, organizations ca
 
 ## **Key Takeaways**
 
-The difference between successful and failed CCOEs isn't usually about the technical architecture or the governance frameworks - it's about execution discipline and organizational change management. The most common failure mode isn't picking the wrong cloud provider or missing a security control; it's trying to do too much too fast, operating in a silo, or becoming a bottleneck instead of an enabler.
+What usually separates successful CCOEs from failed ones is execution discipline and organizational change management, more than technical architecture or governance frameworks. Most fail by trying to do too much too fast, operating in a silo, or becoming a bottleneck instead of an enabler, and rarely by picking the wrong cloud provider or missing a security control.
 
 **Critical success factors we've identified:**
 

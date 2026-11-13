@@ -111,7 +111,7 @@ WHERE user_name = 'root'
   AND mfa_active IS NOT TRUE;
 ```
 
-One query. Pass or fail. If this returns rows, you have a critical finding.
+If this query returns rows, you have a critical finding.
 
 **CIS AWS 2.1.1 - S3 Default Encryption**
 
@@ -162,7 +162,7 @@ Individual queries are useful. But the real value comes from running them as a s
 
 ## Evidence, Not Performance
 
-Here's the fundamental shift: traditional compliance is a performance. You rehearse, you prepare your evidence, you present it to the auditor, and you hope you pass. Continuous compliance isn't a performance. It's a system that produces evidence as it runs.
+Traditional compliance is a performance: you rehearse, you prepare your evidence, you present it to the auditor, and you hope you pass. Continuous compliance is a system that produces evidence as it runs.
 
 Think about the difference:
 
@@ -208,15 +208,15 @@ If you're starting from scratch, here's a practical approach:
 
 **Store queries in version control.** SQL files in a Git repository, reviewed through pull requests. When your auditor asks "who approved this compliance check and when?", you point them to the Git history. That audit trail is more credible than any vendor dashboard.
 
-CloudQuery's [policy packs](https://www.cloudquery.io/product/policies) include pre-built query libraries mapped to SOC 2, CIS, PCI-DSS, and other frameworks. You can use them as-is, customize them for your environment, or use them as reference for writing your own. The point is that they're SQL. You own them. You can read them. You can change them.
+CloudQuery's [policy packs](https://www.cloudquery.io/product/policies) include pre-built query libraries mapped to SOC 2, CIS, PCI-DSS, and other frameworks. You can use them as-is, customize them for your environment, or use them as reference for writing your own. The point is that they're SQL, so you own them and can read and change them.
 
 ## From Quarterly Panic to Daily Confidence
 
 The math on this is simple. If your team spends four weeks per audit cycle gathering evidence manually, and you audit twice a year, that's eight weeks of engineering time gone. For a ten-person team, that's roughly $300K per year in direct labor costs, plus the opportunity cost of everything those engineers didn't build.
 
-With continuous compliance, audit prep shrinks to a day or two. You're not gathering evidence. The evidence already exists. You're reviewing it, confirming it's current, and packaging it for the auditor.
+With continuous compliance, audit prep shrinks to a day or two. The evidence already exists, so you're reviewing it, confirming it's current, and packaging it for the auditor.
 
-The real benefit isn't the time savings, though. It's the confidence. When your [CSPM checks](https://www.cloudquery.io/solutions/cspm) and compliance queries run daily as part of your [cloud operations](https://www.cloudquery.io/product/cloud-ops) practice, you know your posture every morning. You don't wonder whether something drifted since the last audit. You don't lose sleep before the auditor arrives. You hand them a dashboard and a stack of timestamped query results covering every day since their last visit.
+Beyond the time savings, the bigger benefit is confidence. When your [CSPM checks](https://www.cloudquery.io/solutions/cspm) and compliance queries run daily as part of your [cloud operations](https://www.cloudquery.io/product/cloud-ops) practice, you know your posture every morning. You don't wonder whether something drifted since the last audit. You don't lose sleep before the auditor arrives. You hand them a dashboard and a stack of timestamped query results covering every day since their last visit.
 
 That's the shift from compliance as a performance to compliance as a property of your system.
 

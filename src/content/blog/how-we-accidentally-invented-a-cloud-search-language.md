@@ -75,7 +75,7 @@ Want proof? This is the AST for `(type:ec2 OR type:rds) AND region=us-west-2`:
 }
 ```
 
-This wasn't just easier to write - it was easier to read. Peggy gave us:
+It was easier to write and easier to read. Peggy gave us:
 
 - A structured grammar we could reason about
 - Syntax error feedback for invalid expressions
@@ -147,13 +147,13 @@ Our first approach with regex operated at Type 3 (Regular Grammar) level, which 
 
 ## Lessons Learned
 
-Here's what surprised us the most: a problem that started as "let's build a better search bar" led us straight into the intersection of computer science, linguistics, and cognitive science.
+What surprised us most was that a problem that started as "let's build a better search bar" led us straight into the intersection of computer science, linguistics, and cognitive science.
 
 This isn't a coincidence. The fundamental challenge of cloud infrastructure - managing complexity through abstraction - mirrors the challenges of human language itself. Both require systems that can express complex ideas through the composition of simpler elements.
 
 ## Final Thoughts
 
-What started as a UI improvement turned into a system design problem. Along the way, we rediscovered the hidden power of language theory.
+What started as a UI improvement turned into a system design problem. Along the way, we ended up relearning a lot of language theory.
 
 1. **Regex is not a parser.** Don't try to write your own unless you're doing something trivially simple.
 2. **Use a parser generator.** Tools like Peggy make it easier to define a grammar and maintain it.

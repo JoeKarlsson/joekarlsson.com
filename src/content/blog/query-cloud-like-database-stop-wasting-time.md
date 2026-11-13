@@ -55,11 +55,11 @@ This means you can search, filter, and analyze your entire cloud infrastructure.
 
 ## Practical Examples of Cloud Governance with the SQL Console
 
-Cloud governance is just about keeping your cloud secure, compliant, and cost-efficient. With our SQL console, you ask a question, and you get an answer**.** Let's look at how this actually helps in real-world scenarios.
+Cloud governance is just about keeping your cloud secure, compliant, and cost-efficient. With our SQL console, you ask a question, and you get an answer**.** Here are three real-world examples.
 
 ### Security: Catching Expired SSL Certificates
 
-Picture this: It's 9 a.m. on a Monday. You're on your second coffee when suddenly, the alerts start rolling in. Users are screaming. Your API is down. The culprit? An **expired SSL certificate.** Classic.
+It's 9 a.m. on a Monday. You're on your second coffee when the alerts start rolling in: users are screaming, your API is down, and the culprit is an **expired SSL certificate.** Classic.
 
 However, you don't have to wait for your customers to find out first. Just run this query and check which certificates are about to expire:
 

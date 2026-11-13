@@ -70,7 +70,7 @@ Cloud data synchronization performance varies significantly across providers due
 These performance differences reflect provider-specific API constraints rather than CloudQuery optimization levels, but CloudQuery delivers optimal throughput within these constraints through specialized knowledge of each provider's API patterns and rate limiting behavior. Teams attempting to build custom cloud data extraction solutions typically achieve 30-50% lower throughput than CloudQuery due to suboptimal connection management, inefficient API request patterns, and lack of provider-specific optimizations accumulated through years of production experience.
 
 **Note on Cloud Provider Quotas:**
-The actual quotas vary by project, usage history, and can be different for different accounts. The performance differences we observed reflect provider-specific API constraints rather than CloudQuery optimization levels, but CloudQuery delivers optimal throughput within these constraints through specialized knowledge of each provider's API patterns and rate limiting behavior.
+The actual quotas vary by project, usage history, and can be different for different accounts.
 
 ## Platform Performance Characteristics
 
@@ -82,7 +82,7 @@ Memory usage scaled linearly with data volume rather than core count, requiring 
 
 CloudQuery's performance characteristics result from specific architectural choices optimized for cloud infrastructure data processing. Our Go-based implementation leverages Goroutines for lightweight concurrency, with each Goroutines consuming approximately 2KB of stack space compared to megabytes required by traditional OS threads.
 
-Apache Arrow integration enables vectorized data processing through SIMD operations on 64-byte column buffers, eliminating row-by-row processing overhead. This columnar approach provides genuine zero-copy data movement between processing stages, reducing memory allocation and garbage collection pressure during high-throughput operations.
+Apache Arrow integration enables vectorized data processing through SIMD operations on 64-byte column buffers, eliminating row-by-row processing overhead. This columnar approach provides zero-copy data movement between processing stages, reducing memory allocation and garbage collection pressure during high-throughput operations.
 
 HTTP/2 connection pooling maintains persistent connections to cloud provider APIs with intelligent request multiplexing. We configure 200 idle connections with automatic cleanup and 20 connections per host to respect provider rate limits while maximizing request efficiency. This connection management strategy operates within documented API limits while achieving maximum allowable throughput.
 
@@ -144,7 +144,7 @@ Performance optimization in production environments focuses primarily on connect
 
 ## Summary and Key Findings
 
-This performance analysis demonstrates several critical insights for teams evaluating ETL solutions for cloud infrastructure data processing. CloudQuery's 581 GB/hour FILE processing capability represents genuine architectural performance that exceeds enterprise ETL platforms while running on standard hardware configurations available in any deployment environment.
+This performance analysis demonstrates several critical insights for teams evaluating ETL solutions for cloud infrastructure data processing. CloudQuery's 581 GB/hour FILE processing capability represents architectural performance that exceeds enterprise ETL platforms while running on standard hardware configurations available in any deployment environment.
 
 The performance differential between local data processing and cloud API-constrained operations highlights the importance of understanding external rate limiting factors when planning data synchronization workflows. Our cloud provider benchmarks achieve optimal throughput within documented API constraints, delivering 91 GB/hour from Azure, 49 GB/hour from GCP, and 13 GB/hour from AWS - performance levels that custom implementations rarely achieve without deep provider-specific optimization.
 

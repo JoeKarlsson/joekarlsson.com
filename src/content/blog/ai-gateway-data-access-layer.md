@@ -31,9 +31,9 @@ contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/b
 
 You've got model routing sorted. A routing layer, a config file, one endpoint: the model underneath your application is a runtime variable. That part's relatively easy.
 
-The part that isn't: getting your AI agent to reliably query your CRM, your data warehouse, your ERP, and a dozen other systems, scoped to what the requesting user is allowed to see, returning data that means something, and leaving an audit trail of what got accessed.
+The hard part is getting your AI agent to reliably query your CRM, your data warehouse, your ERP, and a dozen other systems, scoped to what the requesting user is allowed to see, returning data that means something, and leaving an audit trail of what got accessed.
 
-This post covers the difference between those two problems, why they have completely different architectures, and what a data-access layer needs to handle.
+Those two problems have completely different architectures. Below is how they differ and what a data-access layer needs to handle.
 
 ### At a glance
 
@@ -61,7 +61,7 @@ _Open-source token share flipped past proprietary in mid-June 2026. Source:_ [_d
 
 Security infrastructure absorbed the category. Palo Alto Networks [announced its intent to acquire Portkey](https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-to-acquire-portkey-to-secure-the-rise-of-ai-agents) on April 30, 2026, and completed it May 29. Portkey now ships as the AI gateway component inside Prisma AIRS.
 
-For teams building AI agents today, buying or forking a routing gateway is the first step. The layer had an off-the-shelf answer and a falling cost curve. The question is what didn't get built alongside it.
+For teams building AI agents today, buying or forking a routing gateway is the first step. The layer had an off-the-shelf answer and a falling cost curve. The data-access layer next to it had neither.
 
 ## Why enterprise data access for AI agents requires a separate layer
 
@@ -139,7 +139,7 @@ The EU General Data Protection Regulation (GDPR) [Article 30](https://gdpr-info.
 
 [EU AI Act Article 26(6)](https://artificialintelligenceact.eu/article/26/) adds a logging obligation for deployers of high-risk AI systems: they must retain logs of system operation to the extent practicable. For AI agents acting on enterprise data, that's a requirement for audit trails at the data layer, not just at the model layer.
 
-These provisions require an answer to one question: which data did this agent access, from which source, and under whose identity? A routing log can't answer it. A data-access log can, or nothing can. Organizations that built the routing layer and stopped have an observability gap exactly where the obligation sits.
+These provisions require an answer to one question: which data did this agent access, from which source, and under whose identity? A routing log can't answer it, and a data-access log can. Organizations that built the routing layer and stopped have an observability gap exactly where the obligation sits.
 
 The specific controls that belong at the data-access layer are per-query logs, purpose limitation, and data minimization per source, each mapped to the relevant provision.
 

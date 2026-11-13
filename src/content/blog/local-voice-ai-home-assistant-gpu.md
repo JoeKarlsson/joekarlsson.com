@@ -20,7 +20,7 @@ I started this because of Amazon. Specifically, the moment I actually read what 
 
 The timing was good. I already had a GPU server sitting in my attic. Two of them, actually - [dual R730s with NVIDIA cards](/blog/homelab-two-years-later/) I'd built out for Plex transcoding and local AI workloads. It felt absurd to have that compute available and still be shipping my living room conversations to Amazon. So I went all-in on local AI for voice and decided to see what was actually possible in 2025.
 
-This is the technical follow-up to [that initial experiment](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/) - the early chaos, the 50% wake word success rate, my partner learning to say "Okay Nabu" with diminishing patience. This post is the year-later accounting: what the pipeline actually looks like now, what failed spectacularly, and what I actually run today. It's still very much a work in progress. There's real room for improvement. But it's been one of the more fun projects I've taken on in the homelab.
+This is the technical follow-up to [that initial experiment](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/) - the early chaos, the 50% wake word success rate, my partner learning to say "Okay Nabu" with diminishing patience. This post is the year-later accounting: what the pipeline actually looks like now, what failed spectacularly, and what I run today. It's still very much a work in progress. There's real room for improvement. But it's been one of the more fun projects I've taken on in the homelab.
 
 ![Bilbo "Why Shouldn't I Keep It" meme: top panel, Amazon, holding every voice command I've ever said. Bottom panel, Bilbo clutching it: after all, why shouldn't I keep it?](/images/blog/local-voice-ai-home-assistant-gpu/meme-bilbo-keep-voice-recordings.webp)
 
@@ -129,15 +129,15 @@ Before landing on llama3.2:3b, I spent a month trying to make [qwen3:4b](https:/
 
 Think mode is useful for coding and complex reasoning. For a voice assistant, it is a catastrophe.
 
-Picture this: you say "turn off the living room lights." The model starts thinking. Five minutes later - I am not exaggerating - Piper is still reading out the LLM's internal monologue. Something like: "Let me consider the implications of this request. The user wants to control lighting in the living room area. There are multiple light entities registered in the great_room area. I should consider..." My partner came in from the kitchen to see what was happening.
+You say "turn off the living room lights." The model starts thinking. Five minutes later - I am not exaggerating - Piper is still reading out the LLM's internal monologue. Something like: "Let me consider the implications of this request. The user wants to control lighting in the living room area. There are multiple light entities registered in the great_room area. I should consider..." My partner came in from the kitchen to see what was happening.
 
 I disabled think mode. Still verbose. "Sure! I've turned on the lights for you in the living room! Let me know if there's anything else I can help with today!" when "Lights on" is the correct answer. Two words, Qwen. Two words.
 
 ![A paper-collage animation on a cobalt field: a typed paper strip with the model's whole reply, Sure! I've turned on the lights for you in the living room! Let me know if there's anything else I can help with today!, gets snipped by tailor's shears and falls apart into scraps along the bottom, then a pink slip reading Lights on lands in the middle under the words Two words](/images/blog/local-voice-ai-home-assistant-gpu/two-words-qwen.svg)
 
-I rebuilt the system prompt. Dropped context from 8192 tokens to 2048. Cut max history from 20 messages to 5. Rewrote the prompt to enforce "under 10 words." Better. Not fixed.
+I rebuilt the system prompt. Dropped context from 8192 tokens to 2048. Cut max history from 20 messages to 5. Rewrote the prompt to enforce "under 10 words." It got better, but it wasn't fixed.
 
-Eventually I switched to llama3.2:3b. No think mode to accidentally enable. Faster inference. Naturally terse. The full round-trip from wake word to audio response is 2-3 seconds on GPU. That's the threshold where voice control actually feels like voice control.
+Eventually I switched to llama3.2:3b. It has no think mode to accidentally enable, it's faster, and it's naturally terse. The full round-trip from wake word to audio response is 2-3 seconds on GPU. That's the threshold where voice control actually feels like voice control.
 
 The qwen3 optimization docs I wrote are still sitting in my notes as a cautionary artifact.
 

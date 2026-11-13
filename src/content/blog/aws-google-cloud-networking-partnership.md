@@ -18,7 +18,7 @@ In November 2025, AWS and Google Cloud [announced](https://cloud.google.com/blog
 
 This is good news. MACsec encryption between edge routers, quad-redundancy across facilities, an [open specification on GitHub](https://github.com/aws/AWSInterconnect) that other providers can adopt. Microsoft Azure is joining in 2026. The network engineers who spent weeks coordinating circuits and BGP configurations are probably relieved.
 
-Here's the thing: network pipes were never the hard part of multi-cloud. You can now connect an AWS VPC to a Google Cloud VPC in minutes. You still don't know what's actually running in either one.
+Network pipes were never the hard part of multi-cloud. You can now connect an AWS VPC to a Google Cloud VPC in minutes. You still don't know what's actually running in either one.
 
 ## What AWS and Google Actually Announced
 
@@ -72,7 +72,7 @@ Solving multi-cloud visibility means normalizing data across incompatible APIs. 
 
 This is where cloud asset inventory approaches come in. Tools like [CloudQuery](https://www.cloudquery.io/docs/cli/getting-started) call APIs like `DescribeInstances` and `compute.instances.list`, extract the full resource schemas, and load everything into SQL databases. Instead of three consoles, you write one query across `aws_ec2_instances` and `gcp_compute_instances`. The goal: answer "show me all unencrypted storage" regardless of which cloud the buckets live in.
 
-The [CloudQuery Hub](https://www.cloudquery.io/hub/plugins/source) covers 90+ providers with 600+ tables. But the broader point isn't about any specific tool - it's that multi-cloud visibility requires active data normalization work that no network partnership will solve.
+The [CloudQuery Hub](https://www.cloudquery.io/hub/plugins/source) covers 90+ providers with 600+ tables. The broader point holds for any tool: multi-cloud visibility requires active data normalization work that no network partnership will solve.
 
 ## Key Takeaways
 
@@ -87,7 +87,7 @@ The [CloudQuery Hub](https://www.cloudquery.io/hub/plugins/source) covers 90+ pr
 
 As multi-cloud adoption accelerates - 82% of enterprises expect AI to drive more of it - the visibility gap widens. The AWS-Google partnership removes network friction, and that's useful progress. But don't confuse faster network provisioning with operational visibility.
 
-Platform engineers still need unified asset inventory across clouds. Security teams still need to query resources regardless of which provider hosts them. The announcement addresses the easier problem. The harder one remains.
+Platform engineers still need unified asset inventory across clouds. Security teams still need to query resources regardless of which provider hosts them. The announcement addresses the easier problem and leaves the harder one open.
 
 ## Frequently Asked Questions
 

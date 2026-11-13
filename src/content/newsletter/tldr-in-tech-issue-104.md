@@ -36,13 +36,13 @@ tl;dr: Hugo argues for a rethink of the way we handle passwords, pointing out th
 
 _By: Kent Beck_
 
-tl;dr: Kent shares a personal journey of understanding emotions using an established framework. He views emotions as envelopes containing important messages, encouraging readers to decode these messages instead of suppressing emotions, giving a "cheat sheet" that defines what kind of message each emotion brings, e.g., Fear as a call to focus, Anger as a call to enforce boundaries, and Guilt as a call to change. This self-understanding helps navigate life's challenges and fosters personal growth.
+tl;dr: Kent shares a personal journey of understanding emotions using an established framework. He views emotions as envelopes containing important messages, encouraging readers to decode these messages instead of suppressing emotions, giving a "cheat sheet" that defines what kind of message each emotion brings, e.g., Fear as a call to focus, Anger as a call to enforce boundaries, and Guilt as a call to change.
 
 ## [Frameworks](https://mikefisher.substack.com/p/frameworks)
 
 _By: Mike Fisher_
 
-tl;dr: The user shared three frameworks to understand growth phases of companies: Kent Beck's 3X (Explore, Expand, Extract), Wardley's PST (Pioneer, Settler, Town Planner), and Thiel's Zero to One. They found these useful for identifying their personal fit within a company's growth journey, thriving best in the scaling phase. Understanding one's optimal growth phase can guide career choices.
+tl;dr: Mike shares three frameworks to understand growth phases of companies: Kent Beck's 3X (Explore, Expand, Extract), Wardley's PST (Pioneer, Settler, Town Planner), and Thiel's Zero to One. He found them useful for figuring out where he fits in a company's growth, and he does best in the scaling phase. Understanding one's optimal growth phase can guide career choices.
 
 ## [12 Debugging Tools I Wish I Knew Earlier](https://careercutler.substack.com/p/12-debugging-tools-i-wish-i-knew)
 
@@ -54,7 +54,7 @@ tl;dr: The first 2 are: (1) Git bisect: Run you through a binary search process 
 
 _By: \[Author Unknown\]_
 
-tl;dr: This article explores the role of consistency patterns such as strong, eventual, and weak consistency in maintaining reliability, system state, and user experience in distributed systems. It delves into the intricacies of these patterns, weighing their benefits and drawbacks, and discussing their real-world applications.
+tl;dr: This article explores the role of consistency patterns such as strong, eventual, and weak consistency in maintaining reliability, system state, and user experience in distributed systems. It covers each pattern's benefits, drawbacks, and real-world uses.
 
 ## [Before You Try To Do Something, Make Sure You Can Do Nothing](https://devblogs.microsoft.com/oldnewthing/20230725-00/?p=108482)
 

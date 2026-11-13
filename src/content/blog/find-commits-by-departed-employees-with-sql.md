@@ -14,7 +14,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs commit history. Join with Okta or Azure AD to identify commits by former employees for compliance audits and security reviews.'
 ---
 
-An engineer leaves your company. Their access gets revoked, their laptop returned. But their commits remain across dozens of repositories. For compliance audits, security reviews, or simply understanding code ownership, you need to identify which code was authored by former employees. The manual approach: export HR data, clone repos, run `git log`, correlate email addresses, compile spreadsheets. Repeat quarterly.
+An engineer leaves your company. Their access gets revoked, their laptop returned. But their commits remain across dozens of repositories. For compliance audits, security reviews, or understanding code ownership, you need to identify which code was authored by former employees. The manual approach: export HR data, clone repos, run `git log`, correlate email addresses, compile spreadsheets. Repeat quarterly.
 
 The [Git Source Integration](https://www.cloudquery.io/hub/plugins/source/cloudquery/git) syncs commit history into your data warehouse. Combined with identity provider data from [Okta](https://www.cloudquery.io/hub/plugins/source/cloudquery/okta) or [Entra ID](https://www.cloudquery.io/hub/plugins/source/cloudquery/entraid), you can query commits by employment status with SQL.
 

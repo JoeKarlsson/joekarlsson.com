@@ -49,7 +49,7 @@ Cloud governance typically involves multiple teams: platform engineering (who im
 
 ## Why Cloud Governance Matters in 2026
 
-Cloud governance has gotten harder in the last few years, not easier. A few reasons why.
+Cloud governance has gotten harder in the last few years, for a few reasons.
 
 [Most organizations now run workloads across multiple cloud providers](https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2024-state-of-the-cloud-report/), each with different resource models, IAM systems, and compliance tooling. What counts as "a properly configured VM" differs between AWS, GCP, and Azure. A governance framework that works in one cloud doesn't automatically translate to others, which means most multi-cloud teams are maintaining parallel approaches rather than one coherent model.
 

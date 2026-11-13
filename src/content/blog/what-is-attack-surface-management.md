@@ -15,9 +15,9 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 > **Note:** Attack surface management finds what attackers can reach, including resources your security team doesn't know exist. Unlike CSPM (which audits known configurations) or vulnerability management (which scans for CVEs), ASM starts from the attacker's perspective and asks what's reachable from outside. CloudQuery gives cloud teams a continuously updated attack surface inventory across AWS, GCP, and Azure, queryable in SQL.
 
-In 2022, researchers at Tenable found that 62% of organizations have unknown or undiscovered assets on their attack surface. Not misconfigured - unknown. Resources that security teams didn't know existed, exposed to the internet, available for attackers to find.
+In 2022, researchers at Tenable found that 62% of organizations have unknown or undiscovered assets on their attack surface. These weren't misconfigured resources. Security teams didn't know they existed, and they were exposed to the internet for attackers to find.
 
-This is the problem attack surface management (ASM) was built to solve: not just scanning what you know about, but finding everything that could be targeted.
+This is the problem attack surface management (ASM) was built to solve: finding everything that could be targeted, including what you don't know about.
 
 **In this article:**
 
@@ -32,7 +32,7 @@ This is the problem attack surface management (ASM) was built to solve: not just
 
 **Attack surface management is the continuous discovery, inventory, and monitoring of all assets an attacker could target - including assets your team doesn't know exist.**
 
-The critical distinction from other security practices: ASM takes an attacker's perspective. Rather than starting with a known inventory and scanning it for vulnerabilities, ASM starts with what's reachable from the outside and works inward. The question isn't "are our known systems secure?" - it's "what can an attacker find and reach?"
+What sets ASM apart from other security practices is that it takes an attacker's perspective. Rather than starting with a known inventory and scanning it for vulnerabilities, ASM starts with what's reachable from the outside and works inward. It asks "what can an attacker find and reach?" where other practices ask "are our known systems secure?"
 
 A cloud attack surface includes:
 
@@ -76,7 +76,7 @@ The relationship: **CSPM tells you something is misconfigured. ASM tells you whe
 
 Vulnerability management is complementary: it finds known CVEs in software running on your assets. ASM identifies which of those assets are internet-facing in the first place.
 
-In practice, the three work together. CSPM catches misconfigurations. VM prioritizes patching. ASM maps what's exposed and tracks reachability - ensuring the most critical exposures get addressed first.
+In practice, the three work together. CSPM catches misconfigurations. VM prioritizes patching. ASM maps what's exposed and tracks reachability, so the most critical exposures get addressed first.
 
 ## How to Build a Cloud Attack Surface Inventory with CloudQuery
 
@@ -158,7 +158,7 @@ The ASM market has consolidated into two tiers: standalone EASM platforms and AS
 
 **Microsoft Defender EASM** is the natural choice for Azure-heavy organizations, providing external surface discovery with deep integration into Microsoft Sentinel and Defender for Cloud.
 
-**Tenable ASM** (formerly Bit Discovery) draws on Tenable's vulnerability database - covering [5+ billion internet-facing assets](https://www.tenable.com/products/attack-surface-management) - to combine external discovery with CVE context, showing not just what's exposed but what known vulnerabilities exist on those exposed assets.
+**Tenable ASM** (formerly Bit Discovery) draws on Tenable's vulnerability database - covering [5+ billion internet-facing assets](https://www.tenable.com/products/attack-surface-management) - to combine external discovery with CVE context, showing which known vulnerabilities exist on those exposed assets.
 
 **CloudQuery** fills a different role: not a dedicated ASM scanner, but the data layer that powers ASM-style visibility using your existing cloud provider APIs. If your primary question is "what cloud resources am I exposing?" rather than "what does the internet see about me?", CloudQuery provides that inventory in SQL with no additional agents or scanning infrastructure.
 

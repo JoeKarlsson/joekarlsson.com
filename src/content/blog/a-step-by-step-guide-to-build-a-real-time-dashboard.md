@@ -19,7 +19,7 @@ Sadly, this is the status quo for many who build dashboards into their products.
 
 Learn how to build a real-time dashboard from end-to-end in our online free training on March 13th. [Register here](https://www.tinybird.co/live-coding-sessions/kafka-real-time-dashboard?utm_campaign=q1-2024-blog-lcs-referral).
 
-The contrast of this scenario with today’s [real-time analytics landscape](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) couldn’t be more stark, underlining just how vital it is to give your users immediate access to data analytics.
+That’s a long way from what today’s [real-time analytics landscape](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) makes possible, and it’s why your users need immediate access to their data analytics.
 
 ![Hide the Pain Harold meme about looking at a real-time dashboard instead of a spreadsheet](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-16.webp)
 
@@ -55,7 +55,7 @@ The primary components of a real-time dashboard include:
 
 ### Why are most dashboards slow?
 
-Let’s be honest, most dashboards aren’t of the “real-time” variety. But why?
+Most dashboards aren’t of the “real-time” variety. But why?
 
 ![Terminal output showing npm run seed sending account and signature data to Tinybird](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-14.webp)
 
@@ -508,7 +508,7 @@ Now let’s test your new API! Copy the HTTP endpoint from the sample usage and 
 
 Within the endpoint URL, you will notice the `date_from` and `date_to` parameters. These control the date range for the query, and they can be modified to filter the results accordingly. You’ll also see the `limit` parameter, which controls how many rows are returned.
 
-Try altering the values for these parameters in the browser’s address bar. As you change the dates or limit and refresh the page, you should see different data returned in response to your query. This behavior verifies that the dynamic filtering is working correctly, allowing the query to adapt to different user inputs or requirements.
+Try altering the values for these parameters in the browser’s address bar. As you change the dates or limit and refresh the page, you should see different data returned in response to your query. That means the dynamic filtering is working.
 
 ```json
 "statistics": {
@@ -701,7 +701,7 @@ You can also spend some time optimizing your data project for faster responses a
 
 If you are interested in building real-time dashboards or any other real-time visualizations, you need a data stack and frontend library that can keep pace. In this tutorial, you learned how to use modern tooling to build an end-to-end real-time data pipeline and dashboard. With Tinybird, Tremor, and Next.js, it’s possible to build a real-time dashboard from scratch in less than an hour.
 
-The combination of Tinybird, Next.js, and Tremor provides a powerful solution for building real-time dashboards, but the real “speed layer” here is Tinybird. Here’s why Tinybird is perfect for building real-time data visualizations:
+The combination of Tinybird, Next.js, and Tremor works well for building real-time dashboards, but the real “speed layer” here is Tinybird. Here’s why Tinybird is perfect for building real-time data visualizations:
 
 - **Real-Time Data Ingestion and Processing**: Tinybird can handle large streams of data in real time. Unlike traditional batch ETL processes, it can ingest, process, and analyze millions of events per second on the fly. This means that your dashboard can reflect changes almost instantly, keeping the insights fresh and timely.
 

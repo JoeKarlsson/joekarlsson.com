@@ -213,7 +213,7 @@ From here, try pasting the sample HTTP sample into your browser, and you will be
 
 ## Wrap up
 
-You’ve achieved far more than a simple integration of Google Sheets with Tinybird; you’ve unlocked serious [real-time data analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) capabilities. This combo is far from a one-trick pony. Let’s unpack the expanded universe of what you can now accomplish.
+With your Google Sheets data in Tinybird, you can do a lot more than query it. You now have [real-time data analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) over your spreadsheet, and here’s what else that makes possible:
 
 - **Enriching Data in Real-Time:** Imagine your Google Sheet is tracking sales metrics. With Tinybird, you can automatically enrich that data with real-time inventory levels or customer data from your CRM, other APIs, or even another Google Sheet. This means you can create complex queries that pull from multiple data sources to generate on-the-fly insights, making your Google Sheet a centralized, real-time data hub.
 

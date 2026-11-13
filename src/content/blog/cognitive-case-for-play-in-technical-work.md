@@ -11,11 +11,9 @@ tldr: "The conditions that produce your best iterative work look a lot like play
 
 The best work I've ever done felt like play.
 
-A few years back I ran marketing, website, docs, and community for a company. Reviews existed - everything shipped through them. But I had genuine autonomy to iterate between them. Within a few months the pages I was working on were converting at five times their previous rate. Not from a plan. From having space to find out what actually worked.
+A few years back I ran marketing, website, docs, and community for a company. Reviews existed - everything shipped through them. But I had real autonomy to iterate between them. Within a few months the pages I was working on were converting at five times their previous rate. None of that came from a plan. It came from having space to find out what worked.
 
-I've run the same work inside heavier structures - briefs approved before anything starts, every change requiring signoff, review cycles running weeks. The output was different. The skills weren't.
-
-The variable wasn't review. It was play.
+I've run the same work inside heavier structures - briefs approved before anything starts, every change requiring signoff, review cycles running weeks. My skills were the same in both places and the output wasn't. Both places had review. Only one had room to play.
 
 I've written about what that process looked like - the [SEO work](https://www.joekarlsson.com/blog/reversing-seo-traffic-decline-ai-overviews/) and the [DevRel sprint](https://www.joekarlsson.com/blog/running-devrel/) - if you want the tactics. This post is about why the conditions that made those tactics possible were the harder problem.
 
@@ -29,7 +27,7 @@ The problem isn't review. It's that planning-first changes the cognitive frame b
 >
 > From [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one)
 
-People who expect external evaluation before creative work produce less creative output. Not from lack of effort. From the wrong kind of attention.
+People who expect external evaluation before creative work produce less creative output. They aren't trying less; their attention is on the evaluation.
 
 ![Sleeping Shaq meme: Shaq sleeps next to 'Team when handed the Q3 brief template' and wakes up wide-eyed and glowing next to 'Team when told they can try anything for two weeks'.](/images/blog/cognitive-case-for-play-in-technical-work/meme-sleeping-shaq.webp)
 
@@ -75,7 +73,7 @@ That's the other half of what play requires: believing errors won't be penalized
 
 Teams with it experiment more, learn faster, produce better work.
 
-Review-heavy cultures erode this not through malice but through repetition. Every judgment cycle signals that getting it wrong is costly. Eventually people stop experimenting before they're told to. The play state disappears not because anyone banned it, but because the environment made it feel too risky.
+Review-heavy cultures erode this not through malice but through repetition. Every judgment cycle signals that getting it wrong is costly. Eventually people stop experimenting before they're told to. Nobody bans the play state. The environment just makes it feel too risky.
 
 ![Grim Reaper Knocking Door meme: the Grim Reaper, labeled 'Review cycle', has already left blood behind the doors labeled 'Weird idea' and 'Bold bet', and is now knocking on the door labeled 'Last original thought'.](/images/blog/cognitive-case-for-play-in-technical-work/meme-grim-reaper.webp)
 
@@ -85,7 +83,7 @@ I've watched this pattern hold for fifteen years, across startups, scale-ups, an
 
 The software industry didn't invent agile because it sounded nice. It invented agile because waterfall kept failing on complex projects where requirements weren't fully knowable upfront. [The Standish Group CHAOS Report consistently shows agile projects are roughly 2x more likely to succeed than waterfall](https://medium.com/leadership-and-agility/agile-project-success-rates-are-2x-higher-than-traditional-projects-376a05e590d4), with large waterfall projects failing outright at high rates.
 
-The insight: if the plan is always partially wrong, the overhead of maintaining a detailed plan crowds out the work that would tell you what's right. Smaller iterations, faster feedback, lower cost of being wrong. That's not just a project management style. It's a position on how complex systems reveal themselves: through interaction, not specification.
+The insight: if the plan is always partially wrong, the overhead of maintaining a detailed plan crowds out the work that would tell you what's right. Smaller iterations, faster feedback, lower cost of being wrong. Beyond project management, that's a position on how complex systems reveal themselves: through interaction, not specification.
 
 That principle applies beyond software. It applies to content, design, marketing, any domain where quality emerges from iteration rather than execution of a predetermined plan. Most organizations nominally accept this for code and then default to waterfall thinking for everything else.
 
@@ -97,7 +95,7 @@ If you're a manager, your role in this model is to protect the conditions: shiel
 
 **Separate creation from evaluation.** Don't let evaluation enter the room during generation. Timebox a period where you run experiments without a formal review gate. Review results, not process.
 
-**Measure after, not before.** KPIs are learning tools after an experiment, not gatekeeping criteria before one. "What did we learn?" is a more useful question than "will this hit our number?" The 5x result I described wasn't planned. It was discovered, then measured.
+**Measure after, not before.** KPIs are learning tools after an experiment, not gatekeeping criteria before one. "What did we learn?" is a more useful question than "will this hit our number?" Nobody planned the 5x result I described. I found it, then measured it.
 
 The [SEO work I described here](https://www.joekarlsson.com/blog/reversing-seo-traffic-decline-ai-overviews/) ran on exactly this rhythm. I shipped changes every week and measured 2-4 weeks later, cross-referencing Search Console, Plausible, and Ahrefs to see what moved. There was no way to know which changes would work before shipping them - the data didn't exist yet. The KPI came after the experiment, which is the only place it's actually useful.
 
@@ -111,7 +109,7 @@ The [SEO work I described here](https://www.joekarlsson.com/blog/reversing-seo-t
 >
 > From [Frontiers in Psychology, flow states research](https://pmc.ncbi.nlm.nih.gov/articles/PMC7551835/)
 
-Anything that triggers self-evaluation re-activates exactly the circuitry the flow state had quieted. You don't just lose time. You lose the state. Protect blocks of uninterrupted work the way you'd protect a production deployment.
+Anything that triggers self-evaluation re-activates exactly the circuitry the flow state had quieted, so you lose the state along with the time. Protect blocks of uninterrupted work the way you'd protect a production deployment.
 
 ![Running Away Balloon meme: 'Me, 90 minutes into flow' reaches for a balloon labeled 'The whole system in my head', then gets held back by a pink figure labeled 'Quick status sync?' as the balloon, now 'The whole system', floats away.](/images/blog/cognitive-case-for-play-in-technical-work/meme-running-away-balloon.webp)
 
@@ -123,7 +121,7 @@ Anything that triggers self-evaluation re-activates exactly the circuitry the fl
 >
 > From [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one)
 
-The first kills creative output. The second can enhance it. The argument isn't to remove accountability. It's to move it to where it's useful: after the experiment, not before it.
+The first kills creative output. The second can enhance it. So keep the accountability and move it to where it's useful: after the experiment.
 
 I've had this called out directly: "sounds like you just want to ship without approval." That's not it. I made the practice side of this argument, with the DORA data and the pottery story, in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/).
 

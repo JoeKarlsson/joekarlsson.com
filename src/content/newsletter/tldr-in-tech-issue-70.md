@@ -9,12 +9,12 @@ heroImage: '/images/newsletter/tldr-in-tech-issue-70/card-e9e3a9ed.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 70, leading with Measuring An Engineering Organization, with the issue number circled in pink crayon'
 ---
 
-Welcome back to my weekly newsletter, where I bring you the latest and greatest insights to keep your software engineering game strong. This week, I'm shining the spotlight on the data and database space, as we unravel some trends that are defining the landscape in 2023. So, let's dive in and see what's shaping the future of data management! 💾
+Welcome back to my weekly newsletter. This week is about data and databases, and the trends I'm watching in 2023. 💾
 
-1. Automated data management: AI and machine learning are revolutionizing database management. Expect to see more automation in tasks such as indexing, tuning, and schema optimization, as intelligent systems learn to optimize databases with minimal human intervention.
-2. Real-time data processing: With the rapid increase in data generation, real-time data processing is becoming a necessity. Stream processing technologies, such as Apache Kafka and Flink, are gaining momentum as they enable organizations to analyze and act upon data as it's generated, providing a competitive edge.
-3. Multi-model databases: Versatility is the name of the game in 2023, and multi-model databases are leading the charge. These powerhouses support various data models within a single, integrated backend, making it easier than ever to manage diverse data types and sources.
-4. Data mesh architecture: As data silos become a thing of the past, data mesh architecture is gaining popularity. This approach emphasizes decentralized, domain-oriented data ownership and product thinking. By treating data as a product, organizations can enable cross-functional collaboration, improve data discoverability, and drive innovation.
+1. Automated data management: AI and machine learning are coming to database management. Expect to see more automation in tasks such as indexing, tuning, and schema optimization, as intelligent systems learn to optimize databases with minimal human intervention.
+2. Real-time data processing: With the rapid increase in data generation, real-time data processing is becoming a necessity. Stream processing technologies, such as Apache Kafka and Flink, are gaining momentum as they enable organizations to analyze and act upon data as it's generated.
+3. Multi-model databases: Multi-model databases support various data models within a single, integrated backend, which makes it easier to manage diverse data types and sources.
+4. Data mesh architecture: Data mesh architecture is gaining popularity. This approach emphasizes decentralized, domain-oriented data ownership and product thinking. By treating data as a product, organizations can enable cross-functional collaboration, and improve data discoverability.
 
 **[Measuring An Engineering Organization](https://lethain.com/measuring-engineering-organizations/)**  
 \- Will Larson  

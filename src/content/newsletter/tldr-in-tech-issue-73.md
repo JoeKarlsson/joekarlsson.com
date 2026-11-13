@@ -23,7 +23,7 @@ tl;dr: The secret sauce to a perfect pull request is short and sweet. Add detail
 
 ## [What Is ChatGPT Doing… and Why Does It Work? 🤖 -](https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/) _[Stephen Wolfram](https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/)_
 
-tl;dr: ChatGPT is all the rage, but how the heck does it work? Stephen Wolfram breaks down the magic behind this AI wizard, without diving too deep into the engineering weeds. Great news for all you non-engineer readers out there! 🧪
+tl;dr: ChatGPT is all the rage, but how the heck does it work? Stephen Wolfram breaks down the magic behind this AI wizard, without getting too deep into the engineering weeds. Great news for all you non-engineer readers out there! 🧪
 
 ## [10 Web Development Trends In 2023 🌐 -](https://www.robinwieruch.de/web-development-trends/) _[Robin Wieruch](https://www.robinwieruch.de/web-development-trends/)_
 

@@ -29,7 +29,7 @@ Our goal at Viam is to make building and programming a robot as simple as assemb
 
 _Cartoon of a person typing at a computer._
 
-The team here at Viam is made up of a diverse team of developers, robotics engineers, and executives that have a history of building and scaling companies that understand how crucial developers are to succeed. I think this is most clear in Viam's CEO, Eliot Horowitz, who was the co-founder of MongoDB. In my humble opinion, MongoDB's success was directly tied to Eliot's commitment to making a database that software developers loved through developer support, and features that developers were actually asking for.
+The team here at Viam is made up of a diverse team of developers, robotics engineers, and executives that have a history of building and scaling companies that understand how much developers matter to a company's success. I think this is most clear in Viam's CEO, Eliot Horowitz, who was the co-founder of MongoDB. In my humble opinion, MongoDB's success was directly tied to Eliot's commitment to making a database that software developers loved through developer support, and features that developers were actually asking for.
 
 The team Eliot has assembled here at Viam is equally committed to building a robotics platform that makes robots as easy to build as it was to deploy a MongoDB database. Personally, I am humbled and honored to be asked to join a team as committed to building tools for nerds.
 

@@ -12,11 +12,11 @@ tldr: 'I built a Claude Code slash command that turns blog post creation into a 
 
 I live in the terminal. Like, I mean it.
 
-As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code became my primary interface for getting work done. Not just coding. Content creation, documentation, the constant stream of blog posts that come with DevRel.
+As a developer advocate, it’s where I spend most of my time - running commands, testing code, writing docs. Over the past few months, Claude Code became my primary interface for getting work done, and not just for coding: content creation, documentation, the constant stream of blog posts that come with DevRel.
 
 That created a weird problem.
 
-I got good at using AI tools. But it was still a personal, one-off workflow. Every blog post started with me crafting the perfect prompt, tweaking the output, running linting checks, formatting everything manually. It worked. It didn’t scale. Our marketing team needed to produce more content, hit more keywords, maintain consistency… and they couldn’t all live in my head.
+I got good at using AI tools. But it was still a personal, one-off workflow. Every blog post started with me crafting the perfect prompt, tweaking the output, running linting checks, formatting everything manually. It worked, but it didn’t scale. Our marketing team needed to produce more content, hit more keywords, maintain consistency… and they couldn’t all live in my head.
 
 ![A paper-collage animation on a black field: index cards pile onto a black-and-white phrenology bust, a pink card-catalog drawer lands beside it, the cards fly from the head into the drawer, and two hands reach in for them under the words Out of my head](/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/out-of-my-head.svg)
 
@@ -26,27 +26,27 @@ So I built a Claude Code skill to systematize it.
 
 The blog skill started as a way to encode my own process. I’d open Claude Code, start a conversation about a blog topic, go back and forth on structure, check for banned words, run Vale linting, generate images, submit a PR. Efficient for me, completely opaque to anyone else.
 
-Here’s what changed: I realized I could encode all those standards - brand voice, banned words, style requirements, SEO checklists - into a reusable workflow. Not documentation about how to write. An executable skill that enforces those standards automatically.
+Then I realized I could encode all those standards - brand voice, banned words, style requirements, SEO checklists - into a reusable workflow: an executable skill that enforces them automatically.
 
 [Watch on YouTube](https://www.youtube.com/watch?v=1OuDyDdTDFw)
 
 What the skill does:
 
-- **Research the topic** – searches existing posts, docs, sources
+- **Research the topic** - searches existing posts, docs, sources
 
-- **Create an outline** – structured with SEO and LLM citation optimization
+- **Create an outline** - structured with SEO and LLM citation optimization
 
-- **Checkpoint 1** – show the outline, get approval before drafting
+- **Checkpoint 1** - show the outline, get approval before drafting
 
-- **Write the draft** – following brand voice, with banned word checks
+- **Write the draft** - following brand voice, with banned word checks
 
-- **Checkpoint 2** – review the draft before finalizing
+- **Checkpoint 2** - review the draft before finalizing
 
-- **Vale linting** – enforce style consistency, must pass with 0 errors
+- **Vale linting** - enforce style consistency, must pass with 0 errors
 
-- **Generate images** – Python script creates header and thumbnail
+- **Generate images** - Python script creates header and thumbnail
 
-- **Submit PR** – ready for review  
+- **Submit PR** - ready for review  
 
 The skill is a single slash command: /blog “topic”. That’s it.
 
@@ -73,7 +73,7 @@ What used to require me reviewing every piece of content now happens automatical
 
 We rolled this out to the marketing team a week ago. (A few months later it had grown into a whole repo of skills the team runs; I wrote up [how my personal skills repo became internal tooling](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/).)
 
-They adopted it fast. Genuinely fast.
+They adopted it fast.
 
 Giving this tool to the team replaced one of my primary functions: being the bottleneck for content quality and technical accuracy. And that’s freeing me up to do what I actually want to do: developer outreach, building relationships, experimenting with new approaches to advocacy.
 
@@ -89,7 +89,7 @@ AI tools are most powerful when they’re systematic. One-off prompts are useful
 
 Quality controls matter. Without checkpoints and linting, AI output drifts. We have two approval gates (outline and draft) and automated linting before anything ships. This keeps quality high without manual review of every detail.
 
-There’s a real tension worth naming here: approval gates add latency. Too many of them and you’re back to the slow, review-gated world you were trying to escape. The goal is kilns, not gates - feedback that improves the work, not gates that just add time. If you’re thinking about where the line is between "enough review" and "too much process," I wrote about this directly in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/).
+Approval gates add latency, though. Too many of them and you’re back to the slow, review-gated world you were trying to escape. The goal is kilns, not gates - feedback that improves the work, not gates that just add time. If you’re thinking about where the line is between "enough review" and "too much process," I wrote about this directly in [Ship the Ugly Pot](/blog/ship-the-ugly-pot/).
 
 This doesn’t replace judgment. It can’t replace deep technical knowledge, understanding our audience, knowing when to break the rules. It handles structure, consistency, grunt work. Humans handle the hard stuff: knowing what to say, how to say it, when to bend the rules.
 

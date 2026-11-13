@@ -35,7 +35,7 @@ _You can run, but you can't hide from technical debt! 🏃‍♂️_
 
 ### 🧪 [Testing Practices I Follow](https://www.16elt.com/2023/01/16/testing-practices-I-follow/) - Eliran Turgeman
 
-**tl;dr:** Eliran shares his testing practices, and let's be honest, they're probably not gonna blow your mind. But for you testing newbies out there, it's a great primer! And, hey, even seasoned devs might learn a thing or two. 🧐
+**tl;dr:** Eliran shares his testing practices. They're probably not gonna blow your mind. But for you testing newbies out there, it's a great primer! And, hey, even seasoned devs might learn a thing or two. 🧐
 
 ### 🔍 [Improve Your Debugging By Asking Broad Questions](https://buttondown.email/hillelwayne/archive/improve-your-debugging-by-asking-broad-questions/) - Hillel Wayne
 

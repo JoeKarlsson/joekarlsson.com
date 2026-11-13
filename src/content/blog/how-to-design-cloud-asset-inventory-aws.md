@@ -17,9 +17,9 @@ Your security team discovers a critical vulnerability affecting unencrypted data
 
 If you're running a poorly designed cloud asset inventory - or none at all - the answer is probably days. You'll manually hunt through spreadsheets, wikis, multiple dashboards, and scattered documentation trying to piece together which systems are vulnerable.
 
-With a well-designed, up-to-date cloud asset inventory system? Minutes. All the data is immediately accessible, queryable, and actionable.
+With a well-designed, up-to-date cloud asset inventory system, it takes minutes, because all the data is immediately accessible, queryable, and actionable.
 
-The difference isn't just efficiency. It's the gap between containing a security breach and watching it spread across your entire infrastructure.
+That difference can be the gap between containing a security breach and watching it spread across your entire infrastructure.
 
 In this video, AWS Partner Solutions Architect Keegan Marazzi and CloudQuery Developer Advocate Joe Karlsson break down how to build cloud asset inventory systems that deliver answers in seconds, not days.
 
@@ -29,9 +29,9 @@ In this video, AWS Partner Solutions Architect Keegan Marazzi and CloudQuery Dev
 
 Most engineers misunderstand cloud asset inventory systems. They approach them as data collection and engineering problems - build the pipelines, sync the resources, store the data.
 
-However, cloud asset inventories aren't just technical problems. They're **decision-making and velocity problems** for the business and teams managing cloud infrastructure.
+Cloud asset inventories are also **decision-making and velocity problems** for the business and teams managing cloud infrastructure.
 
-The question isn't "can we collect this data?" It's "can we make critical decisions fast enough to matter?"
+The question that matters is "can we make critical decisions fast enough to matter?"
 
 After analyzing hundreds of inventory implementations across enterprises, five design principles consistently separate successful systems from failed projects.
 
@@ -117,7 +117,7 @@ The only constant in cloud infrastructure is change. AWS announces new services 
 - Data models that handle unknown resource types without breaking
 - Support for new relationship patterns and service integrations
 
-**Future-proofing your inventory:** New requirements emerge. Applications launch. Teams grow. Your inventory architecture must adapt without requiring complete re-architecture every time AWS releases new capabilities.
+**Future-proofing your inventory:** New requirements emerge as applications launch and teams grow. Your inventory architecture must adapt without requiring complete re-architecture every time AWS releases new capabilities.
 
 ## Cloud Asset Inventory Maturity Stages
 

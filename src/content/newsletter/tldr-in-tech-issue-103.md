@@ -18,13 +18,13 @@ tl;dr: "How do you balance risk, novelty, production, growth, short-term certain
 
 _By: Gergely Orosz_
 
-tl;dr: The article discusses the importance of investigating and learning from outages in the industry. It explores the different types of postmortems, including internal, customer-only, and public postmortems. The article dives into 3 case studies: (1) Adevinta experienced a significant impact due to a DNS outage, (2) GitHub experienced an outage due to a network configuration issue at their secondary site, (3) Reddit experienced an issue with a Kubernetes cluster upgrade gone wrong."
+tl;dr: Gergely makes the case for investigating and learning from outages, and looks at the different types of postmortems: internal, customer-only, and public. He walks through 3 case studies: (1) Adevinta experienced a significant impact due to a DNS outage, (2) GitHub experienced an outage due to a network configuration issue at their secondary site, (3) Reddit experienced an issue with a Kubernetes cluster upgrade gone wrong."
 
 ## [More Software Projects Need Defenses Of Design](https://newsletter.pragmaticengineer.com/p/real-world-engineering-10)
 
 _By: Hillel Wayne_
 
-tl;dr: Hillel argues why a well-documented "Defense of Design" is an invaluable resource for understanding a project's history, design decisions, and constraints that shaped it. It provides insights into the thought process of the creators, developers, and maintainers, thus fostering a greater level of understanding and appreciation for the software.
+tl;dr: Hillel argues why a well-documented "Defense of Design" is an invaluable resource for understanding a project's history, design decisions, and constraints that shaped it. It shows how the creators, developers, and maintainers thought about the project.
 
 ## [Developer Workflow Tips No One Tells You About](https://www.justinjoyce.dev/developer-workflow-tips-no-one-tells-you-about/)
 
@@ -54,7 +54,7 @@ tl;dr: "I said at the beginning of this post that the most important thing I del
 
 _By: Kellan Elliott-McCrea_
 
-tl;dr: Shopify's meeting cost calculator stirs debate; are meetings wasted time or vital? Alternatives emerge such as Dropbox's "Core Collaboration Hours" and Frame.io's "Huddle Days", which foster spontaneous discussions, encouraging productive work and respecting individual work rhythms.
+tl;dr: Shopify's meeting cost calculator stirs debate; are meetings wasted time or vital? Kellan points to alternatives like Dropbox's "Core Collaboration Hours" and Frame.io's "Huddle Days", which make room for spontaneous discussions while respecting individual work rhythms.
 
 ## [How Platform Teams Get Stuff Done](https://martinfowler.com/articles/platform-teams-stuff-done.html)
 

@@ -12,13 +12,13 @@ tldr: 'I break down how to build a real-time fraud detection system that ingests
 contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."
 ---
 
-Financial fraud is a growing concern in our increasingly digital world. According to a [report by PwC](https://www.pwc.com/fraudsurvey), almost half of the surveyed organizations experienced fraud in the past 2 years. For online payments, the situation is no different. As eCommerce continues to surge, so do attempts by cybercriminals to exploit vulnerabilities and commit fraud.
+Financial fraud is a growing concern as more payments move online. According to a [report by PwC](https://www.pwc.com/fraudsurvey), almost half of the surveyed organizations experienced fraud in the past 2 years. For online payments, the situation is no different. As eCommerce continues to surge, so do attempts by cybercriminals to exploit vulnerabilities and commit fraud.
 
 Need to build real-time fraud detection?
 
 [Tinybird](https://www.tinybird.co) is a powerful real-time data platform for building real-time analytics use cases like fraud detection. Tinybird takes care of all of the data infrastructure, including data ingestion, data storage, data processing, and data access through APIs, and gives you an intuitive, SQL-based development environment to build and ship real-time use cases faster. [Get started for free](https://www.tinybird.co/blog-posts/how-to-build-a-real-time-fraud-detection-system) (with no time limit!) and build your first real-time fraud detection API in minutes.
 
-Luckily, companies have a powerful weapon in their arsenal to fight back effectively: **real-time fraud detection systems**. These systems identify and stop fraudulent transactions before they happen. A solid real-time fraud detection system consists of the following components:
+Companies can fight back with **real-time fraud detection systems**. These systems identify and stop fraudulent transactions before they happen. A solid real-time fraud detection system consists of the following components:
 
 - **The ability to ingest transaction streams:** To detect fraud in real-time, you need access to transaction data as soon as it’s generated. This requires a system that can ingest and process high volumes of transaction data in real-time, capturing relevant details like user information, transaction amount, IP address, location, and other potential risk factors.
 
@@ -28,7 +28,7 @@ Luckily, companies have a powerful weapon in their arsenal to fight back effecti
 
 > Real-time fraud detections systems can identify and halt fraudulent transactions by ingesting real-time transaction data streams, analyzing them for fraud, and exposing fraud risks, all within milliseconds after a transaction is initiated.
 
-Together, these components form the backbone of a real-time fraud detection system that can help businesses stay one step ahead of fraudsters and protect their customers and assets.
+Together, these components make up a real-time fraud detection system that helps businesses catch fraud early and protect their customers and assets.
 
 ## Why does fraud detection need to be real-time?
 
@@ -82,7 +82,7 @@ Companies may use stream processing or [real-time analytics](https://www.tinybir
 
 ### Exposing analysis to people and software processes
 
-The data analysis that has been performed must be used to be valuable. This is a two-pronged fork: People need to monitor fraud detection systems (usually through visualization tools - see below), and software processes need to take the analysis data to halt fraudulent transactions. The ideal way to achieve both ends is through an API layer. Companies can publish their analysis as APIs to be consumed by both visualization tools and software processes that halt transactions.
+Analysis is only valuable if something uses it, and here that happens in two ways: People need to monitor fraud detection systems (usually through visualization tools - see below), and software processes need to take the analysis data to halt fraudulent transactions. The ideal way to achieve both ends is through an API layer. Companies can publish their analysis as APIs to be consumed by both visualization tools and software processes that halt transactions.
 
 > A popular way to expose fraud detection analysis is through APIs that can be consumed by both visualization tools and automated software processes that prevent fraudulent transactions from being processed.
 

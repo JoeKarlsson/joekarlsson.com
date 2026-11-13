@@ -13,7 +13,7 @@ tldr: 'Before picking a database, ask yourself four things: does it solve my act
 
 Are you overwhelmed by the sheer amount of databases on the market today, and not sure where to start? Let’s say that you are a Software Developer, and you need to select a database for a brand new application or maybe you need to figure out a database to replace and upgrade your legacy database. There are so many databases out there on the market today and they often promise to do it all or they perform niche functions. When picking your next database, it’s important to understand what problems you are attempting to solve, so you can pick one that will fit your needs today, as well as in the future. So, what should you be considering when you are choosing your next database? Well, I’m glad you asked, because I’m here to help you. There is no silver bullet for picking a database for your application. That’s why it’s important to dig into your current and future needs by asking yourself these four questions. Be sure that you are asking yourself, your team, and the business these questions when you are evaluating databases.
 
-- Note: For larger systems/applications, there’s usually a development TEAM, not a single developer. The choice of platform is likely to be made by the technical leader, or architect, or product manager – sometimes with, sometimes without input from the rest of the team.
+- Note: For larger systems/applications, there’s usually a development TEAM, not a single developer. The choice of platform is likely to be made by the technical leader, or architect, or product manager - sometimes with, sometimes without input from the rest of the team.
 
 ## Does this database actually solve my problem?
 

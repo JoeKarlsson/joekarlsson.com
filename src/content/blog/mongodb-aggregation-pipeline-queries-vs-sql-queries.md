@@ -12,7 +12,7 @@ contentNotice: false
 tldr: 'A side-by-side cheat sheet translating common SQL queries (GROUP BY, SUM, JOIN, etc.) into MongoDB Aggregation Pipeline stages. If you know SQL and are learning MongoDB, this is the Rosetta Stone you need.'
 ---
 
-Let’s be honest: Many devs coming to MongoDB are joining the community with a strong background in SQL. I would personally include myself in this subset of MongoDB devs. I think it’s useful to map terms and concepts you might be familiar with in SQL to help “[translate](https://docs.mongodb.com/manual/reference/sql-comparison/)” your work into MongoDB Query Language (MQL). More specifically, in this post, I will be walking through translating the MongoDB Aggregation Pipeline Queries vs SQL Queries.
+Many devs coming to MongoDB are joining the community with a strong background in SQL. I would personally include myself in this subset of MongoDB devs. I think it’s useful to map terms and concepts you might be familiar with in SQL to help “[translate](https://docs.mongodb.com/manual/reference/sql-comparison/)” your work into MongoDB Query Language (MQL). More specifically, in this post, I will be walking through translating the MongoDB Aggregation Pipeline Queries vs SQL Queries.
 
 ## What is the Aggregation Framework?
 
@@ -417,7 +417,7 @@ db.albums.aggregate([
 
 This post is in no way a complete overview of all the ways that MongoDB can be used like a SQL-based database. If you're still early in your SQL-to-MongoDB journey, I'd also recommend checking out my [intro to moving from SQL to NoSQL](/talks/from-sql-to-nosql-a-gentle-introduction-for-devs/) for a broader overview of the differences. The aggregation framework has many other powerful stages, including [$count](https://docs.mongodb.com/manual/reference/operator/aggregation/count/), [$geoNear](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/), [$graphLookup](https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/), [$project](https://docs.mongodb.com/manual/reference/operator/aggregation/project/), [$unwind](https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/), and others.
 
-If you want to get better at using the MongoDB Aggregation Framework, be sure to check out [MongoDB University: M121 – The MongoDB Aggregation Framework](https://university.mongodb.com/courses/M121/about). Or, better yet, try to use some advanced MongoDB aggregation pipeline queries in your next project! If you have any questions, be sure to head over to the [MongoDB Community Forums](https://university.mongodb.com/courses/M121/about). It’s the best place to get your MongoDB questions answered.
+If you want to get better at using the MongoDB Aggregation Framework, be sure to check out [MongoDB University: M121 - The MongoDB Aggregation Framework](https://university.mongodb.com/courses/M121/about). Or, better yet, try to use some advanced MongoDB aggregation pipeline queries in your next project! If you have any questions, be sure to head over to the [MongoDB Community Forums](https://university.mongodb.com/courses/M121/about). It’s the best place to get your MongoDB questions answered.
 
 ## Resources:
 

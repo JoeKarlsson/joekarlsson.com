@@ -36,7 +36,7 @@ tl;dr: Want to blog but holding yourself back? Julia calls out the myths you mig
 
 _By: Gergely Orosz_
 
-tl;dr: AI coding tools aren't Skynet. They're here to help you learn (57%), be more productive (53%), and focus (51%). Gergely dives into the stats and insights that show how software engineers are leaning on AI to level up.
+tl;dr: AI coding tools aren't Skynet. They're here to help you learn (57%), be more productive (53%), and focus (51%). Gergely digs into the stats and insights that show how software engineers are leaning on AI to level up.
 
 ---
 
@@ -52,7 +52,7 @@ tl;dr: Abi uncovers how Google puts tech debt into neat categories, measures it,
 
 _By: Matthew Foster_
 
-tl;dr: Matthew explains the holistic role modularity plays in an enterprise. It's not just about architecture; it affects team topologies and business communication. He emphasizes, "This article charts the journey of an enterprise who set out to shift their architecture to a more modular one in order to ease their growing pains. They found that modularity is a multifaceted solution that extends beyond architecture, into business lines of communication, team topologies and effective developer experience. By paying close attention to these factors, the enterprise was able to achieve significant uplifts in the delivery performance of their mobile applications."
+tl;dr: Matthew explains the role modularity plays across an enterprise. It's not just about architecture; it affects team topologies and business communication. He emphasizes, "This article charts the journey of an enterprise who set out to shift their architecture to a more modular one in order to ease their growing pains. They found that modularity is a multifaceted solution that extends beyond architecture, into business lines of communication, team topologies and effective developer experience. By paying close attention to these factors, the enterprise was able to achieve significant uplifts in the delivery performance of their mobile applications."
 
 ---
 

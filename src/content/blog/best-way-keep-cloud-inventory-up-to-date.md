@@ -27,7 +27,7 @@ With CloudQuery's Data Pipelines, we do the heavy lifting - monitoring, error ma
 
 - **Scheduled Syncs** - No more downloading CSVs like it's 2007. CloudQuery syncs your cloud data on your schedule. No need to DDOS your own infrastructure or sync more than you need.
 - **Multi-cloud sanity** - AWS, GCP, Azure, Kubernetes, and [more](https://www.cloudquery.io/hub)? One place, one format.
-- **Standardized** - No more dealing with inconsistent APIs. No weird naming conventions. No surprises. CloudQuery transforms raw cloud data into a unified format to make it easy to analyze.
+- **Standardized** - No more dealing with inconsistent APIs or weird naming conventions. CloudQuery transforms raw cloud data into a unified format to make it easy to analyze.
 - **Built for scale** - Petabytes of cloud data? Bring it on. Run parallelized syncs for massive and complex cloud infrastructures.
 
 ## Multi-Cloud in One Place

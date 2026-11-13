@@ -19,9 +19,9 @@ heroAlt: 'The Manhattan Bridge under construction, its middle span still missing
 
 ## You Probably Can't Count Your Own Infrastructure
 
-You probably have 847 different AWS resources running across six accounts right now. Or maybe it's 1,200 resources across nine accounts. The scary part? You probably can't tell me if those numbers are right or wrong.
+You probably have 847 different AWS resources running across six accounts right now. Or maybe it's 1,200 resources across nine accounts. You probably can't tell me if those numbers are right or wrong.
 
-Not a failure of your team. Just the natural state of cloud infrastructure in 2026.
+That isn't your team's fault. It's the normal state of cloud infrastructure in 2026.
 
 Most organizations approach cloud operations by buying point tools: one for cost, one for security, one for compliance. Each tool solves one problem but creates another - data fragmentation. The result is a visibility gap that compounds over time, and no single tool in your stack is designed to close it.
 
@@ -33,7 +33,7 @@ It always starts the same way. One team spins up an AWS account. Another team do
 
 M&A accelerates this faster than anything else. Every acquisition brings its own cloud accounts, its own tooling, its own naming conventions, and its own tribal knowledge - usually held by people who don't survive the reorg. One VP of Infrastructure we spoke to inherited three AWS organizations and a GCP project through a single acquisition. It took his team four months to inventory what they'd bought.
 
-And here's the uncomfortable organizational truth: [cloud operations](https://www.cloudquery.io/product/cloud-ops) is often nobody's job. It sits in the gap between platform engineering, SRE, security, and finance. Platform eng owns the developer experience. SRE owns uptime. [Security](https://www.cloudquery.io/solutions/cspm) owns posture. Finance owns the budget. But who owns the complete view of what's actually running, how it's configured, and whether it matches what anyone intended? Usually nobody. That gap is where problems hide.
+Organizationally, [cloud operations](https://www.cloudquery.io/product/cloud-ops) is often nobody's job. It sits in the gap between platform engineering, SRE, security, and finance. Platform eng owns the developer experience. SRE owns uptime. [Security](https://www.cloudquery.io/solutions/cspm) owns posture. Finance owns the budget. But who owns the complete view of what's actually running, how it's configured, and whether it matches what anyone intended? Usually nobody. That gap is where problems hide.
 
 We call this the Cloud Operations Gap: the distance between what leadership thinks they know and what's actually running.
 
@@ -45,7 +45,7 @@ Cloud sprawl isn't new. But three converging forces are turning a manageable nui
 
 **Regulatory pressure is intensifying.** NIS2 in Europe, DORA for financial services, and tightening [SOC 2](https://www.cloudquery.io/blog/what-is-soc2-compliance) expectations mean that "we'll figure out compliance before the audit" is no longer a viable strategy. Auditors want continuous evidence, not a quarterly scramble. That requires infrastructure data you can actually query.
 
-**Cloud costs have become a board-level conversation.** [FinOps](https://www.cloudquery.io/solutions/fin-ops) has moved from a grassroots optimization effort to a CFO priority. But you can't optimize costs you can't attribute, and you can't attribute costs across resources you can't see. [84% of cloud decision-makers cite managing spend as their main challenge](https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2024-state-of-the-cloud-report/). It's been the top challenge two years running. Not getting better.
+**Cloud costs have become a board-level conversation.** [FinOps](https://www.cloudquery.io/solutions/fin-ops) has moved from a grassroots optimization effort to a CFO priority. But you can't optimize costs you can't attribute, and you can't attribute costs across resources you can't see. [84% of cloud decision-makers cite managing spend as their main challenge](https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2024-state-of-the-cloud-report/). It's been the top challenge two years running.
 
 ## The Fragmentation Problem Up Close
 
@@ -55,7 +55,7 @@ Cost data lives in CloudHealth, Kubecost, or the native cloud billing consoles. 
 
 Each tool does its job. But none of them talk to each other.
 
-We saw this at a mid-size SaaS company that had acquired eight different observability and governance tools over three years. Each one was good at its specific job. But when their new CISO asked a simple question - "show me all our public-facing resources that haven't been patched in 90 days" - the room went silent. The answer required correlating data from four different systems that had never been designed to work together. After six months trying to build integrations, they ripped out five of the tools and started over with a unified data layer. Painful. But the alternative was permanent fragmentation.
+We saw this at a mid-size SaaS company that had acquired eight different observability and governance tools over three years. Each one was good at its specific job. But when their new CISO asked a simple question - "show me all our public-facing resources that haven't been patched in 90 days" - the room went silent. The answer required correlating data from four different systems that had never been designed to work together. After six months trying to build integrations, they ripped out five of the tools and started over with a unified data layer. It was painful, but the alternative was permanent fragmentation.
 
 Here's the question that breaks most organizations: "Which S3 buckets contain PII and are accessible from the internet?" Answering it requires pulling from security, configuration, and data classification systems that were never designed to work together.
 
@@ -74,7 +74,7 @@ Infrastructure gets created in wildly different ways, and that's what makes this
 
 Then there's shadow infrastructure: resources that exist but aren't tracked by any team. A test environment that became permanent. A Lambda function triggered by a CloudWatch rule that nobody monitors. An S3 bucket created for a one-time data migration that still holds production data. These resources don't show up in your IaC, they're not in your [CMDB](https://www.cloudquery.io/solutions/cloud-cmdb), and they won't appear in any dashboard - until something goes wrong.
 
-And even infrastructure that was created correctly doesn't stay that way. Configuration drift is silent and constant. A security group rule gets widened during troubleshooting and never tightened back. An S3 bucket policy is modified to unblock a deployment and forgotten. [misconfigurations are the leading cause of cloud security incidents](https://www.fortinet.com/resources/reports/cloud-security). Not malicious actors exploiting zero-days. Just resources created wrong, configured wrong, or drifted from their intended state over time.
+And even infrastructure that was created correctly doesn't stay that way. Configuration drift is silent and constant. A security group rule gets widened during troubleshooting and never tightened back. An S3 bucket policy is modified to unblock a deployment and forgotten. [misconfigurations are the leading cause of cloud security incidents](https://www.fortinet.com/resources/reports/cloud-security). Those incidents come from resources created wrong, configured wrong, or drifted from their intended state over time.
 
 ## What Mature Operations Actually Look Like
 
@@ -92,7 +92,7 @@ Here's what the gap actually looks like in practice:
 | Policy violations blocked or auto-remediated at deploy    | Post-hoc security reviews that find issues weeks later |
 | Clear ownership for every resource                        | "Who owns this?" followed by shrugs                    |
 
-The gap between where teams are and where they need to be isn't a tooling problem. It's a visibility problem. You can't govern what you can't see. You can't automate what you can't query. And you can't answer questions about your infrastructure when the answers are scattered across fifteen different systems that don't talk to each other.
+The gap between where teams are and where they need to be is a visibility problem. You can't govern what you can't see. You can't automate what you can't query. And you can't answer questions about your infrastructure when the answers are scattered across fifteen different systems that don't talk to each other.
 
 > **Note:** **Want to score your own operations gap?** The free Cloud Operations Playbook eBook includes a complete self-assessment framework with detailed remediation paths for each gap type, plus the full Cloud Operations Maturity Model that this series is built on. [Get the eBook](https://www.cloudquery.io/resources/cloud-operations-playbook).
 

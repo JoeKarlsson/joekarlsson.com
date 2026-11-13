@@ -12,11 +12,11 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Colored pins stuck in a map'
 ---
 
-Managing multi-cloud environments presents unique challenges that can quickly overwhelm even the most experienced cloud architects. Each cloud provider has its own set of tools, APIs, and management practices, leading to fragmented visibility and control. Without a unified view, identifying and managing cloud assets across AWS, Azure, GCP, and other providers becomes daunting.
+Managing multi-cloud environments can overwhelm even experienced cloud architects. Each cloud provider has its own set of tools, APIs, and management practices, leading to fragmented visibility and control. Without a unified view, identifying and managing cloud assets across AWS, Azure, GCP, and other providers becomes daunting.
 
 A complete inventory of all your cloud assets is essential for maintaining security, ensuring compliance, and optimizing costs in complex environments. By centralizing asset data from multiple clouds, organizations can gain the visibility and control needed to mitigate risks, avoid unnecessary expenses, and meet regulatory requirements.
 
-This guide will walk you through the step-by-step process of building a multi-cloud asset inventory. Using CloudQuery, a powerful open-source cloud asset management tool, you'll learn how to aggregate, normalize, and visualize your cloud assets, providing a clear and actionable inventory across all your cloud environments.
+This post builds a multi-cloud asset inventory step by step. Using CloudQuery, an open-source cloud asset management tool, you'll aggregate, normalize, and visualize your cloud assets into one inventory across all your cloud environments.
 
 If you want to follow along with a video version of this post, you can check that out here:
 
@@ -32,7 +32,7 @@ CloudQuery connects directly to the APIs of each cloud provider, extracting deta
 
 1. **Data Transformation with dbt**
 
-Once the raw cloud data is collected, it's essential to transform it into a format optimized for analysis and reporting. This is where dbt (Data Build Tool) comes in. dbt is a powerful transformation tool that cleans, organizes, and normalizes your cloud asset data.
+Once the raw cloud data is collected, it needs to be transformed into a format built for analysis and reporting. That's the job of dbt (Data Build Tool), which cleans, organizes, and normalizes your cloud asset data.
 
 Using dbt, we'll take the raw data from CloudQuery and apply transformations to ensure consistency across different cloud providers. This process includes standardizing naming conventions, aggregating similar asset types, and enriching the data with additional metadata. The goal is to create a single, cohesive dataset that accurately reflects your entire cloud environment.
 
@@ -40,7 +40,7 @@ Using dbt, we'll take the raw data from CloudQuery and apply transformations to 
 
 The transformed data needs to be stored in a centralized location where it can be easily queried and analyzed. For this guide, we'll be using PostgreSQL as our destination database.
 
-While we're using PostgreSQL in this example, CloudQuery allows you to sync your data into any data store of your choice, whether it's another relational database, a data warehouse, or a data lake. This allows you to seamlessly integrate your cloud asset inventory into your existing data infrastructure.
+While we're using PostgreSQL in this example, CloudQuery allows you to sync your data into any data store of your choice, whether it's another relational database, a data warehouse, or a data lake. That lets you fit your cloud asset inventory into your existing data infrastructure.
 
 ![A multi-cloud asset inventory powered by CloudQuery: asset data from AWS, Google Cloud and Microsoft Azure goes through CloudQuery's ETL into a PostgreSQL database, which feeds analytics and visualizations.](/images/blog/how-to-build-a-multi-cloud-asset-inventory/multi-cloud-inventory.svg)
 
@@ -115,7 +115,7 @@ spec:
     - postgresql
 ```
 
-This CloudQuery configuration file sets up a data source from AWS to extract information from various AWS services, such as API Gateway, IAM, and RDS, using specific tables. The extracted data is then directed to a PostgreSQL database for storage. This setup allows for efficient data extraction, transformation, and storage, enabling more straightforward analysis and visualization of AWS data.
+This CloudQuery configuration file sets up a data source from AWS to extract information from various AWS services, such as API Gateway, IAM, and RDS, using specific tables. The extracted data is then directed to a PostgreSQL database for storage.
 
 For the tables, include [all the assets](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/tables) you want to sync with your Cloud Asset Inventory.
 
@@ -138,7 +138,7 @@ spec:
     - postgresql
 ```
 
-This CloudQuery configuration file sets up a GCP data source to extract information from various GCP services. The extracted data is then directed to a PostgreSQL database for storage. This setup allows for efficient data extraction, transformation, and storage, enabling easier analysis and visualization of GCP data.
+This CloudQuery configuration file sets up a GCP data source to extract information from various GCP services. The extracted data is then directed to a PostgreSQL database for storage.
 
 ### How to sync cloud asset data from Azure
 
@@ -261,11 +261,11 @@ docker run --platform linux/amd64 --name dbt_container \
 
 ## Analyzing your multi-cloud cloud asset inventory data
 
-Having all your cloud asset data in one place is not just convenient - it's powerful. When you centralize your data from AWS, Azure, and GCP into a single database, you can enrich, compare, and analyze your assets using consistent tooling, like SQL, that you're already familiar with. This unified approach allows you to uncover insights that would be difficult, if not impossible, to achieve if your data was stuck within each cloud provider.
+When you centralize your data from AWS, Azure, and GCP into a single database, you can enrich, compare, and analyze your assets using consistent tooling, like SQL, that you're already familiar with. This unified approach allows you to uncover insights that would be difficult, if not impossible, to achieve if your data was stuck within each cloud provider.
 
 With your multi-cloud asset inventory in one place, you can start answering critical questions about your infrastructure. For example, you can identify which instances cost you the most across all clouds, spot redundant resources that could be consolidated, and analyze cross-cloud data transfer costs to optimize your spending.
 
-To get you started, here are three example queries that demonstrate the power of centralized cloud asset data:
+To get you started, here are three example queries:
 
 ### Cross-cloud expensive instances
 

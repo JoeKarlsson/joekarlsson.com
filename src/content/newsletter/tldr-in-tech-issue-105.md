@@ -52,7 +52,7 @@ tl;dr: A repost of an article by Andy Warfield, VP of S3, reflects on the vast c
 
 _By: Gergely Orosz_
 
-tl;dr: Gergely delves into senior software engineer roles at Wise and Amazon. At Wise, senior engineers lead significant projects, contribute to feature planning, and require good communication and problem-solving skills. At Amazon, the equivalent role deals with ambiguity, leads projects, communicates technical ideas efficiently, and ensures that the team's success doesn't solely rely on them. While definitions of 'senior' vary across the two companies, clear expectations across companies include project leadership, problem-solving skills, and effective communication.
+tl;dr: Gergely looks at senior software engineer roles at Wise and Amazon. At Wise, senior engineers lead significant projects, contribute to feature planning, and require good communication and problem-solving skills. At Amazon, the equivalent role deals with ambiguity, leads projects, communicates technical ideas efficiently, and ensures that the team's success doesn't solely rely on them. The definitions of 'senior' differ, but both companies expect project leadership, problem-solving skills, and effective communication.
 
 ## [Shamir Secret Sharing](https://max.levch.in/post/724289457144070144/shamir-secret-sharing-its-3am-paul-the-head-of)
 

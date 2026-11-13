@@ -17,13 +17,13 @@ _Co-authored with Herman Schaaf and Mariano Gappa at CloudQuery._
 
 When we built [CloudQuery](https://www.cloudquery.io/), our initial goal was simple: pull data from users' cloud config data and let them send it anywhere - PostgreSQL, MongoDB, Neo4J, you name it. We designed it to play well with whatever database someone might have because flexibility seemed like the best choice at the time.
 
-However, it quickly became clear that supporting infinite options had a hidden cost: complexity. Each new database we supported meant that it was challenging to build new features, things like real-time dashboards, reporting, or interactive queries on top of our platform. And it became obvious that we needed a solid, default backend. Something scalable, reliable, and ideally one our team wouldn't resent maintaining six months (or six years) down the road.
+However, it quickly became clear that supporting infinite options made everything more complex. Each new database we supported meant that it was challenging to build new features, things like real-time dashboards, reporting, or interactive queries on top of our platform. And it became obvious that we needed a solid, default backend. Something scalable, reliable, and ideally one our team wouldn't resent maintaining six months (or six years) down the road.
 
 We needed a database capable of streaming massive batches of cloud configuration data quickly, while also supporting fast ad-hoc SQL queries without constant index babysitting. The last thing our engineers (or our users) needed was to spend their valuable time tweaking indexes, especially when their infrastructure changed weekly, or sometimes hourly. Performance had to be consistent, even under heavy writes, because nobody wants stale, mixed-up results showing yesterday's cloud data alongside today's.
 
 Enter [ClickHouse](https://clickhouse.com/). After considering and even stress-testing lots of different databases, ClickHouse seemed to hit the sweet spot of scalability, speed, and cost efficiency. But trust me, after six months of real-world use, we've learned it's not without its quirks.
 
-Before diving into those lessons, let's first take a quick look at the challenges we needed ClickHouse to solve and why we picked it in the first place.
+First, here are the challenges we needed ClickHouse to solve and why we picked it in the first place.
 
 ![CloudQuery's pipeline in five steps: sync cloud data from AWS, Azure and Google Cloud; sync and transform it with CloudQuery; persist it in ClickHouse; analyze it; and visualize it.](/images/blog/six-months-with-clickhouse-at-cloudquery/pipeline.svg)
 
@@ -34,7 +34,7 @@ When we started evaluating options for a default database on the backend, we nar
 1. **Flexible Ad-hoc SQL Queries:** Our users run exploratory, unpredictable queries against massive datasets. We can't anticipate every question they'll ask on a random Friday afternoon.
 2. **Query Efficiency:** Our database needed to deliver consistently fast responses, even for complex queries scanning billions of rows. Users depend on real-time dashboards and timely reports about the current state of their cloud infrastructure, so waiting minutes for query results was unacceptable.
 3. **Smooth Streaming Data Ingestion:** CloudQuery streams cloud data in large batches, sometimes billions of rows per cluster, so we needed a backend that could keep pace without slowing down.
-4. **Real-time Consistency:** Mixing stale data with fresh syncs isn't just messy, it's unacceptable for our customers who rely on us for an up-to-date view of their cloud data.
+4. **Real-time Consistency:** Mixing stale data with fresh syncs is unacceptable for our customers who rely on us for an up-to-date view of their cloud data.
 
 To give you an idea of the scale we aimed to support from day one, here's a quick snapshot from a single CloudQuery user:
 
@@ -138,7 +138,7 @@ Given these constraints, we never actually implemented MVs in our production env
 
 - We created "snapshot tables," explicitly cloning data at defined intervals. This technique allowed precise control over data versioning and migration timing, ensuring that we could safely update views and schemas without concerns over asynchronous data processing.
 
-Both approaches gave us the exact control and reliability required, solving the problems introduced by ClickHouse's Materialized Views without compromising our operational standards or data consistency.
+Both approaches gave us the control and reliability we needed.
 
 #### Reality Check
 
@@ -186,13 +186,13 @@ Early on, we learned a valuable lesson about query consistency. When a new sync 
 
 When designing our initial schemas, we underestimated just how critical ClickHouse's sorting keys are. The sort key determines how data is physically laid out on disk, which has a direct and massive impact on query performance, especially when your dataset hits hundreds of gigabytes. Our original sort key looked fine on paper, but it fell apart once we started testing with real data at scale.
 
-Luckily, we caught the issue before launch, so fixing it was just a matter of dropping and recreating tables. But here's the real catch: **You can't change a sort key on an existing table**. There's no `ALTER TABLE` for this. Your only option is to rebuild the table from scratch. During development, we dropped and recreated tables countless times without issue. But in production? That kind of fix could mean real downtime. Going forward, we're much more deliberate about evaluating our most common queries and validating that our sort keys align with them - because once the system goes live, mistakes here are painful to unwind.
+Luckily, we caught the issue before launch, so fixing it was just a matter of dropping and recreating tables. But **you can't change a sort key on an existing table**. There's no `ALTER TABLE` for this. Your only option is to rebuild the table from scratch. During development, we dropped and recreated tables countless times without issue. But in production? That kind of fix could mean real downtime. Going forward, we're much more deliberate about evaluating our most common queries and validating that our sort keys align with them - because once the system goes live, mistakes here are painful to unwind.
 
 ### ClickHouse Cloud vs. Self-Hosted
 
 When we first launched the new CloudQuery platform, we went with ClickHouse Cloud to get our MVP out the door fast. It was the right call at the time. Spinning up a managed cluster took minutes, and we didn't have to worry about tuning configs or babysitting infrastructure. But when we started planning for a longer-term move to self-hosted ClickHouse, things got messy.
 
-We assumed we could just back up our managed cluster and restore it locally. Turns out, not so simple. Some queries didn't behave the same way, configs needed reworking, and there were just enough subtle differences to make everything annoying. What should've been a clean migration turned into a bunch of patching, testing, and head-scratching.
+We assumed we could just back up our managed cluster and restore it locally, but it wasn't that simple. Some queries didn't behave the same way, configs needed reworking, and there were just enough subtle differences to make everything annoying. What should've been a clean migration turned into a bunch of patching, testing, and head-scratching.
 
 In hindsight, we should've been more deliberate from day one. Managed ClickHouse was great for prototyping and fast iteration, but we didn't think through how the migration would play out later. Now, we're much more intentional: we use ClickHouse Cloud when speed and scale-out convenience matter most, and go self-hosted where we want fine-grained control or tighter cost management. Planning that balance early would've saved us some pain.
 

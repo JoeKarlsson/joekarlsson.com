@@ -18,7 +18,7 @@ tl;dr: LinkedIn has gone full GraphQL, folks. No half measures here. In their bl
 
 _By: Mike Fish_
 
-tl;dr: Not just for the birds, "contrafreeloading" is about working for rewards and taking pride in it. Mike underscores the importance of having "something to do, someone to love, and something to hope for" in your career. As software engineers, we've got the "something to do" part covered... multiple times over. 😅
+tl;dr: Not just for the birds, "contrafreeloading" is about working for rewards and taking pride in it. Mike makes the case for having "something to do, someone to love, and something to hope for" in your career. As software engineers, we've got the "something to do" part covered... multiple times over. 😅
 
 ## [A Beginner's Guide To Prompt Engineering With GitHub Copilot](https://blackgirlbytes.dev/a-beginners-guide-to-prompt-engineering-with-github-copilot)
 

@@ -38,7 +38,7 @@ Instead of data representing states, data represents _state-changing_ events. Th
 
 > With event sourcing, we focus not on data that represents state, but data that represents state-changing events. We construct state from these events.
 
-For instance, in our banking app, events like `DepositAdded` or `WithdrawalMade` don’t just hold raw state – they capture _actionable intent_. This is immensely valuable for things like auditing, debugging, or understanding user behavior over time.
+For instance, in our banking app, events like `DepositAdded` or `WithdrawalMade` don’t just hold raw state; they capture _actionable intent_. This is immensely valuable for things like auditing, debugging, or understanding user behavior over time.
 
 In event sourcing patterns, backtracking or adjusting state doesn’t involve erasing events. Instead, you simply add a new event to counteract the last. This is what we call a “compensation event”; it’s a way to make amends without rewriting history, keeping the chronology intact.
 
@@ -92,7 +92,7 @@ Kafka is a perfect technology for event sourcing. Here’s why:
 
 ### Best practices for implementing event sourcing with Kafka
 
-Before we get into a practical example of implementing event sourcing with Kafka, it’s important to set some ground rules. Best practices not only mitigate the complexities but also help you build for scale, ensuring smooth scalability and reliability. Here are some best practices worth following.
+Before we get into a practical example of implementing event sourcing with Kafka, it’s important to set some ground rules. These best practices keep the complexity down and help the system scale reliably.
 
 - **Schema Evolution**: Always design your events with schema evolution in mind. Use [schema registries](https://docs.confluent.io/platform/current/schema-registry/index.html) and versioning to manage changes to your event schemas. This makes it possible to add or modify fields without breaking existing systems.
 
@@ -262,9 +262,9 @@ Create an API Endpoint from the final node of your Pipe
 
 ## Wrap up
 
-Event sourcing with Kafka offers a solid and scalable solution for building real-time, event-driven architectures. Using snapshotting and advanced analytics tools like Tinybird, you can handle large event logs efficiently while keeping system complexity in check. From enabling dynamic attribution models to ensuring data durability and eventual consistency, the techniques and best practices discussed in this post are key to mastering event sourcing in your applications.
+Event sourcing with Kafka offers a solid and scalable solution for building real-time, event-driven architectures. Using snapshotting and advanced analytics tools like Tinybird, you can handle large event logs efficiently while keeping system complexity in check. The techniques and best practices in this post help with everything from dynamic attribution models to data durability and eventual consistency.
 
-If you’re new to Tinybird, [give it a try](https://www.tinybird.co/signup?referrer=https%3A%2F%2Fwww.tinybird.co%2Fblog-posts%2Fevent-sourcing-with-kafka). You can start for free on the Build Plan – which is more than enough for small projects and has no time limit – and use the [Kafka Connector](https://www.tinybird.co/docs/ingest/kafka.html?highlight=kafka) to quickly ingest data from your Kafka topics.
+If you’re new to Tinybird, [give it a try](https://www.tinybird.co/signup?referrer=https%3A%2F%2Fwww.tinybird.co%2Fblog-posts%2Fevent-sourcing-with-kafka). You can start for free on the Build Plan (which is more than enough for small projects and has no time limit) and use the [Kafka Connector](https://www.tinybird.co/docs/ingest/kafka.html?highlight=kafka) to quickly ingest data from your Kafka topics.
 
 For more information about Tinybird and its integration with Kafka, use these resources:
 

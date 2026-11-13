@@ -45,10 +45,10 @@ Word lengths use a **variable-length encoding**. Rather than a fixed 4-byte leng
 
 | Length Range          | Bytes Used | First Byte Pattern                             |
 | --------------------- | ---------- | ---------------------------------------------- |
-| 0–127                 | 1          | `0xxxxxxx`                                     |
-| 128–16,383            | 2          | `10xxxxxx xxxxxxxx`                            |
-| 16,384–2,097,151      | 3          | `110xxxxx xxxxxxxx xxxxxxxx`                   |
-| 2,097,152–268,435,455 | 4          | `1110xxxx xxxxxxxx xxxxxxxx xxxxxxxx`          |
+| 0-127                 | 1          | `0xxxxxxx`                                     |
+| 128-16,383            | 2          | `10xxxxxx xxxxxxxx`                            |
+| 16,384-2,097,151      | 3          | `110xxxxx xxxxxxxx xxxxxxxx`                   |
+| 2,097,152-268,435,455 | 4          | `1110xxxx xxxxxxxx xxxxxxxx xxxxxxxx`          |
 | 268,435,456+          | 5          | `11110000 xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx` |
 
 If you squint, this looks a lot like UTF-8's encoding scheme - the leading bits are a "type marker" that signals the total length of the field. It's elegant: short API commands (which are the vast majority) use just one byte for the length, while the protocol can still handle arbitrarily large payloads.

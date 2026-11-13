@@ -12,7 +12,7 @@ heroAlt: 'Works on My Machine card for TL;DR in Tech issue 93, leading with From
 
 _By: John Cutler_
 
-**tl;dr**: John shares the struggle of dealing with the assumptions and uncertainties in a team setting. He talks about the theory and practice of addressing risky assumptions and planning to reduce uncertainty. This one's a must-read for anyone trying to navigate the murky waters of project assumptions and uncertainties.
+**tl;dr**: John shares the struggle of dealing with the assumptions and uncertainties in a team setting. He talks about the theory and practice of addressing risky assumptions and planning to reduce uncertainty. Worth a read if your project runs on assumptions nobody has checked.
 
 ---
 
@@ -20,7 +20,7 @@ _By: John Cutler_
 
 _By: No Author_
 
-**tl;dr**: Ever wondered how LinkedIn, Facebook, and Slack manage to tell you if your buddy is online or not? This post does a deep dive into real-time presence platforms and their system design. Get ready to uncover the secrets behind the "online" and "offline" statuses.
+**tl;dr**: Ever wondered how LinkedIn, Facebook, and Slack manage to tell you if your buddy is online or not? This post walks through the system design of real-time presence platforms, the thing behind those "online" and "offline" statuses.
 
 ---
 

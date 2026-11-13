@@ -11,9 +11,9 @@ heroAlt: 'A long, plain old warehouse'
 tldr: 'Data warehouses like Snowflake and BigQuery are great for BI dashboards but terrible for user-facing apps. Job pool queuing creates unpredictable latency, concurrency is expensive to scale, and cache layers sacrifice data freshness. Use a real-time data platform instead.'
 ---
 
-The ever-increasing tide of data has become a paradox of plenty for today’s developers. According to [a report from Seagate](https://www.seagate.com/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf), by 2025 worldwide data will grow to a staggering 163 zettabytes, over 10 times the volume in 2016. More data should mean deeper insights and better user experiences, but it also leads to problems.
+Developers have more data to work with than ever. According to [a report from Seagate](https://www.seagate.com/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf), by 2025 worldwide data will grow to 163 zettabytes, over 10 times the volume in 2016. More data should mean deeper insights and better user experiences, but it also leads to problems.
 
-For data-oriented developers, this explosion is a double-edged sword. It presents an incredible opportunity to build user-facing features powered by data and using [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention). On the other hand, processing all that data with minimal latency and at high concurrency can be challenging with a typical modern data stack.
+For data-oriented developers, that cuts both ways. It's an opportunity to build user-facing features powered by data and using [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention). On the other hand, processing all that data with minimal latency and at high concurrency can be challenging with a typical modern data stack.
 
 [Data warehouses](https://www.tinybird.co/blog-posts/why-data-warehouses?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention), in particular, are the resting place of choice for big data at modern companies, and their online analytical processing (OLAP) approach is perfect for complex, long-running analytical queries over big data for things like business intelligence reports and dashboards.
 
@@ -37,13 +37,13 @@ If you want a good primer on why data warehouses exist and what they’ve enable
 
 Today, data warehouses like Snowflake, BigQuery, Redshift and Azure Synapse still occupy the head of the table in many companies’ data stacks, and because of their favored position within the organization, developers may be tempted to use them as a storage layer for user-facing analytics. They have the power to run complex analytical queries that these use cases demand; the data is already there, and you’re already paying for them. What’s not to love?
 
-As it turns out, quite a bit. Here are the reasons why application developers can’t rely on data warehouses as a storage layer for their user-facing analytics.
+Quite a bit. Here are the reasons why application developers can’t rely on data warehouses as a storage layer for their user-facing analytics.
 
 ## The Unpredictable World of Job Pools and Nondeterministic Latency
 
 Data warehouses process analytical queries in a job pool. Snowflake, [for example](https://www.tinybird.co/blog-posts/real-time-solutions-with-snowflake?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention), uses a shared pool approach to process queries concurrently, aiming to optimize available computing resources.
 
-Here’s the problem: Job pools create nondeterministic latency with a set floor. A simple `SELECT 1` on Snowflake could potentially run in a few milliseconds, but more likely it will take a second or more simply because it must be processed in a queue with all the other queries.
+The problem is that job pools create nondeterministic latency with a set floor. A simple `SELECT 1` on Snowflake could potentially run in a few milliseconds, but more likely it will take a second or more simply because it must be processed in a queue with all the other queries.
 
 Even the best [query-optimization strategies](https://www.tinybird.co/blog-posts/5-rules-for-writing-faster-sql-queries?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention) can’t overcome this limitation.
 
@@ -55,7 +55,7 @@ Now, if you’re a backend developer building APIs over a storage layer, you’d
 
 Latency is but one part of the equation for API builders. The second is concurrency. If you’re building an API that you intend to scale, [solid fundamentals](https://thenewstack.io/the-fundamentals-of-data-api-design/) demand that you provide low-latency responses for a highly concurrent set of users.
 
-When you dive deeper into the functionality of data warehouses, you’ll realize that to genuinely scale horizontally to accommodate increased query concurrency, you need to either spin up new virtual warehouses or increase their cluster limit, or both. For example, if you wanted to support just 100 concurrent queries per minute on Snowflake, you’d need 10 multicluster warehouses.
+To scale a data warehouse horizontally for more query concurrency, you need to either spin up new virtual warehouses or increase their cluster limit, or both. For example, if you wanted to support just 100 concurrent queries per minute on Snowflake, you’d need 10 multicluster warehouses.
 
 And spinning up new warehouses isn’t cheap. Just ask your buddies [over in data engineering](https://www.tinybird.co/blog-posts/5-snowflake-struggles-that-every-data-engineer-deals-with?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention). For the Snowflake example, you’d be [paying more than $30,000 a month](https://www.tinybird.co/blog-posts/real-time-solutions-with-snowflake#a-realistic-example?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention).
 
@@ -67,7 +67,7 @@ OK, so nobody builds an application directly on top of a data warehouse, right? 
 
 ![The common cache-layer approach: event streams, APIs and databases load into the data warehouse, an ETL job copies data into a cache like Redis, an ORM reads the cache, and an API serves the applications. Queries get fast, but the data is only as fresh as the last ETL run.](/images/blog/data-warehouses-are-terrible-application-backends/cache-layer.svg)
 
-Simply put, using a cache layer works great for shrinking query latency, but it still won’t work for applications built over streaming data that must always serve the most recent events.
+A cache layer works great for shrinking query latency, but it still won’t work for applications built over streaming data that must always serve the most recent events.
 
 Think about a [fraud-detection use case](https://www.tinybird.co/blog-posts/how-to-build-a-real-time-fraud-detection-system?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention) where a financial institution must determine if a transaction is fraudulent within the time it takes to complete the transaction (a few seconds). This usually involves a complex analytical process or [online machine learning feature store](https://www.tinybird.co/blog-posts/using-tinybird-as-a-serverless-online-feature-store?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention) based on just-created data. If that data hits the warehouse before your backend APIs, no cache layer will save you. The cache is great for enabling low-latency API requests by storing analytics [recently run in batch ETL (extract, transform, load) processes](https://www.tinybird.co/blog-posts/event-driven-architecture-best-practices-for-databases-and-files?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention), but it can’t access just-created data, because the warehouse is still processing it.
 
@@ -89,7 +89,7 @@ For building user-facing applications, you should turn to [real-time data platfo
 
 A real-time data platform helps data and engineering teams create high-concurrency, low-latency data products over streaming data at scale.
 
-A real-time data platform uses a [columnar database](https://www.tinybird.co/blog-posts/when-to-use-columnar-database?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention) under the hood so it can handle the complex analytical workloads previously relegated to data warehouses but at a much faster pace. Furthermore, a real-time data platform typically offers a low-latency publication layer, exposing low-latency APIs to data-intensive applications that may rely on both batch and streaming data sources. Building APIs at scale for streaming data platforms is often not considered but can be a massive pain to maintain and scale as your data scales.
+A real-time data platform uses a [columnar database](https://www.tinybird.co/blog-posts/when-to-use-columnar-database?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention) under the hood so it can handle the complex analytical workloads previously relegated to data warehouses but at a much faster pace. It also typically offers a low-latency publication layer, exposing low-latency APIs to data-intensive applications that may rely on both batch and streaming data sources. Building APIs at scale for streaming data platforms is often not considered but can be a massive pain to maintain and scale as your data scales.
 
 ## Reference Architectures for Real-Time Data Platforms
 

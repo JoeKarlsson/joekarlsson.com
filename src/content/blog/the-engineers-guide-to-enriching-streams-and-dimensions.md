@@ -66,11 +66,11 @@ _To learn more about building a real-time fraud detection system, [check this ou
 
 ### **Use Case 2: Real-Time E-Commerce Personalization with Product Data**
 
-In the fast-paced e-commerce industry, real-time insights are critical. You’re running an online store with transaction data flowing in via a Kafka stream and detailed product info stored in a Snowflake warehouse. The challenge? How to put the right offer before a shopper using data from these disparate sources.
+You’re running an online store with transaction data flowing in via a Kafka stream and detailed product info stored in a Snowflake warehouse. The challenge is putting the right offer in front of a shopper using data from these two separate sources.
 
 Having a [real-time analytics e-commerce dashboard](https://www.tinybird.co/blog-posts/ecommerce-google-analytics-alternative?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses) can help your business assess how sales are going in real time, but you don’t want to stop there. You want to actually increase conversion rates and average order value by updating your web store with a [real-time personalization system](https://www.tinybird.co/use-cases/realtime-personalization?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses).
 
-A real-time data platform makes this possible. It can connect to your Kafka stream and data warehouse, pulling in live transaction data and product dimensions respectively. The advantage? You can write SQL queries to extract real-time insights such as top-selling products, shopper transaction history, sales trends and inventory status.
+A real-time data platform makes this possible. It can connect to your Kafka stream and data warehouse, pulling in live transaction data and product dimensions respectively. From there, you can write SQL queries to extract real-time insights such as top-selling products, shopper transaction history, sales trends and inventory status.
 
 ![E-commerce personalization: a live stream of shopping events from Kafka and product dimensions from the data warehouse both go into Tinybird, which stores them for OLAP queries and, over SQL, serves a real-time API for personalization.](/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/personalization.svg)
 
@@ -132,4 +132,4 @@ _Want a detailed look at log analytics? [Check out this starter kit](https://www
 
 ## **Wrapping Up**
 
-Enriching streaming data with data warehouse data opens up a world of possibilities for creating nifty, data-savvy, real-time applications. Toss a real-time data platform like [Tinybird](https://www.tinybird.co?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses) into the mix, and the whole process becomes as breezy as a walk in the park. Tinybird makes it possible to unify many data sources and handle enormous volumes of data at lightning speed, and it’s pretty fun to build and publish new real-time data products.
+Enriching streaming data with data warehouse data lets you build nifty, data-savvy, real-time applications. Toss a real-time data platform like [Tinybird](https://www.tinybird.co?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses) into the mix, and the whole process becomes as breezy as a walk in the park. Tinybird makes it possible to unify many data sources and handle enormous volumes of data at lightning speed, and it’s pretty fun to build and publish new real-time data products.

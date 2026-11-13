@@ -13,7 +13,7 @@ tldr: 'I compare MongoDB, PostgreSQL, Tinybird, ClickHouse, Pinot, Druid, and Sn
 
 Selecting the right application database can be a challenge for developers, especially so when you need a [database for building real-time applications](https://www.tinybird.co/blog-posts/best-database-for-real-time-analytics). Real-time data has become an essential component in building user-facing experiences or creating automated decision systems, and developers need a database to match their needs.
 
-To be effective for real-time applications, databases must possess exceptionally high performance, scalability, and versatility in handling complex analytical queries.
+To be effective for real-time applications, databases need high performance, scalability, and the ability to handle complex analytical queries.
 
 In this blog post, I’ll discuss the use cases for real-time databases, and the pros and cons of using several databases - including MongoDB, PostgreSQL, Tinybird, ClickHouse, Snowflake, Pinot, and Druid - for real-time workloads.
 
@@ -61,7 +61,7 @@ When you [choose a database](https://www.tinybird.co/blog-posts/best-database-fo
 
 - **Support for complex analytics queries**: A good real-time analytics database must provide strong query capabilities, including support for advanced analytical functions, complex joins, and aggregations. Even complex analytical queries should return results within milliseconds so that users can efficiently derive insights from their data in real time.
 
-- **Enables sharing of insights**: A real-time database should support collaboration through APIs, integrations, and [real-time visualizations](https://www.tinybird.co/blog-posts/real-time-data-visualization) so that data and generated insights can be shared amongst team members. Stakeholders will rely on real-time databases to react quickly to changes, identify trends, and coordinate efforts more effectively, leading to better-informed strategies and more solid solutions.
+- **Enables sharing of insights**: A real-time database should support collaboration through APIs, integrations, and [real-time visualizations](https://www.tinybird.co/blog-posts/real-time-data-visualization) so that data and generated insights can be shared amongst team members. Stakeholders will rely on real-time databases to react quickly to changes, identify trends, and coordinate their work.
 
 - **Supports SQL**: SQL is a widely-used and standardized query language that facilitates collaboration among developers, data analysts, and other stakeholders. Real-time databases should support SQL so that they can more easily integrate with various tools, simplify query building, and provide an accessible way for team members to interact with and analyze data.
 
@@ -91,7 +91,7 @@ As a NoSQL database, [MongoDB](https://www.mongodb.com/) offers several features
 
 ### Limitations of MongoDB for Real-Time Analytics
 
-While MongoDB has its advantages for real-time data processing, certain characteristics make it non-ideal for real-time use cases. In this section, we’ll dig deeper into these limitations to provide a better understanding of when MongoDB might not be the ideal choice.
+While MongoDB has its advantages for real-time data processing, certain characteristics make it non-ideal for real-time use cases.
 
 - **Complex queries may take too long to respond:** MongoDB is designed for fast read and write operations but may struggle with complex analytical queries that involve large data scans, multiple joins, or aggregations. In these cases, dedicated analytical databases optimized for such workloads might offer better query performance.
 

@@ -28,7 +28,7 @@ tl;dr: "We've compiled some important tricks and commands that every developer s
 
 _By: Camille Fournier_
 
-tl;dr: "Year after year, engineers convince themselves and their leadership that a rewrite will solve all their problems. And then they or their leadership get fired, because most rewrites fail to deliver anything at all. Avoid the trap: don't go into this exercise unless it is the only way forward, and if you absolutely must, plan accordingly." Camille shares invaluable insights on how to navigate the treacherous waters of rewriting code. Learn from the mistakes of others and save yourself from the perils of the rewrite trap.
+tl;dr: "Year after year, engineers convince themselves and their leadership that a rewrite will solve all their problems. And then they or their leadership get fired, because most rewrites fail to deliver anything at all. Avoid the trap: don't go into this exercise unless it is the only way forward, and if you absolutely must, plan accordingly." Camille explains how to decide whether a rewrite is worth it, and how to plan one if it is.
 
 ---
 
@@ -44,7 +44,7 @@ tl;dr: "The esteemed CHI conference is happening this week, and I'm jealous that
 
 _By: Julia Evans_
 
-tl;dr: "I want to talk about what's appealing to me about build systems, why I still don't use them, and why I find it frustrating that some frontend Javascript libraries require that you use a build system." Julia delves into the world of JavaScript and build systems. Join the conversation as we explore the pros and cons of using build systems and discover alternative approaches to writing JavaScript without the hassle of build configurations. It's time to simplify our workflows and unleash the power of JavaScript!
+tl;dr: "I want to talk about what's appealing to me about build systems, why I still don't use them, and why I find it frustrating that some frontend Javascript libraries require that you use a build system." Julia walks through the pros and cons of build systems and how she writes JavaScript without one.
 
 ---
 
@@ -52,13 +52,13 @@ tl;dr: "I want to talk about what's appealing to me about build systems, why I s
 
 _By: Andrew Bosworth_
 
-tl;dr: "Theory of mind is a concept I first learned in a class on psychology. It describes our capacity to understand the mental states of others." Andrew enlightens us on the importance of theory of mind for leaders in the tech industry. Learn why effective communication, providing context, and understanding the mental states of your team members are crucial for successful leadership. It's time to level up your interpersonal skills and become a master of human interaction!
+tl;dr: "Theory of mind is a concept I first learned in a class on psychology. It describes our capacity to understand the mental states of others." Andrew enlightens us on the importance of theory of mind for leaders in the tech industry. Learn why communicating well, giving context, and understanding the mental states of your team members matter so much for leaders. It's time to level up your interpersonal skills and become a master of human interaction!
 
 ---
 
 ## [How eBay Modernized The Most Important Page On Our Platform](https://tech.ebayinc.com/engineering/how-ebay-modernized-the-most-important-page-on-our-platform/)
 
-tl;dr: "eBay's View Item page lives at the center of our e-commerce platform. Our customers load this page over 250 million times each day, and stringent budgets on site speed and availability guarantee the quality of their experience. And yet, this page had its last intentional rewrite ten years ago." Explore the fascinating journey of how eBay tackled the modernization of their crucial View Item page. Discover the challenges they faced, the innovative solutions they implemented, and the lessons learned along the way. It's a story of continuous improvement and delivering top-notch user experiences!
+tl;dr: "eBay's View Item page lives at the center of our e-commerce platform. Our customers load this page over 250 million times each day, and stringent budgets on site speed and availability guarantee the quality of their experience. And yet, this page had its last intentional rewrite ten years ago." eBay walks through how they modernized that page, what got in the way, and what they learned.
 
 ---
 

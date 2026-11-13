@@ -36,7 +36,7 @@ Join Sam on his note-taking adventure and discover the secrets to efficient and 
 
 _No Author_
 
-tl;dr: The engineering wizards at Slack embarked on a mission to improve debugging notifications. With different logging pipelines and data formats in play, debugging became a challenging endeavor. But fear not! This post unveils the solutions they implemented to streamline the process and save valuable time. Debug like a pro with the power of efficient notification tracing.
+tl;dr: The engineering wizards at Slack set out to improve debugging notifications. With different logging pipelines and data formats in play, debugging was slow and painful. This post covers how they traced notifications end to end to make it faster.
 
 ---
 
@@ -52,7 +52,7 @@ tl;dr: Kent Beck drops some truth bombs about the value of our software developm
 
 _By: Alex Pelagenko_
 
-tl;dr: Join Alex as he takes us on a journey through the fascinating world of distributed databases. Dive deep into the inner workings and explore how popular time-series and OLAP databases implement high availability. Learn about the pros and cons of different approaches and gain a solid understanding of the fundamentals behind these distributed powerhouses.
+tl;dr: Join Alex as he takes us on a journey through the fascinating world of distributed databases. He shows how popular time-series and OLAP databases implement high availability, and the pros and cons of each approach.
 
 ---
 

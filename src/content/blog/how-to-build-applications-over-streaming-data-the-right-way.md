@@ -11,15 +11,15 @@ heroAlt: 'River rapids rushing over rocks'
 tldr: 'Building apps on streaming data the traditional way (Kafka + Flink + ClickHouse + custom backend) is painful to set up and maintain. A real-time data platform can collapse that stack into something way simpler, and I walk through a tutorial using Kafka and Tinybird.'
 ---
 
-In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination. Some are on a leisurely ride to a data lake for historical analysis, while others are zipping toward [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data) engines, where they will be used to power automation, user-facing features and real-time operational intelligence. This blog post is your roadmap to learn how to build applications over streaming data the right way.
+In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination. Some are on a leisurely ride to a data lake for historical analysis, while others are zipping toward [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data) engines, where they will be used to power automation, user-facing features and real-time operational intelligence. This post shows how to build applications over streaming data the right way.
 
 ## What Is Streaming Data?
 
-Streaming data opens up a whole new world of possibilities for application development. Consider a traffic management system. With batch processing, it might be able to tell you there was a traffic jam two hours ago. In contrast, a streaming data approach could alert drivers about congestion ahead in real time, allowing them to make informed decisions and take alternative routes immediately. Real-time insights like these are what make streaming data so valuable for application development.
+Streaming data changes what an application can do. Consider a traffic management system. With batch processing, it might be able to tell you there was a traffic jam two hours ago. In contrast, a streaming data approach could alert drivers about congestion ahead in real time, allowing them to make informed decisions and take alternative routes immediately. Real-time insights like these are what make streaming data so valuable for application development.
 
 [Apache Kafka](https://kafka.apache.org/) is one popular tool used to handle massive amounts of streaming data, making it a key player in [streaming data architecture](https://www.tinybird.co/blog-posts/real-time-streaming-data-architectures-that-scale?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data). It acts like a highway for data, enabling it to move smoothly and efficiently from one application to another.
 
-The power of streaming data lies in its immediacy. In a world where real-time information can drive key business decisions and provide superior user experiences, understanding and effectively using streaming data is essential.
+The value of streaming data is its immediacy. Real-time information can drive business decisions and better user experiences, but only if you can use it while it's fresh.
 
 ## Key Use Cases for Streaming Data Applications
 
@@ -59,7 +59,7 @@ While this architecture serves its purpose, it presents several challenges:
 
 - **Complex setup and management:** Deploying this architecture involves setting up numerous components, each requiring unique expertise. This necessitates substantial effort and a broad knowledge base. Post-deployment, the complexity persists in the form of management tasks like updates, patches, performance monitoring and user access control. As such, this architecture demands continuous operational effort and a high level of expertise.
 
-- **Scalability issues:** [Scaling](https://roadmap.sh/guides/scaling-databases) the system to accommodate increasing data volumes and throughput needs can be challenging. As the system expands, so does its complexity, potentially leading to performance bottlenecks or resource contention. The need for data consistency across an increasingly large system can further complicate the scaling process. So growth in data volume and throughput introduces additional complexities.
+- **Scalability issues:** [Scaling](https://roadmap.sh/guides/scaling-databases) the system to accommodate increasing data volumes and throughput needs can be challenging. As the system expands, so does its complexity, potentially leading to performance bottlenecks or resource contention. The need for data consistency across an increasingly large system can further complicate the scaling process.
 
 - **Integrating new data streams:** Adding new data sources into the system can present difficulties. Integration of these data streams requires careful schema planning, transformation and possible re-architecture. Each new data source may bring unique requirements or formats, further complicating the integration process. This architecture makes smooth and efficient integration of new data streams harder than it should be.
 

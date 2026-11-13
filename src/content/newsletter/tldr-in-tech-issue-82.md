@@ -48,13 +48,13 @@ tl;dr: Darren reviews a year of working on cool terminal and command line toolin
 
 _By: Sophie Koonin_
 
-tl;dr: Sophie Koonin reflects on the charm of personal websites from the 1990s and suggests that we've gone too far in the other direction with today's sleek, minimalist sites. She argues that old personal websites were a true reflection of oneself, making this an interesting read for software engineers building their online presence.
+tl;dr: Sophie Koonin reflects on the charm of personal websites from the 1990s and suggests that we've gone too far in the other direction with today's sleek, minimalist sites. She argues that old personal websites were a true reflection of oneself.
 
 ## [How Might Generative AI Change Programming?](https://tratt.net/laurie/blog/2022/how_might_generative_ai_change_programming.html)
 
 _By: Laurence Tratt_
 
-tl;dr: Laurence dives into why he thinks Generative AI (GAI) in its current form is unlikely to fully replace programming. He explores the relationship between programming and software, how GAI differs from programming when generating software, and shares some thoughts on how ML techniques might influence programming in the future.
+tl;dr: Laurence explains why he thinks Generative AI (GAI) in its current form is unlikely to fully replace programming. He explores the relationship between programming and software, how GAI differs from programming when generating software, and shares some thoughts on how ML techniques might influence programming in the future.
 
 ## [Comprehensive Rust](https://github.com/google/comprehensive-rust)
 
@@ -72,10 +72,10 @@ tl;dr: Clipboard allows you to cut, copy, and paste anything anywhere from the t
 
 _By: Fatih Erikli_
 
-tl;dr: This GitHub repository curates a collection of prompts to help you use ChatGPT more effectively. It's a valuable resource for software engineers who want to get the most out of ChatGPT in their daily workflow.
+tl;dr: This GitHub repository curates a collection of prompts to help you use ChatGPT more effectively.
 
 ## [Amazing AI Papers](https://github.com/louisfb01/best_AI_papers_2022)
 
 _By: Louisfb01_
 
-tl;dr: Discover the latest breakthroughs in AI research with this curated list of AI papers sorted by release date, accompanied by video explanations. This resource is perfect for software engineers and researchers interested in staying updated on cutting-edge AI developments.
+tl;dr: Discover the latest breakthroughs in AI research with this curated list of AI papers sorted by release date, accompanied by video explanations.

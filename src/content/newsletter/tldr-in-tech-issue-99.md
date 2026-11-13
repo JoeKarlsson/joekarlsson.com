@@ -20,7 +20,7 @@ tl;dr: A 101 on hash functions. The article explains how to test hash functions 
 
 _By: Gergely Orosz_
 
-tl;dr: AI coding tools can be your Yoda - they help you learn languages (57%), increase productivity (53%), and reduce repetitive tasks (51%). Engineers are increasingly using these tools to leverage productivity and skill-building.
+tl;dr: AI coding tools can be your Yoda - they help you learn languages (57%), increase productivity (53%), and reduce repetitive tasks (51%). Engineers are increasingly using these tools to get more done and build skills.
 
 ---
 
@@ -76,7 +76,7 @@ tl;dr: Canva saved ~$3.6M p.a. by migrating user-generated data to S3 Glacier In
 
 _By: Ben Popper_
 
-tl;dr: The future is now, almost. Self-healing code with generative AI is in development. This technology has the potential to revolutionize software maintenance and create more robust systems.
+tl;dr: The future is now, almost. Self-healing code with generative AI is in development. It could change how software gets maintained.
 
 ---
 
@@ -92,7 +92,7 @@ tl;dr: "The message is simply that it took me years and years to learn that ther
 
 _By: Jessica Kerr_
 
-tl;dr: Accountability should focus on behavior rather than just metrics. Courageous conversations and collective goal alignment are crucial for long-term team effectiveness.
+tl;dr: Accountability should focus on behavior rather than just metrics. Courageous conversations and shared goals keep a team effective over the long run.
 
 ---
 
@@ -124,7 +124,7 @@ tl;dr: Decision paralysis? Use Jordan's methods to evaluate technical decisions.
 
 _By: Jacob Groß_
 
-tl;dr: "The following article will guide you through responsive image techniques." A comprehensive guide on new techniques to make your image tags more effective and resource-efficient.
+tl;dr: "The following article will guide you through responsive image techniques." A guide to new techniques that make your image tags more effective and resource-efficient.
 
 ---
 

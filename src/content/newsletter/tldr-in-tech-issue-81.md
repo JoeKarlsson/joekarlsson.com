@@ -58,8 +58,8 @@ tl;dr: Sometimes a thing can be better communicated when shown from multiple per
 
 ## [OpenAI Cookbook](https://github.com/openai/openai-cookbook)
 
-tl;dr: The OpenAI Cookbook provides examples and guides for using the OpenAI API, allowing developers to quickly and easily integrate cutting-edge AI technology into their applications.
+tl;dr: The OpenAI Cookbook provides examples and guides for using the OpenAI API, so developers can add OpenAI's models to their applications.
 
 ## [PWL](https://github.com/papers-we-love/papers-we-love)
 
-tl;dr: Papers We Love is a collection of papers from the CS community to read and discuss, covering a wide range of topics and providing valuable insights and knowledge.
+tl;dr: Papers We Love is a collection of papers from the CS community to read and discuss, covering a wide range of topics.

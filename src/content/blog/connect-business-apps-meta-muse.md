@@ -31,7 +31,7 @@ contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/b
 
 If you've been using [Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) as your personal AI agent and you want it to actually reach your work systems ([Salesforce](https://www.cdata.com/drivers/salesforce/), [NetSuite](https://www.cdata.com/drivers/netsuite/), [HubSpot](https://www.cdata.com/drivers/hubspot/), [ServiceNow](https://www.cdata.com/drivers/servicenow/)), this post is for you. By the end, you'll have Muse connected to your enterprise data so you can ask it questions about your pipeline, your customers, or your open support tickets and get answers without switching apps. It takes about 10 minutes and doesn't require any technical background.
 
-The short version of why this is possible: Muse has a feature called Custom Connectors that lets you add any web service that isn't already in its built-in list. CData Connect AI is exactly that kind of service. You give Muse one URL and your credentials, and from that point on your Muse agent can reach every enterprise system you've set up in Connect AI.
+This works because Muse has a feature called Custom Connectors that lets you add any web service that isn't already in its built-in list. CData Connect AI is exactly that kind of service. You give Muse one URL and your credentials, and from that point on your Muse agent can reach every enterprise system you've set up in Connect AI.
 
 **At a glance**
 

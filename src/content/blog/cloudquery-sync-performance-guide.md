@@ -15,9 +15,9 @@ heroAlt: 'A 1940s traffic jam at an intersection'
 
 > **TL;DR:** Slow syncs typically come from one of two places: cloud provider API rate limits (a hard ceiling you can work around but not eliminate) and syncing more tables than you need, which is what `tables: ["*"]` does by default. The one-liner below generates an explicit table list from your existing configuration, scoped to your plugin version and skip rules, so you can replace the wildcard safely.
 
-We heard from a team recently whose AWS sync went from roughly 20 minutes to over ten hours. No errors. No obvious misconfiguration. The sync eventually finished, but the next run was just as slow.
+We heard from a team recently whose AWS sync went from roughly 20 minutes to over ten hours, with no errors and no obvious misconfiguration. The sync eventually finished, but the next run was just as slow.
 
-The culprit turned out to be `tables: ["*"]` combined with a plugin upgrade. That wildcard tells CloudQuery to sync every table the plugin supports, and the AWS plugin supports a lot of them. When the team upgraded to the latest plugin version, new nested tables were added that triggered an API call for every single resource in their environment. The reads became extremely expensive - not because anything was misconfigured, but because the wildcard silently expanded to include tables the team never asked for.
+The culprit turned out to be `tables: ["*"]` combined with a plugin upgrade. That wildcard tells CloudQuery to sync every table the plugin supports, and the AWS plugin supports a lot of them. When the team upgraded to the latest plugin version, new nested tables were added that triggered an API call for every single resource in their environment. The reads became extremely expensive because the wildcard silently expanded to include tables the team never asked for.
 
 This is a pattern we see regularly. Whether it's a fresh deployment that never got scoped down or a stable configuration that breaks after an upgrade, the wildcard is doing more work than most teams realize.
 
@@ -30,7 +30,7 @@ This is a pattern we see regularly. Whether it's a fresh deployment that never g
 
 ## Why Are My CloudQuery Syncs Slower Than Expected?
 
-Before getting into configuration, it's worth being direct about something: when CloudQuery syncs from AWS, GCP, or Azure, performance is bounded by those providers' API rate limits, not by CloudQuery's architecture.
+Before getting into configuration: when CloudQuery syncs from AWS, GCP, or Azure, performance is bounded by those providers' API rate limits, not by CloudQuery's architecture.
 
 Our [performance benchmarks](https://www.cloudquery.io/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints) show this clearly. Processing local file data without any API constraints, CloudQuery processes data as fast as your hardware allows. Against cloud providers, throughput drops to reflect each provider's rate limiting policies.
 
@@ -127,7 +127,7 @@ tables:
   - aws_s3_buckets
 ```
 
-One thing worth noting: `--filter spec` respects whatever `skip_tables` you already have in your configuration. Tables you've excluded won't reappear in the output, so you're not undoing your existing skip rules.
+The `--filter spec` flag respects whatever `skip_tables` you already have in your configuration. Tables you've excluded won't reappear in the output, so you're not undoing your existing skip rules.
 
 > **Note:** By default, `skip_dependent_tables` is set to `true` in source configurations. This means child tables are only included if their parent table is explicitly listed. When you switch from `["*"]` to an explicit list, verify that any child tables you need are either listed explicitly or that you've set `skip_dependent_tables: false`.
 

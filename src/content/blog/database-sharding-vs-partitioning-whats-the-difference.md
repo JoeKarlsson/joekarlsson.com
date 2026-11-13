@@ -61,27 +61,27 @@ For example, the table below has the shard key that contains only the first colu
 
 Sharding your data can lead to many large performance improvements in your database. The following are some examples of how sharding can help improve performance:
 
-- Reduced index size – Since the tables are divided and distributed into multiple servers, the total number of rows in each table in each database is reduced. This reduces [index](<https://en.wikipedia.org/wiki/Index_(database)>) size, which generally improves search performance.
+- Reduced index size - Since the tables are divided and distributed into multiple servers, the total number of rows in each table in each database is reduced. This reduces [index](<https://en.wikipedia.org/wiki/Index_(database)>) size, which generally improves search performance.
 
-- Distribute database over multiple machines – A database shard can be placed on separate hardware, and multiple shards can be placed on multiple machines. This enables a distribution of the database over a large number of machines, greatly improving performance
+- Distribute database over multiple machines - A database shard can be placed on separate hardware, and multiple shards can be placed on multiple machines. This enables a distribution of the database over a large number of machines, greatly improving performance
 
-- Segment data by geography – In addition, if the database shard is based on some real-world segmentation of the data (e.g., European customers v. American customers) then it may be possible to infer the appropriate shard membership easily and automatically, and query only the relevant shard.
+- Segment data by geography - In addition, if the database shard is based on some real-world segmentation of the data (e.g., European customers v. American customers) then it may be possible to infer the appropriate shard membership easily and automatically, and query only the relevant shard.
 
 ### When NOT to shard a table?
 
 Sharding should be used only when all other options for optimization are inadequate. The introduced complexity of database sharding causes the following potential problems:
 
-- SQL complexity – Increased bugs because the developers have to write more complicated SQL to handle sharding logic
+- SQL complexity - Increased bugs because the developers have to write more complicated SQL to handle sharding logic
 
-- Additional software – that partitions, balances, coordinates, and ensures integrity can fail
+- Additional software - that partitions, balances, coordinates, and ensures integrity can fail
 
-- Single point of failure – Corruption of one shard due to network/hardware/systems problems causes failure of the entire table.
+- Single point of failure - Corruption of one shard due to network/hardware/systems problems causes failure of the entire table.
 
-- Fail-over server complexity – Fail-over servers must have copies of the fleets of database shards.
+- Fail-over server complexity - Fail-over servers must have copies of the fleets of database shards.
 
-- Backups complexity – Database backups of the individual shards must be coordinated with the backups of the other shards.
+- Backups complexity - Database backups of the individual shards must be coordinated with the backups of the other shards.
 
-- Operational complexity – Adding/removing indexes, adding/deleting columns, modifying the schema becomes much more difficult.
+- Operational complexity - Adding/removing indexes, adding/deleting columns, modifying the schema becomes much more difficult.
 
 Luckily, SingleStore manages most of these added complexities from sharding your data for you, so you don’t have to worry!
 

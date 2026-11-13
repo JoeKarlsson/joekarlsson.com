@@ -23,7 +23,7 @@ The infrastructure model shifted, but CMDBs didn't adjust. Agents made perfect s
 
 ## Why Agents Made Sense (And Why We're Not Wrong for Using Them)
 
-Let's be honest about history. Agents weren't a mistake when we built them.
+Agents weren't a mistake when we built them.
 
 Physical data centers had no cloud APIs. If you wanted to know what was running on a server, you installed software on that server. There was no other option. The server sat in a rack, you racked and stacked it, you installed your OS, and then you installed your monitoring agent. That agent would phone home through your network, reporting CPU, memory, disk, and whatever else you configured it to track.
 
@@ -37,7 +37,7 @@ The security model made sense too. Agents ran with local privileges, which gave 
 
 ## The Cloud Broke Everything Agents Assumed
 
-Then cloud providers gave us APIs, and suddenly agents stopped making sense. But we kept installing them anyway, because that's what CMDBs do.
+Then cloud providers gave us APIs, and agents stopped making sense. But we kept installing them anyway, because that's what CMDBs do.
 
 ### Containers: Where Do You Install It?
 
@@ -59,7 +59,7 @@ The function already finished executing before the agent even initialized.
 
 You cannot install an agent in a Lambda function that runs for 200ms. Even if you could, the function would time out waiting for the agent to start. And if you somehow made it work, you'd pay for 2-5 seconds of Lambda execution time just to initialize a discovery agent for a function that runs for 200ms.
 
-It doesn't work. There's no workaround. Agents cannot discover serverless infrastructure.
+There's no workaround: agents can't discover serverless infrastructure.
 
 ### Managed Services: No OS, No Agent
 
@@ -90,7 +90,7 @@ Agent overhead per instance:
 - Network: Constant polling, heartbeats, metric shipping
 - Compute cost: $3-5 per instance per month
 
-That sounds small. But multiply by 10,000 instances.
+That sounds small until you multiply it by 10,000 instances.
 
 10,000 instances x $4/month = $40,000/year just in compute overhead. That's before you count operational costs: agent updates, debugging crashed agents, certificate rotation, credential management, version compatibility testing across your fleet.
 
@@ -102,7 +102,7 @@ Research shows 81% of organizations struggle with asset visibility gaps [[Vertic
 
 ## APIs Changed Everything (And Nobody Adjusted)
 
-Cloud providers built APIs for every service. AWS has APIs. Azure has APIs. GCP has APIs. Every managed service exposes configuration through APIs. We have a better way to do discovery, but we're still installing agents because that's what CMDBs have always done.
+Cloud providers built APIs for every service, and every managed service exposes its configuration through them. We have a better way to do discovery, but we're still installing agents because that's what CMDBs have always done.
 
 Every cloud service has an API. EC2's `DescribeInstances` returns instance metadata [[AWS EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html)]. S3's `GetBucketPolicy` returns bucket configurations [[AWS S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html)]. RDS's `DescribeDBInstances` returns database parameters [[AWS RDS API](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html)]. APIs are consistent, documented, versioned, and detailed.
 
@@ -126,7 +126,7 @@ aws rds describe-db-instances --db-instance-identifier prod-db
 # - Read replica topology
 ```
 
-The API returns everything. No agent installation required. No SSH access needed. No compute overhead. Just query the API, parse JSON, and store the results.
+The API returns everything, with no agent to install, no SSH access and no compute overhead on the host. Query the API, parse JSON, and store the results.
 
 What APIs give you:
 

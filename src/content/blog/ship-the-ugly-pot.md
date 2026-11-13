@@ -22,7 +22,7 @@ faq:
 
 Ship the ugly pot. Ship it before it's good and before you're proud of it, because the way to good work runs through a pile of bad work, not around it.
 
-That sounds like an argument for volume, and it isn't. The pottery story everyone quotes from _Art & Fear_ is about feedback. Artists have known this for a long time, and I think most of tech is still relearning it one DevOps report at a time.
+That sounds like an argument for volume, but the pottery story everyone quotes from _Art & Fear_ is about feedback. Artists have known this for a long time, and I think most of tech is still relearning it one DevOps report at a time.
 
 Here's the story, from David Bayles and Ted Orland's [_Art & Fear_](https://www.amazon.com/Art-Fear-Observations-Rewards-Artmaking/dp/0961454733):
 

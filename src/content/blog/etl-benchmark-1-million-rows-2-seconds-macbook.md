@@ -17,7 +17,7 @@ heroAlt: 'Early race cars tearing around a banked track'
 
 We ran thorough performance benchmarks to test CloudQuery's data synchronization capabilities against industry leaders - and the results exceeded our expectations. This post breaks down our methodology, presents the complete performance data, and explains the architectural choices that enable CloudQuery to outperform managed ETL tools on standard hardware.
 
-We think that the real story here isn't just the data movement speeds - it's that we achieved superior throughput on small, affordable hardware compared to enterprise infrastructure. CloudQuery delivers the same performance whether you're running dev pipelines locally on your MacBook, managing enterprise Kubernetes clusters in the cloud, or deploying on your hardware at any scale.
+We think the bigger story is that we achieved superior throughput on small, affordable hardware compared to enterprise infrastructure. CloudQuery delivers the same performance whether you're running dev pipelines locally on your MacBook, managing enterprise Kubernetes clusters in the cloud, or deploying on your hardware at any scale.
 
 Here's how the numbers break down: We pushed 163,489 rows per second through our data pipeline while processing 841.9 GB/hour on an 11-core MacBook. For comparison, [Fivetran's latest published benchmarks](https://www.fivetran.com/benchmarking) show 500+ GB/hour throughput at roughly 105,000-117,000 rows/sec on enterprise GCP infrastructure with 16 cores and 128GB RAM - that's 68% higher throughput on hardware you probably have sitting on your desk.
 
@@ -29,13 +29,13 @@ Slow data synchronization creates cascading infrastructure costs. We've observed
 
 Performance impacts extend beyond operational efficiency. When you're syncing cloud infrastructure data, every minute of delay affects monitoring, compliance, and cost management systems. Slow data sync results in stale dashboards, missed security alerts, and finance teams working with outdated spend data.
 
-For teams pushing the envelope of real-time data delivery for financial or AI use cases, CloudQuery's can be the difference between winning and losing. When the stakes are high, speed matters.
+For teams pushing the envelope of real-time data delivery for financial or AI use cases, CloudQuery's speed can be the difference between winning and losing. When the stakes are high, speed matters.
 
 We measured our performance to demonstrate that modern architecture choices can deliver enterprise-grade performance on any hardware, from laptops to data centers.
 
 ## Benchmark methodology and reproducibility
 
-Our benchmark follows rigorous testing principles with complete transparency. The entire testing framework is open source, allowing independent verification of our performance claims.
+The entire testing framework is open source, so anyone can check our performance claims.
 
 ### Testing Framework Architecture
 
@@ -123,13 +123,13 @@ The demonstrated throughput on consumer hardware exceeds enterprise cloud infras
 | **Hardware**  | 11-core laptop       | 16-core cloud server      | Smaller footprint |
 | **CPU usage** | 47%                  | Not disclosed             | Room to scale     |
 
-The key here is that we can achieve superior throughput on consumer laptop hardware compared to enterprise cloud infrastructure. This performance profile enables consistent results across any deployment scenario, from development environments to production data centers.
+We achieved superior throughput on consumer laptop hardware compared to enterprise cloud infrastructure. This performance profile enables consistent results across any deployment scenario, from development environments to production data centers.
 
 ## What makes CloudQuery fast
 
 ### Go concurrency architecture
 
-CloudQuery leverages Go's goroutine model for lightweight concurrency. Each goroutine uses approximately 2KB of stack space compared to megabytes for OS threads, enabling thousands of concurrent operations with minimal resource overhead. This architecture scales effectively whether running on a laptop or a 64-core server.
+CloudQuery uses Go's goroutine model for lightweight concurrency. Each goroutine uses approximately 2KB of stack space compared to megabytes for OS threads, enabling thousands of concurrent operations with minimal resource overhead. This architecture scales effectively whether running on a laptop or a 64-core server.
 
 ### Apache Arrow integration
 

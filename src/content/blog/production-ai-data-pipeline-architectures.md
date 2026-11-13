@@ -18,7 +18,7 @@ heroAlt: 'A pipeline running past a danger sign'
 
 **Great AI starts with great data.** But getting that data to your AI is harder than it should be.
 
-The unfortunate reality is that most AI projects get stuck in operational quicksand: data freshness issues, data fragmentation, and complex integration overhead that turns promising AI prototypes into maintenance nightmares.
+Most AI projects get stuck in operational quicksand: data freshness issues, data fragmentation, and complex integration overhead that turns promising AI prototypes into maintenance nightmares.
 
 Here's what we're seeing in production AI deployments:
 
@@ -31,7 +31,7 @@ Relevant context is scattered across dozens of sources, like Confluence wikis, c
 **Engineering Time Sink**
 Teams end up building complex ELT glue code using orchestrators, API wrappers, and vendor tools just to get data flowing to the right place. What should be AI development becomes months of data plumbing. Engineers spend 60-70% of their time on data preparation instead of building intelligent applications.
 
-The result? Slow iteration cycles, scaling pains, and AI that works in demos but struggles in production.
+The result is slow iteration cycles, scaling pains, and AI that works in demos but struggles in production.
 
 ## Introducing CloudQuery for AI Pipelines
 

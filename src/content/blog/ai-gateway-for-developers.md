@@ -45,7 +45,7 @@ We've heard the same finding from enterprise teams building on top of MCP connec
 
 ## How teams are building internal AI agents on enterprise data
 
-Teams are building Slack bots that answer business questions in natural language, scheduled monitors that run overnight and report findings by morning, and shared data layers that 10 or 20 internal agents hit through one gateway. The architecture is the same in each case. What changes is scope.
+Teams are building Slack bots that answer business questions in natural language, scheduled monitors that run overnight and report findings by morning, and shared data layers that 10 or 20 internal agents hit through one gateway. The architecture is the same in each case, and only the scope changes.
 
 ### Agents that answer business questions from live data
 
@@ -83,9 +83,9 @@ The [governance controls](https://www.cdata.com/ai/capabilities/governance/) tha
 
 The teams deploying AI agents most sustainably follow a predictable sequence, and none of them start at autonomous.
 
-Start **read-only**. No write paths, no approval flows, no side effects. Most teams stay there longer than they planned. Read-only already covers most of what they built the agent for. The BI tickets thin out. The repeat Slack questions stop.
+Start **read-only**. No write paths, no approval flows, no side effects. Most teams stay there longer than they planned. Read-only already covers most of what they built the agent for: the BI tickets thin out and the repeat Slack questions stop.
 
-The next step is human-approved writes. The agent proposes an action and a human approves before anything executes: a Salesforce record staged for review, a dbt job queued but not run, a Slack draft waiting for a thumbs-up. Running a month of these before enabling automation means trust built on real decisions, not synthetic tests. For the access control mechanics behind each stage, [managing data permissions for AI agents](https://www.cdata.com/blog/managing-data-permissions-enterprise-ai-agents) covers the governance detail.
+The next step is human-approved writes. The agent proposes an action and a human approves before anything executes: a Salesforce record staged for review, a dbt job queued but not run, a Slack draft waiting for a thumbs-up. Running a month of these before enabling automation means the trust comes from real decisions. For the access control mechanics behind each stage, [managing data permissions for AI agents](https://www.cdata.com/blog/managing-data-permissions-enterprise-ai-agents) covers the governance detail.
 
 **Autonomous** comes last. Save it for operations where the stakes are low or the action is reversible. Connect AI's workspace controls define the scope. Only move here after human-approved writes have been running long enough that you know how the agent behaves when it's surprised.
 
@@ -93,7 +93,7 @@ If you're picking a starting rung: **read-only**. Don't design the write path un
 
 ## Build your first governed AI agent with Connect AI
 
-One thing a gateway delivers that raw MCP connections don't: the context layer gets more precise over time. Every interaction run through Connect AI tells it more about how your sources work and what your business terms mean. Agents built on it get more reliable month over month, and they spend fewer tokens doing it, because precise context costs less to process than an oversized one.
+A gateway also does something raw MCP connections don't: its context layer gets more precise over time. Every interaction run through Connect AI tells it more about how your sources work and what your business terms mean. Agents built on it get more reliable month over month, and they spend fewer tokens doing it, because precise context costs less to process than an oversized one.
 
 CData Connect AI is free to try. The quick start covers the first connection (Salesforce, BigQuery, SQL Server, or any of hundreds of supported sources) and walks through workspace and toolkit setup so your agent has a scoped, governed MCP endpoint from the start.
 

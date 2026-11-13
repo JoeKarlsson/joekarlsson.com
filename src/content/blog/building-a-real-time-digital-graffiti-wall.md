@@ -70,7 +70,7 @@ This means the UI feels instant even though the database round-trip takes a few 
 
 ## Real-Time Sync with MongoDB Realm
 
-MongoDB Realm (later Atlas Device SDK, since shut down) handled the heavy lifting. Users authenticate anonymously - no sign-up, no passwords:
+MongoDB Realm (later Atlas Device SDK, since shut down) did most of the work. Users authenticate anonymously - no sign-up, no passwords:
 
 ```javascript
 const app = new Realm.App({ id: CONFIG.appID });

@@ -218,7 +218,7 @@ Being featured in an AI Overview is a weird flex. Google is saying your content 
 
 We went from 11 AI Overview placements to a peak of 115 in a single week. We didn't engineer that. Google expanded coverage, and our content was in the right shape to get pulled.
 
-The Seer Interactive study found something that changed how I think about this: **when you're cited as a source in an AI Overview, your organic CTR is 35% higher** than when an AI Overview appears without citing you, 0.70% vs 0.52%. That sounds small, but when CTR is already suppressed, 35% matters. So you're not trying to avoid AI Overviews. You can't, and optimizing to avoid them would mean worse content. You're trying to be the source that gets cited.
+The Seer Interactive study found something that changed how I think about this: **when you're cited as a source in an AI Overview, your organic CTR is 35% higher** than when an AI Overview appears without citing you, 0.70% vs 0.52%. That sounds small, but when CTR is already suppressed, 35% matters. You can't avoid AI Overviews, and optimizing to avoid them would mean worse content, so the goal is to be the source that gets cited.
 
 What I didn't expect was our conversion rate going _up_. People arrive with a better understanding of what we do. The AI already did the research for them, they've seen our product mentioned in the answer, and they're coming to convert rather than browse. We're getting trial signups and sales inquiries from people who need less convincing, so the funnel is shorter and the win rate is higher.
 
@@ -328,7 +328,7 @@ The top of the funnel has moved. More and more people start their research by as
 
 What makes content good hasn't changed: be accurate, answer the question people are asking, and back up your claims with real data and first-person experience. What's different is that you're writing for people _and_ for the AI systems that summarize content for them, and those systems have no use for vague claims or sales language.
 
-I think technical DevRels are well-positioned for this. It's not that we're better at marketing. The content we naturally produce - tutorials, technical opinions, first-person accounts of building things, docs written from real usage - is exactly what AI systems cite. We write for developer trust rather than conversion rates, and writing for developer trust turns out to be what gets you into AI answers. I wrote more about [how I run DevRel in 2026](/blog/running-devrel) separately.
+I think technical DevRels are well-positioned for this, and not because we're better at marketing. The content we naturally produce - tutorials, technical opinions, first-person accounts of building things, docs written from real usage - is exactly what AI systems cite. We write for developer trust rather than conversion rates, and writing for developer trust turns out to be what gets you into AI answers. I wrote more about [how I run DevRel in 2026](/blog/running-devrel) separately.
 
 ---
 

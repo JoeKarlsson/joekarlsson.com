@@ -24,13 +24,13 @@ If you’d like to try out Tinybird, we have an [always free plan](https://www.t
 
 ### The problem
 
-Conventional wisdom posits that text search without any unique provisions will invariably entail a full scan, an approach akin to looking for a needle in a haystack.
+Without special indexing, text search usually means a full scan, which is like looking for a needle in a haystack.
 
 ![Animated needle in a haystack illustration](/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-8.gif)
 
 If only it were this easy.
 
-Undoubtedly, full scans are anything but efficient, causing undue strain on your system’s resources, stalling productivity, and increasing your compute costs.
+Full scans are slow. They strain your system’s resources, stall productivity, and increase your compute costs.
 
 The standard indexing techniques provided by ClickHouse, such as [Primary or Sorting Keys](https://clickhouse.com/docs/en/optimize/sparse-primary-indexes), aren’t particularly suitable for or flexible enough to handle text-based searches. The performance boosts they do offer are effectively relegated to specific text search use cases like exact matches or matching the beginning of the text-cases where you can use alphabetical sorting of the text you’re searching.
 
@@ -38,7 +38,7 @@ If you need to achieve more complex use cases like substring matching, these ind
 
 ### The solution
 
-This is where [ClickHouse’s “Data Skipping Indexes”](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-data_skipping-indexes) come into play. These specialized indexes can be used to massively improve the performance of text searches on ClickHouse. The magic of Data Skipping Indexes lies in their structure-they contain relevant information about what’s contained within a certain granule (or multiple granules) of the table. The granularity size, dictated by the engine settings, allows for more efficient data processing, effectively making it possible to bypass the arduous full scan approach.
+This is where [ClickHouse’s “Data Skipping Indexes”](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-data_skipping-indexes) come into play. These specialized indexes can be used to massively improve the performance of text searches on ClickHouse. Data Skipping Indexes contain information about what’s in a certain granule (or multiple granules) of the table. The granularity size, set by the engine settings, lets a query skip the granules that can’t match, so it doesn’t need a full scan.
 
 In this post, I’ll dig into the details of using Data Skipping Indexes. In particular, I’ll explain the implementation of Bloom filter indexes with ClickHouse, and how they can be a serious upgrade for text search. I will also walk you through the results of a performance test we ran using real data.
 
@@ -239,7 +239,7 @@ However, these improvements come with the cost of increased storage. For instanc
 
 Since our customer favored speed over reducing scan size, and storage increase was not a critical issue, they chose the `ngrambf_v1(4, 1024, 1, 0)`.
 
-These results highlight the importance of identifying the right balance based on your specific needs. They also highlight the potential of Bloom filters to substantially improve the efficiency of searches within ClickHouse but with consideration of the trade-off in storage and specific use-case requirements. And finally, there is no one-size-fits-all configuration for Bloom filters. We encourage you to conduct performance tests on your own data to determine the optimal settings for your specific needs.
+The right balance depends on your needs. Bloom filters can make searches in ClickHouse much faster, but you pay for it in storage, and there is no one-size-fits-all configuration. We encourage you to run performance tests on your own data to find the settings that fit.
 
 ## How to create a Bloom filter index in ClickHouse
 
@@ -297,7 +297,7 @@ Searching through large volumes of text-based data can be a complex and resource
 
 The key to this efficient search process is text processing via tokenization and n-grams. Tokenization allows text to be broken down into manageable chunks, while n-grams create overlapping character clusters for more thorough search patterns. N-grams, despite being heavier, provide a more versatile approach, making them a critical part of the process.
 
-Our tests on a sizable log data set revealed that Bloom filters significantly boost ClickHouse’s text search efficiency. They reduce query time and scan size drastically, although they do require additional storage. The optimal configuration for Bloom filters depends on the specific use case and requires a balance between improved performance and increased storage costs. In essence, while Bloom filters provide a strong solution for text searches in ClickHouse, thorough understanding and testing are key to unlocking their full potential.
+Our tests on a sizable log data set revealed that Bloom filters significantly boost ClickHouse’s text search efficiency. They reduce query time and scan size drastically, although they do require additional storage. The optimal configuration for Bloom filters depends on the specific use case and requires a balance between improved performance and increased storage costs. Bloom filters are a strong option for text search in ClickHouse, but test them on your own data before you pick a configuration.
 
 ## Related blog posts and resources:
 

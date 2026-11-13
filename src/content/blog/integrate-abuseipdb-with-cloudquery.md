@@ -15,15 +15,15 @@ heroAlt: 'A row of old police cars outside the station'
 
 AbuseIPDB is a crowdsourced repository where users report IP addresses engaged in malicious behavior such as port scanning, brute force attempts, spam, and DDoS activity. Security professionals submit incident reports, which aggregate into confidence scores indicating abuse likelihood.
 
-For cloud security teams, this integration addresses a fundamental concern: whether public cloud infrastructure appears in known abuse databases. This matters in both directions - your resources could be targets or compromised sources.
+For cloud security teams, the question is whether public cloud infrastructure appears in known abuse databases. This matters in both directions - your resources could be targets or compromised sources.
 
 ## Why Check Your Cloud IPs Against AbuseIPDB?
 
 Attackers continuously scan load balancers, EC2 instances, RDS endpoints, and Kubernetes servers. Comparing your public IPs against AbuseIPDB distinguishes routine internet background activity from targeted attacks.
 
-The outbound scenario is equally critical. Compromised cloud resources frequently generate abuse through vulnerable applications, exposed credentials, or misconfigured services. These instances join botnet operations, send spam, or scan external networks - resulting in AbuseIPDB listings. Identifying your public IPs appearing there signals compromise requiring investigation.
+The outbound case matters just as much. Compromised cloud resources frequently generate abuse through vulnerable applications, exposed credentials, or misconfigured services. These instances join botnet operations, send spam, or scan external networks - resulting in AbuseIPDB listings. Identifying your public IPs appearing there signals compromise requiring investigation.
 
-Business implications extend beyond security. IPs with elevated confidence scores land on commercial blocklists. When your application server IP gets blocklisted, legitimate users lose access, outbound email gets rejected, and partner integrations fail. Compliance frameworks like SOC 2 increasingly mandate documented monitoring of internet-exposed infrastructure.
+The damage goes past security. IPs with elevated confidence scores land on commercial blocklists. When your application server IP gets blocklisted, legitimate users lose access, outbound email gets rejected, and partner integrations fail. Compliance frameworks like SOC 2 increasingly mandate documented monitoring of internet-exposed infrastructure.
 
 ## Integration Architecture
 

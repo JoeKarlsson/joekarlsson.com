@@ -13,9 +13,9 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Museum storage cabinets full of specimen drawers'
 ---
 
-Are you experiencing challenges in managing your Google Cloud Platform (GCP) infrastructure? Do you need help keeping track of all your cloud assets, ensuring compliance, and maintaining security? If these issues sound familiar, then it's time to consider implementing a cloud asset inventory.
+If you're struggling to keep track of your Google Cloud Platform (GCP) assets, stay compliant, and keep things secure, a cloud asset inventory can help.
 
-Managing assets in cloud environments such as GCP is growing increasingly complex. As organizations expand their cloud infrastructure, tracking resources, ensuring compliance, and maintaining strong security measures become more challenging. The dynamic nature of cloud environments, with frequent changes and additions, complicates asset management further. Therefore, a complete cloud asset inventory is essential. It offers a clear and organized view of all cloud resources, streamlining operations and mitigating potential risks.
+Managing assets in cloud environments such as GCP is growing increasingly complex. As organizations expand their cloud infrastructure, tracking resources, ensuring compliance, and maintaining strong security measures become more challenging. The dynamic nature of cloud environments, with frequent changes and additions, complicates asset management further. A complete cloud asset inventory gives you a clear, organized view of all your cloud resources, which makes operations simpler and cuts risk.
 
 In this tutorial, you will build a cloud asset manager for GCP using [CloudQuery](https://www.cloudquery.io/). You'll connect to your GCP account, collect data on all your cloud assets, and store it in a PostgreSQL database for analysis and reporting. However, with CloudQuery, you can extract data from [ANY data source](https://www.cloudquery.io/hub/plugins/source) ([AWS](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs), [GCP](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs), [etc](https://www.cloudquery.io/hub/plugins/source).) and load it into [ANY data destination](https://www.cloudquery.io/hub/plugins/destination) ([Snowflake](https://www.cloudquery.io/hub/plugins/destination/cloudquery/snowflake/latest/docs), [BigQuery](https://www.cloudquery.io/hub/plugins/destination/cloudquery/bigquery/latest/docs), [Databricks](https://www.cloudquery.io/hub/plugins/destination/cloudquery/databricks/latest/docs), [DuckDB](https://www.cloudquery.io/hub/plugins/destination/cloudquery/duckdb/latest/docs), [ClickHouse](https://www.cloudquery.io/hub/plugins/destination/cloudquery/clickhouse/latest/docs), etc.).
 
@@ -37,9 +37,9 @@ Let's break down the tech stack and architecture of this project, and I'll expla
   - dbt is used to transform and model the data stored in PostgreSQL.
   - _Why_: With dbt, we can apply transformations directly within the data warehouse. This makes our data pipelines more efficient and maintainable, which is a huge win for keeping everything organized and running smoothly.
 
-While CloudQuery can run locally as a binary or in Docker, for convenience, we'll be running CloudQuery locally and the other services in Docker. This setup simplifies the process and keeps the environment consistent. By these tools together, you're creating a powerful setup that can collect, store, transform, and visualize our cloud asset data efficiently and effectively.
+While CloudQuery can run locally as a binary or in Docker, for convenience, we'll be running CloudQuery locally and the other services in Docker. This setup simplifies the process and keeps the environment consistent. Together, these tools collect, store, transform, and visualize your cloud asset data.
 
-_You can re-use your current data and infrastructure stack of data warehouse and business intelligence (BI) tools when you use CloudQuery_. You can sync data from any data source and persist them into any database. We find that this flexibility helps you derive even more insights from your infrastructure data. As well as helping you reduce cloud costs, by allowing you to reuse the data tech stack that your data team is already familiar with.
+_You can re-use your current data and infrastructure stack of data warehouse and business intelligence (BI) tools when you use CloudQuery_. You can sync data from any data source and persist them into any database. We find that this flexibility helps you get more out of your infrastructure data and reduce cloud costs, since you reuse the data tech stack your data team already knows.
 
 ### Prerequisites
 
@@ -47,7 +47,7 @@ Before we get started, make sure you have a basic understanding of GCP, and how 
 
 ### Setting Up Your Environment
 
-To keep things simple, you're going to build a local development environment using [Docker Compose](https://docs.docker.com/compose/). Using Docker to run PostgreSQL, dbt, and other services, while running CloudQuery locally as a self-constrained binary executable. It allows you to take advantage of Docker's ease of use for container management while leveraging the full capabilities of CloudQuery directly on your local machine.
+To keep things simple, you're going to build a local development environment using [Docker Compose](https://docs.docker.com/compose/). You'll use Docker to run PostgreSQL, dbt, and other services, and run CloudQuery locally as a self-contained binary. That gives you Docker's easy container management and the full capabilities of CloudQuery on your local machine.
 
 [We have also written some guides to help you deploy CloudQuery into production on different platforms](https://www.cloudquery.io/docs/cli/managing-cloudquery/deployments/overview).
 
@@ -105,7 +105,7 @@ spec:
     project_ids: ["my-project"]
 ```
 
-This CloudQuery configuration file sets up a data source from GCP to extract information from various GCP services. The extracted data is then directed to a PostgreSQL database for storage. This setup allows for efficient data extraction, transformation, and storage, enabling easier analysis and visualization of GCP data.
+This CloudQuery configuration file sets up a data source from GCP to extract information from various GCP services. The extracted data is then directed to a PostgreSQL database for storage.
 
 For the spec>tables - be sure to include all the assets you want to sync with your Cloud Asset Inventory.
 
@@ -147,7 +147,7 @@ And with that, the CloudQuery Config is ready. Now is a good time to test it out
 cloudquery sync ./config.yml
 ```
 
-Now you can connect to PostgreSQL and explore the data. For example, you can use this is an example query you can use to ensure your data has been correctly synced. This query finds all the storage accounts that are allowing non-HTTPS traffic:
+Now you can connect to PostgreSQL and explore the data. For example, here's a query to check that your data synced correctly. This query finds all the storage accounts that are allowing non-HTTPS traffic:
 
 ```bash
 docker exec -it xxx /bin/bash
@@ -228,7 +228,7 @@ In this tutorial, you walked through the process of building a cloud asset inven
 - **Storing Data in PostgreSQL**: You set up a PostgreSQL database to store the collected asset data, enabling efficient querying and analysis.
 - **Transforming Data with dbt**: You utilized dbt to apply data transformations, enhancing the quality and usability of your cloud asset inventory.
 
-By using CloudQuery, you can ensure that your asset inventory is complete, adaptable, and integrated with your broader data strategy. This empowers your team to gain better insights and make informed decisions, driving more value from your cloud infrastructure.
+By using CloudQuery, you can ensure that your asset inventory is complete, adaptable, and integrated with your broader data strategy.
 
 _Ready to dive deeper?_ Join the [CloudQuery Community](https://community.cloudquery.io) to connect with other users and experts. You can also try out CloudQuery locally with our [quick start guide](https://www.cloudquery.io/download) or [setup a call with our team](https://www.cloudquery.io/contact-us) to learn more about how CloudQuery can help you manage your cloud assets more effectively.
 

@@ -27,7 +27,7 @@ To give you a sense of what we're dealing with, a single CloudQuery customer can
 - 6-7 million rows of real-time data at any given moment
 - 4 TB of new data ingested monthly
 
-The culprit behind our memory issues? ClickHouse memory explosions during large `INSERT` operations. And [we're not alone](https://github.com/ClickHouse/ClickHouse/issues/5959) - this is a [widespread issue](https://github.com/ClickHouse/ClickHouse/issues/11546) that [many engineers](https://github.com/ClickHouse/ClickHouse/issues/17631) have [encountered](https://stackoverflow.com/questions/65316905/clickhouse-dbexception-memory-limit-for-query-exceeded). Our solution? A technique we call `Insert-Splitter with UUID-range bucketing` that reduced peak memory usage without schema surgery or external message queues.
+The culprit behind our memory issues was ClickHouse memory explosions during large `INSERT` operations. And [we're not alone](https://github.com/ClickHouse/ClickHouse/issues/5959) - this is a [widespread issue](https://github.com/ClickHouse/ClickHouse/issues/11546) that [many engineers](https://github.com/ClickHouse/ClickHouse/issues/17631) have [encountered](https://stackoverflow.com/questions/65316905/clickhouse-dbexception-memory-limit-for-query-exceeded). Our solution is a technique we call `Insert-Splitter with UUID-range bucketing` that reduced peak memory usage without schema surgery or external message queues.
 
 ## The ClickHouse Memory Problem
 
@@ -79,7 +79,7 @@ We explored several approaches before landing on our final solution:
 
 The standard advice is to simply enable asynchronous inserts with `async_insert=1`, but this wasn't enough for our use case. Even with async inserts enabled, [data is still "immediately written into an in-memory buffer first"](https://clickhouse.com/blog/asynchronous-data-inserts-in-clickhouse) before being flushed to disk when certain thresholds are met, meaning the initial memory spike can still occur. As documented in [this GitHub issue](https://github.com/ClickHouse/ClickHouse/issues/76293), engineers have observed "memory usage continuously grows when handling frequent inserts... The memory doesn't get released even after data is successfully inserted" when using async_insert. The problem is that while `async_insert` helps with batching, it doesn't solve the fundamental issue of over sized blocks requiring substantial memory during the processing phase before they reach the background insertion queue.
 
-We also considered using Kafka as a buffer, adding tens of thousands in infra costs, and would require us to maintain another piece of infrastructure just to solve a memory problem felt excessive. We couldn't change our schemas easily because we support hundreds of different cloud resources, each with different structures.
+We also considered using Kafka as a buffer, but adding tens of thousands in infra costs and another piece of infrastructure to maintain just to solve a memory problem felt excessive. We couldn't change our schemas easily because we support hundreds of different cloud resources, each with different structures.
 
 We needed a solution that:
 
@@ -137,7 +137,7 @@ Bucket 4: '00000000-0000-0000-b000-000000000000' to 'ffffffff-ffff-ffff-ffff-fff
 
 How do we know our distribution is even? This is where our validation query comes in. We wrote a ClickHouse query that generates synthetic UUIDs and tests our bucketing strategy. For our solution to work, we needed even distribution of UUIDs across buckets, with a maximum deviation of 2% between the fullest and emptiest buckets. In our tests with 100,000 random UUIDs across up to 1,024 buckets, we consistently observed less than 0.5% deviation.
 
-Our results? A deviation of 0.000886 (less than 0.01%), with a total of 1,000,000 UUIDs processed in 0.157 seconds using just 159.80 KiB of memory.
+We got a deviation of 0.000886 (less than 0.01%), with a total of 1,000,000 UUIDs processed in 0.157 seconds using just 159.80 KiB of memory.
 
 ![ClickHouse SQL query that generates one million UUIDs, buckets them into eight ranges with multiIf, and calculates deviation and total counts.](/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/image1.webp)
 
@@ -145,7 +145,7 @@ We processed 1 million rows in just 0.157 seconds, using just 159.80 KiB of memo
 
 ## Putting it into Production
 
-Theories are nice, but you're probably wondering: _Does this actually work in prod?_ We've deployed the Insert-Splitter in production, and the results speak for themselves.
+Theories are nice, but you're probably wondering: _Does this actually work in prod?_ We've deployed the Insert-Splitter in production.
 
 Here's a representative example from one of our larger customer syncs:
 
@@ -180,7 +180,7 @@ This approach also eliminated the memory explosions and "OvercommitTracker kille
 
 ## Wrap Up
 
-The Insert-Splitter algorithm with UUID-range bucketing has transformed how we handle massive data volumes in CloudQuery. By breaking one giant operation into multiple deterministic chunks, we've tamed ClickHouse's memory explosions without resorting to schema changes or additional infrastructure.
+The Insert-Splitter algorithm with UUID-range bucketing has changed how we handle massive data volumes in CloudQuery. By breaking one giant operation into multiple deterministic chunks, we've tamed ClickHouse's memory explosions without resorting to schema changes or additional infrastructure.
 
 ### Final thoughts
 

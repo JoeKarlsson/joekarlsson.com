@@ -14,7 +14,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A rail yard full of tracks seen from above'
 ---
 
-Managing assets across multiple cloud providers like AWS and GCP can be challenging, especially when you are trying to keep track of everything in one place. What if you could centralize this data and make it easy to query? That's exactly what we'll be doing in this live coding session. Using **CloudQuery**, we'll demonstrate how to pull cloud asset data from [**AWS**](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs) and [**GCP**](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs) and store it in a [**PostgreSQL**](https://www.cloudquery.io/hub/plugins/destination/cloudquery/postgresql/latest/docs) database for easy access and analysis.
+Managing assets across multiple cloud providers like AWS and GCP can be challenging, especially when you are trying to keep track of everything in one place. In this live coding session, we'll centralize that data and make it easy to query. Using **CloudQuery**, we'll demonstrate how to pull cloud asset data from [**AWS**](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs) and [**GCP**](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs) and store it in a [**PostgreSQL**](https://www.cloudquery.io/hub/plugins/destination/cloudquery/postgresql/latest/docs) database for easy access and analysis.
 
 ![A multi-cloud asset inventory powered by CloudQuery: asset data from AWS, Google Cloud and Microsoft Azure goes through CloudQuery's ETL into a PostgreSQL database, which feeds analytics and visualizations.](/images/blog/complete-guide-building-multi-cloud-asset-inventory/multi-cloud-inventory.svg)
 
@@ -35,7 +35,7 @@ If you want to follow along with a video version of this post, you can check tha
 
 As companies increasingly rely on multiple cloud providers, keeping track of resources becomes critical for operations and security. Cloud assets like storage buckets, virtual machines, and security policies often span multiple clouds. Without centralized oversight, it's easy to lose track of important assets, leading to security vulnerabilities, inefficiencies, and unnecessary spend.
 
-Using **CloudQuery**, we can easily pull this data into a central database and ensure everything is visible from one location. This simplifies tracking down assets, audits their configurations, and ensures they comply with your security policies.
+Using **CloudQuery**, we can easily pull this data into a central database and ensure everything is visible from one location. That makes it simpler to track down assets, audit their configurations, and check that they comply with your security policies.
 
 ### Overview of the Process
 
@@ -48,13 +48,11 @@ Here's what we'll be doing:
 
 > **Note:** CloudQuery supports any source integration with any destination. You can find more information about the available integrations in the [CloudQuery Hub](https://www.cloudquery.io/hub/).
 
-Let's dive in.
-
 ---
 
 ## Step 0: Prerequisites
 
-Before jumping into the demo, you'll need to meet a few prerequisites to ensure everything runs smoothly. These setup steps will prepare your environment to sync cloud data from AWS and GCP into PostgreSQL. If you're new to CloudQuery, the [AWS to PostgreSQL quickstart](https://www.cloudquery.io/docs/cli/getting-started/aws-to-postgresql) covers the full setup end-to-end for AWS alone.
+Before jumping into the demo, you'll need a few prerequisites in place to sync cloud data from AWS and GCP into PostgreSQL. If you're new to CloudQuery, the [AWS to PostgreSQL quickstart](https://www.cloudquery.io/docs/cli/getting-started/aws-to-postgresql) covers the full setup end-to-end for AWS alone.
 
 ### 1. AWS Access
 
@@ -163,7 +161,7 @@ docker exec -it postgres_container psql -U postgres -d asset_inventory -c 'SELEC
 
 ### Example 2: Identify Public Buckets
 
-Let's get to something a little bit more interesting, since security is always a primary concern, let's write a query to identify any S3 buckets that have public access policies enabled:
+Now for something a little more interesting. Security is always a primary concern, so let's write a query to identify any S3 buckets that have public access policies enabled:
 
 ```bash
 docker exec -it postgres_container psql -U postgres -d asset_inventory -c "

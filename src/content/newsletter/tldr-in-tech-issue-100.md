@@ -8,13 +8,13 @@ heroImage: '/images/newsletter/tldr-in-tech-issue-100/card-7c4e1221.webp'
 heroAlt: "Works on My Machine card for TL;DR in Tech issue 100, leading with Estimation Isn't For Everyone, with the issue number circled in pink crayon"
 ---
 
-If you can believe it, we're at the 100th issue of this newsletter! A massive shout-out to all of you who've stuck around, and essentially turned this into a distributed think tank. Couldn't have debugged this journey without ya. 🚀 Alright, let's do this 100th issue justice by diving in.
+If you can believe it, we're at the 100th issue of this newsletter! A massive shout-out to all of you who've stuck around, and essentially turned this into a distributed think tank. Couldn't have debugged this journey without ya. 🚀 Alright, here's issue 100.
 
 ## [Estimation Isn't For Everyone](https://open.nytimes.com/estimation-isnt-for-everyone-a72484f88b27)
 
 _By: NYTimes Open Team_
 
-tl;dr: The NYTimes team says ditch story points. Instead, count work items your team completes per week. The goal is throughput, not how well you can guess your future workload. It's like measuring the speed of your car, not the time spent guessing how fast you can go.
+tl;dr: The NYTimes team says ditch story points. Instead, count work items your team completes per week. The goal is throughput, not how well you can guess your future workload.
 
 ---
 
@@ -46,7 +46,7 @@ tl;dr: Engineers are lowering salary expectations due to market conditions and v
 
 _By: Saasy Management_
 
-tl;dr: Money can't buy happiness, but lack of it can cause drama. The article outlines heuristics for thinking about compensation strategically. Let's call it the psychology of salary in code comments.
+tl;dr: Money can't buy happiness, but lack of it can cause drama. The article outlines heuristics for thinking about compensation strategically.
 
 ---
 
@@ -62,7 +62,7 @@ tl;dr: Stop the bottlenecking madness. Horizontal teams should set up guidelines
 
 _By: Lara Hogan_
 
-tl;dr: Decisions, decisions. Hogan's "even / over" tool is like a GPS for tough choices, forcing you to articulate trade-offs for clarity. Debugging your decision-making, one choice at a time.
+tl;dr: Decisions, decisions. Hogan's "even / over" tool is like a GPS for tough choices, forcing you to articulate trade-offs for clarity.
 
 ---
 
@@ -78,4 +78,4 @@ tl;dr: Want to innovate? Choose crazy good ideas and break some rules. If you al
 
 _By: a16z_
 
-tl;dr: Late-stage companies, listen up. This post talks about balancing base, bonus, and equity in executive compensation. Executive compensation: the Ferrari of pay packages.
+tl;dr: Late-stage companies, listen up. This post talks about balancing base, bonus, and equity in executive compensation.

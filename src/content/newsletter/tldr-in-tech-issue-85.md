@@ -12,13 +12,13 @@ heroAlt: 'Works on My Machine card for TL;DR in Tech issue 85, leading with Thre
 
 _By: Abi Noda_
 
-tl;dr: Abi Noda argues that engineering leaders should focus on three types of metrics: business impact, system performance, and developer effectiveness. CEOs want confidence in their engineering investments, so knowing these metrics will help you demonstrate accountability. Essential for software engineers aiming to lead teams or projects.
+tl;dr: Abi Noda argues that engineering leaders should focus on three types of metrics: business impact, system performance, and developer effectiveness. CEOs want confidence in their engineering investments, so knowing these metrics will help you demonstrate accountability.
 
 ## [Using Cultural Survey Data](https://lethain.com/using-cultural-survey-data/)
 
 _By: Will Larson_
 
-tl;dr: Will Larson discusses how engineering leaders can use survey data effectively by reading survey results, taking action on the data, modifying questions, and determining when to start and how frequently to run surveys. A must-read for engineers in leadership roles looking to improve their team's culture and performance.
+tl;dr: Will Larson discusses how engineering leaders can use survey data effectively by reading survey results, taking action on the data, modifying questions, and determining when to start and how frequently to run surveys.
 
 ## [Naming Conventions In Programming - A Review Of Scientific Literature](https://makimo.pl/blog/scientific-perspective-on-naming-in-programming/)
 
@@ -36,7 +36,7 @@ tl;dr: Andy Hippo challenges the belief that "debuggers are useless" by discussi
 
 _By: Alexey Sanko_
 
-tl;dr: Alexey Sanko shares how Dropbox tackled their data validation problem by implementing a new quality check system for their big data pipelines. This approach balances simplicity and coverage, ensuring good quality data without being overly difficult or expensive to maintain. A fascinating read for software engineers working with big data pipelines.
+tl;dr: Alexey Sanko shares how Dropbox tackled their data validation problem by implementing a new quality check system for their big data pipelines. This approach balances simplicity and coverage, ensuring good quality data without being overly difficult or expensive to maintain.
 
 ## [Designing Good Interfaces](https://pboyd.io/posts/good-interfaces/)
 
@@ -48,4 +48,4 @@ tl;dr: Paul Boyd reminds us that "An application with good code and a bad UI is 
 
 _By: Sebastian Carlos_
 
-tl;dr: Sebastian Carlos has sifted through the Vim User Manual for you, focusing on IDE users. He provides a deep dive into all aspects of Vim, helping software engineers who want to improve their Vim skills and productivity.
+tl;dr: Sebastian Carlos has sifted through the Vim User Manual for you, focusing on IDE users. He covers all aspects of Vim.

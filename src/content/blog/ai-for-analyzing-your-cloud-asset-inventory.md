@@ -23,7 +23,7 @@ Whether you're running a quick check for public S3 buckets or want to check whet
 
 ![Claude AI demonstrates how to find all your public S3 buckets using a natural language prompt. Claude then connects to the CloudQuery MCP server, which processes the request and returns security insights, showing how easily users can uncover cloud misconfigurations like public buckets using CloudQuery + LLM integration.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image2.gif)
 
-We all know AI agents are everywhere now. Cursor writes your code. Custom workflows handle deployments. But here's what we keep seeing: _for platform teams looking to use agentic AI with their cloud infrastructure, these agents are operating blind._
+We all know AI agents are everywhere now. Cursor writes your code. Custom workflows handle deployments. But what we keep seeing is that _for platform teams looking to use agentic AI with their cloud infrastructure, these agents are operating blind._
 
 They don't have the context they need, because they can't see your actual infrastructure. They don't know which EC2 instances are running, what S3 buckets exist, or whether your security groups make sense.
 
@@ -49,7 +49,7 @@ We made CloudQuery speak directly to any AI agent that supports MCP. Your existi
 - Custom agent workflows
 - Any LLM supporting MCP
 
-No wrappers. No maintenance overhead. No stale data.
+There are no wrappers to write or maintain, and the data stays fresh.
 
 ![The agent loop: a user asks a question, and the LLM call takes an action through the CloudQuery MCP server, which queries the synced cloud asset inventory and returns feedback. The LLM keeps looping through action and feedback until it has the answer, then stops.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/agent-loop.svg)
 
@@ -89,7 +89,7 @@ The agent combined security posture with cost analysis, outputting formatted tab
 
 ![Screenshot of a Claude-generated prompt asking for a report on orphaned cloud resources, next to the MCP server output showing a Cloud Orphaned Resources Report. It visualizes 19 orphaned resources, $28.80 in monthly waste, 14 security risks, and 1GB of unused storage.](/images/blog/ai-for-analyzing-your-cloud-asset-inventory/image4.webp)
 
-The agent produced multi-page reports with embedded graphs. Manual resource audits became automated intelligence.
+The agent produced multi-page reports with embedded graphs.
 
 The limit isn't our MCP server. The limit is what you can think to ask for.
 
@@ -102,7 +102,7 @@ This MCP server starts something bigger. We're building toward autonomous agents
 - Correlate security threats across your entire cloud footprint
 - Turn compliance reporting into conversations
 
-Your agents will stop guessing about your infrastructure. They'll know.
+Your agents will stop guessing about your infrastructure.
 
 ## Start Today
 

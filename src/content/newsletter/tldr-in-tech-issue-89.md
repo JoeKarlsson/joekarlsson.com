@@ -18,7 +18,7 @@ tl;dr: Lara explains how we can easily be influenced by others' moods and how le
 
 _By: Kent Beck_
 
-tl;dr: Kent dives into the difference between accountability and blame, pointing out that blame is often used as a "relationship decaying" strategy. As software engineers, it's important to foster a culture of responsibility rather than blame.So I
+tl;dr: Kent explains the difference between accountability and blame, pointing out that blame is often used as a "relationship decaying" strategy. As software engineers, it's important to foster a culture of responsibility rather than blame.So I
 
 ## [System Design Interview Cheat Sheet](https://systemdesign.one/system-design-interview-cheatsheet/#system-design-template)
 
@@ -28,7 +28,7 @@ tl;dr: This cheat sheet covers various topics like databases, API design, capaci
 
 _By: Giridhar Manepalli_
 
-tl;dr: Giridhar discusses the role of logical clocks in distributed systems and how they help order system events. A great read for software engineers working with or interested in distributed systems.
+tl;dr: Giridhar discusses the role of logical clocks in distributed systems and how they help order system events.
 
 ## [How To Plan As An Engineering Executive](https://lethain.com/planning/)
 
@@ -40,7 +40,7 @@ tl;dr: Will shares valuable insights on planning as an engineering executive, in
 
 _By: John Cutler_
 
-tl;dr: John highlights how conversations about problems and their causes are often negotiations involving identity, reputation, and control. As software engineers, understanding this can help navigate and address problems more effectively.
+tl;dr: John highlights how conversations about problems and their causes are often negotiations involving identity, reputation, and control. Knowing this makes those conversations easier to handle.
 
 ## [Dropbox Engineering Career Framework](https://dropbox.github.io/dbx-career-framework/)
 

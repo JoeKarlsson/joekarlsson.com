@@ -19,11 +19,11 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 ## The Governance Blind Spot Most Teams Don't Know They Have
 
-If you've added policy checks to your CI/CD pipeline, you're ahead of most teams. But here's the problem: deploy-time checks only govern changes that flow through your pipeline. And a surprising amount of infrastructure change never touches CI/CD at all.
+If you've added policy checks to your CI/CD pipeline, you're ahead of most teams. But deploy-time checks only govern changes that flow through your pipeline. And a surprising amount of infrastructure change never touches CI/CD at all.
 
 [misconfigurations are the leading cause of cloud security incidents](https://www.fortinet.com/resources/reports/cloud-security), not from sophisticated attacks. Most of those misconfigurations don't happen during a deployment. They happen between deployments, in ways that your pipeline never sees.
 
-We've talked to dozens of teams who were confident in their governance posture because they had OPA or Sentinel wired into Terraform. Then they ran a full infrastructure scan and found hundreds of resources that had drifted from their intended state. Not because the policies were wrong. Because the policies only ran at one point in time.
+We've talked to dozens of teams who were confident in their governance posture because they had OPA or Sentinel wired into Terraform. Then they ran a full infrastructure scan and found hundreds of resources that had drifted from their intended state. The policies weren't wrong; they only ran at one point in time.
 
 ## Three Ways Infrastructure Changes Without Your Pipeline
 
@@ -31,7 +31,7 @@ There are three categories of change that bypass CI/CD entirely. Each one create
 
 ### Console Changes
 
-It's 2 a.m.. Something is broken in production. An engineer logs into the AWS console, widens a security group to allow inbound traffic for debugging, fixes the issue, and goes back to sleep. The security group stays wide open. No PR was created. No pipeline ran. No policy was evaluated.
+It's 2 a.m. Something is broken in production. An engineer logs into the AWS console, widens a security group to allow inbound traffic for debugging, fixes the issue, and goes back to sleep. The security group stays wide open, and no PR, pipeline run or policy check ever saw the change.
 
 This happens constantly. Not because engineers are careless, but because the console exists for a reason. Incidents demand speed, and nobody is going to write a Terraform PR at 2 a.m. when production is down.
 
@@ -49,7 +49,7 @@ Your infrastructure changes even when you don't touch it. And no amount of deplo
 
 ## CI-Time vs. Continuous Governance
 
-The difference between CI-time governance and continuous governance isn't about the policies themselves. It's about when and how often those policies run.
+CI-time governance and continuous governance can use the same policies. The difference is when and how often those policies run.
 
 |                     | CI-Time Only               | Continuous Governance   |
 | ------------------- | -------------------------- | ----------------------- |
@@ -73,7 +73,7 @@ A complete governance model has three layers, and they all use the same policies
 
 **Historical checks** query point-in-time snapshots of your infrastructure. When an auditor asks "were all EBS volumes encrypted on January 15th?" you can answer with data, not guesses. When you're investigating an incident, you can see exactly what changed and when.
 
-The key insight: all three layers should use the same policy language and the same data. You shouldn't need to write the same check three different ways in three different tools.
+All three layers should use the same policy language and the same data. You shouldn't need to write the same check three different ways in three different tools.
 
 ## Writing Governance Policies in SQL
 
@@ -161,7 +161,7 @@ Once you have continuous governance running, the next step is [automated remedia
 
 An unencrypted EBS snapshot gets re-encrypted. An overly permissive security group rule gets tightened back to its intended state. A missing required tag gets populated from the resource's metadata.
 
-Start with low-risk, high-confidence automations. The goal isn't to auto-remediate everything. It's to reduce the toil on your team so they can focus on the violations that actually require judgment.
+Start with low-risk, high-confidence automations. The goal is to reduce the toil on your team so they can focus on the violations that actually require judgment.
 
 ## Key Takeaways
 

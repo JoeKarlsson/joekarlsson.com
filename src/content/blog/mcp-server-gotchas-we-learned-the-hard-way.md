@@ -17,9 +17,9 @@ _Co-authored with Mariano Gappa at CloudQuery._
 
 We've been running an experiment at [CloudQuery](https://www.cloudquery.io/): What happens when you wire an LLM directly into your cloud infrastructure database?
 
-We built an MCP server in Go (in fact, [our entire stack runs on Go](https://github.com/cloudquery/cloudquery)) that gives Claude or Cursor direct access to our cloud infrastructure database. We expected it to surface data faster. Instead, it taught us how brittle LLM assumptions can be, and how much care a tool like this demands.
+We built an MCP server in Go ([our entire stack runs on Go](https://github.com/cloudquery/cloudquery)) that gives Claude or Cursor direct access to our cloud infrastructure database. We expected it to surface data faster. Instead, it taught us how brittle LLM assumptions can be, and how much care a tool like this demands.
 
-In this post, we are going to dig in the gotchas that nobody warned us about, and the hard lessons we learned building and operating our own MCP server. We'll show exactly what broke, how we fixed it, and what we'd do differently if we were starting over.
+This post covers the gotchas that nobody warned us about and the hard lessons we learned building and operating our own MCP server. We'll show exactly what broke, how we fixed it, and what we'd do differently if we were starting over.
 
 ## Tool Descriptions Are Everything
 
@@ -78,7 +78,7 @@ Longer descriptions also help because they compensate for the model's lack of wo
 
 Even with detailed descriptions, we discovered another critical gap: LLMs struggled with knowing when and how to use tools in sequence. A user asking "show me all AWS security groups with open ports" requires multiple coordinated tool calls, but Claude would often skip steps, call tools in the wrong order, or make assumptions about data structure.
 
-The breakthrough came when we embedded **recommended workflows** directly into each tool description. Here's the exact workflow we include in our `execute-query` tool:
+What fixed it was embedding **recommended workflows** directly into each tool description. Here's the exact workflow we include in our `execute-query` tool:
 
 ```go
 RECOMMENDED WORKFLOW (use these tools in sequence before executing queries):
@@ -90,7 +90,7 @@ RECOMMENDED WORKFLOW (use these tools in sequence before executing queries):
 6. Finally, use this tool to execute your crafted ClickHouse SQL query
 ```
 
-This explicit sequencing transformed everything. Instead of Claude making random tool calls or hallucinating table structures, it now systematically follows this discovery-to-execution pipeline.
+After we added this sequencing, Claude stopped making random tool calls and hallucinating table structures. It now follows this discovery-to-execution pipeline.
 
 ## How to Convince an LLM to Actually Use the Tool You Built
 

@@ -19,15 +19,15 @@ heroAlt: 'Soldiers aiming a searchlight into the night'
 
 ## Governance That Starts at the Wrong End
 
-Here's how most cloud governance programs begin. A security or compliance team writes a set of policies: "All S3 buckets must block public access." "Every resource must have an owner tag." "No security groups should allow unrestricted SSH." Good policies. Reasonable rules.
+Here's how most cloud governance programs begin. A security or compliance team writes a set of policies: "All S3 buckets must block public access." "Every resource must have an owner tag." "No security groups should allow unrestricted SSH." These are reasonable rules.
 
 Then the team tries to enforce them.
 
 They quickly discover they don't have a complete picture of what's actually running. The AWS accounts they know about have hundreds of untagged resources. There are GCP projects nobody told them about. Azure subscriptions from last year's acquisition haven't been onboarded to any tooling. The policies are correct, but they're floating in mid-air with nothing to anchor them to.
 
-This is the fundamental problem with traditional governance: it assumes you already know what you're governing.
+That's the problem with traditional governance: it assumes you already know what you're governing.
 
-[89% of organizations use multiple cloud providers](https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2024-state-of-the-cloud-report/). But according to the [HashiCorp State of Cloud Strategy Survey](https://www.hashicorp.com/en/state-of-the-cloud), only 8% qualify as highly cloud-mature. That means the vast majority of multi-cloud organizations are writing governance policies against infrastructure they can't fully see. And [misconfigurations are the leading cause of cloud security incidents](https://www.fortinet.com/resources/reports/cloud-security), not sophisticated attacks. The resources were there. The rules existed. Nobody could connect the two.
+[89% of organizations use multiple cloud providers](https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2024-state-of-the-cloud-report/). But according to the [HashiCorp State of Cloud Strategy Survey](https://www.hashicorp.com/en/state-of-the-cloud), only 8% qualify as highly cloud-mature. That means the vast majority of multi-cloud organizations are writing governance policies against infrastructure they can't fully see. And [misconfigurations are the leading cause of cloud security incidents](https://www.fortinet.com/resources/reports/cloud-security), not sophisticated attacks. The resources and the rules both existed, and nobody could connect the two.
 
 ## The Traditional Model vs. Visibility-First
 
@@ -47,7 +47,7 @@ The Visibility-First model flips this sequence entirely:
 3. Define policies against real data
 4. Enforce continuously and automatically
 
-The difference isn't just ordering. It's foundational. When you start with visibility, every subsequent step has something to stand on. Policies reference actual resources. Monitoring covers your real attack surface, not just the parts you've manually onboarded. Automation acts on verified state, not assumptions.
+When you start with visibility, every subsequent step has something to stand on. Policies reference actual resources. Monitoring covers your real attack surface, not just the parts you've manually onboarded. Automation acts on verified state, not assumptions.
 
 ## The Four Layers of Visibility-First Governance
 
@@ -57,7 +57,7 @@ We've broken the model into four layers, each building on the one below it. Skip
 
 This is the foundation everything else depends on. Without it, the other three layers are guesswork.
 
-Unified visibility means a single queryable inventory that spans every cloud provider, every account, and every resource type. Not three separate dashboards you flip between. Not a spreadsheet someone updates monthly. A normalized data layer where an AWS EC2 instance and an Azure VM and a GCP Compute Engine instance all live in the same queryable format.
+Unified visibility means a single queryable inventory that spans every cloud provider, every account, and every resource type. That's a normalized data layer where an AWS EC2 instance and an Azure VM and a GCP Compute Engine instance all live in the same queryable format, instead of three separate dashboards you flip between or a spreadsheet someone updates monthly.
 
 This matters because governance questions are almost never single-provider questions. "Do any of our compute instances have public IPs and no encryption at rest?" That question spans AWS, Azure, and GCP. If your inventory only covers two of the three, your answer is incomplete and your governance is incomplete.
 
@@ -89,7 +89,7 @@ WHERE block_public_acls IS NOT TRUE
   OR restrict_public_buckets IS NOT TRUE;
 ```
 
-That's a real governance policy. Anyone who's written a WHERE clause can read it, modify it, and verify what it does. No new language to learn. No vendor lock-in to a proprietary policy engine.
+That's a real governance policy. Anyone who's written a WHERE clause can read it, modify it, and verify what it does. There's no new language to learn and no lock-in to a proprietary policy engine.
 
 And the same query works in multiple contexts. Run it interactively to investigate a finding. Schedule it to generate [compliance evidence](https://www.cloudquery.io/product/policies). Wire it into an alert to catch new violations. The policy becomes living documentation of your governance standards, written in a language your entire organization already speaks.
 
@@ -142,7 +142,7 @@ This layer also handles exception tracking. Sometimes a resource needs to violat
 
 We've mentioned SQL a few times now, so let's be explicit about why it matters.
 
-The barrier to governance adoption in most organizations isn't technical. It's organizational. Policies written in Rego or Sentinel create a bottleneck: only the team that knows the language can write, read, or modify policies. Everyone else has to trust that the policies do what they claim.
+In most organizations, the barrier to governance adoption is organizational. Policies written in Rego or Sentinel create a bottleneck: only the team that knows the language can write, read, or modify policies. Everyone else has to trust that the policies do what they claim.
 
 SQL eliminates this bottleneck. Your [platform engineering](https://www.cloudquery.io/solutions/platform-engineering) team can write the initial policies. Your security team can review them without learning a new syntax. Your compliance team can verify they map to control requirements. Your finance team can write their own cost governance queries. Everyone works in the same language against the same data.
 

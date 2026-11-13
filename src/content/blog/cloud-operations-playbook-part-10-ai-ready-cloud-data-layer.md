@@ -13,28 +13,28 @@ canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-10-
 contentNotice: 'This post was originally published on CloudQuery blog.'
 ---
 
-> **Note:** Every vendor is pitching AI for cloud operations: AI-powered security, AI cost optimization, AIOps. But AI is only as good as the data you feed it. Most organizations' cloud data is fragmented across a dozen tools, which means no AI system can see the full picture. The unified data layer we've been building throughout this series isn't just good for governance. It's the foundation that makes AI-powered cloud operations actually work.
+> **Note:** Every vendor is pitching AI for cloud operations: AI-powered security, AI cost optimization, AIOps. But AI is only as good as the data you feed it. Most organizations' cloud data is fragmented across a dozen tools, which means no AI system can see the full picture. The unified data layer we've been building throughout this series is good for governance, and it's also the foundation that makes AI-powered cloud operations work.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes the data layer architecture reference and AI-readiness checklist.
 
 ## AI Won't Fix Bad Data
 
-There's a lot of hype right now around AI for cloud operations. AIOps platforms that promise to auto-detect anomalies. AI-powered CSPM tools that claim they'll find misconfigurations before humans can. LLM-based assistants that answer infrastructure questions in natural language. The pitch is compelling. The problem is upstream.
+There's a lot of hype right now around AI for cloud operations. AIOps platforms that promise to auto-detect anomalies. AI-powered CSPM tools that claim they'll find misconfigurations before humans can. LLM-based assistants that answer infrastructure questions in natural language. The pitch is compelling, but the problem is upstream of the AI.
 
-LLMs can reason about infrastructure. They're genuinely good at it. Given structured, queryable data about your cloud environment, an LLM can correlate security findings with cost data, spot unusual patterns across accounts, and explain what a misconfiguration means in business terms. That part works.
+LLMs are good at reasoning about infrastructure. Given structured, queryable data about your cloud environment, an LLM can correlate security findings with cost data, spot unusual patterns across accounts, and explain what a misconfiguration means in business terms. That part works.
 
-Here's what happens in practice, though: an organization buys an AI-powered operations tool, connects it to one data source, and gets mediocre results. The AI can see cost data but not security findings. Or it can see AWS resources but not GCP. Or it has current state but no historical snapshots. It's like asking someone to diagnose a patient while only letting them see the blood pressure reading.
+In practice, an organization buys an AI-powered operations tool, connects it to one data source, and gets mediocre results. The AI can see cost data but not security findings. Or it can see AWS resources but not GCP. Or it has current state but no historical snapshots. It's like asking someone to diagnose a patient while only letting them see the blood pressure reading.
 
-The AI isn't the bottleneck. The data is.
+The bottleneck is the data.
 
 ## The Fragmentation Problem for AI
 
 We covered the fragmentation problem back in [Part 1](https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap). Cost data in CloudHealth. Security findings in Wiz. Configuration state in Terraform Cloud. Compliance evidence scattered across spreadsheets. That fragmentation is annoying for humans. For AI, it's fatal.
 
-Consider what happens when you ask an AI system to answer a cross-domain question: "Which of our high-cost production resources have security vulnerabilities?" That question requires cost data, resource tagging, environment classification, and security scan results. If those live in four different systems with four different data models, no AI can answer it. Not because the AI isn't smart enough, but because it doesn't have the data.
+Consider what happens when you ask an AI system to answer a cross-domain question: "Which of our high-cost production resources have security vulnerabilities?" That question requires cost data, resource tagging, environment classification, and security scan results. If those live in four different systems with four different data models, no AI can answer it, because it doesn't have the data.
 
 An AI that only sees cost data will optimize for cost but might recommend downsizing a resource that's running a critical security tool. An AI that only sees security findings can tell you a resource is misconfigured but can't assess whether fixing it will break a revenue-generating service. An AI that only sees one cloud provider can't detect that your team just provisioned duplicate infrastructure in a second provider.
 
-The [visibility-first governance model](https://www.cloudquery.io/blog/cloud-operations-playbook-part-06-visibility-first-governance-model) we described in Part 6 wasn't just about dashboards and compliance. It was about building the kind of unified data layer that makes AI-powered operations possible.
+The [visibility-first governance model](https://www.cloudquery.io/blog/cloud-operations-playbook-part-06-visibility-first-governance-model) we described in Part 6 also builds the kind of unified data layer that makes AI-powered operations possible.
 
 ## Five AI Use Cases a Unified Data Layer Enables
 
@@ -104,7 +104,7 @@ Historical data is equally critical. An AI looking at a single point-in-time sna
 
 ## The Data Quality Trap
 
-Here's the thing about AI that doesn't get enough attention: it amplifies whatever you give it. Good data produces good insights. Bad data produces confident wrong answers.
+AI amplifies whatever you give it, and that doesn't get enough attention. Good data produces good insights. Bad data produces confident wrong answers.
 
 This is worse than getting no answer at all. A human looking at incomplete data knows it's incomplete. An AI system will happily generate a detailed, well-structured, completely wrong recommendation based on stale or partial data. And because the recommendation sounds authoritative, people act on it.
 

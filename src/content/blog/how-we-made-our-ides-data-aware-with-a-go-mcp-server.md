@@ -17,7 +17,7 @@ _Co-authored with Mariano Gappa at CloudQuery._
 
 Most developers (and our own team) have been fully using AI code assistance to help with all aspects of building software. We have found that our AI-assisted IDEs know our functions, suggest completions, and help debug issues. However, their usefulness stopped dead at our database. AI assistants have zero understanding of what's actually in our tables, what queries make sense, or how your data connects together. This often results in hallucinations/bad data if you ever were to ask it a question about cloud infrastructure.
 
-At [CloudQuery](https://www.cloudquery.io/), we've been running an experiment for months: what happens when you bridge that gap? We built an MCP server in Go (in fact, [our entire stack runs on Go](https://github.com/cloudquery/cloudquery)) that gives Claude or Cursor direct access to our cloud infrastructure database, and the results have changed how our engineering team works.
+At [CloudQuery](https://www.cloudquery.io/), we've been running an experiment for months: what happens when you bridge that gap? We built an MCP server in Go ([our entire stack runs on Go](https://github.com/cloudquery/cloudquery)) that gives Claude or Cursor direct access to our cloud infrastructure database, and the results have changed how our engineering team works.
 
 This post covers what we learned about making LLMs truly data-aware, the technical gotchas nobody talks about, and why this pattern could transform how any team with substantial data operates.
 
@@ -42,7 +42,7 @@ By building an MCP server that exposes our database schemas, query capabilities,
 
 ## What We Built
 
-When Anthropic dropped the Model Context Protocol in November with SDKs for [Python](https://github.com/modelcontextprotocol/python-sdk), [TypeScript](https://github.com/modelcontextprotocol/typescript-sdk), [Java](https://github.com/modelcontextprotocol/java-sdk), and [Kotlin](https://github.com/modelcontextprotocol/kotlin-sdk), but not Go, we had a problem. But also an opportunity.
+When Anthropic dropped the Model Context Protocol in November with SDKs for [Python](https://github.com/modelcontextprotocol/python-sdk), [TypeScript](https://github.com/modelcontextprotocol/typescript-sdk), [Java](https://github.com/modelcontextprotocol/java-sdk), and [Kotlin](https://github.com/modelcontextprotocol/kotlin-sdk), but not Go, we had a problem, and also an opportunity.
 
 We built our MCP server specifically to expose our data layer to Claude. We're using the [mark3labs/mcp-go](https://github.com/mark3labs/mcp-go) library since Anthropic doesn't have an official Go SDK yet (though [they're working on it](https://github.com/modelcontextprotocol/go-sdk)).
 
@@ -109,7 +109,7 @@ Each tool is designed around data exploration workflows rather than just exposin
 
 ## Coding when the LLM Knows Your Data
 
-The transformation in our engineering workflow has been dramatic. Here are specific examples of how bridging the code-data gap changed our day-to-day operations:
+Here are specific examples of how bridging the code-data gap changed our day-to-day operations:
 
 ### Infrastructure Troubleshooting
 
@@ -176,8 +176,6 @@ The productivity gains compound when your AI assistant has full context of both 
 
 Building an MCP server taught me more about how LLMs actually work than months of reading papers. When you watch your AI assistants make decisions about data exploration, tool selection, and query optimization, you start understanding the practical potential of AI-assisted development.
 
-**The code-data bridge we built isn't just a productivity hack. It's a preview of how software development changes when your AI assistant has full context of both your code and your data.**
+**The code-data bridge we built is a preview of how software development changes when your AI assistant has full context of both your code and your data.**
 
 I'd argue 99.99% of developers haven't thought of this pattern yet. But exposing your data layer to LLMs through MCP servers genuinely supercharges what's possible with AI-assisted development. The barrier between "I have a question about our data" and "I have a complete answer" disappears.
-
-That changes everything.

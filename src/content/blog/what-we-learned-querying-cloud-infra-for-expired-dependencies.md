@@ -116,7 +116,7 @@ If everything looks good, your cluster will now be running a supported Kubernete
 
 ## How to find AWS RDS Databases Reaching End of Standard Support
 
-Upgrading your AWS services before they hit their end-of-life date isn't just about security and compliance, it can save you real money. AWS doesn't just stop supporting outdated services; in many cases, they start charging you extra for continued usage.
+Upgrading your AWS services before they hit their end-of-life date can also save you real money, on top of the security and compliance reasons. AWS doesn't just stop supporting outdated services; in many cases, they start charging you extra for continued usage.
 
 Take Amazon RDS MySQL, for example. [Once its end of standard support date passes, AWS automatically enrolls your databases into RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support-charges.html), which comes with extra charges per vCPU per hour. That means every day you delay upgrading, you're paying more for the same service, without getting new features or improvements.
 
@@ -156,7 +156,7 @@ INNER JOIN eol_data AS e
 WHERE e.eol_since <= threshold;
 ```
 
-When you run this query:
+This query:
 
 - Checks all your RDS MySQL instances and finds those reaching EOL within the next 30 days.
 - Flags instances already in _Extended Support_, so you know where you're paying extra.

@@ -12,7 +12,7 @@ heroAlt: 'Works on My Machine card for TL;DR in Tech issue 83, leading with Runn
 
 _By: Will Larson_
 
-tl;dr: Will Larson breaks down the essential components of engineering onboarding, the roles of executive sponsor, orchestrator, manager, and buddy, and the curriculum to consider. He also discusses why onboarding programs fail, whether to integrate with wider company onboarding, and when to prioritize onboarding. A must-read for software engineers in management roles.
+tl;dr: Will Larson breaks down the essential components of engineering onboarding, the roles of executive sponsor, orchestrator, manager, and buddy, and the curriculum to consider. He also discusses why onboarding programs fail, whether to integrate with wider company onboarding, and when to prioritize onboarding.
 
 ## [Why You Should Send A Weekly Summary Email](https://jefago.medium.com/why-you-should-send-a-weekly-summary-email-1c556149ed42)
 
@@ -30,13 +30,13 @@ tl;dr: This article covers the differences between engineering and design proble
 
 _By: Orson Peters_
 
-tl;dr: Orson Peters shares his experience optimizing an Advent of Code solution and demonstrates a technique for storing a small lookup table with small elements as a constant, indexed using shifts. A fascinating read for software engineers interested in optimizing code and learning new techniques.
+tl;dr: Orson Peters shares his experience optimizing an Advent of Code solution and demonstrates a technique for storing a small lookup table with small elements as a constant, indexed using shifts.
 
 ## [Fixing The Next 10,000 Aliasing Bugs](https://blog.polybdenum.com/2023/03/05/fixing-the-next-10-000-aliasing-bugs.html)
 
 _By: polybdenum.com_
 
-tl;dr: The author presents three case studies of a common bug caused by violated invariants due to multiple aliased references to the same value. The article explores how these issues could inform future language design decisions and the emergence of alias types. Valuable insights for software engineers working with data and databases.
+tl;dr: The author presents three case studies of a common bug caused by violated invariants due to multiple aliased references to the same value. The article explores how these issues could inform future language design decisions and the emergence of alias types.
 
 ## [Which Web Frontend Architecture Fits Best?](https://www.workingsoftware.dev/frontend-rendering-techniques/)
 
@@ -48,7 +48,7 @@ tl;dr: Patrick Roos provides a guide for finding the right web frontend architec
 
 _By: Dave Baggett_
 
-tl;dr: Video game developer Dave Baggett shares his experience with the hardest bug he's ever encountered and the process of debugging it. He spent 6 weeks debugging memory card code for Crash Bandicoot. A captivating read for software engineers interested in debugging challenges and game development.
+tl;dr: Video game developer Dave Baggett shares his experience with the hardest bug he's ever encountered and the process of debugging it. He spent 6 weeks debugging memory card code for Crash Bandicoot.
 
 ## [RoomGPT](https://github.com/Nutlope/roomGPT)
 

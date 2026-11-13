@@ -16,7 +16,7 @@ heroAlt: 'The dashboard of an old car'
 > **TL;DR:**
 > CloudQuery Reports provides pre-built insights into your multi-cloud environment with ready-to-use dashboards for security, compliance, cost management, and operations. Access underlying SQL queries to customize reports and get actionable intelligence across all your cloud resources without specialized expertise.
 
-Let's face it - managing multiple cloud environments is a headache. That's why we're so excited to announce the launch of [CloudQuery Reports](https://www.cloudquery.io/docs/platform/core-concepts/reports). We built Reports to help teams better understand and govern all of their cloud environments. Reports are an important step forward in our mission to democratize cloud visibility and control.
+Let's face it - managing multiple cloud environments is a headache. That's why we're so excited to announce the launch of [CloudQuery Reports](https://www.cloudquery.io/docs/platform/core-concepts/reports). We built Reports to help teams better understand and govern all of their cloud environments.
 
 ![CloudQuery Reports dashboard showing multiple cloud monitoring cards including Asset End of Life Report, AWS Backup Health, AWS Cloud Security, CloudTrail Log Detections, Security Best Practices, Security Hub Overview, VPC Details, Well-Architected, Azure Attack Surface, Cost Saving Opportunities, and GitHub Repository and Security Insights.](/images/blog/visualize-govern-cloud-stack-cloudquery-reports/image5.gif)
 
@@ -76,7 +76,7 @@ We've also added specialized reports for GitHub users, giving you insights into 
 
 ## Getting Started
 
-The best part? If you're already syncing data into CloudQuery, you can start using [Reports](https://www.cloudquery.io/docs/platform/core-concepts/reports) right now. Just check the "Tips for using this report" section to see which integrations each report requires.
+If you're already syncing data into CloudQuery, you can start using [Reports](https://www.cloudquery.io/docs/platform/core-concepts/reports) right now. Just check the "Tips for using this report" section to see which integrations each report requires.
 
 Stay tuned for more reports coming soon. And as always, [we'd love to hear](https://www.cloudquery.io/contact-us) what additional reports would be most valuable for your team.
 

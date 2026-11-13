@@ -21,7 +21,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 
 You've done the hard part. You stood up a [cloud asset inventory](https://www.cloudquery.io/product/cloud-asset-inventory), wrote [security policies in SQL](https://www.cloudquery.io/product/policies), started [automating](https://www.cloudquery.io/product/automation) the tedious stuff, and got your 90-day roadmap moving. Your team can feel the difference. Investigations that used to take an hour now take minutes. Compliance prep went from a four-week scramble to a two-day export.
 
-Here's the thing: your VP doesn't feel any of that. Your CxO doesn't.
+Your VP and your CxO don't feel any of that.
 
 If you can't put numbers in front of leadership, your cloud operations program looks like a cost center rather than a strategic investment. And cost centers get cut when budgets tighten. The metrics framework in this post gives you the language to communicate what you've built, why it matters, and where you're headed next.
 
@@ -78,7 +78,7 @@ These measure the health of your [platform engineering](https://www.cloudquery.i
 
 ## The One-Page Leadership Scorecard
 
-Here's the scorecard format we recommend for presenting to leadership. One page. Six rows. Three columns of numbers. No fluff.
+Here's the scorecard format we recommend for presenting to leadership. It's one page: six rows and three columns of numbers.
 
 | Metric                                     | Before  | After 90 Days | Target   |
 | ------------------------------------------ | ------- | ------------- | -------- |
@@ -125,17 +125,17 @@ In [Part 1](https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-clo
 
 In Parts 2 through 5, we measured the gap from every angle. The maturity model gave you a score. The security tax showed you what fragmentation costs in investigation time. The compliance scramble showed you what it costs in audit prep. The waste calculator showed you what it costs in dollars.
 
-In Parts 6 and 7, we laid out the governance model. Visibility first, then rules, then automation. Not the other way around.
+In Parts 6 and 7, we laid out the governance model. Visibility first, then rules, then automation.
 
-In Parts 8 through 10, we got hands-on. SQL-based security checks. Continuous compliance. An AI-ready data layer that makes your infrastructure queryable by anyone, not just the three people who know which console to log into.
+In Parts 8 through 10, we got hands-on with SQL-based security checks, continuous compliance, and an AI-ready data layer that makes your infrastructure queryable by anyone, not just the three people who know which console to log into.
 
 In Part 11, we gave you the 90-day roadmap: days 1 through 30 for the foundation, days 31 through 60 for governance, days 61 through 90 for automation and scale.
 
 And now, in this post, you have the metrics to prove it all worked.
 
-Here's what matters most: cloud operations isn't a project with a finish line. It's a practice. Your infrastructure will keep growing. New accounts will appear. New services will launch. New compliance requirements will land. The metrics in this post aren't a final exam. They're the vital signs you check every quarter to make sure the practice is healthy.
+Cloud operations is an ongoing practice with no finish line. Your infrastructure will keep growing: new accounts will appear, new services will launch, and new compliance requirements will land. The metrics in this post are the vital signs you check every quarter to make sure the practice is healthy.
 
-The teams that succeed at this aren't the ones with the biggest budgets or the most engineers. They're the ones that treat [cloud operations](https://www.cloudquery.io/product/cloud-ops) as an ongoing discipline, with clear metrics, regular check-ins, and a commitment to continuous improvement.
+Budget and headcount matter less than whether a team treats [cloud operations](https://www.cloudquery.io/product/cloud-ops) as an ongoing discipline, with clear metrics, regular check-ins, and a commitment to continuous improvement.
 
 ## Key Takeaways
 

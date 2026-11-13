@@ -65,9 +65,9 @@ Organizations can build and maintain an AWS Cloud Asset Inventory using various 
 
 ### AWS Config
 
-AWS Config provides continuous monitoring and recording of AWS resource configurations. This native AWS service integrates seamlessly with other AWS services and provides automated compliance checking.
+AWS Config provides continuous monitoring and recording of AWS resource configurations. This native AWS service integrates with other AWS services and provides automated compliance checking.
 
-Advantages include native AWS integration, continuous monitoring capabilities, and automated remediation triggers. However, AWS Config costs $0.003 per configuration item, potentially resulting in monthly expenses of $90,000-$360,000 for environments with 1 million resources. Additionally, AWS Config only supports AWS resources, limiting its utility for multi-cloud environments.
+Advantages include native AWS integration, continuous monitoring capabilities, and automated remediation triggers. However, AWS Config costs $0.003 per configuration item, potentially resulting in monthly expenses of $90,000-$360,000 for environments with 1 million resources. AWS Config also supports only AWS resources, limiting its utility for multi-cloud environments.
 
 ### AWS Systems Manager
 
@@ -185,7 +185,7 @@ WHERE rule->>'IpRanges' LIKE '%0.0.0.0/0%'
   AND rule->>'IpProtocol' != 'icmp';
 ```
 
-The beauty of CloudQuery is that your data lives in your chosen destination, meaning you can build dashboards, run complex analytics, and integrate with existing business intelligence tools without vendor lock-in.
+With CloudQuery, your data lives in your chosen destination, so you can build dashboards, run complex analytics, and integrate with existing business intelligence tools without vendor lock-in.
 
 ## The Bottom Line
 
@@ -193,6 +193,6 @@ We've covered the essential components of AWS Cloud Asset Inventory - from compu
 
 Your tool options range from AWS native solutions like Config and Systems Manager to third-party platforms and custom-built solutions. Each approach has trade-offs in cost, functionality, and complexity. AWS Config integrates natively with AWS, but can become expensive at scale. Systems Manager focuses on instance-level inventory. Third-party solutions like CloudQuery offer multi-cloud capabilities with significant cost advantages.
 
-The reality is simple: AWS Cloud Asset Inventory isn't optional anymore - it's fundamental for running a professional cloud operation. Whether you're managing dozens or thousands of resources, you need complete visibility into your environment.
+You need an AWS Cloud Asset Inventory to run a professional cloud operation. Whether you're managing dozens or thousands of resources, you need complete visibility into your environment.
 
 Ready to build your AWS asset inventory? Follow our [AWS to PostgreSQL quickstart](https://www.cloudquery.io/docs/cli/getting-started/aws-to-postgresql) to sync your first AWS resources into a queryable database in minutes. Check out the [CloudQuery documentation](https://www.cloudquery.io/docs/platform/introduction) to learn more about advanced configurations and integrations. Your future self will thank you when you're not scrambling to explain mysterious AWS charges or hunting for resources during your next security audit.

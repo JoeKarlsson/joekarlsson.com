@@ -30,19 +30,19 @@ tl;dr: Swizec reminds us that "you know you can get a monkey" but challenges us 
 
 _By: Unknown_
 
-tl;dr: The authors provide a list of numbers for managing software teams, covering topics like minimum number of direct reports, candidates to interview before deciding, days before a new hire should merge a pull request, and days before a small support issue becomes a large one. These insights may help software engineers better understand team management.
+tl;dr: The authors provide a list of numbers for managing software teams, covering topics like minimum number of direct reports, candidates to interview before deciding, days before a new hire should merge a pull request, and days before a small support issue becomes a large one.
 
 ## [Pull The Andon Cord](https://taylorpearson.me/interestingtimes/andon-cord/)
 
 _By: Taylor Pearson_
 
-tl;dr: Taylor Pearson discusses Toyota's Andon Cord, which could halt the assembly line when pulled by a worker who spotted an issue. The worker then had to propose a solution. This process had two benefits: (1) it made workers feel trusted and involved, and (2) it increased quality by tapping into workers' tacit knowledge. A valuable lesson for software engineers on empowering team members.
+tl;dr: Taylor Pearson discusses Toyota's Andon Cord, which could halt the assembly line when pulled by a worker who spotted an issue. The worker then had to propose a solution. This process had two benefits: (1) it made workers feel trusted and involved, and (2) it increased quality by tapping into workers' tacit knowledge.
 
 ## [Automating Safe, Hands-Off Deployments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/)
 
 _By: Clare Liguori_
 
-tl;dr: Clare Liguori outlines the steps a code change goes through in an Amazon pipeline on its way to production, detailing the four major phases: source, build, test, and production. This article offers software engineers valuable insights into continuous delivery pipelines and how a typical AWS service team might set one up.
+tl;dr: Clare Liguori outlines the steps a code change goes through in an Amazon pipeline on its way to production, detailing the four major phases: source, build, test, and production. It's a good look at how a typical AWS service team might set up a continuous delivery pipeline.
 
 ## [Tag Systems](https://buttondown.email/hillelwayne/archive/tag-systems/)
 

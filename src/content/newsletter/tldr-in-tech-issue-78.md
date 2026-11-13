@@ -30,19 +30,19 @@ tl;dr: Eira explores the possible connection between programming and ADHD, discu
 
 _By: Kevin Sookocheff_
 
-tl;dr: Kevin Sookocheff suggests three key strategies for building successful complex software systems: (1) define and enforce quality architecture principles, (2) develop information aggregation systems for monitoring compliance, and (3) encourage experimentation and diversity in team building and software development. A thought-provoking read for software engineers.
+tl;dr: Kevin Sookocheff suggests three key strategies for building successful complex software systems: (1) define and enforce quality architecture principles, (2) develop information aggregation systems for monitoring compliance, and (3) encourage experimentation and diversity in team building and software development.
 
 ## [Database Sharding Explained](https://architecturenotes.co/database-sharding-explained/)
 
 _By: Mahdi Yusuf_
 
-tl;dr: Mahdi Yusuf delves into database sharding, discussing when to use it, how to set it up, why we shard data stores, and various alternatives to sharding. This article is essential for software engineers working with databases and looking to optimize performance.
+tl;dr: Mahdi Yusuf walks through database sharding, discussing when to use it, how to set it up, why we shard data stores, and various alternatives to sharding.
 
 ## [Common Pitfalls Of GitHub Actions](https://ashishb.net/tech/common-pitfalls-of-github-actions/)
 
 _By: Ashish Bhatia_
 
-tl;dr: Ashish Bhatia critiques GitHub's Actions template, pointing out its lack of dependency caching, cancelation of stale executions, path filtering, and timeouts. He also provides solutions for each issue. Software engineers working with GitHub Actions should take note of these potential pitfalls and suggested improvements.
+tl;dr: Ashish Bhatia critiques GitHub's Actions template, pointing out its lack of dependency caching, cancelation of stale executions, path filtering, and timeouts. He also provides solutions for each issue.
 
 ## [PSQL Tips](https://web.archive.org/web/20230609043908/https://psql-tips.org/psql_tips_all.html)
 

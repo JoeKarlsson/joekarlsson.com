@@ -42,7 +42,7 @@ The technical differences explain the time gap. Traditional CMDBs use agent-base
 
 ## Terminology
 
-Before we go deeper, let's define what we're actually talking about. A **CMDB (Configuration Management Database)** stores information about IT infrastructure components and their relationships. Traditional CMDBs follow the [ITIL framework](https://www.axelos.com/certifications/itil-service-management) using Configuration Items (CIs) - templates for servers, applications, and databases. (For a full breakdown of the leading options, see our guide to the [best CMDB tools in 2026](https://www.cloudquery.io/learning-center/what-are-cmdb-tools).)
+A **CMDB (Configuration Management Database)** stores information about IT infrastructure components and their relationships. Traditional CMDBs follow the [ITIL framework](https://www.axelos.com/certifications/itil-service-management) using Configuration Items (CIs) - templates for servers, applications, and databases. (For a full breakdown of the leading options, see our guide to the [best CMDB tools in 2026](https://www.cloudquery.io/learning-center/what-are-cmdb-tools).)
 
 A **Configuration Item (CI)** is ITIL-speak for infrastructure components. You've got Server CIs, Application CIs, Database CIs. Each follows a rigid template.
 
@@ -74,7 +74,7 @@ Here's the cloud equivalent: Lambda function executes 10,000 times today across 
 
 The question this reveals: Traditional CMDB answers "When did web-prod-01 last reboot?" Cloud CMDB answers "Which of the 847 EC2 instances running right now are unencrypted?"
 
-One assumes permanence. The other assumes continuous change.
+Traditional CMDBs assume permanence. Cloud-native approaches assume continuous change.
 
 ## Part 2: How Does Traditional CMDB Work?
 
@@ -107,7 +107,7 @@ spec:
 
 Run `cloudquery sync configuration.yml` and all your AWS resources are in PostgreSQL. Query with standard SQL. [Get started in 5 minutes](https://www.cloudquery.io/docs/cli/getting-started).
 
-Time to value: hours. Not months.
+Time to value is measured in hours.
 
 > **Note:** **Why Most CMDBs Fail**
 > [Gartner's 2024 research](https://www.gartner.com/en/documents/3898512) found 70-80% of traditional CMDB initiatives fail to deliver business value. The primary reasons: inability to handle ephemeral cloud infrastructure, ITIL data models that don't fit cloud resources, and implementation timelines measured in months instead of hours.
@@ -128,7 +128,7 @@ Relationship CIs require manual configuration to link resources. This breaks con
 
 Cloud-native approaches skip the translation layer. An EC2 instance table includes all 50+ native attributes: `instance_id`, `instance_type`, `vpc_id`, `subnet_id`, `security_groups`, `iam_instance_profile`, `public_ip_address`, `private_ip_address`, `tags`, `state_name`, `launch_time`, `availability_zone`, `ebs_optimized`, `monitoring_state`, `network_interfaces` - everything AWS provides.
 
-RDS clusters include replication topology. Lambda functions include environment variables and permissions. S3 buckets include versioning, encryption, lifecycle policies. No generic templates. No lost attributes. Just the actual infrastructure state. [Explore CloudQuery's AWS integration](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws) to see the full schema.
+RDS clusters include replication topology. Lambda functions include environment variables and permissions. S3 buckets include versioning, encryption, lifecycle policies. The tables hold the actual infrastructure state, with nothing lost to a generic template. [Explore CloudQuery's AWS integration](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws) to see the full schema.
 
 ### Querying Infrastructure: Proprietary vs SQL
 
@@ -181,7 +181,7 @@ Monthly, you spend under 5 hours on maintenance. No duplicate reconciliation. AP
 
 Your security team needs "all public-facing servers with SSH open to 0.0.0.0/0" right now.
 
-With a traditional CMDB, you run a discovery scan (2 hours). Wait for reconciliation (30 minutes). Export to Excel (manual). Filter for public IPs (manual). Cross-reference security group data if the CMDB even captured it. By the time you export, the data is already outdated. Total time: 3+ hours. Data stale. Incomplete.
+With a traditional CMDB, you run a discovery scan (2 hours). Wait for reconciliation (30 minutes). Export to Excel (manual). Filter for public IPs (manual). Cross-reference security group data if the CMDB even captured it. By the time you export, the data is already outdated. Total time: 3+ hours, and the data is stale and incomplete.
 
 With a cloud CMDB, you run this query:
 
@@ -198,7 +198,7 @@ WHERE i.public_ip_address IS NOT NULL
   AND sg.ip_permissions @> '[{"IpProtocol": "-1", "IpRanges": [{"CidrIp": "0.0.0.0/0"}]}]'::jsonb;
 ```
 
-Total time: under a second. Data current. Complete.
+Total time: under a second, and the data is current and complete.
 
 ## Part 6: Use Case Evolution
 
@@ -254,7 +254,7 @@ WHERE changed_at > NOW() - INTERVAL '1 hour'
 ORDER BY changed_at DESC;
 ```
 
-Traditional CMDBs can't handle these use cases. They need real-time data, not daily scans. They need cloud-native attributes, not generic CIs. They need SQL querying, not proprietary UIs. They need continuous updates, not scheduled discovery.
+Traditional CMDBs can't handle these use cases. They need real-time data, cloud-native attributes, SQL querying, and continuous updates, and a traditional CMDB offers daily scans, generic CIs, proprietary UIs, and scheduled discovery.
 
 ## Part 7: What Are Traditional Vendors Doing?
 
@@ -286,7 +286,7 @@ Stop scheduling discovery scans for infrastructure that changes every second. St
 
 Start treating infrastructure as data. Call APIs directly using tools like CloudQuery. Store results in SQL databases. Query with standard SQL. Get answers in seconds, not hours.
 
-The technology exists. The architecture works. The implementation can be done in a few hours.
+The tooling exists today, and setup takes a few hours.
 
 **Next Steps:**
 

@@ -28,19 +28,19 @@ tl;dr: Roy emphasizes that being right isn't enough; you must also be effective 
 
 _By: Ben Northrop_
 
-tl;dr: Ben Northrop discusses the ambiguous zone that lies between following specs and using your own judgment as an engineer. Effective developers navigate this zone with curiosity, asking good questions and tactfully pushing back when things don't make sense. A must-read for engineers looking to improve their decision-making skills.
+tl;dr: Ben Northrop discusses the ambiguous zone that lies between following specs and using your own judgment as an engineer. Effective developers work through this zone with curiosity, asking good questions and tactfully pushing back when things don't make sense.
 
 ## [Is There A Drop In Software Engineer Job Openings, Globally?](https://newsletter.pragmaticengineer.com/p/is-there-a-drop-in-software-engineer)
 
 _By: Gergely Orosz_
 
-tl;dr: Gergely Orosz investigates data from Indeed and Hacker News, concluding that (1) there was a peak in software developer job postings between mid-2021 and mid-2022, (2) the US, Canada, and UK currently have some of the lowest numbers of developer job listings since Feb 2020, and (3) Germany, France, and Australia still have significantly more jobs than in February 2020. An insightful analysis for software engineers monitoring the job market.
+tl;dr: Gergely Orosz investigates data from Indeed and Hacker News, concluding that (1) there was a peak in software developer job postings between mid-2021 and mid-2022, (2) the US, Canada, and UK currently have some of the lowest numbers of developer job listings since Feb 2020, and (3) Germany, France, and Australia still have significantly more jobs than in February 2020.
 
 ## [Real-world Engineering Challenges #8: Breaking Up A Monolith](https://newsletter.pragmaticengineer.com/p/real-world-eng-8)
 
 _By: Gergely Orosz_
 
-tl;dr: Dive into the massive migration project by Khan Academy, where they moved a whopping one million lines of Python code across more than 40 services (mostly in Go) over 3.5 years. Talk about a break-up! 💔
+tl;dr: Gergely walks through Khan Academy's massive migration project, where they moved a whopping one million lines of Python code across more than 40 services (mostly in Go) over 3.5 years. Talk about a break-up! 💔
 
 ## [Focus](https://boz.com/articles/focus)
 
@@ -64,7 +64,7 @@ tl;dr: To reach the next level in your engineering skills, Charlie suggests addi
 
 _By: Wladimir Palant_
 
-tl;dr: Wladimir delves into the complexities of password strength and helps clarify what makes a password strong (and when strong is strong enough). Time to rethink your "12345" password! 🔐
+tl;dr: Wladimir explains what makes a password strong (and when strong is strong enough). Time to rethink your "12345" password! 🔐
 
 ## [Why Does 0.1 + 0.2 = 0.30000000000000004?](https://jvns.ca/blog/2023/02/08/why-does-0-1-plus-0-2-equal-0-30000000000000004/)
 

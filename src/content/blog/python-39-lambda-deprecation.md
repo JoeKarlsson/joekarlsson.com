@@ -17,7 +17,7 @@ heroAlt: 'A python curled up asleep'
 >
 > AWS stopped applying security patches to the Python 3.9 Lambda runtime on December 15, 2025. If you have functions still running `python3.9`, they are exposed right now. CloudQuery syncs Lambda configurations into SQL tables across all your AWS accounts and regions, letting you find every affected function with a single query. Prioritize by tags, VPC configuration, and recent activity, then upgrade to Python 3.12 or 3.13.
 
-You probably got the AWS Health notification about Python 3.9 end-of-support and thought you had time. Here's the thing: the deadline already passed. As of December 15, 2025, AWS stopped applying security patches to the `python3.9` runtime. Every day your functions stay on Python 3.9, they're running unpatched code in production.
+You probably got the AWS Health notification about Python 3.9 end-of-support and thought you had time. The deadline already passed. As of December 15, 2025, AWS stopped applying security patches to the `python3.9` runtime. Every day your functions stay on Python 3.9, they're running unpatched code in production.
 
 The good news is that your functions still work. The bad news is that AWS will [block function creates on August 31, 2026 and block updates on September 30, 2026](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html), so you're on borrowed time for making changes too. With functions scattered across dozens of accounts and regions, clicking through the AWS Console to find them all doesn't scale. This post gives you the SQL queries to identify every affected function, prioritize the risky ones, and plan your migration.
 

@@ -87,10 +87,10 @@ Venues are typically very expensive. If you are reserving a professional space l
 Picking a date for your event is hard. There are many things that you will want to keep in mind. First of all, look at a calendar of other similar events. You do not want to pick a date when all of your developers are at a big local conference if you are trying to attract a large number of developers. You will also want to avoid:
 
 - Holidays
-- Summer (especially late summer) – This is especially hard for parents
+- Summer (especially late summer). This is especially hard for parents
 - Major events in your area (especially other tech events or conferences)
 
-Have it on a weekend – trust us – just do it. Nobody can jam during the week.
+Have it on a weekend. Trust us, just do it. Nobody can jam during the week.
 
 Picking a date about 6 months ahead was helpful for us. We were able to stake a claim on a date before anyone else had a chance to take the great event dates. If you have the ability, be sure to reserve your date as early as you possibly can. We never regretted planning our event so early.
 
@@ -153,7 +153,7 @@ Be sure to keep your objectives in mind as you are developing your marketing pla
 
 You’re running a hackathon, you have got to make a website for your event. This is important for so many reasons. One, make it easy for people to get information about your event. Two, you are going to need it to get sponsors (see below). Your website should cover the following:
 
-- Make it look professional – this is the site your sponsors will be looking at when deciding if they want to give you money.
+- Make it look professional, since this is the site your sponsors will be looking at when deciding if they want to give you money.
 - The who, what, when, where, and why’s of your event (duh).
 
 - Start and end dates
@@ -191,7 +191,7 @@ Offer a variety of workshops to the public, with a variety of languages and topi
 
 ### **Prizes**
 
-I find that prizes can be a great way to market your event, but you need to be careful about the prizes you offer, as they can severely affect the mood of your event. For example, large cash prizes can make the event more competitive, which might turn off lots of inexperienced programmers, future programmers, and future technology leaders. The folks over at Major League Hacking have written about how to select “good” prizes for your event - it's worth thinking carefully about whether prizes drive the kind of participation you actually want.
+I find that prizes can be a great way to market your event, but you need to be careful about the prizes you offer, as they can severely affect the mood of your event. For example, large cash prizes can make the event more competitive, which might turn off lots of inexperienced programmers, future programmers, and future technology leaders. The folks over at Major League Hacking have written about how to select “good” prizes for your event. Think about whether your prizes draw the kind of participation you want.
 
 ### **Swag**
 
@@ -373,7 +373,7 @@ Don’t know how to write up a wrap-up report? [Check out this great guide to wr
 
 Something that was important for me at my hackathon, was to put all of the submissions on our website. All too often, I find that hackathon submissions disappear and die the Monday morning following a hackathon. No one ever looks at that project or the code ever again. Something I appreciated about the Stupid Hackathon in New York is that they posted all of the projects with photos, videos, descriptions, links, and authors for all of their projects. It helps promote the event and helps share the work that people worked so hard on at your event. I know that I have personally loved looking at the amazing projects created at the original Stupid Hack, and is something I wanted to bring to my hackathon. This is also something that I would like to continue doing at all of my future hackathons.
 
-Do you have more ideas for how to run a hackathon – let me know. This was only my first event, and I know I have lots to learn. Or do you want to brainstorm strategies for how to run your next hackathon? Shoot me a message at joe@callmejoe.net
+Do you have more ideas for how to run a hackathon? Let me know. This was only my first event, and I know I have lots to learn. Or do you want to brainstorm strategies for how to run your next hackathon? Shoot me a message at joe@callmejoe.net
 
 ### **Additional Resources:**
 

@@ -8,7 +8,7 @@ heroImage: '/images/newsletter/tldr-in-tech-issue-74/card-5a366684.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 74, leading with Database Cryptography Fur The Rest Of Us, with the issue number circled in pink crayon'
 ---
 
-Hey there 😎 Welcome back to another weekly newsletter, packed with juicy knowledge nuggets and served with a side of humor. This week, we're diving into database cryptography, executive networking, mushroom computers, and more.
+Hey there 😎 Welcome back to another weekly newsletter, packed with juicy knowledge nuggets and served with a side of humor. This week: database cryptography, executive networking, mushroom computers, and more.
 
 ## [Database Cryptography Fur The Rest Of Us](https://soatok.blog/2023/03/01/database-cryptography-fur-the-rest-of-us/) - Soatok Dreamseeker
 
@@ -30,7 +30,7 @@ tl;dr: Ravi Parikh, CEO of Airplane, takes a flight of fancy ✈️ by discussin
 
 _By: Alex Kladov_
 
-tl;dr: Alex Kladov, who has spent seven years working with Rust, now writes Zig full-time. In this post, he shares his personal reasons for the switch. A captivating read for software engineers curious about the Rust-Zig dynamic.
+tl;dr: Alex Kladov, who has spent seven years working with Rust, now writes Zig full-time. In this post, he shares his personal reasons for the switch.
 
 ## [Web Stable Diffusion](https://github.com/mlc-ai/web-stable-diffusion)
 
@@ -48,7 +48,7 @@ tl;dr: In this article, Michal outlines a 5-step process for contributing to a p
 
 ## [Building Your Executive Network](https://lethain.com/building-exec-network/) - Will Larson
 
-tl;dr: Will shares tactics for engineers to build their executive network, emphasizing the importance of cultivating relationships before you need them. Set a small goal like meeting one new person each month - it's like networking on easy mode! 🎮
+tl;dr: Will shares tactics for engineers to build their executive network, and says to start on those relationships before you need them. Set a small goal like meeting one new person each month - it's like networking on easy mode! 🎮
 
 That's all for this week, folks! Stay curious and keep coding. Until next week.
 

@@ -12,7 +12,7 @@ heroAlt: 'Works on My Machine card for TL;DR in Tech issue 101, leading with Joi
 
 _By: Justin Jaffray_
 
-tl;dr: Justin dives deep into "relational inner joins." If SQL joins are your bread and butter, then this is the Nutella spread! From "they're not without redundancy" to different perspectives, this article offers a comprehensive look you don't want to miss.
+tl;dr: Justin dives deep into "relational inner joins." If SQL joins are your bread and butter, then this is the Nutella spread! From "they're not without redundancy" to different perspectives, this article covers joins from a lot of angles.
 
 ---
 
@@ -36,7 +36,7 @@ tl;dr: Decentralized data management? Yes, please! Piethein tackles the concept 
 
 _By: Ben Hoyt_
 
-tl;dr: "Some developers do use names that are too short." Naming variables? You'll find this piece by Ben enlightening. He talks about striking the right balance between conciseness and clarity. `isThisNameTooLongOrIsItJustVerboseEnough` might wanna read this.
+tl;dr: "Some developers do use names that are too short." Naming variables? Ben talks about striking the right balance between conciseness and clarity. `isThisNameTooLongOrIsItJustVerboseEnough` might wanna read this.
 
 ---
 
@@ -44,7 +44,7 @@ tl;dr: "Some developers do use names that are too short." Naming variables? You'
 
 _By: Reka Horvath_
 
-tl;dr: Reka breaks down how GPT and other language models can help speed up prototyping but also create messier code. For software engineers dealing with the never-ending battle against technical debt, this one's for you.
+tl;dr: Reka breaks down how GPT and other language models can help speed up prototyping but also create messier code. Worth a read if you're fighting technical debt.
 
 ---
 
@@ -68,7 +68,7 @@ tl;dr: For all the engineering leaders out there, Will shares his playbook on cr
 
 _By: Mike Fisher_
 
-tl;dr: "Frame failures like a video game." Mike's unique perspective on failure offers a mental model shift. Good for engineers who sometimes (or often, no judgment here) fail and want to turn it into a learning curve.
+tl;dr: "Frame failures like a video game." Mike's take on failure is a useful mental model shift. Good for engineers who sometimes (or often, no judgment here) fail and want to turn it into a learning curve.
 
 ---
 

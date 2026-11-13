@@ -314,7 +314,7 @@ The motion automations use that probability to pick a timeout. When a room reads
 
 ### mmWave radar on top
 
-The last piece is mmWave radar. I added Aqara FP300 presence sensors in the Great Room and the bedroom and an FP2 in the office. Radar picks up someone sitting still, so it holds the lights on. The radar can't tell a cat from a person either, so it only counts while I'm home or guest mode is on. With the radar online, I cut the timeout after everyone leaves those rooms to 10 minutes. If a radar drops offline, that room goes back to the 2-hour timeout instead of guessing. The radar also gets ignored while Good Night, Time For Bed, or Nap Time has switched that room's motion sensing off, the same as the Hue motion sensors.
+The last piece is mmWave radar. I added Aqara FP300 presence sensors in the Great Room and the bedroom and an FP2 in the office. Radar picks up someone sitting still, so it holds the lights on. The radar can't tell a cat from a person either, so it only counts while I'm home or guest mode is on. With the radar online, I cut the timeout after everyone leaves those rooms to 10 minutes. If a radar drops offline, that room goes back to the 2-hour timeout. The radar also gets ignored while Good Night, Time For Bed, or Nap Time has switched that room's motion sensing off, the same as the Hue motion sensors.
 
 Before the radar and the Bayesian sensors, I sometimes ran 8 to 10 hour timers just so the lights wouldn't shut off while I was in the room. Now the lights turn off 10 minutes after I leave, and they almost never turn off on me. I've only run it since early October, so I'm still tuning the numbers.
 

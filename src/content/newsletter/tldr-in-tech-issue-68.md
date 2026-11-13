@@ -9,13 +9,13 @@ heroImage: '/images/newsletter/tldr-in-tech-issue-68/card-6760378d.webp'
 heroAlt: "Works on My Machine card for TL;DR in Tech issue 68, leading with We Invested 10% To Pay Back Tech Debt; Here's What Happened, with the issue number circled in pink crayon"
 ---
 
-Ahoy, fellow software pirates! As the tech industry continues to evolve, it's important to consider the benefits of unionizing to protect our collective power and work towards a more ethical future. Here are three potential reasons why unionizing in tech is important:
+Ahoy, fellow software pirates! It's worth considering the benefits of unionizing to protect our collective power and work towards a more ethical future. Here are three potential reasons why unionizing in tech is important:
 
 1. Protecting worker rights: Unionizing provides software engineers with a collective voice to advocate for their rights and interests. This can include better pay, benefits, and working conditions. A 2018 survey by the Communications Workers of America (CWA) found that 74% of tech workers would be interested in joining a union to improve their working conditions.
 2. Building more ethical products: Unions can help push for more ethical product development by advocating for data privacy, transparency, and fair labor practices. According to a 2019 report by the Tech Workers Coalition, unionizing can provide a counterbalance to the power of large tech companies and help ensure that workers have a say in how their products are developed.
 3. Addressing power imbalances: The tech industry is known for its stark power imbalances, with a few large companies controlling a significant share of the market. By unionizing, software engineers can help level the playing field and negotiate on more equal terms with their employers. A 2018 survey by the International Brotherhood of Electrical Workers (IBEW) found that 71% of tech workers believed that unions were necessary to balance the power between employers and employees.
 
-So, while unionizing may not be right for everyone, there are good reasons to consider it as we navigate the changing waters of the tech industry. Let's remember that by working together, we can build a more equitable and just future for all."
+So, while unionizing may not be right for everyone, there are good reasons to consider it as we navigate the changing waters of the tech industry.
 
 Sources:
 

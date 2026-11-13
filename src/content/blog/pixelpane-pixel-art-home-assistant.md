@@ -54,7 +54,7 @@ The board itself goes back to 2020, a spin-off of a [Digital Graffiti Wall](/blo
 
 - **Home Assistant pushes to the board, and the board never reads from Home Assistant.** That way it doesn't need a Home Assistant token, and it can live on my IoT VLAN, where it can reach the internet and Home Assistant and nothing else.
 - I rewrote the player in Python so it could draw live, animated scenes from data alongside the GIFs.
-- It has a built-in control page, so I can change the playlist, upload GIFs or put up ON AIR from my phone instead of SSHing in.
+- It has a built-in control page, so I can change the playlist, upload GIFs or put up ON AIR from my phone.
 - Every scene is a plugin. A new one is one Python file, so I can try an idea in an evening.
 - One installer sets up the whole Pi, and if the board is unplugged, nothing in my Home Assistant routines breaks.
 

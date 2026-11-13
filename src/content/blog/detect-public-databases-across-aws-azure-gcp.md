@@ -31,7 +31,7 @@ We're going to build a multi-cloud database security policy that detects databas
 
 Policies are ClickHouse SQL queries that run against CloudQuery's normalized tables. Your sync jobs populate tables like [`aws_rds_db_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/tables/aws_rds_db_instances), [`azure_redis_caches`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_redis_caches), and [`gcp_sql_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/tables/gcp_sql_instances). Policies query these tables on a schedule and flag any rows matching your violation criteria.
 
-Policies are detective controls, not preventive ones. They're not blocking deploys or scanning IaC. They're checking what's actually running in your cloud right now, including resources created through the console, by third-party tools, or by IaC that's since drifted.
+Policies are detective controls. They don't block deploys or scan IaC; they check what's actually running in your cloud right now, including resources created through the console, by third-party tools, or by IaC that's since drifted.
 
 Every resource in CloudQuery has normalized metadata columns (`_cq_platform_id`, `_cq_account`, `_cq_region`, `_cq_name`) that work the same way across all providers. That's what makes multi-cloud policies possible.
 

@@ -46,7 +46,7 @@ Core CWPP capabilities:
 
 CWPP is particularly strong for teams running long-lived VMs or Kubernetes clusters in production. For ephemeral serverless workloads or rapidly-cycling containers, agent deployment becomes more complex - which is one driver of the shift toward agentless CNAPP approaches.
 
-The operational reality of agents: rolling out and maintaining sensors across a large fleet is genuine work. Teams with 1,000+ nodes regularly deal with rollout failures, version drift across OS images, and performance impact investigations before they achieve consistent coverage. That's not a reason to avoid CWPP, but it's worth accounting for when evaluating whether a dedicated CWPP or a bundled CNAPP capability fits your team's operational capacity.
+Rolling out and maintaining agents across a large fleet takes real work. Teams with 1,000+ nodes regularly deal with rollout failures, version drift across OS images, and performance impact investigations before they achieve consistent coverage. Account for that when evaluating whether a dedicated CWPP or a bundled CNAPP capability fits your team's operational capacity.
 
 ## What Is CNAPP?
 
@@ -63,7 +63,7 @@ A full CNAPP typically includes:
 - **IaC scanning**: Detecting misconfigurations in Terraform, CloudFormation, and Helm charts before deployment
 - **Attack path analysis**: Graph-based correlation showing how a combination of findings could be chained into a breach
 
-The shift toward CNAPP reflects how attacks actually work: most cloud breaches aren't one misconfiguration in isolation. They're a misconfigured storage bucket combined with an overprivileged IAM role combined with an unpatched dependency - a chain that no single point solution can see across the full attack path.
+The shift toward CNAPP reflects how attacks actually work: most cloud breaches chain a misconfigured storage bucket to an overprivileged IAM role to an unpatched dependency, and no single point solution can see across that full attack path.
 
 ## How Do CWPP and CNAPP Compare?
 
@@ -90,7 +90,7 @@ CNAPP makes more sense if you're building a cloud security program from scratch 
 - Heavily containerized or serverless environments, where agentless approaches have lower overhead than per-container agents
 - Teams where attack path analysis is the priority - understanding which combinations of findings represent real exploitability, rather than triaging a flat list of hundreds of individual alerts
 
-**The honest trade-off:** CNAPP consolidation reduces tool sprawl and enables correlation, but a dedicated CWPP often detects more runtime threats than the CWPP capability bundled inside a CNAPP. Organizations with sophisticated security operations sometimes buy a dedicated CWPP (like CrowdStrike Falcon or Sysdig Secure) alongside a CNAPP - accepting the integration complexity for better detection depth.
+**The trade-off:** CNAPP consolidation reduces tool sprawl and enables correlation, but a dedicated CWPP often detects more runtime threats than the CWPP capability bundled inside a CNAPP. Organizations with sophisticated security operations sometimes buy a dedicated CWPP (like CrowdStrike Falcon or Sysdig Secure) alongside a CNAPP - accepting the integration complexity for better detection depth.
 
 ## How CloudQuery Fits into a CWPP or CNAPP Strategy
 

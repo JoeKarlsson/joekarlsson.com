@@ -22,19 +22,19 @@ Here's something that bothers us about the CSPM market: [96% of organizations re
 
 One vendor wants you to write Rego. Another uses Sentinel. A third has built an entirely custom DSL that only works inside their platform. Your security engineers learn the syntax, write a few hundred rules, and then discover they need something the language doesn't support. Or worse, they leave the company and take all the institutional knowledge with them because nobody else can read the policies.
 
-Meanwhile, [misconfigurations remain the leading cause of cloud security incidents](https://www.fortinet.com/resources/reports/cloud-security). Not sophisticated attacks. Not zero-days. Just resources configured wrong, and security checks that didn't catch them in time.
+Meanwhile, [misconfigurations remain the leading cause of cloud security incidents](https://www.fortinet.com/resources/reports/cloud-security). Not sophisticated attacks or zero-days, just resources configured wrong and security checks that didn't catch them in time.
 
-The CSPM market hit $1.64 billion in 2023 and is growing at 45% year over year. Organizations keep buying more tools. The misconfiguration rate stays flat. Something about this approach isn't working.
+The CSPM market hit $1.64 billion in 2023 and is growing at 45% year over year. Organizations keep buying more tools, and the misconfiguration rate stays flat, so something about this approach isn't working.
 
 ## What If Security Checks Were Just SQL?
 
-Think about what a security check actually is. It's a question: "Do any S3 buckets allow public access?" That's it. A question about the current state of your infrastructure.
+Think about what a security check actually is. It's a question about the current state of your infrastructure: "Do any S3 buckets allow public access?"
 
 If your [cloud asset inventory](https://www.cloudquery.io/product/cloud-asset-inventory) lives in a database, that question becomes a SQL query. Not a policy written in a language your engineering team can't read. Not a rule locked inside a vendor platform you can't export from. Just a query.
 
 This changes the dynamics completely. Your security team writes a check, and your platform engineers can review it in the same PR where they review Terraform changes. Your compliance team needs evidence for an auditor, and the query result IS the evidence. You're investigating an incident at 2 a.m., and you use the same query language you use for everything else.
 
-No new language. No new tool to learn. No vendor lock-in on your security policies.
+You don't have to learn a new language or a new tool, and your security policies aren't locked into a vendor.
 
 ## Five SQL Queries That Replace Entire CSPM Modules
 
@@ -111,7 +111,7 @@ SELECT 'GCP' as provider, name as resource, location as region
 FROM gcp_storage_buckets WHERE iam_policy::text LIKE '%allUsers%';
 ```
 
-One query. Two providers. Same result set. Try doing that with a vendor-specific CSPM tool and you'll be switching between two different consoles, exporting two different CSVs, and manually combining results in a spreadsheet.
+One query returns both providers in the same result set. Try doing that with a vendor-specific CSPM tool and you'll be switching between two different consoles, exporting two different CSVs, and manually combining results in a spreadsheet.
 
 > **Note:** These five queries are a starting point, not the full picture. The [Cloud Operations Playbook eBook](https://www.cloudquery.io/resources/cloud-operations-playbook) includes the complete SQL security check library with queries for all major cloud providers, plus a framework for building custom checks tailored to your specific environment and compliance requirements.
 

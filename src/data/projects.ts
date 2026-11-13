@@ -626,7 +626,7 @@ export const projects: Project[] = [
 			intro: [
 				'Most hackathons are sponsored by a company that wants something back: free development work, developers using its product, or new hires. A lot of them also run on the idea that four hackers and 48 hours can fix climate change or homelessness.',
 				'The Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon did the opposite. It was one day in Honolulu for projects with no value whatsoever, open to programmers, hardware hackers, artists, musicians and, according to the site, space whales. We stole the idea from the Stupid Hackathon in New York because we wanted to bring that hacker anarchist fun down to Hawaii. There were no corporate sponsors, and the prizes went to the stupidest ideas.',
-				"People built a Chrome extension that switches every font to Comic Sans and breaks every link, an Alexa that has had enough of your shit, a cardboard laptop and smartphone, a 3D-printed rubber duck keycap to talk to when you're stuck, and an official survey with the worst UX we could manage that never ends. Everyone there was building for the joy of making something, not for profit or glory.",
+				"People built a Chrome extension that switches every font to Comic Sans and breaks every link, an Alexa that has had enough of your shit, a cardboard laptop and smartphone, a 3D-printed rubber duck keycap to talk to when you're stuck, and an official survey with the worst UX we could manage that never ends. Everyone there was building something for the fun of it.",
 			],
 			made: {
 				text: [
@@ -715,7 +715,7 @@ export const projects: Project[] = [
 			made: {
 				text: [
 					"I built it in 2018, in React with styled-components, and Best Buy never had anything to do with it. It's gone from the Chrome Web Store now, and it's built on Manifest V2, which current Chrome won't load, so the screenshot from 2018 is the only look at it working.",
-					"It's a Chrome extension written in React. It looks for a model number or UPC for 3 seconds before falling back to the title, then asks the Best Buy API for that product and for stores within 15 miles of you, and picks the nearest Big Box store. I last touched it in January 2019, so it still expects those sites' 2019 page layouts.",
+					"It looks for a model number or UPC for 3 seconds before falling back to the title, then asks the Best Buy API for that product and for stores within 15 miles of you, and picks the nearest Big Box store. I last touched it in January 2019, so it still expects those sites' 2019 page layouts.",
 				],
 				diagram: {
 					src: '/images/projects/best-buy-product-locator/how-it-finds-a-store.svg',
@@ -829,7 +829,7 @@ export const projects: Project[] = [
 			],
 			made: {
 				text: [
-					"The 2015 version had no pixel math in it. You pasted in an image's URL, it drew the picture at a few percent of its size, and it stretched the tiny copy back up with image smoothing turned off, so the blur you'd normally get came out as hard squares. In November 2026 I rebuilt it to work on your own photo, with each block the exact average of the pixels under it.",
+					"The 2015 version had no pixel math in it. You pasted in an image's URL, it drew the picture at a few percent of its size, and it stretched the tiny copy back up with image smoothing turned off, so the blur you'd normally get came out as hard squares. In November 2026 I rebuilt it to work on your own photo.",
 					"Each block is one color, the exact average of the pixels under it, worked out on a copy of your photo no bigger than 2,000 pixels a side so the slider stays quick. I stretch that small grid back up with smoothing turned off, and Save PNG writes it at your photo's full size.",
 				],
 				diagram: {

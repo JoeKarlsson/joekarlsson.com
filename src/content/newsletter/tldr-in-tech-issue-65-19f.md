@@ -11,13 +11,13 @@ heroAlt: 'Works on My Machine card for TL;DR in Tech issue 66, leading with TL;D
 
 Hello, coding comrades!
 
-Are you ready to level up your personal brand in the tech world? Look no further, because your trusty newsletter has got you covered. This week, we're dishing out three hot tips for building your brand and making a name for yourself in the tech industry. So, grab your favorite caffeinated beverage, sit back, and get ready to become a branding pro!
+Are you ready to level up your personal brand in the tech world? This week, we're dishing out three hot tips for building your brand and making a name for yourself in the tech industry. So, grab your favorite caffeinated beverage, sit back, and get ready to become a branding pro!
 
 **Tip #1**: Build a strong online presence. Showcase your skills and experience on professional networking sites like LinkedIn, GitHub, and Stack Overflow.
 
 **Tip #2**: Network, Network, Network. Attend meetups, conferences and industry events to connect with other professionals and build a strong network.
 
-**Tip #3**: Be an active community member. Share your knowledge, and experiences and be an active member in online communities, forums, and groups related to your field. This will not only help you stay up to date on industry trends but also demonstrate your expertise and thought leadership.
+**Tip #3**: Be an active community member. Share your knowledge, and experiences and be an active member in online communities, forums, and groups related to your field. This keeps you up to date on industry trends and shows people what you know.
 
 And remember, building a personal brand takes time and effort, but it's worth it in the long run.
 

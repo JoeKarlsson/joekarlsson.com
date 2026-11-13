@@ -16,7 +16,7 @@ heroAlt: 'A census taker traveling by dog sled'
 
 You probably have 847 different AWS resources running across six accounts right now. Or maybe it's 1,200 resources across nine accounts.
 
-The scary part? You probably can't tell me if those numbers are right or wrong.
+The scary part is that you probably can't tell me if those numbers are right or wrong.
 
 **This is exactly when you need a cloud asset inventory.**
 
@@ -92,7 +92,7 @@ Without full visibility into your resources, you can't effectively implement sec
 - Audit compliance with security policies
 - Respond to vulnerability disclosures by identifying affected resources in minutes, not days
 
-Without clear visibility into all your assets, security becomes reactive guesswork instead of active governance.
+Without clear visibility into all your assets, security turns reactive: you find problems after they happen.
 
 ### 2. Why You Need an Inventory: Cost Optimization
 
@@ -134,7 +134,7 @@ Maintaining accurate inventory is key to incident response, capacity planning, a
 - **Disaster recovery:** Document complete infrastructure state for business continuity planning
 - **Compliance auditing:** Demonstrate governance and policy adherence
 
-Without good understanding of assets in your environment, adapting to change means stumbling in the dark instead of executing with confidence.
+Without a good understanding of the assets in your environment, you adapt to change blind.
 
 ## When Do You Need a Cloud Asset Inventory?
 

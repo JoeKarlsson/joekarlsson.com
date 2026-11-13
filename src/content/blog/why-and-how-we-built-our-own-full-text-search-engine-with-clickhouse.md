@@ -17,7 +17,7 @@ _Co-authored with James Riley at CloudQuery._
 
 During a production incident, every second counts. You need to find that specific EC2 instance, security group, or IAM role quickly - but which of the 200+ tables contains the resource you need? This is the core problem we set out to solve.
 
-Using ClickHouse as our database engine rather than a dedicated search tool, we've created a solution that achieves impressive performance while maintaining operational simplicity. Our implementation leverages specialized n-gram Bloom filter indexes and optimized query strategies to deliver lightning-fast results, even across massive datasets.
+Using ClickHouse as our database engine rather than a dedicated search tool, we got fast search across all of a customer's resources without adding another service to run. It relies on ClickHouse's n-gram Bloom filter indexes and on how we structure the queries.
 
 ## The Technical Challenge
 
@@ -150,9 +150,9 @@ We developed a more efficient query strategy that:
 
 The relevance scoring system uses the `weight` column to prioritize results. Properties with higher weights (like IDs, names, and other primary fields) rank higher than deeper nested properties. We sum the weights and sort the results in descending order of total score.
 
-Our optimized query strategies and careful implementation enabled effective search across massive datasets. While the 10x improvement quoted in our benchmarks represents specific test cases rather than general performance, the real transformation is more fundamental: customers went from not being able to search through their resources at all to having a responsive search capability that typically responds in under 400 milliseconds. This shift from "impossible" to "near-instantaneous" completely changes how users interact with their data.
+Our optimized query strategies and careful implementation enabled effective search across massive datasets. While the 10x improvement quoted in our benchmarks represents specific test cases rather than general performance, the bigger change is that customers went from not being able to search through their resources at all to a search that typically responds in under 400 milliseconds.
 
-The specific optimizations we've implemented (such as efficient query strategies and specialized Bloom filter indices) have proven particularly valuable for certain query patterns, allowing the system to handle even challenging search scenarios with reasonable performance. From a usability perspective, this consistent sub-second response time - regardless of the underlying complexity - is what makes the feature truly valuable.
+The specific optimizations we've implemented (such as efficient query strategies and specialized Bloom filter indices) have proven particularly valuable for certain query patterns, allowing the system to handle even challenging search scenarios with reasonable performance. From a usability perspective, this consistent sub-second response time - regardless of the underlying complexity - is what makes the feature useful.
 
 ## Performance Results and Tradeoffs
 
@@ -170,7 +170,7 @@ The first approach, which we called "naive," was straightforward, but inefficien
 
 We then developed an "ungrouped" strategy that unions all term lookups first before aggregating results. This reduced join overhead but still required reading all data matching any search term.
 
-Our third approach, "ungrouped-limited," was a breakthrough, but with important trade-offs. This strategy is a simplified version that works well for single search conditions:
+Our third approach, "ungrouped-limited," was much faster, with important trade-offs. This strategy is a simplified version that works well for single search conditions:
 
 ```sql
 SELECT
@@ -266,7 +266,7 @@ The implementation of full-text search has transformed how our customers interac
 2. **Improved resource discovery**: Engineers can easily find resources without needing extensive knowledge of our data model.
 3. **Simplified troubleshooting**: Operations teams can trace dependencies between resources by finding all references to specific identifiers.
 
-The implementation of full-text search has changed how our customers interact with their cloud. It's a shift from not being able to search effectively at all to having powerful search capabilities at their fingertips. What would have previously required complex, manually-crafted SQL queries across multiple tables (a task many users simply couldn't or wouldn't attempt) is now accessible through a search box.
+The implementation of full-text search has changed how our customers interact with their cloud. Before, they couldn't search effectively at all. What would have previously required complex, manually-crafted SQL queries across multiple tables (a task many users simply couldn't or wouldn't attempt) is now accessible through a search box.
 
 ## Future Directions
 
@@ -282,12 +282,12 @@ While our current implementation has proven highly effective for us, we're worki
 
 Our experience building full-text search directly in ClickHouse rather than integrating a specialized search engine provides valuable lessons for other engineering teams.
 
-Sometimes the "right" solution isn't using a specialized tool, but rather leveraging the capabilities of systems you already have. By deepening our understanding of ClickHouse's indexing capabilities, we created a solution that:
+Sometimes the "right" solution is to get more out of the systems you already have. By deepening our understanding of ClickHouse's indexing capabilities, we created a solution that:
 
-1. Integrates seamlessly with our existing infrastructure
+1. Runs on our existing infrastructure
 2. Avoids operational complexity of managing another service
 3. Provides excellent performance for our specific use case
-4. Leverages our team's existing expertise
+4. Uses our team's existing expertise
 
 For teams considering similar projects, we recommend:
 
@@ -296,7 +296,7 @@ For teams considering similar projects, we recommend:
 3. **Benchmark different approaches** against realistic datasets
 4. **Accept reasonable tradeoffs** that align with your priorities (in our case, optimizing for read performance over write efficiency)
 
-Full-text search has become one of the most appreciated features in CloudQuery Platform, validating our decision to build rather than integrate. While specialized search engines have their place, sometimes the best solution is hiding in plain sight within the tools you already know and use.
+Full-text search has become one of the most appreciated features in CloudQuery Platform, validating our decision to build rather than integrate. Specialized search engines have their place, but check what your current database can do first.
 
 ## References
 

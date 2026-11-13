@@ -17,9 +17,9 @@ Google spent years telling developers that API keys aren't secrets - you could e
 
 That assumption no longer holds.
 
-In February 2026, researchers at Truffle Security published a finding that changes the calculus for anyone running GCP: Google's `AIza*` format API keys - the same ones developers have embedded in production code for a decade - now authenticate to the Gemini API when that service is enabled on a project. No new key required. No warning that the access model changed. No email to inform you. A Maps key you deployed in 2019 might today grant an attacker access to your Gemini file storage, cached prompts, and the ability to run AI inference charges against your account.
+In February 2026, researchers at Truffle Security published a finding that changes the calculus for anyone running GCP: Google's `AIza*` format API keys - the same ones developers have embedded in production code for a decade - now authenticate to the Gemini API when that service is enabled on a project. You don't need a new key, and Google sent no warning or email that the access model had changed. A Maps key you deployed in 2019 might today grant an attacker access to your Gemini file storage, cached prompts, and the ability to run AI inference charges against your account.
 
-Truffle Security [scanned millions of websites](https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules) and found 2,863 live Google API keys already exposed to this vector - including keys from financial institutions, security companies, and Google's own infrastructure. Google themselves had old public API keys that Truffle Security could use to access Google's internal Gemini. A March 2026 [report in The Register][theregister-gemini] documented a developer who received an $82,314 bill after a Gemini key was stolen. That number is not a typo.
+Truffle Security [scanned millions of websites](https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules) and found 2,863 live Google API keys already exposed to this vector - including keys from financial institutions, security companies, and Google's own infrastructure. Google themselves had old public API keys that Truffle Security could use to access Google's internal Gemini. A March 2026 [report in The Register][theregister-gemini] documented a developer who received an $82,314 bill after a Gemini key was stolen.
 
 ## Why Did This Happen?
 
@@ -100,7 +100,7 @@ For keys that appear in the query above, remediation comes in two parts.
 
 **Rotate keys that have been in public code.** For any key that has been embedded in a mobile app binary, frontend JavaScript, or a public repository - add API restrictions, and also generate a new restricted key to replace it. The old key should be treated as potentially compromised regardless of what restrictions you add now.
 
-One distinction worth understanding clearly before you start:
+Know the difference between the two restriction types before you start:
 
 | Restriction Type         | What It Limits                       | Protects Against Gemini Access? |
 | ------------------------ | ------------------------------------ | ------------------------------- |

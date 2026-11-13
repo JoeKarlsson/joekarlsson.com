@@ -25,7 +25,7 @@ Then my coworkers started asking questions.
 
 Before getting into how, I want to address the obvious question: why not just use ChatGPT, or Cursor, or a shared Notion page full of prompts?
 
-The honest answer is that none of those are actually shareable in the way this is:
+None of those are shareable in the way this is:
 
 |                             | Notion prompts | ChatGPT | Claude Code skills |
 | --------------------------- | -------------- | ------- | ------------------ |
@@ -81,8 +81,6 @@ Just keep it short as it grows. I later [split my repo's CLAUDE.md files into sm
 
 ## Nobody Warned Me About the Terminal Problem
 
-Here's the part nobody writes about.
-
 I'm on a marketing team. My coworkers are great at their jobs - writing, strategy, campaigns, all of it. Most of them had never opened a terminal. The gap between where they were and "clone a repo and run a command" was not small, and pretending it was small would have killed adoption before it had a chance.
 
 We ran a lot of training sessions. Not one big "here's how this works" meeting - those don't stick. Short, focused sessions on specific workflows. Not "here's what Claude Code is," but "here's how to turn a blog post into scheduled social content in ten minutes." The tool is secondary. The workflow is what people remember.
@@ -91,7 +89,7 @@ I also built a `/setup` wizard - a skill whose entire job is onboarding. It runs
 
 There's also an init script that outputs `[OK]`, `[WARN]`, and `[FAIL]` lines so anyone can immediately see their status without having to understand what any of it means. Small thing. Huge difference in how people felt about whether the thing was "working."
 
-The reframe that helped me most: the product isn't the skills. It's the experience of getting someone from zero to their first successful run. That's what determines whether they come back.
+The reframe that helped me most: the product is the experience of getting someone from zero to their first successful run, more than the skills themselves. That's what determines whether they come back.
 
 ![Boromir meme: 'One does not simply hand a marketing team a terminal and say clone the repo'](/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/meme-one-does-not-simply.webp)
 
@@ -99,7 +97,7 @@ The reframe that helped me most: the product isn't the skills. It's the experien
 
 ## Documentation Is the Whole Thing
 
-I'll be direct about this because it's the thing people skip: documentation isn't optional. It's not polish. It's the product.
+Documentation is the part people skip, and it's as much the product as the skills are.
 
 Every skill in the repo has a corresponding doc in a `docs/` folder. Not a README, an actual guide - what the skill does, what it needs configured, what good output looks like, what to do when something breaks. The structure is pretty simple:
 
@@ -137,13 +135,13 @@ Concrete example: we publish a blog post, and then someone needs to write Linked
 
 Now it's `/social blog-slug`. Claude fetches the post, writes platform-specific copy in our voice, checks the schedule for open slots, drafts everything for review. The whole thing takes a few minutes, most of which is me actually reading the output.
 
-I'm not going to pretend I measured this rigorously. But the qualitative shift is real: things that required dedicated time now happen as a side effect of other work. The bigger win isn't the time saved, it's the stuff that was getting skipped that now actually happens.
+I didn't measure this rigorously, but the shift is real: things that required dedicated time now happen as a side effect of other work. The bigger win than the time saved is that work which used to get skipped now happens.
 
 ---
 
 ## Shared Context Is Underrated
 
-The most valuable file in the repo isn't a skill. It's `BRAND_VOICE.md`.
+The most valuable file in the repo is `BRAND_VOICE.md`.
 
 Brand voice, messaging framework, the words we're not allowed to use (a long list of banned buzzwords), current product positioning - all of it checked in, all of it referenced automatically by every content-generating skill. When someone runs `/social` or `/rewrite` or `/blog`, Claude already knows how we talk about our product. The output sounds like us rather than like every other AI-generated B2B marketing piece on the internet.
 
@@ -163,7 +161,7 @@ Every serious writeup on AI adoption at scale talks about designating an "AI cha
 
 ## When It Goes Wrong
 
-This stuff breaks. Worth being honest about that.
+This stuff breaks.
 
 The most common failure: a model update ships and a skill starts producing something subtly off. Not broken obviously - just slightly wrong tone, or it stopped following a rule it used to follow. You might not catch it immediately. Someone on the team will notice and report it as "the LinkedIn skill is acting weird." This happened to us - an update changed how the model handled long context, and one of our skills started ignoring word count guidelines that were buried near the bottom of its instructions. The fix was moving them to the top. Ten minutes to diagnose, two to fix. But you have to be watching.
 
@@ -268,11 +266,11 @@ None of these are glamorous. But they're the difference between a repo that work
 
 ## This Is a Living Thing, Not a Project
 
-I want to be clear about something that doesn't come through in most "here's how I built X" posts: this repo is not done. There is no done.
+Most "here's how I built X" posts leave this out: this repo is not done. There is no done.
 
 Almost every day I'm making some adjustment. A skill that needed tweaking based on feedback from the team. A new tool we adopted that needed a skill built around it. A workflow that changed and quietly broke something that was working fine the week before. The model updates and sometimes that shifts behavior in ways you don't notice until someone mentions it. The team's needs evolve. The product evolves.
 
-That's not a flaw in the approach - it's the nature of it. This is infrastructure, not a project you ship and walk away from. If you go into it expecting to build it once and be done, you'll be disappointed. If you go in expecting to tend it the way you'd tend anything that needs to stay useful over time - small adjustments often, paying attention, fixing things when they break - it compounds in ways that are hard to fully appreciate until you're six months in and your team is doing in ten minutes what used to take most of a morning.
+That's the nature of the approach. This is infrastructure, not a project you ship and walk away from. If you go into it expecting to build it once and be done, you'll be disappointed. If you go in expecting to tend it the way you'd tend anything that needs to stay useful over time - small adjustments often, paying attention, fixing things when they break - it compounds in ways that are hard to fully appreciate until you're six months in and your team is doing in ten minutes what used to take most of a morning.
 
 Getting people to contribute is a separate problem from getting people to use the thing. Making it easy helps - `/new-skill` scaffolds the structure so nobody has to remember the frontmatter format. But what's worked more than anything is being specific.
 
@@ -358,7 +356,7 @@ Name an owner before you share it with anyone. "Anyone can contribute" means nob
 
 ---
 
-The honest version of how this started: I built something for myself, it turned out other people had the same problems, and a coworker asked if they could use it. That's it. No grand vision, no roadmap, no stakeholder buy-in.
+How this started: I built something for myself, it turned out other people had the same problems, and a coworker asked if they could use it. That's it. No grand vision, no roadmap, no stakeholder buy-in.
 
 That's how most good internal tools start. The ones that get built on purpose, designed for everyone from the beginning, usually end up designed for nobody.
 

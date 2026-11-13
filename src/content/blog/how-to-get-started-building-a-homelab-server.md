@@ -218,7 +218,7 @@ For a much bigger list of self-hosted apps, check out [Awesome Self-Hosted](http
 
 ## How I architect containers
 
-My approach is simple: **one service per container.** Every app gets its own isolated LXC container in Proxmox. This sounds like overkill until the first time you update one service and it breaks another one's dependencies. Isolated containers keep one app's update from breaking another's packages.
+My approach is simple: **one service per container.** Every app gets its own isolated LXC container in Proxmox. This sounds like overkill until the first time you update one service and it breaks another one's dependencies.
 
 ![A paper-collage animation on a pink field: a black-and-white egg carton holding six eggs lands, one egg in the front row wobbles and tips in its cup, then a cracked egg with its yolk in full color drops into that cup while the other five sit still, and the words Only one breaks set in above it](/images/blog/how-to-get-started-building-a-homelab-server/only-one-breaks.svg)
 
@@ -311,13 +311,13 @@ Set up automated backups to a separate disk or your NAS. Proxmox has built-in sc
 
 ### Document what you do
 
-Future you will not remember why you changed that config file at 11 PM on a Tuesday. Keep notes. A simple markdown file in a git repo works great. When something breaks six months later, you'll thank yourself.
+Future you will not remember why you changed that config file. Keep notes. A simple markdown file in a git repo works great. When something breaks six months later, you'll thank yourself.
 
 ## Where to go from here
 
 My setup started as a single $150 ThinkServer running 15 containers. Today it's two Dell R730s with dual NVIDIA GPUs, 10G networking, VLANs, about 70 containers, and a full Home Assistant smart home setup. You can read about that evolution in [My Homelab Two Years Later: From Desktop Tower to Server Rack](/blog/homelab-two-years-later/).
 
-But none of that would have happened if I'd waited until I could afford the "right" hardware. I started with what I could get cheap, learned as I went, and upgraded when I hit actual limitations - not imagined ones.
+But none of that would have happened if I'd waited until I could afford the "right" hardware. I started with what I could get cheap, learned as I went, and upgraded when I hit a real limitation.
 
 Some natural next steps once you're comfortable:
 

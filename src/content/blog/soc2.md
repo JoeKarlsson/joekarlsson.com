@@ -44,7 +44,7 @@ Achieving SOC2 compliance requires a full approach to data security and privacy.
 
 ## Open Source SOC2 Report
 
-By having an [infrastructure data lake](https://www.cloudquery.io/blog/what-is-infrastructure-data-lake) you can easily build your own customizable [CIEM](https://www.cloudquery.io/learning-center/ciem) with just standard SQL queries and views that you can monitor and visualize with your go-to BI tools and avoid the yet-another-dashboard fatigue and learning new proprietary query languages.
+By having an [infrastructure data lake](https://www.cloudquery.io/blog/what-is-infrastructure-data-lake) you can build your own customizable [CIEM](https://www.cloudquery.io/learning-center/ciem) with just standard SQL queries and views that you can monitor and visualize with your go-to BI tools and avoid the yet-another-dashboard fatigue and learning new proprietary query languages.
 
 ## Summary
 

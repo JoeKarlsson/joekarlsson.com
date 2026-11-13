@@ -8,20 +8,20 @@ heroImage: '/images/newsletter/tldr-in-tech-issue-102/card-43a9531f.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 102, leading with Writing Javascript Without A Build System, with the issue number circled in pink crayon'
 ---
 
-I hope you're all enjoying a well-deserved break this holiday season! It's always great to step away from the keyboard, recharge, and spend time with loved ones. But let's be honest, how many of you tried to make it look like you were giving that last-minute push to wrap up Q4? 😉 No judgment here, we've all been there. Now, as we prepare to dive back in, I want to extend my best wishes to each of you for a restful and rejuvenating break.
+I hope you're all enjoying a well-deserved break this holiday season! It's always great to step away from the keyboard, recharge, and spend time with loved ones. But let's be honest, how many of you tried to make it look like you were giving that last-minute push to wrap up Q4? 😉 No judgment here, we've all been there. I hope the rest of your break is restful.
 
 ### Tech Landscape Predictions for 2024
 
-As we look ahead to 2024, the tech landscape is poised for some exciting and, at times, challenging trends. Here's what I foresee:
+Here's what I expect in tech in 2024:
 
-1. **The Return of Hiring**: Anticipating a strong comeback in tech hiring in Q1 of this year, signaling a vibrant start.
-2. **The Continued AI Hype Cycle**: Much like the journey of IBM's Watson, we'll see the AI hype persist, than normalize. Expect a plethora of half-hearted, patchwork AI applications. But, as with all technology cycles, expect normalization as the year progresses.
+1. **The Return of Hiring**: I expect a strong comeback in tech hiring in Q1.
+2. **The Continued AI Hype Cycle**: Much like IBM's Watson, the AI hype will persist, then normalize as the year goes on. Expect a lot of half-hearted, patchwork AI applications along the way.
 3. **Cost-Conscious Engineering**: Software engineers, brace yourselves for a continued focus on cost-efficiency. Cloud costs, in particular, will remain a crucial concern.
 4. **The Rising Demand for Engineers**: The fields of AI, big data, and real-time analytics are growing, significantly expanding the scope and demand for skilled engineers.
 5. **Pivot in Data Teams' Focus**: Data teams will likely shift from primarily setting up infrastructure and collecting data to analyzing and extracting actionable insights from the accumulated data.
 6. **The Role of Data Engineers**: Despite the advancements in AI, data engineers will remain irreplaceable in 2024. Their role in managing and interpreting complex datasets is something AI isn't poised to take over just yet.
 
-As software engineers, staying ahead of these trends will be key. Let's embrace the challenges and opportunities 2024 has in store for us!
+Those are my bets for 2024.
 
 ##
 
@@ -29,13 +29,13 @@ As software engineers, staying ahead of these trends will be key. Let's embrace 
 
 _By: Malte Skarupke_
 
-tl;dr: Malte Skarupke stumbled upon Shar's algorithm, a branchless binary search. This discovery led to an exploration of its mechanics, showcasing the efficiency and elegance of branchless algorithms. A fascinating read for software engineers interested in optimizing search algorithms.
+tl;dr: Malte Skarupke stumbled upon Shar's algorithm, a branchless binary search. He digs into how it works and why branchless algorithms can be faster. Worth reading if you optimize search algorithms.
 
 ## [Writing Javascript Without A Build System](https://jvns.ca/blog/2023/02/16/writing-javascript-without-a-build-system/)
 
 _By: Julia Evans_
 
-tl;dr: Julia Evans discusses the appeal and frustrations of build systems in JavaScript development. She shares her perspective on why some prefer not using build systems and the challenges posed by frontend libraries that require them. A relatable piece for those grappling with the complexities of modern JavaScript development.
+tl;dr: Julia Evans discusses the appeal and frustrations of build systems in JavaScript development. She shares her perspective on why some prefer not using build systems and the challenges posed by frontend libraries that require them. Relatable if you've ever fought with a JavaScript build system.
 
 ## [The Future Of Programming: Research At CHI 2023](https://austinhenley.com/blog/futureofprogramming2023.html)
 
@@ -71,4 +71,4 @@ tl;dr: "eBay's View Item page lives at the center of our e-commerce platform. Ou
 
 _By: Tony Solomonik_
 
-tl;dr: Tony Solomonik delves into the essentials of database engineering, inspired by key literature in the field. He reflects on the fundamental challenges and his journey in creating a basic database program. This article is a valuable resource for understanding the core concepts of database design and implementation.
+tl;dr: Tony Solomonik covers the essentials of database engineering, inspired by key literature in the field. He reflects on the fundamental challenges and his journey in creating a basic database program. It's a good intro to the core concepts of database design and implementation.

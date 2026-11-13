@@ -11,7 +11,7 @@ heroAlt: 'A glowing jukebox'
 tldr: 'I break down the key components of real-time recommendation systems, from content-based and collaborative filtering to data storage and ML model selection. You can start with simple SQL heuristics and scale up to machine learning later.'
 ---
 
-Real-time, personalized recommendations have become a foundational part of our online experiences. From streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering tailored product recommendations, real-time recommendation systems have revolutionized how we discover and engage with content and products.
+Real-time, personalized recommendations are all over the internet, from streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering tailored product recommendations. They shape how we discover and engage with content and products.
 
 In this blog post, you will learn what a real-time recommendation system (aka “recsys”) is and what it takes to build one.
 
@@ -37,7 +37,7 @@ A common advantage of real-time recommendation systems is their ability to handl
 
 > Real-time recommendation systems often use online machine learning models, however, machine learning is not a prerequisite, and many real-time recommenders can use heuristic analysis developed in simple languages like SQL.
 
-By integrating real-time recommendation systems powered by machine learning models into various online platforms, engineers can build differentiated features that enhance user engagement, increase average order value, boost conversion rates and average order values, and drive revenue growth.
+By integrating real-time recommendation systems powered by machine learning models into various online platforms, engineers can build differentiated features that increase user engagement, conversion rates, average order value, and revenue.
 
 Of course, not every recommendation system uses machine learning or artificial intelligence. Some models may be quite simple, utilizing stream processing or [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) to compute recommendations on the fly, often using tried-and-true query languages such as SQL. The complexity of the system will depend on the use case.
 
@@ -157,7 +157,7 @@ Tinybird, for example, allows engineers to publish SQL queries and materializati
 
 Real-time recommendation systems use event streaming platforms, a real-time database, online machine learning or heuristic real-time analytics, and an API layer to both measure user data and make recommendations in real-time.
 
-Each of these components plays a key role in the overall effectiveness and performance of a real-time recommendation engine. Careful consideration and integration of these elements are vital to ensure accurate recommendations and a smooth user experience.
+Each of these components affects how accurate and fast your recommendations are, so plan how they fit together.
 
 ## Developing a Real-Time Recommendation System from Scratch
 

@@ -152,7 +152,7 @@ I spend the first 30 days auditing, and the audit has one part per surface.
 
 **LLM presence.** Run the first quarterly benchmark described above. Type in your target users' real queries, like "best tool for real-time analytics on streaming data" or "compare [your product] vs [competitor]." Document where you appear, what the model gets wrong about you, and where competitors show up instead. Then read your README and examples directory the way a model would.
 
-The deliverable is a "State of Developer Experience" brief: a prioritized list of what's broken, with severity ratings and data behind each item. It's not a content plan. It's evidence specific enough that engineering and product can act on it. Showing up to the first roadmap meeting with "here are six indexing bugs and three quickstart gaps to fix before we spend more on content" lands differently from "I've been thinking about some content ideas."
+The deliverable is a "State of Developer Experience" brief: a prioritized list of what's broken, with severity ratings and data behind each item. It's evidence specific enough that engineering and product can act on it. Showing up to the first roadmap meeting with "here are six indexing bugs and three quickstart gaps to fix before we spend more on content" lands differently from "I've been thinking about some content ideas."
 
 I've run this plan as the first DevRel hire on small teams. At a company that already has a DevRel team, I'd expect the first month to look different.
 

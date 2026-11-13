@@ -19,9 +19,9 @@ heroAlt: 'Workers bent over a factory assembly line'
 
 ## Nobody Budgets for the Cloud Operations Gap
 
-In the previous posts, we covered [the Cloud Operations Gap](https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap), [the hidden security tax](https://www.cloudquery.io/blog/cloud-operations-playbook-part-03-hidden-security-tax), and [compliance scrambles](https://www.cloudquery.io/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles). Each of those problems costs real money. But here's what we haven't done yet: added it all up.
+In the previous posts, we covered [the Cloud Operations Gap](https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap), [the hidden security tax](https://www.cloudquery.io/blog/cloud-operations-playbook-part-03-hidden-security-tax), and [compliance scrambles](https://www.cloudquery.io/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles). Each of those problems costs real money, but we haven't added them up yet.
 
-Most engineering leaders have a rough sense that their teams spend too much time on operational toil. They feel it in missed sprint commitments and slipped roadmaps. What they don't have is a number. And without a number, there's no business case. Without a business case, nothing changes.
+Most engineering leaders have a rough sense that their teams spend too much time on operational toil. They feel it in missed sprint commitments and slipped roadmaps. What they don't have is a number. And without a number, there's no business case, so nothing changes.
 
 So let's do the math.
 
@@ -80,19 +80,19 @@ Here's the full picture for a 10-person engineering team:
 | Incident context gathering       | 3 hrs      | $261        | $13,572      |
 | **Total**                        | **26 hrs** | **$2,262**  | **$117,624** |
 
-That's 26 hours per week of engineering time spent not building product, not reducing tech debt, not improving reliability. Just answering questions that a unified data layer would answer instantly.
+That's 26 hours per week of engineering time spent answering questions that a unified data layer would answer instantly, instead of building product, reducing tech debt, or improving reliability.
 
-$117,624 per year. $11,762 per engineer. And that's just the direct cost.
+That comes to $117,624 per year, or $11,762 per engineer, and that's only the direct cost.
 
 ## The Multiplier You're Not Counting
 
 Direct toil costs tell only part of the story. The bigger number is what economists call opportunity cost: the value of what those engineers would have been doing instead.
 
-When a senior engineer spends an hour investigating a security alert across four consoles, that's not just $87 lost. It's an hour they didn't spend building the [automation](https://www.cloudquery.io/product/automation) that would prevent the next fifty alerts. When your best infrastructure person is compiling compliance spreadsheets, they're not improving your deployment pipeline or reducing your incident response time.
+When a senior engineer spends an hour investigating a security alert across four consoles, the cost is more than $87. It's also an hour they didn't spend building the [automation](https://www.cloudquery.io/product/automation) that would prevent the next fifty alerts. When your best infrastructure person is compiling compliance spreadsheets, they're not improving your deployment pipeline or reducing your incident response time.
 
 The opportunity cost multiplier varies by organization, but conservative estimates put it at 4x to 8x the direct cost. Here's why:
 
-**Automation debt compounds.** Every hour spent on manual toil is an hour not spent automating that toil away. Teams stuck in reactive mode never build the tooling that would get them out of reactive mode. It's a trap.
+**Automation debt compounds.** Every hour spent on manual toil is an hour not spent automating that toil away. Teams stuck in reactive mode never build the tooling that would get them out of reactive mode.
 
 **Senior engineer impact is high.** A senior engineer building internal tooling can save hundreds of hours across the team over a year. When that person is instead doing manual data correlation, the entire team pays the cost.
 
@@ -129,7 +129,7 @@ Organizations that have moved to higher maturity, specifically those with a unif
 | Incident context       | 3 hrs/week      | 1 hr/week      | 67%       |
 | **Total**              | **26 hrs/week** | **5 hrs/week** | **81%**   |
 
-The reduction isn't magic. It comes from having infrastructure data in one place, queryable with SQL. When a security alert fires, the engineer can run a query to pull full context, ownership, change history, and related resources, in seconds instead of minutes. When finance asks for cost attribution, the data is already tagged and queryable. When an auditor needs evidence, it's a [policy](https://www.cloudquery.io/product/policies) check that runs on schedule.
+The reduction comes from having infrastructure data in one place, queryable with SQL. When a security alert fires, the engineer can run a query to pull full context, ownership, change history, and related resources, in seconds instead of minutes. When finance asks for cost attribution, the data is already tagged and queryable. When an auditor needs evidence, it's a [policy](https://www.cloudquery.io/product/policies) check that runs on schedule.
 
 The path from 26 hours of weekly toil to 5 hours starts with getting your infrastructure data into a single [queryable layer](https://www.cloudquery.io/product/cloud-asset-inventory). The [CloudQuery quickstart](https://www.cloudquery.io/docs/cli/getting-started) gets most teams there within an afternoon.
 
@@ -139,7 +139,7 @@ If you're trying to justify investment in cloud operations tooling, the toil cal
 
 Frame it this way: "Our 10-person team spends 26 hours per week on infrastructure toil that a unified data layer would reduce by 80%. The direct cost savings are $94K per year. The total economic impact, including opportunity cost, is between $376K and $752K annually."
 
-That's not a vague appeal to efficiency. That's an ROI calculation with real inputs that your CFO can verify.
+That's an ROI calculation with real inputs that your CFO can verify.
 
 The organizations that treat this as a priority gain a compounding advantage. Reducing toil frees up time for [automation](https://www.cloudquery.io/product/automation). Automation further reduces toil. The flywheel spins faster over time, while teams stuck in reactive mode fall further behind.
 

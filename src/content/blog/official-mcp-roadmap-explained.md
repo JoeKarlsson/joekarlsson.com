@@ -29,7 +29,7 @@ tldr: 'The Aug. 22, 2026 MCP roadmap lists five priorities: agentic messaging, H
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/official-mcp-roadmap-explained).'
 ---
 
-The model context protocol (MCP) core maintainers published their updated roadmap on Aug. 22, 2026 ([The New MCP Roadmap](https://blog.modelcontextprotocol.io/posts/mcp-roadmap/)). If you're an engineering or AI lead managing MCP servers for a large team or enterprise deployment, this covers what you need to know: what each of the five priorities means in practice, which ones require migration work and which you can safely watch from a distance, and where the gaps stay even after all five ship. One thing to understand upfront, because it shapes every planning call in this post: the agent identity work solves which workload is calling your MCP server, using standards for proving a workload's identity without storing long-lived credentials. It doesn't touch what that server hands to Salesforce, SQL Server, or your data warehouse to open the connection behind it. Two different auth problems; the roadmap picks up one.
+The model context protocol (MCP) core maintainers published their updated roadmap on Aug. 22, 2026 ([The New MCP Roadmap](https://blog.modelcontextprotocol.io/posts/mcp-roadmap/)). If you're an engineering or AI lead managing MCP servers for a large team or enterprise deployment, this covers what you need to know: what each of the five priorities means in practice, which ones require migration work and which you can safely watch from a distance, and where the gaps stay even after all five ship. The point that shapes every planning call in this post is that the agent identity work solves which workload is calling your MCP server, using standards for proving a workload's identity without storing long-lived credentials. It doesn't touch what that server hands to Salesforce, SQL Server, or your data warehouse to open the connection behind it. Those are two different auth problems, and the roadmap takes on only the first.
 
 **The short version:** The [official MCP roadmap](https://blog.modelcontextprotocol.io/posts/mcp-roadmap/) was published Aug. 22, 2026 by core maintainers David Soria Parra and Den Delimarsky. It covers five priority areas for the next spec release and beyond: (1) agentic messaging primitives, (2) HTTP-native transport unification and hardening, (3) agent identity and enterprise-ready security, (4) improved primitives, (5) improved SDK developer experience. No target dates or version numbers are given for any of them. The current stable release is 2026-07-28.
 
@@ -61,11 +61,9 @@ The five roadmap priorities are what comes after all of that. None of them are a
 
 ## Priority 3: Agent identity and enterprise-ready security
 
-I'm going to start here instead of with Priority 1, because this is where the actual urgency is.
+I'm starting with Priority 3 because this is where the urgency is.
 
 The problem the roadmap is solving in Priority 3 is a real one. Browser-based OAuth flows don't map onto machine-to-machine calls. When an agent calls your MCP server with no human in the loop, the question "which workload is this" shouldn't be answered by a flow that was designed for a person clicking through a consent screen. The roadmap's answer: Demonstrating Proof of Possession (DPoP) ([RFC 9449, finalized by the IETF in September 2023](https://www.rfc-editor.org/rfc/rfc9449)), Workload Identity Federation, and standard token exchange pathways.
-
-Let me be specific about what these actually do, because "identity standards" is easy to wave past.
 
 DPoP binds a token to a specific cryptographic key. If someone extracts the token, they can't use it from a different client, because they don't have the key. That's a meaningful security improvement over bare bearer tokens, which are effectively cash: whoever holds them can spend them. Workload Identity Federation replaces stored service account credentials with short-lived tokens issued by a trusted platform (your cloud provider, Kubernetes, whatever trust anchor you're using). Nothing sensitive needs to be stored or rotated manually. Token exchange (RFC 8693) gives a service a path to swap one token type for another without re-authenticating: an agent holds a user token, needs a scoped service token to call a downstream system, and can exchange without starting over. The Core Maintainers are also engaging directly with the IETF OAuth working group and WIMSE (Workload Identity in Multi-System Environments), an active working group with no finalized RFC as of September 2026.
 
@@ -87,7 +85,7 @@ This one's a migration, and understanding what you're migrating is important.
 
 Streamable HTTP is a standard HTTP-based transport that lets a server stream events back to a client without holding a persistent connection open. It's already the standard for remote MCP servers since the 2026-07-28 release. stdio (which pipes communication through process standard input and output) has always been the local server transport: it's simple, works well for local dev, and doesn't translate to remote deployment. The older SSE transport is deprecated.
 
-What Priority 2 does: it extends Streamable HTTP to local servers as well, so there's one transport instead of two. What you run locally behaves the same as what you run in production. For teams running a centralized MCP gateway, [what an MCP gateway governs that an API gateway can't](https://www.cdata.com/blog/mcp-gateway-vs-api-gateway/) covers why unified HTTP transport changes the governance equation.
+Priority 2 extends Streamable HTTP to local servers as well, so there's one transport instead of two. What you run locally behaves the same as what you run in production. For teams running a centralized MCP gateway, [what an MCP gateway governs that an API gateway can't](https://www.cdata.com/blog/mcp-gateway-vs-api-gateway/) covers why unified HTTP transport changes the governance equation.
 
 <!-- vale JoeKarlsson.BannedWords = NO -->
 
@@ -99,7 +97,7 @@ If your remote server is already on Streamable HTTP: nothing changes for that. T
 
 Two separate things under one label, and they have different planning implications.
 
-**Tool result contracts.** Right now, a tools/call response can return the same output in more than one form, and there's no standard for which form a client will surface to the model. Tool authors write defensively, clients handle results inconsistently, models see more variation than they should. The fix: standardize the contract. The planning question is whether to align your tool responses with the spec's direction now or wait for the final definition. My honest answer: if you're building new tools today, orient toward what's coming. If you have a large existing tool catalog, don't refactor proactively; wait until you know what the spec actually requires.
+**Tool result contracts.** Right now, a tools/call response can return the same output in more than one form, and there's no standard for which form a client will surface to the model. Tool authors write defensively, clients handle results inconsistently, models see more variation than they should. The fix: standardize the contract. The planning question is whether to align your tool responses with the spec's direction now or wait for the final definition. My answer: if you're building new tools today, orient toward what's coming. If you have a large existing tool catalog, don't refactor proactively; wait until you know what the spec actually requires.
 
 **Progressive discovery.** Serving a client every available tool at connection time works fine at small scale. At large scale it doesn't: context budget fills, the model's ability to select the right tool degrades. The spec's answer is progressive discovery (servers offer an entry-level catalog and expand it as the conversation narrows, keeping the active tool set small and relevant). If you have a large tool catalog today, you're probably already hand-rolling some version of this. The roadmap is standardizing what teams have been building anyway.
 
@@ -111,7 +109,7 @@ The protocol today is request-response: a client asks, a server answers. Agentic
 
 The roadmap extends this into server-initiated events, webhooks, and channels, with the Agents, Transports, and Triggers and Events Working Groups leading the design.
 
-Here's my read: there's nothing to migrate here. The question is architectural. If your MCP server needs to push events today, you're choosing between polling, a held SSE connection, or a hand-rolled webhook. The roadmap is standardizing the webhook pattern. My strong recommendation: if you're building internal tooling that only your clients will ever use, do whatever works. If you're building anything you expect to be client-agnostic, wait for the Working Groups to finalize the design before committing to a non-standard event delivery layer. The migration cost if you don't wait could be real.
+There's nothing to migrate here. The question is architectural. If your MCP server needs to push events today, you're choosing between polling, a held SSE connection, or a hand-rolled webhook. The roadmap is standardizing the webhook pattern. My strong recommendation: if you're building internal tooling that only your clients will ever use, do whatever works. If you're building anything you expect to be client-agnostic, wait for the Working Groups to finalize the design before committing to a non-standard event delivery layer. The migration cost if you don't wait could be real.
 
 ## Priority 5: Improved SDK developer experience
 

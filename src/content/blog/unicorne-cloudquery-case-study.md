@@ -13,7 +13,7 @@ heroImage: '/images/blog/unicorne-cloudquery-case-study/thumb-d8a25d3c.webp'
 heroAlt: 'A painted carousel horse'
 ---
 
-Unicorne, a Quebec-based AWS Advanced Tier Services Partner, used CloudQuery to transform how it delivers Well-Architected Framework Reviews (WAFR) and built its FinOps SaaS product Stable on top of the same infrastructure. The company won "2025 AWS Canada Rising Star Consulting Partner of the Year" at AWS re:2025.
+Unicorne, a Quebec-based AWS Advanced Tier Services Partner, used CloudQuery to change how it delivers Well-Architected Framework Reviews (WAFR) and built its FinOps SaaS product Stable on top of the same infrastructure. The company won "2025 AWS Canada Rising Star Consulting Partner of the Year" at AWS re:2025.
 
 ## The Problem: Manual Data Gathering at Scale
 
@@ -23,7 +23,7 @@ Well-Architected Framework Reviews evaluate infrastructure across six pillars: S
 
 CloudQuery automated data extraction across client accounts using cross-account IAM roles. For the Security and Cost Optimization pillars specifically, the process became fully automated. CIS Benchmark coverage that previously consumed hours per account now runs in minutes.
 
-Engagement time dropped from 50 hours to 20. Rather than reducing output, this efficiency gain allowed consultants to invest 30 additional hours analyzing the remaining four pillars where human expertise adds the most value - effectively doubling consulting revenue without expanding headcount.
+Engagement time dropped from 50 hours to 20. Consultants put the 30 hours they saved into analyzing the remaining four pillars, where human expertise adds the most value, which effectively doubled consulting revenue without expanding headcount.
 
 ## Building Stable on CloudQuery
 

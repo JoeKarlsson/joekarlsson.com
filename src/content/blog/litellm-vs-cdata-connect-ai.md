@@ -31,7 +31,7 @@ Building enterprise AI infrastructure usually starts the same way: LiteLLM goes 
 
 [CData Connect AI](https://www.cdata.com/ai/) takes a different approach. It's a managed platform that combines an [AI gateway](https://www.cdata.com/ai/) and a [Model Context Protocol (MCP) gateway](https://cloud.cdata.com/docs/MCP.html). It focuses on governing how AI agents reach live enterprise data (Salesforce, Oracle, ServiceNow, SQL databases, and hundreds more) rather than routing between model providers. Behind both gateways is the Self-Learning Context Engine, which keeps a semantic map of your data: what each field means, how sources join, and how your business defines metrics like ARR. Agents search that context before they query instead of scanning every schema, and each correction and newly connected source makes it more accurate. It's all built on 15 years of enterprise data connectivity infrastructure.
 
-They solve different problems. They're sometimes complementary. This post covers what each does well, where each falls short, and how to tell which one belongs in your stack, or whether you need both.
+They solve different problems, and sometimes they work together. Here's what each does well, where each falls short, and how to tell which one belongs in your stack, or whether you need both.
 
 ### At a glance
 
@@ -122,7 +122,7 @@ Connect AI imports existing semantic models from the tools where they already li
 
 On top of imported definitions, you can define [cross-source virtual schemas and semantic views](https://www.cdata.com/ai/) that span multiple systems as one queryable model. A concept like "active customer" that joins a CRM, a billing system, and a support platform becomes a single entity without building a pipeline. For teams without an existing semantic layer, Connect AI proposes definitions by analyzing source metadata and sample data.
 
-Coming Q4 2026: vocabulary and correction learning from agent traffic, and shared organizational knowledge promotion across users. Per Atlan's analysis of Gartner research, context graph self-learning is projected as a capability more than 50% of AI agent systems will adopt by 2028. The infrastructure for it ships this year, compounding organizational learning below the agent level rather than in any single session.
+Coming Q4 2026: vocabulary and correction learning from agent traffic, and shared organizational knowledge promotion across users. Per Atlan's analysis of Gartner research, context graph self-learning is projected as a capability more than 50% of AI agent systems will adopt by 2028. The infrastructure for it ships this year. It stores what it learns below the agent level, so the learning carries over from one session to the next.
 
 ## How do LiteLLM and CData Connect AI compare on compliance and deployment?
 
@@ -136,7 +136,7 @@ Connect AI is a managed service with an on-premises agent for sources that can't
 
 **Compliance.** LiteLLM holds [SOC 2 Type 2 and ISO 27001](https://www.cdata.com/security/). HIPAA coverage isn't claimed on their enterprise page. CData Connect AI holds SOC 2 Type 2, ISO 27001, [HIPAA](https://www.hhs.gov/hipaa/index.html), and GDPR compliance, with data residency controls and provider retention policy routing for zero-data-retention requirements.
 
-**EU AI Act.** The EU AI Act's [Article 50 transparency obligations](https://artificialintelligenceact.eu/transparency-rules-article-50/) took effect Aug. 2, 2026, requiring disclosure when users interact with AI systems. Full high-risk AI enforcement follows [Dec. 2, 2027](https://artificialintelligenceact.eu/transparency-rules-article-50/). Agents that invoke MCP tools against regulated data sources will be in scope. Per-action logging and human oversight mechanisms need to be architected in, not added after the fact.
+**EU AI Act.** The EU AI Act's [Article 50 transparency obligations](https://artificialintelligenceact.eu/transparency-rules-article-50/) took effect Aug. 2, 2026, requiring disclosure when users interact with AI systems. Full high-risk AI enforcement follows [Dec. 2, 2027](https://artificialintelligenceact.eu/transparency-rules-article-50/). Agents that invoke MCP tools against regulated data sources will be in scope. Per-action logging and human oversight mechanisms need to be built in from the start.
 
 **Supply chain.** In March 2026, [LiteLLM's PyPI package was compromised](https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-teampcp-supply-chain-campaign/) in the TeamPCP campaign. Roughly [434,000 CI/CD pipelines](https://www.securityweek.com/over-2500-organizations-impacted-by-litellm-supply-chain-attack/) across more than 2,500 organizations were exposed. BerriAI identified and remediated the incident. A managed deployment moves the package update path to the vendor, under a controlled release process and published security attestations, rather than depending on each team's own update hygiene.
 

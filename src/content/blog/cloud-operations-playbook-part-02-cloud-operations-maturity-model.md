@@ -28,7 +28,7 @@ We built this model by combining data from the [HashiCorp 2024 State of Cloud St
 
 ## The Four Maturity Levels
 
-Here's the uncomfortable distribution: the majority of organizations are clustered at the bottom.
+Most organizations are clustered at the bottom.
 
 | Level | Name      | % of Orgs | Primary Characteristic                                   | Typical Response to "What Changed?"          |
 | ----- | --------- | --------- | -------------------------------------------------------- | -------------------------------------------- |
@@ -43,7 +43,7 @@ That 55% in Reactive isn't a failure of individual engineers. It's the natural o
 
 Reactive teams discover problems after they've already caused damage. A misconfigured security group gets found during an incident. Untagged resources surface when someone finally looks at the bill. Compliance gaps appear during the annual audit scramble.
 
-The defining characteristic: questions about infrastructure state require manual investigation. "How many public S3 buckets do we have?" takes hours or days to answer because nobody has a [single inventory](https://www.cloudquery.io/product/cloud-asset-inventory) that spans all accounts and providers.
+Their defining trait is that questions about infrastructure state require manual investigation. "How many public S3 buckets do we have?" takes hours or days to answer because nobody has a [single inventory](https://www.cloudquery.io/product/cloud-asset-inventory) that spans all accounts and providers.
 
 At this level, toil dominates. Engineers spend significant portions of their week on repetitive infrastructure tasks - gathering data for reports, manually checking configurations, answering the same questions from security and compliance teams.
 
@@ -57,7 +57,7 @@ The jump from Reactive to Visible is the hardest one. It requires admitting that
 
 Governed teams have moved from "we can see it" to "we enforce rules about it." [Policies](https://www.cloudquery.io/product/policies) are defined as code. Compliance evidence is generated continuously, not compiled before audits. [Security posture](https://www.cloudquery.io/solutions/cspm) is measured and tracked over time, not just scanned and forgotten.
 
-The key difference from Visible: governance catches violations at deployment time or shortly after, not weeks later during a review.
+The difference from Visible is that governance catches violations at deployment time or shortly after, not weeks later during a review.
 
 ### Level 4: Automated (8% of Organizations)
 
@@ -67,7 +67,7 @@ Only 8% of organizations reach this level. Getting here requires the foundation 
 
 ## The Perception-Reality Gap
 
-Here's what makes self-assessment tricky: maturity signals are misleading.
+Self-assessment is tricky because maturity signals are misleading.
 
 Having `Terraform` doesn't make you mature if only 40% of your infrastructure is managed by it. Having a [cloud security scanner](https://www.cloudquery.io/solutions/cspm) doesn't make you secure if alerts go to a Slack channel nobody reads. Having a tagging policy doesn't mean you have consistent tags - it means you have a document that describes tags you wish you had.
 

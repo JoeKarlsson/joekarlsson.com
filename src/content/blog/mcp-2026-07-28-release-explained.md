@@ -16,7 +16,7 @@ tldr: 'Stateless protocol, formal extensions (MCP Apps + Tasks), stricter auth v
 
 The Model Context Protocol just shipped its largest revision since launch.
 
-The 2026-07-28 release touches transport, extensions, authorization, and tool definitions in ways that matter a lot if you're running MCP in a production environment - and matter less if you're still experimenting locally. Let me break down what actually changed and why it matters.
+The 2026-07-28 release touches transport, extensions, authorization, and tool definitions in ways that matter a lot if you're running MCP in a production environment - and matter less if you're still experimenting locally.
 
 ## The protocol goes stateless
 
@@ -64,7 +64,7 @@ Roots, Sampling, and Logging start their deprecation clock with this release. Ap
 
 Gartner's projection is that more than 40% of agentic AI projects will be canceled by end of 2027. The reason is usually not the AI itself - it's governance, access control, and auditability. Organizations can't get production sign-off on systems they can't audit.
 
-This release is the spec acknowledging that reality. Stateless deployments, proper auth, formal extensions, expressive schemas - these aren't features for demos. They're the things you need to get MCP past your security team.
+This release is the spec acknowledging that reality. Stateless deployments, proper auth, formal extensions, expressive schemas: these are the things you need to get MCP past your security team.
 
 If you're planning MCP for production, the main action items from this release:
 
@@ -73,4 +73,4 @@ If you're planning MCP for production, the main action items from this release:
 - Update client-side token validation to meet the new auth requirements as SDK support matures
 - Plan migrations off Roots/Sampling/Logging if you use them
 
-The protocol is maturing in the direction production needs it to go. That's worth paying attention to.
+The protocol is maturing in the direction production needs it to go.

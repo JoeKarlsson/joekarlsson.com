@@ -32,9 +32,9 @@ Did I mention ClickHouse loves big data? This [database system scales](https://r
 
 ## What Makes ClickHouse Unique?
 
-At the heart of ClickHouse’s distinctiveness is its true column-oriented DBMS design. This unique architecture ensures compact storage with no extra data accompanying the values, a trait that enhances processing speed. Supporting constant-length values, ClickHouse guarantees efficient space utilization, reinforcing its speedy performance. ClickHouse’s capacity to handle hundreds of millions of rows per second surpasses systems like HBase and Cassandra, setting a new industry standard.
+ClickHouse is a true column-oriented DBMS. It stores values compactly, with no extra data alongside them, which speeds up processing. It also supports constant-length values, which keeps storage efficient. ClickHouse can process hundreds of millions of rows per second, more than systems like HBase and Cassandra.
 
-The uniqueness of ClickHouse also shines in its flexible functionality as a database management system. Rather than being confined to a single database, ClickHouse enables the real-time creation of tables and databases, data loading and query execution. This adaptability ensures smooth database operations without the need for server reconfiguration or restarts.
+ClickHouse is also flexible as a database management system. It isn't confined to a single database: you can create tables and databases, load data and run queries in real time, without reconfiguring or restarting the server.
 
 Additional features that amplify ClickHouse’s uniqueness include:
 
@@ -52,7 +52,7 @@ Additional features that amplify ClickHouse’s uniqueness include:
 
 - **Suitability for online queries**: With low latency, ClickHouse ensures immediate query processing, a key requirement for online operations.
 
-In essence, the culmination of these features makes ClickHouse a potent, flexible and efficient system, uniquely positioned to handle large-scale, real-time data processing needs. One feature I find particularly interesting is how ClickHouse handles text search - I dug into that in my post on [using Bloom filter indexes for real-time text search in ClickHouse](/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/).
+Together, these features make ClickHouse a fast, flexible system for large-scale, real-time data processing. One feature I find particularly interesting is how ClickHouse handles text search - I dug into that in my post on [using Bloom filter indexes for real-time text search in ClickHouse](/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/).
 
 ## The ClickHouse Advantage: Real-World Use Cases
 
@@ -64,11 +64,11 @@ Yes, the folks who practically hold up half the internet [use ClickHouse for rea
 
 The new architecture includes:
 
-- **Kafka consumers** – 106 Go consumers per each partition consume Cap’n Proto raw logs and extract/prepare needed more than 100 ClickHouse fields. Consumers no longer do any aggregation logic.
+- **Kafka consumers**: 106 Go consumers per each partition consume Cap’n Proto raw logs and extract/prepare needed more than 100 ClickHouse fields. Consumers no longer do any aggregation logic.
 
-- **ClickHouse cluster** – 36 nodes with x3 replication factor. It handles non-aggregate requests, logs ingestion and then produces aggregates using materialized views.
+- **ClickHouse cluster**: 36 nodes with x3 replication factor. It handles non-aggregate requests, logs ingestion and then produces aggregates using materialized views.
 
-- **Zone Analytics API** – Rewritten and optimized version of the API in Go, with many meaningful metrics, health checks and failover scenarios.
+- **Zone Analytics API**: Rewritten and optimized version of the API in Go, with many meaningful metrics, health checks and failover scenarios.
 
 ![Server diagram for Cloudflare’s central data center based on ClickHouse. Source: https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](/images/blog/why-clickhouse-should-be-your-next-database/2c587eb1-image3.webp)_Server diagram for Cloudflare’s central data center based on ClickHouse. Source: [https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)_
 
@@ -88,7 +88,7 @@ The world’s second-largest web analytics platform, [Yandex.Metrica uses ClickH
 
 - Analyzing logs from the API and the user interface.
 
-These use cases and the colossal amount of data processed speak volumes about ClickHouse’s capabilities, but the intriguing part is how ClickHouse handles this scale. The underlying architectural design of ClickHouse, including its distributed storage and computing capabilities, allows Yandex to handle such a large amount of data with ease. The flexible sharding and replication strategies implemented by ClickHouse ensure data reliability and high availability, key elements in Yandex’s high-volume, high-velocity data scenario.
+ClickHouse handles this scale with distributed storage and compute, which is what lets Yandex process that much data. Its flexible sharding and replication keep the data reliable and highly available, which matters at Yandex’s volume and speed.
 
 ## PostgreSQL vs. ClickHouse: An Analytical Comparison
 

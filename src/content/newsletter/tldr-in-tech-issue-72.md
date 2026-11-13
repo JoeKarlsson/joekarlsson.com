@@ -9,7 +9,7 @@ heroImage: '/images/newsletter/tldr-in-tech-issue-72/card-0244a4a8.webp'
 heroAlt: 'Works on My Machine card for TL;DR in Tech issue 72, leading with TL;DR in Tech, with the issue number circled in pink crayon'
 ---
 
-It's time for another episode of "tl;dr in tech"! Get ready for a wild ride through the world of software engineering, where we'll dive into some hilariously helpful articles that you definitely don't want to miss. So, grab your favorite caffeinated beverage, and let's get this party started! 🎉
+It's time for another episode of "tl;dr in tech"! Get ready for a wild ride through the world of software engineering, with some hilariously helpful articles you don't want to miss. So, grab your favorite caffeinated beverage, and let's get this party started! 🎉
 
 \- Joe Karlsson \[[joekarlsson.com](https://joekarlsson.com/), [@JoeKarlsson1](https://twitter.com/JoeKarlsson1)\]
 
@@ -43,7 +43,7 @@ It's time for another episode of "tl;dr in tech"! Get ready for a wild ride thro
 
 ## 🎥 [React.js: The Documentary](https://web.archive.org/web/20230329064900/https://cult.honeypot.io/originals/react-the-documentary/)
 
-**tl;dr:** Grab some popcorn and join us for React.js: The Documentary 🍿. Learn the untold story of React's early days, featuring an all-star cast of developers who brought this groundbreaking library to the masses.
+**tl;dr:** Grab some popcorn and join us for React.js: The Documentary 🍿. Learn the untold story of React's early days, featuring an all-star cast of developers who brought this library to the masses.
 
 ---
 

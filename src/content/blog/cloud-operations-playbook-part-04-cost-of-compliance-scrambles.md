@@ -14,7 +14,7 @@ contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Two women working through a desk of paperwork'
 ---
 
-> **Note:** **TL;DR:** Audit prep shouldn't take weeks, but for most teams it does. The compliance scramble is a recurring tax on engineering productivity: frantically gathering evidence from scattered systems, pulling engineers off real work, and compiling CSVs that prove compliance for a single point in time. The [Fortinet 2024 Cloud Security Report](https://www.fortinet.com/resources/reports/cloud-security) found 96% of companies are worried about cloud security, yet that worry rarely translates into action. The fix isn't more process. It's a queryable data layer that makes compliance evidence a byproduct of daily operations, not a quarterly fire drill.
+> **Note:** **TL;DR:** Audit prep shouldn't take weeks, but for most teams it does. The compliance scramble is a recurring tax on engineering productivity: frantically gathering evidence from scattered systems, pulling engineers off real work, and compiling CSVs that prove compliance for a single point in time. The [Fortinet 2024 Cloud Security Report](https://www.fortinet.com/resources/reports/cloud-security) found 96% of companies are worried about cloud security, yet that worry rarely translates into action. The fix is a queryable data layer that makes compliance evidence a byproduct of daily operations, not a quarterly fire drill.
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes ready-to-run compliance queries and framework mappings.
 
 ## Every Organization Has This Story
@@ -29,7 +29,7 @@ Three weeks before the auditor arrives, someone sends an email with the subject 
 
 Each question triggers a scavenger hunt. Someone logs into the AWS console. Someone else pulls a report from a security tool that covers two of the four accounts. A third person exports a CSV from a dashboard that hasn't been updated since last quarter. Engineers get pulled off feature work, sprint commitments slip, and for the next two weeks the team's primary output is spreadsheets.
 
-You've lived this. We all have.
+Most of us have lived this.
 
 ## The Scramble Is a Tax on Engineering
 
@@ -37,7 +37,7 @@ The scramble doesn't show up on any budget line. There's no "compliance panic" c
 
 Here's what actually happens during a typical audit prep cycle. Engineers stop shipping features. Security analysts stop triaging alerts. DevOps engineers stop building automation. Instead, everyone becomes a data entry clerk, pulling reports from five or six systems and stitching them together by hand.
 
-The [Fortinet 2024 Cloud Security Report](https://www.fortinet.com/resources/reports/cloud-security) found that 96% of companies are concerned about cloud security. Ninety-six percent. But concern and capability are different things. That concern mostly manifests as anxiety rather than action, because teams lack the queryable foundation to actually fix anything. They know there are problems. They just can't find them fast enough.
+The [Fortinet 2024 Cloud Security Report](https://www.fortinet.com/resources/reports/cloud-security) found that 96% of companies are concerned about cloud security. But concern and capability are different things. That concern mostly manifests as anxiety rather than action, because teams lack the queryable foundation to actually fix anything. They know there are problems. They just can't find them fast enough.
 
 This is the heart of the scramble. It's not that organizations don't care about compliance. They care deeply. They just don't have a way to produce evidence without stopping everything else.
 
@@ -45,7 +45,7 @@ This is the heart of the scramble. It's not that organizations don't care about 
 
 Here's a story we hear more often than you'd think.
 
-A mid-market B2B company passed their SOC 2 audit three years running. Same playbook each time: two weeks before the auditor arrived, the entire infrastructure team dropped what they were doing and gathered evidence. They stayed late. They compiled reports. They built narratives around their [security posture](https://www.cloudquery.io/solutions/cspm). And they passed. Every single time.
+A mid-market B2B company passed their SOC 2 audit three years running. Same playbook each time: two weeks before the auditor arrived, the entire infrastructure team dropped what they were doing and gathered evidence. They stayed late, compiled reports, and built narratives around their [security posture](https://www.cloudquery.io/solutions/cspm). They passed every time.
 
 Then they had a breach.
 
@@ -59,21 +59,19 @@ This is the difference between passing an audit and actually being compliant. On
 
 A different story with a different failure mode.
 
-A fintech company spent six weeks preparing for their SOC 2 audit. Six weeks. Not because they weren't compliant. Their infrastructure was well-managed, their [policies](https://www.cloudquery.io/product/policies) were solid, and their team was experienced. The problem was evidence collection.
+A fintech company spent six weeks preparing for their SOC 2 audit, and it wasn't because they weren't compliant. Their infrastructure was well-managed, their [policies](https://www.cloudquery.io/product/policies) were solid, and their team was experienced. The problem was evidence collection.
 
 Compliance data lived in seven different systems. AWS Config covered some resources but not others. Terraform state files captured infrastructure-as-code coverage, but only for the accounts that used Terraform. Security findings were in one tool, access logs in another, and encryption status required checking each service individually.
 
 The compliance team spent the first three weeks just figuring out which systems had the data they needed. The next two weeks were spent exporting, correlating, and formatting that data into something an auditor could review. The final week was spent filling in the gaps they'd missed.
 
-When they unified their infrastructure data into a single queryable layer using a [cloud asset inventory](https://www.cloudquery.io/product/cloud-asset-inventory), audit prep dropped from six weeks to two days. Not because the compliance requirements changed. Not because the auditor got easier. Because the evidence was already there, organized, queryable, and current.
-
-Two days versus six weeks. That's not an incremental improvement. That's a category change.
+When they unified their infrastructure data into a single queryable layer using a [cloud asset inventory](https://www.cloudquery.io/product/cloud-asset-inventory), audit prep dropped from six weeks to two days. The compliance requirements and the auditor stayed the same. The evidence was already there, organized, queryable, and current.
 
 ## Why Scrambles Persist
 
 If the scramble is so painful, why does it keep happening?
 
-First, because it works. Sort of. Teams that scramble still pass audits. The immediate feedback loop rewards the scramble: you panicked, you pulled all-nighters, you passed. Success. Until it isn't.
+First, because it sort of works. Teams that scramble still pass audits, and the immediate feedback loop rewards the scramble: you panicked, you pulled all-nighters, you passed.
 
 Second, because the cost is hidden. The hours engineers spend on audit prep don't show up as "compliance cost" anywhere. They show up as missed sprint goals, delayed features, and vague references to "competing priorities" in quarterly reviews. Nobody tracks the opportunity cost of pulling your best people off their actual work for weeks at a time.
 
@@ -83,7 +81,7 @@ Third, because the alternative seems expensive. Building a continuous compliance
 
 ## What Continuous Compliance Looks Like
 
-The shift from scramble-mode compliance to continuous compliance isn't about buying another tool. It's about changing how you think about compliance evidence.
+The shift from scramble-mode compliance to continuous compliance is mostly a change in how you think about compliance evidence.
 
 In scramble mode, evidence is something you produce. You create it on demand, right before someone asks for it. It's an artifact of a process, manually assembled from fragments.
 

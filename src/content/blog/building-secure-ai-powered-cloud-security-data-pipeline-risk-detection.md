@@ -654,9 +654,9 @@ The challenge is implementation. Teams need to invest in proper data pipelines, 
 
 This demo provides a starting point. The code is open source, the architecture works in production environments, and the security practices follow established standards. You can deploy it in your environment, analyze your own cloud resources, and see results.
 
-Here's what teams need to decide: continue managing an increasing volume of security alerts manually, or implement AI systems that can process this complexity at scale while maintaining human oversight where it matters.
+Teams have to decide whether to keep managing an increasing volume of security alerts manually or implement AI systems that can process this complexity at scale while maintaining human oversight where it matters.
 
-The data supports AI adoption. The approaches exist for secure implementation. The demo shows it works in practice. The question is how quickly teams can implement it without breaking existing workflows.
+The data supports AI adoption, and the demo shows a secure implementation works in practice. The open question is how quickly teams can implement it without breaking existing workflows.
 
 ---
 

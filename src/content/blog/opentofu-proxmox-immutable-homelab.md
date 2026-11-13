@@ -48,7 +48,7 @@ Three weeks, and I hadn't noticed. The container showed green in Proxmox, the ho
 
 I'd been running a [Proxmox homelab](/blog/how-to-get-started-building-a-homelab-server/) for years - growing it into the [dual R730 rack setup I wrote about earlier this year](/blog/homelab-two-years-later/). The hardware was solid. The monitoring stack was solid. The management of individual containers was a mess.
 
-Not a spectacular mess. The slow kind.
+Not a spectacular mess, just the slow kind.
 
 Forty-plus containers, each configured by hand. Some had documentation. Most didn't. A few were experiments I'd started, half-finished, and forgotten about. The ones that actually mattered - Plex, Immich, Home Assistant, the \*arr stack - had been stable long enough that I'd stopped thinking about _how_ they were configured and just assumed they'd keep working.
 
@@ -194,7 +194,7 @@ Before: notice a problem, SSH in, edit the config, restart the service, done. Th
 
 Now: notice a problem, figure out what the provision script needs to change, update it, run `tofu apply`, wait for the container to reprovision, verify. Twenty minutes on a good run. Longer if it doesn't go smoothly.
 
-That's real friction. And for small, quick changes, it genuinely feels like a step backward.
+That's real friction. And for small, quick changes, it feels like a step backward.
 
 ![The IT Crowd debugging GIF](/images/blog/opentofu-proxmox-immutable-homelab/it-crowd-debugging.gif)
 

@@ -18,7 +18,7 @@ heroAlt: "Chardin's painting of a boy blowing a soap bubble"
 
 Your Kubernetes pods live for 3 minutes. Your Lambda functions for 300 milliseconds. Your CMDB updates weekly. See the problem?
 
-In traditional IT environments, infrastructure was measured in months and years. A server lived in the data center for 3-5 years. Network equipment lasted a decade. CMDBs were designed for this reality, where a weekly discovery scan was more than sufficient. Then cloud happened. And everything changed.
+In traditional IT environments, infrastructure was measured in months and years. A server lived in the data center for 3-5 years. Network equipment lasted a decade. CMDBs were designed for this reality, where a weekly discovery scan was more than sufficient. Cloud changed that.
 
 Today, the majority of containers in production have [short lifespans](https://www.datadoghq.com/container-report/), often measured in minutes rather than hours or days. AWS Lambda functions execute in milliseconds and their instances are recycled after periods of inactivity. Kubernetes pods autoscale continuously, spawning and terminating hundreds of instances within minutes. Infrastructure has become ephemeral, and traditional discovery models have become obsolete.
 
@@ -28,7 +28,7 @@ Today, the majority of containers in production have [short lifespans](https://w
 
 ## The Ephemeral Reality: How Cloud Infrastructure Actually Behaves
 
-Cloud infrastructure operates on a completely different timescale than traditional IT. According to [Datadog's container research](https://www.datadoghq.com/container-report/), **the majority of containers in production have short lifespans**, often measured in minutes. This isn't a bug, it's a feature. Kubernetes treats containers as disposable units of compute.
+Cloud infrastructure operates on a completely different timescale than traditional IT. According to [Datadog's container research](https://www.datadoghq.com/container-report/), **the majority of containers in production have short lifespans**, often measured in minutes. That's by design: Kubernetes treats containers as disposable units of compute.
 
 A typical autoscaling scenario: traffic spikes, the [Kubernetes Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) spawns 50 new pods, traffic subsides 10 minutes later, pods terminate. The entire lifecycle happens faster than most CMDB discovery scans run. A single microservice might cycle through hundreds of container instances daily.
 
@@ -54,7 +54,7 @@ An API Gateway triggering a Lambda that queries DynamoDB completes the entire re
 
 ## The Speed Mismatch: When Discovery Can't Keep Up
 
-The math on traditional discovery simply doesn't work for cloud environments.
+The math on traditional discovery doesn't work for cloud environments.
 
 Traditional CMDB discovery runs on scheduled intervals: daily scans are common, weekly scans are not unusual, and even "aggressive" schedules rarely exceed hourly intervals. Each scan must enumerate all resources across all accounts and regions, querying dozens or hundreds of API endpoints.
 
@@ -220,11 +220,11 @@ Combine scheduled syncs for baseline inventory with on-demand queries when you n
 
 ## Summary
 
-Traditional CMDBs were built for a world where servers lived for years and weekly discovery scans provided adequate visibility. That world no longer exists. Modern cloud infrastructure is ephemeral. With containers living just minutes and Lambda functions executing in milliseconds, traditional 24-hour discovery windows miss the vast majority of short-lived resources.
+Traditional CMDBs were built for a world where servers lived for years and weekly discovery scans provided adequate visibility. Modern cloud infrastructure is ephemeral. With containers living just minutes and Lambda functions executing in milliseconds, traditional 24-hour discovery windows miss the vast majority of short-lived resources.
 
 The solution isn't "scan faster." API rate limits, costs, and data volumes make that impractical. Instead, modern [cloud CMDBs](https://www.cloudquery.io/blog/what-is-a-cloud-cmdb-and-do-you-need-one) need tiered sync strategies: 15-30 minutes for critical resources like IAM and security groups, hourly for important resources like EC2 and RDS, and daily for baseline resources. The [Infrastructure Lake](https://www.cloudquery.io/blog/cmdb-is-dead-long-live-infrastructure-lake) architecture (extracting cloud data into scalable databases and querying with SQL) provides the scalability and flexibility modern cloud environments demand. CloudQuery enables this approach by syncing cloud infrastructure data into your database of choice.
 
-**Key takeaways:** Use API-first approaches combining scheduled syncs with on-demand queries. Expect to handle millions of records per sync across 1,000+ accounts. Modern cloud CMDB architectures cost significantly less than traditional CMDB applications by using existing databases and avoiding proprietary licensing. Finding the right balance depends on your requirements, but the principle holds: ephemeral infrastructure killed traditional discovery, and modern approaches must account for that reality.
+**Key takeaways:** Use API-first approaches combining scheduled syncs with on-demand queries. Expect to handle millions of records per sync across 1,000+ accounts. Modern cloud CMDB architectures cost significantly less than traditional CMDB applications by using existing databases and avoiding proprietary licensing. Finding the right balance depends on your requirements.
 
 Ready to build a modern cloud CMDB? [CloudQuery](https://www.cloudquery.io/) can help you extract and synchronize cloud infrastructure data at scale. [Reach out](https://www.cloudquery.io/contact-us) for a demo or [explore the documentation](https://www.cloudquery.io/docs/platform/introduction) to get started.
 

@@ -182,7 +182,7 @@ spec:
 
 ## Best Practice 5: Integrate with Security, FinOps, and Incident Management Tools
 
-Your cloud CMDB isn't an end-user application. It's data infrastructure that feeds the tools platform teams already use. Engineers don't want another UI to learn when they already have Grafana dashboards, PagerDuty runbooks, and Backstage service catalogs.
+Treat your cloud CMDB as data infrastructure that feeds the tools platform teams already use. Engineers don't want another UI to learn when they already have Grafana dashboards, PagerDuty runbooks, and Backstage service catalogs.
 
 ### Security: Datadog, Elastic, Splunk
 
@@ -335,7 +335,7 @@ Export cloud CMDB data to security scanner. Create Grafana dashboards from cloud
 
 ## Summary
 
-Six practices that actually work:
+The six practices:
 
 1. **Automate discovery** from cloud APIs (manual updates fail within weeks)
 2. **Define clear scope** (start security/compute; expand deliberately)

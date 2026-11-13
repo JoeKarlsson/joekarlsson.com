@@ -20,7 +20,7 @@ I started on Alexa and ended up on [Home Assistant](https://www.home-assistant.i
 
 Home Assistant is an open-source home automation platform that allows you to control and automate various devices in your home. It supports a wide range of devices and integrates with many popular smart home brands, such as Philips Hue, Nest, and Sonos.
 
-Home Assistant is a popular choice for home automation because of its versatility and flexibility. Here are a few reasons why I think Home Assistant stands out from other alternatives:
+Here's why I think Home Assistant stands out from the alternatives:
 
 - **Open-source:** Home Assistant is open-source software, which means that anyone can contribute to its development and improvement.
 
@@ -66,7 +66,7 @@ The Home Assistant Yellow went out of production in October 2025, so skip it unl
 
 ## How I got started
 
-When I first started exploring the world of home automation, I decided to jump in with Amazon Alexa. It was a great starting point because it was easy to set up and use, and there were a ton of compatible devices available. I was able to control my lights, thermostat, and even my TV with just my voice, which was cool.
+When I first got into home automation, I jumped in with Amazon Alexa. It was a great starting point because it was easy to set up and use, and there were a ton of compatible devices available. I was able to control my lights, thermostat, and even my TV with just my voice, which was cool.
 
 However, I quickly ran into limitations on how deeply I could customize my home automations. I found that I was limited to the pre-built routines and commands provided by Amazon, which didn’t always fit my needs. I wanted more control over my house, so I started looking at other options.
 

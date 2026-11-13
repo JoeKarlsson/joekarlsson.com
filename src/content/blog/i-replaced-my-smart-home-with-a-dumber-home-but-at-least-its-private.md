@@ -23,7 +23,7 @@ The $59 device ($69 now) has dual microphones, XMOS audio processing, and an ESP
 
 ## Setup
 
-The physical setup proved surprisingly straightforward. The Voice Preview Edition connected to my existing Home Assistant instance within minutes, and the initial device registration worked flawlessly. The build quality impressed me, the audio processing hardware rivals devices costing significantly more, and the LED feedback ring provides clear visual status indicators. [[Home Assistant](https://www.home-assistant.io/voice_control/)]
+The physical setup was surprisingly straightforward. The Voice Preview Edition connected to my existing Home Assistant instance within minutes, and the initial device registration worked flawlessly. The build quality impressed me, the audio processing hardware rivals devices costing significantly more, and the LED feedback ring provides clear visual status indicators. [[Home Assistant](https://www.home-assistant.io/voice_control/)]
 
 However, I quickly discovered that “working” and “working well” are very different things for voice assistants. The default wake word detection had maybe a 50% success rate from across the room, and voice recognition accuracy felt inconsistent at best. Alexa was good at picking up my voice when the TV was on, or if I was listening to a podcast. Home Assistant Voice struggles in this department.
 
@@ -126,7 +126,7 @@ Wake word detection proves particularly inconsistent. The system supports three 
 
 ## Getting my partner on board
 
-The technical challenges were manageable, but family acceptance proved the real measurement of success. My partner’s tolerance for technological experimentation has limits, and voice assistants that require multiple attempts or specific phrasing quickly become frustrating.
+The technical challenges were manageable, but family acceptance was the real test. My partner’s tolerance for technological experimentation has limits, and voice assistants that require multiple attempts or specific phrasing quickly become frustrating.
 
 “I just want to turn on the lights without thinking about it,” she explained after a particularly frustrating evening of failed commands.
 
@@ -154,7 +154,7 @@ For example, my calendar integration automation dynamically handles queries abou
 
 ## Current limitations justify preview designation
 
-The “Preview” designation proves accurate when examining current limitations. GitHub issues reveal ongoing challenges with wake word detection failures, audio playback problems, TLS certificate issues, and response interruptions. [[GitHub](https://github.com/home-assistant/core/issues/144629)]
+The “Preview” label is accurate. GitHub issues reveal ongoing challenges with wake word detection failures, audio playback problems, TLS certificate issues, and response interruptions. [[GitHub](https://github.com/home-assistant/core/issues/144629)]
 
 Setup complexity remains prohibitive for mainstream users. It needs an existing Home Assistant setup, and making it work well took weeks of automations. [[Swyx](https://www.swyx.io/home-assistant-struggles)] The system cannot answer general knowledge questions without AI integration, lacks solid music streaming support, and provides no equivalent to Alexa’s vast skill ecosystem.
 
@@ -164,7 +164,7 @@ Feature gaps prevent direct commercial assistant replacement for most users. Bas
 
 After several months of daily use, the migration succeeded for my specific use case but wouldn’t work for most households. The system excels as a privacy-focused smart home control interface for users willing to invest significant setup time and accept current limitations.
 
-“It’s gotten better,” my partner acknowledged recently, “but I still miss just being able to ask questions about random stuff.” That captures the trade-off perfectly - we gained privacy and customization but lost the casual, conversational assistant experience that made voice control feel magical.
+“It’s gotten better,” my partner acknowledged recently, “but I still miss just being able to ask questions about random stuff.” That's the trade-off: we gained privacy and customization but lost the casual, conversational assistant experience that made voice control feel magical.
 
 **What works excellently**: Privacy implementation is solid with local processing options and open-source transparency. [[Michael Leen](https://www.michaelsleen.com/voice-pe-sat1-echo/)] Customization possibilities far exceed commercial alternatives. Home automation control rivals or exceeds Alexa’s capabilities once properly configured.
 

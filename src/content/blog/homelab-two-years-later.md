@@ -138,7 +138,7 @@ The router is a [UniFi Cloud Gateway Ultra](https://store.ui.com/us/en/products/
 
 IoT devices are made by companies you've never heard of, run firmware that rarely gets security patches, and phone home to servers in countries you can't identify on a map. I don't want any of them to have network access to my NAS full of family photos and financial documents.
 
-VLANs create separate virtual networks that can't talk to each other unless I write a firewall rule allowing it. Here's what each one can actually reach:
+VLANs create separate virtual networks that can't talk to each other unless I write a firewall rule allowing it. Here's what each one can reach:
 
 | Network                   | Can reach                                          | Blocked from      |
 | ------------------------- | -------------------------------------------------- | ----------------- |

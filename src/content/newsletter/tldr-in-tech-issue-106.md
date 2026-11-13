@@ -42,25 +42,25 @@ tl;dr: Martin's article outlines the development of the Canva Apps SDK, transiti
 
 _By: \[Author Unknown\]_
 
-tl;dr: The author explores alternative ways to represent Git hashes beyond the conventional hexadecimal format, experimenting with three unconventional methods: emoji, word and color representation of hashes. The author provides examples of these representations using recent commits from one of their repositories. The post emphasizes the experimental nature of these ideas.
+tl;dr: The author explores alternative ways to represent Git hashes beyond the conventional hexadecimal format, experimenting with three unconventional methods: emoji, word and color representation of hashes. The author provides examples of these representations using recent commits from one of their repositories. The author is clear that these are experiments.
 
 ## [Enabling Good Work Habits Through Reflective Goal-Setting](https://newsletter.getdx.com/p/reflective-goal-setting)
 
 _By: Abi Noda_
 
-tl;dr: Abi highlights a study on developers' productivity, revealing that reflective goal-setting leads to improvements. 84% of participants identified concrete goals through reflection, 80% saw positive behavior change, and 92% planned to maintain new habits. The key takeaway is that reflective goal-setting not only enhances awareness and productivity but also encourages lasting behavioral changes, empowering developers to gain control over their work.
+tl;dr: Abi highlights a study on developers' productivity, revealing that reflective goal-setting leads to improvements. 84% of participants identified concrete goals through reflection, 80% saw positive behavior change, and 92% planned to maintain new habits. Reflecting on goals made developers more aware of how they work and gave them more control over it.
 
 ## [Bottleneck #04: Cost Efficiency](https://martinfowler.com/articles/bottlenecks-of-scaleups/04-costs.html)
 
 _By: Stefania Stefansdottir, Sofia Tania_
 
-tl;dr: This post discusses cost optimization for scale-ups by emphasizing the importance of a cross-functional team to analyze and execute cost-saving measures. It outlines strategies like rightsizing resources, using ephemeral infrastructure, and consolidating tools. A key takeaway is the need for a detailed analysis of cost drivers, such as compute vs storage vs network, to identify specific levers for cost reduction, ensuring alignment with the company's unique needs as it scales.
+tl;dr: This post discusses cost optimization for scale-ups by emphasizing the importance of a cross-functional team to analyze and execute cost-saving measures. It outlines strategies like rightsizing resources, using ephemeral infrastructure, and consolidating tools. It also stresses analyzing cost drivers in detail, such as compute vs storage vs network, to find the specific levers for cutting costs.
 
 ## [My Problem With The Four-Document Model](https://www.hillelwayne.com/post/problems-with-the-4doc-model/)
 
 _By: Hillel Wayne_
 
-tl;dr: Hillel critiques the 4doc model for user documentation, highlighting that it's not universal or comprehensive. While effective for tools, it may not suit frameworks and languages. The key takeaway is that relying solely on the 4doc model can limit documentation effectiveness, and a more flexible approach that considers the specific subject being documented is encouraged.
+tl;dr: Hillel critiques the 4doc model for user documentation, highlighting that it's not universal or comprehensive. While effective for tools, it may not suit frameworks and languages. Relying only on the 4doc model can limit your docs, so he argues for an approach that fits the subject you're documenting.
 
 ## [Some Tactics For Writing In Public](https://jvns.ca/blog/2023/08/07/tactics-for-writing-in-public/)
 

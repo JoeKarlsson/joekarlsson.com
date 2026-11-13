@@ -18,13 +18,13 @@ For most of my last job, I couldn't answer the most obvious question about my wo
 
 Did anyone who read my content actually become a customer?
 
-I had metrics. Good ones. Traffic was up. Search impressions were climbing. The content calendar was full. But every time someone asked the follow-up question - "did that drive any leads?" - I'd say some version of _I don't know, that lives in a system I don't have access to._ And after a while, I stopped asking. You internalize the limits of your tools.
+I had good metrics. Traffic was up. Search impressions were climbing. The content calendar was full. But every time someone asked the follow-up question - "did that drive any leads?" - I'd say some version of _I don't know, that lives in a system I don't have access to._ And after a while, I stopped asking. You internalize the limits of your tools.
 
 The CRM lived with the sales team. I assumed getting access would mean a ticket, a queue, an engineer, a pipeline, weeks of waiting. So I never asked.
 
 ## The assumption that was costing me
 
-When I joined CData and started actually poking around how the company's connectivity layer worked, something clicked. The data I needed wasn't locked behind a months-long project. It was behind a permission change. An afternoon of work.
+When I joined CData and started actually poking around how the company's connectivity layer worked, something clicked. The data I needed was one permission change away, an afternoon of work instead of the months-long project I'd assumed.
 
 I used CData Connect AI to request CRM access and started designing a report that connected my content output to downstream conversions. The approach was embarrassingly simple once I stopped assuming it was hard.
 
@@ -44,7 +44,7 @@ The reporting didn't cause this. What it did was show me what was working so I c
 
 ## What visibility does to your influence
 
-Here's the part nobody talks about: once you can show downstream impact, the conversation with leadership changes completely.
+Once you can show downstream impact, the conversation with leadership changes completely.
 
 Before, my 1:1s were about activity. What did I publish? What's in the pipeline? After, we talked about strategy. Which content types are converting? What should we prioritize next quarter? My influence over what we actually worked on grew faster in that stretch than at any other point in my career.
 
@@ -52,7 +52,7 @@ That's not a coincidence. When you're a cost center with no legible connection t
 
 ## The integrity problem to watch out for
 
-I want to be honest about something: this kind of self-reported measurement has real failure modes.
+This kind of self-reported measurement has real failure modes.
 
 I've built scorecards and then started working for the scorecard. When you control how your own impact gets measured, there's constant pressure to define "success" in ways that make your numbers look good. It's subtle. You don't notice yourself doing it.
 

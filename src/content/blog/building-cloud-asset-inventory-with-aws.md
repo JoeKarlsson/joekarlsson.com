@@ -44,9 +44,9 @@ An asset inventory helps with:
 
 It's like spring cleaning but for your cloud. And less emotionally distressing than finding out your old hoodie has been living under the couch for three years.
 
-You may have heard that AWS Config is great if you want continuous monitoring and compliance checks within AWS. But here's the catch - it's AWS-only and event-driven. CloudQuery, on the other hand, doesn't just stop at AWS. It pulls in data from multiple clouds and SaaS providers, giving you a full picture of all your cloud infrastructure in one place.
+You may have heard that AWS Config is great if you want continuous monitoring and compliance checks within AWS. But it's AWS-only and event-driven. CloudQuery, on the other hand, doesn't just stop at AWS. It pulls in data from multiple clouds and SaaS providers, giving you a full picture of all your cloud infrastructure in one place.
 
-Plus, AWS Config charges you per rule, per change - which can add up fast. CloudQuery? Flat cost and query-driven, so you only look at the data you care about. Want to analyze everything across accounts, regions, and services without worrying about AWS billing surprises? CloudQuery's got you.
+Plus, AWS Config charges you per rule, per change - which can add up fast. CloudQuery has a flat cost and is query-driven, so you only look at the data you care about. Want to analyze everything across accounts, regions, and services without worrying about AWS billing surprises? CloudQuery's got you.
 
 ## How to Sync Your AWS Cloud Config Data
 
@@ -60,11 +60,11 @@ You'll need a [CloudQuery account](https://www.cloudquery.io/contact-us). No acc
 
 ### Step 3: Run Your Data Sync
 
-Click **Run Sync**. Watch in awe as your AWS are synced to CloudQuery.
+Click **Run Sync**. Watch in awe as your AWS resources are synced to CloudQuery.
 
 ## Making Your Cloud Inventory Actually Useful
 
-Now that you've got your AWS inventory set up, what do you actually do with it? It's not just about having a list of resources - it's about making sense of them.
+Now that you've got your AWS inventory set up, what do you actually do with it? A list of resources is only useful once you can make sense of it.
 
 For different teams, this means different things:
 
@@ -78,7 +78,7 @@ Here's how each team can put CloudQuery to work with real queries:
 
 ## Security Teams: Find Misconfigurations and Exposed Resources
 
-Security teams need to **identify misconfigured resources before attackers do**. The challenge? AWS environments are constantly changing, and what was secure yesterday might be a risk today. Without a clear view of your cloud assets, it's easy for **publicly accessible storage, overly permissive security groups, and unencrypted data** to slip through the cracks. These example queries help **pinpoint security gaps** so you can fix them before they become someone else's opportunity.
+Security teams need to **identify misconfigured resources before attackers do**. The challenge is that AWS environments are constantly changing, and what was secure yesterday might be a risk today. Without a clear view of your cloud assets, it's easy for **publicly accessible storage, overly permissive security groups, and unencrypted data** to slip through the cracks. These example queries help **pinpoint security gaps** so you can fix them before they become someone else's opportunity.
 
 ### Find all publicly accessible S3 buckets
 
@@ -240,7 +240,7 @@ If you've been following along, then at this point, you've got a **fully synced 
 - **How to set up CloudQuery and sync your AWS resources** for a complete, up-to-date inventory.
 - **How different teams - Security, Governance, and FinOps - can query this data** to solve real problems.
 
-Now, let's talk about **what you can actually do with this data** beyond just looking at it. [CloudQuery](https://platform-api-docs.cloudquery.io/) is **developer-first**, meaning everything you do in the UI, you can also **automate and extend** via our **REST API**. Whether you want to integrate cloud asset data into your existing workflows or build something custom, the possibilities are endless. Here are a few ideas to get you started:
+Now, let's talk about **what you can actually do with this data** beyond just looking at it. [CloudQuery](https://platform-api-docs.cloudquery.io/) is **developer-first**, meaning everything you do in the UI, you can also **automate and extend** via our **REST API**. Whether you want to integrate cloud asset data into your existing workflows or build something custom, here are a few ideas to get you started:
 
 - **Integrate It Into Your App** - Pull in real-time cloud asset data wherever you need it.
 - **Set Up Alerts & Notifications** - Get notified when misconfigurations or cost spikes happen.

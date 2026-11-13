@@ -12,7 +12,7 @@ contentNotice: false
 tldr: 'The *arr ecosystem nailed video automation, but self-hosted music is still stuck in album-centric workflows that ignore how we actually listen to music. I lay out why the problem is so hard and what a track-first tool like Songarr would need to look like. Navidrome 0.60 added some nice features like Instant Mix and a plugin system, but the core problem remains unsolved.'
 ---
 
-Look, I need to get something off my chest. After fifteen years of meticulously curating seasonal playlists and being a power Spotify user since 2011 (recently migrated to Apple Music for reasons we won’t get into here), I’m having a technical existential crisis about self-hosted music solutions. And frankly, it’s driving me insane.
+Look, I need to get something off my chest. After fifteen years of curating seasonal playlists and being a power Spotify user since 2011 (recently migrated to Apple Music for reasons we won’t get into here), I’m having a technical existential crisis about self-hosted music solutions. And frankly, it’s driving me insane.
 
 Video automation is solved. Sonarr and Radarr grab the files, Overseerr takes requests, and it all runs from a Compose file.
 
@@ -78,7 +78,7 @@ Lidarr, despite being part of the \*arr family, approaches music with an album-f
 
 ## Current solutions
 
-I've been deep in the weeds investigating every possible solution, and the technical landscape reveals why we're stuck.
+I've been deep in the weeds investigating every possible solution, and each one falls short in a different way.
 
 **Navidrome has gotten better** - I'll give credit where it's due. Version 0.60 (February 2026) introduced a WebAssembly-based plugin system that lets developers extend functionality using Go, Rust, Python, or JavaScript. The plugins run in a sandbox, so you can add custom metadata sources and integrations without worrying about breaking your server. There's also a new "Instant Mix" feature that generates playlists of similar songs based on a selected track, pulling recommendations from Last.fm or Deezer.
 
@@ -119,7 +119,7 @@ Video automation succeeds because of clean data modeling. One episode maps to on
 
 ## Technical barriers in the song-level automation dream
 
-Building the dream scenario faces legitimate technical barriers that go beyond simple engineering challenges.
+Building the dream scenario runs into real technical barriers, not just engineering work.
 
 **API Limitations**: Streaming services provide discovery APIs but explicitly prohibit download functionality. Spotify’s Web API gives you track metadata but no way to get audio files, and since November 2024 it has cut back even the 30-second previews for new apps. Apple Music’s API is even more restrictive. Building automation requires finding alternative content sources with entirely different API contracts and reliability characteristics.
 
@@ -141,7 +141,7 @@ Building the dream scenario faces legitimate technical barriers that go beyond s
 
 ## Potential technical solutions
 
-Despite the challenges, several architectural approaches could theoretically solve this puzzle using established tools and patterns.
+A few architectural approaches could solve this with tools and patterns that already exist.
 
 **Microservice Extension of arr Architecture**: The most promising path involves extending the proven \*arr pattern with a new service focused on track-level operations. Let’s call it “Songarr” for discussion purposes.
 

@@ -15,7 +15,7 @@ heroAlt: 'Pliers hanging on a workshop tool wall'
 
 Most organizations treat cloud asset inventories as technical projects. They invest in powerful tools, sync every possible resource, and build dashboards. Then they wonder why adoption stays low and business value remains elusive.
 
-The difference between cloud asset inventories that succeed and those that fail isn't technology - it's approach. Organizations that extract maximum value from their cloud inventories understand they're implementing a business capability, not just a technical solution.
+What separates the cloud asset inventories that succeed from the ones that fail is approach. Organizations that extract maximum value from their cloud inventories treat them as a business capability.
 
 In this final video of our series on designing, building, maintaining, and scaling cloud asset inventories, CloudQuery Developer Advocate Joe Karlsson sits down with AWS Partner Solutions Architect Keegan Marazzi to share five value-maximizing principles that separate successful implementations from those that stall.
 
@@ -39,11 +39,11 @@ The biggest mistake organizations make is building cloud inventories without cle
 
 **Success metric:** Draw a direct line from every inventory feature to a specific business goal. If you can't connect a capability to revenue protection, cost savings, or risk reduction, don't build it.
 
-Organizations often rush to inventory everything without understanding why. The result? A pristine dataset with no stakeholders, no use cases, and no business impact. Focus on the outcomes first.
+Organizations often rush to inventory everything without understanding why. The result is a pristine dataset with no stakeholders, no use cases, and no business impact. Focus on the outcomes first.
 
 ### 2. Engage Stakeholders - Don't Operate in Silos
 
-Your cloud asset inventory isn't an IT project. It's not even just a platform engineering initiative. It's a business capability that touches FinOps, security, compliance, development, and operations teams.
+Your cloud asset inventory is a business capability that reaches well past IT and platform engineering, into FinOps, security, compliance, development, and operations teams.
 
 **Implementation means:**
 
@@ -76,9 +76,9 @@ You can have dozens of potential business outcomes to track. Don't try to solve 
 
 ### 4. Provide Actionable Intelligence, Not Just Data Collection
 
-Data without action is just noise. The most common failure mode for cloud inventories? Collecting massive amounts of information that teams can't act on.
+Data without action is just noise. The most common failure mode for cloud inventories is collecting massive amounts of information that teams can't act on.
 
-**The problem:** Organizations build relationships between resources, make data accessible, provide beautiful visualizations - and still see no adoption. Why? Because overwhelming data without clear action paths creates paralysis, not progress.
+**The problem:** Organizations build relationships between resources, make data accessible, provide beautiful visualizations - and still see no adoption, because a pile of data with no clear next step leaves teams stuck.
 
 **Implementation means:**
 
@@ -104,7 +104,7 @@ Your inventory must grow as your organization evolves. New teams, new services, 
 
 **Success metric:** Your inventory adapts to organizational change. As your cloud footprint grows, new teams onboard, and business priorities shift, your inventory scales without major re-architecture.
 
-Technology changes. Business priorities shift. Cloud environments expand. Your asset inventory should be designed for continuous adaptation, not periodic overhaul.
+Technology, business priorities, and cloud environments all keep changing, so design your asset inventory to adapt continuously.
 
 ## Critical Success Factors
 
