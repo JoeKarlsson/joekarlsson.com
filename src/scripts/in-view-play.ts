@@ -113,20 +113,25 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 		{ threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] },
 	);
 	// Two clips both fully on screen cross no threshold as the page scrolls, so the
-	// middle of the screen is checked on scroll while more than one is in view
-	let pickQueued = false;
-	addEventListener(
-		'scroll',
-		() => {
-			if (mostlyVisible.size < 2 || pickQueued) return;
-			pickQueued = true;
-			requestAnimationFrame(() => {
-				pickQueued = false;
-				pickLeader();
-			});
-		},
-		{ passive: true },
-	);
+	// middle of the screen is checked once scrolling stops (each frame where scrollend
+	// is missing) while more than one is in view
+	if ('onscrollend' in window)
+		addEventListener('scrollend', () => mostlyVisible.size > 1 && pickLeader());
+	else {
+		let pickQueued = false;
+		addEventListener(
+			'scroll',
+			() => {
+				if (mostlyVisible.size < 2 || pickQueued) return;
+				pickQueued = true;
+				requestAnimationFrame(() => {
+					pickQueued = false;
+					pickLeader();
+				});
+			},
+			{ passive: true },
+		);
+	}
 	videos.forEach((video) => {
 		video.addEventListener('pause', () => {
 			if (video.dataset.autoPausing) delete video.dataset.autoPausing;
