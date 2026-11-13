@@ -83,8 +83,9 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 	// Most of it on screen wins; between two fully on screen, the one nearer the middle
 	const rank = (video: HTMLVideoElement) => {
 		const { top, bottom } = video.getBoundingClientRect();
-		const shown = Math.min(bottom, innerHeight) - Math.max(top, 0);
-		return shown - Math.abs((top + bottom) / 2 - innerHeight / 2) / innerHeight;
+		const whollyShown = top >= 0 && bottom <= innerHeight;
+		const shown = whollyShown ? innerHeight : Math.min(bottom, innerHeight) - Math.max(top, 0);
+		return shown - Math.abs((top + bottom) / 2 - innerHeight / 2);
 	};
 	const pickLeader = () => {
 		const [leader] = [...mostlyVisible].sort((a, b) => rank(b) - rank(a));

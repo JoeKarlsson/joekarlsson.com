@@ -1,19 +1,7 @@
 // The hero chart: words between periods draws left to right, then semicolons and colons
 // start counting as stops and the second line drops out of the first. The gap that opens
 // is the glued sentences.
-import {
-	COLORS,
-	DATA,
-	MUTED,
-	easeOut,
-	easeOutBack,
-	label,
-	layers,
-	n,
-	panel,
-	pathOf,
-	prog,
-} from './_chart.mjs';
+import { COLORS, DATA, MUTED, easeOut, label, layers, n, panel, pathOf, prog } from './_chart.mjs';
 
 const P = DATA.sentence_length_50yr;
 
@@ -89,7 +77,7 @@ function chart(f, { W, H, phone }) {
 	);
 
 	const drawn = (t) => easeOut(prog(t, T_DRAW, DRAW));
-	const dropOf = (i, t) => easeOutBack(prog(t, T_DROP + i * 0.12, 0.6));
+	const dropOf = (i, t) => easeOut(prog(t, T_DROP + i * 0.12, 0.6));
 	const stopsY = (i, t) =>
 		py(P[i].between_periods + (P[i].between_stops - P[i].between_periods) * dropOf(i, t));
 	const periodsPts = P.map((p, i) => [px(i), py(p.between_periods)]);

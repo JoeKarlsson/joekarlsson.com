@@ -1,17 +1,6 @@
 // Leave one mark out: every bar starts at the full fingerprint's 34% and dips to what the test
 // gets without that mark. None falls far; the period costs the most.
-import {
-	COLORS,
-	DATA,
-	MUTED,
-	SANS,
-	easeOutBack,
-	label,
-	layers,
-	n,
-	panel,
-	prog,
-} from './_chart.mjs';
+import { COLORS, DATA, MUTED, SANS, easeOut, label, layers, n, panel, prog } from './_chart.mjs';
 
 const LO = DATA.leave_one_mark_out;
 const NAMES = {
@@ -89,7 +78,7 @@ function chart(f, { W, H, phone }) {
 		ROWS.forEach(([mark, v], i) => {
 			const cy = top + i * rowH + rowH / 2;
 			const at = T0 + i * EACH;
-			const p = (t) => easeOutBack(prog(t, at, 0.5));
+			const p = (t) => easeOut(prog(t, at, 0.5));
 			const w = (t) => n(x(LO.none + (v - LO.none) * p(t)) - x(0));
 			out.push(
 				el(

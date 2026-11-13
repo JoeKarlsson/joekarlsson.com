@@ -1,17 +1,6 @@
 // Authorship from punctuation alone: the 708 books drop, a row at a time, into "named right"
 // and "named wrong" piles. Then the two shuffled baselines land on a scale under them.
-import {
-	COLORS,
-	DATA,
-	MUTED,
-	easeOut,
-	easeOutBack,
-	label,
-	layers,
-	n,
-	panel,
-	prog,
-} from './_chart.mjs';
+import { COLORS, DATA, MUTED, easeOut, label, layers, n, panel, prog } from './_chart.mjs';
 
 const A = DATA.authorship;
 const T0 = 0.3;
@@ -149,7 +138,7 @@ function chart(f, { W, H, phone }) {
 						'g',
 						{},
 						{
-							translate: (t) => `0 ${n(-(base - 40) * (1 - easeOutBack(prog(t, at, 0.4))))}`,
+							translate: (t) => `0 ${n(-(base - 40) * (1 - easeOut(prog(t, at, 0.4))))}`,
 							opacity: (t) => (t >= at ? 1 : 0),
 						},
 						dots,

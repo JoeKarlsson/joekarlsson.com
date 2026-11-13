@@ -5,7 +5,7 @@ import {
 	DATA,
 	MUTED,
 	PANEL,
-	easeOutBack,
+	easeOut,
 	label,
 	layers,
 	n,
@@ -104,7 +104,7 @@ function chart(f, { W, H, phone }) {
 	layers(f, true, (el) => {
 		const out = [];
 		bands.forEach((b, bi) => {
-			const land = (i) => (t) => easeOutBack(prog(t, T0 + bi * 0.25 + i * 0.13, 0.5));
+			const land = (i) => (t) => easeOut(prog(t, T0 + bi * 0.25 + i * 0.13, 0.5));
 			const quoted = P.map((p, i) => [p, i]).filter(([p]) => p.quoted);
 			const doneAt = T0 + bi * 0.25 + (P.length - 1) * 0.13 + 0.5;
 			out.push(

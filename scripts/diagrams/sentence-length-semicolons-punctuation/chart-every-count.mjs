@@ -1,17 +1,6 @@
 // Every way of counting: each method's estimate slides in from 0 and settles, its interval
 // opens out, and the about-40% line is drawn last.
-import {
-	COLORS,
-	DATA,
-	MUTED,
-	easeOut,
-	easeOutBack,
-	label,
-	layers,
-	n,
-	panel,
-	prog,
-} from './_chart.mjs';
+import { COLORS, DATA, MUTED, easeOut, label, layers, n, panel, prog } from './_chart.mjs';
 
 const ROWS = DATA.every_count;
 const MAX = 70;
@@ -72,7 +61,7 @@ function chart(f, { W, H, phone }) {
 		const out = [];
 		ROWS.forEach((r, k) => {
 			const start = 0.3 + k * 0.15;
-			const slide = (t) => easeOutBack(prog(t, start, 0.6));
+			const slide = (t) => easeOut(prog(t, start, 0.6));
 			const open = (t) => easeOut(prog(t, start + 0.5, 0.35));
 			out.push(
 				el(

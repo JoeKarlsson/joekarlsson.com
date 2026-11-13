@@ -30,10 +30,6 @@ export const clamp01 = (v) => Math.max(0, Math.min(1, v));
 /** Progress of a step that starts at `start` and takes `dur` seconds. */
 export const prog = (t, start, dur) => clamp01((t - start) / dur);
 export const easeOut = (p) => 1 - (1 - p) ** 3;
-export function easeOutBack(p) {
-	const c = 1.70158;
-	return 1 + (c + 1) * (p - 1) ** 3 + c * (p - 1) ** 2;
-}
 
 const frames = Array.from({ length: LOOP * FPS }, (_, i) => i / FPS);
 

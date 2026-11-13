@@ -575,6 +575,11 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 	html.lightbox-closing::view-transition-group(lightbox-morph) {
 		animation-timing-function: ease-in-out;
 	}
+	/* ...while the dark backdrop is leaving, so it accelerates away */
+	html.lightbox-closing::view-transition-old(root),
+	html.lightbox-closing::view-transition-new(root) {
+		animation-timing-function: var(--ease-exit);
+	}
 
 	/* Phones: a folded Talks or Uses section eases open and shut 20% faster
 	   (phone-collapse.ts toggles [hidden], and sets data-folds-ready once the folds are
