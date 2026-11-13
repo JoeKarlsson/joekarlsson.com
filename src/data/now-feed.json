@@ -7,12 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 647,
+			"commitCount": 654,
 			"dailyCommitCounts": [
 				0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119,
-				85, 19, 35
+				85, 19, 42
 			],
-			"latestCommitMessage": "fix: The touch-tablet board test waits for the swipe's scroll and..."
+			"latestCommitMessage": "fix: Meta lines put a thin gray bar between pieces, so it's clear..."
+		},
+		{
+			"name": "dotfiles",
+			"description": "My dotfiles",
+			"url": "https://github.com/JoeKarlsson/dotfiles",
+			"language": "TypeScript",
+			"commitCount": 114,
+			"dailyCommitCounts": [
+				5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 10
+			],
+			"latestCommitMessage": "feat: Claude can run npm run deploy"
 		},
 		{
 			"name": "client-side-field-level-encryption-csfle-mongodb-node-demo",
@@ -35,17 +46,6 @@
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1
 			],
 			"latestCommitMessage": "fix: The box runs on today's Node, MongoDB driver 7 and Python 3, logs..."
-		},
-		{
-			"name": "digital-graffiti-wall",
-			"description": "The Digital Graffiti Board is an interactive art installation that aims to make audience interaction with virtual speakers more collaborative. Artists will be able to draw on a shared wall, and they will be able to see their creations be shared IRL on a RGB LED grid LIVE! This piece use MongoDB Realm to sync users' data in real-time across all the connected clients.",
-			"url": "https://github.com/JoeKarlsson/digital-graffiti-wall",
-			"language": "JavaScript",
-			"commitCount": 7,
-			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1
-			],
-			"latestCommitMessage": "fix: The page loads realm-web 2.0.1, the SDK's last release, and opens..."
 		}
 	],
 	"films": [
