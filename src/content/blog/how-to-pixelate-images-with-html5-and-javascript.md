@@ -9,6 +9,10 @@ heroImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/thumb-
 heroAlt: 'A Roman floor mosaic of gladiators built from tiny tiles'
 contentNotice: 'This post uses outdated JavaScript patterns (var, window.onload, browser-prefixed APIs). The pixelation technique still works, but refer to modern JavaScript documentation for current best practices.'
 tldr: 'I walk through how I built Pixelate.js, a small web app that turns images into dynamic pixel art using HTML5 canvas and a clever trick with image smoothing.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "`window.onload = firstDraw();` ran the function right away. It's `window.onload = firstDraw;`."
 ---
 
 > **Note:** This post was written in 2015. The code uses patterns like `var`, `window.onload`, and browser-prefixed APIs (`mozImageSmoothingEnabled`) that are outdated. The pixelation technique still works, but modern JavaScript would use `let`/`const` and `imageSmoothingEnabled` is now standard without prefixes.

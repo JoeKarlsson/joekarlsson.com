@@ -11,6 +11,12 @@ heroImage: '/images/blog/building-cloud-asset-inventory-with-gcp/thumb-f71d8bcd.
 canonicalUrl: 'https://www.cloudquery.io/blog/building-cloud-asset-inventory-with-gcp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Museum storage cabinets full of specimen drawers'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "I called GCP a Microsoft service and linked the Azure plugin docs. It's Google Cloud, and the link goes to the GCP docs."
+  - date: 2026-11-12
+    note: "The YAML had a stray `c` and `tables: [*]`, the connection string was mangled, and the check query used Azure names (`GCP_storage_accounts`, `enable_https_traffic_only`). It now checks `gcp_storage_buckets` for uniform bucket-level access."
 ---
 
 If you're struggling to keep track of your Google Cloud Platform (GCP) assets, stay compliant, and keep things secure, a cloud asset inventory can help.

@@ -9,6 +9,10 @@ tags: ['video production', 'screen recording', 'macOS', 'Claude', 'whisper.cpp',
 heroImage: '/images/blog/screencast-director-screen-recorder/hero.webp'
 heroAlt: 'I hate editing video. So I built a screen recorder that does it for me: the title next to the Screencast Director editor, with my face filling the preview under a Joe Karlsson, Made Screencast Director lower third, and the camera framing and color controls'
 tldr: "Editing is my least favorite part of making videos, so I built Screencast Director, a macOS screen recorder that drafts the edit for me. Talk through a demo once: while you're talking it plays in real time, typing without talking gets sped up, and silence gets cut. It zooms to your clicks, captions what you said, and drops retakes. Then you adjust it on a timeline or tell an AI model what to change, and unlike Descript, Camtasia or Screen Studio, you pick the model, the local Whisper model and the prompts. It's a native Mac app, and it's open source."
+updatedDate: 2026-11-10
+corrections:
+  - date: 2026-11-10
+    note: "I said your video and audio never leave your Mac. With Claude Code, a few still frames go to the model. Only a local model keeps everything on the machine."
 ---
 
 I don't mind writing a video. I don't even mind recording one. Editing is the part I hate. It means sitting there for hours after the fact, watching myself, scrubbing past every "um," every dead pause, every time I lost my cursor, and every take of a line I flubbed three times.

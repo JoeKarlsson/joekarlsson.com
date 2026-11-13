@@ -13,6 +13,10 @@ heroAlt: 'A magnifying glass over a postage stamp'
 canonicalUrl: 'https://www.cloudquery.io/blog/introducing-the-git-source-plugin'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Plugin syncs file content from your repositories into any database. Query Dockerfiles for EOL base images, find repos missing LICENSE files, track React dependencies across your org, or audit CODEOWNERS against your identity provider - all with SQL, no repo cloning required.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The config used syntax the plugin doesn't take (`glob_patterns`, a top-level `repositories`), and the GitHub Action was missing the `setup-cloudquery` step and the API key."
 ---
 
 You need to find which Dockerfiles still use Node 18 (now EOL). Or which repos are missing a LICENSE file. Or maybe you need to audit CODEOWNERS against your actual employee roster. The typical approach is to clone hundreds of repos, write bash scripts to parse files, export to spreadsheets, and maintain the script as repos change. It's 2025, and we're still doing this.

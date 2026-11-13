@@ -12,6 +12,12 @@ heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumb-52054d43.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/kubernetes-asset-tracking-at-scale'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Ralph Wiggum from The Simpsons saying, "I''m in Danger," with the caption, "When you realize your Kubernetes asset tracking is a mess".'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "I removed stats I couldn't source (67% faster remediation, a 73% MTTD cut, 68% fewer audit findings, 63% to 97% label compliance). The Google SRE line is now a real quote from the SRE book."
+  - date: 2026-11-12
+    note: "The queries used MySQL and BigQuery JSON functions on a Postgres database, columns that don't exist (`spec`, `status`, `aws_eks_cluster_security_groups`), a bare `WITH` and the wrong GCP prefix (`google://` instead of `gce://`)."
 ---
 
 > **TL;DR:**

@@ -13,6 +13,10 @@ heroImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-manageme
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'Meme image of a determined-looking toddler clenching his fist in success (known as "Success Kid"). The background is a blue and purple radial burst. Text at the top reads: "PUBLISHED QUARTERLY COE METRICS". Text at the bottom reads: "MANAGEMENT LOVED IT."'
+updatedDate: 2026-11-06
+corrections:
+  - date: 2026-11-06
+    note: "Flexera's 59% figure is from 2025, up from 51% in 2024. I had both years one year early."
 ---
 
 **About This Series:** This is Part 3 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

@@ -23,6 +23,9 @@ faq:
     answer: 'Yes. With LXC device binding the NVIDIA driver loads on the Proxmox host, so nvidia-smi on the host shows the GPU and the PIDs using it. To tie VRAM usage to a specific service, run it from inside the container: pct exec <ct-id> -- nvidia-smi. With full VM passthrough (vfio-pci) the GPU disappears from the host entirely.'
   - question: 'What Proxmox version do I need for LXC GPU passthrough?'
     answer: 'Any recent one. As of October 2026 my nodes run Proxmox VE 9.2.21 on kernel 6.17.13 with NVIDIA driver 580.95.05 (CUDA 13.0). PVE 9.2 defaults to the 7.0 kernel, and Proxmox forum users have reported NVIDIA DKMS build failures on it, so check the forum before upgrading a GPU node.'
+corrections:
+  - date: 2026-10-15
+    note: "I said the RTX A4000 could encode AV1 with `av1_nvenc`. Neither card can."
 ---
 
 **Updated October 2026:** I first published this in April. Since then Whisper moved to a bigger model, Frigate went from two cameras to four, and I benchmarked the open-source models I actually run on both cards, for speed and for whether their answers can be trusted. The original also said the RTX A4000 could encode AV1, which was wrong.

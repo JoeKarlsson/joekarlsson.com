@@ -10,6 +10,10 @@ heroImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/thumb-784631
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-build-a-multi-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Colored pins stuck in a map'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "Several queries used tables and columns that never existed: the cost columns, `azure_virtual_machines`, the load balancer tables, and Azure names in the GCP check. The dbt profile didn't match the database container."
 ---
 
 Managing multi-cloud environments can overwhelm even experienced cloud architects. Each cloud provider has its own set of tools, APIs, and management practices, leading to fragmented visibility and control. Without a unified view, identifying and managing cloud assets across AWS, Azure, GCP, and other providers becomes daunting.

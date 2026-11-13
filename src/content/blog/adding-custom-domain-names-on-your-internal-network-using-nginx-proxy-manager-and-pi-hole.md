@@ -9,6 +9,10 @@ categories: ['Homelab']
 heroImage: '/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/thumb-0cabecaf.webp'
 heroAlt: 'Postal workers sorting a cart of mail sacks'
 tldr: "I got tired of typing IP addresses, so I set up Pi-hole for local DNS and Nginx Proxy Manager for routing. Let's Encrypt won't sign a made-up name like magic.mirror, so for HTTPS use a DNS-01 wildcard cert on a domain you own, or mkcert if you don't. DNS and routing take about 15 minutes."
+updatedDate: 2026-09-22
+corrections:
+  - date: 2026-09-22
+    note: "Step 3 told you to get a Let's Encrypt certificate for `magic.mirror`. Let's Encrypt only signs real public domains, so that couldn't work. Step 3 now uses a DNS-01 wildcard on a domain you own, or mkcert."
 ---
 
 **Update (September 2026):** A reader pointed out that my original SSL steps couldn't work, and they're right. I've rewritten Step 3; Steps 1 and 2 are unchanged.

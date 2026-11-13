@@ -11,6 +11,10 @@ heroImage: '/images/blog/dora-ict-asset-register/thumb-6ea2acde.webp'
 heroAlt: 'An old handwritten register book'
 canonicalUrl: https://www.cloudquery.io/blog/dora-ict-asset-register
 contentNotice: 'This post was originally published on CloudQuery blog in early 2026, so its look ahead at what regulators would do in 2026 is now history.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The Azure query read a `vm_size` column that doesn't exist. It's inside `properties->'hardwareProfile'`."
 ---
 
 > **Note:** One year into DORA enforcement, the April 2025 Register of Information submission revealed a clear divide: organizations with automated, queryable asset inventories submitted in hours, while those relying on spreadsheets scrambled for weeks. With BaFin signaling stricter enforcement for 2026, the playbook is clear: treat cloud infrastructure as queryable data, not documentation to maintain.

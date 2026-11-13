@@ -13,6 +13,10 @@ writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/death-of-agent-based-discovery
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A dinosaur fossil in a museum case'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "I removed an unattributed quote about pulling 10,000 agents and saving $40K a year."
 ---
 
 We spent 20 years deploying agents on servers. Then AWS gave us APIs. Why are we still installing agents?

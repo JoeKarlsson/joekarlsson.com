@@ -12,6 +12,10 @@ heroImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance
 heroAlt: 'The back of an equipment rack, every cable in place'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-09-continuous-compliance-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The queries used tables and columns that don't exist: `aws_accounts`, `is_logging`, `logging_target_bucket`, `server_side_encryption_configuration`, and a root check on `user_name = 'root'`. They now use the real tables."
 ---
 
 > **Note:** Compliance frameworks like SOC 2 and CIS Benchmarks map directly to SQL queries against your cloud infrastructure data. Instead of scrambling before audits to prove compliance at one point in time, you can run those queries daily and generate evidence continuously. This post shows how to map specific compliance controls to build a continuous compliance loop, and shift from audit panic to always-on proof.

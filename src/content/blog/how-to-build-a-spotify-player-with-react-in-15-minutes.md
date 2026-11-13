@@ -24,6 +24,10 @@ howToSteps:
     text: 'Build a getCurrentlyPlaying() function that calls the Spotify /me/player endpoint with your access token to fetch track data.'
   - name: 'Build the Player Component'
     text: 'Create a Player.jsx component that displays album art, track name, artist, playback status, and a progress bar.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The authorize URL was missing its `?`, `hash` was declared twice, the JSX was cut off, and the progress bar read `this.progress_ms` instead of `this.state.progress_ms`, so it never moved."
 ---
 
 Have you ever wanted to build a Spotify player for your app or website? Adding personalized music to any application is super easy with the Spotify Developer API. Personally, I have been playing around with the Spotify API with an IoT project I have been building in my free time.

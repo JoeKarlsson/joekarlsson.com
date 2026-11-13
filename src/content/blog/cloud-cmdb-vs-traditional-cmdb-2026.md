@@ -14,6 +14,10 @@ writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-cmdb-vs-traditional-cmdb-2026
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A wooden box of handwritten index cards'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The queries used columns and tables that don't exist (`state_name`, `bucket_name`, `aws_ebs_volumes`, `cloudquery_sync_log`) and `ANY()` on a JSON column, and the config had no destination."
 ---
 
 Traditional CMDBs were built for a world where servers had names. In 2026, your infrastructure doesn't even exist until someone invokes it.

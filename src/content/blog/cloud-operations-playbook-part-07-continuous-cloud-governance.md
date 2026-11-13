@@ -12,6 +12,10 @@ heroImage: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-gove
 heroAlt: 'A lifeguard tower watching the beach'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-07-continuous-cloud-governance'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The MFA check read `aws_iam_users.mfa_active`, which lives on `aws_iam_credential_reports`, and the security group query used a table that doesn't exist (`aws_ec2_security_group_ip_permissions`). It's `aws_ec2_security_group_rules`."
 ---
 
 > **Note:** CI/CD policy checks only catch violations at deploy time. But infrastructure changes through console clicks, configuration drift, and cloud provider updates without ever touching a pipeline. Continuous governance runs the same SQL-based policies at deploy time, on a schedule, and historically so nothing slips through. If your governance only runs when code ships, you're blind to most of the changes that actually cause incidents.

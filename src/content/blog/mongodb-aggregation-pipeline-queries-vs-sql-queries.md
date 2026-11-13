@@ -10,6 +10,10 @@ heroImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/thu
 heroAlt: 'A plumbing diagram of pipes running between fixtures'
 contentNotice: false
 tldr: 'A side-by-side cheat sheet translating common SQL queries (GROUP BY, SUM, JOIN, etc.) into MongoDB Aggregation Pipeline stages. If you know SQL and are learning MongoDB, this is the Rosetta Stone you need.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The `$filter` condition used `'$item.plays'`; it's `'$$item.plays'`. The MongoDB sample data didn't match the SQL data."
 ---
 
 Many devs coming to MongoDB are joining the community with a strong background in SQL. I would personally include myself in this subset of MongoDB devs. I think it’s useful to map terms and concepts you might be familiar with in SQL to help “[translate](https://docs.mongodb.com/manual/reference/sql-comparison/)” your work into MongoDB Query Language (MQL). More specifically, in this post, I will be walking through translating the MongoDB Aggregation Pipeline Queries vs SQL Queries.

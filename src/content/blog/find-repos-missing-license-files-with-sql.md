@@ -12,6 +12,10 @@ heroAlt: 'An ornate frame with nothing inside it'
 canonicalUrl: 'https://www.cloudquery.io/blog/find-repos-missing-license-files-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs LICENSE files into your database. Find repos missing licenses, classify license types (MIT, Apache, GPL), and check compliance - all with SQL.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The Git source config used syntax the plugin doesn't take. I also said `**/LICENSE*` matches the British `LICENCE`. It doesn't."
 ---
 
 Your legal team needs a list of repositories without LICENSE files. The GitHub UI shows license status one repo at a time. The API requires pagination and filtering. Writing a script means handling authentication, rate limits, and data aggregation. And you'll need to maintain that script every time requirements change.

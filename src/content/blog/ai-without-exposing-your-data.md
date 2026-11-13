@@ -13,6 +13,10 @@ canonicalUrl: https://www.cloudquery.io/blog/ai-without-exposing-your-data
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroImage: '/images/blog/ai-without-exposing-your-data/thumb-0e096ae2.webp'
 heroAlt: 'A letter closed with a red wax seal'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "I removed two stats I couldn't source: 99.7% accuracy in the bank example and a 40% efficiency gain in the manufacturer example."
 ---
 
 > **Note:** **TL;DR:**

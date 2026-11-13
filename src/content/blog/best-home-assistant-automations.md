@@ -2,7 +2,7 @@
 title: 'The Best Home Assistant Automations of 2027 (10 Years In)'
 seoTitle: 'The Best Home Assistant Automations of 2027'
 date: 2026-09-29
-updatedDate: 2026-11-09
+updatedDate: 2026-11-12
 updateNote: 'Checked against Home Assistant 2026.11: HACS is now the Marketplace, automations can exclude targets, and Frigate 0.18.2 has security fixes worth installing.'
 slug: 'best-home-assistant-automations'
 description: 'The best Home Assistant automations after 10 years and 134 running: start with the basics, layer on context, go advanced, and keep them working.'
@@ -28,6 +28,13 @@ faq:
     answer: "By default, if one action in an automation or script fails, Home Assistant stops the whole run at that step. Setting continue_on_error: true on an action lets the rest of the automation keep going when that step fails at runtime, like an offline device or service. It doesn't cover broken configuration, such as a bad template or an action that no longer exists."
   - question: 'Can Home Assistant run AI locally?'
     answer: 'Yes. The AI Task integration can call a local model through Ollama, and Frigate can do object detection and face recognition on a GPU. Local AI works best when it returns a structured answer like has_package true or false, not a free-text description.'
+corrections:
+  - date: 2026-11-12
+    note: "I said Home Assistant 2026.10 added a built-in MCP server. It's worked as one since 2025.2; 2026.10 made it a one-click switch."
+  - date: 2026-11-12
+    note: "I called Presence Simulation and Alarmo add-ons. They're community integrations."
+  - date: 2026-11-12
+    note: "I said every safety sensor sends a loud alert. The heat one turns the heat back on instead."
 ---
 
 I've been running Home Assistant since 2016. Today I have 134 automations, and the best Home Assistant automations I've built share one trait: someone who has never been in my house can live with them without an app, instructions, or me saying "oh, don't touch that switch."

@@ -13,6 +13,10 @@ heroAlt: 'A window left open in a bright yellow wall'
 canonicalUrl: 'https://www.cloudquery.io/blog/detect-public-databases-across-aws-azure-gcp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'This tutorial walks through building a CloudQuery Policy that detects publicly accessible databases across AWS, Azure, and GCP. You will get copy-paste ClickHouse SQL covering 7 database types across 3 cloud providers, screenshots of the full setup process, and a breakdown of how violation details and related resource views work.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The RDS table is `aws_rds_instances`, not `aws_rds_db_instances`. Cosmos DB public access lives on `azure_cosmos_database_accounts`, not the per-API tables I queried, so the count is 7 database types (five on Azure), not 9 (seven)."
 ---
 
 CloudQuery Policies let you write ClickHouse SQL queries that flag infrastructure violations across all your cloud providers. We [recently launched this feature](https://www.cloudquery.io/blog/introducing-cloudquery-platform-policies), and this post shows how to put it to work.

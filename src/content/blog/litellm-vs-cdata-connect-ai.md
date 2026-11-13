@@ -25,6 +25,10 @@ faq:
     answer: "In March 2026, LiteLLM's PyPI package was compromised as part of the TeamPCP supply chain campaign. Malicious versions (1.82.7 and 1.82.8) were published to PyPI and exposed roughly 434,000 CI/CD pipelines across more than 2,500 organizations. BerriAI identified and remediated the incident. Technical analysis is available from Datadog Security Labs and SecurityWeek. For enterprise security teams, it illustrates the supply chain risk inherent to self-hosted open-source infrastructure in AI toolchains, and it's one factor that informs the choice between self-hosted and managed deployment models."
 tldr: "LiteLLM is a strong self-hosted LLM router: 100+ providers, cost tracking, budgets. It doesn't connect to enterprise data, and its MCP proxy runs under a service account, so source-system permissions don't apply. Connect AI governs the data side with per-user passthrough identity. Plenty of teams need both."
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/litellm-vs-cdata-connect-ai).'
+updatedDate: 2026-09-30
+corrections:
+  - date: 2026-09-30
+    note: "The decision table gave \"cost visibility and token budget enforcement at the model layer\" to CData Connect AI. That's LiteLLM's job."
 ---
 
 Building enterprise AI infrastructure usually starts the same way: LiteLLM goes on the shortlist. It's open source, MIT-licensed, routes to 100+ model providers behind one OpenAI-compatible endpoint and deploys to Docker or Kubernetes in an afternoon. It has real enterprise deployments at Netflix, NASA, Ramp, and Okta and one of the most active contributor bases in open-source LLM tooling.

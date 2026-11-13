@@ -8,6 +8,12 @@ categories: ['Homelab']
 heroImage: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/thumb-6cc55f0c.webp'
 heroAlt: 'A MikroTik API login sentence written to the wire one word at a time, each with its length byte, until RouterOS answers !done'
 tldr: "I implemented MikroTik's proprietary binary API protocol from scratch in Python to programmatically manage my network infrastructure. The protocol uses variable-length encoding (similar to UTF-8), sentence-based messaging over raw TCP, and plain-text authentication. In ~137 lines of Python, you get full control over bonding, DHCP, firewall rules, and anything else exposed by the RouterOS API."
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "I said my scripts query DHCP leases and manage firewall rules. They change bond settings."
+  - date: 2026-11-12
+    note: "`sock.recv(n)` can return fewer bytes than asked for. The reader now loops until it has them all."
 ---
 
 My [homelab](/blog/how-to-get-started-building-a-homelab-server/) runs a MikroTik CRS317 as the 10G backbone switch, handling LACP bonds to two Proxmox hosts and a failover bond to a UniFi switch. When I started managing bonding configurations, I wanted to do it programmatically - not by SSHing in and typing commands interactively.

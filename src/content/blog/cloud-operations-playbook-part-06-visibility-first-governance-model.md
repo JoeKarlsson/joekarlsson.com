@@ -12,6 +12,10 @@ heroImage: '/images/blog/cloud-operations-playbook-part-06-visibility-first-gove
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-06-visibility-first-governance-model
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Soldiers aiming a searchlight into the night'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The GCP query read `access_configs->>'natIP'` as a top-level column. It sits inside `network_interfaces`."
 ---
 
 > **Note:** **TL;DR:** Traditional governance starts with policies and tries to enforce them. This fails because you can't enforce rules about infrastructure you can't see. The Visibility-First Governance Model inverts the process: build a unified inventory first, write policies in SQL against that inventory, monitor continuously, then automate responses. The result is governance that actually works across multi-cloud environments because it's grounded in real infrastructure data, not assumptions about what should exist.

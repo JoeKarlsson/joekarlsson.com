@@ -9,6 +9,10 @@ heroImage: '/images/blog/how-to-use-singlestore-as-a-key-value-store/thumb-9ac85
 heroAlt: 'An open safe deposit box'
 canonicalUrl: 'https://www.singlestore.com/blog/how-to-use-singlestore-as-a-key-value-store/'
 tldr: 'You can skip spinning up a separate key-value database by using SingleStore as one instead. I show you how to create a rowstore table with a hash index and wire it up with Node.js for fast key-value reads and writes using plain SQL.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The code had a `catch` with no `try`, called `console.err`, which doesn't exist, left out `intToString` and `readOne`, and never awaited or called its functions."
 ---
 
 Key-value stores are perhaps one of the most popular databases on the market today - and with good reason! They are fast, scalable and super easy to use. But did you know you can get all the advantages of a key-value store, without needing to spin up a separate database dedicated to just that singular purpose? In this post, I will show you how you can create a key-value store in SingleStore, using just SQL.

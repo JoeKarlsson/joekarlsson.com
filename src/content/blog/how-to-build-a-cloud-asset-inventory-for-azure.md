@@ -11,6 +11,12 @@ heroImage: '/images/blog/how-to-build-a-cloud-asset-inventory-for-azure/thumb-20
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-build-a-cloud-asset-inventory-for-azure'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A 1950s grocery store aisle'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "This Azure tutorial said it pulled asset data from AWS and GCP, and that the config synced API Gateway, IAM and RDS. It's Azure throughout now, syncing `azure_compute_virtual_machines`."
+  - date: 2026-11-12
+    note: "The check query read `azure_storage_accounts`, which the config never synced, and used a column that doesn't exist (`enable_https_traffic_only`). psql was missing `-d asset_inventory`, and the dbt host `db` didn't exist."
 ---
 
 If you're struggling to keep track of your Azure assets, stay compliant, and keep things secure, a cloud asset inventory can help.

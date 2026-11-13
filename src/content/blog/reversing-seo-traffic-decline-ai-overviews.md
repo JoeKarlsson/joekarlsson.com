@@ -22,6 +22,18 @@ faq:
     answer: 'Check position alongside clicks, page by page. Position and impressions up with clicks flat points to AI Overviews absorbing clicks. Position and clicks both down points to a quality, authority, or technical problem. Each needs a different fix.'
   - question: 'What tools do I need for a weekly SEO audit?'
     answer: 'At minimum: Google Search Console (free) for impressions and clicks, and either Plausible or GA4 for actual visitor counts. Adding Ahrefs ($129/mo) unlocks keyword position tracking, redirect audits, and competitor gap analysis. Combining multiple sources is what makes the signal reliable.'
+updatedDate: 2026-11-13
+corrections:
+  - date: 2026-10-12
+    note: "I said AI Overviews went from about 12% of queries in 2024 to roughly 58% by early 2026. I couldn't find a source for that, so it's gone."
+  - date: 2026-10-12
+    note: "I removed three more stats I couldn't trace to a source: TripleDart's 54% of B2B SaaS keywords, Kalungi's claim about docs extraction, and Rankability's 844,000+ sites."
+  - date: 2026-10-12
+    note: "I wrote that organic traffic doubled and docs traffic grew 4x. My own numbers say organic grew 57% and docs traffic grew 440%."
+  - date: 2026-10-12
+    note: "I said Google quietly added llms.txt to its developer docs. Google's docs say Search ignores it."
+  - date: 2026-11-13
+    note: "SparkToro found 374 clicks to the open web per 1,000 US Google searches. I'd written 360, which is the EU number."
 ---
 
 _A traffic decline usually has two failure modes that need different fixes. Once Claude Code made the fixes cheap, telling them apart became the hard part._
@@ -65,7 +77,7 @@ Google's AI-generated answer boxes now show up at the top of search results and 
 
 ![Bar chart of organic click-through rate from Seer Interactive's study of 3,119 search terms: 1.76% on queries with no AI Overview, 0.70% when an AI Overview cites you, 0.61% with an AI Overview overall, and 0.52% when it does not cite you.](/images/blog/reversing-seo-traffic-decline-ai-overviews/seer-ctr.svg)
 
-It's not just a publisher and e-commerce problem. [Semrush's AI Overviews study](https://www.semrush.com/blog/semrush-ai-overviews-study/) found them on nearly 18% of keywords in Computers & Electronics, the second-highest category it tracked, and that's our space. And clicks were already scarce before AI Overviews: [SparkToro's zero-click research](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/) found that for every 1,000 Google searches in the US, only **360 clicks** reach the open web at all.
+It's not just a publisher and e-commerce problem. [Semrush's AI Overviews study](https://www.semrush.com/blog/semrush-ai-overviews-study/) found them on nearly 18% of keywords in Computers & Electronics, the second-highest category it tracked, and that's our space. And clicks were already scarce before AI Overviews: [SparkToro's zero-click research](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/) found that for every 1,000 Google searches in the US, only **374 clicks** reach the open web at all.
 
 ![A paper-collage animation on a yellow field: a black-and-white newspaper box lands with a pink front page in its window, a man in a fedora leans in to read it through the glass, and a tall stack of coins stands beside the box. He steps back without paying, the stack drops to a third of its height, and the words 61% fewer clicks set in above](/images/blog/reversing-seo-traffic-decline-ai-overviews/read-through-the-glass.svg)
 

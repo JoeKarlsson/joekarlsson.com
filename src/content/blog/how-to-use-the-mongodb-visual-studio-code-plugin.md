@@ -9,6 +9,10 @@ heroImage: '/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/thumb-
 heroAlt: 'A workbench with a compass, leather and tools laid out within reach'
 contentNotice: false
 tldr: 'A step-by-step guide to setting up the MongoDB VS Code extension, connecting to Atlas, browsing your data, and using Playgrounds to prototype queries and aggregations without leaving your editor.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The sample output showed `\"acknowledged\": 1` and inserted IDs 2-9. It's `true` and 1-8."
 ---
 
 To make developers more productive when working with MongoDB, we built [MongoDB for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode), an extension that allows you to quickly connect to MongoDB and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and work with your data to build applications right inside your code editor. With the MongoDB Visual Studio Code Plugin, you can:

@@ -10,6 +10,10 @@ heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/thumb-e1
 heroAlt: 'Heavy rusted chain links'
 contentNotice: 'I wrote this tutorial in 2020 for MongoDB Node.js driver v3.x. I have since updated the code for the current driver (v7).'
 tldr: 'I implement a linked list from scratch using Node.js and MongoDB, covering add, find, insert, and delete operations. It is a good way to learn both data structures and MongoDB CRUD basics at the same time.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "`insert()` linked the new node to `currNode.next` instead of `currNode._id`, the middle-insert case updated the wrong nodes, and several async calls weren't awaited."
 ---
 
 > **Note:** I wrote this tutorial in 2020 using MongoDB Node.js driver v3.x. The code below now runs on the current driver (v7), which rejects the old `useNewUrlParser` and `useUnifiedTopology` options and returns `result.insertedId` instead of `result.ops[0]`. The linked list concepts are still accurate.

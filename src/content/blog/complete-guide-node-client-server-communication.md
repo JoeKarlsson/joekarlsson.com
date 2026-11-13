@@ -9,6 +9,10 @@ heroImage: '/images/blog/complete-guide-node-client-server-communication/thumb-1
 heroAlt: 'Three browser transports side by side, XHR polling, server-sent events and WebSocket, each a client and a server with hand-drawn arrows between them'
 contentNotice: 'This post uses outdated Node.js patterns (CommonJS, `var`). Core concepts like WebSockets and SSE remain relevant, but use ES modules and the Fetch API in modern applications.'
 tldr: 'I implemented every major client-server communication method in Node.js - XHR, Server-Sent Events, WebSockets, and HTTP/2 - with working code examples and a breakdown of when to use each one.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The `ws` package has no `end` event; it's `close`. Several string literals had a raw line break inside the quotes, a syntax error."
 ---
 
 > **Note:** This post was written in 2016. The core concepts of client-server communication (WebSockets, SSE, XHR) are still relevant, but the code examples use outdated patterns (CommonJS `require()`, `var`). For modern Node.js, use ES modules and the Fetch API.

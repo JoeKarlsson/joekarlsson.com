@@ -29,6 +29,10 @@ faq:
     answer: 'OpenRouter gives me one key for every open model I wanted to try. LiteLLM is my own gateway in front of it, so swapping a model is a one-line change, each app gets its own key and budget (OpenCode gets $20 a month), and local requests fall back to a cloud model if my GPU box is down.'
   - question: 'Can you run an open-model coding agent on a homelab GPU?'
     answer: "Not well. With 24GB of VRAM across two cards, the best coding model I can fit is a heavily quantized Qwen3-Coder 30B, which is stiff and weak in OpenCode. OpenCode's own instructions also take about 9,500 tokens, so small context windows drop the tools. I use my GPUs for Home Assistant voice and camera descriptions instead."
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The FAQ credited Claude Code with keeping tools inside the context window. That's a small-local-model problem, as the post explains, so the claim is gone."
 ---
 
 I switched my default coding agent from Claude Code to [OpenCode](https://opencode.ai/) running open models. Claude Code was doing work for me that I never noticed until it was gone, like passing the model's reasoning back between steps and checking its own work more often. The model itself was fine, but I had to fix a lot of what was around it.

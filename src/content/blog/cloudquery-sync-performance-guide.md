@@ -11,6 +11,10 @@ heroImage: '/images/blog/cloudquery-sync-performance-guide/thumb-cbc60b5b.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-sync-performance-guide'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A 1940s traffic jam at an intersection'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "`--tables-metrics-location` writes a plain-text table, not JSON, so the `jq` step couldn't work and my description of the output was wrong."
 ---
 
 > **TL;DR:** Slow syncs typically come from one of two places: cloud provider API rate limits (a hard ceiling you can work around but not eliminate) and syncing more tables than you need, which is what `tables: ["*"]` does by default. The one-liner below generates an explicit table list from your existing configuration, scoped to your plugin version and skip rules, so you can replace the wildcard safely.

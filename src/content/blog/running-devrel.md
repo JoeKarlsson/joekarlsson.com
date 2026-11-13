@@ -38,6 +38,11 @@ faq:
     answer: 'Downloads are a lagging indicator. The leading indicators I find predictive are star velocity (week-over-week change, not the cumulative count), issue response time, and LLM mention rank tracked quarterly. Contributor metrics like PR merge rate show up in a lot of playbooks, but most companies I have worked with do not care about them. Agree on the indicators with leadership before you start, so they know what predicts the number they care about.'
   - question: 'Should DevRel give sales a list of developers from the community?'
     answer: 'No. Flag enterprise signals with context instead: which company, what they are asking, and why it sounds like a buying conversation. A raw name list makes the community feel watched, and the real questions stop.'
+corrections:
+  - date: 2026-10-12
+    note: "I said ChatGPT, Claude and Perplexity all send trackable referral hits. Some assistants often send no referrer, so treat the count as a floor."
+  - date: 2026-10-12
+    note: "The CloudQuery PR breakdown (86 content, 44 SEO, 31 other) added up to 161, not 200. I took the breakdown out."
 ---
 
 Most DevRel plans for the first 90 days come down to community, content, and events, with "developer experience" added if the author is sharp. That plan covers one of the three places developers find your tool. The other two are search crawlers and LLMs like Claude Code and Cursor, and in my experience that's where the damage is. I spend my first month auditing all three before I ship anything, and I measure each one differently.

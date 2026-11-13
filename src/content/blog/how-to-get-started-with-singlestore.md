@@ -8,6 +8,10 @@ writtenFor: 'SingleStore'
 heroImage: '/images/blog/how-to-get-started-with-singlestore/thumb-79144cf9.webp'
 heroAlt: 'Runners at the start of an old race'
 tldr: 'A 5-minute quickstart for SingleStore: spin up a cluster, import 20 million rows of eCommerce data from S3 via a pipeline, and run analytics queries that return in seconds.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "MLK Day 2020 was January 20, not February 20, and the query grouped by `holiday` while selecting `brand`."
 ---
 
 Are you looking for the fastest possible way to get a new SingleStore Cluster up and running while testing out sample datasets to experiment with and use?

@@ -11,6 +11,10 @@ heroImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/th
 heroAlt: "Epic Handshake meme. Left arm labeled 'Your Code,' right arm labeled 'Your Data,' and the handshake labeled 'MCP Server.'"
 canonicalUrl: 'https://www.cloudquery.io/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server'
 tldr: 'We built a Go-based MCP server that bridges the gap between AI code assistants and our cloud infrastructure data. By exposing database schemas, queries, and insights directly to Claude, Cursor (or any client that supports MCP), our AI assistant now understands both our code and data. This eliminated context-switching, sped up workflows (from hours to minutes), and unlocked new ways to audit, analyze, and troubleshoot infrastructure.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The Go didn't compile: a map literal had no type, `s.Serve(...)` isn't an mcp-go call (it's `server.ServeStdio(s)`), and `handleListTables` was never defined."
 ---
 
 _Co-authored with Mariano Gappa at CloudQuery._

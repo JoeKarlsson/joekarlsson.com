@@ -9,6 +9,12 @@ heroImage: '/images/blog/building-a-real-time-digital-graffiti-wall/thumb-b83870
 heroAlt: 'A 32 by 32 LED wall lighting up pixel by pixel as people draw a heart, a smiley face and the word HI'
 tldr: 'The Digital Graffiti Wall is an interactive art installation where audiences draw on a shared 32x32 pixel canvas in their browsers, and their artwork appears in real-time on a physical RGB LED grid. MongoDB Realm stored the pixels, with anonymous auth and atomic updates, and every client polled the grid every 5 seconds.'
 contentNotice: 'MongoDB ended support for the Realm Web SDK (later Atlas Device SDK) on September 30, 2025, so the sync code here shows how the wall worked, not code you can run today.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The TL;DR said Realm synced pixels between clients in real time. Realm stored them; every client polled the grid every 5 seconds."
+  - date: 2026-11-12
+    note: "`cell.id.split(' ')` passed the coordinates on as strings. It now maps them to numbers."
 ---
 
 <!-- vale JoeKarlsson.BannedWords = NO -->

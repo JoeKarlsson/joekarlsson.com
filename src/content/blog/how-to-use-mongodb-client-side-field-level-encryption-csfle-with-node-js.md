@@ -9,6 +9,12 @@ writtenFor: 'MongoDB'
 heroImage: '/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/thumb-511fe79e.webp'
 heroAlt: 'A man studying an Enigma cipher machine'
 tldr: 'I walk through setting up MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js so sensitive fields like SSNs and medical records are encrypted before they ever leave your app. Includes key setup, JSON schema config, and a Docker option if your local setup fights you.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "I said the schema map could go in your Go source code. This is a Node.js tutorial; it goes in your Node.js code."
+  - date: 2026-11-12
+    note: "The code didn't run as shown: the file was labeled `clients.js` but required as `./helpers`, it called `getRegularClient` and `ensureUniqueIndexOnKeyVault` without defining them, and it never showed `./config` or created the master key file."
 ---
 
 Have you ever had to develop an application that stored sensitive data, like credit card numbers or social security numbers? This is a super common use case for databases, and it can be a pain to save this data securely. In this post, you will learn how to encrypt document fields client-side in Node.js with MongoDB client-side field-level encryption (CSFLE).

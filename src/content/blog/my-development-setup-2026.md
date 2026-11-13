@@ -35,6 +35,14 @@ faq:
     answer: 'My global CLAUDE.md, settings.json, status line, and notification hook live in my dotfiles repo, and chezmoi deploys them to every Mac. A Linux dev container in my homelab pulls the same repo weekly, so every Claude Code session follows the same rules.'
   - question: 'Are local coding agents as good as Claude Code?'
     answer: 'No, not yet. I tried OpenCode and aider against Qwen3-Coder on a 16 GB RTX A4000, and they could not match Claude Code on long, multi-step changes across real systems. I have not yet tested the newer Qwen3.8 models on real coding work.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-10-01
+    note: "I said I dropped Copilot because its autocomplete wasn't worth keeping. I dropped it after it changed its billing model."
+  - date: 2026-11-12
+    note: "I wrote that every tool here keeps data on hardware I own, that every repo has tests for everything, and that everything but templates is a symlink. None of that was literally true. The post now says I pick the local option when there is one, my repos have tests, and most files are symlinks."
+  - date: 2026-11-12
+    note: "The Vale config used the `JoeKarlsson` style without listing its package under `Packages`, so the style never loaded."
 ---
 
 The biggest change to my development setup in 2026 is **concurrency.** I rarely have only one agent working anymore. I usually have three to six Claude Code sessions going at once, on different tasks, until my brain starts to melt from the context switching. Agents make whatever environment you give them go faster, including the mess, so most of what's below exists to make running several at once fast and safe.

@@ -9,6 +9,10 @@ tags: ['Home Assistant', 'Raspberry Pi', 'LED matrix', 'pixel art', 'open source
 heroImage: '/images/blog/pixelpane-pixel-art-home-assistant/hero-grid.webp'
 heroAlt: 'Pixel art that shows my house: the PixelPane title next to four 32x32 LED scenes, a Halloween pumpkin under a crescent moon, a red ON AIR sign, rainy weather at 48 degrees, and a yellow doorbell alert'
 tldr: 'PixelPane is a 32x32 LED panel on a Raspberry Pi 3B, behind a two-way mirror in a shadow box next to my desk. Most of the time it plays pixel art that changes with the seasons. Home Assistant pushes to it, so it also shows ON AIR when my camera turns on, flashes for the doorbell, packages and laundry, and draws the weather, what is playing and my next meeting as little animated scenes. I built it instead of buying one because I wanted something I could customize and wire into my self-hosted setup. Every scene is a plugin, one Python file each, and the whole thing is open source on GitHub.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "I said Home Assistant pushes data for every scene every 10 minutes, the clock included. It pushes the weather, music, meeting and homelab scenes."
 ---
 
 There's a black shadow box on the shelf next to my desk. Right now it's showing a pixel art pumpkin under a crescent moon, because it's October. When my camera turns on for a meeting it switches to a red ON AIR sign. When someone rings the doorbell it flashes yellow. Then it goes back to the pumpkin.

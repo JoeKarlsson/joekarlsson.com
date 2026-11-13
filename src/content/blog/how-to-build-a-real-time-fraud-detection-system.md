@@ -10,6 +10,10 @@ heroImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/thumb-f
 heroAlt: 'A soldier holding a banknote up to check it'
 tldr: 'I break down how to build a real-time fraud detection system that ingests transaction streams, analyzes them with SQL for suspicious patterns, and exposes the results as APIs. Includes example queries for catching things like unusual locations, high-velocity transactions, and weird spending patterns.'
 contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The SQL said `>` where the text says \"two or more\", the declined-transactions query never filtered on `is_declined`, the high-risk IP query filtered the wrong column, and the amount sort ran on a string."
 ---
 
 Financial fraud is a growing concern as more payments move online. According to a [report by PwC](https://www.pwc.com/fraudsurvey), almost half of the surveyed organizations experienced fraud in the past 2 years. For online payments, the situation is no different. As eCommerce continues to surge, so do attempts by cybercriminals to exploit vulnerabilities and commit fraud.

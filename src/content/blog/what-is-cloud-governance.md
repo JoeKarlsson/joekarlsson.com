@@ -11,6 +11,10 @@ heroImage: '/images/blog/what-is-cloud-governance/thumb-8752bdee.webp'
 heroAlt: 'Apollo-era Mission Control, everyone watching the same screens'
 canonicalUrl: https://www.cloudquery.io/blog/what-is-cloud-governance
 contentNotice: 'This post was originally published on CloudQuery blog.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The queries used tables and columns that don't exist: `state_name`, `aws_accounts` and `is_logging`."
 ---
 
 > **Note:** Cloud governance is the framework of policies, processes, and controls that keeps cloud environments from accumulating technical debt at scale. Without it, untagged resources, orphaned databases, and misconfigured services pile up until the cleanup cost exceeds the original problem. This guide covers the six pillars, essential framework components, and how to enforce policies continuously using SQL.

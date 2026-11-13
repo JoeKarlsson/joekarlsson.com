@@ -11,6 +11,10 @@ heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/thumb-a08c1
 canonicalUrl: 'https://www.cloudquery.io/blog/query-cloud-like-database-stop-wasting-time'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A meme featuring scenes of Pablo Escobar, from the TV show Narcos, looking bored and contemplative. It reads, "Me, waiting for Excel to respond after applying a filter on a million-row dataset."'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The old-snapshots query filtered on `instance_create_time`. It's `snapshot_create_time`."
 ---
 
 Managing cloud infrastructure shouldn't feel like looking for a lost sock in the laundry - except the laundry is on fire, and the sock is in another house. Yet, that's exactly how it feels when you're trying to track down misconfigured resources, security risks, or compliance violations across cloud providers like, AWS, GCP, Azure, and Kubernetes.

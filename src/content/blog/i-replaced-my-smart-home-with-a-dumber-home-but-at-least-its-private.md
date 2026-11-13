@@ -9,6 +9,10 @@ heroImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-leas
 heroAlt: 'A hand holding the Home Assistant Voice Preview Edition'
 contentNotice: false
 tldr: 'I replaced all my Alexa devices with Home Assistant Voice Preview Edition for privacy. It works great for smart home control once you invest weeks rebuilding every automation, but voice recognition is way worse than Alexa and family adoption has been rough.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "I removed two stats I couldn't back up: 40%+ word error rates in other languages, and 10-90% failure rates for voice announcements."
 ---
 
 After five years of building automations in [Home Assistant](https://www.home-assistant.io/) (I wrote about [how I first got started with Home Assistant](/blog/how-to-get-started-with-home-assistant/) a while back), I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home Assistant’s Voice Preview Edition. Recent privacy changes from Amazon were the final straw, but what I discovered during this migration was both more challenging and more technically satisfying than I anticipated.

@@ -3,7 +3,7 @@ title: 'I Finally Stopped Managing My Homelab by Hand (Everything Just Kept Brea
 seoTitle: 'An Immutable Homelab with OpenTofu'
 date: 2026-05-27
 slug: 'opentofu-proxmox-immutable-homelab'
-updatedDate: 2026-11-09
+updatedDate: 2026-11-12
 updateNote: 'MinIO archived its repo and stopped shipping binaries, so my state backend now runs Silo, a maintained MinIO fork. The new section on the state backend covers why and how the cutover went. Logs now ship with Grafana Alloy, and the baseline is Debian 13.'
 description: 'How I moved 62 Proxmox containers to OpenTofu with a self-hosted state backend (MinIO, now its fork Silo), and whether immutable infrastructure was worth it.'
 categories: ['Homelab']
@@ -34,6 +34,11 @@ howToSteps:
     text: 'Provision the new container alongside the old one. Migrate data. Verify for 24-48 hours. Only retire the old container after you are confident. Never destroy first.'
   - name: 'Enforce immutability going forward'
     text: 'Set the Proxmox protection flag on managed containers. Document that changes must go through provision scripts, not direct SSH. The rule is: read the container however you want, but write changes in code.'
+corrections:
+  - date: 2026-11-12
+    note: "The comparison table said the old feedback loop took 2 minutes. The post says three, which is right."
+  - date: 2026-11-12
+    note: "The script showed `$${hostname}`, which escapes the substitution the post said happens. It was also missing the `sonarr` user, and its grep could grab the wrong release file."
 ---
 
 I was writing a health check script for one of my Proxmox containers - a service I'd been running for roughly two years, mostly without thinking about it. The check was simple: ping the API endpoint, verify the response, exit 0 if healthy.

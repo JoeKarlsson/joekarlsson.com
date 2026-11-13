@@ -21,6 +21,15 @@ faq:
     answer: "You will break something. That's the whole point. Proxmox snapshots make it easy to roll back, and the worst case scenario is you reinstall a container (which takes about 2 minutes). Nothing you do on a homelab is going to damage your hardware permanently."
   - question: 'Do I need to know Linux?'
     answer: "Not to start. Proxmox and Unraid both have web UIs that handle most things. But you'll naturally pick up Linux commands as you go, and that's one of the most valuable skills a homelab gives you."
+corrections:
+  - date: 2026-11-09
+    note: "To get a rough monthly cost, multiply idle watts by 0.11 at $0.15/kWh. I'd written 0.73, about 10x too high."
+  - date: 2026-11-12
+    note: "The NFS steps mounted the share inside the container, which fails in an unprivileged container (Proxmox's default). Now you mount it on the host and pass it in with `pct set`."
+  - date: 2026-11-12
+    note: "The 8GB Raspberry Pi 5 costs about $175 after the April 2026 price increase, not $125."
+  - date: 2026-11-12
+    note: "The commands for the Proxmox host used `sudo`, which Proxmox doesn't ship."
 ---
 
 Look, if you've been lurking on r/homelab or watching YouTube videos of people with full server racks in their basements, I get it. It looks intimidating and expensive, like you need an IT degree and a dedicated room in your house just to get started.

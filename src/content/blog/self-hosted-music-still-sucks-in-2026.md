@@ -10,6 +10,11 @@ heroImage: '/images/blog/self-hosted-music-still-sucks-in-2026/thumb-c91afed9.we
 heroAlt: 'Two cassette tapes side by side'
 contentNotice: false
 tldr: 'The *arr ecosystem nailed video automation, but self-hosted music is still stuck in album-centric workflows that ignore how we actually listen to music. I lay out why the problem is so hard and what a track-first tool like Songarr would need to look like. Navidrome 0.60 added some nice features like Instant Mix and a plugin system, but the core problem remains unsolved.'
+corrections:
+  - date: 2026-11-12
+    note: "I said Navidrome's multi-library support was coming in the next version. It landed in 0.58."
+  - date: 2026-11-12
+    note: "I left out that Spotify cut back 30-second previews for new apps in November 2024, before I wrote this."
 ---
 
 Look, I need to get something off my chest. After fifteen years of curating seasonal playlists and being a power Spotify user since 2011 (recently migrated to Apple Music for reasons we won’t get into here), I’m having a technical existential crisis about self-hosted music solutions. And frankly, it’s driving me insane.

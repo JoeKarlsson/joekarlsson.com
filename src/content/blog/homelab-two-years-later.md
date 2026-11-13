@@ -2,13 +2,30 @@
 title: 'My Homelab Two Years Later, Every Upgrade and What It Cost'
 seoTitle: 'My Homelab Two Years Later'
 date: 2026-03-05
-updatedDate: 2026-10-01
+updatedDate: 2026-11-12
 slug: 'homelab-two-years-later'
 description: 'Two years after a $200 ThinkServer: two Dell R730s, 73 containers, metered power data, and whether a homelab pays for itself.'
 categories: ['Homelab']
 heroImage: '/images/blog/homelab-two-years-later/hero.webp'
 heroAlt: 'Server rack with two Dell R730 servers, 10G networking, and cable management'
 tldr: 'Two years after my first homelab post, I went from a $200 ThinkServer with 15 containers to a server rack with two Dell R730s (80 cores, 256GB RAM), two NVIDIA GPUs, 10G networking, VLANs, and 73 containers managed in OpenTofu. Hardware cost about $7,400. The rack averages about 430W, roughly $47/month at $0.15/kWh. On paper it pays for itself in about 4.6 years, but that leans on one $80/month line item - take it out and break-even is over a decade. I also bought a lot more than I use.'
+corrections:
+  - date: 2026-03-10
+    note: "I wrote that I'd only been reading about Home Assistant before this build. I'd run it for years on its own hardware."
+  - date: 2026-10-01
+    note: "I listed 160 cores and 250GB+ of RAM. It's 80 cores (160 threads) and 256GB."
+  - date: 2026-10-01
+    note: "I called the NAS a Synology DS918+. It's a DS418play."
+  - date: 2026-10-01
+    note: "The break-even math counted streaming services I'd have paid for anyway. Without them it's about 4.6 years, not 3.1."
+  - date: 2026-10-01
+    note: "Used DDR4 ECC going from $40-80 to $200-400 is about 5x, not 3-4x."
+  - date: 2026-10-01
+    note: "I said filling the DIMM slots hurt my wallet. The 128GB per host came with the servers; I never bought sticks on their own."
+  - date: 2026-11-12
+    note: "I said a MikroTik firewall list kept the old IoT gear away from the NAS. Nothing does yet."
+  - date: 2026-11-12
+    note: "I stated as fact that used server RAM dried up because companies keep servers for AI. That's my guess, and the post now says so."
 ---
 
 Two years ago I bought a $200 ThinkServer off Facebook Marketplace, put Proxmox on it, ran about 15 containers, and wrote an [original homelab post](/blog/how-to-get-started-building-a-homelab-server/) telling everyone that was all a homelab needed.

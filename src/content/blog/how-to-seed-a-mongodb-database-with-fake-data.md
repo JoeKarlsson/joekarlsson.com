@@ -10,6 +10,9 @@ heroAlt: 'Mannequins standing in a shop window'
 updatedDate: 2026-11-09
 updateNote: 'The script now uses @faker-js/faker (the original faker package was deleted in 2022) and the current MongoDB driver, and it waits for the insert to finish before closing the connection.'
 tldr: 'A quick Node.js script using faker.js to generate thousands of fake documents and insert them into a MongoDB Atlas database. Copy it, tweak the document shape, and you have seed data in seconds.'
+corrections:
+  - date: 2026-11-09
+    note: "The script closed the client without waiting for `insertMany`, so it could quit before the insert finished."
 ---
 
 Have you ever worked on a MongoDB project and needed to seed your database with fake data in order to provide initial values for lookups, demo purposes, proof of concepts, etc.? I’m biased, but I’ve had to seed a MongoDB database countless times.

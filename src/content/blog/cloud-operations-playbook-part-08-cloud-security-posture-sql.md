@@ -11,6 +11,10 @@ heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-postur
 heroAlt: 'A woman checking papers in an open bank vault'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "Same fixes as part 7 (MFA from `aws_iam_credential_reports`, rules from `aws_ec2_security_group_rules`), and GCP bucket IAM comes from `gcp_storage_bucket_policies`, not an `iam_policy` column."
 ---
 
 > **Note:** Traditional CSPM tools force you to learn proprietary policy languages like Rego or vendor-specific DSLs. But if your cloud asset data lives in a database, you can write security checks in SQL instead. Your security team writes checks that engineering can actually read. Your checks live in version control next to your infrastructure code. And the same query that finds a misconfiguration can serve as compliance evidence, investigation tool, and automated policy check all at once.

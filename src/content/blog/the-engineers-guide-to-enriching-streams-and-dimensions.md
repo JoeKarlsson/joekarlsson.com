@@ -9,6 +9,10 @@ writtenFor: 'Tinybird'
 heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/thumb-4993c4e3.webp'
 heroAlt: 'A painting of a rocky mountain stream'
 tldr: 'Joining real-time event streams from Kafka with dimension tables in a data warehouse unlocks powerful use cases like fraud detection, e-commerce personalization, and log analytics. I walk through three concrete examples with SQL showing how to enrich streaming data with historical context.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The query aliased a table as `p` and then used its full name, and sorted on an `orderDate` column that doesn't exist."
 ---
 
 Data - it’s the new oil, the new gold, the new …  you get the idea. There’s a whole lot of it, and it’s valuable. But unless you’re into data hoarding, the point isn’t just to collect it; you want to use it. You want to massage it, query it, build with it, and glean insights from it in real-time, right? Well, brace yourself, because you’re in for a treat.

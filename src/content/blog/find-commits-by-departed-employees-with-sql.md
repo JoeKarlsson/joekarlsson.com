@@ -12,6 +12,10 @@ heroAlt: 'An empty desk and chair in a bare office'
 canonicalUrl: 'https://www.cloudquery.io/blog/find-commits-by-departed-employees-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs commit history. Join with Okta or Azure AD to identify commits by former employees for compliance audits and security reviews.'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "`git_commits` has no `sha` or `author_email` columns. It's `hash` and `author->>'Email'`. The config was missing its registry and providers, and `okta_users.email` is `profile->>'email'`."
 ---
 
 An engineer leaves your company. Their access gets revoked, their laptop returned. But their commits remain across dozens of repositories. For compliance audits, security reviews, or understanding code ownership, you need to identify which code was authored by former employees. The manual approach: export HR data, clone repos, run `git log`, correlate email addresses, compile spreadsheets. Repeat quarterly.

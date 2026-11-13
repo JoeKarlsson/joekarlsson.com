@@ -10,6 +10,12 @@ tags: ['Engineering']
 heroImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumb-55cc4666.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Early race cars tearing around a banked track'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-06
+    note: "The table said memory peaked at 12GB, 33% of what was available. The post's own measurement is 75.7MB for the CloudQuery process. I also removed CPU and memory charts that disagreed with the tables."
+  - date: 2026-11-12
+    note: "The run command used flags the script doesn't take (`python benchmark.py --source file --dest clickhouse`). It's `uv run benchmark.py`."
 ---
 
 > **TL;DR:**

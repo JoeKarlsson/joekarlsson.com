@@ -4,12 +4,17 @@ seoTitle: 'Local Voice Assistant for Home Assistant'
 shareTitle: 'I Built a Fully Local Voice Assistant for Home Assistant (GPU, No Cloud)'
 date: 2026-04-13T10:51:02Z
 slug: 'local-voice-ai-home-assistant-gpu'
-updatedDate: 2026-10-15
+updatedDate: 2026-11-12
 description: 'How I run a fully local voice assistant for Home Assistant on a GPU with faster-whisper, Piper and Ollama, and what failed on the way there.'
 categories: ['Homelab']
 heroImage: '/images/blog/local-voice-ai-home-assistant-gpu/hero.webp'
 heroAlt: 'Home Assistant local voice pipeline architecture showing Whisper GPU, Piper TTS, and Ollama components connected via Wyoming protocol'
 tldr: "I replaced all cloud AI in Home Assistant's voice pipeline with a fully local stack: GPU-accelerated faster-whisper for speech-to-text, Piper TTS, and Ollama as the conversation agent (llama3.2:3b at first, qwen3:8b since summer 2026). No audio leaves my network unless the cloud fallback kicks in. The path to a working setup involved a qwen3 experiment that ended with the LLM narrating its own thought process for five minutes straight, a system prompt explicitly forbidding voice commands from killing my server rack, and a three-tier fallback chain I am glad I built."
+corrections:
+  - date: 2026-11-12
+    note: "I said zero audio leaves my network. None does unless the cloud fallback kicks in, which the post itself describes."
+  - date: 2026-11-12
+    note: "\"Lights on\" is two words, not three. Voice and subtitle generation share both GPUs, not one."
 ---
 
 **Updated October 2026:** The conversation agent is now qwen3:8b, not llama3.2:3b, so the six-month swap I predicted near the end came true. Thinking is switched off in the request, which avoids the think-mode problem described below. In a July test with Home Assistant's real prompt and all 171 tool definitions, qwen3:8b took about 1.3 seconds per call and got every request right. Whisper also moved up from the small model to medium-int8, which still transcribes a short command in about a third of a second on the Quadro RTX 4000. The rest of this post is the original April story.

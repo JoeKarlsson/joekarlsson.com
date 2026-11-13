@@ -18,6 +18,14 @@ faq:
     answer: 'A kiln tests work against reality and makes it better: automated tests, monitoring, real user feedback, retros. A gate adds latency and rewards safe, easy-to-approve proposals. Review can be either. Keep the kilns, remove the gates, and if a gate exists because the infrastructure is fragile, fix the infrastructure.'
   - question: 'What did the 2025 DORA report say about AI coding tools and quality?'
     answer: "AI adoption went with higher throughput and, on average, lower delivery stability. The report ties the difference to the basics teams already had in place, such as automated testing, mature version control, and fast feedback loops. AI makes more clay. It doesn't build the kiln."
+updatedDate: 2026-10-12
+corrections:
+  - date: 2026-10-12
+    note: "I said the 2025 DORA report found delivery stability depended on a team's existing feedback setup. It found AI adoption went with higher throughput and, on average, lower stability."
+  - date: 2026-10-12
+    note: "I told the ceramics class story as fact. It's an anecdote, and Orland has said it's based on Jerry Uelsmann's photography class."
+  - date: 2026-10-12
+    note: "I said Corita Kent chaired the art department in its most influential years and that the rules were her department's list. She chaired it from 1964 and popularized the Immaculate Heart College Art Department rules."
 ---
 
 Ship the ugly pot. Ship it before it's good and before you're proud of it, because the way to good work runs through a pile of bad work, not around it.

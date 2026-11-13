@@ -36,7 +36,7 @@ const postSchema = z.object({
 	// ("Updated November 2026: ..."). Needs updatedDate (tests/content-schema.test.ts).
 	updateNote: z.string().optional(),
 	// Mistakes fixed in the post, each dated, listed newest first in a box at the top
-	// ("Corrections: Nov 13, 2026 I said 8 GB of RAM; it runs fine on 4.")
+	// ("Corrections: Nov 13, 2026: I said 8 GB of RAM; it runs fine on 4."). Notes take `code` spans and links
 	corrections: z.array(z.object({ date: z.coerce.date(), note: z.string() })).optional(),
 	canonicalUrl: z.url().optional(),
 	contentNotice: z.union([z.string(), z.boolean()]).optional(),

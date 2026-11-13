@@ -11,6 +11,10 @@ heroAlt: 'Hide the Pain Harold meme about looking at a real-time dashboard inste
 canonicalUrl: 'https://www.tinybird.co/blog/real-time-dashboard-step-by-step'
 tldr: 'I walk through building a real-time dashboard from scratch using Tinybird for the data backend and Next.js for the frontend. You will learn how to ingest streaming data, write SQL queries, publish them as APIs, and wire it all up to live charts.'
 contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The commands had en dashes where `--` belongs (`tb auth --interactive`), the JSON had curly quotes, the Tinybird SQL was missing its `%` first line, and the post told you to pick App Router and then edit `src/pages/index.js`. It's `src/app/page.js`."
 ---
 
 Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even _minutes_ to load? No way, right? Your users would get frustrated by the opportunities missed, efficiencies destroyed, and decisions delayed based on outdated information and a horrible user experience.

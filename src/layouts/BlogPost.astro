@@ -9,6 +9,7 @@ import { AMAZON_DISCLOSURE } from '../utils/affiliate';
 import AuthorBio from '../components/AuthorBio.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import MetaParts from '../components/MetaParts.astro';
+import { inlineMarkdown } from '../utils/inline-markdown';
 import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
@@ -306,7 +307,7 @@ const heroIsTaped =
 											<strong>
 												<FormattedDate date={correction.date} />:
 											</strong>{' '}
-											{correction.note}
+											<span set:html={inlineMarkdown(correction.note)} />
 										</li>
 									))}
 							</ul>

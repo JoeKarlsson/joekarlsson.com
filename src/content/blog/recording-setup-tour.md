@@ -24,6 +24,10 @@ faq:
     answer: 'I say "I''m recording" to my Home Assistant voice assistant. An Assist automation runs a script that turns on the recording desk''s smart plug, sets a Hue scene, pauses every media player, turns off the TVs, mutes the office voice assistant and turns on my 3D printer for its LEDs.'
 heroImage: '/images/blog/recording-setup-tour/thumb-a60218b7.webp'
 heroAlt: "Roger Fenton's 1855 photographic van, a horse-drawn darkroom wagon with PHOTOGRAPHIC VAN painted on the side and his assistant sitting on the driver's seat"
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The TL;DR said one Thunderbolt 5 cable connects everything. It connects the camera, mic and prompter, not the lights."
 ---
 
 My whole recording setup lives on one standing desk that rolls. When I'm done, I push it into the corner. Most of the gear went together without much trouble, but lighting took weeks of experimenting, and I'm still working on it.

@@ -11,6 +11,10 @@ heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumb-91d0c6f0.webp
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-pinpoint-deprecation-assessment'
 contentNotice: 'This post was originally published on CloudQuery blog. Amazon Pinpoint reached end of support on October 30, 2026, after this was written, so read the dates as history. The steps for finding what used Pinpoint still apply.'
 heroAlt: 'A tower block collapsing in a controlled demolition'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "The config shipped with a placeholder version, `VERSION_SOURCE_AWS`. It's now a real one."
 ---
 
 AWS announced that [Amazon Pinpoint is reaching end of support on October 30, 2026](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html). New customers have been locked out since May 2025, and existing customers lose console access after the cutoff. What trips people up is that not everything is going away.

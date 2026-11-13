@@ -35,6 +35,10 @@ faq:
   - question: 'Is Connect AI × DOOM open source?'
     answer: "Yes. It's MIT licensed on GitHub, runs on a Mac, plays offline with made-up data, and has a version you can play in the browser."
 contentNotice: 'I work at CData, which makes Connect AI. This post first ran on the [CData blog](https://www.cdata.com/blog/doom-mcp-server).'
+updatedDate: 2026-11-12
+corrections:
+  - date: 2026-11-12
+    note: "I called it the world's first Doom level built from MCP data. That's as far as I can find, and the post now says so."
 ---
 
 I wired Doom to two Model Context Protocol (MCP) servers. One is a Doom MCP server inside the game, so Claude can play it. The other is an MCP data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app from the MCP server becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests, and Slack threads. As far as I can find, it's the first Doom level built out of MCP data. I've been calling it DooMCP.
