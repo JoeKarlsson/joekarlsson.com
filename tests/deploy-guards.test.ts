@@ -1,5 +1,15 @@
-import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import {
+	copyFileSync,
+	existsSync,
+	mkdirSync,
+	mkdtempSync,
+	readFileSync,
+	rmSync,
+	writeFileSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 // Security audit run-1. deploy.sh runs with every credential Joe has, so its guards
@@ -29,6 +39,42 @@ describe('deploy.sh guards', () => {
 
 	it('parses', () => {
 		expect(() => execFileSync('bash', ['-n', 'deploy.sh'])).not.toThrow();
+	});
+});
+
+// Runs the real deploy.sh in a throwaway repo with no remote, so past the lock it
+// stops at its first git fetch and never reaches a build or tofu.
+function runDeployWithLock(lockPid: number) {
+	const repo = mkdtempSync(join(tmpdir(), 'deploy-lock-'));
+	try {
+		execFileSync('git', ['init', '-q', repo]);
+		copyFileSync('deploy.sh', join(repo, 'deploy.sh'));
+		const lock = join(repo, '.git', 'deploy.lock');
+		mkdirSync(lock);
+		writeFileSync(join(lock, 'pid'), String(lockPid));
+		const run = spawnSync('bash', ['deploy.sh'], {
+			cwd: repo,
+			env: { ...process.env, SKIP_NOW_REFRESH: '1' },
+			encoding: 'utf8',
+		});
+		return { ...run, lockLeft: existsSync(lock) };
+	} finally {
+		rmSync(repo, { recursive: true, force: true });
+	}
+}
+
+describe('deploy.sh lock', () => {
+	it('refuses to start while another deploy holds the lock', () => {
+		const run = runDeployWithLock(process.pid);
+		expect(run.status).not.toBe(0);
+		expect(run.stderr).toContain('another deploy is running');
+		expect(run.lockLeft).toBe(true);
+	});
+
+	it('takes over a lock whose deploy is gone, and releases it on exit', () => {
+		const run = runDeployWithLock(2 ** 22 + 12345); // above macOS and Linux pid limits
+		expect(run.stdout).toContain('Taking over a stale deploy lock');
+		expect(run.lockLeft).toBe(false);
 	});
 });
 

@@ -8,6 +8,25 @@ export NVM_DIR="$HOME/.nvm"
 # The main checkout, even when this runs from a worktree: .env and node_modules live there
 MAIN_DIR=$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")
 
+# One deploy at a time: two at once collided on the build's Vite cache (2026-11-12)
+# and could collide on tofu apply. The lock sits in the shared .git folder, so the main
+# checkout and every worktree see the same one. A lock left by a deploy that died is
+# taken over.
+LOCK_DIR="$(git rev-parse --path-format=absolute --git-common-dir)/deploy.lock"
+if ! mkdir "$LOCK_DIR" 2>/dev/null; then
+    LOCK_PID=$(cat "$LOCK_DIR/pid" 2>/dev/null || true)
+    if [[ -z "$LOCK_PID" ]] || kill -0 "$LOCK_PID" 2>/dev/null; then
+        echo "ERROR: another deploy is running (pid ${LOCK_PID:-starting}, from $(cat "$LOCK_DIR/where" 2>/dev/null || echo 'unknown')). Wait for it to finish; if it's truly gone, rm -rf $LOCK_DIR" >&2
+        exit 1
+    fi
+    echo "Taking over a stale deploy lock (pid $LOCK_PID is gone)"
+    rm -rf "$LOCK_DIR"
+    mkdir "$LOCK_DIR"
+fi
+echo $$ >"$LOCK_DIR/pid"
+pwd >"$LOCK_DIR/where"
+trap 'rm -rf "$LOCK_DIR"' EXIT
+
 # Load environment variables from .env if present
 if [[ -f "$MAIN_DIR/.env" ]]; then
     set -a
@@ -62,7 +81,7 @@ else
 fi
 BUILD_DIR=$(mktemp -d "${TMPDIR:-/tmp}/joekarlsson-deploy.XXXXXX")
 git worktree add --quiet --detach "$BUILD_DIR" HEAD
-trap 'cd "$MAIN_DIR" && git worktree remove --force "$BUILD_DIR"' EXIT
+trap 'rm -rf "$LOCK_DIR"; cd "$MAIN_DIR" && git worktree remove --force "$BUILD_DIR"' EXIT
 # The build borrows the main checkout's node_modules, so it must have been installed
 # from the lockfile being built, not one another session changed (security audit run-1)
 if ! cmp -s "$MAIN_DIR/package-lock.json" "$BUILD_DIR/package-lock.json"; then
