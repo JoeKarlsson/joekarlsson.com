@@ -17,6 +17,7 @@ const { title, year, rating, poster, slug } = Astro.props.review.data;
 			<img
 				src={poster}
 				alt=""
+				aria-hidden="true"
 				data-halftone={cardHalftone(poster)}
 				width="400"
 				height="600"
