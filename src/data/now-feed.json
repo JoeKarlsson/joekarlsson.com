@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 662,
+			"commitCount": 664,
 			"dailyCommitCounts": [
 				2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119, 85,
-				19, 45, 5
+				19, 45, 7
 			],
-			"latestCommitMessage": "fix: A post clip started from its controls stops once it scrolls off..."
+			"latestCommitMessage": "chore: The Hackers and Painters phone sketches are checked as stills..."
 		},
 		{
 			"name": "dotfiles",
