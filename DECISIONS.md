@@ -9,6 +9,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-06: Images and video get the site's pink color grading. Never drop it (2026-11-09: "why did you take the pink off of it?").
 - 2026-11-05: No photo board with stickers on the About page.
 - 2026-11-10: The resume page uses a still image, not a video clip.
+- 2026-11-12: Recently shipped repo names always show in full, never cut off with an ellipsis. Long ones shrink to fit, down to 24px, then wrap at their hyphens.
 - 2026-11-12: The resume PDF carries the site's brand on white paper (Anton, Hanken Grotesk, Fraunces, JetBrains Mono, pink rules and bullet markers), not pink on black: it gets printed and pasted into hiring systems.
 - 2026-11-11: No date in the corner of blog post or newsletter thumbnails.
 

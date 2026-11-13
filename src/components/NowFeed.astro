@@ -3,6 +3,7 @@ import HoverBox from './HoverBox.astro';
 import Scribble from './Scribble.astro';
 import { CHALK, RINGS } from '../data/scribbles';
 import { GROUP_HEADING } from '../utils/ui';
+import { antonWidthInEm } from '../utils/anton-width';
 // Recently shipped repos, watched films and podcast episodes, from the snapshot
 // that scripts/update-now-feed.mjs writes on every deploy. Posters and covers are
 // never diagrams, so the pink dots never invert them, however light they are.
@@ -42,12 +43,14 @@ function ratingStars(rating: number) {
 						rel="noopener noreferrer"
 						class="plausible-event-name=Now+Feed+Click plausible-event-source=github ring-host group flex flex-col no-underline"
 					>
-						{/* The repo name is the headline: what I'm building. It stays on one line and
-						shrinks to fit the card when it's long, at about 0.5em per letter in Anton caps */}
+						{/* The repo name is the headline: what I'm building. It shrinks to fit the card
+						on one line, measured in Anton's real caps widths (96% of the card, since Linux
+						rounds each letter to whole pixels). It never goes below 24px: a name too long
+						for that breaks onto more lines at its hyphens, so the whole name always shows */}
 						<div class="@container flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-surface-4 pt-2">
 							<p
-								class="relative inline-block w-fit font-display leading-[0.98] whitespace-nowrap text-paper uppercase group-hover:text-pink group-focus-visible:text-pink"
-								style={`font-size:min(clamp(34px,4vw,56px),calc(100cqw / ${repo.name.length * 0.5}))`}
+								class="relative inline-block w-fit font-display leading-[0.98] text-paper uppercase group-hover:text-pink group-focus-visible:text-pink"
+								style={`font-size:max(24px,min(clamp(34px,4vw,56px),calc(96cqw / ${antonWidthInEm(repo.name.toUpperCase()).toFixed(3)})))`}
 								data-repo-name
 							>
 								{repo.name}
