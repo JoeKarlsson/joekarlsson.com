@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 641,
+			"commitCount": 642,
 			"dailyCommitCounts": [
 				0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119,
-				85, 19, 29
+				85, 19, 30
 			],
-			"latestCommitMessage": "fix: Four older CloudQuery posts drop the 'bookmark this', 'deep dive..."
+			"latestCommitMessage": "fix: The Azure and GCP asset inventory posts name the right cloud..."
 		},
 		{
 			"name": "screencast-director",
