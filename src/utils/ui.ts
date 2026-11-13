@@ -22,7 +22,7 @@ export const GROUP_HEADING =
 export const ITEM_TITLE = 'font-sans text-xl leading-snug font-semibold text-balance text-paper';
 
 /** Dates, bylines, counts and other small gray metadata. */
-export const META = 'text-sm text-muted [font-variant-numeric:tabular-nums]';
+export const META = 'text-sm text-muted';
 
 /** The line or two in a PosterHero's dark panel, above the page's name. */
 export const HERO_LEAD = 'text-[clamp(1.125rem,1.5vw,1.375rem)] text-paper';

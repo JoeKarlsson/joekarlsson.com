@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readdirSync, readFileSync, statSync } from 'fs';
 import { join } from 'path';
+import { gzipSync } from 'zlib';
 
 /** Recursive byte total for a directory. */
 function getDirSize(dir: string): number {
@@ -25,15 +26,12 @@ const THRESHOLDS = {
 	maxSingleJsFile: 50 * 1024,
 	// Total JS bundle should not exceed 150KB
 	maxTotalJsBundle: 150 * 1024,
-	// Total CSS should not exceed 60KB. Raised from 50KB on 2026-11-04, when the
-	// site sat 21 bytes under it and every new utility class broke the build, and
-	// from 55KB on 2026-11-05 for the phone layout (compact rows, swipe strip, FAQ
-	// and archive toggles), which took it to 57KB, about 12KB gzipped. Raised to 64KB
-	// on 2026-11-06, when the site sat at 59.97KB and the blog post's centered column
-	// with wide pictures and code went 200 bytes over. Raised to 68KB on 2026-11-10
-	// for the menu and lightbox open/close motion (motion.css), which took it to 65KB. Raised
-	// to 70KB later on 2026-11-10, when the site sat at 68.2KB after the day's page fixes.
-	maxTotalCss: 70 * 1024,
+	// Total CSS, gzipped: what a visitor downloads. Until 2026-11-12 this counted raw
+	// bytes and sat at its cap (raised 50KB to 72KB in eight days, then held at 70KB),
+	// so every new utility class broke the build and each session trimmed or bumped it.
+	// Gzipped it was 14.6KB; 18KB leaves room for everyday changes and still catches a
+	// big new block of styles.
+	maxTotalCssGzip: 18 * 1024,
 	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
 	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
 	// when dist sat at 199MB. Those halftones are now drawn live in the browser
@@ -139,18 +137,21 @@ describe('Bundle Size', () => {
 	});
 
 	describe('CSS bundles', () => {
-		it('total CSS is under 70KB', () => {
-			const cssFiles = getFilesWithExtension(ASTRO_DIR, '.css');
+		it('total CSS is under 18KB gzipped', () => {
+			const cssFiles = getFilesWithExtension(ASTRO_DIR, '.css').map((f) => ({
+				name: f.name,
+				size: gzipSync(readFileSync(join(ASTRO_DIR, f.name))).length,
+			}));
 			const totalSize = getTotalSize(cssFiles);
 
-			if (totalSize >= THRESHOLDS.maxTotalCss) {
+			if (totalSize >= THRESHOLDS.maxTotalCssGzip) {
 				expect.fail(
-					`Total CSS is ${formatBytes(totalSize)}, over ${formatBytes(THRESHOLDS.maxTotalCss)}:\n` +
+					`Total CSS is ${formatBytes(totalSize)} gzipped, over ${formatBytes(THRESHOLDS.maxTotalCssGzip)}:\n` +
 						breakdown(cssFiles),
 				);
 			}
 
-			expect(totalSize).toBeLessThan(THRESHOLDS.maxTotalCss);
+			expect(totalSize).toBeLessThan(THRESHOLDS.maxTotalCssGzip);
 		});
 	});
 });

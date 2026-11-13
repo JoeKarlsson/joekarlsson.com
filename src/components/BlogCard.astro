@@ -94,7 +94,7 @@ const formattedDate = formatDate(date);
 		<HoverBox index={index} />
 	</a>
 	<div>
-		<MetaParts class="mb-1.5 text-sm text-muted [font-variant-numeric:tabular-nums]">
+		<MetaParts class="mb-1.5 text-sm text-muted">
 			<time datetime={date.toISOString()}>{formattedDate}</time>{' '}
 			{readingTime && <span>{readingTime} min read</span>}{' '}
 			{categories && categories.length > 0 && <span>{categories.join(', ')}</span>}{' '}

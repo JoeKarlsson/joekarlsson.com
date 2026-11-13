@@ -79,7 +79,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 								{featuredPost.data.title}
 							</span>
 							<MetaParts
-								class="mt-2 text-sm text-muted [font-variant-numeric:tabular-nums]"
+								class="mt-2 text-sm text-muted"
 								parts={[
 									formatDate(featuredPost.data.date),
 									featuredReadingTime > 0 && `${featuredReadingTime} min read`,

@@ -265,7 +265,7 @@ const AROUND_THE_HOUSE = [
 						{i > 0 && <HoverBox index={i} />}
 					</a>
 					<div>
-						<MetaParts class="mb-1.5 text-sm text-muted [font-variant-numeric:tabular-nums]">
+						<MetaParts class="mb-1.5 text-sm text-muted">
 							<time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>{' '}
 							{post.data.categories[0] && <span>{post.data.categories[0]}</span>}{' '}
 							{post.data.writtenFor && <WrittenFor employer={post.data.writtenFor} />}
