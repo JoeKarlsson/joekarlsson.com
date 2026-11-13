@@ -86,6 +86,8 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 				const video = entry.target as HTMLVideoElement;
 				if (mostlyInView(entry)) visibleHeight.set(video, entry.intersectionRect.height);
 				else visibleHeight.delete(video);
+				// A clip started from its controls still stops once it's off screen
+				if (!entry.isIntersecting) autoPause(video);
 			}
 			const [leader] = [...visibleHeight].sort((a, b) => b[1] - a[1])[0] ?? [];
 			onScreen.forEach((video) => {

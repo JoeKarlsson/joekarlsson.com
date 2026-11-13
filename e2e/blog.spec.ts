@@ -136,6 +136,28 @@ test.describe('Individual Blog Post', () => {
 		await expect(lightbox).toBeVisible();
 	});
 
+	test('closing the lightbox while it opens still shrinks the picture back', async ({ page }) => {
+		await page.goto('/blog/why-clickhouse-should-be-your-next-database/');
+		const picture = page.locator('.prose img.cursor-zoom-in').first();
+		await picture.scrollIntoViewIfNeeded();
+		await picture.click();
+		// Halfway through the 250ms grow, close it: the picture should still shrink back
+		// into the post (the morph group), not cut to a page fade
+		const morphs = await page.evaluate(async () => {
+			await new Promise((resolve) => setTimeout(resolve, 100));
+			document.getElementById('image-lightbox')!.click();
+			await new Promise((resolve) => setTimeout(resolve, 60));
+			return document
+				.getAnimations()
+				.filter(
+					(a) =>
+						(a.effect as KeyframeEffect).pseudoElement ===
+						'::view-transition-group(lightbox-morph)',
+				).length;
+		});
+		expect(morphs).toBeGreaterThan(0);
+	});
+
 	test('an enlarged collage gets its own ids, so its shadows still point at its own filters', async ({
 		page,
 	}) => {
