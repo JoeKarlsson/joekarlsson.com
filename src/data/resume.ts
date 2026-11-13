@@ -164,25 +164,47 @@ export const roles: Role[] = [
 
 export const highlights = [
 	'TEDx Speaker: "The Art of Computer Science" (delivered as TEDx talk and keynote at multiple conferences)',
+	'100+ conference talks, workshops and podcasts since 2019, including a keynote at MongoDB World',
 	'Ranked #1 on "10 Must-Follow Developers on TikTok"; 25K+ followers, 844K+ likes',
 	'Hackathon organizer: co-organized "Stupid Shit No One In Hawaii Needs" (2016), sponsored by GitHub & Frontend Masters',
-	'Published in The New Stack, MongoDB Developer Hub, Tinybird blog, Medium, DEV Community',
+	'Published on the CData, CloudQuery, Tinybird, SingleStore and MongoDB developer blogs, The New Stack, Medium and DEV Community',
 ];
 
 export const openSource = [
 	{
-		name: 'Secure AI Data Pipelines',
+		name: 'Connect AI × DOOM',
 		description:
-			'End-to-end reference architecture for building secure AI data pipelines. Built for conference talks and customer demos; shows how to move data safely into AI workflows at scale.',
-		tech: ['Python', 'SQL', 'GCP', 'CloudQuery', 'AI/LLM'],
-		url: 'https://github.com/cloudquery/secure-ai-data-pipelines-demo',
+			'Ask Claude a business question and it builds a Doom level from the answer. Every monster is a live record pulled through the CData Connect AI MCP server.',
+		tech: ['Python', 'MCP', 'Claude Code', 'CData Connect AI', 'SQL'],
+		url: '/work/connect-ai-doom/',
 	},
 	{
-		name: 'bechdel.io',
+		name: 'Screencast Director',
 		description:
-			'Bechdel Test script analyzer; a collaborative digital humanities project with my sister. Parses film scripts to test for gender representation.',
-		tech: ['React', 'Redux', 'MongoDB', 'D3', 'Express'],
-		url: 'https://bechdel.joekarlsson.com',
+			'A macOS screen recorder that drafts the edit for me. It speeds up the typing, cuts dead air, zooms on clicks and adds captions, then I fix it on a timeline or ask an AI model to change it.',
+		tech: ['Swift', 'ScreenCaptureKit', 'whisper.cpp', 'Claude'],
+		url: '/work/screencast-director/',
+	},
+	{
+		name: 'FollowSpot',
+		description:
+			'A browser teleprompter that listens with a local whisper.cpp model and follows along as I read, through flubs and ad-libs. The audio never leaves my machine.',
+		tech: ['JavaScript', 'whisper.cpp', 'Web Audio'],
+		url: '/work/followspot/',
+	},
+	{
+		name: 'Punc',
+		description:
+			"Takes the words out of a book and leaves the punctuation where it was, so you can see the book's rhythm on its own.",
+		tech: ['TypeScript', 'Canvas', 'SVG'],
+		url: '/work/punc/',
+	},
+	{
+		name: 'Bechdel.io',
+		description:
+			'Parses film scripts to check them against the Bechdel Test. A digital humanities project I built with my sister.',
+		tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
+		url: '/work/bechdel-io/',
 	},
 	{
 		name: 'Homelab',
@@ -213,6 +235,31 @@ export interface WritingSampleGroup {
 }
 
 export const writingSamples: WritingSampleGroup[] = [
+	{
+		category: 'AI Agents & MCP',
+		items: [
+			{
+				title: 'I Wired Doom to Two MCP Servers and Let Claude Play It',
+				url: 'https://www.cdata.com/blog/doom-mcp-server',
+				publisher: 'CData',
+			},
+			{
+				title: 'The Official MCP Roadmap, Explained for Enterprise Teams',
+				url: 'https://www.cdata.com/blog/official-mcp-roadmap-explained',
+				publisher: 'CData',
+			},
+			{
+				title: 'Enterprise Data Access for AI Agents: The Missing Gateway',
+				url: 'https://www.cdata.com/blog/ai-gateway-data-access-layer',
+				publisher: 'CData',
+			},
+			{
+				title: 'How We Made Our IDEs Data-Aware with a Go MCP Server',
+				url: 'https://www.cloudquery.io/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server',
+				publisher: 'CloudQuery',
+			},
+		],
+	},
 	{
 		category: 'Database: Conceptual',
 		items: [
@@ -313,9 +360,14 @@ export const writingSamples: WritingSampleGroup[] = [
 		category: 'DevRel & Strategy',
 		items: [
 			{
-				title: 'What I Learned Running DevRel in 2026',
+				title: 'Running DevRel in 2027 Means Owning Three Discovery Surfaces',
 				url: 'https://joekarlsson.com/blog/running-devrel/',
 				publisher: 'joekarlsson.com',
+			},
+			{
+				title: 'What I Learned When I Could Finally Prove My Work Mattered',
+				url: 'https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered',
+				publisher: 'CData',
 			},
 		],
 	},
@@ -335,7 +387,18 @@ export const writingSamples: WritingSampleGroup[] = [
 export const skills = [
 	{
 		category: 'Languages',
-		items: ['JavaScript', 'TypeScript', 'Python', 'Go', 'Rust', 'SQL'],
+		items: ['JavaScript', 'TypeScript', 'Python', 'Go', 'Swift', 'SQL'],
+	},
+	{
+		category: 'AI & Agents',
+		items: [
+			'MCP Servers',
+			'Claude Code (skills, hooks, subagents)',
+			'AI Agents',
+			'LLM APIs',
+			'Local Models (whisper.cpp, Ollama)',
+			'Sales and Content Automation',
+		],
 	},
 	{
 		category: 'Databases',
@@ -354,26 +417,23 @@ export const skills = [
 		items: ['AWS', 'GCP', 'Azure', 'BigQuery', 'Snowflake', 'Kafka', 'Airflow'],
 	},
 	{
-		category: 'AI & Automation',
-		items: [
-			'LLM APIs',
-			'AI Workflow Automation',
-			'Prompt Engineering',
-			'AI-assisted Content Pipelines',
-			'Sales Enablement Automation',
-		],
+		category: 'Infrastructure',
+		items: ['Proxmox', 'OpenTofu', 'Docker', 'Linux', 'Prometheus', 'Grafana', 'Home Assistant'],
 	},
 	{
 		category: 'Frontend',
-		items: ['React', 'Redux', 'Astro', 'Tailwind CSS', 'D3.js'],
+		items: ['React', 'Redux', 'Astro', 'Tailwind CSS', 'D3.js', 'Canvas', 'WebGL'],
 	},
 	{
 		category: 'DevRel & Marketing',
 		items: [
 			'Technical Writing',
+			'Developer Docs',
 			'Conference Speaking',
+			'Video',
 			'Content Strategy',
 			'SEO',
+			'AEO',
 			'Conversion Optimization',
 			'Sales Enablement',
 			'Marketing Analytics',

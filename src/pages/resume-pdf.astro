@@ -135,6 +135,11 @@ function formatYearRange(start: number, end: number | null): string {
 				gap: 6pt 16pt;
 			}
 
+			/* The last group takes the row's empty columns, so the list stays on two pages */
+			.skills-grid > :last-child {
+				grid-column: span 2;
+			}
+
 			.skill-label {
 				font-size: 7.5pt;
 				font-weight: 700;
