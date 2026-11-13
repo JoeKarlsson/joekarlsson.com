@@ -23,7 +23,7 @@ export interface Role {
 export const roles: Role[] = [
 	{
 		company: 'CData',
-		title: 'Principal Developer Marketing Manager',
+		title: 'Principal Developer Marketing Engineer',
 		startYear: 2026,
 		endYear: null,
 		location: 'Remote',

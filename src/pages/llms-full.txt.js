@@ -24,7 +24,7 @@ export async function GET() {
 
 	const body = `# Joe Karlsson - Full Site Guide
 
-> Developer Marketing Engineer (formal title: Principal Developer Marketing Manager) specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
+> Principal Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
 
 ## About Joe Karlsson
 
