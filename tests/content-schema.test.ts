@@ -72,7 +72,8 @@ describe('blog post frontmatter', () => {
 
 			it('dates its corrections no later than updatedDate', () => {
 				// A fix newer than updatedDate would leave dateModified (and feeds) stale
-				const { corrections, updatedDate } = parse(content.split('---')[1]) ?? {};
+				const { corrections, updatedDate } =
+					parse(content.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '') ?? {};
 				if (!corrections) return;
 				expect(updatedDate, 'corrections need an updatedDate').toBeDefined();
 				for (const { date } of corrections)

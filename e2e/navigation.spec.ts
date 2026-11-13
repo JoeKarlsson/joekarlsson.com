@@ -163,6 +163,15 @@ test.describe('Footer', () => {
 
 	test('with reduced motion, subscribing skips the envelope', async ({ page }) => {
 		await page.emulateMedia({ reducedMotion: 'reduce' });
+		// Reported from the page as it happens: after the hand-off to listmonk the form is gone
+		let sealed = false;
+		await page.exposeFunction('reportSealing', () => (sealed = true));
+		await page.addInitScript(() => {
+			new MutationObserver(() => {
+				if (document.querySelector('.sealing'))
+					(window as unknown as { reportSealing: () => void }).reportSealing();
+			}).observe(document, { subtree: true, attributes: true, attributeFilter: ['class'] });
+		});
 		await page.route('https://newsletter.joekarlsson.com/**', (route) =>
 			route.fulfill({ contentType: 'text/html', body: '<p>check your email</p>' }),
 		);
@@ -171,7 +180,7 @@ test.describe('Footer', () => {
 		await form.getByLabel('Email address').fill('reader@example.com');
 		await form.getByRole('button', { name: /subscribe/i }).click();
 		await page.waitForURL('https://newsletter.joekarlsson.com/**');
-		expect(await page.locator('.sealing').count()).toBe(0);
+		expect(sealed).toBe(false);
 	});
 
 	test('posts ask for the newsletter where the reader finishes', async ({ page }) => {
