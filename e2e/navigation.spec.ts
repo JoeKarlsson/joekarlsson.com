@@ -146,55 +146,6 @@ test.describe('Footer', () => {
 		await expect(form.getByRole('button', { name: /subscribe/i })).toBeVisible();
 	});
 
-	test('subscribing seals the address in an envelope, then leaves for listmonk', async ({
-		page,
-	}) => {
-		// Reported from the page as it happens: the envelope plays while listmonk loads,
-		// so by the time Playwright could look, the form may be gone
-		let sealedLetter = '';
-		await page.exposeFunction('reportSealing', (text: string) => (sealedLetter = text));
-		await page.addInitScript(() => {
-			new MutationObserver(() => {
-				const sealing = document.querySelector('.sealing .envelope');
-				if (sealing)
-					(window as unknown as { reportSealing: (text: string) => void }).reportSealing(
-						sealing.textContent ?? '',
-					);
-			}).observe(document, { subtree: true, attributes: true, attributeFilter: ['class'] });
-		});
-		await page.route('https://newsletter.joekarlsson.com/**', (route) =>
-			route.fulfill({ contentType: 'text/html', body: '<p>check your email</p>' }),
-		);
-		await page.goto('/');
-		const form = page.locator('footer form.newsletter-signup');
-		await form.getByLabel('Email address').fill('reader@example.com');
-		await form.getByRole('button', { name: /subscribe/i }).click();
-		await page.waitForURL('https://newsletter.joekarlsson.com/**');
-		expect(sealedLetter).toContain('reader@example.com');
-	});
-
-	test('with reduced motion, subscribing skips the envelope', async ({ page }) => {
-		await page.emulateMedia({ reducedMotion: 'reduce' });
-		// Reported from the page as it happens: after the hand-off to listmonk the form is gone
-		let sealed = false;
-		await page.exposeFunction('reportSealing', () => (sealed = true));
-		await page.addInitScript(() => {
-			new MutationObserver(() => {
-				if (document.querySelector('.sealing'))
-					(window as unknown as { reportSealing: () => void }).reportSealing();
-			}).observe(document, { subtree: true, attributes: true, attributeFilter: ['class'] });
-		});
-		await page.route('https://newsletter.joekarlsson.com/**', (route) =>
-			route.fulfill({ contentType: 'text/html', body: '<p>check your email</p>' }),
-		);
-		await page.goto('/');
-		const form = page.locator('footer form.newsletter-signup');
-		await form.getByLabel('Email address').fill('reader@example.com');
-		await form.getByRole('button', { name: /subscribe/i }).click();
-		await page.waitForURL('https://newsletter.joekarlsson.com/**');
-		expect(sealed).toBe(false);
-	});
-
 	test('posts ask for the newsletter where the reader finishes', async ({ page }) => {
 		await page.goto('/blog/how-to-get-started-building-a-homelab-server/');
 

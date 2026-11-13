@@ -32,7 +32,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 ## Animation
 
 - 2026-11-13: A post's animated figures stay at their empty first frame until they're mostly on screen, so the reader sees each one build from nothing. That's intended, not a blank-figure bug (a motion review flagged it).
-- 2026-11-13: Subscribing plays a cut-paper envelope that seals with the crayon asterisk (picked over a rubber "SENT" stamp).
+- 2026-11-13: Subscribing plays a cut-paper envelope that seals with the crayon asterisk (picked over a rubber "SENT" stamp). It plays on listmonk's "check your inbox" page, not on the site's form, so it never holds up the hand-off and plays in full (Joe's call).
 
 - 2026-11-10: Animations should think bigger than redrawing the post's diagrams: stick figures, drawings, the scribbly pink crayon style.
 

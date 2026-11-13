@@ -3,7 +3,6 @@
 // newsletter.joekarlsson.com, which double opt-ins the address and shows its own
 // "check your email" page. A plain form POST needs no CSP or CORS change.
 import { NEWSLETTER } from '../consts';
-import { asterisk } from '../data/scribbles';
 
 interface Props {
 	// Sent to Plausible as the `location` prop, to compare where signups come from
@@ -20,7 +19,7 @@ const isFooter = location === 'footer';
 	method="post"
 	action={NEWSLETTER.subscribeAction}
 	class:list={[
-		'newsletter-signup relative flex max-w-[520px] flex-col gap-2 sm:flex-row sm:flex-wrap',
+		'newsletter-signup flex max-w-[520px] flex-col gap-2 sm:flex-row sm:flex-wrap',
 		isFooter && 'mt-5',
 	]}
 	data-location={location}
@@ -66,177 +65,9 @@ const isFooter = location === 'footer';
 	>
 		Subscribe
 	</button>
-	{/* The send-off: on submit, cut-paper pieces fold the address into an envelope
-	and the crayon asterisk seals it, on twos, while the browser loads listmonk's page */}
-	<div class="envelope" aria-hidden="true">
-		<div class="envelope-back"></div>
-		<div class="envelope-letter">
-			<span class="font-display text-base uppercase">Works on My Machine</span>
-			<span class="envelope-letter-to"></span>
-		</div>
-		<div class="envelope-front"></div>
-		<div class="envelope-flap"></div>
-		<svg class="envelope-seal text-pink" viewBox={asterisk.viewBox}>
-			<path d={asterisk.path}></path>
-		</svg>
-	</div>
 </form>
 
-<style>
-	.envelope {
-		display: none;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		width: 220px;
-		height: 140px;
-		translate: -50% -50%;
-		pointer-events: none;
-	}
-	/* Phones stack the button under the input: a smaller envelope covers the label and
-	input only, so the focused "Subscribing…" button stays in view below it */
-	@media (width < 40rem) {
-		.envelope {
-			zoom: 0.6;
-			top: 63px;
-		}
-	}
-	.sealing .envelope {
-		display: block;
-		animation: envelope-in 0.17s steps(2) both;
-	}
-	/* The form's own pieces drop out as the envelope arrives; the focused button stays, so focus stays visible */
-	.sealing > :not(.envelope, :focus) {
-		animation: envelope-form-out 0.17s steps(2) forwards;
-	}
-	.envelope > * {
-		position: absolute;
-	}
-	/* Back to front: the open flap sits behind the letter, then snaps in front as it shuts */
-	.envelope-back {
-		inset: 0;
-		background: #d9d2c4;
-		outline: 2px solid #fff;
-		outline-offset: -2px;
-	}
-	.envelope-letter {
-		left: 12px;
-		right: 12px;
-		top: -80px;
-		height: 110px;
-		padding: 10px 12px;
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-		background: #ece6da;
-		outline: 2px solid #fff;
-		color: #000;
-		font-size: 13px;
-		rotate: -2deg;
-		overflow: hidden;
-		z-index: 2;
-	}
-	.envelope-letter-to {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
-	.envelope-front {
-		inset: 0;
-		background: #ece6da;
-		clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
-		z-index: 3;
-	}
-	.envelope-flap {
-		left: 0;
-		right: 0;
-		top: 0;
-		height: 82px;
-		background: #e4dccd;
-		clip-path: polygon(0 0, 100% 0, 50% 100%);
-		transform-origin: top;
-		transform: rotateX(180deg);
-		z-index: 1;
-	}
-	.envelope-seal {
-		left: 50%;
-		top: 52px;
-		width: 54px;
-		height: 54px;
-		translate: -50% 0;
-		visibility: hidden;
-		overflow: visible;
-		z-index: 5;
-	}
-	.envelope-seal path {
-		fill: none;
-		stroke: currentColor;
-		stroke-width: 9;
-		stroke-linecap: round;
-		stroke-dasharray: 400;
-		stroke-dashoffset: 400;
-	}
-	/* The line under the form ("It's free...") would show around the envelope's edges */
-	/* (Astro puts the first form's <script> between it and the line) */
-	:global(:is(.newsletter-signup.sealing + p, .newsletter-signup.sealing + script + p)) {
-		animation: envelope-form-out 0.17s steps(2) forwards;
-	}
-	.sealing .envelope-letter {
-		animation: envelope-letter-drop 0.25s steps(3) 0.17s both;
-	}
-	.sealing .envelope-flap {
-		animation: envelope-flap-shut 0.17s steps(2) 0.42s forwards;
-	}
-	.sealing .envelope-seal {
-		animation: envelope-seal-show 0s 0.59s forwards;
-	}
-	.sealing .envelope-seal path {
-		animation: envelope-seal-draw 0.25s steps(3) 0.59s forwards;
-	}
-	@keyframes envelope-in {
-		from {
-			scale: 0.85;
-			rotate: -4deg;
-		}
-		to {
-			scale: 1;
-			rotate: -1.5deg;
-		}
-	}
-	@keyframes envelope-form-out {
-		to {
-			opacity: 0;
-		}
-	}
-	@keyframes envelope-letter-drop {
-		to {
-			translate: 0 100px;
-		}
-	}
-	@keyframes envelope-flap-shut {
-		from {
-			z-index: 4;
-		}
-		to {
-			z-index: 4;
-			transform: rotateX(0);
-		}
-	}
-	@keyframes envelope-seal-show {
-		to {
-			visibility: visible;
-		}
-	}
-	@keyframes envelope-seal-draw {
-		to {
-			stroke-dashoffset: 0;
-		}
-	}
-</style>
-
 <script>
-	import { isMotionPaused } from '../scripts/pause-motion';
-
 	// Record the signup in Plausible before the browser leaves for listmonk. The
 	// callback fires once the event is sent; the timeout covers a blocked script.
 	type PlausibleFn = (
@@ -256,12 +87,6 @@ const isFooter = location === 'footer';
 			// aria-disabled, not disabled, so keyboard focus stays on the button
 			button.setAttribute('aria-disabled', 'true');
 			button.textContent = 'Subscribing…';
-			// The envelope never holds up the hand-off: it plays while Plausible and listmonk load
-			if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !isMotionPaused()) {
-				form.querySelector('.envelope-letter-to')!.textContent =
-					`to: ${form.querySelector<HTMLInputElement>('input[type="email"]')!.value}`;
-				form.classList.add('sealing');
-			}
 			const plausible = (window as unknown as { plausible?: PlausibleFn }).plausible;
 			if (!plausible) return;
 			e.preventDefault();
@@ -281,7 +106,6 @@ const isFooter = location === 'footer';
 		addEventListener('pageshow', (event) => {
 			if (!event.persisted) return;
 			delete form.dataset.sent;
-			form.classList.remove('sealing');
 			button.removeAttribute('aria-disabled');
 			button.textContent = 'Subscribe';
 		});
