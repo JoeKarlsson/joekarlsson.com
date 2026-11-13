@@ -67,7 +67,7 @@ const isFooter = location === 'footer';
 		Subscribe
 	</button>
 	{/* The send-off: on submit, cut-paper pieces fold the address into an envelope
-	and the crayon asterisk seals it, on twos, while the page waits to leave for listmonk */}
+	and the crayon asterisk seals it, on twos, while the browser loads listmonk's page */}
 	<div class="envelope" aria-hidden="true">
 		<div class="envelope-back"></div>
 		<div class="envelope-letter">
@@ -237,8 +237,6 @@ const isFooter = location === 'footer';
 <script>
 	import { isMotionPaused } from '../scripts/pause-motion';
 
-	// How long the envelope takes to fold and seal (the CSS timeline above)
-	const ENVELOPE_MS = 900;
 	// Record the signup in Plausible before the browser leaves for listmonk. The
 	// callback fires once the event is sent; the timeout covers a blocked script.
 	type PlausibleFn = (
@@ -258,27 +256,26 @@ const isFooter = location === 'footer';
 			// aria-disabled, not disabled, so keyboard focus stays on the button
 			button.setAttribute('aria-disabled', 'true');
 			button.textContent = 'Subscribing…';
-			const waits: Promise<void>[] = [];
-			const plausible = (window as unknown as { plausible?: PlausibleFn }).plausible;
-			if (plausible)
-				waits.push(
-					new Promise((resolve) => {
-						plausible('Newsletter Signup', {
-							props: { location: form.dataset.location ?? 'unknown' },
-							callback: resolve,
-						});
-						setTimeout(resolve, 1000);
-					}),
-				);
+			// The envelope never holds up the hand-off: it plays while Plausible and listmonk load
 			if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !isMotionPaused()) {
 				form.querySelector('.envelope-letter-to')!.textContent =
 					`to: ${form.querySelector<HTMLInputElement>('input[type="email"]')!.value}`;
 				form.classList.add('sealing');
-				waits.push(new Promise((resolve) => setTimeout(resolve, ENVELOPE_MS)));
 			}
-			if (waits.length === 0) return;
+			const plausible = (window as unknown as { plausible?: PlausibleFn }).plausible;
+			if (!plausible) return;
 			e.preventDefault();
-			void Promise.all(waits).then(() => form.submit());
+			let done = false;
+			const go = () => {
+				if (done) return;
+				done = true;
+				form.submit();
+			};
+			plausible('Newsletter Signup', {
+				props: { location: form.dataset.location ?? 'unknown' },
+				callback: go,
+			});
+			setTimeout(go, 1000);
 		});
 		// Back from listmonk restores this page as it was left (bfcache), sent flag and all
 		addEventListener('pageshow', (event) => {

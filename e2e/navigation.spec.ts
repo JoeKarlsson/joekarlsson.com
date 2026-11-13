@@ -149,6 +149,19 @@ test.describe('Footer', () => {
 	test('subscribing seals the address in an envelope, then leaves for listmonk', async ({
 		page,
 	}) => {
+		// Reported from the page as it happens: the envelope plays while listmonk loads,
+		// so by the time Playwright could look, the form may be gone
+		let sealedLetter = '';
+		await page.exposeFunction('reportSealing', (text: string) => (sealedLetter = text));
+		await page.addInitScript(() => {
+			new MutationObserver(() => {
+				const sealing = document.querySelector('.sealing .envelope');
+				if (sealing)
+					(window as unknown as { reportSealing: (text: string) => void }).reportSealing(
+						sealing.textContent ?? '',
+					);
+			}).observe(document, { subtree: true, attributes: true, attributeFilter: ['class'] });
+		});
 		await page.route('https://newsletter.joekarlsson.com/**', (route) =>
 			route.fulfill({ contentType: 'text/html', body: '<p>check your email</p>' }),
 		);
@@ -156,9 +169,8 @@ test.describe('Footer', () => {
 		const form = page.locator('footer form.newsletter-signup');
 		await form.getByLabel('Email address').fill('reader@example.com');
 		await form.getByRole('button', { name: /subscribe/i }).click();
-		await expect(form.locator('.envelope')).toBeVisible();
-		await expect(form.locator('.envelope')).toContainText('reader@example.com');
 		await page.waitForURL('https://newsletter.joekarlsson.com/**');
+		expect(sealedLetter).toContain('reader@example.com');
 	});
 
 	test('with reduced motion, subscribing skips the envelope', async ({ page }) => {
