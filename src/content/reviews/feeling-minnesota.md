@@ -1,0 +1,14 @@
+---
+title: 'Feeling Minnesota'
+year: 1996
+date: 2025-06-22
+rating: 1.5
+director: 'Steven Baigelman'
+genres: ['Crime', 'Comedy', 'Drama']
+slug: 'feeling-minnesota'
+description: 'As a Minnesotan, I wanted to like this movie. But it feels derivative of much better movies of the 90s with nothing interesting to say or add.'
+letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/feeling-minnesota/'
+poster: '/images/reviews/feeling-minnesota/poster.webp'
+---
+
+As a Minnesotan, I wanted to like this movie. But it feels derivative of much better movies of the 90s with nothing interesting to say or add.

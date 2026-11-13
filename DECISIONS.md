@@ -21,6 +21,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 ## Consistency
 
+- 2026-11-13: /reviews (Joe's film reviews): the list is a poster wall, and each review page looks exactly like a blog post page. Every page keeps the site's own header; a mockup that left it out read as "a header different than any of my other pages". Reviews stays out of the nav ("no one really cares"): it's linked from the About page and the footer, and the About page's recent movies link to their reviews. A review ends with links to more of Joe's reviews.
+
 - 2026-11-05: Consistency across the site comes first. Same column width for a post's text, the footer and the about/keep-reading blocks. Same hero treatment and video formatting on every page. The 404 page matches the rest (2026-11-10).
 - 2026-11-10: The bottom of each page shows a next step that fits that page (a featured item worth pushing there), not one list everywhere. The contact page links to no posts.
 

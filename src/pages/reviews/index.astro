@@ -1,0 +1,82 @@
+---
+// /reviews/: every film Joe has reviewed on Letterboxd as a poster wall, newest first,
+// under the same PosterHero as Blog and Talks (the newest review's backdrop beside it).
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewFinder from '../../components/ReviewFinder.astro';
+import PosterHero from '../../components/PosterHero.astro';
+import HoverBox from '../../components/HoverBox.astro';
+import Scribble from '../../components/Scribble.astro';
+import { CHALK, MARKS } from '../../data/scribbles';
+import { HERO_LEAD, PAGE_CONTAINER, formatDate } from '../../utils/ui';
+import { cardHalftone } from '../../utils/halftone';
+import { stars } from '../../../scripts/update-reviews.mjs';
+
+const reviews = (await getCollection('reviews')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const newest = reviews.find((r) => r.data.heroImage) ?? reviews[0];
+const firstYear = Math.min(...reviews.map((r) => r.data.date.getUTCFullYear()));
+---
+
+<BaseLayout
+	title="Film reviews | Joe Karlsson"
+	description="Every film I've reviewed, with star ratings: search and sort by genre, decade, rating or the year I watched it."
+	schemaType="CollectionPage"
+>
+	<div class={PAGE_CONTAINER}>
+		<PosterHero
+			title="Reviews"
+			wordRatio={3.3}
+			featured={{
+				label: 'New',
+				title: `${newest.data.title} (${newest.data.year})`,
+				href: `/reviews/${newest.data.slug}/`,
+				meta: [newest.data.rating && stars(newest.data.rating), formatDate(newest.data.date)]
+					.filter(Boolean)
+					.join('  '),
+			}}
+		>
+			<a
+				slot="media"
+				href={`/reviews/${newest.data.slug}/`}
+				class="ring-host group relative z-10 block no-underline"
+			>
+				<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
+					<img
+						src={newest.data.heroImage}
+						alt=""
+						aria-hidden="true"
+						data-halftone={cardHalftone(newest.data.heroImage!)}
+						width="1200"
+						height="675"
+						sizes="(min-width: 768px) 50vw, 100vw"
+						class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
+						loading="eager"
+						fetchpriority="high"
+					/>
+					<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
+						<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+							{newest.data.title}
+						</span>
+						<span class="mt-2 block text-sm text-muted">{newest.data.description}</span>
+					</span>
+				</span>
+				<Scribble
+					{...MARKS.burst}
+					color={CHALK}
+					strokeWidth={6}
+					duration="8s"
+					delay="1.6s"
+					class="-top-[7%] -left-[7%] z-10 size-[22%]"
+				/>
+				<HoverBox featured />
+			</a>
+			<p class={`${HERO_LEAD} max-md:hidden`}>
+				{reviews.length} reviews since {firstYear}
+			</p>
+		</PosterHero>
+
+		<ReviewFinder reviews={reviews} />
+	</div>
+</BaseLayout>

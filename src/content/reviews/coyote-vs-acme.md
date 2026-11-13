@@ -1,0 +1,16 @@
+---
+title: 'Coyote vs. Acme'
+year: 2026
+date: 2026-10-02
+rating: 4
+director: 'Dave Green'
+genres: ['Animation', 'Adventure', 'Family', 'Comedy']
+slug: 'coyote-vs-acme'
+description: 'I cried when the roadrunner said, "beep beep." 🥹'
+letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/coyote-vs-acme/'
+poster: '/images/reviews/coyote-vs-acme/poster.webp'
+heroImage: '/images/reviews/coyote-vs-acme/backdrop.webp'
+heroAlt: 'A still from Coyote vs. Acme (2026)'
+---
+
+I cried when the roadrunner said, "beep beep." 🥹

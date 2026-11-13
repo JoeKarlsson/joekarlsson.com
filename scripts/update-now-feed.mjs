@@ -1,4 +1,4 @@
-// Snapshot what I've recently shipped (merged GitHub PRs), watched (Letterboxd) and
+// Snapshot what I've recently shipped (merged GitHub PRs) and
 // listened to (Audiobookshelf podcasts), plus live homelab stats (Prometheus) and
 // GitHub profile counts for llms.txt, into
 // src/data/now-feed.json, with covers saved as WebP under public/images/now/. The
@@ -14,7 +14,6 @@ import {
 	coverFileName,
 	httpsUrlOn,
 	nextGitHubPage,
-	parseLetterboxdFilms,
 	summarizeGitHubProfile,
 	truncateAtWord,
 } from './now-feed-parsing.mjs';
@@ -42,9 +41,7 @@ const LATEST_COMMIT_MESSAGE_MAX_CHARS = 70;
 const GITHUB_TOP_REPO_COUNT = 3;
 // Same kind of cap for the owned-repo list, at 100 a page
 const MAX_REPO_PAGES = 5;
-const LETTERBOXD_RSS_URL = 'https://letterboxd.com/joekarlsson/rss/';
 const ITEMS_PER_FEED = 4;
-const REVIEW_EXCERPT_MAX_CHARS = 160;
 const COVER_WIDTH_PX = 200;
 const COVER_DIR = 'public/images/now';
 const OUTPUT_PATH = 'src/data/now-feed.json';
@@ -62,24 +59,6 @@ async function saveCoverAsWebp(imageUrl, fileName, fetchOptions) {
 		.webp({ quality: 80 })
 		.toFile(`${COVER_DIR}/${fileName}`);
 	return `/images/now/${fileName}`;
-}
-
-async function fetchRecentFilms() {
-	const rss = await (await fetchOrThrow(LETTERBOXD_RSS_URL)).text();
-	const films = [];
-	for (const { tmdbId, posterUrl, ...film } of parseLetterboxdFilms(rss, {
-		limit: ITEMS_PER_FEED,
-		reviewExcerptMaxChars: REVIEW_EXCERPT_MAX_CHARS,
-	})) {
-		films.push({
-			...film,
-			// No redirects: the poster host is pinned in parseLetterboxdFilms
-			poster: await saveCoverAsWebp(posterUrl, coverFileName('film', tmdbId), {
-				redirect: 'error',
-			}),
-		});
-	}
-	return films;
 }
 
 async function fetchRecentPodcastEpisodes() {
@@ -251,19 +230,14 @@ async function fetchHomelabStats() {
 }
 
 mkdirSync(COVER_DIR, { recursive: true });
-const [shippedRepos, films, podcastEpisodes, homelab, github] = await Promise.all([
+const [shippedRepos, podcastEpisodes, homelab, github] = await Promise.all([
 	fetchRecentlyShippedRepos(),
-	fetchRecentFilms(),
 	fetchRecentPodcastEpisodes(),
 	fetchHomelabStats(),
 	fetchGitHubProfile(),
 ]);
 // Delete covers the new snapshot no longer uses, only after every feed succeeded.
-const coversInUse = new Set(
-	[...films.map((film) => film.poster), ...podcastEpisodes.map((episode) => episode.cover)].map(
-		(path) => path.split('/').pop(),
-	),
-);
+const coversInUse = new Set(podcastEpisodes.map((episode) => episode.cover.split('/').pop()));
 for (const file of readdirSync(COVER_DIR)) {
 	if (!coversInUse.has(file)) rmSync(`${COVER_DIR}/${file}`);
 }
@@ -277,7 +251,6 @@ writeFileSync(
 			updatedAt: new Date().toLocaleDateString('en-CA'),
 			shippingWindowDays: SHIPPING_WINDOW_DAYS,
 			shippedRepos,
-			films,
 			podcastEpisodes,
 			homelab,
 			github,
@@ -286,5 +259,5 @@ writeFileSync(
 	),
 );
 console.log(
-	`Wrote ${shippedRepos.length} shipped repos, ${films.length} films, ${podcastEpisodes.length} podcast episodes, homelab stats and GitHub counts to ${OUTPUT_PATH}`,
+	`Wrote ${shippedRepos.length} shipped repos, ${podcastEpisodes.length} podcast episodes, homelab stats and GitHub counts to ${OUTPUT_PATH}`,
 );

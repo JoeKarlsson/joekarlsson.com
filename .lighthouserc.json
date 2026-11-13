@@ -5,6 +5,8 @@
 			"url": [
 				"http://localhost/",
 				"http://localhost/blog/",
+				"http://localhost/reviews/",
+				"http://localhost/reviews/zodiac/",
 				"http://localhost/about/",
 				"http://localhost/work/",
 				"http://localhost/uses/",

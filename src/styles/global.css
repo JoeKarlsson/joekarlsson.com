@@ -438,6 +438,12 @@ pre.astro-code {
 	border: 0;
 }
 
+/* A poster folded for find in page (ReviewFinder) would still take a grid cell and its row
+   gap, leaving a screen of black under the wall: out of the grid until it's shown */
+[data-review-grid] > [hidden='until-found'] {
+	position: absolute;
+}
+
 /* A post picture's "Enlarge" button (ImageLightbox): out of sight until keyboard focus,
    then a small button over the picture's top right corner */
 .lightbox-opener {

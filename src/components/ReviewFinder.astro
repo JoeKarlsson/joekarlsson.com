@@ -1,0 +1,272 @@
+---
+// The /reviews/ poster wall with Letterboxd-style controls in one panel: search (film or
+// director), then dropdowns to sort and to filter by genre, release decade, stars and the year
+// Joe watched it. It all runs in the browser over data-* attributes on each poster (no extra
+// JSON), and the wall shows 48 posters at a time, more as you scroll, like the blog's list.
+import type { CollectionEntry } from 'astro:content';
+import ReviewPoster from './ReviewPoster.astro';
+
+interface Props {
+	reviews: CollectionEntry<'reviews'>[];
+}
+
+const { reviews } = Astro.props;
+
+type Review = CollectionEntry<'reviews'>;
+// Distinct values with counts, most common first (or newest first for years)
+function options<T extends string | number>(values: T[], byValue = false): [T, number][] {
+	const counts = new Map<T, number>();
+	for (const v of values) counts.set(v, (counts.get(v) ?? 0) + 1);
+	return [...counts].sort((a, b) => (byValue ? Number(b[0]) - Number(a[0]) : b[1] - a[1]));
+}
+const decade = (r: Review) => Math.floor(r.data.year / 10) * 10;
+const countBy = (test: (r: Review) => boolean) => reviews.filter(test).length;
+// Accents off, so "amelie" finds Amélie
+const plain = (s: string) =>
+	s
+		.normalize('NFD')
+		.replace(/\p{Diacritic}/gu, '')
+		.toLowerCase();
+const genres = options(reviews.flatMap((r) => r.data.genres));
+const decades = options(reviews.map(decade), true);
+// "★★★+" means three stars or more, like Letterboxd's rating filter
+const starBuckets = [5, 4, 3, 2, 1].map(
+	(s) => [s, countBy((r) => (r.data.rating ?? 0) >= s)] as const,
+);
+const watchedYears = options(
+	reviews.map((r) => r.data.date.getUTCFullYear()),
+	true,
+);
+
+const LABEL = 'mb-1.5 block text-sm text-muted';
+const SELECT =
+	'w-full cursor-pointer rounded-md border border-surface-4 bg-ink px-3 py-2.5 text-paper transition-colors focus:border-pink';
+---
+
+<div class="mb-6 rounded-xl bg-surface-1 p-5 sm:p-7" data-review-finder>
+	<search>
+		<div class="relative">
+			<label for="review-search" class="sr-only">
+				Search reviews
+			</label>
+			<input
+				type="search"
+				id="review-search"
+				placeholder="Search by film or director"
+				autocapitalize="none"
+				autocorrect="off"
+				spellcheck="false"
+				enterkeyhint="search"
+				class="w-full rounded-md border border-surface-4 bg-ink py-3 pr-4 pl-11 text-lg text-paper placeholder-muted transition-colors focus:border-pink"
+			/>
+			<svg
+				class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+				aria-hidden="true"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+				></path>
+			</svg>
+		</div>
+		<div class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-5">
+			<div>
+				<label for="review-sort" class={LABEL}>
+					Sort
+				</label>
+				<select id="review-sort" class={SELECT} data-control="sort">
+					<option value="newest">Recent</option>
+					<option value="rating">Top rated</option>
+					<option value="lowest">Lowest rated</option>
+					<option value="year">Newest films</option>
+					<option value="oldest">Oldest films</option>
+					<option value="title">A–Z</option>
+				</select>
+			</div>
+			<div>
+				<label for="review-genre" class={LABEL}>
+					Genre
+				</label>
+				<select id="review-genre" class={SELECT} data-control="genre">
+					<option value="">Any genre</option>
+					{genres.map(([g, n]) => (
+						<option value={g}>
+							{g} ({n})
+						</option>
+					))}
+				</select>
+			</div>
+			<div>
+				<label for="review-decade" class={LABEL}>
+					Decade
+				</label>
+				<select id="review-decade" class={SELECT} data-control="decade">
+					<option value="">Any decade</option>
+					{decades.map(([d, n]) => (
+						<option value={d}>
+							{d}s ({n})
+						</option>
+					))}
+				</select>
+			</div>
+			<div>
+				<label for="review-stars" class={LABEL}>
+					Rating
+				</label>
+				<select id="review-stars" class={SELECT} data-control="stars">
+					<option value="">Any rating</option>
+					{starBuckets.map(([s, n]) => (
+						<option value={s}>
+							{s < 5 ? `${s}+ stars` : '5 stars'} ({n})
+						</option>
+					))}
+				</select>
+			</div>
+			<div class="max-md:col-span-2">
+				<label for="review-watched" class={LABEL}>
+					Watched in
+				</label>
+				<select id="review-watched" class={SELECT} data-control="watched">
+					<option value="">Any year</option>
+					{watchedYears.map(([y, n]) => (
+						<option value={y}>
+							{y} ({n})
+						</option>
+					))}
+				</select>
+			</div>
+		</div>
+	</search>
+</div>
+
+<p class="mb-4 text-sm text-muted" aria-live="polite" data-review-count>
+	{reviews.length} reviews
+</p>
+<p
+	class="hidden py-12 font-display text-[clamp(2rem,4vw,3.5rem)] leading-none text-paper uppercase"
+	data-review-empty
+>
+	No reviews match
+</p>
+
+<ul
+	class="relative grid grid-cols-[repeat(auto-fill,minmax(min(9.5rem,calc(50%-0.625rem)),1fr))] gap-x-5 gap-y-8"
+	aria-label="Film reviews"
+	data-review-grid
+>
+	{reviews.map((r, i) => (
+		<li
+			hidden={i >= 48 ? 'until-found' : undefined}
+			data-search={plain(`${r.data.title} ${r.data.director ?? ''}`)}
+			data-order={i}
+			data-rating={r.data.rating ?? 0}
+			data-year={r.data.year}
+			data-watched={r.data.date.getUTCFullYear()}
+			data-genres={`|${r.data.genres.join('|')}|`}
+			data-title={r.data.title.toLowerCase().replace(/^(the|a|an) /, '')}
+		>
+			<ReviewPoster review={r} />
+		</li>
+	))}
+</ul>
+<div class="h-px" data-review-more></div>
+
+<script>
+	// Posters past this many wait until the reader scrolls near the end of the wall
+	const PAGE_SIZE = 48;
+
+	document.querySelectorAll<HTMLElement>('[data-review-finder]').forEach((finder) => {
+		const grid = document.querySelector<HTMLElement>('[data-review-grid]')!;
+		const count = document.querySelector<HTMLElement>('[data-review-count]')!;
+		const empty = document.querySelector<HTMLElement>('[data-review-empty]')!;
+		const more = document.querySelector<HTMLElement>('[data-review-more]')!;
+		const search = finder.querySelector<HTMLInputElement>('#review-search')!;
+		const control = (name: string) =>
+			finder.querySelector<HTMLSelectElement>(`[data-control="${name}"]`)!.value;
+		const items = [...grid.querySelectorAll<HTMLLIElement>('li')];
+		const n = (v: string | undefined) => Number(v);
+		const byOrder = (a: DOMStringMap, b: DOMStringMap) => n(a.order) - n(b.order);
+		const compare: Record<string, (a: DOMStringMap, b: DOMStringMap) => number> = {
+			newest: byOrder,
+			rating: (a, b) => n(b.rating) - n(a.rating) || byOrder(a, b),
+			// Unrated reviews go last, not first, when sorting lowest first
+			lowest: (a, b) => (n(a.rating) || 6) - (n(b.rating) || 6) || byOrder(a, b),
+			year: (a, b) => n(b.year) - n(a.year) || byOrder(a, b),
+			oldest: (a, b) => n(a.year) - n(b.year) || byOrder(a, b),
+			title: (a, b) => a.title!.localeCompare(b.title!),
+		};
+		let matches: HTMLLIElement[] = items;
+		let limit = PAGE_SIZE;
+
+		// Matches past the limit stay findable with find-in-page (hidden="until-found"), like the blog list
+		function show() {
+			items.forEach((li) => (li.hidden = true));
+			matches.forEach((li, i) =>
+				i < limit ? li.removeAttribute('hidden') : li.setAttribute('hidden', 'until-found'),
+			);
+		}
+		grid.addEventListener(
+			'beforematch',
+			(event) => {
+				const card = (event.target as HTMLElement).closest('li');
+				if (!card) return;
+				limit = Math.max(limit, matches.indexOf(card as HTMLLIElement) + 1);
+				show();
+			},
+			{ capture: true },
+		);
+
+		// Moving 547 posters is slow in Safari, so they're reordered only when the sort changes;
+		// typing and the filters just show and hide them in place
+		function sort() {
+			items.sort((a, b) => compare[control('sort')](a.dataset, b.dataset));
+			grid.append(...items);
+		}
+
+		function update() {
+			const query = search.value
+				.trim()
+				.normalize('NFD')
+				.replace(/\p{Diacritic}/gu, '')
+				.toLowerCase();
+			const [genre, decade, stars, watched] = ['genre', 'decade', 'stars', 'watched'].map(control);
+			matches = items.filter(({ dataset: d }) => {
+				return (
+					(!query || d.search!.includes(query)) &&
+					(!genre || d.genres!.includes(`|${genre}|`)) &&
+					(!decade || Math.floor(n(d.year) / 10) * 10 === n(decade)) &&
+					(!stars || n(d.rating) >= n(stars)) &&
+					(!watched || d.watched === watched)
+				);
+			});
+			limit = PAGE_SIZE;
+			show();
+			const sortName =
+				finder.querySelector<HTMLSelectElement>('[data-control="sort"]')!.selectedOptions[0].text;
+			count.textContent = `${matches.length} ${matches.length === 1 ? 'review' : 'reviews'}, sorted by ${sortName.toLowerCase()}`;
+			empty.classList.toggle('hidden', matches.length > 0);
+		}
+
+		search.addEventListener('input', update);
+		finder.querySelectorAll('select').forEach((select) =>
+			select.addEventListener('change', () => {
+				if (select.dataset.control === 'sort') sort();
+				update();
+			}),
+		);
+		new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting && limit < matches.length) {
+					limit += PAGE_SIZE;
+					show();
+				}
+			},
+			{ rootMargin: '600px 0px' },
+		).observe(more);
+	});
+</script>

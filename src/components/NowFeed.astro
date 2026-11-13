@@ -4,12 +4,26 @@ import Scribble from './Scribble.astro';
 import { CHALK, RINGS } from '../data/scribbles';
 import { GROUP_HEADING } from '../utils/ui';
 import { antonWidthInEm } from '../utils/anton-width';
-// Recently shipped repos, watched films and podcast episodes, from the snapshot
-// that scripts/update-now-feed.mjs writes on every deploy. Posters and covers are
+// Recently shipped repos and podcast episodes, from the snapshot that
+// scripts/update-now-feed.mjs writes on every deploy, and my newest film reviews
+// from the site's own /reviews/. Posters and covers are
 // never diagrams, so the pink dots never invert them, however light they are.
 import nowFeed from '../data/now-feed.json';
+import { getCollection } from 'astro:content';
+import { truncateAtWord } from '../../scripts/now-feed-parsing.mjs';
 
-const { shippingWindowDays, shippedRepos, films, podcastEpisodes } = nowFeed;
+const { shippingWindowDays, shippedRepos, podcastEpisodes } = nowFeed;
+const films = (await getCollection('reviews'))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 4)
+	.map(({ data }) => ({
+		title: data.title,
+		year: data.year,
+		rating: data.rating ?? null,
+		reviewExcerpt: truncateAtWord(data.description, 160),
+		url: `/reviews/${data.slug}/`,
+		poster: data.poster,
+	}));
 
 // 10px cells with a 2px gap
 const ACTIVITY_CELL_STEP = 12;
@@ -108,14 +122,12 @@ function ratingStars(rating: number) {
 			<div>
 				<a
 					href={film.url}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="plausible-event-name=Now+Feed+Click plausible-event-source=letterboxd ring-host group block no-underline"
+					class="plausible-event-name=Now+Feed+Click plausible-event-source=reviews ring-host group block no-underline"
 				>
 					<span class="relative mb-2 block">
 						<img
 							src={film.poster}
-							alt={`Poster for ${film.title} (${film.year})`}
+							alt=""
 							width="200"
 							height="300"
 							loading="lazy"
@@ -139,6 +151,12 @@ function ratingStars(rating: number) {
 			</div>
 		))}
 	</div>
+	<a
+		href="/reviews/"
+		class="mt-6 inline-block py-2 font-display text-3xl leading-none text-paper uppercase no-underline hover:text-pink"
+	>
+		All my film reviews &rarr;
+	</a>
 
 	<h3 class={`mt-10 mb-4 ${GROUP_HEADING}`}>Recently listened</h3>
 	<div class="grid gap-6 sm:grid-cols-2">

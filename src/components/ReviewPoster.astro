@@ -1,0 +1,38 @@
+---
+// One film on a poster wall: poster, stars, title and year, linking to its review.
+import type { CollectionEntry } from 'astro:content';
+import { cardHalftone } from '../utils/halftone';
+import { stars } from '../../scripts/update-reviews.mjs';
+
+interface Props {
+	review: CollectionEntry<'reviews'>;
+}
+
+const { title, year, rating, poster, slug } = Astro.props.review.data;
+---
+
+<a href={`/reviews/${slug}/`} class="group block no-underline">
+	<span class="block aspect-[2/3] overflow-hidden rounded-md bg-surface-1 transition-transform duration-200 group-hover:-translate-y-1">
+		{poster && (
+			<img
+				src={poster}
+				alt=""
+				data-halftone={cardHalftone(poster)}
+				data-halftone-no-invert
+				width="400"
+				height="600"
+				loading="lazy"
+				class="size-full object-cover"
+			/>
+		)}
+	</span>
+	{rating && (
+		<span class="mt-2 block text-sm text-pink">
+			<span aria-hidden="true">{stars(rating)}</span>
+			<span class="sr-only">Rated {rating} out of 5</span>
+		</span>
+	)}
+	<span class="block leading-snug text-paper group-hover:text-pink">
+		{title} <span class="text-muted">{year}</span>
+	</span>
+</a>

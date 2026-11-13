@@ -48,40 +48,6 @@
 			"latestCommitMessage": "fix: The box runs on today's Node, MongoDB driver 7 and Python 3, logs..."
 		}
 	],
-	"films": [
-		{
-			"title": "Making Marie Antoinette",
-			"year": 2026,
-			"rating": 4,
-			"reviewExcerpt": "Yes, Sofia Coppola is a nepo baby. Have you met her family? So yes, nepo baby. But goddamn it, she comes from a talented family. Something is brewing in that...",
-			"url": "https://letterboxd.com/joekarlsson/film/making-marie-antoinette/",
-			"poster": "/images/now/film-1754364.webp"
-		},
-		{
-			"title": "Zodiac",
-			"year": 2007,
-			"rating": 4.5,
-			"reviewExcerpt": "The first time I watched Zodiac, the ending made me furious. Furious, because I'd spent two and a half hours watching the evidence line up against Arthur Leigh...",
-			"url": "https://letterboxd.com/joekarlsson/film/zodiac/",
-			"poster": "/images/now/film-1949.webp"
-		},
-		{
-			"title": "Working Girl",
-			"year": 1988,
-			"rating": 3.5,
-			"reviewExcerpt": "Working Girl is a cute 80s romance with a supremely hot Harrison Ford, and its \"happy ending\" ends with Melanie Griffith alone in an office. On paper it is one...",
-			"url": "https://letterboxd.com/joekarlsson/film/working-girl/",
-			"poster": "/images/now/film-3525.webp"
-		},
-		{
-			"title": "Dragon Ball Z: Fusion Reborn",
-			"year": 1995,
-			"rating": 3,
-			"reviewExcerpt": "Antifa Trunks and Goten confirmed.",
-			"url": "https://letterboxd.com/joekarlsson/film/dragon-ball-z-fusion-reborn/",
-			"poster": "/images/now/film-39107.webp"
-		}
-	],
 	"podcastEpisodes": [
 		{
 			"episodeTitle": "The Terror of ‘Godzilla Minus Zero’ and Sean’s Favorite Godzilla Movies. Plus: The Joy of ‘Club Kid,’ With Jordan Firstman!",
@@ -108,7 +74,12 @@
 			"cover": "/images/now/podcast-22fc3916-1f4a-42a4-890f-ff8c09a6030c.webp"
 		}
 	],
-	"homelab": { "runningContainers": 72, "proxmoxNodes": 2, "cpuThreads": 160, "memoryGB": 252 },
+	"homelab": {
+		"runningContainers": 72,
+		"proxmoxNodes": 2,
+		"cpuThreads": 160,
+		"memoryGB": 252
+	},
 	"github": {
 		"followers": 549,
 		"publicRepos": 60,

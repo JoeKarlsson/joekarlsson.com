@@ -94,4 +94,26 @@ const newsletter = defineCollection({
 	}),
 });
 
-export const collections = { blog, talks, newsletter };
+// Joe's film reviews, imported from Letterboxd (scripts/update-reviews.mjs), served at
+// /reviews/<slug>/ with the blog's post layout. `date` is the day he watched it.
+const reviews = defineCollection({
+	loader: glob({ base: './src/content/reviews', pattern: '**/*.md' }),
+	schema: z.object({
+		title: z.string(),
+		year: z.number().int(),
+		date: z.coerce.date(),
+		rating: z.number().min(0.5).max(5).multipleOf(0.5).optional(),
+		rewatch: z.boolean().optional().default(false),
+		spoilers: z.boolean().optional().default(false),
+		director: z.string().optional(),
+		genres: z.array(z.string()).optional().default([]),
+		slug: z.string(),
+		description: z.string().optional().default(''),
+		letterboxdUrl: z.url(),
+		poster: z.string().optional(),
+		heroImage: z.string().optional(),
+		heroAlt: z.string().optional(),
+	}),
+});
+
+export const collections = { blog, talks, newsletter, reviews };

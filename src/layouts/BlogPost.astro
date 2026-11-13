@@ -53,8 +53,12 @@ interface Props {
 	howToSteps?: { name: string; text: string }[];
 	headings?: { depth: number; slug: string; text: string }[];
 	canonicalUrl?: string;
-	/** Where the post lives: /blog/ by default, /talks/ for a talk write-up */
-	section?: 'blog' | 'talks';
+	/** Where the post lives: /blog/ by default, /talks/ for a talk write-up, /reviews/ for a film review */
+	section?: 'blog' | 'talks' | 'reviews';
+	/** The pink scrap on the hero; defaults to the first category */
+	topic?: string;
+	/** Blog post slugs for "Keep reading", in place of the ones ranked by similar text */
+	relatedPosts?: string[];
 	/** A post outside the blog collection brings its own text, to find related blog posts */
 	body?: string;
 	/** VideoObject JSON-LD for the videos on the page (src/utils/video-schema.ts) */
@@ -86,12 +90,15 @@ const {
 	headings,
 	canonicalUrl,
 	section = 'blog',
+	topic = categories?.[0],
+	relatedPosts,
 	body,
 	videoObjects,
 } = Astro.props;
 const SECTIONS = {
 	blog: { name: 'Blog', path: '/blog/' },
 	talks: { name: 'Talks', path: '/talks/' },
+	reviews: { name: 'Reviews', path: '/reviews/' },
 };
 const home = SECTIONS[section];
 // The hero's real size, so a phone reserves the right height before it loads:
@@ -150,16 +157,18 @@ const relatablePosts = publishedPosts.map((post) => ({
 	tags: post.data.tags,
 	body: post.body,
 }));
-const relatedSlugs = rankRelatedPosts(
-	relatablePosts.find((post) => post.slug === slug) ?? {
-		slug: `${section}/${slug}`,
-		title,
-		description,
-		body,
-	},
-	relatablePosts,
-	popularPosts.visitorsByPath,
-);
+const relatedSlugs =
+	relatedPosts ??
+	rankRelatedPosts(
+		relatablePosts.find((post) => post.slug === slug) ?? {
+			slug: `${section}/${slug}`,
+			title,
+			description,
+			body,
+		},
+		relatablePosts,
+		popularPosts.visitorsByPath,
+	);
 
 // One crayon mark spills off the top right of each post's hero: the top left would draw
 // over the "← Blog" link, and the topic tag and month chip sit along its bottom edge. The
@@ -242,7 +251,7 @@ const heroIsTaped =
 							height={heroSize?.height}
 							halftone={halftoneMode(heroImage)}
 							taped={heroIsTaped}
-							topic={categories?.[0]}
+							topic={topic}
 							seed={slugHash}
 						>
 							<Scribble
@@ -285,6 +294,7 @@ const heroIsTaped =
 										</>
 									))}
 								{writtenFor && <WrittenFor employer={writtenFor} />}
+								<slot name="meta" />
 							</MetaParts>
 						</p>
 					</div>
@@ -510,11 +520,13 @@ const heroIsTaped =
 					<ShareLinks
 						url={canonicalUrl || new URL(`${home.path}${slug}/`, Astro.site).href}
 						title={shareTitle || title}
-						noun="post"
+						noun={section === 'reviews' ? 'review' : 'post'}
 						class="mt-10"
 					/>
 
 					<AuthorBio />
+
+					<slot name="related" />
 
 					{relatedSlugs.length > 0 && (
 						<KeepExploring

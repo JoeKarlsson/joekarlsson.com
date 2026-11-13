@@ -1,0 +1,149 @@
+---
+// A film review at /reviews/<slug>/: the blog's post layout, with the film's backdrop as the
+// hero, its stars on the hero's scrap, and the stars and director in the meta line. It ends
+// with Joe's other reviews of the same film (rewatches), then more reviews (same director
+// first, then films watched around the same time), and blog posts only when one names the film.
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import ReviewPoster from '../../components/ReviewPoster.astro';
+import Scribble from '../../components/Scribble.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { MARKS } from '../../data/scribbles';
+import { SECTION_HEADING } from '../../utils/ui';
+import { isOwnPost } from '../../utils/posts';
+import { parseReviewUrl, stars } from '../../../scripts/update-reviews.mjs';
+
+export async function getStaticPaths() {
+	const reviews = await getCollection('reviews');
+	return reviews.map((review) => ({ params: { slug: review.data.slug }, props: review }));
+}
+type Props = CollectionEntry<'reviews'>;
+
+const MORE_REVIEWS = 6;
+const review = Astro.props;
+const { Content } = await render(review);
+const {
+	title,
+	year,
+	date,
+	rating,
+	rewatch,
+	director,
+	description,
+	slug,
+	heroImage,
+	heroAlt,
+	letterboxdUrl,
+} = review.data;
+const words = (review.body || '').trim().split(/\s+/).length;
+
+const film = (r: CollectionEntry<'reviews'>) => parseReviewUrl(r.data.letterboxdUrl).film;
+const others = (await getCollection('reviews')).filter((r) => r.data.slug !== slug);
+const sameFilm = others
+	.filter((r) => film(r) === film(review))
+	.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+const otherFilms = others.filter((r) => film(r) !== film(review));
+const directors = new Set((director || '').split(', ').filter(Boolean));
+const byDirector = otherFilms
+	.filter((r) => (r.data.director || '').split(', ').some((d) => directors.has(d)))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const byWatchDate = otherFilms
+	.filter((r) => !byDirector.includes(r))
+	.sort(
+		(a, b) =>
+			Math.abs(a.data.date.valueOf() - date.valueOf()) -
+			Math.abs(b.data.date.valueOf() - date.valueOf()),
+	);
+const moreReviews = [...byDirector, ...byWatchDate].slice(0, MORE_REVIEWS);
+
+// A blog post that names the film. Short or one-word titles ("Tony", "Flow") match too much prose.
+const titlePattern = new RegExp(`\\b${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`);
+const mentions =
+	title.length >= 8 && title.includes(' ')
+		? (await getCollection('blog'))
+				.filter((p) => isOwnPost(p) && titlePattern.test(p.body || ''))
+				.map((p) => p.data.slug)
+				.slice(0, 3)
+		: [];
+---
+
+<BlogPost
+	section="reviews"
+	title={`${title} (${year})`}
+	seoTitle={`${title} (${year}) review`.length <= 45 ? `${title} (${year}) review` : undefined}
+	description={description}
+	date={date}
+	slug={slug}
+	heroImage={heroImage}
+	heroAlt={heroAlt}
+	topic={rating ? stars(rating) : 'Review'}
+	readingTime={words > 250 ? Math.ceil(words / 250) : undefined}
+	wordCount={words}
+	body={review.body}
+	relatedPosts={mentions}
+>
+	{rating && (
+		<span slot="meta" class="text-pink">
+			<span aria-hidden="true">{stars(rating)}</span>
+			<span class="sr-only">Rated {rating} out of 5</span>
+		</span>
+	)}
+	{director && <span slot="meta">Dir. {director}</span>}
+	{rewatch && <span slot="meta">Rewatch</span>}
+	<Content />
+	<p class="mt-10 border-t border-surface-2 pt-4 text-sm text-muted">
+		Also on{' '}
+		<a href={letterboxdUrl} class="text-pink underline">
+			Letterboxd
+		</a>
+	</p>
+
+	<nav slot="related" class="mt-12 md:mt-20" aria-labelledby="more-reviews">
+		{sameFilm.length > 0 && (
+			<p class="mb-10 text-lg text-paper">
+				I've reviewed {title}{' '}
+				{sameFilm.length === 1 ? 'one other time' : `${sameFilm.length} other times`}:{' '}
+				{sameFilm.map((r, i) => (
+					<>
+						{i > 0 && ', '}
+						<a href={`/reviews/${r.data.slug}/`} class="text-pink underline">
+							<FormattedDate date={r.data.date} />
+							{r.data.rating && (
+								<>
+									{' '}
+									<span aria-hidden="true">({stars(r.data.rating)})</span>
+									<span class="sr-only">rated {r.data.rating} out of 5</span>
+								</>
+							)}
+						</a>
+					</>
+				))}
+			</p>
+		)}
+		<h2 id="more-reviews" class={SECTION_HEADING}>
+			More reviews
+		</h2>
+		<div class="relative -mt-4 mb-2 h-[clamp(70px,14vw,150px)]" aria-hidden="true">
+			<Scribble
+				{...MARKS.arrow}
+				color="#ff4fd8"
+				strokeWidth={7}
+				duration="8s"
+				class="inset-0 size-full"
+			/>
+		</div>
+		<ul class="grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3">
+			{moreReviews.map((r) => (
+				<li>
+					<ReviewPoster review={r} />
+				</li>
+			))}
+		</ul>
+		<a
+			href="/reviews/"
+			class="mt-8 inline-block py-2 font-display text-3xl leading-none text-paper uppercase no-underline hover:text-pink"
+		>
+			All my film reviews &rarr;
+		</a>
+	</nav>
+</BlogPost>
