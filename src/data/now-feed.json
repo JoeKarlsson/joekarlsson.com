@@ -7,23 +7,23 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 660,
+			"commitCount": 662,
 			"dailyCommitCounts": [
 				2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119, 85,
-				19, 45, 3
+				19, 45, 5
 			],
-			"latestCommitMessage": "chore: The reduced-motion envelope test watches for the envelope as..."
+			"latestCommitMessage": "fix: A post clip started from its controls stops once it scrolls off..."
 		},
 		{
 			"name": "dotfiles",
 			"description": "My dotfiles",
 			"url": "https://github.com/JoeKarlsson/dotfiles",
 			"language": "TypeScript",
-			"commitCount": 106,
+			"commitCount": 108,
 			"dailyCommitCounts": [
-				0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 10, 1
+				0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 10, 3
 			],
-			"latestCommitMessage": "feat: Web motion rules add Disney's animation principles, frequency of..."
+			"latestCommitMessage": "feat: Mockups are local HTML pages opened in the default browser every..."
 		},
 		{
 			"name": "client-side-field-level-encryption-csfle-mongodb-node-demo",
