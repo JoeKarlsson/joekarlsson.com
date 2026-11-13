@@ -27,7 +27,7 @@ corrections:
   - date: 2026-11-12
     note: "The NFS steps mounted the share inside the container, which fails in an unprivileged container (Proxmox's default). Now you mount it on the host and pass it in with `pct set`."
   - date: 2026-11-12
-    note: "The 8GB Raspberry Pi 5 costs about $175 after the April 2026 price increase, not $125."
+    note: 'The 8GB Raspberry Pi 5 costs about $175 after the April 2026 price increase, not $125.'
   - date: 2026-11-12
     note: "The commands for the Proxmox host used `sudo`, which Proxmox doesn't ship."
 ---

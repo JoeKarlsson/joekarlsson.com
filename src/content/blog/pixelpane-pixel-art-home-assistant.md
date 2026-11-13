@@ -12,7 +12,7 @@ tldr: 'PixelPane is a 32x32 LED panel on a Raspberry Pi 3B, behind a two-way mir
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "I said Home Assistant pushes data for every scene every 10 minutes, the clock included. It pushes the weather, music, meeting and homelab scenes."
+    note: 'I said Home Assistant pushes data for every scene every 10 minutes, the clock included. It pushes the weather, music, meeting and homelab scenes.'
 ---
 
 There's a black shadow box on the shelf next to my desk. Right now it's showing a pixel art pumpkin under a crescent moon, because it's October. When my camera turns on for a meeting it switches to a red ON AIR sign. When someone rings the doorbell it flashes yellow. Then it goes back to the pumpkin.

@@ -27,7 +27,7 @@ heroAlt: "Roger Fenton's 1855 photographic van, a horse-drawn darkroom wagon wit
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "The TL;DR said one Thunderbolt 5 cable connects everything. It connects the camera, mic and prompter, not the lights."
+    note: 'The TL;DR said one Thunderbolt 5 cable connects everything. It connects the camera, mic and prompter, not the lights.'
 ---
 
 My whole recording setup lives on one standing desk that rolls. When I'm done, I push it into the corner. Most of the gear went together without much trouble, but lighting took weeks of experimenting, and I'm still working on it.

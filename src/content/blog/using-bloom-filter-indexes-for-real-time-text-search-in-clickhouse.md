@@ -13,7 +13,7 @@ tldr: 'Bloom filter indexes in ClickHouse can speed up text search by 25-90x and
 updatedDate: 2026-11-06
 corrections:
   - date: 2026-11-06
-    note: "Two numbers in the tables are typos: `ngrambf_v1(4, 4096, 1, 0)` is 46.3x faster, not 49.3x, and the `ngrambf_v1(4, 1024, 1, 0)` index is 247.8 MB, not 2477.5 MB."
+    note: 'Two numbers in the tables are typos: `ngrambf_v1(4, 4096, 1, 0)` is 46.3x faster, not 49.3x, and the `ngrambf_v1(4, 1024, 1, 0)` index is 247.8 MB, not 2477.5 MB.'
 ---
 
 Efficient text search is one of the hardest problems in data engineering. Text-based data presents a unique set of problems, especially when you need to check if the text is contained within some text (and you need to do this in real-time!). The contents of this blog post describe an exploration our team did that was born out of a challenging use case presented by one of our customers. They had billions of rows of log-based text data and wanted to know how they might scour through this data without having to do a full scan every time.

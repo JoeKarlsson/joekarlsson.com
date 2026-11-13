@@ -34,7 +34,7 @@ corrections:
   - date: 2026-11-12
     note: "I called Presence Simulation and Alarmo add-ons. They're community integrations."
   - date: 2026-11-12
-    note: "I said every safety sensor sends a loud alert. The heat one turns the heat back on instead."
+    note: 'I said every safety sensor sends a loud alert. The heat one turns the heat back on instead.'
 ---
 
 I've been running Home Assistant since 2016. Today I have 134 automations, and the best Home Assistant automations I've built share one trait: someone who has never been in my house can live with them without an app, instructions, or me saying "oh, don't touch that switch."

@@ -12,7 +12,7 @@ tldr: 'I break down the key components of real-time recommendation systems, from
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "The Tinybird template SQL was missing its `%` first line."
+    note: 'The Tinybird template SQL was missing its `%` first line.'
 ---
 
 Real-time, personalized recommendations are all over the internet, from streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering tailored product recommendations. They shape how we discover and engage with content and products.

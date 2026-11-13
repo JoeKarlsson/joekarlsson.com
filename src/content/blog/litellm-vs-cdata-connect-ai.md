@@ -28,7 +28,7 @@ contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/b
 updatedDate: 2026-09-30
 corrections:
   - date: 2026-09-30
-    note: "The decision table gave \"cost visibility and token budget enforcement at the model layer\" to CData Connect AI. That's LiteLLM's job."
+    note: 'The decision table gave "cost visibility and token budget enforcement at the model layer" to CData Connect AI. That''s LiteLLM''s job.'
 ---
 
 Building enterprise AI infrastructure usually starts the same way: LiteLLM goes on the shortlist. It's open source, MIT-licensed, routes to 100+ model providers behind one OpenAI-compatible endpoint and deploys to Docker or Kubernetes in an afternoon. It has real enterprise deployments at Netflix, NASA, Ramp, and Okta and one of the most active contributor bases in open-source LLM tooling.

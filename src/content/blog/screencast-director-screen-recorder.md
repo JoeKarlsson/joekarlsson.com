@@ -12,7 +12,7 @@ tldr: "Editing is my least favorite part of making videos, so I built Screencast
 updatedDate: 2026-11-10
 corrections:
   - date: 2026-11-10
-    note: "I said your video and audio never leave your Mac. With Claude Code, a few still frames go to the model. Only a local model keeps everything on the machine."
+    note: 'I said your video and audio never leave your Mac. With Claude Code, a few still frames go to the model. Only a local model keeps everything on the machine.'
 ---
 
 I don't mind writing a video. I don't even mind recording one. Editing is the part I hate. It means sitting there for hours after the fact, watching myself, scrubbing past every "um," every dead pause, every time I lost my cursor, and every take of a line I flubbed three times.

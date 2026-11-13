@@ -12,7 +12,7 @@ tldr: 'I walk through setting up MongoDB Client-Side Field Level Encryption (CSF
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "I said the schema map could go in your Go source code. This is a Node.js tutorial; it goes in your Node.js code."
+    note: 'I said the schema map could go in your Go source code. This is a Node.js tutorial; it goes in your Node.js code.'
   - date: 2026-11-12
     note: "The code didn't run as shown: the file was labeled `clients.js` but required as `./helpers`, it called `getRegularClient` and `ensureUniqueIndexOnKeyVault` without defining them, and it never showed `./config` or created the master key file."
 ---

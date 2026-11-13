@@ -36,9 +36,9 @@ howToSteps:
     text: 'Set the Proxmox protection flag on managed containers. Document that changes must go through provision scripts, not direct SSH. The rule is: read the container however you want, but write changes in code.'
 corrections:
   - date: 2026-11-12
-    note: "The comparison table said the old feedback loop took 2 minutes. The post says three, which is right."
+    note: 'The comparison table said the old feedback loop took 2 minutes. The post says three, which is right.'
   - date: 2026-11-12
-    note: "The script showed `$${hostname}`, which escapes the substitution the post said happens. It was also missing the `sonarr` user, and its grep could grab the wrong release file."
+    note: 'The script showed `$${hostname}`, which escapes the substitution the post said happens. It was also missing the `sonarr` user, and its grep could grab the wrong release file.'
 ---
 
 I was writing a health check script for one of my Proxmox containers - a service I'd been running for roughly two years, mostly without thinking about it. The check was simple: ping the API endpoint, verify the response, exit 0 if healthy.

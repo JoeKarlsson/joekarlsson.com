@@ -30,7 +30,7 @@ corrections:
   - date: 2026-11-12
     note: "It needs Python 3.9+, not 3.8+. The retry checks every 60 seconds and gives up after an hour; it isn't exponential backoff. The scheduler runs two jobs from midnight to 4 PM and one in the evening."
   - date: 2026-11-12
-    note: "The stale-lock check read `$owner_info` and `$waited` without setting them, so it never worked."
+    note: 'The stale-lock check read `$owner_info` and `$waited` without setting them, so it never worked.'
 ---
 
 I have a large video library. Thousands of files across dozens of languages, and most of them don't have subtitles. Buying subtitle files isn't an option at this scale, and the cloud transcription services that exist are either expensive or painfully slow. So I did what any reasonable person with two NVIDIA GPUs in their homelab would do: I built my own.

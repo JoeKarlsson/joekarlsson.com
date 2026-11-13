@@ -14,7 +14,7 @@ heroAlt: 'A forklift loading crates onto a truck'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "The sync command pointed at `aws_to_postgresql.yml`. `cloudquery init` writes `.yaml`."
+    note: 'The sync command pointed at `aws_to_postgresql.yml`. `cloudquery init` writes `.yaml`.'
 ---
 
 An AWS Cloud Asset Inventory refers to a centralized record of all resources and services deployed and used within an organization's Amazon Web Services (AWS) environment. This inventory provides a detailed overview of various cloud assets, including but not limited to:

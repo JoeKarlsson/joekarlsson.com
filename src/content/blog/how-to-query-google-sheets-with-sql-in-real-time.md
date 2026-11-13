@@ -13,7 +13,7 @@ contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybir
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "Curly quotes around the token broke the JavaScript, and the endpoint SQL was missing a comma and the `Promo_Code_Used` column."
+    note: 'Curly quotes around the token broke the JavaScript, and the endpoint SQL was missing a comma and the `Promo_Code_Used` column.'
 ---
 
 Sick of manually wrestling with Google Sheets like it’s an Excel spreadsheet from 2005? Feel like force-quitting Chrome every time you attempt to sift through just 10,000 rows of data? 

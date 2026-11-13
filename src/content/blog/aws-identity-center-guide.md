@@ -14,7 +14,7 @@ heroAlt: 'A round bank vault door, the one way in'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "The query read `password_enabled` and `create_date` from `aws_iam_users`. They live on `aws_iam_credential_reports`. The access-key join is on `arn`, not `id`."
+    note: 'The query read `password_enabled` and `create_date` from `aws_iam_users`. They live on `aws_iam_credential_reports`. The access-key join is on `arn`, not `id`.'
 ---
 
 > **TL;DR:** AWS IAM Identity Center is the recommended way to manage human access to multiple AWS accounts without static access keys. It connects to your identity provider (Okta, Entra ID, Google Workspace), handles token refresh automatically, and has no additional AWS charge. This guide covers setup from scratch, CLI configuration, permission sets, and auditing access across all your accounts with SQL.

@@ -19,11 +19,11 @@ corrections:
   - date: 2026-10-01
     note: "The break-even math counted streaming services I'd have paid for anyway. Without them it's about 4.6 years, not 3.1."
   - date: 2026-10-01
-    note: "Used DDR4 ECC going from $40-80 to $200-400 is about 5x, not 3-4x."
+    note: 'Used DDR4 ECC going from $40-80 to $200-400 is about 5x, not 3-4x.'
   - date: 2026-10-01
-    note: "I said filling the DIMM slots hurt my wallet. The 128GB per host came with the servers; I never bought sticks on their own."
+    note: 'I said filling the DIMM slots hurt my wallet. The 128GB per host came with the servers; I never bought sticks on their own.'
   - date: 2026-11-12
-    note: "I said a MikroTik firewall list kept the old IoT gear away from the NAS. Nothing does yet."
+    note: 'I said a MikroTik firewall list kept the old IoT gear away from the NAS. Nothing does yet.'
   - date: 2026-11-12
     note: "I stated as fact that used server RAM dried up because companies keep servers for AI. That's my guess, and the post now says so."
 ---

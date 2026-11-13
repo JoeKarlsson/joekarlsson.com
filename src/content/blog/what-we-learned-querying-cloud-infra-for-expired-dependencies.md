@@ -14,7 +14,7 @@ heroAlt: 'Meme of a man confidently thinking the tech stack is modern (left), re
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "The EKS upgrade command had no values, the RDS query read the version catalog instead of your instances, and the Lambda and runtime joins never matched (`python3.9` against `3.9`)."
+    note: 'The EKS upgrade command had no values, the RDS query read the version catalog instead of your instances, and the Lambda and runtime joins never matched (`python3.9` against `3.9`).'
 ---
 
 Every cloud engineer has, at some point, found themselves frantically searching for unsupported software lurking in their environment. Maybe it's an _EKS cluster running an ancient Kubernetes version_, or a _Lambda function still clinging to Python 3.7_ like it's 2019. Whatever it is, finding it is always a pain, especially when you have multiple cloud providers in the mix.

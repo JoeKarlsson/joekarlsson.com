@@ -12,7 +12,7 @@ contentNotice: 'MongoDB ended support for the Realm Web SDK (later Atlas Device 
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "The TL;DR said Realm synced pixels between clients in real time. Realm stored them; every client polled the grid every 5 seconds."
+    note: 'The TL;DR said Realm synced pixels between clients in real time. Realm stored them; every client polled the grid every 5 seconds.'
   - date: 2026-11-12
     note: "`cell.id.split(' ')` passed the coordinates on as strings. It now maps them to numbers."
 ---

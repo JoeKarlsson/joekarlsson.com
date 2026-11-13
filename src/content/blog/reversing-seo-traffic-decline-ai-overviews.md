@@ -29,7 +29,7 @@ corrections:
   - date: 2026-10-12
     note: "I removed three more stats I couldn't trace to a source: TripleDart's 54% of B2B SaaS keywords, Kalungi's claim about docs extraction, and Rankability's 844,000+ sites."
   - date: 2026-10-12
-    note: "I wrote that organic traffic doubled and docs traffic grew 4x. My own numbers say organic grew 57% and docs traffic grew 440%."
+    note: 'I wrote that organic traffic doubled and docs traffic grew 4x. My own numbers say organic grew 57% and docs traffic grew 440%.'
   - date: 2026-10-12
     note: "I said Google quietly added llms.txt to its developer docs. Google's docs say Search ignores it."
   - date: 2026-11-13

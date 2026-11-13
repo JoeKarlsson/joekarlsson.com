@@ -11,7 +11,7 @@ tldr: 'A step-by-step guide to connecting a Node.js app to SingleStore using the
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "The code declared `singleStoreConnection` and then used `conn`, never showed `readAll`, and needed `\"type\": \"module\"` to run."
+    note: 'The code declared `singleStoreConnection` and then used `conn`, never showed `readAll`, and needed `"type": "module"` to run.'
 ---
 
 Do you need to get a basic SingleStore application setup quickly using Node.js? Well, this guide’s got you covered. We will be covering how to use SingleStore and Node.js by setting up a database, connecting to that database using Node.js, and then performing CRUD (create, read, update, delete) operations on that database using Node.js.

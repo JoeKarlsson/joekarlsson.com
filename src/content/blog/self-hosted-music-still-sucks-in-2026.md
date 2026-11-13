@@ -14,7 +14,7 @@ corrections:
   - date: 2026-11-12
     note: "I said Navidrome's multi-library support was coming in the next version. It landed in 0.58."
   - date: 2026-11-12
-    note: "I left out that Spotify cut back 30-second previews for new apps in November 2024, before I wrote this."
+    note: 'I left out that Spotify cut back 30-second previews for new apps in November 2024, before I wrote this.'
 ---
 
 Look, I need to get something off my chest. After fifteen years of curating seasonal playlists and being a power Spotify user since 2011 (recently migrated to Apple Music for reasons we won’t get into here), I’m having a technical existential crisis about self-hosted music solutions. And frankly, it’s driving me insane.

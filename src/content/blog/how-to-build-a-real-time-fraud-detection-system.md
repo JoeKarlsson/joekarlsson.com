@@ -13,7 +13,7 @@ contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybir
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "The SQL said `>` where the text says \"two or more\", the declined-transactions query never filtered on `is_declined`, the high-risk IP query filtered the wrong column, and the amount sort ran on a string."
+    note: 'The SQL said `>` where the text says "two or more", the declined-transactions query never filtered on `is_declined`, the high-risk IP query filtered the wrong column, and the amount sort ran on a string.'
 ---
 
 Financial fraud is a growing concern as more payments move online. According to a [report by PwC](https://www.pwc.com/fraudsurvey), almost half of the surveyed organizations experienced fraud in the past 2 years. For online payments, the situation is no different. As eCommerce continues to surge, so do attempts by cybercriminals to exploit vulnerabilities and commit fraud.

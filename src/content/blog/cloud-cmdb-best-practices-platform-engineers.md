@@ -17,7 +17,7 @@ heroAlt: 'A long aisle of library stacks'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
-    note: "The queries used a table and column that never existed (`cloudwatch_rds_metrics`, `estimated_monthly_cost`) and `sync_time` for `_cq_sync_time`."
+    note: 'The queries used a table and column that never existed (`cloudwatch_rds_metrics`, `estimated_monthly_cost`) and `sync_time` for `_cq_sync_time`.'
 ---
 
 > **Note:** **6 Cloud CMDB Best Practices:**
