@@ -64,7 +64,7 @@ The **Asset End of Life report** helps you stay ahead of potential security and 
 
 - Visualize AWS VPCs and their instances.
 - Evaluate your workloads against the AWS Well-Architected Framework pillars.
-- Get insights into your Kubernetes clusters across AWS EKS, GCP GKE, and Azure AKS.
+- See inside your Kubernetes clusters across AWS EKS, GCP GKE, and Azure AKS.
 
 ### Cost Management
 

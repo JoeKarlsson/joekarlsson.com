@@ -23,7 +23,7 @@ heroAlt: 'A tiny carved wooden orchestra on a plate'
 - [**Part 4**: Implementation Best Practices and Common Pitfalls](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls)
 - [**Part 5**: The Future of CCOEs and Getting Started](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started)
 
-Each post builds on the previous ones, so bookmark this series for your complete CCOE implementation roadmap.
+Each post builds on the previous ones, so read them in order for the complete CCOE implementation roadmap.
 
 > **Note:** **TL;DR:**
 > Cloud adoption in large enterprises has driven the rise of Cloud Centers of Excellence (CCOEs) over the past five years. [These CCOEs are cross-functional teams that establish cloud governance, security, and best practices across an organization](https://www.infracost.io/glossary/cloud-center-of-excellence/#:~:text=A%20Cloud%20Center%20of%20Excellence,minimizing%20risks%20and%20controlling%20costs). In North America and Europe, medium-to-large organizations in technology, finance, healthcare, and consumer goods have increasingly formalized CCOEs to accelerate cloud innovation while maintaining control. [Surveys show that by 2021, about _75% of enterprises had a central cloud team or CCOE_](https://www.globenewswire.com/news-release/2021/03/09/2189764/0/en/Flexera-Releases-2021-State-of-the-Cloud-Report.html#:~:text=cloud%C2%A0progress%20,service%20providers%20for%20public%20cloud%C2%A0use), reflecting a broad trend toward centralized cloud oversight.
