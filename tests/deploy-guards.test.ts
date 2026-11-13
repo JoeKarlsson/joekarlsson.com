@@ -45,16 +45,21 @@ describe('deploy.sh guards', () => {
 // Runs the real deploy.sh in a throwaway repo with no remote, so past the lock it
 // stops at its first git fetch and never reaches a build or tofu.
 function runDeployWithLock(lockPid: number) {
+	// Git hooks export GIT_DIR (absolute from a worktree), which would point git init and
+	// deploy.sh at the real repo and its real deploy lock, not this throwaway one
+	const env = Object.fromEntries(
+		Object.entries(process.env).filter(([key]) => !key.startsWith('GIT_')),
+	);
 	const repo = mkdtempSync(join(tmpdir(), 'deploy-lock-'));
 	try {
-		execFileSync('git', ['init', '-q', repo]);
+		execFileSync('git', ['init', '-q', repo], { env });
 		copyFileSync('deploy.sh', join(repo, 'deploy.sh'));
 		const lock = join(repo, '.git', 'deploy.lock');
 		mkdirSync(lock);
 		writeFileSync(join(lock, 'pid'), String(lockPid));
 		const run = spawnSync('bash', ['deploy.sh'], {
 			cwd: repo,
-			env: { ...process.env, SKIP_NOW_REFRESH: '1' },
+			env: { ...env, SKIP_NOW_REFRESH: '1' },
 			encoding: 'utf8',
 		});
 		return { ...run, lockLeft: existsSync(lock) };
