@@ -7,46 +7,45 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 643,
+			"commitCount": 647,
 			"dailyCommitCounts": [
 				0, 2, 13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119,
-				85, 19, 31
+				85, 19, 35
 			],
-			"latestCommitMessage": "fix: The resume, man page and llms.txt use the title Principal..."
+			"latestCommitMessage": "fix: The touch-tablet board test waits for the swipe's scroll and..."
 		},
 		{
-			"name": "screencast-director",
-			"description": "A macOS screen recorder that Claude edits: cuts, speed-ups, auto-zoom, captions, camera and branded profiles, rendered natively.",
-			"url": "https://github.com/JoeKarlsson/screencast-director",
-			"language": "Swift",
-			"commitCount": 286,
+			"name": "client-side-field-level-encryption-csfle-mongodb-node-demo",
+			"description": "A sample implementation of field level encryption in MongoDB, meant to accompany the CSFLE guide at https://developer.mongodb.com",
+			"url": "https://github.com/JoeKarlsson/client-side-field-level-encryption-csfle-mongodb-node-demo",
+			"language": "JavaScript",
+			"commitCount": 1,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 94, 23, 51, 11, 2, 3, 1, 2, 46,
-				27, 16
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
 			],
-			"latestCommitMessage": "fix: A text piece dragged in a diagram the camera has pushed in on..."
+			"latestCommitMessage": "fix: The demo runs on MongoDB driver 7 (ClientEncryption from mongodb..."
 		},
 		{
-			"name": "punc",
-			"description": "What does a book look like without words? Punc strips books down to their punctuation. Browse 89 Project Gutenberg classics or open your own .txt.",
-			"url": "https://github.com/JoeKarlsson/punc",
-			"language": "TypeScript",
-			"commitCount": 73,
+			"name": "iot-kitty-litter-box",
+			"description": "Welcome to to world of IoT (Internet of Toilets 🚽). This is the code you will need to setup your very own internet connect kitty litter box!",
+			"url": "https://github.com/JoeKarlsson/iot-kitty-litter-box",
+			"language": "HTML",
+			"commitCount": 5,
 			"dailyCommitCounts": [
-				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 24, 0, 9, 5, 11, 5, 4
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1
 			],
-			"latestCommitMessage": "chore: The phone page-turn test allows WebKit's sub-pixel scroll..."
+			"latestCommitMessage": "fix: The box runs on today's Node, MongoDB driver 7 and Python 3, logs..."
 		},
 		{
-			"name": "dotfiles",
-			"description": "My dotfiles",
-			"url": "https://github.com/JoeKarlsson/dotfiles",
-			"language": "TypeScript",
-			"commitCount": 115,
+			"name": "digital-graffiti-wall",
+			"description": "The Digital Graffiti Board is an interactive art installation that aims to make audience interaction with virtual speakers more collaborative. Artists will be able to draw on a shared wall, and they will be able to see their creations be shared IRL on a RGB LED grid LIVE! This piece use MongoDB Realm to sync users' data in real-time across all the connected clients.",
+			"url": "https://github.com/JoeKarlsson/digital-graffiti-wall",
+			"language": "JavaScript",
+			"commitCount": 7,
 			"dailyCommitCounts": [
-				5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 1, 6, 0, 9, 7, 0, 10, 0, 22, 4, 2, 0, 1, 1, 15, 4, 9
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1
 			],
-			"latestCommitMessage": "chore: Site registry: bechdel.io keeps its black too, an exception to..."
+			"latestCommitMessage": "fix: The page loads realm-web 2.0.1, the SDK's last release, and opens..."
 		}
 	],
 	"films": [
