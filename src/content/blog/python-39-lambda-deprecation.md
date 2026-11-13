@@ -68,7 +68,7 @@ spec:
   name: aws
   path: cloudquery/aws
   registry: cloudquery
-  version: 'v32.48.3'
+  version: 'v35.9.0'
   tables: ['aws_lambda_functions']
   destinations: ['postgresql']
 ---
@@ -77,7 +77,7 @@ spec:
   name: postgresql
   path: cloudquery/postgresql
   registry: cloudquery
-  version: 'v8.13.1'
+  version: 'v8.19.0'
   spec:
     connection_string: ${PG_CONNECTION_STRING}
 ```

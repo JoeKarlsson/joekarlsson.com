@@ -129,9 +129,9 @@ To build a real-time dashboard from scratch, you’ll follow these steps:
 
 Before you get started, you’ll need to have the following prerequisites installed:
 
-- Node.js (version 18 or above)
+- Node.js (version 20.19 or above)
 
-- Python (version 3.8 or above)
+- Python (version 3.10 to 3.13)
 
 For information on installing those, check out their docs: [Node.js](https://nodejs.org/en/download) and [Python](https://www.python.org/downloads/).
 
@@ -140,10 +140,10 @@ For information on installing those, check out their docs: [Node.js](https://nod
 Once you have those installed, create a new Next.js app. In this demo, I’ll be using plain JavaScript files (no TypeScript) and Tailwind CSS.
 
 ```bash
-npx create-next-app signatures-dashboard --js --tailwind --eslint --src-dir
+npx create-next-app@14 signatures-dashboard --js --tailwind --eslint --src-dir
 ```
 
-When prompted, select “Yes” for App Router and “No” for customizing the default import alias.
+When prompted, select “Yes” for App Router and “No” for customizing the default import alias. I pin Next.js 14 because the Tremor charts used later need React 18.
 
 ```bash
 cd signatures-dashboard
@@ -168,7 +168,7 @@ To install the Tinybird CLI, run the following commands:
 python3 -mvenv .e
 . .e/bin/activate
 pip install tinybird-cli
-tb auth –interactive
+tb auth --interactive
 ```
 
 Choose the region in which you created your Workspace. You’ll then be prompted for your Admin token. Go to[ https://ui.tinybird.co/tokens](https://ui.tinybird.co/tokens) (or [https://ui.us-east.tinybird.co/tokens](https://ui.tinybird.co/tokens) for US-East regions) and copy the token with admin rights. Paste it into the CLI and press enter.
@@ -302,12 +302,12 @@ npm install @faker-js/faker
 You’ll also need to install the Faker library:
 
 ```json
-“seed”: “node data-project/mockDataGenerator.js”
+"seed": "node data-project/mockDataGenerator.js"
 ```
 
 To run this file and start sending mock data to Tinybird, you’re going to create a custom script in our `package.json` file. So open up that file and add the following to the `scripts`:
 
-Note that since our code is using ES modules, we’ll need to add `”type”: “module”` to the `package.json` file to be able to run the script and access the modules. For more information on why, you can read [this helpful post](https://www.codeconcisely.com/posts/nextjs-esm/).
+Note that since our code is using ES modules, we’ll need to add `"type": "module"` to the `package.json` file to be able to run the script and access the modules. For more information on why, you can read [this helpful post](https://www.codeconcisely.com/posts/nextjs-esm/).
 
 ```json
 {
@@ -323,27 +323,21 @@ Note that since our code is using ES modules, we’ll need to add `”type”: �
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@faker-js/faker": "^8.0.2",
-		"autoprefixer": "10.4.15",
-		"eslint": "8.48.0",
-		"eslint-config-next": "13.4.19",
-		"next": "13.4.19",
-		"postcss": "8.4.28",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"tailwindcss": "3.3.3"
+		"@faker-js/faker": "^10.6.0",
+		"next": "14.2.35",
+		"react": "^18",
+		"react-dom": "^18"
+	},
+	"devDependencies": {
+		"eslint": "^8",
+		"eslint-config-next": "14.2.35",
+		"postcss": "^8",
+		"tailwindcss": "^3.4.1"
 	}
 }
 ```
 
 Once you’re done, your `package.json` should look something like this:
-
-```bash
-mv next.config.js next.config.cjs
-mv postcss.config.js postcss.config.cjs
-```
-
-Also, since we’re setting the type as `module`, we’ll need to treat our Next.js and PostCSS config scripts as CommonJS scripts:
 
 ```bash
 npm run seed
@@ -366,7 +360,7 @@ To verify that the data is flowing properly into Tinybird, inspect the Tinybird 
 ![Tinybird signatures data source showing 2k rows with ingestion graph and data preview](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-10.webp)
 
 ```bash
-tb sql “select count() from signatures”
+tb sql "select count() from signatures"
 ```
 
 Likewise, you can use the Tinybird CLI to monitor rows being created in the data sources. For example:
@@ -426,6 +420,7 @@ Take a look at the updated SQL below using the Tinybird templating language. I�
 - Added `date_from` and `date_to` query parameters (`Date` type), which will dynamically change the filter based on the date values passed.
 
 ```sql
+%
 SELECT
   account_id,
   {% if defined(completed) %}
@@ -462,6 +457,7 @@ Now, name this node `retrieve_signatures`.
 ![Tinybird retrieve_signatures pipe node with SQL query using dynamic date parameters](/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-9.webp)
 
 ```sql
+%
 SELECT
   organization,
   sum(total) AS org_total
@@ -527,7 +523,7 @@ In the above example, the API response took barely 1 millisecond, which is a rec
 If you want to pull the Tinybird resources into your local directory so that you can manage this project with git, you can do so as follows.
 
 ```bash
-tb pull –auto
+tb pull --auto
 mv datasources pipes data-project/
 ```
 
@@ -566,16 +562,16 @@ NEXT_PUBLIC_TINYBIRD_TOKEN=your_tinybird_token
 
 Next, you need to add your Tinybird host and admin token as environment variables so you can run the project locally. Add the following to your `.env.local` file:
 
-#### Set up your index.js
+#### Set up your page.js
 
 ```bash
-cd src/pages
-code index.js
+cd src/app
+code page.js
 ```
 
 Let’s create an index page to build and display our real-time dashboard.
 
-Next.js may have made a default `index.js`, in which case start by clearing its contents.
+Next.js may have made a default `page.js`, in which case start by clearing its contents.
 
 #### Import UI libraries
 

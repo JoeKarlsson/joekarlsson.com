@@ -88,17 +88,18 @@ Here are practical queries that map your external exposure.
 
 ```sql copy
 SELECT
-  account_id,
-  name,
-  region,
-  creation_date
-FROM aws_s3_buckets
+  b.account_id,
+  b.name,
+  b.region,
+  b.creation_date
+FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_public_access_blocks pab ON pab.bucket_arn = b.arn
 WHERE
-  block_public_acls      = false
-  OR block_public_policy = false
-  OR ignore_public_acls  = false
-  OR restrict_public_buckets = false
-ORDER BY account_id;
+  (pab.public_access_block_configuration->>'BlockPublicAcls')::boolean IS NOT TRUE
+  OR (pab.public_access_block_configuration->>'BlockPublicPolicy')::boolean IS NOT TRUE
+  OR (pab.public_access_block_configuration->>'IgnorePublicAcls')::boolean IS NOT TRUE
+  OR (pab.public_access_block_configuration->>'RestrictPublicBuckets')::boolean IS NOT TRUE
+ORDER BY b.account_id;
 ```
 
 **Find EC2 instances with public IP addresses:**

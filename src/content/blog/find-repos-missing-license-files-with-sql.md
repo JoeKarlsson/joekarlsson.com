@@ -23,10 +23,12 @@ The [Git Source Integration](https://www.cloudquery.io/hub/plugins/source/cloudq
 Configure the Git source integration to sync LICENSE files:
 
 ```yaml
-tables:
-  - git_files:
-      glob_patterns:
-        - '**/LICENSE*'
+tables: ['git_files', 'git_repositories']
+spec:
+  table_options:
+    git_files:
+      - glob: '*LICENSE*'
+        include_content: true
 ```
 
 This syncs all LICENSE files (including variations like `LICENSE.txt`, `LICENSE.md`) into the `git_files` table alongside repository metadata in `git_repositories`.
@@ -128,11 +130,11 @@ The Git Source Integration is available on [CloudQuery Hub](https://www.cloudque
 
 **What if LICENSE files have different names?**
 
-The glob pattern `**/LICENSE*` matches common variations: `LICENSE`, `LICENSE.txt`, `LICENSE.md`, `LICENCE` (British spelling), `LICENSE-MIT`, etc. Check the `name` column in results to see exact filename.
+The glob pattern `*LICENSE*` matches common variations: `LICENSE`, `LICENSE.txt`, `LICENSE.md`, `LICENSE-MIT`, etc. It misses the British spelling `LICENCE`; add a `*LICENCE*` glob for that. Check the `name` column in results to see exact filename.
 
 **How do I find repos without any license-related files?**
 
-Modify the query to check for NULL matches after querying all license variations. The glob pattern `**/LICENSE*` already captures most variations, but you can add additional patterns like `**/COPYING` if needed.
+Modify the query to check for NULL matches after querying all license variations. The glob pattern `*LICENSE*` already captures most variations, but you can add additional patterns like `*COPYING` if needed.
 
 **Can I export results to a spreadsheet?**
 
@@ -144,11 +146,11 @@ Running monthly catches new repos created without LICENSE files. Combine with Gi
 
 **What if repos have license information in README instead of LICENSE file?**
 
-Sync README files with the glob pattern `**/README*` and query README content for license mentions. Join README data with the LICENSE query to find repos with license info but no dedicated LICENSE file.
+Sync README files with the glob pattern `*README*` and query README content for license mentions. Join README data with the LICENSE query to find repos with license info but no dedicated LICENSE file.
 
 **Can I check LICENSE files in subdirectories?**
 
-Yes. The glob pattern `**/LICENSE*` matches LICENSE files at any directory depth. Some monorepos include separate LICENSE files per package or module.
+Yes. The glob pattern `*LICENSE*` matches LICENSE files at any directory depth. Some monorepos include separate LICENSE files per package or module.
 
 **How do I identify when LICENSE files were added or modified?**
 

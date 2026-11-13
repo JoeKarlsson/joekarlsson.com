@@ -96,7 +96,7 @@ The first step in building an application over streaming data is to capture the 
 Using the Tinybird CLI, you can connect to a Kafka topic with a simple command:
 
 ```bash
-bash tb connection create kafka --bootstrap_servers $SERVER_URL –key $ACCESS_KEY –secret $ACCESS_SECRET
+tb connection create kafka --bootstrap-servers $SERVER_URL --key $ACCESS_KEY --secret $ACCESS_SECRET
 ```
 
 From there, you can create a [Tinybird Data Source](https://www.tinybird.co/docs/concepts/data-sources.html) with a schema that matches the topic. Once you’ve done this, you’ll have streaming data being written into an optimized columnar data store that’s ready for building metrics.

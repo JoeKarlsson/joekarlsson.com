@@ -31,10 +31,12 @@ This use case requires three CloudQuery source integrations:
 Configure the Git source integration to sync CODEOWNERS files:
 
 ```yaml
-tables:
-  - git_files:
-      glob_patterns:
-        - '**/CODEOWNERS'
+tables: ['git_files', 'git_repositories']
+spec:
+  table_options:
+    git_files:
+      - glob: '*CODEOWNERS'
+        include_content: true
 ```
 
 Configure GitHub and Okta plugins per their documentation to sync organization members and user data.
@@ -76,7 +78,7 @@ SELECT
   owe.github_email,
   COALESCE(u.status, 'NOT_FOUND') AS okta_status
 FROM owners_with_email owe
-LEFT JOIN okta_users u ON lower(owe.github_email) = lower(u.email)
+LEFT JOIN okta_users u ON lower(owe.github_email) = lower(u.profile->>'email')
 WHERE owe.github_email IS NULL  -- GitHub user not found or has no public email
    OR u.status IS NULL          -- No matching Okta account
    OR u.status != 'ACTIVE'      -- Okta account inactive
@@ -184,7 +186,7 @@ Running monthly catches recently departed employees whose accounts were removed 
 
 **Can I check CODEOWNERS in subdirectories?**
 
-Yes. The glob pattern `**/CODEOWNERS` matches CODEOWNERS files at any directory depth. monorepos often include CODEOWNERS files in subdirectories for per-package ownership.
+Yes. The glob pattern `*CODEOWNERS` matches CODEOWNERS files at any directory depth. monorepos often include CODEOWNERS files in subdirectories for per-package ownership.
 
 **What if the same person appears in multiple CODEOWNERS files?**
 

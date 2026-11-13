@@ -256,7 +256,7 @@ Okay, now let’s talk about my favorite component, the load cells. The load cel
 In regards to the code for reading data from the load cells, things were kind of tricky. This is because the load cells are not directly compatible with [Johnny-Five](https://johnny-five.io/). I was, however, able to find a [Python library that can interact with the HX711 load cells](https://github.com/tatobari/hx711py).
 
 ```python
-#! /usr/bin/python2
+#! /usr/bin/python3
 
 import time
 import sys
@@ -284,7 +284,7 @@ const spawn = require('child_process').spawn;
 class Scale {
    constructor(client) {
       // Spin up the child process when the Scale is initialized
-      this.process = spawn('python', ['./hx711py/scale.py'], {
+      this.process = spawn('python3', ['./hx711py/scale.py'], {
             detached: true,
       });
    }
@@ -328,14 +328,19 @@ This was the first time I have played around with the Spawn Child Process API fr
 Okay, so as a software engineer at MongoDB, I would be remiss if I didn’t talk about what to do with all of the data from this IoT device. For my IoT Litter Box, I am saving all of the data in a fully managed database service on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Here’s how I connected the litter box to the MongoDB Atlas database.
 
 ```javascript
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 const uri = 'YOUR MONGODB URI HERE';
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect((err) => {
-	const collection = client.db('IoT').collection('toilets');
-	// perform actions on the collection object
-	client.close();
-});
+const client = new MongoClient(uri);
+
+async function run() {
+	try {
+		const collection = client.db('IoT').collection('toilets');
+		// perform actions on the collection object
+	} finally {
+		await client.close();
+	}
+}
+run().catch(console.error);
 ```
 
 ### Internet of Toilets Data Best Practices
@@ -356,7 +361,7 @@ Lastly, you will want to select a database that natively handles time-series dat
 
 ```json
 {
-	"_id": { "$oid": "dskfjlk2j92121293901233" },
+	"_id": { "$oid": "5dcf1ee26a1b2c3d4e5f6a7b" },
 	"timestamp_day": { "$date": { "$numberLong": "1573854434214" } },
 	"type": "cat_in_box",
 	"cat": { "name": "BMO", "weight": "200" },

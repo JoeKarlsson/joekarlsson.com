@@ -105,7 +105,7 @@ Complete benchmark implementation is available in the [benchmark repository](htt
 ```bash
 git clone https://github.com/cloudquery/benchmark
 cd benchmark
-python benchmark.py --source file --dest clickhouse
+uv run benchmark.py
 ```
 
 Our methodology prioritizes reproducible results with consistent hardware specifications and realistic workload patterns. The framework validates performance against actual customer use cases rather than synthetic benchmarks alone.

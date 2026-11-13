@@ -137,6 +137,7 @@ claim_folder() {
 ```bash
 clear_stale_locks() {
     for lockdir in "$CLAIMS_DIR"/*.lock; do
+        local owner_info=$(cat "$lockdir/owner" 2>/dev/null)
         local owner_pid="${owner_info#*:}"
         if ! kill -0 "$owner_pid" 2>/dev/null; then
             rm -rf "$lockdir"
@@ -164,6 +165,7 @@ Each worker checks for free VRAM before starting Whisper:
 
 ```bash
 wait_for_gpu() {
+    local waited=0
     while ! /var/scripts/generate-subtitles --check-gpu; do
         if [ $waited -ge $GPU_MAX_WAIT ]; then
             return 1

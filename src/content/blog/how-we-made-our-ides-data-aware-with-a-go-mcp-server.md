@@ -70,8 +70,8 @@ func main() {
         Description: "List all available tables in the database",
         InputSchema: mcp.ToolInputSchema{
             Type: "object",
-            Properties: map[string]interface{}{
-                "pattern": {
+            Properties: map[string]any{
+                "pattern": map[string]any{
                     "type": "string",
                     "description": "Optional regex pattern to filter table names",
                 },
@@ -79,9 +79,15 @@ func main() {
         },
     }, handleListTables)
 
-    if err := s.Serve(context.Background()); err != nil {
+    if err := server.ServeStdio(s); err != nil {
         log.Fatal(err)
     }
+}
+
+func handleListTables(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+    pattern := req.GetString("pattern", ".*")
+    // Query your database for table names matching pattern here
+    return mcp.NewToolResultText("tables matching " + pattern), nil
 }
 ```
 

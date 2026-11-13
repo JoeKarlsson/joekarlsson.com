@@ -104,17 +104,22 @@ Here's what a typical one looks like (Sonarr, condensed):
 set -euo pipefail
 
 log() { echo "[provision] $*"; }
-log "Starting Sonarr provision ($${hostname} @ $${container_ip})"
+log "Starting Sonarr provision (${hostname} @ ${container_ip})"
 
 # System deps
 apt-get update -qq
 apt-get install -y -qq curl ca-certificates sqlite3 prometheus-node-exporter
 
+# Service user (its home is Sonarr's data dir)
+if ! id sonarr &>/dev/null; then
+  useradd --user-group --create-home -d /var/lib/sonarr -s /usr/sbin/nologin sonarr
+fi
+
 # Sonarr binary - only installed if missing
 if [ ! -f /opt/Sonarr/Sonarr ]; then
   log "Installing Sonarr..."
   SONARR_URL=$(curl -s "https://api.github.com/repos/Sonarr/Sonarr/releases" \
-    | grep -o '"browser_download_url": *"[^"]*linux-x64\.tar\.gz"' \
+    | grep -o '"browser_download_url": *"[^"]*Sonarr\.main\.[^"]*linux-x64\.tar\.gz"' \
     | head -1 | sed 's/.*"\(https[^"]*\)".*/\1/')
   curl -sLo /tmp/Sonarr.tar.gz "$SONARR_URL"
   tar -xzf /tmp/Sonarr.tar.gz -C /opt/
@@ -139,7 +144,7 @@ systemctl enable --now sonarr
 log "Provision complete."
 ```
 
-The `$${hostname}` and `$${container_ip}` are OpenTofu template variables, substituted at apply time. Everything else is plain bash. The `if [ ! -f ... ]` guard is the idempotency pattern: only install if missing, safe to re-run.
+The `${hostname}` and `${container_ip}` are OpenTofu template variables, substituted at apply time. Everything else is plain bash. The `if [ ! -f ... ]` guard is the idempotency pattern: only install if missing, safe to re-run.
 
 Every container gets observability by default. Prometheus node-exporter and the log shipper (Grafana Alloy) are in the module, not in each provision script. You get metrics and log shipping whether you think to add them or not.
 

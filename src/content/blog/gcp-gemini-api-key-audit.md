@@ -43,7 +43,7 @@ Two conditions must both be true for a project to be at risk: the project has th
 
 ### Step 1: Find Unrestricted API Keys
 
-The `gcp_apikeys_keys` table ([CloudQuery Hub](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/tables/gcp_apikeys_keys)) stores one row per API key, with a `restrictions` JSON column. When a key has API-level restrictions configured, `restrictions` will contain an `apiTargets` array specifying which services the key can call. When that field is absent or null, the key is unrestricted.
+The `gcp_apikeys_keys` table ([CloudQuery Hub](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/tables/gcp_apikeys_keys)) stores one row per API key, with a `restrictions` JSON column. When a key has API-level restrictions configured, `restrictions` will contain an `api_targets` array specifying which services the key can call. When that field is absent or null, the key is unrestricted.
 
 ```sql
 SELECT
@@ -55,7 +55,7 @@ SELECT
 FROM gcp_apikeys_keys
 WHERE restrictions IS NULL
    OR restrictions::text = '{}'
-   OR restrictions->>'apiTargets' IS NULL;
+   OR restrictions->'api_targets' IS NULL;
 ```
 
 This returns every API key across your GCP estate that can call any enabled service on its project.
@@ -85,7 +85,7 @@ SELECT DISTINCT
   k.create_time
 FROM gcp_apikeys_keys k
 JOIN gcp_serviceusage_services s ON k.project_id = s.project_id
-WHERE (k.restrictions IS NULL OR k.restrictions->>'apiTargets' IS NULL)
+WHERE (k.restrictions IS NULL OR k.restrictions->'api_targets' IS NULL)
   AND s.name LIKE '%generativelanguage%'
   AND s.state = 'ENABLED';
 ```

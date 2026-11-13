@@ -209,7 +209,7 @@ Let’s run through the default MongoDB Playground template that’s created whe
 
 ```javascript
 // MongoDB Playground
-// To disable this template go to Settings \| MongoDB \| Use Default Template For Playground.
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
 // Make sure you are connected to enable completions and to be able to run a playground.
 // Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
@@ -245,16 +245,16 @@ When you press the Play Button, this operation outputs the following document to
 
 ```json
 {
-	"acknowledged": 1,
+	"acknowledged": true,
 	"insertedIds": {
-		"0": 2,
-		"1": 3,
-		"2": 4,
-		"3": 5,
-		"4": 6,
-		"5": 7,
-		"6": 8,
-		"7": 9
+		"0": 1,
+		"1": 2,
+		"2": 3,
+		"3": 4,
+		"4": 5,
+		"5": 6,
+		"6": 7,
+		"7": 8
 	}
 }
 ```

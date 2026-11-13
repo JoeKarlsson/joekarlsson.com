@@ -18,7 +18,7 @@ First, if you are new to SingleStore, you probably want to know what it is that 
 
 ### Install Node and NPM
 
-Ensure your system has Node.js version 14 or later and a compatible version of NPM (Node Package Manager) installed. For more information on how to check your version of Node and NPM and installation instructions for your system, see [downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+Ensure your system has Node.js version 22 or later and a compatible version of NPM (Node Package Manager) installed. For more information on how to check your version of Node and NPM and installation instructions for your system, see [downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 ### Initialize Your Node.js Project
 
@@ -34,10 +34,11 @@ Then, change into your new directory to start using the project files.
 cd singlestore_node_quickstart
 ```
 
-Finally, you will need to initialize this project as an NPM project, so we can start saving and using NPM dependencies in our project. This command will set up everything you need to get started.
+Finally, you will need to initialize this project as an NPM project, so we can start saving and using NPM dependencies in our project. These commands will set up everything you need to get started, including the `"type": "module"` setting that lets index.js use `import`.
 
 ```bash
 npm init -y
+npm pkg set type=module
 ```
 
 ### Add MySQL2 as a Dependency
@@ -107,9 +108,9 @@ const DATABASE = 'acme';
 
 // main is run at the end
 async function main() {
-	let singleStoreConnection;
+	let conn;
 	try {
-		singleStoreConnection = await mysql.createConnection({
+		conn = await mysql.createConnection({
 			host: HOST,
 			user: USER,
 			password: PASSWORD,
@@ -122,8 +123,8 @@ async function main() {
 		console.error('ERROR', err);
 		process.exit(1);
 	} finally {
-		if (singleStoreConnection) {
-			await singleStoreConnection.end();
+		if (conn) {
+			await conn.end();
 		}
 	}
 }
@@ -178,19 +179,23 @@ async function readOne({ conn, id }) {
 	);
 	return rows[0];
 }
+
+async function readAll({ conn }) {
+	const [rows, fields] = await conn.execute('SELECT * FROM messages ORDER BY id');
+	return rows;
+}
 ```
 
 Drop this method in your code after the create() method from the previous step in main().
 
 ```javascript
 // READ
-const msg = await readOne({conn, id});
-    console.log('Read one row:');
-    if (msg == null) {
-        console.log('not found');
-    } else {
-        console.log(`${msg.id}, ${msg.content}, ${msg.createdate}`);
-    }
+const msg = await readOne({ conn, id });
+console.log('Read one row:');
+if (msg == null) {
+	console.log('not found');
+} else {
+	console.log(`${msg.id}, ${msg.content}, ${msg.createdate}`);
 }
 ```
 

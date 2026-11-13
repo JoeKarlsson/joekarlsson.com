@@ -68,7 +68,7 @@ spec:
   name: aws
   path: cloudquery/aws
   registry: cloudquery
-  version: 'v33.8.1'
+  version: 'v35.9.0'
   tables: ['aws_lambda_functions']
   destinations: ['postgresql']
 ---
@@ -77,7 +77,7 @@ spec:
   name: postgresql
   path: cloudquery/postgresql
   registry: cloudquery
-  version: 'v8.14.1'
+  version: 'v8.19.0'
   spec:
     connection_string: ${PG_CONNECTION_STRING}
 ```
@@ -134,14 +134,14 @@ Run CloudQuery Platform syncs on a schedule (daily or weekly) and compare result
 
 ```sql
 SELECT
-    DATE(cq_sync_time) AS sync_date,
+    DATE(_cq_sync_time) AS sync_date,
     COUNT(*) AS nodejs20_functions
 FROM
     aws_lambda_functions
 WHERE
     configuration->>'Runtime' = 'nodejs20.x'
 GROUP BY
-    DATE(cq_sync_time)
+    DATE(_cq_sync_time)
 ORDER BY
     sync_date;
 ```
@@ -187,7 +187,7 @@ import config from './config.json' with { type: 'json' };
 A codemod is available to automate this:
 
 ```bash
-npx codemod run @nodejs/import-assertions-to-attributes
+npx codemod @nodejs/import-assertions-to-attributes
 ```
 
 ### Native Module ABI Mismatch

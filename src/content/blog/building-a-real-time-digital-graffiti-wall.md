@@ -56,7 +56,7 @@ clickGrid(event) {
     const cell = event.target;
     cell.style.backgroundColor = this.currentColor;
 
-    const [x, y] = cell.id.split(' ');
+    const [x, y] = cell.id.split(' ').map(Number);
     this.mongo.updateOnePixel([x, y], this.currentColor);
 }
 ```

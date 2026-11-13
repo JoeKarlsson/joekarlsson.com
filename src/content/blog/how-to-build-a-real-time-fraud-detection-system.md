@@ -199,7 +199,7 @@ SELECT
 FROM transactions
 WHERE location NOT IN (SELECT DISTINCT location FROM transactions WHERE user_id = 'USER_ID')
 GROUP BY user_id
-HAVING COUNT(*) > 2
+HAVING COUNT(*) >= 2
 ```
 
 ### Detecting high-velocity transactions
@@ -213,7 +213,7 @@ SELECT
 FROM transactions
 WHERE timestamp >= NOW() - INTERVAL '1' HOUR
 GROUP BY user_id
-HAVING COUNT(*) > 10
+HAVING COUNT(*) >= 10
 ORDER BY num_transactions DESC
 ```
 
@@ -225,7 +225,7 @@ This query selects the transaction ID, user ID, and amount of transactions that 
 SELECT transaction_id, user_id, amount
 FROM transactions
 WHERE CAST(amount AS Float64) > 999
-ORDER BY amount DESC
+ORDER BY CAST(amount AS Float64) DESC
 ```
 
 ### Detecting transactions made at unusual times
@@ -253,8 +253,9 @@ SELECT
   user_id,
   COUNT(*) as num_transactions
 FROM transactions
+WHERE is_declined = true
 GROUP BY user_id
-HAVING COUNT(*) > 3
+HAVING COUNT(*) >= 3
 ORDER BY num_transactions DESC
 ```
 
@@ -267,7 +268,7 @@ SELECT
   user_id,
   COUNT(*) as num_transactions
 FROM transactions
-WHERE LEFT(REPLACE(location, '.', ''), 6) IN ('2451316197', '234567', '345678')
+WHERE LEFT(REPLACE(ip_address, '.', ''), 6) IN ('123456', '234567', '345678')
 GROUP BY user_id
 HAVING COUNT(*) > 1
 ```

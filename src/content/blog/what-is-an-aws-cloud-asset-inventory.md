@@ -124,7 +124,7 @@ This command creates a ready-to-use configuration file that you can customize fo
 Execute the sync to populate your asset inventory:
 
 ```bash
-cloudquery sync aws_to_postgresql.yml
+cloudquery sync aws_to_postgresql.yaml
 ```
 
 ### Querying Your AWS Asset Inventory

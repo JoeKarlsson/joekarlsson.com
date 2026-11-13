@@ -78,15 +78,16 @@ Here's what a [policy](https://www.cloudquery.io/product/policies) looks like in
 ```sql
 -- Find S3 buckets that don't block public access
 SELECT
-  account_id,
-  region,
-  name,
-  arn
-FROM aws_s3_buckets
-WHERE block_public_acls IS NOT TRUE
-  OR block_public_policy IS NOT TRUE
-  OR ignore_public_acls IS NOT TRUE
-  OR restrict_public_buckets IS NOT TRUE;
+  b.account_id,
+  b.region,
+  b.name,
+  b.arn
+FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_public_access_blocks pab ON pab.bucket_arn = b.arn
+WHERE (pab.public_access_block_configuration->>'BlockPublicAcls')::boolean IS NOT TRUE
+  OR (pab.public_access_block_configuration->>'BlockPublicPolicy')::boolean IS NOT TRUE
+  OR (pab.public_access_block_configuration->>'IgnorePublicAcls')::boolean IS NOT TRUE
+  OR (pab.public_access_block_configuration->>'RestrictPublicBuckets')::boolean IS NOT TRUE;
 ```
 
 That's a real governance policy. Anyone who's written a WHERE clause can read it, modify it, and verify what it does. There's no new language to learn and no lock-in to a proprietary policy engine.
@@ -109,11 +110,13 @@ UNION ALL
 
 SELECT
   'gcp' AS provider,
-  id AS resource_id,
-  access_configs->>'natIP' AS public_ip_address,
-  labels AS tags
-FROM gcp_compute_instances
-WHERE access_configs->>'natIP' IS NOT NULL;
+  i.id::text AS resource_id,
+  ac->>'nat_i_p' AS public_ip_address,
+  i.labels AS tags
+FROM gcp_compute_instances i,
+  jsonb_array_elements(i.network_interfaces) AS ni,
+  jsonb_array_elements(ni->'access_configs') AS ac
+WHERE ac->>'nat_i_p' IS NOT NULL;
 ```
 
 Try writing that cross-cloud query in Rego.

@@ -98,11 +98,20 @@ kind: source
 spec:
   name: aws
   path: cloudquery/aws
+  version: v35.9.0
   destinations: [postgresql]
   tables:
     - aws_ec2_instances
     - aws_rds_instances
     - aws_s3_buckets
+---
+kind: destination
+spec:
+  name: postgresql
+  path: cloudquery/postgresql
+  version: v8.19.0
+  spec:
+    connection_string: ${POSTGRESQL_CONNECTION_STRING}
 ```
 
 Run `cloudquery sync configuration.yml` and all your AWS resources are in PostgreSQL. Query with standard SQL. [Get started in 5 minutes](https://www.cloudquery.io/docs/cli/getting-started).
@@ -154,7 +163,7 @@ SELECT
   public_ip_address,
   tags
 FROM aws_ec2_instances
-WHERE state_name = 'running'
+WHERE state->>'Name' = 'running'
   AND tags->>'Environment' = 'production'
   AND public_ip_address IS NOT NULL;
 ```
@@ -193,9 +202,15 @@ SELECT
   sg.ip_permissions
 FROM aws_ec2_instances i
 JOIN aws_ec2_security_groups sg
-  ON sg.group_id = ANY(i.security_groups)
+  ON sg.group_id IN (SELECT jsonb_array_elements(i.security_groups)->>'GroupId')
 WHERE i.public_ip_address IS NOT NULL
-  AND sg.ip_permissions @> '[{"IpProtocol": "-1", "IpRanges": [{"CidrIp": "0.0.0.0/0"}]}]'::jsonb;
+  AND EXISTS (
+    SELECT 1
+    FROM jsonb_array_elements(sg.ip_permissions) AS perm
+    WHERE perm @> '{"IpRanges": [{"CidrIp": "0.0.0.0/0"}]}'
+      AND (perm->>'IpProtocol' = '-1'
+           OR 22 BETWEEN (perm->>'FromPort')::int AND (perm->>'ToPort')::int)
+  );
 ```
 
 Total time: under a second, and the data is current and complete.
@@ -209,16 +224,17 @@ In 2006, CMDBs tracked assets for financial audits, documented Change Advisory B
 In 2026, [cloud CMDBs answer real-time security questions](https://www.cloudquery.io/solutions/cspm). Find all unencrypted S3 buckets across 100 AWS accounts:
 
 ```sql
-SELECT account_id, bucket_name, region, encryption_configuration
-FROM aws_s3_buckets
-WHERE encryption_configuration IS NULL;
+SELECT b.account_id, b.name AS bucket_name, b.region
+FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_encryption_rules e ON e.bucket_arn = b.arn
+WHERE e.bucket_arn IS NULL;
 ```
 
 They enable [cost optimization](https://www.cloudquery.io/solutions/fin-ops). Identify unused EBS volumes:
 
 ```sql
 SELECT volume_id, size, volume_type, attachments, create_time
-FROM aws_ebs_volumes
+FROM aws_ec2_ebs_volumes
 WHERE attachments = '[]'::jsonb
   AND create_time < NOW() - INTERVAL '30 days';
 ```
@@ -248,10 +264,11 @@ WHERE a.instance_id IS NULL;
 They accelerate incident response. Show everything that changed in the last hour:
 
 ```sql
-SELECT table_name, action, changed_at, resource_id
-FROM cloudquery_sync_log
-WHERE changed_at > NOW() - INTERVAL '1 hour'
-ORDER BY changed_at DESC;
+SELECT event_time, event_source, event_name, username, resources
+FROM aws_cloudtrail_events
+WHERE event_time > NOW() - INTERVAL '1 hour'
+  AND read_only = 'false'
+ORDER BY event_time DESC;
 ```
 
 Traditional CMDBs can't handle these use cases. They need real-time data, cloud-native attributes, SQL querying, and continuous updates, and a traditional CMDB offers daily scans, generic CIs, proprietary UIs, and scheduled discovery.

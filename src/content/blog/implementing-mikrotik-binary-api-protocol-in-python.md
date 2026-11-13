@@ -72,10 +72,21 @@ def encode_length(length: int) -> bytes:
 And decoding reads the first byte, checks the high bits, then reads the appropriate number of additional bytes:
 
 ```python
+def recv_exact(sock, n: int) -> bytes:
+    # recv() can return fewer bytes than asked for, so keep reading until we have n
+    data = b''
+    while len(data) < n:
+        chunk = sock.recv(n - len(data))
+        if not chunk:
+            raise ConnectionError('Connection closed mid-sentence')
+        data += chunk
+    return data
+
+
 def read_sentence(sock) -> list[str]:
     words = []
     while True:
-        first = sock.recv(1)
+        first = recv_exact(sock, 1)
         b = first[0]
 
         if b == 0:
@@ -83,15 +94,15 @@ def read_sentence(sock) -> list[str]:
         elif b < 0x80:
             length = b
         elif b < 0xC0:
-            length = ((b & 0x3F) << 8) + sock.recv(1)[0]
+            length = ((b & 0x3F) << 8) + recv_exact(sock, 1)[0]
         elif b < 0xE0:
-            length = ((b & 0x1F) << 16) + struct.unpack('!H', sock.recv(2))[0]
+            length = ((b & 0x1F) << 16) + struct.unpack('!H', recv_exact(sock, 2))[0]
         elif b < 0xF0:
-            length = ((b & 0x0F) << 24) + struct.unpack('!I', b'\x00' + sock.recv(3))[0]
+            length = ((b & 0x0F) << 24) + struct.unpack('!I', b'\x00' + recv_exact(sock, 3))[0]
         else:
-            length = struct.unpack('!I', sock.recv(4))[0]
+            length = struct.unpack('!I', recv_exact(sock, 4))[0]
 
-        words.append(sock.recv(length).decode('utf-8'))
+        words.append(recv_exact(sock, length).decode('utf-8'))
     return words
 ```
 

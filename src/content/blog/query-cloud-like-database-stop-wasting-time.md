@@ -99,7 +99,7 @@ Snapshots are great for backups, but keeping old ones around forever? That's jus
 ```sql
 SELECT arn, allocated_storage, engine
 FROM aws_rds_db_snapshots
-WHERE instance_create_time < NOW() - INTERVAL '180 days'; -- Older than 6 months
+WHERE snapshot_create_time < NOW() - INTERVAL '180 days'; -- Older than 6 months
 ```
 
 You'd be surprised how much unnecessary storage you're paying for. Run this query, delete the stuff you don't need, and watch your cloud bill shrink.

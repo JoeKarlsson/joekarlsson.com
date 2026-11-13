@@ -183,12 +183,12 @@ ORDER BY account_id, role_name;
 ```sql
 SELECT
   account_id,
-  user_name,
+  "user" AS user_name,
   arn,
-  create_date,
+  user_creation_time AS create_date,
   password_last_used
-FROM aws_iam_users
-WHERE password_enabled = true
+FROM aws_iam_credential_reports
+WHERE password_enabled = 'true'
 ORDER BY account_id, create_date;
 ```
 
@@ -203,7 +203,7 @@ SELECT
   k.last_used
 FROM aws_iam_users u
 JOIN aws_iam_user_access_keys k
-  ON u.id = k.user_id
+  ON u.arn = k.user_arn
 ORDER BY k.last_rotated ASC;
 ```
 

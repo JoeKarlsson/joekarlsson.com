@@ -34,12 +34,19 @@ kind: source
 spec:
   name: git
   path: cloudquery/git
-  version: 'v1.0.0'
+  registry: cloudquery
+  version: 'v2.0.4'
   tables:
     - git_commits
     - git_repositories
   destinations:
     - postgresql
+  spec:
+    providers:
+      - provider: github
+        access_token: '${GITHUB_ACCESS_TOKEN}'
+        repositories:
+          - '*/your-org/*'
 ```
 
 ## Query Commits by Departed Employees
@@ -48,18 +55,18 @@ Find commits authored by inactive Okta users:
 
 ```sql
 SELECT
-  gc.sha,
+  gc.hash AS sha,
   gc.repository_url,
-  gc.author_name,
-  gc.author_email,
-  gc.author_date,
+  gc.author->>'Name' AS author_name,
+  gc.author->>'Email' AS author_email,
+  (gc.author->>'When')::timestamptz AS author_date,
   gc.message,
   COALESCE(u.status, 'NOT_FOUND') AS okta_status
 FROM git_commits gc
-LEFT JOIN okta_users u ON lower(gc.author_email) = lower(u.email)
+LEFT JOIN okta_users u ON lower(gc.author->>'Email') = lower(u.profile->>'email')
 WHERE u.status IS NULL           -- No matching Okta account
    OR u.status != 'ACTIVE'       -- Okta account inactive
-ORDER BY gc.author_date DESC
+ORDER BY author_date DESC
 ```
 
 The query:
@@ -85,16 +92,16 @@ See which former employees have the most commits:
 
 ```sql
 SELECT
-  gc.author_email,
-  gc.author_name,
+  gc.author->>'Email' AS author_email,
+  gc.author->>'Name' AS author_name,
   COUNT(*) AS commit_count,
-  MIN(gc.author_date) AS first_commit,
-  MAX(gc.author_date) AS last_commit,
+  MIN((gc.author->>'When')::timestamptz) AS first_commit,
+  MAX((gc.author->>'When')::timestamptz) AS last_commit,
   COUNT(DISTINCT gc.repository_url) AS repos_touched
 FROM git_commits gc
-LEFT JOIN okta_users u ON lower(gc.author_email) = lower(u.email)
+LEFT JOIN okta_users u ON lower(gc.author->>'Email') = lower(u.profile->>'email')
 WHERE u.status IS NULL OR u.status != 'ACTIVE'
-GROUP BY gc.author_email, gc.author_name
+GROUP BY gc.author->>'Email', gc.author->>'Name'
 ORDER BY commit_count DESC
 ```
 
@@ -106,17 +113,17 @@ Focus on commits from the past 90 days:
 
 ```sql
 SELECT
-  gc.sha,
+  gc.hash AS sha,
   gc.repository_url,
-  gc.author_name,
-  gc.author_email,
-  gc.author_date,
+  gc.author->>'Name' AS author_name,
+  gc.author->>'Email' AS author_email,
+  (gc.author->>'When')::timestamptz AS author_date,
   gc.message
 FROM git_commits gc
-LEFT JOIN okta_users u ON lower(gc.author_email) = lower(u.email)
+LEFT JOIN okta_users u ON lower(gc.author->>'Email') = lower(u.profile->>'email')
 WHERE (u.status IS NULL OR u.status != 'ACTIVE')
-  AND gc.author_date > NOW() - INTERVAL '90 days'
-ORDER BY gc.author_date DESC
+  AND (gc.author->>'When')::timestamptz > NOW() - INTERVAL '90 days'
+ORDER BY author_date DESC
 ```
 
 Recent commits from departed employees may indicate timing issues with offboarding or warrant immediate security review.
@@ -128,10 +135,10 @@ Generate a report for SOC 2 or security audits:
 ```sql
 SELECT
   gr.full_name AS repository,
-  gc.author_name,
-  gc.author_email,
-  gc.author_date,
-  gc.sha,
+  gc.author->>'Name' AS author_name,
+  gc.author->>'Email' AS author_email,
+  (gc.author->>'When')::timestamptz AS author_date,
+  gc.hash AS sha,
   LEFT(gc.message, 100) AS commit_summary,
   CASE
     WHEN u.status = 'DEPROVISIONED' THEN 'Former Employee'
@@ -141,9 +148,9 @@ SELECT
   END AS employee_status
 FROM git_commits gc
 JOIN git_repositories gr ON gr.url = gc.repository_url
-LEFT JOIN okta_users u ON lower(gc.author_email) = lower(u.email)
+LEFT JOIN okta_users u ON lower(gc.author->>'Email') = lower(u.profile->>'email')
 WHERE u.status IS NULL OR u.status != 'ACTIVE'
-ORDER BY gr.full_name, gc.author_date DESC
+ORDER BY gr.full_name, author_date DESC
 ```
 
 Export to CSV for audit documentation or import into your GRC platform.
@@ -162,7 +169,7 @@ The [Git Source Integration](https://www.cloudquery.io/hub/plugins/source/cloudq
 
 **What if employees use personal email addresses for commits?**
 
-Commits with personal emails won't match Okta records. Query for commits where `author_email` doesn't match your corporate domain pattern, then correlate manually or maintain an email alias mapping table.
+Commits with personal emails won't match Okta records. Query for commits where `author->>'Email'` doesn't match your corporate domain pattern, then correlate manually or maintain an email alias mapping table.
 
 **Can I use Azure AD instead of Okta?**
 
@@ -182,7 +189,7 @@ The query returns all commits by email, regardless of employment dates. Join wit
 
 **Can I track commits by both author and committer?**
 
-Yes. Git distinguishes between author (who wrote the code) and committer (who applied the commit). Query both `author_email` and `committer_email` columns if your workflow includes commit rebasing or cherry-picking.
+Yes. Git distinguishes between author (who wrote the code) and committer (who applied the commit). Query both `author->>'Email'` and `committer->>'Email'` if your workflow includes commit rebasing or cherry-picking.
 
 **How do I identify commits that need code review?**
 

@@ -88,11 +88,11 @@ Public S3 buckets are a common security risk. This query quickly **identifies ex
 SELECT
     name,
     region,
-    public_access
+    policy_status->>'IsPublic' AS public_access
 FROM
     aws_s3_buckets
 WHERE
-    public_access = true;
+    policy_status->>'IsPublic' = 'true';
 ```
 
 ### List security groups with open SSH (port 22) access to the world
@@ -101,13 +101,18 @@ If an EC2 security group allows **SSH access from anywhere**, that's an **open d
 
 ```sql
 SELECT
-    security_group_id,
-    description,
-    ip_permissions
+    sg.group_id AS security_group_id,
+    sg.description,
+    sg.ip_permissions
 FROM
-    aws_ec2_security_groups
-WHERE
-    '0.0.0.0/0' = ANY(ip_permissions -> 'IpRanges');
+    aws_ec2_security_groups sg
+WHERE EXISTS (
+    SELECT 1
+    FROM jsonb_array_elements(sg.ip_permissions) AS perm
+    WHERE perm @> '{"IpRanges": [{"CidrIp": "0.0.0.0/0"}]}'
+      AND (perm->>'IpProtocol' = '-1'
+           OR 22 BETWEEN (perm->>'FromPort')::int AND (perm->>'ToPort')::int)
+);
 ```
 
 ### Detect EC2 instances without encryption enabled on their root volumes
@@ -116,14 +121,17 @@ Encryption ensures data remains **protected at rest**. This query flags instance
 
 ```sql
 SELECT
-    instance_id,
-    instance_type,
-    volume_id,
-    encrypted
+    i.instance_id,
+    i.instance_type,
+    v.volume_id,
+    v.encrypted
 FROM
-    aws_ec2_volumes
+    aws_ec2_ebs_volumes v
+    CROSS JOIN LATERAL jsonb_array_elements(v.attachments) AS a
+    JOIN aws_ec2_instances i ON i.instance_id = a->>'InstanceId'
 WHERE
-    encrypted = false;
+    v.encrypted = false
+    AND a->>'Device' = i.root_device_name;
 ```
 
 ## Governance Teams: Cross-check Infrastructure Against Policies
@@ -137,26 +145,26 @@ Unused IAM accounts **increase the attack surface**. This query helps **audit in
 ```sql
 SELECT
     user_name,
-    last_login
+    password_last_used AS last_login
 FROM
     aws_iam_users
 WHERE
-    last_login < NOW() - INTERVAL '90 days';
+    password_last_used < NOW() - INTERVAL '90 days';
 ```
 
 ### Identify untagged resources (cost allocation + compliance tracking)
 
-If resources aren't tagged, **cost allocation, ownership tracking, and policy enforcement become a nightmare**. This query ensures **everything is labeled** properly.
+If resources aren't tagged, **cost allocation, ownership tracking, and policy enforcement become a nightmare**. This query finds **untagged EC2 instances** so you can label them properly.
 
 ```sql
 SELECT
-    resource_id,
-    resource_type,
+    arn AS resource_id,
+    'ec2_instance' AS resource_type,
     tags
 FROM
-    aws_tagging_resources
+    aws_ec2_instances
 WHERE
-    tags IS NULL OR jsonb_array_length(tags) = 0;
+    tags IS NULL OR tags = '{}'::jsonb;
 ```
 
 ### Check which AWS regions are in use (avoid shadow IT)
@@ -183,18 +191,25 @@ FinOps folks want to slash unnecessary cloud costs, but finding wasted spend in 
 Instances sitting **idle** waste money. This query helps teams **identify underutilized EC2 instances** to right-size or shut down.
 
 ```sql
+-- Needs aws_cloudwatch_metrics and aws_cloudwatch_metric_statistics synced
+-- (use_paid_apis: true, table_options for AWS/EC2 CPUUtilization with the Average statistic)
 SELECT
-    instance_id,
-    instance_type,
-    AVG(cpu_utilization) as avg_cpu_usage
+    i.instance_id,
+    i.instance_type,
+    AVG(s.average) as avg_cpu_usage
 FROM
-    aws_cloudwatch_metrics
+    aws_cloudwatch_metrics m
+    CROSS JOIN LATERAL jsonb_array_elements(m.dimensions) AS d
+    JOIN aws_cloudwatch_metric_statistics s ON s._cq_parent_id = m._cq_id
+    JOIN aws_ec2_instances i ON i.instance_id = d->>'Value'
 WHERE
-    metric_name = 'CPUUtilization'
+    m.namespace = 'AWS/EC2'
+    AND m.metric_name = 'CPUUtilization'
+    AND d->>'Name' = 'InstanceId'
 GROUP BY
-    instance_id, instance_type
+    i.instance_id, i.instance_type
 HAVING
-    AVG(cpu_utilization) < 5;
+    AVG(s.average) < 5;
 ```
 
 ### Find unattached EBS volumes (orphaned storage costs)
@@ -204,10 +219,10 @@ Unused EBS volumes **still incur costs**. This query **identifies orphaned stora
 ```sql
 SELECT
     volume_id,
-    size_gb,
+    size AS size_gb,
     state
 FROM
-    aws_ec2_volumes
+    aws_ec2_ebs_volumes
 WHERE
     state = 'available';
 ```
@@ -217,19 +232,29 @@ WHERE
 Many teams **over-provision databases** without realizing it. This query **identifies RDS instances with too little CPU and Memory allocation**, helping **cut unnecessary costs**.
 
 ```sql
+-- Needs aws_cloudwatch_metrics and aws_cloudwatch_metric_statistics synced
+-- (use_paid_apis: true, table_options for AWS/RDS CPUUtilization and FreeableMemory with the Average statistic)
 SELECT
-    db_instance_identifier,
-    db_instance_class,
-    AVG(cpu_utilization) as avg_cpu_usage,
-    AVG(memory_utilization) as avg_memory_usage
+    r.db_instance_identifier,
+    r.db_instance_class,
+    AVG(s.average) FILTER (WHERE m.metric_name = 'CPUUtilization') as avg_cpu_usage,
+    AVG(s.average) FILTER (WHERE m.metric_name = 'FreeableMemory') / 1024 / 1024 / 1024 as avg_freeable_memory_gb
 FROM
-    aws_rds_metrics
+    aws_cloudwatch_metrics m
+    CROSS JOIN LATERAL jsonb_array_elements(m.dimensions) AS d
+    JOIN aws_cloudwatch_metric_statistics s ON s._cq_parent_id = m._cq_id
+    JOIN aws_rds_instances r
+      ON r.db_instance_identifier = d->>'Value'
+      AND r.account_id = m.account_id
+      AND r.region = m.region
 WHERE
-    metric_name IN ('CPUUtilization', 'FreeableMemory')
+    m.namespace = 'AWS/RDS'
+    AND m.metric_name IN ('CPUUtilization', 'FreeableMemory')
+    AND d->>'Name' = 'DBInstanceIdentifier'
 GROUP BY
-    db_instance_identifier, db_instance_class
+    r.db_instance_identifier, r.db_instance_class
 HAVING
-    AVG(cpu_utilization) < 10 AND AVG(memory_utilization) < 20;
+    AVG(s.average) FILTER (WHERE m.metric_name = 'CPUUtilization') < 10;
 ```
 
 ## Final Word

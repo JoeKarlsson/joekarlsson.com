@@ -84,7 +84,7 @@ spec:
   name: aws
   path: cloudquery/aws
   registry: cloudquery
-  version: 'VERSION_SOURCE_AWS'
+  version: 'v35.9.0'
   tables:
     - aws_pinpoint_apps
     - aws_pinpoint_campaigns
@@ -312,7 +312,7 @@ Now pull it all together into a single view that rates each project's migration 
 ```sql
 WITH project_stats AS (
     SELECT
-        a.account_id,
+        a.account_id AS account_id,
         a.name AS project_name,
         a.id AS app_id,
         countIf(c.is_paused = false) AS active_campaigns,

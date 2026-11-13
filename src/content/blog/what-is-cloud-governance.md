@@ -149,7 +149,7 @@ SELECT
   tags->>'Environment' AS environment,
   tags->>'CostCenter'  AS cost_center
 FROM aws_ec2_instances
-WHERE state_name = 'running'
+WHERE state->>'Name' = 'running'
   AND (
     NOT (tags ? 'Owner')
     OR NOT (tags ? 'Environment')
@@ -162,27 +162,28 @@ ORDER BY account_id, region;
 
 ```sql copy
 SELECT
-  account_id,
-  name,
-  region
-FROM aws_s3_buckets
+  b.account_id,
+  b.name,
+  b.region
+FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_public_access_blocks pab ON pab.bucket_arn = b.arn
 WHERE
-  block_public_acls      = false
-  OR block_public_policy = false
-  OR ignore_public_acls  = false
-  OR restrict_public_buckets = false;
+  (pab.public_access_block_configuration->>'BlockPublicAcls')::boolean IS NOT TRUE
+  OR (pab.public_access_block_configuration->>'BlockPublicPolicy')::boolean IS NOT TRUE
+  OR (pab.public_access_block_configuration->>'IgnorePublicAcls')::boolean IS NOT TRUE
+  OR (pab.public_access_block_configuration->>'RestrictPublicBuckets')::boolean IS NOT TRUE;
 ```
 
 **Audit logging coverage** (Compliance Governance):
 
 ```sql copy
 SELECT account_id
-FROM aws_accounts
+FROM aws_iam_accounts
 WHERE account_id NOT IN (
   SELECT DISTINCT account_id
   FROM aws_cloudtrail_trails
   WHERE is_multi_region_trail IS TRUE
-    AND is_logging IS TRUE
+    AND (status->>'IsLogging')::boolean IS TRUE
 );
 ```
 

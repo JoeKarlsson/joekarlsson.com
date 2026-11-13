@@ -103,13 +103,13 @@ aws eks update-nodegroup-version --cluster-name <cluster-name> --nodegroup-name 
 After updating the nodes, upgrade the control plane.
 
 ```bash
-sh aws eks update-cluster-version --name --kubernetes-version
+aws eks update-cluster-version --name <cluster-name> --kubernetes-version <version>
 ```
 
 This process may take several minutes. AWS will handle upgrading the control plane components. Once the upgrade is complete, confirm everything is running as expected:
 
 ```bash
-aws eks describe-cluster --name --query "cluster.version"
+aws eks describe-cluster --name <cluster-name> --query "cluster.version"
 ```
 
 If everything looks good, your cluster will now be running a supported Kubernetes version. If not, be sure to check the AWS EKS logs.
@@ -140,8 +140,9 @@ WITH
 -- Retrieve RDS MySQL instances reaching EOL within the next 30 days
 SELECT
     r.account_id,
+    r.db_instance_identifier,
     r.engine,
-    r.major_engine_version,
+    extract(r.engine_version, '^[0-9]+[.][0-9]+') AS major_engine_version,
     e.eol_since AS "RDS end of standard support date",
     dateDiff('day', now_time, e.eol_since) AS days_until_standard_support_end,
     multiIf(
@@ -149,10 +150,10 @@ SELECT
         e.eol_since <= threshold, 'Upgrade soon',
         'Standard support active'
     ) AS support_status
-FROM aws_rds_engine_versions AS r
+FROM aws_rds_instances AS r
 INNER JOIN eol_data AS e
     ON lower(r.engine) = replace(e.product, 'amazon-rds-', '')
-    AND lower(r.major_engine_version) = e.cycle
+    AND extract(r.engine_version, '^[0-9]+[.][0-9]+') = e.cycle
 WHERE e.eol_since <= threshold;
 ```
 
@@ -186,8 +187,8 @@ SELECT
     eol.eol,
     eol.eol_since
 FROM aws_lambda_functions AS f
-JOIN aws_lambda_function_versions AS fv ON f.arn = fv.function_arn
-JOIN endoflife_products AS eol ON fv.runtime = eol.cycle
+JOIN aws_lambda_function_versions AS fv ON fv._cq_parent_id = f._cq_id
+JOIN endoflife_products AS eol ON replaceOne(fv.runtime, 'python', '') = eol.cycle
 WHERE eol.product LIKE '%python%'
   AND eol.support_until < six_months_ahead
   AND eol.support_until >= current_time;
@@ -195,10 +196,10 @@ WHERE eol.product LIKE '%python%'
 
 If your Lambda functions are running Python 3.8 or older, AWS won't support them anymore. Here's what you need to do:
 
-1. Go to the AWS Lambda console, open your function, and change the runtime to Python 3.9 or later. If you prefer the CLI, run:
+1. Go to the AWS Lambda console, open your function, and change the runtime to Python 3.12 or later. If you prefer the CLI, run:
 
    ```bash
-   aws lambda update-function-configuration --function-name <function-name> --runtime python3.9
+   aws lambda update-function-configuration --function-name <function-name> --runtime python3.14
    ```
 
 2. Some of your libraries might be outdated, so you'll need to update your dependencies. Run:
@@ -309,7 +310,10 @@ SELECT
     af.function_name
 FROM all_functions AS af
 LEFT JOIN eol_data AS ed
-    ON af.runtime = ed.cycle
+    -- Normalize both sides to e.g. python312 or node20 (Lambda: python3.12, nodejs20.x;
+    -- Azure: python|3.12, node|20-lts; GCP: python312, nodejs20)
+    ON replaceRegexpAll(replaceRegexpOne(af.runtime, '^nodejs', 'node'), '[^a-z0-9]|x$|lts$', '')
+     = replaceRegexpAll(replaceRegexpOne(concat(ed.product, ed.cycle), '^nodejs', 'node'), '[^a-z0-9]', '')
 ORDER BY status, cloud_provider;
 ```
 

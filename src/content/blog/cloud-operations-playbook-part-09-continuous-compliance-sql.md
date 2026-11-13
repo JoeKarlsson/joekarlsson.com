@@ -42,11 +42,11 @@ SOC 2 is the framework that keeps most SaaS companies up at night. Its Trust Ser
 This control requires that you manage who can access your systems and how. In AWS, that means IAM users, roles, MFA status, and access key hygiene. The SQL version:
 
 ```sql
-SELECT account_id, user_name, arn, password_last_used,
+SELECT account_id, "user" AS user_name, arn, password_last_used,
        access_key_1_last_used_date, access_key_2_last_used_date
-FROM aws_iam_users
+FROM aws_iam_credential_reports
 WHERE mfa_active IS NOT TRUE
-  AND password_enabled IS TRUE;
+  AND password_enabled = 'true';
 ```
 
 Run this daily. If the result set is empty, CC6.1's MFA requirement is met. If it's not empty, you know exactly which users need attention. The query result, timestamped and stored, IS your evidence.
@@ -57,11 +57,12 @@ This control is about restricting access at the network level. Security groups, 
 
 ```sql
 SELECT sg.account_id, sg.group_id, sg.group_name,
-       p.ip_protocol, p.from_port, p.to_port, p.cidr_ip
+       p.ip_protocol, p.from_port, p.to_port, p.cidr_ipv4
 FROM aws_ec2_security_groups sg
-JOIN aws_ec2_security_group_ip_permissions p
-  ON sg._cq_id = p._cq_parent_id
-WHERE p.cidr_ip = '0.0.0.0/0'
+JOIN aws_ec2_security_group_rules p
+  ON p.group_id = sg.group_id
+WHERE p.is_egress IS NOT TRUE
+  AND p.cidr_ipv4 = '0.0.0.0/0'
   AND p.ip_protocol != '-1';
 ```
 
@@ -72,10 +73,11 @@ Any security group allowing inbound access from anywhere shows up. Map this to C
 This control covers how data moves in and out of your environment. S3 bucket policies, CloudTrail logging, and data transfer configurations:
 
 ```sql
-SELECT account_id, name, arn, region
-FROM aws_s3_buckets
-WHERE logging_target_bucket IS NULL
-   OR logging_target_bucket = '';
+SELECT b.account_id, b.name, b.arn, b.region
+FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_loggings l ON l.bucket_arn = b.arn
+WHERE l.logging_enabled->>'TargetBucket' IS NULL
+   OR l.logging_enabled->>'TargetBucket' = '';
 ```
 
 Buckets without access logging can't prove what data moved where. This query catches them.
@@ -86,11 +88,11 @@ SOC 2 requires that you actively monitor your environment for anomalies. That me
 
 ```sql
 SELECT account_id
-FROM aws_accounts
+FROM aws_iam_accounts
 WHERE account_id NOT IN (
   SELECT DISTINCT account_id
   FROM aws_cloudtrail_trails
-  WHERE is_logging IS TRUE
+  WHERE (status->>'IsLogging')::boolean IS TRUE
 );
 ```
 
@@ -105,9 +107,9 @@ CIS Benchmarks are more prescriptive than SOC 2. Each benchmark control has a sp
 The root account is the skeleton key to your AWS environment. MFA is non-negotiable:
 
 ```sql
-SELECT account_id, user_name, arn
-FROM aws_iam_users
-WHERE user_name = 'root'
+SELECT account_id, "user" AS user_name, arn
+FROM aws_iam_credential_reports
+WHERE "user" = '<root_account>'
   AND mfa_active IS NOT TRUE;
 ```
 
@@ -118,9 +120,10 @@ If this query returns rows, you have a critical finding.
 Every S3 bucket should have server-side encryption configured:
 
 ```sql
-SELECT account_id, name, arn, region
-FROM aws_s3_buckets
-WHERE server_side_encryption_configuration IS NULL;
+SELECT b.account_id, b.name, b.arn, b.region
+FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_encryption_rules e ON e.bucket_arn = b.arn
+WHERE e.bucket_arn IS NULL;
 ```
 
 Unencrypted buckets in 2026 are an automatic audit finding. This query finds them in seconds across every account.
@@ -131,12 +134,12 @@ Multi-region CloudTrail is the foundation of audit logging. Without it, you have
 
 ```sql
 SELECT account_id
-FROM aws_accounts
+FROM aws_iam_accounts
 WHERE account_id NOT IN (
   SELECT DISTINCT account_id
   FROM aws_cloudtrail_trails
   WHERE is_multi_region_trail IS TRUE
-    AND is_logging IS TRUE
+    AND (status->>'IsLogging')::boolean IS TRUE
 );
 ```
 

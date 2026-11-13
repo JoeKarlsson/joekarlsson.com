@@ -45,12 +45,13 @@ Let's get concrete. Here are five [security policy](https://www.cloudquery.io/pr
 This is the check every CSPM tool runs first. S3 bucket misconfigurations are behind some of the most high-profile cloud data breaches. In SQL, it's straightforward:
 
 ```sql
-SELECT account_id, region, name, arn
-FROM aws_s3_buckets
-WHERE block_public_acls IS NOT TRUE
-   OR block_public_policy IS NOT TRUE
-   OR ignore_public_acls IS NOT TRUE
-   OR restrict_public_buckets IS NOT TRUE;
+SELECT b.account_id, b.region, b.name, b.arn
+FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_public_access_blocks pab ON pab.bucket_arn = b.arn
+WHERE (pab.public_access_block_configuration->>'BlockPublicAcls')::boolean IS NOT TRUE
+   OR (pab.public_access_block_configuration->>'BlockPublicPolicy')::boolean IS NOT TRUE
+   OR (pab.public_access_block_configuration->>'IgnorePublicAcls')::boolean IS NOT TRUE
+   OR (pab.public_access_block_configuration->>'RestrictPublicBuckets')::boolean IS NOT TRUE;
 ```
 
 Four conditions. If any of the four public access block settings isn't enabled, the bucket shows up. You can read this query and immediately understand what it checks. Try saying the same about a Rego policy that does the same thing.
@@ -72,10 +73,10 @@ Two lines of WHERE clause. The query returns the account, region, volume ID, cur
 MFA for console users is non-negotiable in any security framework. But finding the gaps usually means clicking through the IAM console account by account:
 
 ```sql
-SELECT account_id, user_name, arn, password_last_used
-FROM aws_iam_users
+SELECT account_id, "user" AS user_name, arn, password_last_used
+FROM aws_iam_credential_reports
 WHERE mfa_active IS NOT TRUE
-  AND password_enabled IS TRUE;
+  AND password_enabled = 'true';
 ```
 
 This query specifically filters for users who have console passwords but no MFA. It skips service accounts that only use API keys, which is the kind of nuance that pre-built CSPM rules sometimes miss. The `password_last_used` column helps you prioritize: a user who logged in yesterday is more urgent than one who hasn't logged in for six months.
@@ -85,14 +86,15 @@ This query specifically filters for users who have console passwords but no MFA.
 Open SSH to the world is one of the most common findings in any cloud security assessment. The SQL version handles the join between security groups and their permission rules:
 
 ```sql
-SELECT sg.account_id, sg.group_id, sg.group_name, p.cidr_ip
+SELECT sg.account_id, sg.group_id, sg.group_name, p.cidr_ipv4
 FROM aws_ec2_security_groups sg
-JOIN aws_ec2_security_group_ip_permissions p
-  ON sg._cq_id = p._cq_parent_id
-WHERE p.ip_protocol = 'tcp'
+JOIN aws_ec2_security_group_rules p
+  ON p.group_id = sg.group_id
+WHERE p.is_egress IS NOT TRUE
+  AND p.ip_protocol = 'tcp'
   AND p.from_port <= 22
   AND p.to_port >= 22
-  AND p.cidr_ip = '0.0.0.0/0';
+  AND p.cidr_ipv4 = '0.0.0.0/0';
 ```
 
 The port range check (`from_port <= 22 AND to_port >= 22`) catches both rules that specifically open port 22 and overly broad rules that open a range including port 22. That's a subtlety many quick-and-dirty scripts miss.
@@ -103,12 +105,16 @@ This is where SQL-based CSPM pulls ahead. Traditional tools run separate rule se
 
 ```sql
 -- AWS public buckets
-SELECT 'AWS' as provider, name as resource, region
-FROM aws_s3_buckets WHERE block_public_acls IS NOT TRUE
+SELECT 'AWS' as provider, b.name as resource, b.region
+FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_public_access_blocks pab ON pab.bucket_arn = b.arn
+WHERE (pab.public_access_block_configuration->>'BlockPublicAcls')::boolean IS NOT TRUE
 UNION ALL
 -- GCP public buckets
-SELECT 'GCP' as provider, name as resource, location as region
-FROM gcp_storage_buckets WHERE iam_policy::text LIKE '%allUsers%';
+SELECT 'GCP' as provider, b.name as resource, b.location as region
+FROM gcp_storage_buckets b
+JOIN gcp_storage_bucket_policies p ON p.bucket_name = b.name
+WHERE p.bindings::text LIKE '%allUsers%';
 ```
 
 One query returns both providers in the same result set. Try doing that with a vendor-specific CSPM tool and you'll be switching between two different consoles, exporting two different CSVs, and manually combining results in a spreadsheet.

@@ -12,12 +12,12 @@ heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumb-374c
 heroAlt: 'A window left open in a bright yellow wall'
 canonicalUrl: 'https://www.cloudquery.io/blog/detect-public-databases-across-aws-azure-gcp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-tldr: 'This tutorial walks through building a CloudQuery Policy that detects publicly accessible databases across AWS, Azure, and GCP. You will get copy-paste ClickHouse SQL covering 9 database types across 3 cloud providers, screenshots of the full setup process, and a breakdown of how violation details and related resource views work.'
+tldr: 'This tutorial walks through building a CloudQuery Policy that detects publicly accessible databases across AWS, Azure, and GCP. You will get copy-paste ClickHouse SQL covering 7 database types across 3 cloud providers, screenshots of the full setup process, and a breakdown of how violation details and related resource views work.'
 ---
 
 CloudQuery Policies let you write ClickHouse SQL queries that flag infrastructure violations across all your cloud providers. We [recently launched this feature](https://www.cloudquery.io/blog/introducing-cloudquery-platform-policies), and this post shows how to put it to work.
 
-We're going to build a multi-cloud database security policy that detects databases with public network access enabled. The policy covers AWS RDS, seven Azure database types (Redis, SQL Server, PostgreSQL, MySQL, and three Cosmos DB variants), and GCP Cloud SQL. By the end, you'll have a working policy you can paste directly into your own CloudQuery Platform instance.
+We're going to build a multi-cloud database security policy that detects databases with public network access enabled. The policy covers AWS RDS, five Azure database types (Redis, SQL Server, PostgreSQL, MySQL, and Cosmos DB), and GCP Cloud SQL. By the end, you'll have a working policy you can paste directly into your own CloudQuery Platform instance.
 
 ![Walkthrough demo showing how to create, configure, and monitor policies in the CloudQuery Platform](/images/blog/introducing-cloudquery-platform-policies/policies-demo.gif)
 
@@ -29,7 +29,7 @@ We're going to build a multi-cloud database security policy that detects databas
 
 ## How Policies Work
 
-Policies are ClickHouse SQL queries that run against CloudQuery's normalized tables. Your sync jobs populate tables like [`aws_rds_db_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/tables/aws_rds_db_instances), [`azure_redis_caches`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_redis_caches), and [`gcp_sql_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/tables/gcp_sql_instances). Policies query these tables on a schedule and flag any rows matching your violation criteria.
+Policies are ClickHouse SQL queries that run against CloudQuery's normalized tables. Your sync jobs populate tables like [`aws_rds_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/tables/aws_rds_instances), [`azure_redis_caches`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_redis_caches), and [`gcp_sql_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/tables/gcp_sql_instances). Policies query these tables on a schedule and flag any rows matching your violation criteria.
 
 Policies are detective controls. They don't block deploys or scan IaC; they check what's actually running in your cloud right now, including resources created through the console, by third-party tools, or by IaC that's since drifted.
 
@@ -67,7 +67,7 @@ Let's start with AWS since it has the simplest pattern. [AWS RDS](https://docs.a
 ```sql
 WITH resource_type_labels AS (
   SELECT resource_type_label, resource_type FROM cloud_assets
-  WHERE resource_type = 'aws_rds_db_instances'
+  WHERE resource_type = 'aws_rds_instances'
   LIMIT 1
 ),
 aws_rds_public AS (
@@ -77,9 +77,9 @@ aws_rds_public AS (
       as subscription,
     _cq_region as region,
     _cq_name as name,
-    'aws_rds_db_instances' as resource_type,
+    'aws_rds_instances' as resource_type,
     tags as tags
-  FROM aws_rds_db_instances
+  FROM aws_rds_instances
   WHERE publicly_accessible = 1
     AND db_instance_status = 'available'
 )
@@ -98,7 +98,7 @@ LEFT JOIN resource_type_labels l ON a.resource_type = l.resource_type
 
 Here's what each part does:
 
-1. **`resource_type_labels` CTE**: Fetches a human-readable label from the `cloud_assets` metadata table. This gives you "RDS DB Instance" instead of `aws_rds_db_instances` in the violation list
+1. **`resource_type_labels` CTE**: Fetches a human-readable label from the `cloud_assets` metadata table. This gives you "RDS DB Instance" instead of `aws_rds_instances` in the violation list
 2. **`aws_rds_public` CTE**: Filters to instances where `publicly_accessible = 1` and the instance is currently running (`db_instance_status = 'available'`). The `coalesce(nullif(...))` pattern handles accounts that have a display name vs. an account ID
 3. **Final SELECT**: Joins the label, standardizes output columns, and builds a `search_string` for the Policies UI search and filter
 
@@ -124,12 +124,12 @@ redis_caches AS (
 )
 ```
 
-The same `JSONExtractString` pattern works for most Azure database types. The one exception is [`azure_cosmos_sql_databases`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_cosmos_sql_databases), which uses a `boolean` field (`enablePublicIpAccess`) instead of a string, so it needs `JSONExtractBool`:
+The same `JSONExtractString` pattern works for most Azure database types. The one exception is Cosmos DB, where public access is set on the account rather than on each database, so the check reads [`azure_cosmos_database_accounts`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_cosmos_database_accounts). An account with `publicNetworkAccess` set to `Enabled`, no IP rules, and the virtual network filter turned off accepts connections from any network:
 
 ```sql
-WHERE JSONExtractBool(
-  coalesce(properties, '{}'), 'enablePublicIpAccess'
-) = 1
+WHERE JSONExtractString(coalesce(properties, '{}'), 'publicNetworkAccess') = 'Enabled'
+  AND JSONLength(coalesce(properties, '{}'), 'ipRules') = 0
+  AND NOT JSONExtractBool(coalesce(properties, '{}'), 'isVirtualNetworkFilterEnabled')
 ```
 
 For [`azure_sql_servers`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_sql_servers) and [`azure_postgresql_servers`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_postgresql_servers), there's an additional check against firewall rules. A server might have `publicNetworkAccess` disabled but still have overly permissive firewall rules:
@@ -158,7 +158,7 @@ sql_servers AS (
 
 This catches servers where either public access is enabled OR a firewall rule has overly permissive IP ranges. Adjust the `BETWEEN` bounds to match the IP range encoding in your environment.
 
-The full Azure portion of the policy repeats this pattern across all seven database types, joined with `UNION ALL`. You'll find the complete query in the [appendix](#appendix-the-complete-multi-cloud-policy).
+The full Azure portion of the policy repeats this pattern across all five database types, joined with `UNION ALL`. You'll find the complete query in the [appendix](#appendix-the-complete-multi-cloud-policy).
 
 ### Adding GCP Cloud SQL
 
@@ -191,7 +191,7 @@ The `JSONExtractRaw(settings, 'ipConfiguration')` call extracts the nested `ipCo
 
 To create a multi-cloud policy, combine all the individual checks with `UNION ALL`. Each block follows the same pattern, the same output columns, and gets merged into a single result set. The Policies dashboard then shows all violations together regardless of provider.
 
-**Test before you save**: Use the SQL Console in CloudQuery Platform to run your query first. Paste it in, execute it, and verify you see the violations you expect. If the result set is empty and you know you have public databases, check that your sync jobs are populating the right source tables. You can verify by running `SELECT count(*) FROM aws_rds_db_instances` (or the relevant table) to confirm data is present.
+**Test before you save**: Use the SQL Console in CloudQuery Platform to run your query first. Paste it in, execute it, and verify you see the violations you expect. If the result set is empty and you know you have public databases, check that your sync jobs are populating the right source tables. You can verify by running `SELECT count(*) FROM aws_rds_instances` (or the relevant table) to confirm data is present.
 
 ## Step 3: Configure Alerts
 
@@ -300,23 +300,21 @@ CloudQuery supports [70+ source integrations](https://www.cloudquery.io/hub). If
 
 Every CloudQuery table this policy queries and what property it checks. You'll need these tables synced for the policy to return results.
 
-| Provider | Database Type                                        | CloudQuery Table                                                                                                                                 | Public Access Check                                                 |
-| -------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| AWS      | RDS (MySQL, PostgreSQL, MariaDB, Oracle, SQL Server) | [`aws_rds_db_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/tables/aws_rds_db_instances)                         | `publicly_accessible = 1`                                           |
-| Azure    | Redis Cache                                          | [`azure_redis_caches`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_redis_caches)                           | `properties.publicNetworkAccess = 'Enabled'`                        |
-| Azure    | SQL Server                                           | [`azure_sql_servers`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_sql_servers)                             | `properties.publicNetworkAccess = 'Enabled'` OR open firewall rules |
-| Azure    | PostgreSQL                                           | [`azure_postgresql_servers`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_postgresql_servers)               | `properties.publicNetworkAccess = 'Enabled'` OR open firewall rules |
-| Azure    | MySQL                                                | [`azure_mysql_servers`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_mysql_servers)                         | `properties.publicNetworkAccess = 'Enabled'`                        |
-| Azure    | Cosmos DB (SQL)                                      | [`azure_cosmos_sql_databases`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_cosmos_sql_databases)           | `properties.enablePublicIpAccess = true`                            |
-| Azure    | Cosmos DB (Cassandra)                                | [`azure_cosmos_cassandra_clusters`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_cosmos_cassandra_clusters) | `properties.publicNetworkAccess = 'Enabled'`                        |
-| Azure    | Cosmos DB (MongoDB)                                  | [`azure_cosmos_mongo_db_databases`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_cosmos_mongo_db_databases) | `properties.publicNetworkAccess = 'Enabled'`                        |
-| GCP      | Cloud SQL (MySQL, PostgreSQL)                        | [`gcp_sql_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/tables/gcp_sql_instances)                               | `settings.ipConfiguration.ipv4Enabled = true`                       |
+| Provider | Database Type                                        | CloudQuery Table                                                                                                                               | Public Access Check                                                 |
+| -------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| AWS      | RDS (MySQL, PostgreSQL, MariaDB, Oracle, SQL Server) | [`aws_rds_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/tables/aws_rds_instances)                             | `publicly_accessible = 1`                                           |
+| Azure    | Redis Cache                                          | [`azure_redis_caches`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_redis_caches)                         | `properties.publicNetworkAccess = 'Enabled'`                        |
+| Azure    | SQL Server                                           | [`azure_sql_servers`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_sql_servers)                           | `properties.publicNetworkAccess = 'Enabled'` OR open firewall rules |
+| Azure    | PostgreSQL                                           | [`azure_postgresql_servers`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_postgresql_servers)             | `properties.publicNetworkAccess = 'Enabled'` OR open firewall rules |
+| Azure    | MySQL                                                | [`azure_mysql_servers`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_mysql_servers)                       | `properties.publicNetworkAccess = 'Enabled'`                        |
+| Azure    | Cosmos DB (all APIs)                                 | [`azure_cosmos_database_accounts`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_cosmos_database_accounts) | `publicNetworkAccess = 'Enabled'`, no `ipRules`, no VNet filter     |
+| GCP      | Cloud SQL (MySQL, PostgreSQL)                        | [`gcp_sql_instances`](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/tables/gcp_sql_instances)                             | `settings.ipConfiguration.ipv4Enabled = true`                       |
 
 The Azure SQL Server and PostgreSQL checks also query their firewall rule tables ([`azure_sql_server_firewall_rules`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_sql_server_firewall_rules) and [`azure_postgresql_server_firewall_rules`](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/tables/azure_postgresql_server_firewall_rules)) to catch overly permissive IP ranges.
 
 ## Appendix: The Complete Multi-Cloud Policy
 
-Here's the full policy query covering AWS RDS, Azure (Redis, SQL Server, PostgreSQL, MySQL, Cosmos DB variants), and GCP Cloud SQL. Copy this into your policy's rule logic:
+Here's the full policy query covering AWS RDS, Azure (Redis, SQL Server, PostgreSQL, MySQL, Cosmos DB), and GCP Cloud SQL. Copy this into your policy's rule logic:
 
 > **Note:** This query only returns results for database types you're actively syncing in CloudQuery. If you're not syncing GCP, the GCP blocks won't return results and won't cause errors. Remove any blocks for providers you don't use to keep the query clean.
 
@@ -324,7 +322,7 @@ Here's the full policy query covering AWS RDS, Azure (Redis, SQL Server, Postgre
 -- AWS RDS Instances
 WITH resource_type_labels AS (
   SELECT resource_type_label, resource_type FROM cloud_assets
-  WHERE resource_type = 'aws_rds_db_instances'
+  WHERE resource_type = 'aws_rds_instances'
   LIMIT 1
 ),
 aws_rds_public AS (
@@ -333,9 +331,9 @@ aws_rds_public AS (
     coalesce(nullif(_cq_account_name, ''), _cq_account) as subscription,
     _cq_region as region,
     _cq_name as name,
-    'aws_rds_db_instances' as resource_type,
+    'aws_rds_instances' as resource_type,
     tags as tags
-  FROM aws_rds_db_instances
+  FROM aws_rds_instances
   WHERE publicly_accessible = 1
     AND db_instance_status = 'available'
 )
@@ -493,53 +491,24 @@ LEFT JOIN resource_type_labels l ON m.resource_type = l.resource_type
 
 UNION ALL
 
--- Azure Cosmos SQL Databases
+-- Azure Cosmos DB Accounts (all APIs: NoSQL, MongoDB, Cassandra, Gremlin, Table)
 WITH resource_type_labels AS (
   SELECT resource_type_label, resource_type FROM cloud_assets
-  WHERE resource_type = 'azure_cosmos_sql_databases'
+  WHERE resource_type = 'azure_cosmos_database_accounts'
   LIMIT 1
 ),
-cosmos_sql_databases AS (
+cosmos_database_accounts AS (
   SELECT
     _cq_platform_id,
     coalesce(nullif(_cq_account_name, ''), _cq_account) as subscription,
     _cq_region as region,
     _cq_name as name,
-    'azure_cosmos_sql_databases' as resource_type,
+    'azure_cosmos_database_accounts' as resource_type,
     tags as tags
-  FROM azure_cosmos_sql_databases
-  WHERE JSONExtractBool(coalesce(properties, '{}'), 'enablePublicIpAccess') = 1
-)
-SELECT _cq_platform_id, subscription, region, name, tags,
-  l.resource_type_label as database_type,
-  lower(concat(
-    coalesce(subscription, ''),
-    coalesce(region, ''),
-    coalesce(name, ''),
-    coalesce(database_type, ''),
-    coalesce(tags, '')
-  )) as search_string
-FROM cosmos_sql_databases s
-LEFT JOIN resource_type_labels l ON s.resource_type = l.resource_type
-
-UNION ALL
-
--- Azure Cosmos Cassandra Clusters
-WITH resource_type_labels AS (
-  SELECT resource_type_label, resource_type FROM cloud_assets
-  WHERE resource_type = 'azure_cosmos_cassandra_clusters'
-  LIMIT 1
-),
-cosmos_cassandra_clusters AS (
-  SELECT
-    _cq_platform_id,
-    coalesce(nullif(_cq_account_name, ''), _cq_account) as subscription,
-    _cq_region as region,
-    _cq_name as name,
-    'azure_cosmos_cassandra_clusters' as resource_type,
-    tags as tags
-  FROM azure_cosmos_cassandra_clusters
+  FROM azure_cosmos_database_accounts
   WHERE JSONExtractString(coalesce(properties, '{}'), 'publicNetworkAccess') = 'Enabled'
+    AND JSONLength(coalesce(properties, '{}'), 'ipRules') = 0
+    AND NOT JSONExtractBool(coalesce(properties, '{}'), 'isVirtualNetworkFilterEnabled')
 )
 SELECT _cq_platform_id, subscription, region, name, tags,
   l.resource_type_label as database_type,
@@ -550,39 +519,8 @@ SELECT _cq_platform_id, subscription, region, name, tags,
     coalesce(database_type, ''),
     coalesce(tags, '')
   )) as search_string
-FROM cosmos_cassandra_clusters c
+FROM cosmos_database_accounts c
 LEFT JOIN resource_type_labels l ON c.resource_type = l.resource_type
-
-UNION ALL
-
--- Azure Cosmos MongoDB Databases
-WITH resource_type_labels AS (
-  SELECT resource_type_label, resource_type FROM cloud_assets
-  WHERE resource_type = 'azure_cosmos_mongo_db_databases'
-  LIMIT 1
-),
-cosmos_mongo_db_databases AS (
-  SELECT
-    _cq_platform_id,
-    coalesce(nullif(_cq_account_name, ''), _cq_account) as subscription,
-    _cq_region as region,
-    _cq_name as name,
-    'azure_cosmos_mongo_db_databases' as resource_type,
-    tags as tags
-  FROM azure_cosmos_mongo_db_databases
-  WHERE JSONExtractString(coalesce(properties, '{}'), 'publicNetworkAccess') = 'Enabled'
-)
-SELECT _cq_platform_id, subscription, region, name, tags,
-  l.resource_type_label as database_type,
-  lower(concat(
-    coalesce(subscription, ''),
-    coalesce(region, ''),
-    coalesce(name, ''),
-    coalesce(database_type, ''),
-    coalesce(tags, '')
-  )) as search_string
-FROM cosmos_mongo_db_databases m
-LEFT JOIN resource_type_labels l ON m.resource_type = l.resource_type
 
 UNION ALL
 

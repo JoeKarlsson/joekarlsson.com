@@ -94,7 +94,7 @@ SELECT
   subscription_id AS account,
   location AS location,
   name AS resource_id,
-  vm_size AS resource_type
+  properties->'hardwareProfile'->>'vmSize' AS resource_type
 FROM azure_compute_virtual_machines;
 ```
 

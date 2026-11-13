@@ -441,7 +441,7 @@ A [LanguageTool](https://languagetool.org/) server in my homelab handles grammar
 StylesPath = .vale/styles
 MinAlertLevel = warning
 
-Packages = https://github.com/Syntaf/vale-llm-slop/releases/latest/download/vale-llm-slop.zip, write-good
+Packages = https://github.com/Syntaf/vale-llm-slop/releases/latest/download/vale-llm-slop.zip, write-good, https://github.com/JoeKarlsson/vale-styles/releases/latest/download/vale-styles.zip
 
 [*.md]
 BasedOnStyles = JoeKarlsson, Slop, write-good

@@ -7,11 +7,11 @@ description: "Node client-server communication based on Ilya Grigorik's High-Per
 categories: ['Web Dev']
 heroImage: '/images/blog/complete-guide-node-client-server-communication/thumb-1d6d8b03.webp'
 heroAlt: 'Three browser transports side by side, XHR polling, server-sent events and WebSocket, each a client and a server with hand-drawn arrows between them'
-contentNotice: 'This post uses outdated Node.js patterns (CommonJS, deprecated util.puts()). Core concepts like WebSockets and SSE remain relevant, but use ES modules and the Fetch API in modern applications.'
+contentNotice: 'This post uses outdated Node.js patterns (CommonJS, `var`). Core concepts like WebSockets and SSE remain relevant, but use ES modules and the Fetch API in modern applications.'
 tldr: 'I implemented every major client-server communication method in Node.js - XHR, Server-Sent Events, WebSockets, and HTTP/2 - with working code examples and a breakdown of when to use each one.'
 ---
 
-> **Note:** This post was written in 2016. The core concepts of client-server communication (WebSockets, SSE, XHR) are still relevant, but the code examples use outdated patterns (CommonJS `require()`, `var`, deprecated `util.puts()`). For modern Node.js, use ES modules and the Fetch API.
+> **Note:** This post was written in 2016. The core concepts of client-server communication (WebSockets, SSE, XHR) are still relevant, but the code examples use outdated patterns (CommonJS `require()`, `var`). For modern Node.js, use ES modules and the Fetch API.
 
 After reading [High-Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html) by Ilya Grigorik, I was inspired to implement all of the client-server communication techniques outlined in his book in Node and JavaScript. This post covers the following forms of client-server connection:
 
@@ -65,7 +65,7 @@ wss.on('connection', (ws) => {
 		console.log(`received: ${message}`);
 	});
 
-	ws.on('end', () => {
+	ws.on('close', () => {
 		console.log('Connection ended...');
 	});
 
@@ -77,26 +77,25 @@ Here is the client.js of a WebSocket.
 
 ```javascript
 console.log('open: ');
-var ws = new WebSocket("ws://127.0.0.1:8081");
+var ws = new WebSocket('ws://127.0.0.1:8081');
 
 ws.onopen = function (event) {
-  console.log('Connection is open ...');
-  ws.send("Hello Server");
+	console.log('Connection is open ...');
+	ws.send('Hello Server');
 };
 
 ws.onerror = function (err) {
-  console.log('err: ', err);
-}
-
-ws.onmessage = function (event) {
-  console.log(event.data);
-  document.body.innerHTML += event.data + '
-';
+	console.log('err: ', err);
 };
 
-ws.onclose = function() {
-  console.log("Connection is closed...");
-}
+ws.onmessage = function (event) {
+	console.log(event.data);
+	document.body.innerHTML += event.data + '<br>';
+};
+
+ws.onclose = function () {
+	console.log('Connection is closed...');
+};
 ```
 
 ---
@@ -115,7 +114,6 @@ Here is the server.js of our Server-Sent Event, we will be sending out data to t
 'use strict';
 
 const http = require('http');
-const util = require('util');
 const fs = require('fs');
 
 http
@@ -160,11 +158,11 @@ const constructSSE = (res, id, data) => {
 };
 
 const debugHeaders = (req) => {
-	util.puts('URL: ' + req.url);
+	console.log('URL: ' + req.url);
 	for (let key in req.headers) {
-		util.puts(key + ': ' + req.headers[key]);
+		console.log(key + ': ' + req.headers[key]);
 	}
-	util.puts('\n\n');
+	console.log('\n\n');
 };
 ```
 
@@ -174,7 +172,7 @@ And here is the client.js which is referenced by the index.html on the client-si
 var source = new EventSource('/events');
 
 source.onmessage = function (e) {
-	document.body.innerHTML += e.data + '';
+	document.body.innerHTML += e.data + '<br>';
 };
 ```
 
@@ -208,18 +206,17 @@ app.listen(3000);
 Here is the javascript file linked to my index.html on the client-side. I am using the baked-in XHR methods as opposed to jQuery since I love to use vanilla JavaScript whenever possible.
 
 ```javascript
-'use strict'
+'use strict';
 
-function reqListener (data) {
-  document.body.innerHTML += this.responseText + '
-';
+function reqListener(data) {
+	document.body.innerHTML += this.responseText + '<br>';
 }
 
 setInterval(function () {
-  var oReq = new XMLHttpRequest();
-  oReq.addEventListener("load", reqListener);
-  oReq.open("GET", "/api");
-  oReq.send();
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener('load', reqListener);
+	oReq.open('GET', '/api');
+	oReq.send();
 }, 3000);
 ```
 

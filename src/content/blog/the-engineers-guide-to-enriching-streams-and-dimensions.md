@@ -84,8 +84,8 @@ SELECT
  snowflake_warehouse.product_name as Product,
  snowflake_warehouse.product_price as ValueUSD
 FROM kafka_stream
-JOIN snowflake_warehouse p on snowflake_warehouse.product_id = kafka_stream.transaction_product_id
-ORDER BY orderDate DESC
+JOIN snowflake_warehouse on snowflake_warehouse.product_id = kafka_stream.transaction_product_id
+ORDER BY kafka_stream.transaction_orderDate DESC
 LIMIT 100
 ```
 

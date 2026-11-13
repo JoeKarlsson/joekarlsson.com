@@ -97,8 +97,8 @@ docker run --name postgres_container \
 --env POSTGRES_PASSWORD=postgres \
 --env POSTGRES_DB=asset_inventory \
 --publish 5432:5432 \
---volume pgdata:/var/lib/postgresql/data \
-postgres
+--volume pgdata:/var/lib/postgresql \
+postgres:18
 ```
 
 This command will launch a PostgreSQL pre-configured container to store your cloud assets. The credentials are set to `postgres` for both the username and password, but you can adjust this as needed.
@@ -124,7 +124,7 @@ spec:
   name: aws
   path: cloudquery/aws
   registry: cloudquery
-  version: 'v28.1.0'
+  version: 'v35.9.0'
   tables: ['aws_s3_buckets']
   destinations: ['postgresql']
 ---
@@ -133,8 +133,10 @@ spec:
   name: 'postgresql'
   path: 'cloudquery/postgresql'
   registry: 'cloudquery'
-  version: 'v8.6.4'
+  version: 'v8.19.0'
   write_mode: 'overwrite-delete-stale'
+  spec:
+    connection_string: 'postgresql://postgres:postgres@localhost:5432/asset_inventory?sslmode=disable'
 ```
 
 This file tells CloudQuery to pull in AWS S3 buckets and store them in the PostgreSQL database running on localhost.
@@ -170,7 +172,7 @@ SELECT
 FROM
  aws_s3_buckets
 WHERE
- policy_status->>'isPublic' = 'true';
+ policy_status->>'IsPublic' = 'true';
 "
 ```
 

@@ -23,10 +23,12 @@ The [Git Source Integration](https://www.cloudquery.io/hub/plugins/source/cloudq
 Configure the Git source integration to sync Dockerfiles:
 
 ```yaml
-tables:
-  - git_files:
-      glob_patterns:
-        - '**/Dockerfile*'
+tables: ['git_files', 'git_repositories']
+spec:
+  table_options:
+    git_files:
+      - glob: '*Dockerfile*'
+        include_content: true
 ```
 
 This syncs all files matching the Dockerfile pattern from your repositories into the `git_files` table.
@@ -157,7 +159,7 @@ The `git_files` table includes commit metadata. Join with commit history to iden
 
 **Does this work with Dockerfiles in subdirectories?**
 
-Yes. The glob pattern `**/Dockerfile*` matches Dockerfiles at any directory depth, including `Dockerfile.prod`, `Dockerfile.dev`, and files in subdirectories like `docker/Dockerfile`.
+Yes. The glob pattern `*Dockerfile*` matches Dockerfiles at any directory depth, including `Dockerfile.prod`, `Dockerfile.dev`, and files in subdirectories like `docker/Dockerfile`.
 
 **How do I sync Dockerfiles from private repositories?**
 

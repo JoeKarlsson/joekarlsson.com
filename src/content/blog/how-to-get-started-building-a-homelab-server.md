@@ -241,7 +241,7 @@ Proxmox creates containers unprivileged by default, and an unprivileged containe
 First, update packages and install NFS support:
 
 ```bash
-sudo apt update && sudo apt install nfs-common -y
+apt update && apt install nfs-common -y
 ```
 
 Create a mount point:

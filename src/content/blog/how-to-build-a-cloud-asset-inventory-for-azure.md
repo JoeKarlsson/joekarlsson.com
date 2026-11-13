@@ -77,8 +77,8 @@ docker run --name postgres_container \
 --env POSTGRES_HOST=db \
 --env POSTGRES_DB=asset_inventory \
 --publish 5432:5432 \
---volume pgdata:/var/lib/postgresql/data \
-postgres
+--volume pgdata:/var/lib/postgresql \
+postgres:18
 ```
 
 This command will launch a PostgreSQL pre-configured container to store your cloud assets. The credentials are set to `postgres` for both the username and password, but you can adjust this as needed.
@@ -105,9 +105,9 @@ spec:
   name: 'azure'
   path: 'cloudquery/azure'
   registry: 'cloudquery'
-  version: 'v15.5.0'
+  version: 'v23.5.5'
   destinations: ['postgresql']
-  tables: ['azure_compute_virtual_machines']
+  tables: ['azure_compute_virtual_machines', 'azure_storage_accounts']
   spec:
 ---
 kind: destination
@@ -115,13 +115,13 @@ spec:
   name: 'postgresql'
   path: 'cloudquery/postgresql'
   registry: 'cloudquery'
-  version: 'v8.6.8'
+  version: 'v8.19.0'
   write_mode: 'overwrite-delete-stale'
   spec:
     connection_string: '${POSTGRESQL_CONNECTION_STRING}'
 ```
 
-This CloudQuery configuration file sets up a data source from Azure to extract your Azure virtual machines (the `azure_compute_virtual_machines` table). Add more tables to the `tables` list to pull other Azure services. The extracted data is then directed to a PostgreSQL database for storage.
+This CloudQuery configuration file sets up a data source from Azure to extract your Azure virtual machines and storage accounts (the `azure_compute_virtual_machines` and `azure_storage_accounts` tables). Add more tables to the `tables` list to pull other Azure services. The extracted data is then directed to a PostgreSQL database for storage.
 
 For the `spec>tables` - be sure to include all the assets you want to sync with your Cloud Asset Inventory.
 
@@ -148,8 +148,8 @@ cloudquery sync azure_to_postgresql.yaml
 Now you can connect to PostgreSQL and explore the data. For example, here's a query to check that your data synced correctly. This query finds all the storage accounts that are allowing non-HTTPS traffic:
 
 ```bash
-docker exec -it postgres_container psql -U postgres -c "
-SELECT * FROM azure_storage_accounts WHERE enable_https_traffic_only = false;
+docker exec -it postgres_container psql -U postgres -d asset_inventory -c "
+SELECT * FROM azure_storage_accounts WHERE (properties->>'supportsHttpsTrafficOnly')::boolean = false;
 "
 ```
 
@@ -188,11 +188,12 @@ To run dbt with Docker, you can use this Docker CLI command to set up the enviro
 docker run --platform linux/amd64 --name dbt_container \
   --env POSTGRES_USER=postgres \
   --env POSTGRES_PASSWORD=postgres \
-  --env POSTGRES_HOST=db \
+  --env POSTGRES_HOST=host.docker.internal \
   --env POSTGRES_DB=asset_inventory \
+  --add-host=host.docker.internal:host-gateway \
   --volume $(pwd)/cloudquery_transformation_azure-asset-inventory_vX.X.X:/usr/app \
   --volume $(pwd)/dbt-profiles.yml:/root/.dbt/profiles.yml \
-  ghcr.io/dbt-labs/dbt-postgres:1.8.1 run
+  ghcr.io/dbt-labs/dbt-postgres:1.9.0 run
 
 ```
 
@@ -254,7 +255,7 @@ spec:
   name: 'azure'
   path: 'cloudquery/azure'
   registry: 'cloudquery'
-  version: 'v13.3.2'
+  version: 'v23.5.5'
   destinations: ['postgresql']
   tables: ['*']
 ---
@@ -263,7 +264,7 @@ spec:
   name: 'postgresql'
   path: 'cloudquery/postgresql'
   registry: 'cloudquery'
-  version: 'v8.0.8'
+  version: 'v8.19.0'
   spec:
     connection_string: 'postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?sslmode=disable'
 ```

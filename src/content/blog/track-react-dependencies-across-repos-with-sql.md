@@ -23,10 +23,12 @@ The [Git Source Integration](https://www.cloudquery.io/hub/plugins/source/cloudq
 Configure the Git source integration to sync package.json files:
 
 ```yaml
-tables:
-  - git_files:
-      glob_patterns:
-        - '**/package.json'
+tables: ['git_files', 'git_repositories']
+spec:
+  table_options:
+    git_files:
+      - glob: '*package.json'
+        include_content: true
 ```
 
 This syncs all package.json files from your repositories into the `git_files` table, where you can parse JSON content with SQL.
@@ -94,7 +96,7 @@ Find repos using React 16:
 ```sql
 SELECT * FROM all_dependencies
 WHERE dependency_name = 'react'
-  AND dependency_version LIKE '16.%' OR dependency_version LIKE '^16.%' OR dependency_version LIKE '~16.%'
+  AND (dependency_version LIKE '16.%' OR dependency_version LIKE '^16.%' OR dependency_version LIKE '~16.%')
 ```
 
 Find repos that need React 18 upgrades:
@@ -178,11 +180,11 @@ The Git Source Integration is available on [CloudQuery Hub](https://www.cloudque
 
 **What if package.json is in a subdirectory?**
 
-The glob pattern `**/package.json` matches package.json at any directory depth. monorepos often have multiple package.json files in subdirectories, and the query returns all of them with their full paths.
+The glob pattern `*package.json` matches package.json at any directory depth. monorepos often have multiple package.json files in subdirectories, and the query returns all of them with their full paths.
 
 **Can I query other dependency managers like pom.xml or go.mod?**
 
-Yes. Add glob patterns for Maven (`**/pom.xml`), Go (`**/go.mod`), Python (`**/requirements.txt`), or any other dependency manifest. Parse each format using PostgreSQL XML functions, JSON functions, or string parsing.
+Yes. Add glob patterns for Maven (`*pom.xml`), Go (`*go.mod`), Python (`*requirements.txt`), or any other dependency manifest. Parse each format using PostgreSQL XML functions, JSON functions, or string parsing.
 
 **How do I handle version ranges like ^18.2.0?**
 

@@ -90,7 +90,7 @@ This downloads your plugin version (if not already cached) and writes JSON docum
 **Step 2:** Extract just the table names from that JSON:
 
 ```bash
-cat cq-docs/aws/__tables.json | jq -r '[.. | objects | select(has("name") and has("relations")) | .name] | sort'
+cat cq-docs/aws/__tables.json | jq -r '[.. | objects | select(has("name") and has("relations")) | .name] | sort | .[]'
 ```
 
 The `jq` query traverses the nested JSON structure and pulls out every object that has both a `name` and `relations` field. That's how parent tables are structured in the output. The result is a sorted list of table names, one per line. If the JSON schema changes in a future CLI version, inspect the raw output with `cat cq-docs/aws/__tables.json | jq '.' | head -50` and adjust the query accordingly.
@@ -100,7 +100,7 @@ The `jq` query traverses the nested JSON structure and pulls out every object th
 ```bash
 cloudquery tables config.yml --filter spec --format json && \
   cat cq-docs/aws/__tables.json | \
-  jq -r '[.. | objects | select(has("name") and has("relations")) | .name] | sort'
+  jq -r '[.. | objects | select(has("name") and has("relations")) | .name] | sort | .[]'
 ```
 
 The output looks like this (abbreviated):
@@ -136,18 +136,18 @@ The `--filter spec` flag respects whatever `skip_tables` you already have in you
 If you're trying to diagnose a slow sync, the [`--tables-metrics-location` flag](https://www.cloudquery.io/docs/cli-reference/cloudquery_sync) on `cloudquery sync` writes per-table timing data to a file you can monitor in real time:
 
 ```bash
-cloudquery sync config.yml --tables-metrics-location ./metrics.json
+cloudquery sync config.yml --tables-metrics-location ./metrics.txt
 ```
 
 > **Note:** `--tables-metrics-location` is currently in Preview and requires plugins released on or after July 10, 2024. Check that your source plugins are up to date before using this flag.
 
-The output includes duration, row count, and error count per table. Sort by duration to find your bottlenecks:
+The output is a plain-text table with the duration, resource count, and error count per table, refreshed as the sync runs. Watch it to find your bottlenecks:
 
 ```bash
-cat metrics.json | jq 'sort_by(.duration_ms) | reverse | .[0:10]'
+watch cat metrics.txt
 ```
 
-Tables at the top of that list are your candidates for either explicit exclusion (if you don't need them) or skip rules. The [AWS plugin documentation](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs) has a dedicated "Skip Tables" section with a recommended list of commonly skipped tables and the rationale for each.
+Tables with the longest durations are your candidates for either explicit exclusion (if you don't need them) or skip rules. The [AWS plugin documentation](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs) has a dedicated "Skip Tables" section with a recommended list of commonly skipped tables and the rationale for each.
 
 ## What If I Still Need Broad Table Coverage?
 
@@ -190,7 +190,7 @@ Whether you're setting up a new sync or reviewing an existing one, diffing your 
 ```bash
 # Save your current table list
 cloudquery tables config.yml --filter spec --format json
-cat cq-docs/aws/__tables.json | jq -r '[.. | objects | select(has("name") and has("relations")) | .name] | sort' > tables-snapshot.txt
+cat cq-docs/aws/__tables.json | jq -r '[.. | objects | select(has("name") and has("relations")) | .name] | sort | .[]' > tables-snapshot.txt
 ```
 
 If you're about to change your plugin version, run the same command afterward and diff the two files to see exactly what was added or removed. The [AWS plugin changelog](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/versions) explains what each new table covers.

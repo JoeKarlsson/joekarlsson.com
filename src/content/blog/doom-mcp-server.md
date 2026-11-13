@@ -72,7 +72,7 @@ When I ran this at the CData booth at [AGNTCon + MCPCon](https://events.linuxfou
 
 Claude doesn't get a keyboard. Doom runs at 35 tics a second, and a model takes a few seconds to decide anything, so a tool like "press W" would have the marine dead before Claude finished its first thought. Most projects I've seen where a large language model (LLM) plays a game go the other way, feeding the model screenshots and letting it press buttons, and that's hard and expensive. The 2025 [VideoGameBench](https://arxiv.org/abs/2505.18134) paper tested exactly that setup, screenshots in and key presses out, and the best model completed 0.48% of the benchmark. So I skipped the buttons and gave Claude verbs: whole actions like "walk to the Salesforce room" or "shoot this monster," with code underneath doing the steering.
 
-```bash
+```python
 TOOLS = {
     "look": (
         tool_look,
@@ -108,7 +108,7 @@ Claude never gets the game loop as code. The loop is the prompt, and every step 
 
 Here's the start of a real run, trimmed. Lines starting with > are Claude's tool calls, < are the results (written by tool\_go\_to, tool\_look, and tool\_attack), and the quotes are what Claude wrote between calls for the side panel:
 
-```bash
+```text
 > go_to {"place": "room 1"}
 < {
     "result":

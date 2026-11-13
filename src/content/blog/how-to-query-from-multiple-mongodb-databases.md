@@ -94,11 +94,11 @@ I want to make it clear that these data sources are still being stored in differ
 ```javascript
 // MongoDB Playground
 
-// Select the database to use. Database0 is the default name for a MongoDB Atlas Data Lake database. If you renamed your database, be sure to put in your data lake database name here.
-use('Database0');
+// Select the database to use. VirtualDatabase0 is the default name for a MongoDB Atlas Data Federation database. If you renamed your database, be sure to put in your virtual database name here.
+use('VirtualDatabase0');
 
-// We are connecting to `Collection0` since this is the default collection that MongoDB Atlas Data Lake calls your collection. If you renamed it, be sure to put in your data lake collection name here.
-db.Collection0.aggregate([
+// We are connecting to `VirtualCollection0` since this is the default collection that MongoDB Atlas Data Federation calls your collection. If you renamed it, be sure to put in your virtual collection name here.
+db.VirtualCollection0.aggregate([
 	// In the first stage of our aggregation pipeline, we extract and normalize the dataset to only extract zip code data from our dataset.
 	{
 		$project: {

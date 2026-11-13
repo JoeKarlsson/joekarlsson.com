@@ -131,8 +131,8 @@ SELECT
   tags->>'Name'        AS name,
   tags->>'Environment' AS environment
 FROM aws_ec2_instances
-WHERE state_name = 'running'
-  AND metadata_options_http_tokens != 'required'
+WHERE state->>'Name' = 'running'
+  AND metadata_options->>'HttpTokens' != 'required'
 ORDER BY account_id, region;
 ```
 

@@ -174,9 +174,10 @@ def apply_differential_privacy(
     """
     import random
 
-    # Add Laplace noise
+    # Add Laplace noise (the difference of two exponential draws is Laplace-distributed;
+    # the standard library has no random.laplace)
     scale = sensitivity / epsilon
-    noise = random.laplace(0, scale)
+    noise = random.expovariate(1 / scale) - random.expovariate(1 / scale)
 
     if isinstance(numeric_data, int):
         return max(0, int(numeric_data + noise))
@@ -232,7 +233,7 @@ Format your response as valid JSON with the following structure:
         if not all(field in resource_data for field in required_fields):
             raise PromptValidationError("Missing required resource data fields")
 
-        return SecurityAnalysisPrompts.SECURITY_ANALYSIS_TEMPLATE.format(
+        return SecurePromptTemplate.SECURITY_ANALYSIS_TEMPLATE.format(
             resource_type=resource_data.get('resource_type', 'unknown'),
             provider=resource_data.get('provider', 'unknown'),
             sanitized_config=json.dumps(resource_data, indent=2)
@@ -307,7 +308,7 @@ spec:
   name: 'aws'
   path: 'cloudquery/aws'
   registry: 'cloudquery'
-  version: 'v23.0.0'
+  version: 'v35.9.0'
   tables: ['*']
   destinations: ['postgresql']
 
@@ -317,7 +318,7 @@ spec:
   name: 'gcp'
   path: 'cloudquery/gcp'
   registry: 'cloudquery'
-  version: 'v13.0.0'
+  version: 'v24.4.0'
   tables: ['*']
   destinations: ['postgresql']
 
@@ -327,7 +328,7 @@ spec:
   name: 'postgresql'
   path: 'cloudquery/postgresql'
   registry: 'cloudquery'
-  version: 'v7.0.0'
+  version: 'v8.19.0'
   spec:
     connection_string: '${CQ_DSN}'
     pgx_log_level: 'info'
@@ -474,7 +475,7 @@ The demo runs components on a single machine, but production deployments need di
 
 ```yaml
 # Kubernetes deployment with zero-trust networking
-apiVersion: networking.istio.io/v1beta1
+apiVersion: security.istio.io/v1
 kind: AuthorizationPolicy
 metadata:
   name: ai-pipeline-authz
@@ -488,10 +489,10 @@ spec:
             methods: ['POST']
             paths: ['/analyze']
       when:
-        - key: source.certificate_fingerprint
-          values: ['sha256:trusted-cert-hash']
+        - key: source.principal
+          values: ['cluster.local/ns/ai-pipeline/sa/trusted-client']
 ---
-apiVersion: security.istio.io/v1beta1
+apiVersion: security.istio.io/v1
 kind: PeerAuthentication
 metadata:
   name: ai-pipeline-mtls
@@ -530,7 +531,7 @@ class ModelVersionManager:
         self.active_models[f"{model_id}:v{version}"] = {
             'model': new_model,
             'traffic_weight': traffic_percentage,
-            'deployed_at': datetime.utcnow(),
+            'deployed_at': datetime.now(timezone.utc),
             'performance_baseline': validation_score
         }
 

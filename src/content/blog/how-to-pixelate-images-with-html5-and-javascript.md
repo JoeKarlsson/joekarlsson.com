@@ -39,7 +39,7 @@ var img = new Image();
 
 // When the page first loads, call the first draw function listed below. This function draws the
 // initial demo image that you see when you first boot up the page.
-window.onload = firstDraw();
+window.onload = firstDraw;
 
 // Loads the initial image URL and calls the draw function
 function firstDraw() {

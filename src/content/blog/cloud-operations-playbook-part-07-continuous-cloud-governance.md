@@ -86,8 +86,9 @@ Here are real governance policies written as SQL queries.
 **Find public S3 buckets:**
 
 ```sql
-SELECT * FROM aws_s3_buckets
-WHERE block_public_acls IS NOT TRUE
+SELECT b.* FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_public_access_blocks pab ON pab.bucket_arn = b.arn
+WHERE (pab.public_access_block_configuration->>'BlockPublicAcls')::boolean IS NOT TRUE
 ```
 
 **Find unencrypted EBS volumes:**
@@ -100,7 +101,7 @@ WHERE encrypted IS NOT TRUE
 **Find IAM users without MFA enabled:**
 
 ```sql
-SELECT * FROM aws_iam_users
+SELECT * FROM aws_iam_credential_reports
 WHERE mfa_active IS NOT TRUE
 ```
 
@@ -108,12 +109,13 @@ WHERE mfa_active IS NOT TRUE
 
 ```sql
 SELECT * FROM aws_ec2_security_groups sg
-  JOIN aws_ec2_security_group_ip_permissions p
-    ON sg._cq_id = p._cq_parent_id
-WHERE p.ip_protocol = 'tcp'
+  JOIN aws_ec2_security_group_rules p
+    ON p.group_id = sg.group_id
+WHERE p.is_egress IS NOT TRUE
+  AND p.ip_protocol = 'tcp'
   AND p.from_port <= 22
   AND p.to_port >= 22
-  AND p.cidr_ip = '0.0.0.0/0'
+  AND p.cidr_ipv4 = '0.0.0.0/0'
 ```
 
 These aren't hypothetical examples. They're production-ready queries that run against real infrastructure data. The same query that blocks a non-compliant Terraform change can run on a schedule to catch drift, and can run against historical data to produce [compliance evidence](https://www.cloudquery.io/product/policies).

@@ -145,16 +145,18 @@ Note: All SQL examples use PostgreSQL syntax. Adapt for BigQuery or Snowflake as
 ```sql
 -- Cloud CMDB query: find public S3 buckets across all AWS accounts
 SELECT
-  account_id,
-  arn,
-  region,
-  tags->>'Owner' as owner,
-  tags->>'Environment' as environment
-FROM aws_s3_buckets
+  b.account_id,
+  b.arn,
+  b.region,
+  b.tags->>'Owner' as owner,
+  b.tags->>'Environment' as environment
+FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_public_access_blocks pab
+  ON pab.bucket_arn = b.arn
 WHERE
-  block_public_acls = false
-  OR block_public_policy = false
-ORDER BY account_id, region;
+  COALESCE((pab.public_access_block_configuration->>'BlockPublicAcls')::boolean, false) = false
+  OR COALESCE((pab.public_access_block_configuration->>'BlockPublicPolicy')::boolean, false) = false
+ORDER BY b.account_id, b.region;
 ```
 
 **Multi-account configuration:**
@@ -169,6 +171,8 @@ kind: source
 spec:
   name: aws
   path: cloudquery/aws
+  version: 'v35.9.0'
+  tables: ['aws_s3_buckets', 'aws_s3_bucket_public_access_blocks', 'aws_ec2_instances']
   destinations: ['postgresql']
   spec:
     # Assume role in all organization accounts
@@ -207,25 +211,35 @@ SQL Query Example:
 
 ```sql
 -- FinOps: unused RDS instances (join cloud CMDB + CloudWatch metrics)
+-- Needs aws_cloudwatch_metrics and aws_cloudwatch_metric_statistics synced
+-- (use_paid_apis: true, table_options for AWS/RDS DatabaseConnections with the Maximum statistic)
 WITH connection_metrics AS (
   SELECT
-    db_instance_identifier,
-    MAX(database_connections) as max_connections
-  FROM cloudwatch_rds_metrics
-  WHERE timestamp > NOW() - INTERVAL '7 days'
-  GROUP BY db_instance_identifier
+    m.account_id,
+    m.region,
+    d->>'Value' as db_instance_identifier,
+    MAX(s.maximum) as max_connections
+  FROM aws_cloudwatch_metrics m
+  CROSS JOIN LATERAL jsonb_array_elements(m.dimensions) AS d
+  JOIN aws_cloudwatch_metric_statistics s ON s._cq_parent_id = m._cq_id
+  WHERE m.namespace = 'AWS/RDS'
+    AND m.metric_name = 'DatabaseConnections'
+    AND d->>'Name' = 'DBInstanceIdentifier'
+    AND s.timestamp > NOW() - INTERVAL '7 days'
+  GROUP BY m.account_id, m.region, d->>'Value'
 )
 SELECT
   r.account_id,
   r.arn,
   r.db_instance_class,
-  r.estimated_monthly_cost,
   m.max_connections
 FROM aws_rds_instances r
 LEFT JOIN connection_metrics m
   ON r.db_instance_identifier = m.db_instance_identifier
+  AND r.account_id = m.account_id
+  AND r.region = m.region
 WHERE m.max_connections = 0 OR m.max_connections IS NULL
-ORDER BY r.estimated_monthly_cost DESC;
+ORDER BY r.account_id, r.db_instance_class;
 ```
 
 ### Developer Portals: Backstage, Port
@@ -248,26 +262,28 @@ Auditors ask: "Prove all S3 buckets had encryption enabled on October 15." Engin
 
 - SOC 2: 1-2 years | ISO 27001: 2-3 years | HIPAA: 6 years | Financial services: 7 years
 
-**Append-only tables:** Every sync writes new records with `sync_time` timestamps. Old records stick around. Simple to implement, easy to query specific points in time. Downside: storage grows forever (partition by month, archive old data to S3 Glacier).
+**Append-only tables:** Every sync writes new records with `_cq_sync_time` timestamps. Old records stick around. Simple to implement, easy to query specific points in time. Downside: storage grows forever (partition by month, archive old data to S3 Glacier).
 
 **Point-in-time queries:**
 
 ```sql
 -- Cloud CMDB: S3 bucket configuration as of October 15, 2024 at 3pm
--- Get most recent sync before target time for each bucket
+-- Get most recent sync before target time for each bucket (needs write_mode: append)
 WITH ranked_syncs AS (
   SELECT
-    account_id,
-    arn,
-    block_public_acls,
-    encryption_rules,
-    sync_time,
+    b.account_id,
+    b.arn,
+    pab.public_access_block_configuration->>'BlockPublicAcls' as block_public_acls,
+    e.apply_server_side_encryption_by_default as encryption_rules,
+    b._cq_sync_time,
     ROW_NUMBER() OVER (
-      PARTITION BY arn
-      ORDER BY sync_time DESC
+      PARTITION BY b.arn
+      ORDER BY b._cq_sync_time DESC
     ) as rn
-  FROM aws_s3_buckets
-  WHERE sync_time <= '2024-10-15 15:00:00'
+  FROM aws_s3_buckets b
+  LEFT JOIN aws_s3_bucket_public_access_blocks pab ON pab._cq_parent_id = b._cq_id
+  LEFT JOIN aws_s3_bucket_encryption_rules e ON e._cq_parent_id = b._cq_id
+  WHERE b._cq_sync_time <= '2024-10-15 15:00:00'
 )
 SELECT
   account_id,
@@ -321,8 +337,9 @@ Start with high-value queries:
 
 ```sql
 -- Public S3 buckets across all accounts
-SELECT account_id, arn FROM aws_s3_buckets
-WHERE block_public_acls = false;
+SELECT b.account_id, b.arn FROM aws_s3_buckets b
+LEFT JOIN aws_s3_bucket_public_access_blocks pab ON pab.bucket_arn = b.arn
+WHERE COALESCE((pab.public_access_block_configuration->>'BlockPublicAcls')::boolean, false) = false;
 
 -- Untagged EC2 instances
 SELECT instance_id, tags FROM aws_ec2_instances

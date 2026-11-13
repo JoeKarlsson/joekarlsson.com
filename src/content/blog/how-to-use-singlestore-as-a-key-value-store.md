@@ -93,49 +93,52 @@ I am going to be connecting to our cluster with Node.js, but feel free to use an
 
 For this project, we will be using [node-mysql2](https://github.com/sidorares/node-mysql2). The MySQL2 project is a continuation of [MySQL-Native](https://github.com/sidorares/nodejs-mysql-native). We’re using it because it makes working with MySQL-compatible databases and queries easy. If you want a complete tutorial on how to connect ​​to your application​​ using Node.js, be sure to check out my post on [how to use SingleStore and Node.js](https://www.singlestore.com/blog/how-to-use-singlestore-and-node-js/).
 
-To install mysql2, run the following in your terminal:
+To install mysql2 and let app.js use `import`, run the following in your terminal:
 
 ```bash
 npm install --save mysql2
+npm pkg set type=module
 ```
 
 Now, let’s edit our [main file](https://github.com/singlestore-labs/key-value-store-demo/blob/main/index.js).
 
 ```javascript
 //app.js
-import mysql from "mysql2/promise";
+import mysql from 'mysql2/promise';
 
 // TODO: adjust these connection details to match your SingleStore deployment:
 const HOST = 'PASTE YOUR SINGLESTORE ADMIN ENDPOINT HERE';
 const USER = 'admin';
 const PASSWORD = 'PASTE YOUR PASSWORD HERE';
-const DATABASE = "app";
+const DATABASE = 'app';
 
 async function singleStoreKeyValueStore(numberOfRequests) {
-   let conn;
+	let conn;
+	try {
+		// Use a pool to improve performance and concurrency
+		conn = await mysql.createPool({
+			host: HOST,
+			user: USER,
+			password: PASSWORD,
+			database: DATABASE,
+			waitForConnections: true,
+			connectionLimit: 10,
+			queueLimit: 0,
+		});
 
-   // Use a pool to improve performance and concurrency
-   conn = await mysql.createPool({
-     host: HOST,
-     user: USER,
-     password: PASSWORD,
-     database: DATABASE,
-     waitForConnections: true,
-     connectionLimit: 10,
-     queueLimit: 0,
-   });
-
-   // code will be added here.
-   singleStoreInsertData({conn, numberOfRequests });
-   singleStoreReadData({conn, numberOfRequests });
- } catch (err) {
-   console.err(err);
- } finally {
-   if (conn) {
-     await conn.end();
-   }
- }
+		// code will be added here.
+		await singleStoreInsertData({ conn, numberOfRequests });
+		await singleStoreReadData({ conn, numberOfRequests });
+	} catch (err) {
+		console.error(err);
+	} finally {
+		if (conn) {
+			await conn.end();
+		}
+	}
 }
+
+singleStoreKeyValueStore(1000);
 ```
 
 ### Insert data into our key-value store
@@ -143,6 +146,10 @@ async function singleStoreKeyValueStore(numberOfRequests) {
 The following [code snippets](https://github.com/singlestore-labs/key-value-store-demo/blob/main/index.js) allow us to run a simple performance test on your SingleStore key-value store. It shows you how to insert any number of keys into your database:
 
 ```javascript
+function intToString(num) {
+	return num.toString();
+}
+
 async function create({ conn, data }) {
 	try {
 		const [results] = await conn.query('INSERT INTO data VALUES ( ?, ? )', [data.id, data.value]);
@@ -164,7 +171,7 @@ async function singleStoreInsertData({ conn, numberOfRequests }) {
 		console.log(`SingleStore took ${end - start}ms to insert ${numberOfRequests} rows.`);
 		return end - start;
 	} catch (err) {
-		console.err(err);
+		console.error(err);
 	}
 }
 ```
@@ -176,6 +183,11 @@ Now that we’ve inserted data into our key-value store, let’s go and read the
 ```javascript
 function randomNumberBetween(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+async function readOne({ conn, id }) {
+	const [rows, fields] = await conn.execute('SELECT * FROM data WHERE id = ?', [id]);
+	return rows[0];
 }
 
 async function singleStoreReadData({ conn, numberOfRequests }) {
@@ -192,7 +204,7 @@ async function singleStoreReadData({ conn, numberOfRequests }) {
 		console.log(`SingleStore took ${end - start}ms to read ${numberOfRequests} rows.`);
 		return end - start;
 	} catch (err) {
-		console.err(err);
+		console.error(err);
 	}
 }
 ```

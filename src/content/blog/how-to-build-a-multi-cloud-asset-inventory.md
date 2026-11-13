@@ -68,11 +68,12 @@ docker run --name postgres_container \
   --env POSTGRES_HOST=db \
   --env POSTGRES_DB=asset_inventory \
   --publish 5432:5432 \
-  --volume pgdata:/var/lib/postgresql/data \
-  postgres
+  --volume pgdata:/var/lib/postgresql \
+  --detach \
+  postgres:18
 ```
 
-This command pulls the PostgreSQL image (version 15) from Docker Hub, sets the password for the `postgres` user to `postgres`, and runs the container in detached mode (-d). The -p 5432:5432 option maps the container's port 5432 (PostgreSQL's default port) to port 5432 on the host machine, allowing you to connect to the database locally.
+This command pulls the PostgreSQL image (version 18) from Docker Hub, sets the password for the `postgres` user to `postgres`, and runs the container in detached mode (-d). The -p 5432:5432 option maps the container's port 5432 (PostgreSQL's default port) to port 5432 on the host machine, allowing you to connect to the database locally.
 
 > **Note:** While PostgreSQL is used in this example, any compatible database can be used as the data store for your GCP Cloud Asset data. PostgreSQL is chosen for its robustness and widespread adoption, but you can configure your setup to use another database system if preferred.
 
@@ -86,7 +87,7 @@ spec:
   name: aws
   path: cloudquery/aws
   registry: cloudquery
-  version: 'v27.11.1'
+  version: 'v35.9.0'
   tables:
     - aws_apigateway_rest_api_stages
     - aws_apigatewayv2_api_stages
@@ -94,7 +95,7 @@ spec:
     - aws_autoscaling_groups
     - aws_codebuild_projects
     - aws_config_configuration_recorders
-    - aws_cloudwatch_alarms
+    - aws_cloudwatch_metric_alarms
     - aws_cloudtrail_trail_event_selectors
     - aws_cloudwatchlogs_metric_filters
     - aws_cloudfront_distributions
@@ -131,7 +132,7 @@ spec:
   name: gcp
   path: cloudquery/gcp
   registry: cloudquery
-  version: 'v15.10.2'
+  version: 'v24.4.0'
   tables:
     - gcp_storage_buckets
   destinations:
@@ -152,7 +153,7 @@ spec:
   name: azure
   path: cloudquery/azure
   registry: cloudquery
-  version: 'v14.5.0'
+  version: 'v23.5.5'
   destinations:
     - postgresql
   tables:
@@ -174,7 +175,7 @@ spec:
   name: postgresql
   path: cloudquery/postgresql
   registry: cloudquery
-  version: 'v8.3.1'
+  version: 'v8.19.0'
   spec:
     connection_string: 'postgresql://postgres:postgres@localhost:5432/asset_inventory?sslmode=disable'
 ```
@@ -185,14 +186,14 @@ And with that, the CloudQuery Config is ready. Now is a good time to test it out
 cloudquery sync ./config.yml
 ```
 
-Now, you can connect to PostgreSQL and explore the data. For example, you can use this as an example query to ensure your data has been correctly synced. This query finds all the storage accounts that are allowing non-HTTPS traffic:
+Now, you can connect to PostgreSQL and explore the data. For example, you can use this as an example query to ensure your data has been correctly synced. This query finds all the storage buckets that don't have uniform bucket-level access turned on:
 
 ```bash
 docker exec -it postgres_container /bin/bash
 
-psql -U postgres
+psql -U postgres -d asset_inventory
 
-SELECT * from GCP_storage_accounts where enable_https_traffic_only = false;
+SELECT name, location FROM gcp_storage_buckets WHERE (uniform_bucket_level_access->>'Enabled')::boolean IS NOT TRUE;
 ```
 
 ### How to use dbt to convert your cloud data into a cloud asset inventory
@@ -209,11 +210,11 @@ gcp_asset_inventory: # This should match the name in your dbt_project.yml
   outputs:
     dev:
       type: postgres
-      host: 127.0.0.1
+      host: host.docker.internal
       user: postgres
-      pass: pass
+      pass: postgres
       port: 5432
-      dbname: postgres
+      dbname: asset_inventory
       schema: public # default schema where dbt will build the models
       threads: 1 # number of threads to use when running in parallel
 
@@ -222,11 +223,11 @@ azure_asset_inventory: # This should match the name in your dbt_project.yml
   outputs:
     dev:
       type: postgres
-      host: 127.0.0.1
+      host: host.docker.internal
       user: postgres
-      pass: pass
+      pass: postgres
       port: 5432
-      dbname: postgres
+      dbname: asset_inventory
       schema: public # default schema where dbt will build the models
       threads: 1 # number of threads to use when running in parallel
 
@@ -235,11 +236,11 @@ aws_asset_inventory: # This should match the name in your dbt_project.yml
   outputs:
     dev:
       type: postgres
-      host: 127.0.0.1
+      host: host.docker.internal
       user: postgres
-      pass: pass
+      pass: postgres
       port: 5432
-      dbname: postgres
+      dbname: asset_inventory
       schema: public # default schema where dbt will build the models
       threads: 1 # number of threads to use when running in parallel
 ```
@@ -250,11 +251,12 @@ To run dbt with Docker, you can use this Docker CLI command to set up the enviro
 docker run --platform linux/amd64 --name dbt_container \
   --env POSTGRES_USER=postgres \
   --env POSTGRES_PASSWORD=postgres \
-  --env POSTGRES_HOST=db \
+  --env POSTGRES_HOST=host.docker.internal \
   --env POSTGRES_DB=asset_inventory \
+  --add-host=host.docker.internal:host-gateway \
   --volume $(pwd)/cloudquery_transformation_gcp-asset-inventory_vX.X.X:/usr/app \
-  --volume $(pwd)/dbt-profiles.yml:/root/.dbt/profiles.yml \
-  ghcr.io/dbt-labs/dbt-postgres:1.8.1 run
+  --volume ~/.dbt/profiles.yml:/root/.dbt/profiles.yml \
+  ghcr.io/dbt-labs/dbt-postgres:1.9.0 run
 ```
 
 > **Note:** If you're copying this sample directly, be sure that you set the version number to match the one you downloaded.
@@ -267,20 +269,20 @@ With your multi-cloud asset inventory in one place, you can start answering crit
 
 To get you started, here are three example queries:
 
-### Cross-cloud expensive instances
+### Cross-cloud instance inventory
 
-This query pulls together data on compute instances from AWS, Azure, and GCP, standardizing the fields for provider, instance ID, instance type, region, and cost per hour. It then combines the results into a single list and orders them by cost per hour, showing the most expensive instances across all three cloud providers at the top.
+This query pulls together data on compute instances from AWS, Azure, and GCP, standardizing the fields for provider, instance ID, instance type, and region. It then combines the results into a single list sorted by provider and instance type, so every instance size you run across all three cloud providers shows up in one place.
 
 ```sql
-SELECT provider, instance_id, instance_type, region, cost_per_hour
+SELECT provider, instance_id, instance_type, region
 FROM (
- SELECT 'AWS' as provider, instance_id, instance_type, region, cost_per_hour FROM aws_ec2_instances
+ SELECT 'AWS' as provider, instance_id, instance_type, region FROM aws_ec2_instances
  UNION ALL
- SELECT 'Azure' as provider, vm_id as instance_id, vm_size as instance_type, location as region, cost_estimate/30/24 as cost_per_hour FROM azure_virtual_machines
+ SELECT 'Azure' as provider, properties->>'vmId' as instance_id, properties->'hardwareProfile'->>'vmSize' as instance_type, location as region FROM azure_compute_virtual_machines
  UNION ALL
- SELECT 'GCP' as provider, instance_id, machine_type as instance_type, region, cost_estimate/30/24 as cost_per_hour FROM gcp_compute_instances
+ SELECT 'GCP' as provider, id::text as instance_id, regexp_replace(machine_type, '.*/', '') as instance_type, regexp_replace(zone, '.*/(.*)-[a-z]$', '\1') as region FROM gcp_compute_instances
 ) as cross_cloud_instances
-ORDER BY cost_per_hour DESC;
+ORDER BY provider, instance_type;
 ```
 
 ### How to identify redundant load balancers across clouds
@@ -290,17 +292,17 @@ This query identifies load balancers across AWS, Azure, and GCP with fewer than 
 ```sql
 SELECT lb_id, provider, region, associated_instances_count
 FROM (
- SELECT lb_id, 'AWS' as provider, region, COUNT(instance_id) as associated_instances_count
- FROM aws_elb_load_balancers
- GROUP BY lb_id, region
+ SELECT arn as lb_id, 'AWS' as provider, region, jsonb_array_length(COALESCE(instances, '[]'::jsonb)) as associated_instances_count
+ FROM aws_elbv1_load_balancers
  UNION ALL
- SELECT lb_id, 'Azure' as provider, location as region, COUNT(vm_id) as associated_instances_count
- FROM azure_load_balancers
- GROUP BY lb_id, location
+ SELECT id as lb_id, 'Azure' as provider, location as region,
+   (SELECT COUNT(*)
+    FROM jsonb_array_elements(COALESCE(properties->'backendAddressPools', '[]'::jsonb)) as pool,
+         jsonb_array_elements(COALESCE(pool->'properties'->'backendIPConfigurations', '[]'::jsonb))) as associated_instances_count
+ FROM azure_network_load_balancers
  UNION ALL
- SELECT lb_id, 'GCP' as provider, region, COUNT(instance_id) as associated_instances_count
- FROM gcp_load_balancers
- GROUP BY lb_id, region
+ SELECT self_link as lb_id, 'GCP' as provider, regexp_replace(region, '.*/', '') as region, cardinality(COALESCE(instances, '{}')) as associated_instances_count
+ FROM gcp_compute_target_pools
 ) as cross_cloud_lbs
 WHERE associated_instances_count < 2;
 ```
@@ -312,17 +314,17 @@ This query helps identify underutilized load balancers across AWS, Azure, and GC
 ```sql
 SELECT lb_id, provider, region, associated_instances_count
 FROM (
- SELECT lb_id, 'AWS' as provider, region, COUNT(instance_id) as associated_instances_count
- FROM aws_elb_load_balancers
- GROUP BY lb_id, region
+ SELECT arn as lb_id, 'AWS' as provider, region, jsonb_array_length(COALESCE(instances, '[]'::jsonb)) as associated_instances_count
+ FROM aws_elbv1_load_balancers
  UNION ALL
- SELECT lb_id, 'Azure' as provider, location as region, COUNT(vm_id) as associated_instances_count
- FROM azure_load_balancers
- GROUP BY lb_id, location
+ SELECT id as lb_id, 'Azure' as provider, location as region,
+   (SELECT COUNT(*)
+    FROM jsonb_array_elements(COALESCE(properties->'backendAddressPools', '[]'::jsonb)) as pool,
+         jsonb_array_elements(COALESCE(pool->'properties'->'backendIPConfigurations', '[]'::jsonb))) as associated_instances_count
+ FROM azure_network_load_balancers
  UNION ALL
- SELECT lb_id, 'GCP' as provider, region, COUNT(instance_id) as associated_instances_count
- FROM gcp_load_balancers
- GROUP BY lb_id, region
+ SELECT self_link as lb_id, 'GCP' as provider, regexp_replace(region, '.*/', '') as region, cardinality(COALESCE(instances, '{}')) as associated_instances_count
+ FROM gcp_compute_target_pools
 ) as cross_cloud_lbs
 WHERE associated_instances_count < 2;
 ```
@@ -347,7 +349,7 @@ spec:
   name: aws
   path: cloudquery/aws
   registry: cloudquery
-  version: 'v27.11.1'
+  version: 'v35.9.0'
   tables:
     - aws_apigateway_rest_api_stages
     - aws_apigatewayv2_api_stages
@@ -355,7 +357,7 @@ spec:
     - aws_autoscaling_groups
     - aws_codebuild_projects
     - aws_config_configuration_recorders
-    - aws_cloudwatch_alarms
+    - aws_cloudwatch_metric_alarms
     - aws_cloudtrail_trail_event_selectors
     - aws_cloudwatchlogs_metric_filters
     - aws_cloudfront_distributions
@@ -383,7 +385,7 @@ spec:
   name: gcp
   path: cloudquery/gcp
   registry: cloudquery
-  version: 'v15.10.2'
+  version: 'v24.4.0'
   tables:
     - gcp_storage_buckets
   destinations:
@@ -397,7 +399,7 @@ spec:
   name: azure
   path: cloudquery/azure
   registry: cloudquery
-  version: 'v14.5.0'
+  version: 'v23.5.5'
   destinations:
     - postgresql
   tables:
@@ -411,7 +413,7 @@ spec:
   name: postgresql
   path: cloudquery/postgresql
   registry: cloudquery
-  version: 'v8.3.1'
+  version: 'v8.19.0'
   spec:
     connection_string: 'postgresql://postgres:postgres@localhost:5432/asset_inventory?sslmode=disable'
 ```
@@ -440,7 +442,7 @@ A: You need GCP, AWS, and Azure accounts with necessary permissions, Docker inst
 
 **Q: How can you verify that your cloud asset data has been correctly synced to PostgreSQL?**
 
-A: You can run SQL queries on the PostgreSQL database, such as querying for storage accounts allowing non-HTTPS traffic, to verify that the data has been correctly synced.
+A: You can run SQL queries on the PostgreSQL database, such as querying for storage buckets without uniform bucket-level access, to verify that the data has been correctly synced.
 
 **Q: What are the cloud providers I can connect to with CloudQuery?**
 

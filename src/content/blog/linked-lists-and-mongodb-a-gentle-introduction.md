@@ -8,11 +8,11 @@ categories: ['Web Dev']
 writtenFor: 'MongoDB'
 heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/thumb-e14d7f1a.webp'
 heroAlt: 'Heavy rusted chain links'
-contentNotice: 'This tutorial uses MongoDB Node.js driver v3.x. The current driver (v6+) has different connection and CRUD APIs.'
+contentNotice: 'I wrote this tutorial in 2020 for MongoDB Node.js driver v3.x. I have since updated the code for the current driver (v7).'
 tldr: 'I implement a linked list from scratch using Node.js and MongoDB, covering add, find, insert, and delete operations. It is a good way to learn both data structures and MongoDB CRUD basics at the same time.'
 ---
 
-> **Note:** This tutorial was written in 2020 using MongoDB Node.js driver v3.x. The current driver (v6+) no longer requires `useNewUrlParser` or `useUnifiedTopology` options, and `result.ops[0]` has been replaced with `result.insertedId`. The linked list concepts are still accurate.
+> **Note:** I wrote this tutorial in 2020 using MongoDB Node.js driver v3.x. The code below now runs on the current driver (v7), which rejects the old `useNewUrlParser` and `useUnifiedTopology` options and returns `result.insertedId` instead of `result.ops[0]`. The linked list concepts are still accurate.
 
 Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist. This post will cover the fundamentals of the linked list data structure. It will also answer questions like, “How do linked lists differ from arrays?” and “What are the pros and cons of using a linked list?”
 
@@ -177,10 +177,7 @@ class LinkedList {
 	// that you used to connect the MongoDB VS Code plugin to our cluster.
 	async init() {
 		const uri = 'PASTE YOUR ATLAS CLUSTER URL HERE';
-		this.client = new MongoClient(uri, {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-		});
+		this.client = new MongoClient(uri);
 
 		try {
 			await this.client.connect();
@@ -198,8 +195,9 @@ class LinkedList {
 	try {
 		const linkedList = new LinkedList();
 		await linkedList.init();
-		linkedList.resetMeta();
-		linkedList.resetData();
+		await linkedList.resetMeta();
+		await linkedList.resetData();
+		await linkedList.client.close();
 	} catch (err) {
 		// Good programmers always handle their errors
 		console.log(err.stack);
@@ -296,14 +294,14 @@ async add(value) {
    // If the linked list is empty, we need to initialize an empty linked list
    const head = await this.getHeadID();
    if (head === null) {
-      this.setHead(insertedId);
+      await this.setHead(insertedId);
    } else {
       // if it's not empty, update the current tail's next to the new node
       const tailID = await this.getTail();
       await this.col.updateOne({ _id: tailID }, { $set: { next: insertedId } });
    }
    // Update your linked list to point tail to the new node
-   this.setTail(insertedId);
+   await this.setTail(insertedId);
    return result;
 }
 ```
@@ -415,39 +413,35 @@ The following code inserts a node after an existing node in a singly linked list
 async insert(value, index) {
    const currNode = await this.get(index);
    const prevNode = await this.get(index - 1);
-   const result = await this.newNode(value);
-   const node = result.ops[0];
 
    // If the index is not in the linked list, return false
    if (currNode === false) {
       return false;
    }
 
+   const result = await this.newNode(value);
+   const node = await this.col.findOne({ _id: result.insertedId });
+
    // If inserting at the head, reassign the head to the new node
    if (index === 0) {
       await this.setHead(node._id);
       await this.col.updateOne(
          { _id: node._id },
-         { $set: { next: currNode.next } }
+         { $set: { next: currNode._id } }
       );
    } else {
-      // If inserting at the tail, reassign the tail
-      if (currNode.next === null) {
-         await this.setTail(node._id);
-      }
-
       // Update the next property of the new node
       // to point to the node that the target node currently points to
       await this.col.updateOne(
-         { _id: prevNode._id },
-         { $set: { next: node._id } }
+         { _id: node._id },
+         { $set: { next: currNode._id } }
       );
 
       // Update the next property of the node you
       // want to insert after to point to the new node
       await this.col.updateOne(
-         { _id: node._id },
-         { $set: { next: currNode.next } }
+         { _id: prevNode._id },
+         { $set: { next: node._id } }
       );
    }
    return node;

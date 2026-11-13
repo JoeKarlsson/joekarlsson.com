@@ -73,11 +73,12 @@ docker run --name postgres_container \
   --env POSTGRES_HOST=db \
   --env POSTGRES_DB=asset_inventory \
   --publish 5432:5432 \
-  --volume pgdata:/var/lib/postgresql/data \
-  postgres
+  --volume pgdata:/var/lib/postgresql \
+  --detach \
+  postgres:18
 ```
 
-This command pulls the PostgreSQL image (version 15) from Docker Hub, sets the password for the `postgres` user to `postgres`, and runs the container in detached mode (-d). The -p 5432:5432 option maps the container's port 5432 (PostgreSQL's default port) to port 5432 on the host machine, allowing you to connect to the database locally.
+This command pulls the PostgreSQL image (version 18) from Docker Hub, sets the password for the `postgres` user to `postgres`, and runs the container in detached mode (-d). The -p 5432:5432 option maps the container's port 5432 (PostgreSQL's default port) to port 5432 on the host machine, allowing you to connect to the database locally.
 
 _Note_: While PostgreSQL is used in this example, any compatible database can be used as the data store for your GCP Cloud Asset data. PostgreSQL is chosen for its robustness and widespread adoption, but you can configure your setup to use another database system if preferred.
 
@@ -95,14 +96,14 @@ For this tutorial, you'll be using the [CloudQuery GCP integration](https://www.
 kind: source
 spec:
   # Source spec section
-  name: "gcp"
-  path: "cloudquery/gcp"
-  registry: "cloudquery"
-  version: "v14.1.0"
-  tables: [*]
-  destinations: ["postgresql"]c
+  name: 'gcp'
+  path: 'cloudquery/gcp'
+  registry: 'cloudquery'
+  version: 'v24.4.0'
+  tables: ['*']
+  destinations: ['postgresql']
   spec:
-    project_ids: ["my-project"]
+    project_ids: ['my-project']
 ```
 
 This CloudQuery configuration file sets up a data source from GCP to extract information from various GCP services. The extracted data is then directed to a PostgreSQL database for storage.
@@ -136,9 +137,9 @@ spec:
   name: 'postgresql'
   path: 'cloudquery/postgresql'
   registry: 'cloudquery'
-  version: 'v8.0.8'
+  version: 'v8.19.0'
   spec:
-    connection_string: 'postgresql://postgres:postgres}@db:5432/${POSTGRES_DB}?sslmode=disable'
+    connection_string: 'postgresql://postgres:postgres@localhost:5432/asset_inventory?sslmode=disable'
 ```
 
 And with that, the CloudQuery Config is ready. Now is a good time to test it out. Make sure your PostgreSQL Docker container is running, then we need to run the CloudQuery job so that it syncs your GCP assets into PostgreSQL with:
@@ -147,14 +148,14 @@ And with that, the CloudQuery Config is ready. Now is a good time to test it out
 cloudquery sync ./config.yml
 ```
 
-Now you can connect to PostgreSQL and explore the data. For example, here's a query to check that your data synced correctly. This query finds all the storage accounts that are allowing non-HTTPS traffic:
+Now you can connect to PostgreSQL and explore the data. For example, here's a query to check that your data synced correctly. This query finds all the storage buckets that don't have uniform bucket-level access turned on:
 
 ```bash
-docker exec -it xxx /bin/bash
+docker exec -it postgres_container /bin/bash
 
-psql -U postgres
+psql -U postgres -d asset_inventory
 
-SELECT * from GCP_storage_accounts where enable_https_traffic_only = false;
+SELECT name, location FROM gcp_storage_buckets WHERE (uniform_bucket_level_access->>'Enabled')::boolean IS NOT TRUE;
 ```
 
 ### How to Use dbt to Transform GCP Data into a Cloud Asset Inventory
@@ -172,7 +173,7 @@ config:
   send_anonymous_usage_stats: False
   use_colors: True
 
-GCP_asset_inventory:
+gcp_asset_inventory:
   target: postgres
   outputs:
     postgres:
@@ -192,11 +193,12 @@ To run dbt with Docker, you can use this Docker CLI command to set up the enviro
 docker run --platform linux/amd64 --name dbt_container \
   --env POSTGRES_USER=postgres \
   --env POSTGRES_PASSWORD=postgres \
-  --env POSTGRES_HOST=db \
+  --env POSTGRES_HOST=host.docker.internal \
   --env POSTGRES_DB=asset_inventory \
+  --add-host=host.docker.internal:host-gateway \
   --volume $(pwd)/cloudquery_transformation_gcp-asset-inventory_vX.X.X:/usr/app \
   --volume $(pwd)/dbt-profiles.yml:/root/.dbt/profiles.yml \
-  ghcr.io/dbt-labs/dbt-postgres:1.8.1 run
+  ghcr.io/dbt-labs/dbt-postgres:1.9.0 run
 ```
 
 _Note: If you're copying this sample directly into your Docker Compose file, **make sure you set the version number to match the one you've downloaded**._
@@ -252,23 +254,23 @@ Thank you for following along, and we hope this guide helps you effectively mana
 kind: source
 spec:
   # Source spec section
-  name: "gcp"
-  path: "cloudquery/gcp"
-  registry: "cloudquery"
-  version: "v14.1.0"
-  tables: [*]
-  destinations: ["postgresql"]
+  name: 'gcp'
+  path: 'cloudquery/gcp'
+  registry: 'cloudquery'
+  version: 'v24.4.0'
+  tables: ['*']
+  destinations: ['postgresql']
   spec:
-    project_ids: ["my-project"]
+    project_ids: ['my-project']
 ---
 kind: destination
 spec:
-  name: "postgresql"
-  path: "cloudquery/postgresql"
-  registry: "cloudquery"
-  version: "v8.0.8"
+  name: 'postgresql'
+  path: 'cloudquery/postgresql'
+  registry: 'cloudquery'
+  version: 'v8.19.0'
   spec:
-    connection_string: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?sslmode=disable"
+    connection_string: 'postgresql://postgres:postgres@localhost:5432/asset_inventory?sslmode=disable'
 ```
 
 ### dbt
@@ -280,7 +282,7 @@ config:
   send_anonymous_usage_stats: False
   use_colors: True
 
-GCP_asset_inventory:
+gcp_asset_inventory:
   target: postgres
   outputs:
     postgres:

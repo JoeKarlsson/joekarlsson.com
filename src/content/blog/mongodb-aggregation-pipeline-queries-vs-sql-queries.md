@@ -124,9 +124,9 @@ The MongoDB examples assume _one_ collection `albums` that contains documents wi
 	"price": 7.99,
 	"status": "A",
 	"songs": [
-		{ "title": "Snow beats", "plays": 133 },
+		{ "title": "Snow Beats", "plays": 133 },
 		{ "title": "Rolling By", "plays": 242 },
-		{ "title": "Sway", "plays": 3191 }
+		{ "title": "Clouds", "plays": 3191 }
 	]
 }
 ```
@@ -149,7 +149,7 @@ db.albums.insertMany([
 		price: 7.99,
 		status: 'A',
 		songs: [
-			{ title: 'Snow beats', plays: 133 },
+			{ title: 'Snow Beats', plays: 133 },
 			{ title: 'Rolling By', plays: 242 },
 			{ title: 'Clouds', plays: 3191 },
 		],
@@ -405,7 +405,7 @@ db.albums.aggregate([
 				$filter: {
 					input: '$songs',
 					as: 'item',
-					cond: { $eq: ['$item.plays', { $max: '$songs.plays' }] },
+					cond: { $eq: ['$$item.plays', { $max: '$songs.plays' }] },
 				},
 			},
 		},

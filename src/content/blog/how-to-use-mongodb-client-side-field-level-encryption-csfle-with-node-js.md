@@ -114,12 +114,11 @@ MongoDB Client-Side Field Level Encryption (CSFLE) uses an encryption strategy c
 > To learn how to use a KMS in your CSFLE implementation, read the [Client-Side Field Level Encryption: Use a KMS to Store the Master Key](https://docs.mongodb.com/drivers/security/client-side-field-level-encryption-local-key-to-kms/) guide.
 
 ```javascript
-// clients.js
+// helpers.js
 
 const fs = require("fs")
 const mongodb = require("mongodb")
-const { ClientEncryption } = require("mongodb-client-encryption")
-const { MongoClient, Binary } = mongodb
+const { MongoClient, Binary, ClientEncryption } = mongodb
 
 module.exports = {
 readMasterKey: function (path = "./master-key.txt") {
@@ -150,6 +149,21 @@ CsfleHelper: class {
       this.mongocryptdSpawnPath = mongocryptdSpawnPath
       this.regularClient = null
       this.csfleClient = null
+   }
+
+   async ensureUniqueIndexOnKeyVault(client) {
+      await client
+      .db(this.keyDB)
+      .collection(this.keyColl)
+      .createIndex("keyAltNames", {
+         unique: true,
+         partialFilterExpression: { keyAltNames: { $exists: true } }
+      })
+   }
+
+   async getRegularClient() {
+      const client = new MongoClient(this.connectionString)
+      return await client.connect()
    }
 
    /**
@@ -191,10 +205,14 @@ The following script generates a 96-byte, locally-managed master key and saves i
 ```javascript
 // make-data-key.js
 
+const fs = require('fs');
+const crypto = require('crypto');
 const { readMasterKey, CsfleHelper } = require('./helpers');
-const { connectionString } = require('./config');
 
 async function main() {
+	if (!fs.existsSync('./master-key.txt')) {
+		fs.writeFileSync('./master-key.txt', crypto.randomBytes(96));
+	}
 	const localMasterKey = readMasterKey();
 
 	const csfleHelper = new CsfleHelper({
@@ -258,6 +276,7 @@ The following table illustrates the data model of the Medical Care Management Sy
 Let’s add a function to our **csfleHelper** method in helper.js file so our application knows which fields need to be encrypted and decrypted.
 
 ```javascript
+createJsonSchemaMap(dataKey = null) {
 if (dataKey === null) {
    throw new Error(
       "dataKey is a required argument. Ensure you've defined it in clients.js"
@@ -316,6 +335,8 @@ return {
       }
    }
 }
+}
+}
 ```
 
 ## Create the MongoDB Client
@@ -336,8 +357,6 @@ async getCsfleEnabledClient(schemaMap = null) {
       )
    }
    const client = new MongoClient(this.connectionString, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
       monitorCommands: true,
       autoEncryption: {
          // The key vault collection contains the data key that the client uses to encrypt and decrypt fields.
@@ -372,7 +391,10 @@ Note: Clients that do not have CSFLE configured will insert unencrypted data. We
 
 ```javascript
 const { readMasterKey, CsfleHelper } = require('./helpers');
-const { connectionString, dataKey } = require('./config');
+
+const connectionString = 'PASTE YOUR MONGODB ATLAS URI HERE';
+// The base64 data key that make-data-key.js printed
+const dataKey = 'PASTE YOUR BASE64 DATA KEY HERE';
 
 const localMasterKey = readMasterKey();
 
@@ -496,7 +518,7 @@ This will build a Docker image with a tag name _mdb-csfle-example_.
 - Run the Docker image by executing:
 
 ```bash
-docker run -tih csfle mdb-csfle-examp
+docker run -tih csfle mdb-csfle-example
 ```
 
 4. The command above will run a Docker image with tag _mdb-csfle-example_ and provide it with _csfle_ as its hostname.

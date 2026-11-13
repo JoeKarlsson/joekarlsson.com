@@ -55,39 +55,50 @@ kind: source
 spec:
   name: git
   path: cloudquery/git
-  version: 'v1.0.0'
+  registry: cloudquery
+  version: 'v2.0.4'
   tables:
     - git_repositories
-    - git_files:
-        glob_patterns:
-          - '**/Dockerfile*'
-          - '**/pom.xml'
-          - '.buildkite/**/pipeline.yml'
-          - '**/CODEOWNERS'
-          - '**/package.json'
-          - '**/go.mod'
-          - '**/.github/workflows/*.yml'
+    - git_files
     - git_commits
   destinations:
     - postgresql
   spec:
-    # Repository filtering
-    repositories:
-      - 'https://github.com/your-org/*'
-    # Authentication
-    token: '${GIT_TOKEN}'
+    providers:
+      - provider: github
+        # Authentication
+        access_token: '${GIT_TOKEN}'
+        # Repository filtering
+        repositories:
+          - '*/your-org/*'
+    table_options:
+      git_files:
+        - glob: '*Dockerfile*'
+          include_content: true
+        - glob: '*pom.xml'
+          include_content: true
+        - glob: '.buildkite/*pipeline.yml'
+          include_content: true
+        - glob: '*CODEOWNERS'
+          include_content: true
+        - glob: '*package.json'
+          include_content: true
+        - glob: '*go.mod'
+          include_content: true
+        - glob: '.github/workflows/*.yml'
+          include_content: true
 ```
 
-Configure `glob_patterns` to sync only the files you need. Common patterns for platform engineers:
+Configure `glob` entries under `table_options.git_files` to sync only the files you need, and set `include_content: true` so the file content gets synced. Common patterns for platform engineers:
 
-| Pattern                      | Use Case                      |
-| ---------------------------- | ----------------------------- |
-| `**/Dockerfile*`             | Container image auditing      |
-| `**/CODEOWNERS`              | Code ownership tracking       |
-| `**/package.json`            | Dependency management         |
-| `**/.github/workflows/*.yml` | CI/CD pipeline analysis       |
-| `**/go.mod`, `**/pom.xml`    | Backend dependency tracking   |
-| `**/*.tf`                    | Infrastructure as Code review |
+| Pattern                   | Use Case                      |
+| ------------------------- | ----------------------------- |
+| `*Dockerfile*`            | Container image auditing      |
+| `*CODEOWNERS`             | Code ownership tracking       |
+| `*package.json`           | Dependency management         |
+| `.github/workflows/*.yml` | CI/CD pipeline analysis       |
+| `*go.mod`, `*pom.xml`     | Backend dependency tracking   |
+| `*.tf`                    | Infrastructure as Code review |
 
 ## Example Queries
 
@@ -222,7 +233,7 @@ SELECT
   owe.github_email,
   COALESCE(u.status, 'NOT_FOUND') AS okta_status
 FROM owners_with_email owe
-LEFT JOIN okta_users u ON lower(owe.github_email) = lower(u.email)
+LEFT JOIN okta_users u ON lower(owe.github_email) = lower(u.profile->>'email')
 WHERE owe.github_email IS NULL  -- GitHub user not found or has no public email
    OR u.status IS NULL          -- No matching Okta account
    OR u.status != 'ACTIVE'      -- Okta account inactive
@@ -259,10 +270,14 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+      - uses: cloudquery/setup-cloudquery@v5
+        with:
+          version: 'v6.50.0'
       - name: Sync git data
         run: cloudquery sync config.yml
         env:
+          CLOUDQUERY_API_KEY: ${{ secrets.CLOUDQUERY_API_KEY }}
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
 ```
 
@@ -308,4 +323,4 @@ Git Source syncs file contents from repositories. GitHub Source syncs GitHub-spe
 
 **How do I filter which files to sync?**
 
-Use glob patterns in the configuration. You can specify patterns like `**/Dockerfile*`, `**/*.json`, or `.github/**/*.yml` to sync only the files you need.
+Use glob patterns in the configuration. You can specify patterns like `*Dockerfile*`, `*.json`, or `.github/**/*.yml` to sync only the files you need.

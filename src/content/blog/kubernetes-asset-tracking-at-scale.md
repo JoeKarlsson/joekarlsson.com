@@ -196,26 +196,27 @@ SELECT
   namespace,
   name as pod_name
 FROM k8s_core_pods
-WHERE JSON_ARRAY_LENGTH(
-  JSON_EXTRACT(spec, '$.containers[*].resources.limits')
-) = 0;
+WHERE EXISTS (
+  SELECT 1
+  FROM jsonb_array_elements(spec_containers) AS container
+  WHERE COALESCE(container->'resources'->'limits', '{}'::jsonb) = '{}'::jsonb
+);
 ```
 
-Or more complex queries that join Kubernetes data with cloud provider data:
+Or queries that check the cloud provider side of your clusters:
 
 ```sql
--- Find EKS clusters with public API endpoints but without API server authorized networks
+-- Find EKS clusters with public API endpoints that are open to any IP address
 SELECT
-  eks.name as cluster_name,
-  eks.endpoint as api_endpoint,
-  eks.resources_vpc_config_endpoint_public_access as public_access
-FROM aws_eks_clusters eks
-LEFT JOIN aws_eks_cluster_security_groups sg
-  ON eks.name = sg.cluster_name
-WHERE eks.resources_vpc_config_endpoint_public_access = TRUE
+  name as cluster_name,
+  endpoint as api_endpoint,
+  resources_vpc_config->>'EndpointPublicAccess' as public_access
+FROM aws_eks_clusters
+WHERE (resources_vpc_config->>'EndpointPublicAccess')::boolean = TRUE
 AND (
-  eks.resources_vpc_config_public_access_cidrs IS NULL
-  OR JSON_ARRAY_LENGTH(eks.resources_vpc_config_public_access_cidrs) = 0
+  resources_vpc_config->'PublicAccessCidrs' IS NULL
+  OR jsonb_array_length(resources_vpc_config->'PublicAccessCidrs') = 0
+  OR resources_vpc_config->'PublicAccessCidrs' ? '0.0.0.0/0'
 );
 ```
 
@@ -257,21 +258,13 @@ SELECT
   context as cluster,
   namespace,
   name as pod_name,
-  JSON_EXTRACT_SCALAR(
-    container_status, '$.state.waiting.reason'
-  ) as wait_reason,
-  JSON_EXTRACT_SCALAR(
-    container_status, '$.state.waiting.message'
-  ) as wait_message
+  container_status->'state'->'waiting'->>'reason' as wait_reason,
+  container_status->'state'->'waiting'->>'message' as wait_message
 FROM
   k8s_core_pods,
-  JSON_EACH(
-    JSON_EXTRACT(status, '$.containerStatuses')
-  ) as container_status
+  jsonb_array_elements(status_container_statuses) as container_status
 WHERE
-  JSON_EXTRACT_SCALAR(
-    container_status, '$.state.waiting.reason'
-  ) = 'CrashLoopBackOff';
+  container_status->'state'->'waiting'->>'reason' = 'CrashLoopBackOff';
 ```
 
 This query finds all pods across all clusters that are in CrashLoopBackOff state, making it easy to identify problematic workloads. The company's SRE team built an alerting system on top of this query.
@@ -286,15 +279,13 @@ SELECT
   context as cluster,
   namespace,
   name as pod_name,
-  JSON_EXTRACT_SCALAR(container, '$.name') as container_name
+  container->>'name' as container_name
 FROM
   k8s_core_pods,
-  JSON_EACH(
-    JSON_EXTRACT(spec, '$.containers')
-  ) as container
+  jsonb_array_elements(spec_containers) as container
 WHERE
-  JSON_EXTRACT(container, '$.securityContext.runAsNonRoot') IS NULL
-  OR JSON_EXTRACT(container, '$.securityContext.runAsNonRoot') = 'false';
+  container->'securityContext'->'runAsNonRoot' IS NULL
+  OR container->'securityContext'->>'runAsNonRoot' = 'false';
 ```
 
 By running this query as part of their continuous compliance process, they can show regulators evidence of their security controls.
@@ -324,32 +315,29 @@ This query identifies deployments missing standardized labels required by their 
 This query counts the number of Kubernetes nodes running on AWS, Azure, and GCP separately, then returns a summary grouped by each cloud provider.
 
 ```sql
-WITH
+SELECT Provider, SUM(Count) as node_count
+FROM (SELECT
+   'AWS' AS Provider,
+   count(name) AS Count
+ FROM k8s_core_nodes
+ WHERE spec_provider_id LIKE 'aws://%'
 
-   SELECT Provider,Sum(Count) as _count,Provider
-   FROM (SELECT
-      'AWS' AS Provider,
-      count(name) AS Count
-    FROM k8s_core_nodes
-    WHERE spec_provider_id LIKE 'aws://%'
+ UNION ALL
 
-    UNION ALL
+ SELECT
+   'Azure' AS Provider,
+   count(name) AS Count
+ FROM k8s_core_nodes
+ WHERE spec_provider_id LIKE 'azure://%'
 
-    SELECT
-      'Azure' AS Provider,
-      count(name) AS Count
-    FROM k8s_core_nodes
-    WHERE spec_provider_id LIKE 'azure://%'
+ UNION ALL
 
-    UNION ALL
-
-    SELECT
-      'GCP' AS Provider,
-      count(name) AS Count
-    FROM k8s_core_nodes
-    WHERE spec_provider_id LIKE 'google://%')
-
-   GROUP BY Provider
+ SELECT
+   'GCP' AS Provider,
+   count(name) AS Count
+ FROM k8s_core_nodes
+ WHERE spec_provider_id LIKE 'gce://%') AS nodes
+GROUP BY Provider;
 ```
 
 These examples demonstrate how CloudQuery transforms Kubernetes governance from a manual, error-prone process to an automated, data-driven approach. The pattern of expressing governance requirements as SQL queries provides flexibility and power that script-based approaches simply can't match.
