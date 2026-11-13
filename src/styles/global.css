@@ -446,3 +446,18 @@ pre.astro-code {
 .lightbox-opener:not(:focus-visible) {
 	@apply sr-only;
 }
+
+/* A metadata line (MetaParts): a thin gray bar between pieces, never a dot. The line
+   is shifted left by one bar and clipped, so a piece that wraps to a new line starts
+   it bare instead of after a stray bar. Screen readers skip the bar */
+.meta-parts {
+	margin-left: -1.4em;
+	clip-path: inset(-2em -2em -2em 1.4em);
+}
+.meta-parts > *::before {
+	content: '|' / '';
+	display: inline-block;
+	width: 1.4em;
+	text-align: center;
+	@apply text-surface-4;
+}

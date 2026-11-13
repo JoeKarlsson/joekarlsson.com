@@ -12,6 +12,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-12: Recently shipped repo names always show in full, never cut off with an ellipsis. Long ones shrink to fit, down to 24px, then wrap at their hyphens.
 - 2026-11-12: The resume PDF carries the site's brand on white paper (Anton, Hanken Grotesk, Fraunces, JetBrains Mono, pink rules and bullet markers), not pink on black: it gets printed and pasted into hiring systems.
 - 2026-11-11: No date in the corner of blog post or newsletter thumbnails.
+- 2026-11-12: Metadata lines (date, reading time, category) keep a visible separator between pieces; with no separator it wasn't clear where pieces start and stop. Of a pink slash, a gray bar and a pink dash, Joe picked the thin gray bar (MetaParts). No middle dots.
 
 ## Consistency
 

@@ -1,6 +1,6 @@
 ---
 // A line of metadata (date, reading time, category, place) with each piece set apart by
-// space instead of a " · " between them. Pass plain parts, or slot your own <span>s when a
+// a gray bar (global.css) instead of a " · " between them. Pass plain parts, or slot your own <span>s when a
 // piece is a link or a <time>, with {' '} between them. Empty parts drop out.
 interface Props {
 	parts?: (string | false | null | undefined)[];
@@ -10,7 +10,7 @@ interface Props {
 const { parts = [], class: className } = Astro.props;
 ---
 
-<span class:list={['flex flex-wrap gap-x-4', className]}>
+<span class:list={['meta-parts flex flex-wrap', className]}>
 	{/* The spaces keep the pieces apart in reader view and copied text; flex drops them */}
 	{parts.filter(Boolean).map((part) => (
 		<>
