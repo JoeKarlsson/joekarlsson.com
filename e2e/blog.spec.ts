@@ -75,7 +75,7 @@ test.describe('Blog Index Page', () => {
 		page,
 	}) => {
 		await page.goto('/blog/category/ai/');
-		await expect(page.locator('#posts-grid').getByText(/· AI\b/)).toHaveCount(0);
+		await expect(page.locator('#posts-grid').getByText('AI', { exact: true })).toHaveCount(0);
 		await page.goto('/blog/written-for/cdata/');
 		await expect(page.locator('#posts-grid').getByText('Written for CData')).toHaveCount(0);
 	});

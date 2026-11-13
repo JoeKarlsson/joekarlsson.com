@@ -5,6 +5,7 @@ import FeaturedBand from '../components/FeaturedBand.astro';
 import HoverBox from '../components/HoverBox.astro';
 import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
+import MetaParts from '../components/MetaParts.astro';
 import WrittenFor from '../components/WrittenFor.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE, SITE_DESCRIPTION } from '../consts';
@@ -35,7 +36,7 @@ const homeProjects = HOME_PROJECTS.map((title) => {
 	if (!project) throw new Error(`Homepage project "${title}" is not in src/data/projects.ts`);
 	const href = project.page ? `/work/${project.page.slug}/` : project.blogUrl;
 	if (!href) throw new Error(`Homepage project "${title}" has no project page or blog post`);
-	return { title, href, meta: [project.date.slice(0, 4), ...project.tech.slice(0, 2)].join(' · ') };
+	return { title, href, meta: [project.date.slice(0, 4), ...project.tech.slice(0, 2)].join(', ') };
 });
 
 // The pink band in the hero pins the one piece I'm pushing; Recent posts below already
@@ -264,16 +265,11 @@ const AROUND_THE_HOUSE = [
 						{i > 0 && <HoverBox index={i} />}
 					</a>
 					<div>
-						<span class="mb-1.5 block text-sm text-muted">
-							<time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
-							{post.data.categories[0] && ` · ${post.data.categories[0]}`}
-							{post.data.writtenFor && (
-								<>
-									{' · '}
-									<WrittenFor employer={post.data.writtenFor} />
-								</>
-							)}
-						</span>
+						<MetaParts class="mb-1.5 text-sm text-muted [font-variant-numeric:tabular-nums]">
+							<time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>{' '}
+							{post.data.categories[0] && <span>{post.data.categories[0]}</span>}{' '}
+							{post.data.writtenFor && <WrittenFor employer={post.data.writtenFor} />}
+						</MetaParts>
 						<a
 							href={post.href}
 							class:list={[

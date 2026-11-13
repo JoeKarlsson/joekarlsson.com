@@ -1,6 +1,7 @@
 ---
 import KeepExploring from '../../components/KeepExploring.astro';
 import HoverBox from '../../components/HoverBox.astro';
+import MetaParts from '../../components/MetaParts.astro';
 import Scribble from '../../components/Scribble.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
@@ -77,10 +78,13 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 							<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-paper uppercase group-hover:text-pink">
 								{featuredPost.data.title}
 							</span>
-							<span class="mt-2 block text-sm text-muted">
-								{formatDate(featuredPost.data.date)}
-								{featuredReadingTime > 0 && <> · {featuredReadingTime} min read</>}
-							</span>
+							<MetaParts
+								class="mt-2 text-sm text-muted [font-variant-numeric:tabular-nums]"
+								parts={[
+									formatDate(featuredPost.data.date),
+									featuredReadingTime > 0 && `${featuredReadingTime} min read`,
+								]}
+							/>
 						</span>
 					</span>
 					<Scribble

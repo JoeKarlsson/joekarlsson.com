@@ -59,7 +59,7 @@ const isFooter = location === 'footer';
 	<button
 		type="submit"
 		class:list={[
-			'sticker cursor-pointer rounded-md px-[18px] py-3 font-semibold',
+			'sticker min-w-[8.5em] cursor-pointer rounded-md px-[18px] py-3 font-semibold',
 			isFooter ? 'bg-ink text-pink hover:text-paper' : 'bg-pink text-ink hover:bg-paper',
 		]}
 	>
@@ -75,6 +75,7 @@ const isFooter = location === 'footer';
 		options: { props?: Record<string, string>; callback?: () => void },
 	) => void;
 	for (const form of document.querySelectorAll<HTMLFormElement>('form.newsletter-signup')) {
+		const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
 		form.addEventListener('submit', (e) => {
 			// A second click while the first waits on Plausible would post the address twice
 			if (form.dataset.sent) {
@@ -82,6 +83,10 @@ const isFooter = location === 'footer';
 				return;
 			}
 			form.dataset.sent = '1';
+			// The wait on Plausible and listmonk can run a second or more: show it's working.
+			// aria-disabled, not disabled, so keyboard focus stays on the button
+			button.setAttribute('aria-disabled', 'true');
+			button.textContent = 'Subscribing…';
 			const plausible = (window as unknown as { plausible?: PlausibleFn }).plausible;
 			if (!plausible) return;
 			e.preventDefault();
@@ -99,7 +104,10 @@ const isFooter = location === 'footer';
 		});
 		// Back from listmonk restores this page as it was left (bfcache), sent flag and all
 		addEventListener('pageshow', (event) => {
-			if (event.persisted) delete form.dataset.sent;
+			if (!event.persisted) return;
+			delete form.dataset.sent;
+			button.removeAttribute('aria-disabled');
+			button.textContent = 'Subscribe';
 		});
 	}
 </script>

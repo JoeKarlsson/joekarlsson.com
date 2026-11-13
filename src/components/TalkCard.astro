@@ -22,7 +22,8 @@ import {
 	youtubeWatchUrl,
 } from '../data/talks';
 import { CHALK } from '../data/scribbles';
-import { META, TEXT_LINK } from '../utils/ui';
+import { ITEM_TITLE, META, TEXT_LINK } from '../utils/ui';
+import MetaParts from './MetaParts.astro';
 import TalkLinks from './TalkLinks.astro';
 import YouTubeFacade from './YouTubeFacade.astro';
 
@@ -59,7 +60,7 @@ const external = !talk.writeup;
 // The episode and the event's page, when the title links somewhere else
 const listenLink = talk.listen !== mainLink ? talk.listen : undefined;
 const eventLink = talk.link && talk.link !== mainLink ? talk.link : undefined;
-const where = [talk.event, talk.place].filter(Boolean).join(' · ');
+const where = [talk.event, talk.place].filter(Boolean).join(', ');
 const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
 ---
 
@@ -129,10 +130,11 @@ const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
 			</div>
 		)}
 	</div>
-	<p class="mt-4 text-sm font-semibold text-pink max-md:mt-0">
-		{KIND_LABELS[talk.kind]} · {formatTalkDate(talk)}
-	</p>
-	<h3 class="mt-1 font-sans text-xl leading-snug font-semibold text-paper max-md:text-base">
+	<MetaParts
+		class="mt-4 text-sm font-semibold text-pink [font-variant-numeric:tabular-nums] max-md:mt-0"
+		parts={[KIND_LABELS[talk.kind], formatTalkDate(talk)]}
+	/>
+	<h3 class={`mt-1 ${ITEM_TITLE} max-md:text-base`}>
 		{mainLink ? (
 			<a
 				href={mainLink}

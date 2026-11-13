@@ -11,6 +11,7 @@ import { cardHalftone } from '../utils/halftone';
 import { CHALK, MARKS } from '../data/scribbles';
 import HoverBox from './HoverBox.astro';
 import Scribble from './Scribble.astro';
+import MetaParts from './MetaParts.astro';
 import WrittenFor from './WrittenFor.astro';
 
 interface Props {
@@ -93,24 +94,18 @@ const formattedDate = formatDate(date);
 		<HoverBox index={index} />
 	</a>
 	<div>
-		<span class="mb-1.5 block text-sm text-muted">
-			<time datetime={date.toISOString()}>{formattedDate}</time>
-			{readingTime && <> · {readingTime} min read</>}
-			{categories && categories.length > 0 && <> · {categories.join(' · ')}</>}
+		<MetaParts class="mb-1.5 text-sm text-muted [font-variant-numeric:tabular-nums]">
+			<time datetime={date.toISOString()}>{formattedDate}</time>{' '}
+			{readingTime && <span>{readingTime} min read</span>}{' '}
+			{categories && categories.length > 0 && <span>{categories.join(', ')}</span>}{' '}
 			{popular && (
 				<span title="One of my 10 most-read posts">
-					{' '}
 					<span aria-hidden="true">🔥</span>
 					<span class="sr-only">One of my 10 most-read posts</span>
 				</span>
-			)}
-			{writtenFor && (
-				<>
-					{' · '}
-					<WrittenFor employer={writtenFor} />
-				</>
-			)}
-		</span>
+			)}{' '}
+			{writtenFor && <WrittenFor employer={writtenFor} />}
+		</MetaParts>
 		<a
 			href={url}
 			class="text-lg leading-tight font-semibold text-balance text-paper no-underline group-hover:text-pink sm:text-[clamp(1.25rem,2.2vw,1.75rem)]"

@@ -16,8 +16,8 @@ describe('reading progress', () => {
 
 describe('context meta', () => {
 	it('says the category and the minutes left, rounding up', () => {
-		expect(contextMeta('Homelab', 23, 0.35)).toBe('Homelab · 15 min left');
-		expect(contextMeta('Homelab', 23, 1)).toBe('Homelab · Done');
+		expect(contextMeta('Homelab', 23, 0.35)).toBe('Homelab, 15 min left');
+		expect(contextMeta('Homelab', 23, 1)).toBe('Homelab, Done');
 	});
 
 	it('drops what a post does not have', () => {

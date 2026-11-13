@@ -395,7 +395,7 @@ test.describe('Phone layout', () => {
 		await expect(nav.locator('[data-context-title]')).toHaveText(
 			'My Homelab Two Years Later, Every Upgrade and What It Cost',
 		);
-		await expect(nav.locator('[data-context-meta]')).toHaveText(/^Homelab · \d+ min left$/);
+		await expect(nav.locator('[data-context-meta]')).toHaveText(/^Homelab, \d+ min left$/);
 		const progress = await nav
 			.locator('[data-read-progress]')
 			// a 0-1 scale on a full-width line, so scrolling never relays out the bar

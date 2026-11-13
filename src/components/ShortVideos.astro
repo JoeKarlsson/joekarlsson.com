@@ -12,6 +12,7 @@ import {
 	shorts,
 } from '../data/shorts';
 import { HERO_LEAD, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
+import MetaParts from './MetaParts.astro';
 import Scribble from './Scribble.astro';
 import YouTubeFacade from './YouTubeFacade.astro';
 
@@ -48,8 +49,11 @@ const watch = (id: string) => `https://www.youtube.com/shorts/${id}`;
 			.map((s) => (
 				<article class="w-[40%] shrink-0 snap-start sm:w-[30%] md:w-[22%] lg:w-auto">
 					<YouTubeFacade id={s.id} title={s.title} poster={shortPosterPath(s)} vertical />
-					<p class="mt-3 text-sm font-semibold text-pink">Short · {month(s.date)}</p>
-					<h3 class="mt-1 text-base leading-snug font-semibold text-paper">
+					<MetaParts
+						class="mt-3 text-sm font-semibold text-pink"
+						parts={['Short', month(s.date)]}
+					/>
+					<h3 class="mt-1 text-base leading-snug font-semibold text-balance text-paper">
 						<a
 							href={watch(s.id)}
 							target="_blank"

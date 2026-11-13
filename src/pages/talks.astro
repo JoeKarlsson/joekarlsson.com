@@ -87,7 +87,7 @@ const FILTERS = [
 				label: 'Latest',
 				title: newest.talk.title,
 				href: newest.href,
-				meta: [newest.talk.event, formatTalkDate(newest.talk)].filter(Boolean).join(' · '),
+				meta: [newest.talk.event, formatTalkDate(newest.talk)].filter(Boolean).join(', '),
 			}}
 		>
 			<div slot="media" class="relative z-10 aspect-video md:aspect-auto">
@@ -193,7 +193,7 @@ const FILTERS = [
 				<IndexRow
 					href={`#${era.slug}`}
 					label={era.years}
-					meta={`${era.label} · ${countByGroup(era.talks)}`}
+					meta={`${era.label}, ${countByGroup(era.talks)}`}
 					index={i}
 					compact
 					class="talk-era-link"

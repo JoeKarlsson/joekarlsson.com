@@ -227,7 +227,7 @@ const cropArtPieces = [
 				label: 'New talk',
 				title: latestTalk.talk.title,
 				href: latestTalk.href,
-				meta: [latestTalk.talk.event, formatTalkDate(latestTalk.talk)].filter(Boolean).join(' · '),
+				meta: [latestTalk.talk.event, formatTalkDate(latestTalk.talk)].filter(Boolean).join(', '),
 			}}
 		>
 			<div
@@ -430,7 +430,7 @@ const cropArtPieces = [
 										class="-top-[22%] -left-[35px] h-[150%] w-[calc(100%+70px)]"
 									/>
 								</span>
-								<span class="text-right text-sm text-muted">
+								<span class="text-right text-sm text-muted [font-variant-numeric:tabular-nums]">
 									{job.role}
 									<span class="ml-3 text-paper">{job.years}</span>
 								</span>

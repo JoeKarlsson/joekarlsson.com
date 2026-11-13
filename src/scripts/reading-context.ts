@@ -15,7 +15,7 @@ export function readingProgress(
 	return Math.min(1, Math.max(0, (barBottom - bodyTop) / scrollable));
 }
 
-/** "Homelab · 15 min left": the category and the minutes still to read, either one optional. */
+/** "Homelab, 15 min left": the category and the minutes still to read, either one optional. */
 export function contextMeta(
 	category: string | undefined,
 	minutes: number,
@@ -23,7 +23,7 @@ export function contextMeta(
 ): string {
 	const left = Math.ceil(minutes * (1 - progress));
 	const time = minutes ? (left > 0 ? `${left} min left` : 'Done') : '';
-	return [category, time].filter(Boolean).join(' · ');
+	return [category, time].filter(Boolean).join(', ');
 }
 
 export function initReadingContext(nav: HTMLElement): void {

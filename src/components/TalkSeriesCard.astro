@@ -3,7 +3,8 @@
 // lists every time I gave it, each event linked to its own recording when there is one.
 import type { Talk } from '../data/talks';
 import { formatTalkDate, groupOf, posterPath } from '../data/talks';
-import { META, TEXT_LINK } from '../utils/ui';
+import { ITEM_TITLE, META, TEXT_LINK } from '../utils/ui';
+import MetaParts from './MetaParts.astro';
 import TalkLinks from './TalkLinks.astro';
 import TalkSeriesRun from './TalkSeriesRun.astro';
 import YouTubeFacade from './YouTubeFacade.astro';
@@ -49,13 +50,15 @@ const LINK =
 			</>
 		)}
 	</div>
-	<p class="mt-4 text-sm font-semibold text-pink max-md:mt-0">
-		{groupOf(runs[0]) === 'demo'
-			? `Demo · ${runs.length} videos`
-			: `Talk · Given ${runs.length} times`}{' '}
-		· {span}
-	</p>
-	<h3 class="mt-1 font-sans text-xl leading-snug font-semibold text-paper max-md:text-base">
+	<MetaParts
+		class="mt-4 text-sm font-semibold text-pink [font-variant-numeric:tabular-nums] max-md:mt-0"
+		parts={
+			groupOf(runs[0]) === 'demo'
+				? ['Demo', `${runs.length} videos`, span]
+				: ['Talk', `Given ${runs.length} times`, span]
+		}
+	/>
+	<h3 class={`mt-1 ${ITEM_TITLE} max-md:text-base`}>
 		{writeup || video ? (
 			<a
 				href={writeup ?? watch(video!)}

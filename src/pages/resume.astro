@@ -206,7 +206,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 								</li>
 							))}
 						</ul>
-						<p class="text-sm text-muted">{role.tech.join(' · ')}</p>
+						<p class="text-sm text-muted">{role.tech.join(', ')}</p>
 					</div>
 				</div>
 			))}
@@ -305,7 +305,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 						{project.name}
 					</a>
 					<p class="mt-1 leading-relaxed text-paper">{project.description}</p>
-					<p class="mt-1 text-sm text-muted">{project.tech.join(' · ')}</p>
+					<p class="mt-1 text-sm text-muted">{project.tech.join(', ')}</p>
 				</li>
 			))}
 		</ul>

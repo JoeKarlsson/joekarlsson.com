@@ -12,7 +12,7 @@ const { employer } = Astro.props;
 ---
 
 {employer && (
-	<a href={`/blog/written-for/${categorySlug(employer)}/`} class={MORE_LINK}>
+	<a href={`/blog/written-for/${categorySlug(employer)}/`} class={`-my-3 ${MORE_LINK}`}>
 		Written for {employer}
 	</a>
 )}

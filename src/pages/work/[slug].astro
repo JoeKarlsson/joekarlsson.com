@@ -22,6 +22,7 @@ import { halftoneMode } from '../../utils/halftone';
 import { localImageSize } from '../../utils/image-size.mjs';
 import { inlineDiagram } from '../../plugins/rehype-inline-diagrams.mjs';
 import ImageLightbox from '../../components/ImageLightbox.astro';
+import MetaParts from '../../components/MetaParts.astro';
 
 export function getStaticPaths() {
 	return projects
@@ -96,9 +97,7 @@ if (madeDiagram && !diagram)
 const WIDE = 'width: 100cqw; margin-inline: calc((100% - 100cqw) / 2)';
 
 // The year and any collaborator; a page with a How it's made section lists its stack there
-const byline = [project.date.slice(0, 4), page.credit, !page.made && project.tech.join(' · ')]
-	.filter(Boolean)
-	.join(' · ');
+const byline = [project.date.slice(0, 4), page.credit, !page.made && project.tech.join(', ')];
 
 // The sidebar lists the sections this page has, in page order; ids match the h2s below
 const sections = [
@@ -183,7 +182,9 @@ const sections = [
 					<header class="mb-8">
 						<h1 class={ARTICLE_TITLE}>{project.title}</h1>
 						<p class="mb-3 font-serif text-xl leading-snug text-paper">{page.tagline}</p>
-						<p class={META}>{byline}</p>
+						<p class={META}>
+							<MetaParts parts={byline} />
+						</p>
 					</header>
 
 					<div class="mb-12 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -466,7 +467,7 @@ const sections = [
 							<h2 id="how-its-made" class={ARTICLE_HEADING}>
 								How it's made
 							</h2>
-							<p class={`mb-4 ${META}`}>{project.tech.join(' · ')}</p>
+							<p class={`mb-4 ${META}`}>{project.tech.join(', ')}</p>
 							<div class="prose mb-8">
 								{page.made.text.map((p) => (
 									<p set:html={inlineMarkdown(p)} />

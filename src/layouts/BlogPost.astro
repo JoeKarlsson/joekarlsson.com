@@ -8,6 +8,7 @@ import { isOwnPost } from '../utils/posts';
 import { AMAZON_DISCLOSURE } from '../utils/affiliate';
 import AuthorBio from '../components/AuthorBio.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
+import MetaParts from '../components/MetaParts.astro';
 import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
@@ -257,32 +258,30 @@ const heroIsTaped =
 					<div class="mb-8">
 						<h1 class={ARTICLE_TITLE}>{title}</h1>
 						<p class={META}>
-							<FormattedDate date={date} />
-							{updatedDate && (
-								<>
-									{' '}
-									(Updated <FormattedDate date={updatedDate} />)
-								</>
-							)}
-							{readingTime && <> · {readingTime} min read</>}
-							{categories &&
-								categories.map((cat) => (
-									<>
-										{' · '}
-										<a
-											href={`/blog/category/${categorySlug(cat)}/`}
-											class="text-pink underline decoration-1 underline-offset-[0.2em] hover:text-paper"
-										>
-											{cat}
-										</a>
-									</>
-								))}
-							{writtenFor && (
-								<>
-									{' · '}
-									<WrittenFor employer={writtenFor} />
-								</>
-							)}
+							<MetaParts>
+								<span>
+									<FormattedDate date={date} />
+									{updatedDate && (
+										<>
+											{' '}
+											(Updated <FormattedDate date={updatedDate} />)
+										</>
+									)}
+								</span>{' '}
+								{readingTime && <span>{readingTime} min read</span>}{' '}
+								{categories &&
+									categories.map((cat) => (
+										<>
+											<a
+												href={`/blog/category/${categorySlug(cat)}/`}
+												class="text-pink underline decoration-1 underline-offset-[0.2em] hover:text-paper"
+											>
+												{cat}
+											</a>{' '}
+										</>
+									))}
+								{writtenFor && <WrittenFor employer={writtenFor} />}
+							</MetaParts>
 						</p>
 					</div>
 					{updateNote && updatedDate && (
