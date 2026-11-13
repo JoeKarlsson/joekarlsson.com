@@ -76,7 +76,7 @@ const track = (platform: string) =>
 				/>
 			</div>
 			<!-- Phones keep the one-line pitch, so visitors know what to message me about, but skip
-			the two buttons so the platform list starts right after it, and LinkedIn opens that list -->
+			the two buttons so the platform list, which LinkedIn opens, starts right after it -->
 			<div>
 				<p class={HERO_LEAD}>
 					Message me on LinkedIn about work or a speaking gig, or on Bluesky to talk homelabs,
@@ -114,16 +114,6 @@ const track = (platform: string) =>
 						}
 					/>
 				</h2>
-				{s === 0 && (
-					<IndexRow
-						href={BEST[0].href}
-						label={BEST[0].label}
-						meta={BEST[0].meta}
-						index={links.length}
-						external
-						class={`${track(BEST[0].label)} md:hidden`}
-					/>
-				)}
 				{links.map(({ label, meta, href }, i) => (
 					<IndexRow
 						href={href}

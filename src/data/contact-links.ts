@@ -13,6 +13,7 @@ export const SECTIONS = [
 	{
 		heading: 'Where I post',
 		links: [
+			{ label: 'LinkedIn', meta: 'Work & speaking', href: SOCIAL_LINKS.linkedin },
 			{ label: 'Threads', meta: '@joekarlsson', href: SOCIAL_LINKS.threads },
 			{ label: 'Bluesky', meta: '@joekarlsson.com', href: SOCIAL_LINKS.bluesky },
 			{ label: 'YouTube', meta: 'Talks & tutorials', href: SOCIAL_LINKS.youtube },
