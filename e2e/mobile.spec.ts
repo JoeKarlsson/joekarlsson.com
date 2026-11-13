@@ -457,7 +457,8 @@ test.describe('Phone layout', () => {
 		await expect(page.locator('.board-hint').first()).toBeVisible();
 		const before = await scrollY();
 		await swipeUpOnBoard();
-		expect(await scrollY()).toBeGreaterThan(before);
+		// Under load the touch scroll can land after the swipe's 300ms settle, so wait for it
+		await expect.poll(scrollY).toBeGreaterThan(before);
 		expect(await longestStroke()).toBe(0);
 
 		// After a crayon is tapped (on a fresh load), the same swipe draws and the page holds still
@@ -468,8 +469,8 @@ test.describe('Phone layout', () => {
 		await page.waitForTimeout(500);
 		const held = await scrollY();
 		await swipeUpOnBoard();
+		await expect.poll(longestStroke).toBeGreaterThan(3);
 		expect(await scrollY()).toBe(held);
-		expect(await longestStroke()).toBeGreaterThan(3);
 
 		await board.locator('[data-board-done]').tap();
 		await expect(board).not.toHaveAttribute('data-drawing');
