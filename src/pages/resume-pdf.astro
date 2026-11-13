@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import { roles, education, skills } from '../data/resume';
 
 function formatYearRange(start: number, end: number | null): string {
@@ -13,7 +14,23 @@ function formatYearRange(start: number, end: number | null): string {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Joe Karlsson - Resume</title>
 		<meta name="robots" content="noindex" />
+		<Font cssVariable="--font-anton" />
+		<Font cssVariable="--font-hanken-grotesk" />
+		<Font cssVariable="--font-jetbrains-mono" />
+		<Font cssVariable="--font-fraunces" />
 		<style>
+			/* The site's brand on paper: Anton headings, Hanken Grotesk text, a Fraunces
+			intro, JetBrains Mono dates, and the one hot pink. Pink is only for rules and
+			markers: as text on white it is too light to read at this size */
+			:root {
+				--page: #fff;
+				--text: #111;
+				--body: #333;
+				--muted: #6b6b6b;
+				--pink: #ff4fd8;
+				--accent-text: #111;
+			}
+
 			* {
 				margin: 0;
 				padding: 0;
@@ -21,61 +38,73 @@ function formatYearRange(start: number, end: number | null): string {
 			}
 
 			body {
-				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				font-family: var(--font-hanken-grotesk);
 				font-size: 9.5pt;
 				line-height: 1.5;
-				color: #1a1a1a;
-				background: #fff;
+				color: var(--text);
+				background: var(--page);
 			}
 
 			/* ─── Header ─────────────────────────────────────── */
 			.header {
 				display: flex;
 				justify-content: space-between;
-				align-items: flex-start;
+				align-items: flex-end;
 				padding-bottom: 10pt;
 				margin-bottom: 12pt;
-				border-bottom: 2pt solid #e8461e;
+				border-bottom: 3pt solid var(--pink);
 			}
 
 			h1 {
-				font-size: 24pt;
-				font-weight: 700;
-				color: #1a1a1a;
-				letter-spacing: -0.5pt;
-				line-height: 1.1;
+				font-family: var(--font-anton);
+				font-size: 28pt;
+				font-weight: 400;
+				text-transform: uppercase;
+				letter-spacing: 0.5pt;
+				color: var(--text);
+				line-height: 1;
 			}
 
 			.subtitle {
 				font-size: 11pt;
-				color: #e8461e;
-				font-weight: 500;
-				margin-top: 2pt;
+				color: var(--accent-text);
+				font-weight: 600;
+				margin-top: 4pt;
 			}
 
 			.contact {
 				text-align: right;
 				font-size: 8pt;
-				color: #555;
+				color: var(--muted);
 				line-height: 1.8;
+			}
+
+			.intro {
+				font-family: var(--font-fraunces);
+				font-size: 9.5pt;
+				color: var(--body);
+				line-height: 1.5;
+				margin-bottom: 14pt;
 			}
 
 			/* ─── Section headers ────────────────────────────── */
 			h2 {
-				font-size: 8pt;
-				font-weight: 700;
+				font-family: var(--font-anton);
+				font-size: 13pt;
+				font-weight: 400;
 				text-transform: uppercase;
-				letter-spacing: 1.5pt;
-				color: #e8461e;
-				border-bottom: 0.5pt solid #ddd;
-				padding-bottom: 2pt;
-				margin-top: 14pt;
-				margin-bottom: 8pt;
+				letter-spacing: 0.5pt;
+				line-height: 1.1;
+				color: var(--text);
+				border-bottom: 1.5pt solid var(--pink);
+				padding-bottom: 3pt;
+				margin-top: 12pt;
+				margin-bottom: 6pt;
 			}
 
 			/* ─── Experience ─────────────────────────────────── */
 			.role {
-				margin-bottom: 11pt;
+				margin-bottom: 9pt;
 			}
 
 			.role-header {
@@ -85,35 +114,36 @@ function formatYearRange(start: number, end: number | null): string {
 			}
 
 			.role-title {
-				font-size: 10pt;
+				font-size: 10.5pt;
 				font-weight: 700;
-				color: #1a1a1a;
+				color: var(--text);
 			}
 
-			.role-dates {
-				font-size: 8pt;
-				color: #888;
-				font-family: 'Courier New', monospace;
+			.role-dates,
+			.edu-years {
+				font-family: var(--font-jetbrains-mono);
+				font-size: 7.5pt;
+				color: var(--muted);
 				white-space: nowrap;
 			}
 
 			.role-meta {
 				font-size: 8.5pt;
-				color: #e8461e;
+				color: var(--accent-text);
 				font-weight: 600;
 				margin-top: 0.5pt;
 				margin-bottom: 2pt;
 			}
 
 			.role-location {
-				color: #aaa;
+				color: var(--muted);
 				font-weight: 400;
 			}
 
 			.role-tech {
-				font-size: 7pt;
-				color: #999;
-				font-family: 'Courier New', monospace;
+				font-family: var(--font-jetbrains-mono);
+				font-size: 6.5pt;
+				color: var(--muted);
 				margin-bottom: 4pt;
 			}
 
@@ -123,9 +153,13 @@ function formatYearRange(start: number, end: number | null): string {
 
 			.role li {
 				font-size: 8.5pt;
-				color: #333;
+				color: var(--body);
 				margin-bottom: 1.5pt;
 				line-height: 1.4;
+			}
+
+			.role li::marker {
+				color: var(--pink);
 			}
 
 			/* ─── Skills ─────────────────────────────────────── */
@@ -145,13 +179,13 @@ function formatYearRange(start: number, end: number | null): string {
 				font-weight: 700;
 				text-transform: uppercase;
 				letter-spacing: 0.5pt;
-				color: #777;
+				color: var(--text);
 				margin-bottom: 1.5pt;
 			}
 
 			.skill-items {
 				font-size: 8pt;
-				color: #444;
+				color: var(--body);
 				line-height: 1.5;
 			}
 
@@ -163,26 +197,20 @@ function formatYearRange(start: number, end: number | null): string {
 			}
 
 			.edu-degree {
-				font-size: 10pt;
+				font-size: 10.5pt;
 				font-weight: 700;
-			}
-
-			.edu-years {
-				font-size: 8pt;
-				color: #888;
-				font-family: 'Courier New', monospace;
 			}
 
 			.edu-school {
 				font-size: 8.5pt;
-				color: #e8461e;
+				color: var(--accent-text);
 				font-weight: 600;
 				margin-top: 1pt;
 			}
 
 			.edu-detail {
 				font-size: 8pt;
-				color: #888;
+				color: var(--muted);
 				margin-top: 1pt;
 			}
 
@@ -207,7 +235,7 @@ function formatYearRange(start: number, end: number | null): string {
 			</div>
 		</div>
 
-		<p style="font-size: 9pt; color: #444; line-height: 1.5; margin-bottom: 14pt;">
+		<p class="intro">
 			I run developer marketing for Connect AI, CData's MCP platform that connects AI agents to live
 			enterprise data. Before that I spent about 15 years writing software, teaching it, and
 			explaining it: front-end tech lead at Best Buy, bootcamp instructor in Honolulu, and developer
