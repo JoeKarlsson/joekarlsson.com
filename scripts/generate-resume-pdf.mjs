@@ -65,7 +65,18 @@ async function generate() {
 	const browser = await chromium.launch();
 	const page = await browser.newPage();
 
-	await page.goto(`${BASE_URL}/${PAGE}/`, { waitUntil: 'networkidle' });
+	const response = await page.goto(`${BASE_URL}/${PAGE}/`, { waitUntil: 'networkidle' });
+	// Another project's server on the same port answers with its own 404, which printed fine
+	if (!response?.ok()) {
+		console.error(
+			`${BASE_URL}/${PAGE}/ answered ${response?.status()}: is this repo's server on that port?`,
+		);
+		await browser.close();
+		if (ownServer && server) server.kill();
+		process.exit(1);
+	}
+	// The template is set in the site's web fonts; print only once they've loaded
+	await page.evaluate(() => document.fonts.ready);
 
 	await page.pdf({
 		path: OUT,
