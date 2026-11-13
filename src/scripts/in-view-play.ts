@@ -4,7 +4,9 @@
 // seen, so a page with several clips doesn't pull them all on load. Reduced-motion
 // users get a still clip. A clip the viewer paused from its controls stays paused,
 // and nothing starts while the pause-motion button is on; when it's turned off,
-// the clips on screen start.
+// the clips on screen start. Inside a post's text, only one clip plays at a time: the
+// one most in view, once it's mostly on screen, like the post's animated figures.
+import { mostlyInView } from './filter-animations';
 import { DESKTOP_EMBED_QUERY } from './load-desktop-embeds';
 import { MOTION_RESUMED_EVENT, isMotionPaused } from './pause-motion';
 import { mayBoil } from '../utils/paper-hero-motion';
@@ -54,6 +56,11 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 		if (!pausedByViewer.has(video) && !isMotionPaused() && mayAutoplay(video))
 			video.play().catch(() => {});
 	};
+	const autoPause = (video: HTMLVideoElement) => {
+		if (video.paused) return;
+		video.dataset.autoPausing = '1';
+		video.pause();
+	};
 	const observer = new IntersectionObserver(
 		(entries) => {
 			for (const { target, isIntersecting } of entries) {
@@ -63,14 +70,36 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 					play(video);
 				} else {
 					onScreen.delete(video);
-					if (!video.paused) {
-						video.dataset.autoPausing = '1';
-						video.pause();
-					}
+					autoPause(video);
 				}
 			}
 		},
 		{ rootMargin: '200px 0px' },
+	);
+	// A post's clips: two loops side by side split the reader's attention, and a 200px
+	// head start plays the opening of a one-off clip before anyone can see it. So the
+	// clip most in view plays, once it's mostly on screen, and the rest wait.
+	const visibleHeight = new Map<HTMLVideoElement, number>();
+	const postObserver = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				const video = entry.target as HTMLVideoElement;
+				if (mostlyInView(entry)) visibleHeight.set(video, entry.intersectionRect.height);
+				else visibleHeight.delete(video);
+			}
+			const [leader] = [...visibleHeight].sort((a, b) => b[1] - a[1])[0] ?? [];
+			onScreen.forEach((video) => {
+				if (video.closest('.prose') && video !== leader) {
+					onScreen.delete(video);
+					autoPause(video);
+				}
+			});
+			if (leader && !onScreen.has(leader)) {
+				onScreen.add(leader);
+				play(leader);
+			}
+		},
+		{ threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] },
 	);
 	videos.forEach((video) => {
 		video.addEventListener('pause', () => {
@@ -81,7 +110,8 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 			else if (video.controls && document.visibilityState === 'visible') pausedByViewer.add(video);
 		});
 		video.addEventListener('play', () => pausedByViewer.delete(video));
-		observer.observe(video);
+		if (video.closest('.prose')) postObserver.observe(video);
+		else observer.observe(video);
 	});
 	// Motion was paused when these scrolled in (perhaps on another page), so start them now
 	document.addEventListener(MOTION_RESUMED_EVENT, () => onScreen.forEach((video) => play(video)));

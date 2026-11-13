@@ -2,7 +2,17 @@
 // scribbles out `any` and writes the real type, ShelfFilm, above it, the way you'd correct
 // a word on paper. Then it all clears and the loop starts over.
 import { COLORS } from '../draw.mjs';
-import { n, partOf, pathOf, pencilLayer, pencil, stepped, timeline, travel } from './_sketch.mjs';
+import {
+	n,
+	layers,
+	partOf,
+	pathOf,
+	pencil,
+	pencilLayer,
+	stepped,
+	timeline,
+	travel,
+} from './_sketch.mjs';
 
 export const alt =
 	'The function signature makeTape(template, film: any). A pencil scribbles out the word any and writes ShelfFilm above it, one letter at a time. Then it clears and starts again.';
@@ -11,7 +21,7 @@ const MONO = "var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace";
 const BEFORE = 'makeTape(template, film: ';
 const TYPE = 'ShelfFilm';
 
-function figure(f, { x, y, size, rest, scale }) {
+function figure(f, { phone, x, y, size, rest, scale }) {
 	const cw = size * 0.6; // JetBrains Mono's advance width
 	const anyX = x + BEFORE.length * cw;
 	const anyW = 3 * cw;
@@ -73,8 +83,7 @@ function figure(f, { x, y, size, rest, scale }) {
 	const live = `${signature}<g opacity="1">${over((s) => n(s.all), { attr: 'opacity' })}${strike(states[0], true)}${word(states[0], true)}</g>${pencilLayer(states, over, scale)}`;
 	const done = { strike: 1, letters: TYPE.length };
 	const still = `${signature}${strike(done, false)}${word(done, false)}<g transform="translate(${n(rest.x)} ${n(rest.y)})">${pencil(scale)}</g>`;
-	f.raw(`<g class="anim-live">${live}</g>`);
-	f.raw(`<g class="anim-still" display="none">${still}</g>`);
+	layers(f, phone, live, still);
 }
 
 export const desktop = {
@@ -87,6 +96,6 @@ export const desktop = {
 export const phone = {
 	height: 190,
 	draw(f) {
-		figure(f, { x: 45, y: 140, size: 15, rest: { x: 300, y: 180 }, scale: 0.8 });
+		figure(f, { phone: true, x: 45, y: 140, size: 15, rest: { x: 300, y: 180 }, scale: 0.8 });
 	},
 };

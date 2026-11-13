@@ -82,6 +82,18 @@ test.describe('Blog Index Page', () => {
 });
 
 test.describe('Individual Blog Post', () => {
+	test("a post's clips play one at a time, the one most in view", async ({ page }) => {
+		await page.goto('/blog/recording-setup-tour/');
+		const lighting = (name: string) => page.locator(`.prose video[src*="${name}"]`);
+		// Center the middle lighting clip; its neighbors are partly on screen too
+		await lighting('lighting-2').evaluate((video) => video.scrollIntoView({ block: 'center' }));
+		await expect
+			.poll(() => lighting('lighting-2').evaluate((v: HTMLVideoElement) => !v.paused))
+			.toBe(true);
+		for (const name of ['lighting-1', 'lighting-3'])
+			expect(await lighting(name).evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+	});
+
 	test('blog post page loads correctly', async ({ page }) => {
 		// Go to blog and click first post
 		await page.goto('/blog');

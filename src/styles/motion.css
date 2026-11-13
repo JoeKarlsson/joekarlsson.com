@@ -217,6 +217,12 @@
 	animation-delay: calc(var(--echo-index, 0) * -0.6s);
 }
 
+/* The footer's echo sits just above the subscribe form: it holds still while
+   someone is typing there, so nothing blinks beside the field in use */
+footer:has(.newsletter-signup:focus-within) .echo > span {
+	animation-play-state: paused;
+}
+
 @keyframes echo {
 	0%,
 	19% {
@@ -300,12 +306,25 @@
 		transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 
-	.sticker:hover {
-		transform: translateY(-2px) rotate(-2.5deg);
-	}
+	/* Only where a pointer really hovers: a tap's sticky :hover would hold the peel
+	   while the phone menu is open. The pad keeps the peeled sticker under a resting
+	   pointer, or its bottom edge slips out from under it and the peel flickers. The
+	   peel's transform makes the sticker the pad's containing block, so no sticker
+	   needs position: relative (which would beat the lightbox Close button's fixed). */
+	@media (hover: hover) {
+		.sticker:hover {
+			transform: translateY(-2px) rotate(-2.5deg);
+		}
 
-	.sticker:nth-child(even):hover {
-		transform: translateY(-2px) rotate(2.5deg);
+		.sticker:nth-child(even):hover {
+			transform: translateY(-2px) rotate(2.5deg);
+		}
+
+		.sticker:hover::after {
+			content: '';
+			position: absolute;
+			inset: -6px -4px;
+		}
 	}
 
 	.sticker:active {
@@ -360,7 +379,7 @@
 /* UI responses (~/.claude/knowledge/web-motion.md): the phone menu and the lightbox grow
    from 0.95 out of whatever opened them. The lightbox shrinks back into it, about 20%
    faster; the menu, a dropdown closed many times a visit, goes at once. Menu rows stagger
-   30ms; swapped icons (MENU/CLOSE, pause/play) crossfade. Under reduced motion a mouse
+   30ms; swapped icons (MENU/CLOSE) crossfade. Under reduced motion a mouse
    gets instant changes and a finger gets a short fade (end of this file); the row
    stagger skips while motion is paused, since .motion-paused would freeze them at their
    invisible first frame. */

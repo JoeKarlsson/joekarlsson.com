@@ -5,6 +5,17 @@
 import { COLORS } from '../draw.mjs';
 
 export const FPS = 12;
+
+/** The moving pieces: on desktop a live layer plus its still, on a phone the still alone
+ *  (phones get the finished drawing, never the motion, like the site's other post figures). */
+export function layers(f, phone, live, still) {
+	if (phone) {
+		f.raw(still);
+		return;
+	}
+	f.raw(`<g class="anim-live">${live}</g>`);
+	f.raw(`<g class="anim-still" display="none">${still}</g>`);
+}
 export const n = (v) => Math.round(v * 10) / 10;
 
 /** One SMIL animation stepping through a value per drawing; nothing when it never changes. */

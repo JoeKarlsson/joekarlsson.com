@@ -3,6 +3,7 @@
 // way an x-ray finds the limbs a painter moved. Then it all clears and the loop starts over.
 import { COLORS } from '../draw.mjs';
 import {
+	layers,
 	FPS,
 	eraserOn,
 	loop,
@@ -38,7 +39,7 @@ function shapes(cx, cy, s) {
 	return [[circle], [star], house];
 }
 
-function figure(f, { cx, cy, s, rest, scale }) {
+function figure(f, { phone, cx, cy, s, rest, scale }) {
 	const drawings = shapes(cx, cy, s);
 	const center = { x: cx, y: cy };
 	const scrubStart = eraserOn(scrubAt(center, 40 * s, 8 * s, 0), scale);
@@ -90,8 +91,7 @@ function figure(f, { cx, cy, s, rest, scale }) {
 	// The still: the house drawn over the two ghosts, pencil at rest
 	const done = { frac: [1, 1, 1], op: [GHOST, GHOST, 1] };
 	const still = `${lines(done, false)}<g transform="translate(${n(rest.x)} ${n(rest.y)})">${pencil(scale)}</g>`;
-	f.raw(`<g class="anim-live">${live}</g>`);
-	f.raw(`<g class="anim-still" display="none">${still}</g>`);
+	layers(f, phone, live, still);
 }
 
 export const desktop = {
@@ -104,6 +104,6 @@ export const desktop = {
 export const phone = {
 	height: 250,
 	draw(f) {
-		figure(f, { cx: 160, cy: 134, s: 1.1, rest: { x: 280, y: 215 }, scale: 1 });
+		figure(f, { phone: true, cx: 160, cy: 134, s: 1.1, rest: { x: 280, y: 215 }, scale: 1 });
 	},
 };

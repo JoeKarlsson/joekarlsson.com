@@ -3,6 +3,7 @@
 // rubbing it out, trying again, and finally getting it square.
 import { COLORS } from '../draw.mjs';
 import {
+	layers,
 	FPS,
 	eraserOn,
 	n,
@@ -19,7 +20,7 @@ import {
 export const alt =
 	'A scaffold of poles and planks appears in two quick beats. Then a pencil draws one window in a single bay, crooked, rubs it out, draws it crooked again, rubs it out, and finally draws it square with a cross in the middle. Then everything clears and it starts again.';
 
-function figure(f, { x0, x1, ground, top, cols, rows, bay, rest, scale }) {
+function figure(f, { phone, x0, x1, ground, top, cols, rows, bay, rest, scale }) {
 	const xs = Array.from({ length: cols }, (_, i) => x0 + ((x1 - x0) * i) / (cols - 1));
 	const ys = Array.from({ length: rows }, (_, i) => top + ((ground - top) * i) / rows);
 	const poles = [
@@ -114,8 +115,7 @@ function figure(f, { x0, x1, ground, top, cols, rows, bay, rest, scale }) {
 	// The still: the scaffold with the finished window, the two crooked tries rubbed out
 	const done = { poles: 1, planks: 1, frac: [0, 0, 1], op: [0, 0, 1], tip: rest };
 	const still = `${scaffold(done, false)}${windows(done, false)}<g transform="translate(${n(rest.x)} ${n(rest.y)})">${pencil(scale)}</g>`;
-	f.raw(`<g class="anim-live">${live}</g>`);
-	f.raw(`<g class="anim-still" display="none">${still}</g>`);
+	layers(f, phone, live, still);
 }
 
 export const desktop = {
@@ -139,6 +139,7 @@ export const phone = {
 	height: 240,
 	draw(f) {
 		figure(f, {
+			phone: true,
 			x0: 50,
 			x1: 270,
 			ground: 205,

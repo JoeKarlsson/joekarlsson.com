@@ -55,6 +55,7 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 				element.style.viewTransitionName = on ? MORPH : '';
 		};
 
+		let currentMorph: ViewTransition | undefined;
 		const morph = (update: () => void, closing: boolean) => {
 			if (!canMorph()) {
 				update();
@@ -69,7 +70,11 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 				update();
 				name(closing ? source : shown, true);
 			});
+			currentMorph = transition;
 			return transition.finished.finally(() => {
+				// Closed mid-open: the opening's cleanup would wipe the names the close
+				// just set, and the close would lose its morph back into the page
+				if (currentMorph !== transition) return;
 				name(source, false);
 				name(shown, false);
 				dialog.removeAttribute('data-morph');
