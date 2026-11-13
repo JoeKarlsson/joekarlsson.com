@@ -251,7 +251,7 @@ Your key should be shaped like this:
 
 With the data key created, we’re at a point in time where we need to figure out what fields should be encrypted in a document and what fields should be left as plain text. The easiest way to do this is with a schema map.
 
-A schema map for encryption is extended JSON and can be added directly to the Go source code or loaded from an external file. From a maintenance perspective, loading from an external file is easier to maintain.
+A schema map for encryption is extended JSON and can be added directly to your Node.js code or loaded from an external file. From a maintenance perspective, loading from an external file is easier to maintain.
 
 The following table illustrates the data model of the Medical Care Management System.
 

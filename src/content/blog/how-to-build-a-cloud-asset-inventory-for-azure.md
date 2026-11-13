@@ -33,19 +33,19 @@ If you want to follow along with a video version of this post, you can check tha
 
 ## Step 0: Prerequisites
 
-Before jumping into the demo, you'll need a few prerequisites to ensure everything runs smoothly. These setup steps will prepare your environment to sync cloud data from AWS and GCP into PostgreSQL.
+Before jumping into the demo, you'll need a few prerequisites to ensure everything runs smoothly. These setup steps will prepare your environment to sync cloud data from Azure into PostgreSQL.
 
 ### 1. Azure Access
 
-You will need Azure credentials to pull cloud asset data from AWS. You can checkout all the ways to authenticate with Azure [here](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/docs#overview-authentication).
+You will need Azure credentials to pull cloud asset data from Azure. You can check out all the ways to authenticate with Azure [here](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/docs#overview-authentication).
 
-### 3. Docker
+### 2. Docker
 
 We'll be using [Docker](https://www.docker.com/) to run a PostgreSQL container where cloud assets from Azure will be stored. Make sure Docker is installed and running on your local machine before proceeding with the demo.
 
 ### Step 1: Installing CloudQuery
 
-The first step is to install **CloudQuery**, which will act as the engine for pulling in cloud asset data. CloudQuery is open-source, which means it's free to use and easy to extend if needed. It supports a wide range of cloud providers, and in our case, we'll focus on AWS and GCP.
+The first step is to install **CloudQuery**, which will act as the engine for pulling in cloud asset data. CloudQuery is open-source, which means it's free to use and easy to extend if needed. It supports a wide range of cloud providers, and in our case, we'll focus on Azure.
 
 To get started, install CloudQuery using **Homebrew**:
 
@@ -87,7 +87,7 @@ _Note_: While PostgreSQL is used in this example, any compatible database can be
 
 ## Step 3: Configuring CloudQuery
 
-Next, we'll configure CloudQuery to pull data from AWS and sync it to PostgreSQL. CloudQuery works by defining sources (like AWS) and destinations (like PostgreSQL). It then automates the process of syncing data between them.
+Next, we'll configure CloudQuery to pull data from Azure and sync it to PostgreSQL. CloudQuery works by defining sources (like Azure) and destinations (like PostgreSQL). It then automates the process of syncing data between them.
 
 Start by initializing a CloudQuery project for Azure:
 
@@ -121,7 +121,7 @@ spec:
     connection_string: '${POSTGRESQL_CONNECTION_STRING}'
 ```
 
-This CloudQuery configuration file sets up a data source from Azure to extract information from various Azure services, such as API Gateway, IAM, and RDS, using specific tables. The extracted data is then directed to a PostgreSQL database for storage.
+This CloudQuery configuration file sets up a data source from Azure to extract your Azure virtual machines (the `azure_compute_virtual_machines` table). Add more tables to the `tables` list to pull other Azure services. The extracted data is then directed to a PostgreSQL database for storage.
 
 For the `spec>tables` - be sure to include all the assets you want to sync with your Cloud Asset Inventory.
 

@@ -50,7 +50,7 @@ Many organizations have successfully implemented AI on their infrastructure. Her
 
 ### Financial Services: Protecting Customer Data
 
-A major bank implemented on-premises AI for fraud detection, processing millions of transactions daily without exposing customer financial data to third parties. Their custom models achieved 99.7% accuracy while maintaining complete data sovereignty.
+A major bank implemented on-premises AI for fraud detection, processing millions of transactions daily without exposing customer financial data to third parties.
 
 ### Healthcare: HIPAA Compliance
 
@@ -58,7 +58,7 @@ A healthcare provider deployed AI models for medical image analysis on their own
 
 ### Manufacturing: Protecting Intellectual Property
 
-A manufacturing company used AI for predictive maintenance and quality control, keeping their proprietary manufacturing processes and trade secrets secure while improving efficiency by 40%.
+A manufacturing company used AI for predictive maintenance and quality control, keeping their proprietary manufacturing processes and trade secrets secure.
 
 ## Building Your AI Infrastructure
 

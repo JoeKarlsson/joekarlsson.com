@@ -42,7 +42,7 @@ Let's get concrete. Here are five [security policy](https://www.cloudquery.io/pr
 
 ### 1. Find Public S3 Buckets
 
-This is the check every CSPM tool runs first. S3 bucket misconfigurations are behind some of the most high-profile cloud data breaches. In it's straightforward:
+This is the check every CSPM tool runs first. S3 bucket misconfigurations are behind some of the most high-profile cloud data breaches. In SQL, it's straightforward:
 
 ```sql
 SELECT account_id, region, name, arn
@@ -130,7 +130,7 @@ We've talked to dozens of teams who've made this switch. The benefits go beyond 
 
 The version control angle matters more than people expect. When your security policies are SQL files in a Git repository, you get pull request reviews, blame history, change tracking, and the ability to tie policy changes to specific incidents or compliance requirements. That audit trail is worth more than any vendor dashboard.
 
-Custom checks are where the real time savings appear. Every organization has environment-specific security requirements that don't map to pre-built rules. With writing a custom check for your tagging requirements or naming conventions takes five minutes. With a proprietary language, it might take days of learning the rule syntax, or it might not be possible at all. The [Cloud Operations Playbook eBook](https://www.cloudquery.io/resources/cloud-operations-playbook) includes multi-cloud variants of every query shown above plus dozens more, covering Azure, GCP, and cross-provider checks you can adapt to your environment.
+Custom checks are where the real time savings appear. Every organization has environment-specific security requirements that don't map to pre-built rules. With SQL, writing a custom check for your tagging requirements or naming conventions takes five minutes. With a proprietary language, it might take days of learning the rule syntax, or it might not be possible at all. The [Cloud Operations Playbook eBook](https://www.cloudquery.io/resources/cloud-operations-playbook) includes multi-cloud variants of every query shown above plus dozens more, covering Azure, GCP, and cross-provider checks you can adapt to your environment.
 
 ## From Ad Hoc Queries to Automated Checks
 
@@ -238,7 +238,7 @@ Yes. Each SQL query can be mapped to specific compliance controls (SOC 2, CIS Be
 
 ### What's the Biggest Advantage of SQL over Rego or Other Policy Languages?
 
-Accessibility. SQL is already known by virtually every engineer, analyst, and many non-technical stakeholders. When your security team writes a check in the platform engineering team can review it without learning a new language. The security policy becomes a shared artifact that everyone can contribute to, rather than a black box maintained by specialists.
+Accessibility. SQL is already known by virtually every engineer, analyst, and many non-technical stakeholders. When your security team writes a check in SQL, the platform engineering team can review it without learning a new language. The security policy becomes a shared artifact that everyone can contribute to, rather than a black box maintained by specialists.
 
 ### How Many SQL Queries Do I Need to Get Started?
 

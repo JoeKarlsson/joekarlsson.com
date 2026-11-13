@@ -77,9 +77,7 @@ Early CoEs might measure success by whether migrations happened; now, common KPI
 
 As cloud-native thinking matures, will CoEs eventually dissolve into empowered product teams, with perhaps a light governance council remaining? There's an ongoing **debate on centralization vs decentralization**: finding the sweet spot where the CoE provides central governance but still allows team autonomy.
 
-The most effective CoEs today are those that continuously adapt - embracing FinOps, automating governance, scaling knowledge, and even questioning their own structure in pursuit of outcomes for the business. Maybe in a decade, the practices championed by CCOEs will be so ingrained across all teams that the formal CoE unit can fade. Or perhaps CoEs will take on new frontiers (like governing AI ethics or quantum computing usage) as those become the next enterprise technology waves.
-
-For now, the evidence suggests that organizations replicating the CCOE approach should do so with an eye toward **flexibility and continuous learning**. The cloud landscape of 2025 already looks different from that of 2018 (with new services, DevOps tools, compliance pressures, etc.), and it will continue to change.
+The most effective CoEs today are those that continuously adapt - embracing FinOps, automating governance, scaling knowledge, and even questioning their own structure in pursuit of outcomes for the business.
 
 ## Conclusion
 

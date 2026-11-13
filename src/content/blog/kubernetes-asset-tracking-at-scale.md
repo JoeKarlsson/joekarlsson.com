@@ -103,7 +103,7 @@ As Kubernetes adoption proliferates, organizations have developed sophisticated 
 
 The cornerstone of effective Kubernetes management is establishing centralized visibility across all clusters and environments. The [Kubernetes documentation on logging and monitoring](https://kubernetes.io/docs/concepts/cluster-administration/logging/) emphasizes the importance of aggregating logs and metrics to understand system behavior. In practice, this means implementing solutions that provide a "single pane of glass" view across your entire Kubernetes estate.
 
-[Datadog's research on Kubernetes monitoring best practices](https://www.datadoghq.com/blog/monitoring-kubernetes-with-datadog/) highlights that organizations with centralized visibility detect and remediate issues 67% faster than those with siloed monitoring approaches. This translates directly to improved reliability and reduced incident response times. The key is ensuring that all stakeholders, from security teams to platform engineers to application developers, have access to the same consistent view of your infrastructure.
+All stakeholders, from security teams to platform engineers to application developers, need access to the same consistent view of your infrastructure.
 
 ### Consistent Labeling Strategy
 
@@ -120,8 +120,6 @@ The technical requirements here are significant: collection must be lightweight 
 ### Governance of Custom Resources
 
 As CRDs proliferate in production environments, establishing governance around their lifecycle becomes critical. [Red Hat's Kubernetes Operators best practices guide](https://redhat-best-practices-for-k8s.github.io/guide/) recommends using tools like Operator Lifecycle Manager (OLM) to track CRD versions and dependencies.
-
-Effective CRD governance includes tracking who can create CRDs, documenting their purpose and ownership, managing versioning across clusters, and ensuring security reviews before deployment. Organizations like Spotify have developed internal review processes specifically for CRDs to prevent "cluster cruft" accumulation and security risks from poorly vetted extensions.
 
 Effective CRD governance encompasses controlling CRD creation permissions, documenting their purpose and ownership, managing versioning across clusters, and conducting security reviews prior to deployment. [Spotify's internal processes](https://engineering.atspotify.com/2023/05/fleet-management-at-spotify-part-2-the-path-to-declarative-infrastructure/) exemplify this by integrating automated tools and review mechanisms to prevent the accumulation of unvetted extensions, thereby mitigating security risks and maintaining cluster hygiene.
 
@@ -141,7 +139,7 @@ Organizations have developed several distinct approaches to Kubernetes governanc
 
 Many organizations begin with a collection of custom scripts and cron jobs that execute kubectl commands against their clusters. This approach is simple to implement initially but comes with significant drawbacks at scale. Scripts are difficult to maintain, prone to breaking when cluster configurations change, and struggle with authentication and rate limiting in multi-cluster environments.
 
-Google's Site Reliability Engineering team has documented how their initial script-based approaches to fleet management broke down as they scaled beyond a few dozen clusters. The maintenance burden grew exponentially, and the time to gather complete inventory data stretched from minutes to hours as their environment expanded.
+Google hit the same wall. Its SRE book describes early cluster automation as "tens of thousands of lines of shell script owned by dozens of teams," and says "those free-form scripts became a cholesterol of technical debt" ([Google SRE book](https://sre.google/sre-book/automation-at-google/)).
 
 ### The Agent-Based Approach
 
@@ -276,7 +274,7 @@ WHERE
   ) = 'CrashLoopBackOff';
 ```
 
-This query finds all pods across all clusters that are in CrashLoopBackOff state, making it easy to identify problematic workloads. The company's SRE team built an alerting system on top of this query that reduced their mean time to detection for failed deployments by 73%.
+This query finds all pods across all clusters that are in CrashLoopBackOff state, making it easy to identify problematic workloads. The company's SRE team built an alerting system on top of this query.
 
 ### 2. Auditing for Security Best Practices
 
@@ -299,7 +297,7 @@ WHERE
   OR JSON_EXTRACT(container, '$.securityContext.runAsNonRoot') = 'false';
 ```
 
-By running this query as part of their continuous compliance process, they've reduced security findings in audits by 68% and can now provide evidence of security controls to regulators in minutes rather than days.
+By running this query as part of their continuous compliance process, they can show regulators evidence of their security controls.
 
 ### 3. Label and Annotation Standardization
 
@@ -319,7 +317,7 @@ WHERE
   OR labels->>'application' IS NULL;
 ```
 
-This query identifies deployments missing standardized labels required by their governance policy. The operations team runs this query nightly and automatically creates tickets for teams with non-compliant resources. This automated approach has improved label compliance from 63% to 97% without requiring manual reviews.
+This query identifies deployments missing standardized labels required by their governance policy. The operations team runs this query nightly and automatically creates tickets for teams with non-compliant resources.
 
 ### 4. Count Kubernetes Nodes by Cloud Provider
 

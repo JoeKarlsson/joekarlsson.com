@@ -18,13 +18,13 @@ tl;dr: Lara explains how we can easily be influenced by others' moods and how le
 
 _By: Kent Beck_
 
-tl;dr: Kent explains the difference between accountability and blame, pointing out that blame is often used as a "relationship decaying" strategy. As software engineers, it's important to foster a culture of responsibility rather than blame.So I
+tl;dr: Kent explains the difference between accountability and blame, pointing out that blame is often used as a "relationship decaying" strategy. As software engineers, it's important to foster a culture of responsibility rather than blame.
 
 ## [System Design Interview Cheat Sheet](https://systemdesign.one/system-design-interview-cheatsheet/#system-design-template)
 
 tl;dr: This cheat sheet covers various topics like databases, API design, capacity planning, and high-level design, all based on the author's research. It's a work in progress but a helpful resource for software engineers preparing for system design interviews.
 
-## [Clocks And Causality - Ordering Events In DistribuSo I tookted Systems](https://www.exhypothesi.com/clocks-and-causality/)
+## [Clocks And Causality - Ordering Events In Distributed Systems](https://www.exhypothesi.com/clocks-and-causality/)
 
 _By: Giridhar Manepalli_
 

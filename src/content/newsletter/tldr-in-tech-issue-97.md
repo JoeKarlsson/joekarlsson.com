@@ -56,4 +56,4 @@ tl;dr: Ah, the live comment feature, a crowd favorite in system design interview
 
 _By: Andrew Bosworth_
 
-tl;dr: What's more powerful than a superhero? A plainspoken software engineer, Andrew Bosworth says! Your desire to impress, maintain harmony, or influence can make you use more language than necessary. Simplify, be straightforward, a risend watch your communication become a superpower.
+tl;dr: What's more powerful than a superhero? A plainspoken software engineer, Andrew Bosworth says! Your desire to impress, maintain harmony, or influence can make you use more language than necessary. Simplify, be straightforward, and watch your communication become a superpower.

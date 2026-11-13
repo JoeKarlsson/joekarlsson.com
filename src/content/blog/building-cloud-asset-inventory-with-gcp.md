@@ -83,9 +83,9 @@ _Note_: While PostgreSQL is used in this example, any compatible database can be
 
 ## How to Sync GCP Cloud Assets to PostgreSQL with CloudQuery
 
-The CloudQuery GCP source integration extracts information from many of the supported services by Microsoft GCP and loads it into any supported CloudQuery destination (e.g. PostgreSQL, BigQuery, Snowflake, and [more](https://www.cloudquery.io/hub/plugins/destination)).
+The CloudQuery GCP source integration extracts information from many of the supported services in Google Cloud (GCP) and loads it into any supported CloudQuery destination (e.g. PostgreSQL, BigQuery, Snowflake, and [more](https://www.cloudquery.io/hub/plugins/destination)).
 
-It's time to write the CloudQuery Config file to connect to your GCP data. You can pick up the basic configuration for our chosen cloud platforms from the [CloudQuery Hub](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure/latest/docs).
+It's time to write the CloudQuery Config file to connect to your GCP data. You can pick up the basic configuration for our chosen cloud platforms from the [CloudQuery Hub](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs).
 
 ### How to pull Cloud Asset data from GCP
 

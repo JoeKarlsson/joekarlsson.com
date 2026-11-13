@@ -203,8 +203,6 @@ Cloud infrastructure is API-driven. When 70-80% of your AWS resources are manage
 
 The future is agentless, multi-cloud, API-first. Organizations that adjust their CMDB approach to match cloud architecture get better visibility, lower costs, and fewer operational headaches. CloudQuery was built specifically for this API-driven world - syncing cloud infrastructure data from [AWS](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws), [Azure](https://www.cloudquery.io/hub/plugins/source/cloudquery/azure), [GCP](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp), and 70+ other providers without requiring a single agent installation.
 
-"We removed 10,000 agents and replaced them with 100 lines of Python calling APIs. Our CMDB is more accurate now, and we saved $40K/year in agent overhead."
-
 That's the path forward. Start with managed services where agents don't work anyway. Expand to containers and serverless where agents add overhead without value. Keep agents only where APIs don't exist.
 
 CloudQuery makes this transition straightforward: connect your cloud accounts with read-only credentials, sync infrastructure data to [PostgreSQL](https://www.cloudquery.io/hub/plugins/destination/cloudquery/postgresql), [BigQuery](https://www.cloudquery.io/hub/plugins/destination/cloudquery/bigquery), [Snowflake](https://www.cloudquery.io/hub/plugins/destination/cloudquery/snowflake), or any SQL database, and query your complete infrastructure without managing agent deployments.
