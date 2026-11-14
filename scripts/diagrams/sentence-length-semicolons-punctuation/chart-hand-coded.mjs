@@ -70,7 +70,7 @@ function chart(f, { W, H, phone }) {
 		],
 	];
 
-	layers(f, true, (el) => {
+	layers(f, phone, (el) => {
 		const out = [];
 		placed.forEach((c, k) => {
 			const at = T0 + k * EACH;

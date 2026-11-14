@@ -98,6 +98,43 @@ describe('diagram filters stay small enough for iPhone Safari', () => {
 	});
 });
 
+describe('kit charts build in', () => {
+	const bars = [
+		{ label: 'A', value: 3 },
+		{ label: 'B', value: 9, highlight: true },
+	];
+	const series = [
+		{
+			name: 'S',
+			points: [
+				[0, 1],
+				[1, 4],
+			],
+		},
+	];
+	const draw = (width: number) => {
+		const f = createFigure({ id: `build-${width}`, width, height: 300 });
+		f.barChart({ x: 0, y: 0, w: 300, h: 140, bars });
+		f.lineChart({ x: 0, y: 150, w: 300, h: 140, series, xMin: 0, xMax: 1, yMax: 5 });
+		return f.toString('chart');
+	};
+
+	it('on desktop, bars grow from nothing and lines wipe in, with a finished still beside them', () => {
+		const svg = draw(640);
+		const live = svg.slice(svg.indexOf('class="anim-live"'), svg.indexOf('class="anim-still"'));
+		expect(live.match(/type="scale"/g)).toHaveLength(2);
+		expect(live).toContain('transform="scale(1 0)"');
+		expect(svg).toMatch(/<clipPath id="build-640-wipe-1"><rect[^>]* width="0"/);
+		expect(svg.match(/class="anim-still" display="none"/g)).toHaveLength(2);
+	});
+
+	it('on a phone, the chart is the finished still alone', () => {
+		const svg = draw(360);
+		expect(svg).not.toContain('anim-live');
+		expect(svg).not.toContain('<animate');
+	});
+});
+
 describe('animated go_to walk', () => {
 	// The loop restarts with a hard cut, so its last drawing must already be the empty map:
 	// everything faded out and the door shut again (a seam the motion review caught once)

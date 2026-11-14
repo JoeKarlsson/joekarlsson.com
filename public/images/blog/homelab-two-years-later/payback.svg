@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Line chart of what the homelab has saved over time against the $7,200 it cost in hardware. Netting about $131 a month (subscriptions killed, minus electricity and backups), savings cross the hardware line at about 4.6 years. Take out the $80-a-month security monitoring plan and it nets about $51 a month, crossing at about 11.8 years.">
-<defs><filter id="homelab-two-years-later-payback-desktop-crayon-1" filterUnits="userSpaceOnUse" x="40.5" y="95.9" width="583" height="239.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="homelab-two-years-later-payback-desktop-crayon-2" filterUnits="userSpaceOnUse" x="40.5" y="76.5" width="260.5" height="259"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter></defs>
+<defs><filter id="homelab-two-years-later-payback-desktop-crayon-1" filterUnits="userSpaceOnUse" x="40.5" y="95.9" width="583" height="239.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="homelab-two-years-later-payback-desktop-crayon-2" filterUnits="userSpaceOnUse" x="40.5" y="76.5" width="260.5" height="259"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="homelab-two-years-later-payback-desktop-crayon-3" filterUnits="userSpaceOnUse" x="40.5" y="95.9" width="583" height="239.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="homelab-two-years-later-payback-desktop-crayon-4" filterUnits="userSpaceOnUse" x="40.5" y="76.5" width="260.5" height="259"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter></defs>
 <rect width="640" height="360" fill="#000000"/>
 <path d="M52,111.6 L612,111.6" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="7 6" fill="none"/>
 <text x="16" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="start" dominant-baseline="central">WHEN THE RACK PAYS FOR ITSELF</text>
@@ -20,14 +20,35 @@
 <text x="425.3" y="340" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">8 yr</text>
 <text x="518.7" y="340" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">10 yr</text>
 <text x="612" y="340" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">12 yr</text>
+<g class="anim-live">
+<clipPath id="homelab-two-years-later-payback-desktop-wipe-1"><rect x="44" y="68" width="0" height="286">
+<animate attributeName="width" calcMode="discrete" values="0;95.8;180.3;254.3;318.4;373.4;420;458.8;490.5;516;535.8;550.7;561.3;568.5;572.8;575.1;575.9;576" begin="0s" dur="1.4s" fill="freeze"/>
+</rect></clipPath><g clip-path="url(#homelab-two-years-later-payback-desktop-wipe-1)">
 <g class="d-flow">
 <path d="M52,324 L612,107.4" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#homelab-two-years-later-payback-desktop-crayon-1)"/>
 </g>
-<text x="620" y="107.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
 <g class="d-flow">
 <path d="M52,324 L289.5,88" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#homelab-two-years-later-payback-desktop-crayon-2)"/>
 </g>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="1.4s" dur="0.3s" fill="freeze"/>
+<text x="620" y="107.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="1.4s" dur="0.3s" fill="freeze"/>
 <text x="297.5" y="88" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central"></text>
+</g>
+</g><g class="anim-still" display="none">
+<g class="d-flow">
+<path d="M52,324 L612,107.4" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#homelab-two-years-later-payback-desktop-crayon-3)"/>
+</g>
+<g class="d-flow">
+<path d="M52,324 L289.5,88" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#homelab-two-years-later-payback-desktop-crayon-4)"/>
+</g>
+<text x="620" y="107.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
+<text x="297.5" y="88" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central"></text>
+</g>
 <text x="58" y="97.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="600" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Hardware: $7,200</text>
 <circle cx="265.7" cy="111.6" r="6" fill="#ff4fd8"/>
 <circle cx="601" cy="111.6" r="6" fill="#ece6da"/>

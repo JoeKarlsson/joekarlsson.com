@@ -86,7 +86,7 @@ function chart(f, { W, H, phone }) {
 	const keyY = phone ? T - 14 : T + 4;
 	const keyX = phone ? 14 : R - 236;
 
-	layers(f, true, (el) =>
+	layers(f, phone, (el) =>
 		[
 			el(
 				'path',

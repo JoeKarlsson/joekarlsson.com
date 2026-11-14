@@ -4,11 +4,32 @@
 <text x="16" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="start" dominant-baseline="central">PEAK WEEK VS. THE PRIOR ALL-TIME HIGH</text>
 <text x="16" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Search impressions, indexed to the prior record week</text>
 <path d="M120,303.6 L520,303.6" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<g class="anim-live">
+<g transform="translate(220 303.6)"><g transform="scale(1 0)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="1 0;1 0.37;1 0.64;1 0.81;1 0.92;1 0.98;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-220 -303.6)">
 <path class="d-paper" d="M187.4,261.3 L203.6,260.6 L220.4,261.9 L235.2,263.1 L251.4,260.9 L251.8,278.1 L251.4,293.9 L250.5,302.2 L235.5,303.4 L220.4,302.9 L204,304 L186.7,302.4 L188.5,287.9 L187,272.6 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
 <text x="220" y="248.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">1.0x</text>
+</g>
+<g transform="translate(420 303.6)"><g transform="scale(1 0)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="1 0;1 0.37;1 0.64;1 0.81;1 0.92;1 0.98;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-420 -303.6)">
+<path class="d-paper" d="M388.9,99.5 L403.7,99.1 L421.5,99.1 L437,99.4 L452.8,98.3 L452.9,115.4 L453.3,129.6 L452.2,147.1 L452.5,160.6 L451.3,177.3 L451.2,192.7 L450.4,209.2 L451.8,227.4 L452.2,243.4 L452.3,256.6 L451.7,274.5 L452.3,288.8 L451,304.1 L436.5,304.3 L421.3,302.6 L403.8,305.1 L387.6,304 L389.5,288.8 L388.8,270.6 L389.3,255 L387.5,239.9 L388,224.2 L388.9,208.3 L386.7,190.2 L386.5,174.5 L387.6,158.3 L388.7,142 L386.8,126 L389,112.2 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
+<text x="420" y="85.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ff4fd8" text-anchor="middle" dominant-baseline="central">4.9x</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M188.3,262 L204.6,261.2 L220.9,263.2 L234.8,260.4 L253.6,261.1 L252.6,277 L252.2,292.8 L251.9,303.6 L237.1,302.7 L219.5,302.5 L203.7,302.8 L186.9,303.5 L187.2,288.9 L187.6,272.1 Z" fill="#ece6da"/>
+<text x="220" y="248.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">1.0x</text>
+<path class="d-paper" d="M389.1,99.1 L403.2,97.4 L420.6,98 L435.7,97.5 L453.4,97.8 L452.3,113 L452.1,128.6 L452.9,146.9 L452.1,163.3 L453.4,179.1 L452.9,192.7 L451.5,209.6 L450.8,225.8 L453.5,241.2 L452.4,257.9 L451.7,273.7 L452.2,291.5 L452.1,302.5 L435.8,304.1 L420.4,303.6 L405.2,304.5 L389.2,303 L387.5,286.9 L387,270.4 L386.4,255.3 L386.5,239.7 L387.5,222 L388.7,208.4 L389.5,193.2 L386.7,176 L386.5,160.1 L388.4,142.2 L387.9,128.4 L388.7,110.3 Z" fill="#ff4fd8"/>
+<text x="420" y="85.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ff4fd8" text-anchor="middle" dominant-baseline="central">4.9x</text>
+</g>
 <text x="220" y="318" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#ededed" text-anchor="middle" dominant-baseline="central">Prior</text>
 <text x="220" y="337.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#ededed" text-anchor="middle" dominant-baseline="central">all-time high</text>
-<path class="d-paper" d="M388.9,99.5 L403.7,99.1 L421.5,99.1 L437,99.4 L452.8,98.3 L452.9,115.4 L453.3,129.6 L452.2,147.1 L452.5,160.6 L451.3,177.3 L451.2,192.7 L450.4,209.2 L451.8,227.4 L452.2,243.4 L452.3,256.6 L451.7,274.5 L452.3,288.8 L451,304.1 L436.5,304.3 L421.3,302.6 L403.8,305.1 L387.6,304 L389.5,288.8 L388.8,270.6 L389.3,255 L387.5,239.9 L388,224.2 L388.9,208.3 L386.7,190.2 L386.5,174.5 L387.6,158.3 L388.7,142 L386.8,126 L389,112.2 Z" fill="#ff4fd8"/>
-<text x="420" y="85.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ff4fd8" text-anchor="middle" dominant-baseline="central">4.9x</text>
 <text x="420" y="318" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#ededed" text-anchor="middle" dominant-baseline="central">Peak week</text>
 </svg>

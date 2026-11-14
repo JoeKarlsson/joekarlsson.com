@@ -26,6 +26,27 @@ function dashes(f, from, to) {
 	}
 }
 
+function point(f, p, { x0, x1, y0, y1, bw, bh, size }) {
+	const cx = Math.min(x1 - bw / 2 - 4, Math.max(x0 + bw / 2 + 6, x0 + p.cost * (x1 - x0)));
+	const cy = y1 - p.urgency * (y1 - y0);
+	const ink = p.kind === 'outline' ? '#ededed' : '#000000';
+	f.box({ x: cx - bw / 2, y: cy - bh / 2, w: bw, h: bh, kind: p.kind });
+	f.text(cx - bw / 2 + 12, cy, p.n, {
+		font: 'display',
+		size: size + 6,
+		anchor: 'start',
+		color: ink,
+	});
+	p.lines.forEach((line, i) =>
+		f.text(cx - bw / 2 + 50, cy + (i - 0.5) * (size + 4), line, {
+			size,
+			anchor: 'start',
+			weight: 600,
+			color: ink,
+		}),
+	);
+}
+
 function matrix(f, { x0, x1, y0, y1, bw, bh, size, shipped }) {
 	f.line(
 		[
@@ -42,26 +63,12 @@ function matrix(f, { x0, x1, y0, y1, bw, bh, size, shipped }) {
 	f.note(x0, y1 + 18, 'low cost', { size: 13, weight: 700 });
 	f.note(x1, y1 + 18, 'high cost', { anchor: 'end', size: 13, weight: 700 });
 	f.note((x0 + x1) / 2, y1 + 18, 'migration cost', { anchor: 'middle', size: 13 });
-	POINTS.forEach((p) => {
-		const cx = Math.min(x1 - bw / 2 - 4, Math.max(x0 + bw / 2 + 6, x0 + p.cost * (x1 - x0)));
-		const cy = y1 - p.urgency * (y1 - y0);
-		const ink = p.kind === 'outline' ? '#ededed' : '#000000';
-		f.box({ x: cx - bw / 2, y: cy - bh / 2, w: bw, h: bh, kind: p.kind });
-		f.text(cx - bw / 2 + 12, cy, p.n, {
-			font: 'display',
-			size: size + 6,
-			anchor: 'start',
-			color: ink,
-		});
-		p.lines.forEach((line, i) =>
-			f.text(cx - bw / 2 + 50, cy + (i - 0.5) * (size + 4), line, {
-				size,
-				anchor: 'start',
-				weight: 600,
-				color: ink,
-			}),
-		);
-	});
+	// The priorities land one by one, most urgent first, once the matrix scrolls into view
+	f.buildLayers((live) =>
+		POINTS.forEach((p, order) =>
+			f.fadeIn(live, order * 0.3, () => point(f, p, { x0, x1, y0, y1, bw, bh, size })),
+		),
+	);
 	const s = shipped;
 	f.box({ x: s.x, y: s.y, w: s.w, h: 70, kind: 'dashed' });
 	f.text(s.x + 14, s.y + 20, 'Already shipped, 2026-07-28', {

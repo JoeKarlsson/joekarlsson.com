@@ -57,7 +57,7 @@ function chart(f, { W, H, phone }) {
 		r.cy = cy;
 	});
 
-	layers(f, true, (el) => {
+	layers(f, phone, (el) => {
 		const out = [];
 		ROWS.forEach((r, k) => {
 			const start = 0.3 + k * 0.15;

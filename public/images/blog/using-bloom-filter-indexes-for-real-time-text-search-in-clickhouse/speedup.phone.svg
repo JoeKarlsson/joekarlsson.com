@@ -5,15 +5,15 @@
 <text x="8" y="38" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">vs. no index; ngrambf_v1 settings</text>
 <path d="M140,52 L140,272" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="130" y="79.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 1024, 1, 0)</text>
+<text x="130" y="134.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 1024, 2, 0)</text>
+<text x="130" y="189.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 4096, 1, 0)</text>
+<text x="130" y="244.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 8192, 1, 0)</text>
 <path class="d-paper" d="M141.4,63.3 L156,62.9 L173.4,61.2 L186.8,62.6 L204.2,61.2 L220.4,64 L236.2,61 L253.1,62.8 L266.7,62.8 L282.7,61.5 L288.4,63.8 L288.5,78.1 L287.2,95.6 L288.4,98.1 L271.7,97.6 L256,98.1 L238.9,97.7 L224.3,96.7 L207.7,96.1 L192.2,95.6 L176.6,95.8 L160.4,95.4 L143.5,95.3 L141.5,96.7 L140.6,80.4 L141.1,66 Z" fill="#ff4fd8"/>
 <text x="296" y="79.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">87.7x</text>
-<text x="130" y="134.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 1024, 2, 0)</text>
 <path class="d-paper" d="M139.4,118.5 L157.5,117.3 L171.6,117.6 L187.9,116.5 L204.9,118 L220.1,119 L237.1,118.8 L250.9,118.1 L269.5,118.5 L276,117.4 L274.7,134.7 L275.5,149.8 L273.6,151 L257.4,153.1 L243,153 L227.3,151.6 L211.4,151.9 L195.4,152 L180.2,150 L161.3,152.9 L148.2,151.9 L140.5,151.6 L140.3,134.9 L138.4,120.7 Z" fill="#ece6da"/>
 <text x="282.8" y="134.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">79.9x</text>
-<text x="130" y="189.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 4096, 1, 0)</text>
 <path class="d-paper" d="M139.5,171.2 L157.2,173.3 L172.2,171.5 L189.3,170.9 L202.7,172.6 L217.2,171 L218.4,189.2 L219.4,203.2 L218.9,207.3 L201.7,206.1 L184.8,205 L169.1,206.5 L154.9,206.8 L141.3,208.1 L138.6,190.7 L140.5,173.2 Z" fill="#ece6da"/>
 <text x="226.1" y="189.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">46.3x</text>
-<text x="130" y="244.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 8192, 1, 0)</text>
 <path class="d-paper" d="M139.6,226.5 L155.3,229 L170.9,226.2 L181.7,228.5 L181.5,243 L183.2,260.6 L182.3,262.2 L166.5,260.5 L150.7,260.8 L139.6,261.7 L140.2,244.3 L141.4,231.1 Z" fill="#ece6da"/>
 <text x="189.9" y="244.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">24.8x</text>
 </svg>

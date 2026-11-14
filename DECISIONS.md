@@ -48,6 +48,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 ## Animation
 
+- 2026-11-14: Every chart on the site builds in as it scrolls into view (not just boils), including all of the sentence-length post's charts. Overrides the 2026-11-13 motion review that left only that post's Dickens chart animating. No overshoot past a data value.
 - 2026-11-13: A post's animated figures stay at their empty first frame until they're mostly on screen, so the reader sees each one build from nothing. That's intended, not a blank-figure bug (a motion review flagged it).
 - 2026-11-13: Subscribing plays a cut-paper envelope that seals with the crayon asterisk (picked over a rubber "SENT" stamp). It plays on listmonk's "check your inbox" page, not on the site's form, so it never holds up the hand-off and plays in full (Joe's call).
 

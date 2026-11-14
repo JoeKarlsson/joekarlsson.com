@@ -1,11 +1,9 @@
 // Shared by this post's charts: the torn panel, the stepped SMIL and the live/still layers.
 //
-// Only the Dickens chart animates: the post's payoff, one change (Ralph Ammer's rule) once,
-// when it first scrolls into view (src/scripts/pause-offscreen-scribbles.ts), then holds the
-// finished frame for reading. The other charts are data a reader studies, so they draw their
-// finished frame alone (layers(f, true, ...)), like the phone versions; a 2026-11-13 motion
-// review found nine charts building as the reader scrolled and data dots overshooting their
-// real values. Pass `phone` instead of `true` to bring a chart's motion back.
+// Every chart builds in: one change (Ralph Ammer's rule) once, when it first scrolls into
+// view (src/scripts/pause-offscreen-scribbles.ts), then holds the finished frame for reading.
+// Joe's call (2026-11-14, DECISIONS.md) after a 2026-11-13 review had stilled all but Dickens.
+// No ease overshoots: a data dot never passes its real value.
 // Moving pieces are SMIL stepped at 12 fps, like the DOOM post's go_to walk, so the figure
 // plays inline with no script. The desktop SVG carries a live layer and a still one;
 // motion.css swaps in the still under reduced motion and while motion is paused. The phone

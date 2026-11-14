@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300" role="img" aria-label="Two line charts across five Whisper models, smallest to largest. Tech terms heard right, of 16: tiny.en 9, base.en 13, small.en 14, medium 14, large-v3-turbo 14, so accuracy stops improving at small.en. Median latency per request on an M5 Max: 28, 33, 66, 147 and 184 ms, rising with size but staying under the browser's 250 ms listen tick.">
-<defs><filter id="followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-1" filterUnits="userSpaceOnUse" x="40.5" y="64.8" width="255" height="93.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-2" filterUnits="userSpaceOnUse" x="362.5" y="102.6" width="255" height="158.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter></defs>
+<defs><filter id="followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-1" filterUnits="userSpaceOnUse" x="40.5" y="64.8" width="255" height="93.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-2" filterUnits="userSpaceOnUse" x="40.5" y="64.8" width="255" height="93.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-3" filterUnits="userSpaceOnUse" x="362.5" y="102.6" width="255" height="158.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-4" filterUnits="userSpaceOnUse" x="362.5" y="102.6" width="255" height="158.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter></defs>
 <rect width="640" height="300" fill="#000000"/>
 <path d="M374,56.69230769230768 L606,56.69230769230768" stroke="#ff4fd8" stroke-width="2" stroke-dasharray="7 6" fill="none"/>
 <text x="8" y="20" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">Tech terms heard right, of 16</text>
@@ -15,10 +15,24 @@
 <text x="168" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">small</text>
 <text x="226" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">medium</text>
 <text x="284" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">turbo</text>
+<g class="anim-live">
+<clipPath id="followspot-local-whisper-teleprompter-whisper-models-desktop-wipe-1"><rect x="44" y="28" width="0" height="276">
+<animate attributeName="width" calcMode="discrete" values="0;41.2;77.6;109.5;137.1;160.8;180.8;197.5;211.2;222.2;230.7;237.1;241.7;244.8;246.6;247.6;247.9;248" begin="0s" dur="1.4s" fill="freeze"/>
+</rect></clipPath><g clip-path="url(#followspot-local-whisper-teleprompter-whisper-models-desktop-wipe-1)">
 <g class="d-flow">
 <path d="M52,146.9 L110,90.4 L168,76.3 L226,76.3 L284,76.3" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-1)"/>
 </g>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="1.4s" dur="0.3s" fill="freeze"/>
 <text x="292" y="76.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
+</g>
+</g><g class="anim-still" display="none">
+<g class="d-flow">
+<path d="M52,146.9 L110,90.4 L168,76.3 L226,76.3 L284,76.3" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-2)"/>
+</g>
+<text x="292" y="76.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
+</g>
 <circle cx="52" cy="146.9" r="5" fill="#ece6da"/>
 <text x="52" y="132.9" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">9</text>
 <circle cx="110" cy="90.4" r="5" fill="#ece6da"/>
@@ -42,10 +56,24 @@
 <text x="490" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">small</text>
 <text x="548" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">medium</text>
 <text x="606" y="290" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">turbo</text>
+<g class="anim-live">
+<clipPath id="followspot-local-whisper-teleprompter-whisper-models-desktop-wipe-2"><rect x="366" y="28" width="0" height="276">
+<animate attributeName="width" calcMode="discrete" values="0;41.2;77.6;109.5;137.1;160.8;180.8;197.5;211.2;222.2;230.7;237.1;241.7;244.8;246.6;247.6;247.9;248" begin="0s" dur="1.4s" fill="freeze"/>
+</rect></clipPath><g clip-path="url(#followspot-local-whisper-teleprompter-whisper-models-desktop-wipe-2)">
 <g class="d-flow">
-<path d="M374,249.7 L432,245.3 L490,216.6 L548,146.2 L606,114.1" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-2)"/>
+<path d="M374,249.7 L432,245.3 L490,216.6 L548,146.2 L606,114.1" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-3)"/>
+</g>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="1.4s" dur="0.3s" fill="freeze"/>
+<text x="614" y="114.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
+</g>
+</g><g class="anim-still" display="none">
+<g class="d-flow">
+<path d="M374,249.7 L432,245.3 L490,216.6 L548,146.2 L606,114.1" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#followspot-local-whisper-teleprompter-whisper-models-desktop-crayon-4)"/>
 </g>
 <text x="614" y="114.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
+</g>
 <text x="378" y="44.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">browser's 250 ms tick</text>
 <circle cx="374" cy="249.7" r="5" fill="#ece6da"/>
 <text x="374" y="235.7" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">28 ms</text>

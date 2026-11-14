@@ -6,50 +6,176 @@
 <text x="16" y="103" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">llama3.2:3b</text>
 <path d="M206,76 L206,130" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="196" y="89.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
-<path class="d-paper" d="M204.9,80.2 L221.3,81 L238.7,80.9 L252.8,79.7 L268.9,80.5 L287.1,81.7 L301.4,80.2 L318.7,80.4 L334.8,80.6 L348.8,80.1 L366.2,82.4 L383,80 L398.9,81.8 L413.8,80.1 L429.1,81.5 L446.7,79.9 L462.3,80.7 L478.5,82.4 L495.1,80.5 L510.6,80.8 L524.6,82.2 L532,81 L532.8,96.4 L531.6,98.3 L515.8,99.3 L501.3,98.3 L484.6,97.4 L469.6,97.8 L451.4,96.3 L437.4,99 L421.6,99 L403,97.5 L389.2,98.7 L371.9,97.2 L357.4,98.3 L340.4,97.5 L324.1,98 L307.3,98.6 L293.2,97 L277.1,99 L261.7,97.2 L244.8,99.1 L228.8,96.7 L214,98 L204.7,96.5 L205.4,81.8 Z" fill="#ece6da"/>
-<text x="540.5" y="89.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">83</text>
 <text x="196" y="116.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
+<g class="anim-live">
+<g transform="translate(206 89.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -89.5)">
+<path class="d-paper" d="M204.9,80.2 L221.3,81 L238.7,80.9 L252.8,79.7 L268.9,80.5 L287.1,81.7 L301.4,80.2 L318.7,80.4 L334.8,80.6 L348.8,80.1 L366.2,82.4 L383,80 L398.9,81.8 L413.8,80.1 L429.1,81.5 L446.7,79.9 L462.3,80.7 L478.5,82.4 L495.1,80.5 L510.6,80.8 L524.6,82.2 L532,81 L532.8,96.4 L531.6,98.3 L515.8,99.3 L501.3,98.3 L484.6,97.4 L469.6,97.8 L451.4,96.3 L437.4,99 L421.6,99 L403,97.5 L389.2,98.7 L371.9,97.2 L357.4,98.3 L340.4,97.5 L324.1,98 L307.3,98.6 L293.2,97 L277.1,99 L261.7,97.2 L244.8,99.1 L228.8,96.7 L214,98 L204.7,96.5 L205.4,81.8 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
+<text x="540.5" y="89.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">83</text>
+</g>
+<g transform="translate(206 116.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -116.5)">
 <path class="d-paper" d="M206,109.6 L222.4,108 L238.5,107 L254,108.2 L270.9,109.4 L285.8,109.4 L301.7,107.8 L316.6,108.5 L333.7,109.5 L350.3,108.5 L366.4,109.1 L383.1,107.7 L398.3,108.2 L415,109.4 L428.7,109.3 L445,109.1 L462.7,109.3 L479.2,109.3 L495.4,106.8 L511,109.4 L526.8,108.8 L541.4,108.6 L557.5,109.3 L558.5,106.8 L560,125.3 L560.5,126 L542.6,125.8 L527.1,126.1 L510.5,126.2 L496.8,126.1 L480.4,125.5 L464.4,125.4 L447.5,123.4 L431.7,124.7 L416.3,123.8 L400.5,124.5 L383.4,126 L368.6,123.6 L351.7,125.6 L334.7,124.1 L319.1,123.6 L302.5,125.8 L286.8,124.8 L270.6,126 L254.9,126.3 L238.5,125.1 L222.6,124.3 L209.4,126.2 L205.4,125.6 L205.4,108.3 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
 <text x="568" y="116.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">90</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M204.6,81.8 L223.2,80.5 L239.1,80.1 L255.6,81.1 L270.6,80 L285.5,80.2 L303.1,80.8 L316.8,82.4 L333.4,82.6 L349.5,80.1 L367.4,80.6 L382.7,82.3 L399,82.4 L414,80.6 L431,81.9 L447.2,82.3 L461.2,79.8 L479.3,81.4 L493.6,82 L509.7,82 L525.3,81.8 L533.8,79.7 L533.8,96.1 L533.1,99.4 L516.3,96.9 L500.5,97.2 L482.9,99.2 L469.2,97.4 L451.3,99.2 L437.3,98.9 L419.6,97.8 L405.4,98.4 L388.5,97.5 L373.5,98.5 L357,98.8 L339,98.7 L323.7,97.5 L307.1,99.1 L291.4,97.6 L277.4,99.3 L261.8,96.6 L244.9,96.6 L229.2,98.5 L213.4,97.6 L205.4,97.2 L205.1,81.1 Z" fill="#ece6da"/>
+<text x="540.5" y="89.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">83</text>
+<path class="d-paper" d="M205,106.9 L220.5,108.5 L238.7,109 L253.1,108.3 L268.9,108.4 L286.9,109.5 L302.3,108.2 L316.8,109.3 L334.2,109.2 L351.2,107.1 L366,107.8 L381.8,106.7 L396.8,109.1 L413.9,107.3 L430.4,107.6 L446.2,108.3 L461.7,107.7 L479.5,109.5 L492.7,106.9 L509.3,108.4 L524.4,108.4 L541.4,108.5 L557.1,109.3 L560,107 L559.2,124.8 L560.5,123.7 L543.8,125.7 L526.7,123.7 L513.6,125.1 L494.8,125.6 L478.9,125.6 L463.8,125.1 L449.5,125.2 L431,126.4 L415.6,124.4 L401.1,125.9 L382.7,124.7 L367.1,125.9 L350.5,125.1 L336.5,126.1 L320.2,123.4 L303,125.4 L287.8,125.7 L271.8,126 L256.9,124.6 L241.5,125.2 L222.7,125.1 L208.3,124.2 L204.4,126 L206.8,108.9 Z" fill="#ff4fd8"/>
+<text x="568" y="116.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">90</text>
+</g>
 <text x="16" y="167" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">qwen3:4b</text>
 <path d="M206,140 L206,194" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="196" y="153.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
-<path class="d-paper" d="M204.6,145.8 L223.2,144.5 L239.1,144.1 L255.6,145.1 L270.6,144 L285.5,144.2 L303.1,144.8 L316.8,146.4 L333.4,146.6 L349.5,144.1 L367.4,144.6 L382.7,146.3 L399,146.4 L414,144.6 L431,145.9 L447.2,146.3 L461.2,143.8 L479.3,145.4 L493.6,146 L509.7,146 L512.1,145.8 L514.1,159.7 L514.1,160.8 L497.4,163.4 L480.6,160.9 L464.8,161.2 L447.2,163.2 L433.5,161.4 L415.6,163.2 L401.6,162.9 L384,161.8 L369.7,162.4 L352.9,161.5 L337.8,162.5 L321.3,162.8 L303.4,162.7 L288,161.5 L271.4,163.1 L255.8,161.6 L241.7,163.3 L226.1,160.6 L209.3,160.6 L206.7,162.5 L207,145.6 Z" fill="#ece6da"/>
-<text x="520.8" y="153.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">78</text>
 <text x="196" y="180.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
-<path class="d-paper" d="M205.4,171.4 L221.1,171.4 L237,170.9 L252.5,172.5 L270.7,173 L285.1,172.3 L291.4,172.4 L293.4,189.5 L292.8,188.9 L275.4,190.1 L260.8,189.9 L245.7,187.8 L228.5,188.5 L212.3,187.4 L204.8,189.9 L205.9,172 Z" fill="#ff4fd8"/>
+<g class="anim-live">
+<g transform="translate(206 153.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -153.5)">
+<path class="d-paper" d="M206.7,144.1 L220.9,145.8 L239.4,146.3 L255.2,144.8 L271.4,144 L284.8,144.3 L300.5,144.7 L319.3,146.3 L334.5,146.1 L351.1,144 L366.4,146.3 L380.5,144.4 L397.9,144.6 L415.3,145.4 L431.4,146.1 L447.3,144.8 L463,144.3 L477.2,144.4 L495.1,145.9 L509.9,146.6 L513.4,145.2 L513.1,161 L512.6,163.3 L496.8,160.4 L481.4,161 L464.2,162.2 L448.6,162.3 L431.9,163.4 L416.4,163 L400.1,161.7 L384.5,162.5 L368.1,163.3 L353.4,160.5 L337,160.4 L321.7,160.6 L303.2,162.8 L287.4,163.4 L273.6,162.5 L257.5,162.3 L239.3,162.8 L225.2,161.1 L208.3,160.8 L206.8,162.2 L205.1,146.5 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
+<text x="520.8" y="153.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">78</text>
+</g>
+<g transform="translate(206 180.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -180.5)">
+<path class="d-paper" d="M206.8,171.9 L222.8,173.3 L236.9,172.3 L255.3,172.5 L271.2,170.7 L285,170.7 L292.2,170.9 L292.2,186.7 L293.4,188.2 L276.2,188 L259.1,190.4 L245.8,187.3 L230,187.3 L211.2,188.7 L207.1,189.5 L206.1,171.9 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
 <text x="300.5" y="180.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">22</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M206.2,145.7 L221.6,146.1 L237.2,146.4 L252.5,144 L269.7,145.2 L287,146.2 L300.6,143.8 L317.4,145.5 L334,145 L349.6,144.4 L367,143.9 L382.9,146.2 L398.5,145.1 L413.1,145.1 L430.7,143.9 L446.1,146.6 L462.6,145.6 L477.4,144.3 L495.2,146.7 L509.3,145.3 L513.5,145.7 L513.3,161.1 L514.1,161.8 L496.1,160.7 L481.9,160.4 L465.4,160.6 L448.9,163 L433.5,162.3 L415.6,162 L399.4,163 L383.3,160.6 L368.4,161.2 L354.3,162.7 L337.8,161 L320.7,162.5 L305.1,160.8 L289.3,162.2 L272.9,162.1 L257.2,163 L241.1,160.3 L224.4,163 L208.1,163.5 L207.5,162.2 L204.7,144.7 Z" fill="#ece6da"/>
+<text x="520.8" y="153.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">78</text>
+<path class="d-paper" d="M205.2,170.6 L221.9,172.6 L236.9,170.7 L252.6,171.3 L269.1,173.2 L284.9,173.1 L292.9,172.1 L291.8,188.1 L293,188.1 L277.7,187.9 L261.4,190.4 L244.5,188.7 L228.9,187.9 L212,188 L204.9,188.8 L206.2,172 Z" fill="#ff4fd8"/>
+<text x="300.5" y="180.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">22</text>
+</g>
 <text x="16" y="231" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">qwen3:8b</text>
 <path d="M206,204 L206,258" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="196" y="217.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
-<path class="d-paper" d="M206.4,208.6 L222.2,209.3 L237.7,208.7 L255.5,210.5 L268.7,207.9 L285.3,209.4 L300.4,209.4 L317.4,209.5 L333.1,210.3 L350,208 L365.2,209.8 L382.5,208 L397.8,210 L412.7,208 L423.9,209.4 L421.1,225.9 L421.2,226.6 L406.1,226.1 L391.8,226.2 L373.4,227.4 L357.9,225.4 L343.4,226.9 L325,225.7 L309.5,226.9 L292.9,226.1 L278.8,227.1 L262.5,224.4 L245.3,226.4 L230.1,226.7 L214.1,227 L206.9,225.6 L207.5,210.2 Z" fill="#ece6da"/>
-<text x="430.3" y="217.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">55</text>
 <text x="196" y="244.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
-<path class="d-paper" d="M204.7,236.4 L222.3,235.4 L227.6,237.3 L230,252.1 L229.9,251.9 L212.1,253.6 L207.4,254 L207.2,236.6 Z" fill="#ff4fd8"/>
+<g class="anim-live">
+<g transform="translate(206 217.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -217.5)">
+<path class="d-paper" d="M205.5,209.3 L223,209 L237.1,209.2 L254,209.5 L269,207.7 L286.9,210.7 L301,209.3 L319.3,208.7 L333.8,209.2 L350.4,210.6 L366.1,209.8 L383.4,208.7 L396.6,209.7 L415.5,207.9 L421.4,208 L421.3,223.9 L421.5,226.5 L405.4,225.7 L391.8,224.9 L373.6,227.4 L358.5,224.5 L341.2,227.1 L325.4,226.4 L310.2,227 L293.6,224.8 L277.9,224.4 L263.1,224.3 L247.2,225.8 L229.1,225.6 L214.4,227.4 L206.1,224.3 L205.4,209.1 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
+<text x="430.3" y="217.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">55</text>
+</g>
+<g transform="translate(206 244.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -244.5)">
+<path class="d-paper" d="M204.7,237.6 L220.9,235.2 L230.5,237.5 L230.5,252.8 L227.7,253.9 L214.1,253 L207.1,252.1 L204.9,236.3 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
 <text x="237.2" y="244.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">5.9</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M207.3,210.1 L221,207.6 L236.6,207.9 L254.4,208.5 L269.1,210 L285.2,208 L302.7,207.7 L318.2,208.8 L334.4,209.5 L351.2,210.5 L365.2,209.7 L382.7,210.3 L396.9,209.8 L413.4,207.7 L422.7,208.8 L422.6,224.7 L422.3,224.3 L407.4,224.6 L391.1,225 L372.8,224.4 L358.8,226.2 L342.7,224.3 L326.5,227.3 L308.8,226 L295.9,227.3 L277,225.2 L263.5,226 L247.5,225.5 L230.5,225.9 L214.2,226 L204.7,226.7 L206.7,211.1 Z" fill="#ece6da"/>
+<text x="430.3" y="217.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">55</text>
+<path class="d-paper" d="M206.4,235.2 L222.2,237.6 L230.1,237.3 L228.4,252.7 L229.8,251.7 L211.9,254.1 L207.6,254.1 L207.4,238.3 Z" fill="#ff4fd8"/>
+<text x="237.2" y="244.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">5.9</text>
+</g>
 <text x="16" y="295" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">gemma3:12b</text>
 <path d="M206,268 L206,322" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="196" y="281.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
-<path class="d-paper" d="M207.4,272 L220.8,272.3 L236.5,272.7 L255.3,274.3 L270.5,274.1 L287.1,272 L302.4,274.3 L316.5,272.4 L333.9,272.6 L348.9,273.4 L349,290.1 L348.9,289.6 L332.6,289.1 L314.8,289.2 L300.7,290.6 L283.5,291.3 L268.2,289.9 L251.9,289.7 L235.4,291.3 L219.6,288.4 L206.6,289 L205.4,274.2 Z" fill="#ece6da"/>
-<text x="355.6" y="281.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">36</text>
 <text x="196" y="308.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
-<path class="d-paper" d="M205.8,300.6 L208.1,301.7 L208.6,317.3 L208.3,316.7 L205.7,317.5 L205.3,302.3 Z" fill="#ff4fd8"/>
+<g class="anim-live">
+<g transform="translate(206 281.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -281.5)">
+<path class="d-paper" d="M206.8,271.7 L220.9,272.9 L237.5,274 L253.4,274.3 L270.6,272.8 L284.5,272 L300.8,274 L318.7,271.6 L333.6,273.8 L346.8,274.1 L348.9,289.3 L347.5,288.4 L332.1,291.3 L314.9,288.9 L298.8,291.1 L282.2,288.7 L269.1,291.4 L253.1,288.5 L234.2,290.8 L220.8,290.5 L204.7,291.1 L207.1,275.4 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
+<text x="355.6" y="281.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">36</text>
+</g>
+<g transform="translate(206 308.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -308.5)">
+<path class="d-paper" d="M206.9,299.7 L208.2,299.1 L208.3,316.9 L208.6,316.2 L206,315.3 L206.4,301.4 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
 <text x="217" y="308.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">doesn't fit</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M206.6,271.7 L223,272.6 L238.7,273 L253.4,274.4 L268.9,273.5 L287.6,273 L303.4,271.9 L317,271.9 L332.8,274.5 L348.7,272.2 L347,288.1 L346.5,288.3 L331,289.5 L317,290.5 L300.3,288.6 L283.8,290.8 L269,291 L251.3,290.5 L237.2,290.9 L218.1,289.2 L205.1,290.7 L205.4,273.2 Z" fill="#ece6da"/>
+<text x="355.6" y="281.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">36</text>
+<path class="d-paper" d="M206.8,299.9 L209.6,298.5 L208.1,317.3 L207.7,315.4 L204.8,316.9 L206.6,300.9 Z" fill="#ff4fd8"/>
+<text x="217" y="308.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">doesn't fit</text>
+</g>
 <text x="16" y="359" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">qwen3:14b</text>
 <path d="M206,332 L206,386" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="196" y="345.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
-<path class="d-paper" d="M206.6,335.7 L222.2,335.7 L238.9,335.8 L252.4,338 L268.6,338.7 L286.8,337.8 L302.7,337.6 L316.5,338.1 L334.4,336.4 L335.3,336.1 L336.6,353.4 L334.9,354.5 L320.6,353.7 L304.6,355 L286.7,354 L273.1,354.2 L257,352.5 L238.8,352.4 L223.5,352.6 L207.5,352.4 L206.9,353.2 L205.7,337 Z" fill="#ece6da"/>
-<text x="343.8" y="345.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">33</text>
 <text x="196" y="372.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
-<path class="d-paper" d="M204.6,365.7 L210.2,362.6 L210.5,378.6 L207.7,380.7 L207.1,381.5 L206.1,363.9 Z" fill="#ff4fd8"/>
+<g class="anim-live">
+<g transform="translate(206 345.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -345.5)">
+<path class="d-paper" d="M207.2,337.7 L222,337.8 L237.4,338.1 L255.1,337.4 L270.1,335.9 L287.3,337.9 L303.2,338.1 L319.1,337.5 L334.3,335.8 L335.9,338.1 L337,353.3 L336.5,352.5 L320.4,353.7 L304.2,354.3 L289.1,353 L271.5,354.9 L256.9,353.7 L239.2,354.4 L224.9,353.1 L209.2,354.8 L206.1,355.4 L204.9,339.2 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
+<text x="343.8" y="345.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">33</text>
+</g>
+<g transform="translate(206 372.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -372.5)">
+<path class="d-paper" d="M205.5,365.4 L209.8,364.2 L207.8,379.2 L210.3,381.8 L205.8,380.6 L205.5,365.9 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
 <text x="217" y="372.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">doesn't fit</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M206.9,337.9 L222.5,336.1 L238,338.6 L253,337.1 L270.3,337.1 L284.6,336.4 L302,338 L316.9,335.8 L335.3,335.7 L334.6,337.6 L336.3,352.3 L334.4,354.9 L318.6,354.1 L303,354 L287,352.7 L271.9,353.7 L256.7,353.2 L239.6,355.3 L225.3,354.9 L207,352.8 L207.3,353.8 L204.8,338.9 Z" fill="#ece6da"/>
+<text x="343.8" y="345.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">33</text>
+<path class="d-paper" d="M205,364.9 L209.3,365 L209.5,379.4 L210.2,380.7 L205,381.1 L205.6,365.4 Z" fill="#ff4fd8"/>
+<text x="217" y="372.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">doesn't fit</text>
+</g>
 <text x="16" y="423" font-family="var(--font-jetbrains-mono, 'JetBrains Mono'), Menlo, monospace" font-size="15" fill="#ededed" text-anchor="start" dominant-baseline="central" xml:space="preserve">gpt-oss:20b</text>
 <path d="M206,396 L206,450" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="196" y="409.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">A4000</text>
-<path class="d-paper" d="M206.2,401.7 L221.6,402.1 L237.2,402.4 L252.5,400 L269.7,401.2 L287,402.2 L300.6,399.8 L317.4,401.5 L334,401 L349.6,400.4 L367,399.9 L382.9,402.2 L398.5,401.1 L413.1,401.1 L430.7,399.9 L446.1,402.6 L458.4,401.6 L457.2,416.3 L458.9,419.4 L441,418.1 L426.4,418.5 L410.2,417.8 L395,417.8 L377,416.7 L362.8,416.4 L346.3,416.6 L329.8,419 L314.4,418.3 L296.5,418 L280.4,419 L264.2,416.6 L249.3,417.2 L235.3,418.7 L218.7,417 L205.9,418.5 L206.3,400.8 Z" fill="#ece6da"/>
-<text x="465.7" y="409.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">64</text>
 <text x="196" y="436.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="end" dominant-baseline="central">Quadro</text>
-<path class="d-paper" d="M206.5,428.5 L209.1,428.3 L209.4,445.3 L209.3,443.3 L205.6,446 L205.3,430.5 Z" fill="#ff4fd8"/>
+<g class="anim-live">
+<g transform="translate(206 409.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -409.5)">
+<path class="d-paper" d="M205.6,401.3 L223.2,402.2 L239.1,402.5 L252.5,402.7 L271.1,402.6 L285.4,400 L302.2,401.7 L316.9,402.6 L335.6,402.7 L349.7,399.9 L366.3,401.8 L381,399.7 L398.5,402.6 L414.1,402.1 L430.2,400.5 L446.5,400.8 L456.4,400.8 L458.5,418.6 L457.6,416.9 L441.7,416.8 L424.5,416.4 L410.2,416.3 L394.5,416.3 L378.5,416.4 L361.9,417.6 L345.3,417.9 L328.1,417.5 L314.4,418.7 L298.8,419 L281,417 L266,417.9 L248.8,418.5 L235,417 L217.5,418.8 L204.5,417.7 L205.4,402 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
+<text x="465.7" y="409.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">64</text>
+</g>
+<g transform="translate(206 436.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-206 -436.5)">
+<path class="d-paper" d="M206.7,427.3 L210.4,429.2 L208.1,445.6 L208.2,446.5 L206.8,443.7 L204.8,429.9 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
 <text x="217" y="436.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">doesn't fit</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M205.8,401.4 L222.8,401.4 L239.5,399.7 L253.6,400.2 L269.3,402.2 L286.4,401.1 L303.4,399.8 L316.5,401.5 L332.8,400.7 L350.8,400.8 L366.6,401.4 L382.9,402.3 L399,400.3 L412.9,401.5 L428.9,400.6 L445.4,400.7 L458.3,400.6 L458.4,418.6 L458.8,416.7 L440.8,417.4 L426.9,418.3 L410.9,419.3 L394.8,419.2 L376.7,417.4 L360.7,418.5 L347,418.9 L331.3,418.1 L314.7,417.7 L298.1,417.1 L281.3,419.4 L266.9,416.9 L248.6,416.4 L232.5,418.7 L218.9,416.6 L205,419.3 L205,400.9 Z" fill="#ece6da"/>
+<text x="465.7" y="409.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">64</text>
+<path class="d-paper" d="M207,429.3 L208,428.1 L209.2,444.2 L208.1,444.2 L204.8,444.7 L206.6,429.2 Z" fill="#ff4fd8"/>
+<text x="217" y="436.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">doesn't fit</text>
+</g>
 <text x="16" y="474" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">qwen3:4b and qwen3:8b spill onto the CPU on the Quadro.</text>
 </svg>

@@ -23,10 +23,10 @@
 <g class="d-flow">
 <path d="M44,320 L342,103.4" fill="none" stroke="#ece6da" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#homelab-two-years-later-payback-phone-crayon-1)"/>
 </g>
-<text x="350" y="103.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
 <g class="d-flow">
 <path d="M44,320 L170.4,84" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#homelab-two-years-later-payback-phone-crayon-2)"/>
 </g>
+<text x="350" y="103.4" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ece6da" text-anchor="start" dominant-baseline="central"></text>
 <text x="178.4" y="84" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central"></text>
 <text x="50" y="93.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" font-weight="600" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Hardware: $7,200</text>
 <circle cx="157.7" cy="107.6" r="6" fill="#ff4fd8"/>

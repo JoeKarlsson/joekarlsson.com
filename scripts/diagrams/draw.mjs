@@ -752,6 +752,66 @@ export function createFigure({ id, width, height }) {
 		target.push(`<circle cx="${n(cx)}" cy="${n(cy)}" r="${r}" fill="${color}"/>`);
 	}
 
+	// Charts build in once when they scroll into view (src/scripts/pause-offscreen-scribbles.ts
+	// starts a figure's SMIL from its first frame), then hold the finished chart. Motion is
+	// stepped at 12 fps like the post animations, eases out and never overshoots a value. The
+	// desktop SVG carries a live layer and a still one (motion.css shows the still under
+	// reduced motion or paused motion); a phone gets the still alone, like every post figure.
+	const BUILD_FPS = 12;
+	const animates = width !== PHONE_WIDTH;
+	let wipeCount = 0;
+	/** SMIL values stepped at 12 fps from 0 to 1, eased out, for value(p). */
+	function buildSteps(dur, value) {
+		const frames = Math.max(2, Math.round(dur * BUILD_FPS));
+		return Array.from({ length: frames + 1 }, (_, i) => value(1 - (1 - i / frames) ** 3)).join(';');
+	}
+	function buildAnimation(tag, attrs, begin, dur, value) {
+		return `<${tag} ${attrs} calcMode="discrete" values="${buildSteps(dur, value)}" begin="${n(begin)}s" dur="${n(dur)}s" fill="freeze"/>`;
+	}
+	/** Draws a chart's data marks: on desktop a live layer that builds plus its still. */
+	function buildLayers(draw) {
+		if (!animates) return draw(false);
+		target.push('<g class="anim-live">');
+		draw(true);
+		target.push('</g><g class="anim-still" display="none">');
+		draw(false);
+		target.push('</g>');
+	}
+	/** Wraps what drawMark draws so it grows out of (ox, oy) along one axis, starting at begin. */
+	function grow(live, ox, oy, axis, begin, dur, drawMark) {
+		if (!live) return drawMark();
+		const from = axis === 'x' ? '0 1' : '1 0';
+		target.push(
+			`<g transform="translate(${n(ox)} ${n(oy)})"><g transform="scale(${from})">`,
+			buildAnimation(
+				'animateTransform',
+				'attributeName="transform" type="scale"',
+				begin,
+				dur,
+				(p) => (axis === 'x' ? `${Math.round(p * 100) / 100} 1` : `1 ${Math.round(p * 100) / 100}`),
+			),
+			`<g transform="translate(${n(-ox)} ${n(-oy)})">`,
+		);
+		drawMark();
+		target.push('</g></g></g>');
+	}
+	/** Wraps what drawMark draws so it fades in at begin. */
+	function fadeIn(live, begin, drawMark) {
+		if (!live) return drawMark();
+		target.push(
+			'<g opacity="0">',
+			buildAnimation(
+				'animate',
+				'attributeName="opacity"',
+				begin,
+				0.25,
+				(p) => Math.round(p * 100) / 100,
+			),
+		);
+		drawMark();
+		target.push('</g>');
+	}
+
 	/**
 	 * A bar chart with its value printed on every bar, so no gridlines are needed.
 	 * bars: [{ label, value, highlight? }]; highlight bars are pink, the rest chalk.
@@ -759,6 +819,8 @@ export function createFigure({ id, width, height }) {
 	 * and for long labels). format turns a value into its printed label. Scale
 	 * starts at zero.
 	 */
+	const BAR_GROW = 0.6; // seconds each bar takes to grow
+	const BAR_STAGGER = 0.15; // seconds between one bar starting and the next
 	function barChart({
 		x,
 		y,
@@ -783,18 +845,31 @@ export function createFigure({ id, width, height }) {
 				],
 				{ color: COLORS.muted, width: 1.5 },
 			);
-			bars.forEach((b, i) => {
-				const cy = y + rowH * (i + 0.5);
-				const bw = Math.max(3, (b.value / top) * room);
-				text(x + labelW - 10, cy, b.label, { size, anchor: 'end', color: COLORS.paper });
-				scrap(x + labelW, cy - barH / 2, bw, barH, b.highlight ? COLORS.pink : COLORS.chalk);
-				text(x + labelW + bw + 8, cy, format(b.value), {
+			bars.forEach((b, i) =>
+				text(x + labelW - 10, y + rowH * (i + 0.5), b.label, {
 					size,
-					anchor: 'start',
-					weight: 700,
-					color: b.highlight ? COLORS.pink : COLORS.paper,
-				});
-			});
+					anchor: 'end',
+					color: COLORS.paper,
+				}),
+			);
+			buildLayers((live) =>
+				bars.forEach((b, i) => {
+					const cy = y + rowH * (i + 0.5);
+					const bw = Math.max(3, (b.value / top) * room);
+					const begin = i * BAR_STAGGER;
+					grow(live, x + labelW, cy, 'x', begin, BAR_GROW, () =>
+						scrap(x + labelW, cy - barH / 2, bw, barH, b.highlight ? COLORS.pink : COLORS.chalk),
+					);
+					fadeIn(live, begin + BAR_GROW, () =>
+						text(x + labelW + bw + 8, cy, format(b.value), {
+							size,
+							anchor: 'start',
+							weight: 700,
+							color: b.highlight ? COLORS.pink : COLORS.paper,
+						}),
+					);
+				}),
+			);
 			return;
 		}
 		const colW = w / bars.length;
@@ -808,15 +883,25 @@ export function createFigure({ id, width, height }) {
 			],
 			{ color: COLORS.muted, width: 1.5 },
 		);
+		buildLayers((live) =>
+			bars.forEach((b, i) => {
+				const cx = x + colW * (i + 0.5);
+				const bh = Math.max(3, (b.value / top) * (base - plotTop));
+				const begin = i * BAR_STAGGER;
+				grow(live, cx, base, 'y', begin, BAR_GROW, () =>
+					scrap(cx - barW / 2, base - bh, barW, bh, b.highlight ? COLORS.pink : COLORS.chalk),
+				);
+				fadeIn(live, begin + BAR_GROW, () =>
+					text(cx, base - bh - size * 0.8, format(b.value), {
+						size,
+						weight: 700,
+						color: b.highlight ? COLORS.pink : COLORS.paper,
+					}),
+				);
+			}),
+		);
 		bars.forEach((b, i) => {
 			const cx = x + colW * (i + 0.5);
-			const bh = Math.max(3, (b.value / top) * (base - plotTop));
-			scrap(cx - barW / 2, base - bh, barW, bh, b.highlight ? COLORS.pink : COLORS.chalk);
-			text(cx, base - bh - size * 0.8, format(b.value), {
-				size,
-				weight: 700,
-				color: b.highlight ? COLORS.pink : COLORS.paper,
-			});
 			[b.label]
 				.flat()
 				.forEach((l, j) =>
@@ -866,14 +951,34 @@ export function createFigure({ id, width, height }) {
 			text(x + 38, py(v), l, { size, anchor: 'end', color: COLORS.muted });
 		});
 		xTicks.forEach(([v, l]) => text(px(v), y + h - 6, l, { size, color: COLORS.muted }));
-		series.forEach((s) => {
-			const color = s.highlight ? COLORS.pink : COLORS.chalk;
-			const d = s.points.map(([a, b], i) => `${i ? 'L' : 'M'}${n(px(a))},${n(py(b))}`).join(' ');
-			target.push('<g class="d-flow">');
-			stroke(d, color, 3.5);
-			target.push('</g>');
-			const [lx, ly] = s.points[s.points.length - 1];
-			text(px(lx) + 8, py(ly), s.name, { size, anchor: 'start', weight: 700, color });
+		// Every series draws left to right together behind one wipe, then each is named
+		const DRAW = 1.4;
+		buildLayers((live) => {
+			if (live) {
+				const wipeId = `${id}-wipe-${++wipeCount}`;
+				const left = x + 44 - 8;
+				const full = plotW + 16;
+				target.push(
+					`<clipPath id="${wipeId}"><rect x="${n(left)}" y="${n(y - 8)}" width="0" height="${n(h + 16)}">`,
+					buildAnimation('animate', 'attributeName="width"', 0, DRAW, (p) => n(p * full)),
+					`</rect></clipPath><g clip-path="url(#${wipeId})">`,
+				);
+			}
+			series.forEach((s) => {
+				const color = s.highlight ? COLORS.pink : COLORS.chalk;
+				const d = s.points.map(([a, b], i) => `${i ? 'L' : 'M'}${n(px(a))},${n(py(b))}`).join(' ');
+				target.push('<g class="d-flow">');
+				stroke(d, color, 3.5);
+				target.push('</g>');
+			});
+			if (live) target.push('</g>');
+			series.forEach((s) => {
+				const color = s.highlight ? COLORS.pink : COLORS.chalk;
+				const [lx, ly] = s.points[s.points.length - 1];
+				fadeIn(live, DRAW, () =>
+					text(px(lx) + 8, py(ly), s.name, { size, anchor: 'start', weight: 700, color }),
+				);
+			});
 		});
 	}
 
@@ -966,6 +1071,8 @@ export function createFigure({ id, width, height }) {
 		table,
 		barChart,
 		lineChart,
+		buildLayers,
+		fadeIn,
 		line,
 		dot,
 		width,

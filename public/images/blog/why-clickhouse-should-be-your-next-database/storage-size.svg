@@ -4,9 +4,30 @@
 <text x="16" y="20" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Disk space for the same dataset, both tuned. PostgreSQL uses 8.5x more.</text>
 <path d="M126,40 L126,150" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="116" y="67.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#ededed" text-anchor="end" dominant-baseline="central">ClickHouse</text>
-<path class="d-paper" d="M125.1,51.2 L142.6,51.8 L156.7,50 L170.6,51.1 L171,65.3 L169.1,82.2 L170.1,85.2 L154.2,85.8 L138,84.3 L126.6,85.5 L127,69.7 L127,51.4 Z" fill="#ff4fd8"/>
-<text x="177.6" y="67.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">14.08 GiB</text>
 <text x="116" y="122.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#ededed" text-anchor="end" dominant-baseline="central">PostgreSQL</text>
+<g class="anim-live">
+<g transform="translate(126 67.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-126 -67.5)">
+<path class="d-paper" d="M125.1,51.2 L142.6,51.8 L156.7,50 L170.6,51.1 L171,65.3 L169.1,82.2 L170.1,85.2 L154.2,85.8 L138,84.3 L126.6,85.5 L127,69.7 L127,51.4 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
+<text x="177.6" y="67.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">14.08 GiB</text>
+</g>
+<g transform="translate(126 122.5)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-126 -122.5)">
 <path class="d-paper" d="M127.3,105.7 L143.1,106.5 L156.8,106.9 L175.5,106.9 L191.2,106 L206,105.2 L222.7,105.6 L238,106.2 L255,104.3 L269.9,107 L285.2,106 L301.3,105.7 L318.8,105.9 L334.2,105.6 L350.1,106.7 L367.3,105.8 L382.7,105 L398.5,104.5 L412.5,105.5 L429,106.1 L444.5,104.2 L463.6,105.5 L477.1,106.7 L495.3,104.4 L497.1,106.2 L496.8,123 L498.4,138 L496.8,139.6 L482.5,138.6 L466.6,139.7 L451,138 L433.6,138.7 L417.5,139 L400.6,138.4 L384.8,138.9 L370.8,140.2 L353,140.6 L338.7,139.6 L321.1,139.2 L306.3,138.1 L289.4,138.9 L274,140.5 L257.7,138.9 L241.2,139 L227.4,138.9 L210.6,138.9 L195.6,140.1 L178.1,139.1 L161.5,139.4 L146.6,139.3 L128.5,140 L126.8,138.2 L126,124.6 L127.5,107.7 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
 <text x="506.1" y="122.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">120.02 GiB</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M125.2,50.1 L140.8,50.5 L158,51.7 L168.8,52 L170.6,65.2 L169.4,81.4 L170.7,83.6 L152.2,83 L137.4,85.1 L126.8,84.2 L126,68.3 L126.3,54.1 Z" fill="#ff4fd8"/>
+<text x="177.6" y="67.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">14.08 GiB</text>
+<path class="d-paper" d="M127.2,106.3 L143.6,105.5 L159.2,104.5 L175.3,105.4 L191.6,106 L205.3,105.8 L221.9,104.7 L237.2,105.4 L253.7,105.6 L271.4,106.2 L285.8,104.9 L300.8,106.3 L317.7,104.7 L334.3,105.8 L351.1,105.5 L364.8,104.3 L381.5,106.5 L399,104.6 L415.4,104.6 L429.9,106.9 L447.3,105.2 L463,105.6 L476.6,106.3 L494.9,105.1 L497.5,106.8 L498.5,120.6 L497.7,136.8 L496.6,138.9 L481.1,138 L466.4,139.4 L450.2,139.9 L435.3,139.3 L417.8,140.5 L400.8,140.8 L387.6,138.8 L370.2,139.1 L354,138.5 L338.3,139.2 L321.5,139.1 L305.8,138.5 L288.5,139.5 L275.6,139 L256.8,140.5 L242.8,138.3 L227.7,141 L209.9,139 L195.6,139 L179.5,139.8 L162.4,140 L145.6,140.2 L128.5,140.8 L126.6,140.8 L124.8,124.7 L126,107.1 Z" fill="#ece6da"/>
+<text x="506.1" y="122.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">120.02 GiB</text>
+</g>
 </svg>

@@ -79,7 +79,7 @@ function chart(f, { W, H, phone }) {
 	];
 	const keyY = phone ? 70 : 72;
 
-	layers(f, true, (el) => {
+	layers(f, phone, (el) => {
 		const out = [];
 		series.forEach((s) => {
 			const pts = P.map((p, i) => [px(i), py(p[s.key])]);

@@ -5,10 +5,31 @@
 <text x="16" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">“Yes, our FinOps team does some or all of these tasks”</text>
 <path d="M86,72 L86,192" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="76" y="102" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" fill="#ededed" text-anchor="end" dominant-baseline="central">2024</text>
-<path class="d-paper" d="M85.9,84.1 L103,84.1 L119.4,84.2 L132.8,83 L149.2,85.5 L167.3,84.7 L183.5,85.5 L198.2,83.5 L213.4,84.4 L230.3,84.7 L245.1,83.3 L262.9,83.1 L277.8,84.5 L293.2,83.9 L309.9,83.8 L325.6,83 L326.2,82.4 L326.3,99.7 L329.2,116.5 L327.1,119.1 L310.5,120.2 L295.6,120.1 L280.2,119.3 L263.7,121.1 L246.7,119.9 L231.7,120.9 L216.1,118.5 L198.8,120.9 L182.5,119.7 L168.8,119.7 L150.5,121.3 L135.3,118.9 L119.2,121.5 L104.5,120.1 L88,119.8 L86,118.8 L86,102.9 L86.7,87.8 Z" fill="#ece6da"/>
-<text x="335.7" y="102" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">51%</text>
 <text x="76" y="162" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" fill="#ededed" text-anchor="end" dominant-baseline="central">2025</text>
+<g class="anim-live">
+<g transform="translate(86 102)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-86 -102)">
+<path class="d-paper" d="M85.9,84.1 L103,84.1 L119.4,84.2 L132.8,83 L149.2,85.5 L167.3,84.7 L183.5,85.5 L198.2,83.5 L213.4,84.4 L230.3,84.7 L245.1,83.3 L262.9,83.1 L277.8,84.5 L293.2,83.9 L309.9,83.8 L325.6,83 L326.2,82.4 L326.3,99.7 L329.2,116.5 L327.1,119.1 L310.5,120.2 L295.6,120.1 L280.2,119.3 L263.7,121.1 L246.7,119.9 L231.7,120.9 L216.1,118.5 L198.8,120.9 L182.5,119.7 L168.8,119.7 L150.5,121.3 L135.3,118.9 L119.2,121.5 L104.5,120.1 L88,119.8 L86,118.8 L86,102.9 L86.7,87.8 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
+<text x="335.7" y="102" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">51%</text>
+</g>
+<g transform="translate(86 162)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-86 -162)">
 <path class="d-paper" d="M85,145.1 L103.1,143.3 L117.4,144.7 L132.6,144 L150.1,143.7 L166.7,144.1 L182.8,145.5 L197,143.6 L215.4,144.7 L229.2,143.6 L246.2,143 L263,143.1 L278.4,142.9 L294.3,142.6 L308.6,143.7 L327.2,145.4 L342.6,143.6 L359.6,142.6 L365.3,143 L365.3,159.9 L367,176.6 L366.9,178.7 L350.4,179.5 L334.8,179.5 L317.1,181.3 L301.5,181.5 L285.2,181.3 L270.9,181.3 L254.2,180.9 L237,180.7 L221.5,178.7 L205,178.4 L189.8,181 L174.5,179.7 L158,178.7 L140.5,180 L125.9,178.5 L108.6,180.1 L93.8,179.9 L86,181.4 L84.9,165.2 L86.7,149.2 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
 <text x="373.7" y="162" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">59%</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M84.6,85.4 L101.3,83.1 L117,82.4 L133.6,82.6 L149.7,85.1 L166.1,83.7 L181.9,83.7 L197.9,84.1 L215.2,83.2 L230.8,84 L244.8,83.2 L260.7,83.4 L278.7,83.3 L292.6,83.8 L310.1,83 L325.6,85.5 L328,84.1 L326.2,101.2 L327.5,115.6 L327.9,119.9 L312.7,119.9 L295.1,119.7 L279.7,120.5 L264.8,120 L247.9,121.5 L231.3,120 L217.2,118.5 L198.2,119.3 L185,121.1 L168.2,120.6 L153,121 L134.4,121.5 L119.1,120.1 L104.7,120.8 L87.8,118.8 L85.8,120.8 L86,104.6 L86.4,86.6 Z" fill="#ece6da"/>
+<text x="335.7" y="102" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">51%</text>
+<path class="d-paper" d="M87.6,143.6 L100.5,143.1 L118.5,142.6 L135,144.8 L149.6,144.8 L165.5,144.5 L182.7,142.9 L198.3,143.4 L212.6,145.1 L228.5,144.2 L245.3,143.2 L260.7,145.2 L277.6,143.3 L294.4,142.7 L310,143.3 L326.4,145.3 L342.5,144.1 L358.8,144.1 L366.5,145.1 L365.9,160.1 L365.5,176.1 L365.2,178.6 L348.1,179.1 L333.2,179.8 L316.4,180.6 L302.8,179.3 L284.4,180.1 L268.1,179.8 L254.5,180.6 L238.2,178.5 L222.9,178.5 L206.3,179.2 L189.8,179.9 L172.2,179 L159.2,179 L143.1,179.6 L124.5,179.6 L109.3,180 L94.1,178.6 L86.7,181.4 L86,162.6 L86.4,148.1 Z" fill="#ff4fd8"/>
+<text x="373.7" y="162" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="16" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">59%</text>
+</g>
 <text x="16" y="220" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Bars run to 100%. Source: Flexera State of the Cloud.</text>
 </svg>

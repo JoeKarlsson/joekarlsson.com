@@ -120,7 +120,7 @@ function chart(f, { W, H, phone }) {
 		},
 	];
 
-	layers(f, true, (el) => {
+	layers(f, phone, (el) => {
 		const out = [];
 		piles.forEach((p) => {
 			const rows = rowsOf(p);

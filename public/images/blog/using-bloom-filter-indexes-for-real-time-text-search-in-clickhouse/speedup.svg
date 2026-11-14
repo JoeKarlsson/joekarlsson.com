@@ -5,15 +5,54 @@
 <text x="16" y="42" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">compared with no index; ngrambf_v1(n-gram size, filter size, hash functions, seed)</text>
 <path d="M166,58 L166,268" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
 <text x="156" y="84.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 1024, 1, 0)</text>
-<path class="d-paper" d="M165.2,67.8 L181.8,66.4 L197.8,67.9 L213,67.2 L228.6,66.4 L245,69.4 L261.9,68.9 L276.5,68 L293,68.1 L310.1,68.9 L326,68.7 L341.7,69 L358.7,68.7 L372.6,68.6 L389.8,68.6 L407,67.3 L421.8,68.3 L439.1,67.1 L453.5,69.5 L469.6,66.9 L486.3,68.3 L501.9,69.3 L518.4,69 L534.7,68.5 L550.3,68.9 L559.4,68.7 L559.5,83.6 L561.5,100.6 L561.4,100.7 L544.8,100.1 L528.1,100.8 L513,99.4 L497,100.7 L480,99.9 L464.2,101.4 L448.1,99.5 L431.4,102.1 L417.5,101.4 L400.7,101.9 L383.2,99.9 L367.2,99.2 L352.6,100.3 L336,99.4 L318.5,99.8 L303.1,99.3 L289.2,101.6 L271.8,100.3 L255.3,101.1 L240.8,100.3 L225.3,101.7 L208.1,101.5 L190.6,100.6 L176,99.5 L164.5,101.5 L164.7,85.3 L165.7,68.6 Z" fill="#ff4fd8"/>
-<text x="568" y="84.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">87.7x</text>
 <text x="156" y="136.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 1024, 2, 0)</text>
-<path class="d-paper" d="M165.6,121.8 L183.5,120.1 L197.9,121.6 L215.3,119.5 L228.5,121.7 L246.9,120.4 L263.2,121.9 L277,121.2 L295.5,120.2 L310.3,121.2 L325.2,120 L342.3,121.8 L357.2,121 L373.9,121.8 L389.4,121.1 L406.6,120.4 L422.6,121.1 L437.7,119.7 L453.6,121.2 L468.6,120.9 L486.6,121.9 L501.4,119.9 L518.7,121.2 L523.9,119.4 L525.3,137.3 L523.6,153.8 L524.8,151.6 L507.6,152.7 L493.3,153.2 L477.4,153.8 L462.4,151.6 L444.7,151.9 L428.1,151.6 L412.2,154.3 L398.3,152.4 L380.5,152 L364.8,154.5 L349.9,151.6 L334.2,152.2 L317.4,153.7 L299.9,154.2 L286.1,153.4 L268.8,154.1 L253.5,153.4 L236.9,153.2 L220.6,153.4 L206.3,154.2 L189.5,153.4 L172.9,153.3 L167.2,152.7 L166.2,136.8 L167.1,122.4 Z" fill="#ece6da"/>
-<text x="533" y="136.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">79.9x</text>
 <text x="156" y="189.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 4096, 1, 0)</text>
-<path class="d-paper" d="M165.7,171.7 L180.8,171.9 L198.2,173.6 L215,171.8 L230.1,171.8 L246.2,172.3 L261.1,174.4 L279.1,173.2 L294.8,174.4 L308.6,173.2 L324.6,171.6 L341.1,173.8 L357.4,171.5 L374.1,171.4 L373.4,172.3 L375.1,188.4 L374.2,204.2 L374.5,206.3 L359.4,204.5 L342.5,204.2 L324.6,204.1 L310.7,205.7 L293.5,204 L277.3,206.4 L260.5,205.6 L246.4,205 L230,205.3 L214.7,205.6 L199.3,204.6 L182.2,204.6 L167.1,205.2 L167.5,205 L167.2,190.2 L165.3,174 Z" fill="#ece6da"/>
-<text x="382" y="189.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">46.3x</text>
 <text x="156" y="241.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" fill="#ededed" text-anchor="end" dominant-baseline="central">(4, 8192, 1, 0)</text>
+<g class="anim-live">
+<g transform="translate(166 84.3)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-166 -84.2)">
+<path class="d-paper" d="M165.2,67.8 L181.8,66.4 L197.8,67.9 L213,67.2 L228.6,66.4 L245,69.4 L261.9,68.9 L276.5,68 L293,68.1 L310.1,68.9 L326,68.7 L341.7,69 L358.7,68.7 L372.6,68.6 L389.8,68.6 L407,67.3 L421.8,68.3 L439.1,67.1 L453.5,69.5 L469.6,66.9 L486.3,68.3 L501.9,69.3 L518.4,69 L534.7,68.5 L550.3,68.9 L559.4,68.7 L559.5,83.6 L561.5,100.6 L561.4,100.7 L544.8,100.1 L528.1,100.8 L513,99.4 L497,100.7 L480,99.9 L464.2,101.4 L448.1,99.5 L431.4,102.1 L417.5,101.4 L400.7,101.9 L383.2,99.9 L367.2,99.2 L352.6,100.3 L336,99.4 L318.5,99.8 L303.1,99.3 L289.2,101.6 L271.8,100.3 L255.3,101.1 L240.8,100.3 L225.3,101.7 L208.1,101.5 L190.6,100.6 L176,99.5 L164.5,101.5 L164.7,85.3 L165.7,68.6 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
+<text x="568" y="84.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">87.7x</text>
+</g>
+<g transform="translate(166 136.8)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-166 -136.7)">
+<path class="d-paper" d="M165.6,121.8 L183.5,120.1 L197.9,121.6 L215.3,119.5 L228.5,121.7 L246.9,120.4 L263.2,121.9 L277,121.2 L295.5,120.2 L310.3,121.2 L325.2,120 L342.3,121.8 L357.2,121 L373.9,121.8 L389.4,121.1 L406.6,120.4 L422.6,121.1 L437.7,119.7 L453.6,121.2 L468.6,120.9 L486.6,121.9 L501.4,119.9 L518.7,121.2 L523.9,119.4 L525.3,137.3 L523.6,153.8 L524.8,151.6 L507.6,152.7 L493.3,153.2 L477.4,153.8 L462.4,151.6 L444.7,151.9 L428.1,151.6 L412.2,154.3 L398.3,152.4 L380.5,152 L364.8,154.5 L349.9,151.6 L334.2,152.2 L317.4,153.7 L299.9,154.2 L286.1,153.4 L268.8,154.1 L253.5,153.4 L236.9,153.2 L220.6,153.4 L206.3,154.2 L189.5,153.4 L172.9,153.3 L167.2,152.7 L166.2,136.8 L167.1,122.4 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
+<text x="533" y="136.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">79.9x</text>
+</g>
+<g transform="translate(166 189.3)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.3s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-166 -189.2)">
+<path class="d-paper" d="M165.7,171.7 L180.8,171.9 L198.2,173.6 L215,171.8 L230.1,171.8 L246.2,172.3 L261.1,174.4 L279.1,173.2 L294.8,174.4 L308.6,173.2 L324.6,171.6 L341.1,173.8 L357.4,171.5 L374.1,171.4 L373.4,172.3 L375.1,188.4 L374.2,204.2 L374.5,206.3 L359.4,204.5 L342.5,204.2 L324.6,204.1 L310.7,205.7 L293.5,204 L277.3,206.4 L260.5,205.6 L246.4,205 L230,205.3 L214.7,205.6 L199.3,204.6 L182.2,204.6 L167.1,205.2 L167.5,205 L167.2,190.2 L165.3,174 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.9s" dur="0.3s" fill="freeze"/>
+<text x="382" y="189.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">46.3x</text>
+</g>
+<g transform="translate(166 241.8)"><g transform="scale(0 1)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="0 1;0.37 1;0.64 1;0.81 1;0.92 1;0.98 1;1 1;1 1" begin="0.5s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-166 -241.7)">
 <path class="d-paper" d="M165.9,225.9 L183.2,224.5 L197.6,224.7 L215.4,224.7 L228.7,227 L244.4,224.2 L263.5,226.2 L277.1,225.1 L277.3,241.4 L277.4,258.3 L278.7,259.5 L260.8,258.8 L245.4,258.4 L228,257.8 L212,258.1 L197.2,257.9 L182,258.8 L167.5,256.8 L166.2,241.7 L167,225.7 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="1s" dur="0.3s" fill="freeze"/>
 <text x="285.4" y="241.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">24.8x</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M165.5,66.5 L181.1,69.5 L196.6,68.2 L213.6,69.1 L229.4,68.4 L246.6,67.3 L261.6,67.3 L276.9,67.7 L293.1,66.5 L309.2,67.7 L327,66.8 L340.4,67.7 L357.2,66.7 L373,67.4 L388.7,67.1 L407.4,67.2 L422.5,69 L437.9,67.1 L454.4,68.3 L471.3,68.3 L486.2,66.7 L501,69.2 L518.6,66.9 L533.9,67.6 L550.4,67.2 L561.5,68.3 L560.8,84.7 L560,99.8 L558.5,99.1 L544.3,99.9 L529.1,100.7 L513.6,99.6 L494.9,99.7 L480.1,99.5 L465.6,98.9 L446.5,99.5 L433,102.1 L416.4,99.8 L400.4,101.3 L384.5,101.8 L369.3,99 L353.1,101.6 L335.4,102 L321,99.6 L305.4,101.8 L289.4,100.7 L270.5,99.8 L256.3,102.1 L240.6,100.6 L223.7,100.7 L207.3,100.5 L190.9,101.6 L177.2,99.3 L165.9,99.2 L165.8,83.5 L164.7,68.4 Z" fill="#ff4fd8"/>
+<text x="568" y="84.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central">87.7x</text>
+<path class="d-paper" d="M164.4,120.6 L182.9,119.7 L199,119.3 L213.9,119.1 L228.7,120.9 L246.8,120.3 L261.4,120.1 L277.8,120.1 L294.6,119.6 L309.9,120.7 L326.2,120.2 L341.4,120.5 L358.5,119.7 L375.2,122 L390.6,121.4 L405.1,121.4 L421.8,119.7 L436.5,120.8 L454.1,119.2 L469.8,119.2 L486.8,119.3 L501.8,120 L518.7,121.8 L523.9,120.3 L524.2,135.7 L524.1,153.6 L525.8,153.3 L510.4,154.4 L492.2,154.3 L477.8,153.1 L460.3,154.3 L444.8,153.8 L428.4,154.6 L411.4,154.5 L397.4,152.2 L380.1,151.6 L364.4,151.8 L350.5,153.2 L333.4,151.5 L317,152.8 L299.8,154.1 L285.2,153.1 L269.6,153.2 L251.7,152.7 L238.2,152.8 L222.3,152.3 L205.6,154.4 L188.3,153 L172.9,154.3 L165.8,154.4 L164.6,137.3 L167.2,120.7 Z" fill="#ece6da"/>
+<text x="533" y="136.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">79.9x</text>
+<path class="d-paper" d="M165.3,171.7 L181.4,172.4 L199.4,174.4 L213,174 L230.6,173 L246.2,171.8 L260.7,172.4 L277.4,171.4 L295.1,171.6 L311,173.7 L326.4,172.6 L341,172.3 L357.7,172.7 L373.5,173.1 L375,173.8 L375.2,188.4 L373.4,204.8 L372.5,206.7 L358.8,206.9 L343.3,204.8 L327.4,204.4 L310.4,206.3 L294.3,205.5 L278.3,205.7 L262.4,206.5 L246.5,204.7 L229.1,206.6 L214.4,206.1 L196.7,205 L183.3,204.9 L166.5,206.7 L165.4,206.2 L165.2,189.1 L166,173 Z" fill="#ece6da"/>
+<text x="382" y="189.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">46.3x</text>
+<path class="d-paper" d="M166.7,225 L181.7,225.9 L198.1,223.9 L213.5,226.3 L230.5,224.9 L246.2,225.4 L263.3,225.4 L277.5,224.8 L275.9,242.9 L276.1,257 L277,259.1 L262.2,257 L244.7,258.6 L230.2,256.7 L211.9,259.1 L198.7,259.3 L182.4,258.6 L165.8,259.5 L166.8,242.2 L166.5,224.8 Z" fill="#ece6da"/>
+<text x="285.4" y="241.8" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="start" dominant-baseline="central">24.8x</text>
+</g>
 </svg>

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="The share of enterprises with a Cloud Center of Excellence, 2018 to 2025: 30% in 2018, 45% in 2019, 60% in 2020, 75% in 2021, 80% in 2022, 85% in 2023, 88% in 2024 and 90% in 2025.">
-<defs><filter id="cloud-centers-of-excellence-part-1-building-effective-cloud-governance-ccoe-adoption-desktop-crayon-1" filterUnits="userSpaceOnUse" x="48.5" y="101.1" width="571" height="146.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter></defs>
+<defs><filter id="cloud-centers-of-excellence-part-1-building-effective-cloud-governance-ccoe-adoption-desktop-crayon-1" filterUnits="userSpaceOnUse" x="48.5" y="101.1" width="571" height="146.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter><filter id="cloud-centers-of-excellence-part-1-building-effective-cloud-governance-ccoe-adoption-desktop-crayon-2" filterUnits="userSpaceOnUse" x="48.5" y="101.1" width="571" height="146.6"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="2.2" seed="8" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="holes"/><feComposite in="d" in2="holes" operator="in"/></filter></defs>
 <rect width="640" height="360" fill="#000000"/>
 <text x="16" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="22" fill="#ededed" text-anchor="start" dominant-baseline="central">ENTERPRISES WITH A CCOE</text>
 <text x="16" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Percent of enterprises, 2018 to 2025</text>
@@ -18,10 +18,24 @@
 <text x="451.4" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2023</text>
 <text x="529.7" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2024</text>
 <text x="608" y="314" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="middle" dominant-baseline="central">2025</text>
+<g class="anim-live">
+<clipPath id="cloud-centers-of-excellence-part-1-building-effective-cloud-governance-ccoe-adoption-desktop-wipe-1"><rect x="52" y="72" width="0" height="256">
+<animate attributeName="width" calcMode="discrete" values="0;93.8;176.6;249;311.8;365.6;411.2;449.2;480.3;505.2;524.6;539.2;549.7;556.7;560.9;563.1;563.9;564" begin="0s" dur="1.4s" fill="freeze"/>
+</rect></clipPath><g clip-path="url(#cloud-centers-of-excellence-part-1-building-effective-cloud-governance-ccoe-adoption-desktop-wipe-1)">
 <g class="d-flow">
 <path d="M60,236.2 L138.3,205.3 L216.6,174.4 L294.9,143.5 L373.1,133.2 L451.4,122.9 L529.7,116.7 L608,112.6" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-1-building-effective-cloud-governance-ccoe-adoption-desktop-crayon-1)"/>
 </g>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="1.4s" dur="0.3s" fill="freeze"/>
 <text x="616" y="112.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central"></text>
+</g>
+</g><g class="anim-still" display="none">
+<g class="d-flow">
+<path d="M60,236.2 L138.3,205.3 L216.6,174.4 L294.9,143.5 L373.1,133.2 L451.4,122.9 L529.7,116.7 L608,112.6" fill="none" stroke="#ff4fd8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#cloud-centers-of-excellence-part-1-building-effective-cloud-governance-ccoe-adoption-desktop-crayon-2)"/>
+</g>
+<text x="616" y="112.6" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ff4fd8" text-anchor="start" dominant-baseline="central"></text>
+</g>
 <circle cx="60" cy="236.2" r="4" fill="#ff4fd8"/>
 <text x="60" y="220.2" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">30%</text>
 <circle cx="138.3" cy="205.3" r="4" fill="#ff4fd8"/>

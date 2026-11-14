@@ -4,14 +4,44 @@
 <text x="16" y="24" font-family="var(--font-anton, Anton), Impact, sans-serif" font-size="24" fill="#ededed" text-anchor="start" dominant-baseline="central">GB PER HOUR</text>
 <text x="16" y="52" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">Data volume throughput, higher is better</text>
 <path d="M60,306 L580,306" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"/>
+<g class="anim-live">
+<g transform="translate(146.7 306)"><g transform="scale(1 0)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="1 0;1 0.37;1 0.64;1 0.81;1 0.92;1 0.98;1 1;1 1" begin="0s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-146.7 -306)">
 <path class="d-paper" d="M113.5,96.3 L130.8,96.2 L148.2,97.7 L161.9,97.2 L178.2,97.5 L179.3,114.3 L178.3,128 L177.7,145.8 L179,162.2 L178.7,176.9 L179.8,193.5 L179,210.1 L179.5,226.2 L178.2,241.9 L177.7,255.7 L180.2,272.8 L178.3,290.5 L177.5,303.5 L180.1,304.9 L162.9,304.8 L147.1,304.8 L129.7,306.7 L113.8,305.7 L114.6,288.7 L115.4,273.2 L113.6,258.1 L113.9,241.6 L115.7,226.8 L115.8,208.8 L116,195.2 L114.2,177.5 L113.2,162.9 L115.9,144.6 L115.4,129.6 L115.3,113.3 L113.5,97.5 Z" fill="#ff4fd8"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.6s" dur="0.3s" fill="freeze"/>
 <text x="146.7" y="85" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ff4fd8" text-anchor="middle" dominant-baseline="central">581.6</text>
-<text x="146.7" y="319.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="middle" dominant-baseline="central">CloudQuery</text>
+</g>
+<g transform="translate(320 306)"><g transform="scale(1 0)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="1 0;1 0.37;1 0.64;1 0.81;1 0.92;1 0.98;1 1;1 1" begin="0.2s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-320 -306)">
 <path class="d-paper" d="M288,127.3 L303,125 L319.4,124.8 L334.8,124.8 L352.8,126.7 L352.2,142.5 L353.4,159.8 L351.9,174 L352.1,191.1 L352.9,207 L351,223.4 L351.9,239 L351.3,253.9 L353.6,270.4 L352.4,287.8 L350.5,301.3 L351.6,305.8 L336.4,306 L321.5,306.9 L302.6,304.4 L286.9,305.5 L286.5,291.5 L287.2,274.4 L287.5,258.1 L287.6,241.9 L289,225.3 L287,211 L287,195.4 L287.4,177.7 L287.7,162.5 L288,145.3 L287.4,130.7 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.8s" dur="0.3s" fill="freeze"/>
 <text x="320" y="114.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">500+</text>
-<text x="320" y="319.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="middle" dominant-baseline="central">Fivetran</text>
+</g>
+<g transform="translate(493.3 306)"><g transform="scale(1 0)">
+<animateTransform attributeName="transform" type="scale" calcMode="discrete" values="1 0;1 0.37;1 0.64;1 0.81;1 0.92;1 0.98;1 1;1 1" begin="0.3s" dur="0.6s" fill="freeze"/>
+<g transform="translate(-493.3 -306)">
 <path class="d-paper" d="M461.1,232.9 L478,235.6 L493,232.8 L509.7,233.6 L525.3,234.7 L525.9,249.2 L526.7,266.7 L524.6,281.1 L525.4,297.5 L523.9,304.7 L510.2,305.1 L493.5,306.7 L478.5,306.5 L460.5,307.4 L461.4,289.2 L459.9,273.5 L460.8,257.2 L462.8,243.3 Z" fill="#ece6da"/>
+</g></g></g>
+<g opacity="0">
+<animate attributeName="opacity" calcMode="discrete" values="0;0.7;0.96;1" begin="0.9s" dur="0.3s" fill="freeze"/>
 <text x="493.3" y="222.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">50–200</text>
+</g>
+</g><g class="anim-still" display="none">
+<path class="d-paper" d="M115.2,97.8 L131.4,98.5 L146.7,97.6 L162.2,97.4 L177.5,96.9 L177.4,113 L179.6,129.3 L180,143.4 L177.8,160.8 L178.7,176 L177.2,192.3 L178.4,208.8 L177.9,223.7 L178.4,241.2 L178.9,257.5 L177.2,272.1 L179.6,288.6 L179.8,305.1 L177.3,305.4 L163.3,306.2 L146.3,305.9 L131.4,307.2 L115.3,307.5 L113.1,289.7 L115.3,274.2 L114.5,256.4 L116.1,241.6 L115.4,224.9 L115.2,208.4 L114.6,192.7 L113.4,177.6 L113.3,161.2 L115.2,147.6 L115.8,129.5 L113.5,113.1 L113.4,97.1 Z" fill="#ff4fd8"/>
+<text x="146.7" y="85" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ff4fd8" text-anchor="middle" dominant-baseline="central">581.6</text>
+<path class="d-paper" d="M288.2,125.5 L305.6,127.7 L319.2,126.2 L335.1,125 L351.5,125.3 L351.6,143 L353.4,159.4 L352.6,173.2 L350.9,189.9 L351.6,207.7 L352.4,223.3 L351.1,239.2 L353.6,253.6 L351.1,270.4 L353.3,284.7 L352.6,303.5 L353.5,305.6 L336.9,305.7 L319.3,305.6 L304.7,305.6 L286.5,306 L288.6,289.7 L288,273.7 L288.3,257.5 L287.7,242.1 L287.3,224.9 L287.9,210.7 L286.8,192.6 L288,177.7 L289.4,162.9 L288.4,144.5 L287.7,130.5 Z" fill="#ece6da"/>
+<text x="320" y="114.3" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">500+</text>
+<path class="d-paper" d="M460.8,234.3 L475.9,233.5 L492.1,233.7 L510.6,235.5 L525.9,233.4 L524.9,251.5 L524.4,266.4 L525.4,282.5 L525.6,299.7 L524.8,304.9 L509.4,304.9 L493.4,306.9 L477.9,305.3 L461.2,306.4 L462.1,290.1 L462.7,274.7 L462,258.1 L461.9,243.2 Z" fill="#ece6da"/>
+<text x="493.3" y="222.1" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="15" font-weight="700" fill="#ededed" text-anchor="middle" dominant-baseline="central">50–200</text>
+</g>
+<text x="146.7" y="319.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="middle" dominant-baseline="central">CloudQuery</text>
+<text x="320" y="319.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="middle" dominant-baseline="central">Fivetran</text>
 <text x="493.3" y="319.5" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="14" fill="#ededed" text-anchor="middle" dominant-baseline="central">Airbyte</text>
 <text x="16" y="362" font-family="var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif" font-size="13" fill="#a3a3a3" text-anchor="start" dominant-baseline="central">CloudQuery: file source, Apple M4 Pro. Fivetran and Airbyte: their published benchmarks.</text>
 </svg>
