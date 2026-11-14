@@ -19,21 +19,22 @@ test.describe('Accessibility', () => {
 		test(`${path} images have alt text`, async ({ page }) => {
 			await page.goto(path);
 
-			const images = page.locator('img:not([role="presentation"])');
-			const imageCount = await images.count();
-
-			for (let i = 0; i < imageCount; i++) {
-				const img = images.nth(i);
-				const alt = await img.getAttribute('alt');
-				const ariaLabel = await img.getAttribute('aria-label');
-				const ariaHidden = await img.getAttribute('aria-hidden');
-
-				// Image should have alt text, aria-label, or be hidden from AT
-				const isAccessible =
-					(alt !== null && alt !== '') || ariaLabel !== null || ariaHidden === 'true';
-
-				expect(isAccessible).toBeTruthy();
-			}
+			// One round trip for every image: the stats page has hundreds of posters, and one
+			// call per image ran past the test timeout on the slower test runner
+			const inaccessible = await page
+				.locator('img:not([role="presentation"])')
+				.evaluateAll((images) =>
+					images
+						// Alt text, an aria-label, or hidden from assistive tech
+						.filter(
+							(img) =>
+								!img.getAttribute('alt') &&
+								!img.hasAttribute('aria-label') &&
+								img.getAttribute('aria-hidden') !== 'true',
+						)
+						.map((img) => img.getAttribute('src')),
+				);
+			expect(inaccessible).toEqual([]);
 		});
 
 		test(`${path} links have accessible names`, async ({ page }) => {
