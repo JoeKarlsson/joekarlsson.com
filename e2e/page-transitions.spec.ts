@@ -41,20 +41,20 @@ test('a section further right in the nav slides in from the right, and Back play
 	await page.goto('/blog/');
 	await page.locator('header nav a[href="/work/"]').click();
 	await page.waitForURL('**/work/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-forward']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['forward']);
 
 	await page.locator('header nav a[href="/blog/"]').click();
 	await page.waitForURL('**/blog/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-back']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['back']);
 
 	// Back undoes Works to Blog (from the left), so it comes in from the right; then it
 	// undoes Blog to Works
 	await page.goBack();
 	await page.waitForURL('**/work/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-forward']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['forward']);
 	await page.goBack();
 	await page.waitForURL('**/blog/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-back']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['back']);
 });
 
 test('a project picture grows into its page header, and shrinks back on Back', async ({ page }) => {
@@ -64,11 +64,11 @@ test('a project picture grows into its page header, and shrinks back on Back', a
 	const path = await picture.getAttribute('data-morph');
 	await picture.click();
 	await page.waitForURL(`**${path}`);
-	await expect.poll(() => typesOnArrival(page)).toEqual(['morph', 'slide-forward']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['forward', 'morph']);
 
 	await page.goBack();
 	await page.waitForURL('**/work/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-back']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['back']);
 	await expect.poll(() => thumbnailNamedOnArrival(page)).toBe(true);
 });
 
@@ -80,7 +80,7 @@ test('a post opened from a link with no picture of it on screen gets no header m
 	const path = await featured.getAttribute('href');
 	await featured.click();
 	await page.waitForURL(`**${path}`);
-	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-forward']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['forward']);
 });
 
 test("a related project's picture grows into its page from another project page, and back", async ({
@@ -92,11 +92,11 @@ test("a related project's picture grows into its page from another project page,
 	const path = await related.getAttribute('data-morph');
 	await related.click();
 	await page.waitForURL(`**${path}`);
-	await expect.poll(() => typesOnArrival(page)).toEqual(['morph', 'slide-forward']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['forward', 'morph']);
 
 	await page.goBack();
 	await page.waitForURL('**/work/pixelpane/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-back']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['back']);
 });
 
 test('Keep exploring turns the next post in like a page, and Back turns it back', async ({
@@ -108,11 +108,11 @@ test('Keep exploring turns the next post in like a page, and Back turns it back'
 	const path = await next.getAttribute('href');
 	await next.click();
 	await page.waitForURL(`**${path}`);
-	await expect.poll(() => typesOnArrival(page)).toEqual(['page-turn', 'slide-forward']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['forward', 'turn']);
 
 	await page.goBack();
 	await page.waitForURL('**/how-to-get-started-building-a-homelab-server/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['page-turn', 'slide-back']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['back', 'turn']);
 });
 
 test('a nav link whose page is slow to arrive gets a squiggle under it', async ({ page }) => {

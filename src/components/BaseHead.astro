@@ -456,22 +456,31 @@ page's own scripts run. -->
 			const transition = event.viewTransition;
 			if (!transition) return;
 			if (paused()) return skip(transition);
+			// The old page names its own picture below: the header rule would give a second
+			// element the same name and the browser would cancel the transition, and with no
+			// Navigation API (Safari before 26) the header would fade alone in place
+			transition.types.delete('morph');
 			const activation = event.activation;
 			save('morph-to', null);
 			if (!activation || !activation.entry.url) return;
 			const from = location.pathname;
 			const to = new URL(activation.entry.url).pathname;
 			const back = goesBack(activation, from, to);
-			// The old page needs the slide's type too, so it names the nav bar (motion.css).
-			// It names its own picture below: the header rule would give a second element
-			// the same name, and the browser would cancel the transition
-			transition.types.add(back ? 'slide-back' : 'slide-forward');
-			transition.types.delete('morph');
+			// The old page needs the slide's type too, so it names the nav bar (motion.css)
+			transition.types.add(back ? 'back' : 'forward');
 			if (turnsPage(activation, from, to, back, load('page-turn'))) return;
 			const element = back ? onScreen('[data-morph-target]') : pictureFor(to);
 			if (!element) return;
 			morph(element, transition);
 			save('morph-to', to);
+		});
+		// A page restored by Back can be frozen before its transition's cleanup ran; a name
+		// left on its thumbnail would clash with the next one and cancel that transition
+		addEventListener('pageshow', function (event) {
+			if (!event.persisted) return;
+			document.querySelectorAll('[data-morph]').forEach(function (element) {
+				element.style.viewTransitionName = '';
+			});
 		});
 		// Arriving: pick the slide, and keep the header morph only when the page left named
 		// a picture for it
@@ -495,9 +504,9 @@ page's own scripts run. -->
 			const from = new URL(activation.from.url).pathname;
 			const here = location.pathname;
 			const back = goesBack(activation, from, here);
-			transition.types.add(back ? 'slide-back' : 'slide-forward');
+			transition.types.add(back ? 'back' : 'forward');
 			if (turnsPage(activation, from, here, back, turningTo)) {
-				transition.types.add('page-turn');
+				transition.types.add('turn');
 				if (activation.navigationType !== 'traverse') {
 					save(
 						'page-turns',
@@ -513,8 +522,8 @@ page's own scripts run. -->
 			// Forward, the header's name comes from motion.css, since Safari reveals the page
 			// before it's parsed. Back, this page names the thumbnail it was opened from, and
 			// the header rule must stay off or a related card's header could share its name
-			if (!morphed || back || transition.types.has('page-turn')) transition.types.delete('morph');
-			if (morphed && back && !transition.types.has('page-turn')) {
+			if (!morphed || back || transition.types.has('turn')) transition.types.delete('morph');
+			if (morphed && back && !transition.types.has('turn')) {
 				const picture = pictureFor(from);
 				if (picture) morph(picture, transition);
 			}

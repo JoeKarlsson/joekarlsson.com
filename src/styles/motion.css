@@ -13,6 +13,10 @@
 :root {
 	--ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
 	--ease-exit: cubic-bezier(0.3, 0, 0.6, 0.6);
+	/* Something that stays on screen and changes place, like the nav's pink sticker */
+	--ease-move: cubic-bezier(0.65, 0, 0.35, 1);
+	/* Which way a page change slides: 1 in from the right, -1 (Back) from the left */
+	--way: 1;
 	--duration-enter: 0.22s;
 	--duration-exit: 0.175s;
 	--fade-from: 0.001;
@@ -347,7 +351,7 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 	animation-play-state: paused !important;
 }
 /* Paused, the slow-load squiggle shows whole rather than frozen unscribbled */
-.motion-paused header nav a[data-loading]::before {
+.motion-paused [data-loading]::before {
 	animation: none;
 }
 /* Paused, a scribble shows drawn: frozen at its first frame it would be invisible,
@@ -666,66 +670,59 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 	#image-lightbox[data-morph]::backdrop {
 		transition: none;
 	}
-	/* Page changes (the script is in BaseHead.astro). The nav bar is its own layer that
-	   swaps at once, so it holds still; only the pink current-page sticker moves, sliding
-	   to the new page's link. Multiply keeps the link text over it black. */
+	/* Page changes (the script is in BaseHead.astro). The nav bar is its own layer, and
+	   its old and new pictures match, so it holds still while the page slides; only the
+	   pink current-page sticker moves, sliding to the new page's link. Multiply keeps the
+	   link text over it black. */
 	@view-transition {
 		navigation: auto;
 		types: morph;
 	}
 	/* Page changes only: the lightbox's same-page transition leaves the bar under its backdrop */
-	:active-view-transition-type(slide-forward, slide-back) header nav {
+	:active-view-transition-type(forward, back) header nav {
 		view-transition-name: site-nav;
 	}
-	:active-view-transition-type(slide-forward, slide-back) header nav .nav-pill {
+	/* Only from the bar: a phone's open menu has no partner on the next page, where the
+	   menu is shut, so its full-width row would hang over the page */
+	:active-view-transition-type(forward, back) header nav:not([data-menu-open]) .nav-pill {
 		view-transition-name: nav-pill;
-	}
-	::view-transition-old(site-nav) {
-		display: none;
-	}
-	::view-transition-new(site-nav) {
-		animation: none;
 	}
 	::view-transition-group(nav-pill) {
 		animation-duration: 0.28s;
 		animation-timing-function: var(--ease-move);
 		mix-blend-mode: multiply;
 	}
-	/* The page slides the way you're going: out fast, in 16px from that side */
-	html:active-view-transition-type(slide-forward)::view-transition-old(root) {
-		animation: 0.12s var(--ease-exit) both page-out-left;
+	/* The page slides the way you're going: out fast, in 16px from that side. One set of
+	   keyframes serves both ways through --way */
+	:active-view-transition-type(back) {
+		--way: -1;
 	}
-	html:active-view-transition-type(slide-forward)::view-transition-new(root) {
-		animation: 0.22s var(--ease-enter) 0.06s both page-in-from-right;
-	}
-	html:active-view-transition-type(slide-back)::view-transition-old(root) {
-		animation: 0.12s var(--ease-exit) both page-out-right;
-	}
-	html:active-view-transition-type(slide-back)::view-transition-new(root) {
-		animation: 0.22s var(--ease-enter) 0.06s both page-in-from-left;
+	:active-view-transition-type(forward, back) {
+		&::view-transition-old(root) {
+			animation: 0.12s var(--ease-exit) both page-out;
+		}
+		&::view-transition-new(root) {
+			animation: 0.22s var(--ease-enter) 0.06s both page-in;
+		}
 	}
 	/* Keep exploring: the next page turns in over this one like a sheet; Back pulls the
 	   sheet off to the right again */
-	html:active-view-transition-type(page-turn):active-view-transition-type(
-			slide-forward
-		)::view-transition-new(root) {
-		animation: 0.38s var(--ease-enter) both sheet-in-from-right;
-	}
-	html:active-view-transition-type(page-turn):active-view-transition-type(
-			slide-forward
-		)::view-transition-old(root) {
-		animation: 0.38s var(--ease-enter) both sheet-under-left;
-	}
-	html:active-view-transition-type(page-turn):active-view-transition-type(
-			slide-back
-		)::view-transition-old(root) {
-		z-index: 1;
-		animation: 0.32s var(--ease-exit) both sheet-out-right;
-	}
-	html:active-view-transition-type(page-turn):active-view-transition-type(
-			slide-back
-		)::view-transition-new(root) {
-		animation: 0.32s var(--ease-enter) both sheet-from-under-left;
+	:active-view-transition-type(turn) {
+		&:active-view-transition-type(forward)::view-transition-new(root) {
+			animation: 0.38s var(--ease-enter) both sheet-in;
+		}
+		&:active-view-transition-type(forward)::view-transition-old(root) {
+			animation: 0.38s var(--ease-enter) both sheet-under;
+		}
+		/* Played in reverse, each curve mirrors: ease-enter accelerates the sheet away,
+		   ease-exit settles the page coming out from under it */
+		&:active-view-transition-type(back)::view-transition-old(root) {
+			z-index: 1;
+			animation: 0.32s var(--ease-enter) both reverse sheet-in;
+		}
+		&:active-view-transition-type(back)::view-transition-new(root) {
+			animation: 0.32s var(--ease-exit) both reverse sheet-under;
+		}
 	}
 	/* A thumbnail grows into the header of the page it opens. Safari reveals the new page
 	   before its header is parsed, so the script can't name it; this does, and the script
@@ -734,76 +731,58 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 	:active-view-transition-type(morph) [data-morph-target] {
 		view-transition-name: morph-hero;
 	}
-	::view-transition-group(morph-hero) {
-		animation-duration: 0.25s;
-		animation-timing-function: var(--ease-enter);
-	}
 	::view-transition-old(morph-hero),
 	::view-transition-new(morph-hero) {
 		height: 100%;
 		object-fit: cover;
 	}
-	/* The slow-load squiggle (Header.astro) scribbles itself out left to right, over and over */
-	header nav a[data-loading]::before {
-		animation: squiggle-scribble 0.6s steps(6) infinite;
+	/* No partner on the new page (Safari captures it before the header is parsed): the
+	   picture leaves with the old page instead of fading in place over the slide */
+	::view-transition-old(morph-hero):only-child {
+		animation: 0.12s var(--ease-exit) both page-out;
 	}
+	/* The slow-load squiggle (Header.astro) scribbles itself out left to right, over and over */
+	[data-loading]::before {
+		animation: squiggle-scribble 0.6s steps(6, jump-start) infinite;
+	}
+	/* Both ends spelled out: inset() can't animate to the implicit none, it would blink */
 	@keyframes squiggle-scribble {
 		from {
 			clip-path: inset(0 100% 0 0);
 		}
+		to {
+			clip-path: inset(0);
+		}
 	}
-	@keyframes page-out-left {
+	@keyframes page-out {
 		to {
 			opacity: 0;
-			translate: -16px 0;
+			translate: calc(var(--way) * -16px) 0;
 		}
 	}
-	@keyframes page-out-right {
-		to {
-			opacity: 0;
-			translate: 16px 0;
-		}
-	}
-	@keyframes page-in-from-right {
+	@keyframes page-in {
 		from {
 			opacity: 0;
-			translate: 16px 0;
+			translate: calc(var(--way) * 16px) 0;
 		}
 	}
-	@keyframes page-in-from-left {
-		from {
-			opacity: 0;
-			translate: -16px 0;
-		}
-	}
-	@keyframes sheet-in-from-right {
+	@keyframes sheet-in {
 		from {
 			translate: 100% 0;
 		}
 	}
-	@keyframes sheet-under-left {
+	@keyframes sheet-under {
 		to {
 			opacity: 0;
 			translate: -12% 0;
 		}
 	}
-	@keyframes sheet-out-right {
-		to {
-			translate: 100% 0;
-		}
-	}
-	@keyframes sheet-from-under-left {
-		from {
-			opacity: 0;
-			translate: -12% 0;
-		}
-	}
-	::view-transition-group(lightbox-morph) {
-		animation-duration: 0.25s;
-		animation-timing-function: var(--ease-enter);
-	}
+	/* Today's crossfade where a page change has no slide (Safari without the Navigation
+	   API), and the lightbox's and a thumbnail's morphs */
 	::view-transition-old(root),
-	::view-transition-new(root) {
+	::view-transition-new(root),
+	::view-transition-group(lightbox-morph),
+	::view-transition-group(morph-hero) {
 		animation-duration: 0.25s;
 		animation-timing-function: var(--ease-enter);
 	}

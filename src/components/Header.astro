@@ -159,15 +159,15 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 	}
 	/* A nav click whose page is slow to arrive: a crayon squiggle under the link (the
 	   script below; it scribbles in motion.css) */
-	header nav a[data-loading] {
+	[data-loading] {
 		position: relative;
 	}
-	header nav a[data-loading]::before {
+	[data-loading]::before {
 		content: '';
 		position: absolute;
 		inset: auto 6% -9px;
 		height: 7px;
-		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 7'%3E%3Cpath d='M1 4.5Q5.5.5 10 3.5T19 3' fill='none' stroke='%23ff4fd8' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E")
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 7'%3E%3Cpath d='M1 4.5Q5.5.5 10 3.5T19 3' fill='none' stroke='%23ff4fd8' stroke-width='2.4'/%3E%3C/svg%3E")
 			left center / 20px 7px repeat-x;
 		pointer-events: none;
 	}
