@@ -23,7 +23,7 @@ Thomas is horrible. He barks at his models, rolls around his studio with two mor
 
 They're the one thing he can't put down. He stares deeper and deeper into the grain, and the closer he gets, the less there is. His heart ultimately finds nothing. This is The Conversation for pictures instead of sound, with a way less gratifying conclusion. Gene Hackman at least gets a twist.
 
-At the end, mimes play tennis without a ball. Thomas picks up the ball that isn't there and throws it back. I spent two hours doing the same thing with this movie, and I'm glad I played along.
+||At the end, mimes play tennis without a ball.|| ||Thomas picks up the ball that isn't there and throws it back||. I spent two hours doing the same thing with this movie, and I'm glad I played along.
 
 Stray thoughts:
 

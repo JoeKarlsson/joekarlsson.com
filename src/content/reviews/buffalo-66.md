@@ -23,6 +23,6 @@ I love how small this movie is. I love Christina Ricci - she's magnetic even whe
 
 Gallo's performance is incredible. I get why he has fans. I also know his fanbase online is pretty rancid.
 
-The bowling alley tap dance scene is stunning - those new wave elements sprinkled throughout really work. And the bullet time sequence during the final imagined shootout was so effective for me. The violence that doesn't happen. The choice not to.
+The bowling alley tap dance scene is stunning - those new wave elements sprinkled throughout really work. And ||the bullet time sequence during the final imagined shootout|| was so effective for me. The violence that doesn't happen. The choice not to.
 
 It's a mesmerizing movie. Really well written, incredible style, great performances. I loved it. I just have questions I can't resolve.

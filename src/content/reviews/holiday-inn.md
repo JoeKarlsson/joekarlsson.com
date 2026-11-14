@@ -19,6 +19,6 @@ I watched this for the obvious connection to White Christmas - Holiday Inn is th
 
 The rest of this movie is more uneven. It's plodding in places, and most of the musical numbers besides the title song don't work for me. The Abraham Lincoln number is - aside from everything else wrong with it - just not a good song. But I do love watching Fred Astaire dance and Bing Crosby croon. The 4th of July tap number with the fireworks and little firecrackers going off? That was genuinely fun.
 
-And I'll admit - I teared up at the end when Bing Crosby and Marjorie Reynolds reunite. Got me.
+And I'll admit - ||I teared up at the end when Bing Crosby and Marjorie Reynolds reunite||. Got me.
 
 I don't know if I'll be revisiting this one. I definitely won't be watching it with friends, for obvious reasons. But it was a fun time, I guess. With several significant asterisks attached.

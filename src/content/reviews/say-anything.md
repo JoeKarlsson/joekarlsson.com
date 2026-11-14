@@ -19,7 +19,7 @@ This is so much cuter, sweeter, and different than I ever expected. I genuinely 
 
 Lloyd Dobler is way cooler, sweeter, and more aspirational than someone like Ferris Bueller, who we were all supposed to worship as the ultimate 80s teen icon. Lloyd isn't cool because he's a charming rule-breaker - he's cool because he's genuine, kind, and actually listens to Diane. He respects her. He supports her dreams even when they take her away from him. That's real coolness.
 
-I also expected the father to be a total cock block for the whole movie, but instead it takes this wild swerve into an unexpected financial crime subplot that actually works. The father isn't just an obstacle - he's a fully realized character with his own tragic arc. That complexity elevates the entire film.
+I also expected the father to be a total cock block for the whole movie, but instead ||it takes this wild swerve into an unexpected financial crime subplot that actually works||. The father isn't just an obstacle - he's a fully realized character with his own tragic arc. That complexity elevates the entire film.
 
 John Cusack is wonderful in this. The performance is so natural and lived-in. And the screenplay is so much more realistic than I expected - but then again, I should have known better coming from a Cameron Crowe movie. He gets how people actually talk, especially teenagers trying to figure out who they are.
 

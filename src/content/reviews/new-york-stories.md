@@ -23,7 +23,7 @@ The fantasy is gorgeous. Nick Nolte plays Lionel Dobie, a famous painter with a 
 
 Arquette plays Paulette, his assistant, who lives in the loft, paints on the side, and is done with him, and she's the one paying for the fantasy. He needs her jealous and miserable in the next room so he can work, which makes her a muse in the old sense of the word: fuel. When she asks whether her work is any good, he answers with a speech about himself, that it isn't about talent, it's about having no choice but to do it. Maybe he thinks her work is bad and knows saying so would end things. She isn't asking him to be nice about it. She just wants any feedback at all, even "it's terrible," and any answer would have kept her around for years. He can't give her one, because a Paulette who knows where she stands is no use to him. At one point he gets caught staring at her bare foot and explains that he only wanted to kiss it, nothing personal.
 
-By the end he knows it's over and is trying to squeeze a little more out of her before she goes, which is desperate and pathetic to watch. It's like he can't help himself. Then, at that same opening, he meets a young painter and offers her the job, with the same pitch about life lessons that are priceless. His dealer told him at the start that he should know himself better, because he does this every time.
+By the end he knows it's over and is trying to squeeze a little more out of her before she goes, which is desperate and pathetic to watch. It's like he can't help himself. ||Then, at that same opening, he meets a young painter and offers her the job, with the same pitch about life lessons that are priceless.|| His dealer told him at the start that he should know himself better, because he does this every time.
 
 "Life Lessons" is about a man who never learns one. Lionel is the cautionary tale: he has no self-awareness at all. He can't read himself or anyone around him, so he keeps running the same loop and calling it inspiration, and I know so many men like him. It's also hard not to notice who made it. Scorsese has been married five times, Julia Cameron included, which is about as many wives as Lionel claims to have had. I think that's very funny, and very telling.
 
@@ -35,4 +35,4 @@ Richard Price's script is so good. It made me understand exactly why Paulette st
 
 Steve Buscemi is great as Gregory Stark, the performance artist Paulette takes up with. I did not love his show. It's very Gen X.
 
-The ending reminded me of 500 Days of Summer, when Tom meets a new woman and the whole thing starts again, though Tom at least seems to have learned something.
+The ending reminded me of 500 Days of Summer, ||when Tom meets a new woman and the whole thing starts again||, though Tom at least seems to have learned something.

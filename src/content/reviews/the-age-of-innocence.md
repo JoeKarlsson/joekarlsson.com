@@ -19,6 +19,6 @@ ALso - I need to say this up top. I really struggle with costume dramas. They're
 
 You can tell Martin Scorsese is having a blast adapting Edith Wharton and making his first drawing-room costume drama. The camera work is gorgeous, and Saul and Elaine Bass's opening titles are beautiful before anyone has said a word.
 
-Winona Ryder is incredible as May, the right girl. She plays the sweetest person in the movie and never loses a fight. She tells Ellen she's pregnant before she's even sure, and that one conversation ends an affair nobody has said out loud. Years later, Newland's son tells him May knew all along. It's a wonderful character study, and I was quite moved by parts of it.
+Winona Ryder is incredible as May, the right girl. She plays the sweetest person in the movie and never loses a fight. She tells Ellen she's pregnant before she's even sure, and that one conversation ends an affair nobody has said out loud. ||Years later, Newland's son tells him May knew all along||. It's a wonderful character study, and I was quite moved by parts of it.
 
 The suffocation that makes it work is the same thing that made it a slog for me. These people are fucked up. The family sends Newland, the guy in love with Ellen, to talk her out of the divorce, and he does it. What the hell was going on in the Gilded Age? I know we're in a modern Gilded Age, but Jesus Christ, those rules are so suffocating, man.

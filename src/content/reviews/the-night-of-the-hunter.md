@@ -17,7 +17,7 @@ A weird psychosexual religious allegorical nightmare. One of the most beautiful 
 
 Walked into a packed Tuesday night screening at the Alamo with no idea what I was getting into. Walked out completely floored.
 
-The cinematography, the lighting, the sets - that river sequence is enormous, and I have no idea how they built it. The underwater shot of the mother with her throat slit, hair drifting slowly in the current, is jaw-dropping. Just incredible imagery throughout.
+The cinematography, the lighting, the sets - that river sequence is enormous, and I have no idea how they built it. ||The underwater shot of the mother with her throat slit, hair drifting slowly in the current||, is jaw-dropping. Just incredible imagery throughout.
 
 Robert Mitchum gives an absolutely terrifying performance as the literal devil. I got big gay vibes from his character - the crazy stance on sex, the performative masculinity hiding something else underneath. Given Charles Laughton's sexuality in real life, I'm not surprised that's coming through. The movie has a complicated relationship with desire and repression that feels deeply personal.
 

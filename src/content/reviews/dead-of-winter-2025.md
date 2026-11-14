@@ -25,9 +25,9 @@ I appreciated the pacing. I appreciated having older women lead a pseudo-action 
 
 Judy Greer was actually wonderful too. I loved not knowing what was going on but trusting we'd eventually find out. She did a great job selling a woman who will stop at nothing to save her own skin. And she's really not helping nurses beat the allegations of being the meanest people in the universe.
 
-That girl they had to rescue was one of the most annoying characters I've ever seen committed to film. Whiny, useless - and at the end, she just walked away from Emma Thompson after Thompson had literally sacrificed herself to save her ass. She wasn't even dead yet. I couldn't believe it.
+That girl they had to rescue was one of the most annoying characters I've ever seen committed to film. Whiny, useless - and ||at the end, she just walked away from Emma Thompson after Thompson had literally sacrificed herself to save her ass||. She wasn't even dead yet. I couldn't believe it.
 
-I think the film was trying to say something about husbands and wives and the dynamics between them. The main antagonist is this woman who's horrible to her husband, while Emma Thompson apparently had a wonderful life and gave everything to her husband until he died. But it feels confusing - a lot of the male characters don't really fit into this framework. Like those two truckers she radios for help don't listen to her as a woman, don't respect her, and end up paying with their lives for it.
+I think the film was trying to say something about husbands and wives and the dynamics between them. The main antagonist is this woman who's horrible to her husband, while Emma Thompson apparently had a wonderful life and gave everything to her husband until he died. But it feels confusing - a lot of the male characters don't really fit into this framework. Like those two truckers she radios for help don't listen to her as a woman, don't respect her, and ||end up paying with their lives for it||.
 
 How does that fit? I don't know. Maybe it's something about selflessness versus selfishness, which is best exemplified through Judy Greer and Emma Thompson's characters.
 

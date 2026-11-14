@@ -18,7 +18,7 @@ I’d let James Spader spank me….
 
 This movie has shifted a lot since I first watched it ten years ago.
 
-First of all, I forgot how much happens after the hunger strike. My vague fuzzy memory was that it ended there, but no - it has a happy ending. That reframes everything for me
+First of all, I forgot how much happens after the hunger strike. My vague fuzzy memory was that it ended there, but no - ||it has a happy ending||. That reframes everything for me
 
 Mr Grey is a complicated character. I wouldn’t condone his actions in real life - his lack of communication, his improper professionalism - but it makes for a compelling movie. He’s such a stoic character, incapable of expressing his feelings directly, and yet James Spader conveys so much depth without overt expression. Also forgot what a weird little freak he is. So pathetic before he starts to open up toward Lee at the end. James Spader is the absolute king of playing dang ass horny freaks. He gets a raise.
 

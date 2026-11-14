@@ -6,14 +6,14 @@ rating: 2.5
 director: 'Jules Bass'
 genres: ['Animation', 'Comedy', 'Fantasy', 'Music', 'Family']
 slug: 'mad-monster-party'
-description: "I couldn't believe this movie ended with a nuclear holocaust on an escaped zoo animal, but it really did. What a choice."
+description: 'This is basically Hotel Transylvania but without Adam Sandler, with worse jokes, moving much slower, and featuring incredible stop-motion animation instead...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mad-monster-party/'
 poster: '/images/reviews/mad-monster-party/poster.webp'
 heroImage: '/images/reviews/mad-monster-party/backdrop.webp'
 heroAlt: 'A still from Mad Monster Party? (1967)'
 ---
 
-I couldn't believe this movie ended with a nuclear holocaust on an escaped zoo animal, but it really did. What a choice.
+I couldn't believe ||this movie ended with a nuclear holocaust on an escaped zoo animal||, but it really did. What a choice.
 
 This is basically Hotel Transylvania but without Adam Sandler, with worse jokes, moving much slower, and featuring incredible stop-motion animation instead of CGI. The Rankin/Bass stop-motion work is genuinely impressive - you can feel the craftsmanship in every frame. These puppets have so much character and the animation holds up remarkably well for 1967.
 

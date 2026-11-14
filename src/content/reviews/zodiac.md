@@ -15,9 +15,9 @@ heroAlt: 'A still from Zodiac (2007)'
 
 The first time I watched Zodiac, the ending made me furious.
 
-Furious, because I'd spent two and a half hours watching the evidence line up against Arthur Leigh Allen, and then I got absolutely blueballed by Leigh having a fucking heart attack. A title card tells you he died before anyone could charge him, and the next one tells you a DNA test didn't match him anyway. No justice. I rewatched it this week, and that ending is now my favorite thing about it.
+Furious, because I'd spent two and a half hours watching the evidence line up against Arthur Leigh Allen, and ||then I got absolutely blueballed by Leigh having a fucking heart attack||. ||A title card tells you he died before anyone could charge him, and the next one tells you a DNA test didn't match him anyway||. No justice. I rewatched it this week, and that ending is now my favorite thing about it.
 
-David Fincher had already made his serial killer movie. In Se7en, John Doe calls every shot, wins, and hands everyone an answer in a box. Zodiac refuses to hand over any answer at all, and it barely seems interested in its killer. It's a process movie: handwriting samples, cipher pages, phone calls between police departments in three counties that can't get each other the files. For most of the runtime the tension is a low hum of paperwork, and then in the last stretch it's really cooking.
+David Fincher had already made his serial killer movie. In Se7en, ||John Doe calls every shot, wins, and hands everyone an answer in a box||. Zodiac refuses to hand over any answer at all, and it barely seems interested in its killer. It's a process movie: handwriting samples, cipher pages, phone calls between police departments in three counties that can't get each other the files. For most of the runtime the tension is a low hum of paperwork, and then in the last stretch it's really cooking.
 
 What Fincher cares about is the people the case impacted, and what it does to the ones who can't put it down.
 

@@ -6,11 +6,11 @@ rating: 3.5
 director: 'Jon Avnet'
 genres: ['Drama', 'Comedy']
 slug: 'fried-green-tomatoes'
-description: 'I did not expect there to be cannibalism in this movie! 🙃'
+description: 'Contains spoilers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fried-green-tomatoes/'
 poster: '/images/reviews/fried-green-tomatoes/poster.webp'
 heroImage: '/images/reviews/fried-green-tomatoes/backdrop.webp'
 heroAlt: 'A still from Fried Green Tomatoes (1991)'
 ---
 
-I did not expect there to be cannibalism in this movie! 🙃
+||I did not expect there to be cannibalism in this movie!|| 🙃

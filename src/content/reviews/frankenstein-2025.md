@@ -17,7 +17,7 @@ The least subtle screenplay ever made, but the production design goes so hard I 
 
 I liked this more than I thought I would. It's an overly indulgent Guillermo del Toro film with lots of detailed creature dissection and biology, which is exactly what you'd expect from him. I was on board for all of it - the gross anatomy, the meticulous creature design, the obsessive attention to how bodies work and fail. That's del Toro's wheelhouse and he delivers.
 
-The screenplay is one of the least subtle I've ever seen. At the end, Jacob Elordi's creature literally tells Oscar Isaac's Victor Frankenstein, "You're the monster," just in case you somehow missed the entire point of the 200-year-old novel. It's almost hilariously on-the-nose, but you know what? It still works.
+The screenplay is one of the least subtle I've ever seen. At the end, Jacob Elordi's ||creature literally tells Oscar Isaac's Victor Frankenstein, "You're the monster,"|| just in case you somehow missed the entire point of the 200-year-old novel. It's almost hilariously on-the-nose, but you know what? It still works.
 
 I did pick up on a strong thread of Christian pro-life hypocrisy in this watch. It felt like an allegory for someone who forces a birth that no one wanted, then just abuses and neglects what they created. They want life for the sake of life without dealing with the consequences of that choice. And then when they do have to face those consequences, they react with violence and rejection. I don't know if that's the intended read, but that's what I took away this time, and it made the whole thing feel urgently relevant.
 

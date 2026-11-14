@@ -19,7 +19,7 @@ I'm writing this a couple days after my initial viewing and I have a lot of conf
 
 The first half is a fucking blast. It's a maximalist joyride through the golden age of Hollywood with some incredible performances, stunning cinematography, and absolutely wild party and action sequences. I just love a movie packed with sicko freaks, and this movie delivers on that front the entire time. Chazelle commits fully to the excess and depravity, and it's exhilarating to watch.
 
-Now, the ending. I'm a little confused by it. I typically hate Hollywood movies talking about how great Hollywood is, and as everyone else has noted, seeing a shot of Avatar in the final montage is jarring and weird. The movie spends its entire runtime showing how Hollywood eats people up, spits them out, exploits them, and destroys them - and then at the end it's like, "Well, at least it made Avatar."
+Now, the ending. I'm a little confused by it. I typically hate Hollywood movies talking about how great Hollywood is, and as everyone else has noted, ||seeing a shot of Avatar in the final montage|| is jarring and weird. The movie spends its entire runtime showing how Hollywood eats people up, spits them out, exploits them, and destroys them - and then at the end it's like, "Well, at least it made Avatar."
 
 That feels unearned and out of left field. The tonal whiplash from "this industry is a meat grinder that destroys lives" to "but look at the magic of cinema!" doesn't work for me. I wanted something sharper, something that didn't undercut everything that came before.
 

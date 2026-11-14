@@ -17,7 +17,7 @@ This took me three days to watch. Not because I wasn’t engaged, but because Ta
 
 I’m still chewing on it days later, diving into analyses and other reviews, trying to untangle what Tarkovsky buried in those hypnotic, desolate landscapes. At its core, this feels like a meditation on human nature—our base desires, what truly drives us, and whether we’re brave enough to confront our authentic selves.
 
-The journey into the Zone becomes a journey inward. Initially, everything feels nihilistic: greedy, narcissistic men stumbling through a post-apocalyptic wasteland, too cowardly to even enter the Room that could grant their deepest wishes. But that final monologue from the Stalker’s wife shifted everything for me. Suddenly, love emerges as the one pure things that might save us from ourselves—a flicker of hope in an otherwise brutal examination of human psychology.
+The journey into the Zone becomes a journey inward. Initially, everything feels nihilistic: greedy, narcissistic men stumbling through a post-apocalyptic wasteland, ||too cowardly to even enter the Room that could grant their deepest wishes||. But that final monologue from the Stalker’s wife shifted everything for me. Suddenly, love emerges as the one pure things that might save us from ourselves—a flicker of hope in an otherwise brutal examination of human psychology.
 
 Watching this, I couldn’t stop thinking about Annihilation—both films use mysterious territories to explore inner landscapes. But where Garland goes cosmic-horror, Tarkovsky stays human.
 

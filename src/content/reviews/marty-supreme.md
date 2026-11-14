@@ -29,4 +29,4 @@ The soundtrack and score are incredible. I need to look up who did this, but it 
 
 The theater was absolutely packed, which shocked me. I'm so excited to see what normies think of an anxiety-fueled Safdie production. It's horny. It's sexy. It's confident. It's weird. Expertly executed.
 
-I teared up at the end, watching Marty look at his child. That hit me hard. I don't think much is going to change for him. I don't think he'll be happier. But that needle drop was perfectly executed.
+I teared up at the end, ||watching Marty look at his child||. That hit me hard. I don't think much is going to change for him. I don't think he'll be happier. But that needle drop was perfectly executed.

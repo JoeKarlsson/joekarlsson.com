@@ -15,7 +15,7 @@ heroAlt: 'A still from Bride of Frankenstein (1935)'
 
 After decades of revisiting the original Frankenstein, I finally caught up with Bride of Frankenstein - and honestly, what took me so long? This film is significantly more beautiful than its predecessor, with cinematography that transforms every frame into something genuinely gorgeous to look at.
 
-But here’s what I can’t shake: watching the monster’s reaction to being rejected by his bride hits completely differently in 2025. His immediate response - destroy himself and everyone around him because a woman won’t have him - is uncomfortably familiar territory now. There’s an incel-adjacent rage to his tantrum that while never intended, lands with serious weight today. When the monster decides that if he can’t have love, then everyone dies, it’s hard not to think about modern headlines.
+But here’s what I can’t shake: watching the monster’s reaction to being rejected by his bride hits completely differently in 2025. His immediate response - ||destroy himself and everyone around him because a woman won’t have him|| - is uncomfortably familiar territory now. There’s an incel-adjacent rage to his tantrum that while never intended, lands with serious weight today. When the monster decides that if he can’t have love, then everyone dies, it’s hard not to think about modern headlines.
 
 That said, Karloff brings such sensitivity to the performance that you still feel genuine empathy for the creature. Where the first film kept him at a distance, Bride lets you experience his loneliness and confusion in a way that’s genuinely heartbreaking. He’s more tragic figure than monster here, which makes his turn toward violence even more unsettling.
 

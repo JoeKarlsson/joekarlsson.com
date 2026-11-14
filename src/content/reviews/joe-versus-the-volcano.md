@@ -17,7 +17,7 @@ It's a throwback 40s rom-com. It's also deeply weird.
 
 I avoided this movie my entire life and I don't know why.
 
-I remember seeing it on the shelves at the library and the local video rental place - it always intrigued me, but I assumed it was just a dumb rom-com. For some reason I got it confused with Sleepless in Seattle. I thought it was about a guy with cancer who throws himself into a volcano at the end. Which is technically true. But I was also very wrong.
+I remember seeing it on the shelves at the library and the local video rental place - it always intrigued me, but I assumed it was just a dumb rom-com. For some reason I got it confused with Sleepless in Seattle. I thought it was about a guy with cancer who ||throws himself into a volcano at the end||. Which is technically true. But I was also very wrong.
 
 Joe Versus the Volcano is a weird, surreal, dreamlike existential film about following your passions and confronting mortality. It's also a throwback 1940s style rom-com. Tom Hanks and Meg Ryan are absolutely charming - she plays three different roles and nails each one. They can carry a movie hard, and they do.
 

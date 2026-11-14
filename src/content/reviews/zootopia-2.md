@@ -19,7 +19,7 @@ ACAB includes zoo animals, unfortunately.
 
 This felt like a neoliberal nightmare film to me. Zootopia 2 is still deeply invested in the "one good cop" myth and the idea that you can fix the system from the inside - a premise I reject. And the ultimate message seems to be that society gets better if we all just talk to each other. Which, sure, fine, we should talk. But in 2025, this feels tone deaf. Systemic change requires fundamentally restructuring systems, not individual cops with good hearts navigating corrupt institutions. I was in Minneapolis during the George Floyd uprising. I've seen what "reform from within" actually looks like.
 
-That said - the billionaires do end up in prison at the end. So kudos for that, I guess.
+That said - ||the billionaires do end up in prison at the end||. So kudos for that, I guess.
 
 Here's the thing though: this movie is fun. I laughed throughout. The animation looks gorgeous. The script moves. I saw it in a theater full of kids and they were having a blast - they all got up and danced to Shakira during the credits, which was genuinely delightful to witness.
 

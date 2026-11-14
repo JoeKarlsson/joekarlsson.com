@@ -15,7 +15,7 @@ heroAlt: 'A still from Xtro (1982)'
 
 If David Lynch made E.T. for $60,000 in a London flat, it'd look like this.
 
-It's Close Encounters for horny moms and dads. Dad gets sucked up by a bright light, then comes back three years later to find his wife living with a new boyfriend. The standout scene has to be the birth. An alien creature impregnates a woman in a cottage, her belly balloons, and she gives birth to the dad, fully grown. Jesus Christ, insane body horror.
+It's Close Encounters for horny moms and dads. Dad gets sucked up by a bright light, then comes back three years later to find his wife living with a new boyfriend. The standout scene has to be the birth. An alien creature impregnates a woman in a cottage, her belly balloons, and ||she gives birth to the dad, fully grown||. Jesus Christ, insane body horror.
 
 It's clear the filmmakers are earnestly taking this seriously and doing their best with what they had. It works best for me when it goes surreal: a killer clown, a life-size toy soldier, a toy tank on a kill mission. It feels like a schlocky Lynchian nightmare about aliens and toys.
 

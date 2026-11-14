@@ -17,7 +17,7 @@ This was my first time revisiting Midnight Mass since it dropped in 2021. I init
 
 I was showing my girlfriend the series for the first time - it’s October, we were looking for something spooky to put on while doing crafts all day, and this felt perfect. But I forgot how hard it is to get people into this show. Those first two episodes are incredibly slow, doing a ton of table setting before anything really happens. We powered through and she does love it now, but that initial hump is real.
 
-The bigger issue is just the sheer volume of monologues. Some of them I still love and think have aged really well. Others… not so much. That final Erin Greene monologue where she’s talking about being star stuff before she dies made me cringe pretty hard this time around. My girlfriend got visibly bored during a couple of them, which - frankly - I completely understand.
+The bigger issue is just the sheer volume of monologues. Some of them I still love and think have aged really well. Others… not so much. That final Erin Greene monologue where she’s ||talking about being star stuff before she dies|| made me cringe pretty hard this time around. My girlfriend got visibly bored during a couple of them, which - frankly - I completely understand.
 
 But even with those complaints, I still love Flanagan so much. This show really cinched it for me as a fan, and I will be seated for anything he produces moving forward. I’m so excited for his upcoming Exorcist movie. I also desperately want to revisit The Haunting of Hill House again - that show moved me so much when it first came out.
 

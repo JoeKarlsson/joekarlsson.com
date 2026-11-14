@@ -21,4 +21,4 @@ Tom Hanks is trying to show the egotistical side of show business, and he cracks
 
 That said - Hanks is charming and a little unhinged here, which is great to see. You don't get that with modern Hanks. Sally Field is wonderful, and I loved the red hair. John Goodman is genuinely scary as the angry husband. I was taken aback by how intense he plays it. He charmed me by the end, but damn.
 
-Speaking of the endings - I hated it. The movie sets up this whole thing and then just has her give it up. I hated it. I hated it. I hated it.
+Speaking of the endings - I hated it. The movie sets up this whole thing and then ||just has her give it up||. I hated it. I hated it. I hated it.
