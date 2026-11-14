@@ -5,6 +5,19 @@ date: 2026-09-18
 rating: 2
 director: 'Joey Stewart'
 genres: ['Documentary', 'Family', 'History']
+runtime: 89
+cast:
+  [
+    'Soccer the Dog',
+    'Mary Chris Wall',
+    'Larry Brantley',
+    'Mo Rocca',
+    'Matthew Tompkins',
+    'Jeanne Simpson',
+  ]
+language: 'English'
+studios: ['Novel Tails']
+letterboxdAverage: 3.61
 slug: 'whats-the-story-wishbone'
 description: 'A warm documentary about a show that deserved a slightly more searching and intersting one.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/whats-the-story-wishbone/'

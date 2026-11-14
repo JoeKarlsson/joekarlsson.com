@@ -5,6 +5,20 @@ date: 2026-10-05
 rating: 4.5
 director: 'Martin Scorsese'
 genres: ['Drama']
+runtime: 119
+cast:
+  [
+    'Paul Newman',
+    'Tom Cruise',
+    'Mary Elizabeth Mastrantonio',
+    'Helen Shaver',
+    'John Turturro',
+    'Bill Cobbs',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Touchstone Pictures', 'Silver Screen Partners II']
+letterboxdAverage: 3.74
 slug: 'the-color-of-money'
 description: 'Answers the question, what if John Wick and Marty Supreme had a baby?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-color-of-money/'

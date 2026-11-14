@@ -6,6 +6,13 @@ rating: 3
 rewatch: true
 director: 'David Lynch'
 genres: ['Drama', 'Mystery', 'Horror']
+runtime: 135
+cast:
+  ['Sheryl Lee', 'Ray Wise', 'Mädchen Amick', 'Dana Ashbrook', 'Phoebe Augustine', 'David Bowie']
+countries: ['USA']
+language: 'English'
+studios: ['CiBy Picutres', 'Twin Peaks Productions']
+letterboxdAverage: 4.36
 slug: 'twin-peaks-fire-walk-with-me-1'
 description: 'The whimsy of the show is gone and all that remains is the horror and the dreams of the fallen.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/twin-peaks-fire-walk-with-me/1/'

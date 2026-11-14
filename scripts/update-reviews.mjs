@@ -6,7 +6,8 @@
 //
 // A review already imported is never touched, so Joe's later edits on the site stay. Only
 // letterboxd.com is read: the RSS feed or export for the text, rating and dates, and the
-// film's own page for its poster, backdrop and director.
+// film's own page for its poster, backdrop, director and the details /reviews/stats/ counts
+// (runtime, cast, countries, language, studios, Letterboxd's average).
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import sharp from 'sharp';
 // 157 + the "..." truncateAtWord adds = the 160 characters search results show
@@ -73,6 +74,8 @@ export function reviewToMarkdown(htmlText) {
 export const stars = (rating) =>
 	rating ? '★'.repeat(Math.floor(rating)) + (rating % 1 ? '½' : '') : '';
 
+const yamlString = (s) => `'${String(s).replace(/'/g, "''")}'`;
+
 export async function filmDetails(filmSlug) {
 	const html = await (await get(`https://letterboxd.com/film/${filmSlug}/`)).text();
 	const ld = JSON.parse(
@@ -85,7 +88,36 @@ export async function filmDetails(filmSlug) {
 		backdrop: decode(html.match(/data-backdrop="([^"]+)"/)?.[1] ?? '') || undefined,
 		director: (ld.director || []).map((d) => d.name).join(', '),
 		genres: ld.genre || [],
+		...filmStats(ld, html),
 	};
+}
+
+/** The stats page's details from a film page's JSON-LD: "PT2H37M" -> 157 minutes, the
+ * top-billed six (Letterboxd's own cast stat), and the primary language's display name */
+export function filmStats(ld, html) {
+	const [, h = 0, m = 0] = (ld.duration ?? '').match(/PT(?:(\d+)H)?(?:(\d+)M)?/) ?? [];
+	return {
+		runtime: Number(h) * 60 + Number(m) || undefined,
+		cast: (ld.actor || []).slice(0, 6).map((a) => a.name),
+		countries: (ld.countryOfOrigin || []).map((c) => c.name),
+		language:
+			decode(html.match(/href="\/films\/language\/[^"]+"[^>]*>([^<]+)</)?.[1] ?? '') || undefined,
+		studios: (ld.productionCompany || []).map((c) => c.name),
+		letterboxdAverage: ld.aggregateRating?.ratingValue,
+	};
+}
+
+/** filmStats as front matter lines, in the order the backfill wrote them */
+export function filmStatsFront(film) {
+	const list = (xs) => `[${xs.map(yamlString).join(', ')}]`;
+	return [
+		film.runtime ? `runtime: ${film.runtime}` : null,
+		film.cast?.length ? `cast: ${list(film.cast)}` : null,
+		film.countries?.length ? `countries: ${list(film.countries)}` : null,
+		film.language ? `language: ${yamlString(film.language)}` : null,
+		film.studios?.length ? `studios: ${list(film.studios)}` : null,
+		film.letterboxdAverage ? `letterboxdAverage: ${film.letterboxdAverage}` : null,
+	];
 }
 
 // The site's pink (#ff4fd8) as a share of white: black stays black, white turns pink
@@ -111,8 +143,6 @@ async function saveImage(url, path, width, { pink = false } = {}) {
 	await (pink ? gradePink(image) : image).webp({ quality: 72 }).toFile(path);
 }
 
-const yamlString = (s) => `'${String(s).replace(/'/g, "''")}'`;
-
 async function importReview(r) {
 	const slug = slugFromReviewUrl(r.url);
 	const file = `${CONTENT}/${slug}.md`;
@@ -131,6 +161,7 @@ async function importReview(r) {
 		r.spoilers ? 'spoilers: true' : null,
 		film.director ? `director: ${yamlString(film.director)}` : null,
 		film.genres.length ? `genres: [${film.genres.map(yamlString).join(', ')}]` : null,
+		...filmStatsFront(film),
 		`slug: ${yamlString(slug)}`,
 		`description: ${yamlString(truncateAtWord(body.split('\n\n')[0].replace(/[*]/g, '').replace(/\s+/g, ' '), 157))}`,
 		`letterboxdUrl: ${yamlString(r.url)}`,

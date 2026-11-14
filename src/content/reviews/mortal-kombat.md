@@ -5,6 +5,20 @@ date: 2026-04-03
 rating: 3.5
 director: 'Paul W. S. Anderson'
 genres: ['Fantasy', 'Action']
+runtime: 101
+cast:
+  [
+    'Robin Shou',
+    'Cary-Hiroyuki Tagawa',
+    'Linden Ashby',
+    'Bridgette Wilson',
+    'Christopher Lambert',
+    'Talisa Soto',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['New Line Cinema', 'Threshold Entertainment']
+letterboxdAverage: 2.78
 slug: 'mortal-kombat'
 description: 'That Halcyon On and On needle drop. So fucking good.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mortal-kombat/'

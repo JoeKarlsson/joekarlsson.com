@@ -5,6 +5,38 @@ date: 2025-12-19
 rating: 4
 director: 'Joachim Trier'
 genres: ['Drama']
+runtime: 133
+cast:
+  [
+    'Renate Reinsve',
+    'Stellan Skarsgård',
+    'Inga Ibsdotter Lilleaas',
+    'Elle Fanning',
+    'Anders Danielsen Lie',
+    'Jesper Christensen',
+  ]
+countries: ['Turkey', 'Norway', 'France', 'Denmark', 'Sweden', 'Germany', 'UK']
+language: 'Norwegian'
+studios:
+  [
+    'Mer Film',
+    'Eye Eye Pictures',
+    'Lumen',
+    'Zentropa Entertainments',
+    'Komplizen Film',
+    'BBC Film',
+    'Film i Väst',
+    'Oslo Filmfond',
+    'Mediefondet Zefyr',
+    'Alaz Film',
+    "Don't Look Now",
+    'MK Productions',
+    'ARTE France Cinéma',
+    'Storyline Studios',
+    'Léger Production',
+    'ZDF/Arte',
+  ]
+letterboxdAverage: 4.15
 slug: 'sentimental-value-2025'
 description: 'The funniest part of this movie is when the seven-year-old gets Irreversible for his birthday.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sentimental-value-2025/'

@@ -5,6 +5,20 @@ date: 2026-11-08
 rating: 3.5
 director: 'Mike Nichols'
 genres: ['Drama', 'Comedy', 'Romance']
+runtime: 114
+cast:
+  [
+    'Melanie Griffith',
+    'Harrison Ford',
+    'Sigourney Weaver',
+    'Alec Baldwin',
+    'Joan Cusack',
+    'Philip Bosco',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['20th Century Fox']
+letterboxdAverage: 3.45
 slug: 'working-girl'
 description: 'Working Girl is a cute 80s romance with a supremely hot Harrison Ford.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/working-girl/'

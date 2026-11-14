@@ -5,6 +5,20 @@ date: 2025-09-29
 rating: 2.5
 director: 'Ray Mendoza, Alex Garland'
 genres: ['Action', 'War']
+runtime: 95
+cast:
+  [
+    "D'Pharaoh Woon-A-Tai",
+    'Will Poulter',
+    'Cosmo Jarvis',
+    'Kit Connor',
+    'Finn Bennett',
+    'Taylor John Smith',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['DNA Films', 'A24']
+letterboxdAverage: 3.53
 slug: 'warfare'
 description: 'I went into Warfare knowing nothing about the context, which left me with one nagging question through the entire runtime: why the hell did Alex Garland - a...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/warfare/'

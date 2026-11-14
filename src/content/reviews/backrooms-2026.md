@@ -5,6 +5,20 @@ date: 2026-05-29
 rating: 4
 director: 'Kane Parsons'
 genres: ['Mystery', 'Science Fiction', 'Horror']
+runtime: 111
+cast:
+  [
+    'Chiwetel Ejiofor',
+    'Renate Reinsve',
+    'Finn Bennett',
+    'Lukita Maxwell',
+    'Mark Duplass',
+    'Avan Jogia',
+  ]
+countries: ['USA', 'Canada']
+language: 'English'
+studios: ['Atomic Monster', '21 Laps Entertainment', 'A24', 'Phobos', 'The North Road Company']
+letterboxdAverage: 3.3
 slug: 'backrooms-2026'
 description: 'Lynch for the Minecraft generation.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/backrooms-2026/'

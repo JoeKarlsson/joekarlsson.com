@@ -5,6 +5,20 @@ date: 2025-12-19
 rating: 4
 director: 'Bob Clark'
 genres: ['Horror', 'Mystery', 'Crime']
+runtime: 98
+cast:
+  ['Olivia Hussey', 'Keir Dullea', 'Margot Kidder', 'John Saxon', 'Marian Waldman', 'Andrea Martin']
+countries: ['Canada']
+language: 'English'
+studios:
+  [
+    'August Films',
+    'Film Funding Ltd. of Canada',
+    'Vision IV',
+    'Canadian Film Development Corporation',
+    'Famous Players',
+  ]
+letterboxdAverage: 3.83
 slug: 'black-christmas'
 description: 'The same guy who directed A Christmas Story directed this. Bob Clark made a cozy holiday classic about a kid and a BB gun, and he also made one of the most...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/black-christmas/'

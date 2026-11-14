@@ -5,6 +5,20 @@ date: 2025-09-12
 rating: 2
 director: 'Steven Brill'
 genres: ['Comedy', 'Family']
+runtime: 97
+cast:
+  [
+    'David Goldman',
+    'Tom McGowan',
+    'Joseph Wayne Miller',
+    'Cody Burger',
+    'Aaron Schwartz',
+    'Allen Covert',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Walt Disney Pictures', 'Caravan Pictures']
+letterboxdAverage: 3.25
 slug: 'heavyweights'
 description: 'The third act of this film is unhinged, and so dark. But I really do love the first two acts of this film. It’s a fun summer camp movie!'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/heavyweights/'

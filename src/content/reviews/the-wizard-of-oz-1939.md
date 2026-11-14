@@ -5,6 +5,12 @@ date: 2026-01-03
 rating: 5
 director: 'Victor Fleming'
 genres: ['Adventure', 'Fantasy', 'Family']
+runtime: 102
+cast: ['Judy Garland', 'Ray Bolger', 'Jack Haley', 'Bert Lahr', 'Frank Morgan', 'Margaret Hamilton']
+countries: ['USA']
+language: 'English'
+studios: ['Metro-Goldwyn-Mayer']
+letterboxdAverage: 3.91
 slug: 'the-wizard-of-oz-1939'
 description: 'I loved the part when the scarecrow has a gun for one scene.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-wizard-of-oz-1939/'

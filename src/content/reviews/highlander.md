@@ -5,6 +5,21 @@ date: 2025-10-08
 rating: 3.5
 director: 'Russell Mulcahy'
 genres: ['Action', 'Adventure', 'Fantasy']
+runtime: 116
+cast:
+  [
+    'Christopher Lambert',
+    'Roxanne Hart',
+    'Clancy Brown',
+    'Sean Connery',
+    'Beatie Edney',
+    'Alan North',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios:
+  ['Davis-Panzer Productions', 'Thorn EMI Screen Entertainment', 'Highlander Productions Limited']
+letterboxdAverage: 3.33
 slug: 'highlander'
 description: "This was my first time ever watching Highlander, which honestly shocks me. I've known about it my entire life and just had zero interest until now. Initial..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/highlander/'

@@ -5,6 +5,13 @@ date: 2025-12-08
 rating: 3
 director: 'Noah Baumbach'
 genres: ['Drama', 'Comedy']
+runtime: 132
+cast:
+  ['George Clooney', 'Adam Sandler', 'Laura Dern', 'Stacy Keach', 'Billy Crudup', 'Jim Broadbent']
+countries: ['USA', 'UK']
+language: 'English'
+studios: ['Pascal Pictures', 'Heyday Films', 'NB/GG Pictures']
+letterboxdAverage: 3.32
 slug: 'jay-kelly'
 description: 'Beautiful to look at. Existential as hell. Still a movie about movies.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jay-kelly/'

@@ -5,6 +5,12 @@ date: 2019-11-20
 rating: 4
 director: 'John Ford'
 genres: ['Western']
+runtime: 119
+cast: ['John Wayne', 'Jeffrey Hunter', 'Vera Miles', 'Ward Bond', 'Natalie Wood', 'John Qualen']
+countries: ['USA']
+language: 'English'
+studios: ['Warner Bros. Pictures', 'C.V. Whitney Pictures']
+letterboxdAverage: 3.94
 slug: 'the-searchers'
 description: "Jesus. The Searchers is mega relevant today and difficult to watch. John Wayne's deep and terrible racism still resonates today."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-searchers/'

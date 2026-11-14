@@ -5,6 +5,20 @@ date: 2025-12-08
 rating: 2.5
 director: 'David Ayer'
 genres: ['Action', 'Thriller', 'Crime']
+runtime: 106
+cast:
+  [
+    'Jason Statham',
+    'Emmy Raver-Lampman',
+    'Josh Hutcherson',
+    'Jeremy Irons',
+    'Bobby Naderi',
+    'David Witts',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['Miramax', 'Cedar Park Entertainment', 'Punch Palace Productions']
+letterboxdAverage: 2.75
 slug: 'the-beekeeper-2024'
 description: 'A blatant John Wick rip-off with worse choreo and a somehow more incomprehensible plot - which is genuinely impressive, because I already hate the...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-beekeeper-2024/'

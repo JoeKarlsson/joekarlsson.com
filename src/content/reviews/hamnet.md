@@ -5,6 +5,12 @@ date: 2025-12-07
 rating: 4.5
 director: 'Chloé Zhao'
 genres: ['Drama', 'Romance']
+runtime: 125
+cast: ['Jessie Buckley', 'Paul Mescal', 'Emily Watson', 'Joe Alwyn', 'Jacobi Jupe', 'Noah Jupe']
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['Hera Pictures', 'Neal Street Productions', 'Amblin Entertainment', 'Book of Shadows']
+letterboxdAverage: 4.2
 slug: 'hamnet'
 description: 'I’m writing this fresh out of the theater, tears still wet. This is a raw reaction. The whole theater was sniffling - we basically cried together for two...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hamnet/'

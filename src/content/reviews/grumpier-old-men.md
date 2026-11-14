@@ -5,6 +5,20 @@ date: 2025-12-29
 rating: 3
 director: 'Howard Deutch'
 genres: ['Comedy', 'Romance']
+runtime: 101
+cast:
+  [
+    'Walter Matthau',
+    'Jack Lemmon',
+    'Ann-Margret',
+    'Sophia Loren',
+    'Daryl Hannah',
+    'Burgess Meredith',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Lancaster Gate', 'Warner Bros. Pictures']
+letterboxdAverage: 3.18
 slug: 'grumpier-old-men'
 description: 'Grumpier, yes. Better, no.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/grumpier-old-men/'

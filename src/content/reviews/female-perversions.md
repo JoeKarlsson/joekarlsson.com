@@ -5,6 +5,13 @@ date: 2026-06-16
 rating: 3.5
 director: 'Susan Streitfeld'
 genres: ['Drama']
+runtime: 117
+cast:
+  ['Tilda Swinton', 'Amy Madigan', 'Karen Sillas', 'Frances Fisher', 'Laila Robins', 'Clancy Brown']
+countries: ['Germany', 'USA']
+language: 'English'
+studios: ['Trans Atlantic Entertainment', 'ARD Degeto', 'Starhaus Filmproduktion']
+letterboxdAverage: 3.39
 slug: 'female-perversions'
 description: 'What was deviant in 1996 is vanilla now. The anxiety is still real though.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/female-perversions/'

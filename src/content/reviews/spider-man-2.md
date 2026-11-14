@@ -5,6 +5,20 @@ date: 2026-05-27
 rating: 4
 director: 'Sam Raimi'
 genres: ['Action', 'Science Fiction', 'Adventure']
+runtime: 127
+cast:
+  [
+    'Tobey Maguire',
+    'Kirsten Dunst',
+    'James Franco',
+    'Alfred Molina',
+    'Rosemary Harris',
+    'J.K. Simmons',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Marvel Enterprises', 'Laura Ziskin Productions', 'Columbia Pictures']
+letterboxdAverage: 3.95
 slug: 'spider-man-2'
 description: 'Shadows. Practical stunts. A vulnerable hero. We used to have it all.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/spider-man-2/'

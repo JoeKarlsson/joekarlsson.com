@@ -5,6 +5,20 @@ date: 2026-02-26
 rating: 2
 director: 'Kevin Williamson'
 genres: ['Horror', 'Crime', 'Mystery']
+runtime: 114
+cast:
+  [
+    'Neve Campbell',
+    'Isabel May',
+    'Courteney Cox',
+    'Jasmin Savoy Brown',
+    'Mason Gooding',
+    'Roger L. Jackson',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures', 'Spyglass Media Group', 'Project X Entertainment']
+letterboxdAverage: 2.2
 slug: 'scream-7'
 description: 'Well - it’s not the worst one! So Sidney had her kid in 2002 - where the hell was this kid in all the other movie?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scream-7/'

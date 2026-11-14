@@ -5,6 +5,20 @@ date: 2026-11-08
 rating: 4.5
 director: 'John Wilson'
 genres: ['Documentary', 'Comedy']
+runtime: 101
+cast:
+  [
+    'John Wilson',
+    'Michael Imperioli',
+    'Jack Macco',
+    'Nathan Fielder',
+    'Timothée Chalamet',
+    'Josh Safdie',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Central Pictures', 'Peanut World Pictures', 'Bronxburgh']
+letterboxdAverage: 3.9
 slug: 'the-history-of-concrete'
 description: 'This is Pilgrim at Tinker Creek if Annie Dillard were stuck on a New York City sidewalk.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-history-of-concrete/'

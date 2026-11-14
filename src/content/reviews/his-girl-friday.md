@@ -5,6 +5,20 @@ date: 2025-12-08
 rating: 4.5
 director: 'Howard Hawks'
 genres: ['Romance', 'Comedy', 'Crime']
+runtime: 92
+cast:
+  [
+    'Cary Grant',
+    'Rosalind Russell',
+    'Ralph Bellamy',
+    'Gene Lockhart',
+    'Porter Hall',
+    'Ernest Truex',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Columbia Pictures']
+letterboxdAverage: 4.03
 slug: 'his-girl-friday'
 description: 'I was promised a girl named Friday. There is no girl named Friday. I felt lied to, but I forgive them.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/his-girl-friday/'

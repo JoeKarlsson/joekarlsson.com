@@ -6,6 +6,13 @@ rating: 5
 rewatch: true
 director: 'John Landis'
 genres: ['Action', 'Music', 'Comedy', 'Adventure']
+runtime: 133
+cast:
+  ['John Belushi', 'Dan Aykroyd', 'James Brown', 'Cab Calloway', 'Ray Charles', 'Aretha Franklin']
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures']
+letterboxdAverage: 4.01
 slug: 'the-blues-brothers'
 description: 'Even as an idiot child, I understood how expensive and impressive this movie was.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-blues-brothers/'

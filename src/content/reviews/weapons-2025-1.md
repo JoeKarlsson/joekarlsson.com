@@ -6,6 +6,27 @@ rating: 5
 rewatch: true
 director: 'Zach Cregger'
 genres: ['Horror', 'Mystery']
+runtime: 128
+cast:
+  [
+    'Julia Garner',
+    'Josh Brolin',
+    'Alden Ehrenreich',
+    'Austin Abrams',
+    'Benedict Wong',
+    'Amy Madigan',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Subconscious',
+    'Vertigo Entertainment',
+    'BoulderLight Pictures',
+    'New Line Cinema',
+    'Domain Entertainment',
+  ]
+letterboxdAverage: 3.57
 slug: 'weapons-2025-1'
 description: "My favorite part was when the druggie broke into the backyard of Alex's house and pushed the gate the wrong way to get in. It kills me every time."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/weapons-2025/1/'

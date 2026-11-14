@@ -5,6 +5,20 @@ date: 2026-02-10
 rating: 4
 director: 'William Wyler'
 genres: ['Drama', 'Romance']
+runtime: 104
+cast:
+  [
+    'Merle Oberon',
+    'Laurence Olivier',
+    'David Niven',
+    'Flora Robson',
+    'Donald Crisp',
+    'Geraldine Fitzgerald',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Samuel Goldwyn Productions']
+letterboxdAverage: 3.62
 slug: 'wuthering-heights'
 description: "Two angry sad jilted lovers being absolute insufferable monsters to everyone around them. That's the whole movie. I was moved."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wuthering-heights/'

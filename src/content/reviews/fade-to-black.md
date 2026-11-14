@@ -5,6 +5,20 @@ date: 2026-09-06
 rating: 3.5
 director: 'Vernon Zimmerman'
 genres: ['Drama', 'Thriller', 'Horror', 'Comedy']
+runtime: 102
+cast:
+  [
+    'Dennis Christopher',
+    'Tim Thomerson',
+    'Gwynne Gilford',
+    'Norman Burton',
+    'Linda Kerridge',
+    'Morgan Paull',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Leisure Investment Company', 'Movie Ventures']
+letterboxdAverage: 3.25
 slug: 'fade-to-black'
 description: "A film about a lonely movie nerd who snaps and goes on a killing spree dressed as classic Hollywood icons. I've never felt more seen. Minus the murders."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fade-to-black/'

@@ -5,6 +5,20 @@ date: 2025-01-01
 rating: 4
 director: 'Jon M. Chu'
 genres: ['Romance', 'Drama', 'Fantasy']
+runtime: 162
+cast:
+  [
+    'Cynthia Erivo',
+    'Ariana Grande',
+    'Michelle Yeoh',
+    'Jonathan Bailey',
+    'Ethan Slater',
+    'Marissa Bode',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures', 'Marc Platt Productions']
+letterboxdAverage: 3.73
 slug: 'wicked-2024'
 description: 'Watched this again with a 11 year old. It was so fun to see them engage with this film and looks for themes and easter eggs. Plus, it’s such a radical film...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wicked-2024/'

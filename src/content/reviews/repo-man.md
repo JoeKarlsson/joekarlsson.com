@@ -6,6 +6,20 @@ rating: 5
 rewatch: true
 director: 'Alex Cox'
 genres: ['Comedy', 'Science Fiction']
+runtime: 92
+cast:
+  [
+    'Emilio Estevez',
+    'Harry Dean Stanton',
+    'Tracey Walter',
+    'Olivia Barash',
+    'Sy Richardson',
+    'Susan Barnes',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Edge City Productions']
+letterboxdAverage: 3.72
 slug: 'repo-man'
 description: 'A movie about aliens, repo men, and late-stage capitalism that somehow still feels more relevant in today than it did in 1984.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/repo-man/'

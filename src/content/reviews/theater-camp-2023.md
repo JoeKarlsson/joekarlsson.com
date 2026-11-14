@@ -5,6 +5,12 @@ date: 2024-01-03
 rating: 3.5
 director: 'Molly Gordon, Nick Lieberman'
 genres: ['Comedy']
+runtime: 93
+cast: ['Ben Platt', 'Molly Gordon', 'Noah Galvin', 'Jimmy Tatro', 'Caroline Aaron', 'Ayo Edebiri']
+countries: ['USA']
+language: 'English'
+studios: ['Gloria Sanchez Productions', 'Topic Studios', 'Picturestart']
+letterboxdAverage: 3.77
 slug: 'theater-camp-2023'
 description: 'How do you say, this movie really snuck up on me. I had super low expectations going in, but I honestly cried during the final song. It’s impossible not to...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/theater-camp-2023/'

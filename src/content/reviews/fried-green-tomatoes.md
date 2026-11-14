@@ -5,6 +5,26 @@ date: 2026-07-21
 rating: 3.5
 director: 'Jon Avnet'
 genres: ['Drama', 'Comedy']
+runtime: 130
+cast:
+  [
+    'Kathy Bates',
+    'Jessica Tandy',
+    'Mary-Louise Parker',
+    'Mary Stuart Masterson',
+    'Cicely Tyson',
+    'Stan Shaw',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios:
+  [
+    'Act III Productions',
+    'Electric Shadow Productions',
+    'The Avnet/Kerner Company',
+    'The Rank Organisation',
+  ]
+letterboxdAverage: 4.02
 slug: 'fried-green-tomatoes'
 description: 'Contains spoilers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fried-green-tomatoes/'

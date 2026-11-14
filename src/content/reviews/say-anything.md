@@ -5,6 +5,12 @@ date: 2025-11-05
 rating: 4
 director: 'Cameron Crowe'
 genres: ['Romance', 'Drama', 'Comedy']
+runtime: 100
+cast: ['John Cusack', 'Ione Skye', 'John Mahoney', 'Lili Taylor', 'Amy Brooks', 'Pamela Adlon']
+countries: ['USA']
+language: 'English'
+studios: ['Gracie Films', '20th Century Fox']
+letterboxdAverage: 3.59
 slug: 'say-anything'
 description: "Lloyd Dobler is what we pretended Ferris Bueller was: actually cool, actually sweet, actually worthy of being someone's role model."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/say-anything/'

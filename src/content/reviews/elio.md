@@ -5,6 +5,13 @@ date: 2025-08-26
 rating: 3
 director: 'Madeline Sharafian, Domee Shi, Adrian Molina'
 genres: ['Comedy', 'Science Fiction', 'Adventure', 'Family', 'Animation']
+runtime: 98
+cast:
+  ['Yonas Kibreab', 'Remy Edgerly', 'Zoe Saldaña', 'Brad Garrett', 'Brandon Moon', 'Jameela Jamil']
+countries: ['USA']
+language: 'English'
+studios: ['Pixar']
+letterboxdAverage: 3.3
 slug: 'elio'
 description: 'First Pixar movie I did not cry at!'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/elio/'

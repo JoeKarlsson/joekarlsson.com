@@ -6,6 +6,13 @@ rating: 4
 rewatch: true
 director: 'Lance Oppenheim'
 genres: ['Documentary']
+runtime: 83
+cast:
+  ['Dennis Dean', 'Lynn Henry', 'Anne Kincer', 'Reggie Kincer', 'Gary Schwartz', 'Barbara Stanton']
+countries: ['USA']
+language: 'English'
+studios: ['Protozoa Pictures', 'The New York Times', '30WEST', 'Los Angeles Media Fund']
+letterboxdAverage: 3.94
 slug: 'some-kind-of-heaven'
 description: 'The Villages bills itself as the happiest place to retire in America. Oppenheim points a perfectly still camera at it and waits for the smiles to fall.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/some-kind-of-heaven/'

@@ -5,6 +5,20 @@ date: 2026-02-04
 rating: 2
 director: 'James L. Brooks'
 genres: ['Comedy', 'Drama']
+runtime: 115
+cast:
+  [
+    'Emma Mackey',
+    'Jamie Lee Curtis',
+    'Jack Lowden',
+    'Kumail Nanjiani',
+    'Spike Fearn',
+    'Julie Kavner',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['20th Century Studios', 'Gracie Films', 'TSG Entertainment']
+letterboxdAverage: 2.48
 slug: 'ella-mccay'
 description: 'This feels like a nearly four hour long neoliberal fever dream that asks us to find the good in a terrible system. You can tell this is written by a...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ella-mccay/'

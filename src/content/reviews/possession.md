@@ -5,6 +5,20 @@ date: 2025-10-26
 rating: 4.5
 director: 'Andrzej Żuławski'
 genres: ['Horror']
+runtime: 124
+cast:
+  [
+    'Isabelle Adjani',
+    'Sam Neill',
+    'Margit Carstensen',
+    'Heinz Bennent',
+    'Johanna Hofer',
+    'Carl Duering',
+  ]
+countries: ['France', 'Germany']
+language: 'English'
+studios: ['Gaumont', 'Oliane Productions', 'Marianne Productions', 'Soma Film Produktion']
+letterboxdAverage: 4.02
 slug: 'possession'
 description: 'It’s like Kramer vs. Kramer with a little bit of tentacle hentai sprinkled in for flavor.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/possession/'

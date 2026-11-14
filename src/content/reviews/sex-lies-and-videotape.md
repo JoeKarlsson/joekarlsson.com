@@ -5,6 +5,20 @@ date: 2026-05-05
 rating: 4
 director: 'Steven Soderbergh'
 genres: ['Drama']
+runtime: 101
+cast:
+  [
+    'James Spader',
+    'Andie MacDowell',
+    'Peter Gallagher',
+    'Laura San Giacomo',
+    'Ron Vawter',
+    'Steven Brill',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Outlaw Productions']
+letterboxdAverage: 3.88
 slug: 'sex-lies-and-videotape'
 description: 'We need more movies with sensitive, handsome - but not traditionally super handsome - leads being super horny. James Spader delivers exactly that here.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sex-lies-and-videotape/'

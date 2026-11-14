@@ -6,6 +6,13 @@ rating: 4
 rewatch: true
 director: 'Michael Mann'
 genres: ['Crime', 'Drama', 'Thriller']
+runtime: 120
+cast:
+  ['Tom Cruise', 'Jamie Foxx', 'Jada Pinkett Smith', 'Mark Ruffalo', 'Peter Berg', 'Javier Bardem']
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures', 'Edge City', 'DreamWorks Pictures', 'Parkes+MacDonald Production']
+letterboxdAverage: 3.89
 slug: 'collateral'
 description: "Mark Ruffalo as a cholo LAPD officer is one of the strangest casting decisions I've ever seen in my entire life."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/collateral/'

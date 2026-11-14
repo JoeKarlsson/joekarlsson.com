@@ -5,6 +5,20 @@ date: 2026-04-10
 rating: 3.5
 director: 'David Twohy'
 genres: ['Thriller', 'Action', 'Science Fiction']
+runtime: 119
+cast:
+  [
+    'Vin Diesel',
+    'Nolan Gerard Funk',
+    'Matt Nable',
+    'Katee Sackhoff',
+    'Jordi Mollà',
+    'Dave Bautista',
+  ]
+countries: ['USA', 'Canada']
+language: 'English'
+studios: ['One Race', 'Riddick Canada Productions', 'Radar Pictures', 'Universal Pictures']
+letterboxdAverage: 2.86
 slug: 'riddick'
 description: "Vin Diesel takes his shirt off and grunts a lot. Plus he's got a dog."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/riddick/'

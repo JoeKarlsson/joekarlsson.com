@@ -5,6 +5,20 @@ date: 2025-12-14
 rating: 1
 director: 'Dan Farah'
 genres: ['Documentary']
+runtime: 109
+cast:
+  [
+    'Luis Elizondo',
+    'Jay Stratton',
+    'Harold E. Puthoff',
+    'Chris Mellon',
+    'James Clapper',
+    'Marco Rubio',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Farah Films', 'Born Ready Films']
+letterboxdAverage: 3.18
 slug: 'the-age-of-disclosure'
 description: 'The Age of Disclosure discloses nothing.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-age-of-disclosure/'

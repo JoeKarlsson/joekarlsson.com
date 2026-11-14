@@ -5,6 +5,20 @@ date: 2025-11-13
 rating: 4
 director: 'Akira Kurosawa'
 genres: ['Drama', 'History', 'Action']
+runtime: 160
+cast:
+  [
+    'Tatsuya Nakadai',
+    'Akira Terao',
+    'Jinpachi Nezu',
+    'Daisuke Ryū',
+    'Mieko Harada',
+    'Yoshiko Miyazaki',
+  ]
+countries: ['Japan', 'France']
+language: 'Japanese'
+studios: ['Nippon Herald Films', 'Greenwich Film Production', 'Herald Ace']
+letterboxdAverage: 4.51
 slug: 'ran'
 description: "Ran, don't walk to the cinema to watch this one!"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ran/'

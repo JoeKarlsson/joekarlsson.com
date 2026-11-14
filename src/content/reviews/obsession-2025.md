@@ -5,6 +5,20 @@ date: 2026-05-18
 rating: 4.5
 director: 'Curry Barker'
 genres: ['Thriller', 'Horror']
+runtime: 109
+cast:
+  [
+    'Michael Johnston',
+    'Inde Navarrette',
+    'Cooper Tomlinson',
+    'Megan Lawless',
+    'Andy Richter',
+    'Haley Fitzgerald',
+  ]
+countries: ['USA', 'UK']
+language: 'English'
+studios: ['Tea Shop Productions', 'Under the Shell', 'Capstone Pictures', 'Blumhouse Productions']
+letterboxdAverage: 4.05
 slug: 'obsession-2025'
 description: 'As a certified cat guy, this was a tough watch.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/obsession-2025/'

@@ -5,6 +5,20 @@ date: 2025-09-08
 rating: 3
 director: 'Rob Marshall'
 genres: ['Comedy', 'Crime', 'Drama']
+runtime: 113
+cast:
+  [
+    'Renée Zellweger',
+    'Catherine Zeta-Jones',
+    'Richard Gere',
+    'Queen Latifah',
+    'John C. Reilly',
+    'Colm Feore',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Miramax', 'The Producer Circle Co.', 'Storyline Entertainment']
+letterboxdAverage: 4.05
 slug: 'chicago'
 description: 'This movie is trying to say something about how the modern judicial system is just a series of smoke and mirrors meant to entertain the masses. I think along...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/chicago/'

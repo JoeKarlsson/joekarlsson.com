@@ -5,6 +5,13 @@ date: 2025-10-31
 rating: 3.5
 director: 'Ben Leonberg'
 genres: ['Horror']
+runtime: 73
+cast:
+  ['Indy', 'Shane Jensen', 'Arielle Friedman', 'Larry Fessenden', 'Stuart Rudin', 'Anya Krawcheck']
+countries: ['USA']
+language: 'English'
+studios: ['What’s Wrong with Your Dog']
+letterboxdAverage: 2.98
 slug: 'good-boy-2025'
 description: 'This movie proves that the real horror was always just being a dog with separation anxiety in a household with unclear boundaries.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/good-boy-2025/'

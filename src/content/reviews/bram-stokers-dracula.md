@@ -5,6 +5,13 @@ date: 2026-10-25
 rating: 4
 director: 'Francis Ford Coppola'
 genres: ['Horror', 'Romance']
+runtime: 128
+cast:
+  ['Gary Oldman', 'Winona Ryder', 'Anthony Hopkins', 'Keanu Reeves', 'Sadie Frost', 'Cary Elwes']
+countries: ['USA']
+language: 'English'
+studios: ['American Zoetrope', 'Osiris Films', 'Columbia Pictures']
+letterboxdAverage: 3.74
 slug: 'bram-stokers-dracula'
 description: 'Bram Stoker wrote a sex panic, and Coppola shot it like a sex movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bram-stokers-dracula/'

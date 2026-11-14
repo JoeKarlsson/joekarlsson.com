@@ -1,0 +1,27 @@
+---
+// The Most watched / Highest rated buttons over a /reviews/stats/ list, rendered pressed on
+// the first view; review-stats.ts switches the [data-view] blocks that follow. One view
+// needs no buttons.
+import { FILTER_ACTIVE, FILTER_INACTIVE } from '../utils/ui';
+
+interface Props {
+	labels: string[];
+}
+
+const { labels } = Astro.props;
+---
+
+{labels.length > 1 && (
+	<div class="mb-4 flex gap-x-5" role="group" aria-label="Show">
+		{labels.map((label, i) => (
+			<button
+				type="button"
+				class={i ? FILTER_INACTIVE : FILTER_ACTIVE}
+				aria-pressed={i ? 'false' : 'true'}
+				data-pick={i}
+			>
+				{label}
+			</button>
+		))}
+	</div>
+)}

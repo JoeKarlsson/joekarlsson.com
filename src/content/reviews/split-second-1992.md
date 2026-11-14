@@ -5,6 +5,27 @@ date: 2026-09-17
 rating: 3
 director: 'Tony Maylam'
 genres: ['Science Fiction', 'Thriller', 'Horror', 'Action', 'Crime']
+runtime: 90
+cast:
+  [
+    'Rutger Hauer',
+    'Kim Cattrall',
+    'Michael J. Pollard',
+    'Alastair Duncan',
+    'Alun Armstrong',
+    'Pete Postlethwaite',
+  ]
+countries: ['UK']
+language: 'English'
+studios:
+  [
+    'Challenge Film Corporation',
+    'Entertainment',
+    'Muse Productions',
+    'XYZ Funding N.V.',
+    'Interstar',
+  ]
+letterboxdAverage: 3
 slug: 'split-second-1992'
 description: 'Split Second is a film that watched Blade Runner, Alien, and The Silence of the Lambs, loved all three, and understood exactly none of them, which is most of...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/split-second-1992/'

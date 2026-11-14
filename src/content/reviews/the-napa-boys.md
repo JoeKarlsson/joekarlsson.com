@@ -5,6 +5,20 @@ date: 2026-05-13
 rating: 2
 director: 'Nick Corirossi'
 genres: ['Comedy']
+runtime: 93
+cast:
+  [
+    'Armen Weitzman',
+    'Nick Corirossi',
+    'Jamar Malachi Neighbors',
+    'Sarah Ramos',
+    'Riki Lindhome',
+    'Steve Agee',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Sunset Rose Pictures']
+letterboxdAverage: 3.27
 slug: 'the-napa-boys'
 description: "Stupid in the way I want and rough in the way I don't."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-napa-boys/'

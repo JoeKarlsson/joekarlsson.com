@@ -5,6 +5,12 @@ date: 2026-10-08
 rating: 3.5
 director: 'Destin Daniel Cretton'
 genres: ['Science Fiction', 'Action', 'Adventure']
+runtime: 145
+cast: ['Tom Holland', 'Sadie Sink', 'Tramell Tillman', 'Zendaya', 'Jacob Batalon', 'Jon Bernthal']
+countries: ['USA']
+language: 'English'
+studios: ['Marvel Studios', 'Columbia Pictures', 'Pascal Pictures', 'TSG Entertainment']
+letterboxdAverage: 4.02
 slug: 'spider-man-brand-new-day'
 description: 'Was anyone else confused that Max from Stranger Things spent this whole movie looking for V-Max?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/spider-man-brand-new-day/'

@@ -5,6 +5,21 @@ date: 2025-09-23
 rating: 2
 director: 'Keenen Ivory Wayans'
 genres: ['Comedy']
+runtime: 82
+cast:
+  [
+    'Anna Faris',
+    'Regina Hall',
+    'Marlon Wayans',
+    'Shawn Wayans',
+    'Christopher Masterson',
+    'David Cross',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  ['Brad Grey Pictures', 'Gold/Miller Productions', 'Wayans Bros. Entertainment', 'Dimension Films']
+letterboxdAverage: 2.83
 slug: 'scary-movie-2'
 description: 'This isn’t a good movie. But I would be lying to you if I didn’t tell you that I’ve seen this movie 1000 times and I secretly love it.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scary-movie-2/'

@@ -6,6 +6,20 @@ rating: 4.5
 rewatch: true
 director: 'Adam McKay'
 genres: ['Comedy']
+runtime: 95
+cast:
+  [
+    'Will Ferrell',
+    'Christina Applegate',
+    'Paul Rudd',
+    'Steve Carell',
+    'David Koechner',
+    'Fred Willard',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['DreamWorks Pictures', 'Apatow Productions']
+letterboxdAverage: 3.49
 slug: 'anchorman-the-legend-of-ron-burgundy'
 description: 'A very woke movie that conservatives think is on their side. Fascinating.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/anchorman-the-legend-of-ron-burgundy/'

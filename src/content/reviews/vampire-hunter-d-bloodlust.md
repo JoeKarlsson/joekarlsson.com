@@ -5,6 +5,21 @@ date: 2025-09-11
 rating: 4
 director: 'Yoshiaki Kawajiri'
 genres: ['Fantasy', 'Animation', 'Drama', 'Horror', 'Action']
+runtime: 103
+cast:
+  [
+    'Andrew Philpot',
+    'John Rafter Lee',
+    'Pamela Adlon',
+    'Wendee Lee',
+    'Michael McShane',
+    'Julia Fletcher',
+  ]
+countries: ['Japan']
+language: 'English'
+studios:
+  ['Madhouse', 'Goodhill Vision', 'Filmlink International', 'BMG Funhouse', 'movic', 'Softcapital']
+letterboxdAverage: 4.2
 slug: 'vampire-hunter-d-bloodlust'
 description: "Boy, they sure don't make them like they used to. This film is simply gorgeous. Gothic, bloody violent, dark, elegant, and well animated. I gotta say, I love..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/vampire-hunter-d-bloodlust/'

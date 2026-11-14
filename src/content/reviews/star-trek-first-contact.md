@@ -5,6 +5,20 @@ date: 2025-03-07
 rating: 4
 director: 'Jonathan Frakes'
 genres: ['Action', 'Adventure', 'Science Fiction', 'Thriller']
+runtime: 111
+cast:
+  [
+    'Patrick Stewart',
+    'Jonathan Frakes',
+    'Brent Spiner',
+    'LeVar Burton',
+    'Michael Dorn',
+    'Gates McFadden',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures']
+letterboxdAverage: 3.7
 slug: 'star-trek-first-contact'
 description: 'Frakes really directed the shit out of this movie. It looks incredible, and I’d even go so far to say that the aesthetics of the Borg in this film directly...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/star-trek-first-contact/'

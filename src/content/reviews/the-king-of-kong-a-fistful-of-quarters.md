@@ -5,6 +5,12 @@ date: 2026-05-13
 rating: 4.5
 director: 'Seth Gordon'
 genres: ['Documentary']
+runtime: 83
+cast: ['Steve Wiebe', 'Billy Mitchell', 'Walter Day', 'Mark Alpiger', 'Greg Bond', 'Craig Glenday']
+countries: ['USA']
+language: 'English'
+studios: ['New Line Cinema', 'Picturehouse Entertainment']
+letterboxdAverage: 4.03
 slug: 'the-king-of-kong-a-fistful-of-quarters'
 description: '"Hey guys, Donkey Kong kill screen coming up..."'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-king-of-kong-a-fistful-of-quarters/'

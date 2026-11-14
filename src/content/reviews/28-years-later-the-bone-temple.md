@@ -5,6 +5,20 @@ date: 2026-01-17
 rating: 4.5
 director: 'Nia DaCosta'
 genres: ['Horror', 'Science Fiction', 'Thriller']
+runtime: 109
+cast:
+  [
+    'Ralph Fiennes',
+    'Alfie Williams',
+    "Jack O'Connell",
+    'Erin Kellyman',
+    'Chi Lewis-Parry',
+    'Connor Newall',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['Columbia Pictures', 'TSG Entertainment', 'DNA Films']
+letterboxdAverage: 3.81
 slug: '28-years-later-the-bone-temple'
 description: "Alex Garland has a lot to say about society, religion, and healing. Also there's a lot of gore."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/28-years-later-the-bone-temple/'

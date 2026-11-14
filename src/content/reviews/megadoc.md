@@ -5,6 +5,20 @@ date: 2025-12-08
 rating: 3
 director: 'Mike Figgis'
 genres: ['Documentary']
+runtime: 107
+cast:
+  [
+    'Francis Ford Coppola',
+    'Shia LaBeouf',
+    'Aubrey Plaza',
+    'Jon Voight',
+    'Adam Driver',
+    'Nathalie Emmanuel',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Red Mullet']
+letterboxdAverage: 3.48
 slug: 'megadoc'
 description: "I tried to watch Megalopolis three times. I finished Megadoc on the first try. That says something.That movie is a mess. It's not for me. I do not like it."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/megadoc/'

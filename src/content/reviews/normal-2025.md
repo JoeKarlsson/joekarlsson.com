@@ -5,6 +5,21 @@ date: 2026-05-26
 rating: 3.5
 director: 'Ben Wheatley'
 genres: ['Crime', 'Thriller', 'Action']
+runtime: 91
+cast:
+  ['Bob Odenkirk', 'Henry Winkler', 'Lena Headey', 'Billy MacLellan', 'Ryan Allen', 'Reena Jolly']
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Aperture Media Partners',
+    'QWGmire',
+    'Odenkirk Provissiero Entertainment',
+    'Le Foole',
+    'Tradecraft',
+    'Normal Films',
+  ]
+letterboxdAverage: 2.95
 slug: 'normal-2025'
 description: 'Ninety minutes, simple story, killer kills. Give me more of these. Too bad this is copaganda.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/normal-2025/'

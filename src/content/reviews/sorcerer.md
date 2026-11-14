@@ -5,6 +5,18 @@ date: 2026-01-05
 rating: 4.5
 director: 'William Friedkin'
 genres: ['Thriller', 'Action', 'Adventure']
+runtime: 122
+cast: ['Roy Scheider', 'Bruno Cremer', 'Francisco Rabal', 'Amidou', 'Ramon Bieri', 'Peter Capell']
+countries: ['USA', 'Mexico']
+language: 'English'
+studios:
+  [
+    'Paramount Pictures',
+    'Universal Pictures',
+    'Film Properties International N.V.',
+    'Estudios Churubusco Azteca',
+  ]
+letterboxdAverage: 4.27
 slug: 'sorcerer'
 description: 'A Herzogian task to even make this movie. Somehow Friedkin pulled it off. And that bridge sequence. 👏'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sorcerer/'

@@ -5,6 +5,22 @@ date: 2026-05-25
 rating: 4.5
 director: 'Boots Riley'
 genres: ['Crime', 'Science Fiction', 'Comedy']
+runtime: 113
+cast:
+  ['Keke Palmer', 'Naomi Ackie', 'Taylour Paige', 'Poppy Liu', 'Eiza González', 'LaKeith Stanfield']
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Savage Rose Films',
+    'Waypoint Entertainment',
+    'Ryder Picture Company',
+    'Annapurna Pictures',
+    'NEON',
+    'Metro Designers Productions',
+    'The Sun Exploding Words, Sounds, & Pictures',
+  ]
+letterboxdAverage: 3.78
 slug: 'i-love-boosters'
 description: 'Not since Sinners have I seen a movie so pro pussy eating.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/i-love-boosters/'

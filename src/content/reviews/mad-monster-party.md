@@ -5,6 +5,12 @@ date: 2025-10-24
 rating: 2.5
 director: 'Jules Bass'
 genres: ['Animation', 'Comedy', 'Fantasy', 'Music', 'Family']
+runtime: 95
+cast: ['Boris Karloff', 'Allen Swift', 'Gale Garnett', 'Phyllis Diller', 'Ethel Ennis']
+countries: ['USA', 'Japan']
+language: 'English'
+studios: ['Rankin/Bass Productions', 'Videocraft International', 'Embassy Pictures Corporation']
+letterboxdAverage: 3.31
 slug: 'mad-monster-party'
 description: 'This is basically Hotel Transylvania but without Adam Sandler, with worse jokes, moving much slower, and featuring incredible stop-motion animation instead...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mad-monster-party/'

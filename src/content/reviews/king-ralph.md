@@ -5,6 +5,20 @@ date: 2025-06-30
 rating: 2.5
 director: 'David S. Ward'
 genres: ['Comedy']
+runtime: 97
+cast:
+  [
+    'John Goodman',
+    "Peter O'Toole",
+    'John Hurt',
+    'Camille Coduri',
+    'Richard Griffiths',
+    'Julian Glover',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures']
+letterboxdAverage: 2.72
 slug: 'king-ralph'
 description: 'I love John Goodman, and I love a good slabs versus knobs movie, but it was mostly just Peter O’Toole and Goodman talking in fancy rooms'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/king-ralph/'

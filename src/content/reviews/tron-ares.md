@@ -5,6 +5,20 @@ date: 2025-10-14
 rating: 1.5
 director: 'Joachim Rønning'
 genres: ['Science Fiction', 'Adventure', 'Action']
+runtime: 119
+cast:
+  [
+    'Jared Leto',
+    'Greta Lee',
+    'Evan Peters',
+    'Gillian Anderson',
+    'Jodie Turner-Smith',
+    'Jeff Bridges',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Walt Disney Pictures', 'Sean Bailey Productions']
+letterboxdAverage: 2.59
 slug: 'tron-ares'
 description: 'Listen, I am reluctantly a cyberpunk Tron guy. As a millennial who came of age during an optimistic time in tech, the aesthetics of Tron Legacy hit hard when...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tron-ares/'

@@ -5,6 +5,19 @@ date: 2026-05-02
 rating: 4.5
 director: 'Doug Liman'
 genres: ['Science Fiction', 'Action']
+runtime: 114
+cast: ['Tom Cruise', 'Emily Blunt', 'Brendan Gleeson', 'Bill Paxton', 'Jonas Armstrong', 'Tony Way']
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'RatPac Entertainment',
+    'Village Roadshow Pictures',
+    'VIZ Media',
+    '3 Arts Entertainment',
+    'Warner Bros. Pictures',
+  ]
+letterboxdAverage: 3.78
 slug: 'edge-of-tomorrow'
 description: 'Emily Blunt should have been the biggest action star in the world after this.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/edge-of-tomorrow/'

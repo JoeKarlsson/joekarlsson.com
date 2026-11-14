@@ -5,6 +5,20 @@ date: 2026-10-18
 rating: 3
 director: 'Martin Scorsese, Francis Ford Coppola, Woody Allen'
 genres: ['Romance', 'Drama', 'Comedy']
+runtime: 124
+cast:
+  [
+    'Nick Nolte',
+    'Rosanna Arquette',
+    "Patrick O'Neal",
+    'Mae Questel',
+    'Steve Buscemi',
+    'Talia Shire',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Touchstone Pictures', 'Jack Rollins & Charles H. Joffe Productions']
+letterboxdAverage: 3.21
 slug: 'new-york-stories'
 description: '"Life Lessons" is about a man who never learns one.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/new-york-stories/'

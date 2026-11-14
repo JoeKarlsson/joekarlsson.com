@@ -5,6 +5,20 @@ date: 2026-01-18
 rating: 4
 director: 'Harry Lighton'
 genres: ['Drama', 'Romance', 'Comedy']
+runtime: 107
+cast:
+  [
+    'Harry Melling',
+    'Alexander Skarsgård',
+    'Lesley Sharp',
+    'Douglas Hodge',
+    'Jake Shears',
+    'Mat Hill',
+  ]
+countries: ['UK', 'Ireland', 'Netherlands']
+language: 'English'
+studios: ['BBC Film', 'BFI', 'Element Pictures', 'Fremantle', 'September Film']
+letterboxdAverage: 3.47
 slug: 'pillion-2025'
 description: 'A dom/rom/com about how beautiful non-traditional relationships can be. Horny & Heartwarming.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/pillion-2025/'

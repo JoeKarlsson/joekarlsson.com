@@ -5,6 +5,20 @@ date: 2025-11-28
 rating: 3
 director: 'Jared Bush, Byron Howard'
 genres: ['Adventure', 'Family', 'Comedy', 'Animation', 'Mystery']
+runtime: 108
+cast:
+  [
+    'Ginnifer Goodwin',
+    'Jason Bateman',
+    'Ke Huy Quan',
+    'Fortune Feimster',
+    'Andy Samberg',
+    'David Strathairn',
+  ]
+countries: ['USA', 'Canada']
+language: 'English'
+studios: ['Walt Disney Animation Studios', 'Walt Disney Animation Studios']
+letterboxdAverage: 3.66
 slug: 'zootopia-2'
 description: 'A neoliberal nightmare wrapped in gorgeous animation and a Shakira bop.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/zootopia-2/'

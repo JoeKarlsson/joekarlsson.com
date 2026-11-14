@@ -5,6 +5,13 @@ date: 2026-01-17
 rating: 4
 director: 'Colin Higgins'
 genres: ['Comedy']
+runtime: 114
+cast:
+  ['Dolly Parton', 'Burt Reynolds', 'Dom DeLuise', 'Charles Durning', 'Jim Nabors', 'Robert Mandan']
+countries: ['USA']
+language: 'English'
+studios: ['Miller-Milkis-Boyett Productions']
+letterboxdAverage: 3.6
 slug: 'the-best-little-whorehouse-in-texas'
 description: '"It''s business doing pleasure with ya!"'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-best-little-whorehouse-in-texas/'

@@ -5,6 +5,13 @@ date: 2025-09-27
 rating: 3
 director: 'Curtis Hanson'
 genres: ['Drama', 'Music']
+runtime: 111
+cast:
+  ['Eminem', 'Kim Basinger', 'Mekhi Phifer', 'Brittany Murphy', 'Evan Jones', 'Omar Benson Miller']
+countries: ['Germany', 'USA']
+language: 'English'
+studios: ['Mikona Productions', 'Imagine Entertainment']
+letterboxdAverage: 3.65
 slug: '8-mile'
 description: 'Coming to 8 Mile in 2025 hits different when you’ve spent your entire life marinating in its cultural residue without ever actually watching it. The film is...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/8-mile/'

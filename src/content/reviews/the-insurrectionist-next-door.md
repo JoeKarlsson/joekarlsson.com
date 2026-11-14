@@ -5,6 +5,11 @@ date: 2024-01-09
 rating: 1.5
 director: 'Alexandra Pelosi'
 genres: ['Documentary']
+runtime: 75
+countries: ['USA']
+language: 'English'
+studios: ['HBO Documentary Films']
+letterboxdAverage: 2.9
 slug: 'the-insurrectionist-next-door'
 description: 'I did not love the documentary. It really felt like it was bringing nothing new to the table and felt like a series of antagonistic conversations with Nancy...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-insurrectionist-next-door/'

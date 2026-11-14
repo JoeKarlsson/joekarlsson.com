@@ -5,6 +5,12 @@ date: 2026-06-07
 rating: 0.5
 director: 'Bryan Carberry'
 genres: ['Documentary']
+runtime: 87
+cast: ['Chris']
+countries: ['USA']
+language: 'English'
+studios: ['All Facts', 'Margot Station', 'Rough House Pictures']
+letterboxdAverage: 3.09
 slug: 'smiles-and-kisses-you'
 description: 'This movie thinks an AI girlfriend is an inspirational solution. Bro.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/smiles-and-kisses-you/'

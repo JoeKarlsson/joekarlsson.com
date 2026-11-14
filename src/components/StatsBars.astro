@@ -1,0 +1,59 @@
+---
+// A /reviews/stats/ bar chart: counts over the bars, labels under them, all on one grid so
+// each label sits under its bar. The styles and the build-in live with the page
+// (pages/reviews/stats/[...year].astro, scripts/review-stats.ts); screen readers get the
+// table.
+interface Props {
+	caption: string;
+	// `label` sits under the bar (empty leaves a gap), `name` names it in the table
+	items: { name: string; label: string; sub?: string; value: number }[];
+	header: [string, string];
+	counts?: boolean;
+	height?: number;
+}
+
+const { caption, items, header, counts = true, height = 160 } = Astro.props;
+const max = Math.max(1, ...items.map((i) => i.value));
+---
+
+<div
+	class:list={['stats-chart', items.length > 40 && 'stats-dense']}
+	style={`--n:${items.length}${items.length > 40 ? ';column-gap:0' : ''}`}
+	aria-hidden="true"
+	data-build
+>
+	{items.map(({ label, sub, value }, i) => (
+		<>
+			{counts && (
+				<span class="stats-count" style={`grid-column:${i + 1};--i:${i}`}>
+					{value}
+				</span>
+			)}
+			<span
+				class="stats-bar"
+				style={`grid-column:${i + 1};--i:${i};height:${Math.max(2, (value / max) * height)}px`}
+			/>
+			<span class="stats-label" style={`grid-column:${i + 1}`}>
+				{label}
+				{sub && (
+					<span class="block">
+						<span class="text-pink">★</span> {sub}
+					</span>
+				)}
+			</span>
+		</>
+	))}
+</div>
+<table class="sr-only">
+	<caption>{caption}</caption>
+	<tr>
+		<th scope="col">{header[0]}</th>
+		<th scope="col">{header[1]}</th>
+	</tr>
+	{items.map(({ name, value }) => (
+		<tr>
+			<td>{name}</td>
+			<td>{value}</td>
+		</tr>
+	))}
+</table>

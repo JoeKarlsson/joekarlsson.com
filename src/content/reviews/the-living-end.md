@@ -5,6 +5,12 @@ date: 2026-08-07
 rating: 3.5
 director: 'Gregg Araki'
 genres: ['Romance', 'Drama', 'Crime']
+runtime: 85
+cast: ['Mike Dytri', 'Craig Gilmore', 'Mark Finch', 'Mary Woronov', 'Johanna Went', 'Darcy Marta']
+countries: ['USA']
+language: 'English'
+studios: ['Desperate Pictures', 'Strand Releasing']
+letterboxdAverage: 3.78
 slug: 'the-living-end'
 description: 'Bonnie and Clyde for the gays. Made in the year AIDS became the number one killer of young American men.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-living-end/'

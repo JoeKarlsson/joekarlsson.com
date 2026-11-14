@@ -5,6 +5,20 @@ date: 2026-02-05
 rating: 3.5
 director: 'David Zellner'
 genres: ['Drama']
+runtime: 104
+cast:
+  [
+    'Rinko Kikuchi',
+    'Nobuyuki Katsube',
+    'Kanako Higashi',
+    'Ichi Kyokaku',
+    'Ayaka Onishi',
+    'Mayuko Kawakita',
+  ]
+countries: ['USA']
+language: 'Japanese'
+studios: ['Ad Hominem Enterprises', 'Lila 9th Productions']
+letterboxdAverage: 3.57
 slug: 'kumiko-the-treasure-hunter'
 description: 'As a Minnesotan, I’m legally required to discuss the Minnesota representation. It’s pretty accurate.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kumiko-the-treasure-hunter/'

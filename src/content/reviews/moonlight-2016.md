@@ -6,6 +6,20 @@ rating: 5
 rewatch: true
 director: 'Barry Jenkins'
 genres: ['Drama']
+runtime: 112
+cast:
+  [
+    'Trevante Rhodes',
+    'André Holland',
+    'Janelle Monáe',
+    'Ashton Sanders',
+    'Jharrel Jerome',
+    'Alex R. Hibbert',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['A24', 'Plan B Entertainment', 'PASTEL']
+letterboxdAverage: 4.2
 slug: 'moonlight-2016'
 description: 'One of the most important films of my life.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/moonlight-2016/'

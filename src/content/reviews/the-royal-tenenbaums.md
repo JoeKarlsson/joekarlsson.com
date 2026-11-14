@@ -5,6 +5,20 @@ date: 2026-11-04
 rating: 5
 director: 'Wes Anderson'
 genres: ['Drama', 'Comedy']
+runtime: 110
+cast:
+  [
+    'Gene Hackman',
+    'Anjelica Huston',
+    'Ben Stiller',
+    'Gwyneth Paltrow',
+    'Luke Wilson',
+    'Owen Wilson',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Touchstone Pictures', 'American Empirical Pictures']
+letterboxdAverage: 4.11
 slug: 'the-royal-tenenbaums'
 description: 'This is the Wes Anderson movie that gets me every time.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-royal-tenenbaums/'

@@ -5,6 +5,20 @@ date: 2026-09-06
 rating: 3
 director: 'Gore Verbinski'
 genres: ['Action', 'Science Fiction', 'Comedy']
+runtime: 134
+cast:
+  [
+    'Sam Rockwell',
+    'Juno Temple',
+    'Haley Lu Richardson',
+    'Michael Peña',
+    'Zazie Beetz',
+    'Asim Chaudhry',
+  ]
+countries: ['USA', 'Germany']
+language: 'English'
+studios: ['Constantin Film', 'Blind Wink', '3 Arts Entertainment', 'north.five.six']
+letterboxdAverage: 3.37
 slug: 'good-luck-have-fun-dont-die'
 description: "Groundhog Day meets Twelve Monkeys meets the Matrix, filtered through Gore Verbinski's Looney Tunes sensibilities. I had a blast - mostly."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/good-luck-have-fun-dont-die/'

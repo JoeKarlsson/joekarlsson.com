@@ -5,6 +5,20 @@ date: 2025-12-09
 rating: 3
 director: 'Harold Ramis'
 genres: ['Thriller', 'Crime', 'Comedy']
+runtime: 88
+cast:
+  [
+    'John Cusack',
+    'Billy Bob Thornton',
+    'Connie Nielsen',
+    'Randy Quaid',
+    'Oliver Platt',
+    'Mike Starr',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Focus Features', 'Nordisk Film', 'Bona Fide Productions']
+letterboxdAverage: 3.13
 slug: 'the-ice-harvest'
 description: 'If you’ve ever wondered what A Simple Plan would look like if it was directed by Harold Ramis, this is probably as close as you’re gonna get'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-ice-harvest/'

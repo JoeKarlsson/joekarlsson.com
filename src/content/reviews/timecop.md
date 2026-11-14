@@ -5,6 +5,27 @@ date: 2025-06-20
 rating: 3.5
 director: 'Peter Hyams'
 genres: ['Thriller', 'Science Fiction', 'Action']
+runtime: 99
+cast:
+  [
+    'Jean-Claude Van Damme',
+    'Mia Sara',
+    'Ron Silver',
+    'Bruce McGill',
+    'Gloria Reuben',
+    'Scott Bellis',
+  ]
+countries: ['USA', 'Japan']
+language: 'English'
+studios:
+  [
+    'Renaissance Pictures',
+    'Dark Horse Entertainment',
+    'Largo Entertainment',
+    'Signature Pictures',
+    'JVC Entertainment',
+  ]
+letterboxdAverage: 2.89
 slug: 'timecop'
 description: 'I don’t think it’s controversial to say this is the best JCVD has ever been.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/timecop/'

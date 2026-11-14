@@ -5,6 +5,20 @@ date: 2025-09-26
 rating: 1.5
 director: 'Danny Cannon'
 genres: ['Science Fiction', 'Action']
+runtime: 96
+cast:
+  [
+    'Sylvester Stallone',
+    'Diane Lane',
+    'Armand Assante',
+    'Rob Schneider',
+    'Jürgen Prochnow',
+    'Max von Sydow',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Cinergi Pictures', 'Pressman Film']
+letterboxdAverage: 2.63
 slug: 'judge-dredd'
 description: 'The production design is incredible, and Sly has an absolutely killer chin. I completely get the casting decision. He looks perfect for this.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/judge-dredd/'

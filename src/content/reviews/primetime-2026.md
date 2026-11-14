@@ -5,6 +5,20 @@ date: 2026-10-01
 rating: 3.5
 director: 'Lance Oppenheim'
 genres: ['Drama', 'Thriller', 'Crime']
+runtime: 110
+cast:
+  [
+    'Robert Pattinson',
+    'Merritt Wever',
+    'Skyler Gisondo',
+    'Matthew Maher',
+    'Phoebe Bridgers',
+    'Victor Brunette',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['A24', 'Icki Eneo Arlo', 'Square Peg', 'Range Media Partners']
+letterboxdAverage: 3.64
 slug: 'primetime-2026'
 description: "Robert Pattinson's 2026 has been one long argument that he's the best creep in Hollywood"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/primetime-2026/'

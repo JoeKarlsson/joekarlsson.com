@@ -5,6 +5,20 @@ date: 2019-12-23
 rating: 3
 director: 'Lorene Scafaria'
 genres: ['Comedy', 'Crime', 'Drama']
+runtime: 110
+cast:
+  [
+    'Constance Wu',
+    'Jennifer Lopez',
+    'Julia Stiles',
+    'Keke Palmer',
+    'Lili Reinhart',
+    'Mercedes Ruehl',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Gloria Sanchez Productions', 'Nuyorican Productions', 'Annapurna Pictures', 'STXfilms']
+letterboxdAverage: 3.3
 slug: 'hustlers-2019'
 description: 'Magic Mike with Lizzo.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hustlers-2019/'

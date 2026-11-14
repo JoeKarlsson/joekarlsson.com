@@ -5,6 +5,20 @@ date: 2026-07-20
 rating: 4.5
 director: 'Christopher Nolan'
 genres: ['Adventure', 'Action', 'Fantasy']
+runtime: 173
+cast:
+  [
+    'Matt Damon',
+    'Tom Holland',
+    'Anne Hathaway',
+    'Robert Pattinson',
+    'Himesh Patel',
+    'John Leguizamo',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['Universal Pictures', 'Syncopy']
+letterboxdAverage: 4.34
 slug: 'the-odyssey-2026'
 description: 'Odysseus is a war criminal, a murderer, easily distracted by pussy. Unfortunately, he’s played by a ripped and charming Matt Damon, so idiots will idolize...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-odyssey-2026/'

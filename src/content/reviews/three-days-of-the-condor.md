@@ -5,6 +5,20 @@ date: 2026-01-11
 rating: 3.5
 director: 'Sydney Pollack'
 genres: ['Mystery', 'Thriller']
+runtime: 117
+cast:
+  [
+    'Robert Redford',
+    'Faye Dunaway',
+    'Cliff Robertson',
+    'Max von Sydow',
+    'John Houseman',
+    'Addison Powell',
+  ]
+countries: ['USA', 'Italy']
+language: 'English'
+studios: ['Stanley Schneider Productions', 'DDL Cinematografica']
+letterboxdAverage: 3.74
 slug: 'three-days-of-the-condor'
 description: 'Robert Redford is so handsome. He got a little creepy when he started making out with Faye Dunaway. And I have to admit, I got a little confused at the end.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/three-days-of-the-condor/'

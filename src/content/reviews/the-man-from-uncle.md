@@ -5,6 +5,21 @@ date: 2025-11-12
 rating: 4
 director: 'Guy Ritchie'
 genres: ['Action', 'Comedy', 'Adventure']
+runtime: 116
+cast:
+  [
+    'Henry Cavill',
+    'Armie Hammer',
+    'Alicia Vikander',
+    'Elizabeth Debicki',
+    'Luca Calvani',
+    'Sylvester Groth',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  ['Wigram Productions', 'Davis Entertainment', 'RatPac Entertainment', 'Warner Bros. Pictures']
+letterboxdAverage: 3.5
 slug: 'the-man-from-uncle'
 description: 'GAAY GAY GAY GAAYY GAYHHGAH GAAAY GGGGGGAAHBHHY'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-man-from-uncle/'

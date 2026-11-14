@@ -5,6 +5,20 @@ date: 2025-02-01
 rating: 3.5
 director: 'Sean Baker'
 genres: ['Drama', 'Romance', 'Comedy']
+runtime: 139
+cast:
+  [
+    'Mikey Madison',
+    'Mark Eydelshteyn',
+    'Yura Borisov',
+    'Karren Karagulian',
+    'Vache Tovmasyan',
+    'Luna Sofía Miranda',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Cre Film', 'FilmNation Entertainment']
+letterboxdAverage: 3.76
 slug: 'anora'
 description: 'Florida Project is still my favorite Sean Baker flick, but this one is so good. I had no idea where it was going and was consistently surprised. Sean...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/anora/'

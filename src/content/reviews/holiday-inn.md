@@ -5,6 +5,20 @@ date: 2025-12-19
 rating: 3
 director: 'Mark Sandrich'
 genres: ['Comedy', 'Drama', 'Romance']
+runtime: 101
+cast:
+  [
+    'Bing Crosby',
+    'Fred Astaire',
+    'Marjorie Reynolds',
+    'Virginia Dale',
+    'Walter Abel',
+    'Louise Beavers',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures']
+letterboxdAverage: 3.23
 slug: 'holiday-inn'
 description: "A Christmas movie about every holiday, including one particularly memorable one we don't celebrate anymore... Cough cough, Abraham Lincoln's birthday, cough..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/holiday-inn/'

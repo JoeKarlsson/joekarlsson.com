@@ -5,6 +5,20 @@ date: 2026-11-08
 rating: 4.5
 director: 'David Fincher'
 genres: ['Crime', 'Mystery', 'Thriller']
+runtime: 157
+cast:
+  [
+    'Jake Gyllenhaal',
+    'Mark Ruffalo',
+    'Anthony Edwards',
+    'Robert Downey Jr.',
+    'Chloë Sevigny',
+    'Elias Koteas',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures', 'Warner Bros. Pictures', 'Phoenix Pictures']
+letterboxdAverage: 4.03
 slug: 'zodiac'
 description: 'The first time I watched Zodiac, the ending made me furious.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/zodiac/'

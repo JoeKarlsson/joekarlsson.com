@@ -5,6 +5,20 @@ date: 2025-04-24
 rating: 3.5
 director: 'Peter Browngardt'
 genres: ['Adventure', 'Science Fiction', 'Comedy', 'Family', 'Animation']
+runtime: 91
+cast:
+  [
+    'Eric Bauza',
+    'Candi Milo',
+    'Peter MacNicol',
+    'Fred Tatasciore',
+    'Laraine Newman',
+    'Wayne Knight',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Warner Bros. Animation']
+letterboxdAverage: 3.45
 slug: 'the-day-the-earth-blew-up-a-looney-tunes-movie'
 description: 'Good god. This movie is much funnier than I expected it to be.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-day-the-earth-blew-up-a-looney-tunes-movie/'

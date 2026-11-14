@@ -5,6 +5,20 @@ date: 2026-01-14
 rating: 3.5
 director: 'Lynne Ramsay'
 genres: ['Drama']
+runtime: 119
+cast:
+  [
+    'Jennifer Lawrence',
+    'Robert Pattinson',
+    'Sissy Spacek',
+    'LaKeith Stanfield',
+    'Nick Nolte',
+    'Gabrielle Rose',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Excellent Cadaver', 'Sikelia Productions', 'Black Label Media']
+letterboxdAverage: 3.17
 slug: 'die-my-love'
 description: 'Another feel-good summer romance from Lynne Ramsay /s'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/die-my-love/'

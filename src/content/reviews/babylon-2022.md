@@ -5,6 +5,19 @@ date: 2025-10-20
 rating: 4
 director: 'Damien Chazelle'
 genres: ['Comedy', 'Drama']
+runtime: 189
+cast: ['Diego Calva', 'Margot Robbie', 'Brad Pitt', 'Jovan Adepo', 'Jean Smart', 'J.C. Currais']
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Paramount Pictures',
+    'Marc Platt Productions',
+    'C2 Motion Picture Group',
+    'Organism Pictures',
+    'Wild Chickens Productions',
+  ]
+letterboxdAverage: 3.88
 slug: 'babylon-2022'
 description: 'I initially avoided Babylon when it came out because I heard terrible things about it. But having finally watched it for the first time, I deeply regret not...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/babylon-2022/'

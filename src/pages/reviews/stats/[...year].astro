@@ -1,0 +1,1063 @@
+---
+// /reviews/stats/ (all time) and /reviews/stats/<year>/: the numbers behind Joe's reviews
+// (src/utils/review-stats.ts), laid out after Letterboxd's own stats pages. The dashboard's
+// numbers and charts on top, then stats built from the posters themselves (DECISIONS.md).
+// A rating Joe gave always shows as stars; only computed averages are numbers. Hovering a
+// poster shows its one-liner and clicking opens the review; the motion lives in
+// src/scripts/review-stats.ts.
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PosterHero from '../../../components/PosterHero.astro';
+import HoverBox from '../../../components/HoverBox.astro';
+import Scribble from '../../../components/Scribble.astro';
+import StatsBars from '../../../components/StatsBars.astro';
+import StatsRanked from '../../../components/StatsRanked.astro';
+import StatsToggle from '../../../components/StatsToggle.astro';
+import { CHALK, MARKS } from '../../../data/scribbles';
+import {
+	ARTICLE_HEADING,
+	FILTER_ACTIVE,
+	FILTER_INACTIVE,
+	FILTER_ROW,
+	GROUP_HEADING,
+	HERO_LEAD,
+	META,
+	MORE_LINK,
+	PAGE_CONTAINER,
+	formatDate,
+} from '../../../utils/ui';
+import { cardHalftone } from '../../../utils/halftone';
+import { jsonForScript } from '../../../utils/json-for-script';
+import { oneLiner, reviewStats, reviewYears, type StatsReview } from '../../../utils/review-stats';
+import { stars } from '../../../../scripts/update-reviews.mjs';
+
+export async function getStaticPaths() {
+	const years = reviewYears((await getCollection('reviews')).map((e) => e.data));
+	return [undefined, ...years].map((year) => ({ params: { year: year?.toString() } }));
+}
+
+const year = Astro.params.year ? Number(Astro.params.year) : undefined;
+const all = (await getCollection('reviews')).map((e) => e.data);
+const entries = year ? all.filter((r) => r.date.getUTCFullYear() === year) : all;
+const s = reviewStats(all, year);
+const years = reviewYears(all);
+const bySlug = new Map(entries.map((r) => [r.slug, r]));
+const firstYear = years.at(-1);
+const latestYear = years[0];
+const pool = s.fiveStars.length ? s.fiveStars : s.top;
+const featured = pool.find((r) => bySlug.get(r.slug)?.heroImage) ?? pool[0];
+const hero = bySlug.get(featured.slug)!;
+const when = year ? `in ${year}` : 'all time';
+const ranked = year ? `${year} ranked` : 'All-time ranked';
+
+// What the hover card shows for each film: title, year, stars, rewatch, one-liner, poster
+const films = Object.fromEntries(
+	entries.map((r) => [
+		r.slug,
+		[r.title, r.year, r.rating ? stars(r.rating) : '', r.rewatch, oneLiner(r), r.poster ?? ''],
+	]),
+);
+
+const SECTION = 'relative mb-12 md:mb-16';
+const H2 = ARTICLE_HEADING.replace('mb-5', 'mb-2');
+const SUB = `${META} mb-6`;
+const PANEL = 'relative min-w-0 rounded-xl bg-surface-1 p-5 md:p-7';
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const maxRating = Math.max(...s.ratings.map((r) => r.count));
+const maxDecade = Math.max(...s.decades.map((d) => d.count));
+const posterLabel = (r: StatsReview) =>
+	`${r.title} (${r.year})${r.rating ? `, ${r.rating} stars` : ''}`;
+const fmt = (n: number) => n.toLocaleString('en-US');
+const filmCount = (n: number) => `${n} ${n === 1 ? 'film' : 'films'}`;
+const directorViews = [
+	{ key: 'most', label: 'Most watched', rows: s.directorList.most },
+	{ key: 'highest', label: 'Highest rated', rows: s.directorList.highest },
+].filter((v) => v.rows.length);
+const milestones = [
+	['First of the year', s.milestones.first, formatDate(s.milestones.first.date)],
+	[
+		'100th review',
+		s.milestones.hundredth,
+		s.milestones.hundredth && formatDate(s.milestones.hundredth.date),
+	],
+	[
+		year === latestYear ? 'Latest' : 'Last of the year',
+		s.milestones.last,
+		formatDate(s.milestones.last.date),
+	],
+	['Longest', s.milestones.longest, `${s.milestones.longest.runtime} minutes`],
+] as const;
+---
+
+<BaseLayout
+	title={`${year ? `${year} film` : 'Film'} review stats | Joe Karlsson`}
+	description={
+		year
+			? `My ${s.reviews} film reviews from ${year} in numbers: ratings, hours, my top ten, the directors, cast and countries I watched most.`
+			: `The numbers behind my ${s.reviews} film reviews: how I rate, what I watch, which decades and directors I keep coming back to.`
+	}
+	schemaType="CollectionPage"
+>
+	<!-- The cut-paper edge the bars get (motion.css has the site's other filters) -->
+	<svg width="0" height="0" class="absolute" aria-hidden="true">
+		<filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+			<feTurbulence
+				type="fractalNoise"
+				baseFrequency="0.09"
+				numOctaves="2"
+				seed="5"
+				result="n"
+			></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="n" scale="4"></feDisplacementMap>
+		</filter>
+	</svg>
+
+	<div class={PAGE_CONTAINER} data-review-stats>
+		<PosterHero
+			title={year ? `${year} stats` : 'Stats'}
+			wordRatio={year ? 4.6 : 2.4}
+			featured={{
+				label: 'Top',
+				title: `${featured.title} (${featured.year})`,
+				href: `/reviews/${featured.slug}/`,
+				meta: [stars(featured.rating ?? 0), formatDate(featured.date)].join('  '),
+			}}
+		>
+			<a
+				slot="media"
+				href={`/reviews/${hero.slug}/`}
+				class="ring-host group relative z-10 block no-underline"
+			>
+				<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
+					<img
+						src={hero.heroImage ?? hero.poster}
+						alt=""
+						aria-hidden="true"
+						data-halftone={cardHalftone((hero.heroImage ?? hero.poster)!)}
+						width="1200"
+						height="675"
+						sizes="(min-width: 768px) 50vw, 100vw"
+						class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
+						loading="eager"
+						fetchpriority="high"
+					/>
+					<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
+						<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+							{hero.title}
+						</span>
+						<span class="mt-2 block text-sm text-muted">{oneLiner(hero)}</span>
+					</span>
+				</span>
+				<HoverBox featured />
+			</a>
+			<p class={HERO_LEAD}>
+				{year
+					? `${s.reviews} reviews of ${s.films} films in ${year}.`
+					: `${s.reviews} reviews of ${s.films} films since ${firstYear}.`}{' '}
+				<a href="/reviews/" class={MORE_LINK}>
+					All reviews
+				</a>
+			</p>
+		</PosterHero>
+
+		<nav class={`${FILTER_ROW} mb-6`} aria-label="Stats by year" data-filter-row>
+			{[undefined, ...years].map((y) => (
+				<a
+					href={y ? `/reviews/stats/${y}/` : '/reviews/stats/'}
+					class={y === year ? FILTER_ACTIVE : FILTER_INACTIVE}
+					aria-current={y === year ? 'page' : undefined}
+				>
+					{y ?? 'All time'}{' '}
+					<span class="text-muted">
+						{y ? all.filter((r) => r.date.getUTCFullYear() === y).length : all.length}
+					</span>
+				</a>
+			))}
+		</nav>
+
+		<div class="mb-3 grid grid-cols-2 gap-3 md:grid-cols-4">
+			{[
+				[fmt(s.reviews), 'reviews'],
+				[fmt(s.films), 'films'],
+				[fmt(s.hours), 'hours'],
+				[s.average.toFixed(2), 'average rating'],
+				[s.directors, 'directors'],
+				[s.countries, 'countries'],
+				[s.streak, s.streak === 1 ? 'week streak' : 'weeks in a row'],
+				[s.multiFilmDays, 'days with 2+ films'],
+			].map(([n, label]) => (
+				<div class="rounded-xl bg-surface-1 p-5 md:p-7">
+					<div class="font-display text-[clamp(2.75rem,6vw,4rem)] leading-none" data-roll>
+						{n}
+					</div>
+					<div class="mt-1 text-sm text-muted">{label}</div>
+				</div>
+			))}
+		</div>
+
+		<div class={`${PANEL} mb-3`}>
+			<h2 class={`${GROUP_HEADING} mb-2`}>Ratings</h2>
+			<p class={SUB}>Stars given {when}</p>
+			<div
+				class="stats-chart"
+				style={`--n:${s.ratings.length}`}
+				aria-hidden="true"
+				data-rating-chart
+				data-build
+			>
+				{s.ratings.map(({ step, count }, i) => (
+					<>
+						<span class="stats-count relative" style={`grid-column:${i + 1};--i:${i}`}>
+							{count}
+							{count === maxRating && s.reviews >= 20 && (
+								<Scribble
+									{...MARKS.oval}
+									color="#ff4fd8"
+									strokeWidth={4}
+									once
+									stretch
+									duration="2.6s"
+									class="stats-note -top-2 left-[calc(50%-1.5rem)] h-[calc(100%+1rem)] w-12"
+								/>
+							)}
+						</span>
+						<span
+							class="stats-bar"
+							style={`grid-column:${i + 1};--i:${i};height:${Math.max(2, (count / maxRating) * 160)}px`}
+							data-step={step}
+						/>
+						{/* The figure sits in its own layer over the bar: the bar's rough filter would crop it */}
+						{step === 5 && (
+							<span
+								class="stats-over"
+								style={`grid-column:${i + 1};--i:${i};height:${Math.max(2, (count / maxRating) * 160)}px`}
+							>
+								<svg class="stats-stick" viewBox="0 0 60 70" aria-hidden="true">
+									<g
+										fill="none"
+										stroke={CHALK}
+										stroke-width="2.6"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										filter="url(#crayon)"
+									>
+										<circle cx="30" cy="12" r="7" />
+										<path d="M30 19 Q31 32 30 46" />
+										<path class="leg" d="M30 46 Q38 48 40 58 Q40 64 44 68" />
+										<path class="leg leg2" d="M30 46 Q35 50 34 60 Q34 65 38 69" />
+										<path d="M30 28 Q22 34 18 40" />
+										<path class="arm" d="M31 30 Q40 34 44 38" />
+									</g>
+									<g
+										fill="none"
+										stroke="#ff4fd8"
+										stroke-width="2.4"
+										stroke-linecap="round"
+										filter="url(#crayon)"
+									>
+										<path d="M10 40 L13 54 L23 54 L26 40 Z M15 40 L16 54 M20 40 L20 54" />
+									</g>
+									<g fill={CHALK}>
+										<circle cx="13" cy="38" r="2.4" />
+										<circle cx="18" cy="36.5" r="2.6" />
+										<circle cx="23" cy="38" r="2.4" />
+										<circle class="kernel" cx="44" cy="38" r="2.2" />
+									</g>
+								</svg>
+							</span>
+						)}
+						<span class="stats-label stats-stars" style={`grid-column:${i + 1}`}>
+							{stars(step)}
+						</span>
+					</>
+				))}
+				{s.reviews >= 20 && s.ratings.findIndex((r) => r.count === maxRating) > 0 && (
+					<span
+						class="stats-note-text"
+						style={`grid-column:1 / ${s.ratings.findIndex((r) => r.count === maxRating) + 1}`}
+						aria-hidden="true"
+					>
+						my default
+					</span>
+				)}
+			</div>
+			<table class="sr-only">
+				<caption>{`Reviews by star rating, ${when}`}</caption>
+				<tr>
+					<th scope="col">Stars</th>
+					<th scope="col">Reviews</th>
+				</tr>
+				{s.ratings.map(({ step, count }) => (
+					<tr>
+						<td>{step}</td>
+						<td>{count}</td>
+					</tr>
+				))}
+			</table>
+		</div>
+
+		<div class={`${SECTION} grid gap-3 md:grid-cols-2`}>
+			<div class={PANEL}>
+				{year ? (
+					<>
+						<h2 class={`${GROUP_HEADING} mb-2`}>By month</h2>
+						<p class={SUB}>
+							{s.reviews} reviews in {year}
+						</p>
+						<StatsBars
+							caption={`Reviews by month, ${year}`}
+							header={['Month', 'Reviews']}
+							items={s.months.map(({ month, count }) => ({
+								name: MONTHS[month],
+								label: MONTHS[month],
+								value: count,
+							}))}
+						/>
+					</>
+				) : (
+					<>
+						<h2 class={`${GROUP_HEADING} mb-2`}>By year</h2>
+						<p class={SUB}>Reviews each year, with my average rating</p>
+						<StatsBars
+							caption="Reviews by year"
+							header={['Year', 'Reviews']}
+							items={s.years.map(({ year: y, count, average }) => ({
+								name: `${y}, average ${average.toFixed(1)}`,
+								label: String(y),
+								sub: average.toFixed(1),
+								value: count,
+							}))}
+						/>
+					</>
+				)}
+			</div>
+			<div class={PANEL}>
+				<h2 class={`${GROUP_HEADING} mb-2`}>By day of the week</h2>
+				<p class={SUB}>The day I watched, {when}</p>
+				<StatsBars
+					caption={`Reviews by day of the week, ${when}`}
+					header={['Day', 'Reviews']}
+					items={s.weekdays.map(({ day, count }) => ({ name: day, label: day, value: count }))}
+				/>
+			</div>
+		</div>
+
+		<section class={SECTION}>
+			<h2 class={H2}>{ranked}</h2>
+			<p class={SUB}>
+				My {s.top.length === 10 ? 'ten' : s.top.length} highest-rated films
+				{year ? ` of ${year}` : ''}, the first I saw first on ties
+			</p>
+			<ol class="grid grid-cols-5 gap-x-1.5 gap-y-5 md:grid-cols-10">
+				{s.top.map((r, i) => (
+					<li class="relative">
+						<span class="stats-rank" aria-hidden="true">
+							{i + 1}
+						</span>
+						<a href={`/reviews/${r.slug}/`} class="stats-poster sticker" data-film={r.slug}>
+							<img
+								src={r.poster}
+								alt=""
+								aria-hidden="true"
+								width="400"
+								height="600"
+								sizes="(min-width: 768px) 104px, 18vw"
+								loading="lazy"
+							/>
+							<span class="sr-only">{posterLabel(r)}</span>
+						</a>
+						<div class="mt-2 text-xs whitespace-nowrap text-pink md:text-sm" aria-hidden="true">
+							{stars(r.rating!)}
+						</div>
+					</li>
+				))}
+			</ol>
+		</section>
+
+		{year && (
+			<section class={SECTION}>
+				<h2 class={H2}>Milestones</h2>
+				<p class={SUB}>
+					{year} in {['', 'one', 'two', 'three', 'four'][milestones.filter(([, r]) => r).length]}{' '}
+					films
+				</p>
+				<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-4">
+					{milestones.map(
+						([label, r, detail]) =>
+							r && (
+								<div class="grid grid-cols-[88px_1fr] items-start gap-3">
+									<a href={`/reviews/${r.slug}/`} class="stats-poster sticker" data-film={r.slug}>
+										<img
+											src={r.poster}
+											alt=""
+											aria-hidden="true"
+											width="400"
+											height="600"
+											sizes="88px"
+											loading="lazy"
+										/>
+										<span class="sr-only">{posterLabel(r)}</span>
+									</a>
+									<div>
+										<div class="text-sm text-muted">{label}</div>
+										<div class="leading-snug font-semibold">
+											{r.title} <span class="font-normal text-muted">{r.year}</span>
+										</div>
+										{r.rating && (
+											<div class="text-sm text-pink">
+												<span aria-hidden="true">{stars(r.rating)}</span>
+												<span class="sr-only">Rated {r.rating} out of 5</span>
+											</div>
+										)}
+										<div class="text-sm text-muted">{detail}</div>
+									</div>
+								</div>
+							),
+					)}
+				</div>
+			</section>
+		)}
+
+		{s.higher.length + s.lower.length > 0 && (
+			<section class={SECTION}>
+				<h2 class={H2}>Where I part ways with Letterboxd</h2>
+				<p class={SUB}>My stars next to everyone's average, biggest gaps first</p>
+				<div class="grid gap-8 md:grid-cols-2 md:gap-5">
+					{[
+						['Rated higher than the crowd', s.higher],
+						['Rated lower than the crowd', s.lower],
+					]
+						.filter(([, list]) => list.length)
+						.map(([label, list]) => (
+							<div>
+								<h3 class={`${GROUP_HEADING} mb-3`}>{label as string}</h3>
+								{(list as typeof entries).map((r) => (
+									<div class="grid grid-cols-[52px_1fr] items-center gap-3 border-t border-surface-4 py-2.5 text-sm">
+										<a href={`/reviews/${r.slug}/`} class="stats-poster sticker" data-film={r.slug}>
+											<img
+												src={r.poster}
+												alt=""
+												aria-hidden="true"
+												width="400"
+												height="600"
+												sizes="52px"
+												loading="lazy"
+											/>
+											<span class="sr-only">{posterLabel(r)}</span>
+										</a>
+										<div>
+											<div class="font-semibold">
+												{r.title} <span class="font-normal text-muted">{r.year}</span>
+											</div>
+											<div>
+												<span class="text-pink" aria-hidden="true">
+													{stars(r.rating!)}
+												</span>
+												<span class="text-muted">
+													<span class="sr-only">{r.rating} stars,</span> me
+												</span>
+											</div>
+											<div class="text-muted">
+												<b class="font-semibold text-paper">
+													<span aria-hidden="true">★</span> {r.letterboxdAverage!.toFixed(2)}
+												</b>{' '}
+												Letterboxd average
+											</div>
+										</div>
+									</div>
+								))}
+							</div>
+						))}
+				</div>
+			</section>
+		)}
+
+		<section class={SECTION}>
+			<h2 class={H2}>Every review, by rating</h2>
+			<p class={SUB}>Each row is one star rating, each tile one review</p>
+			<!-- An overview: every film here is also on /reviews/, so the tiles stay out of
+			the tab order and away from screen readers -->
+			<div class="flex flex-col-reverse gap-3" aria-hidden="true" data-rating-wall>
+				{s.ratings
+					.filter(({ count }) => count)
+					.map(({ step, count }) => (
+						<div class="grid gap-1 md:grid-cols-[88px_1fr] md:gap-3" data-step={step}>
+							<div class="flex items-baseline gap-2 md:block">
+								<div class="text-sm text-pink">{stars(step)}</div>
+								<div class="text-xs text-muted">{count} reviews</div>
+							</div>
+							<div class="stats-wall flex flex-wrap gap-0.5">
+								{entries
+									.filter((r) => r.rating === step)
+									.sort((a, b) => b.date.valueOf() - a.date.valueOf())
+									.map((r) => (
+										<a
+											href={`/reviews/${r.slug}/`}
+											tabindex="-1"
+											aria-hidden="true"
+											data-film={r.slug}
+										>
+											<img
+												src={r.poster}
+												alt=""
+												aria-hidden="true"
+												width="100"
+												height="150"
+												sizes="22px"
+												loading="lazy"
+											/>
+										</a>
+									))}
+							</div>
+						</div>
+					))}
+			</div>
+		</section>
+
+		<section class={SECTION}>
+			<h2 class={H2}>Release years</h2>
+			<p class={SUB}>
+				Films by the year they came out, then each decade with my favorite and my average
+			</p>
+			<StatsBars
+				caption={`Films by release year, ${when}`}
+				header={['Release year', 'Films']}
+				counts={false}
+				height={120}
+				items={s.releaseYears.map(({ year: y, count }) => ({
+					name: String(y),
+					label: y % 10 === 0 ? String(y) : '',
+					value: count,
+				}))}
+			/>
+			<div
+				class="stats-decades mt-8"
+				style={`--decades:${s.decades.length};--n:${s.decades.length}`}
+				data-build
+			>
+				{s.decades.map(({ decade, count, average, best }, i) => (
+					<div class="text-center" style={`--i:${i}`}>
+						<a href={`/reviews/${best.slug}/`} class="stats-poster sticker" data-film={best.slug}>
+							<img
+								src={best.poster}
+								alt=""
+								aria-hidden="true"
+								width="400"
+								height="600"
+								sizes="96px"
+								loading="lazy"
+							/>
+							<span class="sr-only">{posterLabel(best)}</span>
+						</a>
+						<div
+							class="stats-bar mt-2"
+							style={`height:${Math.max(3, (count / maxDecade) * 140)}px`}
+						/>
+						<b class="mt-2 block font-display text-lg leading-none font-normal">{decade}s</b>
+						<span class="mt-1 block text-xs text-muted">{filmCount(count)}</span>
+						{!Number.isNaN(average) && (
+							<span class="block text-xs">
+								<span class="text-pink" aria-hidden="true">
+									★
+								</span>{' '}
+								{average.toFixed(2)}
+								<span class="sr-only">average</span>
+							</span>
+						)}
+					</div>
+				))}
+			</div>
+		</section>
+
+		<div class={SECTION}>
+			<StatsRanked title="Genres" sub="Every film counted once" lists={s.genres} markHighest />
+		</div>
+		<div class={`${SECTION} grid gap-12 md:grid-cols-2 md:gap-8`}>
+			<StatsRanked title="Countries" sub="Where the films were made" lists={s.countryList} />
+			<StatsRanked title="Languages" sub="Each film's main language" lists={s.languages} />
+		</div>
+
+		{directorViews.length > 0 && (
+			<section class={SECTION} data-ranked>
+				<h2 class={H2}>Directors I keep coming back to</h2>
+				<p class={SUB}>Every film counted once</p>
+				<StatsToggle labels={directorViews.map((v) => v.label)} />
+				{directorViews.map(({ key, rows }, v) => (
+					<div data-view={key} hidden={v ? 'until-found' : undefined}>
+						<ol role="list">
+							{rows.slice(0, 6).map(({ name, films: list, average }) => (
+								<li class="grid items-center gap-3 border-t border-surface-4 py-[18px] md:grid-cols-[220px_1fr] md:gap-5">
+									<div>
+										<h3 class={GROUP_HEADING}>{name}</h3>
+										<p class={`${META} meta-parts mt-2 flex`}>
+											<span>{filmCount(list.length)}</span>{' '}
+											<span>{average.toFixed(1)} average</span>
+										</p>
+									</div>
+									<div class="grid grid-cols-5 gap-x-1.5 gap-y-4 md:grid-cols-9">
+										{list.slice(0, 9).map((r) => (
+											<div>
+												<a
+													href={`/reviews/${r.slug}/`}
+													class="stats-poster sticker"
+													data-film={r.slug}
+												>
+													<img
+														src={r.poster}
+														alt=""
+														aria-hidden="true"
+														width="400"
+														height="600"
+														sizes="(min-width: 768px) 96px, 18vw"
+														loading="lazy"
+													/>
+													<span class="sr-only">{posterLabel(r)}</span>
+												</a>
+												{r.rating && (
+													<div
+														class="mt-2 text-xs whitespace-nowrap text-pink md:text-sm"
+														aria-hidden="true"
+													>
+														{stars(r.rating)}
+													</div>
+												)}
+											</div>
+										))}
+									</div>
+								</li>
+							))}
+						</ol>
+					</div>
+				))}
+			</section>
+		)}
+
+		<div class={`${SECTION} grid gap-12 md:grid-cols-2 md:gap-8`}>
+			<StatsRanked title="Cast" sub="The top-billed six of each film" lists={s.cast} />
+			<StatsRanked title="Studios" sub="Production companies" lists={s.studios} />
+		</div>
+
+		{s.fiveStars.length > 0 && (
+			<section class={SECTION}>
+				<h2 class={H2}>Five stars</h2>
+				<p class={SUB}>All {s.fiveStars.length} films, newest first</p>
+				<div class="grid grid-cols-5 gap-1.5 md:grid-cols-10">
+					{s.fiveStars.map((r) => (
+						<a href={`/reviews/${r.slug}/`} class="stats-poster sticker" data-film={r.slug}>
+							<img
+								src={r.poster}
+								alt=""
+								aria-hidden="true"
+								width="400"
+								height="600"
+								sizes="(min-width: 768px) 104px, 18vw"
+								loading="lazy"
+							/>
+							<span class="sr-only">{posterLabel(r)}</span>
+							<Scribble {...MARKS.star} color="#ff4fd8" strokeWidth={4} once class="stats-star" />
+						</a>
+					))}
+				</div>
+			</section>
+		)}
+
+		<a href="/reviews/" class={MORE_LINK}>
+			All {all.length} reviews
+		</a>
+	</div>
+
+	<script type="application/json" id="review-stats-films" set:html={jsonForScript(films)} />
+</BaseLayout>
+
+<style is:global>
+	/* Colors are the tailwind.config.mjs tokens, which aren't CSS variables here.
+	   Bar charts: counts, bars and labels share one grid, so every label sits under its bar */
+	.stats-chart {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+		column-gap: 2px;
+	}
+	.stats-count,
+	.stats-label {
+		text-align: center;
+		font-size: 0.75rem;
+		line-height: 1rem;
+		color: #a3a3a3;
+		white-space: nowrap;
+	}
+	.stats-count {
+		grid-row: 1;
+		align-self: end;
+		margin-bottom: 4px;
+	}
+	.stats-chart :is(.stats-bar, .stats-over) {
+		grid-row: 2;
+		align-self: end;
+	}
+	.stats-over {
+		position: relative;
+		pointer-events: none;
+	}
+	.stats-label {
+		grid-row: 3;
+		margin-top: 8px;
+	}
+	.stats-bar {
+		position: relative;
+		display: block;
+		min-height: 2px;
+		border-radius: 4px 4px 0 0;
+		background: #ff4fd8;
+		filter: url(#rough);
+	}
+	.stats-bar.lit,
+	.stats-chart .stats-bar:hover,
+	.stats-decades > div:hover .stats-bar {
+		background: #ededed;
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		.stats-bar.lit,
+		.stats-chart .stats-bar:hover,
+		.stats-decades > div:hover .stats-bar {
+			filter: url(#boil);
+		}
+	}
+	[data-rating-chart] .stats-bar {
+		cursor: pointer;
+	}
+	/* Phones: the circle fits its one narrow column; the genre circle would cross the
+	   numbers, so the "rated highest" words carry it alone; and the release-year chart's
+	   hairline bars drop the rough edge, which is wider than they are */
+	@media (width < 48rem) {
+		[data-rating-chart] .stats-note {
+			left: -2px;
+			width: calc(100% + 4px);
+		}
+		.stats-genre .stats-note {
+			display: none;
+		}
+		.stats-dense .stats-bar {
+			filter: none;
+		}
+	}
+
+	/* Ratings labels are stars, like every rating on the site; phones stack them */
+	.stats-label.stats-stars {
+		color: #ff4fd8;
+		letter-spacing: -0.05em;
+	}
+	@media (width < 48rem) {
+		.stats-label.stats-stars {
+			justify-self: center;
+			align-self: start;
+			line-height: 1;
+			writing-mode: vertical-rl;
+			text-orientation: upright;
+			letter-spacing: -0.2em;
+		}
+	}
+
+	/* Build-in (review-stats.ts adds .unbuilt below the fold, .built in view): bars grow
+	   on twos, one after another, then print their values. The stagger fits the whole
+	   chart into about a second, however many bars it has. */
+	.unbuilt :is(.stats-bar, .stats-over) {
+		transform: scaleY(0);
+		transform-origin: bottom;
+	}
+	.unbuilt .stats-track i {
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+	.unbuilt :is(.stats-count, .stats-stick, .meta-parts) {
+		opacity: 0;
+	}
+	.built {
+		--stagger: min(60ms, 900ms / var(--n, 10));
+	}
+	.built :is(.stats-bar, .stats-over, .stats-track i) {
+		animation: stats-grow 0.5s steps(6, end) calc(var(--i, 0) * var(--stagger)) both;
+	}
+	.built :is(.stats-count, .stats-stick, .meta-parts) {
+		animation: stats-print 0.25s steps(3, end) calc(var(--i, 0) * var(--stagger) + 0.5s) both;
+	}
+	@keyframes stats-grow {
+		from {
+			transform: scale(var(--from-x, 1), var(--from-y, 0));
+		}
+		to {
+			transform: none;
+		}
+	}
+	.stats-track i {
+		--from-x: 0;
+		--from-y: 1;
+	}
+	@keyframes stats-print {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	/* Rank numbers on the top-ten posters */
+	.stats-rank {
+		position: absolute;
+		z-index: 2;
+		top: -0.6rem;
+		left: -0.3rem;
+		font-family: var(--font-anton);
+		font-size: 1.75rem;
+		line-height: 1;
+		color: #ededed;
+		paint-order: stroke;
+		-webkit-text-stroke: 5px #000;
+		pointer-events: none;
+	}
+
+	/* Crayon notes: drawn from the start without JS; with it, they draw once in view */
+	.stats-note {
+		z-index: 2;
+	}
+	.stats-note-text {
+		grid-row: 2;
+		justify-self: end;
+		align-self: start;
+		margin-right: 8px;
+		pointer-events: none;
+		font-family: var(--font-anton);
+		font-size: 1.25rem;
+		line-height: 1;
+		color: #ff4fd8;
+		text-transform: uppercase;
+		transform: rotate(-4deg);
+		white-space: nowrap;
+	}
+	.stats-note-side {
+		position: absolute;
+		right: calc(100% + 20px);
+		top: 0;
+		margin: 0;
+	}
+	[data-note-wait] path {
+		animation: none !important;
+		stroke-dashoffset: 1 !important;
+	}
+
+	/* The stick figure on the 5-star bar: legs swing and it eats popcorn, on steps like
+	   the site's other paper motion */
+	.stats-stick {
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		width: min(64px, 130%);
+		translate: -50% 34%;
+		overflow: visible;
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		.stats-stick {
+			filter: url(#boil);
+		}
+		.stats-stick .leg {
+			transform-origin: 30px 46px;
+			animation: stats-swing 1.6s steps(1) infinite;
+		}
+		.stats-stick .leg2 {
+			animation-delay: 0.8s;
+		}
+		.stats-stick .arm {
+			transform-origin: 31px 30px;
+			animation: stats-eat 2.4s steps(1) infinite;
+		}
+		.stats-stick .kernel {
+			animation: stats-kernel 2.4s steps(1) infinite;
+		}
+		@keyframes stats-swing {
+			50% {
+				transform: rotate(-12deg);
+			}
+		}
+		@keyframes stats-eat {
+			61%,
+			85% {
+				transform: rotate(-70deg);
+			}
+		}
+		@keyframes stats-kernel {
+			61%,
+			85% {
+				transform: translate(-4px, -14px);
+			}
+			86%,
+			100% {
+				opacity: 0;
+			}
+		}
+	}
+
+	/* Rating wall: tiny tiles that swell under the pointer like a dock (review-stats.ts) */
+	.stats-wall a {
+		display: block;
+		transform-origin: 50% 100%;
+		transition: transform 90ms ease-out;
+	}
+	.stats-wall img {
+		display: block;
+		width: 22px;
+		height: auto;
+		aspect-ratio: 2 / 3;
+		object-fit: cover;
+		border-radius: 2px;
+	}
+	.stats-wall a:hover img {
+		outline: 2px solid #ededed;
+		outline-offset: -2px;
+	}
+	[data-rating-wall] > div {
+		transition: opacity 150ms ease-out;
+	}
+	[data-rating-wall].focus > div:not(.lit) {
+		opacity: 0.2;
+	}
+	@media (width < 48rem) {
+		.stats-wall img {
+			width: 12px;
+		}
+		.stats-wall a {
+			pointer-events: none;
+		}
+	}
+
+	/* Posters: peel like stickers (motion.css .sticker), five-star ones draw a crayon star */
+	.stats-poster {
+		position: relative;
+		display: block;
+		border-radius: 6px;
+	}
+	.stats-poster img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 2 / 3;
+		object-fit: cover;
+		border-radius: 6px;
+		background: #222;
+	}
+	.stats-poster:is(:hover, :focus-visible) img {
+		outline: 2px solid #ededed;
+		outline-offset: -2px;
+	}
+	.stats-star {
+		top: -18%;
+		right: -18%;
+		width: 56%;
+		visibility: hidden;
+	}
+	.stats-poster:is(:hover, :focus-visible) .stats-star {
+		visibility: visible;
+	}
+
+	.stats-decades {
+		display: grid;
+		grid-template-columns: repeat(var(--decades, 11), minmax(0, 112px));
+		justify-content: start;
+		gap: 8px;
+		align-items: end;
+	}
+	@media (width < 48rem) {
+		.stats-decades {
+			grid-template-columns: repeat(var(--decades, 11), 76px);
+			overflow-x: auto;
+			padding-bottom: 8px;
+			scroll-snap-type: x mandatory;
+		}
+		.stats-decades > div {
+			scroll-snap-align: start;
+		}
+	}
+
+	.stats-genre {
+		display: grid;
+		grid-template-columns: 150px 1fr auto;
+		gap: 12px;
+		align-items: center;
+		padding: 4px 0;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+	}
+	.stats-track i {
+		display: block;
+		height: 14px;
+		border-radius: 0 4px 4px 0;
+		background: #ff4fd8;
+		filter: url(#rough);
+	}
+	@media (width < 48rem) {
+		.stats-genre {
+			grid-template-columns: 1fr auto;
+			row-gap: 4px;
+		}
+		.stats-track {
+			grid-column: 1 / -1;
+			order: 3;
+		}
+		.stats-note-side {
+			position: static;
+			display: block;
+			margin-top: 4px;
+		}
+	}
+
+	@media (width < 24rem) {
+		.stats-count,
+		.stats-label {
+			font-size: 0.6875rem;
+		}
+	}
+
+	/* The hover card (review-stats.ts) */
+	.stats-card {
+		position: fixed;
+		z-index: 40;
+		width: 260px;
+		padding: 16px;
+		border-radius: 12px;
+		background: #1a1a1a;
+		box-shadow: 0 12px 40px #000;
+		pointer-events: none;
+		opacity: 0;
+		transform: scale(0.96);
+		transform-origin: var(--origin, left) center;
+	}
+	.stats-card.on {
+		opacity: 1;
+		transform: none;
+		transition:
+			opacity var(--duration-enter) var(--ease-enter),
+			transform var(--duration-enter) var(--ease-enter);
+	}
+	.stats-card img {
+		display: block;
+		width: 100%;
+		max-height: min(320px, 45vh);
+		aspect-ratio: 2 / 3;
+		object-fit: cover;
+		border-radius: 6px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.stats-wall a,
+		.stats-card,
+		.stats-card.on {
+			transition: none;
+			transform: none;
+		}
+	}
+</style>
+
+<script>
+	import { initReviewStats } from '../../../scripts/review-stats';
+	document.querySelectorAll<HTMLElement>('[data-review-stats]').forEach(initReviewStats);
+</script>

@@ -6,6 +6,20 @@ rating: 5
 rewatch: true
 director: 'Paul King'
 genres: ['Comedy', 'Family', 'Adventure']
+runtime: 104
+cast:
+  [
+    'Ben Whishaw',
+    'Sally Hawkins',
+    'Hugh Bonneville',
+    'Madeleine Harris',
+    'Samuel Joslin',
+    'Julie Walters',
+  ]
+countries: ['France', 'UK']
+language: 'English'
+studios: ['StudioCanal', 'Heyday Films', 'Anton Capital Entertainment']
+letterboxdAverage: 4.1
 slug: 'paddington-2'
 description: 'This movie made me want to be a better man.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paddington-2/'

@@ -5,6 +5,14 @@ date: 2026-02-19
 rating: 3
 director: 'Emerald Fennell'
 genres: ['Romance', 'Drama']
+runtime: 136
+cast:
+  ['Margot Robbie', 'Jacob Elordi', 'Hong Chau', 'Shazad Latif', 'Alison Oliver', 'Martin Clunes']
+countries: ['USA', 'UK']
+language: 'English'
+studios:
+  ['MRC', 'LuckyChap Entertainment', 'Lie Still', 'Warner Bros. Pictures', 'Domain Entertainment']
+letterboxdAverage: 2.74
 slug: 'wuthering-heights-2026'
 description: "Hornier, dumber, funnier, and more gorgeous than expected. A mixed bag I enjoyed. I had fun with it, even if it didn't fully land."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wuthering-heights-2026/'

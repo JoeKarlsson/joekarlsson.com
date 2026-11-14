@@ -5,6 +5,20 @@ date: 2026-05-16
 rating: 3
 director: 'Richard W. Haines, Lloyd Kaufman'
 genres: ['Science Fiction', 'Thriller', 'Horror', 'Comedy']
+runtime: 86
+cast:
+  [
+    'Janelle Brady',
+    'Gil Brenton',
+    'Robert Prichard',
+    'Pat Ryan',
+    'James Nugent Vernon',
+    'Brad Dunker',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Troma Entertainment']
+letterboxdAverage: 3.03
 slug: 'class-of-nuke-em-high'
 description: 'I know Lloyd Kaufman best from his Angry Video Game Nerd appearance. I don’t know what that says about me.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/class-of-nuke-em-high/'

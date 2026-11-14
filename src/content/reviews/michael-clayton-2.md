@@ -6,6 +6,20 @@ rating: 5
 rewatch: true
 director: 'Tony Gilroy'
 genres: ['Crime', 'Drama', 'Thriller']
+runtime: 120
+cast:
+  [
+    'George Clooney',
+    'Tom Wilkinson',
+    'Tilda Swinton',
+    'Sydney Pollack',
+    "Michael O'Keefe",
+    'Ken Howard',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Castle Rock Entertainment', 'Mirage Enterprises', 'Section Eight', 'Samuels Media']
+letterboxdAverage: 3.83
 slug: 'michael-clayton-2'
 description: "Anyone who's ever had a corporate job and a conscience, this one's for you."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/michael-clayton/2/'

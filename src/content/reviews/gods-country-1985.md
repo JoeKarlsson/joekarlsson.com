@@ -5,6 +5,12 @@ date: 2025-11-02
 rating: 4.5
 director: 'Louis Malle'
 genres: ['TV Movie', 'Documentary']
+runtime: 95
+cast: ['Louis Malle']
+countries: ['USA']
+language: 'English'
+studios: ['Pretty Mouse Films']
+letterboxdAverage: 3.94
 slug: 'gods-country-1985'
 description: 'The most Minnesota thing about this French documentary is how accurately it captures Minnesotans refusing to complain while their entire lives collapse.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/gods-country-1985/'

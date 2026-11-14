@@ -5,6 +5,13 @@ date: 2026-06-07
 rating: 2
 director: 'Mark Fischbach'
 genres: ['Mystery', 'Science Fiction', 'Horror']
+runtime: 125
+cast:
+  ['Mark Fischbach', 'Caroline Kaplan', 'Troy Baker', 'Elsie Lovelock', 'Elle LaMont', 'Mick Lauer']
+countries: ['USA']
+language: 'English'
+studios: ['Markiplier Studios']
+letterboxdAverage: 3.17
 slug: 'iron-lung'
 description: 'Impressive that this exists. Frustrating to sit through.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/iron-lung/'

@@ -5,6 +5,20 @@ date: 2025-09-17
 rating: 2
 director: 'Haruo Sotozaki'
 genres: ['Action', 'Fantasy', 'Animation']
+runtime: 156
+cast:
+  [
+    'Natsuki Hanae',
+    'Takahiro Sakurai',
+    'Akira Ishida',
+    'Hiro Shimono',
+    'Yoshimasa Hosoya',
+    'Saori Hayami',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios: ['ufotable', 'Aniplex', 'Shueisha']
+letterboxdAverage: 4.07
 slug: 'demon-slayer-kimetsu-no-yaiba-infinity-castle'
 description: "I've seen two seasons of Demon slayer, and I mistakenly thought I would be able to catch up with the lore in order to watch and comprehend, what was..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/demon-slayer-kimetsu-no-yaiba-infinity-castle/'

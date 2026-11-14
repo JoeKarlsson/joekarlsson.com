@@ -5,6 +5,12 @@ date: 2025-09-09
 rating: 3.5
 director: 'Maria Fredriksson'
 genres: ['Documentary']
+runtime: 109
+cast: ['Olaug Bakkevoll', 'Kari Klo', 'May-Elin Storsletten']
+countries: ['Norway', 'Sweden']
+language: 'Swedish'
+studios: ['Ballad Film', 'Mer Film']
+letterboxdAverage: 3.7
 slug: 'the-gullspang-miracle'
 description: 'Very lynchian. This could have been an amazing episode of Twin Peaks.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-gullspang-miracle/'

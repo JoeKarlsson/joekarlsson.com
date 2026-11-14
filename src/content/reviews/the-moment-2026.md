@@ -5,6 +5,20 @@ date: 2026-03-05
 rating: 2.5
 director: 'Aidan Zamiri'
 genres: ['Music', 'Comedy', 'Thriller']
+runtime: 103
+cast:
+  [
+    'Charli xcx',
+    'Alexander Skarsgård',
+    'Rosanna Arquette',
+    'Hailey Benton Gates',
+    'Jamie Demetriou',
+    'Rachel Sennott',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Studio365', 'A24', 'Atlantic Records', 'Good World', '2AM']
+letterboxdAverage: 3.42
 slug: 'the-moment-2026'
 description: 'Be sure to take your epilepsy medication before watching this film.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-moment-2026/'

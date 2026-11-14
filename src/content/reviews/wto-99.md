@@ -5,6 +5,11 @@ date: 2026-06-11
 rating: 5
 director: 'Ian Bell'
 genres: ['Documentary']
+runtime: 100
+countries: ['USA']
+language: 'English'
+studios: ['Foghorn Features']
+letterboxdAverage: 3.94
 slug: 'wto-99'
 description: 'A document about a turning point in American politics and protest culture. If you want to understand how we got here, start in Seattle in 1999.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wto-99/'

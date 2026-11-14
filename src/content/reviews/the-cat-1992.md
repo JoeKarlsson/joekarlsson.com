@@ -5,6 +5,20 @@ date: 2026-01-14
 rating: 4
 director: 'Lam Nai-Choi'
 genres: ['Science Fiction', 'Action', 'Horror']
+runtime: 89
+cast:
+  [
+    'Gloria Yip Wan-Yee',
+    'Waise Lee Chi-Hung',
+    'Christine Ng Wing-mei',
+    'Lau Siu-Ming',
+    'Lawrence Lau Sek-Yin',
+    'Phillip Kwok Chui',
+  ]
+countries: ['Hong Kong']
+language: 'Cantonese'
+studios: ['Paragon Films', 'Orange Sky Golden Harvest']
+letterboxdAverage: 3.57
 slug: 'the-cat-1992'
 description: "A cat kung fu fights a dog. That's really all you need to know."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-cat-1992/'

@@ -5,6 +5,13 @@ date: 2025-08-15
 rating: 2.5
 director: 'Genndy Tartakovsky'
 genres: ['Animation', 'Comedy']
+runtime: 87
+cast:
+  ['Adam Devine', 'Idris Elba', 'Kathryn Hahn', 'Fred Armisen', 'Bobby Moynihan', 'Beck Bennett']
+countries: ['USA']
+language: 'English'
+studios: ['Sony Pictures Animation']
+letterboxdAverage: 2.22
 slug: 'fixed-2025'
 description: 'Well - you can tell that Tartakovsky was in charge of the animation!'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fixed-2025/'

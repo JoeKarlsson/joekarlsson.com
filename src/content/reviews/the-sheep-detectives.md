@@ -5,6 +5,20 @@ date: 2026-05-14
 rating: 4
 director: 'Kyle Balda'
 genres: ['Mystery', 'Family', 'Comedy']
+runtime: 109
+cast:
+  [
+    'Hugh Jackman',
+    'Nicholas Braun',
+    'Nicholas Galitzine',
+    'Molly Gordon',
+    'Julia Louis-Dreyfus',
+    'Bryan Cranston',
+  ]
+countries: ['USA', 'UK']
+language: 'English'
+studios: ['Working Title Films (GB)', 'Three Strange Angels', 'Amazon MGM Studios']
+letterboxdAverage: 3.77
 slug: 'the-sheep-detectives'
 description: 'Paddington fans, assemble.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-sheep-detectives/'

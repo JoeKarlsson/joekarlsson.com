@@ -5,6 +5,30 @@ date: 2025-12-08
 rating: 3.5
 director: 'Richard Linklater'
 genres: ['Drama', 'History']
+runtime: 101
+cast:
+  [
+    'Ethan Hawke',
+    'Bobby Cannavale',
+    'Andrew Scott',
+    'Margaret Qualley',
+    'Patrick Kennedy',
+    'Jonah Lees',
+  ]
+countries: ['Ireland', 'USA']
+language: 'English'
+studios:
+  [
+    'Detour Filmproduction',
+    'Sony Pictures Classics',
+    'Renovo Media Group',
+    'Wild Atlantic Pictures',
+    'Under the Influence Productions',
+    'Cinetic Media',
+    'Not to Be Seen Productions',
+    'Concord Originals',
+  ]
+letterboxdAverage: 3.57
 slug: 'blue-moon-2025'
 description: "Linklater made another movie where people just talk. I'm always going to show up for that."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blue-moon-2025/'

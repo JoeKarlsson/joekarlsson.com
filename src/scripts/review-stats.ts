@@ -1,8 +1,11 @@
 // /reviews/stats/: the hover card on every poster, the dock-style swell on the rating
 // wall, Ratings bars that light their wall row, numbers that roll like the site's slot
-// machine, and crayon notes that wait to draw until they're on screen. Built with DOM
+// machine, crayon notes that wait to draw until they're on screen, charts that build in
+// as they scroll into view, and the Most watched / Highest rated toggles. Built with DOM
 // calls only: the page's Trusted Types policy blocks HTML strings.
 import { isMotionPaused } from './pause-motion';
+import { mayBoil } from '../utils/paper-hero-motion';
+import { FILTER_ACTIVE, FILTER_INACTIVE } from '../utils/ui';
 
 type Film = [
 	title: string,
@@ -216,6 +219,60 @@ function initNotes(root: HTMLElement) {
 	});
 }
 
+/** Charts build in once each is mostly on screen: bars grow on twos one after another,
+ * then print their values (the site's chart kit, DECISIONS.md). Only where a paper hero
+ * may boil; phones, reduced motion and slow connections keep the finished chart. */
+function initBuild(root: HTMLElement) {
+	const connection = (
+		navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }
+	).connection;
+	const allowed = mayBoil({
+		reducedMotion: still(),
+		motionPaused: false,
+		wideScreen: matchMedia('(width >= 48rem)').matches,
+		saveData: connection?.saveData,
+		effectiveType: connection?.effectiveType,
+	});
+	if (!allowed) return;
+	const built = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				entry.target.classList.add('built');
+				built.unobserve(entry.target);
+			}
+		},
+		{ threshold: 0.5 },
+	);
+	// Charts already on screen at load stay finished: nothing animates on load
+	const fold = innerHeight;
+	root.querySelectorAll<HTMLElement>('[data-build], [data-build-row]').forEach((chart) => {
+		if (chart.getBoundingClientRect().top < fold) return;
+		chart.classList.add('unbuilt');
+		built.observe(chart);
+	});
+}
+
+/** The Most watched / Highest rated buttons (StatsToggle.astro) show one view at a time.
+ * The page ships in its first state, so this only switches; Find in page opens a hidden
+ * view when it lands on a name in it (hidden="until-found", beforematch). */
+function initToggles(root: HTMLElement) {
+	root.querySelectorAll<HTMLElement>('[data-ranked]').forEach((list) => {
+		const views = [...list.querySelectorAll<HTMLElement>(':scope > [data-view]')];
+		const buttons = [...list.querySelectorAll<HTMLButtonElement>('[data-pick]')];
+		if (views.length < 2) return;
+		const pick = (index: number) =>
+			views.forEach((view, i) => {
+				view.hidden = i !== index;
+				if (i !== index) view.setAttribute('hidden', 'until-found');
+				buttons[i].setAttribute('aria-pressed', String(i === index));
+				buttons[i].className = i === index ? FILTER_ACTIVE : FILTER_INACTIVE;
+			});
+		buttons.forEach((button, i) => button.addEventListener('click', () => pick(i)));
+		list.addEventListener('beforematch', (e) => pick(views.indexOf(e.target as HTMLElement)));
+	});
+}
+
 export function initReviewStats(root: HTMLElement) {
 	const data = document.getElementById('review-stats-films');
 	initCard(root, JSON.parse(data!.textContent!));
@@ -223,4 +280,6 @@ export function initReviewStats(root: HTMLElement) {
 	initRatingLink(root);
 	initRoll(root);
 	initNotes(root);
+	initToggles(root);
+	initBuild(root);
 }

@@ -5,6 +5,13 @@ date: 2025-02-17
 rating: 4
 director: 'Jonathan Mostow'
 genres: ['Drama', 'Action', 'Mystery', 'Crime', 'Thriller']
+runtime: 93
+cast:
+  ['Kurt Russell', 'J.T. Walsh', 'Kathleen Quinlan', 'M.C. Gainey', 'Jack Noseworthy', 'Rex Linn']
+countries: ['USA', 'Italy']
+language: 'English'
+studios: ['Spelling Films', 'Paramount Pictures', 'DDL Cinematografica']
+letterboxdAverage: 3.62
 slug: 'breakdown'
 description: "Super taut, underrated and action-packed thriller. It's minimalist and fun and reminded me so much of Spielberg's debut, Duel. Russell's great in it. They..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/breakdown/'

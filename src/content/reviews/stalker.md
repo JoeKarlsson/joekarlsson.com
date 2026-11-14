@@ -5,6 +5,20 @@ date: 2025-09-23
 rating: 4.5
 director: 'Andrei Tarkovsky'
 genres: ['Drama', 'Science Fiction']
+runtime: 162
+cast:
+  [
+    'Alisa Freyndlikh',
+    'Aleksandr Kaydanovskiy',
+    'Anatoliy Solonitsyn',
+    'Mykola Hrynko',
+    'Natalya Abramova',
+    'Faime Jurno',
+  ]
+countries: ['USSR']
+language: 'Russian'
+studios: ['Mosfilm']
+letterboxdAverage: 4.39
 slug: 'stalker'
 description: 'This took me three days to watch. Not because I wasn’t engaged, but because Tarkovsky demands you sit with each moment, each lingering shot of industrial...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/stalker/'

@@ -5,6 +5,20 @@ date: 2026-08-05
 rating: 4
 director: 'Gregg Araki'
 genres: ['Mystery', 'Thriller', 'Comedy']
+runtime: 90
+cast:
+  [
+    'Olivia Wilde',
+    'Cooper Hoffman',
+    'Mason Gooding',
+    'Chase Sui Wonders',
+    'Johnny Knoxville',
+    'Margaret Cho',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Black Bear Pictures', 'Desperate Pictures']
+letterboxdAverage: 3.16
 slug: 'i-want-your-sex'
 description: 'Horny cinema is back in 2026, and Gregg Araki showed up to personally beg the kids to log off and fuck.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/i-want-your-sex/'

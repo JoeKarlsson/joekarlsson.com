@@ -5,6 +5,14 @@ date: 2025-10-21
 rating: 4
 director: 'Fred Wolf'
 genres: ['Romance', 'Comedy']
+runtime: 97
+cast:
+  ['Anna Faris', 'Colin Hanks', 'Emma Stone', 'Kat Dennings', 'Hugh Hefner', 'Christopher McDonald']
+countries: ['USA']
+language: 'English'
+studios:
+  ['Alta Loma Entertainment', 'Columbia Pictures', 'Relativity Media', 'Happy Madison Productions']
+letterboxdAverage: 3.01
 slug: 'the-house-bunny'
 description: 'Anna Faris is so funny. They need to start making more 90-minute Hollywood comedies just to give Anna Faris more films to do. She’s so funny and this movie...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-house-bunny/'

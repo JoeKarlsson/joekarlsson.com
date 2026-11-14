@@ -5,6 +5,13 @@ date: 2026-08-07
 rating: 4
 director: 'J-P Valkeapää'
 genres: ['Drama']
+runtime: 105
+cast:
+  ['Pekka Strang', 'Krista Kosonen', 'Ilona Huhta', 'Jani Volanen', 'Oona Airola', 'Iiris Anttila']
+countries: ['Finland', 'Latvia']
+language: 'Finnish'
+studios: ['Helsinki-filmi', 'Tasse Film']
+letterboxdAverage: 3.52
 slug: 'dogs-dont-wear-pants'
 description: 'Somewhere between a fetish and a funeral, a numb man finds a pulse.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dogs-dont-wear-pants/'

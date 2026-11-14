@@ -6,6 +6,21 @@ rating: 5
 rewatch: true
 director: 'Hayao Miyazaki'
 genres: ['Fantasy', 'Animation', 'Family']
+runtime: 103
+cast:
+  [
+    'Minami Takayama',
+    'Rei Sakuma',
+    'Kappei Yamaguchi',
+    'Keiko Toda',
+    'Mieko Nobusawa',
+    'Koichi Miura',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios:
+  ['Studio Ghibli', 'Tokuma Shoten', 'Nippon Television Network Corporation', 'Yamato Transport']
+letterboxdAverage: 4.15
 slug: 'kikis-delivery-service-1'
 description: "Out of every fictional universe ever made, this is the one I'd move to."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kikis-delivery-service/1/'

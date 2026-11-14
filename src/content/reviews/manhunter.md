@@ -5,6 +5,13 @@ date: 2025-10-13
 rating: 2.5
 director: 'Michael Mann'
 genres: ['Horror', 'Thriller', 'Crime']
+runtime: 120
+cast:
+  ['William L. Petersen', 'Tom Noonan', 'Dennis Farina', 'Brian Cox', 'Kim Greist', 'Joan Allen']
+countries: ['USA']
+language: 'English'
+studios: ['DEG', 'Red Dragon Productions S.A.']
+letterboxdAverage: 3.86
 slug: 'manhunter'
 description: "Manhunter feels like an aquarium trapped in time from 1986. It's slick and cool and undeniably aesthetic, really capturing the essence of an era - but I..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/manhunter/'

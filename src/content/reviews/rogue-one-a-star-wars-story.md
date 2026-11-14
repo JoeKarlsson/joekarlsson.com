@@ -5,6 +5,12 @@ date: 2026-06-07
 rating: 4
 director: 'Gareth Edwards'
 genres: ['Adventure', 'Action', 'Science Fiction']
+runtime: 133
+cast: ['Felicity Jones', 'Diego Luna', 'Alan Tudyk', 'Donnie Yen', 'Jiang Wen', 'Ben Mendelsohn']
+countries: ['USA']
+language: 'English'
+studios: ['Lucasfilm Ltd.']
+letterboxdAverage: 3.84
 slug: 'rogue-one-a-star-wars-story'
 description: 'Battle of Algiers does this better. For Star Wars, this is extremely mature.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/rogue-one-a-star-wars-story/'

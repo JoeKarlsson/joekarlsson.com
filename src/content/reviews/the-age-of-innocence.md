@@ -5,6 +5,20 @@ date: 2026-11-06
 rating: 3
 director: 'Martin Scorsese'
 genres: ['Romance', 'Drama']
+runtime: 138
+cast:
+  [
+    'Daniel Day-Lewis',
+    'Michelle Pfeiffer',
+    'Winona Ryder',
+    'Alexis Smith',
+    'Geraldine Chaplin',
+    'Jonathan Pryce',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Columbia Pictures', 'Cappa/De Fina Productions']
+letterboxdAverage: 3.81
 slug: 'the-age-of-innocence'
 description: "If I were rich in Gilded Age New York, I wouldn't be at this dinner. I'd be on an island watching movies."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-age-of-innocence/'

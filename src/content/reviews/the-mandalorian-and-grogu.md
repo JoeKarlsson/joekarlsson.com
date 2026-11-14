@@ -5,6 +5,20 @@ date: 2026-05-24
 rating: 1.5
 director: 'Jon Favreau'
 genres: ['Science Fiction', 'Action', 'Adventure']
+runtime: 132
+cast:
+  [
+    'Pedro Pascal',
+    'Jeremy Allen White',
+    'Sigourney Weaver',
+    'Brendan Wayne',
+    'Lateef Crowder',
+    'Steve Blum',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Lucasfilm Ltd.', 'Fairview Entertainment']
+letterboxdAverage: 3.07
 slug: 'the-mandalorian-and-grogu'
 description: 'The only character growth in this movie is that Mando let Grogu push the hyperspace button. Who cares??? This felt like the Seinfeld of Star Wars movies...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mandalorian-and-grogu/'

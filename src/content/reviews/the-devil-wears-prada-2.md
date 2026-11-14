@@ -5,6 +5,20 @@ date: 2026-04-30
 rating: 4
 director: 'David Frankel'
 genres: ['Comedy', 'Drama']
+runtime: 119
+cast:
+  [
+    'Meryl Streep',
+    'Anne Hathaway',
+    'Emily Blunt',
+    'Stanley Tucci',
+    'Kenneth Branagh',
+    'Justin Theroux',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['20th Century Studios', 'Wendy Finerman Productions']
+letterboxdAverage: 3.08
 slug: 'the-devil-wears-prada-2'
 description: 'A better sequel than we deserved. In this film, the Devil has an MBA.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-devil-wears-prada-2/'

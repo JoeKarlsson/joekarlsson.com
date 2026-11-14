@@ -5,6 +5,13 @@ date: 2026-01-18
 rating: 4
 director: 'Park Chan-wook'
 genres: ['Crime', 'Comedy', 'Thriller']
+runtime: 139
+cast:
+  ['Lee Byung-hun', 'Son Ye-jin', 'Park Hee-soon', 'Lee Sung-min', 'Yeom Hye-ran', 'Cha Seung-won']
+countries: ['South Korea', 'France']
+language: 'Korean'
+studios: ['CJ ENM Studios', 'Moho Film', 'KG Productions']
+letterboxdAverage: 4.08
 slug: 'no-other-choice-2025'
 description: 'Funny, timely, and so sad. A movie about the lies we tell ourselves about the options we have.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/no-other-choice-2025/'

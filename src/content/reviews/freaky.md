@@ -5,6 +5,20 @@ date: 2025-10-12
 rating: 3.5
 director: 'Christopher Landon'
 genres: ['Horror', 'Comedy']
+runtime: 102
+cast:
+  [
+    'Kathryn Newton',
+    'Vince Vaughn',
+    "Celeste O'Connor",
+    'Misha Osherovich',
+    'Uriah Shelton',
+    'Mitchell Hoog',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures', 'Blumhouse Productions', 'Divide / Conquer']
+letterboxdAverage: 3.09
 slug: 'freaky'
 description: "I love Vince Vaughn's later-career pivot to embracing how massive his body is and how physically intimidating he can be. Brawl in Cell Block 99 is a great..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/freaky/'

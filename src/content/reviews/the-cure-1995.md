@@ -5,6 +5,20 @@ date: 2025-08-20
 rating: 2.5
 director: 'Peter Horton'
 genres: ['Family', 'Drama']
+runtime: 97
+cast:
+  [
+    'Joseph Mazzello',
+    'Brad Renfro',
+    'Annabella Sciorra',
+    'Diana Scarwid',
+    'Bruce Davison',
+    'Nicky Katt',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures', 'Island World']
+letterboxdAverage: 4.06
 slug: 'the-cure-1995'
 description: 'This was filmed near where I grew up (Stillwater, MN), so I was required by law to watch this film.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-cure-1995/'

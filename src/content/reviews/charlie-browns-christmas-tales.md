@@ -5,6 +5,26 @@ date: 2025-12-08
 rating: 3
 director: 'Larry Leichliter'
 genres: ['Comedy', 'Animation', 'Family', 'TV Movie']
+runtime: 18
+cast:
+  [
+    'Wesley Singerman',
+    'Serena Berman',
+    'Corey Padnos',
+    'Megan Taylor Harvey',
+    'Christopher Johnson',
+    'Timmy Deters',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Lee Mendelson Film Productions',
+    'Bill Melendez Productions',
+    'Charles M. Schulz Creative Associates',
+    'United Media Productions',
+  ]
+letterboxdAverage: 3.35
 slug: 'charlie-browns-christmas-tales'
 description: "Sure, what the hell, I'll watch a seventeen minute special with no narrative drive."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/charlie-browns-christmas-tales/'

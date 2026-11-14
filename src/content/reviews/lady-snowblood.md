@@ -5,6 +5,20 @@ date: 2025-12-19
 rating: 4.5
 director: 'Toshiya Fujita'
 genres: ['Crime', 'Drama', 'Action']
+runtime: 97
+cast:
+  [
+    'Meiko Kaji',
+    'Toshio Kurosawa',
+    'Masaaki Daimon',
+    'Miyoko Akaza',
+    'Shinichi Uchida',
+    'Takeo Chii',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios: ['Tokyo Eiga', 'TOHO']
+letterboxdAverage: 4.13
 slug: 'lady-snowblood'
 description: 'Kill Bill is a cover song. This is the original.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/lady-snowblood/'

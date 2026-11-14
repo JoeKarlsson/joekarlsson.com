@@ -6,6 +6,13 @@ rating: 3.5
 rewatch: true
 director: 'Joe Talbot'
 genres: ['Drama']
+runtime: 121
+cast:
+  ['Jimmie Fails', 'Jonathan Majors', 'Rob Morgan', 'Tichina Arnold', 'Mike Epps', 'Finn Wittrock']
+countries: ['USA']
+language: 'English'
+studios: ['Longshot', 'Plan B Entertainment', 'A24']
+letterboxdAverage: 4.06
 slug: 'the-last-black-man-in-san-francisco-1'
 description: 'Really helped me to better understand gentrification. Loved the themes of finding a home. Great male friendship'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-black-man-in-san-francisco/1/'

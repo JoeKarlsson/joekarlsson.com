@@ -5,6 +5,20 @@ date: 2026-11-08
 rating: 3
 director: 'Shigeyasu Yamauchi'
 genres: ['Animation', 'Fantasy', 'Action']
+runtime: 55
+cast:
+  [
+    'Masako Nozawa',
+    'Ryo Horikawa',
+    'Takeshi Kusao',
+    'Daisuke Gori',
+    'Hiromi Tsuru',
+    'Naoko Watanabe',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios: ['Toei Company', 'Bird Studios', 'Toei Animation']
+letterboxdAverage: 3.74
 slug: 'dragon-ball-z-fusion-reborn'
 description: 'Antifa Trunks and Goten confirmed.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dragon-ball-z-fusion-reborn/'

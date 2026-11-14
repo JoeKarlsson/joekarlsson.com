@@ -5,6 +5,11 @@ date: 2026-02-01
 rating: 4
 director: 'Emily MacKenzie, Noah Collier'
 genres: ['Documentary']
+runtime: 85
+countries: ['USA']
+language: 'English'
+studios: ['MEMORY', 'XTR']
+letterboxdAverage: 3.4
 slug: 'carpet-cowboys'
 description: 'Just guys being dudes being cowboys being carpet salesmen being victims of the American Dream being too repressed to notice.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/carpet-cowboys/'

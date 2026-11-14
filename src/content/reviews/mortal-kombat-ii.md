@@ -5,6 +5,19 @@ date: 2026-06-11
 rating: 2
 director: 'Simon McQuoid'
 genres: ['Adventure', 'Fantasy', 'Action']
+runtime: 116
+cast: ['Karl Urban', 'Adeline Rudolph', 'Ludi Lin', 'Jessica McNamee', 'Martyn Ford', 'Josh Lawson']
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'New Line Cinema',
+    'Atomic Monster',
+    'Broken Road Productions',
+    'Fireside Films',
+    'Domain Entertainment',
+  ]
+letterboxdAverage: 2.82
 slug: 'mortal-kombat-ii'
 description: 'Dumb as hell. Karl Urban is perfect casting. Both things can be true.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mortal-kombat-ii/'

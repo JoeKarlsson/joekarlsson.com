@@ -5,6 +5,28 @@ date: 2026-07-27
 rating: 4
 director: 'Paul Verhoeven'
 genres: ['Drama', 'Romance', 'History']
+runtime: 131
+cast:
+  [
+    'Virginie Efira',
+    'Charlotte Rampling',
+    'Daphné Patakia',
+    'Lambert Wilson',
+    'Olivier Rabourdin',
+    'Louise Chevillotte',
+  ]
+countries: ['Belgium', 'France', 'Netherlands']
+language: 'French'
+studios:
+  [
+    'SBS Productions',
+    'Topkapi Films',
+    'Pathé',
+    'France 2 Cinéma',
+    'France 3 Cinéma',
+    'Belga Productions',
+  ]
+letterboxdAverage: 3.4
 slug: 'benedetta'
 description: "My intro to late Verhoeven, and within twenty minutes Jesus had lopped a man's arm off like Obi-Wan. I was in."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/benedetta/'

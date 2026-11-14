@@ -5,6 +5,20 @@ date: 2026-10-25
 rating: 3.5
 director: 'Michelangelo Antonioni'
 genres: ['Mystery', 'Drama', 'Thriller']
+runtime: 111
+cast:
+  [
+    'David Hemmings',
+    'Vanessa Redgrave',
+    'Sarah Miles',
+    'John Castle',
+    'Veruschka von Lehndorff',
+    'Jane Birkin',
+  ]
+countries: ['UK', 'USA', 'Italy']
+language: 'English'
+studios: ['Bridge Films', 'Carlo Ponti Production', 'Metro-Goldwyn-Mayer']
+letterboxdAverage: 3.76
 slug: 'blow-up'
 description: "Watching Blow-Up is like watching an idiot try to solve a crime. It's The Big Lebowski, but not funny."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blow-up/'

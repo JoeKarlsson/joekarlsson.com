@@ -5,6 +5,20 @@ date: 2026-11-02
 rating: 2
 director: 'Stephen King'
 genres: ['Action', 'Horror', 'Science Fiction']
+runtime: 98
+cast:
+  [
+    'Emilio Estevez',
+    'Pat Hingle',
+    'Laura Harrington',
+    'Yeardley Smith',
+    'John Short',
+    'Ellen McElduff',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['DEG']
+letterboxdAverage: 2.53
 slug: 'maximum-overdrive'
 description: 'Cocaine-era Stephen King fans, this is our Super Bowl.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/maximum-overdrive/'

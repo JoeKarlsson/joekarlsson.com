@@ -5,6 +5,29 @@ date: 2025-03-30
 rating: 2.5
 director: 'Danny Boyle'
 genres: ['Drama', 'History']
+runtime: 123
+cast:
+  [
+    'Michael Fassbender',
+    'Kate Winslet',
+    'Seth Rogen',
+    'Jeff Daniels',
+    'Michael Stuhlbarg',
+    'Katherine Waterston',
+  ]
+countries: ['USA', 'UK']
+language: 'English'
+studios:
+  [
+    'Scott Rudin Productions',
+    'The Mark Gordon Company',
+    'Cloud Eight Films',
+    'Decibel Films',
+    'Entertainment 360',
+    'Universal Pictures',
+    'Legendary Pictures',
+  ]
+letterboxdAverage: 3.65
 slug: 'steve-jobs'
 description: 'It’s funny how little Sorkin cares about Jobs. And honestly, it feels like it’s more of a play about being a father. Boyle definitely got some touches in...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/steve-jobs/'

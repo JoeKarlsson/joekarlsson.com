@@ -5,6 +5,13 @@ date: 2025-09-27
 rating: 3.5
 director: 'Pete Travis'
 genres: ['Science Fiction', 'Action']
+runtime: 96
+cast:
+  ['Karl Urban', 'Olivia Thirlby', 'Lena Headey', 'Wood Harris', 'Langley Kirkwood', 'Tamer Burjaq']
+countries: ['South Africa', 'UK', 'USA', 'India']
+language: 'English'
+studios: ['Rena Film', 'DNA Films', 'Reliance Big Entertainment', 'IM Global', 'Peach Trees']
+letterboxdAverage: 3.63
 slug: 'dredd'
 description: 'ACAB includes Dredd. But, with that being said this movie is fun.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dredd/'

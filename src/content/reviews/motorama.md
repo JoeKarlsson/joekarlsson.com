@@ -5,6 +5,20 @@ date: 2026-02-01
 rating: 4
 director: 'Barry Shils'
 genres: ['Comedy', 'Adventure']
+runtime: 90
+cast:
+  [
+    'Jordan Christopher Michael',
+    'Martha Quinn',
+    'Michael Naegel',
+    'Susan Tyrrell',
+    'Harper Flaherty',
+    'John Laughlin',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Proletariat Productions Corporation', 'Planet Productions']
+letterboxdAverage: 3.44
 slug: 'motorama'
 description: "Answers the age-old question of what would happen if you combined The Adventures of Pete and Pete and Pee-wee's Big Adventure and made it rated R. The answer..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/motorama/'

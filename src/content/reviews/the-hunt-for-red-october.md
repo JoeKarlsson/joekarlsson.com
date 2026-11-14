@@ -5,6 +5,13 @@ date: 2025-04-11
 rating: 3.5
 director: 'John McTiernan'
 genres: ['Thriller', 'Action']
+runtime: 135
+cast:
+  ['Alec Baldwin', 'Sean Connery', 'Scott Glenn', 'Sam Neill', 'James Earl Jones', 'Joss Ackland']
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures', 'Mace Neufeld/Jerry Sherlock Productions']
+letterboxdAverage: 3.78
 slug: 'the-hunt-for-red-october'
 description: 'This is the ultimate Dad movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-hunt-for-red-october/'

@@ -5,6 +5,13 @@ date: 2025-11-05
 rating: 2.5
 director: 'Benny Safdie'
 genres: ['Drama', 'Action', 'History']
+runtime: 123
+cast:
+  ['Dwayne Johnson', 'Emily Blunt', 'Ryan Bader', 'Bas Rutten', 'Oleksandr Usyk', 'Lyndsey Gavin']
+countries: ['USA']
+language: 'English'
+studios: ['A24', 'Seven Bucks Productions', 'Out for the Count', 'Magnetic Fields Entertainment']
+letterboxdAverage: 3.21
 slug: 'the-smashing-machine-2025'
 description: 'I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine-2025/'

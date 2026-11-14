@@ -5,6 +5,20 @@ date: 2026-02-12
 rating: 3
 director: 'Gilbert Adler'
 genres: ['Comedy', 'Horror']
+runtime: 87
+cast:
+  [
+    'Dennis Miller',
+    'Erika Eleniak',
+    'Angie Everhart',
+    'Chris Sarandon',
+    'Corey Feldman',
+    'John Kassir',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures', 'Tales From The Crypt Holdings']
+letterboxdAverage: 2.79
 slug: 'bordello-of-blood'
 description: 'Why does Dennis Miller look like he would rather be anywhere else than on the set of this film?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bordello-of-blood/'

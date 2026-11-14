@@ -5,6 +5,13 @@ date: 2026-08-09
 rating: 4
 director: 'Sophy Romvari'
 genres: ['Drama']
+runtime: 91
+cast: ['Eylul Guven', 'Iringó Réti', 'Ádám Tompa', 'Edik Beddoes', 'Amy Zimmer', 'Liam Serg']
+countries: ['Canada', 'Hungary', 'USA']
+language: 'English'
+studios:
+  ['Nine Behind Productions', 'Boddah', 'MEMORY', 'Tinygiant', 'Ursa Major', 'Simbelle Productions']
+letterboxdAverage: 3.95
 slug: 'blue-heron'
 description: 'A movie about memory that leaves you with more questions than answers. And more grief than when you started.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blue-heron/'

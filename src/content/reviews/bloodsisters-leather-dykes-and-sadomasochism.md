@@ -5,6 +5,19 @@ date: 2026-09-29
 rating: 4
 director: 'Michelle Handelman'
 genres: ['Documentary']
+runtime: 69
+cast:
+  [
+    'Tala Brandeis',
+    'Pat Califia',
+    'J.C. Collins',
+    'Queen Cougar',
+    'David Dakota',
+    'Talyn Silver Grizzly',
+  ]
+countries: ['USA']
+language: 'English'
+letterboxdAverage: 4.04
 slug: 'bloodsisters-leather-dykes-and-sadomasochism'
 description: "Liberation that only covers the respectable parts of queer life doesn't count, and BloodSisters is 69 minutes of proof."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bloodsisters-leather-dykes-and-sadomasochism/'

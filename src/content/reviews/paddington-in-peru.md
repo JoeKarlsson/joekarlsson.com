@@ -5,6 +5,20 @@ date: 2025-02-17
 rating: 2.5
 director: 'Dougal Wilson'
 genres: ['Comedy', 'Family', 'Adventure']
+runtime: 106
+cast:
+  [
+    'Ben Whishaw',
+    'Hugh Bonneville',
+    'Emily Mortimer',
+    'Samuel Joslin',
+    'Madeleine Harris',
+    'Antonio Banderas',
+  ]
+countries: ['UK', 'France']
+language: 'English'
+studios: ['Marmalade Pictures', 'StudioCanal']
+letterboxdAverage: 3.4
 slug: 'paddington-in-peru'
 description: 'I really wanted to love this movie. However, I was not able to get this movie to live up to the hype in my head. I know there was some changes in directors...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paddington-in-peru/'

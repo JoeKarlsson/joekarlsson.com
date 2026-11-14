@@ -5,6 +5,20 @@ date: 2025-11-22
 rating: 5
 director: 'Masaki Kobayashi'
 genres: ['History', 'Drama', 'Action']
+runtime: 135
+cast:
+  [
+    'Tatsuya Nakadai',
+    'Akira Ishihama',
+    'Shima Iwashita',
+    'Tetsuro Tamba',
+    'Masao Mishima',
+    'Ichirō Nakatani',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios: ['Shochiku']
+letterboxdAverage: 4.68
 slug: 'harakiri'
 description: "Harakiri: beautiful cinematography, devastating story, and one of cinema's most scathing critiques of power."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/harakiri/'

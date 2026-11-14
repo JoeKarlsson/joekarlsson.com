@@ -5,6 +5,13 @@ date: 2025-10-05
 rating: 3.5
 director: 'McG'
 genres: ['Adventure', 'Comedy', 'Action']
+runtime: 98
+cast: ['Cameron Diaz', 'Drew Barrymore', 'Lucy Liu', 'Bill Murray', 'Sam Rockwell', 'Tim Curry']
+countries: ['USA']
+language: 'English'
+studios:
+  ['Columbia Pictures', 'Tall Trees Productions', 'Flower Films', 'Leonard Goldberg Productions']
+letterboxdAverage: 3.27
 slug: 'charlies-angels'
 description: 'I was 10 years old when this movie came out and I loved it. My sister and I owned the VHS and watched it over and over and over again. Honestly? I miss...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/charlies-angels/'

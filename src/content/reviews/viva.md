@@ -5,6 +5,13 @@ date: 2026-09-17
 rating: 3
 director: 'Anna Biller'
 genres: ['Drama', 'Comedy']
+runtime: 120
+cast:
+  ['Anna Biller', 'Jared Sanford', 'Bridget Brno', 'Chad England', 'Barry Morse', 'Marcus DeAnda']
+countries: ['USA']
+language: 'English'
+studios: ['Anna Biller Productions']
+letterboxdAverage: 3.43
 slug: 'viva'
 description: 'The women in my life have better taste than me. Anna Biller is exhibit A.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/viva/'

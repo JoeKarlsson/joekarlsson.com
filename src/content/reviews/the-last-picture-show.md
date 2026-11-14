@@ -5,6 +5,20 @@ date: 2020-01-04
 rating: 4
 director: 'Peter Bogdanovich'
 genres: ['Drama', 'Romance']
+runtime: 119
+cast:
+  [
+    'Timothy Bottoms',
+    'Cybill Shepherd',
+    'Jeff Bridges',
+    'Cloris Leachman',
+    'Ellen Burstyn',
+    'Ben Johnson',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['BBS Productions', 'Columbia Pictures']
+letterboxdAverage: 4.2
 slug: 'the-last-picture-show'
 description: 'Proto American Pie teen flick'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-picture-show/'

@@ -5,6 +5,20 @@ date: 2025-03-14
 rating: 3.5
 director: 'Danny Boyle'
 genres: ['Science Fiction', 'Thriller']
+runtime: 108
+cast:
+  [
+    'Cillian Murphy',
+    'Rose Byrne',
+    'Chris Evans',
+    'Michelle Yeoh',
+    'Cliff Curtis',
+    'Hiroyuki Sanada',
+  ]
+countries: ['UK']
+language: 'English'
+studios: ['Ingenious Media', 'Moving Picture Company', 'UK Film Council', 'DNA Films']
+letterboxdAverage: 3.73
 slug: 'sunshine-2007'
 description: 'I think this is a desperately underrated modern sci-fi movie. I think the first two acts of this film are perfect, and the third act gets a little messy, but...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sunshine-2007/'

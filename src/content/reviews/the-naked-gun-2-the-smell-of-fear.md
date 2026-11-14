@@ -5,6 +5,20 @@ date: 2025-08-27
 rating: 3
 director: 'David Zucker'
 genres: ['Crime', 'Comedy']
+runtime: 85
+cast:
+  [
+    'Leslie Nielsen',
+    'Priscilla Presley',
+    'George Kennedy',
+    'O. J. Simpson',
+    'Robert Goulet',
+    'Richard Griffiths',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures']
+letterboxdAverage: 3.42
 slug: 'the-naked-gun-2-the-smell-of-fear'
 description: 'Not as funny as the first one. But dumb and fun as hell'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-naked-gun-2-the-smell-of-fear/'

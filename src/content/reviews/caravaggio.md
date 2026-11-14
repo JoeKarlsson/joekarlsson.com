@@ -5,6 +5,13 @@ date: 2026-08-17
 rating: 3.5
 director: 'Derek Jarman'
 genres: ['History', 'Romance', 'Drama']
+runtime: 93
+cast:
+  ['Nigel Terry', 'Sean Bean', 'Garry Cooper', 'Dexter Fletcher', 'Spencer Leigh', 'Tilda Swinton']
+countries: ['UK']
+language: 'English'
+studios: ['BFI', 'Channel 4 Television']
+letterboxdAverage: 3.54
 slug: 'caravaggio'
 description: 'This is what a biopic should be: not the facts of a life but the fever of one.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/caravaggio/'

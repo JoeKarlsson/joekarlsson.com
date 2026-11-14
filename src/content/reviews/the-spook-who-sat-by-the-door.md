@@ -5,6 +5,12 @@ date: 2025-09-28
 rating: 4
 director: 'Ivan Dixon'
 genres: ['Drama', 'Crime', 'War', 'Action']
+runtime: 102
+cast: ['Lawrence Cook', 'Janet League', 'Paula Kelly', 'J.A. Preston', 'Paul Butler', 'Don Blakely']
+countries: ['USA']
+language: 'English'
+studios: ['Bokari']
+letterboxdAverage: 3.99
 slug: 'the-spook-who-sat-by-the-door'
 description: "Watched this as prep for One Battle After Another and haven't gotten there yet, but The Spook Who Sat by the Door got me completely energized. It's..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-spook-who-sat-by-the-door/'

@@ -5,6 +5,20 @@ date: 2025-12-10
 rating: 4
 director: 'Mary Bronstein'
 genres: ['Drama']
+runtime: 113
+cast:
+  [
+    'Rose Byrne',
+    "Conan O'Brien",
+    'A$AP Rocky',
+    'Danielle Macdonald',
+    'Delaney Quinn',
+    'Mary Bronstein',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['A24', 'Central Pictures', 'Fat City', 'Bronxburgh']
+letterboxdAverage: 3.65
 slug: 'if-i-had-legs-id-kick-you'
 description: 'I want to see the BTS with that hamster puppet so bad.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/if-i-had-legs-id-kick-you/'

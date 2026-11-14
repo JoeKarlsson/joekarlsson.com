@@ -5,6 +5,30 @@ date: 2025-09-30
 rating: 2.5
 director: 'Joji Shimura'
 genres: ['Animation', 'Drama', 'Family']
+runtime: 87
+cast:
+  [
+    'Yui Horie',
+    'Misato Fukuen',
+    'Fumiko Orikasa',
+    'Yu Kobayashi',
+    'Takatoshi Kaneko',
+    'Masaki Terasoma',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios:
+  [
+    'TOHO',
+    'VAP',
+    'Nintendo',
+    'Dragon Production',
+    'Studio Cockpit',
+    'The Answerstudio',
+    'OLM',
+    'Nippon Television Network Corporation',
+  ]
+letterboxdAverage: 3.63
 slug: 'animal-crossing-the-movie'
 description: 'How did I not know this movie existed, even at the peak of my Animal Crossing New Horizons obsession? The 2006 Animal Crossing film is beautifully animated...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/animal-crossing-the-movie/'

@@ -5,6 +5,20 @@ date: 2026-10-20
 rating: 3
 director: 'Casper Kelly'
 genres: ['Comedy', 'Fantasy', 'Horror']
+runtime: 96
+cast:
+  [
+    'Keegan-Michael Key',
+    'Delaney Quinn',
+    'Tristan Borders',
+    'Madison Polan',
+    'Caleb Williams',
+    'Cristin Milioti',
+  ]
+countries: ['USA', 'Israel']
+language: 'English'
+studios: ['BoulderLight Pictures', 'Low Spark Films', 'SIPUR', 'Substance']
+letterboxdAverage: 3.08
 slug: 'buddy-2026'
 description: 'Buddy says the creepy part about Barney out loud.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/buddy-2026/'

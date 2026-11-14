@@ -5,6 +5,12 @@ date: 2026-06-24
 rating: 3.5
 director: 'Peter Greenaway'
 genres: ['Romance', 'Drama']
+runtime: 126
+cast: ['Vivian Wu', 'Yoshi Oida', 'Ken Ogata', 'Hideko Yoshida', 'Ewan McGregor', 'Yutaka Honda']
+countries: ['France', 'UK', 'Luxembourg']
+language: 'English'
+studios: ['Alpha Films', 'Le Studio Canal+', 'Channel Four Films', 'Delux Productions']
+letterboxdAverage: 3.51
 slug: 'the-pillow-book'
 description: 'Never thought calligraphy could be erotic. I WAS WRONG.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-pillow-book/'

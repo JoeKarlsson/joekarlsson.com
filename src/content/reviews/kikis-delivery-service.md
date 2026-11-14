@@ -5,6 +5,21 @@ date: 2025-03-07
 rating: 5
 director: 'Hayao Miyazaki'
 genres: ['Fantasy', 'Animation', 'Family']
+runtime: 103
+cast:
+  [
+    'Minami Takayama',
+    'Rei Sakuma',
+    'Kappei Yamaguchi',
+    'Keiko Toda',
+    'Mieko Nobusawa',
+    'Koichi Miura',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios:
+  ['Studio Ghibli', 'Tokuma Shoten', 'Nippon Television Network Corporation', 'Yamato Transport']
+letterboxdAverage: 4.15
 slug: 'kikis-delivery-service'
 description: 'I don’t think this is the best Miyazaki film, but it is my favorite Miyazaki film.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kikis-delivery-service/'

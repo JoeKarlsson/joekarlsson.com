@@ -6,6 +6,20 @@ rating: 4
 rewatch: true
 director: 'Lynne Ramsay'
 genres: ['Drama', 'Thriller', 'Crime']
+runtime: 89
+cast:
+  [
+    'Joaquin Phoenix',
+    'Judith Roberts',
+    'Ekaterina Samsonov',
+    'John Doman',
+    'Alex Manette',
+    'Dante Pereira-Olson',
+  ]
+countries: ['UK', 'France']
+language: 'English'
+studios: ['Why Not Productions', 'Film4 Productions', 'Sixteen Films']
+letterboxdAverage: 3.67
 slug: 'you-were-never-really-here'
 description: 'Watching this after the Epstein files hit different.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/you-were-never-really-here/'

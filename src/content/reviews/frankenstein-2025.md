@@ -5,6 +5,13 @@ date: 2025-11-07
 rating: 4
 director: 'Guillermo del Toro'
 genres: ['Fantasy', 'Drama', 'Horror', 'Science Fiction']
+runtime: 150
+cast:
+  ['Oscar Isaac', 'Jacob Elordi', 'Christoph Waltz', 'Mia Goth', 'Felix Kammerer', 'Charles Dance']
+countries: ['USA', 'Canada']
+language: 'English'
+studios: ['Double Dare You', 'De Milo', 'Bluegrass 7']
+letterboxdAverage: 3.83
 slug: 'frankenstein-2025'
 description: "The least subtle screenplay ever made, but the production design goes so hard I don't even care."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/frankenstein-2025/'

@@ -5,6 +5,20 @@ date: 2025-10-11
 rating: 4
 director: 'James Whale'
 genres: ['Science Fiction', 'Horror']
+runtime: 71
+cast:
+  [
+    'Claude Rains',
+    'Gloria Stuart',
+    'William Harrigan',
+    'Henry Travers',
+    "Una O'Connor",
+    'Forrester Harvey',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures']
+letterboxdAverage: 3.88
 slug: 'the-invisible-man'
 description: 'The central question of The Invisible Man is: what would you do if you had the power of invisibility? And more specifically, what would a man do with that...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-invisible-man/'

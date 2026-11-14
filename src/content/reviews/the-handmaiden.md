@@ -5,6 +5,12 @@ date: 2026-06-24
 rating: 5
 director: 'Park Chan-wook'
 genres: ['Thriller', 'Romance', 'Drama']
+runtime: 145
+cast: ['Kim Min-hee', 'Kim Tae-ri', 'Ha Jung-woo', 'Cho Jin-woong', 'Kim Hae-sook', 'Moon So-ri']
+countries: ['South Korea']
+language: 'Korean'
+studios: ['Moho Film', 'Yong Film', 'CJ Entertainment']
+letterboxdAverage: 4.39
 slug: 'the-handmaiden'
 description: 'Hollywood stopped making erotic thrillers. Thank god Korea didn’t.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-handmaiden/'

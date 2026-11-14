@@ -5,6 +5,20 @@ date: 2026-05-17
 rating: 3.5
 director: 'Daniel Goldhaber'
 genres: ['Crime', 'Horror']
+runtime: 97
+cast:
+  [
+    'Barbie Ferreira',
+    'Dacre Montgomery',
+    'Josie Totah',
+    'Aaron Holliday',
+    'Kurt Yue',
+    'Jermaine Fowler',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Legendary Pictures', 'Angry Films', 'Divide / Conquer']
+letterboxdAverage: 2.87
 slug: 'faces-of-death-2026'
 description: 'Silence of the Lambs but for Kick streamers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/faces-of-death-2026/'

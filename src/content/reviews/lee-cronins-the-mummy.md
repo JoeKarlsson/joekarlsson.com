@@ -5,6 +5,20 @@ date: 2026-05-24
 rating: 2
 director: 'Lee Cronin'
 genres: ['Horror', 'Mystery']
+runtime: 133
+cast: ['Jack Reynor', 'Laia Costa', 'May Calamawy', 'Natalie Grace', 'Shylo Molina', 'Billie Roy']
+countries: ['USA', 'Ireland']
+language: 'English'
+studios:
+  [
+    'Atomic Monster',
+    'Blumhouse Productions',
+    'New Line Cinema',
+    'Domain Entertainment',
+    'Wicked/Good',
+    'Wild Atlantic Pictures',
+  ]
+letterboxdAverage: 2.63
 slug: 'lee-cronins-the-mummy'
 description: "This movie was bad. But it wasn't as bad as I was braced for."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/lee-cronins-the-mummy/'

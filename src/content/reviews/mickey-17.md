@@ -5,6 +5,27 @@ date: 2025-04-10
 rating: 2.5
 director: 'Bong Joon Ho'
 genres: ['Comedy', 'Adventure', 'Science Fiction']
+runtime: 137
+cast:
+  [
+    'Robert Pattinson',
+    'Naomi Ackie',
+    'Steven Yeun',
+    'Mark Ruffalo',
+    'Toni Collette',
+    'Anamaria Vartolomei',
+  ]
+countries: ['USA', 'UK']
+language: 'English'
+studios:
+  [
+    'Plan B Entertainment',
+    'Offscreen',
+    'Kate Street Picture Company',
+    'Domain Entertainment',
+    'Warner Bros. Pictures',
+  ]
+letterboxdAverage: 3.56
 slug: 'mickey-17'
 description: 'I was scared that this was gonna be too depressing, but it was both way funnier than I expected it to be and had a really warm ending.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mickey-17/'

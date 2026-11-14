@@ -5,6 +5,20 @@ date: 2026-10-24
 rating: 3.5
 director: 'Martin Scorsese'
 genres: ['Drama', 'Thriller', 'Crime']
+runtime: 128
+cast:
+  [
+    'Nick Nolte',
+    'Robert De Niro',
+    'Jessica Lange',
+    'Juliette Lewis',
+    'Joe Don Baker',
+    'Robert Mitchum',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Amblin Entertainment', 'Cappa Productions', 'Tribeca Productions', 'Universal Pictures']
+letterboxdAverage: 3.72
 slug: 'cape-fear-1991'
 description: 'Max Cady cackling through Problem Child with a lit cigar is the worst movie date ever filmed.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cape-fear-1991/'

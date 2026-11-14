@@ -5,6 +5,20 @@ date: 2025-10-03
 rating: 4
 director: 'Simon West'
 genres: ['Action', 'Crime', 'Thriller']
+runtime: 116
+cast:
+  [
+    'Nicolas Cage',
+    'John Cusack',
+    'John Malkovich',
+    'Ving Rhames',
+    'Mykelti Williamson',
+    'Dave Chappelle',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Touchstone Pictures', 'Jerry Bruckheimer Films']
+letterboxdAverage: 3.47
 slug: 'con-air'
 description: "I've been on an absolute Jerry Bruckheimer tear the last couple weeks, and after binging his entire catalog consecutively, the formula is crystal clear: you..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/con-air/'

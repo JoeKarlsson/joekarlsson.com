@@ -5,6 +5,20 @@ date: 2025-09-06
 rating: 3
 director: 'Alex Garland'
 genres: ['War', 'Drama', 'Action']
+runtime: 109
+cast:
+  [
+    'Kirsten Dunst',
+    'Wagner Moura',
+    'Cailee Spaeny',
+    'Stephen McKinley Henderson',
+    'Nelson Lee',
+    'Nick Offerman',
+  ]
+countries: ['Finland', 'UK', 'USA']
+language: 'English'
+studios: ['DNA Films', 'IPR.VC', 'A24']
+letterboxdAverage: 3.56
 slug: 'civil-war-2024'
 description: 'Loved seeing Priscilla meet Jesse Plemons'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/civil-war-2024/'

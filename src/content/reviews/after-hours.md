@@ -5,6 +5,20 @@ date: 2026-09-28
 rating: 4
 director: 'Martin Scorsese'
 genres: ['Thriller', 'Comedy', 'Drama']
+runtime: 97
+cast:
+  [
+    'Griffin Dunne',
+    'Rosanna Arquette',
+    'Verna Bloom',
+    'Tommy Chong',
+    'Linda Fiorentino',
+    'Teri Garr',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Double Play', 'Geffen Pictures']
+letterboxdAverage: 4.13
 slug: 'after-hours'
 description: 'The horniest movie Scorsese ever made is also the one where nobody gets to have sex.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/after-hours/'

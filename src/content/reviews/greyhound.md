@@ -5,6 +5,22 @@ date: 2025-11-19
 rating: 3.5
 director: 'Aaron Schneider'
 genres: ['Drama', 'Action', 'War']
+runtime: 92
+cast:
+  ['Tom Hanks', 'Stephen Graham', 'Rob Morgan', 'Josh Wiggins', 'Tom Brittney', 'Elisabeth Shue']
+countries: ['Canada', 'China', 'USA']
+language: 'English'
+studios:
+  [
+    'Playtone',
+    'Bron Studios',
+    'FilmNation Entertainment',
+    'Sycamore Pictures',
+    'Zhengfu Pictures',
+    'Sony Pictures',
+    'Stage 6 Films',
+  ]
+letterboxdAverage: 3.24
 slug: 'greyhound'
 description: "Here's the text I sent my Dad about this movie - I hope this counts as a review:"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/greyhound/'

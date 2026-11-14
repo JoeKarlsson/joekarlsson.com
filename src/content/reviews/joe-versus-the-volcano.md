@@ -5,6 +5,12 @@ date: 2026-02-01
 rating: 3
 director: 'John Patrick Shanley'
 genres: ['Comedy', 'Adventure', 'Romance']
+runtime: 102
+cast: ['Tom Hanks', 'Meg Ryan', 'Lloyd Bridges', 'Dan Hedaya', 'Ossie Davis', 'Barry McGovern']
+countries: ['USA']
+language: 'English'
+studios: ['Amblin Entertainment', 'Warner Bros. Pictures']
+letterboxdAverage: 3.17
 slug: 'joe-versus-the-volcano'
 description: "It's a throwback 40s rom-com. It's also deeply weird."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/joe-versus-the-volcano/'

@@ -5,6 +5,12 @@ date: 2026-04-26
 rating: 3.5
 director: 'Joseph Kahn'
 genres: ['Action', 'Crime', 'Comedy']
+runtime: 84
+cast: ['Martin Henderson', 'Ice Cube', 'Monet Mazur', 'Adam Scott', 'Matt Schulze', 'Will Yun Lee']
+countries: ['Australia', 'USA']
+language: 'English'
+studios: ['Original Film', 'Village Roadshow Pictures', 'Warner Bros. Pictures']
+letterboxdAverage: 2.54
 slug: 'torque'
 description: 'Wild that this movie dunks on Fast and Furious while being the same thing but with motorcycles. I wanted to absolutely love this movie. It kind of worked for...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/torque/'

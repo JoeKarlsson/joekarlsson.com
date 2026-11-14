@@ -5,6 +5,12 @@ date: 2026-05-08
 rating: 4
 director: 'Hal Needham'
 genres: ['Adventure', 'Action', 'Comedy']
+runtime: 96
+cast: ['Burt Reynolds', 'Sally Field', 'Jerry Reed', 'Mike Henry', 'Paul Williams', 'Pat McCormick']
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures']
+letterboxdAverage: 3.67
 slug: 'smokey-and-the-bandit'
 description: "The Muppet Movie, except they're running Coors."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/smokey-and-the-bandit/'

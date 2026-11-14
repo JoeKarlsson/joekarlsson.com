@@ -5,6 +5,20 @@ date: 2026-04-01
 rating: 4
 director: 'Vincent Gallo'
 genres: ['Drama', 'Comedy', 'Romance']
+runtime: 110
+cast:
+  [
+    'Vincent Gallo',
+    'Christina Ricci',
+    'Ben Gazzara',
+    'Anjelica Huston',
+    'Mickey Rourke',
+    'Rosanna Arquette',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Gray Daisy Films', 'Muse Productions']
+letterboxdAverage: 3.75
 slug: 'buffalo-66'
 description: "He's self-aware enough to write this character. Not self-aware enough to not become him."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/buffalo-66/'

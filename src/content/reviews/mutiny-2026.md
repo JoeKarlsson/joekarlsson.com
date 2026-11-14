@@ -5,6 +5,20 @@ date: 2026-11-04
 rating: 2
 director: 'Jean-François Richet'
 genres: ['Action', 'Thriller']
+runtime: 96
+cast:
+  [
+    'Jason Statham',
+    'Annabelle Wallis',
+    'Roland Møller',
+    'Ramon Tikaram',
+    'Arnas Fedaravičius',
+    'Jason Wong',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['Punch Palace Productions', 'MadRiver Pictures']
+letterboxdAverage: 2.54
 slug: 'mutiny-2026'
 description: "Mutiny is Under Siege with somehow more boring, worse writing, and it's uglier to look at."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mutiny-2026/'

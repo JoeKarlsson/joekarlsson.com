@@ -5,6 +5,12 @@ date: 2025-12-08
 rating: 4
 director: 'John Hughes'
 genres: ['Comedy']
+runtime: 92
+cast: ['Steve Martin', 'John Candy', 'Laila Robins', 'Michael McKean', 'Dylan Baker', 'Kevin Bacon']
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures', 'Hughes Entertainment']
+letterboxdAverage: 3.78
 slug: 'planes-trains-and-automobiles'
 description: 'A screwball comedy with heart. John Candy is a treasure in this - warm, funny, and quietly devastating. Steve Martin plays exasperation perfectly, but Candy...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/planes-trains-and-automobiles/'

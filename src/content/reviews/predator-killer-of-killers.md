@@ -5,6 +5,26 @@ date: 2025-11-14
 rating: 3.5
 director: 'Dan Trachtenberg'
 genres: ['Science Fiction', 'Thriller', 'Action', 'Animation']
+runtime: 85
+cast:
+  [
+    'Lindsay LaVanchy',
+    'Louis Ozawa',
+    'Rick Gonzalez',
+    'Michael Biehn',
+    'Doug Cockle',
+    'Damien C. Haas',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    '20th Century Studios',
+    'Davis Entertainment',
+    'Lawrence Gordon Productions',
+    'Toberoff Productions',
+  ]
+letterboxdAverage: 3.75
 slug: 'predator-killer-of-killers'
 description: "I just love how low stakes the Predator franchise has become and the loosey goosey freedom Trachtenberg's been able to get with this franchise."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/predator-killer-of-killers/'

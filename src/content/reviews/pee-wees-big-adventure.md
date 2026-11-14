@@ -6,6 +6,13 @@ rating: 4.5
 rewatch: true
 director: 'Tim Burton'
 genres: ['Adventure', 'Family', 'Comedy']
+runtime: 91
+cast:
+  ['Paul Reubens', 'E. G. Daily', 'Mark Holton', 'Diane Salinger', 'Judd Omen', 'Irving Hellman']
+countries: ['USA']
+language: 'English'
+studios: ['Aspen Film Society', 'Warner Bros. Pictures']
+letterboxdAverage: 3.48
 slug: 'pee-wees-big-adventure'
 description: "Pee-wee's Big Adventure understands something fundamental: if you commit to the bit hard enough, anything works."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/pee-wees-big-adventure/'

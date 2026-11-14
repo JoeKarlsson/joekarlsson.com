@@ -5,6 +5,12 @@ date: 2026-10-02
 rating: 3
 director: 'Martin Scorsese'
 genres: ['Drama']
+runtime: 164
+cast: ['Willem Dafoe', 'Harvey Keitel', 'Paul Greco', 'Steve Shill', 'David Bowie', 'Verna Bloom']
+countries: ['USA', 'Canada']
+language: 'English'
+studios: ['Universal Pictures', 'Cineplex-Odeon Films', 'Testament Productions']
+letterboxdAverage: 3.92
 slug: 'the-last-temptation-of-christ'
 description: 'The scandal of The Last Temptation of Christ is that it takes the creed at its word: fully God, and also fully a man.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-temptation-of-christ/'

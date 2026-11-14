@@ -5,6 +5,13 @@ date: 2026-02-19
 rating: 3.5
 director: 'Rodman Flender'
 genres: ['Comedy', 'Horror', 'Fantasy']
+runtime: 92
+cast:
+  ['Devon Sawa', 'Seth Green', 'Elden Henson', 'Jessica Alba', 'Vivica A. Fox', 'Jack Noseworthy']
+countries: ['USA']
+language: 'English'
+studios: ['Licht/Mueller Film Corporation', 'Team Todd', 'Columbia Pictures', 'TriStar Pictures']
+letterboxdAverage: 3.24
 slug: 'idle-hands'
 description: "If Dude Where's My Car and Evil Dead 2 had a baby. This might be the most 90s movie ever made."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/idle-hands/'

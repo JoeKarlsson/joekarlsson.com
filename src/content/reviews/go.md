@@ -5,6 +5,13 @@ date: 2026-06-11
 rating: 3.5
 director: 'Doug Liman'
 genres: ['Comedy', 'Crime', 'Thriller']
+runtime: 102
+cast:
+  ['Sarah Polley', 'Timothy Olyphant', 'Katie Holmes', 'Desmond Askew', 'Jay Mohr', 'Scott Wolf']
+countries: ['USA']
+language: 'English'
+studios: ['Banner Entertainment', 'Saratoga Entertainment']
+letterboxdAverage: 3.72
 slug: 'go'
 description: "A fun, flashy 90s homage to Tarantino's aesthetic that succeeds more in style than substance."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/go/'

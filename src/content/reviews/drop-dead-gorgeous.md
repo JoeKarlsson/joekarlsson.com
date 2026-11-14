@@ -5,6 +5,20 @@ date: 2025-04-01
 rating: 4
 director: 'Michael Patrick Jann'
 genres: ['Comedy']
+runtime: 98
+cast:
+  [
+    'Kirsten Dunst',
+    'Ellen Barkin',
+    'Denise Richards',
+    'Kirstie Alley',
+    'Allison Janney',
+    'Sam McMurray',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Capella International', 'KC Medien AG']
+letterboxdAverage: 3.88
 slug: 'drop-dead-gorgeous'
 description: 'As a Minnesotan, it’s actually illegal not to love this movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/drop-dead-gorgeous/'

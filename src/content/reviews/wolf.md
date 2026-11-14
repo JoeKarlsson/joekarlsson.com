@@ -5,6 +5,20 @@ date: 2026-10-26
 rating: 2
 director: 'Mike Nichols'
 genres: ['Drama', 'Romance', 'Horror']
+runtime: 125
+cast:
+  [
+    'Jack Nicholson',
+    'Michelle Pfeiffer',
+    'James Spader',
+    'Kate Nelligan',
+    'Richard Jenkins',
+    'Christopher Plummer',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Columbia Pictures', 'Douglas Wick Productions']
+letterboxdAverage: 2.99
 slug: 'wolf'
 description: 'James Spader and Jack Nicholson fight under a full moon in slow motion while Ennio Morricone plays saxophone. Such a wildly unintentionally funny movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wolf/'

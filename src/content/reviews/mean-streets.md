@@ -5,6 +5,20 @@ date: 2026-08-17
 rating: 4.5
 director: 'Martin Scorsese'
 genres: ['Crime', 'Drama']
+runtime: 112
+cast:
+  [
+    'Robert De Niro',
+    'Harvey Keitel',
+    'David Proval',
+    'Amy Robinson',
+    'Richard Romanus',
+    'Cesare Danova',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Taplin-Perry-Scorsese Productions']
+letterboxdAverage: 3.71
 slug: 'mean-streets'
 description: 'Johnny Boy struts into the bar in slow motion and cinema never fully recovers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mean-streets/'

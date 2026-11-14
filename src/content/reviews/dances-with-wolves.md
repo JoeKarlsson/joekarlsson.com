@@ -5,6 +5,20 @@ date: 2025-10-26
 rating: 4
 director: 'Kevin Costner'
 genres: ['Western', 'Drama', 'Adventure']
+runtime: 181
+cast:
+  [
+    'Kevin Costner',
+    'Mary McDonnell',
+    'Graham Greene',
+    'Rodney A. Grant',
+    "Floyd 'Red Crow' Westerman",
+    'Tantoo Cardinal',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['Tig Productions', 'Majestic Films International', 'Allied Filmmakers']
+letterboxdAverage: 3.94
 slug: 'dances-with-wolves'
 description: 'Kevin Costner’s empty-headed monotone reading of the frontier somehow works for me, and I’m as shocked as anyone.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dances-with-wolves/'

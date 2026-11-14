@@ -5,6 +5,27 @@ date: 2025-09-14
 rating: 2.5
 director: 'Paul Thomas Anderson'
 genres: ['Comedy', 'Drama', 'Mystery']
+runtime: 149
+cast:
+  [
+    'Joaquin Phoenix',
+    'Josh Brolin',
+    'Owen Wilson',
+    'Katherine Waterston',
+    'Reese Witherspoon',
+    'Benicio del Toro',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Warner Bros. Pictures',
+    'IAC Films',
+    'JoAnne Sellar Productions',
+    'Ghoulardi Film Company',
+    'RatPac Entertainment',
+  ]
+letterboxdAverage: 3.59
 slug: 'inherent-vice'
 description: 'I think I needed to be more stoned to understand this one.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/inherent-vice/'

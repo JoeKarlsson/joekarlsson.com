@@ -5,6 +5,20 @@ date: 2025-10-06
 rating: 4
 director: 'Mike Flanagan'
 genres: ['Drama', 'Mystery', 'Horror']
+runtime: 448
+cast:
+  [
+    'Hamish Linklater',
+    'Zach Gilford',
+    'Kate Siegel',
+    'Samantha Sloyan',
+    'Rahul Kohli',
+    'Henry Thomas',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Intrepid Pictures']
+letterboxdAverage: 4.08
 slug: 'midnight-mass-2021'
 description: 'This was my first time revisiting Midnight Mass since it dropped in 2021. I initially loved the show and it’s still one of my favorites, but I definitely...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/midnight-mass-2021/'

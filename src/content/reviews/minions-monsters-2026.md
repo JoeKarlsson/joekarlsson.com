@@ -5,6 +5,20 @@ date: 2026-08-25
 rating: 3.5
 director: 'Pierre Coffin'
 genres: ['Adventure', 'Fantasy', 'Family', 'Animation', 'Comedy']
+runtime: 90
+cast:
+  [
+    'Pierre Coffin',
+    'Trey Parker',
+    'Christoph Waltz',
+    'Allison Janney',
+    'Jesse Eisenberg',
+    'Jeff Bridges',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures', 'Illumination']
+letterboxdAverage: 3.19
 slug: 'minions-monsters-2026'
 description: "I hadn't thought about the Minions since high school, and I did not expect them to come back as a silent-comedy history lesson."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/minions-monsters-2026/'

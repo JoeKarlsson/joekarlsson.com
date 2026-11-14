@@ -5,6 +5,20 @@ date: 2025-10-14
 rating: 2.5
 director: 'Joel Coen, Ethan Coen'
 genres: ['Mystery', 'Comedy']
+runtime: 106
+cast:
+  [
+    'Josh Brolin',
+    'George Clooney',
+    'Alden Ehrenreich',
+    'Ralph Fiennes',
+    'Scarlett Johansson',
+    'Tilda Swinton',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['Working Title Films (GB)', 'Mike Zoss Productions', 'Universal Pictures']
+letterboxdAverage: 3.28
 slug: 'hail-caesar-2016'
 description: "First time rewatching Hail, Caesar! since it came out in theaters, and I still don't think I understand what this movie's trying to say."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hail-caesar-2016/'

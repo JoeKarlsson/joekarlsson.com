@@ -5,6 +5,20 @@ date: 2025-11-13
 rating: 3.5
 director: 'Ron Clements, John Musker'
 genres: ['Fantasy', 'Adventure', 'Science Fiction', 'Animation', 'Family']
+runtime: 96
+cast:
+  [
+    'Joseph Gordon-Levitt',
+    'Brian Murray',
+    'Emma Thompson',
+    'David Hyde Pierce',
+    'Martin Short',
+    'Dane A. Davis',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Walt Disney Pictures']
+letterboxdAverage: 3.96
 slug: 'treasure-planet'
 description: 'I still like Titan A.E. more, but Treasure Planet makes me nostalgic for when Disney took wild swings with animated sci-fi.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/treasure-planet/'

@@ -5,6 +5,20 @@ date: 2025-10-12
 rating: 4
 director: 'Joseph Sargent'
 genres: ['Action', 'Thriller', 'Comedy', 'Crime']
+runtime: 105
+cast:
+  [
+    'Walter Matthau',
+    'Robert Shaw',
+    'Martin Balsam',
+    'Héctor Elizondo',
+    'Earl Hindman',
+    'James Broderick',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Palomar Pictures International', 'Palladium Productions']
+letterboxdAverage: 4.07
 slug: 'the-taking-of-pelham-one-two-three'
 description: "I was shocked at how well-paced The Taking of Pelham One Two Three is. But honestly, I shouldn't be surprised - this came on the heels of The French..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-taking-of-pelham-one-two-three/'

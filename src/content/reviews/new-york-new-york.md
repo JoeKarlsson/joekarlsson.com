@@ -5,6 +5,20 @@ date: 2026-08-25
 rating: 3
 director: 'Martin Scorsese'
 genres: ['Drama', 'Music', 'Romance']
+runtime: 163
+cast:
+  [
+    'Liza Minnelli',
+    'Robert De Niro',
+    'Lionel Stander',
+    'Barry Primus',
+    'Mary Kay Place',
+    'George Memmoli',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['United Artists', 'Winkler Films']
+letterboxdAverage: 3.41
 slug: 'new-york-new-york'
 description: "A gorgeous musical that's secretly a horror movie about a monster, and Scorsese has the nerve to stage all of it in blinding Technicolor daylight."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/new-york-new-york/'

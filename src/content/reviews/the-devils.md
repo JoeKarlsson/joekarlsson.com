@@ -5,6 +5,13 @@ date: 2026-10-18
 rating: 4.5
 director: 'Ken Russell'
 genres: ['Drama', 'History', 'Horror']
+runtime: 112
+cast:
+  ['Vanessa Redgrave', 'Oliver Reed', 'Dudley Sutton', 'Max Adrian', 'Gemma Jones', 'Murray Melvin']
+countries: ['UK']
+language: 'English'
+studios: ['Russo Productions']
+letterboxdAverage: 4.28
 slug: 'the-devils'
 description: 'I love that the nuns of Loudun need about four seconds of encouragement to go completely feral.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-devils/'

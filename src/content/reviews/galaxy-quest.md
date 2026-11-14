@@ -5,6 +5,20 @@ date: 2025-03-24
 rating: 4
 director: 'Dean Parisot'
 genres: ['Comedy', 'Science Fiction', 'Adventure']
+runtime: 102
+cast:
+  [
+    'Tim Allen',
+    'Sigourney Weaver',
+    'Alan Rickman',
+    'Tony Shalhoub',
+    'Sam Rockwell',
+    'Daryl Mitchell',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['DreamWorks Pictures', 'Gran Via Productions']
+letterboxdAverage: 3.73
 slug: 'galaxy-quest'
 description: 'Is this my favorite Star Trek movie? First contact might still be my number one. However, this one’s so much fun. I’ve probably seen it five times now, and...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/galaxy-quest/'

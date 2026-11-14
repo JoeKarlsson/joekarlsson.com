@@ -5,6 +5,20 @@ date: 2025-10-20
 rating: 2
 director: 'Mel Gibson'
 genres: ['History', 'Drama', 'War']
+runtime: 178
+cast:
+  [
+    'Mel Gibson',
+    'Catherine McCormack',
+    'Sophie Marceau',
+    'Patrick McGoohan',
+    'Angus Macfadyen',
+    'Brendan Gleeson',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['The Ladd Company', 'Icon Productions']
+letterboxdAverage: 3.94
 slug: 'braveheart'
 description: "I thought Braveheart was stupid and bad, packed with so many things I hate about films.It's overly violent and overly masculine in the worst possible ways..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/braveheart/'

@@ -6,6 +6,12 @@ rating: 5
 rewatch: true
 director: 'John Lasseter'
 genres: ['Comedy', 'Family', 'Animation']
+runtime: 92
+cast: ['Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Kelsey Grammer', 'Don Rickles', 'Jim Varney']
+countries: ['USA']
+language: 'English'
+studios: ['Pixar']
+letterboxdAverage: 3.94
 slug: 'toy-story-2'
 description: 'A classic kids movie about obsolescence, abandonment, and mortality.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/toy-story-2/'

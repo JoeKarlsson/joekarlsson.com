@@ -5,6 +5,20 @@ date: 2025-12-14
 rating: 4.5
 director: 'Mamoru Oshii'
 genres: ['Animation', 'Action', 'Science Fiction']
+runtime: 83
+cast:
+  [
+    'Atsuko Tanaka',
+    'Akio Otsuka',
+    'Koichi Yamadera',
+    'Yutaka Nakano',
+    'Iemasa Kayumi',
+    'Tamio Ohki',
+  ]
+countries: ['Japan', 'UK']
+language: 'Japanese'
+studios: ['Bandai Visual', 'Production I.G', 'Kodansha', 'Manga Entertainment']
+letterboxdAverage: 4.09
 slug: 'ghost-in-the-shell'
 description: "A cyberpunk hellscape that felt like fiction. Now it's just news."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ghost-in-the-shell/'

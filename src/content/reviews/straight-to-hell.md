@@ -5,6 +5,20 @@ date: 2026-06-09
 rating: 2.5
 director: 'Alex Cox'
 genres: ['Action', 'Comedy', 'Crime', 'Western']
+runtime: 86
+cast:
+  [
+    'Dick Rude',
+    'Sy Richardson',
+    'Courtney Love',
+    'Joe Strummer',
+    'Jennifer Balgobin',
+    'Miguel Sandoval',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['Island Pictures', 'Collateral Image', 'Initial Pictures', 'Helltown']
+letterboxdAverage: 3.1
 slug: 'straight-to-hell'
 description: 'The Quick and the Dead did this so much better.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/straight-to-hell/'

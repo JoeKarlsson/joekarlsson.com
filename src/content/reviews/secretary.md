@@ -6,6 +6,20 @@ rating: 3.5
 rewatch: true
 director: 'Steven Shainberg'
 genres: ['Comedy', 'Drama', 'Romance']
+runtime: 111
+cast:
+  [
+    'James Spader',
+    'Maggie Gyllenhaal',
+    'Jeremy Davies',
+    'Lesley Ann Warren',
+    'Stephen McHattie',
+    'Patrick Bauchau',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Slough Pond', 'double A Films', 'TwoPoundBag Productions']
+letterboxdAverage: 3.58
 slug: 'secretary'
 description: 'I’d let James Spader spank me….'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/secretary/'

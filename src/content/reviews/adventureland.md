@@ -6,6 +6,20 @@ rating: 3.5
 rewatch: true
 director: 'Greg Mottola'
 genres: ['Romance', 'Comedy', 'Drama']
+runtime: 107
+cast:
+  [
+    'Jesse Eisenberg',
+    'Kristen Stewart',
+    'Martin Starr',
+    'Kristen Wiig',
+    'Bill Hader',
+    'Margarita Levieva',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Miramax', 'This is that', 'Sidney Kimmel Entertainment']
+letterboxdAverage: 3.32
 slug: 'adventureland'
 description: "This might be Ryan Reynolds' best performance and I will die on this hill."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/adventureland/'

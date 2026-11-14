@@ -5,6 +5,12 @@ date: 2020-01-07
 rating: 4
 director: 'Don Hertzfeldt'
 genres: ['Drama', 'Animation', 'Science Fiction']
+runtime: 17
+cast: ['Julia Pott', 'Winona Mae', 'Sara Cushman']
+countries: ['USA']
+language: 'English'
+studios: ['Bitter Films']
+letterboxdAverage: 4.32
 slug: 'world-of-tomorrow'
 description: 'Fun lil short film. I was surprised this artist has such a well regarded film out there. Sad and true. It manages to tell the story of everything in about 16...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/world-of-tomorrow/'

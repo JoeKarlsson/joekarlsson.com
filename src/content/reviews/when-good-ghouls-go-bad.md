@@ -5,6 +5,26 @@ date: 2025-10-24
 rating: 3
 director: 'Patrick Read Johnson'
 genres: ['Horror', 'TV Movie', 'Family', 'Comedy']
+runtime: 93
+cast:
+  [
+    'Christopher Lloyd',
+    'Joe Pichler',
+    'Tom Amandes',
+    'Roy Billing',
+    'Brittany Byrnes',
+    'Imelda Corcoran',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    '20th Century Fox Television',
+    'Fox Television Studios',
+    'Moonwatcher Inc.',
+    'Parachute Entertainment',
+  ]
+letterboxdAverage: 3.32
 slug: 'when-good-ghouls-go-bad'
 description: 'This was a surprisingly tight, well-paced, well-executed TV movie and one of my favorite cozy Halloween watches of the year.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/when-good-ghouls-go-bad/'

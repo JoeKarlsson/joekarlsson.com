@@ -5,6 +5,20 @@ date: 2026-09-28
 rating: 3.5
 director: 'David Robert Mitchell'
 genres: ['Mystery', 'Thriller', 'Science Fiction']
+runtime: 100
+cast:
+  [
+    'Anne Hathaway',
+    'Ewan McGregor',
+    'Maisy Stella',
+    'Christian Convery',
+    'Jordan Alexa Davis',
+    'P.J. Byrne',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Warner Bros. Pictures', 'Domain Entertainment', 'Bad Robot', 'Jackson Pictures']
+letterboxdAverage: 2.98
 slug: 'the-end-of-oak-street'
 description: 'David Robert Mitchell went from It Follows to Under the Silver Lake to brontosaurus sex, and honestly, good for him.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-end-of-oak-street/'

@@ -5,6 +5,20 @@ date: 2026-07-28
 rating: 2
 director: 'Craig Gillespie'
 genres: ['Action', 'Science Fiction', 'Adventure']
+runtime: 108
+cast:
+  [
+    'Milly Alcock',
+    'Eve Ridley',
+    'Matthias Schoenaerts',
+    'Jason Momoa',
+    'David Krumholtz',
+    'Emily Beecham',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['DC Studios', 'Troll Court Entertainment', 'The Safran Company', 'Domain Entertainment']
+letterboxdAverage: 2.92
 slug: 'supergirl-2026'
 description: 'Superman made me want to be a better man. Supergirl made me want to leave.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/supergirl-2026/'

@@ -5,6 +5,12 @@ date: 2026-02-19
 rating: 3.5
 director: 'Ben Affleck'
 genres: ['Crime', 'Thriller', 'Drama']
+runtime: 125
+cast: ['Ben Affleck', 'Jeremy Renner', 'Rebecca Hall', 'Jon Hamm', 'Blake Lively', 'George Carroll']
+countries: ['USA']
+language: 'English'
+studios: ['Legendary Pictures', 'GK Films', 'Thunder Road', 'Warner Bros. Pictures']
+letterboxdAverage: 3.67
 slug: 'the-town'
 description: 'Ben Affleck did the Joker bank heist in 2010 and we still let him be Batman.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-town/'

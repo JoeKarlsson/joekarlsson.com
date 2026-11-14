@@ -5,6 +5,20 @@ date: 2024-01-01
 rating: 3.5
 director: 'Alexander Payne'
 genres: ['Drama', 'Comedy']
+runtime: 133
+cast:
+  [
+    'Paul Giamatti',
+    'Dominic Sessa',
+    "Da'Vine Joy Randolph",
+    'Carrie Preston',
+    'Brady Hepner',
+    'Ian Dolley',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Miramax', 'Gran Via Productions']
+letterboxdAverage: 4.27
 slug: 'the-holdovers'
 description: 'I really thought this movie was sweet, and will probably be on my Christmas rewatch list in the near Christmas future. It feels like a spiritual Christmas...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-holdovers/'

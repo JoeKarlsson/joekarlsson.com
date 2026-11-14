@@ -5,6 +5,13 @@ date: 2025-10-24
 rating: 3.5
 director: 'Francis Lawrence'
 genres: ['Horror', 'Science Fiction', 'Thriller']
+runtime: 108
+cast:
+  ['Cooper Hoffman', 'David Jonsson', 'Garrett Wareing', 'Ben Wang', 'Tut Nyuot', 'Charlie Plummer']
+countries: ['USA']
+language: 'English'
+studios: ['Lionsgate', 'Media Capital Technologies', 'Vertigo Entertainment', 'about:blank']
+letterboxdAverage: 3.47
 slug: 'the-long-walk-2025'
 description: 'This has my second favorite sleepwalking scene right behind Stepbrothers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-long-walk-2025/'

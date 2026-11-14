@@ -5,6 +5,13 @@ date: 2026-10-05
 rating: 5
 director: 'Bob Fosse'
 genres: ['Music', 'Drama']
+runtime: 123
+cast:
+  ['Roy Scheider', 'Jessica Lange', 'Ann Reinking', 'Leland Palmer', 'Cliff Gorman', 'Ben Vereen']
+countries: ['USA']
+language: 'English'
+studios: ['Columbia Pictures', '20th Century Fox']
+letterboxdAverage: 4.34
 slug: 'all-that-jazz'
 description: "All That Jazz is an autobiography where the author clearly can't stand the main character."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/all-that-jazz/'

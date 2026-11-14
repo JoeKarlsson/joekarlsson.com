@@ -5,6 +5,14 @@ date: 2025-04-25
 rating: 3
 director: 'James L. Brooks'
 genres: ['Comedy', 'Romance']
+runtime: 133
+cast:
+  ['Holly Hunter', 'William Hurt', 'Albert Brooks', 'Robert Prosky', 'Lois Chiles', 'Joan Cusack']
+countries: ['USA']
+language: 'English'
+studios:
+  ['Amercent Films', 'American Entertainment Partners L.P.', 'Gracie Films', '20th Century Fox']
+letterboxdAverage: 4.03
 slug: 'broadcast-news'
 description: "I feel like I'm missing something with this movie. I know it was nominated for Best Picture. I know everyone loves it, but I just couldn't get on the same..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/broadcast-news/'

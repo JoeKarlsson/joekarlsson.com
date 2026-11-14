@@ -5,6 +5,20 @@ date: 2025-09-22
 rating: 2
 director: 'Roger Donaldson'
 genres: ['Horror', 'Action', 'Science Fiction']
+runtime: 108
+cast:
+  [
+    'Natasha Henstridge',
+    'Ben Kingsley',
+    'Michael Madsen',
+    'Marg Helgenberger',
+    'Alfred Molina',
+    'Forest Whitaker',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Metro-Goldwyn-Mayer', 'FGM Entertainment']
+letterboxdAverage: 2.76
 slug: 'species'
 description: 'Okay, so I just watched Species (1995) with my girlfriend, and we had a great time watching this. There’s some wild performances, some very unsexy boobs, and...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/species/'

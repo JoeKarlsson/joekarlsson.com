@@ -5,6 +5,13 @@ date: 2026-01-17
 rating: 4
 director: 'Barry Sonnenfeld'
 genres: ['Crime', 'Thriller', 'Comedy']
+runtime: 105
+cast:
+  ['John Travolta', 'Gene Hackman', 'Rene Russo', 'Danny DeVito', 'Dennis Farina', 'Delroy Lindo']
+countries: ['USA']
+language: 'English'
+studios: ['Metro-Goldwyn-Mayer', 'Jersey Films']
+letterboxdAverage: 3.48
 slug: 'get-shorty'
 description: 'A crime comedy this tight would be a miracle today. In 1995 it was just Tuesday.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/get-shorty/'

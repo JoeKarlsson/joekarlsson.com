@@ -5,6 +5,21 @@ date: 2026-08-02
 rating: 4
 director: 'Gregg Araki'
 genres: ['Drama', 'Comedy', 'Crime']
+runtime: 84
+cast:
+  [
+    'Rose McGowan',
+    'James Duval',
+    'Johnathon Schaech',
+    'Cress Williams',
+    'Dustin Nguyen',
+    'Lauren Tewes',
+  ]
+countries: ['USA', 'France']
+language: 'English'
+studios:
+  ['Blurco', 'The Teen Angst Movie Company', 'Desperate Pictures', 'Why Not Productions', 'UGC']
+letterboxdAverage: 3.8
 slug: 'the-doom-generation'
 description: 'Y Tu Mamá También with neon, road rage, and a body count.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-doom-generation/'

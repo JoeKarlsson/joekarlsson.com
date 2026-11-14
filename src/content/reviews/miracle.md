@@ -5,6 +5,20 @@ date: 2026-02-09
 rating: 3
 director: "Gavin O'Connor"
 genres: ['History', 'Drama']
+runtime: 135
+cast:
+  [
+    'Kurt Russell',
+    'Patricia Clarkson',
+    'Noah Emmerich',
+    'Sean McCann',
+    'Kenneth Welsh',
+    'Eddie Cahill',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Walt Disney Pictures']
+letterboxdAverage: 3.77
 slug: 'miracle'
 description: 'A dumb Disney sports biopic. It still worked.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/miracle/'

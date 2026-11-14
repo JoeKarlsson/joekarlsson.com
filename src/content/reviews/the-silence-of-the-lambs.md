@@ -5,6 +5,13 @@ date: 2025-09-07
 rating: 4.5
 director: 'Jonathan Demme'
 genres: ['Crime', 'Thriller', 'Horror', 'Drama']
+runtime: 119
+cast:
+  ['Jodie Foster', 'Anthony Hopkins', 'Scott Glenn', 'Ted Levine', 'Anthony Heald', 'Brooke Smith']
+countries: ['USA']
+language: 'English'
+studios: ['Orion Pictures', 'Strong Heart', 'A Luta Continua']
+letterboxdAverage: 4.34
 slug: 'the-silence-of-the-lambs'
 description: 'Very good'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-silence-of-the-lambs/'

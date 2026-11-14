@@ -5,6 +5,12 @@ date: 2025-12-29
 rating: 2.5
 director: 'David Seltzer'
 genres: ['Comedy', 'Drama']
+runtime: 123
+cast: ['Sally Field', 'Tom Hanks', 'John Goodman', 'Mark Rydell', 'Kim Greist', 'Paul Mazursky']
+countries: ['USA']
+language: 'English'
+studios: ['Columbia Pictures']
+letterboxdAverage: 3.01
 slug: 'punchline'
 description: 'Sally Field putting together dinner is funnier than every comedy montage in this film combined.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/punchline/'

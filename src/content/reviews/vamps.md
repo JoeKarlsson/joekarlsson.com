@@ -5,6 +5,20 @@ date: 2025-05-16
 rating: 3
 director: 'Amy Heckerling'
 genres: ['Romance', 'Comedy', 'Horror']
+runtime: 93
+cast:
+  [
+    'Alicia Silverstone',
+    'Krysten Ritter',
+    'Dan Stevens',
+    'Richard Lewis',
+    'Wallace Shawn',
+    'Justin Kirk',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Lucky Monkey Pictures', 'Red Hour']
+letterboxdAverage: 3.08
 slug: 'vamps'
 description: 'This cast is stacked. I assume everyone wanted to work with Amy Heckerling??? I do not know what’s going on with the cinematography, but it looks terrible.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/vamps/'

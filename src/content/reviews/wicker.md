@@ -5,6 +5,29 @@ date: 2026-10-30
 rating: 4
 director: 'Eleanor Wilson, Alex Huston Fischer'
 genres: ['Fantasy', 'Comedy', 'Romance']
+runtime: 105
+cast:
+  [
+    'Olivia Colman',
+    'Alexander Skarsgård',
+    'Peter Dinklage',
+    'Elizabeth Debicki',
+    'Marli Siu',
+    'Nabhaan Rizwan',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios:
+  [
+    'Topic Studios',
+    'Tango Entertainment',
+    'South of the River Pictures',
+    'Votiv Films',
+    'Yoki',
+    'Escape Plan',
+    'Lobo Films',
+  ]
+letterboxdAverage: 3.65
 slug: 'wicker'
 description: 'I cried twice at a movie where Olivia Colman marries a basket.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wicker/'

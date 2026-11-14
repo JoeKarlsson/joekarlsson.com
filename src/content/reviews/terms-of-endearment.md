@@ -5,6 +5,20 @@ date: 2025-10-29
 rating: 4
 director: 'James L. Brooks'
 genres: ['Comedy', 'Drama']
+runtime: 132
+cast:
+  [
+    'Shirley MacLaine',
+    'Debra Winger',
+    'Jack Nicholson',
+    'Danny DeVito',
+    'Jeff Daniels',
+    'John Lithgow',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures']
+letterboxdAverage: 3.83
 slug: 'terms-of-endearment'
 description: "I still can't believe this film was the second highest grossing film of 1983, directly behind Return of the Jedi. That's crazy."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/terms-of-endearment/'

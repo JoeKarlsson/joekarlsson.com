@@ -5,6 +5,20 @@ date: 2026-01-22
 rating: 3.5
 director: 'Scott Derrickson'
 genres: ['Horror', 'Thriller']
+runtime: 114
+cast:
+  [
+    'Mason Thames',
+    'Madeleine McGraw',
+    'Ethan Hawke',
+    'Demián Bichir',
+    'Miguel Mora',
+    'Jeremy Davies',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Blumhouse Productions', 'Crooked Highway', 'Universal Pictures']
+letterboxdAverage: 3.05
 slug: 'black-phone-2'
 description: 'Huge respect for a franchise pivoting this hard. Mixed feelings on the execution.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/black-phone-2/'

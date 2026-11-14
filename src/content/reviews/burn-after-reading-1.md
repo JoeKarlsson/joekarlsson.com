@@ -6,6 +6,27 @@ rating: 3
 rewatch: true
 director: 'Ethan Coen, Joel Coen'
 genres: ['Comedy', 'Drama']
+runtime: 96
+cast:
+  [
+    'George Clooney',
+    'Frances McDormand',
+    'Brad Pitt',
+    'John Malkovich',
+    'Tilda Swinton',
+    'Richard Jenkins',
+  ]
+countries: ['USA', 'UK', 'France']
+language: 'English'
+studios:
+  [
+    'Focus Features',
+    'StudioCanal',
+    'Relativity Media',
+    'Working Title Films (GB)',
+    'Mike Zoss Productions',
+  ]
+letterboxdAverage: 3.6
 slug: 'burn-after-reading-1'
 description: 'I saw Burn After Reading in theaters back in 2008 with friends because we were running high off No Country for Old Men. I loved it at the time and have loved...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/burn-after-reading/1/'

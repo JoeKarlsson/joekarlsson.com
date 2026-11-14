@@ -6,6 +6,20 @@ rating: 3.5
 rewatch: true
 director: 'Betty Thomas'
 genres: ['Comedy', 'Family', 'Romance']
+runtime: 89
+cast:
+  [
+    'Shelley Long',
+    'Gary Cole',
+    'Christine Taylor',
+    'Christopher Daniel Barnes',
+    'Jennifer Elise Cox',
+    'Paul Sutera',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures', 'Sherwood Schwartz Productions', 'The Ladd Company']
+letterboxdAverage: 3.33
 slug: 'the-brady-bunch-movie'
 description: 'Peak 90s irony.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-brady-bunch-movie/'

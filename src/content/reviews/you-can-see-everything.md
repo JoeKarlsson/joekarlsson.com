@@ -5,6 +5,20 @@ date: 2026-10-18
 rating: 5
 director: 'Nathan Fielder, Lance Oppenheim'
 genres: ['Documentary']
+runtime: 175
+cast:
+  [
+    'Elizabeth Holmes',
+    'Nathan Fielder',
+    'Billy Evans',
+    'Amanda Seyfried',
+    'Christopher Abbott',
+    'Lance Oppenheim',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Blow Out Productions', 'To Be Formed', 'A24']
+letterboxdAverage: 4.58
 slug: 'you-can-see-everything'
 description: 'Nathan Fielder fans, this is our Super Bowl.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/you-can-see-everything/'

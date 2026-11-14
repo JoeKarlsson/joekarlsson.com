@@ -5,6 +5,20 @@ date: 2025-09-30
 rating: 5
 director: 'Paul Thomas Anderson'
 genres: ['Thriller', 'Comedy', 'Action', 'Crime']
+runtime: 162
+cast:
+  [
+    'Leonardo DiCaprio',
+    'Sean Penn',
+    'Chase Infiniti',
+    'Benicio del Toro',
+    'Regina Hall',
+    'Teyana Taylor',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Warner Bros. Pictures', 'Ghoulardi Film Company', 'Domain Entertainment']
+letterboxdAverage: 4.11
 slug: 'one-battle-after-another'
 description: "I walked into One Battle After Another with astronomical hype - and still left the theater knowing in my gut that I'd just witnessed a five out of five star..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/one-battle-after-another/'

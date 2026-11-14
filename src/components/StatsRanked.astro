@@ -1,0 +1,88 @@
+---
+// A /reviews/stats/ list of genres, countries, people or studios: Most watched, and Highest
+// rated (three films or more), like Letterboxd's toggle. The page ships in its first
+// state (Highest rated `until-found`, so Find in page still reaches it) and
+// review-stats.ts only wires the buttons, so nothing shifts after load. A computed
+// average is a number with one star; a rating I gave is stars, never a number.
+import Scribble from './Scribble.astro';
+import { MARKS } from '../data/scribbles';
+import StatsToggle from './StatsToggle.astro';
+import { GROUP_HEADING, META } from '../utils/ui';
+import { HIGHEST_RATED_MIN } from '../utils/review-stats';
+
+interface Row {
+	name: string;
+	films: unknown[];
+	average: number;
+}
+interface Props {
+	title: string;
+	sub: string;
+	lists: { most: Row[]; highest: Row[] };
+	// Circles the most-watched row with the best average (the Genres list), when its bar
+	// leaves room for the note
+	markHighest?: boolean;
+}
+
+const { title, sub, lists, markHighest = false } = Astro.props;
+const best = markHighest
+	? lists.most.toSorted((a, b) => b.average - a.average)[0]?.name
+	: undefined;
+const views = [
+	{ key: 'most', label: 'Most watched', rows: lists.most },
+	{ key: 'highest', label: 'Highest rated', rows: lists.highest },
+].filter((v) => v.rows.length);
+const max = Math.max(1, ...lists.most.map((r) => r.films.length));
+const films = (n: number) => `${n} ${n === 1 ? 'film' : 'films'}`;
+---
+
+{views.length > 0 && (
+	<section class="relative min-w-0" data-ranked>
+		<h2 class={`${GROUP_HEADING} mb-2`}>{title}</h2>
+		<p class={`${META} mb-4`}>{sub}</p>
+		<StatsToggle labels={views.map((v) => v.label)} />
+		{views.map(({ key, rows }, v) => (
+			<div data-view={key} hidden={v ? 'until-found' : undefined}>
+				<ol role="list">
+					{rows.map(({ name, films: list, average }, i) => (
+						<li class="stats-genre" style={`--i:${i}`} data-build-row>
+							<span>{name}</span>
+							<span class="stats-track" aria-hidden="true">
+								<i style={`width:${(list.length / max) * 100}%`} />
+							</span>
+							<span class="relative">
+								<span class="meta-parts flex justify-end text-muted tabular-nums">
+									<span>{films(list.length)}</span>{' '}
+									<span>
+										<span class="text-pink" aria-hidden="true">
+											★
+										</span>{' '}
+										{Number.isNaN(average) ? '-' : average.toFixed(2)}
+										<span class="sr-only">average</span>
+									</span>
+								</span>
+								{key === 'most' && name === best && list.length / max < 0.6 && (
+									<>
+										<Scribble
+											{...MARKS.oval}
+											color="#ff4fd8"
+											strokeWidth={4}
+											once
+											stretch
+											duration="2.6s"
+											class="stats-note -top-2 -left-3 h-[calc(100%+1rem)] w-[calc(100%+1.5rem)]"
+										/>
+										<span class="stats-note-text stats-note-side" aria-hidden="true">
+											rated highest
+										</span>
+									</>
+								)}
+							</span>
+						</li>
+					))}
+				</ol>
+				{key === 'highest' && <p class={`${META} mt-3`}>{HIGHEST_RATED_MIN} films or more</p>}
+			</div>
+		))}
+	</section>
+)}

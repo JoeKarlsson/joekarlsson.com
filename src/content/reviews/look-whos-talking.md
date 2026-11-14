@@ -5,6 +5,21 @@ date: 2025-05-04
 rating: 3
 director: 'Amy Heckerling'
 genres: ['Romance', 'Comedy']
+runtime: 96
+cast:
+  [
+    'John Travolta',
+    'Kirstie Alley',
+    'Olympia Dukakis',
+    'George Segal',
+    'Abe Vigoda',
+    'Bruce Willis',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  ['Management Company Entertainment Group (MCEG)', 'Hollywood Licensing Group', 'TriStar Pictures']
+letterboxdAverage: 2.97
 slug: 'look-whos-talking'
 description: 'As someone who has seen baby geniuses? I did not know that a talking baby movie could be funny. And I actually laughed'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/look-whos-talking/'

@@ -5,6 +5,27 @@ date: 2025-11-07
 rating: 3.5
 director: 'Dan Trachtenberg'
 genres: ['Science Fiction', 'Action', 'Adventure']
+runtime: 107
+cast:
+  [
+    'Elle Fanning',
+    'Dimitrius Schuster-Koloamatangi',
+    'Ravi Narayan',
+    'Michael Homick',
+    'Stefan Grube',
+    'Reuben De Jong',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    '20th Century Studios',
+    'Lawrence Gordon Productions',
+    'Davis Entertainment',
+    'Toberoff Productions',
+    'TSG Entertainment',
+  ]
+letterboxdAverage: 3.49
 slug: 'predator-badlands'
 description: "Predator: Badlands is a violent 80's throwback dark fantasy PG-13 action movie for Disney adults."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/predator-badlands/'

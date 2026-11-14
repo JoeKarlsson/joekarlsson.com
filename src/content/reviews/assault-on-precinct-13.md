@@ -5,6 +5,20 @@ date: 2025-10-27
 rating: 3.5
 director: 'John Carpenter'
 genres: ['Crime', 'Action', 'Thriller']
+runtime: 91
+cast:
+  [
+    'Austin Stoker',
+    'Darwin Joston',
+    'Laurie Zimmer',
+    'Martin West',
+    'Tony Burton',
+    'Charles Cyphers',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Overseas FilmGroup', 'The CKK Corporation']
+letterboxdAverage: 3.82
 slug: 'assault-on-precinct-13'
 description: 'Do y’all remember in 2020 when the third precinct in Minneapolis burning down was more popular than the president?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/assault-on-precinct-13/'

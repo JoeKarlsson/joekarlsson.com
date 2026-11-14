@@ -5,6 +5,26 @@ date: 2025-10-31
 rating: 2.5
 director: 'Peter Hyams'
 genres: ['Drama', 'Thriller', 'Crime', 'Action']
+runtime: 111
+cast:
+  [
+    'Jean-Claude Van Damme',
+    'Powers Boothe',
+    'Raymond J. Barry',
+    'Whittni Wright',
+    'Ross Malinger',
+    'Dorian Harewood',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Shattered Productions',
+    'Universal Pictures',
+    'Imperial Entertainment',
+    'Signature Entertainment',
+  ]
+letterboxdAverage: 3.08
 slug: 'sudden-death'
 description: 'Jean-Claude Van Damme saves the Stanley Cup Finals from terrorists in the emptiest arena in sports history.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sudden-death/'

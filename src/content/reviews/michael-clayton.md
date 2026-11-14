@@ -5,6 +5,20 @@ date: 2025-11-02
 rating: 5
 director: 'Tony Gilroy'
 genres: ['Crime', 'Drama', 'Thriller']
+runtime: 120
+cast:
+  [
+    'George Clooney',
+    'Tom Wilkinson',
+    'Tilda Swinton',
+    'Sydney Pollack',
+    "Michael O'Keefe",
+    'Ken Howard',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Castle Rock Entertainment', 'Mirage Enterprises', 'Section Eight', 'Samuels Media']
+letterboxdAverage: 3.83
 slug: 'michael-clayton'
 description: 'A film where the villain is just a mid-level executive doing horrible things for quarterly earnings. Finally, accurate representation.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/michael-clayton/'

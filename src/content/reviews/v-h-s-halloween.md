@@ -5,6 +5,29 @@ date: 2025-10-22
 rating: 2
 director: 'Bryan M. Ferguson, Casper Kelly, Micheline Pitt-Norman, R.H. Norman, Alex Ross Perry, Paco Plaza, Anna Zlokovic'
 genres: ['Thriller', 'Horror']
+runtime: 115
+cast:
+  [
+    'Samantha Cochran',
+    'Natalia Montgomery Fernandez',
+    'Elena Musser',
+    'Adam Carr',
+    'Charlotte Mae Curtis',
+    'Charlie Gehrt',
+  ]
+countries: ['USA', 'United Arab Emirates']
+language: 'English'
+studios:
+  [
+    'Shudder',
+    'Cinepocalypse',
+    'Bloody Disgusting',
+    'Studio71',
+    'Image Nation Abu Dhabi',
+    'Spooky Pictures',
+    'Speed Demon Productions',
+  ]
+letterboxdAverage: 2.88
 slug: 'v-h-s-halloween'
 description: 'So this is the eighth installment of the VHS franchise, and of course, with any anthology series, the stories are gonna be hit or miss. This one gave me a...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/v-h-s-halloween/'

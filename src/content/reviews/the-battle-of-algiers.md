@@ -5,6 +5,20 @@ date: 2025-10-20
 rating: 5
 director: 'Gillo Pontecorvo'
 genres: ['History', 'Drama', 'War']
+runtime: 122
+cast:
+  [
+    'Brahim Hadjadj',
+    'Jean Martin',
+    'Yacef Saâdi',
+    'Samia Kerbash',
+    'Ugo Paletti',
+    'Fouzia El Kader',
+  ]
+countries: ['Italy', 'Algeria']
+language: 'Arabic'
+studios: ['Igor Film', 'Casbah Film']
+letterboxdAverage: 4.48
 slug: 'the-battle-of-algiers'
 description: "I've been scared to write this review, and frankly, I'm still processing a lot of my feelings around it."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-battle-of-algiers/'

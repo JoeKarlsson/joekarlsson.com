@@ -5,6 +5,28 @@ date: 2025-11-18
 rating: 3.5
 director: 'Tatsuya Nagamine'
 genres: ['Science Fiction', 'Animation', 'Action']
+runtime: 101
+cast:
+  [
+    'Masako Nozawa',
+    'Aya Hisakawa',
+    'Ryo Horikawa',
+    'Toshio Furukawa',
+    'Takeshi Kusao',
+    'Ryusei Nakao',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios:
+  [
+    'Toei Company',
+    'Shueisha',
+    'Fuji Television Network',
+    'Toei Animation',
+    'Bandai',
+    'Bandai Namco Entertainment',
+  ]
+letterboxdAverage: 3.92
 slug: 'dragon-ball-super-broly'
 description: "Love Vegeta, Goku's a himbo. Freeza is boring. Broly kicks ass. I'm 35 years old."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dragon-ball-super-broly/'

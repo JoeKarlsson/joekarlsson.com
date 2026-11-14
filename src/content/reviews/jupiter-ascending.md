@@ -5,6 +5,26 @@ date: 2025-11-10
 rating: 3
 director: 'Lilly Wachowski, Lana Wachowski'
 genres: ['Science Fiction', 'Action', 'Fantasy']
+runtime: 127
+cast:
+  [
+    'Channing Tatum',
+    'Mila Kunis',
+    'Sean Bean',
+    'Eddie Redmayne',
+    'Douglas Booth',
+    'Tuppence Middleton',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Warner Bros. Pictures',
+    'Village Roadshow Pictures',
+    'RatPac Entertainment',
+    'Anarchos Productions',
+  ]
+letterboxdAverage: 2.09
 slug: 'jupiter-ascending'
 description: "Channing Tatum plays a shirtless wolf man on roller skates and Eddie Redmayne whisper-screams about bureaucracy. This should be perfect but it's just..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jupiter-ascending/'

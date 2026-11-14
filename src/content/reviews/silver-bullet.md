@@ -5,6 +5,19 @@ date: 2026-10-26
 rating: 3.5
 director: 'Dan Attias'
 genres: ['Horror']
+runtime: 95
+cast:
+  ['Gary Busey', 'Everett McGill', 'Tovah Feldshuh', 'Megan Follows', 'Corey Haim', "Terry O'Quinn"]
+countries: ['Italy', 'Netherlands', 'USA']
+language: 'English'
+studios:
+  [
+    'International Film Corporation (II)',
+    'Famous Films Productions',
+    'Paramount Pictures',
+    'DDL Cinematografica',
+  ]
+letterboxdAverage: 3.2
 slug: 'silver-bullet'
 description: "Gary Busey as a drunk uncle is the best casting I've ever heard of in my entire life."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/silver-bullet/'

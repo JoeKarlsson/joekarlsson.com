@@ -5,6 +5,29 @@ date: 2026-01-30
 rating: 2.5
 director: 'Kleber Mendonça Filho'
 genres: ['Crime', 'Thriller', 'Drama']
+runtime: 161
+cast:
+  [
+    'Wagner Moura',
+    'Alice Carvalho',
+    'Gabriel Leone',
+    'Isabél Zuaa',
+    'Maria Fernanda Cândido',
+    'Udo Kier',
+  ]
+countries: ['Brazil', 'France', 'Germany', 'Netherlands', 'Argentina']
+language: 'Portuguese'
+studios:
+  [
+    'Lemming Film',
+    'One Two Films',
+    'CinemaScópio',
+    'ARTE France Cinéma',
+    'MK Productions',
+    'Primo Content',
+    'Agência Nacional do Cinema - ANCINE',
+  ]
+letterboxdAverage: 3.8
 slug: 'the-secret-agent-2025'
 description: 'Incredible production design. Baffling narrative decisions.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-secret-agent-2025/'

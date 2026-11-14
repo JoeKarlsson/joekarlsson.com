@@ -5,6 +5,20 @@ date: 2026-11-02
 rating: 4
 director: 'Harry Bromley Davenport'
 genres: ['Science Fiction', 'Horror']
+runtime: 86
+cast:
+  [
+    'Philip Sayer',
+    'Bernice Stegers',
+    'Danny Brainin',
+    "Maryam D'Abo",
+    'Simon Nash',
+    'Peter Mandell',
+  ]
+countries: ['UK']
+language: 'English'
+studios: ['Amalgamated Film Enterprises', 'Ashley Productions Ltd.', 'New Realm Entertainments']
+letterboxdAverage: 3.12
 slug: 'xtro'
 description: "If David Lynch made E.T. for $60,000 in a London flat, it'd look like this."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/xtro/'

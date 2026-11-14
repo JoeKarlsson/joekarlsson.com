@@ -5,6 +5,12 @@ date: 2025-09-17
 rating: 4
 director: 'John Hyams'
 genres: ['Documentary']
+runtime: 93
+cast: ['Mark Kerr', 'Bas Rutten', 'Mark Coleman', 'Royce Gracie', 'Dawn Staples', 'Eddie Goldman']
+countries: ['USA']
+language: 'English'
+studios: ['Solaris Film', 'HBO Documentary Films']
+letterboxdAverage: 3.79
 slug: 'the-smashing-machine'
 description: 'I have a major soft spot in my heart for early 2000s digital documentaries. You can tell the recording technology was not quite there yet, but it adds an...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine/'

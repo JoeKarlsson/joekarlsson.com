@@ -5,6 +5,20 @@ date: 2026-02-10
 rating: 4
 director: 'Ernest R. Dickerson'
 genres: ['Horror', 'Comedy', 'Thriller']
+runtime: 93
+cast:
+  [
+    'Billy Zane',
+    'William Sadler',
+    'Jada Pinkett Smith',
+    'CCH Pounder',
+    'Brenda Bakke',
+    'Dick Miller',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Tales From The Crypt Holdings', 'Universal Pictures']
+letterboxdAverage: 3.44
 slug: 'tales-from-the-crypt-demon-knight'
 description: 'Never in a million years would I have guessed the blood of Christ and the literal crucifixion would be such a core part of this movie. Tales from the Crypt...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tales-from-the-crypt-demon-knight/'

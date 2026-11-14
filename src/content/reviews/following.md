@@ -5,6 +5,13 @@ date: 2025-09-15
 rating: 2.5
 director: 'Christopher Nolan'
 genres: ['Drama', 'Thriller']
+runtime: 69
+cast:
+  ['Jeremy Theobald', 'Alex Haw', 'Lucy Russell', 'John Nolan', 'Dick Bradsell', 'Gillian El-Kadi']
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['Next Wave Films', 'Syncopy']
+letterboxdAverage: 3.47
 slug: 'following'
 description: 'Feels like a student film. But you can see the seeds being planted here.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/following/'

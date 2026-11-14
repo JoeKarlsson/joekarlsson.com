@@ -5,6 +5,20 @@ date: 2025-10-26
 rating: 4
 director: 'Roman Polanski'
 genres: ['Horror', 'Drama', 'Thriller']
+runtime: 105
+cast:
+  [
+    'Catherine Deneuve',
+    'Ian Hendry',
+    'John Fraser',
+    'Yvonne Furneaux',
+    'Patrick Wymark',
+    'Renée Houston',
+  ]
+countries: ['UK']
+language: 'English'
+studios: ['Compton Films', 'Tekli British Productions']
+letterboxdAverage: 3.91
 slug: 'repulsion'
 description: 'I did a “women be crazy” double feature with Possession, watching both back-to-back in my living room. Except calling it that feels wrong after actually...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/repulsion/'

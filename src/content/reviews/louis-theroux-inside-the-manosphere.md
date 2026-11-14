@@ -5,6 +5,12 @@ date: 2026-03-14
 rating: 3.5
 director: 'Adrian Choa'
 genres: ['Documentary']
+runtime: 92
+cast: ['Louis Theroux', 'HSTikkyTokky', 'Myron Gaines', 'Sneako', 'Justin Waller', 'Ed Matthews']
+countries: ['UK']
+language: 'English'
+studios: ['Mindhouse Productions']
+letterboxdAverage: 3.24
 slug: 'louis-theroux-inside-the-manosphere'
 description: 'Louis Theroux does what he does best - lets them hang themselves.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/louis-theroux-inside-the-manosphere/'

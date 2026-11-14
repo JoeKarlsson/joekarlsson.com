@@ -5,6 +5,13 @@ date: 2026-01-03
 rating: 4
 director: 'Peter Weir'
 genres: ['Adventure', 'Drama', 'War']
+runtime: 138
+cast:
+  ['Russell Crowe', 'Paul Bettany', "James D'Arcy", 'Robert Pugh', 'David Threlfall', 'Lee Ingleby']
+countries: ['USA']
+language: 'English'
+studios: ['20th Century Fox', 'Miramax', 'Universal Pictures', 'Samuel Goldwyn Films']
+letterboxdAverage: 4.02
 slug: 'master-and-commander-the-far-side-of-the-world'
 description: 'The ultimate dad movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/master-and-commander-the-far-side-of-the-world/'

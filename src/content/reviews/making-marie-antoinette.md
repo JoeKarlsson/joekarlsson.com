@@ -5,6 +5,20 @@ date: 2026-11-12
 rating: 4
 director: 'Eleanor Coppola'
 genres: ['Documentary']
+runtime: 86
+cast:
+  [
+    'Diane Lane',
+    'Sofia Coppola',
+    'Kirsten Dunst',
+    'Jason Schwartzman',
+    'Rip Torn',
+    'Eleanor Coppola',
+  ]
+countries: ['Italy', 'France', 'USA']
+language: 'English'
+studios: ['Our Films', 'Entourage Pictures', 'American Zoetrope', 'Important Flowers']
+letterboxdAverage: 3.98
 slug: 'making-marie-antoinette'
 description: 'Yes, Sofia Coppola is a nepo baby. Have you met her family?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/making-marie-antoinette/'

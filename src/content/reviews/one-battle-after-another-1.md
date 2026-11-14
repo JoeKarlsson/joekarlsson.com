@@ -6,6 +6,20 @@ rating: 5
 rewatch: true
 director: 'Paul Thomas Anderson'
 genres: ['Thriller', 'Comedy', 'Action', 'Crime']
+runtime: 162
+cast:
+  [
+    'Leonardo DiCaprio',
+    'Sean Penn',
+    'Chase Infiniti',
+    'Benicio del Toro',
+    'Regina Hall',
+    'Teyana Taylor',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Warner Bros. Pictures', 'Ghoulardi Film Company', 'Domain Entertainment']
+letterboxdAverage: 4.11
 slug: 'one-battle-after-another-1'
 description: 'After watching this again - I can confirm this is still a masterpiece'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/one-battle-after-another/1/'

@@ -5,6 +5,10 @@ date: 2026-11-02
 rating: 4
 director: 'Stuart Laws'
 genres: ['Comedy']
+cast: ['Chloe Radcliffe']
+countries: ['USA']
+language: 'English'
+studios: ['Comedy Central']
 slug: 'chloe-radcliffe-eyes-down-here'
 description: "I went to college with Chloe Radcliffe. She was my girlfriend's roommate."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/chloe-radcliffe-eyes-down-here/'

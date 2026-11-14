@@ -5,6 +5,13 @@ date: 2025-09-11
 rating: 3
 director: 'Genndy Tartakovsky'
 genres: ['Comedy', 'Animation', 'Fantasy', 'Family']
+runtime: 91
+cast:
+  ['Adam Sandler', 'Selena Gomez', 'Andy Samberg', 'Kevin James', 'Fran Drescher', 'Steve Buscemi']
+countries: ['USA']
+language: 'English'
+studios: ['Columbia Pictures', 'Sony Pictures Animation']
+letterboxdAverage: 3.43
 slug: 'hotel-transylvania'
 description: 'Watch this to be a Genndy completionist (and also because of Blank Check). I had rock bottom expectations for this movie, and it ended up being moderately...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hotel-transylvania/'

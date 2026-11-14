@@ -5,6 +5,21 @@ date: 2026-10-18
 rating: 2.5
 director: 'Adam Wingard'
 genres: ['Action', 'Thriller', 'Horror']
+runtime: 92
+cast:
+  [
+    'Adria Arjona',
+    'Dan Stevens',
+    'Eric Wareheim',
+    'Reginald VelJohnson',
+    'Michael Biehn',
+    'Blake Kennedy',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  ['A24', 'Ryder Picture Company', 'Lyrical Media', 'Breakaway Civilization', '828 Productions']
+letterboxdAverage: 2.72
 slug: 'onslaught-2026'
 description: 'The onslaught in Onslaught shows up late and leaves early.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/onslaught-2026/'

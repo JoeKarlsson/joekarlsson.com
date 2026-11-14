@@ -5,6 +5,20 @@ date: 2025-08-19
 rating: 4
 director: 'Cameron Crowe'
 genres: ['Comedy', 'Romance', 'Drama']
+runtime: 139
+cast:
+  [
+    'Tom Cruise',
+    'Renée Zellweger',
+    'Cuba Gooding Jr.',
+    'Kelly Preston',
+    "Jerry O'Connell",
+    'Jay Mohr',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['TriStar Pictures', 'Gracie Films']
+letterboxdAverage: 3.61
 slug: 'jerry-maguire'
 description: 'This movie worked for me. What a strange screenplay structure - but it totally worked for me.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jerry-maguire/'

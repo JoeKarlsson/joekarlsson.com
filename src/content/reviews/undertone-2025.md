@@ -5,6 +5,20 @@ date: 2026-04-26
 rating: 2
 director: 'Ian Tuason'
 genres: ['Horror', 'Mystery']
+runtime: 94
+cast: ['Nina Kiri', 'Adam DiMarco', 'Michèle Duquet', 'Keana Bastidas', 'Jeff Yung', 'Ryan Turner']
+countries: ['Canada', 'USA']
+language: 'English'
+studios:
+  [
+    'Black Fawn Films',
+    'Slaterverse Pictures',
+    'KINO Studios',
+    'Spooky Pictures',
+    'DimensionGate',
+    'Feel Everything Productions',
+  ]
+letterboxdAverage: 2.9
 slug: 'undertone-2025'
 description: 'I have an unusually high bar for slow-build dread-based horror. I left this feeling underwhelmed.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/undertone-2025/'

@@ -5,6 +5,20 @@ date: 2025-10-12
 rating: 3.5
 director: 'Katsuhiro Otomo, Koji Morimoto, Tensai Okamura'
 genres: ['Animation', 'Fantasy', 'Science Fiction']
+runtime: 113
+cast:
+  [
+    'Tsutomu Isobe',
+    'Koichi Yamadera',
+    'Gara Takashima',
+    'Shozo Iizuka',
+    'Shigeru Chiba',
+    'Ami Hasegawa',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios: ['Bandai Visual', 'Shochiku', 'Madhouse', 'Kodansha', 'STUDIO4℃']
+letterboxdAverage: 4.04
 slug: 'memories'
 description: "I finished Memories a couple hours ago and I'm still noodling on it. This was much deeper than I ever expected, and the subjects it touched on feel like they..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/memories/'

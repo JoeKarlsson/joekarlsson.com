@@ -5,6 +5,20 @@ date: 2025-09-19
 rating: 4
 director: 'Peter Weir'
 genres: ['Drama', 'Crime', 'Thriller']
+runtime: 112
+cast:
+  [
+    'Harrison Ford',
+    'Kelly McGillis',
+    'Josef Sommer',
+    'Lukas Haas',
+    'Jan Rubeš',
+    'Alexander Godunov',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures']
+letterboxdAverage: 3.7
 slug: 'witness'
 description: 'I felt so sad for Kelly McGillis when she handed Harrison Ford a tall glass of homemade lemonade, and he chugged it all at once without even enjoying it. He...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/witness/'

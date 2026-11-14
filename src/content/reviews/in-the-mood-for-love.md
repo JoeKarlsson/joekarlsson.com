@@ -5,6 +5,20 @@ date: 2025-11-02
 rating: 4
 director: 'Wong Kar-Wai'
 genres: ['Romance', 'Drama']
+runtime: 99
+cast:
+  [
+    'Maggie Cheung',
+    'Tony Leung Chiu-wai',
+    'Siu Ping-Lam',
+    'Rebecca Pan',
+    'Kelly Lai Chen',
+    'Joe Cheung Tung-Cho',
+  ]
+countries: ['Hong Kong', 'France']
+language: 'Cantonese'
+studios: ['Block 2 Pictures', 'Paradis Films', 'Jet Tone Production']
+letterboxdAverage: 4.37
 slug: 'in-the-mood-for-love'
 description: "Two attractive people in tight quarters with incredible chemistry spend 90 minutes not fucking, and it's one of cinema's greatest romances."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/in-the-mood-for-love/'

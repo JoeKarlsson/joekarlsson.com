@@ -6,6 +6,20 @@ rating: 4.5
 rewatch: true
 director: 'Martin Scorsese'
 genres: ['Comedy', 'Drama', 'Crime']
+runtime: 180
+cast:
+  [
+    'Leonardo DiCaprio',
+    'Jonah Hill',
+    'Margot Robbie',
+    'Matthew McConaughey',
+    'Kyle Chandler',
+    'Rob Reiner',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Red Granite Pictures', 'Appian Way', 'Sikelia Productions', 'EMJAG Productions']
+letterboxdAverage: 4
 slug: 'the-wolf-of-wall-street'
 description: 'I think The Wolf of Wall Street is running for the second most misunderstood film by illiterate film bros, right behind American Psycho.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-wolf-of-wall-street/'

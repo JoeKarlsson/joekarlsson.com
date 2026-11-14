@@ -5,6 +5,20 @@ date: 2025-12-27
 rating: 4.5
 director: 'Josh Safdie'
 genres: ['Thriller', 'Drama']
+runtime: 150
+cast:
+  [
+    'Timothée Chalamet',
+    'Gwyneth Paltrow',
+    "Odessa A'zion",
+    "Kevin O'Leary",
+    'Tyler, The Creator',
+    'Fran Drescher',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['A24', 'Central Pictures']
+letterboxdAverage: 4.01
 slug: 'marty-supreme'
 description: "The theater was packed. I can't wait to see what normies think of this."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/marty-supreme/'

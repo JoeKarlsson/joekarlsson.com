@@ -5,6 +5,20 @@ date: 2025-11-07
 rating: 2
 director: 'Julian Glander'
 genres: ['Drama', 'Science Fiction', 'Animation', 'Comedy']
+runtime: 87
+cast:
+  [
+    'Jack Corbett',
+    'Grace Kuhlenschmidt',
+    'Elsie Fisher',
+    'Janeane Garofalo',
+    'Miya Folick',
+    'Tavi Gevinson',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Glanderco']
+letterboxdAverage: 3.69
 slug: 'boys-go-to-jupiter'
 description: 'Cute surrealists comedy about surviving in late stage capitalist gig economy. It also stars all of my favorite modern old comics on one place, which is...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/boys-go-to-jupiter/'

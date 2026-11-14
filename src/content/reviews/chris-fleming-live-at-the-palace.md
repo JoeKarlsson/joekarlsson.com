@@ -5,6 +5,12 @@ date: 2026-03-05
 rating: 4
 director: 'Bill Benz'
 genres: ['Comedy']
+runtime: 75
+cast: ['Chris Fleming']
+countries: ['USA']
+language: 'English'
+studios: ['DePiglio', 'Irony Point', 'Conaco']
+letterboxdAverage: 4
 slug: 'chris-fleming-live-at-the-palace'
 description: 'Chris Fleming needs to be A24’s next horror auteur.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/chris-fleming-live-at-the-palace/'

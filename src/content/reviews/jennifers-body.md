@@ -5,6 +5,12 @@ date: 2025-10-12
 rating: 4
 director: 'Karyn Kusama'
 genres: ['Horror', 'Comedy']
+runtime: 107
+cast: ['Megan Fox', 'Amanda Seyfried', 'Johnny Simmons', 'Adam Brody', 'Sal Cortez', 'Ryan Levine']
+countries: ['USA']
+language: 'English'
+studios: ['Fox Atomic', 'Dubiecki/Novick/Reitman Productions', 'Dune Entertainment']
+letterboxdAverage: 3.46
 slug: 'jennifers-body'
 description: "As a Minnesotan, I am required by law to love Diablo Cody's movies. I think she captures a Gen X view of small-town America, but I still appreciate it..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jennifers-body/'

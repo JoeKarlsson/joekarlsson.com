@@ -5,6 +5,21 @@ date: 2026-08-24
 rating: 3
 director: 'Gregg Araki'
 genres: ['Comedy', 'Romance']
+runtime: 93
+cast:
+  [
+    'Kathleen Robertson',
+    'Johnathon Schaech',
+    'Matt Keeslar',
+    'Kelly Macdonald',
+    'Eric Mabius',
+    'Dan Gatto',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios:
+  ['Summit Entertainment', 'Desperate Pictures', 'Newmarket Capital Group', 'Dragon Pictures']
+letterboxdAverage: 3.66
 slug: 'splendor-1999'
 description: 'After a decade of gorgeous nihilism, Araki made a sunny little rom-com where a girl keeps both boyfriends and nobody has to die for wanting.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/splendor-1999/'

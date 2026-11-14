@@ -5,6 +5,13 @@ date: 2026-06-07
 rating: 4.5
 director: 'Paul Verhoeven'
 genres: ['Action', 'Thriller', 'Science Fiction']
+runtime: 102
+cast:
+  ['Peter Weller', 'Nancy Allen', "Dan O'Herlihy", 'Ronny Cox', 'Kurtwood Smith', 'Miguel Ferrer']
+countries: ['USA']
+language: 'English'
+studios: ['Orion Pictures', 'Jon Davison Productions']
+letterboxdAverage: 3.91
 slug: 'robocop'
 description: 'It’s insane how such a schlocky premise could be imbued with such depth.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/robocop/'

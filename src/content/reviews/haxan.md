@@ -6,6 +6,20 @@ rating: 4.5
 rewatch: true
 director: 'Benjamin Christensen'
 genres: ['History', 'Documentary', 'Horror']
+runtime: 105
+cast:
+  [
+    'Benjamin Christensen',
+    'Ella La Cour',
+    'Emmy Schønfeld',
+    'Kate Fabian',
+    'Oscar Stribolt',
+    'Wilhelmine Henriksen',
+  ]
+countries: ['Sweden']
+language: 'No Spoken Language'
+studios: ['Aljosha Production Company', 'SF Studios']
+letterboxdAverage: 4.04
 slug: 'haxan'
 description: "I've used Häxan as my go to Halloween party vibes movie for years, and it turns out it's a proto-documentary lecture."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/haxan/'

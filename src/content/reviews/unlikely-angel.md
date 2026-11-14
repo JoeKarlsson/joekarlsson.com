@@ -5,6 +5,20 @@ date: 2025-12-08
 rating: 1.5
 director: 'Michael Switzer'
 genres: ['TV Movie', 'Comedy', 'Fantasy']
+runtime: 95
+cast:
+  [
+    'Dolly Parton',
+    'Roddy McDowall',
+    'Allison Mack',
+    'Eli Marienthal',
+    'Brian Kerwin',
+    'Maria del Mar',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Sandollar Productions', 'The Kushner-Locke Company']
+letterboxdAverage: 3.02
 slug: 'unlikely-angel'
 description: "This movie presupposes that Dolly Parton is too slutty for heaven. Absolutely unhinged premise. It's a terrible movie, but frankly, I don't care. It's Dolly."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/unlikely-angel/'

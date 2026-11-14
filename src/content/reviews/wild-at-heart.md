@@ -5,6 +5,13 @@ date: 2025-09-15
 rating: 4.5
 director: 'David Lynch'
 genres: ['Crime', 'Thriller', 'Romance']
+runtime: 125
+cast:
+  ['Nicolas Cage', 'Laura Dern', 'Willem Dafoe', 'Diane Ladd', 'Harry Dean Stanton', 'J.E. Freeman']
+countries: ['USA', 'Germany']
+language: 'English'
+studios: ['PolyGram Filmed Entertainment', 'Propaganda Films', 'PolyGram Filmproduktion']
+letterboxdAverage: 3.93
 slug: 'wild-at-heart'
 description: "It's not the best David Lynch film, but it's my favorite David Lynch film."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wild-at-heart/'

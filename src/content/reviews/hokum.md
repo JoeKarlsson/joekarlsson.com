@@ -5,6 +5,28 @@ date: 2026-05-02
 rating: 3.5
 director: 'Damian McCarthy'
 genres: ['Horror', 'Thriller']
+runtime: 108
+cast:
+  [
+    'Adam Scott',
+    'Peter Coonan',
+    'David Wilmot',
+    'Florence Ordesh',
+    'Michael Patric',
+    "Will O'Connell",
+  ]
+countries: ['USA', 'Ireland', 'United Arab Emirates', 'Hong Kong']
+language: 'English'
+studios:
+  [
+    'Spooky Pictures',
+    'Image Nation Abu Dhabi',
+    'Cweature Features',
+    'Team Thrives',
+    'Tailored Films',
+    'Fís Éireann/Screen Ireland',
+  ]
+letterboxdAverage: 3.26
 slug: 'hokum'
 description: 'A tight, well-plotted whodunit that also made me scream.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hokum/'

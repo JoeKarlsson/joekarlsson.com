@@ -5,6 +5,20 @@ date: 2026-05-24
 rating: 4.5
 director: 'Michael Ritchie'
 genres: ['Comedy', 'Family', 'Drama']
+runtime: 102
+cast:
+  [
+    'Walter Matthau',
+    "Tatum O'Neal",
+    'Vic Morrow',
+    'Joyce Van Patten',
+    'Ben Piazza',
+    'Jackie Earle Haley',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paramount Pictures']
+letterboxdAverage: 3.66
 slug: 'the-bad-news-bears'
 description: "They don't let kids be mean in movies anymore and we are worse for it."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-bad-news-bears/'

@@ -5,6 +5,13 @@ date: 2026-06-11
 rating: 4
 director: 'Steven Spielberg'
 genres: ['Thriller', 'Science Fiction']
+runtime: 146
+cast:
+  ['Emily Blunt', "Josh O'Connor", 'Colin Firth', 'Eve Hewson', 'Colman Domingo', 'Wyatt Russell']
+countries: ['USA']
+language: 'English'
+studios: ['Universal Pictures', 'Amblin Entertainment']
+letterboxdAverage: 3.01
 slug: 'disclosure-day'
 description: 'A spiritual sequel to Close Encounters, minus the manic divorced dad energy.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/disclosure-day/'

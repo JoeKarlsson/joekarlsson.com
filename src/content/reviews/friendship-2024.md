@@ -5,6 +5,13 @@ date: 2025-06-20
 rating: 2
 director: 'Andrew DeYoung'
 genres: ['Comedy', 'Drama']
+runtime: 100
+cast:
+  ['Tim Robinson', 'Paul Rudd', 'Kate Mara', 'Jack Dylan Grazer', 'Rick Worthy', 'Whitmer Thomas']
+countries: ['USA']
+language: 'English'
+studios: ['BoulderLight Pictures', 'Fifth Season', 'Friends Night']
+letterboxdAverage: 3.43
 slug: 'friendship-2024'
 description: 'I so don’t really know what I think about this movie yet. On the one hand, I love that they made a comedy and I love Tim Robinson. On the other I don’t...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/friendship-2024/'

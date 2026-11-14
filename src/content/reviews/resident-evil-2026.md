@@ -5,6 +5,29 @@ date: 2026-09-18
 rating: 4
 director: 'Zach Cregger'
 genres: ['Horror', 'Adventure', 'Science Fiction']
+runtime: 94
+cast:
+  [
+    'Austin Abrams',
+    'Paul Walter Hauser',
+    'Kali Reis',
+    'Zach Cherry',
+    'Johnno Wilson',
+    'Shaun W. Loeser',
+  ]
+countries: ['USA', 'Germany', 'France']
+language: 'English'
+studios:
+  [
+    'Constantin Film',
+    'Subconscious',
+    'Vertigo Entertainment',
+    'Davis Films',
+    'Columbia Pictures',
+    'PlayStation Productions',
+    'TriStar Pictures',
+  ]
+letterboxdAverage: 3.73
 slug: 'resident-evil-2026'
 description: 'This movie is the exact opposite of competency porn. Turns out I also love movies about an idiot NPC who stumbles through the worst night of his life.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/resident-evil-2026/'

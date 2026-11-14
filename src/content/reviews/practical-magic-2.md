@@ -5,6 +5,21 @@ date: 2026-09-10
 rating: 2
 director: 'Susanne Bier'
 genres: ['Romance', 'Comedy', 'Fantasy']
+runtime: 130
+cast:
+  ['Sandra Bullock', 'Nicole Kidman', 'Dianne Wiest', 'Stockard Channing', 'Joey King', 'Lee Pace']
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Di Novi Pictures',
+    'Warner Bros. Pictures',
+    'Blossom Films',
+    'Fortis Films',
+    'Domain Entertainment',
+    'Alcon Entertainment',
+  ]
+letterboxdAverage: 2.82
 slug: 'practical-magic-2'
 description: "A gorgeously messy nostalgia romp that's secretly about a repressed mother handing her armor down to her daughters, with margaritas."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/practical-magic-2/'

@@ -5,6 +5,20 @@ date: 2025-03-02
 rating: 0.5
 director: 'Paul Flaherty'
 genres: ['Comedy']
+runtime: 89
+cast:
+  [
+    'Martin Short',
+    'Charles Grodin',
+    'Mary Steenburgen',
+    'Dabney Coleman',
+    'Richard Kind',
+    'Jennifer Savidge',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Orion Pictures', 'MBST']
+letterboxdAverage: 3.17
 slug: 'clifford'
 description: 'I love Martin short, but this was a movie that need to be aborted. I don’t understand the framing device. It’s not funny and it’s genuinely terrifying.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/clifford/'

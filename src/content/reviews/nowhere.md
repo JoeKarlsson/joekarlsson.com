@@ -5,6 +5,20 @@ date: 2026-09-03
 rating: 4
 director: 'Gregg Araki'
 genres: ['Comedy', 'Drama', 'Science Fiction']
+runtime: 83
+cast:
+  [
+    'James Duval',
+    'Rachel True',
+    'Nathan Bexton',
+    'Chiara Mastroianni',
+    'Debi Mazar',
+    'Kathleen Robertson',
+  ]
+countries: ['USA', 'France']
+language: 'English'
+studios: ['Desperate Pictures', 'Why Not Productions', 'Blurco']
+letterboxdAverage: 3.98
 slug: 'nowhere'
 description: 'A bisexual fever dream on acid, and I finally get why queer kids worship it.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/nowhere/'

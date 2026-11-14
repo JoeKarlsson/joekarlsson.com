@@ -5,6 +5,12 @@ date: 2025-12-31
 rating: 4
 director: 'Martin Scorsese'
 genres: ['Crime', 'Drama']
+runtime: 179
+cast: ['Robert De Niro', 'Sharon Stone', 'Joe Pesci', 'James Woods', 'Don Rickles', 'Alan King']
+countries: ['France', 'USA']
+language: 'English'
+studios: ['Universal Pictures', 'Syalis DA', 'Légende Films', 'Cappa/De Fina Productions']
+letterboxdAverage: 4.22
 slug: 'casino'
 description: 'A hangout movie with billionaire casino gangsters. Three hours flew by.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/casino/'

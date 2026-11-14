@@ -5,6 +5,12 @@ date: 2026-06-24
 rating: 3.5
 director: 'Jon Nguyen, Rick Barnes, Olivia Neergaard-Holm'
 genres: ['Documentary']
+runtime: 89
+cast: ['David Lynch', 'Lula Lynch']
+countries: ['USA']
+language: 'English'
+studios: ['Kong Gulerod Film', 'Duck Diver Films', 'Hideout Films']
+letterboxdAverage: 3.84
 slug: 'david-lynch-the-art-life'
 description: 'A documentary about becoming an artist through pain, struggle, and dead animals.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/david-lynch-the-art-life/'

@@ -5,6 +5,28 @@ date: 2026-08-17
 rating: 3.5
 director: 'John Early'
 genres: ['Comedy', 'Drama']
+runtime: 100
+cast:
+  [
+    'John Early',
+    'Kate Berlant',
+    'Eric Rahill',
+    'Kristen Johnston',
+    "Claudia O'Doherty",
+    "Conner O'Malley",
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Unapologetic Projects',
+    'Dweck Productions',
+    'Whetstone Pictures',
+    'Dogma 3000',
+    'Third Place Productions',
+    'Radish Pictures',
+  ]
+letterboxdAverage: 3.65
 slug: 'maddies-secret'
 description: 'Showgirls and John Waters fans to the front. Just check the nihilism at the door.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/maddies-secret/'

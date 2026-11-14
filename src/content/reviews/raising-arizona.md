@@ -5,6 +5,20 @@ date: 2025-07-10
 rating: 4.5
 director: 'Joel Coen'
 genres: ['Crime', 'Comedy']
+runtime: 94
+cast:
+  [
+    'Nicolas Cage',
+    'Holly Hunter',
+    'Trey Wilson',
+    'John Goodman',
+    'William Forsythe',
+    'Sam McMurray',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Circle Films']
+letterboxdAverage: 3.87
 slug: 'raising-arizona'
 description: 'I gotta say this movie hit me really hard as a 35 year-old man thinking about having children. That ending had me in tears.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/raising-arizona/'

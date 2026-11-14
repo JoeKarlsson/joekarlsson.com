@@ -5,6 +5,13 @@ date: 2025-10-05
 rating: 3
 director: 'Sidney Lumet'
 genres: ['Drama', 'Crime']
+runtime: 116
+cast:
+  ['Christine Lahti', 'River Phoenix', 'Judd Hirsch', 'Jonas Abry', 'Martha Plimpton', 'Ed Crowley']
+countries: ['USA']
+language: 'English'
+studios: ['Double Play', 'Lorimar Film Entertainment']
+letterboxdAverage: 4.03
 slug: 'running-on-empty-1988'
 description: 'Running on Empty is a surprisingly gentle film given its radical setup. I watched this shortly after One Battle After Another and honestly expected something...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/running-on-empty-1988/'

@@ -5,6 +5,13 @@ date: 2025-10-25
 rating: 4
 director: 'Chuck Russell'
 genres: ['Science Fiction', 'Thriller', 'Horror']
+runtime: 95
+cast:
+  ['Kevin Dillon', 'Shawnee Smith', 'Donovan Leitch', 'Jeffrey DeMunn', 'Candy Clark', 'Joe Seneca']
+countries: ['USA']
+language: 'English'
+studios: ['TriStar Pictures', 'Palisades California Inc.']
+letterboxdAverage: 3.63
 slug: 'the-blob-1988'
 description: "I love this movie. I've seen it so many times, and it needs to be as celebrated as The Thing in my humble opinion."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-blob-1988/'

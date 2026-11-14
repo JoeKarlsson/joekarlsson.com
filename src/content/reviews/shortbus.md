@@ -5,6 +5,13 @@ date: 2026-09-14
 rating: 3.5
 director: 'John Cameron Mitchell'
 genres: ['Drama', 'Romance', 'Comedy']
+runtime: 101
+cast:
+  ['Sook-Yin Lee', 'Paul Dawson', 'PJ DeBoy', 'Lindsay Beamish', 'Jay Brannan', 'Raphael Barker']
+countries: ['USA', 'Netherlands']
+language: 'English'
+studios: ['Fortissimo Films', 'Q Television', 'Process Productions']
+letterboxdAverage: 3.58
 slug: 'shortbus'
 description: 'The most 2006 thing about this film is when the Twee Marching Band shows up to the orgy.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/shortbus/'

@@ -5,6 +5,20 @@ date: 2025-10-16
 rating: 2.5
 director: 'Tommy Lee Wallace'
 genres: ['Thriller', 'Horror', 'Science Fiction', 'Mystery']
+runtime: 98
+cast:
+  [
+    'Tom Atkins',
+    'Stacey Nelkin',
+    "Dan O'Herlihy",
+    'Michael Currie',
+    'Ralph Strait',
+    'Jadeen Barbor',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['The De Laurentiis Company']
+letterboxdAverage: 2.81
 slug: 'halloween-iii-season-of-the-witch'
 description: "I should love Halloween III more since it's about techno-corporate witchcraft, which is a genuinely fun concept. But this is not a good movie and I don't..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/halloween-iii-season-of-the-witch/'

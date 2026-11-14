@@ -5,6 +5,20 @@ date: 2026-08-21
 rating: 4
 director: 'Jane Schoenbrun'
 genres: ['Horror', 'Comedy', 'Romance']
+runtime: 112
+cast:
+  [
+    'Hannah Einbinder',
+    'Gillian Anderson',
+    'Amanda Fix',
+    'Arthur Conti',
+    'Eva Victor',
+    'Zach Cherry',
+  ]
+countries: ['UK', 'USA']
+language: 'English'
+studios: ['MUBI', 'Plan B Entertainment']
+letterboxdAverage: 3.63
 slug: 'teenage-sex-and-death-at-camp-miasma'
 description: 'Overstuffed, messy, horny, and somehow made just for me.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/teenage-sex-and-death-at-camp-miasma/'

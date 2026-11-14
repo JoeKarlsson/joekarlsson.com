@@ -5,6 +5,20 @@ date: 2026-02-04
 rating: 3.5
 director: 'Christopher Guest'
 genres: ['Comedy', 'Music']
+runtime: 92
+cast:
+  [
+    'Bob Balaban',
+    'Christopher Guest',
+    'John Michael Higgins',
+    'Eugene Levy',
+    'Jane Lynch',
+    'Michael McKean',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Castle Rock Entertainment']
+letterboxdAverage: 3.67
 slug: 'a-mighty-wind'
 description: "Catherine O'Hara carries the emotional weight of this entire film. Of course she does."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/a-mighty-wind/'

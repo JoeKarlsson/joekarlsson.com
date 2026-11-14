@@ -5,6 +5,13 @@ date: 2025-10-17
 rating: 4.5
 director: 'Michael Mann'
 genres: ['Thriller', 'Crime', 'Drama']
+runtime: 123
+cast:
+  ['James Caan', 'Tuesday Weld', 'Robert Prosky', 'Willie Nelson', 'Jim Belushi', 'Tom Signorelli']
+countries: ['USA']
+language: 'English'
+studios: ['Mann/Caan Productions', 'United Artists']
+letterboxdAverage: 4.07
 slug: 'thief'
 description: 'What if capitalism wouldn’t let you live without accepting your own death? Hahaha. Isn’t that crazy?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/thief/'

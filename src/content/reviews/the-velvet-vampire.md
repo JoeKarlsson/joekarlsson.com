@@ -5,6 +5,20 @@ date: 2026-10-12
 rating: 3.5
 director: 'Stephanie Rothman'
 genres: ['Horror']
+runtime: 80
+cast:
+  [
+    'Michael Blodgett',
+    'Sherry E. DeBoer',
+    'Celeste Yarnall',
+    'Gene Shane',
+    'Jerry Daniels',
+    'Sandy Ward',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['New World Pictures']
+letterboxdAverage: 2.94
 slug: 'the-velvet-vampire'
 description: 'If you love The Love Witch, go find this immediately.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-velvet-vampire/'

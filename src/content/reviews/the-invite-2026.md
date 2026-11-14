@@ -5,6 +5,12 @@ date: 2026-08-17
 rating: 4
 director: 'Olivia Wilde'
 genres: ['Romance', 'Drama', 'Comedy']
+runtime: 107
+cast: ['Olivia Wilde', 'Seth Rogen', 'Penélope Cruz', 'Edward Norton']
+countries: ['USA']
+language: 'English'
+studios: ['Annapurna Pictures', 'FilmNation Entertainment', 'Permut Presentations']
+letterboxdAverage: 3.92
 slug: 'the-invite-2026'
 description: 'Most people watch this and see themselves in Seth Rogen. I watched it and wanted to move in upstairs.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-invite-2026/'

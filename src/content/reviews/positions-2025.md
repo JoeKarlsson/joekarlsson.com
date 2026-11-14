@@ -5,6 +5,20 @@ date: 2026-07-27
 rating: 4
 director: 'Brandon Daley'
 genres: ['Thriller', 'Comedy']
+runtime: 97
+cast:
+  [
+    'Michael Kunicki',
+    'Vinny Kress',
+    'Trevor Dawkins',
+    'Kaylyn Carter',
+    'Reagan Fitzgerald',
+    'Jeffrey A. Hunter',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Missing Link Productions']
+letterboxdAverage: 3.61
 slug: 'positions-2025'
 description: "$POSITIONS understands the thing most anxiety movies miss, which is that the panic isn't the point, the trap is."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/positions-2025/'

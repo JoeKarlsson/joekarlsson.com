@@ -5,6 +5,22 @@ date: 2026-06-05
 rating: 2
 director: 'David Lowery'
 genres: ['Thriller', 'Music', 'Drama', 'Horror']
+runtime: 112
+cast:
+  ['Anne Hathaway', 'Michaela Coel', 'Hunter Schafer', 'FKA twigs', 'Sian Clifford', 'Kaia Gerber']
+countries: ['USA', 'Germany', 'Ireland', 'Finland']
+language: 'English'
+studios:
+  [
+    'A24',
+    'Augenschein Filmproduktion',
+    'Topic Studios',
+    'Sailor Bear',
+    'IPR.VC',
+    'Homebird Productions',
+    'Access Entertainment',
+  ]
+letterboxdAverage: 2.82
 slug: 'mother-mary-2026'
 description: 'I love how gay this movie is. I struggled with everything else.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mother-mary-2026/'

@@ -5,6 +5,20 @@ date: 2025-12-14
 rating: 4.5
 director: 'Edgar Wright'
 genres: ['Romance', 'Action', 'Comedy']
+runtime: 113
+cast:
+  [
+    'Michael Cera',
+    'Mary Elizabeth Winstead',
+    'Ellen Wong',
+    'Kieran Culkin',
+    'Alison Pill',
+    'Mark Webber',
+  ]
+countries: ['Japan', 'UK', 'USA']
+language: 'English'
+studios: ['Marc Platt Productions', 'Big Talk Studios', 'Closed on Mondays Entertainment', 'dentsu']
+letterboxdAverage: 3.89
 slug: 'scott-pilgrim-vs-the-world'
 description: "Unfortunately, this movie captures what it's like to date in your 20s."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scott-pilgrim-vs-the-world/'

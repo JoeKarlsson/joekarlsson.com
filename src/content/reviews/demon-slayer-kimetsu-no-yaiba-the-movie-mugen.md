@@ -5,6 +5,20 @@ date: 2025-09-17
 rating: 2
 director: 'Haruo Sotozaki'
 genres: ['Action', 'Animation', 'Fantasy']
+runtime: 117
+cast:
+  [
+    'Natsuki Hanae',
+    'Akari Kito',
+    'Hiro Shimono',
+    'Yoshitsugu Matsuoka',
+    'Satoshi Hino',
+    'Takahiro Sakurai',
+  ]
+countries: ['Japan']
+language: 'Japanese'
+studios: ['ufotable', 'Aniplex', 'Shueisha', 'TOHO']
+letterboxdAverage: 3.96
 slug: 'demon-slayer-kimetsu-no-yaiba-the-movie-mugen'
 description: 'Beware new comers - there is a very complex lore at play here that requires watching a season of television to understand. If you do not know this lore - it...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/demon-slayer-kimetsu-no-yaiba-the-movie-mugen/'

@@ -5,6 +5,20 @@ date: 2026-07-23
 rating: 4.5
 director: 'Alfonso Cuarón'
 genres: ['Romance', 'Drama']
+runtime: 106
+cast:
+  [
+    'Gael García Bernal',
+    'Diego Luna',
+    'Maribel Verdú',
+    'Daniel Giménez Cacho',
+    'Diana Bracho',
+    'Verónica Langer',
+  ]
+countries: ['Mexico']
+language: 'Spanish'
+studios: ['Bésame Mucho Pictures', 'Anhelo Productions']
+letterboxdAverage: 4.2
 slug: 'y-tu-mama-tambien'
 description: 'Two boys in love who couldn’t outrun the prison of their own masculinity.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/y-tu-mama-tambien/'

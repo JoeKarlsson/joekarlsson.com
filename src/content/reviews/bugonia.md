@@ -5,6 +5,20 @@ date: 2025-11-03
 rating: 4.5
 director: 'Yorgos Lanthimos'
 genres: ['Thriller', 'Science Fiction', 'Comedy']
+runtime: 118
+cast:
+  [
+    'Emma Stone',
+    'Jesse Plemons',
+    'Aidan Delbis',
+    'Stavros Halkias',
+    'Alicia Silverstone',
+    'J. Carmen Galindez Barrera',
+  ]
+countries: ['Ireland', 'South Korea', 'USA', 'Canada']
+language: 'English'
+studios: ['Element Pictures', 'Square Peg', 'Fremantle', 'Pith Quest Films', 'Fruit Tree', 'CJ ENM']
+letterboxdAverage: 3.83
 slug: 'bugonia'
 description: "Bugonia proves that sometimes the scariest thing isn't the conspiracy - it's realizing the paranoid people might have a point."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bugonia/'

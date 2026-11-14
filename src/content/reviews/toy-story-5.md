@@ -5,6 +5,12 @@ date: 2026-06-19
 rating: 3.5
 director: 'Andrew Stanton'
 genres: ['Comedy', 'Family', 'Adventure', 'Animation']
+runtime: 102
+cast: ['Joan Cusack', 'Tom Hanks', 'Tim Allen', "Conan O'Brien", 'Scarlett Spears', 'Greta Lee']
+countries: ['USA']
+language: 'English'
+studios: ['Pixar']
+letterboxdAverage: 3.61
 slug: 'toy-story-5'
 description: 'The theme for kids (and adults): get off your fucking iPads and get outside.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/toy-story-5/'

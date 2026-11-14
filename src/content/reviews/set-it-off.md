@@ -5,6 +5,20 @@ date: 2025-11-02
 rating: 4
 director: 'F. Gary Gray'
 genres: ['Crime', 'Romance', 'Action', 'Drama', 'Thriller']
+runtime: 123
+cast:
+  [
+    'Jada Pinkett Smith',
+    'Queen Latifah',
+    'Vivica A. Fox',
+    'Kimberly Elise',
+    'Blair Underwood',
+    'John C. McGinley',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['New Line Cinema', 'Peak Productions']
+letterboxdAverage: 3.76
 slug: 'set-it-off'
 description: 'A heist movie that understands the real crime is what society did to these women before they ever picked up a gun.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/set-it-off/'

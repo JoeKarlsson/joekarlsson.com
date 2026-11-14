@@ -5,6 +5,20 @@ date: 2025-12-23
 rating: 3.5
 director: 'James Cameron'
 genres: ['Adventure', 'Fantasy', 'Science Fiction']
+runtime: 198
+cast:
+  [
+    'Sam Worthington',
+    'Zoe Saldaña',
+    'Sigourney Weaver',
+    'Stephen Lang',
+    'Oona Chaplin',
+    'Jack Champion',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['20th Century Studios', 'Lightstorm Entertainment', 'TSG Entertainment']
+letterboxdAverage: 3.55
 slug: 'avatar-fire-and-ash'
 description: "Maybe James Cameron's horniest movie ever made. Chaplin gives one of the most hip-forward performance I've ever seen in my entire life. Good for her."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/avatar-fire-and-ash/'

@@ -5,6 +5,20 @@ date: 2026-05-08
 rating: 1.5
 director: 'Aaron Horvath, Michael Jelenic'
 genres: ['Adventure', 'Fantasy', 'Family', 'Animation', 'Comedy']
+runtime: 98
+cast:
+  [
+    'Chris Pratt',
+    'Charlie Day',
+    'Anya Taylor-Joy',
+    'Jack Black',
+    'Keegan-Michael Key',
+    'Benny Safdie',
+  ]
+countries: ['Japan', 'USA']
+language: 'English'
+studios: ['Illumination', 'Universal Pictures', 'Nintendo']
+letterboxdAverage: 2.88
 slug: 'the-super-mario-galaxy-movie'
 description: 'Where the hell were Bob Hoskins and John Leguizamo???'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-super-mario-galaxy-movie/'

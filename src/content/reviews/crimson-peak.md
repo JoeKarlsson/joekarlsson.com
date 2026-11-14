@@ -5,6 +5,20 @@ date: 2025-10-22
 rating: 3
 director: 'Guillermo del Toro'
 genres: ['Horror', 'Romance']
+runtime: 119
+cast:
+  [
+    'Mia Wasikowska',
+    'Jessica Chastain',
+    'Tom Hiddleston',
+    'Charlie Hunnam',
+    'Jim Beaver',
+    'Burn Gorman',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Double Dare You', 'Legendary Pictures']
+letterboxdAverage: 3.51
 slug: 'crimson-peak'
 description: "I mostly love Guillermo del Toro, but I think I just don't like gothic horror very much. And this movie didn't do much for me."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/crimson-peak/'

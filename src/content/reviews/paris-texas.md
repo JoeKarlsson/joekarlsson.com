@@ -5,6 +5,20 @@ date: 2025-11-04
 rating: 4
 director: 'Wim Wenders'
 genres: ['Drama']
+runtime: 145
+cast:
+  [
+    'Harry Dean Stanton',
+    'Nastassja Kinski',
+    'Dean Stockwell',
+    'Hunter Carson',
+    'Aurore Clément',
+    'Bernhard Wicki',
+  ]
+countries: ['UK', 'Germany', 'France']
+language: 'English'
+studios: ['Road Movies', 'Argos films', 'WDR', 'Channel Four Films', 'Pro-ject Filmproduktion']
+letterboxdAverage: 4.36
 slug: 'paris-texas'
 description: "I'm struggling with my thoughts on this film because it's genuinely complicated."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paris-texas/'

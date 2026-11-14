@@ -5,6 +5,28 @@ date: 2026-09-04
 rating: 4.5
 director: 'Michael Haneke'
 genres: ['Romance', 'Drama']
+runtime: 131
+cast:
+  [
+    'Isabelle Huppert',
+    'Annie Girardot',
+    'Benoît Magimel',
+    'Susanne Lothar',
+    'Udo Samel',
+    'Anna Sigalevitch',
+  ]
+countries: ['France', 'Austria', 'Germany']
+language: 'French'
+studios:
+  [
+    'Wega Film',
+    'Les Films Alain Sarde',
+    'ARTE France Cinéma',
+    'Bavaria Film International',
+    'OFI',
+    'MK2 Productions',
+  ]
+letterboxdAverage: 4.05
 slug: 'the-piano-teacher'
 description: "The Piano Teacher is Michael Haneke's cruelest film and, improbably, his most tender, a study of repression so complete that it curdles into..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-piano-teacher/'

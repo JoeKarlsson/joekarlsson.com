@@ -5,6 +5,13 @@ date: 2025-11-13
 rating: 2
 director: 'Edgar Wright'
 genres: ['Thriller', 'Science Fiction', 'Action']
+runtime: 133
+cast:
+  ['Glen Powell', 'Colman Domingo', 'Lee Pace', 'Josh Brolin', 'William H. Macy', 'Michael Cera']
+countries: ['USA', 'UK']
+language: 'English'
+studios: ['Paramount Pictures', 'Complete Fiction', 'Genre Films', 'Domain Entertainment']
+letterboxdAverage: 3.13
 slug: 'the-running-man-2025'
 description: 'Edgar tried waaaay too hard to sell that Glen Powellis the “angriest person in the world” and I never bought it.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-running-man-2025/'

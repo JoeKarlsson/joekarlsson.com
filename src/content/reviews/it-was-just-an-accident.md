@@ -5,6 +5,27 @@ date: 2026-01-15
 rating: 4.5
 director: 'Jafar Panahi'
 genres: ['Thriller', 'Drama', 'Crime', 'Mystery']
+runtime: 103
+cast:
+  [
+    'Vahid Mobasseri',
+    'Mariam Afshari',
+    'Ebrahim Azizi',
+    'Hadis Pakbaten',
+    'Majid Panahi',
+    'Mohamad Ali Elyasmehr',
+  ]
+countries: ['Iran', 'France', 'Luxembourg']
+language: 'Persian (Farsi)'
+studios:
+  [
+    'Jafar Panahi Film Productions',
+    'Les Films Pelléas',
+    'Bidibul Productions',
+    'Pio & Co',
+    'ARTE France Cinéma',
+  ]
+letterboxdAverage: 4
 slug: 'it-was-just-an-accident'
 description: 'Stagecoach for former political prisoners.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/it-was-just-an-accident/'

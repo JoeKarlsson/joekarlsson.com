@@ -5,6 +5,20 @@ date: 2025-10-09
 rating: 2.5
 director: 'Nisha Ganatra'
 genres: ['Family', 'Fantasy', 'Comedy']
+runtime: 110
+cast:
+  [
+    'Jamie Lee Curtis',
+    'Lindsay Lohan',
+    'Julia Butters',
+    'Sophia Hammons',
+    'Mark Harmon',
+    'Manny Jacinto',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Walt Disney Pictures', 'Burr! Productions', 'Gunn Films']
+letterboxdAverage: 3.06
 slug: 'freakier-friday'
 description: 'Freakier Friday definitely feels like a Disney+ movie production-wise, which is wild considering it stars an Oscar winner. I’m just gonna say it: this was...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/freakier-friday/'

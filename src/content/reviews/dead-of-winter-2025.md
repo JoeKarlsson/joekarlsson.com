@@ -5,6 +5,29 @@ date: 2025-10-08
 rating: 3
 director: 'Brian Kirk'
 genres: ['Thriller', 'Action']
+runtime: 98
+cast:
+  [
+    'Emma Thompson',
+    'Judy Greer',
+    'Marc Menchaca',
+    'Laurel Marsden',
+    'Gaia Wise',
+    'Cúán Hosty-Blaney',
+  ]
+countries: ['Germany', 'USA', 'Belgium']
+language: 'English'
+studios:
+  [
+    'Stampede Ventures',
+    'Augenschein Filmproduktion',
+    'ZDF',
+    'Leonine Studios',
+    'uMedia',
+    'Swift Productions',
+    'north.five.six',
+  ]
+letterboxdAverage: 2.87
 slug: 'dead-of-winter-2025'
 description: "As a Minnesotan, I was legally required to see Dead of Winter in theaters with some other Minnesotan friends. I didn't know it was actually filmed in Finland..."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dead-of-winter-2025/'

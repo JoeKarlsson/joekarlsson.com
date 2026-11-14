@@ -5,6 +5,13 @@ date: 2019-12-29
 rating: 3.5
 director: "D'Urville Martin"
 genres: ['Action', 'Comedy', 'Crime']
+runtime: 90
+cast:
+  ['Rudy Ray Moore', "D'Urville Martin", 'Lady Reed', 'Jerry Jones', 'Cardella Di Milo', 'Hy Pyke']
+countries: ['USA']
+language: 'English'
+studios: ['Comedian Intl Enterprise Productions (C.I.E.)', 'Dimension Pictures']
+letterboxdAverage: 3.11
 slug: 'dolemite'
 description: 'I had a blast watching this movie. Legit super fun.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dolemite/'

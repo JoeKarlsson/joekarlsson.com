@@ -5,6 +5,20 @@ date: 2025-12-27
 rating: 4
 director: 'Donald Petrie'
 genres: ['Romance', 'Comedy']
+runtime: 103
+cast:
+  [
+    'Jack Lemmon',
+    'Walter Matthau',
+    'Ann-Margret',
+    'Burgess Meredith',
+    'Daryl Hannah',
+    'Kevin Pollak',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['John Davis', 'Lancaster Gate', 'Warner Bros. Pictures']
+letterboxdAverage: 3.4
 slug: 'grumpy-old-men'
 description: 'Wabasha representation. Saint Paul representation. Sauna representation.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/grumpy-old-men/'

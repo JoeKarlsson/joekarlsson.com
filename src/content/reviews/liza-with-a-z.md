@@ -5,6 +5,12 @@ date: 2026-10-09
 rating: 4
 director: 'Bob Fosse'
 genres: ['Documentary', 'TV Movie', 'Music']
+runtime: 53
+cast: ['Liza Minnelli', 'Ann Reinking', 'Gwen Verdon', 'Lorna Luft', 'Kay Thompson']
+countries: ['USA']
+language: 'English'
+studios: ['Flora']
+letterboxdAverage: 4.11
 slug: 'liza-with-a-z'
 description: 'Liza Minnelli was 26 here, and she had the whole world in her hand.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/liza-with-a-z/'

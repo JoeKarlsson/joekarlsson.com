@@ -5,6 +5,29 @@ date: 2025-03-02
 rating: 2
 director: 'James Mangold'
 genres: ['Drama', 'Music']
+runtime: 141
+cast:
+  [
+    'Timothée Chalamet',
+    'Edward Norton',
+    'Elle Fanning',
+    'Monica Barbaro',
+    'Scoot McNairy',
+    'Dan Fogler',
+  ]
+countries: ['USA']
+language: 'English'
+studios:
+  [
+    'Veritas Entertainment Group',
+    'Range Media Partners',
+    'The Picture Company',
+    'Turnpike Films',
+    'White Water',
+    'Searchlight Pictures',
+    'TSG Entertainment',
+  ]
+letterboxdAverage: 3.56
 slug: 'a-complete-unknown'
 description: 'I want to give this movie zero out of five stars because there’s no Minnesota in it, but I love Bob Dylan. I had to say I didn’t love this movie. It was OK.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/a-complete-unknown/'

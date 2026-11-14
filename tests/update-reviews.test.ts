@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+	filmStats,
 	fromRss,
 	parseCsv,
 	parseReviewUrl,
@@ -73,5 +74,28 @@ describe('stars', () => {
 	it('writes half stars as ½', () => {
 		expect(stars(3.5)).toBe('★★★½');
 		expect(stars(5)).toBe('★★★★★');
+	});
+});
+
+describe('filmStats', () => {
+	it("reads a film page's runtime, top-billed six, countries, language and Letterboxd average", () => {
+		const ld = {
+			duration: 'PT2H37M',
+			actor: 'ABCDEFG'.split('').map((name) => ({ name })),
+			countryOfOrigin: [{ name: 'USA' }],
+			productionCompany: [{ name: 'Paramount Pictures' }],
+			aggregateRating: { ratingValue: 4.03 },
+		};
+		const html = '<a href="/films/language/persianfarsi/" class="text-slug">Persian (Farsi)</a>';
+		expect(filmStats(ld, html)).toEqual({
+			runtime: 157,
+			cast: ['A', 'B', 'C', 'D', 'E', 'F'],
+			countries: ['USA'],
+			language: 'Persian (Farsi)',
+			studios: ['Paramount Pictures'],
+			letterboxdAverage: 4.03,
+		});
+		expect(filmStats({ duration: 'PT45M' }, '').runtime).toBe(45);
+		expect(filmStats({}, '').runtime).toBeUndefined();
 	});
 });

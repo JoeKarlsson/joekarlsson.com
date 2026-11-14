@@ -5,6 +5,13 @@ date: 2025-11-28
 rating: 3.5
 director: 'Jalmari Helander'
 genres: ['Action', 'Thriller', 'War']
+runtime: 89
+cast:
+  ['Jorma Tommila', 'Stephen Lang', 'Richard Brake', 'Tommi Korpela', 'Kaspar Velberg', 'Pääru Oja']
+countries: ['Finland', 'UK']
+language: 'English'
+studios: ['Cosmic Snowball', 'Good Chaos', 'Subzero Film Entertainment']
+letterboxdAverage: 3.24
 slug: 'sisu-road-to-revenge'
 description: 'Sisu 2: Fury Road.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sisu-road-to-revenge/'

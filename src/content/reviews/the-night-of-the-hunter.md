@@ -5,6 +5,20 @@ date: 2025-12-30
 rating: 5
 director: 'Charles Laughton'
 genres: ['Drama', 'Crime', 'Thriller', 'Horror']
+runtime: 93
+cast:
+  [
+    'Robert Mitchum',
+    'Shelley Winters',
+    'Lillian Gish',
+    'Billy Chapin',
+    'Sally Jane Bruce',
+    'James Gleason',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Paul Gregory Productions', 'United Artists']
+letterboxdAverage: 4.25
 slug: 'the-night-of-the-hunter'
 description: "A weird psychosexual religious allegorical nightmare. One of the most beautiful films I've ever seen."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-night-of-the-hunter/'
