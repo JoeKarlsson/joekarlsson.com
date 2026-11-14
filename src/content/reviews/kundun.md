@@ -5,6 +5,20 @@ date: 2026-11-14
 rating: 3
 director: 'Martin Scorsese'
 genres: ['Drama', 'History']
+runtime: 134
+cast:
+  [
+    'Tenzin Thuthob Tsarong',
+    'Tencho Gyalpo',
+    'Tsewang Migyur Khangsar',
+    'Gyurme Tethong',
+    'Robert Lin',
+    'Tulku Jamyang Kunga Tenzin',
+  ]
+countries: ['USA']
+language: 'English'
+studios: ['Touchstone Pictures', 'Cappa/De Fina Productions', 'Refugee Productions']
+letterboxdAverage: 3.47
 slug: 'kundun'
 description: 'Kundun made me furious at China, furious at Disney, and weirdly unmoved by Kundun.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kundun/'
