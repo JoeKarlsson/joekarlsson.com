@@ -19,7 +19,9 @@ SHA=$(awk '$2 !~ /^0+$/ { sha = $2 } END { print sha }')
 # Run the checks on the homelab's test runner (CT 273), so several sessions pushing at
 # once queue there instead of starving this Mac's CPU. Off the home network, run here.
 RUNNER=runner@192.168.0.69
-SSH_OPTS="-o BatchMode=yes -o ConnectTimeout=3 -o StrictHostKeyChecking=accept-new"
+# Keepalives: a connection that dies mid-run (the Mac changing networks) fails within a
+# minute instead of hanging the push forever
+SSH_OPTS="-o BatchMode=yes -o ConnectTimeout=3 -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=15 -o ServerAliveCountMax=4"
 # shellcheck disable=SC2086
 if ssh $SSH_OPTS "$RUNNER" true 2>/dev/null; then
 	GIT_SSH_COMMAND="ssh $SSH_OPTS" git push -q "$RUNNER:site" "$SHA:refs/runs/$(hostname -s)-$$"
@@ -28,10 +30,14 @@ if ssh $SSH_OPTS "$RUNNER" true 2>/dev/null; then
 	PATCH=$(git diff "$(git merge-base "$SHA" origin/main)" "$SHA" | git patch-id --stable | cut -d' ' -f1)
 	# Exit 75: the runner is busy with another push. It never queues (a queue held
 	# pushes and deploys for over an hour), so the checks run here instead.
+	# Exit 255: the connection failed or dropped; run them here too.
 	# shellcheck disable=SC2086
 	if ssh $SSH_OPTS "$RUNNER" site-checks "$SHA" "$PATCH"; then exit 0; else rc=$?; fi
-	[ "$rc" -eq 75 ] || exit "$rc"
-	echo "Test runner (CT 273) busy: running the checks on this Mac"
+	case "$rc" in
+	75) echo "Test runner (CT 273) busy: running the checks on this Mac" ;;
+	255) echo "Lost the connection to the test runner (CT 273): running the checks on this Mac" ;;
+	*) exit "$rc" ;;
+	esac
 else
 	echo "Test runner (CT 273) unreachable: running the checks on this Mac"
 fi
