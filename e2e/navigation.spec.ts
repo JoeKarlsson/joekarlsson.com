@@ -25,6 +25,21 @@ test.describe('Header Navigation', () => {
 		await expect(nav.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page');
 		await expect(nav.getByRole('link', { name: 'Blog' })).not.toHaveAttribute('aria-current');
 	});
+
+	test("a review's More reviews names each film once, though Weapons has three reviews", async ({
+		page,
+	}) => {
+		await page.goto('/reviews/resident-evil-2026/');
+		// Each poster ends in its film's title and year
+		const films = await page.locator('#more-reviews ~ ul li').allInnerTexts();
+		expect(films.length).toBeGreaterThan(0);
+		expect(new Set(films.map((f) => f.split('\n').at(-1))).size).toBe(films.length);
+	});
+
+	test('marks no section on a film review, which has no nav item', async ({ page }) => {
+		await page.goto('/reviews/zodiac/');
+		await expect(page.locator('header nav [aria-current="page"]')).toHaveCount(0);
+	});
 });
 
 test.describe('Mobile Navigation', () => {
