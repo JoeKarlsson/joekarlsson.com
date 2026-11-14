@@ -33,6 +33,10 @@ I want to start by saying, Christopher Nolan has been making the Odyssey his ent
 
 Inception opens with Cobb waking up confused on a beach, desperate to return home to his children. Interstellar is Cooper crossing impossible distances while Murph waits decades. Dunkirk is soldiers clawing their way back across the sea. Tenet has Kat escaping a monstrous husband to reunite with her son. Oppenheimer is a man haunted by the horrors he wrought during the war. Men trying to get home. Women waiting. Time bending around the journey. Nolan's been circling this story for twenty years. The Odyssey is the source code.
 
+![Three frames: Cobb washed up face-down on a beach in Inception, Cooper reaching for the screen where a grown-up Murph is recording a message in Interstellar, and lines of soldiers queued into the surf toward a ship on the horizon in Dunkirk.](/images/reviews/the-odyssey-2026/nolan-homecomings.webp)
+
+_Inception, Interstellar, Dunkirk._
+
 And now that he's finally adapting it directly, the feminist reading feels almost unavoidable. This is a story about men being absolute monsters - pigs, sociopaths, murderers - taking advantage of women over and over while defining the rules of society to bend in their favor. The women are forced to bear it. Penelope tells Telemachus she's not allowed to make the rules because she's a woman. Circe, transforming Odysseus's men back from pigs, says something like " return to your disguise” which is commenting directly about masculinity as performance. As disguise.
 
 ![Two frames from Circe's house: Odysseus's men lying as pigs, then one of them climbing back out of a pig's body as a man.](/images/reviews/the-odyssey-2026/circe-pigs-to-men.webp)

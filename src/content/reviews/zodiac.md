@@ -37,6 +37,10 @@ What Fincher cares about is the people the case impacted, and what it does to th
 
 Robert Graysmith (Jake Gyllenhaal) is a Chronicle cartoonist who gets hooked on the Zodiac ciphers and is still hooked more than a decade later. Inspector Dave Toschi (Mark Ruffalo) gives it a decade and ends up accused of forging a Zodiac letter himself. Paul Avery (Robert Downey Jr.), the paper's crime reporter, drinks himself out of the story. Graysmith's wife Melanie watches her husband disappear into boxes of case files until she takes the kids and leaves. Nobody in this part of the story gets stabbed or shot, but all of them lose years to it.
 
+![Jake Gyllenhaal as Graysmith at his Chronicle desk reading a Zodiac letter, next to the real 340 cipher card, rows of symbols above a crosshair.](/images/reviews/zodiac/the-340-cipher.webp)
+
+_Graysmith at the Chronicle in 1969, and the real 340 cipher the Zodiac mailed the paper that November. It went unsolved for 51 years._
+
 So the heart attack hits differently on a rewatch, because there was never a verdict coming. The movie is about what wanting one does to people, and Graysmith wants it more than anyone.
 
 The first time, I wanted the movie to catch him. This time I was watching the people who couldn't stop trying, and God, I love that ending.

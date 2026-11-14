@@ -37,6 +37,10 @@ The most fun anyone has in this movie happens out on that floor. The scene I lau
 
 There's one image I can't get out of my head. Tess calls her best friend Cyn (Joan Cusack) from her new office, and Cusack is ecstatic, screaming and yelling the news across the bullpen while the women around her cheer. ||Then the camera slowly pulls back from Tess, alone at the window of her empty office||, until she's one lit square in a skyline full of them.
 
+![Two frames: Tess on the phone in her lit office window, then the camera pulled back so her window is one of hundreds in the building's grid.](/images/reviews/working-girl/one-lit-window.webp 'spoiler')
+
+_||One window, then hundreds.||_
+
 The movie plays this as a triumph. To me it felt like a snapshot of capitalism: money just affords you the ability to stay away from people. The women who cheered her on are still out on the floor, and she has a door. She even gets a secretary of her own and tells her not to fetch coffee unless she's getting some for herself, and the movie treats that like things are going to get better.
 
 Being nicer to your secretary doesn't fix it. We're almost 40 years out now, there are more women in the workplace, and it's just as shitty, and in a lot of ways way fucking worse. What is all this for? The mergers and acquisitions, the crazy runaway business culture of the 80s, it makes me kind of sick, and it overshadows the film for me.

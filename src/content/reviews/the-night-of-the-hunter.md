@@ -41,4 +41,8 @@ The theater was cracking up at parts, which surprised me. I wish I could put mys
 
 References to this film are everywhere, and seeing the source material is electric. Spike Lee pulled the LOVE/HATE tattoo imagery directly for Do the Right Thing. The flowing hair and fairy tale darkness feels very Guillermo del Toro - Pan's Labyrinth owes something to this. Terrence Malick's golden hour pastoral shots echo the riverbank sequences. The Coen Brothers' Preacher in True Grit feels like a direct descendant of Mitchum's performance. Even Martin Scorsese's Cape Fear remake with De Niro draws heavily from Mitchum's menace here.
 
+![Two frames: Robert Mitchum's fist with HATE tattooed across the knuckles in The Night of the Hunter, and Radio Raheem holding his gold HATE rings up to the camera in Do the Right Thing.](/images/reviews/the-night-of-the-hunter/hate-and-hate.webp)
+
+_1955 and 1989._
+
 It's a thriller, gothic horror, true crime novel adaptation, and Southern fairy tale all at once. Such a strange movie, but it works completely. It's a bummer this was Laughton's only film as a director. The man made one movie. It's a masterpiece. That's insane.

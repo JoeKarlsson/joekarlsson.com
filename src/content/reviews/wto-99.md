@@ -31,6 +31,10 @@ _The same day, a few blocks apart._
 
 Coming from the Twin Cities, this felt deeply personal. We have plenty of experience with protesting, fighting the police, and the media misportraying our movements. After the murder of George Floyd in 2020, I watched the same playbook deploy in my city. The same militarized response. The same media framing - "riots" instead of rebellion, property damage instead of police brutality, outside agitators instead of community grief. The 3rd Precinct burned, and suddenly the conversation was about a building instead of a man murdered in the street. And then in the winter of 2026, the federal occupation by ICE - again, the same tactics, the same media spin, the same attempt to delegitimize resistance.
 
+![Minneapolis police on the roof of the Third Precinct firing into the street, a cloud of smoke rising in front of the building.](/images/reviews/wto-99/third-precinct.webp)
+
+_Minneapolis police on the Third Precinct roof, May 27, 2020. Photo: [Chad Davis](<https://commons.wikimedia.org/wiki/File:Minneapolis_Police_Third_Precinct_(51683720667).jpg>), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)._
+
 Seattle in 1999 was the blueprint. The militarization of police. The media playbook for discrediting dissent. The normalization of treating protesters as enemies of the state. We are still living in the aftermath of those four days. This documentary makes that lineage undeniable.
 
 If you've ever wondered why protests feel so surveilled, so militarized, so immediately delegitimized by media coverage - this is where it started. This is why you should care.
