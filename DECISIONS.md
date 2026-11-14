@@ -22,6 +22,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 ## Reviews
 
 - 2026-11-13: Review spoilers are hidden phrase by phrase, never a whole review or block, and show on hover (tap on phones), like Reddit. Of a gray bar, a blur and a pink crayon scribble, Joe picked the blur. A review that has spoilers gets a spoiler warning up top.
+- 2026-11-13: Hovering a spoiler shows just that one; clicking or tapping any spoiler reveals every spoiler in the review. The spoiler warning is "Contains spoilers" in the meta line only: no explainer note telling readers how to reveal them (Joe: "way too verbose", AI slop).
 
 ## Consistency
 
