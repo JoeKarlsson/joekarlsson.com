@@ -361,8 +361,11 @@ const posterLabel = (r: StatsReview) =>
 									<span class="sr-only">{posterLabel(r)}</span>
 								</a>
 								{r.rating && (
-									<div class="mt-2 text-sm" aria-hidden="true">
-										<span class="text-pink">★</span> {half(r.rating)}
+									<div
+										class="mt-2 text-xs whitespace-nowrap text-pink md:text-sm"
+										aria-hidden="true"
+									>
+										{stars(r.rating)}
 									</div>
 								)}
 							</div>
