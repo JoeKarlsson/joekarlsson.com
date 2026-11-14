@@ -23,7 +23,7 @@ Masculinity as performance. Masculinity as costume. And once they took it off - 
 
 Class does the other half of the work. Tenoch's father is a PRI government official. Julio's mother is a secretary. The trip is a suspended space where those facts can be temporarily bracketed - two boys on the road, equal in their horniness and their bullshit. Back in Mexico City, the class difference reasserts itself immediately. The café scene is so formal. They're already performing adult roles at each other. ||The friendship dies of the country as much as the kiss||.
 
-![Julio and Tenoch sitting across from each other in a booth at a bright café, both in sweaters, not quite looking at each other.](/images/reviews/y-tu-mama-tambien/the-cafe.webp)
+![Julio and Tenoch sitting across from each other in a booth at a bright café, both in sweaters, not quite looking at each other.](/images/reviews/y-tu-mama-tambien/the-cafe.webp 'spoiler')
 _The café._
 
 I'll admit I don't fully understand the political context - the fall of the PRI after 71 years of rule, the effects of NAFTA, the economic crisis. But I can feel it in the film. The narrator keeps pulling focus to background characters whose futures are already foreclosed - a fisherman whose livelihood will be destroyed by tourism, families displaced by development. Mexico is changing around these boys and they drive past without noticing. Their obliviousness is the point.

@@ -19,7 +19,7 @@ I liked this more than I thought I would. It's an overly indulgent Guillermo del
 
 The screenplay is one of the least subtle I've ever seen. At the end, Jacob Elordi's ||creature literally tells Oscar Isaac's Victor Frankenstein, "You're the monster,"|| just in case you somehow missed the entire point of the 200-year-old novel. It's almost hilariously on-the-nose, but you know what? It still works.
 
-![William, Victor's younger brother, bloodied, looking up at Victor.](/images/reviews/frankenstein-2025/you-are-the-monster.webp)
+![William, Victor's younger brother, bloodied, looking up at Victor.](/images/reviews/frankenstein-2025/you-are-the-monster.webp 'spoiler')
 _William, to Victor._
 
 I did pick up on a strong thread of Christian pro-life hypocrisy in this watch. It felt like an allegory for someone who forces a birth that no one wanted, then just abuses and neglects what they created. They want life for the sake of life without dealing with the consequences of that choice. And then when they do have to face those consequences, they react with violence and rejection. I don't know if that's the intended read, but that's what I took away this time, and it made the whole thing feel urgently relevant.

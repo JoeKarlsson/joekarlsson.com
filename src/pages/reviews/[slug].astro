@@ -12,7 +12,7 @@ import { MARKS } from '../../data/scribbles';
 import { SECTION_HEADING } from '../../utils/ui';
 import { isOwnPost } from '../../utils/posts';
 import { parseReviewUrl, stars } from '../../../scripts/update-reviews.mjs';
-import { SPOILER_MARK } from '../../plugins/rehype-spoilers.mjs';
+import { SPOILER_FRAME_TITLE, SPOILER_MARK } from '../../plugins/rehype-spoilers.mjs';
 
 export async function getStaticPaths() {
 	const reviews = await getCollection('reviews');
@@ -37,8 +37,11 @@ const {
 	letterboxdUrl,
 	spoilers,
 } = review.data;
-// Letterboxd's spoiler flag, or a ||spoiler|| marked in the text
-const hasSpoilers = spoilers || new RegExp(SPOILER_MARK).test(review.body || '');
+// Letterboxd's spoiler flag, a ||spoiler|| marked in the text, or a picture titled "spoiler"
+const hasSpoilers =
+	spoilers ||
+	new RegExp(SPOILER_MARK).test(review.body || '') ||
+	(review.body || '').includes(` "${SPOILER_FRAME_TITLE}")`);
 const words = (review.body || '').trim().split(/\s+/).length;
 // A rewatch shares its film's title, so its browser tab and search result name the rewatch
 const watched = date.toLocaleDateString('en-US', {
@@ -171,9 +174,10 @@ const mentions =
 
 <script>
 	// A click, tap, Enter or Space on any spoiler shows every spoiler in the review
-	// (rehype-spoilers.mjs). Space fires on release and Enter on press, like a native button.
+	// or spoiler picture (rehype-spoilers.mjs). Space fires on release and Enter on press, like a
+	// native button.
 	const revealAll = (event: Event) => {
-		const spoiler = (event.target as Element).closest?.('.spoiler');
+		const spoiler = (event.target as Element).closest?.('.spoiler, .spoiler-frame');
 		if (!spoiler) return;
 		if (event instanceof KeyboardEvent) {
 			if (event.key === ' ') event.preventDefault(); // no page scroll
@@ -182,7 +186,7 @@ const mentions =
 		const article = spoiler.closest('article');
 		article?.classList.add('spoilers-shown');
 		// Shown spoilers are plain text again: no dead buttons or tab stops left in the sentence
-		article?.querySelectorAll('.spoiler').forEach((s) => {
+		article?.querySelectorAll('.spoiler, .spoiler-frame').forEach((s) => {
 			for (const attribute of ['role', 'tabindex', 'aria-pressed']) s.removeAttribute(attribute);
 		});
 	};

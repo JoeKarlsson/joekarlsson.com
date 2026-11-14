@@ -38,6 +38,38 @@ describe('rehype-spoilers', () => {
 		);
 	});
 
+	it('turns the paragraph of a picture titled "spoiler" into a spoiler frame', () => {
+		const img: HastNode = {
+			type: 'element',
+			tagName: 'img',
+			properties: { src: '/end.webp', alt: 'The last shot', title: 'spoiler' },
+			children: [],
+		};
+		const p = el('p', img);
+		run(el('root', p));
+		expect(p.properties).toMatchObject({
+			className: ['spoiler-frame'],
+			tabIndex: 0,
+			role: 'button',
+			ariaPressed: 'false',
+		});
+		expect(img.properties).not.toHaveProperty('title');
+		expect(textOf(p)).toBe('Spoiler picture: ');
+	});
+
+	it('leaves a picture with any other title alone', () => {
+		const img: HastNode = {
+			type: 'element',
+			tagName: 'img',
+			properties: { src: '/a.webp', title: 'A caption' },
+			children: [],
+		};
+		const p = el('p', img);
+		run(el('root', p));
+		expect(p.properties).toEqual({});
+		expect(img.properties).toHaveProperty('title', 'A caption');
+	});
+
 	it('leaves code alone, where || is an or', () => {
 		const code = el('code', text('a ||b|| c'));
 		run(el('root', el('p', code)));

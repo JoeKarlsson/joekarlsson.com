@@ -27,7 +27,7 @@ What's remarkable is how the film depicts both the necessity of resistance and t
 
 I'm going to have to come back and expand on this review even more in the future because I'm still unpacking everything it made me feel. I wasn't sure it was going to hit as hard as people said, but ||the ending - that spontaneous uprising, the people reclaiming the streets|| - really got me. It's been sticking with me for weeks now, especially in our current moment where we're watching similar dynamics play out across the world.
 
-![A huge crowd of Algerians flooding a wide street, seen from above, white flags and headscarves everywhere.](/images/reviews/the-battle-of-algiers/the-streets.webp)
+![A huge crowd of Algerians flooding a wide street, seen from above, white flags and headscarves everywhere.](/images/reviews/the-battle-of-algiers/the-streets.webp 'spoiler')
 _The streets, ||at the end||._
 
 I came to this movie after watching One Battle After Another - it's the film Leo is watching on TV in that movie. It makes total sense why PTA chose The Battle of Algiers to show in One Battle. It's incredible and totally underscores the themes of that film as well. Both are about the costs of revolution, the complexity of resistance, the impossible choices people face when fighting for liberation, and what it means to sacrifice everything for a better world you might not live to see.

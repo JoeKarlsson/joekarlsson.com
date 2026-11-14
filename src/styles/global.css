@@ -471,6 +471,32 @@ pre.astro-code {
 	padding-block: 0;
 }
 
+/* A picture that gives something away (rehype-spoilers.mjs): blurred behind a "Show spoiler"
+   label until a click, tap or Enter shows every spoiler. Hover doesn't show it. The clip keeps
+   the blur's edge inside the picture's rounded corners */
+.spoiler-frame {
+	@apply relative cursor-pointer;
+}
+.spoiler-frame img {
+	@apply transition-[filter] duration-200 ease-out motion-reduce:transition-none;
+	filter: blur(28px);
+	clip-path: inset(0 round 0.5rem);
+}
+.spoiler-frame::after {
+	@apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink/80 px-4 py-2 text-sm font-semibold text-paper;
+	content: 'Show spoiler' / '';
+}
+.spoiler-frame[role] .lightbox-opener,
+.spoilers-shown .spoiler-frame::after {
+	display: none;
+}
+.spoilers-shown .spoiler-frame {
+	@apply cursor-auto;
+}
+.spoilers-shown .spoiler-frame img {
+	filter: none;
+}
+
 /* A metadata line (MetaParts): a thin gray bar between pieces, never a dot. The line
    is shifted left by one bar and clipped, so a piece that wraps to a new line starts
    it bare instead of after a stray bar. Screen readers skip the bar */
