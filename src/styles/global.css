@@ -486,6 +486,10 @@ pre.astro-code {
 	@apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink/80 px-4 py-2 text-sm font-semibold text-paper;
 	content: 'Show spoiler' / '';
 }
+/* the picture's zoom-in cursor waits until it's shown: the first click shows, it doesn't enlarge */
+.spoiler-frame[role] img {
+	cursor: inherit;
+}
 .spoiler-frame[role] .lightbox-opener,
 .spoilers-shown .spoiler-frame::after {
 	display: none;
