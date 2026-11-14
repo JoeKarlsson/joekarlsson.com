@@ -15,7 +15,7 @@ heroAlt: 'A still from The Smashing Machine (2025)'
 
 I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock finally tried to be a serious actor and bombed so hard the movie became a meta-commentary on failure.
 
-I love that Captain Capitalist finally ate shit when he tried to make an earnest play at being a legit drama actor. But I'm also genuinely sad that my boy Benny Safdie made a bomb on his solo directorial debut. The man deserves better than this.
+But I'm also genuinely sad that my boy Benny Safdie made a bomb on his solo directorial debut. The man deserves better than this.
 
 I've actually watched the 1999 documentary this is based on, and honestly, I prefer the documentary. This feature film gets a little shaggy in the second act when it should be building momentum. I wish it was a tight 90 minutes instead of meandering around. That pacing problem hurts it.
 

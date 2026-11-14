@@ -22,8 +22,8 @@ I know Christopher Lambert most notably from the Mortal Kombat movies, so it was
 
 Some of the special effects were incredible - the sparking swords, the hand-drawn animation of the final quickening. Gorgeous stuff.
 
-This is also a deeply gay movie. It's very focused on male relationships, and the quickening really does feel like an orgasm. There are a lot of gay jokes throughout that don't land right - one character even drops the F-slur directly at John Polito, which made me feel absolutely terrible for that poor man. By the way, I love John Polito in whatever he's in. God bless him in this movie.
+This is also a deeply gay movie. It's very focused on male relationships, and the quickening really does feel like an orgasm. There are a lot of gay jokes throughout that don't land right - one character even drops the F-slur directly at Jon Polito, which made me feel absolutely terrible for that poor man. By the way, I love Jon Polito in whatever he's in. God bless him in this movie.
 
 Also, did you know that Mr. Krabs is the villain? For real, look it up. Clancy Brown voices Mr. Krabs.
 
-I love these low-budget analog action movies from the 80s and 90s. The ones being released today just don't hit the same, which is too bad. I had a blast with this. I miss Canon Films.
+I love these low-budget analog action movies from the 80s and 90s. The ones being released today just don't hit the same, which is too bad. I had a blast with this. I miss Cannon Films.

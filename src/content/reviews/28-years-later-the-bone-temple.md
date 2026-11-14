@@ -15,7 +15,7 @@ heroAlt: 'A still from 28 Years Later: The Bone Temple (2026)'
 
 Alex Garland has a lot to say about society, religion, and healing. Also there's a lot of gore.
 
-The Bone Temple is Alex Garland's take on where this franchise is going, and it is such a breath of fresh air. I don't think normies are going to love it - this is weird, challenging, swerving hard in directions you don't expect. But I really did. The needle drops are fun. The history and lore are genuinely interesting. And I love how it's less about zombies and more an exploration of how humans behave when society breaks down.
+The Bone Temple is Nia DaCosta and Alex Garland's take on where this franchise is going, and it is such a breath of fresh air. I don't think normies are going to love it - this is weird, challenging, swerving hard in directions you don't expect. But I really did. The needle drops are fun. The history and lore are genuinely interesting. And I love how it's less about zombies and more an exploration of how humans behave when society breaks down.
 
 I'll be honest - the Jimmys at the end of 28 Years Later Part One were shocking in a bad way. I was laughing, and not with the movie. Those last two minutes did not leave me optimistic. But here, the Jimmys and the Fingers were absolutely enthralling at every step. Garland obviously has a lot to say about society, religion, healing, and whether we should punish those who hurt us or try to cure them. Spending an entire film exploring what the virus actually is and whether it can be cured? Fascinating choice.
 

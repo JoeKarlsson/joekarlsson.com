@@ -15,8 +15,8 @@ heroAlt: 'A still from Dredd (2012)'
 
 ACAB includes Dredd. But, with that being said this movie is fun.
 
-I think it succeeds in being so self-contained. Dred isn’t trying to stop a giant blue laser beam from shooting up into the sky and ending the universe. He’s trying to take down a single drug dealer in a single building.
+I think it succeeds in being so self-contained. Dredd isn’t trying to stop a giant blue laser beam from shooting up into the sky and ending the universe. He’s trying to take down a single drug dealer in a single building.
 
-This is trade, but in a sci-fi future
+This is The Raid, but in a sci-fi future
 
-Also, the use of drugs as a fund special effect gimmick I thought it worked really well when I first watched it and on a repeat viewing. More movies need to start abusing the slow mo drug.
+Also, the use of drugs as a fun special effect gimmick I thought it worked really well when I first watched it and on a repeat viewing. More movies need to start abusing the slow mo drug.

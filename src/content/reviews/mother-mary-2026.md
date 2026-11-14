@@ -15,7 +15,7 @@ heroAlt: 'A still from Mother Mary (2026)'
 
 I love how gay this movie is. I struggled with everything else.
 
-Mother Mary gave me Portrait of a Lady on Fire vibes. I love how gay this movie is. David Lowery does capture something about two artists trying to communicate, reconnect, and the fire that burned between them until it exploded. There’s something real in there.
+Mother Mary gave me Portrait of a Lady on Fire vibes. David Lowery does capture something about two artists trying to communicate, reconnect, and the fire that burned between them until it exploded. There’s something real in there.
 
 But it felt like I was unraveling riddles the entire film. It was hard for me to connect with characters who just speak like that - elliptical, withholding, never quite saying the thing. I’ll be honest, I had an ex who had trouble communicating with words, and this triggered something in me. That’s a me problem. But damn, I was a bit repulsed by the dialogue at times.
 

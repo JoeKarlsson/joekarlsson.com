@@ -43,7 +43,7 @@ The cyclops was incredible - played by a real person, not CGI, and it looked lik
 ![The sleeping Cyclops in his cave, lit by the fire, with Odysseus's men creeping past his face.](/images/reviews/the-odyssey-2026/cyclops.webp)
 _Sandy skin, a real person, no CGI._
 
-Robert Patterson is at his best when he’s playing a weasel. I continue to think he’s the best actor of our generation.
+Robert Pattinson is at his best when he’s playing a weasel. I continue to think he’s the best actor of our generation.
 
 The Hades sequence floored me. One of the set pieces that'll stick with me.
 

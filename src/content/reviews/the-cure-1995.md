@@ -17,4 +17,4 @@ This was filmed near where I grew up (Stillwater, MN), so I was required by law 
 
 The cinematography was absolutely gorgeous and made me yearn for growing up in Minnesota in the 90s.
 
-Also, the kid from Jurassic Park shoe really fucked me up
+Also, the kid from Jurassic Park's shoe really fucked me up

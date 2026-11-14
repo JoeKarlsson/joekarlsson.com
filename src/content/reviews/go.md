@@ -15,9 +15,9 @@ heroAlt: 'A still from Go (1999)'
 
 A fun, flashy 90s homage to Tarantino's aesthetic that succeeds more in style than substance.
 
-Doug Lerman's "Go!" is a vibrant, visually striking crime-comedy that clearly draws inspiration from the Reservoir Dogs and Pulp Fiction era, but manages to carve out its own identity through sheer energy and visual flair. The film's 3-part structure works well, with each segment building on the previous one while maintaining distinct tonal shifts.
+Doug Liman's "Go!" is a vibrant, visually striking crime-comedy that clearly draws inspiration from the Reservoir Dogs and Pulp Fiction era, but manages to carve out its own identity through sheer energy and visual flair. The film's 3-part structure works well, with each segment building on the previous one while maintaining distinct tonal shifts.
 
-The standout elements are undeniably visual - Lerman's cinematography is gorgeous, particularly in the dark, neon-lit nighttime sequences that really showcase the film's bold color palette. The production design and lighting create an atmospheric, almost dreamlike quality that elevates the material. The young cast delivers solid performances across the board, with the ensemble chemistry feeling authentic and lively.
+The standout elements are undeniably visual - Liman's cinematography is gorgeous, particularly in the dark, neon-lit nighttime sequences that really showcase the film's bold color palette. The production design and lighting create an atmospheric, almost dreamlike quality that elevates the material. The young cast delivers solid performances across the board, with the ensemble chemistry feeling authentic and lively.
 
 However, the film does suffer from the typical pitfalls of its genre and era. The plot feels contrived and occasionally reliant on 90s clichés, while some character choices feel forced rather than organic. The inclusion of a random British character, while perhaps reflecting the era's fascination with Britishness, doesn't quite gel with the story's rhythm.
 

@@ -18,6 +18,6 @@ Even as an idiot child, I understood how expensive and impressive this movie was
 
 There’s something so viscerally approachable about The Blues Brothers - the music, the action, the deadpan comedic performances. It’s a movie that works on every level whether you’re eight or thirty-eight. The musical numbers are incredible. The cameos are stacked. The comedy is dry and absurd in equal measure.
 
-And that final car chase. Even as an idiot child, I understood how expensive and impressive that last act was. You don’t need to know anything about filmmaking to feel the scale of the destruction on screen. They wrecked so many cars. I respected it then. I respect it now.
+And that final car chase. You don’t need to know anything about filmmaking to feel the scale of the destruction on screen. They wrecked so many cars. I respected it then. I respect it now.
 
 A perfect movie.

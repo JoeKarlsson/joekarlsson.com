@@ -16,7 +16,7 @@ heroAlt: 'A still from Twin Peaks: Fire Walk with Me (1992)'
 
 The whimsy of the show is gone and all that remains is the horror and the dreams of the fallen.
 
-I’ve seen the whole show, including all 19 hours of The Return. But Fire Walk With Me has a reputation, and I wasn’t sure I was ready. I know it’s become a beloved film - very Lynch, surreal, dreamlike. And I do love those moments in this. But I have to say it doesn’t resonate with me as hard as I wanted it to. It doesn’t answer much, leaves more questions than answers. Obviously that’s David Lynch’s point. Doesn’t mean it landed for me.
+I’ve seen the whole show, including all 18 hours of The Return. But Fire Walk With Me has a reputation, and I wasn’t sure I was ready. I know it’s become a beloved film - very Lynch, surreal, dreamlike. And I do love those moments in this. But I have to say it doesn’t resonate with me as hard as I wanted it to. It doesn’t answer much, leaves more questions than answers. Obviously that’s David Lynch’s point. Doesn’t mean it landed for me.
 
 Sheryl Lee gives an incredible central performance though. She’s really going tits out balls to the wall on this one - fully committed to the terror and the tragedy of Laura Palmer. I’m bummed she didn’t have a more successful career after Twin Peaks. She deserved more.
 

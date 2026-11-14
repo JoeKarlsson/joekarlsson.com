@@ -15,4 +15,4 @@ heroAlt: 'A still from Neon Genesis Evangelion: The End of Evangelion (1997)'
 
 I think I’m gonna need a couple months to wrap my mind around what just happened in that movie. The movie made some bold choices for an animated film about Mecha robots wild nihilistic and I think the ending is post apocalyptic. I’m not sure where it goes from here.
 
-Sanji is a difficult character for me to wrap my mind around.
+Shinji is a difficult character for me to wrap my mind around.

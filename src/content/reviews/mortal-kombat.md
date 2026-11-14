@@ -15,6 +15,6 @@ heroAlt: 'A still from Mortal Kombat (1995)'
 
 That Halcyon On and On needle drop. So fucking good.
 
-Mortal Kombat does such a great job of introducing just a couple characters, giving them meaningful arcs, and landing a really satisfying conclusion. The action is amazing. The music is incredible. That Halcyon On and On needle drop at the end - so fucking good.
+Mortal Kombat does such a great job of introducing just a couple characters, giving them meaningful arcs, and landing a really satisfying conclusion. The action is amazing. The music is incredible.
 
 It’s crazy that the industry struggled so hard to make video game movies for so long when they had this absolute trailblazer leading the pack. The blueprint was right here in 1995. Everyone kept fumbling anyway.

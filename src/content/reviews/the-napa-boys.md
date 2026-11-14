@@ -23,6 +23,6 @@ Then there's the ending. Or, endings, plural. This is a 90 minute movie that wra
 
 That said, I'm glad I watched it and I'm glad it exists. We need more movies made by friends doing stupid stuff with no money. The vibe is right even when the execution isn't.
 
-If you're looking for the version of this that absolutely cooks, Nirvana the Band the Show: The Movie is right there and it crushes Napa Boys on every axis. Better shot, better written, better acted, funnier. Same DNA, way more refined.
+If you're looking for the version of this that absolutely cooks, Nirvanna the Band the Show the Movie is right there and it crushes Napa Boys on every axis. Better shot, better written, better acted, funnier. Same DNA, way more refined.
 
 I'll probably keep thinking about this one. That has to count for something.

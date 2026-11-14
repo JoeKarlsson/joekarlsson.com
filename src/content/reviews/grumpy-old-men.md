@@ -25,6 +25,6 @@ Jack Lemmon and Walter Matthau have incredible chemistry - one of the great scre
 
 I also love that one of the first manic pixie dream girls in cinema is an old professor obsessed with saunas. Ann-Margret showed up and understood the assignment.
 
-This movie makes me mourn late 90s comedies. They don’t make them like this anymore - warm, funny, character-driven, no cynicism. Just two grumpy guys ice fishing and falling in love with the same woman. Simple pleasures.
+This movie makes me mourn early 90s comedies. They don’t make them like this anymore - warm, funny, character-driven, no cynicism. Just two grumpy guys ice fishing and falling in love with the same woman. Simple pleasures.
 
 We don’t get enough movies set here. This one counts.

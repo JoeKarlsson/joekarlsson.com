@@ -6,14 +6,14 @@ rating: 3
 director: 'Gore Verbinski'
 genres: ['Action', 'Science Fiction', 'Comedy']
 slug: 'good-luck-have-fun-dont-die'
-description: "roundhog Day meets Twelve Monkeys meets the Matrix, filtered through Gore Verbinski's Looney Tunes sensibilities. I had a blast - mostly."
+description: "Groundhog Day meets Twelve Monkeys meets the Matrix, filtered through Gore Verbinski's Looney Tunes sensibilities. I had a blast - mostly."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/good-luck-have-fun-dont-die/'
 poster: '/images/reviews/good-luck-have-fun-dont-die/poster.webp'
 heroImage: '/images/reviews/good-luck-have-fun-dont-die/backdrop.webp'
 heroAlt: "A still from Good Luck, Have Fun, Don't Die (2025)"
 ---
 
-roundhog Day meets Twelve Monkeys meets the Matrix, filtered through Gore Verbinski's Looney Tunes sensibilities. I had a blast - mostly.
+Groundhog Day meets Twelve Monkeys meets the Matrix, filtered through Gore Verbinski's Looney Tunes sensibilities. I had a blast - mostly.
 
 Gore Verbinski returns after an eight-year absence with a sci-fi romp about an unnamed man from the future who walks into a Norms diner wearing a plastic raincoat and what looks like a suicide vest. He's here to recruit the precise combination of disgruntled patrons to help him prevent the AI apocalypse. This is his 117th attempt. Sam Rockwell plays him as an absolutely unhinged homeless maniac, but with a ton of charisma. I don't know if I would have joined him if I was in that diner. After watching this movie, I probably would.
 

@@ -17,6 +17,6 @@ Catherine O'Hara carries the emotional weight of this entire film. Of course she
 
 Guest usually goes for the jugular - the cringe, the delusion, the sadness masked as comedy. A Mighty Wind has all of that, but it's gentler. It lets its characters be earnest. It lets the music breathe. And the kiss at the end always gets me.
 
-The heart of this movie is Catherine O'Hara. Rest in peace. She carries the emotional weight of the entire film, and of course she does - she was the heart of everything she was in. Watching her navigate Mitch and Mickey's history, the tenderness and the damage, is quietly devastating.
+The heart of this movie is Catherine O'Hara. Rest in peace. She was the heart of everything she was in. Watching her navigate Mitch and Mickey's history, the tenderness and the damage, is quietly devastating.
 
 A fun revisit. A little sadder now.

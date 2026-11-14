@@ -15,4 +15,4 @@ heroAlt: 'A still from Mickey 17 (2025)'
 
 I was scared that this was gonna be too depressing, but it was both way funnier than I expected it to be and had a really warm ending.
 
-R Pat was going ham in this role, but I thought Bin couldn't have gotten even more out of him.
+R Pat was going ham in this role, but I thought Bong could have gotten even more out of him.

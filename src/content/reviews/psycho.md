@@ -6,11 +6,11 @@ rating: 4
 director: 'Alfred Hitchcock'
 genres: ['Mystery', 'Thriller', 'Horror']
 slug: 'psycho'
-description: 'That’s ending doesn’t hold up to great'
+description: 'That ending doesn’t hold up too great'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/psycho/'
 poster: '/images/reviews/psycho/poster.webp'
 heroImage: '/images/reviews/psycho/backdrop.webp'
 heroAlt: 'A still from Psycho (1960)'
 ---
 
-That’s ending doesn’t hold up to great
+That ending doesn’t hold up too great

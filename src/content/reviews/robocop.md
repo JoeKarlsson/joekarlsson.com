@@ -15,7 +15,7 @@ heroAlt: 'A still from RoboCop (1987)'
 
 It’s insane how such a schlocky premise could be imbued with such depth.
 
-RoboCop is super tight - incredible themes, well acted, satire absolutely on point. It’s got something for everyone. Thematic depth, religious undertones, capitalism on blast for the entire runtime. Even if you don’t dig into the themes, it’s a fun romp. If you do dig in, it’s a masterpiece. It’s insane how such a schlocky premise could be imbued with such depth.
+RoboCop is super tight - incredible themes, well acted, satire absolutely on point. It’s got something for everyone. Thematic depth, religious undertones, capitalism on blast for the entire runtime. Even if you don’t dig into the themes, it’s a fun romp. If you do dig in, it’s a masterpiece.
 
 The practical effects are incredible. Phil Tippett is absolutely crushing it with ED-209. And the number of squibs shot off in this movie is nuts - I think this film still holds the record for most squibs in a single scene. It’s disgusting in all the right ways.
 
