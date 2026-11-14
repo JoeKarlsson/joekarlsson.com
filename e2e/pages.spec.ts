@@ -14,6 +14,8 @@ test.describe('Page header position', () => {
 		'/newsletter/',
 		'/blog/category/homelab/',
 		'/privacy-policy/',
+		'/reviews/',
+		'/reviews/stats/',
 		'/404',
 	];
 

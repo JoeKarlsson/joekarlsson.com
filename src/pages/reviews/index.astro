@@ -8,7 +8,7 @@ import PosterHero from '../../components/PosterHero.astro';
 import HoverBox from '../../components/HoverBox.astro';
 import Scribble from '../../components/Scribble.astro';
 import { CHALK, MARKS } from '../../data/scribbles';
-import { HERO_LEAD, PAGE_CONTAINER, formatDate } from '../../utils/ui';
+import { HERO_LEAD, MORE_LINK, PAGE_CONTAINER, formatDate } from '../../utils/ui';
 import { cardHalftone } from '../../utils/halftone';
 import { stars } from '../../../scripts/update-reviews.mjs';
 
@@ -72,8 +72,13 @@ const firstYear = Math.min(...reviews.map((r) => r.data.date.getUTCFullYear()));
 				/>
 				<HoverBox featured />
 			</a>
-			<p class={`${HERO_LEAD} max-md:hidden`}>
-				{reviews.length} reviews since {firstYear}
+			<p class={HERO_LEAD}>
+				<span class="max-md:hidden">
+					{reviews.length} reviews since {firstYear}.
+				</span>{' '}
+				<a href="/reviews/stats/" class={MORE_LINK}>
+					See the stats
+				</a>
 			</p>
 		</PosterHero>
 

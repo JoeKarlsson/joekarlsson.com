@@ -12,21 +12,21 @@ describe('addSrcsets', () => {
 	it('adds the smaller copies and the original to an image that sets sizes', () => {
 		const html = '<img src="/images/a/hero.webp" sizes="112px" alt="">';
 		expect(addSrcsets(html, widthOf)).toBe(
-			'<img srcset="/images/a/hero.400w.webp 400w, /images/a/hero.800w.webp 800w, /images/a/hero.webp 1200w" src="/images/a/hero.webp" sizes="112px" alt="">',
+			'<img srcset="/images/a/hero.100w.webp 100w, /images/a/hero.400w.webp 400w, /images/a/hero.800w.webp 800w, /images/a/hero.webp 1200w" src="/images/a/hero.webp" sizes="112px" alt="">',
 		);
 	});
 
 	it('only offers copies narrower than the original', () => {
 		const html = '<img src="/images/a/small.webp" sizes="112px">';
 		expect(addSrcsets(html, widthOf)).toContain(
-			'srcset="/images/a/small.400w.webp 400w, /images/a/small.webp 600w"',
+			'srcset="/images/a/small.100w.webp 100w, /images/a/small.400w.webp 400w, /images/a/small.webp 600w"',
 		);
 	});
 
 	it('offers a 1200px copy of a full-width photo, for phones at 2-3x', () => {
 		const html = '<img src="/images/a/photo.webp" sizes="100vw">';
 		expect(addSrcsets(html, widthOf)).toContain(
-			'srcset="/images/a/photo.400w.webp 400w, /images/a/photo.800w.webp 800w, /images/a/photo.1200w.webp 1200w, /images/a/photo.webp 1920w"',
+			'srcset="/images/a/photo.100w.webp 100w, /images/a/photo.400w.webp 400w, /images/a/photo.800w.webp 800w, /images/a/photo.1200w.webp 1200w, /images/a/photo.webp 1920w"',
 		);
 	});
 

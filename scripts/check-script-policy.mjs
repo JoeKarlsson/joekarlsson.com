@@ -18,6 +18,7 @@ const PAGES = [
 	'/work/',
 	'/work/connect-ai-doom/',
 	'/uses/',
+	'/reviews/stats/',
 	'/newsletter/',
 	'/blog/sentence-length-semicolons-punctuation/',
 	'/blog/recording-setup-tour/',
