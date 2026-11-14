@@ -384,8 +384,9 @@ it. Inline in the head: pagereveal fires before the page's own scripts run. -->
 		// names the thumbnail of the post it came back from
 		addEventListener('pagereveal', function (event) {
 			if (!event.viewTransition) return;
-			const from =
-				navigation.activation && navigation.activation.from && navigation.activation.from.url;
+			// Safari before 26 has View Transitions but no Navigation API
+			const activation = window.navigation && navigation.activation;
+			const from = activation && activation.from && activation.from.url;
 			// A post's header not parsed yet (Safari) is named by motion.css instead
 			if (isPost(location.href)) {
 				if (header()) morphFrom(header(), event.viewTransition);
