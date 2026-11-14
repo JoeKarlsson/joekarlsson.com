@@ -19,6 +19,10 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
 - 2026-11-13: The terminal card lives at its own address (`curl -L joekarlsson.com/hi`), not on the homepage by user agent.
 
+## Reviews
+
+- 2026-11-13: Review spoilers are hidden phrase by phrase, never a whole review or block, and show on hover (tap on phones), like Reddit. Of a gray bar, a blur and a pink crayon scribble, Joe picked the blur. A review that has spoilers gets a spoiler warning up top.
+
 ## Consistency
 
 - 2026-11-13: /reviews (Joe's film reviews): the list is a poster wall, and each review page looks exactly like a blog post page. Every page keeps the site's own header; a mockup that left it out read as "a header different than any of my other pages". Reviews stays out of the nav ("no one really cares"): it's linked from the About page and the footer, and the About page's recent movies link to their reviews. A review ends with links to more of Joe's reviews.
