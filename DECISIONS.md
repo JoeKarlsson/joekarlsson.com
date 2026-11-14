@@ -23,6 +23,11 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-13: Review spoilers are hidden phrase by phrase, never a whole review or block, and show on hover (tap on phones), like Reddit. Of a gray bar, a blur and a pink crayon scribble, Joe picked the blur. A review that has spoilers gets a spoiler warning up top.
 - 2026-11-13: Hovering a spoiler shows just that one; clicking or tapping any spoiler reveals every spoiler in the review. The spoiler warning is "Contains spoilers" in the meta line only: no explainer note telling readers how to reveal them (Joe: "way too verbose", AI slop).
+- 2026-11-13: The /reviews/stats/ page combines the dashboard and poster mockups: the dashboard's top numbers bar, then its Ratings and By month charts, then the poster-built stats (every review as a poster tile by rating, decades, directors, five stars).
+- 2026-11-13: Posters on the stats page enlarge on hover and show the film's one-line review (the description); clicking one opens the full review.
+- 2026-11-13: The decades row runs newest on the left back to oldest on the right.
+- 2026-11-13: Stats page motion, all from the site's kit: crayon notes that draw once on the charts, cut-paper bar edges that boil on hover, a dock-style magnifier on the rating wall, Ratings bars that light their wall row, a popcorn-eating stick figure on a bar, KPI numbers that slot-roll on hover, posters that peel like stickers with a pink crayon star on five-star films.
+- 2026-11-13: No crayon box drawn around posters on hover: "Those don't work" (it only drew a loop across the top of the poster).
 
 ## Consistency
 
