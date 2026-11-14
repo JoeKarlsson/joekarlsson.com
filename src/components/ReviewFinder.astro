@@ -5,6 +5,7 @@
 // JSON), and the wall shows 48 posters at a time, more as you scroll, like the blog's list.
 import type { CollectionEntry } from 'astro:content';
 import ReviewPoster from './ReviewPoster.astro';
+import { SECONDARY_BUTTON } from '../utils/ui';
 
 interface Props {
 	reviews: CollectionEntry<'reviews'>[];
@@ -45,34 +46,44 @@ const SELECT =
 
 <div class="mb-6 rounded-xl bg-surface-1 p-5 sm:p-7" data-review-finder>
 	<search>
-		<div class="relative">
-			<label for="review-search" class="sr-only">
-				Search reviews
-			</label>
-			<input
-				type="search"
-				id="review-search"
-				placeholder="Search by film or director"
-				autocapitalize="none"
-				autocorrect="off"
-				spellcheck="false"
-				enterkeyhint="search"
-				class="w-full rounded-md border border-surface-4 bg-ink py-3 pr-4 pl-11 text-lg text-paper placeholder-muted transition-colors focus:border-pink"
-			/>
-			<svg
-				class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				aria-hidden="true"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-				></path>
-			</svg>
+		<div class="flex gap-3">
+			<div class="relative min-w-0 flex-1">
+				<label for="review-search" class="sr-only">
+					Search reviews
+				</label>
+				<input
+					type="search"
+					id="review-search"
+					placeholder="Search by film or director"
+					autocapitalize="none"
+					autocorrect="off"
+					spellcheck="false"
+					enterkeyhint="search"
+					class="w-full rounded-md border border-surface-4 bg-ink py-3 pr-4 pl-11 text-lg text-paper placeholder-muted transition-colors focus:border-pink"
+				/>
+				<svg
+					class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					aria-hidden="true"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+					></path>
+				</svg>
+			</div>
+			<a href="/reviews/stats/" class={`${SECONDARY_BUTTON} shrink-0`}>
+				<svg class="size-[18px]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+					<rect x="2" y="10" width="4" height="8" rx="1" />
+					<rect x="8" y="4" width="4" height="14" rx="1" />
+					<rect x="14" y="7" width="4" height="11" rx="1" />
+				</svg>
+				Stats
+			</a>
 		</div>
 		<div class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-5">
 			<div>

@@ -27,6 +27,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-13: Posters on the stats page enlarge on hover and show the film's one-line review (the description); clicking one opens the full review.
 - 2026-11-13: The decades row runs newest on the left back to oldest on the right.
 - 2026-11-13: Stats page motion, all from the site's kit: crayon notes that draw once on the charts, cut-paper bar edges that boil on hover, a dock-style magnifier on the rating wall, Ratings bars that light their wall row, a popcorn-eating stick figure on a bar, KPI numbers that slot-roll on hover, posters that peel like stickers with a pink crayon star on five-star films.
+- 2026-11-14: /reviews/ links to the stats page with an outlined "Stats" button at the end of the search row (mockup option B, over a solid button in the hero or one by the review count).
 - 2026-11-13: No crayon box drawn around posters on hover: "Those don't work" (it only drew a loop across the top of the poster).
 
 ## Consistency
