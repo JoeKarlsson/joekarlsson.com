@@ -382,15 +382,15 @@ const heroIsTaped =
 						class="copy-burst z-20 size-[110px]"
 					/>
 					<script>
+						import { isMotionPaused } from '../scripts/pause-motion';
+
 						function copyToClipboard(text: string): Promise<void> {
 							return navigator.clipboard.writeText(text);
 						}
 
-						// One polite live region says "Copied" for every code block's button
 						const copyBurst = document.querySelector<SVGSVGElement>('.copy-burst');
 						const motionAllowed = () =>
-							!matchMedia('(prefers-reduced-motion: reduce)').matches &&
-							!document.documentElement.classList.contains('motion-paused');
+							!matchMedia('(prefers-reduced-motion: reduce)').matches && !isMotionPaused();
 						// Centers the starburst on the button and draws it again from the first stroke
 						function drawCopyBurst(button: HTMLElement) {
 							if (!copyBurst || !motionAllowed()) return;
@@ -411,6 +411,7 @@ const heroIsTaped =
 							copyBurst.classList.add('go');
 						}
 
+						// One polite live region says "Copied" for every code block's button
 						const copyStatus = document.createElement('span');
 						copyStatus.setAttribute('role', 'status');
 						copyStatus.className = 'sr-only';
