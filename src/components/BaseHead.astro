@@ -348,6 +348,51 @@ color original never flashes; that script takes the class off again without WebG
 		// Not remembered; motion runs until paused on this page
 	}
 </script>
+<!-- A blog thumbnail grows into the post's paper header across the page load, and back
+again on Back (a cross-document View Transition, motion.css). Any other navigation skips
+it. Inline in the head: pagereveal fires before the page's own scripts run. -->
+<script is:inline>
+	(function () {
+		const POST = /^\/blog\/[^/]+\/$/;
+		const NAME = 'post-hero';
+		const isPost = function (url) {
+			return !!url && POST.test(new URL(url).pathname);
+		};
+		const thumbFor = function (url) {
+			return document.querySelector('[data-post-thumb][href="' + new URL(url).pathname + '"]');
+		};
+		const header = function () {
+			return document.querySelector('.paper-hero .ph-print');
+		};
+		const morphFrom = function (element, transition) {
+			const paused = document.documentElement.classList.contains('motion-paused');
+			if (!element || paused) return transition.skipTransition();
+			element.style.viewTransitionName = NAME;
+			transition.finished.finally(function () {
+				element.style.viewTransitionName = '';
+			});
+		};
+		// Leaving: a listing names the thumbnail of the post it's opening; a post going
+		// anywhere but another post names its header
+		addEventListener('pageswap', function (event) {
+			if (!event.viewTransition) return;
+			const to = event.activation && event.activation.entry && event.activation.entry.url;
+			if (isPost(to)) morphFrom(thumbFor(to), event.viewTransition);
+			else morphFrom(isPost(location.href) ? header() : null, event.viewTransition);
+		});
+		// Arriving (only if the page left didn't skip): a post names its header; a listing
+		// names the thumbnail of the post it came back from
+		addEventListener('pagereveal', function (event) {
+			if (!event.viewTransition) return;
+			const from =
+				navigation.activation && navigation.activation.from && navigation.activation.from.url;
+			// A post's header not parsed yet (Safari) is named by motion.css instead
+			if (isPost(location.href)) {
+				if (header()) morphFrom(header(), event.viewTransition);
+			} else morphFrom(isPost(from) ? thumbFor(from) : null, event.viewTransition);
+		});
+	})();
+</script>
 <!-- Plausible Analytics (self-hosted) - with bot filtering -->
 <script is:inline>
 	(function () {

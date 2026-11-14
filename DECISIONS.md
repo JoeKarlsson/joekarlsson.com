@@ -44,6 +44,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-13: Subscribing plays a cut-paper envelope that seals with the crayon asterisk (picked over a rubber "SENT" stamp). It plays on listmonk's "check your inbox" page, not on the site's form, so it never holds up the hand-off and plays in full (Joe's call).
 
 - 2026-11-10: Animations should think bigger than redrawing the post's diagrams: stick figures, drawings, the scribbly pink crayon style.
+- 2026-11-13: Motion round 2 (motion.dev), all option A: the lightbox swipes down to close and pinches or double-taps to zoom (up to 4x, pan, rubber-band edges; a tap waits ~250ms for a double-tap); a blog thumbnail grows into the post's paper header across the page load (picture only, not the title); a post header's tape and topic scrap drag a short way and spring back with a small overshoot (not left where dropped); the picked drawing-board crayon rises and a mouse over the board draws with a dot in that color that pulses on a switch.
 - 2026-11-13: Borrowed-motion round (ideas from motion.dev and bklit.com), all option A: hovering a day on a Now-feed commit strip fades the other days and the caption shows that day's count (no crayon ring per cell, too busy); a code block's Copy draws the loose 12-ray starburst around "Copied!" once, then fades (not the spiky star, which covers the code); Newest/Popular re-sort brings the rows in 30ms apart. Search results stay instant.
 
 ## Process

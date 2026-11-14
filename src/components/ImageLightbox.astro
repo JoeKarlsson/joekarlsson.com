@@ -1,6 +1,7 @@
 ---
 // Click (or Enter on) a picture or diagram in a post to see it filling the
-// screen. Click anywhere, the Close button or Escape to go back.
+// screen. Tap anywhere, swipe it down, the Close button or Escape to go back; pinch or
+// double-tap to zoom (src/scripts/lightbox-gestures.ts).
 import { SECONDARY_BUTTON } from '../utils/ui';
 ---
 
@@ -14,11 +15,14 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 	</button>
 	<!-- Sized to fit the screen by fitToScreen below, so its box has the picture's shape
 	and the view transition morphs one picture into the other -->
-	<img alt="" class="object-contain" />
+	<!-- Not draggable: the browser's image drag would cancel a swipe or pan -->
+	<img alt="" class="object-contain" draggable="false" />
 	<div class="diagram-enlarged hidden"></div>
 </dialog>
 
 <script>
+	import { initLightboxGestures } from '../scripts/lightbox-gestures';
+
 	// Opening, the picture or diagram itself grows out of the post into the screen (a View
 	// Transition, #20 in ~/.claude/knowledge/web-motion.md) and shrinks back on close.
 	// Without View Transitions, or under reduced motion, the dialog scales from 0.95 out
@@ -89,19 +93,31 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 			dialog.style.transformOrigin = `${left + width / 2}px ${top + height / 2}px`;
 			return morph(() => {
 				prepare();
+				gestures.reset();
 				dialog.showModal();
 				fitToScreen();
 			}, false);
 		};
 
-		const close = () => {
+		const close = (how: 'morph' | 'fell-away' = 'morph') => {
 			if (!dialog.open) return;
+			let closing = Promise.resolve();
+			// Swiped away, it has already left the screen: no morph back into the post
+			if (how === 'fell-away') dialog.close();
+			else {
+				// Reset inside the morph, so it shrinks back from what's on screen (zoomed, half-swiped)
+				closing = morph(() => {
+					gestures.reset();
+					dialog.close();
+				}, true);
+			}
 			// The enlarged copy stays in the DOM after closing: stop its animations ticking
-			morph(() => dialog.close(), true).then(() => {
+			closing.then(() => {
 				if (!dialog.open) enlargedDiagram.querySelector('svg')?.pauseAnimations();
 			});
 		};
-		dialog.addEventListener('click', close);
+		const gestures = initLightboxGestures(dialog, () => shown, close);
+		dialog.querySelector('button')?.addEventListener('click', () => close());
 		// Escape: close with the morph rather than the browser's instant close
 		dialog.addEventListener('cancel', (event) => {
 			event.preventDefault();

@@ -154,6 +154,28 @@ test.describe('Individual Blog Post', () => {
 		expect(await lighting('lighting-2').evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
 	});
 
+	test('a double-tap zooms the enlarged picture and a swipe down closes it', async ({ page }) => {
+		await page.goto('/blog/why-clickhouse-should-be-your-next-database/');
+		const picture = page.locator('.prose img.cursor-zoom-in').first();
+		await picture.scrollIntoViewIfNeeded();
+		await picture.click();
+		const lightbox = page.locator('#image-lightbox');
+		const enlarged = lightbox.locator('img');
+		await expect(lightbox).toBeVisible();
+		// The opening morph takes input only once it has landed
+		await expect(lightbox).not.toHaveAttribute('data-morph');
+		const { width, height } = page.viewportSize()!;
+		await page.mouse.dblclick(width / 2, height / 2);
+		await expect(enlarged).toHaveCSS('transform', /matrix\(2\.5,/);
+		await page.mouse.dblclick(width / 2, height / 2);
+		await expect(enlarged).toHaveCSS('transform', 'none');
+		await page.mouse.move(width / 2, height / 3);
+		await page.mouse.down();
+		await page.mouse.move(width / 2, height / 3 + 200, { steps: 8 });
+		await page.mouse.up();
+		await expect(lightbox).toBeHidden();
+	});
+
 	test('closing the lightbox while it opens still shrinks the picture back', async ({ page }) => {
 		await page.goto('/blog/why-clickhouse-should-be-your-next-database/');
 		const picture = page.locator('.prose img.cursor-zoom-in').first();
@@ -163,7 +185,7 @@ test.describe('Individual Blog Post', () => {
 		// into the post (the morph group), not cut to a page fade
 		const morphs = await page.evaluate(async () => {
 			await new Promise((resolve) => setTimeout(resolve, 100));
-			document.getElementById('image-lightbox')!.click();
+			document.querySelector<HTMLButtonElement>('#image-lightbox button')!.click();
 			await new Promise((resolve) => setTimeout(resolve, 60));
 			return document
 				.getAnimations()

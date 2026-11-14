@@ -35,6 +35,10 @@ export function initDrawingBoard(board: HTMLElement): void {
 	let pressed = false;
 
 	const isTouchScreen = window.matchMedia('(pointer: coarse)');
+	const pen = board.querySelector<HTMLElement>('.board-pen');
+	const paintPen = () => pen?.style.setProperty('--pen-color', color ?? '#ff4fd8');
+	let pulsePending = false;
+	paintPen();
 
 	board.querySelectorAll<HTMLButtonElement>('[data-crayon]').forEach((button) => {
 		button.addEventListener('pointerdown', (event) => event.stopPropagation());
@@ -44,6 +48,9 @@ export function initDrawingBoard(board: HTMLElement): void {
 				.querySelectorAll('[data-crayon]')
 				.forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
 			if (isTouchScreen.matches) board.setAttribute('data-drawing', '');
+			// The pen dot takes the new color, and pulses once it's back over the board
+			paintPen();
+			pulsePending = true;
 		});
 	});
 
@@ -76,8 +83,22 @@ export function initDrawingBoard(board: HTMLElement): void {
 	});
 	board.addEventListener('pointerleave', () => {
 		stroke = null;
+		board.removeAttribute('data-pen');
 	});
 	board.addEventListener('pointermove', (event) => {
+		if (event.pointerType === 'mouse' && pen) {
+			// Over the crayons and Done the normal pointer comes back
+			const overControls = (event.target as Element).closest('button, .board-hint');
+			board.toggleAttribute('data-pen', !overControls);
+			if (!overControls && pulsePending) {
+				pulsePending = false;
+				pen.classList.remove('board-pen-pulse');
+				void pen.offsetWidth;
+				pen.classList.add('board-pen-pulse');
+			}
+			const boardBox = board.getBoundingClientRect();
+			pen.style.translate = `${event.clientX - boardBox.left}px ${event.clientY - boardBox.top}px`;
+		}
 		if (event.pointerType === 'touch' && !board.hasAttribute('data-drawing')) return;
 		if (event.pointerType !== 'mouse' && !pressed) return;
 		const box = pad.getBoundingClientRect();

@@ -131,6 +131,9 @@ const PINK = '#ff4fd8';
 		delay="4s"
 		class="right-[4%] -bottom-[70px] z-10 h-[120px] w-[46%]"
 	/>
+	<!-- A mouse over the board draws with this dot in the picked crayon's color (board-pen in
+	motion.css, drawing-board.ts) -->
+	<span class="board-pen" aria-hidden="true"></span>
 	<svg class="drawing-board-pad absolute inset-0 size-full">
 		<g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#crayon)"></g>
 	</svg>

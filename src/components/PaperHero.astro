@@ -83,6 +83,9 @@ function tornEdge(tearSeed: number, depth: number): string {
 
 <script>
 	import '../scripts/paper-hero-boil';
+	import { initPaperHeroDrag } from '../scripts/paper-hero-drag';
+
+	document.querySelectorAll<HTMLElement>('.paper-hero').forEach(initPaperHeroDrag);
 </script>
 
 <style>
@@ -140,6 +143,28 @@ function tornEdge(tearSeed: number, depth: number): string {
 		right: 4%;
 		bottom: 0;
 		transform: rotate(var(--tilt));
+	}
+	/* Draggable (src/scripts/paper-hero-drag.ts): a held piece lifts over the others. Mouse
+	   and pen only: on a phone a swipe starting on the tape still scrolls the page */
+	@media (pointer: fine) {
+		.ph-tape,
+		.ph-tag {
+			cursor: grab;
+			touch-action: none;
+			user-select: none;
+			-webkit-user-select: none;
+		}
+	}
+	:is(.ph-tape, .ph-tag)[data-held] {
+		z-index: 2;
+		cursor: grabbing;
+		scale: 1.06;
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		.ph-tape,
+		.ph-tag {
+			transition: scale 0.12s var(--ease-enter);
+		}
 	}
 	.ph-tag .ph-scrap {
 		background: #ff4fd8;
