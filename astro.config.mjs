@@ -112,6 +112,10 @@ export default defineConfig({
 	],
 	vite: {
 		plugins: [/** @type {any} */ (tailwindcss())],
+		// Each Playwright run starts the dev server on a new port, which Astro counts as a
+		// config change: it rebuilds its content store and every open page reloads mid-test.
+		// The tests never need live reload, so the e2e server doesn't offer it
+		server: { hmr: process.env.ASTRO_E2E !== '1' },
 	},
 	markdown: {
 		shikiConfig: {
