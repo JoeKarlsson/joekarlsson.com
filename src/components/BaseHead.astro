@@ -419,13 +419,14 @@ page's own scripts run. -->
 		// between the same two pages turn the page too
 		document.addEventListener('click', function (event) {
 			const link = event.target.closest && event.target.closest('[data-page-turn] a[href]');
-			if (link) save('page-turn', link.pathname);
+			const newTab = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+			if (link && !newTab) save('page-turn', link.pathname);
 		});
 		const pairs = function () {
 			return JSON.parse(load('page-turns') || '[]');
 		};
-		const turnsPage = function (activation, from, to, back) {
-			if (activation.navigationType !== 'traverse') return load('page-turn') === to;
+		const turnsPage = function (activation, from, to, back, turningTo) {
+			if (activation.navigationType !== 'traverse') return turningTo === to;
 			return pairs().includes(back ? to + ' ' + from : from + ' ' + to);
 		};
 
@@ -461,9 +462,12 @@ page's own scripts run. -->
 			const from = location.pathname;
 			const to = new URL(activation.entry.url).pathname;
 			const back = goesBack(activation, from, to);
-			// The old page needs the slide's type too, so it names the nav bar (motion.css)
+			// The old page needs the slide's type too, so it names the nav bar (motion.css).
+			// It names its own picture below: the header rule would give a second element
+			// the same name, and the browser would cancel the transition
 			transition.types.add(back ? 'slide-back' : 'slide-forward');
-			if (turnsPage(activation, from, to, back)) return;
+			transition.types.delete('morph');
+			if (turnsPage(activation, from, to, back, load('page-turn'))) return;
 			const element = back ? onScreen('[data-morph-target]') : pictureFor(to);
 			if (!element) return;
 			morph(element, transition);
@@ -472,17 +476,27 @@ page's own scripts run. -->
 		// Arriving: pick the slide, and keep the header morph only when the page left named
 		// a picture for it
 		addEventListener('pagereveal', function (event) {
+			// Read once and cleared before anything can return, so a note left by an
+			// unfinished trip never turns some later page
+			const turningTo = load('page-turn');
+			const morphedTo = load('morph-to');
+			save('page-turn', null);
+			save('morph-to', null);
 			const transition = event.viewTransition;
 			if (!transition) return;
 			if (paused()) return skip(transition);
-			// Safari before 26 has View Transitions but no Navigation API: a plain crossfade
+			// Safari before 26 has View Transitions but no Navigation API: a plain crossfade,
+			// with no header growing out of nothing
 			const activation = window.navigation && navigation.activation;
-			if (!activation || !activation.from || !activation.from.url) return;
+			if (!activation || !activation.from || !activation.from.url) {
+				transition.types.delete('morph');
+				return;
+			}
 			const from = new URL(activation.from.url).pathname;
 			const here = location.pathname;
 			const back = goesBack(activation, from, here);
 			transition.types.add(back ? 'slide-back' : 'slide-forward');
-			if (turnsPage(activation, from, here, back)) {
+			if (turnsPage(activation, from, here, back, turningTo)) {
 				transition.types.add('page-turn');
 				if (activation.navigationType !== 'traverse') {
 					save(
@@ -495,13 +509,12 @@ page's own scripts run. -->
 					);
 				}
 			}
-			save('page-turn', null);
-			const morphed = load('morph-to') === here;
-			save('morph-to', null);
-			// The header's name comes from motion.css, since Safari reveals the page before
-			// it's parsed; a listing names its thumbnail here
-			if (!morphed || transition.types.has('page-turn')) transition.types.delete('morph');
-			else if (back) {
+			const morphed = morphedTo === here;
+			// Forward, the header's name comes from motion.css, since Safari reveals the page
+			// before it's parsed. Back, this page names the thumbnail it was opened from, and
+			// the header rule must stay off or a related card's header could share its name
+			if (!morphed || back || transition.types.has('page-turn')) transition.types.delete('morph');
+			if (morphed && back && !transition.types.has('page-turn')) {
 				const picture = pictureFor(from);
 				if (picture) morph(picture, transition);
 			}

@@ -2,18 +2,35 @@ import { test, expect, type Page } from '@playwright/test';
 
 // Page changes are cross-document View Transitions (BaseHead.astro, motion.css). Each page
 // keeps the transition it arrived with, so a test reads the types it was given.
+// A transition the browser cancels (two elements with one name) still has its types, so
+// this waits for it to start and fails if it doesn't
 const typesOnArrival = (page: Page) =>
-	page.evaluate(() => {
+	page.evaluate(async () => {
 		const transition = (window as unknown as { arrivedWith?: ViewTransition }).arrivedWith;
-		return transition ? [...transition.types].sort() : [];
+		if (!transition) return [];
+		await transition.ready;
+		return [...transition.types].sort();
 	});
+
+// Back, the arriving page names the thumbnail the header shrinks into (noted as the
+// transition starts, since the name goes when it ends)
+const thumbnailNamedOnArrival = (page: Page) =>
+	page.evaluate(() => (window as unknown as { thumbnailNamed?: boolean }).thumbnailNamed);
 
 test.beforeEach(async ({ page }) => {
 	await page.addInitScript(() =>
 		addEventListener('pagereveal', (event) => {
-			(window as unknown as { arrivedWith?: ViewTransition | null }).arrivedWith = (
-				event as PageRevealEvent
-			).viewTransition;
+			const transition = (event as PageRevealEvent).viewTransition;
+			const notes = window as unknown as {
+				arrivedWith?: ViewTransition | null;
+				thumbnailNamed?: boolean;
+			};
+			notes.arrivedWith = transition;
+			transition?.ready.then(() => {
+				notes.thumbnailNamed = [...document.querySelectorAll<HTMLElement>('[data-morph]')].some(
+					(element) => element.style.viewTransitionName === 'morph-hero',
+				);
+			});
 		}),
 	);
 });
@@ -51,14 +68,35 @@ test('a project picture grows into its page header, and shrinks back on Back', a
 
 	await page.goBack();
 	await page.waitForURL('**/work/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['morph', 'slide-back']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-back']);
+	await expect.poll(() => thumbnailNamedOnArrival(page)).toBe(true);
 });
 
-test('a post opened from the nav gets no header morph', async ({ page }) => {
+test('a post opened from a link with no picture of it on screen gets no header morph', async ({
+	page,
+}) => {
 	await page.goto('/');
-	await page.locator('header nav a[href="/blog/"]').click();
-	await page.waitForURL('**/blog/');
+	const featured = page.locator('section[aria-label="Introduction"] a[href^="/blog/"]').first();
+	const path = await featured.getAttribute('href');
+	await featured.click();
+	await page.waitForURL(`**${path}`);
 	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-forward']);
+});
+
+test("a related project's picture grows into its page from another project page, and back", async ({
+	page,
+}) => {
+	await page.goto('/work/pixelpane/');
+	const related = page.locator('article [data-morph^="/work/"]:visible').first();
+	await related.scrollIntoViewIfNeeded();
+	const path = await related.getAttribute('data-morph');
+	await related.click();
+	await page.waitForURL(`**${path}`);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['morph', 'slide-forward']);
+
+	await page.goBack();
+	await page.waitForURL('**/work/pixelpane/');
+	await expect.poll(() => typesOnArrival(page)).toEqual(['slide-back']);
 });
 
 test('Keep exploring turns the next post in like a page, and Back turns it back', async ({
