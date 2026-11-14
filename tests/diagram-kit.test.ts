@@ -114,7 +114,7 @@ describe('kit charts build in', () => {
 	];
 	const draw = (width: number) => {
 		const f = createFigure({ id: `build-${width}`, width, height: 300 });
-		f.barChart({ x: 0, y: 0, w: 300, h: 140, bars });
+		f.barChart({ x: 0, y: 0, w: 300, h: 140, bars, max: 9 });
 		f.lineChart({ x: 0, y: 150, w: 300, h: 140, series, xMin: 0, xMax: 1, yMax: 5 });
 		return f.toString('chart');
 	};
