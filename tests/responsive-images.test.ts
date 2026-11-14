@@ -1,5 +1,8 @@
+import { mkdtempSync, utimesSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { addSrcsets } from '../src/integrations/responsive-images.mjs';
+import { addSrcsets, cacheIsFresh, hashFile } from '../src/integrations/responsive-images.mjs';
 
 const widths: Record<string, number> = {
 	'/images/a/hero.webp': 1200,
@@ -38,5 +41,23 @@ describe('addSrcsets', () => {
 			'<img src="/images/a/unknown.webp" sizes="112px">',
 		].join('');
 		expect(addSrcsets(untouched, widthOf)).toBe(untouched);
+	});
+});
+
+describe('cacheIsFresh', () => {
+	it('keeps a variant made from the same bytes, even when the source looks newer, and remakes it when the bytes change', () => {
+		const dir = mkdtempSync(join(tmpdir(), 'responsive-images-'));
+		const source = join(dir, 'poster.jpg');
+		const cached = join(dir, 'poster-400.webp');
+		writeFileSync(source, 'original bytes');
+		writeFileSync(cached, 'variant');
+		expect(cacheIsFresh(cached, hashFile(source))).toBe(false); // no sidecar yet
+		writeFileSync(`${cached}.src`, hashFile(source));
+		// A CI checkout: same bytes, brand-new file time
+		const later = new Date(Date.now() + 60_000);
+		utimesSync(source, later, later);
+		expect(cacheIsFresh(cached, hashFile(source))).toBe(true);
+		writeFileSync(source, 'edited bytes');
+		expect(cacheIsFresh(cached, hashFile(source))).toBe(false);
 	});
 });

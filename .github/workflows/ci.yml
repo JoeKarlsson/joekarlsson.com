@@ -23,6 +23,14 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Image variants from earlier runs (src/integrations/responsive-images.mjs), after
+      # npm ci, which would delete them. Each one is checked against its source's bytes,
+      # so the newest cache is always safe to reuse; saves about a minute and a half.
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: node_modules/.cache/responsive-images
+          key: responsive-images-${{ hashFiles('src/integrations/responsive-images.mjs') }}-${{ github.sha }}
+          restore-keys: responsive-images-${{ hashFiles('src/integrations/responsive-images.mjs') }}-
       - run: npx astro check
       - run: npm run build
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7

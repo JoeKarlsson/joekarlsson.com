@@ -16,9 +16,9 @@ import {
 	mkdirSync,
 	readFileSync,
 	readdirSync,
-	statSync,
 	writeFileSync,
 } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
@@ -81,6 +81,23 @@ function htmlFiles(dir) {
 		.map((file) => join(dir, file));
 }
 
+/**
+ * Whether `cached` was made from the source's current bytes. Its sidecar `<cached>.src`
+ * holds the SHA-1 of the source it came from. Not file times: a CI checkout gives every
+ * file a new one, so a cache restored there would always look stale.
+ */
+export function cacheIsFresh(cached, sourceHash) {
+	return (
+		existsSync(cached) &&
+		existsSync(`${cached}.src`) &&
+		readFileSync(`${cached}.src`, 'utf8') === sourceHash
+	);
+}
+
+export function hashFile(file) {
+	return createHash('sha1').update(readFileSync(file)).digest('hex');
+}
+
 export default function responsiveImages() {
 	return {
 		name: 'responsive-images',
@@ -90,8 +107,13 @@ export default function responsiveImages() {
 				const cacheDir = fileURLToPath(
 					new URL('../../node_modules/.cache/responsive-images/', import.meta.url),
 				);
-				// Cache freshness goes by the public/ file: the dist copy is new every build
+				// Freshness goes by the public/ file's bytes (cacheIsFresh)
 				const publicDir = fileURLToPath(new URL('../../public/', import.meta.url));
+				const hashes = new Map();
+				const sourceHash = (src) => {
+					if (!hashes.has(src)) hashes.set(src, hashFile(join(publicDir, src)));
+					return hashes.get(src);
+				};
 				const widths = new Map();
 				const widthOf = (src) => widths.get(src);
 
@@ -114,10 +136,7 @@ export default function responsiveImages() {
 					widths.set(src, width);
 					for (const w of VARIANT_WIDTHS.filter((w) => w < width)) {
 						const cached = join(cacheDir, variantPath(src, w));
-						if (
-							!existsSync(cached) ||
-							statSync(cached).mtimeMs < statSync(join(publicDir, src)).mtimeMs
-						) {
+						if (!cacheIsFresh(cached, sourceHash(src))) {
 							mkdirSync(dirname(cached), { recursive: true });
 							// animated: an animated WebP (a boiling diagram thumbnail) keeps every frame;
 							// without it sharp reads only the first and the card freezes
@@ -125,6 +144,7 @@ export default function responsiveImages() {
 								.resize({ width: w })
 								.webp({ quality: 80 })
 								.toFile(cached);
+							writeFileSync(`${cached}.src`, sourceHash(src));
 						}
 						copyFileSync(cached, join(distDir, variantPath(src, w)));
 					}
@@ -146,14 +166,12 @@ export default function responsiveImages() {
 					const { pages: frames = 1 } = await sharp(original).metadata();
 					if (frames < 2) continue;
 					const cached = join(cacheDir, stillPath(src));
-					if (
-						!existsSync(cached) ||
-						statSync(cached).mtimeMs < statSync(join(publicDir, src)).mtimeMs
-					) {
+					if (!cacheIsFresh(cached, sourceHash(src))) {
 						mkdirSync(dirname(cached), { recursive: true });
 						await sharp(original, { page: frames - 1 })
 							.webp({ quality: 80 })
 							.toFile(cached);
+						writeFileSync(`${cached}.src`, sourceHash(src));
 					}
 					copyFileSync(cached, join(distDir, stillPath(src)));
 					stills.set(src, stillPath(src));
