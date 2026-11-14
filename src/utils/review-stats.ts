@@ -1,3 +1,5 @@
+import { SPOILER_MARK } from '../plugins/rehype-spoilers.mjs';
+
 // The numbers behind /reviews/stats/, worked out at build time from the reviews collection.
 // A rewatch is its own review (it counts toward reviews and ratings), but a film counts
 // once in the per-film lists (directors, decades, five stars), as its latest review.
@@ -87,4 +89,10 @@ export function reviewStats<R extends StatsReview>(reviews: R[]) {
 			.filter((r) => r.rating === 5)
 			.sort((a, b) => b.date.valueOf() - a.date.valueOf()),
 	};
+}
+
+/** The one-liner a hover card or hero may show. Neither can blur, so a review flagged as
+ * spoilers shows none and a ||marked|| spoiler reads (spoiler). */
+export function oneLiner(review: { spoilers: boolean; description: string }): string {
+	return review.spoilers ? '' : review.description.replace(SPOILER_MARK, '(spoiler)');
 }

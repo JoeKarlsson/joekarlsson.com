@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { reviewStats, type StatsReview } from '../src/utils/review-stats';
+import { oneLiner, reviewStats, type StatsReview } from '../src/utils/review-stats';
 import { swellScale } from '../src/scripts/review-stats';
 
 const review = (over: Partial<StatsReview>): StatsReview => ({
@@ -81,5 +81,14 @@ describe('swellScale', () => {
 		expect(swellScale(35)).toBeGreaterThan(1);
 		expect(swellScale(35)).toBeLessThan(1.9);
 		expect(swellScale(70)).toBe(1);
+	});
+});
+
+describe('oneLiner', () => {
+	it('never shows a spoiler: marked ones are cut, flagged reviews show nothing', () => {
+		expect(oneLiner({ spoilers: false, description: 'Great until ||he dies|| at the end.' })).toBe(
+			'Great until (spoiler) at the end.',
+		);
+		expect(oneLiner({ spoilers: true, description: 'The twist is he was dead.' })).toBe('');
 	});
 });

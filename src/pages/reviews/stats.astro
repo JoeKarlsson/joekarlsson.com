@@ -20,9 +20,8 @@ import {
 } from '../../utils/ui';
 import { cardHalftone } from '../../utils/halftone';
 import { jsonForScript } from '../../utils/json-for-script';
-import { reviewStats, type StatsReview } from '../../utils/review-stats';
+import { oneLiner, reviewStats, type StatsReview } from '../../utils/review-stats';
 import { stars } from '../../../scripts/update-reviews.mjs';
-import { SPOILER_MARK } from '../../plugins/rehype-spoilers.mjs';
 
 const entries = (await getCollection('reviews')).map((e) => e.data);
 const s = reviewStats(entries);
@@ -31,10 +30,7 @@ const firstYear = Math.min(...entries.map((r) => r.date.getUTCFullYear()));
 const featured = s.fiveStars.find((r) => bySlug.get(r.slug)?.heroImage) ?? s.fiveStars[0];
 const hero = bySlug.get(featured.slug)!;
 
-// What the hover card shows for each film: title, year, stars, rewatch, one-liner, poster.
-// The card can't blur, so a spoiler review shows no one-liner and a marked spoiler is cut.
-const oneLiner = (r: (typeof entries)[number]) =>
-	r.spoilers ? '' : r.description.replace(SPOILER_MARK, '(spoiler)');
+// What the hover card shows for each film: title, year, stars, rewatch, one-liner, poster
 const films = Object.fromEntries(
 	entries.map((r) => [
 		r.slug,
@@ -312,7 +308,7 @@ const posterLabel = (r: StatsReview) =>
 		<section class={SECTION}>
 			<h2 class={H2}>Through the decades</h2>
 			<p class={SUB}>How many films from each decade, and my favorite from each, newest first</p>
-			<div class="stats-decades">
+			<div class="stats-decades" style={`--decades:${s.decades.length}`}>
 				{s.decades.map(({ decade, count, best }) => (
 					<div class="text-center">
 						<a href={`/reviews/${best.slug}/`} class="stats-poster sticker" data-film={best.slug}>
@@ -433,14 +429,7 @@ const posterLabel = (r: StatsReview) =>
 							loading="lazy"
 						/>
 						<span class="sr-only">{posterLabel(r)}</span>
-						<Scribble
-							{...MARKS.star}
-							color="#ff4fd8"
-							strokeWidth={4}
-							ring={false}
-							once
-							class="stats-star"
-						/>
+						<Scribble {...MARKS.star} color="#ff4fd8" strokeWidth={4} once class="stats-star" />
 					</a>
 				))}
 			</div>
@@ -514,7 +503,6 @@ const posterLabel = (r: StatsReview) =>
 
 	/* Crayon notes: drawn from the start without JS; with it, they draw once in view */
 	.stats-note {
-		position: absolute;
 		z-index: 2;
 	}
 	.stats-note-text {
