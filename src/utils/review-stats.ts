@@ -23,7 +23,7 @@ export interface StatsReview {
 }
 
 export const RATING_STEPS = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
-export const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 /** "Highest rated" lists only rank what I've seen this many films of, like Letterboxd's */
 export const HIGHEST_RATED_MIN = 3;
 const DAY = 864e5;

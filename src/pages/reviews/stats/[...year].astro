@@ -67,6 +67,8 @@ const maxRating = Math.max(...s.ratings.map((r) => r.count));
 const maxDecade = Math.max(...s.decades.map((d) => d.count));
 const posterLabel = (r: StatsReview) =>
 	`${r.title} (${r.year})${r.rating ? `, ${r.rating} stars` : ''}`;
+// A year can start with an unrated review, which has no average yet
+const averageText = (n: number, digits: number) => (Number.isNaN(n) ? '-' : n.toFixed(digits));
 const fmt = (n: number) => n.toLocaleString('en-US');
 const filmCount = (n: number) => `${n} ${n === 1 ? 'film' : 'films'}`;
 const directorViews = [
@@ -180,7 +182,7 @@ const milestones = [
 				[fmt(s.reviews), 'reviews'],
 				[fmt(s.films), 'films'],
 				[fmt(s.hours), 'hours'],
-				[s.average.toFixed(2), 'average rating'],
+				[averageText(s.average, 2), 'average rating'],
 				[s.directors, 'directors'],
 				[s.countries, 'countries'],
 				[s.streak, s.streak === 1 ? 'week streak' : 'weeks in a row'],
@@ -322,9 +324,9 @@ const milestones = [
 							caption="Reviews by year"
 							header={['Year', 'Reviews']}
 							items={s.years.map(({ year: y, count, average }) => ({
-								name: `${y}, average ${average.toFixed(1)}`,
+								name: `${y}, average ${averageText(average, 1)}`,
 								label: String(y),
-								sub: average.toFixed(1),
+								sub: averageText(average, 1),
 								value: count,
 							}))}
 						/>
@@ -591,7 +593,7 @@ const milestones = [
 										<h3 class={GROUP_HEADING}>{name}</h3>
 										<p class={`${META} meta-parts mt-2 flex`}>
 											<span>{filmCount(list.length)}</span>{' '}
-											<span>{average.toFixed(1)} average</span>
+											<span>{averageText(average, 1)} average</span>
 										</p>
 									</div>
 									<div class="grid grid-cols-5 gap-x-1.5 gap-y-4 md:grid-cols-9">
