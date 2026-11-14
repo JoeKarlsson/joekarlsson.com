@@ -61,7 +61,15 @@ const others = (await getCollection('reviews')).filter((r) => r.data.slug !== sl
 const sameFilm = others
 	.filter((r) => film(r) === film(review))
 	.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
-const otherFilms = others.filter((r) => film(r) !== film(review));
+// One review per other film, its longest, so a film I rewatched doesn't fill the list
+const otherFilms = [
+	...Map.groupBy(
+		others.filter((r) => film(r) !== film(review)),
+		film,
+	).values(),
+].map((reviews) =>
+	reviews.reduce((a, b) => ((b.body ?? '').length > (a.body ?? '').length ? b : a)),
+);
 const directors = new Set((director || '').split(', ').filter(Boolean));
 const byDirector = otherFilms
 	.filter((r) => (r.data.director || '').split(', ').some((d) => directors.has(d)))
