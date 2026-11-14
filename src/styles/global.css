@@ -616,11 +616,8 @@ pre.astro-code {
 	}
 }
 
-/* Buttons and nav pills have beveled corners, like a cut ticket (notch read as 8-bit); talk cards' pictures are
-   scooped like a ticket stub. Square or round elsewhere */
-.sticker:not(.rounded-full, .stats-poster) {
-	corner-shape: bevel;
-}
+/* Talk cards' pictures are scooped like a ticket stub. Buttons and nav pills keep their
+   round corners: Joe rejected beveled (and notched) ones (DECISIONS.md) */
 .talk-card .rounded-lg {
 	corner-shape: scoop;
 }
