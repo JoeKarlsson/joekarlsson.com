@@ -12,6 +12,7 @@ import { MARKS } from '../../data/scribbles';
 import { SECTION_HEADING } from '../../utils/ui';
 import { isOwnPost } from '../../utils/posts';
 import { parseReviewUrl, stars } from '../../../scripts/update-reviews.mjs';
+import { SPOILER_MARK } from '../../plugins/rehype-spoilers.mjs';
 
 export async function getStaticPaths() {
 	const reviews = await getCollection('reviews');
@@ -34,7 +35,10 @@ const {
 	heroImage,
 	heroAlt,
 	letterboxdUrl,
+	spoilers,
 } = review.data;
+// Letterboxd's spoiler flag, or a ||spoiler|| marked in the text
+const hasSpoilers = spoilers || new RegExp(SPOILER_MARK).test(review.body || '');
 const words = (review.body || '').trim().split(/\s+/).length;
 // A rewatch shares its film's title, so its browser tab and search result name the rewatch
 const watched = date.toLocaleDateString('en-US', {
@@ -102,6 +106,11 @@ const mentions =
 	)}
 	{director && <span slot="meta">Dir. {director}</span>}
 	{rewatch && <span slot="meta">Rewatch</span>}
+	{hasSpoilers && (
+		<span slot="meta" class="font-semibold text-paper">
+			Contains spoilers
+		</span>
+	)}
 	<Content />
 	<p class="mt-10 border-t border-surface-2 pt-4 text-sm text-muted">
 		Also on{' '}
@@ -159,3 +168,25 @@ const mentions =
 		</a>
 	</nav>
 </BlogPost>
+
+<script>
+	// A click, tap, Enter or Space on any spoiler shows every spoiler in the review
+	// (rehype-spoilers.mjs). Space fires on release and Enter on press, like a native button.
+	const revealAll = (event: Event) => {
+		const spoiler = (event.target as Element).closest?.('.spoiler');
+		if (!spoiler) return;
+		if (event instanceof KeyboardEvent) {
+			if (event.key === ' ') event.preventDefault(); // no page scroll
+			if (event.type === 'keydown' ? event.key !== 'Enter' : event.key !== ' ') return;
+		}
+		const article = spoiler.closest('article');
+		article?.classList.add('spoilers-shown');
+		// Shown spoilers are plain text again: no dead buttons or tab stops left in the sentence
+		article?.querySelectorAll('.spoiler').forEach((s) => {
+			for (const attribute of ['role', 'tabindex', 'aria-pressed']) s.removeAttribute(attribute);
+		});
+	};
+	document.addEventListener('click', revealAll);
+	document.addEventListener('keydown', revealAll);
+	document.addEventListener('keyup', revealAll);
+</script>

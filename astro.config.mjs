@@ -16,6 +16,7 @@ import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
 import rehypeImageDimensions from './src/plugins/rehype-image-dimensions.mjs';
 import rehypeInlineDiagrams from './src/plugins/rehype-inline-diagrams.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
+import rehypeSpoilers from './src/plugins/rehype-spoilers.mjs';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 import externalLinks from './src/integrations/external-links.mjs';
 import markdownPages from './src/integrations/markdown-pages.mjs';
@@ -130,6 +131,7 @@ export default defineConfig({
 				rehypeCollapsibleToc,
 				rehypeFaqDetails,
 				rehypeAmazonAffiliate,
+				rehypeSpoilers,
 				rehypeSlug,
 				[
 					rehypeAutolinkHeadings,

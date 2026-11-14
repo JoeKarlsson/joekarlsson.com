@@ -453,6 +453,24 @@ pre.astro-code {
 	@apply sr-only;
 }
 
+/* A review spoiler (rehype-spoilers.mjs): blurred until hovered or focused, or until a click
+   on any spoiler reveals them all (.spoilers-shown, reviews/[slug].astro). The block padding
+   fills the gap between lines, so hover holds across a spoiler that wraps */
+.spoiler {
+	@apply cursor-help rounded-sm bg-surface-3 px-0.5 blur-[6px] transition-[filter] duration-150 ease-out motion-reduce:transition-none;
+	padding-block: calc((1lh - 1em) / 2);
+	box-decoration-break: clone;
+}
+.spoiler:hover,
+.spoiler:focus,
+.spoilers-shown .spoiler {
+	@apply blur-none;
+}
+.spoilers-shown .spoiler {
+	@apply cursor-auto bg-transparent px-0;
+	padding-block: 0;
+}
+
 /* A metadata line (MetaParts): a thin gray bar between pieces, never a dot. The line
    is shifted left by one bar and clipped, so a piece that wraps to a new line starts
    it bare instead of after a stray bar. Screen readers skip the bar */

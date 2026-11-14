@@ -27,12 +27,10 @@ I'm going to go ahead and say it: I don't think Elizabeth Holmes belongs in pris
 
 Go in knowing as little as you can. It's so much more fun that way.
 
-SPOILER WARNING: everything below covers the second half, after the film jumps forward to 2025.
-
-That jump is where Amanda Seyfried walks in. Fielder shows her the footage and asks her to reenact the encounters he couldn't film, with Christopher Abbott playing Billy. Seyfried already played Holmes in The Dropout, the show Holmes tries to watch in the first half and can't finish. So the woman who played her once is playing her again, inside a documentary about whether anyone can.
+Then the film jumps forward to 2025, and ||that's where Amanda Seyfried walks in||. Fielder shows her the footage and asks her to reenact the encounters he couldn't film, ||with Christopher Abbott playing Billy||. Seyfried already played Holmes in The Dropout, the show Holmes tries to watch in the first half and can't finish. So the woman who played her once is playing her again, inside a documentary about whether anyone can.
 
 Seyfried is so much fun in this. She was already one of my favorite actresses working today, and this locked it in for me. She truly riles Billy up, gets under his skin in a way Fielder never quite manages, and I loved every second of it. She also gets the heaviest material: wrestling with what her role in this story has been, and coming face to face with the hurt The Dropout caused Holmes. We get to see a part of her I'd never seen before.
 
-The longer it goes, the more the film becomes about Billy. The billboards, the posts on X written as Holmes, the AI model that looks like her. He says he holds power of attorney and that his posts come from her emails. Maybe. He looks terrible in this movie, and I'm sure he's going to love all the attention.
+The longer it goes, the more the film becomes about Billy. ||The billboards, the posts on X written as Holmes, the AI model that looks like her.|| He says he holds power of attorney and that his posts come from her emails. Maybe. He looks terrible in this movie, and I'm sure he's going to love all the attention.
 
 I keep coming back to their relationship, because the love seems real. She trusts him. He seems to love her and their kids, too. He is also a fucking weirdo. The movie lets all of that sit there together without pretending to sort it out. Fielder spent four years with these two and still can't tell you who they are. I've spent three days with the movie and I can't either.
