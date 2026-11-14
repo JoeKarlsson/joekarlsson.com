@@ -22,6 +22,7 @@ import { cardHalftone } from '../../utils/halftone';
 import { jsonForScript } from '../../utils/json-for-script';
 import { reviewStats, type StatsReview } from '../../utils/review-stats';
 import { stars } from '../../../scripts/update-reviews.mjs';
+import { SPOILER_MARK } from '../../plugins/rehype-spoilers.mjs';
 
 const entries = (await getCollection('reviews')).map((e) => e.data);
 const s = reviewStats(entries);
@@ -30,11 +31,14 @@ const firstYear = Math.min(...entries.map((r) => r.date.getUTCFullYear()));
 const featured = s.fiveStars.find((r) => bySlug.get(r.slug)?.heroImage) ?? s.fiveStars[0];
 const hero = bySlug.get(featured.slug)!;
 
-// What the hover card shows for each film: title, year, stars, rewatch, one-liner, poster
+// What the hover card shows for each film: title, year, stars, rewatch, one-liner, poster.
+// The card can't blur, so a spoiler review shows no one-liner and a marked spoiler is cut.
+const oneLiner = (r: (typeof entries)[number]) =>
+	r.spoilers ? '' : r.description.replace(SPOILER_MARK, '(spoiler)');
 const films = Object.fromEntries(
 	entries.map((r) => [
 		r.slug,
-		[r.title, r.year, r.rating ? stars(r.rating) : '', r.rewatch, r.description, r.poster ?? ''],
+		[r.title, r.year, r.rating ? stars(r.rating) : '', r.rewatch, oneLiner(r), r.poster ?? ''],
 	]),
 );
 
@@ -105,7 +109,7 @@ const posterLabel = (r: StatsReview) =>
 						<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-paper uppercase group-hover:text-pink">
 							{hero.title}
 						</span>
-						<span class="mt-2 block text-sm text-muted">{hero.description}</span>
+						<span class="mt-2 block text-sm text-muted">{oneLiner(hero)}</span>
 					</span>
 				</span>
 				<HoverBox featured />
