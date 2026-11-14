@@ -44,7 +44,7 @@ Every head tag, manifest field and well-known file, who reads it, and how to tes
 
 ## Checks
 
-The pre-commit hook formats and lints staged files; the pre-push hook runs the full `npm test`.
+The pre-commit hook formats and lints staged files; the pre-push hook runs the full `npm test` and e2e on the commit being pushed, on the homelab test runner (CT 273, `runner@192.168.0.69`, one run at a time, so a second push waits) or on this Mac when that's unreachable.
 
 A Stop hook (`scripts/design-review-gate.mjs`, wired in the git-ignored `.claude/settings.json`) holds a session's finish while its unpushed changes to `src/layouts`, `src/components`, `src/styles` or a page's `.astro` file have no design review: a `design-reviewer`, `design-critic` or `design-evidence` run records one, `node scripts/design-review-gate.mjs waive "<reason>"` skips it when nothing visible changed (5 waivers at most), and it lets the finish through after 3 blocks.
 

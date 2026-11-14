@@ -1,3 +1,6 @@
+# The commit pushed to the test runner below is the one being tested: don't test it twice
+case "$2" in runner@*) exit 0 ;; esac
+
 # nvm only as a fallback: node from PATH (e.g. mise shims) wins, since nvm's default may be too old for Astro
 command -v node >/dev/null 2>&1 || { [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"; }
 
@@ -8,6 +11,22 @@ if ! npx -y npm@10.9.10 ci --dry-run --ignore-scripts >/dev/null 2>&1; then
 	echo "  npx npm@10 install --package-lock-only --ignore-scripts"
 	exit 1
 fi
+
+# The commit being pushed (the last ref line that isn't a branch delete)
+SHA=$(awk '$2 !~ /^0+$/ { sha = $2 } END { print sha }')
+[ -n "$SHA" ] || exit 0
+
+# Run the checks on the homelab's test runner (CT 273), so several sessions pushing at
+# once queue there instead of starving this Mac's CPU. Off the home network, run here.
+RUNNER=runner@192.168.0.69
+SSH_OPTS="-o BatchMode=yes -o ConnectTimeout=3 -o StrictHostKeyChecking=accept-new"
+# shellcheck disable=SC2086
+if ssh $SSH_OPTS "$RUNNER" true 2>/dev/null; then
+	GIT_SSH_COMMAND="ssh $SSH_OPTS" git push -q "$RUNNER:site" "$SHA:refs/runs/$(hostname -s)-$$"
+	# shellcheck disable=SC2086
+	exec ssh $SSH_OPTS "$RUNNER" site-checks "$SHA"
+fi
+echo "Test runner (CT 273) unreachable: running the checks on this Mac"
 
 npm test
 
