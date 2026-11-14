@@ -29,9 +29,10 @@ const THRESHOLDS = {
 	// Total CSS, gzipped: what a visitor downloads. Until 2026-11-12 this counted raw
 	// bytes and sat at its cap (raised 50KB to 72KB in eight days, then held at 70KB),
 	// so every new utility class broke the build and each session trimmed or bumped it.
-	// Gzipped it was 14.6KB; 18KB leaves room for everyday changes and still catches a
-	// big new block of styles.
-	maxTotalCssGzip: 18 * 1024,
+	// Gzipped it was 14.6KB; 18KB left room for everyday changes and still caught a
+	// big new block of styles. Raised to 20KB on 2026-11-14 (Joe's OK): main sat at 17.4KB
+	// and the new-CSS round (DECISIONS.md) added 1KB, so 20KB restores ~2KB of headroom.
+	maxTotalCssGzip: 20 * 1024,
 	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
 	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
 	// when dist sat at 199MB. Those halftones are now drawn live in the browser
@@ -139,7 +140,7 @@ describe('Bundle Size', () => {
 	});
 
 	describe('CSS bundles', () => {
-		it('total CSS is under 18KB gzipped', () => {
+		it('total CSS is under 20KB gzipped', () => {
 			const cssFiles = getFilesWithExtension(ASTRO_DIR, '.css').map((f) => ({
 				name: f.name,
 				size: gzipSync(readFileSync(join(ASTRO_DIR, f.name))).length,

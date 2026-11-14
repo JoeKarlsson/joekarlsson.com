@@ -552,11 +552,6 @@ pre.astro-code {
 		}
 	}
 }
-/* Where the phone nav bar ends: reading-context.ts measures it, CSS can't */
-:root {
-	--phone-bar-height: 69px;
-}
-
 /* A link to another post previews it on hover or focus (rehype-post-previews.mjs): a taped
    card pinned above the link, below it when there's no room. Touch screens and browsers
    without anchor positioning keep the plain link */

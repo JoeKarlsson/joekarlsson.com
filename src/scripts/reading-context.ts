@@ -53,7 +53,17 @@ export function initReadingContext(nav: HTMLElement): void {
 		meta.textContent = contextMeta(category, minutes, progress);
 	};
 	addEventListener('scroll', update, { passive: true });
-	addEventListener('resize', update);
+	// The phone line's scroll timeline starts under the bar (global.css), which CSS can't measure
+	const measureBar = () =>
+		document.documentElement.style.setProperty(
+			'--phone-bar-height',
+			`${nav.getBoundingClientRect().bottom}px`,
+		);
+	measureBar();
+	addEventListener('resize', () => {
+		measureBar();
+		update();
+	});
 	update();
 	// A reload that restores the scroll mid-post shows the bar at once, without fading it in
 	nav

@@ -12,13 +12,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { parse } from 'yaml';
+import { DEFAULT_HERO_IMAGE } from '../consts.ts';
+import { cardHalftone } from '../utils/halftone.ts';
 import { localImageSize } from '../utils/image-size.mjs';
 
 const BLOG_DIR = path.resolve('src/content/blog');
-const DEFAULT_HERO_IMAGE = '/images/og-default-pink.webp';
 const POST_LINK = /^\/blog\/([a-z0-9-]+)\/?(?:#.*)?$/;
-// Work thumbnails come graded pink already; anything else gets the flat pink pass, as on cards
-const PRETREATED = /^\/images\/blog\/[^/]+\/thumb-[0-9a-f]{8}\.webp$/;
 
 const postCache = new Map();
 
@@ -71,7 +70,8 @@ function previewCard(id, post) {
 					alt: '',
 					loading: 'lazy',
 					sizes: '16rem',
-					...(PRETREATED.test(post.image) ? {} : { dataHalftone: 'flat' }),
+					// the same pink pass as the post's card in a list
+					dataHalftone: cardHalftone(post.image),
 				},
 				children: [],
 			},
