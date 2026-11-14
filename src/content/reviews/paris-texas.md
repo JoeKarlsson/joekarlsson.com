@@ -33,7 +33,7 @@ Paris, Texas is The Searchers ||if John Wayne decided at the end that actually, 
 
 _||Ethan's last shot, and Travis's.||_
 
-I'm struggling with my thoughts on this film because it's genuinely complicated. On one hand, it gives sympathy to people reeling from grief after committing horrible actions against their loved ones and ultimately abandoning their child. On the other hand, it's a gorgeously shot meditation on identity, fatherhood, and the impossibility of reconciliation. The cinematography reminded me of The Searchers, obviously - that same vast American landscape standing in for the emotional distance these characters can't cross.
+I'm struggling with my thoughts on this film because it's genuinely complicated. On one hand, it gives sympathy to people reeling from grief after committing horrible actions against their loved ones and ultimately abandoning their child. On the other hand, it's a gorgeously shot movie about identity, fatherhood, and the impossibility of reconciliation. The cinematography reminded me of The Searchers, obviously - that same vast American landscape standing in for the emotional distance these characters can't cross.
 
 This is a sad movie about a man who tries to put on the appearance of being a good father to his son and ultimately decides he can't do it. And here's where I get stuck: I feel like the film is overly sympathetic to Harry Dean Stanton's character. I hated the way he treated Jane, even at the end in that booth scene that everyone loves. And ||him ultimately leaving his son Hunter after reuniting him with Jane||? That feels like a terrible message to end on.
 
@@ -50,4 +50,4 @@ I can understand why so many people consider this a masterpiece. I also feel utt
 
 The title itself is about identity and misunderstanding. Paris, Texas is often mistaken for Paris, France - people pretending to be something they're not, aspiring to something more cultured or sophisticated than what they actually are. Travis is doing the same thing - trying to put on the appearance of a father while fundamentally misunderstanding what that actually means or requires.
 
-This is a film I respect more than I love. It's gorgeous, it's ambitious, it's emotionally complex. But I can't shake the feeling that it's too forgiving of a man who doesn't deserve forgiveness - or at least, not yet. Not like this.
+This is a film I respect more than I love. It's gorgeous, it's ambitious, it's emotionally complex. But I can't shake the feeling that it's too forgiving of a man who doesn't deserve forgiveness.

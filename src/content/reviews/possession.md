@@ -31,11 +31,11 @@ It’s like Kramer vs. Kramer with a little bit of tentacle hentai sprinkled in 
 
 I’m gonna be honest - it took me a while to get into the swing of this movie and understand its wavelength. I have not seen a film that functions like this before. The style of acting is very different, and there are layers to it that I didn’t immediately grasp. You have to surrender to it and let it wash over you.
 
-At its core, this is an intense movie about a marriage crumbling and the complex feelings intertwined in that dissolution. But to understand what makes this so raw and unhinged, you need to know what Andrzej Żuławski was going through when he made it.
+This is an intense movie about a marriage crumbling and all the messy feelings that come with it. But to understand what makes this so raw and unhinged, you need to know what Andrzej Żuławski was going through when he made it.
 
 Żuławski had been exiled from Communist Poland after his previous film was banned by the government. He lost his country, his career there, and his marriage fell apart in the process. So when he made Possession, he was channeling genuine rage and grief - not just about the divorce, but about losing everything at once. The film becomes this howl of pain about multiple ruptures happening simultaneously: personal, political, creative.
 
-What’s fascinating is how he externalizes all of that trauma into literal monsters. The creature that grows from Anna’s affair isn’t just a metaphor for infidelity - it’s Żuławski processing his own sense of being replaced, both in his marriage and in his homeland. He was exiled from Poland and watching from a distance as the country he loved continued without him, just like Mark watches his wife’s life continue without him. ||The doppelgängers that appear later|| feel like they represent that specifically - the way life moves on and creates replacement versions of what you lost.
+What’s fascinating is how he externalizes all of that trauma into literal monsters. The creature that grows from Anna’s affair is a metaphor for infidelity, but it’s also Żuławski processing his own sense of being replaced, both in his marriage and in his homeland. He was exiled from Poland and watching from a distance as the country he loved continued without him, just like Mark watches his wife’s life continue without him. ||The doppelgängers that appear later|| feel like they represent that specifically - the way life moves on and creates replacement versions of what you lost.
 
 Filming this right next to the Berlin Wall in West Germany was an inspired choice that adds another layer. Żuławski couldn’t go back to Poland - the wall represented that literal barrier between him and his past life. You can feel the threat of that barrier closing in throughout the film. The alleyways feel like they’re shrinking, the wall getting closer, creating this suffocating sense of claustrophobia that mirrors both the emotional entrapment of the failing marriage and the political imprisonment of exile. The wall is always there in the background, this massive concrete reminder of division and separation.
 
@@ -52,7 +52,7 @@ I do think this movie would benefit from another watch to fully understand what�
 
 This will be a repeat watch for me, and I highly recommend it. It’s more like a supernatural thriller with some gory homunculus body horror action - not exactly a pure horror movie, though I get why it was marketed that way.
 
-Also, that subway scene is iconic. A five-minute screaming, full-body breakdown while giving birth to a demon miscarriage is incredible cinema. Adjani’s performance in that sequence alone is worth the price of admission. That’s not just acting - that’s exorcism.
+Also, that subway scene is iconic. A five-minute screaming, full-body breakdown while giving birth to a demon miscarriage is incredible cinema. Adjani’s performance in that sequence alone is worth the price of admission.
 
 ![Isabelle Adjani as Anna in a blue dress, thrown back against the tiled wall of an empty underpass, mid-convulsion.](/images/reviews/possession/the-subway.webp)
 _The subway._

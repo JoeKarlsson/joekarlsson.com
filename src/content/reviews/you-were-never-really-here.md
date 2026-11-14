@@ -30,7 +30,7 @@ heroAlt: 'A still from You Were Never Really Here (2017)'
 
 Watching this after the Epstein files hit different.
 
-An incredible deconstruction of the one man with a gun genre. I love that this takes the Jack Reacher type character - the lone violent gunman willing to do horrible things for the sake of good - and pulls it in a more realistic direction. The whole thesis is that a man capable of this kind of violence, entering these traumatic situations over and over, would have to be someone who doesn't value his own life. Someone so broken by what they've seen that they've lost their mind in the process. This isn't fantasy. It's damage.
+An incredible deconstruction of the one man with a gun genre. I love that this takes the Jack Reacher type character - the lone violent gunman willing to do horrible things for the sake of good - and pulls it in a more realistic direction. The whole thesis is that a man capable of this kind of violence, entering these traumatic situations over and over, would have to be someone who doesn't value his own life. Someone so broken by what they've seen that they've lost their mind in the process.
 
 The movie is so bare bones. No voiceover to guide you through the inner workings. You piece together what's happening internally with all the characters yourself. Lynne Ramsay trusts you to do the work, and it's more powerful for it. Joaquin Phoenix barely speaks and you understand everything.
 

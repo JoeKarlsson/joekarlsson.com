@@ -37,8 +37,8 @@ It’s fun to see Spielberg play with themes from his whole career. I got touche
 ![A real black car in mid-air, falling past a sheer quarry wall toward the water.](/images/reviews/disclosure-day/car-off-the-quarry.webp)
 _An actual car, off an actual quarry._
 
-This film feels like a spiritual sequel to Close Encounters of the Third Kind - people being psychically drawn together to pursue unknown ends orchestrated by an alien entity. Except with way less manic divorce dad energy from Richard Dreyfuss.
+Like Close Encounters of the Third Kind, it’s about people being psychically drawn together to pursue unknown ends orchestrated by an alien entity.
 
 John Williams did the score. It’s not his most memorable, but I love his work. Any gift that man gives, I will accept gladly.
 
-This isn’t my favorite Spielberg film, but it’s a return to form - Spielberg at his peak powers once again. Classic Spielberg. The look-in-awe moments. The lighting. The direction. I loved all of it.
+This isn’t my favorite Spielberg film, but it’s a return to form - Spielberg at his peak powers once again. I loved the look-in-awe moments, the lighting and the direction.

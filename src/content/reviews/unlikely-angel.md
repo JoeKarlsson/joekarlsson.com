@@ -29,10 +29,10 @@ heroAlt: 'A still from Unlikely Angel (1996)'
 
 This movie presupposes that Dolly Parton is too slutty for heaven. Absolutely unhinged premise. It's a terrible movie, but frankly, I don't care. It's Dolly.
 
-Unlikely Angel is peak 90s made-for-TV fare - it's got that Touched by an Angel energy where everything is aggressively Christian, vaguely conservative, and deeply sex negative. The premise requires us to accept that Dolly Parton - an absolute saint of a human being who has spent her life giving away money, funding literacy programs, and being a beacon of warmth - is too selfish and slutty to get into heaven. That should be a deal breaker right from the start. The audacity. The slander.
+Unlikely Angel is peak 90s made-for-TV fare - it's got that Touched by an Angel energy where everything is aggressively Christian, vaguely conservative, and deeply sex negative. The premise requires us to accept that Dolly Parton - an absolute saint of a human being who has spent her life giving away money and funding literacy programs - is too selfish and slutty to get into heaven. That should be a deal breaker right from the start. The audacity. The slander.
 
 But if you want a warm, gentle, very conservative Christmas movie from the 90s, you'll probably have a good time with this. It's cozy in that specific way these films were before the Hallmark industrial complex took over. Could have used more singing - you get a little bit, but not enough.
 
 What you do get is a lot of charm from Dolly, which papers over most of the film's shortcomings.
 
-She's better than this movie. She's better than most movies. I watched it anyway.
+She's better than this movie. I watched it anyway.

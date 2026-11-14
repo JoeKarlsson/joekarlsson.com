@@ -30,4 +30,4 @@ My favorite character in the movie though? That cat with no eyes. Incredible sup
 
 What I really appreciated is how focused and character-driven this is. The Long Walk doesn't get bogged down in elaborate worldbuilding or explaining the mechanics of this terrible dystopian future. It trusts you to understand the premise and then just focuses on the experience of these kids walking, talking, and slowly breaking down. That restraint makes it work.
 
-This is exactly the kind of tight, smart, mid-budget thriller we need more of. Simple concept, strong execution, genuine stakes.
+This is exactly the kind of tight, smart, mid-budget thriller we need more of.

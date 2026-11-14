@@ -37,4 +37,4 @@ Hot Take: people obsessed with 'realism' have terrible taste, and if you love th
 
 Also, "Warfare" is a spectacularly generic title for a film that's supposedly doing something different.
 
-I'm sure this is extremely accurate to actual combat. I'm also tired of American war films, so maybe I'm just not the audience. But accuracy alone doesn't make great cinema.
+I'm sure this is extremely accurate to actual combat. I'm also tired of American war films, so maybe I'm just not the audience.

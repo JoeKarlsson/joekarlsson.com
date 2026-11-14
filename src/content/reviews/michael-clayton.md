@@ -29,7 +29,7 @@ heroAlt: 'A still from Michael Clayton (2007)'
 
 A film where the villain is just a mid-level executive doing horrible things for quarterly earnings. Finally, accurate representation.
 
-But here's what I loved and understood immediately: this is a movie where the true villain is just a horrible white-collar worker. Not a serial killer, not a terrorist, not some cartoonish evil mastermind - just a general counsel at a chemical company willing to order murders to protect the bottom line. That's where most of the evil comes from in this world, and it fits perfectly with where I wish more media was pointing blame these days. We don't need more movies about individual psychopaths. We need more movies about systemic corporate violence dressed up in business casual.
+The villain is just a general counsel at a chemical company willing to order murders to protect the bottom line, and I loved that right away. That's where most of the evil comes from in this world, and it fits perfectly with where I wish more media was pointing blame these days. We don't need more movies about individual psychopaths. We need more movies about systemic corporate violence dressed up in business casual.
 
 Tilda Swinton as Karen Crowder is incredible. She's anxious, sweaty, deeply insecure, and absolutely monstrous in her willingness to do whatever it takes to win. I'm genuinely shocked she won the Oscar for this performance though, mostly because she's in so many things I love and this didn't strike me as her most showy work. But maybe that's exactly why it won - she makes evil look banal and bureaucratic rather than theatrical.
 

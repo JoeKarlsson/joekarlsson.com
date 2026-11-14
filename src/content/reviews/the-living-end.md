@@ -28,5 +28,3 @@ I get the anger. I’d be furious. This generation of gays didn’t ask for any 
 The film has some clunky dialogue and a tiny budget, but Araki really does know how to shoot. The shadows, the darkness, the deployment of film cameras with no money - it works. Plus the leads are really hot. Craig Gilmore as the uptight film critic who just got his diagnosis. Mike Dytri as the reckless drifter who’s already made peace with dying. The chemistry crackles.
 
 And then there’s the ending. ||Somehow this has been one of the few movies where everyone survives|| - and it’s sadder than any of the other movies I’ve seen where they don’t. I’m still sitting with that. Maybe it’s because survival here doesn’t mean hope. It just means more time in a country that wants you dead. The film ends with a dedication to “craig lee (1954-1991) and the hundreds of thousands who’ve died and the hundreds of thousands more who will die because of a big white house full of republican fuckheads.”
-
-That’s 1992. That’s the moment. Araki captured it and handed it a weapon

@@ -31,4 +31,4 @@ The Age of Disclosure discloses nothing.
 
 This documentary had absolutely nothing to add - no new evidence, no interesting insights, no compelling arguments. It carries itself like it's explosive, groundbreaking, essential viewing. It is none of those things. Just vibes and implications dressed up as revelation.
 
-Not interesting. Not important. Skip it.
+Skip it.

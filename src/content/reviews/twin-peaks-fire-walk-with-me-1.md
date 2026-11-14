@@ -27,6 +27,6 @@ I’ve seen the whole show, including all 18 hours of The Return. But Fire Walk 
 
 Sheryl Lee gives an incredible central performance though. She’s really going tits out balls to the wall on this one - fully committed to the terror and the tragedy of Laura Palmer. I’m bummed she didn’t have a more successful career after Twin Peaks. She deserved more.
 
-This is a very difficult watch. Domestic violence, horrific downward spirals - the movie leans into the nightmare under the surface more than any other piece of Twin Peaks. The whimsy of the show is gone. Just the horror that was always there, unfiltered.
+This is a very difficult watch. Domestic violence, horrific downward spirals - the movie leans into the nightmare under the surface more than any other piece of Twin Peaks.
 
-It’s a tough hang. I don’t know if I’ll be revisiting it anytime soon. But I’m glad I watched it. Essential viewing for Twin Peaks and David Lynch fans, for better or worse.
+It’s a tough hang. I don’t know if I’ll be revisiting it anytime soon. But I’m glad I watched it.

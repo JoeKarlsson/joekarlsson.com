@@ -37,8 +37,8 @@ This was a surprisingly tight, well-paced, well-executed TV movie and one of my 
 
 I remember being very scared of this when it came out in 2001, but I couldn't remember much of the actual story going into this rewatch as an adult. Turns out it holds up remarkably well. It's solidly funny and genuinely creepy in that perfect early 2000s made-for-TV way.
 
-Christopher Lloyd is giving an incredible performance here, even though it's just for a Fox TV movie. He commits completely and elevates the material - you can tell he's having fun with it while still taking the character seriously.
+Christopher Lloyd is giving an incredible performance here, even though it's just for a Fox TV movie. He commits completely - you can tell he's having fun with it while still taking the character seriously.
 
-What shocked me most on this rewatch is that they made child suicide a main plot point of the film. That's a bold choice for a kids' Halloween movie, but they actually handle it surprisingly well. The film explores grief and loss in ways that are approachable and appropriate for children without sugarcoating the darkness. It's weird and thoughtful in ways you don't expect from something like this.
+What shocked me most on this rewatch is that they made child suicide a main plot point of the film. That's a bold choice for a kids' Halloween movie, but they actually handle it surprisingly well. It deals with grief in a way kids can follow, and it doesn't sugarcoat it. It's weird and thoughtful in ways you don't expect from something like this.
 
-If you're looking for cozy Halloween comfort viewing, this absolutely delivers. That said, my favorite cozy Halloween movie of the year was The Worst Witch - definitely check that one out if you like this one.
+It's great cozy Halloween comfort viewing. That said, my favorite cozy Halloween movie of the year was The Worst Witch - definitely check that one out if you like this one.

@@ -22,8 +22,8 @@ heroAlt: 'A still from No Other Choice (2025)'
 
 Funny, timely, and so sad. A movie about the lies we tell ourselves about the options we have.
 
-No Other Choice is a movie about masculinity and post-Reagan economics - and how deeply intertwined those things are. It's about the lies we tell ourselves about the options we have, the way we convince ourselves our hands are tied when they're not, the trap of believing there's no other way.
+No Other Choice is a movie about masculinity and post-Reagan economics - and how deeply intertwined those things are.
 
-The filmmaking is excellent. Some incredible shots in here, really striking compositions and visual choices that elevate the material. It's a touch too long - there's probably a tighter cut that hits even harder - but that's a minor complaint.
+The filmmaking is excellent. Some incredible shots in here, really striking compositions and visual choices. It's a touch too long - there's probably a tighter cut that hits even harder - but that's a minor complaint.
 
 Still an excellent movie. The title is the thesis.

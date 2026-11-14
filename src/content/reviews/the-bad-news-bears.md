@@ -35,6 +35,6 @@ Compare that to anything coming out now and you can feel the difference. Modern 
 
 Walter Matthau is perfect casting. Of course he is, he's Walter Matthau. The slumped shoulders, the perpetual hangover energy, the way he looks at children like they're a chore he can't get out of. He's doing so much with so little. Every line reading is gold.
 
-I am not a sports movie guy. I am especially not a baseball guy. And yet this might be my favorite baseball movie ever made??? It's funny, it's mean, it's heartwarming in a way that earns it because the rest of the movie is so prickly. The sentiment hits because it's not asking for it.
+I am not a sports movie guy. I am especially not a baseball guy. And yet this might be my favorite baseball movie ever made??? It's funny, it's mean, it's heartwarming in a way that earns it because the rest of the movie is so prickly.
 
-I get why it's a classic. They couldn't make this today and we're all a little worse for it.
+I get why it's a classic.

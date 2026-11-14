@@ -32,6 +32,6 @@ Knowing the behind-the-scenes chaos of how this was filmed, Edge of Tomorrow sho
 
 Emily Blunt is magnetic, tough, funny, and completely believable as the soldier everyone looks up to. Tom Cruise brings his A game too, and this movie helped redefine his career as the guy who will do anything for your entertainment. But Blunt is the revelation.
 
-The whole thing is so fun to watch on repeat - which feels thematically appropriate. The structure works, the humor lands, the action delivers.
+The whole thing is so fun to watch on repeat - which feels thematically appropriate.
 
-And that farmhouse scene? You know the one. It lingers.
+And that farmhouse scene stuck with me.

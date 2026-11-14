@@ -41,7 +41,7 @@ I know they filmed a lot of this practically. That famous Chicago gravity-surfin
 
 This is like Star Wars but with way, way, way more exposition. Characters stop every five minutes to explain the universe-building, the economics of immortality, the genetic hierarchies. It grinds the momentum to a halt. I probably would have loved this when I was 9 years old - the spectacle and world-building would have blown my mind. But as an adult, it doesn't grab my attention the way it should.
 
-I do love some of the underlying themes though. The Wachowskis are always interested in togetherness, empathy, and connection across humanity, and that's present here. Those themes are a key tenet of their work and it shines through even when the plot gets muddy.
+I do love some of the underlying themes though. The Wachowskis are always interested in togetherness, empathy, and connection across humanity, and that's present here.
 
 Okay, let's talk about the performances. Mila Kunis is a bit dry. She's playing the audience surrogate - the normal person thrown into this insane universe - and she never quite sells the wonder or terror of it. I didn't love her here.
 

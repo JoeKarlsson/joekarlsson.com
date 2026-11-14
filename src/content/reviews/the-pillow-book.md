@@ -21,7 +21,7 @@ heroAlt: 'A still from The Pillow Book (1995)'
 
 Never thought calligraphy could be erotic. I WAS WRONG.
 
-The film opens with Nagiko as a child, her father painting calligraphy on her face as a birthday ritual - a blessing, an act of love, an inscription of identity. She spends the rest of her life trying to make that act her own. The body as canvas. The body as text. Who gets to write on you. Who gets to read you. Who owns the story your skin tells. The father's brush becomes the seed of everything - her art, her sexuality, her autonomy. She's not rejecting what he gave her. She's reclaiming it.
+The film opens with Nagiko as a child, her father painting calligraphy on her face as a birthday ritual - a blessing, an act of love, an inscription of identity. She spends the rest of her life trying to make that act her own. The father's brush becomes the seed of everything - her art, her sexuality, her autonomy.
 
 ![A black-and-white close-up of young Nagiko as her father's brush paints a character on her cheek.](/images/reviews/the-pillow-book/fathers-brush.webp)
 _The birthday ritual._
@@ -32,8 +32,8 @@ I watched The Handmaiden this same weekend, and the connections run deep. Both a
 
 The difference is that no men fuck in The Handmaiden. At least Ewan got some here.
 
-And I do love seeing a bisexual man on screen. It makes me feel seen. Bisexual male representation in film is vanishingly rare, and when it exists, it's usually bad - coded as untrustworthy, portrayed as hypersexual or predatory, treated as a phase before they "pick a side." Even films with clearly bisexual characters often get labeled "gay movies" and the bisexuality erased entirely - Brokeback Mountain and Call Me By Your Name both feature men in relationships with women, but try finding anyone who calls them bisexual films. Jerome's bisexuality in The Pillow Book is just part of who he is. No dramatic reveal. No betrayal attached to it. No moment where he "admits" he's actually gay. He loves who he loves, fucks who he fucks, and the film doesn't treat it as a problem to be solved. That shouldn't feel revolutionary, but it does.
+And I do love seeing a bisexual man on screen. It makes me feel seen. Bisexual male representation in film is vanishingly rare, and when it exists, it's usually bad - coded as untrustworthy, portrayed as hypersexual or predatory, treated as a phase before they "pick a side." Even films with clearly bisexual characters often get labeled "gay movies" and the bisexuality erased entirely - Brokeback Mountain and Call Me By Your Name both feature men in relationships with women, but try finding anyone who calls them bisexual films. Jerome's bisexuality in The Pillow Book is just part of who he is. No dramatic reveal. No betrayal attached to it. No moment where he "admits" he's actually gay. He loves who he loves, fucks who he fucks, and the film doesn't treat it as a problem to be solved.
 
-This is an erotic art film in the truest sense - not eroticism despite the art, or art despite the eroticism, but pleasure and creativity as the same act. The eroticism is the artistic statement. Nagiko's sexuality is her art. The brushstroke is the caress.
+This is an erotic art film where the sex and the art are the same thing.
 
 I'm drawn to films like this, where pleasure isn't punished, where bodies aren't shameful, where eroticism is the point rather than the problem. Hollywood mostly stopped making them.

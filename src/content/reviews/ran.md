@@ -35,11 +35,11 @@ Let me just say: it looks incredible. You can feel the amount of craft that went
 
 Kurosawa's wife dying, him going blind during production, his suicide attempt before making this film, him clawing his way back to create this epic - the connections between his personal tragedy and King Lear's themes are almost overwhelming.
 
-I appreciate this film deeply for the craft, the history, and the context. It's a towering achievement from one of cinema's greatest filmmakers working through unimaginable grief and physical limitations.
+I appreciate this film deeply for the craft, the history, and the context.
 That being said... I was a little bored by this movie.
 
 It's a lot of talking. It's very long - over two and a half hours of court intrigue, betrayal, and tragedy unfolding at a deliberate pace. The third act battle sequence is stunning, but getting there requires sitting through extensive dialogue scenes that didn't fully grip me the way they should have.
 
-I probably won't watch it again. But I do appreciate its artistry and understand completely why it's considered essential viewing. Sometimes you can respect something as a masterpiece while also acknowledging it's not for you.
+I probably won't watch it again. But I do appreciate its artistry and understand completely why it's considered essential viewing.
 
-This is a film to study, to admire, to learn from. Just maybe don't expect to be entertained the whole way through.
+Just maybe don't expect to be entertained the whole way through.

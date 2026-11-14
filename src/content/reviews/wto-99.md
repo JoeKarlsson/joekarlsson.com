@@ -22,7 +22,7 @@ I had a chance to see a screening of this in Minneapolis, put on by Smitten Kitt
 
 The editing and archival work are incredible. WTO/99 wisely tells the story of the World Trade Organization's first meeting in Seattle through archival footage and news segments, arranged in chronological order over the four days of protest. No talking heads, no retrospective framing - just what was captured at the time, letting you see how it unfolded in real time.
 
-What's most telling is how this documents a turning point. Seattle 1999 was the first time militaristic police tactics were deployed on American civilians at this scale - pepper balls, tear gas against peaceful protesters, the National Guard called in. It was the first use of "protest free zones," a concept that sounded dystopian at the time and is now standard practice. The playbook written in Seattle has been used against every major protest movement since - Occupy, Standing Rock, Ferguson, and beyond.
+Seattle 1999 was the first time militaristic police tactics were deployed on American civilians at this scale - pepper balls, tear gas against peaceful protesters, the National Guard called in. It was the first use of "protest free zones," a concept that sounded dystopian at the time and is now standard practice. The playbook written in Seattle has been used against every major protest movement since - Occupy, Standing Rock, Ferguson, and beyond.
 
 The film also shows how the media undermined the protesters in real time. Watch how the coverage shifts from the actual message - critiques of globalization, labor rights, environmental destruction - to obsessive focus on broken windows and "anarchist violence." Watch how they humiliate protesters, dismiss their concerns, frame property damage as equivalent to state violence. These tactics haven't changed. The mainstream media still does this. Every single time.
 
@@ -35,6 +35,6 @@ Coming from the Twin Cities, this felt deeply personal. We have plenty of experi
 
 _Minneapolis police on the Third Precinct roof, May 27, 2020. Photo: [Chad Davis](<https://commons.wikimedia.org/wiki/File:Minneapolis_Police_Third_Precinct_(51683720667).jpg>), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)._
 
-Seattle in 1999 was the blueprint. The militarization of police. The media playbook for discrediting dissent. The normalization of treating protesters as enemies of the state. We are still living in the aftermath of those four days. This documentary makes that lineage undeniable.
+Seattle in 1999 was the blueprint. We are still living in the aftermath of those four days.
 
-If you've ever wondered why protests feel so surveilled, so militarized, so immediately delegitimized by media coverage - this is where it started. This is why you should care.
+If you've ever wondered why protests feel so surveilled, so militarized, so immediately delegitimized by media coverage - this is where it started.

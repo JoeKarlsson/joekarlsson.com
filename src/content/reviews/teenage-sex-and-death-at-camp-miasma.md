@@ -47,14 +47,14 @@ The sharpest move is that she takes back Sleepaway Camp. The film wears its Frid
 
 Where I bumped: the Hollywood machinery. The reboot-industry, agent-office material, Sarah Sherman included, and I love Sarah Sherman, kept pulling me out of the parts I cared about. Kris being a barely-veiled Schoenbrun self-insert is fine, she's earned the mirror, but the movie-about-making-the-movie layer left me cold. That's three films now about watching yourself on a screen, and I'd love to see her aim that camera somewhere new. The trans-revenge charge that builds around Little Death also fizzles right when it should detonate, a half-formed idea I wanted finished. And for a love letter to slasher kills, they get samey fast, a lot of the same double-ended-spear, Darth Maul spin. The one great sequence just made me greedy for five more.
 
-Like everything she makes, it's overstuffed, and I mean that fondly. A hundred ideas clawing to get out and a tiny budget to get them out in, so she crams, and I'll need to sit with it. But here's her real trick. She makes something so specific to her own weird interior that it loops all the way around to universal, and a horror nerd in the middle of his own questions about pleasure and desire can sit there and think, oh. This one's mine. This one felt like mine.
+Like everything she makes, it's overstuffed, and I mean that fondly. A hundred ideas clawing to get out and a tiny budget to get them out in, so she crams, and I'll need to sit with it. She makes something so specific to her own weird interior that it loops all the way around to universal, and a horror nerd in the middle of his own questions about pleasure and desire can sit there and think, oh. This one's mine. This one felt like mine.
 
 Stray thoughts:
 
 ・Under the gore, this is really an academic deconstruction of the slasher and a meta-breakdown of reboot culture, Jane reckoning with the sexual legacy those 80s movies stamped onto her impressionable kid subconscious.
 ・I've got nothing to compare this to. It doesn't look or move like anything else I've seen.
 ・Her whole watching-and-being-watched fixation curdles into an actual kink here, the want to watch, be watched, and be hunted. Genuinely new, even if I bumped on it.
-・Still no idea what the air vent in the head means. Boxes within boxes, maybe a trapped inner self clawing for air, maybe a conduit for breath and life that's also the thing sealing the head in. Didn't crack it, but it's clearly load-bearing.
+・Still no idea what the air vent in the head means. Boxes within boxes, maybe a trapped inner self clawing for air, maybe a conduit for breath and life that's also the thing sealing the head in. Didn't crack it, but it clearly matters.
 ・Her riff on a very, very, very not-subtly-Sleepaway-Camp movie was one of the funniest stretches in the film.
 ・The chest-mounted killgasm at the camp is the standout, the one time the choreography really cooks.
 ・The Counting Crows needle-drop lost me completely, thematically and story-wise. Fun song, total mystery.

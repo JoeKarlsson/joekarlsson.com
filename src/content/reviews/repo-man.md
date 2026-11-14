@@ -42,4 +42,4 @@ The anti-Reagan politics still hit hard. The bland suburbia, the government cons
 
 And it’s funny as hell. Deadpan, weird, absurdist humor that never undercuts the anger. The movie is pissed off but it’s also having fun being pissed off, which is very punk rock.
 
-Incredible satire. One of the best films of the 80s. Essential viewing.
+It's one of the best films of the 80s.

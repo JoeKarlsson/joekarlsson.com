@@ -33,8 +33,8 @@ Saw this on 35mm with Lloyd Kaufman in attendance doing a live Q&A. I’m pretty
 
 Class of Nuke ’Em High rips. The soundtrack is pounding the entire time. The melodrama is great, so camp. I love the terrible body horror elements, and I love the cretins - despite their violence, racism, and homophobia, I respect their hustle.
 
-Kaufman’s “can’t be bad taste” aesthetic reminds me a lot of John Waters. It’s funny how things have shifted - liberals of that era were the ones being unwoke, saying crazy stuff, while conservatives were the ones policing language and topics. And yet John Waters and Lloyd Kaufman are still beloved by queer communities today. Something to think about.
+Kaufman’s “can’t be bad taste” aesthetic reminds me a lot of John Waters. It’s funny how things have shifted - liberals of that era were the ones being unwoke, saying crazy stuff, while conservatives were the ones policing language and topics. And yet John Waters and Lloyd Kaufman are still beloved by queer communities today.
 
 This movie is dealing with a million different themes - environmentalism, anti-nuclear messaging, STD scare tactics, teen pregnancy panic, anti-drug PSA culture - and it’s seriously engaging with none of them. It’s all mockery. Sometimes it’s hard to tell what Kaufman actually thinks. But it doesn’t really matter. The movie is too tongue in cheek for any of that to land as sincere.
 
-It feels like a great prequel to Toxic Avenger, even though it was produced after. Still fun. Still gross. Still Troma.
+It feels like a great prequel to Toxic Avenger, even though it was produced after.

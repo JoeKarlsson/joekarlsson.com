@@ -34,5 +34,3 @@ Being different still has beauty. The expectation to conform to the norm can be 
 Pillion is funny, beautiful, and functions best when showing how beautiful relationships can emerge from non-traditional structures. I think that's something everyone needs to learn about more, and this movie makes the case with charm and warmth. It's also horny. It's hot. Those things can coexist.
 
 Alex Skarsgård is an unbelievably beautiful specimen of a human being, and he's doing good work here. But Dudley fucking crushes it. Such a seriously underrated performer - I'm so glad the Coen brothers were able to rediscover him from the post-Harry Potter mines. He deserves more roles like this.
-
-Sweet, sexy, and sincere. The dom/rom-com we needed.

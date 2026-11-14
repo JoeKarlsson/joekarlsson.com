@@ -36,5 +36,3 @@ Spider-Man 2 is great. It looks good - actually good, not just expensive. The sp
 Also, this movie is lit like a film. There are shadows. Actual shadows. I miss when blockbusters looked like this instead of the flat, overlit, digital paste we get now.
 
 And I love Peter being vulnerable and weak. He loses his powers because he’s emotionally overwhelmed. He’s broke, failing school, can’t keep a job, disappointing everyone he loves. Modern superhero movies forgot that’s allowed - that your hero can be struggling and small and human. That’s what makes it land when he rises.
-
-We had it so good. We didn’t appreciate it.

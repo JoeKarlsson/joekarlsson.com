@@ -29,7 +29,7 @@ heroAlt: 'A still from Treasure Planet (2002)'
 
 I still like Titan A.E. more, but Treasure Planet makes me nostalgic for when Disney took wild swings with animated sci-fi.
 
-This movie represents that final Renaissance period from Disney - when they were still making big, ambitious hand-drawn animated films that mixed traditional and CGI animation in genuinely innovative ways. The animation is beautiful. The blend of 2D characters against those sweeping 3D space backgrounds still holds up remarkably well. There's a craftsmanship here that's hard not to admire.
+This movie represents that final Renaissance period from Disney - when they were still making big, ambitious hand-drawn animated films that mixed traditional and CGI animation in genuinely innovative ways. The animation is beautiful. The blend of 2D characters against those sweeping 3D space backgrounds still holds up remarkably well.
 
 I love the voice acting. The cast is stacked - Brian Murray, Emma Thompson, Martin Short doing his unhinged robot thing. Even Joseph Gordon-Levitt does a great job voicing Jim Hawkins, which is impressive because "angsty teenager" is such a hard role to make likable. He pulls it off.
 
@@ -37,4 +37,4 @@ I've read Treasure Island and I adore that book. This adaptation does a really g
 
 I wish I had watched this when I was younger. I would have absolutely loved it as a kid. The scale, the adventure, the relationships - this is exactly the kind of movie that would have lodged itself in my brain forever. But you know, what can you do? At least I get to appreciate it now.
 
-This deserved to be a bigger hit than it was. Disney basically abandoned 2D animation after this bombed, which is a genuine loss. Treasure Planet is proof that the medium still had so much left to offer.
+This deserved to be a bigger hit than it was. Disney basically abandoned 2D animation after this bombed, which is a genuine loss.

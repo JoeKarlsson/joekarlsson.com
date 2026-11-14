@@ -29,8 +29,8 @@ heroAlt: 'A still from Ghost in the Shell (1995)'
 
 A cyberpunk hellscape that felt like fiction. Now it's just news.
 
-My relationship with Ghost in the Shell has evolved massively over the years. When I first watched it, I loved the aesthetics - the neon-soaked cyberpunk future, the seamless blend of technology and flesh, the cool factor of a world where consciousness could be copied and transferred. It felt like gorgeous speculation.
+My relationship with Ghost in the Shell has evolved massively over the years. When I first watched it, I loved the aesthetics - the neon-soaked cyberpunk future, the mix of technology and flesh, the cool factor of a world where consciousness could be copied and transferred. It felt like gorgeous speculation.
 
-Now, as an adult, I see the crushing corporate hellscape it correctly predicted. The privatization of security, the erosion of identity, the way technology serves capital instead of people. It's less fiction now. It's just the world we built.
+Now, as an adult, I see the crushing corporate hellscape it correctly predicted. The privatization of security, the erosion of identity, the way technology serves capital instead of people.
 
-Still beautiful. Still essential. Hits different every time.
+It's still beautiful, and it hits different every time.

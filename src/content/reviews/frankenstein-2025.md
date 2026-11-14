@@ -37,6 +37,6 @@ Jacob Elordi I thought did okay, which is better than I expected. I had really l
 
 Oscar Isaac is great as the suave doctor who descends into madness after creating life, then abusing it and being a horrible dad. His Victor is obsessed with milk and his mom in ways that feel appropriately Freudian and weird. He makes you understand why Victor does what he does while also making you hate him for it.
 
-I read the book in freshman year of college and I don't recall loving it. But I felt like I connected more with the story this time through del Toro's lens, and I appreciate that a lot. Sometimes you need the right adaptation to make something click.
+I read the book in freshman year of college and I don't recall loving it. But I felt like I connected more with the story this time through del Toro's lens, and I appreciate that a lot.
 
 Yeah, I think I liked it. Four stars.
