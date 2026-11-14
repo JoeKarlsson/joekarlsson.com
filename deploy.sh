@@ -46,34 +46,10 @@ else
     bash "$(dirname "$0")/scripts/wait-for-ci.sh" "$TARGET"
 fi
 
-# One deploy at a time: two at once collided on the build's Vite cache (2026-11-12)
-# and could collide on tofu apply. The lock sits in the shared .git folder, so the main
-# checkout and every worktree see the same one. A deploy that finds it taken waits its
-# turn (it usually then finds its commit already live); a lock left by a deploy that
-# died is taken over.
+# One deploy at a time; a second one waits its turn (scripts/deploy-lock.sh)
 LOCK_DIR="$(git rev-parse --path-format=absolute --git-common-dir)/deploy.lock"
-for attempt in $(seq 1 120); do
-    if mkdir "$LOCK_DIR" 2>/dev/null; then
-        break
-    fi
-    LOCK_PID=$(cat "$LOCK_DIR/pid" 2>/dev/null || true)
-    if [[ -n "$LOCK_PID" ]] && ! kill -0 "$LOCK_PID" 2>/dev/null; then
-        echo "Taking over a stale deploy lock (pid $LOCK_PID is gone)"
-        rm -rf "$LOCK_DIR"
-        continue
-    fi
-    if [[ "$attempt" -eq 1 ]]; then
-        echo "Another deploy is running (pid ${LOCK_PID:-starting}, from $(cat "$LOCK_DIR/where" 2>/dev/null || echo 'unknown')): waiting for it..."
-    fi
-    if [[ "$attempt" -eq 120 ]]; then
-        echo "ERROR: still waiting for the other deploy after 30 minutes. If it's truly gone, rm -rf $LOCK_DIR" >&2
-        exit 1
-    fi
-    sleep 15
-done
-echo $$ >"$LOCK_DIR/pid"
-pwd >"$LOCK_DIR/where"
-trap 'rm -rf "$LOCK_DIR"' EXIT
+source "$(dirname "$0")/scripts/deploy-lock.sh"
+take_deploy_lock "$LOCK_DIR"
 
 # Already live: a deploy that ran while this one waited shipped this commit or a newer
 # one. Deploying it again would only redo the work, and an older commit would undo theirs.
