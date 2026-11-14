@@ -346,6 +346,10 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 .motion-paused * {
 	animation-play-state: paused !important;
 }
+/* Paused, the slow-load squiggle shows whole rather than frozen unscribbled */
+.motion-paused header nav a[data-loading]::before {
+	animation: none;
+}
 /* Paused, a scribble shows drawn: frozen at its first frame it would be invisible,
    and the pause carries over to every later page before it paints */
 .motion-paused :is(.redraw, .redraw-strokes) path {
@@ -662,26 +666,137 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 	#image-lightbox[data-morph]::backdrop {
 		transition: none;
 	}
-	/* A blog thumbnail grows into the post's paper header across the page load (the
-	   script is in BaseHead.astro). Snapshots crop rather than stretch between the
-	   thumbnail's 16:9 and the header's shape. */
+	/* Page changes (the script is in BaseHead.astro). The nav bar is its own layer that
+	   swaps at once, so it holds still; only the pink current-page sticker moves, sliding
+	   to the new page's link. Multiply keeps the link text over it black. */
 	@view-transition {
 		navigation: auto;
-		types: post-hero;
+		types: morph;
 	}
-	/* Safari reveals the new page before its header is parsed, so the script can't name
-	   it; this does. A transition only survives when the page left named a thumbnail. */
-	:active-view-transition-type(post-hero) .paper-hero .ph-print {
-		view-transition-name: post-hero;
+	/* Page changes only: the lightbox's same-page transition leaves the bar under its backdrop */
+	:active-view-transition-type(slide-forward, slide-back) header nav {
+		view-transition-name: site-nav;
 	}
-	::view-transition-group(post-hero) {
+	:active-view-transition-type(slide-forward, slide-back) header nav .nav-pill {
+		view-transition-name: nav-pill;
+	}
+	::view-transition-old(site-nav) {
+		display: none;
+	}
+	::view-transition-new(site-nav) {
+		animation: none;
+	}
+	::view-transition-group(nav-pill) {
+		animation-duration: 0.28s;
+		animation-timing-function: var(--ease-move);
+		mix-blend-mode: multiply;
+	}
+	/* The page slides the way you're going: out fast, in 16px from that side */
+	html:active-view-transition-type(slide-forward)::view-transition-old(root) {
+		animation: 0.12s var(--ease-exit) both page-out-left;
+	}
+	html:active-view-transition-type(slide-forward)::view-transition-new(root) {
+		animation: 0.22s var(--ease-enter) 0.06s both page-in-from-right;
+	}
+	html:active-view-transition-type(slide-back)::view-transition-old(root) {
+		animation: 0.12s var(--ease-exit) both page-out-right;
+	}
+	html:active-view-transition-type(slide-back)::view-transition-new(root) {
+		animation: 0.22s var(--ease-enter) 0.06s both page-in-from-left;
+	}
+	/* Keep exploring: the next page turns in over this one like a sheet; Back pulls the
+	   sheet off to the right again */
+	html:active-view-transition-type(page-turn):active-view-transition-type(
+			slide-forward
+		)::view-transition-new(root) {
+		animation: 0.38s var(--ease-enter) both sheet-in-from-right;
+	}
+	html:active-view-transition-type(page-turn):active-view-transition-type(
+			slide-forward
+		)::view-transition-old(root) {
+		animation: 0.38s var(--ease-enter) both sheet-under-left;
+	}
+	html:active-view-transition-type(page-turn):active-view-transition-type(
+			slide-back
+		)::view-transition-old(root) {
+		z-index: 1;
+		animation: 0.32s var(--ease-exit) both sheet-out-right;
+	}
+	html:active-view-transition-type(page-turn):active-view-transition-type(
+			slide-back
+		)::view-transition-new(root) {
+		animation: 0.32s var(--ease-enter) both sheet-from-under-left;
+	}
+	/* A thumbnail grows into the header of the page it opens. Safari reveals the new page
+	   before its header is parsed, so the script can't name it; this does, and the script
+	   drops the type when the page left named no thumbnail. Snapshots crop rather than
+	   stretch between the thumbnail's shape and the header's. */
+	:active-view-transition-type(morph) [data-morph-target] {
+		view-transition-name: morph-hero;
+	}
+	::view-transition-group(morph-hero) {
 		animation-duration: 0.25s;
 		animation-timing-function: var(--ease-enter);
 	}
-	::view-transition-old(post-hero),
-	::view-transition-new(post-hero) {
+	::view-transition-old(morph-hero),
+	::view-transition-new(morph-hero) {
 		height: 100%;
 		object-fit: cover;
+	}
+	/* The slow-load squiggle (Header.astro) scribbles itself out left to right, over and over */
+	header nav a[data-loading]::before {
+		animation: squiggle-scribble 0.6s steps(6) infinite;
+	}
+	@keyframes squiggle-scribble {
+		from {
+			clip-path: inset(0 100% 0 0);
+		}
+	}
+	@keyframes page-out-left {
+		to {
+			opacity: 0;
+			translate: -16px 0;
+		}
+	}
+	@keyframes page-out-right {
+		to {
+			opacity: 0;
+			translate: 16px 0;
+		}
+	}
+	@keyframes page-in-from-right {
+		from {
+			opacity: 0;
+			translate: 16px 0;
+		}
+	}
+	@keyframes page-in-from-left {
+		from {
+			opacity: 0;
+			translate: -16px 0;
+		}
+	}
+	@keyframes sheet-in-from-right {
+		from {
+			translate: 100% 0;
+		}
+	}
+	@keyframes sheet-under-left {
+		to {
+			opacity: 0;
+			translate: -12% 0;
+		}
+	}
+	@keyframes sheet-out-right {
+		to {
+			translate: 100% 0;
+		}
+	}
+	@keyframes sheet-from-under-left {
+		from {
+			opacity: 0;
+			translate: -12% 0;
+		}
 	}
 	::view-transition-group(lightbox-morph) {
 		animation-duration: 0.25s;

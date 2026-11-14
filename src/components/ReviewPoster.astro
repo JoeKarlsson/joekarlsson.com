@@ -12,7 +12,10 @@ const { title, year, rating, poster, slug } = Astro.props.review.data;
 ---
 
 <a href={`/reviews/${slug}/`} class="group block no-underline">
-	<span class="block aspect-[2/3] overflow-hidden rounded-md bg-surface-1 transition-transform duration-200 group-hover:-translate-y-1">
+	<span
+		class="block aspect-[2/3] overflow-hidden rounded-md bg-surface-1 transition-transform duration-200 group-hover:-translate-y-1"
+		data-morph={`/reviews/${slug}/`}
+	>
 		{poster && (
 			<img
 				src={poster}

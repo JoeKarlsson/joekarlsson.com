@@ -162,6 +162,7 @@ const sections = [
 							aria-label={project.imageAlt}
 							data-autoplay-in-view
 							data-halftone={halftoneMode(project.video)}
+							data-morph-target
 							class="block aspect-video w-full rounded-xl bg-ink object-contain"
 						/>
 					) : (
@@ -170,6 +171,7 @@ const sections = [
 							alt={project.imageAlt}
 							{...imageSizes.get(project.image)}
 							data-halftone={halftoneMode(project.image)}
+							data-morph-target
 							class="block max-h-[440px] w-full rounded-xl object-cover"
 							loading="eager"
 							fetchpriority="high"

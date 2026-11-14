@@ -121,7 +121,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 						]}
 					>
 						<span class:list={['relative block', i % 2 && 'md:order-2']}>
-							<span class="block overflow-hidden rounded-xl bg-ink">
+							<span class="block overflow-hidden rounded-xl bg-ink" data-morph={workUrl(project)}>
 								{project.video ? (
 									<video
 										src={cardClip(project.video)}

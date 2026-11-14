@@ -69,8 +69,8 @@ const formattedDate = formatDate(date);
 
 <li class="ring-host group grid grid-cols-[112px_1fr] items-start gap-x-4 border-t border-surface-4 py-[18px] sm:grid-cols-[clamp(140px,22vw,280px)_1fr] sm:items-center sm:gap-x-7">
 	<!-- The thumbnail repeats the title link, so it's skipped by keyboard and screen readers -->
-	<!-- data-post-thumb: grows into the post's paper header on the way there (BaseHead.astro) -->
-	<a href={url} tabindex="-1" aria-hidden="true" class="relative block" data-post-thumb>
+	<!-- data-morph: grows into the post's header on the way there (BaseHead.astro) -->
+	<a href={url} tabindex="-1" aria-hidden="true" class="relative block" data-morph={url}>
 		<img
 			src={image}
 			alt=""

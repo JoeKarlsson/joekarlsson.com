@@ -1,7 +1,7 @@
 ---
 import { Font } from 'astro:assets';
 import '../styles/global.css';
-import { SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '../consts';
+import { NAV_LINKS, SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '../consts';
 import { DEFAULT_OG_IMAGE, ogJpegPath } from '../utils/og-image';
 import { jsonForScript } from '../utils/json-for-script';
 
@@ -72,6 +72,8 @@ const PROFILE_URLS = [
 ];
 
 // Same-origin pages only, minus feeds, the Markdown copies for agents and downloads
+// The nav's sections left to right, each as the paths it covers: page changes slide by them
+const navSections = NAV_LINKS.map(({ href, also = [] }) => [href, ...also]);
 const SPECULATION_TARGETS = {
 	and: [
 		{ href_matches: '/*' },
@@ -348,56 +350,161 @@ color original never flashes; that script takes the class off again without WebG
 		// Not remembered; motion runs until paused on this page
 	}
 </script>
-<!-- A blog thumbnail grows into the post's paper header across the page load, and back
-again on Back (a cross-document View Transition, motion.css). Any other navigation skips
-it. Inline in the head: pagereveal fires before the page's own scripts run. -->
-<script is:inline>
+<!-- Page changes are cross-document View Transitions (motion.css). The nav bar holds still
+while the page slides the way you're going: toward a section further right in the nav, or
+deeper into one, it comes in from the right; Back plays it in reverse. A thumbnail grows into
+the header of the page it opens, and shrinks back on the way back. Keep exploring's links turn
+the next page in like a sheet of paper. Inline in the head: pagereveal fires before the
+page's own scripts run. -->
+<script is:inline define:vars={{ navSections }}>
 	(function () {
-		const POST = /^\/blog\/[^/]+\/$/;
-		const NAME = 'post-hero';
-		const isPost = function (url) {
-			return !!url && POST.test(new URL(url).pathname);
+		const NAME = 'morph-hero';
+		const paused = function () {
+			return document.documentElement.classList.contains('motion-paused');
 		};
-		const thumbFor = function (url) {
-			return document.querySelector('[data-post-thumb][href="' + new URL(url).pathname + '"]');
+		// A skipped or superseded transition rejects with an AbortError, which is expected;
+		// anything else still surfaces as an unhandled rejection
+		const ignoreAbort = function (error) {
+			if (error.name !== 'AbortError') throw error;
 		};
-		const header = function () {
-			return document.querySelector('.paper-hero .ph-print');
+		const skip = function (transition) {
+			transition.ready.catch(ignoreAbort);
+			transition.skipTransition();
 		};
-		const morphFrom = function (element, transition) {
-			const paused = document.documentElement.classList.contains('motion-paused');
-			if (!element || paused) {
-				// Skipping rejects ready with an AbortError, which is the point; anything else
-				// still surfaces as an unhandled rejection
-				transition.ready.catch(function (error) {
-					if (error.name !== 'AbortError') throw error;
-				});
-				return transition.skipTransition();
+		// Storage can be blocked: then nothing is remembered and pages just slide
+		const load = function (key) {
+			try {
+				return sessionStorage.getItem(key);
+			} catch {
+				return null;
 			}
-			element.style.viewTransitionName = NAME;
-			transition.finished.finally(function () {
-				element.style.viewTransitionName = '';
+		};
+		const save = function (key, value) {
+			try {
+				if (value === null) sessionStorage.removeItem(key);
+				else sessionStorage.setItem(key, value);
+			} catch {
+				// Not remembered
+			}
+		};
+
+		// Home (the logo) is left of every section; a page outside the nav has no section
+		const sectionOf = function (path) {
+			if (path === '/') return -1;
+			const index = navSections.findIndex(function (paths) {
+				return paths.some(function (prefix) {
+					return path.startsWith(prefix);
+				});
+			});
+			return index < 0 ? null : index;
+		};
+		const depth = function (path) {
+			return path.split('/').filter(Boolean).length;
+		};
+		// A link click is back when it heads left in the nav, or up within a section
+		const linkGoesBack = function (from, to) {
+			const a = sectionOf(from);
+			const b = sectionOf(to);
+			if (a !== null && b !== null && a !== b) return b < a;
+			return depth(to) < depth(from);
+		};
+		// Back in history plays the click that came here in reverse; Forward replays it
+		const goesBack = function (activation, from, to) {
+			if (activation.navigationType !== 'traverse') return linkGoesBack(from, to);
+			return activation.entry.index < activation.from.index
+				? !linkGoesBack(to, from)
+				: linkGoesBack(from, to);
+		};
+		// A Keep exploring click notes where it's going; the pair is kept so Back and Forward
+		// between the same two pages turn the page too
+		document.addEventListener('click', function (event) {
+			const link = event.target.closest && event.target.closest('[data-page-turn] a[href]');
+			if (link) save('page-turn', link.pathname);
+		});
+		const pairs = function () {
+			return JSON.parse(load('page-turns') || '[]');
+		};
+		const turnsPage = function (activation, from, to, back) {
+			if (activation.navigationType !== 'traverse') return load('page-turn') === to;
+			return pairs().includes(back ? to + ' ' + from : from + ' ' + to);
+		};
+
+		// The first matching element on screen: a page can carry the same picture twice (a
+		// phone and a desktop copy, a project both selected and in the index)
+		const onScreen = function (selector) {
+			return Array.prototype.find.call(document.querySelectorAll(selector), function (element) {
+				const box = element.getBoundingClientRect();
+				return box.width > 0 && box.bottom > 0 && box.top < innerHeight;
 			});
 		};
-		// Leaving: a listing names the thumbnail of the post it's opening; a post going
-		// anywhere but another post names its header
+		const pictureFor = function (path) {
+			return onScreen('[data-morph="' + path + '"]');
+		};
+		const morph = function (element, transition) {
+			element.style.viewTransitionName = NAME;
+			transition.finished
+				.finally(function () {
+					element.style.viewTransitionName = '';
+				})
+				.catch(ignoreAbort);
+		};
+
+		// Leaving: forward, name the thumbnail of the page being opened; back, name this
+		// page's header so it shrinks into the thumbnail it came from
 		addEventListener('pageswap', function (event) {
-			if (!event.viewTransition) return;
-			const to = event.activation && event.activation.entry && event.activation.entry.url;
-			if (isPost(to)) morphFrom(thumbFor(to), event.viewTransition);
-			else morphFrom(isPost(location.href) ? header() : null, event.viewTransition);
+			const transition = event.viewTransition;
+			if (!transition) return;
+			if (paused()) return skip(transition);
+			const activation = event.activation;
+			save('morph-to', null);
+			if (!activation || !activation.entry.url) return;
+			const from = location.pathname;
+			const to = new URL(activation.entry.url).pathname;
+			const back = goesBack(activation, from, to);
+			// The old page needs the slide's type too, so it names the nav bar (motion.css)
+			transition.types.add(back ? 'slide-back' : 'slide-forward');
+			if (turnsPage(activation, from, to, back)) return;
+			const element = back ? onScreen('[data-morph-target]') : pictureFor(to);
+			if (!element) return;
+			morph(element, transition);
+			save('morph-to', to);
 		});
-		// Arriving (only if the page left didn't skip): a post names its header; a listing
-		// names the thumbnail of the post it came back from
+		// Arriving: pick the slide, and keep the header morph only when the page left named
+		// a picture for it
 		addEventListener('pagereveal', function (event) {
-			if (!event.viewTransition) return;
-			// Safari before 26 has View Transitions but no Navigation API
+			const transition = event.viewTransition;
+			if (!transition) return;
+			if (paused()) return skip(transition);
+			// Safari before 26 has View Transitions but no Navigation API: a plain crossfade
 			const activation = window.navigation && navigation.activation;
-			const from = activation && activation.from && activation.from.url;
-			// A post's header not parsed yet (Safari) is named by motion.css instead
-			if (isPost(location.href)) {
-				if (header()) morphFrom(header(), event.viewTransition);
-			} else morphFrom(isPost(from) ? thumbFor(from) : null, event.viewTransition);
+			if (!activation || !activation.from || !activation.from.url) return;
+			const from = new URL(activation.from.url).pathname;
+			const here = location.pathname;
+			const back = goesBack(activation, from, here);
+			transition.types.add(back ? 'slide-back' : 'slide-forward');
+			if (turnsPage(activation, from, here, back)) {
+				transition.types.add('page-turn');
+				if (activation.navigationType !== 'traverse') {
+					save(
+						'page-turns',
+						JSON.stringify(
+							pairs()
+								.concat(from + ' ' + here)
+								.slice(-20),
+						),
+					);
+				}
+			}
+			save('page-turn', null);
+			const morphed = load('morph-to') === here;
+			save('morph-to', null);
+			// The header's name comes from motion.css, since Safari reveals the page before
+			// it's parsed; a listing names its thumbnail here
+			if (!morphed || transition.types.has('page-turn')) transition.types.delete('morph');
+			else if (back) {
+				const picture = pictureFor(from);
+				if (picture) morph(picture, transition);
+			}
 		});
 	})();
 </script>

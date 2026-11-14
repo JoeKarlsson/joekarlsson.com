@@ -77,7 +77,7 @@ function tornEdge(tearSeed: number, depthPx: number, depthPct: number): string {
 ---
 
 <div class="paper-hero">
-	<div class:list={['ph-print', taped && 'ph-taped']}>
+	<div class:list={['ph-print', taped && 'ph-taped']} data-morph-target>
 		{!taped && <span class="ph-scrap" style={`background:${CHALK};${tornEdge(seed, 7, 1.4)}`} />}
 		{/* Drawn in pink by src/scripts/halftone.ts */}
 		<img

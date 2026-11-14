@@ -18,6 +18,8 @@ const primaryUrl =
 	project.demoUrl ||
 	'#';
 const isExternal = primaryUrl.startsWith('http');
+// Only a page on this site can receive the picture (BaseHead.astro)
+const morph = isExternal ? undefined : primaryUrl;
 const still = project.card ?? { src: project.image, alt: project.imageAlt };
 const metaLine = [
 	project.date.slice(0, 4),
@@ -46,6 +48,7 @@ const metaLine = [
 				<img
 					src={project.image}
 					alt={project.imageAlt}
+					data-morph={morph}
 					data-halftone="flat"
 					width="560"
 					height="315"
@@ -65,6 +68,7 @@ const metaLine = [
 					preload="none"
 					aria-label={project.imageAlt}
 					data-autoplay-in-view
+					data-morph={morph}
 					data-halftone="flat"
 					class="block aspect-video w-full rounded-lg object-cover max-md:hidden"
 				/>
@@ -72,6 +76,7 @@ const metaLine = [
 				<img
 					src={still.src}
 					alt={still.alt}
+					data-morph={morph}
 					data-halftone={cardHalftone(still.src)}
 					width="560"
 					height="315"
