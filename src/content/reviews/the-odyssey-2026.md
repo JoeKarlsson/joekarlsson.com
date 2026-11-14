@@ -46,7 +46,7 @@ Odysseus is a war criminal. Easily distracted. Responsible for the fall of peace
 
 Nolan continues his streak of writing thin parts for women. Anne Hathaway gets the most to chew on as Penelope, and even that feels underwritten. And Zendaya plays Odysseus’s invisible friend. But at least this time the text itself is an indictment. The men are the problem. The film knows it.
 
-The craft is undeniable. The score is incredible. The visuals are incredible. Staging, locales, filming - everything meticulously crafted. Several scenes I had tears welling up just from the images and music alone. It is a beautiful movie. You cannot deny it.
+The craft is undeniable. The score is incredible. The visuals are gorgeous. Staging, locales, filming - everything meticulously crafted. Several scenes I had tears welling up just from the images and music alone. It is a beautiful movie. You cannot deny it.
 
 Also: this should have been so much hornier. There's a lot of fucking in the Odyssey. Circe, Calypso, the sirens. Odysseus gets distracted for years. This was the most chaste telling I've seen. My yearning for horniness returning to cinema remains unfulfilled.
 
@@ -56,7 +56,7 @@ I'm not an Odyssey expert. My touchpoints are O Brother Where Art Thou and the W
 
 **Stray observations:**
 
-The cyclops was incredible - played by a real person, not CGI, and it looked like a Tool music video from 1996. Sandy skin, fucked up face. I loved that monster.
+The cyclops was great - played by a real person, not CGI, and it looked like a Tool music video from 1996. Sandy skin, fucked up face. I loved that monster.
 
 ![The sleeping Cyclops in his cave, lit by the fire, with Odysseus's men creeping past his face.](/images/reviews/the-odyssey-2026/cyclops.webp)
 _Sandy skin, a real person, no CGI._

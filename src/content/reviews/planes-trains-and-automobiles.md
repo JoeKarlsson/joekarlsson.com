@@ -20,5 +20,3 @@ heroAlt: 'A still from Planes, Trains and Automobiles (1987)'
 ---
 
 A screwball comedy with heart. John Candy is a treasure in this - warm, funny, and quietly devastating. Steve Martin plays exasperation perfectly, but Candy is the soul of the film. It's chaotic and silly and then it turns and becomes something beautiful.
-
-They don't really make them like this anymore.

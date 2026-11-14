@@ -27,6 +27,6 @@ I had such a huge crush on Sharon Stone in the 90s, and watching this - damn, sh
 
 At the time of writing this, I'm actively going through a breakup, and I have to say - some of the scenes of De Niro and Stone's slow meltdowns, their reconciliations that don't take, the fights that go nowhere - it all felt painfully familiar. But ultimately cathartic for me right now. I don't know what that says about me, but it worked.
 
-This is an absolutely beautiful film. It feels like an expensive movie from the 1940s about the glitz and glam of 1960s Las Vegas. Incredible wardrobes, incredible sets, awesome explosions, super violent. Scorsese spending money and making it look good.
+This is an absolutely beautiful film. It feels like an expensive movie from the 1940s about the glitz and glam of 1960s Las Vegas. Incredible wardrobes, great sets, awesome explosions, super violent. Scorsese spending money and making it look good.
 
 I was ultimately charmed. I don't know if I'll revisit it anytime soon, but I do see why Scorsese came back with The Irishman. Casino doesn't really have an ending - it just stops. The Irishman feels like him finally exploring the ultimate end goal of a life of crime to its logical conclusion. I kind of wish this movie had that.

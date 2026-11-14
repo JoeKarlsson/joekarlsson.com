@@ -29,7 +29,7 @@ heroAlt: 'A still from Riddick (2013)'
 
 Vin Diesel takes his shirt off and grunts a lot. Plus he's got a dog.
 
-I miss this low-budget 2010s action movie genre. They don't make them like this anymore.
+I miss this low-budget 2010s action movie genre.
 
 Riddick is a massive return to form after Chronicles of Riddick - stripped down, simple, effective. It's like 25% survivalist movie, 75% space western.
 
