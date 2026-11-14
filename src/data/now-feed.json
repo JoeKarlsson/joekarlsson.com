@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 724,
+			"commitCount": 727,
 			"dailyCommitCounts": [
 				13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119, 85,
-				19, 45, 32, 37
+				19, 45, 32, 40
 			],
-			"latestCommitMessage": "fix: Six film reviews explain their star rating: The Substance goes to..."
+			"latestCommitMessage": "fix: Film reviews lean less on the same words: stacked \"genuinely\" and..."
 		},
 		{
 			"name": "dotfiles",
@@ -75,7 +75,7 @@
 			"cover": "/images/now/podcast-ab4a04d4-3b5e-4bdc-b6ba-af9a721e2351.webp"
 		}
 	],
-	"homelab": { "runningContainers": 73, "proxmoxNodes": 2, "cpuThreads": 160, "memoryGB": 252 },
+	"homelab": { "runningContainers": 72, "proxmoxNodes": 2, "cpuThreads": 160, "memoryGB": 252 },
 	"github": {
 		"followers": 549,
 		"publicRepos": 60,
