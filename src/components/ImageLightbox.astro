@@ -202,10 +202,11 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 		});
 
 		// Only pictures whose file is bigger than they're shown, and not ones that are
-		// links or part of an embed
+		// links, part of an embed or a link's hover preview (rehype-post-previews.mjs)
 		document.querySelectorAll<HTMLImageElement>('.prose img').forEach((img) => {
 			const fileWidth = Number(img.getAttribute('width'));
-			if (img.closest('a, .prose .\\@container') || !(fileWidth > img.clientWidth + 40)) return;
+			if (img.closest('a, .link-peek, .prose .\\@container') || !(fileWidth > img.clientWidth + 40))
+				return;
 			img.classList.add('cursor-zoom-in');
 			// A blurred spoiler picture's first click shows it (reviews/[slug].astro), not the lightbox
 			const hidden = () => img.closest('.spoiler-frame[role]');
