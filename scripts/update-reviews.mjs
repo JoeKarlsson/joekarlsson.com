@@ -148,25 +148,30 @@ async function importReview(r) {
 	return true;
 }
 
-function fromRss(xml) {
-	return [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)]
-		.map(([, item]) => {
-			const tag = (t) =>
-				decode(item.match(new RegExp(`<${t}>([\\s\\S]*?)</${t}>`))?.[1]?.trim() ?? '');
-			const description =
-				item.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/)?.[1] ?? '';
-			return {
-				url: tag('link'),
-				title: tag('letterboxd:filmTitle'),
-				year: tag('letterboxd:filmYear'),
-				watched: tag('letterboxd:watchedDate'),
-				rating: Number(tag('letterboxd:memberRating')) || undefined,
-				rewatch: tag('letterboxd:rewatch') === 'Yes',
-				spoilers: tag('title').includes('(contains spoilers)'),
-				html: description,
-			};
-		})
-		.filter((r) => r.title && r.url.includes('/film/'));
+export function fromRss(xml) {
+	return (
+		[...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)]
+			// Only reviews: a diary log with no text comes through as "Watched on Friday..." (a
+			// letterboxd-watch item), and lists have no film at all
+			.filter(([, item]) => /<guid[^>]*>letterboxd-review-/.test(item))
+			.map(([, item]) => {
+				const tag = (t) =>
+					decode(item.match(new RegExp(`<${t}>([\\s\\S]*?)</${t}>`))?.[1]?.trim() ?? '');
+				const description =
+					item.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/)?.[1] ?? '';
+				return {
+					url: tag('link'),
+					title: tag('letterboxd:filmTitle'),
+					year: tag('letterboxd:filmYear'),
+					watched: tag('letterboxd:watchedDate'),
+					rating: Number(tag('letterboxd:memberRating')) || undefined,
+					rewatch: tag('letterboxd:rewatch') === 'Yes',
+					spoilers: tag('title').includes('(contains spoilers)'),
+					html: description,
+				};
+			})
+			.filter((r) => r.title && r.url.includes('/film/'))
+	);
 }
 
 /** Minimal RFC 4180 parser: quoted fields with commas, doubled quotes and newlines */

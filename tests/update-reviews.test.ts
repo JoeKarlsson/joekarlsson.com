@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+	fromRss,
 	parseCsv,
 	parseReviewUrl,
 	reviewToMarkdown,
@@ -46,6 +47,18 @@ describe('reviewToMarkdown', () => {
 
 	it('splits the export text on blank lines', () => {
 		expect(reviewToMarkdown('One.\n\nTwo.')).toBe('One.\n\nTwo.');
+	});
+});
+
+describe('fromRss', () => {
+	const item = (guid: string, body: string) =>
+		`<item><title>Resident Evil, 2026 - ★★★★</title><link>https://letterboxd.com/joekarlsson/film/resident-evil-2026/1/</link><guid isPermaLink="false">${guid}</guid><letterboxd:filmTitle>Resident Evil</letterboxd:filmTitle><letterboxd:filmYear>2026</letterboxd:filmYear><description><![CDATA[ ${body} ]]></description></item>`;
+
+	it('imports reviews and skips a diary log that has no review text', () => {
+		const rss =
+			item('letterboxd-watch-1', '<p>Watched on Friday November 13, 2026.</p>') +
+			item('letterboxd-review-2', '<p>Better the second time.</p>');
+		expect(fromRss(rss).map((r) => r.html.trim())).toEqual(['<p>Better the second time.</p>']);
 	});
 });
 
