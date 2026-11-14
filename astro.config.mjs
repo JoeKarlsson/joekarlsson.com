@@ -51,6 +51,9 @@ const unindexedIssuePaths = new Set(
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.joekarlsson.com',
+	// Renders four pages at a time instead of one: 863 pages took 3m 52s on the homelab
+	// test runner one by one, 56s four at a time
+	build: { concurrency: 4 },
 	// Off for the Playwright run (playwright.config.ts sets ASTRO_E2E)
 	devToolbar: { enabled: process.env.ASTRO_E2E !== '1' },
 	// Self-hosted at build time, each with a fallback sized to its metrics, so text
