@@ -181,19 +181,27 @@ test.describe('Individual Blog Post', () => {
 		const picture = page.locator('.prose img.cursor-zoom-in').first();
 		await picture.scrollIntoViewIfNeeded();
 		await picture.click();
-		// Halfway through the 250ms grow, close it: the picture should still shrink back
-		// into the post (the morph group), not cut to a page fade
+		// Close it during the 250ms grow: the picture should still shrink back into the
+		// post (the morph group), not cut to a page fade. Waits on the animations, not a
+		// fixed delay: on a slow machine the dialog isn't open yet 100ms after the click.
 		const morphs = await page.evaluate(async () => {
-			await new Promise((resolve) => setTimeout(resolve, 100));
+			const morphing = () =>
+				document
+					.getAnimations()
+					.filter(
+						(a) =>
+							(a.effect as KeyframeEffect).pseudoElement ===
+							'::view-transition-group(lightbox-morph)',
+					).length;
+			const frame = () => new Promise((resolve) => requestAnimationFrame(resolve));
+			while (!morphing()) await frame();
 			document.querySelector<HTMLButtonElement>('#image-lightbox button')!.click();
-			await new Promise((resolve) => setTimeout(resolve, 60));
-			return document
-				.getAnimations()
-				.filter(
-					(a) =>
-						(a.effect as KeyframeEffect).pseudoElement ===
-						'::view-transition-group(lightbox-morph)',
-				).length;
+			// The grow is skipped at once; the shrink starts a frame or more later
+			for (const until = performance.now() + 2000; performance.now() < until;) {
+				await frame();
+				if (morphing()) return morphing();
+			}
+			return 0;
 		});
 		expect(morphs).toBeGreaterThan(0);
 	});
