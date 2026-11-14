@@ -366,7 +366,14 @@ it. Inline in the head: pagereveal fires before the page's own scripts run. -->
 		};
 		const morphFrom = function (element, transition) {
 			const paused = document.documentElement.classList.contains('motion-paused');
-			if (!element || paused) return transition.skipTransition();
+			if (!element || paused) {
+				// Skipping rejects ready with an AbortError, which is the point; anything else
+				// still surfaces as an unhandled rejection
+				transition.ready.catch(function (error) {
+					if (error.name !== 'AbortError') throw error;
+				});
+				return transition.skipTransition();
+			}
 			element.style.viewTransitionName = NAME;
 			transition.finished.finally(function () {
 				element.style.viewTransitionName = '';
