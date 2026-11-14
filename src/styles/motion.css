@@ -819,3 +819,60 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 		}
 	}
 }
+
+@media (prefers-reduced-motion: no-preference) {
+	/* A post-link preview (global.css) grows out of its link: fade and 0.95 scale, from below */
+	.link-peek {
+		transform-origin: bottom center;
+		transition:
+			opacity var(--duration-exit) var(--ease-exit),
+			scale var(--duration-exit) var(--ease-exit),
+			overlay var(--duration-exit) allow-discrete,
+			display var(--duration-exit) allow-discrete;
+	}
+	.link-peek:popover-open {
+		transition-duration: var(--duration-enter);
+		transition-timing-function: var(--ease-enter);
+	}
+	@starting-style {
+		.link-peek:popover-open {
+			opacity: var(--fade-from);
+			scale: 0.95;
+		}
+	}
+	.link-peek:not(:popover-open) {
+		opacity: var(--fade-from);
+		scale: 0.95;
+	}
+
+	/* The highlighter sweep on a post's links (global.css) */
+	.prose a {
+		transition:
+			--highlight 0.3s var(--ease-enter),
+			color 0.3s var(--ease-enter); /* darkens with the fill, never ahead of it */
+	}
+
+	/* A post's first photo pastes down onto the page as it scrolls in: it drops from a lifted,
+	   turned position into place. Scroll-linked, so scrolling back lifts it off again. Wide
+	   screens only, never while motion is paused */
+	@supports (animation-timeline: view()) {
+		@media (width >= 48rem) {
+			html:not(.motion-paused) .prose > :nth-child(1 of p:has(> img)) > img {
+				/* Longhands: LightningCSS folds a timeline into the shorthand, which browsers drop */
+				animation-name: paste-down;
+				animation-timing-function: linear;
+				animation-fill-mode: both;
+				animation-timeline: view();
+				animation-range: entry 5% entry 90%;
+			}
+		}
+	}
+	@keyframes paste-down {
+		from {
+			opacity: var(--fade-from);
+			translate: 24px 0;
+			rotate: 8deg;
+			scale: 1.08;
+		}
+	}
+}

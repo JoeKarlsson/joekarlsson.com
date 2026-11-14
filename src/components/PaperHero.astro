@@ -24,34 +24,61 @@ interface Props {
 
 const { src, alt, width, height, halftone, taped, topic, seed } = Astro.props;
 
-// A torn edge as a clip-path polygon in percentages: a point every few percent along each
-// side, pulled inward by a random sliver
-function tornEdge(tearSeed: number, depth: number): string {
+// A torn edge: a point every few percent along each side, pulled inward by a random sliver.
+// As shape(), the sliver is in px, so a big print and a small one tear like the same paper;
+// as polygon() (browsers without shape()) it's in %, deeper on a bigger print
+function tornEdge(tearSeed: number, depthPx: number, depthPct: number): string {
 	let state = tearSeed;
 	const random = () => {
 		state = (state * 9301 + 49297) % 233280;
 		return state / 233280;
 	};
-	const points: string[] = [];
-	const side = (count: number, at: (t: number, sliver: number) => [number, number]) => {
+	const polygon: string[] = [];
+	const shape: string[] = [];
+	const side = (
+		count: number,
+		at: (t: number) => number,
+		point: (along: number, px: string, pct: number) => [string, string, string],
+	) => {
 		for (let i = 0; i < count; i++) {
-			const [x, y] = at(i / count, random() * depth);
-			points.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+			const sliver = random();
+			const [x, y, pctPoint] = point(
+				at(i / count),
+				`${(sliver * depthPx).toFixed(1)}px`,
+				sliver * depthPct,
+			);
+			shape.push(`${shape.length ? 'line to' : 'from'} ${x} ${y}`);
+			polygon.push(pctPoint);
 		}
 	};
-	side(28, (t, d) => [t * 100, d]);
-	side(16, (t, d) => [100 - d / 1.8, t * 100]);
-	side(28, (t, d) => [100 - t * 100, 100 - d]);
-	side(16, (t, d) => [d / 1.8, 100 - t * 100]);
-	return `polygon(${points.join(',')})`;
+	const pct = (n: number) => `${n.toFixed(2)}%`;
+	side(
+		28,
+		(t) => t * 100,
+		(a, px, d) => [pct(a), px, `${pct(a)} ${pct(d)}`],
+	);
+	side(
+		16,
+		(t) => t * 100,
+		(a, px, d) => [`calc(100% - ${px})`, pct(a), `${pct(100 - d / 1.8)} ${pct(a)}`],
+	);
+	side(
+		28,
+		(t) => 100 - t * 100,
+		(a, px, d) => [pct(a), `calc(100% - ${px})`, `${pct(a)} ${pct(100 - d)}`],
+	);
+	side(
+		16,
+		(t) => 100 - t * 100,
+		(a, px, d) => [px, pct(a), `${pct(d / 1.8)} ${pct(a)}`],
+	);
+	return `--tear:polygon(${polygon.join(',')});--tear-shape:shape(${shape.join(',')},close)`;
 }
 ---
 
 <div class="paper-hero">
 	<div class:list={['ph-print', taped && 'ph-taped']}>
-		{!taped && (
-			<span class="ph-scrap" style={`background:${CHALK};clip-path:${tornEdge(seed, 1.4)}`} />
-		)}
+		{!taped && <span class="ph-scrap" style={`background:${CHALK};${tornEdge(seed, 7, 1.4)}`} />}
 		{/* Drawn in pink by src/scripts/halftone.ts */}
 		<img
 			src={src}
@@ -74,7 +101,7 @@ function tornEdge(tearSeed: number, depth: number): string {
 	)}
 	{topic && (
 		<span class="ph-tag" aria-hidden="true">
-			<span class="ph-scrap" style={`clip-path:${tornEdge(seed + 7, 9)}`} />
+			<span class="ph-scrap" style={`${tornEdge(seed + 7, 6, 9)}`} />
 			<span class="ph-words">{topic}</span>
 		</span>
 	)}
@@ -108,6 +135,12 @@ function tornEdge(tearSeed: number, depth: number): string {
 	.ph-scrap {
 		position: absolute;
 		inset: 0;
+		clip-path: var(--tear);
+	}
+	@supports (clip-path: shape(from 0 0, line to 1px 0, close)) {
+		.ph-scrap {
+			clip-path: var(--tear-shape);
+		}
 	}
 	.ph-picture {
 		position: relative;

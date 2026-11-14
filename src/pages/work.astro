@@ -261,7 +261,10 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 				<p class={`mb-8 ${HERO_LEAD}`}>{era.label}</p>
 				{era.note && <p class={`mb-8 max-w-[40em] ${META}`}>{era.note}</p>}
 				{/* Phones: one column of compact rows (ProjectCard), so the gap between them tightens */}
-				<div class="era-grid grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3">
+				<div
+					style={`--wall:${i}`}
+					class="era-grid paste-wall grid gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3"
+				>
 					{era.projects.map((project, j) => (
 						<ProjectCard project={project} index={j} />
 					))}

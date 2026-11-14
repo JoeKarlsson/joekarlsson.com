@@ -43,7 +43,7 @@ const watch = (id: string) => `https://www.youtube.com/shorts/${id}`;
 		</a>
 		.
 	</p>
-	<div class="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-5 overflow-x-auto px-4 pb-2 sm:-mx-7 sm:scroll-px-7 sm:px-7 lg:mx-0 lg:grid lg:grid-cols-6 lg:gap-x-6 lg:overflow-visible lg:p-0">
+	<div class="shorts-reel -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-5 overflow-x-auto px-4 pb-2 sm:-mx-7 sm:scroll-px-7 sm:px-7 lg:mx-0 lg:grid lg:grid-cols-6 lg:gap-x-6 lg:overflow-visible lg:p-0">
 		{[...shorts]
 			.sort((a, b) => b.date.localeCompare(a.date))
 			.map((s) => (

@@ -515,3 +515,187 @@ pre.astro-code {
 	text-align: center;
 	@apply text-surface-4;
 }
+
+/* Reading progress (BlogPost's #reading-progress, the phone bar's .read-line) follows the
+   scroll in CSS where the browser can; reading-context.ts and BlogPost's script set it
+   elsewhere. Same ranges as their readingProgress math: 0 as the text's top reaches the
+   bar, 1 once its bottom is on screen */
+@supports (animation-timeline: view()) {
+	body {
+		timeline-scope: --post, --post-body;
+	}
+	article[data-post-title] {
+		view-timeline: --post block;
+	}
+	article[data-post-title] .prose {
+		view-timeline: --post-body block;
+		view-timeline-inset: var(--phone-bar-height) 0;
+	}
+	#reading-progress,
+	.read-line {
+		/* Longhands: LightningCSS folds a timeline into the shorthand, which browsers drop */
+		animation-name: read-fill;
+		animation-timing-function: linear;
+		animation-fill-mode: both;
+		animation-timeline: --post;
+		animation-range: contain;
+	}
+	.read-line {
+		animation-timeline: --post-body;
+	}
+	@keyframes read-fill {
+		from {
+			scale: 0 1;
+		}
+		to {
+			scale: 1 1;
+		}
+	}
+}
+/* Where the phone nav bar ends: reading-context.ts measures it, CSS can't */
+:root {
+	--phone-bar-height: 69px;
+}
+
+/* A link to another post previews it on hover or focus (rehype-post-previews.mjs): a taped
+   card pinned above the link, below it when there's no room. Touch screens and browsers
+   without anchor positioning keep the plain link */
+.link-peek {
+	inset: auto;
+	position-area: top center;
+	position-try-fallbacks: flip-block;
+	margin: 0 0 12px;
+	width: 16rem;
+	overflow: visible;
+	border: 0;
+	padding: 10px 10px 12px;
+	rotate: -1.5deg;
+	@apply bg-surface-2 text-paper;
+}
+.link-peek::before {
+	content: '';
+	position: absolute;
+	top: -9px;
+	left: calc(50% - 32px);
+	width: 64px;
+	height: 20px;
+	rotate: -3deg;
+	background: #d6cebe; /* PaperHero's tape */
+}
+.link-peek img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+.link-peek small {
+	display: block;
+	margin-top: 9px;
+	@apply font-sans text-xs text-muted;
+}
+.link-peek strong {
+	display: block;
+	margin-top: 4px;
+	font-size: 15px;
+	line-height: 1.25;
+	text-wrap: balance;
+	@apply font-sans font-semibold text-paper;
+}
+@media not (hover: hover) {
+	.link-peek {
+		display: none !important;
+	}
+}
+@supports not (anchor-name: --a) {
+	.link-peek {
+		display: none !important;
+	}
+}
+
+/* Card walls (Works, talks, review posters) look pasted by hand: each card leans its own
+   small way, picked by its place in the row and its wall's --wall, so walls differ. Browsers without sibling-index() show them
+   straight. Phones' compact rows stay straight */
+@media (width >= 48rem) {
+	.paste-wall > * {
+		rotate: calc(sin((sibling-index() + var(--wall, 0) * 3) * 2.3) * 1.2deg);
+	}
+}
+
+/* Buttons and nav pills have beveled corners, like a cut ticket (notch read as 8-bit); talk cards' pictures are
+   scooped like a ticket stub. Square or round elsewhere */
+.sticker:not(.rounded-full, .stats-poster) {
+	corner-shape: bevel;
+}
+.talk-card .rounded-lg {
+	corner-shape: scoop;
+}
+
+/* Anton and the sans carry empty space above their caps and below the baseline, so even
+   padding looked bottom-heavy: trim the line box to the caps and baseline */
+:is(header nav .sticker, .ph-words) {
+	text-box: trim-both cap alphabetic;
+}
+
+/* The Shorts row scrolls sideways below 64rem: CSS arrows where the browser has them
+   (Chrome), the plain swipe elsewhere. No ::scroll-marker dots: Chrome leaves them out of
+   the accessibility tree, so they'd be silent tab stops */
+@supports selector(::scroll-button(*)) {
+	@media (width < 64rem) {
+		.shorts-reel {
+			anchor-name: --shorts-reel;
+			scrollbar-width: none;
+		}
+		.shorts-reel::scroll-button(*) {
+			position: absolute;
+			position-anchor: --shorts-reel;
+			top: calc(anchor(top) + 25%);
+			width: 44px;
+			height: 44px;
+			border: 0;
+			border-radius: 50%;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 1;
+			@apply bg-paper font-sans text-ink;
+		}
+		/* Paper, not pink: pink discs are the Shorts' play buttons */
+		.shorts-reel::scroll-button(*):focus-visible {
+			outline: 3px solid #ff4fd8;
+			outline-offset: 2px;
+		}
+		.shorts-reel::scroll-button(*):disabled {
+			display: none;
+		}
+		.shorts-reel::scroll-button(left) {
+			content: '\2190' / 'Previous shorts';
+			left: calc(anchor(left) + 8px);
+		}
+		.shorts-reel::scroll-button(right) {
+			content: '\2192' / 'Next shorts';
+			right: calc(anchor(right) + 8px);
+		}
+	}
+}
+
+/* A typed --highlight animates; an untyped one would jump. A post's links fill with pink
+   from the left on hover, like a highlighter (motion.css times the sweep) */
+@property --highlight {
+	syntax: '<percentage>';
+	inherits: false;
+	initial-value: 0%;
+}
+@media (hover: hover) {
+	.prose a:not(.heading-anchor, :has(img, picture, video)) {
+		background: linear-gradient(
+				100deg,
+				#ff4fd8 var(--highlight),
+				transparent calc(var(--highlight) + 2%)
+			)
+			no-repeat;
+	}
+	.prose a:not(.heading-anchor, :has(img, picture, video)):hover {
+		--highlight: 102%;
+		@apply text-ink;
+	}
+}

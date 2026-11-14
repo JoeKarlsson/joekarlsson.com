@@ -511,7 +511,10 @@ const heroIsTaped =
 								pct = Math.max(0, Math.min(100, pct));
 
 								trackScrollDepth(pct);
-								progressEl!.style.scale = `${pct / 100} 1`; // scale, not width: no layout per scroll
+								// scale, not width: no layout per scroll. CSS drives it where it can (global.css)
+								if (!CSS.supports('animation-timeline: view()')) {
+									progressEl!.style.scale = `${pct / 100} 1`;
+								}
 							}
 
 							let ticking = false;
@@ -581,5 +584,7 @@ const heroIsTaped =
 <script>
 	// Phones fold a written-in "In this article" list (rehype-collapsible-toc.mjs)
 	import { initPhoneCollapse } from '../scripts/phone-collapse';
+	import { initLinkPeek } from '../scripts/link-peek';
 	initPhoneCollapse();
+	initLinkPeek();
 </script>

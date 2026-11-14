@@ -48,8 +48,8 @@ export function initReadingContext(nav: HTMLElement): void {
 		if (!showing) return;
 		const rect = body.getBoundingClientRect();
 		const progress = readingProgress(rect.top, rect.height, barBottom, innerHeight);
-		// scale, not width: no layout on every scroll
-		line.style.scale = `${progress} 1`;
+		// scale, not width: no layout on every scroll. CSS drives it where it can (global.css)
+		if (!CSS.supports('animation-timeline: view()')) line.style.scale = `${progress} 1`;
 		meta.textContent = contextMeta(category, minutes, progress);
 	};
 	addEventListener('scroll', update, { passive: true });

@@ -12,3 +12,9 @@ export function diagramsAsImages(html) {
 export function postersForFeeds(html) {
 	return html.replace(/\sdata-poster="/g, ' poster="');
 }
+
+// Feed readers ignore popover, so a link's hover preview (rehype-post-previews.mjs) would show
+// as a card in the middle of the sentence
+export function withoutLinkPreviews(html) {
+	return html.replace(/<span popover="hint"[^>]*class="link-peek"[^>]*>[\s\S]*?<\/span>/g, '');
+}
