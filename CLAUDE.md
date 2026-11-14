@@ -52,7 +52,7 @@ Web standards guards (`~/.claude/knowledge/modern-web-guidance.md`): every page 
 
 In a worktree, don't symlink the whole `node_modules` to the main checkout: Astro keeps its content cache in `node_modules/.astro/data-store.json`, so a shared one serves the main checkout's (or another session's) front matter, and the build renders the wrong hero or fails on an image you deleted. Make `node_modules` a real folder that links each package (`mkdir node_modules; for e in ../joekarlsson.com/node_modules/* ../joekarlsson.com/node_modules/.bin; do ln -s "../$e" node_modules/; done`), so `.astro` stays private.
 
-Run e2e on a port of your own (`PORT=46xx npx playwright test ...`): the config reuses any server already on 4321, which is often another session's checkout, so a default run can test someone else's code and its failures look like yours.
+Run e2e on a port of your own (`PORT=46xx npx playwright test ...`): the config reuses any server already on 4321, which is often another session's checkout, so a default run can test someone else's code and its failures look like yours. With PORT set the config never reuses a server, so a busy port fails loudly; pick another.
 
 A new page, or a change to a layout, component, nav, form or the 404, gets the `design-reviewer` agent (global, `~/.claude/agents/`) on the built page before it ships: start `npx astro preview` (it picks a free port and prints it; another session may hold 4391), give the agent those URLs and this repo, and fix its High and Medium findings. It checks the UX laws (`~/.claude/knowledge/ux-laws.md`), the AI-slop rules and the phone/big-screen/accessibility parts of the launch checklist. Plain post and newsletter text changes skip it.
 

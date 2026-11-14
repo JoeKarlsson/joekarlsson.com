@@ -28,7 +28,9 @@ export default defineConfig({
 		url: `http://localhost:${port}`,
 		// The dev toolbar adds its own h1s and buttons, which tests would count as the page's
 		env: { ASTRO_E2E: '1' },
-		reuseExistingServer: !process.env.CI,
+		// A PORT run is a session's own: a server already there is another worktree's
+		// stale build, so fail loudly instead of testing it
+		reuseExistingServer: !process.env.CI && !process.env.PORT,
 		timeout: 120 * 1000,
 	},
 });
