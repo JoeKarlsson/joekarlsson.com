@@ -13,11 +13,11 @@ language: 'English'
 studios: ['Metro-Goldwyn-Mayer']
 letterboxdAverage: 3.99
 slug: 'the-philadelphia-story'
-description: 'I had a hard time getting into this one. The cat was great though!'
+description: "I had a hard time getting into this one. The cat was great though! Four stars because I can see why it's a classic, even if it didn't click for me."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-philadelphia-story/'
 poster: '/images/reviews/the-philadelphia-story/poster.webp'
 heroImage: '/images/reviews/the-philadelphia-story/backdrop.webp'
 heroAlt: 'A still from The Philadelphia Story (1940)'
 ---
 
-I had a hard time getting into this one. The cat was great though!
+I had a hard time getting into this one. The cat was great though! Four stars because I can see why it's a classic, even if it didn't click for me.

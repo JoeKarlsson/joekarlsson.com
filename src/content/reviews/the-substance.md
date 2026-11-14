@@ -2,7 +2,7 @@
 title: 'The Substance'
 year: 2024
 date: 2025-02-01
-rating: 4.5
+rating: 5
 director: 'Coralie Fargeat'
 genres: ['Horror', 'Science Fiction']
 runtime: 142

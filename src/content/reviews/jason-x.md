@@ -12,11 +12,11 @@ language: 'English'
 studios: ['Crystal Lake Entertainment', 'Sean S. Cunningham Films']
 letterboxdAverage: 2.17
 slug: 'jason-x'
-description: "Guys, this is a really good movie. I don't care what anyone says."
+description: "Guys, this is a really good movie. I don't care what anyone says. Objectively it's two and a half stars. Spiritually it's a five."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jason-x/'
 poster: '/images/reviews/jason-x/poster.webp'
 heroImage: '/images/reviews/jason-x/backdrop.webp'
 heroAlt: 'A still from Jason X (2001)'
 ---
 
-Guys, this is a really good movie. I don't care what anyone says.
+Guys, this is a really good movie. I don't care what anyone says. Objectively it's two and a half stars. Spiritually it's a five.

@@ -20,11 +20,11 @@ language: 'English'
 studios: ['Newmarket Capital Group', 'Original Film', 'Neal H. Moritz Productions']
 letterboxdAverage: 3.25
 slug: 'cruel-intentions'
-description: 'This has to be in the running for best 90s film soundtracks of all time, right???'
+description: 'This has to be in the running for best 90s film soundtracks of all time, right??? The movie around it is a two.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cruel-intentions/'
 poster: '/images/reviews/cruel-intentions/poster.webp'
 heroImage: '/images/reviews/cruel-intentions/backdrop.webp'
 heroAlt: 'A still from Cruel Intentions (1999)'
 ---
 
-This has to be in the running for best 90s film soundtracks of all time, right???
+This has to be in the running for best 90s film soundtracks of all time, right??? The movie around it is a two.
