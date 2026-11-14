@@ -39,6 +39,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-13: Subscribing plays a cut-paper envelope that seals with the crayon asterisk (picked over a rubber "SENT" stamp). It plays on listmonk's "check your inbox" page, not on the site's form, so it never holds up the hand-off and plays in full (Joe's call).
 
 - 2026-11-10: Animations should think bigger than redrawing the post's diagrams: stick figures, drawings, the scribbly pink crayon style.
+- 2026-11-13: Borrowed-motion round (ideas from motion.dev and bklit.com), all option A: hovering a day on a Now-feed commit strip fades the other days and the caption shows that day's count (no crayon ring per cell, too busy); a code block's Copy draws the loose 12-ray starburst around "Copied!" once, then fades (not the spiky star, which covers the code); Newest/Popular re-sort brings the rows in 30ms apart. Search results stay instant.
 
 ## Process
 

@@ -340,8 +340,25 @@ const SORT_INACTIVE =
 		});
 
 		// Sort
+		// Re-sorted rows come in 30ms apart (#posts-grid.sort-in, motion.css). The class
+		// comes off once they're in, or search and infinite scroll would replay it
+		const MAX_STAGGERED_ROWS = 8;
+		let sortInTimer;
+		function staggerRowsIn() {
+			clearTimeout(sortInTimer);
+			grid.classList.remove('sort-in');
+			cardData.forEach(({ el }) => el.style.removeProperty('--row-i'));
+			getFiltered()
+				.slice(0, Math.min(visibleCount, MAX_STAGGERED_ROWS))
+				.forEach(({ el }, i) => el.style.setProperty('--row-i', String(i)));
+			void grid.offsetWidth; // restart on a quick second toggle
+			grid.classList.add('sort-in');
+			sortInTimer = setTimeout(() => grid.classList.remove('sort-in'), 600);
+		}
+
 		sortBtns.forEach((btn) => {
 			btn.addEventListener('click', () => {
+				const sortChanged = currentSort !== btn.dataset.sort;
 				currentSort = btn.dataset.sort;
 				if (typeof window.plausible === 'function') {
 					window.plausible('Blog Sort', { props: { sort: currentSort } });
@@ -352,6 +369,7 @@ const SORT_INACTIVE =
 					b.setAttribute('aria-pressed', String(isActive));
 				});
 				render();
+				if (sortChanged) staggerRowsIn();
 			});
 		});
 

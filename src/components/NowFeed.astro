@@ -12,8 +12,11 @@ import nowFeed from '../data/now-feed.json';
 import { getCollection } from 'astro:content';
 import { truncateAtWord } from '../../scripts/now-feed-parsing.mjs';
 import { cardHalftone } from '../utils/halftone';
+import { stripDayLabels } from '../utils/strip-days';
 
-const { shippingWindowDays, shippedRepos, podcastEpisodes } = nowFeed;
+const { updatedAt, shippingWindowDays, shippedRepos, podcastEpisodes } = nowFeed;
+// The day each strip cell stands for, shown in its caption while hovered
+const stripDays = stripDayLabels(updatedAt, shippingWindowDays);
 const films = (await getCollection('reviews'))
 	.filter((r) => r.data.poster)
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -92,7 +95,11 @@ function ratingStars(rating: number) {
 						<p class="mt-1 text-sm text-muted">Latest commit: {repo.latestCommitMessage}</p>
 						{/* Pinned to the bottom so the strips line up across a row */}
 						<div class="mt-auto pt-3">
+							{/* Hovering a day fades the others and the caption shows that day
+							    (commit-strip in motion.css, script below). Mouse only: a tap
+							    opens the repo, and the label already lists every day. */}
 							<svg
+								class="commit-strip"
 								width="100%"
 								viewBox={`0 0 ${repo.dailyCommitCounts.length * ACTIVITY_CELL_STEP - 2} 10`}
 								role="img"
@@ -105,11 +112,16 @@ function ratingStars(rating: number) {
 										height="10"
 										rx="2"
 										fill={activityColor(count)}
+										data-day={stripDays[index]}
+										data-count={count}
 									/>
 								))}
 							</svg>
-							<p class="mt-2 text-sm text-muted">
-								{repo.commitCount} commits in the last {shippingWindowDays} days
+							<p class="commit-strip-caption mt-2 text-sm text-muted">
+								<span>
+									{repo.commitCount} commits in the last {shippingWindowDays} days
+								</span>
+								<span class="text-paper" aria-hidden="true" data-strip-day />
 							</p>
 						</div>
 					</a>
@@ -202,3 +214,24 @@ function ratingStars(rating: number) {
 		})}
 	</div>
 </div>
+
+<script>
+	// Commit strips: the caption names the hovered day and its count
+	for (const strip of document.querySelectorAll<SVGSVGElement>('.commit-strip')) {
+		const caption = strip.nextElementSibling;
+		const dayLabel = caption?.querySelector<HTMLElement>('[data-strip-day]');
+		if (!caption || !dayLabel) continue;
+		strip.addEventListener('pointerover', (event) => {
+			const cell = event.target;
+			if (event.pointerType !== 'mouse') return;
+			if (!(cell instanceof SVGRectElement)) {
+				caption.removeAttribute('data-showing-day');
+				return;
+			}
+			const count = Number(cell.dataset.count);
+			dayLabel.textContent = `${cell.dataset.day}: ${count} commit${count === 1 ? '' : 's'}`;
+			caption.toggleAttribute('data-showing-day', true);
+		});
+		strip.addEventListener('pointerleave', () => caption.removeAttribute('data-showing-day'));
+	}
+</script>

@@ -418,6 +418,49 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 		scale: 1.12 0.9;
 	}
 }
+
+/* A copy is a small success, so a code block's Copy also draws the loose starburst
+   (BlogPost.astro) around the button once, holds it, and lets it go. Never shown under
+   reduced motion or while motion is paused; the script checks both. */
+.copy-burst {
+	visibility: hidden;
+}
+.copy-burst.go {
+	visibility: visible;
+	animation: copy-burst-fade 1.5s linear forwards;
+}
+@keyframes copy-burst-fade {
+	75% {
+		opacity: 1;
+		animation-timing-function: var(--ease-exit);
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+/* Now-feed commit strips (NowFeed.astro): hovering a day fades the others, and the
+   caption swaps to that day's count. Instant swap: a pointer sweeps across thirty cells. */
+.commit-strip-caption {
+	display: inline-grid;
+}
+.commit-strip-caption > * {
+	grid-area: 1 / 1;
+}
+.commit-strip-caption:not([data-showing-day]) [data-strip-day],
+.commit-strip-caption[data-showing-day] > :first-child {
+	visibility: hidden;
+}
+@media (hover: hover) {
+	/* On a cell, not the svg: in the gaps between cells nothing is picked out */
+	.commit-strip:has(rect:hover) rect:not(:hover) {
+		opacity: 0.4;
+	}
+}
+
+/* The blog's Newest/Popular toggle (PostFinder.astro) brings the re-sorted rows in 30ms
+   apart; past the eighth row the rest land together. The script sets --row-i and takes
+   .sort-in off once they're in, so search and infinite scroll stay instant. */
 @media (prefers-reduced-motion: no-preference) {
 	@media (width < 48rem) {
 		#nav-section-links {
@@ -492,6 +535,17 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 
 	.copy-button.copied {
 		animation: copied-pop 0.25s ease-out;
+	}
+
+	@media (hover: hover) {
+		.commit-strip rect {
+			transition: opacity 0.12s var(--ease-enter);
+		}
+	}
+
+	html:not(.motion-paused) #posts-grid.sort-in > * {
+		animation: menu-row-in var(--duration-enter) var(--ease-enter) calc(var(--row-i, 8) * 30ms)
+			backwards;
 	}
 
 	#image-lightbox,

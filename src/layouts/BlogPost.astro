@@ -372,12 +372,45 @@ const heroIsTaped =
 					<!-- End mark: the post is over -->
 					<Logo text="JK" class="text-paper" style="display:block;margin-top:2rem;font-size:20px" />
 
+					{/* Drawn once around a code block's Copy when it copies (copy-burst, motion.css) */}
+					<Scribble
+						{...MARKS.burst}
+						color="#ff4fd8"
+						strokeWidth={7}
+						once
+						duration="1.1s"
+						class="copy-burst z-20 size-[110px]"
+					/>
 					<script>
 						function copyToClipboard(text: string): Promise<void> {
 							return navigator.clipboard.writeText(text);
 						}
 
 						// One polite live region says "Copied" for every code block's button
+						const copyBurst = document.querySelector<SVGSVGElement>('.copy-burst');
+						const motionAllowed = () =>
+							!matchMedia('(prefers-reduced-motion: reduce)').matches &&
+							!document.documentElement.classList.contains('motion-paused');
+						// Centers the starburst on the button and draws it again from the first stroke
+						function drawCopyBurst(button: HTMLElement) {
+							if (!copyBurst || !motionAllowed()) return;
+							// Move it by the gap between where it is and the button's center
+							const burstBox = copyBurst.getBoundingClientRect();
+							const buttonBox = button.getBoundingClientRect();
+							const placed = getComputedStyle(copyBurst);
+							const left = parseFloat(placed.left) + buttonBox.left + buttonBox.width / 2;
+							const top = parseFloat(placed.top) + buttonBox.top + buttonBox.height / 2;
+							copyBurst.style.left = `${left - burstBox.left - burstBox.width / 2}px`;
+							copyBurst.style.top = `${top - burstBox.top - burstBox.height / 2}px`;
+							copyBurst.classList.remove('go');
+							void copyBurst.getBoundingClientRect(); // restart the fade on a second copy
+							for (const stroke of copyBurst.getAnimations({ subtree: true })) {
+								stroke.currentTime = 0;
+								stroke.play();
+							}
+							copyBurst.classList.add('go');
+						}
+
 						const copyStatus = document.createElement('span');
 						copyStatus.setAttribute('role', 'status');
 						copyStatus.className = 'sr-only';
@@ -425,6 +458,7 @@ const heroIsTaped =
 									button.classList.remove('copied');
 									void button.offsetWidth; // restart the pop on a second copy
 									button.classList.add('copied');
+									drawCopyBurst(button);
 									if (typeof window.plausible === 'function') {
 										window.plausible('Code Copy', { props: { language: lang || 'unknown' } });
 									}
