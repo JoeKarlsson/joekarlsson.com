@@ -27,4 +27,7 @@ Now my hot take. The film frames the whole thing as workplace sexual harassment,
 
 Past that, this isn't my favorite Araki. After bingeing Nowhere and The Doom Generation to prep, it stings how flat this looks, shot like a TV show with a few inspired flashes and the neon-soaked shadows of his 90s work almost entirely gone. It really is his most mainstream movie to date. I don't fully get the ending either. And it is wildly heavy-handed, and I do not care even a little.
 
+![Two frames: a magenta-lit party scene from Nowhere (1997), then Olivia Wilde and Cooper Hoffman on a white couch in flat daylight in I Want Your Sex.](/images/reviews/i-want-your-sex/nowhere-vs-now.webp)
+_Nowhere in 1997, I Want Your Sex in 2026._
+
 We're living through the death of media literacy, and if you want to reach the kids, you have to say it right to their faces. This is Araki, sincere and earnest as hell, begging a frightened generation to go out, take the risk, make the mistake, and let somebody actually touch them. Log off. Fuck around.

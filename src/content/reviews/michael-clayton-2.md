@@ -28,6 +28,9 @@ Arthur leaves the waking up to Michael. ||After he dies, Michael finds Arthur's 
 
 Michael still tables it. ||He takes Marty's money and signs the NDA||. Then, at dawn, he pulls over and gets out of his car to look at three horses on a hill, the picture from Arthur's book. He walks up to them, ||and the car he drives all night cleaning up other people's messes blows up behind him||. ||He lives because he stopped to look at something beautiful||, and I think that's him finally understanding the spiritual connection we all have, the one that had been lost from him.
 
+![Two frames: Arthur's highlighted copy of Realm & Conquest, open to a drawing of horses on a hill, and the three real horses Michael walks up to at dawn.](/images/reviews/michael-clayton-2/horses-drawing-and-hill.webp)
+_The drawing in Arthur's book, and the horses Michael ||stops for||._
+
 It nails who the villain is: a memo, a settlement, a general counsel protecting the quarter, and two quiet men who do the work. Its relevancy has only increased with time. Arthur's assassination is exactly what I picture when I think about Jeffrey Epstein's supposed suicide: ||two professionals in an apartment, a short struggle that doesn't leave a mark, a scene staged to look like a man who did it to himself||, and a story everyone's expected to accept by morning.
 
 This movie works for me personally. It works on a story level, it works on a character level, and thematically it works on me more with every passing year and every rewatch.

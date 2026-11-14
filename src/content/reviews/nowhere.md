@@ -23,4 +23,7 @@ What has always distinguished Araki is his refusal to treat bisexuality as a cri
 
 It is also, for all its dread, ravishing to look at. Araki shoots his artificial, primary-colored world with obvious relish, scores it with a wall of shoegaze and dream-pop, and lets the surface pleasure sit in unresolved tension with the doom underneath. The recent 4K restoration, which Araki supervised, restores the full lurid glow. And in James Duval, playing a sensitive stoner named Dark, the film has an anchor of real tenderness, a few years before Duval would turn up as another doomed boy in Donnie Darko.
 
+![A girl in a purple-lit room, glowing pink and violet light behind her, looking sideways.](/images/reviews/nowhere/candy-color.webp)
+_Nowhere, 1997._
+
 Nowhere is not Araki's best film; his later, warmer work is more controlled and, frankly, easier to love. But it may be his purest, and it is easy to see why it became a life raft for the queer teenagers who found it at the right age. Watch it young enough and the rage pouring off the screen would not read as excess at all. It would read as the truth.

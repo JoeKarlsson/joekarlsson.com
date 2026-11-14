@@ -29,4 +29,7 @@ Huppert's performance is the whole film. It is an iceberg, nearly all of it belo
 
 I will not spoil the last stretch except to say Haneke makes you sit in it, uncut and unrelieved, and that the final minutes are visceral and brutal in a way I felt in my body. What haunts me is the moment just before, ||when Erika stands battered in the concert-hall lobby and not one person asks if she is all right||. They only expect her to walk in and perform. That is her entire life in a single shot. The cage was never locked from the inside.
 
+![Isabelle Huppert as Erika, standing in the crowded concert-hall lobby, holding her purse, while everyone around her looks elsewhere.](/images/reviews/the-piano-teacher/the-lobby.webp)
+_The lobby._
+
 It reminded me of Female Perversions and of Black Swan, other films about women unmade by the demand to be flawless in performance, though Haneke is colder and more merciless than either. But those are comparisons. The thing itself is the ache it left in me, the recognition that a hurt planted young can run a whole life if no one ever helps you dig it out. Erika is the warning. I am still sitting with her.

@@ -27,6 +27,9 @@ This might be a career best performance from Emily Blunt. My other favorite of h
 
 It’s fun to see Spielberg play with themes from his whole career. I got touches of Minority Report with the hand touch modules in the corporate headquarters and the eye switching. The harrowing train sequence reminded me of his first filmmaking experience - working through his fears by filming that model train crash over and over, as depicted in The Fabelmans. This movie also has an actual real car being driven off the edge of a quarry. Can you name a single film in the last twenty years that’s done that? I literally can’t. I clapped and cheered in the theater to the great annoyance of the people sitting near me.
 
+![A real black car in mid-air, falling past a sheer quarry wall toward the water.](/images/reviews/disclosure-day/car-off-the-quarry.webp)
+_An actual car, off an actual quarry._
+
 This film feels like a spiritual sequel to Close Encounters of the Third Kind - people being psychically drawn together to pursue unknown ends orchestrated by an alien entity. Except with way less manic divorce dad energy from Richard Dreyfuss.
 
 John Williams did the score. It’s not his most memorable, but I love his work. Any gift that man gives, I will accept gladly.

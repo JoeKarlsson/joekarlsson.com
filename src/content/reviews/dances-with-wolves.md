@@ -27,6 +27,9 @@ The major theme of the movie is not judging people based on first impressions, a
 
 But if I’m being completely honest about why I connected with this so much: I think I like this movie because I just love the Red Dead Redemption games, which feel like the closest piece of media spiritually to what this film is. Those games are also slow and methodical, about reliving life on the frontier, and I yearn for that experience every day. There’s something about the rhythm of daily survival, the beauty of untouched landscapes, and the inevitable encroachment of “civilization” that both this film and those games capture perfectly.
 
+![A mule-drawn supply wagon crossing sun-bleached badlands under a wide sky.](/images/reviews/dances-with-wolves/the-frontier.webp)
+_The frontier._
+
 So despite the film’s politics not aging particularly well, I am a fan of this movie - especially when I compare it to The Last of the Mohicans, which I just watched. That film had better action sequences, sure, but I was so much more turned off by and bored by it. Dances with Wolves works so much better for me on almost every level.
 
 I guess what I’m saying is: I just think I’m a Kevin Costner guy, and I gotta go see the Horizon saga now.

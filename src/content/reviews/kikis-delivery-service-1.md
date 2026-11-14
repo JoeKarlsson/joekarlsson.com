@@ -22,9 +22,15 @@ I've always read Kiki's Delivery Service as a movie about burnout, and specifica
 
 Then it all goes at once. She tells Jiji something's wrong with her, that the cheerful Kiki has disappeared. That night she can't understand him. The next morning she can't fly, and she tells Osono that if her magic goes, there's nothing else she knows how to do. Anne Helen Petersen called millennials the burnout generation back in 2019, and Kiki walks right into the same trap. We were told to turn the thing we love into our income, so when the income goes bad, the thing we love goes with it.
 
+![Kiki sitting on the floor of her attic room next to her broom, slumped, after she can no longer fly.](/images/reviews/kikis-delivery-service-1/cant-fly.webp)
+_The morning the magic goes._
+
 This time, halfway through Julia Cameron's The Artist's Way, I noticed it's also a movie about how you get out of it. Cameron treats workaholism as a creative block, the same one Kiki just hit.
 
 Kiki's night in the woods with Ursula, a painter who lives alone in a cabin, is her first artist date, and it runs through Cameron's program in one bedtime conversation. Ursula says magic and painting are a lot alike, and that sometimes she just can't paint. She grinds at it, and when that fails she quits: walks, scenery, naps, nothing at all, until the urge comes back on its own. She's filling the well. She also hit her own wall at about Kiki's age, when she realized everything she drew copied somebody else and she had to find her own style, the same identity work Cameron gives a whole week to. Then Ursula calls the thing that makes a witch fly, an artist paint and a baker bake an energy handed down by the gods, or somebody, one that makes you suffer sometimes. Cameron subtitled her book A Spiritual Path to Higher Creativity, and Ursula is saying the same thing. Kiki admits she'd never thought about her magic before; she figured her training was just an old-fashioned custom. It's the first time she treats her gift as hers instead of as a service she sells.
+
+![Ursula in a yellow sweater, curled up with a mug in her cabin at night, talking to Kiki.](/images/reviews/kikis-delivery-service-1/ursula.webp)
+_Ursula, filling the well._
 
 Kiki is a kid and she's already learning this, even if the cabin doesn't fix her overnight. ||The next time she flies, it's on a deck brush borrowed off a street sweeper, to save a friend, with nobody paying her for it||.
 

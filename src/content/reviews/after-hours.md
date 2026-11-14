@@ -25,4 +25,7 @@ My favorite reading is that it's about AIDS. The movie came out in 1985, when a 
 
 And the straight guy from uptown survives. ||He comes home encased in plaster, literally sealed off, and gets dropped back at his office desk at dawn like none of it happened||. Marcy doesn't get to go home.
 
+![Two frames: Paul's face sealed in a plaster cast, then the cast lying on the street outside his office gate at dawn.](/images/reviews/after-hours/sealed-in-plaster.webp)
+_Sealed off, then ||dropped back at work||._
+
 I'm not especially New York pilled, so some of the geography and the downtown-versus-uptown class jokes probably slid past me. But if someone remade this beat for beat in the city I grew up in, with bars and people I actually knew, I think it would be an all-timer for me. As it is, it's incredible. I just watched it as a tourist, which, to be fair, is exactly what Paul is.

@@ -23,6 +23,9 @@ Fosse, apparently.
 
 Joe Gideon (Scheider, who is fantastic) is a Broadway director and choreographer editing a movie about a stand-up comic while staging a new musical. Fosse was doing exactly that, with Lenny and Chicago, when his own heart gave out in 1974. Every morning Gideon runs the same routine in the mirror: eye drops, Dexedrine, a cigarette, "It's showtime, folks." He cheats on his girlfriend (Ann Reinking, more or less playing herself), still runs to his ex-wife (Leland Palmer), and lets his daughter down in ways he clearly sees and does nothing to fix. In between, he flirts with Angelique, a woman in white played by Jessica Lange, ||who turns out to be death||. He tells her everything. She's the only person he's honest with, and the only one who can't leave him.
 
+![Roy Scheider as Joe Gideon in the bathroom mirror, arms raised, doing his morning routine.](/images/reviews/all-that-jazz/showtime.webp)
+_The morning routine._
+
 It's one of the most self-loathing films I've ever seen in my life. It's also funny as hell, which keeps it from being a slog. Fosse knows this guy is ridiculous: the womanizing, the endless rehearsals, the way he can't stop staging his own life even while it's ending. And the dance numbers are incredible. His hospital-bed hallucinations turn his own heart surgery into a variety show, and the finale, "Bye Bye Life," is ||a full glittering production number about dying, with Gideon as the star and the audience applauding him all the way into a body bag||. I can't think of anything else that gets away with that.
 
 The closest modern equivalent is Better Man, the Robbie Williams movie where he's played by a CGI chimp, which I loved for the same reason. Williams signed off on a film that turns him into an actual animal. Both movies get that the only honest way to tell a famous man's story is to let him be the worst thing in the room.

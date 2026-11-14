@@ -22,6 +22,9 @@ Häxan wants to be on the side of the women it's about, and for six chapters it 
 
 The one that got me was Maria the Weaver, the old, poor woman. Christensen shoots her in tight close-ups, her face crumpling and crying while the inquisitors work on her, and it reminded me so much of The Passion of Joan of Arc, which his fellow Dane Carl Dreyer wouldn't make for another six years. Maren Pedersen is such an expressive, wonderful face to look at. I really felt for her.
 
+![Maren Pedersen as Maria the Weaver in sepia close-up, her old face lifted and crumpling.](/images/reviews/haxan/maria-the-weaver.webp)
+_Maria the Weaver._
+
 Then the last chapter happens. Christensen sets Sister Cecilia, a possessed nun, beside a few modern cases, a sleepwalker, a shoplifter, and then gives his big reveal: ||the witches were hysterics all along||. It's so funny in retrospect. Hysteria is a diagnosis medicine threw out in 1980, one men made up to explain women they didn't understand, and the film hands its witches from the inquisitor straight to the doctor while thinking it's rescuing them. It's one more male institution trying to control women's bodies, from a film that's trying hard to be on their side.
 
 Seeing it so soon after The Devils made the difference obvious. Some sections of Häxan feel like they're speaking directly to the plot of Russell's film, but Russell's nuns are in on their own possession. It saves their lives, and it's a pressure release valve for all the repression they're expected to perform as women in a convent. Häxan's women only get to want things in a dream or in a confession pulled out by torture. Otherwise they're old, homeless, mentally ill, disfigured, or just wrongly accused, and things only ever get done to them.

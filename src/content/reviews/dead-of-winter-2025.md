@@ -21,6 +21,9 @@ I loved the sparseness. I loved the cinematography of the north. I loved the sno
 
 This movie reminded me most of No Country for Old Men - or in this case, No Country for Old Women. It's a process movie. You're watching Emma Thompson solve problems in real time. There's not always an explanation for what she's doing and why, but it becomes clearly evident quickly, which reminded me a lot of the dynamics in No Country. Particularly that scene where you see her meticulously sewing up her wounds with fishing tackle. Very Anton Chigurh.
 
+![Two frames: an open fishing tackle box, then Emma Thompson bent over, stitching her own wound.](/images/reviews/dead-of-winter-2025/tackle-box-stitches.webp)
+_The tackle box, then the stitches._
+
 I appreciated the pacing. I appreciated having older women lead a pseudo-action thriller. The plot was pretty threadbare and got a little crazy towards the end, but honestly, it didn't really matter for me. This was about characters and setting and tone.
 
 Judy Greer was actually wonderful too. I loved not knowing what was going on but trusting we'd eventually find out. She did a great job selling a woman who will stop at nothing to save her own skin. And she's really not helping nurses beat the allegations of being the meanest people in the universe.

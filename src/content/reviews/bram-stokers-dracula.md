@@ -21,7 +21,13 @@ The story underneath it is Stoker's, a Victorian nightmare about what happens wh
 
 You can see it in how the thing looks. Coppola made it all by hand, in camera, and you can see the seams: shadows that move without their owners, a whole world that looks painted on glass. It absolutely holds up, and I love the artificiality of it. It looks like an erotic dream, which is what Coppola said he wanted.
 
+![Dracula in his red robe stands to one side while his shadow on the wall map moves on its own toward Jonathan Harker.](/images/reviews/bram-stokers-dracula/shadow.webp)
+_Dracula on the left. His shadow has other plans._
+
 The movie even turns the men's panic up past the book. James V. Hart's script gives Anthony Hopkins's Van Helsing a lecture Stoker never wrote, on "the diseases of Venus," where he announces that civilisation and syphilisation advanced together. To him, desire is a disease of the blood, and Dracula is how it spreads. It came out in 1992, deep in the AIDS crisis, and it's hard not to hear what everyone in that theater was afraid of.
+
+![Anthony Hopkins as Van Helsing, finger raised, mid-lecture.](/images/reviews/bram-stokers-dracula/syphilization.webp)
+_Van Helsing's lecture, which isn't in the book._
 
 Watch who pays for wanting. Lucy says what she wants out loud, and Sadie Frost plays her so hot the story has to kill her. Van Helsing calls her "the devil's concubine," and the hunters drive the stake in. The brides go the same way. Coppola's Mina wants Dracula just as badly, from the absinthe date to drinking blood from his chest, and she still gets a communion wafer branded into her forehead, because the story can't help itself. Then Coppola gives her a past life the novel never did, true love across "oceans of time," and lets her desire win. Lucy gets a stake. Mina gets a fresco.
 

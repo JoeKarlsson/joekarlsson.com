@@ -25,6 +25,9 @@ What’s fascinating is how he externalizes all of that trauma into literal mons
 
 Filming this right next to the Berlin Wall in West Germany was an inspired choice that adds another layer. Żuławski couldn’t go back to Poland - the wall represented that literal barrier between him and his past life. You can feel the threat of that barrier closing in throughout the film. The alleyways feel like they’re shrinking, the wall getting closer, creating this suffocating sense of claustrophobia that mirrors both the emotional entrapment of the failing marriage and the political imprisonment of exile. The wall is always there in the background, this massive concrete reminder of division and separation.
 
+![Sam Neill as Mark, in a gray suit with a briefcase, standing small beside a towering slab of raw concrete wall.](/images/reviews/possession/the-wall.webp)
+_Mark, and the wall._
+
 It’s clear that the Suspiria remake was strongly inspired by this film and took a lot of cues from its approach to framing a narrative next to the wall as a symbol of broader historical trauma bleeding into personal lives.
 
 The creature design is very phallic, very interesting, disgusting, and deeply horny. It’s exactly what you’d expect to emerge from the wreckage of sexual dysfunction and marital rage filtered through a man who’s lost everything and is trying to make sense of it through body horror.
@@ -36,3 +39,6 @@ I do think this movie would benefit from another watch to fully understand what�
 This will be a repeat watch for me, and I highly recommend it. It’s more like a supernatural thriller with some gory homunculus body horror action - not exactly a pure horror movie, though I get why it was marketed that way.
 
 Also, that subway scene is iconic. A five-minute screaming, full-body breakdown while giving birth to a demon miscarriage is incredible cinema. Adjani’s performance in that sequence alone is worth the price of admission. That’s not just acting - that’s exorcism.
+
+![Isabelle Adjani as Anna in a blue dress, thrown back against the tiled wall of an empty underpass, mid-convulsion.](/images/reviews/possession/the-subway.webp)
+_The subway._

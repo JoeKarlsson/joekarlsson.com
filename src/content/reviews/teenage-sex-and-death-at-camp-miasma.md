@@ -19,9 +19,15 @@ Jane Schoenbrun made a slasher about the exact questions I've been turning over 
 
 Her first two films were morose, gorgeous, desperate little cries to come out and be yourself. This one already is out, and it's having a great time. It's exuberant. It's horny. It opens on a blood geyser so gleeful I laughed out loud, and it never stops being about the same thing underneath: finding your pleasure, getting back into your own body, chasing what actually lights you up, even if what lights you up is being hunted through the woods in an 80s slasher. Coming to this off a long queer-film binge, a lot of Araki lately, it scratched the same itch I Want Your Sex did. Go find what you want and stop apologizing for it. I needed to hear it.
 
+![A red geyser of blood shooting up out of a dark, empty field at night.](/images/reviews/teenage-sex-and-death-at-camp-miasma/blood-geyser.webp)
+_Two minutes in._
+
 Nobody here gets punished for their desire. ||The queer women live.|| Cinema loves to make women and queers pay in blood for wanting pleasure, and Schoenbrun just refuses, letting them want and then survive the wanting, the way The Handmaiden did.
 
 And Little Death is an instant horror icon. The masked, spear-wielding vengeful ghost at the center of the fictional franchise looks like what you'd get if Pyramid Head and Jason Voorhees had a baby in a Silent Hill parking lot, and the central kill run at the camp is one of the best sequences of the year, all squishy Foley and go-for-broke splatter. The whole movie has that handmade Lynch quality where the cheapness becomes the dream. Matte paintings, charming garbage effects, a budget held together with love, all of it chasing a feeling instead of accuracy.
+
+![A framed poster of Little Death, the masked killer with an air vent for a head, standing in a field with his spear.](/images/reviews/teenage-sex-and-death-at-camp-miasma/little-death-poster.webp)
+_Little Death, air vent and all._
 
 The sharpest move is that she takes back Sleepaway Camp. The film wears its Friday the 13th and Sleepaway Camp influences openly, and a trans filmmaker reclaiming the one slasher most infamous for weaponizing transness as its final shock, then turning it tender and funny and hers, is the thing that justifies the whole project. It's a real tonal shift for her, spooky and genuinely funny, and it plays like someone in a much better place now. Lovely to watch.
 

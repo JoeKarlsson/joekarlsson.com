@@ -21,6 +21,9 @@ Eleanor is the best part. Diane Lane reads from her journals over the footage, a
 
 It's also a great film about the creative process: the doubt, the hard work, and the tenacity it takes to keep hold of a vision when a hundred other people are making it with you. Sofia spends a lot of the 57-day shoot sick with bronchitis. Marie Antoinette looks like a nightmare to make. It is a goddamn miracle that any film gets produced, especially one as ambitious as this. I still can't believe the French let an American walk into Versailles and make a movie about one of their most famous historical figures.
 
+![Sofia Coppola sitting on set at Versailles with her head in her hand, sick.](/images/reviews/making-marie-antoinette/sofia-sick.webp)
+_Sofia at Versailles._
+
 That's as close as I'll get. I'm on Letterboxd, which means I obviously love film, but goddamn it, I don't have the drive in me to become a filmmaker. I just love watching them and thinking about them and analyzing them. The Coppolas have the drive, and this documentary shows how much of it they get from each other.
 
 Stray thoughts:

@@ -29,6 +29,9 @@ One gripe. The scientist stuff is the weakest part by a mile and the movie would
 
 The Christmas tree room is the moment I was fully locked in. Genuinely felt lost. Craning my neck to see what was past the tree. That's the trick the whole movie is doing. Dark corners and constant uncertainty about what's around them.
 
+![A lit Christmas tree glowing alone at the far end of a dark, empty office room.](/images/reviews/backrooms-2026/christmas-tree-room.webp)
+_The tree room._
+
 Also love that the giant alien from Alien: Romulus is getting steady work as a creature performer. Always a treat to see him.
 
 Questions I left the theater with. What's in my rooms? Did the psychologist's mom go in there and is that why she lost it? Do the Backrooms have a corrupting effect? Why isn't the scientist corrupted if he's in there every day? Does it only snare the susceptible? What do the memory humanoids taste like?

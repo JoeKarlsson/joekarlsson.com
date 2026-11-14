@@ -19,6 +19,9 @@ This was a home run for me. It's complicated and doesn't offer easy answers, but
 
 What makes this so effective is how it exposes the massive gulf between our corporate overlords and us, while also showing the complete futility of trying to solve that problem in an isolated bubble. It's clearly commenting on modern conspiracy culture and tapping into our collective rage at CEOs for how they've been squeezing us. The timing of releasing this in 2025 is either perfect or deeply uncomfortable - probably both.
 
+![Two frames: Emma Stone as the CEO, alone at a glass table in a glass office, then the same woman with her head shaved, slumped in a chair in a basement.](/images/reviews/bugonia/ceo-then-captive.webp)
+_The CEO, before and after._
+
 This movie is an absolute tragedy, and I thought it was masterful how it made me constantly switch allegiances and question what was real throughout the entire film. In one moment I was sympathizing with Plemons' character, then seeing him as a monster, then sympathizing with Stone's character, then seeing her as a monster a moment later. This is a paranoid thriller with no heroes and many villains. Everyone is compromised. Everyone has blood on their hands. And that ambiguity is exactly the point.
 
 I also loved the ending. It was my desired outcome going into it, and I loved watching it go completely off the rails.

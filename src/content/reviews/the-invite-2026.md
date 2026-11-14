@@ -23,6 +23,9 @@ Casting Cruz as the one dispensing all of it is a joke I loved. She's been Ameri
 
 My one real gripe, this is an English remake of a franker Spanish film, Cesc Gay's The People Upstairs, and you can feel where an American studio sanded it down for wide release. I wanted it hornier. It keeps the bedroom door politely shut. But that flinch is the exact puritanism the movie is otherwise trying to diagnose, so I can't fully stay mad. It argues for opening the door and then won't open it it's self.
 
+![Olivia Wilde as Angela in the hallway, waving her guests away from the bedroom.](/images/reviews/the-invite-2026/bedroom-door.webp)
+_Angela, steering the tour past the bedroom._
+
 As filmmaking it's a tight bottle movie, one apartment, one long dinner, closer to Carnage or Who's Afraid of Virginia Woolf, four people in a room while the manners come off. Wilde's clearly living in this stuff lately, between this and her raw turn in Araki's, I Want Your Sex, and it's hard not to feel her own very public divorce from Jason Sudeikis breathing under Angela. I laughed a lot. I did not expect to cry.
 
 Then two hands land on a piano at the end and I lost it, sadness and hope in the same breath. Because under all the sex talk this was never really about sex. It's about choice. About owning the life you're actually living instead of blaming everyone else for it. Choosing your own joy, even when it means blowing up something stable, is a virtue our puritanical culture refuses to celebrate, and I'm at a point in my life where I'm chasing that joy as hard as I can. Some people will call the movie timid for never letting anyone follow through. Maybe. But it wasn't timid about the one thing I needed it to say, which is that we're responsible for our own happiness, and this film felt like it was rooting for me to go get mine.

@@ -17,6 +17,9 @@ Never thought calligraphy could be erotic. I WAS WRONG.
 
 The film opens with Nagiko as a child, her father painting calligraphy on her face as a birthday ritual - a blessing, an act of love, an inscription of identity. She spends the rest of her life trying to make that act her own. The body as canvas. The body as text. Who gets to write on you. Who gets to read you. Who owns the story your skin tells. The father's brush becomes the seed of everything - her art, her sexuality, her autonomy. She's not rejecting what he gave her. She's reclaiming it.
 
+![A black-and-white close-up of young Nagiko as her father's brush paints a character on her cheek.](/images/reviews/the-pillow-book/fathers-brush.webp)
+_The birthday ritual._
+
 The lo-fi aesthetics feel almost DIY (by today’s standards), which I loved - Greenaway isn't precious about polish. The experimental framing and picture-in-picture compositions are interesting and novel, stacking images on top of each other, letting scenes bleed into scenes. It all feels like memory - hazy, dreamy, someone trying to recall what happened but not quite getting it all. Reminded me of Aftersun in that way.
 
 I watched The Handmaiden this same weekend, and the connections run deep. Both are very gay. Both are about women trying to navigate a patriarchy that wants to use them, suppress them, fuck them, control them. Both feature men obsessed with books - or publishing them - as antagonists. And both are about the body as text: Hideko trained to read pornography aloud, her literacy weaponized against her; Nagiko written on since childhood, spending her life turning that ritual into something erotic and autonomous and hers.

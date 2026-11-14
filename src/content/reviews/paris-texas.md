@@ -19,6 +19,9 @@ I'm struggling with my thoughts on this film because it's genuinely complicated.
 
 This is a sad movie about a man who tries to put on the appearance of being a good father to his son and ultimately decides he can't do it. And here's where I get stuck: I feel like the film is overly sympathetic to Harry Dean Stanton's character. I hated the way he treated Jane, even at the end in that booth scene that everyone loves. And ||him ultimately leaving his son Hunter after reuniting him with Jane||? That feels like a terrible message to end on.
 
+![Harry Dean Stanton as Travis on the phone with his back to the one-way glass, Nastassja Kinski as Jane visible on the other side.](/images/reviews/paris-texas/the-booth.webp)
+_The booth._
+
 But maybe that's the point. Maybe the film isn't endorsing his choices - maybe it's just portraying something that happens, something real and ugly and complicated. I don't know. I feel bad about how much I dislike Travis as a character when the film clearly wants me to find something redeemable in him.
 
 Harry Dean Stanton's performance is impressive, but it feels overly gentle for a character who should be filled with so much rage. I could feel the grief and sadness radiating from him, but I didn't feel the violence and anger bubbling underneath. For a man who did what he did, there should be more darkness visible in that performance. The gentleness feels like it's letting him off the hook.

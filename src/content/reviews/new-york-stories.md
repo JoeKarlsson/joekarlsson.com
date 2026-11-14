@@ -25,6 +25,9 @@ Arquette plays Paulette, his assistant, who lives in the loft, paints on the sid
 
 By the end he knows it's over and is trying to squeeze a little more out of her before she goes, which is desperate and pathetic to watch. It's like he can't help himself. ||Then, at that same opening, he meets a young painter and offers her the job, with the same pitch about life lessons that are priceless.|| His dealer told him at the start that he should know himself better, because he does this every time.
 
+![Two frames of Lionel making his pitch: to Paulette in his paint-spattered shirt at the start, and to a young painter at his gallery opening at the end.](/images/reviews/new-york-stories/same-pitch-twice.webp)
+_Paulette at the start, ||the new painter at the end||._
+
 "Life Lessons" is about a man who never learns one. Lionel is the cautionary tale: he has no self-awareness at all. He can't read himself or anyone around him, so he keeps running the same loop and calling it inspiration, and I know so many men like him. It's also hard not to notice who made it. Scorsese has been married five times, Julia Cameron included, which is about as many wives as Lionel claims to have had. I think that's very funny, and very telling.
 
 Stray thoughts:

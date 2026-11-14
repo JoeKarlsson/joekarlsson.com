@@ -21,11 +21,17 @@ Ken Russell's case is that repression doesn't make anyone holy. It makes them ea
 
 Vanessa Redgrave's Sister Jeanne des Anges, the convent's hunchbacked prioress, is where it starts, and Redgrave is incredible. Jeanne has never met Father Grandier. She fantasizes about him anyway, in visions that are funny and sad and horny as hell, including one where he's Christ coming down off the cross. When she invites him to be the convent's confessor and he turns her down, all that yearning curdles into an accusation of witchcraft. Russell takes her desire seriously, and he shows you exactly what it turns into when it has nowhere to go.
 
+![Oliver Reed as Grandier in a white robe, arms outstretched like Christ, in Sister Jeanne's vision.](/images/reviews/the-devils/grandier-as-christ.webp)
+_One of Jeanne's visions._
+
 The rest of the convent catches it. Once the exorcists arrive, it takes almost no push for every nun in the building to start screaming, writhing, and tearing off her habit. Nobody needs to believe in the devil for any of this to work. They just need permission, and the men in charge know precisely where to aim it: Michael Gothard's Father Barre, a witch hunter with a rock star's haircut, and Dudley Sutton's Baron de Laubardemont, the bureaucrat calmly running the demolition.
 
 The target is Oliver Reed's Grandier, the man I'd pegged as the villain: a vain, womanizing priest who struts through Loudun like he runs the place. Reed is extremely sexy, which is part of why that misread works, and why a whole convent fixating on him is believable. Grandier is a hypocrite and a lech, but he secretly marries Madeleine (Gemma Jones), the one person in the film who loves him instead of using him, and he's the only man willing to stand between his city and Cardinal Richelieu, who wants its walls torn down. His sins are personal. The church's sins are policy.
 
 ||It ends with Grandier burned at the stake in front of the town.|| Derek Jarman's Loudun is all white stone and tile, like a public bathroom built for God, with nowhere to hide, and the townspeople watching the fire are the crowd being aimed. I'm speculating here, but I think that's what made Catholics so angry, then and now. Two years later, Warner made a fortune on The Exorcist, where possession is real and the priests save the day. The Devils treats possession as a tool powerful men pick up because it's useful, and Warner kept it cut and mostly out of sight for about 50 years.
+
+![Vanessa Redgrave as Sister Jeanne in the convent, nuns lined up behind her on a floor of white tile.](/images/reviews/the-devils/white-tile.webp)
+_Derek Jarman's Loudun._
 
 I'm glad my first time was Russell's restored director's cut at the Oakdale, in a full room, watching a public spectacle with the public. I'm still sitting with it, and I'll need a rewatch someday.
 

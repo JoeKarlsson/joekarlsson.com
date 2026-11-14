@@ -21,6 +21,9 @@ What's most telling is how this documents a turning point. Seattle 1999 was the 
 
 The film also shows how the media undermined the protesters in real time. Watch how the coverage shifts from the actual message - critiques of globalization, labor rights, environmental destruction - to obsessive focus on broken windows and "anarchist violence." Watch how they humiliate protesters, dismiss their concerns, frame property damage as equivalent to state violence. These tactics haven't changed. The mainstream media still does this. Every single time.
 
+![Two frames of 1999 news footage in Seattle: protesters chanting in front of a riot police line, then a downtown street filling with tear gas.](/images/reviews/wto-99/peaceful-then-gas.webp)
+_The same day, a few blocks apart._
+
 Coming from the Twin Cities, this felt deeply personal. We have plenty of experience with protesting, fighting the police, and the media misportraying our movements. After the murder of George Floyd in 2020, I watched the same playbook deploy in my city. The same militarized response. The same media framing - "riots" instead of rebellion, property damage instead of police brutality, outside agitators instead of community grief. The 3rd Precinct burned, and suddenly the conversation was about a building instead of a man murdered in the street. And then in the winter of 2026, the federal occupation by ICE - again, the same tactics, the same media spin, the same attempt to delegitimize resistance.
 
 Seattle in 1999 was the blueprint. The militarization of police. The media playbook for discrediting dissent. The normalization of treating protesters as enemies of the state. We are still living in the aftermath of those four days. This documentary makes that lineage undeniable.

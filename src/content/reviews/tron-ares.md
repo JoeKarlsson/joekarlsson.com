@@ -29,6 +29,9 @@ The most shocking part was how the pacing absolutely fell off a cliff the second
 
 Speaking of Leto - I know it's hard to play a robot, but Arnold did it in T2, so I know it's possible. We're expected to believe some sort of emotion is happening between the two leads during a single car chase in the middle of the film, and there's one scene where Leto is so bad at emoting the feeling the director wants that they literally have to Put on screen what his feelings are in his HUD.
 
+![Two frames: Jared Leto's blank face as Ares, then his HUD view of Eve labeled EMPATHETIC RESPONSE.](/images/reviews/tron-ares/empathetic-response.webp)
+_Leto's face, and the HUD explaining what it's feeling._
+
 Leto needs some sort of Tom Cruise-style career change up. Tom Cruise has moved in this direction of embracing his crazy public persona (a la Mission Impossible). And honestly, I think Leto needs to do that. I'm tired of him playing the coolest, smartest, sexiest person in the room. It's just clearly not working box office wise for him to keep chasing that angle.
 
 They're clearly setting this up for sequels. There are a bunch of ideas that were set up and never paid off, which I hate. The villain is teased to come back for the next one - who cares? This is Disney's third attempt at making this franchise happen, and it's looking like it'll take another 15 years for them to sit on it and wait for another reboot, which I think is hilarious.
