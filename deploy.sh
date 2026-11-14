@@ -8,55 +8,18 @@ export NVM_DIR="$HOME/.nvm"
 # The main checkout, even when this runs from a worktree: .env and node_modules live there
 MAIN_DIR=$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")
 
-# One deploy at a time: two at once collided on the build's Vite cache (2026-11-12)
-# and could collide on tofu apply. The lock sits in the shared .git folder, so the main
-# checkout and every worktree see the same one. A lock left by a deploy that died is
-# taken over.
-LOCK_DIR="$(git rev-parse --path-format=absolute --git-common-dir)/deploy.lock"
-if ! mkdir "$LOCK_DIR" 2>/dev/null; then
-    LOCK_PID=$(cat "$LOCK_DIR/pid" 2>/dev/null || true)
-    if [[ -z "$LOCK_PID" ]] || kill -0 "$LOCK_PID" 2>/dev/null; then
-        echo "ERROR: another deploy is running (pid ${LOCK_PID:-starting}, from $(cat "$LOCK_DIR/where" 2>/dev/null || echo 'unknown')). Wait for it to finish; if it's truly gone, rm -rf $LOCK_DIR" >&2
-        exit 1
-    fi
-    echo "Taking over a stale deploy lock (pid $LOCK_PID is gone)"
-    rm -rf "$LOCK_DIR"
-    mkdir "$LOCK_DIR"
-fi
-echo $$ >"$LOCK_DIR/pid"
-pwd >"$LOCK_DIR/where"
-trap 'rm -rf "$LOCK_DIR"' EXIT
-
 # Load environment variables from .env if present
 if [[ -f "$MAIN_DIR/.env" ]]; then
     set -a
     source "$MAIN_DIR/.env"
     set +a
 fi
+SITE_URL="https://www.joekarlsson.com"
 
-# Audiobookshelf and Prometheus are only reachable on the LAN, so this snapshot is
-# taken here and baked into the build. A failure stops the deploy rather than
-# shipping stale data. SKIP_NOW_REFRESH=1 deploys with the committed snapshot
-# instead, for when a source is down or you're off the home network.
-if [[ "${SKIP_NOW_REFRESH:-}" == "1" ]]; then
-    echo "SKIP_NOW_REFRESH=1: deploying with the committed now-feed snapshot"
-else
-    echo "Refreshing now-feed snapshot..."
-    npm run update:now
-    # Commit only the snapshot paths, so anything else staged is left alone.
-    # scripts/update-now-feed.mjs filters on this message: change both together.
-    NOW_FEED_PATHS=(src/data/now-feed.json public/images/now)
-    git add -A -- "${NOW_FEED_PATHS[@]}"
-    if ! git diff --cached --quiet -- "${NOW_FEED_PATHS[@]}"; then
-        git commit -m "chore: Refresh now-feed snapshot" -- "${NOW_FEED_PATHS[@]}"
-    fi
-fi
-
-# Build from a clean copy of HEAD, never from the working tree. Other sessions share
-# this checkout, and building it shipped whatever they had half-finished on disk
-# (2026-11-07). Anything not committed doesn't ship; anything committed but not
-# pushed stops the deploy, so the live site never runs ahead of origin. The
-# now-feed snapshot commit above is the one exception: it's never pushed.
+# Every deploy ships the newest origin/main, so one deploy carries every session's
+# pushed commits. This session's own commits must be on origin first, so the live
+# site never runs ahead of it. Old local "Refresh now-feed snapshot" commits (from
+# before the snapshot moved into the build copy) are exempt if they touch nothing else.
 git fetch --quiet origin main
 UNPUSHED=$(git log origin/main..HEAD --format='%h %s' | grep -v ' chore: Refresh now-feed snapshot$' || true)
 # The exemption is for the snapshot only: a commit with that subject that touches
@@ -71,16 +34,62 @@ if [[ -n "$UNPUSHED" ]]; then
     echo "$UNPUSHED" >&2
     exit 1
 fi
-# Everything but the local now-feed snapshot is on origin, so the merge base is the
-# commit CI tested. A red CI stops the deploy (scripts/wait-for-ci.sh). SKIP_CI=1 ships
-# without waiting, for when GitHub's runners are down; the pre-push hook still ran the tests.
+TARGET=$(git rev-parse origin/main)
+
+# Wait for CI before taking the deploy lock: holding the lock through the CI wait
+# made every other session's deploy fail for ten minutes at a time (2026-11-14).
+# A red CI stops the deploy (scripts/wait-for-ci.sh). SKIP_CI=1 ships without
+# waiting, for when GitHub's runners are down.
 if [[ "${SKIP_CI:-}" == "1" ]]; then
     echo "SKIP_CI=1: deploying without waiting for GitHub CI"
 else
-    bash "$(dirname "$0")/scripts/wait-for-ci.sh" "$(git merge-base HEAD origin/main)"
+    bash "$(dirname "$0")/scripts/wait-for-ci.sh" "$TARGET"
 fi
+
+# One deploy at a time: two at once collided on the build's Vite cache (2026-11-12)
+# and could collide on tofu apply. The lock sits in the shared .git folder, so the main
+# checkout and every worktree see the same one. A deploy that finds it taken waits its
+# turn (it usually then finds its commit already live); a lock left by a deploy that
+# died is taken over.
+LOCK_DIR="$(git rev-parse --path-format=absolute --git-common-dir)/deploy.lock"
+for attempt in $(seq 1 120); do
+    if mkdir "$LOCK_DIR" 2>/dev/null; then
+        break
+    fi
+    LOCK_PID=$(cat "$LOCK_DIR/pid" 2>/dev/null || true)
+    if [[ -n "$LOCK_PID" ]] && ! kill -0 "$LOCK_PID" 2>/dev/null; then
+        echo "Taking over a stale deploy lock (pid $LOCK_PID is gone)"
+        rm -rf "$LOCK_DIR"
+        continue
+    fi
+    if [[ "$attempt" -eq 1 ]]; then
+        echo "Another deploy is running (pid ${LOCK_PID:-starting}, from $(cat "$LOCK_DIR/where" 2>/dev/null || echo 'unknown')): waiting for it..."
+    fi
+    if [[ "$attempt" -eq 120 ]]; then
+        echo "ERROR: still waiting for the other deploy after 30 minutes. If it's truly gone, rm -rf $LOCK_DIR" >&2
+        exit 1
+    fi
+    sleep 15
+done
+echo $$ >"$LOCK_DIR/pid"
+pwd >"$LOCK_DIR/where"
+trap 'rm -rf "$LOCK_DIR"' EXIT
+
+# Already live: a deploy that ran while this one waited shipped this commit or a newer
+# one. Deploying it again would only redo the work, and an older commit would undo theirs.
+# FORCE_DEPLOY=1 deploys anyway, for a fresh now-feed with nothing new to ship.
+LIVE=$(curl -sf --max-time 20 "$SITE_URL/deployed-commit.txt?deploy=$(date +%s)" | tr -dc '0-9a-f' || true)
+if [[ "${FORCE_DEPLOY:-}" != "1" && -n "$LIVE" ]] && git cat-file -e "$LIVE^{commit}" 2>/dev/null &&
+    git merge-base --is-ancestor "$TARGET" "$LIVE"; then
+    echo "Already live: $SITE_URL runs ${LIVE:0:8}, which includes ${TARGET:0:8}. Nothing to deploy (FORCE_DEPLOY=1 to deploy anyway)."
+    exit 0
+fi
+
+# Build from a clean copy of that commit, never from the working tree. Other sessions
+# share this checkout, and building it shipped whatever they had half-finished on disk
+# (2026-11-07). Anything not committed and pushed doesn't ship.
 BUILD_DIR=$(mktemp -d "${TMPDIR:-/tmp}/joekarlsson-deploy.XXXXXX")
-git worktree add --quiet --detach "$BUILD_DIR" HEAD
+git worktree add --quiet --detach "$BUILD_DIR" "$TARGET"
 trap 'rm -rf "$LOCK_DIR"; cd "$MAIN_DIR" && git worktree remove --force "$BUILD_DIR"' EXIT
 # The build borrows the main checkout's node_modules, so it must have been installed
 # from the lockfile being built, not one another session changed (security audit run-1)
@@ -91,6 +100,18 @@ if ! cmp -s "$MAIN_DIR/package-lock.json" "$BUILD_DIR/package-lock.json"; then
 fi
 ln -s "$MAIN_DIR/node_modules" "$BUILD_DIR/node_modules"
 if [[ -f "$MAIN_DIR/.env" ]]; then cp "$MAIN_DIR/.env" "$BUILD_DIR/.env"; fi
+
+# Audiobookshelf and Prometheus are only reachable on the LAN, so the now-feed snapshot
+# is taken here, in the build copy, and baked into the build (it used to be committed in
+# the session's checkout, where it collided with every rebase). A failure stops the
+# deploy rather than shipping stale data. SKIP_NOW_REFRESH=1 builds with the committed
+# snapshot instead, for when a source is down or you're off the home network.
+if [[ "${SKIP_NOW_REFRESH:-}" == "1" ]]; then
+    echo "SKIP_NOW_REFRESH=1: deploying with the committed now-feed snapshot"
+else
+    echo "Refreshing now-feed snapshot..."
+    (cd "$BUILD_DIR" && npm run update:now)
+fi
 # Astro caches rendered markdown without tracking the diagram SVGs it inlines, so a
 # warm cache can ship old diagrams: build cold
 rm -rf "$MAIN_DIR/node_modules/.astro"
@@ -119,7 +140,8 @@ fi
 
 # A hash of every built file, so the next deploy purges only what changed
 # (scripts/purge-urls.mjs). Written before the content hash, which then covers it.
-SITE_URL="https://www.joekarlsson.com"
+# The commit this build is, so a later deploy can tell it's already live
+git rev-parse HEAD > dist/deployed-commit.txt
 node scripts/purge-urls.mjs write-manifest dist
 
 # What to purge after the push: compare with the manifest the live site serves. A
