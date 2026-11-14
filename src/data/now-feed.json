@@ -7,12 +7,12 @@
 			"description": "Personal website and blog: joekarlsson.com",
 			"url": "https://github.com/JoeKarlsson/joekarlsson.com",
 			"language": "JavaScript",
-			"commitCount": 699,
+			"commitCount": 702,
 			"dailyCommitCounts": [
 				13, 0, 0, 0, 0, 0, 0, 0, 0, 10, 8, 0, 7, 4, 12, 0, 0, 0, 8, 13, 169, 74, 44, 25, 119, 85,
-				19, 45, 32, 11
+				19, 45, 32, 15
 			],
-			"latestCommitMessage": "fix: End-to-end tests no longer flake on pages reloading mid-test: the..."
+			"latestCommitMessage": "fix: Film reviews read cleanly: dictation typos fixed, misspelled..."
 		},
 		{
 			"name": "dotfiles",
