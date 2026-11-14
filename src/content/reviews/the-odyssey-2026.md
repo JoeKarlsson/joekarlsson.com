@@ -21,6 +21,9 @@ Inception opens with Cobb waking up confused on a beach, desperate to return hom
 
 And now that he's finally adapting it directly, the feminist reading feels almost unavoidable. This is a story about men being absolute monsters - pigs, sociopaths, murderers - taking advantage of women over and over while defining the rules of society to bend in their favor. The women are forced to bear it. Penelope tells Telemachus she's not allowed to make the rules because she's a woman. Circe, transforming Odysseus's men back from pigs, says something like " return to your disguise” which is commenting directly about masculinity as performance. As disguise.
 
+![Two frames from Circe's house: Odysseus's men lying as pigs, then one of them climbing back out of a pig's body as a man.](/images/reviews/the-odyssey-2026/circe-pigs-to-men.webp)
+_Circe singing the men back out of the pigs: "Back into your disguises."_
+
 Odysseus is a war criminal. Easily distracted. Responsible for the fall of peaceful Greek life. Unfortunately, he's played by the charming and handsome and ripped Matt Damon, and he goes out swinging like John Wick after watching his dog die. A lot of men are going to valorize this. See his hubris against the gods as valorous. Wolf of Wall Street all over again - people missing that Belfort is the villain, wanting to be him instead. Damon might be too likable for the role. I don't know who I'd cast instead, but someone you can hate more easily, maybe Oscar Isaac???
 
 Nolan continues his streak of writing thin parts for women. Anne Hathaway gets the most to chew on as Penelope, and even that feels underwritten. And Zendaya plays Odysseus’s invisible friend. But at least this time the text itself is an indictment. The men are the problem. The film knows it.
@@ -36,6 +39,9 @@ I'm not an Odyssey expert. My touchpoints are O Brother Where Art Thou and the W
 **Stray observations:**
 
 The cyclops was incredible - played by a real person, not CGI, and it looked like a Tool music video from 1996. Sandy skin, fucked up face. I loved that monster.
+
+![The sleeping Cyclops in his cave, lit by the fire, with Odysseus's men creeping past his face.](/images/reviews/the-odyssey-2026/cyclops.webp)
+_Sandy skin, a real person, no CGI._
 
 Robert Patterson is at his best when he’s playing a weasel. I continue to think he’s the best actor of our generation.
 
