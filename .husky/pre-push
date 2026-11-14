@@ -23,8 +23,11 @@ SSH_OPTS="-o BatchMode=yes -o ConnectTimeout=3 -o StrictHostKeyChecking=accept-n
 # shellcheck disable=SC2086
 if ssh $SSH_OPTS "$RUNNER" true 2>/dev/null; then
 	GIT_SSH_COMMAND="ssh $SSH_OPTS" git push -q "$RUNNER:site" "$SHA:refs/runs/$(hostname -s)-$$"
+	# The changes' fingerprint: a push rejected because main moved while it queued
+	# comes back rebased with the same one, and the runner lets it through
+	PATCH=$(git diff "$(git merge-base "$SHA" origin/main)" "$SHA" | git patch-id --stable | cut -d' ' -f1)
 	# shellcheck disable=SC2086
-	exec ssh $SSH_OPTS "$RUNNER" site-checks "$SHA"
+	exec ssh $SSH_OPTS "$RUNNER" site-checks "$SHA" "$PATCH"
 fi
 echo "Test runner (CT 273) unreachable: running the checks on this Mac"
 
