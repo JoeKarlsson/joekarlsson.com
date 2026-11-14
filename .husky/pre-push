@@ -26,10 +26,15 @@ if ssh $SSH_OPTS "$RUNNER" true 2>/dev/null; then
 	# The changes' fingerprint: a push rejected because main moved while it queued
 	# comes back rebased with the same one, and the runner lets it through
 	PATCH=$(git diff "$(git merge-base "$SHA" origin/main)" "$SHA" | git patch-id --stable | cut -d' ' -f1)
+	# Exit 75: the runner is busy with another push. It never queues (a queue held
+	# pushes and deploys for over an hour), so the checks run here instead.
 	# shellcheck disable=SC2086
-	exec ssh $SSH_OPTS "$RUNNER" site-checks "$SHA" "$PATCH"
+	if ssh $SSH_OPTS "$RUNNER" site-checks "$SHA" "$PATCH"; then exit 0; else rc=$?; fi
+	[ "$rc" -eq 75 ] || exit "$rc"
+	echo "Test runner (CT 273) busy: running the checks on this Mac"
+else
+	echo "Test runner (CT 273) unreachable: running the checks on this Mac"
 fi
-echo "Test runner (CT 273) unreachable: running the checks on this Mac"
 
 npm test
 
