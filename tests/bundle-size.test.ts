@@ -32,6 +32,8 @@ const THRESHOLDS = {
 	// Gzipped it was 14.6KB; 18KB left room for everyday changes and still caught a
 	// big new block of styles. Raised to 20KB on 2026-11-14 (Joe's OK): main sat at 17.4KB
 	// and the new-CSS round (DECISIONS.md) added 1KB, so 20KB restores ~2KB of headroom.
+	// A coverage run that day found no dead rules to cut (the unused share is spoilers, the
+	// lightbox, callouts and other states), and it's one stylesheet cached for a year.
 	maxTotalCssGzip: 20 * 1024,
 	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
 	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
