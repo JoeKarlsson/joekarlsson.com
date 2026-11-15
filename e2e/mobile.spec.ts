@@ -357,9 +357,8 @@ test.describe('Phone layout', () => {
 	}) => {
 		await page.goto('/blog/');
 		const nav = await box(page, 'header nav[aria-label="Main"]');
-		// Right of the 48px spine (art book layout), with the usual 16px gutters
-		expect(nav.x).toBe(48 + 16);
-		expect(nav.width).toBe(390 - 48 - 32);
+		expect(nav.x).toBe(16);
+		expect(nav.width).toBe(390 - 32);
 
 		const name = await box(page, 'header nav > a[href="/"]');
 		const menu = page.locator('header [data-nav-menu-toggle]');

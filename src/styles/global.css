@@ -575,7 +575,7 @@ pre.astro-code {
 	width: 64px;
 	height: 20px;
 	rotate: -3deg;
-	background: #d6cebe; /* PaperHero's tape */
+	background: #d6cebe; /* masking tape */
 }
 .link-peek img {
 	display: block;
@@ -624,7 +624,7 @@ pre.astro-code {
 
 /* Anton and the sans carry empty space above their caps and below the baseline, so even
    padding looked bottom-heavy: trim the line box to the caps and baseline */
-:is(header nav .sticker, .ph-words) {
+header nav .sticker {
 	text-box: trim-both cap alphabetic;
 }
 
@@ -697,33 +697,52 @@ pre.astro-code {
 /* The spine: the section name runs up the left edge of every page, like a book's spine
    (BaseLayout.astro). The page moves right to make room, so anything sized from 100vw
    subtracts --spine-w. */
+/* Tablets and up only: phones give the width to the page (Joe, 2026-11-15) */
 :root {
-	--spine-w: 48px;
+	--spine-w: 0px;
+}
+.spine {
+	@apply hidden;
 }
 @media (width >= 48rem) {
 	:root {
 		--spine-w: 132px;
 	}
-}
-body {
-	padding-left: var(--spine-w);
-}
-.spine {
-	@apply fixed top-0 bottom-0 left-0 z-40 overflow-hidden border-r border-surface-3 bg-ink;
-	width: var(--spine-w);
-}
-.spine-label {
-	@apply block font-display leading-none font-normal whitespace-nowrap text-pink uppercase;
-	margin: 16px auto;
-	writing-mode: vertical-rl;
-	rotate: 180deg;
-	font-size: 44px;
-}
-@media (width >= 48rem) {
+	body {
+		padding-left: var(--spine-w);
+	}
+	.spine {
+		@apply fixed top-0 bottom-0 left-0 z-40 block overflow-hidden border-r border-surface-3 bg-ink;
+		width: var(--spine-w);
+	}
 	.spine-label {
+		@apply block font-display leading-none font-normal whitespace-nowrap text-pink uppercase;
+		margin: 16px auto;
+		writing-mode: vertical-rl;
+		rotate: 180deg;
 		/* Short windows shrink it, so "Joe Karlsson" still fits top to bottom */
 		font-size: min(118px, 14dvh);
 	}
+}
+
+/* A post's masthead (BlogPost.astro, DECISIONS.md round 4 C): a kicker line between a thick
+   pink rule and a thin one, the title fitted to the column (its font size comes from
+   utils/masthead.ts in cqi of the article), then the picture and an italic caption */
+.masthead-kicker {
+	@apply border-t-4 border-b border-t-pink border-b-surface-4 py-2 font-display text-base leading-none text-paper uppercase;
+}
+.masthead-title {
+	@apply my-5 font-display leading-[0.95] font-normal text-paper uppercase;
+	overflow-wrap: anywhere;
+}
+.masthead-title > span {
+	@apply block;
+}
+.masthead-caption {
+	@apply mx-auto mt-2 max-w-[856px] font-serif text-[15px] leading-snug text-muted italic;
+}
+.masthead-caption b {
+	@apply mr-1.5 font-sans text-xs font-bold tracking-wider text-pink not-italic uppercase;
 }
 
 /* Monograph margins: on wide screens a post's column gets a 15rem margin on its right.

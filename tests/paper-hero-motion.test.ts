@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { keepsUp, mayBoil } from '../src/utils/paper-hero-motion';
+import { mayBoil } from '../src/utils/paper-hero-motion';
 
 const desktop = { reducedMotion: false, motionPaused: false, wideScreen: true };
 
@@ -19,12 +19,5 @@ describe('mayBoil', () => {
 		expect(mayBoil({ ...desktop, saveData: true })).toBe(false);
 		expect(mayBoil({ ...desktop, effectiveType: '3g' })).toBe(false);
 		expect(mayBoil({ ...desktop, effectiveType: 'slow-2g' })).toBe(false);
-	});
-});
-
-describe('keepsUp', () => {
-	it('stops the boil on a device dropping frames', () => {
-		expect(keepsUp(60)).toBe(true);
-		expect(keepsUp(28)).toBe(false);
 	});
 });

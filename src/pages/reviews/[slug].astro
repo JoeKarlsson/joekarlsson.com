@@ -1,6 +1,6 @@
 ---
 // A film review at /reviews/<slug>/: the blog's post layout, with the film's backdrop as the
-// hero, its stars on the hero's scrap, and the stars and director in the meta line. It ends
+// masthead picture, and the stars and director in the kicker line. It ends
 // with Joe's other reviews of the same film (rewatches), then more reviews (same director
 // first, then films watched around the same time), and blog posts only when one names the film.
 import { type CollectionEntry, getCollection, render } from 'astro:content';
@@ -103,7 +103,6 @@ const mentions =
 	slug={slug}
 	heroImage={heroImage}
 	heroAlt={heroAlt}
-	topic={rating ? stars(rating) : 'Review'}
 	readingTime={words > 250 ? Math.ceil(words / 250) : undefined}
 	wordCount={words}
 	body={review.body}

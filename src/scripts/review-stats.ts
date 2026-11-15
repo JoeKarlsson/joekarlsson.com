@@ -220,7 +220,7 @@ function initNotes(root: HTMLElement) {
 }
 
 /** Charts build in once each is mostly on screen: bars grow on twos one after another,
- * then print their values (the site's chart kit, DECISIONS.md). Only where a paper hero
+ * then print their values (the site's chart kit, DECISIONS.md). Only where decoration
  * may boil; phones, reduced motion and slow connections keep the finished chart. */
 function initBuild(root: HTMLElement) {
 	const connection = (

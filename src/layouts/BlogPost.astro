@@ -14,17 +14,16 @@ import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
-import PaperHero from '../components/PaperHero.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import ImageLightbox from '../components/ImageLightbox.astro';
 import Logo from '../components/Logo.astro';
-import { CHALK, MARKS } from '../data/scribbles';
-import { halftoneMode, isPretreatedThumbnail } from '../utils/halftone';
-import workThumbnailPlan from '../../scripts/work-thumbnail-plan.json';
+import { MARKS } from '../data/scribbles';
+import { halftoneMode } from '../utils/halftone';
+import { mastheadFontSize, mastheadLines } from '../utils/masthead';
 import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
-import { ARTICLE_TITLE, META, PAGE_CONTAINER } from '../utils/ui';
+import { PAGE_CONTAINER } from '../utils/ui';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -55,8 +54,6 @@ interface Props {
 	canonicalUrl?: string;
 	/** Where the post lives: /blog/ by default, /talks/ for a talk write-up, /reviews/ for a film review */
 	section?: 'blog' | 'talks' | 'reviews';
-	/** The pink scrap on the hero; defaults to the first category */
-	topic?: string;
 	/** Blog post slugs for "Keep reading", in place of the ones ranked by similar text */
 	relatedPosts?: string[];
 	/** A post outside the blog collection brings its own text, to find related blog posts */
@@ -90,7 +87,6 @@ const {
 	headings,
 	canonicalUrl,
 	section = 'blog',
-	topic = categories?.[0],
 	relatedPosts,
 	body,
 	videoObjects,
@@ -170,22 +166,13 @@ const relatedSlugs =
 		popularPosts.visitorsByPath,
 	);
 
-// One crayon mark spills off the top right of each post's hero: the top left would draw
-// over the "← Blog" link, and the topic tag and month chip sit along its bottom edge. The
-// slug picks which, so a post keeps the same one between builds
-const HERO_MARKS = [
-	{ mark: MARKS.burst, color: CHALK, class: '-top-[9%] -right-[4%] size-[22%] max-w-[170px]' },
-	{ mark: MARKS.rays, color: '#ff4fd8', class: '-top-[12%] -right-[3%] h-[20%] w-[18%]' },
-	{ mark: MARKS.star, color: CHALK, class: '-top-[10%] -right-[4%] size-[20%] max-w-[150px]' },
-	{ mark: MARKS.bolt, color: CHALK, class: '-top-[12%] right-[5%] h-[24%] w-[14%] max-w-[110px]' },
-];
-const slugHash = [...slug].reduce((sum, char) => sum + char.charCodeAt(0), 0);
-const heroMark = HERO_MARKS[slugHash % HERO_MARKS.length];
-// A work thumbnail drawn with the taped look already shows its print and tape
-const heroIsTaped =
-	!!heroImage &&
-	isPretreatedThumbnail(heroImage) &&
-	(workThumbnailPlan as Record<string, { look?: string }>)[slug]?.look === 'taped';
+const titleLines = mastheadLines(title);
+// The description is the masthead's caption, unless the text opens with it (a review's
+// description is its first lines), which would say the same thing twice in a row
+const captionText =
+	description && !(body ?? '').replace(/\s+/g, ' ').includes(description.slice(0, 60))
+		? description
+		: undefined;
 ---
 
 <BaseLayout
@@ -221,83 +208,89 @@ const heroIsTaped =
 				data-reading-time={readingTime}
 			>
 				<BackLink href={home.path} label={home.name} />
-				{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video;
-				in-view-play starts it, so a remembered pause or reduced motion keeps it still */}
-				{heroVideo ? (
-					<video
-						src={heroVideo}
-						data-halftone={halftoneMode(heroVideo)}
-						poster={heroImage}
-						data-autoplay-in-view
-						loop
-						muted
-						playsinline
-						controls
-						preload="metadata"
-						aria-label={heroAlt || title}
-						data-morph-target
-						class="mb-10 w-full max-h-[440px] rounded-xl object-cover"
-						width={heroSize?.width ?? 768}
-						height={heroSize?.height ?? 440}
-					/>
-				) : (
-					heroImage && (
-						<PaperHero
-							src={heroImage}
-							alt={heroAlt || title}
-							width={heroSize?.width}
-							height={heroSize?.height}
-							halftone={halftoneMode(heroImage)}
-							taped={heroIsTaped}
-							topic={topic}
-							seed={slugHash}
-						>
-							<Scribble
-								{...heroMark.mark}
-								color={heroMark.color}
-								strokeWidth={6}
-								duration="9s"
-								delay="0.8s"
-								class={heroMark.class}
+				{/* The masthead (DECISIONS.md, round 4 C): a kicker line between a pink rule and a
+				thin one, the title fitted to the column (utils/masthead.ts), then the picture with the
+				description as its caption */}
+				<header class="masthead mb-10">
+					<p class="masthead-kicker">
+						<MetaParts>
+							<span>
+								<FormattedDate date={date} />
+								{updatedDate && (
+									<>
+										{' '}
+										(Updated <FormattedDate date={updatedDate} />)
+									</>
+								)}
+							</span>{' '}
+							{readingTime && <span>{readingTime} min read</span>}{' '}
+							{categories &&
+								categories.map((cat) => (
+									<>
+										<a
+											href={`/blog/category/${categorySlug(cat)}/`}
+											class="text-pink hover:text-paper"
+										>
+											{cat}
+										</a>{' '}
+									</>
+								))}
+							{writtenFor && <WrittenFor employer={writtenFor} />}
+							<slot name="meta" />
+						</MetaParts>
+					</p>
+					<h1 class="masthead-title" style={`font-size:${mastheadFontSize(titleLines)}`}>
+						{titleLines.map((line) => (
+							<>
+								<span>{line}</span>{' '}
+							</>
+						))}
+					</h1>
+					{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video;
+					in-view-play starts it, so a remembered pause or reduced motion keeps it still */}
+					{heroVideo ? (
+						<video
+							src={heroVideo}
+							data-halftone={halftoneMode(heroVideo)}
+							poster={heroImage}
+							data-autoplay-in-view
+							loop
+							muted
+							playsinline
+							controls
+							preload="metadata"
+							aria-label={heroAlt || title}
+							data-morph-target
+							class="mx-auto max-h-[440px] w-full max-w-[856px] object-cover"
+							width={heroSize?.width ?? 768}
+							height={heroSize?.height ?? 440}
+						/>
+					) : (
+						heroImage && (
+							<img
+								src={heroImage}
+								alt={heroAlt || title}
+								data-still-only
+								data-halftone={halftoneMode(heroImage)}
+								data-morph-target
+								width={heroSize?.width}
+								height={heroSize?.height}
+								sizes="(min-width: 1280px) 1088px, 100vw"
+								loading="eager"
+								fetchpriority="high"
+								class="mx-auto h-auto w-full max-w-[856px]"
 							/>
-						</PaperHero>
-					)
-				)}
-				{/* Title, text and everything under it share one column centered under the
-				hero, so the text doesn't hug the hero's left edge and leave a dead strip right */}
+						)
+					)}
+					{captionText && (
+						<p class="masthead-caption">
+							<b>{home.name}</b> {captionText}
+						</p>
+					)}
+				</header>
 				<div class="margin-column mx-auto max-w-(--reading-width)">
 					{/* Wide screens: "On this page" heads the right margin, over the citations */}
 					{showToc && <TableOfContents headings={tocHeadings} />}
-					<div class="mb-8">
-						<h1 class={ARTICLE_TITLE}>{title}</h1>
-						<p class={META}>
-							<MetaParts>
-								<span>
-									<FormattedDate date={date} />
-									{updatedDate && (
-										<>
-											{' '}
-											(Updated <FormattedDate date={updatedDate} />)
-										</>
-									)}
-								</span>{' '}
-								{readingTime && <span>{readingTime} min read</span>}{' '}
-								{categories &&
-									categories.map((cat) => (
-										<>
-											<a
-												href={`/blog/category/${categorySlug(cat)}/`}
-												class="text-pink underline decoration-1 underline-offset-[0.2em] hover:text-paper"
-											>
-												{cat}
-											</a>{' '}
-										</>
-									))}
-								{writtenFor && <WrittenFor employer={writtenFor} />}
-								<slot name="meta" />
-							</MetaParts>
-						</p>
-					</div>
 					{updateNote && updatedDate && (
 						<p class="mb-6 border border-pink px-4 py-3 text-sm text-paper" role="note">
 							<strong class="text-pink">

@@ -66,8 +66,8 @@ export function addStills(html, stillOf) {
 		const src = tag.match(/\ssrc="([^"]+)"/)?.[1];
 		const still = src && stillOf(src);
 		if (!still) return tag;
-		// A post's paper hero boils live around its picture, so an animated thumbnail
-		// there ships as its still and never as the animation (src/components/PaperHero.astro)
+		// A post's masthead (src/layouts/BlogPost.astro) is the quiet one: an animated
+		// thumbnail there ships as its still and never as the animation
 		if (/\sdata-still-only[\s>=]/.test(tag)) {
 			return tag.replace(/\ssrcset="[^"]*"/, '').replace(/\ssrc="[^"]+"/, ` src="${still}"`);
 		}
