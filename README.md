@@ -55,10 +55,10 @@ npm test
 
 GitHub Actions runs **15 jobs** on every push to main and every PR:
 
-1. Build & Type Check
+1. Build
 2. Markdown Lint
 3. Spell Check
-4. Lint & Format
+4. Lint, Format & Type Check
 5. Image Validation
 6. Internal Link Check
 7. RSS & Sitemap Validation

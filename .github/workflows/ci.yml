@@ -14,7 +14,7 @@ env:
 
 jobs:
   build:
-    name: Build & Type Check
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -31,7 +31,6 @@ jobs:
           path: node_modules/.cache/responsive-images
           key: responsive-images-${{ hashFiles('src/integrations/responsive-images.mjs') }}-${{ github.sha }}
           restore-keys: responsive-images-${{ hashFiles('src/integrations/responsive-images.mjs') }}-
-      - run: npx astro check
       - run: npm run build
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
@@ -92,7 +91,7 @@ jobs:
           VALE_BASE="$BASE" bash scripts/vale-changed.sh
 
   lint:
-    name: Lint & Format
+    name: Lint, Format & Type Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -103,6 +102,8 @@ jobs:
       - run: npm ci
       - run: npm run format:check
       - run: npm run lint
+      # Here rather than in Build, which Pa11y and the deploy wait on
+      - run: npx astro check
 
   images:
     name: Image Validation
@@ -176,7 +177,16 @@ jobs:
             sleep 1
           done
 
-          npx pa11y-ci --config .pa11yci.json
+          # Four pa11y-ci processes, each with its own browser: about 30s instead of 90s.
+          # Its own concurrency setting shares one browser and fails half the pages with
+          # "Target.closeTarget" errors.
+          node -e "const c=require('./.pa11yci.json');for(let i=0;i<4;i++)require('fs').writeFileSync('/tmp/pa11y-'+i+'.json',JSON.stringify({...c,urls:c.urls.filter((_,j)=>j%4===i)}))"
+          pids=()
+          for i in 0 1 2 3; do npx pa11y-ci --config /tmp/pa11y-$i.json > /tmp/pa11y-$i.log 2>&1 & pids+=($!); done
+          status=0
+          for pid in "${pids[@]}"; do wait "$pid" || status=1; done
+          cat /tmp/pa11y-*.log
+          exit $status
 
   # e2e runs on the dev server, which sends no script policy, so this loads the built site
   # the way visitors get it and fails on anything its script CSP or Trusted Types blocks

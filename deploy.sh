@@ -74,7 +74,13 @@ if ! cmp -s "$MAIN_DIR/package-lock.json" "$BUILD_DIR/package-lock.json"; then
     echo "Commit or discard the lockfile change there and run npm ci, then deploy." >&2
     exit 1
 fi
-ln -s "$MAIN_DIR/node_modules" "$BUILD_DIR/node_modules"
+# Link each package, not the whole folder, so the build's Astro and Vite caches (.astro,
+# .vite) start empty in the build copy and never touch the ones other sessions are using in
+# the main checkout. .cache holds the image variants, each checked against its source's bytes.
+mkdir -p "$MAIN_DIR/node_modules/.cache" "$BUILD_DIR/node_modules"
+for entry in "$MAIN_DIR"/node_modules/* "$MAIN_DIR"/node_modules/.bin "$MAIN_DIR"/node_modules/.cache; do
+    ln -s "$entry" "$BUILD_DIR/node_modules/"
+done
 if [[ -f "$MAIN_DIR/.env" ]]; then cp "$MAIN_DIR/.env" "$BUILD_DIR/.env"; fi
 
 # Audiobookshelf and Prometheus are only reachable on the LAN, so the now-feed snapshot
@@ -89,8 +95,7 @@ else
     (cd "$BUILD_DIR" && npm run update:now)
 fi
 # Astro caches rendered markdown without tracking the diagram SVGs it inlines, so a
-# warm cache can ship old diagrams: build cold
-rm -rf "$MAIN_DIR/node_modules/.astro"
+# warm cache can ship old diagrams: the build copy's own .astro starts empty, so this builds cold
 cd "$BUILD_DIR"
 echo "Building a clean copy of $(git rev-parse --short HEAD)..."
 npm run build

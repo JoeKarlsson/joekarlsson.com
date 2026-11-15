@@ -29,6 +29,12 @@ describe('deploy.sh guards', () => {
 		expect(deploy).toContain('cmp -s "$MAIN_DIR/package-lock.json" "$BUILD_DIR/package-lock.json"');
 	});
 
+	it("builds with its own Astro cache, never the main checkout's", () => {
+		expect(deploy).not.toContain('ln -s "$MAIN_DIR/node_modules" ');
+		expect(deploy).not.toMatch(/rm -rf "\$MAIN_DIR\/node_modules/);
+		expect(deploy).toContain('ln -s "$entry" "$BUILD_DIR/node_modules/"');
+	});
+
 	it('parses', () => {
 		expect(() => execFileSync('bash', ['-n', 'deploy.sh'])).not.toThrow();
 	});

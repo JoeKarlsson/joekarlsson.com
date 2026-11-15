@@ -83,7 +83,9 @@ while IFS= read -r file; do
       fi
     fi
   fi
-done < <(find "$IMAGE_DIR" -type f \( -name "*.webp" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" \) 2>/dev/null)
+# find filters by size first: a stat per file for all ~3,000 images took up to a
+# minute on a busy Mac. The c suffix is exact bytes on BSD and GNU find.
+done < <(find "$IMAGE_DIR" -type f \( -name "*.webp" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" \) -size +204800c 2>/dev/null)
 
 if [ "$LARGE_COUNT" -gt 0 ]; then
   # Always report the true count - a head-truncated list used to make 136
@@ -127,7 +129,7 @@ while IFS= read -r anim; do
 		ANIM_NO_MP4="${ANIM_NO_MP4}  ${anim} (${SIZE_KB}KB)\n"
 		ANIM_NO_MP4_COUNT=$((ANIM_NO_MP4_COUNT + 1))
 	fi
-done < <(find "$IMAGE_DIR" -type f \( -name "*.gif" -o -name "*.webp" \) 2> /dev/null)
+done < <(find "$IMAGE_DIR" -type f \( -name "*.gif" -o -name "*.webp" \) -size +$((GIF_MP4_MIN_KB * 1024 - 1))c 2> /dev/null)
 
 if [ "$ANIM_NO_MP4_COUNT" -gt 0 ]; then
 	echo "ERROR: $ANIM_NO_MP4_COUNT animation(s) at/over ${GIF_MP4_MIN_KB}KB with no .mp4 sibling:"
@@ -154,7 +156,8 @@ if [ -d dist ]; then
 			DANGLING="${DANGLING}  ${src}\n"
 			DANGLING_COUNT=$((DANGLING_COUNT + 1))
 		fi
-	done < <(grep -rho '<\(img\|video\)[^>]*>' dist/ 2> /dev/null |
+	# HTML only: macOS grep scanning the images and videos in dist took about 10 seconds
+	done < <(grep -rho --include='*.html' '<\(img\|video\)[^>]*>' dist/ 2> /dev/null |
 		grep -o 'src="/[^"]*\.\(webp\|png\|jpe\?g\|gif\|mp4\)"' |
 		sed 's/^src="//; s/"$//' | sort -u)
 
@@ -173,8 +176,12 @@ fi
 # Step 5: Verify heroImage frontmatter references resolve to real files
 echo "--- Checking heroImage references ---"
 MISSING_HEROES=0
-while IFS= read -r md_file; do
-  HERO=$(grep -m1 "^heroImage:" "$md_file" 2>/dev/null | sed 's/heroImage:[[:space:]]*//' | tr -d '"' | tr -d "'" || true)
+while IFS= read -r line; do
+  md_file=${line%%:heroImage:*}
+  HERO=${line#*:heroImage:}
+  HERO=${HERO#"${HERO%%[![:space:]]*}"}
+  HERO=${HERO//\"/}
+  HERO=${HERO//\'/}
   if [ -n "$HERO" ]; then
     # Skip external URLs (https://, http://)
     case "$HERO" in
@@ -194,7 +201,7 @@ while IFS= read -r md_file; do
       ERRORS=$((ERRORS + 1))
     fi
   fi
-done < <(find src/content/blog src/content/talks -name "*.md" 2>/dev/null)
+done < <(find src/content/blog src/content/talks -name "*.md" -exec grep -m1 -H "^heroImage:" {} + 2>/dev/null)
 
 if [ "$MISSING_HEROES" -gt 0 ]; then
   echo "WARNING: $MISSING_HEROES heroImage reference(s) point to missing files (WebP migration in progress)"
@@ -217,7 +224,7 @@ while IFS= read -r video; do
     echo "ERROR: $video is ${SIZE_KB}KB, over its ${LIMIT}KB budget"
     VIDEO_PROBLEMS=$((VIDEO_PROBLEMS + 1))
   fi
-done < <(find "$IMAGE_DIR" -type f \( -name "*.mp4" -o -name "*.webm" \) 2>/dev/null)
+done < <(find "$IMAGE_DIR" -type f \( -name "*.mp4" -o -name "*.webm" \) -size +$(((HOME_LOOP_MAX_KB + 1) * 1024 - 1))c 2>/dev/null)
 if [ "$VIDEO_PROBLEMS" -gt 0 ]; then
   echo "  Re-encode it smaller (see scripts/media/ and docs/redesign/PLAN.md, Phase 3)."
   ERRORS=$((ERRORS + VIDEO_PROBLEMS))
