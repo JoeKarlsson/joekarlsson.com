@@ -29,8 +29,6 @@ interface Props {
 	marginDoodles?: boolean;
 	/** The colophon's page number, in place of the section's (a post's "No. 157") */
 	pageNumber?: string;
-	/** The spine is the page's h1 (the homepage, where it's my name) */
-	spineIsTitle?: boolean;
 }
 
 const {
@@ -52,7 +50,6 @@ const {
 	videoObjects,
 	marginDoodles = true,
 	pageNumber,
-	spineIsTitle = false,
 } = Astro.props;
 const spine = spineFor(Astro.url.pathname);
 const page = pageNumber ?? spine.page;
@@ -89,12 +86,8 @@ const page = pageNumber ?? spine.page;
 			Skip to content
 		</a>
 		<!-- The spine: the section name up the left edge (global.css) -->
-		<div class="spine" aria-hidden={spineIsTitle ? undefined : 'true'}>
-			{spineIsTitle ? (
-				<h1 class="spine-label">{spine.label}</h1>
-			) : (
-				<span class="spine-label">{spine.label}</span>
-			)}
+		<div class="spine" aria-hidden="true">
+			<span class="spine-label">{spine.label}</span>
 		</div>
 		<!-- A page's opening hero, set above the nav, as on the homepage (phones move the nav
 		back above it: Header's max-md:order-first) -->
