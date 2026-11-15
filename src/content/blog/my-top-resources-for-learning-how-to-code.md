@@ -12,8 +12,6 @@ tldr: 'My big list of favorite books, podcasts, courses, YouTube channels, and c
 
 So, you want to learn how to code? Here’s What You Need To Know to get started. This is a list of my favorite programming books, talks, podcasts, newsletters, websites, and general tips for learning more about programming. HMU if you have any additions you want to make to my list!
 
-I love keeping my questions/answers public so others can learn and share from each other, feel free to drop a question on my [GitHub AMA](https://github.com/JoeKarlsson/ama) if you feel comfortable
-
 ## First, ask yourself “Why do I want to code?”
 
 The field of programming is massive and there are so many different programming languages and things to do with it. Ask yourself, do I want to learn how to make websites? Am I interested in creating robots? Can constructing a neural network for machine learning be my thing? Do I just need to make my boss happy and learn how to make a SharePoint site? Each answer would lead to a different recommendation for learning and could affect which programming language(s) you should start learning.
